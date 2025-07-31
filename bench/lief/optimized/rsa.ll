@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %9 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %0) #14
   %10 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %9) #14
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %8
   %13 = zext i8 %10 to i32
@@ -3052,7 +3052,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %.not70 = icmp eq i32 %14, 0
   %.not71 = icmp eq i32 %1, %13
   %or.cond73 = and i1 %.not71, %.not70
-  br i1 %or.cond73, label %15, label %.thread
+  br i1 %or.cond73, label %15, label %.critedge
 
 15:                                               ; preds = %12
   %16 = add nuw nsw i32 %1, 8
@@ -3060,28 +3060,28 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %18 = load i64, ptr %6, align 8, !tbaa !8
   %19 = add i64 %18, %17
   %20 = icmp ugt i64 %19, 127
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %15
   %22 = add nuw nsw i32 %1, 10
   %23 = zext nneg i32 %22 to i64
   %24 = add i64 %18, %23
-  %25 = icmp uge i64 %24, %23
-  %26 = icmp uge i64 %3, %24
-  %or.cond74.not = and i1 %25, %26
-  br i1 %or.cond74.not, label %30, label %.thread
+  %25 = icmp ult i64 %24, %23
+  %26 = icmp ult i64 %3, %24
+  %or.cond74 = or i1 %25, %26
+  br i1 %or.cond74, label %.critedge, label %30
 
 27:                                               ; preds = %5
   %28 = zext i32 %1 to i64
   %29 = icmp ult i64 %3, %28
-  br i1 %29, label %.thread, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %27, %21
   %31 = phi i64 [ %18, %21 ], [ 0, %27 ]
   %.pn = phi i64 [ %24, %21 ], [ %28, %27 ]
   %.161 = sub nuw i64 %3, %.pn
   %32 = icmp ult i64 %.161, 11
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
   %34 = add i64 %.161, -3
@@ -3098,7 +3098,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 39:                                               ; preds = %33
   %40 = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %2, i64 %40, i1 false)
-  br label %.thread
+  br label %.critedge
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 2
@@ -3135,14 +3135,14 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %43
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 %3
   %.not72 = icmp eq ptr %61, %62
-  br i1 %.not72, label %.thread, label %63
+  br i1 %.not72, label %.critedge, label %63
 
 63:                                               ; preds = %41
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %3) #14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %15, %12, %8, %41, %30, %27, %21, %63, %39
-  %.1 = phi i32 [ 0, %39 ], [ -16512, %63 ], [ -16512, %21 ], [ -16512, %27 ], [ -16512, %30 ], [ 0, %41 ], [ -16512, %8 ], [ -16512, %12 ], [ -16512, %15 ]
+.critedge:                                        ; preds = %8, %12, %21, %15, %41, %30, %27, %63, %39
+  %.1 = phi i32 [ 0, %39 ], [ -16512, %63 ], [ -16512, %27 ], [ -16512, %30 ], [ 0, %41 ], [ -16512, %15 ], [ -16512, %21 ], [ -16512, %12 ], [ -16512, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   ret i32 %.1

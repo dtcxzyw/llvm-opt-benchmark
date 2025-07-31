@@ -11322,17 +11322,17 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   %6 = load i32, ptr %5, align 4, !tbaa !134
   %7 = and i32 %6, 1
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %.loopexit
+  br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %2
   %.not41 = icmp eq ptr %4, null
-  br i1 %.not41, label %.thread, label %9
+  br i1 %.not41, label %30, label %9
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %4, align 8, !tbaa !64
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = icmp eq i32 %11, 1
-  br i1 %12, label %13, label %.loopexit
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %10, i64 4
@@ -11340,11 +11340,11 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   %16 = getelementptr i8, ptr %10, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !11
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %19, label %.loopexit
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13
   %20 = icmp ult i32 %15, 256
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %30
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11357,70 +11357,70 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   %29 = and i32 %26, %28
   %.not42 = icmp eq i32 %29, 0
   %spec.store.select = select i1 %.not42, i32 %15, i32 -1
-  br label %.thread
+  br label %30
 
-.thread:                                          ; preds = %19, %21, %8
-  %.030 = phi i32 [ -1, %8 ], [ %15, %19 ], [ %spec.store.select, %21 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %31
+30:                                               ; preds = %21, %19, %8
+  %.030 = phi i32 [ -1, %8 ], [ %spec.store.select, %21 ], [ %15, %19 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %32
 
-31:                                               ; preds = %.thread, %61
-  %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %61 ]
-  %.33354 = phi i32 [ %.030, %.thread ], [ %.5.ph, %61 ]
-  %32 = getelementptr [8 x i32], ptr %30, i64 0, i64 %indvars.iv
-  %33 = load i32, ptr %32, align 4, !tbaa !11
-  %.not44 = icmp eq i32 %33, 0
-  br i1 %.not44, label %61, label %34
+32:                                               ; preds = %30, %62
+  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %62 ]
+  %.33349 = phi i32 [ %.030, %30 ], [ %.5, %62 ]
+  %33 = getelementptr [8 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4, !tbaa !11
+  %.not44 = icmp eq i32 %34, 0
+  br i1 %.not44, label %62, label %35
 
-34:                                               ; preds = %31
-  %35 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %33)
-  %36 = icmp samesign ult i32 %35, 2
-  %37 = icmp eq i32 %.33354, -1
-  %or.cond = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond, label %38, label %.loopexit
+35:                                               ; preds = %32
+  %36 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %34)
+  %37 = icmp samesign ult i32 %36, 2
+  %38 = icmp eq i32 %.33349, -1
+  %or.cond = select i1 %37, i1 %38, i1 false
+  br i1 %or.cond, label %39, label %.critedge
 
-38:                                               ; preds = %34
-  %39 = add i32 %33, -1
-  %40 = and i32 %39, 1431655765
-  %41 = lshr i32 %39, 1
-  %42 = and i32 %41, 1431655765
-  %43 = add nuw nsw i32 %42, %40
-  %44 = and i32 %43, 858993459
-  %45 = lshr i32 %43, 2
-  %46 = and i32 %45, 322122547
-  %47 = add nuw nsw i32 %46, %44
-  %48 = and i32 %47, 117901063
-  %49 = lshr i32 %47, 4
-  %50 = and i32 %49, 117901063
-  %51 = add nuw nsw i32 %50, %48
-  %52 = and i32 %51, 983055
-  %53 = lshr i32 %51, 8
-  %54 = and i32 %53, 983055
-  %55 = add nuw nsw i32 %54, %52
-  %56 = and i32 %55, 31
-  %57 = lshr i32 %55, 16
+39:                                               ; preds = %35
+  %40 = add i32 %34, -1
+  %41 = and i32 %40, 1431655765
+  %42 = lshr i32 %40, 1
+  %43 = and i32 %42, 1431655765
+  %44 = add nuw nsw i32 %43, %41
+  %45 = and i32 %44, 858993459
+  %46 = lshr i32 %44, 2
+  %47 = and i32 %46, 322122547
+  %48 = add nuw nsw i32 %47, %45
+  %49 = and i32 %48, 117901063
+  %50 = lshr i32 %48, 4
+  %51 = and i32 %50, 117901063
+  %52 = add nuw nsw i32 %51, %49
+  %53 = and i32 %52, 983055
+  %54 = lshr i32 %52, 8
+  %55 = and i32 %54, 983055
+  %56 = add nuw nsw i32 %55, %53
+  %57 = and i32 %56, 31
+  %58 = lshr i32 %56, 16
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %58 = shl i32 %indvars.iv.tr, 5
-  %59 = or disjoint i32 %57, %58
-  %60 = add nuw nsw i32 %59, %56
-  br label %61
+  %59 = shl i32 %indvars.iv.tr, 5
+  %60 = or disjoint i32 %58, %59
+  %61 = add nuw nsw i32 %60, %57
+  br label %62
 
-61:                                               ; preds = %38, %31
-  %.5.ph = phi i32 [ %.33354, %31 ], [ %60, %38 ]
+62:                                               ; preds = %39, %32
+  %.5 = phi i32 [ %61, %39 ], [ %.33349, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %62, label %31, !llvm.loop !166
-
-62:                                               ; preds = %61
-  %.not43 = icmp eq i32 %.5.ph, -1
-  br i1 %.not43, label %.loopexit, label %63
+  br i1 %exitcond.not, label %63, label %32, !llvm.loop !166
 
 63:                                               ; preds = %62
-  store i32 %.5.ph, ptr %1, align 4, !tbaa !11
-  br label %.loopexit
+  %.not43 = icmp eq i32 %.5, -1
+  br i1 %.not43, label %.critedge, label %64
 
-.loopexit:                                        ; preds = %34, %13, %9, %62, %2, %63
-  %.0 = phi i32 [ 1, %63 ], [ 0, %2 ], [ 0, %62 ], [ 0, %9 ], [ 0, %13 ], [ 0, %34 ]
+64:                                               ; preds = %63
+  store i32 %.5, ptr %1, align 4, !tbaa !11
+  br label %.critedge
+
+.critedge:                                        ; preds = %35, %13, %9, %63, %2, %64
+  %.0 = phi i32 [ 1, %64 ], [ 0, %2 ], [ 0, %63 ], [ 0, %9 ], [ 0, %13 ], [ 0, %35 ]
   ret i32 %.0
 }
 

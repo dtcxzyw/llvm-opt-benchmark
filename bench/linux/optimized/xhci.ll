@@ -7840,14 +7840,14 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 128
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 432
   %18 = load volatile i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread, label %.lr.ph, !prof !100
+  br i1 %19, label %.critedge, label %.lr.ph, !prof !100
 
 .lr.ph:                                           ; preds = %15, %26
   %20 = phi i32 [ %27, %26 ], [ %18, %15 ]
@@ -7857,20 +7857,20 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
-  br i1 %25, label %26, label %.thread, !prof !73
+  br i1 %25, label %26, label %.critedge, !prof !73
 
 26:                                               ; preds = %.lr.ph
   %27 = extractvalue { i8, i32 } %22, 1
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread, label %.lr.ph, !prof !102, !llvm.loop !103
+  br i1 %28, label %.critedge, label %.lr.ph, !prof !102, !llvm.loop !103
 
-.thread:                                          ; preds = %26, %.lr.ph, %15, %8
+.critedge:                                        ; preds = %26, %.lr.ph, %15, %8
   %29 = icmp ne ptr %0, null
   %30 = icmp ne ptr %1, null
   %31 = and i1 %29, %30
   br i1 %31, label %32, label %63
 
-32:                                               ; preds = %.thread
+32:                                               ; preds = %.critedge
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -7915,8 +7915,8 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
   %62 = select i1 %61, i32 1, i32 -19
   br label %63
 
-63:                                               ; preds = %57, %53, %47, %42, %32, %.thread
-  %64 = phi i32 [ -22, %.thread ], [ 0, %32 ], [ -22, %47 ], [ -22, %42 ], [ -22, %53 ], [ %62, %57 ]
+63:                                               ; preds = %57, %53, %47, %42, %32, %.critedge
+  %64 = phi i32 [ -22, %.critedge ], [ 0, %32 ], [ -22, %47 ], [ -22, %42 ], [ -22, %53 ], [ %62, %57 ]
   %65 = icmp slt i32 %64, 1
   %66 = icmp ne i32 %64, -19
   %67 = and i1 %65, %66

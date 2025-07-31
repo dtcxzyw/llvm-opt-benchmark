@@ -8335,19 +8335,19 @@ declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5Valu
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #1 comdat align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !150
   %3 = icmp ult i8 %2, 29
-  br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %1
   switch i8 %2, label %43 [
-    i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 47, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 50, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 53, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 74, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 75, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 83, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+    i8 41, label %.critedge
+    i8 43, label %.critedge
+    i8 45, label %.critedge
+    i8 47, label %.critedge
+    i8 50, label %.critedge
+    i8 53, label %.critedge
+    i8 74, label %.critedge
+    i8 75, label %.critedge
+    i8 83, label %.critedge
     i8 84, label %5
     i8 86, label %5
     i8 85, label %5
@@ -8380,8 +8380,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   %18 = and i32 %16, 253
   %spec.select.i.i.i = icmp eq i32 %18, 4
-  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
-  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
+  %or.cond24 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond24, label %.critedge, label %19
 
 19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
@@ -8393,11 +8393,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
   %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
+  br i1 %.not27.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8440,21 +8440,21 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
   %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
   %trunc.i.i.i.i.i = trunc i32 %40 to i8
   %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
-  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
-  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %switch.shifted21 = lshr i8 47, %trunc.i.i.i.i.i
+  %switch.lobit22 = trunc i8 %switch.shifted21 to i1
+  %or.cond23 = select i1 %41, i1 %switch.lobit22, i1 false
+  br i1 %or.cond23, label %.critedge, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
 _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
   %42 = and i32 %40, 253
   %spec.select.i.i21.i.i = icmp eq i32 %42, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
 43:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 
@@ -8896,7 +8896,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_23L
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !54
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !55
@@ -8927,42 +8927,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_23L
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !351
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !351
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_23LoopIdiomVectorizeStyleEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !25
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_23LoopIdiomVectorizeStyleEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !25
   br label %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_23LoopIdiomVectorizeStyleEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !25
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !26
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::LoopIdiomVectorizeStyle>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !352
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_23LoopIdiomVectorizeStyleEEE, i64 16), ptr %40, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_23LoopIdiomVectorizeStyleEEE, i64 16), ptr %40, align 8, !tbaa !3
-  %43 = load i32, ptr %14, align 8, !tbaa !26
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !26
-  %45 = load ptr, ptr %17, align 8, !tbaa !199
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #22
+_ZN4llvm2cl6parserINS_23LoopIdiomVectorizeStyleEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !26
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::LoopIdiomVectorizeStyle>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !352
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_23LoopIdiomVectorizeStyleEEE, i64 16), ptr %39, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_23LoopIdiomVectorizeStyleEEE, i64 16), ptr %39, align 8, !tbaa !3
+  %42 = load i32, ptr %14, align 8, !tbaa !26
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !26
+  %44 = load ptr, ptr %17, align 8, !tbaa !199
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #22
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 

@@ -1699,7 +1699,7 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 10:                                               ; preds = %6, %4
   %11 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull @tj3YUVBufSize.FUNCTION_NAME, ptr noundef nonnull @.str.1) #26
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %6
   %14 = icmp ne i32 %3, 3
@@ -1749,7 +1749,7 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %44 = sext i32 %43 to i64
   %45 = and i64 %42, %44
   %46 = icmp ugt i64 %45, 2147483647
-  br i1 %46, label %tj3YUVPlaneHeight.exit.thread, label %.thread
+  br i1 %46, label %tj3YUVPlaneHeight.exit.thread, label %.critedge
 
 .split.split:                                     ; preds = %.split
   %47 = load i32, ptr %18, align 4, !tbaa !88
@@ -1764,9 +1764,9 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br label %56
 
 56:                                               ; preds = %.split.split, %80
-  %.13351 = phi i64 [ 0, %.split.split ], [ %85, %80 ]
-  %.03550 = phi i32 [ 0, %.split.split ], [ %86, %80 ]
-  %57 = icmp eq i32 %.03550, 0
+  %.13348 = phi i64 [ 0, %.split.split ], [ %85, %80 ]
+  %.03547 = phi i32 [ 0, %.split.split ], [ %86, %80 ]
+  %57 = icmp eq i32 %.03547, 0
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
@@ -1808,26 +1808,26 @@ tj3YUVPlaneWidth.exit:                            ; preds = %60, %.sink.split.i
 tj3YUVPlaneHeight.exit.thread:                    ; preds = %75, %27, %.sink.split.i.us, %37
   %.us-phi = phi ptr [ @.str.30, %37 ], [ @.str.1, %.sink.split.i.us ], [ @.str.1, %27 ], [ @.str.30, %75 ]
   %77 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull @tj3YUVPlaneHeight.FUNCTION_NAME, ptr noundef nonnull %.us-phi) #26
-  br label %.thread
+  br label %.critedge
 
 tj3YUVPlaneHeight.exit:                           ; preds = %75
   %78 = icmp ne i64 %.0.i, 0
   %79 = icmp ne i64 %.1.i44, 0
   %or.cond5.not = and i1 %78, %79
-  br i1 %or.cond5.not, label %80, label %.thread
+  br i1 %or.cond5.not, label %80, label %.critedge
 
 80:                                               ; preds = %tj3YUVPlaneHeight.exit
   %81 = add i32 %25, %63
   %82 = and i32 %81, %26
   %83 = zext nneg i32 %82 to i64
   %84 = mul nuw nsw i64 %.1.i44, %83
-  %85 = add i64 %84, %.13351
-  %86 = add nuw nsw i32 %.03550, 1
-  %87 = icmp samesign ult i32 %.03550, 2
+  %85 = add i64 %84, %.13348
+  %86 = add nuw nsw i32 %.03547, 1
+  %87 = icmp samesign ult i32 %.03547, 2
   %88 = select i1 %14, i1 %87, i1 false
-  br i1 %88, label %56, label %.thread, !llvm.loop !89
+  br i1 %88, label %56, label %.critedge, !llvm.loop !89
 
-.thread:                                          ; preds = %80, %tj3YUVPlaneHeight.exit, %37, %tj3YUVPlaneHeight.exit.thread, %10
+.critedge:                                        ; preds = %80, %tj3YUVPlaneHeight.exit, %37, %tj3YUVPlaneHeight.exit.thread, %10
   %.2 = phi i64 [ 0, %10 ], [ 0, %tj3YUVPlaneHeight.exit.thread ], [ 0, %37 ], [ 0, %tj3YUVPlaneHeight.exit ], [ %85, %80 ]
   ret i64 %.2
 }

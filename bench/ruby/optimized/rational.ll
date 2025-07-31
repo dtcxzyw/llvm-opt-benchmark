@@ -10084,7 +10084,7 @@ define internal fastcc range(i32 0, 2) i32 @read_num(ptr noundef nonnull capture
   %30 = sub i64 %28, %29
   %31 = call i64 @rb_int_parse_cstr(ptr noundef %27, i64 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 10, i32 noundef 2) #17
   %32 = icmp eq i64 %31, 4
-  br i1 %32, label %rb_ull2num_inline.exit73, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %5, align 8, !tbaa !39
@@ -10130,22 +10130,18 @@ rb_ull2num_inline.exit:                           ; preds = %37, %40
   %55 = call i64 @rb_ull2inum(i64 noundef %49) #17
   br label %.thread
 
-.thread:                                          ; preds = %51, %54
-  %.159.ph = phi i64 [ %55, %54 ], [ %53, %51 ]
+.thread:                                          ; preds = %54, %51
+  %.0.i72 = phi i64 [ %53, %51 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   %.pre = load ptr, ptr %0, align 8, !tbaa !39
   br label %57
-
-rb_ull2num_inline.exit73:                         ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  br label %87
 
 56:                                               ; preds = %23, %20
   br i1 %.not67, label %87, label %57
 
 57:                                               ; preds = %.thread, %56
   %58 = phi ptr [ %.pre, %.thread ], [ %21, %56 ]
-  %.05880 = phi i64 [ %.159.ph, %.thread ], [ 1, %56 ]
+  %.05878 = phi i64 [ %.0.i72, %.thread ], [ 1, %56 ]
   %59 = getelementptr i8, ptr %58, i64 1
   %60 = icmp ult ptr %59, %1
   br i1 %60, label %61, label %87
@@ -10153,8 +10149,8 @@ rb_ull2num_inline.exit73:                         ; preds = %26
 61:                                               ; preds = %57
   %62 = load i8, ptr %58, align 1, !tbaa !12
   %63 = and i8 %62, -33
-  %.not82 = icmp eq i8 %63, 69
-  br i1 %.not82, label %64, label %87
+  %.not80 = icmp eq i8 %63, 69
+  br i1 %.not80, label %64, label %87
 
 64:                                               ; preds = %61
   store ptr %59, ptr %0, align 8, !tbaa !39
@@ -10187,21 +10183,21 @@ read_sign.exit:                                   ; preds = %64, %66
   br i1 %.not69, label %87, label %77
 
 77:                                               ; preds = %75
-  %.not71 = icmp eq i64 %.05880, 1
+  %.not71 = icmp eq i64 %.05878, 1
   br i1 %.0.i74, label %78, label %81
 
 78:                                               ; preds = %77
   br i1 %.not71, label %86, label %79
 
 79:                                               ; preds = %78
-  %80 = call i64 @rb_int_plus(i64 noundef %73, i64 noundef %.05880) #17
+  %80 = call i64 @rb_int_plus(i64 noundef %73, i64 noundef %.05878) #17
   br label %86
 
 81:                                               ; preds = %77
   br i1 %.not71, label %84, label %82
 
 82:                                               ; preds = %81
-  %83 = call i64 @rb_int_minus(i64 noundef %73, i64 noundef %.05880) #17
+  %83 = call i64 @rb_int_minus(i64 noundef %73, i64 noundef %.05878) #17
   br label %84
 
 84:                                               ; preds = %82, %81
@@ -10214,8 +10210,12 @@ read_sign.exit:                                   ; preds = %64, %66
   store i64 %.060, ptr %3, align 8, !tbaa !18
   br label %87
 
-87:                                               ; preds = %rb_ull2num_inline.exit73, %56, %57, %61, %86, %75, %read_sign.exit, %11
-  %.0 = phi i32 [ 1, %rb_ull2num_inline.exit73 ], [ 0, %11 ], [ 1, %read_sign.exit ], [ 1, %75 ], [ 1, %86 ], [ 1, %61 ], [ 1, %57 ], [ 0, %56 ]
+.critedge:                                        ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  br label %87
+
+87:                                               ; preds = %56, %57, %61, %86, %75, %read_sign.exit, %.critedge, %11
+  %.0 = phi i32 [ 0, %11 ], [ 1, %.critedge ], [ 1, %read_sign.exit ], [ 1, %75 ], [ 1, %86 ], [ 1, %61 ], [ 1, %57 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret i32 %.0
 }

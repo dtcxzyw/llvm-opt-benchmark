@@ -7850,13 +7850,13 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
   %10 = load ptr, ptr %8, align 8, !alias.scope !907, !noalias !910
   store i64 0, ptr %0, align 8, !alias.scope !907, !noalias !910
   %switch.i = icmp eq i64 %6, 0
-  br i1 %switch.i, label %18, label %19
+  br i1 %switch.i, label %18, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit"
 
 11:                                               ; preds = %2
   %12 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h2735a7a50f3bc48eE.llvm.8527929428270855737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %13 = extractvalue { i64, ptr } %12, 0
   switch i64 %13, label %14 [
-    i64 2, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit"
+    i64 2, label %.critedge
     i64 0, label %15
     i64 1, label %16
   ]
@@ -7870,27 +7870,27 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
 
 16:                                               ; preds = %11
   %17 = extractvalue { i64, ptr } %12, 1
-  br label %19
+  br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit"
 
 18:                                               ; preds = %9
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac2134d14bdf5fda6a2f66757d79699a.48.llvm.8961673575186234826) #30, !noalias !916
   unreachable
 
-19:                                               ; preds = %9, %16
-  %.sroa.3.0.i.pn.i.ph = phi ptr [ %17, %16 ], [ %10, %9 ]
-  %20 = icmp eq ptr %.sroa.3.0.i.pn.i.ph, null
-  br i1 %20, label %22, label %21
+"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit": ; preds = %9, %16
+  %.sroa.3.0.i.pn.i = phi ptr [ %10, %9 ], [ %17, %16 ]
+  %19 = icmp eq ptr %.sroa.3.0.i.pn.i, null
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %19
-  tail call void @_ZN4util21log_error_with_caller17h849e527cfc383416E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph, i64 noundef %4)
-  br label %22
+20:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit"
+  tail call void @_ZN4util21log_error_with_caller17h849e527cfc383416E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %.sroa.3.0.i.pn.i, i64 noundef %4)
+  br label %21
 
-22:                                               ; preds = %19, %21
-  %23 = zext i1 %20 to i8
-  br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit"
+21:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit", %20
+  %22 = zext i1 %19 to i8
+  br label %.critedge
 
-"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdd5c0f7b1b04a657E.exit": ; preds = %11, %22
-  %.sroa.0.0 = phi i8 [ %23, %22 ], [ 2, %11 ]
+.critedge:                                        ; preds = %11, %21
+  %.sroa.0.0 = phi i8 [ %22, %21 ], [ 2, %11 ]
   ret i8 %.sroa.0.0
 }
 

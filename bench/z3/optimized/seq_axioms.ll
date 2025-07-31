@@ -1445,7 +1445,7 @@ define hidden void @_ZN3smt10seq_axioms10add_clauseERK10ref_vectorI4expr11ast_ma
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.critedge, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
+  br i1 %11, label %.critedge24, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: ; preds = %2
   %12 = getelementptr inbounds i8, ptr %10, i64 -4
@@ -1454,16 +1454,16 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %15 = shl nuw nsw i64 %14, 3
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 %15
   %.not27 = icmp eq i32 %13, 0
-  br i1 %.not27, label %.critedge, label %.lr.ph
+  br i1 %.not27, label %.critedge24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %28
-  %.029 = phi i32 [ %.1.ph, %28 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %.029 = phi i32 [ %.1, %28 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %.02028 = phi ptr [ %29, %28 ], [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %17 = load ptr, ptr %.02028, align 8, !tbaa !84
   %18 = tail call i32 @_ZN3smt10seq_axioms10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(1240) %0, ptr noundef %17)
   %19 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !124
   %20 = icmp eq i32 %18, %19
-  br i1 %20, label %.loopexit, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %.lr.ph
   %22 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !124
@@ -1478,13 +1478,13 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   store i32 %24, ptr %27, align 4, !tbaa !83
   br label %28
 
-28:                                               ; preds = %21, %23
-  %.1.ph = phi i32 [ %.029, %21 ], [ %25, %23 ]
+28:                                               ; preds = %23, %21
+  %.1 = phi i32 [ %25, %23 ], [ %.029, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %.not = icmp eq ptr %29, %16
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph
+  br i1 %.not, label %.critedge24.loopexit, label %.lr.ph
 
-.critedge.loopexit:                               ; preds = %28
+.critedge24.loopexit:                             ; preds = %28
   %.sroa.06.0.copyload.pre = load i32, ptr %8, align 16, !tbaa !83
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.05.0.copyload.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !83
@@ -1494,14 +1494,14 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %.sroa.03.0.copyload.pre = load i32, ptr %.phi.trans.insert34, align 4, !tbaa !83
   %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.copyload.pre = load i32, ptr %.phi.trans.insert36, align 16, !tbaa !83
-  br label %.critedge
+  br label %.critedge24
 
-.critedge:                                        ; preds = %2, %.critedge.loopexit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %.critedge.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
-  %.sroa.03.0.copyload = phi i32 [ %.sroa.03.0.copyload.pre, %.critedge.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
-  %.sroa.04.0.copyload = phi i32 [ %.sroa.04.0.copyload.pre, %.critedge.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
-  %.sroa.05.0.copyload = phi i32 [ %.sroa.05.0.copyload.pre, %.critedge.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
-  %.sroa.06.0.copyload = phi i32 [ %.sroa.06.0.copyload.pre, %.critedge.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
+.critedge24:                                      ; preds = %2, %.critedge24.loopexit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
+  %.sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload.pre, %.critedge24.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
+  %.sroa.03.0.copyload = phi i32 [ %.sroa.03.0.copyload.pre, %.critedge24.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
+  %.sroa.04.0.copyload = phi i32 [ %.sroa.04.0.copyload.pre, %.critedge24.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
+  %.sroa.05.0.copyload = phi i32 [ %.sroa.05.0.copyload.pre, %.critedge24.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
+  %.sroa.06.0.copyload = phi i32 [ %.sroa.06.0.copyload.pre, %.critedge24.loopexit ], [ -2, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ -2, %2 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -1517,11 +1517,11 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %32, label %_ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit
 
-32:                                               ; preds = %.critedge
+32:                                               ; preds = %.critedge24
   tail call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
-_ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit: ; preds = %.critedge
+_ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit: ; preds = %.critedge24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %35 = load ptr, ptr %34, align 8, !tbaa !126
@@ -1531,9 +1531,9 @@ _ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit: ; preds = %.crite
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit
+.critedge:                                        ; preds = %.lr.ph, %_ZN3smt10seq_axioms9add_axiomEN3sat7literalES2_S2_S2_S2_.exit
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #19
   ret void
 }

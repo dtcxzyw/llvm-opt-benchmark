@@ -316,7 +316,7 @@ define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, 
 define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
   switch i64 %1, label %9 [
     i64 1, label %3
-    i64 0, label %.thread
+    i64 0, label %.critedge
   ]
 
 3:                                                ; preds = %2
@@ -327,7 +327,7 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   %8 = and i32 %7, 2
   %.not28 = icmp eq i32 %8, 0
   %_Py_FalseStruct._Py_TrueStruct = select i1 %.not28, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br label %.thread
+  br label %.critedge
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %0, i64 %1
@@ -335,10 +335,10 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %21
-  %.01735 = phi i32 [ %.219, %21 ], [ 0, %9 ]
-  %.02034 = phi i32 [ %.222, %21 ], [ 0, %9 ]
-  %.02333 = phi ptr [ %22, %21 ], [ %0, %9 ]
-  %12 = load i8, ptr %.02333, align 1, !tbaa !4
+  %.01732 = phi i32 [ %.219, %21 ], [ 0, %9 ]
+  %.02031 = phi i32 [ %.222, %21 ], [ 0, %9 ]
+  %.02330 = phi ptr [ %22, %21 ], [ %0, %9 ]
+  %12 = load i8, ptr %.02330, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !7
@@ -347,8 +347,8 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %.lr.ph
-  %.not27 = icmp eq i32 %.01735, 0
-  br i1 %.not27, label %21, label %.thread
+  %.not27 = icmp eq i32 %.01732, 0
+  br i1 %.not27, label %21, label %.critedge
 
 18:                                               ; preds = %.lr.ph
   %19 = and i32 %15, 1
@@ -356,13 +356,13 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
   br i1 %.not25, label %21, label %20
 
 20:                                               ; preds = %18
-  %.not26 = icmp eq i32 %.01735, 0
-  br i1 %.not26, label %.thread, label %21
+  %.not26 = icmp eq i32 %.01732, 0
+  br i1 %.not26, label %.critedge, label %21
 
 21:                                               ; preds = %18, %20, %17
-  %.222 = phi i32 [ 1, %17 ], [ 1, %20 ], [ %.02034, %18 ]
+  %.222 = phi i32 [ 1, %17 ], [ 1, %20 ], [ %.02031, %18 ]
   %.219 = phi i32 [ 1, %17 ], [ 1, %20 ], [ 0, %18 ]
-  %22 = getelementptr i8, ptr %.02333, i64 1
+  %22 = getelementptr i8, ptr %.02330, i64 1
   %exitcond.not = icmp eq ptr %22, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
@@ -373,10 +373,10 @@ define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
   %.020.lcssa = phi i64 [ 0, %9 ], [ %23, %._crit_edge.loopexit ]
   %24 = tail call ptr @PyBool_FromLong(i64 noundef %.020.lcssa) #14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %20, %17, %2, %3, %._crit_edge
-  %.0 = phi ptr [ %24, %._crit_edge ], [ %_Py_FalseStruct._Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_FalseStruct, %17 ], [ @_Py_FalseStruct, %20 ]
+.critedge:                                        ; preds = %17, %20, %2, %3, %._crit_edge
+  %.0 = phi ptr [ %24, %._crit_edge ], [ %_Py_FalseStruct._Py_TrueStruct, %3 ], [ @_Py_FalseStruct, %2 ], [ @_Py_FalseStruct, %20 ], [ @_Py_FalseStruct, %17 ]
   ret ptr %.0
 }
 

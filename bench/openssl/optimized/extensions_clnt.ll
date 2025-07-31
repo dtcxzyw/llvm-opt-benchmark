@@ -488,7 +488,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef %11, ptr noundef null) #10
-  br label %73
+  br label %72
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %8, align 4, !tbaa !80
@@ -509,7 +509,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %26 = load i32, ptr %9, align 4
   %27 = icmp slt i32 %26, 772
   %or.cond = select i1 %25, i1 true, i1 %27
-  br i1 %or.cond, label %73, label %28
+  br i1 %or.cond, label %72, label %28
 
 28:                                               ; preds = %17, %13
   call void @tls1_get_supported_groups(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
@@ -534,39 +534,46 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
 
 .preheader:                                       ; preds = %34
   %36 = load i64, ptr %7, align 8, !tbaa !82
-  %.not67 = icmp eq i64 %36, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i64 %36, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 37:                                               ; preds = %34, %32, %30, %28
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %73
+  br label %72
 
-.lr.ph:                                           ; preds = %.preheader, %57
-  %.03865 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %.03964 = phi i64 [ %.241.ph, %57 ], [ 0, %.preheader ]
-  %.04263 = phi i64 [ %.244.ph, %57 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %56
+  %.03860 = phi i64 [ %57, %56 ], [ 0, %.preheader ]
+  %.03959 = phi i64 [ %.241, %56 ], [ 0, %.preheader ]
+  %.04258 = phi i64 [ %.244, %56 ], [ 0, %.preheader ]
   %38 = load ptr, ptr %6, align 8, !tbaa !83
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03865
+  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03860
   %40 = load i16, ptr %39, align 2, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
   %41 = load i32, ptr %8, align 4, !tbaa !80
   %42 = load i32, ptr %9, align 4, !tbaa !80
   %43 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %40, i32 noundef %41, i32 noundef %42, i32 noundef 0, ptr noundef nonnull %10) #10
   %.not53 = icmp eq i32 %43, 0
-  br i1 %.not53, label %57, label %44
+  br i1 %.not53, label %56, label %44
 
 44:                                               ; preds = %.lr.ph
   %45 = call i32 @tls_group_allowed(ptr noundef %0, i16 noundef zeroext %40, i32 noundef 131076) #10
   %.not54 = icmp eq i32 %45, 0
-  br i1 %.not54, label %57, label %46
+  br i1 %.not54, label %56, label %46
 
 46:                                               ; preds = %44
   %47 = zext i16 %40 to i64
   %48 = call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef %47, i64 noundef 2) #10
   %.not55 = icmp eq i32 %48, 0
-  br i1 %.not55, label %56, label %49
+  br i1 %.not55, label %.critedge, label %49
+
+.critedge:                                        ; preds = %46
+  call void @ERR_new() #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  br label %72
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %10, align 4, !tbaa !80
@@ -575,71 +582,64 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %53 = icmp eq i32 %52, 772
   %or.cond3 = select i1 %51, i1 %53, i1 false
   %54 = zext i1 %or.cond3 to i64
-  %spec.select = add i64 %.04263, %54
-  %55 = add i64 %.03964, 1
-  br label %57
+  %spec.select = add i64 %.04258, %54
+  %55 = add i64 %.03959, 1
+  br label %56
 
-56:                                               ; preds = %46
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
+56:                                               ; preds = %.lr.ph, %44, %49
+  %.244 = phi i64 [ %spec.select, %49 ], [ %.04258, %44 ], [ %.04258, %.lr.ph ]
+  %.241 = phi i64 [ %55, %49 ], [ %.03959, %44 ], [ %.03959, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
-  br label %73
+  %57 = add nuw i64 %.03860, 1
+  %58 = load i64, ptr %7, align 8, !tbaa !82
+  %59 = icmp ult i64 %57, %58
+  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
 
-57:                                               ; preds = %49, %44, %.lr.ph
-  %.244.ph = phi i64 [ %.04263, %.lr.ph ], [ %.04263, %44 ], [ %spec.select, %49 ]
-  %.241.ph = phi i64 [ %.03964, %.lr.ph ], [ %.03964, %44 ], [ %55, %49 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
-  %58 = add nuw i64 %.03865, 1
-  %59 = load i64, ptr %7, align 8, !tbaa !82
-  %60 = icmp ult i64 %58, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
-
-._crit_edge.loopexit:                             ; preds = %57
-  %61 = icmp eq i64 %.244.ph, 0
-  %62 = icmp eq i64 %.241.ph, 0
+._crit_edge.loopexit:                             ; preds = %56
+  %60 = icmp eq i64 %.244, 0
+  %61 = icmp eq i64 %.241, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.042.lcssa = phi i1 [ true, %.preheader ], [ %61, %._crit_edge.loopexit ]
-  %.039.lcssa = phi i1 [ true, %.preheader ], [ %62, %._crit_edge.loopexit ]
-  %63 = call i32 @WPACKET_close(ptr noundef %1) #10
-  %.not51 = icmp eq i32 %63, 0
-  br i1 %.not51, label %66, label %64
+  %.042.lcssa = phi i1 [ true, %.preheader ], [ %60, %._crit_edge.loopexit ]
+  %.039.lcssa = phi i1 [ true, %.preheader ], [ %61, %._crit_edge.loopexit ]
+  %62 = call i32 @WPACKET_close(ptr noundef %1) #10
+  %.not51 = icmp eq i32 %62, 0
+  br i1 %.not51, label %65, label %63
 
-64:                                               ; preds = %._crit_edge
-  %65 = call i32 @WPACKET_close(ptr noundef %1) #10
-  %.not52 = icmp eq i32 %65, 0
-  br i1 %.not52, label %66, label %69
+63:                                               ; preds = %._crit_edge
+  %64 = call i32 @WPACKET_close(ptr noundef %1) #10
+  %.not52 = icmp eq i32 %64, 0
+  br i1 %.not52, label %65, label %68
 
-66:                                               ; preds = %64, %._crit_edge
+65:                                               ; preds = %63, %._crit_edge
   call void @ERR_new() #10
-  br i1 %.039.lcssa, label %67, label %68
+  br i1 %.039.lcssa, label %66, label %67
 
-67:                                               ; preds = %66
+66:                                               ; preds = %65
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 295, ptr noundef nonnull @.str.1) #10
-  br label %73
+  br label %72
 
-68:                                               ; preds = %66
+67:                                               ; preds = %65
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %73
+  br label %72
 
-69:                                               ; preds = %64
-  %70 = load i32, ptr %9, align 4
-  %71 = icmp eq i32 %70, 772
-  %or.cond5 = select i1 %.042.lcssa, i1 %71, i1 false
-  br i1 %or.cond5, label %72, label %73
+68:                                               ; preds = %63
+  %69 = load i32, ptr %9, align 4
+  %70 = icmp eq i32 %69, 772
+  %or.cond5 = select i1 %.042.lcssa, i1 %70, i1 false
+  br i1 %or.cond5, label %71, label %72
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 276, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 295, ptr noundef nonnull @.str.1) #10
-  br label %73
+  br label %72
 
-73:                                               ; preds = %56, %69, %67, %68, %17, %72, %37, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %56 ], [ 0, %72 ], [ 0, %37 ], [ 2, %17 ], [ 0, %68 ], [ 0, %67 ], [ 1, %69 ]
+72:                                               ; preds = %68, %66, %67, %.critedge, %17, %71, %37, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %71 ], [ 0, %37 ], [ 2, %17 ], [ 0, %.critedge ], [ 0, %67 ], [ 0, %66 ], [ 1, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
@@ -3805,10 +3805,10 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 .preheader:                                       ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %32 = load i64, ptr %31, align 8, !tbaa !138
-  %.not155 = icmp eq i64 %32, 0
-  br i1 %.not155, label %.thread131, label %.lr.ph151
+  %.not152 = icmp eq i64 %32, 0
+  br i1 %.not152, label %.critedge, label %.lr.ph148
 
-.lr.ph151:                                        ; preds = %.preheader
+.lr.ph148:                                        ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br label %75
 
@@ -3817,15 +3817,15 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   store ptr null, ptr %6, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %.not105 = icmp eq i64 %29, 0
-  br i1 %.not105, label %.preheader139, label %38
+  br i1 %.not105, label %.preheader136, label %38
 
-.preheader139:                                    ; preds = %34
+.preheader136:                                    ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %36 = load i64, ptr %35, align 8, !tbaa !138
-  %.not152 = icmp eq i64 %36, 0
-  br i1 %.not152, label %._crit_edge, label %.lr.ph
+  %.not149 = icmp eq i64 %36, 0
+  br i1 %.not149, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader139
+.lr.ph:                                           ; preds = %.preheader136
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br label %41
 
@@ -3836,13 +3836,13 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   br label %74
 
 39:                                               ; preds = %41
-  %40 = add nuw i64 %.086142, 1
+  %40 = add nuw i64 %.086139, 1
   %exitcond.not = icmp eq i64 %40, %36
   br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !209
 
 41:                                               ; preds = %.lr.ph, %39
-  %.086142 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %42 = getelementptr inbounds nuw [4 x i16], ptr %37, i64 0, i64 %.086142
+  %.086139 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
+  %42 = getelementptr inbounds nuw [4 x i16], ptr %37, i64 0, i64 %.086139
   %43 = load i16, ptr %42, align 2, !tbaa !91
   %44 = zext i16 %43 to i32
   %45 = icmp eq i32 %27, %44
@@ -3854,24 +3854,24 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 108, ptr noundef null) #10
   br label %74
 
-._crit_edge:                                      ; preds = %39, %.preheader139
+._crit_edge:                                      ; preds = %39, %.preheader136
   call void @tls1_get_supported_groups(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %47 = load i64, ptr %7, align 8, !tbaa !82
-  %.not153 = icmp eq i64 %47, 0
-  br i1 %.not153, label %.loopexit, label %.lr.ph145
+  %.not150 = icmp eq i64 %47, 0
+  br i1 %.not150, label %.loopexit, label %.lr.ph142
 
-.lr.ph145:                                        ; preds = %._crit_edge
+.lr.ph142:                                        ; preds = %._crit_edge
   %48 = load ptr, ptr %6, align 8, !tbaa !83
   br label %51
 
 49:                                               ; preds = %51
-  %50 = add nuw i64 %.187143, 1
-  %exitcond157.not = icmp eq i64 %50, %47
-  br i1 %exitcond157.not, label %.loopexit, label %51, !llvm.loop !210
+  %50 = add nuw i64 %.187140, 1
+  %exitcond154.not = icmp eq i64 %50, %47
+  br i1 %exitcond154.not, label %.loopexit, label %51, !llvm.loop !210
 
-51:                                               ; preds = %.lr.ph145, %49
-  %.187143 = phi i64 [ 0, %.lr.ph145 ], [ %50, %49 ]
-  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %.187143
+51:                                               ; preds = %.lr.ph142, %49
+  %.187140 = phi i64 [ 0, %.lr.ph142 ], [ %50, %49 ]
+  %52 = getelementptr inbounds nuw i16, ptr %48, i64 %.187140
   %53 = load i16, ptr %52, align 2, !tbaa !91
   %54 = zext i16 %53 to i32
   %55 = icmp eq i32 %27, %54
@@ -3898,17 +3898,17 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1246
   store i16 %57, ptr %62, align 2, !tbaa !139
   %63 = load i64, ptr %35, align 8, !tbaa !138
-  %.not154 = icmp eq i64 %63, 0
-  br i1 %.not154, label %._crit_edge149, label %.lr.ph148
+  %.not151 = icmp eq i64 %63, 0
+  br i1 %.not151, label %._crit_edge146, label %.lr.ph145
 
-.lr.ph148:                                        ; preds = %61
+.lr.ph145:                                        ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br label %65
 
-65:                                               ; preds = %.lr.ph148, %70
-  %66 = phi i64 [ %63, %.lr.ph148 ], [ %71, %70 ]
-  %.288146 = phi i64 [ 0, %.lr.ph148 ], [ %72, %70 ]
-  %67 = getelementptr inbounds nuw [4 x ptr], ptr %64, i64 0, i64 %.288146
+65:                                               ; preds = %.lr.ph145, %70
+  %66 = phi i64 [ %63, %.lr.ph145 ], [ %71, %70 ]
+  %.288143 = phi i64 [ 0, %.lr.ph145 ], [ %72, %70 ]
+  %67 = getelementptr inbounds nuw [4 x ptr], ptr %64, i64 0, i64 %.288143
   %68 = load ptr, ptr %67, align 8, !tbaa !147
   %.not109 = icmp eq ptr %68, null
   br i1 %.not109, label %70, label %69
@@ -3921,52 +3921,52 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 70:                                               ; preds = %65, %69
   %71 = phi i64 [ %66, %65 ], [ %.pre, %69 ]
-  %72 = add nuw i64 %.288146, 1
+  %72 = add nuw i64 %.288143, 1
   %73 = icmp ult i64 %72, %71
-  br i1 %73, label %65, label %._crit_edge149, !llvm.loop !211
+  br i1 %73, label %65, label %._crit_edge146, !llvm.loop !211
 
-._crit_edge149:                                   ; preds = %70, %61
+._crit_edge146:                                   ; preds = %70, %61
   store i64 0, ptr %35, align 8, !tbaa !138
   store ptr null, ptr %8, align 8, !tbaa !144
   br label %74
 
-74:                                               ; preds = %._crit_edge149, %.loopexit, %46, %38
-  %.1 = phi i32 [ 0, %38 ], [ 0, %46 ], [ 0, %.loopexit ], [ 1, %._crit_edge149 ]
+74:                                               ; preds = %._crit_edge146, %.loopexit, %46, %38
+  %.1 = phi i32 [ 0, %38 ], [ 0, %46 ], [ 0, %.loopexit ], [ 1, %._crit_edge146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   br label %147
 
-75:                                               ; preds = %.lr.ph151, %80
-  %.389150 = phi i64 [ 0, %.lr.ph151 ], [ %81, %80 ]
-  %76 = getelementptr inbounds nuw [4 x i16], ptr %33, i64 0, i64 %.389150
+75:                                               ; preds = %.lr.ph148, %87
+  %.389147 = phi i64 [ 0, %.lr.ph148 ], [ %88, %87 ]
+  %76 = getelementptr inbounds nuw [4 x i16], ptr %33, i64 0, i64 %.389147
   %77 = load i16, ptr %76, align 2, !tbaa !91
   %78 = zext i16 %77 to i32
   %79 = icmp eq i32 %27, %78
-  br i1 %79, label %82, label %80
+  br i1 %79, label %80, label %87
 
 80:                                               ; preds = %75
-  %81 = add nuw i64 %.389150, 1
-  %exitcond158.not = icmp eq i64 %81, %32
-  br i1 %exitcond158.not, label %.thread131, label %75, !llvm.loop !212
+  %81 = trunc nuw i32 %27 to i16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %83 = getelementptr inbounds nuw [4 x ptr], ptr %82, i64 0, i64 %.389147
+  %84 = load ptr, ptr %83, align 8, !tbaa !147
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1246
+  store i16 %81, ptr %85, align 2, !tbaa !139
+  store ptr %84, ptr %8, align 8, !tbaa !144
+  %86 = icmp eq i32 %27, 0
+  br i1 %86, label %.critedge, label %89
 
-82:                                               ; preds = %75
-  %83 = trunc nuw i32 %27 to i16
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %85 = getelementptr inbounds nuw [4 x ptr], ptr %84, i64 0, i64 %.389150
-  %86 = load ptr, ptr %85, align 8, !tbaa !147
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1246
-  store i16 %83, ptr %87, align 2, !tbaa !139
-  store ptr %86, ptr %8, align 8, !tbaa !144
-  %88 = icmp eq i32 %27, 0
-  br i1 %88, label %.thread131, label %89
+87:                                               ; preds = %75
+  %88 = add nuw i64 %.389147, 1
+  %exitcond155.not = icmp eq i64 %88, %32
+  br i1 %exitcond155.not, label %.critedge, label %75, !llvm.loop !212
 
-.thread131:                                       ; preds = %80, %.preheader, %82
+.critedge:                                        ; preds = %87, %.preheader, %80
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1946, ptr noundef nonnull @__func__.tls_parse_stoc_key_share) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 108, ptr noundef null) #10
   br label %147
 
-89:                                               ; preds = %82
+89:                                               ; preds = %80
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %91 = load i32, ptr %90, align 8, !tbaa !181
   %.not99 = icmp eq i32 %91, 0
@@ -3987,9 +3987,9 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 98:                                               ; preds = %96
   %99 = tail call ptr @ssl_session_dup(ptr noundef nonnull %93, i32 noundef 0) #10
   %.not101 = icmp eq ptr %99, null
-  br i1 %.not101, label %.thread134, label %100
+  br i1 %.not101, label %.thread131, label %100
 
-.thread134:                                       ; preds = %98
+.thread131:                                       ; preds = %98
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1964, ptr noundef nonnull @__func__.tls_parse_stoc_key_share) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524308, ptr noundef null) #10
@@ -4006,7 +4006,7 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 103:                                              ; preds = %100, %96, %95
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !110
-  %106 = tail call ptr @tls1_group_id_lookup(ptr noundef %105, i16 noundef zeroext %83) #10
+  %106 = tail call ptr @tls1_group_id_lookup(ptr noundef %105, i16 noundef zeroext %81) #10
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %109
 
@@ -4060,7 +4060,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %127
-  %131 = tail call i32 @EVP_PKEY_copy_parameters(ptr noundef nonnull %128, ptr noundef %86) #10
+  %131 = tail call i32 @EVP_PKEY_copy_parameters(ptr noundef nonnull %128, ptr noundef %84) #10
   %132 = icmp slt i32 %131, 1
   br i1 %132, label %133, label %134
 
@@ -4084,7 +4084,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
   br label %147
 
 138:                                              ; preds = %134
-  %139 = tail call i32 @ssl_derive(ptr noundef nonnull %0, ptr noundef %86, ptr noundef nonnull %128, i32 noundef 1) #10
+  %139 = tail call i32 @ssl_derive(ptr noundef nonnull %0, ptr noundef %84, ptr noundef nonnull %128, i32 noundef 1) #10
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %142
 
@@ -4097,7 +4097,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
   br label %145
 
 143:                                              ; preds = %124
-  %144 = tail call i32 @ssl_decapsulate(ptr noundef nonnull %0, ptr noundef %86, ptr noundef nonnull %121, i64 noundef %118, i32 noundef 1) #10
+  %144 = tail call i32 @ssl_decapsulate(ptr noundef nonnull %0, ptr noundef %84, ptr noundef nonnull %121, i64 noundef %118, i32 noundef 1) #10
   %.not104 = icmp eq i32 %144, 0
   br i1 %.not104, label %147, label %145
 
@@ -4106,8 +4106,8 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %111, %109, %120
   store i8 1, ptr %146, align 1, !tbaa !216
   br label %147
 
-147:                                              ; preds = %.thread134, %143, %145, %141, %137, %133, %PACKET_as_length_prefixed_2.exit.thread, %108, %.thread131, %74, %18, %14
-  %.0 = phi i32 [ 0, %14 ], [ %.1, %74 ], [ 0, %.thread131 ], [ 0, %108 ], [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 1, %145 ], [ 0, %143 ], [ 0, %133 ], [ 0, %137 ], [ 0, %141 ], [ 0, %18 ], [ 0, %.thread134 ]
+147:                                              ; preds = %.thread131, %143, %145, %141, %137, %133, %PACKET_as_length_prefixed_2.exit.thread, %108, %.critedge, %74, %18, %14
+  %.0 = phi i32 [ 0, %14 ], [ %.1, %74 ], [ 0, %.critedge ], [ 0, %108 ], [ 0, %PACKET_as_length_prefixed_2.exit.thread ], [ 1, %145 ], [ 0, %143 ], [ 0, %133 ], [ 0, %137 ], [ 0, %141 ], [ 0, %18 ], [ 0, %.thread131 ]
   ret i32 %.0
 }
 

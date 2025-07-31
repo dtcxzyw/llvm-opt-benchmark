@@ -861,8 +861,8 @@ define dso_local void @ExecConditionalAssignProjectionInfo(ptr noundef %0, ptr n
 
 list_head.exit.i:                                 ; preds = %9, %3
   %12 = phi ptr [ %11, %9 ], [ null, %3 ]
-  %.not4.i = icmp slt i32 %8, 1
-  br i1 %.not4.i, label %tlist_matches_tupdesc.exit, label %.lr.ph.i
+  %.not2.i = icmp slt i32 %8, 1
+  br i1 %.not2.i, label %tlist_matches_tupdesc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
   %invariant.gep.i = getelementptr i8, ptr %1, i64 24
@@ -877,13 +877,13 @@ list_head.exit.i:                                 ; preds = %9, %3
 
 18:                                               ; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %.0265.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %50 ]
+  %.0263.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %50 ]
   %19 = getelementptr %struct.FormData_pg_attribute, ptr %gep.i, i64 %indvars.iv.i
-  %20 = icmp eq ptr %.0265.i, null
+  %20 = icmp eq ptr %.0263.i, null
   br i1 %20, label %tlist_matches_tupdesc.exit.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %.0265.i, align 8
+  %22 = load ptr, ptr %.0263.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not31.i = icmp eq ptr %24, null
@@ -934,7 +934,7 @@ list_head.exit.i:                                 ; preds = %9, %3
 50:                                               ; preds = %45
   %.val.i = load i32, ptr %15, align 4
   %.val36.i = load ptr, ptr %16, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.0265.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0263.i, i64 8
   %52 = sext i32 %.val.i to i64
   %53 = getelementptr inbounds %union.ListCell, ptr %.val36.i, i64 %52
   %54 = icmp ult ptr %51, %53
@@ -963,7 +963,7 @@ tlist_matches_tupdesc.exit:                       ; preds = %50, %list_head.exit
   %64 = load ptr, ptr %63, align 8
   br label %77
 
-tlist_matches_tupdesc.exit.thread:                ; preds = %40, %45, %36, %32, %28, %21, %25, %18, %tlist_matches_tupdesc.exit
+tlist_matches_tupdesc.exit.thread:                ; preds = %18, %25, %21, %28, %32, %36, %45, %40, %tlist_matches_tupdesc.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %66, null
@@ -1691,37 +1691,37 @@ list_length.exit:                                 ; preds = %1, %2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph20, label %._crit_edge
+  br i1 %4, label %.lr.ph18, label %.critedge
 
-.lr.ph20:                                         ; preds = %.lr.ph
+.lr.ph18:                                         ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
-._crit_edge:                                      ; preds = %7, %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  ret i32 %.0.lcssa
-
-7:                                                ; preds = %.lr.ph20, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next, %7 ]
-  %.01418 = phi i32 [ 0, %.lr.ph20 ], [ %spec.select, %7 ]
+7:                                                ; preds = %.lr.ph18, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next, %7 ]
+  %.01216 = phi i32 [ 0, %.lr.ph18 ], [ %.1, %7 ]
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 42
   %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
   %12 = xor i8 %11, 1
   %13 = zext nneg i8 %12 to i32
-  %spec.select = add i32 %.01418, %13
+  %.1 = add i32 %.01216, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7
+  br i1 %exitcond.not, label %.critedge, label %7
+
+.critedge:                                        ; preds = %7, %.lr.ph, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.1, %7 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

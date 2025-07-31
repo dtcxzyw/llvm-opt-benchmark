@@ -12701,90 +12701,95 @@ define dso_local void @slurm_array64_to_value_reps(ptr noundef readonly captures
 6:                                                ; preds = %5
   store i32 1, ptr %4, align 4
   %.not49 = icmp eq i32 %1, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not49, label %.loopexit.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %7 = load i64, ptr %0, align 8
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %21
-  %8 = zext i32 %22 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %9 = phi i64 [ %8, %._crit_edge.loopexit ], [ 1, %6 ]
-  %10 = tail call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
-  store ptr %10, ptr %2, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = zext i32 %11 to i64
-  %13 = tail call ptr @slurm_xcalloc(i64 noundef %12, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
-  store ptr %13, ptr %3, align 8
-  %14 = load i64, ptr %0, align 8
-  %15 = load ptr, ptr %2, align 8
-  store i64 %14, ptr %15, align 8
-  br i1 %.not49, label %.loopexit, label %.lr.ph48.preheader
-
-.lr.ph48.preheader:                               ; preds = %._crit_edge
+._crit_edge.loopexit:                             ; preds = %20
+  %8 = zext i32 %21 to i64
+  %9 = tail call ptr @slurm_xcalloc(i64 noundef %8, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
+  store ptr %9, ptr %2, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = zext i32 %10 to i64
+  %12 = tail call ptr @slurm_xcalloc(i64 noundef %11, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
+  store ptr %12, ptr %3, align 8
+  %13 = load i64, ptr %0, align 8
+  %14 = load ptr, ptr %2, align 8
+  store i64 %13, ptr %14, align 8
   %wide.trip.count55 = zext i32 %1 to i64
   br label %.lr.ph48
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %16 = phi i32 [ 1, %.lr.ph.preheader ], [ %22, %21 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %.03442 = phi i64 [ %7, %.lr.ph.preheader ], [ %.135, %21 ]
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8
-  %.not41 = icmp eq i64 %.03442, %18
-  br i1 %.not41, label %21, label %19
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %15 = phi i32 [ 1, %.lr.ph.preheader ], [ %21, %20 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
+  %.03442 = phi i64 [ %7, %.lr.ph.preheader ], [ %.135, %20 ]
+  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %17 = load i64, ptr %16, align 8
+  %.not41 = icmp eq i64 %.03442, %17
+  br i1 %.not41, label %20, label %18
 
-19:                                               ; preds = %.lr.ph
-  %20 = add i32 %16, 1
-  store i32 %20, ptr %4, align 4
-  br label %21
+18:                                               ; preds = %.lr.ph
+  %19 = add i32 %15, 1
+  store i32 %19, ptr %4, align 4
+  br label %20
 
-21:                                               ; preds = %.lr.ph, %19
-  %22 = phi i32 [ %20, %19 ], [ %16, %.lr.ph ]
-  %.135 = phi i64 [ %18, %19 ], [ %.03442, %.lr.ph ]
+20:                                               ; preds = %.lr.ph, %18
+  %21 = phi i32 [ %19, %18 ], [ %15, %.lr.ph ]
+  %.135 = phi i64 [ %17, %18 ], [ %.03442, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !79
 
-.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %30
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next53, %30 ]
-  %.03345 = phi i32 [ 0, %.lr.ph48.preheader ], [ %.1, %30 ]
-  %.244 = phi i64 [ %14, %.lr.ph48.preheader ], [ %.3, %30 ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv52
-  %24 = load i64, ptr %23, align 8
-  %.not40 = icmp eq i64 %.244, %24
-  br i1 %.not40, label %.lr.ph48._crit_edge, label %25
+.lr.ph48:                                         ; preds = %._crit_edge.loopexit, %29
+  %indvars.iv52 = phi i64 [ 0, %._crit_edge.loopexit ], [ %indvars.iv.next53, %29 ]
+  %.03345 = phi i32 [ 0, %._crit_edge.loopexit ], [ %.1, %29 ]
+  %.244 = phi i64 [ %13, %._crit_edge.loopexit ], [ %.3, %29 ]
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv52
+  %23 = load i64, ptr %22, align 8
+  %.not40 = icmp eq i64 %.244, %23
+  br i1 %.not40, label %.lr.ph48._crit_edge, label %24
 
 .lr.ph48._crit_edge:                              ; preds = %.lr.ph48
   %.pre = sext i32 %.03345 to i64
-  br label %30
+  br label %29
 
-25:                                               ; preds = %.lr.ph48
-  %26 = add nsw i32 %.03345, 1
-  %27 = load ptr, ptr %2, align 8
-  %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i64, ptr %27, i64 %28
-  store i64 %24, ptr %29, align 8
-  br label %30
+24:                                               ; preds = %.lr.ph48
+  %25 = add nsw i32 %.03345, 1
+  %26 = load ptr, ptr %2, align 8
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  store i64 %23, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %.lr.ph48._crit_edge, %25
-  %.pre-phi = phi i64 [ %.pre, %.lr.ph48._crit_edge ], [ %28, %25 ]
-  %.3 = phi i64 [ %.244, %.lr.ph48._crit_edge ], [ %24, %25 ]
-  %.1 = phi i32 [ %.03345, %.lr.ph48._crit_edge ], [ %26, %25 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %.pre-phi
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
+29:                                               ; preds = %.lr.ph48._crit_edge, %24
+  %.pre-phi = phi i64 [ %.pre, %.lr.ph48._crit_edge ], [ %27, %24 ]
+  %.3 = phi i64 [ %.244, %.lr.ph48._crit_edge ], [ %23, %24 ]
+  %.1 = phi i32 [ %.03345, %.lr.ph48._crit_edge ], [ %25, %24 ]
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.pre-phi
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
   br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !80
 
-.loopexit:                                        ; preds = %30, %._crit_edge, %5
+.loopexit.critedge:                               ; preds = %6
+  %34 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
+  store ptr %34, ptr %2, align 8
+  %35 = load i32, ptr %4, align 4
+  %36 = zext i32 %35 to i64
+  %37 = tail call ptr @slurm_xcalloc(i64 noundef %36, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5898, ptr noundef nonnull @__func__.slurm_array64_to_value_reps) #24
+  store ptr %37, ptr %3, align 8
+  %38 = load i64, ptr %0, align 8
+  %39 = load ptr, ptr %2, align 8
+  store i64 %38, ptr %39, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %29, %.loopexit.critedge, %5
   ret void
 }
 
@@ -12796,90 +12801,95 @@ define dso_local void @slurm_array16_to_value_reps(ptr noundef readonly captures
 6:                                                ; preds = %5
   store i32 1, ptr %4, align 4
   %.not47 = icmp eq i32 %1, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not47, label %.loopexit.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %7 = load i16, ptr %0, align 2
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %21
-  %8 = zext i32 %22 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %9 = phi i64 [ %8, %._crit_edge.loopexit ], [ 1, %6 ]
-  %10 = tail call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
-  store ptr %10, ptr %2, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = zext i32 %11 to i64
-  %13 = tail call ptr @slurm_xcalloc(i64 noundef %12, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
-  store ptr %13, ptr %3, align 8
-  %14 = load i16, ptr %0, align 2
-  %15 = load ptr, ptr %2, align 8
-  store i16 %14, ptr %15, align 2
-  br i1 %.not47, label %.loopexit, label %.lr.ph46.preheader
-
-.lr.ph46.preheader:                               ; preds = %._crit_edge
+._crit_edge.loopexit:                             ; preds = %20
+  %8 = zext i32 %21 to i64
+  %9 = tail call ptr @slurm_xcalloc(i64 noundef %8, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
+  store ptr %9, ptr %2, align 8
+  %10 = load i32, ptr %4, align 4
+  %11 = zext i32 %10 to i64
+  %12 = tail call ptr @slurm_xcalloc(i64 noundef %11, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
+  store ptr %12, ptr %3, align 8
+  %13 = load i16, ptr %0, align 2
+  %14 = load ptr, ptr %2, align 8
+  store i16 %13, ptr %14, align 2
   %wide.trip.count51 = zext i32 %1 to i64
   br label %.lr.ph46
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %16 = phi i32 [ 1, %.lr.ph.preheader ], [ %22, %21 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %.03440 = phi i16 [ %7, %.lr.ph.preheader ], [ %.135, %21 ]
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %18 = load i16, ptr %17, align 2
-  %.not39 = icmp eq i16 %.03440, %18
-  br i1 %.not39, label %21, label %19
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %15 = phi i32 [ 1, %.lr.ph.preheader ], [ %21, %20 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
+  %.03440 = phi i16 [ %7, %.lr.ph.preheader ], [ %.135, %20 ]
+  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %17 = load i16, ptr %16, align 2
+  %.not39 = icmp eq i16 %.03440, %17
+  br i1 %.not39, label %20, label %18
 
-19:                                               ; preds = %.lr.ph
-  %20 = add i32 %16, 1
-  store i32 %20, ptr %4, align 4
-  br label %21
+18:                                               ; preds = %.lr.ph
+  %19 = add i32 %15, 1
+  store i32 %19, ptr %4, align 4
+  br label %20
 
-21:                                               ; preds = %.lr.ph, %19
-  %22 = phi i32 [ %20, %19 ], [ %16, %.lr.ph ]
-  %.135 = phi i16 [ %18, %19 ], [ %.03440, %.lr.ph ]
+20:                                               ; preds = %.lr.ph, %18
+  %21 = phi i32 [ %19, %18 ], [ %15, %.lr.ph ]
+  %.135 = phi i16 [ %17, %18 ], [ %.03440, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !81
 
-.lr.ph46:                                         ; preds = %.lr.ph46.preheader, %30
-  %indvars.iv49 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next50, %30 ]
-  %.03343 = phi i32 [ 0, %.lr.ph46.preheader ], [ %.1, %30 ]
-  %.242 = phi i16 [ %14, %.lr.ph46.preheader ], [ %.3, %30 ]
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
-  %24 = load i16, ptr %23, align 2
-  %.not38 = icmp eq i16 %.242, %24
-  br i1 %.not38, label %.lr.ph46._crit_edge, label %25
+.lr.ph46:                                         ; preds = %._crit_edge.loopexit, %29
+  %indvars.iv49 = phi i64 [ 0, %._crit_edge.loopexit ], [ %indvars.iv.next50, %29 ]
+  %.03343 = phi i32 [ 0, %._crit_edge.loopexit ], [ %.1, %29 ]
+  %.242 = phi i16 [ %13, %._crit_edge.loopexit ], [ %.3, %29 ]
+  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
+  %23 = load i16, ptr %22, align 2
+  %.not38 = icmp eq i16 %.242, %23
+  br i1 %.not38, label %.lr.ph46._crit_edge, label %24
 
 .lr.ph46._crit_edge:                              ; preds = %.lr.ph46
   %.pre = sext i32 %.03343 to i64
-  br label %30
+  br label %29
 
-25:                                               ; preds = %.lr.ph46
-  %26 = add nsw i32 %.03343, 1
-  %27 = load ptr, ptr %2, align 8
-  %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
-  store i16 %24, ptr %29, align 2
-  br label %30
+24:                                               ; preds = %.lr.ph46
+  %25 = add nsw i32 %.03343, 1
+  %26 = load ptr, ptr %2, align 8
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  store i16 %23, ptr %28, align 2
+  br label %29
 
-30:                                               ; preds = %.lr.ph46._crit_edge, %25
-  %.pre-phi = phi i64 [ %.pre, %.lr.ph46._crit_edge ], [ %28, %25 ]
-  %.3 = phi i16 [ %.242, %.lr.ph46._crit_edge ], [ %24, %25 ]
-  %.1 = phi i32 [ %.03343, %.lr.ph46._crit_edge ], [ %26, %25 ]
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %.pre-phi
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
+29:                                               ; preds = %.lr.ph46._crit_edge, %24
+  %.pre-phi = phi i64 [ %.pre, %.lr.ph46._crit_edge ], [ %27, %24 ]
+  %.3 = phi i16 [ %.242, %.lr.ph46._crit_edge ], [ %23, %24 ]
+  %.1 = phi i32 [ %.03343, %.lr.ph46._crit_edge ], [ %25, %24 ]
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.pre-phi
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 4
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count51
   br i1 %exitcond52.not, label %.loopexit, label %.lr.ph46, !llvm.loop !82
 
-.loopexit:                                        ; preds = %30, %._crit_edge, %5
+.loopexit.critedge:                               ; preds = %6
+  %34 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
+  store ptr %34, ptr %2, align 8
+  %35 = load i32, ptr %4, align 4
+  %36 = zext i32 %35 to i64
+  %37 = tail call ptr @slurm_xcalloc(i64 noundef %36, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 5907, ptr noundef nonnull @__func__.slurm_array16_to_value_reps) #24
+  store ptr %37, ptr %3, align 8
+  %38 = load i16, ptr %0, align 2
+  %39 = load ptr, ptr %2, align 8
+  store i16 %38, ptr %39, align 2
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %29, %.loopexit.critedge, %5
   ret void
 }
 

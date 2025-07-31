@@ -3791,8 +3791,8 @@ if.end:                                           ; preds = %for.inc.i, %_ZN6her
   %call26 = tail call noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE5parseIPKDsEENS0_9constants9ErrorTypeET_S9_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %pattern.coerce0, ptr noundef %add.ptr.i)
   br label %return
 
-return:                                           ; preds = %for.body.i, %sw.bb53.i, %sw.bb43.i, %sw.bb33.i, %sw.bb23.i, %sw.bb13.i, %sw.bb4.i, %sw.bb.i, %if.end
-  %storemerge = phi i32 [ %call26, %if.end ], [ 11, %sw.bb.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb13.i ], [ 11, %sw.bb23.i ], [ 11, %sw.bb33.i ], [ 11, %sw.bb43.i ], [ 11, %sw.bb53.i ], [ 11, %for.body.i ]
+return:                                           ; preds = %sw.bb.i, %sw.bb4.i, %sw.bb13.i, %sw.bb23.i, %sw.bb33.i, %sw.bb43.i, %sw.bb53.i, %for.body.i, %if.end
+  %storemerge = phi i32 [ %call26, %if.end ], [ 11, %for.body.i ], [ 11, %sw.bb53.i ], [ 11, %sw.bb43.i ], [ 11, %sw.bb33.i ], [ 11, %sw.bb23.i ], [ 11, %sw.bb13.i ], [ 11, %sw.bb4.i ], [ 11, %sw.bb.i ]
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 %storemerge, ptr %error_, align 8
   ret void

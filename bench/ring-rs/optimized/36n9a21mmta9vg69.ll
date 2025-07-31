@@ -537,77 +537,77 @@ define { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369ad
     i8 -126, label %30
   ]
 
-23:                                               ; preds = %42, %36, %20
-  %24 = phi i64 [ %17, %20 ], [ %33, %36 ], [ %46, %42 ]
-  %.0.i = phi i64 [ %21, %20 ], [ %37, %36 ], [ %49, %42 ]
+23:                                               ; preds = %41, %39, %20
+  %24 = phi i64 [ %17, %20 ], [ %36, %39 ], [ %45, %41 ]
+  %.0.i = phi i64 [ %21, %20 ], [ %40, %39 ], [ %48, %41 ]
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %.0.i)
   %26 = extractvalue { i64, i1 } %25, 0
   %27 = extractvalue { i64, i1 } %25, 1
   %28 = icmp ugt i64 %26, %6
   %or.cond.i.i = or i1 %27, %28
-  br i1 %or.cond.i.i, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %51
+  br i1 %or.cond.i.i, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %50
 
 29:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %.not94.i = icmp ult i64 %17, %6
-  br i1 %.not94.i, label %31, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
+  br i1 %.not94.i, label %34, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
 30:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %.not92.i = icmp ult i64 %17, %6
-  br i1 %.not92.i, label %38, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
+  br i1 %.not92.i, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %8, i64 %17
-  %33 = add nuw i64 %4, 3
-  store i64 %33, ptr %3, align 8, !alias.scope !47, !noalias !32
-  %34 = load i8, ptr %32, align 1, !noalias !48, !noundef !4
-  %35 = icmp sgt i8 %34, -1
-  br i1 %35, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %36
+_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i: ; preds = %30
+  %31 = getelementptr inbounds i8, ptr %8, i64 %17
+  %32 = add nuw i64 %4, 3
+  store i64 %32, ptr %3, align 8, !alias.scope !47, !noalias !32
+  %33 = load i8, ptr %31, align 1, !noalias !48, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %.not93.i = icmp ult i64 %32, %6
+  br i1 %.not93.i, label %41, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
-36:                                               ; preds = %31
-  %37 = zext i8 %34 to i64
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds i8, ptr %8, i64 %17
+  %36 = add nuw i64 %4, 3
+  store i64 %36, ptr %3, align 8, !alias.scope !52, !noalias !32
+  %37 = load i8, ptr %35, align 1, !noalias !53, !noundef !4
+  %38 = icmp sgt i8 %37, -1
+  br i1 %38, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %39
+
+39:                                               ; preds = %34
+  %40 = zext i8 %37 to i64
   br label %23
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %8, i64 %17
-  %40 = add nuw i64 %4, 3
-  store i64 %40, ptr %3, align 8, !alias.scope !49, !noalias !32
-  %41 = load i8, ptr %39, align 1, !noalias !50, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %.not93.i = icmp ult i64 %40, %6
-  br i1 %.not93.i, label %42, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
+41:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i
+  %42 = zext i8 %33 to i64
+  %43 = shl nuw nsw i64 %42, 8
+  %44 = getelementptr inbounds i8, ptr %8, i64 %32
+  %45 = add nuw i64 %4, 4
+  store i64 %45, ptr %3, align 8, !alias.scope !54, !noalias !32
+  %46 = load i8, ptr %44, align 1, !noalias !55, !noundef !4
+  %47 = zext i8 %46 to i64
+  %48 = or disjoint i64 %43, %47
+  %49 = icmp eq i8 %33, 0
+  br i1 %49, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %23
 
-42:                                               ; preds = %38
-  %43 = zext i8 %41 to i64
-  %44 = shl nuw nsw i64 %43, 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 %40
-  %46 = add nuw i64 %4, 4
-  store i64 %46, ptr %3, align 8, !alias.scope !54, !noalias !32
-  %47 = load i8, ptr %45, align 1, !noalias !55, !noundef !4
-  %48 = zext i8 %47 to i64
-  %49 = or disjoint i64 %44, %48
-  %50 = icmp eq i8 %41, 0
-  br i1 %50, label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread, label %23
-
-51:                                               ; preds = %23
-  %52 = sub nuw i64 %26, %24
-  %53 = getelementptr inbounds i8, ptr %8, i64 %24
+50:                                               ; preds = %23
+  %51 = sub nuw i64 %26, %24
+  %52 = getelementptr inbounds i8, ptr %8, i64 %24
   store i64 %26, ptr %3, align 8, !alias.scope !56, !noalias !32
-  %54 = add i8 %1, -1
-  %55 = icmp ult i8 %54, -93
-  tail call void @llvm.assume(i1 %55)
+  %53 = add i8 %1, -1
+  %54 = icmp ult i8 %53, -93
+  tail call void @llvm.assume(i1 %54)
   %.not = icmp eq i8 %1, %11
-  %.sroa.8.0. = select i1 %.not, i64 %52, i64 undef
-  %.sroa.52.0. = select i1 %.not, ptr %53, ptr null
+  %.sroa.8.0. = select i1 %.not, i64 %51, i64 undef
+  %.sroa.52.0. = select i1 %.not, ptr %52, ptr null
   br label %_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread
 
-_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread: ; preds = %23, %42, %38, %30, %31, %29, %22, %14, %7, %2, %51
-  %.sroa.4.0 = phi i64 [ %.sroa.8.0., %51 ], [ undef, %2 ], [ undef, %7 ], [ undef, %14 ], [ undef, %22 ], [ undef, %29 ], [ undef, %31 ], [ undef, %30 ], [ undef, %38 ], [ undef, %42 ], [ undef, %23 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.52.0., %51 ], [ null, %2 ], [ null, %7 ], [ null, %14 ], [ null, %22 ], [ null, %29 ], [ null, %31 ], [ null, %30 ], [ null, %38 ], [ null, %42 ], [ null, %23 ]
-  %56 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %57 = insertvalue { ptr, i64 } %56, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %57
+_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E.exit.thread: ; preds = %23, %41, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i, %30, %34, %29, %22, %14, %7, %2, %50
+  %.sroa.4.0 = phi i64 [ %.sroa.8.0., %50 ], [ undef, %2 ], [ undef, %7 ], [ undef, %14 ], [ undef, %22 ], [ undef, %29 ], [ undef, %34 ], [ undef, %30 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i ], [ undef, %41 ], [ undef, %23 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.52.0., %50 ], [ null, %2 ], [ null, %7 ], [ null, %14 ], [ null, %22 ], [ null, %29 ], [ null, %34 ], [ null, %30 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i ], [ null, %41 ], [ null, %23 ]
+  %55 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %56 = insertvalue { ptr, i64 } %55, i64 %.sroa.4.0, 1
+  ret { ptr, i64 } %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -645,7 +645,7 @@ define void @_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E(ptr noa
   %.not91 = icmp ult i64 %10, %6
   br i1 %.not91, label %20, label %25
 
-19:                                               ; preds = %25, %36, %45, %49, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72, %65, %67, %72, %69, %16, %14
+19:                                               ; preds = %25, %36, %48, %52, %.critedge, %64, %66, %71, %68, %16, %14
   ret void
 
 20:                                               ; preds = %18
@@ -671,15 +671,15 @@ define void @_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E(ptr noa
     i8 -126, label %39
   ]
 
-30:                                               ; preds = %56, %47, %27
-  %31 = phi i64 [ %22, %27 ], [ %42, %47 ], [ %60, %56 ]
-  %.0 = phi i64 [ %28, %27 ], [ %48, %47 ], [ %63, %56 ]
+30:                                               ; preds = %55, %50, %27
+  %31 = phi i64 [ %22, %27 ], [ %45, %50 ], [ %59, %55 ]
+  %.0 = phi i64 [ %28, %27 ], [ %51, %50 ], [ %62, %55 ]
   %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %31, i64 %.0)
   %33 = extractvalue { i64, i1 } %32, 0
   %34 = extractvalue { i64, i1 } %32, 1
   %35 = icmp ugt i64 %33, %6
   %or.cond.i = or i1 %34, %35
-  br i1 %or.cond.i, label %72, label %69
+  br i1 %or.cond.i, label %71, label %68
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -689,85 +689,85 @@ define void @_ZN4ring2io3der22read_tag_and_get_value17hac5057cf5883bd01E(ptr noa
 38:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %.not94 = icmp ult i64 %22, %6
-  br i1 %.not94, label %40, label %45
+  br i1 %.not94, label %43, label %48
 
 39:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %.not92 = icmp ult i64 %22, %6
-  br i1 %.not92, label %51, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %8, i64 %22
-  %42 = add nuw i64 %4, 3
-  store i64 %42, ptr %3, align 8, !alias.scope !65
-  %43 = load i8, ptr %41, align 1, !noalias !65, !noundef !4
-  %44 = icmp sgt i8 %43, -1
-  br i1 %44, label %49, label %47
-
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %46, align 8
-  br label %19
-
-47:                                               ; preds = %40
-  %48 = zext i8 %43 to i64
-  br label %30
-
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %50, align 8
-  br label %19
-
-51:                                               ; preds = %39
-  %52 = getelementptr inbounds i8, ptr %8, i64 %22
-  %53 = add nuw i64 %4, 3
-  store i64 %53, ptr %3, align 8, !alias.scope !68
-  %54 = load i8, ptr %52, align 1, !noalias !68, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %.not93 = icmp ult i64 %53, %6
-  br i1 %.not93, label %56, label %65
+  br i1 %.not92, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72, label %.critedge
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72: ; preds = %39
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %55, align 8
+  %40 = getelementptr inbounds i8, ptr %8, i64 %22
+  %41 = add nuw i64 %4, 3
+  store i64 %41, ptr %3, align 8, !alias.scope !68
+  %42 = load i8, ptr %40, align 1, !noalias !68, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  %.not93 = icmp ult i64 %41, %6
+  br i1 %.not93, label %55, label %64
+
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %8, i64 %22
+  %45 = add nuw i64 %4, 3
+  store i64 %45, ptr %3, align 8, !alias.scope !65
+  %46 = load i8, ptr %44, align 1, !noalias !65, !noundef !4
+  %47 = icmp sgt i8 %46, -1
+  br i1 %47, label %52, label %50
+
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %49, align 8
   br label %19
 
-56:                                               ; preds = %51
-  %57 = zext i8 %54 to i64
-  %58 = shl nuw nsw i64 %57, 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 %53
-  %60 = add nuw i64 %4, 4
-  store i64 %60, ptr %3, align 8, !alias.scope !71
-  %61 = load i8, ptr %59, align 1, !noalias !71, !noundef !4
-  %62 = zext i8 %61 to i64
-  %63 = or disjoint i64 %58, %62
-  %64 = icmp eq i8 %54, 0
-  br i1 %64, label %67, label %30
+50:                                               ; preds = %43
+  %51 = zext i8 %46 to i64
+  br label %30
 
-65:                                               ; preds = %51
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %66, align 8
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %53, align 8
   br label %19
 
-67:                                               ; preds = %56
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %68, align 8
+.critedge:                                        ; preds = %39
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %54, align 8
   br label %19
 
-69:                                               ; preds = %30
-  %70 = sub nuw i64 %33, %31
-  %71 = getelementptr inbounds i8, ptr %8, i64 %31
+55:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72
+  %56 = zext i8 %42 to i64
+  %57 = shl nuw nsw i64 %56, 8
+  %58 = getelementptr inbounds i8, ptr %8, i64 %41
+  %59 = add nuw i64 %4, 4
+  store i64 %59, ptr %3, align 8, !alias.scope !71
+  %60 = load i8, ptr %58, align 1, !noalias !71, !noundef !4
+  %61 = zext i8 %60 to i64
+  %62 = or disjoint i64 %57, %61
+  %63 = icmp eq i8 %42, 0
+  br i1 %63, label %66, label %30
+
+64:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %65, align 8
+  br label %19
+
+66:                                               ; preds = %55
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %67, align 8
+  br label %19
+
+68:                                               ; preds = %30
+  %69 = sub nuw i64 %33, %31
+  %70 = getelementptr inbounds i8, ptr %8, i64 %31
   store i64 %33, ptr %3, align 8, !alias.scope !74
   store i8 %11, ptr %0, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %71, ptr %.sroa.438.0..sroa_idx, align 8
+  store ptr %70, ptr %.sroa.438.0..sroa_idx, align 8
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %70, ptr %.sroa.539.0..sroa_idx, align 8
+  store i64 %69, ptr %.sroa.539.0..sroa_idx, align 8
   br label %19
 
-72:                                               ; preds = %30
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %73, align 8
+71:                                               ; preds = %30
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %72, align 8
   br label %19
 }
 
@@ -822,100 +822,100 @@ define { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(pt
     i8 -126, label %29
   ]
 
-22:                                               ; preds = %41, %35, %19
-  %23 = phi i64 [ %16, %19 ], [ %32, %35 ], [ %45, %41 ]
-  %.0.i.i = phi i64 [ %20, %19 ], [ %36, %35 ], [ %48, %41 ]
+22:                                               ; preds = %40, %38, %19
+  %23 = phi i64 [ %16, %19 ], [ %35, %38 ], [ %44, %40 ]
+  %.0.i.i = phi i64 [ %20, %19 ], [ %39, %38 ], [ %47, %40 ]
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %.0.i.i)
   %25 = extractvalue { i64, i1 } %24, 0
   %26 = extractvalue { i64, i1 } %24, 1
   %27 = icmp ugt i64 %25, %5
   %or.cond.i.i.i = or i1 %26, %27
-  br i1 %or.cond.i.i.i, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %50
+  br i1 %or.cond.i.i.i, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %49
 
 28:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %.not94.i.i = icmp ult i64 %16, %5
-  br i1 %.not94.i.i, label %30, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
+  br i1 %.not94.i.i, label %33, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
 29:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %.not92.i.i = icmp ult i64 %16, %5
-  br i1 %.not92.i.i, label %37, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
+  br i1 %.not92.i.i, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %7, i64 %16
-  %32 = add nuw i64 %3, 3
-  store i64 %32, ptr %2, align 8, !alias.scope !101, !noalias !87
-  %33 = load i8, ptr %31, align 1, !noalias !102, !noundef !4
-  %34 = icmp sgt i8 %33, -1
-  br i1 %34, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %35
+_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i: ; preds = %29
+  %30 = getelementptr inbounds i8, ptr %7, i64 %16
+  %31 = add nuw i64 %3, 3
+  store i64 %31, ptr %2, align 8, !alias.scope !101, !noalias !87
+  %32 = load i8, ptr %30, align 1, !noalias !102, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  %.not93.i.i = icmp ult i64 %31, %5
+  br i1 %.not93.i.i, label %40, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-35:                                               ; preds = %30
-  %36 = zext i8 %33 to i64
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %7, i64 %16
+  %35 = add nuw i64 %3, 3
+  store i64 %35, ptr %2, align 8, !alias.scope !106, !noalias !87
+  %36 = load i8, ptr %34, align 1, !noalias !107, !noundef !4
+  %37 = icmp sgt i8 %36, -1
+  br i1 %37, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %38
+
+38:                                               ; preds = %33
+  %39 = zext i8 %36 to i64
   br label %22
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %7, i64 %16
-  %39 = add nuw i64 %3, 3
-  store i64 %39, ptr %2, align 8, !alias.scope !103, !noalias !87
-  %40 = load i8, ptr %38, align 1, !noalias !104, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %.not93.i.i = icmp ult i64 %39, %5
-  br i1 %.not93.i.i, label %41, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
+40:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i
+  %41 = zext i8 %32 to i64
+  %42 = shl nuw nsw i64 %41, 8
+  %43 = getelementptr inbounds i8, ptr %7, i64 %31
+  %44 = add nuw i64 %3, 4
+  store i64 %44, ptr %2, align 8, !alias.scope !108, !noalias !87
+  %45 = load i8, ptr %43, align 1, !noalias !109, !noundef !4
+  %46 = zext i8 %45 to i64
+  %47 = or disjoint i64 %42, %46
+  %48 = icmp eq i8 %32, 0
+  br i1 %48, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %22
 
-41:                                               ; preds = %37
-  %42 = zext i8 %40 to i64
-  %43 = shl nuw nsw i64 %42, 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 %39
-  %45 = add nuw i64 %3, 4
-  store i64 %45, ptr %2, align 8, !alias.scope !108, !noalias !87
-  %46 = load i8, ptr %44, align 1, !noalias !109, !noundef !4
-  %47 = zext i8 %46 to i64
-  %48 = or disjoint i64 %43, %47
-  %49 = icmp eq i8 %40, 0
-  br i1 %49, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %22
-
-50:                                               ; preds = %22
-  %51 = getelementptr inbounds i8, ptr %7, i64 %23
+49:                                               ; preds = %22
+  %50 = getelementptr inbounds i8, ptr %7, i64 %23
   store i64 %25, ptr %2, align 8, !alias.scope !110, !noalias !87
   %.not.i = icmp eq i8 %10, 2
-  br i1 %.not.i, label %52, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
+  br i1 %.not.i, label %51, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-52:                                               ; preds = %50
-  %53 = sub nuw i64 %25, %23
+51:                                               ; preds = %49
+  %52 = sub nuw i64 %25, %23
   %.not = icmp eq i64 %25, %23
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %55 = add i64 %53, -1
-  br i1 %.not, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %56
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %54 = add i64 %52, -1
+  br i1 %.not, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %55
 
-56:                                               ; preds = %52
-  %57 = load i8, ptr %51, align 1, !noundef !4
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %60
+55:                                               ; preds = %51
+  %56 = load i8, ptr %50, align 1, !noundef !4
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %58, label %59
 
-59:                                               ; preds = %56
-  %.not43 = icmp eq i64 %55, 0
-  br i1 %.not43, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %62
+58:                                               ; preds = %55
+  %.not43 = icmp eq i64 %54, 0
+  br i1 %.not43, label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread, label %61
 
-60:                                               ; preds = %56
-  %61 = icmp sgt i8 %57, -1
-  %.sroa.7.0. = select i1 %61, i64 %53, i64 undef
-  %.sroa.07.0. = select i1 %61, ptr %51, ptr null
+59:                                               ; preds = %55
+  %60 = icmp sgt i8 %56, -1
+  %.sroa.7.0. = select i1 %60, i64 %52, i64 undef
+  %.sroa.07.0. = select i1 %60, ptr %50, ptr null
   br label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-62:                                               ; preds = %59
-  %63 = load i8, ptr %54, align 1, !noundef !4
-  %.not44 = icmp sgt i8 %63, -1
-  %..sroa.624.sroa.4.0 = select i1 %.not44, i64 undef, i64 %55
-  %..sroa.716.sroa.0.045 = select i1 %.not44, ptr null, ptr %54
+61:                                               ; preds = %58
+  %62 = load i8, ptr %53, align 1, !noundef !4
+  %.not44 = icmp sgt i8 %62, -1
+  %..sroa.624.sroa.4.0 = select i1 %.not44, i64 undef, i64 %54
+  %..sroa.716.sroa.0.045 = select i1 %.not44, ptr null, ptr %53
   br label %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread
 
-_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread: ; preds = %22, %41, %37, %29, %30, %28, %21, %13, %6, %1, %50, %60, %62, %59, %52
-  %.sroa.8.0 = phi i64 [ undef, %52 ], [ %.sroa.7.0., %60 ], [ 1, %59 ], [ %..sroa.624.sroa.4.0, %62 ], [ undef, %50 ], [ undef, %1 ], [ undef, %6 ], [ undef, %13 ], [ undef, %21 ], [ undef, %28 ], [ undef, %30 ], [ undef, %29 ], [ undef, %37 ], [ undef, %41 ], [ undef, %22 ]
-  %.sroa.0.0 = phi ptr [ null, %52 ], [ %.sroa.07.0., %60 ], [ %51, %59 ], [ %..sroa.716.sroa.0.045, %62 ], [ null, %50 ], [ null, %1 ], [ null, %6 ], [ null, %13 ], [ null, %21 ], [ null, %28 ], [ null, %30 ], [ null, %29 ], [ null, %37 ], [ null, %41 ], [ null, %22 ]
-  %64 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %65 = insertvalue { ptr, i64 } %64, i64 %.sroa.8.0, 1
-  ret { ptr, i64 } %65
+_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit.thread: ; preds = %22, %40, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i, %29, %33, %28, %21, %13, %6, %1, %49, %59, %61, %58, %51
+  %.sroa.8.0 = phi i64 [ undef, %51 ], [ %.sroa.7.0., %59 ], [ 1, %58 ], [ %..sroa.624.sroa.4.0, %61 ], [ undef, %49 ], [ undef, %1 ], [ undef, %6 ], [ undef, %13 ], [ undef, %21 ], [ undef, %28 ], [ undef, %33 ], [ undef, %29 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i ], [ undef, %40 ], [ undef, %22 ]
+  %.sroa.0.0 = phi ptr [ null, %51 ], [ %.sroa.07.0., %59 ], [ %50, %58 ], [ %..sroa.716.sroa.0.045, %61 ], [ null, %49 ], [ null, %1 ], [ null, %6 ], [ null, %13 ], [ null, %21 ], [ null, %28 ], [ null, %33 ], [ null, %29 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit72.i.i ], [ null, %40 ], [ null, %22 ]
+  %63 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %64 = insertvalue { ptr, i64 } %63, i64 %.sroa.8.0, 1
+  ret { ptr, i64 } %64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -2359,15 +2359,15 @@ attributes #22 = { noreturn }
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
 !46 = distinct !{!46, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
-!47 = !{!42, !26}
-!48 = !{!42, !33, !26}
-!49 = !{!45, !26}
-!50 = !{!45, !33, !26}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
-!53 = distinct !{!53, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
-!54 = !{!52, !26}
-!55 = !{!52, !33, !26}
+!47 = !{!45, !26}
+!48 = !{!45, !33, !26}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
+!51 = distinct !{!51, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
+!52 = !{!42, !26}
+!53 = !{!42, !33, !26}
+!54 = !{!50, !26}
+!55 = !{!50, !33, !26}
 !56 = !{!57, !26}
 !57 = distinct !{!57, !58, !"_ZN9untrusted6reader6Reader10read_bytes17he1adbfb9916ba18dE: argument 0"}
 !58 = distinct !{!58, !"_ZN9untrusted6reader6Reader10read_bytes17he1adbfb9916ba18dE"}
@@ -2413,15 +2413,15 @@ attributes #22 = { noreturn }
 !98 = !{!99}
 !99 = distinct !{!99, !100, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
 !100 = distinct !{!100, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
-!101 = !{!96, !81, !78}
-!102 = !{!96, !88, !81, !78}
-!103 = !{!99, !81, !78}
-!104 = !{!99, !88, !81, !78}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
-!107 = distinct !{!107, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
-!108 = !{!106, !81, !78}
-!109 = !{!106, !88, !81, !78}
+!101 = !{!99, !81, !78}
+!102 = !{!99, !88, !81, !78}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E: argument 0"}
+!105 = distinct !{!105, !"_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E"}
+!106 = !{!96, !81, !78}
+!107 = !{!96, !88, !81, !78}
+!108 = !{!104, !81, !78}
+!109 = !{!104, !88, !81, !78}
 !110 = !{!111, !81, !78}
 !111 = distinct !{!111, !112, !"_ZN9untrusted6reader6Reader10read_bytes17he1adbfb9916ba18dE: argument 0"}
 !112 = distinct !{!112, !"_ZN9untrusted6reader6Reader10read_bytes17he1adbfb9916ba18dE"}

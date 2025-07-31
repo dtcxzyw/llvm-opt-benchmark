@@ -1370,7 +1370,7 @@ agxbfree.exit:                                    ; preds = %18, %23
 define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #0 {
   %5 = load i64, ptr %0, align 8, !tbaa !86
   %6 = icmp sgt i64 %5, 258
-  br i1 %6, label %83, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %.not = icmp eq ptr %2, null
@@ -1379,25 +1379,25 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
 8:                                                ; preds = %7
   %9 = load i64, ptr %2, align 8, !tbaa !86
   %10 = icmp sgt i64 %9, 258
-  br i1 %10, label %83, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %8, %7
   %12 = load i64, ptr %1, align 8, !tbaa !86
   %13 = add i64 %12, -259
   %or.cond = icmp ult i64 %13, 3
-  br i1 %or.cond, label %14, label %83
+  br i1 %or.cond, label %14, label %.critedge
 
 14:                                               ; preds = %11
   %15 = icmp eq i64 %5, 31
   br i1 %15, label %16, label %44
 
 16:                                               ; preds = %14
-  br i1 %.not, label %83, label %17
+  br i1 %.not, label %.critedge, label %17
 
 17:                                               ; preds = %16
   %18 = load i64, ptr %2, align 8, !tbaa !86
   %.not75 = icmp eq i64 %18, 31
-  br i1 %.not75, label %19, label %83
+  br i1 %.not75, label %19, label %.critedge
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1406,7 +1406,7 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
   %23 = load i64, ptr %22, align 8, !tbaa !65
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !89
-  switch i64 %25, label %.thread91 [
+  switch i64 %25, label %.thread [
     i64 324, label %26
     i64 325, label %29
     i64 60, label %32
@@ -1417,82 +1417,82 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
 
 26:                                               ; preds = %19
   %.not81 = icmp eq i32 %3, 0
-  br i1 %.not81, label %27, label %83
+  br i1 %.not81, label %27, label %.critedge
 
 27:                                               ; preds = %26
   %28 = icmp eq i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 29:                                               ; preds = %19
   %.not80 = icmp eq i32 %3, 0
-  br i1 %.not80, label %30, label %83
+  br i1 %.not80, label %30, label %.critedge
 
 30:                                               ; preds = %29
   %31 = icmp ne i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 32:                                               ; preds = %19
   %.not79 = icmp eq i32 %3, 0
-  br i1 %.not79, label %33, label %83
+  br i1 %.not79, label %33, label %.critedge
 
 33:                                               ; preds = %32
   %34 = icmp slt i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 35:                                               ; preds = %19
   %.not78 = icmp eq i32 %3, 0
-  br i1 %.not78, label %36, label %83
+  br i1 %.not78, label %36, label %.critedge
 
 36:                                               ; preds = %35
   %37 = icmp sle i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 38:                                               ; preds = %19
   %.not77 = icmp eq i32 %3, 0
-  br i1 %.not77, label %39, label %83
+  br i1 %.not77, label %39, label %.critedge
 
 39:                                               ; preds = %38
   %40 = icmp sge i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 41:                                               ; preds = %19
   %.not76 = icmp eq i32 %3, 0
-  br i1 %.not76, label %42, label %83
+  br i1 %.not76, label %42, label %.critedge
 
 42:                                               ; preds = %41
   %43 = icmp sgt i64 %21, %23
-  br label %.thread91.sink.split
+  br label %.thread.sink.split
 
 44:                                               ; preds = %14
-  br i1 %.not, label %.thread95, label %.thread91
+  br i1 %.not, label %.thread92, label %.thread
 
-.thread91.sink.split:                             ; preds = %27, %30, %33, %36, %39, %42
-  %.sink98 = phi i1 [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %28, %27 ]
-  %45 = zext i1 %.sink98 to i64
+.thread.sink.split:                               ; preds = %42, %39, %36, %33, %30, %27
+  %.sink95 = phi i1 [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ]
+  %45 = zext i1 %.sink95 to i64
   store i64 %45, ptr %20, align 8, !tbaa !65
-  br label %.thread91
+  br label %.thread
 
-.thread91:                                        ; preds = %.thread91.sink.split, %19, %44
-  %.06993 = phi i32 [ -1, %44 ], [ -1, %19 ], [ 0, %.thread91.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %19, %44
+  %.06990 = phi i32 [ -1, %44 ], [ -1, %19 ], [ 0, %.thread.sink.split ]
   %46 = load i64, ptr %2, align 8, !tbaa !86
   %47 = icmp eq i64 %46, 31
-  br i1 %47, label %83, label %48
+  br i1 %47, label %.critedge, label %48
 
-48:                                               ; preds = %.thread91
+48:                                               ; preds = %.thread
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %50 = load i64, ptr %49, align 8, !tbaa !65
   %51 = inttoptr i64 %50 to ptr
-  br label %.thread95
+  br label %.thread92
 
-.thread95:                                        ; preds = %44, %48
-  %.0699497 = phi i32 [ %.06993, %48 ], [ -1, %44 ]
+.thread92:                                        ; preds = %44, %48
+  %.0699194 = phi i32 [ %.06990, %48 ], [ -1, %44 ]
   %.067 = phi ptr [ %51, %48 ], [ null, %44 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.in = load i64, ptr %52, align 8, !tbaa !65
   %53 = inttoptr i64 %.in to ptr
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !89
-  switch i64 %55, label %83 [
+  switch i64 %55, label %.critedge [
     i64 324, label %56
     i64 325, label %60
     i64 60, label %64
@@ -1501,72 +1501,72 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
     i64 62, label %78
   ]
 
-56:                                               ; preds = %.thread95
+56:                                               ; preds = %.thread92
   %.not87 = icmp eq i32 %3, 0
-  br i1 %.not87, label %57, label %83
+  br i1 %.not87, label %57, label %.critedge
 
 57:                                               ; preds = %56
   %58 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %.not88 = icmp eq i32 %58, 0
   %59 = zext i1 %.not88 to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-60:                                               ; preds = %.thread95
+60:                                               ; preds = %.thread92
   %.not86 = icmp eq i32 %3, 0
-  br i1 %.not86, label %61, label %83
+  br i1 %.not86, label %61, label %.critedge
 
 61:                                               ; preds = %60
   %62 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %63 = sext i32 %62 to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-64:                                               ; preds = %.thread95
+64:                                               ; preds = %.thread92
   %.not85 = icmp eq i32 %3, 0
-  br i1 %.not85, label %65, label %83
+  br i1 %.not85, label %65, label %.critedge
 
 65:                                               ; preds = %64
   %66 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %.lobit = lshr i32 %66, 31
   %67 = zext nneg i32 %.lobit to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-68:                                               ; preds = %.thread95
+68:                                               ; preds = %.thread92
   %.not84 = icmp eq i32 %3, 0
-  br i1 %.not84, label %69, label %83
+  br i1 %.not84, label %69, label %.critedge
 
 69:                                               ; preds = %68
   %70 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %71 = icmp slt i32 %70, 1
   %72 = zext i1 %71 to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-73:                                               ; preds = %.thread95
+73:                                               ; preds = %.thread92
   %.not83 = icmp eq i32 %3, 0
-  br i1 %.not83, label %74, label %83
+  br i1 %.not83, label %74, label %.critedge
 
 74:                                               ; preds = %73
   %75 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %76 = icmp sgt i32 %75, -1
   %77 = zext i1 %76 to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-78:                                               ; preds = %.thread95
+78:                                               ; preds = %.thread92
   %.not82 = icmp eq i32 %3, 0
-  br i1 %.not82, label %79, label %83
+  br i1 %.not82, label %79, label %.critedge
 
 79:                                               ; preds = %78
   %80 = tail call i32 @compare(ptr noundef %53, ptr noundef %.067) #25
   %81 = icmp sgt i32 %80, 0
   %82 = zext i1 %81 to i64
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-.sink.split:                                      ; preds = %79, %74, %69, %65, %61, %57
+.critedge.sink.split:                             ; preds = %79, %74, %69, %65, %61, %57
   %.sink = phi i64 [ %59, %57 ], [ %63, %61 ], [ %67, %65 ], [ %72, %69 ], [ %77, %74 ], [ %82, %79 ]
   store i64 %.sink, ptr %52, align 8, !tbaa !65
-  br label %83
+  br label %.critedge
 
-83:                                               ; preds = %.sink.split, %26, %29, %32, %35, %38, %41, %.thread95, %78, %73, %68, %64, %60, %56, %.thread91, %17, %16, %11, %8, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %16 ], [ -1, %17 ], [ -1, %.thread91 ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ %.0699497, %.thread95 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %26, %29, %32, %35, %38, %41, %.thread92, %78, %73, %68, %64, %60, %56, %.thread, %17, %16, %11, %8, %4
+  %.0 = phi i32 [ -1, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %16 ], [ -1, %17 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %78 ], [ %.0699194, %.thread92 ], [ 0, %41 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 

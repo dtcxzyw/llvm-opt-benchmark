@@ -537,7 +537,7 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   br i1 %.not102, label %.thread, label %116
 
 .thread:                                          ; preds = %31, %35, %38
-  %.083123 = phi i1 [ false, %38 ], [ true, %35 ], [ true, %31 ]
+  %.083125 = phi i1 [ false, %38 ], [ true, %35 ], [ true, %31 ]
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 %15) #9
   %.not103 = icmp eq i32 %.0, 0
   br i1 %.not103, label %.critedge, label %41
@@ -587,7 +587,7 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   unreachable
 
 .critedge:                                        ; preds = %.thread, %54
-  br i1 %.083123, label %58, label %61
+  br i1 %.083125, label %58, label %61
 
 58:                                               ; preds = %.critedge
   %59 = load i32, ptr %26, align 8
@@ -657,7 +657,7 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
 91:                                               ; preds = %83, %89, %86
   %92 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #9
   %.not114 = icmp eq i32 %92, 0
-  br i1 %.not114, label %149, label %93
+  br i1 %.not114, label %.critedge121, label %93
 
 93:                                               ; preds = %91
   %94 = tail call ptr @__errno_location() #11
@@ -792,7 +792,7 @@ define internal noalias noundef ptr @_rpc_queue_worker(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   br label %.backedge
 
-149:                                              ; preds = %91
+.critedge121:                                     ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret ptr null
 }

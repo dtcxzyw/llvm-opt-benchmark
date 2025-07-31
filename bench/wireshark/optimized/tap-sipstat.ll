@@ -207,9 +207,9 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %20
-  %.sink94 = phi i64 [ 24, %20 ], [ 16, %39 ]
+  %.sink93 = phi i64 [ 24, %20 ], [ 16, %39 ]
   %.sink = phi i32 [ %23, %20 ], [ %42, %39 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink94
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink93
   store i32 %.sink, ptr %43, align 8
   br label %44
 
@@ -239,13 +239,13 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr @g_hash_table_lookup(ptr noundef %57, ptr noundef nonnull %6)
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %.critedge
+  br i1 %59, label %60, label %.critedge90
 
 60:                                               ; preds = %55
   %61 = load i32, ptr %53, align 8
   %62 = add i32 %61, -700
   %or.cond = icmp ult i32 %62, -600
-  br i1 %or.cond, label %.thread, label %63
+  br i1 %or.cond, label %.critedge, label %63
 
 63:                                               ; preds = %60
   %64 = icmp samesign ult i32 %61, 200
@@ -269,14 +269,14 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   br label %72
 
 72:                                               ; preds = %71, %69, %67, %65, %63
-  %.sink95 = phi i32 [ 199, %63 ], [ 299, %65 ], [ 399, %67 ], [ 499, %69 ], [ %., %71 ]
-  store i32 %.sink95, ptr %6, align 4
+  %.sink94 = phi i32 [ 199, %63 ], [ 299, %65 ], [ 399, %67 ], [ 499, %69 ], [ %., %71 ]
+  store i32 %.sink94, ptr %6, align 4
   %73 = load ptr, ptr %56, align 8
   %74 = call ptr @g_hash_table_lookup(ptr noundef %73, ptr noundef nonnull %6)
-  %.not92 = icmp eq ptr %74, null
-  br i1 %.not92, label %.thread, label %.critedge
+  %.not91 = icmp eq ptr %74, null
+  br i1 %.not91, label %.critedge, label %.critedge90
 
-.critedge:                                        ; preds = %72, %55
+.critedge90:                                      ; preds = %72, %55
   %.075 = phi ptr [ %74, %72 ], [ %58, %55 ]
   %75 = load i32, ptr %.075, align 8
   %76 = add i32 %75, 1
@@ -284,7 +284,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %96
 
-.thread:                                          ; preds = %60, %72
+.critedge:                                        ; preds = %60, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %96
 
@@ -320,8 +320,8 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
   store i32 %95, ptr %93, align 8
   br label %96
 
-96:                                               ; preds = %.critedge, %92, %84, %77, %.thread
-  %.3 = phi i32 [ 0, %.thread ], [ 0, %77 ], [ 1, %84 ], [ 1, %92 ], [ 1, %.critedge ]
+96:                                               ; preds = %.critedge90, %92, %84, %77, %.critedge
+  %.3 = phi i32 [ 0, %.critedge ], [ 0, %77 ], [ 1, %84 ], [ 1, %92 ], [ 1, %.critedge90 ]
   ret i32 %.3
 }
 

@@ -8980,7 +8980,7 @@ define hidden noundef range(i64 -195536000000000000, 87769000000000001) i64 @_ZN
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 49, i8 noundef zeroext 9, i32 noundef 1) #14
   store ptr %4, ptr @_ZL17_cpu_brand_string, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %_ZN10VM_Version16cpu_brand_stringEv.exit
+  br i1 %5, label %.critedge, label %_ZN10VM_Version16cpu_brand_stringEv.exit
 
 _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   %6 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
@@ -9022,15 +9022,15 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   store i32 %28, ptr %29, align 4
   %.pre.i = load ptr, ptr @_ZL17_cpu_brand_string, align 8
   %30 = icmp eq ptr %.pre.i, null
-  br i1 %30, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %.preheader.preheader
+  br i1 %30, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %0, %_ZN10VM_Version16cpu_brand_stringEv.exit
-  %.0.i60 = phi ptr [ %.pre.i, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %1, %0 ]
+  %.0.i53 = phi ptr [ %.pre.i, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %1, %0 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %43
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %43 ]
-  %31 = getelementptr i8, ptr %.0.i60, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 72
@@ -9044,7 +9044,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
 
 39:                                               ; preds = %35
   %40 = load i8, ptr %31, align 1
-  switch i8 %40, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread [
+  switch i8 %40, label %.critedge [
     i8 77, label %44
     i8 71, label %41
     i8 84, label %42
@@ -9059,10 +9059,10 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
 43:                                               ; preds = %.preheader, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 46
-  br i1 %exitcond.not, label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !16
 
 44:                                               ; preds = %41, %42, %39
-  %.042.ph = phi i64 [ 1000000, %39 ], [ 1000000000000, %42 ], [ 1000000000, %41 ]
+  %.042 = phi i64 [ 1000000000, %41 ], [ 1000000000000, %42 ], [ 1000000, %39 ]
   %45 = getelementptr i8, ptr %31, i64 -3
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 46
@@ -9073,22 +9073,22 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   %50 = load i8, ptr %49, align 1
   %51 = sext i8 %50 to i64
   %52 = add nsw i64 %51, -48
-  %53 = mul nsw i64 %52, %.042.ph
+  %53 = mul nsw i64 %52, %.042
   %54 = getelementptr i8, ptr %31, i64 -2
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i64
   %57 = add nsw i64 %56, -48
-  %58 = mul nsw i64 %57, %.042.ph
+  %58 = mul nsw i64 %57, %.042
   %59 = sdiv i64 %58, 10
   %60 = add nsw i64 %59, %53
   %61 = getelementptr i8, ptr %31, i64 -1
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i64
   %64 = add nsw i64 %63, -48
-  %65 = mul nsw i64 %64, %.042.ph
+  %65 = mul nsw i64 %64, %.042
   %66 = sdiv i64 %65, 100
   %67 = add nsw i64 %60, %66
-  br label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread
+  br label %.critedge
 
 68:                                               ; preds = %44
   %69 = sext i8 %46 to i64
@@ -9108,11 +9108,11 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
   %83 = add nsw i64 %82, %73
   %84 = add nsw i64 %83, %78
   %85 = add nsw i64 %84, %81
-  %86 = mul nsw i64 %85, %.042.ph
-  br label %_ZN10VM_Version16cpu_brand_stringEv.exit.thread
+  %86 = mul nsw i64 %85, %.042
+  br label %.critedge
 
-_ZN10VM_Version16cpu_brand_stringEv.exit.thread:  ; preds = %43, %39, %3, %68, %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
-  %.043 = phi i64 [ 0, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %67, %48 ], [ %86, %68 ], [ 0, %3 ], [ 0, %39 ], [ 0, %43 ]
+.critedge:                                        ; preds = %43, %3, %39, %68, %48, %_ZN10VM_Version16cpu_brand_stringEv.exit
+  %.043 = phi i64 [ 0, %_ZN10VM_Version16cpu_brand_stringEv.exit ], [ %67, %48 ], [ %86, %68 ], [ 0, %39 ], [ 0, %3 ], [ 0, %43 ]
   ret i64 %.043
 }
 

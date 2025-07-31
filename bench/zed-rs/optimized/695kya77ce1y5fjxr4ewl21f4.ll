@@ -74265,7 +74265,7 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   %19 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h6e74c3d232d519caE(i64 noundef 0, ptr noundef nonnull align 1 @anon.c04c855068e48927424262feca3a3368.403, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c04c855068e48927424262feca3a3368.6.llvm.17837390128320733353)
   br label %22
 
-20:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf201f50ccc5bfd00E.exit.thread18.i.i.i", %8
+20:                                               ; preds = %8, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf201f50ccc5bfd00E.exit.thread18.i.i.i"
   %.sroa.6.117.i.i.i = phi ptr [ %13, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf201f50ccc5bfd00E.exit.thread18.i.i.i" ], [ null, %8 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.117.i.i.i, ptr %21, align 8
@@ -74280,8 +74280,8 @@ define hidden void @"_ZN188_$LT$repl..jupyter_settings.._..$LT$impl$u20$serde..d
   br label %24
 
 24:                                               ; preds = %22, %20
-  %.sink24 = phi i64 [ 1, %22 ], [ 0, %20 ]
-  store i64 %.sink24, ptr %0, align 8
+  %.sink23 = phi i64 [ 1, %22 ], [ 0, %20 ]
+  store i64 %.sink23, ptr %0, align 8
   ret void
 }
 

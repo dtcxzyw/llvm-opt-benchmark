@@ -3463,7 +3463,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit: 
 
 51:                                               ; preds = %37
   %52 = icmp ugt i64 %6, 65535
-  br i1 %52, label %.thread, label %54
+  br i1 %52, label %.critedge, label %54
 
 53:                                               ; preds = %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit30, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit37, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit
   %.0 = phi i32 [ %50, %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit ], [ %74, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24 ], [ %154, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit37 ], [ %120, %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit30 ]
@@ -3475,12 +3475,12 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit: 
   %57 = extractvalue { i16, i16 } %56, 0
   %58 = extractvalue { i16, i16 } %56, 1
   %59 = icmp eq i16 %57, 1
-  br i1 %59, label %60, label %.thread
+  br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %54
   br i1 %switch17, label %77, label %75
 
-.thread:                                          ; preds = %51, %75, %54
+.critedge:                                        ; preds = %75, %51, %54
   %61 = tail call noundef i16 @_ZN17cranelift_codegen3isa20TargetFrontendConfig12pointer_type17hc19b33e823563935E(i8 noundef %1, i8 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3488,11 +3488,11 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit: 
   %.not.i.i18 = icmp eq i32 %63, -1
   br i1 %.not.i.i18, label %64, label %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit19
 
-64:                                               ; preds = %.thread
+64:                                               ; preds = %.critedge
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.358051856ba06694152837a06f3247e6.45.llvm.10542051026992468343, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb3c6c679d30fbac272368bec4720bf4.1.llvm.12584902720330826042) #27, !noalias !529
   unreachable
 
-_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit19: ; preds = %.thread
+_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit19: ; preds = %.critedge
   %65 = tail call noundef i64 @"_ZN91_$LT$cranelift_codegen..ir..immediates..Imm64$u20$as$u20$core..convert..From$LT$i64$GT$$GT$4from17hca4d59e1f6b46bc4E"(i64 noundef %6), !noalias !532
   %66 = tail call noundef zeroext i1 @_ZN17cranelift_codegen2ir5types4Type10is_invalid17h6ed2bdd8f6599ab7E(i16 noundef %61), !noalias !535
   br i1 %66, label %_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24, label %67
@@ -3519,7 +3519,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit24
 
 75:                                               ; preds = %60
   %76 = icmp eq i16 %58, 118
-  br i1 %76, label %121, label %.thread
+  br i1 %76, label %121, label %.critedge
 
 77:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %21)

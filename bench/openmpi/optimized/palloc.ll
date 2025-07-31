@@ -1819,14 +1819,14 @@ define internal void @cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
   br label %15
 
-15:                                               ; preds = %10, %.thread
-  %.0108115 = phi i64 [ 0, %10 ], [ %82, %.thread ]
+15:                                               ; preds = %10, %.critedge
+  %.0108113 = phi i64 [ 0, %10 ], [ %82, %.critedge ]
   %16 = load ptr, ptr %13, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw %struct.pmix_info, ptr %16, i64 %.0108115
-  %18 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.0108115
+  %17 = getelementptr inbounds nuw %struct.pmix_info, ptr %16, i64 %.0108113
+  %18 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.0108113
   %19 = tail call i32 @PMIx_Info_xfer(ptr noundef %17, ptr noundef %18) #16
   %20 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %18, ptr noundef nonnull @.str.85) #16
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 520
@@ -1855,116 +1855,116 @@ define internal void @cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr
   %26 = load i64, ptr %25, align 8, !tbaa !75
   %27 = trunc i64 %26 to i32
   store i32 %27, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %30 = load i32, ptr %29, align 8, !tbaa !75
   store i32 %30, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %33 = load i8, ptr %32, align 8, !tbaa !75
   %34 = sext i8 %33 to i32
   store i32 %34, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 35:                                               ; preds = %21
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %37 = load i16, ptr %36, align 8, !tbaa !75
   %38 = sext i16 %37 to i32
   store i32 %38, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 39:                                               ; preds = %21
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %41 = load i32, ptr %40, align 8, !tbaa !75
   store i32 %41, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 42:                                               ; preds = %21
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %44 = load i64, ptr %43, align 8, !tbaa !75
   %45 = trunc i64 %44 to i32
   store i32 %45, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 46:                                               ; preds = %21
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %48 = load i32, ptr %47, align 8, !tbaa !75
   store i32 %48, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 49:                                               ; preds = %21
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %51 = load i8, ptr %50, align 8, !tbaa !75
   %52 = zext i8 %51 to i32
   store i32 %52, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %21
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %55 = load i16, ptr %54, align 8, !tbaa !75
   %56 = zext i16 %55 to i32
   store i32 %56, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 57:                                               ; preds = %21
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %59 = load i32, ptr %58, align 8, !tbaa !75
   store i32 %59, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 60:                                               ; preds = %21
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %62 = load i64, ptr %61, align 8, !tbaa !75
   %63 = trunc i64 %62 to i32
   store i32 %63, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 64:                                               ; preds = %21
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %66 = load float, ptr %65, align 8, !tbaa !75
   %67 = fptoui float %66 to i32
   store i32 %67, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 68:                                               ; preds = %21
   %69 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %70 = load double, ptr %69, align 8, !tbaa !75
   %71 = fptoui double %70 to i32
   store i32 %71, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 72:                                               ; preds = %21
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %74 = load i32, ptr %73, align 8, !tbaa !75
   store i32 %74, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 75:                                               ; preds = %21
   %76 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %77 = load i32, ptr %76, align 8, !tbaa !75
   store i32 %77, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 78:                                               ; preds = %21
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %80 = load i32, ptr %79, align 8, !tbaa !75
   store i32 %80, ptr %14, align 8, !tbaa !80
-  br label %.thread
+  br label %.critedge
 
 81:                                               ; preds = %21
   store i32 -27, ptr %7, align 8, !tbaa !74
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %78, %75, %72, %68, %64, %60, %57, %53, %49, %46, %42, %39, %35, %31, %28, %24, %15, %81
-  %82 = add nuw i64 %.0108115, 1
+.critedge:                                        ; preds = %24, %28, %31, %35, %39, %42, %46, %49, %53, %57, %60, %64, %68, %72, %75, %78, %15, %81
+  %82 = add nuw i64 %.0108113, 1
   %exitcond.not = icmp eq i64 %82, %2
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !81
 
-.loopexit:                                        ; preds = %.thread, %6
+.loopexit:                                        ; preds = %.critedge, %6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %84, label %83
 

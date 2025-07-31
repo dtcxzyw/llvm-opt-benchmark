@@ -87,7 +87,7 @@ define dso_local void @lolwutCommand(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = icmp sgt i32 %5, 2
   %.024.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.024.sroa.gep37 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %.024.sroa.gep29 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %1
@@ -107,31 +107,27 @@ define dso_local void @lolwutCommand(ptr noundef %0) local_unnamed_addr #0 {
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %17, ptr noundef nonnull %3, ptr noundef null) #14
   %.not25 = icmp eq i32 %18, 0
-  br i1 %.not25, label %.thread, label %26
+  br i1 %.not25, label %19, label %.critedge
 
-.thread:                                          ; preds = %15
-  %19 = load i64, ptr %3, align 8, !tbaa !12
-  %20 = trunc i64 %19 to i32
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %20) #14
-  %22 = load ptr, ptr %8, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %23, ptr %8, align 8, !tbaa !33
-  %24 = load i32, ptr %4, align 8, !tbaa !14
-  %25 = add nsw i32 %24, -2
-  store i32 %25, ptr %4, align 8, !tbaa !14
+19:                                               ; preds = %15
+  %20 = load i64, ptr %3, align 8, !tbaa !12
+  %21 = trunc i64 %20 to i32
+  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %21) #14
+  %23 = load ptr, ptr %8, align 8, !tbaa !33
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %24, ptr %8, align 8, !tbaa !33
+  %25 = load i32, ptr %4, align 8, !tbaa !14
+  %26 = add nsw i32 %25, -2
+  store i32 %26, ptr %4, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   br label %27
 
-26:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  br label %58
-
-27:                                               ; preds = %.thread, %7, %1
-  %.024.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %7 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %1 ], [ %.024.sroa.gep, %.thread ]
-  %.024.sroa.phi36 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %7 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %1 ], [ %.024.sroa.gep37, %.thread ]
-  %.024 = phi ptr [ @.str.1, %7 ], [ @.str.1, %1 ], [ %2, %.thread ]
+27:                                               ; preds = %19, %7, %1
+  %.024.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %7 ], [ %.024.sroa.gep, %19 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %1 ]
+  %.024.sroa.phi28 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %7 ], [ %.024.sroa.gep29, %19 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %1 ]
+  %.024 = phi ptr [ @.str.1, %7 ], [ %2, %19 ], [ @.str.1, %1 ]
   %28 = load i8, ptr %.024, align 1, !tbaa !5
-  switch i8 %28, label %.thread33 [
+  switch i8 %28, label %.thread45 [
     i8 53, label %29
     i8 52, label %34
     i8 54, label %41
@@ -140,65 +136,64 @@ define dso_local void @lolwutCommand(ptr noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %27
   %30 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
   %31 = icmp eq i8 %30, 46
-  br i1 %31, label %32, label %.thread33
+  br i1 %31, label %32, label %.thread45
 
 32:                                               ; preds = %29
-  %33 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %33 = load i8, ptr %.024.sroa.phi28, align 1, !tbaa !5
   %.not26 = icmp eq i8 %33, 57
   br i1 %.not26, label %46, label %40
 
 34:                                               ; preds = %27
   %35 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
   %36 = icmp eq i8 %35, 46
-  br i1 %36, label %37, label %.thread33
+  br i1 %36, label %37, label %.thread45
 
 37:                                               ; preds = %34
-  %38 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %38 = load i8, ptr %.024.sroa.phi28, align 1, !tbaa !5
   %39 = icmp eq i8 %38, 57
-  br i1 %39, label %40, label %.thread33
+  br i1 %39, label %40, label %.thread45
 
 40:                                               ; preds = %37, %32
   call void @lolwut5Command(ptr noundef nonnull %0) #14
-  br label %50
+  br label %47
 
 41:                                               ; preds = %27
   %42 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
   %43 = icmp eq i8 %42, 46
-  br i1 %43, label %44, label %.thread33
+  br i1 %43, label %44, label %.thread45
 
 44:                                               ; preds = %41
-  %45 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %45 = load i8, ptr %.024.sroa.phi28, align 1, !tbaa !5
   %.not27 = icmp eq i8 %45, 57
-  br i1 %.not27, label %.thread33, label %49
+  br i1 %.not27, label %.thread45, label %46
 
-46:                                               ; preds = %32
-  %47 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
-  %48 = icmp eq i8 %47, 57
-  br i1 %48, label %49, label %.thread33
-
-49:                                               ; preds = %46, %44
+46:                                               ; preds = %32, %44
   call void @lolwut6Command(ptr noundef nonnull %0) #14
-  br label %50
+  br label %47
 
-.thread33:                                        ; preds = %29, %27, %34, %37, %41, %44, %46
+.thread45:                                        ; preds = %27, %34, %37, %41, %44, %29
   call void @lolwutUnstableCommand(ptr noundef nonnull %0)
-  br label %50
+  br label %47
 
-50:                                               ; preds = %49, %.thread33, %40
-  %51 = icmp eq ptr %.024, %2
-  br i1 %51, label %52, label %58
+47:                                               ; preds = %46, %.thread45, %40
+  %48 = icmp eq ptr %.024, %2
+  br i1 %48, label %49, label %55
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !33
-  %55 = getelementptr inbounds i8, ptr %54, i64 -16
-  store ptr %55, ptr %53, align 8, !tbaa !33
-  %56 = load i32, ptr %4, align 8, !tbaa !14
-  %57 = add nsw i32 %56, 2
-  store i32 %57, ptr %4, align 8, !tbaa !14
-  br label %58
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = getelementptr inbounds i8, ptr %51, i64 -16
+  store ptr %52, ptr %50, align 8, !tbaa !33
+  %53 = load i32, ptr %4, align 8, !tbaa !14
+  %54 = add nsw i32 %53, 2
+  store i32 %54, ptr %4, align 8, !tbaa !14
+  br label %55
 
-58:                                               ; preds = %26, %50, %52
+.critedge:                                        ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  br label %55
+
+55:                                               ; preds = %47, %49, %.critedge
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
   ret void
 }

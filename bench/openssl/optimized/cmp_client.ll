@@ -1832,17 +1832,17 @@ define internal range(i32 -1, 2) i32 @unprotected_exception(ptr noundef %0, ptr 
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %8 = and i1 %6, %7
-  br i1 %8, label %9, label %.thread, !prof !78
+  br i1 %8, label %9, label %.critedge, !prof !78
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !91
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.thread, label %12
+  br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %9
-  switch i32 %5, label %.thread [
-    i32 23, label %.thread43
+  switch i32 %5, label %.critedge [
+    i32 23, label %select.unfold
     i32 12, label %13
     i32 19, label %22
     i32 8, label %23
@@ -1857,15 +1857,15 @@ define internal range(i32 -1, 2) i32 @unprotected_exception(ptr noundef %0, ptr 
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = tail call ptr @ossl_cmp_revrepcontent_get_pkisi(ptr noundef %17, i32 noundef 0) #4
   %.not36 = icmp eq ptr %18, null
-  br i1 %.not36, label %.thread, label %19
+  br i1 %.not36, label %.critedge, label %19
 
 19:                                               ; preds = %13
   %20 = tail call i32 @ossl_cmp_pkisi_get_status(ptr noundef nonnull %18) #4
   %21 = icmp eq i32 %20, 2
-  br i1 %21, label %.thread43, label %.thread
+  br i1 %21, label %select.unfold, label %.critedge
 
 22:                                               ; preds = %12
-  br label %.thread43
+  br label %select.unfold
 
 23:                                               ; preds = %12, %12, %12
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1879,24 +1879,24 @@ define internal range(i32 -1, 2) i32 @unprotected_exception(ptr noundef %0, ptr 
   %32 = icmp sgt i32 %31, 1
   %33 = icmp eq ptr %28, null
   %or.cond = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond, label %.thread, label %34
+  br i1 %or.cond, label %.critedge, label %34
 
 34:                                               ; preds = %23
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !17
   %37 = tail call i32 @ossl_cmp_pkisi_get_status(ptr noundef %36) #4
-  %.not49 = icmp eq i32 %37, 2
-  br i1 %.not49, label %.thread43, label %.thread
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %select.unfold, label %.critedge
 
-.thread43:                                        ; preds = %19, %12, %22, %34
-  %.02745 = phi ptr [ @.str.31, %34 ], [ @.str.28, %12 ], [ @.str.30, %22 ], [ @.str.29, %19 ]
+select.unfold:                                    ; preds = %19, %34, %22, %12
+  %.027.ph = phi ptr [ @.str.28, %12 ], [ @.str.30, %22 ], [ @.str.31, %34 ], [ @.str.29, %19 ]
   %.not37 = icmp eq i32 %2, 0
-  %38 = select i1 %.not37, ptr @.str.34, ptr @.str.33
-  %39 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull @__func__.unprotected_exception, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.32, ptr noundef nonnull %38, ptr noundef nonnull %.02745) #4
-  br label %.thread
+  %39 = select i1 %.not37, ptr @.str.34, ptr @.str.33
+  %40 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull @__func__.unprotected_exception, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.32, ptr noundef nonnull %39, ptr noundef nonnull %.027.ph) #4
+  br label %.critedge
 
-.thread:                                          ; preds = %12, %19, %13, %23, %34, %9, %4, %.thread43
-  %.0 = phi i32 [ 1, %.thread43 ], [ -1, %4 ], [ 0, %9 ], [ 0, %34 ], [ -1, %23 ], [ -1, %13 ], [ 0, %19 ], [ 0, %12 ]
+.critedge:                                        ; preds = %12, %34, %19, %23, %13, %9, %4, %select.unfold
+  %.0 = phi i32 [ 1, %select.unfold ], [ -1, %4 ], [ 0, %9 ], [ -1, %13 ], [ -1, %23 ], [ 0, %19 ], [ 0, %34 ], [ 0, %12 ]
   ret i32 %.0
 }
 

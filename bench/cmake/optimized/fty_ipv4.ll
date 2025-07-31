@@ -32,61 +32,61 @@ define internal zeroext i1 @Check_IPV4_Field(ptr noundef %0, ptr readnone captur
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = and i16 %14, 2048
   %.not = icmp eq i16 %15, 0
-  br i1 %.not, label %.critedge, label %16
+  br i1 %.not, label %.critedge21, label %16
 
 16:                                               ; preds = %2
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %3) #6
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %19, label %.critedge
+  br i1 %18, label %19, label %.critedge21
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %3, align 4, !tbaa !4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %8, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
-  %.not1824 = icmp eq i8 %23, 0
-  br i1 %.not1824, label %._crit_edge, label %.lr.ph
+  %.not1822 = icmp eq i8 %23, 0
+  br i1 %.not1822, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %24 = load ptr, ptr %9, align 8, !tbaa !8
-  br label %25
+  br label %28
 
-25:                                               ; preds = %.lr.ph, %31
-  %26 = phi i8 [ %23, %.lr.ph ], [ %33, %31 ]
-  %.125 = phi ptr [ %22, %.lr.ph ], [ %32, %31 ]
-  %27 = sext i8 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %24, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !12
-  %30 = and i16 %29, 8192
-  %.not19 = icmp eq i16 %30, 0
-  br i1 %.not19, label %._crit_edge, label %31
+25:                                               ; preds = %28
+  %26 = getelementptr inbounds nuw i8, ptr %.123, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !11
+  %.not18 = icmp eq i8 %27, 0
+  br i1 %.not18, label %.critedge, label %28, !llvm.loop !14
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %.125, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !11
-  %.not18 = icmp eq i8 %33, 0
-  br i1 %.not18, label %._crit_edge, label %25, !llvm.loop !14
+28:                                               ; preds = %.lr.ph, %25
+  %29 = phi i8 [ %23, %.lr.ph ], [ %27, %25 ]
+  %.123 = phi ptr [ %22, %.lr.ph ], [ %26, %25 ]
+  %30 = sext i8 %29 to i64
+  %31 = getelementptr inbounds i16, ptr %24, i64 %30
+  %32 = load i16, ptr %31, align 2, !tbaa !12
+  %33 = and i16 %32, 8192
+  %.not19 = icmp eq i16 %33, 0
+  br i1 %.not19, label %.critedge, label %25
 
-._crit_edge:                                      ; preds = %31, %25, %19
-  %34 = phi i1 [ false, %19 ], [ %.not19, %25 ], [ %.not19, %31 ]
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp ugt i32 %35, 255
-  %or.cond = select i1 %34, i1 true, i1 %36
-  %37 = load i32, ptr %5, align 4
-  %38 = icmp ugt i32 %37, 255
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %38
-  %39 = load i32, ptr %6, align 4
-  %40 = icmp ugt i32 %39, 255
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %40
-  br i1 %or.cond5, label %.critedge, label %41
+.critedge:                                        ; preds = %25, %28, %19
+  %.lcssa = phi i1 [ false, %19 ], [ %.not19, %28 ], [ %.not19, %25 ]
+  %34 = load i32, ptr %4, align 4
+  %35 = icmp ugt i32 %34, 255
+  %or.cond = select i1 %.lcssa, i1 true, i1 %35
+  %36 = load i32, ptr %5, align 4
+  %37 = icmp ugt i32 %36, 255
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %37
+  %38 = load i32, ptr %6, align 4
+  %39 = icmp ugt i32 %38, 255
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %39
+  br i1 %or.cond5, label %.critedge21, label %40
 
-41:                                               ; preds = %._crit_edge
-  %42 = load i32, ptr %7, align 4, !tbaa !4
-  %43 = icmp ult i32 %42, 256
-  br label %.critedge
+40:                                               ; preds = %.critedge
+  %41 = load i32, ptr %7, align 4, !tbaa !4
+  %42 = icmp ult i32 %41, 256
+  br label %.critedge21
 
-.critedge:                                        ; preds = %2, %16, %41, %._crit_edge
-  %not. = phi i1 [ false, %._crit_edge ], [ %43, %41 ], [ false, %16 ], [ false, %2 ]
+.critedge21:                                      ; preds = %16, %2, %40, %.critedge
+  %not. = phi i1 [ false, %.critedge ], [ %42, %40 ], [ false, %2 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6

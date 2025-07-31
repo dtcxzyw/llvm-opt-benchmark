@@ -49,7 +49,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = icmp slt i32 %8, 8
-  br i1 %9, label %.thread110, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -59,7 +59,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, 2
-  switch i8 %14, label %.thread110 [
+  switch i8 %14, label %.critedge [
     i8 3, label %thread-pre-split
     i8 1, label %thread-pre-split.thread
   ]
@@ -70,7 +70,7 @@ thread-pre-split:                                 ; preds = %10
   %19 = zext i8 %18 to i32
   store i32 %19, ptr %11, align 4, !tbaa !35
   %20 = icmp ugt i8 %18, 31
-  br i1 %20, label %.thread110, label %thread-pre-split.thread
+  br i1 %20, label %.critedge, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %10, %thread-pre-split
   %21 = zext nneg i8 %14 to i64
@@ -97,14 +97,14 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   tail call void @av_fast_mallocz(ptr noundef nonnull %33, ptr noundef nonnull %34, i64 noundef %36) #6
   %37 = load ptr, ptr %33, align 8, !tbaa !42
   %.not105 = icmp eq ptr %37, null
-  br i1 %.not105, label %.thread110, label %.preheader115
+  br i1 %.not105, label %.critedge, label %.preheader112
 
-.preheader115:                                    ; preds = %28
+.preheader112:                                    ; preds = %28
   %38 = load i32, ptr %6, align 8, !tbaa !41
-  %.not106120 = icmp sgt i32 %38, 0
-  br i1 %.not106120, label %.lr.ph, label %.critedge
+  %.not106117 = icmp sgt i32 %38, 0
+  br i1 %.not106117, label %.lr.ph, label %.critedge108
 
-.lr.ph:                                           ; preds = %.preheader115
+.lr.ph:                                           ; preds = %.preheader112
   %39 = load i32, ptr %7, align 8, !tbaa !33
   %wide.trip.count = zext nneg i32 %38 to i64
   br label %47
@@ -121,93 +121,93 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %28, label %40, !llvm.loop !45
 
-.lr.ph127:                                        ; preds = %61
+.lr.ph124:                                        ; preds = %61
   %46 = load i32, ptr %7, align 8, !tbaa !33
-  %wide.trip.count137 = zext nneg i32 %38 to i64
+  %wide.trip.count134 = zext nneg i32 %38 to i64
   br label %66
 
 47:                                               ; preds = %.lr.ph, %61
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next131, %61 ]
-  %.085122 = phi i32 [ %16, %.lr.ph ], [ %65, %61 ]
-  %48 = add i32 %.085122, 4
+  %indvars.iv127 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next128, %61 ]
+  %.085119 = phi i32 [ %16, %.lr.ph ], [ %65, %61 ]
+  %48 = add i32 %.085119, 4
   %49 = icmp ugt i32 %48, %39
-  br i1 %49, label %.thread110, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %12, align 8, !tbaa !39
-  %52 = zext i32 %.085122 to i64
+  %52 = zext i32 %.085119 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   %54 = load i32, ptr %53, align 1, !tbaa !40
   %55 = icmp ugt i32 %54, %39
-  br i1 %55, label %.thread110, label %56
+  br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %50
   %57 = sub nuw i32 %39, %54
   %58 = zext i32 %57 to i64
   %59 = add nsw i64 %58, -4
   %60 = icmp slt i64 %59, %52
-  br i1 %60, label %.thread110, label %61
+  br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv130, i32 2
+  %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127, i32 2
   store i32 %54, ptr %62, align 8, !tbaa !47
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %64 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv130
+  %64 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127
   store ptr %63, ptr %64, align 8, !tbaa !49
   %65 = add i32 %48, %54
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
-  br i1 %exitcond133.not, label %.lr.ph127, label %47, !llvm.loop !50
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
+  br i1 %exitcond130.not, label %.lr.ph124, label %47, !llvm.loop !50
 
-66:                                               ; preds = %.lr.ph127, %80
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next135, %80 ]
-  %.388125 = phi i32 [ %65, %.lr.ph127 ], [ %84, %80 ]
-  %67 = add i32 %.388125, 4
+66:                                               ; preds = %.lr.ph124, %80
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %80 ]
+  %.388122 = phi i32 [ %65, %.lr.ph124 ], [ %84, %80 ]
+  %67 = add i32 %.388122, 4
   %68 = icmp ugt i32 %67, %46
-  br i1 %68, label %.thread110, label %69
+  br i1 %68, label %.critedge, label %69
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %12, align 8, !tbaa !39
-  %71 = zext i32 %.388125 to i64
+  %71 = zext i32 %.388122 to i64
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   %73 = load i32, ptr %72, align 1, !tbaa !40
   %74 = icmp ugt i32 %73, %46
-  br i1 %74, label %.thread110, label %75
+  br i1 %74, label %.critedge, label %75
 
 75:                                               ; preds = %69
   %76 = sub nuw i32 %46, %73
   %77 = zext i32 %76 to i64
   %78 = add nsw i64 %77, -4
   %79 = icmp slt i64 %78, %71
-  br i1 %79, label %.thread110, label %80
+  br i1 %79, label %.critedge, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv134, i32 3
+  %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 3
   store i32 %73, ptr %81, align 4, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %83 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv134, i32 1
+  %83 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 1
   store ptr %82, ptr %83, align 8, !tbaa !52
   %84 = add i32 %67, %73
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
-  br i1 %exitcond138.not, label %.critedge, label %66, !llvm.loop !53
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %.critedge108, label %66, !llvm.loop !53
 
-.critedge:                                        ; preds = %80, %.preheader115
+.critedge108:                                     ; preds = %80, %.preheader112
   %85 = tail call i32 @ff_thread_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %86 = icmp slt i32 %85, 0
-  br i1 %86, label %.thread110, label %87
+  br i1 %86, label %.critedge, label %87
 
-87:                                               ; preds = %.critedge
+87:                                               ; preds = %.critedge108
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %89 = load ptr, ptr %88, align 8, !tbaa !54
   %90 = load i32, ptr %6, align 8, !tbaa !41
   %91 = tail call i32 %89(ptr noundef %0, ptr noundef nonnull @decode_slices, ptr noundef %1, ptr noundef null, i32 noundef %90) #6
   store i32 1, ptr %2, align 4, !tbaa !55
   %92 = load i32, ptr %7, align 8, !tbaa !33
-  br label %.thread110
+  br label %.critedge
 
-.thread110:                                       ; preds = %47, %50, %56, %75, %69, %66, %.critedge, %28, %thread-pre-split, %10, %4, %87
-  %.0 = phi i32 [ %92, %87 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %thread-pre-split ], [ -12, %28 ], [ %85, %.critedge ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %75 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
+.critedge:                                        ; preds = %47, %50, %56, %75, %69, %66, %.critedge108, %28, %thread-pre-split, %10, %4, %87
+  %.0 = phi i32 [ %92, %87 ], [ -1094995529, %4 ], [ -1094995529, %10 ], [ -1094995529, %thread-pre-split ], [ -12, %28 ], [ %85, %.critedge108 ], [ -1094995529, %66 ], [ -1094995529, %69 ], [ -1094995529, %75 ], [ -1094995529, %56 ], [ -1094995529, %50 ], [ -1094995529, %47 ]
   ret i32 %.0
 }
 

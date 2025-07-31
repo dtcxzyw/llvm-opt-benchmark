@@ -1754,7 +1754,7 @@ define void @_ZN6icu_7713MessageFormat20cacheExplicitFormatsER10UErrorCode(ptr n
   store i32 0, ptr %22, align 8, !tbaa !46
   %23 = icmp sgt i32 %20, 4
   %.pr.pre = load i32, ptr %1, align 4, !tbaa !13
-  br i1 %23, label %.lr.ph, label %.critedge
+  br i1 %23, label %.lr.ph, label %.critedgethread-pre-split
 
 .lr.ph:                                           ; preds = %18
   %24 = icmp sgt i32 %.pr.pre, 0
@@ -1774,12 +1774,12 @@ define void @_ZN6icu_7713MessageFormat20cacheExplicitFormatsER10UErrorCode(ptr n
   %30 = icmp eq i32 %29, 7
   br i1 %30, label %51, label %57
 
-.critedge:                                        ; preds = %57, %18
+.critedgethread-pre-split:                        ; preds = %57, %18
   %31 = phi i32 [ 0, %18 ], [ %58, %57 ]
   %32 = icmp slt i32 %.pr.pre, 1
   br i1 %32, label %33, label %.critedge2
 
-33:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedgethread-pre-split
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %35 = load i32, ptr %34, align 4, !tbaa !47
   %.not15.i = icmp slt i32 %35, %31
@@ -1835,7 +1835,7 @@ _ZN6icu_7713MessageFormat16allocateArgTypesEiR10UErrorCode.exit: ; preds = %33, 
   %58 = phi i32 [ %27, %51 ], [ %56, %55 ], [ %27, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !63
+  br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph.split, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %67, %_ZN6icu_7713MessageFormat16allocateArgTypesEiR10UErrorCode.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2027,7 +2027,7 @@ _ZNK6icu_7714MessagePattern12getSubstringERKNS0_4PartE.exit: ; preds = %99
   %or.cond71 = select i1 %132, i1 true, i1 %133
   br i1 %or.cond71, label %.critedge2, label %69, !llvm.loop !76
 
-.critedge2:                                       ; preds = %129, %.lr.ph, %._crit_edge, %45, %.critedge, %2
+.critedge2:                                       ; preds = %129, %._crit_edge, %.lr.ph, %45, %.critedgethread-pre-split, %2
   ret void
 }
 

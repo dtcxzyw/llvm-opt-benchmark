@@ -71,36 +71,36 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   %34 = icmp eq i32 %.0.lcssa.i, 0
   %35 = icmp ne ptr %33, null
   %or.cond = select i1 %34, i1 true, i1 %35
-  br i1 %or.cond, label %.preheader217, label %.thread212
+  br i1 %or.cond, label %.preheader214, label %.critedge210
 
-.preheader217:                                    ; preds = %opj_dwt_max_resolution.exit
-  br i1 %.not15.i, label %.thread212.sink.split, label %.lr.ph229
+.preheader214:                                    ; preds = %opj_dwt_max_resolution.exit
+  br i1 %.not15.i, label %.critedge210.sink.split, label %.lr.ph226
 
-.lr.ph229:                                        ; preds = %.preheader217
+.lr.ph226:                                        ; preds = %.preheader214
   %36 = add i32 %13, -2
   %37 = icmp slt i32 %5, 2
   br label %38
 
-38:                                               ; preds = %.lr.ph229, %.loopexit
-  %39 = phi i32 [ %36, %.lr.ph229 ], [ %134, %.loopexit ]
-  %.0177227 = phi ptr [ %18, %.lr.ph229 ], [ %.0180228, %.loopexit ]
-  %.0180228 = getelementptr inbounds i8, ptr %.0177227, i64 -192
-  %40 = getelementptr inbounds nuw i8, ptr %.0177227, i64 8
+38:                                               ; preds = %.lr.ph226, %.loopexit
+  %39 = phi i32 [ %36, %.lr.ph226 ], [ %134, %.loopexit ]
+  %.0177224 = phi ptr [ %18, %.lr.ph226 ], [ %.0180225, %.loopexit ]
+  %.0180225 = getelementptr inbounds i8, ptr %.0177224, i64 -192
+  %40 = getelementptr inbounds nuw i8, ptr %.0177224, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !23
-  %42 = load i32, ptr %.0177227, align 8, !tbaa !28
+  %42 = load i32, ptr %.0177224, align 8, !tbaa !28
   %43 = sub nsw i32 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %.0177227, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.0177224, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !29
-  %46 = getelementptr inbounds nuw i8, ptr %.0177227, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0177224, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !30
   %48 = sub i32 %45, %47
-  %49 = getelementptr inbounds i8, ptr %.0177227, i64 -184
+  %49 = getelementptr inbounds i8, ptr %.0177224, i64 -184
   %50 = load i32, ptr %49, align 8, !tbaa !23
-  %51 = load i32, ptr %.0180228, align 8, !tbaa !28
+  %51 = load i32, ptr %.0180225, align 8, !tbaa !28
   %52 = sub nsw i32 %50, %51
-  %53 = getelementptr inbounds i8, ptr %.0177227, i64 -180
+  %53 = getelementptr inbounds i8, ptr %.0177224, i64 -180
   %54 = load i32, ptr %53, align 4, !tbaa !29
-  %55 = getelementptr inbounds i8, ptr %.0177227, i64 -188
+  %55 = getelementptr inbounds i8, ptr %.0177224, i64 -188
   %56 = load i32, ptr %55, align 4, !tbaa !30
   %57 = sub nsw i32 %54, %56
   %58 = and i32 %42, 1
@@ -108,28 +108,28 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   %60 = sub i32 %48, %57
   %61 = icmp ult i32 %43, 16
   %or.cond7 = select i1 %37, i1 true, i1 %61
-  br i1 %or.cond7, label %.preheader216, label %76
+  br i1 %or.cond7, label %.preheader213, label %76
 
-.preheader216:                                    ; preds = %38
+.preheader213:                                    ; preds = %38
   %62 = icmp ugt i32 %43, 7
   br i1 %62, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader216
+.lr.ph:                                           ; preds = %.preheader213
   %63 = xor i32 %59, 1
   br label %64
 
 64:                                               ; preds = %.lr.ph, %64
-  %.0187221 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
-  %65 = add i32 %.0187221, 8
-  %66 = zext i32 %.0187221 to i64
+  %.0187218 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
+  %65 = add i32 %.0187218, 8
+  %66 = zext i32 %.0187218 to i64
   %67 = getelementptr inbounds nuw i32, ptr %7, i64 %66
   tail call void %2(ptr noundef %67, ptr noundef %33, i32 noundef %48, i32 noundef %63, i32 noundef %11, i32 noundef 8) #16, !callees !33
   %68 = or disjoint i32 %65, 7
   %69 = icmp ult i32 %68, %43
   br i1 %69, label %64, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %64, %.preheader216
-  %.0187.lcssa = phi i32 [ 0, %.preheader216 ], [ %65, %64 ]
+._crit_edge:                                      ; preds = %64, %.preheader213
+  %.0187.lcssa = phi i32 [ 0, %.preheader213 ], [ %65, %64 ]
   %70 = icmp ult i32 %.0187.lcssa, %43
   br i1 %70, label %71, label %101
 
@@ -148,14 +148,14 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   br label %79
 
 79:                                               ; preds = %76, %.critedge
-  %.1188220 = phi i32 [ 0, %76 ], [ %93, %.critedge ]
+  %.1188217 = phi i32 [ 0, %76 ], [ %93, %.critedge ]
   %80 = tail call ptr @opj_malloc(i64 noundef 56) #16
   %.not199 = icmp eq ptr %80, null
   br i1 %.not199, label %81, label %82
 
 81:                                               ; preds = %79
   tail call void @opj_thread_pool_wait_completion(ptr noundef %0, i32 noundef 0) #16
-  br label %.thread212.sink.split
+  br label %.critedge210.sink.split
 
 82:                                               ; preds = %79
   %83 = tail call ptr @opj_aligned_32_malloc(i64 noundef %32) #16
@@ -166,7 +166,7 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
 84:                                               ; preds = %82
   tail call void @opj_thread_pool_wait_completion(ptr noundef %0, i32 noundef 0) #16
   tail call void @opj_free(ptr noundef nonnull %80) #16
-  br label %.thread212.sink.split
+  br label %.critedge210.sink.split
 
 .critedge:                                        ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -181,10 +181,10 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   store i32 %11, ptr %89, align 4, !tbaa !42
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %7, ptr %90, align 8, !tbaa !43
-  %91 = mul i32 %.1188220, %78
+  %91 = mul i32 %.1188217, %78
   %92 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store i32 %91, ptr %92, align 8, !tbaa !44
-  %93 = add nuw i32 %.1188220, 1
+  %93 = add nuw i32 %.1188217, 1
   %94 = icmp eq i32 %93, %spec.select
   %95 = mul i32 %93, %78
   %96 = select i1 %94, i32 %43, i32 %95
@@ -207,24 +207,24 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   br i1 %or.cond9, label %.preheader, label %110
 
 .preheader:                                       ; preds = %101
-  %.not231 = icmp eq i32 %45, %47
-  br i1 %.not231, label %.loopexit, label %.lr.ph224
+  %.not228 = icmp eq i32 %45, %47
+  br i1 %.not228, label %.loopexit, label %.lr.ph221
 
-.lr.ph224:                                        ; preds = %.preheader
+.lr.ph221:                                        ; preds = %.preheader
   %104 = xor i32 %58, 1
   %wide.trip.count = zext i32 %48 to i64
   br label %105
 
-105:                                              ; preds = %.lr.ph224, %105
-  %indvars.iv = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next, %105 ]
+105:                                              ; preds = %.lr.ph221, %105
+  %indvars.iv = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next, %105 ]
   %106 = trunc nuw i64 %indvars.iv to i32
   %107 = mul i32 %11, %106
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw i32, ptr %7, i64 %108
   tail call void %3(ptr noundef %109, ptr noundef %33, i32 noundef %43, i32 noundef %104) #16, !callees !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond240.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond240.not, label %.loopexit, label %105, !llvm.loop !49
+  %exitcond237.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond237.not, label %.loopexit, label %105, !llvm.loop !49
 
 110:                                              ; preds = %101
   %spec.select205 = tail call i32 @llvm.umin.i32(i32 %48, i32 %5)
@@ -233,14 +233,14 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   br label %113
 
 113:                                              ; preds = %110, %.critedge208
-  %.3190222 = phi i32 [ 0, %110 ], [ %127, %.critedge208 ]
+  %.3190219 = phi i32 [ 0, %110 ], [ %127, %.critedge208 ]
   %114 = tail call ptr @opj_malloc(i64 noundef 56) #16
   %.not202 = icmp eq ptr %114, null
   br i1 %.not202, label %115, label %116
 
 115:                                              ; preds = %113
   tail call void @opj_thread_pool_wait_completion(ptr noundef %0, i32 noundef 0) #16
-  br label %.thread212.sink.split
+  br label %.critedge210.sink.split
 
 116:                                              ; preds = %113
   %117 = tail call ptr @opj_aligned_32_malloc(i64 noundef %32) #16
@@ -251,7 +251,7 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
 118:                                              ; preds = %116
   tail call void @opj_thread_pool_wait_completion(ptr noundef %0, i32 noundef 0) #16
   tail call void @opj_free(ptr noundef nonnull %114) #16
-  br label %.thread212.sink.split
+  br label %.critedge210.sink.split
 
 .critedge208:                                     ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
@@ -266,20 +266,20 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
   store i32 %11, ptr %123, align 4, !tbaa !42
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %7, ptr %124, align 8, !tbaa !43
-  %125 = mul i32 %.3190222, %111
+  %125 = mul i32 %.3190219, %111
   %126 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store i32 %125, ptr %126, align 8, !tbaa !44
-  %127 = add nuw i32 %.3190222, 1
+  %127 = add nuw i32 %.3190219, 1
   %128 = mul i32 %127, %111
   %129 = getelementptr inbounds nuw i8, ptr %114, i64 44
-  %130 = icmp eq i32 %.3190222, %112
+  %130 = icmp eq i32 %.3190219, %112
   %spec.select206 = select i1 %130, i32 %48, i32 %128
   store i32 %spec.select206, ptr %129, align 4, !tbaa !45
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 48
   store ptr %3, ptr %131, align 8, !tbaa !46
   %132 = tail call i32 @opj_thread_pool_submit_job(ptr noundef %0, ptr noundef nonnull @opj_dwt_encode_h_func, ptr noundef nonnull %114) #16
-  %exitcond238.not = icmp eq i32 %127, %spec.select205
-  br i1 %exitcond238.not, label %133, label %113, !llvm.loop !50
+  %exitcond235.not = icmp eq i32 %127, %spec.select205
+  br i1 %exitcond235.not, label %133, label %113, !llvm.loop !50
 
 133:                                              ; preds = %.critedge208
   tail call void @opj_thread_pool_wait_completion(ptr noundef %0, i32 noundef 0) #16
@@ -288,15 +288,15 @@ opj_dwt_max_resolution.exit:                      ; preds = %.lr.ph.i, %4
 .loopexit:                                        ; preds = %105, %.preheader, %133
   %134 = add nsw i32 %39, -1
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %.thread212.sink.split, label %38, !llvm.loop !51
+  br i1 %.not, label %.critedge210.sink.split, label %38, !llvm.loop !51
 
-.thread212.sink.split:                            ; preds = %.loopexit, %.preheader217, %81, %84, %115, %118
-  %.0.ph = phi i32 [ 0, %118 ], [ 0, %115 ], [ 0, %84 ], [ 0, %81 ], [ 1, %.preheader217 ], [ 1, %.loopexit ]
+.critedge210.sink.split:                          ; preds = %.loopexit, %.preheader214, %81, %84, %115, %118
+  %.0.ph = phi i32 [ 0, %118 ], [ 0, %115 ], [ 0, %84 ], [ 0, %81 ], [ 1, %.preheader214 ], [ 1, %.loopexit ]
   tail call void @opj_aligned_free(ptr noundef %33) #16
-  br label %.thread212
+  br label %.critedge210
 
-.thread212:                                       ; preds = %.thread212.sink.split, %opj_dwt_max_resolution.exit
-  %.0 = phi i32 [ 0, %opj_dwt_max_resolution.exit ], [ %.0.ph, %.thread212.sink.split ]
+.critedge210:                                     ; preds = %.critedge210.sink.split, %opj_dwt_max_resolution.exit
+  %.0 = phi i32 [ 0, %opj_dwt_max_resolution.exit ], [ %.0.ph, %.critedge210.sink.split ]
   ret i32 %.0
 }
 

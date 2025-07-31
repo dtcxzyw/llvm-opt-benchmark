@@ -6120,7 +6120,7 @@ declare noundef signext i8 @_ZN6icu_7718UnicodeSetIterator4nextEv(ptr noundef no
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7716CollationBuilder24mergeCompositeIntoStringERKNS_13UnicodeStringEiiS3_RS1_S4_R10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7) local_unnamed_addr #0 align 2 {
   %9 = load i32, ptr %7, align 4, !tbaa !20
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   %12 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef 1)
@@ -6133,7 +6133,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7716CollationBuilder24mergeCo
   %19 = load i32, ptr %18, align 4
   %20 = select i1 %15, i32 %19, i32 %17
   %21 = icmp eq i32 %12, %20
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %11
   %23 = and i16 %14, 1
@@ -6165,7 +6165,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7716CollationBuilder24mergeCo
 _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %29, %24 ], [ %37, %.sink.split.i.i.i ]
   %38 = icmp eq i8 %.0.i.i, 0
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -6212,7 +6212,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
   %70 = load i32, ptr %61, align 4
   %71 = select i1 %67, i32 %70, i32 %69
   %.not82 = icmp slt i32 %.074, %71
-  br i1 %.not82, label %72, label %.thread89.loopexit
+  br i1 %.not82, label %72, label %.thread.loopexit
 
 72:                                               ; preds = %65
   %73 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.074)
@@ -6244,7 +6244,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
   %92 = tail call noundef zeroext i8 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, i32 noundef %87)
   %93 = add i8 %92, -1
   %or.cond.not = icmp ult i8 %93, %.164
-  br i1 %or.cond.not, label %94, label %.thread
+  br i1 %or.cond.not, label %94, label %.critedge
 
 94:                                               ; preds = %86
   %95 = icmp ult i8 %92, %.164
@@ -6258,7 +6258,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
 
 100:                                              ; preds = %94
   %.not84 = icmp eq i32 %87, %.167
-  br i1 %.not84, label %101, label %.thread
+  br i1 %.not84, label %101, label %.critedge
 
 101:                                              ; preds = %100
   %102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.167)
@@ -6267,7 +6267,7 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
   %105 = add nsw i32 %104, %.074
   br label %106
 
-106:                                              ; preds = %96, %101
+106:                                              ; preds = %101, %96
   %.276 = phi i32 [ %.074, %96 ], [ %105, %101 ]
   %.pn = phi i32 [ %99, %96 ], [ %104, %101 ]
   %.470 = phi i32 [ %.167, %96 ], [ -1, %101 ]
@@ -6276,39 +6276,39 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit: ; preds = %24, %.sink.split.i
 
 107:                                              ; preds = %79
   %108 = icmp sgt i32 %.167, -1
-  br i1 %108, label %109, label %.thread89
+  br i1 %108, label %109, label %.thread
 
 109:                                              ; preds = %107
   %110 = icmp ult i8 %.164, %.062
-  br i1 %110, label %.thread, label %111
+  br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %109
   %112 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.074, i32 noundef 2147483647)
   %113 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.074, i32 noundef 2147483647)
-  br label %.thread
+  br label %.critedge
 
-.thread89.loopexit:                               ; preds = %65
+.thread.loopexit:                                 ; preds = %65
   %.pre = load i16, ptr %13, align 8, !tbaa !22
-  %.pre110 = load i32, ptr %18, align 4
-  %.pre111 = ashr i16 %.pre, 5
-  %.pre112 = sext i16 %.pre111 to i32
-  br label %.thread89
-
-.thread89:                                        ; preds = %.thread89.loopexit, %107
-  %.pre-phi113 = phi i32 [ %.pre112, %.thread89.loopexit ], [ %83, %107 ]
-  %114 = phi i32 [ %.pre110, %.thread89.loopexit ], [ %84, %107 ]
-  %115 = phi i16 [ %.pre, %.thread89.loopexit ], [ %80, %107 ]
-  %116 = icmp slt i16 %115, 0
-  %117 = select i1 %116, i32 %114, i32 %.pre-phi113
-  %118 = icmp slt i32 %.071, %117
-  br i1 %118, label %119, label %.thread
-
-119:                                              ; preds = %.thread89
-  %120 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.071, i32 noundef 2147483647)
+  %.pre105 = load i32, ptr %18, align 4
+  %.pre106 = ashr i16 %.pre, 5
+  %.pre107 = sext i16 %.pre106 to i32
   br label %.thread
 
-.thread:                                          ; preds = %100, %86, %11, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit, %111, %119, %.thread89, %109, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %11 ], [ 0, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit ], [ 0, %109 ], [ 1, %.thread89 ], [ 1, %119 ], [ 1, %111 ], [ 0, %86 ], [ 0, %100 ]
+.thread:                                          ; preds = %.thread.loopexit, %107
+  %.pre-phi108 = phi i32 [ %.pre107, %.thread.loopexit ], [ %83, %107 ]
+  %114 = phi i32 [ %.pre105, %.thread.loopexit ], [ %84, %107 ]
+  %115 = phi i16 [ %.pre, %.thread.loopexit ], [ %80, %107 ]
+  %116 = icmp slt i16 %115, 0
+  %117 = select i1 %116, i32 %114, i32 %.pre-phi108
+  %118 = icmp slt i32 %.071, %117
+  br i1 %118, label %119, label %.critedge
+
+119:                                              ; preds = %.thread
+  %120 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.071, i32 noundef 2147483647)
+  br label %.critedge
+
+.critedge:                                        ; preds = %86, %100, %11, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit, %111, %119, %.thread, %109, %8
+  %.0 = phi i8 [ 0, %8 ], [ 0, %11 ], [ 0, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit ], [ 0, %109 ], [ 1, %.thread ], [ 1, %119 ], [ 1, %111 ], [ 0, %100 ], [ 0, %86 ]
   ret i8 %.0
 }
 

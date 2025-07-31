@@ -1353,7 +1353,7 @@ define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr nounde
 19:                                               ; preds = %14
   %20 = tail call ptr @EVP_CIPHER_CTX_new() #6
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %68, label %22
+  br i1 %21, label %67, label %22
 
 22:                                               ; preds = %19
   store i32 -1330253538, ptr %17, align 1
@@ -1374,136 +1374,136 @@ define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr nounde
   store i32 %12, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %31, ptr %8, align 8, !tbaa !3
-  br i1 %.not.i, label %32, label %35
+  br i1 %.not.i, label %32, label %.critedge.i
 
 32:                                               ; preds = %22
   %33 = tail call i32 @RAND_bytes_ex(ptr noundef %5, ptr noundef nonnull %31, i64 noundef 16, i32 noundef 0) #6
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %68, label %37
+  br i1 %34, label %67, label %35
 
-35:                                               ; preds = %22
-  %36 = call fastcc i32 @do_i2b(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0)
-  br label %68
-
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr %38, ptr %8, align 8, !tbaa !3
-  %39 = call fastcc i32 @do_i2b(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0)
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store ptr %36, ptr %8, align 8, !tbaa !3
+  %37 = call fastcc i32 @do_i2b(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
   %.not65.i = icmp eq ptr %3, null
-  br i1 %.not65.i, label %42, label %40
+  br i1 %.not65.i, label %40, label %38
 
-40:                                               ; preds = %37
-  %41 = call i32 %3(ptr noundef nonnull %9, i32 noundef 1024, i32 noundef 1, ptr noundef %4) #6
-  br label %44
+38:                                               ; preds = %35
+  %39 = call i32 %3(ptr noundef nonnull %9, i32 noundef 1024, i32 noundef 1, ptr noundef %4) #6
+  br label %42
 
-42:                                               ; preds = %37
-  %43 = call i32 @PEM_def_callback(ptr noundef nonnull %9, i32 noundef 1024, i32 noundef 1, ptr noundef %4) #6
-  br label %44
+40:                                               ; preds = %35
+  %41 = call i32 @PEM_def_callback(ptr noundef nonnull %9, i32 noundef 1024, i32 noundef 1, ptr noundef %4) #6
+  br label %42
 
-44:                                               ; preds = %42, %40
-  %.0.i = phi i32 [ %41, %40 ], [ %43, %42 ]
-  %45 = icmp slt i32 %.0.i, 1
-  br i1 %45, label %46, label %47
+42:                                               ; preds = %40, %38
+  %.0.i = phi i32 [ %39, %38 ], [ %41, %40 ]
+  %43 = icmp slt i32 %.0.i, 1
+  br i1 %43, label %44, label %45
 
-46:                                               ; preds = %44
+44:                                               ; preds = %42
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1074, ptr noundef nonnull @__func__.i2b_PVK) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 104, ptr noundef null) #6
-  br label %.thread73.i
+  br label %.thread.i
 
-47:                                               ; preds = %44
-  %48 = call fastcc i32 @derive_pvk_key(ptr noundef %10, ptr noundef nonnull %31, i32 noundef 16, ptr noundef %9, i32 noundef %.0.i, ptr noundef %5, ptr noundef %6)
-  %.not66.i = icmp eq i32 %48, 0
-  br i1 %.not66.i, label %.thread73.i, label %49
+45:                                               ; preds = %42
+  %46 = call fastcc i32 @derive_pvk_key(ptr noundef %10, ptr noundef nonnull %31, i32 noundef 16, ptr noundef %9, i32 noundef %.0.i, ptr noundef %5, ptr noundef %6)
+  %.not66.i = icmp eq i32 %46, 0
+  br i1 %.not66.i, label %.thread.i, label %47
 
-49:                                               ; preds = %47
-  %50 = call ptr @EVP_CIPHER_fetch(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %6) #6
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread73.i, label %52
+47:                                               ; preds = %45
+  %48 = call ptr @EVP_CIPHER_fetch(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %6) #6
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.thread.i, label %50
 
-52:                                               ; preds = %49
-  %53 = icmp eq i32 %2, 1
-  br i1 %53, label %54, label %56
+50:                                               ; preds = %47
+  %51 = icmp eq i32 %2, 1
+  br i1 %51, label %52, label %54
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %55, i8 0, i64 11, i1 false)
-  br label %56
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %53, i8 0, i64 11, i1 false)
+  br label %54
 
-56:                                               ; preds = %54, %52
-  %57 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store ptr %57, ptr %8, align 8, !tbaa !3
-  %58 = call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %20, ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %10, ptr noundef null) #6
-  %.not67.i = icmp eq i32 %58, 0
-  br i1 %.not67.i, label %.thread73.i, label %59
+54:                                               ; preds = %52, %50
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store ptr %55, ptr %8, align 8, !tbaa !3
+  %56 = call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %20, ptr noundef nonnull %48, ptr noundef null, ptr noundef nonnull %10, ptr noundef null) #6
+  %.not67.i = icmp eq i32 %56, 0
+  br i1 %.not67.i, label %.thread.i, label %57
 
-59:                                               ; preds = %56
+57:                                               ; preds = %54
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 20) #6
-  %60 = add nsw i32 %12, -8
-  %61 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %20, ptr noundef nonnull %57, ptr noundef nonnull %11, ptr noundef nonnull %57, i32 noundef %60) #6
-  %.not68.i = icmp eq i32 %61, 0
-  br i1 %.not68.i, label %.thread73.i, label %62
+  %58 = add nsw i32 %12, -8
+  %59 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %20, ptr noundef nonnull %55, ptr noundef nonnull %11, ptr noundef nonnull %55, i32 noundef %58) #6
+  %.not68.i = icmp eq i32 %59, 0
+  br i1 %.not68.i, label %.thread.i, label %60
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %11, align 4, !tbaa !9
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %57, i64 %64
-  %66 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %20, ptr noundef nonnull %65, ptr noundef nonnull %11) #6
-  %.not69.i = icmp eq i32 %66, 0
-  br i1 %.not69.i, label %.thread73.i, label %67
+60:                                               ; preds = %57
+  %61 = load i32, ptr %11, align 4, !tbaa !9
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i8, ptr %55, i64 %62
+  %64 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %20, ptr noundef nonnull %63, ptr noundef nonnull %11) #6
+  %.not69.i = icmp eq i32 %64, 0
+  br i1 %.not69.i, label %.thread.i, label %65
 
-.thread73.i:                                      ; preds = %62, %59, %56, %49, %47, %46
-  %.2.ph.i = phi ptr [ %50, %59 ], [ %50, %56 ], [ null, %49 ], [ null, %47 ], [ null, %46 ], [ %50, %62 ]
+.thread.i:                                        ; preds = %60, %57, %54, %47, %45, %44
+  %.2.ph.i = phi ptr [ %48, %57 ], [ %48, %54 ], [ null, %47 ], [ null, %45 ], [ null, %44 ], [ %48, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #6
-  br label %68
+  br label %67
 
-67:                                               ; preds = %62
+65:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #6
-  br label %68
+  br label %67
 
-68:                                               ; preds = %67, %35, %.thread73.i, %32, %19
-  %.017 = phi ptr [ null, %19 ], [ null, %32 ], [ null, %.thread73.i ], [ %17, %35 ], [ %17, %67 ]
-  %.054.i = phi i32 [ -1, %19 ], [ -1, %32 ], [ -1, %.thread73.i ], [ %15, %35 ], [ %15, %67 ]
-  %.049.i = phi ptr [ null, %19 ], [ null, %32 ], [ %.2.ph.i, %.thread73.i ], [ null, %35 ], [ %50, %67 ]
+.critedge.i:                                      ; preds = %22
+  %66 = call fastcc i32 @do_i2b(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0)
+  br label %67
+
+67:                                               ; preds = %.critedge.i, %65, %.thread.i, %32, %19
+  %.017 = phi ptr [ null, %19 ], [ null, %32 ], [ null, %.thread.i ], [ %17, %65 ], [ %17, %.critedge.i ]
+  %.054.i = phi i32 [ -1, %19 ], [ -1, %32 ], [ -1, %.thread.i ], [ %15, %65 ], [ %15, %.critedge.i ]
+  %.049.i = phi ptr [ null, %19 ], [ null, %32 ], [ %.2.ph.i, %.thread.i ], [ %48, %65 ], [ null, %.critedge.i ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %20) #6
   call void @EVP_CIPHER_free(ptr noundef %.049.i) #6
-  %69 = icmp eq ptr %.017, null
-  br i1 %69, label %70, label %i2b_PVK.exit
+  %68 = icmp eq ptr %.017, null
+  br i1 %68, label %69, label %i2b_PVK.exit
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   call void @CRYPTO_free(ptr noundef nonnull %17, ptr noundef nonnull @.str, i32 noundef 1107) #6
   br label %i2b_PVK.exit
 
 i2b_PVK.exit.thread:                              ; preds = %7, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  br label %76
+  br label %75
 
-i2b_PVK.exit:                                     ; preds = %68, %70
+i2b_PVK.exit:                                     ; preds = %67, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  %71 = icmp slt i32 %.054.i, 0
-  br i1 %71, label %76, label %72
+  %70 = icmp slt i32 %.054.i, 0
+  br i1 %70, label %75, label %71
 
-72:                                               ; preds = %i2b_PVK.exit
-  %73 = call i32 @BIO_write(ptr noundef %0, ptr noundef %.017, i32 noundef %.054.i) #6
+71:                                               ; preds = %i2b_PVK.exit
+  %72 = call i32 @BIO_write(ptr noundef %0, ptr noundef %.017, i32 noundef %.054.i) #6
   call void @CRYPTO_free(ptr noundef %.017, ptr noundef nonnull @.str, i32 noundef 1123) #6
-  %74 = icmp eq i32 %73, %.054.i
-  br i1 %74, label %76, label %75
+  %73 = icmp eq i32 %72, %.054.i
+  br i1 %73, label %75, label %74
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1127, ptr noundef nonnull @__func__.i2b_PVK_bio_ex) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 118, ptr noundef null) #6
-  br label %76
+  br label %75
 
-76:                                               ; preds = %i2b_PVK.exit.thread, %72, %i2b_PVK.exit, %75
-  %.0 = phi i32 [ -1, %75 ], [ -1, %i2b_PVK.exit ], [ %.054.i, %72 ], [ -1, %i2b_PVK.exit.thread ]
+75:                                               ; preds = %i2b_PVK.exit.thread, %71, %i2b_PVK.exit, %74
+  %.0 = phi i32 [ -1, %74 ], [ -1, %i2b_PVK.exit ], [ %.054.i, %71 ], [ -1, %i2b_PVK.exit.thread ]
   ret i32 %.0
 }
 

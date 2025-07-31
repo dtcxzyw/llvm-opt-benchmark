@@ -29198,7 +29198,7 @@ define linkonce_odr dso_local void @_ZN9EmitCFunc5visitEP17AstNodeSimpleText(ptr
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 22
   store i8 0, ptr %19, align 2, !tbaa !14
   invoke void @_ZN7VString11replaceWordERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %.critedge.critedge unwind label %58
+          to label %.critedge unwind label %58
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -29244,18 +29244,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   br label %.critedge60
 
-.critedge.critedge:                               ; preds = %._crit_edge.i.i
+.critedge:                                        ; preds = %._crit_edge.i.i
   %36 = load ptr, ptr %6, align 8, !tbaa !5
   %37 = icmp eq ptr %36, %17
   br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.critedge.critedge
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.critedge
   %38 = load i64, ptr %18, align 8, !tbaa !13
   %39 = icmp ult i64 %38, 16
   call void @llvm.assume(i1 %39)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge.critedge
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge
   %40 = load i64, ptr %17, align 8, !tbaa !14
   %41 = add i64 %40, 1
   call void @_ZdlPvm(ptr noundef %36, i64 noundef %41) #27

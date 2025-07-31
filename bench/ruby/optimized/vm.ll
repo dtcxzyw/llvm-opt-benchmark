@@ -18779,10 +18779,10 @@ define internal fastcc ptr @rb_method_entry_make(i64 noundef %0, i64 noundef %1,
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %8
   %19 = inttoptr i64 %spec.select to ptr
   %20 = load i64, ptr %19, align 8, !tbaa !97
-  %.fr156 = freeze i64 %20
-  %21 = and i64 %.fr156, 8223
-  %or.cond166.not = icmp eq i64 %21, 8194
-  br i1 %or.cond166.not, label %24, label %switch.early.test
+  %.fr153 = freeze i64 %20
+  %21 = and i64 %.fr153, 8223
+  %or.cond163.not = icmp eq i64 %21, 8194
+  br i1 %or.cond163.not, label %24, label %switch.early.test
 
 switch.early.test:                                ; preds = %8, %rbimpl_RB_TYPE_P_fastpath.exit.i
   switch i32 %4, label %22 [
@@ -18821,8 +18821,8 @@ rbimpl_RB_TYPE_P_fastpath.exit123:                ; preds = %25
   %26 = inttoptr i64 %spec.select to ptr
   %27 = load i64, ptr %26, align 8, !tbaa !97
   %28 = and i64 %27, 32799
-  %or.cond167.not = icmp eq i64 %28, 32771
-  br i1 %or.cond167.not, label %29, label %rb_add_refined_method_entry.exit
+  %or.cond164.not = icmp eq i64 %28, 32771
+  br i1 %or.cond164.not, label %29, label %rb_add_refined_method_entry.exit
 
 29:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit123
   %30 = tail call i64 @rb_refinement_module_get_refined_class(i64 noundef %spec.select) #21
@@ -18834,8 +18834,8 @@ rbimpl_RB_TYPE_P_fastpath.exit123:                ; preds = %25
   %.not.i134 = icmp eq i32 %34, 0
   %35 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  %.not.i125158 = icmp eq i64 %35, 0
-  %.not.i125 = select i1 %.not.i134, i1 true, i1 %.not.i125158
+  %.not.i125155 = icmp eq i64 %35, 0
+  %.not.i125 = select i1 %.not.i134, i1 true, i1 %.not.i125155
   br i1 %.not.i125, label %38, label %36
 
 36:                                               ; preds = %29
@@ -18863,8 +18863,8 @@ rb_add_refined_method_entry.exit:                 ; preds = %25, %38, %36, %rbim
   %.not.i126 = icmp eq i32 %47, 0
   %48 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
-  %.not112159 = icmp eq i64 %48, 0
-  %.not112 = select i1 %.not.i126, i1 true, i1 %.not112159
+  %.not112156 = icmp eq i64 %48, 0
+  %.not112 = select i1 %.not.i126, i1 true, i1 %.not112156
   br i1 %.not112, label %53, label %49
 
 49:                                               ; preds = %43
@@ -18888,7 +18888,7 @@ rb_add_refined_method_entry.exit:                 ; preds = %25, %38, %36, %rbim
   %55 = load ptr, ptr %54, align 8, !tbaa !337
   %56 = call i32 @rb_id_table_lookup(ptr noundef %55, i64 noundef %1, ptr noundef nonnull %12) #21
   %.not113 = icmp eq i32 %56, 0
-  br i1 %.not113, label %.thread148, label %57
+  br i1 %.not113, label %110, label %57
 
 57:                                               ; preds = %53
   %58 = load i64, ptr %12, align 8, !tbaa !7
@@ -18897,7 +18897,7 @@ rb_add_refined_method_entry.exit:                 ; preds = %25, %38, %36, %rbim
   %61 = load ptr, ptr %60, align 8, !tbaa !352
   %62 = call i32 @rb_method_definition_eq(ptr noundef %61, ptr noundef %5)
   %.not114 = icmp eq i32 %62, 0
-  br i1 %.not114, label %63, label %check_override_opt_method.exit
+  br i1 %.not114, label %63, label %.critedge
 
 63:                                               ; preds = %57
   call fastcc void @rb_vm_check_redefinition_opt_method(ptr noundef nonnull %59, i64 noundef %.199)
@@ -18928,21 +18928,21 @@ rb_ruby_verbose_ptr.exit:                         ; preds = %63, %68
   %79 = and i64 %64, 64
   %80 = icmp eq i64 %79, 0
   %or.cond = select i1 %or.cond5, i1 %80, i1 false
-  br i1 %or.cond, label %81, label %.thread148
+  br i1 %or.cond, label %81, label %110
 
 81:                                               ; preds = %rb_ruby_verbose_ptr.exit
   %82 = and i64 %64, 32
   %83 = icmp ne i64 %82, 0
   %or.cond7 = or i1 %83, %66
-  br i1 %or.cond7, label %.thread148, label %84
+  br i1 %or.cond7, label %110, label %84
 
 84:                                               ; preds = %81
   %85 = trunc i64 %64 to i32
   %86 = and i32 %85, 15
   switch i32 %86, label %.thread144 [
-    i32 7, label %.thread148
-    i32 5, label %.thread148
-    i32 6, label %.thread148
+    i32 7, label %110
+    i32 5, label %110
+    i32 6, label %110
     i32 0, label %87
     i32 4, label %89
   ]
@@ -18987,198 +18987,198 @@ RSTRING_PTR.exit:                                 ; preds = %94, %101
   %107 = load i64, ptr %106, align 8, !tbaa !192
   %108 = call i64 @rb_id2str(i64 noundef %107) #21
   call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.209, i64 noundef %95, ptr noundef %.sroa.2.0.i, i32 noundef %105, i64 noundef %108) #21
-  br label %.thread148
+  br label %110
 
 .thread144:                                       ; preds = %84, %93
   %109 = call i64 @rb_id2str(i64 noundef %1) #21
   call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.210, i64 noundef %109) #21
-  br label %.thread148
+  br label %110
 
-.thread148:                                       ; preds = %RSTRING_PTR.exit, %.thread144, %84, %84, %84, %81, %rb_ruby_verbose_ptr.exit, %53
+110:                                              ; preds = %RSTRING_PTR.exit, %.thread144, %84, %84, %84, %81, %rb_ruby_verbose_ptr.exit, %53
   %.0102.shrunk = phi i1 [ false, %53 ], [ %66, %rb_ruby_verbose_ptr.exit ], [ %66, %81 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %.thread144 ], [ false, %RSTRING_PTR.exit ]
-  %110 = inttoptr i64 %2 to ptr
-  %111 = load i64, ptr %110, align 8, !tbaa !97
-  %112 = trunc i64 %111 to i32
-  %113 = and i32 %112, 31
-  switch i32 %113, label %115 [
+  %111 = inttoptr i64 %2 to ptr
+  %112 = load i64, ptr %111, align 8, !tbaa !97
+  %113 = trunc i64 %112 to i32
+  %114 = and i32 %113, 31
+  switch i32 %114, label %116 [
     i32 2, label %rb_method_entry_create.exit
-    i32 3, label %114
+    i32 3, label %115
   ]
 
-114:                                              ; preds = %.thread148
+115:                                              ; preds = %110
   br label %rb_method_entry_create.exit
 
-115:                                              ; preds = %.thread148
-  %116 = call ptr @rb_obj_info(i64 noundef %2) #21
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.207, ptr noundef %116) #55
+116:                                              ; preds = %110
+  %117 = call ptr @rb_obj_info(i64 noundef %2) #21
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.207, ptr noundef %117) #55
   unreachable
 
-rb_method_entry_create.exit:                      ; preds = %.thread148, %114
-  %.0.i.i = phi i64 [ 0, %114 ], [ %2, %.thread148 ]
-  %117 = call i64 @rb_imemo_new(i32 noundef 6, i64 noundef %.0.i.i, i64 noundef 40) #21
-  %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr null, ptr %119, align 8, !tbaa !353
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store i64 %1, ptr %120, align 8, !tbaa !354
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  store i64 %2, ptr %121, align 8, !tbaa !190
-  %122 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !232
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 508
-  %124 = load i8, ptr %123, align 4
-  %125 = and i8 %124, 1
-  %126 = xor i8 %125, 1
-  %127 = zext nneg i8 %126 to i32
-  %128 = load i64, ptr %118, align 8, !tbaa !202
-  %129 = and i64 %128, -458753
-  %130 = shl i32 %.0100140, 16
-  %131 = shl nuw nsw i32 %127, 18
-  %132 = or i32 %131, %130
-  %133 = zext i32 %132 to i64
-  %134 = or i64 %129, %133
-  store i64 %134, ptr %118, align 8, !tbaa !202
-  %135 = icmp eq ptr %5, null
-  br i1 %135, label %136, label %147
+rb_method_entry_create.exit:                      ; preds = %110, %115
+  %.0.i.i = phi i64 [ 0, %115 ], [ %2, %110 ]
+  %118 = call i64 @rb_imemo_new(i32 noundef 6, i64 noundef %.0.i.i, i64 noundef 40) #21
+  %119 = inttoptr i64 %118 to ptr
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  store ptr null, ptr %120, align 8, !tbaa !353
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  store i64 %1, ptr %121, align 8, !tbaa !354
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  store i64 %2, ptr %122, align 8, !tbaa !190
+  %123 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !232
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 508
+  %125 = load i8, ptr %124, align 4
+  %126 = and i8 %125, 1
+  %127 = xor i8 %126, 1
+  %128 = zext nneg i8 %127 to i32
+  %129 = load i64, ptr %119, align 8, !tbaa !202
+  %130 = and i64 %129, -458753
+  %131 = shl i32 %.0100140, 16
+  %132 = shl nuw nsw i32 %128, 18
+  %133 = or i32 %132, %131
+  %134 = zext i32 %133 to i64
+  %135 = or i64 %130, %134
+  store i64 %135, ptr %119, align 8, !tbaa !202
+  %136 = icmp eq ptr %5, null
+  br i1 %136, label %137, label %148
 
-136:                                              ; preds = %rb_method_entry_create.exit
-  %137 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #57
-  %138 = load i64, ptr %137, align 8
-  %139 = and i32 %4, 15
-  %140 = zext nneg i32 %139 to i64
-  %141 = and i64 %138, -16
-  %142 = or disjoint i64 %141, %140
-  store i64 %142, ptr %137, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  store i64 %6, ptr %143, align 8, !tbaa !192
-  %144 = load i64, ptr @rb_method_definition_create.method_serial, align 8, !tbaa !7
-  %145 = add i64 %144, 1
-  store i64 %145, ptr @rb_method_definition_create.method_serial, align 8, !tbaa !7
-  %146 = getelementptr inbounds nuw i8, ptr %137, i64 40
-  store i64 %144, ptr %146, align 8, !tbaa !194
-  br label %147
+137:                                              ; preds = %rb_method_entry_create.exit
+  %138 = call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #57
+  %139 = load i64, ptr %138, align 8
+  %140 = and i32 %4, 15
+  %141 = zext nneg i32 %140 to i64
+  %142 = and i64 %139, -16
+  %143 = or disjoint i64 %142, %141
+  store i64 %143, ptr %138, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
+  store i64 %6, ptr %144, align 8, !tbaa !192
+  %145 = load i64, ptr @rb_method_definition_create.method_serial, align 8, !tbaa !7
+  %146 = add i64 %145, 1
+  store i64 %146, ptr @rb_method_definition_create.method_serial, align 8, !tbaa !7
+  %147 = getelementptr inbounds nuw i8, ptr %138, i64 40
+  store i64 %145, ptr %147, align 8, !tbaa !194
+  br label %148
 
-147:                                              ; preds = %136, %rb_method_entry_create.exit
-  %.0101 = phi ptr [ %137, %136 ], [ %5, %rb_method_entry_create.exit ]
-  call void @rb_method_definition_set(ptr noundef nonnull %118, ptr noundef nonnull %.0101, ptr noundef %7)
+148:                                              ; preds = %137, %rb_method_entry_create.exit
+  %.0101 = phi ptr [ %138, %137 ], [ %5, %rb_method_entry_create.exit ]
+  call void @rb_method_definition_set(ptr noundef nonnull %119, ptr noundef nonnull %.0101, ptr noundef %7)
   call void @rb_clear_method_cache(i64 noundef %.199, i64 noundef %1)
-  %148 = load i64, ptr @rb_cObject, align 8, !tbaa !7
-  %149 = icmp eq i64 %.199, %148
-  br i1 %149, label %150, label %153
+  %149 = load i64, ptr @rb_cObject, align 8, !tbaa !7
+  %150 = icmp eq i64 %.199, %149
+  br i1 %150, label %151, label %154
 
-150:                                              ; preds = %147
-  switch i64 %1, label %153 [
-    i64 3169, label %151
-    i64 157, label %151
-    i64 2897, label %151
-    i64 156, label %151
+151:                                              ; preds = %148
+  switch i64 %1, label %154 [
+    i64 3169, label %152
+    i64 157, label %152
+    i64 2897, label %152
+    i64 156, label %152
   ]
 
-151:                                              ; preds = %150, %150, %150, %150
-  %152 = call ptr @rb_id2name(i64 noundef %1) #21
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.211, ptr noundef %152) #60
-  br label %153
+152:                                              ; preds = %151, %151, %151, %151
+  %153 = call ptr @rb_id2name(i64 noundef %1) #21
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.211, ptr noundef %153) #60
+  br label %154
 
-153:                                              ; preds = %150, %151, %147
-  %154 = icmp ne i64 %1, 2833
-  %155 = icmp ne i64 %1, 2849
-  %or.cond9.not165 = and i1 %154, %155
-  %156 = icmp ne i64 %1, 3137
-  %or.cond11.not162 = and i1 %156, %or.cond9.not165
-  %157 = icmp eq i32 %4, 1
-  %or.cond13.not160 = or i1 %or.cond11.not162, %157
+154:                                              ; preds = %151, %152, %148
+  %155 = icmp ne i64 %1, 2833
+  %156 = icmp ne i64 %1, 2849
+  %or.cond9.not162 = and i1 %155, %156
+  %157 = icmp ne i64 %1, 3137
+  %or.cond11.not159 = and i1 %157, %or.cond9.not162
+  %158 = icmp eq i32 %4, 1
+  %or.cond13.not157 = or i1 %or.cond11.not159, %158
   %.not18.i.i = icmp eq i64 %.199, 0
-  %or.cond154 = or i1 %or.cond13.not160, %.not18.i.i
-  br i1 %or.cond154, label %search_method.exit.thread, label %.lr.ph.split.i.i
+  %or.cond151 = or i1 %or.cond13.not157, %.not18.i.i
+  br i1 %or.cond151, label %search_method.exit.thread, label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %153, %163
-  %.01119.i.i = phi i64 [ %165, %163 ], [ %.199, %153 ]
+.lr.ph.split.i.i:                                 ; preds = %154, %164
+  %.01119.i.i = phi i64 [ %166, %164 ], [ %.199, %154 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
-  %158 = inttoptr i64 %.01119.i.i to ptr
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %160 = load ptr, ptr %159, align 8, !tbaa !337
-  %161 = call i32 @rb_id_table_lookup(ptr noundef %160, i64 noundef %1, ptr noundef nonnull %10) #21
-  %.not.i.i.i128 = icmp eq i32 %161, 0
-  %162 = load i64, ptr %10, align 8
+  %159 = inttoptr i64 %.01119.i.i to ptr
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
+  %161 = load ptr, ptr %160, align 8, !tbaa !337
+  %162 = call i32 @rb_id_table_lookup(ptr noundef %161, i64 noundef %1, ptr noundef nonnull %10) #21
+  %.not.i.i.i128 = icmp eq i32 %162, 0
+  %163 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  %.not1440.i.i = icmp eq i64 %162, 0
+  %.not1440.i.i = icmp eq i64 %163, 0
   %.not14.i.i = select i1 %.not.i.i.i128, i1 true, i1 %.not1440.i.i
-  br i1 %.not14.i.i, label %163, label %search_method.exit
+  br i1 %.not14.i.i, label %164, label %search_method.exit
 
-163:                                              ; preds = %.lr.ph.split.i.i
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %165 = load i64, ptr %164, align 8, !tbaa !186
-  %.not.i.i129 = icmp eq i64 %165, 0
+164:                                              ; preds = %.lr.ph.split.i.i
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %166 = load i64, ptr %165, align 8, !tbaa !186
+  %.not.i.i129 = icmp eq i64 %166, 0
   br i1 %.not.i.i129, label %search_method.exit.thread, label %.lr.ph.split.i.i, !llvm.loop !379
 
 search_method.exit:                               ; preds = %.lr.ph.split.i.i
-  %166 = call ptr @rb_id2name(i64 noundef %1) #21
-  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.212, ptr noundef %166) #60
+  %167 = call ptr @rb_id2name(i64 noundef %1) #21
+  call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.212, ptr noundef %167) #60
   br label %search_method.exit.thread
 
-search_method.exit.thread:                        ; preds = %163, %search_method.exit, %153
-  br i1 %.0102.shrunk, label %167, label %168
+search_method.exit.thread:                        ; preds = %164, %search_method.exit, %154
+  br i1 %.0102.shrunk, label %168, label %169
 
-167:                                              ; preds = %search_method.exit.thread
-  call fastcc void @make_method_entry_refined(ptr noundef nonnull %118)
-  br label %168
+168:                                              ; preds = %search_method.exit.thread
+  call fastcc void @make_method_entry_refined(ptr noundef nonnull %119)
+  br label %169
 
-168:                                              ; preds = %167, %search_method.exit.thread
-  %169 = and i64 %.199, 7
-  %170 = icmp ne i64 %169, 0
-  %171 = or i1 %.not18.i.i, %170
-  br i1 %171, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i130
+169:                                              ; preds = %168, %search_method.exit.thread
+  %170 = and i64 %.199, 7
+  %171 = icmp ne i64 %170, 0
+  %172 = or i1 %.not18.i.i, %171
+  br i1 %172, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i130
 
-rbimpl_RB_TYPE_P_fastpath.exit.i130:              ; preds = %168
-  %172 = load i64, ptr %.pre-phi, align 8, !tbaa !97
-  %173 = and i64 %172, 31
-  %174 = icmp ne i64 %173, 28
-  %175 = and i64 %172, 36864
-  %176 = icmp eq i64 %175, 4096
-  %or.cond.i = or i1 %174, %176
-  br i1 %or.cond.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %177
+rbimpl_RB_TYPE_P_fastpath.exit.i130:              ; preds = %169
+  %173 = load i64, ptr %.pre-phi, align 8, !tbaa !97
+  %174 = and i64 %173, 31
+  %175 = icmp ne i64 %174, 28
+  %176 = and i64 %173, 36864
+  %177 = icmp eq i64 %176, 4096
+  %or.cond.i = or i1 %175, %177
+  br i1 %or.cond.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %178
 
-177:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i130
-  %178 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
-  %179 = load i64, ptr %178, align 8, !tbaa !57
+178:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i130
+  %179 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
+  %180 = load i64, ptr %179, align 8, !tbaa !57
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %177, %rbimpl_RB_TYPE_P_fastpath.exit.i130, %168
-  %.0.i131 = phi i64 [ %179, %177 ], [ %.199, %rbimpl_RB_TYPE_P_fastpath.exit.i130 ], [ %.199, %168 ]
-  %180 = call i32 @rb_id_table_insert(ptr noundef %55, i64 noundef %1, i64 noundef %117) #21
-  %181 = and i64 %117, 7
-  %.not = icmp eq i64 %181, 0
-  br i1 %.not, label %182, label %rb_method_table_insert.exit
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %178, %rbimpl_RB_TYPE_P_fastpath.exit.i130, %169
+  %.0.i131 = phi i64 [ %180, %178 ], [ %.199, %rbimpl_RB_TYPE_P_fastpath.exit.i130 ], [ %.199, %169 ]
+  %181 = call i32 @rb_id_table_insert(ptr noundef %55, i64 noundef %1, i64 noundef %118) #21
+  %182 = and i64 %118, 7
+  %.not = icmp eq i64 %182, 0
+  br i1 %.not, label %183, label %rb_method_table_insert.exit
 
-182:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  call void @rb_gc_writebarrier(i64 noundef %.0.i131, i64 noundef %117) #21
+183:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  call void @rb_gc_writebarrier(i64 noundef %.0.i131, i64 noundef %118) #21
   br label %rb_method_table_insert.exit
 
-rb_method_table_insert.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %182
-  br i1 %18, label %check_override_opt_method.exit, label %rbimpl_RB_TYPE_P_fastpath.exit
+rb_method_table_insert.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %183
+  br i1 %18, label %.critedge, label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_method_table_insert.exit
-  %183 = inttoptr i64 %spec.select to ptr
-  %184 = load i64, ptr %183, align 8, !tbaa !97
-  %185 = and i64 %184, 31
-  %186 = icmp eq i64 %185, 3
-  br i1 %186, label %187, label %check_override_opt_method.exit
+  %184 = inttoptr i64 %spec.select to ptr
+  %185 = load i64, ptr %184, align 8, !tbaa !97
+  %186 = and i64 %185, 31
+  %187 = icmp eq i64 %186, 3
+  br i1 %187, label %188, label %.critedge
 
-187:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
-  %188 = load ptr, ptr @vm_opt_mid_table, align 8, !tbaa !355
-  %.not.i.i132 = icmp eq ptr %188, null
-  br i1 %.not.i.i132, label %check_override_opt_method.exit, label %rb_vm_check_optimizable_mid.exit.i
+188:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
+  %189 = load ptr, ptr @vm_opt_mid_table, align 8, !tbaa !355
+  %.not.i.i132 = icmp eq ptr %189, null
+  br i1 %.not.i.i132, label %.critedge, label %rb_vm_check_optimizable_mid.exit.i
 
-rb_vm_check_optimizable_mid.exit.i:               ; preds = %187
-  %189 = call i32 @rb_st_lookup(ptr noundef nonnull %188, i64 noundef %1, ptr noundef null) #21
-  %.not.i133 = icmp eq i32 %189, 0
-  br i1 %.not.i133, label %check_override_opt_method.exit, label %190
+rb_vm_check_optimizable_mid.exit.i:               ; preds = %188
+  %190 = call i32 @rb_st_lookup(ptr noundef nonnull %189, i64 noundef %1, ptr noundef null) #21
+  %.not.i133 = icmp eq i32 %190, 0
+  br i1 %.not.i133, label %.critedge, label %191
 
-190:                                              ; preds = %rb_vm_check_optimizable_mid.exit.i
+191:                                              ; preds = %rb_vm_check_optimizable_mid.exit.i
   call void @check_override_opt_method_i(i64 noundef %.199, i64 noundef %1)
-  br label %check_override_opt_method.exit
+  br label %.critedge
 
-check_override_opt_method.exit:                   ; preds = %rb_method_table_insert.exit, %190, %rb_vm_check_optimizable_mid.exit.i, %187, %57, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.1 = phi ptr [ %118, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %59, %57 ], [ %118, %187 ], [ %118, %rb_vm_check_optimizable_mid.exit.i ], [ %118, %190 ], [ %118, %rb_method_table_insert.exit ]
+.critedge:                                        ; preds = %rb_method_table_insert.exit, %191, %rb_vm_check_optimizable_mid.exit.i, %188, %57, %rbimpl_RB_TYPE_P_fastpath.exit
+  %.1 = phi ptr [ %119, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %59, %57 ], [ %119, %188 ], [ %119, %rb_vm_check_optimizable_mid.exit.i ], [ %119, %191 ], [ %119, %rb_method_table_insert.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
   ret ptr %.1
 }
@@ -48400,7 +48400,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_array_const_ptr.
   %or.cond.not = icmp eq i64 %35, 8200
   br i1 %or.cond.not, label %66, label %.split18, !prof !678
 
-.split18:                                         ; preds = %rb_array_const_ptr.exit, %RARRAY_LENINT.exit, %rbimpl_RB_TYPE_P_fastpath.exit
+.split18:                                         ; preds = %rb_array_const_ptr.exit, %rbimpl_RB_TYPE_P_fastpath.exit, %RARRAY_LENINT.exit
   br i1 %.not.i.i, label %39, label %36
 
 36:                                               ; preds = %.split18
@@ -63339,7 +63339,7 @@ attributes #65 = { nounwind allocsize(1) }
 !675 = distinct !{!675, !12}
 !676 = distinct !{!676, !12}
 !677 = distinct !{!677, !12}
-!678 = !{!"branch_weights", i32 6868511, i32 -6868511}
+!678 = !{!"branch_weights", i32 1, i32 4001}
 !679 = distinct !{!679, !12}
 !680 = !{!681}
 !681 = distinct !{!681, !682, !"rb_splat_or_kwargs_p: argument 0"}

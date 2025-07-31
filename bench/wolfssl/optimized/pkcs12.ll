@@ -990,25 +990,25 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #9
   %12 = icmp eq ptr %0, null
-  br i1 %12, label %.thread235.thread252, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread235.thread252, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %13
   %18 = icmp eq ptr %1, null
   %19 = icmp eq ptr %2, null
   %or.cond = and i1 %18, %19
-  br i1 %or.cond, label %.thread235.thread252, label %20
+  br i1 %or.cond, label %.critedge, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !22
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread218, label %23
+  br i1 %.not, label %.thread208, label %23
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #9
@@ -1034,7 +1034,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = call i32 @SetShortInt(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %39, i32 noundef 6) #9
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %42, label %97
+  br i1 %41, label %42, label %.critedge.critedge
 
 42:                                               ; preds = %23
   %43 = call i32 @SetSequence(i32 noundef %33, ptr noundef nonnull %5) #9
@@ -1051,8 +1051,8 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %50 = add i32 %49, %48
   %51 = zext i32 %50 to i64
   %52 = call ptr @wolfSSL_Malloc(i64 noundef %51) #9
-  %.not244 = icmp eq ptr %52, null
-  br i1 %.not244, label %.thread235.thread252, label %53
+  %.not236 = icmp eq ptr %52, null
+  br i1 %.not236, label %.critedge, label %53
 
 53:                                               ; preds = %42
   %54 = call i32 @SetSequence(i32 noundef %48, ptr noundef nonnull %52) #9
@@ -1065,7 +1065,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 %60
   %62 = call i32 @SetAlgoID(i32 noundef %59, ptr noundef nonnull %61, i32 noundef 0, i32 noundef 0) #9
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread235.thread, label %64
+  br i1 %63, label %.thread227.thread, label %64
 
 64:                                               ; preds = %53
   %65 = add i32 %62, %58
@@ -1101,9 +1101,9 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   %90 = load i32, ptr %38, align 4, !tbaa !38
   %91 = call i32 @SetShortInt(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %90, i32 noundef 6) #9
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %98, label %.thread232
+  br i1 %92, label %97, label %.thread224
 
-.thread232:                                       ; preds = %64
+.thread224:                                       ; preds = %64
   %93 = add i32 %89, %82
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %52, i64 %94
@@ -1112,162 +1112,162 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   %.pre = load ptr, ptr %14, align 8, !tbaa !11
-  br label %.thread218
+  br label %.thread208
 
-97:                                               ; preds = %23
+97:                                               ; preds = %64
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  br label %.thread227.thread
+
+.thread208:                                       ; preds = %20, %.thread224
+  %98 = phi ptr [ %.pre, %.thread224 ], [ %15, %20 ]
+  %.0174218 = phi i32 [ %50, %.thread224 ], [ 0, %20 ]
+  %.0180215 = phi ptr [ %52, %.thread224 ], [ null, %20 ]
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %100 = load i32, ptr %99, align 8, !tbaa !26
+  %101 = call i32 @SetMyVersion(i32 noundef 3, ptr noundef nonnull %4, i32 noundef 0) #9
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %.thread227
+
+103:                                              ; preds = %.thread208
+  %104 = add i32 %.0174218, 23
+  %105 = add i32 %104, %100
+  %106 = add i32 %105, %101
+  %107 = call i32 @SetSequence(i32 noundef %106, ptr noundef nonnull %5) #9
+  %108 = add i32 %107, %106
+  %109 = icmp ne ptr %2, null
+  %or.cond4 = and i1 %18, %109
+  br i1 %or.cond4, label %110, label %112
+
+110:                                              ; preds = %103
+  store i32 %108, ptr %2, align 4, !tbaa !28
+  %.not202 = icmp eq ptr %.0180215, null
+  br i1 %.not202, label %.critedge, label %111
+
+111:                                              ; preds = %110
+  call void @wolfSSL_Free(ptr noundef nonnull %.0180215) #9
+  br label %.critedge
+
+112:                                              ; preds = %103
+  %113 = load ptr, ptr %1, align 8, !tbaa !39
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %115, label %118
+
+115:                                              ; preds = %112
+  %116 = zext i32 %108 to i64
+  %117 = call ptr @wolfSSL_Malloc(i64 noundef %116) #9
+  br label %122
+
+118:                                              ; preds = %112
+  br i1 %109, label %119, label %122
+
+119:                                              ; preds = %118
+  %120 = load i32, ptr %2, align 4, !tbaa !28
+  %121 = icmp slt i32 %120, %108
+  %spec.select203 = select i1 %121, i32 -132, i32 0
+  br label %122
+
+122:                                              ; preds = %119, %118, %115
+  %.0182 = phi ptr [ %117, %115 ], [ %113, %118 ], [ %113, %119 ]
+  %.8 = phi i32 [ 0, %115 ], [ 0, %118 ], [ %spec.select203, %119 ]
+  %123 = icmp eq ptr %.0182, null
+  %spec.select204 = select i1 %123, i32 -125, i32 %.8
+  %124 = icmp eq i32 %spec.select204, 0
+  br i1 %124, label %125, label %.thread227
+
+125:                                              ; preds = %122
+  %126 = zext i32 %107 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0182, ptr nonnull align 1 %5, i64 %126, i1 false)
+  %127 = getelementptr inbounds nuw i8, ptr %.0182, i64 %126
+  %128 = zext nneg i32 %101 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr nonnull align 1 %4, i64 %128, i1 false)
+  %129 = add i32 %107, %101
+  %130 = sub i32 %108, %.0174218
+  %reass.sub = sub i32 %130, %129
+  %131 = add i32 %reass.sub, -4
+  %132 = call i32 @SetSequence(i32 noundef %131, ptr noundef nonnull %5) #9
+  %133 = zext i32 %129 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %.0182, i64 %133
+  %135 = zext i32 %132 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr nonnull align 1 %5, i64 %135, i1 false)
+  %136 = add i32 %132, %129
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %.0182, i64 %137
+  %139 = call i32 @SetObjectId(i32 noundef 9, ptr noundef %138) #9
+  %140 = add i32 %139, %136
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw i8, ptr %.0182, i64 %141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %142, ptr noundef nonnull align 1 dereferenceable(9) @WC_PKCS12_DATA_OID, i64 9, i1 false)
+  %143 = add i32 %140, 9
+  %144 = add i32 %140, 10
+  %145 = zext i32 %143 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %.0182, i64 %145
+  store i8 -96, ptr %146, align 1, !tbaa !31
+  %147 = sub i32 %130, %140
+  %148 = add i32 %147, -13
+  %149 = zext i32 %144 to i64
+  %150 = getelementptr inbounds nuw i8, ptr %.0182, i64 %149
+  %151 = call i32 @SetLength(i32 noundef %148, ptr noundef %150) #9
+  %152 = add i32 %151, %144
+  %153 = add i32 %130, -4
+  %154 = sub i32 %153, %152
+  %155 = zext i32 %152 to i64
+  %156 = getelementptr inbounds nuw i8, ptr %.0182, i64 %155
+  %157 = call i32 @SetOctetString(i32 noundef %154, ptr noundef %156) #9
+  %158 = add i32 %152, %157
+  %159 = zext i32 %158 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %.0182, i64 %159
+  %161 = load ptr, ptr %14, align 8, !tbaa !11
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !21
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  %165 = load i32, ptr %164, align 8, !tbaa !26
+  %166 = zext i32 %165 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %160, ptr align 1 %163, i64 %166, i1 false)
+  %167 = load ptr, ptr %21, align 8, !tbaa !22
+  %.not200 = icmp eq ptr %167, null
+  br i1 %.not200, label %176, label %168
+
+168:                                              ; preds = %125
+  %169 = load ptr, ptr %14, align 8, !tbaa !11
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %171 = load i32, ptr %170, align 8, !tbaa !26
+  %172 = add i32 %171, %158
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %.0182, i64 %173
+  %175 = zext i32 %.0174218 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %174, ptr align 1 %.0180215, i64 %175, i1 false)
+  br label %176
+
+176:                                              ; preds = %168, %125
+  %177 = load ptr, ptr %1, align 8, !tbaa !39
+  %178 = icmp eq ptr %177, null
+  %179 = zext i32 %108 to i64
+  %storemerge.idx = select i1 %178, i64 0, i64 %179
+  %storemerge = getelementptr inbounds nuw i8, ptr %.0182, i64 %storemerge.idx
+  store ptr %storemerge, ptr %1, align 8, !tbaa !39
+  br label %.thread227
+
+.thread227:                                       ; preds = %.thread208, %122, %176
+  %.10 = phi i32 [ %108, %176 ], [ %spec.select204, %122 ], [ -125, %.thread208 ]
+  %.not201 = icmp eq ptr %.0180215, null
+  br i1 %.not201, label %.critedge, label %.thread227.thread
+
+.thread227.thread:                                ; preds = %53, %97, %.thread227
+  %.10243 = phi i32 [ %.10, %.thread227 ], [ -125, %97 ], [ -125, %53 ]
+  %.0180217242 = phi ptr [ %.0180215, %.thread227 ], [ %52, %97 ], [ %52, %53 ]
+  call void @wolfSSL_Free(ptr noundef nonnull %.0180217242) #9
+  br label %.critedge
+
+.critedge.critedge:                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #9
-  br label %.thread235.thread252
+  br label %.critedge
 
-98:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  br label %.thread235.thread
-
-.thread218:                                       ; preds = %20, %.thread232
-  %99 = phi ptr [ %.pre, %.thread232 ], [ %15, %20 ]
-  %.0174228 = phi i32 [ %50, %.thread232 ], [ 0, %20 ]
-  %.0180225 = phi ptr [ %52, %.thread232 ], [ null, %20 ]
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = load i32, ptr %100, align 8, !tbaa !26
-  %102 = call i32 @SetMyVersion(i32 noundef 3, ptr noundef nonnull %4, i32 noundef 0) #9
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %104, label %.thread235
-
-104:                                              ; preds = %.thread218
-  %105 = add i32 %.0174228, 23
-  %106 = add i32 %105, %101
-  %107 = add i32 %106, %102
-  %108 = call i32 @SetSequence(i32 noundef %107, ptr noundef nonnull %5) #9
-  %109 = add i32 %108, %107
-  %110 = icmp ne ptr %2, null
-  %or.cond4 = and i1 %18, %110
-  br i1 %or.cond4, label %111, label %113
-
-111:                                              ; preds = %104
-  store i32 %109, ptr %2, align 4, !tbaa !28
-  %.not202 = icmp eq ptr %.0180225, null
-  br i1 %.not202, label %.thread235.thread252, label %112
-
-112:                                              ; preds = %111
-  call void @wolfSSL_Free(ptr noundef nonnull %.0180225) #9
-  br label %.thread235.thread252
-
-113:                                              ; preds = %104
-  %114 = load ptr, ptr %1, align 8, !tbaa !39
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %119
-
-116:                                              ; preds = %113
-  %117 = zext i32 %109 to i64
-  %118 = call ptr @wolfSSL_Malloc(i64 noundef %117) #9
-  br label %123
-
-119:                                              ; preds = %113
-  br i1 %110, label %120, label %123
-
-120:                                              ; preds = %119
-  %121 = load i32, ptr %2, align 4, !tbaa !28
-  %122 = icmp slt i32 %121, %109
-  %spec.select203 = select i1 %122, i32 -132, i32 0
-  br label %123
-
-123:                                              ; preds = %120, %119, %116
-  %.0182 = phi ptr [ %118, %116 ], [ %114, %119 ], [ %114, %120 ]
-  %.8 = phi i32 [ 0, %116 ], [ 0, %119 ], [ %spec.select203, %120 ]
-  %124 = icmp eq ptr %.0182, null
-  %spec.select204 = select i1 %124, i32 -125, i32 %.8
-  %125 = icmp eq i32 %spec.select204, 0
-  br i1 %125, label %126, label %.thread235
-
-126:                                              ; preds = %123
-  %127 = zext i32 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0182, ptr nonnull align 1 %5, i64 %127, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %.0182, i64 %127
-  %129 = zext nneg i32 %102 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 1 %4, i64 %129, i1 false)
-  %130 = add i32 %108, %102
-  %131 = sub i32 %109, %.0174228
-  %reass.sub = sub i32 %131, %130
-  %132 = add i32 %reass.sub, -4
-  %133 = call i32 @SetSequence(i32 noundef %132, ptr noundef nonnull %5) #9
-  %134 = zext i32 %130 to i64
-  %135 = getelementptr inbounds nuw i8, ptr %.0182, i64 %134
-  %136 = zext i32 %133 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr nonnull align 1 %5, i64 %136, i1 false)
-  %137 = add i32 %133, %130
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i8, ptr %.0182, i64 %138
-  %140 = call i32 @SetObjectId(i32 noundef 9, ptr noundef %139) #9
-  %141 = add i32 %140, %137
-  %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw i8, ptr %.0182, i64 %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %143, ptr noundef nonnull align 1 dereferenceable(9) @WC_PKCS12_DATA_OID, i64 9, i1 false)
-  %144 = add i32 %141, 9
-  %145 = add i32 %141, 10
-  %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %.0182, i64 %146
-  store i8 -96, ptr %147, align 1, !tbaa !31
-  %148 = sub i32 %131, %141
-  %149 = add i32 %148, -13
-  %150 = zext i32 %145 to i64
-  %151 = getelementptr inbounds nuw i8, ptr %.0182, i64 %150
-  %152 = call i32 @SetLength(i32 noundef %149, ptr noundef %151) #9
-  %153 = add i32 %152, %145
-  %154 = add i32 %131, -4
-  %155 = sub i32 %154, %153
-  %156 = zext i32 %153 to i64
-  %157 = getelementptr inbounds nuw i8, ptr %.0182, i64 %156
-  %158 = call i32 @SetOctetString(i32 noundef %155, ptr noundef %157) #9
-  %159 = add i32 %153, %158
-  %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i8, ptr %.0182, i64 %160
-  %162 = load ptr, ptr %14, align 8, !tbaa !11
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = load ptr, ptr %163, align 8, !tbaa !21
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %166 = load i32, ptr %165, align 8, !tbaa !26
-  %167 = zext i32 %166 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr align 1 %164, i64 %167, i1 false)
-  %168 = load ptr, ptr %21, align 8, !tbaa !22
-  %.not200 = icmp eq ptr %168, null
-  br i1 %.not200, label %177, label %169
-
-169:                                              ; preds = %126
-  %170 = load ptr, ptr %14, align 8, !tbaa !11
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %172 = load i32, ptr %171, align 8, !tbaa !26
-  %173 = add i32 %172, %159
-  %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %.0182, i64 %174
-  %176 = zext i32 %.0174228 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %175, ptr align 1 %.0180225, i64 %176, i1 false)
-  br label %177
-
-177:                                              ; preds = %169, %126
-  %178 = load ptr, ptr %1, align 8, !tbaa !39
-  %179 = icmp eq ptr %178, null
-  %180 = zext i32 %109 to i64
-  %storemerge.idx = select i1 %179, i64 0, i64 %180
-  %storemerge = getelementptr inbounds nuw i8, ptr %.0182, i64 %storemerge.idx
-  store ptr %storemerge, ptr %1, align 8, !tbaa !39
-  br label %.thread235
-
-.thread235:                                       ; preds = %.thread218, %123, %177
-  %.10 = phi i32 [ %109, %177 ], [ %spec.select204, %123 ], [ -125, %.thread218 ]
-  %.not201 = icmp eq ptr %.0180225, null
-  br i1 %.not201, label %.thread235.thread252, label %.thread235.thread
-
-.thread235.thread:                                ; preds = %53, %98, %.thread235
-  %.10251 = phi i32 [ %.10, %.thread235 ], [ -125, %98 ], [ -125, %53 ]
-  %.0180227250 = phi ptr [ %.0180225, %.thread235 ], [ %52, %98 ], [ %52, %53 ]
-  call void @wolfSSL_Free(ptr noundef nonnull %.0180227250) #9
-  br label %.thread235.thread252
-
-.thread235.thread252:                             ; preds = %42, %97, %.thread235, %.thread235.thread, %111, %112, %3, %13, %17
-  %.0 = phi i32 [ %40, %97 ], [ -173, %17 ], [ -173, %13 ], [ -173, %3 ], [ -202, %112 ], [ -202, %111 ], [ %.10251, %.thread235.thread ], [ %.10, %.thread235 ], [ -125, %42 ]
+.critedge:                                        ; preds = %42, %.critedge.critedge, %.thread227, %.thread227.thread, %110, %111, %3, %13, %17
+  %.0 = phi i32 [ -173, %17 ], [ -173, %13 ], [ -173, %3 ], [ -202, %111 ], [ -202, %110 ], [ %.10243, %.thread227.thread ], [ %.10, %.thread227 ], [ %40, %.critedge.critedge ], [ -125, %42 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #9
   ret i32 %.0
@@ -3001,23 +3001,17 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
   %26 = call i32 @wc_GetKeyOID(ptr noundef nonnull %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %18) #9
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %.thread, label %32
+  br i1 %27, label %28, label %.critedge
 
-.thread:                                          ; preds = %25
-  %28 = load i32, ptr %14, align 4, !tbaa !28
-  %29 = load ptr, ptr %12, align 8, !tbaa !39
-  %30 = load i32, ptr %13, align 4, !tbaa !28
-  %31 = call i32 @wc_CreatePKCS8Key(ptr noundef %.057, ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %28, ptr noundef %29, i32 noundef %30) #9
+28:                                               ; preds = %25
+  %29 = load i32, ptr %14, align 4, !tbaa !28
+  %30 = load ptr, ptr %12, align 8, !tbaa !39
+  %31 = load i32, ptr %13, align 4, !tbaa !28
+  %32 = call i32 @wc_CreatePKCS8Key(ptr noundef %.057, ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %29, ptr noundef %30, i32 noundef %31) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
   br label %36
-
-32:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  br label %53
 
 33:                                               ; preds = %23
   %34 = icmp eq i32 %6, 2
@@ -3026,8 +3020,8 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   %35 = call i32 @UnTraditionalEnc(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %.057, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %8, i32 noundef %spec.select72, i32 noundef %spec.select, ptr noundef null, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %1, ptr noundef %18) #9
   br label %36
 
-36:                                               ; preds = %.thread, %33
-  %.1 = phi i32 [ %35, %33 ], [ %31, %.thread ]
+36:                                               ; preds = %28, %33
+  %.1 = phi i32 [ %32, %28 ], [ %35, %33 ]
   %37 = icmp eq i32 %.1, -202
   br i1 %37, label %38, label %41
 
@@ -3056,8 +3050,14 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %51, i64 %52, i1 false)
   br label %53
 
-53:                                               ; preds = %41, %32, %10, %43, %38
-  %.061 = phi i32 [ -202, %38 ], [ %48, %43 ], [ %26, %32 ], [ -173, %10 ], [ %.1.mux, %41 ]
+.critedge:                                        ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  br label %53
+
+53:                                               ; preds = %41, %.critedge, %10, %43, %38
+  %.061 = phi i32 [ -202, %38 ], [ %48, %43 ], [ -173, %10 ], [ %26, %.critedge ], [ %.1.mux, %41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   ret i32 %.061
 }

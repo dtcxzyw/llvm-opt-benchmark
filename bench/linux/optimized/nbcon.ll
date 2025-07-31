@@ -101,7 +101,7 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr noundef
   %30 = and i32 %29, 16777215
   %31 = icmp eq i32 %30, %22
   %32 = select i1 %28, i1 %31, i1 false
-  br i1 %32, label %.lr.ph, label %.thread
+  br i1 %32, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %21, %43
   %33 = phi i32 [ %44, %43 ], [ %25, %21 ]
@@ -115,7 +115,7 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr noundef
   %41 = icmp ult i8 %40, 2
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
-  br i1 %42, label %43, label %.thread, !prof !12
+  br i1 %42, label %43, label %.critedge, !prof !12
 
 43:                                               ; preds = %.lr.ph
   %44 = extractvalue { i8, i32 } %39, 1
@@ -126,15 +126,15 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr noundef
   %49 = and i32 %48, 16777215
   %50 = icmp eq i32 %49, %22
   %51 = select i1 %47, i1 %50, i1 false
-  br i1 %51, label %.lr.ph, label %.thread, !llvm.loop !13
+  br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !13
 
-.thread:                                          ; preds = %43, %.lr.ph, %21
+.critedge:                                        ; preds = %43, %.lr.ph, %21
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %52, align 8
   br label %53
 
-53:                                               ; preds = %.thread, %11, %1
-  %54 = phi i1 [ false, %.thread ], [ false, %1 ], [ true, %11 ]
+53:                                               ; preds = %.critedge, %11, %1
+  %54 = phi i1 [ false, %.critedge ], [ false, %1 ], [ true, %11 ]
   ret i1 %54
 }
 

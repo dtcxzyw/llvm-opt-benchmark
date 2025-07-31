@@ -917,7 +917,7 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 13
-  br i1 %6, label %.thread5, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 7184
@@ -926,7 +926,7 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   %11 = zext i32 %10 to i64
   %12 = and i64 %11, 2048
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %.thread5
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %7
   %15 = and i64 %11, 512
@@ -984,7 +984,7 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -3
   %49 = icmp ult i32 %48, -2
-  br i1 %49, label %.thread5, label %.thread
+  br i1 %49, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %39, %37, %33, %31, %28, %26, %23, %20, %17, %14, %45
   %50 = phi ptr [ @pch_pll_mgr, %45 ], [ @hsw_pll_mgr, %39 ], [ @skl_pll_mgr, %37 ], [ @bxt_pll_mgr, %33 ], [ @icl_pll_mgr, %31 ], [ @ehl_pll_mgr, %28 ], [ @tgl_pll_mgr, %26 ], [ @rkl_pll_mgr, %23 ], [ @dg1_pll_mgr, %20 ], [ @adls_pll_mgr, %17 ], [ @adlp_pll_mgr, %14 ]
@@ -1081,9 +1081,9 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   store ptr %50, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4520
   store i32 %101, ptr %103, align 8
-  br label %.thread5
+  br label %.critedge
 
-.thread5:                                         ; preds = %1, %7, %100, %45
+.critedge:                                        ; preds = %7, %1, %100, %45
   ret void
 }
 

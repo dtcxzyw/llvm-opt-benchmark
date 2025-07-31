@@ -237,14 +237,14 @@ define range(i32 -1, 1) i32 @H5B2_close(ptr noundef %0) local_unnamed_addr #0 {
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %.thread28, !prof !9
+  br i1 %7, label %8, label %.thread, !prof !9
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !13
   %10 = tail call i64 @H5B2__hdr_fuse_decr(ptr noundef %9) #7
   %11 = icmp eq i64 %10, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !13
-  br i1 %11, label %12, label %45
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -254,7 +254,7 @@ define range(i32 -1, 1) i32 @H5B2_close(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 328
   %17 = load i8, ptr %16, align 8, !tbaa !34, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %45
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 296
@@ -267,7 +267,7 @@ define range(i32 -1, 1) i32 @H5B2_close(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %26 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_close, i32 noundef 1414, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.3) #7
-  br label %.thread28
+  br label %.thread
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr %13, align 8, !tbaa !18
@@ -282,36 +282,36 @@ define range(i32 -1, 1) i32 @H5B2_close(ptr noundef %0) local_unnamed_addr #0 {
   %35 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %36 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_close, i32 noundef 1425, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.34) #7
-  br label %.thread28
+  br label %.thread
 
 38:                                               ; preds = %28
   %39 = tail call i32 @H5B2__hdr_delete(ptr noundef nonnull %22) #7
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %52
+  br i1 %40, label %41, label %51
 
 41:                                               ; preds = %38
   %42 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %43 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_close, i32 noundef 1429, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.35) #7
-  br label %.thread28
+  br label %.thread
 
-45:                                               ; preds = %12, %8
-  %46 = tail call i32 @H5B2__hdr_decr(ptr noundef %.pre) #7
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %52
+.critedge:                                        ; preds = %12, %8
+  %45 = tail call i32 @H5B2__hdr_decr(ptr noundef %.pre) #7
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %51
 
-48:                                               ; preds = %45
-  %49 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
-  %50 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
-  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_close, i32 noundef 1438, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.34) #7
-  br label %.thread28
+47:                                               ; preds = %.critedge
+  %48 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
+  %49 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
+  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_close, i32 noundef 1438, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.34) #7
+  br label %.thread
 
-52:                                               ; preds = %38, %45
-  %53 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5B2_t_reg_free_list, ptr noundef nonnull %0) #7
-  br label %.thread28
+51:                                               ; preds = %38, %.critedge
+  %52 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5B2_t_reg_free_list, ptr noundef nonnull %0) #7
+  br label %.thread
 
-.thread28:                                        ; preds = %41, %34, %24, %1, %52, %48
-  %.020 = phi i32 [ 0, %52 ], [ -1, %48 ], [ 0, %1 ], [ -1, %24 ], [ -1, %34 ], [ -1, %41 ]
+.thread:                                          ; preds = %41, %34, %24, %1, %51, %47
+  %.020 = phi i32 [ 0, %51 ], [ -1, %47 ], [ 0, %1 ], [ -1, %24 ], [ -1, %34 ], [ -1, %41 ]
   ret i32 %.020
 }
 

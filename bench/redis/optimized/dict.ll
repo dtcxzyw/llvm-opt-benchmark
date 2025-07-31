@@ -1204,18 +1204,18 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   br label %50
 
 50:                                               ; preds = %dictGetKeyCmpFunc.exit, %96
-  %.04780 = phi i64 [ %21, %dictGetKeyCmpFunc.exit ], [ %.249, %96 ]
+  %.04778 = phi i64 [ %21, %dictGetKeyCmpFunc.exit ], [ %.249, %96 ]
   %51 = phi i1 [ true, %dictGetKeyCmpFunc.exit ], [ false, %96 ]
-  %.05079 = phi i64 [ 0, %dictGetKeyCmpFunc.exit ], [ 1, %96 ]
+  %.05077 = phi i64 [ 0, %dictGetKeyCmpFunc.exit ], [ 1, %96 ]
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
   %53 = load i64, ptr %22, align 8, !tbaa !14
-  %54 = icmp slt i64 %.04780, %53
+  %54 = icmp slt i64 %.04778, %53
   br i1 %54, label %96, label %55
 
 55:                                               ; preds = %52, %50
-  %56 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 0, i64 %.05079
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 0, i64 %.05077
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %58 = sext i8 %57 to i64
   %59 = icmp eq i8 %57, -1
@@ -1224,16 +1224,16 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   %61 = xor i64 %notmask59, -1
   %62 = select i1 %59, i64 0, i64 %61
   %63 = and i64 %62, %11
-  %64 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %.05079
+  %64 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %.05077
   %65 = load ptr, ptr %64, align 8, !tbaa !11
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
   %67 = load ptr, ptr %66, align 8, !tbaa !31
-  %.not6077 = icmp eq ptr %67, null
-  br i1 %.not6077, label %._crit_edge, label %.lr.ph
+  %.not6075 = icmp eq ptr %67, null
+  br i1 %.not6075, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55, %dictGetNext.exit
-  %.05178 = phi ptr [ %.152, %dictGetNext.exit ], [ %67, %55 ]
-  %68 = ptrtoint ptr %.05178 to i64
+  %.05176 = phi ptr [ %.0.i73, %dictGetNext.exit ], [ %67, %55 ]
+  %68 = ptrtoint ptr %.05176 to i64
   %69 = and i64 %68, 1
   %.not.i68 = icmp eq i64 %69, 0
   br i1 %.not.i68, label %70, label %dictGetKey.exit
@@ -1260,11 +1260,11 @@ dictGetKeyCmpFunc.exit:                           ; preds = %43, %46
   br label %dictGetKey.exit
 
 81:                                               ; preds = %75
-  %82 = load ptr, ptr %.05178, align 8, !tbaa !40
+  %82 = load ptr, ptr %.05176, align 8, !tbaa !40
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %81
-  %.0.i69 = phi ptr [ %74, %72 ], [ %80, %77 ], [ %82, %81 ], [ %.05178, %.lr.ph ]
+  %.0.i69 = phi ptr [ %74, %72 ], [ %80, %77 ], [ %82, %81 ], [ %.05176, %.lr.ph ]
   %83 = icmp eq ptr %1, %.0.i69
   br i1 %83, label %86, label %84
 
@@ -1274,11 +1274,11 @@ dictGetKey.exit:                                  ; preds = %.lr.ph, %72, %77, %
   br i1 %.not63, label %88, label %86
 
 86:                                               ; preds = %84, %dictGetKey.exit
-  br i1 %.not, label %dictGetNext.exit.thread, label %87
+  br i1 %.not, label %.critedge, label %87
 
 87:                                               ; preds = %86
-  store ptr %.05178, ptr %2, align 8, !tbaa !31
-  br label %dictGetNext.exit.thread
+  store ptr %.05176, ptr %2, align 8, !tbaa !31
+  br label %.critedge
 
 88:                                               ; preds = %84
   %89 = and i64 %68, 3
@@ -1291,10 +1291,10 @@ dictGetNext.exit:                                 ; preds = %88
   %91 = and i64 %68, -8
   %92 = inttoptr i64 %91 to ptr
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %.05178, i64 16
-  %.152.in = select i1 %.not5.i, ptr %94, ptr %93
-  %.152 = load ptr, ptr %.152.in, align 8, !tbaa !31
-  %.not60 = icmp eq ptr %.152, null
+  %94 = getelementptr inbounds nuw i8, ptr %.05176, i64 16
+  %.0.i73.in = select i1 %.not5.i, ptr %94, ptr %93
+  %.0.i73 = load ptr, ptr %.0.i73.in, align 8, !tbaa !31
+  %.not60 = icmp eq ptr %.0.i73, null
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %88, %dictGetNext.exit, %55
@@ -1304,7 +1304,7 @@ dictGetNext.exit:                                 ; preds = %88
 
 96:                                               ; preds = %._crit_edge, %52
   %97 = phi i64 [ %53, %52 ], [ %95, %._crit_edge ]
-  %.249 = phi i64 [ %.04780, %52 ], [ %63, %._crit_edge ]
+  %.249 = phi i64 [ %.04778, %52 ], [ %63, %._crit_edge ]
   br i1 %51, label %50, label %98, !llvm.loop !54
 
 98:                                               ; preds = %._crit_edge, %96
@@ -1315,10 +1315,10 @@ dictGetNext.exit:                                 ; preds = %88
   %101 = getelementptr inbounds nuw [2 x ptr], ptr %49, i64 0, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %.148
-  br label %dictGetNext.exit.thread
+  br label %.critedge
 
-dictGetNext.exit.thread:                          ; preds = %86, %87, %98
-  %.4 = phi ptr [ %103, %98 ], [ null, %87 ], [ null, %86 ]
+.critedge:                                        ; preds = %87, %86, %98
+  %.4 = phi ptr [ %103, %98 ], [ null, %86 ], [ null, %87 ]
   ret ptr %.4
 }
 

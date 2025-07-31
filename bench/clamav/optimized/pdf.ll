@@ -2614,12 +2614,12 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
   store i64 0, ptr %5, align 8, !tbaa !3
   %6 = icmp ult i64 %3, 8
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge181, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @cli_memstr(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.80, i64 noundef 7) #23
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.thread, label %9
+  br i1 %.not, label %.critedge181, label %9
 
 9:                                                ; preds = %7
   %10 = ptrtoint ptr %8 to i64
@@ -2627,21 +2627,21 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   %.neg = sub i64 %11, %10
   %12 = add i64 %.neg, %3
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge181, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = add i64 %12, -1
   %17 = tail call fastcc ptr @pdf_nextobject(ptr noundef nonnull %15, i64 noundef %16)
   %.not154 = icmp eq ptr %17, null
-  br i1 %.not154, label %.thread, label %18
+  br i1 %.not154, label %.critedge181, label %18
 
 18:                                               ; preds = %14
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
   %22 = icmp ult i64 %16, %21
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge181, label %23
 
 23:                                               ; preds = %18
   %24 = sub nuw i64 %16, %21
@@ -2651,30 +2651,30 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 26:                                               ; preds = %23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.205) #23
-  br label %.thread
+  br label %.critedge181
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %5, align 8, !tbaa !3
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %32, label %.preheader183
+  br i1 %29, label %32, label %.preheader184
 
-.preheader183:                                    ; preds = %27
-  %.not156189 = icmp eq i64 %24, 0
-  br i1 %.not156189, label %.critedge174, label %.lr.ph
+.preheader184:                                    ; preds = %27
+  %.not156190 = icmp eq i64 %24, 0
+  br i1 %.not156190, label %.critedge174, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader183
+.lr.ph:                                           ; preds = %.preheader184
   %30 = tail call ptr @__ctype_b_loc() #25
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   br label %33
 
 32:                                               ; preds = %27
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.206, i64 noundef %28) #23
-  br label %.thread
+  br label %.critedge181
 
 33:                                               ; preds = %.lr.ph, %39
-  %.0117191 = phi ptr [ %17, %.lr.ph ], [ %40, %39 ]
-  %.0119190 = phi i64 [ %24, %.lr.ph ], [ %41, %39 ]
-  %34 = load i8, ptr %.0117191, align 1, !tbaa !30
+  %.0117192 = phi ptr [ %17, %.lr.ph ], [ %40, %39 ]
+  %.0119191 = phi i64 [ %24, %.lr.ph ], [ %41, %39 ]
+  %34 = load i8, ptr %.0117192, align 1, !tbaa !30
   %35 = sext i8 %34 to i64
   %36 = getelementptr inbounds i16, ptr %31, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !31
@@ -2683,8 +2683,8 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   br i1 %.not157, label %.critedge, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %.0117191, i64 1
-  %41 = add i64 %.0119190, -1
+  %40 = getelementptr inbounds nuw i8, ptr %.0117192, i64 1
+  %41 = add i64 %.0119191, -1
   %.not156 = icmp eq i64 %41, 0
   br i1 %.not156, label %.critedge174, label %33
 
@@ -2693,15 +2693,15 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   br i1 %42, label %43, label %.critedge174
 
 43:                                               ; preds = %.critedge
-  %44 = getelementptr inbounds nuw i8, ptr %.0117191, i64 1
-  %45 = add i64 %.0119190, -1
+  %44 = getelementptr inbounds nuw i8, ptr %.0117192, i64 1
+  %45 = add i64 %.0119191, -1
   %46 = call i32 @cli_strntol_wrap(ptr noundef nonnull %44, i64 noundef %45, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %5) #23
   %.not158 = icmp eq i32 %46, 0
   br i1 %.not158, label %48, label %47
 
 47:                                               ; preds = %43
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.207) #23
-  br label %.thread
+  br label %.critedge181
 
 48:                                               ; preds = %43
   %49 = load i64, ptr %5, align 8, !tbaa !3
@@ -2709,21 +2709,21 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   br i1 %50, label %52, label %.preheader
 
 .preheader:                                       ; preds = %48
-  %.not159192 = icmp eq i64 %45, 0
-  br i1 %.not159192, label %.thread, label %.lr.ph195
+  %.not159193 = icmp eq i64 %45, 0
+  br i1 %.not159193, label %.critedge181, label %.lr.ph196
 
-.lr.ph195:                                        ; preds = %.preheader
+.lr.ph196:                                        ; preds = %.preheader
   %51 = load ptr, ptr %30, align 8, !tbaa !28
   br label %53
 
 52:                                               ; preds = %48
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.208, i64 noundef %49) #23
-  br label %.thread
+  br label %.critedge181
 
-53:                                               ; preds = %.lr.ph195, %59
-  %.1118194 = phi ptr [ %44, %.lr.ph195 ], [ %60, %59 ]
-  %.1120193 = phi i64 [ %45, %.lr.ph195 ], [ %61, %59 ]
-  %54 = load i8, ptr %.1118194, align 1, !tbaa !30
+53:                                               ; preds = %.lr.ph196, %59
+  %.1118195 = phi ptr [ %44, %.lr.ph196 ], [ %60, %59 ]
+  %.1120194 = phi i64 [ %45, %.lr.ph196 ], [ %61, %59 ]
+  %54 = load i8, ptr %.1118195, align 1, !tbaa !30
   %55 = sext i8 %54 to i64
   %56 = getelementptr inbounds i16, ptr %51, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !31
@@ -2732,21 +2732,21 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   br i1 %.not160, label %.critedge3, label %59
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %.1118194, i64 1
-  %61 = add i64 %.1120193, -1
+  %60 = getelementptr inbounds nuw i8, ptr %.1118195, i64 1
+  %61 = add i64 %.1120194, -1
   %.not159 = icmp eq i64 %61, 0
-  br i1 %.not159, label %.thread, label %53
+  br i1 %.not159, label %.critedge181, label %53
 
 .critedge3:                                       ; preds = %53
-  %62 = icmp eq i64 %.1120193, 1
-  br i1 %62, label %.thread, label %63
+  %62 = icmp eq i64 %.1120194, 1
+  br i1 %62, label %.critedge181, label %63
 
 63:                                               ; preds = %.critedge3
   %64 = icmp eq i8 %54, 32
   br i1 %64, label %65, label %.critedge174
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %.1118194, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.1118195, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !30
   %68 = icmp eq i8 %67, 82
   br i1 %68, label %69, label %.critedge174
@@ -2763,7 +2763,7 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 75:                                               ; preds = %69
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.210) #23
-  br label %.thread
+  br label %.critedge181
 
 76:                                               ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 304
@@ -2803,7 +2803,7 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 99:                                               ; preds = %92, %88, %82
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.211) #23
-  br label %.thread
+  br label %.critedge181
 
 100:                                              ; preds = %76
   %101 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -2835,7 +2835,7 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 117:                                              ; preds = %110, %106, %100
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.212) #23
-  br label %.thread
+  br label %.critedge181
 
 118:                                              ; preds = %110, %92
   %.sink = phi i64 [ %87, %92 ], [ %105, %110 ]
@@ -2847,14 +2847,14 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 121:                                              ; preds = %118
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.213) #23
-  br label %.thread
+  br label %.critedge181
 
 122:                                              ; preds = %118
   %123 = ptrtoint ptr %120 to i64
   %124 = ptrtoint ptr %.0 to i64
   %125 = sub i64 %123, %124
   %126 = icmp ult i64 %119, %125
-  br i1 %126, label %.thread, label %127
+  br i1 %126, label %.critedge181, label %127
 
 127:                                              ; preds = %122
   %128 = sub nuw i64 %119, %125
@@ -2864,7 +2864,7 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 130:                                              ; preds = %127
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.214) #23
-  br label %.thread
+  br label %.critedge181
 
 131:                                              ; preds = %127
   %132 = load i64, ptr %5, align 8, !tbaa !3
@@ -2873,10 +2873,10 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
 
 134:                                              ; preds = %131
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.215, i64 noundef %132) #23
-  br label %.thread
+  br label %.critedge181
 
-.critedge174:                                     ; preds = %39, %.preheader183, %65, %63, %131, %.critedge
-  %.0122 = phi i64 [ %28, %.critedge ], [ %28, %65 ], [ %28, %63 ], [ %132, %131 ], [ %28, %.preheader183 ], [ %28, %39 ]
+.critedge174:                                     ; preds = %39, %.preheader184, %131, %65, %63, %.critedge
+  %.0122 = phi i64 [ %28, %.critedge ], [ %28, %65 ], [ %28, %63 ], [ %132, %131 ], [ %28, %.preheader184 ], [ %28, %39 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %136 = load ptr, ptr %135, align 8, !tbaa !42
   %137 = ptrtoint ptr %136 to i64
@@ -2889,10 +2889,10 @@ define internal fastcc i64 @find_length(ptr noundef readonly captures(none) %0, 
   %144 = add i64 %142, -5
   %145 = sub i64 %144, %138
   %.4 = select i1 %143, i64 %145, i64 %.0122
-  br label %.thread
+  br label %.critedge181
 
-.thread:                                          ; preds = %59, %.preheader, %122, %75, %117, %99, %121, %134, %130, %.critedge3, %52, %47, %18, %14, %9, %7, %4, %.critedge174, %32, %26
-  %.0114 = phi i64 [ 0, %26 ], [ 0, %32 ], [ %.4, %.critedge174 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %18 ], [ 0, %47 ], [ 0, %52 ], [ 0, %.critedge3 ], [ 0, %130 ], [ 0, %134 ], [ 0, %121 ], [ 0, %99 ], [ 0, %117 ], [ 0, %75 ], [ 0, %122 ], [ 0, %.preheader ], [ 0, %59 ]
+.critedge181:                                     ; preds = %59, %.preheader, %130, %134, %121, %99, %117, %75, %122, %47, %52, %.critedge3, %18, %14, %9, %7, %4, %.critedge174, %32, %26
+  %.0114 = phi i64 [ 0, %26 ], [ 0, %32 ], [ %.4, %.critedge174 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %14 ], [ 0, %18 ], [ 0, %.critedge3 ], [ 0, %52 ], [ 0, %47 ], [ 0, %122 ], [ 0, %75 ], [ 0, %117 ], [ 0, %99 ], [ 0, %121 ], [ 0, %134 ], [ 0, %130 ], [ 0, %.preheader ], [ 0, %59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   ret i64 %.0114
 }

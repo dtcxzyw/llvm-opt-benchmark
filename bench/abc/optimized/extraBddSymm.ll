@@ -202,36 +202,36 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %11, label %13, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.not199 = icmp eq i32 %10, 2
-  br i1 %.not199, label %._crit_edge195, label %.lr.ph194.preheader
+  %.not198 = icmp eq i32 %10, 2
+  br i1 %.not198, label %._crit_edge194, label %.lr.ph193.preheader
 
-.lr.ph194.preheader:                              ; preds = %.preheader
+.lr.ph193.preheader:                              ; preds = %.preheader
   %12 = add nsw i32 %10, -3
-  br label %.lr.ph194
+  br label %.lr.ph193
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !40
-  br label %.thread
+  br label %.critedge
 
-.lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
-  %.0155193 = phi i32 [ %18, %.lr.ph194 ], [ 0, %.lr.ph194.preheader ]
-  %.0162192 = phi ptr [ %17, %.lr.ph194 ], [ %2, %.lr.ph194.preheader ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0162192, i64 16
+.lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
+  %.0155192 = phi i32 [ %18, %.lr.ph193 ], [ 0, %.lr.ph193.preheader ]
+  %.0162191 = phi ptr [ %17, %.lr.ph193 ], [ %2, %.lr.ph193.preheader ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0162191, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !38
-  %18 = add nuw nsw i32 %.0155193, 1
-  %exitcond202.not = icmp eq i32 %.0155193, %12
-  br i1 %exitcond202.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !44
+  %18 = add nuw nsw i32 %.0155192, 1
+  %exitcond201.not = icmp eq i32 %.0155192, %12
+  br i1 %exitcond201.not, label %._crit_edge194, label %.lr.ph193, !llvm.loop !44
 
-._crit_edge195:                                   ; preds = %.lr.ph194, %.preheader
-  %.0162.lcssa = phi ptr [ %2, %.preheader ], [ %17, %.lr.ph194 ]
+._crit_edge194:                                   ; preds = %.lr.ph193, %.preheader
+  %.0162.lcssa = phi ptr [ %2, %.preheader ], [ %17, %.lr.ph193 ]
   %19 = tail call ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %.0162.lcssa, ptr noundef %2)
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %3
   %21 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef %0, ptr noundef nonnull @extraZddSymmPairsCompute, ptr noundef %1, ptr noundef %2) #10
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %22, label %.thread
+  br i1 %.not, label %22, label %.critedge
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -244,12 +244,12 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !37
-  %.not197 = icmp sgt i32 %28, %32
-  br i1 %.not197, label %.lr.ph, label %._crit_edge
+  %.not196 = icmp sgt i32 %28, %32
+  br i1 %.not196, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.0157184 = phi ptr [ %34, %.lr.ph ], [ %2, %22 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.0157184, i64 16
+  %.0157183 = phi ptr [ %34, %.lr.ph ], [ %2, %22 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.0157183, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !38
   %35 = load i32, ptr %34, align 8, !tbaa !36
   %36 = zext i32 %35 to i64
@@ -287,7 +287,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %55 = load ptr, ptr %54, align 8, !tbaa !38
   %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef nonnull %0, ptr noundef %.0159, ptr noundef %55)
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread, label %58
+  br i1 %57, label %.critedge, label %58
 
 58:                                               ; preds = %53
   %59 = ptrtoint ptr %56 to i64
@@ -310,7 +310,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 72:                                               ; preds = %68
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #10
-  br label %.thread
+  br label %.critedge
 
 73:                                               ; preds = %68
   %74 = ptrtoint ptr %70 to i64
@@ -327,7 +327,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 82:                                               ; preds = %73
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %56) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %70) #10
-  br label %.thread
+  br label %.critedge
 
 83:                                               ; preds = %73
   %84 = ptrtoint ptr %80 to i64
@@ -350,7 +350,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 94:                                               ; preds = %90
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0149) #10
-  br label %.thread
+  br label %.critedge
 
 95:                                               ; preds = %90
   %96 = ptrtoint ptr %92 to i64
@@ -374,7 +374,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 109:                                              ; preds = %104
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0149) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %92) #10
-  br label %.thread
+  br label %.critedge
 
 110:                                              ; preds = %104
   %111 = ptrtoint ptr %107 to i64
@@ -394,7 +394,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 121:                                              ; preds = %110
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0149) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %107) #10
-  br label %.thread
+  br label %.critedge
 
 122:                                              ; preds = %110
   %123 = ptrtoint ptr %119 to i64
@@ -411,7 +411,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %.sink = phi ptr [ %107, %122 ], [ %92, %95 ]
   %.1150 = phi ptr [ %119, %122 ], [ %.0149, %95 ]
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #10
-  br i1 %.not197, label %130, label %168
+  br i1 %.not196, label %130, label %168
 
 130:                                              ; preds = %129
   %131 = tail call ptr @extraBddReduceVarSet(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1)
@@ -420,7 +420,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 133:                                              ; preds = %130
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
-  br label %.thread
+  br label %.critedge
 
 134:                                              ; preds = %130
   %135 = ptrtoint ptr %131 to i64
@@ -432,41 +432,41 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %140, ptr %138, align 4, !tbaa !47
   %141 = tail call i32 @Extra_bddSuppSize(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
   %142 = icmp slt i32 %141, 2
-  br i1 %142, label %144, label %.preheader183
+  br i1 %142, label %144, label %.preheader182
 
-.preheader183:                                    ; preds = %134
-  %.not198 = icmp eq i32 %141, 2
-  br i1 %.not198, label %._crit_edge190, label %.lr.ph189.preheader
+.preheader182:                                    ; preds = %134
+  %.not197 = icmp eq i32 %141, 2
+  br i1 %.not197, label %._crit_edge189, label %.lr.ph188.preheader
 
-.lr.ph189.preheader:                              ; preds = %.preheader183
+.lr.ph188.preheader:                              ; preds = %.preheader182
   %143 = add nsw i32 %141, -3
-  br label %.lr.ph189
+  br label %.lr.ph188
 
 144:                                              ; preds = %134
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
   br label %168
 
-.lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
-  %.0188 = phi ptr [ %146, %.lr.ph189 ], [ %131, %.lr.ph189.preheader ]
-  %.0147187 = phi i32 [ %147, %.lr.ph189 ], [ 0, %.lr.ph189.preheader ]
-  %145 = getelementptr inbounds nuw i8, ptr %.0188, i64 16
+.lr.ph188:                                        ; preds = %.lr.ph188.preheader, %.lr.ph188
+  %.0187 = phi ptr [ %146, %.lr.ph188 ], [ %131, %.lr.ph188.preheader ]
+  %.0147186 = phi i32 [ %147, %.lr.ph188 ], [ 0, %.lr.ph188.preheader ]
+  %145 = getelementptr inbounds nuw i8, ptr %.0187, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !38
-  %147 = add nuw nsw i32 %.0147187, 1
-  %exitcond.not = icmp eq i32 %.0147187, %143
-  br i1 %exitcond.not, label %._crit_edge190, label %.lr.ph189, !llvm.loop !48
+  %147 = add nuw nsw i32 %.0147186, 1
+  %exitcond.not = icmp eq i32 %.0147186, %143
+  br i1 %exitcond.not, label %._crit_edge189, label %.lr.ph188, !llvm.loop !48
 
-._crit_edge190:                                   ; preds = %.lr.ph189, %.preheader183
-  %.0.lcssa = phi ptr [ %131, %.preheader183 ], [ %146, %.lr.ph189 ]
+._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader182
+  %.0.lcssa = phi ptr [ %131, %.preheader182 ], [ %146, %.lr.ph188 ]
   %148 = tail call ptr @extraZddTuplesFromBdd(ptr noundef nonnull %0, ptr noundef %.0.lcssa, ptr noundef nonnull %131)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %151
 
-150:                                              ; preds = %._crit_edge190
+150:                                              ; preds = %._crit_edge189
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
-  br label %.thread
+  br label %.critedge
 
-151:                                              ; preds = %._crit_edge190
+151:                                              ; preds = %._crit_edge189
   %152 = ptrtoint ptr %148 to i64
   %153 = and i64 %152, -2
   %154 = inttoptr i64 %153 to ptr
@@ -482,7 +482,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 160:                                              ; preds = %151
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
-  br label %.thread
+  br label %.critedge
 
 161:                                              ; preds = %151
   %162 = ptrtoint ptr %158 to i64
@@ -496,7 +496,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
   br label %168
 
-168:                                              ; preds = %144, %161, %129
+168:                                              ; preds = %161, %144, %129
   %.2151 = phi ptr [ %.1150, %129 ], [ %.1150, %144 ], [ %158, %161 ]
   %169 = ptrtoint ptr %.2151 to i64
   %170 = and i64 %169, -2
@@ -506,10 +506,10 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %174 = add i32 %173, -1
   store i32 %174, ptr %172, align 4, !tbaa !47
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSymmPairsCompute, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.2151) #10
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %160, %150, %133, %72, %82, %94, %109, %121, %168, %53, %20, %13, %._crit_edge195
-  %.1 = phi ptr [ %15, %13 ], [ %19, %._crit_edge195 ], [ %21, %20 ], [ null, %94 ], [ %.2151, %168 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %82 ], [ null, %53 ], [ null, %133 ], [ null, %150 ], [ null, %160 ]
+.critedge:                                        ; preds = %150, %160, %72, %82, %94, %109, %121, %168, %53, %133, %20, %13, %._crit_edge194
+  %.1 = phi ptr [ %15, %13 ], [ %19, %._crit_edge194 ], [ %21, %20 ], [ null, %94 ], [ %.2151, %168 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %82 ], [ null, %53 ], [ null, %133 ], [ null, %160 ], [ null, %150 ]
   ret ptr %.1
 }
 
@@ -975,18 +975,18 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = icmp eq i32 %7, 2147483647
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge98, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = icmp eq ptr %1, %11
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge98, label %13
 
 13:                                               ; preds = %9
   %14 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef %1, ptr noundef %2) #10
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %.thread
+  br i1 %.not, label %15, label %.critedge98
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1053,7 +1053,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.078 = phi ptr [ %50, %43 ], [ %52, %51 ]
   %54 = tail call ptr @extraBddReduceVarSet(ptr noundef nonnull %0, ptr noundef %.076, ptr noundef %.079)
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread, label %56
+  br i1 %55, label %.critedge98, label %56
 
 56:                                               ; preds = %53
   %57 = ptrtoint ptr %54 to i64
@@ -1069,7 +1069,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 65:                                               ; preds = %56
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %54) #10
-  br label %.thread
+  br label %.critedge98
 
 66:                                               ; preds = %56
   %67 = ptrtoint ptr %63 to i64
@@ -1090,7 +1090,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 76:                                               ; preds = %73
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
-  br label %.thread
+  br label %.critedge98
 
 77:                                               ; preds = %73
   %78 = ptrtoint ptr %74 to i64
@@ -1107,7 +1107,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 86:                                               ; preds = %77
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %74) #10
-  br label %.thread
+  br label %.critedge98
 
 87:                                               ; preds = %77
   %88 = ptrtoint ptr %84 to i64
@@ -1129,10 +1129,10 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4, !tbaa !47
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.074) #10
-  br label %.thread
+  br label %.critedge98
 
-.thread:                                          ; preds = %86, %76, %65, %94, %53, %13, %3, %9
-  %.0 = phi ptr [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %65 ], [ %.074, %94 ], [ null, %53 ], [ null, %76 ], [ null, %86 ]
+.critedge98:                                      ; preds = %65, %94, %53, %86, %76, %13, %3, %9
+  %.0 = phi ptr [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %65 ], [ %.074, %94 ], [ null, %53 ], [ null, %86 ], [ null, %76 ]
   ret ptr %.0
 }
 

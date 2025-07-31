@@ -21,7 +21,7 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %5, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = inttoptr i64 %3 to ptr
@@ -29,29 +29,29 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph38, label %._crit_edge
+  br i1 %10, label %.lr.ph36, label %.critedge
 
-._crit_edge:                                      ; preds = %40, %.lr.ph, %1
-  %11 = ptrtoint ptr %4 to i64
-  ret i64 %11
-
-.lr.ph38:                                         ; preds = %.lr.ph, %40
+.lr.ph36:                                         ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
-  %.0172836 = phi i1 [ %.118, %40 ], [ false, %.lr.ph ]
-  %.02935 = phi i1 [ %.1, %40 ], [ false, %.lr.ph ]
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str) #6
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %25
+  %.0172634 = phi i1 [ %.118, %40 ], [ false, %.lr.ph ]
+  %.02733 = phi i1 [ %.1, %40 ], [ false, %.lr.ph ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str) #6
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %19, label %25
 
-19:                                               ; preds = %.lr.ph38
-  br i1 %.02935, label %.split34, label %23
+.critedge:                                        ; preds = %40, %.lr.ph, %1
+  %18 = ptrtoint ptr %4 to i64
+  ret i64 %18
 
-.split34:                                         ; preds = %19
+19:                                               ; preds = %.lr.ph36
+  br i1 %.02733, label %.split32, label %23
+
+.split32:                                         ; preds = %19
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 50856066) #5
@@ -60,19 +60,19 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @defGetString(ptr noundef nonnull %14) #5
+  %24 = tail call ptr @defGetString(ptr noundef nonnull %13) #5
   tail call void @readstoplist(ptr noundef %24, ptr noundef %4, ptr noundef nonnull @str_tolower) #5
   br label %40
 
-25:                                               ; preds = %.lr.ph38
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.3) #6
+25:                                               ; preds = %.lr.ph36
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.3) #6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.split
 
 28:                                               ; preds = %25
-  br i1 %.0172836, label %.split32, label %32
+  br i1 %.0172634, label %.split30, label %32
 
-.split32:                                         ; preds = %28
+.split30:                                         ; preds = %28
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 @errcode(i32 noundef 50856066) #5
@@ -81,13 +81,13 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %14) #5
+  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %13) #5
   %34 = zext i1 %33 to i8
   store i8 %34, ptr %5, align 8
   br label %40
 
 .split:                                           ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 50856066) #5
@@ -97,13 +97,13 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 40:                                               ; preds = %32, %23
-  %.118 = phi i1 [ %.0172836, %23 ], [ true, %32 ]
-  %.1 = phi i1 [ true, %23 ], [ %.02935, %32 ]
+  %.118 = phi i1 [ %.0172634, %23 ], [ true, %32 ]
+  %.1 = phi i1 [ true, %23 ], [ %.02733, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %7, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph38, label %._crit_edge
+  br i1 %43, label %.lr.ph36, label %.critedge
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1

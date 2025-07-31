@@ -8190,8 +8190,8 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   br i1 %8, label %9, label %.preheader, !prof !155
 
 .preheader:                                       ; preds = %1
-  %.not74 = icmp eq ptr %2, %4
-  br i1 %.not74, label %.thread68, label %.lr.ph
+  %.not71 = icmp eq ptr %2, %4
+  br i1 %.not71, label %.critedge56, label %.lr.ph
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -8199,7 +8199,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %12 = and i8 %11, 127
   %13 = zext nneg i8 %12 to i64
   %14 = icmp sgt i8 %11, -1
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %99, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -8209,7 +8209,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %20 = and i64 %19, 16256
   %21 = or disjoint i64 %20, %13
   %22 = icmp sgt i8 %17, -1
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %99, label %23
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
@@ -8219,7 +8219,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %28 = and i64 %27, 2080768
   %29 = or disjoint i64 %28, %21
   %30 = icmp sgt i8 %25, -1
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %99, label %31
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -8229,7 +8229,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %36 = and i64 %35, 266338304
   %37 = or disjoint i64 %36, %29
   %38 = icmp sgt i8 %33, -1
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %99, label %39
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -8239,7 +8239,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %44 = and i64 %43, 34091302912
   %45 = or disjoint i64 %44, %37
   %46 = icmp sgt i8 %41, -1
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %99, label %47
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -8249,7 +8249,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %52 = and i64 %51, 4363686772736
   %53 = or disjoint i64 %52, %45
   %54 = icmp sgt i8 %49, -1
-  br i1 %54, label %.thread, label %55
+  br i1 %54, label %99, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 7
@@ -8259,7 +8259,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %60 = and i64 %59, 558551906910208
   %61 = or i64 %60, %53
   %62 = icmp sgt i8 %57, -1
-  br i1 %62, label %.thread, label %63
+  br i1 %62, label %99, label %63
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8269,7 +8269,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %68 = and i64 %67, 71494644084506624
   %69 = or i64 %68, %61
   %70 = icmp sgt i8 %65, -1
-  br i1 %70, label %.thread, label %71
+  br i1 %70, label %99, label %71
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 9
@@ -8279,7 +8279,7 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %76 = and i64 %75, 9151314442816847872
   %77 = or i64 %76, %69
   %78 = icmp sgt i8 %73, -1
-  br i1 %78, label %.thread, label %79
+  br i1 %78, label %99, label %79
 
 79:                                               ; preds = %71
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 10
@@ -8288,49 +8288,49 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   %83 = shl i64 %82, 63
   %84 = or i64 %83, %77
   %85 = icmp sgt i8 %81, -1
-  br i1 %85, label %.thread, label %.thread68
+  br i1 %85, label %99, label %.critedge56
 
 .lr.ph:                                           ; preds = %.preheader, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.preheader ]
-  %.376 = phi ptr [ %88, %89 ], [ %2, %.preheader ]
-  %.26375 = phi i64 [ %93, %89 ], [ 0, %.preheader ]
-  %86 = load i8, ptr %.376, align 1, !tbaa !23
+  %.373 = phi ptr [ %88, %89 ], [ %2, %.preheader ]
+  %.172 = phi i64 [ %93, %89 ], [ 0, %.preheader ]
+  %86 = load i8, ptr %.373, align 1, !tbaa !23
   %87 = icmp slt i8 %86, 0
-  %88 = getelementptr inbounds nuw i8, ptr %.376, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.373, i64 1
   br i1 %87, label %89, label %94
 
 89:                                               ; preds = %.lr.ph
   %90 = and i8 %86, 127
   %91 = zext nneg i8 %90 to i64
   %92 = shl i64 %91, %indvars.iv
-  %93 = or i64 %92, %.26375
+  %93 = or i64 %92, %.172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 7
   %.not = icmp eq ptr %88, %4
-  br i1 %.not, label %.thread68, label %.lr.ph, !llvm.loop !227
+  br i1 %.not, label %.critedge56, label %.lr.ph, !llvm.loop !227
 
 94:                                               ; preds = %.lr.ph
   %95 = zext nneg i8 %86 to i64
   %96 = and i64 %indvars.iv, 4294967295
   %97 = shl i64 %95, %96
-  %98 = or i64 %97, %.26375
-  br label %.thread
+  %98 = or i64 %97, %.172
+  br label %99
 
-.thread:                                          ; preds = %9, %15, %23, %31, %39, %47, %55, %63, %71, %79, %94
-  %.1 = phi i64 [ %98, %94 ], [ %84, %79 ], [ %77, %71 ], [ %69, %63 ], [ %61, %55 ], [ %53, %47 ], [ %45, %39 ], [ %37, %31 ], [ %29, %23 ], [ %21, %15 ], [ %13, %9 ]
-  %.2 = phi ptr [ %88, %94 ], [ %80, %79 ], [ %72, %71 ], [ %64, %63 ], [ %56, %55 ], [ %48, %47 ], [ %40, %39 ], [ %32, %31 ], [ %24, %23 ], [ %16, %15 ], [ %10, %9 ]
-  %99 = ptrtoint ptr %.2 to i64
-  %100 = sub i64 %99, %6
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 %100
-  store ptr %101, ptr %0, align 8, !tbaa !53
-  br label %.thread68
+99:                                               ; preds = %94, %79, %71, %63, %55, %47, %39, %31, %23, %15, %9
+  %.064 = phi i64 [ %13, %9 ], [ %21, %15 ], [ %29, %23 ], [ %37, %31 ], [ %45, %39 ], [ %53, %47 ], [ %61, %55 ], [ %69, %63 ], [ %77, %71 ], [ %84, %79 ], [ %98, %94 ]
+  %.2 = phi ptr [ %10, %9 ], [ %16, %15 ], [ %24, %23 ], [ %32, %31 ], [ %40, %39 ], [ %48, %47 ], [ %56, %55 ], [ %64, %63 ], [ %72, %71 ], [ %80, %79 ], [ %88, %94 ]
+  %100 = ptrtoint ptr %.2 to i64
+  %101 = sub i64 %100, %6
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 %101
+  store ptr %102, ptr %0, align 8, !tbaa !53
+  br label %.critedge56
 
-.thread68:                                        ; preds = %89, %.preheader, %79, %.thread
-  %.sroa.060.1 = phi i64 [ 1, %.thread ], [ 2, %79 ], [ 2, %.preheader ], [ 2, %89 ]
-  %.sroa.461.1 = phi i64 [ 0, %.thread ], [ 0, %79 ], [ 4294967296, %.preheader ], [ 4294967296, %89 ]
-  %.sroa.7.1 = phi i64 [ %.1, %.thread ], [ 0, %79 ], [ 0, %.preheader ], [ 0, %89 ]
-  %.sroa.060.0.insert.insert = or disjoint i64 %.sroa.461.1, %.sroa.060.1
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.060.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.1, 1
+.critedge56:                                      ; preds = %89, %.preheader, %79, %99
+  %.sroa.062.0 = phi i64 [ 1, %99 ], [ 2, %79 ], [ 2, %.preheader ], [ 2, %89 ]
+  %.sroa.463.0 = phi i64 [ 0, %99 ], [ 0, %79 ], [ 4294967296, %.preheader ], [ 4294967296, %89 ]
+  %.sroa.7.0 = phi i64 [ %.064, %99 ], [ 0, %79 ], [ 0, %.preheader ], [ 0, %89 ]
+  %.sroa.062.0.insert.insert = or disjoint i64 %.sroa.463.0, %.sroa.062.0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.062.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

@@ -3098,7 +3098,7 @@ define internal i32 @reftable_obj_record_encode(ptr noundef readonly captures(no
   %10 = icmp eq i32 %9, 0
   %11 = icmp sgt i32 %9, 7
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %12, label %.thread82
+  br i1 %or.cond, label %12, label %.thread
 
 12:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #17
@@ -3135,7 +3135,7 @@ define internal i32 @reftable_obj_record_encode(ptr noundef readonly captures(no
 
 put_var_int.exit.thread:                          ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #17
-  br label %.thread
+  br label %.critedge
 
 put_var_int.exit:                                 ; preds = %._crit_edge.i
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 %.0.lcssa.i
@@ -3143,7 +3143,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #17
   %27 = and i64 %24, 2147483648
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %.thread
+  br i1 %.not, label %28, label %.critedge
 
 28:                                               ; preds = %put_var_int.exit
   %29 = and i64 %24, 2147483647
@@ -3151,15 +3151,15 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %31 = sub i64 %2, %29
   %.pr = load i32, ptr %8, align 8, !tbaa !55
   %32 = icmp eq i32 %.pr, 0
-  br i1 %32, label %33, label %.thread82
+  br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %28
   %34 = trunc i64 %24 to i32
-  br label %.thread
+  br label %.critedge
 
-.thread82:                                        ; preds = %4, %28
-  %.sroa.0.086 = phi ptr [ %30, %28 ], [ %1, %4 ]
-  %.sroa.10.085 = phi i64 [ %31, %28 ], [ %2, %4 ]
+.thread:                                          ; preds = %4, %28
+  %.sroa.0.082 = phi ptr [ %30, %28 ], [ %1, %4 ]
+  %.sroa.10.081 = phi i64 [ %31, %28 ], [ %2, %4 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !54
   %37 = load i64, ptr %36, align 8, !tbaa !15
@@ -3171,9 +3171,9 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %.not15.i31 = icmp ult i64 %37, 128
   br i1 %.not15.i31, label %._crit_edge.i37, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %.thread82, %.lr.ph.i32
-  %.017.i33 = phi i32 [ %45, %.lr.ph.i32 ], [ 9, %.thread82 ]
-  %.01116.i34 = phi i64 [ %42, %.lr.ph.i32 ], [ %37, %.thread82 ]
+.lr.ph.i32:                                       ; preds = %.thread, %.lr.ph.i32
+  %.017.i33 = phi i32 [ %45, %.lr.ph.i32 ], [ 9, %.thread ]
+  %.01116.i34 = phi i64 [ %42, %.lr.ph.i32 ], [ %37, %.thread ]
   %41 = lshr i64 %.01116.i34, 7
   %42 = add nsw i64 %41, -1
   %43 = trunc i64 %42 to i8
@@ -3185,44 +3185,44 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   %.not.i35 = icmp samesign ult i64 %42, 128
   br i1 %.not.i35, label %._crit_edge.i37, label %.lr.ph.i32, !llvm.loop !16
 
-._crit_edge.i37:                                  ; preds = %.lr.ph.i32, %.thread82
-  %.0.lcssa.i38 = phi i64 [ 9, %.thread82 ], [ %46, %.lr.ph.i32 ]
+._crit_edge.i37:                                  ; preds = %.lr.ph.i32, %.thread
+  %.0.lcssa.i38 = phi i64 [ 9, %.thread ], [ %46, %.lr.ph.i32 ]
   %48 = sub nsw i64 10, %.0.lcssa.i38
-  %49 = icmp ult i64 %.sroa.10.085, %48
+  %49 = icmp ult i64 %.sroa.10.081, %48
   br i1 %49, label %put_var_int.exit40.thread, label %put_var_int.exit40
 
 put_var_int.exit40.thread:                        ; preds = %._crit_edge.i37
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #17
-  br label %.thread
+  br label %.critedge
 
 put_var_int.exit40:                               ; preds = %._crit_edge.i37
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa.i38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.086, ptr nonnull align 1 %50, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.082, ptr nonnull align 1 %50, i64 %48, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #17
   %51 = and i64 %48, 2147483648
-  %.not69 = icmp eq i64 %51, 0
-  br i1 %.not69, label %52, label %.thread
+  %.not66 = icmp eq i64 %51, 0
+  br i1 %.not66, label %52, label %.critedge
 
 52:                                               ; preds = %put_var_int.exit40
   %53 = and i64 %48, 2147483647
-  %54 = sub i64 %.sroa.10.085, %53
+  %54 = sub i64 %.sroa.10.081, %53
   %55 = load i32, ptr %8, align 8, !tbaa !55
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %52
   %57 = load ptr, ptr %35, align 8, !tbaa !54
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.086, i64 %53
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.082, i64 %53
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %60
 
 60:                                               ; preds = %.lr.ph, %79
   %61 = phi ptr [ %57, %.lr.ph ], [ %83, %79 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %.024.in77 = phi ptr [ %57, %.lr.ph ], [ %84, %79 ]
-  %.sroa.0.175 = phi ptr [ %58, %.lr.ph ], [ %81, %79 ]
-  %.sroa.10.174 = phi i64 [ %54, %.lr.ph ], [ %82, %79 ]
-  %.024 = load i64, ptr %.024.in77, align 8, !tbaa !15
+  %.024.in74 = phi ptr [ %57, %.lr.ph ], [ %84, %79 ]
+  %.sroa.0.172 = phi ptr [ %58, %.lr.ph ], [ %81, %79 ]
+  %.sroa.10.171 = phi i64 [ %54, %.lr.ph ], [ %82, %79 ]
+  %.024 = load i64, ptr %.024.in74, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !15
   %64 = sub i64 %63, %.024
@@ -3250,25 +3250,25 @@ put_var_int.exit40:                               ; preds = %._crit_edge.i37
 ._crit_edge.i47:                                  ; preds = %.lr.ph.i42, %60
   %.0.lcssa.i48 = phi i64 [ 9, %60 ], [ %72, %.lr.ph.i42 ]
   %74 = sub nsw i64 10, %.0.lcssa.i48
-  %75 = icmp ult i64 %.sroa.10.174, %74
+  %75 = icmp ult i64 %.sroa.10.171, %74
   br i1 %75, label %put_var_int.exit50.thread, label %put_var_int.exit50
 
 put_var_int.exit50.thread:                        ; preds = %._crit_edge.i47
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #17
-  br label %.thread
+  br label %.critedge
 
 put_var_int.exit50:                               ; preds = %._crit_edge.i47
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa.i48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.175, ptr nonnull align 1 %76, i64 %74, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.172, ptr nonnull align 1 %76, i64 %74, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #17
   %77 = and i64 %74, 2147483648
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %.thread
+  br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %put_var_int.exit50
   %80 = and i64 %74, 2147483647
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.175, i64 %80
-  %82 = sub i64 %.sroa.10.174, %80
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.172, i64 %80
+  %82 = sub i64 %.sroa.10.171, %80
   %83 = load ptr, ptr %35, align 8, !tbaa !54
   %84 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3281,9 +3281,9 @@ put_var_int.exit50:                               ; preds = %._crit_edge.i47
   %.sroa.10.1.lcssa = phi i64 [ %54, %52 ], [ %82, %79 ]
   %88 = sub i64 %2, %.sroa.10.1.lcssa
   %89 = trunc i64 %88 to i32
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %put_var_int.exit50, %put_var_int.exit50.thread, %put_var_int.exit40.thread, %put_var_int.exit.thread, %put_var_int.exit40, %put_var_int.exit, %._crit_edge, %33
+.critedge:                                        ; preds = %put_var_int.exit50, %put_var_int.exit50.thread, %put_var_int.exit40.thread, %put_var_int.exit.thread, %put_var_int.exit40, %put_var_int.exit, %._crit_edge, %33
   %.0 = phi i32 [ %34, %33 ], [ %89, %._crit_edge ], [ -1, %put_var_int.exit ], [ -1, %put_var_int.exit40 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit40.thread ], [ -1, %put_var_int.exit50.thread ], [ -1, %put_var_int.exit50 ]
   ret i32 %.0
 }

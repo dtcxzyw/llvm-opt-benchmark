@@ -8301,19 +8301,17 @@ define void @_ZN3gmx9BiasState12normalizePmfEi(ptr noundef nonnull readonly alig
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !100
   %.not27 = icmp eq ptr %4, %6
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  br i1 %.not27, label %._crit_edge36.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %27, %2
-  %.017.lcssa = phi double [ 0.000000e+00, %2 ], [ %.118, %27 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %27 ]
+._crit_edge:                                      ; preds = %27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load double, ptr %7, align 8, !tbaa !184
   %9 = sitofp i32 %1 to double
   %10 = fdiv double %8, %9
-  %11 = fmul double %.017.lcssa, %10
-  %12 = fdiv double %11, %.0.lcssa
+  %11 = fmul double %.118, %10
+  %12 = fdiv double %11, %.1
   %13 = tail call double @log(double noundef %12) #33, !tbaa !30
-  br i1 %.not27, label %._crit_edge36, label %.lr.ph35
+  br label %.lr.ph35
 
 .lr.ph:                                           ; preds = %2, %27
   %.030 = phi double [ %.1, %27 ], [ 0.000000e+00, %2 ]
@@ -8343,26 +8341,36 @@ define void @_ZN3gmx9BiasState12normalizePmfEi(ptr noundef nonnull readonly alig
   %.not = icmp eq ptr %28, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge36:                                    ; preds = %36, %._crit_edge
+._crit_edge36.critedge:                           ; preds = %2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %30 = load double, ptr %29, align 8, !tbaa !184
+  %31 = sitofp i32 %1 to double
+  %32 = fdiv double %30, %31
+  %33 = fmul double %32, 0.000000e+00
+  %34 = fdiv double %33, 0.000000e+00
+  %35 = tail call double @log(double noundef %34) #33, !tbaa !30
+  br label %._crit_edge36
+
+._crit_edge36:                                    ; preds = %43, %._crit_edge36.critedge
   ret void
 
-.lr.ph35:                                         ; preds = %._crit_edge, %36
-  %.sroa.019.033 = phi ptr [ %37, %36 ], [ %4, %._crit_edge ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
-  %30 = load double, ptr %29, align 8, !tbaa !11
-  %31 = fcmp ogt double %30, 0.000000e+00
-  br i1 %31, label %32, label %36
+.lr.ph35:                                         ; preds = %._crit_edge, %43
+  %.sroa.019.033 = phi ptr [ %44, %43 ], [ %4, %._crit_edge ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 16
+  %37 = load double, ptr %36, align 8, !tbaa !11
+  %38 = fcmp ogt double %37, 0.000000e+00
+  br i1 %38, label %39, label %43
 
-32:                                               ; preds = %.lr.ph35
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 64
-  %34 = load double, ptr %33, align 8, !tbaa !15
-  %35 = fadd double %13, %34
-  store double %35, ptr %33, align 8, !tbaa !15
-  br label %36
+39:                                               ; preds = %.lr.ph35
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 64
+  %41 = load double, ptr %40, align 8, !tbaa !15
+  %42 = fadd double %13, %41
+  store double %42, ptr %40, align 8, !tbaa !15
+  br label %43
 
-36:                                               ; preds = %32, %.lr.ph35
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 96
-  %.not26 = icmp eq ptr %37, %6
+43:                                               ; preds = %39, %.lr.ph35
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.019.033, i64 96
+  %.not26 = icmp eq ptr %44, %6
   br i1 %.not26, label %._crit_edge36, label %.lr.ph35
 }
 
@@ -9878,23 +9886,23 @@ _ZN3gmx9BiasState27setFreeEnergyToConvolvedPmfENS_8ArrayRefIKNS_9DimParamsEEERKN
   %530 = load ptr, ptr %529, align 8, !tbaa !100
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %532 = load ptr, ptr %531, align 8, !tbaa !100
-  %.not4249 = icmp eq ptr %530, %532
-  br i1 %.not4249, label %._crit_edge55.thread, label %.lr.ph
+  %.not3946 = icmp eq ptr %530, %532
+  br i1 %.not3946, label %._crit_edge52, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %544
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %534 = load double, ptr %533, align 8, !tbaa !184
-  br label %.lr.ph54
+  br label %.lr.ph51
 
 .lr.ph:                                           ; preds = %528, %544
-  %.sroa.032.050 = phi ptr [ %545, %544 ], [ %530, %528 ]
-  %535 = getelementptr inbounds nuw i8, ptr %.sroa.032.050, i64 16
+  %.sroa.029.047 = phi ptr [ %545, %544 ], [ %530, %528 ]
+  %535 = getelementptr inbounds nuw i8, ptr %.sroa.029.047, i64 16
   %536 = load double, ptr %535, align 8, !tbaa !11
   %537 = fcmp ogt double %536, 0.000000e+00
   br i1 %537, label %538, label %543
 
 538:                                              ; preds = %.lr.ph
-  %539 = getelementptr inbounds nuw i8, ptr %.sroa.032.050, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %.sroa.029.047, i64 8
   %540 = load double, ptr %539, align 8, !tbaa !101
   %541 = call double @llvm.log.f64(double %536), !tbaa !30
   %542 = fadd double %541, %540
@@ -9906,95 +9914,27 @@ _ZN3gmx9BiasState27setFreeEnergyToConvolvedPmfENS_8ArrayRefIKNS_9DimParamsEEERKN
 
 544:                                              ; preds = %543, %538
   %storemerge = phi double [ -1.000000e+04, %543 ], [ %542, %538 ]
-  store double %storemerge, ptr %.sroa.032.050, align 8, !tbaa !191
-  %545 = getelementptr inbounds nuw i8, ptr %.sroa.032.050, i64 96
-  %.not42 = icmp eq ptr %545, %532
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  store double %storemerge, ptr %.sroa.029.047, align 8, !tbaa !191
+  %545 = getelementptr inbounds nuw i8, ptr %.sroa.029.047, i64 96
+  %.not39 = icmp eq ptr %545, %532
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
-._crit_edge55.thread:                             ; preds = %528
-  %546 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %547 = load double, ptr %546, align 8, !tbaa !184
-  %548 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %549 = load i32, ptr %548, align 4, !tbaa !115
-  br label %._crit_edge.i27
-
-.lr.ph.i25.preheader:                             ; preds = %.lr.ph54
-  %550 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %551 = load i32, ptr %550, align 4, !tbaa !115
-  br label %.lr.ph.i25
-
-._crit_edge.i27:                                  ; preds = %572, %._crit_edge55.thread
-  %552 = phi i32 [ %549, %._crit_edge55.thread ], [ %551, %572 ]
-  %553 = phi double [ %547, %._crit_edge55.thread ], [ %534, %572 ]
-  %.017.lcssa.i = phi double [ 0.000000e+00, %._crit_edge55.thread ], [ %.118.i, %572 ]
-  %.0.lcssa.i = phi double [ 0.000000e+00, %._crit_edge55.thread ], [ %.1.i, %572 ]
-  %554 = sitofp i32 %552 to double
-  %555 = fdiv double %553, %554
-  %556 = fmul double %.017.lcssa.i, %555
-  %557 = fdiv double %556, %.0.lcssa.i
-  %558 = call double @log(double noundef %557) #33, !tbaa !30
-  br i1 %.not4249, label %_ZN3gmx9BiasState12normalizePmfEi.exit, label %.lr.ph35.i
-
-.lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %572
-  %.030.i = phi double [ %.1.i, %572 ], [ 0.000000e+00, %.lr.ph.i25.preheader ]
-  %.01729.i = phi double [ %.118.i, %572 ], [ 0.000000e+00, %.lr.ph.i25.preheader ]
-  %.sroa.023.028.i = phi ptr [ %573, %572 ], [ %530, %.lr.ph.i25.preheader ]
-  %559 = getelementptr inbounds nuw i8, ptr %.sroa.023.028.i, i64 16
-  %560 = load double, ptr %559, align 8, !tbaa !11
-  %561 = fcmp ogt double %560, 0.000000e+00
-  br i1 %561, label %562, label %572
-
-562:                                              ; preds = %.lr.ph.i25
-  %563 = getelementptr inbounds nuw i8, ptr %.sroa.023.028.i, i64 64
-  %564 = load double, ptr %563, align 8, !tbaa !15
-  %565 = call double @exp(double noundef %564) #33, !tbaa !30
-  %566 = fadd double %.030.i, %565
-  %567 = getelementptr inbounds nuw i8, ptr %.sroa.023.028.i, i64 8
-  %568 = load double, ptr %567, align 8, !tbaa !101
-  %569 = fneg double %568
-  %570 = call double @exp(double noundef %569) #33, !tbaa !30
-  %571 = fadd double %.01729.i, %570
-  br label %572
-
-572:                                              ; preds = %562, %.lr.ph.i25
-  %.118.i = phi double [ %571, %562 ], [ %.01729.i, %.lr.ph.i25 ]
-  %.1.i = phi double [ %566, %562 ], [ %.030.i, %.lr.ph.i25 ]
-  %573 = getelementptr inbounds nuw i8, ptr %.sroa.023.028.i, i64 96
-  %.not.i26 = icmp eq ptr %573, %532
-  br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i25
-
-.lr.ph35.i:                                       ; preds = %._crit_edge.i27, %581
-  %.sroa.019.033.i = phi ptr [ %582, %581 ], [ %530, %._crit_edge.i27 ]
-  %574 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.i, i64 16
-  %575 = load double, ptr %574, align 8, !tbaa !11
-  %576 = fcmp ogt double %575, 0.000000e+00
-  br i1 %576, label %577, label %581
-
-577:                                              ; preds = %.lr.ph35.i
-  %578 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.i, i64 64
-  %579 = load double, ptr %578, align 8, !tbaa !15
-  %580 = fadd double %558, %579
-  store double %580, ptr %578, align 8, !tbaa !15
-  br label %581
-
-581:                                              ; preds = %577, %.lr.ph35.i
-  %582 = getelementptr inbounds nuw i8, ptr %.sroa.019.033.i, i64 96
-  %.not26.i = icmp eq ptr %582, %532
-  br i1 %.not26.i, label %_ZN3gmx9BiasState12normalizePmfEi.exit, label %.lr.ph35.i
-
-_ZN3gmx9BiasState12normalizePmfEi.exit:           ; preds = %581, %._crit_edge.i27
+._crit_edge52:                                    ; preds = %.lr.ph51, %528
+  %546 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %547 = load i32, ptr %546, align 4, !tbaa !115
+  call void @_ZN3gmx9BiasState12normalizePmfEi(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %547)
   ret void
 
-.lr.ph54:                                         ; preds = %._crit_edge, %.lr.ph54
-  %.sroa.028.052 = phi ptr [ %587, %.lr.ph54 ], [ %530, %._crit_edge ]
-  %583 = getelementptr inbounds nuw i8, ptr %.sroa.028.052, i64 16
-  %584 = load double, ptr %583, align 8, !tbaa !11
-  %585 = fmul double %534, %584
-  %586 = getelementptr inbounds nuw i8, ptr %.sroa.028.052, i64 48
-  store double %585, ptr %586, align 8, !tbaa !107
-  %587 = getelementptr inbounds nuw i8, ptr %.sroa.028.052, i64 96
-  %.not43 = icmp eq ptr %587, %532
-  br i1 %.not43, label %.lr.ph.i25.preheader, label %.lr.ph54
+.lr.ph51:                                         ; preds = %._crit_edge, %.lr.ph51
+  %.sroa.025.049 = phi ptr [ %552, %.lr.ph51 ], [ %530, %._crit_edge ]
+  %548 = getelementptr inbounds nuw i8, ptr %.sroa.025.049, i64 16
+  %549 = load double, ptr %548, align 8, !tbaa !11
+  %550 = fmul double %534, %549
+  %551 = getelementptr inbounds nuw i8, ptr %.sroa.025.049, i64 48
+  store double %550, ptr %551, align 8, !tbaa !107
+  %552 = getelementptr inbounds nuw i8, ptr %.sroa.025.049, i64 96
+  %.not40 = icmp eq ptr %552, %532
+  br i1 %.not40, label %._crit_edge52, label %.lr.ph51
 }
 
 ; Function Attrs: nounwind

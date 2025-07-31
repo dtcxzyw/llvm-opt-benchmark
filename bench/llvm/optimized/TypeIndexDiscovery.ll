@@ -799,11 +799,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %340
 
 340:                                              ; preds = %550, %.lr.ph.i225
-  %.0126.i = phi i32 [ 0, %.lr.ph.i225 ], [ %.1.i, %550 ]
-  %.sroa.0.0125.i = phi ptr [ %0, %.lr.ph.i225 ], [ %.sroa.0.1.i, %550 ]
-  %.sroa.15.0124.i = phi i64 [ %1, %.lr.ph.i225 ], [ %.sroa.15.1.i, %550 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0125.i, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i.i226 = load i16, ptr %.sroa.0.0125.i, align 1
+  %.0122.i = phi i32 [ 0, %.lr.ph.i225 ], [ %.1.i, %550 ]
+  %.sroa.0.0121.i = phi ptr [ %0, %.lr.ph.i225 ], [ %.sroa.0.1.i, %550 ]
+  %.sroa.15.0120.i = phi i64 [ %1, %.lr.ph.i225 ], [ %.sroa.15.1.i, %550 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0121.i, i64 1) ]
+  %.0.copyload.i.i.i.i.i.i.i226 = load i16, ptr %.sroa.0.0121.i, align 1
   switch i16 %.0.copyload.i.i.i.i.i.i.i226, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit [
     i16 5120, label %341
     i16 5378, label %362
@@ -819,7 +819,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   ]
 
 341:                                              ; preds = %340
-  %342 = add i32 %.0126.i, 4
+  %342 = add i32 %.0122.i, 4
   %.sroa.24.0.insert.ext.i.i = zext i32 %342 to i64
   %.sroa.24.0.insert.shift.i.i = shl nuw i64 %.sroa.24.0.insert.ext.i.i, 32
   %343 = load i32, ptr %337, align 8, !tbaa !11
@@ -845,7 +845,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %352 = load i32, ptr %337, align 8, !tbaa !11
   %353 = add i32 %352, 1
   store i32 %353, ptr %337, align 8, !tbaa !11
-  %354 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %354, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i16, ptr %354, align 1
   %355 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i.i, -1
@@ -860,7 +860,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
 
 362:                                              ; preds = %340
-  %363 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %363, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i54.i = load i16, ptr %363, align 1
   %364 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i54.i, -1
@@ -877,7 +877,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 _ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %365, %362
   %.0.i.i55.i = phi i32 [ %370, %365 ], [ 6, %362 ]
   %371 = zext i32 %.0.i.i55.i to i64
-  %372 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 %371
+  %372 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %371
   %373 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %372) #16
   %374 = trunc i64 %373 to i32
   %375 = add i32 %.0.i.i55.i, 1
@@ -885,7 +885,7 @@ _ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiR
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
 
 377:                                              ; preds = %340
-  %378 = add i32 %.0126.i, 4
+  %378 = add i32 %.0122.i, 4
   %.sroa.27.0.insert.ext.i.i = zext i32 %378 to i64
   %.sroa.27.0.insert.shift.i.i = shl nuw i64 %.sroa.27.0.insert.ext.i.i, 32
   %379 = load i32, ptr %337, align 8, !tbaa !11
@@ -911,7 +911,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %388 = load i32, ptr %337, align 8, !tbaa !11
   %389 = add i32 %388, 1
   store i32 %389, ptr %337, align 8, !tbaa !11
-  %390 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %390, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i60.i = load i16, ptr %390, align 1
   %391 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i60.i, -1
@@ -928,7 +928,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 _ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %392, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i58.i
   %.0.i.i61.i = phi i32 [ %397, %392 ], [ 10, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i58.i ]
   %398 = zext i32 %.0.i.i61.i to i64
-  %399 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %398
   %400 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %399) #16
   %401 = trunc i64 %400 to i32
   %402 = add i32 %.0.i.i61.i, 1
@@ -950,7 +950,7 @@ _ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiR
 
 _ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %407, %404
   %410 = phi i32 [ %405, %404 ], [ %.pre.i.i63.i, %407 ]
-  %411 = add i32 %.0126.i, 4
+  %411 = add i32 %.0122.i, 4
   %.sroa.24.0.insert.ext.i65.i = zext i32 %411 to i64
   %.sroa.24.0.insert.shift.i66.i = shl nuw i64 %.sroa.24.0.insert.ext.i65.i, 32
   %412 = load ptr, ptr %3, align 8, !tbaa !16
@@ -962,14 +962,14 @@ _ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   %415 = load i32, ptr %337, align 8, !tbaa !11
   %416 = add i32 %415, 1
   store i32 %416, ptr %337, align 8, !tbaa !11
-  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
   %418 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %417) #16
   %419 = trunc i64 %418 to i32
   %420 = add i32 %419, 9
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
 
 421:                                              ; preds = %340
-  %422 = add i32 %.0126.i, 4
+  %422 = add i32 %.0122.i, 4
   %.sroa.24.0.insert.ext.i68.i = zext i32 %422 to i64
   %.sroa.24.0.insert.shift.i69.i = shl nuw i64 %.sroa.24.0.insert.ext.i68.i, 32
   %423 = load i32, ptr %337, align 8, !tbaa !11
@@ -995,7 +995,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %432 = load i32, ptr %337, align 8, !tbaa !11
   %433 = add i32 %432, 1
   store i32 %433, ptr %337, align 8, !tbaa !11
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 2
+  %434 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %434, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i16, ptr %434, align 1
   %435 = and i16 %.0.copyload.i.i.i.i.i.i.i.i, 20
@@ -1008,7 +1008,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 _ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %437, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i72.i
   %.0.i.i = phi i32 [ 12, %437 ], [ 8, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i72.i ]
   %438 = zext nneg i32 %.0.i.i to i64
-  %439 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 %438
+  %439 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %438
   %440 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %439) #16
   %441 = trunc i64 %440 to i32
   %442 = or disjoint i32 %.0.i.i, 1
@@ -1030,7 +1030,7 @@ _ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiRe
 
 _ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %447, %444
   %450 = phi i32 [ %445, %444 ], [ %.pre.i.i75.i, %447 ]
-  %451 = add i32 %.0126.i, 4
+  %451 = add i32 %.0122.i, 4
   %.sroa.24.0.insert.ext.i77.i = zext i32 %451 to i64
   %.sroa.24.0.insert.shift.i78.i = shl nuw i64 %.sroa.24.0.insert.ext.i77.i, 32
   %452 = load ptr, ptr %3, align 8, !tbaa !16
@@ -1042,7 +1042,7 @@ _ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiR
   %455 = load i32, ptr %337, align 8, !tbaa !11
   %456 = add i32 %455, 1
   store i32 %456, ptr %337, align 8, !tbaa !11
-  %457 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
   %458 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %457) #16
   %459 = trunc i64 %458 to i32
   %460 = add i32 %459, 9
@@ -1063,7 +1063,7 @@ _ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiR
 
 _ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %464, %461
   %467 = phi i32 [ %462, %461 ], [ %.pre.i.i81.i, %464 ]
-  %468 = add i32 %.0126.i, 4
+  %468 = add i32 %.0122.i, 4
   %.sroa.24.0.insert.ext.i83.i = zext i32 %468 to i64
   %.sroa.24.0.insert.shift.i84.i = shl nuw i64 %.sroa.24.0.insert.ext.i83.i, 32
   %469 = load ptr, ptr %3, align 8, !tbaa !16
@@ -1075,14 +1075,14 @@ _ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   %472 = load i32, ptr %337, align 8, !tbaa !11
   %473 = add i32 %472, 1
   store i32 %473, ptr %337, align 8, !tbaa !11
-  %474 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 8
   %475 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %474) #16
   %476 = trunc i64 %475 to i32
   %477 = add i32 %476, 9
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
 
 478:                                              ; preds = %340, %340
-  %479 = add i32 %.0126.i, 4
+  %479 = add i32 %.0122.i, 4
   %.sroa.26.0.insert.ext.i.i = zext i32 %479 to i64
   %.sroa.26.0.insert.shift.i.i = shl nuw i64 %.sroa.26.0.insert.ext.i.i, 32
   %480 = load i32, ptr %337, align 8, !tbaa !11
@@ -1108,7 +1108,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %489 = load i32, ptr %337, align 8, !tbaa !11
   %490 = add i32 %489, 1
   store i32 %490, ptr %337, align 8, !tbaa !11
-  %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 12
+  %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 12
   call void @llvm.assume(i1 true) [ "align"(ptr %491, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i90.i = load i16, ptr %491, align 1
   %492 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i90.i, -1
@@ -1125,7 +1125,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 _ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.exit.i.i: ; preds = %493, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i88.i
   %.0.i.i91.i = phi i32 [ %498, %493 ], [ 14, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i88.i ]
   %499 = zext i32 %.0.i.i91.i to i64
-  %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 %499
+  %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %499
   call void @llvm.assume(i1 true) [ "align"(ptr %500, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i14.i.i = load i16, ptr %500, align 1
   %501 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i14.i.i, -1
@@ -1159,7 +1159,7 @@ _ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codevi
 
 _ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %512, %509
   %515 = phi i32 [ %510, %509 ], [ %.pre.i.i93.i, %512 ]
-  %516 = add i32 %.0126.i, 4
+  %516 = add i32 %.0122.i, 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %516 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
   %517 = load ptr, ptr %3, align 8, !tbaa !16
@@ -1188,7 +1188,7 @@ _ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiRefere
 
 _ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %525, %522
   %528 = phi i32 [ %523, %522 ], [ %.pre.i.i97.i, %525 ]
-  %529 = add i32 %.0126.i, 4
+  %529 = add i32 %.0122.i, 4
   %.sroa.22.0.insert.ext.i99.i = zext i32 %529 to i64
   %.sroa.22.0.insert.shift.i100.i = shl nuw i64 %.sroa.22.0.insert.ext.i99.i, 32
   %530 = load ptr, ptr %3, align 8, !tbaa !16
@@ -1205,9 +1205,9 @@ _ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
 _ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %356, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i
   %.051.i = phi i32 [ %376, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %403, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %420, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %443, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %460, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %477, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %508, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ 8, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ 8, %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %361, %356 ], [ 10, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i ]
   %535 = zext i32 %.051.i to i64
-  %536 = sub i64 %.sroa.15.0124.i, %535
-  %537 = getelementptr inbounds nuw i8, ptr %.sroa.0.0125.i, i64 %535
-  %538 = add i32 %.051.i, %.0126.i
+  %536 = sub i64 %.sroa.15.0120.i, %535
+  %537 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121.i, i64 %535
+  %538 = add i32 %.051.i, %.0122.i
   %539 = icmp eq i64 %536, 0
   br i1 %539, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit, label %540
 

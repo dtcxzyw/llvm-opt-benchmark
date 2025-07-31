@@ -63,37 +63,37 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load i64, ptr %10, align 8, !tbaa !71
   %12 = add i64 %11, 29
-  %.not49 = icmp eq i64 %12, 0
-  br i1 %.not49, label %.thread, label %.lr.ph
+  %.not48 = icmp eq i64 %12, 0
+  br i1 %.not48, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 14:                                               ; preds = %.lr.ph, %validate_context.exit
-  %.02440 = phi ptr [ %2, %.lr.ph ], [ %44, %validate_context.exit ]
-  %.02938 = phi i64 [ 0, %.lr.ph ], [ %43, %validate_context.exit ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02440, i64 16
+  %.02439 = phi ptr [ %2, %.lr.ph ], [ %44, %validate_context.exit ]
+  %.02937 = phi i64 [ 0, %.lr.ph ], [ %43, %validate_context.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !75
   %.not32 = icmp eq i32 %16, 0
   br i1 %.not32, label %validate_context.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = icmp ult i64 %.02938, 29
+  %18 = icmp ult i64 %.02937, 29
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %.02938, i32 1
+  %20 = getelementptr inbounds nuw [29 x %struct.extensions_definition_st], ptr @ext_defs, i64 0, i64 %.02937, i32 1
   br label %29
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %8, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %24 = getelementptr inbounds nuw i8, ptr %.02440, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.02439, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !78
   %26 = call ptr @custom_ext_find(ptr noundef nonnull %23, i32 noundef %.022, i32 noundef %25, ptr noundef nonnull %4) #8
   %.not33.not = icmp eq ptr %26, null
-  br i1 %.not33.not, label %.thread, label %27, !prof !79
+  br i1 %.not33.not, label %.critedge, label %27, !prof !79
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   %.2 = load i32, ptr %.2.in, align 4, !tbaa !80
   %30 = and i32 %.2, %1
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %13, align 8, !tbaa !81
@@ -119,20 +119,20 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
 39:                                               ; preds = %32
   %40 = and i32 %.2, 1
   %.not6.i = icmp eq i32 %40, 0
-  br i1 %.not6.i, label %validate_context.exit, label %.thread
+  br i1 %.not6.i, label %validate_context.exit, label %.critedge
 
 41:                                               ; preds = %32
   %42 = and i32 %.2, 2
   %.not5.i = icmp eq i32 %42, 0
-  br i1 %.not5.i, label %validate_context.exit, label %.thread
+  br i1 %.not5.i, label %validate_context.exit, label %.critedge
 
 validate_context.exit:                            ; preds = %41, %39, %14
-  %43 = add nuw i64 %.02938, 1
-  %44 = getelementptr inbounds nuw i8, ptr %.02440, i64 40
+  %43 = add nuw i64 %.02937, 1
+  %44 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
   %exitcond.not = icmp eq i64 %43, %12
-  br i1 %exitcond.not, label %.thread, label %14, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !87
 
-.thread:                                          ; preds = %validate_context.exit, %21, %29, %39, %41, %3
+.critedge:                                        ; preds = %validate_context.exit, %21, %29, %39, %41, %3
   %.4 = phi i32 [ 1, %3 ], [ 0, %41 ], [ 0, %39 ], [ 0, %29 ], [ 0, %21 ], [ 1, %validate_context.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i32 %.4

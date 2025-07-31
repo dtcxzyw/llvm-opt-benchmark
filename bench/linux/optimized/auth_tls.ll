@@ -193,22 +193,22 @@ define internal noundef i32 @tls_refresh(ptr noundef readonly captures(none) %0)
 define internal range(i32 -93, 1) i32 @tls_validate(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread5, label %5
+  br i1 %4, label %.critedge1, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.thread5
+  br i1 %7, label %8, label %.critedge1
 
 8:                                                ; preds = %5
   %9 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread5, label %11, !prof !6
+  br i1 %10, label %.critedge1, label %11, !prof !6
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %9, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread5, label %14
+  br i1 %13, label %.critedge1, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @llvm.bswap.i32(i32 %12)
@@ -217,16 +217,16 @@ define internal range(i32 -93, 1) i32 @tls_validate(ptr readnone captures(none) 
   %18 = icmp ne ptr %17, null
   %19 = icmp eq i32 %12, 134217728
   %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %.thread5, !prof !13
+  br i1 %or.cond, label %20, label %.critedge1, !prof !13
 
 20:                                               ; preds = %14
   %21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @.str.2, i64 8)
   %22 = icmp eq i32 %21, 0
   %23 = select i1 %22, i32 0, i32 -93
-  br label %.thread5
+  br label %.critedge1
 
-.thread5:                                         ; preds = %8, %14, %11, %20, %5, %2
-  %24 = phi i32 [ -5, %2 ], [ -5, %5 ], [ %23, %20 ], [ -93, %11 ], [ -93, %14 ], [ -93, %8 ]
+.critedge1:                                       ; preds = %11, %14, %8, %20, %5, %2
+  %24 = phi i32 [ -5, %2 ], [ -5, %5 ], [ %23, %20 ], [ -93, %8 ], [ -93, %14 ], [ -93, %11 ]
   ret i32 %24
 }
 

@@ -8584,111 +8584,111 @@ define internal range(i32 0, 2) i32 @_gui_preferences_string_reset(ptr readnone 
 define internal fastcc void @set_widget_label_default(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @gtk_check_button_get_type() #14
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.critedge88.thread, label %6
+  br i1 %.not, label %.critedge88.thread, label %5
+
+5:                                                ; preds = %3
+  %6 = load ptr, ptr %0, align 8, !tbaa !83
+  %.not72 = icmp eq ptr %6, null
+  br i1 %.not72, label %10, label %7
+
+7:                                                ; preds = %5
+  %8 = load i64, ptr %6, align 8, !tbaa !86
+  %9 = icmp eq i64 %8, %4
+  br i1 %9, label %.critedge82, label %10
+
+10:                                               ; preds = %7, %5
+  %11 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %4) #15
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %18, label %.critedge82
+
+.critedge82:                                      ; preds = %7, %10
+  %13 = tail call i32 @dt_confgen_get_bool(ptr noundef %1, i32 noundef 0) #13
+  %14 = tail call i64 @gtk_toggle_button_get_type() #14
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %14) #13
+  %16 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %15) #13
+  %17 = icmp eq i32 %16, %13
+  br i1 %17, label %73, label %76
+
+18:                                               ; preds = %10
+  %19 = tail call i64 @dt_bh_get_type() #13
+  %20 = load ptr, ptr %0, align 8, !tbaa !83
+  %.not10.i = icmp eq ptr %20, null
+  br i1 %.not10.i, label %DT_IS_BAUHAUS_WIDGET.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = load i64, ptr %20, align 8, !tbaa !86
+  %23 = icmp eq i64 %22, %19
+  br i1 %23, label %DT_IS_BAUHAUS_WIDGET.exit.thread98, label %DT_IS_BAUHAUS_WIDGET.exit
+
+DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %18, %21
+  %24 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %19) #15
+  %.not74 = icmp eq i32 %24, 0
+  br i1 %.not74, label %30, label %DT_IS_BAUHAUS_WIDGET.exit.thread98
+
+DT_IS_BAUHAUS_WIDGET.exit.thread98:               ; preds = %21, %DT_IS_BAUHAUS_WIDGET.exit
+  %25 = tail call i32 @dt_bauhaus_combobox_get_default(ptr noundef nonnull %0) #13
+  %26 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef nonnull %0) #13
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = icmp eq i32 %25, %28
+  br i1 %29, label %73, label %76
+
+30:                                               ; preds = %DT_IS_BAUHAUS_WIDGET.exit
+  %31 = tail call i64 @gtk_spin_button_get_type() #14
+  br i1 %.not10.i, label %35, label %32
+
+32:                                               ; preds = %30
+  %33 = load i64, ptr %20, align 8, !tbaa !86
+  %34 = icmp eq i64 %33, %31
+  br i1 %34, label %.critedge86, label %35
+
+35:                                               ; preds = %32, %30
+  %36 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %31) #15
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %45, label %.critedge86
+
+.critedge86:                                      ; preds = %32, %35
+  %38 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
+  %39 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %38) #13
+  %40 = fptrunc reassoc nsz arcp contract afn double %39 to float
+  %41 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %31) #13
+  %42 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %41) #13
+  %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
+  %44 = fcmp reassoc nsz arcp contract afn oeq float %43, %40
+  br i1 %44, label %73, label %76
+
+45:                                               ; preds = %35
+  %46 = tail call i64 @gtk_entry_get_type() #14
+  br i1 %.not10.i, label %50, label %47
+
+47:                                               ; preds = %45
+  %48 = load i64, ptr %20, align 8, !tbaa !86
+  %49 = icmp eq i64 %48, %46
+  br i1 %49, label %.critedge90, label %50
+
+50:                                               ; preds = %47, %45
+  %51 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %46) #15
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %59, label %.critedge90
+
+.critedge90:                                      ; preds = %47, %50
+  %53 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %46) #13
+  %55 = tail call ptr @gtk_entry_get_text(ptr noundef %54) #13
+  %56 = tail call i32 @g_strcmp0(ptr noundef %55, ptr noundef %53) #13
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %73, label %76
 
 .critedge88.thread:                               ; preds = %3
-  %5 = tail call i64 @dt_bh_get_type() #13
+  %58 = tail call i64 @dt_bh_get_type() #13
   br label %.critedge92
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !83
-  %.not72 = icmp eq ptr %7, null
-  br i1 %.not72, label %11, label %8
-
-8:                                                ; preds = %6
-  %9 = load i64, ptr %7, align 8, !tbaa !86
-  %10 = icmp eq i64 %9, %4
-  br i1 %10, label %.critedge82, label %11
-
-11:                                               ; preds = %8, %6
-  %12 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %4) #15
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %19, label %.critedge82
-
-.critedge82:                                      ; preds = %8, %11
-  %14 = tail call i32 @dt_confgen_get_bool(ptr noundef %1, i32 noundef 0) #13
-  %15 = tail call i64 @gtk_toggle_button_get_type() #14
-  %16 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %15) #13
-  %17 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %16) #13
-  %18 = icmp eq i32 %17, %14
-  br i1 %18, label %73, label %76
-
-19:                                               ; preds = %11
-  %20 = tail call i64 @dt_bh_get_type() #13
-  %21 = load ptr, ptr %0, align 8, !tbaa !83
-  %.not10.i = icmp eq ptr %21, null
-  br i1 %.not10.i, label %DT_IS_BAUHAUS_WIDGET.exit, label %22
-
-22:                                               ; preds = %19
-  %23 = load i64, ptr %21, align 8, !tbaa !86
-  %24 = icmp eq i64 %23, %20
-  br i1 %24, label %DT_IS_BAUHAUS_WIDGET.exit.thread97, label %DT_IS_BAUHAUS_WIDGET.exit
-
-DT_IS_BAUHAUS_WIDGET.exit:                        ; preds = %19, %22
-  %25 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %20) #15
-  %.not74 = icmp eq i32 %25, 0
-  br i1 %.not74, label %31, label %DT_IS_BAUHAUS_WIDGET.exit.thread97
-
-DT_IS_BAUHAUS_WIDGET.exit.thread97:               ; preds = %22, %DT_IS_BAUHAUS_WIDGET.exit
-  %26 = tail call i32 @dt_bauhaus_combobox_get_default(ptr noundef nonnull %0) #13
-  %27 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef nonnull %0) #13
-  %28 = ptrtoint ptr %27 to i64
-  %29 = trunc i64 %28 to i32
-  %30 = icmp eq i32 %26, %29
-  br i1 %30, label %73, label %76
-
-31:                                               ; preds = %DT_IS_BAUHAUS_WIDGET.exit
-  %32 = tail call i64 @gtk_spin_button_get_type() #14
-  br i1 %.not10.i, label %36, label %33
-
-33:                                               ; preds = %31
-  %34 = load i64, ptr %21, align 8, !tbaa !86
-  %35 = icmp eq i64 %34, %32
-  br i1 %35, label %.critedge86, label %36
-
-36:                                               ; preds = %33, %31
-  %37 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %32) #15
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %46, label %.critedge86
-
-.critedge86:                                      ; preds = %33, %36
-  %39 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
-  %40 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %39) #13
-  %41 = fptrunc reassoc nsz arcp contract afn double %40 to float
-  %42 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %32) #13
-  %43 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %42) #13
-  %44 = fptrunc reassoc nsz arcp contract afn double %43 to float
-  %45 = fcmp reassoc nsz arcp contract afn oeq float %44, %41
-  br i1 %45, label %73, label %76
-
-46:                                               ; preds = %36
-  %47 = tail call i64 @gtk_entry_get_type() #14
-  br i1 %.not10.i, label %51, label %48
-
-48:                                               ; preds = %46
-  %49 = load i64, ptr %21, align 8, !tbaa !86
-  %50 = icmp eq i64 %49, %47
-  br i1 %50, label %.critedge90, label %51
-
-51:                                               ; preds = %48, %46
-  %52 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %47) #15
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %59, label %.critedge90
-
-.critedge90:                                      ; preds = %48, %51
-  %54 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
-  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %47) #13
-  %56 = tail call ptr @gtk_entry_get_text(ptr noundef %55) #13
-  %57 = tail call i32 @g_strcmp0(ptr noundef %56, ptr noundef %54) #13
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %73, label %76
-
-59:                                               ; preds = %51
+59:                                               ; preds = %50
   %60 = tail call i64 @gtk_file_chooser_get_type() #14
   br i1 %.not10.i, label %64, label %61
 
 61:                                               ; preds = %59
-  %62 = load i64, ptr %21, align 8, !tbaa !86
+  %62 = load i64, ptr %20, align 8, !tbaa !86
   %63 = icmp eq i64 %62, %60
   br i1 %63, label %67, label %64
 
@@ -8705,14 +8705,14 @@ DT_IS_BAUHAUS_WIDGET.exit.thread97:               ; preds = %22, %DT_IS_BAUHAUS_
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %76
 
-73:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread97, %.critedge82, %67
+73:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread98, %.critedge82, %67
   %74 = tail call i64 @gtk_label_get_type() #14
   %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %74) #13
   tail call void @gtk_label_set_text(ptr noundef %75, ptr noundef nonnull @.str.2) #13
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %2, ptr noundef null) #13
   br label %.critedge92
 
-76:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread97, %.critedge82, %67
+76:                                               ; preds = %.critedge90, %.critedge86, %DT_IS_BAUHAUS_WIDGET.exit.thread98, %.critedge82, %67
   %77 = tail call i64 @gtk_label_get_type() #14
   %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef %77) #13
   tail call void @gtk_label_set_text(ptr noundef %78, ptr noundef nonnull @.str.3) #13

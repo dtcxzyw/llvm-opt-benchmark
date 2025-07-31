@@ -880,15 +880,15 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
 29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %gepdiff76 = sub nsw i64 %2, %.sroa.07.0
+  %gepdiff73 = sub nsw i64 %2, %.sroa.07.0
   %30 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !253, !noundef !3
   %31 = load i64, ptr %9, align 8, !range !260, !alias.scope !253, !noundef !3
   %32 = sub i64 %31, %30
-  %33 = icmp ugt i64 %gepdiff76, %32
+  %33 = icmp ugt i64 %gepdiff73, %32
   br i1 %33, label %34, label %44, !prof !261
 
 34:                                               ; preds = %29
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %30, i64 noundef %gepdiff76, i64 noundef 1, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h83e5dadf04c6f537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %30, i64 noundef %gepdiff73, i64 noundef 1, i64 noundef 1)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %34
@@ -922,9 +922,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h35c
   call void @llvm.assume(i1 %47)
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !262, !nonnull !3, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %46, i64 %gepdiff76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %46, i64 %gepdiff73, i1 false)
   %50 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !262, !noundef !3
-  %51 = add i64 %50, %gepdiff76
+  %51 = add i64 %50, %gepdiff73
   store i64 %51, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)

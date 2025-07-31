@@ -2336,8 +2336,8 @@ vu_is_vq_usable.exit:                             ; preds = %20, %8
 25:                                               ; preds = %vu_is_vq_usable.exit
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %27 = load i32, ptr %26, align 4
-  %.not.i20 = icmp eq i32 %27, 0
-  br i1 %.not.i20, label %28, label %vu_queue_empty.exit.thread21.i
+  %.not.i21 = icmp eq i32 %27, 0
+  br i1 %.not.i21, label %28, label %vu_queue_empty.exit.thread21.i
 
 28:                                               ; preds = %25
   %29 = load i8, ptr %5, align 8, !range !5, !noundef !6
@@ -2437,8 +2437,8 @@ vring_notify.exit.thread:                         ; preds = %33, %36, %39, %28, 
 
 75:                                               ; preds = %vring_notify.exit.thread
   %76 = getelementptr i8, ptr %0, i64 128
-  %.val19 = load i64, ptr %76, align 8
-  %77 = and i64 %.val19, 16416
+  %.val20 = load i64, ptr %76, align 8
+  %77 = and i64 %.val20, 16416
   %or.cond = icmp eq i64 %77, 16416
   br i1 %or.cond, label %78, label %102
 
@@ -2460,27 +2460,27 @@ vring_notify.exit.thread:                         ; preds = %33, %36, %39, %28, 
   %88 = sdiv exact i64 %87, 168
   %89 = trunc i64 %88 to i32
   store i32 %89, ptr %82, align 4
-  %90 = and i64 %.val19, 8
+  %90 = and i64 %.val20, 8
   %91 = icmp ne i64 %90, 0
   %or.cond27 = and i1 %2, %91
-  br i1 %or.cond27, label %95, label %.thread24
+  br i1 %or.cond27, label %92, label %.critedge
 
-.thread24:                                        ; preds = %78
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %93 = load i32, ptr %92, align 8
-  %94 = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %93, ptr noundef %4)
-  br label %101
-
-95:                                               ; preds = %78
+92:                                               ; preds = %78
   store i32 9, ptr %80, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %97 = load i32, ptr %96, align 8
-  %98 = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %97, ptr noundef %4)
-  %99 = load i32, ptr %96, align 8
-  %100 = call zeroext i1 @vu_message_read_default(ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull %4)
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %94 = load i32, ptr %93, align 8
+  %95 = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %94, ptr noundef %4)
+  %96 = load i32, ptr %93, align 8
+  %97 = call zeroext i1 @vu_message_read_default(ptr noundef nonnull %0, i32 noundef %96, ptr noundef nonnull %4)
   br label %101
 
-101:                                              ; preds = %.thread24, %95
+.critedge:                                        ; preds = %78
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %99 = load i32, ptr %98, align 8
+  %100 = call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %99, ptr noundef %4)
+  br label %101
+
+101:                                              ; preds = %.critedge, %92
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %4) #21
   br label %vu_is_vq_usable.exit.thread
 
@@ -5338,8 +5338,8 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   %spec.select = select i1 %14, i32 0, i32 3
-  %.not83 = icmp slt i32 %11, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %.not80 = icmp slt i32 %11, 0
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5347,11 +5347,11 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   br label %17
 
 17:                                               ; preds = %.lr.ph, %29
-  %.06785 = phi i32 [ %11, %.lr.ph ], [ %.2, %29 ]
-  %.06884 = phi i32 [ 0, %.lr.ph ], [ %spec.select76, %29 ]
-  %18 = sub i32 %.06785, %.06884
+  %.06782 = phi i32 [ %11, %.lr.ph ], [ %.2, %29 ]
+  %.06881 = phi i32 [ 0, %.lr.ph ], [ %spec.select76, %29 ]
+  %18 = sub i32 %.06782, %.06881
   %19 = sdiv i32 %18, 2
-  %20 = add i32 %19, %.06884
+  %20 = add i32 %19, %.06881
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %16, i64 %21
   %23 = load i64, ptr %22, align 8
@@ -5361,18 +5361,18 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   %27 = icmp ult i64 %5, %26
   %28 = icmp ult i64 %23, %8
   %or.cond = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond, label %.thread, label %29
+  br i1 %or.cond, label %.critedge, label %29
 
-.thread:                                          ; preds = %17
+.critedge:                                        ; preds = %17
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.65)
   br label %88
 
 29:                                               ; preds = %17
   %30 = add i32 %20, 1
-  %spec.select76 = select i1 %27, i32 %.06884, i32 %30
+  %spec.select76 = select i1 %27, i32 %.06881, i32 %30
   %31 = icmp ult i64 %5, %23
   %32 = add i32 %20, -1
-  %.2 = select i1 %31, i32 %32, i32 %.06785
+  %.2 = select i1 %31, i32 %32, i32 %.06782
   %.not = icmp sgt i32 %spec.select76, %.2
   br i1 %.not, label %._crit_edge, label %17
 
@@ -5401,8 +5401,8 @@ get_fd_hugepagesize.exit:                         ; preds = %33, %35
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load i64, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
-  %.not7480 = icmp eq i64 %43, 0
-  %.not74 = select i1 %or.cond.i.not, i1 true, i1 %.not7480
+  %.not7477 = icmp eq i64 %43, 0
+  %.not74 = select i1 %or.cond.i.not, i1 true, i1 %.not7477
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i64, ptr %44, align 8
   %.fr = freeze i64 %45
@@ -5471,7 +5471,7 @@ get_fd_hugepagesize.exit:                         ; preds = %33, %35
   store i64 %87, ptr %74, align 8
   br label %88
 
-88:                                               ; preds = %.thread, %58, %84, %54
+88:                                               ; preds = %58, %84, %.critedge, %54
   ret void
 }
 
@@ -5813,18 +5813,18 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
 
 12:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.106)
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %.preheader, %49
-  %.02557 = phi i32 [ %7, %.preheader ], [ %54, %49 ]
-  %.02656 = phi i64 [ %5, %.preheader ], [ %55, %49 ]
-  %.02855 = phi i64 [ %4, %.preheader ], [ %56, %49 ]
-  %14 = icmp eq i32 %.02557, %3
+  %.02552 = phi i32 [ %7, %.preheader ], [ %54, %49 ]
+  %.02651 = phi i64 [ %5, %.preheader ], [ %55, %49 ]
+  %.02850 = phi i64 [ %4, %.preheader ], [ %56, %49 ]
+  %14 = icmp eq i32 %.02552, %3
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.107)
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %10, align 4
@@ -5845,12 +5845,12 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %19, i64 %24
   %26 = load i64, ptr %25, align 8
-  %.not31.i.i = icmp ult i64 %.02855, %26
+  %.not31.i.i = icmp ult i64 %.02850, %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre42.i.i = add i64 %.pre.i.i, %26
   %.pre42.fr.i.i = freeze i64 %.pre42.i.i
-  %27 = icmp ult i64 %.02855, %.pre42.fr.i.i
+  %27 = icmp ult i64 %.02850, %.pre42.fr.i.i
   br i1 %.not31.i.i, label %30, label %28
 
 28:                                               ; preds = %20
@@ -5873,7 +5873,7 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %20
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %28
-  %35 = inttoptr i64 %.02855 to ptr
+  %35 = inttoptr i64 %.02850 to ptr
   %36 = sub i64 0, %26
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -5882,41 +5882,41 @@ vu_gpa_to_mem_region.exit.i:                      ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
-  %44 = zext i32 %.02557 to i64
+  %44 = zext i32 %.02552 to i64
   %45 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %44
   store ptr %43, ptr %45, align 8
-  %46 = icmp eq i64 %.02855, 0
+  %46 = icmp eq i64 %.02850, 0
   br i1 %46, label %.loopexit, label %49
 
 vu_gpa_to_va.exit.thread:                         ; preds = %16, %32
-  %47 = zext i32 %.02557 to i64
+  %47 = zext i32 %.02552 to i64
   %48 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %47
   store ptr null, ptr %48, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %vu_gpa_to_mem_region.exit.i, %vu_gpa_to_va.exit.thread
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.108)
-  br label %.thread
+  br label %.critedge
 
 49:                                               ; preds = %vu_gpa_to_mem_region.exit.i
-  %50 = add i64 %.02656, %.02855
+  %50 = add i64 %.02651, %.02850
   %51 = icmp ugt i64 %50, %.pre42.fr.i.i
-  %52 = sub nuw i64 %.pre42.fr.i.i, %.02855
-  %spec.select = select i1 %51, i64 %52, i64 %.02656
+  %52 = sub nuw i64 %.pre42.fr.i.i, %.02850
+  %spec.select = select i1 %51, i64 %52, i64 %.02651
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %spec.select, ptr %53, align 8
-  %54 = add i32 %.02557, 1
-  %55 = sub i64 %.02656, %spec.select
-  %56 = add i64 %spec.select, %.02855
+  %54 = add i32 %.02552, 1
+  %55 = sub i64 %.02651, %spec.select
+  %56 = add i64 %spec.select, %.02850
   %.not36 = icmp eq i64 %55, 0
   br i1 %.not36, label %57, label %13
 
 57:                                               ; preds = %49
   store i32 %54, ptr %1, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.loopexit, %15, %57, %12
-  %.030 = phi i1 [ true, %57 ], [ false, %12 ], [ false, %15 ], [ false, %.loopexit ]
+.critedge:                                        ; preds = %15, %.loopexit, %57, %12
+  %.030 = phi i1 [ true, %57 ], [ false, %12 ], [ false, %.loopexit ], [ false, %15 ]
   ret i1 %.030
 }
 

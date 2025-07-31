@@ -641,20 +641,20 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 .critedge:                                        ; preds = %271
   %272 = add i32 %.0, %261
   %273 = icmp sgt i32 %272, 9
-  br i1 %273, label %.lr.ph198.i, label %process_pipe_input.exit
+  br i1 %273, label %.lr.ph195.i, label %process_pipe_input.exit
 
-.lr.ph198.i:                                      ; preds = %.critedge, %select.unfold.i
-  %.0195.i = phi ptr [ %.3.i, %select.unfold.i ], [ %8, %.critedge ]
-  %.0100194.i = phi i32 [ %.3103.i, %select.unfold.i ], [ %272, %.critedge ]
-  %.0105193.i = phi i32 [ %.3108.i, %select.unfold.i ], [ 1, %.critedge ]
-  %.sroa.059.0.copyload.i = load i8, ptr %.0195.i, align 1
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0195.i, i64 1
+.lr.ph195.i:                                      ; preds = %.critedge, %select.unfold.i
+  %.0192.i = phi ptr [ %.3.i, %select.unfold.i ], [ %8, %.critedge ]
+  %.0100191.i = phi i32 [ %.3103.i, %select.unfold.i ], [ %272, %.critedge ]
+  %.0105190.i = phi i32 [ %.3108.i, %select.unfold.i ], [ 1, %.critedge ]
+  %.sroa.059.0.copyload.i = load i8, ptr %.0192.i, align 1
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 1
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0195.i, i64 2
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0195.i, i64 4
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 4
   %.sroa.12.0.copyload.i = load i32, ptr %.sroa.12.0..sroa_idx.i, align 1
-  %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0195.i, i64 8
+  %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 8
   %.sroa.17.0.copyload.i = load i8, ptr %.sroa.17.0..sroa_idx.i, align 1
   %274 = zext i8 %.sroa.17.0.copyload.i to i32
   %275 = icmp eq i8 %.sroa.059.0.copyload.i, 0
@@ -668,7 +668,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
   %or.cond16.i = select i1 %or.cond13.i, i1 %280, i1 false
   br i1 %or.cond16.i, label %281, label %.lr.ph.preheader.i
 
-281:                                              ; preds = %.lr.ph198.i
+281:                                              ; preds = %.lr.ph195.i
   %282 = and i8 %.sroa.17.0.copyload.i, 112
   %283 = zext nneg i8 %282 to i64
   %284 = getelementptr inbounds nuw [256 x i8], ptr @pg_number_of_ones, i64 0, i64 %283
@@ -679,7 +679,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 287:                                              ; preds = %281
   %narrow.i = add nuw nsw i16 %.sroa.5.0.copyload.i, 9
   %288 = zext nneg i16 %narrow.i to i32
-  %.not135.i = icmp samesign ult i32 %.0100194.i, %288
+  %.not135.i = icmp samesign ult i32 %.0100191.i, %288
   br i1 %.not135.i, label %select.unfold.thread.i, label %289
 
 289:                                              ; preds = %287
@@ -695,7 +695,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 293:                                              ; preds = %291
   %294 = and i32 %274, 64
   %.not129.i = icmp eq i32 %294, 0
-  %spec.select.i = select i1 %.not129.i, i32 %.0105193.i, i32 16
+  %spec.select.i = select i1 %.not129.i, i32 %.0105190.i, i32 16
   br label %295
 
 295:                                              ; preds = %293, %291, %289
@@ -706,51 +706,51 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %.not130.i = icmp eq ptr %299, null
-  br i1 %.not130.i, label %.thread.i, label %.lr.ph174.i
+  br i1 %.not130.i, label %.critedge.i, label %.lr.ph171.i
 
-.lr.ph174.i:                                      ; preds = %295
+.lr.ph171.i:                                      ; preds = %295
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 4
   %302 = load i32, ptr %301, align 4
   %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %.lr.ph190.i, label %.thread.i
+  br i1 %303, label %.lr.ph187.i, label %.critedge.i
 
-.lr.ph190.i:                                      ; preds = %.lr.ph174.i
+.lr.ph187.i:                                      ; preds = %.lr.ph171.i
   %304 = load ptr, ptr %300, align 8
   %wide.trip.count.i = zext nneg i32 %302 to i64
   br label %305
 
-305:                                              ; preds = %309, %.lr.ph190.i
-  %indvars.iv205.i = phi i64 [ 0, %.lr.ph190.i ], [ %indvars.iv.next206.i, %309 ]
-  %.0113171189.i = phi ptr [ null, %.lr.ph190.i ], [ %spec.select137.i, %309 ]
-  %306 = getelementptr inbounds nuw %union.ListCell, ptr %304, i64 %indvars.iv205.i
+305:                                              ; preds = %309, %.lr.ph187.i
+  %indvars.iv202.i = phi i64 [ 0, %.lr.ph187.i ], [ %indvars.iv.next203.i, %309 ]
+  %.0113168186.i = phi ptr [ null, %.lr.ph187.i ], [ %spec.select137.i, %309 ]
+  %306 = getelementptr inbounds nuw %union.ListCell, ptr %304, i64 %indvars.iv202.i
   %307 = load ptr, ptr %306, align 8
   %308 = load i32, ptr %307, align 8
   %.not132.i = icmp eq i32 %308, %.sroa.12.0.copyload.i
-  br i1 %.not132.i, label %.thread.i, label %309
+  br i1 %.not132.i, label %.critedge.i, label %309
 
 309:                                              ; preds = %305
   %310 = icmp eq i32 %308, 0
-  %311 = icmp eq ptr %.0113171189.i, null
+  %311 = icmp eq ptr %.0113168186.i, null
   %or.cond18.i = select i1 %310, i1 %311, i1 false
-  %spec.select137.i = select i1 %or.cond18.i, ptr %307, ptr %.0113171189.i
-  %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
-  %exitcond208.not.i = icmp eq i64 %indvars.iv.next206.i, %wide.trip.count.i
-  br i1 %exitcond208.not.i, label %.thread.i, label %305
+  %spec.select137.i = select i1 %or.cond18.i, ptr %307, ptr %.0113168186.i
+  %indvars.iv.next203.i = add nuw nsw i64 %indvars.iv202.i, 1
+  %exitcond205.not.i = icmp eq i64 %indvars.iv.next203.i, %wide.trip.count.i
+  br i1 %exitcond205.not.i, label %.critedge.i, label %305
 
-.thread.i:                                        ; preds = %309, %305, %.lr.ph174.i, %295
-  %.0113.lcssa.i = phi ptr [ null, %295 ], [ null, %.lr.ph174.i ], [ %.0113171189.i, %305 ], [ %spec.select137.i, %309 ]
-  %.1119.i = phi ptr [ null, %295 ], [ null, %.lr.ph174.i ], [ %307, %305 ], [ null, %309 ]
+.critedge.i:                                      ; preds = %309, %305, %.lr.ph171.i, %295
+  %.0113.lcssa.i = phi ptr [ null, %295 ], [ null, %.lr.ph171.i ], [ %.0113168186.i, %305 ], [ %spec.select137.i, %309 ]
+  %.1119.i = phi ptr [ null, %295 ], [ null, %.lr.ph171.i ], [ %307, %305 ], [ null, %309 ]
   %312 = and i32 %274, 1
   %313 = icmp eq i32 %312, 0
   %.not134.i = icmp eq ptr %.1119.i, null
   br i1 %313, label %314, label %326
 
-314:                                              ; preds = %.thread.i
+314:                                              ; preds = %.critedge.i
   br i1 %.not134.i, label %318, label %315
 
 315:                                              ; preds = %314
   %316 = getelementptr inbounds nuw i8, ptr %.1119.i, i64 8
-  %317 = getelementptr inbounds nuw i8, ptr %.0195.i, i64 9
+  %317 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 9
   call void @appendBinaryStringInfo(ptr noundef nonnull %316, ptr noundef nonnull %317, i32 noundef %277) #15
   br label %366
 
@@ -769,16 +769,16 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
   store i32 %.sroa.12.0.copyload.i, ptr %.4117.i, align 8
   %324 = getelementptr inbounds nuw i8, ptr %.4117.i, i64 8
   call void @initStringInfo(ptr noundef nonnull %324) #15
-  %325 = getelementptr inbounds nuw i8, ptr %.0195.i, i64 9
+  %325 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 9
   call void @appendBinaryStringInfo(ptr noundef nonnull %324, ptr noundef nonnull %325, i32 noundef %277) #15
   br label %366
 
-326:                                              ; preds = %.thread.i
+326:                                              ; preds = %.critedge.i
   br i1 %.not134.i, label %349, label %327
 
 327:                                              ; preds = %326
   %328 = getelementptr inbounds nuw i8, ptr %.1119.i, i64 8
-  %329 = getelementptr inbounds nuw i8, ptr %.0195.i, i64 9
+  %329 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 9
   call void @appendBinaryStringInfo(ptr noundef nonnull %328, ptr noundef nonnull %329, i32 noundef %277) #15
   %330 = load ptr, ptr %328, align 8
   %331 = getelementptr inbounds nuw i8, ptr %.1119.i, i64 16
@@ -819,7 +819,7 @@ write_syslogger_file.exit.i:                      ; preds = %347, %343
   br label %366
 
 349:                                              ; preds = %326
-  %350 = getelementptr inbounds nuw i8, ptr %.0195.i, i64 9
+  %350 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 9
   %351 = and i32 %.2107.i, 8
   %352 = icmp ne i32 %351, 0
   %353 = load ptr, ptr @csvlogFile, align 8
@@ -853,32 +853,32 @@ write_syslogger_file.exit.i:                      ; preds = %347, %343
   %367 = zext nneg i16 %narrow.i to i64
   br label %select.unfold.i
 
-.lr.ph.preheader.i:                               ; preds = %281, %.lr.ph198.i
-  %368 = zext nneg i32 %.0100194.i to i64
+.lr.ph.preheader.i:                               ; preds = %281, %.lr.ph195.i
+  %368 = zext nneg i32 %.0100191.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %372, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %372 ]
-  %369 = getelementptr inbounds nuw i8, ptr %.0195.i, i64 %indvars.iv.i
+  %369 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 %indvars.iv.i
   %370 = load i8, ptr %369, align 1
   %371 = icmp eq i8 %370, 0
-  br i1 %371, label %._crit_edge.split.loop.exit214.i, label %372
+  br i1 %371, label %._crit_edge.split.loop.exit211.i, label %372
 
 372:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %368
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.split.loop.exit214.i:                 ; preds = %.lr.ph.i
+._crit_edge.split.loop.exit211.i:                 ; preds = %.lr.ph.i
   %373 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pre = and i64 %indvars.iv.i, 4294967295
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %372, %._crit_edge.split.loop.exit214.i
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge.split.loop.exit214.i ], [ %368, %372 ]
-  %.0122.lcssa.ph.i = phi i32 [ %373, %._crit_edge.split.loop.exit214.i ], [ %.0100194.i, %372 ]
+._crit_edge.i:                                    ; preds = %372, %._crit_edge.split.loop.exit211.i
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge.split.loop.exit211.i ], [ %368, %372 ]
+  %.0122.lcssa.ph.i = phi i32 [ %373, %._crit_edge.split.loop.exit211.i ], [ %.0100191.i, %372 ]
   %374 = load ptr, ptr @syslogFile, align 8
-  %375 = call i64 @fwrite(ptr noundef nonnull readonly %.0195.i, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef %374)
+  %375 = call i64 @fwrite(ptr noundef nonnull readonly %.0192.i, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef %374)
   %376 = trunc i64 %375 to i32
   %.not.i150.i = icmp eq i32 %.0122.lcssa.ph.i, %376
   br i1 %.not.i150.i, label %select.unfold.i, label %377
@@ -888,17 +888,17 @@ write_syslogger_file.exit.i:                      ; preds = %347, %343
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %377, %._crit_edge.i, %366
-  %.3108.i = phi i32 [ %.2107.i, %366 ], [ %.0105193.i, %._crit_edge.i ], [ %.0105193.i, %377 ]
+  %.3108.i = phi i32 [ %.2107.i, %366 ], [ %.0105190.i, %._crit_edge.i ], [ %.0105190.i, %377 ]
   %.0122.pn.i = phi i32 [ %288, %366 ], [ %.0122.lcssa.ph.i, %._crit_edge.i ], [ %.0122.lcssa.ph.i, %377 ]
   %.pn.i = phi i64 [ %367, %366 ], [ %.pre-phi, %._crit_edge.i ], [ %.pre-phi, %377 ]
-  %.3.i = getelementptr inbounds nuw i8, ptr %.0195.i, i64 %.pn.i
-  %.3103.i = sub nsw i32 %.0100194.i, %.0122.pn.i
+  %.3.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 %.pn.i
+  %.3103.i = sub nsw i32 %.0100191.i, %.0122.pn.i
   %378 = icmp sgt i32 %.3103.i, 9
-  br i1 %378, label %.lr.ph198.i, label %select.unfold.thread.i
+  br i1 %378, label %.lr.ph195.i, label %select.unfold.thread.i
 
 select.unfold.thread.i:                           ; preds = %select.unfold.i, %287
-  %.0100.lcssa.i = phi i32 [ %.3103.i, %select.unfold.i ], [ %.0100194.i, %287 ]
-  %.0.lcssa.i = phi ptr [ %.3.i, %select.unfold.i ], [ %.0195.i, %287 ]
+  %.0100.lcssa.i = phi i32 [ %.3103.i, %select.unfold.i ], [ %.0100191.i, %287 ]
+  %.0.lcssa.i = phi ptr [ %.3.i, %select.unfold.i ], [ %.0192.i, %287 ]
   %379 = icmp slt i32 %.0100.lcssa.i, 1
   %.not136.i = icmp eq ptr %.0.lcssa.i, %8
   %or.cond138.i = select i1 %379, i1 true, i1 %.not136.i
@@ -913,26 +913,21 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
   store i1 true, ptr @pipe_eof_seen, align 1
   br label %383
 
-383:                                              ; preds = %._crit_edge.i101, %382
-  %indvars.iv33.i = phi i64 [ 0, %382 ], [ %indvars.iv.next34.i, %._crit_edge.i101 ]
-  %384 = getelementptr inbounds nuw [256 x ptr], ptr @buffer_lists, i64 0, i64 %indvars.iv33.i
+383:                                              ; preds = %.critedge.i101, %382
+  %indvars.iv31.i = phi i64 [ 0, %382 ], [ %indvars.iv.next32.i, %.critedge.i101 ]
+  %384 = getelementptr inbounds nuw [256 x ptr], ptr @buffer_lists, i64 0, i64 %indvars.iv31.i
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 4
   %.not.i99 = icmp eq ptr %385, null
-  br i1 %.not.i99, label %._crit_edge.i101, label %.lr.ph.i100
+  br i1 %.not.i99, label %.critedge.i101, label %.lr.ph.i100
 
 .lr.ph.i100:                                      ; preds = %383
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %388 = load i32, ptr %386, align 4
   %389 = icmp sgt i32 %388, 0
-  br i1 %389, label %.lr.ph30.i, label %._crit_edge.i101
+  br i1 %389, label %.lr.ph28.i, label %.critedge.i101
 
-._crit_edge.i101:                                 ; preds = %406, %.lr.ph.i100, %383
-  %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %exitcond.not.i102 = icmp eq i64 %indvars.iv.next34.i, 256
-  br i1 %exitcond.not.i102, label %410, label %383, !llvm.loop !8
-
-.lr.ph30.i:                                       ; preds = %.lr.ph.i100, %406
+.lr.ph28.i:                                       ; preds = %.lr.ph.i100, %406
   %390 = phi i32 [ %407, %406 ], [ %388, %.lr.ph.i100 ]
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i106, %406 ], [ 0, %.lr.ph.i100 ]
   %391 = load ptr, ptr %387, align 8
@@ -942,7 +937,12 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
   %.not22.i = icmp eq i32 %394, 0
   br i1 %.not22.i, label %406, label %395
 
-395:                                              ; preds = %.lr.ph30.i
+.critedge.i101:                                   ; preds = %406, %.lr.ph.i100, %383
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
+  %exitcond.not.i102 = icmp eq i64 %indvars.iv.next32.i, 256
+  br i1 %exitcond.not.i102, label %410, label %383, !llvm.loop !8
+
+395:                                              ; preds = %.lr.ph28.i
   %396 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds nuw i8, ptr %393, i64 16
@@ -965,14 +965,14 @@ write_syslogger_file.exit.i105:                   ; preds = %404, %395
   %.pre.i = load i32, ptr %386, align 4
   br label %406
 
-406:                                              ; preds = %write_syslogger_file.exit.i105, %.lr.ph30.i
-  %407 = phi i32 [ %.pre.i, %write_syslogger_file.exit.i105 ], [ %390, %.lr.ph30.i ]
+406:                                              ; preds = %write_syslogger_file.exit.i105, %.lr.ph28.i
+  %407 = phi i32 [ %.pre.i, %write_syslogger_file.exit.i105 ], [ %390, %.lr.ph28.i ]
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i103, 1
   %408 = sext i32 %407 to i64
   %409 = icmp slt i64 %indvars.iv.next.i106, %408
-  br i1 %409, label %.lr.ph30.i, label %._crit_edge.i101
+  br i1 %409, label %.lr.ph28.i, label %.critedge.i101
 
-410:                                              ; preds = %._crit_edge.i101
+410:                                              ; preds = %.critedge.i101
   %411 = icmp sgt i32 %.0, 0
   br i1 %411, label %412, label %flush_pipe_input.exit
 

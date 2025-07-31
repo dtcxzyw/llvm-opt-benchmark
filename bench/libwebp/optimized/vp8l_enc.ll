@@ -109,12 +109,12 @@ VP8LEncoderDelete.exit:                           ; preds = %25
 
 29:                                               ; preds = %VP8LEncoderDelete.exit, %.split
   %30 = call i32 @WebPEncodingSetError(ptr noundef %1, i32 noundef 1) #8
-  br label %550
+  br label %555
 
 31:                                               ; preds = %18
   %32 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %13, i32 noundef 528) #8
   %.not115 = icmp eq i32 %32, 0
-  br i1 %.not115, label %531, label %33
+  br i1 %.not115, label %536, label %33
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %19, align 8, !tbaa !14
@@ -201,9 +201,9 @@ GetHistoBits.exit.i:                              ; preds = %78, %75
   store i32 %91, ptr %92, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 %91, ptr %93, align 4, !tbaa !32
-  br i1 %42, label %AnalyzeEntropy.exit.thread127.thread.i, label %96
+  br i1 %42, label %.loopexit127.thread.i, label %96
 
-AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
+.loopexit127.thread.i:                            ; preds = %GetHistoBits.exit.i
   %94 = select i1 %46, i32 4, i32 3
   store i32 %94, ptr %6, align 16, !tbaa !33
   %95 = select i1 %46, i32 0, i32 3
@@ -501,9 +501,9 @@ AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
   br label %304
 
 304:                                              ; preds = %304, %243
-  %.0118.i = phi i32 [ 0, %243 ], [ %spec.select130.i, %304 ]
+  %.0118.i = phi i32 [ 0, %243 ], [ %spec.select124.i, %304 ]
   %indvars.iv120.i.i = phi i64 [ 1, %243 ], [ %indvars.iv.next121.i.i, %304 ]
-  %305 = phi i32 [ 0, %243 ], [ %spec.select131.i, %304 ]
+  %305 = phi i32 [ 0, %243 ], [ %spec.select125.i, %304 ]
   %306 = zext nneg i32 %305 to i64
   %307 = getelementptr inbounds nuw [6 x i64], ptr %5, i64 0, i64 %306
   %308 = load i64, ptr %307, align 8, !tbaa !41
@@ -511,14 +511,14 @@ AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
   %310 = load i64, ptr %309, align 8, !tbaa !41
   %311 = icmp ugt i64 %308, %310
   %312 = trunc nuw nsw i64 %indvars.iv120.i.i to i32
-  %spec.select130.i = select i1 %311, i32 %312, i32 %.0118.i
-  %spec.select131.i = select i1 %311, i32 %312, i32 %305
+  %spec.select124.i = select i1 %311, i32 %312, i32 %.0118.i
+  %spec.select125.i = select i1 %311, i32 %312, i32 %305
   %indvars.iv.next121.i.i = add nuw nsw i64 %indvars.iv120.i.i, 1
   %exitcond124.not.i.i = icmp eq i64 %indvars.iv.next121.i.i, %wide.trip.count123.i.i
   br i1 %exitcond124.not.i.i, label %313, label %304, !llvm.loop !43
 
 313:                                              ; preds = %304
-  %314 = zext i32 %spec.select130.i to i64
+  %314 = zext i32 %spec.select124.i to i64
   %315 = getelementptr inbounds nuw [5 x [2 x i8]], ptr @AnalyzeEntropy.kHistoPairs, i64 0, i64 %314
   %316 = load i8, ptr %315, align 1, !tbaa !44
   %317 = zext i8 %316 to i64
@@ -555,58 +555,58 @@ AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
 
 330:                                              ; preds = %96, %.loopexit.i.i
   %.1196 = phi i32 [ %.0195, %.loopexit.i.i ], [ 1, %96 ]
-  %.2.ph.i = phi i32 [ %spec.select130.i, %.loopexit.i.i ], [ 4, %96 ]
+  %.2.ph.i = phi i32 [ %spec.select124.i, %.loopexit.i.i ], [ 4, %96 ]
   %331 = icmp eq i32 %41, 6
   %332 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %333 = load float, ptr %332, align 4, !tbaa !46
   %334 = fcmp oeq float %333, 1.000000e+02
-  %or.cond154.i = select i1 %331, i1 %334, i1 false
-  br i1 %or.cond154.i, label %.preheader, label %._crit_edge.i
+  %or.cond149.i = select i1 %331, i1 %334, i1 false
+  br i1 %or.cond149.i, label %.preheader, label %._crit_edge.i
 
 .preheader:                                       ; preds = %330, %.loopexit.i
   %.2201 = phi i32 [ %.3202, %.loopexit.i ], [ 0, %330 ]
   %335 = phi i32 [ %354, %.loopexit.i ], [ 0, %330 ]
-  %.0110136.i = phi i32 [ %355, %.loopexit.i ], [ 0, %330 ]
-  %or.cond.i = icmp samesign ult i32 %.0110136.i, 4
+  %.0110131.i = phi i32 [ %355, %.loopexit.i ], [ 0, %330 ]
+  %or.cond.i = icmp samesign ult i32 %.0110131.i, 4
   %or.cond3.i = or i1 %46, %or.cond.i
   br i1 %or.cond3.i, label %336, label %.loopexit.i
 
 336:                                              ; preds = %.preheader
-  %337 = and i32 %.0110136.i, 6
+  %337 = and i32 %.0110131.i, 6
   %or.cond5.i = icmp eq i32 %337, 4
   %or.cond114.i = and i1 %46, %or.cond5.i
-  br i1 %or.cond114.i, label %.preheader132.i, label %348
+  br i1 %or.cond114.i, label %.preheader126.i, label %348
 
-.preheader132.i:                                  ; preds = %336, %345
+.preheader126.i:                                  ; preds = %336, %345
   %.4203 = phi i32 [ %.5, %345 ], [ %.2201, %336 ]
   %338 = phi i32 [ %346, %345 ], [ %335, %336 ]
-  %.0105135.i = phi i32 [ %347, %345 ], [ 0, %336 ]
-  switch i32 %.0105135.i, label %339 [
+  %.0105130.i = phi i32 [ %347, %345 ], [ 0, %336 ]
+  switch i32 %.0105130.i, label %339 [
     i32 3, label %345
     i32 0, label %345
   ]
 
-339:                                              ; preds = %.preheader132.i
+339:                                              ; preds = %.preheader126.i
   %340 = sext i32 %338 to i64
   %341 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %340
-  store i32 %.0110136.i, ptr %341, align 4, !tbaa !33
+  store i32 %.0110131.i, ptr %341, align 4, !tbaa !33
   %342 = sext i32 %.4203 to i64
   %343 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %342, i32 1
-  store i32 %.0105135.i, ptr %343, align 4, !tbaa !47
+  store i32 %.0105130.i, ptr %343, align 4, !tbaa !47
   %344 = add nsw i32 %.4203, 1
   br label %345
 
-345:                                              ; preds = %339, %.preheader132.i, %.preheader132.i
-  %.5 = phi i32 [ %344, %339 ], [ %.4203, %.preheader132.i ], [ %.4203, %.preheader132.i ]
-  %346 = phi i32 [ %344, %339 ], [ %338, %.preheader132.i ], [ %338, %.preheader132.i ]
-  %347 = add nuw nsw i32 %.0105135.i, 1
+345:                                              ; preds = %339, %.preheader126.i, %.preheader126.i
+  %.5 = phi i32 [ %344, %339 ], [ %.4203, %.preheader126.i ], [ %.4203, %.preheader126.i ]
+  %346 = phi i32 [ %344, %339 ], [ %338, %.preheader126.i ], [ %338, %.preheader126.i ]
+  %347 = add nuw nsw i32 %.0105130.i, 1
   %exitcond.not.i126 = icmp eq i32 %347, 4
-  br i1 %exitcond.not.i126, label %.loopexit.i, label %.preheader132.i, !llvm.loop !48
+  br i1 %exitcond.not.i126, label %.loopexit.i, label %.preheader126.i, !llvm.loop !48
 
 348:                                              ; preds = %336
   %349 = sext i32 %335 to i64
   %350 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %349
-  store i32 %.0110136.i, ptr %350, align 4, !tbaa !33
+  store i32 %.0110131.i, ptr %350, align 4, !tbaa !33
   %351 = sext i32 %.2201 to i64
   %352 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %351, i32 1
   store i32 3, ptr %352, align 4, !tbaa !47
@@ -616,9 +616,9 @@ AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
 .loopexit.i:                                      ; preds = %345, %348, %.preheader
   %.3202 = phi i32 [ %353, %348 ], [ %.2201, %.preheader ], [ %.5, %345 ]
   %354 = phi i32 [ %353, %348 ], [ %335, %.preheader ], [ %346, %345 ]
-  %355 = add nuw nsw i32 %.0110136.i, 1
-  %exitcond141.not.i = icmp eq i32 %355, 6
-  br i1 %exitcond141.not.i, label %AnalyzeEntropy.exit.thread127.i, label %.preheader, !llvm.loop !49
+  %355 = add nuw nsw i32 %.0110131.i, 1
+  %exitcond136.not.i = icmp eq i32 %355, 6
+  br i1 %exitcond136.not.i, label %.loopexit127.i, label %.preheader, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %330
   store i32 %.2.ph.i, ptr %6, align 16, !tbaa !33
@@ -639,32 +639,32 @@ AnalyzeEntropy.exit.thread127.thread.i:           ; preds = %GetHistoBits.exit.i
   store i32 5, ptr %363, align 4, !tbaa !33
   br label %.preheader.preheader.i.sink.split
 
-AnalyzeEntropy.exit.thread127.i:                  ; preds = %.loopexit.i
+.loopexit127.i:                                   ; preds = %.loopexit.i
   %364 = icmp sgt i32 %.3202, 0
   br i1 %364, label %.preheader.preheader.i, label %.loopexit
 
-.preheader.preheader.i.sink.split:                ; preds = %AnalyzeEntropy.exit.thread127.thread.i, %362
-  %.sink270.sroa.phi = phi ptr [ %.sink270.sroa.gep, %362 ], [ %.sink270.sroa.gep288, %AnalyzeEntropy.exit.thread127.thread.i ]
-  %.sink = phi i32 [ 1, %362 ], [ %95, %AnalyzeEntropy.exit.thread127.thread.i ]
-  %.1200.ph = phi i32 [ 2, %362 ], [ 1, %AnalyzeEntropy.exit.thread127.thread.i ]
-  %.2197.ph = phi i32 [ %.1196, %362 ], [ 0, %AnalyzeEntropy.exit.thread127.thread.i ]
-  %.0107150.i.ph = phi i32 [ 1, %362 ], [ 0, %AnalyzeEntropy.exit.thread127.thread.i ]
-  %.0109149.i.ph = phi i32 [ %99, %362 ], [ 1, %AnalyzeEntropy.exit.thread127.thread.i ]
+.preheader.preheader.i.sink.split:                ; preds = %.loopexit127.thread.i, %362
+  %.sink270.sroa.phi = phi ptr [ %.sink270.sroa.gep, %362 ], [ %.sink270.sroa.gep288, %.loopexit127.thread.i ]
+  %.sink = phi i32 [ 1, %362 ], [ %95, %.loopexit127.thread.i ]
+  %.1200.ph = phi i32 [ 2, %362 ], [ 1, %.loopexit127.thread.i ]
+  %.2197.ph = phi i32 [ %.1196, %362 ], [ 0, %.loopexit127.thread.i ]
+  %.0107145.i.ph = phi i32 [ 1, %362 ], [ 0, %.loopexit127.thread.i ]
+  %.0109144.i.ph = phi i32 [ %99, %362 ], [ 1, %.loopexit127.thread.i ]
   store i32 %.sink, ptr %.sink270.sroa.phi, align 4, !tbaa !47
   br label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %.preheader.preheader.i.sink.split, %._crit_edge.i, %360, %AnalyzeEntropy.exit.thread127.i
-  %.1200 = phi i32 [ %.3202, %AnalyzeEntropy.exit.thread127.i ], [ 1, %._crit_edge.i ], [ 1, %360 ], [ %.1200.ph, %.preheader.preheader.i.sink.split ]
-  %.2197 = phi i32 [ %.1196, %AnalyzeEntropy.exit.thread127.i ], [ %.1196, %._crit_edge.i ], [ %.1196, %360 ], [ %.2197.ph, %.preheader.preheader.i.sink.split ]
-  %.0107150.i = phi i32 [ 1, %AnalyzeEntropy.exit.thread127.i ], [ 0, %._crit_edge.i ], [ 1, %360 ], [ %.0107150.i.ph, %.preheader.preheader.i.sink.split ]
-  %.0109149.i = phi i32 [ %99, %AnalyzeEntropy.exit.thread127.i ], [ %99, %._crit_edge.i ], [ %99, %360 ], [ %.0109149.i.ph, %.preheader.preheader.i.sink.split ]
-  %wide.trip.count.i = zext nneg i32 %.0109149.i to i64
+.preheader.preheader.i:                           ; preds = %.preheader.preheader.i.sink.split, %._crit_edge.i, %360, %.loopexit127.i
+  %.1200 = phi i32 [ %.3202, %.loopexit127.i ], [ 1, %._crit_edge.i ], [ 1, %360 ], [ %.1200.ph, %.preheader.preheader.i.sink.split ]
+  %.2197 = phi i32 [ %.1196, %.loopexit127.i ], [ %.1196, %._crit_edge.i ], [ %.1196, %360 ], [ %.2197.ph, %.preheader.preheader.i.sink.split ]
+  %.0107145.i = phi i32 [ 1, %.loopexit127.i ], [ 0, %._crit_edge.i ], [ 1, %360 ], [ %.0107145.i.ph, %.preheader.preheader.i.sink.split ]
+  %.0109144.i = phi i32 [ %99, %.loopexit127.i ], [ %99, %._crit_edge.i ], [ %99, %360 ], [ %.0109144.i.ph, %.preheader.preheader.i.sink.split ]
+  %wide.trip.count.i = zext nneg i32 %.0109144.i to i64
   %365 = zext nneg i32 %.1200 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %372, %.preheader.preheader.i
-  %indvars.iv144.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next145.i, %372 ]
-  %366 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %indvars.iv144.i, i32 2
+  %indvars.iv139.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next140.i, %372 ]
+  %366 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %indvars.iv139.i, i32 2
   br label %367
 
 367:                                              ; preds = %367, %.preheader.i
@@ -674,21 +674,21 @@ AnalyzeEntropy.exit.thread127.i:                  ; preds = %.loopexit.i
   %370 = getelementptr inbounds nuw [2 x %struct.CrunchSubConfig], ptr %366, i64 0, i64 %indvars.iv.i124
   store i32 %369, ptr %370, align 4, !tbaa !50
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
-  store i32 %.0107150.i, ptr %371, align 4, !tbaa !52
+  store i32 %.0107145.i, ptr %371, align 4, !tbaa !52
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
-  %exitcond143.not.i = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i
-  br i1 %exitcond143.not.i, label %372, label %367, !llvm.loop !53
+  %exitcond138.not.i = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i
+  br i1 %exitcond138.not.i, label %372, label %367, !llvm.loop !53
 
 372:                                              ; preds = %367
-  %373 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %indvars.iv144.i, i32 3
-  store i32 %.0109149.i, ptr %373, align 4, !tbaa !54
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next145.i, %365
+  %373 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %indvars.iv139.i, i32 3
+  store i32 %.0109144.i, ptr %373, align 4, !tbaa !54
+  %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next140.i, %365
   br i1 %exitcond.not, label %.loopexit, label %.preheader.i, !llvm.loop !55
 
-.loopexit:                                        ; preds = %372, %AnalyzeEntropy.exit.thread127.i
-  %.6.ph = phi i32 [ %.3202, %AnalyzeEntropy.exit.thread127.i ], [ %.1200, %372 ]
-  %.3198.ph = phi i32 [ %.1196, %AnalyzeEntropy.exit.thread127.i ], [ %.2197, %372 ]
+.loopexit:                                        ; preds = %372, %.loopexit127.i
+  %.6.ph = phi i32 [ %.3202, %.loopexit127.i ], [ %.1200, %372 ]
+  %.3198.ph = phi i32 [ %.1196, %.loopexit127.i ], [ %.2197, %372 ]
   %374 = load ptr, ptr %19, align 8, !tbaa !14
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load i32, ptr %375, align 8, !tbaa !19
@@ -717,7 +717,7 @@ AnalyzeEntropy.exit.thread127.i:                  ; preds = %.loopexit.i
 
 EncoderAnalyze.exit:                              ; preds = %.loopexit, %104
   %388 = call i32 @WebPEncodingSetError(ptr noundef %1, i32 noundef 1) #8
-  br label %531
+  br label %536
 
 EncoderInit.exit:                                 ; preds = %386
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -819,7 +819,7 @@ EncoderInit.exit:                                 ; preds = %386
 
 428:                                              ; preds = %420
   %429 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %531
+  br label %536
 
 430:                                              ; preds = %420
   store ptr %12, ptr %.sroa.gep160, align 8, !tbaa !67
@@ -866,7 +866,7 @@ VP8LEncoderNew.exit133.thread:                    ; preds = %430
 
 EncoderInit.exit141.thread:                       ; preds = %434, %VP8LEncoderNew.exit133.thread
   %451 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %531
+  br label %536
 
 EncoderInit.exit141:                              ; preds = %449
   %452 = load i32, ptr %86, align 4, !tbaa !30
@@ -903,7 +903,7 @@ EncoderInit.exit141:                              ; preds = %449
 
 465:                                              ; preds = %462
   %.not120 = icmp eq i32 %.0100, 0
-  br i1 %.not120, label %478, label %466
+  br i1 %.not120, label %.critedge, label %466
 
 466:                                              ; preds = %465
   %467 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -914,7 +914,7 @@ EncoderInit.exit141:                              ; preds = %449
 
 470:                                              ; preds = %466
   %471 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
-  br label %531
+  br label %536
 
 472:                                              ; preds = %466
   %473 = load ptr, ptr %413, align 8, !tbaa !65
@@ -925,142 +925,148 @@ EncoderInit.exit141:                              ; preds = %449
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %11, ptr noundef nonnull align 4 dereferenceable(188) %473, i64 188, i1 false)
   br label %475
 
-475:                                              ; preds = %474, %472
+475:                                              ; preds = %472, %474
   %476 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %477 = load ptr, ptr %476, align 8, !tbaa !78
   call void %477(ptr noundef nonnull %8) #8
-  br label %478
+  %478 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %479 = load ptr, ptr %478, align 8, !tbaa !79
+  call void %479(ptr noundef nonnull %7) #8
+  %480 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %481 = load ptr, ptr %480, align 8, !tbaa !80
+  %482 = call i32 %481(ptr noundef nonnull %7) #8
+  %483 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %484 = load ptr, ptr %483, align 8, !tbaa !81
+  call void %484(ptr noundef nonnull %7) #8
+  %485 = load ptr, ptr %480, align 8, !tbaa !80
+  %486 = call i32 %485(ptr noundef nonnull %8) #8
+  %487 = load ptr, ptr %483, align 8, !tbaa !81
+  call void %487(ptr noundef nonnull %8) #8
+  %488 = icmp ne i32 %482, 0
+  %489 = icmp ne i32 %486, 0
+  %or.cond = select i1 %488, i1 %489, i1 false
+  br i1 %or.cond, label %498, label %490
 
-478:                                              ; preds = %475, %465
-  %479 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %480 = load ptr, ptr %479, align 8, !tbaa !79
-  call void %480(ptr noundef nonnull %7) #8
-  %481 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %482 = load ptr, ptr %481, align 8, !tbaa !80
-  %483 = call i32 %482(ptr noundef nonnull %7) #8
-  %484 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %485 = load ptr, ptr %484, align 8, !tbaa !81
-  call void %485(ptr noundef nonnull %7) #8
-  br i1 %.not120, label %531, label %486
+490:                                              ; preds = %475
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %492 = load i32, ptr %491, align 8, !tbaa !82
+  %493 = icmp eq i32 %492, 0
+  br i1 %493, label %494, label %536
 
-486:                                              ; preds = %478
-  %487 = load ptr, ptr %481, align 8, !tbaa !80
-  %488 = call i32 %487(ptr noundef nonnull %8) #8
-  %489 = load ptr, ptr %484, align 8, !tbaa !81
-  call void %489(ptr noundef nonnull %8) #8
-  %490 = icmp ne i32 %483, 0
-  %491 = icmp ne i32 %488, 0
-  %or.cond = select i1 %490, i1 %491, i1 false
-  br i1 %or.cond, label %500, label %492
+494:                                              ; preds = %490
+  %495 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  %496 = load i32, ptr %495, align 8, !tbaa !82
+  %497 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef %496) #8
+  br label %536
 
-492:                                              ; preds = %486
-  %493 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %494 = load i32, ptr %493, align 8, !tbaa !82
-  %495 = icmp eq i32 %494, 0
-  br i1 %495, label %496, label %531
+498:                                              ; preds = %475
+  %499 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %500 = load ptr, ptr %499, align 8, !tbaa !83
+  %501 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %502 = load ptr, ptr %501, align 8, !tbaa !85
+  %503 = ptrtoint ptr %500 to i64
+  %504 = ptrtoint ptr %502 to i64
+  %505 = sub i64 %503, %504
+  %506 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %507 = load i32, ptr %506, align 8, !tbaa !86
+  %508 = add nsw i32 %507, 7
+  %509 = ashr i32 %508, 3
+  %510 = sext i32 %509 to i64
+  %511 = add nsw i64 %505, %510
+  %512 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %513 = load ptr, ptr %512, align 8, !tbaa !83
+  %514 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %515 = load ptr, ptr %514, align 8, !tbaa !85
+  %516 = ptrtoint ptr %513 to i64
+  %517 = ptrtoint ptr %515 to i64
+  %518 = sub i64 %516, %517
+  %519 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %520 = load i32, ptr %519, align 8, !tbaa !86
+  %521 = add nsw i32 %520, 7
+  %522 = ashr i32 %521, 3
+  %523 = sext i32 %522 to i64
+  %524 = add nsw i64 %518, %523
+  %525 = icmp ult i64 %511, %524
+  br i1 %525, label %526, label %536
 
-496:                                              ; preds = %492
-  %497 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  %498 = load i32, ptr %497, align 8, !tbaa !82
-  %499 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef %498) #8
-  br label %531
-
-500:                                              ; preds = %486
-  %501 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %502 = load ptr, ptr %501, align 8, !tbaa !83
-  %503 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %504 = load ptr, ptr %503, align 8, !tbaa !85
-  %505 = ptrtoint ptr %502 to i64
-  %506 = ptrtoint ptr %504 to i64
-  %507 = sub i64 %505, %506
-  %508 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %509 = load i32, ptr %508, align 8, !tbaa !86
-  %510 = add nsw i32 %509, 7
-  %511 = ashr i32 %510, 3
-  %512 = sext i32 %511 to i64
-  %513 = add nsw i64 %507, %512
-  %514 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %515 = load ptr, ptr %514, align 8, !tbaa !83
-  %516 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %517 = load ptr, ptr %516, align 8, !tbaa !85
-  %518 = ptrtoint ptr %515 to i64
-  %519 = ptrtoint ptr %517 to i64
-  %520 = sub i64 %518, %519
-  %521 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %522 = load i32, ptr %521, align 8, !tbaa !86
-  %523 = add nsw i32 %522, 7
-  %524 = ashr i32 %523, 3
-  %525 = sext i32 %524 to i64
-  %526 = add nsw i64 %520, %525
-  %527 = icmp ult i64 %513, %526
-  br i1 %527, label %528, label %531
-
-528:                                              ; preds = %500
+526:                                              ; preds = %498
   call void @VP8LBitWriterSwap(ptr noundef nonnull %2, ptr noundef nonnull %12) #8
-  %529 = load ptr, ptr %413, align 8, !tbaa !65
-  %.not123 = icmp eq ptr %529, null
-  br i1 %.not123, label %531, label %530
+  %527 = load ptr, ptr %413, align 8, !tbaa !65
+  %.not123 = icmp eq ptr %527, null
+  br i1 %.not123, label %536, label %528
 
-530:                                              ; preds = %528
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %529, ptr noundef nonnull align 4 dereferenceable(188) %11, i64 188, i1 false)
-  br label %531
+528:                                              ; preds = %526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(188) %527, ptr noundef nonnull align 4 dereferenceable(188) %11, i64 188, i1 false)
+  br label %536
 
-531:                                              ; preds = %EncoderAnalyze.exit, %470, %31, %478, %500, %530, %528, %492, %496, %EncoderInit.exit141.thread, %428
-  %.099 = phi ptr [ %.2, %478 ], [ %.2, %470 ], [ null, %EncoderAnalyze.exit ], [ null, %31 ], [ %.2, %500 ], [ %.2, %530 ], [ %.2, %528 ], [ %.2, %492 ], [ %.2, %496 ], [ %.1239, %428 ], [ %431, %EncoderInit.exit141.thread ]
+.critedge:                                        ; preds = %465
+  %529 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %530 = load ptr, ptr %529, align 8, !tbaa !79
+  call void %530(ptr noundef nonnull %7) #8
+  %531 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %532 = load ptr, ptr %531, align 8, !tbaa !80
+  %533 = call i32 %532(ptr noundef nonnull %7) #8
+  %534 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %535 = load ptr, ptr %534, align 8, !tbaa !81
+  call void %535(ptr noundef nonnull %7) #8
+  br label %536
+
+536:                                              ; preds = %EncoderAnalyze.exit, %470, %31, %.critedge, %498, %528, %526, %490, %494, %EncoderInit.exit141.thread, %428
+  %.099 = phi ptr [ %.2, %470 ], [ null, %EncoderAnalyze.exit ], [ null, %31 ], [ %.2, %.critedge ], [ %.2, %498 ], [ %.2, %528 ], [ %.2, %526 ], [ %.2, %490 ], [ %.2, %494 ], [ %.1239, %428 ], [ %431, %EncoderInit.exit141.thread ]
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %12) #8
-  %532 = getelementptr inbounds nuw i8, ptr %14, i64 2312
-  call void @VP8LHashChainClear(ptr noundef nonnull %532) #8
-  %533 = getelementptr inbounds nuw i8, ptr %14, i64 2152
-  br label %534
+  %537 = getelementptr inbounds nuw i8, ptr %14, i64 2312
+  call void @VP8LHashChainClear(ptr noundef nonnull %537) #8
+  %538 = getelementptr inbounds nuw i8, ptr %14, i64 2152
+  br label %539
 
-534:                                              ; preds = %534, %531
-  %indvars.iv.i143 = phi i64 [ 0, %531 ], [ %indvars.iv.next.i144, %534 ]
-  %535 = getelementptr inbounds nuw [4 x %struct.VP8LBackwardRefs], ptr %533, i64 0, i64 %indvars.iv.i143
-  call void @VP8LBackwardRefsClear(ptr noundef nonnull %535) #8
+539:                                              ; preds = %539, %536
+  %indvars.iv.i143 = phi i64 [ 0, %536 ], [ %indvars.iv.next.i144, %539 ]
+  %540 = getelementptr inbounds nuw [4 x %struct.VP8LBackwardRefs], ptr %538, i64 0, i64 %indvars.iv.i143
+  call void @VP8LBackwardRefsClear(ptr noundef nonnull %540) #8
   %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i143, 1
   %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, 4
-  br i1 %exitcond.not.i145, label %VP8LEncoderDelete.exit146, label %534, !llvm.loop !16
+  br i1 %exitcond.not.i145, label %VP8LEncoderDelete.exit146, label %539, !llvm.loop !16
 
-VP8LEncoderDelete.exit146:                        ; preds = %534
-  %536 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %537 = load ptr, ptr %536, align 8, !tbaa !18
-  call void @WebPSafeFree(ptr noundef %537) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %536, i8 0, i64 16, i1 false)
+VP8LEncoderDelete.exit146:                        ; preds = %539
+  %541 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %542 = load ptr, ptr %541, align 8, !tbaa !18
+  call void @WebPSafeFree(ptr noundef %542) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %541, i8 0, i64 16, i1 false)
   call void @WebPSafeFree(ptr noundef nonnull %14) #8
   %.not.i147 = icmp eq ptr %.099, null
-  br i1 %.not.i147, label %VP8LEncoderDelete.exit151, label %538
+  br i1 %.not.i147, label %VP8LEncoderDelete.exit151, label %543
 
-538:                                              ; preds = %VP8LEncoderDelete.exit146
-  %539 = getelementptr inbounds nuw i8, ptr %.099, i64 2312
-  call void @VP8LHashChainClear(ptr noundef nonnull %539) #8
-  %540 = getelementptr inbounds nuw i8, ptr %.099, i64 2152
-  br label %541
+543:                                              ; preds = %VP8LEncoderDelete.exit146
+  %544 = getelementptr inbounds nuw i8, ptr %.099, i64 2312
+  call void @VP8LHashChainClear(ptr noundef nonnull %544) #8
+  %545 = getelementptr inbounds nuw i8, ptr %.099, i64 2152
+  br label %546
 
-541:                                              ; preds = %541, %538
-  %indvars.iv.i148 = phi i64 [ 0, %538 ], [ %indvars.iv.next.i149, %541 ]
-  %542 = getelementptr inbounds nuw [4 x %struct.VP8LBackwardRefs], ptr %540, i64 0, i64 %indvars.iv.i148
-  call void @VP8LBackwardRefsClear(ptr noundef nonnull %542) #8
+546:                                              ; preds = %546, %543
+  %indvars.iv.i148 = phi i64 [ 0, %543 ], [ %indvars.iv.next.i149, %546 ]
+  %547 = getelementptr inbounds nuw [4 x %struct.VP8LBackwardRefs], ptr %545, i64 0, i64 %indvars.iv.i148
+  call void @VP8LBackwardRefsClear(ptr noundef nonnull %547) #8
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i148, 1
   %exitcond.not.i150 = icmp eq i64 %indvars.iv.next.i149, 4
-  br i1 %exitcond.not.i150, label %543, label %541, !llvm.loop !16
+  br i1 %exitcond.not.i150, label %548, label %546, !llvm.loop !16
 
-543:                                              ; preds = %541
-  %544 = getelementptr inbounds nuw i8, ptr %.099, i64 48
-  %545 = load ptr, ptr %544, align 8, !tbaa !18
-  call void @WebPSafeFree(ptr noundef %545) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %544, i8 0, i64 16, i1 false)
+548:                                              ; preds = %546
+  %549 = getelementptr inbounds nuw i8, ptr %.099, i64 48
+  %550 = load ptr, ptr %549, align 8, !tbaa !18
+  call void @WebPSafeFree(ptr noundef %550) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %549, i8 0, i64 16, i1 false)
   call void @WebPSafeFree(ptr noundef nonnull %.099) #8
   br label %VP8LEncoderDelete.exit151
 
-VP8LEncoderDelete.exit151:                        ; preds = %VP8LEncoderDelete.exit146, %543
-  %546 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %547 = load i32, ptr %546, align 8, !tbaa !82
-  %548 = icmp eq i32 %547, 0
-  %549 = zext i1 %548 to i32
-  br label %550
+VP8LEncoderDelete.exit151:                        ; preds = %VP8LEncoderDelete.exit146, %548
+  %551 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %552 = load i32, ptr %551, align 8, !tbaa !82
+  %553 = icmp eq i32 %552, 0
+  %554 = zext i1 %553 to i32
+  br label %555
 
-550:                                              ; preds = %VP8LEncoderDelete.exit151, %29
-  %.0 = phi i32 [ %30, %29 ], [ %549, %VP8LEncoderDelete.exit151 ]
+555:                                              ; preds = %VP8LEncoderDelete.exit151, %29
+  %.0 = phi i32 [ %30, %29 ], [ %554, %VP8LEncoderDelete.exit151 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 188, ptr nonnull %11) #8

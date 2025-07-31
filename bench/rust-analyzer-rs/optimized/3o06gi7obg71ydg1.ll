@@ -1618,16 +1618,16 @@ _ZN8smallvec10infallible17h063d7014a3327678E.exit:
   br label %19
 
 11:                                               ; preds = %.lr.ph, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i
-  %storemerge49 = phi i64 [ %7, %.lr.ph ], [ %39, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
-  %.sroa.0.048 = phi ptr [ %.sroa.0.0.copyload23, %.lr.ph ], [ %14, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
-  %.sroa.10.047 = phi i64 [ %.sroa.10.0.copyload27, %.lr.ph ], [ %18, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
+  %storemerge63 = phi i64 [ %7, %.lr.ph ], [ %39, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
+  %.sroa.0.062 = phi ptr [ %.sroa.0.0.copyload23, %.lr.ph ], [ %14, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
+  %.sroa.10.061 = phi i64 [ %.sroa.10.0.copyload27, %.lr.ph ], [ %18, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i ]
   br label %12
 
 12:                                               ; preds = %13, %11
-  %.sroa.10.1 = phi i64 [ %.sroa.10.047, %11 ], [ %18, %13 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.048, %11 ], [ %14, %13 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.061, %11 ], [ %18, %13 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.062, %11 ], [ %14, %13 ]
   %.not = icmp eq ptr %.sroa.0.1, %.sroa.8.0.copyload25
-  br i1 %.not, label %40, label %13
+  br i1 %.not, label %.critedge44, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 8
@@ -1646,7 +1646,7 @@ _ZN8smallvec10infallible17h063d7014a3327678E.exit:
   %.sroa.040.1 = phi ptr [ %.sroa.0.0.lcssa, %._crit_edge ], [ %22, %.backedge ]
   %.sroa.742.1 = phi i64 [ %.sroa.10.0.lcssa, %._crit_edge ], [ %26, %.backedge ]
   %20 = icmp eq ptr %.sroa.040.1, %.sroa.8.0.copyload25
-  br i1 %20, label %.loopexit, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.040.1, i64 8
@@ -1692,19 +1692,19 @@ _ZN8smallvec10infallible17h063d7014a3327678E.exit:
   store i64 %37, ptr %.05.i, align 8, !alias.scope !417
   br label %.backedge
 
-.loopexit:                                        ; preds = %19, %40
+.critedge:                                        ; preds = %19, %.critedge44
   ret void
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf96d7f575d62d4c5E.exit.i: ; preds = %13
-  %38 = getelementptr inbounds i64, ptr %.sink3.i, i64 %storemerge49
+  %38 = getelementptr inbounds i64, ptr %.sink3.i, i64 %storemerge63
   store i64 %.sroa.10.1, ptr %38, align 8
-  %39 = add nuw i64 %storemerge49, 1
+  %39 = add nuw i64 %storemerge63, 1
   %exitcond.not = icmp eq i64 %39, %.sink.i
   br i1 %exitcond.not, label %._crit_edge, label %11
 
-40:                                               ; preds = %12
-  store i64 %storemerge49, ptr %.sink2.i, align 8
-  br label %.loopexit
+.critedge44:                                      ; preds = %12
+  store i64 %storemerge63, ptr %.sink2.i, align 8
+  br label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable

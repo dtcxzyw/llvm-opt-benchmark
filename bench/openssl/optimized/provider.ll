@@ -651,32 +651,32 @@ read_utf8_string.exit:                            ; preds = %123, %117, %116
 135:                                              ; preds = %134
   %136 = load ptr, ptr %1, align 8, !tbaa !32
   %137 = load i64, ptr %2, align 8, !tbaa !30
-  %.not28.not.i = icmp eq i64 %137, 0
-  br i1 %.not28.not.i, label %read_octet_string.exit, label %.lr.ph.i
+  %.not26.not.i = icmp eq i64 %137, 0
+  br i1 %.not26.not.i, label %read_octet_string.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %135, %146
-  %.01930.i = phi ptr [ %147, %146 ], [ %136, %135 ]
-  %.02029.i = phi i64 [ %140, %146 ], [ 0, %135 ]
-  %138 = load i8, ptr %.01930.i, align 1, !tbaa !29
+  %.01928.i = phi ptr [ %147, %146 ], [ %136, %135 ]
+  %.02027.i = phi i64 [ %140, %146 ], [ 0, %135 ]
+  %138 = load i8, ptr %.01928.i, align 1, !tbaa !29
   %139 = icmp eq i8 %138, -1
-  %140 = add nuw i64 %.02029.i, 1
+  %140 = add nuw i64 %.02027.i, 1
   %141 = icmp ult i64 %140, %137
   %or.cond.i = and i1 %141, %139
   br i1 %or.cond.i, label %142, label %146
 
 142:                                              ; preds = %.lr.ph.i
-  %143 = getelementptr inbounds nuw i8, ptr %.01930.i, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %.01928.i, i64 1
   %144 = load i8, ptr %143, align 1, !tbaa !29
   %145 = icmp eq i8 %144, -1
   br i1 %145, label %148, label %146
 
 146:                                              ; preds = %142, %.lr.ph.i
-  %147 = getelementptr inbounds nuw i8, ptr %.01930.i, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.01928.i, i64 1
   %exitcond.not.i = icmp eq i64 %140, %137
   br i1 %exitcond.not.i, label %read_octet_string.exit, label %.lr.ph.i, !llvm.loop !45
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.01930.i, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.01928.i, i64 1
   %150 = ptrtoint ptr %149 to i64
   %151 = ptrtoint ptr %136 to i64
   %152 = sub i64 %150, %151
@@ -779,35 +779,35 @@ read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %1
   br label %read_octet_ptr.exit
 
 199:                                              ; preds = %186
-  %.not28.not.i.i = icmp eq i64 %187, 0
-  br i1 %.not28.not.i.i, label %read_octet_ptr.exit, label %.lr.ph.i.i.preheader
+  %.not26.not.i.i = icmp eq i64 %187, 0
+  br i1 %.not26.not.i.i, label %read_octet_ptr.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %199, %192, %189
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %208
-  %.01930.i.i = phi ptr [ %209, %208 ], [ %.pre.i101, %.lr.ph.i.i.preheader ]
-  %.02029.i.i = phi i64 [ %202, %208 ], [ 0, %.lr.ph.i.i.preheader ]
-  %200 = load i8, ptr %.01930.i.i, align 1, !tbaa !29
+  %.01928.i.i = phi ptr [ %209, %208 ], [ %.pre.i101, %.lr.ph.i.i.preheader ]
+  %.02027.i.i = phi i64 [ %202, %208 ], [ 0, %.lr.ph.i.i.preheader ]
+  %200 = load i8, ptr %.01928.i.i, align 1, !tbaa !29
   %201 = icmp eq i8 %200, -1
-  %202 = add nuw i64 %.02029.i.i, 1
+  %202 = add nuw i64 %.02027.i.i, 1
   %203 = icmp ult i64 %202, %187
   %or.cond.i.i = and i1 %203, %201
   br i1 %or.cond.i.i, label %204, label %208
 
 204:                                              ; preds = %.lr.ph.i.i
-  %205 = getelementptr inbounds nuw i8, ptr %.01930.i.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.01928.i.i, i64 1
   %206 = load i8, ptr %205, align 1, !tbaa !29
   %207 = icmp eq i8 %206, -1
   br i1 %207, label %210, label %208
 
 208:                                              ; preds = %204, %.lr.ph.i.i
-  %209 = getelementptr inbounds nuw i8, ptr %.01930.i.i, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.01928.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %202, %187
   br i1 %exitcond.not.i.i, label %read_octet_ptr.exit, label %.lr.ph.i.i, !llvm.loop !45
 
 210:                                              ; preds = %204
-  %211 = getelementptr inbounds nuw i8, ptr %.01930.i.i, i64 1
+  %211 = getelementptr inbounds nuw i8, ptr %.01928.i.i, i64 1
   %212 = ptrtoint ptr %211 to i64
   %213 = ptrtoint ptr %.pre.i101 to i64
   %214 = sub i64 %212, %213

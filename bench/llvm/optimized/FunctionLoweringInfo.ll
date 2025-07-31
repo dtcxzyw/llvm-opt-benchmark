@@ -6807,90 +6807,90 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_20FunctionLowering
   %14 = icmp uge ptr %2, %12
   %15 = icmp ult ptr %2, %13
   %spec.select.i.i.i.i = and i1 %14, %15
-  br i1 %spec.select.i.i.i.i, label %17, label %16, !prof !625
+  br i1 %spec.select.i.i.i.i, label %16, label %.critedge.i.i, !prof !625
 
 16:                                               ; preds = %11
+  %17 = ptrtoint ptr %2 to i64
+  %18 = ptrtoint ptr %12 to i64
+  %19 = sub i64 %17, %18
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %20 = load ptr, ptr %0, align 8, !tbaa !290
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %11
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-17:                                               ; preds = %11
-  %18 = ptrtoint ptr %2 to i64
-  %19 = ptrtoint ptr %12 to i64
-  %20 = sub i64 %18, %19
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %21 = load ptr, ptr %0, align 8, !tbaa !290
-  %22 = getelementptr inbounds i8, ptr %21, i64 %20
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %3, %16, %17
-  %.016.i.i = phi ptr [ %2, %3 ], [ %22, %17 ], [ %2, %16 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %3, %16, %.critedge.i.i
+  %.016.i.i = phi ptr [ %2, %3 ], [ %21, %16 ], [ %2, %.critedge.i.i ]
   %.not7.i.i.i = icmp eq i64 %1, 0
   %.pre5 = load i32, ptr %4, align 8, !tbaa !291
   br i1 %.not7.i.i.i, label %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %23 = load ptr, ptr %0, align 8, !tbaa !290
-  %24 = zext i32 %.pre5 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::FunctionLoweringInfo::LiveOutInfo", ptr %23, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  br label %30
+  %22 = load ptr, ptr %0, align 8, !tbaa !290
+  %23 = zext i32 %.pre5 to i64
+  %24 = getelementptr inbounds nuw %"struct.llvm::FunctionLoweringInfo::LiveOutInfo", ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  br label %29
 
-30:                                               ; preds = %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %47, %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i ]
-  %.068.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i ], [ %46, %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i ]
-  %31 = load i32, ptr %.016.i.i, align 8
-  store i32 %31, ptr %.09.i.i.i, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  %34 = load i32, ptr %27, align 8, !tbaa !374
-  store i32 %34, ptr %33, align 8, !tbaa !374
-  %35 = icmp ult i32 %34, 65
-  br i1 %35, label %36, label %38
+29:                                               ; preds = %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %46, %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i ]
+  %.068.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i ], [ %45, %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i ]
+  %30 = load i32, ptr %.016.i.i, align 8
+  store i32 %30, ptr %.09.i.i.i, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
+  %33 = load i32, ptr %26, align 8, !tbaa !374
+  store i32 %33, ptr %32, align 8, !tbaa !374
+  %34 = icmp ult i32 %33, 65
+  br i1 %34, label %35, label %37
 
-36:                                               ; preds = %30
-  %37 = load i64, ptr %26, align 8, !tbaa !311
-  store i64 %37, ptr %32, align 8, !tbaa !311
+35:                                               ; preds = %29
+  %36 = load i64, ptr %25, align 8, !tbaa !311
+  store i64 %36, ptr %31, align 8, !tbaa !311
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
 
-38:                                               ; preds = %30
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %26) #14
+37:                                               ; preds = %29
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %25) #14
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
 
-_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i:          ; preds = %38, %36
-  %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
-  %41 = load i32, ptr %29, align 8, !tbaa !374
-  store i32 %41, ptr %40, align 8, !tbaa !374
-  %42 = icmp ult i32 %41, 65
-  br i1 %42, label %43, label %45
+_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i:          ; preds = %37, %35
+  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
+  %40 = load i32, ptr %28, align 8, !tbaa !374
+  store i32 %40, ptr %39, align 8, !tbaa !374
+  %41 = icmp ult i32 %40, 65
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
-  %44 = load i64, ptr %28, align 8, !tbaa !311
-  store i64 %44, ptr %39, align 8, !tbaa !311
+42:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
+  %43 = load i64, ptr %27, align 8, !tbaa !311
+  store i64 %43, ptr %38, align 8, !tbaa !311
   br label %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i
 
-45:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %28) #14
+44:                                               ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
   br label %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i
 
-_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i: ; preds = %45, %43
-  %46 = add i64 %.068.i.i.i, -1
-  %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
-  %.not.i.i.i = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i, label %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit, label %30, !llvm.loop !657
+_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i: ; preds = %44, %42
+  %45 = add i64 %.068.i.i.i, -1
+  %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
+  %.not.i.i.i = icmp eq i64 %45, 0
+  br i1 %.not.i.i.i, label %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit, label %29, !llvm.loop !657
 
 _ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit: ; preds = %_ZSt10_ConstructIN4llvm20FunctionLoweringInfo11LiveOutInfoEJRKS2_EEvPT_DpOT0_.exit.i.i.i
   %.pre = load i32, ptr %4, align 8, !tbaa !291
   br label %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit
 
 _ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit: ; preds = %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit, %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %48 = phi i32 [ %.pre, %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit ], [ %.pre5, %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  %49 = trunc i64 %1 to i32
-  %50 = add i32 %48, %49
-  store i32 %50, ptr %4, align 8, !tbaa !291
+  %47 = phi i32 [ %.pre, %_ZSt20uninitialized_fill_nIPN4llvm20FunctionLoweringInfo11LiveOutInfoEmS2_ET_S4_T0_RKT1_.exit.loopexit ], [ %.pre5, %_ZN4llvm23SmallVectorTemplateBaseINS_20FunctionLoweringInfo11LiveOutInfoELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  %48 = trunc i64 %1 to i32
+  %49 = add i32 %47, %48
+  store i32 %49, ptr %4, align 8, !tbaa !291
   ret void
 }
 

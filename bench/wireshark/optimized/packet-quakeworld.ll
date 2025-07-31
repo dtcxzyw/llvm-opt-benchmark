@@ -981,13 +981,13 @@ dissect_quakeworld_ConnectionlessPacket.exit:     ; preds = %dissect_id_infostri
   %362 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %361, ptr noundef null, ptr noundef nonnull @.str.6)
   %363 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %.not.i28 = icmp eq ptr %362, null
-  br i1 %.not.i28, label %364, label %.thread69.i
+  br i1 %.not.i28, label %364, label %.thread.i
 
 364:                                              ; preds = %355
   %365 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   br i1 %360, label %385, label %392
 
-.thread69.i:                                      ; preds = %355
+.thread.i:                                        ; preds = %355
   %366 = and i32 %363, 2147483647
   %.lobit.i = lshr i32 %363, 31
   %367 = load i32, ptr @ett_quakeworld_game_seq1, align 4
@@ -1015,15 +1015,15 @@ dissect_quakeworld_ConnectionlessPacket.exit:     ; preds = %dissect_id_infostri
   %386 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
   br label %392
 
-387:                                              ; preds = %.thread69.i
+387:                                              ; preds = %.thread.i
   %388 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
   %389 = load i32, ptr @hf_quakeworld_game_qport, align 4
   %390 = zext i16 %388 to i32
   %391 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %362, i32 noundef %389, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef %390)
   br label %392
 
-392:                                              ; preds = %387, %385, %.thread69.i, %364
-  %.0.i29 = phi i32 [ 8, %364 ], [ 10, %387 ], [ 10, %385 ], [ 8, %.thread69.i ]
+392:                                              ; preds = %387, %385, %.thread.i, %364
+  %.0.i29 = phi i32 [ 8, %364 ], [ 10, %387 ], [ 10, %385 ], [ 8, %.thread.i ]
   %393 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not68.i = icmp eq i32 %393, %.0.i29
   br i1 %.not68.i, label %dissect_quakeworld_GamePacket.exit, label %.sink.split.i30

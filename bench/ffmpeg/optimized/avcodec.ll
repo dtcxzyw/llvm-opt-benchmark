@@ -1303,7 +1303,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %10 = icmp eq ptr %0, null
   %11 = icmp slt i32 %1, 1
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %302, label %12
+  br i1 %or.cond, label %.critedge, label %12
 
 12:                                               ; preds = %4
   call void @av_bprint_init_for_buffer(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef %1) #12
@@ -1383,7 +1383,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 52:                                               ; preds = %49, %46
   %53 = load i32, ptr %13, align 4, !tbaa !40
-  switch i32 %53, label %302 [
+  switch i32 %53, label %.critedge [
     i32 0, label %54
     i32 1, label %214
     i32 2, label %247
@@ -1410,8 +1410,8 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %64 = load i32, ptr %63, align 8, !tbaa !113
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.val205 = load i32, ptr %65, align 4, !tbaa !115
-  %.not219 = icmp ult i32 %64, %.val205
-  br i1 %.not219, label %66, label %302
+  %.not215 = icmp ult i32 %64, %.val205
+  br i1 %.not215, label %66, label %.critedge
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 652
@@ -1583,7 +1583,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   call void @av_bprint_chars(ptr noundef nonnull %5, i8 noundef signext 41, i32 noundef 1) #12
   br label %144
 
-144:                                              ; preds = %128, %143
+144:                                              ; preds = %143, %128
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %146 = load i32, ptr %145, align 8, !tbaa !68
   %.not190 = icmp eq i32 %146, 0
@@ -1670,9 +1670,9 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 197:                                              ; preds = %183, %186, %144
   %.not197 = icmp eq i32 %3, 0
-  br i1 %.not197, label %202, label %.thread215
+  br i1 %.not197, label %202, label %.thread211
 
-.thread215:                                       ; preds = %197
+.thread211:                                       ; preds = %197
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 436
   %199 = load i32, ptr %198, align 4, !tbaa !128
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 440
@@ -1689,25 +1689,25 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 206:                                              ; preds = %202
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #12
-  %.pre220 = load i32, ptr %203, align 8, !tbaa !130
+  %.pre216 = load i32, ptr %203, align 8, !tbaa !130
   br label %207
 
 207:                                              ; preds = %206, %202
-  %208 = phi i32 [ %.pre220, %206 ], [ %204, %202 ]
+  %208 = phi i32 [ %.pre216, %206 ], [ %204, %202 ]
   %209 = and i32 %208, 4
   %.not199 = icmp eq i32 %209, 0
   br i1 %.not199, label %211, label %210
 
 210:                                              ; preds = %207
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.46) #12
-  %.pre221 = load i32, ptr %203, align 8, !tbaa !130
+  %.pre217 = load i32, ptr %203, align 8, !tbaa !130
   br label %211
 
 211:                                              ; preds = %210, %207
-  %212 = phi i32 [ %.pre221, %210 ], [ %208, %207 ]
+  %212 = phi i32 [ %.pre217, %210 ], [ %208, %207 ]
   %213 = and i32 %212, 1
   %.not200 = icmp eq i32 %213, 0
-  br i1 %.not200, label %.thread213, label %.thread213.sink.split
+  br i1 %.not200, label %.thread, label %.thread.sink.split
 
 214:                                              ; preds = %52
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %spec.select) #12
@@ -1817,9 +1817,9 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
 
 268:                                              ; preds = %250, %259, %262, %265, %247, %236, %246, %243
   %.not201 = icmp eq i32 %3, 0
-  br i1 %.not201, label %.thread213, label %269
+  br i1 %.not201, label %.thread, label %269
 
-269:                                              ; preds = %.thread215, %268
+269:                                              ; preds = %.thread211, %268
   %270 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %271 = load i32, ptr %270, align 8, !tbaa !134
   %272 = and i32 %271, 512
@@ -1835,14 +1835,14 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %275 = phi i32 [ %.pre, %273 ], [ %271, %269 ]
   %276 = and i32 %275, 1024
   %.not203 = icmp eq i32 %276, 0
-  br i1 %.not203, label %.thread213, label %.thread213.sink.split
+  br i1 %.not203, label %.thread, label %.thread.sink.split
 
-.thread213.sink.split:                            ; preds = %274, %211
+.thread.sink.split:                               ; preds = %274, %211
   %.str.47.sink = phi ptr [ @.str.47, %211 ], [ @.str.56, %274 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull %.str.47.sink) #12
-  br label %.thread213
+  br label %.thread
 
-.thread213:                                       ; preds = %.thread213.sink.split, %211, %274, %268
+.thread:                                          ; preds = %.thread.sink.split, %211, %274, %268
   %277 = load i32, ptr %13, align 4, !tbaa !40
   switch i32 %277, label %get_bit_rate.exit.thread [
     i32 0, label %get_bit_rate.exit.sink.split
@@ -1852,7 +1852,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
     i32 1, label %278
   ]
 
-278:                                              ; preds = %.thread213
+278:                                              ; preds = %.thread
   %279 = load i32, ptr %16, align 8, !tbaa !42
   %280 = call i32 @av_get_bits_per_sample(i32 noundef %279) #12
   %.not.i209 = icmp eq i32 %280, 0
@@ -1872,7 +1872,7 @@ define void @avcodec_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %292 = mul nsw i64 %288, %289
   br i1 %291, label %get_bit_rate.exit.thread, label %get_bit_rate.exit
 
-get_bit_rate.exit.sink.split:                     ; preds = %278, %.thread213, %.thread213, %.thread213, %.thread213
+get_bit_rate.exit.sink.split:                     ; preds = %278, %.thread, %.thread, %.thread, %.thread
   %293 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %294 = load i64, ptr %293, align 8, !tbaa !86
   br label %get_bit_rate.exit
@@ -1885,20 +1885,20 @@ get_bit_rate.exit:                                ; preds = %get_bit_rate.exit.s
 295:                                              ; preds = %get_bit_rate.exit
   %296 = sdiv i64 %.0.i, 1000
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.57, i64 noundef %296) #12
-  br label %302
+  br label %.critedge
 
-get_bit_rate.exit.thread:                         ; preds = %281, %.thread213, %get_bit_rate.exit
+get_bit_rate.exit.thread:                         ; preds = %281, %.thread, %get_bit_rate.exit
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 464
   %298 = load i64, ptr %297, align 8, !tbaa !135
   %299 = icmp sgt i64 %298, 0
-  br i1 %299, label %300, label %302
+  br i1 %299, label %300, label %.critedge
 
 300:                                              ; preds = %get_bit_rate.exit.thread
   %301 = udiv i64 %298, 1000
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.58, i64 noundef %301) #12
-  br label %302
+  br label %.critedge
 
-302:                                              ; preds = %61, %295, %300, %get_bit_rate.exit.thread, %52, %4
+.critedge:                                        ; preds = %61, %295, %300, %get_bit_rate.exit.thread, %52, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #12
   ret void

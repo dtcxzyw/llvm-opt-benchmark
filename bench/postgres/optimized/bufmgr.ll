@@ -9395,7 +9395,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.SpinDelayStatus, align 8
   %5 = icmp slt i32 %0, 0
-  br i1 %2, label %51, label %6
+  br i1 %2, label %.critedge, label %6
 
 6:                                                ; preds = %3
   br i1 %5, label %7, label %15
@@ -9408,7 +9408,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   %12 = load volatile i32, ptr %11, align 4
   %13 = and i32 %12, 16777216
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.critedge, label %.thread32
+  br i1 %14, label %.critedge23, label %.critedge.thread
 
 15:                                               ; preds = %6
   %16 = add nsw i32 %0, -1
@@ -9416,7 +9416,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %17, i64 %18
   %20 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %19, i1 noundef zeroext true, i1 noundef zeroext false)
-  br i1 %20, label %21, label %.thread33
+  br i1 %20, label %21, label %.critedge.thread31
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr @BufferBlocks, align 8
@@ -9470,9 +9470,9 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %21
   %44 = sext i32 %.val11.i to i64
   %45 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %43, i64 %44
   call void @ConditionVariableBroadcast(ptr noundef %45) #16
-  br label %.thread32
+  br label %.critedge.thread
 
-.critedge:                                        ; preds = %7
+.critedge23:                                      ; preds = %7
   %46 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %10
   %48 = load ptr, ptr %47, align 8
@@ -9480,28 +9480,28 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %21
   %49 = load volatile i32, ptr %11, align 4
   %50 = or i32 %49, 16777216
   store volatile i32 %50, ptr %11, align 4
-  br label %.thread32
+  br label %.critedge.thread
 
-51:                                               ; preds = %3
-  br i1 %5, label %.thread32, label %.thread33
+.critedge:                                        ; preds = %3
+  br i1 %5, label %.critedge.thread, label %.critedge.thread31
 
-.thread33:                                        ; preds = %15, %51
-  %52 = icmp eq i32 %1, 1
-  br i1 %52, label %LockBuffer.exit, label %58
+.critedge.thread31:                               ; preds = %15, %.critedge
+  %51 = icmp eq i32 %1, 1
+  br i1 %51, label %LockBuffer.exit, label %57
 
-LockBuffer.exit:                                  ; preds = %.thread33
-  %53 = add nsw i32 %0, -1
-  %54 = load ptr, ptr @BufferDescriptors, align 8
-  %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %54, i64 %55, i32 0, i32 5
-  %57 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %56, i32 noundef 0) #16
-  br label %.thread32
+LockBuffer.exit:                                  ; preds = %.critedge.thread31
+  %52 = add nsw i32 %0, -1
+  %53 = load ptr, ptr @BufferDescriptors, align 8
+  %54 = zext i32 %52 to i64
+  %55 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %53, i64 %54, i32 0, i32 5
+  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %55, i32 noundef 0) #16
+  br label %.critedge.thread
 
-58:                                               ; preds = %.thread33
+57:                                               ; preds = %.critedge.thread31
   tail call void @LockBufferForCleanup(i32 noundef %0)
-  br label %.thread32
+  br label %.critedge.thread
 
-.thread32:                                        ; preds = %7, %51, %58, %LockBuffer.exit, %.critedge, %TerminateBufferIO.exit
+.critedge.thread:                                 ; preds = %7, %.critedge, %57, %LockBuffer.exit, %.critedge23, %TerminateBufferIO.exit
   ret void
 }
 

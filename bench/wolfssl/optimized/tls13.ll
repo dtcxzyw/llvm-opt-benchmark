@@ -2086,36 +2086,36 @@ define internal fastcc void @GetTls13SessionId(ptr noundef nonnull readonly capt
 10:                                               ; preds = %8
   %.not26 = icmp eq ptr %1, null
   %11 = load i32, ptr %2, align 4, !tbaa !109
-  br i1 %.not26, label %.thread, label %13
+  br i1 %.not26, label %.critedge, label %12
 
-.thread:                                          ; preds = %10
-  %12 = add i32 %11, 1
-  br label %25
-
-13:                                               ; preds = %10
-  %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  store i8 %7, ptr %15, align 1, !tbaa !57
-  %16 = load i32, ptr %2, align 4, !tbaa !109
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %2, align 4, !tbaa !109
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
-  %20 = load ptr, ptr %4, align 16, !tbaa !96
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 116
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 148
-  %23 = load i8, ptr %22, align 4, !tbaa !97
-  %24 = zext i8 %23 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 4 %21, i64 %24, i1 false)
+12:                                               ; preds = %10
+  %13 = zext i32 %11 to i64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  store i8 %7, ptr %14, align 1, !tbaa !57
+  %15 = load i32, ptr %2, align 4, !tbaa !109
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %2, align 4, !tbaa !109
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
+  %19 = load ptr, ptr %4, align 16, !tbaa !96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 116
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 148
+  %22 = load i8, ptr %21, align 4, !tbaa !97
+  %23 = zext i8 %22 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 4 %20, i64 %23, i1 false)
   %.pre = load ptr, ptr %4, align 16, !tbaa !96
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 148
   %.pre27 = load i8, ptr %.phi.trans.insert, align 4, !tbaa !97
   %.pre28 = load i32, ptr %2, align 4, !tbaa !109
   br label %25
 
-25:                                               ; preds = %.thread, %13
-  %26 = phi i32 [ %12, %.thread ], [ %.pre28, %13 ]
-  %27 = phi i8 [ %7, %.thread ], [ %.pre27, %13 ]
+.critedge:                                        ; preds = %10
+  %24 = add i32 %11, 1
+  br label %25
+
+25:                                               ; preds = %.critedge, %12
+  %26 = phi i32 [ %24, %.critedge ], [ %.pre28, %12 ]
+  %27 = phi i8 [ %7, %.critedge ], [ %.pre27, %12 ]
   %28 = zext i8 %27 to i32
   %29 = add i32 %26, %28
   br label %46
@@ -3848,7 +3848,7 @@ define i32 @DoTls13HandShakeMsgType(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = load i32, ptr %2, align 4, !tbaa !109
   %9 = add i32 %8, %4
   %10 = icmp ugt i32 %9, %5
-  br i1 %10, label %.thread167, label %11
+  br i1 %10, label %.thread161, label %11
 
 11:                                               ; preds = %6
   switch i8 %3, label %174 [
@@ -4166,7 +4166,7 @@ define i32 @DoTls13HandShakeMsgType(ptr noundef %0, ptr noundef %1, ptr noundef 
 174:                                              ; preds = %12, %17, %21, %26, %34, %39, %43, %49, %54, %62, %67, %70, %80, %86, %.thread.i, %95, %100, %103, %113, %116, %120, %124, %.thread82.i, %137, %141, %144, %148, %153, %164, %170, %11, %157, %161
   %.0.i.ph = phi i32 [ -373, %161 ], [ -373, %157 ], [ -394, %11 ], [ -373, %170 ], [ -395, %164 ], [ -373, %153 ], [ -373, %148 ], [ -373, %144 ], [ -373, %141 ], [ -373, %137 ], [ -395, %.thread82.i ], [ -373, %124 ], [ -373, %120 ], [ -373, %116 ], [ -373, %113 ], [ -395, %103 ], [ -373, %100 ], [ -344, %95 ], [ -395, %.thread.i ], [ -373, %86 ], [ -373, %80 ], [ -395, %70 ], [ -373, %67 ], [ -344, %62 ], [ -373, %54 ], [ -344, %49 ], [ -395, %43 ], [ -373, %39 ], [ -344, %34 ], [ -395, %26 ], [ -395, %21 ], [ -373, %17 ], [ -344, %12 ]
   %175 = tail call i32 @SendAlert(ptr noundef %0, i32 noundef 2, i32 noundef 10) #11
-  br label %.thread167
+  br label %.thread161
 
 SanityCheckTls13MsgReceived.exit:                 ; preds = %170, %168, %131, %107, %93, %74, %58, %47, %29
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 1045
@@ -4186,7 +4186,7 @@ switch.early.test:                                ; preds = %SanityCheckTls13Msg
 
 179:                                              ; preds = %switch.early.test
   %180 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #11
-  br label %.thread167
+  br label %.thread161
 
 181:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %SanityCheckTls13MsgReceived.exit
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -4208,7 +4208,7 @@ switch.early.test:                                ; preds = %SanityCheckTls13Msg
 
 191:                                              ; preds = %185
   %192 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #11
-  br label %.thread167
+  br label %.thread161
 
 193:                                              ; preds = %181
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 1044
@@ -4220,10 +4220,10 @@ switch.early.test:                                ; preds = %SanityCheckTls13Msg
 
 198:                                              ; preds = %193
   %199 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 10) #11
-  br label %.thread167
+  br label %.thread161
 
 .thread:                                          ; preds = %181, %185, %193
-  switch i8 %3, label %.thread165 [
+  switch i8 %3, label %.critedge [
     i8 2, label %200
     i8 8, label %202
     i8 13, label %204
@@ -4290,25 +4290,21 @@ switch.early.test:                                ; preds = %SanityCheckTls13Msg
 
 DoTls13Certificate.exit:                          ; preds = %213, %226, %224, %222, %211, %204, %202, %200
   %.0126 = phi i32 [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %212, %211 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %214, %213 ]
-  switch i32 %.0126, label %DoTls13Certificate.exit..thread165_crit_edge [
+  switch i32 %.0126, label %.critedge [
     i32 -108, label %228
     i32 -408, label %228
     i32 0, label %DoTls13Certificate.exit.thread.thread
   ]
 
-DoTls13Certificate.exit..thread165_crit_edge:     ; preds = %DoTls13Certificate.exit
-  %.pre = load i8, ptr %7, align 1
-  br label %.thread165
-
 228:                                              ; preds = %DoTls13Certificate.exit, %DoTls13Certificate.exit
   %229 = load i32, ptr %2, align 4, !tbaa !109
   %.not141 = icmp eq i32 %229, 0
-  br i1 %.not141, label %235, label %230
+  br i1 %.not141, label %.critedge, label %230
 
 230:                                              ; preds = %228
   %231 = add i32 %229, -4
   store i32 %231, ptr %2, align 4, !tbaa !109
-  br label %235
+  br label %.critedge
 
 DoTls13Certificate.exit.thread.thread:            ; preds = %DoTls13Certificate.exit, %206, %216, %220
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -4322,94 +4318,90 @@ DoTls13Certificate.exit.thread.thread:            ; preds = %DoTls13Certificate.
   store i32 0, ptr %232, align 8, !tbaa !127
   br label %switch.early.test151
 
-235:                                              ; preds = %230, %228
-  %236 = load i8, ptr %7, align 1
-  br label %.thread165
-
-switch.early.test151:                             ; preds = %DoTls13Certificate.exit.thread.thread, %234
-  %237 = load i8, ptr %7, align 1
-  switch i8 %237, label %238 [
-    i8 24, label %.thread165
-    i8 4, label %.thread165
-    i8 1, label %.thread165
+switch.early.test151:                             ; preds = %234, %DoTls13Certificate.exit.thread.thread
+  %235 = load i8, ptr %7, align 1
+  switch i8 %235, label %236 [
+    i8 24, label %.critedge
+    i8 4, label %.critedge
+    i8 1, label %.critedge
   ]
 
-238:                                              ; preds = %switch.early.test151
-  %239 = zext i32 %8 to i64
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 %239
-  %241 = tail call i32 @HashInput(ptr noundef nonnull %0, ptr noundef %240, i32 noundef %4) #11
-  br label %.thread165
+236:                                              ; preds = %switch.early.test151
+  %237 = zext i32 %8 to i64
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 %237
+  %239 = tail call i32 @HashInput(ptr noundef nonnull %0, ptr noundef %238, i32 noundef %4) #11
+  br label %.critedge
 
-.thread165:                                       ; preds = %.thread, %DoTls13Certificate.exit..thread165_crit_edge, %235, %switch.early.test151, %switch.early.test151, %switch.early.test151, %238
-  %242 = phi i8 [ %237, %238 ], [ %237, %switch.early.test151 ], [ %236, %235 ], [ %237, %switch.early.test151 ], [ %237, %switch.early.test151 ], [ %3, %.thread ], [ %.pre, %DoTls13Certificate.exit..thread165_crit_edge ]
-  %.1 = phi i32 [ %241, %238 ], [ 0, %switch.early.test151 ], [ %.0126, %235 ], [ 0, %switch.early.test151 ], [ 0, %switch.early.test151 ], [ -307, %.thread ], [ %.0126, %DoTls13Certificate.exit..thread165_crit_edge ]
-  %243 = tail call i32 @TranslateErrorToAlert(i32 noundef %.1) #11
-  %.not142 = icmp eq i32 %243, -1
-  br i1 %.not142, label %247, label %244
+.critedge:                                        ; preds = %DoTls13Certificate.exit, %.thread, %228, %230, %switch.early.test151, %switch.early.test151, %switch.early.test151, %236
+  %.1 = phi i32 [ %239, %236 ], [ 0, %switch.early.test151 ], [ 0, %switch.early.test151 ], [ 0, %switch.early.test151 ], [ %.0126, %230 ], [ %.0126, %228 ], [ -307, %.thread ], [ %.0126, %DoTls13Certificate.exit ]
+  %240 = tail call i32 @TranslateErrorToAlert(i32 noundef %.1) #11
+  %.not142 = icmp eq i32 %240, -1
+  br i1 %.not142, label %244, label %241
 
-244:                                              ; preds = %.thread165
-  %245 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %243) #11
-  %246 = icmp eq i32 %245, -308
-  br i1 %246, label %.thread167, label %247
+241:                                              ; preds = %.critedge
+  %242 = tail call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %240) #11
+  %243 = icmp eq i32 %242, -308
+  br i1 %243, label %.thread161, label %244
 
-247:                                              ; preds = %244, %.thread165
-  %248 = icmp eq i32 %.1, 0
-  br i1 %248, label %249, label %.thread167
+244:                                              ; preds = %241, %.critedge
+  %245 = icmp eq i32 %.1, 0
+  br i1 %245, label %246, label %.thread161
 
-249:                                              ; preds = %247
-  %250 = load i64, ptr %182, align 8
-  %251 = and i64 %250, 65584
-  %or.cond = icmp eq i64 %251, 65552
-  br i1 %or.cond, label %252, label %.thread167
+246:                                              ; preds = %244
+  %247 = load i64, ptr %182, align 8
+  %248 = and i64 %247, 65584
+  %or.cond = icmp eq i64 %248, 65552
+  br i1 %or.cond, label %249, label %.thread161
 
-252:                                              ; preds = %249
-  switch i8 %242, label %.thread167 [
-    i8 2, label %253
-    i8 20, label %261
+249:                                              ; preds = %246
+  %250 = load i8, ptr %7, align 1, !tbaa !57
+  switch i8 %250, label %.thread161 [
+    i8 2, label %251
+    i8 20, label %259
   ]
 
-253:                                              ; preds = %252
-  %254 = tail call i32 @DeriveEarlySecret(ptr noundef nonnull %0)
-  %.not144 = icmp eq i32 %254, 0
-  br i1 %.not144, label %255, label %.thread167
+251:                                              ; preds = %249
+  %252 = tail call i32 @DeriveEarlySecret(ptr noundef nonnull %0)
+  %.not144 = icmp eq i32 %252, 0
+  br i1 %.not144, label %253, label %.thread161
+
+253:                                              ; preds = %251
+  %254 = tail call i32 @DeriveHandshakeSecret(ptr noundef nonnull %0)
+  %.not145 = icmp eq i32 %254, 0
+  br i1 %.not145, label %255, label %.thread161
 
 255:                                              ; preds = %253
-  %256 = tail call i32 @DeriveHandshakeSecret(ptr noundef nonnull %0)
-  %.not145 = icmp eq i32 %256, 0
-  br i1 %.not145, label %257, label %.thread167
+  %256 = tail call i32 @DeriveTls13Keys(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 3, i32 noundef 1)
+  %.not146 = icmp eq i32 %256, 0
+  br i1 %.not146, label %257, label %.thread161
 
 257:                                              ; preds = %255
-  %258 = tail call i32 @DeriveTls13Keys(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 3, i32 noundef 1)
-  %.not146 = icmp eq i32 %258, 0
-  br i1 %.not146, label %259, label %.thread167
+  %258 = tail call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 3) #11
+  br label %.thread161
 
-259:                                              ; preds = %257
-  %260 = tail call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 3) #11
-  br label %.thread167
+259:                                              ; preds = %249
+  %260 = tail call i32 @DeriveMasterSecret(ptr noundef nonnull %0)
+  %.not148 = icmp eq i32 %260, 0
+  br i1 %.not148, label %261, label %.thread161
 
-261:                                              ; preds = %252
-  %262 = tail call i32 @DeriveMasterSecret(ptr noundef nonnull %0)
-  %.not148 = icmp eq i32 %262, 0
-  br i1 %.not148, label %263, label %.thread167
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %263 = load ptr, ptr %262, align 8, !tbaa !45
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %265 = load ptr, ptr %264, align 8, !tbaa !47
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 16
+  %267 = load i32, ptr %266, align 8, !tbaa !50
+  tail call fastcc void @ForceZero(ptr noundef %265, i32 noundef %267)
+  %268 = tail call i32 @DeriveTls13Keys(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 3, i32 noundef 1)
+  %.not149 = icmp eq i32 %268, 0
+  br i1 %.not149, label %269, label %.thread161
 
-263:                                              ; preds = %261
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %265 = load ptr, ptr %264, align 8, !tbaa !45
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %267 = load ptr, ptr %266, align 8, !tbaa !47
-  %268 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %269 = load i32, ptr %268, align 8, !tbaa !50
-  tail call fastcc void @ForceZero(ptr noundef %267, i32 noundef %269)
-  %270 = tail call i32 @DeriveTls13Keys(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 3, i32 noundef 1)
-  %.not149 = icmp eq i32 %270, 0
-  br i1 %.not149, label %271, label %.thread167
+269:                                              ; preds = %261
+  %270 = tail call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 2) #11
+  br label %.thread161
 
-271:                                              ; preds = %263
-  %272 = tail call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 2) #11
-  br label %.thread167
-
-.thread167:                                       ; preds = %259, %252, %244, %271, %249, %247, %263, %261, %257, %255, %253, %174, %6, %198, %191, %179
-  %.0 = phi i32 [ -373, %179 ], [ -373, %191 ], [ -373, %198 ], [ -310, %6 ], [ %.0.i.ph, %174 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %262, %261 ], [ %270, %263 ], [ 0, %249 ], [ %.1, %247 ], [ %272, %271 ], [ -308, %244 ], [ %260, %259 ], [ 0, %252 ]
+.thread161:                                       ; preds = %257, %249, %241, %269, %246, %244, %261, %259, %255, %253, %251, %174, %6, %198, %191, %179
+  %.0 = phi i32 [ -373, %179 ], [ -373, %191 ], [ -373, %198 ], [ -310, %6 ], [ %.0.i.ph, %174 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %260, %259 ], [ %268, %261 ], [ 0, %246 ], [ %.1, %244 ], [ %270, %269 ], [ -308, %241 ], [ %258, %257 ], [ 0, %249 ]
   ret i32 %.0
 }
 

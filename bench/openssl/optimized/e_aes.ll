@@ -1024,7 +1024,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.critedge, label %8
+  br i1 %.not, label %.critedge139, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 728
@@ -1037,7 +1037,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %14 = icmp ne ptr %1, %2
   %15 = icmp ult i64 %3, 24
   %or.cond.i = or i1 %14, %15
-  br i1 %or.cond.i, label %.critedge, label %16
+  br i1 %or.cond.i, label %.critedge139, label %16
 
 16:                                               ; preds = %12
   %17 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
@@ -1105,7 +1105,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 51:                                               ; preds = %47
   %52 = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %30, ptr noundef null, ptr noundef null, i64 noundef 0) #8
   %.not115.i = icmp eq i32 %52, 0
-  br i1 %.not115.i, label %53, label %.critedge
+  br i1 %.not115.i, label %53, label %.critedge139
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 648
@@ -1158,7 +1158,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 79:                                               ; preds = %75
   %80 = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %30, ptr noundef null, ptr noundef null, i64 noundef 0) #8
   %.not110.i = icmp eq i32 %80, 0
-  br i1 %.not110.i, label %81, label %.critedge
+  br i1 %.not110.i, label %81, label %.critedge139
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 648
@@ -1210,13 +1210,13 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %105, align 4, !tbaa !20
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 728
   store i32 -1, ptr %106, align 8, !tbaa !25
-  br label %.critedge
+  br label %.critedge139
 
 107:                                              ; preds = %8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 252
   %109 = load i32, ptr %108, align 4, !tbaa !20
   %.not125 = icmp eq i32 %109, 0
-  br i1 %.not125, label %.critedge, label %110
+  br i1 %.not125, label %.critedge139, label %110
 
 110:                                              ; preds = %107
   %.not126 = icmp eq ptr %2, null
@@ -1230,7 +1230,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %115 = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %114, ptr noundef nonnull %2, i64 noundef %3) #8
   %.not138 = icmp eq i32 %115, 0
-  br i1 %.not138, label %194, label %.critedge
+  br i1 %.not138, label %194, label %.critedge139
 
 116:                                              ; preds = %111
   %117 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
@@ -1247,14 +1247,14 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %122 = icmp ugt i64 %3, 31
   %123 = icmp eq ptr %119, @aesni_ctr32_encrypt_blocks
   %or.cond = and i1 %122, %123
-  br i1 %or.cond, label %124, label %147
+  br i1 %or.cond, label %124, label %.critedge
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 616
   %127 = load ptr, ptr %126, align 8, !tbaa !27
   %128 = icmp eq ptr %127, @gcm_ghash_avx
-  br i1 %128, label %129, label %147
+  br i1 %128, label %129, label %.critedge
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 632
@@ -1264,40 +1264,40 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %134 = zext nneg i32 %133 to i64
   %135 = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %125, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %134) #8
   %.not136 = icmp eq i32 %135, 0
-  br i1 %.not136, label %.thread, label %.critedge
+  br i1 %.not136, label %136, label %.critedge139
 
-.thread:                                          ; preds = %129
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 %134
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %134
-  %138 = sub nuw i64 %3, %134
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %140 = load ptr, ptr %139, align 8, !tbaa !28
-  %141 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  %142 = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %136, ptr noundef nonnull %137, i64 noundef %138, ptr noundef %140, ptr noundef nonnull %125, ptr noundef nonnull %141) #8
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  %144 = load i64, ptr %143, align 8, !tbaa !10
-  %145 = add i64 %144, %142
-  store i64 %145, ptr %143, align 8, !tbaa !10
-  %146 = add i64 %142, %134
+136:                                              ; preds = %129
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 %134
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 %134
+  %139 = sub nuw i64 %3, %134
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  %141 = load ptr, ptr %140, align 8, !tbaa !28
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %143 = tail call i64 @aesni_gcm_encrypt(ptr noundef nonnull %137, ptr noundef nonnull %138, i64 noundef %139, ptr noundef %141, ptr noundef nonnull %125, ptr noundef nonnull %142) #8
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %145 = load i64, ptr %144, align 8, !tbaa !10
+  %146 = add i64 %145, %143
+  store i64 %146, ptr %144, align 8, !tbaa !10
+  %147 = add i64 %143, %134
   %.pre = load ptr, ptr %118, align 8, !tbaa !14
-  br label %147
+  br label %.critedge
 
-147:                                              ; preds = %.thread, %124, %121
-  %148 = phi ptr [ @aesni_ctr32_encrypt_blocks, %124 ], [ %119, %121 ], [ %.pre, %.thread ]
-  %.0118 = phi i64 [ 0, %124 ], [ 0, %121 ], [ %146, %.thread ]
+.critedge:                                        ; preds = %136, %124, %121
+  %148 = phi ptr [ %.pre, %136 ], [ @aesni_ctr32_encrypt_blocks, %124 ], [ %119, %121 ]
+  %.0118 = phi i64 [ %147, %136 ], [ 0, %124 ], [ 0, %121 ]
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 %.0118
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 %.0118
   %152 = sub i64 %3, %.0118
   %153 = tail call i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151, i64 noundef %152, ptr noundef %148) #8
   %.not137 = icmp eq i32 %153, 0
-  br i1 %.not137, label %194, label %.critedge
+  br i1 %.not137, label %194, label %.critedge139
 
 154:                                              ; preds = %120
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %156 = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %155, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #8
   %.not135 = icmp eq i32 %156, 0
-  br i1 %.not135, label %194, label %.critedge
+  br i1 %.not135, label %194, label %.critedge139
 
 157:                                              ; preds = %116
   br i1 %.not130, label %191, label %158
@@ -1305,15 +1305,15 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 158:                                              ; preds = %157
   %159 = icmp ugt i64 %3, 15
   %160 = icmp eq ptr %119, @aesni_ctr32_encrypt_blocks
-  %or.cond139 = and i1 %159, %160
-  br i1 %or.cond139, label %161, label %184
+  %or.cond140 = and i1 %159, %160
+  br i1 %or.cond140, label %161, label %.critedge142
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 616
   %164 = load ptr, ptr %163, align 8, !tbaa !27
   %165 = icmp eq ptr %164, @gcm_ghash_avx
-  br i1 %165, label %166, label %184
+  br i1 %165, label %166, label %.critedge142
 
 166:                                              ; preds = %161
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 632
@@ -1323,44 +1323,44 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %171 = zext nneg i32 %170 to i64
   %172 = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %162, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %171) #8
   %.not132 = icmp eq i32 %172, 0
-  br i1 %.not132, label %.thread144, label %.critedge
+  br i1 %.not132, label %173, label %.critedge139
 
-.thread144:                                       ; preds = %166
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 %171
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 %171
-  %175 = sub nuw i64 %3, %171
-  %176 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %177 = load ptr, ptr %176, align 8, !tbaa !28
-  %178 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  %179 = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %173, ptr noundef nonnull %174, i64 noundef %175, ptr noundef %177, ptr noundef nonnull %162, ptr noundef nonnull %178) #8
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 312
-  %181 = load i64, ptr %180, align 8, !tbaa !10
-  %182 = add i64 %181, %179
-  store i64 %182, ptr %180, align 8, !tbaa !10
-  %183 = add i64 %179, %171
-  %.pre146 = load ptr, ptr %118, align 8, !tbaa !14
-  br label %184
+173:                                              ; preds = %166
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 %171
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 %171
+  %176 = sub nuw i64 %3, %171
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  %178 = load ptr, ptr %177, align 8, !tbaa !28
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %180 = tail call i64 @aesni_gcm_decrypt(ptr noundef nonnull %174, ptr noundef nonnull %175, i64 noundef %176, ptr noundef %178, ptr noundef nonnull %162, ptr noundef nonnull %179) #8
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %182 = load i64, ptr %181, align 8, !tbaa !10
+  %183 = add i64 %182, %180
+  store i64 %183, ptr %181, align 8, !tbaa !10
+  %184 = add i64 %180, %171
+  %.pre145 = load ptr, ptr %118, align 8, !tbaa !14
+  br label %.critedge142
 
-184:                                              ; preds = %.thread144, %161, %158
-  %185 = phi ptr [ @aesni_ctr32_encrypt_blocks, %161 ], [ %119, %158 ], [ %.pre146, %.thread144 ]
-  %.0116 = phi i64 [ 0, %161 ], [ 0, %158 ], [ %183, %.thread144 ]
+.critedge142:                                     ; preds = %173, %161, %158
+  %185 = phi ptr [ %.pre145, %173 ], [ @aesni_ctr32_encrypt_blocks, %161 ], [ %119, %158 ]
+  %.0116 = phi i64 [ %184, %173 ], [ 0, %161 ], [ 0, %158 ]
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 %.0116
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 %.0116
   %189 = sub i64 %3, %.0116
   %190 = tail call i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef nonnull %186, ptr noundef nonnull %187, ptr noundef nonnull %188, i64 noundef %189, ptr noundef %185) #8
   %.not133 = icmp eq i32 %190, 0
-  br i1 %.not133, label %194, label %.critedge
+  br i1 %.not133, label %194, label %.critedge139
 
 191:                                              ; preds = %157
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %193 = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %192, ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %3) #8
   %.not131 = icmp eq i32 %193, 0
-  br i1 %.not131, label %194, label %.critedge
+  br i1 %.not131, label %194, label %.critedge139
 
-194:                                              ; preds = %154, %147, %191, %184, %113
+194:                                              ; preds = %154, %.critedge, %191, %.critedge142, %113
   %195 = trunc i64 %3 to i32
-  br label %.critedge
+  br label %.critedge139
 
 196:                                              ; preds = %110
   %197 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
@@ -1371,7 +1371,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 716
   %200 = load i32, ptr %199, align 4, !tbaa !30
   %201 = icmp slt i32 %200, 0
-  br i1 %201, label %.critedge, label %202
+  br i1 %201, label %.critedge139, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 256
@@ -1380,11 +1380,11 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %206 = sext i32 %205 to i64
   %207 = tail call i32 @CRYPTO_gcm128_finish(ptr noundef nonnull %203, ptr noundef %204, i64 noundef %206) #8
   %.not128 = icmp eq i32 %207, 0
-  br i1 %.not128, label %208, label %.critedge
+  br i1 %.not128, label %208, label %.critedge139
 
 208:                                              ; preds = %202
   store i32 0, ptr %108, align 4, !tbaa !20
-  br label %.critedge
+  br label %.critedge139
 
 209:                                              ; preds = %196
   %210 = getelementptr inbounds nuw i8, ptr %5, i64 256
@@ -1393,10 +1393,10 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 716
   store i32 16, ptr %212, align 4, !tbaa !30
   store i32 0, ptr %108, align 4, !tbaa !20
-  br label %.critedge
+  br label %.critedge139
 
-.critedge:                                        ; preds = %166, %129, %104, %79, %51, %12, %202, %198, %113, %107, %4, %147, %154, %184, %191, %209, %208, %194
-  %.0 = phi i32 [ %195, %194 ], [ -1, %147 ], [ -1, %154 ], [ -1, %184 ], [ -1, %191 ], [ 0, %209 ], [ 0, %208 ], [ -1, %4 ], [ -1, %107 ], [ -1, %113 ], [ -1, %198 ], [ -1, %202 ], [ %.098.i, %104 ], [ -1, %12 ], [ -1, %51 ], [ -1, %79 ], [ -1, %129 ], [ -1, %166 ]
+.critedge139:                                     ; preds = %104, %79, %51, %12, %166, %129, %202, %198, %113, %107, %4, %.critedge, %154, %.critedge142, %191, %209, %208, %194
+  %.0 = phi i32 [ %195, %194 ], [ -1, %.critedge ], [ -1, %154 ], [ -1, %.critedge142 ], [ -1, %191 ], [ 0, %209 ], [ 0, %208 ], [ -1, %4 ], [ -1, %107 ], [ -1, %113 ], [ -1, %198 ], [ -1, %202 ], [ -1, %129 ], [ -1, %166 ], [ %.098.i, %104 ], [ -1, %12 ], [ -1, %51 ], [ -1, %79 ]
   ret i32 %.0
 }
 

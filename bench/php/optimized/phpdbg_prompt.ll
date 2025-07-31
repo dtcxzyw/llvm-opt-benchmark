@@ -3068,7 +3068,7 @@ define internal fastcc void @phpdbg_line_init(ptr noundef nonnull %0, ptr nounde
   store i32 %8, ptr %1, align 8, !tbaa !197
   %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %9 = icmp eq i64 %6, 0
-  br i1 %9, label %.critedge.thread, label %.lr.ph
+  br i1 %9, label %.critedge58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = call ptr @__ctype_b_loc() #32
@@ -3076,27 +3076,23 @@ define internal fastcc void @phpdbg_line_init(ptr noundef nonnull %0, ptr nounde
   br label %12
 
 12:                                               ; preds = %.lr.ph, %18
-  %.058 = phi i64 [ %6, %.lr.ph ], [ %19, %18 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.058
+  %.060 = phi i64 [ %6, %.lr.ph ], [ %19, %18 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.060
   %13 = load i8, ptr %gep, align 1, !tbaa !76
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !200
   %17 = and i16 %16, 8192
-  %.not.not = icmp eq i16 %17, 0
-  br i1 %.not.not, label %switch.early.test, label %18
+  %.not = icmp eq i16 %17, 0
+  br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %12
-  %19 = add i64 %.058, -1
+  %19 = add i64 %.060, -1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.critedge.thread, label %12
+  br i1 %20, label %.critedge58, label %12
 
-.critedge.thread:                                 ; preds = %18, %2
-  store i8 0, ptr %0, align 1, !tbaa !76
-  br label %96
-
-switch.early.test:                                ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.058
+.critedge:                                        ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.060
   store i8 0, ptr %21, align 1, !tbaa !76
   %22 = load i8, ptr %0, align 1, !tbaa !76
   switch i8 %22, label %23 [
@@ -3104,8 +3100,8 @@ switch.early.test:                                ; preds = %12
     i8 0, label %96
   ]
 
-23:                                               ; preds = %switch.early.test
-  %24 = icmp eq i64 %.058, 2
+23:                                               ; preds = %.critedge
+  %24 = icmp eq i64 %.060, 2
   br i1 %24, label %25, label %42
 
 25:                                               ; preds = %23
@@ -3153,14 +3149,14 @@ switch.early.test:                                ; preds = %12
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %46
-  %51 = add i64 %.058, 1
+  %51 = add i64 %.060, 1
   %52 = call noalias ptr @malloc(i64 noundef %51) #29
   br label %59
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !203
-  %56 = add i64 %.058, 1
+  %56 = add i64 %.060, 1
   %57 = add i64 %56, %55
   %58 = call ptr @realloc(ptr noundef nonnull %48, i64 noundef %57) #30
   br label %59
@@ -3175,8 +3171,8 @@ switch.early.test:                                ; preds = %12
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !203
   %63 = getelementptr inbounds nuw i8, ptr %storemerge, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %0, i64 %.058, i1 false)
-  %64 = add i64 %62, %.058
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %0, i64 %.060, i1 false)
+  %64 = add i64 %62, %.060
   store i64 %64, ptr %61, align 8, !tbaa !203
   br label %96
 
@@ -3258,7 +3254,11 @@ switch.early.test:                                ; preds = %12
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #26
   br label %96
 
-96:                                               ; preds = %.critedge.thread, %switch.early.test, %switch.early.test, %95, %59, %60, %31, %27
+.critedge58:                                      ; preds = %18, %2
+  store i8 0, ptr %0, align 1, !tbaa !76
+  br label %96
+
+96:                                               ; preds = %.critedge58, %.critedge, %.critedge, %95, %59, %60, %31, %27
   ret void
 }
 
@@ -3377,53 +3377,53 @@ define hidden void @phpdbg_init(ptr noundef %0, i64 noundef %1, i1 noundef zeroe
   %.not19 = icmp eq ptr %9, null
   %spec.store.select = select i1 %.not19, ptr @.str.67, ptr %9
   %13 = load i8, ptr %spec.store.select, align 1, !tbaa !76
-  %.not2030 = icmp eq i8 %13, 0
-  br i1 %.not2030, label %.thread._crit_edge, label %.preheader
+  %.not2029 = icmp eq i8 %13, 0
+  br i1 %.not2029, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %8, %25
-  %.031 = phi ptr [ %27, %25 ], [ %spec.store.select, %8 ]
+.preheader:                                       ; preds = %8, %.thread
+  %.030 = phi ptr [ %24, %.thread ], [ %spec.store.select, %8 ]
   br label %14
 
 14:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.031, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %.030, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !76
-  %.not21.not = icmp eq i8 %16, 58
-  br i1 %.not21.not, label %19, label %17
+  %.not21 = icmp eq i8 %16, 58
+  br i1 %.not21, label %.thread, label %17
 
 17:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = icmp eq i8 %16, 0
-  br i1 %18, label %.thread, label %14
+  br i1 %18, label %.critedge, label %14
 
-19:                                               ; preds = %14
-  %20 = and i64 %indvars.iv, 4294967295
-  %21 = getelementptr inbounds nuw i8, ptr %.031, i64 %20
-  store i8 0, ptr %21, align 1, !tbaa !76
-  br label %.thread
-
-.thread:                                          ; preds = %17, %19
-  %.125 = phi i64 [ %20, %19 ], [ -1, %17 ]
-  %22 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.68, ptr noundef nonnull %.031, ptr noundef nonnull @.str.69) #26
+.thread:                                          ; preds = %14
+  %19 = and i64 %indvars.iv, 4294967295
+  %20 = getelementptr i8, ptr %.030, i64 %19
+  store i8 0, ptr %20, align 1, !tbaa !76
+  %21 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.68, ptr noundef nonnull %.030, ptr noundef nonnull @.str.69) #26
+  %22 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @phpdbg_try_file_init(ptr noundef %22, i64 poison, i1 noundef zeroext false)
   %23 = load ptr, ptr %4, align 8, !tbaa !67
-  call void @phpdbg_try_file_init(ptr noundef %23, i64 poison, i1 noundef zeroext false)
-  %24 = load ptr, ptr %4, align 8, !tbaa !67
-  call void @free(ptr noundef %24) #26
-  br i1 %.not21.not, label %25, label %.thread._crit_edge
+  call void @free(ptr noundef %23) #26
+  %24 = getelementptr i8, ptr %20, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !76
+  %.not20 = icmp eq i8 %25, 0
+  br i1 %.not20, label %.loopexit, label %.preheader
 
-25:                                               ; preds = %.thread
-  %26 = getelementptr i8, ptr %.031, i64 %.125
-  %27 = getelementptr i8, ptr %26, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !76
-  %.not20 = icmp eq i8 %28, 0
-  br i1 %.not20, label %.thread._crit_edge, label %.preheader
+.critedge:                                        ; preds = %17
+  %26 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.68, ptr noundef nonnull %.030, ptr noundef nonnull @.str.69) #26
+  %27 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @phpdbg_try_file_init(ptr noundef %27, i64 poison, i1 noundef zeroext false)
+  %28 = load ptr, ptr %4, align 8, !tbaa !67
+  call void @free(ptr noundef %28) #26
+  br label %.loopexit
 
-.thread._crit_edge:                               ; preds = %25, %.thread, %8
+.loopexit:                                        ; preds = %.thread, %8, %.critedge
   call void @phpdbg_try_file_init(ptr noundef nonnull @.str.69, i64 poison, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   br label %29
 
-29:                                               ; preds = %7, %.thread._crit_edge, %6
+29:                                               ; preds = %7, %.loopexit, %6
   ret void
 }
 

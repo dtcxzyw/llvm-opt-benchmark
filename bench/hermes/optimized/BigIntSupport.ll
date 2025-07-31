@@ -707,7 +707,7 @@ if.then.i1:                                       ; preds = %_ZN6hermes6bigint12
 if.else.i:                                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_126StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEC2ES5_RhRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_10ParsedSignEPSD_.exit
   %5 = load i8, ptr %ref.tmp.sroa.0.0, align 1
   %cmp.i2 = icmp eq i8 %5, 48
-  br i1 %cmp.i2, label %if.then.i5.i, label %if.then.i.i.i
+  br i1 %cmp.i2, label %if.then.i5.i, label %if.then.i.i.i.i
 
 if.then.i5.i:                                     ; preds = %if.else.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 1
@@ -764,7 +764,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
 
 lor.lhs.false.i.i:                                ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE20binaryIntegerLiteralEv.exit.i.i
   %13 = icmp ult ptr %ref.tmp.sroa.0.13, %ref.tmp.sroa.37.2
-  br i1 %13, label %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i, label %if.then.i.i.ithread-pre-split
+  br i1 %13, label %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i, label %if.then.i.i.i.ithread-pre-split
 
 lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i: ; preds = %lor.lhs.false.i.i
   %.pre.i = load i8, ptr %ref.tmp.sroa.0.13, align 1
@@ -822,28 +822,28 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
 
 lor.rhs.i.i:                                      ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE19octalIntegerLiteralEv.exit.i.i
   %21 = icmp ult ptr %ref.tmp.sroa.0.11, %ref.tmp.sroa.37.2
-  br i1 %21, label %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i, label %if.then.i.i.ithread-pre-split
+  br i1 %21, label %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i, label %if.then.i.i.i.ithread-pre-split
 
 lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i: ; preds = %lor.rhs.i.i
-  %.pre38.i = load i8, ptr %ref.tmp.sroa.0.11, align 1
+  %.pre37.i = load i8, ptr %ref.tmp.sroa.0.11, align 1
   %.pre50 = ptrtoint ptr %ref.tmp.sroa.0.11 to i64
   br label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i.i: ; preds = %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i.i
   %this.val.i.i2664.i.i43.pre-phi = phi i64 [ %.pre50, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i ], [ %this.val.i.i155.i.i40, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i.i ]
-  %22 = phi i8 [ %.pre38.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i ], [ %14, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i.i ]
+  %22 = phi i8 [ %.pre37.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i ], [ %14, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i.i ]
   %this.val.i.i2664.i.i = phi ptr [ %ref.tmp.sroa.0.11, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i_crit_edge.i ], [ %this.val.i.i155.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i.i ]
   %23 = and i8 %22, -33
   %spec.select.i.i.not.i.i30.i.i = icmp eq i8 %23, 88
-  br i1 %spec.select.i.i.not.i.i30.i.i, label %if.then.i.i.i31.i.i, label %if.then.i.i.ithread-pre-split
+  br i1 %spec.select.i.i.not.i.i30.i.i, label %if.then.i.i.i31.i.i, label %if.then.i.i.i.ithread-pre-split
 
 if.then.i.i.i31.i.i:                              ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i.i
   %add.ptr.i.i.i32.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2664.i.i, i64 1
   store i8 16, ptr %radix, align 1
   %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i32.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i31.i.i
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i31.i.i
   %24 = load i8, ptr %add.ptr.i.i.i32.i.i, align 1
   switch i8 %24, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i [
     i8 48, label %while.body.lr.ph.i.i.i39.i.i
@@ -870,19 +870,19 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i31.i.i
     i8 70, label %while.body.lr.ph.i.i.i39.i.i
   ]
 
-while.body.lr.ph.i.i.i39.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+while.body.lr.ph.i.i.i39.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2664.i.i, i64 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %24) #18
   %cmp.i.i.i3.i3.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i40.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i3.i.i.i.i, label %if.then.i.i7.i.i.i.i.i.preheader, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %cmp.i.i.i3.i3.i.i.i.i, label %if.then.i.i.i7.i.i.i.i.i.preheader, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i7.i.i.i.i.i.preheader:                 ; preds = %while.body.lr.ph.i.i.i39.i.i
+if.then.i.i.i7.i.i.i.i.i.preheader:               ; preds = %while.body.lr.ph.i.i.i39.i.i
   %25 = sub i64 %ref.tmp.sroa.37.237.pre-phi, %this.val.i.i2664.i.i43.pre-phi
   %scevgep44 = getelementptr i8, ptr %this.val.i.i2664.i.i, i64 %25
-  br label %if.then.i.i7.i.i.i.i.i
+  br label %if.then.i.i.i7.i.i.i.i.i
 
-if.then.i.i7.i.i.i.i.i:                           ; preds = %if.then.i.i7.i.i.i.i.i.preheader, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i
-  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i40.i.i, %if.then.i.i7.i.i.i.i.i.preheader ]
+if.then.i.i.i7.i.i.i.i.i:                         ; preds = %if.then.i.i.i7.i.i.i.i.i.preheader, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i
+  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i40.i.i, %if.then.i.i.i7.i.i.i.i.i.preheader ]
   %26 = load i8, ptr %ref.tmp.sroa.0.10, align 1
   switch i8 %26, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i [
     i8 48, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i
@@ -909,17 +909,17 @@ if.then.i.i7.i.i.i.i.i:                           ; preds = %if.then.i.i7.i.i.i.
     i8 70, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i
   ]
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i: ; preds = %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i: ; preds = %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i
   %add.ptr.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.10, i64 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %26) #18
   %exitcond45.not = icmp eq ptr %add.ptr.i.i9.i.i.i.i.i, %scevgep44
-  br i1 %exitcond45.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i, label %if.then.i.i7.i.i.i.i.i, !llvm.loop !14
+  br i1 %exitcond45.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i, label %if.then.i.i.i7.i.i.i.i.i, !llvm.loop !14
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %while.body.lr.ph.i.i.i39.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i31.i.i
-  %ref.tmp.sroa.0.8 = phi ptr [ %add.ptr.i.i.i32.i.i, %if.then.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i40.i.i, %while.body.lr.ph.i.i.i39.i.i ], [ %add.ptr.i.i.i32.i.i, %if.then.i.i.i31.i.i ], [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i ], [ %ref.tmp.sroa.0.10, %if.then.i.i7.i.i.i.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %while.body.lr.ph.i.i.i39.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i31.i.i
+  %ref.tmp.sroa.0.8 = phi ptr [ %add.ptr.i.i.i32.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i40.i.i, %while.body.lr.ph.i.i.i39.i.i ], [ %add.ptr.i.i.i32.i.i, %if.then.i.i.i31.i.i ], [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57ELc65ELc66ELc67ELc68ELc69ELc70ELc97ELc98ELc99ELc100ELc101ELc102EEEENS_8OptValueIcEEv.exit10.i.i.i.i.i ], [ %ref.tmp.sroa.0.10, %if.then.i.i.i7.i.i.i.i.i ]
   %call3.i37.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i38.i.not.i = icmp eq i64 %call3.i37.i.i, 0
-  br i1 %cmp.i38.i.not.i, label %if.then.i.i.ithread-pre-split, label %if.then9.i
+  br i1 %cmp.i38.i.not.i, label %if.then.i.i.i.ithread-pre-split, label %if.then9.i
 
 if.then9.i:                                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE19octalIntegerLiteralEv.exit.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE20binaryIntegerLiteralEv.exit.i.i
   %ref.tmp.sroa.0.9 = phi ptr [ %ref.tmp.sroa.0.8, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i ], [ %ref.tmp.sroa.0.11, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE19octalIntegerLiteralEv.exit.i.i ], [ %ref.tmp.sroa.0.13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE20binaryIntegerLiteralEv.exit.i.i ]
@@ -939,26 +939,26 @@ if.then.i3.i.i:                                   ; preds = %cond.true.i.i
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outError, ptr noundef nonnull @.str.2) #18
   br label %nrvo.skipdtor
 
-if.then.i.i.ithread-pre-split:                    ; preds = %lor.lhs.false.i.i, %lor.rhs.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
+if.then.i.i.i.ithread-pre-split:                  ; preds = %lor.lhs.false.i.i, %lor.rhs.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc88ELc120EEEENS_8OptValueIcEEv.exit.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE24nonDecimalIntegerLiteralEv.exit.i
   %.pr = load i8, ptr %ref.tmp.sroa.0.0, align 1
-  br label %if.then.i.i.i
+  br label %if.then.i.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i.ithread-pre-split, %if.else.i
-  %29 = phi i8 [ %.pr, %if.then.i.i.ithread-pre-split ], [ %5, %if.else.i ]
+if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.ithread-pre-split, %if.else.i
+  %29 = phi i8 [ %.pr, %if.then.i.i.i.ithread-pre-split ], [ %5, %if.else.i ]
   switch i8 %29, label %if.end18.i [
-    i8 45, label %if.then.i5.i.i
-    i8 43, label %if.then.i5.i.i
+    i8 45, label %if.then.i.i.i
+    i8 43, label %if.then.i.i.i
   ]
 
-if.then.i5.i.i:                                   ; preds = %if.then.i.i.i, %if.then.i.i.i
+if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i, %if.then.i.i.i.i
   %add.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 1
   %cmp17.i = icmp eq i8 %5, 43
   %cond.i = select i1 %cmp17.i, i32 1, i32 -1
   store i32 %cond.i, ptr %sign, align 4
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then.i5.i, %if.then.i5.i.i, %if.then.i.i.i
-  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.0, %if.then.i.i.i ], [ %add.ptr.i.i.i5, %if.then.i5.i.i ], [ %ref.tmp.sroa.0.0, %if.then.i5.i ]
+if.end18.i:                                       ; preds = %if.then.i5.i, %if.then.i.i.i, %if.then.i.i.i.i
+  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.0, %if.then.i.i.i.i ], [ %add.ptr.i.i.i5, %if.then.i.i.i ], [ %ref.tmp.sroa.0.0, %if.then.i5.i ]
   %cmp.i.i17.i = icmp ult ptr %ref.tmp.sroa.0.3, %ref.tmp.sroa.37.2
   br i1 %cmp.i.i17.i, label %if.then.i.i20.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i
 
@@ -974,57 +974,57 @@ _ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntege
   %or.cond22.i.i = icmp eq i16 %retval.sroa.0.0.insert.insert.i.i.i, 304
   br i1 %or.cond22.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i:                                   ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i, %if.end.i.i
-  %ref.tmp.sroa.0.7 = phi ptr [ %add.ptr.i.i19.i, %if.end.i.i ], [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i ]
+while.body.i.i:                                   ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i, %if.then.i10.i.i
+  %ref.tmp.sroa.0.7 = phi ptr [ %add.ptr.i.i19.i, %if.then.i10.i.i ], [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i ]
   %add.ptr.i.i19.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.7, i64 1
   %cmp.i6.i.i = icmp ult ptr %add.ptr.i.i19.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i6.i.i, label %if.end.i.i, label %while.end.i.i
+  br i1 %cmp.i6.i.i, label %if.then.i10.i.i, label %while.end.i.i
 
-if.end.i.i:                                       ; preds = %while.body.i.i
+if.then.i10.i.i:                                  ; preds = %while.body.i.i
   %32 = load i8, ptr %add.ptr.i.i19.i, align 1
-  %33 = icmp eq i8 %32, 48
-  br i1 %33, label %while.body.i.i, label %while.end.i.i, !llvm.loop !15
+  %or.cond.i.i = icmp eq i8 %32, 48
+  br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !15
 
-while.end.i.i:                                    ; preds = %if.end.i.i, %while.body.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i
-  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i ], [ %ref.tmp.sroa.0.7, %while.body.i.i ], [ %add.ptr.i.i19.i, %if.end.i.i ]
+while.end.i.i:                                    ; preds = %if.then.i10.i.i, %while.body.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i
+  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i18.i ], [ %ref.tmp.sroa.0.7, %while.body.i.i ], [ %add.ptr.i.i19.i, %if.then.i10.i.i ]
   %ref.tmp.sroa.0.446 = ptrtoint ptr %ref.tmp.sroa.0.4 to i64
   %cmp.i.i17.i.i = icmp ult ptr %ref.tmp.sroa.0.4, %ref.tmp.sroa.37.2
   br i1 %cmp.i.i17.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i, label %if.end23.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i: ; preds = %while.end.i.i
-  %34 = load i8, ptr %ref.tmp.sroa.0.4, align 1
-  %35 = add i8 %34, -48
-  %36 = icmp ult i8 %35, 10
-  br i1 %36, label %if.then9.i.i, label %if.end23.i
+  %33 = load i8, ptr %ref.tmp.sroa.0.4, align 1
+  %34 = add i8 %33, -48
+  %35 = icmp ult i8 %34, 10
+  br i1 %35, label %if.then9.i.i, label %if.end23.i
 
 if.then9.i.i:                                     ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i
   store i8 10, ptr %radix, align 1
-  %37 = load i8, ptr %ref.tmp.sroa.0.4, align 1
-  %38 = add i8 %37, -58
-  %switch.i.i.i.i.i.i = icmp ult i8 %38, -10
+  %36 = load i8, ptr %ref.tmp.sroa.0.4, align 1
+  %37 = add i8 %36, -58
+  %switch.i.i.i.i.i.i = icmp ult i8 %37, -10
   br i1 %switch.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.then9.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.4, i64 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %37) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %36) #18
   %cmp.i.i.not.i3.i3.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i.i, %ref.tmp.sroa.37.2
   br i1 %cmp.i.i.not.i3.i3.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.preheader, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.preheader: ; preds = %while.body.lr.ph.i.i.i.i
-  %39 = sub i64 %ref.tmp.sroa.37.237.pre-phi, %ref.tmp.sroa.0.446
-  %scevgep47 = getelementptr i8, ptr %ref.tmp.sroa.0.4, i64 %39
+  %38 = sub i64 %ref.tmp.sroa.37.237.pre-phi, %ref.tmp.sroa.0.446
+  %scevgep47 = getelementptr i8, ptr %ref.tmp.sroa.0.4, i64 %38
   br label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.preheader, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit11.i.i.i.i
   %ref.tmp.sroa.0.6 = phi ptr [ %add.ptr.i.i10.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit11.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.preheader ]
-  %40 = load i8, ptr %ref.tmp.sroa.0.6, align 1
-  %41 = add i8 %40, -58
-  %switch.i.i8.i.i.i.i = icmp ult i8 %41, -10
+  %39 = load i8, ptr %ref.tmp.sroa.0.6, align 1
+  %40 = add i8 %39, -58
+  %switch.i.i8.i.i.i.i = icmp ult i8 %40, -10
   br i1 %switch.i.i8.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit11.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit11.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i
   %add.ptr.i.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.6, i64 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %40) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %39) #18
   %exitcond48.not = icmp eq ptr %add.ptr.i.i10.i.i.i.i, %scevgep47
   br i1 %exitcond48.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i, !llvm.loop !16
 
@@ -1039,9 +1039,9 @@ if.then20.i:                                      ; preds = %_ZN6hermes6bigint12
   br i1 %cmp.i.not.i23.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i25.i, label %if.else.i7
 
 _ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i25.i: ; preds = %if.then20.i
-  %42 = load i8, ptr %ref.tmp.sroa.0.5, align 1
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %if.else.i7, label %cond.true.i26.i
+  %41 = load i8, ptr %ref.tmp.sroa.0.5, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %if.else.i7, label %cond.true.i26.i
 
 cond.true.i26.i:                                  ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i25.i
   %tobool.not.i.i28.i = icmp eq ptr %outError, null
@@ -1208,33 +1208,33 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   %9 = and i16 %8, 255
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne i16 %9, 49
   %.not.i.i.i.i.i.i = and i1 %cmp.i3.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i, label %while.body.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i
 
-while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 6
   %conv.i1.i.i.i.i = trunc i16 %8 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i.i.i) #18
   %cmp.i.i.i3.i4.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i.i.i, %ref.tmp.sroa.37.2
   br i1 %cmp.i.i.i3.i4.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i: ; preds = %while.body.lr.ph.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-  %ref.tmp.sroa.0.14 = phi ptr [ %add.ptr.i.i12.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i
+  %ref.tmp.sroa.0.14 = phi ptr [ %add.ptr.i.i12.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i ]
   %10 = load i16, ptr %ref.tmp.sroa.0.14, align 2
   %cmp.i3.i.i8.i.i.i.i.i = icmp ne i16 %10, 48
   %11 = and i16 %10, 255
   %cmp.i.i.i.i9.i.i.i.i.i = icmp ne i16 %11, 49
   %.not.i10.i.i.i.i.i = and i1 %cmp.i3.i.i8.i.i.i.i.i, %cmp.i.i.i.i9.i.i.i.i.i
-  br i1 %.not.i10.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
+  br i1 %.not.i10.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i
   %add.ptr.i.i12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.14, i64 2
   %conv.i.i.i.i.i = trunc i16 %10 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i.i.i) #18
   %cmp.i.i.i3.i.i.i.i.i = icmp ult ptr %add.ptr.i.i12.i.i.i.i.i, %ref.tmp.sroa.37.2
   br i1 %cmp.i.i.i3.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i, !llvm.loop !19
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i
-  %ref.tmp.sroa.0.8 = phi ptr [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i ], [ %add.ptr.i.i12.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i ], [ %ref.tmp.sroa.0.14, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i
+  %ref.tmp.sroa.0.8 = phi ptr [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i.i.i ], [ %add.ptr.i.i12.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i11.i.i.i.i.i ], [ %ref.tmp.sroa.0.14, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs48ELDs49EEEENS_8OptValueIDsEEv.exit.i7.i.i.i.i.i ]
   %call3.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i.not.i.i = icmp eq i64 %call3.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %lor.lhs.false.i.i, label %if.then9.i
@@ -1245,67 +1245,67 @@ lor.lhs.false.i.i:                                ; preds = %_ZN6hermes6bigint12
 
 lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i: ; preds = %lor.lhs.false.i.i
   %.pre.i = load i16, ptr %ref.tmp.sroa.0.8, align 2
-  %.pre47.i = and i16 %.pre.i, 255
+  %.pre48.i = and i16 %.pre.i, 255
   br label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i: ; preds = %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i
-  %.pre-phi.i = phi i16 [ %.pre47.i, %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %7, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
+  %.pre-phi.i = phi i16 [ %.pre48.i, %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %7, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
   %13 = phi i16 [ %.pre.i, %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %6, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
-  %this.val.i.i167.i.i = phi ptr [ %ref.tmp.sroa.0.8, %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %add.ptr.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
+  %this.val.i.i166.i.i = phi ptr [ %ref.tmp.sroa.0.8, %lor.lhs.false.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %add.ptr.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs66ELDs98EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
   %cmp.i3.i.i.i5.i.i = icmp ne i16 %13, 79
   %cmp.i.i.i.i.i6.i.i = icmp ne i16 %.pre-phi.i, 111
   %.not.i.i7.i.i = and i1 %cmp.i.i.i.i.i6.i.i, %cmp.i3.i.i.i5.i.i
   br i1 %.not.i.i7.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i
-  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i167.i.i, i64 2
+  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i166.i.i, i64 2
   store i8 8, ptr %radix, align 1
   %cmp.i.i.i.i.i.i13.i.i = icmp ult ptr %add.ptr.i.i.i9.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i.i.i.i13.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i13.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i
   %14 = load i16, ptr %add.ptr.i.i.i9.i.i, align 2
   %rhs.off.i.i.i.i.i.i.i.i = add i16 %14, -48
   %switch.i.i.i.i.i.i.i.i = icmp ult i16 %rhs.off.i.i.i.i.i.i.i.i, 6
-  br i1 %switch.i.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i17.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i
+  br i1 %switch.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %14, 54
   %15 = and i16 %14, 255
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %15, 55
   %16 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %16, label %while.body.lr.ph.i.i.i17.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
+  br i1 %16, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
 
-while.body.lr.ph.i.i.i17.i.i:                     ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i18.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i167.i.i, i64 4
-  %conv.i1.i.i20.i.i = trunc i16 %14 to i8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i20.i.i) #18
-  %cmp.i.i.i3.i4.i.i23.i.i = icmp ult ptr %add.ptr.i.i.i.i.i18.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i4.i.i23.i.i, label %if.then.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
+if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i17.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i166.i.i, i64 4
+  %conv.i1.i.i19.i.i = trunc i16 %14 to i8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i19.i.i) #18
+  %cmp.i.i.i3.i4.i.i22.i.i = icmp ult ptr %add.ptr.i.i.i.i.i17.i.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.i.i3.i4.i.i22.i.i, label %if.then.i.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
 
-if.then.i.i7.i.i.i.i.i:                           ; preds = %while.body.lr.ph.i.i.i17.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i
-  %ref.tmp.sroa.0.13 = phi ptr [ %add.ptr.i.i14.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i18.i.i, %while.body.lr.ph.i.i.i17.i.i ]
+if.then.i.i.i7.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i13.i.i.i.i.i
+  %ref.tmp.sroa.0.13 = phi ptr [ %add.ptr.i.i14.i.i.i.i.i, %if.then.i.i13.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i17.i.i, %if.then.i.i.i.i.i.i.i ]
   %17 = load i16, ptr %ref.tmp.sroa.0.13, align 2
   %rhs.off.i.i.i8.i.i.i.i.i = add i16 %17, -48
   %switch.i.i.i9.i.i.i.i.i = icmp ult i16 %rhs.off.i.i.i8.i.i.i.i.i, 6
-  br i1 %switch.i.i.i9.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i
+  br i1 %switch.i.i.i9.i.i.i.i.i, label %if.then.i.i13.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i: ; preds = %if.then.i.i7.i.i.i.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i: ; preds = %if.then.i.i.i7.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i11.i.i.i.i.i = icmp eq i16 %17, 54
   %18 = and i16 %17, 255
   %cmp.i.i.i.i.i.i.i.i.i.i12.i.i.i.i.i = icmp eq i16 %18, 55
   %19 = or i1 %cmp.i.i.i.i.i.i.i.i.i11.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i12.i.i.i.i.i
-  br i1 %19, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
+  br i1 %19, label %if.then.i.i13.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i
+if.then.i.i13.i.i.i.i.i:                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i
   %add.ptr.i.i14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.13, i64 2
-  %conv.i.i.i25.i.i = trunc i16 %17 to i8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i25.i.i) #18
-  %cmp.i.i.i3.i.i.i28.i.i = icmp ult ptr %add.ptr.i.i14.i.i.i.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i.i.i28.i.i, label %if.then.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i, !llvm.loop !20
+  %conv.i.i.i24.i.i = trunc i16 %17 to i8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i24.i.i) #18
+  %cmp.i.i.i3.i.i.i27.i.i = icmp ult ptr %add.ptr.i.i14.i.i.i.i.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.i.i3.i.i.i27.i.i, label %if.then.i.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i, !llvm.loop !20
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i, %while.body.lr.ph.i.i.i17.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i
-  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i.i.i.i18.i.i, %while.body.lr.ph.i.i.i17.i.i ], [ %add.ptr.i.i.i9.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i9.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i ], [ %ref.tmp.sroa.0.13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i ], [ %add.ptr.i.i14.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit15.i.i.i.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i: ; preds = %if.then.i.i13.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i
+  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i.i.i.i17.i.i, %if.then.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i9.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i9.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i8.i.i ], [ %ref.tmp.sroa.0.13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i10.i.i.i.i.i ], [ %add.ptr.i.i14.i.i.i.i.i, %if.then.i.i13.i.i.i.i.i ]
   %call3.i15.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i16.not.i.i = icmp eq i64 %call3.i15.i.i, 0
   br i1 %cmp.i16.not.i.i, label %lor.rhs.i.i, label %if.then9.i
@@ -1315,109 +1315,109 @@ lor.rhs.i.i:                                      ; preds = %_ZN6hermes6bigint12
   br i1 %20, label %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i
 
 lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i: ; preds = %lor.rhs.i.i
-  %.pre40.i = load i16, ptr %ref.tmp.sroa.0.10, align 2
-  %.pre48.i = and i16 %.pre40.i, 255
+  %.pre41.i = load i16, ptr %ref.tmp.sroa.0.10, align 2
+  %.pre49.i = and i16 %.pre41.i, 255
   br label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i.i: ; preds = %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i
-  %.pre-phi49.i = phi i16 [ %.pre48.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %.pre-phi.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
-  %21 = phi i16 [ %.pre40.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
-  %this.val.i.i2976.i.i = phi ptr [ %ref.tmp.sroa.0.10, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %this.val.i.i167.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
-  %cmp.i3.i.i.i33.i.i = icmp ne i16 %21, 88
-  %cmp.i.i.i.i.i34.i.i = icmp ne i16 %.pre-phi49.i, 120
-  %.not.i.i35.i.i = and i1 %cmp.i.i.i.i.i34.i.i, %cmp.i3.i.i.i33.i.i
-  br i1 %.not.i.i35.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i36.i.i
+  %.pre-phi50.i = phi i16 [ %.pre49.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %.pre-phi.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
+  %21 = phi i16 [ %.pre41.i, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
+  %this.val.i.i2875.i.i = phi ptr [ %ref.tmp.sroa.0.10, %lor.rhs.i._ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i_crit_edge.i ], [ %this.val.i.i166.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i.i ]
+  %cmp.i3.i.i.i32.i.i = icmp ne i16 %21, 88
+  %cmp.i.i.i.i.i33.i.i = icmp ne i16 %.pre-phi50.i, 120
+  %.not.i.i34.i.i = and i1 %cmp.i.i.i.i.i33.i.i, %cmp.i3.i.i.i32.i.i
+  br i1 %.not.i.i34.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i35.i.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i36.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i.i
-  %add.ptr.i.i.i37.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2976.i.i, i64 2
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i35.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i.i
+  %add.ptr.i.i.i36.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2875.i.i, i64 2
   store i8 16, ptr %radix, align 1
-  %cmp.i.i.i.i.i.i41.i.i = icmp ult ptr %add.ptr.i.i.i37.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i.i.i.i41.i.i, label %if.then.i.i.i.i.i45.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
+  %cmp.i.i.i.i.i.i40.i.i = icmp ult ptr %add.ptr.i.i.i36.i.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.i.i.i.i.i40.i.i, label %if.then.i.i.i.i.i.i44.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i.i.i.i45.i.i:                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i36.i.i
-  %22 = load i16, ptr %add.ptr.i.i.i37.i.i, align 2
+if.then.i.i.i.i.i.i44.i.i:                        ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i35.i.i
+  %22 = load i16, ptr %add.ptr.i.i.i36.i.i, align 2
   switch i16 %22, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i [
-    i16 48, label %while.body.lr.ph.i.i.i46.i.i
-    i16 49, label %while.body.lr.ph.i.i.i46.i.i
-    i16 50, label %while.body.lr.ph.i.i.i46.i.i
-    i16 51, label %while.body.lr.ph.i.i.i46.i.i
-    i16 52, label %while.body.lr.ph.i.i.i46.i.i
-    i16 53, label %while.body.lr.ph.i.i.i46.i.i
-    i16 54, label %while.body.lr.ph.i.i.i46.i.i
-    i16 55, label %while.body.lr.ph.i.i.i46.i.i
-    i16 56, label %while.body.lr.ph.i.i.i46.i.i
-    i16 57, label %while.body.lr.ph.i.i.i46.i.i
-    i16 65, label %while.body.lr.ph.i.i.i46.i.i
-    i16 66, label %while.body.lr.ph.i.i.i46.i.i
-    i16 67, label %while.body.lr.ph.i.i.i46.i.i
-    i16 68, label %while.body.lr.ph.i.i.i46.i.i
-    i16 69, label %while.body.lr.ph.i.i.i46.i.i
-    i16 100, label %while.body.lr.ph.i.i.i46.i.i
-    i16 99, label %while.body.lr.ph.i.i.i46.i.i
-    i16 98, label %while.body.lr.ph.i.i.i46.i.i
-    i16 97, label %while.body.lr.ph.i.i.i46.i.i
-    i16 70, label %while.body.lr.ph.i.i.i46.i.i
+    i16 48, label %if.then.i.i.i.i.i45.i.i
+    i16 49, label %if.then.i.i.i.i.i45.i.i
+    i16 50, label %if.then.i.i.i.i.i45.i.i
+    i16 51, label %if.then.i.i.i.i.i45.i.i
+    i16 52, label %if.then.i.i.i.i.i45.i.i
+    i16 53, label %if.then.i.i.i.i.i45.i.i
+    i16 54, label %if.then.i.i.i.i.i45.i.i
+    i16 55, label %if.then.i.i.i.i.i45.i.i
+    i16 56, label %if.then.i.i.i.i.i45.i.i
+    i16 57, label %if.then.i.i.i.i.i45.i.i
+    i16 65, label %if.then.i.i.i.i.i45.i.i
+    i16 66, label %if.then.i.i.i.i.i45.i.i
+    i16 67, label %if.then.i.i.i.i.i45.i.i
+    i16 68, label %if.then.i.i.i.i.i45.i.i
+    i16 69, label %if.then.i.i.i.i.i45.i.i
+    i16 100, label %if.then.i.i.i.i.i45.i.i
+    i16 99, label %if.then.i.i.i.i.i45.i.i
+    i16 98, label %if.then.i.i.i.i.i45.i.i
+    i16 97, label %if.then.i.i.i.i.i45.i.i
+    i16 70, label %if.then.i.i.i.i.i45.i.i
   ]
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i45.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i44.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %22, 101
   %23 = and i16 %22, 255
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %23, 102
   %24 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %24, label %while.body.lr.ph.i.i.i46.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %24, label %if.then.i.i.i.i.i45.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-while.body.lr.ph.i.i.i46.i.i:                     ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i, %if.then.i.i.i.i.i45.i.i
-  %add.ptr.i.i.i.i.i47.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2976.i.i, i64 4
-  %conv.i1.i.i49.i.i = trunc i16 %22 to i8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i49.i.i) #18
-  %cmp.i.i.i3.i4.i.i52.i.i = icmp ult ptr %add.ptr.i.i.i.i.i47.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i4.i.i52.i.i, label %if.then.i.i7.i.i.i53.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
+if.then.i.i.i.i.i45.i.i:                          ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i44.i.i
+  %add.ptr.i.i.i.i.i46.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i2875.i.i, i64 4
+  %conv.i1.i.i48.i.i = trunc i16 %22 to i8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i48.i.i) #18
+  %cmp.i.i.i3.i4.i.i51.i.i = icmp ult ptr %add.ptr.i.i.i.i.i46.i.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.i.i3.i4.i.i51.i.i, label %if.then.i.i.i7.i.i.i52.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i7.i.i.i53.i.i:                         ; preds = %while.body.lr.ph.i.i.i46.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-  %ref.tmp.sroa.0.12 = phi ptr [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i47.i.i, %while.body.lr.ph.i.i.i46.i.i ]
+if.then.i.i.i7.i.i.i52.i.i:                       ; preds = %if.then.i.i.i.i.i45.i.i, %if.then.i.i8.i.i.i.i.i
+  %ref.tmp.sroa.0.12 = phi ptr [ %add.ptr.i.i9.i.i.i.i.i, %if.then.i.i8.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i46.i.i, %if.then.i.i.i.i.i45.i.i ]
   %25 = load i16, ptr %ref.tmp.sroa.0.12, align 2
   switch i16 %25, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i [
-    i16 48, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 49, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 50, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 51, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 52, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 53, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 54, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 55, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 56, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 57, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 65, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 66, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 67, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 68, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 69, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 100, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 99, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 98, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 97, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
-    i16 70, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i
+    i16 48, label %if.then.i.i8.i.i.i.i.i
+    i16 49, label %if.then.i.i8.i.i.i.i.i
+    i16 50, label %if.then.i.i8.i.i.i.i.i
+    i16 51, label %if.then.i.i8.i.i.i.i.i
+    i16 52, label %if.then.i.i8.i.i.i.i.i
+    i16 53, label %if.then.i.i8.i.i.i.i.i
+    i16 54, label %if.then.i.i8.i.i.i.i.i
+    i16 55, label %if.then.i.i8.i.i.i.i.i
+    i16 56, label %if.then.i.i8.i.i.i.i.i
+    i16 57, label %if.then.i.i8.i.i.i.i.i
+    i16 65, label %if.then.i.i8.i.i.i.i.i
+    i16 66, label %if.then.i.i8.i.i.i.i.i
+    i16 67, label %if.then.i.i8.i.i.i.i.i
+    i16 68, label %if.then.i.i8.i.i.i.i.i
+    i16 69, label %if.then.i.i8.i.i.i.i.i
+    i16 100, label %if.then.i.i8.i.i.i.i.i
+    i16 99, label %if.then.i.i8.i.i.i.i.i
+    i16 98, label %if.then.i.i8.i.i.i.i.i
+    i16 97, label %if.then.i.i8.i.i.i.i.i
+    i16 70, label %if.then.i.i8.i.i.i.i.i
   ]
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i: ; preds = %if.then.i.i7.i.i.i53.i.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i: ; preds = %if.then.i.i.i7.i.i.i52.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i11.i.i.i.i.i = icmp eq i16 %25, 101
   %26 = and i16 %25, 255
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i.i = icmp eq i16 %26, 102
   %27 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i11.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i12.i.i.i.i.i
-  br i1 %27, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %27, label %if.then.i.i8.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i, %if.then.i.i7.i.i.i53.i.i
+if.then.i.i8.i.i.i.i.i:                           ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i, %if.then.i.i.i7.i.i.i52.i.i
   %add.ptr.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.12, i64 2
-  %conv.i.i.i55.i.i = trunc i16 %25 to i8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i55.i.i) #18
-  %cmp.i.i.i3.i.i.i58.i.i = icmp ult ptr %add.ptr.i.i9.i.i.i.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i.i.i58.i.i, label %if.then.i.i7.i.i.i53.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i, !llvm.loop !21
+  %conv.i.i.i54.i.i = trunc i16 %25 to i8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i54.i.i) #18
+  %cmp.i.i.i3.i.i.i57.i.i = icmp ult ptr %add.ptr.i.i9.i.i.i.i.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.i.i3.i.i.i57.i.i, label %if.then.i.i.i7.i.i.i52.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i, !llvm.loop !21
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i, %while.body.lr.ph.i.i.i46.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i36.i.i
-  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i.i.i47.i.i, %while.body.lr.ph.i.i.i46.i.i ], [ %add.ptr.i.i.i37.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i37.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i36.i.i ], [ %ref.tmp.sroa.0.12, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i ], [ %add.ptr.i.i9.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit13.i.i.i.i.i ]
-  %call3.i43.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
-  %cmp.i44.i.not.i = icmp eq i64 %call3.i43.i.i, 0
-  br i1 %cmp.i44.i.not.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i, label %if.then9.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %if.then.i.i8.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i, %if.then.i.i.i.i.i45.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i35.i.i
+  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i.i.i46.i.i, %if.then.i.i.i.i.i45.i.i ], [ %add.ptr.i.i.i36.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i36.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i35.i.i ], [ %ref.tmp.sroa.0.12, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i10.i.i.i.i.i ], [ %add.ptr.i.i9.i.i.i.i.i, %if.then.i.i8.i.i.i.i.i ]
+  %call3.i42.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
+  %cmp.i43.i.not.i = icmp eq i64 %call3.i42.i.i, 0
+  br i1 %cmp.i43.i.not.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i
   %ref.tmp.sroa.0.9 = phi ptr [ %ref.tmp.sroa.0.11, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i ], [ %ref.tmp.sroa.0.10, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i ], [ %ref.tmp.sroa.0.8, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE20binaryIntegerLiteralEv.exit.i.i ]
@@ -1455,142 +1455,142 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
 if.end18.i:                                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i
   %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.0, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i ], [ %add.ptr.i.i.i5, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE3eatEv.exit.i.i ]
   %cmp.i.i17.i = icmp ult ptr %ref.tmp.sroa.0.3, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i17.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i, label %while.end.i.i
+  br i1 %cmp.i.i17.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i, label %while.end.i.i
 
-_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i: ; preds = %if.end18.i
+_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i: ; preds = %if.end18.i
   %32 = load i16, ptr %ref.tmp.sroa.0.3, align 2
   %33 = icmp eq i16 %32, 48
   br i1 %33, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i:                                   ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i, %if.end.i.i
-  %ref.tmp.sroa.0.7 = phi ptr [ %add.ptr.i.i22.i, %if.end.i.i ], [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i ]
-  %add.ptr.i.i22.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.7, i64 2
-  %cmp.i6.i.i = icmp ult ptr %add.ptr.i.i22.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i6.i.i, label %if.end.i.i, label %while.end.i.i
+while.body.i.i:                                   ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i, %if.then.i10.i.i
+  %ref.tmp.sroa.0.7 = phi ptr [ %add.ptr.i.i23.i, %if.then.i10.i.i ], [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i ]
+  %add.ptr.i.i23.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.7, i64 2
+  %cmp.i6.i.i = icmp ult ptr %add.ptr.i.i23.i, %ref.tmp.sroa.37.2
+  br i1 %cmp.i6.i.i, label %if.then.i10.i.i, label %while.end.i.i
 
-if.end.i.i:                                       ; preds = %while.body.i.i
-  %34 = load i16, ptr %add.ptr.i.i22.i, align 2
-  %35 = icmp eq i16 %34, 48
-  br i1 %35, label %while.body.i.i, label %while.end.i.i, !llvm.loop !22
+if.then.i10.i.i:                                  ; preds = %while.body.i.i
+  %34 = load i16, ptr %add.ptr.i.i23.i, align 2
+  %cmp.i24.i = icmp eq i16 %34, 48
+  br i1 %cmp.i24.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !22
 
-while.end.i.i:                                    ; preds = %if.end.i.i, %while.body.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i, %if.end18.i
-  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i21.i ], [ %ref.tmp.sroa.0.3, %if.end18.i ], [ %ref.tmp.sroa.0.7, %while.body.i.i ], [ %add.ptr.i.i22.i, %if.end.i.i ]
+while.end.i.i:                                    ; preds = %if.then.i10.i.i, %while.body.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i, %if.end18.i
+  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i22.i ], [ %ref.tmp.sroa.0.3, %if.end18.i ], [ %ref.tmp.sroa.0.7, %while.body.i.i ], [ %add.ptr.i.i23.i, %if.then.i10.i.i ]
   %cmp.i.i17.i.i = icmp ult ptr %ref.tmp.sroa.0.4, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i17.i.i, label %if.then.i21.i.i, label %if.end23.i
+  br i1 %cmp.i.i17.i.i, label %if.then.i.i.i.i, label %if.end23.i
 
-if.then.i21.i.i:                                  ; preds = %while.end.i.i
-  %36 = load i16, ptr %ref.tmp.sroa.0.4, align 2
-  %rhs.off.i.i.i.i = add i16 %36, -48
+if.then.i.i.i.i:                                  ; preds = %while.end.i.i
+  %35 = load i16, ptr %ref.tmp.sroa.0.4, align 2
+  %rhs.off.i.i.i.i = add i16 %35, -48
   %switch.i.i.i.i = icmp ult i16 %rhs.off.i.i.i.i, 3
   br i1 %switch.i.i.i.i, label %if.then5.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
-lor.rhs.i.i.i.i.i.i:                              ; preds = %if.then.i21.i.i
-  %cmp.i.i.i.i.i.i18.i = icmp eq i16 %36, 51
-  %37 = and i16 %36, -4
-  %switch.i.i.i.i.i.i.i19.i = icmp eq i16 %37, 52
+lor.rhs.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
+  %cmp.i.i.i.i.i.i18.i = icmp eq i16 %35, 51
+  %36 = and i16 %35, -4
+  %switch.i.i.i.i.i.i.i19.i = icmp eq i16 %36, 52
   %or.cond.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i18.i, %switch.i.i.i.i.i.i.i19.i
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.then5.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %36, 56
-  %38 = and i16 %36, 255
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %38, 57
-  %39 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %39, label %if.then5.i.i.i, label %if.end23.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %35, 56
+  %37 = and i16 %35, 255
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %37, 57
+  %38 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %38, label %if.then5.i.i.i, label %if.end23.i
 
-if.then5.i.i.i:                                   ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i, %lor.rhs.i.i.i.i.i.i, %if.then.i21.i.i
+if.then5.i.i.i:                                   ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i, %lor.rhs.i.i.i.i.i.i, %if.then.i.i.i.i
   store i8 10, ptr %radix, align 1
-  %40 = load i16, ptr %ref.tmp.sroa.0.4, align 2
-  %rhs.off.i.i.i.i.i.i.i = add i16 %40, -48
+  %39 = load i16, ptr %ref.tmp.sroa.0.4, align 2
+  %rhs.off.i.i.i.i.i.i.i = add i16 %39, -48
   %switch.i.i.i.i.i.i.i = icmp ult i16 %rhs.off.i.i.i.i.i.i.i, 3
-  br i1 %switch.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i
+  br i1 %switch.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %lor.rhs.i.i.i.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then5.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %40, 51
-  %41 = and i16 %40, -4
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %41, 52
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %39, 51
+  %40 = and i16 %39, -4
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %40, 52
   %or.cond.i.i.i.i.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i.i.i.i.i, %switch.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i20.i = icmp eq i16 %40, 56
-  %42 = and i16 %40, 255
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %42, 57
-  %43 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i20.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %43, label %while.body.lr.ph.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i = icmp eq i16 %39, 56
+  %41 = and i16 %39, 255
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %41, 57
+  %42 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %42, label %if.then.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
 
-while.body.lr.ph.i.i.i.i:                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i, %if.then5.i.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i, %if.then5.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.4, i64 2
-  %conv.i1.i.i.i = trunc i16 %40 to i8
+  %conv.i1.i.i.i = trunc i16 %39 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i1.i.i.i) #18
   %cmp.i.i.i3.i4.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i4.i.i.i, label %if.then.i.i7.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
+  br i1 %cmp.i.i.i3.i4.i.i.i, label %if.then.i.i.i7.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
 
-if.then.i.i7.i.i.i.i:                             ; preds = %while.body.lr.ph.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i
-  %ref.tmp.sroa.0.6 = phi ptr [ %add.ptr.i.i18.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ]
-  %44 = load i16, ptr %ref.tmp.sroa.0.6, align 2
-  %rhs.off.i.i.i8.i.i.i.i = add i16 %44, -48
+if.then.i.i.i7.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i17.i.i.i.i
+  %ref.tmp.sroa.0.6 = phi ptr [ %add.ptr.i.i18.i.i.i.i, %if.then.i.i17.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
+  %43 = load i16, ptr %ref.tmp.sroa.0.6, align 2
+  %rhs.off.i.i.i8.i.i.i.i = add i16 %43, -48
   %switch.i.i.i9.i.i.i.i = icmp ult i16 %rhs.off.i.i.i8.i.i.i.i, 3
-  br i1 %switch.i.i.i9.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i, label %lor.rhs.i.i.i.i.i10.i.i.i.i
+  br i1 %switch.i.i.i9.i.i.i.i, label %if.then.i.i17.i.i.i.i, label %lor.rhs.i.i.i.i.i10.i.i.i.i
 
-lor.rhs.i.i.i.i.i10.i.i.i.i:                      ; preds = %if.then.i.i7.i.i.i.i
-  %cmp.i.i.i.i.i.i11.i.i.i.i = icmp eq i16 %44, 51
-  %45 = and i16 %44, -4
-  %switch.i.i.i.i.i.i.i12.i.i.i.i = icmp eq i16 %45, 52
+lor.rhs.i.i.i.i.i10.i.i.i.i:                      ; preds = %if.then.i.i.i7.i.i.i.i
+  %cmp.i.i.i.i.i.i11.i.i.i.i = icmp eq i16 %43, 51
+  %44 = and i16 %43, -4
+  %switch.i.i.i.i.i.i.i12.i.i.i.i = icmp eq i16 %44, 52
   %or.cond.i.i.i.i.i.i13.i.i.i.i = or i1 %cmp.i.i.i.i.i.i11.i.i.i.i, %switch.i.i.i.i.i.i.i12.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i13.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i13.i.i.i.i, label %if.then.i.i17.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i10.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i.i.i = icmp eq i16 %44, 56
-  %46 = and i16 %44, 255
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i16.i.i.i.i = icmp eq i16 %46, 57
-  %47 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i16.i.i.i.i
-  br i1 %47, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i.i.i = icmp eq i16 %43, 56
+  %45 = and i16 %43, 255
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i16.i.i.i.i = icmp eq i16 %45, 57
+  %46 = or i1 %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i.i16.i.i.i.i
+  br i1 %46, label %if.then.i.i17.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i, %lor.rhs.i.i.i.i.i10.i.i.i.i, %if.then.i.i7.i.i.i.i
+if.then.i.i17.i.i.i.i:                            ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i, %lor.rhs.i.i.i.i.i10.i.i.i.i, %if.then.i.i.i7.i.i.i.i
   %add.ptr.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.6, i64 2
-  %conv.i.i.i.i = trunc i16 %44 to i8
+  %conv.i.i.i.i = trunc i16 %43 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i8 noundef signext %conv.i.i.i.i) #18
   %cmp.i.i.i3.i.i.i.i = icmp ult ptr %add.ptr.i.i18.i.i.i.i, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.i.i3.i.i.i.i, label %if.then.i.i7.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i, !llvm.loop !23
+  br i1 %cmp.i.i.i3.i.i.i.i, label %if.then.i.i.i7.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i, !llvm.loop !23
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i, %while.body.lr.ph.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i
-  %ref.tmp.sroa.0.5 = phi ptr [ %add.ptr.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %ref.tmp.sroa.0.4, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.6, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i ], [ %add.ptr.i.i18.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit19.i.i.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i: ; preds = %if.then.i.i17.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i
+  %ref.tmp.sroa.0.5 = phi ptr [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.4, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.6, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i14.i.i.i.i ], [ %add.ptr.i.i18.i.i.i.i, %if.then.i.i17.i.i.i.i ]
   %call10.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp11.i.not.i = icmp eq i64 %call10.i.i, 0
   br i1 %cmp11.i.not.i, label %if.end23.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i
-  %cmp.i.not.i25.i = icmp ult ptr %ref.tmp.sroa.0.5, %ref.tmp.sroa.37.2
-  br i1 %cmp.i.not.i25.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i27.i, label %if.else.i7
+  %cmp.i.not.i27.i = icmp ult ptr %ref.tmp.sroa.0.5, %ref.tmp.sroa.37.2
+  br i1 %cmp.i.not.i27.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i29.i, label %if.else.i7
 
-_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i27.i: ; preds = %if.then20.i
-  %48 = load i16, ptr %ref.tmp.sroa.0.5, align 2
-  %49 = icmp eq i16 %48, 0
-  br i1 %49, label %if.else.i7, label %cond.true.i28.i
+_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i29.i: ; preds = %if.then20.i
+  %47 = load i16, ptr %ref.tmp.sroa.0.5, align 2
+  %48 = icmp eq i16 %47, 0
+  br i1 %48, label %if.else.i7, label %cond.true.i30.i
 
-cond.true.i28.i:                                  ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i27.i
-  %tobool.not.i.i30.i = icmp eq ptr %outError, null
-  br i1 %tobool.not.i.i30.i, label %nrvo.skipdtor, label %if.then.i3.i31.i
+cond.true.i30.i:                                  ; preds = %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i29.i
+  %tobool.not.i.i32.i = icmp eq ptr %outError, null
+  br i1 %tobool.not.i.i32.i, label %nrvo.skipdtor, label %if.then.i3.i33.i
 
-if.then.i3.i31.i:                                 ; preds = %cond.true.i28.i
-  %call.i.i32.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outError, ptr noundef nonnull @.str.3) #18
+if.then.i3.i33.i:                                 ; preds = %cond.true.i30.i
+  %call.i.i34.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outError, ptr noundef nonnull @.str.3) #18
   br label %nrvo.skipdtor
 
 if.end23.i:                                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i, %while.end.i.i
   %tobool.not.i.i = icmp eq ptr %outError, null
-  br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %if.then.i34.i
+  br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %if.then.i36.i
 
-if.then.i34.i:                                    ; preds = %if.end23.i
+if.then.i36.i:                                    ; preds = %if.end23.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outError, ptr noundef nonnull @.str.4) #18
   br label %nrvo.skipdtor
 
-if.else.i7:                                       ; preds = %if.then.i1, %if.then9.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i, %if.then20.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i27.i
+if.else.i7:                                       ; preds = %if.then.i1, %if.then9.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i, %if.then20.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i29.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.then.i34.i, %if.end23.i, %cond.true.i28.i, %if.then.i3.i31.i, %cond.true.i.i, %if.then.i3.i.i, %if.else.i7
+nrvo.skipdtor:                                    ; preds = %if.then.i36.i, %if.end23.i, %cond.true.i30.i, %if.then.i3.i33.i, %cond.true.i.i, %if.then.i3.i.i, %if.else.i7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   ret void
 }
@@ -1615,14 +1615,14 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i64 noundef %src.coerce1) #18
   store i32 0, ptr %sign, align 4
   %cmp.i.i = icmp sgt i64 %src.coerce1, 0
-  br i1 %cmp.i.i, label %if.then.i, label %if.end27.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end27.i
 
-if.then.i:                                        ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   %0 = load i8, ptr %src.coerce0, align 1
   %1 = icmp eq i8 %0, 48
   br i1 %1, label %if.then.i6.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i
 
-if.then.i6.i:                                     ; preds = %if.then.i
+if.then.i6.i:                                     ; preds = %if.then.i.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %src.coerce0, i64 1
   %cmp.i.i.i.i.i.not = icmp eq i64 %src.coerce1, 1
   br i1 %cmp.i.i.i.i.i.not, label %if.end27.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc110EEEENS_8OptValueIcEEv.exit.i.i.i
@@ -1683,13 +1683,13 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN6hermes6bigint12
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i
   %8 = load i8, ptr %ref.tmp.sroa.0.11, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %8, 95
-  %spec.select21.idx = zext i1 %.not.i.i.i.i.i.i.i to i64
-  %spec.select21 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.11, i64 %spec.select21.idx
-  %9 = select i1 %.not.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.11, ptr %spec.select21
+  %spec.select20.idx = zext i1 %.not.i.i.i.i.i.i.i to i64
+  %spec.select20 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.11, i64 %spec.select20.idx
+  %9 = select i1 %.not.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.11, ptr %spec.select20
   br label %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %ref.tmp.sroa.0.12 = phi ptr [ %ref.tmp.sroa.0.11, %while.body.i.i.i.i.i ], [ %spec.select21, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i.i ]
+  %ref.tmp.sroa.0.12 = phi ptr [ %ref.tmp.sroa.0.11, %while.body.i.i.i.i.i ], [ %spec.select20, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i.i ]
   %retval.sroa.3.0.i.i.not.i.i.i.i.i = phi ptr [ %ref.tmp.sroa.0.11, %while.body.i.i.i.i.i ], [ %9, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i.i ]
   %cmp.i.i.not.i3.i.i.i.i.i = icmp ult ptr %ref.tmp.sroa.0.12, %add.ptr.i.i.i
   br i1 %cmp.i.i.not.i3.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE20binaryIntegerLiteralEv.exit.i.i
@@ -1748,13 +1748,13 @@ while.body.i.i.i18.i.i:                           ; preds = %_ZN6hermes6bigint12
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i30.i.i: ; preds = %while.body.i.i.i18.i.i
   %17 = load i8, ptr %ref.tmp.sroa.0.8, align 1
   %.not.i.i.i.i.i31.i.i = icmp eq i8 %17, 95
-  %spec.select23.idx = zext i1 %.not.i.i.i.i.i31.i.i to i64
-  %spec.select23 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.8, i64 %spec.select23.idx
-  %18 = select i1 %.not.i.i.i.i.i31.i.i, ptr %ref.tmp.sroa.0.8, ptr %spec.select23
+  %spec.select22.idx = zext i1 %.not.i.i.i.i.i31.i.i to i64
+  %spec.select22 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.8, i64 %spec.select22.idx
+  %18 = select i1 %.not.i.i.i.i.i31.i.i, ptr %ref.tmp.sroa.0.8, ptr %spec.select22
   br label %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i23.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i23.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i30.i.i, %while.body.i.i.i18.i.i
-  %ref.tmp.sroa.0.9 = phi ptr [ %ref.tmp.sroa.0.8, %while.body.i.i.i18.i.i ], [ %spec.select23, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i30.i.i ]
+  %ref.tmp.sroa.0.9 = phi ptr [ %ref.tmp.sroa.0.8, %while.body.i.i.i18.i.i ], [ %spec.select22, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i30.i.i ]
   %retval.sroa.3.0.i.i.not.i.i.i25.i.i = phi ptr [ %ref.tmp.sroa.0.8, %while.body.i.i.i18.i.i ], [ %18, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i30.i.i ]
   %cmp.i.i.not.i3.i.i.i26.i.i = icmp ult ptr %ref.tmp.sroa.0.9, %add.ptr.i.i.i
   br i1 %cmp.i.i.not.i3.i.i.i26.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE19octalIntegerLiteralEv.exit.i.i
@@ -1791,9 +1791,9 @@ if.then.i.i.i39.i.i:                              ; preds = %_ZN6hermes6bigint12
   %add.ptr.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i3480.i.i, i64 1
   store i8 16, ptr %radix, align 1
   %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i40.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i39.i.i
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i39.i.i
   %24 = load i8, ptr %add.ptr.i.i.i40.i.i, align 1
   switch i8 %24, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i [
     i8 48, label %while.body.lr.ph.i.i.i47.i.i
@@ -1820,7 +1820,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i39.i.i
     i8 70, label %while.body.lr.ph.i.i.i47.i.i
   ]
 
-while.body.lr.ph.i.i.i47.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+while.body.lr.ph.i.i.i47.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i48.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i3480.i.i, i64 2
   br label %while.body.i.i.i50.i.i
 
@@ -1834,18 +1834,18 @@ while.body.i.i.i50.i.i:                           ; preds = %if.end.i.i.i58.i.i,
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i59.i.i: ; preds = %while.body.i.i.i50.i.i
   %25 = load i8, ptr %ref.tmp.sroa.0.5, align 1
   %.not.i.i.i.i.i60.i.i = icmp eq i8 %25, 95
-  %spec.select25.idx = zext i1 %.not.i.i.i.i.i60.i.i to i64
-  %spec.select25 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.5, i64 %spec.select25.idx
-  %26 = select i1 %.not.i.i.i.i.i60.i.i, ptr %ref.tmp.sroa.0.5, ptr %spec.select25
+  %spec.select24.idx = zext i1 %.not.i.i.i.i.i60.i.i to i64
+  %spec.select24 = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.5, i64 %spec.select24.idx
+  %26 = select i1 %.not.i.i.i.i.i60.i.i, ptr %ref.tmp.sroa.0.5, ptr %spec.select24
   br label %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i59.i.i, %while.body.i.i.i50.i.i
-  %ref.tmp.sroa.0.6 = phi ptr [ %ref.tmp.sroa.0.5, %while.body.i.i.i50.i.i ], [ %spec.select25, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i59.i.i ]
+  %ref.tmp.sroa.0.6 = phi ptr [ %ref.tmp.sroa.0.5, %while.body.i.i.i50.i.i ], [ %spec.select24, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i59.i.i ]
   %retval.sroa.3.0.i.i.not.i.i.i56.i.i = phi ptr [ %ref.tmp.sroa.0.5, %while.body.i.i.i50.i.i ], [ %26, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i59.i.i ]
   %cmp.i.i.i3.i.i.i.i.i = icmp ult ptr %ref.tmp.sroa.0.6, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i3.i.i.i.i.i, label %if.then.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i
+  br i1 %cmp.i.i.i3.i.i.i.i.i, label %if.then.i.i.i7.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i
 
-if.then.i.i7.i.i.i.i.i:                           ; preds = %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i
+if.then.i.i.i7.i.i.i.i.i:                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i
   %27 = load i8, ptr %ref.tmp.sroa.0.6, align 1
   switch i8 %27, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i [
     i8 48, label %if.end.i.i.i58.i.i
@@ -1872,12 +1872,12 @@ if.then.i.i7.i.i.i.i.i:                           ; preds = %_ZN6hermes6bigint12
     i8 70, label %if.end.i.i.i58.i.i
   ]
 
-if.end.i.i.i58.i.i:                               ; preds = %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i7.i.i.i.i.i
+if.end.i.i.i58.i.i:                               ; preds = %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i7.i.i.i.i.i
   %add.ptr.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.6, i64 1
   br label %while.body.i.i.i50.i.i, !llvm.loop !26
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i, %if.then.i.i7.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then.i.i.i39.i.i
-  %ref.tmp.sroa.0.3 = phi ptr [ %add.ptr.i.i.i40.i.i, %if.then.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i40.i.i, %if.then.i.i.i39.i.i ], [ %retval.sroa.3.0.i.i.not.i.i.i56.i.i, %if.then.i.i7.i.i.i.i.i ], [ %retval.sroa.3.0.i.i.not.i.i.i56.i.i, %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i ]
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i, %if.then.i.i.i7.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i39.i.i
+  %ref.tmp.sroa.0.3 = phi ptr [ %add.ptr.i.i.i40.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i40.i.i, %if.then.i.i.i39.i.i ], [ %retval.sroa.3.0.i.i.not.i.i.i56.i.i, %if.then.i.i.i7.i.i.i.i.i ], [ %retval.sroa.3.0.i.i.not.i.i.i56.i.i, %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i54.i.i ]
   %call3.i45.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i46.i.not.i = icmp eq i64 %call3.i45.i.i, 0
   br i1 %cmp.i46.i.not.i, label %if.end27.i, label %if.then11.i
@@ -1918,7 +1918,7 @@ if.then.i30.i:                                    ; preds = %if.end15.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %outError, ptr noundef nonnull @.str.6) #18
   br label %nrvo.skipdtor
 
-_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i: ; preds = %if.then.i
+_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i: ; preds = %if.then.i.i
   %31 = add i8 %0, -49
   %32 = icmp ult i8 %31, 9
   br i1 %32, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i.i.i.i, label %if.end27.i
@@ -1942,11 +1942,11 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
   %35 = load i8, ptr %ref.tmp.sroa.0.1, align 1
   %.not.i.i.i.i.i.i.not = icmp eq i8 %35, 95
   %add.ptr.i.i.i.i.i.i39.i = getelementptr inbounds nuw i8, ptr %src.coerce0.pn, i64 2
-  %spec.select27 = select i1 %.not.i.i.i.i.i.i.not, ptr %add.ptr.i.i.i.i.i.i39.i, ptr %ref.tmp.sroa.0.1
+  %spec.select26 = select i1 %.not.i.i.i.i.i.i.not, ptr %add.ptr.i.i.i.i.i.i39.i, ptr %ref.tmp.sroa.0.1
   br label %_ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i.i
 
 _ZN6hermes6bigint12_GLOBAL__N_118NumericValueParser23numericLiteralSeparatorEv.exit.i.i.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i, %while.body.i.i.i.i
-  %ref.tmp.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.1, %while.body.i.i.i.i ], [ %spec.select27, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i ]
+  %ref.tmp.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.1, %while.body.i.i.i.i ], [ %spec.select26, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc95EEEENS_8OptValueIcEEv.exit.i.i.i.i.i.i ]
   %cmp.i.i.not.i3.i.i.i.i = icmp ult ptr %ref.tmp.sroa.0.2, %add.ptr.i.i.i
   br i1 %cmp.i.i.not.i3.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i7.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE21nonZeroDecimalLiteralEv.exit.i
 

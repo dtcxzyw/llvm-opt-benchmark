@@ -260,7 +260,7 @@ define dso_local void @ps2_drain(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %37 = select i1 %36, i64 %29, i64 1
   %38 = icmp ne i64 %37, 0
   %39 = select i1 %34, i1 %38, i1 false
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  br i1 %39, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %40 = phi i64 [ %48, %.lr.ph ], [ %37, %28 ]
@@ -274,14 +274,14 @@ define dso_local void @ps2_drain(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %48 = select i1 %47, i64 %41, i64 1
   %49 = icmp ne i64 %48, 0
   %50 = select i1 %45, i1 %49, i1 false
-  br i1 %50, label %.lr.ph, label %._crit_edge
+  br i1 %50, label %.lr.ph, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph, %28
+.critedge:                                        ; preds = %.lr.ph, %28
   call void @finish_wait(ptr noundef nonnull %30, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
   br label %51
 
-51:                                               ; preds = %._crit_edge, %7
+51:                                               ; preds = %.critedge, %7
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1088
   %54 = load ptr, ptr %53, align 8

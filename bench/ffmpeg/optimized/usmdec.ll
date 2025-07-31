@@ -777,10 +777,10 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %308, %298
-  %.sink194.i = phi i64 [ 48, %308 ], [ 56, %298 ]
-  %.sink192.i = phi i64 [ %316, %308 ], [ %307, %298 ]
-  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink194.i
-  store i64 %.sink192.i, ptr %317, align 8, !tbaa !63
+  %.sink192.i = phi i64 [ 48, %308 ], [ 56, %298 ]
+  %.sink190.i = phi i64 [ %316, %308 ], [ %307, %298 ]
+  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink192.i
+  store i64 %.sink190.i, ptr %317, align 8, !tbaa !63
   br label %318
 
 318:                                              ; preds = %.sink.split.i, %289
@@ -805,8 +805,8 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   br label %327
 
 327:                                              ; preds = %326, %323
-  %328 = phi i32 [ %322, %323 ], [ %40, %326 ]
-  %329 = phi i32 [ %325, %323 ], [ 100, %326 ]
+  %328 = phi i32 [ %40, %326 ], [ %322, %323 ]
+  %329 = phi i32 [ 100, %326 ], [ %325, %323 ]
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %288, i32 noundef 64, i32 noundef %329, i32 noundef %328) #8
   %330 = getelementptr inbounds nuw i8, ptr %288, i64 808
   store i32 3, ptr %330, align 8, !tbaa !65
@@ -909,8 +909,8 @@ parse_utf.exit.i:                                 ; preds = %367, %276, %50, %27
   %382 = icmp slt i64 %.336, 0
   br i1 %382, label %.thread46, label %9
 
-.thread46:                                        ; preds = %9, %381, %22, %32, %44, %335, %287, %2, %372, %switch.lookup, %68, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %379
-  %.128 = phi i64 [ %.0.i, %379 ], [ -1094995529, %switch.lookup ], [ -1094995529, %68 ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ %370, %parse_utf.exit.i ], [ %spec.select, %372 ], [ -541478725, %2 ], [ %.336, %9 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ %336, %335 ], [ -12, %287 ]
+.thread46:                                        ; preds = %9, %381, %22, %32, %44, %287, %335, %2, %372, %switch.lookup, %68, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %379
+  %.128 = phi i64 [ %.0.i, %379 ], [ -1094995529, %switch.lookup ], [ -1094995529, %68 ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ %370, %parse_utf.exit.i ], [ %spec.select, %372 ], [ -541478725, %2 ], [ %.336, %9 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ -12, %287 ], [ %336, %335 ]
   %383 = trunc i64 %.128 to i32
   br label %.thread42
 

@@ -1423,7 +1423,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   store ptr null, ptr %7, align 8, !tbaa !29
   %15 = call i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef %2, ptr noundef nonnull %7) #4
   %.not41.not = icmp eq i32 %15, 0
-  br i1 %.not41.not, label %34, label %16
+  br i1 %.not41.not, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %7, align 8, !tbaa !29
@@ -1441,7 +1441,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
 
 24:                                               ; preds = %18
   %25 = call ptr @OSSL_CMP_ITAV_new_rootCaKeyUpdate(ptr noundef null, ptr noundef null, ptr noundef null) #4
-  br label %.thread
+  br label %34
 
 26:                                               ; preds = %18, %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1451,14 +1451,10 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !23
   %33 = call ptr @OSSL_CMP_ITAV_new_rootCaKeyUpdate(ptr noundef %28, ptr noundef %30, ptr noundef %32) #4
-  br label %.thread
+  br label %34
 
-.thread:                                          ; preds = %24, %26
-  %.131.ph = phi ptr [ %33, %26 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  br label %97
-
-34:                                               ; preds = %14
+34:                                               ; preds = %24, %26
+  %.131 = phi ptr [ %25, %24 ], [ %33, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   br label %97
 
@@ -1467,7 +1463,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   store ptr null, ptr %8, align 8, !tbaa !44
   %36 = call i32 @OSSL_CMP_ITAV_get0_crlStatusList(ptr noundef %2, ptr noundef nonnull %8) #4
   %.not40.not = icmp eq i32 %36, 0
-  br i1 %.not40.not, label %70, label %37
+  br i1 %.not40.not, label %.critedge45, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %8, align 8, !tbaa !44
@@ -1485,9 +1481,9 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
 
 42:                                               ; preds = %37
   %43 = icmp eq ptr %40, null
-  br i1 %43, label %.thread46, label %44
+  br i1 %43, label %.thread, label %44
 
-.thread46:                                        ; preds = %42
+.thread:                                          ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
@@ -1525,19 +1521,19 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
 .critedge24.i:                                    ; preds = %54, %47
   %59 = load ptr, ptr %6, align 8, !tbaa !50
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread48, label %61
+  br i1 %60, label %.thread50, label %61
 
-.thread48:                                        ; preds = %.critedge24.i
+.thread50:                                        ; preds = %.critedge24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   br label %65
 
 check_client_crl.exit.thread.sink.split:          ; preds = %49, %51, %54, %37
-  %.sink54 = phi i32 [ 454, %37 ], [ 471, %54 ], [ 475, %51 ], [ 475, %49 ]
+  %.sink53 = phi i32 [ 454, %37 ], [ 471, %54 ], [ 475, %51 ], [ 475, %49 ]
   %.sink = phi i32 [ 201, %37 ], [ 200, %54 ], [ 150, %51 ], [ 150, %49 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink54, ptr noundef nonnull @__func__.check_client_crl) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink53, ptr noundef nonnull @__func__.check_client_crl) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %check_client_crl.exit.thread
 
@@ -1545,7 +1541,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  br label %.thread51
+  br label %70
 
 61:                                               ; preds = %.critedge24.i
   %62 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %40) #4
@@ -1556,21 +1552,17 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   %64 = icmp sgt i32 %63, -1
   br i1 %64, label %67, label %65
 
-65:                                               ; preds = %.thread48, %61
+65:                                               ; preds = %.thread50, %61
   %66 = load ptr, ptr %39, align 8, !tbaa !18
   br label %67
 
-67:                                               ; preds = %.thread46, %61, %65
-  %68 = phi ptr [ %66, %65 ], [ null, %61 ], [ null, %.thread46 ]
+67:                                               ; preds = %.thread, %61, %65
+  %68 = phi ptr [ %66, %65 ], [ null, %61 ], [ null, %.thread ]
   %69 = call ptr @OSSL_CMP_ITAV_new_crls(ptr noundef %68) #4
-  br label %.thread51
+  br label %70
 
-.thread51:                                        ; preds = %check_client_crl.exit.thread, %67
-  %.333.ph = phi ptr [ null, %check_client_crl.exit.thread ], [ %69, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  br label %97
-
-70:                                               ; preds = %35
+70:                                               ; preds = %check_client_crl.exit.thread, %67
+  %.333 = phi ptr [ %69, %67 ], [ null, %check_client_crl.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   br label %97
 
@@ -1600,28 +1592,28 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   %85 = tail call ptr @OSSL_CMP_ATAV_new_rsaKeyLen(i32 noundef 4096) #4
   %86 = call i32 @OSSL_CMP_ATAV_push1(ptr noundef nonnull %9, ptr noundef %84) #4
   %.not39 = icmp eq i32 %86, 0
-  br i1 %.not39, label %.critedge, label %87
+  br i1 %.not39, label %.critedge47, label %87
 
 87:                                               ; preds = %81
   %88 = call i32 @OSSL_CMP_ATAV_push1(ptr noundef nonnull %9, ptr noundef %85) #4
-  %.not53 = icmp eq i32 %88, 0
+  %.not52 = icmp eq i32 %88, 0
   call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %84) #4
   call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %85) #4
   call void @X509_ALGOR_free(ptr noundef nonnull %79) #4
-  br i1 %.not53, label %92, label %89
+  br i1 %.not52, label %92, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %9, align 8, !tbaa !55
   %91 = call ptr @OSSL_CMP_ITAV_new0_certReqTemplate(ptr noundef nonnull %72, ptr noundef %90) #4
   br label %94
 
-.critedge:                                        ; preds = %81
+.critedge47:                                      ; preds = %81
   call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %84) #4
   call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %85) #4
   call void @X509_ALGOR_free(ptr noundef nonnull %79) #4
   br label %92
 
-92:                                               ; preds = %.critedge, %87, %78, %74
+92:                                               ; preds = %.critedge47, %87, %78, %74
   call void @OSSL_CRMF_CERTTEMPLATE_free(ptr noundef nonnull %72) #4
   %93 = load ptr, ptr %9, align 8, !tbaa !55
   call void @OSSL_CMP_ATAVS_free(ptr noundef %93) #4
@@ -1636,8 +1628,16 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   %96 = tail call ptr @OSSL_CMP_ITAV_dup(ptr noundef %2) #4
   br label %97
 
-97:                                               ; preds = %10, %95, %.thread, %.thread51, %70, %34, %94
-  %.1 = phi ptr [ null, %34 ], [ null, %70 ], [ %.3, %94 ], [ %96, %95 ], [ %13, %10 ], [ %.131.ph, %.thread ], [ %.333.ph, %.thread51 ]
+.critedge:                                        ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  br label %97
+
+.critedge45:                                      ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  br label %97
+
+97:                                               ; preds = %10, %95, %34, %70, %.critedge45, %.critedge, %94
+  %.1 = phi ptr [ %.3, %94 ], [ null, %.critedge ], [ null, %.critedge45 ], [ %96, %95 ], [ %13, %10 ], [ %.131, %34 ], [ %.333, %70 ]
   ret ptr %.1
 }
 

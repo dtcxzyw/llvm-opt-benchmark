@@ -89,31 +89,31 @@ define internal i32 @hqx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load i32, ptr %17, align 1, !tbaa !30
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %28, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = add nuw i32 %18, 8
   %22 = icmp ugt i32 %21, %10
-  br i1 %22, label %28, label %.thread
+  br i1 %22, label %.critedge, label %23
 
-.thread:                                          ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %24 = zext nneg i32 %18 to i64
-  %25 = tail call i32 @ff_canopus_parse_info_tag(ptr noundef nonnull %0, ptr noundef nonnull %23, i64 noundef %24) #8
-  %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
-  %.pre = load ptr, ptr %7, align 8, !tbaa !27
-  %.pre116 = load i32, ptr %9, align 8, !tbaa !29
-  br label %29
-
-28:                                               ; preds = %16, %20
+.critedge:                                        ; preds = %20, %16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %18) #8
   br label %144
 
-29:                                               ; preds = %.thread, %13
-  %30 = phi i32 [ %10, %13 ], [ %.pre116, %.thread ]
-  %31 = phi ptr [ %8, %13 ], [ %.pre, %.thread ]
-  %.0102 = phi ptr [ %8, %13 ], [ %27, %.thread ]
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %25 = zext nneg i32 %18 to i64
+  %26 = tail call i32 @ff_canopus_parse_info_tag(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef %25) #8
+  %27 = zext nneg i32 %21 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 %27
+  %.pre = load ptr, ptr %7, align 8, !tbaa !27
+  %.pre114 = load i32, ptr %9, align 8, !tbaa !29
+  br label %29
+
+29:                                               ; preds = %23, %13
+  %30 = phi i32 [ %.pre114, %23 ], [ %10, %13 ]
+  %31 = phi ptr [ %.pre, %23 ], [ %8, %13 ]
+  %.0102 = phi ptr [ %28, %23 ], [ %8, %13 ]
   %32 = ptrtoint ptr %.0102 to i64
   %33 = ptrtoint ptr %31 to i64
   %.neg = sub i64 %33, %32
@@ -284,12 +284,12 @@ switch.lookup:                                    ; preds = %129
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.hqx_decode_frame, i64 0, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = zext nneg i32 %130 to i64
-  %switch.gep118 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.hqx_decode_frame.2, i64 0, i64 %134
-  %switch.load119 = load ptr, ptr %switch.gep118, align 8
+  %switch.gep116 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.hqx_decode_frame.2, i64 0, i64 %134
+  %switch.load117 = load ptr, ptr %switch.gep116, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %135, align 8, !tbaa !55
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 33304
-  store ptr %switch.load119, ptr %136, align 8, !tbaa !56
+  store ptr %switch.load117, ptr %136, align 8, !tbaa !56
   %137 = tail call i32 @ff_thread_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #8
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %144, label %139
@@ -302,8 +302,8 @@ switch.lookup:                                    ; preds = %129
   %143 = load i32, ptr %9, align 8, !tbaa !29
   br label %144
 
-144:                                              ; preds = %28, %switch.lookup, %105, %139, %132, %103, %88, %45, %39, %12
-  %.0101 = phi i32 [ -1094995529, %12 ], [ -1094995529, %39 ], [ -1094995529, %45 ], [ -1094995529, %88 ], [ -1094995529, %103 ], [ -1094995529, %132 ], [ %143, %139 ], [ -1094995529, %28 ], [ -1094995529, %105 ], [ %137, %switch.lookup ]
+144:                                              ; preds = %switch.lookup, %105, %.critedge, %139, %132, %103, %88, %45, %39, %12
+  %.0101 = phi i32 [ -1094995529, %12 ], [ -1094995529, %39 ], [ -1094995529, %45 ], [ -1094995529, %88 ], [ -1094995529, %103 ], [ -1094995529, %132 ], [ %143, %139 ], [ -1094995529, %.critedge ], [ -1094995529, %105 ], [ %137, %switch.lookup ]
   ret i32 %.0101
 }
 

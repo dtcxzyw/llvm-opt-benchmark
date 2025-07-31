@@ -25699,25 +25699,25 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail11parse_alignIcEEPKT_S
   %.130 = phi ptr [ %spec.select, %3 ], [ %0, %44 ]
   %17 = load i8, ptr %.130, align 1, !tbaa !7
   switch i8 %17, label %44 [
-    i8 60, label %.loopexit46.loopexit
-    i8 62, label %.loopexit46.loopexit66
-    i8 94, label %.loopexit46
+    i8 60, label %.loopexit.loopexit
+    i8 62, label %.loopexit.loopexit63
+    i8 94, label %.loopexit
   ]
 
-.loopexit46.loopexit:                             ; preds = %16
-  br label %.loopexit46
+.loopexit.loopexit:                               ; preds = %16
+  br label %.loopexit
 
-.loopexit46.loopexit66:                           ; preds = %16
-  br label %.loopexit46
+.loopexit.loopexit63:                             ; preds = %16
+  br label %.loopexit
 
-.loopexit46:                                      ; preds = %16, %.loopexit46.loopexit66, %.loopexit46.loopexit
-  %.132.ph = phi i32 [ 1, %.loopexit46.loopexit ], [ 2, %.loopexit46.loopexit66 ], [ 3, %16 ]
+.loopexit:                                        ; preds = %16, %.loopexit.loopexit63, %.loopexit.loopexit
+  %.132.ph = phi i32 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit63 ], [ 3, %16 ]
   %.not38 = icmp eq ptr %.130, %0
   br i1 %.not38, label %42, label %18
 
-18:                                               ; preds = %.loopexit46
+18:                                               ; preds = %.loopexit
   switch i8 %4, label %20 [
-    i8 125, label %.thread44
+    i8 125, label %.critedge
     i8 123, label %19
   ]
 
@@ -25737,7 +25737,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail11parse_alignIcEEPKT_S
   store i32 %28, ptr %2, align 4, !tbaa !121
   switch i64 %23, label %.lr.ph.i [
     i64 1, label %30
-    i64 0, label %.loopexit
+    i64 0, label %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit
   ]
 
 .lr.ph.i:                                         ; preds = %20
@@ -25752,7 +25752,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail11parse_alignIcEEPKT_S
   store i8 0, ptr %33, align 1, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 0, ptr %34, align 2, !tbaa !7
-  br label %.loopexit
+  br label %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit
 
 35:                                               ; preds = %35, %.lr.ph.i
   %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %35 ]
@@ -25763,32 +25763,32 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail11parse_alignIcEEPKT_S
   store i8 %37, ptr %39, align 1, !tbaa !7
   %40 = add nuw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %40, %23
-  br i1 %exitcond.not.i, label %.loopexit, label %35, !llvm.loop !512
+  br i1 %exitcond.not.i, label %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit, label %35, !llvm.loop !512
 
-.loopexit:                                        ; preds = %35, %30, %20
+_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit: ; preds = %35, %20, %30
   %41 = getelementptr inbounds nuw i8, ptr %.130, i64 1
-  br label %.loopexit47
+  br label %.loopexit44
 
-42:                                               ; preds = %.loopexit46
+42:                                               ; preds = %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %.loopexit47
+  br label %.loopexit44
 
 44:                                               ; preds = %16
   %45 = icmp eq ptr %.130, %0
-  br i1 %45, label %.loopexit47, label %16, !llvm.loop !513
+  br i1 %45, label %.loopexit44, label %16, !llvm.loop !513
 
-.loopexit47:                                      ; preds = %44, %.loopexit, %42
-  %.13242 = phi i32 [ %.132.ph, %.loopexit ], [ %.132.ph, %42 ], [ 0, %44 ]
-  %.134 = phi ptr [ %41, %.loopexit ], [ %43, %42 ], [ %0, %44 ]
+.loopexit44:                                      ; preds = %44, %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit, %42
+  %.13242 = phi i32 [ %.132.ph, %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit ], [ %.132.ph, %42 ], [ 0, %44 ]
+  %.134 = phi ptr [ %41, %_ZN3fmt3v1111basic_specs8set_fillIcEEvNS0_17basic_string_viewIT_EE.exit ], [ %43, %42 ], [ %0, %44 ]
   %46 = load i32, ptr %2, align 4, !tbaa !121
   %47 = and i32 %46, -57
   %48 = shl nuw nsw i32 %.13242, 3
   %49 = or i32 %47, %48
   store i32 %49, ptr %2, align 4, !tbaa !121
-  br label %.thread44
+  br label %.critedge
 
-.thread44:                                        ; preds = %18, %.loopexit47
-  %.1 = phi ptr [ %.134, %.loopexit47 ], [ %0, %18 ]
+.critedge:                                        ; preds = %18, %.loopexit44
+  %.1 = phi ptr [ %.134, %.loopexit44 ], [ %0, %18 ]
   ret ptr %.1
 }
 
@@ -32173,23 +32173,23 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v119formatterINSt6chrono8duratio
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 256)
   %18 = trunc i32 %17 to i8
   switch i8 %18, label %49 [
-    i8 60, label %.loopexit46.i.loopexit
-    i8 62, label %.loopexit46.i.loopexit68
-    i8 94, label %.loopexit46.i
+    i8 60, label %.loopexit.i.loopexit
+    i8 62, label %.loopexit.i.loopexit68
+    i8 94, label %.loopexit.i
   ]
 
-.loopexit46.i.loopexit:                           ; preds = %15
-  br label %.loopexit46.i
+.loopexit.i.loopexit:                             ; preds = %15
+  br label %.loopexit.i
 
-.loopexit46.i.loopexit68:                         ; preds = %15
-  br label %.loopexit46.i
+.loopexit.i.loopexit68:                           ; preds = %15
+  br label %.loopexit.i
 
-.loopexit46.i:                                    ; preds = %15, %.loopexit46.i.loopexit68, %.loopexit46.i.loopexit
-  %.132.ph.i = phi i32 [ 1, %.loopexit46.i.loopexit ], [ 2, %.loopexit46.i.loopexit68 ], [ 3, %15 ]
+.loopexit.i:                                      ; preds = %15, %.loopexit.i.loopexit68, %.loopexit.i.loopexit
+  %.132.ph.i = phi i32 [ 1, %.loopexit.i.loopexit ], [ 2, %.loopexit.i.loopexit68 ], [ 3, %15 ]
   %.not38.i = icmp eq ptr %.130.i, %4
-  br i1 %.not38.i, label %.loopexit47.i, label %19
+  br i1 %.not38.i, label %.loopexit44.i, label %19
 
-19:                                               ; preds = %.loopexit46.i
+19:                                               ; preds = %.loopexit.i
   switch i32 %10, label %21 [
     i32 125, label %_ZN3fmt3v116detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsE.exit
     i32 123, label %20
@@ -32212,7 +32212,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v119formatterINSt6chrono8duratio
   store i32 %30, ptr %0, align 8, !tbaa !121
   switch i64 %25, label %.lr.ph.i.i [
     i64 1, label %32
-    i64 0, label %.loopexit.i
+    i64 0, label %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i
   ]
 
 .lr.ph.i.i:                                       ; preds = %21
@@ -32231,7 +32231,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v119formatterINSt6chrono8duratio
   %39 = trunc i32 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i8 %39, ptr %40, align 2, !tbaa !7
-  br label %.loopexit.i
+  br label %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i
 
 41:                                               ; preds = %41, %.lr.ph.i.i
   %.013.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %47, %41 ]
@@ -32243,19 +32243,19 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v119formatterINSt6chrono8duratio
   store i8 %44, ptr %46, align 1, !tbaa !7
   %47 = add nuw i64 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, %25
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %41, !llvm.loop !633
+  br i1 %exitcond.not.i.i, label %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i, label %41, !llvm.loop !633
 
-.loopexit.i:                                      ; preds = %41, %32, %21
+_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i: ; preds = %41, %32, %21
   %48 = getelementptr inbounds nuw i8, ptr %.130.i, i64 4
-  br label %.loopexit47.i
+  br label %.loopexit44.i
 
 49:                                               ; preds = %15
   %50 = icmp eq ptr %.130.i, %4
-  br i1 %50, label %.loopexit47.i, label %15, !llvm.loop !634
+  br i1 %50, label %.loopexit44.i, label %15, !llvm.loop !634
 
-.loopexit47.i:                                    ; preds = %49, %.loopexit.i, %.loopexit46.i
-  %.13242.i = phi i32 [ %.132.ph.i, %.loopexit.i ], [ %.132.ph.i, %.loopexit46.i ], [ 0, %49 ]
-  %.134.i = phi ptr [ %48, %.loopexit.i ], [ %13, %.loopexit46.i ], [ %4, %49 ]
+.loopexit44.i:                                    ; preds = %49, %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i, %.loopexit.i
+  %.13242.i = phi i32 [ %.132.ph.i, %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i ], [ %.132.ph.i, %.loopexit.i ], [ 0, %49 ]
+  %.134.i = phi ptr [ %48, %_ZN3fmt3v1111basic_specs8set_fillIwEEvNS0_17basic_string_viewIT_EE.exit.i ], [ %13, %.loopexit.i ], [ %4, %49 ]
   %51 = load i32, ptr %0, align 8, !tbaa !121
   %52 = and i32 %51, -57
   %53 = shl nuw nsw i32 %.13242.i, 3
@@ -32263,8 +32263,8 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v119formatterINSt6chrono8duratio
   store i32 %54, ptr %0, align 8, !tbaa !121
   br label %_ZN3fmt3v116detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsE.exit
 
-_ZN3fmt3v116detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsE.exit: ; preds = %19, %.loopexit47.i
-  %.1.i = phi ptr [ %.134.i, %.loopexit47.i ], [ %4, %19 ]
+_ZN3fmt3v116detail11parse_alignIwEEPKT_S5_S5_RNS0_12format_specsE.exit: ; preds = %19, %.loopexit44.i
+  %.1.i = phi ptr [ %.134.i, %.loopexit44.i ], [ %4, %19 ]
   %55 = icmp eq ptr %.1.i, %7
   br i1 %55, label %100, label %56
 

@@ -9774,13 +9774,13 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 228
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %._crit_edge.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %._crit_edge, label %22
+  br i1 %21, label %._crit_edge.thread, label %22
 
 22:                                               ; preds = %18
   %23 = add nsw i32 %20, -1
@@ -9816,7 +9816,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %.promoted = phi i32 [ %20, %31 ], [ %.promoted.pre, %41 ], [ %20, %22 ]
   %43 = phi i32 [ %16, %31 ], [ %.pre, %41 ], [ %16, %22 ]
   %44 = icmp sgt i32 %.promoted, %43
-  br i1 %44, label %._crit_edge.thread, label %.lr.ph
+  br i1 %44, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %54
   %45 = phi i32 [ %55, %54 ], [ %.promoted, %42 ]
@@ -9829,15 +9829,15 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %52 = getelementptr inbounds i32, ptr %10, i64 %51
   %53 = load i32, ptr %52, align 4
   %.not.not = icmp slt i32 %49, %53
-  br i1 %.not.not, label %54, label %._crit_edge
+  br i1 %.not.not, label %54, label %._crit_edge.thread
 
 54:                                               ; preds = %.lr.ph
   %55 = add nsw i32 %45, 1
   store i32 %55, ptr %19, align 8
   %.not = icmp slt i32 %45, %43
-  br i1 %.not, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !78
+  br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %.lr.ph, %18
+._crit_edge.thread:                               ; preds = %.lr.ph, %18
   %.1 = phi ptr [ %13, %18 ], [ %47, %.lr.ph ]
   %56 = icmp eq i32 %2, 0
   %57 = load i32, ptr %.1, align 4
@@ -9845,7 +9845,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 76
   br i1 %56, label %60, label %74
 
-60:                                               ; preds = %._crit_edge
+60:                                               ; preds = %._crit_edge.thread
   store i32 %57, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %62 = load i32, ptr %61, align 4
@@ -9866,7 +9866,7 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   store i32 %71, ptr %73, align 4
   br label %131
 
-74:                                               ; preds = %._crit_edge
+74:                                               ; preds = %._crit_edge.thread
   %75 = add nsw i32 %2, -1
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds [4 x %struct.extCard], ptr %59, i64 0, i64 %76
@@ -10018,9 +10018,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %174 = load i32, ptr %19, align 8
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %19, align 8
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %54, %42, %4, %.loopexit
+.critedge:                                        ; preds = %54, %42, %4, %.loopexit
   %.087 = phi ptr [ %.1, %.loopexit ], [ null, %4 ], [ null, %42 ], [ null, %54 ]
   ret ptr %.087
 }
@@ -11134,7 +11134,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftR
 define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(212) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge.thread
+  br i1 %7, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11144,7 +11144,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !98
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !98
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -11162,44 +11162,44 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
   store i32 %18, ptr %16, align 4
   br label %46
 
-._crit_edge:                                      ; preds = %9
+.critedge:                                        ; preds = %9
   %19 = icmp sgt i32 %6, 12
-  br i1 %19, label %20, label %._crit_edge.thread
+  br i1 %19, label %20, label %.critedge.thread
 
-20:                                               ; preds = %._crit_edge
+20:                                               ; preds = %.critedge
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.26)
   %22 = load i32, ptr %1, align 4
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %22)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %25 = load i32, ptr %1, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph43, label %._crit_edge44
+  br i1 %26, label %.lr.ph40, label %._crit_edge
 
-.lr.ph43:                                         ; preds = %20
+.lr.ph40:                                         ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28
 
-28:                                               ; preds = %.lr.ph43, %28
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next48, %28 ]
-  %29 = trunc nuw nsw i64 %indvars.iv47 to i32
+28:                                               ; preds = %.lr.ph40, %28
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next44, %28 ]
+  %29 = trunc nuw nsw i64 %indvars.iv43 to i32
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %29)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.27)
-  %.idx35 = shl nuw nsw i64 %indvars.iv47, 4
+  %.idx35 = shl nuw nsw i64 %indvars.iv43, 4
   %32 = getelementptr i8, ptr %27, i64 %.idx35
   %33 = load i32, ptr %32, align 4
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %33)
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.17)
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %36 = load i32, ptr %1, align 4
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next48, %37
-  br i1 %38, label %28, label %._crit_edge44, !llvm.loop !99
+  %38 = icmp slt i64 %indvars.iv.next44, %37
+  br i1 %38, label %28, label %._crit_edge, !llvm.loop !99
 
-._crit_edge44:                                    ; preds = %28, %20
+._crit_edge:                                      ; preds = %28, %20
   tail call void @exit(i32 noundef 1) #22
   unreachable
 
-._crit_edge.thread:                               ; preds = %5, %._crit_edge
+.critedge.thread:                                 ; preds = %5, %.critedge
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = add nsw i32 %6, 1
   store i32 %40, ptr %1, align 4
@@ -11212,13 +11212,13 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull re
   store i32 %2, ptr %45, align 4
   br label %46
 
-46:                                               ; preds = %._crit_edge.thread, %14
-  %.sink56 = phi ptr [ %42, %._crit_edge.thread ], [ %16, %14 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
+46:                                               ; preds = %.critedge.thread, %14
+  %.sink52 = phi ptr [ %42, %.critedge.thread ], [ %16, %14 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %3
   store i32 %49, ptr %47, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.sink56, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.sink52, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %4
   store i32 %52, ptr %50, align 4

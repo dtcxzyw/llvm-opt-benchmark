@@ -1211,27 +1211,27 @@ declare i32 @H5Tget_nmembers(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #4 {
-  %strchr25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 44)
-  %.not26 = icmp eq ptr %strchr25, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %strchr23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 44)
+  %.not24 = icmp eq ptr %strchr23, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %11
-  %strchr28 = phi ptr [ %strchr, %11 ], [ %strchr25, %2 ]
-  %.01727 = phi ptr [ %12, %11 ], [ %1, %2 ]
-  %3 = ptrtoint ptr %strchr28 to i64
-  %4 = ptrtoint ptr %.01727 to i64
+  %strchr26 = phi ptr [ %strchr, %11 ], [ %strchr23, %2 ]
+  %.01725 = phi ptr [ %12, %11 ], [ %1, %2 ]
+  %3 = ptrtoint ptr %strchr26 to i64
+  %4 = ptrtoint ptr %.01725 to i64
   %5 = sub i64 %3, %4
-  %6 = tail call i32 @strncmp(ptr noundef nonnull %.01727, ptr noundef nonnull %0, i64 noundef %5) #15
+  %6 = tail call i32 @strncmp(ptr noundef nonnull %.01725, ptr noundef nonnull %0, i64 noundef %5) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %10 = icmp eq i64 %5, %9
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
-11:                                               ; preds = %.lr.ph, %8
-  %12 = getelementptr inbounds nuw i8, ptr %strchr28, i64 1
+11:                                               ; preds = %8, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %strchr26, i64 1
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 44)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -1241,9 +1241,9 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull readonly 
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %14 = tail call i32 @strncmp(ptr noundef nonnull %.017.lcssa, ptr noundef nonnull %0, i64 noundef %13) #15
   %15 = icmp eq i32 %14, 0
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %8, %._crit_edge
+.critedge:                                        ; preds = %8, %._crit_edge
   %.0 = phi i1 [ %15, %._crit_edge ], [ true, %8 ]
   ret i1 %.0
 }

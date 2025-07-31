@@ -151,11 +151,11 @@ define dso_local ptr @_PyArena_Malloc(ptr noundef captures(none) %0, i64 noundef
   store i64 %24, ptr %25, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %26, align 8, !tbaa !12
-  %.pre21.i = add i64 %24, %6
+  %.pre20.i = add i64 %24, %6
   br label %block_alloc.exit
 
 block_alloc.exit:                                 ; preds = %._crit_edge.i, %17
-  %.pre-phi.i = phi i64 [ %9, %._crit_edge.i ], [ %.pre21.i, %17 ]
+  %.pre-phi.i = phi i64 [ %9, %._crit_edge.i ], [ %.pre20.i, %17 ]
   %27 = phi i64 [ %8, %._crit_edge.i ], [ %24, %17 ]
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %18, %17 ]
   %.017.i = phi ptr [ %4, %._crit_edge.i ], [ %16, %17 ]

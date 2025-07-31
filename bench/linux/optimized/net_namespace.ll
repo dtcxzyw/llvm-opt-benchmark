@@ -2649,14 +2649,10 @@ define internal void @cleanup_net(ptr readnone captures(none) %0) #0 align 16 {
   call void @down_write(ptr noundef nonnull @net_rwsem) #17
   %6 = getelementptr i8, ptr %5, i64 -64
   %7 = icmp eq ptr %6, inttoptr (i64 -64 to ptr)
-  br i1 %7, label %.thread, label %.preheader30
+  br i1 %7, label %.critedge, label %.preheader29
 
-.thread:                                          ; preds = %1
-  call void @up_write(ptr noundef nonnull @net_rwsem) #17
-  br label %.loopexit29
-
-.preheader30:                                     ; preds = %1, %.preheader30
-  %8 = phi ptr [ %16, %.preheader30 ], [ %6, %1 ]
+.preheader29:                                     ; preds = %1, %.preheader29
+  %8 = phi ptr [ %16, %.preheader29 ], [ %6, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
@@ -2669,9 +2665,9 @@ define internal void @cleanup_net(ptr readnone captures(none) %0) #0 align 16 {
   %15 = load ptr, ptr %14, align 64
   %16 = getelementptr i8, ptr %15, i64 -64
   %17 = icmp eq ptr %16, inttoptr (i64 -64 to ptr)
-  br i1 %17, label %18, label %.preheader30, !llvm.loop !47
+  br i1 %17, label %18, label %.preheader29, !llvm.loop !47
 
-18:                                               ; preds = %.preheader30
+18:                                               ; preds = %.preheader29
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @net_namespace_list, i64 8), align 8
   call void @up_write(ptr noundef nonnull @net_rwsem) #17
   br label %20
@@ -2680,10 +2676,14 @@ define internal void @cleanup_net(ptr readnone captures(none) %0) #0 align 16 {
   %21 = phi ptr [ %95, %87 ], [ %6, %18 ]
   br label %24
 
-.loopexit29:                                      ; preds = %87, %.thread
+.critedge:                                        ; preds = %1
+  call void @up_write(ptr noundef nonnull @net_rwsem) #17
+  br label %.loopexit28
+
+.loopexit28:                                      ; preds = %87, %.critedge
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %23 = icmp eq ptr %22, @pernet_list
-  br i1 %23, label %.loopexit28, label %.preheader27
+  br i1 %23, label %.loopexit27, label %.preheader26
 
 24:                                               ; preds = %rtnl_net_notifyid.exit, %20
   %25 = phi ptr [ %26, %rtnl_net_notifyid.exit ], [ @net_namespace_list, %20 ]
@@ -2812,98 +2812,98 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
   %94 = load ptr, ptr %93, align 64
   %95 = getelementptr i8, ptr %94, i64 -64
   %96 = icmp eq ptr %95, inttoptr (i64 -64 to ptr)
-  br i1 %96, label %.loopexit29, label %20, !llvm.loop !51
+  br i1 %96, label %.loopexit28, label %20, !llvm.loop !51
 
-.preheader27:                                     ; preds = %.loopexit29, %.loopexit26
-  %97 = phi ptr [ %110, %.loopexit26 ], [ %22, %.loopexit29 ]
+.preheader26:                                     ; preds = %.loopexit28, %.loopexit25
+  %97 = phi ptr [ %110, %.loopexit25 ], [ %22, %.loopexit28 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   %101 = load ptr, ptr %3, align 8
   %102 = icmp eq ptr %101, %3
   %103 = select i1 %100, i1 true, i1 %102
-  br i1 %103, label %.loopexit26, label %.preheader25
+  br i1 %103, label %.loopexit25, label %.preheader24
 
-.preheader25:                                     ; preds = %.preheader27, %.preheader25
-  %104 = phi ptr [ %107, %.preheader25 ], [ %101, %.preheader27 ]
+.preheader24:                                     ; preds = %.preheader26, %.preheader24
+  %104 = phi ptr [ %107, %.preheader24 ], [ %101, %.preheader26 ]
   %105 = getelementptr i8, ptr %104, i64 -48
   %106 = load ptr, ptr %98, align 8
   call void %106(ptr noundef %105) #17
   %107 = load ptr, ptr %104, align 8
   %108 = icmp eq ptr %107, %3
-  br i1 %108, label %.loopexit26, label %.preheader25, !llvm.loop !30
+  br i1 %108, label %.loopexit25, label %.preheader24, !llvm.loop !30
 
-.loopexit26:                                      ; preds = %.preheader25, %.preheader27
+.loopexit25:                                      ; preds = %.preheader24, %.preheader26
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, @pernet_list
-  br i1 %111, label %.loopexit28, label %.preheader27, !llvm.loop !52
+  br i1 %111, label %.loopexit27, label %.preheader26, !llvm.loop !52
 
-.loopexit28:                                      ; preds = %.loopexit26, %.loopexit29
+.loopexit27:                                      ; preds = %.loopexit25, %.loopexit28
   call void @synchronize_rcu() #17
   %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %113 = icmp eq ptr %112, @pernet_list
-  br i1 %113, label %.thread17, label %.preheader24
+  br i1 %113, label %.thread, label %.preheader23
 
 114:                                              ; preds = %133
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %115 = icmp eq ptr %.pr, @pernet_list
-  br i1 %115, label %.thread17, label %.preheader21
+  br i1 %115, label %.thread, label %.preheader20
 
-.preheader24:                                     ; preds = %.loopexit28, %133
-  %116 = phi ptr [ %135, %133 ], [ %112, %.loopexit28 ]
+.preheader23:                                     ; preds = %.loopexit27, %133
+  %116 = phi ptr [ %135, %133 ], [ %112, %.loopexit27 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   %120 = load ptr, ptr %3, align 8
   %121 = icmp eq ptr %120, %3
   %122 = select i1 %119, i1 true, i1 %121
-  br i1 %122, label %.loopexit23, label %.preheader22
+  br i1 %122, label %.loopexit22, label %.preheader21
 
-.preheader22:                                     ; preds = %.preheader24, %.preheader22
-  %123 = phi ptr [ %127, %.preheader22 ], [ %120, %.preheader24 ]
+.preheader21:                                     ; preds = %.preheader23, %.preheader21
+  %123 = phi ptr [ %127, %.preheader21 ], [ %120, %.preheader23 ]
   %124 = getelementptr i8, ptr %123, i64 -48
   %125 = load ptr, ptr %117, align 8
   call void %125(ptr noundef %124) #17
   %126 = call i32 @__SCT__cond_resched() #17
   %127 = load ptr, ptr %123, align 8
   %128 = icmp eq ptr %127, %3
-  br i1 %128, label %.loopexit23, label %.preheader22, !llvm.loop !32
+  br i1 %128, label %.loopexit22, label %.preheader21, !llvm.loop !32
 
-.loopexit23:                                      ; preds = %.preheader22, %.preheader24
+.loopexit22:                                      ; preds = %.preheader21, %.preheader23
   %129 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %133, label %132
 
-132:                                              ; preds = %.loopexit23
+132:                                              ; preds = %.loopexit22
   call void %130(ptr noundef nonnull %3) #17
   br label %133
 
-133:                                              ; preds = %132, %.loopexit23
+133:                                              ; preds = %132, %.loopexit22
   %134 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, @pernet_list
-  br i1 %136, label %114, label %.preheader24, !llvm.loop !53
+  br i1 %136, label %114, label %.preheader23, !llvm.loop !53
 
-.preheader21:                                     ; preds = %114, %.loopexit20
-  %137 = phi ptr [ %159, %.loopexit20 ], [ %.pr, %114 ]
+.preheader20:                                     ; preds = %114, %.loopexit19
+  %137 = phi ptr [ %159, %.loopexit19 ], [ %.pr, %114 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %.loopexit20, label %141
+  br i1 %140, label %.loopexit19, label %141
 
-141:                                              ; preds = %.preheader21
+141:                                              ; preds = %.preheader20
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   %145 = load ptr, ptr %3, align 8
   %146 = icmp eq ptr %145, %3
   %147 = select i1 %144, i1 true, i1 %146
-  br i1 %147, label %.loopexit20, label %.preheader19
+  br i1 %147, label %.loopexit19, label %.preheader18
 
-.preheader19:                                     ; preds = %141, %.preheader19
-  %148 = phi ptr [ %156, %.preheader19 ], [ %145, %141 ]
+.preheader18:                                     ; preds = %141, %.preheader18
+  %148 = phi ptr [ %156, %.preheader18 ], [ %145, %141 ]
   %149 = load ptr, ptr %142, align 8
   %150 = load i32, ptr %149, align 4
   call void @__rcu_read_lock() #17
@@ -2916,23 +2916,23 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
   call void @kfree(ptr noundef %155) #17
   %156 = load ptr, ptr %148, align 8
   %157 = icmp eq ptr %156, %3
-  br i1 %157, label %.loopexit20, label %.preheader19, !llvm.loop !34
+  br i1 %157, label %.loopexit19, label %.preheader18, !llvm.loop !34
 
-.loopexit20:                                      ; preds = %.preheader19, %141, %.preheader21
+.loopexit19:                                      ; preds = %.preheader18, %141, %.preheader20
   %158 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, @pernet_list
-  br i1 %160, label %.thread17, label %.preheader21, !llvm.loop !54
+  br i1 %160, label %.thread, label %.preheader20, !llvm.loop !54
 
-.thread17:                                        ; preds = %.loopexit20, %.loopexit28, %114
+.thread:                                          ; preds = %.loopexit19, %.loopexit27, %114
   call void @up_read(ptr noundef nonnull @pernet_ops_rwsem) #17
   call void @rcu_barrier() #17
   %161 = load ptr, ptr %3, align 8
   %162 = icmp eq ptr %161, %3
   br i1 %162, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread17, %.thread18
-  %163 = phi ptr [ %165, %.thread18 ], [ %161, %.thread17 ]
+.preheader:                                       ; preds = %.thread, %.thread17
+  %163 = phi ptr [ %165, %.thread17 ], [ %161, %.thread ]
   %164 = getelementptr i8, ptr %163, i64 -48
   %165 = load ptr, ptr %163, align 16
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -2954,11 +2954,11 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
 
 175:                                              ; preds = %.preheader
   %176 = icmp sgt i32 %173, 0
-  br i1 %176, label %.thread18, label %177, !prof !11
+  br i1 %176, label %.thread17, label %177, !prof !11
 
 177:                                              ; preds = %175
   call void @refcount_warn_saturate(ptr noundef %164, i32 noundef 3) #17
-  br label %.thread18
+  br label %.thread17
 
 178:                                              ; preds = %.preheader
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
@@ -2967,13 +2967,13 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
   call void @kfree(ptr noundef %180) #17
   %181 = load ptr, ptr @net_cachep, align 8
   call void @kmem_cache_free(ptr noundef %181, ptr noundef %164) #17
-  br label %.thread18
+  br label %.thread17
 
-.thread18:                                        ; preds = %175, %177, %178
+.thread17:                                        ; preds = %175, %177, %178
   %182 = icmp eq ptr %165, %3
   br i1 %182, label %.loopexit, label %.preheader, !llvm.loop !55
 
-.loopexit:                                        ; preds = %.thread18, %.thread17
+.loopexit:                                        ; preds = %.thread17, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   ret void
 }

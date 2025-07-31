@@ -3988,12 +3988,12 @@ if.then.i:                                        ; preds = %if.then91
   %58 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
-  br label %cleanup160
+  br label %cleanup
 
 if.else.i:                                        ; preds = %if.then91
   %errors_99 = getelementptr inbounds nuw i8, ptr %55, i64 64
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_99, ptr %56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100)
-  br label %cleanup160
+  br label %cleanup
 
 if.end103:                                        ; preds = %if.end84
   %call104 = call noundef zeroext i1 @_ZN4node6crypto18ProcessFipsOptionsEv() #22
@@ -4017,7 +4017,7 @@ if.then105:                                       ; preds = %if.end103
   %call.i61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, i64 noundef 0, ptr noundef nonnull @.str.119) #22, !noalias !57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %call.i61) #22
   %call116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors_113, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114)
-  br label %cleanup160
+  br label %cleanup
 
 do.body:                                          ; preds = %if.end103
   %call119 = call i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef null, i64 noundef 0) #22
@@ -4035,18 +4035,26 @@ do.end127:                                        ; preds = %do.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp130, i8 0, i64 16, i1 false)
   %call131 = call noundef zeroext i1 @_ZN4node11credentials10SafeGetenvEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_7KVStoreEEPN2v87IsolateE(ptr noundef nonnull @.str.123, ptr noundef nonnull %extra_ca_certs, ptr noundef nonnull %agg.tmp130, ptr noundef null) #22
   call void @_ZNSt10shared_ptrIN4node7KVStoreEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp130) #22
-  br i1 %call131, label %if.then132, label %cleanup
+  br i1 %call131, label %if.then132, label %if.end133
 
 if.then132:                                       ; preds = %do.end127
   call void @_ZN4node6crypto15UseExtraCaCertsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %extra_ca_certs) #22
-  br label %cleanup
+  br label %if.end133
 
-cleanup:                                          ; preds = %do.end127, %if.then132
+if.end133:                                        ; preds = %if.then132, %do.end127
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extra_ca_certs) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %env_openssl_conf) #22
   br label %if.end134
 
-if.end134:                                        ; preds = %cleanup, %if.end64
+cleanup:                                          ; preds = %if.else.i, %if.then.i, %if.then105
+  %ref.tmp114.sink = phi ptr [ %ref.tmp114, %if.then105 ], [ %ref.tmp100, %if.then.i ], [ %ref.tmp100, %if.else.i ]
+  %ref.tmp115.sink = phi ptr [ %ref.tmp115, %if.then105 ], [ %ref.tmp101, %if.then.i ], [ %ref.tmp101, %if.else.i ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114.sink) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115.sink) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %env_openssl_conf) #22
+  br label %nrvo.skipdtor
+
+if.end134:                                        ; preds = %if.end133, %if.end64
   %and135 = and i32 %flags, 128
   %tobool136.not = icmp eq i32 %and135, 0
   br i1 %tobool136.not, label %if.then137, label %if.end141
@@ -4102,15 +4110,7 @@ if.end158:                                        ; preds = %if.end157, %if.end1
   store i8 1, ptr @_ZN4node11per_process14v8_initializedE, align 1
   br label %nrvo.skipdtor
 
-cleanup160:                                       ; preds = %if.else.i, %if.then.i, %if.then105
-  %ref.tmp100.sink = phi ptr [ %ref.tmp114, %if.then105 ], [ %ref.tmp100, %if.then.i ], [ %ref.tmp100, %if.else.i ]
-  %ref.tmp101.sink = phi ptr [ %ref.tmp115, %if.then105 ], [ %ref.tmp101, %if.then.i ], [ %ref.tmp101, %if.else.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100.sink) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101.sink) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %env_openssl_conf) #22
-  br label %nrvo.skipdtor
-
-nrvo.skipdtor:                                    ; preds = %cleanup160, %if.then10, %if.end158, %if.then39, %if.then48, %if.then58
+nrvo.skipdtor:                                    ; preds = %cleanup, %if.then10, %if.end158, %if.then39, %if.then48, %if.then58
   ret void
 }
 

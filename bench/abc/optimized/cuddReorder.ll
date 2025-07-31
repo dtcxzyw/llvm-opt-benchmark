@@ -23,7 +23,7 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = sub i32 %5, %7
   %9 = icmp ult i32 %8, %2
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = icmp eq i32 %1, 0
@@ -37,7 +37,7 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 15:                                               ; preds = %12, %10
   %.058 = phi i32 [ %14, %12 ], [ %1, %10 ]
   %16 = icmp eq i32 %.058, 1
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 452
@@ -46,9 +46,9 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   store i32 %20, ptr %18, align 4, !tbaa !26
   %21 = tail call i64 (...) @Extra_CpuTime() #12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %.05982 = load ptr, ptr %22, align 8, !tbaa !27
-  %.not83 = icmp eq ptr %.05982, null
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %.05981 = load ptr, ptr %22, align 8, !tbaa !27
+  %.not82 = icmp eq ptr %.05981, null
+  br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %23 = zext i32 %.058 to i64
@@ -56,17 +56,17 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br label %27
 
 25:                                               ; preds = %27
-  %26 = getelementptr inbounds nuw i8, ptr %.05984, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.05983, i64 8
   %.059 = load ptr, ptr %26, align 8, !tbaa !27
   %.not = icmp eq ptr %.059, null
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !28
 
 27:                                               ; preds = %.lr.ph, %25
-  %.05984 = phi ptr [ %.05982, %.lr.ph ], [ %.059, %25 ]
-  %28 = load ptr, ptr %.05984, align 8, !tbaa !30
+  %.05983 = phi ptr [ %.05981, %.lr.ph ], [ %.059, %25 ]
+  %28 = load ptr, ptr %.05983, align 8, !tbaa !30
   %29 = tail call i32 %28(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %24) #12
   %.not76 = icmp eq i32 %29, 0
-  br i1 %.not76, label %.thread, label %25
+  br i1 %.not76, label %.critedge, label %25
 
 ._crit_edge:                                      ; preds = %25, %17
   tail call void @cuddCacheFlush(ptr noundef %0) #12
@@ -108,8 +108,8 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 ddReorderPreprocess.exit:                         ; preds = %46, %._crit_edge
   %48 = tail call i32 @cuddInitInteract(ptr noundef nonnull %0) #12
-  %.not80 = icmp eq i32 %48, 0
-  br i1 %.not80, label %.thread, label %49
+  %.not79 = icmp eq i32 %48, 0
+  br i1 %.not79, label %.critedge, label %49
 
 49:                                               ; preds = %ddReorderPreprocess.exit
   store i32 0, ptr @ddTotalNumberSwapping, align 4, !tbaa !38
@@ -152,7 +152,7 @@ ddReorderPreprocess.exit:                         ; preds = %46, %._crit_edge
 70:                                               ; preds = %68, %62
   %.065 = phi i32 [ %67, %62 ], [ %69, %68 ]
   %71 = icmp eq i32 %.065, 0
-  br i1 %71, label %.thread, label %72
+  br i1 %71, label %.critedge, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -174,7 +174,7 @@ ddReorderPostprocess.exit:                        ; preds = %72, %75
 78:                                               ; preds = %ddReorderPostprocess.exit
   %79 = tail call i32 @cuddZddAlignToBdd(ptr noundef nonnull %0) #12
   %.not73 = icmp eq i32 %79, 0
-  br i1 %.not73, label %.thread, label %80
+  br i1 %.not73, label %.critedge, label %80
 
 80:                                               ; preds = %78, %ddReorderPostprocess.exit
   %81 = load i32, ptr %4, align 4, !tbaa !3
@@ -208,38 +208,38 @@ ddReorderPostprocess.exit:                        ; preds = %72, %75
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 1, ptr %99, align 8, !tbaa !47
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %.26185 = load ptr, ptr %100, align 8, !tbaa !27
-  %.not7486 = icmp eq ptr %.26185, null
-  br i1 %.not7486, label %._crit_edge90, label %.lr.ph89
+  %.26184 = load ptr, ptr %100, align 8, !tbaa !27
+  %.not7485 = icmp eq ptr %.26184, null
+  br i1 %.not7485, label %._crit_edge89, label %.lr.ph88
 
-.lr.ph89:                                         ; preds = %98
+.lr.ph88:                                         ; preds = %98
   %101 = inttoptr i64 %21 to ptr
   br label %104
 
 102:                                              ; preds = %104
-  %103 = getelementptr inbounds nuw i8, ptr %.26187, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.26186, i64 8
   %.261 = load ptr, ptr %103, align 8, !tbaa !27
   %.not74 = icmp eq ptr %.261, null
-  br i1 %.not74, label %._crit_edge90, label %104, !llvm.loop !48
+  br i1 %.not74, label %._crit_edge89, label %104, !llvm.loop !48
 
-104:                                              ; preds = %.lr.ph89, %102
-  %.26187 = phi ptr [ %.26185, %.lr.ph89 ], [ %.261, %102 ]
-  %105 = load ptr, ptr %.26187, align 8, !tbaa !30
+104:                                              ; preds = %.lr.ph88, %102
+  %.26186 = phi ptr [ %.26184, %.lr.ph88 ], [ %.261, %102 ]
+  %105 = load ptr, ptr %.26186, align 8, !tbaa !30
   %106 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef %101) #12
   %.not75 = icmp eq i32 %106, 0
-  br i1 %.not75, label %.thread, label %102
+  br i1 %.not75, label %.critedge, label %102
 
-._crit_edge90:                                    ; preds = %102, %98
+._crit_edge89:                                    ; preds = %102, %98
   %107 = tail call i64 (...) @Extra_CpuTime() #12
   %108 = sub i64 %107, %21
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %110 = load i64, ptr %109, align 8, !tbaa !49
   %111 = add nsw i64 %108, %110
   store i64 %111, ptr %109, align 8, !tbaa !49
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %27, %104, %78, %70, %ddReorderPreprocess.exit, %15, %3, %._crit_edge90
-  %.0 = phi i32 [ %.065, %._crit_edge90 ], [ 1, %3 ], [ 1, %15 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %70 ], [ 0, %78 ], [ 0, %104 ], [ 0, %27 ]
+.critedge:                                        ; preds = %27, %104, %78, %70, %ddReorderPreprocess.exit, %15, %3, %._crit_edge89
+  %.0 = phi i32 [ %.065, %._crit_edge89 ], [ 1, %3 ], [ 1, %15 ], [ 0, %ddReorderPreprocess.exit ], [ 0, %70 ], [ 0, %78 ], [ 0, %104 ], [ 0, %27 ]
   ret i32 %.0
 }
 

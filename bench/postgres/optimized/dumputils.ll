@@ -1566,48 +1566,48 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
 
 18:                                               ; preds = %11
   %19 = icmp eq i8 %12, 0
-  br i1 %19, label %.thread, label %.preheader68
+  br i1 %19, label %.critedge61, label %.preheader65
 
-.preheader68:                                     ; preds = %18, %62
+.preheader65:                                     ; preds = %18, %62
   %20 = phi i8 [ %.pre, %62 ], [ %12, %18 ]
   %.146 = phi ptr [ %.7, %62 ], [ %.045, %18 ]
   %.042 = phi ptr [ %63, %62 ], [ %8, %18 ]
   %21 = icmp eq i8 %20, 34
-  br i1 %21, label %23, label %.preheader67
+  br i1 %21, label %23, label %.preheader64
 
-.preheader67:                                     ; preds = %.preheader68
-  %.not5477 = icmp eq i8 %20, 0
-  %.not5578 = icmp eq i8 %20, %1
-  %or.cond79 = or i1 %.not5477, %.not5578
-  br i1 %or.cond79, label %.critedge, label %.lr.ph
+.preheader64:                                     ; preds = %.preheader65
+  %.not5474 = icmp eq i8 %20, 0
+  %.not5575 = icmp eq i8 %20, %1
+  %or.cond76 = or i1 %.not5474, %.not5575
+  br i1 %or.cond76, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader67
+.lr.ph:                                           ; preds = %.preheader64
   %22 = load ptr, ptr %9, align 8
   br label %34
 
-23:                                               ; preds = %.preheader68
+23:                                               ; preds = %.preheader65
   %24 = getelementptr inbounds nuw i8, ptr %.146, i64 1
   %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 34) #9
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread, label %.lr.ph83
+  br i1 %26, label %.critedge61, label %.lr.ph80
 
-.lr.ph83:                                         ; preds = %23, %30
+.lr.ph80:                                         ; preds = %23, %30
   %27 = phi ptr [ %32, %30 ], [ %25, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1
   %.not57 = icmp eq i8 %29, 34
   br i1 %.not57, label %30, label %.loopexit
 
-30:                                               ; preds = %.lr.ph83
+30:                                               ; preds = %.lr.ph80
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #9
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %28, i64 %31, i1 false)
   %32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 34) #9
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread, label %.lr.ph83
+  br i1 %33, label %.critedge61, label %.lr.ph80
 
 34:                                               ; preds = %.lr.ph, %40
   %35 = phi i8 [ %20, %.lr.ph ], [ %42, %40 ]
-  %.580 = phi ptr [ %.146, %.lr.ph ], [ %41, %40 ]
+  %.577 = phi ptr [ %.146, %.lr.ph ], [ %41, %40 ]
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr %22, i64 %36
   %38 = load i16, ptr %37, align 2
@@ -1616,22 +1616,22 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
   br i1 %.not56, label %40, label %.critedge
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %.580, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.577, i64 1
   %42 = load i8, ptr %41, align 1
   %.not54 = icmp eq i8 %42, 0
   %.not55 = icmp eq i8 %42, %1
   %or.cond = or i1 %.not54, %.not55
   br i1 %or.cond, label %.critedge, label %34, !llvm.loop !20
 
-.critedge:                                        ; preds = %34, %40, %.preheader67
-  %.5.lcssa = phi ptr [ %.146, %.preheader67 ], [ %41, %40 ], [ %.580, %34 ]
+.critedge:                                        ; preds = %34, %40, %.preheader64
+  %.5.lcssa = phi ptr [ %.146, %.preheader64 ], [ %41, %40 ], [ %.577, %34 ]
   %43 = icmp eq ptr %.146, %.5.lcssa
-  br i1 %43, label %.thread, label %.loopexit
+  br i1 %43, label %.critedge61, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph83, %.critedge
-  %.4 = phi ptr [ %.5.lcssa, %.critedge ], [ %28, %.lr.ph83 ]
-  %.040 = phi ptr [ %.146, %.critedge ], [ %24, %.lr.ph83 ]
-  %.0 = phi ptr [ %.5.lcssa, %.critedge ], [ %27, %.lr.ph83 ]
+.loopexit:                                        ; preds = %.lr.ph80, %.critedge
+  %.4 = phi ptr [ %.5.lcssa, %.critedge ], [ %28, %.lr.ph80 ]
+  %.040 = phi ptr [ %.146, %.critedge ], [ %24, %.lr.ph80 ]
+  %.0 = phi ptr [ %.5.lcssa, %.critedge ], [ %27, %.lr.ph80 ]
   %44 = load ptr, ptr %9, align 8
   br label %45
 
@@ -1663,24 +1663,24 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
 
 59:                                               ; preds = %52
   %60 = icmp eq i8 %46, 0
-  br i1 %60, label %.thread64, label %.thread
+  br i1 %60, label %.thread, label %.critedge61
 
-.thread64:                                        ; preds = %59
+.thread:                                          ; preds = %59
   store i8 0, ptr %.0, align 1
   %61 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   store ptr %.040, ptr %.042, align 8
   store ptr null, ptr %61, align 8
-  br label %.thread
+  br label %.critedge61
 
 62:                                               ; preds = %.preheader
   store i8 0, ptr %.0, align 1
   %63 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   store ptr %.040, ptr %.042, align 8
   %.pre = load i8, ptr %.7, align 1
-  br label %.preheader68, !llvm.loop !23
+  br label %.preheader65, !llvm.loop !23
 
-.thread:                                          ; preds = %.critedge, %23, %30, %59, %18, %.thread64
-  %.048 = phi i1 [ true, %.thread64 ], [ true, %18 ], [ false, %59 ], [ false, %30 ], [ false, %23 ], [ false, %.critedge ]
+.critedge61:                                      ; preds = %.critedge, %23, %30, %59, %18, %.thread
+  %.048 = phi i1 [ true, %.thread ], [ true, %18 ], [ false, %59 ], [ false, %30 ], [ false, %23 ], [ false, %.critedge ]
   ret i1 %.048
 }
 

@@ -190,16 +190,16 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   %9 = icmp ne ptr %2, %3
   %10 = icmp ne ptr %5, %6
   %11 = and i1 %9, %10
-  br i1 %11, label %.lr.ph66, label %._crit_edge67
+  br i1 %11, label %.lr.ph64, label %._crit_edge65
 
-.lr.ph66:                                         ; preds = %8, %49
-  %.04664 = phi ptr [ %50, %49 ], [ %2, %8 ]
-  %.04863 = phi ptr [ %.149.lcssa, %49 ], [ %5, %8 ]
-  %12 = load i32, ptr %.04664, align 4, !tbaa !10
+.lr.ph64:                                         ; preds = %8, %49
+  %.04662 = phi ptr [ %50, %49 ], [ %2, %8 ]
+  %.04861 = phi ptr [ %.149.lcssa, %49 ], [ %5, %8 ]
+  %12 = load i32, ptr %.04662, align 4, !tbaa !10
   %13 = icmp slt i32 %12, 128
   br i1 %13, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %14
 
-14:                                               ; preds = %.lr.ph66
+14:                                               ; preds = %.lr.ph64
   %15 = icmp samesign ult i32 %12, 2048
   br i1 %15, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %16
 
@@ -216,8 +216,8 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   %..i.i = select i1 %21, i32 4, i32 5
   br label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit
 
-_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ; preds = %.lr.ph66, %14, %16, %18, %20
-  %.0.i.i = phi i32 [ 0, %.lr.ph66 ], [ 1, %14 ], [ 2, %16 ], [ 3, %18 ], [ %..i.i, %20 ]
+_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ; preds = %.lr.ph64, %14, %16, %18, %20
+  %.0.i.i = phi i32 [ 0, %.lr.ph64 ], [ 1, %14 ], [ 2, %16 ], [ 3, %18 ], [ %..i.i, %20 ]
   %22 = mul nuw nsw i32 %.0.i.i, 6
   %23 = zext nneg i32 %.0.i.i to i64
   %24 = getelementptr inbounds nuw i32, ptr @_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier_table, i64 %23
@@ -226,60 +226,60 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   %27 = sdiv i32 %12, %26
   %28 = add i32 %27, %25
   %29 = trunc i32 %28 to i8
-  store i8 %29, ptr %.04863, align 1, !tbaa !6
-  %.14957 = getelementptr inbounds nuw i8, ptr %.04863, i64 1
+  store i8 %29, ptr %.04861, align 1, !tbaa !6
+  %.14955 = getelementptr inbounds nuw i8, ptr %.04861, i64 1
   %30 = icmp ne i32 %.0.i.i, 0
-  %31 = icmp ne ptr %.14957, %6
+  %31 = icmp ne ptr %.14955, %6
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, %.lr.ph
-  %.14960 = phi ptr [ %.149, %.lr.ph ], [ %.14957, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
-  %.059 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
-  %.04358 = phi i32 [ %33, %.lr.ph ], [ %22, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
-  %33 = add nsw i32 %.04358, -6
-  %34 = load i32, ptr %.04664, align 4, !tbaa !10
+  %.14958 = phi ptr [ %.149, %.lr.ph ], [ %.14955, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
+  %.057 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
+  %.04356 = phi i32 [ %33, %.lr.ph ], [ %22, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ]
+  %33 = add nsw i32 %.04356, -6
+  %34 = load i32, ptr %.04662, align 4, !tbaa !10
   %35 = shl nuw i32 1, %33
   %36 = sdiv i32 %34, %35
   %37 = srem i32 %36, 64
   %38 = trunc nsw i32 %37 to i8
   %39 = xor i8 %38, -128
-  store i8 %39, ptr %.14960, align 1, !tbaa !6
-  %40 = add nuw nsw i32 %.059, 1
-  %.149 = getelementptr inbounds nuw i8, ptr %.14960, i64 1
+  store i8 %39, ptr %.14958, align 1, !tbaa !6
+  %40 = add nuw nsw i32 %.057, 1
+  %.149 = getelementptr inbounds nuw i8, ptr %.14958, i64 1
   %41 = icmp ne i32 %40, %.0.i.i
   %42 = icmp ne ptr %.149, %6
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %44 = add nuw nsw i32 %.059, 2
+  %44 = add nuw nsw i32 %.057, 2
   %45 = zext nneg i32 %44 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit
   %.0.lcssa = phi i64 [ 1, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ], [ %45, %._crit_edge.loopexit ]
-  %.149.lcssa = phi ptr [ %.14957, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ], [ %.149, %._crit_edge.loopexit ]
+  %.149.lcssa = phi ptr [ %.14955, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ], [ %.149, %._crit_edge.loopexit ]
   %.lcssa = phi i1 [ %30, %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit ], [ %41, %._crit_edge.loopexit ]
   %46 = icmp eq ptr %.149.lcssa, %6
   %brmerge.not = and i1 %46, %.lcssa
-  br i1 %brmerge.not, label %.thread, label %49
+  br i1 %brmerge.not, label %.critedge, label %49
 
-.thread:                                          ; preds = %._crit_edge
-  store ptr %.04664, ptr %4, align 8, !tbaa !8
+.critedge:                                        ; preds = %._crit_edge
+  store ptr %.04662, ptr %4, align 8, !tbaa !8
   %47 = sub nsw i64 0, %.0.lcssa
   %48 = getelementptr inbounds i8, ptr %.149.lcssa, i64 %47
   store ptr %48, ptr %7, align 8, !tbaa !8
   br label %55
 
 49:                                               ; preds = %._crit_edge
-  %50 = getelementptr inbounds nuw i8, ptr %.04664, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.04662, i64 4
   %51 = icmp ne ptr %50, %3
   %52 = icmp ne ptr %.149.lcssa, %6
   %53 = and i1 %51, %52
-  br i1 %53, label %.lr.ph66, label %._crit_edge67, !llvm.loop !16
+  br i1 %53, label %.lr.ph64, label %._crit_edge65, !llvm.loop !16
 
-._crit_edge67:                                    ; preds = %49, %8
+._crit_edge65:                                    ; preds = %49, %8
   %.048.lcssa = phi ptr [ %5, %8 ], [ %.149.lcssa, %49 ]
   %.046.lcssa = phi ptr [ %2, %8 ], [ %50, %49 ]
   store ptr %.046.lcssa, ptr %4, align 8, !tbaa !8
@@ -288,8 +288,8 @@ _ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit: ;
   %. = zext i1 %54 to i32
   br label %55
 
-55:                                               ; preds = %.thread, %._crit_edge67
-  %.1 = phi i32 [ %., %._crit_edge67 ], [ 1, %.thread ]
+55:                                               ; preds = %._crit_edge65, %.critedge
+  %.1 = phi i32 [ 1, %.critedge ], [ %., %._crit_edge65 ]
   ret i32 %.1
 }
 

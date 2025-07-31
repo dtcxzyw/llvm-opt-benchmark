@@ -298,8 +298,8 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef i
   store i32 %31, ptr %32, align 4, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !53
-  %.not371479 = icmp eq i32 %34, 0
-  br i1 %.not371479, label %.thread-pre-split_crit_edge, label %.thread480
+  %.not371478 = icmp eq i32 %34, 0
+  br i1 %.not371478, label %.thread-pre-split_crit_edge, label %.thread479
 
 .thread-pre-split_crit_edge:                      ; preds = %.thread, %13
   %35 = phi ptr [ %32, %.thread ], [ %23, %13 ]
@@ -311,9 +311,9 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef i
   br label %jtransform_perfect_transform.exit.thread
 
 40:                                               ; preds = %13
-  br i1 %17, label %.thread480, label %56
+  br i1 %17, label %.thread479, label %56
 
-.thread480:                                       ; preds = %.thread, %40
+.thread479:                                       ; preds = %.thread, %40
   %41 = phi i32 [ %19, %40 ], [ %28, %.thread ]
   %42 = phi ptr [ %20, %40 ], [ %29, %.thread ]
   %43 = phi i32 [ %22, %40 ], [ %31, %.thread ]
@@ -330,15 +330,15 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef i
     i32 6, label %52
   ]
 
-48:                                               ; preds = %.thread480, %.thread480
+48:                                               ; preds = %.thread479, %.thread479
   %49 = urem i32 %41, %46
   br label %jtransform_perfect_transform.exit
 
-50:                                               ; preds = %.thread480, %.thread480
+50:                                               ; preds = %.thread479, %.thread479
   %51 = urem i32 %43, %46
   br label %jtransform_perfect_transform.exit
 
-52:                                               ; preds = %.thread480, %.thread480
+52:                                               ; preds = %.thread479, %.thread479
   %53 = urem i32 %41, %46
   %54 = urem i32 %43, %46
   %55 = or i32 %54, %53
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef i
 jtransform_perfect_transform.exit:                ; preds = %48, %50, %52
   %.0.shrunk.i.in = phi i32 [ %49, %48 ], [ %51, %50 ], [ %55, %52 ]
   %.0.shrunk.i.not = icmp eq i32 %.0.shrunk.i.in, 0
-  br i1 %.0.shrunk.i.not, label %jtransform_perfect_transform.exit.thread, label %656
+  br i1 %.0.shrunk.i.not, label %jtransform_perfect_transform.exit.thread, label %655
 
 56:                                               ; preds = %40
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -370,30 +370,30 @@ jtransform_perfect_transform.exit:                ; preds = %48, %50, %52
 
 66:                                               ; preds = %56, %56
   %67 = urem i32 %19, %61
-  br label %jtransform_perfect_transform.exit417
+  br label %jtransform_perfect_transform.exit419
 
 68:                                               ; preds = %56, %56
   %69 = urem i32 %22, %64
-  br label %jtransform_perfect_transform.exit417
+  br label %jtransform_perfect_transform.exit419
 
 70:                                               ; preds = %56, %56
   %71 = urem i32 %19, %61
   %72 = urem i32 %22, %64
   %73 = or i32 %72, %71
-  br label %jtransform_perfect_transform.exit417
+  br label %jtransform_perfect_transform.exit419
 
-jtransform_perfect_transform.exit417:             ; preds = %66, %68, %70
-  %.0.shrunk.i413.in = phi i32 [ %67, %66 ], [ %69, %68 ], [ %73, %70 ]
-  %.0.shrunk.i413.not = icmp eq i32 %.0.shrunk.i413.in, 0
-  br i1 %.0.shrunk.i413.not, label %jtransform_perfect_transform.exit.thread, label %656
+jtransform_perfect_transform.exit419:             ; preds = %66, %68, %70
+  %.0.shrunk.i415.in = phi i32 [ %67, %66 ], [ %69, %68 ], [ %73, %70 ]
+  %.0.shrunk.i415.not = icmp eq i32 %.0.shrunk.i415.in, 0
+  br i1 %.0.shrunk.i415.not, label %jtransform_perfect_transform.exit.thread, label %655
 
-jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_transform.exit, %jtransform_perfect_transform.exit417, %.thread-pre-split_crit_edge, %56, %.thread480
-  %74 = phi ptr [ %44, %.thread480 ], [ %23, %56 ], [ %35, %.thread-pre-split_crit_edge ], [ %23, %jtransform_perfect_transform.exit417 ], [ %44, %jtransform_perfect_transform.exit ]
-  %75 = phi i32 [ %43, %.thread480 ], [ %22, %56 ], [ %36, %.thread-pre-split_crit_edge ], [ %22, %jtransform_perfect_transform.exit417 ], [ %43, %jtransform_perfect_transform.exit ]
-  %76 = phi ptr [ %42, %.thread480 ], [ %20, %56 ], [ %37, %.thread-pre-split_crit_edge ], [ %20, %jtransform_perfect_transform.exit417 ], [ %42, %jtransform_perfect_transform.exit ]
-  %77 = phi i32 [ %41, %.thread480 ], [ %19, %56 ], [ %38, %.thread-pre-split_crit_edge ], [ %19, %jtransform_perfect_transform.exit417 ], [ %41, %jtransform_perfect_transform.exit ]
-  %78 = phi i1 [ true, %.thread480 ], [ false, %56 ], [ %39, %.thread-pre-split_crit_edge ], [ false, %jtransform_perfect_transform.exit417 ], [ true, %jtransform_perfect_transform.exit ]
-  %79 = phi i32 [ %47, %.thread480 ], [ %65, %56 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %65, %jtransform_perfect_transform.exit417 ], [ %47, %jtransform_perfect_transform.exit ]
+jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_transform.exit, %jtransform_perfect_transform.exit419, %.thread-pre-split_crit_edge, %56, %.thread479
+  %74 = phi ptr [ %44, %.thread479 ], [ %23, %56 ], [ %35, %.thread-pre-split_crit_edge ], [ %23, %jtransform_perfect_transform.exit419 ], [ %44, %jtransform_perfect_transform.exit ]
+  %75 = phi i32 [ %43, %.thread479 ], [ %22, %56 ], [ %36, %.thread-pre-split_crit_edge ], [ %22, %jtransform_perfect_transform.exit419 ], [ %43, %jtransform_perfect_transform.exit ]
+  %76 = phi ptr [ %42, %.thread479 ], [ %20, %56 ], [ %37, %.thread-pre-split_crit_edge ], [ %20, %jtransform_perfect_transform.exit419 ], [ %42, %jtransform_perfect_transform.exit ]
+  %77 = phi i32 [ %41, %.thread479 ], [ %19, %56 ], [ %38, %.thread-pre-split_crit_edge ], [ %19, %jtransform_perfect_transform.exit419 ], [ %41, %jtransform_perfect_transform.exit ]
+  %78 = phi i1 [ true, %.thread479 ], [ false, %56 ], [ %39, %.thread-pre-split_crit_edge ], [ false, %jtransform_perfect_transform.exit419 ], [ true, %jtransform_perfect_transform.exit ]
+  %79 = phi i32 [ %47, %.thread479 ], [ %65, %56 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %65, %jtransform_perfect_transform.exit419 ], [ %47, %jtransform_perfect_transform.exit ]
   switch i32 %79, label %97 [
     i32 3, label %80
     i32 4, label %80
@@ -508,11 +508,11 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %143 = load ptr, ptr %141, align 8, !tbaa !68
   tail call void %143(ptr noundef nonnull %0) #8
   %.pre = load i32, ptr %140, align 8, !tbaa !58
-  %.pre466 = load i32, ptr %137, align 8, !tbaa !62
+  %.pre465 = load i32, ptr %137, align 8, !tbaa !62
   br label %144
 
 144:                                              ; preds = %139, %136
-  %145 = phi i32 [ %.pre466, %139 ], [ %138, %136 ]
+  %145 = phi i32 [ %.pre465, %139 ], [ %138, %136 ]
   %146 = phi i32 [ %.pre, %139 ], [ %116, %136 ]
   %147 = sub i32 %146, %145
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -585,13 +585,13 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   store i32 124, ptr %184, align 8, !tbaa !65
   %185 = load ptr, ptr %183, align 8, !tbaa !68
   tail call void %185(ptr noundef nonnull %0) #8
-  %.pre467 = load i32, ptr %177, align 4, !tbaa !59
-  %.pre468 = load i32, ptr %180, align 8, !tbaa !63
+  %.pre466 = load i32, ptr %177, align 4, !tbaa !59
+  %.pre467 = load i32, ptr %180, align 8, !tbaa !63
   br label %186
 
 186:                                              ; preds = %182, %179
-  %187 = phi i32 [ %.pre468, %182 ], [ %181, %179 ]
-  %188 = phi i32 [ %.pre467, %182 ], [ %178, %179 ]
+  %187 = phi i32 [ %.pre467, %182 ], [ %181, %179 ]
+  %188 = phi i32 [ %.pre466, %182 ], [ %178, %179 ]
   %189 = sub i32 %188, %187
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %189, ptr %190, align 8, !tbaa !70
@@ -765,7 +765,7 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %292 = load i32, ptr %291, align 8, !tbaa !70
   %.not386 = icmp ugt i32 %292, %289
-  br i1 %.not386, label %293, label %.thread481
+  br i1 %.not386, label %293, label %.thread480
 
 293:                                              ; preds = %281
   %294 = add i32 %292, %.0343
@@ -774,16 +774,16 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %297 = icmp eq i32 %294, %296
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %299 = sub i32 0, %289
-  %.sink488.p = select i1 %297, i32 %287, i32 %299
-  %.sink488 = add i32 %292, %.sink488.p
-  %300 = udiv i32 %.sink488, %284
+  %.sink487.p = select i1 %297, i32 %287, i32 %299
+  %.sink487 = add i32 %292, %.sink487.p
+  %300 = udiv i32 %.sink487, %284
   store i32 %300, ptr %298, align 4, !tbaa !72
   %.not387 = icmp eq i32 %282, 0
-  %.not388 = icmp ugt i32 %284, %.sink488
-  %or.cond489 = or i1 %.not387, %.not388
-  br i1 %or.cond489, label %.critedge, label %.preheader
+  %.not388 = icmp ugt i32 %284, %.sink487
+  %or.cond488 = or i1 %.not387, %.not388
+  br i1 %or.cond488, label %.critedge, label %.preheader
 
-.thread481:                                       ; preds = %281
+.thread480:                                       ; preds = %281
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i32 0, ptr %301, align 4, !tbaa !72
   br label %.critedge
@@ -863,16 +863,16 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %355 = load ptr, ptr %0, align 8, !tbaa !64
   %356 = load ptr, ptr %355, align 8, !tbaa !68
   tail call void %356(ptr noundef nonnull %0) #8
-  %.pre469 = load ptr, ptr %302, align 8, !tbaa !73
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre469, i64 304
-  %.pre470 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !74
-  %.pre471 = load ptr, ptr %307, align 8, !tbaa !74
+  %.pre468 = load ptr, ptr %302, align 8, !tbaa !73
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre468, i64 304
+  %.pre469 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !74
+  %.pre470 = load ptr, ptr %307, align 8, !tbaa !74
   br label %357
 
 357:                                              ; preds = %328, %315
-  %358 = phi ptr [ %.pre471, %328 ], [ %322, %315 ]
-  %359 = phi ptr [ %.pre470, %328 ], [ %317, %315 ]
-  %360 = phi ptr [ %.pre469, %328 ], [ %310, %315 ]
+  %358 = phi ptr [ %.pre470, %328 ], [ %322, %315 ]
+  %359 = phi ptr [ %.pre469, %328 ], [ %317, %315 ]
+  %360 = phi ptr [ %.pre468, %328 ], [ %310, %315 ]
   %361 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %359, i64 %indvars.iv, i32 3
   %362 = load i32, ptr %361, align 4, !tbaa !77
   %363 = load i32, ptr %308, align 4, !tbaa !57
@@ -961,58 +961,58 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
 426:                                              ; preds = %254
   %427 = load i32, ptr %133, align 4, !tbaa !12
   %428 = icmp eq i32 %427, 3
-  %.phi.trans.insert473 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.pre474 = load i32, ptr %.phi.trans.insert473, align 8, !tbaa !69
-  br i1 %428, label %._crit_edge472, label %429
+  %.phi.trans.insert472 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.pre473 = load i32, ptr %.phi.trans.insert472, align 8, !tbaa !69
+  br i1 %428, label %._crit_edge471, label %429
 
 429:                                              ; preds = %426
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %431 = load i32, ptr %430, align 8, !tbaa !58
-  %432 = icmp ugt i32 %.pre474, %431
-  br i1 %432, label %._crit_edge472, label %434
+  %432 = icmp ugt i32 %.pre473, %431
+  br i1 %432, label %._crit_edge471, label %434
 
-._crit_edge472:                                   ; preds = %426, %429
+._crit_edge471:                                   ; preds = %426, %429
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %.pre474, ptr %433, align 8, !tbaa !58
+  store i32 %.pre473, ptr %433, align 8, !tbaa !58
   br label %439
 
 434:                                              ; preds = %429
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %436 = load i32, ptr %435, align 8, !tbaa !60
   %437 = urem i32 %.0341, %436
-  %438 = add i32 %437, %.pre474
+  %438 = add i32 %437, %.pre473
   store i32 %438, ptr %430, align 8, !tbaa !58
   br label %439
 
-439:                                              ; preds = %434, %._crit_edge472
+439:                                              ; preds = %434, %._crit_edge471
   %440 = load i32, ptr %174, align 4, !tbaa !13
   %441 = icmp eq i32 %440, 3
-  %.phi.trans.insert476 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre477 = load i32, ptr %.phi.trans.insert476, align 8, !tbaa !70
-  br i1 %441, label %._crit_edge475, label %442
+  %.phi.trans.insert475 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.pre476 = load i32, ptr %.phi.trans.insert475, align 8, !tbaa !70
+  br i1 %441, label %._crit_edge474, label %442
 
 442:                                              ; preds = %439
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %444 = load i32, ptr %443, align 4, !tbaa !59
-  %445 = icmp ugt i32 %.pre477, %444
-  br i1 %445, label %._crit_edge475, label %447
+  %445 = icmp ugt i32 %.pre476, %444
+  br i1 %445, label %._crit_edge474, label %447
 
-._crit_edge475:                                   ; preds = %439, %442
+._crit_edge474:                                   ; preds = %439, %442
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %.pre477, ptr %446, align 4, !tbaa !59
+  store i32 %.pre476, ptr %446, align 4, !tbaa !59
   br label %.critedge
 
 447:                                              ; preds = %442
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %449 = load i32, ptr %448, align 4, !tbaa !61
   %450 = urem i32 %.0343, %449
-  %451 = add i32 %450, %.pre477
+  %451 = add i32 %450, %.pre476
   store i32 %451, ptr %443, align 4, !tbaa !59
   br label %.critedge
 
-.critedge:                                        ; preds = %309, %399, %.thread481, %.preheader, %._crit_edge475, %447, %293, %403
-  %.1344 = phi i32 [ %.0343, %._crit_edge475 ], [ %.0343, %447 ], [ %290, %293 ], [ %.0343, %403 ], [ %290, %.preheader ], [ %290, %.thread481 ], [ %290, %399 ], [ %290, %309 ]
-  %.1342 = phi i32 [ %.0341, %._crit_edge475 ], [ %.0341, %447 ], [ %264, %293 ], [ %.0341, %403 ], [ %264, %.preheader ], [ %264, %.thread481 ], [ %264, %399 ], [ %264, %309 ]
+.critedge:                                        ; preds = %309, %399, %.thread480, %.preheader, %._crit_edge474, %447, %293, %403
+  %.1344 = phi i32 [ %.0343, %._crit_edge474 ], [ %.0343, %447 ], [ %290, %293 ], [ %.0343, %403 ], [ %290, %.preheader ], [ %290, %.thread480 ], [ %290, %399 ], [ %290, %309 ]
+  %.1342 = phi i32 [ %.0341, %._crit_edge474 ], [ %.0341, %447 ], [ %264, %293 ], [ %.0341, %403 ], [ %264, %.preheader ], [ %264, %.thread480 ], [ %264, %399 ], [ %264, %309 ]
   %452 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %453 = load i32, ptr %452, align 8, !tbaa !60
   %454 = udiv i32 %.1342, %453
@@ -1023,7 +1023,7 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %458 = udiv i32 %.1344, %457
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %458, ptr %459, align 4, !tbaa !80
-  %.pre478 = load i32, ptr %1, align 8, !tbaa !54
+  %.pre477 = load i32, ptr %1, align 8, !tbaa !54
   br label %463
 
 460:                                              ; preds = %114
@@ -1038,12 +1038,12 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   %465 = phi i32 [ %115, %460 ], [ %453, %.critedge ]
   %466 = phi i32 [ 0, %460 ], [ %458, %.critedge ]
   %467 = phi i32 [ %.sink, %460 ], [ %457, %.critedge ]
-  %468 = phi i32 [ %79, %460 ], [ %.pre478, %.critedge ]
+  %468 = phi i32 [ %79, %460 ], [ %.pre477, %.critedge ]
   switch i32 %468, label %.sink.split [
     i32 0, label %469
     i32 1, label %480
     i32 2, label %497
-    i32 3, label %587
+    i32 3, label %trim_bottom_edge.exit
     i32 4, label %511
     i32 5, label %535
     i32 6, label %549
@@ -1053,22 +1053,22 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
 469:                                              ; preds = %463
   %.not399 = icmp eq i32 %464, 0
   %.not400 = icmp eq i32 %466, 0
-  %or.cond490 = select i1 %.not399, i1 %.not400, i1 false
-  br i1 %or.cond490, label %470, label %587
+  %or.cond489 = select i1 %.not399, i1 %.not400, i1 false
+  br i1 %or.cond489, label %470, label %trim_bottom_edge.exit
 
 470:                                              ; preds = %469
   %471 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %472 = load i32, ptr %471, align 8, !tbaa !58
   %473 = load i32, ptr %76, align 8, !tbaa !50
   %474 = icmp ugt i32 %472, %473
-  br i1 %474, label %587, label %475
+  br i1 %474, label %trim_bottom_edge.exit, label %475
 
 475:                                              ; preds = %470
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %477 = load i32, ptr %476, align 4, !tbaa !59
   %478 = load i32, ptr %74, align 4, !tbaa !52
   %479 = icmp ugt i32 %477, %478
-  br i1 %479, label %587, label %.sink.split
+  br i1 %479, label %trim_bottom_edge.exit, label %.sink.split
 
 480:                                              ; preds = %463
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1097,283 +1097,283 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
 
 trim_right_edge.exit:                             ; preds = %492, %487, %483, %480
   %.not397 = icmp eq i32 %466, 0
-  br i1 %.not397, label %494, label %587
+  br i1 %.not397, label %494, label %trim_bottom_edge.exit
 
 494:                                              ; preds = %trim_right_edge.exit
   %495 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %496 = load i32, ptr %495, align 4, !tbaa !82
   %.not398 = icmp eq i32 %496, 0
-  br i1 %.not398, label %.sink.split, label %587
+  br i1 %.not398, label %.sink.split, label %trim_bottom_edge.exit
 
 497:                                              ; preds = %463
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %499 = load i32, ptr %498, align 8, !tbaa !81
   %.not395 = icmp eq i32 %499, 0
-  br i1 %.not395, label %587, label %500
+  br i1 %.not395, label %trim_bottom_edge.exit, label %500
 
 500:                                              ; preds = %497
   %501 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %502 = load i32, ptr %501, align 4, !tbaa !59
   %503 = udiv i32 %502, %467
-  %.not.i418 = icmp ugt i32 %467, %502
-  br i1 %.not.i418, label %587, label %504
+  %.not.i420 = icmp ugt i32 %467, %502
+  br i1 %.not.i420, label %trim_bottom_edge.exit, label %504
 
 504:                                              ; preds = %500
   %505 = load i32, ptr %74, align 4, !tbaa !52
   %506 = add i32 %466, %503
   %507 = udiv i32 %505, %467
   %508 = icmp eq i32 %506, %507
-  br i1 %508, label %509, label %587
+  br i1 %508, label %509, label %trim_bottom_edge.exit
 
 509:                                              ; preds = %504
   %510 = mul i32 %503, %467
   store i32 %510, ptr %501, align 4, !tbaa !59
-  br label %587
+  br label %trim_bottom_edge.exit
 
 511:                                              ; preds = %463
   %512 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %513 = load i32, ptr %512, align 8, !tbaa !81
   %.not394 = icmp eq i32 %513, 0
-  br i1 %.not394, label %587, label %514
+  br i1 %.not394, label %trim_bottom_edge.exit, label %514
 
 514:                                              ; preds = %511
   %515 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %516 = load i32, ptr %515, align 8, !tbaa !58
   %517 = udiv i32 %516, %465
-  %.not.i419 = icmp ugt i32 %465, %516
-  br i1 %.not.i419, label %trim_right_edge.exit420, label %518
+  %.not.i421 = icmp ugt i32 %465, %516
+  br i1 %.not.i421, label %trim_right_edge.exit422, label %518
 
 518:                                              ; preds = %514
   %519 = load i32, ptr %74, align 4, !tbaa !52
   %520 = add i32 %464, %517
   %521 = udiv i32 %519, %465
   %522 = icmp eq i32 %520, %521
-  br i1 %522, label %523, label %trim_right_edge.exit420
+  br i1 %522, label %523, label %trim_right_edge.exit422
 
 523:                                              ; preds = %518
   %524 = mul i32 %517, %465
   store i32 %524, ptr %515, align 8, !tbaa !58
-  br label %trim_right_edge.exit420
+  br label %trim_right_edge.exit422
 
-trim_right_edge.exit420:                          ; preds = %514, %518, %523
+trim_right_edge.exit422:                          ; preds = %514, %518, %523
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %526 = load i32, ptr %525, align 4, !tbaa !59
   %527 = udiv i32 %526, %467
-  %.not.i421 = icmp ugt i32 %467, %526
-  br i1 %.not.i421, label %587, label %528
+  %.not.i423 = icmp ugt i32 %467, %526
+  br i1 %.not.i423, label %trim_bottom_edge.exit, label %528
 
-528:                                              ; preds = %trim_right_edge.exit420
+528:                                              ; preds = %trim_right_edge.exit422
   %529 = load i32, ptr %76, align 8, !tbaa !50
   %530 = add i32 %466, %527
   %531 = udiv i32 %529, %467
   %532 = icmp eq i32 %530, %531
-  br i1 %532, label %533, label %587
+  br i1 %532, label %533, label %trim_bottom_edge.exit
 
 533:                                              ; preds = %528
   %534 = mul i32 %527, %467
   store i32 %534, ptr %525, align 4, !tbaa !59
-  br label %587
+  br label %trim_bottom_edge.exit
 
 535:                                              ; preds = %463
   %536 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %537 = load i32, ptr %536, align 8, !tbaa !81
   %.not393 = icmp eq i32 %537, 0
-  br i1 %.not393, label %587, label %538
+  br i1 %.not393, label %trim_bottom_edge.exit, label %538
 
 538:                                              ; preds = %535
   %539 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %540 = load i32, ptr %539, align 8, !tbaa !58
   %541 = udiv i32 %540, %465
-  %.not.i423 = icmp ugt i32 %465, %540
-  br i1 %.not.i423, label %587, label %542
+  %.not.i425 = icmp ugt i32 %465, %540
+  br i1 %.not.i425, label %trim_bottom_edge.exit, label %542
 
 542:                                              ; preds = %538
   %543 = load i32, ptr %74, align 4, !tbaa !52
   %544 = add i32 %464, %541
   %545 = udiv i32 %543, %465
   %546 = icmp eq i32 %544, %545
-  br i1 %546, label %547, label %587
+  br i1 %546, label %547, label %trim_bottom_edge.exit
 
 547:                                              ; preds = %542
   %548 = mul i32 %541, %465
   store i32 %548, ptr %539, align 8, !tbaa !58
-  br label %587
+  br label %trim_bottom_edge.exit
 
 549:                                              ; preds = %463
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %551 = load i32, ptr %550, align 8, !tbaa !81
   %.not392 = icmp eq i32 %551, 0
-  br i1 %.not392, label %587, label %552
+  br i1 %.not392, label %trim_bottom_edge.exit, label %552
 
 552:                                              ; preds = %549
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %554 = load i32, ptr %553, align 8, !tbaa !58
   %555 = udiv i32 %554, %465
-  %.not.i425 = icmp ugt i32 %465, %554
-  br i1 %.not.i425, label %trim_right_edge.exit426, label %556
+  %.not.i427 = icmp ugt i32 %465, %554
+  br i1 %.not.i427, label %trim_right_edge.exit428, label %556
 
 556:                                              ; preds = %552
   %557 = load i32, ptr %76, align 8, !tbaa !50
   %558 = add i32 %464, %555
   %559 = udiv i32 %557, %465
   %560 = icmp eq i32 %558, %559
-  br i1 %560, label %561, label %trim_right_edge.exit426
+  br i1 %560, label %561, label %trim_right_edge.exit428
 
 561:                                              ; preds = %556
   %562 = mul i32 %555, %465
   store i32 %562, ptr %553, align 8, !tbaa !58
-  br label %trim_right_edge.exit426
+  br label %trim_right_edge.exit428
 
-trim_right_edge.exit426:                          ; preds = %552, %556, %561
+trim_right_edge.exit428:                          ; preds = %552, %556, %561
   %563 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %564 = load i32, ptr %563, align 4, !tbaa !59
   %565 = udiv i32 %564, %467
-  %.not.i427 = icmp ugt i32 %467, %564
-  br i1 %.not.i427, label %587, label %566
+  %.not.i429 = icmp ugt i32 %467, %564
+  br i1 %.not.i429, label %trim_bottom_edge.exit, label %566
 
-566:                                              ; preds = %trim_right_edge.exit426
+566:                                              ; preds = %trim_right_edge.exit428
   %567 = load i32, ptr %74, align 4, !tbaa !52
   %568 = add i32 %466, %565
   %569 = udiv i32 %567, %467
   %570 = icmp eq i32 %568, %569
-  br i1 %570, label %571, label %587
+  br i1 %570, label %571, label %trim_bottom_edge.exit
 
 571:                                              ; preds = %566
   %572 = mul i32 %565, %467
   store i32 %572, ptr %563, align 4, !tbaa !59
-  br label %587
+  br label %trim_bottom_edge.exit
 
 573:                                              ; preds = %463
   %574 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %575 = load i32, ptr %574, align 8, !tbaa !81
   %.not391 = icmp eq i32 %575, 0
-  br i1 %.not391, label %587, label %576
+  br i1 %.not391, label %trim_bottom_edge.exit, label %576
 
 576:                                              ; preds = %573
   %577 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %578 = load i32, ptr %577, align 4, !tbaa !59
   %579 = udiv i32 %578, %467
-  %.not.i429 = icmp ugt i32 %467, %578
-  br i1 %.not.i429, label %587, label %580
+  %.not.i431 = icmp ugt i32 %467, %578
+  br i1 %.not.i431, label %trim_bottom_edge.exit, label %580
 
 580:                                              ; preds = %576
   %581 = load i32, ptr %76, align 8, !tbaa !50
   %582 = add i32 %466, %579
   %583 = udiv i32 %581, %467
   %584 = icmp eq i32 %582, %583
-  br i1 %584, label %585, label %587
+  br i1 %584, label %585, label %trim_bottom_edge.exit
 
 585:                                              ; preds = %580
   %586 = mul i32 %579, %467
   store i32 %586, ptr %577, align 4, !tbaa !59
-  br label %587
+  br label %trim_bottom_edge.exit
 
-587:                                              ; preds = %463, %trim_right_edge.exit, %494, %469, %470, %475, %497, %511, %535, %549, %573, %500, %504, %509, %trim_right_edge.exit420, %528, %533, %538, %542, %547, %trim_right_edge.exit426, %566, %571, %576, %580, %585
-  %.not402.ph = phi i1 [ false, %585 ], [ false, %580 ], [ false, %576 ], [ true, %571 ], [ true, %566 ], [ true, %trim_right_edge.exit426 ], [ false, %547 ], [ false, %542 ], [ false, %538 ], [ false, %533 ], [ false, %528 ], [ false, %trim_right_edge.exit420 ], [ true, %509 ], [ true, %504 ], [ true, %500 ], [ false, %573 ], [ true, %549 ], [ false, %535 ], [ false, %511 ], [ true, %497 ], [ true, %475 ], [ true, %470 ], [ true, %469 ], [ true, %494 ], [ true, %trim_right_edge.exit ], [ false, %463 ]
-  %588 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %589 = load ptr, ptr %588, align 8, !tbaa !83
-  %590 = load ptr, ptr %589, align 8, !tbaa !84
-  %591 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %592 = load i32, ptr %591, align 8, !tbaa !48
-  %593 = sext i32 %592 to i64
-  %594 = shl nsw i64 %593, 3
-  %595 = tail call ptr %590(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %594) #8
-  %596 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %597 = load i32, ptr %596, align 8, !tbaa !58
-  %598 = zext i32 %597 to i64
-  %599 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %600 = load i32, ptr %599, align 8, !tbaa !60
-  %601 = sext i32 %600 to i64
-  %602 = tail call i64 @jdiv_round_up(i64 noundef %598, i64 noundef %601) #8
-  %603 = trunc i64 %602 to i32
-  %604 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %605 = load i32, ptr %604, align 4, !tbaa !59
-  %606 = zext i32 %605 to i64
-  %607 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %608 = load i32, ptr %607, align 4, !tbaa !61
-  %609 = sext i32 %608 to i64
-  %610 = tail call i64 @jdiv_round_up(i64 noundef %606, i64 noundef %609) #8
-  %611 = trunc i64 %610 to i32
-  %612 = load i32, ptr %591, align 8, !tbaa !48
-  %613 = icmp sgt i32 %612, 0
-  br i1 %613, label %.lr.ph456, label %.sink.split
+trim_bottom_edge.exit:                            ; preds = %585, %580, %576, %571, %566, %trim_right_edge.exit428, %547, %542, %538, %533, %528, %trim_right_edge.exit422, %509, %504, %500, %463, %trim_right_edge.exit, %494, %469, %470, %475, %497, %511, %535, %549, %573
+  %.not402 = phi i1 [ true, %497 ], [ false, %511 ], [ false, %535 ], [ true, %549 ], [ false, %573 ], [ true, %475 ], [ true, %470 ], [ true, %469 ], [ true, %494 ], [ true, %trim_right_edge.exit ], [ false, %463 ], [ true, %500 ], [ true, %504 ], [ true, %509 ], [ false, %trim_right_edge.exit422 ], [ false, %528 ], [ false, %533 ], [ false, %538 ], [ false, %542 ], [ false, %547 ], [ true, %trim_right_edge.exit428 ], [ true, %566 ], [ true, %571 ], [ false, %576 ], [ false, %580 ], [ false, %585 ]
+  %587 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %588 = load ptr, ptr %587, align 8, !tbaa !83
+  %589 = load ptr, ptr %588, align 8, !tbaa !84
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %591 = load i32, ptr %590, align 8, !tbaa !48
+  %592 = sext i32 %591 to i64
+  %593 = shl nsw i64 %592, 3
+  %594 = tail call ptr %589(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %593) #8
+  %595 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %596 = load i32, ptr %595, align 8, !tbaa !58
+  %597 = zext i32 %596 to i64
+  %598 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %599 = load i32, ptr %598, align 8, !tbaa !60
+  %600 = sext i32 %599 to i64
+  %601 = tail call i64 @jdiv_round_up(i64 noundef %597, i64 noundef %600) #8
+  %602 = trunc i64 %601 to i32
+  %603 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %604 = load i32, ptr %603, align 4, !tbaa !59
+  %605 = zext i32 %604 to i64
+  %606 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %607 = load i32, ptr %606, align 4, !tbaa !61
+  %608 = sext i32 %607 to i64
+  %609 = tail call i64 @jdiv_round_up(i64 noundef %605, i64 noundef %608) #8
+  %610 = trunc i64 %609 to i32
+  %611 = load i32, ptr %590, align 8, !tbaa !48
+  %612 = icmp sgt i32 %611, 0
+  br i1 %612, label %.lr.ph455, label %.sink.split
 
-.lr.ph456:                                        ; preds = %587
-  %614 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  br i1 %.not402.ph, label %.lr.ph456.split.us, label %.lr.ph456.split
+.lr.ph455:                                        ; preds = %trim_bottom_edge.exit
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  br i1 %.not402, label %.lr.ph455.split.us, label %.lr.ph455.split
 
-.lr.ph456.split.us:                               ; preds = %.lr.ph456, %624
-  %indvars.iv462 = phi i64 [ %indvars.iv.next463, %624 ], [ 0, %.lr.ph456 ]
-  %615 = phi i32 [ %632, %624 ], [ %612, %.lr.ph456 ]
-  %616 = icmp eq i32 %615, 1
-  br i1 %616, label %624, label %617
+.lr.ph455.split.us:                               ; preds = %.lr.ph455, %623
+  %indvars.iv461 = phi i64 [ %indvars.iv.next462, %623 ], [ 0, %.lr.ph455 ]
+  %614 = phi i32 [ %631, %623 ], [ %611, %.lr.ph455 ]
+  %615 = icmp eq i32 %614, 1
+  br i1 %615, label %623, label %616
 
-617:                                              ; preds = %.lr.ph456.split.us
-  %618 = load ptr, ptr %614, align 8, !tbaa !74
-  %619 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %618, i64 %indvars.iv462
-  %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
-  %621 = load i32, ptr %620, align 8, !tbaa !75
-  %622 = getelementptr inbounds nuw i8, ptr %619, i64 12
-  %623 = load i32, ptr %622, align 4, !tbaa !77
-  br label %624
+616:                                              ; preds = %.lr.ph455.split.us
+  %617 = load ptr, ptr %613, align 8, !tbaa !74
+  %618 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %617, i64 %indvars.iv461
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 8
+  %620 = load i32, ptr %619, align 8, !tbaa !75
+  %621 = getelementptr inbounds nuw i8, ptr %618, i64 12
+  %622 = load i32, ptr %621, align 4, !tbaa !77
+  br label %623
 
-624:                                              ; preds = %617, %.lr.ph456.split.us
-  %.0336.us = phi i32 [ %621, %617 ], [ 1, %.lr.ph456.split.us ]
-  %.0.us = phi i32 [ %623, %617 ], [ 1, %.lr.ph456.split.us ]
-  %625 = mul i32 %.0336.us, %603
-  %626 = mul i32 %.0.us, %611
-  %627 = load ptr, ptr %588, align 8, !tbaa !83
-  %628 = getelementptr inbounds nuw i8, ptr %627, i64 40
-  %629 = load ptr, ptr %628, align 8, !tbaa !86
-  %630 = tail call ptr %629(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %625, i32 noundef %626, i32 noundef %.0.us) #8
-  %631 = getelementptr inbounds nuw ptr, ptr %595, i64 %indvars.iv462
-  store ptr %630, ptr %631, align 8, !tbaa !87
-  %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
-  %632 = load i32, ptr %591, align 8, !tbaa !48
-  %633 = sext i32 %632 to i64
-  %634 = icmp slt i64 %indvars.iv.next463, %633
-  br i1 %634, label %.lr.ph456.split.us, label %.sink.split, !llvm.loop !89
+623:                                              ; preds = %616, %.lr.ph455.split.us
+  %.0336.us = phi i32 [ %620, %616 ], [ 1, %.lr.ph455.split.us ]
+  %.0.us = phi i32 [ %622, %616 ], [ 1, %.lr.ph455.split.us ]
+  %624 = mul i32 %.0336.us, %602
+  %625 = mul i32 %.0.us, %610
+  %626 = load ptr, ptr %587, align 8, !tbaa !83
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 40
+  %628 = load ptr, ptr %627, align 8, !tbaa !86
+  %629 = tail call ptr %628(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %624, i32 noundef %625, i32 noundef %.0.us) #8
+  %630 = getelementptr inbounds nuw ptr, ptr %594, i64 %indvars.iv461
+  store ptr %629, ptr %630, align 8, !tbaa !87
+  %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 1
+  %631 = load i32, ptr %590, align 8, !tbaa !48
+  %632 = sext i32 %631 to i64
+  %633 = icmp slt i64 %indvars.iv.next462, %632
+  br i1 %633, label %.lr.ph455.split.us, label %.sink.split, !llvm.loop !89
 
-.lr.ph456.split:                                  ; preds = %.lr.ph456, %644
-  %indvars.iv459 = phi i64 [ %indvars.iv.next460, %644 ], [ 0, %.lr.ph456 ]
-  %635 = phi i32 [ %652, %644 ], [ %612, %.lr.ph456 ]
-  %636 = icmp eq i32 %635, 1
-  br i1 %636, label %644, label %637
+.lr.ph455.split:                                  ; preds = %.lr.ph455, %643
+  %indvars.iv458 = phi i64 [ %indvars.iv.next459, %643 ], [ 0, %.lr.ph455 ]
+  %634 = phi i32 [ %651, %643 ], [ %611, %.lr.ph455 ]
+  %635 = icmp eq i32 %634, 1
+  br i1 %635, label %643, label %636
 
-637:                                              ; preds = %.lr.ph456.split
-  %638 = load ptr, ptr %614, align 8, !tbaa !74
-  %639 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %638, i64 %indvars.iv459
-  %640 = getelementptr inbounds nuw i8, ptr %639, i64 12
-  %641 = load i32, ptr %640, align 4, !tbaa !77
-  %642 = getelementptr inbounds nuw i8, ptr %639, i64 8
-  %643 = load i32, ptr %642, align 8, !tbaa !75
-  br label %644
+636:                                              ; preds = %.lr.ph455.split
+  %637 = load ptr, ptr %613, align 8, !tbaa !74
+  %638 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %637, i64 %indvars.iv458
+  %639 = getelementptr inbounds nuw i8, ptr %638, i64 12
+  %640 = load i32, ptr %639, align 4, !tbaa !77
+  %641 = getelementptr inbounds nuw i8, ptr %638, i64 8
+  %642 = load i32, ptr %641, align 8, !tbaa !75
+  br label %643
 
-644:                                              ; preds = %.lr.ph456.split, %637
-  %.0336 = phi i32 [ %641, %637 ], [ 1, %.lr.ph456.split ]
-  %.0 = phi i32 [ %643, %637 ], [ 1, %.lr.ph456.split ]
-  %645 = mul i32 %.0336, %603
-  %646 = mul i32 %.0, %611
-  %647 = load ptr, ptr %588, align 8, !tbaa !83
-  %648 = getelementptr inbounds nuw i8, ptr %647, i64 40
-  %649 = load ptr, ptr %648, align 8, !tbaa !86
-  %650 = tail call ptr %649(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %645, i32 noundef %646, i32 noundef %.0) #8
-  %651 = getelementptr inbounds nuw ptr, ptr %595, i64 %indvars.iv459
-  store ptr %650, ptr %651, align 8, !tbaa !87
-  %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
-  %652 = load i32, ptr %591, align 8, !tbaa !48
-  %653 = sext i32 %652 to i64
-  %654 = icmp slt i64 %indvars.iv.next460, %653
-  br i1 %654, label %.lr.ph456.split, label %.sink.split, !llvm.loop !91
+643:                                              ; preds = %.lr.ph455.split, %636
+  %.0336 = phi i32 [ %640, %636 ], [ 1, %.lr.ph455.split ]
+  %.0 = phi i32 [ %642, %636 ], [ 1, %.lr.ph455.split ]
+  %644 = mul i32 %.0336, %602
+  %645 = mul i32 %.0, %610
+  %646 = load ptr, ptr %587, align 8, !tbaa !83
+  %647 = getelementptr inbounds nuw i8, ptr %646, i64 40
+  %648 = load ptr, ptr %647, align 8, !tbaa !86
+  %649 = tail call ptr %648(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %644, i32 noundef %645, i32 noundef %.0) #8
+  %650 = getelementptr inbounds nuw ptr, ptr %594, i64 %indvars.iv458
+  store ptr %649, ptr %650, align 8, !tbaa !87
+  %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
+  %651 = load i32, ptr %590, align 8, !tbaa !48
+  %652 = sext i32 %651 to i64
+  %653 = icmp slt i64 %indvars.iv.next459, %652
+  br i1 %653, label %.lr.ph455.split, label %.sink.split, !llvm.loop !91
 
-.sink.split:                                      ; preds = %644, %624, %494, %475, %463, %587
-  %.sink491 = phi ptr [ %595, %587 ], [ null, %463 ], [ null, %475 ], [ null, %494 ], [ %595, %624 ], [ %595, %644 ]
-  %655 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %.sink491, ptr %655, align 8, !tbaa !92
-  br label %656
+.sink.split:                                      ; preds = %643, %623, %494, %475, %463, %trim_bottom_edge.exit
+  %.sink490 = phi ptr [ %594, %trim_bottom_edge.exit ], [ null, %463 ], [ null, %475 ], [ null, %494 ], [ %594, %623 ], [ %594, %643 ]
+  %654 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store ptr %.sink490, ptr %654, align 8, !tbaa !92
+  br label %655
 
-656:                                              ; preds = %.sink.split, %jtransform_perfect_transform.exit417, %jtransform_perfect_transform.exit
-  %.0338 = phi i32 [ 0, %jtransform_perfect_transform.exit ], [ 0, %jtransform_perfect_transform.exit417 ], [ 1, %.sink.split ]
+655:                                              ; preds = %.sink.split, %jtransform_perfect_transform.exit419, %jtransform_perfect_transform.exit
+  %.0338 = phi i32 [ 0, %jtransform_perfect_transform.exit ], [ 0, %jtransform_perfect_transform.exit419 ], [ 1, %.sink.split ]
   ret i32 %.0338
 }
 

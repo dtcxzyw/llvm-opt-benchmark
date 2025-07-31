@@ -1297,7 +1297,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %37 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !54
   %39 = icmp ugt i8 %38, 63
-  br i1 %39, label %.loopexit, label %42
+  br i1 %39, label %.critedge85, label %42
 
 40:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i, %23, %180
   %41 = landingpad { ptr, i32 }
@@ -1311,7 +1311,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %46 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !54
   %48 = icmp ugt i8 %47, 63
-  br i1 %48, label %.loopexit, label %49
+  br i1 %48, label %.critedge85, label %49
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.0101, i64 2
@@ -1320,7 +1320,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %53 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !54
   %55 = icmp ugt i8 %54, 63
-  br i1 %55, label %.loopexit, label %56
+  br i1 %55, label %.critedge85, label %56
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %.0101, i64 3
@@ -1329,7 +1329,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %60 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !54
   %62 = icmp ugt i8 %61, 63
-  br i1 %62, label %.loopexit, label %63
+  br i1 %62, label %.critedge85, label %63
 
 63:                                               ; preds = %56
   %64 = zext nneg i8 %38 to i32
@@ -1378,7 +1378,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %.lcssa = phi i64 [ %18, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ %87, %84 ]
   switch i64 %.lcssa, label %180 [
     i64 0, label %91
-    i64 1, label %.loopexit
+    i64 1, label %.critedge85
     i64 2, label %99
     i64 3, label %132
   ]
@@ -1403,7 +1403,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %102 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !54
   %104 = icmp ugt i8 %103, 63
-  br i1 %104, label %.loopexit, label %105
+  br i1 %104, label %.critedge85, label %105
 
 105:                                              ; preds = %99
   %106 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
@@ -1412,13 +1412,13 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %109 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !54
   %111 = icmp ugt i8 %110, 63
-  br i1 %111, label %.loopexit, label %112
+  br i1 %111, label %.critedge85, label %112
 
 112:                                              ; preds = %105
   %113 = zext nneg i8 %110 to i32
   %114 = and i32 %113, 15
   %.not81 = icmp eq i32 %114, 0
-  br i1 %.not81, label %115, label %.loopexit
+  br i1 %.not81, label %115, label %.critedge85
 
 115:                                              ; preds = %112
   %116 = shl nuw nsw i32 %113, 12
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %135 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !54
   %137 = icmp ugt i8 %136, 63
-  br i1 %137, label %.loopexit, label %138
+  br i1 %137, label %.critedge85, label %138
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
@@ -1468,7 +1468,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %142 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !54
   %144 = icmp ugt i8 %143, 63
-  br i1 %144, label %.loopexit, label %145
+  br i1 %144, label %.critedge85, label %145
 
 145:                                              ; preds = %138
   %146 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
@@ -1477,7 +1477,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %149 = getelementptr inbounds nuw [256 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_119kBase64InverseTableE, i64 0, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !54
   %151 = icmp ugt i8 %150, 63
-  br i1 %151, label %.loopexit, label %152
+  br i1 %151, label %.critedge85, label %152
 
 152:                                              ; preds = %145
   %153 = zext nneg i8 %150 to i32
@@ -1487,7 +1487,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   %157 = or disjoint i32 %156, %155
   %158 = and i32 %153, 3
   %.not79 = icmp eq i32 %158, 0
-  br i1 %.not79, label %159, label %.loopexit
+  br i1 %.not79, label %159, label %.critedge85
 
 159:                                              ; preds = %152
   %160 = zext nneg i8 %136 to i32
@@ -1543,14 +1543,14 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
 181:                                              ; preds = %180
   unreachable
 
-.loopexit:                                        ; preds = %56, %49, %42, %34, %152, %145, %138, %132, %112, %105, %99, %._crit_edge
+.critedge85:                                      ; preds = %56, %49, %42, %34, %152, %145, %138, %132, %112, %105, %99, %._crit_edge
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %182, align 8, !tbaa !60
   %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %183
 
-183:                                              ; preds = %.loopexit
+183:                                              ; preds = %.critedge85
   %184 = load ptr, ptr %25, align 8, !tbaa !48
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %.pr to i64
@@ -1558,15 +1558,15 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %24, %_ZNSt12_Vector
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %187) #34
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.loopexit, %183
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.critedge85, %183
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   ret void
 
 188:                                              ; preds = %176, %178, %130, %89, %40
   %.pn82 = phi { ptr, i32 } [ %90, %89 ], [ %41, %40 ], [ %131, %130 ], [ %179, %178 ], [ %177, %176 ]
   %189 = load ptr, ptr %6, align 8, !tbaa !16
-  %.not.i.i.i86 = icmp eq ptr %189, null
-  br i1 %.not.i.i.i86, label %_ZNSt6vectorIhSaIhEED2Ev.exit87, label %190
+  %.not.i.i.i88 = icmp eq ptr %189, null
+  br i1 %.not.i.i.i88, label %_ZNSt6vectorIhSaIhEED2Ev.exit89, label %190
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1575,9 +1575,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %91, %122, %168, %.l
   %194 = ptrtoint ptr %189 to i64
   %195 = sub i64 %193, %194
   call void @_ZdlPvm(ptr noundef nonnull %189, i64 noundef %195) #34
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit87
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit89
 
-_ZNSt6vectorIhSaIhEED2Ev.exit87:                  ; preds = %188, %190
+_ZNSt6vectorIhSaIhEED2Ev.exit89:                  ; preds = %188, %190
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   resume { ptr, i32 } %.pn82
 }

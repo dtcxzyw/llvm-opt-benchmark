@@ -674,7 +674,7 @@ define internal void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel6SelectEPN4llvm6SDNo
   %.sroa.0.0.copyload.i = load i16, ptr %185, align 8, !tbaa !205
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %185, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !207
-  switch i32 %179, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i32 %179, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i32 338, label %186
     i32 27, label %188
     i32 786, label %188
@@ -726,7 +726,7 @@ define internal void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel6SelectEPN4llvm6SDNo
 
 186:                                              ; preds = %183
   %187 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectCMP_SWAPEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %187, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %187, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 188:                                              ; preds = %183, %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
@@ -770,11 +770,11 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %201, %198
 
 209:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %210 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(8) %208, i64 1) #23
-  %.pre10353 = load i32, ptr %178, align 8, !tbaa !190
+  %.pre10354 = load i32, ptr %178, align 8, !tbaa !190
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i
 
 _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i:            ; preds = %209, %_ZNK4llvm6MDNode10getOperandEj.exit.i
-  %211 = phi i32 [ %.pre10353, %209 ], [ %179, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
+  %211 = phi i32 [ %.pre10354, %209 ], [ %179, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
   %212 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %214 = load i32, ptr %213, align 4, !tbaa !220
@@ -785,7 +785,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i:            ; preds = %209, %_ZNK4llvm6MDN
   %218 = extractvalue { ptr, i64 } %216, 1
   %219 = call fastcc noundef i32 @_ZL31getIntOperandFromRegisterStringN4llvm9StringRefE(ptr %217, i64 %218)
   %220 = icmp eq i32 %219, -1
-  br i1 %220, label %221, label %.thread101.i
+  br i1 %220, label %221, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
 221:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i
   %222 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %206) #23
@@ -857,28 +857,27 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i: ; pred
 
 252:                                              ; preds = %247, %244
   %.170.i = phi i32 [ %246, %244 ], [ %251, %247 ]
-  %253 = icmp ne i32 %.170.i, -1
-  %brmerge.i = or i1 %215, %253
-  br i1 %brmerge.i, label %259, label %254
+  %253 = icmp eq i32 %.170.i, -1
+  br i1 %253, label %254, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
 254:                                              ; preds = %252
-  %255 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %206) #23
-  %256 = extractvalue { ptr, i64 } %255, 1
-  %.not.i75.i = icmp eq i64 %256, 2
-  br i1 %.not.i75.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %.thread.i
+  br i1 %215, label %.critedge.i, label %255
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %254
-  %257 = extractvalue { ptr, i64 } %255, 0
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %257, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
-  %258 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %258, label %.thread101.i, label %.thread.i
+255:                                              ; preds = %254
+  %256 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %206) #23
+  %257 = extractvalue { ptr, i64 } %256, 1
+  %.not.i74.i = icmp eq i64 %257, 2
+  br i1 %.not.i74.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %.critedge.i
 
-259:                                              ; preds = %252
-  br i1 %253, label %.thread101.i, label %.thread.i
+_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %255
+  %258 = extractvalue { ptr, i64 } %256, 0
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %258, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %259 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %259, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %.critedge.i
 
-.thread101.i:                                     ; preds = %259, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i
-  %.069.i = phi i32 [ %.170.i, %259 ], [ %219, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.067.i = phi i32 [ 5246, %259 ], [ 5246, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i ], [ 1555, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %252, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i
+  %.069.i = phi i32 [ %219, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i ], [ %.170.i, %252 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.067.i = phi i32 [ 5246, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i ], [ 5246, %252 ], [ 1555, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
   %260 = load ptr, ptr %189, align 8, !tbaa !209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !237
@@ -891,7 +890,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %254
   %265 = load ptr, ptr %261, align 8, !tbaa !239
   br i1 %215, label %271, label %266
 
-266:                                              ; preds = %.thread101.i
+266:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   store i16 1, ptr %54, align 8, !tbaa !240
   %267 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr null, ptr %267, align 8, !tbaa !242
@@ -908,7 +907,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %254
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #23
   br label %284
 
-271:                                              ; preds = %.thread101.i
+271:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) @constinit.21, i64 32, i1 false), !tbaa.struct !248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #23
@@ -950,26 +949,26 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %254
 
 284:                                              ; preds = %271, %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %284, %259, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %254
-  %.1.i = phi i1 [ true, %284 ], [ false, %259 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %254 ]
+.critedge.i:                                      ; preds = %284, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %255, %254
+  %.1.i = phi i1 [ true, %284 ], [ false, %254 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ false, %255 ]
   %285 = load ptr, ptr %52, align 8, !tbaa !219
-  %.not.i.i.i.i.i76.i = icmp eq ptr %285, null
-  br i1 %.not.i.i.i.i.i76.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, label %286
+  %.not.i.i.i.i.i75.i = icmp eq ptr %285, null
+  br i1 %.not.i.i.i.i.i75.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, label %286
 
-286:                                              ; preds = %.thread.i
+286:                                              ; preds = %.critedge.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(8) %285) #23
   br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit: ; preds = %.thread.i, %286
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit: ; preds = %.critedge.i, %286
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
-  br i1 %.1.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %.1.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 287:                                              ; preds = %183, %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
@@ -1013,11 +1012,11 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i1516:        ; preds = %300, %297
 
 308:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i1516
   %309 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(8) %307, i64 1) #23
-  %.pre10352 = load i32, ptr %178, align 8, !tbaa !190
+  %.pre10353 = load i32, ptr %178, align 8, !tbaa !190
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1519
 
 _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1519:        ; preds = %308, %_ZNK4llvm6MDNode10getOperandEj.exit.i1516
-  %310 = phi i32 [ %.pre10352, %308 ], [ %179, %_ZNK4llvm6MDNode10getOperandEj.exit.i1516 ]
+  %310 = phi i32 [ %.pre10353, %308 ], [ %179, %_ZNK4llvm6MDNode10getOperandEj.exit.i1516 ]
   %311 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %313 = load i32, ptr %312, align 4, !tbaa !220
@@ -1033,7 +1032,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1519:        ; preds = %308, %_ZNK4llvm6MDN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
   %.not.i.not.i = icmp eq ptr %319, null
-  br i1 %.not.i.not.i, label %320, label %.critedge.i
+  br i1 %.not.i.not.i, label %320, label %.critedge.i1520
 
 320:                                              ; preds = %315
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
@@ -1102,8 +1101,8 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1519:        ; preds = %308, %_ZNK4llvm6MDN
   %353 = extractvalue { ptr, i64 } %352, 0
   %354 = extractvalue { ptr, i64 } %352, 1
   %355 = call noundef ptr @_ZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefE(ptr %353, i64 %354) #23
-  %.not.i1524 = icmp eq ptr %355, null
-  br i1 %.not.i1524, label %377, label %356
+  %.not.i1525 = icmp eq ptr %355, null
+  br i1 %.not.i1525, label %377, label %356
 
 356:                                              ; preds = %351
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 37
@@ -1121,9 +1120,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1519:        ; preds = %308, %_ZNK4llvm6MDN
   %365 = and i64 %364, 256
   %.not.i64.i = icmp eq i64 %365, 0
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #23
-  br i1 %.not.i64.i, label %366, label %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1525
+  br i1 %.not.i64.i, label %366, label %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1526
 
-_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1525: ; preds = %360
+_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1526: ; preds = %360
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
   br label %374
@@ -1135,30 +1134,30 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1
   br label %368
 
 368:                                              ; preds = %368, %366
-  %indvars.iv.i.i.i.i1526 = phi i64 [ 0, %366 ], [ %indvars.iv.next.i.i.i.i1527, %368 ]
-  %369 = getelementptr inbounds nuw [5 x i64], ptr %38, i64 0, i64 %indvars.iv.i.i.i.i1526
+  %indvars.iv.i.i.i.i1527 = phi i64 [ 0, %366 ], [ %indvars.iv.next.i.i.i.i1528, %368 ]
+  %369 = getelementptr inbounds nuw [5 x i64], ptr %38, i64 0, i64 %indvars.iv.i.i.i.i1527
   %370 = load i64, ptr %369, align 8, !tbaa !11, !noalias !258
-  %371 = getelementptr inbounds nuw [5 x i64], ptr %37, i64 0, i64 %indvars.iv.i.i.i.i1526
+  %371 = getelementptr inbounds nuw [5 x i64], ptr %37, i64 0, i64 %indvars.iv.i.i.i.i1527
   %372 = load i64, ptr %371, align 8, !tbaa !11, !alias.scope !258
   %373 = and i64 %372, %370
   store i64 %373, ptr %371, align 8, !tbaa !11, !alias.scope !258
-  %indvars.iv.next.i.i.i.i1527 = add nuw nsw i64 %indvars.iv.i.i.i.i1526, 1
-  %.not.i.i.i.i1528 = icmp eq i64 %indvars.iv.next.i.i.i.i1527, 5
-  br i1 %.not.i.i.i.i1528, label %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529, label %368, !llvm.loop !234
+  %indvars.iv.next.i.i.i.i1528 = add nuw nsw i64 %indvars.iv.i.i.i.i1527, 1
+  %.not.i.i.i.i1529 = icmp eq i64 %indvars.iv.next.i.i.i.i1528, 5
+  br i1 %.not.i.i.i.i1529, label %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1530, label %368, !llvm.loop !234
 
-_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529: ; preds = %368
-  %bcmp.i.i.i.i.i.i.i1530 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %367, i64 40)
-  %.not9.i.i.i.i.i.i.i1531 = icmp eq i32 %bcmp.i.i.i.i.i.i.i1530, 0
+_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1530: ; preds = %368
+  %bcmp.i.i.i.i.i.i.i1531 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %367, i64 40)
+  %.not9.i.i.i.i.i.i.i1532 = icmp eq i32 %bcmp.i.i.i.i.i.i.i1531, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
-  br i1 %.not9.i.i.i.i.i.i.i1531, label %374, label %377
+  br i1 %.not9.i.i.i.i.i.i.i1532, label %374, label %377
 
-374:                                              ; preds = %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529, %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1525
+374:                                              ; preds = %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1530, %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.thread.i1526
   %375 = getelementptr inbounds nuw i8, ptr %355, i64 32
   %376 = load i32, ptr %375, align 8, !tbaa !236
   br label %382
 
-377:                                              ; preds = %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529, %356, %351
+377:                                              ; preds = %_ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1530, %356, %351
   %378 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %305) #23
   %379 = extractvalue { ptr, i64 } %378, 0
   %380 = extractvalue { ptr, i64 } %378, 1
@@ -1198,11 +1197,11 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529: ; 
   %396 = load i16, ptr %395, align 8, !tbaa !266
   %397 = zext i16 %396 to i64
   %398 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %386, i64 noundef %397, ptr noundef nonnull align 8 dereferenceable(12) %43, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract10.i1520 = extractvalue { ptr, i32 } %398, 0
-  %.fca.1.extract11.i1521 = extractvalue { ptr, i32 } %398, 1
-  store ptr %.fca.0.extract10.i1520, ptr %47, align 8
+  %.fca.0.extract10.i1521 = extractvalue { ptr, i32 } %398, 0
+  %.fca.1.extract11.i1522 = extractvalue { ptr, i32 } %398, 1
+  store ptr %.fca.0.extract10.i1521, ptr %47, align 8
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 %.fca.1.extract11.i1521, ptr %.sroa.213.0..sroa_idx.i, align 8
+  store i32 %.fca.1.extract11.i1522, ptr %.sroa.213.0..sroa_idx.i, align 8
   %399 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %400 = load ptr, ptr %288, align 8, !tbaa !209
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 80
@@ -1235,18 +1234,18 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529: ; 
   %413 = load ptr, ptr %385, align 8, !tbaa !239
   %414 = sext i32 %.051.i to i64
   %415 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %413, i64 noundef %414, ptr noundef nonnull align 8 dereferenceable(12) %43, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract.i1522 = extractvalue { ptr, i32 } %415, 0
-  %.fca.1.extract.i1523 = extractvalue { ptr, i32 } %415, 1
-  store ptr %.fca.0.extract.i1522, ptr %48, align 8
+  %.fca.0.extract.i1523 = extractvalue { ptr, i32 } %415, 0
+  %.fca.1.extract.i1524 = extractvalue { ptr, i32 } %415, 1
+  store ptr %.fca.0.extract.i1523, ptr %48, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %.fca.1.extract.i1523, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i32 %.fca.1.extract.i1524, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %412, ptr %49, align 8, !tbaa !210
   %416 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 0, ptr %416, align 8, !tbaa !249
   %417 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_7SDValueES4_S4_(ptr noundef nonnull align 8 dereferenceable(952) %413, ptr noundef nonnull %1, i32 noundef 5252, i16 1, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %48, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %49, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %44) #23
   br label %438
 
-.critedge.i:                                      ; preds = %315
+.critedge.i1520:                                  ; preds = %315
   %418 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %419 = load i16, ptr %418, align 8, !tbaa !250
   %420 = load ptr, ptr %288, align 8, !tbaa !209
@@ -1283,8 +1282,8 @@ _ZNK4llvm13AArch64SysReg6SysReg12haveFeaturesENS_13FeatureBitsetE.exit.i1529: ; 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   br label %438
 
-438:                                              ; preds = %.critedge.i, %393, %387, %382, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeEENK3$_0clIPKNS1_13AArch64PState12PStateImm0_1EEEDaT_j.exit.i"
-  %.2.i = phi i1 [ true, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeEENK3$_0clIPKNS1_13AArch64PState12PStateImm0_1EEEDaT_j.exit.i" ], [ true, %.critedge.i ], [ false, %382 ], [ true, %393 ], [ true, %387 ]
+438:                                              ; preds = %.critedge.i1520, %393, %387, %382, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeEENK3$_0clIPKNS1_13AArch64PState12PStateImm0_1EEEDaT_j.exit.i"
+  %.2.i = phi i1 [ true, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeEENK3$_0clIPKNS1_13AArch64PState12PStateImm0_1EEEDaT_j.exit.i" ], [ true, %.critedge.i1520 ], [ false, %382 ], [ true, %393 ], [ true, %387 ]
   %439 = load ptr, ptr %43, align 8, !tbaa !219
   %.not.i.i.i.i.i65.i = icmp eq ptr %439, null
   br i1 %.not.i.i.i.i.i65.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit, label %440
@@ -1300,11 +1299,11 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit: ;
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
-  br i1 %.2.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %.2.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 441:                                              ; preds = %183
   %442 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14tryIndexedLoadEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %442, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %442, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 443:                                              ; preds = %183, %183, %183, %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
@@ -1331,14 +1330,14 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit: ;
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %451 = load ptr, ptr %450, align 8, !tbaa !219
   store ptr %451, ptr %31, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i1532 = icmp eq ptr %451, null
-  br i1 %.not.i.i.i.i.i.i1532, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533, label %452
+  %.not.i.i.i.i.i.i1533 = icmp eq ptr %451, null
+  br i1 %.not.i.i.i.i.i.i1533, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534, label %452
 
 452:                                              ; preds = %448
   %453 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(8) %451, i64 1) #23
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533:        ; preds = %452, %448
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534:        ; preds = %452, %448
   %454 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %456 = load i32, ptr %455, align 4, !tbaa !220
@@ -1349,9 +1348,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533:        ; preds = %452, %448
     i32 5747, label %458
   ]
 
-458:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533
-  %.not.i.i.i1534 = icmp eq i16 %.sroa.0.0.copyload.i.i, 7
-  br i1 %.not.i.i.i1534, label %459, label %_ZNK4llvm3EVTeqES0_.exit.i
+458:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534
+  %.not.i.i.i1535 = icmp eq i16 %.sroa.0.0.copyload.i.i, 7
+  br i1 %.not.i.i.i1535, label %459, label %_ZNK4llvm3EVTeqES0_.exit.i
 
 459:                                              ; preds = %458
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32) #23
@@ -1395,7 +1394,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533:        ; preds = %452, %448
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32) #23
   br label %491
 
-_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %458, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1533
+_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %458, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1534
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !237
   %478 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1413,11 +1412,11 @@ _ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %458, %_ZN4llvm5SDLo
   %485 = load i32, ptr %29, align 4, !tbaa !20
   %486 = zext i32 %485 to i64
   %487 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %484, i64 noundef %486, ptr noundef nonnull align 8 dereferenceable(12) %31, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract.i1535 = extractvalue { ptr, i32 } %487, 0
-  %.fca.1.extract.i1536 = extractvalue { ptr, i32 } %487, 1
-  store ptr %.fca.0.extract.i1535, ptr %483, align 16
+  %.fca.0.extract.i1536 = extractvalue { ptr, i32 } %487, 0
+  %.fca.1.extract.i1537 = extractvalue { ptr, i32 } %487, 1
+  store ptr %.fca.0.extract.i1536, ptr %483, align 16
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 %.fca.1.extract.i1536, ptr %.sroa.24.0..sroa_idx.i, align 8
+  store i32 %.fca.1.extract.i1537, ptr %.sroa.24.0..sroa_idx.i, align 8
   %488 = load ptr, ptr %445, align 8, !tbaa !239
   store ptr %35, ptr %36, align 8, !tbaa !244
   %489 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1456,8 +1455,8 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel20tryBitfieldExtractOpEPN4llvm6SDNodeE.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %495 = load i32, ptr %178, align 8, !tbaa !190
-  %.not.i1537 = icmp eq i32 %495, 186
-  br i1 %.not.i1537, label %496, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread
+  %.not.i1538 = icmp eq i32 %495, 186
+  br i1 %.not.i1538, label %496, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread
 
 _ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread: ; preds = %494
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
@@ -1465,10 +1464,10 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNode
 
 496:                                              ; preds = %494
   %497 = load ptr, ptr %184, align 8, !tbaa !204
-  %.sroa.0.0.copyload.i.i1538 = load i16, ptr %497, align 8, !tbaa !205
-  %.sroa.21.0..sroa_idx.i.i1539 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  %.sroa.21.0.copyload.i.i1540 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i1539, align 8, !tbaa !207
-  %.sroa.0.0.copyload.i.off.i = add i16 %.sroa.0.0.copyload.i.i1538, -7
+  %.sroa.0.0.copyload.i.i1539 = load i16, ptr %497, align 8, !tbaa !205
+  %.sroa.21.0..sroa_idx.i.i1540 = getelementptr inbounds nuw i8, ptr %497, i64 8
+  %.sroa.21.0.copyload.i.i1541 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i1540, align 8, !tbaa !207
+  %.sroa.0.0.copyload.i.off.i = add i16 %.sroa.0.0.copyload.i.i1539, -7
   %switch.i = icmp ult i16 %.sroa.0.0.copyload.i.off.i, 2
   br i1 %switch.i, label %_ZNK4llvm3EVTneES0_.exit.i, label %.thread
 
@@ -1497,15 +1496,15 @@ _ZNK4llvm3EVTneES0_.exit.i:                       ; preds = %496
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit41.i:          ; preds = %_ZNK4llvm3EVTneES0_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #23
-  %501 = zext nneg i16 %.sroa.0.0.copyload.i.i1538 to i64
+  %501 = zext nneg i16 %.sroa.0.0.copyload.i.i1539 to i64
   %502 = add nsw i64 %501, -1
   %503 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %502
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %503, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %503, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %22, align 8
-  %.sroa.222.0..sroa_idx.i1542 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i8 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.222.0..sroa_idx.i1542, align 8
+  %.sroa.222.0..sroa_idx.i1543 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i8 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.222.0..sroa_idx.i1543, align 8
   %504 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %22) #23
   %505 = load i32, ptr %20, align 4, !tbaa !20
   %506 = sext i32 %505 to i64
@@ -1524,14 +1523,14 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit41.i:          ; preds = %_ZNK4llvm3EVTneES0_
   %512 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %513 = load ptr, ptr %512, align 8, !tbaa !219
   store ptr %513, ptr %24, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i1544 = icmp eq ptr %513, null
-  br i1 %.not.i.i.i.i.i.i1544, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545, label %514
+  %.not.i.i.i.i.i.i1545 = icmp eq ptr %513, null
+  br i1 %.not.i.i.i.i.i.i1545, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1546, label %514
 
 514:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit41.i
   %515 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(8) %513, i64 1) #23
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1546
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545:        ; preds = %514, %_ZNK4llvm3EVT13getSizeInBitsEv.exit41.i
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1546:        ; preds = %514, %_ZNK4llvm3EVT13getSizeInBitsEv.exit41.i
   %516 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %517 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %518 = load i32, ptr %517, align 4, !tbaa !220
@@ -1541,7 +1540,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545:        ; preds = %514, %_ZNK4llvm3EVT
   %519 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %520 = load ptr, ptr %445, align 8, !tbaa !239
   %521 = and i64 %509, 4294967295
-  %522 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %520, i64 noundef %521, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 %.sroa.0.0.copyload.i.i1538, ptr %.sroa.21.0.copyload.i.i1540, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %522 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %520, i64 noundef %521, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 %.sroa.0.0.copyload.i.i1539, ptr %.sroa.21.0.copyload.i.i1541, i1 noundef zeroext true, i1 noundef zeroext false) #23
   %.fca.0.extract7.i = extractvalue { ptr, i32 } %522, 0
   %.fca.1.extract8.i = extractvalue { ptr, i32 } %522, 1
   store ptr %.fca.0.extract7.i, ptr %519, align 16
@@ -1550,29 +1549,29 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545:        ; preds = %514, %_ZNK4llvm3EVT
   %523 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %524 = load ptr, ptr %445, align 8, !tbaa !239
   %525 = zext i32 %511 to i64
-  %526 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %524, i64 noundef %525, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 %.sroa.0.0.copyload.i.i1538, ptr %.sroa.21.0.copyload.i.i1540, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract.i1546 = extractvalue { ptr, i32 } %526, 0
-  %.fca.1.extract.i1547 = extractvalue { ptr, i32 } %526, 1
-  store ptr %.fca.0.extract.i1546, ptr %523, align 16
+  %526 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %524, i64 noundef %525, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 %.sroa.0.0.copyload.i.i1539, ptr %.sroa.21.0.copyload.i.i1541, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %.fca.0.extract.i1547 = extractvalue { ptr, i32 } %526, 0
+  %.fca.1.extract.i1548 = extractvalue { ptr, i32 } %526, 1
+  store ptr %.fca.0.extract.i1547, ptr %523, align 16
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i32 %.fca.1.extract.i1547, ptr %.sroa.23.0..sroa_idx.i, align 8
-  %.not.i.i.i1548 = icmp eq i16 %.sroa.0.0.copyload.i.i1538, 7
-  %spec.select.i = select i1 %.not.i.i.i1548, i32 7749, i32 7750
+  store i32 %.fca.1.extract.i1548, ptr %.sroa.23.0..sroa_idx.i, align 8
+  %.not.i.i.i1549 = icmp eq i16 %.sroa.0.0.copyload.i.i1539, 7
+  %spec.select.i = select i1 %.not.i.i.i1549, i32 7749, i32 7750
   %527 = load ptr, ptr %445, align 8, !tbaa !239
   store ptr %25, ptr %26, align 8, !tbaa !244
   %528 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 3, ptr %528, align 8, !tbaa !247
-  %529 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %527, ptr noundef nonnull %1, i32 noundef %spec.select.i, i16 %.sroa.0.0.copyload.i.i1538, ptr %.sroa.21.0.copyload.i.i1540, ptr noundef nonnull byval(%"class.llvm::ArrayRef.349") align 8 %26) #23
+  %529 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %527, ptr noundef nonnull %1, i32 noundef %spec.select.i, i16 %.sroa.0.0.copyload.i.i1539, ptr %.sroa.21.0.copyload.i.i1541, ptr noundef nonnull byval(%"class.llvm::ArrayRef.349") align 8 %26) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #23
   %530 = load ptr, ptr %24, align 8, !tbaa !219
   %.not.i.i.i.i.i42.i = icmp eq ptr %530, null
-  br i1 %.not.i.i.i.i.i42.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9461, label %531
+  br i1 %.not.i.i.i.i.i42.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9462, label %531
 
-531:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545
+531:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1546
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(8) %530) #23
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9461
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9462
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9461: ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1545, %531
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9462: ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1546, %531
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #23
@@ -1585,11 +1584,11 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNode
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  %.pre10351 = load i32, ptr %178, align 8, !tbaa !190
+  %.pre10352 = load i32, ptr %178, align 8, !tbaa !190
   br label %532
 
 532:                                              ; preds = %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread, %183, %183
-  %533 = phi i32 [ %.pre10351, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit ], [ %495, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread ], [ %179, %183 ], [ %179, %183 ]
+  %533 = phi i32 [ %.pre10352, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit ], [ %495, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread ], [ %179, %183 ], [ %179, %183 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -1599,9 +1598,9 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNode
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   %534 = load ptr, ptr %184, align 8, !tbaa !204
-  %.sroa.0.0.copyload.i.i1551 = load i16, ptr %534, align 8, !tbaa !205
-  %.sroa.21.0..sroa_idx.i.i1552 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  %.sroa.21.0.copyload.i.i1553 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i1552, align 8, !tbaa !207
+  %.sroa.0.0.copyload.i.i1552 = load i16, ptr %534, align 8, !tbaa !205
+  %.sroa.21.0..sroa_idx.i.i1553 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  %.sroa.21.0.copyload.i.i1554 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i1553, align 8, !tbaa !207
   switch i32 %533, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit.thread [
     i32 194, label %535
     i32 190, label %536
@@ -1610,24 +1609,24 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNode
   ]
 
 535:                                              ; preds = %532
-  %.not.i.i.i1566 = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 7
-  br i1 %.not.i.i.i1566, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %539
+  %.not.i.i.i1567 = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 7
+  br i1 %.not.i.i.i1567, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %539
 
 536:                                              ; preds = %532
-  %.not.i.i121.i = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 7
+  %.not.i.i121.i = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 7
   br i1 %.not.i.i121.i, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %539
 
 537:                                              ; preds = %532
-  %.not.i.i124.i = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 7
+  %.not.i.i124.i = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 7
   br i1 %.not.i.i124.i, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %539
 
 538:                                              ; preds = %532
-  %.not.i.i127.i = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 7
+  %.not.i.i127.i = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 7
   br i1 %.not.i.i127.i, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %539
 
 539:                                              ; preds = %538, %537, %536, %535
   %.0102303.ph.i = phi i32 [ 1625, %538 ], [ 5050, %537 ], [ 5026, %536 ], [ 5617, %535 ]
-  %.not.i.i133.i = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 8
+  %.not.i.i133.i = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 8
   br i1 %.not.i.i133.i, label %_ZNK4llvm3EVTeqES0_.exit135.thread.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit.thread
 
 _ZNK4llvm3EVTeqES0_.exit135.thread.i:             ; preds = %539, %538, %537, %536, %535
@@ -1643,14 +1642,14 @@ _ZNK4llvm3EVTeqES0_.exit135.thread.i:             ; preds = %539, %538, %537, %5
   %543 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %544 = load ptr, ptr %543, align 8, !tbaa !219
   store ptr %544, ptr %9, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i1555 = icmp eq ptr %544, null
-  br i1 %.not.i.i.i.i.i.i1555, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556, label %545
+  %.not.i.i.i.i.i.i1556 = icmp eq ptr %544, null
+  br i1 %.not.i.i.i.i.i.i1556, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557, label %545
 
 545:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit135.thread.i
   %546 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %544, i64 1) #23
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556:        ; preds = %545, %_ZNK4llvm3EVTeqES0_.exit135.thread.i
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557:        ; preds = %545, %_ZNK4llvm3EVTeqES0_.exit135.thread.i
   %547 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %548 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %549 = load i32, ptr %548, align 4, !tbaa !220
@@ -1658,10 +1657,10 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556:        ; preds = %545, %_ZNK4llvm3EVT
   %550 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0.copyload.i, i64 24
   %551 = load i32, ptr %550, align 8, !tbaa !190
   %552 = and i32 %551, -2
-  %switch.i1557 = icmp eq i32 %552, 214
-  br i1 %switch.i1557, label %553, label %556
+  %switch.i1558 = icmp eq i32 %552, 214
+  br i1 %switch.i1558, label %553, label %556
 
-553:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556
+553:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557
   %554 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0.copyload.i, i64 40
   %555 = load ptr, ptr %554, align 8, !tbaa !209
   %.sroa.0238.0.copyload252.i = load ptr, ptr %555, align 8, !tbaa !238
@@ -1669,9 +1668,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556:        ; preds = %545, %_ZNK4llvm3EVT
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !190
   br label %556
 
-556:                                              ; preds = %553, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556
-  %557 = phi i32 [ %.pre.i, %553 ], [ %551, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556 ]
-  %.sroa.0238.0.i = phi ptr [ %.sroa.0238.0.copyload252.i, %553 ], [ %.sroa.0238.0.copyload.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556 ]
+556:                                              ; preds = %553, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557
+  %557 = phi i32 [ %.pre.i, %553 ], [ %551, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557 ]
+  %.sroa.0238.0.i = phi ptr [ %.sroa.0238.0.copyload252.i, %553 ], [ %.sroa.0238.0.copyload.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1557 ]
   switch i32 %557, label %.critedge118.i [
     i32 56, label %558
     i32 57, label %558
@@ -1706,9 +1705,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i1556:        ; preds = %545, %_ZNK4llvm3EVT
   %569 = load i32, ptr %568, align 8, !tbaa !255
   %570 = icmp ult i32 %569, 65
   %571 = load ptr, ptr %567, align 8
-  %.0.in.i.i.i.i.i.i1563 = select i1 %570, ptr %567, ptr %571
-  %.0.i.i.i.i.i.i1564 = load i64, ptr %.0.in.i.i.i.i.i.i1563, align 8, !tbaa !233
-  %572 = and i64 %.0.i.i.i.i.i.i1564, %.0105.i
+  %.0.in.i.i.i.i.i.i1564 = select i1 %570, ptr %567, ptr %571
+  %.0.i.i.i.i.i.i1565 = load i64, ptr %.0.in.i.i.i.i.i.i1564, align 8, !tbaa !233
+  %572 = and i64 %.0.i.i.i.i.i.i1565, %.0105.i
   %573 = icmp eq i64 %572, 0
   br i1 %573, label %643, label %_ZL14isIntImmediateN4llvm7SDValueERm.exit.i
 
@@ -1747,7 +1746,7 @@ _ZNK4llvm3EVTeqES0_.exit147.i:                    ; preds = %_ZL14isIntImmediate
   %.sroa.21.0..sroa_idx.i141.i = getelementptr inbounds nuw i8, ptr %589, i64 8
   %.sroa.21.0.copyload.i142.i = load ptr, ptr %.sroa.21.0..sroa_idx.i141.i, align 8, !tbaa !207
   %.not.i.i145.i = icmp eq i16 %.sroa.0.0.copyload.i140.i, 7
-  %spec.select.i1565 = select i1 %.not.i.i145.i, i32 12, i32 14
+  %spec.select.i1566 = select i1 %.not.i.i145.i, i32 12, i32 14
   %spec.select344.i = select i1 %.not.i.i145.i, i32 1215, i32 1216
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %591 = load ptr, ptr %590, align 8, !tbaa !239
@@ -1761,7 +1760,7 @@ _ZNK4llvm3EVTeqES0_.exit147.i:                    ; preds = %_ZL14isIntImmediate
   %.sroa.218.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %.sroa.218.0..sroa_idx.i.i, align 8, !tbaa !20
   %596 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %597 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %591, i32 %spec.select.i1565, i16 %.sroa.0.0.copyload.i140.i, ptr %.sroa.21.0.copyload.i142.i) #23
+  %597 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %591, i32 %spec.select.i1566, i16 %.sroa.0.0.copyload.i140.i, ptr %.sroa.21.0.copyload.i142.i) #23
   %.fca.0.extract3.i.i = extractvalue { ptr, i32 } %597, 0
   %.fca.1.extract4.i.i = extractvalue { ptr, i32 } %597, 1
   store ptr %.fca.0.extract3.i.i, ptr %596, align 16
@@ -1905,8 +1904,8 @@ _ZL21isOpcWithIntImmediatePKN4llvm6SDNodeEjRm.exit.i: ; preds = %625, %625, %618
   %649 = zext i32 %.sroa.13.1.i to i64
   %650 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %648, i64 %649
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %650, align 8, !tbaa !205
-  %.not.i.i.i.i1562 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 7
-  br i1 %.not.i.i.i.i1562, label %651, label %_ZNK4llvm3EVTeqES0_.exit.i.i
+  %.not.i.i.i.i1563 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 7
+  br i1 %.not.i.i.i.i1563, label %651, label %_ZNK4llvm3EVTeqES0_.exit.i.i
 
 651:                                              ; preds = %644
   %652 = insertvalue { ptr, i32 } poison, ptr %.sroa.0231.1.i, 0
@@ -1954,7 +1953,7 @@ _ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit.i: ; preds = %_ZN4llv
   br label %_ZNK4llvm3EVTeqES0_.exit189.i
 
 _ZNK4llvm3EVTeqES0_.exit178.i:                    ; preds = %643
-  %.not.i.i179.i = icmp eq i16 %.sroa.0.0.copyload.i.i1551, 8
+  %.not.i.i179.i = icmp eq i16 %.sroa.0.0.copyload.i.i1552, 8
   br i1 %.not.i.i179.i, label %664, label %_ZNK4llvm3EVTeqES0_.exit189.i
 
 664:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit178.i
@@ -1972,18 +1971,18 @@ _ZNK4llvm3EVTeqES0_.exit178.i:                    ; preds = %643
   %.fca.1.extract10.i = extractvalue { ptr, i32 } %670, 1
   %671 = load ptr, ptr %668, align 8, !tbaa !239
   %672 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %671, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 8, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract.i1559 = extractvalue { ptr, i32 } %672, 0
-  %.fca.1.extract.i1560 = extractvalue { ptr, i32 } %672, 1
-  store ptr %.fca.0.extract.i1559, ptr %14, align 8
-  %.sroa.25.0..sroa_idx.i1561 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %.fca.1.extract.i1560, ptr %.sroa.25.0..sroa_idx.i1561, align 8
+  %.fca.0.extract.i1560 = extractvalue { ptr, i32 } %672, 0
+  %.fca.1.extract.i1561 = extractvalue { ptr, i32 } %672, 1
+  store ptr %.fca.0.extract.i1560, ptr %14, align 8
+  %.sroa.25.0..sroa_idx.i1562 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %.fca.1.extract.i1561, ptr %.sroa.25.0..sroa_idx.i1562, align 8
   store ptr %.sroa.0231.1.i, ptr %15, align 8, !tbaa !238
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %.sroa.13.1.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !20
   store ptr %.fca.0.extract9.i, ptr %16, align 8, !tbaa !238
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %.fca.1.extract10.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !20
-  %673 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(952) %671, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 8, ptr %.sroa.21.0.copyload.i.i1553, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %15, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16) #23
+  %673 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(952) %671, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 8, ptr %.sroa.21.0.copyload.i.i1554, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %15, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16) #23
   br label %_ZNK4llvm3EVTeqES0_.exit189.i
 
 _ZNK4llvm3EVTeqES0_.exit189.i:                    ; preds = %667, %664, %_ZNK4llvm3EVTeqES0_.exit178.i, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit.i
@@ -2001,7 +2000,7 @@ _ZNK4llvm3EVTeqES0_.exit189.i:                    ; preds = %667, %664, %_ZNK4ll
   store ptr %17, ptr %18, align 8, !tbaa !244
   %678 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 2, ptr %678, align 8, !tbaa !247
-  %679 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %677, ptr noundef nonnull %1, i32 noundef %.0102303313.i, i16 %.sroa.0.0.copyload.i.i1551, ptr %.sroa.21.0.copyload.i.i1553, ptr noundef nonnull byval(%"class.llvm::ArrayRef.349") align 8 %18) #23
+  %679 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %677, ptr noundef nonnull %1, i32 noundef %.0102303313.i, i16 %.sroa.0.0.copyload.i.i1552, ptr %.sroa.21.0.copyload.i.i1554, ptr noundef nonnull byval(%"class.llvm::ArrayRef.349") align 8 %18) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
   br label %.critedge118.i
 
@@ -2024,7 +2023,7 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  br label %_ZNK4llvm3EVTeqES0_.exit1575
+  br label %_ZNK4llvm3EVTeqES0_.exit1576
 
 _ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit: ; preds = %.critedge118.i, %681
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
@@ -2036,11 +2035,11 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit: 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  br i1 %.3.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %.3.i, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 682:                                              ; preds = %183
   %683 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel28tryBitfieldExtractOpFromSExtEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %683, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %683, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 684:                                              ; preds = %183
   %685 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19tryBitfieldInsertOpEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
@@ -2048,15 +2047,15 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit: 
 
 686:                                              ; preds = %684
   %687 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12trySelectXAREPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %687, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %687, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 688:                                              ; preds = %183
   %689 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel40trySelectCastScalableToFixedLengthVectorEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %689, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %689, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 690:                                              ; preds = %183
   %691 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel40trySelectCastFixedLengthToScalableVectorEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
-  br i1 %691, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %691, label %.critedge, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 692:                                              ; preds = %183
   %693 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2070,15 +2069,15 @@ _ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit: 
 699:                                              ; preds = %692
   %700 = load i64, ptr %695, align 8, !tbaa !233
   %701 = icmp eq i64 %700, 0
-  br i1 %701, label %704, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %701, label %704, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 _ZNK4llvm14ConstantSDNode6isZeroEv.exit:          ; preds = %692
   %702 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %695) #27
   %703 = icmp eq i32 %702, %697
-  br i1 %703, label %704, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %703, label %704, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 704:                                              ; preds = %699, %_ZNK4llvm14ConstantSDNode6isZeroEv.exit
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 7, label %705
     i16 8, label %720
   ]
@@ -2109,8 +2108,8 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %705, %711
   %717 = call { ptr, i32 } @_ZN4llvm12SelectionDAG14getCopyFromRegENS_7SDValueERKNS_5SDLocENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %707, ptr nonnull %708, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %62, i32 12, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %63)
   %.fca.0.extract641 = extractvalue { ptr, i32 } %717, 0
   %718 = load ptr, ptr %62, align 8, !tbaa !219
-  %.not.i.i.i.i.i1571 = icmp eq ptr %718, null
-  br i1 %.not.i.i.i.i.i1571, label %_ZN4llvm5SDLocD2Ev.exit, label %719
+  %.not.i.i.i.i.i1572 = icmp eq ptr %718, null
+  br i1 %.not.i.i.i.i.i1572, label %_ZN4llvm5SDLocD2Ev.exit, label %719
 
 719:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %62, ptr noundef nonnull align 4 dereferenceable(8) %718) #23
@@ -2129,14 +2128,14 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   %724 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %725 = load ptr, ptr %724, align 8, !tbaa !219
   store ptr %725, ptr %64, align 8, !tbaa !219
-  %.not.i.i.i.i.i1578 = icmp eq ptr %725, null
-  br i1 %.not.i.i.i.i.i1578, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579, label %726
+  %.not.i.i.i.i.i1579 = icmp eq ptr %725, null
+  br i1 %.not.i.i.i.i.i1579, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1580, label %726
 
 726:                                              ; preds = %720
   %727 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(8) %725, i64 1) #23
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1580
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579:          ; preds = %720, %726
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1580:          ; preds = %720, %726
   %728 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %729 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %730 = load i32, ptr %729, align 4, !tbaa !220
@@ -2147,14 +2146,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579:          ; preds = %720, %726
   %732 = call { ptr, i32 } @_ZN4llvm12SelectionDAG14getCopyFromRegENS_7SDValueERKNS_5SDLocENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %722, ptr nonnull %723, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %64, i32 14, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %65)
   %.fca.0.extract631 = extractvalue { ptr, i32 } %732, 0
   %733 = load ptr, ptr %64, align 8, !tbaa !219
-  %.not.i.i.i.i.i1580 = icmp eq ptr %733, null
-  br i1 %.not.i.i.i.i.i1580, label %_ZN4llvm5SDLocD2Ev.exit1581, label %734
+  %.not.i.i.i.i.i1581 = icmp eq ptr %733, null
+  br i1 %.not.i.i.i.i.i1581, label %_ZN4llvm5SDLocD2Ev.exit1582, label %734
 
-734:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579
+734:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1580
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(8) %733) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit1581
+  br label %_ZN4llvm5SDLocD2Ev.exit1582
 
-_ZN4llvm5SDLocD2Ev.exit1581:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1579, %734
+_ZN4llvm5SDLocD2Ev.exit1582:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1580, %734
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #23
   call void @_ZN4llvm16SelectionDAGISel11ReplaceNodeEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %1, ptr noundef %.fca.0.extract631)
   br label %.critedge
@@ -2180,14 +2179,14 @@ _ZN4llvm5SDLocD2Ev.exit1581:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %750 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %751 = load ptr, ptr %750, align 8, !tbaa !219
   store ptr %751, ptr %66, align 8, !tbaa !219
-  %.not.i.i.i.i.i1582 = icmp eq ptr %751, null
-  br i1 %.not.i.i.i.i.i1582, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583, label %752
+  %.not.i.i.i.i.i1583 = icmp eq ptr %751, null
+  br i1 %.not.i.i.i.i.i1583, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1584, label %752
 
 752:                                              ; preds = %735
   %753 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(8) %751, i64 1) #23
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1584
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583:          ; preds = %735, %752
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1584:          ; preds = %735, %752
   %754 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %755 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %756 = load i32, ptr %755, align 4, !tbaa !220
@@ -2219,14 +2218,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583:          ; preds = %735, %752
   %765 = call noundef ptr @_ZN4llvm12SelectionDAG12SelectNodeToEPNS_6SDNodeEjNS_3EVTENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %763, ptr noundef nonnull %1, i32 noundef 1509, i16 8, ptr null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.349") align 8 %68) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %67) #23
   %766 = load ptr, ptr %66, align 8, !tbaa !219
-  %.not.i.i.i.i.i1584 = icmp eq ptr %766, null
-  br i1 %.not.i.i.i.i.i1584, label %_ZN4llvm5SDLocD2Ev.exit1585, label %767
+  %.not.i.i.i.i.i1585 = icmp eq ptr %766, null
+  br i1 %.not.i.i.i.i.i1585, label %_ZN4llvm5SDLocD2Ev.exit1586, label %767
 
-767:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583
+767:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1584
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(8) %766) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit1585
+  br label %_ZN4llvm5SDLocD2Ev.exit1586
 
-_ZN4llvm5SDLocD2Ev.exit1585:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1583, %767
+_ZN4llvm5SDLocD2Ev.exit1586:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1584, %767
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #23
   br label %.critedge
 
@@ -2245,7 +2244,7 @@ _ZN4llvm5SDLocD2Ev.exit1585:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %.0.in.i.i.i.i = select i1 %778, ptr %775, ptr %779
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !233
   %780 = trunc i64 %.0.i.i.i.i to i32
-  switch i32 %780, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i32 %780, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i32 544, label %781
     i32 554, label %803
     i32 557, label %803
@@ -2303,16 +2302,16 @@ _ZN4llvm5SDLocD2Ev.exit1585:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %782 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %783 = load ptr, ptr %782, align 8, !tbaa !219
   store ptr %783, ptr %69, align 8, !tbaa !219
-  %.not.i.i.i.i.i1586 = icmp eq ptr %783, null
-  br i1 %.not.i.i.i.i.i1586, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587, label %784
+  %.not.i.i.i.i.i1587 = icmp eq ptr %783, null
+  br i1 %.not.i.i.i.i.i1587, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1588, label %784
 
 784:                                              ; preds = %781
   %785 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(8) %783, i64 1) #23
-  %.pre10350 = load ptr, ptr %769, align 8, !tbaa !209
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587
+  %.pre10351 = load ptr, ptr %769, align 8, !tbaa !209
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1588
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587:          ; preds = %781, %784
-  %786 = phi ptr [ %770, %781 ], [ %.pre10350, %784 ]
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1588:          ; preds = %781, %784
+  %786 = phi ptr [ %770, %781 ], [ %.pre10351, %784 ]
   %787 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %788 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %789 = load i32, ptr %788, align 4, !tbaa !220
@@ -2352,14 +2351,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587:          ; preds = %781, %784
   %800 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_NS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(952) %797, i32 noundef 3948, ptr noundef nonnull align 8 dereferenceable(12) %69, i16 8, ptr null, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %73, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %74, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %75) #23
   call void @_ZN4llvm16SelectionDAGISel11ReplaceNodeEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %1, ptr noundef %800)
   %801 = load ptr, ptr %69, align 8, !tbaa !219
-  %.not.i.i.i.i.i1588 = icmp eq ptr %801, null
-  br i1 %.not.i.i.i.i.i1588, label %_ZN4llvm5SDLocD2Ev.exit1589, label %802
+  %.not.i.i.i.i.i1589 = icmp eq ptr %801, null
+  br i1 %.not.i.i.i.i.i1589, label %_ZN4llvm5SDLocD2Ev.exit1590, label %802
 
-802:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587
+802:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1588
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(8) %801) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit1589
+  br label %_ZN4llvm5SDLocD2Ev.exit1590
 
-_ZN4llvm5SDLocD2Ev.exit1589:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1587, %802
+_ZN4llvm5SDLocD2Ev.exit1590:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1588, %802
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #23
   br label %.critedge
 
@@ -2372,16 +2371,16 @@ _ZN4llvm5SDLocD2Ev.exit1589:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %807 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %808 = load ptr, ptr %807, align 8, !tbaa !219
   store ptr %808, ptr %77, align 8, !tbaa !219
-  %.not.i.i.i.i.i1590 = icmp eq ptr %808, null
-  br i1 %.not.i.i.i.i.i1590, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591, label %809
+  %.not.i.i.i.i.i1591 = icmp eq ptr %808, null
+  br i1 %.not.i.i.i.i.i1591, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1592, label %809
 
 809:                                              ; preds = %803
   %810 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %77, ptr noundef nonnull align 4 dereferenceable(8) %808, i64 1) #23
-  %.pre10349 = load ptr, ptr %769, align 8, !tbaa !209
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591
+  %.pre10350 = load ptr, ptr %769, align 8, !tbaa !209
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1592
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591:          ; preds = %803, %809
-  %811 = phi ptr [ %770, %803 ], [ %.pre10349, %809 ]
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1592:          ; preds = %803, %809
+  %811 = phi ptr [ %770, %803 ], [ %.pre10350, %809 ]
   %812 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %813 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %814 = load i32, ptr %813, align 4, !tbaa !220
@@ -2404,14 +2403,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591:          ; preds = %803, %809
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #23
   call void @_ZN4llvm16SelectionDAGISel11ReplaceNodeEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %1, ptr noundef %819)
   %823 = load ptr, ptr %77, align 8, !tbaa !219
-  %.not.i.i.i.i.i1593 = icmp eq ptr %823, null
-  br i1 %.not.i.i.i.i.i1593, label %_ZN4llvm5SDLocD2Ev.exit1594, label %824
+  %.not.i.i.i.i.i1594 = icmp eq ptr %823, null
+  br i1 %.not.i.i.i.i.i1594, label %_ZN4llvm5SDLocD2Ev.exit1595, label %824
 
-824:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591
+824:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1592
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %77, ptr noundef nonnull align 4 dereferenceable(8) %823) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit1594
+  br label %_ZN4llvm5SDLocD2Ev.exit1595
 
-_ZN4llvm5SDLocD2Ev.exit1594:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1591, %824
+_ZN4llvm5SDLocD2Ev.exit1595:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1592, %824
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #23
   br label %.critedge
 
@@ -2422,16 +2421,16 @@ _ZN4llvm5SDLocD2Ev.exit1594:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %828 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %829 = load ptr, ptr %828, align 8, !tbaa !219
   store ptr %829, ptr %81, align 8, !tbaa !219
-  %.not.i.i.i.i.i1595 = icmp eq ptr %829, null
-  br i1 %.not.i.i.i.i.i1595, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596, label %830
+  %.not.i.i.i.i.i1596 = icmp eq ptr %829, null
+  br i1 %.not.i.i.i.i.i1596, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1597, label %830
 
 830:                                              ; preds = %825
   %831 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(8) %829, i64 1) #23
-  %.pre10348 = load ptr, ptr %769, align 8, !tbaa !209
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596
+  %.pre10349 = load ptr, ptr %769, align 8, !tbaa !209
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1597
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596:          ; preds = %825, %830
-  %832 = phi ptr [ %770, %825 ], [ %.pre10348, %830 ]
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1597:          ; preds = %825, %830
+  %832 = phi ptr [ %770, %825 ], [ %.pre10349, %830 ]
   %833 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %834 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %835 = load i32, ptr %834, align 4, !tbaa !220
@@ -2466,35 +2465,35 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596:          ; preds = %825, %830
   call void @_ZN4llvm16SelectionDAGISel11ReplaceNodeEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %1, ptr noundef %846)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %82) #23
   %850 = load ptr, ptr %81, align 8, !tbaa !219
-  %.not.i.i.i.i.i1598 = icmp eq ptr %850, null
-  br i1 %.not.i.i.i.i.i1598, label %_ZN4llvm5SDLocD2Ev.exit1599, label %851
+  %.not.i.i.i.i.i1599 = icmp eq ptr %850, null
+  br i1 %.not.i.i.i.i.i1599, label %_ZN4llvm5SDLocD2Ev.exit1600, label %851
 
-851:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596
+851:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1597
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(8) %850) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit1599
+  br label %_ZN4llvm5SDLocD2Ev.exit1600
 
-_ZN4llvm5SDLocD2Ev.exit1599:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1596, %851
+_ZN4llvm5SDLocD2Ev.exit1600:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1597, %851
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #23
   br label %.critedge
 
 852:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %853
     i16 39, label %854
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1611.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1611.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1611.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1623.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1623.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1623.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1635.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1635.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1643.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1643.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1651.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1651.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1659.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1659.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1612.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1612.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1612.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1624.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1624.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1624.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1636.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1636.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1644.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1644.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1652.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1652.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1660.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1660.thread
   ]
 
 853:                                              ; preds = %852
@@ -2505,48 +2504,48 @@ _ZN4llvm5SDLocD2Ev.exit1599:                      ; preds = %_ZN4llvm5SDLocC2EPK
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4315, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1611.thread:              ; preds = %852, %852, %852
+_ZNK4llvm3EVTeqES0_.exit1612.thread:              ; preds = %852, %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4323, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1623.thread:              ; preds = %852, %852, %852
+_ZNK4llvm3EVTeqES0_.exit1624.thread:              ; preds = %852, %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4329, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1635.thread:              ; preds = %852, %852
+_ZNK4llvm3EVTeqES0_.exit1636.thread:              ; preds = %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4321, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1643.thread:              ; preds = %852, %852
+_ZNK4llvm3EVTeqES0_.exit1644.thread:              ; preds = %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4325, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1651.thread:              ; preds = %852, %852
+_ZNK4llvm3EVTeqES0_.exit1652.thread:              ; preds = %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4317, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1659.thread:              ; preds = %852, %852
+_ZNK4llvm3EVTeqES0_.exit1660.thread:              ; preds = %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4319, i32 noundef 14)
   br label %.critedge
 
 855:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %856
     i16 39, label %857
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1675.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1675.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1675.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1687.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1687.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1687.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1699.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1699.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1707.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1707.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1715.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1715.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1723.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1723.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1676.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1676.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1676.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1688.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1688.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1688.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1700.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1700.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1708.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1708.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1716.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1716.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1724.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1724.thread
   ]
 
 856:                                              ; preds = %855
@@ -2557,48 +2556,48 @@ _ZNK4llvm3EVTeqES0_.exit1659.thread:              ; preds = %852, %852
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4299, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1675.thread:              ; preds = %855, %855, %855
+_ZNK4llvm3EVTeqES0_.exit1676.thread:              ; preds = %855, %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4307, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1687.thread:              ; preds = %855, %855, %855
+_ZNK4llvm3EVTeqES0_.exit1688.thread:              ; preds = %855, %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4313, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1699.thread:              ; preds = %855, %855
+_ZNK4llvm3EVTeqES0_.exit1700.thread:              ; preds = %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4305, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1707.thread:              ; preds = %855, %855
+_ZNK4llvm3EVTeqES0_.exit1708.thread:              ; preds = %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4309, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1715.thread:              ; preds = %855, %855
+_ZNK4llvm3EVTeqES0_.exit1716.thread:              ; preds = %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4301, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1723.thread:              ; preds = %855, %855
+_ZNK4llvm3EVTeqES0_.exit1724.thread:              ; preds = %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4303, i32 noundef 14)
   br label %.critedge
 
 858:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %859
     i16 39, label %860
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1739.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1739.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1739.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1751.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1751.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1751.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1763.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1763.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1771.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1771.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1779.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1779.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1787.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1787.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1740.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1740.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1740.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1752.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1752.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1752.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1764.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1764.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1772.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1772.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1780.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1780.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1788.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1788.thread
   ]
 
 859:                                              ; preds = %858
@@ -2609,48 +2608,48 @@ _ZNK4llvm3EVTeqES0_.exit1723.thread:              ; preds = %855, %855
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4193, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1739.thread:              ; preds = %858, %858, %858
+_ZNK4llvm3EVTeqES0_.exit1740.thread:              ; preds = %858, %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4201, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1751.thread:              ; preds = %858, %858, %858
+_ZNK4llvm3EVTeqES0_.exit1752.thread:              ; preds = %858, %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4207, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1763.thread:              ; preds = %858, %858
+_ZNK4llvm3EVTeqES0_.exit1764.thread:              ; preds = %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4199, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1771.thread:              ; preds = %858, %858
+_ZNK4llvm3EVTeqES0_.exit1772.thread:              ; preds = %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4203, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1779.thread:              ; preds = %858, %858
+_ZNK4llvm3EVTeqES0_.exit1780.thread:              ; preds = %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4195, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1787.thread:              ; preds = %858, %858
+_ZNK4llvm3EVTeqES0_.exit1788.thread:              ; preds = %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4197, i32 noundef 14)
   br label %.critedge
 
 861:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %862
     i16 39, label %863
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1803.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1803.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1803.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1815.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1815.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1815.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1827.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1827.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1835.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1835.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1843.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1843.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1851.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1851.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1804.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1804.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1804.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1816.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1816.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1816.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1828.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1828.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1836.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1836.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1844.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1844.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1852.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1852.thread
   ]
 
 862:                                              ; preds = %861
@@ -2661,48 +2660,48 @@ _ZNK4llvm3EVTeqES0_.exit1787.thread:              ; preds = %858, %858
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4387, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1803.thread:              ; preds = %861, %861, %861
+_ZNK4llvm3EVTeqES0_.exit1804.thread:              ; preds = %861, %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4393, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1815.thread:              ; preds = %861, %861, %861
+_ZNK4llvm3EVTeqES0_.exit1816.thread:              ; preds = %861, %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4399, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1827.thread:              ; preds = %861, %861
+_ZNK4llvm3EVTeqES0_.exit1828.thread:              ; preds = %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4391, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1835.thread:              ; preds = %861, %861
+_ZNK4llvm3EVTeqES0_.exit1836.thread:              ; preds = %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4395, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1843.thread:              ; preds = %861, %861
+_ZNK4llvm3EVTeqES0_.exit1844.thread:              ; preds = %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4317, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1851.thread:              ; preds = %861, %861
+_ZNK4llvm3EVTeqES0_.exit1852.thread:              ; preds = %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4389, i32 noundef 14)
   br label %.critedge
 
 864:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %865
     i16 39, label %866
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1867.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1867.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1867.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1879.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1879.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1879.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1891.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1891.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1899.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1899.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1907.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1907.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1915.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1915.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1868.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1868.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1868.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1880.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1880.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1880.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1892.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1892.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1900.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1900.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1908.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1908.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1916.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1916.thread
   ]
 
 865:                                              ; preds = %864
@@ -2713,48 +2712,48 @@ _ZNK4llvm3EVTeqES0_.exit1851.thread:              ; preds = %861, %861
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4435, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1867.thread:              ; preds = %864, %864, %864
+_ZNK4llvm3EVTeqES0_.exit1868.thread:              ; preds = %864, %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4441, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1879.thread:              ; preds = %864, %864, %864
+_ZNK4llvm3EVTeqES0_.exit1880.thread:              ; preds = %864, %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4447, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1891.thread:              ; preds = %864, %864
+_ZNK4llvm3EVTeqES0_.exit1892.thread:              ; preds = %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4439, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1899.thread:              ; preds = %864, %864
+_ZNK4llvm3EVTeqES0_.exit1900.thread:              ; preds = %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4443, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1907.thread:              ; preds = %864, %864
+_ZNK4llvm3EVTeqES0_.exit1908.thread:              ; preds = %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4301, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1915.thread:              ; preds = %864, %864
+_ZNK4llvm3EVTeqES0_.exit1916.thread:              ; preds = %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4437, i32 noundef 14)
   br label %.critedge
 
 867:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %868
     i16 39, label %869
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1931.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1931.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1931.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1943.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1943.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1943.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1955.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1955.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1963.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1963.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1971.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1971.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1979.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1979.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1932.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1932.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1932.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit1944.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit1944.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit1944.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit1956.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit1956.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit1964.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit1964.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit1972.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit1972.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit1980.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit1980.thread
   ]
 
 868:                                              ; preds = %867
@@ -2765,48 +2764,48 @@ _ZNK4llvm3EVTeqES0_.exit1915.thread:              ; preds = %864, %864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4463, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1931.thread:              ; preds = %867, %867, %867
+_ZNK4llvm3EVTeqES0_.exit1932.thread:              ; preds = %867, %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4469, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1943.thread:              ; preds = %867, %867, %867
+_ZNK4llvm3EVTeqES0_.exit1944.thread:              ; preds = %867, %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4475, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1955.thread:              ; preds = %867, %867
+_ZNK4llvm3EVTeqES0_.exit1956.thread:              ; preds = %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4467, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1963.thread:              ; preds = %867, %867
+_ZNK4llvm3EVTeqES0_.exit1964.thread:              ; preds = %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4471, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1971.thread:              ; preds = %867, %867
+_ZNK4llvm3EVTeqES0_.exit1972.thread:              ; preds = %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4195, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1979.thread:              ; preds = %867, %867
+_ZNK4llvm3EVTeqES0_.exit1980.thread:              ; preds = %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4465, i32 noundef 14)
   br label %.critedge
 
 870:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %871
     i16 39, label %872
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1995.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1995.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1995.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2007.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2007.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2007.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2019.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2019.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2027.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2027.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2035.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2035.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2043.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2043.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit1996.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit1996.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit1996.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2008.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2008.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2008.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2020.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2020.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2028.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2028.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2036.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2036.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2044.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2044.thread
   ]
 
 871:                                              ; preds = %870
@@ -2817,48 +2816,48 @@ _ZNK4llvm3EVTeqES0_.exit1979.thread:              ; preds = %867, %867
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4371, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1995.thread:              ; preds = %870, %870, %870
+_ZNK4llvm3EVTeqES0_.exit1996.thread:              ; preds = %870, %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4379, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2007.thread:              ; preds = %870, %870, %870
+_ZNK4llvm3EVTeqES0_.exit2008.thread:              ; preds = %870, %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4385, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2019.thread:              ; preds = %870, %870
+_ZNK4llvm3EVTeqES0_.exit2020.thread:              ; preds = %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4377, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2027.thread:              ; preds = %870, %870
+_ZNK4llvm3EVTeqES0_.exit2028.thread:              ; preds = %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4381, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2035.thread:              ; preds = %870, %870
+_ZNK4llvm3EVTeqES0_.exit2036.thread:              ; preds = %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4373, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2043.thread:              ; preds = %870, %870
+_ZNK4llvm3EVTeqES0_.exit2044.thread:              ; preds = %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4375, i32 noundef 14)
   br label %.critedge
 
 873:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %874
     i16 39, label %875
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2059.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2059.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2059.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2071.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2071.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2071.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2083.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2083.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2091.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2091.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2099.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2099.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2107.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2107.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2060.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2060.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2060.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2072.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2072.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2072.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2084.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2084.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2092.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2092.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2100.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2100.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2108.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2108.thread
   ]
 
 874:                                              ; preds = %873
@@ -2869,48 +2868,48 @@ _ZNK4llvm3EVTeqES0_.exit2043.thread:              ; preds = %870, %870
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4419, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2059.thread:              ; preds = %873, %873, %873
+_ZNK4llvm3EVTeqES0_.exit2060.thread:              ; preds = %873, %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4427, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2071.thread:              ; preds = %873, %873, %873
+_ZNK4llvm3EVTeqES0_.exit2072.thread:              ; preds = %873, %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4433, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2083.thread:              ; preds = %873, %873
+_ZNK4llvm3EVTeqES0_.exit2084.thread:              ; preds = %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4425, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2091.thread:              ; preds = %873, %873
+_ZNK4llvm3EVTeqES0_.exit2092.thread:              ; preds = %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4429, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2099.thread:              ; preds = %873, %873
+_ZNK4llvm3EVTeqES0_.exit2100.thread:              ; preds = %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4421, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2107.thread:              ; preds = %873, %873
+_ZNK4llvm3EVTeqES0_.exit2108.thread:              ; preds = %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4423, i32 noundef 14)
   br label %.critedge
 
 876:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %877
     i16 39, label %878
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2123.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2123.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2123.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2135.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2135.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2135.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2147.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2147.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2155.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2155.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2163.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2163.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2171.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2171.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2124.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2124.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2124.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2136.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2136.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2136.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2148.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2148.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2156.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2156.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2164.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2164.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2172.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2172.thread
   ]
 
 877:                                              ; preds = %876
@@ -2921,135 +2920,135 @@ _ZNK4llvm3EVTeqES0_.exit2107.thread:              ; preds = %873, %873
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4481, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2123.thread:              ; preds = %876, %876, %876
+_ZNK4llvm3EVTeqES0_.exit2124.thread:              ; preds = %876, %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4489, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2135.thread:              ; preds = %876, %876, %876
+_ZNK4llvm3EVTeqES0_.exit2136.thread:              ; preds = %876, %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4495, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2147.thread:              ; preds = %876, %876
+_ZNK4llvm3EVTeqES0_.exit2148.thread:              ; preds = %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4487, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2155.thread:              ; preds = %876, %876
+_ZNK4llvm3EVTeqES0_.exit2156.thread:              ; preds = %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4491, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2163.thread:              ; preds = %876, %876
+_ZNK4llvm3EVTeqES0_.exit2164.thread:              ; preds = %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4483, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2171.thread:              ; preds = %876, %876
+_ZNK4llvm3EVTeqES0_.exit2172.thread:              ; preds = %876, %876
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4485, i32 noundef 14)
   br label %.critedge
 
 879:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2179.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2179.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2187.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2211.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2211.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2211.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2211.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2227.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2227.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2227.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2227.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2180.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2180.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2188.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2212.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2212.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2212.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2212.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2228.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2228.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2228.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2228.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit2179.thread:              ; preds = %879, %879
+_ZNK4llvm3EVTeqES0_.exit2180.thread:              ; preds = %879, %879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4409)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2187.thread:              ; preds = %879, %879, %879, %879, %879, %879
+_ZNK4llvm3EVTeqES0_.exit2188.thread:              ; preds = %879, %879, %879, %879, %879, %879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4403)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2211.thread:              ; preds = %879, %879, %879, %879
+_ZNK4llvm3EVTeqES0_.exit2212.thread:              ; preds = %879, %879, %879, %879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4405)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2227.thread:              ; preds = %879, %879, %879, %879
+_ZNK4llvm3EVTeqES0_.exit2228.thread:              ; preds = %879, %879, %879, %879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4407)
   br label %.critedge
 
 880:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2243.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2243.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2251.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2275.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2275.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2275.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2275.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2291.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2291.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2291.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2291.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2244.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2244.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2252.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2276.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2276.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2276.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2276.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2292.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2292.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2292.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2292.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit2243.thread:              ; preds = %880, %880
+_ZNK4llvm3EVTeqES0_.exit2244.thread:              ; preds = %880, %880
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4457)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2251.thread:              ; preds = %880, %880, %880, %880, %880, %880
+_ZNK4llvm3EVTeqES0_.exit2252.thread:              ; preds = %880, %880, %880, %880, %880, %880
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4451)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2275.thread:              ; preds = %880, %880, %880, %880
+_ZNK4llvm3EVTeqES0_.exit2276.thread:              ; preds = %880, %880, %880, %880
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4453)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2291.thread:              ; preds = %880, %880, %880, %880
+_ZNK4llvm3EVTeqES0_.exit2292.thread:              ; preds = %880, %880, %880, %880
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4455)
   br label %.critedge
 
 881:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2307.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2307.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2315.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2339.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2339.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2339.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2339.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2355.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2355.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2355.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2355.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit2308.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit2308.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit2316.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit2340.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit2340.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit2340.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit2340.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit2356.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit2356.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit2356.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit2356.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit2307.thread:              ; preds = %881, %881
+_ZNK4llvm3EVTeqES0_.exit2308.thread:              ; preds = %881, %881
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4505)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2315.thread:              ; preds = %881, %881, %881, %881, %881, %881
+_ZNK4llvm3EVTeqES0_.exit2316.thread:              ; preds = %881, %881, %881, %881, %881, %881
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4499)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2339.thread:              ; preds = %881, %881, %881, %881
+_ZNK4llvm3EVTeqES0_.exit2340.thread:              ; preds = %881, %881, %881, %881
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4501)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2355.thread:              ; preds = %881, %881, %881, %881
+_ZNK4llvm3EVTeqES0_.exit2356.thread:              ; preds = %881, %881, %881, %881
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4503)
   br label %.critedge
 
@@ -3070,43 +3069,43 @@ _ZNK4llvm3EVTeqES0_.exit2355.thread:              ; preds = %881, %881, %881, %8
   br label %.critedge
 
 886:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %887
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2375.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2375.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2375.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2387.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2387.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2395.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2395.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2376.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2376.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2376.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2388.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2388.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2396.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2396.thread
   ]
 
 887:                                              ; preds = %886
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0, i32 noundef 4364, i32 noundef 4363, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2375.thread:              ; preds = %886, %886, %886
+_ZNK4llvm3EVTeqES0_.exit2376.thread:              ; preds = %886, %886, %886
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 4368, i32 noundef 4367, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2387.thread:              ; preds = %886, %886
+_ZNK4llvm3EVTeqES0_.exit2388.thread:              ; preds = %886, %886
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 4402, i32 noundef 4401, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2395.thread:              ; preds = %886, %886
+_ZNK4llvm3EVTeqES0_.exit2396.thread:              ; preds = %886, %886
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 4366, i32 noundef 4365, i1 noundef zeroext true)
   br label %.critedge
 
 888:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %889
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2407.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2407.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2407.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2419.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2419.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2427.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2427.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2408.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2408.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2408.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2420.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2420.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2428.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2428.thread
   ]
 
 889:                                              ; preds = %888
@@ -3125,13 +3124,13 @@ _ZNK4llvm3EVTeqES0_.exit2395.thread:              ; preds = %886, %886
   %897 = getelementptr inbounds nuw i8, ptr %891, i64 459
   %898 = load i8, ptr %897, align 1, !tbaa !467, !range !227, !noundef !228
   %899 = trunc nuw i8 %898 to i1
-  br i1 %899, label %900, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %899, label %900, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 900:                                              ; preds = %896
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0, i32 noundef 4167, i32 noundef 4166)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2407.thread:              ; preds = %888, %888, %888
+_ZNK4llvm3EVTeqES0_.exit2408.thread:              ; preds = %888, %888, %888
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %902 = load ptr, ptr %901, align 8, !tbaa !27
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 431
@@ -3139,21 +3138,21 @@ _ZNK4llvm3EVTeqES0_.exit2407.thread:              ; preds = %888, %888, %888
   %905 = trunc nuw i8 %904 to i1
   br i1 %905, label %906, label %907
 
-906:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2407.thread
+906:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2408.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 868, i32 noundef 869)
   br label %.critedge
 
-907:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2407.thread
+907:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2408.thread
   %908 = getelementptr inbounds nuw i8, ptr %902, i64 459
   %909 = load i8, ptr %908, align 1, !tbaa !467, !range !227, !noundef !228
   %910 = trunc nuw i8 %909 to i1
-  br i1 %910, label %911, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %910, label %911, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 911:                                              ; preds = %907
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 4211, i32 noundef 4210)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2419.thread:              ; preds = %888, %888
+_ZNK4llvm3EVTeqES0_.exit2420.thread:              ; preds = %888, %888
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %913 = load ptr, ptr %912, align 8, !tbaa !27
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 431
@@ -3161,21 +3160,21 @@ _ZNK4llvm3EVTeqES0_.exit2419.thread:              ; preds = %888, %888
   %916 = trunc nuw i8 %915 to i1
   br i1 %916, label %917, label %918
 
-917:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2419.thread
+917:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2420.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 872, i32 noundef 873)
   br label %.critedge
 
-918:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2419.thread
+918:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2420.thread
   %919 = getelementptr inbounds nuw i8, ptr %913, i64 459
   %920 = load i8, ptr %919, align 1, !tbaa !467, !range !227, !noundef !228
   %921 = trunc nuw i8 %920 to i1
-  br i1 %921, label %922, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %921, label %922, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 922:                                              ; preds = %918
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 4333, i32 noundef 4332)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2427.thread:              ; preds = %888, %888
+_ZNK4llvm3EVTeqES0_.exit2428.thread:              ; preds = %888, %888
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %924 = load ptr, ptr %923, align 8, !tbaa !27
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 431
@@ -3183,30 +3182,30 @@ _ZNK4llvm3EVTeqES0_.exit2427.thread:              ; preds = %888, %888
   %927 = trunc nuw i8 %926 to i1
   br i1 %927, label %928, label %929
 
-928:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2427.thread
+928:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2428.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 864, i32 noundef 865)
   br label %.critedge
 
-929:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2427.thread
+929:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2428.thread
   %930 = getelementptr inbounds nuw i8, ptr %924, i64 459
   %931 = load i8, ptr %930, align 1, !tbaa !467, !range !227, !noundef !228
   %932 = trunc nuw i8 %931 to i1
-  br i1 %932, label %933, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %932, label %933, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 933:                                              ; preds = %929
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 4183, i32 noundef 4182)
   br label %.critedge
 
 934:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %935
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2439.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2439.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2439.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2451.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2451.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2459.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2459.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2440.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2440.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2440.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2452.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2452.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2460.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2460.thread
   ]
 
 935:                                              ; preds = %934
@@ -3225,13 +3224,13 @@ _ZNK4llvm3EVTeqES0_.exit2427.thread:              ; preds = %888, %888
   %943 = getelementptr inbounds nuw i8, ptr %937, i64 459
   %944 = load i8, ptr %943, align 1, !tbaa !467, !range !227, !noundef !228
   %945 = trunc nuw i8 %944 to i1
-  br i1 %945, label %946, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %945, label %946, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 946:                                              ; preds = %942
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0, i32 noundef 4171, i32 noundef 4170)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2439.thread:              ; preds = %934, %934, %934
+_ZNK4llvm3EVTeqES0_.exit2440.thread:              ; preds = %934, %934, %934
   %947 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %948 = load ptr, ptr %947, align 8, !tbaa !27
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 431
@@ -3239,21 +3238,21 @@ _ZNK4llvm3EVTeqES0_.exit2439.thread:              ; preds = %934, %934, %934
   %951 = trunc nuw i8 %950 to i1
   br i1 %951, label %952, label %953
 
-952:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2439.thread
+952:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2440.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 870, i32 noundef 871)
   br label %.critedge
 
-953:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2439.thread
+953:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2440.thread
   %954 = getelementptr inbounds nuw i8, ptr %948, i64 459
   %955 = load i8, ptr %954, align 1, !tbaa !467, !range !227, !noundef !228
   %956 = trunc nuw i8 %955 to i1
-  br i1 %956, label %957, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %956, label %957, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 957:                                              ; preds = %953
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 4215, i32 noundef 4214)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2451.thread:              ; preds = %934, %934
+_ZNK4llvm3EVTeqES0_.exit2452.thread:              ; preds = %934, %934
   %958 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %959 = load ptr, ptr %958, align 8, !tbaa !27
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 431
@@ -3261,21 +3260,21 @@ _ZNK4llvm3EVTeqES0_.exit2451.thread:              ; preds = %934, %934
   %962 = trunc nuw i8 %961 to i1
   br i1 %962, label %963, label %964
 
-963:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2451.thread
+963:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2452.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 874, i32 noundef 875)
   br label %.critedge
 
-964:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2451.thread
+964:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2452.thread
   %965 = getelementptr inbounds nuw i8, ptr %959, i64 459
   %966 = load i8, ptr %965, align 1, !tbaa !467, !range !227, !noundef !228
   %967 = trunc nuw i8 %966 to i1
-  br i1 %967, label %968, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %967, label %968, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 968:                                              ; preds = %964
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 4337, i32 noundef 4336)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2459.thread:              ; preds = %934, %934
+_ZNK4llvm3EVTeqES0_.exit2460.thread:              ; preds = %934, %934
   %969 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %970 = load ptr, ptr %969, align 8, !tbaa !27
   %971 = getelementptr inbounds nuw i8, ptr %970, i64 431
@@ -3283,30 +3282,30 @@ _ZNK4llvm3EVTeqES0_.exit2459.thread:              ; preds = %934, %934
   %973 = trunc nuw i8 %972 to i1
   br i1 %973, label %974, label %975
 
-974:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2459.thread
+974:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2460.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 866, i32 noundef 867)
   br label %.critedge
 
-975:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2459.thread
+975:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2460.thread
   %976 = getelementptr inbounds nuw i8, ptr %970, i64 459
   %977 = load i8, ptr %976, align 1, !tbaa !467, !range !227, !noundef !228
   %978 = trunc nuw i8 %977 to i1
-  br i1 %978, label %979, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %978, label %979, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 979:                                              ; preds = %975
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 4187, i32 noundef 4186)
   br label %.critedge
 
 980:                                              ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %981
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2471.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2471.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2471.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2483.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2483.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2491.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2491.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2472.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2472.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2472.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2484.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2484.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2492.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2492.thread
   ]
 
 981:                                              ; preds = %980
@@ -3325,13 +3324,13 @@ _ZNK4llvm3EVTeqES0_.exit2459.thread:              ; preds = %934, %934
   %989 = getelementptr inbounds nuw i8, ptr %983, i64 459
   %990 = load i8, ptr %989, align 1, !tbaa !467, !range !227, !noundef !228
   %991 = trunc nuw i8 %990 to i1
-  br i1 %991, label %992, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %991, label %992, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 992:                                              ; preds = %988
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0, i32 noundef 4721, i32 noundef 4720)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2471.thread:              ; preds = %980, %980, %980
+_ZNK4llvm3EVTeqES0_.exit2472.thread:              ; preds = %980, %980, %980
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %994 = load ptr, ptr %993, align 8, !tbaa !27
   %995 = getelementptr inbounds nuw i8, ptr %994, i64 431
@@ -3339,21 +3338,21 @@ _ZNK4llvm3EVTeqES0_.exit2471.thread:              ; preds = %980, %980, %980
   %997 = trunc nuw i8 %996 to i1
   br i1 %997, label %998, label %999
 
-998:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2471.thread
+998:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2472.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 894, i32 noundef 895)
   br label %.critedge
 
-999:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2471.thread
+999:                                              ; preds = %_ZNK4llvm3EVTeqES0_.exit2472.thread
   %1000 = getelementptr inbounds nuw i8, ptr %994, i64 459
   %1001 = load i8, ptr %1000, align 1, !tbaa !467, !range !227, !noundef !228
   %1002 = trunc nuw i8 %1001 to i1
-  br i1 %1002, label %1003, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1002, label %1003, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1003:                                             ; preds = %999
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 4744, i32 noundef 4743)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2483.thread:              ; preds = %980, %980
+_ZNK4llvm3EVTeqES0_.exit2484.thread:              ; preds = %980, %980
   %1004 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %1005 = load ptr, ptr %1004, align 8, !tbaa !27
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 431
@@ -3361,21 +3360,21 @@ _ZNK4llvm3EVTeqES0_.exit2483.thread:              ; preds = %980, %980
   %1008 = trunc nuw i8 %1007 to i1
   br i1 %1008, label %1009, label %1010
 
-1009:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2483.thread
+1009:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2484.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 898, i32 noundef 899)
   br label %.critedge
 
-1010:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2483.thread
+1010:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2484.thread
   %1011 = getelementptr inbounds nuw i8, ptr %1005, i64 459
   %1012 = load i8, ptr %1011, align 1, !tbaa !467, !range !227, !noundef !228
   %1013 = trunc nuw i8 %1012 to i1
-  br i1 %1013, label %1014, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1013, label %1014, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1014:                                             ; preds = %1010
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 4761, i32 noundef 4760)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2491.thread:              ; preds = %980, %980
+_ZNK4llvm3EVTeqES0_.exit2492.thread:              ; preds = %980, %980
   %1015 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %1016 = load ptr, ptr %1015, align 8, !tbaa !27
   %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 431
@@ -3383,30 +3382,30 @@ _ZNK4llvm3EVTeqES0_.exit2491.thread:              ; preds = %980, %980
   %1019 = trunc nuw i8 %1018 to i1
   br i1 %1019, label %1020, label %1021
 
-1020:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2491.thread
+1020:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2492.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 890, i32 noundef 891)
   br label %.critedge
 
-1021:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2491.thread
+1021:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2492.thread
   %1022 = getelementptr inbounds nuw i8, ptr %1016, i64 459
   %1023 = load i8, ptr %1022, align 1, !tbaa !467, !range !227, !noundef !228
   %1024 = trunc nuw i8 %1023 to i1
-  br i1 %1024, label %1025, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1024, label %1025, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1025:                                             ; preds = %1021
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 4733, i32 noundef 4732)
   br label %.critedge
 
 1026:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1027
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2503.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2503.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2503.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2515.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2515.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2523.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2523.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2504.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2504.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2504.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2516.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2516.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2524.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2524.thread
   ]
 
 1027:                                             ; preds = %1026
@@ -3425,13 +3424,13 @@ _ZNK4llvm3EVTeqES0_.exit2491.thread:              ; preds = %980, %980
   %1035 = getelementptr inbounds nuw i8, ptr %1029, i64 459
   %1036 = load i8, ptr %1035, align 1, !tbaa !467, !range !227, !noundef !228
   %1037 = trunc nuw i8 %1036 to i1
-  br i1 %1037, label %1038, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1037, label %1038, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1038:                                             ; preds = %1034
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0, i32 noundef 4725, i32 noundef 4724)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2503.thread:              ; preds = %1026, %1026, %1026
+_ZNK4llvm3EVTeqES0_.exit2504.thread:              ; preds = %1026, %1026, %1026
   %1039 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %1040 = load ptr, ptr %1039, align 8, !tbaa !27
   %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 431
@@ -3439,21 +3438,21 @@ _ZNK4llvm3EVTeqES0_.exit2503.thread:              ; preds = %1026, %1026, %1026
   %1043 = trunc nuw i8 %1042 to i1
   br i1 %1043, label %1044, label %1045
 
-1044:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2503.thread
+1044:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2504.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 896, i32 noundef 897)
   br label %.critedge
 
-1045:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2503.thread
+1045:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2504.thread
   %1046 = getelementptr inbounds nuw i8, ptr %1040, i64 459
   %1047 = load i8, ptr %1046, align 1, !tbaa !467, !range !227, !noundef !228
   %1048 = trunc nuw i8 %1047 to i1
-  br i1 %1048, label %1049, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1048, label %1049, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1049:                                             ; preds = %1045
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 4748, i32 noundef 4747)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2515.thread:              ; preds = %1026, %1026
+_ZNK4llvm3EVTeqES0_.exit2516.thread:              ; preds = %1026, %1026
   %1050 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %1051 = load ptr, ptr %1050, align 8, !tbaa !27
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 431
@@ -3461,21 +3460,21 @@ _ZNK4llvm3EVTeqES0_.exit2515.thread:              ; preds = %1026, %1026
   %1054 = trunc nuw i8 %1053 to i1
   br i1 %1054, label %1055, label %1056
 
-1055:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2515.thread
+1055:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2516.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 900, i32 noundef 901)
   br label %.critedge
 
-1056:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2515.thread
+1056:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2516.thread
   %1057 = getelementptr inbounds nuw i8, ptr %1051, i64 459
   %1058 = load i8, ptr %1057, align 1, !tbaa !467, !range !227, !noundef !228
   %1059 = trunc nuw i8 %1058 to i1
-  br i1 %1059, label %1060, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1059, label %1060, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1060:                                             ; preds = %1056
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 4765, i32 noundef 4764)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2523.thread:              ; preds = %1026, %1026
+_ZNK4llvm3EVTeqES0_.exit2524.thread:              ; preds = %1026, %1026
   %1061 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %1062 = load ptr, ptr %1061, align 8, !tbaa !27
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 431
@@ -3483,185 +3482,185 @@ _ZNK4llvm3EVTeqES0_.exit2523.thread:              ; preds = %1026, %1026
   %1065 = trunc nuw i8 %1064 to i1
   br i1 %1065, label %1066, label %1067
 
-1066:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2523.thread
+1066:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2524.thread
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 892, i32 noundef 893)
   br label %.critedge
 
-1067:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2523.thread
+1067:                                             ; preds = %_ZNK4llvm3EVTeqES0_.exit2524.thread
   %1068 = getelementptr inbounds nuw i8, ptr %1062, i64 459
   %1069 = load i8, ptr %1068, align 1, !tbaa !467, !range !227, !noundef !228
   %1070 = trunc nuw i8 %1069 to i1
-  br i1 %1070, label %1071, label %_ZNK4llvm3EVTeqES0_.exit1575
+  br i1 %1070, label %1071, label %_ZNK4llvm3EVTeqES0_.exit1576
 
 1071:                                             ; preds = %1067
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel31SelectContiguousMultiVectorLoadEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 4737, i32 noundef 4736)
   br label %.critedge
 
 1072:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1073
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2535.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2535.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2535.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2547.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2547.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2555.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2555.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2536.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2536.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2536.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2548.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2548.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2556.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2556.thread
   ]
 
 1073:                                             ; preds = %1072
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0, i32 noundef 4412, i32 noundef 4411, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2535.thread:              ; preds = %1072, %1072, %1072
+_ZNK4llvm3EVTeqES0_.exit2536.thread:              ; preds = %1072, %1072, %1072
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 1, i32 noundef 4416, i32 noundef 4415, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2547.thread:              ; preds = %1072, %1072
+_ZNK4llvm3EVTeqES0_.exit2548.thread:              ; preds = %1072, %1072
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 2, i32 noundef 4450, i32 noundef 4449, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2555.thread:              ; preds = %1072, %1072
+_ZNK4llvm3EVTeqES0_.exit2556.thread:              ; preds = %1072, %1072
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 3, i32 noundef 4414, i32 noundef 4413, i1 noundef zeroext true)
   br label %.critedge
 
 1074:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1075
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2567.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2567.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2567.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2579.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2579.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2587.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2587.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2568.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2568.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2568.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2580.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2580.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2588.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2588.thread
   ]
 
 1075:                                             ; preds = %1074
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0, i32 noundef 4460, i32 noundef 4459, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2567.thread:              ; preds = %1074, %1074, %1074
+_ZNK4llvm3EVTeqES0_.exit2568.thread:              ; preds = %1074, %1074, %1074
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 4478, i32 noundef 4477, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2579.thread:              ; preds = %1074, %1074
+_ZNK4llvm3EVTeqES0_.exit2580.thread:              ; preds = %1074, %1074
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 4498, i32 noundef 4497, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2587.thread:              ; preds = %1074, %1074
+_ZNK4llvm3EVTeqES0_.exit2588.thread:              ; preds = %1074, %1074
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 4462, i32 noundef 4461, i1 noundef zeroext true)
   br label %.critedge
 
 1076:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1077
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2599.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2599.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2599.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2611.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2611.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2619.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2619.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2600.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2600.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2600.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2612.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2612.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2620.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2620.thread
   ]
 
 1077:                                             ; preds = %1076
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5181)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2599.thread:              ; preds = %1076, %1076, %1076
+_ZNK4llvm3EVTeqES0_.exit2600.thread:              ; preds = %1076, %1076, %1076
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5183)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2611.thread:              ; preds = %1076, %1076
+_ZNK4llvm3EVTeqES0_.exit2612.thread:              ; preds = %1076, %1076
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5184)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2619.thread:              ; preds = %1076, %1076
+_ZNK4llvm3EVTeqES0_.exit2620.thread:              ; preds = %1076, %1076
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 301, i32 noundef 5182)
   br label %.critedge
 
 1078:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1079
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2631.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2631.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2631.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2643.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2643.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2651.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2651.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2632.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2632.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2632.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2644.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2644.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2652.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2652.thread
   ]
 
 1079:                                             ; preds = %1078
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5185)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2631.thread:              ; preds = %1078, %1078, %1078
+_ZNK4llvm3EVTeqES0_.exit2632.thread:              ; preds = %1078, %1078, %1078
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5187)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2643.thread:              ; preds = %1078, %1078
+_ZNK4llvm3EVTeqES0_.exit2644.thread:              ; preds = %1078, %1078
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5188)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2651.thread:              ; preds = %1078, %1078
+_ZNK4llvm3EVTeqES0_.exit2652.thread:              ; preds = %1078, %1078
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 301, i32 noundef 5186)
   br label %.critedge
 
 1080:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1081
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2663.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2663.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2663.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2675.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2675.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2683.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2683.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2664.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2664.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2664.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2676.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2676.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2684.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2684.thread
   ]
 
 1081:                                             ; preds = %1080
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5189)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2663.thread:              ; preds = %1080, %1080, %1080
+_ZNK4llvm3EVTeqES0_.exit2664.thread:              ; preds = %1080, %1080, %1080
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5191)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2675.thread:              ; preds = %1080, %1080
+_ZNK4llvm3EVTeqES0_.exit2676.thread:              ; preds = %1080, %1080
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 327, i32 noundef 5192)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2683.thread:              ; preds = %1080, %1080
+_ZNK4llvm3EVTeqES0_.exit2684.thread:              ; preds = %1080, %1080
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 301, i32 noundef 5190)
   br label %.critedge
 
 1082:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1083
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2695.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2695.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2695.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2707.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2707.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2715.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2715.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2696.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2696.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2696.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2708.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2708.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2716.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2716.thread
   ]
 
 1083:                                             ; preds = %1082
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5193)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2695.thread:              ; preds = %1082, %1082, %1082
+_ZNK4llvm3EVTeqES0_.exit2696.thread:              ; preds = %1082, %1082, %1082
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 5195)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2707.thread:              ; preds = %1082, %1082
+_ZNK4llvm3EVTeqES0_.exit2708.thread:              ; preds = %1082, %1082
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 327, i32 noundef 5196)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2715.thread:              ; preds = %1082, %1082
+_ZNK4llvm3EVTeqES0_.exit2716.thread:              ; preds = %1082, %1082
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 301, i32 noundef 5194)
   br label %.critedge
 
@@ -3674,114 +3673,114 @@ _ZNK4llvm3EVTeqES0_.exit2715.thread:              ; preds = %1082, %1082
   br label %.critedge
 
 1086:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1087
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2727.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2727.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2727.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2739.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2739.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2747.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2747.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2728.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2728.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2728.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2740.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2740.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2748.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2748.thread
   ]
 
 1087:                                             ; preds = %1086
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 956, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2727.thread:              ; preds = %1086, %1086, %1086
+_ZNK4llvm3EVTeqES0_.exit2728.thread:              ; preds = %1086, %1086, %1086
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 958, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2739.thread:              ; preds = %1086, %1086
+_ZNK4llvm3EVTeqES0_.exit2740.thread:              ; preds = %1086, %1086
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 959, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2747.thread:              ; preds = %1086, %1086
+_ZNK4llvm3EVTeqES0_.exit2748.thread:              ; preds = %1086, %1086
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 957, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
 1088:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1089
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2759.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2759.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2759.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2771.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2771.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2779.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2779.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2760.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2760.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2760.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2772.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2772.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2780.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2780.thread
   ]
 
 1089:                                             ; preds = %1088
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 960, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2759.thread:              ; preds = %1088, %1088, %1088
+_ZNK4llvm3EVTeqES0_.exit2760.thread:              ; preds = %1088, %1088, %1088
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 962, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2771.thread:              ; preds = %1088, %1088
+_ZNK4llvm3EVTeqES0_.exit2772.thread:              ; preds = %1088, %1088
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 963, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2779.thread:              ; preds = %1088, %1088
+_ZNK4llvm3EVTeqES0_.exit2780.thread:              ; preds = %1088, %1088
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 961, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %.critedge
 
 1090:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1091
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2791.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2791.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2791.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2803.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2803.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2811.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2811.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2792.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2792.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2792.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2804.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2804.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2812.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2812.thread
   ]
 
 1091:                                             ; preds = %1090
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 964, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2791.thread:              ; preds = %1090, %1090, %1090
+_ZNK4llvm3EVTeqES0_.exit2792.thread:              ; preds = %1090, %1090, %1090
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 966, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2803.thread:              ; preds = %1090, %1090
+_ZNK4llvm3EVTeqES0_.exit2804.thread:              ; preds = %1090, %1090
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 967, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2811.thread:              ; preds = %1090, %1090
+_ZNK4llvm3EVTeqES0_.exit2812.thread:              ; preds = %1090, %1090
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 965, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
 1092:                                             ; preds = %768
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1093
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2823.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2823.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2823.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2835.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2835.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2843.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2843.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit2824.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit2824.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit2824.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit2836.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit2836.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit2844.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit2844.thread
   ]
 
 1093:                                             ; preds = %1092
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 968, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2823.thread:              ; preds = %1092, %1092, %1092
+_ZNK4llvm3EVTeqES0_.exit2824.thread:              ; preds = %1092, %1092, %1092
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 970, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2835.thread:              ; preds = %1092, %1092
+_ZNK4llvm3EVTeqES0_.exit2836.thread:              ; preds = %1092, %1092
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 971, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2843.thread:              ; preds = %1092, %1092
+_ZNK4llvm3EVTeqES0_.exit2844.thread:              ; preds = %1092, %1092
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMultiVectorMoveZEPN4llvm6SDNodeEjjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 969, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   br label %.critedge
 
@@ -3798,15 +3797,15 @@ _ZNK4llvm3EVTeqES0_.exit2843.thread:              ; preds = %1092, %1092
   %1097 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %1098 = load ptr, ptr %1097, align 8, !tbaa !219
   store ptr %1098, ptr %86, align 8, !tbaa !219
-  %.not.i.i.i.i.i2848 = icmp eq ptr %1098, null
-  br i1 %.not.i.i.i.i.i2848, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849, label %1099
+  %.not.i.i.i.i.i2849 = icmp eq ptr %1098, null
+  br i1 %.not.i.i.i.i.i2849, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2850, label %1099
 
 1099:                                             ; preds = %1096
   %1100 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(8) %1098, i64 1) #23
   %.pre = load ptr, ptr %769, align 8, !tbaa !209
-  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849
+  br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2850
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849:          ; preds = %1096, %1099
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2850:          ; preds = %1096, %1099
   %1101 = phi ptr [ %770, %1096 ], [ %.pre, %1099 ]
   %1102 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %1103 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -3861,14 +3860,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849:          ; preds = %1096, %1099
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 210
   store i8 1, ptr %1125, align 2, !tbaa !488
   %1126 = load ptr, ptr %86, align 8, !tbaa !219
-  %.not.i.i.i.i.i2852 = icmp eq ptr %1126, null
-  br i1 %.not.i.i.i.i.i2852, label %_ZN4llvm5SDLocD2Ev.exit2853, label %1127
+  %.not.i.i.i.i.i2853 = icmp eq ptr %1126, null
+  br i1 %.not.i.i.i.i.i2853, label %_ZN4llvm5SDLocD2Ev.exit2854, label %1127
 
-1127:                                             ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849
+1127:                                             ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2850
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %86, ptr noundef nonnull align 4 dereferenceable(8) %1126) #23
-  br label %_ZN4llvm5SDLocD2Ev.exit2853
+  br label %_ZN4llvm5SDLocD2Ev.exit2854
 
-_ZN4llvm5SDLocD2Ev.exit2853:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2849, %1127
+_ZN4llvm5SDLocD2Ev.exit2854:                      ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit2850, %1127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #23
   br label %.critedge
 
@@ -4007,19 +4006,19 @@ _ZN4llvm5SDLocD2Ev.exit2853:                      ; preds = %_ZN4llvm5SDLocC2EPK
   %1173 = load i32, ptr %1172, align 8, !tbaa !255
   %1174 = icmp ult i32 %1173, 65
   %1175 = load ptr, ptr %1171, align 8
-  %.0.in.i.i.i.i2902 = select i1 %1174, ptr %1171, ptr %1175
-  %.0.i.i.i.i2903 = load i64, ptr %.0.in.i.i.i.i2902, align 8, !tbaa !233
-  %1176 = trunc i64 %.0.i.i.i.i2903 to i32
-  switch i32 %1176, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.0.in.i.i.i.i2903 = select i1 %1174, ptr %1171, ptr %1175
+  %.0.i.i.i.i2904 = load i64, ptr %.0.in.i.i.i.i2903, align 8, !tbaa !233
+  %1176 = trunc i64 %.0.i.i.i.i2904 to i32
+  switch i32 %1176, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i32 2062, label %1177
     i32 292, label %1178
     i32 294, label %1179
-    i32 709, label %_ZNK4llvm3EVTeqES0_.exit2907
-    i32 710, label %_ZNK4llvm3EVTeqES0_.exit2911
-    i32 711, label %_ZNK4llvm3EVTeqES0_.exit2915
-    i32 713, label %_ZNK4llvm3EVTeqES0_.exit2919
-    i32 714, label %_ZNK4llvm3EVTeqES0_.exit2923
-    i32 715, label %_ZNK4llvm3EVTeqES0_.exit2927
+    i32 709, label %_ZNK4llvm3EVTeqES0_.exit2908
+    i32 710, label %_ZNK4llvm3EVTeqES0_.exit2912
+    i32 711, label %_ZNK4llvm3EVTeqES0_.exit2916
+    i32 713, label %_ZNK4llvm3EVTeqES0_.exit2920
+    i32 714, label %_ZNK4llvm3EVTeqES0_.exit2924
+    i32 715, label %_ZNK4llvm3EVTeqES0_.exit2928
     i32 1756, label %1180
     i32 1757, label %1186
     i32 1947, label %1192
@@ -4137,40 +4136,40 @@ _ZN4llvm5SDLocD2Ev.exit2853:                      ; preds = %_ZN4llvm5SDLocC2EPK
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPtrauthResignEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2907:                     ; preds = %1165
-  %.not.i.i2904 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select = select i1 %.not.i.i2904, i32 7598, i32 7594
+_ZNK4llvm3EVTeqES0_.exit2908:                     ; preds = %1165
+  %.not.i.i2905 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select = select i1 %.not.i.i2905, i32 7598, i32 7594
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %spec.select, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2911:                     ; preds = %1165
-  %.not.i.i2908 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select10343 = select i1 %.not.i.i2908, i32 7597, i32 7593
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef %spec.select10343, i1 noundef zeroext false)
+_ZNK4llvm3EVTeqES0_.exit2912:                     ; preds = %1165
+  %.not.i.i2909 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select10344 = select i1 %.not.i.i2909, i32 7597, i32 7593
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef %spec.select10344, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2915:                     ; preds = %1165
-  %.not.i.i2912 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select10344 = select i1 %.not.i.i2912, i32 7595, i32 7591
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef %spec.select10344, i1 noundef zeroext false)
+_ZNK4llvm3EVTeqES0_.exit2916:                     ; preds = %1165
+  %.not.i.i2913 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select10345 = select i1 %.not.i.i2913, i32 7595, i32 7591
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef %spec.select10345, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2919:                     ; preds = %1165
-  %.not.i.i2916 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select10345 = select i1 %.not.i.i2916, i32 7616, i32 7612
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %spec.select10345, i1 noundef zeroext true)
+_ZNK4llvm3EVTeqES0_.exit2920:                     ; preds = %1165
+  %.not.i.i2917 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select10346 = select i1 %.not.i.i2917, i32 7616, i32 7612
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %spec.select10346, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2923:                     ; preds = %1165
-  %.not.i.i2920 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select10346 = select i1 %.not.i.i2920, i32 7615, i32 7611
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef %spec.select10346, i1 noundef zeroext true)
+_ZNK4llvm3EVTeqES0_.exit2924:                     ; preds = %1165
+  %.not.i.i2921 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select10347 = select i1 %.not.i.i2921, i32 7615, i32 7611
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef %spec.select10347, i1 noundef zeroext true)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit2927:                     ; preds = %1165
-  %.not.i.i2924 = icmp eq i16 %.sroa.0.0.copyload.i, 38
-  %spec.select10347 = select i1 %.not.i.i2924, i32 7613, i32 7609
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef %spec.select10347, i1 noundef zeroext true)
+_ZNK4llvm3EVTeqES0_.exit2928:                     ; preds = %1165
+  %.not.i.i2925 = icmp eq i16 %.sroa.0.0.copyload.i, 38
+  %spec.select10348 = select i1 %.not.i.i2925, i32 7613, i32 7609
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectTableEPN4llvm6SDNodeEjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef %spec.select10348, i1 noundef zeroext true)
   br label %.critedge
 
 1180:                                             ; preds = %1165
@@ -5570,66 +5569,66 @@ _ZNK4llvm3EVTeqES0_.exit2927:                     ; preds = %1165
   br label %.critedge
 
 1640:                                             ; preds = %1165
-  %.not.i.i3373 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3373, label %_ZNK4llvm3EVTneES0_.exit.i3374, label %.critedge
+  %.not.i.i3374 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3374, label %_ZNK4llvm3EVTneES0_.exit.i3375, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3374:                   ; preds = %1640
+_ZNK4llvm3EVTneES0_.exit.i3375:                   ; preds = %1640
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3736)
   br label %.critedge
 
 1641:                                             ; preds = %1165
-  %.not.i.i3376 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3376, label %_ZNK4llvm3EVTneES0_.exit.i3377, label %.critedge
+  %.not.i.i3377 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3377, label %_ZNK4llvm3EVTneES0_.exit.i3378, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3377:                   ; preds = %1641
+_ZNK4llvm3EVTneES0_.exit.i3378:                   ; preds = %1641
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i1 noundef zeroext true, i32 noundef 3737)
   br label %.critedge
 
 1642:                                             ; preds = %1165
-  %.not.i.i3380 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3380, label %_ZNK4llvm3EVTneES0_.exit.i3381, label %.critedge
+  %.not.i.i3381 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3381, label %_ZNK4llvm3EVTneES0_.exit.i3382, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3381:                   ; preds = %1642
+_ZNK4llvm3EVTneES0_.exit.i3382:                   ; preds = %1642
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3766)
   br label %.critedge
 
 1643:                                             ; preds = %1165
-  %.not.i.i3384 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3384, label %_ZNK4llvm3EVTneES0_.exit.i3385, label %.critedge
+  %.not.i.i3385 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3385, label %_ZNK4llvm3EVTneES0_.exit.i3386, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3385:                   ; preds = %1643
+_ZNK4llvm3EVTneES0_.exit.i3386:                   ; preds = %1643
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i1 noundef zeroext true, i32 noundef 3767)
   br label %.critedge
 
 1644:                                             ; preds = %1165
-  %.not.i.i3388 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3388, label %_ZNK4llvm3EVTneES0_.exit.i3389, label %.critedge
+  %.not.i.i3389 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3389, label %_ZNK4llvm3EVTneES0_.exit.i3390, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3389:                   ; preds = %1644
+_ZNK4llvm3EVTneES0_.exit.i3390:                   ; preds = %1644
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3782)
   br label %.critedge
 
 1645:                                             ; preds = %1165
-  %.not.i.i3392 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3392, label %_ZNK4llvm3EVTneES0_.exit.i3393, label %.critedge
+  %.not.i.i3393 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3393, label %_ZNK4llvm3EVTneES0_.exit.i3394, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3393:                   ; preds = %1645
+_ZNK4llvm3EVTneES0_.exit.i3394:                   ; preds = %1645
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i1 noundef zeroext true, i32 noundef 3783)
   br label %.critedge
 
 1646:                                             ; preds = %1165
-  %.not.i.i3396 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3396, label %_ZNK4llvm3EVTneES0_.exit.i3397, label %.critedge
+  %.not.i.i3397 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3397, label %_ZNK4llvm3EVTneES0_.exit.i3398, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3397:                   ; preds = %1646
+_ZNK4llvm3EVTneES0_.exit.i3398:                   ; preds = %1646
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3798)
   br label %.critedge
 
 1647:                                             ; preds = %1165
-  %.not.i.i3400 = icmp eq i16 %.sroa.0.0.copyload.i, 184
-  br i1 %.not.i.i3400, label %_ZNK4llvm3EVTneES0_.exit.i3401, label %.critedge
+  %.not.i.i3401 = icmp eq i16 %.sroa.0.0.copyload.i, 184
+  br i1 %.not.i.i3401, label %_ZNK4llvm3EVTneES0_.exit.i3402, label %.critedge
 
-_ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
+_ZNK4llvm3EVTneES0_.exit.i3402:                   ; preds = %1647
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectUnaryMultiIntrinsicEPN4llvm6SDNodeEjbj(ptr noundef nonnull readonly align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i1 noundef zeroext true, i32 noundef 3799)
   br label %.critedge
 
@@ -5735,9 +5734,9 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   %1687 = load i32, ptr %1686, align 8, !tbaa !255
   %1688 = icmp ult i32 %1687, 65
   %1689 = load ptr, ptr %1685, align 8
-  %.0.in.i.i.i.i3433 = select i1 %1688, ptr %1685, ptr %1689
-  %.0.i.i.i.i3434 = load i64, ptr %.0.in.i.i.i.i3433, align 8, !tbaa !233
-  %1690 = trunc i64 %.0.i.i.i.i3434 to i32
+  %.0.in.i.i.i.i3434 = select i1 %1688, ptr %1685, ptr %1689
+  %.0.i.i.i.i3435 = load i64, ptr %.0.in.i.i.i.i3434, align 8, !tbaa !233
+  %1690 = trunc i64 %.0.i.i.i.i3435 to i32
   %1691 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1692 = load i16, ptr %1691, align 8, !tbaa !523
   %1693 = icmp ugt i16 %1692, 2
@@ -5748,12 +5747,12 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   %1696 = load ptr, ptr %1695, align 8, !tbaa !210
   %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 48
   %1698 = load ptr, ptr %1697, align 8, !tbaa !204
-  %.sroa.0.0.copyload.i3435 = load i16, ptr %1698, align 8, !tbaa !205
+  %.sroa.0.0.copyload.i3436 = load i16, ptr %1698, align 8, !tbaa !205
   br label %1699
 
 1699:                                             ; preds = %1694, %1678
-  %.sroa.07698.0 = phi i16 [ %.sroa.0.0.copyload.i3435, %1694 ], [ %.sroa.0.0.copyload.i, %1678 ]
-  switch i32 %1690, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.07699.0 = phi i16 [ %.sroa.0.0.copyload.i3436, %1694 ], [ %.sroa.0.0.copyload.i, %1678 ]
+  switch i32 %1690, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i32 697, label %1700
     i32 698, label %1703
     i32 699, label %1706
@@ -5772,23 +5771,23 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   ]
 
 1700:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1701
     i16 39, label %1702
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3451.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3451.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3451.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3463.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3463.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3463.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3475.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3475.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3483.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3483.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3491.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3491.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3499.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3499.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3452.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3452.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3452.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3464.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3464.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3464.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3476.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3476.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3484.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3484.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3492.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3492.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3500.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3500.thread
   ]
 
 1701:                                             ; preds = %1700
@@ -5799,48 +5798,48 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7014)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3451.thread:              ; preds = %1700, %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3452.thread:              ; preds = %1700, %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7022)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3463.thread:              ; preds = %1700, %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3464.thread:              ; preds = %1700, %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7028)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3475.thread:              ; preds = %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3476.thread:              ; preds = %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7020)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3483.thread:              ; preds = %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3484.thread:              ; preds = %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7024)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3491.thread:              ; preds = %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3492.thread:              ; preds = %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7018)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3499.thread:              ; preds = %1700, %1700
+_ZNK4llvm3EVTeqES0_.exit3500.thread:              ; preds = %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7016)
   br label %.critedge
 
 1703:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1704
     i16 39, label %1705
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3515.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3515.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3515.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3527.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3527.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3527.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3539.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3539.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3547.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3547.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3555.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3555.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3563.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3563.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3516.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3516.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3516.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3528.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3528.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3528.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3540.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3540.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3548.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3548.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3556.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3556.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3564.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3564.thread
   ]
 
 1704:                                             ; preds = %1703
@@ -5851,48 +5850,48 @@ _ZNK4llvm3EVTeqES0_.exit3499.thread:              ; preds = %1700, %1700
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 6998)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3515.thread:              ; preds = %1703, %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3516.thread:              ; preds = %1703, %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7006)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3527.thread:              ; preds = %1703, %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3528.thread:              ; preds = %1703, %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7012)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3539.thread:              ; preds = %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3540.thread:              ; preds = %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7004)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3547.thread:              ; preds = %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3548.thread:              ; preds = %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7008)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3555.thread:              ; preds = %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3556.thread:              ; preds = %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7002)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3563.thread:              ; preds = %1703, %1703
+_ZNK4llvm3EVTeqES0_.exit3564.thread:              ; preds = %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7000)
   br label %.critedge
 
 1706:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1707
     i16 39, label %1708
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3579.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3579.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3579.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3591.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3591.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3591.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3603.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3603.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3611.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3611.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3619.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3619.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3627.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3627.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3580.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3580.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3580.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3592.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3592.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3592.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3604.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3604.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3612.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3612.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3620.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3620.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3628.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3628.thread
   ]
 
 1707:                                             ; preds = %1706
@@ -5903,48 +5902,48 @@ _ZNK4llvm3EVTeqES0_.exit3563.thread:              ; preds = %1703, %1703
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6952)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3579.thread:              ; preds = %1706, %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3580.thread:              ; preds = %1706, %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6960)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3591.thread:              ; preds = %1706, %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3592.thread:              ; preds = %1706, %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6966)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3603.thread:              ; preds = %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3604.thread:              ; preds = %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6958)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3611.thread:              ; preds = %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3612.thread:              ; preds = %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6962)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3619.thread:              ; preds = %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3620.thread:              ; preds = %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6956)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3627.thread:              ; preds = %1706, %1706
+_ZNK4llvm3EVTeqES0_.exit3628.thread:              ; preds = %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6954)
   br label %.critedge
 
 1709:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1710
     i16 39, label %1711
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3643.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3643.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3643.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3655.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3655.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3655.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3667.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3667.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3675.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3675.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3683.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3683.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3691.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3691.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3644.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3644.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3644.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3656.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3656.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3656.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3668.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3668.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3676.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3676.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3684.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3684.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3692.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3692.thread
   ]
 
 1710:                                             ; preds = %1709
@@ -5955,48 +5954,48 @@ _ZNK4llvm3EVTeqES0_.exit3627.thread:              ; preds = %1706, %1706
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7073)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3643.thread:              ; preds = %1709, %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3644.thread:              ; preds = %1709, %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7079)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3655.thread:              ; preds = %1709, %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3656.thread:              ; preds = %1709, %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7085)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3667.thread:              ; preds = %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3668.thread:              ; preds = %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7077)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3675.thread:              ; preds = %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3676.thread:              ; preds = %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7081)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3683.thread:              ; preds = %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3684.thread:              ; preds = %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7075)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3691.thread:              ; preds = %1709, %1709
+_ZNK4llvm3EVTeqES0_.exit3692.thread:              ; preds = %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7016)
   br label %.critedge
 
 1712:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1713
     i16 39, label %1714
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3707.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3707.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3707.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3719.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3719.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3719.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3731.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3731.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3739.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3739.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3747.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3747.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3755.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3755.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3708.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3708.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3708.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3720.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3720.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3720.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3732.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3732.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3740.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3740.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3748.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3748.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3756.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3756.thread
   ]
 
 1713:                                             ; preds = %1712
@@ -6007,48 +6006,48 @@ _ZNK4llvm3EVTeqES0_.exit3691.thread:              ; preds = %1709, %1709
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7105)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3707.thread:              ; preds = %1712, %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3708.thread:              ; preds = %1712, %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7111)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3719.thread:              ; preds = %1712, %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3720.thread:              ; preds = %1712, %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7117)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3731.thread:              ; preds = %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3732.thread:              ; preds = %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7109)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3739.thread:              ; preds = %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3740.thread:              ; preds = %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7113)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3747.thread:              ; preds = %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3748.thread:              ; preds = %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7107)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3755.thread:              ; preds = %1712, %1712
+_ZNK4llvm3EVTeqES0_.exit3756.thread:              ; preds = %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7000)
   br label %.critedge
 
 1715:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1716
     i16 39, label %1717
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3771.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3771.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3771.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3783.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3783.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3783.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3795.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3795.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3803.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3803.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3811.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3811.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3819.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3819.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3772.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3772.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3772.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3784.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3784.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3784.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3796.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3796.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3804.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3804.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3812.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3812.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3820.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3820.thread
   ]
 
 1716:                                             ; preds = %1715
@@ -6059,135 +6058,135 @@ _ZNK4llvm3EVTeqES0_.exit3755.thread:              ; preds = %1712, %1712
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7133)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3771.thread:              ; preds = %1715, %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3772.thread:              ; preds = %1715, %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7139)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3783.thread:              ; preds = %1715, %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3784.thread:              ; preds = %1715, %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7145)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3795.thread:              ; preds = %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3796.thread:              ; preds = %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7137)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3803.thread:              ; preds = %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3804.thread:              ; preds = %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7141)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3811.thread:              ; preds = %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3812.thread:              ; preds = %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7135)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3819.thread:              ; preds = %1715, %1715
+_ZNK4llvm3EVTeqES0_.exit3820.thread:              ; preds = %1715, %1715
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel11SelectStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6954)
   br label %.critedge
 
 1718:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3827.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3827.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3859.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3859.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3859.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3859.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3875.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3875.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3875.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3875.thread
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3828.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3828.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3836.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3860.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3860.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3860.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3860.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3876.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3876.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3876.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3876.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit3827.thread:              ; preds = %1718, %1718
+_ZNK4llvm3EVTeqES0_.exit3828.thread:              ; preds = %1718, %1718
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7095)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3835.thread:              ; preds = %1718, %1718, %1718, %1718, %1718, %1718
+_ZNK4llvm3EVTeqES0_.exit3836.thread:              ; preds = %1718, %1718, %1718, %1718, %1718, %1718
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7089)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3859.thread:              ; preds = %1718, %1718, %1718, %1718
+_ZNK4llvm3EVTeqES0_.exit3860.thread:              ; preds = %1718, %1718, %1718, %1718
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7091)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3875.thread:              ; preds = %1718, %1718, %1718, %1718
+_ZNK4llvm3EVTeqES0_.exit3876.thread:              ; preds = %1718, %1718, %1718, %1718
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7093)
   br label %.critedge
 
 1719:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3891.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3891.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3923.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3923.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3923.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3923.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3939.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3939.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3939.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3939.thread
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3892.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3892.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3900.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3924.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3924.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3924.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3924.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit3940.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit3940.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit3940.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit3940.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit3891.thread:              ; preds = %1719, %1719
+_ZNK4llvm3EVTeqES0_.exit3892.thread:              ; preds = %1719, %1719
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7127)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3899.thread:              ; preds = %1719, %1719, %1719, %1719, %1719, %1719
+_ZNK4llvm3EVTeqES0_.exit3900.thread:              ; preds = %1719, %1719, %1719, %1719, %1719, %1719
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7121)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3923.thread:              ; preds = %1719, %1719, %1719, %1719
+_ZNK4llvm3EVTeqES0_.exit3924.thread:              ; preds = %1719, %1719, %1719, %1719
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7123)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3939.thread:              ; preds = %1719, %1719, %1719, %1719
+_ZNK4llvm3EVTeqES0_.exit3940.thread:              ; preds = %1719, %1719, %1719, %1719
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7125)
   br label %.critedge
 
 1720:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3955.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3955.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3987.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3987.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3987.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3987.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4003.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4003.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4003.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4003.thread
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit3956.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit3956.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit3964.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit3988.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit3988.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit3988.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit3988.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4004.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4004.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4004.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4004.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit3955.thread:              ; preds = %1720, %1720
+_ZNK4llvm3EVTeqES0_.exit3956.thread:              ; preds = %1720, %1720
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7159)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3963.thread:              ; preds = %1720, %1720, %1720, %1720, %1720, %1720
+_ZNK4llvm3EVTeqES0_.exit3964.thread:              ; preds = %1720, %1720, %1720, %1720, %1720, %1720
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7153)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit3987.thread:              ; preds = %1720, %1720, %1720, %1720
+_ZNK4llvm3EVTeqES0_.exit3988.thread:              ; preds = %1720, %1720, %1720, %1720
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7155)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4003.thread:              ; preds = %1720, %1720, %1720, %1720
+_ZNK4llvm3EVTeqES0_.exit4004.thread:              ; preds = %1720, %1720, %1720, %1720
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7157)
   br label %.critedge
 
@@ -6204,107 +6203,107 @@ _ZNK4llvm3EVTeqES0_.exit4003.thread:              ; preds = %1720, %1720, %1720,
   br label %.critedge
 
 1724:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1725
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4023.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4023.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4023.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4035.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4035.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4043.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4043.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4024.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4024.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4024.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4036.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4036.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4044.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4044.thread
   ]
 
 1725:                                             ; preds = %1724
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0, i32 noundef 7062, i32 noundef 7063)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4023.thread:              ; preds = %1724, %1724, %1724
+_ZNK4llvm3EVTeqES0_.exit4024.thread:              ; preds = %1724, %1724, %1724
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 7069, i32 noundef 7070)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4035.thread:              ; preds = %1724, %1724
+_ZNK4llvm3EVTeqES0_.exit4036.thread:              ; preds = %1724, %1724
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 7087, i32 noundef 7088)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4043.thread:              ; preds = %1724, %1724
+_ZNK4llvm3EVTeqES0_.exit4044.thread:              ; preds = %1724, %1724
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 7064, i32 noundef 7065)
   br label %.critedge
 
 1726:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1727
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4055.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4055.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4055.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4067.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4067.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4075.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4075.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4056.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4056.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4056.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4068.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4068.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4076.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4076.thread
   ]
 
 1727:                                             ; preds = %1726
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0, i32 noundef 7097, i32 noundef 7098)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4055.thread:              ; preds = %1726, %1726, %1726
+_ZNK4llvm3EVTeqES0_.exit4056.thread:              ; preds = %1726, %1726, %1726
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 1, i32 noundef 7101, i32 noundef 7102)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4067.thread:              ; preds = %1726, %1726
+_ZNK4llvm3EVTeqES0_.exit4068.thread:              ; preds = %1726, %1726
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 2, i32 noundef 7119, i32 noundef 7120)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4075.thread:              ; preds = %1726, %1726
+_ZNK4llvm3EVTeqES0_.exit4076.thread:              ; preds = %1726, %1726
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 3, i32 noundef 7099, i32 noundef 7100)
   br label %.critedge
 
 1728:                                             ; preds = %1699
-  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1729
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4087.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4087.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4087.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4099.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4099.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4107.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4107.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit4088.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit4088.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit4088.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit4100.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit4100.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit4108.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit4108.thread
   ]
 
 1729:                                             ; preds = %1728
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0, i32 noundef 7129, i32 noundef 7130)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4087.thread:              ; preds = %1728, %1728, %1728
+_ZNK4llvm3EVTeqES0_.exit4088.thread:              ; preds = %1728, %1728, %1728
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 7147, i32 noundef 7148)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4099.thread:              ; preds = %1728, %1728
+_ZNK4llvm3EVTeqES0_.exit4100.thread:              ; preds = %1728, %1728
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 7151, i32 noundef 7152)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4107.thread:              ; preds = %1728, %1728
+_ZNK4llvm3EVTeqES0_.exit4108.thread:              ; preds = %1728, %1728
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectPredicatedStoreEPN4llvm6SDNodeEjjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 7131, i32 noundef 7132)
   br label %.critedge
 
 1730:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1731
     i16 39, label %1732
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4123.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4123.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4123.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4135.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4135.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4135.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4147.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4147.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4155.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4155.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4163.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4163.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4171.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4171.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4124.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4124.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4124.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4136.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4136.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4136.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4148.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4148.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4156.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4156.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4164.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4164.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4172.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4172.thread
   ]
 
 1731:                                             ; preds = %1730
@@ -6315,48 +6314,48 @@ _ZNK4llvm3EVTeqES0_.exit4107.thread:              ; preds = %1728, %1728
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4388, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4123.thread:              ; preds = %1730, %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4124.thread:              ; preds = %1730, %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4394, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4135.thread:              ; preds = %1730, %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4136.thread:              ; preds = %1730, %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4400, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4147.thread:              ; preds = %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4148.thread:              ; preds = %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4392, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4155.thread:              ; preds = %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4156.thread:              ; preds = %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4396, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4163.thread:              ; preds = %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4164.thread:              ; preds = %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4318, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4171.thread:              ; preds = %1730, %1730
+_ZNK4llvm3EVTeqES0_.exit4172.thread:              ; preds = %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4390, i32 noundef 14)
   br label %.critedge
 
 1733:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1734
     i16 39, label %1735
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4187.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4187.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4187.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4199.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4199.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4199.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4211.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4211.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4219.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4219.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4227.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4227.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4235.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4235.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4188.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4188.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4188.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4200.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4200.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4200.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4212.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4212.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4220.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4220.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4228.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4228.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4236.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4236.thread
   ]
 
 1734:                                             ; preds = %1733
@@ -6367,48 +6366,48 @@ _ZNK4llvm3EVTeqES0_.exit4171.thread:              ; preds = %1730, %1730
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4436, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4187.thread:              ; preds = %1733, %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4188.thread:              ; preds = %1733, %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4442, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4199.thread:              ; preds = %1733, %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4200.thread:              ; preds = %1733, %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4448, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4211.thread:              ; preds = %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4212.thread:              ; preds = %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4440, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4219.thread:              ; preds = %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4220.thread:              ; preds = %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4444, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4227.thread:              ; preds = %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4228.thread:              ; preds = %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4302, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4235.thread:              ; preds = %1733, %1733
+_ZNK4llvm3EVTeqES0_.exit4236.thread:              ; preds = %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4438, i32 noundef 14)
   br label %.critedge
 
 1736:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1737
     i16 39, label %1738
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4251.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4251.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4251.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4263.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4263.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4263.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4275.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4275.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4283.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4283.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4291.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4291.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4299.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4299.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4252.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4252.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4252.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4264.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4264.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4264.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4276.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4276.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4284.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4284.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4292.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4292.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4300.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4300.thread
   ]
 
 1737:                                             ; preds = %1736
@@ -6419,48 +6418,48 @@ _ZNK4llvm3EVTeqES0_.exit4235.thread:              ; preds = %1733, %1733
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4464, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4251.thread:              ; preds = %1736, %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4252.thread:              ; preds = %1736, %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4470, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4263.thread:              ; preds = %1736, %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4264.thread:              ; preds = %1736, %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4476, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4275.thread:              ; preds = %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4276.thread:              ; preds = %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4468, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4283.thread:              ; preds = %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4284.thread:              ; preds = %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4472, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4291.thread:              ; preds = %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4292.thread:              ; preds = %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4196, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4299.thread:              ; preds = %1736, %1736
+_ZNK4llvm3EVTeqES0_.exit4300.thread:              ; preds = %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4466, i32 noundef 14)
   br label %.critedge
 
 1739:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1740
     i16 39, label %1741
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4315.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4315.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4315.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4327.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4327.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4327.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4339.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4339.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4347.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4347.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4355.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4355.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4363.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4363.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4316.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4316.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4316.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4328.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4328.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4328.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4340.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4340.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4348.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4348.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4356.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4356.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4364.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4364.thread
   ]
 
 1740:                                             ; preds = %1739
@@ -6471,48 +6470,48 @@ _ZNK4llvm3EVTeqES0_.exit4299.thread:              ; preds = %1736, %1736
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4316, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4315.thread:              ; preds = %1739, %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4316.thread:              ; preds = %1739, %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4324, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4327.thread:              ; preds = %1739, %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4328.thread:              ; preds = %1739, %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4330, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4339.thread:              ; preds = %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4340.thread:              ; preds = %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4322, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4347.thread:              ; preds = %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4348.thread:              ; preds = %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4326, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4355.thread:              ; preds = %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4356.thread:              ; preds = %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4318, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4363.thread:              ; preds = %1739, %1739
+_ZNK4llvm3EVTeqES0_.exit4364.thread:              ; preds = %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4320, i32 noundef 14)
   br label %.critedge
 
 1742:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1743
     i16 39, label %1744
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4379.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4379.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4379.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4391.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4391.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4391.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4403.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4403.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4411.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4411.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4419.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4419.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4427.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4427.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4380.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4380.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4380.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4392.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4392.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4392.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4404.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4404.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4412.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4412.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4420.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4420.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4428.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4428.thread
   ]
 
 1743:                                             ; preds = %1742
@@ -6523,48 +6522,48 @@ _ZNK4llvm3EVTeqES0_.exit4363.thread:              ; preds = %1739, %1739
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4300, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4379.thread:              ; preds = %1742, %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4380.thread:              ; preds = %1742, %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4308, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4391.thread:              ; preds = %1742, %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4392.thread:              ; preds = %1742, %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4314, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4403.thread:              ; preds = %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4404.thread:              ; preds = %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4306, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4411.thread:              ; preds = %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4412.thread:              ; preds = %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4310, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4419.thread:              ; preds = %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4420.thread:              ; preds = %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4302, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4427.thread:              ; preds = %1742, %1742
+_ZNK4llvm3EVTeqES0_.exit4428.thread:              ; preds = %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4304, i32 noundef 14)
   br label %.critedge
 
 1745:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1746
     i16 39, label %1747
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4443.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4443.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4443.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4455.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4455.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4455.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4467.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4467.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4475.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4475.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4483.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4483.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4491.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4491.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4444.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4444.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4444.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4456.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4456.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4456.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4468.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4468.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4476.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4476.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4484.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4484.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4492.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4492.thread
   ]
 
 1746:                                             ; preds = %1745
@@ -6575,48 +6574,48 @@ _ZNK4llvm3EVTeqES0_.exit4427.thread:              ; preds = %1742, %1742
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4194, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4443.thread:              ; preds = %1745, %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4444.thread:              ; preds = %1745, %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4202, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4455.thread:              ; preds = %1745, %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4456.thread:              ; preds = %1745, %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4208, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4467.thread:              ; preds = %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4468.thread:              ; preds = %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4200, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4475.thread:              ; preds = %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4476.thread:              ; preds = %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4204, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4483.thread:              ; preds = %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4484.thread:              ; preds = %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4196, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4491.thread:              ; preds = %1745, %1745
+_ZNK4llvm3EVTeqES0_.exit4492.thread:              ; preds = %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4198, i32 noundef 14)
   br label %.critedge
 
 1748:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1749
     i16 39, label %1750
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4507.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4507.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4507.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4519.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4519.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4519.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4531.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4531.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4539.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4539.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4547.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4547.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4555.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4555.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4508.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4508.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4508.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4520.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4520.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4520.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4532.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4532.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4540.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4540.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4548.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4548.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4556.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4556.thread
   ]
 
 1749:                                             ; preds = %1748
@@ -6627,48 +6626,48 @@ _ZNK4llvm3EVTeqES0_.exit4491.thread:              ; preds = %1745, %1745
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4272, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4507.thread:              ; preds = %1748, %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4508.thread:              ; preds = %1748, %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4280, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4519.thread:              ; preds = %1748, %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4520.thread:              ; preds = %1748, %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4286, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4531.thread:              ; preds = %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4532.thread:              ; preds = %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4278, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4539.thread:              ; preds = %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4540.thread:              ; preds = %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4282, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4547.thread:              ; preds = %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4548.thread:              ; preds = %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4274, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4555.thread:              ; preds = %1748, %1748
+_ZNK4llvm3EVTeqES0_.exit4556.thread:              ; preds = %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4276, i32 noundef 14)
   br label %.critedge
 
 1751:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1752
     i16 39, label %1753
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4571.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4571.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4571.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4583.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4583.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4583.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4595.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4595.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4603.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4603.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4611.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4611.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4619.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4619.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4572.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4572.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4572.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4584.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4584.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4584.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4596.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4596.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4604.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4604.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4612.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4612.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4620.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4620.thread
   ]
 
 1752:                                             ; preds = %1751
@@ -6679,48 +6678,48 @@ _ZNK4llvm3EVTeqES0_.exit4555.thread:              ; preds = %1748, %1748
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4372, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4571.thread:              ; preds = %1751, %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4572.thread:              ; preds = %1751, %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4380, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4583.thread:              ; preds = %1751, %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4584.thread:              ; preds = %1751, %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4386, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4595.thread:              ; preds = %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4596.thread:              ; preds = %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4378, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4603.thread:              ; preds = %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4604.thread:              ; preds = %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4382, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4611.thread:              ; preds = %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4612.thread:              ; preds = %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4374, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4619.thread:              ; preds = %1751, %1751
+_ZNK4llvm3EVTeqES0_.exit4620.thread:              ; preds = %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4376, i32 noundef 14)
   br label %.critedge
 
 1754:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1755
     i16 39, label %1756
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4635.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4635.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4635.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4647.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4647.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4647.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4659.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4659.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4667.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4667.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4675.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4675.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4683.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4683.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4636.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4636.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4636.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4648.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4648.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4648.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4660.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4660.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4668.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4668.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4676.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4676.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4684.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4684.thread
   ]
 
 1755:                                             ; preds = %1754
@@ -6731,48 +6730,48 @@ _ZNK4llvm3EVTeqES0_.exit4619.thread:              ; preds = %1751, %1751
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4420, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4635.thread:              ; preds = %1754, %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4636.thread:              ; preds = %1754, %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4428, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4647.thread:              ; preds = %1754, %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4648.thread:              ; preds = %1754, %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4434, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4659.thread:              ; preds = %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4660.thread:              ; preds = %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4426, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4667.thread:              ; preds = %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4668.thread:              ; preds = %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4430, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4675.thread:              ; preds = %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4676.thread:              ; preds = %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4422, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4683.thread:              ; preds = %1754, %1754
+_ZNK4llvm3EVTeqES0_.exit4684.thread:              ; preds = %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4424, i32 noundef 14)
   br label %.critedge
 
 1757:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1758
     i16 39, label %1759
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4699.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4699.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4699.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4711.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4711.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4711.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4723.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4723.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4731.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4731.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4739.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4739.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4747.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4747.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4700.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4700.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4700.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4712.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4712.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4712.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4724.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4724.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4732.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4732.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4740.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4740.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4748.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4748.thread
   ]
 
 1758:                                             ; preds = %1757
@@ -6783,171 +6782,171 @@ _ZNK4llvm3EVTeqES0_.exit4683.thread:              ; preds = %1754, %1754
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4482, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4699.thread:              ; preds = %1757, %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4700.thread:              ; preds = %1757, %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4490, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4711.thread:              ; preds = %1757, %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4712.thread:              ; preds = %1757, %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4496, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4723.thread:              ; preds = %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4724.thread:              ; preds = %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4488, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4731.thread:              ; preds = %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4732.thread:              ; preds = %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4492, i32 noundef 14)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4739.thread:              ; preds = %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4740.thread:              ; preds = %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4484, i32 noundef 4)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4747.thread:              ; preds = %1757, %1757
+_ZNK4llvm3EVTeqES0_.exit4748.thread:              ; preds = %1757, %1757
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel14SelectPostLoadEPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4486, i32 noundef 14)
   br label %.critedge
 
 1760:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4755.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4755.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4763.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4787.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4787.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4787.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4787.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4803.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4803.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4803.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4803.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4756.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4756.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4764.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4788.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4788.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4788.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4788.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4804.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4804.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4804.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4804.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit4755.thread:              ; preds = %1760, %1760
+_ZNK4llvm3EVTeqES0_.exit4756.thread:              ; preds = %1760, %1760
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4362)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4763.thread:              ; preds = %1760, %1760, %1760, %1760, %1760, %1760
+_ZNK4llvm3EVTeqES0_.exit4764.thread:              ; preds = %1760, %1760, %1760, %1760, %1760, %1760
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4356)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4787.thread:              ; preds = %1760, %1760, %1760, %1760
+_ZNK4llvm3EVTeqES0_.exit4788.thread:              ; preds = %1760, %1760, %1760, %1760
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4358)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4803.thread:              ; preds = %1760, %1760, %1760, %1760
+_ZNK4llvm3EVTeqES0_.exit4804.thread:              ; preds = %1760, %1760, %1760, %1760
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 4360)
   br label %.critedge
 
 1761:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4819.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4819.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4827.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4851.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4851.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4851.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4851.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4867.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4867.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4867.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4867.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4820.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4820.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4828.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4852.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4852.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4852.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4852.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4868.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4868.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4868.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4868.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit4819.thread:              ; preds = %1761, %1761
+_ZNK4llvm3EVTeqES0_.exit4820.thread:              ; preds = %1761, %1761
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4410)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4827.thread:              ; preds = %1761, %1761, %1761, %1761, %1761, %1761
+_ZNK4llvm3EVTeqES0_.exit4828.thread:              ; preds = %1761, %1761, %1761, %1761, %1761, %1761
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4404)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4851.thread:              ; preds = %1761, %1761, %1761, %1761
+_ZNK4llvm3EVTeqES0_.exit4852.thread:              ; preds = %1761, %1761, %1761, %1761
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4406)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4867.thread:              ; preds = %1761, %1761, %1761, %1761
+_ZNK4llvm3EVTeqES0_.exit4868.thread:              ; preds = %1761, %1761, %1761, %1761
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4408)
   br label %.critedge
 
 1762:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4883.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4883.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4891.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4915.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4915.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4915.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4915.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4931.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4931.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4931.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4931.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4884.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4884.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4892.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4916.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4916.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4916.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4916.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4932.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4932.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4932.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4932.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit4883.thread:              ; preds = %1762, %1762
+_ZNK4llvm3EVTeqES0_.exit4884.thread:              ; preds = %1762, %1762
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4458)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4891.thread:              ; preds = %1762, %1762, %1762, %1762, %1762, %1762
+_ZNK4llvm3EVTeqES0_.exit4892.thread:              ; preds = %1762, %1762, %1762, %1762, %1762, %1762
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4452)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4915.thread:              ; preds = %1762, %1762, %1762, %1762
+_ZNK4llvm3EVTeqES0_.exit4916.thread:              ; preds = %1762, %1762, %1762, %1762
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4454)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4931.thread:              ; preds = %1762, %1762, %1762, %1762
+_ZNK4llvm3EVTeqES0_.exit4932.thread:              ; preds = %1762, %1762, %1762, %1762
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 4456)
   br label %.critedge
 
 1763:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4947.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4947.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4955.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4979.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4979.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4979.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4979.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4995.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4995.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4995.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4995.thread
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit4948.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit4948.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit4956.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit4980.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit4980.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit4980.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit4980.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit4996.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit4996.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit4996.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit4996.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit4947.thread:              ; preds = %1763, %1763
+_ZNK4llvm3EVTeqES0_.exit4948.thread:              ; preds = %1763, %1763
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4506)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4955.thread:              ; preds = %1763, %1763, %1763, %1763, %1763, %1763
+_ZNK4llvm3EVTeqES0_.exit4956.thread:              ; preds = %1763, %1763, %1763, %1763, %1763, %1763
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4500)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4979.thread:              ; preds = %1763, %1763, %1763, %1763
+_ZNK4llvm3EVTeqES0_.exit4980.thread:              ; preds = %1763, %1763, %1763, %1763
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4502)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit4995.thread:              ; preds = %1763, %1763, %1763, %1763
+_ZNK4llvm3EVTeqES0_.exit4996.thread:              ; preds = %1763, %1763, %1763, %1763
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectPostLoadLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4504)
   br label %.critedge
 
@@ -6962,24 +6961,24 @@ _ZNK4llvm3EVTeqES0_.exit4995.thread:              ; preds = %1763, %1763, %1763,
   %1772 = load ptr, ptr %1771, align 8, !tbaa !204
   %1773 = zext i32 %1770 to i64
   %1774 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1772, i64 %1773
-  %.sroa.0.0.copyload.i.i5008 = load i16, ptr %1774, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5008, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5009 = load i16, ptr %1774, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5009, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1775
     i16 39, label %1776
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5022.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5022.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5022.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5034.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5034.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5034.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5046.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5046.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5054.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5054.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5062.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5062.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5070.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5070.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5023.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5023.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5023.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5035.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5035.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5035.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5047.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5047.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5055.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5055.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5063.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5063.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5071.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5071.thread
   ]
 
 1775:                                             ; preds = %1764
@@ -6990,27 +6989,27 @@ _ZNK4llvm3EVTeqES0_.exit4995.thread:              ; preds = %1763, %1763, %1763,
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7074)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5022.thread:              ; preds = %1764, %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5023.thread:              ; preds = %1764, %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7080)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5034.thread:              ; preds = %1764, %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5035.thread:              ; preds = %1764, %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7086)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5046.thread:              ; preds = %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5047.thread:              ; preds = %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7078)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5054.thread:              ; preds = %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5055.thread:              ; preds = %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7082)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5062.thread:              ; preds = %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5063.thread:              ; preds = %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7076)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5070.thread:              ; preds = %1764, %1764
+_ZNK4llvm3EVTeqES0_.exit5071.thread:              ; preds = %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7017)
   br label %.critedge
 
@@ -7025,24 +7024,24 @@ _ZNK4llvm3EVTeqES0_.exit5070.thread:              ; preds = %1764, %1764
   %1785 = load ptr, ptr %1784, align 8, !tbaa !204
   %1786 = zext i32 %1783 to i64
   %1787 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1785, i64 %1786
-  %.sroa.0.0.copyload.i.i5075 = load i16, ptr %1787, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5075, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5076 = load i16, ptr %1787, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5076, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1788
     i16 39, label %1789
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5091.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5091.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5091.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5103.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5103.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5103.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5115.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5115.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5123.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5123.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5131.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5131.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5139.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5139.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5092.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5092.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5092.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5104.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5104.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5104.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5116.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5116.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5124.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5124.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5132.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5132.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5140.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5140.thread
   ]
 
 1788:                                             ; preds = %1777
@@ -7053,27 +7052,27 @@ _ZNK4llvm3EVTeqES0_.exit5070.thread:              ; preds = %1764, %1764
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7106)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5091.thread:              ; preds = %1777, %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5092.thread:              ; preds = %1777, %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7112)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5103.thread:              ; preds = %1777, %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5104.thread:              ; preds = %1777, %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7118)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5115.thread:              ; preds = %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5116.thread:              ; preds = %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7110)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5123.thread:              ; preds = %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5124.thread:              ; preds = %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7114)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5131.thread:              ; preds = %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5132.thread:              ; preds = %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7108)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5139.thread:              ; preds = %1777, %1777
+_ZNK4llvm3EVTeqES0_.exit5140.thread:              ; preds = %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7001)
   br label %.critedge
 
@@ -7088,24 +7087,24 @@ _ZNK4llvm3EVTeqES0_.exit5139.thread:              ; preds = %1777, %1777
   %1798 = load ptr, ptr %1797, align 8, !tbaa !204
   %1799 = zext i32 %1796 to i64
   %1800 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1798, i64 %1799
-  %.sroa.0.0.copyload.i.i5144 = load i16, ptr %1800, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5144, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5145 = load i16, ptr %1800, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5145, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1801
     i16 39, label %1802
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5160.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5160.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5160.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5172.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5172.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5172.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5184.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5184.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5192.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5192.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5200.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5200.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5208.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5208.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5161.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5161.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5161.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5173.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5173.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5173.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5185.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5185.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5193.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5193.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5201.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5201.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5209.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5209.thread
   ]
 
 1801:                                             ; preds = %1790
@@ -7116,27 +7115,27 @@ _ZNK4llvm3EVTeqES0_.exit5139.thread:              ; preds = %1777, %1777
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7134)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5160.thread:              ; preds = %1790, %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5161.thread:              ; preds = %1790, %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7140)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5172.thread:              ; preds = %1790, %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5173.thread:              ; preds = %1790, %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7146)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5184.thread:              ; preds = %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5185.thread:              ; preds = %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7138)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5192.thread:              ; preds = %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5193.thread:              ; preds = %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7142)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5200.thread:              ; preds = %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5201.thread:              ; preds = %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7136)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5208.thread:              ; preds = %1790, %1790
+_ZNK4llvm3EVTeqES0_.exit5209.thread:              ; preds = %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6955)
   br label %.critedge
 
@@ -7151,24 +7150,24 @@ _ZNK4llvm3EVTeqES0_.exit5208.thread:              ; preds = %1790, %1790
   %1811 = load ptr, ptr %1810, align 8, !tbaa !204
   %1812 = zext i32 %1809 to i64
   %1813 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1811, i64 %1812
-  %.sroa.0.0.copyload.i.i5213 = load i16, ptr %1813, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5213, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5214 = load i16, ptr %1813, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5214, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1814
     i16 39, label %1815
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5229.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5229.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5229.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5241.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5241.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5241.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5253.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5253.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5261.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5261.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5269.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5269.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5277.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5277.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5230.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5230.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5230.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5242.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5242.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5242.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5254.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5254.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5262.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5262.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5270.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5270.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5278.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5278.thread
   ]
 
 1814:                                             ; preds = %1803
@@ -7179,27 +7178,27 @@ _ZNK4llvm3EVTeqES0_.exit5208.thread:              ; preds = %1790, %1790
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7015)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5229.thread:              ; preds = %1803, %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5230.thread:              ; preds = %1803, %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7023)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5241.thread:              ; preds = %1803, %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5242.thread:              ; preds = %1803, %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7029)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5253.thread:              ; preds = %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5254.thread:              ; preds = %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7021)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5261.thread:              ; preds = %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5262.thread:              ; preds = %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7025)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5269.thread:              ; preds = %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5270.thread:              ; preds = %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7017)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5277.thread:              ; preds = %1803, %1803
+_ZNK4llvm3EVTeqES0_.exit5278.thread:              ; preds = %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7019)
   br label %.critedge
 
@@ -7214,24 +7213,24 @@ _ZNK4llvm3EVTeqES0_.exit5277.thread:              ; preds = %1803, %1803
   %1824 = load ptr, ptr %1823, align 8, !tbaa !204
   %1825 = zext i32 %1822 to i64
   %1826 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1824, i64 %1825
-  %.sroa.0.0.copyload.i.i5282 = load i16, ptr %1826, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5282, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5283 = load i16, ptr %1826, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5283, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1827
     i16 39, label %1828
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5298.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5298.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5298.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5310.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5310.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5310.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5322.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5322.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5330.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5330.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5338.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5338.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5346.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5346.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5299.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5299.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5299.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5311.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5311.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5311.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5323.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5323.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5331.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5331.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5339.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5339.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5347.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5347.thread
   ]
 
 1827:                                             ; preds = %1816
@@ -7242,27 +7241,27 @@ _ZNK4llvm3EVTeqES0_.exit5277.thread:              ; preds = %1803, %1803
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 6999)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5298.thread:              ; preds = %1816, %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5299.thread:              ; preds = %1816, %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7007)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5310.thread:              ; preds = %1816, %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5311.thread:              ; preds = %1816, %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7013)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5322.thread:              ; preds = %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5323.thread:              ; preds = %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7005)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5330.thread:              ; preds = %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5331.thread:              ; preds = %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7009)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5338.thread:              ; preds = %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5339.thread:              ; preds = %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7001)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5346.thread:              ; preds = %1816, %1816
+_ZNK4llvm3EVTeqES0_.exit5347.thread:              ; preds = %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7003)
   br label %.critedge
 
@@ -7277,24 +7276,24 @@ _ZNK4llvm3EVTeqES0_.exit5346.thread:              ; preds = %1816, %1816
   %1837 = load ptr, ptr %1836, align 8, !tbaa !204
   %1838 = zext i32 %1835 to i64
   %1839 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1837, i64 %1838
-  %.sroa.0.0.copyload.i.i5351 = load i16, ptr %1839, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5351, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  %.sroa.0.0.copyload.i.i5352 = load i16, ptr %1839, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5352, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 38, label %1840
     i16 39, label %1841
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5367.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5367.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5367.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5379.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5379.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5379.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5391.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5391.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5399.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5399.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5407.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5407.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5415.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5415.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5368.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5368.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5368.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5380.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5380.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5380.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5392.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5392.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5400.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5400.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5408.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5408.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5416.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5416.thread
   ]
 
 1840:                                             ; preds = %1829
@@ -7305,27 +7304,27 @@ _ZNK4llvm3EVTeqES0_.exit5346.thread:              ; preds = %1816, %1816
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6953)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5367.thread:              ; preds = %1829, %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5368.thread:              ; preds = %1829, %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6961)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5379.thread:              ; preds = %1829, %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5380.thread:              ; preds = %1829, %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6967)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5391.thread:              ; preds = %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5392.thread:              ; preds = %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6959)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5399.thread:              ; preds = %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5400.thread:              ; preds = %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6963)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5407.thread:              ; preds = %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5408.thread:              ; preds = %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6955)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5415.thread:              ; preds = %1829, %1829
+_ZNK4llvm3EVTeqES0_.exit5416.thread:              ; preds = %1829, %1829
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15SelectPostStoreEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 6957)
   br label %.critedge
 
@@ -7340,39 +7339,39 @@ _ZNK4llvm3EVTeqES0_.exit5415.thread:              ; preds = %1829, %1829
   %1850 = load ptr, ptr %1849, align 8, !tbaa !204
   %1851 = zext i32 %1848 to i64
   %1852 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1850, i64 %1851
-  %.sroa.0.0.copyload.i.i5420 = load i16, ptr %1852, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5420, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5428.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5428.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5436.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5460.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5460.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5460.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5460.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5476.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5476.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5476.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5476.thread
+  %.sroa.0.0.copyload.i.i5421 = load i16, ptr %1852, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5421, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5429.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5429.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5437.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5461.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5461.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5461.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5461.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5477.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5477.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5477.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5477.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit5428.thread:              ; preds = %1842, %1842
+_ZNK4llvm3EVTeqES0_.exit5429.thread:              ; preds = %1842, %1842
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7096)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5436.thread:              ; preds = %1842, %1842, %1842, %1842, %1842, %1842
+_ZNK4llvm3EVTeqES0_.exit5437.thread:              ; preds = %1842, %1842, %1842, %1842, %1842, %1842
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7090)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5460.thread:              ; preds = %1842, %1842, %1842, %1842
+_ZNK4llvm3EVTeqES0_.exit5461.thread:              ; preds = %1842, %1842, %1842, %1842
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7092)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5476.thread:              ; preds = %1842, %1842, %1842, %1842
+_ZNK4llvm3EVTeqES0_.exit5477.thread:              ; preds = %1842, %1842, %1842, %1842
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 7094)
   br label %.critedge
 
@@ -7387,39 +7386,39 @@ _ZNK4llvm3EVTeqES0_.exit5476.thread:              ; preds = %1842, %1842, %1842,
   %1861 = load ptr, ptr %1860, align 8, !tbaa !204
   %1862 = zext i32 %1859 to i64
   %1863 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1861, i64 %1862
-  %.sroa.0.0.copyload.i.i5489 = load i16, ptr %1863, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5489, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5497.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5497.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5505.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5529.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5529.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5529.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5529.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5545.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5545.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5545.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5545.thread
+  %.sroa.0.0.copyload.i.i5490 = load i16, ptr %1863, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5490, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5498.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5498.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5506.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5530.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5530.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5530.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5530.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5546.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5546.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5546.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5546.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit5497.thread:              ; preds = %1853, %1853
+_ZNK4llvm3EVTeqES0_.exit5498.thread:              ; preds = %1853, %1853
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7128)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5505.thread:              ; preds = %1853, %1853, %1853, %1853, %1853, %1853
+_ZNK4llvm3EVTeqES0_.exit5506.thread:              ; preds = %1853, %1853, %1853, %1853, %1853, %1853
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7122)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5529.thread:              ; preds = %1853, %1853, %1853, %1853
+_ZNK4llvm3EVTeqES0_.exit5530.thread:              ; preds = %1853, %1853, %1853, %1853
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7124)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5545.thread:              ; preds = %1853, %1853, %1853, %1853
+_ZNK4llvm3EVTeqES0_.exit5546.thread:              ; preds = %1853, %1853, %1853, %1853
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 7126)
   br label %.critedge
 
@@ -7434,131 +7433,131 @@ _ZNK4llvm3EVTeqES0_.exit5545.thread:              ; preds = %1853, %1853, %1853,
   %1872 = load ptr, ptr %1871, align 8, !tbaa !204
   %1873 = zext i32 %1870 to i64
   %1874 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %1872, i64 %1873
-  %.sroa.0.0.copyload.i.i5558 = load i16, ptr %1874, align 8, !tbaa !205
-  switch i16 %.sroa.0.0.copyload.i.i5558, label %_ZNK4llvm3EVTeqES0_.exit1575 [
-    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5566.thread
-    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5566.thread
-    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5574.thread
-    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5598.thread
-    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5598.thread
-    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5598.thread
-    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5598.thread
-    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5614.thread
-    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5614.thread
-    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5614.thread
-    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5614.thread
+  %.sroa.0.0.copyload.i.i5559 = load i16, ptr %1874, align 8, !tbaa !205
+  switch i16 %.sroa.0.0.copyload.i.i5559, label %_ZNK4llvm3EVTeqES0_.exit1576 [
+    i16 39, label %_ZNK4llvm3EVTeqES0_.exit5567.thread
+    i16 38, label %_ZNK4llvm3EVTeqES0_.exit5567.thread
+    i16 50, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 49, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 91, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 92, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 102, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 103, label %_ZNK4llvm3EVTeqES0_.exit5575.thread
+    i16 60, label %_ZNK4llvm3EVTeqES0_.exit5599.thread
+    i16 58, label %_ZNK4llvm3EVTeqES0_.exit5599.thread
+    i16 111, label %_ZNK4llvm3EVTeqES0_.exit5599.thread
+    i16 109, label %_ZNK4llvm3EVTeqES0_.exit5599.thread
+    i16 78, label %_ZNK4llvm3EVTeqES0_.exit5615.thread
+    i16 77, label %_ZNK4llvm3EVTeqES0_.exit5615.thread
+    i16 129, label %_ZNK4llvm3EVTeqES0_.exit5615.thread
+    i16 128, label %_ZNK4llvm3EVTeqES0_.exit5615.thread
   ]
 
-_ZNK4llvm3EVTeqES0_.exit5566.thread:              ; preds = %1864, %1864
+_ZNK4llvm3EVTeqES0_.exit5567.thread:              ; preds = %1864, %1864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7160)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5574.thread:              ; preds = %1864, %1864, %1864, %1864, %1864, %1864
+_ZNK4llvm3EVTeqES0_.exit5575.thread:              ; preds = %1864, %1864, %1864, %1864, %1864, %1864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7154)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5598.thread:              ; preds = %1864, %1864, %1864, %1864
+_ZNK4llvm3EVTeqES0_.exit5599.thread:              ; preds = %1864, %1864, %1864, %1864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7156)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5614.thread:              ; preds = %1864, %1864, %1864, %1864
+_ZNK4llvm3EVTeqES0_.exit5615.thread:              ; preds = %1864, %1864, %1864, %1864
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectPostStoreLaneEPN4llvm6SDNodeEjj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 7158)
   br label %.critedge
 
 1875:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1876
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5634.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5634.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5634.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5646.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5646.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5654.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5654.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5635.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5635.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5635.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5647.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5647.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5655.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5655.thread
   ]
 
 1876:                                             ; preds = %1875
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0, i32 noundef 4364, i32 noundef 4363, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5634.thread:              ; preds = %1875, %1875, %1875
+_ZNK4llvm3EVTeqES0_.exit5635.thread:              ; preds = %1875, %1875, %1875
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 1, i32 noundef 4368, i32 noundef 4367, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5646.thread:              ; preds = %1875, %1875
+_ZNK4llvm3EVTeqES0_.exit5647.thread:              ; preds = %1875, %1875
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 2, i32 noundef 4402, i32 noundef 4401, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5654.thread:              ; preds = %1875, %1875
+_ZNK4llvm3EVTeqES0_.exit5655.thread:              ; preds = %1875, %1875
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 3, i32 noundef 4366, i32 noundef 4365, i1 noundef zeroext false)
   br label %.critedge
 
 1877:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1878
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5666.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5666.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5666.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5678.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5678.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5686.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5686.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5667.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5667.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5667.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5679.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5679.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5687.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5687.thread
   ]
 
 1878:                                             ; preds = %1877
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0, i32 noundef 4412, i32 noundef 4411, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5666.thread:              ; preds = %1877, %1877, %1877
+_ZNK4llvm3EVTeqES0_.exit5667.thread:              ; preds = %1877, %1877, %1877
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 1, i32 noundef 4416, i32 noundef 4415, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5678.thread:              ; preds = %1877, %1877
+_ZNK4llvm3EVTeqES0_.exit5679.thread:              ; preds = %1877, %1877
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 2, i32 noundef 4450, i32 noundef 4449, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5686.thread:              ; preds = %1877, %1877
+_ZNK4llvm3EVTeqES0_.exit5687.thread:              ; preds = %1877, %1877
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 3, i32 noundef 4414, i32 noundef 4413, i1 noundef zeroext false)
   br label %.critedge
 
 1879:                                             ; preds = %183
-  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit1576 [
     i16 149, label %1880
-    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5698.thread
-    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5698.thread
-    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5698.thread
-    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5710.thread
-    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5710.thread
-    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5718.thread
-    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5718.thread
+    i16 155, label %_ZNK4llvm3EVTeqES0_.exit5699.thread
+    i16 173, label %_ZNK4llvm3EVTeqES0_.exit5699.thread
+    i16 179, label %_ZNK4llvm3EVTeqES0_.exit5699.thread
+    i16 160, label %_ZNK4llvm3EVTeqES0_.exit5711.thread
+    i16 184, label %_ZNK4llvm3EVTeqES0_.exit5711.thread
+    i16 165, label %_ZNK4llvm3EVTeqES0_.exit5719.thread
+    i16 188, label %_ZNK4llvm3EVTeqES0_.exit5719.thread
   ]
 
 1880:                                             ; preds = %1879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0, i32 noundef 4460, i32 noundef 4459, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5698.thread:              ; preds = %1879, %1879, %1879
+_ZNK4llvm3EVTeqES0_.exit5699.thread:              ; preds = %1879, %1879, %1879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 1, i32 noundef 4478, i32 noundef 4477, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5710.thread:              ; preds = %1879, %1879
+_ZNK4llvm3EVTeqES0_.exit5711.thread:              ; preds = %1879, %1879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 2, i32 noundef 4498, i32 noundef 4497, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit5718.thread:              ; preds = %1879, %1879
+_ZNK4llvm3EVTeqES0_.exit5719.thread:              ; preds = %1879, %1879
   tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectPredicatedLoadEPN4llvm6SDNodeEjjjjb(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 3, i32 noundef 4462, i32 noundef 4461, i1 noundef zeroext false)
   br label %.critedge
 
-_ZNK4llvm3EVTeqES0_.exit1575:                     ; preds = %1879, %1877, %1875, %1864, %1853, %1842, %1829, %1816, %1803, %1790, %1777, %1764, %1763, %1762, %1761, %1760, %1757, %1754, %1751, %1748, %1745, %1742, %1739, %1736, %1733, %1730, %1728, %1726, %1724, %1720, %1719, %1718, %1715, %1712, %1709, %1706, %1703, %1700, %1092, %1090, %1088, %1086, %1082, %1080, %1078, %1076, %1074, %1072, %1026, %980, %934, %888, %886, %881, %880, %879, %876, %873, %870, %867, %864, %861, %858, %855, %852, %704, %699, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit.thread, %1699, %1165, %1067, %1056, %1045, %1034, %1021, %1010, %999, %988, %975, %964, %953, %942, %929, %918, %907, %896, %768, %_ZNK4llvm14ConstantSDNode6isZeroEv.exit, %690, %688, %686, %682, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %441, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, %186, %183
+_ZNK4llvm3EVTeqES0_.exit1576:                     ; preds = %1879, %1877, %1875, %1864, %1853, %1842, %1829, %1816, %1803, %1790, %1777, %1764, %1763, %1762, %1761, %1760, %1757, %1754, %1751, %1748, %1745, %1742, %1739, %1736, %1733, %1730, %1728, %1726, %1724, %1720, %1719, %1718, %1715, %1712, %1709, %1706, %1703, %1700, %1092, %1090, %1088, %1086, %1082, %1080, %1078, %1076, %1074, %1072, %1026, %980, %934, %888, %886, %881, %880, %879, %876, %873, %870, %867, %864, %861, %858, %855, %852, %704, %699, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit.thread, %1699, %1165, %1067, %1056, %1045, %1034, %1021, %1010, %999, %988, %975, %964, %953, %942, %929, %918, %907, %896, %768, %_ZNK4llvm14ConstantSDNode6isZeroEv.exit, %690, %688, %686, %682, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %441, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, %186, %183
   call void @_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull %1, ptr noundef nonnull @_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel10SelectCodeEPN4llvm6SDNodeEE12MatcherTable, i32 noundef 512411) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm5SDLocD2Ev.exit1585, %1731, %1732, %_ZNK4llvm3EVTeqES0_.exit4123.thread, %_ZNK4llvm3EVTeqES0_.exit4135.thread, %_ZNK4llvm3EVTeqES0_.exit4147.thread, %_ZNK4llvm3EVTeqES0_.exit4155.thread, %_ZNK4llvm3EVTeqES0_.exit4163.thread, %_ZNK4llvm3EVTeqES0_.exit4171.thread, %1734, %1735, %_ZNK4llvm3EVTeqES0_.exit4187.thread, %_ZNK4llvm3EVTeqES0_.exit4199.thread, %_ZNK4llvm3EVTeqES0_.exit4211.thread, %_ZNK4llvm3EVTeqES0_.exit4219.thread, %_ZNK4llvm3EVTeqES0_.exit4227.thread, %_ZNK4llvm3EVTeqES0_.exit4235.thread, %1737, %1738, %_ZNK4llvm3EVTeqES0_.exit4251.thread, %_ZNK4llvm3EVTeqES0_.exit4263.thread, %_ZNK4llvm3EVTeqES0_.exit4275.thread, %_ZNK4llvm3EVTeqES0_.exit4283.thread, %_ZNK4llvm3EVTeqES0_.exit4291.thread, %_ZNK4llvm3EVTeqES0_.exit4299.thread, %1740, %1741, %_ZNK4llvm3EVTeqES0_.exit4315.thread, %_ZNK4llvm3EVTeqES0_.exit4327.thread, %_ZNK4llvm3EVTeqES0_.exit4339.thread, %_ZNK4llvm3EVTeqES0_.exit4347.thread, %_ZNK4llvm3EVTeqES0_.exit4355.thread, %_ZNK4llvm3EVTeqES0_.exit4363.thread, %1743, %1744, %_ZNK4llvm3EVTeqES0_.exit4379.thread, %_ZNK4llvm3EVTeqES0_.exit4391.thread, %_ZNK4llvm3EVTeqES0_.exit4403.thread, %_ZNK4llvm3EVTeqES0_.exit4411.thread, %_ZNK4llvm3EVTeqES0_.exit4419.thread, %_ZNK4llvm3EVTeqES0_.exit4427.thread, %1746, %1747, %_ZNK4llvm3EVTeqES0_.exit4443.thread, %_ZNK4llvm3EVTeqES0_.exit4455.thread, %_ZNK4llvm3EVTeqES0_.exit4467.thread, %_ZNK4llvm3EVTeqES0_.exit4475.thread, %_ZNK4llvm3EVTeqES0_.exit4483.thread, %_ZNK4llvm3EVTeqES0_.exit4491.thread, %1749, %1750, %_ZNK4llvm3EVTeqES0_.exit4507.thread, %_ZNK4llvm3EVTeqES0_.exit4519.thread, %_ZNK4llvm3EVTeqES0_.exit4531.thread, %_ZNK4llvm3EVTeqES0_.exit4539.thread, %_ZNK4llvm3EVTeqES0_.exit4547.thread, %_ZNK4llvm3EVTeqES0_.exit4555.thread, %1752, %1753, %_ZNK4llvm3EVTeqES0_.exit4571.thread, %_ZNK4llvm3EVTeqES0_.exit4583.thread, %_ZNK4llvm3EVTeqES0_.exit4595.thread, %_ZNK4llvm3EVTeqES0_.exit4603.thread, %_ZNK4llvm3EVTeqES0_.exit4611.thread, %_ZNK4llvm3EVTeqES0_.exit4619.thread, %1755, %1756, %_ZNK4llvm3EVTeqES0_.exit4635.thread, %_ZNK4llvm3EVTeqES0_.exit4647.thread, %_ZNK4llvm3EVTeqES0_.exit4659.thread, %_ZNK4llvm3EVTeqES0_.exit4667.thread, %_ZNK4llvm3EVTeqES0_.exit4675.thread, %_ZNK4llvm3EVTeqES0_.exit4683.thread, %1758, %1759, %_ZNK4llvm3EVTeqES0_.exit4699.thread, %_ZNK4llvm3EVTeqES0_.exit4711.thread, %_ZNK4llvm3EVTeqES0_.exit4723.thread, %_ZNK4llvm3EVTeqES0_.exit4731.thread, %_ZNK4llvm3EVTeqES0_.exit4739.thread, %_ZNK4llvm3EVTeqES0_.exit4747.thread, %_ZNK4llvm3EVTeqES0_.exit4755.thread, %_ZNK4llvm3EVTeqES0_.exit4763.thread, %_ZNK4llvm3EVTeqES0_.exit4787.thread, %_ZNK4llvm3EVTeqES0_.exit4803.thread, %_ZNK4llvm3EVTeqES0_.exit4819.thread, %_ZNK4llvm3EVTeqES0_.exit4827.thread, %_ZNK4llvm3EVTeqES0_.exit4851.thread, %_ZNK4llvm3EVTeqES0_.exit4867.thread, %_ZNK4llvm3EVTeqES0_.exit4883.thread, %_ZNK4llvm3EVTeqES0_.exit4891.thread, %_ZNK4llvm3EVTeqES0_.exit4915.thread, %_ZNK4llvm3EVTeqES0_.exit4931.thread, %_ZNK4llvm3EVTeqES0_.exit4947.thread, %_ZNK4llvm3EVTeqES0_.exit4955.thread, %_ZNK4llvm3EVTeqES0_.exit4979.thread, %_ZNK4llvm3EVTeqES0_.exit4995.thread, %1775, %1776, %_ZNK4llvm3EVTeqES0_.exit5022.thread, %_ZNK4llvm3EVTeqES0_.exit5034.thread, %_ZNK4llvm3EVTeqES0_.exit5046.thread, %_ZNK4llvm3EVTeqES0_.exit5054.thread, %_ZNK4llvm3EVTeqES0_.exit5062.thread, %_ZNK4llvm3EVTeqES0_.exit5070.thread, %1788, %1789, %_ZNK4llvm3EVTeqES0_.exit5091.thread, %_ZNK4llvm3EVTeqES0_.exit5103.thread, %_ZNK4llvm3EVTeqES0_.exit5115.thread, %_ZNK4llvm3EVTeqES0_.exit5123.thread, %_ZNK4llvm3EVTeqES0_.exit5131.thread, %_ZNK4llvm3EVTeqES0_.exit5139.thread, %1801, %1802, %_ZNK4llvm3EVTeqES0_.exit5160.thread, %_ZNK4llvm3EVTeqES0_.exit5172.thread, %_ZNK4llvm3EVTeqES0_.exit5184.thread, %_ZNK4llvm3EVTeqES0_.exit5192.thread, %_ZNK4llvm3EVTeqES0_.exit5200.thread, %_ZNK4llvm3EVTeqES0_.exit5208.thread, %1814, %1815, %_ZNK4llvm3EVTeqES0_.exit5229.thread, %_ZNK4llvm3EVTeqES0_.exit5241.thread, %_ZNK4llvm3EVTeqES0_.exit5253.thread, %_ZNK4llvm3EVTeqES0_.exit5261.thread, %_ZNK4llvm3EVTeqES0_.exit5269.thread, %_ZNK4llvm3EVTeqES0_.exit5277.thread, %1827, %1828, %_ZNK4llvm3EVTeqES0_.exit5298.thread, %_ZNK4llvm3EVTeqES0_.exit5310.thread, %_ZNK4llvm3EVTeqES0_.exit5322.thread, %_ZNK4llvm3EVTeqES0_.exit5330.thread, %_ZNK4llvm3EVTeqES0_.exit5338.thread, %_ZNK4llvm3EVTeqES0_.exit5346.thread, %1840, %1841, %_ZNK4llvm3EVTeqES0_.exit5367.thread, %_ZNK4llvm3EVTeqES0_.exit5379.thread, %_ZNK4llvm3EVTeqES0_.exit5391.thread, %_ZNK4llvm3EVTeqES0_.exit5399.thread, %_ZNK4llvm3EVTeqES0_.exit5407.thread, %_ZNK4llvm3EVTeqES0_.exit5415.thread, %_ZNK4llvm3EVTeqES0_.exit5428.thread, %_ZNK4llvm3EVTeqES0_.exit5436.thread, %_ZNK4llvm3EVTeqES0_.exit5460.thread, %_ZNK4llvm3EVTeqES0_.exit5476.thread, %_ZNK4llvm3EVTeqES0_.exit5497.thread, %_ZNK4llvm3EVTeqES0_.exit5505.thread, %_ZNK4llvm3EVTeqES0_.exit5529.thread, %_ZNK4llvm3EVTeqES0_.exit5545.thread, %_ZNK4llvm3EVTeqES0_.exit5566.thread, %_ZNK4llvm3EVTeqES0_.exit5574.thread, %_ZNK4llvm3EVTeqES0_.exit5598.thread, %_ZNK4llvm3EVTeqES0_.exit5614.thread, %1876, %_ZNK4llvm3EVTeqES0_.exit5634.thread, %_ZNK4llvm3EVTeqES0_.exit5646.thread, %_ZNK4llvm3EVTeqES0_.exit5654.thread, %1878, %_ZNK4llvm3EVTeqES0_.exit5666.thread, %_ZNK4llvm3EVTeqES0_.exit5678.thread, %_ZNK4llvm3EVTeqES0_.exit5686.thread, %1880, %_ZNK4llvm3EVTeqES0_.exit5698.thread, %_ZNK4llvm3EVTeqES0_.exit5710.thread, %_ZNK4llvm3EVTeqES0_.exit5718.thread, %_ZNK4llvm3EVTeqES0_.exit1575, %186, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit, %441, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %682, %684, %686, %688, %690, %_ZN4llvm5SDLocD2Ev.exit1581, %_ZN4llvm5SDLocD2Ev.exit, %1161, %1164, %1157, %1160, %1153, %1156, %1149, %1152, %1143, %1147, %1138, %1142, %1133, %1137, %1128, %1132, %1066, %1071, %1055, %1060, %1044, %1049, %1033, %1038, %1020, %1025, %1009, %1014, %998, %1003, %987, %992, %974, %979, %963, %968, %952, %957, %941, %946, %928, %933, %917, %922, %906, %911, %895, %900, %1148, %_ZN4llvm5SDLocD2Ev.exit2853, %1095, %1094, %_ZNK4llvm3EVTeqES0_.exit2843.thread, %_ZNK4llvm3EVTeqES0_.exit2835.thread, %_ZNK4llvm3EVTeqES0_.exit2823.thread, %1093, %_ZNK4llvm3EVTeqES0_.exit2811.thread, %_ZNK4llvm3EVTeqES0_.exit2803.thread, %_ZNK4llvm3EVTeqES0_.exit2791.thread, %1091, %_ZNK4llvm3EVTeqES0_.exit2779.thread, %_ZNK4llvm3EVTeqES0_.exit2771.thread, %_ZNK4llvm3EVTeqES0_.exit2759.thread, %1089, %_ZNK4llvm3EVTeqES0_.exit2747.thread, %_ZNK4llvm3EVTeqES0_.exit2739.thread, %_ZNK4llvm3EVTeqES0_.exit2727.thread, %1087, %1085, %1084, %_ZNK4llvm3EVTeqES0_.exit2715.thread, %_ZNK4llvm3EVTeqES0_.exit2707.thread, %_ZNK4llvm3EVTeqES0_.exit2695.thread, %1083, %_ZNK4llvm3EVTeqES0_.exit2683.thread, %_ZNK4llvm3EVTeqES0_.exit2675.thread, %_ZNK4llvm3EVTeqES0_.exit2663.thread, %1081, %_ZNK4llvm3EVTeqES0_.exit2651.thread, %_ZNK4llvm3EVTeqES0_.exit2643.thread, %_ZNK4llvm3EVTeqES0_.exit2631.thread, %1079, %_ZNK4llvm3EVTeqES0_.exit2619.thread, %_ZNK4llvm3EVTeqES0_.exit2611.thread, %_ZNK4llvm3EVTeqES0_.exit2599.thread, %1077, %_ZNK4llvm3EVTeqES0_.exit2587.thread, %_ZNK4llvm3EVTeqES0_.exit2579.thread, %_ZNK4llvm3EVTeqES0_.exit2567.thread, %1075, %_ZNK4llvm3EVTeqES0_.exit2555.thread, %_ZNK4llvm3EVTeqES0_.exit2547.thread, %_ZNK4llvm3EVTeqES0_.exit2535.thread, %1073, %_ZNK4llvm3EVTeqES0_.exit2395.thread, %_ZNK4llvm3EVTeqES0_.exit2387.thread, %_ZNK4llvm3EVTeqES0_.exit2375.thread, %887, %885, %884, %883, %882, %_ZNK4llvm3EVTeqES0_.exit2355.thread, %_ZNK4llvm3EVTeqES0_.exit2339.thread, %_ZNK4llvm3EVTeqES0_.exit2315.thread, %_ZNK4llvm3EVTeqES0_.exit2307.thread, %_ZNK4llvm3EVTeqES0_.exit2291.thread, %_ZNK4llvm3EVTeqES0_.exit2275.thread, %_ZNK4llvm3EVTeqES0_.exit2251.thread, %_ZNK4llvm3EVTeqES0_.exit2243.thread, %_ZNK4llvm3EVTeqES0_.exit2227.thread, %_ZNK4llvm3EVTeqES0_.exit2211.thread, %_ZNK4llvm3EVTeqES0_.exit2187.thread, %_ZNK4llvm3EVTeqES0_.exit2179.thread, %_ZNK4llvm3EVTeqES0_.exit2171.thread, %_ZNK4llvm3EVTeqES0_.exit2163.thread, %_ZNK4llvm3EVTeqES0_.exit2155.thread, %_ZNK4llvm3EVTeqES0_.exit2147.thread, %_ZNK4llvm3EVTeqES0_.exit2135.thread, %_ZNK4llvm3EVTeqES0_.exit2123.thread, %878, %877, %_ZNK4llvm3EVTeqES0_.exit2107.thread, %_ZNK4llvm3EVTeqES0_.exit2099.thread, %_ZNK4llvm3EVTeqES0_.exit2091.thread, %_ZNK4llvm3EVTeqES0_.exit2083.thread, %_ZNK4llvm3EVTeqES0_.exit2071.thread, %_ZNK4llvm3EVTeqES0_.exit2059.thread, %875, %874, %_ZNK4llvm3EVTeqES0_.exit2043.thread, %_ZNK4llvm3EVTeqES0_.exit2035.thread, %_ZNK4llvm3EVTeqES0_.exit2027.thread, %_ZNK4llvm3EVTeqES0_.exit2019.thread, %_ZNK4llvm3EVTeqES0_.exit2007.thread, %_ZNK4llvm3EVTeqES0_.exit1995.thread, %872, %871, %_ZNK4llvm3EVTeqES0_.exit1979.thread, %_ZNK4llvm3EVTeqES0_.exit1971.thread, %_ZNK4llvm3EVTeqES0_.exit1963.thread, %_ZNK4llvm3EVTeqES0_.exit1955.thread, %_ZNK4llvm3EVTeqES0_.exit1943.thread, %_ZNK4llvm3EVTeqES0_.exit1931.thread, %869, %868, %_ZNK4llvm3EVTeqES0_.exit1915.thread, %_ZNK4llvm3EVTeqES0_.exit1907.thread, %_ZNK4llvm3EVTeqES0_.exit1899.thread, %_ZNK4llvm3EVTeqES0_.exit1891.thread, %_ZNK4llvm3EVTeqES0_.exit1879.thread, %_ZNK4llvm3EVTeqES0_.exit1867.thread, %866, %865, %_ZNK4llvm3EVTeqES0_.exit1851.thread, %_ZNK4llvm3EVTeqES0_.exit1843.thread, %_ZNK4llvm3EVTeqES0_.exit1835.thread, %_ZNK4llvm3EVTeqES0_.exit1827.thread, %_ZNK4llvm3EVTeqES0_.exit1815.thread, %_ZNK4llvm3EVTeqES0_.exit1803.thread, %863, %862, %_ZNK4llvm3EVTeqES0_.exit1787.thread, %_ZNK4llvm3EVTeqES0_.exit1779.thread, %_ZNK4llvm3EVTeqES0_.exit1771.thread, %_ZNK4llvm3EVTeqES0_.exit1763.thread, %_ZNK4llvm3EVTeqES0_.exit1751.thread, %_ZNK4llvm3EVTeqES0_.exit1739.thread, %860, %859, %_ZNK4llvm3EVTeqES0_.exit1723.thread, %_ZNK4llvm3EVTeqES0_.exit1715.thread, %_ZNK4llvm3EVTeqES0_.exit1707.thread, %_ZNK4llvm3EVTeqES0_.exit1699.thread, %_ZNK4llvm3EVTeqES0_.exit1687.thread, %_ZNK4llvm3EVTeqES0_.exit1675.thread, %857, %856, %_ZNK4llvm3EVTeqES0_.exit1659.thread, %_ZNK4llvm3EVTeqES0_.exit1651.thread, %_ZNK4llvm3EVTeqES0_.exit1643.thread, %_ZNK4llvm3EVTeqES0_.exit1635.thread, %_ZNK4llvm3EVTeqES0_.exit1623.thread, %_ZNK4llvm3EVTeqES0_.exit1611.thread, %854, %853, %_ZN4llvm5SDLocD2Ev.exit1599, %_ZN4llvm5SDLocD2Ev.exit1594, %_ZN4llvm5SDLocD2Ev.exit1589, %1672, %1677, %1666, %1671, %1660, %1665, %1654, %1659, %1648, %1653, %1634, %1639, %1628, %1633, %1621, %1626, %1614, %1619, %1607, %1612, %1600, %1605, %1594, %1599, %1588, %1593, %1581, %1586, %1575, %1580, %1569, %1574, %1562, %1567, %1556, %1561, %1550, %1555, %1534, %1539, %1528, %1533, %1522, %1527, %1516, %1521, %1510, %1515, %1504, %1509, %1498, %1503, %1492, %1497, %1486, %1491, %1480, %1485, %1474, %1479, %1468, %1473, %1462, %1467, %1456, %1461, %1450, %1455, %1444, %1449, %1438, %1443, %1432, %1437, %1426, %1431, %1420, %1425, %1414, %1419, %1408, %1413, %1402, %1407, %1396, %1401, %1390, %1395, %1384, %1389, %1378, %1383, %1372, %1377, %1366, %1371, %1360, %1365, %1354, %1359, %1348, %1353, %1342, %1347, %1336, %1341, %1330, %1335, %1324, %1329, %1318, %1323, %1312, %1317, %1306, %1311, %1300, %1305, %1294, %1299, %1288, %1293, %1282, %1287, %1276, %1281, %1270, %1275, %1264, %1269, %1258, %1263, %1252, %1257, %1246, %1251, %1240, %1245, %1234, %1239, %1228, %1233, %1222, %1227, %1216, %1221, %1210, %1215, %1204, %1209, %1198, %1203, %1192, %1197, %1186, %1191, %1180, %1185, %1627, %1620, %1613, %1606, %1587, %1568, %1549, %1548, %1547, %1546, %1545, %1544, %1543, %1542, %1541, %1540, %_ZNK4llvm3EVTeqES0_.exit2927, %_ZNK4llvm3EVTeqES0_.exit2923, %_ZNK4llvm3EVTeqES0_.exit2919, %_ZNK4llvm3EVTeqES0_.exit2915, %_ZNK4llvm3EVTeqES0_.exit2911, %_ZNK4llvm3EVTeqES0_.exit2907, %1179, %1178, %1177, %_ZNK4llvm3EVTeqES0_.exit4107.thread, %_ZNK4llvm3EVTeqES0_.exit4099.thread, %_ZNK4llvm3EVTeqES0_.exit4087.thread, %1729, %_ZNK4llvm3EVTeqES0_.exit4075.thread, %_ZNK4llvm3EVTeqES0_.exit4067.thread, %_ZNK4llvm3EVTeqES0_.exit4055.thread, %1727, %_ZNK4llvm3EVTeqES0_.exit4043.thread, %_ZNK4llvm3EVTeqES0_.exit4035.thread, %_ZNK4llvm3EVTeqES0_.exit4023.thread, %1725, %1723, %1722, %1721, %_ZNK4llvm3EVTeqES0_.exit4003.thread, %_ZNK4llvm3EVTeqES0_.exit3987.thread, %_ZNK4llvm3EVTeqES0_.exit3963.thread, %_ZNK4llvm3EVTeqES0_.exit3955.thread, %_ZNK4llvm3EVTeqES0_.exit3939.thread, %_ZNK4llvm3EVTeqES0_.exit3923.thread, %_ZNK4llvm3EVTeqES0_.exit3899.thread, %_ZNK4llvm3EVTeqES0_.exit3891.thread, %_ZNK4llvm3EVTeqES0_.exit3875.thread, %_ZNK4llvm3EVTeqES0_.exit3859.thread, %_ZNK4llvm3EVTeqES0_.exit3835.thread, %_ZNK4llvm3EVTeqES0_.exit3827.thread, %_ZNK4llvm3EVTeqES0_.exit3819.thread, %_ZNK4llvm3EVTeqES0_.exit3811.thread, %_ZNK4llvm3EVTeqES0_.exit3803.thread, %_ZNK4llvm3EVTeqES0_.exit3795.thread, %_ZNK4llvm3EVTeqES0_.exit3783.thread, %_ZNK4llvm3EVTeqES0_.exit3771.thread, %1717, %1716, %_ZNK4llvm3EVTeqES0_.exit3755.thread, %_ZNK4llvm3EVTeqES0_.exit3747.thread, %_ZNK4llvm3EVTeqES0_.exit3739.thread, %_ZNK4llvm3EVTeqES0_.exit3731.thread, %_ZNK4llvm3EVTeqES0_.exit3719.thread, %_ZNK4llvm3EVTeqES0_.exit3707.thread, %1714, %1713, %_ZNK4llvm3EVTeqES0_.exit3691.thread, %_ZNK4llvm3EVTeqES0_.exit3683.thread, %_ZNK4llvm3EVTeqES0_.exit3675.thread, %_ZNK4llvm3EVTeqES0_.exit3667.thread, %_ZNK4llvm3EVTeqES0_.exit3655.thread, %_ZNK4llvm3EVTeqES0_.exit3643.thread, %1711, %1710, %_ZNK4llvm3EVTeqES0_.exit3627.thread, %_ZNK4llvm3EVTeqES0_.exit3619.thread, %_ZNK4llvm3EVTeqES0_.exit3611.thread, %_ZNK4llvm3EVTeqES0_.exit3603.thread, %_ZNK4llvm3EVTeqES0_.exit3591.thread, %_ZNK4llvm3EVTeqES0_.exit3579.thread, %1708, %1707, %_ZNK4llvm3EVTeqES0_.exit3563.thread, %_ZNK4llvm3EVTeqES0_.exit3555.thread, %_ZNK4llvm3EVTeqES0_.exit3547.thread, %_ZNK4llvm3EVTeqES0_.exit3539.thread, %_ZNK4llvm3EVTeqES0_.exit3527.thread, %_ZNK4llvm3EVTeqES0_.exit3515.thread, %1705, %1704, %_ZNK4llvm3EVTeqES0_.exit3499.thread, %_ZNK4llvm3EVTeqES0_.exit3491.thread, %_ZNK4llvm3EVTeqES0_.exit3483.thread, %_ZNK4llvm3EVTeqES0_.exit3475.thread, %_ZNK4llvm3EVTeqES0_.exit3463.thread, %_ZNK4llvm3EVTeqES0_.exit3451.thread, %1702, %1701, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20tryBitfieldExtractOpEPN4llvm6SDNodeE.exit.thread, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9461, %1640, %_ZNK4llvm3EVTneES0_.exit.i3374, %1641, %_ZNK4llvm3EVTneES0_.exit.i3377, %1642, %_ZNK4llvm3EVTneES0_.exit.i3381, %1643, %_ZNK4llvm3EVTneES0_.exit.i3385, %1644, %_ZNK4llvm3EVTneES0_.exit.i3389, %1645, %_ZNK4llvm3EVTneES0_.exit.i3393, %1646, %_ZNK4llvm3EVTneES0_.exit.i3397, %1647, %_ZNK4llvm3EVTneES0_.exit.i3401, %181
+.critedge:                                        ; preds = %_ZN4llvm5SDLocD2Ev.exit1586, %1731, %1732, %_ZNK4llvm3EVTeqES0_.exit4124.thread, %_ZNK4llvm3EVTeqES0_.exit4136.thread, %_ZNK4llvm3EVTeqES0_.exit4148.thread, %_ZNK4llvm3EVTeqES0_.exit4156.thread, %_ZNK4llvm3EVTeqES0_.exit4164.thread, %_ZNK4llvm3EVTeqES0_.exit4172.thread, %1734, %1735, %_ZNK4llvm3EVTeqES0_.exit4188.thread, %_ZNK4llvm3EVTeqES0_.exit4200.thread, %_ZNK4llvm3EVTeqES0_.exit4212.thread, %_ZNK4llvm3EVTeqES0_.exit4220.thread, %_ZNK4llvm3EVTeqES0_.exit4228.thread, %_ZNK4llvm3EVTeqES0_.exit4236.thread, %1737, %1738, %_ZNK4llvm3EVTeqES0_.exit4252.thread, %_ZNK4llvm3EVTeqES0_.exit4264.thread, %_ZNK4llvm3EVTeqES0_.exit4276.thread, %_ZNK4llvm3EVTeqES0_.exit4284.thread, %_ZNK4llvm3EVTeqES0_.exit4292.thread, %_ZNK4llvm3EVTeqES0_.exit4300.thread, %1740, %1741, %_ZNK4llvm3EVTeqES0_.exit4316.thread, %_ZNK4llvm3EVTeqES0_.exit4328.thread, %_ZNK4llvm3EVTeqES0_.exit4340.thread, %_ZNK4llvm3EVTeqES0_.exit4348.thread, %_ZNK4llvm3EVTeqES0_.exit4356.thread, %_ZNK4llvm3EVTeqES0_.exit4364.thread, %1743, %1744, %_ZNK4llvm3EVTeqES0_.exit4380.thread, %_ZNK4llvm3EVTeqES0_.exit4392.thread, %_ZNK4llvm3EVTeqES0_.exit4404.thread, %_ZNK4llvm3EVTeqES0_.exit4412.thread, %_ZNK4llvm3EVTeqES0_.exit4420.thread, %_ZNK4llvm3EVTeqES0_.exit4428.thread, %1746, %1747, %_ZNK4llvm3EVTeqES0_.exit4444.thread, %_ZNK4llvm3EVTeqES0_.exit4456.thread, %_ZNK4llvm3EVTeqES0_.exit4468.thread, %_ZNK4llvm3EVTeqES0_.exit4476.thread, %_ZNK4llvm3EVTeqES0_.exit4484.thread, %_ZNK4llvm3EVTeqES0_.exit4492.thread, %1749, %1750, %_ZNK4llvm3EVTeqES0_.exit4508.thread, %_ZNK4llvm3EVTeqES0_.exit4520.thread, %_ZNK4llvm3EVTeqES0_.exit4532.thread, %_ZNK4llvm3EVTeqES0_.exit4540.thread, %_ZNK4llvm3EVTeqES0_.exit4548.thread, %_ZNK4llvm3EVTeqES0_.exit4556.thread, %1752, %1753, %_ZNK4llvm3EVTeqES0_.exit4572.thread, %_ZNK4llvm3EVTeqES0_.exit4584.thread, %_ZNK4llvm3EVTeqES0_.exit4596.thread, %_ZNK4llvm3EVTeqES0_.exit4604.thread, %_ZNK4llvm3EVTeqES0_.exit4612.thread, %_ZNK4llvm3EVTeqES0_.exit4620.thread, %1755, %1756, %_ZNK4llvm3EVTeqES0_.exit4636.thread, %_ZNK4llvm3EVTeqES0_.exit4648.thread, %_ZNK4llvm3EVTeqES0_.exit4660.thread, %_ZNK4llvm3EVTeqES0_.exit4668.thread, %_ZNK4llvm3EVTeqES0_.exit4676.thread, %_ZNK4llvm3EVTeqES0_.exit4684.thread, %1758, %1759, %_ZNK4llvm3EVTeqES0_.exit4700.thread, %_ZNK4llvm3EVTeqES0_.exit4712.thread, %_ZNK4llvm3EVTeqES0_.exit4724.thread, %_ZNK4llvm3EVTeqES0_.exit4732.thread, %_ZNK4llvm3EVTeqES0_.exit4740.thread, %_ZNK4llvm3EVTeqES0_.exit4748.thread, %_ZNK4llvm3EVTeqES0_.exit4756.thread, %_ZNK4llvm3EVTeqES0_.exit4764.thread, %_ZNK4llvm3EVTeqES0_.exit4788.thread, %_ZNK4llvm3EVTeqES0_.exit4804.thread, %_ZNK4llvm3EVTeqES0_.exit4820.thread, %_ZNK4llvm3EVTeqES0_.exit4828.thread, %_ZNK4llvm3EVTeqES0_.exit4852.thread, %_ZNK4llvm3EVTeqES0_.exit4868.thread, %_ZNK4llvm3EVTeqES0_.exit4884.thread, %_ZNK4llvm3EVTeqES0_.exit4892.thread, %_ZNK4llvm3EVTeqES0_.exit4916.thread, %_ZNK4llvm3EVTeqES0_.exit4932.thread, %_ZNK4llvm3EVTeqES0_.exit4948.thread, %_ZNK4llvm3EVTeqES0_.exit4956.thread, %_ZNK4llvm3EVTeqES0_.exit4980.thread, %_ZNK4llvm3EVTeqES0_.exit4996.thread, %1775, %1776, %_ZNK4llvm3EVTeqES0_.exit5023.thread, %_ZNK4llvm3EVTeqES0_.exit5035.thread, %_ZNK4llvm3EVTeqES0_.exit5047.thread, %_ZNK4llvm3EVTeqES0_.exit5055.thread, %_ZNK4llvm3EVTeqES0_.exit5063.thread, %_ZNK4llvm3EVTeqES0_.exit5071.thread, %1788, %1789, %_ZNK4llvm3EVTeqES0_.exit5092.thread, %_ZNK4llvm3EVTeqES0_.exit5104.thread, %_ZNK4llvm3EVTeqES0_.exit5116.thread, %_ZNK4llvm3EVTeqES0_.exit5124.thread, %_ZNK4llvm3EVTeqES0_.exit5132.thread, %_ZNK4llvm3EVTeqES0_.exit5140.thread, %1801, %1802, %_ZNK4llvm3EVTeqES0_.exit5161.thread, %_ZNK4llvm3EVTeqES0_.exit5173.thread, %_ZNK4llvm3EVTeqES0_.exit5185.thread, %_ZNK4llvm3EVTeqES0_.exit5193.thread, %_ZNK4llvm3EVTeqES0_.exit5201.thread, %_ZNK4llvm3EVTeqES0_.exit5209.thread, %1814, %1815, %_ZNK4llvm3EVTeqES0_.exit5230.thread, %_ZNK4llvm3EVTeqES0_.exit5242.thread, %_ZNK4llvm3EVTeqES0_.exit5254.thread, %_ZNK4llvm3EVTeqES0_.exit5262.thread, %_ZNK4llvm3EVTeqES0_.exit5270.thread, %_ZNK4llvm3EVTeqES0_.exit5278.thread, %1827, %1828, %_ZNK4llvm3EVTeqES0_.exit5299.thread, %_ZNK4llvm3EVTeqES0_.exit5311.thread, %_ZNK4llvm3EVTeqES0_.exit5323.thread, %_ZNK4llvm3EVTeqES0_.exit5331.thread, %_ZNK4llvm3EVTeqES0_.exit5339.thread, %_ZNK4llvm3EVTeqES0_.exit5347.thread, %1840, %1841, %_ZNK4llvm3EVTeqES0_.exit5368.thread, %_ZNK4llvm3EVTeqES0_.exit5380.thread, %_ZNK4llvm3EVTeqES0_.exit5392.thread, %_ZNK4llvm3EVTeqES0_.exit5400.thread, %_ZNK4llvm3EVTeqES0_.exit5408.thread, %_ZNK4llvm3EVTeqES0_.exit5416.thread, %_ZNK4llvm3EVTeqES0_.exit5429.thread, %_ZNK4llvm3EVTeqES0_.exit5437.thread, %_ZNK4llvm3EVTeqES0_.exit5461.thread, %_ZNK4llvm3EVTeqES0_.exit5477.thread, %_ZNK4llvm3EVTeqES0_.exit5498.thread, %_ZNK4llvm3EVTeqES0_.exit5506.thread, %_ZNK4llvm3EVTeqES0_.exit5530.thread, %_ZNK4llvm3EVTeqES0_.exit5546.thread, %_ZNK4llvm3EVTeqES0_.exit5567.thread, %_ZNK4llvm3EVTeqES0_.exit5575.thread, %_ZNK4llvm3EVTeqES0_.exit5599.thread, %_ZNK4llvm3EVTeqES0_.exit5615.thread, %1876, %_ZNK4llvm3EVTeqES0_.exit5635.thread, %_ZNK4llvm3EVTeqES0_.exit5647.thread, %_ZNK4llvm3EVTeqES0_.exit5655.thread, %1878, %_ZNK4llvm3EVTeqES0_.exit5667.thread, %_ZNK4llvm3EVTeqES0_.exit5679.thread, %_ZNK4llvm3EVTeqES0_.exit5687.thread, %1880, %_ZNK4llvm3EVTeqES0_.exit5699.thread, %_ZNK4llvm3EVTeqES0_.exit5711.thread, %_ZNK4llvm3EVTeqES0_.exit5719.thread, %_ZNK4llvm3EVTeqES0_.exit1576, %186, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel15tryReadRegisterEPN4llvm6SDNodeE.exit, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16tryWriteRegisterEPN4llvm6SDNodeE.exit, %441, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %682, %684, %686, %688, %690, %_ZN4llvm5SDLocD2Ev.exit1582, %_ZN4llvm5SDLocD2Ev.exit, %1161, %1164, %1157, %1160, %1153, %1156, %1149, %1152, %1143, %1147, %1138, %1142, %1133, %1137, %1128, %1132, %1066, %1071, %1055, %1060, %1044, %1049, %1033, %1038, %1020, %1025, %1009, %1014, %998, %1003, %987, %992, %974, %979, %963, %968, %952, %957, %941, %946, %928, %933, %917, %922, %906, %911, %895, %900, %1148, %_ZN4llvm5SDLocD2Ev.exit2854, %1095, %1094, %_ZNK4llvm3EVTeqES0_.exit2844.thread, %_ZNK4llvm3EVTeqES0_.exit2836.thread, %_ZNK4llvm3EVTeqES0_.exit2824.thread, %1093, %_ZNK4llvm3EVTeqES0_.exit2812.thread, %_ZNK4llvm3EVTeqES0_.exit2804.thread, %_ZNK4llvm3EVTeqES0_.exit2792.thread, %1091, %_ZNK4llvm3EVTeqES0_.exit2780.thread, %_ZNK4llvm3EVTeqES0_.exit2772.thread, %_ZNK4llvm3EVTeqES0_.exit2760.thread, %1089, %_ZNK4llvm3EVTeqES0_.exit2748.thread, %_ZNK4llvm3EVTeqES0_.exit2740.thread, %_ZNK4llvm3EVTeqES0_.exit2728.thread, %1087, %1085, %1084, %_ZNK4llvm3EVTeqES0_.exit2716.thread, %_ZNK4llvm3EVTeqES0_.exit2708.thread, %_ZNK4llvm3EVTeqES0_.exit2696.thread, %1083, %_ZNK4llvm3EVTeqES0_.exit2684.thread, %_ZNK4llvm3EVTeqES0_.exit2676.thread, %_ZNK4llvm3EVTeqES0_.exit2664.thread, %1081, %_ZNK4llvm3EVTeqES0_.exit2652.thread, %_ZNK4llvm3EVTeqES0_.exit2644.thread, %_ZNK4llvm3EVTeqES0_.exit2632.thread, %1079, %_ZNK4llvm3EVTeqES0_.exit2620.thread, %_ZNK4llvm3EVTeqES0_.exit2612.thread, %_ZNK4llvm3EVTeqES0_.exit2600.thread, %1077, %_ZNK4llvm3EVTeqES0_.exit2588.thread, %_ZNK4llvm3EVTeqES0_.exit2580.thread, %_ZNK4llvm3EVTeqES0_.exit2568.thread, %1075, %_ZNK4llvm3EVTeqES0_.exit2556.thread, %_ZNK4llvm3EVTeqES0_.exit2548.thread, %_ZNK4llvm3EVTeqES0_.exit2536.thread, %1073, %_ZNK4llvm3EVTeqES0_.exit2396.thread, %_ZNK4llvm3EVTeqES0_.exit2388.thread, %_ZNK4llvm3EVTeqES0_.exit2376.thread, %887, %885, %884, %883, %882, %_ZNK4llvm3EVTeqES0_.exit2356.thread, %_ZNK4llvm3EVTeqES0_.exit2340.thread, %_ZNK4llvm3EVTeqES0_.exit2316.thread, %_ZNK4llvm3EVTeqES0_.exit2308.thread, %_ZNK4llvm3EVTeqES0_.exit2292.thread, %_ZNK4llvm3EVTeqES0_.exit2276.thread, %_ZNK4llvm3EVTeqES0_.exit2252.thread, %_ZNK4llvm3EVTeqES0_.exit2244.thread, %_ZNK4llvm3EVTeqES0_.exit2228.thread, %_ZNK4llvm3EVTeqES0_.exit2212.thread, %_ZNK4llvm3EVTeqES0_.exit2188.thread, %_ZNK4llvm3EVTeqES0_.exit2180.thread, %_ZNK4llvm3EVTeqES0_.exit2172.thread, %_ZNK4llvm3EVTeqES0_.exit2164.thread, %_ZNK4llvm3EVTeqES0_.exit2156.thread, %_ZNK4llvm3EVTeqES0_.exit2148.thread, %_ZNK4llvm3EVTeqES0_.exit2136.thread, %_ZNK4llvm3EVTeqES0_.exit2124.thread, %878, %877, %_ZNK4llvm3EVTeqES0_.exit2108.thread, %_ZNK4llvm3EVTeqES0_.exit2100.thread, %_ZNK4llvm3EVTeqES0_.exit2092.thread, %_ZNK4llvm3EVTeqES0_.exit2084.thread, %_ZNK4llvm3EVTeqES0_.exit2072.thread, %_ZNK4llvm3EVTeqES0_.exit2060.thread, %875, %874, %_ZNK4llvm3EVTeqES0_.exit2044.thread, %_ZNK4llvm3EVTeqES0_.exit2036.thread, %_ZNK4llvm3EVTeqES0_.exit2028.thread, %_ZNK4llvm3EVTeqES0_.exit2020.thread, %_ZNK4llvm3EVTeqES0_.exit2008.thread, %_ZNK4llvm3EVTeqES0_.exit1996.thread, %872, %871, %_ZNK4llvm3EVTeqES0_.exit1980.thread, %_ZNK4llvm3EVTeqES0_.exit1972.thread, %_ZNK4llvm3EVTeqES0_.exit1964.thread, %_ZNK4llvm3EVTeqES0_.exit1956.thread, %_ZNK4llvm3EVTeqES0_.exit1944.thread, %_ZNK4llvm3EVTeqES0_.exit1932.thread, %869, %868, %_ZNK4llvm3EVTeqES0_.exit1916.thread, %_ZNK4llvm3EVTeqES0_.exit1908.thread, %_ZNK4llvm3EVTeqES0_.exit1900.thread, %_ZNK4llvm3EVTeqES0_.exit1892.thread, %_ZNK4llvm3EVTeqES0_.exit1880.thread, %_ZNK4llvm3EVTeqES0_.exit1868.thread, %866, %865, %_ZNK4llvm3EVTeqES0_.exit1852.thread, %_ZNK4llvm3EVTeqES0_.exit1844.thread, %_ZNK4llvm3EVTeqES0_.exit1836.thread, %_ZNK4llvm3EVTeqES0_.exit1828.thread, %_ZNK4llvm3EVTeqES0_.exit1816.thread, %_ZNK4llvm3EVTeqES0_.exit1804.thread, %863, %862, %_ZNK4llvm3EVTeqES0_.exit1788.thread, %_ZNK4llvm3EVTeqES0_.exit1780.thread, %_ZNK4llvm3EVTeqES0_.exit1772.thread, %_ZNK4llvm3EVTeqES0_.exit1764.thread, %_ZNK4llvm3EVTeqES0_.exit1752.thread, %_ZNK4llvm3EVTeqES0_.exit1740.thread, %860, %859, %_ZNK4llvm3EVTeqES0_.exit1724.thread, %_ZNK4llvm3EVTeqES0_.exit1716.thread, %_ZNK4llvm3EVTeqES0_.exit1708.thread, %_ZNK4llvm3EVTeqES0_.exit1700.thread, %_ZNK4llvm3EVTeqES0_.exit1688.thread, %_ZNK4llvm3EVTeqES0_.exit1676.thread, %857, %856, %_ZNK4llvm3EVTeqES0_.exit1660.thread, %_ZNK4llvm3EVTeqES0_.exit1652.thread, %_ZNK4llvm3EVTeqES0_.exit1644.thread, %_ZNK4llvm3EVTeqES0_.exit1636.thread, %_ZNK4llvm3EVTeqES0_.exit1624.thread, %_ZNK4llvm3EVTeqES0_.exit1612.thread, %854, %853, %_ZN4llvm5SDLocD2Ev.exit1600, %_ZN4llvm5SDLocD2Ev.exit1595, %_ZN4llvm5SDLocD2Ev.exit1590, %1672, %1677, %1666, %1671, %1660, %1665, %1654, %1659, %1648, %1653, %1634, %1639, %1628, %1633, %1621, %1626, %1614, %1619, %1607, %1612, %1600, %1605, %1594, %1599, %1588, %1593, %1581, %1586, %1575, %1580, %1569, %1574, %1562, %1567, %1556, %1561, %1550, %1555, %1534, %1539, %1528, %1533, %1522, %1527, %1516, %1521, %1510, %1515, %1504, %1509, %1498, %1503, %1492, %1497, %1486, %1491, %1480, %1485, %1474, %1479, %1468, %1473, %1462, %1467, %1456, %1461, %1450, %1455, %1444, %1449, %1438, %1443, %1432, %1437, %1426, %1431, %1420, %1425, %1414, %1419, %1408, %1413, %1402, %1407, %1396, %1401, %1390, %1395, %1384, %1389, %1378, %1383, %1372, %1377, %1366, %1371, %1360, %1365, %1354, %1359, %1348, %1353, %1342, %1347, %1336, %1341, %1330, %1335, %1324, %1329, %1318, %1323, %1312, %1317, %1306, %1311, %1300, %1305, %1294, %1299, %1288, %1293, %1282, %1287, %1276, %1281, %1270, %1275, %1264, %1269, %1258, %1263, %1252, %1257, %1246, %1251, %1240, %1245, %1234, %1239, %1228, %1233, %1222, %1227, %1216, %1221, %1210, %1215, %1204, %1209, %1198, %1203, %1192, %1197, %1186, %1191, %1180, %1185, %1627, %1620, %1613, %1606, %1587, %1568, %1549, %1548, %1547, %1546, %1545, %1544, %1543, %1542, %1541, %1540, %_ZNK4llvm3EVTeqES0_.exit2928, %_ZNK4llvm3EVTeqES0_.exit2924, %_ZNK4llvm3EVTeqES0_.exit2920, %_ZNK4llvm3EVTeqES0_.exit2916, %_ZNK4llvm3EVTeqES0_.exit2912, %_ZNK4llvm3EVTeqES0_.exit2908, %1179, %1178, %1177, %_ZNK4llvm3EVTeqES0_.exit4108.thread, %_ZNK4llvm3EVTeqES0_.exit4100.thread, %_ZNK4llvm3EVTeqES0_.exit4088.thread, %1729, %_ZNK4llvm3EVTeqES0_.exit4076.thread, %_ZNK4llvm3EVTeqES0_.exit4068.thread, %_ZNK4llvm3EVTeqES0_.exit4056.thread, %1727, %_ZNK4llvm3EVTeqES0_.exit4044.thread, %_ZNK4llvm3EVTeqES0_.exit4036.thread, %_ZNK4llvm3EVTeqES0_.exit4024.thread, %1725, %1723, %1722, %1721, %_ZNK4llvm3EVTeqES0_.exit4004.thread, %_ZNK4llvm3EVTeqES0_.exit3988.thread, %_ZNK4llvm3EVTeqES0_.exit3964.thread, %_ZNK4llvm3EVTeqES0_.exit3956.thread, %_ZNK4llvm3EVTeqES0_.exit3940.thread, %_ZNK4llvm3EVTeqES0_.exit3924.thread, %_ZNK4llvm3EVTeqES0_.exit3900.thread, %_ZNK4llvm3EVTeqES0_.exit3892.thread, %_ZNK4llvm3EVTeqES0_.exit3876.thread, %_ZNK4llvm3EVTeqES0_.exit3860.thread, %_ZNK4llvm3EVTeqES0_.exit3836.thread, %_ZNK4llvm3EVTeqES0_.exit3828.thread, %_ZNK4llvm3EVTeqES0_.exit3820.thread, %_ZNK4llvm3EVTeqES0_.exit3812.thread, %_ZNK4llvm3EVTeqES0_.exit3804.thread, %_ZNK4llvm3EVTeqES0_.exit3796.thread, %_ZNK4llvm3EVTeqES0_.exit3784.thread, %_ZNK4llvm3EVTeqES0_.exit3772.thread, %1717, %1716, %_ZNK4llvm3EVTeqES0_.exit3756.thread, %_ZNK4llvm3EVTeqES0_.exit3748.thread, %_ZNK4llvm3EVTeqES0_.exit3740.thread, %_ZNK4llvm3EVTeqES0_.exit3732.thread, %_ZNK4llvm3EVTeqES0_.exit3720.thread, %_ZNK4llvm3EVTeqES0_.exit3708.thread, %1714, %1713, %_ZNK4llvm3EVTeqES0_.exit3692.thread, %_ZNK4llvm3EVTeqES0_.exit3684.thread, %_ZNK4llvm3EVTeqES0_.exit3676.thread, %_ZNK4llvm3EVTeqES0_.exit3668.thread, %_ZNK4llvm3EVTeqES0_.exit3656.thread, %_ZNK4llvm3EVTeqES0_.exit3644.thread, %1711, %1710, %_ZNK4llvm3EVTeqES0_.exit3628.thread, %_ZNK4llvm3EVTeqES0_.exit3620.thread, %_ZNK4llvm3EVTeqES0_.exit3612.thread, %_ZNK4llvm3EVTeqES0_.exit3604.thread, %_ZNK4llvm3EVTeqES0_.exit3592.thread, %_ZNK4llvm3EVTeqES0_.exit3580.thread, %1708, %1707, %_ZNK4llvm3EVTeqES0_.exit3564.thread, %_ZNK4llvm3EVTeqES0_.exit3556.thread, %_ZNK4llvm3EVTeqES0_.exit3548.thread, %_ZNK4llvm3EVTeqES0_.exit3540.thread, %_ZNK4llvm3EVTeqES0_.exit3528.thread, %_ZNK4llvm3EVTeqES0_.exit3516.thread, %1705, %1704, %_ZNK4llvm3EVTeqES0_.exit3500.thread, %_ZNK4llvm3EVTeqES0_.exit3492.thread, %_ZNK4llvm3EVTeqES0_.exit3484.thread, %_ZNK4llvm3EVTeqES0_.exit3476.thread, %_ZNK4llvm3EVTeqES0_.exit3464.thread, %_ZNK4llvm3EVTeqES0_.exit3452.thread, %1702, %1701, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20tryBitfieldExtractOpEPN4llvm6SDNodeE.exit.thread, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25tryBitfieldInsertInZeroOpEPN4llvm6SDNodeE.exit.thread9462, %1640, %_ZNK4llvm3EVTneES0_.exit.i3375, %1641, %_ZNK4llvm3EVTneES0_.exit.i3378, %1642, %_ZNK4llvm3EVTneES0_.exit.i3382, %1643, %_ZNK4llvm3EVTneES0_.exit.i3386, %1644, %_ZNK4llvm3EVTneES0_.exit.i3390, %1645, %_ZNK4llvm3EVTneES0_.exit.i3394, %1646, %_ZNK4llvm3EVTneES0_.exit.i3398, %1647, %_ZNK4llvm3EVTneES0_.exit.i3402, %181
   ret void
 }
 
@@ -35719,7 +35718,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   %18 = load ptr, ptr %17, align 8, !tbaa !210
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !190
-  switch i32 %20, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit [
+  switch i32 %20, label %.critedge60 [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   ]
@@ -35733,28 +35732,28 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %14,
   %26 = icmp ult i32 %25, 65
   %27 = load ptr, ptr %23, align 8
   %.0.in.i.i.i = select i1 %26, ptr %23, ptr %27
-  %.0.i.i.i61 = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !233
-  %28 = trunc i64 %.0.i.i.i61 to i32
+  %.0.i.i.i63 = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !233
+  %28 = trunc i64 %.0.i.i.i63 to i32
   %29 = icmp ugt i32 %28, 4
-  br i1 %29, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %30
+  br i1 %29, label %.critedge60, label %30
 
 30:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   %.sroa.028.0.copyload = load ptr, ptr %16, align 8, !tbaa !238
   %31 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.028.0.copyload, i1 noundef zeroext false)
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %33
+  br i1 %32, label %.critedge60, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.copyload, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !209
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !237
-  %36 = and i64 %.0.i.i.i61, 7
-  br label %.critedge60
+  %36 = and i64 %.0.i.i.i63, 7
+  br label %.critedge62
 
 37:                                               ; preds = %5
   %38 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr nonnull %1, i1 noundef zeroext false)
   %39 = icmp eq i32 %38, -1
-  br i1 %39, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %40
+  br i1 %39, label %.critedge60, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -35821,19 +35820,19 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %49, %53
 "_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_ENK3$_0clES2_.exit": ; preds = %57, %57, %57, %57, %57, %57, %57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
-  br label %.critedge60
+  br label %.critedge62
 
 .critedge:                                        ; preds = %40, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
-  br label %.critedge60
+  br label %.critedge62
 
 60:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
-  br label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit
+  br label %.critedge60
 
-.critedge60:                                      ; preds = %.critedge, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_ENK3$_0clES2_.exit", %33
+.critedge62:                                      ; preds = %.critedge, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_ENK3$_0clES2_.exit", %33
   %.151 = phi i32 [ %31, %33 ], [ 7, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_ENK3$_0clES2_.exit" ], [ %38, %.critedge ]
   %.149 = phi i64 [ %36, %33 ], [ 0, %"_ZZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_ENK3$_0clES2_.exit" ], [ 0, %.critedge ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -35850,12 +35849,12 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %49, %53
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 7
   br i1 %.not.i.i.i, label %67, label %_ZNK4llvm3EVTeqES0_.exit.i
 
-67:                                               ; preds = %.critedge60
+67:                                               ; preds = %.critedge62
   %68 = insertvalue { ptr, i32 } poison, ptr %.sroa.012.0.copyload, 0
   %69 = insertvalue { ptr, i32 } %68, i32 %.sroa.213.0.copyload, 1
   br label %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
 
-_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %.critedge60
+_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %.critedge62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload, i64 72
   %71 = load ptr, ptr %70, align 8, !tbaa !219
@@ -35905,8 +35904,8 @@ _ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit: ; preds = %67, %_ZN4
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %83 = load ptr, ptr %82, align 8, !tbaa !219
   store ptr %83, ptr %10, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i62 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i62, label %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, label %84
+  %.not.i.i.i.i.i.i64 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i.i.i.i64, label %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, label %84
 
 84:                                               ; preds = %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
   %85 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(8) %83, i64 1) #23
@@ -35935,14 +35934,14 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23
   %92 = load ptr, ptr %61, align 8, !tbaa !239
   %93 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG16shouldOptForSizeEv(ptr noundef nonnull align 8 dereferenceable(952) %92) #23
-  br i1 %93, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %94
+  br i1 %93, label %.critedge60, label %94
 
 94:                                               ; preds = %_ZN4llvm5SDLocD2Ev.exit
   %95 = call noundef zeroext i1 @_ZNK4llvm6SDNode15hasNUsesOfValueEjj(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef 1, i32 noundef %2) #23
-  br label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit
+  br label %.critedge60
 
-_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit: ; preds = %94, %14, %30, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %_ZN4llvm5SDLocD2Ev.exit, %60, %37
-  %.1 = phi i1 [ false, %60 ], [ false, %37 ], [ true, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ false, %30 ], [ false, %14 ], [ %95, %94 ]
+.critedge60:                                      ; preds = %94, %14, %_ZN4llvm5SDLocD2Ev.exit, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %30, %60, %37
+  %.1 = phi i1 [ false, %60 ], [ false, %37 ], [ false, %30 ], [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ true, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %14 ], [ %95, %94 ]
   ret i1 %.1
 }
 
@@ -37953,7 +37952,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !190
   %.not = icmp eq i32 %13, 56
-  br i1 %.not, label %14, label %103
+  br i1 %.not, label %14, label %105
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -38023,7 +38022,7 @@ _ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit.thread: ; preds = %.lr.ph, %_ZL17isMe
 
 .critedge:                                        ; preds = %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit.thread, %30
   %39 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18isWorthFoldingAddrEN4llvm7SDValueEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %1, i32 %2, i32 noundef %3)
-  br i1 %39, label %40, label %.critedge113
+  br i1 %39, label %40, label %.critedge115.critedge
 
 40:                                               ; preds = %.critedge
   %41 = load i32, ptr %28, align 8, !tbaa !190
@@ -38071,7 +38070,7 @@ _ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit.thread: ; preds = %.lr.ph, %_ZL17isMe
   store i32 %.fca.1.extract50, ptr %.sroa.454.0..sroa_idx, align 8, !tbaa !20
   br label %.loopexit
 
-.critedge113:                                     ; preds = %.critedge, %52, %49
+.critedge113:                                     ; preds = %52, %49
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !239
   %60 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %59, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
@@ -38080,142 +38079,150 @@ _ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit.thread: ; preds = %.lr.ph, %_ZL17isMe
   store ptr %.fca.0.extract42, ptr %7, align 8, !tbaa !238
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract43, ptr %.sroa.447.0..sroa_idx, align 8, !tbaa !20
-  br i1 %39, label %61, label %.critedge115
+  %61 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr nonnull %.sroa.0141.0.copyload, i1 noundef zeroext true)
+  %.not110 = icmp eq i32 %61, -1
+  br i1 %.not110, label %88, label %62
 
-61:                                               ; preds = %.critedge113
-  %62 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.0141.0.copyload, i1 noundef zeroext true)
-  %.not110 = icmp eq i32 %62, -1
-  br i1 %.not110, label %89, label %63
-
-63:                                               ; preds = %61
+62:                                               ; preds = %.critedge113
   store ptr %.sroa.0132.0.copyload, ptr %4, align 8, !tbaa !238
   %.sroa.11.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sroa.11.0.copyload, ptr %.sroa.11.0..sroa_idx139, align 8, !tbaa !20
-  %64 = load ptr, ptr %58, align 8, !tbaa !239
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0.copyload, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !209
-  %.sroa.032.0.copyload = load ptr, ptr %66, align 8, !tbaa !238
-  %.sroa.233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %63 = load ptr, ptr %58, align 8, !tbaa !239
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0.copyload, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !209
+  %.sroa.032.0.copyload = load ptr, ptr %65, align 8, !tbaa !238
+  %.sroa.233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.233.0.copyload = load i32, ptr %.sroa.233.0..sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !204
-  %69 = zext i32 %.sroa.233.0.copyload to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %68, i64 %69
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %70, align 8, !tbaa !205
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 48
+  %67 = load ptr, ptr %66, align 8, !tbaa !204
+  %68 = zext i32 %.sroa.233.0.copyload to i64
+  %69 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %67, i64 %68
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %69, align 8, !tbaa !205
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 7
-  br i1 %.not.i.i.i, label %71, label %_ZNK4llvm3EVTeqES0_.exit.i
+  br i1 %.not.i.i.i, label %70, label %_ZNK4llvm3EVTeqES0_.exit.i
 
-71:                                               ; preds = %63
-  %72 = insertvalue { ptr, i32 } poison, ptr %.sroa.032.0.copyload, 0
-  %73 = insertvalue { ptr, i32 } %72, i32 %.sroa.233.0.copyload, 1
+70:                                               ; preds = %62
+  %71 = insertvalue { ptr, i32 } poison, ptr %.sroa.032.0.copyload, 0
+  %72 = insertvalue { ptr, i32 } %71, i32 %.sroa.233.0.copyload, 1
   br label %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
 
-_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %63
+_ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #23
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 72
-  %75 = load ptr, ptr %74, align 8, !tbaa !219
-  store ptr %75, ptr %9, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, label %76
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 72
+  %74 = load ptr, ptr %73, align 8, !tbaa !219
+  store ptr %74, ptr %9, align 8, !tbaa !219
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, label %75
 
-76:                                               ; preds = %_ZNK4llvm3EVTeqES0_.exit.i
-  %77 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %75, i64 1) #23
+75:                                               ; preds = %_ZNK4llvm3EVTeqES0_.exit.i
+  %76 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %74, i64 1) #23
   br label %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
 
-_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %76, %_ZNK4llvm3EVTeqES0_.exit.i
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 68
-  %80 = load i32, ptr %79, align 4, !tbaa !220
-  store i32 %80, ptr %78, align 8, !tbaa !221
+_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %75, %_ZNK4llvm3EVTeqES0_.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.copyload, i64 68
+  %79 = load i32, ptr %78, align 4, !tbaa !220
+  store i32 %79, ptr %77, align 8, !tbaa !221
   store ptr %.sroa.032.0.copyload, ptr %10, align 8, !tbaa !238
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.sroa.233.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !20
-  %81 = call { ptr, i32 } @_ZN4llvm12SelectionDAG22getTargetExtractSubregEiRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %64, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 7, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10) #23
-  %82 = load ptr, ptr %9, align 8, !tbaa !219
-  %.not.i.i.i.i.i.i118 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i.i.i.i118, label %_ZN4llvm5SDLocD2Ev.exit.i, label %83
+  %80 = call { ptr, i32 } @_ZN4llvm12SelectionDAG22getTargetExtractSubregEiRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %63, i32 noundef 20, ptr noundef nonnull align 8 dereferenceable(12) %9, i16 7, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10) #23
+  %81 = load ptr, ptr %9, align 8, !tbaa !219
+  %.not.i.i.i.i.i.i118 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i.i.i.i118, label %_ZN4llvm5SDLocD2Ev.exit.i, label %82
 
-83:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %82) #23
+82:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %81) #23
   br label %_ZN4llvm5SDLocD2Ev.exit.i
 
-_ZN4llvm5SDLocD2Ev.exit.i:                        ; preds = %83, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
+_ZN4llvm5SDLocD2Ev.exit.i:                        ; preds = %82, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   %.pre = load ptr, ptr %58, align 8, !tbaa !239
   br label %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
 
-_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit: ; preds = %71, %_ZN4llvm5SDLocD2Ev.exit.i
-  %84 = phi ptr [ %64, %71 ], [ %.pre, %_ZN4llvm5SDLocD2Ev.exit.i ]
-  %.fca.1.insert.merged.i = phi { ptr, i32 } [ %73, %71 ], [ %81, %_ZN4llvm5SDLocD2Ev.exit.i ]
+_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit: ; preds = %70, %_ZN4llvm5SDLocD2Ev.exit.i
+  %83 = phi ptr [ %63, %70 ], [ %.pre, %_ZN4llvm5SDLocD2Ev.exit.i ]
+  %.fca.1.insert.merged.i = phi { ptr, i32 } [ %72, %70 ], [ %80, %_ZN4llvm5SDLocD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %.fca.0.extract28 = extractvalue { ptr, i32 } %.fca.1.insert.merged.i, 0
   %.fca.1.extract29 = extractvalue { ptr, i32 } %.fca.1.insert.merged.i, 1
   store ptr %.fca.0.extract28, ptr %5, align 8, !tbaa !238
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.fca.1.extract29, ptr %.sroa.436.0..sroa_idx, align 8, !tbaa !20
-  %85 = icmp eq i32 %62, 11
-  %86 = zext i1 %85 to i64
-  %87 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %84, i64 noundef %86, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract21 = extractvalue { ptr, i32 } %87, 0
-  %.fca.1.extract22 = extractvalue { ptr, i32 } %87, 1
+  %84 = icmp eq i32 %61, 11
+  %85 = zext i1 %84 to i64
+  %86 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %83, i64 noundef %85, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %.fca.0.extract21 = extractvalue { ptr, i32 } %86, 0
+  %.fca.1.extract22 = extractvalue { ptr, i32 } %86, 1
   store ptr %.fca.0.extract21, ptr %6, align 8, !tbaa !238
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.fca.1.extract22, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !20
-  %88 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18isWorthFoldingAddrEN4llvm7SDValueEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr nonnull %.sroa.0141.0.copyload, i32 %.sroa.11146.0.copyload, i32 noundef %3)
-  br i1 %88, label %.loopexit, label %89
+  %87 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18isWorthFoldingAddrEN4llvm7SDValueEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr nonnull %.sroa.0141.0.copyload, i32 %.sroa.11146.0.copyload, i32 noundef %3)
+  br i1 %87, label %.loopexit, label %88
 
-89:                                               ; preds = %61, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
-  %90 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.0132.0.copyload, i1 noundef zeroext true)
-  %.not111 = icmp eq i32 %90, -1
-  br i1 %.not111, label %.critedge115, label %91
+88:                                               ; preds = %.critedge113, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit
+  %89 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr nonnull %.sroa.0132.0.copyload, i1 noundef zeroext true)
+  %.not111 = icmp eq i32 %89, -1
+  br i1 %.not111, label %.critedge115, label %90
 
-91:                                               ; preds = %89
+90:                                               ; preds = %88
   store ptr %.sroa.0141.0.copyload, ptr %4, align 8, !tbaa !238
   %.sroa.11146.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sroa.11146.0.copyload, ptr %.sroa.11146.0..sroa_idx149, align 8, !tbaa !20
-  %92 = load ptr, ptr %58, align 8, !tbaa !239
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0132.0.copyload, i64 40
-  %94 = load ptr, ptr %93, align 8, !tbaa !209
-  %.sroa.09.0.copyload = load ptr, ptr %94, align 8, !tbaa !238
-  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %91 = load ptr, ptr %58, align 8, !tbaa !239
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0132.0.copyload, i64 40
+  %93 = load ptr, ptr %92, align 8, !tbaa !209
+  %.sroa.09.0.copyload = load ptr, ptr %93, align 8, !tbaa !238
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.sroa.210.0.copyload = load i32, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !20
-  %95 = call fastcc { ptr, i32 } @_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE(ptr noundef %92, ptr %.sroa.09.0.copyload, i32 %.sroa.210.0.copyload)
-  %.fca.0.extract5 = extractvalue { ptr, i32 } %95, 0
-  %.fca.1.extract6 = extractvalue { ptr, i32 } %95, 1
+  %94 = call fastcc { ptr, i32 } @_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE(ptr noundef %91, ptr %.sroa.09.0.copyload, i32 %.sroa.210.0.copyload)
+  %.fca.0.extract5 = extractvalue { ptr, i32 } %94, 0
+  %.fca.1.extract6 = extractvalue { ptr, i32 } %94, 1
   store ptr %.fca.0.extract5, ptr %5, align 8, !tbaa !238
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.fca.1.extract6, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !20
-  %96 = load ptr, ptr %58, align 8, !tbaa !239
-  %97 = icmp eq i32 %90, 11
-  %98 = zext i1 %97 to i64
-  %99 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %96, i64 noundef %98, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
-  %.fca.0.extract = extractvalue { ptr, i32 } %99, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %99, 1
+  %95 = load ptr, ptr %58, align 8, !tbaa !239
+  %96 = icmp eq i32 %89, 11
+  %97 = zext i1 %96 to i64
+  %98 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %95, i64 noundef %97, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %.fca.0.extract = extractvalue { ptr, i32 } %98, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %98, 1
   store ptr %.fca.0.extract, ptr %6, align 8, !tbaa !238
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !20
-  %100 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18isWorthFoldingAddrEN4llvm7SDValueEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr %.sroa.0132.0.copyload, i32 %.sroa.11.0.copyload, i32 noundef %3)
-  br i1 %100, label %.loopexit, label %.critedge115
+  %99 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18isWorthFoldingAddrEN4llvm7SDValueEj(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr nonnull %.sroa.0132.0.copyload, i32 %.sroa.11.0.copyload, i32 noundef %3)
+  br i1 %99, label %.loopexit, label %.critedge115
 
-.critedge115:                                     ; preds = %.critedge113, %91, %89
+.critedge115.critedge:                            ; preds = %.critedge
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %101 = load ptr, ptr %100, align 8, !tbaa !239
+  %102 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %101, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %11, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #23
+  %.fca.0.extract42.c = extractvalue { ptr, i32 } %102, 0
+  %.fca.1.extract43.c = extractvalue { ptr, i32 } %102, 1
+  store ptr %.fca.0.extract42.c, ptr %7, align 8, !tbaa !238
+  %.sroa.447.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %.fca.1.extract43.c, ptr %.sroa.447.0..sroa_idx.c, align 8, !tbaa !20
+  br label %.critedge115
+
+.critedge115:                                     ; preds = %.critedge115.critedge, %90, %88
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit, %27, %27, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %.critedge115, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit, %91, %54, %45
-  %.1 = phi i1 [ false, %27 ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ true, %45 ], [ true, %54 ], [ false, %.critedge115 ], [ true, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit ], [ true, %91 ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %27 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
-  %101 = load ptr, ptr %11, align 8, !tbaa !219
-  %.not.i.i.i.i.i = icmp eq ptr %101, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %102
+.loopexit:                                        ; preds = %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit, %27, %27, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %.critedge115, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit, %90, %54, %45
+  %.1 = phi i1 [ false, %27 ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ true, %45 ], [ true, %54 ], [ false, %.critedge115 ], [ true, %_ZL14narrowIfNeededPN4llvm12SelectionDAGENS_7SDValueE.exit ], [ true, %90 ], [ false, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit ], [ false, %27 ], [ false, %_ZL17isMemOpOrPrefetchPN4llvm6SDNodeE.exit ]
+  %103 = load ptr, ptr %11, align 8, !tbaa !219
+  %.not.i.i.i.i.i = icmp eq ptr %103, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %104
 
-102:                                              ; preds = %.loopexit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(8) %101) #23
+104:                                              ; preds = %.loopexit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(8) %103) #23
   br label %_ZN4llvm5SDLocD2Ev.exit
 
-_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %.loopexit, %102
+_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %.loopexit, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
-  br label %103
+  br label %105
 
-103:                                              ; preds = %8, %_ZN4llvm5SDLocD2Ev.exit
+105:                                              ; preds = %8, %_ZN4llvm5SDLocD2Ev.exit
   %.0 = phi i1 [ %.1, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %8 ]
   ret i1 %.0
 }

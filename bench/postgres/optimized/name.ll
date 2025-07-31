@@ -491,7 +491,7 @@ define dso_local i64 @current_schemas(ptr noundef readonly captures(none) %0) lo
 
 list_length.exit.thread:                          ; preds = %1
   %6 = tail call ptr @palloc(i64 noundef 0) #11
-  br label %._crit_edge
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -503,42 +503,42 @@ list_length.exit.thread:                          ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %12, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph30, label %._crit_edge
+  br i1 %15, label %.lr.ph28, label %.critedge
 
-._crit_edge:                                      ; preds = %29, %list_length.exit.thread, %.lr.ph
-  %16 = phi ptr [ %11, %.lr.ph ], [ %6, %list_length.exit.thread ], [ %11, %29 ]
-  %.016.lcssa = phi i32 [ 0, %.lr.ph ], [ 0, %list_length.exit.thread ], [ %.1, %29 ]
-  tail call void @list_free(ptr noundef %5) #11
-  %17 = tail call ptr @construct_array_builtin(ptr noundef %16, i32 noundef %.016.lcssa, i32 noundef 19) #11
-  %18 = ptrtoint ptr %17 to i64
-  ret i64 %18
-
-.lr.ph30:                                         ; preds = %.lr.ph, %29
+.lr.ph28:                                         ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.lr.ph ]
-  %.0162428 = phi i32 [ %.1, %29 ], [ 0, %.lr.ph ]
-  %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 8
-  %22 = tail call ptr @get_namespace_name(i32 noundef %21) #11
-  %.not20 = icmp eq ptr %22, null
+  %.0162226 = phi i32 [ %.1, %29 ], [ 0, %.lr.ph ]
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call ptr @get_namespace_name(i32 noundef %18) #11
+  %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %29, label %23
 
-23:                                               ; preds = %.lr.ph30
-  %24 = ptrtoint ptr %22 to i64
+.critedge:                                        ; preds = %29, %list_length.exit.thread, %.lr.ph
+  %20 = phi ptr [ %11, %.lr.ph ], [ %6, %list_length.exit.thread ], [ %11, %29 ]
+  %.016.lcssa = phi i32 [ 0, %.lr.ph ], [ 0, %list_length.exit.thread ], [ %.1, %29 ]
+  tail call void @list_free(ptr noundef %5) #11
+  %21 = tail call ptr @construct_array_builtin(ptr noundef %20, i32 noundef %.016.lcssa, i32 noundef 19) #11
+  %22 = ptrtoint ptr %21 to i64
+  ret i64 %22
+
+23:                                               ; preds = %.lr.ph28
+  %24 = ptrtoint ptr %19 to i64
   %25 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %24) #11
-  %26 = sext i32 %.0162428 to i64
+  %26 = sext i32 %.0162226 to i64
   %27 = getelementptr inbounds i64, ptr %11, i64 %26
   store i64 %25, ptr %27, align 8
-  %28 = add i32 %.0162428, 1
+  %28 = add i32 %.0162226, 1
   br label %29
 
-29:                                               ; preds = %23, %.lr.ph30
-  %.1 = phi i32 [ %28, %23 ], [ %.0162428, %.lr.ph30 ]
+29:                                               ; preds = %23, %.lr.ph28
+  %.1 = phi i32 [ %28, %23 ], [ %.0162226, %.lr.ph28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %12, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph30, label %._crit_edge
+  br i1 %32, label %.lr.ph28, label %.critedge
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3

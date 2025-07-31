@@ -539,7 +539,7 @@ define dso_local i64 @oops_begin() #3 align 16 {
   %13 = load i32, ptr @die_owner, align 4
   %14 = icmp eq i32 %3, %13
   %15 = select i1 %12, i1 true, i1 %14
-  br i1 %15, label %23, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
   %17 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @die_lock, i32 1, ptr nonnull elementtype(i32) @die_lock, i32 0) #14, !srcloc !17
@@ -547,17 +547,17 @@ define dso_local i64 @oops_begin() #3 align 16 {
   %19 = icmp ult i8 %18, 2
   call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
-  br i1 %20, label %21, label %23, !prof !18
+  br i1 %20, label %21, label %.critedge, !prof !18
 
 21:                                               ; preds = %16
   %22 = extractvalue { i8, i32 } %17, 1
   call void @queued_spin_lock_slowpath(ptr noundef nonnull @die_lock, i32 noundef %22) #14
-  br label %23
+  br label %.critedge
 
-23:                                               ; preds = %16, %21, %11
-  %24 = load i32, ptr @die_nest_count, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr @die_nest_count, align 4
+.critedge:                                        ; preds = %16, %21, %11
+  %23 = load i32, ptr @die_nest_count, align 4
+  %24 = add i32 %23, 1
+  store i32 %24, ptr @die_nest_count, align 4
   store i32 %3, ptr @die_owner, align 4
   call void @console_verbose() #14
   call void @bust_spinlocks(i32 noundef 1) #14

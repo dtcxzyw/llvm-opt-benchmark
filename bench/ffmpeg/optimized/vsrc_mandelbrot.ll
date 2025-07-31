@@ -571,9 +571,9 @@ fill_from_cache.exit433.i:                        ; preds = %fill_from_cache.exi
   br label %249
 
 249:                                              ; preds = %271, %248
-  %.0151184.i.i = phi i32 [ 0, %248 ], [ %277, %271 ]
-  %.0152183.i.i = phi i32 [ -16777216, %248 ], [ %276, %271 ]
-  %250 = shl nuw nsw i32 %.0151184.i.i, 3
+  %.0151182.i.i = phi i32 [ 0, %248 ], [ %277, %271 ]
+  %.0152181.i.i = phi i32 [ -16777216, %248 ], [ %276, %271 ]
+  %250 = shl nuw nsw i32 %.0151182.i.i, 3
   %251 = lshr i32 %.0147.i.i, %250
   %252 = lshr i32 %.0148.i.i, %250
   %253 = lshr i32 %.0149.i.i, %250
@@ -603,8 +603,8 @@ fill_from_cache.exit433.i:                        ; preds = %fill_from_cache.exi
   %273 = add nuw nsw i32 %272, %257
   %274 = lshr i32 %273, 2
   %275 = shl nuw nsw i32 %274, %250
-  %276 = or i32 %275, %.0152183.i.i
-  %277 = add nuw nsw i32 %.0151184.i.i, 1
+  %276 = or i32 %275, %.0152181.i.i
+  %277 = add nuw nsw i32 %.0151182.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %277, 3
   br i1 %exitcond.not.i.i, label %278, label %249, !llvm.loop !67
 

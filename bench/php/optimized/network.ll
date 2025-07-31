@@ -1249,9 +1249,9 @@ define dso_local i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 nou
 php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %. = phi ptr [ %12, %33 ], [ %12, %22 ], [ null, %21 ]
   %36 = load ptr, ptr %11, align 8, !tbaa !23
-  %rev.i86 = tail call i16 @llvm.bswap.i16(i16 %1)
+  %rev.i88 = tail call i16 @llvm.bswap.i16(i16 %1)
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %rev.i88 = tail call i16 @llvm.bswap.i16(i16 %8)
+  %rev.i90 = tail call i16 @llvm.bswap.i16(i16 %8)
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %40 = zext i16 %8 to i32
@@ -1264,13 +1264,13 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %46 = load ptr, ptr %36, align 8, !tbaa !4
-  %.not7396 = icmp eq ptr %46, null
-  br i1 %.not7396, label %.critedge, label %.lr.ph
+  %.not7397 = icmp eq ptr %46, null
+  br i1 %.not7397, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_network_set_limit_time.exit, %.backedge
-  %47 = phi ptr [ %133, %.backedge ], [ %46, %php_network_set_limit_time.exit ]
-  %.0609198 = phi ptr [ %132, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
-  %.0599297 = phi ptr [ %.05992.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
+  %47 = phi ptr [ %132, %.backedge ], [ %46, %php_network_set_limit_time.exit ]
+  %.0609299 = phi ptr [ %131, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
+  %.0599398 = phi ptr [ %.05993.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
   %48 = load i16, ptr %47, align 2, !tbaa !41
   switch i16 %48, label %.backedge [
     i16 10, label %49
@@ -1278,37 +1278,37 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   ]
 
 49:                                               ; preds = %.lr.ph
-  %.not77 = icmp eq ptr %.0599297, null
+  %.not77 = icmp eq ptr %.0599398, null
   br i1 %.not77, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599297, i32 noundef 58) #22
+  %51 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599398, i32 noundef 58) #22
   %.not78 = icmp eq ptr %51, null
   br i1 %.not78, label %.backedge, label %52
 
 52:                                               ; preds = %50, %49
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i86, ptr %53, align 2, !tbaa !44
+  store i16 %rev.i88, ptr %53, align 2, !tbaa !44
   br label %.tail.thread
 
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i86, ptr %55, align 2, !tbaa !48
-  %.not74 = icmp eq ptr %.0599297, null
+  store i16 %rev.i88, ptr %55, align 2, !tbaa !48
+  %.not74 = icmp eq ptr %.0599398, null
   br i1 %.not74, label %.tail.thread, label %56
 
 56:                                               ; preds = %54
-  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599297, i32 noundef 58) #22
+  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0599398, i32 noundef 58) #22
   %.not75 = icmp eq ptr %57, null
   br i1 %.not75, label %sub_0, label %62
 
 sub_0:                                            ; preds = %56
-  %58 = load i8, ptr %.0599297, align 1
-  %.not93 = icmp eq i8 %58, 48
-  br i1 %.not93, label %.tail, label %.tail.thread
+  %58 = load i8, ptr %.0599398, align 1
+  %.not94 = icmp eq i8 %58, 48
+  br i1 %.not94, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %59 = getelementptr inbounds nuw i8, ptr %.0599297, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0599398, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %.tail.thread
@@ -1317,7 +1317,7 @@ sub_0:                                            ; preds = %56
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %54, %.tail, %62, %52
-  %.2 = phi ptr [ %.0599297, %52 ], [ null, %62 ], [ %.0599297, %.tail ], [ null, %54 ], [ %.0599297, %sub_0 ]
+  %.2 = phi ptr [ %.0599398, %52 ], [ null, %62 ], [ %.0599398, %.tail ], [ null, %54 ], [ %.0599398, %sub_0 ]
   %.058 = phi i32 [ 28, %52 ], [ 16, %62 ], [ 16, %.tail ], [ 16, %54 ], [ 16, %sub_0 ]
   %63 = zext nneg i16 %48 to i32
   %64 = call i32 @socket(i32 noundef %63, i32 noundef %2, i32 noundef 0) #19
@@ -1326,7 +1326,7 @@ sub_0:                                            ; preds = %56
 
 66:                                               ; preds = %.tail.thread
   %.not79 = icmp eq ptr %.2, null
-  br i1 %.not79, label %86, label %67
+  br i1 %.not79, label %85, label %67
 
 67:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %15) #19
@@ -1338,186 +1338,186 @@ sub_0:                                            ; preds = %56
 70:                                               ; preds = %67
   %71 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.2, ptr noundef nonnull %39) #19
   %72 = icmp eq i32 %71, 1
-  br i1 %72, label %78, label %76
+  br i1 %72, label %76, label %.critedge87
 
 73:                                               ; preds = %67
   %74 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.2, ptr noundef nonnull %37) #19
   %75 = icmp eq i32 %74, 1
-  br i1 %75, label %78, label %76
+  br i1 %75, label %76, label %.critedge87
 
-76:                                               ; preds = %70, %73
+76:                                               ; preds = %73, %70
+  %.057 = phi i32 [ 16, %70 ], [ 28, %73 ]
+  %storemerge = load i16, ptr %47, align 2, !tbaa !41
+  store i16 %storemerge, ptr %15, align 4, !tbaa !18
+  store i16 %rev.i90, ptr %38, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #19
   store i32 1, ptr %16, align 4, !tbaa !14
   %77 = call i32 @setsockopt(i32 noundef %64, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #19
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.2) #19
-  br label %85
+  %78 = call i32 @bind(i32 noundef %64, ptr nonnull %15, i32 noundef %.057) #19
+  %.not80 = icmp eq i32 %78, 0
+  br i1 %.not80, label %84, label %80
 
-78:                                               ; preds = %73, %70
-  %.057 = phi i32 [ 16, %70 ], [ 28, %73 ]
-  %storemerge = load i16, ptr %47, align 2, !tbaa !41
-  store i16 %storemerge, ptr %15, align 4, !tbaa !18
-  store i16 %rev.i88, ptr %38, align 2, !tbaa !18
+.critedge87:                                      ; preds = %73, %70
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #19
   store i32 1, ptr %16, align 4, !tbaa !14
   %79 = call i32 @setsockopt(i32 noundef %64, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #19
-  %80 = call i32 @bind(i32 noundef %64, ptr nonnull %15, i32 noundef %.057) #19
-  %.not80 = icmp eq i32 %80, 0
-  br i1 %.not80, label %85, label %81
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.2) #19
+  br label %84
 
-81:                                               ; preds = %78
-  %82 = tail call ptr @__errno_location() #20
-  %83 = load i32, ptr %82, align 4, !tbaa !14
-  %84 = call ptr @strerror(i32 noundef %83) #19
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.2, i32 noundef %40, ptr noundef %84) #19
+80:                                               ; preds = %76
+  %81 = tail call ptr @__errno_location() #20
+  %82 = load i32, ptr %81, align 4, !tbaa !14
+  %83 = call ptr @strerror(i32 noundef %82) #19
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.2, i32 noundef %40, ptr noundef %83) #19
+  br label %84
+
+84:                                               ; preds = %76, %80, %.critedge87
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %15) #19
   br label %85
 
-85:                                               ; preds = %78, %81, %76
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %15) #19
-  br label %86
+85:                                               ; preds = %84, %66
+  br i1 %.not81, label %98, label %86
 
-86:                                               ; preds = %85, %66
-  br i1 %.not81, label %99, label %87
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %5, align 8, !tbaa !16
+  %.not82 = icmp eq ptr %87, null
+  br i1 %.not82, label %98, label %88
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %5, align 8, !tbaa !16
-  %.not82 = icmp eq ptr %88, null
-  br i1 %.not82, label %99, label %89
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !18
+  %91 = and i32 %90, 64
+  %.not.i = icmp eq i32 %91, 0
+  br i1 %.not.i, label %92, label %zend_string_release_ex.exit
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !18
-  %92 = and i32 %91, 64
-  %.not.i = icmp eq i32 %92, 0
-  br i1 %.not.i, label %93, label %zend_string_release_ex.exit
+92:                                               ; preds = %88
+  %93 = load i32, ptr %87, align 4, !tbaa !19
+  %94 = icmp ne i32 %93, 0
+  call void @llvm.assume(i1 %94)
+  %95 = add i32 %93, -1
+  store i32 %95, ptr %87, align 4, !tbaa !19
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %zend_string_release_ex.exit
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %88, align 4, !tbaa !19
-  %95 = icmp ne i32 %94, 0
-  call void @llvm.assume(i1 %95)
-  %96 = add i32 %94, -1
-  store i32 %96, ptr %88, align 4, !tbaa !19
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %zend_string_release_ex.exit
-
-98:                                               ; preds = %93
-  call void @_efree(ptr noundef nonnull %88) #19
+97:                                               ; preds = %92
+  call void @_efree(ptr noundef nonnull %87) #19
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %89, %93, %98
+zend_string_release_ex.exit:                      ; preds = %88, %92, %97
   store ptr null, ptr %5, align 8, !tbaa !16
-  br label %99
+  br label %98
 
-99:                                               ; preds = %zend_string_release_ex.exit, %87, %86
+98:                                               ; preds = %zend_string_release_ex.exit, %86, %85
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #19
   store i32 1, ptr %17, align 4, !tbaa !14
-  br i1 %.not83, label %102, label %100
+  br i1 %.not83, label %101, label %99
 
-100:                                              ; preds = %99
-  %101 = call i32 @setsockopt(i32 noundef %64, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %17, i32 noundef 4) #19
-  br label %102
+99:                                               ; preds = %98
+  %100 = call i32 @setsockopt(i32 noundef %64, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %17, i32 noundef 4) #19
+  br label %101
 
-102:                                              ; preds = %100, %99
+101:                                              ; preds = %99, %98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #19
   store i32 1, ptr %18, align 4, !tbaa !14
-  br i1 %.not84, label %105, label %103
+  br i1 %.not84, label %104, label %102
 
-103:                                              ; preds = %102
-  %104 = call i32 @setsockopt(i32 noundef %64, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 4) #19
-  br label %105
+102:                                              ; preds = %101
+  %103 = call i32 @setsockopt(i32 noundef %64, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 4) #19
+  br label %104
 
-105:                                              ; preds = %103, %102
+104:                                              ; preds = %102, %101
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #19
-  %106 = call i32 @php_network_connect_socket(i32 noundef %64, ptr noundef nonnull %47, i32 noundef %.058, i32 noundef %3, ptr noundef %., ptr noundef %5, ptr noundef %6)
-  %.not85 = icmp eq i32 %106, -1
-  br i1 %.not85, label %107, label %.critedge
+  %105 = call i32 @php_network_connect_socket(i32 noundef %64, ptr noundef nonnull %47, i32 noundef %.058, i32 noundef %3, ptr noundef %., ptr noundef %5, ptr noundef %6)
+  %.not85 = icmp eq i32 %105, -1
+  br i1 %.not85, label %106, label %.critedge
 
-107:                                              ; preds = %105
-  br i1 %.not, label %sub_times.exit, label %108
+106:                                              ; preds = %104
+  br i1 %.not, label %sub_times.exit, label %107
 
-108:                                              ; preds = %107
-  %109 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
-  %110 = load i64, ptr %14, align 8, !tbaa !31
-  %111 = load i64, ptr %13, align 8, !tbaa !31
-  %112 = icmp eq i64 %110, %111
-  br i1 %112, label %113, label %117
+107:                                              ; preds = %106
+  %108 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #19
+  %109 = load i64, ptr %14, align 8, !tbaa !31
+  %110 = load i64, ptr %13, align 8, !tbaa !31
+  %111 = icmp eq i64 %109, %110
+  br i1 %111, label %112, label %116
 
-113:                                              ; preds = %108
-  %114 = load i64, ptr %43, align 8, !tbaa !33
-  %115 = load i64, ptr %44, align 8, !tbaa !33
-  %116 = icmp slt i64 %114, %115
-  br i1 %116, label %119, label %sub_times.exit.thread
+112:                                              ; preds = %107
+  %113 = load i64, ptr %43, align 8, !tbaa !33
+  %114 = load i64, ptr %44, align 8, !tbaa !33
+  %115 = icmp slt i64 %113, %114
+  br i1 %115, label %118, label %sub_times.exit.thread
 
-117:                                              ; preds = %108
-  %118 = icmp slt i64 %110, %111
-  br i1 %118, label %._crit_edge, label %sub_times.exit.thread
+116:                                              ; preds = %107
+  %117 = icmp slt i64 %109, %110
+  br i1 %117, label %._crit_edge, label %sub_times.exit.thread
 
-._crit_edge:                                      ; preds = %117
+._crit_edge:                                      ; preds = %116
   %.pre = load i64, ptr %44, align 8
-  %.pre94 = load i64, ptr %43, align 8
-  br label %119
+  %.pre95 = load i64, ptr %43, align 8
+  br label %118
 
-119:                                              ; preds = %._crit_edge, %113
-  %120 = phi i64 [ %.pre94, %._crit_edge ], [ %114, %113 ]
-  %121 = phi i64 [ %.pre, %._crit_edge ], [ %115, %113 ]
-  %122 = sub nsw i64 %121, %120
-  %123 = icmp slt i64 %122, 0
-  %124 = add nsw i64 %122, 1000000
-  %storemerge.i = select i1 %123, i64 %124, i64 %122
-  %.lobit.i = ashr i64 %122, 63
+118:                                              ; preds = %._crit_edge, %112
+  %119 = phi i64 [ %.pre95, %._crit_edge ], [ %113, %112 ]
+  %120 = phi i64 [ %.pre, %._crit_edge ], [ %114, %112 ]
+  %121 = sub nsw i64 %120, %119
+  %122 = icmp slt i64 %121, 0
+  %123 = add nsw i64 %121, 1000000
+  %storemerge.i = select i1 %122, i64 %123, i64 %121
+  %.lobit.i = ashr i64 %121, 63
   store i64 %storemerge.i, ptr %45, align 8, !tbaa !33
-  %.sroa.07.0.i = sub i64 %111, %110
-  %125 = add i64 %.lobit.i, %.sroa.07.0.i
-  store i64 %125, ptr %12, align 8, !tbaa !31
-  %126 = icmp slt i64 %125, 0
-  br i1 %126, label %127, label %sub_times.exit
+  %.sroa.07.0.i = sub i64 %110, %109
+  %124 = add i64 %.lobit.i, %.sroa.07.0.i
+  store i64 %124, ptr %12, align 8, !tbaa !31
+  %125 = icmp slt i64 %124, 0
+  br i1 %125, label %126, label %sub_times.exit
 
-127:                                              ; preds = %119
-  %128 = add nsw i64 %125, 1
-  store i64 %128, ptr %12, align 8, !tbaa !31
-  %129 = add nsw i64 %storemerge.i, -1000000
-  store i64 %129, ptr %45, align 8, !tbaa !33
+126:                                              ; preds = %118
+  %127 = add nsw i64 %124, 1
+  store i64 %127, ptr %12, align 8, !tbaa !31
+  %128 = add nsw i64 %storemerge.i, -1000000
+  store i64 %128, ptr %45, align 8, !tbaa !33
   br label %sub_times.exit
 
-sub_times.exit.thread:                            ; preds = %117, %113
-  %130 = call i32 @close(i32 noundef %64) #19
+sub_times.exit.thread:                            ; preds = %116, %112
+  %129 = call i32 @close(i32 noundef %64) #19
   br label %.critedge
 
-sub_times.exit:                                   ; preds = %127, %119, %107
-  %131 = call i32 @close(i32 noundef %64) #19
+sub_times.exit:                                   ; preds = %126, %118, %106
+  %130 = call i32 @close(i32 noundef %64) #19
   br label %.backedge
 
 .backedge:                                        ; preds = %50, %.lr.ph, %.tail.thread, %sub_times.exit
-  %.05992.be = phi ptr [ %.2, %sub_times.exit ], [ %.0599297, %.lr.ph ], [ %.2, %.tail.thread ], [ %.0599297, %50 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.0609198, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !4
-  %.not73 = icmp eq ptr %133, null
+  %.05993.be = phi ptr [ %.2, %sub_times.exit ], [ %.0599398, %.lr.ph ], [ %.2, %.tail.thread ], [ %.0599398, %50 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.0609299, i64 8
+  %132 = load ptr, ptr %131, align 8, !tbaa !4
+  %.not73 = icmp eq ptr %132, null
   br i1 %.not73, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %105, %.backedge, %php_network_set_limit_time.exit, %sub_times.exit.thread
-  %.061 = phi i32 [ -1, %sub_times.exit.thread ], [ -1, %php_network_set_limit_time.exit ], [ -1, %.backedge ], [ %64, %105 ]
-  %134 = load ptr, ptr %11, align 8, !tbaa !23
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %php_network_freeaddresses.exit, label %.preheader.i
+.critedge:                                        ; preds = %104, %.backedge, %php_network_set_limit_time.exit, %sub_times.exit.thread
+  %.061 = phi i32 [ -1, %sub_times.exit.thread ], [ -1, %php_network_set_limit_time.exit ], [ -1, %.backedge ], [ %64, %104 ]
+  %133 = load ptr, ptr %11, align 8, !tbaa !23
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %php_network_freeaddresses.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge
-  %136 = load ptr, ptr %134, align 8, !tbaa !4
-  %.not8.i = icmp eq ptr %136, null
+  %135 = load ptr, ptr %133, align 8, !tbaa !4
+  %.not8.i = icmp eq ptr %135, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %137 = phi ptr [ %139, %.lr.ph.i ], [ %136, %.preheader.i ]
-  %.09.i = phi ptr [ %138, %.lr.ph.i ], [ %134, %.preheader.i ]
-  call void @_efree(ptr noundef nonnull %137) #19
-  %138 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !4
-  %.not.i89 = icmp eq ptr %139, null
-  br i1 %.not.i89, label %._crit_edge.i, label %.lr.ph.i
+  %136 = phi ptr [ %138, %.lr.ph.i ], [ %135, %.preheader.i ]
+  %.09.i = phi ptr [ %137, %.lr.ph.i ], [ %133, %.preheader.i ]
+  call void @_efree(ptr noundef nonnull %136) #19
+  %137 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !4
+  %.not.i91 = icmp eq ptr %138, null
+  br i1 %.not.i91, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  call void @_efree(ptr noundef nonnull %134) #19
+  call void @_efree(ptr noundef nonnull %133) #19
   br label %php_network_freeaddresses.exit
 
 php_network_freeaddresses.exit:                   ; preds = %._crit_edge.i, %.critedge, %10

@@ -18,7 +18,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   %7 = load i32, ptr %6, align 8, !tbaa !26
   switch i32 %7, label %.preheader [
-    i32 2, label %.thread92
+    i32 2, label %.critedge79
     i32 0, label %8
   ]
 
@@ -26,7 +26,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %10 = load i8, ptr %9, align 1, !tbaa !27, !range !28, !noundef !29
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.preheader, label %.thread92
+  br i1 %11, label %.preheader, label %.critedge79
 
 .preheader:                                       ; preds = %2, %8
   br label %12
@@ -45,7 +45,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
 .critedge:                                        ; preds = %15
   %19 = load i32, ptr %6, align 8, !tbaa !26
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %.thread92.thread
+  br i1 %20, label %21, label %.critedge79.thread
 
 21:                                               ; preds = %.critedge
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
@@ -54,7 +54,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
 
 24:                                               ; preds = %21
   tail call void (ptr, ptr, ...) @errorf(ptr noundef %5, ptr noundef nonnull @.str.1) #10
-  br label %62
+  br label %.critedge80
 
 25:                                               ; preds = %21
   %26 = add nuw i64 %22, 13
@@ -64,7 +64,7 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
 
 28:                                               ; preds = %25
   tail call void (ptr, ptr, ...) @errorf(ptr noundef %5, ptr noundef nonnull @.str.2) #10
-  br label %62
+  br label %.critedge80
 
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull align 1 %3, i64 %22, i1 false)
@@ -76,23 +76,23 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
 
 32:                                               ; preds = %.critedge6, %29
   %33 = phi i32 [ %46, %.critedge6 ], [ %.pr, %29 ]
-  %.066104 = phi i32 [ %41, %.critedge6 ], [ 1, %29 ]
+  %.06699 = phi i32 [ %41, %.critedge6 ], [ 1, %29 ]
   %34 = icmp eq i32 %33, 17
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %32
   %36 = icmp eq i32 %33, 21
-  %37 = icmp samesign ult i32 %.066104, 100
+  %37 = icmp samesign ult i32 %.06699, 100
   %or.cond8 = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond8, label %39, label %.thread89
+  br i1 %or.cond8, label %39, label %.thread88
 
 38:                                               ; preds = %32
-  %.old7 = icmp samesign ult i32 %.066104, 100
-  br i1 %.old7, label %39, label %.thread89
+  %.old7 = icmp samesign ult i32 %.06699, 100
+  br i1 %.old7, label %39, label %.thread88
 
 39:                                               ; preds = %35, %38
-  %40 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %31, i64 noundef 12, ptr noundef nonnull @.str.3, i32 noundef %.066104) #10
-  %41 = add nuw nsw i32 %.066104, 1
+  %40 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %31, i64 noundef 12, ptr noundef nonnull @.str.3, i32 noundef %.06699) #10
+  %41 = add nuw nsw i32 %.06699, 1
   br label %42
 
 42:                                               ; preds = %45, %39
@@ -108,11 +108,11 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
 .critedge6:                                       ; preds = %45
   br label %32, !llvm.loop !35
 
-.thread89:                                        ; preds = %35, %38
+.thread88:                                        ; preds = %38, %35
   store ptr %27, ptr %0, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %48, align 8, !tbaa !36
-  br label %.thread92.thread
+  br label %.critedge79.thread
 
 49:                                               ; preds = %42
   store ptr %27, ptr %0, align 8, !tbaa !4
@@ -124,38 +124,38 @@ define dso_local noundef zeroext i1 @tool_create_output_file(ptr noundef capture
   %.06387 = phi i32 [ %43, %49 ], [ %13, %12 ]
   %51 = tail call noalias ptr @fdopen(i32 noundef %.06387, ptr noundef nonnull @.str) #10
   %.not76 = icmp eq ptr %51, null
-  br i1 %.not76, label %52, label %.thread92.thread97
+  br i1 %.not76, label %52, label %.critedge79.thread92
 
 52:                                               ; preds = %.thread84
   %53 = tail call i32 @close(i32 noundef %.06387) #10
-  br label %.thread92.thread
+  br label %.critedge79.thread
 
-.thread92:                                        ; preds = %8, %2
+.critedge79:                                      ; preds = %8, %2
   %54 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str)
   %.not77 = icmp eq ptr %54, null
-  br i1 %.not77, label %.thread92.thread, label %.thread92.thread97
+  br i1 %.not77, label %.critedge79.thread, label %.critedge79.thread92
 
-.thread92.thread:                                 ; preds = %.critedge, %52, %.thread89, %.thread92
+.critedge79.thread:                               ; preds = %.critedge, %.thread88, %52, %.critedge79
   %55 = tail call ptr @__errno_location() #11
   %56 = load i32, ptr %55, align 4, !tbaa !30
   %57 = tail call ptr @strerror(i32 noundef %56) #10
   tail call void (ptr, ptr, ...) @warnf(ptr noundef %5, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %57) #10
-  br label %62
+  br label %.critedge80
 
-.thread92.thread97:                               ; preds = %.thread84, %.thread92
-  %.060100 = phi ptr [ %54, %.thread92 ], [ %51, %.thread84 ]
+.critedge79.thread92:                             ; preds = %.thread84, %.critedge79
+  %.06095 = phi ptr [ %54, %.critedge79 ], [ %51, %.thread84 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 1, ptr %58, align 2, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 1, ptr %59, align 1, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.060100, ptr %60, align 8, !tbaa !39
+  store ptr %.06095, ptr %60, align 8, !tbaa !39
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  br label %62
+  br label %.critedge80
 
-62:                                               ; preds = %28, %24, %.thread92.thread97, %.thread92.thread
-  %.3 = phi i1 [ true, %.thread92.thread97 ], [ false, %.thread92.thread ], [ false, %24 ], [ false, %28 ]
+.critedge80:                                      ; preds = %28, %24, %.critedge79.thread92, %.critedge79.thread
+  %.3 = phi i1 [ true, %.critedge79.thread92 ], [ false, %.critedge79.thread ], [ false, %24 ], [ false, %28 ]
   ret i1 %.3
 }
 

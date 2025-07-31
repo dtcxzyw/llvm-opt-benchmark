@@ -244,7 +244,7 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %ossl_ffc_params_FIPS186_2_validate.exit, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %3, null
@@ -274,7 +274,7 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
 
 22:                                               ; preds = %18, %17
   store i32 2048, ptr %spec.store.select, align 4, !tbaa !3
-  br label %ossl_ffc_params_FIPS186_2_validate.exit
+  br label %.critedge
 
 23:                                               ; preds = %18
   %24 = tail call i32 @BN_num_bits(ptr noundef nonnull %15) #4
@@ -283,16 +283,16 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   %27 = tail call i32 @BN_num_bits(ptr noundef %26) #4
   %28 = sext i32 %27 to i64
   %29 = call i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2, i64 noundef %25, i64 noundef %28, ptr noundef nonnull %spec.store.select, ptr noundef null) #4
-  br label %ossl_ffc_params_FIPS186_2_validate.exit
+  br label %.critedge
 
 30:                                               ; preds = %11
-  br i1 %16, label %ossl_ffc_params_FIPS186_2_validate.exit, label %31
+  br i1 %16, label %.critedge, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %ossl_ffc_params_FIPS186_2_validate.exit, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %31
   %36 = tail call i32 @BN_num_bits(ptr noundef nonnull %15) #4
@@ -301,17 +301,17 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   %39 = tail call i32 @BN_num_bits(ptr noundef %38) #4
   %40 = sext i32 %39 to i64
   %41 = call i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2, i64 noundef %37, i64 noundef %40, ptr noundef nonnull %spec.store.select, ptr noundef null) #4
-  br label %ossl_ffc_params_FIPS186_2_validate.exit
+  br label %.critedge
 
 42:                                               ; preds = %7
   %43 = call i32 @ossl_ffc_params_simple_validate(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %spec.store.select)
   %.not33 = icmp eq i32 %43, 0
-  br i1 %.not33, label %ossl_ffc_params_FIPS186_2_validate.exit, label %44
+  br i1 %.not33, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = call ptr @BN_CTX_new_ex(ptr noundef %0) #4
   %.not37 = icmp eq ptr %45, null
-  br i1 %.not37, label %ossl_ffc_params_FIPS186_2_validate.exit, label %46
+  br i1 %.not37, label %.critedge, label %46
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -337,10 +337,10 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
 53:                                               ; preds = %.sink.split, %50
   %.3 = phi i32 [ 1, %50 ], [ 0, %.sink.split ]
   call void @BN_CTX_free(ptr noundef nonnull %45) #4
-  br label %ossl_ffc_params_FIPS186_2_validate.exit
+  br label %.critedge
 
-ossl_ffc_params_FIPS186_2_validate.exit:          ; preds = %53, %44, %35, %31, %30, %23, %22, %42, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ 0, %22 ], [ %29, %23 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ], [ %.3, %53 ], [ 0, %44 ]
+.critedge:                                        ; preds = %35, %31, %30, %23, %22, %53, %42, %44, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ 0, %44 ], [ %.3, %53 ], [ 0, %22 ], [ %29, %23 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 %.0
 }

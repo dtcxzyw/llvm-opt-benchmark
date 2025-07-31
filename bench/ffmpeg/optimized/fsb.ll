@@ -305,7 +305,7 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = tail call i32 @avio_feof(ptr noundef %9) #5
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %.thread
+  br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %8, align 8, !tbaa !12
@@ -326,22 +326,22 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %23 = load i32, ptr %22, align 4, !tbaa !43
   %24 = tail call i32 @av_new_packet(ptr noundef %1, i32 noundef %23) #5
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %.preheader41, label %.thread
+  br i1 %25, label %.preheader40, label %.critedge
 
-.preheader41:                                     ; preds = %21
+.preheader40:                                     ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %18, align 4, !tbaa !40
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.preheader41, %._crit_edge
-  %29 = phi i32 [ %49, %._crit_edge ], [ %27, %.preheader41 ]
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge ], [ 0, %.preheader41 ]
+.preheader:                                       ; preds = %.preheader40, %._crit_edge
+  %29 = phi i32 [ %49, %._crit_edge ], [ %27, %.preheader40 ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge ], [ 0, %.preheader40 ]
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %31 = shl nuw nsw i64 %indvars.iv46, 1
+  %31 = shl nuw nsw i64 %indvars.iv45, 1
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
@@ -369,8 +369,8 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 ._crit_edge:                                      ; preds = %32, %.preheader
   %49 = phi i32 [ %29, %.preheader ], [ %46, %32 ]
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next47, 4
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next46, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !53
 
 50:                                               ; preds = %17, %11
@@ -380,8 +380,8 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   %54 = tail call i32 @av_get_packet(ptr noundef %51, ptr noundef %1, i32 noundef %53) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader41, %50
-  %.1 = phi i32 [ %54, %50 ], [ 0, %.preheader41 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.preheader40, %50
+  %.1 = phi i32 [ %54, %50 ], [ 0, %.preheader40 ], [ 0, %._crit_edge ]
   %55 = load i32, ptr %14, align 4, !tbaa !41
   %56 = icmp eq i32 %55, 86096
   br i1 %56, label %57, label %69
@@ -408,9 +408,9 @@ define internal i32 @fsb_read_packet(ptr noundef readonly captures(none) %0, ptr
   store i64 %13, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 0, ptr %71, align 4, !tbaa !58
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %21, %2, %69
+.critedge:                                        ; preds = %21, %2, %69
   %.037 = phi i32 [ %.1, %69 ], [ -541478725, %2 ], [ %24, %21 ]
   ret i32 %.037
 }

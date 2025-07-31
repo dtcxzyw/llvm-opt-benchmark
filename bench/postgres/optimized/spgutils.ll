@@ -329,8 +329,8 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   %30 = load ptr, ptr %14, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 10
   %32 = load i16, ptr %31, align 2
-  %.not6171.i = icmp slt i16 %32, 1
-  br i1 %.not6171.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not6169.i = icmp slt i16 %32, 1
+  br i1 %.not6169.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 48
@@ -340,17 +340,17 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   %wide.trip.count.i = zext i16 %narrow.i to i64
   br label %36
 
-36:                                               ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %.05572.i = phi ptr [ %29, %.lr.ph.i ], [ %.1.i, %53 ]
+36:                                               ; preds = %56, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
+  %.05570.i = phi ptr [ %29, %.lr.ph.i ], [ %.1.i, %56 ]
   %37 = add nsw i64 %indvars.iv.i, -1
   %38 = getelementptr inbounds [0 x i16], ptr %33, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, 0
-  br i1 %40, label %41, label %53
+  br i1 %40, label %41, label %56
 
 41:                                               ; preds = %36
-  %42 = icmp eq ptr %.05572.i, null
+  %42 = icmp eq ptr %.05570.i, null
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
@@ -362,38 +362,38 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
 
 46:                                               ; preds = %41
   %47 = icmp eq i64 %indvars.iv.i, 1
-  br i1 %47, label %54, label %48
+  br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %.056.val.i = load i32, ptr %34, align 4
-  %.056.val62.i = load ptr, ptr %35, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %.05572.i, i64 8
-  %50 = sext i32 %.056.val.i to i64
-  %51 = getelementptr inbounds %union.ListCell, ptr %.056.val62.i, i64 %50
-  %52 = icmp ult ptr %49, %51
-  %..i.i = select i1 %52, ptr %49, ptr null
-  br label %53
-
-53:                                               ; preds = %48, %36
-  %.1.i = phi ptr [ %..i.i, %48 ], [ %.05572.i, %36 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !6
-
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %.05572.i, align 8
-  %56 = tail call i32 @exprType(ptr noundef %55) #10
+  %49 = load ptr, ptr %.05570.i, align 8
+  %50 = tail call i32 @exprType(ptr noundef %49) #10
   br label %.sink.split.i
 
-._crit_edge.i:                                    ; preds = %53, %list_head.exit.i
+51:                                               ; preds = %46
+  %.056.val.i = load i32, ptr %34, align 4
+  %.056.val62.i = load ptr, ptr %35, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.05570.i, i64 8
+  %53 = sext i32 %.056.val.i to i64
+  %54 = getelementptr inbounds %union.ListCell, ptr %.056.val62.i, i64 %53
+  %55 = icmp ult ptr %52, %54
+  %..i.i = select i1 %55, ptr %52, ptr null
+  br label %56
+
+56:                                               ; preds = %51, %36
+  %.1.i = phi ptr [ %..i.i, %51 ], [ %.05570.i, %36 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.critedge.i, label %36, !llvm.loop !6
+
+.critedge.i:                                      ; preds = %56, %list_head.exit.i
   %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %57)
   %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.GetIndexInputType) #10
   unreachable
 
-.sink.split.i:                                    ; preds = %54, %18
-  %.sink.i = phi i32 [ %56, %54 ], [ %21, %18 ]
+.sink.split.i:                                    ; preds = %48, %18
+  %.sink.i = phi i32 [ %50, %48 ], [ %21, %18 ]
   %59 = tail call i32 @getBaseType(i32 noundef %.sink.i) #10
   br label %GetIndexInputType.exit
 

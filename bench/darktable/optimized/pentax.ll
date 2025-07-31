@@ -231,7 +231,7 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
     i32 91, label %50
     i32 80, label %68
     i32 128, label %68
-    i32 168, label %198
+    i32 168, label %.critedge
   ]
 
 32:                                               ; preds = %31
@@ -325,10 +325,10 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
   store i64 %102, ptr %87, align 8, !tbaa !85
   br label %103
 
-103:                                              ; preds = %23, %19, %90, %86, %36, %32, %54, %50, %72, %68
-  %.not75.ph = phi i1 [ false, %68 ], [ false, %72 ], [ true, %50 ], [ true, %54 ], [ false, %32 ], [ false, %36 ], [ false, %86 ], [ false, %90 ], [ false, %19 ], [ false, %23 ]
-  %.0.ph = phi i64 [ 15, %68 ], [ 15, %72 ], [ 12, %50 ], [ 12, %54 ], [ 13, %32 ], [ 13, %36 ], [ 4, %86 ], [ 4, %90 ], [ 3, %19 ], [ 3, %23 ]
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.ph
+103:                                              ; preds = %23, %19, %90, %86, %68, %72, %50, %54, %32, %36
+  %.not75 = phi i1 [ false, %23 ], [ false, %19 ], [ false, %90 ], [ false, %86 ], [ false, %36 ], [ false, %32 ], [ true, %54 ], [ true, %50 ], [ false, %72 ], [ false, %68 ]
+  %.0 = phi i64 [ 3, %23 ], [ 3, %19 ], [ 4, %90 ], [ 4, %86 ], [ 13, %36 ], [ 13, %32 ], [ 12, %54 ], [ 12, %50 ], [ 15, %72 ], [ 15, %68 ]
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 %.0
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 9
   %106 = load i8, ptr %105, align 1, !tbaa !84
   %.not72 = icmp eq i8 %106, 0
@@ -369,8 +369,8 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
   %128 = uitofp nneg i8 %127 to float
   %129 = fmul reassoc nsz arcp contract afn float %128, 2.500000e-01
   %or.cond.i.i79 = fcmp reassoc nsz arcp contract afn ogt float %129, 6.400000e+01
-  %exp289 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %129)
-  %130 = select reassoc nsz arcp contract afn i1 %or.cond.i.i79, float 0.000000e+00, float %exp289
+  %exp284 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %129)
+  %130 = select reassoc nsz arcp contract afn i1 %or.cond.i.i79, float 0.000000e+00, float %exp284
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   store float %130, ptr %131, align 8, !tbaa !87
   %.pre = load i8, ptr %124, align 1, !tbaa !84
@@ -387,14 +387,14 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
   %136 = uitofp nneg i8 %narrow to float
   %137 = fmul reassoc nsz arcp contract afn float %136, 2.500000e-01
   %or.cond.i.i80 = fcmp reassoc nsz arcp contract afn ogt float %137, 6.400000e+01
-  %exp291 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %137)
-  %138 = select reassoc nsz arcp contract afn i1 %or.cond.i.i80, float 0.000000e+00, float %exp291
+  %exp286 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %137)
+  %138 = select reassoc nsz arcp contract afn i1 %or.cond.i.i80, float 0.000000e+00, float %exp286
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   store float %138, ptr %139, align 4, !tbaa !88
   br label %140
 
 140:                                              ; preds = %135, %132
-  br i1 %.not75.ph, label %180, label %switch.lookup
+  br i1 %.not75, label %180, label %switch.lookup
 
 switch.lookup:                                    ; preds = %140
   %141 = load i8, ptr %104, align 1, !tbaa !84
@@ -434,14 +434,14 @@ switch.lookup:                                    ; preds = %140
   %164 = getelementptr inbounds nuw i8, ptr %104, i64 14
   %165 = load i8, ptr %164, align 1, !tbaa !84
   %166 = icmp ugt i8 %165, 1
-  br i1 %166, label %167, label %198
+  br i1 %166, label %167, label %.critedge
 
 167:                                              ; preds = %154
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %169 = load float, ptr %168, align 8, !tbaa !87
   %170 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %169)
   %171 = fcmp reassoc nsz arcp contract afn olt float %170, 0x3FE6666660000000
-  br i1 %171, label %172, label %198
+  br i1 %171, label %172, label %.critedge
 
 172:                                              ; preds = %167
   %173 = and i8 %165, 127
@@ -451,27 +451,27 @@ switch.lookup:                                    ; preds = %140
   %177 = fmul reassoc nsz arcp contract afn float %176, 3.125000e-02
   %178 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %177)
   %or.cond.i.i81 = fcmp reassoc nsz arcp contract afn ogt float %178, 6.400000e+01
-  %exp293 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %177)
-  %179 = select reassoc nsz arcp contract afn i1 %or.cond.i.i81, float 0.000000e+00, float %exp293
+  %exp288 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %177)
+  %179 = select reassoc nsz arcp contract afn i1 %or.cond.i.i81, float 0.000000e+00, float %exp288
   store float %179, ptr %168, align 8, !tbaa !87
-  br label %198
+  br label %.critedge
 
 180:                                              ; preds = %140
   %.not76 = icmp eq i64 %1, 77430
-  br i1 %.not76, label %198, label %181
+  br i1 %.not76, label %.critedge, label %181
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %183 = load i8, ptr %182, align 1, !tbaa !84
   %184 = icmp ugt i8 %183, 1
-  br i1 %184, label %185, label %198
+  br i1 %184, label %185, label %.critedge
 
 185:                                              ; preds = %181
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %187 = load float, ptr %186, align 8, !tbaa !87
   %188 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %187)
   %189 = fcmp reassoc nsz arcp contract afn olt float %188, 0x3FE6666660000000
-  br i1 %189, label %190, label %198
+  br i1 %189, label %190, label %.critedge
 
 190:                                              ; preds = %185
   %191 = and i8 %183, 127
@@ -481,12 +481,12 @@ switch.lookup:                                    ; preds = %140
   %195 = fmul reassoc nsz arcp contract afn float %194, 3.125000e-02
   %196 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %195)
   %or.cond.i.i82 = fcmp reassoc nsz arcp contract afn ogt float %196, 6.400000e+01
-  %exp295 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %195)
-  %197 = select reassoc nsz arcp contract afn i1 %or.cond.i.i82, float 0.000000e+00, float %exp295
+  %exp290 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %195)
+  %197 = select reassoc nsz arcp contract afn i1 %or.cond.i.i82, float 0.000000e+00, float %exp290
   store float %197, ptr %186, align 8, !tbaa !87
-  br label %198
+  br label %.critedge
 
-198:                                              ; preds = %31, %172, %167, %154, %190, %185, %181, %180
+.critedge:                                        ; preds = %31, %172, %167, %154, %190, %185, %181, %180
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %6)
   ret void
 }

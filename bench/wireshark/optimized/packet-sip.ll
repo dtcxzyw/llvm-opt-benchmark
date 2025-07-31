@@ -7901,7 +7901,7 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %6 = sub i32 %4, %3
   %7 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %3, i32 noundef %6)
   %.not = icmp slt i32 %7, %4
-  br i1 %.not, label %8, label %.thread96
+  br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %5
   %9 = sub i32 %4, %7
@@ -7911,18 +7911,18 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %12 = sub i32 %spec.select, %7
   %13 = load i32, ptr @hf_sip_sec_mechanism, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %7, i32 noundef %12, i32 noundef 2)
-  %.081100 = add i32 %spec.select, 1
-  %15 = icmp slt i32 %.081100, %4
-  br i1 %15, label %.lr.ph, label %.thread96
+  %.08198 = add i32 %spec.select, 1
+  %15 = icmp slt i32 %.08198, %4
+  br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.thread
-  %.081101 = phi i32 [ %.081100, %.lr.ph ], [ %.081, %.thread ]
-  %18 = sub i32 %4, %.081101
-  %19 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.081101, i32 noundef %18)
+  %.08199 = phi i32 [ %.08198, %.lr.ph ], [ %.081, %.thread ]
+  %18 = sub i32 %4, %.08199
+  %19 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.08199, i32 noundef %18)
   %20 = sub i32 %4, %19
   %21 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %19, i32 noundef %20, i8 noundef zeroext 59)
   %22 = icmp eq i32 %21, -1
@@ -7931,7 +7931,7 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %24 = add i32 %19, 1
   %25 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %24, i32 noundef %23, i8 noundef zeroext 61)
   %.not91.not = icmp eq i32 %25, -1
-  br i1 %.not91.not, label %.thread96, label %26
+  br i1 %.not91.not, label %.critedge, label %26
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr %16, align 8
@@ -7944,20 +7944,20 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 2)
   %35 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.789)
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %._crit_edge, label %.lr.ph108
+  br i1 %36, label %._crit_edge, label %.lr.ph106
 
-.lr.ph108:                                        ; preds = %26, %37
-  %indvars.iv107 = phi i64 [ %indvars.iv.next, %37 ], [ 0, %26 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv107, 1
+.lr.ph106:                                        ; preds = %26, %37
+  %indvars.iv105 = phi i64 [ %indvars.iv.next, %37 ], [ 0, %26 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv105, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond, label %61, label %37, !llvm.loop !61
 
-37:                                               ; preds = %.lr.ph108
+37:                                               ; preds = %.lr.ph106
   %38 = getelementptr [10 x %struct.mech_parameter_t], ptr @sec_mechanism_parameters_hf_array, i64 0, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull %39)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %._crit_edge, label %.lr.ph108, !llvm.loop !61
+  br i1 %41, label %._crit_edge, label %.lr.ph106, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %37, %26
   %.lcssa = phi ptr [ @sec_mechanism_parameters_hf_array, %26 ], [ %38, %37 ]
@@ -7994,16 +7994,16 @@ define internal fastcc void @dissect_sip_sec_mechanism(ptr noundef %0, ptr nound
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %31, i32 noundef %59, i32 noundef %55)
   br label %.thread
 
-61:                                               ; preds = %.lr.ph108
+61:                                               ; preds = %.lr.ph106
   %62 = tail call ptr @proto_tree_add_format_text(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %23)
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %51, %53, %44, %61
   %.081 = add i32 %spec.select95, 1
   %63 = icmp slt i32 %.081, %4
-  br i1 %63, label %17, label %.thread96, !llvm.loop !62
+  br i1 %63, label %17, label %.critedge, !llvm.loop !62
 
-.thread96:                                        ; preds = %.thread, %17, %8, %5
+.critedge:                                        ; preds = %.thread, %17, %8, %5
   ret void
 }
 

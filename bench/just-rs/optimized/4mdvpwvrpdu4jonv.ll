@@ -13264,16 +13264,16 @@ define hidden void @_ZN4just8justfile8Justfile3run17hc6cf5faa11da3031E(ptr noali
   br label %135
 
 135:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h27b398d58cecca12E.exit.i"
-  %.sroa.6.060.i = phi i64 [ %103, %"_ZN4core6option15Option$LT$T$GT$6map_or17h27b398d58cecca12E.exit.i" ], [ %138, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit.i" ]
-  %.sroa.09.059.i = phi ptr [ %101, %"_ZN4core6option15Option$LT$T$GT$6map_or17h27b398d58cecca12E.exit.i" ], [ %137, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit.i" ]
-  %136 = invoke { ptr, i64 } @_ZN3std4path4Path6parent17h57b498b035b50165E(ptr noalias noundef nonnull readonly align 1 %.sroa.09.059.i, i64 noundef %.sroa.6.060.i)
+  %.sroa.6.058.i = phi i64 [ %103, %"_ZN4core6option15Option$LT$T$GT$6map_or17h27b398d58cecca12E.exit.i" ], [ %138, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit.i" ]
+  %.sroa.09.057.i = phi ptr [ %101, %"_ZN4core6option15Option$LT$T$GT$6map_or17h27b398d58cecca12E.exit.i" ], [ %137, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5f8ab0c197ed5903E.exit.i" ]
+  %136 = invoke { ptr, i64 } @_ZN3std4path4Path6parent17h57b498b035b50165E(ptr noalias noundef nonnull readonly align 1 %.sroa.09.057.i, i64 noundef %.sroa.6.058.i)
           to label %.noexc386 unwind label %.loopexit592
 
 .noexc386:                                        ; preds = %135
   %137 = extractvalue { ptr, i64 } %136, 0
   %138 = extractvalue { ptr, i64 } %136, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35), !noalias !2666
-  invoke void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %.sroa.09.059.i, i64 noundef %.sroa.6.060.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
+  invoke void @_ZN3std4path4Path5_join17h9500bce508c32853E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 %.sroa.09.057.i, i64 noundef %.sroa.6.058.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i)
           to label %.noexc387 unwind label %.loopexit592
 
 .noexc387:                                        ; preds = %.noexc386

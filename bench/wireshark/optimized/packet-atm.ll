@@ -776,237 +776,238 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.160)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %8 = load i8, ptr %7, align 2
-  switch i8 %8, label %137 [
+  switch i8 %8, label %139 [
     i8 1, label %9
-    i8 2, label %113
-    i8 4, label %113
-    i8 3, label %125
-    i8 5, label %125
+    i8 2, label %115
+    i8 4, label %115
+    i8 3, label %127
+    i8 5, label %127
   ]
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.291)
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %.critedge.i, label %11
+  br i1 %.not.i, label %.thread111.critedge.i, label %.critedge.i
 
-11:                                               ; preds = %9
-  %12 = load i32, ptr @proto_atm_lane, align 4
-  %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.160)
-  %14 = load i32, ptr @ett_atm_lane, align 4
-  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
-  %16 = load i32, ptr @hf_atm_le_control_marker, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  %18 = load i32, ptr @hf_atm_le_control_protocol, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %20 = load i32, ptr @hf_atm_le_control_version, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
-  br label %.critedge.i
+.critedge.i:                                      ; preds = %9
+  %11 = load i32, ptr @proto_atm_lane, align 4
+  %12 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.160)
+  %13 = load i32, ptr @ett_atm_lane, align 4
+  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
+  %15 = load i32, ptr @hf_atm_le_control_marker, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %17 = load i32, ptr @hf_atm_le_control_protocol, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %19 = load i32, ptr @hf_atm_le_control_version, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %22 = load ptr, ptr %5, align 8
+  %23 = zext i16 %21 to i32
+  %24 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @le_control_opcode_vals, ptr noundef nonnull @.str.349)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.348, ptr noundef %24)
+  %25 = load i32, ptr @hf_atm_le_control_opcode, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %25, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  %27 = and i16 %21, -257
+  %or.cond.i = icmp eq i16 %27, 3
+  br i1 %or.cond.i, label %dissect_le_control.exit, label %28
 
-.critedge.i:                                      ; preds = %11, %9
-  %.0110.i = phi ptr [ %15, %11 ], [ null, %9 ]
-  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
-  %23 = load ptr, ptr %5, align 8
-  %24 = zext i16 %22 to i32
-  %25 = tail call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @le_control_opcode_vals, ptr noundef nonnull @.str.349)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.348, ptr noundef %25)
-  br i1 %.not.i, label %dissect_le_control.exit, label %26
+28:                                               ; preds = %.critedge.i
+  %29 = and i32 %23, 256
+  %.not107.i = icmp eq i32 %29, 0
+  br i1 %.not107.i, label %33, label %30
 
-26:                                               ; preds = %.critedge.i
-  %27 = load i32, ptr @hf_atm_le_control_opcode, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %27, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  %29 = and i16 %22, -257
-  %or.cond.i = icmp eq i16 %29, 3
-  br i1 %or.cond.i, label %dissect_le_control.exit, label %30
+30:                                               ; preds = %28
+  %31 = load i32, ptr @hf_atm_le_control_status, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %31, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  br label %33
 
-30:                                               ; preds = %26
-  %31 = and i32 %24, 256
-  %.not107.i = icmp eq i32 %31, 0
-  br i1 %.not107.i, label %35, label %32
-
-32:                                               ; preds = %30
-  %33 = load i32, ptr @hf_atm_le_control_status, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %33, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
-  br label %35
-
-35:                                               ; preds = %32, %30
-  %36 = load i32, ptr @hf_atm_le_control_transaction_id, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %38 = load i32, ptr @hf_atm_le_control_requester_lecid, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %38, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %40 = load i32, ptr @hf_atm_le_control_flags, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %40, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %42 = load i32, ptr @ett_atm_lane_lc_flags, align 4
-  %43 = tail call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42)
-  switch i16 %22, label %dissect_le_control.exit [
-    i16 1, label %44
-    i16 257, label %44
-    i16 2, label %47
-    i16 258, label %47
-    i16 4, label %57
-    i16 260, label %57
-    i16 5, label %57
-    i16 261, label %57
-    i16 263, label %104
-    i16 7, label %104
-    i16 266, label %91
-    i16 9, label %86
-    i16 10, label %91
-    i16 8, label %71
-    i16 6, label %68
-    i16 262, label %68
+33:                                               ; preds = %30, %28
+  %34 = load i32, ptr @hf_atm_le_control_transaction_id, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  %36 = load i32, ptr @hf_atm_le_control_requester_lecid, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %36, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %38 = load i32, ptr @hf_atm_le_control_flags, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %38, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %40 = load i32, ptr @ett_atm_lane_lc_flags, align 4
+  %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
+  switch i16 %21, label %dissect_le_control.exit [
+    i16 1, label %42
+    i16 257, label %42
+    i16 2, label %45
+    i16 258, label %45
+    i16 4, label %55
+    i16 260, label %55
+    i16 5, label %55
+    i16 261, label %55
+    i16 263, label %102
+    i16 7, label %102
+    i16 266, label %89
+    i16 9, label %84
+    i16 10, label %89
+    i16 8, label %69
+    i16 6, label %66
+    i16 262, label %66
   ]
 
-44:                                               ; preds = %35, %35
-  %45 = load i32, ptr @hf_atm_le_control_flag_v2_capable, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %45, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %.0110.i)
+42:                                               ; preds = %33, %33
+  %43 = load i32, ptr @hf_atm_le_control_flag_v2_capable, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %14)
   br label %dissect_le_control.exit
 
-47:                                               ; preds = %35, %35
-  %48 = load i32, ptr @hf_atm_le_control_flag_v2_capable, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %48, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %50 = icmp eq i16 %22, 2
+45:                                               ; preds = %33, %33
+  %46 = load i32, ptr @hf_atm_le_control_flag_v2_capable, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %46, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %48 = icmp eq i16 %21, 2
   %hf_atm_le_control_flag_selective_multicast.val.i = load i32, ptr @hf_atm_le_control_flag_selective_multicast, align 4
   %hf_atm_le_control_flag_v2_required.val.i = load i32, ptr @hf_atm_le_control_flag_v2_required, align 4
-  %51 = select i1 %50, i32 %hf_atm_le_control_flag_selective_multicast.val.i, i32 %hf_atm_le_control_flag_v2_required.val.i
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %51, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %53 = load i32, ptr @hf_atm_le_control_flag_proxy, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %53, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %55 = load i32, ptr @hf_atm_le_control_flag_exclude_explorer_frames, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %55, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %.0110.i)
+  %49 = select i1 %48, i32 %hf_atm_le_control_flag_selective_multicast.val.i, i32 %hf_atm_le_control_flag_v2_required.val.i
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %49, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %51 = load i32, ptr @hf_atm_le_control_flag_proxy, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %51, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %53 = load i32, ptr @hf_atm_le_control_flag_exclude_explorer_frames, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %53, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  tail call fastcc void @dissect_le_configure_join_frame(ptr noundef %0, ptr noundef %14)
   br label %dissect_le_control.exit
 
-57:                                               ; preds = %35, %35, %35, %35
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %.0110.i)
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %.0110.i)
-  %58 = load i32, ptr @hf_atm_source_atm, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %58, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
-  %60 = load i32, ptr @hf_atm_reserved, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %60, ptr noundef %0, i32 noundef 52, i32 noundef 2, i32 noundef 0)
-  %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
-  %63 = load i32, ptr @hf_atm_le_registration_frame_num_tlvs, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %63, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
-  %65 = load i32, ptr @hf_atm_reserved, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %65, ptr noundef %0, i32 noundef 55, i32 noundef 53, i32 noundef 0)
-  %67 = zext i8 %62 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %67, ptr noundef %.0110.i)
+55:                                               ; preds = %33, %33, %33, %33
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %14)
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %14)
+  %56 = load i32, ptr @hf_atm_source_atm, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %56, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
+  %58 = load i32, ptr @hf_atm_reserved, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %58, ptr noundef %0, i32 noundef 52, i32 noundef 2, i32 noundef 0)
+  %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
+  %61 = load i32, ptr @hf_atm_le_registration_frame_num_tlvs, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %61, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
+  %63 = load i32, ptr @hf_atm_reserved, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %63, ptr noundef %0, i32 noundef 55, i32 noundef 53, i32 noundef 0)
+  %65 = zext i8 %60 to i32
+  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %65, ptr noundef %14)
   br label %dissect_le_control.exit
 
-68:                                               ; preds = %35, %35
-  %69 = load i32, ptr @hf_atm_le_control_flag_address, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %69, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  br label %71
+66:                                               ; preds = %33, %33
+  %67 = load i32, ptr @hf_atm_le_control_flag_address, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %67, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  br label %69
 
-71:                                               ; preds = %68, %35
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %.0110.i)
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %.0110.i)
-  %72 = load i32, ptr @hf_atm_source_atm, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %72, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
-  %74 = load i32, ptr @hf_atm_reserved, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %74, ptr noundef %0, i32 noundef 52, i32 noundef 2, i32 noundef 0)
-  %76 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
-  %77 = load i32, ptr @hf_atm_le_arp_frame_num_tlvs, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %77, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
-  %79 = load i32, ptr @hf_atm_reserved, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %79, ptr noundef %0, i32 noundef 55, i32 noundef 1, i32 noundef 0)
-  %81 = load i32, ptr @hf_atm_target_atm, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %81, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
-  %83 = load i32, ptr @hf_atm_reserved, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %83, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
-  %85 = zext i8 %76 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %85, ptr noundef %.0110.i)
+69:                                               ; preds = %66, %33
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %14)
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %14)
+  %70 = load i32, ptr @hf_atm_source_atm, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %70, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
+  %72 = load i32, ptr @hf_atm_reserved, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %72, ptr noundef %0, i32 noundef 52, i32 noundef 2, i32 noundef 0)
+  %74 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
+  %75 = load i32, ptr @hf_atm_le_arp_frame_num_tlvs, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %75, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
+  %77 = load i32, ptr @hf_atm_reserved, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %77, ptr noundef %0, i32 noundef 55, i32 noundef 1, i32 noundef 0)
+  %79 = load i32, ptr @hf_atm_target_atm, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %79, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
+  %81 = load i32, ptr @hf_atm_reserved, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %81, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
+  %83 = zext i8 %74 to i32
+  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %83, ptr noundef %14)
   br label %dissect_le_control.exit
 
-86:                                               ; preds = %35
-  %87 = load i32, ptr @hf_atm_le_control_topology_change, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %87, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %89 = load i32, ptr @hf_atm_reserved, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %89, ptr noundef %0, i32 noundef 16, i32 noundef 92, i32 noundef 0)
+84:                                               ; preds = %33
+  %85 = load i32, ptr @hf_atm_le_control_topology_change, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %85, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %87 = load i32, ptr @hf_atm_reserved, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %87, ptr noundef %0, i32 noundef 16, i32 noundef 92, i32 noundef 0)
   br label %dissect_le_control.exit
 
-91:                                               ; preds = %35, %35
-  %92 = load i32, ptr @hf_atm_reserved, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %92, ptr noundef %0, i32 noundef 16, i32 noundef 38, i32 noundef 0)
-  %94 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
-  %95 = load i32, ptr @hf_atm_le_verify_frame_num_tlvs, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %95, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
-  %97 = load i32, ptr @hf_atm_reserved, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %97, ptr noundef %0, i32 noundef 55, i32 noundef 1, i32 noundef 0)
-  %99 = load i32, ptr @hf_atm_target_atm, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %99, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
-  %101 = load i32, ptr @hf_atm_reserved, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %101, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
-  %103 = zext i8 %94 to i32
-  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %103, ptr noundef %.0110.i)
+89:                                               ; preds = %33, %33
+  %90 = load i32, ptr @hf_atm_reserved, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %90, ptr noundef %0, i32 noundef 16, i32 noundef 38, i32 noundef 0)
+  %92 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 54)
+  %93 = load i32, ptr @hf_atm_le_verify_frame_num_tlvs, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %93, ptr noundef %0, i32 noundef 54, i32 noundef 1, i32 noundef 0)
+  %95 = load i32, ptr @hf_atm_reserved, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %95, ptr noundef %0, i32 noundef 55, i32 noundef 1, i32 noundef 0)
+  %97 = load i32, ptr @hf_atm_target_atm, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %97, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
+  %99 = load i32, ptr @hf_atm_reserved, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %99, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
+  %101 = zext i8 %92 to i32
+  tail call fastcc void @dissect_le_control_tlvs(ptr noundef %0, i32 noundef %101, ptr noundef %14)
   br label %dissect_le_control.exit
 
-104:                                              ; preds = %35, %35
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %.0110.i)
-  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %.0110.i)
-  %105 = load i32, ptr @hf_atm_source_atm, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %105, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
-  %107 = load i32, ptr @hf_atm_reserved, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %107, ptr noundef %0, i32 noundef 52, i32 noundef 4, i32 noundef 0)
-  %109 = load i32, ptr @hf_atm_target_atm, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %109, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
-  %111 = load i32, ptr @hf_atm_reserved, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %.0110.i, i32 noundef %111, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
+102:                                              ; preds = %33, %33
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.350, ptr noundef %14)
+  tail call fastcc void @dissect_lan_destination(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.351, ptr noundef %14)
+  %103 = load i32, ptr @hf_atm_source_atm, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %103, ptr noundef %0, i32 noundef 32, i32 noundef 20, i32 noundef 0)
+  %105 = load i32, ptr @hf_atm_reserved, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %105, ptr noundef %0, i32 noundef 52, i32 noundef 4, i32 noundef 0)
+  %107 = load i32, ptr @hf_atm_target_atm, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %107, ptr noundef %0, i32 noundef 56, i32 noundef 20, i32 noundef 0)
+  %109 = load i32, ptr @hf_atm_reserved, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %109, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
   br label %dissect_le_control.exit
 
-113:                                              ; preds = %4, %4
-  %114 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.346)
+.thread111.critedge.i:                            ; preds = %9
+  %111 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %112 = load ptr, ptr %5, align 8
+  %113 = zext i16 %111 to i32
+  %114 = tail call ptr @val_to_str(i32 noundef %113, ptr noundef nonnull @le_control_opcode_vals, ptr noundef nonnull @.str.349)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.348, ptr noundef %114)
+  br label %dissect_le_control.exit
+
+115:                                              ; preds = %4, %4
+  %116 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %116, i32 noundef 25, ptr noundef nonnull @.str.346)
   %.not.i26 = icmp eq ptr %2, null
-  br i1 %.not.i26, label %dissect_le_client.exit, label %115
+  br i1 %.not.i26, label %dissect_le_client.exit, label %117
 
-115:                                              ; preds = %113
-  %116 = load i32, ptr @proto_atm_lane, align 4
-  %117 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
-  %118 = load i32, ptr @ett_atm_lane, align 4
-  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118)
-  %120 = load i32, ptr @hf_atm_le_client_client, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+117:                                              ; preds = %115
+  %118 = load i32, ptr @proto_atm_lane, align 4
+  %119 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %118, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
+  %120 = load i32, ptr @ett_atm_lane, align 4
+  %121 = tail call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120)
+  %122 = load i32, ptr @hf_atm_le_client_client, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %dissect_le_client.exit
 
-dissect_le_client.exit:                           ; preds = %113, %115
-  %122 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  %123 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %124 = tail call i32 @call_dissector(ptr noundef %123, ptr noundef %122, ptr noundef %1, ptr noundef %2)
+dissect_le_client.exit:                           ; preds = %115, %117
+  %124 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %125 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %126 = tail call i32 @call_dissector(ptr noundef %125, ptr noundef %124, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-125:                                              ; preds = %4, %4
-  %126 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.347)
+127:                                              ; preds = %4, %4
+  %128 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.347)
   %.not.i27 = icmp eq ptr %2, null
-  br i1 %.not.i27, label %dissect_le_client.exit28, label %127
+  br i1 %.not.i27, label %dissect_le_client.exit28, label %129
 
-127:                                              ; preds = %125
-  %128 = load i32, ptr @proto_atm_lane, align 4
-  %129 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
-  %130 = load i32, ptr @ett_atm_lane, align 4
-  %131 = tail call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %130)
-  %132 = load i32, ptr @hf_atm_le_client_client, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+129:                                              ; preds = %127
+  %130 = load i32, ptr @proto_atm_lane, align 4
+  %131 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %130, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
+  %132 = load i32, ptr @ett_atm_lane, align 4
+  %133 = tail call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132)
+  %134 = load i32, ptr @hf_atm_le_client_client, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %dissect_le_client.exit28
 
-dissect_le_client.exit28:                         ; preds = %125, %127
-  %134 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  %135 = load ptr, ptr @tr_handle, align 8
-  %136 = tail call i32 @call_dissector(ptr noundef %135, ptr noundef %134, ptr noundef %1, ptr noundef %2)
+dissect_le_client.exit28:                         ; preds = %127, %129
+  %136 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %137 = load ptr, ptr @tr_handle, align 8
+  %138 = tail call i32 @call_dissector(ptr noundef %137, ptr noundef %136, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-137:                                              ; preds = %4
-  %138 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %138, i32 noundef 25, ptr noundef nonnull @.str.290)
-  %139 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
-  %140 = tail call i32 @call_data_dissector(ptr noundef %139, ptr noundef %1, ptr noundef %2)
+139:                                              ; preds = %4
+  %140 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.290)
+  %141 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
+  %142 = tail call i32 @call_data_dissector(ptr noundef %141, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-dissect_le_control.exit:                          ; preds = %104, %91, %86, %71, %57, %47, %44, %35, %26, %.critedge.i, %137, %dissect_le_client.exit28, %dissect_le_client.exit
-  %141 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %141
+dissect_le_control.exit:                          ; preds = %.thread111.critedge.i, %102, %89, %84, %69, %55, %45, %42, %33, %.critedge.i, %139, %dissect_le_client.exit28, %dissect_le_client.exit
+  %143 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %143
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1421,11 +1422,11 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %223 = load i8, ptr %222, align 1
   %224 = icmp eq i8 %223, 3
   %or.cond7.i = select i1 %or.cond.i, i1 %224, i1 false
-  br i1 %or.cond7.i, label %.thread205.i, label %225
+  br i1 %or.cond7.i, label %.thread201.i, label %225
 
 225:                                              ; preds = %215
   %226 = icmp eq i8 %220, 33
-  br i1 %226, label %.thread205.i, label %227
+  br i1 %226, label %.thread201.i, label %227
 
 227:                                              ; preds = %225
   %228 = or i8 %220, %217
@@ -1436,7 +1437,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %231 = load i32, ptr @hf_atm_padding, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %231, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %233 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  br label %.thread205.i
+  br label %.thread201.i
 
 234:                                              ; preds = %227
   br i1 %224, label %235, label %._crit_edge.i
@@ -1450,8 +1451,8 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %237 = load i8, ptr %236, align 1
   switch i8 %237, label %238 [
-    i8 -52, label %.thread205.i
-    i8 -114, label %.thread205.i
+    i8 -52, label %.thread201.i
+    i8 -114, label %.thread201.i
   ]
 
 238:                                              ; preds = %235
@@ -1460,7 +1461,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %241 = load i8, ptr %240, align 1
   %242 = icmp eq i8 %241, -128
   %or.cond15.i = select i1 %239, i1 %242, i1 false
-  br i1 %or.cond15.i, label %.thread205.i, label %243
+  br i1 %or.cond15.i, label %.thread201.i, label %243
 
 243:                                              ; preds = %238, %._crit_edge.i
   %244 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %241, %238 ]
@@ -1471,8 +1472,8 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %247 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %248 = load i8, ptr %247, align 1
   switch i8 %248, label %249 [
-    i8 -52, label %.thread205.i
-    i8 -114, label %.thread205.i
+    i8 -52, label %.thread201.i
+    i8 -114, label %.thread201.i
   ]
 
 249:                                              ; preds = %246
@@ -1481,16 +1482,16 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %252 = load i8, ptr %251, align 1
   %253 = icmp eq i8 %252, -128
   %or.cond23.i = select i1 %250, i1 %253, i1 false
-  br i1 %or.cond23.i, label %.thread205.i, label %254
+  br i1 %or.cond23.i, label %.thread201.i, label %254
 
 254:                                              ; preds = %249, %243
   %255 = and i8 %217, -16
   switch i8 %255, label %258 [
-    i8 64, label %.thread205.i
-    i8 96, label %.thread205.i
+    i8 64, label %.thread201.i
+    i8 96, label %.thread201.i
   ]
 
-.thread205.i:                                     ; preds = %254, %254, %249, %246, %246, %238, %235, %235, %230, %225, %215
+.thread201.i:                                     ; preds = %254, %254, %249, %246, %246, %238, %235, %235, %230, %225, %215
   %llc_handle.sink.i = phi ptr [ @eth_maybefcs_handle, %230 ], [ @llc_handle, %215 ], [ @ppp_handle, %225 ], [ @fr_handle, %235 ], [ @fr_handle, %235 ], [ @fr_handle, %238 ], [ @fr_handle, %246 ], [ @fr_handle, %246 ], [ @fr_handle, %249 ], [ @ip_handle, %254 ], [ @ip_handle, %254 ]
   %.0.sink.i = phi ptr [ %233, %230 ], [ %.0.i, %215 ], [ %.0.i, %225 ], [ %.0.i, %235 ], [ %.0.i, %235 ], [ %.0.i, %238 ], [ %.0.i, %246 ], [ %.0.i, %246 ], [ %.0.i, %249 ], [ %.0.i, %254 ], [ %.0.i, %254 ]
   %256 = load ptr, ptr %llc_handle.sink.i, align 8
@@ -1544,7 +1545,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %283 = call i32 @call_data_dissector(ptr noundef %.1199.i, ptr noundef %1, ptr noundef %2)
   br label %dissect_reassembled_pdu.exit
 
-dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %277, %.thread205.i, %206, %200, %184, %65
+dissect_reassembled_pdu.exit:                     ; preds = %.thread.i, %277, %.thread201.i, %206, %200, %184, %65
   %284 = call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %284
 }

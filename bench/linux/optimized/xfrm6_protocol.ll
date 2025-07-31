@@ -46,29 +46,29 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm6_protoc
 define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initializes((64, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.flowi6, align 8
   %6 = trunc i32 %1 to i8
-  switch i8 %6, label %9 [
-    i8 50, label %13
+  switch i8 %6, label %.critedge [
+    i8 50, label %12
     i8 51, label %7
     i8 108, label %8
   ]
 
 7:                                                ; preds = %4
-  br label %13
+  br label %12
 
 8:                                                ; preds = %4
-  br label %13
+  br label %12
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 10, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 24, ptr %12, align 8
-  br label %.loopexit4
+.critedge:                                        ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr null, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 10, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 24, ptr %11, align 8
+  br label %.loopexit3
 
-13:                                               ; preds = %8, %7, %4
-  %.ph = phi ptr [ @esp6_handlers, %4 ], [ @ah6_handlers, %7 ], [ @ipcomp6_handlers, %8 ]
+12:                                               ; preds = %8, %7, %4
+  %13 = phi ptr [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ], [ @esp6_handlers, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -80,7 +80,7 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   %19 = icmp ult i64 %18, 2
   br i1 %19, label %20, label %63
 
-20:                                               ; preds = %13
+20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -121,9 +121,9 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %50, 0
-  br i1 %51, label %.thread3, label %62
+  br i1 %51, label %.thread, label %62
 
-.thread3:                                         ; preds = %20
+.thread:                                          ; preds = %20
   %52 = icmp ne ptr %48, null
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %54 = load i24, ptr %53, align 1
@@ -143,16 +143,16 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #7
   br label %76
 
-63:                                               ; preds = %.thread3, %13
-  %64 = load volatile ptr, ptr %.ph, align 8
+63:                                               ; preds = %.thread, %12
+  %64 = load volatile ptr, ptr %13, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit4, label %.preheader
+  br i1 %65, label %.loopexit3, label %.preheader
 
 66:                                               ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %68 = load volatile ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.loopexit4, label %.preheader, !llvm.loop !5
+  br i1 %69, label %.loopexit3, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %63, %66
   %70 = phi ptr [ %68, %66 ], [ %64, %63 ]
@@ -162,12 +162,12 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   %74 = icmp eq i32 %73, -22
   br i1 %74, label %66, label %.loopexit
 
-.loopexit4:                                       ; preds = %66, %9, %63
+.loopexit3:                                       ; preds = %66, %.critedge, %63
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %75) #7
   br label %76
 
-76:                                               ; preds = %62, %.loopexit4
+76:                                               ; preds = %62, %.loopexit3
   call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #7
   br label %.loopexit
 

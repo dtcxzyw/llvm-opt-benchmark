@@ -4124,7 +4124,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %6, %8
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4223,7 +4223,7 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
 71:                                               ; preds = %16, %10
   %72 = tail call ptr @alloc_pages(i32 noundef 3264, i32 noundef 0) #17
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread, label %74
+  br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4319,9 +4319,9 @@ define internal i32 @pipe_to_sg(ptr noundef %0, ptr noundef %1, ptr noundef read
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %138, %.pre-phi
   store i64 %139, ptr %137, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %71, %133, %3
+.critedge:                                        ; preds = %71, %133, %3
   %140 = phi i32 [ %134, %133 ], [ 0, %3 ], [ -12, %71 ]
   ret i32 %140
 }

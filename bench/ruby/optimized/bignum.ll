@@ -9369,18 +9369,18 @@ bary_sub.exit.i:                                  ; preds = %96, %.lr.ph82.i.i.i
   br label %104
 
 104:                                              ; preds = %107, %bary_sub.exit.i
-  %.0104141.i.i = phi i64 [ 2, %bary_sub.exit.i ], [ %108, %107 ]
-  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %.0104141.i.i
+  %.0104142.i.i = phi i64 [ 2, %bary_sub.exit.i ], [ %108, %107 ]
+  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %.0104142.i.i
   %105 = load i32, ptr %gep.i.i, align 4, !tbaa !18
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.critedge.preheader.i.i
 
 .critedge.preheader.i.i:                          ; preds = %104
-  %invariant.gep142.i.i = getelementptr i8, ptr %5, i64 -4
+  %invariant.gep143.i.i = getelementptr i8, ptr %5, i64 -4
   br label %110
 
 107:                                              ; preds = %104
-  %108 = add nsw i64 %.0104141.i.i, -1
+  %108 = add nsw i64 %.0104142.i.i, -1
   %cond.i.i = icmp eq i64 %108, 0
   br i1 %cond.i.i, label %109, label %104, !llvm.loop !83
 
@@ -9390,73 +9390,73 @@ bary_sub.exit.i:                                  ; preds = %96, %.lr.ph82.i.i.i
 
 110:                                              ; preds = %.critedge.i.i, %.critedge.preheader.i.i
   %indvar.i.i = phi i64 [ 0, %.critedge.preheader.i.i ], [ %indvar.next.i.i, %.critedge.i.i ]
-  %.0103144.i.i = phi i64 [ 3, %.critedge.preheader.i.i ], [ %113, %.critedge.i.i ]
-  %gep143.i.i = getelementptr i32, ptr %invariant.gep142.i.i, i64 %.0103144.i.i
-  %111 = load i32, ptr %gep143.i.i, align 4, !tbaa !18
+  %.0103145.i.i = phi i64 [ 3, %.critedge.preheader.i.i ], [ %113, %.critedge.i.i ]
+  %gep144.i.i = getelementptr i32, ptr %invariant.gep143.i.i, i64 %.0103145.i.i
+  %111 = load i32, ptr %gep144.i.i, align 4, !tbaa !18
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %.critedge.i.i, label %.critedge2.i.i
 
 .critedge.i.i:                                    ; preds = %110
-  %113 = add nsw i64 %.0103144.i.i, -1
-  %cond125.i.i = icmp eq i64 %113, 0
+  %113 = add nsw i64 %.0103145.i.i, -1
+  %cond127.i.i = icmp eq i64 %113, 0
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
-  br i1 %cond125.i.i, label %.preheader133.preheader.i.i, label %110, !llvm.loop !84
+  br i1 %cond127.i.i, label %.preheader135.preheader.i.i, label %110, !llvm.loop !84
 
-.preheader133.preheader.i.i:                      ; preds = %.critedge.i.i
+.preheader135.preheader.i.i:                      ; preds = %.critedge.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !18
   store i64 0, ptr %8, align 8
   br label %.preheader.i.i.preheader
 
 .critedge2.i.i:                                   ; preds = %110
-  %114 = icmp ult i64 %.0103144.i.i, %.0104141.i.i
+  %114 = icmp ult i64 %.0103145.i.i, %.0104142.i.i
   br i1 %114, label %rbimpl_size_mul_or_raise.exit.i.i, label %115
 
 115:                                              ; preds = %.critedge2.i.i
-  %116 = icmp eq i64 %.0103144.i.i, %.0104141.i.i
+  %116 = icmp eq i64 %.0103145.i.i, %.0104142.i.i
   %117 = icmp ult i32 %111, %105
-  %or.cond132.i.i = and i1 %116, %117
-  br i1 %or.cond132.i.i, label %rbimpl_size_mul_or_raise.exit.i.i, label %123
+  %or.cond134.i.i = and i1 %116, %117
+  br i1 %or.cond134.i.i, label %rbimpl_size_mul_or_raise.exit.i.i, label %123
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %115, %.critedge2.i.i
-  %118 = shl nuw i64 %.0103144.i.i, 2
+  %118 = shl nuw i64 %.0103145.i.i, 2
   %119 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull readonly %5, i64 noundef range(i64 1, 0) %118, i64 noundef 8) #26, !alias.scope !85
-  %.not121151.i.i = icmp eq i64 %.0103144.i.i, 2
-  br i1 %.not121151.i.i, label %.preheader134.i.i, label %.lr.ph154.preheader.i.i
+  %.not121151.i.i = icmp eq i64 %.0103145.i.i, 2
+  br i1 %.not121151.i.i, label %.preheader136.i.i, label %.lr.ph154.preheader.i.i
 
 .lr.ph154.preheader.i.i:                          ; preds = %rbimpl_size_mul_or_raise.exit.i.i
-  %120 = getelementptr i32, ptr %8, i64 %.0103144.i.i
+  %120 = getelementptr i32, ptr %8, i64 %.0103145.i.i
   %121 = shl nuw nsw i64 %indvar.i.i, 2
   %122 = add nsw i64 %121, -4
   call void @llvm.memset.p0.i64(ptr align 4 %120, i8 0, i64 %122, i1 false), !tbaa !18
-  br label %.preheader134.i.i
+  br label %.preheader136.i.i
 
-.preheader134.i.i:                                ; preds = %.lr.ph154.preheader.i.i, %rbimpl_size_mul_or_raise.exit.i.i
+.preheader136.i.i:                                ; preds = %.lr.ph154.preheader.i.i, %rbimpl_size_mul_or_raise.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !18
   br label %.preheader.i.i.preheader
 
 123:                                              ; preds = %115
-  %124 = icmp eq i64 %.0104141.i.i, 1
-  br i1 %124, label %rbimpl_size_mul_or_raise.exit126.i.i, label %164
+  %124 = icmp eq i64 %.0104142.i.i, 1
+  br i1 %124, label %rbimpl_size_mul_or_raise.exit128.i.i, label %164
 
-rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %123
-  %125 = shl nuw i64 %.0103144.i.i, 2
+rbimpl_size_mul_or_raise.exit128.i.i:             ; preds = %123
+  %125 = shl nuw i64 %.0103145.i.i, 2
   %126 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef nonnull readonly %5, i64 noundef range(i64 1, 0) %125, i64 noundef 16) #26, !alias.scope !89
-  %.not119147.i.i = icmp eq i64 %.0103144.i.i, 4
-  br i1 %.not119147.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+  %.not119148.i.i = icmp eq i64 %.0103145.i.i, 4
+  br i1 %.not119148.i.i, label %.critedge126.i.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %rbimpl_size_mul_or_raise.exit126.i.i
-  %127 = getelementptr i32, ptr %7, i64 %.0103144.i.i
+.lr.ph.preheader.i.i:                             ; preds = %rbimpl_size_mul_or_raise.exit128.i.i
+  %127 = getelementptr i32, ptr %7, i64 %.0103145.i.i
   %128 = shl nuw nsw i64 %indvar.i.i, 2
   %129 = add nuw i64 %128, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, i8 0, i64 %129, i1 false), !tbaa !18
-  br label %._crit_edge.i.i
+  br label %.critedge126.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %rbimpl_size_mul_or_raise.exit126.i.i
+.critedge126.i.i:                                 ; preds = %.lr.ph.preheader.i.i, %rbimpl_size_mul_or_raise.exit128.i.i
   %130 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %103)
   %131 = icmp samesign ult i32 %130, 2
   br i1 %131, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i.i.i8.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %.critedge126.i.i
   %132 = load i32, ptr %5, align 8, !tbaa !18
   %133 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %103, i1 false)
   %134 = sub nsw i32 31, %133
@@ -9468,7 +9468,7 @@ rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %123
   %.014.in16.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %141, %136 ]
   %.014.i.i.i.i.i = shl nuw i64 %.014.in16.i.i.i.i.i, 32
   %137 = xor i64 %.017.i.i.i.i.i, -1
-  %138 = add nsw i64 %.0103144.i.i, %137
+  %138 = add nsw i64 %.0103145.i.i, %137
   %139 = getelementptr i32, ptr %5, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !18
   %141 = zext i32 %140 to i64
@@ -9478,10 +9478,10 @@ rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %123
   %145 = getelementptr i32, ptr %7, i64 %138
   store i32 %144, ptr %145, align 4, !tbaa !18
   %146 = add nuw nsw i64 %.017.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %146, %.0103144.i.i
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %146, %.0103145.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %bigdivrem_single.exit.loopexit.i.i, label %136, !llvm.loop !58
 
-.lr.ph.i.i.i8.i:                                  ; preds = %._crit_edge.i.i
+.lr.ph.i.i.i8.i:                                  ; preds = %.critedge126.i.i
   %147 = and i64 %1, 4294967295
   br label %148
 
@@ -9490,7 +9490,7 @@ rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %123
   %.02629.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i8.i ], [ %160, %148 ]
   %149 = shl nuw i64 %.030.i.i.i.i, 32
   %150 = xor i64 %.02629.i.i.i.i, -1
-  %151 = add nsw i64 %.0103144.i.i, %150
+  %151 = add nsw i64 %.0103145.i.i, %150
   %152 = getelementptr i32, ptr %5, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !18
   %154 = zext i32 %153 to i64
@@ -9501,7 +9501,7 @@ rbimpl_size_mul_or_raise.exit126.i.i:             ; preds = %123
   store i32 %157, ptr %158, align 4, !tbaa !18
   %159 = urem i64 %155, %147
   %160 = add nuw nsw i64 %.02629.i.i.i.i, 1
-  %exitcond.not.i.i.i9.i = icmp eq i64 %160, %.0103144.i.i
+  %exitcond.not.i.i.i9.i = icmp eq i64 %160, %.0103145.i.i
   br i1 %exitcond.not.i.i.i9.i, label %._crit_edge.loopexit.i.i.i.i, label %148, !llvm.loop !57
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %148
@@ -9521,8 +9521,8 @@ bigdivrem_single.exit.i.i:                        ; preds = %bigdivrem_single.ex
   br label %.preheader.i.i.preheader
 
 164:                                              ; preds = %123
-  %165 = icmp eq i64 %.0103144.i.i, 2
-  %166 = icmp eq i64 %.0104141.i.i, 2
+  %165 = icmp eq i64 %.0103145.i.i, 2
+  %166 = icmp eq i64 %.0104142.i.i, 2
   %or.cond.i.i = and i1 %166, %165
   br i1 %or.cond.i.i, label %167, label %172
 
@@ -9537,10 +9537,10 @@ bigdivrem_single.exit.i.i:                        ; preds = %bigdivrem_single.ex
   br label %.preheader.i.i.preheader
 
 172:                                              ; preds = %164
-  call fastcc void @bary_divmod_normal(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull readonly %5, i64 noundef %.0103144.i.i, ptr noundef nonnull %6, i64 noundef %.0104141.i.i)
+  call fastcc void @bary_divmod_normal(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull readonly %5, i64 noundef %.0103145.i.i, ptr noundef nonnull %6, i64 noundef %.0104142.i.i)
   br label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %172, %167, %bigdivrem_single.exit.i.i, %.preheader134.i.i, %.preheader133.preheader.i.i
+.preheader.i.i.preheader:                         ; preds = %172, %167, %bigdivrem_single.exit.i.i, %.preheader136.i.i, %.preheader135.preheader.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %180

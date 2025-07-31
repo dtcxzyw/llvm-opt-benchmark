@@ -1289,7 +1289,7 @@ define ptr @CMS_sign_receipt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 582, ptr noundef nonnull @__func__.CMS_sign_receipt) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 174, ptr noundef null) #4
-  br label %44
+  br label %43
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1298,13 +1298,13 @@ define ptr @CMS_sign_receipt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %15 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %13) #4
   %16 = tail call ptr @CMS_sign_ex(ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef null, i32 noundef %7, ptr noundef %14, ptr noundef %15)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %42, label %18
+  br i1 %17, label %41, label %18
 
 18:                                               ; preds = %11
   %19 = tail call ptr @OBJ_nid2obj(i32 noundef 204) #4
   %20 = tail call i32 @CMS_set1_eContentType(ptr noundef nonnull %16, ptr noundef %19) #4
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %42, label %21
+  br i1 %.not, label %41, label %21
 
 21:                                               ; preds = %18
   %22 = tail call ptr @CMS_add1_signer(ptr noundef nonnull %16, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef %7) #4
@@ -1315,12 +1315,12 @@ define ptr @CMS_sign_receipt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 600, ptr noundef nonnull @__func__.CMS_sign_receipt) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 99, ptr noundef null) #4
-  br label %42
+  br label %41
 
 24:                                               ; preds = %21
   %25 = tail call ptr @ossl_cms_encode_Receipt(ptr noundef nonnull %0) #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %42, label %27
+  br i1 %26, label %41, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1328,38 +1328,38 @@ define ptr @CMS_sign_receipt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %30 = load i32, ptr %25, align 8, !tbaa !39
   %31 = tail call ptr @BIO_new_mem_buf(ptr noundef %29, i32 noundef %30) #4
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %42, label %33
+  br i1 %32, label %41, label %33
 
 33:                                               ; preds = %27
   %34 = tail call i32 @ossl_cms_msgSigDigest_add1(ptr noundef nonnull %22, ptr noundef nonnull %0) #4
   %.not48 = icmp eq i32 %34, 0
-  br i1 %.not48, label %42, label %35
+  br i1 %.not48, label %41, label %35
 
 35:                                               ; preds = %33
   %36 = tail call i32 @CMS_final(ptr noundef nonnull %16, ptr noundef nonnull %31, ptr noundef null, i32 noundef %7)
   %.not49 = icmp eq i32 %36, 0
-  br i1 %.not49, label %42, label %37
+  br i1 %.not49, label %41, label %37
 
 37:                                               ; preds = %35
   %38 = tail call ptr @CMS_get0_content(ptr noundef nonnull %16) #4
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %42, label %40
+  br i1 %39, label %41, label %.critedge
 
-40:                                               ; preds = %37
+.critedge:                                        ; preds = %37
   store ptr %25, ptr %38, align 8, !tbaa !5
-  %41 = tail call i32 @BIO_free(ptr noundef nonnull %31) #4
-  br label %44
+  %40 = tail call i32 @BIO_free(ptr noundef nonnull %31) #4
+  br label %43
 
-42:                                               ; preds = %11, %24, %27, %37, %35, %33, %23, %18
-  %.038.ph = phi ptr [ null, %18 ], [ null, %23 ], [ %25, %33 ], [ %25, %35 ], [ %25, %37 ], [ %25, %27 ], [ null, %24 ], [ null, %11 ]
-  %.037.ph = phi ptr [ null, %18 ], [ null, %23 ], [ %31, %33 ], [ %31, %35 ], [ %31, %37 ], [ null, %27 ], [ null, %24 ], [ null, %11 ]
-  %43 = tail call i32 @BIO_free(ptr noundef %.037.ph) #4
+41:                                               ; preds = %37, %35, %33, %27, %24, %18, %11, %23
+  %.038 = phi ptr [ null, %11 ], [ null, %24 ], [ %25, %27 ], [ %25, %37 ], [ %25, %35 ], [ %25, %33 ], [ null, %23 ], [ null, %18 ]
+  %.037 = phi ptr [ null, %11 ], [ null, %24 ], [ null, %27 ], [ %31, %37 ], [ %31, %35 ], [ %31, %33 ], [ null, %23 ], [ null, %18 ]
+  %42 = tail call i32 @BIO_free(ptr noundef %.037) #4
   tail call void @CMS_ContentInfo_free(ptr noundef %16) #4
-  tail call void @ASN1_OCTET_STRING_free(ptr noundef %.038.ph) #4
-  br label %44
+  tail call void @ASN1_OCTET_STRING_free(ptr noundef %.038) #4
+  br label %43
 
-44:                                               ; preds = %40, %42, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %42 ], [ %16, %40 ]
+43:                                               ; preds = %41, %.critedge, %10
+  %.0 = phi ptr [ null, %10 ], [ %16, %.critedge ], [ null, %41 ]
   ret ptr %.0
 }
 

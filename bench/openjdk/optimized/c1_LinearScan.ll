@@ -16689,16 +16689,16 @@ define hidden void @_ZN14IntervalWalker7walk_toE13IntervalStatei(ptr noundef non
   br i1 %.not53, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %8, %.backedge
-  %.promoted = phi ptr [ %64, %.backedge ], [ %15, %8 ]
-  %17 = phi ptr [ %63, %.backedge ], [ %14, %8 ]
+  %.promoted = phi ptr [ %61, %.backedge ], [ %15, %8 ]
+  %17 = phi ptr [ %60, %.backedge ], [ %14, %8 ]
   %.03855 = phi ptr [ %19, %.backedge ], [ %13, %8 ]
   %.03954 = phi ptr [ %.039.be, %.backedge ], [ %12, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %.03855, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.promoted, i64 4
   %21 = load i32, ptr %20, align 4
-  %.not4151.not = icmp sgt i32 %21, %2
-  br i1 %.not4151.not, label %27, label %.lr.ph
+  %.not4151 = icmp sgt i32 %21, %2
+  br i1 %.not4151, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph57, %.lr.ph
   %22 = phi ptr [ %24, %.lr.ph ], [ %.promoted, %.lr.ph57 ]
@@ -16710,109 +16710,104 @@ define hidden void @_ZN14IntervalWalker7walk_toE13IntervalStatei(ptr noundef non
   %.not41 = icmp sgt i32 %26, %2
   br i1 %.not41, label %.critedge, label %.lr.ph, !llvm.loop !110
 
-27:                                               ; preds = %.lr.ph57
-  br i1 %7, label %28, label %.backedge
+._crit_edge:                                      ; preds = %.lr.ph57
+  br i1 %7, label %.critedge, label %.backedge
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %.promoted, align 8
-  %.not50 = icmp sgt i32 %29, %2
-  br i1 %.not50, label %.backedge, label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph, %28
+.critedge:                                        ; preds = %.lr.ph, %._crit_edge
   store ptr %19, ptr %.03954, align 8
-  %30 = load ptr, ptr %17, align 8
-  %31 = load ptr, ptr @_ZN5Range4_endE, align 8
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %33, label %35
+  %27 = load ptr, ptr %17, align 8
+  %28 = load ptr, ptr @_ZN5Range4_endE, align 8
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %32
 
-33:                                               ; preds = %.critedge
-  %34 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
-  store i32 3, ptr %34, align 8
+30:                                               ; preds = %.critedge
+  %31 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
+  store i32 3, ptr %31, align 8
   br label %.backedge
 
-35:                                               ; preds = %.critedge
-  %36 = load i32, ptr %30, align 8
-  %.not42 = icmp sgt i32 %36, %2
+32:                                               ; preds = %.critedge
+  %33 = load i32, ptr %27, align 8
+  %.not42 = icmp sgt i32 %33, %2
   br i1 %.not42, label %.preheader, label %.preheader60
 
-.preheader60:                                     ; preds = %35, %.preheader60
-  %.012.i = phi ptr [ %.0.i, %.preheader60 ], [ null, %35 ]
-  %.0.in.i = phi ptr [ %41, %.preheader60 ], [ %10, %35 ]
+.preheader60:                                     ; preds = %32, %.preheader60
+  %.012.i = phi ptr [ %.0.i, %.preheader60 ], [ null, %32 ]
+  %.0.in.i = phi ptr [ %38, %.preheader60 ], [ %10, %32 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp slt i32 %39, %36
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  br i1 %40, label %.preheader60, label %42, !llvm.loop !107
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp slt i32 %36, %33
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  br i1 %37, label %.preheader60, label %39, !llvm.loop !107
 
-42:                                               ; preds = %.preheader60
-  %43 = icmp eq ptr %.012.i, null
-  br i1 %43, label %44, label %45
+39:                                               ; preds = %.preheader60
+  %40 = icmp eq ptr %.012.i, null
+  br i1 %40, label %41, label %42
 
-44:                                               ; preds = %42
+41:                                               ; preds = %39
   store ptr %.03855, ptr %10, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
-  store ptr %.03855, ptr %46, align 8
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
+  store ptr %.03855, ptr %43, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit
 
-_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit: ; preds = %44, %45
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit: ; preds = %41, %42
   store ptr %.0.i, ptr %18, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
-  store i32 1, ptr %47, align 8
-  %48 = load ptr, ptr %.03954, align 8
-  %49 = icmp eq ptr %48, %.03855
-  %spec.select = select i1 %49, ptr %18, ptr %.03954
+  %44 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
+  store i32 1, ptr %44, align 8
+  %45 = load ptr, ptr %.03954, align 8
+  %46 = icmp eq ptr %45, %.03855
+  %spec.select = select i1 %46, ptr %18, ptr %.03954
   br label %.backedge
 
-.preheader:                                       ; preds = %35, %.preheader
-  %.012.i45 = phi ptr [ %.0.i47, %.preheader ], [ null, %35 ]
-  %.0.in.i46 = phi ptr [ %54, %.preheader ], [ %11, %35 ]
+.preheader:                                       ; preds = %32, %.preheader
+  %.012.i45 = phi ptr [ %.0.i47, %.preheader ], [ null, %32 ]
+  %.0.in.i46 = phi ptr [ %51, %.preheader ], [ %11, %32 ]
   %.0.i47 = load ptr, ptr %.0.in.i46, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp slt i32 %52, %36
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 48
-  br i1 %53, label %.preheader, label %55, !llvm.loop !107
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp slt i32 %49, %33
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 48
+  br i1 %50, label %.preheader, label %52, !llvm.loop !107
 
-55:                                               ; preds = %.preheader
-  %56 = icmp eq ptr %.012.i45, null
-  br i1 %56, label %57, label %58
+52:                                               ; preds = %.preheader
+  %53 = icmp eq ptr %.012.i45, null
+  br i1 %53, label %54, label %55
 
-57:                                               ; preds = %55
+54:                                               ; preds = %52
   store ptr %.03855, ptr %11, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.012.i45, i64 48
-  store ptr %.03855, ptr %59, align 8
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i45, i64 48
+  store ptr %.03855, ptr %56, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48
 
-_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48: ; preds = %57, %58
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48: ; preds = %54, %55
   store ptr %.0.i47, ptr %18, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
-  store i32 2, ptr %60, align 8
-  %61 = load ptr, ptr %.03954, align 8
-  %62 = icmp eq ptr %61, %.03855
-  %spec.select49 = select i1 %62, ptr %18, ptr %.03954
+  %57 = getelementptr inbounds nuw i8, ptr %.03855, i64 56
+  store i32 2, ptr %57, align 8
+  %58 = load ptr, ptr %.03954, align 8
+  %59 = icmp eq ptr %58, %.03855
+  %spec.select49 = select i1 %59, ptr %18, ptr %.03954
   br label %.backedge
 
-.backedge:                                        ; preds = %33, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48, %28, %27
-  %.039.be = phi ptr [ %18, %27 ], [ %18, %28 ], [ %.03954, %33 ], [ %spec.select, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit ], [ %spec.select49, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48 ]
-  %63 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %64, align 8
-  %.not = icmp sgt i32 %65, %2
+.backedge:                                        ; preds = %30, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48, %._crit_edge
+  %.039.be = phi ptr [ %18, %._crit_edge ], [ %.03954, %30 ], [ %spec.select, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit ], [ %spec.select49, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48 ]
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %61, align 8
+  %.not = icmp sgt i32 %62, %2
   br i1 %.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !111
 
 ._crit_edge58:                                    ; preds = %.backedge, %8
-  br i1 %9, label %8, label %66, !llvm.loop !112
+  br i1 %9, label %8, label %63, !llvm.loop !112
 
-66:                                               ; preds = %._crit_edge58
+63:                                               ; preds = %._crit_edge58
   ret void
 }
 
@@ -16820,8 +16815,8 @@ _ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48: ; preds = %57, %58
 define hidden void @_ZN14IntervalWalker7walk_toEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %.not38 = icmp eq ptr %4, null
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %.not98 = icmp eq ptr %4, null
+  br i1 %.not98, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit96, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -16865,8 +16860,8 @@ define hidden void @_ZN14IntervalWalker7walk_toEi(ptr noundef nonnull align 8 de
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 4
   %29 = load i32, ptr %28, align 4
-  %.not4151.not.i = icmp sgt i32 %29, %15
-  br i1 %.not4151.not.i, label %.backedge.i, label %.lr.ph.i
+  %.not4151.i = icmp sgt i32 %29, %15
+  br i1 %.not4151.i, label %.backedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph57.i, %.lr.ph.i
   %30 = phi ptr [ %32, %.lr.ph.i ], [ %.promoted.i, %.lr.ph57.i ]
@@ -16972,242 +16967,493 @@ _ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i: ; preds = %63, %62
 ._crit_edge58.i:                                  ; preds = %.backedge.i, %17
   br i1 %18, label %17, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit, !llvm.loop !112
 
-_ZN14IntervalWalker7walk_toE13IntervalStatei.exit: ; preds = %._crit_edge58.i
-  tail call void @_ZN14IntervalWalker7walk_toE13IntervalStatei(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 2, i32 noundef %15)
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  store i32 1, ptr %72, align 8
-  %73 = load ptr, ptr %0, align 8
+_ZN14IntervalWalker7walk_toE13IntervalStatei.exit: ; preds = %._crit_edge58.i, %._crit_edge58.i28
+  %71 = phi i1 [ false, %._crit_edge58.i28 ], [ true, %._crit_edge58.i ]
+  %indvars.iv.i8 = phi i64 [ 1, %._crit_edge58.i28 ], [ 0, %._crit_edge58.i ]
+  %72 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv.i8
+  %73 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv.i8
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(88) %0) #22
-  br i1 %75, label %76, label %96
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i32, ptr %76, align 8
+  %.not53.i9 = icmp sgt i32 %77, %15
+  br i1 %.not53.i9, label %._crit_edge58.i28, label %.lr.ph57.i10
 
-76:                                               ; preds = %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit
-  %77 = load i32, ptr %8, align 4
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %78
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i32, ptr %82, align 8
-  br label %84
+.lr.ph57.i10:                                     ; preds = %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit, %.backedge.i25
+  %.promoted.i11 = phi ptr [ %122, %.backedge.i25 ], [ %76, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit ]
+  %78 = phi ptr [ %121, %.backedge.i25 ], [ %75, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit ]
+  %.03855.i12 = phi ptr [ %80, %.backedge.i25 ], [ %74, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit ]
+  %.03954.i13 = phi ptr [ %.039.be.i26, %.backedge.i25 ], [ %73, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit ]
+  %79 = getelementptr inbounds nuw i8, ptr %.03855.i12, i64 48
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.promoted.i11, i64 4
+  %82 = load i32, ptr %81, align 4
+  %.not4151.i14 = icmp sgt i32 %82, %15
+  br i1 %.not4151.i14, label %.critedge.i17, label %.lr.ph.i15
 
-84:                                               ; preds = %84, %76
-  %.012.i = phi ptr [ null, %76 ], [ %.0.i, %84 ]
-  %.0.in.i = phi ptr [ %79, %76 ], [ %89, %84 ]
+.lr.ph.i15:                                       ; preds = %.lr.ph57.i10, %.lr.ph.i15
+  %83 = phi ptr [ %85, %.lr.ph.i15 ], [ %.promoted.i11, %.lr.ph57.i10 ]
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8
+  store ptr %85, ptr %78, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4
+  %.not41.i16 = icmp sgt i32 %87, %15
+  br i1 %.not41.i16, label %.critedge.i17, label %.lr.ph.i15, !llvm.loop !110
+
+.critedge.i17:                                    ; preds = %.lr.ph.i15, %.lr.ph57.i10
+  store ptr %80, ptr %.03954.i13, align 8
+  %88 = load ptr, ptr %78, align 8
+  %89 = load ptr, ptr @_ZN5Range4_endE, align 8
+  %90 = icmp eq ptr %88, %89
+  br i1 %90, label %91, label %93
+
+91:                                               ; preds = %.critedge.i17
+  %92 = getelementptr inbounds nuw i8, ptr %.03855.i12, i64 56
+  store i32 3, ptr %92, align 8
+  br label %.backedge.i25
+
+93:                                               ; preds = %.critedge.i17
+  %94 = load i32, ptr %88, align 8
+  %.not42.i18 = icmp sgt i32 %94, %15
+  br i1 %.not42.i18, label %.preheader.i29, label %.preheader60.i19
+
+.preheader60.i19:                                 ; preds = %93, %.preheader60.i19
+  %.012.i.i20 = phi ptr [ %.0.i.i22, %.preheader60.i19 ], [ null, %93 ]
+  %.0.in.i.i21 = phi ptr [ %99, %.preheader60.i19 ], [ %72, %93 ]
+  %.0.i.i22 = load ptr, ptr %.0.in.i.i21, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 40
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp slt i32 %97, %94
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 48
+  br i1 %98, label %.preheader60.i19, label %100, !llvm.loop !107
+
+100:                                              ; preds = %.preheader60.i19
+  %101 = icmp eq ptr %.012.i.i20, null
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %100
+  store ptr %.03855.i12, ptr %72, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i23
+
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %.012.i.i20, i64 48
+  store ptr %.03855.i12, ptr %104, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i23
+
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i23: ; preds = %103, %102
+  store ptr %.0.i.i22, ptr %79, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %.03855.i12, i64 56
+  store i32 1, ptr %105, align 8
+  %106 = load ptr, ptr %.03954.i13, align 8
+  %107 = icmp eq ptr %106, %.03855.i12
+  %spec.select.i24 = select i1 %107, ptr %79, ptr %.03954.i13
+  br label %.backedge.i25
+
+.preheader.i29:                                   ; preds = %93, %.preheader.i29
+  %.012.i45.i30 = phi ptr [ %.0.i47.i32, %.preheader.i29 ], [ null, %93 ]
+  %.0.in.i46.i31 = phi ptr [ %112, %.preheader.i29 ], [ %73, %93 ]
+  %.0.i47.i32 = load ptr, ptr %.0.in.i46.i31, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i47.i32, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp slt i32 %110, %94
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i47.i32, i64 48
+  br i1 %111, label %.preheader.i29, label %113, !llvm.loop !107
+
+113:                                              ; preds = %.preheader.i29
+  %114 = icmp eq ptr %.012.i45.i30, null
+  br i1 %114, label %115, label %116
+
+115:                                              ; preds = %113
+  store ptr %.03855.i12, ptr %73, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i33
+
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %.012.i45.i30, i64 48
+  store ptr %.03855.i12, ptr %117, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i33
+
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i33: ; preds = %116, %115
+  store ptr %.0.i47.i32, ptr %79, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %.03855.i12, i64 56
+  store i32 2, ptr %118, align 8
+  %119 = load ptr, ptr %.03954.i13, align 8
+  %120 = icmp eq ptr %119, %.03855.i12
+  %spec.select49.i34 = select i1 %120, ptr %79, ptr %.03954.i13
+  br label %.backedge.i25
+
+.backedge.i25:                                    ; preds = %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i33, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i23, %91
+  %.039.be.i26 = phi ptr [ %.03954.i13, %91 ], [ %spec.select.i24, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i23 ], [ %spec.select49.i34, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i33 ]
+  %121 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %123 = load i32, ptr %122, align 8
+  %.not.i27 = icmp sgt i32 %123, %15
+  br i1 %.not.i27, label %._crit_edge58.i28, label %.lr.ph57.i10, !llvm.loop !111
+
+._crit_edge58.i28:                                ; preds = %.backedge.i25, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit
+  br i1 %71, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit36, !llvm.loop !112
+
+_ZN14IntervalWalker7walk_toE13IntervalStatei.exit36: ; preds = %._crit_edge58.i28
+  %124 = load ptr, ptr %3, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
+  store i32 1, ptr %125, align 8
+  %126 = load ptr, ptr %0, align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = tail call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(88) %0) #22
+  br i1 %128, label %129, label %149
+
+129:                                              ; preds = %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit36
+  %130 = load i32, ptr %8, align 4
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %131
+  %133 = load ptr, ptr %3, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %135 = load ptr, ptr %134, align 8
+  %136 = load i32, ptr %135, align 8
+  br label %137
+
+137:                                              ; preds = %137, %129
+  %.012.i = phi ptr [ null, %129 ], [ %.0.i, %137 ]
+  %.0.in.i = phi ptr [ %132, %129 ], [ %142, %137 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp slt i32 %87, %83
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  br i1 %88, label %84, label %90, !llvm.loop !107
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %139 = load ptr, ptr %138, align 8
+  %140 = load i32, ptr %139, align 8
+  %141 = icmp slt i32 %140, %136
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  br i1 %141, label %137, label %143, !llvm.loop !107
 
-90:                                               ; preds = %84
-  %91 = icmp eq ptr %.012.i, null
-  br i1 %91, label %92, label %93
+143:                                              ; preds = %137
+  %144 = icmp eq ptr %.012.i, null
+  br i1 %144, label %145, label %146
 
-92:                                               ; preds = %90
-  store ptr %80, ptr %79, align 8
+145:                                              ; preds = %143
+  store ptr %133, ptr %132, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
-  store ptr %80, ptr %94, align 8
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
+  store ptr %133, ptr %147, align 8
   br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit
 
-_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit: ; preds = %92, %93
-  %95 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  store ptr %.0.i, ptr %95, align 8
-  br label %96
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit: ; preds = %145, %146
+  %148 = getelementptr inbounds nuw i8, ptr %133, i64 48
+  store ptr %.0.i, ptr %148, align 8
+  br label %149
 
-96:                                               ; preds = %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit
-  %97 = load ptr, ptr %10, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = load ptr, ptr @_ZN8Interval4_endE, align 8
-  %.not.i8 = icmp eq ptr %97, %99
-  br i1 %.not.i8, label %110, label %100
+149:                                              ; preds = %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit36
+  %150 = load ptr, ptr %10, align 8
+  %151 = load ptr, ptr %9, align 8
+  %152 = load ptr, ptr @_ZN8Interval4_endE, align 8
+  %.not.i37 = icmp eq ptr %150, %152
+  br i1 %.not.i37, label %163, label %153
 
-100:                                              ; preds = %96
-  %.not11.i = icmp eq ptr %98, %99
-  br i1 %.not11.i, label %_ZN14IntervalWalker13next_intervalEv.exit, label %101
+153:                                              ; preds = %149
+  %.not11.i = icmp eq ptr %151, %152
+  br i1 %.not11.i, label %_ZN14IntervalWalker13next_intervalEv.exit, label %154
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp sgt i32 %104, %107
-  %109 = zext i1 %108 to i32
+154:                                              ; preds = %153
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = load i32, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp sgt i32 %157, %160
+  %162 = zext i1 %161 to i32
   br label %_ZN14IntervalWalker13next_intervalEv.exit
 
-110:                                              ; preds = %96
-  %.not10.i = icmp eq ptr %98, %97
+163:                                              ; preds = %149
+  %.not10.i = icmp eq ptr %151, %150
   br i1 %.not10.i, label %_ZN14IntervalWalker13next_intervalEv.exit.thread, label %_ZN14IntervalWalker13next_intervalEv.exit
 
-_ZN14IntervalWalker13next_intervalEv.exit.thread: ; preds = %110
+_ZN14IntervalWalker13next_intervalEv.exit.thread: ; preds = %163
   store ptr null, ptr %3, align 8
-  br label %.loopexit
+  br label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit96
 
-_ZN14IntervalWalker13next_intervalEv.exit:        ; preds = %100, %101, %110
-  %.0.i9 = phi i32 [ 1, %100 ], [ %109, %101 ], [ 0, %110 ]
-  store i32 %.0.i9, ptr %8, align 4
-  %111 = zext nneg i32 %.0.i9 to i64
-  %112 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8
-  store ptr %113, ptr %3, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  %115 = load ptr, ptr %114, align 8
-  store ptr %115, ptr %112, align 8
-  store ptr %99, ptr %114, align 8
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  store ptr %118, ptr %119, align 8
+_ZN14IntervalWalker13next_intervalEv.exit:        ; preds = %153, %154, %163
+  %.0.i38 = phi i32 [ 1, %153 ], [ %162, %154 ], [ 0, %163 ]
+  store i32 %.0.i38, ptr %8, align 4
+  %164 = zext nneg i32 %.0.i38 to i64
+  %165 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %164
+  %166 = load ptr, ptr %165, align 8
+  store ptr %166, ptr %3, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %168 = load ptr, ptr %167, align 8
+  store ptr %168, ptr %165, align 8
+  store ptr %152, ptr %167, align 8
+  %169 = load ptr, ptr %3, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 40
+  store ptr %171, ptr %172, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !113
+  br i1 %.not, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit96, label %11, !llvm.loop !113
 
 .critedge:                                        ; preds = %11
   store i32 %1, ptr %5, align 8
-  br label %120
+  br label %173
 
-120:                                              ; preds = %._crit_edge58.i30, %.critedge
-  %121 = phi i1 [ true, %.critedge ], [ false, %._crit_edge58.i30 ]
-  %indvars.iv.i10 = phi i64 [ 0, %.critedge ], [ 1, %._crit_edge58.i30 ]
-  %122 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv.i10
-  %123 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv.i10
-  %124 = load ptr, ptr %122, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %126 = load ptr, ptr %125, align 8
-  %127 = load i32, ptr %126, align 8
-  %.not53.i11 = icmp sgt i32 %127, %1
-  br i1 %.not53.i11, label %._crit_edge58.i30, label %.lr.ph57.i12
+173:                                              ; preds = %._crit_edge58.i59, %.critedge
+  %174 = phi i1 [ true, %.critedge ], [ false, %._crit_edge58.i59 ]
+  %indvars.iv.i39 = phi i64 [ 0, %.critedge ], [ 1, %._crit_edge58.i59 ]
+  %175 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv.i39
+  %176 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv.i39
+  %177 = load ptr, ptr %175, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
+  %179 = load ptr, ptr %178, align 8
+  %180 = load i32, ptr %179, align 8
+  %.not53.i40 = icmp sgt i32 %180, %1
+  br i1 %.not53.i40, label %._crit_edge58.i59, label %.lr.ph57.i41
 
-.lr.ph57.i12:                                     ; preds = %120, %.backedge.i27
-  %.promoted.i13 = phi ptr [ %172, %.backedge.i27 ], [ %126, %120 ]
-  %128 = phi ptr [ %171, %.backedge.i27 ], [ %125, %120 ]
-  %.03855.i14 = phi ptr [ %130, %.backedge.i27 ], [ %124, %120 ]
-  %.03954.i15 = phi ptr [ %.039.be.i28, %.backedge.i27 ], [ %122, %120 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.03855.i14, i64 48
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %.promoted.i13, i64 4
-  %132 = load i32, ptr %131, align 4
-  %.not4151.not.i16 = icmp sgt i32 %132, %1
-  br i1 %.not4151.not.i16, label %.backedge.i27, label %.lr.ph.i17
+.lr.ph57.i41:                                     ; preds = %173, %.backedge.i56
+  %.promoted.i42 = phi ptr [ %225, %.backedge.i56 ], [ %179, %173 ]
+  %181 = phi ptr [ %224, %.backedge.i56 ], [ %178, %173 ]
+  %.03855.i43 = phi ptr [ %183, %.backedge.i56 ], [ %177, %173 ]
+  %.03954.i44 = phi ptr [ %.039.be.i57, %.backedge.i56 ], [ %175, %173 ]
+  %182 = getelementptr inbounds nuw i8, ptr %.03855.i43, i64 48
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %.promoted.i42, i64 4
+  %185 = load i32, ptr %184, align 4
+  %.not4151.i45 = icmp sgt i32 %185, %1
+  br i1 %.not4151.i45, label %.backedge.i56, label %.lr.ph.i46
 
-.lr.ph.i17:                                       ; preds = %.lr.ph57.i12, %.lr.ph.i17
-  %133 = phi ptr [ %135, %.lr.ph.i17 ], [ %.promoted.i13, %.lr.ph57.i12 ]
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  store ptr %135, ptr %128, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  %137 = load i32, ptr %136, align 4
-  %.not41.i18 = icmp sgt i32 %137, %1
-  br i1 %.not41.i18, label %.critedge.i19, label %.lr.ph.i17, !llvm.loop !110
+.lr.ph.i46:                                       ; preds = %.lr.ph57.i41, %.lr.ph.i46
+  %186 = phi ptr [ %188, %.lr.ph.i46 ], [ %.promoted.i42, %.lr.ph57.i41 ]
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %188 = load ptr, ptr %187, align 8
+  store ptr %188, ptr %181, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
+  %190 = load i32, ptr %189, align 4
+  %.not41.i47 = icmp sgt i32 %190, %1
+  br i1 %.not41.i47, label %.critedge.i48, label %.lr.ph.i46, !llvm.loop !110
 
-.critedge.i19:                                    ; preds = %.lr.ph.i17
-  store ptr %130, ptr %.03954.i15, align 8
-  %138 = load ptr, ptr %128, align 8
-  %139 = load ptr, ptr @_ZN5Range4_endE, align 8
-  %140 = icmp eq ptr %138, %139
-  br i1 %140, label %141, label %143
+.critedge.i48:                                    ; preds = %.lr.ph.i46
+  store ptr %183, ptr %.03954.i44, align 8
+  %191 = load ptr, ptr %181, align 8
+  %192 = load ptr, ptr @_ZN5Range4_endE, align 8
+  %193 = icmp eq ptr %191, %192
+  br i1 %193, label %194, label %196
 
-141:                                              ; preds = %.critedge.i19
-  %142 = getelementptr inbounds nuw i8, ptr %.03855.i14, i64 56
-  store i32 3, ptr %142, align 8
-  br label %.backedge.i27
+194:                                              ; preds = %.critedge.i48
+  %195 = getelementptr inbounds nuw i8, ptr %.03855.i43, i64 56
+  store i32 3, ptr %195, align 8
+  br label %.backedge.i56
 
-143:                                              ; preds = %.critedge.i19
-  %144 = load i32, ptr %138, align 8
-  %.not42.i20 = icmp sgt i32 %144, %1
-  br i1 %.not42.i20, label %.preheader.i31, label %.preheader60.i21
+196:                                              ; preds = %.critedge.i48
+  %197 = load i32, ptr %191, align 8
+  %.not42.i49 = icmp sgt i32 %197, %1
+  br i1 %.not42.i49, label %.preheader.i60, label %.preheader60.i50
 
-.preheader60.i21:                                 ; preds = %143, %.preheader60.i21
-  %.012.i.i22 = phi ptr [ %.0.i.i24, %.preheader60.i21 ], [ null, %143 ]
-  %.0.in.i.i23 = phi ptr [ %149, %.preheader60.i21 ], [ %122, %143 ]
-  %.0.i.i24 = load ptr, ptr %.0.in.i.i23, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 40
-  %146 = load ptr, ptr %145, align 8
-  %147 = load i32, ptr %146, align 8
-  %148 = icmp slt i32 %147, %144
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 48
-  br i1 %148, label %.preheader60.i21, label %150, !llvm.loop !107
+.preheader60.i50:                                 ; preds = %196, %.preheader60.i50
+  %.012.i.i51 = phi ptr [ %.0.i.i53, %.preheader60.i50 ], [ null, %196 ]
+  %.0.in.i.i52 = phi ptr [ %202, %.preheader60.i50 ], [ %175, %196 ]
+  %.0.i.i53 = load ptr, ptr %.0.in.i.i52, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %.0.i.i53, i64 40
+  %199 = load ptr, ptr %198, align 8
+  %200 = load i32, ptr %199, align 8
+  %201 = icmp slt i32 %200, %197
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i.i53, i64 48
+  br i1 %201, label %.preheader60.i50, label %203, !llvm.loop !107
 
-150:                                              ; preds = %.preheader60.i21
-  %151 = icmp eq ptr %.012.i.i22, null
-  br i1 %151, label %152, label %153
+203:                                              ; preds = %.preheader60.i50
+  %204 = icmp eq ptr %.012.i.i51, null
+  br i1 %204, label %205, label %206
 
-152:                                              ; preds = %150
-  store ptr %.03855.i14, ptr %122, align 8
-  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i25
+205:                                              ; preds = %203
+  store ptr %.03855.i43, ptr %175, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i54
 
-153:                                              ; preds = %150
-  %154 = getelementptr inbounds nuw i8, ptr %.012.i.i22, i64 48
-  store ptr %.03855.i14, ptr %154, align 8
-  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i25
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds nuw i8, ptr %.012.i.i51, i64 48
+  store ptr %.03855.i43, ptr %207, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i54
 
-_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i25: ; preds = %153, %152
-  store ptr %.0.i.i24, ptr %129, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.03855.i14, i64 56
-  store i32 1, ptr %155, align 8
-  %156 = load ptr, ptr %.03954.i15, align 8
-  %157 = icmp eq ptr %156, %.03855.i14
-  %spec.select.i26 = select i1 %157, ptr %129, ptr %.03954.i15
-  br label %.backedge.i27
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i54: ; preds = %206, %205
+  store ptr %.0.i.i53, ptr %182, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %.03855.i43, i64 56
+  store i32 1, ptr %208, align 8
+  %209 = load ptr, ptr %.03954.i44, align 8
+  %210 = icmp eq ptr %209, %.03855.i43
+  %spec.select.i55 = select i1 %210, ptr %182, ptr %.03954.i44
+  br label %.backedge.i56
 
-.preheader.i31:                                   ; preds = %143, %.preheader.i31
-  %.012.i45.i32 = phi ptr [ %.0.i47.i34, %.preheader.i31 ], [ null, %143 ]
-  %.0.in.i46.i33 = phi ptr [ %162, %.preheader.i31 ], [ %123, %143 ]
-  %.0.i47.i34 = load ptr, ptr %.0.in.i46.i33, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i47.i34, i64 40
-  %159 = load ptr, ptr %158, align 8
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp slt i32 %160, %144
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i47.i34, i64 48
-  br i1 %161, label %.preheader.i31, label %163, !llvm.loop !107
+.preheader.i60:                                   ; preds = %196, %.preheader.i60
+  %.012.i45.i61 = phi ptr [ %.0.i47.i63, %.preheader.i60 ], [ null, %196 ]
+  %.0.in.i46.i62 = phi ptr [ %215, %.preheader.i60 ], [ %176, %196 ]
+  %.0.i47.i63 = load ptr, ptr %.0.in.i46.i62, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %.0.i47.i63, i64 40
+  %212 = load ptr, ptr %211, align 8
+  %213 = load i32, ptr %212, align 8
+  %214 = icmp slt i32 %213, %197
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i47.i63, i64 48
+  br i1 %214, label %.preheader.i60, label %216, !llvm.loop !107
 
-163:                                              ; preds = %.preheader.i31
-  %164 = icmp eq ptr %.012.i45.i32, null
-  br i1 %164, label %165, label %166
+216:                                              ; preds = %.preheader.i60
+  %217 = icmp eq ptr %.012.i45.i61, null
+  br i1 %217, label %218, label %219
 
-165:                                              ; preds = %163
-  store ptr %.03855.i14, ptr %123, align 8
-  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i35
+218:                                              ; preds = %216
+  store ptr %.03855.i43, ptr %176, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i64
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %.012.i45.i32, i64 48
-  store ptr %.03855.i14, ptr %167, align 8
-  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i35
+219:                                              ; preds = %216
+  %220 = getelementptr inbounds nuw i8, ptr %.012.i45.i61, i64 48
+  store ptr %.03855.i43, ptr %220, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i64
 
-_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i35: ; preds = %166, %165
-  store ptr %.0.i47.i34, ptr %129, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %.03855.i14, i64 56
-  store i32 2, ptr %168, align 8
-  %169 = load ptr, ptr %.03954.i15, align 8
-  %170 = icmp eq ptr %169, %.03855.i14
-  %spec.select49.i36 = select i1 %170, ptr %129, ptr %.03954.i15
-  br label %.backedge.i27
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i64: ; preds = %219, %218
+  store ptr %.0.i47.i63, ptr %182, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %.03855.i43, i64 56
+  store i32 2, ptr %221, align 8
+  %222 = load ptr, ptr %.03954.i44, align 8
+  %223 = icmp eq ptr %222, %.03855.i43
+  %spec.select49.i65 = select i1 %223, ptr %182, ptr %.03954.i44
+  br label %.backedge.i56
 
-.backedge.i27:                                    ; preds = %.lr.ph57.i12, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i35, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i25, %141
-  %.039.be.i28 = phi ptr [ %.03954.i15, %141 ], [ %spec.select.i26, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i25 ], [ %spec.select49.i36, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i35 ], [ %129, %.lr.ph57.i12 ]
-  %171 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %172 = load ptr, ptr %171, align 8
-  %173 = load i32, ptr %172, align 8
-  %.not.i29 = icmp sgt i32 %173, %1
-  br i1 %.not.i29, label %._crit_edge58.i30, label %.lr.ph57.i12, !llvm.loop !111
+.backedge.i56:                                    ; preds = %.lr.ph57.i41, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i64, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i54, %194
+  %.039.be.i57 = phi ptr [ %.03954.i44, %194 ], [ %spec.select.i55, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i54 ], [ %spec.select49.i65, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i64 ], [ %182, %.lr.ph57.i41 ]
+  %224 = getelementptr inbounds nuw i8, ptr %183, i64 40
+  %225 = load ptr, ptr %224, align 8
+  %226 = load i32, ptr %225, align 8
+  %.not.i58 = icmp sgt i32 %226, %1
+  br i1 %.not.i58, label %._crit_edge58.i59, label %.lr.ph57.i41, !llvm.loop !111
 
-._crit_edge58.i30:                                ; preds = %.backedge.i27, %120
-  br i1 %121, label %120, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit37, !llvm.loop !112
+._crit_edge58.i59:                                ; preds = %.backedge.i56, %173
+  br i1 %174, label %173, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67, !llvm.loop !112
 
-_ZN14IntervalWalker7walk_toE13IntervalStatei.exit37: ; preds = %._crit_edge58.i30
-  tail call void @_ZN14IntervalWalker7walk_toE13IntervalStatei(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 2, i32 noundef %1)
-  br label %.loopexit
+_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67: ; preds = %._crit_edge58.i59, %._crit_edge58.i88
+  %227 = phi i1 [ false, %._crit_edge58.i88 ], [ true, %._crit_edge58.i59 ]
+  %indvars.iv.i68 = phi i64 [ 1, %._crit_edge58.i88 ], [ 0, %._crit_edge58.i59 ]
+  %228 = getelementptr inbounds nuw [2 x ptr], ptr %6, i64 0, i64 %indvars.iv.i68
+  %229 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %indvars.iv.i68
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
+  %232 = load ptr, ptr %231, align 8
+  %233 = load i32, ptr %232, align 8
+  %.not53.i69 = icmp sgt i32 %233, %1
+  br i1 %.not53.i69, label %._crit_edge58.i88, label %.lr.ph57.i70
 
-.loopexit:                                        ; preds = %_ZN14IntervalWalker13next_intervalEv.exit, %_ZN14IntervalWalker13next_intervalEv.exit.thread, %2, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit37
+.lr.ph57.i70:                                     ; preds = %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67, %.backedge.i85
+  %.promoted.i71 = phi ptr [ %278, %.backedge.i85 ], [ %232, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67 ]
+  %234 = phi ptr [ %277, %.backedge.i85 ], [ %231, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67 ]
+  %.03855.i72 = phi ptr [ %236, %.backedge.i85 ], [ %230, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67 ]
+  %.03954.i73 = phi ptr [ %.039.be.i86, %.backedge.i85 ], [ %229, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67 ]
+  %235 = getelementptr inbounds nuw i8, ptr %.03855.i72, i64 48
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %.promoted.i71, i64 4
+  %238 = load i32, ptr %237, align 4
+  %.not4151.i74 = icmp sgt i32 %238, %1
+  br i1 %.not4151.i74, label %.critedge.i77, label %.lr.ph.i75
+
+.lr.ph.i75:                                       ; preds = %.lr.ph57.i70, %.lr.ph.i75
+  %239 = phi ptr [ %241, %.lr.ph.i75 ], [ %.promoted.i71, %.lr.ph57.i70 ]
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8
+  store ptr %241, ptr %234, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
+  %243 = load i32, ptr %242, align 4
+  %.not41.i76 = icmp sgt i32 %243, %1
+  br i1 %.not41.i76, label %.critedge.i77, label %.lr.ph.i75, !llvm.loop !110
+
+.critedge.i77:                                    ; preds = %.lr.ph.i75, %.lr.ph57.i70
+  store ptr %236, ptr %.03954.i73, align 8
+  %244 = load ptr, ptr %234, align 8
+  %245 = load ptr, ptr @_ZN5Range4_endE, align 8
+  %246 = icmp eq ptr %244, %245
+  br i1 %246, label %247, label %249
+
+247:                                              ; preds = %.critedge.i77
+  %248 = getelementptr inbounds nuw i8, ptr %.03855.i72, i64 56
+  store i32 3, ptr %248, align 8
+  br label %.backedge.i85
+
+249:                                              ; preds = %.critedge.i77
+  %250 = load i32, ptr %244, align 8
+  %.not42.i78 = icmp sgt i32 %250, %1
+  br i1 %.not42.i78, label %.preheader.i89, label %.preheader60.i79
+
+.preheader60.i79:                                 ; preds = %249, %.preheader60.i79
+  %.012.i.i80 = phi ptr [ %.0.i.i82, %.preheader60.i79 ], [ null, %249 ]
+  %.0.in.i.i81 = phi ptr [ %255, %.preheader60.i79 ], [ %228, %249 ]
+  %.0.i.i82 = load ptr, ptr %.0.in.i.i81, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 40
+  %252 = load ptr, ptr %251, align 8
+  %253 = load i32, ptr %252, align 8
+  %254 = icmp slt i32 %253, %250
+  %255 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 48
+  br i1 %254, label %.preheader60.i79, label %256, !llvm.loop !107
+
+256:                                              ; preds = %.preheader60.i79
+  %257 = icmp eq ptr %.012.i.i80, null
+  br i1 %257, label %258, label %259
+
+258:                                              ; preds = %256
+  store ptr %.03855.i72, ptr %228, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i83
+
+259:                                              ; preds = %256
+  %260 = getelementptr inbounds nuw i8, ptr %.012.i.i80, i64 48
+  store ptr %.03855.i72, ptr %260, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i83
+
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i83: ; preds = %259, %258
+  store ptr %.0.i.i82, ptr %235, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %.03855.i72, i64 56
+  store i32 1, ptr %261, align 8
+  %262 = load ptr, ptr %.03954.i73, align 8
+  %263 = icmp eq ptr %262, %.03855.i72
+  %spec.select.i84 = select i1 %263, ptr %235, ptr %.03954.i73
+  br label %.backedge.i85
+
+.preheader.i89:                                   ; preds = %249, %.preheader.i89
+  %.012.i45.i90 = phi ptr [ %.0.i47.i92, %.preheader.i89 ], [ null, %249 ]
+  %.0.in.i46.i91 = phi ptr [ %268, %.preheader.i89 ], [ %229, %249 ]
+  %.0.i47.i92 = load ptr, ptr %.0.in.i46.i91, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %.0.i47.i92, i64 40
+  %265 = load ptr, ptr %264, align 8
+  %266 = load i32, ptr %265, align 8
+  %267 = icmp slt i32 %266, %250
+  %268 = getelementptr inbounds nuw i8, ptr %.0.i47.i92, i64 48
+  br i1 %267, label %.preheader.i89, label %269, !llvm.loop !107
+
+269:                                              ; preds = %.preheader.i89
+  %270 = icmp eq ptr %.012.i45.i90, null
+  br i1 %270, label %271, label %272
+
+271:                                              ; preds = %269
+  store ptr %.03855.i72, ptr %229, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i93
+
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %.012.i45.i90, i64 48
+  store ptr %.03855.i72, ptr %273, align 8
+  br label %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i93
+
+_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i93: ; preds = %272, %271
+  store ptr %.0.i47.i92, ptr %235, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %.03855.i72, i64 56
+  store i32 2, ptr %274, align 8
+  %275 = load ptr, ptr %.03954.i73, align 8
+  %276 = icmp eq ptr %275, %.03855.i72
+  %spec.select49.i94 = select i1 %276, ptr %235, ptr %.03954.i73
+  br label %.backedge.i85
+
+.backedge.i85:                                    ; preds = %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i93, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i83, %247
+  %.039.be.i86 = phi ptr [ %.03954.i73, %247 ], [ %spec.select.i84, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit.i83 ], [ %spec.select49.i94, %_ZN14IntervalWalker13append_sortedEPP8IntervalS1_.exit48.i93 ]
+  %277 = getelementptr inbounds nuw i8, ptr %236, i64 40
+  %278 = load ptr, ptr %277, align 8
+  %279 = load i32, ptr %278, align 8
+  %.not.i87 = icmp sgt i32 %279, %1
+  br i1 %.not.i87, label %._crit_edge58.i88, label %.lr.ph57.i70, !llvm.loop !111
+
+._crit_edge58.i88:                                ; preds = %.backedge.i85, %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67
+  br i1 %227, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit67, label %_ZN14IntervalWalker7walk_toE13IntervalStatei.exit96, !llvm.loop !112
+
+_ZN14IntervalWalker7walk_toE13IntervalStatei.exit96: ; preds = %_ZN14IntervalWalker13next_intervalEv.exit, %._crit_edge58.i88, %_ZN14IntervalWalker13next_intervalEv.exit.thread, %2
   ret void
 }
 
@@ -24303,7 +24549,7 @@ define hidden void @_ZN20ControlFlowOptimizer24delete_unnecessary_jumpsEP9BlockL
 
 46:                                               ; preds = %42
   %47 = icmp sgt i32 %16, 2
-  br i1 %47, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %47, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %46
   %48 = add nsw i32 %16, -3
@@ -24328,9 +24574,9 @@ define hidden void @_ZN20ControlFlowOptimizer24delete_unnecessary_jumpsEP9BlockL
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %59, label %._crit_edge.thread, label %62
+  br i1 %59, label %.critedge, label %62
 
-._crit_edge.thread:                               ; preds = %46, %._crit_edge
+.critedge:                                        ; preds = %46, %._crit_edge
   %61 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %61, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 6395, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #23
@@ -24358,16 +24604,16 @@ define hidden void @_ZN20ControlFlowOptimizer24delete_unnecessary_jumpsEP9BlockL
   %74 = load i32, ptr %13, align 4
   %75 = add nsw i32 %74, -1
   store i32 %75, ptr %13, align 4
-  %.not55 = icmp eq ptr %spec.select, null
+  %.not55 = icmp eq ptr %.05357, null
   br i1 %.not55, label %81, label %76
 
 76:                                               ; preds = %70
   %77 = load i32, ptr %71, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %.05357, i64 128
   store i32 %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %spec.select, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %.05357, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %.05357, i64 56
   %.sroa.0.0.copyload.i56 = load i64, ptr %80, align 8
   store i64 %.sroa.0.0.copyload.i56, ptr %79, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %80, align 8

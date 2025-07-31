@@ -2839,14 +2839,14 @@ define internal ptr @signal_sigwaitinfo(ptr noundef readonly captures(none) %0, 
   %9 = call i32 @sigwaitinfo(ptr noundef nonnull align 8 %4, ptr noundef nonnull %3) #15
   call void @PyEval_RestoreThread(ptr noundef %8) #15
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %.lr.ph.i, label %.critedge.i
+  br i1 %10, label %.lr.ph.i, label %.critedge8.i
 
 .lr.ph.i:                                         ; preds = %7
   %11 = tail call ptr @__errno_location() #16
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   br label %13
 
-13:                                               ; preds = %.critedge13.backedge.i, %.lr.ph.i
+13:                                               ; preds = %.critedge12.backedge.i, %.lr.ph.i
   %14 = load i32, ptr %11, align 4, !tbaa !199
   %15 = icmp eq i32 %14, 4
   br i1 %15, label %16, label %35
@@ -2873,35 +2873,35 @@ define internal ptr @signal_sigwaitinfo(ptr noundef readonly captures(none) %0, 
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8
   %29 = icmp ne ptr %25, %28
   %narrow.i.not.i.i = select i1 %.not.i.i.i, i1 true, i1 %29
-  br i1 %narrow.i.not.i.i, label %.critedge13.backedge.i, label %PyErr_CheckSignals.exit.i
+  br i1 %narrow.i.not.i.i, label %.critedge12.backedge.i, label %PyErr_CheckSignals.exit.i
 
 PyErr_CheckSignals.exit.i:                        ; preds = %23
   %30 = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %17)
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.critedge13.backedge.i, label %signal_sigwaitinfo_impl.exit
+  br i1 %31, label %.critedge12.backedge.i, label %signal_sigwaitinfo_impl.exit
 
-.critedge13.backedge.i:                           ; preds = %PyErr_CheckSignals.exit.i, %23
+.critedge12.backedge.i:                           ; preds = %PyErr_CheckSignals.exit.i, %23
   %32 = call ptr @PyEval_SaveThread() #15
   %33 = call i32 @sigwaitinfo(ptr noundef nonnull align 8 %4, ptr noundef nonnull %3) #15
   call void @PyEval_RestoreThread(ptr noundef %32) #15
   %34 = icmp eq i32 %33, -1
-  br i1 %34, label %13, label %.critedge.i, !llvm.loop !218
+  br i1 %34, label %13, label %.critedge8.i, !llvm.loop !218
 
 35:                                               ; preds = %13
   %36 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !176
   %37 = call ptr @PyErr_SetFromErrno(ptr noundef %36) #15
   br label %signal_sigwaitinfo_impl.exit
 
-.critedge.i:                                      ; preds = %.critedge13.backedge.i, %7
+.critedge8.i:                                     ; preds = %.critedge12.backedge.i, %7
   %38 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %38, align 8, !tbaa !202
   %39 = getelementptr i8, ptr %.val.i, i64 24
-  %.val8.i = load ptr, ptr %39, align 8, !tbaa !207
-  %40 = call fastcc ptr @fill_siginfo(ptr %.val8.i, ptr noundef %3)
+  %.val9.i = load ptr, ptr %39, align 8, !tbaa !207
+  %40 = call fastcc ptr @fill_siginfo(ptr %.val9.i, ptr noundef %3)
   br label %signal_sigwaitinfo_impl.exit
 
-signal_sigwaitinfo_impl.exit:                     ; preds = %PyErr_CheckSignals.exit.i, %35, %.critedge.i
-  %.0.i = phi ptr [ %40, %.critedge.i ], [ %37, %35 ], [ null, %PyErr_CheckSignals.exit.i ]
+signal_sigwaitinfo_impl.exit:                     ; preds = %PyErr_CheckSignals.exit.i, %35, %.critedge8.i
+  %.0.i = phi ptr [ %40, %.critedge8.i ], [ %37, %35 ], [ null, %PyErr_CheckSignals.exit.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   br label %41

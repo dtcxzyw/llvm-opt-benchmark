@@ -895,7 +895,7 @@ define noundef i64 @_ZN6casadi16SparsityInternal9qr_countsEPKxS2_S2_PxS3_(ptr no
   %85 = load i64, ptr %84, align 8, !tbaa !3
   store i64 %60, ptr %84, align 8, !tbaa !3
   %.not185 = icmp eq i64 %85, -1
-  br i1 %.not185, label %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit, label %.preheader46.i
+  br i1 %.not185, label %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182.critedge, label %.preheader46.i
 
 .preheader46.i:                                   ; preds = %83, %.preheader46.i
   %.036.i = phi i64 [ %87, %.preheader46.i ], [ %85, %83 ]
@@ -916,24 +916,24 @@ define noundef i64 @_ZN6casadi16SparsityInternal9qr_countsEPKxS2_S2_PxS3_(ptr no
   %.not45.i = icmp eq i64 %89, %.036.i
   br i1 %.not45.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
 
-_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit: ; preds = %83
+.loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
+  %.0.i.ph = phi i64 [ %85, %.preheader.i ], [ %.036.i, %.lr.ph.i ]
   %90 = load i64, ptr %70, align 8, !tbaa !3
   %91 = add nsw i64 %90, 1
   store i64 %91, ptr %70, align 8, !tbaa !3
+  %92 = getelementptr inbounds i64, ptr %3, i64 %.0.i.ph
+  %93 = load i64, ptr %92, align 8, !tbaa !3
+  %94 = add nsw i64 %93, -1
+  store i64 %94, ptr %92, align 8, !tbaa !3
   br label %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
-  %.0.i.ph.ph = phi i64 [ %85, %.preheader.i ], [ %.036.i, %.lr.ph.i ]
-  %92 = load i64, ptr %70, align 8, !tbaa !3
-  %93 = add nsw i64 %92, 1
-  store i64 %93, ptr %70, align 8, !tbaa !3
-  %94 = getelementptr inbounds i64, ptr %3, i64 %.0.i.ph.ph
-  %95 = load i64, ptr %94, align 8, !tbaa !3
-  %96 = add nsw i64 %95, -1
-  store i64 %96, ptr %94, align 8, !tbaa !3
+_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182.critedge: ; preds = %83
+  %95 = load i64, ptr %70, align 8, !tbaa !3
+  %96 = add nsw i64 %95, 1
+  store i64 %96, ptr %70, align 8, !tbaa !3
   br label %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182
 
-_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182: ; preds = %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit, %.lr.ph221, %79, %.loopexit
+_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182: ; preds = %_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_.exit.thread182.critedge, %.lr.ph221, %79, %.loopexit
   %97 = add nsw i64 %.1127219, 1
   %98 = load i64, ptr %74, align 8, !tbaa !3
   %99 = icmp slt i64 %97, %98

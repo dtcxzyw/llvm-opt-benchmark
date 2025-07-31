@@ -19089,7 +19089,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_5Re
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -19120,42 +19120,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_5Re
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_5Reloc5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_5Reloc5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_5Reloc5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::Reloc::Model>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_5Reloc5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_5Reloc5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_5Reloc5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::Reloc::Model>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_5Reloc5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_5Reloc5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -19270,7 +19270,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_11T
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -19301,42 +19301,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_11T
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_11ThreadModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_11ThreadModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_11ThreadModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ThreadModel::Model>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_11ThreadModel5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_11ThreadModel5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_11ThreadModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ThreadModel::Model>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_11ThreadModel5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_11ThreadModel5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -19447,7 +19447,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_9Co
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -19478,42 +19478,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_9Co
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_9CodeModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_9CodeModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_9CodeModel5ModelEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::CodeModel::Model>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_9CodeModel5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_9CodeModel5ModelEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_9CodeModel5ModelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::CodeModel::Model>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_9CodeModel5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_9CodeModel5ModelEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -19648,7 +19648,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_17E
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -19679,42 +19679,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_17E
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_17ExceptionHandlingEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_17ExceptionHandlingEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_17ExceptionHandlingEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ExceptionHandling>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_17ExceptionHandlingEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_17ExceptionHandlingEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_17ExceptionHandlingEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ExceptionHandling>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_17ExceptionHandlingEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_17ExceptionHandlingEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -19825,7 +19825,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_15C
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -19856,42 +19856,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_15C
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_15CodeGenFileTypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_15CodeGenFileTypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_15CodeGenFileTypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::CodeGenFileType>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_15CodeGenFileTypeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_15CodeGenFileTypeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_15CodeGenFileTypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::CodeGenFileType>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_15CodeGenFileTypeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_15CodeGenFileTypeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -20002,7 +20002,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_16F
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -20033,42 +20033,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_16F
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_16FramePointerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_16FramePointerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_16FramePointerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FramePointerKind>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_16FramePointerKindEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_16FramePointerKindEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_16FramePointerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FramePointerKind>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_16FramePointerKindEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_16FramePointerKindEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -20227,7 +20227,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12D
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %48, %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %47, %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -20259,43 +20259,43 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12D
   %29 = icmp uge ptr %3, %.pre3.i.i
   %30 = icmp ult ptr %3, %28
   %spec.select.i.i.i.i.i.i = and i1 %29, %30
-  br i1 %spec.select.i.i.i.i.i.i, label %32, label %31, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %31, label %.critedge.i.i.i.i, !prof !21
 
 31:                                               ; preds = %27
+  %32 = ptrtoint ptr %.pre3.i.i to i64
+  %33 = sub i64 %16, %32
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DenormalMode16DenormalModeKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %25)
+  %34 = load ptr, ptr %13, align 8, !tbaa !135
+  %35 = getelementptr inbounds i8, ptr %34, i64 %33
+  br label %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %27
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DenormalMode16DenormalModeKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %25)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-32:                                               ; preds = %27
-  %33 = ptrtoint ptr %.pre3.i.i to i64
-  %34 = sub i64 %16, %33
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DenormalMode16DenormalModeKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %25)
-  %35 = load ptr, ptr %13, align 8, !tbaa !135
-  %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  br label %_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %31, %32
-  %37 = phi ptr [ %.pre3.i.i, %18 ], [ %35, %32 ], [ %.pre.i.i, %31 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %36, %32 ], [ %3, %31 ]
-  %38 = load i32, ptr %14, align 8, !tbaa !139
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::DenormalMode::DenormalModeKind>::OptionInfo", ptr %37, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12DenormalMode16DenormalModeKindEEE, i64 16), ptr %41, align 8, !tbaa !188
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  %44 = load i16, ptr %43, align 8
-  store i16 %44, ptr %42, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12DenormalMode16DenormalModeKindEEE, i64 16), ptr %41, align 8, !tbaa !188
-  %45 = load i32, ptr %14, align 8, !tbaa !139
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %14, align 8, !tbaa !139
-  %47 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %47, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_12DenormalMode16DenormalModeKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %31, %.critedge.i.i.i.i
+  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %.critedge.i.i.i.i ]
+  %37 = load i32, ptr %14, align 8, !tbaa !139
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::DenormalMode::DenormalModeKind>::OptionInfo", ptr %36, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12DenormalMode16DenormalModeKindEEE, i64 16), ptr %40, align 8, !tbaa !188
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  %43 = load i16, ptr %42, align 8
+  store i16 %43, ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12DenormalMode16DenormalModeKindEEE, i64 16), ptr %40, align 8, !tbaa !188
+  %44 = load i32, ptr %14, align 8, !tbaa !139
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %14, align 8, !tbaa !139
+  %46 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %46, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %48 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %48, %8
+  %47 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %47, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -20407,7 +20407,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_8Fl
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -20438,42 +20438,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_8Fl
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_8FloatABI7ABITypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_8FloatABI7ABITypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_8FloatABI7ABITypeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FloatABI::ABIType>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_8FloatABI7ABITypeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_8FloatABI7ABITypeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_8FloatABI7ABITypeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FloatABI::ABIType>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_8FloatABI7ABITypeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_8FloatABI7ABITypeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -20584,7 +20584,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_10F
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -20615,42 +20615,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_10F
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_10FPOpFusion14FPOpFusionModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_10FPOpFusion14FPOpFusionModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_10FPOpFusion14FPOpFusionModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit
-
-_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FPOpFusion::FPOpFusionMode>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_10FPOpFusion14FPOpFusionModeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_10FPOpFusion14FPOpFusionModeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_10FPOpFusion14FPOpFusionModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::FPOpFusion::FPOpFusionMode>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_10FPOpFusion14FPOpFusionModeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_10FPOpFusion14FPOpFusionModeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -20761,7 +20761,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_26S
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -20792,42 +20792,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_26S
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_26SwiftAsyncFramePointerModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_26SwiftAsyncFramePointerModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_26SwiftAsyncFramePointerModeEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::SwiftAsyncFramePointerMode>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_26SwiftAsyncFramePointerModeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_26SwiftAsyncFramePointerModeEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_26SwiftAsyncFramePointerModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::SwiftAsyncFramePointerMode>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_26SwiftAsyncFramePointerModeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_26SwiftAsyncFramePointerModeEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -21066,7 +21066,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_4EA
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -21097,42 +21097,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_4EA
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_4EABIEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_4EABIEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_4EABIEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::EABI>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_4EABIEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_4EABIEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_4EABIEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::EABI>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_4EABIEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_4EABIEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 
@@ -21243,7 +21243,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12D
   ret void
 
 18:                                               ; preds = %.lr.ph, %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-  %.014 = phi ptr [ %4, %.lr.ph ], [ %46, %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
+  %.014 = phi ptr [ %4, %.lr.ph ], [ %45, %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.014, align 8, !tbaa !132
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !13
@@ -21274,42 +21274,42 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_12D
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
-  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !21
+  br i1 %spec.select.i.i.i.i.i.i, label %30, label %.critedge.i.i.i.i, !prof !21
 
 30:                                               ; preds = %26
+  %31 = ptrtoint ptr %.pre3.i.i to i64
+  %32 = sub i64 %16, %31
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DebuggerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
+  %33 = load ptr, ptr %13, align 8, !tbaa !135
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  br label %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
+
+.critedge.i.i.i.i:                                ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DebuggerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !135
   br label %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %16, %32
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12DebuggerKindEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
-  %34 = load ptr, ptr %13, align 8, !tbaa !135
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  br label %_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit
-
-_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %31
-  %36 = phi ptr [ %.pre3.i.i, %18 ], [ %34, %31 ], [ %.pre.i.i, %30 ]
-  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %35, %31 ], [ %3, %30 ]
-  %37 = load i32, ptr %14, align 8, !tbaa !139
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::DebuggerKind>::OptionInfo", ptr %36, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12DebuggerKindEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 8 dereferenceable(5) %42, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12DebuggerKindEEE, i64 16), ptr %40, align 8, !tbaa !188
-  %43 = load i32, ptr %14, align 8, !tbaa !139
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %14, align 8, !tbaa !139
-  %45 = load ptr, ptr %17, align 8, !tbaa !504
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %45, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
+_ZN4llvm2cl6parserINS_12DebuggerKindEE16addLiteralOptionIiEEvNS_9StringRefERKT_S5_.exit: ; preds = %18, %30, %.critedge.i.i.i.i
+  %35 = phi ptr [ %.pre3.i.i, %18 ], [ %33, %30 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
+  %36 = load i32, ptr %14, align 8, !tbaa !139
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::DebuggerKind>::OptionInfo", ptr %35, i64 %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !637
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12DebuggerKindEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 8 dereferenceable(5) %41, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12DebuggerKindEEE, i64 16), ptr %39, align 8, !tbaa !188
+  %42 = load i32, ptr %14, align 8, !tbaa !139
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %14, align 8, !tbaa !139
+  %44 = load ptr, ptr %17, align 8, !tbaa !504
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %44, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %46 = getelementptr inbounds nuw i8, ptr %.014, i64 40
-  %.not = icmp eq ptr %46, %8
+  %45 = getelementptr inbounds nuw i8, ptr %.014, i64 40
+  %.not = icmp eq ptr %45, %8
   br i1 %.not, label %._crit_edge, label %18
 }
 

@@ -356,28 +356,28 @@ declare ptr @pg_checksum_type_name(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
-  %.not67 = icmp eq ptr %.val, null
-  br i1 %.not67, label %53, label %6
+  %.not62 = icmp eq ptr %.val, null
+  br i1 %.not62, label %53, label %6
 
 6:                                                ; preds = %5
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.16)
   %7 = tail call ptr @readTimeLineHistory(i32 noundef %4) #8
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge73, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph80, label %._crit_edge73
+  br i1 %11, label %.lr.ph75, label %.critedge
 
-.lr.ph80:                                         ; preds = %.lr.ph, %47
+.lr.ph75:                                         ; preds = %.lr.ph, %47
   %12 = phi i32 [ %48, %47 ], [ %10, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
-  %.0427178 = phi i1 [ %.143.ph, %47 ], [ true, %.lr.ph ]
-  %.07277 = phi i64 [ %.1.ph, %47 ], [ %3, %.lr.ph ]
+  %.0426673 = phi i1 [ %.143.ph, %47 ], [ true, %.lr.ph ]
+  %.06772 = phi i64 [ %.1.ph, %47 ], [ %3, %.lr.ph ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -388,11 +388,11 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
   %or.cond = and i1 %18, %19
   br i1 %or.cond, label %47, label %20
 
-20:                                               ; preds = %.lr.ph80
+20:                                               ; preds = %.lr.ph75
   %.pre = load i32, ptr %15, align 8
   %.not53 = icmp ne i32 %4, %.pre
-  %or.cond88.not = select i1 %.0427178, i1 %.not53, i1 false
-  br i1 %or.cond88.not, label %.split, label %24
+  %or.cond83.not = select i1 %.0426673, i1 %.not53, i1 false
+  br i1 %or.cond83.not, label %.split, label %24
 
 .split:                                           ; preds = %20
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -410,9 +410,9 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.split75, label %33
+  br i1 %29, label %.split70, label %33
 
-.split75:                                         ; preds = %26
+.split70:                                         ; preds = %26
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %30)
   %31 = load i32, ptr %15, align 8
@@ -422,47 +422,47 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
 
 33:                                               ; preds = %24, %26
   %.044 = phi i64 [ %28, %26 ], [ %1, %24 ]
-  %34 = select i1 %.0427178, ptr @.str.21, ptr @.str.5
+  %34 = select i1 %.0426673, ptr @.str.21, ptr @.str.5
   %35 = lshr i64 %.044, 32
   %36 = trunc nuw i64 %35 to i32
   %37 = trunc i64 %.044 to i32
-  %38 = lshr i64 %.07277, 32
+  %38 = lshr i64 %.06772, 32
   %39 = trunc nuw i64 %38 to i32
-  %40 = trunc i64 %.07277 to i32
+  %40 = trunc i64 %.06772 to i32
   %41 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull %34, i32 noundef %.pre, i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40) #8
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef %41)
   tail call void @pfree(ptr noundef %41) #8
   %42 = load i32, ptr %15, align 8
   %43 = icmp eq i32 %2, %42
-  br i1 %43, label %.thread65, label %44
+  br i1 %43, label %.critedge.thread, label %44
 
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %46 = load i64, ptr %45, align 8
-  %.pre84 = load i32, ptr %8, align 4
+  %.pre79 = load i32, ptr %8, align 4
   br label %47
 
-47:                                               ; preds = %44, %.lr.ph80
-  %48 = phi i32 [ %12, %.lr.ph80 ], [ %.pre84, %44 ]
-  %.143.ph = phi i1 [ %.0427178, %.lr.ph80 ], [ false, %44 ]
-  %.1.ph = phi i64 [ %.07277, %.lr.ph80 ], [ %46, %44 ]
+47:                                               ; preds = %44, %.lr.ph75
+  %48 = phi i32 [ %12, %.lr.ph75 ], [ %.pre79, %44 ]
+  %.143.ph = phi i1 [ %.0426673, %.lr.ph75 ], [ false, %44 ]
+  %.1.ph = phi i64 [ %.06772, %.lr.ph75 ], [ %46, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph80, label %._crit_edge73
+  br i1 %50, label %.lr.ph75, label %.critedge
 
-._crit_edge73:                                    ; preds = %47, %.lr.ph, %6
+.critedge:                                        ; preds = %47, %.lr.ph, %6
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %2, i32 noundef %4) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 307, ptr noundef nonnull @__func__.AddWALInfoToBackupManifest) #8
   unreachable
 
-.thread65:                                        ; preds = %33
+.critedge.thread:                                 ; preds = %33
   tail call fastcc void @AppendStringToManifest(ptr noundef nonnull %0, ptr noundef nonnull @.str.16)
   br label %53
 
-53:                                               ; preds = %5, %.thread65
+53:                                               ; preds = %5, %.critedge.thread
   ret void
 }
 

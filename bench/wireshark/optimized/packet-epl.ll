@@ -5016,7 +5016,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %15 = icmp ne i8 %14, 0
   %16 = icmp ne i8 %11, 0
   %or.cond = select i1 %16, i1 true, i1 %15
-  br i1 %or.cond, label %17, label %dissect_epl_sdo_command_write_by_index.exit
+  br i1 %or.cond, label %17, label %.critedge
 
 17:                                               ; preds = %5
   %18 = load i32, ptr @hf_epl_asnd_sdo_cmd, align 4
@@ -5069,7 +5069,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %58 = icmp eq i8 %11, 1
   %59 = add i8 %11, -1
   %or.cond4 = icmp ult i8 %59, 2
-  br i1 %or.cond4, label %60, label %.sink.split245
+  br i1 %or.cond4, label %60, label %.sink.split242
 
 60:                                               ; preds = %57
   %.not = icmp eq i8 %9, 3
@@ -5094,16 +5094,16 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   call void @fragment_add_seq_offset(ptr noundef nonnull @epl_reassembly_table, ptr noundef %2, i32 noundef %68, ptr noundef null, i32 noundef 0)
   %first_write.first_read = select i1 %58, ptr @first_write, ptr @first_read
   store i1 true, ptr %first_write.first_read, align 1
-  br label %.sink.split245
+  br label %.sink.split242
 
-.sink.split245:                                   ; preds = %57, %61
+.sink.split242:                                   ; preds = %57, %61
   %71 = load i32, ptr @hf_epl_asnd_sdo_cmd_data_size, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %71, ptr noundef %1, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648)
   %73 = add nuw nsw i32 %3, 12
   br label %74
 
-74:                                               ; preds = %.sink.split245, %55
-  %.1163 = phi i32 [ %47, %55 ], [ %73, %.sink.split245 ]
+74:                                               ; preds = %.sink.split242, %55
+  %.1163 = phi i32 [ %47, %55 ], [ %73, %.sink.split242 ]
   br i1 %15, label %75, label %100
 
 75:                                               ; preds = %74
@@ -5113,30 +5113,30 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   br i1 %or.cond6, label %.preheader, label %94
 
 .preheader:                                       ; preds = %75
-  %.not167218 = icmp eq i32 %76, 0
-  br i1 %.not167218, label %dissect_epl_sdo_command_write_by_index.exit, label %.lr.ph
+  %.not167215 = icmp eq i32 %76, 0
+  br i1 %.not167215, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.2219 = phi i32 [ %92, %.lr.ph ], [ %.1163, %.preheader ]
+  %.2216 = phi i32 [ %92, %.lr.ph ], [ %.1163, %.preheader ]
   %78 = load i32, ptr @hf_epl_asnd_sdo_cmd_data_index, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %78, ptr noundef %1, i32 noundef %.2219, i32 noundef 2, i32 noundef -2147483648)
-  %80 = add i32 %.2219, 2
+  %79 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %78, ptr noundef %1, i32 noundef %.2216, i32 noundef 2, i32 noundef -2147483648)
+  %80 = add i32 %.2216, 2
   %81 = load i32, ptr @hf_epl_asnd_sdo_cmd_data_subindex, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %81, ptr noundef %1, i32 noundef %80, i32 noundef 1, i32 noundef -2147483648)
-  %83 = add i32 %.2219, 3
+  %83 = add i32 %.2216, 3
   %84 = load i32, ptr @hf_epl_asnd_sdo_cmd_sub_abort, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %84, ptr noundef %1, i32 noundef %83, i32 noundef 1, i32 noundef -2147483648)
-  %86 = add i32 %.2219, 4
+  %86 = add i32 %.2216, 4
   %87 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %86)
   %88 = load i32, ptr @hf_epl_asnd_sdo_cmd_abort_code, align 4
   %89 = call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %88, ptr noundef %1, i32 noundef %86, i32 noundef 4, i32 noundef %87)
   %90 = load ptr, ptr %30, align 8
   %91 = call ptr @val_to_str_ext_const(i32 noundef %87, ptr noundef nonnull @sdo_cmd_abort_code_ext, ptr noundef nonnull @.str.708)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.767, i32 noundef %87, ptr noundef %91)
-  %92 = add i32 %.2219, 8
+  %92 = add i32 %.2216, 8
   %93 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %92)
   %.not167 = icmp eq i32 %93, 0
-  br i1 %.not167, label %dissect_epl_sdo_command_write_by_index.exit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not167, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 94:                                               ; preds = %75
   %95 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %.1163)
@@ -5145,7 +5145,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %98 = load ptr, ptr %30, align 8
   %99 = call ptr @val_to_str_ext_const(i32 noundef %95, ptr noundef nonnull @sdo_cmd_abort_code_ext, ptr noundef nonnull @.str.708)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.767, i32 noundef %95, ptr noundef %99)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 100:                                              ; preds = %74
   %101 = load i32, ptr %6, align 4
@@ -5154,7 +5154,7 @@ define internal fastcc i32 @dissect_epl_sdo_command(ptr noundef %0, ptr noundef 
   %103 = call fastcc ptr @epl_get_convo(ptr noundef %2, i32 noundef %102)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 53
   store i8 %4, ptr %104, align 1
-  switch i8 %11, label %dissect_epl_sdo_command_write_by_index.exit [
+  switch i8 %11, label %.critedge [
     i8 1, label %105
     i8 49, label %313
     i8 50, label %531
@@ -5518,7 +5518,7 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
   %298 = load ptr, ptr %297, align 8
   %299 = load i32, ptr %106, align 4
   %300 = call fastcc i32 @dissect_object_mapping(ptr noundef %298, ptr noundef %.0250.i, ptr noundef %21, ptr noundef %1, i32 noundef %299, i32 noundef %.0251.i, i16 noundef zeroext %.2.i, i8 noundef zeroext %.0260.i)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 301:                                              ; preds = %285
   %.not277.i = icmp eq ptr %.0252.i, null
@@ -5541,12 +5541,12 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
 309:                                              ; preds = %306, %305, %302
   %.0.i = phi ptr [ %304, %302 ], [ %308, %306 ], [ null, %305 ]
   %310 = call fastcc i32 @dissect_epl_payload(ptr noundef %21, ptr noundef %1, ptr noundef %2, i32 noundef %.0251.i, i32 noundef %..i, ptr noundef %.0.i, i8 noundef zeroext 6)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 311:                                              ; preds = %105
   %312 = load ptr, ptr %30, align 8
   call void @col_append_str(ptr noundef %312, i32 noundef 25, ptr noundef nonnull @.str.624)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 313:                                              ; preds = %100
   %314 = load ptr, ptr %30, align 8
@@ -5580,8 +5580,8 @@ subobject_lookup.exit.i:                          ; preds = %.split265.i, %127, 
   %325 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %324)
   %326 = icmp eq i32 %323, 0
   %327 = zext i16 %.0288396.i to i32
-  %reass.sub220 = sub i32 %323, %.0397.i
-  %328 = add i32 %reass.sub220, 8
+  %reass.sub217 = sub i32 %323, %.0397.i
+  %328 = add i32 %reass.sub217, 8
   %.0312.i = select i1 %326, i32 %327, i32 %328
   %329 = trunc i32 %.0312.i to i16
   %330 = sub i16 %.0288396.i, %329
@@ -5999,7 +5999,7 @@ dissect_epl_sdo_command_write_multiple_by_index.exit: ; preds = %322, %332, %476
   %.3.i = phi i32 [ %.1163, %316 ], [ %.1163, %480 ], [ %523, %521 ], [ %528, %.lr.ph410.split.i ], [ %477, %476 ], [ %.0397.i, %322 ], [ %.0397.i, %332 ]
   %530 = load ptr, ptr %30, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %530, i32 noundef 25, ptr noundef nonnull @.str.1110, i32 noundef %.4308.lcssa.sink.i)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 531:                                              ; preds = %100
   %532 = load ptr, ptr %30, align 8
@@ -6521,7 +6521,7 @@ dissect_epl_sdo_command_read_multiple_by_index.exit: ; preds = %.lr.ph.split.i, 
   %.3.i178 = phi i32 [ %.1163, %534 ], [ %.1163, %714 ], [ %711, %710 ], [ %.0456.i, %539 ], [ %.0456.i, %550 ], [ %782, %781 ], [ %786, %.lr.ph.split.i ]
   %788 = load ptr, ptr %30, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %788, i32 noundef 25, ptr noundef nonnull @.str.1110, i32 noundef %.4358.lcssa.sink.i)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 789:                                              ; preds = %100
   %790 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -6637,12 +6637,12 @@ subobject_lookup.exit.thread.i:                   ; preds = %subobject_lookup.ex
   %850 = getelementptr inbounds nuw i8, ptr %.0.i180.i, i64 4
   %851 = getelementptr inbounds nuw i8, ptr %842, i64 8
   store ptr %850, ptr %851, align 8
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 852:                                              ; preds = %827
   %853 = getelementptr inbounds nuw i8, ptr %842, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %853, i8 0, i64 16, i1 false)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
 854:                                              ; preds = %789
   %855 = icmp samesign ugt i8 %27, 1
@@ -6878,10 +6878,10 @@ convo_read_req_get.exit.thread.i:                 ; preds = %933, %980, %976, %p
   %.0.i200 = phi ptr [ null, %convo_read_req_get.exit.i ], [ %.1.i199, %980 ], [ %.1.i199, %976 ], [ %.1.i199, %proto_item_set_generated.exit177.i ], [ null, %933 ]
   %..i201 = call i32 @llvm.smin.i32(i32 %925, i32 %49)
   %981 = call fastcc i32 @dissect_epl_payload(ptr noundef %21, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 24) %.1163, i32 noundef %..i201, ptr noundef %.0.i200, i8 noundef zeroext 6)
-  br label %dissect_epl_sdo_command_write_by_index.exit
+  br label %.critedge
 
-dissect_epl_sdo_command_write_by_index.exit:      ; preds = %.lr.ph, %.preheader, %100, %dissect_epl_sdo_command_read_multiple_by_index.exit, %dissect_epl_sdo_command_write_multiple_by_index.exit, %296, %309, %311, %846, %852, %convo_read_req_get.exit.thread.i, %5, %94
-  %.1 = phi i32 [ %.1163, %94 ], [ %7, %5 ], [ 0, %100 ], [ %829, %846 ], [ %829, %852 ], [ %981, %convo_read_req_get.exit.thread.i ], [ %310, %309 ], [ %300, %296 ], [ %.1163, %311 ], [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.preheader, %convo_read_req_get.exit.thread.i, %852, %846, %311, %309, %296, %100, %5, %94, %dissect_epl_sdo_command_write_multiple_by_index.exit, %dissect_epl_sdo_command_read_multiple_by_index.exit
+  %.1 = phi i32 [ %.1163, %94 ], [ %7, %5 ], [ %.3.i, %dissect_epl_sdo_command_write_multiple_by_index.exit ], [ %.3.i178, %dissect_epl_sdo_command_read_multiple_by_index.exit ], [ 0, %100 ], [ %.1163, %311 ], [ %300, %296 ], [ %310, %309 ], [ %981, %convo_read_req_get.exit.thread.i ], [ %829, %852 ], [ %829, %846 ], [ %.1163, %.preheader ], [ %92, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #23
   ret i32 %.1
 }

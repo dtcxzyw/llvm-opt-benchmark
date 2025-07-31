@@ -2396,7 +2396,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL20populate_ssl_contextP1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !134
   %.not32 = icmp eq ptr %13, null
-  br i1 %.not32, label %39, label %14
+  br i1 %.not32, label %38, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #31
@@ -2421,193 +2421,192 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL20populate_ssl_contextP1
 24:                                               ; preds = %16
   %25 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47, label %28
+  br i1 %26, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split, label %27
 
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47: ; preds = %24
-  %27 = tail call i32 @BIO_free(ptr noundef nonnull %17)
-  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
-
-28:                                               ; preds = %24
-  %29 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %0, ptr noundef nonnull %25)
-  %.not27.i = icmp eq i32 %29, 0
+27:                                               ; preds = %24
+  %28 = tail call i32 @SSL_CTX_use_certificate(ptr noundef %0, ptr noundef nonnull %25)
+  %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %28, %33
-  %30 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
+.preheader.i:                                     ; preds = %27, %32
+  %29 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.critedge, label %32
+
+.critedge:                                        ; preds = %.preheader.i
+  tail call void @ERR_clear_error()
+  tail call void @X509_free(ptr noundef nonnull %25)
+  %31 = tail call i32 @BIO_free(ptr noundef nonnull %17)
+  br label %38
 
 32:                                               ; preds = %.preheader.i
-  tail call void @ERR_clear_error()
+  %33 = tail call i32 @SSL_CTX_add_extra_chain_cert(ptr noundef %0, ptr noundef nonnull %29)
+  %.not28.i = icmp eq i32 %33, 0
+  br i1 %.not28.i, label %34, label %.preheader.i
+
+34:                                               ; preds = %32
+  tail call void @X509_free(ptr noundef nonnull %29)
   br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
 
-33:                                               ; preds = %.preheader.i
-  %34 = tail call i32 @SSL_CTX_add_extra_chain_cert(ptr noundef %0, ptr noundef nonnull %30)
-  %.not28.i = icmp eq i32 %34, 0
-  br i1 %.not28.i, label %35, label %.preheader.i
-
-35:                                               ; preds = %33
-  tail call void @X509_free(ptr noundef nonnull %30)
-  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
-
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit: ; preds = %28, %32, %35
-  %.not33 = phi i1 [ false, %28 ], [ false, %35 ], [ true, %32 ]
-  %.02140.i = phi i32 [ 2, %28 ], [ 2, %35 ], [ 0, %32 ]
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit: ; preds = %27, %34
   tail call void @X509_free(ptr noundef nonnull %25)
-  %36 = tail call i32 @BIO_free(ptr noundef nonnull %17)
-  br i1 %.not33, label %39, label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split
 
-_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread: ; preds = %16, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
-  %.0.i46 = phi i32 [ %.02140.i, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit ], [ 2, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread47 ], [ 12, %16 ]
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split: ; preds = %24, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit
+  %35 = tail call i32 @BIO_free(ptr noundef nonnull %17)
+  br label %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+
+_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread: ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split, %16
+  %.0.i46 = phi i32 [ 12, %16 ], [ 2, %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread.sink.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 799) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 24, ptr nonnull @.str.77)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit unwind label %37
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit unwind label %36
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  br label %77
+  br label %76
 
-37:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit.thread
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  br label %78
+  br label %77
 
-39:                                               ; preds = %_ZL29ssl_ctx_use_certificate_chainP10ssl_ctx_stPKcm.exit, %11
-  %40 = load ptr, ptr %1, align 8, !tbaa !136
-  %.not34 = icmp eq ptr %40, null
-  br i1 %.not34, label %thread-pre-split, label %41
+38:                                               ; preds = %.critedge, %11
+  %39 = load ptr, ptr %1, align 8, !tbaa !136
+  %.not34 = icmp eq ptr %39, null
+  br i1 %.not34, label %thread-pre-split, label %40
 
-41:                                               ; preds = %39
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #31
-  %.not.i.i.i = icmp ugt i64 %42, 2147483647
-  br i1 %.not.i.i.i, label %46, label %43, !prof !28
+40:                                               ; preds = %38
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #31
+  %.not.i.i.i = icmp ugt i64 %41, 2147483647
+  br i1 %.not.i.i.i, label %45, label %42, !prof !28
 
-43:                                               ; preds = %41
-  %44 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull %40, i64 noundef %42)
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %51
+42:                                               ; preds = %40
+  %43 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull %39, i64 noundef %41)
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %50
 
-46:                                               ; preds = %41
-  %47 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %42, i64 noundef 2147483647, ptr noundef nonnull @.str.82)
+45:                                               ; preds = %40
+  %46 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %41, i64 noundef 2147483647, ptr noundef nonnull @.str.82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
-  %48 = load ptr, ptr %47, align 8, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !12
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 671, i64 %50, ptr %48) #33
+  %47 = load ptr, ptr %46, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !12
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.1, i32 noundef 671, i64 %49, ptr %47) #33
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #35
   unreachable
 
-51:                                               ; preds = %43
-  %52 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %44, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %54
+50:                                               ; preds = %42
+  %51 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %43, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %53
 
-54:                                               ; preds = %51
-  %55 = tail call i32 @SSL_CTX_use_PrivateKey(ptr noundef %0, ptr noundef nonnull %52)
-  %.not18.i.i = icmp eq i32 %55, 0
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %52)
-  br i1 %.not18.i.i, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %57
+53:                                               ; preds = %50
+  %54 = tail call i32 @SSL_CTX_use_PrivateKey(ptr noundef %0, ptr noundef nonnull %51)
+  %.not18.i.i = icmp eq i32 %54, 0
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %51)
+  br i1 %.not18.i.i, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, label %56
 
-_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54: ; preds = %51, %54
-  %56 = tail call i32 @BIO_free(ptr noundef nonnull %44)
+_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54: ; preds = %50, %53
+  %55 = tail call i32 @BIO_free(ptr noundef nonnull %43)
   br label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
 
-57:                                               ; preds = %54
-  %58 = tail call i32 @BIO_free(ptr noundef nonnull %44)
-  %59 = tail call i32 @SSL_CTX_check_private_key(ptr noundef %0)
-  %.not36 = icmp eq i32 %59, 0
+56:                                               ; preds = %53
+  %57 = tail call i32 @BIO_free(ptr noundef nonnull %43)
+  %58 = tail call i32 @SSL_CTX_check_private_key(ptr noundef %0)
+  %.not36 = icmp eq i32 %58, 0
   br i1 %.not36, label %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread, label %thread-pre-split
 
-_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread: ; preds = %43, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, %57
-  %.not3553 = phi i32 [ 2, %57 ], [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 12, %43 ]
+_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread: ; preds = %42, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54, %56
+  %.not3553 = phi i32 [ 2, %56 ], [ 2, %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread54 ], [ 12, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.1, i32 noundef 807) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 20, ptr nonnull @.str.78)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %60
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit unwind label %59
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
-  br label %77
+  br label %76
 
-60:                                               ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZL23ssl_ctx_use_private_keyP10ssl_ctx_stPKcm.exit.thread
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
-  br label %78
+  br label %77
 
-thread-pre-split:                                 ; preds = %39, %57, %3
+thread-pre-split:                                 ; preds = %38, %56, %3
   %.not37 = icmp eq ptr %2, null
-  br i1 %.not37, label %69, label %62
+  br i1 %.not37, label %68, label %61
 
-62:                                               ; preds = %thread-pre-split
-  %63 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull %2)
-  %.not38 = icmp eq i32 %63, 0
-  br i1 %.not38, label %64, label %69
+61:                                               ; preds = %thread-pre-split
+  %62 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %0, ptr noundef nonnull %2)
+  %.not38 = icmp eq i32 %62, 0
+  br i1 %.not38, label %63, label %68
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.1, i32 noundef 814) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 21, ptr nonnull @.str.79)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit unwind label %67
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit unwind label %66
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; preds = %64
-  %65 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %66 unwind label %67
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit: ; preds = %63
+  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %65 unwind label %66
 
-66:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+65:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  br label %76
+
+66:                                               ; preds = %63, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
+  %67 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
   br label %77
 
-67:                                               ; preds = %64, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi22EEERS2_RAT__Kc.exit
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
-  br label %78
+68:                                               ; preds = %61, %thread-pre-split
+  %69 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 415)
+  %70 = tail call i32 @SSL_CTX_set_tmp_ecdh(ptr noundef %0, ptr noundef %69)
+  %.not39.not = icmp eq i32 %70, 0
+  br i1 %.not39.not, label %71, label %74
 
-69:                                               ; preds = %62, %thread-pre-split
-  %70 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef 415)
-  %71 = tail call i32 @SSL_CTX_set_tmp_ecdh(ptr noundef %0, ptr noundef %70)
-  %.not39.not = icmp eq i32 %71, 0
-  br i1 %.not39.not, label %72, label %75
-
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #32
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.1, i32 noundef 821) #33
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 33, ptr nonnull @.str.80)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %73
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %72
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %72
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %71
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
-  call void @EC_KEY_free(ptr noundef %70)
-  br label %77
+  call void @EC_KEY_free(ptr noundef %69)
+  br label %76
 
-73:                                               ; preds = %72
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %71
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
-  br label %78
-
-75:                                               ; preds = %69
-  %76 = tail call i32 @SSL_CTX_set_options(ptr noundef %0, i32 noundef 0)
-  tail call void @EC_KEY_free(ptr noundef %70)
   br label %77
 
-77:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %75, %66, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit
-  %.0 = phi i32 [ %.0.i46, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ %.not3553, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit ], [ 2, %66 ], [ 0, %75 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ]
+74:                                               ; preds = %68
+  %75 = tail call i32 @SSL_CTX_set_options(ptr noundef %0, i32 noundef 0)
+  tail call void @EC_KEY_free(ptr noundef %69)
+  br label %76
+
+76:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %74, %65, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit
+  %.0 = phi i32 [ %.0.i46, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit ], [ %.not3553, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit ], [ 2, %65 ], [ 0, %74 ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ]
   ret i32 %.0
 
-78:                                               ; preds = %73, %67, %60, %37
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %61, %60 ], [ %74, %73 ], [ %68, %67 ]
+77:                                               ; preds = %72, %66, %59, %36
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %60, %59 ], [ %73, %72 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2779,31 +2778,31 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %11 = zext i32 %4 to i64
   %12 = ptrtoint ptr %8 to i64
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph48.i
+  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph45.i
 
-.lr.ph48.i:                                       ; preds = %6
+.lr.ph45.i:                                       ; preds = %6
   %13 = ptrtoint ptr %3 to i64
-  %.not50.i = icmp eq i32 %4, 0
-  br i1 %.not50.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
+  %.not47.i = icmp eq i32 %4, 0
+  br i1 %.not47.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph48.i, %._crit_edge.us.i
-  %.03246.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %8, %.lr.ph48.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.03246.us.i, i64 1
-  %15 = load i8, ptr %.03246.us.i, align 1, !tbaa !59
+.lr.ph.us.i:                                      ; preds = %.lr.ph45.i, %..critedge_crit_edge.us.i
+  %.03244.us.i = phi ptr [ %28, %..critedge_crit_edge.us.i ], [ %8, %.lr.ph45.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %.03244.us.i, i64 1
+  %15 = load i8, ptr %.03244.us.i, align 1, !tbaa !59
   %16 = zext i8 %15 to i64
   br label %17
 
 17:                                               ; preds = %22, %.lr.ph.us.i
-  %.03045.us.i = phi ptr [ %3, %.lr.ph.us.i ], [ %24, %22 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.03045.us.i, i64 1
-  %19 = load i8, ptr %.03045.us.i, align 1, !tbaa !59
+  %.03043.us.i = phi ptr [ %3, %.lr.ph.us.i ], [ %24, %22 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03043.us.i, i64 1
+  %19 = load i8, ptr %.03043.us.i, align 1, !tbaa !59
   %20 = icmp eq i8 %15, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %18, i64 %16)
   %.not35.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not35.us.i, label %.thread41.i, label %22
+  br i1 %.not35.us.i, label %.critedge40.critedge.i, label %22
 
 22:                                               ; preds = %21, %17
   %23 = zext i8 %19 to i64
@@ -2813,9 +2812,9 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %26 = sub i64 %25, %13
   %27 = icmp ult i64 %26, %11
   %or.cond.us.i = and i1 %.not.us.i, %27
-  br i1 %or.cond.us.i, label %17, label %._crit_edge.us.i, !llvm.loop !141
+  br i1 %or.cond.us.i, label %17, label %..critedge_crit_edge.us.i, !llvm.loop !141
 
-._crit_edge.us.i:                                 ; preds = %22
+..critedge_crit_edge.us.i:                        ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %12
@@ -2823,13 +2822,13 @@ define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_
   %32 = icmp ult i64 %31, %10
   br i1 %32, label %.lr.ph.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !142
 
-.thread41.i:                                      ; preds = %21
+.critedge40.critedge.i:                           ; preds = %21
   store ptr %18, ptr %1, align 8, !tbaa !23
   store i8 %15, ptr %2, align 1, !tbaa !59
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
-_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %._crit_edge.us.i, %6, %.lr.ph48.i, %.thread41.i
-  %.4.i = phi i32 [ 0, %.thread41.i ], [ 3, %6 ], [ 3, %.lr.ph48.i ], [ 3, %._crit_edge.us.i ]
+_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 
@@ -4854,31 +4853,31 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %11 = load i64, ptr %10, align 8, !tbaa !188
   %12 = ptrtoint ptr %3 to i64
   %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph48.i
+  br i1 %.not.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph45.i
 
-.lr.ph48.i:                                       ; preds = %6
+.lr.ph45.i:                                       ; preds = %6
   %13 = ptrtoint ptr %9 to i64
-  %.not50.i = icmp eq i64 %11, 0
-  br i1 %.not50.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
+  %.not47.i = icmp eq i64 %11, 0
+  br i1 %.not47.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph48.i, %._crit_edge.us.i
-  %.03246.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %3, %.lr.ph48.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.03246.us.i, i64 1
-  %15 = load i8, ptr %.03246.us.i, align 1, !tbaa !59
+.lr.ph.us.i:                                      ; preds = %.lr.ph45.i, %..critedge_crit_edge.us.i
+  %.03244.us.i = phi ptr [ %28, %..critedge_crit_edge.us.i ], [ %3, %.lr.ph45.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %.03244.us.i, i64 1
+  %15 = load i8, ptr %.03244.us.i, align 1, !tbaa !59
   %16 = zext i8 %15 to i64
   br label %17
 
 17:                                               ; preds = %22, %.lr.ph.us.i
-  %.03045.us.i = phi ptr [ %9, %.lr.ph.us.i ], [ %24, %22 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.03045.us.i, i64 1
-  %19 = load i8, ptr %.03045.us.i, align 1, !tbaa !59
+  %.03043.us.i = phi ptr [ %9, %.lr.ph.us.i ], [ %24, %22 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03043.us.i, i64 1
+  %19 = load i8, ptr %.03043.us.i, align 1, !tbaa !59
   %20 = icmp eq i8 %15, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %14, ptr nonnull %18, i64 %16)
   %.not35.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %.not35.us.i, label %.thread41.i, label %22
+  br i1 %.not35.us.i, label %.critedge40.critedge.i, label %22
 
 22:                                               ; preds = %21, %17
   %23 = zext i8 %19 to i64
@@ -4888,9 +4887,9 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %26 = sub i64 %25, %13
   %27 = icmp ult i64 %26, %11
   %or.cond.us.i = and i1 %.not.us.i, %27
-  br i1 %or.cond.us.i, label %17, label %._crit_edge.us.i, !llvm.loop !141
+  br i1 %or.cond.us.i, label %17, label %..critedge_crit_edge.us.i, !llvm.loop !141
 
-._crit_edge.us.i:                                 ; preds = %22
+..critedge_crit_edge.us.i:                        ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %12
@@ -4898,13 +4897,13 @@ define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn
   %32 = icmp samesign ult i64 %31, %7
   br i1 %32, label %.lr.ph.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !142
 
-.thread41.i:                                      ; preds = %21
+.critedge40.critedge.i:                           ; preds = %21
   store ptr %18, ptr %1, align 8, !tbaa !23
   store i8 %15, ptr %2, align 1, !tbaa !59
   br label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit
 
-_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %._crit_edge.us.i, %6, %.lr.ph48.i, %.thread41.i
-  %.4.i = phi i32 [ 0, %.thread41.i ], [ 3, %6 ], [ 3, %.lr.ph48.i ], [ 3, %._crit_edge.us.i ]
+_ZL20select_protocol_listPPKhPhS0_mS0_m.exit:     ; preds = %..critedge_crit_edge.us.i, %6, %.lr.ph45.i, %.critedge40.critedge.i
+  %.4.i = phi i32 [ 0, %.critedge40.critedge.i ], [ 3, %6 ], [ 3, %.lr.ph45.i ], [ 3, %..critedge_crit_edge.us.i ]
   ret i32 %.4.i
 }
 

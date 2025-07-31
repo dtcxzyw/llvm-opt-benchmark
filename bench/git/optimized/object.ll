@@ -601,16 +601,16 @@ define dso_local ptr @parse_object_buffer(ptr noundef %0, ptr noundef %1, i32 no
 7:                                                ; preds = %6
   %8 = tail call ptr @lookup_blob(ptr noundef %0, ptr noundef %1) #20
   %.not72 = icmp eq ptr %8, null
-  br i1 %.not72, label %.thread, label %9
+  br i1 %.not72, label %.critedge, label %9
 
 9:                                                ; preds = %7
   tail call void @parse_blob_buffer(ptr noundef nonnull %8) #20
-  br label %.thread
+  br label %.critedge
 
 10:                                               ; preds = %6
   %11 = tail call ptr @lookup_tree(ptr noundef %0, ptr noundef %1) #20
   %.not68 = icmp eq ptr %11, null
-  br i1 %.not68, label %.thread, label %12
+  br i1 %.not68, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -628,52 +628,52 @@ define dso_local ptr @parse_object_buffer(ptr noundef %0, ptr noundef %1, i32 no
   %18 = phi i32 [ %16, %15 ], [ %.pre, %12 ]
   %19 = and i32 %18, 1
   %.not70 = icmp eq i32 %19, 0
-  br i1 %.not70, label %20, label %.thread
+  br i1 %.not70, label %20, label %.critedge
 
 20:                                               ; preds = %17
   %21 = tail call i32 @parse_tree_buffer(ptr noundef nonnull %11, ptr noundef %4, i64 noundef %3) #20
   %.not71 = icmp eq i32 %21, 0
-  br i1 %.not71, label %22, label %.thread
+  br i1 %.not71, label %22, label %.critedge
 
 22:                                               ; preds = %20
   store i32 1, ptr %5, align 4, !tbaa !44
-  br label %.thread
+  br label %.critedge
 
 23:                                               ; preds = %6
   %24 = tail call ptr @lookup_commit(ptr noundef %0, ptr noundef %1) #20
   %.not64 = icmp eq ptr %24, null
-  br i1 %.not64, label %.thread, label %25
+  br i1 %.not64, label %.critedge, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @parse_commit_buffer(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %4, i64 noundef %3, i32 noundef 1) #20
   %.not65 = icmp eq i32 %26, 0
-  br i1 %.not65, label %27, label %.thread
+  br i1 %.not65, label %27, label %.critedge
 
 27:                                               ; preds = %25
   %28 = load i32, ptr @save_commit_buffer, align 4, !tbaa !44
   %.not66 = icmp eq i32 %28, 0
-  br i1 %.not66, label %.thread, label %29
+  br i1 %.not66, label %.critedge, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @get_cached_commit_buffer(ptr noundef %0, ptr noundef nonnull %24, ptr noundef null) #20
   %.not67 = icmp eq ptr %30, null
-  br i1 %.not67, label %31, label %.thread
+  br i1 %.not67, label %31, label %.critedge
 
 31:                                               ; preds = %29
   tail call void @set_commit_buffer(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %4, i64 noundef %3) #20
   store i32 1, ptr %5, align 4, !tbaa !44
-  br label %.thread
+  br label %.critedge
 
 32:                                               ; preds = %6
   %33 = tail call ptr @lookup_tag(ptr noundef %0, ptr noundef %1) #20
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %.thread, label %34
+  br i1 %.not, label %.critedge, label %34
 
 34:                                               ; preds = %32
   %35 = tail call i32 @parse_tag_buffer(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %4, i64 noundef %3) #20
   %.not63 = icmp eq i32 %35, 0
   %spec.select = select i1 %.not63, ptr %33, ptr null
-  br label %.thread
+  br label %.critedge
 
 36:                                               ; preds = %6
   %37 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
@@ -688,10 +688,10 @@ _.exit:                                           ; preds = %36, %38
   %.0.i = phi ptr [ %39, %38 ], [ @.str.4, %36 ]
   %40 = tail call ptr @oid_to_hex(ptr noundef %1) #20
   tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %40, i32 noundef %2) #20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %34, %32, %23, %31, %29, %27, %10, %22, %17, %_.exit, %9, %7, %25, %20
-  %.1 = phi ptr [ null, %20 ], [ null, %25 ], [ null, %_.exit ], [ %8, %9 ], [ null, %7 ], [ null, %10 ], [ %11, %22 ], [ %11, %17 ], [ %24, %27 ], [ %24, %29 ], [ %24, %31 ], [ null, %23 ], [ null, %32 ], [ %spec.select, %34 ]
+.critedge:                                        ; preds = %34, %25, %20, %_.exit, %9, %7, %10, %22, %17, %23, %31, %29, %27, %32
+  %.1 = phi ptr [ null, %_.exit ], [ %8, %9 ], [ null, %7 ], [ %11, %17 ], [ %11, %22 ], [ null, %10 ], [ null, %23 ], [ %24, %31 ], [ %24, %29 ], [ %24, %27 ], [ null, %32 ], [ null, %20 ], [ null, %25 ], [ %spec.select, %34 ]
   ret ptr %.1
 }
 

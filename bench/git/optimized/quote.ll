@@ -1633,98 +1633,107 @@ define dso_local ptr @quote_path(ptr noundef %0, ptr noundef %1, ptr noundef ini
   %6 = call ptr @relative_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #12
   %7 = and i32 %3, 1
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %11, label %8
+  br i1 %.not, label %.critedge.critedge, label %8
 
 8:                                                ; preds = %4
   %9 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 32) #13
-  %10 = icmp ne ptr %9, null
-  br label %11
+  %.not27 = icmp eq ptr %9, null
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 0, ptr %10, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %.not9.i = icmp eq ptr %12, @strbuf_slopbuf
+  br i1 %.not9.i, label %strbuf_setlen.exit, label %13
 
-11:                                               ; preds = %8, %4
-  %12 = phi i1 [ false, %4 ], [ %10, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !4
-  %.not9.i = icmp eq ptr %15, @strbuf_slopbuf
-  br i1 %.not9.i, label %strbuf_setlen.exit, label %16
-
-16:                                               ; preds = %11
-  store i8 0, ptr %15, align 1, !tbaa !13
+13:                                               ; preds = %8
+  store i8 0, ptr %12, align 1, !tbaa !13
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %11, %16
-  br i1 %12, label %17, label %.critedge
+strbuf_setlen.exit:                               ; preds = %8, %13
+  br i1 %.not27, label %.critedge, label %14
 
-17:                                               ; preds = %strbuf_setlen.exit
-  %18 = load i64, ptr %2, align 8, !tbaa !11
-  %.not.i.i = icmp eq i64 %18, 0
+14:                                               ; preds = %strbuf_setlen.exit
+  %15 = load i64, ptr %2, align 8, !tbaa !11
+  %.not.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-strbuf_avail.exit.i:                              ; preds = %17
-  %19 = load i64, ptr %13, align 8, !tbaa !12
-  %.neg.i = add i64 %19, 1
-  %.not.i = icmp eq i64 %18, %.neg.i
+strbuf_avail.exit.i:                              ; preds = %14
+  %16 = load i64, ptr %10, align 8, !tbaa !12
+  %.neg.i = add i64 %16, 1
+  %.not.i = icmp eq i64 %15, %.neg.i
   br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %17
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %14
   call void @strbuf_grow(ptr noundef nonnull %2, i64 noundef 1) #12
-  %.pre.i = load i64, ptr %13, align 8, !tbaa !12
+  %.pre.i = load i64, ptr %10, align 8, !tbaa !12
   %.pre7.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %20 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %19, %strbuf_avail.exit.i ]
-  %21 = load ptr, ptr %14, align 8, !tbaa !4
-  store i64 %.pre-phi.i, ptr %13, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
-  store i8 34, ptr %22, align 1, !tbaa !13
-  %23 = load ptr, ptr %14, align 8, !tbaa !4
-  %24 = load i64, ptr %13, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
-  store i8 0, ptr %25, align 1, !tbaa !13
-  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %27 = call fastcc i64 @quote_c_style_counted(ptr noundef nonnull %6, i64 noundef %26, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1)
-  %28 = load i64, ptr %2, align 8, !tbaa !11
-  %.not.i.i13 = icmp eq i64 %28, 0
-  br i1 %.not.i.i13, label %strbuf_avail.exit.thread.i18, label %strbuf_avail.exit.i14
+  %17 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %16, %strbuf_avail.exit.i ]
+  %18 = load ptr, ptr %11, align 8, !tbaa !4
+  store i64 %.pre-phi.i, ptr %10, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
+  store i8 34, ptr %19, align 1, !tbaa !13
+  %20 = load ptr, ptr %11, align 8, !tbaa !4
+  %21 = load i64, ptr %10, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 0, ptr %22, align 1, !tbaa !13
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
+  %24 = call fastcc i64 @quote_c_style_counted(ptr noundef nonnull %6, i64 noundef %23, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1)
+  %25 = load i64, ptr %2, align 8, !tbaa !11
+  %.not.i.i14 = icmp eq i64 %25, 0
+  br i1 %.not.i.i14, label %strbuf_avail.exit.thread.i19, label %strbuf_avail.exit.i15
 
-strbuf_avail.exit.i14:                            ; preds = %strbuf_addch.exit
-  %29 = load i64, ptr %13, align 8, !tbaa !12
-  %.neg.i15 = add i64 %29, 1
-  %.not.i16 = icmp eq i64 %28, %.neg.i15
-  br i1 %.not.i16, label %strbuf_avail.exit.thread.i18, label %strbuf_addch.exit22
+strbuf_avail.exit.i15:                            ; preds = %strbuf_addch.exit
+  %26 = load i64, ptr %10, align 8, !tbaa !12
+  %.neg.i16 = add i64 %26, 1
+  %.not.i17 = icmp eq i64 %25, %.neg.i16
+  br i1 %.not.i17, label %strbuf_avail.exit.thread.i19, label %strbuf_addch.exit23
 
-strbuf_avail.exit.thread.i18:                     ; preds = %strbuf_avail.exit.i14, %strbuf_addch.exit
+strbuf_avail.exit.thread.i19:                     ; preds = %strbuf_avail.exit.i15, %strbuf_addch.exit
   call void @strbuf_grow(ptr noundef nonnull %2, i64 noundef 1) #12
-  %.pre.i20 = load i64, ptr %13, align 8, !tbaa !12
-  %.pre7.i21 = add i64 %.pre.i20, 1
-  br label %strbuf_addch.exit22
+  %.pre.i21 = load i64, ptr %10, align 8, !tbaa !12
+  %.pre7.i22 = add i64 %.pre.i21, 1
+  br label %strbuf_addch.exit23
 
-strbuf_addch.exit22:                              ; preds = %strbuf_avail.exit.i14, %strbuf_avail.exit.thread.i18
-  %.pre-phi.i17 = phi i64 [ %.pre7.i21, %strbuf_avail.exit.thread.i18 ], [ %.neg.i15, %strbuf_avail.exit.i14 ]
-  %30 = phi i64 [ %.pre.i20, %strbuf_avail.exit.thread.i18 ], [ %29, %strbuf_avail.exit.i14 ]
-  %31 = load ptr, ptr %14, align 8, !tbaa !4
-  store i64 %.pre-phi.i17, ptr %13, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %30
-  store i8 34, ptr %32, align 1, !tbaa !13
-  %33 = load ptr, ptr %14, align 8, !tbaa !4
-  %34 = load i64, ptr %13, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+strbuf_addch.exit23:                              ; preds = %strbuf_avail.exit.i15, %strbuf_avail.exit.thread.i19
+  %.pre-phi.i18 = phi i64 [ %.pre7.i22, %strbuf_avail.exit.thread.i19 ], [ %.neg.i16, %strbuf_avail.exit.i15 ]
+  %27 = phi i64 [ %.pre.i21, %strbuf_avail.exit.thread.i19 ], [ %26, %strbuf_avail.exit.i15 ]
+  %28 = load ptr, ptr %11, align 8, !tbaa !4
+  store i64 %.pre-phi.i18, ptr %10, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  store i8 34, ptr %29, align 1, !tbaa !13
+  %30 = load ptr, ptr %11, align 8, !tbaa !4
+  %31 = load i64, ptr %10, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  store i8 0, ptr %32, align 1, !tbaa !13
+  br label %39
+
+.critedge.critedge:                               ; preds = %4
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 0, ptr %33, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !4
+  %.not9.i25 = icmp eq ptr %35, @strbuf_slopbuf
+  br i1 %.not9.i25, label %.critedge, label %36
+
+36:                                               ; preds = %.critedge.critedge
   store i8 0, ptr %35, align 1, !tbaa !13
-  br label %38
+  br label %.critedge
 
-.critedge:                                        ; preds = %strbuf_setlen.exit
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %37 = call fastcc i64 @quote_c_style_counted(ptr noundef nonnull %6, i64 noundef %36, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
-  br label %38
+.critedge:                                        ; preds = %36, %.critedge.critedge, %strbuf_setlen.exit
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
+  %38 = call fastcc i64 @quote_c_style_counted(ptr noundef nonnull %6, i64 noundef %37, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
+  br label %39
 
-38:                                               ; preds = %.critedge, %strbuf_addch.exit22
+39:                                               ; preds = %.critedge, %strbuf_addch.exit23
   call void @strbuf_release(ptr noundef nonnull %5) #12
-  %39 = load ptr, ptr %14, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
-  ret ptr %39
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

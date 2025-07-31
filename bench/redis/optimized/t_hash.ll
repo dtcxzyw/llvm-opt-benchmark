@@ -3178,7 +3178,7 @@ define dso_local range(i32 -2, 3) i32 @hashTypeSetExpiryHT(ptr noundef captures(
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = tail call ptr @dictFind(ptr noundef %7, ptr noundef %1) #16
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %hfieldPersist.exit, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = tail call ptr @dictGetKey(ptr noundef nonnull %8) #16
@@ -3190,14 +3190,14 @@ define dso_local range(i32 -2, 3) i32 @hashTypeSetExpiryHT(ptr noundef captures(
   br i1 %12, label %15, label %44
 
 15:                                               ; preds = %10
-  br i1 %.not.i.i, label %hfieldPersist.exit, label %hfieldIsExpireAttached.exit.i
+  br i1 %.not.i.i, label %.critedge, label %hfieldIsExpireAttached.exit.i
 
 hfieldIsExpireAttached.exit.i:                    ; preds = %15
   %16 = tail call ptr @mstrFlagsRef(ptr noundef nonnull %11) #16
   %17 = load i16, ptr %16, align 2, !tbaa !8
   %18 = and i16 %17, 1
   %.not.i = icmp eq i16 %18, 0
-  br i1 %.not.i, label %hfieldPersist.exit, label %19
+  br i1 %.not.i, label %.critedge, label %19
 
 19:                                               ; preds = %hfieldIsExpireAttached.exit.i
   %20 = tail call ptr @mstrMetaRef(ptr noundef nonnull %11, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #16
@@ -3205,21 +3205,21 @@ hfieldIsExpireAttached.exit.i:                    ; preds = %15
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 256
   %.not4.i = icmp eq i16 %23, 0
-  br i1 %.not4.i, label %hfieldGetExpireTime.exit, label %hfieldPersist.exit
+  br i1 %.not4.i, label %hfieldGetExpireTime.exit, label %.critedge
 
 hfieldGetExpireTime.exit:                         ; preds = %19
   %24 = load ptr, ptr %4, align 8, !tbaa !79
   %.val.i.i.i = load i8, ptr %13, align 1, !tbaa !5
   %25 = and i8 %.val.i.i.i, 4
   %.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i, label %hfieldPersist.exit, label %hfieldIsExpireAttached.exit.i.i
+  br i1 %.not.i.i.i, label %.critedge, label %hfieldIsExpireAttached.exit.i.i
 
 hfieldIsExpireAttached.exit.i.i:                  ; preds = %hfieldGetExpireTime.exit
   %26 = tail call ptr @mstrFlagsRef(ptr noundef nonnull %11) #16
   %27 = load i16, ptr %26, align 2, !tbaa !8
   %28 = and i16 %27, 1
   %.not.i.i63 = icmp eq i16 %28, 0
-  br i1 %.not.i.i63, label %hfieldPersist.exit, label %29
+  br i1 %.not.i.i63, label %.critedge, label %29
 
 29:                                               ; preds = %hfieldIsExpireAttached.exit.i.i
   %30 = tail call ptr @mstrMetaRef(ptr noundef nonnull %11, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #16
@@ -3227,7 +3227,7 @@ hfieldIsExpireAttached.exit.i.i:                  ; preds = %hfieldGetExpireTime
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 256
   %.not4.i.i = icmp eq i16 %33, 0
-  br i1 %.not4.i.i, label %hfieldGetExpireTime.exit.i, label %hfieldPersist.exit
+  br i1 %.not4.i.i, label %hfieldGetExpireTime.exit.i, label %.critedge
 
 hfieldGetExpireTime.exit.i:                       ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3246,7 +3246,7 @@ hfieldGetExpireTime.exit.i:                       ; preds = %29
 41:                                               ; preds = %hfieldGetExpireTime.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %43 = tail call i32 @ebRemove(ptr noundef nonnull %42, ptr noundef nonnull @hashFieldExpireBucketsType, ptr noundef nonnull %11) #16
-  br label %hfieldPersist.exit
+  br label %.critedge
 
 44:                                               ; preds = %10
   br i1 %.not.i.i, label %hfieldIsExpireAttached.exit.thread, label %hfieldIsExpireAttached.exit
@@ -3262,7 +3262,7 @@ hfieldIsExpireAttached.exit.thread:               ; preds = %44, %hfieldIsExpire
   %48 = load i32, ptr %0, align 8, !tbaa !81
   %49 = and i32 %48, 6
   %.not56 = icmp eq i32 %49, 0
-  br i1 %.not56, label %50, label %hfieldPersist.exit
+  br i1 %.not56, label %50, label %.critedge
 
 50:                                               ; preds = %hfieldIsExpireAttached.exit.thread
   tail call void @mstrFree(ptr noundef nonnull @mstrFieldKind, ptr noundef nonnull %11) #16
@@ -3353,15 +3353,15 @@ hfieldGetExpireTime.exit75:                       ; preds = %84
   %95 = icmp ne i32 %94, 4
   %.not59 = icmp ult i64 %93, %2
   %or.cond = or i1 %95, %.not59
-  br i1 %or.cond, label %96, label %hfieldPersist.exit
+  br i1 %or.cond, label %96, label %.critedge
 
 96:                                               ; preds = %hfieldGetExpireTime.exit75
   %97 = icmp eq i32 %94, 8
   %.not60 = icmp ule i64 %93, %2
-  %or.cond62.not84 = and i1 %97, %.not60
+  %or.cond62.not82 = and i1 %97, %.not60
   %98 = icmp eq i32 %94, 1
-  %or.cond82 = or i1 %98, %or.cond62.not84
-  br i1 %or.cond82, label %hfieldPersist.exit, label %99
+  %or.cond80 = or i1 %98, %or.cond62.not82
+  br i1 %or.cond80, label %.critedge, label %99
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -3379,10 +3379,10 @@ hfieldGetExpireTime.exit75.thread:                ; preds = %79, %84, %hfieldIsE
   %106 = load i32, ptr %0, align 8, !tbaa !81
   %107 = and i32 %106, 6
   %.not58 = icmp eq i32 %107, 0
-  br i1 %.not58, label %hfieldNew.exit, label %hfieldPersist.exit
+  br i1 %.not58, label %hfieldNew.exit, label %.critedge
 
-hfieldNew.exit:                                   ; preds = %99, %105, %hfieldGetExpireTime.exit75.thread, %74, %sdslen.exit
-  %.050 = phi ptr [ %73, %74 ], [ null, %sdslen.exit ], [ %11, %hfieldGetExpireTime.exit75.thread ], [ %11, %105 ], [ %11, %99 ]
+hfieldNew.exit:                                   ; preds = %74, %sdslen.exit, %hfieldGetExpireTime.exit75.thread, %105, %99
+  %.050 = phi ptr [ %11, %99 ], [ %11, %105 ], [ %11, %hfieldGetExpireTime.exit75.thread ], [ %73, %74 ], [ null, %sdslen.exit ]
   tail call void @dictSetKey(ptr noundef %7, ptr noundef nonnull %8, ptr noundef %.050) #16
   %108 = tail call i32 @checkAlreadyExpired(i64 noundef %2) #16
   %.not61 = icmp eq i32 %108, 0
@@ -3402,7 +3402,7 @@ hfieldNew.exit:                                   ; preds = %99, %105, %hfieldGe
   %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2496), align 8, !tbaa !29
   %120 = add nsw i64 %119, 1
   store i64 %120, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2496), align 8, !tbaa !29
-  br label %hfieldPersist.exit
+  br label %.critedge
 
 121:                                              ; preds = %hfieldNew.exit
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3417,10 +3417,10 @@ hfieldNew.exit:                                   ; preds = %99, %105, %hfieldGe
 126:                                              ; preds = %125, %121
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %128 = tail call i32 @ebAdd(ptr noundef nonnull %127, ptr noundef nonnull @hashFieldExpireBucketsType, ptr noundef %.050, i64 noundef %2) #16
-  br label %hfieldPersist.exit
+  br label %.critedge
 
-hfieldPersist.exit:                               ; preds = %hfieldGetExpireTime.exit75.thread, %hfieldGetExpireTime.exit75, %96, %15, %19, %hfieldIsExpireAttached.exit.i, %41, %29, %hfieldIsExpireAttached.exit.i.i, %hfieldGetExpireTime.exit, %109, %126, %hfieldIsExpireAttached.exit.thread, %3
-  %.0 = phi i32 [ -2, %3 ], [ 2, %109 ], [ 1, %126 ], [ 0, %hfieldIsExpireAttached.exit.thread ], [ 1, %hfieldGetExpireTime.exit ], [ 1, %hfieldIsExpireAttached.exit.i.i ], [ 1, %29 ], [ 1, %41 ], [ 0, %hfieldIsExpireAttached.exit.i ], [ 0, %19 ], [ 0, %15 ], [ 0, %96 ], [ 0, %hfieldGetExpireTime.exit75 ], [ 0, %hfieldGetExpireTime.exit75.thread ]
+.critedge:                                        ; preds = %15, %19, %hfieldIsExpireAttached.exit.i, %41, %29, %hfieldIsExpireAttached.exit.i.i, %hfieldGetExpireTime.exit, %109, %126, %hfieldIsExpireAttached.exit.thread, %hfieldGetExpireTime.exit75.thread, %hfieldGetExpireTime.exit75, %96, %3
+  %.0 = phi i32 [ -2, %3 ], [ 2, %109 ], [ 1, %126 ], [ 0, %hfieldIsExpireAttached.exit.thread ], [ 0, %hfieldGetExpireTime.exit75.thread ], [ 0, %hfieldGetExpireTime.exit75 ], [ 0, %96 ], [ 1, %hfieldGetExpireTime.exit ], [ 1, %hfieldIsExpireAttached.exit.i.i ], [ 1, %29 ], [ 1, %41 ], [ 0, %hfieldIsExpireAttached.exit.i ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -9426,8 +9426,8 @@ hashTypeLength.exit:                              ; preds = %25, %30, %37
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %75, %81, %84, %88, %92, %96
-  %.0.i201 = phi i64 [ %83, %81 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %98, %96 ], [ 0, %75 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %70, i64 noundef %.0.i201) #16
+  %.0.i203 = phi i64 [ %83, %81 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %98, %96 ], [ 0, %75 ]
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %70, i64 noundef %.0.i203) #16
   br label %100
 
 .critedge:                                        ; preds = %66
@@ -9490,11 +9490,11 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   %129 = load i32, ptr %128, align 4, !tbaa !148
   %130 = icmp eq i32 %129, 2
   %131 = zext i1 %130 to i64
-  %spec.select224 = shl nuw nsw i64 %126, %131
+  %spec.select229 = shl nuw nsw i64 %126, %131
   br label %132
 
 132:                                              ; preds = %127, %125
-  %.sink = phi i64 [ %126, %125 ], [ %spec.select224, %127 ]
+  %.sink = phi i64 [ %126, %125 ], [ %spec.select229, %127 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.sink) #16
   %.not189 = icmp ult i64 %1, %.0.i
   br i1 %.not189, label %143, label %133
@@ -9502,8 +9502,8 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
 133:                                              ; preds = %132
   %134 = tail call ptr @hashTypeInitIterator(ptr noundef nonnull %10)
   %135 = tail call i32 @hashTypeNext(ptr noundef %134, i32 noundef 0)
-  %.not193205 = icmp eq i32 %135, -1
-  br i1 %.not193205, label %._crit_edge, label %.lr.ph
+  %.not193207 = icmp eq i32 %135, -1
+  br i1 %.not193207, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -9588,14 +9588,14 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   %171 = tail call noalias ptr @zmalloc(i64 noundef %170) #18
   %172 = tail call ptr @dictGetIterator(ptr noundef %169) #16
   %173 = tail call ptr @dictNext(ptr noundef %172) #16
-  %.not192207 = icmp eq ptr %173, null
-  br i1 %.not192207, label %._crit_edge211, label %.lr.ph210
+  %.not192209 = icmp eq ptr %173, null
+  br i1 %.not192209, label %._crit_edge213, label %.lr.ph212
 
-.lr.ph210:                                        ; preds = %167, %.lr.ph210
-  %174 = phi ptr [ %179, %.lr.ph210 ], [ %173, %167 ]
-  %.0177208 = phi i64 [ %175, %.lr.ph210 ], [ 0, %167 ]
-  %175 = add i64 %.0177208, 1
-  %176 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.0177208
+.lr.ph212:                                        ; preds = %167, %.lr.ph212
+  %174 = phi ptr [ %179, %.lr.ph212 ], [ %173, %167 ]
+  %.0177210 = phi i64 [ %175, %.lr.ph212 ], [ 0, %167 ]
+  %175 = add i64 %.0177210, 1
+  %176 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.0177210
   %177 = tail call ptr @dictGetKey(ptr noundef nonnull %174) #16
   %178 = tail call ptr @dictGetVal(ptr noundef nonnull %174) #16
   store ptr %177, ptr %176, align 8, !tbaa !85
@@ -9603,108 +9603,109 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   store ptr %178, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !85
   %179 = tail call ptr @dictNext(ptr noundef %172) #16
   %.not192 = icmp eq ptr %179, null
-  br i1 %.not192, label %._crit_edge211, label %.lr.ph210, !llvm.loop !165
+  br i1 %.not192, label %._crit_edge213, label %.lr.ph212, !llvm.loop !165
 
-._crit_edge211:                                   ; preds = %.lr.ph210, %167
+._crit_edge213:                                   ; preds = %.lr.ph212, %167
   tail call void @dictReleaseIterator(ptr noundef %172) #16
   %180 = icmp ugt i64 %.0.i, %.0
-  br i1 %180, label %.lr.ph214, label %.lr.ph216
+  br i1 %180, label %.lr.ph216, label %.lr.ph218
 
-.preheader204:                                    ; preds = %.lr.ph214
-  %.not218 = icmp eq i64 %186, 0
-  br i1 %.not218, label %._crit_edge217, label %.lr.ph216
+.preheader206:                                    ; preds = %.lr.ph216
+  %.not220 = icmp eq i64 %190, 0
+  br i1 %.not220, label %._crit_edge219, label %.lr.ph218
 
-.lr.ph216:                                        ; preds = %._crit_edge211, %.preheader204
-  %.0170.lcssa222 = phi i64 [ %186, %.preheader204 ], [ %.0.i, %._crit_edge211 ]
+.lr.ph218:                                        ; preds = %._crit_edge213, %.preheader206
+  %.0170.lcssa226 = phi i64 [ %190, %.preheader206 ], [ %.0.i, %._crit_edge213 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %189
+  br i1 %.not188, label %.critedge200.us, label %.lr.ph218.split
 
-.lr.ph214:                                        ; preds = %._crit_edge211, %.lr.ph214
-  %.0170212 = phi i64 [ %186, %.lr.ph214 ], [ %.0.i, %._crit_edge211 ]
-  %182 = tail call i32 @rand() #16
-  %183 = sext i32 %182 to i64
-  %184 = urem i64 %183, %.0170212
-  %185 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %184
-  %186 = add i64 %.0170212, -1
-  %187 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %186
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef nonnull align 8 dereferenceable(16) %187, i64 16, i1 false), !tbaa.struct !166
-  %188 = icmp ugt i64 %186, %.0
-  br i1 %188, label %.lr.ph214, label %.preheader204, !llvm.loop !167
+.critedge200.us:                                  ; preds = %.lr.ph218, %.critedge200.us
+  %.1178217.us = phi i64 [ %185, %.critedge200.us ], [ 0, %.lr.ph218 ]
+  %182 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.1178217.us
+  %183 = load ptr, ptr %182, align 8, !tbaa !166
+  %184 = tail call i64 @mstrlen(ptr noundef %183) #16
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %183, i64 noundef %184) #16
+  %185 = add nuw i64 %.1178217.us, 1
+  %exitcond223.not = icmp eq i64 %185, %.0170.lcssa226
+  br i1 %exitcond223.not, label %._crit_edge219, label %.critedge200.us, !llvm.loop !168
 
-189:                                              ; preds = %.lr.ph216, %223
-  %.1178215 = phi i64 [ 0, %.lr.ph216 ], [ %224, %223 ]
-  br i1 %.not188, label %194, label %190
+.lr.ph216:                                        ; preds = %._crit_edge213, %.lr.ph216
+  %.0170214 = phi i64 [ %190, %.lr.ph216 ], [ %.0.i, %._crit_edge213 ]
+  %186 = tail call i32 @rand() #16
+  %187 = sext i32 %186 to i64
+  %188 = urem i64 %187, %.0170214
+  %189 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %188
+  %190 = add i64 %.0170214, -1
+  %191 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %190
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false), !tbaa.struct !169
+  %192 = icmp ugt i64 %190, %.0
+  br i1 %192, label %.lr.ph216, label %.preheader206, !llvm.loop !170
 
-190:                                              ; preds = %189
-  %191 = load i32, ptr %181, align 4, !tbaa !148
-  %192 = icmp sgt i32 %191, 2
-  br i1 %192, label %193, label %194
+.lr.ph218.split:                                  ; preds = %.lr.ph218, %sdslen.exit205
+  %.1178217 = phi i64 [ %224, %sdslen.exit205 ], [ 0, %.lr.ph218 ]
+  %193 = load i32, ptr %181, align 4, !tbaa !148
+  %194 = icmp sgt i32 %193, 2
+  br i1 %194, label %195, label %196
 
-193:                                              ; preds = %190
+195:                                              ; preds = %.lr.ph218.split
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #16
-  br label %194
+  br label %196
 
-194:                                              ; preds = %193, %190, %189
-  %195 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.1178215
-  %196 = load ptr, ptr %195, align 8, !tbaa !168
-  %197 = tail call i64 @mstrlen(ptr noundef %196) #16
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %196, i64 noundef %197) #16
-  br i1 %.not188, label %223, label %198
-
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %200 = load ptr, ptr %199, align 8, !tbaa !170
-  %201 = getelementptr inbounds i8, ptr %200, i64 -1
-  %202 = load i8, ptr %201, align 1, !tbaa !5
-  %203 = zext i8 %202 to i32
-  %204 = and i32 %203, 7
-  switch i32 %204, label %sdslen.exit203 [
-    i32 0, label %205
-    i32 1, label %208
-    i32 2, label %212
-    i32 3, label %216
-    i32 4, label %220
+196:                                              ; preds = %.lr.ph218.split, %195
+  %197 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.1178217
+  %198 = load ptr, ptr %197, align 8, !tbaa !166
+  %199 = tail call i64 @mstrlen(ptr noundef %198) #16
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %198, i64 noundef %199) #16
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !171
+  %202 = getelementptr inbounds i8, ptr %201, i64 -1
+  %203 = load i8, ptr %202, align 1, !tbaa !5
+  %204 = zext i8 %203 to i32
+  %205 = and i32 %204, 7
+  switch i32 %205, label %sdslen.exit205 [
+    i32 0, label %206
+    i32 1, label %209
+    i32 2, label %213
+    i32 3, label %217
+    i32 4, label %221
   ]
 
-205:                                              ; preds = %198
-  %206 = lshr i32 %203, 3
-  %207 = zext nneg i32 %206 to i64
-  br label %sdslen.exit203
+206:                                              ; preds = %196
+  %207 = lshr i32 %204, 3
+  %208 = zext nneg i32 %207 to i64
+  br label %sdslen.exit205
 
-208:                                              ; preds = %198
-  %209 = getelementptr inbounds i8, ptr %200, i64 -3
-  %210 = load i8, ptr %209, align 1, !tbaa !5
-  %211 = zext i8 %210 to i64
-  br label %sdslen.exit203
+209:                                              ; preds = %196
+  %210 = getelementptr inbounds i8, ptr %201, i64 -3
+  %211 = load i8, ptr %210, align 1, !tbaa !5
+  %212 = zext i8 %211 to i64
+  br label %sdslen.exit205
 
-212:                                              ; preds = %198
-  %213 = getelementptr inbounds i8, ptr %200, i64 -5
-  %214 = load i16, ptr %213, align 1, !tbaa !8
-  %215 = zext i16 %214 to i64
-  br label %sdslen.exit203
+213:                                              ; preds = %196
+  %214 = getelementptr inbounds i8, ptr %201, i64 -5
+  %215 = load i16, ptr %214, align 1, !tbaa !8
+  %216 = zext i16 %215 to i64
+  br label %sdslen.exit205
 
-216:                                              ; preds = %198
-  %217 = getelementptr inbounds i8, ptr %200, i64 -9
-  %218 = load i32, ptr %217, align 1, !tbaa !65
-  %219 = zext i32 %218 to i64
-  br label %sdslen.exit203
+217:                                              ; preds = %196
+  %218 = getelementptr inbounds i8, ptr %201, i64 -9
+  %219 = load i32, ptr %218, align 1, !tbaa !65
+  %220 = zext i32 %219 to i64
+  br label %sdslen.exit205
 
-220:                                              ; preds = %198
-  %221 = getelementptr inbounds i8, ptr %200, i64 -17
-  %222 = load i64, ptr %221, align 1, !tbaa !28
-  br label %sdslen.exit203
+221:                                              ; preds = %196
+  %222 = getelementptr inbounds i8, ptr %201, i64 -17
+  %223 = load i64, ptr %222, align 1, !tbaa !28
+  br label %sdslen.exit205
 
-sdslen.exit203:                                   ; preds = %198, %205, %208, %212, %216, %220
-  %.0.i202 = phi i64 [ %207, %205 ], [ %211, %208 ], [ %215, %212 ], [ %219, %216 ], [ %222, %220 ], [ 0, %198 ]
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %200, i64 noundef %.0.i202) #16
-  br label %223
+sdslen.exit205:                                   ; preds = %196, %206, %209, %213, %217, %221
+  %.0.i204 = phi i64 [ %208, %206 ], [ %212, %209 ], [ %216, %213 ], [ %220, %217 ], [ %223, %221 ], [ 0, %196 ]
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %201, i64 noundef %.0.i204) #16
+  %224 = add nuw i64 %.1178217, 1
+  %exitcond.not = icmp eq i64 %224, %.0170.lcssa226
+  br i1 %exitcond.not, label %._crit_edge219, label %.lr.ph218.split, !llvm.loop !172
 
-223:                                              ; preds = %194, %sdslen.exit203
-  %224 = add nuw i64 %.1178215, 1
-  %exitcond.not = icmp eq i64 %224, %.0170.lcssa222
-  br i1 %exitcond.not, label %._crit_edge217, label %189, !llvm.loop !171
-
-._crit_edge217:                                   ; preds = %223, %.preheader204
+._crit_edge219:                                   ; preds = %sdslen.exit205, %.critedge200.us, %.preheader206
   tail call void @zfree(ptr noundef nonnull %171) #16
   br label %.loopexit
 
@@ -9718,7 +9719,7 @@ sdslen.exit203:                                   ; preds = %198, %205, %208, %2
   br label %230
 
 230:                                              ; preds = %225, %248
-  %.0172206 = phi i64 [ 0, %225 ], [ %.1173, %248 ]
+  %.0172208 = phi i64 [ 0, %225 ], [ %.1173, %248 ]
   %231 = load ptr, ptr %228, align 8, !tbaa !10
   %232 = call ptr @dictGetFairRandomKey(ptr noundef %231) #16
   %.not190 = icmp eq ptr %232, null
@@ -9734,11 +9735,11 @@ sdslen.exit203:                                   ; preds = %198, %205, %208, %2
   %236 = call ptr @dictGetVal(ptr noundef nonnull %232) #16
   %237 = call i32 @dictAdd(ptr noundef %226, ptr noundef %235, ptr noundef %236) #16
   %.not191 = icmp eq i32 %237, 0
-  br i1 %.not191, label %238, label %248, !llvm.loop !172
+  br i1 %.not191, label %238, label %248, !llvm.loop !173
 
 238:                                              ; preds = %234
-  %239 = add nuw nsw i64 %.0172206, 1
-  br i1 %.not188, label %.critedge200, label %240
+  %239 = add nuw nsw i64 %.0172208, 1
+  br i1 %.not188, label %.critedge202, label %240
 
 240:                                              ; preds = %238
   %241 = load i32, ptr %229, align 4, !tbaa !148
@@ -9756,13 +9757,13 @@ sdslen.exit203:                                   ; preds = %198, %205, %208, %2
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %236, i64 noundef %246) #16
   br label %248
 
-.critedge200:                                     ; preds = %238
+.critedge202:                                     ; preds = %238
   %247 = call i64 @mstrlen(ptr noundef %235) #16
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %235, i64 noundef %247) #16
   br label %248
 
-248:                                              ; preds = %244, %.critedge200, %234
-  %.1173 = phi i64 [ %.0172206, %234 ], [ %239, %.critedge200 ], [ %239, %244 ]
+248:                                              ; preds = %244, %.critedge202, %234
+  %.1173 = phi i64 [ %.0172208, %234 ], [ %239, %.critedge202 ], [ %239, %244 ]
   %249 = icmp ult i64 %.1173, %.0
   br i1 %249, label %230, label %250
 
@@ -9771,7 +9772,7 @@ sdslen.exit203:                                   ; preds = %198, %205, %208, %2
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %100, %64, %._crit_edge, %163, %250, %._crit_edge217, %124, %57, %3, %12, %47, %19
+.loopexit:                                        ; preds = %100, %64, %._crit_edge, %163, %250, %._crit_edge219, %124, %57, %3, %12, %47, %19
   ret void
 }
 
@@ -9885,7 +9886,7 @@ define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 nou
 16:                                               ; preds = %13, %9
   %17 = add nuw nsw i64 %.031.us, 1
   %exitcond34.not = icmp eq i64 %17, %5
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !173
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %41, %16, %4
   ret void
@@ -9941,7 +9942,7 @@ define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 nou
 41:                                               ; preds = %38, %34
   %42 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %42, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !174
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !175
 }
 
 declare i32 @lpRandomPairsUnique(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -9995,7 +9996,7 @@ define dso_local void @hrandfieldCommand(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not30, label %27, label %25
 
 25:                                               ; preds = %18, %13
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !175
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !176
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %26) #16
   br label %87
 
@@ -10340,7 +10341,7 @@ parseExpireTime.exit.thread:                      ; preds = %22, %27, %34, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i64, ptr %5, align 8, !tbaa !28
   %73 = icmp sgt i64 %72, %indvars.iv.next
-  br i1 %73, label %.lr.ph135, label %.loopexit, !llvm.loop !176
+  br i1 %73, label %.lr.ph135, label %.loopexit, !llvm.loop !177
 
 74:                                               ; preds = %68
   %75 = call i64 @hashTypeLength(ptr noundef nonnull %15, i32 noundef 0)
@@ -10390,7 +10391,7 @@ parseExpireTime.exit.thread:                      ; preds = %22, %27, %34, %17
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %100) #16
   %101 = load i32, ptr %62, align 8, !tbaa !135
   %102 = icmp slt i32 %.1, %101
-  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !177
+  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !178
 
 ._crit_edge.loopexit:                             ; preds = %99
   %103 = icmp eq i32 %.196, 0
@@ -10469,9 +10470,9 @@ parseExpireTime.exit.thread:                      ; preds = %22, %27, %34, %17
 
 139:                                              ; preds = %136, %135
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %141 = load ptr, ptr %140, align 8, !tbaa !178
+  %141 = load ptr, ptr %140, align 8, !tbaa !179
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 96
-  %143 = load ptr, ptr %142, align 8, !tbaa !179
+  %143 = load ptr, ptr %142, align 8, !tbaa !180
   %.not119 = icmp eq ptr %143, @hpexpireatCommand
   br i1 %.not119, label %146, label %144
 
@@ -10593,7 +10594,7 @@ define internal fastcc void @httlGenericCommand(ptr noundef %0, i64 noundef %1, 
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %37 = load i64, ptr %4, align 8, !tbaa !28
   %38 = icmp sgt i64 %37, %indvars.iv.next27
-  br i1 %38, label %.lr.ph14, label %.loopexit, !llvm.loop !185
+  br i1 %38, label %.lr.ph14, label %.loopexit, !llvm.loop !186
 
 39:                                               ; preds = %33
   %40 = load i32, ptr %12, align 8
@@ -10680,7 +10681,7 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %81 = load i64, ptr %4, align 8, !tbaa !28
   %82 = icmp sgt i64 %81, %indvars.iv.next24
-  br i1 %82, label %.lr.ph12, label %.loopexit, !llvm.loop !186
+  br i1 %82, label %.lr.ph12, label %.loopexit, !llvm.loop !187
 
 83:                                               ; preds = %39
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10812,7 +10813,7 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %145 = load i64, ptr %4, align 8, !tbaa !28
   %146 = icmp sgt i64 %145, %indvars.iv.next21
-  br i1 %146, label %90, label %.loopexit, !llvm.loop !187
+  br i1 %146, label %90, label %.loopexit, !llvm.loop !188
 
 147:                                              ; preds = %39
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10888,7 +10889,7 @@ hfieldGetExpireTime.exit.thread:                  ; preds = %181, %hfieldGetExpi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = load i64, ptr %4, align 8, !tbaa !28
   %186 = icmp sgt i64 %185, %indvars.iv.next
-  br i1 %186, label %153, label %.loopexit, !llvm.loop !188
+  br i1 %186, label %153, label %.loopexit, !llvm.loop !189
 
 187:                                              ; preds = %39
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 3665, ptr noundef nonnull @.str.6, i32 noundef %42) #16
@@ -10986,7 +10987,7 @@ define dso_local void @hpersistCommand(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %35 = load i64, ptr %2, align 8, !tbaa !28
   %36 = icmp sgt i64 %35, %indvars.iv.next160
-  br i1 %36, label %.lr.ph150, label %.loopexit, !llvm.loop !189
+  br i1 %36, label %.lr.ph150, label %.loopexit, !llvm.loop !190
 
 37:                                               ; preds = %31
   %38 = load i32, ptr %10, align 8
@@ -11076,7 +11077,7 @@ sdslen.exit:                                      ; preds = %54, %59, %62, %66, 
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %80 = load i64, ptr %2, align 8, !tbaa !28
   %81 = icmp sgt i64 %80, %indvars.iv.next157
-  br i1 %81, label %45, label %.loopexit, !llvm.loop !190
+  br i1 %81, label %45, label %.loopexit, !llvm.loop !191
 
 82:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -11207,7 +11208,7 @@ sdslen.exit:                                      ; preds = %54, %59, %62, %66, 
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %140 = load i64, ptr %2, align 8, !tbaa !28
   %141 = icmp sgt i64 %140, %indvars.iv.next154
-  br i1 %141, label %88, label %._crit_edge, !llvm.loop !191
+  br i1 %141, label %88, label %._crit_edge, !llvm.loop !192
 
 142:                                              ; preds = %37
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -11311,7 +11312,7 @@ hfieldGetExpireTime.exit.thread:                  ; preds = %190, %179, %hfieldI
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = load i64, ptr %2, align 8, !tbaa !28
   %194 = icmp sgt i64 %193, %indvars.iv.next
-  br i1 %194, label %.lr.ph, label %.loopexit135, !llvm.loop !192
+  br i1 %194, label %.lr.ph, label %.loopexit135, !llvm.loop !193
 
 195:                                              ; preds = %37
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 3987, ptr noundef nonnull @.str.6, i32 noundef %40) #16
@@ -11359,9 +11360,9 @@ declare ptr @lpFindCb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cbFindInListpack(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !193
+  %7 = load i32, ptr %6, align 4, !tbaa !194
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr %6, align 4, !tbaa !193
+  store i32 %8, ptr %6, align 4, !tbaa !194
   %9 = load i64, ptr %2, align 8, !tbaa !75
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %31, label %11
@@ -11375,7 +11376,7 @@ define internal range(i32 0, 2) i32 @cbFindInListpack(ptr readnone captures(none
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %1, ptr %14, align 8, !tbaa !194
+  store ptr %1, ptr %14, align 8, !tbaa !195
   br label %31
 
 15:                                               ; preds = %11
@@ -11399,7 +11400,7 @@ define internal range(i32 0, 2) i32 @cbFindInListpack(ptr readnone captures(none
 
 22:                                               ; preds = %19, %17
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !194
+  %24 = load ptr, ptr %23, align 8, !tbaa !195
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !78
   br label %31
@@ -11438,7 +11439,7 @@ define internal fastcc i64 @hashTypeExpire(ptr noundef %0, ptr noundef captures(
   switch i32 %10, label %19 [
     i32 12, label %11
     i32 2, label %20
-  ], !prof !195
+  ], !prof !196
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %1, align 8, !tbaa !126
@@ -11469,9 +11470,9 @@ define internal fastcc i64 @hashTypeExpire(ptr noundef %0, ptr noundef captures(
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  store ptr %0, ptr %5, align 8, !tbaa !196
+  store ptr %0, ptr %5, align 8, !tbaa !197
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %23, align 8, !tbaa !198
+  store ptr %7, ptr %23, align 8, !tbaa !199
   %24 = load i32, ptr %1, align 8, !tbaa !126
   %25 = zext i32 %24 to i64
   %26 = tail call i64 @commandTimeSnapshot() #16
@@ -11639,16 +11640,16 @@ hashTypeLength.exit:                              ; preds = %70, %75, %82
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @onFieldExpire(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !196
+  %3 = load ptr, ptr %1, align 8, !tbaa !197
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !198
+  %7 = load ptr, ptr %6, align 8, !tbaa !199
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !105
   %10 = tail call i64 @mstrlen(ptr noundef %0) #16
   tail call fastcc void @propagateHashFieldDeletion(ptr noundef %7, ptr noundef %9, ptr noundef %0, i64 noundef %10)
-  %11 = load ptr, ptr %1, align 8, !tbaa !196
+  %11 = load ptr, ptr %1, align 8, !tbaa !197
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 4
   %14 = and i32 %13, 15
@@ -11691,12 +11692,12 @@ define internal noundef i32 @onFieldExpire(ptr noundef %0, ptr noundef readonly 
 
 hashTypeLength.exit:                              ; preds = %15, %20, %27
   %.0.i = phi i64 [ %19, %15 ], [ %34, %27 ], [ %26, %20 ]
-  %36 = load ptr, ptr %6, align 8, !tbaa !198
+  %36 = load ptr, ptr %6, align 8, !tbaa !199
   %37 = load ptr, ptr %8, align 8, !tbaa !105
   %38 = tail call i32 @getKeySlot(ptr noundef %37) #16
   %39 = add i64 %.0.i, -1
   tail call void @updateKeysizesHist(ptr noundef %36, i32 noundef %38, i32 noundef 4, i64 noundef %.0.i, i64 noundef %39) #16
-  %40 = load ptr, ptr %1, align 8, !tbaa !196
+  %40 = load ptr, ptr %1, align 8, !tbaa !197
   %41 = tail call i32 @hashTypeDelete(ptr noundef %40, ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %42, label %43, !prof !23
@@ -11932,26 +11933,26 @@ attributes #19 = { nounwind willreturn memory(read) }
 !163 = distinct !{!163, !89, !140}
 !164 = distinct !{!164, !89}
 !165 = distinct !{!165, !89}
-!166 = !{i64 0, i64 8, !85, i64 8, i64 8, !85}
-!167 = distinct !{!167, !89}
-!168 = !{!169, !18, i64 0}
-!169 = !{!"FieldValPair", !18, i64 0, !18, i64 8}
-!170 = !{!169, !18, i64 8}
-!171 = distinct !{!171, !89}
+!166 = !{!167, !18, i64 0}
+!167 = !{!"FieldValPair", !18, i64 0, !18, i64 8}
+!168 = distinct !{!168, !89, !140}
+!169 = !{i64 0, i64 8, !85, i64 8, i64 8, !85}
+!170 = distinct !{!170, !89}
+!171 = !{!167, !18, i64 8}
 !172 = distinct !{!172, !89}
-!173 = distinct !{!173, !89, !140}
-!174 = distinct !{!174, !89}
-!175 = !{!62, !63, i64 216}
-!176 = distinct !{!176, !89}
+!173 = distinct !{!173, !89}
+!174 = distinct !{!174, !89, !140}
+!175 = distinct !{!175, !89}
+!176 = !{!62, !63, i64 216}
 !177 = distinct !{!177, !89}
-!178 = !{!93, !95, i64 128}
-!179 = !{!180, !13, i64 96}
-!180 = !{!"redisCommand", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !12, i64 32, !18, i64 40, !18, i64 48, !12, i64 56, !13, i64 64, !12, i64 72, !31, i64 80, !12, i64 88, !13, i64 96, !12, i64 104, !21, i64 112, !21, i64 120, !13, i64 128, !12, i64 136, !13, i64 144, !12, i64 152, !95, i64 160, !181, i64 168, !25, i64 176, !25, i64 184, !25, i64 192, !25, i64 200, !12, i64 208, !18, i64 216, !182, i64 224, !183, i64 232, !33, i64 288, !95, i64 296, !184, i64 304}
-!181 = !{!"p1 _ZTS15redisCommandArg", !13, i64 0}
-!182 = !{!"p1 _ZTS13hdr_histogram", !13, i64 0}
-!183 = !{!"", !18, i64 0, !21, i64 8, !12, i64 16, !6, i64 24, !12, i64 40, !6, i64 44}
-!184 = !{!"p1 _ZTS18RedisModuleCommand", !13, i64 0}
-!185 = distinct !{!185, !89}
+!178 = distinct !{!178, !89}
+!179 = !{!93, !95, i64 128}
+!180 = !{!181, !13, i64 96}
+!181 = !{!"redisCommand", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !12, i64 32, !18, i64 40, !18, i64 48, !12, i64 56, !13, i64 64, !12, i64 72, !31, i64 80, !12, i64 88, !13, i64 96, !12, i64 104, !21, i64 112, !21, i64 120, !13, i64 128, !12, i64 136, !13, i64 144, !12, i64 152, !95, i64 160, !182, i64 168, !25, i64 176, !25, i64 184, !25, i64 192, !25, i64 200, !12, i64 208, !18, i64 216, !183, i64 224, !184, i64 232, !33, i64 288, !95, i64 296, !185, i64 304}
+!182 = !{!"p1 _ZTS15redisCommandArg", !13, i64 0}
+!183 = !{!"p1 _ZTS13hdr_histogram", !13, i64 0}
+!184 = !{!"", !18, i64 0, !21, i64 8, !12, i64 16, !6, i64 24, !12, i64 40, !6, i64 44}
+!185 = !{!"p1 _ZTS18RedisModuleCommand", !13, i64 0}
 !186 = distinct !{!186, !89}
 !187 = distinct !{!187, !89}
 !188 = distinct !{!188, !89}
@@ -11959,9 +11960,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !190 = distinct !{!190, !89}
 !191 = distinct !{!191, !89}
 !192 = distinct !{!192, !89}
-!193 = !{!76, !12, i64 28}
-!194 = !{!76, !18, i64 32}
-!195 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!196 = !{!197, !63, i64 0}
-!197 = !{!"OnFieldExpireCtx", !63, i64 0, !32, i64 8}
-!198 = !{!197, !32, i64 8}
+!193 = distinct !{!193, !89}
+!194 = !{!76, !12, i64 28}
+!195 = !{!76, !18, i64 32}
+!196 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!197 = !{!198, !63, i64 0}
+!198 = !{!"OnFieldExpireCtx", !63, i64 0, !32, i64 8}
+!199 = !{!198, !32, i64 8}

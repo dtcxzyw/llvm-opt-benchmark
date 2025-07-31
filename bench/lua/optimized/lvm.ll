@@ -390,15 +390,15 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %7
 
-7:                                                ; preds = %5, %.thread56
-  %.04074 = phi ptr [ %1, %5 ], [ %.042, %.thread56 ]
-  %.04373 = phi i32 [ 0, %5 ], [ %55, %.thread56 ]
-  %.04472 = phi i32 [ %4, %5 ], [ %.145, %.thread56 ]
-  %.not = icmp eq i32 %.04472, 2
+7:                                                ; preds = %5, %.thread58
+  %.04073 = phi ptr [ %1, %5 ], [ %.042, %.thread58 ]
+  %.04372 = phi i32 [ 0, %5 ], [ %55, %.thread58 ]
+  %.04471 = phi i32 [ %4, %5 ], [ %.ph, %.thread58 ]
+  %.not = icmp eq i32 %.04471, 2
   br i1 %.not, label %38, label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %.04074, align 8, !tbaa !8
+  %9 = load ptr, ptr %.04073, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = icmp eq ptr %11, null
@@ -425,7 +425,7 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.critedge
 
 .thread:                                          ; preds = %8, %13, %17
-  tail call void @luaH_finishset(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3, i32 noundef %.04472) #13
+  tail call void @luaH_finishset(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3, i32 noundef %.04471) #13
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %23 = load i8, ptr %22, align 2, !tbaa !26
   %24 = and i8 %23, -64
@@ -434,14 +434,14 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = load i8, ptr %25, align 8, !tbaa !4
   %27 = and i8 %26, 64
   %.not50 = icmp eq i8 %27, 0
-  br i1 %.not50, label %.loopexit, label %28
+  br i1 %.not50, label %.critedge56, label %28
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %30 = load i8, ptr %29, align 1, !tbaa !40
   %31 = and i8 %30, 32
   %.not51 = icmp eq i8 %31, 0
-  br i1 %.not51, label %.loopexit, label %32
+  br i1 %.not51, label %.critedge56, label %32
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %3, align 8, !tbaa !8
@@ -449,14 +449,14 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   %35 = load i8, ptr %34, align 1, !tbaa !40
   %36 = and i8 %35, 24
   %.not52 = icmp eq i8 %36, 0
-  br i1 %.not52, label %.loopexit, label %37
+  br i1 %.not52, label %.critedge56, label %37
 
 37:                                               ; preds = %32
   tail call void @luaC_barrierback_(ptr noundef %0, ptr noundef nonnull %9) #13
-  br label %.loopexit
+  br label %.critedge56
 
 38:                                               ; preds = %7
-  %39 = tail call ptr @luaT_gettmbyobj(ptr noundef %0, ptr noundef %.04074, i32 noundef 1) #13
+  %39 = tail call ptr @luaT_gettmbyobj(ptr noundef %0, ptr noundef %.04073, i32 noundef 1) #13
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
   %42 = and i8 %41, 15
@@ -464,7 +464,7 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %43, label %44, label %.critedge, !prof !20
 
 44:                                               ; preds = %38
-  tail call void @luaG_typeerror(ptr noundef %0, ptr noundef %.04074, ptr noundef nonnull @.str) #14
+  tail call void @luaG_typeerror(ptr noundef %0, ptr noundef %.04073, ptr noundef nonnull @.str) #14
   unreachable
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %38
@@ -475,31 +475,31 @@ define hidden void @luaV_finishset(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %.critedge
-  tail call void @luaT_callTM(ptr noundef %0, ptr noundef nonnull %.042, ptr noundef %.04074, ptr noundef %2, ptr noundef %3) #13
-  br label %.loopexit
+  tail call void @luaT_callTM(ptr noundef %0, ptr noundef nonnull %.042, ptr noundef %.04073, ptr noundef %2, ptr noundef %3) #13
+  br label %.critedge56
 
 49:                                               ; preds = %.critedge
   %50 = icmp eq i8 %45, 69
-  br i1 %50, label %51, label %.thread56
+  br i1 %50, label %51, label %.thread58
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %.042, align 8, !tbaa !8
   %53 = tail call i32 @luaH_pset(ptr noundef %52, ptr noundef %2, ptr noundef %3) #13
   %.fr = freeze i32 %53
   %54 = icmp eq i32 %.fr, 0
-  br i1 %54, label %.loopexit, label %.thread56
+  br i1 %54, label %.critedge56, label %.thread58
 
-.thread56:                                        ; preds = %49, %51
-  %.145 = phi i32 [ %.fr, %51 ], [ 2, %49 ]
-  %55 = add nuw nsw i32 %.04373, 1
+.thread58:                                        ; preds = %49, %51
+  %.ph = phi i32 [ %.fr, %51 ], [ 2, %49 ]
+  %55 = add nuw nsw i32 %.04372, 1
   %exitcond.not = icmp eq i32 %55, 2000
   br i1 %exitcond.not, label %56, label %7
 
-56:                                               ; preds = %.thread56
+56:                                               ; preds = %.thread58
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.2) #14
   unreachable
 
-.loopexit:                                        ; preds = %51, %48, %28, %32, %37, %.thread
+.critedge56:                                      ; preds = %51, %.thread, %37, %32, %28, %48
   ret void
 }
 

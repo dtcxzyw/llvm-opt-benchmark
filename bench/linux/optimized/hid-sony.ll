@@ -198,7 +198,7 @@ define internal i32 @sony_probe(ptr noundef %0, ptr noundef readonly captures(no
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.thread, label %50
+  br i1 %49, label %124, label %50
 
 50:                                               ; preds = %45
   %51 = load i64, ptr %24, align 8
@@ -235,14 +235,14 @@ define internal i32 @sony_probe(ptr noundef %0, ptr noundef readonly captures(no
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6352
   %74 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef nonnull %73, i64 noundef 8, i32 noundef 2336) #15
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread, label %76
+  br i1 %75, label %124, label %76
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr %26, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6352
   %79 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef nonnull %78, i64 noundef 8, i32 noundef 2336) #15
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %.thread, label %81
+  br i1 %80, label %124, label %81
 
 81:                                               ; preds = %76
   store i8 33, ptr %74, align 1
@@ -260,7 +260,7 @@ define internal i32 @sony_probe(ptr noundef %0, ptr noundef readonly captures(no
 86:                                               ; preds = %66
   %87 = and i64 %67, 65536
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %120, label %89
+  br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %86
   %90 = load i32, ptr %62, align 8
@@ -268,14 +268,14 @@ define internal i32 @sony_probe(ptr noundef %0, ptr noundef readonly captures(no
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 6352
   %93 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef nonnull %92, i64 noundef 8, i32 noundef 2336) #15
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread, label %95
+  br i1 %94, label %124, label %95
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %26, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 6352
   %98 = tail call noalias dereferenceable_or_null(9) ptr @devm_kmalloc(ptr noundef nonnull %97, i64 noundef 9, i32 noundef 2336) #15
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread, label %100
+  br i1 %99, label %124, label %100
 
 100:                                              ; preds = %95
   store i8 33, ptr %93, align 1
@@ -312,32 +312,32 @@ define internal i32 @sony_probe(ptr noundef %0, ptr noundef readonly captures(no
   store ptr @ghl_magic_poke_cb, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 168
   store ptr %20, ptr %119, align 8
-  br label %120
+  br label %.critedge
 
-120:                                              ; preds = %86, %105
-  %121 = getelementptr inbounds nuw i8, ptr %20, i64 288
-  tail call void @init_timer_key(ptr noundef nonnull %121, ptr noundef nonnull @ghl_magic_poke, i32 noundef 0, ptr noundef null, ptr noundef null) #14
-  %122 = load volatile i64, ptr @jiffies, align 64
-  %123 = add i64 %122, 8000
-  %124 = tail call i32 @mod_timer(ptr noundef nonnull %121, i64 noundef %123) #14
+.critedge:                                        ; preds = %105, %86
+  %120 = getelementptr inbounds nuw i8, ptr %20, i64 288
+  tail call void @init_timer_key(ptr noundef nonnull %120, ptr noundef nonnull @ghl_magic_poke, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  %121 = load volatile i64, ptr @jiffies, align 64
+  %122 = add i64 %121, 8000
+  %123 = tail call i32 @mod_timer(ptr noundef nonnull %120, i64 noundef %122) #14
   br label %131
 
-.thread:                                          ; preds = %95, %89, %76, %70, %45
-  %125 = phi ptr [ @.str.7, %45 ], [ @.str.8, %70 ], [ @.str.8, %76 ], [ @.str.8, %89 ], [ @.str.8, %95 ]
-  %126 = phi i32 [ -19, %45 ], [ -12, %70 ], [ -12, %76 ], [ -12, %89 ], [ -12, %95 ]
+124:                                              ; preds = %70, %76, %89, %95, %45
+  %125 = phi ptr [ @.str.7, %45 ], [ @.str.8, %95 ], [ @.str.8, %89 ], [ @.str.8, %76 ], [ @.str.8, %70 ]
+  %126 = phi i32 [ -19, %45 ], [ -12, %95 ], [ -12, %89 ], [ -12, %76 ], [ -12, %70 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %19, ptr noundef nonnull %125) #16
   br label %127
 
-127:                                              ; preds = %.thread, %56, %54
-  %128 = phi i32 [ -22, %54 ], [ -12, %56 ], [ %126, %.thread ]
+127:                                              ; preds = %124, %56, %54
+  %128 = phi i32 [ -22, %54 ], [ -12, %56 ], [ %126, %124 ]
   %129 = getelementptr inbounds nuw i8, ptr %20, i64 280
   %130 = load ptr, ptr %129, align 8
   tail call void @usb_free_urb(ptr noundef %130) #14
   tail call void @hid_hw_stop(ptr noundef %0) #14
   br label %131
 
-131:                                              ; preds = %127, %120, %50, %44, %29, %22
-  %132 = phi i32 [ -12, %22 ], [ %27, %29 ], [ %42, %44 ], [ %128, %127 ], [ 0, %120 ], [ 0, %50 ]
+131:                                              ; preds = %127, %.critedge, %50, %44, %29, %22
+  %132 = phi i32 [ -12, %22 ], [ %27, %29 ], [ %42, %44 ], [ %128, %127 ], [ 0, %.critedge ], [ 0, %50 ]
   ret i32 %132
 }
 

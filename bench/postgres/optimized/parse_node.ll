@@ -252,15 +252,15 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
 
 .preheader:                                       ; preds = %transformContainerType.exit
   %.not29 = icmp eq ptr %4, null
-  br i1 %.not29, label %.thread, label %.lr.ph
+  br i1 %.not29, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph48, label %.thread
+  br i1 %15, label %.lr.ph46, label %.critedge
 
-.lr.ph48:                                         ; preds = %.lr.ph
+.lr.ph46:                                         ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %wide.trip.count = zext nneg i32 %14 to i64
@@ -277,8 +277,8 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__func__.transformContainerSubscripts) #8
   unreachable
 
-25:                                               ; preds = %25, %.lr.ph48
-  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %25 ]
+25:                                               ; preds = %25, %.lr.ph46
+  %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -287,9 +287,9 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %30, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.thread, label %25
+  br i1 %or.cond, label %.critedge, label %25
 
-.thread:                                          ; preds = %25, %.lr.ph, %.preheader
+.critedge:                                        ; preds = %25, %.lr.ph, %.preheader
   %.1 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
   %31 = call noundef ptr @palloc0(i64 noundef 56) #8
   store i32 14, ptr %31, align 4
@@ -312,7 +312,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %.not31 = icmp eq i32 %41, 0
   br i1 %.not31, label %42, label %47
 
-42:                                               ; preds = %.thread
+42:                                               ; preds = %.critedge
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %43)
   %44 = call i32 @errcode(i32 noundef 67141764) #8
@@ -321,7 +321,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.transformContainerSubscripts) #8
   unreachable
 
-47:                                               ; preds = %.thread
+47:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   ret ptr %31
 }

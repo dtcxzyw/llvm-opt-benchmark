@@ -17023,13 +17023,13 @@ define internal fastcc noundef range(i16 0, 273) i16 @"_ZN3hir9semantics13Semant
 define internal noundef zeroext i1 @"_ZN3hir9semantics13SemanticsImpl19descend_into_macros28_$u7b$$u7b$closure$u7d$$u7d$17hdbd1a3b1d9f7f2b9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, i32 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %0, align 8, !nonnull !17, !align !558, !noundef !17
   %5 = load i16, ptr %4, align 8, !range !4603, !noundef !17
-  switch i16 %5, label %default.unreachable32 [
+  switch i16 %5, label %default.unreachable33 [
     i16 0, label %6
     i16 1, label %16
     i16 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread"
   ]
 
-default.unreachable32:                            ; preds = %3
+default.unreachable33:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -17073,21 +17073,21 @@ default.unreachable32:                            ; preds = %3
 24:                                               ; preds = %22
   %25 = icmp eq i16 %18, 124
   %26 = icmp eq i16 %19, 247
-  %spec.select = and i1 %25, %26
-  br i1 %spec.select, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread", label %.critedge
+  %or.cond = and i1 %25, %26
+  br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread", label %.critedge
 
 27:                                               ; preds = %49, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread"
   %28 = phi i64 [ %.pre.i, %49 ], [ %39, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread" ]
   %.05.i = phi ptr [ %38, %49 ], [ %.sink2.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread" ]
-  %.0.i20 = phi ptr [ %50, %49 ], [ %.sink3.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread" ]
-  %29 = getelementptr inbounds ptr, ptr %.0.i20, i64 %28
+  %.0.i21 = phi ptr [ %50, %49 ], [ %.sink3.i.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread" ]
+  %29 = getelementptr inbounds ptr, ptr %.0.i21, i64 %28
   store ptr %1, ptr %29, align 8
   %30 = load i64, ptr %.05.i, align 8, !alias.scope !4608, !noundef !17
   %31 = add i64 %30, 1
   store i64 %31, ptr %.05.i, align 8, !alias.scope !4608
   br label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7396b4bf1c0f1002E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread": ; preds = %22, %3, %24, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit"
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit.thread": ; preds = %24, %22, %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hddab661661be593bE.exit"
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !nonnull !17, !align !558, !noundef !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4608)
@@ -17148,8 +17148,8 @@ default.unreachable32:                            ; preds = %3
   br label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7396b4bf1c0f1002E.exit"
 
 .body:                                            ; preds = %58, %64, %47, %41
-  %eh.lpad-body26 = phi { ptr, i32 } [ %42, %41 ], [ %42, %47 ], [ %59, %64 ], [ %59, %58 ]
-  resume { ptr, i32 } %eh.lpad-body26
+  %eh.lpad-body27 = phi { ptr, i32 } [ %42, %41 ], [ %42, %47 ], [ %59, %64 ], [ %59, %58 ]
+  resume { ptr, i32 } %eh.lpad-body27
 
 58:                                               ; preds = %16
   %59 = landingpad { ptr, i32 }

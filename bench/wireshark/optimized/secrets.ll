@@ -547,7 +547,7 @@ declare void @gnutls_pkcs11_set_pin_function(ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %7
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
@@ -555,15 +555,15 @@ define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly ca
   %.not12 = icmp eq i32 %10, 0
   %.not13 = icmp ult i64 %9, %6
   %or.cond14 = select i1 %.not12, i1 %.not13, i1 false
-  br i1 %or.cond14, label %11, label %.thread
+  br i1 %or.cond14, label %11, label %.critedge
 
 11:                                               ; preds = %8
   %12 = add nuw i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %12, i1 noundef false) #13
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %7, %8, %11
-  %.0 = phi i32 [ 0, %11 ], [ -303, %8 ], [ -303, %7 ]
+.critedge:                                        ; preds = %8, %7, %11
+  %.0 = phi i32 [ 0, %11 ], [ -303, %7 ], [ -303, %8 ]
   ret i32 %.0
 }
 

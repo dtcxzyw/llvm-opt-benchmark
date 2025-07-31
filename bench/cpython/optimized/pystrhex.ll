@@ -47,12 +47,12 @@ define dso_local ptr @_Py_strhex(ptr noundef readonly captures(none) %0, i64 nou
 _PyUnicode_DATA.exit.i:                           ; preds = %13, %11
   %.0121.i = phi ptr [ %.0.i.i150.i, %11 ], [ %.val4.i.i, %13 ]
   %15 = icmp sgt i64 %1, 0
-  br i1 %15, label %.lr.ph200.i, label %_Py_strhex_impl.exit
+  br i1 %15, label %.lr.ph197.i, label %_Py_strhex_impl.exit
 
-.lr.ph200.i:                                      ; preds = %_PyUnicode_DATA.exit.i, %.lr.ph200.i
-  %.0110199.i = phi i64 [ %30, %.lr.ph200.i ], [ 0, %_PyUnicode_DATA.exit.i ]
-  %.0114198.i = phi i64 [ %32, %.lr.ph200.i ], [ 0, %_PyUnicode_DATA.exit.i ]
-  %16 = getelementptr i8, ptr %0, i64 %.0114198.i
+.lr.ph197.i:                                      ; preds = %_PyUnicode_DATA.exit.i, %.lr.ph197.i
+  %.0110196.i = phi i64 [ %30, %.lr.ph197.i ], [ 0, %_PyUnicode_DATA.exit.i ]
+  %.0114195.i = phi i64 [ %32, %.lr.ph197.i ], [ 0, %_PyUnicode_DATA.exit.i ]
+  %16 = getelementptr i8, ptr %0, i64 %.0114195.i
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %19 = zext i8 %17 to i32
@@ -60,34 +60,34 @@ _PyUnicode_DATA.exit.i:                           ; preds = %13, %11
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = getelementptr i8, ptr %.0121.i, i64 %.0110199.i
+  %24 = getelementptr i8, ptr %.0121.i, i64 %.0110196.i
   store i8 %23, ptr %24, align 1, !tbaa !4
   %25 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %26 = and i32 %19, 15
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr i8, ptr %25, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !4
-  %30 = add nuw i64 %.0110199.i, 2
+  %30 = add nuw i64 %.0110196.i, 2
   %31 = getelementptr i8, ptr %24, i64 1
   store i8 %29, ptr %31, align 1, !tbaa !4
-  %32 = add nuw nsw i64 %.0114198.i, 1
-  %exitcond217.not.i = icmp eq i64 %32, %1
-  br i1 %exitcond217.not.i, label %_Py_strhex_impl.exit, label %.lr.ph200.i, !llvm.loop !10
+  %32 = add nuw nsw i64 %.0114195.i, 1
+  %exitcond214.not.i = icmp eq i64 %32, %1
+  br i1 %exitcond214.not.i, label %_Py_strhex_impl.exit, label %.lr.ph197.i, !llvm.loop !10
 
-_Py_strhex_impl.exit:                             ; preds = %.lr.ph200.i, %3, %5, %_PyUnicode_DATA.exit.i
-  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %_PyUnicode_DATA.exit.i ], [ %7, %.lr.ph200.i ]
+_Py_strhex_impl.exit:                             ; preds = %.lr.ph197.i, %3, %5, %_PyUnicode_DATA.exit.i
+  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %_PyUnicode_DATA.exit.i ], [ %7, %.lr.ph197.i ]
   ret ptr %.1109.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_Py_strhex_impl(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread154, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %5
   %7 = tail call i64 @PyObject_Size(ptr noundef nonnull %2) #4
   %8 = icmp slt i64 %7, 0
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %.not137 = icmp eq i64 %7, 1
@@ -96,7 +96,7 @@ define internal fastcc ptr @_Py_strhex_impl(ptr noundef readonly captures(none) 
 10:                                               ; preds = %9
   %11 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str) #4
-  br label %.thread
+  br label %.critedge
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %2, i64 8
@@ -117,7 +117,7 @@ define internal fastcc ptr @_Py_strhex_impl(ptr noundef readonly captures(none) 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
   tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.1) #4
-  br label %.thread
+  br label %.critedge
 
 22:                                               ; preds = %16
   %23 = and i16 %18, 8
@@ -148,7 +148,7 @@ define internal fastcc ptr @_Py_strhex_impl(ptr noundef readonly captures(none) 
 32:                                               ; preds = %28
   %33 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !12
   tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.2) #4
-  br label %.thread
+  br label %.critedge
 
 PyUnicode_READ_CHAR.exit:                         ; preds = %26, %24, %30
   %.1129.in = phi ptr [ %31, %30 ], [ %.0.i.i.i, %24 ], [ %.val4.i.i, %26 ]
@@ -161,40 +161,40 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %26, %24, %30
 36:                                               ; preds = %PyUnicode_READ_CHAR.exit
   %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
   tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.1) #4
-  br label %.thread
+  br label %.critedge
 
 38:                                               ; preds = %PyUnicode_READ_CHAR.exit
   %39 = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
   %40 = icmp ne i32 %3, 0
   %41 = icmp sgt i64 %1, 0
   %or.cond3 = and i1 %41, %40
-  br i1 %or.cond3, label %42, label %.thread154
+  br i1 %or.cond3, label %42, label %.thread
 
 42:                                               ; preds = %38
   %43 = add nsw i64 %1, -1
   %44 = zext i32 %39 to i64
   %45 = udiv i64 %43, %44
-  br label %.thread154
+  br label %.thread
 
-.thread154:                                       ; preds = %5, %42, %38
+.thread:                                          ; preds = %5, %42, %38
   %46 = phi i32 [ %39, %42 ], [ %39, %38 ], [ 0, %5 ]
-  %.0126159 = phi i32 [ %3, %42 ], [ %3, %38 ], [ 0, %5 ]
-  %.2130158 = phi i8 [ %.1129, %42 ], [ %.1129, %38 ], [ 0, %5 ]
+  %.0126156 = phi i32 [ %3, %42 ], [ %3, %38 ], [ 0, %5 ]
+  %.2130155 = phi i8 [ %.1129, %42 ], [ %.1129, %38 ], [ 0, %5 ]
   %.0123 = phi i64 [ %45, %42 ], [ 0, %38 ], [ 0, %5 ]
   %47 = sub nsw i64 4611686018427387903, %.0123
   %.not141 = icmp slt i64 %1, %47
   br i1 %.not141, label %50, label %48
 
-48:                                               ; preds = %.thread154
+48:                                               ; preds = %.thread
   %49 = tail call ptr @PyErr_NoMemory() #4
-  br label %.thread
+  br label %.critedge
 
-50:                                               ; preds = %.thread154
+50:                                               ; preds = %.thread
   %51 = shl i64 %1, 1
   %52 = add i64 %.0123, %51
   %53 = zext i32 %46 to i64
   %.not142 = icmp ugt i64 %1, %53
-  %spec.select = select i1 %.not142, i32 %.0126159, i32 0
+  %spec.select = select i1 %.not142, i32 %.0126156, i32 0
   %spec.select146 = select i1 %.not142, i32 %46, i32 0
   %.not143 = icmp eq i32 %4, 0
   br i1 %.not143, label %58, label %54
@@ -202,7 +202,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %26, %24, %30
 54:                                               ; preds = %50
   %55 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %52) #4
   %.not145 = icmp eq ptr %55, null
-  br i1 %.not145, label %.thread, label %56
+  br i1 %.not145, label %.critedge, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -211,7 +211,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %26, %24, %30
 58:                                               ; preds = %50
   %59 = tail call ptr @PyUnicode_New(i64 noundef %52, i32 noundef 127) #4
   %.not144 = icmp eq ptr %59, null
-  br i1 %.not144, label %.thread, label %60
+  br i1 %.not144, label %.critedge, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr i8, ptr %59, i64 34
@@ -240,12 +240,12 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
 
 .preheader:                                       ; preds = %_PyUnicode_DATA.exit
   %68 = icmp sgt i64 %1, 0
-  br i1 %68, label %.lr.ph200, label %.thread
+  br i1 %68, label %.lr.ph197, label %.critedge
 
-.lr.ph200:                                        ; preds = %.preheader, %.lr.ph200
-  %.0110199 = phi i64 [ %83, %.lr.ph200 ], [ 0, %.preheader ]
-  %.0114198 = phi i64 [ %85, %.lr.ph200 ], [ 0, %.preheader ]
-  %69 = getelementptr i8, ptr %0, i64 %.0114198
+.lr.ph197:                                        ; preds = %.preheader, %.lr.ph197
+  %.0110196 = phi i64 [ %83, %.lr.ph197 ], [ 0, %.preheader ]
+  %.0114195 = phi i64 [ %85, %.lr.ph197 ], [ 0, %.preheader ]
+  %69 = getelementptr i8, ptr %0, i64 %.0114195
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %72 = zext i8 %70 to i32
@@ -253,55 +253,55 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr i8, ptr %71, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !4
-  %77 = getelementptr i8, ptr %.0121, i64 %.0110199
+  %77 = getelementptr i8, ptr %.0121, i64 %.0110196
   store i8 %76, ptr %77, align 1, !tbaa !4
   %78 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %79 = and i32 %72, 15
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr i8, ptr %78, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !4
-  %83 = add nuw i64 %.0110199, 2
+  %83 = add nuw i64 %.0110196, 2
   %84 = getelementptr i8, ptr %77, i64 1
   store i8 %82, ptr %84, align 1, !tbaa !4
-  %85 = add nuw nsw i64 %.0114198, 1
-  %exitcond217.not = icmp eq i64 %85, %1
-  br i1 %exitcond217.not, label %.thread, label %.lr.ph200, !llvm.loop !10
+  %85 = add nuw nsw i64 %.0114195, 1
+  %exitcond214.not = icmp eq i64 %85, %1
+  br i1 %exitcond214.not, label %.critedge, label %.lr.ph197, !llvm.loop !10
 
 86:                                               ; preds = %_PyUnicode_DATA.exit
   %87 = add i64 %1, -1
   %88 = zext i32 %spec.select146 to i64
   %89 = sdiv i64 %87, %88
   %90 = icmp slt i32 %spec.select, 0
-  br i1 %90, label %.preheader163, label %.preheader167
+  br i1 %90, label %.preheader160, label %.preheader164
 
-.preheader167:                                    ; preds = %86
-  %.4172 = add i64 %52, -1
+.preheader164:                                    ; preds = %86
+  %.4169 = add i64 %52, -1
   %91 = icmp sgt i64 %89, 0
-  br i1 %91, label %.preheader166.lr.ph, label %.preheader164
+  br i1 %91, label %.preheader163.lr.ph, label %.preheader161
 
-.preheader166.lr.ph:                              ; preds = %.preheader167
-  %.not201 = icmp eq i32 %spec.select146, 0
-  br i1 %.not201, label %.preheader166.preheader, label %.preheader166.us
+.preheader163.lr.ph:                              ; preds = %.preheader164
+  %.not198 = icmp eq i32 %spec.select146, 0
+  br i1 %.not198, label %.preheader163.preheader, label %.preheader163.us
 
-.preheader166.preheader:                          ; preds = %.preheader166.lr.ph
+.preheader163.preheader:                          ; preds = %.preheader163.lr.ph
   %92 = sub nuw nsw i64 %52, %89
   %scevgep = getelementptr i8, ptr %.0121, i64 %92
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %.2130158, i64 %89, i1 false), !tbaa !4
-  %93 = sub nuw nsw i64 %.4172, %89
-  br label %.preheader164
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %.2130155, i64 %89, i1 false), !tbaa !4
+  %93 = sub nuw nsw i64 %.4169, %89
+  br label %.preheader161
 
-.preheader166.us:                                 ; preds = %.preheader166.lr.ph, %._crit_edge.us
-  %.4175.us = phi i64 [ %.4.us, %._crit_edge.us ], [ %.4172, %.preheader166.lr.ph ]
-  %.1107174.us = phi i64 [ %114, %._crit_edge.us ], [ 0, %.preheader166.lr.ph ]
-  %.4118173.us = phi i64 [ %95, %._crit_edge.us ], [ %87, %.preheader166.lr.ph ]
+.preheader163.us:                                 ; preds = %.preheader163.lr.ph, %._crit_edge.us
+  %.4172.us = phi i64 [ %.4.us, %._crit_edge.us ], [ %.4169, %.preheader163.lr.ph ]
+  %.1107171.us = phi i64 [ %114, %._crit_edge.us ], [ 0, %.preheader163.lr.ph ]
+  %.4118170.us = phi i64 [ %95, %._crit_edge.us ], [ %87, %.preheader163.lr.ph ]
   br label %94
 
-94:                                               ; preds = %.preheader166.us, %94
-  %.1170.us = phi i32 [ 0, %.preheader166.us ], [ %112, %94 ]
-  %.5169.us = phi i64 [ %.4175.us, %.preheader166.us ], [ %110, %94 ]
-  %.5119168.us = phi i64 [ %.4118173.us, %.preheader166.us ], [ %95, %94 ]
-  %95 = add i64 %.5119168.us, -1
-  %96 = getelementptr i8, ptr %0, i64 %.5119168.us
+94:                                               ; preds = %.preheader163.us, %94
+  %.1167.us = phi i32 [ 0, %.preheader163.us ], [ %112, %94 ]
+  %.5166.us = phi i64 [ %.4172.us, %.preheader163.us ], [ %110, %94 ]
+  %.5119165.us = phi i64 [ %.4118170.us, %.preheader163.us ], [ %95, %94 ]
+  %95 = add i64 %.5119165.us, -1
+  %96 = getelementptr i8, ptr %0, i64 %.5119165.us
   %97 = load i8, ptr %96, align 1, !tbaa !4
   %98 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %99 = zext i8 %97 to i32
@@ -309,53 +309,53 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr i8, ptr %98, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !4
-  %104 = getelementptr i8, ptr %.0121, i64 %.5169.us
+  %104 = getelementptr i8, ptr %.0121, i64 %.5166.us
   store i8 %103, ptr %104, align 1, !tbaa !4
   %105 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %106 = lshr i32 %99, 4
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr i8, ptr %105, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !4
-  %110 = add i64 %.5169.us, -2
+  %110 = add i64 %.5166.us, -2
   %111 = getelementptr i8, ptr %104, i64 -1
   store i8 %109, ptr %111, align 1, !tbaa !4
-  %112 = add nuw i32 %.1170.us, 1
+  %112 = add nuw i32 %.1167.us, 1
   %exitcond.not = icmp eq i32 %112, %spec.select146
   br i1 %exitcond.not, label %._crit_edge.us, label %94, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %94
   %113 = getelementptr i8, ptr %.0121, i64 %110
-  store i8 %.2130158, ptr %113, align 1, !tbaa !4
-  %114 = add nuw nsw i64 %.1107174.us, 1
-  %.4.us = add i64 %.5169.us, -3
-  %exitcond213.not = icmp eq i64 %114, %89
-  br i1 %exitcond213.not, label %.preheader164, label %.preheader166.us, !llvm.loop !27
+  store i8 %.2130155, ptr %113, align 1, !tbaa !4
+  %114 = add nuw nsw i64 %.1107171.us, 1
+  %.4.us = add i64 %.5166.us, -3
+  %exitcond210.not = icmp eq i64 %114, %89
+  br i1 %exitcond210.not, label %.preheader161, label %.preheader163.us, !llvm.loop !27
 
-.preheader163:                                    ; preds = %86
+.preheader160:                                    ; preds = %86
   %115 = icmp sgt i64 %89, 0
-  br i1 %115, label %.preheader162.lr.ph, label %.preheader160
+  br i1 %115, label %.preheader159.lr.ph, label %.preheader157
 
-.preheader162.lr.ph:                              ; preds = %.preheader163
-  %.not202 = icmp eq i32 %spec.select146, 0
-  br i1 %.not202, label %.preheader162.preheader, label %.preheader162.us
+.preheader159.lr.ph:                              ; preds = %.preheader160
+  %.not199 = icmp eq i32 %spec.select146, 0
+  br i1 %.not199, label %.preheader159.preheader, label %.preheader159.us
 
-.preheader162.preheader:                          ; preds = %.preheader162.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0121, i8 %.2130158, i64 %89, i1 false), !tbaa !4
-  br label %.preheader160
+.preheader159.preheader:                          ; preds = %.preheader159.lr.ph
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0121, i8 %.2130155, i64 %89, i1 false), !tbaa !4
+  br label %.preheader157
 
-.preheader162.us:                                 ; preds = %.preheader162.lr.ph, %._crit_edge.us191
-  %.0106188.us = phi i64 [ %138, %._crit_edge.us191 ], [ 0, %.preheader162.lr.ph ]
-  %.1111187.us = phi i64 [ %136, %._crit_edge.us191 ], [ 0, %.preheader162.lr.ph ]
-  %.1115186.us = phi i64 [ %119, %._crit_edge.us191 ], [ 0, %.preheader162.lr.ph ]
-  %116 = trunc i64 %.1115186.us to i32
+.preheader159.us:                                 ; preds = %.preheader159.lr.ph, %._crit_edge.us188
+  %.0106185.us = phi i64 [ %138, %._crit_edge.us188 ], [ 0, %.preheader159.lr.ph ]
+  %.1111184.us = phi i64 [ %136, %._crit_edge.us188 ], [ 0, %.preheader159.lr.ph ]
+  %.1115183.us = phi i64 [ %119, %._crit_edge.us188 ], [ 0, %.preheader159.lr.ph ]
+  %116 = trunc i64 %.1115183.us to i32
   %117 = add i32 %spec.select146, %116
   br label %118
 
-118:                                              ; preds = %.preheader162.us, %118
-  %.2112182.us = phi i64 [ %.1111187.us, %.preheader162.us ], [ %134, %118 ]
-  %.2116181.us = phi i64 [ %.1115186.us, %.preheader162.us ], [ %119, %118 ]
-  %119 = add i64 %.2116181.us, 1
-  %120 = getelementptr i8, ptr %0, i64 %.2116181.us
+118:                                              ; preds = %.preheader159.us, %118
+  %.2112179.us = phi i64 [ %.1111184.us, %.preheader159.us ], [ %134, %118 ]
+  %.2116178.us = phi i64 [ %.1115183.us, %.preheader159.us ], [ %119, %118 ]
+  %119 = add i64 %.2116178.us, 1
+  %120 = getelementptr i8, ptr %0, i64 %.2116178.us
   %121 = load i8, ptr %120, align 1, !tbaa !4
   %122 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %123 = zext i8 %121 to i32
@@ -363,39 +363,39 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr i8, ptr %122, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !4
-  %128 = getelementptr i8, ptr %.0121, i64 %.2112182.us
+  %128 = getelementptr i8, ptr %.0121, i64 %.2112179.us
   store i8 %127, ptr %128, align 1, !tbaa !4
   %129 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %130 = and i32 %123, 15
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr i8, ptr %129, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !4
-  %134 = add i64 %.2112182.us, 2
+  %134 = add i64 %.2112179.us, 2
   %135 = getelementptr i8, ptr %128, i64 1
   store i8 %133, ptr %135, align 1, !tbaa !4
   %lftr.wideiv = trunc i64 %119 to i32
-  %exitcond214.not = icmp eq i32 %117, %lftr.wideiv
-  br i1 %exitcond214.not, label %._crit_edge.us191, label %118, !llvm.loop !29
+  %exitcond211.not = icmp eq i32 %117, %lftr.wideiv
+  br i1 %exitcond211.not, label %._crit_edge.us188, label %118, !llvm.loop !29
 
-._crit_edge.us191:                                ; preds = %118
-  %136 = add i64 %.2112182.us, 3
+._crit_edge.us188:                                ; preds = %118
+  %136 = add i64 %.2112179.us, 3
   %137 = getelementptr i8, ptr %.0121, i64 %134
-  store i8 %.2130158, ptr %137, align 1, !tbaa !4
-  %138 = add nuw nsw i64 %.0106188.us, 1
-  %exitcond215.not = icmp eq i64 %138, %89
-  br i1 %exitcond215.not, label %.preheader160, label %.preheader162.us, !llvm.loop !30
+  store i8 %.2130155, ptr %137, align 1, !tbaa !4
+  %138 = add nuw nsw i64 %.0106185.us, 1
+  %exitcond212.not = icmp eq i64 %138, %89
+  br i1 %exitcond212.not, label %.preheader157, label %.preheader159.us, !llvm.loop !30
 
-.preheader160:                                    ; preds = %._crit_edge.us191, %.preheader162.preheader, %.preheader163
-  %.1115.lcssa = phi i64 [ 0, %.preheader163 ], [ 0, %.preheader162.preheader ], [ %119, %._crit_edge.us191 ]
-  %.1111.lcssa = phi i64 [ 0, %.preheader163 ], [ %89, %.preheader162.preheader ], [ %136, %._crit_edge.us191 ]
+.preheader157:                                    ; preds = %._crit_edge.us188, %.preheader159.preheader, %.preheader160
+  %.1115.lcssa = phi i64 [ 0, %.preheader160 ], [ 0, %.preheader159.preheader ], [ %119, %._crit_edge.us188 ]
+  %.1111.lcssa = phi i64 [ 0, %.preheader160 ], [ %89, %.preheader159.preheader ], [ %136, %._crit_edge.us188 ]
   %139 = icmp slt i64 %.1115.lcssa, %1
-  br i1 %139, label %.lr.ph197, label %.thread
+  br i1 %139, label %.lr.ph194, label %.critedge
 
-.lr.ph197:                                        ; preds = %.preheader160, %.lr.ph197
-  %.3113196 = phi i64 [ %155, %.lr.ph197 ], [ %.1111.lcssa, %.preheader160 ]
-  %.3117195 = phi i64 [ %140, %.lr.ph197 ], [ %.1115.lcssa, %.preheader160 ]
-  %140 = add nsw i64 %.3117195, 1
-  %141 = getelementptr i8, ptr %0, i64 %.3117195
+.lr.ph194:                                        ; preds = %.preheader157, %.lr.ph194
+  %.3113193 = phi i64 [ %155, %.lr.ph194 ], [ %.1111.lcssa, %.preheader157 ]
+  %.3117192 = phi i64 [ %140, %.lr.ph194 ], [ %.1115.lcssa, %.preheader157 ]
+  %140 = add nsw i64 %.3117192, 1
+  %141 = getelementptr i8, ptr %0, i64 %.3117192
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %143 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %144 = zext i8 %142 to i32
@@ -403,30 +403,30 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr i8, ptr %143, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !4
-  %149 = getelementptr i8, ptr %.0121, i64 %.3113196
+  %149 = getelementptr i8, ptr %.0121, i64 %.3113193
   store i8 %148, ptr %149, align 1, !tbaa !4
   %150 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %151 = and i32 %144, 15
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr i8, ptr %150, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !4
-  %155 = add i64 %.3113196, 2
+  %155 = add i64 %.3113193, 2
   %156 = getelementptr i8, ptr %149, i64 1
   store i8 %154, ptr %156, align 1, !tbaa !4
-  %exitcond216.not = icmp eq i64 %140, %1
-  br i1 %exitcond216.not, label %.thread, label %.lr.ph197, !llvm.loop !31
+  %exitcond213.not = icmp eq i64 %140, %1
+  br i1 %exitcond213.not, label %.critedge, label %.lr.ph194, !llvm.loop !31
 
-.preheader164:                                    ; preds = %._crit_edge.us, %.preheader166.preheader, %.preheader167
-  %.4118.lcssa = phi i64 [ %87, %.preheader167 ], [ %87, %.preheader166.preheader ], [ %95, %._crit_edge.us ]
-  %.4.lcssa = phi i64 [ %.4172, %.preheader167 ], [ %93, %.preheader166.preheader ], [ %.4.us, %._crit_edge.us ]
+.preheader161:                                    ; preds = %._crit_edge.us, %.preheader163.preheader, %.preheader164
+  %.4118.lcssa = phi i64 [ %87, %.preheader164 ], [ %87, %.preheader163.preheader ], [ %95, %._crit_edge.us ]
+  %.4.lcssa = phi i64 [ %.4169, %.preheader164 ], [ %93, %.preheader163.preheader ], [ %.4.us, %._crit_edge.us ]
   %157 = icmp sgt i64 %.4118.lcssa, -1
-  br i1 %157, label %.lr.ph, label %.thread
+  br i1 %157, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader164, %.lr.ph
-  %.6180 = phi i64 [ %173, %.lr.ph ], [ %.4.lcssa, %.preheader164 ]
-  %.6120179 = phi i64 [ %158, %.lr.ph ], [ %.4118.lcssa, %.preheader164 ]
-  %158 = add nsw i64 %.6120179, -1
-  %159 = getelementptr i8, ptr %0, i64 %.6120179
+.lr.ph:                                           ; preds = %.preheader161, %.lr.ph
+  %.6177 = phi i64 [ %173, %.lr.ph ], [ %.4.lcssa, %.preheader161 ]
+  %.6120176 = phi i64 [ %158, %.lr.ph ], [ %.4118.lcssa, %.preheader161 ]
+  %158 = add nsw i64 %.6120176, -1
+  %159 = getelementptr i8, ptr %0, i64 %.6120176
   %160 = load i8, ptr %159, align 1, !tbaa !4
   %161 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %162 = zext i8 %160 to i32
@@ -434,21 +434,21 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %164 = zext nneg i32 %163 to i64
   %165 = getelementptr i8, ptr %161, i64 %164
   %166 = load i8, ptr %165, align 1, !tbaa !4
-  %167 = getelementptr i8, ptr %.0121, i64 %.6180
+  %167 = getelementptr i8, ptr %.0121, i64 %.6177
   store i8 %166, ptr %167, align 1, !tbaa !4
   %168 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %169 = lshr i32 %162, 4
   %170 = zext nneg i32 %169 to i64
   %171 = getelementptr i8, ptr %168, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !4
-  %173 = add i64 %.6180, -2
+  %173 = add i64 %.6177, -2
   %174 = getelementptr i8, ptr %167, i64 -1
   store i8 %172, ptr %174, align 1, !tbaa !4
-  %.not224 = icmp eq i64 %.6120179, 0
-  br i1 %.not224, label %.thread, label %.lr.ph, !llvm.loop !32
+  %.not221 = icmp eq i64 %.6120176, 0
+  br i1 %.not221, label %.critedge, label %.lr.ph, !llvm.loop !32
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph197, %.lr.ph200, %.preheader164, %.preheader160, %.preheader, %6, %32, %36, %20, %10, %48, %58, %54
-  %.1109 = phi ptr [ %49, %48 ], [ null, %54 ], [ null, %58 ], [ null, %10 ], [ null, %20 ], [ null, %36 ], [ null, %32 ], [ null, %6 ], [ %.0122, %.preheader ], [ %.0122, %.preheader160 ], [ %.0122, %.preheader164 ], [ %.0122, %.lr.ph200 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph194, %.lr.ph197, %.preheader161, %.preheader157, %.preheader, %10, %20, %36, %32, %6, %48, %58, %54
+  %.1109 = phi ptr [ %49, %48 ], [ null, %54 ], [ null, %58 ], [ null, %6 ], [ null, %32 ], [ null, %36 ], [ null, %20 ], [ null, %10 ], [ %.0122, %.preheader ], [ %.0122, %.preheader157 ], [ %.0122, %.preheader161 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph194 ], [ %.0122, %.lr.ph ]
   ret ptr %.1109
 }
 
@@ -470,12 +470,12 @@ define hidden ptr @_Py_strhex_bytes(ptr noundef readonly captures(none) %0, i64 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = icmp sgt i64 %1, 0
-  br i1 %10, label %.lr.ph200.i, label %_Py_strhex_impl.exit
+  br i1 %10, label %.lr.ph197.i, label %_Py_strhex_impl.exit
 
-.lr.ph200.i:                                      ; preds = %8, %.lr.ph200.i
-  %.0110199.i = phi i64 [ %25, %.lr.ph200.i ], [ 0, %8 ]
-  %.0114198.i = phi i64 [ %27, %.lr.ph200.i ], [ 0, %8 ]
-  %11 = getelementptr i8, ptr %0, i64 %.0114198.i
+.lr.ph197.i:                                      ; preds = %8, %.lr.ph197.i
+  %.0110196.i = phi i64 [ %25, %.lr.ph197.i ], [ 0, %8 ]
+  %.0114195.i = phi i64 [ %27, %.lr.ph197.i ], [ 0, %8 ]
+  %11 = getelementptr i8, ptr %0, i64 %.0114195.i
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %14 = zext i8 %12 to i32
@@ -483,22 +483,22 @@ define hidden ptr @_Py_strhex_bytes(ptr noundef readonly captures(none) %0, i64 
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !4
-  %19 = getelementptr i8, ptr %9, i64 %.0110199.i
+  %19 = getelementptr i8, ptr %9, i64 %.0110196.i
   store i8 %18, ptr %19, align 1, !tbaa !4
   %20 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !7
   %21 = and i32 %14, 15
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !4
-  %25 = add nuw nsw i64 %.0110199.i, 2
+  %25 = add nuw nsw i64 %.0110196.i, 2
   %26 = getelementptr i8, ptr %19, i64 1
   store i8 %24, ptr %26, align 1, !tbaa !4
-  %27 = add nuw nsw i64 %.0114198.i, 1
-  %exitcond217.not.i = icmp eq i64 %27, %1
-  br i1 %exitcond217.not.i, label %_Py_strhex_impl.exit, label %.lr.ph200.i, !llvm.loop !10
+  %27 = add nuw nsw i64 %.0114195.i, 1
+  %exitcond214.not.i = icmp eq i64 %27, %1
+  br i1 %exitcond214.not.i, label %_Py_strhex_impl.exit, label %.lr.ph197.i, !llvm.loop !10
 
-_Py_strhex_impl.exit:                             ; preds = %.lr.ph200.i, %3, %5, %8
-  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %8 ], [ %7, %.lr.ph200.i ]
+_Py_strhex_impl.exit:                             ; preds = %.lr.ph197.i, %3, %5, %8
+  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %8 ], [ %7, %.lr.ph197.i ]
   ret ptr %.1109.i
 }
 

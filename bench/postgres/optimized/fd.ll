@@ -5102,18 +5102,18 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph49, label %.thread
+  br i1 %18, label %.lr.ph46, label %.critedge
 
-.lr.ph49:                                         ; preds = %.lr.ph, %34
+.lr.ph46:                                         ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
-  %.0244148 = phi i32 [ %35, %34 ], [ 0, %.lr.ph ]
+  %.0243845 = phi i32 [ %35, %34 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -5121,7 +5121,7 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %34, label %24
 
-24:                                               ; preds = %.lr.ph49
+24:                                               ; preds = %.lr.ph46
   %25 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.47) #25
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %34, label %27
@@ -5129,9 +5129,9 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
 27:                                               ; preds = %24
   %28 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.48) #25
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %.critedge
+  br i1 %29, label %34, label %.critedge36
 
-.critedge:                                        ; preds = %27
+.critedge36:                                      ; preds = %27
   %30 = tail call ptr @__errno_location() #26
   %31 = load i32, ptr %30, align 4
   call void @pre_format_elog_string(i32 noundef %31, ptr noundef null) #25
@@ -5142,16 +5142,16 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   call void @list_free(ptr noundef %33) #25
   br label %41
 
-34:                                               ; preds = %27, %24, %.lr.ph49
-  %.sink = phi i32 [ 1, %.lr.ph49 ], [ 2, %24 ], [ 4, %27 ]
-  %35 = or i32 %.0244148, %.sink
+34:                                               ; preds = %27, %24, %.lr.ph46
+  %.sink = phi i32 [ 1, %.lr.ph46 ], [ 2, %24 ], [ 4, %27 ]
+  %35 = or i32 %.0243845, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %15, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph49, label %.thread
+  br i1 %38, label %.lr.ph46, label %.critedge
 
-.thread:                                          ; preds = %34, %.lr.ph, %13
+.critedge:                                        ; preds = %34, %.lr.ph, %13
   %.024.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %35, %34 ]
   call void @pfree(ptr noundef %6) #25
   %39 = load ptr, ptr %4, align 8
@@ -5161,8 +5161,8 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr noundef readonly 
   store i32 %.024.lcssa, ptr %40, align 4
   br label %41
 
-41:                                               ; preds = %.critedge, %.thread, %8
-  %.0 = phi i1 [ true, %.thread ], [ false, %8 ], [ false, %.critedge ]
+41:                                               ; preds = %.critedge36, %.critedge, %8
+  %.0 = phi i1 [ true, %.critedge ], [ false, %8 ], [ false, %.critedge36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   ret i1 %.0
 }

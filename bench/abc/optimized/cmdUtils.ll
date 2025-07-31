@@ -1775,15 +1775,15 @@ define void @Cmd_CommandSGen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %10 = trunc i64 %9 to i32
   tail call void @srand(i32 noundef %10) #24
   %11 = icmp sgt i32 %2, 0
-  br i1 %11, label %.lr.ph48, label %._crit_edge
+  br i1 %11, label %.lr.ph47, label %._crit_edge
 
-.lr.ph48:                                         ; preds = %4
+.lr.ph47:                                         ; preds = %4
   %12 = icmp sgt i32 %1, 0
   br label %13
 
-13:                                               ; preds = %.lr.ph48, %54
-  %.03147 = phi ptr [ %8, %.lr.ph48 ], [ %.1.ph, %54 ]
-  %.03346 = phi i32 [ 0, %.lr.ph48 ], [ %55, %54 ]
+13:                                               ; preds = %.lr.ph47, %54
+  %.03146 = phi ptr [ %8, %.lr.ph47 ], [ %.1, %54 ]
+  %.03345 = phi i32 [ 0, %.lr.ph47 ], [ %55, %54 ]
   store i8 0, ptr @Cmd_GenScript.pScript, align 16, !tbaa !8
   br i1 %12, label %.lr.ph.i, label %Cmd_GenScript.exit
 
@@ -1819,7 +1819,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
 
 25:                                               ; preds = %23
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.53, ptr noundef nonnull @Cmd_GenScript.pScript)
-  br label %56
+  br label %.critedge38
 
 26:                                               ; preds = %Cmd_GenScript.exit
   tail call void @Abc_FrameSetBatchMode(i32 noundef 1) #24
@@ -1830,7 +1830,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
 28:                                               ; preds = %26
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.53, ptr noundef nonnull @Cmd_GenScript.pScript)
   tail call void @Abc_FrameSetBatchMode(i32 noundef 0) #24
-  br label %56
+  br label %.critedge38
 
 29:                                               ; preds = %26
   tail call void @Abc_FrameSetBatchMode(i32 noundef 0) #24
@@ -1840,25 +1840,25 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %31 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #24
   %32 = getelementptr i8, ptr %31, i64 124
   %.val = load i32, ptr %32, align 4, !tbaa !11
-  %33 = getelementptr i8, ptr %.03147, i64 124
+  %33 = getelementptr i8, ptr %.03146, i64 124
   %.031.val = load i32, ptr %33, align 4, !tbaa !11
   %34 = icmp slt i32 %.val, %.031.val
   br i1 %34, label %.preheader, label %54
 
 .preheader:                                       ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.03147, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.03146, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !88
   %37 = getelementptr i8, ptr %36, i64 4
-  %.val3744 = load i32, ptr %37, align 4, !tbaa !42
-  %38 = icmp sgt i32 %.val3744, 0
+  %.val3943 = load i32, ptr %37, align 4, !tbaa !42
+  %38 = icmp sgt i32 %.val3943, 0
   br i1 %38, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %48
   %39 = phi ptr [ %49, %48 ], [ %36, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader ]
   %40 = getelementptr i8, ptr %39, i64 8
-  %.031.val38.val = load ptr, ptr %40, align 8, !tbaa !45
-  %41 = getelementptr inbounds nuw ptr, ptr %.031.val38.val, i64 %indvars.iv
+  %.031.val40.val = load ptr, ptr %40, align 8, !tbaa !45
+  %41 = getelementptr inbounds nuw ptr, ptr %.031.val40.val, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !53
   %43 = icmp eq ptr %42, null
   br i1 %43, label %48, label %44
@@ -1875,29 +1875,29 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %49 = phi ptr [ %.pre, %44 ], [ %39, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = getelementptr i8, ptr %49, i64 4
-  %.val37 = load i32, ptr %50, align 4, !tbaa !42
-  %51 = sext i32 %.val37 to i64
+  %.val39 = load i32, ptr %50, align 4, !tbaa !42
+  %51 = sext i32 %.val39 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %48, %.preheader
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.03147) #24
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.03146) #24
   %53 = tail call ptr @Abc_NtkDup(ptr noundef %31) #24
   br label %54
 
 54:                                               ; preds = %.critedge, %30
-  %.1.ph = phi ptr [ %.03147, %30 ], [ %53, %.critedge ]
-  %55 = add nuw nsw i32 %.03346, 1
+  %.1 = phi ptr [ %53, %.critedge ], [ %.03146, %30 ]
+  %55 = add nuw nsw i32 %.03345, 1
   %exitcond.not = icmp eq i32 %55, %2
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %54, %4
-  %.031.lcssa = phi ptr [ %8, %4 ], [ %.1.ph, %54 ]
+  %.031.lcssa = phi ptr [ %8, %4 ], [ %.1, %54 ]
   tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %.031.lcssa) #24
   tail call void @Abc_NtkDelete(ptr noundef %6) #24
-  br label %56
+  br label %.critedge38
 
-56:                                               ; preds = %25, %28, %._crit_edge
+.critedge38:                                      ; preds = %25, %28, %._crit_edge
   ret void
 }
 

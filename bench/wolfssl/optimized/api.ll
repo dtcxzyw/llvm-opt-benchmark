@@ -9067,7 +9067,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %17 = load ptr, ptr @stdout, align 8, !tbaa !22
   %18 = call i32 @fflush(ptr noundef %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1192) %3, ptr noundef nonnull align 16 dereferenceable(1192) @client_key_der_2048, i64 1192, i1 false)
-  br label %.thread284
+  br label %.critedge
 
 19:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1192) %3, ptr noundef nonnull align 16 dereferenceable(1192) @client_key_der_2048, i64 1192, i1 false)
@@ -9087,7 +9087,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %31 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %30)
   %32 = load ptr, ptr @stdout, align 8, !tbaa !22
   %33 = call i32 @fflush(ptr noundef %32)
-  br label %.thread284
+  br label %.critedge
 
 34:                                               ; preds = %19
   %35 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 1192) #27
@@ -9106,7 +9106,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %45 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %44)
   %46 = load ptr, ptr @stdout, align 8, !tbaa !22
   %47 = call i32 @fflush(ptr noundef %46)
-  br label %.thread284
+  br label %.critedge
 
 48:                                               ; preds = %34
   %49 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %1, i32 noundef 1192) #27
@@ -9125,7 +9125,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %59 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %58)
   %60 = load ptr, ptr @stdout, align 8, !tbaa !22
   %61 = call i32 @fflush(ptr noundef %60)
-  br label %.thread284
+  br label %.critedge
 
 62:                                               ; preds = %48
   %63 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1192) #27
@@ -9144,7 +9144,7 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %74 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %73)
   %75 = load ptr, ptr @stdout, align 8, !tbaa !22
   %76 = call i32 @fflush(ptr noundef %75)
-  br label %.thread284
+  br label %.critedge
 
 .thread301:                                       ; preds = %0
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 18158)
@@ -9159,34 +9159,35 @@ define internal range(i32 0, 2) i32 @test_wc_RsaPrivateKeyDecode() #0 {
   %86 = load ptr, ptr @stdout, align 8, !tbaa !22
   %87 = tail call i32 @fflush(ptr noundef %86)
   %88 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %1) #27
-  br label %105
+  br label %104
 
-.thread284:                                       ; preds = %7, %22, %62, %65, %.thread291, %.thread294
-  %89 = phi i1 [ false, %.thread291 ], [ false, %.thread294 ], [ true, %62 ], [ false, %65 ], [ false, %22 ], [ false, %7 ]
+.thread284:                                       ; preds = %62
   call void @wolfSSL_Free(ptr noundef nonnull %3) #27
-  %90 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %1) #27
-  br i1 %89, label %91, label %105
+  %89 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %1) #27
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %104, label %91
 
 91:                                               ; preds = %.thread284
-  %92 = icmp eq i32 %90, 0
-  br i1 %92, label %105, label %93
-
-93:                                               ; preds = %91
-  %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 18181)
-  %95 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %96 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %95)
-  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1246, ptr noundef nonnull @.str.1024)
-  %98 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %99 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %98)
-  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %90, i32 noundef 0)
+  %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 18181)
+  %93 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %94 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %93)
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1246, ptr noundef nonnull @.str.1024)
+  %96 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %97 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %96)
+  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %89, i32 noundef 0)
+  %99 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %100 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %99)
   %101 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %102 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %101)
-  %103 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %104 = call i32 @fflush(ptr noundef %103)
-  br label %105
+  %102 = call i32 @fflush(ptr noundef %101)
+  br label %104
 
-105:                                              ; preds = %.thread301, %.thread284, %93, %91
-  %.11 = phi i32 [ 0, %93 ], [ 0, %.thread284 ], [ 1, %91 ], [ 0, %.thread301 ]
+.critedge:                                        ; preds = %7, %22, %65, %.thread294, %.thread291
+  call void @wolfSSL_Free(ptr noundef nonnull %3) #27
+  %103 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %1) #27
+  br label %104
+
+104:                                              ; preds = %.critedge, %.thread301, %91, %.thread284
+  %.11 = phi i32 [ 0, %91 ], [ 1, %.thread284 ], [ 0, %.thread301 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
   call void @llvm.lifetime.end.p0(i64 8368, ptr nonnull %1) #27
   ret i32 %.11
@@ -10868,7 +10869,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %22 = load ptr, ptr @stdout, align 8, !tbaa !22
   %23 = call i32 @fflush(ptr noundef %22)
   %24 = call i32 @wc_ecc_make_key(ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull %1) #27
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 25:                                               ; preds = %10
   %26 = call i32 @wc_ecc_make_key(ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull %1) #27
@@ -10887,7 +10888,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %37 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %36)
   %38 = load ptr, ptr @stdout, align 8, !tbaa !22
   %39 = call i32 @fflush(ptr noundef %38)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 40:                                               ; preds = %25
   %41 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1) #27
@@ -10906,7 +10907,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %52 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %51)
   %53 = load ptr, ptr @stdout, align 8, !tbaa !22
   %54 = call i32 @fflush(ptr noundef %53)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 55:                                               ; preds = %40
   %56 = call i32 @wc_ecc_sign_hash(ptr noundef null, i32 noundef 25, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1) #27
@@ -10925,7 +10926,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %67 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %66)
   %68 = load ptr, ptr @stdout, align 8, !tbaa !22
   %69 = call i32 @fflush(ptr noundef %68)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 70:                                               ; preds = %55
   %71 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %7, i32 noundef 25, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1) #27
@@ -10944,7 +10945,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %82 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %81)
   %83 = load ptr, ptr @stdout, align 8, !tbaa !22
   %84 = call i32 @fflush(ptr noundef %83)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 85:                                               ; preds = %70
   %86 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %1) #27
@@ -10963,7 +10964,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %97 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %96)
   %98 = load ptr, ptr @stdout, align 8, !tbaa !22
   %99 = call i32 @fflush(ptr noundef %98)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 100:                                              ; preds = %85
   %101 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %1) #27
@@ -10982,7 +10983,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %112 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %111)
   %113 = load ptr, ptr @stdout, align 8, !tbaa !22
   %114 = call i32 @fflush(ptr noundef %113)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 115:                                              ; preds = %100
   %116 = call i32 @wc_ecc_sign_hash(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef null) #27
@@ -11001,7 +11002,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %127 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %126)
   %128 = load ptr, ptr @stdout, align 8, !tbaa !22
   %129 = call i32 @fflush(ptr noundef %128)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 130:                                              ; preds = %115
   %131 = load i32, ptr %4, align 4, !tbaa !67
@@ -11021,12 +11022,12 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %143 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %142)
   %144 = load ptr, ptr @stdout, align 8, !tbaa !22
   %145 = call i32 @fflush(ptr noundef %144)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
 146:                                              ; preds = %130
   %147 = load i32, ptr %3, align 4, !tbaa !67
   %148 = icmp eq i32 %147, 1
-  br i1 %148, label %166, label %149
+  br i1 %148, label %.thread623, label %149
 
 149:                                              ; preds = %146
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23311)
@@ -11040,9 +11041,9 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %158 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %157)
   %159 = load ptr, ptr @stdout, align 8, !tbaa !22
   %160 = call i32 @fflush(ptr noundef %159)
-  br label %.thread623.thread
+  br label %.thread638.critedge
 
-.thread623.thread:                                ; preds = %149, %134, %118, %103, %88, %73, %58, %43, %28, %.thread599
+.thread623:                                       ; preds = %146
   %161 = load i32, ptr %4, align 4, !tbaa !67
   %162 = zext i32 %161 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 16 %5, i64 %162, i1 false)
@@ -11050,141 +11051,141 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_signVerify_hash() #0 {
   %164 = load i8, ptr %163, align 1, !tbaa !39
   %165 = add i8 %164, 1
   store i8 %165, ptr %163, align 1, !tbaa !39
-  br label %.thread638
+  %166 = add i32 %161, 1
+  %167 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %6, i32 noundef %166, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
+  %.not = icmp eq i32 %167, 0
+  br i1 %.not, label %168, label %180
 
-166:                                              ; preds = %146
-  %167 = load i32, ptr %4, align 4, !tbaa !67
-  %168 = zext i32 %167 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 16 %5, i64 %168, i1 false)
-  %169 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %170 = load i8, ptr %169, align 1, !tbaa !39
-  %171 = add i8 %170, 1
-  store i8 %171, ptr %169, align 1, !tbaa !39
-  %172 = add i32 %167, 1
-  %173 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %6, i32 noundef %172, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
-  %.not = icmp eq i32 %173, 0
-  br i1 %.not, label %174, label %186
-
-174:                                              ; preds = %166
-  %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23318)
+168:                                              ; preds = %.thread623
+  %169 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23318)
+  %170 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %171 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %170)
+  %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1334, ptr noundef nonnull @.str.1024)
+  %173 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %174 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %173)
+  %175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
   %176 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %177 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %176)
-  %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1334, ptr noundef nonnull @.str.1024)
-  %179 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %180 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %179)
-  %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
-  %182 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %183 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %182)
-  %184 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %185 = call i32 @fflush(ptr noundef %184)
+  %177 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %176)
+  %178 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %179 = call i32 @fflush(ptr noundef %178)
   br label %.thread638
 
-186:                                              ; preds = %166
-  %187 = load i32, ptr %4, align 4, !tbaa !67
-  %188 = call i32 @wc_ecc_verify_hash(ptr noundef null, i32 noundef %187, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
-  %189 = icmp eq i32 %188, -170
-  br i1 %189, label %202, label %190
+180:                                              ; preds = %.thread623
+  %181 = load i32, ptr %4, align 4, !tbaa !67
+  %182 = call i32 @wc_ecc_verify_hash(ptr noundef null, i32 noundef %181, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
+  %183 = icmp eq i32 %182, -170
+  br i1 %183, label %196, label %184
 
-190:                                              ; preds = %186
-  %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23328)
+184:                                              ; preds = %180
+  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23328)
+  %186 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %187 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %186)
+  %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1335, ptr noundef nonnull @.str.1327)
+  %189 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %190 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %189)
+  %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %182, i32 noundef -170)
   %192 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %193 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %192)
-  %194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1335, ptr noundef nonnull @.str.1327)
-  %195 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %196 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %195)
-  %197 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %188, i32 noundef -170)
-  %198 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %199 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %198)
-  %200 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %201 = call i32 @fflush(ptr noundef %200)
+  %193 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %192)
+  %194 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %195 = call i32 @fflush(ptr noundef %194)
   br label %.thread638
 
-202:                                              ; preds = %186
-  %203 = load i32, ptr %4, align 4, !tbaa !67
-  %204 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %203, ptr noundef null, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
-  %205 = icmp eq i32 %204, -170
-  br i1 %205, label %218, label %206
+196:                                              ; preds = %180
+  %197 = load i32, ptr %4, align 4, !tbaa !67
+  %198 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %197, ptr noundef null, i32 noundef 25, ptr noundef nonnull %3, ptr noundef nonnull %1) #27
+  %199 = icmp eq i32 %198, -170
+  br i1 %199, label %212, label %200
 
-206:                                              ; preds = %202
-  %207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23330)
+200:                                              ; preds = %196
+  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23330)
+  %202 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %203 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %202)
+  %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1336, ptr noundef nonnull @.str.1327)
+  %205 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %206 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %205)
+  %207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %198, i32 noundef -170)
   %208 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %209 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %208)
-  %210 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1336, ptr noundef nonnull @.str.1327)
-  %211 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %212 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %211)
-  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %204, i32 noundef -170)
-  %214 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %215 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %214)
-  %216 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %217 = call i32 @fflush(ptr noundef %216)
+  %209 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %208)
+  %210 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %211 = call i32 @fflush(ptr noundef %210)
   br label %.thread638
 
-218:                                              ; preds = %202
-  %219 = load i32, ptr %4, align 4, !tbaa !67
-  %220 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %219, ptr noundef nonnull %7, i32 noundef 25, ptr noundef null, ptr noundef nonnull %1) #27
-  %221 = icmp eq i32 %220, -170
-  br i1 %221, label %234, label %222
+212:                                              ; preds = %196
+  %213 = load i32, ptr %4, align 4, !tbaa !67
+  %214 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %213, ptr noundef nonnull %7, i32 noundef 25, ptr noundef null, ptr noundef nonnull %1) #27
+  %215 = icmp eq i32 %214, -170
+  br i1 %215, label %228, label %216
 
-222:                                              ; preds = %218
-  %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23332)
+216:                                              ; preds = %212
+  %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23332)
+  %218 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %219 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %218)
+  %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1337, ptr noundef nonnull @.str.1327)
+  %221 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %222 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %221)
+  %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %214, i32 noundef -170)
   %224 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %225 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %224)
-  %226 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1337, ptr noundef nonnull @.str.1327)
-  %227 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %228 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %227)
-  %229 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %220, i32 noundef -170)
-  %230 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %231 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %230)
-  %232 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %233 = call i32 @fflush(ptr noundef %232)
+  %225 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %224)
+  %226 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %227 = call i32 @fflush(ptr noundef %226)
   br label %.thread638
 
-234:                                              ; preds = %218
-  %235 = load i32, ptr %4, align 4, !tbaa !67
-  %236 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %235, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef null) #27
-  %237 = icmp eq i32 %236, -170
-  br i1 %237, label %251, label %238
+228:                                              ; preds = %212
+  %229 = load i32, ptr %4, align 4, !tbaa !67
+  %230 = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %5, i32 noundef %229, ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %3, ptr noundef null) #27
+  %231 = icmp eq i32 %230, -170
+  br i1 %231, label %250, label %232
 
-238:                                              ; preds = %234
-  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23334)
+232:                                              ; preds = %228
+  %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23334)
+  %234 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %235 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %234)
+  %236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1338, ptr noundef nonnull @.str.1327)
+  %237 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %238 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %237)
+  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %230, i32 noundef -170)
   %240 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %241 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %240)
-  %242 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1338, ptr noundef nonnull @.str.1327)
-  %243 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %244 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %243)
-  %245 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %236, i32 noundef -170)
-  %246 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %247 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %246)
-  %248 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %249 = call i32 @fflush(ptr noundef %248)
+  %241 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %240)
+  %242 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %243 = call i32 @fflush(ptr noundef %242)
   br label %.thread638
 
-.thread638:                                       ; preds = %.thread623.thread, %238, %222, %206, %190, %174
-  %250 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
-  br label %266
+.thread638.critedge:                              ; preds = %.thread599, %28, %43, %58, %73, %88, %103, %118, %134, %149
+  %244 = load i32, ptr %4, align 4, !tbaa !67
+  %245 = zext i32 %244 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 16 %5, i64 %245, i1 false)
+  %246 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %247 = load i8, ptr %246, align 1, !tbaa !39
+  %248 = add i8 %247, 1
+  store i8 %248, ptr %246, align 1, !tbaa !39
+  br label %.thread638
 
-251:                                              ; preds = %234
-  %252 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %266, label %254
+.thread638:                                       ; preds = %.thread638.critedge, %232, %216, %200, %184, %168
+  %249 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
+  br label %265
 
-254:                                              ; preds = %251
-  %255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23337)
-  %256 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %257 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %256)
-  %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
-  %259 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %260 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %259)
-  %261 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %252, i32 noundef 0)
-  %262 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %263 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %262)
-  %264 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %265 = call i32 @fflush(ptr noundef %264)
-  br label %266
+250:                                              ; preds = %228
+  %251 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %265, label %253
 
-266:                                              ; preds = %.thread638, %254, %251
-  %.32 = phi i32 [ 0, %254 ], [ 1, %251 ], [ 0, %.thread638 ]
-  %267 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
+253:                                              ; preds = %250
+  %254 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 23337)
+  %255 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %256 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %255)
+  %257 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
+  %258 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %259 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %258)
+  %260 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %251, i32 noundef 0)
+  %261 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %262 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %261)
+  %263 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %264 = call i32 @fflush(ptr noundef %263)
+  br label %265
+
+265:                                              ; preds = %.thread638, %253, %250
+  %.32 = phi i32 [ 0, %253 ], [ 1, %250 ], [ 0, %.thread638 ]
+  %266 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 258, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %5) #27
@@ -13217,7 +13218,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %20 = load ptr, ptr @stdout, align 8, !tbaa !22
   %21 = call i32 @fflush(ptr noundef %20)
   %22 = call i32 @wc_ecc_make_key(ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull %1) #27
-  br label %.thread1064
+  br label %.critedge
 
 23:                                               ; preds = %8
   %24 = call i32 @wc_ecc_make_key(ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull %1) #27
@@ -13236,7 +13237,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %35 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %34)
   %36 = load ptr, ptr @stdout, align 8, !tbaa !22
   %37 = call i32 @fflush(ptr noundef %36)
-  br label %.thread1064
+  br label %.critedge
 
 38:                                               ; preds = %23
   %39 = call ptr @wc_ecc_new_point() #27
@@ -13255,7 +13256,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %49 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %48)
   %50 = load ptr, ptr @stdout, align 8, !tbaa !22
   %51 = call i32 @fflush(ptr noundef %50)
-  br label %.thread1064
+  br label %.critedge
 
 52:                                               ; preds = %38
   %53 = call ptr @wc_ecc_new_point() #27
@@ -13274,7 +13275,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %63 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %62)
   %64 = load ptr, ptr @stdout, align 8, !tbaa !22
   %65 = call i32 @fflush(ptr noundef %64)
-  br label %.thread1064
+  br label %.critedge
 
 66:                                               ; preds = %52
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13296,7 +13297,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %81 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %80)
   %82 = load ptr, ptr @stdout, align 8, !tbaa !22
   %83 = call i32 @fflush(ptr noundef %82)
-  br label %.thread1064
+  br label %.critedge
 
 84:                                               ; preds = %66
   %85 = load i32, ptr %5, align 4, !tbaa !67
@@ -13316,7 +13317,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %97 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %96)
   %98 = load ptr, ptr @stdout, align 8, !tbaa !22
   %99 = call i32 @fflush(ptr noundef %98)
-  br label %.thread1064
+  br label %.critedge
 
 100:                                              ; preds = %84
   %101 = load i32, ptr %67, align 4, !tbaa !109
@@ -13336,7 +13337,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %113 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %112)
   %114 = load ptr, ptr @stdout, align 8, !tbaa !22
   %115 = call i32 @fflush(ptr noundef %114)
-  br label %.thread1064
+  br label %.critedge
 
 116:                                              ; preds = %100
   %117 = call i32 @wc_ecc_export_point_der(i32 noundef -2, ptr noundef nonnull %69, ptr noundef nonnull %3, ptr noundef nonnull %5) #27
@@ -13355,7 +13356,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %128 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %127)
   %129 = load ptr, ptr @stdout, align 8, !tbaa !22
   %130 = call i32 @fflush(ptr noundef %129)
-  br label %.thread1064
+  br label %.critedge
 
 131:                                              ; preds = %116
   %132 = load i32, ptr %67, align 4, !tbaa !109
@@ -13375,7 +13376,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %144 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %143)
   %145 = load ptr, ptr @stdout, align 8, !tbaa !22
   %146 = call i32 @fflush(ptr noundef %145)
-  br label %.thread1064
+  br label %.critedge
 
 147:                                              ; preds = %131
   %148 = load i32, ptr %67, align 4, !tbaa !109
@@ -13395,7 +13396,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %160 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %159)
   %161 = load ptr, ptr @stdout, align 8, !tbaa !22
   %162 = call i32 @fflush(ptr noundef %161)
-  br label %.thread1064
+  br label %.critedge
 
 163:                                              ; preds = %147
   %164 = load i32, ptr %5, align 4, !tbaa !67
@@ -13415,7 +13416,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %176 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %175)
   %177 = load ptr, ptr @stdout, align 8, !tbaa !22
   %178 = call i32 @fflush(ptr noundef %177)
-  br label %.thread1064
+  br label %.critedge
 
 179:                                              ; preds = %163
   %180 = call i32 @wc_ecc_cmp_point(ptr noundef nonnull %69, ptr noundef nonnull %39) #27
@@ -13434,7 +13435,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %191 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %190)
   %192 = load ptr, ptr @stdout, align 8, !tbaa !22
   %193 = call i32 @fflush(ptr noundef %192)
-  br label %.thread1064
+  br label %.critedge
 
 194:                                              ; preds = %179
   %195 = load i32, ptr %5, align 4, !tbaa !67
@@ -13454,7 +13455,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %207 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %206)
   %208 = load ptr, ptr @stdout, align 8, !tbaa !22
   %209 = call i32 @fflush(ptr noundef %208)
-  br label %.thread1064
+  br label %.critedge
 
 210:                                              ; preds = %194
   %211 = load i32, ptr %5, align 4, !tbaa !67
@@ -13474,7 +13475,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %223 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %222)
   %224 = load ptr, ptr @stdout, align 8, !tbaa !22
   %225 = call i32 @fflush(ptr noundef %224)
-  br label %.thread1064
+  br label %.critedge
 
 226:                                              ; preds = %210
   %227 = load i32, ptr %5, align 4, !tbaa !67
@@ -13494,7 +13495,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %239 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %238)
   %240 = load ptr, ptr @stdout, align 8, !tbaa !22
   %241 = call i32 @fflush(ptr noundef %240)
-  br label %.thread1064
+  br label %.critedge
 
 242:                                              ; preds = %226
   %243 = load i32, ptr %5, align 4, !tbaa !67
@@ -13515,7 +13516,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %256 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %255)
   %257 = load ptr, ptr @stdout, align 8, !tbaa !22
   %258 = call i32 @fflush(ptr noundef %257)
-  br label %.thread1064
+  br label %.critedge
 
 259:                                              ; preds = %242
   %260 = call i32 @wc_ecc_copy_point(ptr noundef nonnull %39, ptr noundef nonnull %53) #27
@@ -13534,7 +13535,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %271 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %270)
   %272 = load ptr, ptr @stdout, align 8, !tbaa !22
   %273 = call i32 @fflush(ptr noundef %272)
-  br label %.thread1064
+  br label %.critedge
 
 274:                                              ; preds = %259
   %275 = call i32 @wc_ecc_copy_point(ptr noundef null, ptr noundef nonnull %53) #27
@@ -13553,7 +13554,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %286 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %285)
   %287 = load ptr, ptr @stdout, align 8, !tbaa !22
   %288 = call i32 @fflush(ptr noundef %287)
-  br label %.thread1064
+  br label %.critedge
 
 289:                                              ; preds = %274
   %290 = call i32 @wc_ecc_copy_point(ptr noundef nonnull %39, ptr noundef null) #27
@@ -13572,7 +13573,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %301 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %300)
   %302 = load ptr, ptr @stdout, align 8, !tbaa !22
   %303 = call i32 @fflush(ptr noundef %302)
-  br label %.thread1064
+  br label %.critedge
 
 304:                                              ; preds = %289
   %305 = call i32 @wc_ecc_cmp_point(ptr noundef nonnull %39, ptr noundef nonnull %53) #27
@@ -13591,7 +13592,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %316 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %315)
   %317 = load ptr, ptr @stdout, align 8, !tbaa !22
   %318 = call i32 @fflush(ptr noundef %317)
-  br label %.thread1064
+  br label %.critedge
 
 319:                                              ; preds = %304
   %320 = call i32 @wc_ecc_cmp_point(ptr noundef null, ptr noundef nonnull %53) #27
@@ -13610,7 +13611,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %331 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %330)
   %332 = load ptr, ptr @stdout, align 8, !tbaa !22
   %333 = call i32 @fflush(ptr noundef %332)
-  br label %.thread1064
+  br label %.critedge
 
 334:                                              ; preds = %319
   %335 = call i32 @wc_ecc_cmp_point(ptr noundef nonnull %39, ptr noundef null) #27
@@ -13629,7 +13630,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %346 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %345)
   %347 = load ptr, ptr @stdout, align 8, !tbaa !22
   %348 = call i32 @fflush(ptr noundef %347)
-  br label %.thread1064
+  br label %.critedge
 
 349:                                              ; preds = %334
   %350 = call i32 @wc_ecc_point_is_at_infinity(ptr noundef nonnull %39) #27
@@ -13648,7 +13649,7 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %361 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %360)
   %362 = load ptr, ptr @stdout, align 8, !tbaa !22
   %363 = call i32 @fflush(ptr noundef %362)
-  br label %.thread1064
+  br label %.critedge
 
 364:                                              ; preds = %349
   %365 = call i32 @wc_ecc_point_is_at_infinity(ptr noundef null) #27
@@ -13667,38 +13668,41 @@ define internal range(i32 0, 2) i32 @test_wc_ecc_pointFns() #0 {
   %376 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %375)
   %377 = load ptr, ptr @stdout, align 8, !tbaa !22
   %378 = call i32 @fflush(ptr noundef %377)
-  br label %.thread1064
+  br label %.critedge
 
-.thread1064:                                      ; preds = %.thread902, %26, %40, %54, %72, %88, %104, %119, %135, %151, %167, %182, %198, %214, %230, %247, %262, %277, %292, %307, %322, %337, %352, %364, %367
-  %.08659119179269349439519609679789859961003101310191027103310411047105510611069 = phi ptr [ %39, %367 ], [ %39, %364 ], [ %39, %352 ], [ %39, %337 ], [ %39, %322 ], [ %39, %307 ], [ %39, %292 ], [ %39, %277 ], [ %39, %262 ], [ %39, %247 ], [ %39, %230 ], [ %39, %214 ], [ %39, %198 ], [ %39, %182 ], [ %39, %167 ], [ %39, %151 ], [ %39, %135 ], [ %39, %119 ], [ %39, %104 ], [ %39, %88 ], [ %39, %72 ], [ %39, %54 ], [ null, %40 ], [ null, %26 ], [ null, %.thread902 ]
-  %.08669189259359429529599689779869951004101210201026103410401048105410621068 = phi ptr [ %53, %367 ], [ %53, %364 ], [ %53, %352 ], [ %53, %337 ], [ %53, %322 ], [ %53, %307 ], [ %53, %292 ], [ %53, %277 ], [ %53, %262 ], [ %53, %247 ], [ %53, %230 ], [ %53, %214 ], [ %53, %198 ], [ %53, %182 ], [ %53, %167 ], [ %53, %151 ], [ %53, %135 ], [ %53, %119 ], [ %53, %104 ], [ %53, %88 ], [ %53, %72 ], [ null, %54 ], [ null, %40 ], [ null, %26 ], [ null, %.thread902 ]
-  %379 = phi i1 [ false, %367 ], [ true, %364 ], [ false, %352 ], [ false, %337 ], [ false, %322 ], [ false, %307 ], [ false, %292 ], [ false, %277 ], [ false, %262 ], [ false, %247 ], [ false, %230 ], [ false, %214 ], [ false, %198 ], [ false, %182 ], [ false, %167 ], [ false, %151 ], [ false, %135 ], [ false, %119 ], [ false, %104 ], [ false, %88 ], [ false, %72 ], [ false, %54 ], [ false, %40 ], [ false, %26 ], [ false, %.thread902 ]
-  call void @wc_ecc_del_point(ptr noundef %.08659119179269349439519609679789859961003101310191027103310411047105510611069) #27
-  call void @wc_ecc_del_point(ptr noundef %.08669189259359429529599689779869951004101210201026103410401048105410621068) #27
-  %380 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
-  %381 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
-  br i1 %379, label %382, label %396
+.thread1064:                                      ; preds = %364
+  call void @wc_ecc_del_point(ptr noundef nonnull %39) #27
+  call void @wc_ecc_del_point(ptr noundef nonnull %53) #27
+  %379 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
+  %380 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
+  %381 = icmp eq i32 %380, 0
+  br i1 %381, label %396, label %382
 
 382:                                              ; preds = %.thread1064
-  %383 = icmp eq i32 %381, 0
-  br i1 %383, label %396, label %384
-
-384:                                              ; preds = %382
-  %385 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 24294)
-  %386 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %387 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %386)
-  %388 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
-  %389 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %390 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %389)
-  %391 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %381, i32 noundef 0)
+  %383 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 24294)
+  %384 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %385 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %384)
+  %386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
+  %387 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %388 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %387)
+  %389 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %380, i32 noundef 0)
+  %390 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %391 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %390)
   %392 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %393 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %392)
-  %394 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %395 = call i32 @fflush(ptr noundef %394)
+  %393 = call i32 @fflush(ptr noundef %392)
   br label %396
 
-396:                                              ; preds = %.thread1064, %384, %382
-  %.48 = phi i32 [ 0, %384 ], [ 0, %.thread1064 ], [ 1, %382 ]
+.critedge:                                        ; preds = %.thread902, %26, %40, %54, %72, %88, %104, %119, %135, %151, %167, %182, %198, %214, %230, %247, %262, %277, %292, %307, %322, %337, %352, %367
+  %.08659119179269349439519609679789859961003101310191027103310411047105510611069.ph = phi ptr [ null, %.thread902 ], [ null, %26 ], [ null, %40 ], [ %39, %54 ], [ %39, %72 ], [ %39, %88 ], [ %39, %104 ], [ %39, %119 ], [ %39, %135 ], [ %39, %151 ], [ %39, %167 ], [ %39, %182 ], [ %39, %198 ], [ %39, %214 ], [ %39, %230 ], [ %39, %247 ], [ %39, %262 ], [ %39, %277 ], [ %39, %292 ], [ %39, %307 ], [ %39, %322 ], [ %39, %337 ], [ %39, %352 ], [ %39, %367 ]
+  %.08669189259359429529599689779869951004101210201026103410401048105410621068.ph = phi ptr [ null, %.thread902 ], [ null, %26 ], [ null, %40 ], [ null, %54 ], [ %53, %72 ], [ %53, %88 ], [ %53, %104 ], [ %53, %119 ], [ %53, %135 ], [ %53, %151 ], [ %53, %167 ], [ %53, %182 ], [ %53, %198 ], [ %53, %214 ], [ %53, %230 ], [ %53, %247 ], [ %53, %262 ], [ %53, %277 ], [ %53, %292 ], [ %53, %307 ], [ %53, %322 ], [ %53, %337 ], [ %53, %352 ], [ %53, %367 ]
+  call void @wc_ecc_del_point(ptr noundef %.08659119179269349439519609679789859961003101310191027103310411047105510611069.ph) #27
+  call void @wc_ecc_del_point(ptr noundef %.08669189259359429529599689779869951004101210201026103410401048105410621068.ph) #27
+  %394 = call i32 @wc_ecc_free(ptr noundef nonnull %1) #27
+  %395 = call i32 @wc_FreeRng(ptr noundef nonnull %2) #27
+  br label %396
+
+396:                                              ; preds = %.critedge, %382, %.thread1064
+  %.48 = phi i32 [ 0, %382 ], [ 1, %.thread1064 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #27
@@ -14705,7 +14709,7 @@ define internal range(i32 0, 2) i32 @test_wc_EccPrivateKeyToDer() #0 {
 
 .thread319:                                       ; preds = %54, %39, %24, %.thread310
   %66 = call i32 @wc_EccPrivateKeyToDer(ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #27
-  br label %.thread326
+  br label %.critedge
 
 67:                                               ; preds = %51
   %68 = call i32 @wc_EccPrivateKeyToDer(ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #27
@@ -14724,7 +14728,7 @@ define internal range(i32 0, 2) i32 @test_wc_EccPrivateKeyToDer() #0 {
   %79 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %78)
   %80 = load ptr, ptr @stdout, align 8, !tbaa !22
   %81 = call i32 @fflush(ptr noundef %80)
-  br label %.thread326
+  br label %.critedge
 
 82:                                               ; preds = %67
   %83 = call i32 @wc_EccPrivateKeyToDer(ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 0) #27
@@ -14743,7 +14747,7 @@ define internal range(i32 0, 2) i32 @test_wc_EccPrivateKeyToDer() #0 {
   %94 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %93)
   %95 = load ptr, ptr @stdout, align 8, !tbaa !22
   %96 = call i32 @fflush(ptr noundef %95)
-  br label %.thread326
+  br label %.critedge
 
 97:                                               ; preds = %82
   %98 = call i32 @wc_EccPrivateKeyToDer(ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef %68) #27
@@ -14762,34 +14766,35 @@ define internal range(i32 0, 2) i32 @test_wc_EccPrivateKeyToDer() #0 {
   %109 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %108)
   %110 = load ptr, ptr @stdout, align 8, !tbaa !22
   %111 = call i32 @fflush(ptr noundef %110)
-  br label %.thread326
+  br label %.critedge
 
-.thread326:                                       ; preds = %.thread319, %70, %85, %97, %100
-  %112 = phi i1 [ false, %100 ], [ true, %97 ], [ false, %85 ], [ false, %70 ], [ false, %.thread319 ]
-  %113 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
-  %114 = call i32 @wc_FreeRng(ptr noundef nonnull %3) #27
-  br i1 %112, label %115, label %129
+.thread326:                                       ; preds = %97
+  %112 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
+  %113 = call i32 @wc_FreeRng(ptr noundef nonnull %3) #27
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %129, label %115
 
 115:                                              ; preds = %.thread326
-  %116 = icmp eq i32 %114, 0
-  br i1 %116, label %129, label %117
-
-117:                                              ; preds = %115
-  %118 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 25317)
-  %119 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %120 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %119)
-  %121 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
-  %122 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %123 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %122)
-  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %114, i32 noundef 0)
+  %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 25317)
+  %117 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %118 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %117)
+  %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1241, ptr noundef nonnull @.str.1024)
+  %120 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %121 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %120)
+  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %113, i32 noundef 0)
+  %123 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %124 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %123)
   %125 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %126 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %125)
-  %127 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %128 = call i32 @fflush(ptr noundef %127)
+  %126 = call i32 @fflush(ptr noundef %125)
   br label %129
 
-129:                                              ; preds = %.thread326, %117, %115
-  %.16 = phi i32 [ 0, %117 ], [ 0, %.thread326 ], [ 1, %115 ]
+.critedge:                                        ; preds = %.thread319, %70, %85, %100
+  %127 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
+  %128 = call i32 @wc_FreeRng(ptr noundef nonnull %3) #27
+  br label %129
+
+129:                                              ; preds = %.critedge, %115, %.thread326
+  %.16 = phi i32 [ 0, %115 ], [ 1, %.thread326 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #27
   call void @llvm.lifetime.end.p0(i64 4208, ptr nonnull %2) #27
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #27

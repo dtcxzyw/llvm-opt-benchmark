@@ -1564,7 +1564,7 @@ define internal fastcc { ptr, i8 } @"_ZN20lockfree_object_pool11linear_page19Lin
 12:                                               ; preds = %13, %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit"
   %.sroa.01.0.i = phi i32 [ %11, %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit" ], [ %18, %13 ]
   %.not.not.i.not = icmp eq i32 %.sroa.01.0.i, 0
-  br i1 %.not.not.i.not, label %23, label %13
+  br i1 %.not.not.i.not, label %.critedge, label %13
 
 13:                                               ; preds = %12
   %14 = add i32 %.sroa.01.0.i, -1
@@ -1581,525 +1581,525 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17h2390c67357d0971cE.exit: ; preds =
   %22 = insertvalue { ptr, i8 } %21, i8 %20, 1
   ret { ptr, i8 } %22
 
-23:                                               ; preds = %12
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 264
-  %25 = load atomic ptr, ptr %24 monotonic, align 8, !noalias !239
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge"
+.critedge:                                        ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 264
+  %24 = load atomic ptr, ptr %23 monotonic, align 8, !noalias !239
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge"
 
-27:                                               ; preds = %23
+26:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4), !noalias !239
-  %28 = load ptr, ptr %8, align 8, !invariant.load !8, !noalias !242, !nonnull !8
-  %29 = tail call noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5), !noalias !242
-  %30 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i" unwind label %32, !noalias !250
+  %27 = load ptr, ptr %8, align 8, !invariant.load !8, !noalias !242, !nonnull !8
+  %28 = tail call noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5), !noalias !242
+  %29 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i" unwind label %31, !noalias !250
 
-common.resume.i:                                  ; preds = %157, %31
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %31 ], [ %158, %157 ]
+common.resume.i:                                  ; preds = %156, %30
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %30 ], [ %157, %156 ]
   resume { ptr, i32 } %common.resume.op.i
 
-31:                                               ; preds = %35, %32
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %35 ], [ %33, %32 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef 720900, i64 noundef 2) #34, !noalias !251
+30:                                               ; preds = %34, %31
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %34 ], [ %32, %31 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef 720900, i64 noundef 2) #34, !noalias !251
   br label %common.resume.i
 
-32:                                               ; preds = %27
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %30
 
-"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i": ; preds = %27
-  %34 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i" unwind label %36, !noalias !250
+"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i": ; preds = %26
+  %33 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i" unwind label %35, !noalias !250
 
-35:                                               ; preds = %39, %36
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %39 ], [ %37, %36 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef 720900, i64 noundef 2) #34, !noalias !258
-  br label %31
+34:                                               ; preds = %38, %35
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %38 ], [ %36, %35 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %29, i64 noundef 720900, i64 noundef 2) #34, !noalias !258
+  br label %30
 
-36:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i"
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i"
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %34
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit.i.i"
-  %38 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i" unwind label %40, !noalias !250
+  %37 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i" unwind label %39, !noalias !250
 
-39:                                               ; preds = %43, %40
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %43 ], [ %41, %40 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef 720900, i64 noundef 2) #34, !noalias !265
-  br label %35
+38:                                               ; preds = %42, %39
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %42 ], [ %40, %39 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 720900, i64 noundef 2) #34, !noalias !265
+  br label %34
 
-40:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i"
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i"
+  %40 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %38
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit34.i.i"
-  %42 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i" unwind label %44, !noalias !250
+  %41 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i" unwind label %43, !noalias !250
 
-43:                                               ; preds = %47, %44
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %47 ], [ %45, %44 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef 720900, i64 noundef 2) #34, !noalias !272
-  br label %39
+42:                                               ; preds = %46, %43
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %46 ], [ %44, %43 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef 720900, i64 noundef 2) #34, !noalias !272
+  br label %38
 
-44:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i"
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i"
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %42
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit35.i.i"
-  %46 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i" unwind label %48, !noalias !250
+  %45 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i" unwind label %47, !noalias !250
 
-47:                                               ; preds = %51, %48
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %51 ], [ %49, %48 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef 720900, i64 noundef 2) #34, !noalias !279
-  br label %43
+46:                                               ; preds = %50, %47
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %50 ], [ %48, %47 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %41, i64 noundef 720900, i64 noundef 2) #34, !noalias !279
+  br label %42
 
-48:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i"
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i"
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %46
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit36.i.i"
-  %50 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i" unwind label %52, !noalias !250
+  %49 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i" unwind label %51, !noalias !250
 
-51:                                               ; preds = %55, %52
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %55 ], [ %53, %52 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef 720900, i64 noundef 2) #34, !noalias !286
-  br label %47
+50:                                               ; preds = %54, %51
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %54 ], [ %52, %51 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef 720900, i64 noundef 2) #34, !noalias !286
+  br label %46
 
-52:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i"
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i"
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %50
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit37.i.i"
-  %54 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i" unwind label %56, !noalias !250
+  %53 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i" unwind label %55, !noalias !250
 
-55:                                               ; preds = %59, %56
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %59 ], [ %57, %56 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %50, i64 noundef 720900, i64 noundef 2) #34, !noalias !293
-  br label %51
+54:                                               ; preds = %58, %55
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %58 ], [ %56, %55 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef 720900, i64 noundef 2) #34, !noalias !293
+  br label %50
 
-56:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i"
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i"
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit38.i.i"
-  %58 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i" unwind label %60, !noalias !250
+  %57 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i" unwind label %59, !noalias !250
 
-59:                                               ; preds = %63, %60
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %63 ], [ %61, %60 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef 720900, i64 noundef 2) #34, !noalias !300
-  br label %55
+58:                                               ; preds = %62, %59
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %62 ], [ %60, %59 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef 720900, i64 noundef 2) #34, !noalias !300
+  br label %54
 
-60:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i"
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i"
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit39.i.i"
-  %62 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i" unwind label %64, !noalias !250
+  %61 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i" unwind label %63, !noalias !250
 
-63:                                               ; preds = %67, %64
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %67 ], [ %65, %64 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef 720900, i64 noundef 2) #34, !noalias !307
-  br label %59
+62:                                               ; preds = %66, %63
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %66 ], [ %64, %63 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef 720900, i64 noundef 2) #34, !noalias !307
+  br label %58
 
-64:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i"
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i"
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit40.i.i"
-  %66 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i" unwind label %68, !noalias !250
+  %65 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i" unwind label %67, !noalias !250
 
-67:                                               ; preds = %71, %68
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %71 ], [ %69, %68 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %62, i64 noundef 720900, i64 noundef 2) #34, !noalias !314
-  br label %63
+66:                                               ; preds = %70, %67
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %70 ], [ %68, %67 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef 720900, i64 noundef 2) #34, !noalias !314
+  br label %62
 
-68:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i"
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i"
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %66
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit41.i.i"
-  %70 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i" unwind label %72, !noalias !250
+  %69 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i" unwind label %71, !noalias !250
 
-71:                                               ; preds = %75, %72
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %75 ], [ %73, %72 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %66, i64 noundef 720900, i64 noundef 2) #34, !noalias !321
-  br label %67
+70:                                               ; preds = %74, %71
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %74 ], [ %72, %71 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %65, i64 noundef 720900, i64 noundef 2) #34, !noalias !321
+  br label %66
 
-72:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i"
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i"
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit42.i.i"
-  %74 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i" unwind label %76, !noalias !250
+  %73 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i" unwind label %75, !noalias !250
 
-75:                                               ; preds = %79, %76
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %79 ], [ %77, %76 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef 720900, i64 noundef 2) #34, !noalias !328
-  br label %71
+74:                                               ; preds = %78, %75
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %78 ], [ %76, %75 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef 720900, i64 noundef 2) #34, !noalias !328
+  br label %70
 
-76:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i"
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i"
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %74
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit43.i.i"
-  %78 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i" unwind label %80, !noalias !250
+  %77 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i" unwind label %79, !noalias !250
 
-79:                                               ; preds = %83, %80
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %83 ], [ %81, %80 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %74, i64 noundef 720900, i64 noundef 2) #34, !noalias !335
-  br label %75
+78:                                               ; preds = %82, %79
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %82 ], [ %80, %79 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %73, i64 noundef 720900, i64 noundef 2) #34, !noalias !335
+  br label %74
 
-80:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i"
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i"
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %79
+  br label %78
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit44.i.i"
-  %82 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i" unwind label %84, !noalias !250
+  %81 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i" unwind label %83, !noalias !250
 
-83:                                               ; preds = %87, %84
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %87 ], [ %85, %84 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %78, i64 noundef 720900, i64 noundef 2) #34, !noalias !342
-  br label %79
+82:                                               ; preds = %86, %83
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %86 ], [ %84, %83 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %77, i64 noundef 720900, i64 noundef 2) #34, !noalias !342
+  br label %78
 
-84:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i"
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i"
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %82
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit45.i.i"
-  %86 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i" unwind label %88, !noalias !250
+  %85 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i" unwind label %87, !noalias !250
 
-87:                                               ; preds = %91, %88
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %91 ], [ %89, %88 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %82, i64 noundef 720900, i64 noundef 2) #34, !noalias !349
-  br label %83
+86:                                               ; preds = %90, %87
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %90 ], [ %88, %87 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %81, i64 noundef 720900, i64 noundef 2) #34, !noalias !349
+  br label %82
 
-88:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i"
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i"
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit46.i.i"
-  %90 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i" unwind label %92, !noalias !250
+  %89 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i" unwind label %91, !noalias !250
 
-91:                                               ; preds = %95, %92
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %95 ], [ %93, %92 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %86, i64 noundef 720900, i64 noundef 2) #34, !noalias !356
-  br label %87
+90:                                               ; preds = %94, %91
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %94 ], [ %92, %91 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %85, i64 noundef 720900, i64 noundef 2) #34, !noalias !356
+  br label %86
 
-92:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i"
-  %93 = landingpad { ptr, i32 }
+91:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i"
+  %92 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %90
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit47.i.i"
-  %94 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i" unwind label %96, !noalias !250
+  %93 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i" unwind label %95, !noalias !250
 
-95:                                               ; preds = %99, %96
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %99 ], [ %97, %96 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %90, i64 noundef 720900, i64 noundef 2) #34, !noalias !363
-  br label %91
+94:                                               ; preds = %98, %95
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %98 ], [ %96, %95 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %89, i64 noundef 720900, i64 noundef 2) #34, !noalias !363
+  br label %90
 
-96:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i"
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i"
+  %96 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %94
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit48.i.i"
-  %98 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i" unwind label %100, !noalias !250
+  %97 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i" unwind label %99, !noalias !250
 
-99:                                               ; preds = %103, %100
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %103 ], [ %101, %100 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %94, i64 noundef 720900, i64 noundef 2) #34, !noalias !370
-  br label %95
+98:                                               ; preds = %102, %99
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %102 ], [ %100, %99 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %93, i64 noundef 720900, i64 noundef 2) #34, !noalias !370
+  br label %94
 
-100:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i"
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i"
+  %100 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %98
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit49.i.i"
-  %102 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i" unwind label %104, !noalias !250
+  %101 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i" unwind label %103, !noalias !250
 
-103:                                              ; preds = %107, %104
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %107 ], [ %105, %104 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %98, i64 noundef 720900, i64 noundef 2) #34, !noalias !377
-  br label %99
+102:                                              ; preds = %106, %103
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %106 ], [ %104, %103 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %97, i64 noundef 720900, i64 noundef 2) #34, !noalias !377
+  br label %98
 
-104:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i"
-  %105 = landingpad { ptr, i32 }
+103:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i"
+  %104 = landingpad { ptr, i32 }
           cleanup
-  br label %103
+  br label %102
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit50.i.i"
-  %106 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i" unwind label %108, !noalias !250
+  %105 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i" unwind label %107, !noalias !250
 
-107:                                              ; preds = %111, %108
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %111 ], [ %109, %108 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %102, i64 noundef 720900, i64 noundef 2) #34, !noalias !384
-  br label %103
+106:                                              ; preds = %110, %107
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %110 ], [ %108, %107 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %101, i64 noundef 720900, i64 noundef 2) #34, !noalias !384
+  br label %102
 
-108:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i"
-  %109 = landingpad { ptr, i32 }
+107:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i"
+  %108 = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %106
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit51.i.i"
-  %110 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i" unwind label %112, !noalias !250
+  %109 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i" unwind label %111, !noalias !250
 
-111:                                              ; preds = %115, %112
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %115 ], [ %113, %112 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %106, i64 noundef 720900, i64 noundef 2) #34, !noalias !391
-  br label %107
+110:                                              ; preds = %114, %111
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %114 ], [ %112, %111 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %105, i64 noundef 720900, i64 noundef 2) #34, !noalias !391
+  br label %106
 
-112:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i"
-  %113 = landingpad { ptr, i32 }
+111:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i"
+  %112 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %110
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit52.i.i"
-  %114 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i" unwind label %116, !noalias !250
+  %113 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i" unwind label %115, !noalias !250
 
-115:                                              ; preds = %119, %116
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %119 ], [ %117, %116 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %110, i64 noundef 720900, i64 noundef 2) #34, !noalias !398
-  br label %111
+114:                                              ; preds = %118, %115
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i.i, %118 ], [ %116, %115 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %109, i64 noundef 720900, i64 noundef 2) #34, !noalias !398
+  br label %110
 
-116:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i"
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i"
+  %116 = landingpad { ptr, i32 }
           cleanup
-  br label %115
+  br label %114
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit53.i.i"
-  %118 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i" unwind label %120, !noalias !250
+  %117 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i" unwind label %119, !noalias !250
 
-119:                                              ; preds = %123, %120
-  %.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %123 ], [ %121, %120 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %114, i64 noundef 720900, i64 noundef 2) #34, !noalias !405
-  br label %115
+118:                                              ; preds = %122, %119
+  %.pn.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i.i, %122 ], [ %120, %119 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %113, i64 noundef 720900, i64 noundef 2) #34, !noalias !405
+  br label %114
 
-120:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i"
-  %121 = landingpad { ptr, i32 }
+119:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i"
+  %120 = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %118
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit54.i.i"
-  %122 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i" unwind label %124, !noalias !250
+  %121 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i" unwind label %123, !noalias !250
 
-123:                                              ; preds = %127, %124
-  %.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i.i, %127 ], [ %125, %124 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %118, i64 noundef 720900, i64 noundef 2) #34, !noalias !412
-  br label %119
+122:                                              ; preds = %126, %123
+  %.pn.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i.i, %126 ], [ %124, %123 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %117, i64 noundef 720900, i64 noundef 2) #34, !noalias !412
+  br label %118
 
-124:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i"
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i"
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %122
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit55.i.i"
-  %126 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i" unwind label %128, !noalias !250
+  %125 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i" unwind label %127, !noalias !250
 
-127:                                              ; preds = %131, %128
-  %.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i.i, %131 ], [ %129, %128 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %122, i64 noundef 720900, i64 noundef 2) #34, !noalias !419
-  br label %123
+126:                                              ; preds = %130, %127
+  %.pn.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i.i, %130 ], [ %128, %127 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %121, i64 noundef 720900, i64 noundef 2) #34, !noalias !419
+  br label %122
 
-128:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i"
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i"
+  %128 = landingpad { ptr, i32 }
           cleanup
-  br label %127
+  br label %126
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit56.i.i"
-  %130 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i" unwind label %132, !noalias !250
+  %129 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i" unwind label %131, !noalias !250
 
-131:                                              ; preds = %135, %132
-  %.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i.i, %135 ], [ %133, %132 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %126, i64 noundef 720900, i64 noundef 2) #34, !noalias !426
-  br label %127
+130:                                              ; preds = %134, %131
+  %.pn.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i.i, %134 ], [ %132, %131 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %125, i64 noundef 720900, i64 noundef 2) #34, !noalias !426
+  br label %126
 
-132:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i"
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i"
+  %132 = landingpad { ptr, i32 }
           cleanup
-  br label %131
+  br label %130
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit57.i.i"
-  %134 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i" unwind label %136, !noalias !250
+  %133 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i" unwind label %135, !noalias !250
 
-135:                                              ; preds = %139, %136
-  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %139 ], [ %137, %136 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef 720900, i64 noundef 2) #34, !noalias !433
-  br label %131
+134:                                              ; preds = %138, %135
+  %.pn.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i, %138 ], [ %136, %135 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef 720900, i64 noundef 2) #34, !noalias !433
+  br label %130
 
-136:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i"
-  %137 = landingpad { ptr, i32 }
+135:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i"
+  %136 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %134
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit58.i.i"
-  %138 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i" unwind label %140, !noalias !250
+  %137 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i" unwind label %139, !noalias !250
 
-139:                                              ; preds = %143, %140
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %143 ], [ %141, %140 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %134, i64 noundef 720900, i64 noundef 2) #34, !noalias !440
-  br label %135
+138:                                              ; preds = %142, %139
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %142 ], [ %140, %139 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %133, i64 noundef 720900, i64 noundef 2) #34, !noalias !440
+  br label %134
 
-140:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i"
-  %141 = landingpad { ptr, i32 }
+139:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i"
+  %140 = landingpad { ptr, i32 }
           cleanup
-  br label %139
+  br label %138
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit59.i.i"
-  %142 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i" unwind label %144, !noalias !250
+  %141 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i" unwind label %143, !noalias !250
 
-143:                                              ; preds = %147, %144
-  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %147 ], [ %145, %144 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %138, i64 noundef 720900, i64 noundef 2) #34, !noalias !447
-  br label %139
+142:                                              ; preds = %146, %143
+  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %146 ], [ %144, %143 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %137, i64 noundef 720900, i64 noundef 2) #34, !noalias !447
+  br label %138
 
-144:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i"
-  %145 = landingpad { ptr, i32 }
+143:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i"
+  %144 = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %142
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit60.i.i"
-  %146 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i" unwind label %148, !noalias !250
+  %145 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i" unwind label %147, !noalias !250
 
-147:                                              ; preds = %151, %148
-  %.pn.i.i = phi { ptr, i32 } [ %152, %151 ], [ %149, %148 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %142, i64 noundef 720900, i64 noundef 2) #34, !noalias !454
-  br label %143
+146:                                              ; preds = %150, %147
+  %.pn.i.i = phi { ptr, i32 } [ %151, %150 ], [ %148, %147 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %141, i64 noundef 720900, i64 noundef 2) #34, !noalias !454
+  br label %142
 
-148:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i"
-  %149 = landingpad { ptr, i32 }
+147:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i"
+  %148 = landingpad { ptr, i32 }
           cleanup
-  br label %147
+  br label %146
 
 "_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit61.i.i"
-  %150 = invoke noundef nonnull align 2 ptr %28(ptr noundef nonnull align 1 %5)
-          to label %"_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i" unwind label %151, !noalias !250
+  %149 = invoke noundef nonnull align 2 ptr %27(ptr noundef nonnull align 1 %5)
+          to label %"_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i" unwind label %150, !noalias !250
 
-151:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i"
-  %152 = landingpad { ptr, i32 }
+150:                                              ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i"
+  %151 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %146, i64 noundef 720900, i64 noundef 2) #34, !noalias !461
-  br label %147
+  tail call void @__rust_dealloc(ptr noundef nonnull %145, i64 noundef 720900, i64 noundef 2) #34, !noalias !461
+  br label %146
 
 "_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i": ; preds = %"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h5ac489f42841495aE.exit62.i.i"
-  store ptr %29, ptr %4, align 8, !noalias !239
-  store ptr %30, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %34, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %38, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %42, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %46, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %50, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %54, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %58, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %62, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %66, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %70, ptr %.sroa.14.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %74, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %78, ptr %.sroa.16.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %82, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %86, ptr %.sroa.18.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %90, ptr %.sroa.19.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %94, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %98, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %102, ptr %.sroa.22.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %106, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %110, ptr %.sroa.24.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %114, ptr %.sroa.25.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %118, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %122, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %126, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %130, ptr %.sroa.29.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %134, ptr %.sroa.30.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %138, ptr %.sroa.31.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %142, ptr %.sroa.32.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %146, ptr %.sroa.33.0..sroa_idx.i, align 8, !noalias !239
-  store ptr %150, ptr %.sroa.34.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %28, ptr %4, align 8, !noalias !239
+  store ptr %29, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %33, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %37, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %41, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %45, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %49, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %53, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %57, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %61, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %65, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %69, ptr %.sroa.14.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %73, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %77, ptr %.sroa.16.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %81, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %85, ptr %.sroa.18.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %89, ptr %.sroa.19.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %93, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %97, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %101, ptr %.sroa.22.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %105, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %109, ptr %.sroa.24.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %113, ptr %.sroa.25.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %117, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %121, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %125, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %129, ptr %.sroa.29.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %133, ptr %.sroa.30.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %137, ptr %.sroa.31.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %141, ptr %.sroa.32.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %145, ptr %.sroa.33.0..sroa_idx.i, align 8, !noalias !239
+  store ptr %149, ptr %.sroa.34.0..sroa_idx.i, align 8, !noalias !239
   store i32 -1, ptr %.sroa.35.0..sroa_idx.i, align 8, !noalias !239
   store ptr null, ptr %9, align 8, !noalias !239
-  %153 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !468
-  %154 = tail call noalias noundef align 8 dereferenceable_or_null(272) ptr @__rust_alloc(i64 noundef 272, i64 noundef 8) #34, !noalias !468
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
+  %152 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !468
+  %153 = tail call noalias noundef align 8 dereferenceable_or_null(272) ptr @__rust_alloc(i64 noundef 272, i64 noundef 8) #34, !noalias !468
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %155, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
 
-156:                                              ; preds = %"_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i"
+155:                                              ; preds = %"_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef 272) #31
-          to label %.noexc.i unwind label %157, !noalias !239
+          to label %.noexc.i unwind label %156, !noalias !239
 
-.noexc.i:                                         ; preds = %156
+.noexc.i:                                         ; preds = %155
   unreachable
 
-157:                                              ; preds = %156
-  %158 = landingpad { ptr, i32 }
+156:                                              ; preds = %155
+  %157 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr123drop_in_place$LT$lockfree_object_pool..linear_page..LinearPage$LT$alloc..boxed..Box$LT$zopfli..hash..ZopfliHash$GT$$GT$$GT$17h44ed39d02394e88cE"(ptr noalias noundef nonnull align 8 dereferenceable(272) %4) #32
-          to label %common.resume.i unwind label %159, !noalias !239
+          to label %common.resume.i unwind label %158, !noalias !239
 
-159:                                              ; preds = %157
-  %160 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33, !noalias !239
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i": ; preds = %"_ZN20lockfree_object_pool4page13Page$LT$T$GT$3new17h4a4cd84f9bc01d8fE.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %154, ptr noundef nonnull align 8 dereferenceable(272) %4, i64 272, i1 false), !noalias !239
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %153, ptr noundef nonnull align 8 dereferenceable(272) %4, i64 272, i1 false), !noalias !239
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4), !noalias !239
-  %161 = cmpxchg ptr %24, ptr null, ptr %154 seq_cst monotonic, align 8, !noalias !239
-  %162 = extractvalue { ptr, i1 } %161, 1
-  br i1 %162, label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge", label %163
+  %160 = cmpxchg ptr %23, ptr null, ptr %153 seq_cst monotonic, align 8, !noalias !239
+  %161 = extractvalue { ptr, i1 } %160, 1
+  br i1 %161, label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge", label %162
 
-163:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
-  %164 = extractvalue { ptr, i1 } %161, 0
+162:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
+  %163 = extractvalue { ptr, i1 } %160, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !239
-  store ptr %154, ptr %3, align 8, !noalias !239
+  store ptr %153, ptr %3, align 8, !noalias !239
   call fastcc void @"_ZN4core3ptr148drop_in_place$LT$alloc..boxed..Box$LT$lockfree_object_pool..linear_page..LinearPage$LT$alloc..boxed..Box$LT$zopfli..hash..ZopfliHash$GT$$GT$$GT$$GT$17hb11b8010f7dcb5d6E"(ptr noalias noundef align 8 dereferenceable(8) %3), !noalias !239
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !239
   br label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge"
 
-"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge": ; preds = %163, %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
-  %.sroa.0.0.be = phi ptr [ %164, %163 ], [ %154, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i" ], [ %25, %23 ]
+"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit.backedge": ; preds = %162, %.critedge, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i"
+  %.sroa.0.0.be = phi ptr [ %163, %162 ], [ %153, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf61d3493b18c8b47E.exit.i" ], [ %24, %.critedge ]
   br label %"_ZN20lockfree_object_pool11linear_page19LinearPage$LT$T$GT$18get_or_create_next17h78b3bcddf24d5cf2E.exit"
 }
 

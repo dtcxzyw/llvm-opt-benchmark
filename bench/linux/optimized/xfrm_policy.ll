@@ -6880,7 +6880,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %27 = zext i16 %3 to i32
   %28 = call i32 @__xfrm_decode_session(ptr noundef %23, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %27, i32 noundef %25), !range !66
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread38, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %22
   call void @__rcu_read_lock() #22
@@ -6936,7 +6936,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %66 = call zeroext i1 @xfrm_selector_match(ptr noundef nonnull %65, ptr noundef nonnull %5, i16 noundef zeroext %3)
-  br i1 %66, label %56, label %.thread38, !llvm.loop !67
+  br i1 %66, label %56, label %.critedge, !llvm.loop !67
 
 .thread:                                          ; preds = %56, %38, %43
   %67 = phi i1 [ true, %43 ], [ true, %38 ], [ false, %56 ]
@@ -6968,7 +6968,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 84:                                               ; preds = %.thread35
   %85 = call fastcc ptr @xfrm_sk_policy_lookup(ptr noundef nonnull %78, i32 noundef %26, ptr noundef nonnull %5, i16 noundef zeroext %3, i32 noundef %24)
   %86 = icmp ugt ptr %85, inttoptr (i64 -4096 to ptr)
-  br i1 %86, label %.thread38, label %87
+  br i1 %86, label %.critedge, label %87
 
 87:                                               ; preds = %84
   %88 = icmp eq ptr %85, null
@@ -6982,7 +6982,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 91:                                               ; preds = %.thread36, %87
   %92 = phi ptr [ %85, %87 ], [ %90, %.thread36 ]
   %93 = icmp ugt ptr %92, inttoptr (i64 -4096 to ptr)
-  br i1 %93, label %.thread38, label %94
+  br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %91
   %95 = icmp eq ptr %92, null
@@ -6997,12 +6997,12 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %102 = or i1 %67, %101
   %103 = xor i1 %101, true
   %104 = zext i1 %103 to i32
-  br i1 %102, label %.thread38, label %105
+  br i1 %102, label %.critedge, label %105
 
 105:                                              ; preds = %96
   %106 = load i32, ptr %68, align 8
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %108, label %.thread38
+  br i1 %107, label %108, label %.critedge
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -7021,14 +7021,14 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 118:                                              ; preds = %111
   %119 = add nuw nsw i64 %112, 1
   %120 = icmp eq i64 %119, %110
-  br i1 %120, label %.thread38, label %111, !llvm.loop !68
+  br i1 %120, label %.critedge, label %111, !llvm.loop !68
 
 121:                                              ; preds = %111
   %122 = trunc i64 %112 to i32
   %123 = load i8, ptr %39, align 1
   %124 = and i8 %123, 1
   %125 = icmp eq i8 %124, 0
-  br i1 %125, label %.thread38, label %126
+  br i1 %125, label %.critedge, label %126
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 216
@@ -7041,12 +7041,12 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %134 = icmp eq ptr %133, null
   %135 = icmp slt i32 %122, 0
   %136 = or i1 %135, %134
-  br i1 %136, label %.thread38, label %137
+  br i1 %136, label %.critedge, label %137
 
 137:                                              ; preds = %126
   %138 = load i32, ptr %133, align 8
   %139 = icmp sgt i32 %138, %122
-  br i1 %139, label %140, label %.thread38
+  br i1 %139, label %140, label %.critedge
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 16
@@ -7058,11 +7058,11 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
-  br i1 %149, label %.thread38, label %150
+  br i1 %149, label %.critedge, label %150
 
 150:                                              ; preds = %140
   %151 = call i32 %148(ptr noundef %144, ptr noundef %2, ptr noundef nonnull %5) #22
-  br label %.thread38
+  br label %.critedge
 
 152:                                              ; preds = %94
   %153 = call i64 @ktime_get_real_seconds() #22
@@ -7075,7 +7075,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br i1 %157, label %158, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %152
-  %.pre74 = and i8 %.pre, 1
+  %.pre73 = and i8 %.pre, 1
   br label %352
 
 158:                                              ; preds = %152
@@ -7105,7 +7105,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %176 = icmp ugt i8 %175, 5
   br i1 %176, label %351, label %181
 
-.loopexit51:                                      ; preds = %184, %181
+.loopexit50:                                      ; preds = %184, %181
   %177 = phi i64 [ 0, %181 ], [ %183, %184 ]
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %179 = icmp eq i32 %24, 0
@@ -7114,7 +7114,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 181:                                              ; preds = %169
   %182 = icmp eq i8 %175, 0
-  br i1 %182, label %.loopexit51, label %.preheader
+  br i1 %182, label %.loopexit50, label %.preheader
 
 .preheader:                                       ; preds = %181
   %183 = zext nneg i8 %175 to i64
@@ -7127,11 +7127,11 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %188 = getelementptr ptr, ptr %7, i64 %185
   store ptr %186, ptr %188, align 8
   %exitcond.not = icmp eq i64 %187, %183
-  br i1 %exitcond.not, label %.loopexit51, label %184, !llvm.loop !69
+  br i1 %exitcond.not, label %.loopexit50, label %184, !llvm.loop !69
 
-189:                                              ; preds = %.loopexit, %.loopexit51
-  %190 = phi i64 [ %177, %.loopexit51 ], [ %192, %.loopexit ]
-  %191 = phi i32 [ 0, %.loopexit51 ], [ %329, %.loopexit ]
+189:                                              ; preds = %.loopexit, %.loopexit50
+  %190 = phi i64 [ %177, %.loopexit50 ], [ %192, %.loopexit ]
+  %191 = phi i32 [ 0, %.loopexit50 ], [ %329, %.loopexit ]
   %192 = add nsw i64 %190, -1
   %193 = icmp sgt i64 %190, 0
   br i1 %193, label %194, label %333
@@ -7180,11 +7180,11 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br i1 %226, label %249, label %227
 
 227:                                              ; preds = %220
-  br i1 %199, label %.thread50, label %228
+  br i1 %199, label %.thread49, label %228
 
 228:                                              ; preds = %227
   %229 = load i16, ptr %209, align 4
-  switch i16 %229, label %.thread50 [
+  switch i16 %229, label %.thread49 [
     i16 2, label %230
     i16 10, label %236
   ]
@@ -7192,20 +7192,20 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 230:                                              ; preds = %228
   %231 = load i32, ptr %210, align 4
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %.thread49, label %233
+  br i1 %232, label %.thread48, label %233
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds nuw i8, ptr %223, i64 228
   %235 = load i32, ptr %234, align 4
-  %.not85 = icmp eq i32 %231, %235
-  br i1 %.not85, label %.thread49, label %.thread50
+  %.not84 = icmp eq i32 %231, %235
+  br i1 %.not84, label %.thread48, label %.thread49
 
 236:                                              ; preds = %228
   %237 = load i64, ptr %210, align 8
   %238 = load i64, ptr %211, align 8
   %239 = or i64 %238, %237
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %.thread49, label %241
+  br i1 %240, label %.thread48, label %241
 
 241:                                              ; preds = %236
   %242 = getelementptr inbounds nuw i8, ptr %223, i64 228
@@ -7215,14 +7215,14 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %246 = icmp ne i64 %237, %243
   %247 = icmp ne i64 %238, %245
   %248 = or i1 %246, %247
-  br i1 %248, label %.thread50, label %.thread49
+  br i1 %248, label %.thread49, label %.thread48
 
 249:                                              ; preds = %220
   %250 = getelementptr inbounds nuw i8, ptr %223, i64 100
   %251 = load i8, ptr %250, align 4
   %252 = load i8, ptr %212, align 4
   %253 = icmp eq i8 %251, %252
-  br i1 %253, label %254, label %.thread50
+  br i1 %253, label %254, label %.thread49
 
 254:                                              ; preds = %249
   %255 = getelementptr inbounds nuw i8, ptr %223, i64 96
@@ -7231,7 +7231,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %258 = icmp eq i32 %256, %257
   %259 = icmp eq i32 %257, 0
   %260 = or i1 %258, %259
-  br i1 %260, label %261, label %.thread50
+  br i1 %260, label %261, label %.thread49
 
 261:                                              ; preds = %254
   %262 = getelementptr inbounds nuw i8, ptr %223, i64 216
@@ -7240,14 +7240,14 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %265 = icmp eq i32 %263, %264
   %266 = icmp eq i32 %264, 0
   %267 = or i1 %265, %266
-  br i1 %267, label %268, label %.thread50
+  br i1 %267, label %268, label %.thread49
 
 268:                                              ; preds = %261
   %269 = getelementptr inbounds nuw i8, ptr %223, i64 220
   %270 = load i8, ptr %269, align 4
   %271 = load i8, ptr %215, align 4
   %272 = icmp eq i8 %270, %271
-  br i1 %272, label %273, label %.thread50
+  br i1 %272, label %273, label %.thread49
 
 273:                                              ; preds = %268
   %274 = load i8, ptr %216, align 1
@@ -7266,10 +7266,10 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 
 284:                                              ; preds = %276
   switch i8 %251, label %285 [
-    i8 -1, label %.thread50
-    i8 108, label %.thread50
-    i8 51, label %.thread50
-    i8 50, label %.thread50
+    i8 -1, label %.thread49
+    i8 108, label %.thread49
+    i8 51, label %.thread49
+    i8 50, label %.thread49
   ]
 
 285:                                              ; preds = %284, %276, %273
@@ -7277,7 +7277,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   br i1 %286, label %307, label %287
 
 287:                                              ; preds = %285
-  switch i16 %3, label %.thread50 [
+  switch i16 %3, label %.thread49 [
     i16 2, label %288
     i16 10, label %294
   ]
@@ -7291,7 +7291,7 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %292 = getelementptr inbounds nuw i8, ptr %223, i64 228
   %293 = load i32, ptr %292, align 4
   %.not = icmp eq i32 %289, %293
-  br i1 %.not, label %307, label %.thread50
+  br i1 %.not, label %307, label %.thread49
 
 294:                                              ; preds = %287
   %295 = load i64, ptr %210, align 8
@@ -7308,29 +7308,29 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %304 = icmp ne i64 %295, %301
   %305 = icmp ne i64 %296, %303
   %306 = or i1 %304, %305
-  br i1 %306, label %.thread50, label %307
+  br i1 %306, label %.thread49, label %307
 
 307:                                              ; preds = %291, %299, %294, %288, %285
-  br i1 %179, label %.thread49, label %308
+  br i1 %179, label %.thread48, label %308
 
 308:                                              ; preds = %307
   %309 = getelementptr inbounds nuw i8, ptr %223, i64 168
   %310 = load i32, ptr %309, align 8
   %311 = icmp eq i32 %310, %24
-  br i1 %311, label %.thread49, label %.thread50
+  br i1 %311, label %.thread48, label %.thread49
 
-.thread49:                                        ; preds = %233, %236, %230, %241, %308, %307
+.thread48:                                        ; preds = %233, %236, %230, %241, %308, %307
   %312 = trunc i64 %221 to i32
   %313 = add i32 %312, 1
   br label %.loopexit
 
-.thread50:                                        ; preds = %233, %228, %241, %291, %308, %299, %287, %284, %284, %284, %284, %268, %261, %254, %249, %227
+.thread49:                                        ; preds = %233, %228, %241, %291, %308, %299, %287, %284, %284, %284, %284, %268, %261, %254, %249, %227
   %314 = getelementptr inbounds nuw i8, ptr %223, i64 220
   %315 = load i8, ptr %314, align 4
   %316 = icmp eq i8 %315, 0
   br i1 %316, label %326, label %317
 
-317:                                              ; preds = %.thread50
+317:                                              ; preds = %.thread49
   %318 = load i32, ptr %180, align 8
   %319 = sext i32 %318 to i64
   %320 = icmp slt i64 %221, %319
@@ -7343,24 +7343,24 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %325 = select i1 %323, i32 %324, i32 %205
   br label %.loopexit
 
-326:                                              ; preds = %317, %.thread50
+326:                                              ; preds = %317, %.thread49
   %327 = add nuw nsw i64 %221, 1
   %328 = icmp eq i64 %327, %219
   br i1 %328, label %.loopexit, label %220, !llvm.loop !70
 
-.loopexit:                                        ; preds = %326, %321, %.thread49, %204, %200
-  %329 = phi i32 [ %313, %.thread49 ], [ %191, %200 ], [ %325, %321 ], [ %205, %204 ], [ %205, %326 ]
+.loopexit:                                        ; preds = %326, %321, %.thread48, %204, %200
+  %329 = phi i32 [ %313, %.thread48 ], [ %191, %200 ], [ %325, %321 ], [ %205, %204 ], [ %205, %326 ]
   %330 = icmp slt i32 %329, 0
   br i1 %330, label %331, label %189, !llvm.loop !71
 
 331:                                              ; preds = %.loopexit
   %332 = sub nsw i32 -2, %329
-  br label %.thread43
+  br label %.thread42
 
 333:                                              ; preds = %189
   %334 = load i32, ptr %172, align 8
   %335 = icmp sgt i32 %334, %191
-  br i1 %335, label %336, label %.thread44
+  br i1 %335, label %336, label %.thread43
 
 336:                                              ; preds = %333
   %337 = zext nneg i32 %191 to i64
@@ -7379,32 +7379,32 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 346:                                              ; preds = %339
   %347 = add nuw nsw i64 %340, 1
   %348 = icmp eq i64 %347, %338
-  br i1 %348, label %.thread44, label %339, !llvm.loop !68
+  br i1 %348, label %.thread43, label %339, !llvm.loop !68
 
 349:                                              ; preds = %339
   %350 = trunc i64 %340 to i32
-  br label %.thread43
+  br label %.thread42
 
-.thread44:                                        ; preds = %346, %333
+.thread43:                                        ; preds = %346, %333
   call fastcc void @xfrm_pols_put(ptr nonnull %92)
   store i32 %191, ptr %180, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
-  br label %.thread38
+  br label %.critedge
 
-.thread43:                                        ; preds = %349, %331
+.thread42:                                        ; preds = %349, %331
   %.ph = phi i32 [ %332, %331 ], [ %350, %349 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
   br label %352
 
 351:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #22
-  br label %.thread45
+  br label %.thread44
 
-352:                                              ; preds = %._crit_edge, %.thread43
-  %.pre-phi = phi i8 [ %.pre74, %._crit_edge ], [ %159, %.thread43 ]
-  %353 = phi i32 [ -1, %._crit_edge ], [ %.ph, %.thread43 ]
+352:                                              ; preds = %._crit_edge, %.thread42
+  %.pre-phi = phi i8 [ %.pre73, %._crit_edge ], [ %159, %.thread42 ]
+  %353 = phi i32 [ -1, %._crit_edge ], [ %.ph, %.thread42 ]
   %354 = icmp eq i8 %.pre-phi, 0
-  br i1 %354, label %.thread45, label %355
+  br i1 %354, label %.thread44, label %355
 
 355:                                              ; preds = %352
   %356 = getelementptr inbounds nuw i8, ptr %2, i64 216
@@ -7417,12 +7417,12 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %363 = icmp eq ptr %362, null
   %364 = icmp slt i32 %353, 0
   %365 = or i1 %364, %363
-  br i1 %365, label %.thread45, label %366
+  br i1 %365, label %.thread44, label %366
 
 366:                                              ; preds = %355
   %367 = load i32, ptr %362, align 8
   %368 = icmp sgt i32 %367, %353
-  br i1 %368, label %369, label %.thread45
+  br i1 %368, label %369, label %.thread44
 
 369:                                              ; preds = %366
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 16
@@ -7434,27 +7434,27 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 48
   %377 = load ptr, ptr %376, align 8
   %378 = icmp eq ptr %377, null
-  br i1 %378, label %.thread45, label %379
+  br i1 %378, label %.thread44, label %379
 
 379:                                              ; preds = %369
   %380 = call i32 %377(ptr noundef %373, ptr noundef %2, ptr noundef nonnull %5) #22
-  br label %.thread45
+  br label %.thread44
 
-.thread45:                                        ; preds = %352, %351, %379, %369, %366, %355
+.thread44:                                        ; preds = %352, %351, %379, %369, %366, %355
   %381 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %382 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %381, i32 -1, ptr nonnull elementtype(i32) %381) #22, !srcloc !11
   %383 = icmp eq i32 %382, 1
   br i1 %383, label %387, label %384
 
-384:                                              ; preds = %.thread45
+384:                                              ; preds = %.thread44
   %385 = icmp sgt i32 %382, 0
-  br i1 %385, label %.thread38, label %386, !prof !7
+  br i1 %385, label %.critedge, label %386, !prof !7
 
 386:                                              ; preds = %384
   call void @refcount_warn_saturate(ptr noundef nonnull %381, i32 noundef 3) #22
-  br label %.thread38
+  br label %.critedge
 
-387:                                              ; preds = %.thread45
+387:                                              ; preds = %.thread44
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !12
   %388 = getelementptr inbounds nuw i8, ptr %92, i64 288
   %389 = load i8, ptr %388, align 8
@@ -7486,10 +7486,10 @@ define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 no
 401:                                              ; preds = %396
   %402 = getelementptr inbounds nuw i8, ptr %92, i64 784
   call void @call_rcu(ptr noundef nonnull %402, ptr noundef nonnull @xfrm_policy_destroy_rcu) #22
-  br label %.thread38
+  br label %.critedge
 
-.thread38:                                        ; preds = %61, %118, %384, %386, %121, %105, %.thread44, %401, %150, %140, %137, %126, %96, %91, %84, %22
-  %403 = phi i32 [ 0, %22 ], [ 0, %84 ], [ 0, %91 ], [ %104, %96 ], [ 0, %126 ], [ 0, %137 ], [ 0, %140 ], [ 0, %150 ], [ 0, %401 ], [ 1, %.thread44 ], [ 1, %105 ], [ 0, %121 ], [ 0, %386 ], [ 0, %384 ], [ 1, %118 ], [ 0, %61 ]
+.critedge:                                        ; preds = %61, %118, %384, %386, %121, %.thread43, %105, %401, %150, %140, %137, %126, %96, %91, %84, %22
+  %403 = phi i32 [ 0, %22 ], [ 0, %84 ], [ 0, %91 ], [ %104, %96 ], [ 0, %126 ], [ 0, %137 ], [ 0, %140 ], [ 0, %150 ], [ 0, %401 ], [ 1, %105 ], [ 1, %.thread43 ], [ 0, %121 ], [ 0, %386 ], [ 0, %384 ], [ 1, %118 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #22
   ret i32 %403
 }
@@ -8314,7 +8314,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, 64
   %15 = icmp eq i16 %14, 0
-  br i1 %15, label %.thread12, label %16
+  br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %7, %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -8322,9 +8322,9 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 58
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %19 = icmp eq i16 %.pre, 0
-  br i1 %19, label %35, label %.thread12
+  br i1 %19, label %35, label %.thread
 
-.thread12:                                        ; preds = %11, %16
+.thread:                                          ; preds = %11, %16
   %20 = phi ptr [ %18, %16 ], [ %0, %11 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 292
   %21 = load i32, ptr %.in, align 4
@@ -8335,11 +8335,11 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   %26 = icmp eq ptr %25, @ip6_dst_check
   br i1 %26, label %27, label %29, !prof !7
 
-27:                                               ; preds = %.thread12
+27:                                               ; preds = %.thread
   %28 = tail call ptr @ip6_dst_check(ptr noundef %20, i32 noundef %21) #22
   br label %35
 
-29:                                               ; preds = %.thread12
+29:                                               ; preds = %.thread
   %30 = icmp eq ptr %25, @ipv4_dst_check
   br i1 %30, label %31, label %33, !prof !7
 
@@ -8614,8 +8614,8 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   %207 = icmp eq i32 %200, 0
   br i1 %207, label %.sink.split, label %.preheader, !llvm.loop !89
 
-.sink.split:                                      ; preds = %.preheader10, %59, %69, %135, %.preheader, %35, %41, %46, %176, %178
-  %.ph = phi ptr [ %0, %178 ], [ %0, %176 ], [ %0, %46 ], [ null, %41 ], [ null, %35 ], [ %0, %.preheader ], [ null, %135 ], [ null, %69 ], [ null, %59 ], [ null, %.preheader10 ]
+.sink.split:                                      ; preds = %135, %69, %59, %.preheader10, %.preheader, %35, %41, %46, %176, %178
+  %.ph = phi ptr [ %0, %178 ], [ %0, %176 ], [ %0, %46 ], [ null, %41 ], [ null, %35 ], [ %0, %.preheader ], [ null, %.preheader10 ], [ null, %59 ], [ null, %69 ], [ null, %135 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #22
   br label %208
 

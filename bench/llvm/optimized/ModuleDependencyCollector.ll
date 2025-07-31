@@ -304,43 +304,43 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_delet
   %30 = icmp uge ptr %3, %.pre3.i.i
   %31 = icmp ult ptr %3, %29
   %spec.select.i.i.i.i.i.i = and i1 %30, %31
-  br i1 %spec.select.i.i.i.i.i.i, label %33, label %32, !prof !693
+  br i1 %spec.select.i.i.i.i.i.i, label %32, label %.critedge.i.i.i.i, !prof !693
 
 32:                                               ; preds = %28
+  %33 = ptrtoint ptr %3 to i64
+  %34 = ptrtoint ptr %.pre3.i.i to i64
+  %35 = sub i64 %33, %34
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18ModuleMapCallbacksESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %24)
+  %36 = load ptr, ptr %20, align 8, !tbaa !691
+  %37 = getelementptr inbounds i8, ptr %36, i64 %35
+  %.pre = load i64, ptr %37, align 8, !tbaa !694
+  br label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
+
+.critedge.i.i.i.i:                                ; preds = %28
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18ModuleMapCallbacksESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %24)
   %.pre.i.i = load ptr, ptr %20, align 8, !tbaa !691
   br label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
 
-33:                                               ; preds = %28
-  %34 = ptrtoint ptr %3 to i64
-  %35 = ptrtoint ptr %.pre3.i.i to i64
-  %36 = sub i64 %34, %35
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18ModuleMapCallbacksESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %24)
-  %37 = load ptr, ptr %20, align 8, !tbaa !691
-  %38 = getelementptr inbounds i8, ptr %37, i64 %36
-  %.pre = load i64, ptr %38, align 8, !tbaa !694
-  br label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
-
-_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit, %32, %33
-  %39 = phi i64 [ %27, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %.pre, %33 ], [ %27, %32 ]
-  %40 = phi ptr [ %.pre3.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %37, %33 ], [ %.pre.i.i, %32 ]
-  %.016.i.i.i.i = phi ptr [ %3, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %38, %33 ], [ %3, %32 ]
-  %41 = load i32, ptr %21, align 8, !tbaa !689
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.861", ptr %40, i64 %42
-  store i64 %39, ptr %43, align 8, !tbaa !694
+_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit, %32, %.critedge.i.i.i.i
+  %38 = phi i64 [ %27, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %.pre, %32 ], [ %27, %.critedge.i.i.i.i ]
+  %39 = phi ptr [ %.pre3.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %36, %32 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %37, %32 ], [ %3, %.critedge.i.i.i.i ]
+  %40 = load i32, ptr %21, align 8, !tbaa !689
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.861", ptr %39, i64 %41
+  store i64 %38, ptr %42, align 8, !tbaa !694
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !694
-  %44 = add i32 %41, 1
-  store i32 %44, ptr %21, align 8, !tbaa !689
-  %45 = load ptr, ptr %3, align 8, !tbaa !694
-  %.not.i6 = icmp eq ptr %45, null
+  %43 = add i32 %40, 1
+  store i32 %43, ptr %21, align 8, !tbaa !689
+  %44 = load ptr, ptr %3, align 8, !tbaa !694
+  %.not.i6 = icmp eq ptr %44, null
   br i1 %.not.i6, label %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyMMCallbacksESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i: ; preds = %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
-  %46 = load ptr, ptr %45, align 8, !tbaa !450
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #17
+  %45 = load ptr, ptr %44, align 8, !tbaa !450
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #17
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyMMCallbacksESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyMMCallbacksESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i, %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit

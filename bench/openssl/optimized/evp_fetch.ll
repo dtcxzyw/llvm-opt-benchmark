@@ -747,13 +747,13 @@ define internal ptr @get_evp_method_from_store(ptr noundef %0, ptr noundef %1, p
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.thread40
+  br i1 %7, label %8, label %.thread38
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread38, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %2, align 8, !tbaa !3
@@ -776,26 +776,26 @@ define internal ptr @get_evp_method_from_store(ptr noundef %0, ptr noundef %1, p
 23:                                               ; preds = %19, %17
   %24 = phi i64 [ %18, %17 ], [ %22, %19 ]
   %.not35 = icmp eq ptr %13, null
-  br i1 %.not35, label %.thread38, label %25
+  br i1 %.not35, label %.critedge, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @ossl_namemap_name2num_n(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %24) #5
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread38, label %.thread40
+  br i1 %27, label %.critedge, label %.thread38
 
-.thread40:                                        ; preds = %3, %25
-  %.02642 = phi i32 [ %26, %25 ], [ %6, %3 ]
+.thread38:                                        ; preds = %3, %25
+  %.02640 = phi i32 [ %26, %25 ], [ %6, %3 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !17
-  %30 = icmp ugt i32 %.02642, 8388607
+  %30 = icmp ugt i32 %.02640, 8388607
   %31 = add i32 %29, -256
   %32 = icmp ult i32 %31, -255
   %or.cond.i.not = or i1 %30, %32
-  %33 = shl nuw nsw i32 %.02642, 8
+  %33 = shl nuw nsw i32 %.02640, 8
   %34 = add nuw nsw i32 %33, %29
-  br i1 %or.cond.i.not, label %.thread38, label %35
+  br i1 %or.cond.i.not, label %.critedge, label %35
 
-35:                                               ; preds = %.thread40
+35:                                               ; preds = %.thread38
   %36 = icmp eq ptr %0, null
   br i1 %36, label %37, label %41
 
@@ -803,7 +803,7 @@ define internal ptr @get_evp_method_from_store(ptr noundef %0, ptr noundef %1, p
   %38 = load ptr, ptr %2, align 8, !tbaa !3
   %39 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %38, i32 noundef 0) #5
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread38, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %37, %35
   %.025 = phi ptr [ %39, %37 ], [ %0, %35 ]
@@ -813,10 +813,10 @@ define internal ptr @get_evp_method_from_store(ptr noundef %0, ptr noundef %1, p
   %.not36 = icmp eq i32 %44, 0
   %45 = load ptr, ptr %4, align 8
   %spec.select = select i1 %.not36, ptr null, ptr %45
-  br label %.thread38
+  br label %.critedge
 
-.thread38:                                        ; preds = %23, %8, %41, %37, %25, %.thread40
-  %.1 = phi ptr [ null, %.thread40 ], [ null, %25 ], [ null, %37 ], [ %spec.select, %41 ], [ null, %8 ], [ null, %23 ]
+.critedge:                                        ; preds = %8, %41, %23, %37, %25, %.thread38
+  %.1 = phi ptr [ null, %.thread38 ], [ null, %25 ], [ null, %37 ], [ null, %23 ], [ %spec.select, %41 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret ptr %.1
 }

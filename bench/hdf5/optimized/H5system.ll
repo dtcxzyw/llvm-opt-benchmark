@@ -408,7 +408,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %60, !prof !15
+  br i1 %8, label %9, label %59, !prof !15
 
 9:                                                ; preds = %2
   %.not = icmp eq ptr %0, null
@@ -418,17 +418,17 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   %11 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !16
   %12 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !16
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_dirname, i32 noundef 997, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.8) #15
-  br label %58
+  br label %57
 
 14:                                               ; preds = %9
   %.not53 = icmp eq ptr %1, null
-  br i1 %.not53, label %.thread66, label %18
+  br i1 %.not53, label %.thread, label %18
 
-.thread66:                                        ; preds = %14
+.thread:                                          ; preds = %14
   %15 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !16
   %16 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !16
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_dirname, i32 noundef 999, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.9) #15
-  br label %60
+  br label %59
 
 18:                                               ; preds = %14
   %19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #17
@@ -437,7 +437,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
 
 21:                                               ; preds = %18
   %22 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.10) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
 23:                                               ; preds = %18
   %24 = icmp eq ptr %19, %0
@@ -445,7 +445,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
 
 25:                                               ; preds = %23
   %26 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.4) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 1
@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
 
 35:                                               ; preds = %.preheader
   %36 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.4) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
 .critedge:                                        ; preds = %31, %37
   %.2 = phi ptr [ %38, %37 ], [ %.1, %31 ]
@@ -485,7 +485,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
 
 40:                                               ; preds = %.critedge
   %41 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.10) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %42
   %.3 = phi ptr [ %43, %42 ], [ %.3.ph, %.critedge2.preheader ]
@@ -500,40 +500,40 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
 
 46:                                               ; preds = %.critedge2
   %47 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.4) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
 .critedge4:                                       ; preds = %42
   %48 = ptrtoint ptr %.3 to i64
   %49 = ptrtoint ptr %0 to i64
   %50 = sub i64 %48, %49
   %51 = tail call noalias ptr @H5MM_strndup(ptr noundef nonnull %0, i64 noundef %50) #15
-  br label %.critedge2.thread60
+  br label %.critedge2.thread62
 
-.critedge2.thread60:                              ; preds = %40, %35, %46, %.critedge4, %25, %21
+.critedge2.thread62:                              ; preds = %40, %35, %46, %.critedge4, %25, %21
   %.146 = phi ptr [ %22, %21 ], [ %26, %25 ], [ %47, %46 ], [ %51, %.critedge4 ], [ %41, %40 ], [ %36, %35 ]
   %52 = icmp eq ptr %.146, null
-  br i1 %52, label %53, label %57
+  br i1 %52, label %53, label %.critedge61
 
-53:                                               ; preds = %.critedge2.thread60
+53:                                               ; preds = %.critedge2.thread62
   %54 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !16
   %55 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !16
   %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_dirname, i32 noundef 1062, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.11) #15
-  br label %58
+  br label %57
 
-57:                                               ; preds = %.critedge2.thread60
+.critedge61:                                      ; preds = %.critedge2.thread62
   store ptr %.146, ptr %1, align 8, !tbaa !21
-  br label %60
+  br label %59
 
-58:                                               ; preds = %53, %10
+57:                                               ; preds = %10, %53
   %.not59 = icmp eq ptr %1, null
-  br i1 %.not59, label %60, label %59
+  br i1 %.not59, label %59, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   store ptr null, ptr %1, align 8, !tbaa !21
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.thread66, %57, %59, %58, %2
-  %.043 = phi i32 [ -1, %59 ], [ -1, %58 ], [ 0, %57 ], [ 0, %2 ], [ -1, %.thread66 ]
+59:                                               ; preds = %.thread, %.critedge61, %58, %57, %2
+  %.043 = phi i32 [ -1, %58 ], [ -1, %57 ], [ 0, %2 ], [ 0, %.critedge61 ], [ -1, %.thread ]
   ret i32 %.043
 }
 
@@ -551,7 +551,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %66, !prof !15
+  br i1 %9, label %10, label %65, !prof !15
 
 10:                                               ; preds = %2
   %.not = icmp eq ptr %0, null
@@ -561,17 +561,17 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
   %12 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !16
   %13 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !16
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_basename, i32 noundef 1106, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.8) #15
-  br label %64
+  br label %63
 
 15:                                               ; preds = %10
   %.not46 = icmp eq ptr %1, null
-  br i1 %.not46, label %.thread54, label %19
+  br i1 %.not46, label %.thread, label %19
 
-.thread54:                                        ; preds = %15
+.thread:                                          ; preds = %15
   %16 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !16
   %17 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !16
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_basename, i32 noundef 1108, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.12) #15
-  br label %66
+  br label %65
 
 19:                                               ; preds = %15
   %20 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #17
@@ -659,28 +659,28 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
 57:                                               ; preds = %38, %36, %48, %.critedge2, %41, %26, %28
   %.141 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %37, %36 ], [ %39, %38 ], [ %42, %41 ], [ %49, %48 ], [ %56, %.critedge2 ]
   %58 = icmp eq ptr %.141, null
-  br i1 %58, label %59, label %63
+  br i1 %58, label %59, label %.critedge53
 
 59:                                               ; preds = %57
   %60 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !16
   %61 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !16
   %62 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_basename, i32 noundef 1164, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.13) #15
-  br label %64
+  br label %63
 
-63:                                               ; preds = %57
+.critedge53:                                      ; preds = %57
   store ptr %.141, ptr %1, align 8, !tbaa !21
-  br label %66
+  br label %65
 
-64:                                               ; preds = %59, %11
+63:                                               ; preds = %11, %59
   %.not51 = icmp eq ptr %1, null
-  br i1 %.not51, label %66, label %65
+  br i1 %.not51, label %65, label %64
 
-65:                                               ; preds = %64
+64:                                               ; preds = %63
   store ptr null, ptr %1, align 8, !tbaa !21
-  br label %66
+  br label %65
 
-66:                                               ; preds = %.thread54, %63, %65, %64, %2
-  %.039 = phi i32 [ -1, %65 ], [ -1, %64 ], [ 0, %63 ], [ 0, %2 ], [ -1, %.thread54 ]
+65:                                               ; preds = %.thread, %.critedge53, %64, %63, %2
+  %.039 = phi i32 [ -1, %64 ], [ -1, %63 ], [ 0, %2 ], [ 0, %.critedge53 ], [ -1, %.thread ]
   ret i32 %.039
 }
 

@@ -4370,7 +4370,7 @@ _ZN7rocksdb18TieredCacheOptionsC2ERKS0_.exit:     ; preds = %_ZN7rocksdb31Compre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %464
 
-.critedge:                                        ; preds = %.critedge.sink.split, %80, %75, %82
+.critedge:                                        ; preds = %.critedge.sink.split, %80, %82, %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8

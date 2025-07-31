@@ -7708,7 +7708,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_aclr(ptr noundef readonl
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %64, label %9
+  br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -7722,7 +7722,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_aclr(ptr noundef readonl
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !79
   %.not38 = icmp eq i32 %19, 27
-  br i1 %.not38, label %64, label %20
+  br i1 %.not38, label %.critedge, label %20
 
 20:                                               ; preds = %9
   %21 = icmp eq i64 %3, 16
@@ -7759,9 +7759,9 @@ mov_realloc_extradata.exit.mov_realloc_extradata.exit.thread_crit_edge: ; preds 
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = tail call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %35, i32 noundef 16) #16
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.critedge, label %40
+  br i1 %37, label %.critedge43, label %40
 
-.critedge:                                        ; preds = %31
+.critedge43:                                      ; preds = %31
   %38 = load i32, ptr %23, align 8, !tbaa !121
   %39 = add i32 %38, -16
   store i32 %39, ptr %23, align 8, !tbaa !121
@@ -7770,7 +7770,7 @@ mov_realloc_extradata.exit.mov_realloc_extradata.exit.thread_crit_edge: ; preds 
 40:                                               ; preds = %31
   %41 = zext nneg i32 %36 to i64
   %42 = icmp ugt i32 %36, 15
-  br i1 %42, label %.critedge43, label %mov_read_atom_into_extradata.exit
+  br i1 %42, label %.critedge44, label %mov_read_atom_into_extradata.exit
 
 mov_read_atom_into_extradata.exit:                ; preds = %40
   %43 = load ptr, ptr %5, align 8, !tbaa !4
@@ -7783,7 +7783,7 @@ mov_read_atom_into_extradata.exit:                ; preds = %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %47, i8 0, i64 64, i1 false)
   br label %60
 
-.critedge43:                                      ; preds = %40
+.critedge44:                                      ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %48, i8 0, i64 64, i1 false)
   %49 = load ptr, ptr %27, align 8, !tbaa !115
@@ -7795,38 +7795,38 @@ mov_read_atom_into_extradata.exit:                ; preds = %40
     i8 2, label %55
   ]
 
-53:                                               ; preds = %.critedge43
+53:                                               ; preds = %.critedge44
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 100
   store i32 1, ptr %54, align 4, !tbaa !401
-  br label %64
+  br label %.critedge
 
-55:                                               ; preds = %.critedge43
+55:                                               ; preds = %.critedge44
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 100
   store i32 2, ptr %56, align 4, !tbaa !401
-  br label %64
+  br label %.critedge
 
-57:                                               ; preds = %.critedge43
+57:                                               ; preds = %.critedge44
   %58 = zext i8 %52 to i32
   %59 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %59, i32 noundef 24, ptr noundef nonnull @.str.37, i32 noundef %58) #16
-  br label %64
+  br label %.critedge
 
-60:                                               ; preds = %mov_read_atom_into_extradata.exit, %.critedge
+60:                                               ; preds = %mov_read_atom_into_extradata.exit, %.critedge43
   %61 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %61, i32 noundef 16, ptr noundef nonnull @.str.38) #16
-  br label %64
+  br label %.critedge
 
 mov_realloc_extradata.exit.thread:                ; preds = %mov_realloc_extradata.exit.mov_realloc_extradata.exit.thread_crit_edge, %22
   %62 = phi ptr [ %.pre, %mov_realloc_extradata.exit.mov_realloc_extradata.exit.thread_crit_edge ], [ %6, %22 ]
   %.0.i42 = phi i32 [ %28, %mov_realloc_extradata.exit.mov_realloc_extradata.exit.thread_crit_edge ], [ -1094995529, %22 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %62, i32 noundef 16, ptr noundef nonnull @.str.39) #16
-  br label %64
+  br label %.critedge
 
 63:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 24, ptr noundef nonnull @.str.40, i64 noundef %3) #16
-  br label %64
+  br label %.critedge
 
-64:                                               ; preds = %9, %57, %55, %53, %mov_realloc_extradata.exit.thread, %60, %63, %4
+.critedge:                                        ; preds = %57, %55, %53, %mov_realloc_extradata.exit.thread, %60, %63, %9, %4
   %.1 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %.0.i42, %mov_realloc_extradata.exit.thread ], [ 0, %60 ], [ 0, %63 ], [ 0, %53 ], [ 0, %55 ], [ 0, %57 ]
   ret i32 %.1
 }
@@ -10400,7 +10400,7 @@ get_curr_st.exit:                                 ; preds = %40, %28
   %60 = icmp ne i32 %.0187, 0
   %61 = icmp ne i32 %.0188, 0
   %or.cond5 = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond5, label %62, label %143
+  br i1 %or.cond5, label %62, label %142
 
 62:                                               ; preds = %59
   %63 = tail call i32 @avio_rb32(ptr noundef %1) #16
@@ -10422,7 +10422,7 @@ get_curr_st.exit:                                 ; preds = %40, %28
   %or.cond17 = select i1 %or.cond14, i1 true, i1 %75
   %76 = icmp slt i32 %70, 0
   %or.cond20 = select i1 %or.cond17, i1 true, i1 %76
-  br i1 %or.cond20, label %143, label %77
+  br i1 %or.cond20, label %142, label %77
 
 77:                                               ; preds = %62
   %78 = load ptr, ptr %19, align 8, !tbaa !4
@@ -10491,12 +10491,12 @@ get_curr_st.exit:                                 ; preds = %40, %28
   %108 = fptoui double %107 to i64
   %109 = sext i32 %82 to i64
   %110 = icmp ugt i64 %108, %109
-  br i1 %110, label %143, label %111
+  br i1 %110, label %142, label %111
 
 111:                                              ; preds = %77
   %112 = sext i32 %79 to i64
   %113 = icmp ugt i64 %98, %112
-  br i1 %113, label %143, label %114
+  br i1 %113, label %142, label %114
 
 114:                                              ; preds = %111
   %115 = sub i64 %109, %108
@@ -10511,13 +10511,13 @@ get_curr_st.exit:                                 ; preds = %40, %28
   %121 = add i64 %116, %93
   %122 = sext i32 %.0187 to i64
   %.not204 = icmp ult i64 %121, %122
-  br i1 %.not204, label %123, label %143
+  br i1 %.not204, label %123, label %142
 
 123:                                              ; preds = %120
   %124 = add i64 %115, %103
   %125 = sext i32 %.0188 to i64
   %.not205 = icmp ult i64 %124, %125
-  br i1 %.not205, label %126, label %143
+  br i1 %.not205, label %126, label %142
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %45, align 8, !tbaa !49
@@ -10525,39 +10525,39 @@ get_curr_st.exit:                                 ; preds = %40, %28
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %130 = tail call ptr @av_packet_side_data_new(ptr noundef nonnull %128, ptr noundef nonnull %129, i32 noundef 36, i64 noundef 16, i32 noundef 0) #16
   %.not206 = icmp eq ptr %130, null
-  br i1 %.not206, label %get_curr_st.exit.thread, label %131
+  br i1 %.not206, label %get_curr_st.exit.thread, label %.critedge
 
-131:                                              ; preds = %126
-  %132 = trunc i64 %103 to i32
-  %133 = load ptr, ptr %130, align 8, !tbaa !181
-  store i32 %132, ptr %133, align 4, !tbaa !82
-  %134 = trunc i64 %115 to i32
-  %135 = load ptr, ptr %130, align 8, !tbaa !181
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  store i32 %134, ptr %136, align 4, !tbaa !82
-  %137 = trunc i64 %93 to i32
-  %138 = load ptr, ptr %130, align 8, !tbaa !181
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store i32 %137, ptr %139, align 4, !tbaa !82
-  %140 = trunc i64 %116 to i32
-  %141 = load ptr, ptr %130, align 8, !tbaa !181
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  store i32 %140, ptr %142, align 4, !tbaa !82
+.critedge:                                        ; preds = %126
+  %131 = trunc i64 %103 to i32
+  %132 = load ptr, ptr %130, align 8, !tbaa !181
+  store i32 %131, ptr %132, align 4, !tbaa !82
+  %133 = trunc i64 %115 to i32
+  %134 = load ptr, ptr %130, align 8, !tbaa !181
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
+  store i32 %133, ptr %135, align 4, !tbaa !82
+  %136 = trunc i64 %93 to i32
+  %137 = load ptr, ptr %130, align 8, !tbaa !181
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i32 %136, ptr %138, align 4, !tbaa !82
+  %139 = trunc i64 %116 to i32
+  %140 = load ptr, ptr %130, align 8, !tbaa !181
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  store i32 %139, ptr %141, align 4, !tbaa !82
   br label %get_curr_st.exit.thread
 
-143:                                              ; preds = %59, %62, %111, %77, %123, %120
-  %144 = load ptr, ptr %19, align 8, !tbaa !4
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 212
-  %146 = load i32, ptr %145, align 4, !tbaa !275
-  %147 = and i32 %146, 8
-  %.not207 = icmp eq i32 %147, 0
-  %148 = xor i32 %147, 24
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %144, i32 noundef %148, ptr noundef nonnull @.str.115) #16
+142:                                              ; preds = %59, %62, %111, %77, %123, %120
+  %143 = load ptr, ptr %19, align 8, !tbaa !4
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 212
+  %145 = load i32, ptr %144, align 4, !tbaa !275
+  %146 = and i32 %145, 8
+  %.not207 = icmp eq i32 %146, 0
+  %147 = xor i32 %146, 24
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %143, i32 noundef %147, ptr noundef nonnull @.str.115) #16
   %spec.select = select i1 %.not207, i32 0, i32 -1094995529
   br label %get_curr_st.exit.thread
 
-get_curr_st.exit.thread:                          ; preds = %43, %34, %heif_cur_item.exit, %131, %143, %126, %114, %get_curr_st.exit
-  %.0 = phi i32 [ 0, %get_curr_st.exit ], [ 0, %114 ], [ -12, %126 ], [ %spec.select, %143 ], [ 0, %131 ], [ 0, %heif_cur_item.exit ], [ 0, %34 ], [ 0, %43 ]
+get_curr_st.exit.thread:                          ; preds = %43, %34, %heif_cur_item.exit, %142, %.critedge, %126, %114, %get_curr_st.exit
+  %.0 = phi i32 [ 0, %get_curr_st.exit ], [ 0, %114 ], [ -12, %126 ], [ %spec.select, %142 ], [ 0, %.critedge ], [ 0, %heif_cur_item.exit ], [ 0, %34 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -19070,8 +19070,8 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_iref(ptr noundef capture
   br i1 %10, label %18, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not40 = icmp eq i64 %9, 0
-  br i1 %.not40, label %.thread, label %.lr.ph
+  %.not38 = icmp eq i64 %9, 0
+  br i1 %.not38, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i35 = icmp eq i32 %7, 0
@@ -19088,22 +19088,22 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_iref(ptr noundef capture
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %20, i32 noundef 24, ptr noundef nonnull @.str.347, i32 noundef %7) #16
-  br label %.thread
+  br label %.critedge
 
-21:                                               ; preds = %.lr.ph, %124
-  %.sroa.1.041 = phi i64 [ %9, %.lr.ph ], [ %125, %124 ]
+21:                                               ; preds = %.lr.ph, %mov_read_iref_thmb.exit
+  %.sroa.1.039 = phi i64 [ %9, %.lr.ph ], [ %124, %mov_read_iref_thmb.exit ]
   %22 = call i32 @avio_rb32(ptr noundef %1) #16
   %23 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #16
   %24 = icmp ult i32 %22, 14
   %25 = icmp slt i64 %23, 0
   %or.cond = select i1 %24, i1 true, i1 %25
-  br i1 %or.cond, label %.thread, label %26
+  br i1 %or.cond, label %.critedge, label %26
 
 26:                                               ; preds = %21
   %27 = zext i32 %22 to i64
   %28 = xor i64 %27, 9223372036854775807
   %29 = icmp samesign ugt i64 %23, %28
-  br i1 %29, label %.thread, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %26
   %31 = add i32 %22, -4
@@ -19282,7 +19282,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_iref(ptr noundef capture
 
 mov_read_iref_dimg.exit:                          ; preds = %54, %65, %.critedge._crit_edge.i, %69, %74, %88, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %124
+  br label %mov_read_iref_thmb.exit
 
 101:                                              ; preds = %30
   br i1 %.not.i35, label %102, label %.thread.i
@@ -19302,7 +19302,7 @@ mov_read_iref_dimg.exit:                          ; preds = %54, %65, %.critedge
 109:                                              ; preds = %.thread.i, %102
   %110 = load ptr, ptr %13, align 8, !tbaa !4
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %110, ptr noundef nonnull @.str.353) #16
-  br label %124
+  br label %mov_read_iref_thmb.exit
 
 .thread18.i:                                      ; preds = %.thread.i
   %111 = call i32 @avio_rb32(ptr noundef %1) #16
@@ -19318,29 +19318,29 @@ mov_read_iref_dimg.exit:                          ; preds = %54, %65, %.critedge
   %117 = phi i32 [ %111, %.thread18.i ], [ %113, %112 ]
   %118 = load i32, ptr %11, align 8, !tbaa !149
   %.not17.i = icmp eq i32 %117, %118
-  br i1 %.not17.i, label %119, label %124
+  br i1 %.not17.i, label %119, label %mov_read_iref_thmb.exit
 
 119:                                              ; preds = %114
   store i32 %115, ptr %12, align 4, !tbaa !148
   %120 = load ptr, ptr %13, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %120, i32 noundef 56, ptr noundef nonnull @.str.354, i32 noundef %115, i32 noundef %116) #16
-  br label %124
+  br label %mov_read_iref_thmb.exit
 
 121:                                              ; preds = %30
   %122 = load ptr, ptr %13, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %123 = call ptr @av_fourcc_make_string(ptr noundef nonnull %6, i32 noundef %34) #16
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %122, i32 noundef 48, ptr noundef nonnull @.str.348, ptr noundef %123, i32 noundef %22) #16
-  br label %124
+  br label %mov_read_iref_thmb.exit
 
-124:                                              ; preds = %mov_read_iref_dimg.exit, %121, %109, %114, %119
-  %125 = sub nsw i64 %.sroa.1.041, %27
-  %126 = call i64 @avio_seek(ptr noundef %1, i64 noundef %33, i32 noundef 0) #16
-  %.not = icmp eq i64 %125, 0
-  br i1 %.not, label %.thread, label %21, !llvm.loop !651
+mov_read_iref_thmb.exit:                          ; preds = %119, %114, %109, %121, %mov_read_iref_dimg.exit
+  %124 = sub nsw i64 %.sroa.1.039, %27
+  %125 = call i64 @avio_seek(ptr noundef %1, i64 noundef %33, i32 noundef 0) #16
+  %.not = icmp eq i64 %124, 0
+  br i1 %.not, label %.critedge, label %21, !llvm.loop !651
 
-.thread:                                          ; preds = %124, %26, %21, %.preheader, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %.preheader ], [ 0, %124 ], [ -1094995529, %26 ], [ -1094995529, %21 ]
+.critedge:                                        ; preds = %mov_read_iref_thmb.exit, %21, %26, %.preheader, %18
+  %.0 = phi i32 [ 0, %18 ], [ 0, %.preheader ], [ 0, %mov_read_iref_thmb.exit ], [ -1094995529, %21 ], [ -1094995529, %26 ]
   ret i32 %.0
 }
 

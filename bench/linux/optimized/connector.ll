@@ -105,7 +105,7 @@ define dso_local i32 @cn_netlink_send_mult(ptr noundef %0, i16 noundef zeroext %
   %8 = icmp eq i32 %2, 0
   %9 = or i32 %3, %2
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %32
+  br i1 %10, label %11, label %31
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @cdev.1, align 8
@@ -115,105 +115,105 @@ define dso_local i32 @cn_netlink_send_mult(ptr noundef %0, i16 noundef zeroext %
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   br label %16
 
-16:                                               ; preds = %23, %11
-  %17 = phi ptr [ %15, %11 ], [ %18, %23 ]
+16:                                               ; preds = %22, %11
+  %17 = phi ptr [ %15, %11 ], [ %18, %22 ]
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @cdev.1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = icmp eq ptr %18, %20
-  br i1 %21, label %.thread, label %23
+  br i1 %21, label %.critedge, label %22
 
-.thread:                                          ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %22) #4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %24 = tail call i32 @cn_cb_equal(ptr noundef nonnull %23, ptr noundef %0) #4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %16, label %26, !llvm.loop !5
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 84
+  %28 = load i32, ptr %27, align 4
+  %29 = load ptr, ptr @cdev.1, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %30) #4
+  br label %31
+
+31:                                               ; preds = %26, %7
+  %32 = phi i32 [ %28, %26 ], [ %3, %7 ]
+  br i1 %8, label %33, label %37
+
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @cdev.0, align 8
+  %35 = tail call i32 @netlink_has_listeners(ptr noundef %34, i32 noundef %32) #4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %76, label %37
+
+37:                                               ; preds = %33, %31
+  %38 = zext i16 %1 to i32
+  %39 = add nuw nsw i32 %38, 20
+  %40 = zext nneg i32 %39 to i64
+  %41 = add nuw nsw i32 %38, 39
+  %42 = and i32 %41, 131068
+  %43 = tail call ptr @__alloc_skb(i32 noundef %42, i32 noundef %4, i32 noundef 0, i32 noundef -1) #4
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %76, label %45
+
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 116
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %57
+
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 188
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 184
+  %55 = load i32, ptr %54, align 8
+  %56 = sub i32 %53, %55
+  br label %57
+
+57:                                               ; preds = %51, %45
+  %58 = phi i32 [ %56, %51 ], [ 0, %45 ]
+  %59 = icmp slt i32 %58, %42
+  br i1 %59, label %.thread, label %60, !prof !8
+
+60:                                               ; preds = %57
+  %61 = tail call ptr @__nlmsg_put(ptr noundef nonnull %43, i32 noundef 0, i32 noundef %47, i32 noundef 3, i32 noundef %39, i32 noundef 0) #4
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.thread, label %63
+
+.thread:                                          ; preds = %57, %60
+  tail call void @kfree_skb_reason(ptr noundef nonnull %43, i32 noundef 2) #4
   br label %76
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %25 = tail call i32 @cn_cb_equal(ptr noundef nonnull %24, ptr noundef %0) #4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %16, label %27, !llvm.loop !5
+63:                                               ; preds = %60
+  %64 = getelementptr i8, ptr %61, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 %64, ptr noundef align 4 %0, i64 %40, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  store i32 %32, ptr %65, align 8
+  %66 = icmp eq i32 %32, 0
+  %67 = load ptr, ptr @cdev.0, align 8
+  br i1 %66, label %70, label %68
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 84
-  %29 = load i32, ptr %28, align 4
-  %30 = load ptr, ptr @cdev.1, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %31) #4
-  br label %32
-
-32:                                               ; preds = %27, %7
-  %33 = phi i32 [ %29, %27 ], [ %3, %7 ]
-  br i1 %8, label %34, label %38
-
-34:                                               ; preds = %32
-  %35 = load ptr, ptr @cdev.0, align 8
-  %36 = tail call i32 @netlink_has_listeners(ptr noundef %35, i32 noundef %33) #4
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %76, label %38
-
-38:                                               ; preds = %34, %32
-  %39 = zext i16 %1 to i32
-  %40 = add nuw nsw i32 %39, 20
-  %41 = zext nneg i32 %40 to i64
-  %42 = add nuw nsw i32 %39, 39
-  %43 = and i32 %42, 131068
-  %44 = tail call ptr @__alloc_skb(i32 noundef %43, i32 noundef %4, i32 noundef 0, i32 noundef -1) #4
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %76, label %46
-
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 116
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %58
-
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 188
-  %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 184
-  %56 = load i32, ptr %55, align 8
-  %57 = sub i32 %54, %56
-  br label %58
-
-58:                                               ; preds = %52, %46
-  %59 = phi i32 [ %57, %52 ], [ 0, %46 ]
-  %60 = icmp slt i32 %59, %43
-  br i1 %60, label %.thread4, label %61, !prof !8
-
-61:                                               ; preds = %58
-  %62 = tail call ptr @__nlmsg_put(ptr noundef nonnull %44, i32 noundef 0, i32 noundef %48, i32 noundef 3, i32 noundef %40, i32 noundef 0) #4
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread4, label %64
-
-.thread4:                                         ; preds = %58, %61
-  tail call void @kfree_skb_reason(ptr noundef nonnull %44, i32 noundef 2) #4
+68:                                               ; preds = %63
+  %69 = tail call i32 @netlink_broadcast_filtered(ptr noundef %67, ptr noundef nonnull %43, i32 noundef %2, i32 noundef %32, i32 noundef %4, ptr noundef %5, ptr noundef %6) #4
   br label %76
 
-64:                                               ; preds = %61
-  %65 = getelementptr i8, ptr %62, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 %65, ptr noundef align 4 %0, i64 %41, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  store i32 %33, ptr %66, align 8
-  %67 = icmp eq i32 %33, 0
-  %68 = load ptr, ptr @cdev.0, align 8
-  br i1 %67, label %71, label %69
-
-69:                                               ; preds = %64
-  %70 = tail call i32 @netlink_broadcast_filtered(ptr noundef %68, ptr noundef nonnull %44, i32 noundef %2, i32 noundef %33, i32 noundef %4, ptr noundef %5, ptr noundef %6) #4
+70:                                               ; preds = %63
+  %71 = lshr i32 %4, 10
+  %72 = and i32 %71, 1
+  %73 = xor i32 %72, 1
+  %74 = tail call i32 @netlink_unicast(ptr noundef %67, ptr noundef nonnull %43, i32 noundef %2, i32 noundef %73) #4
   br label %76
 
-71:                                               ; preds = %64
-  %72 = lshr i32 %4, 10
-  %73 = and i32 %72, 1
-  %74 = xor i32 %73, 1
-  %75 = tail call i32 @netlink_unicast(ptr noundef %68, ptr noundef nonnull %44, i32 noundef %2, i32 noundef %74) #4
+.critedge:                                        ; preds = %16
+  %75 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %75) #4
   br label %76
 
-76:                                               ; preds = %.thread, %71, %69, %.thread4, %38, %34
-  %77 = phi i32 [ %70, %69 ], [ %75, %71 ], [ -90, %.thread4 ], [ -3, %34 ], [ -12, %38 ], [ -19, %.thread ]
+76:                                               ; preds = %.critedge, %70, %68, %.thread, %37, %33
+  %77 = phi i32 [ %69, %68 ], [ %74, %70 ], [ -90, %.thread ], [ -3, %33 ], [ -12, %37 ], [ -19, %.critedge ]
   ret i32 %77
 }
 

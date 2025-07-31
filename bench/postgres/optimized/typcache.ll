@@ -2676,11 +2676,11 @@ define dso_local void @InitDomainConstraintRef(i32 noundef %0, ptr noundef initi
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load i32, ptr %27, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph31.i, label %prep_domain_constraints.exit
+  br i1 %30, label %.lr.ph29.i, label %prep_domain_constraints.exit
 
-.lr.ph31.i:                                       ; preds = %.lr.ph.i, %.lr.ph31.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph31.i ], [ 0, %.lr.ph.i ]
-  %.02529.i = phi ptr [ %46, %.lr.ph31.i ], [ null, %.lr.ph.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
+  %.02327.i = phi ptr [ %46, %.lr.ph29.i ], [ null, %.lr.ph.i ]
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
@@ -2701,15 +2701,15 @@ define dso_local void @InitDomainConstraintRef(i32 noundef %0, ptr noundef initi
   %44 = tail call ptr @ExecInitExpr(ptr noundef %42, ptr noundef null) #16
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %44, ptr %45, align 8
-  %46 = tail call ptr @lappend(ptr noundef %.02529.i, ptr noundef nonnull %34) #16
+  %46 = tail call ptr @lappend(ptr noundef %.02327.i, ptr noundef nonnull %34) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = load i32, ptr %27, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %49, label %.lr.ph31.i, label %prep_domain_constraints.exit
+  br i1 %49, label %.lr.ph29.i, label %prep_domain_constraints.exit
 
-prep_domain_constraints.exit:                     ; preds = %.lr.ph31.i, %24, %.lr.ph.i
-  %.0.lcssa.i = phi ptr [ null, %24 ], [ null, %.lr.ph.i ], [ %46, %.lr.ph31.i ]
+prep_domain_constraints.exit:                     ; preds = %.lr.ph29.i, %24, %.lr.ph.i
+  %.0.lcssa.i = phi ptr [ null, %24 ], [ null, %.lr.ph.i ], [ %46, %.lr.ph29.i ]
   store ptr %26, ptr @CurrentMemoryContext, align 8
   br label %50
 
@@ -2830,11 +2830,11 @@ decr_dcc_refcount.exit:                           ; preds = %decr_dcc_refcount.e
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %42 = load i32, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph31.i, label %prep_domain_constraints.exit
+  br i1 %43, label %.lr.ph29.i, label %prep_domain_constraints.exit
 
-.lr.ph31.i:                                       ; preds = %.lr.ph.i, %.lr.ph31.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph31.i ], [ 0, %.lr.ph.i ]
-  %.02529.i = phi ptr [ %59, %.lr.ph31.i ], [ null, %.lr.ph.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
+  %.02327.i = phi ptr [ %59, %.lr.ph29.i ], [ null, %.lr.ph.i ]
   %44 = load ptr, ptr %41, align 8
   %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv.i
   %46 = load ptr, ptr %45, align 8
@@ -2855,15 +2855,15 @@ decr_dcc_refcount.exit:                           ; preds = %decr_dcc_refcount.e
   %57 = tail call ptr @ExecInitExpr(ptr noundef %55, ptr noundef null) #16
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %57, ptr %58, align 8
-  %59 = tail call ptr @lappend(ptr noundef %.02529.i, ptr noundef nonnull %47) #16
+  %59 = tail call ptr @lappend(ptr noundef %.02327.i, ptr noundef nonnull %47) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = load i32, ptr %40, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %.lr.ph31.i, label %prep_domain_constraints.exit
+  br i1 %62, label %.lr.ph29.i, label %prep_domain_constraints.exit
 
-prep_domain_constraints.exit:                     ; preds = %.lr.ph31.i, %36, %.lr.ph.i
-  %.0.lcssa.i = phi ptr [ null, %36 ], [ null, %.lr.ph.i ], [ %59, %.lr.ph31.i ]
+prep_domain_constraints.exit:                     ; preds = %.lr.ph29.i, %36, %.lr.ph.i
+  %.0.lcssa.i = phi ptr [ null, %36 ], [ null, %.lr.ph.i ], [ %59, %.lr.ph29.i ]
   store ptr %39, ptr @CurrentMemoryContext, align 8
   br label %.sink.split
 

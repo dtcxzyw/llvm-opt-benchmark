@@ -19488,11 +19488,11 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
   tail call void @utext_setNativeIndex_77(ptr noundef nonnull %9, i64 noundef %1)
   %.pre = load ptr, ptr %8, align 8, !tbaa !77
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre40 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !95
+  %.pre37 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !95
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = phi i32 [ %.pre40, %28 ], [ %26, %25 ]
+  %30 = phi i32 [ %.pre37, %28 ], [ %26, %25 ]
   %31 = phi ptr [ %.pre, %28 ], [ %9, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 44
   %33 = load i32, ptr %32, align 4, !tbaa !96
@@ -19520,12 +19520,12 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
   %47 = phi i32 [ %43, %42 ], [ %45, %44 ]
   %48 = tail call signext i8 @u_hasBinaryProperty_77(i32 noundef %47, i32 noundef 11)
   %.not30 = icmp eq i8 %48, 0
-  br i1 %.not30, label %49, label %.thread
+  br i1 %.not30, label %49, label %.critedge
 
 49:                                               ; preds = %46
   %50 = tail call signext i8 @u_charType_77(i32 noundef %47)
   %51 = icmp eq i8 %50, 16
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %.critedge, label %52
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
@@ -19611,21 +19611,21 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
 103:                                              ; preds = %100
   %104 = tail call signext i8 @u_charType_77(i32 noundef %101)
   %105 = icmp eq i8 %104, 16
-  br i1 %105, label %.backedge, label %.thread36
+  br i1 %105, label %.backedge, label %.thread
 
-.thread36:                                        ; preds = %103
+.thread:                                          ; preds = %103
   %106 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 208
   %108 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %107, i32 noundef %101)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %.thread36
-  %.120 = phi i8 [ %108, %.thread36 ], [ 0, %76 ]
+.loopexit:                                        ; preds = %76, %.thread
+  %.120 = phi i8 [ %108, %.thread ], [ 0, %76 ]
   %109 = xor i8 %.120, %.023
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %46, %49, %.loopexit
-  %.1 = phi i8 [ %109, %.loopexit ], [ 0, %49 ], [ 0, %46 ]
+.critedge:                                        ; preds = %49, %46, %.loopexit
+  %.1 = phi i8 [ %109, %.loopexit ], [ 0, %46 ], [ 0, %49 ]
   ret i8 %.1
 }
 
@@ -19707,12 +19707,12 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %.144 = phi i32 [ %15, %12 ], [ %33, %30 ], [ %15, %24 ], [ %15, %21 ], [ %47, %44 ], [ %15, %38 ], [ %15, %34 ]
   %49 = tail call signext i8 @u_hasBinaryProperty_77(i32 noundef %.144, i32 noundef 11)
   %.not54 = icmp eq i8 %49, 0
-  br i1 %.not54, label %50, label %.thread
+  br i1 %.not54, label %50, label %.critedge
 
 50:                                               ; preds = %48
   %51 = tail call signext i8 @u_charType_77(i32 noundef %.144)
   %52 = icmp eq i8 %51, 16
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
@@ -19725,14 +19725,14 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %invariant.gep = getelementptr i8, ptr %6, i64 -4
   %59 = load i64, ptr %58, align 8, !tbaa !72
-  %.not5563 = icmp slt i64 %59, %7
-  br i1 %.not5563, label %.lr.ph, label %.loopexit
+  %.not5560 = icmp slt i64 %59, %7
+  br i1 %.not5560, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %57, %88
   %60 = phi i64 [ %90, %88 ], [ %59, %57 ]
   %61 = phi i64 [ %89, %88 ], [ %7, %57 ]
-  %.04564 = phi i32 [ %.247, %88 ], [ %1, %57 ]
-  %62 = add nsw i32 %.04564, -1
+  %.04561 = phi i32 [ %.247, %88 ], [ %1, %57 ]
+  %62 = add nsw i32 %.04561, -1
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i16, ptr %6, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !93
@@ -19752,7 +19752,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %70
-  %76 = add nsw i32 %.04564, -2
+  %76 = add nsw i32 %.04561, -2
   %77 = shl nuw nsw i32 %72, 10
   %78 = add nuw nsw i32 %66, -56613888
   %79 = add nsw i32 %78, %77
@@ -19768,9 +19768,9 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
 82:                                               ; preds = %80
   %83 = tail call signext i8 @u_charType_77(i32 noundef %.138)
   %84 = icmp eq i8 %83, 16
-  br i1 %84, label %88, label %.thread59
+  br i1 %84, label %88, label %.thread
 
-.thread59:                                        ; preds = %82
+.thread:                                          ; preds = %82
   %85 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 208
   %87 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %86, i32 noundef %.138)
@@ -19782,13 +19782,13 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %.not55 = icmp slt i64 %90, %89
   br i1 %.not55, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %88, %57, %.thread59
-  %.140 = phi i8 [ %87, %.thread59 ], [ 0, %57 ], [ 0, %88 ]
+.loopexit:                                        ; preds = %88, %57, %.thread
+  %.140 = phi i8 [ %87, %.thread ], [ 0, %57 ], [ 0, %88 ]
   %91 = xor i8 %.140, %.048
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %48, %50, %.loopexit
-  %.1 = phi i8 [ %91, %.loopexit ], [ 0, %50 ], [ 0, %48 ]
+.critedge:                                        ; preds = %50, %48, %.loopexit
+  %.1 = phi i8 [ %91, %.loopexit ], [ 0, %48 ], [ 0, %50 ]
   ret i8 %.1
 }
 

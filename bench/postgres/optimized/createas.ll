@@ -136,26 +136,20 @@ IsQueryIdEnabled.exit.thread89:                   ; preds = %14, %IsQueryIdEnabl
 list_head.exit.i:                                 ; preds = %49, %44
   %52 = phi ptr [ %51, %49 ], [ null, %44 ]
   %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %55 = load i32, ptr %53, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph62.i, label %._crit_edge.i
+  br i1 %56, label %.lr.ph60.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %107, %.lr.ph.i, %list_head.exit.i
-  %.032.lcssa.i = phi ptr [ %52, %list_head.exit.i ], [ %52, %.lr.ph.i ], [ %.133.i, %107 ]
-  %.0.lcssa.i = phi ptr [ null, %list_head.exit.i ], [ null, %.lr.ph.i ], [ %.1.i, %107 ]
-  %.not37.i = icmp eq ptr %.032.lcssa.i, null
-  br i1 %.not37.i, label %create_ctas_nodata.exit, label %111
-
-.lr.ph62.i:                                       ; preds = %.lr.ph.i, %107
+.lr.ph60.i:                                       ; preds = %.lr.ph.i, %107
   %57 = phi i32 [ %108, %107 ], [ %55, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %107 ], [ 0, %.lr.ph.i ]
-  %.0324860.i = phi ptr [ %.133.i, %107 ], [ %52, %.lr.ph.i ]
-  %.04959.i = phi ptr [ %.1.i, %107 ], [ null, %.lr.ph.i ]
+  %.0324658.i = phi ptr [ %.133.i, %107 ], [ %52, %.lr.ph.i ]
+  %.04757.i = phi ptr [ %.1.i, %107 ], [ null, %.lr.ph.i ]
   %58 = load ptr, ptr %54, align 8
   %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
@@ -164,19 +158,25 @@ list_head.exit.i:                                 ; preds = %49, %44
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %107, label %64
 
-64:                                               ; preds = %.lr.ph62.i
-  %.not38.i = icmp eq ptr %.0324860.i, null
+.critedge.i:                                      ; preds = %107, %.lr.ph.i, %list_head.exit.i
+  %.032.lcssa.i = phi ptr [ %52, %list_head.exit.i ], [ %52, %.lr.ph.i ], [ %.133.i, %107 ]
+  %.0.lcssa.i = phi ptr [ null, %list_head.exit.i ], [ null, %.lr.ph.i ], [ %.1.i, %107 ]
+  %.not37.i = icmp eq ptr %.032.lcssa.i, null
+  br i1 %.not37.i, label %create_ctas_nodata.exit, label %111
+
+64:                                               ; preds = %.lr.ph60.i
+  %.not38.i = icmp eq ptr %.0324658.i, null
   br i1 %.not38.i, label %75, label %65
 
 65:                                               ; preds = %64
-  %66 = load ptr, ptr %.0324860.i, align 8
+  %66 = load ptr, ptr %.0324658.i, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %47, align 8
   %69 = getelementptr i8, ptr %68, i64 4
   %.val.i = load i32, ptr %69, align 4
   %70 = getelementptr i8, ptr %68, i64 16
   %.val40.i = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0324860.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0324658.i, i64 8
   %72 = sext i32 %.val.i to i64
   %73 = getelementptr inbounds %union.ListCell, ptr %.val40.i, i64 %72
   %74 = icmp ult ptr %71, %73
@@ -229,20 +229,20 @@ list_head.exit.i:                                 ; preds = %49, %44
   unreachable
 
 105:                                              ; preds = %88, %77
-  %106 = tail call ptr @lappend(ptr noundef %.04959.i, ptr noundef nonnull %85) #8
+  %106 = tail call ptr @lappend(ptr noundef %.04757.i, ptr noundef nonnull %85) #8
   %.pre.i = load i32, ptr %53, align 4
   br label %107
 
-107:                                              ; preds = %105, %.lr.ph62.i
-  %108 = phi i32 [ %57, %.lr.ph62.i ], [ %.pre.i, %105 ]
-  %.133.i = phi ptr [ %.0324860.i, %.lr.ph62.i ], [ %.2.i, %105 ]
-  %.1.i = phi ptr [ %.04959.i, %.lr.ph62.i ], [ %106, %105 ]
+107:                                              ; preds = %105, %.lr.ph60.i
+  %108 = phi i32 [ %57, %.lr.ph60.i ], [ %.pre.i, %105 ]
+  %.133.i = phi ptr [ %.0324658.i, %.lr.ph60.i ], [ %.2.i, %105 ]
+  %.1.i = phi ptr [ %.04757.i, %.lr.ph60.i ], [ %106, %105 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i, %109
-  br i1 %110, label %.lr.ph62.i, label %._crit_edge.i
+  br i1 %110, label %.lr.ph60.i, label %.critedge.i
 
-111:                                              ; preds = %._crit_edge.i
+111:                                              ; preds = %.critedge.i
   %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %112)
   %113 = tail call i32 @errcode(i32 noundef 16801924) #8
@@ -250,7 +250,7 @@ list_head.exit.i:                                 ; preds = %49, %44
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__func__.create_ctas_nodata) #8
   unreachable
 
-create_ctas_nodata.exit:                          ; preds = %._crit_edge.i
+create_ctas_nodata.exit:                          ; preds = %.critedge.i
   %115 = tail call fastcc { i64, i32 } @create_ctas_internal(ptr noundef %.0.lcssa.i, ptr noundef readonly %9)
   %.fca.0.extract12 = extractvalue { i64, i32 } %115, 0
   %.fca.1.extract13 = extractvalue { i64, i32 } %115, 1

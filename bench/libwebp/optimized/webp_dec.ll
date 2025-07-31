@@ -679,12 +679,12 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not = icmp eq i32 %.0..0..0..0..0..0.3.i, 0
-  br i1 %.not, label %18, label %.thread
+  br i1 %.not, label %18, label %.critedge
 
 18:                                               ; preds = %WebPParseHeaders.exit
   %19 = call i32 @VP8InitIoInternal(ptr noundef nonnull %6, i32 noundef 528) #10
   %.not51 = icmp eq i32 %19, 0
-  br i1 %.not51, label %.thread, label %20
+  br i1 %.not51, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %7, align 8, !tbaa !7
@@ -706,7 +706,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 31:                                               ; preds = %20
   %32 = call ptr @VP8New() #10
   %.not55 = icmp eq ptr %32, null
-  br i1 %.not55, label %.thread, label %33
+  br i1 %.not55, label %.critedge, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -749,7 +749,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   %58 = load i32, ptr %32, align 8, !tbaa !53
   br label %59
 
-59:                                               ; preds = %.sink.split, %50, %41
+59:                                               ; preds = %.sink.split, %41, %50
   %.139 = phi i32 [ 0, %50 ], [ %48, %41 ], [ %58, %.sink.split ]
   call void @VP8Delete(ptr noundef nonnull %32) #10
   br label %77
@@ -757,12 +757,12 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 60:                                               ; preds = %20
   %61 = call ptr @VP8LNew() #10
   %.not58 = icmp eq ptr %61, null
-  br i1 %.not58, label %.thread, label %62
+  br i1 %.not58, label %.critedge, label %62
 
 62:                                               ; preds = %60
   %63 = call i32 @VP8LDecodeHeader(ptr noundef nonnull %61, ptr noundef nonnull %6) #10
   %.not56 = icmp eq i32 %63, 0
-  br i1 %.not56, label %.sink.split65, label %64
+  br i1 %.not56, label %.sink.split64, label %64
 
 64:                                               ; preds = %62
   %65 = load i32, ptr %6, align 8, !tbaa !49
@@ -778,14 +778,14 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 73:                                               ; preds = %64
   %74 = call i32 @VP8LDecodeImage(ptr noundef nonnull %61) #10
   %.not57 = icmp eq i32 %74, 0
-  br i1 %.not57, label %.sink.split65, label %76
+  br i1 %.not57, label %.sink.split64, label %76
 
-.sink.split65:                                    ; preds = %73, %62
+.sink.split64:                                    ; preds = %73, %62
   %75 = load i32, ptr %61, align 8, !tbaa !54
   br label %76
 
-76:                                               ; preds = %.sink.split65, %73, %64
-  %.4 = phi i32 [ 0, %73 ], [ %71, %64 ], [ %75, %.sink.split65 ]
+76:                                               ; preds = %.sink.split64, %64, %73
+  %.4 = phi i32 [ 0, %73 ], [ %71, %64 ], [ %75, %.sink.split64 ]
   call void @VP8LDelete(ptr noundef nonnull %61) #10
   br label %77
 
@@ -797,26 +797,26 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 78:                                               ; preds = %77
   %79 = load ptr, ptr %2, align 8, !tbaa !23
   call void @WebPFreeDecBuffer(ptr noundef %79) #10
-  br label %.thread
+  br label %.critedge
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !51
   %.not60 = icmp eq ptr %82, null
-  br i1 %.not60, label %.thread, label %83
+  br i1 %.not60, label %.critedge, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %85 = load i32, ptr %84, align 4, !tbaa !65
   %.not61 = icmp eq i32 %85, 0
-  br i1 %.not61, label %.thread, label %86
+  br i1 %.not61, label %.critedge, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %2, align 8, !tbaa !23
   %88 = call i32 @WebPFlipBuffer(ptr noundef %87) #10
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %60, %31, %78, %86, %83, %80, %18, %WebPParseHeaders.exit
+.critedge:                                        ; preds = %60, %31, %78, %86, %83, %80, %18, %WebPParseHeaders.exit
   %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ %.240, %78 ], [ %88, %86 ], [ 0, %83 ], [ 0, %80 ], [ 1, %31 ], [ 1, %60 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #10
@@ -1616,13 +1616,13 @@ GetFeatures.exit:                                 ; preds = %3
   store ptr %18, ptr %4, align 8, !tbaa !23
   %19 = tail call i32 @WebPAvoidSlowMemory(ptr noundef nonnull %18, ptr noundef nonnull %2) #10
   %.not28 = icmp eq i32 %19, 0
-  br i1 %.not28, label %34, label %20
+  br i1 %.not28, label %33, label %20
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #10
   %21 = call i32 @WebPInitDecBufferInternal(ptr noundef nonnull %5, i32 noundef 528) #10
   %.not29.not = icmp eq i32 %21, 0
-  br i1 %.not29.not, label %33, label %22
+  br i1 %.not29.not, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = load i32, ptr %18, align 8, !tbaa !75
@@ -1645,19 +1645,19 @@ GetFeatures.exit:                                 ; preds = %3
 32:                                               ; preds = %30, %22
   %.1 = phi i32 [ %31, %30 ], [ %28, %22 ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %5) #10
-  br label %33
-
-33:                                               ; preds = %20, %32
-  %spec.select = phi i32 [ %.1, %32 ], [ 2, %20 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #10
   br label %GetFeatures.exit.thread
 
-34:                                               ; preds = %14
-  %35 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4)
+33:                                               ; preds = %14
+  %34 = call fastcc i32 @DecodeInto(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4)
   br label %GetFeatures.exit.thread
 
-GetFeatures.exit.thread:                          ; preds = %33, %34, %GetFeatures.exit, %3, %13
-  %.022 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ %35, %34 ], [ %spec.select, %33 ], [ %12, %13 ]
+.critedge:                                        ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #10
+  br label %GetFeatures.exit.thread
+
+GetFeatures.exit.thread:                          ; preds = %32, %33, %.critedge, %GetFeatures.exit, %3, %13
+  %.022 = phi i32 [ 2, %3 ], [ 3, %GetFeatures.exit ], [ 2, %.critedge ], [ %34, %33 ], [ %.1, %32 ], [ %12, %13 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #10
   ret i32 %.022
 }

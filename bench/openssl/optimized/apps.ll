@@ -2870,11 +2870,11 @@ define dso_local ptr @load_certstore(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr null, ptr %5, align 8, !tbaa !39
   br label %6
 
-6:                                                ; preds = %.loopexit, %4
-  %.015 = phi ptr [ null, %4 ], [ %.010.i, %.loopexit ]
-  %.013 = phi ptr [ %0, %4 ], [ %28, %.loopexit ]
+6:                                                ; preds = %sk_X509_to_store.exit, %4
+  %.015 = phi ptr [ null, %4 ], [ %.010.i, %sk_X509_to_store.exit ]
+  %.013 = phi ptr [ %0, %4 ], [ %28, %sk_X509_to_store.exit ]
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %.loopexit27, label %7
+  br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %.013, align 1, !tbaa !13
@@ -2933,11 +2933,11 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
   %28 = phi ptr [ null, %.critedge.i ], [ %27, %.loopexit.loopexit.i ]
   %29 = call i32 @load_cert_certs(ptr noundef nonnull %.013, ptr noundef null, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not19 = icmp eq i32 %29, 0
-  br i1 %.not19, label %.thread, label %30
+  br i1 %.not19, label %.critedge, label %30
 
-.thread:                                          ; preds = %next_item.exit
+.critedge:                                        ; preds = %next_item.exit
   call void @X509_STORE_free(ptr noundef %.015) #27
-  br label %.loopexit27
+  br label %.loopexit
 
 30:                                               ; preds = %next_item.exit
   %31 = load ptr, ptr %5, align 8, !tbaa !39
@@ -2947,19 +2947,19 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
 33:                                               ; preds = %30
   %34 = call ptr @X509_STORE_new() #27
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %.preheader.i
+  br i1 %35, label %sk_X509_to_store.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %33, %30
   %.01115.i = phi ptr [ %34, %33 ], [ %.015, %30 ]
   %36 = call i32 @OPENSSL_sk_num(ptr noundef %31) #27
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph.i22, label %.loopexit
+  br i1 %37, label %.lr.ph.i22, label %sk_X509_to_store.exit
 
 38:                                               ; preds = %.lr.ph.i22
   %39 = add nuw nsw i32 %.013.i, 1
   %40 = call i32 @OPENSSL_sk_num(ptr noundef %31) #27
   %41 = icmp slt i32 %39, %40
-  br i1 %41, label %.lr.ph.i22, label %.loopexit, !llvm.loop !55
+  br i1 %41, label %.lr.ph.i22, label %sk_X509_to_store.exit, !llvm.loop !55
 
 .lr.ph.i22:                                       ; preds = %.preheader.i, %38
   %.013.i = phi i32 [ %39, %38 ], [ 0, %.preheader.i ]
@@ -2970,18 +2970,18 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
 
 44:                                               ; preds = %.lr.ph.i22
   call void @X509_STORE_free(ptr noundef nonnull %.01115.i) #27
-  br label %.loopexit
+  br label %sk_X509_to_store.exit
 
-.loopexit:                                        ; preds = %38, %44, %.preheader.i, %33
+sk_X509_to_store.exit:                            ; preds = %38, %33, %.preheader.i, %44
   %.010.i = phi ptr [ null, %44 ], [ null, %33 ], [ %.01115.i, %.preheader.i ], [ %.01115.i, %38 ]
   %.not20.not = icmp eq ptr %.010.i, null
   %45 = load ptr, ptr %5, align 8, !tbaa !39
   call void @OSSL_STACK_OF_X509_free(ptr noundef %45) #27
   store ptr null, ptr %5, align 8, !tbaa !39
-  br i1 %.not20.not, label %.loopexit27, label %6, !llvm.loop !56
+  br i1 %.not20.not, label %.loopexit, label %6, !llvm.loop !56
 
-.loopexit27:                                      ; preds = %6, %.loopexit, %.thread
-  %.2 = phi ptr [ null, %.thread ], [ %.015, %6 ], [ null, %.loopexit ]
+.loopexit:                                        ; preds = %6, %sk_X509_to_store.exit, %.critedge
+  %.2 = phi ptr [ null, %.critedge ], [ %.015, %6 ], [ null, %sk_X509_to_store.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   ret ptr %.2
 }
@@ -5239,7 +5239,7 @@ define dso_local ptr @app_http_tls_cb(ptr noundef %0, ptr noundef readonly captu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !99
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %http_tls_shutdown.exit, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %.not = icmp eq i32 %2, 0
@@ -5273,13 +5273,13 @@ define dso_local ptr @app_http_tls_cb(ptr noundef %0, ptr noundef readonly captu
   %27 = tail call ptr @opt_getprog() #27
   %28 = tail call i32 @OSSL_HTTP_proxy_connect(ptr noundef %0, ptr noundef %20, ptr noundef %22, ptr noundef null, ptr noundef null, i32 noundef %25, ptr noundef %26, ptr noundef %27) #27
   %.not35 = icmp eq i32 %28, 0
-  br i1 %.not35, label %http_tls_shutdown.exit, label %29
+  br i1 %.not35, label %.critedge, label %29
 
 29:                                               ; preds = %19, %15
   %30 = tail call ptr @BIO_f_ssl() #27
   %31 = tail call ptr @BIO_new(ptr noundef %30) #27
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %http_tls_shutdown.exit, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %29
   %34 = tail call ptr @SSL_new(ptr noundef nonnull %6) #27
@@ -5288,7 +5288,7 @@ define dso_local ptr @app_http_tls_cb(ptr noundef %0, ptr noundef readonly captu
 
 36:                                               ; preds = %33
   %37 = tail call i32 @BIO_free(ptr noundef nonnull %31) #27
-  br label %http_tls_shutdown.exit
+  br label %.critedge
 
 38:                                               ; preds = %33
   br i1 %12, label %41, label %39
@@ -5301,11 +5301,11 @@ define dso_local ptr @app_http_tls_cb(ptr noundef %0, ptr noundef readonly captu
   tail call void @SSL_set_connect_state(ptr noundef nonnull %34) #27
   %42 = tail call i64 @BIO_ctrl(ptr noundef nonnull %31, i32 noundef 109, i64 noundef 1, ptr noundef nonnull %34) #27
   %43 = tail call ptr @BIO_push(ptr noundef nonnull %31, ptr noundef %0) #27
-  br label %http_tls_shutdown.exit
+  br label %.critedge
 
 44:                                               ; preds = %8
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %http_tls_shutdown.exit, label %45
+  br i1 %.not.i, label %.critedge, label %45
 
 45:                                               ; preds = %44
   %46 = tail call i64 @ERR_peek_error() #27
@@ -5361,10 +5361,10 @@ tls_error_hint.exit.i:                            ; preds = %58, %53, %50
   %62 = tail call ptr @BIO_pop(ptr noundef nonnull %0) #27
   %63 = tail call i32 @BIO_free(ptr noundef nonnull %0) #27
   %64 = tail call i32 @ERR_pop_to_mark() #27
-  br label %http_tls_shutdown.exit
+  br label %.critedge
 
-http_tls_shutdown.exit:                           ; preds = %19, %29, %36, %tls_error_hint.exit.i, %44, %41, %4
-  %.0 = phi ptr [ %0, %4 ], [ %43, %41 ], [ %62, %tls_error_hint.exit.i ], [ null, %44 ], [ null, %36 ], [ null, %29 ], [ null, %19 ]
+.critedge:                                        ; preds = %tls_error_hint.exit.i, %44, %36, %29, %19, %41, %4
+  %.0 = phi ptr [ %0, %4 ], [ %43, %41 ], [ null, %19 ], [ null, %29 ], [ null, %36 ], [ %62, %tls_error_hint.exit.i ], [ null, %44 ]
   ret ptr %.0
 }
 

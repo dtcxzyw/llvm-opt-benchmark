@@ -379,16 +379,16 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   %13 = icmp eq i32 %4, 1
   br label %14
 
-14:                                               ; preds = %.lr.ph, %172
-  %15 = phi i32 [ %9, %.lr.ph ], [ %174, %172 ]
-  %.0141214 = phi i32 [ %7, %.lr.ph ], [ %173, %172 ]
-  %16 = sext i32 %.0141214 to i64
+14:                                               ; preds = %.lr.ph, %171
+  %15 = phi i32 [ %9, %.lr.ph ], [ %173, %171 ]
+  %.0141211 = phi i32 [ %7, %.lr.ph ], [ %172, %171 ]
+  %16 = sext i32 %.0141211 to i64
   %17 = getelementptr inbounds ptr, ptr %12, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   %21 = add nsw i32 %15, -1
-  %22 = icmp eq i32 %.0141214, %21
+  %22 = icmp eq i32 %.0141211, %21
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %14
@@ -432,7 +432,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 40:                                               ; preds = %36
   %41 = or i32 %37, 1
   store i32 %41, ptr %1, align 4, !tbaa !65
-  br label %172
+  br label %171
 
 42:                                               ; preds = %29, %36, %32
   switch i8 %28, label %70 [
@@ -464,11 +464,11 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 54:                                               ; preds = %50
   %55 = or i32 %51, 2
   store i32 %55, ptr %1, align 4, !tbaa !65
-  br label %172
+  br label %171
 
 56:                                               ; preds = %43, %50, %46
-  %cond221 = icmp eq i8 %28, 103
-  br i1 %cond221, label %57, label %70
+  %cond215 = icmp eq i8 %28, 103
+  br i1 %cond215, label %57, label %70
 
 57:                                               ; preds = %56, %42, %26, %26
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 1
@@ -497,7 +497,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   %68 = load i32, ptr %1, align 4, !tbaa !65
   %69 = or i32 %68, 32
   store i32 %69, ptr %1, align 4, !tbaa !65
-  br label %172
+  br label %171
 
 70:                                               ; preds = %56, %26, %42, %60, %57, %63
   %71 = tail call i32 @strcasecmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.2) #13
@@ -519,7 +519,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 78:                                               ; preds = %75
   %79 = or i32 %73, 16
   store i32 %79, ptr %1, align 4, !tbaa !65
-  br label %172
+  br label %171
 
 80:                                               ; preds = %75, %72, %70
   %81 = tail call i32 @strcasecmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.3) #13
@@ -536,10 +536,10 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 86:                                               ; preds = %83
   %87 = or i32 %84, 256
   store i32 %87, ptr %1, align 4, !tbaa !65
-  br label %172
+  br label %171
 
 88:                                               ; preds = %83, %80
-  switch i8 %28, label %170 [
+  switch i8 %28, label %.critedge [
     i8 101, label %89
     i8 69, label %89
     i8 112, label %107
@@ -577,11 +577,11 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   %104 = or i32 %97, 4
   store i32 %104, ptr %1, align 4, !tbaa !65
   store ptr %27, ptr %3, align 8, !tbaa !29
-  %105 = add nsw i32 %.0141214, 1
-  br label %172
+  %105 = add nsw i32 %.0141211, 1
+  br label %171
 
 106:                                              ; preds = %89, %99, %96, %92
-  switch i8 %28, label %170 [
+  switch i8 %28, label %.critedge [
     i8 69, label %125
     i8 80, label %107
     i8 101, label %125
@@ -619,11 +619,11 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   store i32 %122, ptr %1, align 4, !tbaa !65
   store i32 1, ptr %2, align 4, !tbaa !65
   store ptr %27, ptr %3, align 8, !tbaa !29
-  %123 = add nsw i32 %.0141214, 1
-  br label %172
+  %123 = add nsw i32 %.0141211, 1
+  br label %171
 
 124:                                              ; preds = %107, %117, %114, %110
-  switch i8 %28, label %170 [
+  switch i8 %28, label %.critedge [
     i8 101, label %125
     i8 80, label %148
     i8 112, label %148
@@ -675,16 +675,16 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   %145 = or i32 %138, 64
   store i32 %145, ptr %1, align 4, !tbaa !65
   store ptr %27, ptr %3, align 8, !tbaa !29
-  %146 = add nsw i32 %.0141214, 1
-  br label %172
+  %146 = add nsw i32 %.0141211, 1
+  br label %171
 
 147:                                              ; preds = %130, %127, %125, %140, %137, %133
   %cond = icmp eq i8 %28, 80
-  br i1 %cond, label %148, label %170
+  br i1 %cond, label %148, label %.critedge
 
 148:                                              ; preds = %124, %147, %124
   %149 = phi i8 [ %109, %124 ], [ %109, %124 ], [ %126, %147 ]
-  switch i8 %149, label %170 [
+  switch i8 %149, label %.critedge [
     i8 120, label %150
     i8 88, label %150
   ]
@@ -692,7 +692,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 150:                                              ; preds = %148, %148
   %151 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %152 = load i8, ptr %151, align 1, !tbaa !62
-  switch i8 %152, label %170 [
+  switch i8 %152, label %.critedge [
     i8 97, label %153
     i8 65, label %153
   ]
@@ -700,7 +700,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 153:                                              ; preds = %150, %150
   %154 = getelementptr inbounds nuw i8, ptr %20, i64 3
   %155 = load i8, ptr %154, align 1, !tbaa !62
-  switch i8 %155, label %170 [
+  switch i8 %155, label %.critedge [
     i8 116, label %156
     i8 84, label %156
   ]
@@ -709,43 +709,43 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
   %157 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %158 = load i8, ptr %157, align 1, !tbaa !62
   %159 = icmp eq i8 %158, 0
-  br i1 %159, label %160, label %170
+  br i1 %159, label %160, label %.critedge
 
 160:                                              ; preds = %156
   %161 = load i32, ptr %1, align 4, !tbaa !65
   %162 = and i32 %161, 340
   %or.cond210 = icmp eq i32 %162, 0
-  br i1 %or.cond210, label %163, label %170
+  br i1 %or.cond210, label %163, label %.critedge
 
 163:                                              ; preds = %160
   %164 = and i32 %161, 8
   %165 = icmp eq i32 %164, 0
   %166 = icmp ne ptr %27, null
   %or.cond17 = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond17, label %167, label %170
+  br i1 %or.cond17, label %167, label %.critedge
 
 167:                                              ; preds = %163
   %168 = or i32 %161, 128
   store i32 %168, ptr %1, align 4, !tbaa !65
   store i32 1, ptr %2, align 4, !tbaa !65
   store ptr %27, ptr %3, align 8, !tbaa !29
-  %169 = add nsw i32 %.0141214, 1
-  br label %172
+  %169 = add nsw i32 %.0141211, 1
+  br label %171
 
-170:                                              ; preds = %147, %88, %106, %124, %156, %160, %163, %148, %150, %153
-  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !66
-  tail call void @addReplyErrorObject(ptr noundef %0, ptr noundef %171) #11
+.critedge:                                        ; preds = %147, %88, %106, %124, %153, %150, %148, %163, %160, %156
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !66
+  tail call void @addReplyErrorObject(ptr noundef %0, ptr noundef %170) #11
   br label %.loopexit
 
-172:                                              ; preds = %54, %78, %103, %144, %167, %121, %86, %67, %40
-  %.2143.ph = phi i32 [ %.0141214, %78 ], [ %.0141214, %86 ], [ %105, %103 ], [ %123, %121 ], [ %146, %144 ], [ %169, %167 ], [ %.0141214, %67 ], [ %.0141214, %54 ], [ %.0141214, %40 ]
-  %173 = add nsw i32 %.2143.ph, 1
-  %174 = load i32, ptr %8, align 8, !tbaa !59
-  %175 = icmp slt i32 %173, %174
-  br i1 %175, label %14, label %.loopexit, !llvm.loop !67
+171:                                              ; preds = %54, %78, %103, %144, %167, %121, %86, %67, %40
+  %.2143 = phi i32 [ %.0141211, %40 ], [ %.0141211, %54 ], [ %.0141211, %67 ], [ %169, %167 ], [ %146, %144 ], [ %123, %121 ], [ %105, %103 ], [ %.0141211, %86 ], [ %.0141211, %78 ]
+  %172 = add nsw i32 %.2143, 1
+  %173 = load i32, ptr %8, align 8, !tbaa !59
+  %174 = icmp slt i32 %172, %173
+  br i1 %174, label %14, label %.loopexit, !llvm.loop !67
 
-.loopexit:                                        ; preds = %172, %5, %170
-  %.2 = phi i32 [ -1, %170 ], [ 0, %5 ], [ 0, %172 ]
+.loopexit:                                        ; preds = %171, %5, %.critedge
+  %.2 = phi i32 [ -1, %.critedge ], [ 0, %5 ], [ 0, %171 ]
   ret i32 %.2
 }
 

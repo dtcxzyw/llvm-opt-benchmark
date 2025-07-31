@@ -96,7 +96,7 @@ define dso_local noundef ptr @ExecInitTidRangeScan(ptr noundef %0, ptr noundef %
   br i1 %27, label %.lr.ph, label %TidExprListCreate.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %MakeTidOpExpr.exit.i
-  %.023.i28 = phi ptr [ %76, %MakeTidOpExpr.exit.i ], [ null, %.lr.ph.i ]
+  %.021.i28 = phi ptr [ %76, %MakeTidOpExpr.exit.i ], [ null, %.lr.ph.i ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i, %MakeTidOpExpr.exit.i ], [ 0, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i27
@@ -211,7 +211,7 @@ MakeTidOpExpr.exit.i:                             ; preds = %71, %69, %63
   store i32 %storemerge.i.i, ptr %65, align 8
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %64, ptr %75, align 8
-  %76 = tail call ptr @lappend(ptr noundef %.023.i28, ptr noundef nonnull %65) #7
+  %76 = tail call ptr @lappend(ptr noundef %.021.i28, ptr noundef nonnull %65) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i27, 1
   %77 = load i32, ptr %24, align 4
   %78 = sext i32 %77 to i64

@@ -370,45 +370,45 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_poly_sample_in_ball(ptr noundef captures
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #6
   %8 = tail call i32 @EVP_DigestInit_ex2(ptr noundef %3, ptr noundef %4, ptr noundef null) #6
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %shake_xof.exit.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %6
   %11 = sext i32 %2 to i64
   %12 = tail call i32 @EVP_DigestUpdate(ptr noundef %3, ptr noundef %1, i64 noundef %11) #6
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %shake_xof.exit, label %shake_xof.exit.thread
+  br i1 %13, label %shake_xof.exit, label %.critedge
 
 shake_xof.exit:                                   ; preds = %10
   %14 = call i32 @EVP_DigestSqueeze(ptr noundef %3, ptr noundef nonnull %7, i64 noundef 136) #6
   %.not = icmp eq i32 %14, 1
-  br i1 %.not, label %15, label %shake_xof.exit.thread
+  br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %shake_xof.exit
   %.0.copyload.i = load i64, ptr %7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %16 = sub i32 256, %5
   %17 = icmp ult i32 %16, 256
-  br i1 %17, label %.preheader.preheader, label %shake_xof.exit.thread
+  br i1 %17, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %15
   %18 = zext nneg i32 %16 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
-  %.02140 = phi i64 [ %44, %29 ], [ %18, %.preheader.preheader ]
-  %.02239 = phi i32 [ %24, %29 ], [ 8, %.preheader.preheader ]
-  %.02938 = phi i64 [ %43, %29 ], [ %.0.copyload.i, %.preheader.preheader ]
+  %.02135 = phi i64 [ %44, %29 ], [ %18, %.preheader.preheader ]
+  %.02234 = phi i32 [ %24, %29 ], [ 8, %.preheader.preheader ]
+  %.02933 = phi i64 [ %43, %29 ], [ %.0.copyload.i, %.preheader.preheader ]
   br label %19
 
 19:                                               ; preds = %.preheader, %23
-  %.123 = phi i32 [ %24, %23 ], [ %.02239, %.preheader ]
+  %.123 = phi i32 [ %24, %23 ], [ %.02234, %.preheader ]
   %20 = icmp eq i32 %.123, 136
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
   %22 = call i32 @EVP_DigestSqueeze(ptr noundef %3, ptr noundef nonnull %7, i64 noundef 136) #6
   %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %shake_xof.exit.thread, label %23
+  br i1 %.not26, label %.critedge, label %23
 
 23:                                               ; preds = %21, %19
   %.224 = phi i32 [ %.123, %19 ], [ 0, %21 ]
@@ -417,15 +417,15 @@ shake_xof.exit:                                   ; preds = %10
   %26 = getelementptr inbounds [136 x i8], ptr %7, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = zext i8 %27 to i64
-  %.not27 = icmp samesign ult i64 %.02140, %28
+  %.not27 = icmp samesign ult i64 %.02135, %28
   br i1 %.not27, label %19, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !13
-  %32 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %.02140
+  %32 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %.02135
   store i32 %31, ptr %32, align 4, !tbaa !13
-  %.tr = trunc i64 %.02938 to i32
+  %.tr = trunc i64 %.02933 to i32
   %33 = shl i32 %.tr, 1
   %34 = and i32 %33, 2
   %35 = sub nuw nsw i32 8380418, %34
@@ -438,12 +438,12 @@ shake_xof.exit:                                   ; preds = %10
   %41 = and i32 %40, %36
   %42 = or i32 %41, %38
   store i32 %42, ptr %30, align 4, !tbaa !13
-  %43 = lshr i64 %.02938, 1
-  %44 = add nuw nsw i64 %.02140, 1
+  %43 = lshr i64 %.02933, 1
+  %44 = add nuw nsw i64 %.02135, 1
   %exitcond.not = icmp eq i64 %44, 256
-  br i1 %exitcond.not, label %shake_xof.exit.thread, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !28
 
-shake_xof.exit.thread:                            ; preds = %29, %21, %15, %6, %10, %shake_xof.exit
+.critedge:                                        ; preds = %29, %21, %15, %6, %10, %shake_xof.exit
   %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %10 ], [ 0, %6 ], [ 1, %15 ], [ 0, %21 ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #6
   ret i32 %.0

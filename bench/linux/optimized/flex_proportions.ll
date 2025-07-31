@@ -371,7 +371,7 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   %6 = alloca i64, align 8
   %7 = sext i32 %2 to i64
   %8 = icmp ult i32 %2, 1024
-  br i1 %8, label %9, label %25, !prof !19
+  br i1 %8, label %9, label %26, !prof !19
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
@@ -385,46 +385,46 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   %13 = shl i64 %12, 10
   %14 = sub i64 %11, %13
   %15 = icmp sgt i64 %14, -1
-  br i1 %15, label %16, label %24
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %9
   %17 = sub nuw nsw i64 1024, %7
   %18 = mul i64 %17, %3
   %19 = icmp ult i64 %14, %18
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
   %21 = xor i64 %7, 1023
   %22 = add nuw i64 %14, %21
   %23 = udiv i64 %22, %17
-  br label %.thread
+  br label %24
 
-.thread:                                          ; preds = %20, %16
-  %.ph = phi i64 [ %3, %16 ], [ %23, %20 ]
+24:                                               ; preds = %20, %16
+  %25 = phi i64 [ %23, %20 ], [ %3, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %25
+  br label %26
 
-24:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %33
-
-25:                                               ; preds = %.thread, %4
-  %26 = phi i64 [ %3, %4 ], [ %.ph, %.thread ]
-  %27 = getelementptr i8, ptr %0, i64 40
-  %.val = load i32, ptr %27, align 8
+26:                                               ; preds = %24, %4
+  %27 = phi i64 [ %25, %24 ], [ %3, %4 ]
+  %28 = getelementptr i8, ptr %0, i64 40
+  %.val = load i32, ptr %28, align 8
   tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
-  %28 = load i32, ptr @nr_cpu_ids, align 4
-  %29 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 -1) #8, !srcloc !15
-  %30 = shl i32 %29, 3
-  %31 = add i32 %30, 8
-  tail call void @percpu_counter_add_batch(ptr noundef %1, i64 noundef %26, i32 noundef %31) #7
-  %32 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %26, i32 noundef %32) #7
-  br label %33
+  %29 = load i32, ptr @nr_cpu_ids, align 4
+  %30 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 -1) #8, !srcloc !15
+  %31 = shl i32 %30, 3
+  %32 = add i32 %31, 8
+  tail call void @percpu_counter_add_batch(ptr noundef %1, i64 noundef %27, i32 noundef %32) #7
+  %33 = load i32, ptr @percpu_counter_batch, align 4
+  tail call void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %27, i32 noundef %33) #7
+  br label %34
 
-33:                                               ; preds = %24, %25
+.critedge:                                        ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  br label %34
+
+34:                                               ; preds = %.critedge, %26
   ret void
 }
 

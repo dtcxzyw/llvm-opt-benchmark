@@ -18,13 +18,13 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %15 = icmp eq ptr %0, null
   %16 = icmp eq ptr %2, null
   %or.cond = or i1 %15, %16
-  br i1 %or.cond, label %.thread, label %17
+  br i1 %or.cond, label %.critedge, label %17
 
 17:                                               ; preds = %10
   %18 = sext i32 %4 to i64
   %19 = mul i64 %6, %18
   %20 = icmp ult i64 %1, %19
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %17
   %22 = icmp ult i64 %3, %19
@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %or.cond3 = or i1 %22, %23
   %24 = icmp eq ptr %8, null
   %or.cond5 = or i1 %24, %or.cond3
-  br i1 %or.cond5, label %.thread, label %25
+  br i1 %or.cond5, label %.critedge, label %25
 
 25:                                               ; preds = %21
   tail call void @VP8SSIMDspInit() #6
@@ -45,28 +45,28 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %29 = mul i64 %27, %28
   %30 = tail call ptr @WebPSafeMalloc(i64 noundef %29, i64 noundef 1) #6
   %.not87 = icmp eq ptr %30, null
-  br i1 %.not87, label %.thread, label %31
+  br i1 %.not87, label %.critedge, label %31
 
 31:                                               ; preds = %26
   %32 = mul nsw i64 %28, %18
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   %34 = icmp sgt i32 %5, 0
   %35 = icmp sgt i32 %4, 0
-  %or.cond101 = and i1 %34, %35
-  br i1 %or.cond101, label %.preheader.us.preheader, label %.loopexit
+  %or.cond99 = and i1 %34, %35
+  br i1 %or.cond99, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %31
   %36 = zext nneg i32 %4 to i64
-  %wide.trip.count99 = zext nneg i32 %5 to i64
+  %wide.trip.count97 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv96 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next97, %._crit_edge.us ]
-  %37 = mul i64 %1, %indvars.iv96
+  %indvars.iv94 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next95, %._crit_edge.us ]
+  %37 = mul i64 %1, %indvars.iv94
   %invariant.gep.us = getelementptr i8, ptr %0, i64 %37
-  %38 = mul nuw nsw i64 %indvars.iv96, %36
-  %39 = mul i64 %3, %indvars.iv96
-  %invariant.gep91.us = getelementptr i8, ptr %2, i64 %39
+  %38 = mul nuw nsw i64 %indvars.iv94, %36
+  %39 = mul i64 %3, %indvars.iv94
+  %invariant.gep89.us = getelementptr i8, ptr %2, i64 %39
   br label %40
 
 40:                                               ; preds = %.preheader.us, %40
@@ -77,8 +77,8 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %43 = add nuw nsw i64 %indvars.iv, %38
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 %43
   store i8 %42, ptr %44, align 1, !tbaa !3
-  %gep92.us = getelementptr i8, ptr %invariant.gep91.us, i64 %41
-  %45 = load i8, ptr %gep92.us, align 1, !tbaa !3
+  %gep90.us = getelementptr i8, ptr %invariant.gep89.us, i64 %41
+  %45 = load i8, ptr %gep90.us, align 1, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %33, i64 %43
   store i8 %45, ptr %46, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -86,9 +86,9 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !6
 
 ._crit_edge.us:                                   ; preds = %40
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.preheader.us, !llvm.loop !8
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
+  br i1 %exitcond98.not, label %.loopexit, label %.preheader.us, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge.us, %31, %25
   %.076 = phi ptr [ null, %25 ], [ %30, %31 ], [ %30, %._crit_edge.us ]
@@ -140,9 +140,9 @@ GetLogSSIM.exit:                                  ; preds = %69, %63, %59, %50
   %.in = phi double [ %62, %59 ], [ 9.900000e+01, %50 ], [ %75, %69 ], [ 9.900000e+01, %63 ]
   %76 = fptrunc double %.in to float
   store float %76, ptr %9, align 4, !tbaa !11
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %26, %10, %17, %21, %GetLogSSIM.exit
+.critedge:                                        ; preds = %26, %10, %17, %21, %GetLogSSIM.exit
   %.0 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %21 ], [ 0, %17 ], [ 0, %10 ], [ 0, %26 ]
   ret i32 %.0
 }

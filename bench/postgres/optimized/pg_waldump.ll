@@ -1376,16 +1376,16 @@ define internal fastcc ptr @identify_target_directory(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %7 = tail call ptr @pg_strdup(ptr noundef nonnull %0) #16
-  br label %.thread
+  br label %30
 
 8:                                                ; preds = %4
   %9 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.94, ptr noundef nonnull %0, ptr noundef nonnull @.str.95) #16
   %10 = call fastcc zeroext i1 @search_directory(ptr noundef nonnull %3, ptr noundef %1)
-  br i1 %10, label %11, label %28
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   %12 = call ptr @pg_strdup(ptr noundef nonnull %3) #16
-  br label %.thread
+  br label %30
 
 13:                                               ; preds = %2
   %14 = tail call fastcc zeroext i1 @search_directory(ptr noundef nonnull @.str.96, ptr noundef %1)
@@ -1393,7 +1393,7 @@ define internal fastcc ptr @identify_target_directory(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %13
   %16 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.96) #16
-  br label %.thread
+  br label %30
 
 17:                                               ; preds = %13
   %18 = tail call fastcc zeroext i1 @search_directory(ptr noundef nonnull @.str.95, ptr noundef %1)
@@ -1401,38 +1401,38 @@ define internal fastcc ptr @identify_target_directory(ptr noundef %0, ptr nounde
 
 19:                                               ; preds = %17
   %20 = tail call ptr @pg_strdup(ptr noundef nonnull @.str.95) #16
-  br label %.thread
+  br label %30
 
 21:                                               ; preds = %17
   %22 = tail call ptr @getenv(ptr noundef nonnull @.str.97) #16
   %.not18 = icmp eq ptr %22, null
-  br i1 %.not18, label %28, label %23
+  br i1 %.not18, label %.critedge, label %23
 
 23:                                               ; preds = %21
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.94, ptr noundef nonnull %22, ptr noundef nonnull @.str.95) #16
   %25 = call fastcc zeroext i1 @search_directory(ptr noundef nonnull %3, ptr noundef %1)
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %23
   %27 = call ptr @pg_strdup(ptr noundef nonnull %3) #16
-  br label %.thread
+  br label %30
 
-28:                                               ; preds = %23, %21, %8
+.critedge:                                        ; preds = %23, %21, %8
   %.not19 = icmp eq ptr %1, null
-  br i1 %.not19, label %30, label %29
+  br i1 %.not19, label %29, label %28
 
-29:                                               ; preds = %28
+28:                                               ; preds = %.critedge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %1) #16
   call void @exit(i32 noundef 1) #20
   unreachable
 
-30:                                               ; preds = %28
+29:                                               ; preds = %.critedge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.99) #16
   call void @exit(i32 noundef 1) #20
   unreachable
 
-.thread:                                          ; preds = %26, %19, %15, %11, %6
-  %.0 = phi ptr [ %7, %6 ], [ %12, %11 ], [ %27, %26 ], [ %20, %19 ], [ %16, %15 ]
+30:                                               ; preds = %15, %19, %26, %11, %6
+  %.0 = phi ptr [ %7, %6 ], [ %12, %11 ], [ %16, %15 ], [ %20, %19 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #16
   ret ptr %.0
 }

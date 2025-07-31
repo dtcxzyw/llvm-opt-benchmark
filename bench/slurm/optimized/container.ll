@@ -2511,8 +2511,8 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %21, %52
-  %.0717 = phi i32 [ 0, %21 ], [ %56, %52 ]
-  %.0816 = phi i32 [ 2500, %21 ], [ %.2, %52 ]
+  %.0715 = phi i32 [ 0, %21 ], [ %56, %52 ]
+  %.0814 = phi i32 [ 2500, %21 ], [ %.2, %52 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 -1, ptr %4, align 4
@@ -2528,12 +2528,12 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
 
 33:                                               ; preds = %27
   %.not11 = icmp eq ptr %28, null
-  br i1 %.not11, label %.thread, label %34
+  br i1 %.not11, label %.critedge, label %34
 
 34:                                               ; preds = %33
   %35 = call i32 @xstrcasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.105) #9
   %.not12 = icmp eq i32 %35, 0
-  br i1 %.not12, label %.thread, label %36
+  br i1 %.not12, label %.critedge, label %36
 
 36:                                               ; preds = %34, %27
   %37 = call ptr @run_command(ptr noundef nonnull %2) #9
@@ -2554,7 +2554,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %46 = load i8, ptr %45, align 8, !range !12, !noundef !13
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %.thread, label %48
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %43
   %49 = call i32 @get_log_level() #9
@@ -2562,26 +2562,26 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._kill_container, i32 noundef %.0816) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._kill_container, i32 noundef %.0814) #9
   br label %52
 
-.thread:                                          ; preds = %34, %33, %43
+52:                                               ; preds = %51, %48
+  %53 = call i32 @usleep(i32 noundef %.0814) #9
+  %54 = icmp sgt i32 %.0814, 1000000
+  %55 = shl nsw i32 %.0814, 1
+  %.2 = select i1 %54, i32 1000000, i32 %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  %56 = add nuw nsw i32 %.0715, 1
+  %exitcond.not = icmp eq i32 %56, 10
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !24
+
+.critedge:                                        ; preds = %43, %33, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %.loopexit
 
-52:                                               ; preds = %51, %48
-  %53 = call i32 @usleep(i32 noundef %.0816) #9
-  %54 = icmp sgt i32 %.0816, 1000000
-  %55 = shl nsw i32 %.0816, 1
-  %.2 = select i1 %54, i32 1000000, i32 %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  %56 = add nuw nsw i32 %.0717, 1
-  %exitcond.not = icmp eq i32 %56, 10
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !24
-
-.loopexit:                                        ; preds = %52, %.thread, %18, %17
+.loopexit:                                        ; preds = %52, %.critedge, %18, %17
   %.pr = load ptr, ptr %1, align 8
   %.not13 = icmp eq ptr %.pr, null
   br i1 %.not13, label %.loopexit.thread, label %57

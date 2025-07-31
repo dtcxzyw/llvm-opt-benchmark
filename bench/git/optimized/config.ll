@@ -10357,7 +10357,7 @@ strbuf_setlen.exit.i:                             ; preds = %16, %13
 18:                                               ; preds = %strbuf_setlen.exit.i, %8
   %19 = load ptr, ptr %10, align 8, !tbaa !13
   %20 = load i8, ptr %19, align 1, !tbaa !4
-  switch i8 %20, label %.thread34.i [
+  switch i8 %20, label %.thread.i [
     i8 46, label %21
     i8 47, label %47
   ]
@@ -10365,27 +10365,33 @@ strbuf_setlen.exit.i:                             ; preds = %16, %13
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !4
-  %.not37.i = icmp eq i8 %23, 47
-  br i1 %.not37.i, label %24, label %.thread34.i
+  %.not34.i = icmp eq i8 %23, 47
+  br i1 %.not34.i, label %24, label %.thread.i
 
 24:                                               ; preds = %21
   %.not29.i = icmp eq ptr %0, null
-  br i1 %.not29.i, label %28, label %25
+  br i1 %.not29.i, label %.critedge.i, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %.not30.i = icmp eq ptr %27, null
-  br i1 %.not30.i, label %28, label %32
+  br i1 %.not30.i, label %.critedge.i, label %32
 
-28:                                               ; preds = %25, %24
-  %29 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
-  %.not4.i.i = icmp eq i32 %29, 0
-  br i1 %.not4.i.i, label %prepare_include_condition_pattern.exit.thread, label %30
+.critedge.i:                                      ; preds = %25, %24
+  %28 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
+  %.not4.i.i = icmp eq i32 %28, 0
+  br i1 %.not4.i.i, label %prepare_include_condition_pattern.exit.thread, label %29
 
-30:                                               ; preds = %28
-  %31 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef 5) #31
+29:                                               ; preds = %.critedge.i
+  %30 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef 5) #31
   br label %prepare_include_condition_pattern.exit.thread
+
+prepare_include_condition_pattern.exit.thread:    ; preds = %.critedge.i, %29
+  %.0.i.i = phi ptr [ %30, %29 ], [ @.str.217, %.critedge.i ]
+  %31 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i) #31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
+  br label %.loopexit
 
 32:                                               ; preds = %25
   %33 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef nonnull %27, i32 noundef 1) #31
@@ -10393,36 +10399,30 @@ strbuf_setlen.exit.i:                             ; preds = %16, %13
   %35 = load ptr, ptr %34, align 8, !tbaa !13
   %36 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %35, i32 noundef 47) #30
   %.not31.i = icmp eq ptr %36, null
-  br i1 %.not31.i, label %37, label %.thread.i
+  br i1 %.not31.i, label %37, label %38
 
 37:                                               ; preds = %32
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.37, i32 noundef 233, ptr noundef nonnull @.str.218) #32
   unreachable
 
-.thread.i:                                        ; preds = %32
-  %38 = ptrtoint ptr %36 to i64
-  %39 = ptrtoint ptr %35 to i64
-  %40 = sub i64 %38, %39
-  call void @strbuf_splice(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %35, i64 noundef %40) #31
-  %41 = load ptr, ptr %34, align 8, !tbaa !13
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %38, %42
-  %44 = trunc i64 %43 to i32
-  %45 = add i32 %44, 1
+38:                                               ; preds = %32
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  call void @strbuf_splice(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 1, ptr noundef nonnull %35, i64 noundef %41) #31
+  %42 = load ptr, ptr %34, align 8, !tbaa !13
+  %43 = ptrtoint ptr %42 to i64
+  %44 = sub i64 %39, %43
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %45, 1
   br label %47
 
-prepare_include_condition_pattern.exit.thread:    ; preds = %28, %30
-  %.0.i.i = phi ptr [ %31, %30 ], [ @.str.217, %28 ]
-  %46 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i) #31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
-  br label %.loopexit
-
-.thread34.i:                                      ; preds = %21, %18
+.thread.i:                                        ; preds = %21, %18
   call void @strbuf_insert(ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull @.str.219, i64 noundef 3) #31
   br label %47
 
-47:                                               ; preds = %.thread34.i, %.thread.i, %18
-  %.122.i = phi i32 [ 0, %.thread34.i ], [ %45, %.thread.i ], [ 0, %18 ]
+47:                                               ; preds = %.thread.i, %38, %18
+  %.122.i = phi i32 [ %46, %38 ], [ 0, %.thread.i ], [ 0, %18 ]
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %49, 0

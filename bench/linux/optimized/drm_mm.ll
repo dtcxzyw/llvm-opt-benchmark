@@ -443,7 +443,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %68 = getelementptr i8, ptr %21, i64 40
   store i64 %67, ptr %68, align 8
   %.pre = ptrtoint ptr %21 to i64
-  br label %.thread
+  br label %.critedge
 
 .preheader:                                       ; preds = %59, %.preheader
   %69 = phi ptr [ %72, %.preheader ], [ %61, %59 ]
@@ -469,7 +469,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %84 = getelementptr i8, ptr %69, i64 40
   store i64 %83, ptr %84, align 8
   %85 = icmp eq ptr %70, %69
-  br i1 %85, label %.thread, label %.lr.ph
+  br i1 %85, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %110
   %86 = phi ptr [ %113, %110 ], [ %70, %74 ]
@@ -504,7 +504,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %107 = getelementptr i8, ptr %86, i64 40
   %108 = load i64, ptr %107, align 8
   %109 = icmp eq i64 %108, %106
-  br i1 %109, label %.thread, label %110
+  br i1 %109, label %.critedge, label %110
 
 110:                                              ; preds = %105
   store i64 %106, ptr %107, align 8
@@ -512,9 +512,9 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %112 = and i64 %111, -4
   %113 = inttoptr i64 %112 to ptr
   %114 = icmp eq ptr %69, %113
-  br i1 %114, label %.thread, label %.lr.ph
+  br i1 %114, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %110, %105, %74, %63
+.critedge:                                        ; preds = %110, %105, %74, %63
   %.pre-phi = phi i64 [ %80, %74 ], [ %.pre, %63 ], [ %80, %105 ], [ %80, %110 ]
   %115 = phi ptr [ %70, %74 ], [ %21, %63 ], [ %70, %105 ], [ %70, %110 ]
   %116 = phi ptr [ %69, %74 ], [ %21, %63 ], [ %69, %105 ], [ %69, %110 ]
@@ -531,7 +531,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %125 = icmp eq i64 %124, 0
   br i1 %125, label %133, label %126
 
-126:                                              ; preds = %.thread
+126:                                              ; preds = %.critedge
   %127 = inttoptr i64 %124 to ptr
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
@@ -540,8 +540,8 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %132 = select i1 %130, ptr %128, ptr %131
   br label %133
 
-133:                                              ; preds = %126, %.thread
-  %134 = phi ptr [ %19, %.thread ], [ %132, %126 ]
+133:                                              ; preds = %126, %.critedge
+  %134 = phi ptr [ %19, %.critedge ], [ %132, %126 ]
   store volatile ptr %116, ptr %134, align 8
   %135 = icmp eq ptr %117, null
   br i1 %135, label %139, label %136
@@ -568,9 +568,9 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %147 = phi ptr [ %116, %144 ], [ %28, %40 ], [ %28, %39 ], [ %49, %55 ], [ %49, %56 ], [ %49, %58 ]
   %148 = phi ptr [ %145, %144 ], [ %43, %40 ], [ null, %39 ], [ null, %55 ], [ null, %56 ], [ null, %58 ]
   %149 = icmp eq ptr %147, null
-  br i1 %149, label %.thread17, label %.lr.ph20
+  br i1 %149, label %.thread, label %.lr.ph19
 
-.lr.ph20:                                         ; preds = %146, %174
+.lr.ph19:                                         ; preds = %146, %174
   %150 = phi ptr [ %177, %174 ], [ %147, %146 ]
   %151 = getelementptr i8, ptr %150, i64 32
   %152 = load i64, ptr %151, align 8
@@ -579,14 +579,14 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %155 = icmp eq ptr %154, null
   br i1 %155, label %160, label %156
 
-156:                                              ; preds = %.lr.ph20
+156:                                              ; preds = %.lr.ph19
   %157 = getelementptr i8, ptr %154, i64 40
   %158 = load i64, ptr %157, align 8
   %159 = tail call i64 @llvm.umax.i64(i64 %158, i64 %152)
   br label %160
 
-160:                                              ; preds = %156, %.lr.ph20
-  %161 = phi i64 [ %152, %.lr.ph20 ], [ %159, %156 ]
+160:                                              ; preds = %156, %.lr.ph19
+  %161 = phi i64 [ %152, %.lr.ph19 ], [ %159, %156 ]
   %162 = getelementptr i8, ptr %150, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
@@ -603,7 +603,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %171 = getelementptr i8, ptr %150, i64 40
   %172 = load i64, ptr %171, align 8
   %173 = icmp eq i64 %172, %170
-  br i1 %173, label %.thread17, label %174
+  br i1 %173, label %.thread, label %174
 
 174:                                              ; preds = %169
   store i64 %170, ptr %171, align 8
@@ -611,17 +611,17 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %176 = and i64 %175, -4
   %177 = inttoptr i64 %176 to ptr
   %178 = icmp eq i64 %176, 0
-  br i1 %178, label %.thread17, label %.lr.ph20
+  br i1 %178, label %.thread, label %.lr.ph19
 
-.thread17:                                        ; preds = %174, %169, %146
+.thread:                                          ; preds = %174, %169, %146
   %179 = icmp eq ptr %148, null
   br i1 %179, label %181, label %180
 
-180:                                              ; preds = %.thread17
+180:                                              ; preds = %.thread
   tail call void @__rb_erase_color(ptr noundef nonnull %148, ptr noundef nonnull %19, ptr noundef nonnull @augment_callbacks_rotate) #9
   br label %181
 
-181:                                              ; preds = %180, %.thread17
+181:                                              ; preds = %180, %.thread
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %182, i8 0, i64 16, i1 false)
   ret void
@@ -1413,7 +1413,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %69 = getelementptr i8, ptr %22, i64 72
   store i64 %68, ptr %69, align 8
   %.pre = ptrtoint ptr %22 to i64
-  br label %.thread
+  br label %.critedge
 
 .preheader:                                       ; preds = %60, %.preheader
   %70 = phi ptr [ %73, %.preheader ], [ %62, %60 ]
@@ -1439,7 +1439,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %85 = getelementptr i8, ptr %70, i64 72
   store i64 %84, ptr %85, align 8
   %86 = icmp eq ptr %71, %70
-  br i1 %86, label %.thread, label %.lr.ph
+  br i1 %86, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75, %115
   %87 = phi ptr [ %118, %115 ], [ %71, %75 ]
@@ -1478,7 +1478,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %112 = getelementptr i8, ptr %87, i64 72
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, %111
-  br i1 %114, label %.thread, label %115
+  br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %110
   store i64 %111, ptr %112, align 8
@@ -1486,9 +1486,9 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %117 = and i64 %116, -4
   %118 = inttoptr i64 %117 to ptr
   %119 = icmp eq ptr %70, %118
-  br i1 %119, label %.thread, label %.lr.ph
+  br i1 %119, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %115, %110, %75, %64
+.critedge:                                        ; preds = %115, %110, %75, %64
   %.pre-phi = phi i64 [ %81, %75 ], [ %.pre, %64 ], [ %81, %110 ], [ %81, %115 ]
   %120 = phi ptr [ %71, %75 ], [ %22, %64 ], [ %71, %110 ], [ %71, %115 ]
   %121 = phi ptr [ %70, %75 ], [ %22, %64 ], [ %70, %110 ], [ %70, %115 ]
@@ -1505,7 +1505,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %138, label %131
 
-131:                                              ; preds = %.thread
+131:                                              ; preds = %.critedge
   %132 = inttoptr i64 %129 to ptr
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
@@ -1514,8 +1514,8 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %137 = select i1 %135, ptr %133, ptr %136
   br label %138
 
-138:                                              ; preds = %131, %.thread
-  %139 = phi ptr [ %13, %.thread ], [ %137, %131 ]
+138:                                              ; preds = %131, %.critedge
+  %139 = phi ptr [ %13, %.critedge ], [ %137, %131 ]
   store volatile ptr %121, ptr %139, align 8
   %140 = icmp eq ptr %122, null
   br i1 %140, label %144, label %141
@@ -1542,9 +1542,9 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %152 = phi ptr [ %121, %149 ], [ %29, %41 ], [ %29, %40 ], [ %50, %56 ], [ %50, %57 ], [ %50, %59 ]
   %153 = phi ptr [ %150, %149 ], [ %44, %41 ], [ null, %40 ], [ null, %56 ], [ null, %57 ], [ null, %59 ]
   %154 = icmp eq ptr %152, null
-  br i1 %154, label %.thread17, label %.lr.ph20
+  br i1 %154, label %.thread, label %.lr.ph19
 
-.lr.ph20:                                         ; preds = %151, %183
+.lr.ph19:                                         ; preds = %151, %183
   %155 = phi ptr [ %186, %183 ], [ %152, %151 ]
   %156 = getelementptr i8, ptr %155, i64 -56
   %157 = load i64, ptr %156, align 8
@@ -1557,14 +1557,14 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %164 = icmp eq ptr %163, null
   br i1 %164, label %169, label %165
 
-165:                                              ; preds = %.lr.ph20
+165:                                              ; preds = %.lr.ph19
   %166 = getelementptr i8, ptr %163, i64 72
   %167 = load i64, ptr %166, align 8
   %168 = tail call i64 @llvm.umax.i64(i64 %167, i64 %161)
   br label %169
 
-169:                                              ; preds = %165, %.lr.ph20
-  %170 = phi i64 [ %161, %.lr.ph20 ], [ %168, %165 ]
+169:                                              ; preds = %165, %.lr.ph19
+  %170 = phi i64 [ %161, %.lr.ph19 ], [ %168, %165 ]
   %171 = getelementptr i8, ptr %155, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
@@ -1581,7 +1581,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %180 = getelementptr i8, ptr %155, i64 72
   %181 = load i64, ptr %180, align 8
   %182 = icmp eq i64 %181, %179
-  br i1 %182, label %.thread17, label %183
+  br i1 %182, label %.thread, label %183
 
 183:                                              ; preds = %178
   store i64 %179, ptr %180, align 8
@@ -1589,17 +1589,17 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   %185 = and i64 %184, -4
   %186 = inttoptr i64 %185 to ptr
   %187 = icmp eq i64 %185, 0
-  br i1 %187, label %.thread17, label %.lr.ph20
+  br i1 %187, label %.thread, label %.lr.ph19
 
-.thread17:                                        ; preds = %183, %178, %151
+.thread:                                          ; preds = %183, %178, %151
   %188 = icmp eq ptr %153, null
   br i1 %188, label %190, label %189
 
-189:                                              ; preds = %.thread17
+189:                                              ; preds = %.thread
   tail call void @__rb_erase_color(ptr noundef nonnull %153, ptr noundef nonnull %13, ptr noundef nonnull @drm_mm_interval_tree_augment_rotate) #9
   br label %190
 
-190:                                              ; preds = %189, %.thread17
+190:                                              ; preds = %189, %.thread
   %191 = load ptr, ptr %5, align 8
   %192 = load ptr, ptr %4, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8

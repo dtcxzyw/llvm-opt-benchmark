@@ -209,42 +209,42 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %27(ptr noundef %0, ptr noundef nonnull %4) #11
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %84
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %25
   %.pre = load i64, ptr %0, align 8
-  %.pre13 = and i64 %.pre, 8589934592
-  %31 = icmp eq i64 %.pre13, 0
-  br i1 %31, label %.thread8.thread, label %.thread17
+  %.pre11 = and i64 %.pre, 8589934592
+  %31 = icmp eq i64 %.pre11, 0
+  br i1 %31, label %.thread8.thread, label %.thread15
 
 32:                                               ; preds = %.thread, %15
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %84, label %41
+  br i1 %36, label %.critedge, label %41
 
-.thread17:                                        ; preds = %30
+.thread15:                                        ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 %38(ptr noundef %0, ptr noundef %1, ptr noundef %2) #11
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.thread8, label %41
 
-41:                                               ; preds = %.thread17, %32
-  %42 = phi i32 [ %39, %.thread17 ], [ %35, %32 ]
+41:                                               ; preds = %.thread15, %32
+  %42 = phi i32 [ %39, %.thread15 ], [ %35, %32 ]
   %43 = load ptr, ptr %2, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %84, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %41
   call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %43) #12
-  br label %84
+  br label %.critedge
 
-.thread8:                                         ; preds = %.thread17
-  %.pre11 = load i64, ptr %0, align 8
-  %.pre12 = and i64 %.pre11, 8589934592
-  %46 = icmp eq i64 %.pre12, 0
+.thread8:                                         ; preds = %.thread15
+  %.pre9 = load i64, ptr %0, align 8
+  %.pre10 = and i64 %.pre9, 8589934592
+  %46 = icmp eq i64 %.pre10, 0
   br i1 %46, label %.thread8.thread, label %47
 
 47:                                               ; preds = %.thread8
@@ -269,16 +269,16 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   %62 = icmp eq i32 %59, %61
   br label %.thread8.thread
 
-.thread8.thread:                                  ; preds = %21, %30, %.thread8, %51, %47, %57
-  %.ph = phi i1 [ %62, %57 ], [ false, %47 ], [ false, %51 ], [ true, %.thread8 ], [ true, %30 ], [ true, %21 ]
-  %63 = load ptr, ptr %7, align 8
-  %64 = call i32 @rtnl_is_locked() #11
-  %65 = icmp ne i32 %64, 0
-  %66 = load i1, ptr @phy_hwtstamp_set.__already_done, align 1
-  %67 = select i1 %65, i1 true, i1 %66
-  br i1 %67, label %69, label %68, !prof !14
+.thread8.thread:                                  ; preds = %21, %30, %.thread8, %47, %51, %57
+  %63 = phi i1 [ true, %.thread8 ], [ false, %51 ], [ false, %47 ], [ %62, %57 ], [ true, %30 ], [ true, %21 ]
+  %64 = load ptr, ptr %7, align 8
+  %65 = call i32 @rtnl_is_locked() #11
+  %66 = icmp ne i32 %65, 0
+  %67 = load i1, ptr @phy_hwtstamp_set.__already_done, align 1
+  %68 = select i1 %66, i1 true, i1 %67
+  br i1 %68, label %70, label %69, !prof !14
 
-68:                                               ; preds = %.thread8.thread
+69:                                               ; preds = %.thread8.thread
   store i1 true, ptr @phy_hwtstamp_set.__already_done, align 1
   call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #11, !srcloc !15
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 45) #11
@@ -286,33 +286,33 @@ define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initia
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 45, i32 2313, i64 12) #11, !srcloc !17
   call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #11, !srcloc !18
   call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #11, !srcloc !19
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %.thread8.thread
-  %70 = load ptr, ptr @phylib_stubs, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %76, label %72
+70:                                               ; preds = %69, %.thread8.thread
+  %71 = load ptr, ptr @phylib_stubs, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %77, label %73
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 %74(ptr noundef %63, ptr noundef %1, ptr noundef %2) #11
-  br label %76
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 %75(ptr noundef %64, ptr noundef %1, ptr noundef %2) #11
+  br label %77
 
-76:                                               ; preds = %72, %69
-  %77 = phi i32 [ %75, %72 ], [ -95, %69 ]
-  %78 = icmp eq i32 %77, 0
-  %79 = select i1 %78, i1 true, i1 %.ph
-  br i1 %79, label %84, label %80
+77:                                               ; preds = %73, %70
+  %78 = phi i32 [ %76, %73 ], [ -95, %70 ]
+  %79 = icmp eq i32 %78, 0
+  %80 = select i1 %79, i1 true, i1 %63
+  br i1 %80, label %.critedge, label %81
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 672
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 %82(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #11
-  br label %84
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 672
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 %83(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #11
+  br label %.critedge
 
-84:                                               ; preds = %32, %80, %76, %45, %41, %25
-  %85 = phi i32 [ %28, %25 ], [ %42, %45 ], [ %42, %41 ], [ %77, %80 ], [ %77, %76 ], [ 0, %32 ]
+.critedge:                                        ; preds = %32, %81, %77, %45, %41, %25
+  %85 = phi i32 [ %28, %25 ], [ %42, %45 ], [ %42, %41 ], [ %78, %81 ], [ %78, %77 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
   ret i32 %85
 }

@@ -66,13 +66,13 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
   %28 = getelementptr inbounds nuw i8, ptr %.020.i, i64 12
   %29 = load i32, ptr %28, align 4
   %.not27.i = icmp eq i32 %29, 0
-  br i1 %.not27.i, label %.thread.i, label %30
+  br i1 %.not27.i, label %.critedge.i, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %32 = load i8, ptr %31, align 8, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %.thread.i, label %34
+  br i1 %33, label %.critedge.i, label %34
 
 34:                                               ; preds = %30
   %.not28.i = icmp eq i32 %29, 1790
@@ -89,11 +89,11 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__func__.fetch_cursor_param_value) #7
   unreachable
 
-.thread.i:                                        ; preds = %30, %27
+.critedge.i:                                      ; preds = %30, %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   br label %42
 
-42:                                               ; preds = %.thread.i, %15, %9
+42:                                               ; preds = %.critedge.i, %15, %9
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %43)
   %44 = call i32 @errcode(i32 noundef 67137668) #7

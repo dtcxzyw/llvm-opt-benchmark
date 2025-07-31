@@ -977,8 +977,8 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   br label %8
 
 8:                                                ; preds = %22, %.preheader.i
-  %.022.i = phi i32 [ %.224.ph.i, %22 ], [ %6, %.preheader.i ]
-  %.018.i = phi i32 [ %.220.ph.i, %22 ], [ 0, %.preheader.i ]
+  %.022.i = phi i32 [ %.224.i, %22 ], [ %6, %.preheader.i ]
+  %.018.i = phi i32 [ %.220.i, %22 ], [ 0, %.preheader.i ]
   %9 = add i32 %.018.i, %.022.i
   %10 = lshr i32 %9, 1
   %11 = load ptr, ptr %7, align 8, !tbaa !74
@@ -1002,9 +1002,9 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %20, %17
-  %.224.ph.i = phi i32 [ %.022.i, %20 ], [ %18, %17 ]
-  %.220.ph.i = phi i32 [ %21, %20 ], [ %.018.i, %17 ]
-  %.not26.i = icmp sgt i32 %.220.ph.i, %.224.ph.i
+  %.224.i = phi i32 [ %18, %17 ], [ %.022.i, %20 ]
+  %.220.i = phi i32 [ %.018.i, %17 ], [ %21, %20 ]
+  %.not26.i = icmp sgt i32 %.220.i, %.224.i
   br i1 %.not26.i, label %seek_to_tz_position.exit, label %8
 
 seek_to_tz_position.exit:                         ; preds = %19, %22, %2
@@ -1028,8 +1028,8 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   br label %10
 
 10:                                               ; preds = %24, %.preheader.i
-  %.022.i = phi i32 [ %.224.ph.i, %24 ], [ %8, %.preheader.i ]
-  %.018.i = phi i32 [ %.220.ph.i, %24 ], [ 0, %.preheader.i ]
+  %.022.i = phi i32 [ %.224.i, %24 ], [ %8, %.preheader.i ]
+  %.018.i = phi i32 [ %.220.i, %24 ], [ 0, %.preheader.i ]
   %11 = add i32 %.018.i, %.022.i
   %12 = lshr i32 %11, 1
   %13 = load ptr, ptr %9, align 8, !tbaa !74
@@ -1053,9 +1053,9 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   br label %24
 
 24:                                               ; preds = %22, %19
-  %.224.ph.i = phi i32 [ %.022.i, %22 ], [ %20, %19 ]
-  %.220.ph.i = phi i32 [ %23, %22 ], [ %.018.i, %19 ]
-  %.not26.i = icmp sgt i32 %.220.ph.i, %.224.ph.i
+  %.224.i = phi i32 [ %20, %19 ], [ %.022.i, %22 ]
+  %.220.i = phi i32 [ %.018.i, %19 ], [ %23, %22 ]
+  %.not26.i = icmp sgt i32 %.220.i, %.224.i
   br i1 %.not26.i, label %.loopexit93, label %10
 
 25:                                               ; preds = %21

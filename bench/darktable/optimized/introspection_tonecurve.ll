@@ -6260,18 +6260,18 @@ define internal range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, 
   %12 = icmp ne i32 %11, 0
   %13 = icmp ne i32 %9, 0
   %or.cond = select i1 %12, i1 %13, i1 false
-  br i1 %or.cond, label %27, label %14
+  br i1 %or.cond, label %.fold.split, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !141
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %27, label %18
+  br i1 %17, label %.fold.split, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !237
-  switch i32 %20, label %27 [
+  switch i32 %20, label %.fold.split [
     i32 65362, label %24
     i32 65431, label %24
     i32 65364, label %21
@@ -6291,15 +6291,15 @@ define internal range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, 
 23:                                               ; preds = %18, %18
   br label %24
 
-24:                                               ; preds = %21, %22, %23, %18, %18
-  %.022.ph = phi float [ 0.000000e+00, %18 ], [ 0.000000e+00, %18 ], [ 0xBF50624DE0000000, %23 ], [ 0x3F50624DE0000000, %22 ], [ 0.000000e+00, %21 ]
-  %.0.ph = phi float [ 0x3F50624DE0000000, %18 ], [ 0x3F50624DE0000000, %18 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %22 ], [ 0xBF50624DE0000000, %21 ]
+24:                                               ; preds = %22, %23, %21, %18, %18
+  %.022 = phi nsz float [ 0.000000e+00, %21 ], [ 0x3F50624DE0000000, %22 ], [ 0xBF50624DE0000000, %23 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %18 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %21 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %23 ], [ 0x3F50624DE0000000, %18 ], [ 0x3F50624DE0000000, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !239
-  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.022.ph, float noundef %.0.ph, i32 noundef %26)
-  br label %27
+  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.022, float noundef %.0, i32 noundef %26)
+  br label %.fold.split
 
-27:                                               ; preds = %18, %24, %14, %3
+.fold.split:                                      ; preds = %18, %24, %14, %3
   %.024 = phi i32 [ 0, %3 ], [ 0, %14 ], [ 1, %24 ], [ 0, %18 ]
   ret i32 %.024
 }

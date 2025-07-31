@@ -3732,7 +3732,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
 
 .preheader8.i1344.i.i:                            ; preds = %.preheader8.i1344.i.i.backedge, %.preheader8.i1344.i.i.preheader
   %indvars.iv432.i.i.i = phi i64 [ 1, %.preheader8.i1344.i.i.preheader ], [ %indvars.iv432.i.i.i.be, %.preheader8.i1344.i.i.backedge ]
-  br i1 %.not414.i.i, label %._crit_edge198.i.i.i, label %.lr.ph197.preheader.i.i.i
+  br i1 %.not414.i.i, label %._crit_edge204.i.i.i, label %.lr.ph197.preheader.i.i.i
 
 .lr.ph197.preheader.i.i.i:                        ; preds = %.preheader8.i1344.i.i
   %invariant.gep552.i.i.i = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv432.i.i.i
@@ -3751,8 +3751,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %exitcond426.not.i.i.i = icmp eq i64 %indvars.iv.next423.i.i.i, %wide.trip.count86.i.i.i
   br i1 %exitcond426.not.i.i.i, label %._crit_edge198.i.i.i, label %.lr.ph197.i.i.i, !llvm.loop !93
 
-._crit_edge198.i.i.i:                             ; preds = %.lr.ph197.i.i.i, %.preheader8.i1344.i.i
-  %.8.lcssa.i.i.i = phi double [ 0.000000e+00, %.preheader8.i1344.i.i ], [ %1230, %.lr.ph197.i.i.i ]
+._crit_edge198.i.i.i:                             ; preds = %.lr.ph197.i.i.i
   %gep557.i.i.i = getelementptr double, ptr %invariant.gep500.i.i.i, i64 %indvars.iv432.i.i.i
   %1231 = load double, ptr %gep557.i.i.i, align 8
   %1232 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv432.i.i.i
@@ -3760,17 +3759,13 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1234 = fneg double %1233
   %1235 = fmul double %825, %1234
   %1236 = call double @llvm.fmuladd.f64(double %1189, double %1231, double %1235)
-  %1237 = fmul double %.8.lcssa.i.i.i, %1236
-  br i1 %.not414.i.i, label %._crit_edge204.i.i.i, label %.lr.ph203.preheader.i.i.i
-
-.lr.ph203.preheader.i.i.i:                        ; preds = %._crit_edge198.i.i.i
-  %invariant.gep554.i.i.i = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv432.i.i.i
+  %1237 = fmul double %1230, %1236
   br label %.lr.ph203.i.i.i
 
-.lr.ph203.i.i.i:                                  ; preds = %.lr.ph203.i.i.i, %.lr.ph203.preheader.i.i.i
-  %indvars.iv427.i.i.i = phi i64 [ 1, %.lr.ph203.preheader.i.i.i ], [ %indvars.iv.next428.i.i.i, %.lr.ph203.i.i.i ]
+.lr.ph203.i.i.i:                                  ; preds = %.lr.ph203.i.i.i, %._crit_edge198.i.i.i
+  %indvars.iv427.i.i.i = phi i64 [ 1, %._crit_edge198.i.i.i ], [ %indvars.iv.next428.i.i.i, %.lr.ph203.i.i.i ]
   %1238 = mul nuw nsw i64 %indvars.iv427.i.i.i, %.pre-phi.i
-  %gep555.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep554.i.i.i, i64 %1238
+  %gep555.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep552.i.i.i, i64 %1238
   %1239 = load double, ptr %gep555.i.i.i, align 8
   %1240 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv427.i.i.i
   %1241 = load double, ptr %1240, align 8
@@ -3780,7 +3775,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %exitcond431.not.i.i.i = icmp eq i64 %indvars.iv.next428.i.i.i, %wide.trip.count86.i.i.i
   br i1 %exitcond431.not.i.i.i, label %._crit_edge204.i.i.i.thread, label %.lr.ph203.i.i.i, !llvm.loop !94
 
-._crit_edge204.i.i.i:                             ; preds = %._crit_edge198.i.i.i
+._crit_edge204.i.i.i:                             ; preds = %.preheader8.i1344.i.i
   %indvars.iv.next433.i.i.i = add nuw nsw i64 %indvars.iv432.i.i.i, 1
   %exitcond436.not.i.i.i = icmp eq i64 %indvars.iv.next433.i.i.i, %wide.trip.count.i1349.i.i
   br i1 %exitcond436.not.i.i.i, label %._crit_edge212.i.i.i, label %.preheader8.i1344.i.i.backedge

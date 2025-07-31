@@ -30,7 +30,7 @@ define hidden i32 @mbedtls_hkdf(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %18 = zext i8 %15 to i64
   br label %mbedtls_hkdf_extract.exit
 
-mbedtls_hkdf_extract.exit.thread:                 ; preds = %13, %14
+mbedtls_hkdf_extract.exit.thread:                 ; preds = %14, %13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
   br label %25
 
@@ -68,12 +68,12 @@ define hidden i32 @mbedtls_hkdf_extract(ptr noundef %0, ptr noundef %1, i64 noun
 
 9:                                                ; preds = %6
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %10, label %.critedge
 
 10:                                               ; preds = %9
   %11 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %0) #5
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = zext i8 %11 to i64
@@ -83,10 +83,10 @@ define hidden i32 @mbedtls_hkdf_extract(ptr noundef %0, ptr noundef %1, i64 noun
   %.015 = phi i64 [ %14, %13 ], [ %2, %6 ]
   %.013 = phi ptr [ %7, %13 ], [ %1, %6 ]
   %16 = call i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef nonnull %.013, i64 noundef %.015, ptr noundef %3, i64 noundef %4, ptr noundef %5) #5
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %10, %9, %15
-  %.1 = phi i32 [ %16, %15 ], [ -24448, %9 ], [ -24448, %10 ]
+.critedge:                                        ; preds = %9, %10, %15
+  %.1 = phi i32 [ %16, %15 ], [ -24448, %10 ], [ -24448, %9 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
   ret i32 %.1
 }

@@ -3779,17 +3779,17 @@ define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____
   %24 = getelementptr i8, ptr %13, i64 8
   %.val7.i.i = load i64, ptr %24, align 8, !tbaa !17
   %25 = icmp eq i64 %.val.i.i, %.val7.i.i
-  br i1 %25, label %lean_string_dec_eq.exit, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br i1 %25, label %lean_string_dec_eq.exit, label %.critedge
 
 lean_string_dec_eq.exit:                          ; preds = %22
   %26 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %4, ptr noundef nonnull %13) #7
-  br i1 %26, label %lean_string_dec_eq.exit.thread54, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br i1 %26, label %lean_string_dec_eq.exit.thread54, label %.critedge
 
 lean_string_dec_eq.exit.thread54:                 ; preds = %2, %lean_string_dec_eq.exit
   %27 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %28 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %27, ptr noundef %6, ptr noundef %15) #7
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %lean_string_dec_eq.exit.thread54
   %31 = icmp eq i8 %.val, 0
@@ -3797,12 +3797,12 @@ lean_string_dec_eq.exit.thread54:                 ; preds = %2, %lean_string_dec
   br i1 %31, label %33, label %34
 
 33:                                               ; preds = %30
-  br i1 %32, label %lean_dec.exit, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br i1 %32, label %lean_dec.exit, label %.critedge
 
 34:                                               ; preds = %30
-  br i1 %32, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53, label %lean_dec.exit
+  br i1 %32, label %.critedge, label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %34, %33
+lean_dec.exit:                                    ; preds = %33, %34
   %35 = ptrtoint ptr %9 to i64
   %36 = and i64 %35, 1
   %.not.i.i = icmp eq i64 %36, 0
@@ -3844,7 +3844,7 @@ lean_obj_tag.exit.i:                              ; preds = %40, %37
 lean_obj_tag.exit20.i:                            ; preds = %50, %47
   %.0.i18.i = phi i32 [ %49, %47 ], [ %52, %50 ]
   %53 = icmp eq i32 %.0.i18.i, 0
-  br i1 %53, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br i1 %53, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, label %.critedge
 
 54:                                               ; preds = %lean_obj_tag.exit.i
   br i1 %.not.i17.i, label %58, label %55
@@ -3863,7 +3863,7 @@ lean_obj_tag.exit20.i:                            ; preds = %50, %47
 lean_obj_tag.exit24.i:                            ; preds = %58, %55
   %.0.i22.i = phi i32 [ %57, %55 ], [ %60, %58 ]
   %61 = icmp eq i32 %.0.i22.i, 0
-  br i1 %61, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
+  br i1 %61, label %.critedge, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
 l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit20.i, %lean_obj_tag.exit24.i
   %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
@@ -3874,7 +3874,7 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.e
   %66 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i, align 8, !tbaa !4
   %67 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %66, ptr noundef %63, ptr noundef %65) #7
   %68 = icmp eq i8 %67, 0
-  br i1 %68, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53, label %69
+  br i1 %68, label %.critedge, label %69
 
 69:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
   %70 = ptrtoint ptr %11 to i64
@@ -3918,7 +3918,7 @@ lean_obj_tag.exit.i40:                            ; preds = %75, %72
 lean_obj_tag.exit20.i49:                          ; preds = %85, %82
   %.0.i18.i50 = phi i32 [ %84, %82 ], [ %87, %85 ]
   %88 = icmp eq i32 %.0.i18.i50, 0
-  br i1 %88, label %.sink.split.i45, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br i1 %88, label %.sink.split.i45, label %.critedge
 
 89:                                               ; preds = %lean_obj_tag.exit.i40
   br i1 %.not.i17.i42, label %93, label %90
@@ -3937,7 +3937,7 @@ lean_obj_tag.exit20.i49:                          ; preds = %85, %82
 lean_obj_tag.exit24.i43:                          ; preds = %93, %90
   %.0.i22.i44 = phi i32 [ %92, %90 ], [ %95, %93 ]
   %96 = icmp eq i32 %.0.i22.i44, 0
-  br i1 %96, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53, label %.sink.split.i45
+  br i1 %96, label %.critedge, label %.sink.split.i45
 
 .sink.split.i45:                                  ; preds = %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49
   %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i46 = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i49 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i43 ]
@@ -3947,10 +3947,10 @@ lean_obj_tag.exit24.i43:                          ; preds = %93, %90
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %101 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i46, align 8, !tbaa !4
   %102 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %101, ptr noundef %98, ptr noundef %100) #7
-  br label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53
+  br label %.critedge
 
-l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit53: ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i, %34, %33, %lean_string_dec_eq.exit.thread54, %22, %.sink.split.i45, %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, %lean_string_dec_eq.exit
-  %.0 = phi i8 [ 0, %lean_string_dec_eq.exit ], [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %lean_obj_tag.exit20.i49 ], [ 0, %lean_obj_tag.exit24.i43 ], [ %102, %.sink.split.i45 ], [ 0, %22 ], [ 0, %lean_string_dec_eq.exit.thread54 ], [ 0, %33 ], [ 0, %34 ], [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ]
+.critedge:                                        ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i, %22, %.sink.split.i45, %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49, %lean_string_dec_eq.exit.thread54, %33, %34, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, %lean_string_dec_eq.exit
+  %.0 = phi i8 [ 0, %lean_string_dec_eq.exit ], [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %34 ], [ 0, %33 ], [ 0, %lean_string_dec_eq.exit.thread54 ], [ 0, %lean_obj_tag.exit20.i49 ], [ 0, %lean_obj_tag.exit24.i43 ], [ %102, %.sink.split.i45 ], [ 0, %22 ], [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ]
   ret i8 %.0
 }
 

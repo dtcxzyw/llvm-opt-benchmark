@@ -100,7 +100,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %4, null
   %13 = and i1 %12, %11
-  br i1 %13, label %14, label %.loopexit9
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %9, %6
   store i64 0, ptr %7, align 8, !annotation !5
@@ -108,13 +108,13 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
   %16 = load ptr, ptr %15, align 8
   %17 = load i16, ptr %16, align 8
   %18 = icmp slt i16 %17, -28672
-  br i1 %18, label %19, label %.loopexit9
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 336
   %21 = load volatile i32, ptr %20, align 4
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %.lr.ph, label %.loopexit9, !prof !6
+  br i1 %22, label %.lr.ph, label %.critedge, !prof !6
 
 .lr.ph:                                           ; preds = %19, %29
   %23 = phi i32 [ %30, %29 ], [ %21, %19 ]
@@ -129,7 +129,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
 29:                                               ; preds = %.lr.ph
   %30 = extractvalue { i8, i32 } %25, 1
   %31 = icmp slt i32 %30, 1
-  br i1 %31, label %.lr.ph, label %.loopexit9, !prof !9, !llvm.loop !10
+  br i1 %31, label %.lr.ph, label %.critedge, !prof !9, !llvm.loop !10
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %15, align 8
@@ -162,23 +162,23 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
 49:                                               ; preds = %48, %47
   %50 = load ptr, ptr %2, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %.thread8
+  br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %49
   %53 = tail call noalias ptr @vmalloc(i64 noundef %35) #8
   store ptr %53, ptr %2, align 8
   %54 = icmp ne ptr %53, null
   %55 = icmp eq ptr %53, null
-  br i1 %55, label %92, label %.thread8
+  br i1 %55, label %92, label %.thread
 
-.thread8:                                         ; preds = %49, %52
+.thread:                                          ; preds = %49, %52
   %56 = phi i1 [ %54, %52 ], [ false, %49 ]
   store i64 %1, ptr %7, align 8
   br label %57
 
-57:                                               ; preds = %61, %.thread8
-  %58 = phi i32 [ 0, %.thread8 ], [ %73, %61 ]
-  %59 = phi i64 [ 0, %.thread8 ], [ %76, %61 ]
+57:                                               ; preds = %61, %.thread
+  %58 = phi i32 [ 0, %.thread ], [ %73, %61 ]
+  %59 = phi i64 [ 0, %.thread ], [ %76, %61 ]
   %60 = icmp ult i64 %59, %3
   br i1 %60, label %61, label %77
 
@@ -202,7 +202,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
     i32 0, label %57
     i32 4, label %77
     i32 5, label %.loopexit
-    i32 1, label %.loopexit9
+    i32 1, label %.critedge
   ], !llvm.loop !13
 
 77:                                               ; preds = %61, %57
@@ -249,12 +249,12 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
   %100 = icmp eq i32 %93, 0
   %101 = sext i32 %93 to i64
   %102 = select i1 %100, i64 %94, i64 %101
-  br label %.loopexit9
+  br label %.critedge
 
 .unreachabledefault:                              ; preds = %61
   unreachable
 
-.loopexit9:                                       ; preds = %29, %61, %19, %99, %14, %9
+.critedge:                                        ; preds = %29, %61, %19, %99, %14, %9
   %103 = phi i64 [ %102, %99 ], [ -22, %9 ], [ -22, %14 ], [ -26, %19 ], [ undef, %61 ], [ -26, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   ret i64 %103

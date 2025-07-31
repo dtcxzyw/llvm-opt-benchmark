@@ -62,7 +62,7 @@ define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef captures(addre
 define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @ossl_prov_is_running() #7
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq ptr %1, null
@@ -79,12 +79,12 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.rsa_encrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef null) #7
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %10
   %17 = sext i32 %13 to i64
   store i64 %17, ptr %2, align 8, !tbaa !15
-  br label %.thread
+  br label %.critedge
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -99,7 +99,7 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
   %26 = sext i32 %25 to i64
   %27 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %26, ptr noundef nonnull @.str, i32 noundef 186) #7
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -119,7 +119,7 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.rsa_encrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #7
-  br label %.thread
+  br label %.critedge
 
 38:                                               ; preds = %33, %29
   %39 = phi ptr [ %35, %33 ], [ %31, %29 ]
@@ -138,7 +138,7 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
 
 50:                                               ; preds = %38
   tail call void @CRYPTO_free(ptr noundef nonnull %27, ptr noundef nonnull @.str, i32 noundef 205) #7
-  br label %.thread
+  br label %.critedge
 
 51:                                               ; preds = %38
   %52 = load ptr, ptr %23, align 8, !tbaa !14
@@ -156,15 +156,15 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
 59:                                               ; preds = %51, %54
   %.141 = phi i32 [ %53, %51 ], [ %58, %54 ]
   %60 = icmp slt i32 %.141, 0
-  br i1 %60, label %.thread, label %61
+  br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %59
   %62 = zext nneg i32 %.141 to i64
   store i64 %62, ptr %2, align 8, !tbaa !15
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %22, %50, %37, %59, %15, %16, %6, %61
-  %.0 = phi i32 [ 1, %61 ], [ 0, %6 ], [ 0, %15 ], [ 1, %16 ], [ %.141, %59 ], [ 0, %37 ], [ 0, %50 ], [ 0, %22 ]
+.critedge:                                        ; preds = %37, %50, %22, %59, %15, %16, %6, %61
+  %.0 = phi i32 [ 1, %61 ], [ 0, %6 ], [ 0, %15 ], [ 1, %16 ], [ %.141, %59 ], [ 0, %22 ], [ 0, %50 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   %10 = sext i32 %9 to i64
   %11 = tail call i32 @ossl_prov_is_running() #7
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.thread74, label %12
+  br i1 %.not, label %.critedge, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -196,7 +196,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
 
 18:                                               ; preds = %17
   store i64 48, ptr %2, align 8, !tbaa !15
-  br label %.thread74
+  br label %.critedge
 
 19:                                               ; preds = %17
   %20 = icmp ult i64 %3, 48
@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 142, ptr noundef null) #7
-  br label %.thread74
+  br label %.critedge
 
 22:                                               ; preds = %12
   br i1 %16, label %23, label %27
@@ -219,11 +219,11 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 245, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef null) #7
-  br label %.thread74
+  br label %.critedge
 
 26:                                               ; preds = %23
   store i64 %10, ptr %2, align 8, !tbaa !15
-  br label %.thread74
+  br label %.critedge
 
 27:                                               ; preds = %22
   %28 = icmp ult i64 %3, %10
@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 253, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 142, ptr noundef null) #7
-  br label %.thread74
+  br label %.critedge
 
 30:                                               ; preds = %27
   %cond = icmp eq i32 %14, 4
@@ -242,7 +242,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
 .thread:                                          ; preds = %30, %19
   %31 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 262) #7
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread74, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %.thread
   %34 = trunc i64 %5 to i32
@@ -256,7 +256,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 162, ptr noundef null) #7
-  br label %.thread74
+  br label %.critedge
 
 38:                                               ; preds = %33
   %39 = load i32, ptr %13, align 8, !tbaa !16
@@ -281,7 +281,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 280, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #7
-  br label %.thread74
+  br label %.critedge
 
 50:                                               ; preds = %45, %41
   %51 = phi ptr [ %47, %45 ], [ %43, %41 ]
@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__func__.rsa_decrypt) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 161, ptr noundef null) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 294) #7
-  br label %.thread74
+  br label %.critedge
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %0, align 8, !tbaa !3
@@ -316,7 +316,7 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   %70 = tail call i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr noundef %67, ptr noundef nonnull %1, i64 noundef %3, ptr noundef nonnull %31, i64 noundef %10, i32 noundef %63, i32 noundef %69) #7
   br label %71
 
-71:                                               ; preds = %50, %66
+71:                                               ; preds = %66, %50
   %.164 = phi i32 [ %60, %50 ], [ %70, %66 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 301) #7
   br label %80
@@ -350,10 +350,10 @@ define internal range(i32 0, 2) i32 @rsa_decrypt(ptr noundef captures(none) %0, 
   %90 = xor i32 %.neg.i73, -1
   %91 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %90) #8, !srcloc !25
   %92 = and i32 %91, 1
-  br label %.thread74
+  br label %.critedge
 
-.thread74:                                        ; preds = %.thread, %65, %49, %37, %6, %80, %29, %26, %25, %21, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %21 ], [ %92, %80 ], [ 0, %25 ], [ 1, %26 ], [ 0, %29 ], [ 0, %6 ], [ 0, %37 ], [ 0, %49 ], [ 0, %65 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %37, %49, %65, %.thread, %6, %80, %29, %26, %25, %21, %18
+  %.0 = phi i32 [ 1, %18 ], [ 0, %21 ], [ %92, %80 ], [ 0, %25 ], [ 1, %26 ], [ 0, %29 ], [ 0, %6 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %49 ], [ 0, %37 ]
   ret i32 %.0
 }
 

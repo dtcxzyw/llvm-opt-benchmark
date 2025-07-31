@@ -16,7 +16,7 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %14 = alloca %struct._CompositeInfo, align 4
   %15 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %105, label %17
+  br i1 %16, label %110, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -33,7 +33,7 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
 23:                                               ; preds = %22, %17
   %24 = call ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %3) #8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %105, label %26
+  br i1 %25, label %110, label %26
 
 26:                                               ; preds = %23
   store i32 %5, ptr %13, align 8
@@ -50,19 +50,19 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %34 = load i32, ptr %33, align 4
   %35 = call i32 %32(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef %34) #8
   %.not74 = icmp eq i32 %35, 0
-  br i1 %.not74, label %36, label %105
+  br i1 %.not74, label %36, label %110
 
 36:                                               ; preds = %26
   %37 = load i32, ptr %29, align 8
   %38 = load i32, ptr %13, align 8
   %39 = icmp sgt i32 %37, %38
-  br i1 %39, label %40, label %102
+  br i1 %39, label %40, label %107
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %31, align 4
   %42 = load i32, ptr %27, align 4
   %43 = icmp sgt i32 %41, %42
-  br i1 %43, label %44, label %102
+  br i1 %43, label %44, label %107
 
 44:                                               ; preds = %40
   %45 = call i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %2) #8
@@ -72,7 +72,7 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not75 = icmp eq ptr %49, null
-  br i1 %.not75, label %98, label %50
+  br i1 %.not75, label %103, label %50
 
 50:                                               ; preds = %44
   %51 = load i32, ptr %29, align 8
@@ -96,7 +96,7 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %69 = add i64 %68, %67
   %70 = inttoptr i64 %69 to ptr
   %.not82 = icmp eq ptr %9, null
-  br i1 %.not82, label %.thread, label %71
+  br i1 %.not82, label %.critedge, label %71
 
 71:                                               ; preds = %50
   %72 = load ptr, ptr %0, align 8
@@ -104,12 +104,7 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null) #8
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %..thread_crit_edge
-
-..thread_crit_edge:                               ; preds = %71
-  %.pre = load i32, ptr %27, align 4
-  %.pre83 = load i32, ptr %13, align 8
-  br label %.thread
+  br i1 %76, label %77, label %.thread
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -125,51 +120,58 @@ define void @Java_sun_java2d_loops_MaskFill_MaskFill(ptr noundef %0, ptr noundef
   %82 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %83 = load ptr, ptr %82, align 8
   %.not80 = icmp eq ptr %83, null
-  br i1 %.not80, label %105, label %.sink.split
+  br i1 %.not80, label %110, label %.sink.split
 
-.thread:                                          ; preds = %..thread_crit_edge, %50
-  %84 = phi i32 [ %.pre83, %..thread_crit_edge ], [ %52, %50 ]
-  %85 = phi i32 [ %.pre, %..thread_crit_edge ], [ %55, %50 ]
-  %86 = phi ptr [ %75, %..thread_crit_edge ], [ null, %50 ]
-  %87 = sub nsw i32 %85, %6
-  %88 = mul nsw i32 %87, %11
-  %89 = sub i32 %10, %5
-  %90 = add i32 %89, %84
-  %91 = add i32 %90, %88
-  %92 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef %70, ptr noundef %86, i32 noundef %91, i32 noundef %11, i32 noundef %53, i32 noundef %56, i32 noundef %45, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %14) #8
-  br i1 %.not82, label %98, label %94
+.thread:                                          ; preds = %71
+  %84 = load i32, ptr %27, align 4
+  %85 = sub nsw i32 %84, %6
+  %86 = mul nsw i32 %85, %11
+  %87 = load i32, ptr %13, align 8
+  %88 = sub i32 %10, %5
+  %89 = add i32 %88, %87
+  %90 = add i32 %89, %86
+  %91 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %92 = load ptr, ptr %91, align 8
+  call void %92(ptr noundef %70, ptr noundef nonnull %75, i32 noundef %90, i32 noundef %11, i32 noundef %53, i32 noundef %56, i32 noundef %45, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %14) #8
+  %93 = load ptr, ptr %0, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1784
+  %95 = load ptr, ptr %94, align 8
+  call void %95(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %75, i32 noundef 2) #8
+  br label %103
 
-94:                                               ; preds = %.thread
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1784
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %86, i32 noundef 2) #8
-  br label %98
+.critedge:                                        ; preds = %50
+  %96 = sub nsw i32 %55, %6
+  %97 = mul nsw i32 %96, %11
+  %98 = sub i32 %10, %5
+  %99 = add i32 %98, %52
+  %100 = add i32 %99, %97
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %102 = load ptr, ptr %101, align 8
+  call void %102(ptr noundef %70, ptr noundef null, i32 noundef %100, i32 noundef %11, i32 noundef %53, i32 noundef %56, i32 noundef %45, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %14) #8
+  br label %103
 
-98:                                               ; preds = %44, %94, %.thread
-  %99 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %.not77 = icmp eq ptr %100, null
-  br i1 %.not77, label %102, label %101
+103:                                              ; preds = %.critedge, %44, %.thread
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %.not77 = icmp eq ptr %105, null
+  br i1 %.not77, label %107, label %106
 
-101:                                              ; preds = %98
-  call void %100(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %13) #8
-  br label %102
+106:                                              ; preds = %103
+  call void %105(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %13) #8
+  br label %107
 
-102:                                              ; preds = %36, %40, %98, %101
-  %103 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %.not78 = icmp eq ptr %104, null
-  br i1 %.not78, label %105, label %.sink.split
+107:                                              ; preds = %36, %40, %103, %106
+  %108 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %109 = load ptr, ptr %108, align 8
+  %.not78 = icmp eq ptr %109, null
+  br i1 %.not78, label %110, label %.sink.split
 
-.sink.split:                                      ; preds = %102, %81
-  %.sink = phi ptr [ %83, %81 ], [ %104, %102 ]
+.sink.split:                                      ; preds = %107, %81
+  %.sink = phi ptr [ %83, %81 ], [ %109, %107 ]
   call void %.sink(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %13) #8
-  br label %105
+  br label %110
 
-105:                                              ; preds = %.sink.split, %102, %81, %26, %23, %12
+110:                                              ; preds = %.sink.split, %107, %81, %26, %23, %12
   ret void
 }
 

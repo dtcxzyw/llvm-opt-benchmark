@@ -409,10 +409,6 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
   %.not.not.i = icmp eq i32 %46, 0
   br i1 %.not.not.i, label %poly_encode_signed_two_to_power_12.exit.thread, label %47
 
-poly_encode_signed_two_to_power_12.exit.thread:   ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  br label %.loopexit
-
 47:                                               ; preds = %45
   %.025.ptr.i = getelementptr inbounds nuw i8, ptr %.03865, i64 %.025.idx.i
   %48 = getelementptr inbounds nuw i8, ptr %.025.ptr.i, i64 4
@@ -554,6 +550,10 @@ poly_encode_signed_two_to_power_12.exit.thread:   ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %172 = icmp samesign ult i64 %.025.idx.i, 992
   br i1 %172, label %45, label %poly_encode_signed_two_to_power_12.exit, !llvm.loop !43
+
+poly_encode_signed_two_to_power_12.exit.thread:   ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  br label %.loopexit
 
 poly_encode_signed_two_to_power_12.exit:          ; preds = %47
   %173 = getelementptr inbounds nuw i8, ptr %.03865, i64 1024
@@ -1527,11 +1527,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %5 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef 10, ptr noundef nonnull %3) #9
   %.not.not = icmp eq i32 %5, 0
-  br i1 %.not.not, label %.thread, label %6
-
-.thread:                                          ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %.loopexit
+  br i1 %.not.not, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %.017.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.017.idx
@@ -1606,8 +1602,12 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_19(ptr noun
   %66 = icmp samesign ult i64 %.017.idx, 1008
   br i1 %66, label %4, label %.loopexit, !llvm.loop !72
 
-.loopexit:                                        ; preds = %6, %.thread
-  %.2 = phi i32 [ 0, %.thread ], [ 1, %6 ]
+.critedge:                                        ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %6, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ 1, %6 ]
   ret i32 %.2
 }
 
@@ -1621,11 +1621,7 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   %5 = call i32 @WPACKET_allocate_bytes(ptr noundef %1, i64 noundef 9, ptr noundef nonnull %3) #9
   %.not.not = icmp eq i32 %5, 0
-  br i1 %.not.not, label %.thread, label %6
-
-.thread:                                          ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %.loopexit
+  br i1 %.not.not, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %.017.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.017.idx
@@ -1700,8 +1696,12 @@ define internal range(i32 0, 2) i32 @poly_encode_signed_two_to_power_17(ptr noun
   %66 = icmp samesign ult i64 %.017.idx, 1008
   br i1 %66, label %4, label %.loopexit, !llvm.loop !73
 
-.loopexit:                                        ; preds = %6, %.thread
-  %.2 = phi i32 [ 0, %.thread ], [ 1, %6 ]
+.critedge:                                        ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %6, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ 1, %6 ]
   ret i32 %.2
 }
 
@@ -1801,49 +1801,49 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
   %49 = zext i8 %46 to i32
   %50 = icmp ult i32 %30, %49
   %or.cond.i = or i1 %48, %50
-  br i1 %or.cond.i, label %PACKET_buf_init.exit.thread, label %.preheader16.i
+  br i1 %or.cond.i, label %PACKET_buf_init.exit.thread, label %.preheader11.i
 
-.preheader16.i:                                   ; preds = %vector_zero.exit.i
+.preheader11.i:                                   ; preds = %vector_zero.exit.i
   %51 = icmp samesign ult i64 %.033.i, %47
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader16.i, %56
-  %.03121.i = phi i32 [ %54, %56 ], [ -1, %.preheader16.i ]
-  %.23520.i = phi i64 [ %57, %56 ], [ %.033.i, %.preheader16.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %36, i64 %.23520.i
+.lr.ph.i:                                         ; preds = %.preheader11.i, %56
+  %.03116.i = phi i32 [ %54, %56 ], [ -1, %.preheader11.i ]
+  %.23515.i = phi i64 [ %57, %56 ], [ %.033.i, %.preheader11.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 %.23515.i
   %53 = load i8, ptr %52, align 1, !tbaa !23
   %54 = zext i8 %53 to i32
-  %55 = icmp slt i32 %.03121.i, 0
-  %.not43.i = icmp slt i32 %.03121.i, %54
+  %55 = icmp slt i32 %.03116.i, 0
+  %.not43.i = icmp slt i32 %.03116.i, %54
   %or.cond46.i = select i1 %55, i1 true, i1 %.not43.i
   br i1 %or.cond46.i, label %56, label %PACKET_buf_init.exit.thread
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = add i64 %.23520.i, 1
+  %57 = add i64 %.23515.i, 1
   %58 = zext i8 %53 to i64
   %59 = getelementptr inbounds nuw [256 x i32], ptr %.039.i, i64 0, i64 %58
   store i32 1, ptr %59, align 4, !tbaa !21
   %exitcond.not.i = icmp eq i64 %57, %47
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76
 
-._crit_edge.i:                                    ; preds = %56, %.preheader16.i
-  %.235.lcssa.i = phi i64 [ %.033.i, %.preheader16.i ], [ %47, %56 ]
+._crit_edge.i:                                    ; preds = %56, %.preheader11.i
+  %.235.lcssa.i = phi i64 [ %.033.i, %.preheader11.i ], [ %47, %56 ]
   %60 = getelementptr inbounds nuw i8, ptr %.039.i, i64 1024
   %61 = icmp ult ptr %60, %32
   br i1 %61, label %vector_zero.exit.i, label %.preheader.i, !llvm.loop !77
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %62 = icmp samesign ult i64 %.235.lcssa.i, %33
-  br i1 %62, label %.lr.ph23.i, label %hint_bits_decode.exit
+  br i1 %62, label %.lr.ph18.i, label %hint_bits_decode.exit
 
-63:                                               ; preds = %.lr.ph23.i
-  %64 = add i64 %.33622.i, 1
-  %exitcond29.not.i = icmp eq i64 %64, %33
-  br i1 %exitcond29.not.i, label %hint_bits_decode.exit, label %.lr.ph23.i, !llvm.loop !78
+63:                                               ; preds = %.lr.ph18.i
+  %64 = add i64 %.33617.i, 1
+  %exitcond24.not.i = icmp eq i64 %64, %33
+  br i1 %exitcond24.not.i, label %hint_bits_decode.exit, label %.lr.ph18.i, !llvm.loop !78
 
-.lr.ph23.i:                                       ; preds = %.preheader.i, %63
-  %.33622.i = phi i64 [ %64, %63 ], [ %.235.lcssa.i, %.preheader.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %36, i64 %.33622.i
+.lr.ph18.i:                                       ; preds = %.preheader.i, %63
+  %.33617.i = phi i64 [ %64, %63 ], [ %.235.lcssa.i, %.preheader.i ]
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 %.33617.i
   %66 = load i8, ptr %65, align 1, !tbaa !23
   %.not44.i = icmp eq i8 %66, 0
   br i1 %.not44.i, label %63, label %PACKET_buf_init.exit.thread
@@ -1854,8 +1854,8 @@ hint_bits_decode.exit:                            ; preds = %63, %.preheader.i
   %spec.select = zext i1 %.not17 to i32
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zero.exit.i, %.lr.ph.i, %.lr.ph23.i, %35, %._crit_edge, %10, %4, %hint_bits_decode.exit
-  %.014 = phi i32 [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %._crit_edge ], [ 0, %35 ], [ 0, %.lr.ph23.i ], [ 0, %.lr.ph.i ], [ 0, %vector_zero.exit.i ], [ 0, %.lr.ph ]
+PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zero.exit.i, %.lr.ph.i, %.lr.ph18.i, %35, %._crit_edge, %10, %4, %hint_bits_decode.exit
+  %.014 = phi i32 [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %._crit_edge ], [ 0, %35 ], [ 0, %.lr.ph18.i ], [ 0, %.lr.ph.i ], [ 0, %vector_zero.exit.i ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   ret i32 %.014
 }
@@ -1956,7 +1956,7 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %5 = phi i64 [ %.promoted, %2 ], [ %10, %7 ]
   %.012.idx = phi i64 [ 0, %2 ], [ %.012.add, %7 ]
   %6 = icmp ult i64 %5, 9
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %1, align 8, !tbaa !48
@@ -2024,9 +2024,9 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_17(ptr noun
   %.012.add = add nuw nsw i64 %.012.idx, 16
   store i32 %57, ptr %48, align 4, !tbaa !21
   %58 = icmp samesign ult i64 %.012.idx, 1008
-  br i1 %58, label %4, label %.thread, !llvm.loop !80
+  br i1 %58, label %4, label %.critedge, !llvm.loop !80
 
-.thread:                                          ; preds = %4, %7
+.critedge:                                        ; preds = %4, %7
   %.2 = phi i32 [ 1, %7 ], [ 0, %4 ]
   ret i32 %.2
 }

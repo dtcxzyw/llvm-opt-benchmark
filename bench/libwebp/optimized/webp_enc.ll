@@ -66,7 +66,7 @@ WebPEncodingSetError.exit:                        ; preds = %15, %11, %3, %4, %9
 ; Function Attrs: nounwind uwtable
 define i32 @WebPEncode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %WebPEncodingSetError.exit85, label %4
+  br i1 %3, label %.critedge86, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -76,7 +76,7 @@ define i32 @WebPEncode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 
 WebPEncodingSetError.exit:                        ; preds = %4
   store i32 3, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 7:                                                ; preds = %4
   %8 = tail call i32 @WebPValidateConfig(ptr noundef nonnull %0) #8
@@ -86,16 +86,16 @@ WebPEncodingSetError.exit:                        ; preds = %4
 9:                                                ; preds = %7
   %10 = load i32, ptr %5, align 8, !tbaa !3
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %WebPEncodingSetError.exit85
+  br i1 %11, label %12, label %.critedge86
 
 12:                                               ; preds = %9
   store i32 4, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 13:                                               ; preds = %7
   %14 = tail call i32 @WebPValidatePicture(ptr noundef nonnull %1) #8
   %.not70 = icmp eq i32 %14, 0
-  br i1 %.not70, label %WebPEncodingSetError.exit85, label %15
+  br i1 %.not70, label %.critedge86, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -112,11 +112,11 @@ WebPEncodingSetError.exit:                        ; preds = %4
 23:                                               ; preds = %19, %15
   %24 = load i32, ptr %5, align 8, !tbaa !3
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %WebPEncodingSetError.exit85
+  br i1 %25, label %26, label %.critedge86
 
 26:                                               ; preds = %23
   store i32 5, ptr %5, align 8, !tbaa !3
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -172,7 +172,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 54:                                               ; preds = %50, %47
   %55 = tail call i32 @WebPPictureSharpARGBToYUVA(ptr noundef nonnull %1) #8
   %.not78 = icmp eq i32 %55, 0
-  br i1 %.not78, label %WebPEncodingSetError.exit85, label %67
+  br i1 %.not78, label %.critedge86, label %67
 
 56:                                               ; preds = %50
   %57 = and i32 %52, 2
@@ -192,7 +192,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
   %.063 = phi float [ %64, %58 ], [ 0.000000e+00, %56 ]
   %66 = tail call i32 @WebPPictureARGBToYUVADithered(ptr noundef nonnull %1, i32 noundef 0, float noundef %.063) #8
   %.not77.not = icmp eq i32 %66, 0
-  br i1 %.not77.not, label %WebPEncodingSetError.exit85, label %67
+  br i1 %.not77.not, label %.critedge86, label %67
 
 67:                                               ; preds = %54, %65, %43
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -207,7 +207,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 71:                                               ; preds = %70, %67
   %72 = tail call fastcc ptr @InitVP8Encoder(ptr noundef %0, ptr noundef %1)
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %WebPEncodingSetError.exit85, label %74
+  br i1 %73, label %.critedge86, label %74
 
 74:                                               ; preds = %71
   %75 = tail call i32 @VP8EncAnalyze(ptr noundef nonnull %72) #8
@@ -216,21 +216,21 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 76:                                               ; preds = %74
   %77 = tail call i32 @VP8EncStartAlpha(ptr noundef nonnull %72) #8
-  %.not97 = icmp eq i32 %77, 0
+  %.not95 = icmp eq i32 %77, 0
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 23640
   %79 = load i32, ptr %78, align 8, !tbaa !28
   %.not81 = icmp eq i32 %79, 0
   br i1 %.not81, label %80, label %83
 
 80:                                               ; preds = %76
-  br i1 %.not97, label %.critedge.thread, label %81
+  br i1 %.not95, label %.critedge.thread, label %81
 
 81:                                               ; preds = %80
   %82 = tail call i32 @VP8EncLoop(ptr noundef nonnull %72) #8
   br label %86
 
 83:                                               ; preds = %76
-  br i1 %.not97, label %.critedge.thread, label %84
+  br i1 %.not95, label %.critedge.thread, label %84
 
 84:                                               ; preds = %83
   %85 = tail call i32 @VP8EncTokenLoop(ptr noundef nonnull %72) #8
@@ -243,8 +243,8 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 87:                                               ; preds = %86
   %88 = tail call i32 @VP8EncFinishAlpha(ptr noundef nonnull %72) #8
-  %.not98 = icmp eq i32 %88, 0
-  br i1 %.not98, label %.critedge.thread, label %.critedge
+  %.not96 = icmp eq i32 %88, 0
+  br i1 %.not96, label %.critedge.thread, label %.critedge
 
 .critedge.thread:                                 ; preds = %74, %87, %86, %80, %83
   tail call fastcc void @StoreStats(ptr noundef %72)
@@ -252,19 +252,19 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 .critedge:                                        ; preds = %87
   %89 = tail call i32 @VP8EncWrite(ptr noundef nonnull %72) #8
-  %.not99 = icmp eq i32 %89, 0
+  %.not97 = icmp eq i32 %89, 0
   tail call fastcc void @StoreStats(ptr noundef %72)
-  br i1 %.not99, label %90, label %92
+  br i1 %.not97, label %90, label %92
 
 90:                                               ; preds = %.critedge, %.critedge.thread
   tail call void @VP8EncFreeBitWriters(ptr noundef nonnull %72) #8
   %91 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 92:                                               ; preds = %.critedge
   %93 = tail call fastcc i32 @DeleteVP8Encoder(ptr noundef %72)
   %94 = and i32 %93, 1
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
 95:                                               ; preds = %31
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -275,7 +275,7 @@ WebPEncodingSetError.exit:                        ; preds = %4
 99:                                               ; preds = %95
   %100 = tail call i32 @WebPPictureYUVAToARGB(ptr noundef nonnull %1) #8
   %.not83 = icmp eq i32 %100, 0
-  br i1 %.not83, label %WebPEncodingSetError.exit85, label %101
+  br i1 %.not83, label %.critedge86, label %101
 
 101:                                              ; preds = %99, %95
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -289,10 +289,10 @@ WebPEncodingSetError.exit:                        ; preds = %4
 
 105:                                              ; preds = %104, %101
   %106 = tail call i32 @VP8LEncodeImage(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
-  br label %WebPEncodingSetError.exit85
+  br label %.critedge86
 
-WebPEncodingSetError.exit85:                      ; preds = %92, %90, %71, %54, %65, %26, %23, %12, %9, %105, %99, %13, %2, %WebPEncodingSetError.exit
-  %.0 = phi i32 [ 0, %WebPEncodingSetError.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %99 ], [ %106, %105 ], [ 0, %9 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ 0, %65 ], [ 0, %54 ], [ 0, %71 ], [ %94, %92 ], [ 0, %90 ]
+.critedge86:                                      ; preds = %92, %90, %26, %23, %12, %9, %65, %54, %71, %105, %99, %13, %2, %WebPEncodingSetError.exit
+  %.0 = phi i32 [ 0, %WebPEncodingSetError.exit ], [ 0, %2 ], [ 0, %13 ], [ 0, %99 ], [ %106, %105 ], [ 0, %71 ], [ 0, %54 ], [ 0, %65 ], [ 0, %9 ], [ 0, %12 ], [ 0, %23 ], [ 0, %26 ], [ %94, %92 ], [ 0, %90 ]
   ret i32 %.0
 }
 

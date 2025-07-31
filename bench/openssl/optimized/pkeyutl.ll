@@ -1269,66 +1269,66 @@ define internal fastcc ptr @init_ctx(ptr noundef %0, ptr noundef nonnull writeon
   %.not = icmp eq i32 %4, 0
   %spec.select = select i1 %.not, ptr null, ptr %3
   %.not74 = icmp eq ptr %0, null
-  br i1 %.not74, label %27, label %13
+  br i1 %.not74, label %26, label %13
 
 13:                                               ; preds = %12
   %14 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull %0) #7
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %19
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %13
   %17 = tail call i32 @OBJ_ln2nid(ptr noundef nonnull %0) #7
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %24, label %19
+  br i1 %18, label %.critedge, label %21
 
-19:                                               ; preds = %16, %13
-  %.062 = phi i32 [ %17, %16 ], [ %14, %13 ]
-  %.not76 = icmp eq ptr %spec.select, null
-  br i1 %.not76, label %22, label %20
-
-20:                                               ; preds = %19
-  %21 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %.062, ptr noundef nonnull %3) #7
-  br label %.thread
-
-22:                                               ; preds = %19
-  %23 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11) #7
-  br label %.thread
-
-24:                                               ; preds = %16
-  %25 = load ptr, ptr @bio_err, align 8, !tbaa !15
-  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.126, ptr noundef nonnull %0) #7
+.critedge:                                        ; preds = %16
+  %19 = load ptr, ptr @bio_err, align 8, !tbaa !15
+  %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %19, ptr noundef nonnull @.str.126, ptr noundef nonnull %0) #7
   br label %69
 
-27:                                               ; preds = %12
-  %28 = icmp eq ptr %6, null
-  br i1 %28, label %69, label %29
+21:                                               ; preds = %16, %13
+  %.062 = phi i32 [ %17, %16 ], [ %14, %13 ]
+  %.not76 = icmp eq ptr %spec.select, null
+  br i1 %.not76, label %24, label %22
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @EVP_PKEY_get_size(ptr noundef nonnull %6) #7
-  store i32 %30, ptr %1, align 4, !tbaa !9
+22:                                               ; preds = %21
+  %23 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %.062, ptr noundef nonnull %3) #7
+  br label %34
+
+24:                                               ; preds = %21
+  %25 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %11) #7
+  br label %34
+
+26:                                               ; preds = %12
+  %27 = icmp eq ptr %6, null
+  br i1 %27, label %69, label %28
+
+28:                                               ; preds = %26
+  %29 = tail call i32 @EVP_PKEY_get_size(ptr noundef nonnull %6) #7
+  store i32 %29, ptr %1, align 4, !tbaa !9
   %.not75 = icmp eq ptr %spec.select, null
-  br i1 %.not75, label %33, label %31
+  br i1 %.not75, label %32, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %6, ptr noundef nonnull %3) #7
-  br label %.thread
+30:                                               ; preds = %28
+  %31 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %6, ptr noundef nonnull %3) #7
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef nonnull %6, ptr noundef %11) #7
-  br label %.thread
+32:                                               ; preds = %28
+  %33 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef nonnull %6, ptr noundef %11) #7
+  br label %34
 
-.thread:                                          ; preds = %20, %22, %31, %33
-  %.2 = phi ptr [ %32, %31 ], [ %34, %33 ], [ %23, %22 ], [ %21, %20 ]
+34:                                               ; preds = %24, %22, %30, %32
+  %.2 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %23, %22 ], [ %25, %24 ]
   %35 = icmp eq ptr %.2, null
   br i1 %35, label %69, label %36
 
-36:                                               ; preds = %.thread
+36:                                               ; preds = %34
   %.not77 = icmp eq i32 %5, 0
   br i1 %.not77, label %42, label %37
 
 37:                                               ; preds = %36
   tail call void @EVP_MD_CTX_set_pkey_ctx(ptr noundef %7, ptr noundef nonnull %.2) #7
-  switch i32 %2, label %.thread81 [
+  switch i32 %2, label %.thread [
     i32 16, label %38
     i32 32, label %40
   ]
@@ -1342,7 +1342,7 @@ define internal fastcc ptr @init_ctx(ptr noundef %0, ptr noundef nonnull writeon
   br label %67
 
 42:                                               ; preds = %36
-  switch i32 %2, label %.thread81 [
+  switch i32 %2, label %.thread [
     i32 16, label %43
     i32 32, label %45
     i32 64, label %47
@@ -1402,14 +1402,14 @@ define internal fastcc ptr @init_ctx(ptr noundef %0, ptr noundef nonnull writeon
 67:                                               ; preds = %43, %45, %47, %49, %51, %53, %59, %55, %65, %61, %38, %40
   %.063 = phi i32 [ %39, %38 ], [ %41, %40 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %56, %55 ], [ %66, %65 ], [ %62, %61 ]
   %68 = icmp slt i32 %.063, 1
-  br i1 %68, label %.thread81, label %69
+  br i1 %68, label %.thread, label %69
 
-.thread81:                                        ; preds = %42, %37, %67
+.thread:                                          ; preds = %42, %37, %67
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.2) #7
   br label %69
 
-69:                                               ; preds = %24, %67, %.thread81, %.thread, %27
-  %.167 = phi ptr [ null, %24 ], [ null, %27 ], [ null, %.thread ], [ null, %.thread81 ], [ %.2, %67 ]
+69:                                               ; preds = %67, %.thread, %34, %26, %.critedge
+  %.167 = phi ptr [ null, %.critedge ], [ null, %26 ], [ null, %34 ], [ null, %.thread ], [ %.2, %67 ]
   ret ptr %.167
 }
 

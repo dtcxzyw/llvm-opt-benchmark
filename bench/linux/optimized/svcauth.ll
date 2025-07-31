@@ -45,13 +45,13 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %3, i64 noundef 4) #9
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.thread, label %6, !prof !5
+  br i1 %5, label %.critedge, label %6, !prof !5
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   %9 = icmp ugt i32 %8, 7
-  br i1 %9, label %.thread4, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
   tail call void @__rcu_read_lock() #9
@@ -59,21 +59,21 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
   %12 = getelementptr [8 x ptr], ptr @authtab, i64 0, i64 %11
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread5, label %15
+  br i1 %14, label %.thread4, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @try_module_get(ptr noundef %17) #9
-  br i1 %18, label %19, label %.thread5
+  br i1 %18, label %19, label %.thread4
 
-.thread5:                                         ; preds = %10, %15
+.thread4:                                         ; preds = %10, %15
   tail call void @__rcu_read_unlock() #9
-  br label %.thread4
-
-.thread4:                                         ; preds = %6, %.thread5
-  store i32 16777216, ptr %2, align 8
   br label %.thread
+
+.thread:                                          ; preds = %6, %.thread4
+  store i32 16777216, ptr %2, align 8
+  br label %.critedge
 
 19:                                               ; preds = %15
   tail call void @__rcu_read_unlock() #9
@@ -88,10 +88,10 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %0) #9
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %1, %19, %.thread4
-  %27 = phi i32 [ 8, %.thread4 ], [ %26, %19 ], [ 1, %1 ]
+.critedge:                                        ; preds = %1, %19, %.thread
+  %27 = phi i32 [ 8, %.thread ], [ %26, %19 ], [ 1, %1 ]
   ret i32 %27
 }
 

@@ -3156,13 +3156,7 @@ mi_segment_calculate_slices.exit.i:               ; preds = %20, %17
 48:                                               ; preds = %41
   %49 = call ptr @_mi_arena_alloc_aligned(i64 noundef %32, i64 noundef 67108864, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef %2) #9
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread5.i, label %51
-
-.thread5.i:                                       ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  br label %mi_segment_init.exit
+  br i1 %50, label %.critedge89.i, label %51
 
 51:                                               ; preds = %48
   %52 = load i8, ptr %5, align 1, !tbaa !63, !range !35, !noundef !36
@@ -3222,20 +3216,20 @@ mi_commit_mask_create.exit.i:                     ; preds = %mi_commit_mask_crea
   %69 = getelementptr inbounds nuw [16 x i64], ptr %12, i64 0, i64 %.0911.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = and i64 %70, %68
-  %.not.i91.i = icmp eq i64 %71, %70
+  %.not.i94.i = icmp eq i64 %71, %70
   %72 = add nuw nsw i64 %.0911.i.i, 1
   %exitcond.i.i = icmp ne i64 %72, 16
-  %or.cond.not.i.i = select i1 %.not.i91.i, i1 %exitcond.i.i, i1 false
+  %or.cond.not.i.i = select i1 %.not.i94.i, i1 %exitcond.i.i, i1 false
   br i1 %or.cond.not.i.i, label %mi_commit_mask_create.exit.i, label %mi_commit_mask_all_set.exit.i, !llvm.loop !97
 
 mi_commit_mask_all_set.exit.i:                    ; preds = %mi_commit_mask_create.exit.i
-  br i1 %.not.i91.i, label %mi_commit_mask_set.exit.i, label %73
+  br i1 %.not.i94.i, label %.critedge92.i, label %73
 
 73:                                               ; preds = %mi_commit_mask_all_set.exit.i
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 896
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %76 = call zeroext i1 @_mi_os_commit(ptr noundef nonnull %.179.i, i64 noundef %24, ptr noundef nonnull %6, ptr noundef %75) #9
-  br i1 %76, label %.preheader.i, label %116
+  br i1 %76, label %.preheader.i, label %.critedge.i
 
 .preheader.i:                                     ; preds = %73, %.preheader.i
   %.05.i.i = phi i64 [ %82, %.preheader.i ], [ 0, %73 ]
@@ -3247,9 +3241,9 @@ mi_commit_mask_all_set.exit.i:                    ; preds = %mi_commit_mask_crea
   store i64 %81, ptr %79, align 8, !tbaa !3
   %82 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, 16
-  br i1 %exitcond.not.i.i, label %mi_commit_mask_set.exit.i, label %.preheader.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i, label %.critedge92.i, label %.preheader.i, !llvm.loop !94
 
-mi_commit_mask_set.exit.i:                        ; preds = %.preheader.i, %mi_commit_mask_all_set.exit.i
+.critedge92.i:                                    ; preds = %.preheader.i, %mi_commit_mask_all_set.exit.i
   %83 = load i64, ptr %11, align 8, !tbaa !3
   store i64 %83, ptr %.179.i, align 8, !tbaa !52
   %84 = load i8, ptr %10, align 1, !tbaa !63, !range !35, !noundef !36
@@ -3260,19 +3254,19 @@ mi_commit_mask_set.exit.i:                        ; preds = %.preheader.i, %mi_c
   store i8 %86, ptr %87, align 1, !tbaa !53
   br label %88
 
-88:                                               ; preds = %88, %mi_commit_mask_set.exit.i
-  %.057.i.i = phi i64 [ 0, %mi_commit_mask_set.exit.i ], [ %91, %88 ]
+88:                                               ; preds = %88, %.critedge92.i
+  %.057.i.i = phi i64 [ 0, %.critedge92.i ], [ %91, %88 ]
   %89 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.057.i.i
   %90 = load i64, ptr %89, align 8, !tbaa !3
-  %.not.i92.i = icmp eq i64 %90, -1
+  %.not.i95.i = icmp eq i64 %90, -1
   %91 = add nuw nsw i64 %.057.i.i, 1
-  %exitcond.i93.i = icmp ne i64 %91, 16
-  %or.cond.not.i94.i = select i1 %.not.i92.i, i1 %exitcond.i93.i, i1 false
-  br i1 %or.cond.not.i94.i, label %88, label %mi_commit_mask_is_full.exit.i, !llvm.loop !101
+  %exitcond.i96.i = icmp ne i64 %91, 16
+  %or.cond.not.i97.i = select i1 %.not.i95.i, i1 %exitcond.i96.i, i1 false
+  br i1 %or.cond.not.i97.i, label %88, label %mi_commit_mask_is_full.exit.i, !llvm.loop !101
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %.179.i, i64 10
-  %93 = zext i1 %.not.i92.i to i8
+  %93 = zext i1 %.not.i95.i to i8
   store i8 %93, ptr %92, align 2, !tbaa !103
   %94 = icmp sgt i64 %32, -1
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 896
@@ -3310,126 +3304,132 @@ mi_commit_mask_is_full.exit.i:                    ; preds = %88
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 888
   %113 = load i64, ptr %112, align 8, !tbaa !51
   %114 = icmp ugt i64 %111, %113
-  br i1 %114, label %115, label %117
+  br i1 %114, label %115, label %mi_segments_track_size.exit.i
 
 115:                                              ; preds = %108
   store i64 %111, ptr %112, align 8, !tbaa !51
-  br label %117
+  br label %mi_segments_track_size.exit.i
 
-116:                                              ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  br label %mi_segment_init.exit
-
-117:                                              ; preds = %115, %108
+mi_segments_track_size.exit.i:                    ; preds = %115, %108
   call void @_mi_segment_map_allocated_at(ptr noundef nonnull %.179.i) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  %118 = getelementptr inbounds nuw i8, ptr %.179.i, i64 280
-  store atomic i64 0, ptr %118 release, align 8
-  %119 = load i8, ptr %6, align 1, !tbaa !63, !range !35, !noundef !36
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %125, label %121
+  %116 = getelementptr inbounds nuw i8, ptr %.179.i, i64 280
+  store atomic i64 0, ptr %116 release, align 8
+  %117 = load i8, ptr %6, align 1, !tbaa !63, !range !35, !noundef !36
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %123, label %119
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %.179.i, i64 288
-  %123 = mul nuw nsw i64 %30, 80
-  %124 = add nuw nsw i64 %123, 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %122, i8 0, i64 %124, i1 false)
-  br label %125
+.critedge.i:                                      ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
+  br label %mi_segment_init.exit
 
-125:                                              ; preds = %121, %117
-  %126 = getelementptr inbounds nuw i8, ptr %.179.i, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %126, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false), !tbaa.struct !76
-  %127 = call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #9
-  br i1 %127, label %128, label %.critedge89.i
+119:                                              ; preds = %mi_segments_track_size.exit.i
+  %120 = getelementptr inbounds nuw i8, ptr %.179.i, i64 288
+  %121 = mul nuw nsw i64 %30, 80
+  %122 = add nuw nsw i64 %121, 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %120, i8 0, i64 %122, i1 false)
+  br label %123
 
-128:                                              ; preds = %125
-  %129 = load i8, ptr %85, align 8, !tbaa !34, !range !35, !noundef !36
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %.critedge89.i, label %131
+123:                                              ; preds = %119, %mi_segments_track_size.exit.i
+  %124 = getelementptr inbounds nuw i8, ptr %.179.i, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %124, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false), !tbaa.struct !76
+  %125 = call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #9
+  br i1 %125, label %126, label %.critedge91.i
 
-131:                                              ; preds = %128
-  %132 = load i8, ptr %87, align 1, !tbaa !53, !range !35, !noundef !36
-  %133 = trunc nuw i8 %132 to i1
-  %134 = xor i8 %132, 1
-  %135 = getelementptr inbounds nuw i8, ptr %.179.i, i64 11
-  store i8 %134, ptr %135, align 1, !tbaa !73
-  br i1 %133, label %143, label %136
+126:                                              ; preds = %123
+  %127 = load i8, ptr %85, align 8, !tbaa !34, !range !35, !noundef !36
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %128, label %.critedge91.i, label %129
 
-136:                                              ; preds = %131
-  %137 = call i64 @_mi_clock_now() #9
-  %138 = call i64 @mi_option_get(i32 noundef 15) #9
-  %139 = add nsw i64 %138, %137
-  %140 = getelementptr inbounds nuw i8, ptr %.179.i, i64 16
-  store i64 %139, ptr %140, align 8, !tbaa !75
-  %141 = getelementptr inbounds nuw i8, ptr %.179.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %141, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !tbaa.struct !76
-  br label %145
+129:                                              ; preds = %126
+  %130 = load i8, ptr %87, align 1, !tbaa !53, !range !35, !noundef !36
+  %131 = trunc nuw i8 %130 to i1
+  %132 = xor i8 %130, 1
+  %133 = getelementptr inbounds nuw i8, ptr %.179.i, i64 11
+  store i8 %132, ptr %133, align 1, !tbaa !73
+  br i1 %131, label %141, label %134
 
-.critedge89.i:                                    ; preds = %128, %125
-  %142 = getelementptr inbounds nuw i8, ptr %.179.i, i64 11
-  store i8 0, ptr %142, align 1, !tbaa !73
+134:                                              ; preds = %129
+  %135 = call i64 @_mi_clock_now() #9
+  %136 = call i64 @mi_option_get(i32 noundef 15) #9
+  %137 = add nsw i64 %136, %135
+  %138 = getelementptr inbounds nuw i8, ptr %.179.i, i64 16
+  store i64 %137, ptr %138, align 8, !tbaa !75
+  %139 = getelementptr inbounds nuw i8, ptr %.179.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %139, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false), !tbaa.struct !76
   br label %143
 
-143:                                              ; preds = %.critedge89.i, %131
-  %144 = getelementptr inbounds nuw i8, ptr %.179.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %144, i8 0, i64 136, i1 false)
-  br label %145
+.critedge91.i:                                    ; preds = %126, %123
+  %140 = getelementptr inbounds nuw i8, ptr %.179.i, i64 11
+  store i8 0, ptr %140, align 1, !tbaa !73
+  br label %141
 
-145:                                              ; preds = %143, %136
-  %146 = getelementptr inbounds nuw i8, ptr %.179.i, i64 328
-  store i64 %30, ptr %146, align 8, !tbaa !47
-  %147 = getelementptr inbounds nuw i8, ptr %.179.i, i64 336
-  store i64 %25, ptr %147, align 8, !tbaa !45
-  %148 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !64
-  %149 = ptrtoint ptr %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr %.179.i, i64 352
-  store atomic i64 %149, ptr %150 seq_cst, align 8, !tbaa !46
-  %151 = ptrtoint ptr %.179.i to i64
-  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !104
-  %153 = xor i64 %152, %151
-  %154 = getelementptr inbounds nuw i8, ptr %.179.i, i64 320
-  store i64 %153, ptr %154, align 8, !tbaa !105
-  %155 = getelementptr inbounds nuw i8, ptr %.179.i, i64 360
-  store i64 %31, ptr %155, align 8, !tbaa !37
-  %156 = zext i1 %43 to i32
-  %157 = getelementptr inbounds nuw i8, ptr %.179.i, i64 344
-  store i32 %156, ptr %157, align 8, !tbaa !38
-  %158 = load ptr, ptr %95, align 8, !tbaa !30
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 160
-  call void @_mi_stat_increase(ptr noundef nonnull %159, i64 noundef %24) #9
-  %.val90.i = load ptr, ptr %95, align 8, !tbaa !30
-  %160 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.179.i, i64 noundef 0, i64 noundef %25, ptr %.val90.i)
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %mi_segment_init.exit, label %162
+141:                                              ; preds = %.critedge91.i, %129
+  %142 = getelementptr inbounds nuw i8, ptr %.179.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %142, i8 0, i64 136, i1 false)
+  br label %143
 
-162:                                              ; preds = %145
-  %163 = getelementptr inbounds nuw i8, ptr %.179.i, i64 312
-  store i64 0, ptr %163, align 8, !tbaa !22
-  %164 = load i32, ptr %157, align 8, !tbaa !38
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %169
+143:                                              ; preds = %141, %134
+  %144 = getelementptr inbounds nuw i8, ptr %.179.i, i64 328
+  store i64 %30, ptr %144, align 8, !tbaa !47
+  %145 = getelementptr inbounds nuw i8, ptr %.179.i, i64 336
+  store i64 %25, ptr %145, align 8, !tbaa !45
+  %146 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !64
+  %147 = ptrtoint ptr %146 to i64
+  %148 = getelementptr inbounds nuw i8, ptr %.179.i, i64 352
+  store atomic i64 %147, ptr %148 seq_cst, align 8, !tbaa !46
+  %149 = ptrtoint ptr %.179.i to i64
+  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !104
+  %151 = xor i64 %150, %149
+  %152 = getelementptr inbounds nuw i8, ptr %.179.i, i64 320
+  store i64 %151, ptr %152, align 8, !tbaa !105
+  %153 = getelementptr inbounds nuw i8, ptr %.179.i, i64 360
+  store i64 %31, ptr %153, align 8, !tbaa !37
+  %154 = zext i1 %43 to i32
+  %155 = getelementptr inbounds nuw i8, ptr %.179.i, i64 344
+  store i32 %154, ptr %155, align 8, !tbaa !38
+  %156 = load ptr, ptr %95, align 8, !tbaa !30
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 160
+  call void @_mi_stat_increase(ptr noundef nonnull %157, i64 noundef %24) #9
+  %.val93.i = load ptr, ptr %95, align 8, !tbaa !30
+  %158 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.179.i, i64 noundef 0, i64 noundef %25, ptr %.val93.i)
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %mi_segment_init.exit, label %160
 
-166:                                              ; preds = %162
-  %167 = load i64, ptr %155, align 8, !tbaa !37
-  %168 = sub i64 %167, %25
-  call fastcc void @mi_segment_span_free(ptr noundef nonnull %.179.i, i64 noundef %25, i64 noundef %168, ptr noundef nonnull %1)
+160:                                              ; preds = %143
+  %161 = getelementptr inbounds nuw i8, ptr %.179.i, i64 312
+  store i64 0, ptr %161, align 8, !tbaa !22
+  %162 = load i32, ptr %155, align 8, !tbaa !38
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %167
+
+164:                                              ; preds = %160
+  %165 = load i64, ptr %153, align 8, !tbaa !37
+  %166 = sub i64 %165, %25
+  call fastcc void @mi_segment_span_free(ptr noundef nonnull %.179.i, i64 noundef %25, i64 noundef %166, ptr noundef nonnull %1)
   br label %mi_segment_init.exit
 
-169:                                              ; preds = %162
-  %170 = sub nsw i64 %30, %25
+167:                                              ; preds = %160
+  %168 = sub nsw i64 %30, %25
   %.val.i = load ptr, ptr %95, align 8, !tbaa !30
-  %171 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.179.i, i64 noundef %25, i64 noundef %170, ptr %.val.i)
-  store ptr %171, ptr %3, align 8, !tbaa !88
+  %169 = call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.179.i, i64 noundef %25, i64 noundef %168, ptr %.val.i)
+  store ptr %169, ptr %3, align 8, !tbaa !88
   br label %mi_segment_init.exit
 
-mi_segment_init.exit:                             ; preds = %.thread5.i, %116, %145, %166, %169
-  %.4.i = phi ptr [ null, %116 ], [ null, %145 ], [ %.179.i, %169 ], [ %.179.i, %166 ], [ null, %.thread5.i ]
+.critedge89.i:                                    ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
+  br label %mi_segment_init.exit
+
+mi_segment_init.exit:                             ; preds = %.critedge.i, %143, %164, %167, %.critedge89.i
+  %.4.i = phi ptr [ null, %.critedge.i ], [ null, %.critedge89.i ], [ null, %143 ], [ %.179.i, %167 ], [ %.179.i, %164 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9

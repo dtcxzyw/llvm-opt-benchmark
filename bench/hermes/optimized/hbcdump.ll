@@ -5005,7 +5005,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %call.i18.us.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second.us.i) #21
   %call2.i.us.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second.us.i) #21
   %cmp.i.us.i = icmp eq i64 %call2.i.us.i, 0
-  br i1 %cmp.i.us.i, label %if.then, label %for.inc.us.i
+  br i1 %cmp.i.us.i, label %if.then.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %__begin2.sroa.0.0.us.i = load ptr, ptr %__begin2.sroa.0.012.us.i, align 8
@@ -5023,21 +5023,21 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 land.rhs.i.i:                                     ; preds = %for.body.i
   %bcmp.i = tail call i32 @bcmp(ptr %call.i18.i, ptr %call.i, i64 %call2.i)
   %0 = icmp eq i32 %bcmp.i, 0
-  br i1 %0, label %if.then, label %for.inc.i
+  br i1 %0, label %if.then.i, label %for.inc.i
 
-for.inc.i:                                        ; preds = %land.rhs.i.i, %for.body.i
-  %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.012.i, align 8
-  %cmp.i6.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
-  br i1 %cmp.i6.not.i, label %for.inc, label %for.body.i
-
-if.then:                                          ; preds = %land.rhs.i.i, %for.body.us.i
+if.then.i:                                        ; preds = %land.rhs.i.i, %for.body.us.i
   %.us-phi.i = phi ptr [ %__begin2.sroa.0.012.us.i, %for.body.us.i ], [ %__begin2.sroa.0.012.i, %land.rhs.i.i ]
   %add.ptr.i.le.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %1 = load i32, ptr %add.ptr.i.le.i, align 4
   tail call void @_ZN6hermes15ProfileAnalyzer33checkAndReportAccuracyForFunctionEj(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %1) #21
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %for.body, %if.then
+for.inc.i:                                        ; preds = %land.rhs.i.i, %for.body.i
+  %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.012.i, align 8
+  %cmp.i6.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
+  br i1 %cmp.i6.not.i, label %for.inc, label %for.body.i
+
+for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %for.body, %if.then.i
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.011, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body

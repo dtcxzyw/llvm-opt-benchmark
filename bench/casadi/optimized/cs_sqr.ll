@@ -71,8 +71,8 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 34:                                               ; preds = %32
   %35 = tail call fastcc i32 @cs_vcount(ptr noundef %22, ptr noundef %11)
-  %.not66 = icmp eq i32 %35, 0
-  br i1 %.not66, label %.critedge, label %36
+  %.not67 = icmp eq i32 %35, 0
+  br i1 %.not67, label %.critedge, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -111,8 +111,8 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 52:                                               ; preds = %47
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %30, %32, %34, %52, %47
-  %53 = phi i1 [ true, %47 ], [ %48, %52 ], [ true, %34 ], [ true, %32 ], [ true, %30 ], [ true, %21 ]
+.critedge:                                        ; preds = %32, %30, %21, %34, %52, %47
+  %53 = phi i1 [ true, %47 ], [ %48, %52 ], [ true, %34 ], [ true, %21 ], [ true, %30 ], [ true, %32 ]
   br i1 %.not57, label %54, label %66
 
 54:                                               ; preds = %.critedge

@@ -1255,19 +1255,16 @@ define dso_local void @TouchSocketFiles() local_unnamed_addr #9 {
   %1 = load ptr, ptr @sock_paths, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph13, label %._crit_edge
+  br i1 %5, label %.lr.ph11, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph13, %.lr.ph, %0
-  ret void
-
-.lr.ph13:                                         ; preds = %.lr.ph, %.lr.ph13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph13 ], [ 0, %.lr.ph ]
+.lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
@@ -1276,7 +1273,10 @@ define dso_local void @TouchSocketFiles() local_unnamed_addr #9 {
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph13, label %._crit_edge
+  br i1 %12, label %.lr.ph11, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph11, %.lr.ph, %0
+  ret void
 }
 
 ; Function Attrs: nofree nounwind
@@ -1287,20 +1287,16 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #9 {
   %1 = load ptr, ptr @sock_paths, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph13, label %._crit_edge
+  br i1 %5, label %.lr.ph11, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph13, %.lr.ph, %0
-  store ptr null, ptr @sock_paths, align 8
-  ret void
-
-.lr.ph13:                                         ; preds = %.lr.ph, %.lr.ph13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph13 ], [ 0, %.lr.ph ]
+.lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
@@ -1309,7 +1305,11 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #9 {
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph13, label %._crit_edge
+  br i1 %12, label %.lr.ph11, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph11, %.lr.ph, %0
+  store ptr null, ptr @sock_paths, align 8
+  ret void
 }
 
 ; Function Attrs: nofree nounwind

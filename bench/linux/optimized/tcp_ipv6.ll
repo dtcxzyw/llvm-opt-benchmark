@@ -1623,15 +1623,15 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   %55 = load i8, ptr %9, align 8
   %56 = lshr i8 %55, 5
   %57 = and i8 %56, 3
-  switch i8 %57, label %..critedge23_crit_edge [
-    i8 1, label %.critedge
+  switch i8 %57, label %..critedge_crit_edge [
+    i8 1, label %.critedge23
     i8 3, label %58
   ]
 
-..critedge23_crit_edge:                           ; preds = %51
+..critedge_crit_edge:                             ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.critedge23
+  br label %.critedge
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1646,16 +1646,16 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   %68 = trunc i64 %67 to i32
   %69 = add i32 %68, %61
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.critedge23, label %.critedge
+  br i1 %70, label %.critedge, label %.critedge23
 
-.critedge:                                        ; preds = %51, %58
+.critedge23:                                      ; preds = %51, %58
   %71 = or i24 %53, 32768
   store i24 %71, ptr %52, align 1
   %72 = and i8 %55, 96
   %73 = icmp eq i8 %72, 32
   br i1 %73, label %74, label %.critedge25
 
-74:                                               ; preds = %.critedge
+74:                                               ; preds = %.critedge23
   %75 = trunc i24 %53 to i8
   %76 = and i8 %75, 96
   %77 = icmp eq i8 %76, 0
@@ -1675,8 +1675,8 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   store i24 %85, ptr %52, align 1
   br label %.critedge25
 
-.critedge23:                                      ; preds = %..critedge23_crit_edge, %58
-  %86 = phi ptr [ %.pre, %..critedge23_crit_edge ], [ %64, %58 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %58
+  %86 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %64, %58 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %88 = load i16, ptr %87, align 4
   %89 = zext i16 %88 to i64
@@ -1692,7 +1692,7 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   %99 = icmp eq i8 %98, 64
   br i1 %99, label %100, label %110
 
-100:                                              ; preds = %.critedge23
+100:                                              ; preds = %.critedge
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %102 = load i32, ptr %101, align 8
   %103 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %96, i32 %102) #16, !srcloc !33
@@ -1708,7 +1708,7 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   store i24 %109, ptr %52, align 1
   br label %.critedge25
 
-110:                                              ; preds = %100, %.critedge23
+110:                                              ; preds = %100, %.critedge
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %96, ptr %111, align 8
   %112 = load i32, ptr %17, align 8
@@ -1725,7 +1725,7 @@ define dso_local range(i32 -1, 1) i32 @tcp_v6_rcv(ptr noundef %0) #1 align 16 {
   store i24 %120, ptr %52, align 1
   br i1 %116, label %.critedge25, label %375
 
-.critedge25:                                      ; preds = %110, %80, %78, %.critedge, %.critedge31, %114
+.critedge25:                                      ; preds = %110, %80, %78, %.critedge23, %.critedge31, %114
   %121 = load ptr, ptr %30, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %123 = load ptr, ptr %122, align 8

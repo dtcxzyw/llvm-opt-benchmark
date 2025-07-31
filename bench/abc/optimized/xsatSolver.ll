@@ -3915,7 +3915,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
 
 410:                                              ; preds = %410, %.lr.ph.i208.i
   %indvars.iv.i209.i = phi i64 [ 1, %.lr.ph.i208.i ], [ %indvars.iv.next.i210.i, %410 ]
-  %.0129.i.i = phi i32 [ 0, %.lr.ph.i208.i ], [ %419, %410 ]
+  %.0128.i.i = phi i32 [ 0, %.lr.ph.i208.i ], [ %419, %410 ]
   %411 = getelementptr inbounds nuw i32, ptr %.val169.i, i64 %indvars.iv.i209.i
   %412 = load i32, ptr %411, align 4, !tbaa !30
   %413 = ashr i32 %412, 1
@@ -3924,7 +3924,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
   %416 = load i32, ptr %415, align 4, !tbaa !30
   %417 = and i32 %416, 31
   %418 = shl nuw i32 1, %417
-  %419 = or i32 %418, %.0129.i.i
+  %419 = or i32 %418, %.0128.i.i
   %indvars.iv.next.i210.i = add nuw nsw i64 %indvars.iv.i209.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i210.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.lr.ph.i.i200.i, label %410, !llvm.loop !143
@@ -3934,7 +3934,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
   br i1 %420, label %.lr.ph.i.i200.i, label %.thread.i.i
 
 .lr.ph.i.i200.i:                                  ; preds = %410, %._crit_edge.i.i
-  %.0.lcssa169.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %419, %410 ]
+  %.0.lcssa168.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %419, %410 ]
   %421 = load ptr, ptr %26, align 8, !tbaa !144
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 4
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %421, i64 8
@@ -4015,13 +4015,13 @@ Vec_IntPush.exit.i.i.i:                           ; preds = %447, %Vec_IntGrow.e
 
 Vec_IntAppend.exit.i.i:                           ; preds = %Vec_IntPush.exit.i.i.i
   %456 = icmp sgt i32 %.val.i.i203.i, 1
-  br i1 %456, label %.lr.ph135.i.i, label %.thread.i.i
+  br i1 %456, label %.lr.ph134.i.i, label %.thread.i.i
 
-.lr.ph135.i.i:                                    ; preds = %Vec_IntAppend.exit.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i
-  %indvars.iv156.i.i = phi i64 [ %indvars.iv.next157.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i ], [ 1, %Vec_IntAppend.exit.i.i ]
-  %.085132.i.i = phi i32 [ %.186.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i ], [ 1, %Vec_IntAppend.exit.i.i ]
+.lr.ph134.i.i:                                    ; preds = %Vec_IntAppend.exit.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i
+  %indvars.iv155.i.i = phi i64 [ %indvars.iv.next156.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i ], [ 1, %Vec_IntAppend.exit.i.i ]
+  %.085131.i.i = phi i32 [ %.186.i.i, %xSAT_SolverIsLitRemovable.exit.thread.i.i ], [ 1, %Vec_IntAppend.exit.i.i ]
   %457 = load ptr, ptr %13, align 8, !tbaa !72
-  %458 = getelementptr inbounds nuw i32, ptr %.val169.i, i64 %indvars.iv156.i.i
+  %458 = getelementptr inbounds nuw i32, ptr %.val169.i, i64 %indvars.iv155.i.i
   %459 = load i32, ptr %458, align 4, !tbaa !30
   %460 = ashr i32 %459, 1
   %461 = getelementptr i8, ptr %457, i64 8
@@ -4032,10 +4032,10 @@ Vec_IntAppend.exit.i.i:                           ; preds = %Vec_IntPush.exit.i.
   %465 = icmp eq i32 %464, -1
   br i1 %465, label %643, label %466
 
-466:                                              ; preds = %.lr.ph135.i.i
+466:                                              ; preds = %.lr.ph134.i.i
   %467 = load ptr, ptr %26, align 8, !tbaa !144
   %468 = getelementptr i8, ptr %467, i64 4
-  %.val68.i.i.i = load i32, ptr %468, align 4, !tbaa !23
+  %.val70.i.i.i = load i32, ptr %468, align 4, !tbaa !23
   %469 = load ptr, ptr %27, align 8, !tbaa !146
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 4
   store i32 0, ptr %470, align 4, !tbaa !23
@@ -4052,7 +4052,7 @@ Vec_IntAppend.exit.i.i:                           ; preds = %Vec_IntPush.exit.i.
 476:                                              ; preds = %475
   %477 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %474, i64 noundef 64) #19
   %.pre.pre.i.i.i = load i32, ptr %470, align 4, !tbaa !23
-  %.pre109.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !146
+  %.pre108.pre.i.i.i = load ptr, ptr %27, align 8, !tbaa !146
   br label %Vec_IntGrow.exit.i.i116.i.i
 
 478:                                              ; preds = %475
@@ -4060,7 +4060,7 @@ Vec_IntAppend.exit.i.i:                           ; preds = %Vec_IntPush.exit.i.
   br label %Vec_IntGrow.exit.i.i116.i.i
 
 Vec_IntGrow.exit.i.i116.i.i:                      ; preds = %478, %476
-  %.pre109.i.i.i = phi ptr [ %.pre109.pre.i.i.i, %476 ], [ %469, %478 ]
+  %.pre108.i.i.i = phi ptr [ %.pre108.pre.i.i.i, %476 ], [ %469, %478 ]
   %.pre.i.i.i = phi i32 [ %.pre.pre.i.i.i, %476 ], [ 0, %478 ]
   %480 = phi ptr [ %477, %476 ], [ %479, %478 ]
   store ptr %480, ptr %473, align 8, !tbaa !27
@@ -4068,7 +4068,7 @@ Vec_IntGrow.exit.i.i116.i.i:                      ; preds = %478, %476
   br label %Vec_IntPush.exit.i110.i.i
 
 Vec_IntPush.exit.i110.i.i:                        ; preds = %Vec_IntGrow.exit.i.i116.i.i, %466
-  %481 = phi ptr [ %.pre109.i.i.i, %Vec_IntGrow.exit.i.i116.i.i ], [ %469, %466 ]
+  %481 = phi ptr [ %.pre108.i.i.i, %Vec_IntGrow.exit.i.i116.i.i ], [ %469, %466 ]
   %482 = phi i32 [ %.pre.i.i.i, %Vec_IntGrow.exit.i.i116.i.i ], [ 0, %466 ]
   %483 = phi ptr [ %480, %Vec_IntGrow.exit.i.i116.i.i ], [ %474, %466 ]
   %484 = add nsw i32 %482, 1
@@ -4077,51 +4077,51 @@ Vec_IntPush.exit.i110.i.i:                        ; preds = %Vec_IntGrow.exit.i.
   %486 = getelementptr inbounds i32, ptr %483, i64 %485
   store i32 %460, ptr %486, align 4, !tbaa !30
   %487 = getelementptr i8, ptr %481, i64 4
-  %.val6797.i.i.i = load i32, ptr %487, align 4, !tbaa !23
-  %.not98.i.i.i = icmp eq i32 %.val6797.i.i.i, 0
-  br i1 %.not98.i.i.i, label %xSAT_SolverIsLitRemovable.exit.thread.i.i, label %.lr.ph100.i.i.i
+  %.val6996.i.i.i = load i32, ptr %487, align 4, !tbaa !23
+  %.not97.i.i.i = icmp eq i32 %.val6996.i.i.i, 0
+  br i1 %.not97.i.i.i, label %xSAT_SolverIsLitRemovable.exit.thread.i.i, label %.lr.ph99.i.i.i
 
-.critedge64.loopexit.loopexit.i.i.i:              ; preds = %639
-  %.pre111.i.i.i = load ptr, ptr %27, align 8, !tbaa !146
-  br label %.critedge64.loopexit.i.i.i
+.critedge66.loopexit.loopexit.i.i.i:              ; preds = %639
+  %.pre110.i.i.i = load ptr, ptr %27, align 8, !tbaa !146
+  br label %.critedge66.loopexit.i.i.i
 
-.critedge64.loopexit.i.i.i:                       ; preds = %528, %.critedge64.loopexit.loopexit.i.i.i
-  %488 = phi ptr [ %.pre111.i.i.i, %.critedge64.loopexit.loopexit.i.i.i ], [ %490, %528 ]
+.critedge66.loopexit.i.i.i:                       ; preds = %528, %.critedge66.loopexit.loopexit.i.i.i
+  %488 = phi ptr [ %.pre110.i.i.i, %.critedge66.loopexit.loopexit.i.i.i ], [ %490, %528 ]
   %489 = getelementptr i8, ptr %488, i64 4
-  %.val67.i.i.i = load i32, ptr %489, align 4, !tbaa !23
-  %.not.i.i206.i = icmp eq i32 %.val67.i.i.i, 0
-  br i1 %.not.i.i206.i, label %xSAT_SolverIsLitRemovable.exit.thread.i.i, label %.lr.ph100.i.i.i
+  %.val69.i.i.i = load i32, ptr %489, align 4, !tbaa !23
+  %.not.i.i206.i = icmp eq i32 %.val69.i.i.i, 0
+  br i1 %.not.i.i206.i, label %xSAT_SolverIsLitRemovable.exit.thread.i.i, label %.lr.ph99.i.i.i
 
-.lr.ph100.i.i.i:                                  ; preds = %Vec_IntPush.exit.i110.i.i, %.critedge64.loopexit.i.i.i
-  %490 = phi ptr [ %488, %.critedge64.loopexit.i.i.i ], [ %481, %Vec_IntPush.exit.i110.i.i ]
-  %.val6799.i.i.i = phi i32 [ %.val67.i.i.i, %.critedge64.loopexit.i.i.i ], [ %.val6797.i.i.i, %Vec_IntPush.exit.i110.i.i ]
-  %491 = phi ptr [ %489, %.critedge64.loopexit.i.i.i ], [ %487, %Vec_IntPush.exit.i110.i.i ]
+.lr.ph99.i.i.i:                                   ; preds = %Vec_IntPush.exit.i110.i.i, %.critedge66.loopexit.i.i.i
+  %490 = phi ptr [ %488, %.critedge66.loopexit.i.i.i ], [ %481, %Vec_IntPush.exit.i110.i.i ]
+  %.val6998.i.i.i = phi i32 [ %.val69.i.i.i, %.critedge66.loopexit.i.i.i ], [ %.val6996.i.i.i, %Vec_IntPush.exit.i110.i.i ]
+  %491 = phi ptr [ %489, %.critedge66.loopexit.i.i.i ], [ %487, %Vec_IntPush.exit.i110.i.i ]
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %493 = load ptr, ptr %492, align 8, !tbaa !27
-  %494 = add nsw i32 %.val6799.i.i.i, -1
+  %494 = add nsw i32 %.val6998.i.i.i, -1
   store i32 %494, ptr %491, align 4, !tbaa !23
   %495 = sext i32 %494 to i64
   %496 = getelementptr inbounds i32, ptr %493, i64 %495
   %497 = load i32, ptr %496, align 4, !tbaa !30
   %498 = load ptr, ptr %13, align 8, !tbaa !72
   %499 = getelementptr i8, ptr %498, i64 8
-  %.val73.i.i.i = load ptr, ptr %499, align 8, !tbaa !27
+  %.val75.i.i.i = load ptr, ptr %499, align 8, !tbaa !27
   %500 = sext i32 %497 to i64
-  %501 = getelementptr inbounds i32, ptr %.val73.i.i.i, i64 %500
+  %501 = getelementptr inbounds i32, ptr %.val75.i.i.i, i64 %500
   %502 = load i32, ptr %501, align 4, !tbaa !30
   %.not.i.i.i.i204.i = icmp eq i32 %502, -1
   br i1 %.not.i.i.i.i204.i, label %xSAT_SolverReadClause.exit.i.i205.i, label %503
 
-503:                                              ; preds = %.lr.ph100.i.i.i
-  %.val74.i.i.i = load ptr, ptr %0, align 8, !tbaa !41
-  %504 = getelementptr inbounds nuw i8, ptr %.val74.i.i.i, i64 16
+503:                                              ; preds = %.lr.ph99.i.i.i
+  %.val76.i.i.i = load ptr, ptr %0, align 8, !tbaa !41
+  %504 = getelementptr inbounds nuw i8, ptr %.val76.i.i.i, i64 16
   %505 = load ptr, ptr %504, align 8, !tbaa !46
   %506 = sext i32 %502 to i64
   %507 = getelementptr inbounds i32, ptr %505, i64 %506
   br label %xSAT_SolverReadClause.exit.i.i205.i
 
-xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i.i
-  %508 = phi ptr [ %507, %503 ], [ null, %.lr.ph100.i.i.i ]
+xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph99.i.i.i
+  %508 = phi ptr [ %507, %503 ], [ null, %.lr.ph99.i.i.i ]
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 4
   %511 = load i32, ptr %510, align 4, !tbaa !47
@@ -4133,9 +4133,9 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
   %515 = load i32, ptr %509, align 4, !tbaa !30
   %516 = ashr i32 %515, 1
   %517 = getelementptr i8, ptr %514, i64 8
-  %.val65.i.i.i = load ptr, ptr %517, align 8, !tbaa !28
+  %.val67.i.i.i = load ptr, ptr %517, align 8, !tbaa !28
   %518 = sext i32 %516 to i64
-  %519 = getelementptr inbounds i8, ptr %.val65.i.i.i, i64 %518
+  %519 = getelementptr inbounds i8, ptr %.val67.i.i.i, i64 %518
   %520 = load i8, ptr %519, align 1, !tbaa !29
   %521 = sext i8 %520 to i32
   %522 = and i32 %515, 1
@@ -4151,8 +4151,8 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
   br label %.lr.ph.i111.i.i.preheader
 
 528:                                              ; preds = %xSAT_SolverReadClause.exit.i.i205.i
-  %.not6295.i.i.i = icmp sgt i32 %511, 1
-  br i1 %.not6295.i.i.i, label %.lr.ph.i111.i.i.preheader, label %.critedge64.loopexit.i.i.i
+  %.not6294.i.i.i = icmp sgt i32 %511, 1
+  br i1 %.not6294.i.i.i, label %.lr.ph.i111.i.i.preheader, label %.critedge66.loopexit.i.i.i
 
 .lr.ph.i111.i.i.preheader:                        ; preds = %528, %525, %513
   br label %.lr.ph.i111.i.i
@@ -4175,8 +4175,8 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
 538:                                              ; preds = %.lr.ph.i111.i.i
   %539 = load ptr, ptr %19, align 8, !tbaa !51
   %540 = getelementptr i8, ptr %539, i64 8
-  %.val72.i.i.i = load ptr, ptr %540, align 8, !tbaa !27
-  %541 = getelementptr inbounds i32, ptr %.val72.i.i.i, i64 %535
+  %.val74.i.i.i = load ptr, ptr %540, align 8, !tbaa !27
+  %541 = getelementptr inbounds i32, ptr %.val74.i.i.i, i64 %535
   %542 = load i32, ptr %541, align 4, !tbaa !30
   %.not59.i.i.i = icmp eq i32 %542, 0
   br i1 %.not59.i.i.i, label %639, label %543
@@ -4184,8 +4184,8 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
 543:                                              ; preds = %538
   %544 = load ptr, ptr %13, align 8, !tbaa !72
   %545 = getelementptr i8, ptr %544, i64 8
-  %.val71.i.i.i = load ptr, ptr %545, align 8, !tbaa !27
-  %546 = getelementptr inbounds i32, ptr %.val71.i.i.i, i64 %535
+  %.val73.i.i.i = load ptr, ptr %545, align 8, !tbaa !27
+  %546 = getelementptr inbounds i32, ptr %.val73.i.i.i, i64 %535
   %547 = load i32, ptr %546, align 4, !tbaa !30
   %.not60.i.i.i = icmp eq i32 %547, -1
   br i1 %.not60.i.i.i, label %621, label %548
@@ -4193,7 +4193,7 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
 548:                                              ; preds = %543
   %549 = and i32 %542, 31
   %550 = shl nuw i32 1, %549
-  %551 = and i32 %550, %.0.lcssa169.i.i
+  %551 = and i32 %550, %.0.lcssa168.i.i
   %.not61.i.i.i = icmp eq i32 %551, 0
   br i1 %.not61.i.i.i, label %621, label %552
 
@@ -4203,12 +4203,12 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
   %555 = load i32, ptr %554, align 4, !tbaa !23
   %556 = load i32, ptr %553, align 8, !tbaa !26
   %557 = icmp eq i32 %555, %556
-  br i1 %557, label %558, label %.Vec_IntGrow.exit10_crit_edge.i77.i.i.i
+  br i1 %557, label %558, label %.Vec_IntGrow.exit10_crit_edge.i79.i.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i77.i.i.i:          ; preds = %552
-  %.phi.trans.insert.i78.i.i.i = getelementptr inbounds nuw i8, ptr %553, i64 8
-  %.pre.i79.i.i.i = load ptr, ptr %.phi.trans.insert.i78.i.i.i, align 8, !tbaa !27
-  br label %Vec_IntPush.exit83.i.i.i
+.Vec_IntGrow.exit10_crit_edge.i79.i.i.i:          ; preds = %552
+  %.phi.trans.insert.i80.i.i.i = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %.pre.i81.i.i.i = load ptr, ptr %.phi.trans.insert.i80.i.i.i, align 8, !tbaa !27
+  br label %Vec_IntPush.exit85.i.i.i
 
 558:                                              ; preds = %552
   %559 = icmp slt i32 %555, 16
@@ -4217,31 +4217,31 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
 560:                                              ; preds = %558
   %561 = getelementptr inbounds nuw i8, ptr %553, i64 8
   %562 = load ptr, ptr %561, align 8, !tbaa !27
-  %.not9.i.i81.i.i.i = icmp eq ptr %562, null
-  br i1 %.not9.i.i81.i.i.i, label %565, label %563
+  %.not9.i.i83.i.i.i = icmp eq ptr %562, null
+  br i1 %.not9.i.i83.i.i.i, label %565, label %563
 
 563:                                              ; preds = %560
   %564 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %562, i64 noundef 64) #19
-  br label %Vec_IntGrow.exit.i82.i.i.i
+  br label %Vec_IntGrow.exit.i84.i.i.i
 
 565:                                              ; preds = %560
   %566 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
-  br label %Vec_IntGrow.exit.i82.i.i.i
+  br label %Vec_IntGrow.exit.i84.i.i.i
 
-Vec_IntGrow.exit.i82.i.i.i:                       ; preds = %565, %563
+Vec_IntGrow.exit.i84.i.i.i:                       ; preds = %565, %563
   %567 = phi ptr [ %564, %563 ], [ %566, %565 ]
   store ptr %567, ptr %561, align 8, !tbaa !27
   store i32 16, ptr %553, align 8, !tbaa !26
-  br label %Vec_IntPush.exit83.i.i.i
+  br label %Vec_IntPush.exit85.i.i.i
 
 568:                                              ; preds = %558
   %569 = shl nuw nsw i32 %555, 1
   %570 = getelementptr inbounds nuw i8, ptr %553, i64 8
   %571 = load ptr, ptr %570, align 8, !tbaa !27
-  %.not9.i9.i80.i.i.i = icmp eq ptr %571, null
+  %.not9.i9.i82.i.i.i = icmp eq ptr %571, null
   %572 = zext nneg i32 %569 to i64
   %573 = shl nuw nsw i64 %572, 2
-  br i1 %.not9.i9.i80.i.i.i, label %576, label %574
+  br i1 %.not9.i9.i82.i.i.i, label %576, label %574
 
 574:                                              ; preds = %568
   %575 = tail call ptr @realloc(ptr noundef nonnull %571, i64 noundef %573) #19
@@ -4255,10 +4255,10 @@ Vec_IntGrow.exit.i82.i.i.i:                       ; preds = %565, %563
   %579 = phi ptr [ %575, %574 ], [ %577, %576 ]
   store ptr %579, ptr %570, align 8, !tbaa !27
   store i32 %569, ptr %553, align 8, !tbaa !26
-  br label %Vec_IntPush.exit83.i.i.i
+  br label %Vec_IntPush.exit85.i.i.i
 
-Vec_IntPush.exit83.i.i.i:                         ; preds = %578, %Vec_IntGrow.exit.i82.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i77.i.i.i
-  %580 = phi ptr [ %.pre.i79.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i77.i.i.i ], [ %579, %578 ], [ %567, %Vec_IntGrow.exit.i82.i.i.i ]
+Vec_IntPush.exit85.i.i.i:                         ; preds = %578, %Vec_IntGrow.exit.i84.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i79.i.i.i
+  %580 = phi ptr [ %.pre.i81.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i79.i.i.i ], [ %579, %578 ], [ %567, %Vec_IntGrow.exit.i84.i.i.i ]
   %581 = load i32, ptr %554, align 4, !tbaa !23
   %582 = add nsw i32 %581, 1
   store i32 %582, ptr %554, align 4, !tbaa !23
@@ -4271,45 +4271,45 @@ Vec_IntPush.exit83.i.i.i:                         ; preds = %578, %Vec_IntGrow.e
   %588 = load i32, ptr %587, align 4, !tbaa !23
   %589 = load i32, ptr %585, align 8, !tbaa !26
   %590 = icmp eq i32 %588, %589
-  br i1 %590, label %591, label %.Vec_IntGrow.exit10_crit_edge.i84.i.i.i
+  br i1 %590, label %591, label %.Vec_IntGrow.exit10_crit_edge.i86.i.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i84.i.i.i:          ; preds = %Vec_IntPush.exit83.i.i.i
-  %.phi.trans.insert.i85.i.i.i = getelementptr inbounds nuw i8, ptr %585, i64 8
-  %.pre.i86.i.i.i = load ptr, ptr %.phi.trans.insert.i85.i.i.i, align 8, !tbaa !27
-  br label %Vec_IntPush.exit90.i.i.i
+.Vec_IntGrow.exit10_crit_edge.i86.i.i.i:          ; preds = %Vec_IntPush.exit85.i.i.i
+  %.phi.trans.insert.i87.i.i.i = getelementptr inbounds nuw i8, ptr %585, i64 8
+  %.pre.i88.i.i.i = load ptr, ptr %.phi.trans.insert.i87.i.i.i, align 8, !tbaa !27
+  br label %Vec_IntPush.exit92.i.i.i
 
-591:                                              ; preds = %Vec_IntPush.exit83.i.i.i
+591:                                              ; preds = %Vec_IntPush.exit85.i.i.i
   %592 = icmp slt i32 %588, 16
   br i1 %592, label %593, label %601
 
 593:                                              ; preds = %591
   %594 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %595 = load ptr, ptr %594, align 8, !tbaa !27
-  %.not9.i.i88.i.i.i = icmp eq ptr %595, null
-  br i1 %.not9.i.i88.i.i.i, label %598, label %596
+  %.not9.i.i90.i.i.i = icmp eq ptr %595, null
+  br i1 %.not9.i.i90.i.i.i, label %598, label %596
 
 596:                                              ; preds = %593
   %597 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %595, i64 noundef 64) #19
-  br label %Vec_IntGrow.exit.i89.i.i.i
+  br label %Vec_IntGrow.exit.i91.i.i.i
 
 598:                                              ; preds = %593
   %599 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
-  br label %Vec_IntGrow.exit.i89.i.i.i
+  br label %Vec_IntGrow.exit.i91.i.i.i
 
-Vec_IntGrow.exit.i89.i.i.i:                       ; preds = %598, %596
+Vec_IntGrow.exit.i91.i.i.i:                       ; preds = %598, %596
   %600 = phi ptr [ %597, %596 ], [ %599, %598 ]
   store ptr %600, ptr %594, align 8, !tbaa !27
   store i32 16, ptr %585, align 8, !tbaa !26
-  br label %Vec_IntPush.exit90.i.i.i
+  br label %Vec_IntPush.exit92.i.i.i
 
 601:                                              ; preds = %591
   %602 = shl nuw nsw i32 %588, 1
   %603 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %604 = load ptr, ptr %603, align 8, !tbaa !27
-  %.not9.i9.i87.i.i.i = icmp eq ptr %604, null
+  %.not9.i9.i89.i.i.i = icmp eq ptr %604, null
   %605 = zext nneg i32 %602 to i64
   %606 = shl nuw nsw i64 %605, 2
-  br i1 %.not9.i9.i87.i.i.i, label %609, label %607
+  br i1 %.not9.i9.i89.i.i.i, label %609, label %607
 
 607:                                              ; preds = %601
   %608 = tail call ptr @realloc(ptr noundef nonnull %604, i64 noundef %606) #19
@@ -4323,10 +4323,10 @@ Vec_IntGrow.exit.i89.i.i.i:                       ; preds = %598, %596
   %612 = phi ptr [ %608, %607 ], [ %610, %609 ]
   store ptr %612, ptr %603, align 8, !tbaa !27
   store i32 %602, ptr %585, align 8, !tbaa !26
-  br label %Vec_IntPush.exit90.i.i.i
+  br label %Vec_IntPush.exit92.i.i.i
 
-Vec_IntPush.exit90.i.i.i:                         ; preds = %611, %Vec_IntGrow.exit.i89.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i84.i.i.i
-  %613 = phi ptr [ %.pre.i86.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i84.i.i.i ], [ %612, %611 ], [ %600, %Vec_IntGrow.exit.i89.i.i.i ]
+Vec_IntPush.exit92.i.i.i:                         ; preds = %611, %Vec_IntGrow.exit.i91.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i86.i.i.i
+  %613 = phi ptr [ %.pre.i88.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i86.i.i.i ], [ %612, %611 ], [ %600, %Vec_IntGrow.exit.i91.i.i.i ]
   %614 = load i32, ptr %587, align 4, !tbaa !23
   %615 = add nsw i32 %614, 1
   store i32 %615, ptr %587, align 4, !tbaa !23
@@ -4335,88 +4335,88 @@ Vec_IntPush.exit90.i.i.i:                         ; preds = %611, %Vec_IntGrow.e
   store i32 %586, ptr %617, align 4, !tbaa !30
   %618 = load ptr, ptr %14, align 8, !tbaa !135
   %619 = getelementptr i8, ptr %618, i64 8
-  %.val76.i.i.i = load ptr, ptr %619, align 8, !tbaa !28
-  %620 = getelementptr inbounds i8, ptr %.val76.i.i.i, i64 %535
+  %.val78.i.i.i = load ptr, ptr %619, align 8, !tbaa !28
+  %620 = getelementptr inbounds i8, ptr %.val78.i.i.i, i64 %535
   store i8 1, ptr %620, align 1, !tbaa !29
-  %.pre110.i.i.i = load i32, ptr %510, align 4, !tbaa !47
+  %.pre109.i.i.i = load i32, ptr %510, align 4, !tbaa !47
   br label %639
 
 621:                                              ; preds = %548, %543
   %622 = load ptr, ptr %26, align 8, !tbaa !144
   %623 = getelementptr i8, ptr %622, i64 4
-  %.val66102.i.i.i = load i32, ptr %623, align 4, !tbaa !23
-  %624 = icmp slt i32 %.val68.i.i.i, %.val66102.i.i.i
-  br i1 %624, label %.lr.ph104.preheader.i.i.i, label %xSAT_SolverIsLitRemovable.exit.i.i
+  %.val68101.i.i.i = load i32, ptr %623, align 4, !tbaa !23
+  %624 = icmp slt i32 %.val70.i.i.i, %.val68101.i.i.i
+  br i1 %624, label %.lr.ph103.preheader.i.i.i, label %xSAT_SolverIsLitRemovable.exit.i.i
 
-.lr.ph104.preheader.i.i.i:                        ; preds = %621
-  %625 = sext i32 %.val68.i.i.i to i64
-  br label %.lr.ph104.i.i.i
+.lr.ph103.preheader.i.i.i:                        ; preds = %621
+  %625 = sext i32 %.val70.i.i.i to i64
+  br label %.lr.ph103.i.i.i
 
-.lr.ph104.i.i.i:                                  ; preds = %.lr.ph104.i.i.i, %.lr.ph104.preheader.i.i.i
-  %indvars.iv106.i.i.i = phi i64 [ %625, %.lr.ph104.preheader.i.i.i ], [ %indvars.iv.next107.i.i.i, %.lr.ph104.i.i.i ]
-  %626 = phi ptr [ %622, %.lr.ph104.preheader.i.i.i ], [ %635, %.lr.ph104.i.i.i ]
+.lr.ph103.i.i.i:                                  ; preds = %.lr.ph103.i.i.i, %.lr.ph103.preheader.i.i.i
+  %indvars.iv105.i.i.i = phi i64 [ %625, %.lr.ph103.preheader.i.i.i ], [ %indvars.iv.next106.i.i.i, %.lr.ph103.i.i.i ]
+  %626 = phi ptr [ %622, %.lr.ph103.preheader.i.i.i ], [ %635, %.lr.ph103.i.i.i ]
   %627 = getelementptr i8, ptr %626, i64 8
-  %.val69.i.i.i = load ptr, ptr %627, align 8, !tbaa !27
-  %628 = getelementptr inbounds i32, ptr %.val69.i.i.i, i64 %indvars.iv106.i.i.i
+  %.val71.i.i.i = load ptr, ptr %627, align 8, !tbaa !27
+  %628 = getelementptr inbounds i32, ptr %.val71.i.i.i, i64 %indvars.iv105.i.i.i
   %629 = load i32, ptr %628, align 4, !tbaa !30
   %630 = load ptr, ptr %14, align 8, !tbaa !135
   %631 = ashr i32 %629, 1
   %632 = getelementptr i8, ptr %630, i64 8
-  %.val75.i.i.i = load ptr, ptr %632, align 8, !tbaa !28
+  %.val77.i.i.i = load ptr, ptr %632, align 8, !tbaa !28
   %633 = sext i32 %631 to i64
-  %634 = getelementptr inbounds i8, ptr %.val75.i.i.i, i64 %633
+  %634 = getelementptr inbounds i8, ptr %.val77.i.i.i, i64 %633
   store i8 0, ptr %634, align 1, !tbaa !29
-  %indvars.iv.next107.i.i.i = add nsw i64 %indvars.iv106.i.i.i, 1
+  %indvars.iv.next106.i.i.i = add nsw i64 %indvars.iv105.i.i.i, 1
   %635 = load ptr, ptr %26, align 8, !tbaa !144
   %636 = getelementptr i8, ptr %635, i64 4
-  %.val66.i.i.i = load i32, ptr %636, align 4, !tbaa !23
-  %637 = sext i32 %.val66.i.i.i to i64
-  %638 = icmp slt i64 %indvars.iv.next107.i.i.i, %637
-  br i1 %638, label %.lr.ph104.i.i.i, label %xSAT_SolverIsLitRemovable.exit.i.i, !llvm.loop !147
+  %.val68.i.i.i = load i32, ptr %636, align 4, !tbaa !23
+  %637 = sext i32 %.val68.i.i.i to i64
+  %638 = icmp slt i64 %indvars.iv.next106.i.i.i, %637
+  br i1 %638, label %.lr.ph103.i.i.i, label %xSAT_SolverIsLitRemovable.exit.i.i, !llvm.loop !147
 
-639:                                              ; preds = %Vec_IntPush.exit90.i.i.i, %538, %.lr.ph.i111.i.i
-  %640 = phi i32 [ %.pre110.i.i.i, %Vec_IntPush.exit90.i.i.i ], [ %529, %538 ], [ %529, %.lr.ph.i111.i.i ]
+639:                                              ; preds = %Vec_IntPush.exit92.i.i.i, %538, %.lr.ph.i111.i.i
+  %640 = phi i32 [ %.pre109.i.i.i, %Vec_IntPush.exit92.i.i.i ], [ %529, %538 ], [ %529, %.lr.ph.i111.i.i ]
   %indvars.iv.next.i114.i.i = add nuw nsw i64 %indvars.iv.i112.i.i, 1
   %641 = sext i32 %640 to i64
   %.not62.i.i.i = icmp slt i64 %indvars.iv.next.i114.i.i, %641
-  br i1 %.not62.i.i.i, label %.lr.ph.i111.i.i, label %.critedge64.loopexit.loopexit.i.i.i, !llvm.loop !148
+  br i1 %.not62.i.i.i, label %.lr.ph.i111.i.i, label %.critedge66.loopexit.loopexit.i.i.i, !llvm.loop !148
 
-xSAT_SolverIsLitRemovable.exit.i.i:               ; preds = %.lr.ph104.i.i.i, %621
-  %.lcssa101.i.i.i = phi ptr [ %622, %621 ], [ %635, %.lr.ph104.i.i.i ]
-  %642 = getelementptr i8, ptr %.lcssa101.i.i.i, i64 4
-  store i32 %.val68.i.i.i, ptr %642, align 4, !tbaa !23
+xSAT_SolverIsLitRemovable.exit.i.i:               ; preds = %.lr.ph103.i.i.i, %621
+  %.lcssa100.i.i.i = phi ptr [ %622, %621 ], [ %635, %.lr.ph103.i.i.i ]
+  %642 = getelementptr i8, ptr %.lcssa100.i.i.i, i64 4
+  store i32 %.val70.i.i.i, ptr %642, align 4, !tbaa !23
   %.pre.i207.i = load i32, ptr %458, align 4, !tbaa !30
   br label %643
 
-643:                                              ; preds = %xSAT_SolverIsLitRemovable.exit.i.i, %.lr.ph135.i.i
-  %644 = phi i32 [ %.pre.i207.i, %xSAT_SolverIsLitRemovable.exit.i.i ], [ %459, %.lr.ph135.i.i ]
-  %645 = add nsw i32 %.085132.i.i, 1
-  %646 = sext i32 %.085132.i.i to i64
+643:                                              ; preds = %xSAT_SolverIsLitRemovable.exit.i.i, %.lr.ph134.i.i
+  %644 = phi i32 [ %.pre.i207.i, %xSAT_SolverIsLitRemovable.exit.i.i ], [ %459, %.lr.ph134.i.i ]
+  %645 = add nsw i32 %.085131.i.i, 1
+  %646 = sext i32 %.085131.i.i to i64
   %647 = getelementptr inbounds i32, ptr %.val169.i, i64 %646
   store i32 %644, ptr %647, align 4, !tbaa !30
   br label %xSAT_SolverIsLitRemovable.exit.thread.i.i
 
-xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexit.i.i.i, %643, %Vec_IntPush.exit.i110.i.i
-  %.186.i.i = phi i32 [ %645, %643 ], [ %.085132.i.i, %Vec_IntPush.exit.i110.i.i ], [ %.085132.i.i, %.critedge64.loopexit.i.i.i ]
-  %indvars.iv.next157.i.i = add nuw nsw i64 %indvars.iv156.i.i, 1
+xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge66.loopexit.i.i.i, %643, %Vec_IntPush.exit.i110.i.i
+  %.186.i.i = phi i32 [ %645, %643 ], [ %.085131.i.i, %Vec_IntPush.exit.i110.i.i ], [ %.085131.i.i, %.critedge66.loopexit.i.i.i ]
+  %indvars.iv.next156.i.i = add nuw nsw i64 %indvars.iv155.i.i, 1
   %.val97.i.i = load i32, ptr %102, align 4, !tbaa !23
   %648 = sext i32 %.val97.i.i to i64
-  %649 = icmp slt i64 %indvars.iv.next157.i.i, %648
-  br i1 %649, label %.lr.ph135.i.i, label %._crit_edge136.i.i, !llvm.loop !149
+  %649 = icmp slt i64 %indvars.iv.next156.i.i, %648
+  br i1 %649, label %.lr.ph134.i.i, label %._crit_edge135.i.i, !llvm.loop !149
 
 .thread.i.i:                                      ; preds = %Vec_IntAppend.exit.i.i, %._crit_edge.i.i
   store i32 1, ptr %102, align 4, !tbaa !23
   %650 = load i32, ptr %18, align 8, !tbaa !50
   %651 = add i32 %650, 1
   store i32 %651, ptr %18, align 8, !tbaa !50
-  br label %.lr.ph.i118.i.i
+  br label %.lr.ph.i117.i.i
 
-._crit_edge136.i.i:                               ; preds = %xSAT_SolverIsLitRemovable.exit.thread.i.i
+._crit_edge135.i.i:                               ; preds = %xSAT_SolverIsLitRemovable.exit.thread.i.i
   store i32 %.186.i.i, ptr %102, align 4, !tbaa !23
   %652 = icmp slt i32 %.186.i.i, 31
   br i1 %652, label %657, label %.thread.i
 
-.thread.i:                                        ; preds = %._crit_edge136.i.i
+.thread.i:                                        ; preds = %._crit_edge135.i.i
   %.val168254.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
   %653 = load ptr, ptr %19, align 8, !tbaa !51
   %654 = getelementptr inbounds nuw i8, ptr %.val168254.i, i64 4
@@ -4425,15 +4425,15 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   %.val159312.i = load ptr, ptr %656, align 8, !tbaa !27
   br label %.lr.ph276.preheader.i
 
-657:                                              ; preds = %._crit_edge136.i.i
+657:                                              ; preds = %._crit_edge135.i.i
   %658 = load i32, ptr %18, align 8, !tbaa !50
   %659 = add i32 %658, 1
   store i32 %659, ptr %18, align 8, !tbaa !50
   %660 = icmp sgt i32 %.186.i.i, 0
-  br i1 %660, label %.lr.ph.i118.i.i, label %xSAT_SolverClaCalcLBD2.exit.thread.i.i
+  br i1 %660, label %.lr.ph.i117.i.i, label %xSAT_SolverClaCalcLBD2.exit.thread.i.i
 
-.lr.ph.i118.i.i:                                  ; preds = %657, %.thread.i.i
-  %.085.lcssa173175.i.i = phi i32 [ 1, %.thread.i.i ], [ %.186.i.i, %657 ]
+.lr.ph.i117.i.i:                                  ; preds = %657, %.thread.i.i
+  %.085.lcssa172174.i.i = phi i32 [ 1, %.thread.i.i ], [ %.186.i.i, %657 ]
   %661 = load ptr, ptr %19, align 8, !tbaa !51
   %.val16.i.i.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
   %662 = getelementptr i8, ptr %661, i64 8
@@ -4443,11 +4443,11 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   %.val18.i.i.i = load ptr, ptr %664, align 8, !tbaa !27
   br label %665
 
-665:                                              ; preds = %678, %.lr.ph.i118.i.i
-  %.val24.i.i.i = phi i32 [ %.085.lcssa173175.i.i, %.lr.ph.i118.i.i ], [ %.val.i121.i.i, %678 ]
-  %indvars.iv.i119.i.i = phi i64 [ 0, %.lr.ph.i118.i.i ], [ %indvars.iv.next.i122.i.i, %678 ]
-  %.01421.i.i.i = phi i32 [ 0, %.lr.ph.i118.i.i ], [ %.1.i.i.i, %678 ]
-  %666 = getelementptr inbounds nuw i32, ptr %.val16.i.i.i, i64 %indvars.iv.i119.i.i
+665:                                              ; preds = %678, %.lr.ph.i117.i.i
+  %.val24.i.i.i = phi i32 [ %.085.lcssa172174.i.i, %.lr.ph.i117.i.i ], [ %.val.i120.i.i, %678 ]
+  %indvars.iv.i118.i.i = phi i64 [ 0, %.lr.ph.i117.i.i ], [ %indvars.iv.next.i121.i.i, %678 ]
+  %.01421.i.i.i = phi i32 [ 0, %.lr.ph.i117.i.i ], [ %.1.i.i.i, %678 ]
+  %666 = getelementptr inbounds nuw i32, ptr %.val16.i.i.i, i64 %indvars.iv.i118.i.i
   %667 = load i32, ptr %666, align 4, !tbaa !30
   %668 = ashr i32 %667, 1
   %669 = sext i32 %668 to i64
@@ -4457,8 +4457,8 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   %673 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %672
   %674 = load i32, ptr %673, align 4, !tbaa !30
   %675 = load i32, ptr %18, align 8, !tbaa !50
-  %.not.i120.i.i = icmp eq i32 %674, %675
-  br i1 %.not.i120.i.i, label %678, label %676
+  %.not.i119.i.i = icmp eq i32 %674, %675
+  br i1 %.not.i119.i.i, label %678, label %676
 
 676:                                              ; preds = %665
   store i32 %675, ptr %673, align 4, !tbaa !30
@@ -4467,11 +4467,11 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   br label %678
 
 678:                                              ; preds = %676, %665
-  %.val.i121.i.i = phi i32 [ %.val.pre.i.i.i, %676 ], [ %.val24.i.i.i, %665 ]
+  %.val.i120.i.i = phi i32 [ %.val.pre.i.i.i, %676 ], [ %.val24.i.i.i, %665 ]
   %.1.i.i.i = phi i32 [ %677, %676 ], [ %.01421.i.i.i, %665 ]
-  %indvars.iv.next.i122.i.i = add nuw nsw i64 %indvars.iv.i119.i.i, 1
-  %679 = sext i32 %.val.i121.i.i to i64
-  %680 = icmp slt i64 %indvars.iv.next.i122.i.i, %679
+  %indvars.iv.next.i121.i.i = add nuw nsw i64 %indvars.iv.i118.i.i, 1
+  %679 = sext i32 %.val.i120.i.i to i64
+  %680 = icmp slt i64 %indvars.iv.next.i121.i.i, %679
   br i1 %680, label %665, label %xSAT_SolverClaCalcLBD2.exit.i.i, !llvm.loop !53
 
 xSAT_SolverClaCalcLBD2.exit.i.i:                  ; preds = %678
@@ -4479,14 +4479,14 @@ xSAT_SolverClaCalcLBD2.exit.i.i:                  ; preds = %678
   br i1 %681, label %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i, label %xSAT_SolverClaMinimisation.exit.i
 
 xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i: ; preds = %xSAT_SolverClaCalcLBD2.exit.i.i
-  %.pre163.i.i = load i32, ptr %18, align 8, !tbaa !50
-  %682 = icmp sgt i32 %.val.i121.i.i, 0
+  %.pre162.i.i = load i32, ptr %18, align 8, !tbaa !50
+  %682 = icmp sgt i32 %.val.i120.i.i, 0
   br label %xSAT_SolverClaCalcLBD2.exit.thread.i.i
 
 xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i, %657
-  %.val151.pr309.i = phi i32 [ %.val.i121.i.i, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ %.186.i.i, %657 ]
-  %.val95138.i.i = phi i1 [ %682, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ false, %657 ]
-  %683 = phi i32 [ %.pre163.i.i, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ %659, %657 ]
+  %.val151.pr309.i = phi i32 [ %.val.i120.i.i, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ %.186.i.i, %657 ]
+  %.val95137.i.i = phi i1 [ %682, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ false, %657 ]
+  %683 = phi i32 [ %.pre162.i.i, %xSAT_SolverClaCalcLBD2.exit.xSAT_SolverClaCalcLBD2.exit.thread_crit_edge.i.i ], [ %659, %657 ]
   %684 = load i32, ptr %.val169.i, align 4, !tbaa !30
   %685 = xor i32 %684, 1
   %686 = load ptr, ptr %28, align 8, !tbaa !59
@@ -4503,9 +4503,9 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
   %693 = getelementptr inbounds i8, ptr %.val108.i.i, i64 %.idx.i.i
   %694 = add i32 %683, 1
   store i32 %694, ptr %18, align 8, !tbaa !50
-  br i1 %.val95138.i.i, label %.lr.ph140.i.i, label %.critedge.preheader.i.i
+  br i1 %.val95137.i.i, label %.lr.ph139.i.i, label %.critedge.preheader.i.i
 
-.lr.ph140.i.i:                                    ; preds = %xSAT_SolverClaCalcLBD2.exit.thread.i.i
+.lr.ph139.i.i:                                    ; preds = %xSAT_SolverClaCalcLBD2.exit.thread.i.i
   %.val101.i.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
   %695 = load ptr, ptr %20, align 8, !tbaa !52
   %696 = getelementptr i8, ptr %695, i64 8
@@ -4515,32 +4515,32 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
 .critedge.preheader.i.i:                          ; preds = %700, %xSAT_SolverClaCalcLBD2.exit.thread.i.i
   %.val151.pr308.i = phi i32 [ %.val151.pr309.i, %xSAT_SolverClaCalcLBD2.exit.thread.i.i ], [ %.val95.i.i, %700 ]
   %697 = icmp sgt i32 %.val109.i.i, 0
-  br i1 %697, label %.lr.ph143.i.i, label %xSAT_SolverClaMinimisation.exit.i
+  br i1 %697, label %.lr.ph142.i.i, label %xSAT_SolverClaMinimisation.exit.i
 
-.lr.ph143.i.i:                                    ; preds = %.critedge.preheader.i.i
+.lr.ph142.i.i:                                    ; preds = %.critedge.preheader.i.i
   %698 = load ptr, ptr %20, align 8, !tbaa !52
   %699 = getelementptr i8, ptr %698, i64 8
   %.val100.i.i = load ptr, ptr %699, align 8, !tbaa !27
   br label %708
 
-700:                                              ; preds = %700, %.lr.ph140.i.i
-  %indvars.iv159.i.i = phi i64 [ 0, %.lr.ph140.i.i ], [ %indvars.iv.next160.i.i, %700 ]
-  %701 = getelementptr inbounds nuw i32, ptr %.val101.i.i, i64 %indvars.iv159.i.i
+700:                                              ; preds = %700, %.lr.ph139.i.i
+  %indvars.iv158.i.i = phi i64 [ 0, %.lr.ph139.i.i ], [ %indvars.iv.next159.i.i, %700 ]
+  %701 = getelementptr inbounds nuw i32, ptr %.val101.i.i, i64 %indvars.iv158.i.i
   %702 = load i32, ptr %701, align 4, !tbaa !30
   %703 = ashr i32 %702, 1
   %704 = sext i32 %703 to i64
   %705 = getelementptr inbounds i32, ptr %.val105.i.i, i64 %704
   store i32 %694, ptr %705, align 4, !tbaa !30
-  %indvars.iv.next160.i.i = add nuw nsw i64 %indvars.iv159.i.i, 1
+  %indvars.iv.next159.i.i = add nuw nsw i64 %indvars.iv158.i.i, 1
   %.val95.i.i = load i32, ptr %102, align 4, !tbaa !23
   %706 = sext i32 %.val95.i.i to i64
-  %707 = icmp slt i64 %indvars.iv.next160.i.i, %706
+  %707 = icmp slt i64 %indvars.iv.next159.i.i, %706
   br i1 %707, label %700, label %.critedge.preheader.i.i, !llvm.loop !150
 
-708:                                              ; preds = %.critedge.i.i, %.lr.ph143.i.i
-  %.084142.i.i = phi ptr [ %.val108.i.i, %.lr.ph143.i.i ], [ %728, %.critedge.i.i ]
-  %.087141.i.i = phi i32 [ 0, %.lr.ph143.i.i ], [ %.188.i.i, %.critedge.i.i ]
-  %709 = getelementptr inbounds nuw i8, ptr %.084142.i.i, i64 4
+708:                                              ; preds = %.critedge.i.i, %.lr.ph142.i.i
+  %.084141.i.i = phi ptr [ %.val108.i.i, %.lr.ph142.i.i ], [ %728, %.critedge.i.i ]
+  %.087140.i.i = phi i32 [ 0, %.lr.ph142.i.i ], [ %.188.i.i, %.critedge.i.i ]
+  %709 = getelementptr inbounds nuw i8, ptr %.084141.i.i, i64 4
   %710 = load i32, ptr %709, align 4, !tbaa !78
   %711 = ashr i32 %710, 1
   %712 = sext i32 %711 to i64
@@ -4562,14 +4562,14 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
   br i1 %724, label %725, label %.critedge.i.i
 
 725:                                              ; preds = %717
-  %726 = add nsw i32 %.087141.i.i, 1
+  %726 = add nsw i32 %.087140.i.i, 1
   %727 = add i32 %714, -1
   store i32 %727, ptr %713, align 4, !tbaa !30
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %725, %717, %708
-  %.188.i.i = phi i32 [ %726, %725 ], [ %.087141.i.i, %717 ], [ %.087141.i.i, %708 ]
-  %728 = getelementptr inbounds nuw i8, ptr %.084142.i.i, i64 8
+  %.188.i.i = phi i32 [ %726, %725 ], [ %.087140.i.i, %717 ], [ %.087140.i.i, %708 ]
+  %728 = getelementptr inbounds nuw i8, ptr %.084141.i.i, i64 8
   %729 = icmp ult ptr %728, %693
   br i1 %729, label %708, label %.critedge._crit_edge.i.i, !llvm.loop !151
 
@@ -4581,17 +4581,17 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
 731:                                              ; preds = %.critedge._crit_edge.i.i
   %732 = sub nsw i32 %.val151.pr.pre.i, %.188.i.i
   %733 = icmp sgt i32 %732, 1
-  br i1 %733, label %.lr.ph149.i.i, label %._crit_edge150.i.i
+  br i1 %733, label %.lr.ph148.i.i, label %._crit_edge149.i.i
 
-.lr.ph149.i.i:                                    ; preds = %731
+.lr.ph148.i.i:                                    ; preds = %731
   %734 = add nsw i32 %.val151.pr.pre.i, -1
   br label %735
 
-735:                                              ; preds = %750, %.lr.ph149.i.i
-  %.val93165.i.i = phi i32 [ %.val151.pr.pre.i, %.lr.ph149.i.i ], [ %.val93.i.i, %750 ]
-  %.3147.i.i = phi i32 [ 1, %.lr.ph149.i.i ], [ %751, %750 ]
-  %.089146.i.i = phi i32 [ %734, %.lr.ph149.i.i ], [ %.190.i.i, %750 ]
-  %736 = sext i32 %.3147.i.i to i64
+735:                                              ; preds = %750, %.lr.ph148.i.i
+  %.val93164.i.i = phi i32 [ %.val151.pr.pre.i, %.lr.ph148.i.i ], [ %.val93.i.i, %750 ]
+  %.3146.i.i = phi i32 [ 1, %.lr.ph148.i.i ], [ %751, %750 ]
+  %.089145.i.i = phi i32 [ %734, %.lr.ph148.i.i ], [ %.190.i.i, %750 ]
+  %736 = sext i32 %.3146.i.i to i64
   %737 = getelementptr inbounds i32, ptr %.val169.i, i64 %736
   %738 = load i32, ptr %737, align 4, !tbaa !30
   %739 = ashr i32 %738, 1
@@ -4603,32 +4603,32 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
   br i1 %.not.i198.i, label %750, label %744
 
 744:                                              ; preds = %735
-  %745 = sext i32 %.089146.i.i to i64
+  %745 = sext i32 %.089145.i.i to i64
   %746 = getelementptr inbounds i32, ptr %.val169.i, i64 %745
   %747 = load i32, ptr %746, align 4, !tbaa !30
   store i32 %738, ptr %746, align 4, !tbaa !30
   store i32 %747, ptr %737, align 4, !tbaa !30
-  %748 = add nsw i32 %.3147.i.i, -1
-  %749 = add nsw i32 %.089146.i.i, -1
+  %748 = add nsw i32 %.3146.i.i, -1
+  %749 = add nsw i32 %.089145.i.i, -1
   %.val93.pre.i.i = load i32, ptr %102, align 4, !tbaa !23
   br label %750
 
 750:                                              ; preds = %744, %735
-  %.val93.i.i = phi i32 [ %.val93.pre.i.i, %744 ], [ %.val93165.i.i, %735 ]
-  %.190.i.i = phi i32 [ %749, %744 ], [ %.089146.i.i, %735 ]
-  %.4.i.i = phi i32 [ %748, %744 ], [ %.3147.i.i, %735 ]
+  %.val93.i.i = phi i32 [ %.val93.pre.i.i, %744 ], [ %.val93164.i.i, %735 ]
+  %.190.i.i = phi i32 [ %749, %744 ], [ %.089145.i.i, %735 ]
+  %.4.i.i = phi i32 [ %748, %744 ], [ %.3146.i.i, %735 ]
   %751 = add nsw i32 %.4.i.i, 1
   %752 = sub nsw i32 %.val93.i.i, %.188.i.i
   %753 = icmp slt i32 %751, %752
-  br i1 %753, label %735, label %._crit_edge150.i.i, !llvm.loop !152
+  br i1 %753, label %735, label %._crit_edge149.i.i, !llvm.loop !152
 
-._crit_edge150.i.i:                               ; preds = %750, %731
+._crit_edge149.i.i:                               ; preds = %750, %731
   %.lcssa.i.i = phi i32 [ %732, %731 ], [ %752, %750 ]
   store i32 %.lcssa.i.i, ptr %102, align 4, !tbaa !23
   br label %xSAT_SolverClaMinimisation.exit.i
 
-xSAT_SolverClaMinimisation.exit.i:                ; preds = %._crit_edge150.i.i, %.critedge._crit_edge.i.i, %.critedge.preheader.i.i, %xSAT_SolverClaCalcLBD2.exit.i.i
-  %.val151.i = phi i32 [ %.lcssa.i.i, %._crit_edge150.i.i ], [ %.val151.pr.pre.i, %.critedge._crit_edge.i.i ], [ %.val151.pr308.i, %.critedge.preheader.i.i ], [ %.val.i121.i.i, %xSAT_SolverClaCalcLBD2.exit.i.i ]
+xSAT_SolverClaMinimisation.exit.i:                ; preds = %._crit_edge149.i.i, %.critedge._crit_edge.i.i, %.critedge.preheader.i.i, %xSAT_SolverClaCalcLBD2.exit.i.i
+  %.val151.i = phi i32 [ %.lcssa.i.i, %._crit_edge149.i.i ], [ %.val151.pr.pre.i, %.critedge._crit_edge.i.i ], [ %.val151.pr308.i, %.critedge.preheader.i.i ], [ %.val.i120.i.i, %xSAT_SolverClaCalcLBD2.exit.i.i ]
   %.val168.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
   %754 = icmp eq i32 %.val151.i, 1
   br i1 %754, label %.thread157, label %757

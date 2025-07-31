@@ -3184,9 +3184,9 @@ define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef nonnull %0, i3
   call void @curl_slist_free_all(ptr noundef %28) #17
   call void @strbuf_release(ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  switch i32 %48, label %58 [
+  switch i32 %48, label %.critedge131 [
     i32 4, label %49
-    i32 0, label %.thread138
+    i32 0, label %51
   ]
 
 49:                                               ; preds = %22
@@ -3194,32 +3194,28 @@ define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef nonnull %0, i3
   call void @credential_fill(ptr noundef %50, ptr noundef nonnull @http_auth, i32 noundef 0) #17
   br label %22, !llvm.loop !123
 
-.thread138:                                       ; preds = %22
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !124
-  %53 = and i64 %52, 4
-  %54 = icmp eq i64 %53, 0
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 192), align 8
-  %56 = icmp eq ptr %55, null
-  %or.cond.not = select i1 %54, i1 %56, i1 false
+51:                                               ; preds = %22
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %53 = load i64, ptr %52, align 8, !tbaa !124
+  %54 = and i64 %53, 4
+  %55 = icmp eq i64 %54, 0
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @http_auth, i64 192), align 8
+  %57 = icmp eq ptr %56, null
+  %or.cond.not = select i1 %55, i1 %57, i1 false
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
-  %57 = select i1 %or.cond.not, ptr @.str.79, ptr @.str.78
+  %58 = select i1 %or.cond.not, ptr @.str.79, ptr @.str.78
   br label %.thread
 
-58:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
-  br label %223
-
-.thread:                                          ; preds = %3, %.thread138, %17
-  %59 = phi i1 [ false, %17 ], [ true, %.thread138 ], [ false, %3 ]
-  %.0103137 = phi i32 [ %.2105, %17 ], [ %.2105, %.thread138 ], [ %13, %3 ]
-  %.092 = phi ptr [ @.str.79, %17 ], [ %57, %.thread138 ], [ @.str.79, %3 ]
+.thread:                                          ; preds = %3, %51, %17
+  %59 = phi i1 [ true, %51 ], [ false, %17 ], [ false, %3 ]
+  %.0103139 = phi i32 [ %.2105, %51 ], [ %.2105, %17 ], [ %13, %3 ]
+  %.092 = phi ptr [ %58, %51 ], [ @.str.79, %17 ], [ @.str.79, %3 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not122 = icmp eq i32 %.0103137, 0
+  %.not122 = icmp eq i32 %.0103139, 0
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 144
@@ -3364,21 +3360,21 @@ xcurl_off_t.exit:                                 ; preds = %122
   %150 = load ptr, ptr %92, align 8, !tbaa !118
   %151 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %150, i32 noundef 10015, ptr noundef %137) #17
   %152 = icmp slt i64 %148, 0
-  br i1 %152, label %153, label %xcurl_off_t.exit130
+  br i1 %152, label %153, label %xcurl_off_t.exit132
 
 153:                                              ; preds = %147
   %154 = call fastcc ptr @_(ptr noundef nonnull @.str.96)
   call void (ptr, ...) @die(ptr noundef %154) #18
   unreachable
 
-xcurl_off_t.exit130:                              ; preds = %147
+xcurl_off_t.exit132:                              ; preds = %147
   %155 = load ptr, ptr %92, align 8, !tbaa !118
   %156 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %155, i32 noundef 30120, i64 noundef %148) #17
   %157 = load i32, ptr @options, align 8, !tbaa !8
   %158 = icmp sgt i32 %157, 1
   br i1 %158, label %159, label %166
 
-159:                                              ; preds = %xcurl_off_t.exit130
+159:                                              ; preds = %xcurl_off_t.exit132
   %160 = load ptr, ptr @stderr, align 8, !tbaa !29
   %161 = load ptr, ptr %0, align 8, !tbaa !48
   %162 = load i64, ptr %65, align 8, !tbaa !95
@@ -3387,7 +3383,7 @@ xcurl_off_t.exit130:                              ; preds = %147
   %165 = call i32 @fflush(ptr noundef %164)
   br label %166
 
-166:                                              ; preds = %159, %xcurl_off_t.exit130
+166:                                              ; preds = %159, %xcurl_off_t.exit132
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9) #17
   br label %186
 
@@ -3397,21 +3393,21 @@ xcurl_off_t.exit130:                              ; preds = %147
   %170 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %168, i32 noundef 10015, ptr noundef %169) #17
   %171 = load i64, ptr %65, align 8, !tbaa !95
   %172 = icmp slt i64 %171, 0
-  br i1 %172, label %173, label %xcurl_off_t.exit131
+  br i1 %172, label %173, label %xcurl_off_t.exit133
 
 173:                                              ; preds = %167
   %174 = call fastcc ptr @_(ptr noundef nonnull @.str.96)
   call void (ptr, ...) @die(ptr noundef %174) #18
   unreachable
 
-xcurl_off_t.exit131:                              ; preds = %167
+xcurl_off_t.exit133:                              ; preds = %167
   %175 = load ptr, ptr %92, align 8, !tbaa !118
   %176 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %175, i32 noundef 30120, i64 noundef %171) #17
   %177 = load i32, ptr @options, align 8, !tbaa !8
   %178 = icmp sgt i32 %177, 1
   br i1 %178, label %179, label %186
 
-179:                                              ; preds = %xcurl_off_t.exit131
+179:                                              ; preds = %xcurl_off_t.exit133
   %180 = load ptr, ptr @stderr, align 8, !tbaa !29
   %181 = load ptr, ptr %0, align 8, !tbaa !48
   %182 = load i64, ptr %65, align 8, !tbaa !95
@@ -3420,10 +3416,10 @@ xcurl_off_t.exit131:                              ; preds = %167
   %185 = call i32 @fflush(ptr noundef %184)
   br label %186
 
-186:                                              ; preds = %xcurl_off_t.exit, %xcurl_off_t.exit131, %179, %166, %102, %115
-  %.2108 = phi ptr [ %.1107, %115 ], [ %.1107, %102 ], [ %.1107, %xcurl_off_t.exit ], [ %149, %166 ], [ %.1107, %179 ], [ %.1107, %xcurl_off_t.exit131 ]
-  %.1102 = phi ptr [ %.0101, %115 ], [ %.0101, %102 ], [ %.0101, %xcurl_off_t.exit ], [ %137, %166 ], [ null, %179 ], [ null, %xcurl_off_t.exit131 ]
-  %.1100 = phi i64 [ %.099, %115 ], [ %.099, %102 ], [ %.099, %xcurl_off_t.exit ], [ %148, %166 ], [ %.099, %179 ], [ %.099, %xcurl_off_t.exit131 ]
+186:                                              ; preds = %xcurl_off_t.exit, %xcurl_off_t.exit133, %179, %166, %102, %115
+  %.2108 = phi ptr [ %.1107, %115 ], [ %.1107, %102 ], [ %.1107, %xcurl_off_t.exit ], [ %149, %166 ], [ %.1107, %179 ], [ %.1107, %xcurl_off_t.exit133 ]
+  %.1102 = phi ptr [ %.0101, %115 ], [ %.0101, %102 ], [ %.0101, %xcurl_off_t.exit ], [ %137, %166 ], [ null, %179 ], [ null, %xcurl_off_t.exit133 ]
+  %.1100 = phi i64 [ %.099, %115 ], [ %.099, %102 ], [ %.099, %xcurl_off_t.exit ], [ %148, %166 ], [ %.099, %179 ], [ %.099, %xcurl_off_t.exit133 ]
   %187 = load ptr, ptr %92, align 8, !tbaa !118
   %188 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %187, i32 noundef 10023, ptr noundef %.2108) #17
   %189 = load ptr, ptr %92, align 8, !tbaa !118
@@ -3484,22 +3480,22 @@ _.exit:                                           ; preds = %203, %205
 
 212:                                              ; preds = %209
   %213 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i132 = icmp eq i32 %213, 0
-  br i1 %.not4.i132, label %_.exit134, label %214
+  %.not4.i134 = icmp eq i32 %213, 0
+  br i1 %.not4.i134, label %_.exit136, label %214
 
 214:                                              ; preds = %212
   %215 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef 5) #17
   %.pre156 = load i32, ptr %210, align 4, !tbaa !141
-  br label %_.exit134
+  br label %_.exit136
 
-_.exit134:                                        ; preds = %212, %214
+_.exit136:                                        ; preds = %212, %214
   %216 = phi i32 [ %.pre156, %214 ], [ %211, %212 ]
-  %.0.i133 = phi ptr [ %215, %214 ], [ @.str.87, %212 ]
-  %217 = call i32 (ptr, ...) @error(ptr noundef %.0.i133, i32 noundef %216) #17
+  %.0.i135 = phi ptr [ %215, %214 ], [ @.str.87, %212 ]
+  %217 = call i32 (ptr, ...) @error(ptr noundef %.0.i135, i32 noundef %216) #17
   br label %218
 
-218:                                              ; preds = %_.exit134, %209
-  %.198 = phi i32 [ -1, %_.exit134 ], [ %.097, %209 ]
+218:                                              ; preds = %_.exit136, %209
+  %.198 = phi i32 [ -1, %_.exit136 ], [ %.097, %209 ]
   %.not129 = icmp eq i32 %1, 0
   br i1 %.not129, label %222, label %219
 
@@ -3514,8 +3510,12 @@ _.exit134:                                        ; preds = %212, %214
   call void @free(ptr noundef %.1102) #17
   br label %223
 
-223:                                              ; preds = %58, %222
-  %.1110 = phi i32 [ %.198, %222 ], [ -1, %58 ]
+.critedge131:                                     ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  br label %223
+
+223:                                              ; preds = %.critedge131, %222
+  %.1110 = phi i32 [ %.198, %222 ], [ -1, %.critedge131 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   ret i32 %.1110
 }

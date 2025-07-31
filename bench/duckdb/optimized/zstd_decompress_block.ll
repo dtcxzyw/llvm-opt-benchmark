@@ -1112,7 +1112,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_decodeSeqHeadersEPNS_11ZSTD_DCtx_sEPi
   %10 = alloca [53 x i16], align 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %12 = icmp eq i64 %3, 0
-  br i1 %12, label %.thread145, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -1127,7 +1127,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_decodeSeqHeadersEPNS_11ZSTD_DCtx_sEPi
 
 20:                                               ; preds = %18
   %21 = icmp samesign ult i64 %3, 3
-  br i1 %21, label %.thread145, label %.thread
+  br i1 %21, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 3
@@ -1139,7 +1139,7 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_decodeSeqHeadersEPNS_11ZSTD_DCtx_sEPi
 
 25:                                               ; preds = %18
   %.not.not = icmp eq i64 %3, 1
-  br i1 %.not.not, label %.thread145, label %26
+  br i1 %.not.not, label %.critedge, label %26
 
 26:                                               ; preds = %25
   %27 = shl nuw nsw i32 %16, 8
@@ -1160,21 +1160,21 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_decodeSeqHeadersEPNS_11ZSTD_DCtx_sEPi
 35:                                               ; preds = %33
   %.not99 = icmp eq ptr %.081, %11
   %spec.select = select i1 %.not99, i64 %3, i64 -20
-  br label %.thread145
+  br label %.critedge
 
 36:                                               ; preds = %.thread, %33
   %.081114 = phi ptr [ %22, %.thread ], [ %.081, %33 ]
   %.086113 = phi i32 [ %24, %.thread ], [ %.086, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %.081114, i64 1
   %38 = icmp ugt ptr %37, %11
-  br i1 %38, label %.thread145, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %36
   %40 = load i8, ptr %.081114, align 1, !tbaa !7
   %41 = zext i8 %40 to i32
   %42 = and i32 %41, 3
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %43, label %.thread145
+  br i1 %.not, label %43, label %.critedge
 
 43:                                               ; preds = %39
   %44 = lshr i32 %41, 6
@@ -1280,13 +1280,13 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread121: ; preds = %57, %58, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %.thread145
+  br label %.critedge
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread126: ; preds = %82, %87
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %.thread145
+  br label %.critedge
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit: ; preds = %87
   %90 = load i32, ptr %8, align 4, !tbaa !38
@@ -1296,13 +1296,13 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.pre = load i32, ptr %51, align 4, !tbaa !65
-  %.pre148 = load i32, ptr %53, align 4, !tbaa !44
+  %.pre145 = load i32, ptr %53, align 4, !tbaa !44
   %.val101.pre = load i32, ptr %56, align 4, !tbaa !39
   br label %91
 
 91:                                               ; preds = %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread
   %.val101 = phi i32 [ %.val100, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread ], [ %.val101.pre, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit ]
-  %92 = phi i32 [ %54, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread ], [ %.pre148, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit ]
+  %92 = phi i32 [ %54, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread ], [ %.pre145, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit ]
   %93 = phi i32 [ %52, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread ], [ %.pre, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit ]
   %.0.i.ph.pn = phi i64 [ %.0.i.ph, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread ], [ %85, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit ]
   %.182118 = getelementptr inbounds nuw i8, ptr %37, i64 %.0.i.ph.pn
@@ -1382,9 +1382,9 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
   br i1 %128, label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141, label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread.sink.split: ; preds = %91, %100
-  %.sink153 = phi ptr [ %94, %100 ], [ @_ZN11duckdb_zstdL16OF_defaultDTableE, %91 ]
+  %.sink150 = phi ptr [ %94, %100 ], [ @_ZN11duckdb_zstdL16OF_defaultDTableE, %91 ]
   %.0.i104.ph.ph = phi i64 [ 1, %100 ], [ 0, %91 ]
-  store ptr %.sink153, ptr %95, align 8, !tbaa !69
+  store ptr %.sink150, ptr %95, align 8, !tbaa !69
   br label %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread: ; preds = %117, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread.sink.split, %112
@@ -1394,13 +1394,13 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread136: ; preds = %96, %97, %111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %.thread145
+  br label %.critedge
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141: ; preds = %121, %126
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %.thread145
+  br label %.critedge
 
 _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110: ; preds = %126
   %129 = load i32, ptr %5, align 4, !tbaa !38
@@ -1409,15 +1409,15 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.pre150 = load i32, ptr %51, align 4, !tbaa !65
-  %.pre151 = load i32, ptr %53, align 4, !tbaa !44
+  %.pre147 = load i32, ptr %51, align 4, !tbaa !65
+  %.pre148 = load i32, ptr %53, align 4, !tbaa !44
   %.val102.pre = load i32, ptr %56, align 4, !tbaa !39
   br label %130
 
-130:                                              ; preds = %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110
+130:                                              ; preds = %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread
   %.val102 = phi i32 [ %.val101, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %.val102.pre, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
-  %131 = phi i32 [ %92, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %.pre151, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
-  %132 = phi i32 [ %93, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %.pre150, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
+  %131 = phi i32 [ %92, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %.pre148, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
+  %132 = phi i32 [ %93, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %.pre147, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
   %.0.i104.ph.pn = phi i64 [ %.0.i104.ph, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread ], [ %124, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110 ]
   %.384133 = getelementptr inbounds nuw i8, ptr %.182118, i64 %.0.i104.ph.pn
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 6192
@@ -1426,16 +1426,16 @@ _ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEnco
   %136 = sub i64 %50, %135
   %137 = call fastcc noundef i64 @_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi(ptr noundef nonnull %133, ptr noundef nonnull %134, i32 noundef %48, i32 noundef 52, i32 noundef 9, ptr noundef nonnull %.384133, i64 noundef %136, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_baseE, ptr noundef nonnull @_ZN11duckdb_zstdL7ML_bitsE, ptr noundef nonnull @_ZN11duckdb_zstdL16ML_defaultDTableE, i32 noundef %132, i32 noundef %131, i32 noundef %.086113, ptr noundef nonnull %55, i32 noundef %.val102)
   %138 = icmp ult i64 %137, -119
-  br i1 %138, label %139, label %.thread145
+  br i1 %138, label %139, label %.critedge
 
 139:                                              ; preds = %130
   %140 = getelementptr inbounds nuw i8, ptr %.384133, i64 %137
   %141 = ptrtoint ptr %140 to i64
   %142 = ptrtoint ptr %2 to i64
   %143 = sub i64 %141, %142
-  br label %.thread145
+  br label %.critedge
 
-.thread145:                                       ; preds = %35, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread136, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread126, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread121, %39, %36, %25, %20, %4, %130, %139
+.critedge:                                        ; preds = %35, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread136, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread126, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread121, %39, %36, %25, %20, %4, %130, %139
   %.0 = phi i64 [ %143, %139 ], [ -20, %130 ], [ -72, %4 ], [ -72, %20 ], [ -72, %25 ], [ -72, %36 ], [ -20, %39 ], [ -20, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread121 ], [ -20, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit.thread126 ], [ -20, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread136 ], [ -20, %_ZN11duckdb_zstdL18ZSTD_buildSeqTableEPNS_14ZSTD_seqSymbolEPPKS0_NS_20symbolEncodingType_eEjjPKvmPKjPKhS3_jiiPjmi.exit110.thread141 ], [ %spec.select, %35 ]
   ret i64 %.0
 }

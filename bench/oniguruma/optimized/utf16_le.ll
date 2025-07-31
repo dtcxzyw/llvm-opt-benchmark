@@ -328,8 +328,8 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %22
-  %.01521 = phi ptr [ %24, %22 ], [ %0, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.01521, i64 1
+  %.01519 = phi ptr [ %24, %22 ], [ %0, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF16, i64 0, i64 %7
@@ -339,7 +339,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01521, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %.01519, i64 3
   %14 = icmp ult ptr %13, %1
   br i1 %14, label %15, label %22
 
@@ -347,16 +347,16 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %16 = load i8, ptr %13, align 1, !tbaa !4
   %17 = and i8 %16, -4
   %18 = icmp eq i8 %17, -36
-  br i1 %18, label %22, label %.thread
+  br i1 %18, label %22, label %.critedge
 
 19:                                               ; preds = %.lr.ph
   %20 = and i8 %6, -4
   %21 = icmp eq i8 %20, -36
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
-22:                                               ; preds = %15, %12, %19
+22:                                               ; preds = %19, %12, %15
   %23 = sext i32 %9 to i64
-  %24 = getelementptr inbounds i8, ptr %.01521, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.01519, i64 %23
   %25 = icmp ult ptr %24, %3
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
@@ -364,10 +364,10 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.015.lcssa = phi ptr [ %0, %2 ], [ %24, %22 ]
   %.not = icmp eq ptr %.015.lcssa, %1
   %. = zext i1 %.not to i32
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %19, %15, %._crit_edge
-  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %15 ], [ 0, %19 ]
+.critedge:                                        ; preds = %15, %19, %._crit_edge
+  %.2 = phi i32 [ %., %._crit_edge ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.2
 }
 

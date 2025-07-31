@@ -843,18 +843,30 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_
   %idx.ext.i.i2.i = zext i32 %29 to i64
   %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %28, i64 %idx.ext.i.i2.i
   %cmp.i.i4.not.i.not = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
-  br i1 %cmp.i.i4.not.i.not, label %lor.lhs.false.i.i, label %if.end64
+  br i1 %cmp.i.i4.not.i.not, label %lor.lhs.false.i.i, label %cond.true.i
+
+cond.true.i:                                      ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_.exit.i
+  %second.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.ph.pn.i.i, i64 4
+  %30 = load i32, ptr %second.i, align 4
+  call void @_ZN4llvh3sys4path15remove_filenameERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i32 noundef 1) #8
+  %31 = load ptr, ptr %canonicalPath, align 8
+  %32 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
+  %conv.i.i63 = zext i32 %32 to i64
+  %call66 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %31, i64 %conv.i.i63)
+  %33 = extractvalue { i32, i64 } %call66, 0
+  %cmp.i64 = icmp eq i32 %33, 0
+  br i1 %cmp.i64, label %cleanup, label %if.end69
 
 lor.lhs.false.i.i:                                ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_.exit.i
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.0.i.i.i.i.i.i40, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
-  %30 = inttoptr i64 %and.i.i.i.i to ptr
-  call void @_ZN6hermes2vm11TwineChar16C1EPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp61, ptr noundef %30) #8
+  %34 = inttoptr i64 %and.i.i.i.i to ptr
+  call void @_ZN6hermes2vm11TwineChar16C1EPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp61, ptr noundef %34) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %leftKind_.i8.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 8
-  %31 = load i32, ptr %leftKind_.i8.i.i, align 8, !noalias !26
-  switch i32 %31, label %if.end8.i.i [
+  %35 = load i32, ptr %leftKind_.i8.i.i, align 8, !noalias !26
+  switch i32 %35, label %if.end8.i.i [
     i32 0, label %if.then.i.i60
     i32 1, label %if.then7.i.i
   ]
@@ -872,25 +884,25 @@ if.then7.i.i:                                     ; preds = %lor.lhs.false.i.i
   store ptr @.str.1, ptr %ref.tmp, align 8
   %ref.tmp60.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %ref.tmp60.sroa.2.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp60.sroa.382.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store i32 1, ptr %ref.tmp60.sroa.382.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp60.sroa.483.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  store i64 23, ptr %ref.tmp60.sroa.483.0.ref.tmp.sroa_idx, align 8
+  %ref.tmp60.sroa.381.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  store i32 1, ptr %ref.tmp60.sroa.381.0.ref.tmp.sroa_idx, align 8
+  %ref.tmp60.sroa.482.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  store i64 23, ptr %ref.tmp60.sroa.482.0.ref.tmp.sroa_idx, align 8
   %ref.tmp60.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %ref.tmp60.sroa.5.0.ref.tmp.sroa_idx, align 8
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
 
 if.end8.i.i:                                      ; preds = %lor.lhs.false.i.i
   %leftSize_.i14.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 32
-  %32 = load i64, ptr %leftSize_.i14.i.i, align 8, !noalias !26
+  %36 = load i64, ptr %leftSize_.i14.i.i, align 8, !noalias !26
   %rightSize_.i15.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 40
-  %33 = load i64, ptr %rightSize_.i15.i.i, align 8, !noalias !26
-  %add.i16.i.i = add i64 %33, %32
+  %37 = load i64, ptr %rightSize_.i15.i.i, align 8, !noalias !26
+  %add.i16.i.i = add i64 %37, %36
   %rightKind_.i20.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 24
-  %34 = load i32, ptr %rightKind_.i20.i.i, align 8, !noalias !26
-  %cmp.i21.i.i = icmp eq i32 %34, 1
+  %38 = load i32, ptr %rightKind_.i20.i.i, align 8, !noalias !26
+  %cmp.i21.i.i = icmp eq i32 %38, 1
   %newRight.sroa.0.0.copyload.i.i = load ptr, ptr %ref.tmp61, align 8, !noalias !26
-  %newRightKind.0.i.i = select i1 %cmp.i21.i.i, i32 %31, i32 2
+  %newRightKind.0.i.i = select i1 %cmp.i21.i.i, i32 %35, i32 2
   %newRight.sroa.0.0.i.i = select i1 %cmp.i21.i.i, ptr %newRight.sroa.0.0.copyload.i.i, ptr %ref.tmp61
   store ptr @.str.1, ptr %ref.tmp, align 8, !alias.scope !26
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -909,19 +921,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %if.then.i.i60, %if.
   %call63 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #8
   br label %cleanup
 
-if.end64:                                         ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findERKS4_.exit.i
-  %second.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.ph.pn.i.i, i64 4
-  %35 = load i32, ptr %second.i, align 4
-  call void @_ZN4llvh3sys4path15remove_filenameERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i32 noundef 1) #8
-  %36 = load ptr, ptr %canonicalPath, align 8
-  %37 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %conv.i.i63 = zext i32 %37 to i64
-  %call66 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %36, i64 %conv.i.i63)
-  %38 = extractvalue { i32, i64 } %call66, 0
-  %cmp.i64 = icmp eq i32 %38, 0
-  br i1 %cmp.i64, label %cleanup, label %if.end69
-
-if.end69:                                         ; preds = %if.end64
+if.end69:                                         ; preds = %cond.true.i
   %39 = extractvalue { i32, i64 } %call66, 1
   %and.i.i.i = and i64 %39, 281474976710655
   %or.i.i.i.i.i66 = or disjoint i64 %and.i.i.i, -844424930131968
@@ -946,14 +946,14 @@ if.end.i.i.i.i.i.i71:                             ; preds = %if.end69
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i74, %if.end.i.i.i.i.i.i71
   %retval.0.i.i.i.i.i.i73 = phi ptr [ %41, %if.then.i.i.i.i.i.i74 ], [ %call7.i.i.i.i.i.i72, %if.end.i.i.i.i.i.i71 ]
   %call82 = call ptr @_ZN6hermes2vm14RequireContext6createERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS4_INS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i, ptr %retval.0.i.i.i.i.i.i73) #8
-  %call92 = call { i32, i64 } @_ZN6hermes2vm14runRequireCallERNS0_7RuntimeENS0_6HandleINS0_14RequireContextEEENS3_INS0_6DomainEEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call82, ptr nonnull %inlineStorage_.i, i32 noundef %35)
+  %call92 = call { i32, i64 } @_ZN6hermes2vm14runRequireCallERNS0_7RuntimeENS0_6HandleINS0_14RequireContextEEENS3_INS0_6DomainEEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call82, ptr nonnull %inlineStorage_.i, i32 noundef %30)
   %43 = extractvalue { i32, i64 } %call92, 0
   %44 = extractvalue { i32, i64 } %call92, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end64, %if.end35, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
-  %retval.sroa.0.1 = phi i32 [ %43, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call63, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ 0, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ 0, %if.end35 ], [ 0, %if.end64 ]
-  %retval.sroa.7.1 = phi i64 [ %44, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ undef, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ undef, %if.end35 ], [ undef, %if.end64 ]
+cleanup:                                          ; preds = %cond.true.i, %if.end35, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
+  %retval.sroa.0.1 = phi i32 [ %43, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call63, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ 0, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ 0, %if.end35 ], [ 0, %cond.true.i ]
+  %retval.sroa.7.1 = phi i64 [ %44, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ undef, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ undef, %if.end35 ], [ undef, %cond.true.i ]
   %45 = load ptr, ptr %canonicalPath, align 8
   %cmp.i.i.i.i76 = icmp eq ptr %45, %12
   br i1 %cmp.i.i.i.i76, label %cleanup93, label %if.then.i.i.i77

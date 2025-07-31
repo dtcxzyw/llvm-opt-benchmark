@@ -7985,19 +7985,19 @@ define i32 @cvWaitKey(i32 noundef %0) local_unnamed_addr #3 personality ptr @__g
   %5 = alloca i32, align 4
   %6 = load i32, ptr @thread_started, align 4, !tbaa !36
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %119, label %7
+  br i1 %.not, label %118, label %7
 
 7:                                                ; preds = %1
   %8 = tail call ptr @g_thread_self()
   %9 = load ptr, ptr @window_thread, align 8, !tbaa !40
   %.not33 = icmp eq ptr %8, %9
-  br i1 %.not33, label %119, label %10
+  br i1 %.not33, label %118, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
   tail call void @g_mutex_lock(ptr noundef %11)
   %12 = icmp sgt i32 %0, 0
-  br i1 %12, label %100, label %13
+  br i1 %12, label %99, label %13
 
 13:                                               ; preds = %10
   %14 = load atomic i8, ptr @_ZGVZL13getGTKWindowsvE9g_windows acquire, align 8
@@ -8019,7 +8019,7 @@ _ZL13getGTKWindowsv.exit:                         ; preds = %13, %16, %18
   %20 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8, !tbaa !118
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8, !tbaa !118
   %22 = icmp eq ptr %20, %21
-  br i1 %22, label %23, label %.thread50
+  br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %_ZL13getGTKWindowsv.exit
   %24 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
@@ -8030,7 +8030,7 @@ _ZL13getGTKWindowsv.exit:                         ; preds = %13, %16, %18
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !100
   %28 = icmp slt i32 %27, 3
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge43, label %29
 
 29:                                               ; preds = %25, %23
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3) #31
@@ -8164,7 +8164,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %85) #31
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #31
-  br label %.thread
+  br label %.critedge43
 
 86:                                               ; preds = %29
   %87 = landingpad { ptr, i32 }
@@ -8176,20 +8176,20 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
           cleanup
   %90 = load ptr, ptr %4, align 8, !tbaa !7
   %91 = icmp eq ptr %90, %36
-  br i1 %91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
+  br i1 %91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43: ; preds = %88
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45: ; preds = %88
   %92 = load i64, ptr %37, align 8, !tbaa !12
   %93 = icmp ult i64 %92, 16
   call void @llvm.assume(i1 %93)
   br label %.body
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42: ; preds = %88
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44: ; preds = %88
   call void @_ZdlPv(ptr noundef %90) #33
   br label %.body
 
-.body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %.pn = phi { ptr, i32 } [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i43 ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42 ]
+.body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+  %.pn = phi { ptr, i32 } [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #31
   br label %94
 
@@ -8199,148 +8199,148 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #31
   resume { ptr, i32 } %.pn.pn
 
-.thread50:                                        ; preds = %_ZL13getGTKWindowsv.exit
+.thread:                                          ; preds = %_ZL13getGTKWindowsv.exit
   %95 = load ptr, ptr @cond_have_key, align 8, !tbaa !44
   %96 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
   tail call void @g_cond_wait(ptr noundef %95, ptr noundef %96)
   %97 = load i32, ptr @_ZL8last_key, align 4, !tbaa !36
   %98 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
   tail call void @g_mutex_unlock(ptr noundef %98)
-  br label %108
+  br label %107
 
-.thread:                                          ; preds = %25, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %99 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
-  call void @g_mutex_unlock(ptr noundef %99)
-  br label %157
-
-100:                                              ; preds = %10
+99:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #31
   call void @g_get_current_time(ptr noundef nonnull %2)
-  %101 = mul nuw nsw i32 %0, 1000
-  %102 = zext nneg i32 %101 to i64
-  call void @g_time_val_add(ptr noundef nonnull %2, i64 noundef %102)
-  %103 = load ptr, ptr @cond_have_key, align 8, !tbaa !44
-  %104 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
-  %105 = call i32 @g_cond_timed_wait(ptr noundef %103, ptr noundef %104, ptr noundef nonnull %2)
-  %.not40.not = icmp eq i32 %105, 0
+  %100 = mul nuw nsw i32 %0, 1000
+  %101 = zext nneg i32 %100 to i64
+  call void @g_time_val_add(ptr noundef nonnull %2, i64 noundef %101)
+  %102 = load ptr, ptr @cond_have_key, align 8, !tbaa !44
+  %103 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
+  %104 = call i32 @g_cond_timed_wait(ptr noundef %102, ptr noundef %103, ptr noundef nonnull %2)
+  %.not40.not = icmp eq i32 %104, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #31
-  %106 = load i32, ptr @_ZL8last_key, align 4, !tbaa !36
-  %107 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
-  call void @g_mutex_unlock(ptr noundef %107)
-  br i1 %.not40.not, label %157, label %108
+  %105 = load i32, ptr @_ZL8last_key, align 4, !tbaa !36
+  %106 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
+  call void @g_mutex_unlock(ptr noundef %106)
+  br i1 %.not40.not, label %157, label %107
 
-108:                                              ; preds = %.thread50, %100
-  %109 = phi i32 [ %97, %.thread50 ], [ %106, %100 ]
-  %110 = load atomic i8, ptr @_ZGVZL13getGTKWindowsvE9g_windows acquire, align 8
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %_ZL13getGTKWindowsv.exit46, !prof !65
+107:                                              ; preds = %.thread, %99
+  %108 = phi i32 [ %97, %.thread ], [ %105, %99 ]
+  %109 = load atomic i8, ptr @_ZGVZL13getGTKWindowsvE9g_windows acquire, align 8
+  %110 = icmp eq i8 %109, 0
+  br i1 %110, label %111, label %_ZL13getGTKWindowsv.exit48, !prof !65
 
-112:                                              ; preds = %108
-  %113 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
-  %.not.i45 = icmp eq i32 %113, 0
-  br i1 %.not.i45, label %_ZL13getGTKWindowsv.exit46, label %114
+111:                                              ; preds = %107
+  %112 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
+  %.not.i47 = icmp eq i32 %112, 0
+  br i1 %.not.i47, label %_ZL13getGTKWindowsv.exit48, label %113
 
-114:                                              ; preds = %112
+113:                                              ; preds = %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZL13getGTKWindowsvE9g_windows, i8 0, i64 24, i1 false)
-  %115 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EED2Ev, ptr nonnull @_ZZL13getGTKWindowsvE9g_windows, ptr nonnull @__dso_handle) #31
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
-  br label %_ZL13getGTKWindowsv.exit46
-
-_ZL13getGTKWindowsv.exit46:                       ; preds = %108, %112, %114
-  %116 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8, !tbaa !118
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8, !tbaa !118
-  %118 = icmp eq ptr %116, %117
-  %spec.select = select i1 %118, i32 -1, i32 %109
-  br label %157
-
-119:                                              ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #31
-  store i32 0, ptr %5, align 4, !tbaa !36
-  %120 = icmp sgt i32 %0, 0
-  br i1 %120, label %121, label %123
-
-121:                                              ; preds = %119
-  %122 = call i32 @g_timeout_add(i32 noundef %0, ptr noundef nonnull @_ZL8icvAlarmPv, ptr noundef nonnull %5)
-  br label %123
-
-123:                                              ; preds = %121, %119
-  %.0 = phi i32 [ %122, %121 ], [ 0, %119 ]
-  store i32 -1, ptr @_ZL8last_key, align 4, !tbaa !36
-  %124 = call i32 @gtk_main_iteration_do(i32 noundef 1)
-  %125 = icmp eq i32 %124, 0
-  %126 = load i32, ptr @_ZL8last_key, align 4
-  %127 = icmp sgt i32 %126, -1
-  %or.cond.not3653 = select i1 %125, i1 true, i1 %127
-  %128 = load i32, ptr %5, align 4
-  %129 = icmp ne i32 %128, 0
-  %or.cond354 = select i1 %or.cond.not3653, i1 true, i1 %129
-  br i1 %or.cond354, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %123
-  br i1 %120, label %.critedge5.us, label %.lr.ph.split
-
-.critedge5.us:                                    ; preds = %.lr.ph, %.critedge5.us
-  %130 = call i32 @gtk_main_iteration_do(i32 noundef 1)
-  %131 = icmp eq i32 %130, 0
-  %132 = load i32, ptr @_ZL8last_key, align 4
-  %133 = icmp sgt i32 %132, -1
-  %or.cond.not36.us = select i1 %131, i1 true, i1 %133
-  %134 = load i32, ptr %5, align 4
-  %135 = icmp ne i32 %134, 0
-  %or.cond3.us = select i1 %or.cond.not36.us, i1 true, i1 %135
-  br i1 %or.cond3.us, label %.critedge, label %.critedge5.us, !llvm.loop !165
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge5
-  %136 = load atomic i8, ptr @_ZGVZL13getGTKWindowsvE9g_windows acquire, align 8
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %138, label %_ZL13getGTKWindowsv.exit48, !prof !65
-
-138:                                              ; preds = %.lr.ph.split
-  %139 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
-  %.not.i47 = icmp eq i32 %139, 0
-  br i1 %.not.i47, label %_ZL13getGTKWindowsv.exit48, label %140
-
-140:                                              ; preds = %138
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZL13getGTKWindowsvE9g_windows, i8 0, i64 24, i1 false)
-  %141 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EED2Ev, ptr nonnull @_ZZL13getGTKWindowsvE9g_windows, ptr nonnull @__dso_handle) #31
+  %114 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EED2Ev, ptr nonnull @_ZZL13getGTKWindowsvE9g_windows, ptr nonnull @__dso_handle) #31
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
   br label %_ZL13getGTKWindowsv.exit48
 
-_ZL13getGTKWindowsv.exit48:                       ; preds = %.lr.ph.split, %138, %140
-  %142 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8, !tbaa !118
-  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8, !tbaa !118
-  %144 = icmp eq ptr %142, %143
-  br i1 %144, label %.critedge.thread, label %.critedge5
-
-.critedge5:                                       ; preds = %_ZL13getGTKWindowsv.exit48
-  %145 = call i32 @gtk_main_iteration_do(i32 noundef 1)
-  %146 = icmp eq i32 %145, 0
-  %147 = load i32, ptr @_ZL8last_key, align 4
-  %148 = icmp sgt i32 %147, -1
-  %or.cond.not36 = select i1 %146, i1 true, i1 %148
-  %149 = load i32, ptr %5, align 4
-  %150 = icmp ne i32 %149, 0
-  %or.cond3 = select i1 %or.cond.not36, i1 true, i1 %150
-  br i1 %or.cond3, label %.critedge, label %.lr.ph.split, !llvm.loop !167
-
-.critedge:                                        ; preds = %.critedge5, %.critedge5.us, %123
-  %151 = phi i32 [ %128, %123 ], [ %134, %.critedge5.us ], [ %149, %.critedge5 ]
-  %152 = icmp slt i32 %0, 1
-  %153 = icmp ne i32 %151, 0
-  %or.cond7 = select i1 %152, i1 true, i1 %153
-  br i1 %or.cond7, label %.critedge.thread, label %154
-
-154:                                              ; preds = %.critedge
-  %155 = call i32 @g_source_remove(i32 noundef %.0)
-  br label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %_ZL13getGTKWindowsv.exit48, %154, %.critedge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #31
-  %156 = load i32, ptr @_ZL8last_key, align 4, !tbaa !36
+_ZL13getGTKWindowsv.exit48:                       ; preds = %107, %111, %113
+  %115 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8, !tbaa !118
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8, !tbaa !118
+  %117 = icmp eq ptr %115, %116
+  %spec.select = select i1 %117, i32 -1, i32 %108
   br label %157
 
-157:                                              ; preds = %.thread, %_ZL13getGTKWindowsv.exit46, %100, %.critedge.thread
-  %.129 = phi i32 [ %156, %.critedge.thread ], [ -1, %100 ], [ %spec.select, %_ZL13getGTKWindowsv.exit46 ], [ -1, %.thread ]
+118:                                              ; preds = %7, %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #31
+  store i32 0, ptr %5, align 4, !tbaa !36
+  %119 = icmp sgt i32 %0, 0
+  br i1 %119, label %120, label %122
+
+120:                                              ; preds = %118
+  %121 = call i32 @g_timeout_add(i32 noundef %0, ptr noundef nonnull @_ZL8icvAlarmPv, ptr noundef nonnull %5)
+  br label %122
+
+122:                                              ; preds = %120, %118
+  %.0 = phi i32 [ %121, %120 ], [ 0, %118 ]
+  store i32 -1, ptr @_ZL8last_key, align 4, !tbaa !36
+  %123 = call i32 @gtk_main_iteration_do(i32 noundef 1)
+  %124 = icmp eq i32 %123, 0
+  %125 = load i32, ptr @_ZL8last_key, align 4
+  %126 = icmp sgt i32 %125, -1
+  %or.cond.not3653 = select i1 %124, i1 true, i1 %126
+  %127 = load i32, ptr %5, align 4
+  %128 = icmp ne i32 %127, 0
+  %or.cond354 = select i1 %or.cond.not3653, i1 true, i1 %128
+  br i1 %or.cond354, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %122
+  br i1 %119, label %.critedge5.us, label %.lr.ph.split
+
+.critedge5.us:                                    ; preds = %.lr.ph, %.critedge5.us
+  %129 = call i32 @gtk_main_iteration_do(i32 noundef 1)
+  %130 = icmp eq i32 %129, 0
+  %131 = load i32, ptr @_ZL8last_key, align 4
+  %132 = icmp sgt i32 %131, -1
+  %or.cond.not36.us = select i1 %130, i1 true, i1 %132
+  %133 = load i32, ptr %5, align 4
+  %134 = icmp ne i32 %133, 0
+  %or.cond3.us = select i1 %or.cond.not36.us, i1 true, i1 %134
+  br i1 %or.cond3.us, label %.critedge, label %.critedge5.us, !llvm.loop !165
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge5
+  %135 = load atomic i8, ptr @_ZGVZL13getGTKWindowsvE9g_windows acquire, align 8
+  %136 = icmp eq i8 %135, 0
+  br i1 %136, label %137, label %_ZL13getGTKWindowsv.exit50, !prof !65
+
+137:                                              ; preds = %.lr.ph.split
+  %138 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
+  %.not.i49 = icmp eq i32 %138, 0
+  br i1 %.not.i49, label %_ZL13getGTKWindowsv.exit50, label %139
+
+139:                                              ; preds = %137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZL13getGTKWindowsvE9g_windows, i8 0, i64 24, i1 false)
+  %140 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt10shared_ptrI8CvWindowESaIS2_EED2Ev, ptr nonnull @_ZZL13getGTKWindowsvE9g_windows, ptr nonnull @__dso_handle) #31
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZL13getGTKWindowsvE9g_windows) #31
+  br label %_ZL13getGTKWindowsv.exit50
+
+_ZL13getGTKWindowsv.exit50:                       ; preds = %.lr.ph.split, %137, %139
+  %141 = load ptr, ptr @_ZZL13getGTKWindowsvE9g_windows, align 8, !tbaa !118
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL13getGTKWindowsvE9g_windows, i64 8), align 8, !tbaa !118
+  %143 = icmp eq ptr %141, %142
+  br i1 %143, label %.critedge.thread, label %.critedge5
+
+.critedge5:                                       ; preds = %_ZL13getGTKWindowsv.exit50
+  %144 = call i32 @gtk_main_iteration_do(i32 noundef 1)
+  %145 = icmp eq i32 %144, 0
+  %146 = load i32, ptr @_ZL8last_key, align 4
+  %147 = icmp sgt i32 %146, -1
+  %or.cond.not36 = select i1 %145, i1 true, i1 %147
+  %148 = load i32, ptr %5, align 4
+  %149 = icmp ne i32 %148, 0
+  %or.cond3 = select i1 %or.cond.not36, i1 true, i1 %149
+  br i1 %or.cond3, label %.critedge, label %.lr.ph.split, !llvm.loop !167
+
+.critedge:                                        ; preds = %.critedge5, %.critedge5.us, %122
+  %150 = phi i32 [ %127, %122 ], [ %133, %.critedge5.us ], [ %148, %.critedge5 ]
+  %151 = icmp slt i32 %0, 1
+  %152 = icmp ne i32 %150, 0
+  %or.cond7 = select i1 %151, i1 true, i1 %152
+  br i1 %or.cond7, label %.critedge.thread, label %153
+
+153:                                              ; preds = %.critedge
+  %154 = call i32 @g_source_remove(i32 noundef %.0)
+  br label %.critedge.thread
+
+.critedge.thread:                                 ; preds = %_ZL13getGTKWindowsv.exit50, %153, %.critedge
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #31
+  %155 = load i32, ptr @_ZL8last_key, align 4, !tbaa !36
+  br label %157
+
+.critedge43:                                      ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %25
+  %156 = load ptr, ptr @last_key_mutex, align 8, !tbaa !42
+  call void @g_mutex_unlock(ptr noundef %156)
+  br label %157
+
+157:                                              ; preds = %_ZL13getGTKWindowsv.exit48, %.critedge43, %99, %.critedge.thread
+  %.129 = phi i32 [ %155, %.critedge.thread ], [ -1, %99 ], [ %spec.select, %_ZL13getGTKWindowsv.exit48 ], [ -1, %.critedge43 ]
   ret i32 %.129
 }
 

@@ -397,79 +397,79 @@ list_length.exit64:                               ; preds = %list_length.exit62,
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %75 = load ptr, ptr %20, align 8
   %.not59 = icmp eq ptr %75, null
-  br i1 %.not59, label %._crit_edge, label %.lr.ph
+  br i1 %.not59, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit64
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = load i32, ptr %76, align 4
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph73, label %._crit_edge
+  br i1 %79, label %.lr.ph71, label %.critedge
 
-._crit_edge:                                      ; preds = %109, %.lr.ph, %list_length.exit64
-  %80 = sext i32 %72 to i64
-  %81 = mul nsw i64 %80, 12
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 %81
-  %83 = load ptr, ptr %27, align 8
-  %84 = load i32, ptr %24, align 4
-  %85 = sext i32 %84 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %83, i64 %85, i1 false)
-  %86 = load ptr, ptr %27, align 8
-  call void @pfree(ptr noundef %86) #12
-  %87 = load i32, ptr %73, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  store i8 0, ptr %8, align 1
-  store i32 0, ptr %6, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef nonnull %74, ptr noundef %6, i32 noundef %87, ptr noundef nonnull %8)
-  %88 = load i32, ptr %6, align 4
-  %.not.i65 = icmp eq i32 %88, %87
-  br i1 %.not.i65, label %findoprnd.exit, label %89
-
-89:                                               ; preds = %._crit_edge
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %90)
-  %91 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.findoprnd) #12
-  unreachable
-
-findoprnd.exit:                                   ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  %92 = load i8, ptr %8, align 1, !range !7, !noundef !8
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %113, label %115
-
-.lr.ph73:                                         ; preds = %.lr.ph, %109
+.lr.ph71:                                         ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.lr.ph ]
-  %94 = load ptr, ptr %77, align 8
-  %95 = getelementptr inbounds nuw %union.ListCell, ptr %94, i64 %indvars.iv
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i8, ptr %96, align 4
-  switch i8 %97, label %.split [
+  %80 = load ptr, ptr %77, align 8
+  %81 = getelementptr inbounds nuw %union.ListCell, ptr %80, i64 %indvars.iv
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i8, ptr %82, align 4
+  switch i8 %83, label %.split [
     i8 1, label %98
     i8 3, label %100
     i8 2, label %102
   ]
 
-98:                                               ; preds = %.lr.ph73
+.critedge:                                        ; preds = %109, %.lr.ph, %list_length.exit64
+  %84 = sext i32 %72 to i64
+  %85 = mul nsw i64 %84, 12
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 %85
+  %87 = load ptr, ptr %27, align 8
+  %88 = load i32, ptr %24, align 4
+  %89 = sext i32 %88 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %87, i64 %89, i1 false)
+  %90 = load ptr, ptr %27, align 8
+  call void @pfree(ptr noundef %90) #12
+  %91 = load i32, ptr %73, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  store i8 0, ptr %8, align 1
+  store i32 0, ptr %6, align 4
+  call fastcc void @findoprnd_recurse(ptr noundef nonnull %74, ptr noundef %6, i32 noundef %91, ptr noundef nonnull %8)
+  %92 = load i32, ptr %6, align 4
+  %.not.i65 = icmp eq i32 %92, %91
+  br i1 %.not.i65, label %findoprnd.exit, label %93
+
+93:                                               ; preds = %.critedge
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %94)
+  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.findoprnd) #12
+  unreachable
+
+findoprnd.exit:                                   ; preds = %.critedge
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  %96 = load i8, ptr %8, align 1, !range !7, !noundef !8
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %113, label %115
+
+98:                                               ; preds = %.lr.ph71
   %99 = getelementptr inbounds nuw %union.QueryItem, ptr %74, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false)
   br label %109
 
-100:                                              ; preds = %.lr.ph73
+100:                                              ; preds = %.lr.ph71
   %101 = getelementptr inbounds nuw %union.QueryItem, ptr %74, i64 %indvars.iv
   store i8 3, ptr %101, align 4
   br label %109
 
-102:                                              ; preds = %.lr.ph73
+102:                                              ; preds = %.lr.ph71
   %103 = getelementptr inbounds nuw %union.QueryItem, ptr %74, i64 %indvars.iv
-  %104 = load i64, ptr %96, align 4
+  %104 = load i64, ptr %82, align 4
   store i64 %104, ptr %103, align 4
   br label %109
 
-.split:                                           ; preds = %.lr.ph73
+.split:                                           ; preds = %.lr.ph71
   %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %105)
-  %106 = load i8, ptr %96, align 4
+  %106 = load i8, ptr %82, align 4
   %107 = sext i8 %106 to i32
   %108 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %107) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 917, ptr noundef nonnull @__func__.parse_tsquery) #12
@@ -480,7 +480,7 @@ findoprnd.exit:                                   ; preds = %._crit_edge
   %110 = load i32, ptr %76, align 4
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph73, label %._crit_edge
+  br i1 %112, label %.lr.ph71, label %.critedge
 
 113:                                              ; preds = %findoprnd.exit
   %114 = call ptr @cleanup_tsquery_stopwords(ptr noundef nonnull %66, i1 noundef zeroext %15) #12

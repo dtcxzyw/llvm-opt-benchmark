@@ -898,7 +898,7 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 1209
   %507 = load i8, ptr %506, align 1
   %508 = icmp eq i8 %507, 0
-  br i1 %508, label %509, label %534
+  br i1 %508, label %509, label %.critedge
 
 509:                                              ; preds = %505
   %510 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -922,7 +922,7 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %520 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %521 = load i32, ptr %520, align 8
   %522 = icmp eq i32 %521, 0
-  br i1 %522, label %534, label %523
+  br i1 %522, label %.critedge, label %523
 
 523:                                              ; preds = %519, %509
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 1716
@@ -932,22 +932,22 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %528 = select i1 %527, i64 35, i64 36
   br label %529
 
-529:                                              ; preds = %513, %509, %523
-  %.ph18 = phi i64 [ %528, %523 ], [ 37, %509 ], [ %518, %513 ]
-  %530 = load ptr, ptr %2, align 8
-  %531 = getelementptr inbounds nuw i8, ptr %530, i64 432
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr [132 x i64], ptr %532, i64 0, i64 %.ph18
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %533, ptr elementtype(i64) %533) #6, !srcloc !21
-  br label %534
+529:                                              ; preds = %509, %513, %523
+  %530 = phi i64 [ %518, %513 ], [ 37, %509 ], [ %528, %523 ]
+  %531 = load ptr, ptr %2, align 8
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 432
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr [132 x i64], ptr %533, i64 0, i64 %530
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %534, ptr elementtype(i64) %534) #6, !srcloc !21
+  br label %.critedge
 
-534:                                              ; preds = %519, %529, %505
+.critedge:                                        ; preds = %519, %529, %505
   tail call void @tcp_enter_loss(ptr noundef %0) #6
   %535 = load i8, ptr %506, align 1
   %536 = icmp eq i8 %535, 0
   br i1 %536, label %537, label %546
 
-537:                                              ; preds = %534
+537:                                              ; preds = %.critedge
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 2178
   %539 = load i16, ptr %538, align 2
   %540 = add i16 %539, 1
@@ -960,7 +960,7 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   store i32 %544, ptr %545, align 4
   br label %546
 
-546:                                              ; preds = %537, %534
+546:                                              ; preds = %537, %.critedge
   %547 = add i8 %535, 1
   store i8 %547, ptr %506, align 1
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 2176
@@ -1141,8 +1141,8 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %674 = phi i32 [ 1000, %671 ], [ 200, %663 ]
   %675 = udiv i32 120000, %674
   %676 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %675, i32 -1) #7, !srcloc !18
-  %.not20 = icmp ugt i32 %676, %658
-  br i1 %.not20, label %677, label %681
+  %.not17 = icmp ugt i32 %676, %658
+  br i1 %.not17, label %677, label %681
 
 677:                                              ; preds = %673
   %678 = shl i32 4, %658
@@ -1771,7 +1771,7 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
   %67 = getelementptr i8, ptr %0, i64 1268
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %.thread
+  br i1 %69, label %70, label %143
 
 70:                                               ; preds = %65
   %71 = getelementptr i8, ptr %0, i64 1164
@@ -1779,7 +1779,7 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
   %73 = getelementptr i8, ptr %0, i64 1252
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %.thread
+  br i1 %75, label %76, label %143
 
 76:                                               ; preds = %70
   %77 = load volatile i64, ptr @jiffies, align 64
@@ -1805,7 +1805,7 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
 93:                                               ; preds = %90, %76
   %94 = phi i32 [ %92, %90 ], [ %88, %76 ]
   %95 = icmp ult i32 %87, %94
-  br i1 %95, label %135, label %96
+  br i1 %95, label %134, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr i8, ptr %0, i64 852
@@ -1823,7 +1823,7 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
   %105 = getelementptr i8, ptr %0, i64 805
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
-  br i1 %107, label %120, label %134
+  br i1 %107, label %120, label %.critedge
 
 108:                                              ; preds = %96
   %109 = getelementptr i8, ptr %0, i64 805
@@ -1841,12 +1841,17 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
 117:                                              ; preds = %114, %108
   %118 = phi i8 [ %116, %114 ], [ %112, %108 ]
   %119 = icmp ugt i8 %118, %110
-  br i1 %119, label %120, label %134
+  br i1 %119, label %120, label %.critedge
+
+.critedge:                                        ; preds = %117, %104
+  tail call void @tcp_send_active_reset(ptr noundef %2, i32 noundef 2080) #6
+  tail call fastcc void @tcp_write_err(ptr noundef %2)
+  br label %146
 
 120:                                              ; preds = %117, %104, %100
   %121 = tail call i32 @tcp_write_wakeup(ptr noundef %2, i32 noundef 110) #6
   %122 = icmp slt i32 %121, 1
-  br i1 %122, label %123, label %.thread
+  br i1 %122, label %123, label %143
 
 123:                                              ; preds = %120
   %124 = getelementptr i8, ptr %0, i64 805
@@ -1857,40 +1862,35 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
   %128 = getelementptr i8, ptr %0, i64 1784
   %129 = load volatile i32, ptr %128, align 16
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %.thread
+  br i1 %130, label %131, label %143
 
 131:                                              ; preds = %123
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 1144
   %133 = load volatile i32, ptr %132, align 8
-  br label %.thread
+  br label %143
 
-134:                                              ; preds = %104, %117
-  tail call void @tcp_send_active_reset(ptr noundef %2, i32 noundef 2080) #6
-  tail call fastcc void @tcp_write_err(ptr noundef %2)
-  br label %146
+134:                                              ; preds = %93
+  %135 = load volatile i32, ptr %59, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %140
 
-135:                                              ; preds = %93
-  %136 = load volatile i32, ptr %59, align 4
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %141
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %58, i64 1140
+  %139 = load volatile i32, ptr %138, align 4
+  br label %140
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %58, i64 1140
-  %140 = load volatile i32, ptr %139, align 4
-  br label %141
+140:                                              ; preds = %137, %134
+  %141 = phi i32 [ %139, %137 ], [ %135, %134 ]
+  %142 = sub i32 %141, %87
+  br label %143
 
-141:                                              ; preds = %138, %135
-  %142 = phi i32 [ %140, %138 ], [ %136, %135 ]
-  %143 = sub i32 %142, %87
-  br label %.thread
-
-.thread:                                          ; preds = %123, %131, %120, %141, %70, %65
-  %144 = phi i32 [ %66, %65 ], [ %143, %141 ], [ %66, %70 ], [ %129, %123 ], [ %133, %131 ], [ 500, %120 ]
+143:                                              ; preds = %120, %123, %131, %140, %70, %65
+  %144 = phi i32 [ %66, %65 ], [ %142, %140 ], [ %66, %70 ], [ 500, %120 ], [ %133, %131 ], [ %129, %123 ]
   %145 = zext i32 %144 to i64
   tail call void @inet_csk_reset_keepalive_timer(ptr noundef %2, i64 noundef %145) #6
   br label %146
 
-146:                                              ; preds = %134, %.thread, %50, %45, %44, %43, %12, %7
+146:                                              ; preds = %.critedge, %143, %50, %45, %44, %43, %12, %7
   tail call void @_raw_spin_unlock(ptr noundef %3) #6
   %147 = getelementptr i8, ptr %0, i64 -280
   %148 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %147, i32 -1, ptr elementtype(i32) %147) #6, !srcloc !25
@@ -1899,18 +1899,18 @@ define internal void @tcp_keepalive_timer(ptr noundef %0) #0 align 16 {
 
 150:                                              ; preds = %146
   %151 = icmp sgt i32 %148, 0
-  br i1 %151, label %.thread11, label %152, !prof !7
+  br i1 %151, label %.thread, label %152, !prof !7
 
 152:                                              ; preds = %150
   tail call void @refcount_warn_saturate(ptr noundef %147, i32 noundef 3) #6
-  br label %.thread11
+  br label %.thread
 
 153:                                              ; preds = %146
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !26
   tail call void @sk_free(ptr noundef %2) #6
-  br label %.thread11
+  br label %.thread
 
-.thread11:                                        ; preds = %150, %152, %153
+.thread:                                          ; preds = %150, %152, %153
   ret void
 }
 

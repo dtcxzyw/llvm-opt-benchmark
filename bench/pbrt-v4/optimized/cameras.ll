@@ -11413,8 +11413,8 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   store i64 %106, ptr %109, align 16, !tbaa !97, !alias.scope !379
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29, !noalias !379
   %110 = load i64, ptr %12, align 8, !tbaa !334
-  %.not97.not = icmp eq i64 %110, 0
-  br i1 %.not97.not, label %.critedge77, label %.lr.ph
+  %.not96.not = icmp eq i64 %110, 0
+  br i1 %.not96.not, label %.critedge79, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -11431,10 +11431,10 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   %120 = phi float [ %37, %.lr.ph ], [ %220, %217 ]
   %121 = phi float [ %59, %.lr.ph ], [ %221, %217 ]
   %122 = phi float [ %102, %.lr.ph ], [ %156, %217 ]
-  %.06499 = phi float [ %19, %.lr.ph ], [ %224, %217 ]
-  %.06798 = phi i64 [ 0, %.lr.ph ], [ %225, %217 ]
+  %.06498 = phi float [ %19, %.lr.ph ], [ %224, %217 ]
+  %.06797 = phi i64 [ 0, %.lr.ph ], [ %225, %217 ]
   %123 = load ptr, ptr %10, align 8, !tbaa !336
-  %124 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %123, i64 %.06798
+  %124 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %123, i64 %.06797
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #29
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #29
   store float 0.000000e+00, ptr %9, align 8, !tbaa !372
@@ -11445,31 +11445,31 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %115
-  %128 = fsub float %.06499, %122
+  %128 = fsub float %.06498, %122
   %129 = fdiv float %128, %121
   store float %129, ptr %8, align 4, !tbaa !6
   %130 = fcmp olt float %129, 0.000000e+00
-  br i1 %130, label %227, label %134
+  br i1 %130, label %.critedge77, label %134
 
 131:                                              ; preds = %115
-  %132 = fadd float %.06499, %125
+  %132 = fadd float %.06498, %125
   %133 = call noundef zeroext i1 @_ZN4pbrt15RealisticCamera25IntersectSphericalElementEffRKNS_3RayEPfPNS_7Normal3IfEE(float noundef %125, float noundef %132, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br i1 %133, label %._crit_edge, label %227
+  br i1 %133, label %._crit_edge, label %.critedge77
 
 ._crit_edge:                                      ; preds = %131
   %.pre = load float, ptr %8, align 4, !tbaa !6
-  %.pre100 = load float, ptr %107, align 4, !tbaa !42
-  %.pre101 = load float, ptr %113, align 16, !tbaa !44
-  %.pre102 = load float, ptr %7, align 16, !tbaa !146
-  %.pre103 = load float, ptr %114, align 4, !tbaa !148
+  %.pre99 = load float, ptr %107, align 4, !tbaa !42
+  %.pre100 = load float, ptr %113, align 16, !tbaa !44
+  %.pre101 = load float, ptr %7, align 16, !tbaa !146
+  %.pre102 = load float, ptr %114, align 4, !tbaa !148
   br label %134
 
 134:                                              ; preds = %._crit_edge, %127
-  %135 = phi float [ %.pre101, %._crit_edge ], [ %116, %127 ]
-  %136 = phi float [ %.pre103, %._crit_edge ], [ %117, %127 ]
-  %137 = phi float [ %.pre102, %._crit_edge ], [ %118, %127 ]
-  %138 = phi float [ %.pre101, %._crit_edge ], [ %119, %127 ]
-  %139 = phi float [ %.pre100, %._crit_edge ], [ %120, %127 ]
+  %135 = phi float [ %.pre100, %._crit_edge ], [ %116, %127 ]
+  %136 = phi float [ %.pre102, %._crit_edge ], [ %117, %127 ]
+  %137 = phi float [ %.pre101, %._crit_edge ], [ %118, %127 ]
+  %138 = phi float [ %.pre100, %._crit_edge ], [ %119, %127 ]
+  %139 = phi float [ %.pre99, %._crit_edge ], [ %120, %127 ]
   %140 = phi float [ %.pre, %._crit_edge ], [ %129, %127 ]
   %141 = fmul float %140, %139
   %142 = fmul float %140, %138
@@ -11482,7 +11482,7 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   %149 = load float, ptr %148, align 4, !tbaa !376
   %150 = fmul float %149, %149
   %151 = fcmp ogt float %147, %150
-  br i1 %151, label %227, label %152
+  br i1 %151, label %.critedge77, label %152
 
 152:                                              ; preds = %134
   %.sroa.0.0.vec.insert.i14.i = insertelement <2 x float> poison, float %143, i64 0
@@ -11496,12 +11496,12 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   br i1 %126, label %217, label %157
 
 157:                                              ; preds = %152
-  %158 = icmp eq i64 %.06798, 0
-  %.pre104 = load ptr, ptr %10, align 8, !tbaa !336
+  %158 = icmp eq i64 %.06797, 0
+  %.pre103 = load ptr, ptr %10, align 8, !tbaa !336
   br i1 %158, label %165, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre104, i64 %.06798
+  %160 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre103, i64 %.06797
   %161 = getelementptr i8, ptr %160, i64 -8
   %162 = load float, ptr %161, align 4, !tbaa !377
   %163 = fcmp oeq float %162, 0.000000e+00
@@ -11512,7 +11512,7 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
 
 165:                                              ; preds = %157, %159, %164
   %166 = phi float [ %162, %164 ], [ 1.000000e+00, %159 ], [ 1.000000e+00, %157 ]
-  %167 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre104, i64 %.06798, i32 2
+  %167 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre103, i64 %.06797, i32 2
   %168 = load float, ptr %167, align 4, !tbaa !377
   %169 = fcmp une float %168, 0.000000e+00
   %170 = select i1 %169, float %168, float 1.000000e+00
@@ -11548,11 +11548,11 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   %193 = fneg float %.sroa.04.0.vec.extract.i.i
   %194 = fneg float %.sroa.211.0.copyload
   %195 = fneg <2 x float> %.sroa.010.0.copyload
-  %.sroa.0.4.vec.insert.i.i80 = insertelement <2 x float> %195, float %193, i64 0
+  %.sroa.0.4.vec.insert.i.i82 = insertelement <2 x float> %195, float %193, i64 0
   br label %196
 
 196:                                              ; preds = %190, %165
-  %.sroa.084.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i80, %190 ], [ %.sroa.010.0.copyload, %165 ]
+  %.sroa.084.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i82, %190 ], [ %.sroa.010.0.copyload, %165 ]
   %.sroa.586.0.i = phi float [ %194, %190 ], [ %.sroa.211.0.copyload, %165 ]
   %.061.i = phi float [ %192, %190 ], [ %188, %165 ]
   %.060.i = phi float [ %191, %190 ], [ %182, %165 ]
@@ -11563,7 +11563,7 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   %200 = fmul float %.060.i, %.060.i
   %201 = fdiv float %.sroa.speculated.i, %200
   %202 = fcmp ult float %201, 1.000000e+00
-  br i1 %202, label %203, label %227
+  br i1 %202, label %203, label %.critedge77
 
 203:                                              ; preds = %196
   %204 = fsub float 1.000000e+00, %201
@@ -11594,48 +11594,48 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %_ZNK4pbrt15Realisti
   %221 = phi float [ %216, %203 ], [ %153, %152 ]
   %222 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %223 = load float, ptr %222, align 4, !tbaa !340
-  %224 = fadd float %.06499, %223
+  %224 = fadd float %.06498, %223
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  %225 = add nuw i64 %.06798, 1
+  %225 = add nuw i64 %.06797, 1
   %226 = load i64, ptr %12, align 8, !tbaa !334
   %.not = icmp ult i64 %225, %226
-  br i1 %.not, label %115, label %.critedge77, !llvm.loop !384
+  br i1 %.not, label %115, label %.critedge79, !llvm.loop !384
 
-227:                                              ; preds = %131, %127, %134, %196
+.critedge77:                                      ; preds = %196, %134, %127, %131
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  br label %237
+  br label %236
 
-.critedge77:                                      ; preds = %217, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
+.critedge79:                                      ; preds = %217, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
   %.not75 = icmp eq ptr %2, null
-  br i1 %.not75, label %237, label %228
+  br i1 %.not75, label %236, label %227
 
-228:                                              ; preds = %.critedge77
-  %229 = load <4 x float>, ptr %7, align 16
-  %230 = extractelement <4 x float> %229, i64 2
-  %231 = fneg float %230
-  %.sroa.083.4.vec.insert = shufflevector <4 x float> %229, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %232 = load <4 x float>, ptr %107, align 4
-  %233 = extractelement <4 x float> %232, i64 2
-  %234 = fneg float %233
-  %.sroa.081.4.vec.insert = shufflevector <4 x float> %232, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %235 = extractelement <4 x float> %232, i64 3
-  store <2 x float> %.sroa.083.4.vec.insert, ptr %2, align 8
+227:                                              ; preds = %.critedge79
+  %228 = load <4 x float>, ptr %7, align 16
+  %229 = extractelement <4 x float> %228, i64 2
+  %230 = fneg float %229
+  %.sroa.085.4.vec.insert = shufflevector <4 x float> %228, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %231 = load <4 x float>, ptr %107, align 4
+  %232 = extractelement <4 x float> %231, i64 2
+  %233 = fneg float %232
+  %.sroa.083.4.vec.insert = shufflevector <4 x float> %231, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %234 = extractelement <4 x float> %231, i64 3
+  store <2 x float> %.sroa.085.4.vec.insert, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %231, ptr %.sroa.4.0..sroa_idx, align 8
+  store float %230, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store <2 x float> %.sroa.081.4.vec.insert, ptr %.sroa.5.0..sroa_idx, align 4
+  store <2 x float> %.sroa.083.4.vec.insert, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float %234, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %233, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %235, ptr %.sroa.7.0..sroa_idx, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 0, ptr %236, align 8, !tbaa !97
-  br label %237
+  store float %234, ptr %.sroa.7.0..sroa_idx, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i64 0, ptr %235, align 8, !tbaa !97
+  br label %236
 
-237:                                              ; preds = %227, %.critedge77, %228
-  %.8 = phi float [ 0.000000e+00, %227 ], [ 1.000000e+00, %228 ], [ 1.000000e+00, %.critedge77 ]
+236:                                              ; preds = %.critedge77, %.critedge79, %227
+  %.8 = phi float [ 0.000000e+00, %.critedge77 ], [ 1.000000e+00, %227 ], [ 1.000000e+00, %.critedge79 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #29
   ret float %.8
@@ -13070,7 +13070,7 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166: ; preds =
 .thread178:                                       ; preds = %213, %140
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  br label %281
+  br label %285
 
 _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166
   %233 = phi float [ %171, %170 ], [ %232, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166 ]
@@ -13084,7 +13084,7 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
 .critedge:                                        ; preds = %133
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  br label %281
+  br label %285
 
 .thread.loopexit:                                 ; preds = %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit
   %.sroa.037.0.copyload.pre = load <2 x float>, ptr %99, align 4
@@ -13115,7 +13115,7 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %.sroa.0.4.vec.insert.i.i138 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i137, float %245, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i138, ptr %99, align 4
   store float %246, ptr %.sroa.23.0..sroa_idx.i.i, align 4
-  br i1 %3, label %247, label %257
+  br i1 %3, label %247, label %.critedge212
 
 247:                                              ; preds = %.thread
   %248 = fneg float %237
@@ -13131,38 +13131,40 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %.pre200 = load float, ptr %7, align 8, !tbaa !146
   %.pre201 = load float, ptr %99, align 4, !tbaa !42
   %.pre202 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
-  br label %257
+  %257 = select i1 %2, ptr @.str.64, ptr @.str.65
+  %258 = fpext float %.pre to double
+  %259 = fpext float %.pre200 to double
+  %260 = fmul float %249, %.pre201
+  %261 = fmul float %249, %.pre202
+  %262 = fadd float %.pre200, %260
+  %263 = fadd float %.pre, %261
+  %264 = fpext float %263 to double
+  %265 = fpext float %262 to double
+  %266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %257, double noundef %258, double noundef %259, double noundef %264, double noundef %265)
+  %267 = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
+  %268 = fpext float %267 to double
+  %269 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
+  %270 = fmul float %249, %269
+  %271 = fadd float %267, %270
+  %272 = fmul float %271, 0x3FF0CCCCC0000000
+  %273 = fpext float %272 to double
+  %274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %268, double noundef %273)
+  br label %285
 
-257:                                              ; preds = %247, %.thread
-  %258 = phi float [ %.pre202, %247 ], [ %246, %.thread ]
-  %259 = phi float [ %.pre201, %247 ], [ %244, %.thread ]
-  %260 = phi float [ %.pre200, %247 ], [ %237, %.thread ]
-  %261 = phi float [ %.pre, %247 ], [ %238, %.thread ]
-  %.0121 = phi float [ %249, %247 ], [ %.0.lcssa, %.thread ]
-  %262 = select i1 %2, ptr @.str.64, ptr @.str.65
-  %263 = fpext float %261 to double
-  %264 = fpext float %260 to double
-  %265 = fmul float %.0121, %259
-  %266 = fmul float %.0121, %258
-  %267 = fadd float %260, %265
-  %268 = fadd float %261, %266
-  %269 = fpext float %268 to double
-  %270 = fpext float %267 to double
-  %271 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %262, double noundef %263, double noundef %264, double noundef %269, double noundef %270)
-  br i1 %3, label %272, label %281
+.critedge212:                                     ; preds = %.thread
+  %275 = select i1 %2, ptr @.str.64, ptr @.str.65
+  %276 = fpext float %238 to double
+  %277 = fpext float %237 to double
+  %278 = fmul float %.0.lcssa, %244
+  %279 = fmul float %.0.lcssa, %246
+  %280 = fadd float %237, %278
+  %281 = fadd float %238, %279
+  %282 = fpext float %281 to double
+  %283 = fpext float %280 to double
+  %284 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %275, double noundef %276, double noundef %277, double noundef %282, double noundef %283)
+  br label %285
 
-272:                                              ; preds = %257
-  %273 = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
-  %274 = fpext float %273 to double
-  %275 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
-  %276 = fmul float %.0121, %275
-  %277 = fadd float %273, %276
-  %278 = fmul float %277, 0x3FF0CCCCC0000000
-  %279 = fpext float %278 to double
-  %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %274, double noundef %279)
-  br label %281
-
-281:                                              ; preds = %.critedge, %.thread178, %257, %272
+285:                                              ; preds = %.critedge212, %.critedge, %.thread178, %247
   %putchar = call i32 @putchar(i32 125)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
   ret void
@@ -13425,8 +13427,8 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %29, %68
   store i64 %108, ptr %111, align 8, !tbaa !97, !alias.scope !416
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29, !noalias !416
   %112 = load i64, ptr %14, align 8, !tbaa !334
-  %.not105142.not = icmp eq i64 %112, 0
-  br i1 %.not105142.not, label %.critedge107, label %.lr.ph
+  %.not105141.not = icmp eq i64 %112, 0
+  br i1 %.not105141.not, label %.critedge109, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -13444,10 +13446,10 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %29, %68
 119:                                              ; preds = %.lr.ph, %232
   %120 = phi float [ %61, %.lr.ph ], [ %234, %232 ]
   %121 = phi float [ %104, %.lr.ph ], [ %171, %232 ]
-  %.0144 = phi float [ %21, %.lr.ph ], [ %237, %232 ]
-  %.0100143 = phi i64 [ 0, %.lr.ph ], [ %238, %232 ]
+  %.0143 = phi float [ %21, %.lr.ph ], [ %237, %232 ]
+  %.0100142 = phi i64 [ 0, %.lr.ph ], [ %238, %232 ]
   %122 = load ptr, ptr %12, align 8, !tbaa !336
-  %123 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %122, i64 %.0100143
+  %123 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %122, i64 %.0100142
   %124 = load float, ptr %123, align 4, !tbaa !375
   %125 = fcmp oeq float %124, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #29
@@ -13458,16 +13460,16 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %29, %68
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %119
-  %127 = fsub float %121, %.0144
+  %127 = fsub float %121, %.0143
   %128 = fneg float %127
   %129 = fdiv float %128, %120
   store float %129, ptr %8, align 4, !tbaa !6
   br label %133
 
 130:                                              ; preds = %119
-  %131 = fadd float %.0144, %124
+  %131 = fadd float %.0143, %124
   %132 = call noundef zeroext i1 @_ZN4pbrt15RealisticCamera25IntersectSphericalElementEffRKNS_3RayEPfPNS_7Normal3IfEE(float noundef %124, float noundef %131, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br i1 %132, label %thread-pre-split, label %240
+  br i1 %132, label %thread-pre-split, label %.critedge107
 
 thread-pre-split:                                 ; preds = %130
   %.pr = load float, ptr %8, align 4, !tbaa !6
@@ -13518,26 +13520,26 @@ thread-pre-split:                                 ; preds = %130
   %164 = load float, ptr %163, align 4, !tbaa !376
   %165 = fmul float %164, %164
   %166 = fcmp ogt float %162, %165
-  br i1 %166, label %240, label %167
+  br i1 %166, label %.critedge107, label %167
 
 167:                                              ; preds = %137
-  %.sroa.0.0.vec.insert.i14.i112 = insertelement <2 x float> poison, float %157, i64 0
-  %.sroa.0.4.vec.insert.i15.i113 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i112, float %159, i64 1
+  %.sroa.0.0.vec.insert.i14.i114 = insertelement <2 x float> poison, float %157, i64 0
+  %.sroa.0.4.vec.insert.i15.i115 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i114, float %159, i64 1
   %168 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
   %169 = fmul float %151, %168
   %170 = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
   %171 = fadd float %169, %170
-  store <2 x float> %.sroa.0.4.vec.insert.i15.i113, ptr %7, align 8
+  store <2 x float> %.sroa.0.4.vec.insert.i15.i115, ptr %7, align 8
   store float %171, ptr %.sroa.27.0..sroa_idx.i.i, align 8
   br i1 %125, label %232, label %172
 
 172:                                              ; preds = %167
-  %173 = icmp eq i64 %.0100143, 0
+  %173 = icmp eq i64 %.0100142, 0
   %.pre = load ptr, ptr %12, align 8, !tbaa !336
   br i1 %173, label %180, label %174
 
 174:                                              ; preds = %172
-  %175 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre, i64 %.0100143
+  %175 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre, i64 %.0100142
   %176 = getelementptr i8, ptr %175, i64 -8
   %177 = load float, ptr %176, align 4, !tbaa !377
   %178 = fcmp oeq float %177, 0.000000e+00
@@ -13548,7 +13550,7 @@ thread-pre-split:                                 ; preds = %130
 
 180:                                              ; preds = %172, %174, %179
   %181 = phi float [ %177, %179 ], [ 1.000000e+00, %174 ], [ 1.000000e+00, %172 ]
-  %182 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre, i64 %.0100143, i32 2
+  %182 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %.pre, i64 %.0100142, i32 2
   %183 = load float, ptr %182, align 4, !tbaa !377
   %184 = fcmp une float %183, 0.000000e+00
   %185 = select i1 %184, float %183, float 1.000000e+00
@@ -13584,11 +13586,11 @@ thread-pre-split:                                 ; preds = %130
   %208 = fneg float %.sroa.04.0.vec.extract.i.i
   %209 = fneg float %.sroa.230.0.copyload
   %210 = fneg <2 x float> %.sroa.029.0.copyload
-  %.sroa.0.4.vec.insert.i.i118 = insertelement <2 x float> %210, float %208, i64 0
+  %.sroa.0.4.vec.insert.i.i120 = insertelement <2 x float> %210, float %208, i64 0
   br label %211
 
 211:                                              ; preds = %205, %180
-  %.sroa.084.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i118, %205 ], [ %.sroa.029.0.copyload, %180 ]
+  %.sroa.084.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i120, %205 ], [ %.sroa.029.0.copyload, %180 ]
   %.sroa.586.0.i = phi float [ %209, %205 ], [ %.sroa.230.0.copyload, %180 ]
   %.061.i = phi float [ %207, %205 ], [ %203, %180 ]
   %.060.i = phi float [ %206, %205 ], [ %197, %180 ]
@@ -13599,7 +13601,7 @@ thread-pre-split:                                 ; preds = %130
   %215 = fmul float %.060.i, %.060.i
   %216 = fdiv float %.sroa.speculated.i, %215
   %217 = fcmp ult float %216, 1.000000e+00
-  br i1 %217, label %218, label %240
+  br i1 %217, label %218, label %.critedge107
 
 218:                                              ; preds = %211
   %219 = fsub float 1.000000e+00, %216
@@ -13628,63 +13630,63 @@ thread-pre-split:                                 ; preds = %130
   %234 = phi float [ %231, %218 ], [ %168, %167 ]
   %235 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %236 = load float, ptr %235, align 4, !tbaa !340
-  %237 = fadd float %.0144, %236
+  %237 = fadd float %.0143, %236
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  %238 = add nuw i64 %.0100143, 1
+  %238 = add nuw i64 %.0100142, 1
   %239 = load i64, ptr %14, align 8, !tbaa !334
   %.not105 = icmp ult i64 %238, %239
-  br i1 %.not105, label %119, label %.critedge107, !llvm.loop !419
+  br i1 %.not105, label %119, label %.critedge109, !llvm.loop !419
 
-240:                                              ; preds = %130, %137, %211
+.critedge107:                                     ; preds = %211, %137, %130
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
-  br label %272
+  br label %271
 
-.critedge107:                                     ; preds = %232, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %241 = phi float [ %45, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %233, %232 ]
-  %242 = phi float [ %100, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %157, %232 ]
-  %243 = phi float [ %61, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %234, %232 ]
-  %244 = phi float [ %104, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %171, %232 ]
-  %245 = fneg float %244
-  %246 = fdiv float %245, %243
-  br i1 %3, label %247, label %257
+.critedge109:                                     ; preds = %232, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
+  %240 = phi float [ %45, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %233, %232 ]
+  %241 = phi float [ %100, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %157, %232 ]
+  %242 = phi float [ %61, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %234, %232 ]
+  %243 = phi float [ %104, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ], [ %171, %232 ]
+  %244 = fneg float %243
+  %245 = fdiv float %244, %242
+  br i1 %3, label %246, label %256
 
-247:                                              ; preds = %.critedge107
-  %248 = fneg float %242
-  %249 = fdiv float %248, %241
-  %250 = fmul float %241, %249
-  %251 = fmul float %243, %249
-  %252 = fadd float %242, %250
-  %253 = fadd float %244, %251
-  %254 = fpext float %253 to double
-  %255 = fpext float %252 to double
-  %256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, double noundef %254, double noundef %255)
-  %.pre145 = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
-  %.pre146 = load float, ptr %7, align 8, !tbaa !146
-  %.pre147 = load float, ptr %109, align 4, !tbaa !42
-  %.pre148 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
-  br label %257
+246:                                              ; preds = %.critedge109
+  %247 = fneg float %241
+  %248 = fdiv float %247, %240
+  %249 = fmul float %240, %248
+  %250 = fmul float %242, %248
+  %251 = fadd float %241, %249
+  %252 = fadd float %243, %250
+  %253 = fpext float %252 to double
+  %254 = fpext float %251 to double
+  %255 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, double noundef %253, double noundef %254)
+  %.pre144 = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
+  %.pre145 = load float, ptr %7, align 8, !tbaa !146
+  %.pre146 = load float, ptr %109, align 4, !tbaa !42
+  %.pre147 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
+  br label %256
 
-257:                                              ; preds = %247, %.critedge107
-  %258 = phi float [ %.pre148, %247 ], [ %243, %.critedge107 ]
-  %259 = phi float [ %.pre147, %247 ], [ %241, %.critedge107 ]
-  %260 = phi float [ %.pre146, %247 ], [ %242, %.critedge107 ]
-  %261 = phi float [ %.pre145, %247 ], [ %244, %.critedge107 ]
-  %.0104 = phi float [ %249, %247 ], [ %246, %.critedge107 ]
-  %262 = select i1 %2, ptr @.str.64, ptr @.str.65
-  %263 = fpext float %261 to double
-  %264 = fpext float %260 to double
-  %265 = fmul float %.0104, %259
-  %266 = fmul float %.0104, %258
+256:                                              ; preds = %246, %.critedge109
+  %257 = phi float [ %.pre147, %246 ], [ %242, %.critedge109 ]
+  %258 = phi float [ %.pre146, %246 ], [ %240, %.critedge109 ]
+  %259 = phi float [ %.pre145, %246 ], [ %241, %.critedge109 ]
+  %260 = phi float [ %.pre144, %246 ], [ %243, %.critedge109 ]
+  %.0104 = phi float [ %248, %246 ], [ %245, %.critedge109 ]
+  %261 = select i1 %2, ptr @.str.64, ptr @.str.65
+  %262 = fpext float %260 to double
+  %263 = fpext float %259 to double
+  %264 = fmul float %.0104, %258
+  %265 = fmul float %.0104, %257
+  %266 = fadd float %259, %264
   %267 = fadd float %260, %265
-  %268 = fadd float %261, %266
-  %269 = fpext float %268 to double
-  %270 = fpext float %267 to double
-  %271 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, ptr noundef nonnull %262, double noundef %263, double noundef %264, double noundef %269, double noundef %270)
-  br label %272
+  %268 = fpext float %267 to double
+  %269 = fpext float %266 to double
+  %270 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, ptr noundef nonnull %261, double noundef %262, double noundef %263, double noundef %268, double noundef %269)
+  br label %271
 
-272:                                              ; preds = %240, %257
+271:                                              ; preds = %.critedge107, %256
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
   ret void
 }

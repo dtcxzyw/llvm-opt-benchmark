@@ -793,7 +793,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %11, null
   %17 = and i1 %10, %16
-  br i1 %17, label %18, label %.thread8
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %12
   %19 = getelementptr i8, ptr %9, i64 536
@@ -801,7 +801,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %21 = icmp ne ptr %15, null
   %22 = icmp ne ptr %20, null
   %23 = select i1 %21, i1 %22, i1 false
-  br i1 %23, label %24, label %.thread8
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %18
   %25 = load i32, ptr %20, align 8
@@ -814,7 +814,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp sgt i32 %29, 0
-  br i1 %32, label %.thread, label %.thread8
+  br i1 %32, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %24, %27
   %33 = phi i32 [ %29, %27 ], [ 1, %24 ]
@@ -822,7 +822,7 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.thread8, label %.thread.split
+  br i1 %37, label %.critedge, label %.thread.split
 
 .thread.split:                                    ; preds = %.thread, %.loopexit
   %38 = phi i32 [ %52, %.loopexit ], [ 0, %.thread ]
@@ -849,12 +849,12 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %52 = add nuw nsw i32 %38, 1
   %53 = getelementptr i8, ptr %39, i64 24
   %54 = icmp eq i32 %52, %33
-  br i1 %54, label %.thread8, label %.thread.split, !llvm.loop !14
+  br i1 %54, label %.critedge, label %.thread.split, !llvm.loop !14
 
 55:                                               ; preds = %42
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 192
   %57 = load ptr, ptr %56, align 8
-  br label %.thread8
+  br label %.critedge
 
 58:                                               ; preds = %1
   %59 = icmp ne ptr %11, null
@@ -897,16 +897,16 @@ define dso_local ptr @acpi_device_get_match_data(ptr noundef readonly captures(a
   %82 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread8, label %84
+  br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = inttoptr i64 %86 to ptr
-  br label %.thread8
+  br label %.critedge
 
-.thread8:                                         ; preds = %.loopexit, %.thread, %18, %27, %12, %84, %79, %55
-  %88 = phi ptr [ %87, %84 ], [ null, %79 ], [ %57, %55 ], [ null, %12 ], [ null, %27 ], [ null, %18 ], [ null, %.thread ], [ null, %.loopexit ]
+.critedge:                                        ; preds = %.loopexit, %.thread, %12, %27, %18, %84, %79, %55
+  %88 = phi ptr [ %87, %84 ], [ null, %79 ], [ %57, %55 ], [ null, %18 ], [ null, %27 ], [ null, %12 ], [ null, %.thread ], [ null, %.loopexit ]
   ret ptr %88
 }
 

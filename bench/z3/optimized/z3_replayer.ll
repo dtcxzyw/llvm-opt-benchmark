@@ -4136,9 +4136,9 @@ define linkonce_odr hidden void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef non
 11:                                               ; preds = %9
   %12 = icmp samesign ult i32 %5, 71
   %13 = add nsw i32 %5, -97
-  %or.cond39 = icmp ult i32 %13, 6
-  %or.cond40 = select i1 %12, i1 true, i1 %or.cond39
-  br i1 %or.cond40, label %40, label %.thread32
+  %or.cond36 = icmp ult i32 %13, 6
+  %or.cond37 = select i1 %12, i1 true, i1 %or.cond36
+  br i1 %or.cond37, label %40, label %.thread32
 
 .thread32:                                        ; preds = %11, %1, %9
   %14 = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -4183,7 +4183,7 @@ _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
   store i64 0, ptr %28, align 8, !tbaa !14
   store i8 0, ptr %19, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
-          to label %74 unwind label %30
+          to label %73 unwind label %30
 
 30:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %31 = landingpad { ptr, i32 }
@@ -4207,7 +4207,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
-  br label %73
+  br label %72
 
 38:                                               ; preds = %.thread32
   %39 = landingpad { ptr, i32 }
@@ -4215,7 +4215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #26
   call void @__cxa_free_exception(ptr %14) #26
-  br label %73
+  br label %72
 
 40:                                               ; preds = %11, %7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4245,8 +4245,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 53:                                               ; preds = %51
   %54 = load i64, ptr %41, align 8, !tbaa !118
   %55 = shl i64 %54, 4
-  %narrow41 = add nsw i32 %44, -87
-  %56 = zext nneg i32 %narrow41 to i64
+  %narrow38 = add nsw i32 %44, -87
+  %56 = zext nneg i32 %narrow38 to i64
   %57 = add nuw i64 %55, %56
   br label %.sink.split
 
@@ -4268,10 +4268,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %67 = and i32 %44, -33
   %or.cond7 = icmp eq i32 %67, 88
   %or.cond30 = and i1 %66, %or.cond7
-  br i1 %or.cond30, label %68, label %72
+  br i1 %or.cond30, label %68, label %.critedge
 
-.sink.split:                                      ; preds = %53, %60, %46
-  %.sink = phi i64 [ %50, %46 ], [ %64, %60 ], [ %57, %53 ]
+.sink.split:                                      ; preds = %46, %60, %53
+  %.sink = phi i64 [ %57, %53 ], [ %64, %60 ], [ %50, %46 ]
   store i64 %.sink, ptr %41, align 8, !tbaa !118
   br label %68
 
@@ -4282,14 +4282,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %71 = add i32 %.025, 1
   br label %43, !llvm.loop !155
 
-72:                                               ; preds = %65
+.critedge:                                        ; preds = %65
   ret void
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %38
+72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %38
   %.pn35 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %39, %38 ]
   resume { ptr, i32 } %.pn35
 
-74:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+73:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   unreachable
 }
 

@@ -2778,12 +2778,12 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %28 = load i32, ptr %27, align 4
   %.not149.not = icmp ult i32 %28, %24
   %29 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0)
-  br i1 %.not149.not, label %30, label %.critedge
+  br i1 %.not149.not, label %30, label %.critedge159
 
 30:                                               ; preds = %.thread, %26
   %31 = phi i32 [ %25, %.thread ], [ %29, %26 ]
   %32 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 6)
-  br i1 %32, label %33, label %.critedge
+  br i1 %32, label %33, label %.critedge159
 
 33:                                               ; preds = %30
   %34 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -2792,7 +2792,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %38 = add i32 %34, 4
   %39 = icmp ugt i32 %38, %35
-  br i1 %39, label %.critedge, label %40
+  br i1 %39, label %.critedge159, label %40
 
 40:                                               ; preds = %33
   %41 = icmp eq i8 %37, 4
@@ -2800,7 +2800,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %or.cond = select i1 %42, i1 %41, i1 false
   %43 = icmp eq i8 %36, 96
   %or.cond167 = or i1 %43, %or.cond
-  br i1 %or.cond167, label %.critedge160, label %.critedge
+  br i1 %or.cond167, label %.critedge160, label %.critedge159
 
 .critedge160:                                     ; preds = %40
   store i32 3, ptr %.0128, align 8
@@ -2812,11 +2812,11 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %48 = tail call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef nonnull @.str.853)
   %49 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   store ptr %48, ptr %49, align 8
-  br label %.critedge
+  br label %.critedge159
 
-.critedge:                                        ; preds = %30, %26, %40, %33, %.critedge160
-  %50 = phi i32 [ %31, %.critedge160 ], [ %31, %33 ], [ %31, %40 ], [ %31, %30 ], [ %29, %26 ]
-  %.1 = phi i1 [ true, %.critedge160 ], [ false, %33 ], [ false, %40 ], [ false, %30 ], [ true, %26 ]
+.critedge159:                                     ; preds = %40, %33, %30, %26, %.critedge160
+  %50 = phi i32 [ %31, %.critedge160 ], [ %29, %26 ], [ %31, %30 ], [ %31, %33 ], [ %31, %40 ]
+  %.1 = phi i1 [ true, %.critedge160 ], [ true, %26 ], [ false, %30 ], [ false, %33 ], [ false, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %1, align 8
@@ -2825,13 +2825,13 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %54 = load ptr, ptr %51, align 8
   br i1 %.b151, label %55, label %57
 
-55:                                               ; preds = %.critedge
+55:                                               ; preds = %.critedge159
   tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.854)
   %56 = load ptr, ptr %51, align 8
   tail call void @col_set_fence(ptr noundef %56, i32 noundef 25)
   br label %58
 
-57:                                               ; preds = %.critedge
+57:                                               ; preds = %.critedge159
   tail call void @col_clear(ptr noundef %54, i32 noundef 25)
   tail call void @register_frame_end_routine(ptr noundef %1, ptr noundef nonnull @ldap_frame_end)
   store i1 true, ptr @ldap_found_in_frame, align 1

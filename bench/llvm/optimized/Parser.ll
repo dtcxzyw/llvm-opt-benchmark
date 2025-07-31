@@ -23360,7 +23360,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5TokenE
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %"class.clang::Token", ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %35
 
 10:                                               ; preds = %3
   %11 = add nuw nsw i64 %7, 1
@@ -23373,116 +23373,116 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5TokenE
   %15 = icmp uge ptr %2, %4
   %16 = icmp ult ptr %2, %1
   %spec.select.i.i.i.i.i = and i1 %15, %16
-  br i1 %spec.select.i.i.i.i.i, label %19, label %17, !prof !1001
+  br i1 %spec.select.i.i.i.i.i, label %17, label %.critedge.i.i.i, !prof !1001
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %11, i64 noundef 24) #21
+  %18 = ptrtoint ptr %2 to i64
+  %19 = ptrtoint ptr %4 to i64
+  %20 = sub i64 %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %11, i64 noundef 24) #21
+  %22 = load ptr, ptr %0, align 8, !tbaa !323
+  %23 = getelementptr inbounds i8, ptr %22, i64 %20
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %11, i64 noundef 24) #21
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !323
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
 
-19:                                               ; preds = %14
-  %20 = ptrtoint ptr %2 to i64
-  %21 = ptrtoint ptr %4 to i64
-  %22 = sub i64 %20, %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %11, i64 noundef 24) #21
-  %24 = load ptr, ptr %0, align 8, !tbaa !323
-  %25 = getelementptr inbounds i8, ptr %24, i64 %22
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit: ; preds = %10, %17, %.critedge.i.i.i
+  %25 = phi ptr [ %4, %10 ], [ %22, %17 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %10 ], [ %23, %17 ], [ %2, %.critedge.i.i.i ]
+  %26 = load i32, ptr %5, align 8, !tbaa !324
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"class.clang::Token", ptr %25, i64 %27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %29 = load i32, ptr %5, align 8, !tbaa !324
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %5, align 8, !tbaa !324
+  %31 = load ptr, ptr %0, align 8, !tbaa !323
+  %32 = zext i32 %30 to i64
+  %33 = getelementptr inbounds nuw %"class.clang::Token", ptr %31, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 -24
+  br label %75
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit: ; preds = %10, %17, %19
-  %26 = phi ptr [ %4, %10 ], [ %24, %19 ], [ %.pre.i, %17 ]
-  %.016.i.i.i = phi ptr [ %2, %10 ], [ %25, %19 ], [ %2, %17 ]
-  %27 = load i32, ptr %5, align 8, !tbaa !324
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::Token", ptr %26, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %30 = load i32, ptr %5, align 8, !tbaa !324
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %5, align 8, !tbaa !324
-  %32 = load ptr, ptr %0, align 8, !tbaa !323
-  %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"class.clang::Token", ptr %32, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 -24
-  br label %77
+35:                                               ; preds = %3
+  %36 = ptrtoint ptr %1 to i64
+  %37 = ptrtoint ptr %4 to i64
+  %38 = sub i64 %36, %37
+  %39 = add nuw nsw i64 %7, 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %41 = load i32, ptr %40, align 4, !tbaa !325
+  %.not.i.i.not = icmp ult i32 %6, %41
+  br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit, label %42, !prof !1237
 
-36:                                               ; preds = %3
-  %37 = ptrtoint ptr %1 to i64
-  %38 = ptrtoint ptr %4 to i64
-  %39 = sub i64 %37, %38
-  %40 = add nuw nsw i64 %7, 1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !325
-  %.not.i.i.not = icmp ult i32 %6, %42
-  br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit, label %43, !prof !1237
+42:                                               ; preds = %35
+  %43 = icmp uge ptr %2, %4
+  %44 = icmp ult ptr %2, %8
+  %spec.select.i.i.i.i = and i1 %43, %44
+  br i1 %spec.select.i.i.i.i, label %45, label %.critedge.i.i, !prof !1001
 
-43:                                               ; preds = %36
-  %44 = icmp uge ptr %2, %4
-  %45 = icmp ult ptr %2, %8
-  %spec.select.i.i.i.i = and i1 %44, %45
-  br i1 %spec.select.i.i.i.i, label %48, label %46, !prof !1001
+45:                                               ; preds = %42
+  %46 = ptrtoint ptr %2 to i64
+  %47 = sub i64 %46, %37
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %48, i64 noundef %39, i64 noundef 24) #21
+  %49 = load ptr, ptr %0, align 8, !tbaa !323
+  %50 = getelementptr inbounds i8, ptr %49, i64 %47
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %47, i64 noundef %40, i64 noundef 24) #21
+.critedge.i.i:                                    ; preds = %42
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %51, i64 noundef %39, i64 noundef 24) #21
   %.pre = load ptr, ptr %0, align 8, !tbaa !323
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit
 
-48:                                               ; preds = %43
-  %49 = ptrtoint ptr %2 to i64
-  %50 = sub i64 %49, %38
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %51, i64 noundef %40, i64 noundef 24) #21
-  %52 = load ptr, ptr %0, align 8, !tbaa !323
-  %53 = getelementptr inbounds i8, ptr %52, i64 %50
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %35, %45, %.critedge.i.i
+  %52 = phi ptr [ %4, %35 ], [ %49, %45 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %2, %35 ], [ %50, %45 ], [ %2, %.critedge.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %38
+  %54 = load i32, ptr %5, align 8, !tbaa !324
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw %"class.clang::Token", ptr %52, i64 %55
+  %57 = getelementptr inbounds i8, ptr %56, i64 -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false), !tbaa.struct !1752
+  %58 = load ptr, ptr %0, align 8, !tbaa !323
+  %59 = load i32, ptr %5, align 8, !tbaa !324
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw %"class.clang::Token", ptr %58, i64 %60
+  %62 = getelementptr inbounds i8, ptr %61, i64 -24
+  %.not.i.i.i.i.i = icmp eq ptr %62, %53
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, label %63
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %36, %46, %48
-  %54 = phi ptr [ %4, %36 ], [ %52, %48 ], [ %.pre, %46 ]
-  %.016.i.i = phi ptr [ %2, %36 ], [ %53, %48 ], [ %2, %46 ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %39
-  %56 = load i32, ptr %5, align 8, !tbaa !324
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.clang::Token", ptr %54, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !tbaa.struct !1752
-  %60 = load ptr, ptr %0, align 8, !tbaa !323
-  %61 = load i32, ptr %5, align 8, !tbaa !324
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.clang::Token", ptr %60, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 -24
-  %.not.i.i.i.i.i = icmp eq ptr %64, %55
-  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, label %65
-
-65:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit
-  %66 = ptrtoint ptr %64 to i64
-  %67 = ptrtoint ptr %55 to i64
-  %68 = sub i64 %66, %67
-  %.neg.i.i.i.i.i = sdiv exact i64 %68, -24
-  %69 = getelementptr inbounds %"class.clang::Token", ptr %63, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %55, i64 %68, i1 false)
+63:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit
+  %64 = ptrtoint ptr %62 to i64
+  %65 = ptrtoint ptr %53 to i64
+  %66 = sub i64 %64, %65
+  %.neg.i.i.i.i.i = sdiv exact i64 %66, -24
+  %67 = getelementptr inbounds %"class.clang::Token", ptr %61, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 8 %53, i64 %66, i1 false)
   %.pre15 = load i32, ptr %5, align 8, !tbaa !324
   %.pre16 = load ptr, ptr %0, align 8, !tbaa !323
   br label %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit, %65
-  %70 = phi ptr [ %60, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit ], [ %.pre16, %65 ]
-  %71 = phi i32 [ %61, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit ], [ %.pre15, %65 ]
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %5, align 8, !tbaa !324
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"class.clang::Token", ptr %70, i64 %73
-  %75 = icmp uge ptr %.016.i.i, %55
-  %76 = icmp ult ptr %.016.i.i, %74
-  %spec.select.i = and i1 %75, %76
+_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit, %63
+  %68 = phi ptr [ %58, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit ], [ %.pre16, %63 ]
+  %69 = phi i32 [ %59, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddressERKS2_m.exit ], [ %.pre15, %63 ]
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %5, align 8, !tbaa !324
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw %"class.clang::Token", ptr %68, i64 %71
+  %73 = icmp uge ptr %.016.i.i, %53
+  %74 = icmp ult ptr %.016.i.i, %72
+  %spec.select.i = and i1 %73, %74
   %spec.select.idx = select i1 %spec.select.i, i64 24, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %spec.select.idx
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(20) %spec.select, i64 20, i1 false), !tbaa.struct !1752
-  br label %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(20) %spec.select, i64 20, i1 false), !tbaa.struct !1752
+  br label %75
 
-77:                                               ; preds = %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
-  %.013 = phi ptr [ %35, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ], [ %55, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit ]
+75:                                               ; preds = %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
+  %.013 = phi ptr [ %34, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ], [ %53, %_ZSt13move_backwardIPN5clang5TokenES2_ET0_T_S4_S3_.exit ]
   ret ptr %.013
 }
 
@@ -23870,79 +23870,79 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixIt
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i, label %15, label %14, !prof !1001
+  br i1 %spec.select.i.i.i.i, label %14, label %.critedge.i.i, !prof !1001
 
 14:                                               ; preds = %10
+  %15 = ptrtoint ptr %1 to i64
+  %16 = ptrtoint ptr %.pre3 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %18 = load ptr, ptr %0, align 8, !tbaa !323
+  %19 = getelementptr inbounds i8, ptr %18, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   %.pre = load ptr, ptr %0, align 8, !tbaa !323
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-15:                                               ; preds = %10
-  %16 = ptrtoint ptr %1 to i64
-  %17 = ptrtoint ptr %.pre3 to i64
-  %18 = sub i64 %16, %17
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %19 = load ptr, ptr %0, align 8, !tbaa !323
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %15
-  %21 = phi ptr [ %.pre3, %2 ], [ %19, %15 ], [ %.pre, %14 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %20, %15 ], [ %1, %14 ]
-  %22 = load i32, ptr %4, align 8, !tbaa !324
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %21, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %24, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr %27, ptr %25, align 8, !tbaa !995
-  %28 = load ptr, ptr %26, align 8, !tbaa !988
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !989
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %.critedge.i.i
+  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
+  %21 = load i32, ptr %4, align 8, !tbaa !324
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %20, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %23, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store ptr %26, ptr %24, align 8, !tbaa !995
+  %27 = load ptr, ptr %25, align 8, !tbaa !988
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %29 = load i64, ptr %28, align 8, !tbaa !989
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  store i64 %30, ptr %3, align 8, !tbaa !1000
-  %31 = icmp ugt i64 %30, 15
-  br i1 %31, label %32, label %._crit_edge.i.i.i
+  store i64 %29, ptr %3, align 8, !tbaa !1000
+  %30 = icmp ugt i64 %29, 15
+  br i1 %30, label %31, label %._crit_edge.i.i.i
 
-32:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #21
-  store ptr %33, ptr %25, align 8, !tbaa !988
-  %34 = load i64, ptr %3, align 8, !tbaa !1000
-  store i64 %34, ptr %27, align 8, !tbaa !968
+31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #21
+  store ptr %32, ptr %24, align 8, !tbaa !988
+  %33 = load i64, ptr %3, align 8, !tbaa !1000
+  store i64 %33, ptr %26, align 8, !tbaa !968
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %35 = phi ptr [ %33, %32 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  switch i64 %30, label %38 [
-    i64 1, label %36
+._crit_edge.i.i.i:                                ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %34 = phi ptr [ %32, %31 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  switch i64 %29, label %37 [
+    i64 1, label %35
     i64 0, label %_ZN5clang9FixItHintC2ERKS0_.exit
   ]
 
-36:                                               ; preds = %._crit_edge.i.i.i
-  %37 = load i8, ptr %28, align 1, !tbaa !968
-  store i8 %37, ptr %35, align 1, !tbaa !968
+35:                                               ; preds = %._crit_edge.i.i.i
+  %36 = load i8, ptr %27, align 1, !tbaa !968
+  store i8 %36, ptr %34, align 1, !tbaa !968
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-38:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %28, i64 %30, i1 false)
+37:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %27, i64 %29, i1 false)
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %36, %38
-  %39 = load i64, ptr %3, align 8, !tbaa !1000
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i64 %39, ptr %40, align 8, !tbaa !989
-  %41 = load ptr, ptr %25, align 8, !tbaa !988
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !968
+_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %35, %37
+  %38 = load i64, ptr %3, align 8, !tbaa !1000
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i64 %38, ptr %39, align 8, !tbaa !989
+  %40 = load ptr, ptr %24, align 8, !tbaa !988
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %41, align 1, !tbaa !968
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  %43 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  %45 = load i8, ptr %44, align 8, !tbaa !996, !range !984, !noundef !985
-  store i8 %45, ptr %43, align 8, !tbaa !996
-  %46 = load i32, ptr %4, align 8, !tbaa !324
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %4, align 8, !tbaa !324
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  %44 = load i8, ptr %43, align 8, !tbaa !996, !range !984, !noundef !985
+  store i8 %44, ptr %42, align 8, !tbaa !996
+  %45 = load i32, ptr %4, align 8, !tbaa !324
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %4, align 8, !tbaa !324
   ret void
 }
 

@@ -1269,9 +1269,9 @@ parse_times.exit:                                 ; preds = %87, %.preheader.i
 
 .lr.ph.i164:                                      ; preds = %.preheader.i161, %134
   %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i166, %134 ], [ 0, %.preheader.i161 ]
-  %.14262.i = phi ptr [ %125, %134 ], [ %36, %.preheader.i161 ]
+  %.14259.i = phi ptr [ %125, %134 ], [ %36, %.preheader.i161 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  %109 = load i8, ptr %.14262.i, align 1, !tbaa !109
+  %109 = load i8, ptr %.14259.i, align 1, !tbaa !109
   switch i8 %109, label %111 [
     i8 0, label %110
     i8 44, label %110
@@ -1279,10 +1279,10 @@ parse_times.exit:                                 ; preds = %87, %.preheader.i
 
 110:                                              ; preds = %.lr.ph.i164, %.lr.ph.i164
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.141, ptr noundef nonnull %36) #13
-  br label %.thread55.i
+  br label %.critedge.i
 
 111:                                              ; preds = %.lr.ph.i164
-  %112 = call i64 @strtol(ptr noundef nonnull %.14262.i, ptr noundef nonnull %3, i32 noundef 10) #13
+  %112 = call i64 @strtol(ptr noundef nonnull %.14259.i, ptr noundef nonnull %3, i32 noundef 10) #13
   %113 = load ptr, ptr %3, align 8, !tbaa !108
   %114 = load i8, ptr %113, align 1, !tbaa !109
   %.not51.i = icmp eq i8 %114, 0
@@ -1301,8 +1301,8 @@ parse_times.exit:                                 ; preds = %87, %.preheader.i
   br i1 %or.cond54.i, label %121, label %124
 
 121:                                              ; preds = %119, %115
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.142, ptr noundef nonnull %.14262.i) #13
-  br label %.thread55.i
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.142, ptr noundef nonnull %.14259.i) #13
+  br label %.critedge.i
 
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %113, i64 1
@@ -1325,11 +1325,7 @@ parse_times.exit:                                 ; preds = %87, %.preheader.i
 
 133:                                              ; preds = %129
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.143, i32 noundef %126, i32 noundef %131) #13
-  br label %.thread55.i
-
-.thread55.i:                                      ; preds = %133, %121, %110
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br label %parse_frames.exit.thread
+  br label %.critedge.i
 
 134:                                              ; preds = %129, %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
@@ -1338,6 +1334,10 @@ parse_times.exit:                                 ; preds = %87, %.preheader.i
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next.i166, %136
   br i1 %137, label %.lr.ph.i164, label %parse_frames.exit, !llvm.loop !116
+
+.critedge.i:                                      ; preds = %133, %121, %110
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  br label %parse_frames.exit.thread
 
 .thread179:                                       ; preds = %42, %91
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 76
@@ -1790,8 +1790,8 @@ select_reference_stream.exit:                     ; preds = %.loopexit.i173, %.t
   store i32 1, ptr %353, align 8, !tbaa !136
   br label %parse_frames.exit.thread
 
-parse_frames.exit.thread:                         ; preds = %229, %.loopexit.thread.i, %.thread55.i, %108, %parse_times.exit.thread177, %parse_times.exit.thread, %._crit_edge, %352, %356, %325, %313, %298, %271, %268, %select_reference_stream.exit, %174, %312, %289, %266, %152, %142, %41
-  %.0 = phi i32 [ -22, %41 ], [ -22, %266 ], [ %287, %289 ], [ -22, %312 ], [ -22, %142 ], [ -22, %152 ], [ %175, %174 ], [ -1481985528, %select_reference_stream.exit ], [ %269, %268 ], [ %272, %271 ], [ %300, %298 ], [ %309, %313 ], [ %326, %325 ], [ %.0122, %356 ], [ %.0122, %352 ], [ %.0122, %._crit_edge ], [ -12, %parse_times.exit.thread ], [ %.043.i.ph, %parse_times.exit.thread177 ], [ -22, %.thread55.i ], [ -12, %108 ], [ -22, %.loopexit.thread.i ], [ %234, %229 ]
+parse_frames.exit.thread:                         ; preds = %229, %.loopexit.thread.i, %.critedge.i, %108, %parse_times.exit.thread177, %parse_times.exit.thread, %._crit_edge, %352, %356, %325, %313, %298, %271, %268, %select_reference_stream.exit, %174, %312, %289, %266, %152, %142, %41
+  %.0 = phi i32 [ -22, %41 ], [ -22, %266 ], [ %287, %289 ], [ -22, %312 ], [ -22, %142 ], [ -22, %152 ], [ %175, %174 ], [ -1481985528, %select_reference_stream.exit ], [ %269, %268 ], [ %272, %271 ], [ %300, %298 ], [ %309, %313 ], [ %326, %325 ], [ %.0122, %356 ], [ %.0122, %352 ], [ %.0122, %._crit_edge ], [ -12, %parse_times.exit.thread ], [ %.043.i.ph, %parse_times.exit.thread177 ], [ -22, %.critedge.i ], [ -12, %108 ], [ -22, %.loopexit.thread.i ], [ %234, %229 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   ret i32 %.0
 }

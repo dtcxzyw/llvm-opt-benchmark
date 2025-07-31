@@ -1623,13 +1623,13 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
   %20 = sext i8 %19 to i64
   %21 = sub nsw i64 %16, %20
   %22 = icmp ugt i64 %.020, 1152921504606846975
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %15
   %24 = xor i64 %21, -1
   %25 = lshr i64 %24, 4
   %26 = icmp samesign ugt i64 %.020, %25
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
   %28 = shl nuw i64 %.020, 4
@@ -1639,10 +1639,10 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
 
 31:                                               ; preds = %base_16_char_type.exit
   store i64 %.020, ptr %2, align 8, !tbaa !38
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %15, %23, %31
-  %.2 = phi i32 [ 1, %31 ], [ -1, %23 ], [ -1, %15 ]
+.critedge:                                        ; preds = %23, %15, %31
+  %.2 = phi i32 [ 1, %31 ], [ -1, %15 ], [ -1, %23 ]
   ret i32 %.2
 }
 

@@ -130,7 +130,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 define zeroext range(i8 0, 2) i8 @l_Lake_Toml_isHexDigit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -58
   %or.cond = icmp ult i32 %2, -10
-  br i1 %or.cond, label %lean_dec.exit, label %8
+  br i1 %or.cond, label %lean_dec.exit, label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
   %3 = icmp ult i32 %0, 97
@@ -139,13 +139,13 @@ lean_dec.exit:                                    ; preds = %1
 4:                                                ; preds = %lean_dec.exit
   %5 = add nsw i32 %0, -65
   %spec.select = icmp ult i32 %5, 6
-  br label %8
+  br label %.critedge
 
 6:                                                ; preds = %lean_dec.exit
   %7 = icmp ult i32 %0, 103
-  br label %8
+  br label %.critedge
 
-8:                                                ; preds = %4, %6, %1
+.critedge:                                        ; preds = %4, %6, %1
   %.0.shrunk = phi i1 [ true, %1 ], [ %7, %6 ], [ %spec.select, %4 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0

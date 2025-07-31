@@ -3584,9 +3584,9 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   br i1 %78, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %77, %75
-  %.sink119 = phi i32 [ 6, %75 ], [ 4, %77 ]
+  %.sink114 = phi i32 [ 6, %75 ], [ 4, %77 ]
   %79 = load i32, ptr %16, align 4, !tbaa !66
-  %80 = or i32 %79, %.sink119
+  %80 = or i32 %79, %.sink114
   store i32 %80, ptr %16, align 4, !tbaa !66
   br label %81
 

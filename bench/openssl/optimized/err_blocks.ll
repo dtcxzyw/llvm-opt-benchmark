@@ -193,39 +193,39 @@ declare void @llvm.va_start.p0(ptr) #3
 define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @ossl_err_get_state_int() #7
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %72, label %7
+  br i1 %6, label %90, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 896
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %36, label %9
+  %9 = load i32, ptr %8, align 8, !tbaa !3
+  %10 = sext i32 %9 to i64
+  br i1 %.not, label %.critedge, label %11
 
-9:                                                ; preds = %7
-  %10 = load i32, ptr %8, align 8, !tbaa !3
-  %11 = sext i32 %10 to i64
+11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %16 = getelementptr inbounds nuw [16 x i64], ptr %15, i64 0, i64 %11
+  %16 = getelementptr inbounds nuw [16 x i64], ptr %15, i64 0, i64 %10
   %17 = load i64, ptr %16, align 8, !tbaa !14
   store ptr null, ptr %13, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %19 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %11
+  %19 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %10
   store i32 0, ptr %19, align 4, !tbaa !9
   %20 = icmp ult i64 %17, 1024
   br i1 %20, label %21, label %23
 
-21:                                               ; preds = %9
+21:                                               ; preds = %11
   %22 = tail call ptr @CRYPTO_realloc(ptr noundef %14, i64 noundef 1024, ptr noundef nonnull @.str, i32 noundef 84) #7
   %.not53 = icmp eq ptr %22, null
   %spec.select = select i1 %.not53, i64 %17, i64 1024
   %spec.select57 = select i1 %.not53, ptr %14, ptr %22
   br label %23
 
-23:                                               ; preds = %21, %9
-  %.145 = phi i64 [ %17, %9 ], [ %spec.select, %21 ]
-  %.1 = phi ptr [ %14, %9 ], [ %spec.select57, %21 ]
+23:                                               ; preds = %21, %11
+  %.145 = phi i64 [ %17, %11 ], [ %spec.select, %21 ]
+  %.1 = phi ptr [ %14, %11 ], [ %spec.select57, %21 ]
   %.not54 = icmp eq ptr %.1, null
   br i1 %.not54, label %.thread, label %24
 
@@ -238,15 +238,15 @@ define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %23, %24
-  %.061 = phi i32 [ %26, %24 ], [ 0, %23 ]
-  %29 = add nuw nsw i32 %.061, 1
+  %.068 = phi i32 [ %26, %24 ], [ 0, %23 ]
+  %29 = add nuw nsw i32 %.068, 1
   %30 = zext nneg i32 %29 to i64
   %31 = tail call ptr @CRYPTO_realloc(ptr noundef %.1, i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 103) #7
   %.not55 = icmp eq ptr %31, null
   br i1 %.not55, label %35, label %32
 
 32:                                               ; preds = %.thread
-  %33 = zext nneg i32 %.061 to i64
+  %33 = zext nneg i32 %.068 to i64
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !13
   br label %35
@@ -256,93 +256,137 @@ define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %.2 = phi ptr [ %31, %32 ], [ %.1, %.thread ]
   %.not56 = icmp eq ptr %.2, null
   %spec.select58 = select i1 %.not56, i32 0, i32 3
-  br label %36
+  %36 = load i32, ptr %8, align 8, !tbaa !3
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !9
+  %40 = and i32 %39, 1
+  %.not.i = icmp eq i32 %40, 0
+  %41 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %37
+  br i1 %.not.i, label %45, label %42
 
-36:                                               ; preds = %35, %7
-  %.044 = phi i64 [ %.246, %35 ], [ 0, %7 ]
-  %.042 = phi i32 [ %spec.select58, %35 ], [ 0, %7 ]
-  %.041 = phi ptr [ %.2, %35 ], [ null, %7 ]
-  %37 = load i32, ptr %8, align 8, !tbaa !3
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %39, i64 0, i64 %38
-  %41 = load i32, ptr %40, align 4, !tbaa !9
-  %42 = and i32 %41, 1
-  %.not.i = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %44 = getelementptr inbounds nuw [16 x ptr], ptr %43, i64 0, i64 %38
-  br i1 %.not.i, label %48, label %45
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %41, align 8, !tbaa !10
+  %.not22.i = icmp eq ptr %43, null
+  br i1 %.not22.i, label %err_clear_data.exit, label %44
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %44, align 8, !tbaa !10
-  %.not22.i = icmp eq ptr %46, null
-  br i1 %.not22.i, label %err_clear_data.exit, label %47
-
-47:                                               ; preds = %45
-  store i8 0, ptr %46, align 1, !tbaa !13
+44:                                               ; preds = %42
+  store i8 0, ptr %43, align 1, !tbaa !13
   br label %.sink.split.i
 
-48:                                               ; preds = %36
-  store ptr null, ptr %44, align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %50 = getelementptr inbounds nuw [16 x i64], ptr %49, i64 0, i64 %38
-  store i64 0, ptr %50, align 8, !tbaa !14
+45:                                               ; preds = %35
+  store ptr null, ptr %41, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw [16 x i64], ptr %15, i64 0, i64 %37
+  store i64 0, ptr %46, align 8, !tbaa !14
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %48, %47
-  %.sink.i = phi i32 [ 1, %47 ], [ 0, %48 ]
-  store i32 %.sink.i, ptr %40, align 4, !tbaa !9
+.sink.split.i:                                    ; preds = %45, %44
+  %.sink.i = phi i32 [ 1, %44 ], [ 0, %45 ]
+  store i32 %.sink.i, ptr %38, align 4, !tbaa !9
   %.pre = load i32, ptr %8, align 8, !tbaa !3
-  %.pre62 = sext i32 %.pre to i64
+  %.pre70 = sext i32 %.pre to i64
   br label %err_clear_data.exit
 
-err_clear_data.exit:                              ; preds = %45, %.sink.split.i
-  %.pre-phi = phi i64 [ %38, %45 ], [ %.pre62, %.sink.split.i ]
-  %51 = icmp eq i32 %0, 2
-  br i1 %51, label %52, label %54
+err_clear_data.exit:                              ; preds = %42, %.sink.split.i
+  %.pre-phi = phi i64 [ %37, %42 ], [ %.pre70, %.sink.split.i ]
+  %47 = icmp eq i32 %0, 2
+  br i1 %47, label %48, label %50
 
-52:                                               ; preds = %err_clear_data.exit
-  %53 = or i32 %1, -2147483648
-  br label %err_set_error.exit
+48:                                               ; preds = %err_clear_data.exit
+  %49 = or i32 %1, -2147483648
+  br label %55
 
-54:                                               ; preds = %err_clear_data.exit
-  %55 = shl i32 %0, 23
-  %56 = and i32 %55, 2139095040
-  %57 = and i32 %1, 8388607
-  %58 = or disjoint i32 %56, %57
-  br label %err_set_error.exit
+50:                                               ; preds = %err_clear_data.exit
+  %51 = shl i32 %0, 23
+  %52 = and i32 %51, 2139095040
+  %53 = and i32 %1, 8388607
+  %54 = or disjoint i32 %52, %53
+  br label %55
 
-err_set_error.exit:                               ; preds = %52, %54
-  %.in.i = phi i32 [ %53, %52 ], [ %58, %54 ]
-  %59 = zext i32 %.in.i to i64
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %61 = getelementptr inbounds nuw [16 x i64], ptr %60, i64 0, i64 %.pre-phi
-  store i64 %59, ptr %61, align 8, !tbaa !14
-  br i1 %.not, label %72, label %62
+55:                                               ; preds = %50, %48
+  %.in.i = phi i32 [ %49, %48 ], [ %54, %50 ]
+  %56 = zext i32 %.in.i to i64
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %58 = getelementptr inbounds nuw [16 x i64], ptr %57, i64 0, i64 %.pre-phi
+  store i64 %56, ptr %58, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 0, i64 %.pre-phi
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  %61 = and i32 %60, 1
+  %.not.i59 = icmp eq i32 %61, 0
+  br i1 %.not.i59, label %err_set_data.exit, label %62
 
-62:                                               ; preds = %err_set_error.exit
-  %63 = getelementptr inbounds nuw [16 x i32], ptr %39, i64 0, i64 %.pre-phi
-  %64 = load i32, ptr %63, align 4, !tbaa !9
-  %65 = and i32 %64, 1
-  %.not.i59 = icmp eq i32 %65, 0
-  br i1 %.not.i59, label %err_set_data.exit, label %66
-
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw [16 x ptr], ptr %43, i64 0, i64 %.pre-phi
-  %68 = load ptr, ptr %67, align 8, !tbaa !10
-  tail call void @CRYPTO_free(ptr noundef %68, ptr noundef nonnull @.str.1, i32 noundef 78) #7
+62:                                               ; preds = %55
+  %63 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %.pre-phi
+  %64 = load ptr, ptr %63, align 8, !tbaa !10
+  tail call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str.1, i32 noundef 78) #7
   br label %err_set_data.exit
 
-err_set_data.exit:                                ; preds = %62, %66
-  %69 = getelementptr inbounds nuw [16 x ptr], ptr %43, i64 0, i64 %.pre-phi
-  store ptr %.041, ptr %69, align 8, !tbaa !10
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %71 = getelementptr inbounds nuw [16 x i64], ptr %70, i64 0, i64 %.pre-phi
-  store i64 %.044, ptr %71, align 8, !tbaa !14
-  store i32 %.042, ptr %63, align 4, !tbaa !9
-  br label %72
+err_set_data.exit:                                ; preds = %55, %62
+  %65 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %.pre-phi
+  store ptr %.2, ptr %65, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw [16 x i64], ptr %15, i64 0, i64 %.pre-phi
+  store i64 %.246, ptr %66, align 8, !tbaa !14
+  store i32 %spec.select58, ptr %59, align 4, !tbaa !9
+  br label %90
 
-72:                                               ; preds = %err_set_error.exit, %err_set_data.exit, %4
+.critedge:                                        ; preds = %7
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %68 = getelementptr inbounds nuw [16 x i32], ptr %67, i64 0, i64 %10
+  %69 = load i32, ptr %68, align 4, !tbaa !9
+  %70 = and i32 %69, 1
+  %.not.i60 = icmp eq i32 %70, 0
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %72 = getelementptr inbounds nuw [16 x ptr], ptr %71, i64 0, i64 %10
+  br i1 %.not.i60, label %76, label %73
+
+73:                                               ; preds = %.critedge
+  %74 = load ptr, ptr %72, align 8, !tbaa !10
+  %.not22.i61 = icmp eq ptr %74, null
+  br i1 %.not22.i61, label %err_clear_data.exit64, label %75
+
+75:                                               ; preds = %73
+  store i8 0, ptr %74, align 1, !tbaa !13
+  br label %.sink.split.i62
+
+76:                                               ; preds = %.critedge
+  store ptr null, ptr %72, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %78 = getelementptr inbounds nuw [16 x i64], ptr %77, i64 0, i64 %10
+  store i64 0, ptr %78, align 8, !tbaa !14
+  br label %.sink.split.i62
+
+.sink.split.i62:                                  ; preds = %76, %75
+  %.sink.i63 = phi i32 [ 1, %75 ], [ 0, %76 ]
+  store i32 %.sink.i63, ptr %68, align 4, !tbaa !9
+  %.pre69 = load i32, ptr %8, align 8, !tbaa !3
+  %.pre71 = sext i32 %.pre69 to i64
+  br label %err_clear_data.exit64
+
+err_clear_data.exit64:                            ; preds = %73, %.sink.split.i62
+  %.pre-phi72 = phi i64 [ %10, %73 ], [ %.pre71, %.sink.split.i62 ]
+  %79 = icmp eq i32 %0, 2
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %err_clear_data.exit64
+  %81 = or i32 %1, -2147483648
+  br label %err_set_error.exit66
+
+82:                                               ; preds = %err_clear_data.exit64
+  %83 = shl i32 %0, 23
+  %84 = and i32 %83, 2139095040
+  %85 = and i32 %1, 8388607
+  %86 = or disjoint i32 %84, %85
+  br label %err_set_error.exit66
+
+err_set_error.exit66:                             ; preds = %80, %82
+  %.in.i65 = phi i32 [ %81, %80 ], [ %86, %82 ]
+  %87 = zext i32 %.in.i65 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %89 = getelementptr inbounds nuw [16 x i64], ptr %88, i64 0, i64 %.pre-phi72
+  store i64 %87, ptr %89, align 8, !tbaa !14
+  br label %90
+
+90:                                               ; preds = %err_set_data.exit, %err_set_error.exit66, %4
   ret void
 }
 

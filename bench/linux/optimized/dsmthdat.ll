@@ -361,7 +361,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
 
 35:                                               ; preds = %32, %28
   %36 = icmp eq ptr %26, null
-  br i1 %36, label %75, label %37
+  br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %35
   %switch = icmp eq i8 %0, 1
@@ -402,9 +402,9 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
 
 61:                                               ; preds = %38, %42, %46
   %62 = icmp samesign ugt i32 %1, 6
-  br i1 %62, label %.thread12, label %63
+  br i1 %62, label %.thread8, label %63
 
-.thread12:                                        ; preds = %61
+.thread8:                                         ; preds = %61
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 241, ptr noundef nonnull @.str.3, i32 noundef %1, i32 noundef 6) #5
   br label %83
 
@@ -414,39 +414,39 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   %66 = getelementptr [7 x %struct.acpi_namespace_node], ptr %64, i64 0, i64 %65
   br label %67
 
-67:                                               ; preds = %63, %57
-  %.ph9 = phi ptr [ %60, %57 ], [ %66, %63 ]
-  %68 = call ptr @acpi_ns_get_attached_object(ptr noundef %.ph9) #5
-  store ptr null, ptr %.ph9, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %75, label %70
+67:                                               ; preds = %57, %63
+  %68 = phi ptr [ %66, %63 ], [ %60, %57 ]
+  %69 = call ptr @acpi_ns_get_attached_object(ptr noundef %68) #5
+  store ptr null, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.critedge, label %71
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %72 = load i8, ptr %71, align 8
-  %73 = icmp eq i8 %72, 14
-  br i1 %73, label %74, label %75
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %73 = load i8, ptr %72, align 8
+  %74 = icmp eq i8 %73, 14
+  br i1 %74, label %75, label %.critedge
 
-74:                                               ; preds = %70
-  call void @acpi_ut_remove_reference(ptr noundef nonnull %68) #5
-  br label %75
+75:                                               ; preds = %71
+  call void @acpi_ut_remove_reference(ptr noundef nonnull %69) #5
+  br label %.critedge
 
-75:                                               ; preds = %74, %70, %67, %35
+.critedge:                                        ; preds = %75, %71, %67, %35
   %76 = load ptr, ptr %5, align 8
-  %switch18 = icmp eq i8 %0, 0
-  br i1 %switch18, label %77, label %81
+  %switch14 = icmp eq i8 %0, 0
+  br i1 %switch14, label %77, label %81
 
-77:                                               ; preds = %75
+77:                                               ; preds = %.critedge
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 488
   %79 = zext nneg i32 %1 to i64
   %80 = getelementptr [8 x %struct.acpi_namespace_node], ptr %78, i64 0, i64 %79
   br label %88
 
-81:                                               ; preds = %75
+81:                                               ; preds = %.critedge
   %82 = icmp samesign ugt i32 %1, 6
   br i1 %82, label %83, label %84
 
-83:                                               ; preds = %.thread12, %81
+83:                                               ; preds = %.thread8, %81
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 241, ptr noundef nonnull @.str.3, i32 noundef %1, i32 noundef 6) #5
   br label %89
 
@@ -457,9 +457,9 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   br label %88
 
 88:                                               ; preds = %84, %77
-  %.ph15 = phi ptr [ %80, %77 ], [ %87, %84 ]
+  %.ph11 = phi ptr [ %80, %77 ], [ %87, %84 ]
   call void @acpi_ut_add_reference(ptr noundef %76) #5
-  store ptr %76, ptr %.ph15, align 8
+  store ptr %76, ptr %.ph11, align 8
   br label %89
 
 89:                                               ; preds = %83, %88

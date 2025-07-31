@@ -31431,7 +31431,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 ._crit_edge:                                      ; preds = %2
   %.pre20 = load i32, ptr %9, align 4, !tbaa !120
-  br label %57
+  br label %56
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -31457,80 +31457,80 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %26 = icmp uge ptr %5, %.pre3.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i = and i1 %26, %27
-  br i1 %spec.select.i.i.i.i.i, label %29, label %28, !prof !705
+  br i1 %spec.select.i.i.i.i.i, label %28, label %.critedge.i.i.i, !prof !705
 
 28:                                               ; preds = %24
+  %29 = ptrtoint ptr %5 to i64
+  %30 = ptrtoint ptr %.pre3.i to i64
+  %31 = sub i64 %29, %30
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %21)
+  %32 = load ptr, ptr %14, align 8, !tbaa !132
+  %33 = getelementptr inbounds i8, ptr %32, i64 %31
+  %.pre = load ptr, ptr %33, align 8, !tbaa !841
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !452
+  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !456
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !455
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
+
+.critedge.i.i.i:                                  ; preds = %24
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %21)
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !132
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
 
-29:                                               ; preds = %24
-  %30 = ptrtoint ptr %5 to i64
-  %31 = ptrtoint ptr %.pre3.i to i64
-  %32 = sub i64 %30, %31
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %21)
-  %33 = load ptr, ptr %14, align 8, !tbaa !132
-  %34 = getelementptr inbounds i8, ptr %33, i64 %32
-  %.pre = load ptr, ptr %34, align 8, !tbaa !841
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !452
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !456
-  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !455
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit: ; preds = %13, %28, %.critedge.i.i.i
+  %34 = phi ptr [ null, %13 ], [ %.pre18, %28 ], [ null, %.critedge.i.i.i ]
+  %35 = phi ptr [ null, %13 ], [ %.pre16, %28 ], [ null, %.critedge.i.i.i ]
+  %36 = phi ptr [ null, %13 ], [ %.pre14, %28 ], [ null, %.critedge.i.i.i ]
+  %37 = phi ptr [ %15, %13 ], [ %.pre, %28 ], [ %15, %.critedge.i.i.i ]
+  %38 = phi ptr [ %.pre3.i, %13 ], [ %32, %28 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %13 ], [ %33, %28 ], [ %5, %.critedge.i.i.i ]
+  %39 = load i32, ptr %18, align 8, !tbaa !134
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %"struct.std::pair.383", ptr %38, i64 %40
+  store ptr %37, ptr %41, align 8, !tbaa !841
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  store ptr %36, ptr %42, align 8, !tbaa !452
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store ptr %35, ptr %44, align 8, !tbaa !456
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  store ptr %34, ptr %45, align 8, !tbaa !455
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
+  %46 = load i32, ptr %18, align 8, !tbaa !134
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %18, align 8, !tbaa !134
+  %48 = load ptr, ptr %16, align 8, !tbaa !452
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %49
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit: ; preds = %13, %28, %29
-  %35 = phi ptr [ null, %13 ], [ %.pre18, %29 ], [ null, %28 ]
-  %36 = phi ptr [ null, %13 ], [ %.pre16, %29 ], [ null, %28 ]
-  %37 = phi ptr [ null, %13 ], [ %.pre14, %29 ], [ null, %28 ]
-  %38 = phi ptr [ %15, %13 ], [ %.pre, %29 ], [ %15, %28 ]
-  %39 = phi ptr [ %.pre3.i, %13 ], [ %33, %29 ], [ %.pre.i, %28 ]
-  %.016.i.i.i = phi ptr [ %5, %13 ], [ %34, %29 ], [ %5, %28 ]
-  %40 = load i32, ptr %18, align 8, !tbaa !134
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"struct.std::pair.383", ptr %39, i64 %41
-  store ptr %38, ptr %42, align 8, !tbaa !841
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  store ptr %37, ptr %43, align 8, !tbaa !452
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %36, ptr %45, align 8, !tbaa !456
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr %35, ptr %46, align 8, !tbaa !455
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  %47 = load i32, ptr %18, align 8, !tbaa !134
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %18, align 8, !tbaa !134
-  %49 = load ptr, ptr %16, align 8, !tbaa !452
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %50
-
-50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
-  %51 = load ptr, ptr %17, align 8, !tbaa !455
-  %52 = ptrtoint ptr %51 to i64
-  %53 = ptrtoint ptr %49 to i64
-  %54 = sub i64 %52, %53
-  call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %54) #27
+49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
+  %50 = load ptr, ptr %17, align 8, !tbaa !455
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %48 to i64
+  %53 = sub i64 %51, %52
+  call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #27
   %.pre19 = load i32, ptr %18, align 8, !tbaa !134
-  %55 = add i32 %.pre19, -1
+  %54 = add i32 %.pre19, -1
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
-  %56 = phi i32 [ %55, %50 ], [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit ]
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %49, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit
+  %55 = phi i32 [ %54, %49 ], [ %46, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueESt6vectorIjSaIjEEELb0EE9push_backEOS8_.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  store i32 %56, ptr %9, align 4, !tbaa !120
-  br label %57
+  store i32 %55, ptr %9, align 4, !tbaa !120
+  br label %56
 
-57:                                               ; preds = %._crit_edge, %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %58 = phi i32 [ %.pre20, %._crit_edge ], [ %56, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = zext i32 %58 to i64
-  %61 = load ptr, ptr %59, align 8, !tbaa !132
-  %62 = getelementptr inbounds nuw %"struct.std::pair.383", ptr %61, i64 %60, i32 1
+56:                                               ; preds = %._crit_edge, %_ZNSt6vectorIjSaIjEED2Ev.exit
+  %57 = phi i32 [ %.pre20, %._crit_edge ], [ %55, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = zext i32 %57 to i64
+  %60 = load ptr, ptr %58, align 8, !tbaa !132
+  %61 = getelementptr inbounds nuw %"struct.std::pair.383", ptr %60, i64 %59, i32 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #26
-  ret ptr %62
+  ret ptr %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -43987,19 +43987,19 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnu
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #1 comdat align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !175
   %3 = icmp ult i8 %2, 29
-  br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %1
   switch i8 %2, label %43 [
-    i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 47, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 50, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 53, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 74, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 75, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 83, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+    i8 41, label %.critedge
+    i8 43, label %.critedge
+    i8 45, label %.critedge
+    i8 47, label %.critedge
+    i8 50, label %.critedge
+    i8 53, label %.critedge
+    i8 74, label %.critedge
+    i8 75, label %.critedge
+    i8 83, label %.critedge
     i8 84, label %5
     i8 86, label %5
     i8 85, label %5
@@ -44032,8 +44032,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   %18 = and i32 %16, 253
   %spec.select.i.i.i = icmp eq i32 %18, 4
-  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
-  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
+  %or.cond24 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond24, label %.critedge, label %19
 
 19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
@@ -44045,11 +44045,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
   %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
+  br i1 %.not27.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -44092,21 +44092,21 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
   %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
   %trunc.i.i.i.i.i = trunc i32 %40 to i8
   %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
-  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
-  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %switch.shifted21 = lshr i8 47, %trunc.i.i.i.i.i
+  %switch.lobit22 = trunc i8 %switch.shifted21 to i1
+  %or.cond23 = select i1 %41, i1 %switch.lobit22, i1 false
+  br i1 %or.cond23, label %.critedge, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
 _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
   %42 = and i32 %40, 253
   %spec.select.i.i21.i.i = icmp eq i32 %42, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
 43:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

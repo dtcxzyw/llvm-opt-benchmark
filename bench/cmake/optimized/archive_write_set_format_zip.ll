@@ -542,7 +542,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_header(ptr noundef %0, 
 get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, %18
   %.0.i = phi ptr [ %14, %2 ], [ %.pre.i, %._crit_edge.i ], [ %19, %18 ]
   %21 = tail call i32 @archive_entry_filetype(ptr noundef %1) #13
-  %.not404 = icmp eq i32 %21, 32768
+  %.not402 = icmp eq i32 %21, 32768
   switch i32 %21, label %22 [
     i32 40960, label %23
     i32 32768, label %23
@@ -585,7 +585,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %write_path.exit.thread
 
 38:                                               ; preds = %33, %23
-  br i1 %.not404, label %40, label %39
+  br i1 %.not402, label %40, label %39
 
 39:                                               ; preds = %38
   tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #13
@@ -644,7 +644,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   store i8 0, ptr %57, align 8, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i8 0, ptr %70, align 8, !tbaa !60
-  br i1 %.not404, label %71, label %82
+  br i1 %.not402, label %71, label %82
 
 71:                                               ; preds = %69
   %72 = tail call i32 @archive_entry_size_is_set(ptr noundef %1) #13
@@ -695,7 +695,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %90 = tail call ptr @__errno_location() #17
   %91 = load i32, ptr %90, align 4, !tbaa !61
   %92 = icmp eq i32 %91, 12
-  br i1 %92, label %116, label %93
+  br i1 %92, label %.critedge, label %93
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %55, align 8, !tbaa !53
@@ -718,7 +718,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 
 102:                                              ; preds = %99, %97
   %103 = icmp eq i32 %21, 40960
-  br i1 %103, label %104, label %.thread
+  br i1 %103, label %104, label %116
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %55, align 8, !tbaa !53
@@ -730,35 +730,28 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %108 = tail call ptr @__errno_location() #17
   %109 = load i32, ptr %108, align 4, !tbaa !61
   %110 = icmp eq i32 %109, 12
-  br i1 %110, label %116, label %.thread
+  br i1 %110, label %.critedge, label %116
 
 111:                                              ; preds = %104
   %112 = load i64, ptr %10, align 8, !tbaa !62
   %.not343 = icmp eq i64 %112, 0
-  br i1 %.not343, label %.thread, label %113
+  br i1 %.not343, label %116, label %113
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %55, align 8, !tbaa !53
   %115 = load ptr, ptr %9, align 8, !tbaa !63
   call void @archive_entry_set_symlink(ptr noundef %114, ptr noundef %115) #13
-  br label %.thread
+  br label %116
 
-.thread:                                          ; preds = %107, %113, %111, %102
+116:                                              ; preds = %102, %111, %113, %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   %.pre = load ptr, ptr %55, align 8, !tbaa !53
   br label %117
 
-116:                                              ; preds = %107, %89
-  %.str.32.sink = phi ptr [ @.str.30, %89 ], [ @.str.32, %107 ]
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %.str.32.sink) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  br label %write_path.exit.thread
-
-117:                                              ; preds = %.thread, %86
-  %118 = phi ptr [ %83, %86 ], [ %.pre, %.thread ]
-  %.0325 = phi i32 [ 0, %86 ], [ %.1326, %.thread ]
+117:                                              ; preds = %116, %86
+  %118 = phi ptr [ %.pre, %116 ], [ %83, %86 ]
+  %.0325 = phi i32 [ %.1326, %116 ], [ 0, %86 ]
   %119 = call ptr @archive_entry_pathname(ptr noundef %118) #13
   br label %120
 
@@ -855,7 +848,7 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   br label %212
 
 166:                                              ; preds = %path_length.exit
-  br i1 %.not404, label %169, label %167
+  br i1 %.not402, label %169, label %167
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds nuw i8, ptr %12, i64 60
@@ -922,8 +915,8 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   %195 = icmp slt i64 %174, 4278190081
   %brmerge = or i1 %195, %179
   %196 = and i1 %194, %brmerge
-  %or.cond405 = select i1 %.not350, i1 %196, i1 false
-  %.4323 = select i1 %or.cond405, i16 %.2321, i16 45
+  %or.cond403 = select i1 %.not350, i1 %196, i1 false
+  %.4323 = select i1 %or.cond403, i16 %.2321, i16 45
   %197 = or i32 %182, 8
   store i32 %197, ptr %48, align 4, !tbaa !50
   br label %212
@@ -1030,7 +1023,7 @@ dos_time.exit:                                    ; preds = %212, %229, %231
   %259 = load i32, ptr %48, align 4, !tbaa !50
   %260 = and i32 %259, 8
   %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %.thread408
+  br i1 %261, label %262, label %.thread
 
 262:                                              ; preds = %dos_time.exit
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 14
@@ -1052,7 +1045,7 @@ dos_time.exit:                                    ; preds = %212, %229, %231
   %275 = icmp eq i32 %274, 1
   br i1 %275, label %.sink.split, label %282
 
-.thread408:                                       ; preds = %dos_time.exit
+.thread:                                          ; preds = %dos_time.exit
   %276 = lshr i32 %.0.i387, 8
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 26
   %278 = trunc i64 %.010.i to i16
@@ -1061,16 +1054,16 @@ dos_time.exit:                                    ; preds = %212, %229, %231
   %280 = icmp eq i32 %279, 1
   br i1 %280, label %.sink.split, label %282
 
-.sink.split:                                      ; preds = %262, %.thread408
-  %.sink412.in = phi i32 [ %276, %.thread408 ], [ %271, %262 ]
-  %.ph = phi i16 [ %278, %.thread408 ], [ %273, %262 ]
-  %.sink412 = trunc i32 %.sink412.in to i8
+.sink.split:                                      ; preds = %262, %.thread
+  %.sink409.in = phi i32 [ %276, %.thread ], [ %271, %262 ]
+  %.ph = phi i16 [ %278, %.thread ], [ %273, %262 ]
+  %.sink409 = trunc i32 %.sink409.in to i8
   %281 = getelementptr inbounds nuw i8, ptr %12, i64 89
-  store i8 %.sink412, ptr %281, align 1, !tbaa !76
+  store i8 %.sink409, ptr %281, align 1, !tbaa !76
   br label %282
 
-282:                                              ; preds = %.sink.split, %.thread408, %262
-  %283 = phi i16 [ %278, %.thread408 ], [ %273, %262 ], [ %.ph, %.sink.split ]
+282:                                              ; preds = %.sink.split, %.thread, %262
+  %283 = phi i16 [ %278, %.thread ], [ %273, %262 ], [ %.ph, %.sink.split ]
   %284 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %285 = load ptr, ptr %284, align 8, !tbaa !77
   %286 = icmp eq ptr %285, null
@@ -1174,8 +1167,8 @@ cd_alloc.exit:                                    ; preds = %299, %307, %314
   br label %344
 
 344:                                              ; preds = %cd_alloc.exit, %340
-  %.sink414 = phi i16 [ %343, %340 ], [ 99, %cd_alloc.exit ]
-  store i16 %.sink414, ptr %339, align 1
+  %.sink411 = phi i16 [ %343, %340 ], [ 99, %cd_alloc.exit ]
+  store i16 %.sink411, ptr %339, align 1
   %345 = load ptr, ptr %322, align 8, !tbaa !85
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 12
   %347 = load ptr, ptr %55, align 8, !tbaa !53
@@ -1384,9 +1377,9 @@ copy_path.exit:                                   ; preds = %cd_alloc.exit391, %
   br label %466
 
 466:                                              ; preds = %457, %460, %464
-  %.sink415 = phi i32 [ 2, %464 ], [ 1, %460 ], [ 1, %457 ]
+  %.sink412 = phi i32 [ 2, %464 ], [ 1, %460 ], [ 1, %457 ]
   %467 = getelementptr inbounds nuw i8, ptr %12, i64 92
-  store i32 %.sink415, ptr %467, align 4, !tbaa !87
+  store i32 %.sink412, ptr %467, align 4, !tbaa !87
   %468 = getelementptr inbounds nuw i8, ptr %.0311, i64 8
   %469 = load i32, ptr %54, align 8, !tbaa !52
   %470 = icmp eq i32 %469, 2
@@ -1713,8 +1706,15 @@ write_path.exit:                                  ; preds = %598, %608
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.42) #13
   br label %write_path.exit.thread
 
-write_path.exit.thread:                           ; preds = %606, %595, %588, %116, %629, %633, %620, %612, %write_path.exit, %582, %646, %85, %37, %32, %22
-  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %646 ], [ -30, %116 ], [ -30, %582 ], [ -30, %write_path.exit ], [ -30, %612 ], [ -30, %620 ], [ %.0325, %633 ], [ %.0325, %629 ], [ -30, %588 ], [ -30, %595 ], [ -30, %606 ]
+.critedge:                                        ; preds = %107, %89
+  %.str.32.sink = phi ptr [ @.str.30, %89 ], [ @.str.32, %107 ]
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %.str.32.sink) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  br label %write_path.exit.thread
+
+write_path.exit.thread:                           ; preds = %606, %595, %588, %629, %633, %620, %612, %write_path.exit, %582, %.critedge, %646, %85, %37, %32, %22
+  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %646 ], [ -30, %.critedge ], [ -30, %582 ], [ -30, %write_path.exit ], [ -30, %612 ], [ -30, %620 ], [ %.0325, %633 ], [ %.0325, %629 ], [ -30, %588 ], [ -30, %595 ], [ -30, %606 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
   ret i32 %.0

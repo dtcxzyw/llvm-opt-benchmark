@@ -3588,11 +3588,7 @@ define internal fastcc zeroext i1 @proc_sys_fill_cache(ptr %.160.val, ptr nounde
   store ptr %15, ptr %16, align 8
   %17 = call ptr @d_alloc_parallel(ptr noundef %.160.val, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
-  br i1 %18, label %.thread1, label %19
-
-.thread1:                                         ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
-  br label %50
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %14
   %20 = load i32, ptr %17, align 8
@@ -3647,8 +3643,12 @@ define internal fastcc zeroext i1 @proc_sys_fill_cache(ptr %.160.val, ptr nounde
   %49 = call zeroext i1 %46(ptr noundef %0, ptr noundef %44, i32 noundef %45, i64 noundef %48, i64 noundef %40, i32 noundef %43) #20
   br label %50
 
-50:                                               ; preds = %.thread1, %35, %34
-  %51 = phi i1 [ %49, %35 ], [ false, %34 ], [ false, %.thread1 ]
+.critedge:                                        ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  br label %50
+
+50:                                               ; preds = %.critedge, %35, %34
+  %51 = phi i1 [ %49, %35 ], [ false, %34 ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   ret i1 %51
 }

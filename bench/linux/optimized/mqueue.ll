@@ -1480,7 +1480,7 @@ define internal i32 @mqueue_create_attr(ptr noundef %0, i16 noundef zeroext %1, 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %167, label %13
+  br i1 %12, label %168, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 1100
@@ -1509,7 +1509,7 @@ define internal i32 @mqueue_create_attr(ptr noundef %0, i16 noundef zeroext %1, 
 
 29:                                               ; preds = %23
   %30 = tail call zeroext i1 @capable(i32 noundef 24) #15
-  br i1 %30, label %._crit_edge, label %168
+  br i1 %30, label %._crit_edge, label %169
 
 ._crit_edge:                                      ; preds = %29
   %.pre = load i32, ptr %24, align 8
@@ -1523,7 +1523,7 @@ define internal i32 @mqueue_create_attr(ptr noundef %0, i16 noundef zeroext %1, 
   %34 = load ptr, ptr %8, align 8
   %35 = tail call ptr @new_inode(ptr noundef %34) #15
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %149, label %37
+  br i1 %36, label %150, label %37
 
 37:                                               ; preds = %31
   %38 = tail call i32 @get_next_ino() #15
@@ -1706,58 +1706,58 @@ thread-pre-split.i:                               ; preds = %83, %54
   br label %mqueue_get_inode.exit
 
 148:                                              ; preds = %139, %113, %109, %104, %100, %97, %95, %thread-pre-split.i
-  %.ph.i = phi i64 [ -24, %139 ], [ -75, %113 ], [ -75, %109 ], [ -22, %100 ], [ -22, %104 ], [ -22, %95 ], [ -22, %97 ], [ -22, %thread-pre-split.i ]
+  %149 = phi i64 [ -22, %thread-pre-split.i ], [ -22, %97 ], [ -22, %95 ], [ -22, %104 ], [ -22, %100 ], [ -75, %109 ], [ -75, %113 ], [ -24, %139 ]
   tail call void @iput(ptr noundef nonnull %35) #15
-  br label %149
+  br label %150
 
-149:                                              ; preds = %148, %31
-  %150 = phi i64 [ %.ph.i, %148 ], [ -12, %31 ]
-  %151 = inttoptr i64 %150 to ptr
+150:                                              ; preds = %148, %31
+  %151 = phi i64 [ %149, %148 ], [ -12, %31 ]
+  %152 = inttoptr i64 %151 to ptr
   br label %mqueue_get_inode.exit
 
-mqueue_get_inode.exit:                            ; preds = %37, %123, %143, %144, %149
-  %152 = phi ptr [ %151, %149 ], [ %35, %37 ], [ %35, %144 ], [ %35, %143 ], [ %35, %123 ]
-  %153 = icmp ugt ptr %152, inttoptr (i64 -4096 to ptr)
-  br i1 %153, label %154, label %159
+mqueue_get_inode.exit:                            ; preds = %37, %123, %143, %144, %150
+  %153 = phi ptr [ %152, %150 ], [ %35, %37 ], [ %35, %144 ], [ %35, %143 ], [ %35, %123 ]
+  %154 = icmp ugt ptr %153, inttoptr (i64 -4096 to ptr)
+  br i1 %154, label %155, label %160
 
-154:                                              ; preds = %mqueue_get_inode.exit
-  %155 = ptrtoint ptr %152 to i64
-  %156 = trunc i64 %155 to i32
+155:                                              ; preds = %mqueue_get_inode.exit
+  %156 = ptrtoint ptr %153 to i64
+  %157 = trunc i64 %156 to i32
   tail call void @_raw_spin_lock(ptr noundef nonnull @mq_lock) #15
-  %157 = load i32, ptr %24, align 8
-  %158 = add i32 %157, -1
-  store i32 %158, ptr %24, align 8
-  br label %168
+  %158 = load i32, ptr %24, align 8
+  %159 = add i32 %158, -1
+  store i32 %159, ptr %24, align 8
+  br label %169
 
-159:                                              ; preds = %mqueue_get_inode.exit
+160:                                              ; preds = %mqueue_get_inode.exit
   tail call void @put_ipc_ns(ptr noundef nonnull %11) #15
-  %160 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %161 = load i64, ptr %160, align 8
-  %162 = add i64 %161, 20
-  store i64 %162, ptr %160, align 8
-  %163 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef %7) #15
-  tail call void @d_instantiate(ptr noundef %0, ptr noundef nonnull %152) #15
-  %164 = icmp eq ptr %0, null
-  br i1 %164, label %169, label %165
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %162 = load i64, ptr %161, align 8
+  %163 = add i64 %162, 20
+  store i64 %163, ptr %161, align 8
+  %164 = tail call { i64, i64 } @simple_inode_init_ts(ptr noundef %7) #15
+  tail call void @d_instantiate(ptr noundef %0, ptr noundef nonnull %153) #15
+  %165 = icmp eq ptr %0, null
+  br i1 %165, label %170, label %166
 
-165:                                              ; preds = %159
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @lockref_get(ptr noundef nonnull %166) #15
-  br label %169
+166:                                              ; preds = %160
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @lockref_get(ptr noundef nonnull %167) #15
+  br label %170
 
-167:                                              ; preds = %3
+168:                                              ; preds = %3
   tail call void @_raw_spin_unlock(ptr noundef nonnull @mq_lock) #15
-  br label %169
+  br label %170
 
-168:                                              ; preds = %154, %29
-  %.ph = phi i32 [ -28, %29 ], [ %156, %154 ]
+169:                                              ; preds = %155, %29
+  %.ph = phi i32 [ -28, %29 ], [ %157, %155 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @mq_lock) #15
   tail call void @put_ipc_ns(ptr noundef nonnull %11) #15
-  br label %169
+  br label %170
 
-169:                                              ; preds = %167, %168, %165, %159
-  %170 = phi i32 [ %.ph, %168 ], [ -13, %167 ], [ 0, %159 ], [ 0, %165 ]
-  ret i32 %170
+170:                                              ; preds = %168, %169, %166, %160
+  %171 = phi i32 [ %.ph, %169 ], [ -13, %168 ], [ 0, %160 ], [ 0, %166 ]
+  ret i32 %171
 }
 
 ; Function Attrs: null_pointer_is_valid

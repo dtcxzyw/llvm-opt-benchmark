@@ -206,22 +206,22 @@ define dso_local void @nmi_panic(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
-  br i1 %7, label %9, label %8, !prof !11
+  br i1 %7, label %8, label %.critedge, !prof !11
 
 8:                                                ; preds = %2
+  %9 = extractvalue { i8, i32 } %4, 1
+  %10 = icmp eq i32 %9, %3
+  br i1 %10, label %12, label %11
+
+.critedge:                                        ; preds = %2
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str, ptr noundef %1) #20
   unreachable
 
-9:                                                ; preds = %2
-  %10 = extractvalue { i8, i32 } %4, 1
-  %11 = icmp eq i32 %10, %3
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %9
+11:                                               ; preds = %8
   tail call void @nmi_panic_self_stop(ptr noundef %0) #19
   unreachable
 
-13:                                               ; preds = %9
+12:                                               ; preds = %8
   ret void
 }
 

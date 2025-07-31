@@ -3488,14 +3488,16 @@ select.unfold:                                    ; preds = %.noexc223, %174
   %427 = icmp ult i64 %425, %426
   %428 = sub nuw i64 %425, %426
   %429 = getelementptr inbounds nuw i8, ptr %424, i64 %426
-  %430 = icmp ult i64 %428, 2
+  %.sroa.3.0.i.i.i = select i1 %427, i64 undef, i64 %428
+  %.sroa.0.0.i.i.i = select i1 %427, ptr null, ptr %429
+  %430 = icmp ult i64 %.sroa.3.0.i.i.i, 2
   %or.cond.i.i = select i1 %427, i1 true, i1 %430
   br i1 %or.cond.i.i, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %431
 
 431:                                              ; preds = %422
   %.val.i.i.i.i.i.i = load i16, ptr %429, align 1, !alias.scope !592, !noalias !599
   %432 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
-  %433 = icmp ult i64 %428, 4
+  %433 = icmp ult i64 %.sroa.3.0.i.i.i, 4
   br i1 %433, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %434
 
 434:                                              ; preds = %431
@@ -3520,11 +3522,11 @@ select.unfold:                                    ; preds = %.noexc223, %174
   %448 = mul nuw nsw i64 %447, %446
   %449 = add nuw nsw i64 %448, 4
   %450 = add nuw nsw i64 %449, %446
-  %451 = icmp ugt i64 %450, %428
+  %451 = icmp ugt i64 %450, %.sroa.3.0.i.i.i
   br i1 %451, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.preheader.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.preheader.i.i.i": ; preds = %437
-  %452 = getelementptr inbounds nuw i8, ptr %429, i64 %449
+  %452 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 %449
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 %446
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.i.i.i"
 
@@ -3571,7 +3573,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.i: ; 
   br label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i
 
 _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread.i: ; preds = %469, %.noexc258, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i", %437, %434, %431, %422
-  %473 = phi float [ %472, %469 ], [ %412, %.noexc258 ], [ %412, %422 ], [ %412, %434 ], [ %412, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i" ], [ %412, %431 ], [ %412, %437 ]
+  %473 = phi float [ %472, %469 ], [ %412, %.noexc258 ], [ %412, %422 ], [ %412, %437 ], [ %412, %431 ], [ %412, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.exit.thread.i.i.i" ], [ %412, %434 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %30), !noalias !579
   br label %474
 

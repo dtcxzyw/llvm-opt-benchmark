@@ -2801,13 +2801,13 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
   %2 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
-  %.not51 = icmp eq i64 %3, 0
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq i64 %3, 0
+  br i1 %.not48, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %37
-  %.03348 = phi i64 [ %.235, %37 ], [ %3, %1 ]
-  %.03747 = phi i64 [ %38, %37 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.03747
+.lr.ph:                                           ; preds = %1, %38
+  %.03345 = phi i64 [ %.235, %38 ], [ %3, %1 ]
+  %.03744 = phi i64 [ %39, %38 ], [ 0, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.03744
   %5 = load i8, ptr %4, align 1, !tbaa !12
   switch i8 %5, label %16 [
     i8 39, label %26
@@ -2861,7 +2861,7 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
   %21 = load i16, ptr %20, align 2, !tbaa !122
   %22 = and i16 %21, 16384
   %.not = icmp eq i16 %22, 0
-  br i1 %.not, label %23, label %37
+  br i1 %.not, label %23, label %38
 
 23:                                               ; preds = %16
   %24 = zext i8 %5 to i32
@@ -2871,31 +2871,31 @@ define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull captures(
 26:                                               ; preds = %23, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %.lr.ph
   %.036.ph = phi ptr [ @.str.81, %.lr.ph ], [ @.str.84, %15 ], [ @.str.79, %14 ], [ @.str.77, %13 ], [ @.str.75, %12 ], [ @.str.73, %11 ], [ @.str.71, %10 ], [ @.str.83, %9 ], [ @.str.82, %8 ], [ @.str.69, %7 ], [ @.str.67, %6 ], [ %2, %23 ]
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.036.ph) #24
-  %28 = add i64 %.03348, 1
+  %28 = add i64 %.03345, 1
   %29 = add i64 %28, %27
   %30 = icmp ult i64 %29, 1025
-  br i1 %30, label %.thread44, label %._crit_edge
+  br i1 %30, label %31, label %.critedge
 
-.thread44:                                        ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %27
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %33 = sub i64 %.03348, %.03747
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %32, i64 %33, i1 false)
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %27
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %34 = sub i64 %.03345, %.03744
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %33, i64 %34, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %.036.ph, i64 %27, i1 false)
-  %34 = add i64 %.03348, -1
-  %35 = add i64 %34, %27
-  %36 = add i64 %27, %.03747
-  br label %37
+  %35 = add i64 %.03345, -1
+  %36 = add i64 %35, %27
+  %37 = add i64 %27, %.03744
+  br label %38
 
-37:                                               ; preds = %.thread44, %16
-  %.239 = phi i64 [ %.03747, %16 ], [ %36, %.thread44 ]
-  %.235 = phi i64 [ %.03348, %16 ], [ %35, %.thread44 ]
-  %38 = add i64 %.239, 1
-  %39 = icmp ult i64 %38, %.235
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !124
+38:                                               ; preds = %16, %31
+  %.239 = phi i64 [ %37, %31 ], [ %.03744, %16 ]
+  %.235 = phi i64 [ %36, %31 ], [ %.03345, %16 ]
+  %39 = add i64 %.239, 1
+  %40 = icmp ult i64 %39, %.235
+  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !124
 
-._crit_edge:                                      ; preds = %37, %26, %1
-  %.2 = phi ptr [ %0, %1 ], [ null, %26 ], [ %0, %37 ]
+.critedge:                                        ; preds = %38, %26, %1
+  %.2 = phi ptr [ %0, %1 ], [ null, %26 ], [ %0, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   ret ptr %.2
 }

@@ -4294,31 +4294,31 @@ define linkonce_odr void @_ZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vf
   br i1 %6, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %3
-  %.not4961 = icmp samesign eq i64 %1, 0
-  br i1 %.not4961, label %._crit_edge, label %.lr.ph64
+  %.not4959 = icmp samesign eq i64 %1, 0
+  br i1 %.not4959, label %._crit_edge, label %.lr.ph62
 
-.lr.ph64:                                         ; preds = %.preheader
+.lr.ph62:                                         ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
-8:                                                ; preds = %.lr.ph64, %30
-  %.04063 = phi ptr [ %0, %.lr.ph64 ], [ %.1, %30 ]
-  %.04162 = phi ptr [ %0, %.lr.ph64 ], [ %.142, %30 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.04162, i64 1
-  %10 = load i8, ptr %.04162, align 1, !tbaa !40
+8:                                                ; preds = %.lr.ph62, %30
+  %.04061 = phi ptr [ %0, %.lr.ph62 ], [ %.1, %30 ]
+  %.04160 = phi ptr [ %0, %.lr.ph62 ], [ %.142, %30 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.04160, i64 1
+  %10 = load i8, ptr %.04160, align 1, !tbaa !40
   switch i8 %10, label %30 [
     i8 123, label %11
     i8 125, label %18
   ]
 
 11:                                               ; preds = %8
-  %12 = ptrtoint ptr %.04162 to i64
-  %13 = ptrtoint ptr %.04063 to i64
+  %12 = ptrtoint ptr %.04160 to i64
+  %13 = ptrtoint ptr %.04061 to i64
   %14 = sub i64 %12, %13
   %.sroa.0.0.copyload.i.i = load ptr, ptr %7, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw i8, ptr %.04063, i64 %14
-  %16 = tail call ptr @_ZN3fmt3v116detail13copy_noinlineIcPKcNS0_14basic_appenderIcEEEET1_T0_S8_S7_(ptr noundef %.04063, ptr noundef %15, ptr %.sroa.0.0.copyload.i.i)
-  %17 = tail call noundef ptr @_ZN3fmt3v116detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.04162, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %15 = getelementptr inbounds nuw i8, ptr %.04061, i64 %14
+  %16 = tail call ptr @_ZN3fmt3v116detail13copy_noinlineIcPKcNS0_14basic_appenderIcEEEET1_T0_S8_S7_(ptr noundef %.04061, ptr noundef %15, ptr %.sroa.0.0.copyload.i.i)
+  %17 = tail call noundef ptr @_ZN3fmt3v116detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.04160, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %30
 
 18:                                               ; preds = %8
@@ -4336,17 +4336,17 @@ define linkonce_odr void @_ZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vf
 
 23:                                               ; preds = %20
   %24 = ptrtoint ptr %9 to i64
-  %25 = ptrtoint ptr %.04063 to i64
+  %25 = ptrtoint ptr %.04061 to i64
   %26 = sub i64 %24, %25
   %.sroa.0.0.copyload.i.i51 = load ptr, ptr %7, align 8, !tbaa !50
-  %27 = getelementptr inbounds nuw i8, ptr %.04063, i64 %26
-  %28 = tail call ptr @_ZN3fmt3v116detail13copy_noinlineIcPKcNS0_14basic_appenderIcEEEET1_T0_S8_S7_(ptr noundef %.04063, ptr noundef %27, ptr %.sroa.0.0.copyload.i.i51)
-  %29 = getelementptr inbounds nuw i8, ptr %.04162, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.04061, i64 %26
+  %28 = tail call ptr @_ZN3fmt3v116detail13copy_noinlineIcPKcNS0_14basic_appenderIcEEEET1_T0_S8_S7_(ptr noundef %.04061, ptr noundef %27, ptr %.sroa.0.0.copyload.i.i51)
+  %29 = getelementptr inbounds nuw i8, ptr %.04160, i64 2
   br label %30
 
 30:                                               ; preds = %8, %23, %11
   %.142 = phi ptr [ %17, %11 ], [ %29, %23 ], [ %9, %8 ]
-  %.1 = phi ptr [ %17, %11 ], [ %29, %23 ], [ %.04063, %8 ]
+  %.1 = phi ptr [ %17, %11 ], [ %29, %23 ], [ %.04061, %8 ]
   %.not49 = icmp eq ptr %.142, %5
   br i1 %.not49, label %._crit_edge, label %8
 
@@ -4368,31 +4368,31 @@ define linkonce_odr void @_ZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vf
   br label %38
 
 38:                                               ; preds = %.lr.ph, %45
-  %.260 = phi ptr [ %0, %.lr.ph ], [ %46, %45 ]
-  %39 = load i8, ptr %.260, align 1, !tbaa !40
+  %.258 = phi ptr [ %0, %.lr.ph ], [ %46, %45 ]
+  %39 = load i8, ptr %.258, align 1, !tbaa !40
   %.not48 = icmp eq i8 %39, 123
   br i1 %.not48, label %45, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.260, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.258, i64 1
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %37, %42
   %44 = call noundef ptr @memchr(ptr noundef nonnull %41, i32 noundef 123, i64 noundef %43) #37
-  %.not56 = icmp eq ptr %44, null
-  br i1 %.not56, label %.thread, label %45
+  %.not54 = icmp eq ptr %44, null
+  br i1 %.not54, label %.critedge, label %45
 
-.thread:                                          ; preds = %40
-  call void @_ZZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.260, ptr noundef nonnull %5)
+.critedge:                                        ; preds = %40
+  call void @_ZZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.258, ptr noundef nonnull %5)
   br label %.loopexit
 
-45:                                               ; preds = %38, %40
-  %.0 = phi ptr [ %.260, %38 ], [ %44, %40 ]
-  call void @_ZZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.260, ptr noundef nonnull %.0)
+45:                                               ; preds = %40, %38
+  %.0 = phi ptr [ %.258, %38 ], [ %44, %40 ]
+  call void @_ZZN3fmt3v116detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.258, ptr noundef nonnull %.0)
   %46 = call noundef ptr @_ZN3fmt3v116detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %.not = icmp eq ptr %46, %5
   br i1 %.not, label %.loopexit, label %38, !llvm.loop !114
 
-.loopexit:                                        ; preds = %45, %.thread
+.loopexit:                                        ; preds = %45, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
   br label %47
 

@@ -152,9 +152,9 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %30
 
-30:                                               ; preds = %.preheader, %84
-  %.0111 = phi ptr [ %.1112, %84 ], [ null, %.preheader ]
-  %.0110 = phi i32 [ %.1, %84 ], [ 20, %.preheader ]
+30:                                               ; preds = %.preheader, %83
+  %.0111 = phi ptr [ %.1112, %83 ], [ null, %.preheader ]
+  %.0110 = phi i32 [ %.1, %83 ], [ 20, %.preheader ]
   %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0110)
   %32 = load ptr, ptr %29, align 8
   %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %.0110, i32 noundef 2, i32 noundef 0)
@@ -183,7 +183,7 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %44 = add i32 %.0110, 3
   %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %44)
   %46 = add i32 %.0110, 4
-  switch i8 %43, label %81 [
+  switch i8 %43, label %80 [
     i8 1, label %47
     i8 0, label %57
   ]
@@ -198,11 +198,11 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %54 = tail call ptr @val_to_str_ext_const(i32 noundef %53, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35)
   %55 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %51, ptr noundef %0, i32 noundef %.0110, i32 noundef %52, ptr noundef %50, ptr noundef nonnull @.str.34, ptr noundef %33, ptr noundef %54, ptr noundef %50)
   %56 = add i32 %46, %49
-  br label %84
+  br label %83
 
 57:                                               ; preds = %41
   %58 = zext i8 %45 to i32
-  switch i8 %45, label %79 [
+  switch i8 %45, label %.critedge [
     i8 5, label %59
     i8 4, label %61
     i8 3, label %64
@@ -235,42 +235,42 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br label %73
 
 73:                                               ; preds = %59, %61, %64, %67, %70
-  %.0.ph = phi i64 [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %59 ]
+  %.0 = phi i64 [ %60, %59 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ]
   %74 = load i32, ptr @hf_manolito_integer, align 4
   %75 = add nuw nsw i32 %58, 4
   %76 = zext i16 %31 to i32
   %77 = tail call ptr @val_to_str_ext_const(i32 noundef %76, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35)
-  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %10, i32 noundef %74, ptr noundef %0, i32 noundef %.0110, i32 noundef %75, i64 noundef %.0.ph, ptr noundef nonnull @.str.36, ptr noundef %33, ptr noundef %77, i64 noundef %.0.ph)
-  br label %79
+  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %10, i32 noundef %74, ptr noundef %0, i32 noundef %.0110, i32 noundef %75, i64 noundef %.0, ptr noundef nonnull @.str.36, ptr noundef %33, ptr noundef %77, i64 noundef %.0)
+  br label %.critedge
 
-79:                                               ; preds = %57, %73
-  %80 = add i32 %46, %58
-  br label %84
+.critedge:                                        ; preds = %57, %73
+  %79 = add i32 %46, %58
+  br label %83
 
-81:                                               ; preds = %41
-  %82 = zext i8 %43 to i32
-  %83 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_manolito_type, ptr noundef %0, i32 noundef %.0110, i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %82)
-  br label %84
+80:                                               ; preds = %41
+  %81 = zext i8 %43 to i32
+  %82 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_manolito_type, ptr noundef %0, i32 noundef %.0110, i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %81)
+  br label %83
 
-84:                                               ; preds = %79, %81, %47
-  %.1 = phi i32 [ %56, %47 ], [ %80, %79 ], [ %46, %81 ]
-  %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
-  %.not114 = icmp eq i32 %85, 0
-  br i1 %.not114, label %86, label %30, !llvm.loop !6
+83:                                               ; preds = %.critedge, %80, %47
+  %.1 = phi i32 [ %56, %47 ], [ %79, %.critedge ], [ %46, %80 ]
+  %84 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %.not114 = icmp eq i32 %84, 0
+  br i1 %.not114, label %85, label %30, !llvm.loop !6
 
-86:                                               ; preds = %84
+85:                                               ; preds = %83
   %.not115 = icmp eq ptr %.1112, null
-  br i1 %.not115, label %88, label %.sink.split
+  br i1 %.not115, label %87, label %.sink.split
 
-.sink.split:                                      ; preds = %86, %24, %21
-  %.1112.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.1112, %86 ]
-  %.0109.ph = phi i32 [ 19, %21 ], [ 20, %24 ], [ %.1, %86 ]
-  %87 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink)
-  br label %88
+.sink.split:                                      ; preds = %85, %24, %21
+  %.1112.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.1112, %85 ]
+  %.0109.ph = phi i32 [ 19, %21 ], [ 20, %24 ], [ %.1, %85 ]
+  %86 = load ptr, ptr %5, align 8
+  tail call void @col_set_str(ptr noundef %86, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink)
+  br label %87
 
-88:                                               ; preds = %.sink.split, %86
-  %.0109 = phi i32 [ %.1, %86 ], [ %.0109.ph, %.sink.split ]
+87:                                               ; preds = %.sink.split, %85
+  %.0109 = phi i32 [ %.1, %85 ], [ %.0109.ph, %.sink.split ]
   ret i32 %.0109
 }
 

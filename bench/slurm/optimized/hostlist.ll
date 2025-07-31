@@ -7943,20 +7943,20 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hostrange_numstr(
   %8 = trunc nuw i8 %7 to i1
   %9 = icmp eq i64 %1, 0
   %or.cond = or i1 %9, %8
-  br i1 %or.cond, label %.thread, label %10
+  br i1 %or.cond, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = zext i16 %4 to i64
   %.not = icmp ugt i64 %1, %11
-  br i1 %.not, label %12, label %.thread
+  br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %10
   %13 = icmp ugt i16 %4, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %5
-  %or.cond102 = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond102, label %.lr.ph.preheader.i, label %._crit_edge
+  %or.cond100 = select i1 %13, i1 %16, i1 false
+  br i1 %or.cond100, label %.lr.ph.preheader.i, label %._crit_edge
 
 .lr.ph.preheader.i:                               ; preds = %12
   %17 = tail call ptr @llvm.stacksave.p0()
@@ -8009,7 +8009,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %39 = zext nneg i32 %37 to i64
   %.not69 = icmp ugt i64 %1, %39
   %or.cond71 = select i1 %38, i1 %.not69, i1 false
-  br i1 %or.cond71, label %40, label %.thread
+  br i1 %or.cond71, label %40, label %.critedge
 
 40:                                               ; preds = %._crit_edge, %33
   %.160 = phi i32 [ %5, %33 ], [ %37, %._crit_edge ]
@@ -8025,67 +8025,67 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %48 = add nuw nsw i32 %47, %.160
   %49 = zext nneg i32 %48 to i64
   %50 = icmp ult i64 %1, %49
-  br i1 %50, label %.thread, label %51
+  br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %5
-  %or.cond103 = select i1 %13, i1 %54, i1 false
-  br i1 %or.cond103, label %.lr.ph.preheader.i72, label %._crit_edge99
+  %or.cond101 = select i1 %13, i1 %54, i1 false
+  br i1 %or.cond101, label %.lr.ph.preheader.i74, label %._crit_edge97
 
-.lr.ph.preheader.i72:                             ; preds = %51
+.lr.ph.preheader.i74:                             ; preds = %51
   %55 = tail call ptr @llvm.stacksave.p0()
   %56 = alloca i32, i64 %11, align 16
   %57 = load i64, ptr %43, align 8
   %58 = trunc i64 %57 to i32
-  br label %.lr.ph.i73
+  br label %.lr.ph.i75
 
-.lr.ph.i73:                                       ; preds = %.lr.ph.i73, %.lr.ph.preheader.i72
-  %indvars.iv.i74 = phi i64 [ %11, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i73 ]
-  %.012.i75 = phi i32 [ %58, %.lr.ph.preheader.i72 ], [ %61, %.lr.ph.i73 ]
-  %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i74, -1
-  %59 = srem i32 %.012.i75, 36
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i76
+.lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i74
+  %indvars.iv.i76 = phi i64 [ %11, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i75 ]
+  %.012.i77 = phi i32 [ %58, %.lr.ph.preheader.i74 ], [ %61, %.lr.ph.i75 ]
+  %indvars.iv.next.i78 = add nsw i64 %indvars.iv.i76, -1
+  %59 = srem i32 %.012.i77, 36
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i78
   store i32 %59, ptr %60, align 4
-  %61 = sdiv i32 %.012.i75, 36
-  %62 = icmp samesign ugt i64 %indvars.iv.i74, 1
-  br i1 %62, label %.lr.ph.i73, label %hostlist_parse_int_to_array.exit77, !llvm.loop !53
+  %61 = sdiv i32 %.012.i77, 36
+  %62 = icmp samesign ugt i64 %indvars.iv.i76, 1
+  br i1 %62, label %.lr.ph.i75, label %hostlist_parse_int_to_array.exit79, !llvm.loop !53
 
-hostlist_parse_int_to_array.exit77:               ; preds = %.lr.ph.i73
+hostlist_parse_int_to_array.exit79:               ; preds = %.lr.ph.i75
   %63 = zext nneg i32 %.160 to i64
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 %63
   store i8 45, ptr %64, align 1
-  %.384 = add nuw i32 %.160, 1
-  %65 = zext i32 %.384 to i64
-  %wide.trip.count97 = zext i16 %4 to i64
+  %.382 = add nuw i32 %.160, 1
+  %65 = zext i32 %.382 to i64
+  %wide.trip.count95 = zext i16 %4 to i64
   br label %66
 
-66:                                               ; preds = %hostlist_parse_int_to_array.exit77, %66
-  %indvars.iv92 = phi i64 [ 0, %hostlist_parse_int_to_array.exit77 ], [ %indvars.iv.next93, %66 ]
-  %indvars.iv90 = phi i64 [ %65, %hostlist_parse_int_to_array.exit77 ], [ %indvars.iv.next91, %66 ]
+66:                                               ; preds = %hostlist_parse_int_to_array.exit79, %66
+  %indvars.iv90 = phi i64 [ 0, %hostlist_parse_int_to_array.exit79 ], [ %indvars.iv.next91, %66 ]
+  %indvars.iv88 = phi i64 [ %65, %hostlist_parse_int_to_array.exit79 ], [ %indvars.iv.next89, %66 ]
   %67 = load ptr, ptr @alpha_num, align 8
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv92
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv90
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv90
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv88
   store i8 %72, ptr %73, align 1
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count97
-  br i1 %exitcond98.not, label %74, label %66, !llvm.loop !97
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count95
+  br i1 %exitcond96.not, label %74, label %66, !llvm.loop !97
 
 74:                                               ; preds = %66
-  %75 = trunc nuw i64 %indvars.iv.next91 to i32
-  %76 = and i64 %indvars.iv.next91, 4294967295
+  %75 = trunc nuw i64 %indvars.iv.next89 to i32
+  %76 = and i64 %indvars.iv.next89, 4294967295
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 %76
   store i8 0, ptr %77, align 1
   call void @llvm.stackrestore.p0(ptr %55)
   br label %85
 
-._crit_edge99:                                    ; preds = %51
+._crit_edge97:                                    ; preds = %51
   %78 = zext nneg i32 %.160 to i64
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
   %80 = sub i64 %1, %78
@@ -8094,16 +8094,16 @@ hostlist_parse_int_to_array.exit77:               ; preds = %.lr.ph.i73
   %83 = add nuw nsw i32 %81, %.160
   %84 = zext nneg i32 %83 to i64
   %.not70 = icmp ugt i64 %1, %84
-  %or.cond81 = select i1 %82, i1 %.not70, i1 false
-  br i1 %or.cond81, label %85, label %.thread
+  %or.cond73 = select i1 %82, i1 %.not70, i1 false
+  br i1 %or.cond73, label %85, label %.critedge
 
-85:                                               ; preds = %._crit_edge99, %74, %40
-  %.2 = phi i32 [ %75, %74 ], [ %.160, %40 ], [ %83, %._crit_edge99 ]
+85:                                               ; preds = %._crit_edge97, %74, %40
+  %.2 = phi i32 [ %75, %74 ], [ %.160, %40 ], [ %83, %._crit_edge97 ]
   %86 = sext i32 %.2 to i64
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %._crit_edge99, %46, %._crit_edge, %10, %3, %85
-  %.0 = phi i64 [ %86, %85 ], [ 0, %3 ], [ -1, %10 ], [ -1, %._crit_edge ], [ -1, %46 ], [ -1, %._crit_edge99 ]
+.critedge:                                        ; preds = %._crit_edge97, %46, %._crit_edge, %10, %3, %85
+  %.0 = phi i64 [ %86, %85 ], [ 0, %3 ], [ -1, %10 ], [ -1, %._crit_edge ], [ -1, %46 ], [ -1, %._crit_edge97 ]
   ret i64 %.0
 }
 

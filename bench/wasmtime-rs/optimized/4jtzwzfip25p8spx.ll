@@ -24405,7 +24405,7 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17lo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i64, ptr %6, align 8, !alias.scope !3421, !noalias !3424, !noundef !10
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %.thread.i, label %9
+  br i1 %8, label %.critedge.i, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -24413,14 +24413,14 @@ define internal fastcc void @_ZN16wasmtime_environ4fact10trampoline8Compiler17lo
   %12 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h04918cf6e56903c9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !3414
   %13 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1dabb3086b518fE.llvm.10165051650595261532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !3414
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread.i, label %15
+  br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3426)
   %16 = getelementptr inbounds i8, ptr %13, i64 -8
   %17 = load i64, ptr %16, align 8, !alias.scope !3426, !noalias !3414, !noundef !10
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.thread.i, label %19
+  br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %13, i64 -24
@@ -24461,7 +24461,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !3430
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14gen_temp_local17h80b1f9c3481f8bc1E.llvm.725258463910346102.exit
 
-.thread.i:                                        ; preds = %15, %9, %3
+.critedge.i:                                      ; preds = %15, %9, %3
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8, !alias.scope !3417, !noalias !3434, !nonnull !10, !align !11, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -24473,11 +24473,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %40 = icmp ugt i64 %39, %37
   br i1 %40, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i", label %41, !prof !755
 
-41:                                               ; preds = %.thread.i
+41:                                               ; preds = %.critedge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.250) #29, !noalias !3440
   unreachable
 
-"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i": ; preds = %.thread.i
+"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i": ; preds = %.critedge.i
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 216
   %43 = load ptr, ptr %42, align 8, !alias.scope !3435, !noalias !3438, !nonnull !10, !noundef !10
   %44 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i32, i8, [3 x i8] }], ptr %43, i64 0, i64 %37
@@ -24488,7 +24488,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %48 = load ptr, ptr %47, align 8, !noalias !3414, !nonnull !10
   %49 = add i64 %46, -1
   %50 = getelementptr inbounds [0 x { i32, { i32, [2 x i32] } }], ptr %48, i64 0, i64 %49
-  br i1 %.not.i, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i", label %51
+  br i1 %.not.i, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i", label %51
 
 51:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -24501,7 +24501,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %56 = add nsw i32 %55, -13
   %narrow3.i.i = tail call i32 @llvm.umin.i32(i32 %56, i32 5)
   %57 = icmp eq i32 %narrow.i.i, %narrow3.i.i
-  br i1 %57, label %58, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %57, label %58, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
 58:                                               ; preds = %51
   %59 = icmp ugt i32 %54, 4
@@ -24519,7 +24519,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %66 = icmp eq i8 %63, %65
   %67 = icmp eq i32 %53, %55
   %or.cond4.i.i = and i1 %67, %66
-  br i1 %or.cond4.i.i, label %68, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %or.cond4.i.i, label %68, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
 68:                                               ; preds = %61
   %69 = icmp eq i32 %53, 12
@@ -24531,24 +24531,24 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %73 = load i32, ptr %72, align 4, !alias.scope !3456, !noalias !3457, !noundef !10
   %74 = icmp eq i32 %71, %73
-  br i1 %74, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread.i", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %74, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread.i", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
-"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i", %61, %51, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
+"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i", %61, %51, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !3458
   %75 = load i64, ptr %44, align 8, !alias.scope !3459, !noalias !3462, !noundef !10
   %76 = icmp eq i64 %46, %75
   br i1 %76, label %77, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i"
 
-77:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+77:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5734771e188bca7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %46), !noalias !3462
   %.pre.i.i = load i64, ptr %45, align 8, !alias.scope !3459, !noalias !3462
   %.pre.i = load ptr, ptr %47, align 8, !alias.scope !3459, !noalias !3462
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i": ; preds = %77, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
-  %78 = phi ptr [ %.pre.i, %77 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i" ]
-  %79 = phi i64 [ %.pre.i.i, %77 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i": ; preds = %77, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
+  %78 = phi ptr [ %.pre.i, %77 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i" ]
+  %79 = phi i64 [ %.pre.i.i, %77 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i" ]
   %80 = getelementptr inbounds { i32, { i32, [2 x i32] } }, ptr %78, i64 %79
   store i32 1, ptr %80, align 4, !noalias !3414
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -24615,7 +24615,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_set_n
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i64, ptr %6, align 8, !alias.scope !3475, !noalias !3478, !noundef !10
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %.thread.i, label %9
+  br i1 %8, label %.critedge.i, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -24623,14 +24623,14 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler17local_set_n
   %12 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h04918cf6e56903c9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !3468
   %13 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1dabb3086b518fE.llvm.10165051650595261532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2), !noalias !3468
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread.i, label %15
+  br i1 %14, label %.critedge.i, label %15
 
 15:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3480)
   %16 = getelementptr inbounds i8, ptr %13, i64 -8
   %17 = load i64, ptr %16, align 8, !alias.scope !3480, !noalias !3468, !noundef !10
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.thread.i, label %19
+  br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %13, i64 -24
@@ -24671,7 +24671,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !3484
   br label %_ZN16wasmtime_environ4fact10trampoline8Compiler14gen_temp_local17h80b1f9c3481f8bc1E.llvm.725258463910346102.exit
 
-.thread.i:                                        ; preds = %15, %9, %3
+.critedge.i:                                      ; preds = %15, %9, %3
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8, !alias.scope !3471, !noalias !3488, !nonnull !10, !align !11, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -24683,11 +24683,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %40 = icmp ugt i64 %39, %37
   br i1 %40, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i", label %41, !prof !755
 
-41:                                               ; preds = %.thread.i
+41:                                               ; preds = %.critedge.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.250) #29, !noalias !3494
   unreachable
 
-"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i": ; preds = %.thread.i
+"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i": ; preds = %.critedge.i
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 216
   %43 = load ptr, ptr %42, align 8, !alias.scope !3489, !noalias !3492, !nonnull !10, !noundef !10
   %44 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i32, i8, [3 x i8] }], ptr %43, i64 0, i64 %37
@@ -24698,7 +24698,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %48 = load ptr, ptr %47, align 8, !noalias !3468, !nonnull !10
   %49 = add i64 %46, -1
   %50 = getelementptr inbounds [0 x { i32, { i32, [2 x i32] } }], ptr %48, i64 0, i64 %49
-  br i1 %.not.i, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i", label %51
+  br i1 %.not.i, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i", label %51
 
 51:                                               ; preds = %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -24711,7 +24711,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %56 = add nsw i32 %55, -13
   %narrow3.i.i = tail call i32 @llvm.umin.i32(i32 %56, i32 5)
   %57 = icmp eq i32 %narrow.i.i, %narrow3.i.i
-  br i1 %57, label %58, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %57, label %58, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
 58:                                               ; preds = %51
   %59 = icmp ugt i32 %54, 4
@@ -24729,7 +24729,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %66 = icmp eq i8 %63, %65
   %67 = icmp eq i32 %53, %55
   %or.cond4.i.i = and i1 %67, %66
-  br i1 %or.cond4.i.i, label %68, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %or.cond4.i.i, label %68, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
 68:                                               ; preds = %61
   %69 = icmp eq i32 %53, 12
@@ -24741,24 +24741,24 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %73 = load i32, ptr %72, align 4, !alias.scope !3510, !noalias !3511, !noundef !10
   %74 = icmp eq i32 %71, %73
-  br i1 %74, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread.i", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+  br i1 %74, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread.i", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
 
-"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i", %61, %51, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
+"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.i", %61, %51, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit.i"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !noalias !3512
   %75 = load i64, ptr %44, align 8, !alias.scope !3513, !noalias !3516, !noundef !10
   %76 = icmp eq i64 %46, %75
   br i1 %76, label %77, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i"
 
-77:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
+77:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5734771e188bca7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %46), !noalias !3516
   %.pre.i.i = load i64, ptr %45, align 8, !alias.scope !3513, !noalias !3516
   %.pre.i = load ptr, ptr %47, align 8, !alias.scope !3513, !noalias !3516
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i": ; preds = %77, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i"
-  %78 = phi ptr [ %.pre.i, %77 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i" ]
-  %79 = phi i64 [ %.pre.i.i, %77 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25.i" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit.i": ; preds = %77, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i"
+  %78 = phi ptr [ %.pre.i, %77 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i" ]
+  %79 = phi i64 [ %.pre.i.i, %77 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22.i" ]
   %80 = getelementptr inbounds { i32, { i32, [2 x i32] } }, ptr %78, i64 %79
   store i32 1, ptr %80, align 4, !noalias !3468
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 4
@@ -24822,7 +24822,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler14gen_temp_lo
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load i64, ptr %7, align 8, !alias.scope !3522, !noalias !3525, !noundef !10
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -24830,14 +24830,14 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler14gen_temp_lo
   %13 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h04918cf6e56903c9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2)
   %14 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1dabb3086b518fE.llvm.10165051650595261532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %11, i64 noundef %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %2)
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3527)
   %17 = getelementptr inbounds i8, ptr %14, i64 -8
   %18 = load i64, ptr %17, align 8, !alias.scope !3527, !noundef !10
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %14, i64 -24
@@ -24876,7 +24876,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %51
 
-.thread:                                          ; preds = %16, %4, %10
+.critedge:                                        ; preds = %16, %10, %4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8, !nonnull !10, !align !11, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -24888,11 +24888,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %40 = icmp ugt i64 %39, %37
   br i1 %40, label %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit", label %41, !prof !755
 
-41:                                               ; preds = %.thread
+41:                                               ; preds = %.critedge
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.38476532626945bb04fe24ad10240d6e.250) #29, !noalias !3530
   unreachable
 
-"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit": ; preds = %.thread
+"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit": ; preds = %.critedge
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 216
   %43 = load ptr, ptr %42, align 8, !alias.scope !3530, !noalias !3533, !nonnull !10, !noundef !10
   %44 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i32, i8, [3 x i8] }], ptr %43, i64 0, i64 %37
@@ -24903,7 +24903,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %48 = load ptr, ptr %47, align 8, !nonnull !10
   %49 = add i64 %46, -1
   %50 = getelementptr inbounds [0 x { i32, { i32, [2 x i32] } }], ptr %48, i64 0, i64 %49
-  br i1 %.not, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25", label %54
+  br i1 %.not, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22", label %54
 
 51:                                               ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit14, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit
   %.sink = phi i32 [ %90, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit14 ], [ %28, %_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E.exit ]
@@ -24925,7 +24925,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %59 = add nsw i32 %58, -13
   %narrow3.i = tail call i32 @llvm.umin.i32(i32 %59, i32 5)
   %60 = icmp eq i32 %narrow.i, %narrow3.i
-  br i1 %60, label %61, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25"
+  br i1 %60, label %61, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22"
 
 61:                                               ; preds = %54
   %62 = icmp ugt i32 %57, 4
@@ -24943,7 +24943,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %69 = icmp eq i8 %66, %68
   %70 = icmp eq i32 %56, %58
   %or.cond4.i = and i1 %70, %69
-  br i1 %or.cond4.i, label %71, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25"
+  br i1 %or.cond4.i, label %71, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22"
 
 71:                                               ; preds = %64
   %72 = icmp eq i32 %56, 12
@@ -24955,24 +24955,24 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %75 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %76 = load i32, ptr %75, align 4, !alias.scope !3546, !noalias !3545, !noundef !10
   %77 = icmp eq i32 %74, %76
-  br i1 %77, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25"
+  br i1 %77, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread", label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22"
 
-"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25": ; preds = %64, %54, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit", %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit"
+"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22": ; preds = %64, %54, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit", %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h457d922c57b0ee87E.exit"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %78 = load i64, ptr %44, align 8, !alias.scope !3547, !noalias !3550, !noundef !10
   %79 = icmp eq i64 %46, %78
   br i1 %79, label %80, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit"
 
-80:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25"
+80:                                               ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22"
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5734771e188bca7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %46), !noalias !3550
   %.pre.i = load i64, ptr %45, align 8, !alias.scope !3547, !noalias !3550
   %.pre = load ptr, ptr %47, align 8, !alias.scope !3547, !noalias !3550
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25", %80
-  %81 = phi ptr [ %.pre, %80 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25" ]
-  %82 = phi i64 [ %.pre.i, %80 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread25" ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h301cb45120fedbe3E.exit": ; preds = %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22", %80
+  %81 = phi ptr [ %.pre, %80 ], [ %48, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22" ]
+  %82 = phi i64 [ %.pre.i, %80 ], [ %46, %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit.thread22" ]
   %83 = getelementptr inbounds { i32, { i32, [2 x i32] } }, ptr %81, i64 %82
   store i32 1, ptr %83, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 4

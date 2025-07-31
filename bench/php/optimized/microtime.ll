@@ -60,9 +60,9 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = icmp ugt i32 %7, 1
-  br i1 %8, label %.thread75, label %9, !prof !9
+  br i1 %8, label %.thread70, label %9, !prof !9
 
-.thread75:                                        ; preds = %3
+.thread70:                                        ; preds = %3
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #7
   br label %16
 
@@ -74,33 +74,33 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !8
   switch i8 %13, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread85
-    i8 2, label %.thread85.fold.split
+    i8 3, label %.thread80
+    i8 2, label %.thread80.fold.split
   ], !prof !10
 
-.thread85.fold.split:                             ; preds = %11
-  br label %.thread85
+.thread80.fold.split:                             ; preds = %11
+  br label %.thread80
 
-.thread85:                                        ; preds = %11, %.thread85.fold.split
-  %storemerge.i = phi i8 [ 1, %11 ], [ 0, %.thread85.fold.split ]
+.thread80:                                        ; preds = %11, %.thread80.fold.split
+  %storemerge.i = phi i8 [ 1, %11 ], [ 0, %.thread80.fold.split ]
   store i8 %storemerge.i, ptr %4, align 1, !tbaa !4
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 1) #7
-  %cond.fr59 = freeze i1 %15
-  br i1 %cond.fr59, label %.critedge, label %16, !prof !11
+  %cond.fr60 = freeze i1 %15
+  br i1 %cond.fr60, label %.critedge, label %16, !prof !11
 
-16:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread75
-  %.084 = phi i32 [ 0, %.thread75 ], [ 1, %zend_parse_arg_bool_ex.exit ]
-  %.05083 = phi ptr [ null, %.thread75 ], [ %14, %zend_parse_arg_bool_ex.exit ]
-  %.05182 = phi i32 [ 0, %.thread75 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05281 = phi i32 [ 1, %.thread75 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05281, i32 noundef %.084, ptr noundef null, i32 noundef %.05182, ptr noundef %.05083) #7
+16:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread70
+  %.079 = phi i32 [ 0, %.thread70 ], [ 1, %zend_parse_arg_bool_ex.exit ]
+  %.05078 = phi ptr [ null, %.thread70 ], [ %14, %zend_parse_arg_bool_ex.exit ]
+  %.05177 = phi i32 [ 0, %.thread70 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05276 = phi i32 [ 1, %.thread70 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05276, i32 noundef %.079, ptr noundef null, i32 noundef %.05177, ptr noundef %.05078) #7
   br label %52
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread85, %9
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread80, %9
   %17 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #7
   %.not55 = icmp eq i32 %17, 0
   call void @llvm.assume(i1 %.not55)
@@ -182,9 +182,9 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !8
   %7 = icmp ugt i32 %6, 1
-  br i1 %7, label %.thread69, label %8, !prof !9
+  br i1 %7, label %.thread70, label %8, !prof !9
 
-.thread69:                                        ; preds = %2
+.thread70:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #7
   br label %17
 
@@ -197,9 +197,9 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !8
   %14 = icmp eq i8 %13, 4
-  br i1 %14, label %zend_parse_arg_long_ex.exit.thread, label %zend_parse_arg_long_ex.exit, !prof !26
+  br i1 %14, label %.thread, label %zend_parse_arg_long_ex.exit, !prof !26
 
-zend_parse_arg_long_ex.exit.thread:               ; preds = %10
+.thread:                                          ; preds = %10
   %15 = load i64, ptr %11, align 8, !tbaa !8
   store i64 %15, ptr %4, align 8, !tbaa !25
   br label %.critedge
@@ -212,15 +212,15 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %.pre = load i64, ptr %4, align 8, !tbaa !25
   br label %.critedge
 
-17:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread69
-  %.05476 = phi i32 [ 0, %.thread69 ], [ 1, %zend_parse_arg_long_ex.exit ]
-  %.05675 = phi i32 [ 1, %.thread69 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05874 = phi ptr [ null, %.thread69 ], [ %11, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05675, i32 noundef %.05476, ptr noundef null, i32 noundef 0, ptr noundef %.05874) #7
+17:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread70
+  %.05477 = phi i32 [ 0, %.thread70 ], [ 1, %zend_parse_arg_long_ex.exit ]
+  %.05676 = phi i32 [ 1, %.thread70 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.05875 = phi ptr [ null, %.thread70 ], [ %11, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05676, i32 noundef %.05477, ptr noundef null, i32 noundef 0, ptr noundef %.05875) #7
   br label %60
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %zend_parse_arg_long_ex.exit.thread, %8
-  %18 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ %15, %zend_parse_arg_long_ex.exit.thread ], [ 0, %8 ]
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %.thread, %8
+  %18 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ %15, %.thread ], [ 0, %8 ]
   %19 = icmp eq i64 %18, 1
   %spec.select = sext i1 %19 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)

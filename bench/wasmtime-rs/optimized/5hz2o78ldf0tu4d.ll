@@ -13684,7 +13684,7 @@ _ZN17cranelift_codegen8machinst3abi6SigSet8num_args17hb20be322eaa22e9aE.exit: ; 
   %103 = getelementptr inbounds nuw i8, ptr %89, i64 152
   %104 = load i64, ptr %103, align 8, !alias.scope !2007, !noalias !2006, !noundef !4
   %105 = icmp ugt i64 %98, %104
-  br i1 %105, label %107, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i"
+  br i1 %105, label %107, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i"
 
 106:                                              ; preds = %95
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %97, i64 noundef %98, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d3b2245bd4ae2af5900eb7d39f1e495.37.llvm.10043242345734795027) #36
@@ -13700,15 +13700,15 @@ _ZN17cranelift_codegen8machinst3abi6SigSet8num_args17hb20be322eaa22e9aE.exit: ; 
 .noexc44:                                         ; preds = %107
   unreachable
 
-"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i": ; preds = %102
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i": ; preds = %102
   %.not.i = icmp ult i64 %90, %96
   br i1 %.not.i, label %109, label %108
 
-108:                                              ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i", %.noexc
+108:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i", %.noexc
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.235) #36
           to label %114 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-109:                                              ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i"
+109:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i"
   %110 = getelementptr inbounds nuw i32, ptr %100, i64 %97
   %111 = getelementptr inbounds i32, ptr %110, i64 %90
   %112 = load i32, ptr %111, align 4, !alias.scope !2008, !noundef !4

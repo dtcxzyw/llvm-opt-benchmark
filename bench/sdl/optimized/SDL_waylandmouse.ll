@@ -1712,53 +1712,53 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 138:                                              ; preds = %135, %126
   %.095.i = phi ptr [ %137, %135 ], [ %131, %126 ]
   %.not114.i = icmp eq ptr %.095.i, null
-  br i1 %.not114.i, label %139, label %.thread128.i
+  br i1 %.not114.i, label %139, label %.thread126.i
 
 139:                                              ; preds = %138
   %140 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
   %141 = call ptr %140(ptr noundef %.194.i, ptr noundef nonnull @.str.12) #6
   %.not115.i = icmp eq ptr %141, null
-  br i1 %.not115.i, label %142, label %.thread128.i
+  br i1 %.not115.i, label %142, label %.thread126.i
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
   %144 = call ptr %143(ptr noundef %.194.i, ptr noundef nonnull @.str.15) #6
   %.not116.i = icmp eq ptr %144, null
-  br i1 %.not116.i, label %Wayland_GetSystemCursor.exit.thread, label %.thread128.i
+  br i1 %.not116.i, label %Wayland_GetSystemCursor.exit.thread, label %.thread126.i
 
-.thread128.i:                                     ; preds = %142, %139, %138
-  %.297131.i = phi ptr [ %144, %142 ], [ %141, %139 ], [ %.095.i, %138 ]
+.thread126.i:                                     ; preds = %142, %139, %138
+  %.297129.i = phi ptr [ %144, %142 ], [ %141, %139 ], [ %.095.i, %138 ]
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %146 = load i32, ptr %145, align 8
-  %147 = load i32, ptr %.297131.i, align 8
+  %147 = load i32, ptr %.297129.i, align 8
   %.not117.i = icmp eq i32 %146, %147
   br i1 %.not117.i, label %153, label %148
 
-148:                                              ; preds = %.thread128.i
+148:                                              ; preds = %.thread126.i
   %149 = load ptr, ptr %11, align 8
   call void @SDL_free_REAL(ptr noundef %149) #6
-  %150 = load i32, ptr %.297131.i, align 8
+  %150 = load i32, ptr %.297129.i, align 8
   %151 = zext i32 %150 to i64
   %152 = call noalias ptr @SDL_calloc_REAL(i64 noundef %151, i64 noundef 16) #7
   store ptr %152, ptr %11, align 8
   %.not118.i = icmp eq ptr %152, null
-  br i1 %.not118.i, label %Wayland_GetSystemCursor.exit.thread, label %._crit_edge152.i
+  br i1 %.not118.i, label %Wayland_GetSystemCursor.exit.thread, label %._crit_edge150.i
 
-._crit_edge152.i:                                 ; preds = %148
-  %.pre153.i = load i32, ptr %.297131.i, align 8
+._crit_edge150.i:                                 ; preds = %148
+  %.pre151.i = load i32, ptr %.297129.i, align 8
   br label %153
 
-153:                                              ; preds = %._crit_edge152.i, %.thread128.i
-  %154 = phi i32 [ %.pre153.i, %._crit_edge152.i ], [ %146, %.thread128.i ]
+153:                                              ; preds = %._crit_edge150.i, %.thread126.i
+  %154 = phi i32 [ %.pre151.i, %._crit_edge150.i ], [ %146, %.thread126.i ]
   store i32 %154, ptr %145, align 8
   %155 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %155, align 8
-  %156 = load i32, ptr %.297131.i, align 8
-  %.not145.i = icmp eq i32 %156, 0
-  br i1 %.not145.i, label %._crit_edge.i, label %.lr.ph139.i
+  %156 = load i32, ptr %.297129.i, align 8
+  %.not143.i = icmp eq i32 %156, 0
+  br i1 %.not143.i, label %._crit_edge.i, label %.lr.ph137.i
 
-.lr.ph139.i:                                      ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %.297131.i, i64 8
+.lr.ph137.i:                                      ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
   br label %166
 
 ._crit_edge.i:                                    ; preds = %166, %153
@@ -1766,43 +1766,43 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %159 = fcmp oeq double %158, %.0100.i
   %160 = fptosi double %.0100.i to i32
   %161 = select i1 %159, i32 %160, i32 0
-  %162 = getelementptr inbounds nuw i8, ptr %.297131.i, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %164, align 4
   %.not119.i = icmp eq i32 %165, %90
   br i1 %.not119.i, label %202, label %191
 
-166:                                              ; preds = %166, %.lr.ph139.i
-  %indvars.iv149.i = phi i64 [ 0, %.lr.ph139.i ], [ %indvars.iv.next150.i, %166 ]
+166:                                              ; preds = %166, %.lr.ph137.i
+  %indvars.iv147.i = phi i64 [ 0, %.lr.ph137.i ], [ %indvars.iv.next148.i, %166 ]
   %167 = load ptr, ptr @WAYLAND_wl_cursor_image_get_buffer, align 8
   %168 = load ptr, ptr %157, align 8
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv149.i
+  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv147.i
   %170 = load ptr, ptr %169, align 8
   %171 = call ptr %167(ptr noundef %170) #6
   %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %172, i64 %indvars.iv149.i
+  %173 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %172, i64 %indvars.iv147.i
   store ptr %171, ptr %173, align 8
   %174 = load ptr, ptr %157, align 8
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv149.i
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv147.i
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
   %180 = mul nuw nsw i64 %179, 1000000
   %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %181, i64 %indvars.iv149.i, i32 1
+  %182 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %181, i64 %indvars.iv147.i, i32 1
   store i64 %180, ptr %182, align 8
   %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %183, i64 %indvars.iv149.i, i32 1
+  %184 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %183, i64 %indvars.iv147.i, i32 1
   %185 = load i64, ptr %184, align 8
   %186 = load i64, ptr %155, align 8
   %187 = add i64 %186, %185
   store i64 %187, ptr %155, align 8
-  %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
-  %188 = load i32, ptr %.297131.i, align 8
+  %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
+  %188 = load i32, ptr %.297129.i, align 8
   %189 = zext i32 %188 to i64
-  %190 = icmp samesign ult i64 %indvars.iv.next150.i, %189
+  %190 = icmp samesign ult i64 %indvars.iv.next148.i, %189
   br i1 %190, label %166, label %._crit_edge.i, !llvm.loop !17
 
 191:                                              ; preds = %._crit_edge.i
@@ -1813,27 +1813,27 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 
 thread-pre-split.i:                               ; preds = %191
   %194 = icmp sgt i32 %161, 1
-  br i1 %194, label %.lr.ph140.i.preheader, label %._crit_edge141.i
+  br i1 %194, label %.lr.ph138.i.preheader, label %._crit_edge139.i
 
-.lr.ph140.i.preheader:                            ; preds = %thread-pre-split.i
+.lr.ph138.i.preheader:                            ; preds = %thread-pre-split.i
   %smin = call i32 @llvm.smin.i32(i32 %160, i32 2)
   %195 = add i32 %smin, -1
-  br label %.lr.ph140.i
+  br label %.lr.ph138.i
 
-.lr.ph140.i:                                      ; preds = %.lr.ph140.i.preheader, %198
-  %.3 = phi i32 [ %199, %198 ], [ %160, %.lr.ph140.i.preheader ]
+.lr.ph138.i:                                      ; preds = %.lr.ph138.i.preheader, %198
+  %.3 = phi i32 [ %199, %198 ], [ %160, %.lr.ph138.i.preheader ]
   %196 = urem i32 %165, %.3
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %._crit_edge141.i, label %198
+  br i1 %197, label %._crit_edge139.i, label %198
 
-198:                                              ; preds = %.lr.ph140.i
+198:                                              ; preds = %.lr.ph138.i
   %199 = add nsw i32 %.3, -1
   %200 = icmp sgt i32 %.3, 2
-  br i1 %200, label %.lr.ph140.i, label %._crit_edge141.i, !llvm.loop !18
+  br i1 %200, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !18
 
-._crit_edge141.i:                                 ; preds = %198, %.lr.ph140.i, %thread-pre-split.i
-  %.2101 = phi i32 [ %161, %thread-pre-split.i ], [ %195, %198 ], [ %.3, %.lr.ph140.i ]
-  %.lcssa.i = phi i32 [ %161, %thread-pre-split.i ], [ 1, %198 ], [ %.3, %.lr.ph140.i ]
+._crit_edge139.i:                                 ; preds = %198, %.lr.ph138.i, %thread-pre-split.i
+  %.2101 = phi i32 [ %161, %thread-pre-split.i ], [ %195, %198 ], [ %.3, %.lr.ph138.i ]
+  %.lcssa.i = phi i32 [ %161, %thread-pre-split.i ], [ 1, %198 ], [ %.3, %.lr.ph138.i ]
   %201 = sitofp i32 %.lcssa.i to double
   br label %202
 
@@ -1841,9 +1841,9 @@ Wayland_GetSystemCursor.exit.thread:              ; preds = %142, %148, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   br label %Wayland_GetCustomCursor.exit
 
-202:                                              ; preds = %191, %._crit_edge141.i, %._crit_edge.i
-  %.1100 = phi i32 [ %161, %._crit_edge.i ], [ %.2101, %._crit_edge141.i ], [ 0, %191 ]
-  %.1101.i = phi double [ %.0100.i, %._crit_edge.i ], [ %201, %._crit_edge141.i ], [ %.0100.i, %191 ]
+202:                                              ; preds = %191, %._crit_edge139.i, %._crit_edge.i
+  %.1100 = phi i32 [ %161, %._crit_edge.i ], [ %.2101, %._crit_edge139.i ], [ 0, %191 ]
+  %.1101.i = phi double [ %.0100.i, %._crit_edge.i ], [ %201, %._crit_edge139.i ], [ %.0100.i, %191 ]
   %203 = uitofp i32 %165 to double
   %204 = fdiv double %203, %.1101.i
   %205 = call i64 @SDL_lround_REAL(double noundef %204) #6

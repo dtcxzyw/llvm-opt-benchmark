@@ -42664,20 +42664,20 @@ define hidden i16 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5350)
-  %6 = load i32, ptr %2, align 4, !alias.scope !5348, !noalias !5352, !noundef !4
-  %7 = load i16, ptr %1, align 2, !alias.scope !5345, !noalias !5354, !noundef !4
-  %8 = zext i16 %5 to i32
-  %9 = zext i16 %7 to i32
-  %10 = sub nsw i32 %8, %9
-  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %11 = icmp sgt i32 %.010.i.i, %6
+  %6 = load i16, ptr %1, align 2, !alias.scope !5345, !noalias !5352, !noundef !4
+  %7 = zext i16 %5 to i32
+  %8 = zext i16 %6 to i32
+  %9 = sub nsw i32 %7, %8
+  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %10 = load i32, ptr %2, align 4, !alias.scope !5348, !noalias !5354, !noundef !4
+  %11 = icmp sgt i32 %.010.i.i, %10
   br i1 %11, label %12, label %"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838.exit"
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4, !alias.scope !5350, !noalias !5355
-  %14 = add nsw i32 %10, %8
-  %15 = icmp slt i32 %14, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %13)
+  %13 = add nsw i32 %9, %7
+  %14 = load i32, ptr %3, align 4, !alias.scope !5350, !noalias !5355, !noundef !4
+  %15 = icmp slt i32 %13, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %13, i32 %14)
   %.0.in.sroa.speculated.i.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i.i, 65536
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
@@ -42698,20 +42698,20 @@ define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trait
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5357)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5362)
-  %6 = load i32, ptr %2, align 4, !alias.scope !5360, !noalias !5364, !noundef !4
-  %7 = load i8, ptr %1, align 1, !alias.scope !5357, !noalias !5366, !noundef !4
-  %8 = zext i8 %5 to i32
-  %9 = zext i8 %7 to i32
-  %10 = sub nsw i32 %8, %9
-  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %11 = icmp sgt i32 %.010.i.i, %6
+  %6 = load i8, ptr %1, align 1, !alias.scope !5357, !noalias !5364, !noundef !4
+  %7 = zext i8 %5 to i32
+  %8 = zext i8 %6 to i32
+  %9 = sub nsw i32 %7, %8
+  %.010.i.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %10 = load i32, ptr %2, align 4, !alias.scope !5360, !noalias !5366, !noundef !4
+  %11 = icmp sgt i32 %.010.i.i, %10
   br i1 %11, label %12, label %"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838.exit"
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4, !alias.scope !5362, !noalias !5367
-  %14 = add nsw i32 %10, %8
-  %15 = icmp slt i32 %14, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %13)
+  %13 = add nsw i32 %9, %7
+  %14 = load i32, ptr %3, align 4, !alias.scope !5362, !noalias !5367, !noundef !4
+  %15 = icmp slt i32 %13, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %13, i32 %14)
   %.0.in.sroa.speculated.i.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i.i
   %or.cond.i.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i.i, 255
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i8
@@ -42728,21 +42728,21 @@ define hidden i8 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trait
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838"(ptr noalias noundef align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = load i32, ptr %2, align 4, !noundef !4
-  %6 = load i8, ptr %1, align 1, !noundef !4
-  %7 = load i8, ptr %0, align 1, !noundef !4
-  %8 = zext i8 %7 to i32
-  %9 = zext i8 %6 to i32
-  %10 = sub nsw i32 %8, %9
-  %.010.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %11 = icmp sgt i32 %.010.i, %5
+  %5 = load i8, ptr %1, align 1, !noundef !4
+  %6 = load i8, ptr %0, align 1, !noundef !4
+  %7 = zext i8 %6 to i32
+  %8 = zext i8 %5 to i32
+  %9 = sub nsw i32 %7, %8
+  %.010.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %10 = load i32, ptr %2, align 4, !noundef !4
+  %11 = icmp sgt i32 %.010.i, %10
   br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.exit"
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4
-  %14 = add nsw i32 %10, %8
-  %15 = icmp slt i32 %14, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %13)
+  %13 = add nsw i32 %9, %7
+  %14 = load i32, ptr %3, align 4, !noundef !4
+  %15 = icmp slt i32 %13, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %13, i32 %14)
   %.0.in.sroa.speculated.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ugt i32 %.0.in.sroa.speculated.i.i, 255
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i8
@@ -42753,28 +42753,28 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   unreachable
 
 "_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17hc10ecb8cbd3e6612E.exit": ; preds = %4, %12
-  %.0.i = phi i8 [ %7, %4 ], [ %16, %12 ]
+  %.0.i = phi i8 [ %6, %4 ], [ %16, %12 ]
   store i8 %.0.i, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838"(ptr noalias noundef align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %5 = load i32, ptr %2, align 4, !noundef !4
-  %6 = load i16, ptr %1, align 2, !noundef !4
-  %7 = load i16, ptr %0, align 2, !noundef !4
-  %8 = zext i16 %7 to i32
-  %9 = zext i16 %6 to i32
-  %10 = sub nsw i32 %8, %9
-  %.010.i = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %11 = icmp sgt i32 %.010.i, %5
+  %5 = load i16, ptr %1, align 2, !noundef !4
+  %6 = load i16, ptr %0, align 2, !noundef !4
+  %7 = zext i16 %6 to i32
+  %8 = zext i16 %5 to i32
+  %9 = sub nsw i32 %7, %8
+  %.010.i = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %10 = load i32, ptr %2, align 4, !noundef !4
+  %11 = icmp sgt i32 %.010.i, %10
   br i1 %11, label %12, label %"_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.exit"
 
 12:                                               ; preds = %4
-  %13 = load i32, ptr %3, align 4
-  %14 = add nsw i32 %10, %8
-  %15 = icmp slt i32 %14, 0
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %14, i32 %13)
+  %13 = add nsw i32 %9, %7
+  %14 = load i32, ptr %3, align 4, !noundef !4
+  %15 = icmp slt i32 %13, 0
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %13, i32 %14)
   %.0.in.sroa.speculated.i.i = select i1 %15, i32 0, i32 %.0.in.sroa.speculate.load.3.sroa.speculated.i.i
   %or.cond.i.i.i = icmp ult i32 %.0.in.sroa.speculated.i.i, 65536
   %16 = trunc nuw i32 %.0.in.sroa.speculated.i.i to i16
@@ -42785,7 +42785,7 @@ define hidden void @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..tra
   unreachable
 
 "_ZN5image8imageops6sample9unsharpen28_$u7b$$u7b$closure$u7d$$u7d$17h7ebf14477ab63231E.exit": ; preds = %4, %12
-  %.0.i = phi i16 [ %7, %4 ], [ %16, %12 ]
+  %.0.i = phi i16 [ %6, %4 ], [ %16, %12 ]
   store i16 %.0.i, ptr %0, align 2
   ret void
 }
@@ -50147,9 +50147,9 @@ attributes #20 = { cold noreturn nounwind }
 !5349 = distinct !{!5349, !5347, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838: argument 2"}
 !5350 = !{!5351}
 !5351 = distinct !{!5351, !5347, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838: argument 3"}
-!5352 = !{!5353, !5346, !5351}
+!5352 = !{!5353, !5349, !5351}
 !5353 = distinct !{!5353, !5347, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h390ef0f1d3443776E.llvm.1609853135345852838: argument 0"}
-!5354 = !{!5353, !5349, !5351}
+!5354 = !{!5353, !5346, !5351}
 !5355 = !{!5353, !5346, !5349}
 !5356 = !{!5353, !5346, !5349, !5351}
 !5357 = !{!5358}
@@ -50159,9 +50159,9 @@ attributes #20 = { cold noreturn nounwind }
 !5361 = distinct !{!5361, !5359, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838: argument 2"}
 !5362 = !{!5363}
 !5363 = distinct !{!5363, !5359, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838: argument 3"}
-!5364 = !{!5365, !5358, !5363}
+!5364 = !{!5365, !5361, !5363}
 !5365 = distinct !{!5365, !5359, !"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$6apply217h1915ce3192574a21E.llvm.1609853135345852838: argument 0"}
-!5366 = !{!5365, !5361, !5363}
+!5366 = !{!5365, !5358, !5363}
 !5367 = !{!5365, !5358, !5361}
 !5368 = !{!5365, !5358, !5361, !5363}
 !5369 = !{!5370, !5372}

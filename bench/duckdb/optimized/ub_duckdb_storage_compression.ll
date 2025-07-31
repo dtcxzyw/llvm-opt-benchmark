@@ -5254,8 +5254,8 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           to label %.preheader unwind label %12
 
 .preheader:                                       ; preds = %3
-  %.not36 = icmp eq i64 %2, 0
-  br i1 %.not36, label %.thread, label %.lr.ph
+  %.not34 = icmp eq i64 %2, 0
+  br i1 %.not34, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5263,18 +5263,18 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
   br label %7
 
 7:                                                ; preds = %33, %.lr.ph
-  %.038 = phi i64 [ %2, %.lr.ph ], [ %35, %33 ]
-  %.02637 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
+  %.036 = phi i64 [ %2, %.lr.ph ], [ %35, %33 ]
+  %.02635 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
   %8 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %9 unwind label %14
 
 9:                                                ; preds = %7
-  %10 = invoke noundef i64 @_ZN6duckdb13ColumnSegment6AppendERNS_17ColumnAppendStateERNS_19UnifiedVectorFormatEmm(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %.02637, i64 noundef %.038)
+  %10 = invoke noundef i64 @_ZN6duckdb13ColumnSegment6AppendERNS_17ColumnAppendStateERNS_19UnifiedVectorFormatEmm(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 noundef %.02635, i64 noundef %.036)
           to label %11 unwind label %14
 
 11:                                               ; preds = %9
-  %.not33 = icmp eq i64 %10, %.038
-  br i1 %.not33, label %.thread, label %16
+  %.not33 = icmp eq i64 %10, %.036
+  br i1 %.not33, label %.critedge, label %16
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
@@ -5318,8 +5318,8 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           to label %33 unwind label %36
 
 33:                                               ; preds = %29
-  %34 = add i64 %10, %.02637
-  %35 = sub i64 %.038, %10
+  %34 = add i64 %10, %.02635
+  %35 = sub i64 %.036, %10
   br label %7
 
 36:                                               ; preds = %29, %28, %26, %21, %18, %16
@@ -5327,13 +5327,13 @@ define void @_ZN6duckdb21UncompressedFunctions8CompressERNS_16CompressionStateER
           cleanup
   br label %84
 
-.thread:                                          ; preds = %11, %.preheader
+.critedge:                                        ; preds = %11, %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !210
   %.not.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i, label %40
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load atomic i64, ptr %41 acquire, align 8
   %43 = icmp eq i64 %42, 4294967297
@@ -5377,7 +5377,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %57, 
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #33
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i
 
-_ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %.thread
+_ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %.critedge
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !210
   %.not.i.i.i.i1.i = icmp eq ptr %62, null

@@ -5124,13 +5124,13 @@ define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(
   %35 = load i16, ptr %16, align 8, !tbaa !28
   %36 = load i16, ptr %6, align 8, !tbaa !28
   %spec.select = tail call i16 @llvm.umax.i16(i16 %36, i16 %35)
-  %.032.in41 = load i16, ptr %34, align 2, !tbaa !28
-  %.not3642 = icmp ugt i16 %.032.in41, %spec.select
-  br i1 %.not3642, label %.lr.ph, label %.critedge
+  %.032.in40 = load i16, ptr %34, align 2, !tbaa !28
+  %.not3641 = icmp ugt i16 %.032.in40, %spec.select
+  br i1 %.not3641, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %33, %45
-  %.032.in43 = phi i16 [ %.032.in, %45 ], [ %.032.in41, %33 ]
-  %37 = zext i16 %.032.in43 to i64
+  %.032.in42 = phi i16 [ %.032.in, %45 ], [ %.032.in40, %33 ]
+  %37 = zext i16 %.032.in42 to i64
   %38 = getelementptr inbounds nuw %union.IRIns, ptr %13, i64 %37
   %39 = load i16, ptr %38, align 8, !tbaa !28
   %40 = icmp eq i16 %39, %36
@@ -5142,7 +5142,7 @@ define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr noundef readonly captures(
   %44 = icmp eq i16 %43, %35
   br i1 %44, label %.critedge, label %45
 
-45:                                               ; preds = %.lr.ph, %41
+45:                                               ; preds = %41, %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %.032.in = load i16, ptr %46, align 2, !tbaa !28
   %.not36 = icmp ugt i16 %.032.in, %spec.select
@@ -5160,20 +5160,20 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
   %4 = load i8, ptr %3, align 4, !tbaa !28
   %5 = and i8 %4, 64
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %.thread
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !4
   %9 = and i32 %8, 8388608
   %.not24 = icmp eq i32 %9, 0
-  br i1 %.not24, label %.thread, label %10, !prof !33
+  br i1 %.not24, label %.critedge, label %10, !prof !33
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 422
   %12 = load i16, ptr %2, align 8, !tbaa !28
-  %.021.in30 = load i16, ptr %11, align 2, !tbaa !28
-  %13 = icmp ugt i16 %.021.in30, %12
+  %.021.in28 = load i16, ptr %11, align 2, !tbaa !28
+  %13 = icmp ugt i16 %.021.in28, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
@@ -5182,8 +5182,8 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
   br label %16
 
 16:                                               ; preds = %.lr.ph, %36
-  %.021.in31 = phi i16 [ %.021.in30, %.lr.ph ], [ %.021.in, %36 ]
-  %17 = zext i16 %.021.in31 to i64
+  %.021.in29 = phi i16 [ %.021.in28, %.lr.ph ], [ %.021.in, %36 ]
+  %17 = zext i16 %.021.in29 to i64
   %18 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %17
   %19 = load i16, ptr %18, align 8, !tbaa !28
   %20 = icmp eq i16 %19, %12
@@ -5202,16 +5202,16 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %30 = load i32, ptr %29, align 8, !tbaa !28
   %31 = icmp ugt i32 %30, %28
-  br i1 %31, label %32, label %.thread
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %35 = load i16, ptr %34, align 2, !tbaa !28
   store i16 %35, ptr %33, align 2, !tbaa !28
-  br label %.thread
+  br label %.critedge
 
-36:                                               ; preds = %16, %21
+36:                                               ; preds = %21, %16
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %.021.in = load i16, ptr %37, align 2, !tbaa !28
   %38 = icmp ugt i16 %.021.in, %12
@@ -5219,10 +5219,10 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %36, %10
   %39 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %25, %32, %6, %._crit_edge, %1
-  %.020 = phi i32 [ 0, %1 ], [ %39, %._crit_edge ], [ 0, %6 ], [ 4, %32 ], [ 4, %25 ]
+.critedge:                                        ; preds = %6, %._crit_edge, %25, %32, %1
+  %.020 = phi i32 [ 0, %1 ], [ %39, %._crit_edge ], [ 4, %25 ], [ 4, %32 ], [ 0, %6 ]
   ret i32 %.020
 }
 

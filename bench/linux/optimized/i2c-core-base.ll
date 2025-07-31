@@ -2561,9 +2561,9 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   %brmerge = select i1 %95, i1 true, i1 %98
-  br i1 %brmerge, label %.thread, label %.thread10
+  br i1 %brmerge, label %.thread, label %.thread8
 
-.thread10:                                        ; preds = %93
+.thread8:                                         ; preds = %93
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %50, ptr noundef nonnull @.str.82) #24
   br label %99
 
@@ -2571,7 +2571,7 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   br label %99
 
-99:                                               ; preds = %.thread, %.thread10, %92
+99:                                               ; preds = %.thread, %.thread8, %92
   %100 = load ptr, ptr %84, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
@@ -2613,7 +2613,7 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
 118:                                              ; preds = %117, %114, %105, %99
   %119 = load ptr, ptr %85, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %153, label %121
+  br i1 %120, label %.critedge, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %85, i64 64
@@ -2668,16 +2668,16 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %154
 
-152:                                              ; preds = %148, %140, %136
-  %.ph = phi ptr [ @.str.77, %148 ], [ @.str.76, %136 ], [ @.str.76, %140 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %50, ptr noundef nonnull @.str.78, ptr noundef nonnull %.ph) #24
-  br label %153
+152:                                              ; preds = %136, %140, %148
+  %153 = phi ptr [ @.str.76, %140 ], [ @.str.76, %136 ], [ @.str.77, %148 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %50, ptr noundef nonnull @.str.78, ptr noundef nonnull %153) #24
+  br label %.critedge
 
-153:                                              ; preds = %118, %152
+.critedge:                                        ; preds = %118, %152
   store ptr null, ptr %84, align 8
   br label %154
 
-154:                                              ; preds = %153, %148, %144, %135, %133, %127, %80
+154:                                              ; preds = %.critedge, %148, %144, %135, %133, %127, %80
   %155 = load ptr, ptr @i2c_adapter_compat_class, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %157 = load ptr, ptr %156, align 8

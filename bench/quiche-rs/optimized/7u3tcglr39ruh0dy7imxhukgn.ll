@@ -5785,7 +5785,7 @@ define hidden void @_ZN6quiche2h310Connection4poll17hb5d670008b499de2E(ptr dead_
   %21 = trunc nuw i64 %20 to i1
   br i1 %21, label %22, label %54
 
-_ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; preds = %121, %79, %37, %196, %198, %143, %100, %58, %.loopexit61, %187, %149, %15
+_ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; preds = %121, %79, %37, %196, %198, %143, %100, %58, %.loopexit59, %187, %149, %15
   ret void
 
 22:                                               ; preds = %18
@@ -6046,10 +6046,10 @@ _ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; pr
   %156 = load i64, ptr %153, align 8, !alias.scope !584, !noalias !587, !noundef !3
   %157 = icmp ugt i64 %156, 8
   %158 = load i64, ptr %154, align 8, !alias.scope !584, !noalias !587
-  %.sink10.i72 = select i1 %157, i64 %158, i64 %156
+  %.sink10.i70 = select i1 %157, i64 %158, i64 %156
   %159 = load i64, ptr %155, align 8, !noundef !3
-  %160 = icmp ult i64 %159, %.sink10.i72
-  br i1 %160, label %.lr.ph, label %._crit_edge
+  %160 = icmp ult i64 %159, %.sink10.i70
+  br i1 %160, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %151
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 14728
@@ -6084,7 +6084,7 @@ _ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; pr
           cleanup
   br label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$$LP$u64$C$quiche..h3..Event$RP$$GT$$GT$17h26c9d4666af4b0e9E.exit"
 
-._crit_edge:                                      ; preds = %273, %151
+.critedge:                                        ; preds = %273, %151
   call void @"_ZN4core3ptr47drop_in_place$LT$quiche..stream..StreamIter$GT$17h7070551ec5893329E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   %181 = call { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hedb9495e598a4b55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %139)
@@ -6093,11 +6093,11 @@ _ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; pr
   %184 = trunc nuw i64 %182 to i1
   br i1 %184, label %185, label %187
 
-185:                                              ; preds = %._crit_edge
+185:                                              ; preds = %.critedge
   %186 = call noundef zeroext i1 @"_ZN6quiche19Connection$LT$F$GT$15stream_readable17h79af73aa383e2f10E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(15216) %2, i64 noundef %183)
   br i1 %186, label %190, label %196
 
-187:                                              ; preds = %._crit_edge
+187:                                              ; preds = %.critedge
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 20, ptr %188, align 8
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6209,7 +6209,7 @@ _ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; pr
   %226 = icmp ne i64 %224, 11
   call void @llvm.assume(i1 %226)
   %227 = select i1 %225, i64 %224, i64 11
-  switch i64 %227, label %.loopexit61 [
+  switch i64 %227, label %.loopexit59 [
     i64 0, label %258
     i64 11, label %259
   ]
@@ -6290,7 +6290,7 @@ _ZN6quiche2h310Connection22process_control_stream17he1076e97540f61a7E.exit: ; pr
 
 259:                                              ; preds = %222
   %260 = icmp eq i64 %223, 13
-  br i1 %260, label %281, label %.loopexit61
+  br i1 %260, label %281, label %.loopexit59
 
 .loopexit:                                        ; preds = %.lr.ph.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6338,9 +6338,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 272:                                              ; preds = %270
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  br label %.loopexit61
+  br label %.loopexit59
 
-.loopexit61:                                      ; preds = %222, %259, %281, %272
+.loopexit59:                                      ; preds = %222, %259, %281, %272
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @"_ZN4core3ptr47drop_in_place$LT$quiche..stream..StreamIter$GT$17h7070551ec5893329E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12)
@@ -6356,7 +6356,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %.sink10.i = select i1 %275, i64 %276, i64 %274
   %277 = load i64, ptr %155, align 8, !noundef !3
   %278 = icmp ult i64 %277, %.sink10.i
-  br i1 %278, label %201, label %._crit_edge
+  br i1 %278, label %201, label %.critedge
 
 279:                                              ; preds = %263, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$$LP$u64$C$quiche..h3..Event$RP$$GT$$GT$17h26c9d4666af4b0e9E.exit"
   %280 = landingpad { ptr, i32 }
@@ -6371,7 +6371,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   store i64 %284, ptr %0, align 8
   store i64 -9223372036854775806, ptr %173, align 8
   store i64 %283, ptr %174, align 8
-  br label %.loopexit61
+  br label %.loopexit59
 
 285:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$$LP$u64$C$quiche..h3..Event$RP$$GT$$GT$17h26c9d4666af4b0e9E.exit"
   resume { ptr, i32 } %.pn

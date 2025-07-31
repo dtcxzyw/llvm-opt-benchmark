@@ -1759,7 +1759,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i16, ptr %2, align 8
   %.not = icmp eq i16 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1768,8 +1768,8 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %7 = phi ptr [ %48, %25 ], [ %6, %.lr.ph.preheader ]
-  %8 = phi i32 [ %37, %25 ], [ 0, %.lr.ph.preheader ]
-  %9 = phi i32 [ %36, %25 ], [ 0, %.lr.ph.preheader ]
+  %8 = phi i32 [ %35, %25 ], [ 0, %.lr.ph.preheader ]
+  %9 = phi i32 [ %37, %25 ], [ 0, %.lr.ph.preheader ]
   %10 = phi ptr [ %26, %25 ], [ null, %.lr.ph.preheader ]
   %11 = load ptr, ptr %3, align 8
   %12 = zext nneg i32 %9 to i64
@@ -1801,9 +1801,9 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %32 = tail call i32 @llvm.umin.i32(i32 %28, i32 %31)
   %33 = add i32 %32, %8
   %34 = icmp eq i32 %33, %30
-  %35 = zext i1 %34 to i32
-  %36 = add nuw nsw i32 %9, %35
-  %37 = select i1 %34, i32 0, i32 %33
+  %35 = select i1 %34, i32 0, i32 %33
+  %36 = zext i1 %34 to i32
+  %37 = add nuw nsw i32 %9, %36
   %38 = zext nneg i32 %27 to i64
   %39 = zext nneg i32 %32 to i64
   %40 = load i64, ptr @vmemmap_base, align 8
@@ -1818,10 +1818,10 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %48 = getelementptr i8, ptr %7, i64 %39
   %49 = load i16, ptr %2, align 8
   %50 = zext i16 %49 to i32
-  %51 = icmp samesign ult i32 %36, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  %51 = icmp samesign ult i32 %37, %50
+  br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %25, %1
+.critedge:                                        ; preds = %25, %1
   tail call void @bio_free_pages(ptr noundef %0) #8
   tail call void @bio_uninit(ptr noundef %0) #8
   tail call void @kfree(ptr noundef %0) #8

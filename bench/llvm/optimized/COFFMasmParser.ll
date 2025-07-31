@@ -931,89 +931,89 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %28, %19
   %39 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %40 = icmp ult ptr %5, %38
   %spec.select.i.i.i.i.i.i.i = and i1 %39, %40
-  br i1 %spec.select.i.i.i.i.i.i.i, label %43, label %41, !prof !55
+  br i1 %spec.select.i.i.i.i.i.i.i, label %41, label %.critedge.i.i.i.i.i, !prof !55
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %42, i64 noundef %34, i64 noundef 32) #16
+  %42 = ptrtoint ptr %5 to i64
+  %43 = ptrtoint ptr %.pre3.i.pre.i.i to i64
+  %44 = sub i64 %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %45, i64 noundef %34, i64 noundef 32) #16
+  %46 = load ptr, ptr %25, align 8, !tbaa !6
+  %47 = getelementptr inbounds i8, ptr %46, i64 %44
+  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
+
+.critedge.i.i.i.i.i:                              ; preds = %37
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %48, i64 noundef %34, i64 noundef 32) #16
   %.pre.i.i.i = load ptr, ptr %25, align 8, !tbaa !6
   br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
 
-43:                                               ; preds = %37
-  %44 = ptrtoint ptr %5 to i64
-  %45 = ptrtoint ptr %.pre3.i.pre.i.i to i64
-  %46 = sub i64 %44, %45
-  %47 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %47, i64 noundef %34, i64 noundef 32) #16
-  %48 = load ptr, ptr %25, align 8, !tbaa !6
-  %49 = getelementptr inbounds i8, ptr %48, i64 %46
-  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
-
-_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %43, %41, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %50 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %48, %43 ], [ %.pre.i.i.i, %41 ]
-  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %49, %43 ], [ %5, %41 ]
-  %51 = load i32, ptr %26, align 8, !tbaa !11
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %50, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
-  %54 = load i32, ptr %26, align 8, !tbaa !11
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %26, align 8, !tbaa !11
+_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i, %41, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
+  %49 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %46, %41 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %47, %41 ], [ %5, %.critedge.i.i.i.i.i ]
+  %50 = load i32, ptr %26, align 8, !tbaa !11
+  %51 = zext i32 %50 to i64
+  %52 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %49, i64 %51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
+  %53 = load i32, ptr %26, align 8, !tbaa !11
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %26, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  %56 = load ptr, ptr %8, align 8, !tbaa !18
-  %57 = load ptr, ptr %56, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %59 = load ptr, ptr %58, align 8
-  %60 = call noundef nonnull align 8 dereferenceable(296) ptr %59(ptr noundef nonnull align 8 dereferenceable(34) %56) #16
-  %61 = load ptr, ptr %8, align 8, !tbaa !18
-  %62 = load ptr, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef nonnull align 8 dereferenceable(2432) ptr %64(ptr noundef nonnull align 8 dereferenceable(34) %61) #16
-  %66 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjS1_ij(ptr noundef nonnull align 8 dereferenceable(2432) %65, ptr nonnull @.str.47, i64 8, i32 noundef 655360, ptr nonnull @.str.48, i64 0, i32 noundef 0, i32 noundef -1) #16
-  %67 = load ptr, ptr %60, align 8, !tbaa !3
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 176
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(296) %60, ptr noundef %66, i32 noundef 0) #16
-  %70 = load ptr, ptr %8, align 8, !tbaa !18
-  %71 = load ptr, ptr %70, align 8, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef nonnull align 8 dereferenceable(296) ptr %73(ptr noundef nonnull align 8 dereferenceable(34) %70) #16
-  %75 = load ptr, ptr %74, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 520
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(296) %74, ptr nonnull @.str.49, i64 12) #16
-  %78 = load ptr, ptr %8, align 8, !tbaa !18
-  %79 = load ptr, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef nonnull align 8 dereferenceable(296) ptr %81(ptr noundef nonnull align 8 dereferenceable(34) %78) #16
+  %55 = load ptr, ptr %8, align 8, !tbaa !18
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef nonnull align 8 dereferenceable(296) ptr %58(ptr noundef nonnull align 8 dereferenceable(34) %55) #16
+  %60 = load ptr, ptr %8, align 8, !tbaa !18
+  %61 = load ptr, ptr %60, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef nonnull align 8 dereferenceable(2432) ptr %63(ptr noundef nonnull align 8 dereferenceable(34) %60) #16
+  %65 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjS1_ij(ptr noundef nonnull align 8 dereferenceable(2432) %64, ptr nonnull @.str.47, i64 8, i32 noundef 655360, ptr nonnull @.str.48, i64 0, i32 noundef 0, i32 noundef -1) #16
+  %66 = load ptr, ptr %59, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 176
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(296) %59, ptr noundef %65, i32 noundef 0) #16
+  %69 = load ptr, ptr %8, align 8, !tbaa !18
+  %70 = load ptr, ptr %69, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noundef nonnull align 8 dereferenceable(296) ptr %72(ptr noundef nonnull align 8 dereferenceable(34) %69) #16
+  %74 = load ptr, ptr %73, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 520
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(296) %73, ptr nonnull @.str.49, i64 12) #16
+  %77 = load ptr, ptr %8, align 8, !tbaa !18
+  %78 = load ptr, ptr %77, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef nonnull align 8 dereferenceable(296) ptr %80(ptr noundef nonnull align 8 dereferenceable(34) %77) #16
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !56
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !27
-  %83 = load ptr, ptr %82, align 8, !tbaa !3
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 520
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(296) %82, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #16
-  %86 = load ptr, ptr %8, align 8, !tbaa !18
-  %87 = load ptr, ptr %86, align 8, !tbaa !3
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
-  %89 = load ptr, ptr %88, align 8
-  %90 = call noundef nonnull align 8 dereferenceable(296) ptr %89(ptr noundef nonnull align 8 dereferenceable(34) %86) #16
-  %91 = load ptr, ptr %90, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 520
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(296) %90, ptr nonnull @.str.50, i64 1) #16
-  %94 = load ptr, ptr %8, align 8, !tbaa !18
-  %95 = load ptr, ptr %94, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8
-  %98 = call noundef nonnull align 8 dereferenceable(296) ptr %97(ptr noundef nonnull align 8 dereferenceable(34) %94) #16
-  %99 = load ptr, ptr %98, align 8, !tbaa !3
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 168
-  %101 = load ptr, ptr %100, align 8
-  %102 = call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(296) %98) #16
+  %82 = load ptr, ptr %81, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 520
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(296) %81, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #16
+  %85 = load ptr, ptr %8, align 8, !tbaa !18
+  %86 = load ptr, ptr %85, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  %88 = load ptr, ptr %87, align 8
+  %89 = call noundef nonnull align 8 dereferenceable(296) ptr %88(ptr noundef nonnull align 8 dereferenceable(34) %85) #16
+  %90 = load ptr, ptr %89, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 520
+  %92 = load ptr, ptr %91, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(296) %89, ptr nonnull @.str.50, i64 1) #16
+  %93 = load ptr, ptr %8, align 8, !tbaa !18
+  %94 = load ptr, ptr %93, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = load ptr, ptr %95, align 8
+  %97 = call noundef nonnull align 8 dereferenceable(296) ptr %96(ptr noundef nonnull align 8 dereferenceable(34) %93) #16
+  %98 = load ptr, ptr %97, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 168
+  %100 = load ptr, ptr %99, align 8
+  %101 = call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(296) %97) #16
   br label %_ZN12_GLOBAL__N_114COFFMasmParser24parseDirectiveIncludelibEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_114COFFMasmParser24parseDirectiveIncludelibEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %14, %_ZN4llvm10MCStreamer11pushSectionEv.exit.i

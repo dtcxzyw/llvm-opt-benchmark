@@ -6450,7 +6450,7 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2804
   %6 = load i32, ptr %5, align 4, !tbaa !227
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %23
+  br i1 %.not, label %7, label %.fold.split
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 704
@@ -6458,12 +6458,12 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 140
   %11 = load i32, ptr %10, align 4, !tbaa !182
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %23, label %13
+  br i1 %12, label %.fold.split, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4, !tbaa !269
-  switch i32 %15, label %23 [
+  switch i32 %15, label %.fold.split [
     i32 65362, label %19
     i32 65431, label %19
     i32 65364, label %16
@@ -6483,17 +6483,17 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
 18:                                               ; preds = %13, %13
   br label %19
 
-19:                                               ; preds = %16, %17, %18, %13, %13
-  %.018.ph = phi float [ 0.000000e+00, %13 ], [ 0.000000e+00, %13 ], [ 0xBF50624DE0000000, %18 ], [ 0x3F50624DE0000000, %17 ], [ 0.000000e+00, %16 ]
-  %.0.ph = phi float [ 0x3F50624DE0000000, %13 ], [ 0x3F50624DE0000000, %13 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %17 ], [ 0xBF50624DE0000000, %16 ]
+19:                                               ; preds = %17, %18, %16, %13, %13
+  %.018 = phi nsz float [ 0.000000e+00, %16 ], [ 0x3F50624DE0000000, %17 ], [ 0xBF50624DE0000000, %18 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %13 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %16 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %18 ], [ 0x3F50624DE0000000, %13 ], [ 0x3F50624DE0000000, %13 ]
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %20 = load i32, ptr %10, align 4, !tbaa !182
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !271
-  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %20, float noundef %.018.ph, float noundef %.0.ph, i32 noundef %22)
-  br label %23
+  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %20, float noundef %.018, float noundef %.0, i32 noundef %22)
+  br label %.fold.split
 
-23:                                               ; preds = %13, %19, %7, %3
+.fold.split:                                      ; preds = %13, %19, %7, %3
   %.020 = phi i32 [ 0, %3 ], [ 0, %7 ], [ 1, %19 ], [ 0, %13 ]
   ret i32 %.020
 }

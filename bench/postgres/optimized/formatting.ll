@@ -11460,7 +11460,7 @@ is_next_separator.exit.thread:                    ; preds = %39, %43, %36, %34, 
   %59 = load ptr, ptr %7, align 8
   store ptr %59, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  br label %94
+  br label %93
 
 is_next_separator.exit.thread64:                  ; preds = %43, %32, %is_next_separator.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
@@ -11469,7 +11469,7 @@ is_next_separator.exit.thread64:                  ; preds = %43, %32, %is_next_s
 
 61:                                               ; preds = %is_next_separator.exit.thread64
   %62 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
-  br i1 %62, label %63, label %.thread
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %61
   %64 = call i32 @errcode(i32 noundef 117440642) #18
@@ -11478,7 +11478,7 @@ is_next_separator.exit.thread64:                  ; preds = %43, %32, %is_next_s
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.247, ptr noundef %67) #18
   %69 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.248, i32 noundef %2, i32 noundef %28) #18
-  br label %.thread.sink.split
+  br label %.critedge.sink.split
 
 70:                                               ; preds = %is_next_separator.exit.thread64
   %71 = tail call ptr @__errno_location() #20
@@ -11492,11 +11492,11 @@ is_next_separator.exit.thread64:                  ; preds = %43, %32, %is_next_s
   %78 = icmp sgt i32 %77, 0
   %79 = icmp sgt i32 %2, %77
   %or.cond = and i1 %78, %79
-  br i1 %or.cond, label %80, label %90
+  br i1 %or.cond, label %80, label %89
 
 80:                                               ; preds = %70
   %81 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
-  br i1 %81, label %82, label %.thread
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %80
   %83 = call i32 @errcode(i32 noundef 117440642) #18
@@ -11505,111 +11505,111 @@ is_next_separator.exit.thread64:                  ; preds = %43, %32, %is_next_s
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.235, ptr noundef nonnull %6, ptr noundef %86) #18
   %88 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.250, i32 noundef %2, i32 noundef %77) #18
-  br label %.thread.sink.split
+  br label %.critedge.sink.split
 
-.thread.sink.split:                               ; preds = %82, %63
-  %.sink = phi i32 [ 2247, %63 ], [ 2261, %82 ]
-  %89 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.249) #18
-  call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.from_char_parse_int_len) #18
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.sink.split, %61, %80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  br label %from_char_set_int.exit.thread
-
-90:                                               ; preds = %70
-  %91 = load ptr, ptr %1, align 8
+89:                                               ; preds = %70
+  %90 = load ptr, ptr %1, align 8
   %sext = shl i64 %76, 32
-  %92 = ashr exact i64 %sext, 32
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  store ptr %93, ptr %1, align 8
+  %91 = ashr exact i64 %sext, 32
+  %92 = getelementptr inbounds i8, ptr %90, i64 %91
+  store ptr %92, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  br label %94
+  br label %93
 
-94:                                               ; preds = %90, %is_next_separator.exit.thread
-  %95 = phi ptr [ %59, %is_next_separator.exit.thread ], [ %93, %90 ]
-  %.051 = phi i64 [ %58, %is_next_separator.exit.thread ], [ %72, %90 ]
-  %96 = icmp eq ptr %95, %9
-  br i1 %96, label %97, label %106
+93:                                               ; preds = %89, %is_next_separator.exit.thread
+  %94 = phi ptr [ %59, %is_next_separator.exit.thread ], [ %92, %89 ]
+  %.051 = phi i64 [ %58, %is_next_separator.exit.thread ], [ %72, %89 ]
+  %95 = icmp eq ptr %94, %9
+  br i1 %95, label %96, label %105
 
-97:                                               ; preds = %94
-  %98 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
-  br i1 %98, label %99, label %from_char_set_int.exit.thread
+96:                                               ; preds = %93
+  %97 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
+  br i1 %97, label %98, label %from_char_set_int.exit.thread
 
-99:                                               ; preds = %97
-  %100 = call i32 @errcode(i32 noundef 117440642) #18
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
+98:                                               ; preds = %96
+  %99 = call i32 @errcode(i32 noundef 117440642) #18
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.235, ptr noundef nonnull %6, ptr noundef %103) #18
-  %105 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.251) #18
+  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.235, ptr noundef nonnull %6, ptr noundef %102) #18
+  %104 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.251) #18
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef 2271, ptr noundef nonnull @__func__.from_char_parse_int_len) #18
   br label %from_char_set_int.exit.thread
 
-106:                                              ; preds = %94
-  %107 = tail call ptr @__errno_location() #20
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 34
-  %110 = add i64 %.051, -2147483648
-  %111 = icmp ult i64 %110, -4294967296
-  %or.cond3 = select i1 %109, i1 true, i1 %111
-  br i1 %or.cond3, label %112, label %121
+105:                                              ; preds = %93
+  %106 = tail call ptr @__errno_location() #20
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 %107, 34
+  %109 = add i64 %.051, -2147483648
+  %110 = icmp ult i64 %109, -4294967296
+  %or.cond3 = select i1 %108, i1 true, i1 %110
+  br i1 %or.cond3, label %111, label %120
 
-112:                                              ; preds = %106
-  %113 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
-  br i1 %113, label %114, label %from_char_set_int.exit.thread
+111:                                              ; preds = %105
+  %112 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
+  br i1 %112, label %113, label %from_char_set_int.exit.thread
 
-114:                                              ; preds = %112
-  %115 = call i32 @errcode(i32 noundef 134217858) #18
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 8
+113:                                              ; preds = %111
+  %114 = call i32 @errcode(i32 noundef 134217858) #18
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef %118) #18
-  %120 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.253, i32 noundef -2147483648, i32 noundef 2147483647) #18
+  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef %117) #18
+  %119 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.253, i32 noundef -2147483648, i32 noundef 2147483647) #18
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef 2279, ptr noundef nonnull @__func__.from_char_parse_int_len) #18
   br label %from_char_set_int.exit.thread
 
-121:                                              ; preds = %106
+120:                                              ; preds = %105
   %.not59 = icmp eq ptr %0, null
-  br i1 %.not59, label %134, label %122
+  br i1 %.not59, label %133, label %121
 
-122:                                              ; preds = %121
-  %123 = trunc nsw i64 %.051 to i32
-  %124 = load i32, ptr %0, align 4
-  %.not.i60 = icmp eq i32 %124, 0
-  %.not10.i = icmp eq i32 %124, %123
+121:                                              ; preds = %120
+  %122 = trunc nsw i64 %.051 to i32
+  %123 = load i32, ptr %0, align 4
+  %.not.i60 = icmp eq i32 %123, 0
+  %.not10.i = icmp eq i32 %123, %122
   %or.cond.i61 = or i1 %.not.i60, %.not10.i
-  br i1 %or.cond.i61, label %from_char_set_int.exit, label %125
+  br i1 %or.cond.i61, label %from_char_set_int.exit, label %124
 
-125:                                              ; preds = %122
-  %126 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
-  br i1 %126, label %127, label %from_char_set_int.exit.thread
+124:                                              ; preds = %121
+  %125 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #18
+  br i1 %125, label %126, label %from_char_set_int.exit.thread
 
-127:                                              ; preds = %125
-  %128 = call i32 @errcode(i32 noundef 117440642) #18
-  %129 = getelementptr inbounds nuw i8, ptr %3, i64 8
+126:                                              ; preds = %124
+  %127 = call i32 @errcode(i32 noundef 117440642) #18
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.245, ptr noundef %131) #18
-  %133 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.246) #18
+  %131 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.245, ptr noundef %130) #18
+  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.246) #18
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef 2176, ptr noundef nonnull @__func__.from_char_set_int) #18
   br label %from_char_set_int.exit.thread
 
-from_char_set_int.exit:                           ; preds = %122
-  store i32 %123, ptr %0, align 4
+from_char_set_int.exit:                           ; preds = %121
+  store i32 %122, ptr %0, align 4
   %.pre = load ptr, ptr %1, align 8
-  br label %134
+  br label %133
 
-134:                                              ; preds = %from_char_set_int.exit, %121
-  %135 = phi ptr [ %.pre, %from_char_set_int.exit ], [ %95, %121 ]
-  %136 = ptrtoint ptr %135 to i64
-  %137 = ptrtoint ptr %9 to i64
-  %138 = sub i64 %136, %137
-  %139 = trunc i64 %138 to i32
+133:                                              ; preds = %from_char_set_int.exit, %120
+  %134 = phi ptr [ %.pre, %from_char_set_int.exit ], [ %94, %120 ]
+  %135 = ptrtoint ptr %134 to i64
+  %136 = ptrtoint ptr %9 to i64
+  %137 = sub i64 %135, %136
+  %138 = trunc i64 %137 to i32
   br label %from_char_set_int.exit.thread
 
-from_char_set_int.exit.thread:                    ; preds = %127, %125, %.thread, %112, %114, %97, %99, %134
-  %.1 = phi i32 [ %139, %134 ], [ -1, %99 ], [ -1, %97 ], [ -1, %114 ], [ -1, %112 ], [ -1, %.thread ], [ -1, %125 ], [ -1, %127 ]
+.critedge.sink.split:                             ; preds = %63, %82
+  %.sink = phi i32 [ 2261, %82 ], [ 2247, %63 ]
+  %139 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.249) #18
+  call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.from_char_parse_int_len) #18
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %80, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  br label %from_char_set_int.exit.thread
+
+from_char_set_int.exit.thread:                    ; preds = %126, %124, %111, %113, %96, %98, %.critedge, %133
+  %.1 = phi i32 [ %138, %133 ], [ -1, %.critedge ], [ -1, %98 ], [ -1, %96 ], [ -1, %113 ], [ -1, %111 ], [ -1, %124 ], [ -1, %126 ]
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #18
   ret i32 %.1
 }

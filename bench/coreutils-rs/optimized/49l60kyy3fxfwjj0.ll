@@ -280,7 +280,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4a
 5:                                                ; preds = %6, %2
   %.sroa.01.0 = phi i64 [ 0, %2 ], [ %7, %6 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %6, label %.loopexit
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %5
   %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h89b93ebbc8a156b3E"(i64 %.sroa.01.0, i64 1)
@@ -289,13 +289,13 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4a
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %10, label %5
 
-.loopexit:                                        ; preds = %5, %10
+.critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
   ret i64 %.0
 
 10:                                               ; preds = %6
   %11 = sub i64 %1, %.sroa.01.0
-  br label %.loopexit
+  br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -307,7 +307,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248d
 5:                                                ; preds = %6, %2
   %.sroa.01.0 = phi i64 [ 0, %2 ], [ %7, %6 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %6, label %.loopexit
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %5
   %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h89b93ebbc8a156b3E"(i64 %.sroa.01.0, i64 1)
@@ -316,13 +316,13 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248d
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %10, label %5
 
-.loopexit:                                        ; preds = %5, %10
+.critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
   ret i64 %.0
 
 10:                                               ; preds = %6
   %11 = sub i64 %1, %.sroa.01.0
-  br label %.loopexit
+  br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -334,7 +334,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b77434453
 5:                                                ; preds = %6, %2
   %.sroa.01.0 = phi i64 [ 0, %2 ], [ %7, %6 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %6, label %.loopexit
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %5
   %7 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h89b93ebbc8a156b3E"(i64 %.sroa.01.0, i64 1)
@@ -343,13 +343,13 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b77434453
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %10, label %5
 
-.loopexit:                                        ; preds = %5, %10
+.critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
   ret i64 %.0
 
 10:                                               ; preds = %6
   %11 = sub i64 %1, %.sroa.01.0
-  br label %.loopexit
+  br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -362,7 +362,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f4200
 6:                                                ; preds = %7, %2
   %.sroa.01.0 = phi i64 [ 0, %2 ], [ %8, %7 ]
   %.not = icmp ult i64 %.sroa.01.0, %1
-  br i1 %.not, label %7, label %.loopexit
+  br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %6
   %8 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h89b93ebbc8a156b3E"(i64 %.sroa.01.0, i64 1)
@@ -372,13 +372,13 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f4200
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %11, label %6
 
-.loopexit:                                        ; preds = %6, %11
+.critedge:                                        ; preds = %6, %11
   %.0 = phi i64 [ %12, %11 ], [ 0, %6 ]
   ret i64 %.0
 
 11:                                               ; preds = %7
   %12 = sub i64 %1, %.sroa.01.0
-  br label %.loopexit
+  br label %.critedge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

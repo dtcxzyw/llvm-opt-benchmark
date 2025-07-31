@@ -9532,7 +9532,7 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %switch = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %switch, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %4
+  br i1 %switch, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -9547,7 +9547,7 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %.idx.i = mul nsw i64 %8, 80
   %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
-  br i1 %10, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph.i
+  br i1 %10, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %14
   %.sroa.08.028.i = phi i64 [ %18, %14 ], [ 0, %4 ]
@@ -9563,7 +9563,7 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %17 = load i64, ptr %16, align 8, !noalias !1822, !noundef !4
   %18 = add i64 %17, %.sroa.08.028.i
   %19 = icmp eq ptr %15, %9
-  br i1 %19, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph.i
+  br i1 %19, label %.critedge, label %.lr.ph.i
 
 20:                                               ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
@@ -9573,7 +9573,7 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %.idx33.i = mul nsw i64 %24, 88
   %25 = getelementptr inbounds i8, ptr %22, i64 %.idx33.i
   %26 = icmp eq i64 %24, 0
-  br i1 %26, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph32.i
+  br i1 %26, label %.critedge, label %.lr.ph32.i
 
 .lr.ph32.i:                                       ; preds = %20, %30
   %.sroa.08.131.i = phi i64 [ %32, %30 ], [ %.sroa.08.028.i, %20 ]
@@ -9587,9 +9587,9 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.012.029.i, i64 88
   %32 = add i64 %.sroa.08.131.i, 1
   %33 = icmp eq ptr %31, %25
-  br i1 %33, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph32.i
+  br i1 %33, label %.critedge, label %.lr.ph32.i
 
-_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread: ; preds = %14, %30, %20, %4, %2, %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit
+.critedge:                                        ; preds = %14, %30, %4, %20, %2, %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit
   ret void
 
 _ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit: ; preds = %.lr.ph32.i
@@ -9601,7 +9601,7 @@ _ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit: 
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !noundef !4
   tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %37, i32 noundef %39)
-  br label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread
+  br label %.critedge
 }
 
 ; Function Attrs: nonlazybind uwtable

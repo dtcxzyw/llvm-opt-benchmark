@@ -1877,14 +1877,14 @@ define linkonce_odr dso_local { ptr, ptr } @_ZSt13__equal_rangeIN9__gnu_cxx17__n
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 3
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit, label %.thread
+  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Val_comp_iterINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %3, %57
-  %.02153 = phi i64 [ %.2, %57 ], [ %7, %3 ]
-  %.sroa.037.052 = phi ptr [ %.sroa.037.1, %57 ], [ %0, %3 ]
-  %9 = lshr i64 %.02153, 1
-  %.idx67 = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.037.052, i64 %.idx67
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %3, %56
+  %.02148 = phi i64 [ %.2, %56 ], [ %7, %3 ]
+  %.sroa.037.047 = phi ptr [ %.sroa.037.1, %56 ], [ %0, %3 ]
+  %9 = lshr i64 %.02148, 1
+  %.idx62 = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.037.047, i64 %.idx62
   %11 = load i32, ptr %2, align 4, !tbaa !55
   %12 = load ptr, ptr %10, align 8, !tbaa !32
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %12) #22
@@ -1896,8 +1896,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26
 17:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = xor i64 %9, -1
-  %20 = add nsw i64 %.02153, %19
-  br label %57
+  %20 = add nsw i64 %.02148, %19
+  br label %56
 
 21:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit
   %22 = load i32, ptr %2, align 4, !tbaa !55
@@ -1906,71 +1906,71 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !84
   %27 = icmp ult i32 %22, %26
-  br i1 %27, label %57, label %28
+  br i1 %27, label %56, label %.critedge
 
-28:                                               ; preds = %21
-  %.not = icmp samesign ult i64 %.02153, 2
+.critedge:                                        ; preds = %21
+  %.not = icmp samesign ult i64 %.02148, 2
   br i1 %.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i: ; preds = %28, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
-  %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %9, %28 ]
-  %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %.sroa.037.052, %28 ]
-  %29 = lshr i64 %.013.i, 1
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i, i64 %29
-  %31 = load i32, ptr %2, align 4, !tbaa !55
-  %32 = load ptr, ptr %30, align 8, !tbaa !32
-  %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %32) #22
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !84
-  %36 = icmp ult i32 %35, %31
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %38 = xor i64 %29, -1
-  %39 = add nsw i64 %.013.i, %38
-  %.sroa.011.1.i = select i1 %36, ptr %37, ptr %.sroa.011.012.i
-  %.1.i = select i1 %36, i64 %39, i64 %29
-  %40 = icmp sgt i64 %.1.i, 0
-  br i1 %40, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, !llvm.loop !95
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i: ; preds = %.critedge, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
+  %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %9, %.critedge ]
+  %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ], [ %.sroa.037.047, %.critedge ]
+  %28 = lshr i64 %.013.i, 1
+  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i, i64 %28
+  %30 = load i32, ptr %2, align 4, !tbaa !55
+  %31 = load ptr, ptr %29, align 8, !tbaa !32
+  %32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %31) #22
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !84
+  %35 = icmp ult i32 %34, %30
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %37 = xor i64 %28, -1
+  %38 = add nsw i64 %.013.i, %37
+  %.sroa.011.1.i = select i1 %35, ptr %36, ptr %.sroa.011.012.i
+  %.1.i = select i1 %35, i64 %38, i64 %28
+  %39 = icmp sgt i64 %.1.i, 0
+  br i1 %39, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, !llvm.loop !95
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, %28
-  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.037.052, %28 ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ]
-  %.idx = shl nuw nsw i64 %.02153, 3
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %42 = add nuw nsw i64 %.idx67, 8
-  %gepdiff = sub nsw i64 %.idx, %42
-  %43 = ashr exact i64 %gepdiff, 3
-  %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, label %.thread
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i, %.critedge
+  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.037.047, %.critedge ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ]
+  %.idx = shl nuw nsw i64 %.02148, 3
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %41 = add nuw nsw i64 %.idx62, 8
+  %gepdiff = sub nsw i64 %.idx, %41
+  %42 = ashr exact i64 %gepdiff, 3
+  %43 = icmp sgt i64 %42, 0
+  br i1 %43, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Val_comp_iterINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26
-  %.013.i27 = phi i64 [ %.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %43, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
-  %.sroa.011.012.i28 = phi ptr [ %.sroa.011.1.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %41, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
-  %45 = lshr i64 %.013.i27, 1
-  %46 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i28, i64 %45
-  %47 = load i32, ptr %2, align 4, !tbaa !55
-  %48 = load ptr, ptr %46, align 8, !tbaa !32
-  %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %48) #22
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i32, ptr %50, align 8, !tbaa !84
-  %52 = icmp ult i32 %47, %51
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %54 = xor i64 %45, -1
-  %55 = add nsw i64 %.013.i27, %54
-  %.sroa.011.1.i31 = select i1 %52, ptr %.sroa.011.012.i28, ptr %53
-  %.1.i32 = select i1 %52, i64 %45, i64 %55
-  %56 = icmp sgt i64 %.1.i32, 0
-  br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, label %.thread, !llvm.loop !96
+  %.013.i27 = phi i64 [ %.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %42, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
+  %.sroa.011.012.i28 = phi ptr [ %.sroa.011.1.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %40, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ]
+  %44 = lshr i64 %.013.i27, 1
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.011.012.i28, i64 %44
+  %46 = load i32, ptr %2, align 4, !tbaa !55
+  %47 = load ptr, ptr %45, align 8, !tbaa !32
+  %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %47) #22
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i32, ptr %49, align 8, !tbaa !84
+  %51 = icmp ult i32 %46, %50
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %53 = xor i64 %44, -1
+  %54 = add nsw i64 %.013.i27, %53
+  %.sroa.011.1.i31 = select i1 %51, ptr %.sroa.011.012.i28, ptr %52
+  %.1.i32 = select i1 %51, i64 %44, i64 %54
+  %55 = icmp sgt i64 %.1.i32, 0
+  br i1 %55, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Val_comp_iterINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, !llvm.loop !96
 
-57:                                               ; preds = %17, %21
-  %.sroa.037.1 = phi ptr [ %18, %17 ], [ %.sroa.037.052, %21 ]
+56:                                               ; preds = %17, %21
+  %.sroa.037.1 = phi ptr [ %18, %17 ], [ %.sroa.037.047, %21 ]
   %.2 = phi i64 [ %20, %17 ], [ %9, %21 ]
-  %58 = icmp sgt i64 %.2, 0
-  br i1 %58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit, label %.thread, !llvm.loop !97
+  %57 = icmp sgt i64 %.2, 0
+  br i1 %57, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Val_comp_iterINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit, !llvm.loop !97
 
-.thread:                                          ; preds = %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit
-  %.sroa.042.2 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %.sroa.037.1, %57 ]
-  %.sroa.3.2 = phi ptr [ %41, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %.sroa.037.1, %57 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.2, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Val_comp_iterINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit: ; preds = %56, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit
+  %.sroa.042.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %.sroa.037.1, %56 ]
+  %.sroa.3.0 = phi ptr [ %40, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEEjNS0_5__ops14_Iter_comp_valINS5_25NativeProtoBytecodeIdLessEEEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i31, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i26 ], [ %.sroa.037.1, %56 ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.042.0, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

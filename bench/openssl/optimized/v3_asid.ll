@@ -945,11 +945,11 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 527, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %111
+  br label %110
 
-.lr.ph:                                           ; preds = %.preheader, %101
-  %.064138 = phi i32 [ %102, %101 ], [ 0, %.preheader ]
-  %10 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.064138) #6
+.lr.ph:                                           ; preds = %.preheader, %100
+  %.064136 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
+  %10 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.064136) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = call i32 @ossl_v3_name_cmp(ptr noundef %12, ptr noundef nonnull @.str.13) #6
@@ -970,7 +970,7 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %18, ptr noundef nonnull @.str.16, ptr noundef %20) #6
-  br label %.thread94
+  br label %.thread92
 
 21:                                               ; preds = %14, %.lr.ph
   %.058 = phi i32 [ 0, %.lr.ph ], [ 1, %14 ]
@@ -983,7 +983,7 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 549, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #6
-  br label %.thread94
+  br label %.thread92
 
 26:                                               ; preds = %21
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.17) #7
@@ -1019,12 +1019,12 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
 
 X509v3_asid_add_inherit.exit.thread85:            ; preds = %35
   store i32 0, ptr %40, align 8, !tbaa !8
-  br label %101
+  br label %100
 
 X509v3_asid_add_inherit.exit:                     ; preds = %29
   %.pre.i = load i32, ptr %30, align 8, !tbaa !8
-  %.not98 = icmp eq i32 %.pre.i, 0
-  br i1 %.not98, label %101, label %X509v3_asid_add_inherit.exit.thread
+  %.not96 = icmp eq i32 %.pre.i, 0
+  br i1 %.not96, label %100, label %X509v3_asid_add_inherit.exit.thread
 
 X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_add_inherit.exit, %41
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1034,7 +1034,7 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   %43 = load ptr, ptr %11, align 8, !tbaa !28
   %44 = load ptr, ptr %42, align 8, !tbaa !31
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %43, ptr noundef nonnull @.str.16, ptr noundef %44) #6
-  br label %.thread94
+  br label %.thread92
 
 45:                                               ; preds = %26
   %46 = call i64 @strspn(ptr noundef nonnull %23, ptr noundef nonnull @.str.18) #7
@@ -1043,7 +1043,7 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   %48 = getelementptr inbounds i8, ptr %23, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !11
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %77, label %51
+  br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %45
   %52 = call i64 @strspn(ptr noundef nonnull %48, ptr noundef nonnull @.str.19) #7
@@ -1063,7 +1063,7 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   %59 = load ptr, ptr %11, align 8, !tbaa !28
   %60 = load ptr, ptr %58, align 8, !tbaa !31
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %59, ptr noundef nonnull @.str.16, ptr noundef %60) #6
-  br label %.thread94
+  br label %.thread92
 
 61:                                               ; preds = %51
   %sext74 = add i64 %sext72, 4294967296
@@ -1081,7 +1081,7 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   %71 = getelementptr inbounds i8, ptr %23, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !11
   %.not77 = icmp eq i8 %72, 0
-  br i1 %.not77, label %80, label %73
+  br i1 %.not77, label %79, label %73
 
 73:                                               ; preds = %61
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1091,101 +1091,101 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   %75 = load ptr, ptr %11, align 8, !tbaa !28
   %76 = load ptr, ptr %74, align 8, !tbaa !31
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %75, ptr noundef nonnull @.str.16, ptr noundef %76) #6
-  br label %.thread94
+  br label %.thread92
 
-77:                                               ; preds = %45
-  %78 = call i32 @X509V3_get_value_int(ptr noundef nonnull %10, ptr noundef nonnull %4) #6
-  %.not79 = icmp eq i32 %78, 0
-  br i1 %.not79, label %79, label %96
+.critedge:                                        ; preds = %45
+  %77 = call i32 @X509V3_get_value_int(ptr noundef nonnull %10, ptr noundef nonnull %4) #6
+  %.not79 = icmp eq i32 %77, 0
+  br i1 %.not79, label %78, label %95
 
-79:                                               ; preds = %77
+78:                                               ; preds = %.critedge
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 593, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread94
+  br label %.thread92
 
-80:                                               ; preds = %61
-  %81 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %23, ptr noundef nonnull @.str.12, i32 noundef 597) #6
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread94, label %83
+79:                                               ; preds = %61
+  %80 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %23, ptr noundef nonnull @.str.12, i32 noundef 597) #6
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %.thread92, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %81, i64 %47
-  store i8 0, ptr %84, align 1, !tbaa !11
-  %85 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %81) #6
-  store ptr %85, ptr %4, align 8, !tbaa !27
-  %86 = getelementptr inbounds i8, ptr %81, i64 %66
-  %87 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %86) #6
-  call void @CRYPTO_free(ptr noundef nonnull %81, ptr noundef nonnull @.str.12, i32 noundef 603) #6
-  %88 = load ptr, ptr %4, align 8, !tbaa !27
-  %89 = icmp eq ptr %88, null
-  %90 = icmp eq ptr %87, null
-  %or.cond = select i1 %89, i1 true, i1 %90
-  br i1 %or.cond, label %91, label %92
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %80, i64 %47
+  store i8 0, ptr %83, align 1, !tbaa !11
+  %84 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %80) #6
+  store ptr %84, ptr %4, align 8, !tbaa !27
+  %85 = getelementptr inbounds i8, ptr %80, i64 %66
+  %86 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %85) #6
+  call void @CRYPTO_free(ptr noundef nonnull %80, ptr noundef nonnull @.str.12, i32 noundef 603) #6
+  %87 = load ptr, ptr %4, align 8, !tbaa !27
+  %88 = icmp eq ptr %87, null
+  %89 = icmp eq ptr %86, null
+  %or.cond = select i1 %88, i1 true, i1 %89
+  br i1 %or.cond, label %90, label %91
 
-91:                                               ; preds = %83
+90:                                               ; preds = %82
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 605, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread94
+  br label %.thread92
 
-92:                                               ; preds = %83
-  %93 = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %88, ptr noundef nonnull %87) #6
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %96
+91:                                               ; preds = %82
+  %92 = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %87, ptr noundef nonnull %86) #6
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %94, label %95
 
-95:                                               ; preds = %92
+94:                                               ; preds = %91
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 609, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #6
-  br label %.thread94
+  br label %.thread92
 
-96:                                               ; preds = %92, %77
-  %.2 = phi ptr [ null, %77 ], [ %87, %92 ]
-  %97 = load ptr, ptr %4, align 8, !tbaa !27
-  %98 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %5, i32 noundef %.058, ptr noundef %97, ptr noundef %.2)
-  %.not81 = icmp eq i32 %98, 0
-  br i1 %.not81, label %99, label %100
+95:                                               ; preds = %91, %.critedge
+  %.2 = phi ptr [ null, %.critedge ], [ %86, %91 ]
+  %96 = load ptr, ptr %4, align 8, !tbaa !27
+  %97 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %5, i32 noundef %.058, ptr noundef %96, ptr noundef %.2)
+  %.not81 = icmp eq i32 %97, 0
+  br i1 %.not81, label %98, label %99
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 614, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread94
+  br label %.thread92
 
-100:                                              ; preds = %96
+99:                                               ; preds = %95
   store ptr null, ptr %4, align 8, !tbaa !27
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %X509v3_asid_add_inherit.exit, %X509v3_asid_add_inherit.exit.thread85
-  %102 = add nuw nsw i32 %.064138, 1
-  %103 = call i32 @OPENSSL_sk_num(ptr noundef %2) #6
-  %104 = icmp slt i32 %102, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+100:                                              ; preds = %99, %X509v3_asid_add_inherit.exit, %X509v3_asid_add_inherit.exit.thread85
+  %101 = add nuw nsw i32 %.064136, 1
+  %102 = call i32 @OPENSSL_sk_num(ptr noundef %2) #6
+  %103 = icmp slt i32 %101, %102
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %101, %.preheader
-  %105 = load ptr, ptr %5, align 8, !tbaa !21
-  %106 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %105)
-  %.not.i = icmp eq i32 %106, 0
-  br i1 %.not.i, label %.thread94, label %X509v3_asid_canonize.exit
+._crit_edge:                                      ; preds = %100, %.preheader
+  %104 = load ptr, ptr %5, align 8, !tbaa !21
+  %105 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %104)
+  %.not.i = icmp eq i32 %105, 0
+  br i1 %.not.i, label %.thread92, label %X509v3_asid_canonize.exit
 
 X509v3_asid_canonize.exit:                        ; preds = %._crit_edge
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !23
-  %109 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %108)
-  %.not = icmp eq i32 %109, 0
-  br i1 %.not, label %.thread94, label %111
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !23
+  %108 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %107)
+  %.not = icmp eq i32 %108, 0
+  br i1 %.not, label %.thread92, label %110
 
-.thread94:                                        ; preds = %80, %._crit_edge, %95, %91, %73, %57, %79, %99, %X509v3_asid_add_inherit.exit.thread, %25, %17, %X509v3_asid_canonize.exit
-  %.4 = phi ptr [ null, %X509v3_asid_canonize.exit ], [ null, %73 ], [ null, %57 ], [ null, %79 ], [ %.2, %99 ], [ null, %X509v3_asid_add_inherit.exit.thread ], [ null, %25 ], [ null, %17 ], [ %87, %95 ], [ %87, %91 ], [ null, %._crit_edge ], [ null, %80 ]
+.thread92:                                        ; preds = %79, %._crit_edge, %94, %90, %73, %57, %78, %98, %X509v3_asid_add_inherit.exit.thread, %25, %17, %X509v3_asid_canonize.exit
+  %.4 = phi ptr [ null, %X509v3_asid_canonize.exit ], [ null, %73 ], [ null, %57 ], [ null, %78 ], [ %.2, %98 ], [ null, %X509v3_asid_add_inherit.exit.thread ], [ null, %25 ], [ null, %17 ], [ %86, %94 ], [ %86, %90 ], [ null, %._crit_edge ], [ null, %79 ]
   call void @ASN1_item_free(ptr noundef nonnull %5, ptr noundef nonnull @ASIdentifiers_it.local_it) #6
-  %110 = load ptr, ptr %4, align 8, !tbaa !27
-  call void @ASN1_INTEGER_free(ptr noundef %110) #6
+  %109 = load ptr, ptr %4, align 8, !tbaa !27
+  call void @ASN1_INTEGER_free(ptr noundef %109) #6
   call void @ASN1_INTEGER_free(ptr noundef %.4) #6
-  br label %111
+  br label %110
 
-111:                                              ; preds = %X509v3_asid_canonize.exit, %.thread94, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %.thread94 ], [ %5, %X509v3_asid_canonize.exit ]
+110:                                              ; preds = %X509v3_asid_canonize.exit, %.thread92, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %.thread92 ], [ %5, %X509v3_asid_canonize.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   ret ptr %.0
 }

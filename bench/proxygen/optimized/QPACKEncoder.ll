@@ -2236,9 +2236,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp2.not = icmp ugt i32 %absoluteNameIndex, %baseIndex
-  br i1 %cmp2.not, label %lor.end, label %cleanup.done
+  br i1 %cmp2.not, label %lor.rhs, label %cleanup.done
 
-lor.end:                                          ; preds = %if.then
+lor.rhs:                                          ; preds = %if.then
   %numVulnerable_.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %numVulnerable_.i, align 8
   %maxVulnerable_.i = getelementptr inbounds nuw i8, ptr %this, i64 524
@@ -2246,7 +2246,7 @@ lor.end:                                          ; preds = %if.then
   %cmp.i.not = icmp ult i32 %0, %1
   br i1 %cmp.i.not, label %cleanup.done, label %cond.false
 
-cond.false:                                       ; preds = %lor.end
+cond.false:                                       ; preds = %lor.rhs
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 252)
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
@@ -2265,7 +2265,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #27
   unreachable
 
-cleanup.done:                                     ; preds = %if.then, %lor.end
+cleanup.done:                                     ; preds = %if.then, %lor.rhs
   tail call void @_ZN8proxygen12QPACKEncoder14trackReferenceEjRj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %absoluteNameIndex, ptr noundef nonnull align 4 dereferenceable(4) %requiredInsertCount)
   br label %if.end
 

@@ -381,7 +381,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 555, i32 2313, i64 12) #17, !srcloc !14
   tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #17, !srcloc !15
   tail call void asm sideeffect "334: nop\0A\09.pushsection .discard.instr_end\0A\09.long 334b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 334) #17, !srcloc !16
-  br label %.loopexit19
+  br label %.loopexit18
 
 21:                                               ; preds = %4
   %22 = load i1, ptr @pat_disabled, align 1
@@ -389,11 +389,11 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %3, null
-  br i1 %24, label %.loopexit19, label %25
+  br i1 %24, label %.loopexit18, label %25
 
 25:                                               ; preds = %23
   store i32 %2, ptr %3, align 4
-  br label %.loopexit19
+  br label %.loopexit18
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 40), align 8
@@ -402,11 +402,11 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 
 29:                                               ; preds = %26
   %30 = icmp eq ptr %3, null
-  br i1 %30, label %.loopexit19, label %31
+  br i1 %30, label %.loopexit18, label %31
 
 31:                                               ; preds = %29
   store i32 0, ptr %3, align 4
-  br label %.loopexit19
+  br label %.loopexit18
 
 32:                                               ; preds = %26
   %33 = icmp eq i32 %2, 0
@@ -452,11 +452,11 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %51 = sub nuw nsw i64 %45, %48
   %52 = call i32 @walk_system_ram_range(i64 noundef %48, i64 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull @pagerange_is_ram_callback) #17
   %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.thread17, label %54
+  br i1 %53, label %.thread16, label %54
 
-.thread17:                                        ; preds = %50
+.thread16:                                        ; preds = %50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  br label %.loopexit19
+  br label %.loopexit18
 
 54:                                               ; preds = %50
   %.pre = load i32, ptr %46, align 8
@@ -471,11 +471,11 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   ]
 
 57:                                               ; preds = %56
-  br i1 %40, label %.loopexit19, label %58
+  br i1 %40, label %.loopexit18, label %58
 
 58:                                               ; preds = %57
   store i32 2, ptr %3, align 4
-  br label %.loopexit19
+  br label %.loopexit18
 
 59:                                               ; preds = %56
   call void asm sideeffect "329: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 329) #17, !srcloc !18
@@ -487,59 +487,59 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %61 = phi i32 [ 2, %59 ], [ %2, %56 ]
   %62 = lshr i64 %10, 12
   %63 = icmp samesign ult i64 %43, %62
-  br i1 %63, label %64, label %.loopexit21
+  br i1 %63, label %64, label %.loopexit20
 
 64:                                               ; preds = %60
   %65 = load i64, ptr @vmemmap_base, align 8
   %66 = inttoptr i64 %65 to ptr
-  br label %70
+  br label %69
 
-67:                                               ; preds = %70
-  %68 = add nuw nsw i64 %71, 1
-  %69 = icmp eq i64 %68, %62
-  br i1 %69, label %.loopexit21, label %70, !llvm.loop !21
+.critedge:                                        ; preds = %69
+  %67 = add nuw nsw i64 %70, 1
+  %68 = icmp eq i64 %67, %62
+  br i1 %68, label %.loopexit20, label %69, !llvm.loop !21
 
-70:                                               ; preds = %67, %64
-  %71 = phi i64 [ %43, %64 ], [ %68, %67 ]
-  %72 = getelementptr %struct.page, ptr %66, i64 %71
-  %73 = load i64, ptr %72, align 16
-  %74 = and i64 %73, 4202496
-  switch i64 %74, label %.unreachabledefault [
-    i64 0, label %67
-    i64 8192, label %.loopexit20.loopexit
-    i64 4194304, label %.loopexit20.loopexit25
-    i64 4202496, label %.loopexit20
+69:                                               ; preds = %.critedge, %64
+  %70 = phi i64 [ %43, %64 ], [ %67, %.critedge ]
+  %71 = getelementptr %struct.page, ptr %66, i64 %70
+  %72 = load i64, ptr %71, align 16
+  %73 = and i64 %72, 4202496
+  switch i64 %73, label %.unreachabledefault [
+    i64 0, label %.critedge
+    i64 8192, label %.loopexit19.loopexit
+    i64 4194304, label %.loopexit19.loopexit24
+    i64 4202496, label %.loopexit19
   ]
 
-.unreachabledefault:                              ; preds = %70
+.unreachabledefault:                              ; preds = %69
   unreachable
 
-.loopexit20.loopexit:                             ; preds = %70
-  br label %.loopexit20
-
-.loopexit20.loopexit25:                           ; preds = %70
-  br label %.loopexit20
-
-.loopexit20:                                      ; preds = %70, %.loopexit20.loopexit25, %.loopexit20.loopexit
-  %.ph = phi i32 [ 1, %.loopexit20.loopexit ], [ 2, %.loopexit20.loopexit25 ], [ 4, %70 ]
-  %75 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, i64 noundef %7, i64 noundef %9, i32 noundef %.ph, i32 noundef %61) #15
-  br i1 %40, label %.loopexit19, label %76
-
-76:                                               ; preds = %.loopexit20
-  store i32 %.ph, ptr %3, align 4
+.loopexit19.loopexit:                             ; preds = %69
   br label %.loopexit19
 
-.loopexit21:                                      ; preds = %67, %60
+.loopexit19.loopexit24:                           ; preds = %69
+  br label %.loopexit19
+
+.loopexit19:                                      ; preds = %69, %.loopexit19.loopexit24, %.loopexit19.loopexit
+  %74 = phi i32 [ 1, %.loopexit19.loopexit ], [ 2, %.loopexit19.loopexit24 ], [ 4, %69 ]
+  %75 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, i64 noundef %7, i64 noundef %9, i32 noundef %74, i32 noundef %61) #15
+  br i1 %40, label %.loopexit18, label %76
+
+76:                                               ; preds = %.loopexit19
+  store i32 %74, ptr %3, align 4
+  br label %.loopexit18
+
+.loopexit20:                                      ; preds = %.critedge, %60
   br i1 %40, label %78, label %77
 
-77:                                               ; preds = %.loopexit21
+77:                                               ; preds = %.loopexit20
   store i32 %61, ptr %3, align 4
   br label %78
 
-78:                                               ; preds = %77, %.loopexit21
-  br i1 %63, label %.preheader18, label %.loopexit19
+78:                                               ; preds = %77, %.loopexit20
+  br i1 %63, label %.preheader17, label %.loopexit18
 
-.preheader18:                                     ; preds = %78, %.loopexit
+.preheader17:                                     ; preds = %78, %.loopexit
   %79 = phi i64 [ %103, %.loopexit ], [ %43, %78 ]
   %80 = load i64, ptr @vmemmap_base, align 8
   %81 = inttoptr i64 %80 to ptr
@@ -550,17 +550,17 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
     i32 4, label %84
   ]
 
-83:                                               ; preds = %.preheader18
+83:                                               ; preds = %.preheader17
   br label %86
 
-84:                                               ; preds = %.preheader18
+84:                                               ; preds = %.preheader17
   br label %86
 
-85:                                               ; preds = %.preheader18
+85:                                               ; preds = %.preheader17
   br label %86
 
-86:                                               ; preds = %85, %84, %83, %.preheader18
-  %87 = phi i64 [ 0, %85 ], [ 4202496, %84 ], [ 4194304, %83 ], [ 8192, %.preheader18 ]
+86:                                               ; preds = %85, %84, %83, %.preheader17
+  %87 = phi i64 [ 0, %85 ], [ 4202496, %84 ], [ 4194304, %83 ], [ 8192, %.preheader17 ]
   %88 = load volatile i64, ptr %82, align 16
   %89 = and i64 %88, -4202497
   %90 = or disjoint i64 %89, %87
@@ -586,13 +586,13 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 .loopexit:                                        ; preds = %.preheader, %86
   %103 = add nuw nsw i64 %79, 1
   %104 = icmp eq i64 %103, %62
-  br i1 %104, label %.loopexit19, label %.preheader18, !llvm.loop !26
+  br i1 %104, label %.loopexit18, label %.preheader17, !llvm.loop !26
 
 105:                                              ; preds = %.thread, %54
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %107 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %106, i32 noundef 3520, i64 noundef 56) #19
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.loopexit19, label %109
+  br i1 %108, label %.loopexit18, label %109
 
 109:                                              ; preds = %105
   store i64 %7, ptr %107, align 8
@@ -612,13 +612,13 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %118 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %9, ptr noundef nonnull %116, ptr noundef nonnull %117) #15
   call void @kfree(ptr noundef nonnull %107) #17
   call void @_raw_spin_unlock(ptr noundef nonnull @memtype_lock) #17
-  br label %.loopexit19
+  br label %.loopexit18
 
 119:                                              ; preds = %109
   call void @_raw_spin_unlock(ptr noundef nonnull @memtype_lock) #17
   %120 = load i32, ptr @pat_debug_enable, align 4
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.loopexit19, label %122
+  br i1 %121, label %.loopexit18, label %122
 
 122:                                              ; preds = %119
   %123 = load i32, ptr %111, align 8
@@ -634,10 +634,10 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 129:                                              ; preds = %126, %122
   %130 = phi ptr [ %128, %126 ], [ @.str.7, %122 ]
   %131 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %7, i64 noundef %9, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %130) #15
-  br label %.loopexit19
+  br label %.loopexit18
 
-.loopexit19:                                      ; preds = %.loopexit, %.thread17, %129, %119, %114, %105, %78, %76, %.loopexit20, %58, %57, %31, %29, %25, %23, %19
-  %132 = phi i32 [ -22, %19 ], [ %112, %114 ], [ 0, %25 ], [ 0, %23 ], [ 0, %31 ], [ 0, %29 ], [ -12, %105 ], [ 0, %129 ], [ 0, %119 ], [ -22, %58 ], [ -22, %57 ], [ -16, %.loopexit20 ], [ -16, %76 ], [ 0, %78 ], [ -22, %.thread17 ], [ 0, %.loopexit ]
+.loopexit18:                                      ; preds = %.loopexit, %.thread16, %129, %119, %114, %105, %78, %76, %.loopexit19, %58, %57, %31, %29, %25, %23, %19
+  %132 = phi i32 [ -22, %19 ], [ %112, %114 ], [ 0, %25 ], [ 0, %23 ], [ 0, %31 ], [ 0, %29 ], [ -12, %105 ], [ 0, %129 ], [ 0, %119 ], [ -22, %58 ], [ -22, %57 ], [ -16, %.loopexit19 ], [ -16, %76 ], [ 0, %78 ], [ -22, %.thread16 ], [ 0, %.loopexit ]
   ret i32 %132
 }
 

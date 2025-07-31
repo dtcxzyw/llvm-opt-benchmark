@@ -5640,7 +5640,7 @@ do.end5.i:                                        ; preds = %sw.bb
   br i1 %cmp.i, label %if.then9.i, label %if.else.i
 
 if.then9.i:                                       ; preds = %do.end5.i
-  switch i32 %call10.i, label %do.body22.i [
+  switch i32 %call10.i, label %do.body22.critedge.i [
     i32 2, label %do.end27.i
     i32 1, label %sw.bb11.i
     i32 0, label %do.body13.i
@@ -5654,15 +5654,15 @@ do.body13.i:                                      ; preds = %if.then9.i
   call void @abort() #24
   unreachable
 
-do.body22.i:                                      ; preds = %if.then9.i
+do.body22.critedge.i:                             ; preds = %if.then9.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto12_GLOBAL__N_113EC_Raw_ExportEPNS0_13KeyObjectDataERKNS0_17ECKeyExportConfigEPNS0_10ByteSourceEE4args_1) #22
   call void @abort() #24
   unreachable
 
 do.end27.i:                                       ; preds = %sw.bb11.i, %if.then9.i
-  %fn.0.ph.i = phi ptr [ @EVP_PKEY_get_raw_public_key, %sw.bb11.i ], [ @EVP_PKEY_get_raw_private_key, %if.then9.i ]
+  %fn.0.i = phi ptr [ @EVP_PKEY_get_raw_public_key, %sw.bb11.i ], [ @EVP_PKEY_get_raw_private_key, %if.then9.i ]
   %call28.i = call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey3getEv(ptr noundef nonnull align 8 dereferenceable(32) %m_pkey.i) #22
-  %call29.i = call noundef i32 %fn.0.ph.i(ptr noundef %call28.i, ptr noundef null, ptr noundef nonnull %len.i) #22, !callees !22
+  %call29.i = call noundef i32 %fn.0.i(ptr noundef %call28.i, ptr noundef null, ptr noundef nonnull %len.i) #22, !callees !22
   %cmp30.i = icmp eq i32 %call29.i, 0
   br i1 %cmp30.i, label %cleanup76.i, label %if.end32.i
 
@@ -5681,7 +5681,7 @@ do.body5.i.i.i:                                   ; preds = %if.end32.i
 
 _ZN4node6crypto10ByteSource7BuilderC2Em.exit.i:   ; preds = %if.end32.i
   %call33.i = call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey3getEv(ptr noundef nonnull align 8 dereferenceable(32) %m_pkey.i) #22
-  %call35.i = call noundef i32 %fn.0.ph.i(ptr noundef %call33.i, ptr noundef %call1.i.i.i, ptr noundef nonnull %len.i) #22, !callees !22
+  %call35.i = call noundef i32 %fn.0.i(ptr noundef %call33.i, ptr noundef %call1.i.i.i, ptr noundef nonnull %len.i) #22, !callees !22
   %cmp36.not.i = icmp eq i32 %call35.i, 0
   br i1 %cmp36.not.i, label %cleanup76.critedge.i, label %do.body.i.i
 

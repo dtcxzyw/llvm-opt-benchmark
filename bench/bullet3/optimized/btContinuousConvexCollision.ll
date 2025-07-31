@@ -468,12 +468,12 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %59 = load float, ptr %58, align 4, !tbaa !31
   %60 = fsub float %57, %59
-  %.sroa.0.0.vec.insert.i.i.i95 = insertelement <2 x float> poison, float %50, i64 0
-  %.sroa.0.4.vec.insert.i.i.i96 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i95, float %55, i64 1
-  %.sroa.3.12.vec.insert.i.i.i97 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %60, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i.i.i96, ptr %13, align 8
-  %.sroa.42.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i.i97, ptr %.sroa.42.0..sroa_idx.i98, align 8, !tbaa !30
+  %.sroa.0.0.vec.insert.i.i.i96 = insertelement <2 x float> poison, float %50, i64 0
+  %.sroa.0.4.vec.insert.i.i.i97 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i96, float %55, i64 1
+  %.sroa.3.12.vec.insert.i.i.i98 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %60, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i.i.i97, ptr %13, align 8
+  %.sroa.42.0..sroa_idx.i99 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i.i98, ptr %.sroa.42.0..sroa_idx.i99, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
   call void @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
@@ -486,12 +486,12 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = load float, ptr %67, align 4, !tbaa !31
   %69 = fmul float %62, %68
-  %.sroa.0.0.vec.insert.i.i13.i99 = insertelement <2 x float> poison, float %63, i64 0
-  %.sroa.0.4.vec.insert.i.i14.i100 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i13.i99, float %66, i64 1
-  %.sroa.3.12.vec.insert.i.i15.i101 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %69, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i.i14.i100, ptr %14, align 8
-  %.sroa.4.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i15.i101, ptr %.sroa.4.0..sroa_idx.i102, align 8, !tbaa !30
+  %.sroa.0.0.vec.insert.i.i13.i100 = insertelement <2 x float> poison, float %63, i64 0
+  %.sroa.0.4.vec.insert.i.i14.i101 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i13.i100, float %66, i64 1
+  %.sroa.3.12.vec.insert.i.i15.i102 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %69, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i.i14.i101, ptr %14, align 8
+  %.sroa.4.0..sroa_idx.i103 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i.i15.i102, ptr %.sroa.4.0..sroa_idx.i103, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -521,8 +521,8 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %88 = fmul float %66, %66
   %89 = call float @llvm.fmuladd.f32(float %63, float %63, float %88)
   %90 = call noundef float @llvm.fmuladd.f32(float %69, float %69, float %89)
-  %sqrt.i103 = call noundef float @llvm.sqrt.f32(float %90)
-  %91 = fmul float %84, %sqrt.i103
+  %sqrt.i104 = call noundef float @llvm.sqrt.f32(float %90)
+  %91 = fmul float %84, %sqrt.i104
   %92 = call float @llvm.fmuladd.f32(float %sqrt.i, float %75, float %91)
   %93 = fsub float %50, %26
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -533,8 +533,8 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %99 = fmul float %96, %96
   %100 = call float @llvm.fmuladd.f32(float %93, float %93, float %99)
   %101 = call noundef float @llvm.fmuladd.f32(float %98, float %98, float %100)
-  %sqrt.i109 = call noundef float @llvm.sqrt.f32(float %101)
-  %102 = fadd float %92, %sqrt.i109
+  %sqrt.i110 = call noundef float @llvm.sqrt.f32(float %101)
+  %102 = fadd float %92, %sqrt.i110
   %103 = fcmp oeq float %102, 0.000000e+00
   br i1 %103, label %181, label %104
 
@@ -551,7 +551,7 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %108 = trunc nuw i8 %107 to i1
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !29
-  br i1 %108, label %110, label %.thread
+  br i1 %108, label %110, label %.critedge
 
 110:                                              ; preds = %104
   %111 = load float, ptr %105, align 8, !tbaa !38
@@ -559,21 +559,21 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %113 = load float, ptr %112, align 8, !tbaa !45
   %114 = fadd float %111, %113
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.0130.0.copyload = load float, ptr %115, align 8
-  %.sroa.9134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %.sroa.9134.0.copyload = load float, ptr %.sroa.9134.0..sroa_idx, align 4
-  %.sroa.12140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.12140.0.copyload = load float, ptr %.sroa.12140.0..sroa_idx, align 8
-  %116 = fmul float %96, %.sroa.9134.0.copyload
-  %117 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0130.0.copyload, float %116)
-  %118 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12140.0.copyload, float %117)
+  %.sroa.0132.0.copyload = load float, ptr %115, align 8
+  %.sroa.9136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %.sroa.9136.0.copyload = load float, ptr %.sroa.9136.0..sroa_idx, align 4
+  %.sroa.12142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.12142.0.copyload = load float, ptr %.sroa.12142.0..sroa_idx, align 8
+  %116 = fmul float %96, %.sroa.9136.0.copyload
+  %117 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0132.0.copyload, float %116)
+  %118 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12142.0.copyload, float %117)
   %119 = fadd float %92, %118
   %120 = fcmp ugt float %119, 0x3E80000000000000
-  br i1 %120, label %.preheader, label %.thread
+  br i1 %120, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %110
-  %.sroa.15146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %.sroa.15146.0.copyload = load float, ptr %.sroa.15146.0..sroa_idx, align 4, !tbaa !30
+  %.sroa.15148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %.sroa.15148.0.copyload = load float, ptr %.sroa.15148.0..sroa_idx, align 4, !tbaa !30
   %121 = fcmp ogt float %114, 0x3F50624DE0000000
   br i1 %121, label %.lr.ph, label %._crit_edge
 
@@ -589,19 +589,19 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %132 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sroa.15146.0..sroa_idx147 = getelementptr inbounds nuw i8, ptr %21, i64 20
+  %.sroa.15148.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.12140.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sroa.9134.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %.sroa.12142.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sroa.9136.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %21, i64 12
   br label %134
 
 134:                                              ; preds = %.lr.ph, %174
-  %.0204 = phi float [ %114, %.lr.ph ], [ %176, %174 ]
-  %.070203 = phi i32 [ 0, %.lr.ph ], [ %175, %174 ]
-  %.075202 = phi float [ 0.000000e+00, %.lr.ph ], [ %148, %174 ]
-  %.sroa.12140.0201 = phi float [ %.sroa.12140.0.copyload, %.lr.ph ], [ %.sroa.12140.0.copyload142, %174 ]
-  %.sroa.9134.0200 = phi float [ %.sroa.9134.0.copyload, %.lr.ph ], [ %.sroa.9134.0.copyload136, %174 ]
-  %.sroa.0130.0199 = phi float [ %.sroa.0130.0.copyload, %.lr.ph ], [ %.sroa.0130.0.copyload132, %174 ]
+  %.0189 = phi float [ %114, %.lr.ph ], [ %176, %174 ]
+  %.070188 = phi i32 [ 0, %.lr.ph ], [ %175, %174 ]
+  %.075187 = phi float [ 0.000000e+00, %.lr.ph ], [ %148, %174 ]
+  %.sroa.12142.0186 = phi float [ %.sroa.12142.0.copyload, %.lr.ph ], [ %.sroa.12142.0.copyload144, %174 ]
+  %.sroa.9136.0185 = phi float [ %.sroa.9136.0.copyload, %.lr.ph ], [ %.sroa.9136.0.copyload138, %174 ]
+  %.sroa.0132.0184 = phi float [ %.sroa.0132.0.copyload, %.lr.ph ], [ %.sroa.0132.0.copyload134, %174 ]
   %135 = load ptr, ptr %122, align 8, !tbaa !48
   %.not86 = icmp eq ptr %135, null
   br i1 %.not86, label %140, label %136
@@ -620,22 +620,22 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   br label %140
 
 140:                                              ; preds = %136, %134
-  %141 = fmul float %96, %.sroa.9134.0200
-  %142 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0130.0199, float %141)
-  %143 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12140.0201, float %142)
+  %141 = fmul float %96, %.sroa.9136.0185
+  %142 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0132.0184, float %141)
+  %143 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12142.0186, float %142)
   %144 = fadd float %92, %143
   %145 = fcmp ugt float %144, 0x3E80000000000000
-  br i1 %145, label %146, label %.thread
+  br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %140
-  %147 = fdiv float %.0204, %144
-  %148 = fadd float %.075202, %147
+  %147 = fdiv float %.0189, %144
+  %148 = fadd float %.075187, %147
   %149 = fcmp ule float %148, 1.000000e+00
   %150 = fcmp uge float %148, 0.000000e+00
-  %or.cond.not180 = and i1 %149, %150
-  %151 = fcmp ugt float %148, %.075202
-  %or.cond94 = and i1 %151, %or.cond.not180
-  br i1 %or.cond94, label %152, label %.thread
+  %or.cond.not165 = and i1 %149, %150
+  %151 = fcmp ugt float %148, %.075187
+  %or.cond94 = and i1 %151, %or.cond.not165
+  br i1 %or.cond94, label %152, label %.critedge
 
 152:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #15
@@ -676,35 +676,29 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %164 = load float, ptr %130, align 8, !tbaa !38
   %165 = load float, ptr %112, align 8, !tbaa !45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !29
-  %exitcond = icmp eq i32 %.070203, 64
+  %exitcond = icmp eq i32 %.070188, 64
   br i1 %exitcond, label %170, label %174
 
 166:                                              ; preds = %158
   %167 = load ptr, ptr %5, align 8, !tbaa !4
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -1, i32 noundef %.070203)
-  br label %.thread171
+  call void %169(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -1, i32 noundef %.070188)
+  br label %.critedge.critedge
 
 170:                                              ; preds = %163
   %171 = load ptr, ptr %5, align 8, !tbaa !4
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -2, i32 noundef 65)
-  br label %.thread171
-
-.thread171:                                       ; preds = %166, %170
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #15
-  br label %.thread
+  br label %.critedge.critedge
 
 174:                                              ; preds = %163
-  %175 = add nuw nsw i32 %.070203, 1
-  %.sroa.15146.0.copyload148 = load float, ptr %.sroa.15146.0..sroa_idx147, align 4, !tbaa !30
-  %.sroa.12140.0.copyload142 = load float, ptr %.sroa.12140.0..sroa_idx141, align 8
-  %.sroa.9134.0.copyload136 = load float, ptr %.sroa.9134.0..sroa_idx135, align 4
-  %.sroa.0130.0.copyload132 = load float, ptr %133, align 8
+  %175 = add nuw nsw i32 %.070188, 1
+  %.sroa.15148.0.copyload150 = load float, ptr %.sroa.15148.0..sroa_idx149, align 4, !tbaa !30
+  %.sroa.12142.0.copyload144 = load float, ptr %.sroa.12142.0..sroa_idx143, align 8
+  %.sroa.9136.0.copyload138 = load float, ptr %.sroa.9136.0..sroa_idx137, align 4
+  %.sroa.0132.0.copyload134 = load float, ptr %133, align 8
   %176 = fadd float %164, %165
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #15
@@ -713,33 +707,39 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   br i1 %177, label %134, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %174, %.preheader
-  %.sroa.0130.0.lcssa = phi float [ %.sroa.0130.0.copyload, %.preheader ], [ %.sroa.0130.0.copyload132, %174 ]
-  %.sroa.9134.0.lcssa = phi float [ %.sroa.9134.0.copyload, %.preheader ], [ %.sroa.9134.0.copyload136, %174 ]
-  %.sroa.12140.0.lcssa = phi float [ %.sroa.12140.0.copyload, %.preheader ], [ %.sroa.12140.0.copyload142, %174 ]
-  %.sroa.15146.0.lcssa = phi float [ %.sroa.15146.0.copyload, %.preheader ], [ %.sroa.15146.0.copyload148, %174 ]
+  %.sroa.0132.0.lcssa = phi float [ %.sroa.0132.0.copyload, %.preheader ], [ %.sroa.0132.0.copyload134, %174 ]
+  %.sroa.9136.0.lcssa = phi float [ %.sroa.9136.0.copyload, %.preheader ], [ %.sroa.9136.0.copyload138, %174 ]
+  %.sroa.12142.0.lcssa = phi float [ %.sroa.12142.0.copyload, %.preheader ], [ %.sroa.12142.0.copyload144, %174 ]
+  %.sroa.15148.0.lcssa = phi float [ %.sroa.15148.0.copyload, %.preheader ], [ %.sroa.15148.0.copyload150, %174 ]
   %.075.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %148, %174 ]
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store float %.075.lcssa, ptr %178, align 8, !tbaa !51
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store float %.sroa.0130.0.lcssa, ptr %179, align 8
-  %.sroa.9134.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  store float %.sroa.9134.0.lcssa, ptr %.sroa.9134.0..sroa_idx137, align 4
-  %.sroa.12140.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  store float %.sroa.12140.0.lcssa, ptr %.sroa.12140.0..sroa_idx143, align 8
-  %.sroa.15146.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %5, i64 148
-  store float %.sroa.15146.0.lcssa, ptr %.sroa.15146.0..sroa_idx149, align 4, !tbaa !30
+  store float %.sroa.0132.0.lcssa, ptr %179, align 8
+  %.sroa.9136.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  store float %.sroa.9136.0.lcssa, ptr %.sroa.9136.0..sroa_idx139, align 4
+  %.sroa.12142.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  store float %.sroa.12142.0.lcssa, ptr %.sroa.12142.0..sroa_idx145, align 8
+  %.sroa.15148.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %5, i64 148
+  store float %.sroa.15148.0.lcssa, ptr %.sroa.15148.0..sroa_idx151, align 4, !tbaa !30
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !29
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %146, %140, %.thread171, %104, %._crit_edge, %110
-  %.569 = phi i1 [ true, %._crit_edge ], [ false, %110 ], [ false, %104 ], [ false, %.thread171 ], [ false, %140 ], [ false, %146 ]
+.critedge.critedge:                               ; preds = %166, %170
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #15
+  br label %.critedge
+
+.critedge:                                        ; preds = %146, %140, %.critedge.critedge, %104, %._crit_edge, %110
+  %.569 = phi i1 [ true, %._crit_edge ], [ false, %110 ], [ false, %104 ], [ false, %.critedge.critedge ], [ false, %140 ], [ false, %146 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
   br label %181
 
-181:                                              ; preds = %83, %.thread
-  %.064 = phi i1 [ %.569, %.thread ], [ false, %83 ]
+181:                                              ; preds = %83, %.critedge
+  %.064 = phi i1 [ %.569, %.critedge ], [ false, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15

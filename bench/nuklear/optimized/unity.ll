@@ -4708,7 +4708,7 @@ define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %nk_buffer_align.exit93
+  br i1 %or.cond, label %7, label %.critedge
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4740,7 +4740,7 @@ define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load i64, ptr %27, align 8, !tbaa !45
   %29 = icmp ugt i64 %26, %28
-  br i1 %29, label %56, label %.thread
+  br i1 %29, label %56, label %nk_buffer_align.exit93
 
 .split67:                                         ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4783,27 +4783,27 @@ define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null
   %53 = tail call i64 @llvm.usub.sat.i64(i64 %31, i64 %52)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = load i64, ptr %54, align 8, !tbaa !51
-  %.not131 = icmp ugt i64 %53, %55
-  br i1 %.not131, label %.thread123, label %56
+  %.not117 = icmp ugt i64 %53, %55
+  br i1 %.not117, label %147, label %56
 
 56:                                               ; preds = %.split, %51
   %57 = phi i64 [ %15, %.split ], [ %55, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load i32, ptr %58, align 8, !tbaa !38
   %.not = icmp eq i32 %59, 1
-  br i1 %.not, label %60, label %nk_buffer_align.exit93
+  br i1 %.not, label %60, label %.critedge
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8, !tbaa !52
   %.not81 = icmp eq ptr %62, null
-  br i1 %.not81, label %nk_buffer_align.exit93, label %63
+  br i1 %.not81, label %.critedge, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !53
   %.not82 = icmp eq ptr %65, null
-  br i1 %.not82, label %nk_buffer_align.exit93, label %66
+  br i1 %.not82, label %.critedge, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4839,7 +4839,7 @@ define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null
 
 nk_buffer_realloc.exit.thread:                    ; preds = %66
   store ptr null, ptr %67, align 8, !tbaa !43
-  br label %nk_buffer_align.exit93
+  br label %.critedge
 
 94:                                               ; preds = %66
   store i64 %spec.select, ptr %68, align 8, !tbaa !54
@@ -4879,7 +4879,7 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   %113 = load i64, ptr %75, align 8, !tbaa !51
   %114 = getelementptr inbounds nuw i8, ptr %93, i64 %113
   %.not19.i90 = icmp eq i64 %3, 0
-  br i1 %.not19.i90, label %.thread, label %115
+  br i1 %.not19.i90, label %nk_buffer_align.exit93, label %115
 
 115:                                              ; preds = %.split69
   %116 = getelementptr i8, ptr %114, i64 %3
@@ -4890,7 +4890,7 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   %121 = inttoptr i64 %120 to ptr
   %122 = ptrtoint ptr %114 to i64
   %123 = sub i64 %120, %122
-  br label %.thread
+  br label %nk_buffer_align.exit93
 
 .split71:                                         ; preds = %111
   %124 = sub i64 %112, %2
@@ -4900,7 +4900,7 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   br i1 %cond.i94, label %136, label %126
 
 126:                                              ; preds = %.split71
-  br i1 %.not19.i95, label %.thread123, label %127
+  br i1 %.not19.i95, label %147, label %127
 
 127:                                              ; preds = %126
   %128 = getelementptr i8, ptr %125, i64 %3
@@ -4911,10 +4911,10 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   %133 = inttoptr i64 %132 to ptr
   %134 = ptrtoint ptr %125 to i64
   %135 = sub i64 %132, %134
-  br label %.thread123
+  br label %147
 
 136:                                              ; preds = %.split71
-  br i1 %.not19.i95, label %.thread123, label %137
+  br i1 %.not19.i95, label %147, label %137
 
 137:                                              ; preds = %136
   %138 = ptrtoint ptr %125 to i64
@@ -4922,42 +4922,42 @@ nk_buffer_realloc.exit.thread:                    ; preds = %66
   %140 = and i64 %138, %139
   %141 = inttoptr i64 %140 to ptr
   %142 = sub i64 %138, %140
-  br label %.thread123
+  br label %147
 
-.thread:                                          ; preds = %.split, %115, %.split69
-  %143 = phi i64 [ %113, %.split69 ], [ %113, %115 ], [ %15, %.split ]
-  %.060122 = phi ptr [ %114, %.split69 ], [ %121, %115 ], [ %phi.call, %.split ]
-  %.1103119 = phi i64 [ 0, %.split69 ], [ %123, %115 ], [ %.0, %.split ]
-  %144 = add i64 %.1103119, %2
+nk_buffer_align.exit93:                           ; preds = %.split, %.split69, %115
+  %143 = phi i64 [ %15, %.split ], [ %113, %115 ], [ %113, %.split69 ]
+  %.1 = phi i64 [ %.0, %.split ], [ %123, %115 ], [ 0, %.split69 ]
+  %.060 = phi ptr [ %phi.call, %.split ], [ %121, %115 ], [ %114, %.split69 ]
+  %144 = add i64 %.1, %2
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %146 = add i64 %144, %143
   store i64 %146, ptr %145, align 8, !tbaa !51
-  br label %151
+  br label %152
 
-.thread123:                                       ; preds = %137, %136, %127, %126, %51
-  %147 = phi i64 [ %31, %51 ], [ %112, %137 ], [ %112, %127 ], [ %112, %126 ], [ %112, %136 ]
-  %.060127 = phi ptr [ %phi.call.ph, %51 ], [ %141, %137 ], [ %133, %127 ], [ %125, %126 ], [ %125, %136 ]
-  %.1103126 = phi i64 [ %.0.ph, %51 ], [ %142, %137 ], [ %135, %127 ], [ 0, %126 ], [ 0, %136 ]
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %149 = add i64 %.1103126, %2
-  %150 = sub i64 %147, %149
-  store i64 %150, ptr %148, align 8, !tbaa !45
-  br label %151
+147:                                              ; preds = %137, %136, %127, %126, %51
+  %148 = phi i64 [ %112, %136 ], [ %112, %126 ], [ %112, %127 ], [ %112, %137 ], [ %31, %51 ]
+  %.1.ph = phi i64 [ 0, %136 ], [ 0, %126 ], [ %135, %127 ], [ %142, %137 ], [ %.0.ph, %51 ]
+  %.060.ph = phi ptr [ %125, %136 ], [ %125, %126 ], [ %133, %127 ], [ %141, %137 ], [ %phi.call.ph, %51 ]
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %150 = add i64 %.1.ph, %2
+  %151 = sub i64 %148, %150
+  store i64 %151, ptr %149, align 8, !tbaa !45
+  br label %152
 
-151:                                              ; preds = %.thread123, %.thread
-  %.060121 = phi ptr [ %.060127, %.thread123 ], [ %.060122, %.thread ]
-  %.1103120 = phi i64 [ %.1103126, %.thread123 ], [ %.1103119, %.thread ]
-  %152 = load i64, ptr %8, align 8, !tbaa !50
-  %153 = add i64 %152, %.1103120
-  store i64 %153, ptr %8, align 8, !tbaa !50
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %155 = load i64, ptr %154, align 8, !tbaa !55
-  %156 = add i64 %155, 1
-  store i64 %156, ptr %154, align 8, !tbaa !55
-  br label %nk_buffer_align.exit93
+152:                                              ; preds = %147, %nk_buffer_align.exit93
+  %.060115 = phi ptr [ %.060.ph, %147 ], [ %.060, %nk_buffer_align.exit93 ]
+  %.1113 = phi i64 [ %.1.ph, %147 ], [ %.1, %nk_buffer_align.exit93 ]
+  %153 = load i64, ptr %8, align 8, !tbaa !50
+  %154 = add i64 %153, %.1113
+  store i64 %154, ptr %8, align 8, !tbaa !50
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %156 = load i64, ptr %155, align 8, !tbaa !55
+  %157 = add i64 %156, 1
+  store i64 %157, ptr %155, align 8, !tbaa !55
+  br label %.critedge
 
-nk_buffer_align.exit93:                           ; preds = %56, %63, %60, %nk_buffer_realloc.exit.thread, %4, %151
-  %.064 = phi ptr [ %.060121, %151 ], [ null, %4 ], [ null, %nk_buffer_realloc.exit.thread ], [ null, %60 ], [ null, %63 ], [ null, %56 ]
+.critedge:                                        ; preds = %nk_buffer_realloc.exit.thread, %56, %63, %60, %4, %152
+  %.064 = phi ptr [ %.060115, %152 ], [ null, %4 ], [ null, %60 ], [ null, %63 ], [ null, %56 ], [ null, %nk_buffer_realloc.exit.thread ]
   ret ptr %.064
 }
 
@@ -75976,18 +75976,18 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonl
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #7 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
-  %invariant.gep108 = getelementptr i8, ptr %0, i64 2
-  %.not110 = icmp eq i32 %3, 0
-  br i1 %.not110, label %.thread101, label %.lr.ph
+  %invariant.gep99 = getelementptr i8, ptr %0, i64 2
+  %.not101 = icmp eq i32 %3, 0
+  br i1 %.not101, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %106
-  %.064113 = phi ptr [ %107, %106 ], [ %2, %4 ]
-  %.070112 = phi i32 [ %108, %106 ], [ %3, %4 ]
-  %.074111 = phi i32 [ %.276, %106 ], [ 0, %4 ]
-  %5 = load i8, ptr %.064113, align 1, !tbaa !9
+  %.064104 = phi ptr [ %107, %106 ], [ %2, %4 ]
+  %.070103 = phi i32 [ %108, %106 ], [ %3, %4 ]
+  %.074102 = phi i32 [ %.276, %106 ], [ 0, %4 ]
+  %5 = load i8, ptr %.064104, align 1, !tbaa !9
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
-  %8 = getelementptr inbounds nuw i8, ptr %.064113, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.064104, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !9
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
@@ -75995,39 +75995,39 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
-  %.not93 = icmp slt i32 %.074111, %1
-  br i1 %.not93, label %14, label %.thread101
+  %.not93 = icmp slt i32 %.074102, %1
+  br i1 %.not93, label %14, label %.critedge
 
 14:                                               ; preds = %13
-  %15 = add nsw i32 %.074111, 1
-  %16 = sext i32 %.074111 to i64
+  %15 = add nsw i32 %.074102, 1
+  %16 = sext i32 %.074102 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !9
   %19 = zext i8 %18 to i32
   %.not94 = icmp eq i32 %11, %19
-  br i1 %.not94, label %106, label %.thread101
+  br i1 %.not94, label %106, label %.critedge
 
 20:                                               ; preds = %.lr.ph
   %21 = icmp ult i8 %5, 8
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.074111, 1
+  %23 = add nsw i32 %.074102, 1
   %.not90 = icmp slt i32 %23, %1
-  br i1 %.not90, label %24, label %.thread101
+  br i1 %.not90, label %24, label %.critedge
 
 24:                                               ; preds = %22
-  %25 = sext i32 %.074111 to i64
+  %25 = sext i32 %.074102 to i64
   %26 = getelementptr inbounds i8, ptr %0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !9
   %28 = zext i8 %27 to i32
   %29 = lshr i32 %11, 6
   %30 = or disjoint i32 %29, 192
   %.not91 = icmp eq i32 %30, %28
-  br i1 %.not91, label %31, label %.thread101
+  br i1 %.not91, label %31, label %.critedge
 
 31:                                               ; preds = %24
-  %32 = add nsw i32 %.074111, 2
+  %32 = add nsw i32 %.074102, 2
   %33 = sext i32 %23 to i64
   %34 = getelementptr inbounds i8, ptr %0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !9
@@ -76035,7 +76035,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   %37 = and i32 %10, 63
   %38 = or disjoint i32 %37, 128
   %.not92 = icmp eq i32 %38, %36
-  br i1 %.not92, label %106, label %.thread101
+  br i1 %.not92, label %106, label %.critedge
 
 39:                                               ; preds = %20
   %40 = and i8 %5, -4
@@ -76043,13 +76043,13 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   br i1 %or.cond, label %41, label %83
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %.064113, i64 2
-  %43 = add nsw i32 %.074111, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.064104, i64 2
+  %43 = add nsw i32 %.074102, 3
   %.not85 = icmp slt i32 %43, %1
-  br i1 %.not85, label %44, label %.thread101
+  br i1 %.not85, label %44, label %.critedge
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.064113, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.064104, i64 3
   %46 = load i8, ptr %45, align 1, !tbaa !9
   %47 = load i8, ptr %42, align 1, !tbaa !9
   %48 = zext i8 %47 to i32
@@ -76059,34 +76059,34 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   %52 = shl nuw nsw i32 %11, 10
   %53 = add nsw i32 %52, -56613888
   %54 = add nuw nsw i32 %53, %51
-  %55 = sext i32 %.074111 to i64
+  %55 = sext i32 %.074102 to i64
   %56 = getelementptr inbounds i8, ptr %0, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !9
   %58 = zext i8 %57 to i32
   %59 = lshr i32 %54, 18
   %60 = add nuw nsw i32 %59, 240
   %.not86 = icmp eq i32 %60, %58
-  br i1 %.not86, label %61, label %.thread101
+  br i1 %.not86, label %61, label %.critedge
 
 61:                                               ; preds = %44
-  %gep107 = getelementptr i8, ptr %invariant.gep, i64 %55
-  %62 = load i8, ptr %gep107, align 1, !tbaa !9
+  %gep98 = getelementptr i8, ptr %invariant.gep, i64 %55
+  %62 = load i8, ptr %gep98, align 1, !tbaa !9
   %63 = zext i8 %62 to i32
   %64 = lshr i32 %54, 12
   %65 = and i32 %64, 63
   %66 = or disjoint i32 %65, 128
   %.not87 = icmp eq i32 %66, %63
-  br i1 %.not87, label %67, label %.thread101
+  br i1 %.not87, label %67, label %.critedge
 
 67:                                               ; preds = %61
-  %gep109 = getelementptr i8, ptr %invariant.gep108, i64 %55
-  %68 = load i8, ptr %gep109, align 1, !tbaa !9
+  %gep100 = getelementptr i8, ptr %invariant.gep99, i64 %55
+  %68 = load i8, ptr %gep100, align 1, !tbaa !9
   %69 = zext i8 %68 to i32
   %70 = lshr i32 %54, 6
   %71 = and i32 %70, 63
   %72 = or disjoint i32 %71, 128
   %.not88 = icmp eq i32 %72, %69
-  br i1 %.not88, label %73, label %.thread101
+  br i1 %.not88, label %73, label %.critedge
 
 73:                                               ; preds = %67
   %74 = sext i32 %43 to i64
@@ -76096,29 +76096,29 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   %78 = and i32 %50, 63
   %79 = or disjoint i32 %78, 128
   %.not89 = icmp eq i32 %79, %77
-  br i1 %.not89, label %80, label %.thread101
+  br i1 %.not89, label %80, label %.critedge
 
 80:                                               ; preds = %73
-  %81 = add nsw i32 %.074111, 4
-  %82 = add nsw i32 %.070112, -2
+  %81 = add nsw i32 %.074102, 4
+  %82 = add nsw i32 %.070103, -2
   br label %106
 
 83:                                               ; preds = %39
   %or.cond6 = icmp ne i8 %40, -36
-  %84 = add nsw i32 %.074111, 2
+  %84 = add nsw i32 %.074102, 2
   %.not81 = icmp slt i32 %84, %1
-  %or.cond95 = select i1 %or.cond6, i1 %.not81, i1 false
-  br i1 %or.cond95, label %85, label %.thread101
+  %or.cond96 = select i1 %or.cond6, i1 %.not81, i1 false
+  br i1 %or.cond96, label %85, label %.critedge
 
 85:                                               ; preds = %83
-  %86 = sext i32 %.074111 to i64
+  %86 = sext i32 %.074102 to i64
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !9
   %89 = zext i8 %88 to i32
   %90 = lshr i32 %6, 4
   %91 = or disjoint i32 %90, 224
   %.not82 = icmp eq i32 %91, %89
-  br i1 %.not82, label %92, label %.thread101
+  br i1 %.not82, label %92, label %.critedge
 
 92:                                               ; preds = %85
   %gep = getelementptr i8, ptr %invariant.gep, i64 %86
@@ -76128,10 +76128,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   %96 = and i32 %95, 63
   %97 = or disjoint i32 %96, 128
   %.not83 = icmp eq i32 %97, %94
-  br i1 %.not83, label %98, label %.thread101
+  br i1 %.not83, label %98, label %.critedge
 
 98:                                               ; preds = %92
-  %99 = add nsw i32 %.074111, 3
+  %99 = add nsw i32 %.074102, 3
   %100 = sext i32 %84 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !9
@@ -76139,19 +76139,19 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
   %104 = and i32 %10, 63
   %105 = or disjoint i32 %104, 128
   %.not84 = icmp eq i32 %105, %103
-  br i1 %.not84, label %106, label %.thread101
+  br i1 %.not84, label %106, label %.critedge
 
-106:                                              ; preds = %14, %98, %31, %80
+106:                                              ; preds = %80, %31, %98, %14
   %.276 = phi i32 [ %15, %14 ], [ %32, %31 ], [ %81, %80 ], [ %99, %98 ]
-  %.272 = phi i32 [ %.070112, %14 ], [ %.070112, %31 ], [ %82, %80 ], [ %.070112, %98 ]
-  %.266 = phi ptr [ %.064113, %14 ], [ %.064113, %31 ], [ %42, %80 ], [ %.064113, %98 ]
+  %.272 = phi i32 [ %.070103, %14 ], [ %.070103, %31 ], [ %82, %80 ], [ %.070103, %98 ]
+  %.266 = phi ptr [ %.064104, %14 ], [ %.064104, %31 ], [ %42, %80 ], [ %.064104, %98 ]
   %107 = getelementptr inbounds nuw i8, ptr %.266, i64 2
   %108 = add nsw i32 %.272, -2
   %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %.thread101, label %.lr.ph, !llvm.loop !1301
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !1301
 
-.thread101:                                       ; preds = %106, %13, %14, %22, %24, %31, %83, %85, %92, %98, %41, %44, %61, %67, %73, %4
-  %.4 = phi i32 [ 0, %4 ], [ -1, %73 ], [ -1, %67 ], [ -1, %61 ], [ -1, %44 ], [ -1, %41 ], [ -1, %98 ], [ -1, %92 ], [ -1, %85 ], [ -1, %83 ], [ -1, %31 ], [ -1, %24 ], [ -1, %22 ], [ -1, %14 ], [ -1, %13 ], [ %.276, %106 ]
+.critedge:                                        ; preds = %106, %98, %92, %85, %83, %31, %24, %22, %14, %13, %73, %67, %61, %44, %41, %4
+  %.4 = phi i32 [ 0, %4 ], [ -1, %41 ], [ -1, %44 ], [ -1, %61 ], [ -1, %67 ], [ -1, %73 ], [ -1, %13 ], [ -1, %14 ], [ -1, %22 ], [ -1, %24 ], [ -1, %31 ], [ -1, %83 ], [ -1, %85 ], [ -1, %92 ], [ -1, %98 ], [ %.276, %106 ]
   ret i32 %.4
 }
 

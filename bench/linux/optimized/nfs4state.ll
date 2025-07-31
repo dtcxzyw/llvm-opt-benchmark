@@ -1767,7 +1767,7 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 512
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %111
+  br i1 %9, label %10, label %109
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %4, null
@@ -1843,7 +1843,7 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   %55 = load volatile i64, ptr %54, align 8
   %56 = and i64 %55, 2
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %.thread
+  br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %53
   %59 = load volatile i64, ptr %54, align 8
@@ -1860,89 +1860,90 @@ define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr nound
   store i32 %65, ptr %66, align 4
   br label %.thread
 
-.thread:                                          ; preds = %19, %40, %53, %58, %62
-  %67 = phi ptr [ %41, %62 ], [ %41, %58 ], [ %41, %53 ], [ null, %40 ], [ null, %19 ]
-  %68 = phi i1 [ false, %62 ], [ false, %58 ], [ true, %53 ], [ false, %40 ], [ false, %19 ]
-  %.not = phi i1 [ true, %62 ], [ false, %58 ], [ true, %53 ], [ false, %40 ], [ false, %19 ]
-  %69 = phi i32 [ 0, %62 ], [ -2, %58 ], [ -5, %53 ], [ -2, %40 ], [ -2, %19 ]
+.thread:                                          ; preds = %19, %40, %58, %62
+  %67 = phi ptr [ %41, %62 ], [ %41, %58 ], [ null, %40 ], [ null, %19 ]
+  %.not = phi i1 [ true, %62 ], [ false, %58 ], [ false, %40 ], [ false, %19 ]
+  %68 = phi i32 [ 0, %62 ], [ -2, %58 ], [ -2, %40 ], [ -2, %19 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %26) #17
   tail call void @nfs4_put_lock_state(ptr noundef %67)
-  br i1 %68, label %98, label %70
-
-70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %72, i32 noundef %1, ptr noundef %3, ptr noundef %4) #17
-  %brmerge = or i1 %.not, %73
-  %.mux = select i1 %73, i32 0, i32 %69
-  br i1 %brmerge, label %98, label %.thread10
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %70, i32 noundef %1, ptr noundef %3, ptr noundef %4) #17
+  %brmerge = or i1 %.not, %71
+  %.mux = select i1 %71, i32 0, i32 %68
+  br i1 %brmerge, label %96, label %.thread10
 
 .thread9:                                         ; preds = %15, %13
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %75, i32 noundef %1, ptr noundef %3, ptr noundef %4) #17
-  br i1 %76, label %98, label %.thread10
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call zeroext i1 @nfs4_copy_delegation_stateid(ptr noundef %73, i32 noundef %1, ptr noundef %3, ptr noundef %4) #17
+  br i1 %74, label %96, label %.thread10
 
-.thread10:                                        ; preds = %70, %.thread9
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %80
+.thread10:                                        ; preds = %.thread, %.thread9
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %78
 
-80:                                               ; preds = %.loopexit, %.thread10
-  %81 = load volatile i32, ptr %77, align 4
-  %82 = and i32 %81, 1
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.loopexit, label %.preheader
+78:                                               ; preds = %.loopexit, %.thread10
+  %79 = load volatile i32, ptr %75, align 4
+  %80 = and i32 %79, 1
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %80, %.preheader
+.preheader:                                       ; preds = %78, %.preheader
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !32
-  %84 = load volatile i32, ptr %77, align 4
-  %85 = and i32 %84, 1
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !33
+  %82 = load volatile i32, ptr %75, align 4
+  %83 = and i32 %82, 1
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.preheader, %80
-  %87 = phi i32 [ %81, %80 ], [ %84, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %78
+  %85 = phi i32 [ %79, %78 ], [ %82, %.preheader ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
-  %88 = load volatile i64, ptr %6, align 8
-  %89 = and i64 %88, 4
-  %90 = icmp eq i64 %89, 0
-  %91 = select i1 %90, ptr @zero_stateid, ptr %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false)
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load i32, ptr %92, align 4
-  store i32 %93, ptr %79, align 4
+  %86 = load volatile i64, ptr %6, align 8
+  %87 = and i64 %86, 4
+  %88 = icmp eq i64 %87, 0
+  %89 = select i1 %88, ptr @zero_stateid, ptr %76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %89, i64 16, i1 false)
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load i32, ptr %90, align 4
+  store i32 %91, ptr %77, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !35
-  %94 = load volatile i32, ptr %77, align 4
-  %95 = icmp eq i32 %94, %87
-  br i1 %95, label %96, label %80, !llvm.loop !36
+  %92 = load volatile i32, ptr %75, align 4
+  %93 = icmp eq i32 %92, %85
+  br i1 %93, label %94, label %78, !llvm.loop !36
 
-96:                                               ; preds = %.loopexit
-  %97 = select i1 %90, i32 -11, i32 0
-  br label %98
+94:                                               ; preds = %.loopexit
+  %95 = select i1 %88, i32 -11, i32 0
+  br label %96
 
-98:                                               ; preds = %70, %.thread9, %96, %.thread
-  %99 = phi i32 [ -5, %.thread ], [ %.mux, %70 ], [ %97, %96 ], [ 0, %.thread9 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
+.critedge:                                        ; preds = %53
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %26) #17
+  tail call void @nfs4_put_lock_state(ptr noundef nonnull %41)
+  br label %96
+
+96:                                               ; preds = %.critedge, %.thread, %.thread9, %94
+  %97 = phi i32 [ %.mux, %.thread ], [ %95, %94 ], [ 0, %.thread9 ], [ -5, %.critedge ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 872
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 872
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 92
-  %107 = load i32, ptr %106, align 4
-  %108 = and i32 %107, 65536
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %111, label %110
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 92
+  %105 = load i32, ptr %104, align 4
+  %106 = and i32 %105, 65536
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %109, label %108
 
-110:                                              ; preds = %98
+108:                                              ; preds = %96
   store i32 0, ptr %3, align 4
-  br label %111
+  br label %109
 
-111:                                              ; preds = %110, %98, %5
-  %112 = phi i32 [ -5, %5 ], [ %99, %110 ], [ %99, %98 ]
-  ret i32 %112
+109:                                              ; preds = %108, %96, %5
+  %110 = phi i32 [ -5, %5 ], [ %97, %108 ], [ %97, %96 ]
+  ret i32 %110
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -339,7 +339,7 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = tail call i32 @avio_feof(ptr noundef %9) #5
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %.thread
+  br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %8, align 8, !tbaa !12
@@ -377,22 +377,22 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %31 = load i32, ptr %30, align 4, !tbaa !41
   %32 = tail call i32 @av_new_packet(ptr noundef %1, i32 noundef %31) #5
   %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %.preheader49, label %.thread
+  br i1 %33, label %.preheader48, label %.critedge
 
-.preheader49:                                     ; preds = %29
+.preheader48:                                     ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %26, align 4, !tbaa !39
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.preheader49, %._crit_edge
-  %37 = phi i32 [ %57, %._crit_edge ], [ %35, %.preheader49 ]
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %._crit_edge ], [ 0, %.preheader49 ]
+.preheader:                                       ; preds = %.preheader48, %._crit_edge
+  %37 = phi i32 [ %57, %._crit_edge ], [ %35, %.preheader48 ]
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge ], [ 0, %.preheader48 ]
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %39 = shl nuw nsw i64 %indvars.iv54, 1
+  %39 = shl nuw nsw i64 %indvars.iv53, 1
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -420,8 +420,8 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %57 = phi i32 [ %37, %.preheader ], [ %54, %40 ]
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next55, 4
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !54
 
 58:                                               ; preds = %25, %21
@@ -429,8 +429,8 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   %60 = tail call i32 @av_get_packet(ptr noundef %59, ptr noundef %1, i32 noundef 1024) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader49, %58, %16
-  %.044 = phi i32 [ %20, %16 ], [ %60, %58 ], [ 0, %.preheader49 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.preheader48, %58, %16
+  %.044 = phi i32 [ %20, %16 ], [ %60, %58 ], [ 0, %.preheader48 ], [ 0, %._crit_edge ]
   %61 = load i32, ptr %14, align 4, !tbaa !38
   %62 = icmp eq i32 %61, 86096
   br i1 %62, label %63, label %75
@@ -457,9 +457,9 @@ define internal i32 @rsd_read_packet(ptr noundef readonly captures(none) %0, ptr
   store i64 %13, ptr %76, align 8, !tbaa !58
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 0, ptr %77, align 4, !tbaa !59
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %29, %2, %75
+.critedge:                                        ; preds = %29, %2, %75
   %.043 = phi i32 [ %.044, %75 ], [ -541478725, %2 ], [ %32, %29 ]
   ret i32 %.043
 }

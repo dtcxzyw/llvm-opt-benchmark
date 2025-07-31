@@ -267,14 +267,14 @@ define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr no
   %17 = load i8, ptr %16, align 1, !tbaa !48
   %18 = and i8 %17, 1
   %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %findvararg.exit, label %19
+  br i1 %.not.i, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !24
   %22 = sub nsw i32 0, %21
   %.not11.not.i = icmp slt i32 %2, %22
-  br i1 %.not11.not.i, label %findvararg.exit, label %23
+  br i1 %.not11.not.i, label %.critedge, label %23
 
 23:                                               ; preds = %19
   %24 = sext i32 %21 to i64
@@ -283,7 +283,7 @@ define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr no
   %narrow.i = xor i32 %2, -1
   %27 = zext nneg i32 %narrow.i to i64
   %28 = getelementptr inbounds nuw %union.StackValue, ptr %26, i64 %27
-  br label %findvararg.exit.sink.split
+  br label %.critedge.sink.split
 
 29:                                               ; preds = %10
   %30 = getelementptr i8, ptr %1, i64 32
@@ -298,7 +298,7 @@ define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr no
   %37 = add nsw i32 %36, -1
   %38 = tail call ptr @luaF_getlocalname(ptr noundef %14, i32 noundef %2, i32 noundef %37) #13
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread, label %60
+  br i1 %39, label %.thread, label %61
 
 .thread:                                          ; preds = %4, %29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -326,34 +326,34 @@ define hidden ptr @luaG_findlocal(ptr noundef readonly captures(none) %0, ptr no
   %55 = icmp sge i64 %53, %54
   %56 = icmp sgt i32 %2, 0
   %or.cond = and i1 %56, %55
-  br i1 %or.cond, label %.thread36, label %findvararg.exit
+  br i1 %or.cond, label %57, label %.critedge
 
-.thread36:                                        ; preds = %48
-  %57 = load i32, ptr %7, align 4, !tbaa !40
-  %58 = and i32 %57, 32768
-  %.not32 = icmp eq i32 %58, 0
-  %59 = select i1 %.not32, ptr @.str, ptr @.str.1
-  br label %60
+57:                                               ; preds = %48
+  %58 = load i32, ptr %7, align 4, !tbaa !40
+  %59 = and i32 %58, 32768
+  %.not32 = icmp eq i32 %59, 0
+  %60 = select i1 %.not32, ptr @.str, ptr @.str.1
+  br label %61
 
-60:                                               ; preds = %.thread36, %29
-  %.128 = phi ptr [ %38, %29 ], [ %59, %.thread36 ]
+61:                                               ; preds = %57, %29
+  %.128 = phi ptr [ %60, %57 ], [ %38, %29 ]
   %.not33 = icmp eq ptr %3, null
-  br i1 %.not33, label %findvararg.exit, label %61
+  br i1 %.not33, label %.critedge, label %62
 
-61:                                               ; preds = %60
-  %62 = zext nneg i32 %2 to i64
-  %63 = getelementptr %union.StackValue, ptr %6, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 -16
-  br label %findvararg.exit.sink.split
+62:                                               ; preds = %61
+  %63 = zext nneg i32 %2 to i64
+  %64 = getelementptr %union.StackValue, ptr %6, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -16
+  br label %.critedge.sink.split
 
-findvararg.exit.sink.split:                       ; preds = %61, %23
-  %.sink = phi ptr [ %28, %23 ], [ %64, %61 ]
-  %.0.ph = phi ptr [ @.str.9, %23 ], [ %.128, %61 ]
+.critedge.sink.split:                             ; preds = %62, %23
+  %.sink = phi ptr [ %28, %23 ], [ %65, %62 ]
+  %.0.ph = phi ptr [ @.str.9, %23 ], [ %.128, %62 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !51
-  br label %findvararg.exit
+  br label %.critedge
 
-findvararg.exit:                                  ; preds = %findvararg.exit.sink.split, %48, %19, %15, %60
-  %.0 = phi ptr [ %.128, %60 ], [ null, %15 ], [ null, %19 ], [ null, %48 ], [ %.0.ph, %findvararg.exit.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %19, %15, %48, %61
+  %.0 = phi ptr [ %.128, %61 ], [ null, %48 ], [ null, %15 ], [ null, %19 ], [ %.0.ph, %.critedge.sink.split ]
   ret ptr %.0
 }
 
@@ -434,7 +434,7 @@ define dso_local ptr @lua_getlocal(ptr noundef captures(none) %0, ptr noundef re
   %52 = add nsw i32 %51, -1
   %53 = tail call ptr @luaF_getlocalname(ptr noundef %29, i32 noundef %2, i32 noundef %52) #13
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread.i, label %75
+  br i1 %54, label %.thread.i, label %76
 
 .thread.i:                                        ; preds = %44, %17
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -462,40 +462,40 @@ define dso_local ptr @lua_getlocal(ptr noundef captures(none) %0, ptr noundef re
   %70 = icmp sge i64 %68, %69
   %71 = icmp sgt i32 %2, 0
   %or.cond.i = and i1 %71, %70
-  br i1 %or.cond.i, label %.thread36.i, label %luaG_findlocal.exit.thread
+  br i1 %or.cond.i, label %72, label %luaG_findlocal.exit.thread
 
-.thread36.i:                                      ; preds = %63
-  %72 = load i32, ptr %22, align 4, !tbaa !40
-  %73 = and i32 %72, 32768
-  %.not32.i = icmp eq i32 %73, 0
-  %74 = select i1 %.not32.i, ptr @.str, ptr @.str.1
-  br label %75
+72:                                               ; preds = %63
+  %73 = load i32, ptr %22, align 4, !tbaa !40
+  %74 = and i32 %73, 32768
+  %.not32.i = icmp eq i32 %74, 0
+  %75 = select i1 %.not32.i, ptr @.str, ptr @.str.1
+  br label %76
 
-75:                                               ; preds = %.thread36.i, %44
-  %.128.i = phi ptr [ %53, %44 ], [ %74, %.thread36.i ]
-  %76 = zext nneg i32 %2 to i64
-  %77 = getelementptr %union.StackValue, ptr %21, i64 %76
-  %78 = getelementptr i8, ptr %77, i64 -16
+76:                                               ; preds = %72, %44
+  %.128.i = phi ptr [ %75, %72 ], [ %53, %44 ]
+  %77 = zext nneg i32 %2 to i64
+  %78 = getelementptr %union.StackValue, ptr %21, i64 %77
+  %79 = getelementptr i8, ptr %78, i64 -16
   br label %luaG_findlocal.exit
 
-luaG_findlocal.exit:                              ; preds = %75, %38
-  %.015 = phi ptr [ %43, %38 ], [ %78, %75 ]
-  %.0.i = phi ptr [ @.str.9, %38 ], [ %.128.i, %75 ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !24
-  %81 = load i64, ptr %.015, align 8, !tbaa !24
-  store i64 %81, ptr %80, align 8, !tbaa !24
-  %82 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %83 = load i8, ptr %82, align 8, !tbaa !53
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i8 %83, ptr %84, align 8, !tbaa !53
-  %85 = load ptr, ptr %79, align 8, !tbaa !24
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store ptr %86, ptr %79, align 8, !tbaa !24
+luaG_findlocal.exit:                              ; preds = %76, %38
+  %.015 = phi ptr [ %43, %38 ], [ %79, %76 ]
+  %.0.i = phi ptr [ @.str.9, %38 ], [ %.128.i, %76 ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !24
+  %82 = load i64, ptr %.015, align 8, !tbaa !24
+  store i64 %82, ptr %81, align 8, !tbaa !24
+  %83 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %84 = load i8, ptr %83, align 8, !tbaa !53
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i8 %84, ptr %85, align 8, !tbaa !53
+  %86 = load ptr, ptr %80, align 8, !tbaa !24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  store ptr %87, ptr %80, align 8, !tbaa !24
   br label %luaG_findlocal.exit.thread
 
-luaG_findlocal.exit.thread:                       ; preds = %63, %34, %30, %luaG_findlocal.exit, %5, %11
-  %.0 = phi ptr [ %16, %11 ], [ null, %5 ], [ %.0.i, %luaG_findlocal.exit ], [ null, %30 ], [ null, %34 ], [ null, %63 ]
+luaG_findlocal.exit.thread:                       ; preds = %34, %30, %63, %luaG_findlocal.exit, %5, %11
+  %.0 = phi ptr [ %16, %11 ], [ null, %5 ], [ %.0.i, %luaG_findlocal.exit ], [ null, %63 ], [ null, %30 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -554,7 +554,7 @@ define dso_local ptr @lua_setlocal(ptr noundef captures(none) %0, ptr noundef re
   %38 = add nsw i32 %37, -1
   %39 = tail call ptr @luaF_getlocalname(ptr noundef %15, i32 noundef %2, i32 noundef %38) #13
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread.i, label %61
+  br i1 %40, label %.thread.i, label %62
 
 .thread.i:                                        ; preds = %30, %3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -582,41 +582,41 @@ define dso_local ptr @lua_setlocal(ptr noundef captures(none) %0, ptr noundef re
   %56 = icmp sge i64 %54, %55
   %57 = icmp sgt i32 %2, 0
   %or.cond.i = and i1 %57, %56
-  br i1 %or.cond.i, label %.thread36.i, label %luaG_findlocal.exit.thread
+  br i1 %or.cond.i, label %58, label %luaG_findlocal.exit.thread
 
-.thread36.i:                                      ; preds = %49
-  %58 = load i32, ptr %8, align 4, !tbaa !40
-  %59 = and i32 %58, 32768
-  %.not32.i = icmp eq i32 %59, 0
-  %60 = select i1 %.not32.i, ptr @.str, ptr @.str.1
-  br label %61
+58:                                               ; preds = %49
+  %59 = load i32, ptr %8, align 4, !tbaa !40
+  %60 = and i32 %59, 32768
+  %.not32.i = icmp eq i32 %60, 0
+  %61 = select i1 %.not32.i, ptr @.str, ptr @.str.1
+  br label %62
 
-61:                                               ; preds = %.thread36.i, %30
-  %.128.i = phi ptr [ %39, %30 ], [ %60, %.thread36.i ]
-  %62 = zext nneg i32 %2 to i64
-  %63 = getelementptr %union.StackValue, ptr %7, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 -16
+62:                                               ; preds = %58, %30
+  %.128.i = phi ptr [ %61, %58 ], [ %39, %30 ]
+  %63 = zext nneg i32 %2 to i64
+  %64 = getelementptr %union.StackValue, ptr %7, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -16
   br label %luaG_findlocal.exit
 
-luaG_findlocal.exit:                              ; preds = %61, %24
-  %.0 = phi ptr [ %29, %24 ], [ %64, %61 ]
-  %.0.i = phi ptr [ @.str.9, %24 ], [ %.128.i, %61 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = getelementptr inbounds i8, ptr %66, i64 -16
-  %68 = load i64, ptr %67, align 8, !tbaa !24
-  store i64 %68, ptr %.0, align 8, !tbaa !24
-  %69 = getelementptr inbounds i8, ptr %66, i64 -8
-  %70 = load i8, ptr %69, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i8 %70, ptr %71, align 8, !tbaa !53
-  %72 = load ptr, ptr %65, align 8, !tbaa !24
-  %73 = getelementptr inbounds i8, ptr %72, i64 -16
-  store ptr %73, ptr %65, align 8, !tbaa !24
+luaG_findlocal.exit:                              ; preds = %62, %24
+  %.0 = phi ptr [ %29, %24 ], [ %65, %62 ]
+  %.0.i = phi ptr [ @.str.9, %24 ], [ %.128.i, %62 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = getelementptr inbounds i8, ptr %67, i64 -16
+  %69 = load i64, ptr %68, align 8, !tbaa !24
+  store i64 %69, ptr %.0, align 8, !tbaa !24
+  %70 = getelementptr inbounds i8, ptr %67, i64 -8
+  %71 = load i8, ptr %70, align 8, !tbaa !53
+  %72 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i8 %71, ptr %72, align 8, !tbaa !53
+  %73 = load ptr, ptr %66, align 8, !tbaa !24
+  %74 = getelementptr inbounds i8, ptr %73, i64 -16
+  store ptr %74, ptr %66, align 8, !tbaa !24
   br label %luaG_findlocal.exit.thread
 
-luaG_findlocal.exit.thread:                       ; preds = %49, %20, %16, %luaG_findlocal.exit
-  %.0.i13 = phi ptr [ %.0.i, %luaG_findlocal.exit ], [ null, %16 ], [ null, %20 ], [ null, %49 ]
+luaG_findlocal.exit.thread:                       ; preds = %20, %16, %49, %luaG_findlocal.exit
+  %.0.i13 = phi ptr [ %.0.i, %luaG_findlocal.exit ], [ null, %49 ], [ null, %16 ], [ null, %20 ]
   ret ptr %.0.i13
 }
 

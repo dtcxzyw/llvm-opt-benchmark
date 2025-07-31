@@ -30622,7 +30622,7 @@ define linkonce_odr void @_ZN17ExampleAppConsole4DrawEPKcPb(ptr noundef nonnull 
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
   %11 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %1, ptr noundef %2, i32 noundef 0)
-  br i1 %11, label %12, label %136
+  br i1 %11, label %12, label %137
 
 12:                                               ; preds = %3
   %13 = call noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef null, i32 noundef 1)
@@ -30748,7 +30748,7 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %35, %._crit_edge.i,
   store float %61, ptr %62, align 4, !tbaa !44
   %63 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.2019, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 256, i32 noundef 2048)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
-  br i1 %63, label %64, label %122
+  br i1 %63, label %64, label %123
 
 64:                                               ; preds = %53
   %65 = call noundef zeroext i1 @_ZN5ImGui23BeginPopupContextWindowEPKci(ptr noundef null, i32 noundef 1)
@@ -30761,49 +30761,49 @@ _ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %35, %._crit_edge.i,
   store float 0.000000e+00, ptr %67, align 4, !tbaa !44
   %68 = call noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.2016, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  br i1 %68, label %69, label %_ZN17ExampleAppConsole8ClearLogEv.exit37
+  br i1 %68, label %69, label %_ZN17ExampleAppConsole8ClearLogEv.exit36
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %71 = load i32, ptr %70, align 8, !tbaa !520
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.i34, label %._crit_edge.i32
+  br i1 %72, label %.lr.ph.i33, label %._crit_edge.i31
 
-.lr.ph.i34:                                       ; preds = %69
+.lr.ph.i33:                                       ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %78
 
-._crit_edge.i32:                                  ; preds = %78, %69
+._crit_edge.i31:                                  ; preds = %78, %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %75 = load ptr, ptr %74, align 8, !tbaa !525
-  %.not.i.i33 = icmp eq ptr %75, null
-  br i1 %.not.i.i33, label %_ZN17ExampleAppConsole8ClearLogEv.exit37, label %76
+  %.not.i.i32 = icmp eq ptr %75, null
+  br i1 %.not.i.i32, label %_ZN17ExampleAppConsole8ClearLogEv.exit36, label %76
 
-76:                                               ; preds = %._crit_edge.i32
+76:                                               ; preds = %._crit_edge.i31
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 0, ptr %77, align 4, !tbaa !526
   store i32 0, ptr %70, align 8, !tbaa !527
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %75)
   store ptr null, ptr %74, align 8, !tbaa !525
-  br label %_ZN17ExampleAppConsole8ClearLogEv.exit37
+  br label %_ZN17ExampleAppConsole8ClearLogEv.exit36
 
-78:                                               ; preds = %78, %.lr.ph.i34
-  %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i36, %78 ]
+78:                                               ; preds = %78, %.lr.ph.i33
+  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %78 ]
   %79 = load ptr, ptr %73, align 8, !tbaa !525
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i35
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i34
   %81 = load ptr, ptr %80, align 8, !tbaa !96
   call void @_ZN5ImGui7MemFreeEPv(ptr noundef %81)
-  %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
+  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %82 = load i32, ptr %70, align 8, !tbaa !520
   %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next.i36, %83
-  br i1 %84, label %78, label %._crit_edge.i32, !llvm.loop !528
+  %84 = icmp slt i64 %indvars.iv.next.i35, %83
+  br i1 %84, label %78, label %._crit_edge.i31, !llvm.loop !528
 
-_ZN17ExampleAppConsole8ClearLogEv.exit37:         ; preds = %76, %._crit_edge.i32, %66
+_ZN17ExampleAppConsole8ClearLogEv.exit36:         ; preds = %76, %._crit_edge.i31, %66
   call void @_ZN5ImGui8EndPopupEv()
   br label %85
 
-85:                                               ; preds = %_ZN17ExampleAppConsole8ClearLogEv.exit37, %64
+85:                                               ; preds = %_ZN17ExampleAppConsole8ClearLogEv.exit36, %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
   store float 4.000000e+00, ptr %8, align 4, !tbaa !42
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -30824,141 +30824,141 @@ _ZN17ExampleAppConsole8ClearLogEv.exit37:         ; preds = %76, %._crit_edge.i3
   %93 = sext i32 %92 to i64
   %.idx = shl nsw i64 %93, 3
   %94 = getelementptr inbounds i8, ptr %91, i64 %.idx
-  %.not42 = icmp eq i32 %92, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i32 %92, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
-  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
   br label %95
 
-._crit_edge:                                      ; preds = %105, %88
-  br i1 %44, label %107, label %108
+._crit_edge:                                      ; preds = %106, %88
+  br i1 %44, label %108, label %109
 
-95:                                               ; preds = %.lr.ph, %105
-  %.043 = phi ptr [ %91, %.lr.ph ], [ %106, %105 ]
-  %96 = load ptr, ptr %.043, align 8, !tbaa !96
+95:                                               ; preds = %.lr.ph, %106
+  %.042 = phi ptr [ %91, %.lr.ph ], [ %107, %106 ]
+  %96 = load ptr, ptr %.042, align 8, !tbaa !96
   %97 = call noundef zeroext i1 @_ZNK15ImGuiTextFilter10PassFilterEPKcS1_(ptr noundef nonnull align 8 dereferenceable(276) %54, ptr noundef %96, ptr noundef null)
-  br i1 %97, label %98, label %105
+  br i1 %97, label %98, label %106
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %99 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.2020) #35
   %.not27 = icmp eq ptr %99, null
-  br i1 %.not27, label %sub_0, label %.critedge31
+  br i1 %.not27, label %sub_0, label %104
 
 sub_0:                                            ; preds = %98
   %100 = load i8, ptr %96, align 1
-  %.not44 = icmp eq i8 %100, 35
-  br i1 %.not44, label %.tail, label %.critedge
+  %.not43 = icmp eq i8 %100, 35
+  br i1 %.not43, label %.tail, label %.critedge
 
 .tail:                                            ; preds = %sub_0
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 32
-  br i1 %103, label %.critedge31, label %.critedge
+  br i1 %103, label %104, label %.critedge
 
-.critedge31:                                      ; preds = %.tail, %98
-  %storemerge45 = phi float [ 0x3FD99999A0000000, %98 ], [ 0x3FE99999A0000000, %.tail ]
+104:                                              ; preds = %.tail, %98
+  %storemerge44 = phi float [ 0x3FD99999A0000000, %98 ], [ 0x3FE99999A0000000, %.tail ]
   %storemerge = phi float [ 0x3FD99999A0000000, %98 ], [ 0x3FE3333340000000, %.tail ]
   store float 1.000000e+00, ptr %9, align 4, !tbaa !53
-  store float %storemerge45, ptr %.sroa.439.0..sroa_idx, align 4, !tbaa !53
-  store float %storemerge, ptr %.sroa.540.0..sroa_idx, align 4, !tbaa !53
-  store float 1.000000e+00, ptr %.sroa.641.0..sroa_idx, align 4, !tbaa !53
+  store float %storemerge44, ptr %.sroa.438.0..sroa_idx, align 4, !tbaa !53
+  store float %storemerge, ptr %.sroa.539.0..sroa_idx, align 4, !tbaa !53
+  store float 1.000000e+00, ptr %.sroa.640.0..sroa_idx, align 4, !tbaa !53
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %9)
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull %96, ptr noundef null)
   call void @_ZN5ImGui13PopStyleColorEi(i32 noundef 1)
-  br label %104
+  br label %105
 
 .critedge:                                        ; preds = %sub_0, %.tail
   call void @_ZN5ImGui15TextUnformattedEPKcS1_(ptr noundef nonnull %96, ptr noundef null)
-  br label %104
-
-104:                                              ; preds = %.critedge, %.critedge31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
   br label %105
 
-105:                                              ; preds = %95, %104
-  %106 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %.not = icmp eq ptr %106, %94
+105:                                              ; preds = %.critedge, %104
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
+  br label %106
+
+106:                                              ; preds = %95, %105
+  %107 = getelementptr inbounds nuw i8, ptr %.042, i64 8
+  %.not = icmp eq ptr %107, %94
   br i1 %.not, label %._crit_edge, label %95
 
-107:                                              ; preds = %._crit_edge
+108:                                              ; preds = %._crit_edge
   call void @_ZN5ImGui9LogFinishEv()
-  br label %108
+  br label %109
 
-108:                                              ; preds = %107, %._crit_edge
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 593
-  %110 = load i8, ptr %109, align 1, !tbaa !534, !range !11, !noundef !12
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %120, label %112
+109:                                              ; preds = %108, %._crit_edge
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 593
+  %111 = load i8, ptr %110, align 1, !tbaa !534, !range !11, !noundef !12
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %121, label %113
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %114 = load i8, ptr %113, align 8, !tbaa !533, !range !11, !noundef !12
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %121
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %115 = load i8, ptr %114, align 8, !tbaa !533, !range !11, !noundef !12
+  %116 = trunc nuw i8 %115 to i1
+  br i1 %116, label %117, label %122
 
-116:                                              ; preds = %112
-  %117 = call noundef float @_ZN5ImGui10GetScrollYEv()
-  %118 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
-  %119 = fcmp ult float %117, %118
-  br i1 %119, label %121, label %120
+117:                                              ; preds = %113
+  %118 = call noundef float @_ZN5ImGui10GetScrollYEv()
+  %119 = call noundef float @_ZN5ImGui13GetScrollMaxYEv()
+  %120 = fcmp ult float %118, %119
+  br i1 %120, label %122, label %121
 
-120:                                              ; preds = %116, %108
+121:                                              ; preds = %117, %109
   call void @_ZN5ImGui14SetScrollHereYEf(float noundef 1.000000e+00)
-  br label %121
-
-121:                                              ; preds = %120, %116, %112
-  store i8 0, ptr %109, align 1, !tbaa !534
-  call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
   br label %122
 
-122:                                              ; preds = %121, %53
+122:                                              ; preds = %121, %117, %113
+  store i8 0, ptr %110, align 1, !tbaa !534
+  call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
+  br label %123
+
+123:                                              ; preds = %122, %53
   call void @_ZN5ImGui8EndChildEv()
   call void @_ZN5ImGui9SeparatorEv()
-  %123 = call noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.358, ptr noundef nonnull %0, i64 noundef 256, i32 noundef 786624, ptr noundef nonnull @_ZN17ExampleAppConsole20TextEditCallbackStubEP26ImGuiInputTextCallbackData, ptr noundef nonnull %0)
-  br i1 %123, label %124, label %.critedge29
+  %124 = call noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.358, ptr noundef nonnull %0, i64 noundef 256, i32 noundef 786624, ptr noundef nonnull @_ZN17ExampleAppConsole20TextEditCallbackStubEP26ImGuiInputTextCallbackData, ptr noundef nonnull %0)
+  br i1 %124, label %125, label %.critedge29
 
-124:                                              ; preds = %122
-  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #35
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 %125
-  br label %127
+125:                                              ; preds = %123
+  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #35
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %126
+  br label %128
 
-127:                                              ; preds = %129, %124
-  %.0.i = phi ptr [ %126, %124 ], [ %130, %129 ]
-  %128 = icmp ugt ptr %.0.i, %0
-  br i1 %128, label %129, label %_ZN17ExampleAppConsole7StrtrimEPc.exit
+128:                                              ; preds = %130, %125
+  %.0.i = phi ptr [ %127, %125 ], [ %131, %130 ]
+  %129 = icmp ugt ptr %.0.i, %0
+  br i1 %129, label %130, label %_ZN17ExampleAppConsole7StrtrimEPc.exit
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %.0.i, i64 -1
-  %131 = load i8, ptr %130, align 1, !tbaa !140
-  %132 = icmp eq i8 %131, 32
-  br i1 %132, label %127, label %_ZN17ExampleAppConsole7StrtrimEPc.exit, !llvm.loop !537
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds i8, ptr %.0.i, i64 -1
+  %132 = load i8, ptr %131, align 1, !tbaa !140
+  %133 = icmp eq i8 %132, 32
+  br i1 %133, label %128, label %_ZN17ExampleAppConsole7StrtrimEPc.exit, !llvm.loop !537
 
-_ZN17ExampleAppConsole7StrtrimEPc.exit:           ; preds = %127, %129
+_ZN17ExampleAppConsole7StrtrimEPc.exit:           ; preds = %128, %130
   store i8 0, ptr %.0.i, align 1, !tbaa !140
-  %133 = load i8, ptr %0, align 8, !tbaa !140
-  %.not26 = icmp eq i8 %133, 0
-  br i1 %.not26, label %135, label %134
+  %134 = load i8, ptr %0, align 8, !tbaa !140
+  %.not26 = icmp eq i8 %134, 0
+  br i1 %.not26, label %136, label %135
 
-134:                                              ; preds = %_ZN17ExampleAppConsole7StrtrimEPc.exit
+135:                                              ; preds = %_ZN17ExampleAppConsole7StrtrimEPc.exit
   call void @_ZN17ExampleAppConsole11ExecCommandEPKc(ptr noundef nonnull align 8 dereferenceable(594) %0, ptr noundef nonnull %0)
-  br label %135
+  br label %136
 
-135:                                              ; preds = %134, %_ZN17ExampleAppConsole7StrtrimEPc.exit
+136:                                              ; preds = %135, %_ZN17ExampleAppConsole7StrtrimEPc.exit
   store i8 0, ptr %0, align 8
   call void @_ZN5ImGui19SetItemDefaultFocusEv()
   call void @_ZN5ImGui20SetKeyboardFocusHereEi(i32 noundef -1)
-  br label %136
+  br label %137
 
-.critedge29:                                      ; preds = %122
+.critedge29:                                      ; preds = %123
   call void @_ZN5ImGui19SetItemDefaultFocusEv()
-  br label %136
+  br label %137
 
-136:                                              ; preds = %135, %.critedge29, %3
+137:                                              ; preds = %136, %.critedge29, %3
   call void @_ZN5ImGui3EndEv()
   ret void
 }

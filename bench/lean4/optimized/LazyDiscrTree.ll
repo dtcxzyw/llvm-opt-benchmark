@@ -83064,7 +83064,7 @@ lean_inc.exit55:                                  ; preds = %10, %9, %7
 lean_inc.exit55.thread:                           ; preds = %2
   %13 = tail call zeroext i8 @l_Lean_Meta_allowCompletion(ptr noundef %0, ptr noundef %1) #6
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %lean_dec.exit52, label %.thread91
+  br i1 %14, label %.critedge, label %.thread91
 
 15:                                               ; preds = %lean_inc.exit55
   %16 = load i32, ptr %1, align 4, !tbaa !8
@@ -83074,15 +83074,15 @@ lean_inc.exit55.thread:                           ; preds = %2
 18:                                               ; preds = %15
   %19 = add nsw i32 %16, -1
   store i32 %19, ptr %1, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 20:                                               ; preds = %15
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit52, label %21
+  br i1 %.not.i, label %.critedge, label %21
 
 21:                                               ; preds = %20
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
 22:                                               ; preds = %lean_inc.exit55
   %23 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_blacklistInsertion___closed__3, align 8, !tbaa !4
@@ -83095,7 +83095,7 @@ lean_inc.exit55.thread:                           ; preds = %2
   %26 = load ptr, ptr @l_Lean_Meta_LazyDiscrTree_blacklistInsertion___closed__3, align 8, !tbaa !4
   %27 = tail call zeroext i8 @lean_name_eq(ptr noundef %1, ptr noundef %26) #6
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %lean_inc.exit54.thread, label %lean_dec.exit52
+  br i1 %28, label %lean_inc.exit54.thread, label %.critedge
 
 29:                                               ; preds = %22
   %30 = icmp sgt i32 %.val.i73, 0
@@ -83122,7 +83122,7 @@ lean_inc.exit54:                                  ; preds = %34, %33, %31
 lean_inc.exit54.thread:                           ; preds = %.thread91
   %37 = tail call zeroext i8 @l_Lean_Name_isInternalDetail(ptr noundef %1) #6
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %.thread, label %lean_dec.exit52
+  br i1 %38, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %lean_inc.exit54.thread
   %39 = lshr i64 %3, 1
@@ -83210,7 +83210,7 @@ lean_dec.exit51:                                  ; preds = %72, %71, %69, %lean
   br i1 %65, label %lean_dec.exit47, label %73
 
 73:                                               ; preds = %lean_dec.exit51
-  br i1 %.not, label %74, label %lean_dec.exit52
+  br i1 %.not, label %74, label %.critedge
 
 74:                                               ; preds = %73
   %75 = load i32, ptr %1, align 4, !tbaa !8
@@ -83220,15 +83220,15 @@ lean_dec.exit51:                                  ; preds = %72, %71, %69, %lean
 77:                                               ; preds = %74
   %78 = add nsw i32 %75, -1
   store i32 %78, ptr %1, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 79:                                               ; preds = %74
   %.not.i58 = icmp eq i32 %75, 0
-  br i1 %.not.i58, label %lean_dec.exit52, label %80
+  br i1 %.not.i58, label %.critedge, label %80
 
 80:                                               ; preds = %79
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
 81:                                               ; preds = %lean_inc.exit54
   %82 = load i32, ptr %1, align 4, !tbaa !8
@@ -83238,15 +83238,15 @@ lean_dec.exit51:                                  ; preds = %72, %71, %69, %lean
 84:                                               ; preds = %81
   %85 = add nsw i32 %82, -1
   store i32 %85, ptr %1, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 86:                                               ; preds = %81
   %.not.i60 = icmp eq i32 %82, 0
-  br i1 %.not.i60, label %lean_dec.exit52, label %87
+  br i1 %.not.i60, label %.critedge, label %87
 
 87:                                               ; preds = %86
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
 88:                                               ; preds = %22
   %89 = icmp sgt i32 %.val.i73, 1
@@ -83255,15 +83255,15 @@ lean_dec.exit51:                                  ; preds = %72, %71, %69, %lean
 90:                                               ; preds = %88
   %91 = add nsw i32 %.val.i73, -1
   store i32 %91, ptr %1, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 92:                                               ; preds = %88
   %.not.i62 = icmp eq i32 %.val.i73, 0
-  br i1 %.not.i62, label %lean_dec.exit52, label %93
+  br i1 %.not.i62, label %.critedge, label %93
 
 93:                                               ; preds = %92
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
 lean_dec.exit47:                                  ; preds = %lean_obj_tag.exit, %lean_dec.exit51
   br i1 %.not, label %lean_obj_tag.exit84, label %lean_obj_tag.exit84.thread
@@ -83278,7 +83278,7 @@ lean_obj_tag.exit84:                              ; preds = %lean_dec.exit47
 lean_obj_tag.exit84.thread:                       ; preds = %lean_dec.exit47
   %96 = and i64 %3, 8589934590
   %97 = icmp eq i64 %96, 2
-  br i1 %97, label %98, label %lean_dec.exit52
+  br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %lean_obj_tag.exit84.thread, %lean_obj_tag.exit84
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -83347,7 +83347,7 @@ lean_dec.exit46:                                  ; preds = %115, %114, %112, %l
 
 lean_string_dec_eq.exit90:                        ; preds = %lean_dec.exit46, %118, %122
   %125 = phi i8 [ 1, %lean_dec.exit46 ], [ 0, %118 ], [ %124, %122 ]
-  br i1 %.not96, label %126, label %lean_dec.exit52
+  br i1 %.not96, label %126, label %.critedge
 
 126:                                              ; preds = %lean_string_dec_eq.exit90
   %127 = load i32, ptr %100, align 4, !tbaa !8
@@ -83357,15 +83357,15 @@ lean_string_dec_eq.exit90:                        ; preds = %lean_dec.exit46, %1
 129:                                              ; preds = %126
   %130 = add nsw i32 %127, -1
   store i32 %130, ptr %100, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 131:                                              ; preds = %126
   %.not.i68 = icmp eq i32 %127, 0
-  br i1 %.not.i68, label %lean_dec.exit52, label %132
+  br i1 %.not.i68, label %.critedge, label %132
 
 132:                                              ; preds = %131
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %100) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
 133:                                              ; preds = %lean_obj_tag.exit84
   %134 = load i32, ptr %1, align 4, !tbaa !8
@@ -83375,18 +83375,18 @@ lean_string_dec_eq.exit90:                        ; preds = %lean_dec.exit46, %1
 136:                                              ; preds = %133
   %137 = add nsw i32 %134, -1
   store i32 %137, ptr %1, align 4, !tbaa !8
-  br label %lean_dec.exit52
+  br label %.critedge
 
 138:                                              ; preds = %133
   %.not.i70 = icmp eq i32 %134, 0
-  br i1 %.not.i70, label %lean_dec.exit52, label %139
+  br i1 %.not.i70, label %.critedge, label %139
 
 139:                                              ; preds = %138
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
-  br label %lean_dec.exit52
+  br label %.critedge
 
-lean_dec.exit52:                                  ; preds = %lean_obj_tag.exit84.thread, %lean_inc.exit54.thread, %.thread91, %90, %92, %93, %84, %86, %87, %73, %77, %79, %80, %lean_inc.exit55.thread, %136, %138, %139, %lean_string_dec_eq.exit90, %129, %131, %132, %18, %20, %21
-  %.0 = phi i8 [ 1, %21 ], [ 1, %20 ], [ 1, %18 ], [ %125, %132 ], [ %125, %131 ], [ %125, %129 ], [ %125, %lean_string_dec_eq.exit90 ], [ 0, %139 ], [ 0, %138 ], [ 0, %136 ], [ 1, %lean_inc.exit55.thread ], [ 1, %80 ], [ 1, %79 ], [ 1, %77 ], [ 1, %73 ], [ 1, %87 ], [ 1, %86 ], [ 1, %84 ], [ 1, %93 ], [ 1, %92 ], [ 1, %90 ], [ 1, %.thread91 ], [ 1, %lean_inc.exit54.thread ], [ 0, %lean_obj_tag.exit84.thread ]
+.critedge:                                        ; preds = %lean_obj_tag.exit84.thread, %lean_inc.exit54.thread, %73, %77, %79, %80, %.thread91, %lean_inc.exit55.thread, %136, %138, %139, %lean_string_dec_eq.exit90, %129, %131, %132, %90, %92, %93, %84, %86, %87, %18, %20, %21
+  %.0 = phi i8 [ 1, %21 ], [ 1, %20 ], [ 1, %18 ], [ 1, %87 ], [ 1, %86 ], [ 1, %84 ], [ 1, %93 ], [ 1, %92 ], [ 1, %90 ], [ %125, %132 ], [ %125, %131 ], [ %125, %129 ], [ %125, %lean_string_dec_eq.exit90 ], [ 0, %139 ], [ 0, %138 ], [ 0, %136 ], [ 1, %lean_inc.exit55.thread ], [ 1, %.thread91 ], [ 1, %80 ], [ 1, %79 ], [ 1, %77 ], [ 1, %73 ], [ 1, %lean_inc.exit54.thread ], [ 0, %lean_obj_tag.exit84.thread ]
   ret i8 %.0
 }
 

@@ -12567,7 +12567,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   %12 = and i64 %.0.copyload.i.i.i.i.i, -8
   %13 = tail call noundef ptr @_ZN4llvm9LiveRange4findENS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 %12) #20
   %14 = icmp eq ptr %13, %10
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %4
   %.sroa.0116.0.copyload = load i64, ptr %11, align 8, !tbaa !96
@@ -12581,7 +12581,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !498
   %24 = icmp ult i32 %19, %23
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %15
   %26 = icmp ult i32 %23, %19
@@ -12592,15 +12592,15 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   %.sroa.090.0.copyload = load i64, ptr %28, align 8, !tbaa !96
   %29 = xor i64 %.sroa.090.0.copyload, %.sroa.0116.0.copyload
   %30 = icmp ult i64 %29, 8
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %27
   %32 = or disjoint i64 %20, 6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = and i64 %.sroa.090.0.copyload, 6
   %35 = icmp eq i64 %34, 2
-  %.0.copyload.i.i.i.i.i171 = load i64, ptr %33, align 8
-  %36 = and i64 %.0.copyload.i.i.i.i.i171, -8
+  %.0.copyload.i.i.i.i.i173 = load i64, ptr %33, align 8
+  %36 = and i64 %.0.copyload.i.i.i.i.i173, -8
   %37 = select i1 %35, i64 2, i64 4
   %38 = or disjoint i64 %36, %37
   %39 = or i32 %23, 3
@@ -12616,14 +12616,14 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   store i64 %47, ptr %28, align 8, !tbaa !96
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %49 = icmp eq ptr %48, %10
-  br i1 %49, label %.thread, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %31
   %.sroa.084.0.copyload = load i64, ptr %11, align 8, !tbaa !96
   %.sroa.083.0.copyload = load i64, ptr %48, align 8, !tbaa !96
   %51 = xor i64 %.sroa.083.0.copyload, %.sroa.084.0.copyload
   %52 = icmp ult i64 %51, 8
-  br i1 %52, label %56, label %.thread
+  br i1 %52, label %56, label %.critedge
 
 53:                                               ; preds = %25
   %54 = load ptr, ptr %1, align 8, !tbaa !62
@@ -12633,20 +12633,20 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   br label %56
 
 56:                                               ; preds = %53, %50
-  %.0.copyload.i.i.i.i.i173 = phi i64 [ %.sroa.083.0.copyload, %50 ], [ %.sroa.0115.0.copyload, %53 ]
+  %.0.copyload.i.i.i.i.i175 = phi i64 [ %.sroa.083.0.copyload, %50 ], [ %.sroa.0115.0.copyload, %53 ]
   %.1158 = phi ptr [ %48, %50 ], [ %13, %53 ]
   %.0 = phi ptr [ %13, %50 ], [ %spec.select, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %.1158, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !542
   %59 = getelementptr inbounds nuw i8, ptr %.1158, i64 8
-  %.0.copyload.i.i.i.i.i172 = load i64, ptr %59, align 8
-  %60 = and i64 %.0.copyload.i.i.i.i.i172, 6
+  %.0.copyload.i.i.i.i.i174 = load i64, ptr %59, align 8
+  %60 = and i64 %.0.copyload.i.i.i.i.i174, 6
   %61 = icmp eq i64 %60, 6
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = and i64 %.0.copyload.i.i.i.i.i173, 6
+  %63 = and i64 %.0.copyload.i.i.i.i.i175, 6
   %64 = icmp eq i64 %63, 2
-  %.0.copyload.i.i.i.i.i174 = load i64, ptr %62, align 8
-  %65 = and i64 %.0.copyload.i.i.i.i.i174, -8
+  %.0.copyload.i.i.i.i.i176 = load i64, ptr %62, align 8
+  %65 = and i64 %.0.copyload.i.i.i.i.i176, -8
   %66 = select i1 %64, i64 2, i64 4
   %67 = or disjoint i64 %66, %65
   %68 = or disjoint i64 %65, 4
@@ -12667,18 +12667,18 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !542
   tail call void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %76) #20
-  br label %.thread
+  br label %.critedge
 
 77:                                               ; preds = %72
   tail call void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %58) #20
-  br label %.thread
+  br label %.critedge
 
 78:                                               ; preds = %56
   %.not166 = icmp eq ptr %.0, %10
   br i1 %61, label %157, label %79
 
 79:                                               ; preds = %78
-  br i1 %.not166, label %.critedge, label %80
+  br i1 %.not166, label %.critedge170, label %80
 
 80:                                               ; preds = %79
   %.sroa.053.0.copyload = load i64, ptr %.0, align 8, !tbaa !96
@@ -12717,12 +12717,12 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   br i1 %105, label %106, label %121
 
 106:                                              ; preds = %95
-  %.0.copyload.i.i.i.i.i.i.i177 = load i64, ptr %92, align 8
-  %107 = and i64 %.0.copyload.i.i.i.i.i.i.i177, -8
+  %.0.copyload.i.i.i.i.i.i.i179 = load i64, ptr %92, align 8
+  %107 = and i64 %.0.copyload.i.i.i.i.i.i.i179, -8
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load i32, ptr %109, align 8, !tbaa !498
-  %111 = trunc i64 %.0.copyload.i.i.i.i.i.i.i177 to i32
+  %111 = trunc i64 %.0.copyload.i.i.i.i.i.i.i179 to i32
   %112 = lshr i32 %111, 1
   %113 = and i32 %112, 3
   %114 = or i32 %113, %110
@@ -12731,7 +12731,7 @@ define linkonce_odr hidden void @_ZN4llvm13LiveIntervals8HMEditor12handleMoveUpE
   %117 = and i32 %116, 3
   %118 = or i32 %117, %87
   %119 = icmp ult i32 %114, %118
-  %120 = select i1 %119, i64 %.0.copyload.i.i.i.i.i.i.i177, i64 %.sroa.053.0.copyload
+  %120 = select i1 %119, i64 %.0.copyload.i.i.i.i.i.i.i179, i64 %.sroa.053.0.copyload
   br label %121
 
 121:                                              ; preds = %106, %95, %89
@@ -12771,26 +12771,26 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
   %139 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %140 = load ptr, ptr %139, align 8, !tbaa !542
   store i64 %.sroa.027.0.copyload, ptr %69, align 8, !tbaa !96
-  %.sroa.4203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i64 %67, ptr %.sroa.4203.0..sroa_idx, align 8, !tbaa !96
-  %.sroa.5204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store ptr %140, ptr %.sroa.5204.0..sroa_idx, align 8, !tbaa !496
+  %.sroa.4205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i64 %67, ptr %.sroa.4205.0..sroa_idx, align 8, !tbaa !96
+  %.sroa.5206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store ptr %140, ptr %.sroa.5206.0..sroa_idx, align 8, !tbaa !496
   store i64 %67, ptr %92, align 8, !tbaa !96
   store i64 %.sroa.043.0, ptr %93, align 8, !tbaa !96
   store ptr %91, ptr %139, align 8, !tbaa !496
   %141 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %67, ptr %141, align 8, !tbaa !96
-  br label %.thread
+  br label %.critedge
 
 142:                                              ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit
   store i64 %67, ptr %69, align 8, !tbaa !96
-  %.sroa.4197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i64 %.sroa.027.0.copyload, ptr %.sroa.4197.0..sroa_idx, align 8, !tbaa !96
-  %.sroa.5198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store ptr %91, ptr %.sroa.5198.0..sroa_idx, align 8, !tbaa !496
+  %.sroa.4199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i64 %.sroa.027.0.copyload, ptr %.sroa.4199.0..sroa_idx, align 8, !tbaa !96
+  %.sroa.5200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store ptr %91, ptr %.sroa.5200.0..sroa_idx, align 8, !tbaa !496
   %143 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %67, ptr %143, align 8, !tbaa !96
-  br label %.thread
+  br label %.critedge
 
 144:                                              ; preds = %80
   store i64 %67, ptr %.1158, align 8, !tbaa !96
@@ -12808,11 +12808,11 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load i32, ptr %153, align 8, !tbaa !498
   %155 = icmp ult i32 %150, %154
-  br i1 %155, label %156, label %.thread
+  br i1 %155, label %156, label %.critedge
 
 156:                                              ; preds = %144
   store i64 %67, ptr %146, align 8, !tbaa !96
-  br label %.thread
+  br label %.critedge
 
 157:                                              ; preds = %78
   br i1 %.not166, label %235, label %158
@@ -12840,45 +12840,45 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit: ; preds = %1
   br i1 %174, label %175, label %235
 
 175:                                              ; preds = %168
-  %.not.i.i.i.i.i179 = icmp eq ptr %.1158, %69
-  br i1 %.not.i.i.i.i.i179, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182, label %176
+  %.not.i.i.i.i.i181 = icmp eq ptr %.1158, %69
+  br i1 %.not.i.i.i.i.i181, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184, label %176
 
 176:                                              ; preds = %175
   %177 = getelementptr inbounds nuw i8, ptr %.1158, i64 24
   %178 = ptrtoint ptr %.1158 to i64
   %179 = ptrtoint ptr %69 to i64
   %180 = sub i64 %178, %179
-  %.neg.i.i.i.i.i180 = sdiv exact i64 %180, -24
-  %181 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %177, i64 %.neg.i.i.i.i.i180
+  %.neg.i.i.i.i.i182 = sdiv exact i64 %180, -24
+  %181 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %177, i64 %.neg.i.i.i.i.i182
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr nonnull align 8 %69, i64 %180, i1 false)
-  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182
+  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184
 
-_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182: ; preds = %175, %176
+_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184: ; preds = %175, %176
   store i64 %68, ptr %169, align 8, !tbaa !96
   %182 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %183 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %.sroa.010.0.copyload = load i64, ptr %183, align 8, !tbaa !96
   store i64 %68, ptr %182, align 8, !tbaa !96
   store i64 %.sroa.010.0.copyload, ptr %183, align 8, !tbaa !96
-  %.sroa.5192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store ptr %58, ptr %.sroa.5192.0..sroa_idx, align 8, !tbaa !496
+  %.sroa.5194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 40
+  store ptr %58, ptr %.sroa.5194.0..sroa_idx, align 8, !tbaa !496
   %184 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %67, ptr %184, align 8, !tbaa !96
   %185 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %.not167229 = icmp ugt ptr %185, %.1158
   br i1 %.not167229, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182
+._crit_edge:                                      ; preds = %.lr.ph, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184
   %.sroa.04.0.copyload = load i64, ptr %62, align 8, !tbaa !96
   %186 = and i64 %.sroa.04.0.copyload, -8
   %187 = inttoptr i64 %186 to ptr
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !502
   %.not168 = icmp eq ptr %189, null
-  br i1 %.not168, label %.thread, label %192
+  br i1 %.not168, label %.critedge, label %192
 
-.lr.ph:                                           ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182, %.lr.ph
-  %.0159230 = phi ptr [ %191, %.lr.ph ], [ %185, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182 ]
+.lr.ph:                                           ; preds = %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184, %.lr.ph
+  %.0159230 = phi ptr [ %191, %.lr.ph ], [ %185, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit184 ]
   %190 = getelementptr inbounds nuw i8, ptr %.0159230, i64 16
   store ptr %58, ptr %190, align 8, !tbaa !542
   %191 = getelementptr inbounds nuw i8, ptr %.0159230, i64 24
@@ -12901,7 +12901,7 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit182: ; preds =
 
 ._crit_edge235:                                   ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit, %192
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
-  br label %.thread
+  br label %.critedge
 
 198:                                              ; preds = %.lr.ph234, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit
   %199 = phi ptr [ %196, %.lr.ph234 ], [ %233, %_ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit ]
@@ -12981,20 +12981,20 @@ _ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit: ; preds = 
   br i1 %.not228, label %._crit_edge235, label %198, !llvm.loop !732
 
 235:                                              ; preds = %168, %158, %157
-  %.not.i.i.i.i.i185 = icmp eq ptr %.1158, %69
-  br i1 %.not.i.i.i.i.i185, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit188, label %236
+  %.not.i.i.i.i.i187 = icmp eq ptr %.1158, %69
+  br i1 %.not.i.i.i.i.i187, label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit190, label %236
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %.1158, i64 24
   %238 = ptrtoint ptr %.1158 to i64
   %239 = ptrtoint ptr %69 to i64
   %240 = sub i64 %238, %239
-  %.neg.i.i.i.i.i186 = sdiv exact i64 %240, -24
-  %241 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %237, i64 %.neg.i.i.i.i.i186
+  %.neg.i.i.i.i.i188 = sdiv exact i64 %240, -24
+  %241 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %237, i64 %.neg.i.i.i.i.i188
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr nonnull align 8 %69, i64 %240, i1 false)
-  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit188
+  br label %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit190
 
-_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit188: ; preds = %235, %236
+_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit190: ; preds = %235, %236
   %242 = or disjoint i64 %65, 6
   store i64 %67, ptr %69, align 8, !tbaa !96
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -13003,15 +13003,15 @@ _ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit188: ; preds =
   store ptr %58, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !496
   %243 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %67, ptr %243, align 8, !tbaa !96
-  br label %.thread
+  br label %.critedge
 
-.critedge:                                        ; preds = %79
+.critedge170:                                     ; preds = %79
   store i64 %67, ptr %.1158, align 8, !tbaa !96
   %244 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %67, ptr %244, align 8, !tbaa !96
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %31, %27, %77, %73, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit188, %156, %144, %142, %138, %.critedge, %._crit_edge235, %._crit_edge, %50, %4, %15
+.critedge:                                        ; preds = %77, %73, %_ZSt13copy_backwardIPN4llvm9LiveRange7SegmentES3_ET0_T_S5_S4_.exit190, %156, %144, %142, %138, %.critedge170, %._crit_edge235, %._crit_edge, %31, %50, %27, %4, %15
   ret void
 }
 

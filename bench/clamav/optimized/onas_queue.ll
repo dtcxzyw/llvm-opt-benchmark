@@ -164,16 +164,16 @@ define internal fastcc void @onas_scan_queue_exit() unnamed_addr #5 {
 5:                                                ; preds = %3, %0
   %6 = load ptr, ptr @g_onas_event_queue_head, align 8, !tbaa !12
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %onas_destroy_event_queue.exit, label %onas_destroy_event_queue_node.exit.i
+  br i1 %7, label %onas_destroy_event_queue.exit, label %.preheader.i
 
-onas_destroy_event_queue_node.exit.i:             ; preds = %5, %onas_destroy_event_queue_node.exit.i
-  %.06.i = phi ptr [ %.0.i, %onas_destroy_event_queue_node.exit.i ], [ %6, %5 ]
+.preheader.i:                                     ; preds = %5, %.preheader.i
+  %.06.i = phi ptr [ %.0.i, %.preheader.i ], [ %6, %5 ]
   %.0.i = load ptr, ptr %.06.i, align 8, !tbaa !17
   tail call void @free(ptr noundef nonnull %.06.i) #10
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %onas_destroy_event_queue.exit, label %onas_destroy_event_queue_node.exit.i
+  br i1 %.not.i, label %onas_destroy_event_queue.exit, label %.preheader.i
 
-onas_destroy_event_queue.exit:                    ; preds = %onas_destroy_event_queue_node.exit.i, %5
+onas_destroy_event_queue.exit:                    ; preds = %.preheader.i, %5
   %8 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.5) #10
   ret void
 }

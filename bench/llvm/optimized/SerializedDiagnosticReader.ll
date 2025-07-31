@@ -1408,7 +1408,7 @@ define dso_local { i32, ptr } @_ZN5clang16serialized_diags26SerializedDiagnostic
   call void @_ZN4llvm15BitstreamCursor13EnterSubBlockEjPj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 8, ptr noundef null) #18
   %16 = load ptr, ptr %9, align 8, !tbaa !49
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit15, label %17
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit19, label %17
 
 17:                                               ; preds = %2
   store ptr null, ptr %9, align 8, !tbaa !49
@@ -1448,20 +1448,20 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %21, %17
   %.0.i.i2.i.i.i.i = inttoptr i64 %28 to ptr
   %.pr = load ptr, ptr %9, align 8, !tbaa !49
   %29 = icmp eq ptr %.pr, null
-  br i1 %29, label %_ZN4llvm5ErrorD2Ev.exit15.thread, label %30
+  br i1 %29, label %_ZN4llvm5ErrorD2Ev.exit19.thread, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %.pr, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit15.thread
+  br label %_ZN4llvm5ErrorD2Ev.exit19.thread
 
-_ZN4llvm5ErrorD2Ev.exit15.thread:                 ; preds = %27, %30
+_ZN4llvm5ErrorD2Ev.exit19.thread:                 ; preds = %27, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
-  br label %.loopexit53
+  br label %110
 
-_ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %2
+_ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1469,10 +1469,8 @@ _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit
 
-_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit15, %107
-  %.sroa.8.2 = phi ptr [ undef, %_ZN4llvm5ErrorD2Ev.exit15 ], [ %.sroa.8.4, %107 ]
-  %.sroa.042.2 = phi i32 [ 7, %_ZN4llvm5ErrorD2Ev.exit15 ], [ %.sroa.042.4, %107 ]
-  %.010 = phi i1 [ false, %_ZN4llvm5ErrorD2Ev.exit15 ], [ %.212, %107 ]
+_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit19, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit
+  %.010 = phi i1 [ %.212, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit ], [ false, %_ZN4llvm5ErrorD2Ev.exit19 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @_ZN5clang16serialized_diags26SerializedDiagnosticReader22skipUntilRecordOrBlockERN4llvm15BitstreamCursorERj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.81") align 8 %11, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 4 dereferenceable(4) %10)
@@ -1486,8 +1484,8 @@ _ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
   call void @_ZN4llvm15BitstreamCursor9SkipBlockEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(344) %1)
   %40 = load ptr, ptr %12, align 8, !tbaa !49
-  %.not52 = icmp eq ptr %40, null
-  br i1 %.not52, label %_ZN4llvm5ErrorD2Ev.exit24, label %41
+  %.not56 = icmp eq ptr %40, null
+  br i1 %.not56, label %_ZN4llvm5ErrorD2Ev.exit28, label %41
 
 41:                                               ; preds = %39
   store ptr null, ptr %12, align 8, !tbaa !49
@@ -1497,73 +1495,73 @@ _ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE
   store ptr %40, ptr %4, align 8, !tbaa !49
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %42 = load ptr, ptr %3, align 8, !tbaa !49
-  %.not.i.i.i16 = icmp eq ptr %42, null
-  call void @llvm.assume(i1 %.not.i.i.i16)
+  %.not.i.i.i20 = icmp eq ptr %42, null
+  call void @llvm.assume(i1 %.not.i.i.i20)
   %43 = load ptr, ptr %4, align 8, !tbaa !49
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZN4llvm5ErrorD2Ev.exit18, label %45
+  br i1 %44, label %_ZN4llvm5ErrorD2Ev.exit22, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %43, align 8, !tbaa !16
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %43) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit18
+  br label %_ZN4llvm5ErrorD2Ev.exit22
 
-_ZN4llvm5ErrorD2Ev.exit18:                        ; preds = %45, %41
+_ZN4llvm5ErrorD2Ev.exit22:                        ; preds = %45, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
   %49 = load atomic i64, ptr @_ZL13ErrorCategory acquire, align 8
-  %.not.i.i.i.i19 = icmp eq i64 %49, 0
-  br i1 %.not.i.i.i.i19, label %50, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit22
+  %.not.i.i.i.i23 = icmp eq i64 %49, 0
+  br i1 %.not.i.i.i.i23, label %50, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit26
 
-50:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit18
+50:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit22
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL13ErrorCategory, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEPv) #18
-  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit22
+  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit26
 
-_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit22: ; preds = %_ZN4llvm5ErrorD2Ev.exit18, %50
+_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit26: ; preds = %_ZN4llvm5ErrorD2Ev.exit22, %50
   %51 = load atomic i64, ptr @_ZL13ErrorCategory monotonic, align 8
-  %.0.i.i2.i.i.i.i20 = inttoptr i64 %51 to ptr
+  %.0.i.i2.i.i.i.i24 = inttoptr i64 %51 to ptr
   %52 = load ptr, ptr %12, align 8, !tbaa !49
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN4llvm5ErrorD2Ev.exit23, label %54
+  br i1 %53, label %_ZN4llvm5ErrorD2Ev.exit27, label %54
 
-54:                                               ; preds = %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit22
+54:                                               ; preds = %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit26
   %55 = load ptr, ptr %52, align 8, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit23
+  br label %_ZN4llvm5ErrorD2Ev.exit27
 
-_ZN4llvm5ErrorD2Ev.exit23:                        ; preds = %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit22, %54
+_ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit26, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
-  br label %.thread47
+  br label %.critedge16
 
-_ZN4llvm5ErrorD2Ev.exit24:                        ; preds = %39
+_ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit, %_ZN4llvm5ErrorD2Ev.exit24
+.loopexit:                                        ; preds = %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit, %_ZN4llvm5ErrorD2Ev.exit28
   br i1 %.010, label %62, label %58
 
 58:                                               ; preds = %.loopexit
   %59 = load atomic i64, ptr @_ZL13ErrorCategory acquire, align 8
-  %.not.i.i.i.i25 = icmp eq i64 %59, 0
-  br i1 %.not.i.i.i.i25, label %60, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28
+  %.not.i.i.i.i29 = icmp eq i64 %59, 0
+  br i1 %.not.i.i.i.i29, label %60, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32
 
 60:                                               ; preds = %58
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL13ErrorCategory, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEPv) #18
-  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28
+  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32
 
-_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28: ; preds = %58, %60
+_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32: ; preds = %58, %60
   %61 = load atomic i64, ptr @_ZL13ErrorCategory monotonic, align 8
-  %.0.i.i2.i.i.i.i26 = inttoptr i64 %61 to ptr
-  br label %.thread47
+  %.0.i.i2.i.i.i.i30 = inttoptr i64 %61 to ptr
+  br label %.critedge16
 
 62:                                               ; preds = %.loopexit
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #20
-  br label %.thread47
+  br label %.critedge16
 
 64:                                               ; preds = %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #18
@@ -1588,19 +1586,23 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %72 = extractvalue { i32, ptr } %70, 1
   %73 = load ptr, ptr %15, align 8, !tbaa !49
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZN4llvm5ErrorD2Ev.exit29, label %75
+  br i1 %74, label %.critedge18, label %75
 
 75:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   %76 = load ptr, ptr %73, align 8, !tbaa !16
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(8) %73) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit29
+  br label %.critedge18
 
 79:                                               ; preds = %64
   %80 = load i32, ptr %14, align 8, !tbaa !58
   %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %_ZN4llvm5ErrorD2Ev.exit29
+  br i1 %81, label %82, label %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge
+
+._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge:         ; preds = %79
+  %.pre = load ptr, ptr %13, align 8, !tbaa !37
+  br label %_ZN4llvm8ExpectedIjED2Ev.exit
 
 82:                                               ; preds = %79
   %83 = load i32, ptr %35, align 8, !tbaa !38
@@ -1609,86 +1611,101 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 85:                                               ; preds = %82
   %86 = load atomic i64, ptr @_ZL13ErrorCategory acquire, align 8
-  %.not.i.i.i.i30 = icmp eq i64 %86, 0
-  br i1 %.not.i.i.i.i30, label %87, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33
+  %.not.i.i.i.i34 = icmp eq i64 %86, 0
+  br i1 %.not.i.i.i.i34, label %87, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37
 
 87:                                               ; preds = %85
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL13ErrorCategory, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEPv) #18
-  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33
+  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37
 
-_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33: ; preds = %85, %87
+_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37: ; preds = %85, %87
   %88 = load atomic i64, ptr @_ZL13ErrorCategory monotonic, align 8
-  %.0.i.i2.i.i.i.i31 = inttoptr i64 %88 to ptr
-  br label %_ZN4llvm5ErrorD2Ev.exit29
+  %.0.i.i2.i.i.i.i35 = inttoptr i64 %88 to ptr
+  br label %.critedge18
 
 89:                                               ; preds = %82
   %90 = load ptr, ptr %13, align 8, !tbaa !37
   %91 = load i64, ptr %90, align 8, !tbaa !85
   %92 = icmp ugt i64 %91, 2
-  br i1 %92, label %93, label %_ZN4llvm5ErrorD2Ev.exit29
+  br i1 %92, label %93, label %_ZN4llvm8ExpectedIjED2Ev.exit
 
 93:                                               ; preds = %89
   %94 = load atomic i64, ptr @_ZL13ErrorCategory acquire, align 8
-  %.not.i.i.i.i34 = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i34, label %95, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37
+  %.not.i.i.i.i38 = icmp eq i64 %94, 0
+  br i1 %.not.i.i.i.i38, label %95, label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41
 
 95:                                               ; preds = %93
   call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL13ErrorCategory, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_119SDErrorCategoryTypeEE4callEPv) #18
-  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37
+  br label %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41
 
-_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37: ; preds = %93, %95
+_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41: ; preds = %93, %95
   %96 = load atomic i64, ptr @_ZL13ErrorCategory monotonic, align 8
-  %.0.i.i2.i.i.i.i35 = inttoptr i64 %96 to ptr
-  br label %_ZN4llvm5ErrorD2Ev.exit29
+  %.0.i.i2.i.i.i.i39 = inttoptr i64 %96 to ptr
+  br label %.critedge18
 
-_ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %75, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37, %89, %79
-  %.sroa.8.4 = phi ptr [ %.0.i.i2.i.i.i.i31, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33 ], [ %.0.i.i2.i.i.i.i35, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ %.sroa.8.2, %89 ], [ %.sroa.8.2, %79 ], [ %72, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %72, %75 ]
-  %.sroa.042.4 = phi i32 [ 10, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33 ], [ 11, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ %.sroa.042.2, %89 ], [ %.sroa.042.2, %79 ], [ %71, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %71, %75 ]
-  %.212 = phi i1 [ %.010, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33 ], [ %.010, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ true, %89 ], [ %.010, %79 ], [ %.010, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %.010, %75 ]
-  %.3 = phi i1 [ false, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit33 ], [ false, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ true, %89 ], [ true, %79 ], [ false, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ false, %75 ]
-  %97 = load i8, ptr %37, align 8
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %_ZN4llvm8ExpectedIjED2Ev.exit
-
-99:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit29
-  %100 = load ptr, ptr %14, align 8, !tbaa !44
-  %.not.i.i = icmp eq ptr %100, null
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedIjED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %99
-  %101 = load ptr, ptr %100, align 8, !tbaa !16
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(8) %100) #18
-  br label %_ZN4llvm8ExpectedIjED2Ev.exit
-
-_ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %99, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit29
+_ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge, %89
+  %97 = phi ptr [ %.pre, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ %90, %89 ]
+  %.212 = phi i1 [ %.010, %._ZN4llvm8ExpectedIjED2Ev.exit_crit_edge ], [ true, %89 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #18
-  %104 = load ptr, ptr %13, align 8, !tbaa !37
-  %105 = icmp eq ptr %104, %34
-  br i1 %105, label %107, label %106
+  %98 = icmp eq ptr %97, %34
+  br i1 %98, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit, label %99
 
-106:                                              ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
-  call void @free(ptr noundef %104) #18
-  br label %107
+99:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit
+  call void @free(ptr noundef %97) #18
+  br label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit
 
-.thread47:                                        ; preds = %62, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28, %_ZN4llvm5ErrorD2Ev.exit23
-  %.sroa.8.3.ph = phi ptr [ %.0.i.i2.i.i.i.i20, %_ZN4llvm5ErrorD2Ev.exit23 ], [ %.0.i.i2.i.i.i.i26, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28 ], [ %63, %62 ]
-  %.sroa.042.3.ph = phi i32 [ 7, %_ZN4llvm5ErrorD2Ev.exit23 ], [ 10, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit28 ], [ 0, %62 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
-  br label %.loopexit53
-
-107:                                              ; preds = %106, %_ZN4llvm8ExpectedIjED2Ev.exit
+_ZN4llvm11SmallVectorImLj1EED2Ev.exit:            ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %99
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
-  br i1 %.3, label %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit, label %.loopexit53, !llvm.loop !150
+  br label %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit, !llvm.loop !150
 
-.loopexit53:                                      ; preds = %107, %.thread47, %_ZN4llvm5ErrorD2Ev.exit15.thread
-  %.sroa.8.1 = phi ptr [ %.0.i.i2.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit15.thread ], [ %.sroa.8.3.ph, %.thread47 ], [ %.sroa.8.4, %107 ]
-  %.sroa.042.1 = phi i32 [ 7, %_ZN4llvm5ErrorD2Ev.exit15.thread ], [ %.sroa.042.3.ph, %.thread47 ], [ %.sroa.042.4, %107 ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.042.1, 0
+.critedge16:                                      ; preds = %_ZN4llvm5ErrorD2Ev.exit27, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32, %62
+  %.sroa.8.2 = phi ptr [ %63, %62 ], [ %.0.i.i2.i.i.i.i30, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32 ], [ %.0.i.i2.i.i.i.i24, %_ZN4llvm5ErrorD2Ev.exit27 ]
+  %.sroa.051.2 = phi i32 [ 0, %62 ], [ 10, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit32 ], [ 7, %_ZN4llvm5ErrorD2Ev.exit27 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
+  br label %110
+
+.critedge18:                                      ; preds = %75, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37
+  %.sroa.8.3 = phi ptr [ %.0.i.i2.i.i.i.i35, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ %.0.i.i2.i.i.i.i39, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41 ], [ %72, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %72, %75 ]
+  %.sroa.051.3 = phi i32 [ 10, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit37 ], [ 11, %_ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit41 ], [ %71, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %71, %75 ]
+  %100 = load i8, ptr %37, align 8
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %_ZN4llvm8ExpectedIjED2Ev.exit46
+
+102:                                              ; preds = %.critedge18
+  %103 = load ptr, ptr %14, align 8, !tbaa !44
+  %.not.i.i43 = icmp eq ptr %103, null
+  br i1 %.not.i.i43, label %_ZN4llvm8ExpectedIjED2Ev.exit46, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i44
+
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i44: ; preds = %102
+  %104 = load ptr, ptr %103, align 8, !tbaa !16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  call void %106(ptr noundef nonnull align 8 dereferenceable(8) %103) #18
+  br label %_ZN4llvm8ExpectedIjED2Ev.exit46
+
+_ZN4llvm8ExpectedIjED2Ev.exit46:                  ; preds = %102, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i44, %.critedge18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #18
+  %107 = load ptr, ptr %13, align 8, !tbaa !37
+  %108 = icmp eq ptr %107, %34
+  br i1 %108, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit47, label %109
+
+109:                                              ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit46
+  call void @free(ptr noundef %107) #18
+  br label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit47
+
+_ZN4llvm11SmallVectorImLj1EED2Ev.exit47:          ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit46, %109
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
+  br label %110
+
+110:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit19.thread, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit47, %.critedge16
+  %.sroa.8.1 = phi ptr [ %.sroa.8.3, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit47 ], [ %.sroa.8.2, %.critedge16 ], [ %.0.i.i2.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit19.thread ]
+  %.sroa.051.1 = phi i32 [ %.sroa.051.3, %_ZN4llvm11SmallVectorImLj1EED2Ev.exit47 ], [ %.sroa.051.2, %.critedge16 ], [ 7, %_ZN4llvm5ErrorD2Ev.exit19.thread ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.051.1, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.8.1, 1
   ret { i32, ptr } %.fca.1.insert
 }

@@ -1229,7 +1229,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6Matri
   store i8 1, ptr %74, align 16, !tbaa !126
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 3, ptr %75, align 4, !tbaa !125
-  br label %332
+  br label %338
 
 76:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi3ELi0ELi2ELi3EEEEEE8maxCoeffILi1EEEfv.exit
   %77 = fcmp oeq float %70, 0.000000e+00
@@ -1562,15 +1562,15 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIfEEvl
 
 .preheader:                                       ; preds = %106, %76
   %246 = icmp sgt i64 %92, 0
-  br i1 %246, label %.lr.ph, label %._crit_edge
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br i1 %246, label %.lr.ph, label %.loopexit.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %248 = load i8, ptr %97, align 1, !tbaa !127, !range !121, !noundef !122
   %249 = trunc nuw i8 %248 to i1
   br label %261
 
-._crit_edge:                                      ; preds = %278, %.preheader
+._crit_edge:                                      ; preds = %278
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %251 = load float, ptr %250, align 4, !tbaa !4
   %252 = fmul float %.0, %251
@@ -1581,9 +1581,6 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIfEEvl
   store float %255, ptr %253, align 8, !tbaa !4
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %92, ptr %256, align 16, !tbaa !140
-  br i1 %246, label %.lr.ph225, label %.loopexit
-
-.lr.ph225:                                        ; preds = %._crit_edge
   %257 = load i8, ptr %97, align 1, !range !121
   %258 = trunc nuw i8 %257 to i1
   %259 = load i8, ptr %99, align 1, !range !121
@@ -1622,8 +1619,8 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIfEEvl
   %exitcond228.not = icmp eq i64 %279, %92
   br i1 %exitcond228.not, label %._crit_edge, label %261, !llvm.loop !141
 
-280:                                              ; preds = %.lr.ph225, %.thread205
-  %.055223 = phi i64 [ 0, %.lr.ph225 ], [ %330, %.thread205 ]
+280:                                              ; preds = %._crit_edge, %.thread205
+  %.055223 = phi i64 [ 0, %._crit_edge ], [ %330, %.thread205 ]
   %281 = sub nsw i64 %92, %.055223
   %282 = sub nsw i64 2, %281
   %283 = getelementptr inbounds float, ptr %250, i64 %282
@@ -1726,12 +1723,24 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEE
   %exitcond229.not = icmp eq i64 %330, %92
   br i1 %exitcond229.not, label %.loopexit, label %280, !llvm.loop !143
 
-.loopexit:                                        ; preds = %.thread205, %._crit_edge, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEEE8maxCoeffIlEEfPT_.exit.thread
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 1, ptr %331, align 16, !tbaa !126
-  br label %332
+.loopexit.critedge:                               ; preds = %.preheader
+  %331 = load float, ptr %247, align 4, !tbaa !4
+  %332 = fmul float %.0, %331
+  store float %332, ptr %247, align 4, !tbaa !4
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %334 = load float, ptr %333, align 8, !tbaa !4
+  %335 = fmul float %.0, %334
+  store float %335, ptr %333, align 8, !tbaa !4
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %92, ptr %336, align 16, !tbaa !140
+  br label %.loopexit
 
-332:                                              ; preds = %.loopexit, %73
+.loopexit:                                        ; preds = %.thread205, %.loopexit.critedge, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEEE8maxCoeffIlEEfPT_.exit.thread
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 1, ptr %337, align 16, !tbaa !126
+  br label %338
+
+338:                                              ; preds = %.loopexit, %73
   ret ptr %0
 }
 

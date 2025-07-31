@@ -1826,14 +1826,14 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 2
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.critedge.thread, label %67
+  br i1 %66, label %.critedge19.thread, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 1
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.critedge.thread, label %.critedge19
+  br i1 %71, label %.critedge19.thread, label %.critedge21
 
 72:                                               ; preds = %25
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 2816
@@ -1845,7 +1845,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 2968
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 2
-  br i1 %78, label %.critedge19, label %.thread34
+  br i1 %78, label %.critedge21, label %.thread34
 
 .thread34:                                        ; preds = %32, %41, %45, %48, %54, %75, %72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1860,21 +1860,21 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %86 = load i16, ptr %85, align 8
   %87 = and i16 %86, 4
   %88 = icmp eq i16 %87, 0
-  br i1 %88, label %89, label %.critedge19
+  br i1 %88, label %89, label %.critedge21
 
 89:                                               ; preds = %.thread34, %83
   %90 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 0, ptr noundef %0, i16 noundef zeroext 10) #13
   %.not = icmp eq i32 %90, 0
-  br i1 %.not, label %.critedge, label %.critedge19
+  br i1 %.not, label %.critedge19, label %.critedge21
 
-.critedge:                                        ; preds = %89
+.critedge19:                                      ; preds = %89
   %.pre = load i8, ptr %29, align 1
   %.pre57 = and i8 %.pre, 1
   %91 = icmp eq i8 %.pre57, 0
-  br i1 %91, label %.critedge21.thread, label %.critedge.thread
+  br i1 %91, label %.critedge23.thread, label %.critedge19.thread
 
-.critedge.thread:                                 ; preds = %62, %67, %.critedge
-  %92 = phi i8 [ %.pre, %.critedge ], [ %30, %67 ], [ %30, %62 ]
+.critedge19.thread:                               ; preds = %62, %67, %.critedge19
+  %92 = phi i8 [ %.pre, %.critedge19 ], [ %30, %67 ], [ %30, %62 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -1883,9 +1883,9 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %98 = shl nuw nsw i64 %97, 3
   %99 = getelementptr i8, ptr %94, i64 %98
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.critedge21.thread, label %101
+  br i1 %100, label %.critedge23.thread, label %101
 
-101:                                              ; preds = %.critedge.thread
+101:                                              ; preds = %.critedge19.thread
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %103 = load i32, ptr %99, align 8
   %104 = add i32 %103, -1
@@ -1896,7 +1896,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, 16
   %111 = icmp eq i8 %110, 0
-  br i1 %111, label %.critedge21.thread, label %112
+  br i1 %111, label %.critedge23.thread, label %112
 
 112:                                              ; preds = %101
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1909,13 +1909,13 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
 
 119:                                              ; preds = %112
   %120 = icmp ult i32 %114, 48
-  br i1 %120, label %.critedge21.thread, label %121, !prof !11
+  br i1 %120, label %.critedge23.thread, label %121, !prof !11
 
 121:                                              ; preds = %119
   %122 = sub nuw nsw i32 48, %117
   %123 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %122) #13
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.critedge21.thread, label %._crit_edge
+  br i1 %124, label %.critedge23.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %121
   %.pre52 = load i8, ptr %29, align 1
@@ -1990,14 +1990,14 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %177 = load i32, ptr %176, align 4
   %178 = and i32 %177, 2
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %.critedge21.thread, label %180
+  br i1 %179, label %.critedge23.thread, label %180
 
 180:                                              ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %165, i64 12
   %182 = load i32, ptr %181, align 4
   %183 = and i32 %182, 1
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.critedge21.thread, label %.critedge21
+  br i1 %184, label %.critedge23.thread, label %.critedge23
 
 185:                                              ; preds = %125
   %186 = getelementptr inbounds nuw i8, ptr %144, i64 2816
@@ -2009,7 +2009,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %189 = getelementptr inbounds nuw i8, ptr %144, i64 2968
   %190 = load i8, ptr %189, align 1
   %191 = icmp eq i8 %190, 2
-  br i1 %191, label %.critedge21, label %.thread42
+  br i1 %191, label %.critedge23, label %.thread42
 
 .thread42:                                        ; preds = %146, %154, %158, %161, %167, %188, %185
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2024,41 +2024,41 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %199 = load i16, ptr %198, align 8
   %200 = and i16 %199, 4
   %201 = icmp eq i16 %200, 0
-  br i1 %201, label %202, label %.critedge21
+  br i1 %201, label %202, label %.critedge23
 
 202:                                              ; preds = %.thread42, %196
   %203 = tail call i32 @__xfrm_policy_check(ptr noundef null, i32 noundef 4, ptr noundef %0, i16 noundef zeroext 10) #13
   %.not17 = icmp eq i32 %203, 0
-  br i1 %.not17, label %.critedge21.thread, label %..critedge21_crit_edge
+  br i1 %.not17, label %.critedge23.thread, label %..critedge23_crit_edge
 
-..critedge21_crit_edge:                           ; preds = %202
+..critedge23_crit_edge:                           ; preds = %202
   %.pre53 = load ptr, ptr %133, align 8
   %.pre54 = load ptr, ptr %127, align 8
   %.pre58 = ptrtoint ptr %.pre53 to i64
   %.pre60 = ptrtoint ptr %.pre54 to i64
   %.pre62 = sub i64 %.pre58, %.pre60
   %.pre64 = trunc i64 %.pre62 to i16
-  br label %.critedge21
+  br label %.critedge23
 
-.critedge21:                                      ; preds = %..critedge21_crit_edge, %188, %196, %180
-  %.pre-phi65 = phi i16 [ %.pre64, %..critedge21_crit_edge ], [ %140, %188 ], [ %140, %196 ], [ %140, %180 ]
+.critedge23:                                      ; preds = %..critedge23_crit_edge, %188, %196, %180
+  %.pre-phi65 = phi i16 [ %.pre64, %..critedge23_crit_edge ], [ %140, %188 ], [ %140, %196 ], [ %140, %180 ]
   %204 = trunc i64 %137 to i16
   %205 = add i16 %.pre-phi65, %204
   store i16 %205, ptr %129, align 4
-  br label %.critedge19
+  br label %.critedge21
 
-.critedge19:                                      ; preds = %.critedge21, %67, %83, %75, %89
+.critedge21:                                      ; preds = %.critedge23, %67, %83, %75, %89
   %206 = icmp eq ptr %28, null
   br i1 %206, label %211, label %207, !prof !11
 
-207:                                              ; preds = %.critedge19
+207:                                              ; preds = %.critedge21
   %208 = getelementptr inbounds nuw i8, ptr %28, i64 920
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr i8, ptr %209, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %210, ptr elementtype(i64) %210) #13, !srcloc !20
   br label %211
 
-211:                                              ; preds = %207, %.critedge19
+211:                                              ; preds = %207, %.critedge21
   %212 = getelementptr inbounds nuw i8, ptr %26, i64 272
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 488
@@ -2078,8 +2078,8 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %226 = load i8, ptr %225, align 8
   %227 = lshr i8 %226, 5
   %228 = and i8 %227, 3
-  switch i8 %228, label %.critedge27 [
-    i8 1, label %.critedge25
+  switch i8 %228, label %.critedge [
+    i8 1, label %.critedge27
     i8 3, label %229
   ]
 
@@ -2095,16 +2095,16 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %238 = trunc i64 %237 to i32
   %239 = add i32 %238, %232
   %240 = icmp slt i32 %239, 0
-  br i1 %240, label %.critedge27, label %.critedge25
+  br i1 %240, label %.critedge, label %.critedge27
 
-.critedge25:                                      ; preds = %211, %229
+.critedge27:                                      ; preds = %211, %229
   %241 = or i24 %223, 32768
   store i24 %241, ptr %222, align 1
   %242 = and i8 %226, 96
   %243 = icmp eq i8 %242, 32
   br i1 %243, label %244, label %.critedge29
 
-244:                                              ; preds = %.critedge25
+244:                                              ; preds = %.critedge27
   %245 = trunc i24 %223 to i8
   %246 = and i8 %245, 96
   %247 = icmp eq i8 %246, 0
@@ -2124,7 +2124,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   store i24 %255, ptr %222, align 1
   br label %.critedge29
 
-.critedge27:                                      ; preds = %211, %229
+.critedge:                                        ; preds = %211, %229
   %256 = getelementptr i8, ptr %218, i64 %221
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 24
@@ -2138,7 +2138,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %266 = icmp eq i8 %265, 64
   br i1 %266, label %267, label %277
 
-267:                                              ; preds = %.critedge27
+267:                                              ; preds = %.critedge
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %269 = load i32, ptr %268, align 8
   %270 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %263, i32 %269) #14, !srcloc !5
@@ -2154,7 +2154,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   store i24 %276, ptr %222, align 1
   br label %.critedge29
 
-277:                                              ; preds = %267, %.critedge27
+277:                                              ; preds = %267, %.critedge
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %263, ptr %278, align 8
   %279 = tail call zeroext i16 @__skb_checksum_complete(ptr noundef %0) #13
@@ -2166,7 +2166,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   store i24 %284, ptr %222, align 1
   br i1 %280, label %.critedge29, label %372
 
-.critedge29:                                      ; preds = %250, %248, %.critedge25, %.critedge31, %277
+.critedge29:                                      ; preds = %250, %248, %.critedge27, %.critedge31, %277
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %286 = load i32, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -2381,14 +2381,14 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr i8, ptr %391, i64 16
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %392, ptr elementtype(i64) %392) #13, !srcloc !34
-  br label %.critedge21.thread
+  br label %.critedge23.thread
 
-.critedge21.thread:                               ; preds = %.critedge, %180, %175, %119, %202, %121, %.critedge.thread, %101, %388
-  %393 = phi i32 [ %383, %388 ], [ 14, %180 ], [ 14, %175 ], [ 2, %119 ], [ 14, %202 ], [ 2, %121 ], [ 14, %.critedge.thread ], [ 14, %101 ], [ 14, %.critedge ]
+.critedge23.thread:                               ; preds = %.critedge19, %180, %175, %119, %202, %121, %.critedge19.thread, %101, %388
+  %393 = phi i32 [ %383, %388 ], [ 14, %180 ], [ 14, %175 ], [ 2, %119 ], [ 14, %202 ], [ 2, %121 ], [ 14, %.critedge19.thread ], [ 14, %101 ], [ 14, %.critedge19 ]
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef %393) #13
   br label %394
 
-394:                                              ; preds = %.critedge21.thread, %371, %.thread47, %358, %357
+394:                                              ; preds = %.critedge23.thread, %371, %.thread47, %358, %357
   ret i32 0
 }
 

@@ -1184,28 +1184,28 @@ declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %0) unnamed_addr #0 {
   %2 = icmp eq i64 %0, 4
-  br i1 %2, label %._crit_edge, label %.lr.ph
+  br i1 %2, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
-  %.022 = phi i64 [ %6, %5 ], [ %0, %1 ]
+  %.021 = phi i64 [ %6, %5 ], [ %0, %1 ]
   %3 = load i64, ptr @id_metadata, align 8, !tbaa !6
-  %4 = tail call i64 @rb_ivar_defined(i64 noundef %.022, i64 noundef %3) #9
+  %4 = tail call i64 @rb_ivar_defined(i64 noundef %.021, i64 noundef %3) #9
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call i64 @rb_class_superclass(i64 noundef %.022) #12
+  %6 = tail call i64 @rb_class_superclass(i64 noundef %.021) #12
   %7 = icmp eq i64 %6, 4
-  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %7, label %.critedge, label %.lr.ph, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %5, %1
+.critedge:                                        ; preds = %5, %1
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.33) #10
   unreachable
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr @id_metadata, align 8, !tbaa !6
-  %11 = tail call i64 @rb_ivar_get(i64 noundef %.022, i64 noundef %10) #9
+  %11 = tail call i64 @rb_ivar_get(i64 noundef %.021, i64 noundef %10) #9
   %12 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %11, ptr noundef nonnull @metadata_type) #9
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %get_metadata_ptr.exit.thread, label %get_metadata_ptr.exit
@@ -1218,7 +1218,7 @@ get_metadata_ptr.exit:                            ; preds = %9
   br i1 %.not17, label %get_metadata_ptr.exit.thread, label %20
 
 get_metadata_ptr.exit.thread:                     ; preds = %9, %get_metadata_ptr.exit
-  %16 = icmp eq i64 %.022, %0
+  %16 = icmp eq i64 %.021, %0
   %17 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   br i1 %16, label %18, label %19
 
@@ -1227,7 +1227,7 @@ get_metadata_ptr.exit.thread:                     ; preds = %9, %get_metadata_pt
   unreachable
 
 19:                                               ; preds = %get_metadata_ptr.exit.thread
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.35, i64 noundef %0, i64 noundef %.022) #10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.35, i64 noundef %0, i64 noundef %.021) #10
   unreachable
 
 20:                                               ; preds = %get_metadata_ptr.exit

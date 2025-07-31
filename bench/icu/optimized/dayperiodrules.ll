@@ -1902,8 +1902,8 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %_ZN6
   %115 = and i32 %113, -2
   %or.cond.i.i = icmp eq i32 %115, 4
   %116 = icmp ugt i32 %113, 2
-  %or.cond63.i.i = and i1 %116, %or.cond.i.i
-  br i1 %or.cond63.i.i, label %_ZNK6icu_7713UnicodeStringixEi.exit.i.i, label %_ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
+  %or.cond61.i.i = and i1 %116, %or.cond.i.i
+  br i1 %or.cond61.i.i, label %_ZNK6icu_7713UnicodeStringixEi.exit.i.i, label %_ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
 
 _ZNK6icu_7713UnicodeStringixEi.exit.i.i:          ; preds = %107
   %117 = and i16 %108, 2
@@ -2085,8 +2085,8 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit97: ; preds = %.l
   %198 = and i32 %196, -2
   %or.cond.i.i98 = icmp eq i32 %198, 4
   %199 = icmp ugt i32 %196, 2
-  %or.cond63.i.i99 = and i1 %199, %or.cond.i.i98
-  br i1 %or.cond63.i.i99, label %_ZNK6icu_7713UnicodeStringixEi.exit.i.i101, label %_ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i100
+  %or.cond61.i.i99 = and i1 %199, %or.cond.i.i98
+  br i1 %or.cond61.i.i99, label %_ZNK6icu_7713UnicodeStringixEi.exit.i.i101, label %_ZN6icu_7722DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i100
 
 _ZNK6icu_7713UnicodeStringixEi.exit.i.i101:       ; preds = %190
   %200 = and i16 %191, 2

@@ -1003,7 +1003,7 @@ define internal i32 @ptp_clock_adjtime(ptr noundef %0, ptr noundef captures(none
 
 18:                                               ; preds = %14, %6
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #16
-  br label %.thread3
+  br label %.critedge
 
 20:                                               ; preds = %10
   tail call void @mutex_unlock(ptr noundef nonnull %7) #14
@@ -1015,7 +1015,7 @@ define internal i32 @ptp_clock_adjtime(ptr noundef %0, ptr noundef captures(none
   %24 = load i32, ptr %1, align 8
   %25 = and i32 %24, 256
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %44, label %27
+  br i1 %26, label %45, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1025,100 +1025,100 @@ define internal i32 @ptp_clock_adjtime(ptr noundef %0, ptr noundef captures(none
   %32 = mul i64 %29, 1000
   %33 = select i1 %31, i64 %32, i64 %29
   %34 = icmp ult i64 %33, 1000000000
-  br i1 %34, label %.thread, label %.thread3
+  br i1 %34, label %35, label %.critedge
 
-.thread:                                          ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp sgt i64 %36, 9223372035
-  %38 = mul i64 %36, 1000000000
-  %39 = add i64 %38, %33
-  %40 = select i1 %37, i64 9223372036854775807, i64 %39, !prof !13
-  %41 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %23, i64 noundef %40) #14
-  br label %.thread3
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %37 = load i64, ptr %36, align 8
+  %38 = icmp sgt i64 %37, 9223372035
+  %39 = mul i64 %37, 1000000000
+  %40 = add i64 %39, %33
+  %41 = select i1 %38, i64 9223372036854775807, i64 %40, !prof !13
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 96
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 %43(ptr noundef %23, i64 noundef %41) #14
+  br label %.critedge
 
-44:                                               ; preds = %21
-  %45 = and i32 %24, 2
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %67, label %47
+45:                                               ; preds = %21
+  %46 = and i32 %24, 2
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %68, label %48
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = mul i64 %49, 125
-  %51 = add i64 %50, 125
-  %52 = ashr i64 %51, 13
-  %53 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %54 = load i32, ptr %53, align 8
-  %55 = sext i32 %54 to i64
-  %56 = icmp sgt i64 %52, %55
-  br i1 %56, label %.thread3, label %57
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = mul i64 %50, 125
+  %52 = add i64 %51, 125
+  %53 = ashr i64 %52, 13
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %55 = load i32, ptr %54, align 8
+  %56 = sext i32 %55 to i64
+  %57 = icmp sgt i64 %53, %56
+  br i1 %57, label %.critedge, label %58
 
-57:                                               ; preds = %47
-  %58 = sub i32 0, %54
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %52, %59
-  br i1 %60, label %.thread3, label %61
+58:                                               ; preds = %48
+  %59 = sub i32 0, %55
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %53, %60
+  br i1 %61, label %.critedge, label %62
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 %63(ptr noundef %23, i64 noundef %49) #14
-  %65 = load i64, ptr %48, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  store i64 %65, ptr %66, align 8
-  br label %.thread3
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call i32 %64(ptr noundef %23, i64 noundef %50) #14
+  %66 = load i64, ptr %49, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  store i64 %66, ptr %67, align 8
+  br label %.critedge
 
-67:                                               ; preds = %44
-  %68 = and i32 %24, 1
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %92, label %70
+68:                                               ; preds = %45
+  %69 = and i32 %24, 1
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %94, label %71
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread3, label %74
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.critedge, label %75
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %23, i64 88
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 %76(ptr noundef %23) #14
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %79 = load i64, ptr %78, align 8
-  %80 = trunc i64 %79 to i32
-  %81 = load i32, ptr %1, align 8
-  %82 = and i32 %81, 8192
-  %83 = icmp eq i32 %82, 0
-  %84 = mul i32 %80, 1000
-  %85 = select i1 %83, i32 %84, i32 %80
-  %86 = icmp sle i32 %85, %77
-  %87 = sub i32 0, %77
-  %88 = icmp sge i32 %85, %87
-  %89 = and i1 %86, %88
-  br i1 %89, label %.thread4, label %.thread3
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call i32 %77(ptr noundef %23) #14
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %80 = load i64, ptr %79, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = load i32, ptr %1, align 8
+  %83 = and i32 %82, 8192
+  %84 = icmp eq i32 %83, 0
+  %85 = mul i32 %81, 1000
+  %86 = select i1 %84, i32 %85, i32 %81
+  %87 = icmp sle i32 %86, %78
+  %88 = sub i32 0, %78
+  %89 = icmp sge i32 %86, %88
+  %90 = and i1 %87, %89
+  br i1 %90, label %91, label %.critedge
 
-.thread4:                                         ; preds = %74
-  %90 = load ptr, ptr %71, align 8
-  %91 = tail call i32 %90(ptr noundef %23, i32 noundef %85) #14
-  br label %.thread3
+91:                                               ; preds = %75
+  %92 = load ptr, ptr %72, align 8
+  %93 = tail call i32 %92(ptr noundef %23, i32 noundef %86) #14
+  br label %.critedge
 
-92:                                               ; preds = %67
-  %93 = icmp eq i32 %24, 0
-  br i1 %93, label %94, label %.thread3
+94:                                               ; preds = %68
+  %95 = icmp eq i32 %24, 0
+  br i1 %95, label %96, label %.critedge
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %96, ptr %97, align 8
-  br label %.thread3
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %98, ptr %99, align 8
+  br label %.critedge
 
-.thread3:                                         ; preds = %47, %57, %70, %92, %94, %.thread, %61, %.thread4, %74, %27, %18
-  %98 = phi i32 [ -16, %18 ], [ -22, %27 ], [ -34, %74 ], [ %64, %61 ], [ -95, %70 ], [ 0, %94 ], [ -95, %92 ], [ %43, %.thread ], [ %91, %.thread4 ], [ -34, %57 ], [ -34, %47 ]
-  ret i32 %98
+.critedge:                                        ; preds = %71, %94, %96, %62, %35, %91, %75, %58, %48, %27, %18
+  %100 = phi i32 [ -16, %18 ], [ -22, %27 ], [ -34, %48 ], [ -34, %58 ], [ -34, %75 ], [ %44, %35 ], [ %65, %62 ], [ %93, %91 ], [ -95, %71 ], [ 0, %96 ], [ -95, %94 ]
+  ret i32 %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

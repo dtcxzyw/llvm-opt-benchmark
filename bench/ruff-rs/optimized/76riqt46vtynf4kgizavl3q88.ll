@@ -85066,7 +85066,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules26unnecessary_coding_c
   call void @"_ZN146_$LT$ruff_linter..rules..pyupgrade..rules..unnecessary_coding_comment..CodingCommentIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbafa0a679092f115E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %11), !noalias !7283
   %21 = load i32, ptr %6, align 4, !range !7284, !noalias !7280, !noundef !8
   %.not17.i = icmp eq i32 %21, 3
-  br i1 %.not17.i, label %.thread, label %.lr.ph.i
+  br i1 %.not17.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -85090,17 +85090,17 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules26unnecessary_coding_c
   call void @"_ZN146_$LT$ruff_linter..rules..pyupgrade..rules..unnecessary_coding_comment..CodingCommentIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbafa0a679092f115E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %11), !noalias !7283
   %24 = load i32, ptr %6, align 4, !range !7284, !noalias !7280, !noundef !8
   %.not.i = icmp eq i32 %24, 3
-  br i1 %.not.i, label %.thread, label %.lr.ph.split.i
-
-.thread:                                          ; preds = %23, %3
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6), !noalias !7280
-  br label %66
+  br i1 %.not.i, label %.critedge, label %.lr.ph.split.i
 
 25:                                               ; preds = %.lr.ph.split.i
   store i8 1, ptr %20, align 8, !alias.scope !7277, !noalias !7285
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6), !noalias !7280
   %26 = icmp eq i32 %22, 0
   br i1 %26, label %27, label %66
+
+.critedge:                                        ; preds = %23, %3
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6), !noalias !7280
+  br label %66
 
 27:                                               ; preds = %25
   %28 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef 0)
@@ -85158,7 +85158,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit38: ; pr
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51: ; preds = %.split.i45, %._crit_edge.i49
-  %.sroa.066.0 = phi i1 [ false, %._crit_edge.i49 ], [ %37, %.split.i45 ]
+  %.sroa.065.0 = phi i1 [ false, %._crit_edge.i49 ], [ %37, %.split.i45 ]
   switch i32 %32, label %default.unreachable [
     i32 3, label %41
     i32 1, label %66
@@ -85170,7 +85170,7 @@ default.unreachable:                              ; preds = %_ZN4core4iter6trait
   unreachable
 
 40:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51
-  br i1 %.sroa.066.0, label %66, label %41
+  br i1 %.sroa.065.0, label %66, label %41
 
 41:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51, %40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
@@ -85242,13 +85242,13 @@ default.unreachable:                              ; preds = %_ZN4core4iter6trait
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %66
 
-66:                                               ; preds = %27, %40, %25, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51, %.thread, %61
+66:                                               ; preds = %27, %40, %.critedge, %25, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc50f9ac7fc7eb36bE.exit51, %61
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   ret void
 
 .body.thread:                                     ; preds = %57, %47, %67
-  %eh.lpad-body90 = phi { ptr, i32 } [ %68, %67 ], [ %48, %47 ], [ %58, %57 ]
-  resume { ptr, i32 } %eh.lpad-body90
+  %eh.lpad-body82 = phi { ptr, i32 } [ %68, %67 ], [ %48, %47 ], [ %58, %57 ]
+  resume { ptr, i32 } %eh.lpad-body82
 
 67:                                               ; preds = %41
   %68 = landingpad { ptr, i32 }

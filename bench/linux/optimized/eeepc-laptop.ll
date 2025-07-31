@@ -1339,7 +1339,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @cpufv_show(ptr n
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 4096
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread1, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %6, align 8
@@ -1354,26 +1354,26 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @cpufv_show(ptr n
 
 .thread:                                          ; preds = %11
   %17 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.28) #14
-  br label %.thread1
+  br label %.critedge
 
 18:                                               ; preds = %11
   %19 = icmp slt i32 %16, 0
-  br i1 %19, label %.thread1, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = lshr i32 %16, 8
   %22 = and i32 %21, 255
   %23 = add nsw i32 %22, -1
   %24 = icmp ult i32 %23, 12
-  br i1 %24, label %25, label %.thread1
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %20
   %urem = and i32 %16, 65535
   %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %urem) #13
   %27 = sext i32 %26 to i64
-  br label %.thread1
+  br label %.critedge
 
-.thread1:                                         ; preds = %.thread, %3, %18, %25, %20
+.critedge:                                        ; preds = %.thread, %3, %18, %25, %20
   %28 = phi i64 [ %27, %25 ], [ -19, %20 ], [ -19, %18 ], [ -19, %3 ], [ -19, %.thread ]
   ret i64 %28
 }

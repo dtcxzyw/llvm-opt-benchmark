@@ -6518,7 +6518,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
 16:                                               ; preds = %12
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @xfrm_set_spdinfo.__msg) #16
   %17 = icmp eq ptr %3, null
-  br i1 %17, label %.thread, label %28
+  br i1 %17, label %.critedge, label %28
 
 18:                                               ; preds = %12
   %19 = getelementptr i8, ptr %10, i64 4
@@ -6535,12 +6535,12 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
 26:                                               ; preds = %22, %18
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @xfrm_set_spdinfo.__msg.43) #16
   %27 = icmp eq ptr %3, null
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %26, %16
   %29 = phi ptr [ @xfrm_set_spdinfo.__msg, %16 ], [ @xfrm_set_spdinfo.__msg.43, %26 ]
   store ptr %29, ptr %3, align 8
-  br label %.thread
+  br label %.critedge
 
 30:                                               ; preds = %22, %4
   %31 = phi ptr [ null, %4 ], [ %19, %22 ]
@@ -6558,7 +6558,7 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
 39:                                               ; preds = %35
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @xfrm_set_spdinfo.__msg.44) #16
   %40 = icmp eq ptr %3, null
-  br i1 %40, label %.thread, label %51
+  br i1 %40, label %.critedge, label %51
 
 41:                                               ; preds = %35
   %42 = getelementptr i8, ptr %33, i64 4
@@ -6575,19 +6575,19 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
 49:                                               ; preds = %45, %41
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @xfrm_set_spdinfo.__msg.45) #16
   %50 = icmp eq ptr %3, null
-  br i1 %50, label %.thread, label %51
+  br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %49, %39
   %52 = phi ptr [ @xfrm_set_spdinfo.__msg.44, %39 ], [ @xfrm_set_spdinfo.__msg.45, %49 ]
   store ptr %52, ptr %3, align 8
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %45, %30
   %54 = phi ptr [ null, %30 ], [ %42, %45 ]
   %55 = icmp ne ptr %31, null
   %56 = icmp ne ptr %54, null
   %57 = or i1 %55, %56
-  br i1 %57, label %58, label %.thread
+  br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 2904
@@ -6629,10 +6629,10 @@ define internal noundef range(i32 -22, 1) i32 @xfrm_set_spdinfo(ptr noundef read
   store i32 %78, ptr %59, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull %60) #16
   tail call void @xfrm_policy_hash_rebuild(ptr noundef %8) #16
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %51, %49, %39, %28, %26, %16, %76, %53
-  %79 = phi i32 [ 0, %53 ], [ 0, %76 ], [ -22, %16 ], [ -22, %26 ], [ -22, %28 ], [ -22, %39 ], [ -22, %49 ], [ -22, %51 ]
+.critedge:                                        ; preds = %39, %49, %51, %16, %26, %28, %76, %53
+  %79 = phi i32 [ 0, %53 ], [ 0, %76 ], [ -22, %28 ], [ -22, %26 ], [ -22, %16 ], [ -22, %51 ], [ -22, %49 ], [ -22, %39 ]
   ret i32 %79
 }
 

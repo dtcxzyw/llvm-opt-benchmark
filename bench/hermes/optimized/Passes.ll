@@ -4018,8 +4018,8 @@ land.lhs.true.i:                                  ; preds = %if.end9.i
   %tobool.not.i = icmp eq i32 %conv11.i, 0
   %11 = bitcast double %9 to i64
   %12 = icmp slt i64 %11, 0
-  %or.cond70 = and i1 %tobool.not.i, %12
-  br i1 %or.cond70, label %cleanup, label %if.then12
+  %or.cond67 = and i1 %tobool.not.i, %12
+  br i1 %or.cond67, label %cleanup, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true.i
   %13 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -4103,8 +4103,8 @@ if.end33:                                         ; preds = %if.end29
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %switchInst) #13
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end9.i, %for.body, %if.end9, %land.lhs.true.i, %if.end, %if.end29, %for.end, %if.end33
-  %retval.1 = phi i1 [ true, %if.end33 ], [ false, %for.end ], [ false, %if.end29 ], [ false, %if.end ], [ false, %land.lhs.true.i ], [ false, %if.end9 ], [ false, %for.body ], [ false, %if.end9.i ]
+cleanup:                                          ; preds = %if.end9.i, %if.end9, %for.body, %land.lhs.true.i, %if.end, %if.end29, %for.end, %if.end33
+  %retval.1 = phi i1 [ true, %if.end33 ], [ false, %for.end ], [ false, %if.end29 ], [ false, %if.end ], [ false, %land.lhs.true.i ], [ false, %for.body ], [ false, %if.end9 ], [ false, %if.end9.i ]
   %26 = load ptr, ptr %blocks, align 8
   %cmp.i.i.i = icmp eq ptr %26, %add.ptr.i.i.i.i.i18
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, label %if.then.i.i

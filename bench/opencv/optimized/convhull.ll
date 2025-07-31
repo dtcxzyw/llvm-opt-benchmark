@@ -1839,13 +1839,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #20
   br label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit161
 
-119:                                              ; preds = %.lr.ph205, %._crit_edge.thread
-  %.096204 = phi i32 [ 0, %.lr.ph205 ], [ %230, %._crit_edge.thread ]
-  %.0104203 = phi i32 [ %102, %.lr.ph205 ], [ %125, %._crit_edge.thread ]
-  %.0105202 = phi i32 [ -1, %.lr.ph205 ], [ %.1106, %._crit_edge.thread ]
-  %.sroa.14.0201 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.14.1, %._crit_edge.thread ]
-  %.sroa.9.0200 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.9.1, %._crit_edge.thread ]
-  %.sroa.0.2199 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.0.3, %._crit_edge.thread ]
+119:                                              ; preds = %.lr.ph205, %.critedge
+  %.096204 = phi i32 [ 0, %.lr.ph205 ], [ %230, %.critedge ]
+  %.0104203 = phi i32 [ %102, %.lr.ph205 ], [ %125, %.critedge ]
+  %.0105202 = phi i32 [ -1, %.lr.ph205 ], [ %.1106, %.critedge ]
+  %.sroa.14.0201 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.14.1, %.critedge ]
+  %.sroa.9.0200 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.9.1, %.critedge ]
+  %.sroa.0.2199 = phi ptr [ null, %.lr.ph205 ], [ %.sroa.0.3, %.critedge ]
   %120 = xor i32 %.096204, -1
   %121 = add nsw i32 %55, %120
   %122 = select i1 %.not, i32 %.096204, i32 %121
@@ -1990,7 +1990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   %.not125193 = icmp slt i32 %177, %25
   %178 = select i1 %.not125193, i32 %177, i32 0
   %179 = icmp eq i32 %178, %125
-  br i1 %179, label %._crit_edge.thread, label %.lr.ph
+  br i1 %179, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %175
   %180 = fneg double %168
@@ -2025,7 +2025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   br i1 %199, label %._crit_edge, label %181, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %181
-  br i1 %.199, label %200, label %._crit_edge.thread
+  br i1 %.199, label %200, label %.critedge
 
 200:                                              ; preds = %._crit_edge
   %201 = fmul double %.1101, 2.560000e+02
@@ -2122,7 +2122,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %.sroa.14.2 = phi ptr [ %228, %.noexc159 ], [ %.sroa.14.0201, %.preheader.i.i ]
   %.sroa.9.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #20
-  br label %._crit_edge.thread
+  br label %.critedge
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN2cv3VecIiLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2139,7 +2139,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #20
   br label %263
 
-._crit_edge.thread:                               ; preds = %175, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit, %._crit_edge
+.critedge:                                        ; preds = %175, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit, %._crit_edge
   %.sroa.0.3 = phi ptr [ %.sroa.0.4, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0.2199, %._crit_edge ], [ %.sroa.0.2199, %175 ]
   %.sroa.9.1 = phi ptr [ %.sroa.9.2, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.9.0200, %._crit_edge ], [ %.sroa.9.0200, %175 ]
   %.sroa.14.1 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.14.0201, %._crit_edge ], [ %.sroa.14.0201, %175 ]
@@ -2147,7 +2147,7 @@ _ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %exitcond.not = icmp eq i32 %230, %55
   br i1 %exitcond.not, label %._crit_edge206, label %119, !llvm.loop !78
 
-._crit_edge206:                                   ; preds = %._crit_edge.thread
+._crit_edge206:                                   ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #20
   store i32 1124024348, ptr %18, align 8, !tbaa !19
   %231 = getelementptr inbounds nuw i8, ptr %18, i64 4

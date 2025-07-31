@@ -367,8 +367,8 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addGlobalENS_9StringR
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i32, ptr %22, align 8, !tbaa !34
   %24 = zext i32 %23 to i64
-  %.not4775.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not4775.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not4764.not.i.i = icmp eq i32 %23, 0
+  br i1 %.not4764.not.i.i, label %.critedge51.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -376,40 +376,40 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addGlobalENS_9StringR
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.03776.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %32, %._crit_edge.i.i ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03776.i.i
+  %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %32, %._crit_edge.i.i ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03765.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !39
   %.not.i.i = icmp uge ptr %1, %29
-  %.pre.i.i = trunc i64 %.03776.i.i to i32
-  %.pre88.i.i = lshr i32 %.pre.i.i, 7
-  %.pre90.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i, i32 30)
-  %.pre92.i.i = zext nneg i32 %.pre90.i.i to i64
-  %.pre93.i.i = shl nuw nsw i64 4096, %.pre92.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.pre93.i.i
+  %.pre.i.i = trunc i64 %.03765.i.i to i32
+  %.pre77.i.i = lshr i32 %.pre.i.i, 7
+  %.pre79.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i, i32 30)
+  %.pre81.i.i = zext nneg i32 %.pre79.i.i to i64
+  %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.pre82.i.i
   %31 = icmp ult ptr %1, %30
-  %or.cond101.i.i = select i1 %.not.i.i, i1 %31, i1 false
-  br i1 %or.cond101.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond90.i.i = select i1 %.not.i.i, i1 %31, i1 false
+  br i1 %or.cond90.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %27
-  %32 = add nuw nsw i64 %.03776.i.i, 1
+  %32 = add nuw nsw i64 %.03765.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %32, %24
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %27, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.critedge51.i.i, label %27, !llvm.loop !40
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %20
+.critedge51.i.i:                                  ; preds = %._crit_edge.i.i, %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %34 = load i32, ptr %33, align 8, !tbaa !34
   %35 = zext i32 %34 to i64
-  %.not4978.not.i.i = icmp eq i32 %34, 0
-  br i1 %.not4978.not.i.i, label %.loopexit16.i, label %.lr.ph81.i.i
+  %.not4967.not.i.i = icmp eq i32 %34, 0
+  br i1 %.not4967.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph81.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph70.i.i:                                     ; preds = %.critedge51.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   br label %38
 
-38:                                               ; preds = %45, %.lr.ph81.i.i
-  %.04080.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %46, %45 ]
-  %39 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %37, i64 %.04080.i.i
+38:                                               ; preds = %45, %.lr.ph70.i.i
+  %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %46, %45 ]
+  %39 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %37, i64 %.04069.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !42
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !44
@@ -420,11 +420,11 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addGlobalENS_9StringR
   br i1 %or.cond.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %45
 
 45:                                               ; preds = %38
-  %46 = add nuw nsw i64 %.04080.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %46, %35
-  br i1 %exitcond87.not.i.i, label %.loopexit16.i, label %38, !llvm.loop !45
+  %46 = add nuw nsw i64 %.04069.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %46, %35
+  br i1 %exitcond76.not.i.i, label %.loopexit.i, label %38, !llvm.loop !45
 
-.loopexit16.i:                                    ; preds = %45, %.critedge.i.i
+.loopexit.i:                                      ; preds = %45, %.critedge51.i.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %48 = load i64, ptr %47, align 8, !tbaa !46
   %49 = add i64 %48, %2
@@ -440,12 +440,12 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice9addGlobalENS_9StringR
   %57 = and i1 %56, %.not.i.i.i
   br i1 %57, label %58, label %60, !prof !59
 
-58:                                               ; preds = %.loopexit16.i
+58:                                               ; preds = %.loopexit.i
   %59 = inttoptr i64 %52 to ptr
   store ptr %59, ptr %21, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
-60:                                               ; preds = %.loopexit16.i
+60:                                               ; preds = %.loopexit.i
   %61 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %21, i64 noundef %2, i64 noundef %2, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
@@ -613,8 +613,8 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice16addObjCInterfaceENS_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i32, ptr %15, align 8, !tbaa !34
   %17 = zext i32 %16 to i64
-  %.not4775.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not4775.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not4764.not.i.i = icmp eq i32 %16, 0
+  br i1 %.not4764.not.i.i, label %.critedge51.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -622,40 +622,40 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice16addObjCInterfaceENS_
   br label %20
 
 20:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.03776.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %25, %._crit_edge.i.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.03776.i.i
+  %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %25, %._crit_edge.i.i ]
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.03765.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !39
   %.not.i.i = icmp uge ptr %1, %22
-  %.pre.i.i = trunc i64 %.03776.i.i to i32
-  %.pre88.i.i = lshr i32 %.pre.i.i, 7
-  %.pre90.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i, i32 30)
-  %.pre92.i.i = zext nneg i32 %.pre90.i.i to i64
-  %.pre93.i.i = shl nuw nsw i64 4096, %.pre92.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre93.i.i
+  %.pre.i.i = trunc i64 %.03765.i.i to i32
+  %.pre77.i.i = lshr i32 %.pre.i.i, 7
+  %.pre79.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i, i32 30)
+  %.pre81.i.i = zext nneg i32 %.pre79.i.i to i64
+  %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre82.i.i
   %24 = icmp ult ptr %1, %23
-  %or.cond101.i.i = select i1 %.not.i.i, i1 %24, i1 false
-  br i1 %or.cond101.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond90.i.i = select i1 %.not.i.i, i1 %24, i1 false
+  br i1 %or.cond90.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %20
-  %25 = add nuw nsw i64 %.03776.i.i, 1
+  %25 = add nuw nsw i64 %.03765.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %25, %17
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %20, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.critedge51.i.i, label %20, !llvm.loop !40
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %13
+.critedge51.i.i:                                  ; preds = %._crit_edge.i.i, %13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load i32, ptr %26, align 8, !tbaa !34
   %28 = zext i32 %27 to i64
-  %.not4978.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not4978.not.i.i, label %.loopexit16.i, label %.lr.ph81.i.i
+  %.not4967.not.i.i = icmp eq i32 %27, 0
+  br i1 %.not4967.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph81.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph70.i.i:                                     ; preds = %.critedge51.i.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !36
   br label %31
 
-31:                                               ; preds = %38, %.lr.ph81.i.i
-  %.04080.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %39, %38 ]
-  %32 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %30, i64 %.04080.i.i
+31:                                               ; preds = %38, %.lr.ph70.i.i
+  %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %39, %38 ]
+  %32 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %30, i64 %.04069.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !44
@@ -666,11 +666,11 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice16addObjCInterfaceENS_
   br i1 %or.cond.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %38
 
 38:                                               ; preds = %31
-  %39 = add nuw nsw i64 %.04080.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %39, %28
-  br i1 %exitcond87.not.i.i, label %.loopexit16.i, label %31, !llvm.loop !45
+  %39 = add nuw nsw i64 %.04069.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %39, %28
+  br i1 %exitcond76.not.i.i, label %.loopexit.i, label %31, !llvm.loop !45
 
-.loopexit16.i:                                    ; preds = %38, %.critedge.i.i
+.loopexit.i:                                      ; preds = %38, %.critedge51.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load i64, ptr %40, align 8, !tbaa !46
   %42 = add i64 %41, %2
@@ -686,12 +686,12 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice16addObjCInterfaceENS_
   %50 = and i1 %49, %.not.i.i.i
   br i1 %50, label %51, label %53, !prof !59
 
-51:                                               ; preds = %.loopexit16.i
+51:                                               ; preds = %.loopexit.i
   %52 = inttoptr i64 %45 to ptr
   store ptr %52, ptr %14, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
-53:                                               ; preds = %.loopexit16.i
+53:                                               ; preds = %.loopexit.i
   %54 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %14, i64 noundef %2, i64 noundef %2, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
@@ -1024,8 +1024,8 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8, !tbaa !34
   %21 = zext i32 %20 to i64
-  %.not4775.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not4775.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not4764.not.i.i = icmp eq i32 %20, 0
+  br i1 %.not4764.not.i.i, label %.critedge51.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1033,40 +1033,40 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9
   br label %24
 
 24:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.03776.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %29, %._crit_edge.i.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.03776.i.i
+  %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %29, %._crit_edge.i.i ]
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.03765.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %.not.i.i = icmp uge ptr %3, %26
-  %.pre.i.i = trunc i64 %.03776.i.i to i32
-  %.pre88.i.i = lshr i32 %.pre.i.i, 7
-  %.pre90.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i, i32 30)
-  %.pre92.i.i = zext nneg i32 %.pre90.i.i to i64
-  %.pre93.i.i = shl nuw nsw i64 4096, %.pre92.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.pre93.i.i
+  %.pre.i.i = trunc i64 %.03765.i.i to i32
+  %.pre77.i.i = lshr i32 %.pre.i.i, 7
+  %.pre79.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i, i32 30)
+  %.pre81.i.i = zext nneg i32 %.pre79.i.i to i64
+  %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.pre82.i.i
   %28 = icmp ult ptr %3, %27
-  %or.cond101.i.i = select i1 %.not.i.i, i1 %28, i1 false
-  br i1 %or.cond101.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond90.i.i = select i1 %.not.i.i, i1 %28, i1 false
+  br i1 %or.cond90.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %24
-  %29 = add nuw nsw i64 %.03776.i.i, 1
+  %29 = add nuw nsw i64 %.03765.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %29, %21
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %24, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.critedge51.i.i, label %24, !llvm.loop !40
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %17
+.critedge51.i.i:                                  ; preds = %._crit_edge.i.i, %17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %31 = load i32, ptr %30, align 8, !tbaa !34
   %32 = zext i32 %31 to i64
-  %.not4978.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not4978.not.i.i, label %.loopexit16.i, label %.lr.ph81.i.i
+  %.not4967.not.i.i = icmp eq i32 %31, 0
+  br i1 %.not4967.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph81.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph70.i.i:                                     ; preds = %.critedge51.i.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   br label %35
 
-35:                                               ; preds = %42, %.lr.ph81.i.i
-  %.04080.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %43, %42 ]
-  %36 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %34, i64 %.04080.i.i
+35:                                               ; preds = %42, %.lr.ph70.i.i
+  %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %43, %42 ]
+  %36 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %34, i64 %.04069.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !44
@@ -1077,11 +1077,11 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9
   br i1 %or.cond.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %42
 
 42:                                               ; preds = %35
-  %43 = add nuw nsw i64 %.04080.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %43, %32
-  br i1 %exitcond87.not.i.i, label %.loopexit16.i, label %35, !llvm.loop !45
+  %43 = add nuw nsw i64 %.04069.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %43, %32
+  br i1 %exitcond76.not.i.i, label %.loopexit.i, label %35, !llvm.loop !45
 
-.loopexit16.i:                                    ; preds = %42, %.critedge.i.i
+.loopexit.i:                                      ; preds = %42, %.critedge51.i.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %45 = load i64, ptr %44, align 8, !tbaa !46
   %46 = add i64 %45, %4
@@ -1097,12 +1097,12 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice15addObjCCategoryENS_9
   %54 = and i1 %53, %.not.i.i.i
   br i1 %54, label %55, label %57, !prof !59
 
-55:                                               ; preds = %.loopexit16.i
+55:                                               ; preds = %.loopexit.i
   %56 = inttoptr i64 %49 to ptr
   store ptr %56, ptr %18, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
-57:                                               ; preds = %.loopexit16.i
+57:                                               ; preds = %.loopexit.i
   %58 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %18, i64 noundef %4, i64 noundef %4, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
@@ -1121,8 +1121,8 @@ _ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit: ; preds = %24, %35
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %63 = load i32, ptr %62, align 8, !tbaa !34
   %64 = zext i32 %63 to i64
-  %.not4775.not.i.i15 = icmp eq i32 %63, 0
-  br i1 %.not4775.not.i.i15, label %.critedge.i.i27, label %.lr.ph.i.i16
+  %.not4764.not.i.i15 = icmp eq i32 %63, 0
+  br i1 %.not4764.not.i.i15, label %.critedge51.i.i27, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1130,40 +1130,40 @@ _ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit: ; preds = %24, %35
   br label %67
 
 67:                                               ; preds = %._crit_edge.i.i25, %.lr.ph.i.i16
-  %.03776.i.i17 = phi i64 [ 0, %.lr.ph.i.i16 ], [ %72, %._crit_edge.i.i25 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %.03776.i.i17
+  %.03765.i.i17 = phi i64 [ 0, %.lr.ph.i.i16 ], [ %72, %._crit_edge.i.i25 ]
+  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %.03765.i.i17
   %69 = load ptr, ptr %68, align 8, !tbaa !39
   %.not.i.i18 = icmp uge ptr %1, %69
-  %.pre.i.i19 = trunc i64 %.03776.i.i17 to i32
-  %.pre88.i.i20 = lshr i32 %.pre.i.i19, 7
-  %.pre90.i.i21 = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i20, i32 30)
-  %.pre92.i.i22 = zext nneg i32 %.pre90.i.i21 to i64
-  %.pre93.i.i23 = shl nuw nsw i64 4096, %.pre92.i.i22
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.pre93.i.i23
+  %.pre.i.i19 = trunc i64 %.03765.i.i17 to i32
+  %.pre77.i.i20 = lshr i32 %.pre.i.i19, 7
+  %.pre79.i.i21 = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i20, i32 30)
+  %.pre81.i.i22 = zext nneg i32 %.pre79.i.i21 to i64
+  %.pre82.i.i23 = shl nuw nsw i64 4096, %.pre81.i.i22
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.pre82.i.i23
   %71 = icmp ult ptr %1, %70
-  %or.cond101.i.i24 = select i1 %.not.i.i18, i1 %71, i1 false
-  br i1 %or.cond101.i.i24, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit41, label %._crit_edge.i.i25
+  %or.cond90.i.i24 = select i1 %.not.i.i18, i1 %71, i1 false
+  br i1 %or.cond90.i.i24, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit41, label %._crit_edge.i.i25
 
 ._crit_edge.i.i25:                                ; preds = %67
-  %72 = add nuw nsw i64 %.03776.i.i17, 1
+  %72 = add nuw nsw i64 %.03765.i.i17, 1
   %exitcond.not.i.i26 = icmp eq i64 %72, %64
-  br i1 %exitcond.not.i.i26, label %.critedge.i.i27, label %67, !llvm.loop !40
+  br i1 %exitcond.not.i.i26, label %.critedge51.i.i27, label %67, !llvm.loop !40
 
-.critedge.i.i27:                                  ; preds = %._crit_edge.i.i25, %60
+.critedge51.i.i27:                                ; preds = %._crit_edge.i.i25, %60
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %74 = load i32, ptr %73, align 8, !tbaa !34
   %75 = zext i32 %74 to i64
-  %.not4978.not.i.i28 = icmp eq i32 %74, 0
-  br i1 %.not4978.not.i.i28, label %.loopexit16.i34, label %.lr.ph81.i.i29
+  %.not4967.not.i.i28 = icmp eq i32 %74, 0
+  br i1 %.not4967.not.i.i28, label %.loopexit.i34, label %.lr.ph70.i.i29
 
-.lr.ph81.i.i29:                                   ; preds = %.critedge.i.i27
+.lr.ph70.i.i29:                                   ; preds = %.critedge51.i.i27
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %77 = load ptr, ptr %76, align 8, !tbaa !36
   br label %78
 
-78:                                               ; preds = %85, %.lr.ph81.i.i29
-  %.04080.i.i30 = phi i64 [ 0, %.lr.ph81.i.i29 ], [ %86, %85 ]
-  %79 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %77, i64 %.04080.i.i30
+78:                                               ; preds = %85, %.lr.ph70.i.i29
+  %.04069.i.i30 = phi i64 [ 0, %.lr.ph70.i.i29 ], [ %86, %85 ]
+  %79 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %77, i64 %.04069.i.i30
   %80 = load ptr, ptr %79, align 8, !tbaa !42
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !44
@@ -1174,11 +1174,11 @@ _ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit: ; preds = %24, %35
   br i1 %or.cond.i.i32, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit41, label %85
 
 85:                                               ; preds = %78
-  %86 = add nuw nsw i64 %.04080.i.i30, 1
-  %exitcond87.not.i.i33 = icmp eq i64 %86, %75
-  br i1 %exitcond87.not.i.i33, label %.loopexit16.i34, label %78, !llvm.loop !45
+  %86 = add nuw nsw i64 %.04069.i.i30, 1
+  %exitcond76.not.i.i33 = icmp eq i64 %86, %75
+  br i1 %exitcond76.not.i.i33, label %.loopexit.i34, label %78, !llvm.loop !45
 
-.loopexit16.i34:                                  ; preds = %85, %.critedge.i.i27
+.loopexit.i34:                                    ; preds = %85, %.critedge51.i.i27
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %88 = load i64, ptr %87, align 8, !tbaa !46
   %89 = add i64 %88, %2
@@ -1194,12 +1194,12 @@ _ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit: ; preds = %24, %35
   %97 = and i1 %96, %.not.i.i.i35
   br i1 %97, label %98, label %100, !prof !59
 
-98:                                               ; preds = %.loopexit16.i34
+98:                                               ; preds = %.loopexit.i34
   %99 = inttoptr i64 %92 to ptr
   store ptr %99, ptr %61, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i36
 
-100:                                              ; preds = %.loopexit16.i34
+100:                                              ; preds = %.loopexit.i34
   %101 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %61, i64 noundef %2, i64 noundef %2, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i36
 
@@ -1527,8 +1527,8 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice11addObjCIVarEPNS0_19O
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !34
   %11 = zext i32 %10 to i64
-  %.not4775.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not4775.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not4764.not.i.i = icmp eq i32 %10, 0
+  br i1 %.not4764.not.i.i, label %.critedge51.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1536,40 +1536,40 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice11addObjCIVarEPNS0_19O
   br label %14
 
 14:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.03776.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %19, %._crit_edge.i.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.03776.i.i
+  %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %19, %._crit_edge.i.i ]
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.03765.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %.not.i.i = icmp uge ptr %2, %16
-  %.pre.i.i = trunc i64 %.03776.i.i to i32
-  %.pre88.i.i = lshr i32 %.pre.i.i, 7
-  %.pre90.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i, i32 30)
-  %.pre92.i.i = zext nneg i32 %.pre90.i.i to i64
-  %.pre93.i.i = shl nuw nsw i64 4096, %.pre92.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.pre93.i.i
+  %.pre.i.i = trunc i64 %.03765.i.i to i32
+  %.pre77.i.i = lshr i32 %.pre.i.i, 7
+  %.pre79.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i, i32 30)
+  %.pre81.i.i = zext nneg i32 %.pre79.i.i to i64
+  %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.pre82.i.i
   %18 = icmp ult ptr %2, %17
-  %or.cond101.i.i = select i1 %.not.i.i, i1 %18, i1 false
-  br i1 %or.cond101.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond90.i.i = select i1 %.not.i.i, i1 %18, i1 false
+  br i1 %or.cond90.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %14
-  %19 = add nuw nsw i64 %.03776.i.i, 1
+  %19 = add nuw nsw i64 %.03765.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, %11
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %14, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.critedge51.i.i, label %14, !llvm.loop !40
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %7
+.critedge51.i.i:                                  ; preds = %._crit_edge.i.i, %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = zext i32 %21 to i64
-  %.not4978.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not4978.not.i.i, label %.loopexit16.i, label %.lr.ph81.i.i
+  %.not4967.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not4967.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph81.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph70.i.i:                                     ; preds = %.critedge51.i.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %24 = load ptr, ptr %23, align 8, !tbaa !36
   br label %25
 
-25:                                               ; preds = %32, %.lr.ph81.i.i
-  %.04080.i.i = phi i64 [ 0, %.lr.ph81.i.i ], [ %33, %32 ]
-  %26 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %24, i64 %.04080.i.i
+25:                                               ; preds = %32, %.lr.ph70.i.i
+  %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %33, %32 ]
+  %26 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %24, i64 %.04069.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !44
@@ -1580,11 +1580,11 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice11addObjCIVarEPNS0_19O
   br i1 %or.cond.i.i, label %_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE.exit, label %32
 
 32:                                               ; preds = %25
-  %33 = add nuw nsw i64 %.04080.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %33, %22
-  br i1 %exitcond87.not.i.i, label %.loopexit16.i, label %25, !llvm.loop !45
+  %33 = add nuw nsw i64 %.04069.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %33, %22
+  br i1 %exitcond76.not.i.i, label %.loopexit.i, label %25, !llvm.loop !45
 
-.loopexit16.i:                                    ; preds = %32, %.critedge.i.i
+.loopexit.i:                                      ; preds = %32, %.critedge51.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %35 = load i64, ptr %34, align 8, !tbaa !46
   %36 = add i64 %35, %3
@@ -1600,12 +1600,12 @@ define dso_local noundef ptr @_ZN4llvm5MachO12RecordsSlice11addObjCIVarEPNS0_19O
   %44 = and i1 %43, %.not.i.i.i
   br i1 %44, label %45, label %47, !prof !59
 
-45:                                               ; preds = %.loopexit16.i
+45:                                               ; preds = %.loopexit.i
   %46 = inttoptr i64 %39 to ptr
   store ptr %46, ptr %8, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
-47:                                               ; preds = %.loopexit16.i
+47:                                               ; preds = %.loopexit.i
   %48 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef %3, i64 noundef %3, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i
 
@@ -2503,15 +2503,15 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit:       ; preds = %35, %_ZNSt11char_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5MachO12RecordsSlice10copyStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %.loopexit, label %5
+  br i1 %4, label %.critedge.i, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8, !tbaa !34
   %9 = zext i32 %8 to i64
-  %.not4775.not.i = icmp eq i32 %8, 0
-  br i1 %.not4775.not.i, label %.critedge.i, label %.lr.ph.i
+  %.not4764.not.i = icmp eq i32 %8, 0
+  br i1 %.not4764.not.i, label %.critedge51.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2519,40 +2519,40 @@ define dso_local { ptr, i64 } @_ZN4llvm5MachO12RecordsSlice10copyStringENS_9Stri
   br label %12
 
 12:                                               ; preds = %._crit_edge.i, %.lr.ph.i
-  %.03776.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %._crit_edge.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03776.i
+  %.03765.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %._crit_edge.i ]
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03765.i
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %.not.i = icmp uge ptr %1, %14
-  %.pre.i = trunc i64 %.03776.i to i32
-  %.pre88.i = lshr i32 %.pre.i, 7
-  %.pre90.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i, i32 30)
-  %.pre92.i = zext nneg i32 %.pre90.i to i64
-  %.pre93.i = shl nuw nsw i64 4096, %.pre92.i
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.pre93.i
+  %.pre.i = trunc i64 %.03765.i to i32
+  %.pre77.i = lshr i32 %.pre.i, 7
+  %.pre79.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i, i32 30)
+  %.pre81.i = zext nneg i32 %.pre79.i to i64
+  %.pre82.i = shl nuw nsw i64 4096, %.pre81.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.pre82.i
   %16 = icmp ult ptr %1, %15
-  %or.cond101.i = select i1 %.not.i, i1 %16, i1 false
-  br i1 %or.cond101.i, label %.loopexit, label %._crit_edge.i
+  %or.cond90.i = select i1 %.not.i, i1 %16, i1 false
+  br i1 %or.cond90.i, label %.critedge.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %12
-  %17 = add nuw nsw i64 %.03776.i, 1
+  %17 = add nuw nsw i64 %.03765.i, 1
   %exitcond.not.i = icmp eq i64 %17, %9
-  br i1 %exitcond.not.i, label %.critedge.i, label %12, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.critedge51.i, label %12, !llvm.loop !40
 
-.critedge.i:                                      ; preds = %._crit_edge.i, %5
+.critedge51.i:                                    ; preds = %._crit_edge.i, %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load i32, ptr %18, align 8, !tbaa !34
   %20 = zext i32 %19 to i64
-  %.not4978.not.i = icmp eq i32 %19, 0
-  br i1 %.not4978.not.i, label %.loopexit16, label %.lr.ph81.i
+  %.not4967.not.i = icmp eq i32 %19, 0
+  br i1 %.not4967.not.i, label %.loopexit, label %.lr.ph70.i
 
-.lr.ph81.i:                                       ; preds = %.critedge.i
+.lr.ph70.i:                                       ; preds = %.critedge51.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load ptr, ptr %21, align 8, !tbaa !36
   br label %23
 
-23:                                               ; preds = %30, %.lr.ph81.i
-  %.04080.i = phi i64 [ 0, %.lr.ph81.i ], [ %31, %30 ]
-  %24 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %22, i64 %.04080.i
+23:                                               ; preds = %30, %.lr.ph70.i
+  %.04069.i = phi i64 [ 0, %.lr.ph70.i ], [ %31, %30 ]
+  %24 = getelementptr inbounds nuw %"struct.std::pair.187", ptr %22, i64 %.04069.i
   %25 = load ptr, ptr %24, align 8, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !44
@@ -2560,14 +2560,14 @@ define dso_local { ptr, i64 } @_ZN4llvm5MachO12RecordsSlice10copyStringENS_9Stri
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
   %29 = icmp ult ptr %1, %28
   %or.cond.i = select i1 %.not48.i, i1 %29, i1 false
-  br i1 %or.cond.i, label %.loopexit, label %30
+  br i1 %or.cond.i, label %.critedge.i, label %30
 
 30:                                               ; preds = %23
-  %31 = add nuw nsw i64 %.04080.i, 1
-  %exitcond87.not.i = icmp eq i64 %31, %20
-  br i1 %exitcond87.not.i, label %.loopexit16, label %23, !llvm.loop !45
+  %31 = add nuw nsw i64 %.04069.i, 1
+  %exitcond76.not.i = icmp eq i64 %31, %20
+  br i1 %exitcond76.not.i, label %.loopexit, label %23, !llvm.loop !45
 
-.loopexit16:                                      ; preds = %30, %.critedge.i
+.loopexit:                                        ; preds = %30, %.critedge51.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load i64, ptr %32, align 8, !tbaa !46
   %34 = add i64 %33, %2
@@ -2583,21 +2583,21 @@ define dso_local { ptr, i64 } @_ZN4llvm5MachO12RecordsSlice10copyStringENS_9Stri
   %42 = and i1 %41, %.not.i.i
   br i1 %42, label %43, label %45, !prof !59
 
-43:                                               ; preds = %.loopexit16
+43:                                               ; preds = %.loopexit
   %44 = inttoptr i64 %37 to ptr
   store ptr %44, ptr %6, align 8, !tbaa !57
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
 
-45:                                               ; preds = %.loopexit16
+45:                                               ; preds = %.loopexit
   %46 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef %2, i64 noundef %2, i8 0)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit: ; preds = %43, %45
   %.0.i.i = phi ptr [ %35, %43 ], [ %46, %45 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i, ptr align 1 %1, i64 %2, i1 false)
-  br label %.loopexit
+  br label %.critedge.i
 
-.loopexit:                                        ; preds = %12, %23, %3, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
+.critedge.i:                                      ; preds = %12, %23, %3, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit
   %.sroa.08.0 = phi ptr [ %.0.i.i, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit ], [ null, %3 ], [ %1, %23 ], [ %1, %12 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %2, 1
@@ -5266,40 +5266,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %20 = icmp uge ptr %5, %.pre3.i
   %21 = icmp ult ptr %5, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
-  br i1 %spec.select.i.i.i.i.i, label %24, label %22, !prof !242
+  br i1 %spec.select.i.i.i.i.i, label %22, label %.critedge.i.i.i, !prof !242
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %15, i64 noundef 24) #20
+  %23 = ptrtoint ptr %5 to i64
+  %24 = ptrtoint ptr %.pre3.i to i64
+  %25 = sub i64 %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %26, i64 noundef %15, i64 noundef 24) #20
+  %27 = load ptr, ptr %0, align 8, !tbaa !36
+  %28 = getelementptr inbounds i8, ptr %27, i64 %25
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %15, i64 noundef 24) #20
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !36
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EE9push_backERKS6_.exit
 
-24:                                               ; preds = %18
-  %25 = ptrtoint ptr %5 to i64
-  %26 = ptrtoint ptr %.pre3.i to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef %15, i64 noundef 24) #20
-  %29 = load ptr, ptr %0, align 8, !tbaa !36
-  %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EE9push_backERKS6_.exit: ; preds = %4, %22, %24
-  %31 = phi ptr [ %.pre3.i, %4 ], [ %29, %24 ], [ %.pre.i, %22 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %30, %24 ], [ %5, %22 ]
-  %32 = load i32, ptr %12, align 8, !tbaa !34
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.std::pair.68", ptr %31, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %35 = load i32, ptr %12, align 8, !tbaa !34
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %12, align 8, !tbaa !34
+_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EE9push_backERKS6_.exit: ; preds = %4, %22, %.critedge.i.i.i
+  %30 = phi ptr [ %.pre3.i, %4 ], [ %27, %22 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %28, %22 ], [ %5, %.critedge.i.i.i ]
+  %31 = load i32, ptr %12, align 8, !tbaa !34
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw %"struct.std::pair.68", ptr %30, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %34 = load i32, ptr %12, align 8, !tbaa !34
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %12, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
-  %37 = load ptr, ptr %0, align 8, !tbaa !36
-  %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.68", ptr %37, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 -24
-  ret ptr %40
+  %36 = load ptr, ptr %0, align 8, !tbaa !36
+  %37 = zext i32 %35 to i64
+  %38 = getelementptr inbounds nuw %"struct.std::pair.68", ptr %36, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 -24
+  ret ptr %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

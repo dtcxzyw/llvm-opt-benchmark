@@ -2647,8 +2647,8 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE19parse_subexpressionERPKcS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not5189.not = icmp eq ptr %6, %2
-  br i1 %.not5189.not, label %._crit_edge.thread, label %.lr.ph
+  %.not5189 = icmp eq ptr %6, %2
+  br i1 %.not5189, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
   %.03892 = phi i1 [ %41, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
@@ -2752,7 +2752,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 .thread61:                                        ; preds = %38, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %._crit_edge.thread
+  br label %._crit_edge
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit: ; preds = %27, %.lr.ph
   %40 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %27 ]
@@ -2760,13 +2760,13 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S
   %42 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %40, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   %.not51 = icmp eq ptr %42, %2
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  br i1 %.not51, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
+.critedge:                                        ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #23
   unreachable
 
-._crit_edge.thread:                               ; preds = %4, %.thread61
+._crit_edge:                                      ; preds = %4, %.thread61
   %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
   store ptr %.14267, ptr %1, align 8, !tbaa !14
   ret void
@@ -7059,8 +7059,8 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE19parse_subexpressionERPKwS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not5189.not = icmp eq ptr %6, %2
-  br i1 %.not5189.not, label %._crit_edge.thread, label %.lr.ph
+  %.not5189 = icmp eq ptr %6, %2
+  br i1 %.not5189, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
   %.03892 = phi i1 [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
@@ -7162,7 +7162,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 .thread61:                                        ; preds = %39, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %._crit_edge.thread
+  br label %._crit_edge
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit: ; preds = %29, %.lr.ph
   %41 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %29 ]
@@ -7170,13 +7170,13 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S
   %43 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef %41, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   %.not51 = icmp eq ptr %43, %2
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  br i1 %.not51, label %.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
+.critedge:                                        ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #23
   unreachable
 
-._crit_edge.thread:                               ; preds = %4, %.thread61
+._crit_edge:                                      ; preds = %4, %.thread61
   %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
   store ptr %.14267, ptr %1, align 8, !tbaa !14
   ret void

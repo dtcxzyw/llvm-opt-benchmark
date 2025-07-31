@@ -792,41 +792,41 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i2_frame(ptr nounde
 
 bytestream2_init.exit.preheader:                  ; preds = %20
   %22 = icmp sgt i32 %9, 0
-  br i1 %22, label %.preheader60.lr.ph, label %.loopexit
+  br i1 %22, label %.preheader58.lr.ph, label %.loopexit
 
-.preheader60.lr.ph:                               ; preds = %bytestream2_init.exit.preheader
+.preheader58.lr.ph:                               ; preds = %bytestream2_init.exit.preheader
   %23 = icmp sgt i32 %7, 0
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %27 = shl nsw i32 %7, 4
-  br i1 %23, label %.preheader60.lr.ph.split.us, label %.loopexit
+  br i1 %23, label %.preheader58.lr.ph.split.us, label %.loopexit
 
-.preheader60.lr.ph.split.us:                      ; preds = %.preheader60.lr.ph
+.preheader58.lr.ph.split.us:                      ; preds = %.preheader58.lr.ph
   %28 = icmp samesign ugt i32 %2, 7
-  br i1 %28, label %.preheader60.us.preheader, label %.loopexit
+  br i1 %28, label %.preheader58.us.preheader, label %.loopexit
 
-.preheader60.us.preheader:                        ; preds = %.preheader60.lr.ph.split.us
+.preheader58.us.preheader:                        ; preds = %.preheader58.lr.ph.split.us
   %29 = zext nneg i32 %7 to i64
-  br label %.preheader60.us
+  br label %.preheader58.us
 
-.preheader60.us:                                  ; preds = %.preheader60.us.preheader, %._crit_edge.split.us.us
-  %.04175.us = phi i32 [ %105, %._crit_edge.split.us.us ], [ 0, %.preheader60.us.preheader ]
-  %.04274.us = phi ptr [ %104, %._crit_edge.split.us.us ], [ %14, %.preheader60.us.preheader ]
-  %.sroa.0.073.us = phi ptr [ %83, %._crit_edge.split.us.us ], [ %1, %.preheader60.us.preheader ]
+.preheader58.us:                                  ; preds = %.preheader58.us.preheader, %._crit_edge.split.us.us
+  %.04173.us = phi i32 [ %105, %._crit_edge.split.us.us ], [ 0, %.preheader58.us.preheader ]
+  %.04272.us = phi ptr [ %104, %._crit_edge.split.us.us ], [ %14, %.preheader58.us.preheader ]
+  %.sroa.0.071.us = phi ptr [ %83, %._crit_edge.split.us.us ], [ %1, %.preheader58.us.preheader ]
   br label %30
 
-30:                                               ; preds = %82, %.preheader60.us
-  %.03968.us.us = phi i32 [ 0, %.preheader60.us ], [ %85, %82 ]
-  %.14367.us.us = phi ptr [ %.04274.us, %.preheader60.us ], [ %84, %82 ]
-  %.sroa.0.166.us.us = phi ptr [ %.sroa.0.073.us, %.preheader60.us ], [ %83, %82 ]
+30:                                               ; preds = %82, %.preheader58.us
+  %.03966.us.us = phi i32 [ 0, %.preheader58.us ], [ %85, %82 ]
+  %.14365.us.us = phi ptr [ %.04272.us, %.preheader58.us ], [ %84, %82 ]
+  %.sroa.0.164.us.us = phi ptr [ %.sroa.0.071.us, %.preheader58.us ], [ %83, %82 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.166.us.us, i64 2
-  %32 = load i16, ptr %.sroa.0.166.us.us, align 1, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.164.us.us, i64 2
+  %32 = load i16, ptr %.sroa.0.164.us.us, align 1, !tbaa !41
   %33 = zext i16 %32 to i32
   store i32 %33, ptr %4, align 16, !tbaa !71
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.166.us.us, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.164.us.us, i64 4
   %35 = load i16, ptr %31, align 1, !tbaa !41
   %36 = zext i16 %35 to i32
   store i32 %36, ptr %24, align 4, !tbaa !71
@@ -884,10 +884,10 @@ bytestream2_init.exit.preheader:                  ; preds = %20
   %70 = and i16 %69, 126
   %71 = lshr i16 %32, 10
   %72 = add nuw nsw i16 %70, %71
-  %.lhs.trunc58.us.us = trunc nuw i16 %72 to i8
-  %73 = udiv i8 %.lhs.trunc58.us.us, 3
-  %.zext59.us.us = zext nneg i8 %73 to i32
-  %74 = shl nuw nsw i32 %.zext59.us.us, 10
+  %.lhs.trunc56.us.us = trunc nuw i16 %72 to i8
+  %73 = udiv i8 %.lhs.trunc56.us.us, 3
+  %.zext57.us.us = zext nneg i8 %73 to i32
+  %74 = shl nuw nsw i32 %.zext57.us.us, 10
   %.lhs.trunc.i51.us.us = trunc nuw nsw i32 %68 to i16
   %75 = udiv i16 %.lhs.trunc.i51.us.us, 96
   %76 = shl nuw nsw i16 %75, 5
@@ -902,17 +902,17 @@ bytestream2_init.exit.preheader:                  ; preds = %20
   br label %.preheader.us.us
 
 82:                                               ; preds = %87
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.166.us.us, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.164.us.us, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.14365.us.us, i64 32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
-  %84 = getelementptr inbounds nuw i8, ptr %.14367.us.us, i64 32
-  %85 = add nuw nsw i32 %.03968.us.us, 16
+  %85 = add nuw nsw i32 %.03966.us.us, 16
   %86 = icmp slt i32 %85, %7
   br i1 %86, label %30, label %._crit_edge.split.us.us, !llvm.loop !83
 
 87:                                               ; preds = %88
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 16
-  br i1 %exitcond83.not, label %82, label %.preheader.us.us, !llvm.loop !84
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next79, 16
+  br i1 %exitcond81.not, label %82, label %.preheader.us.us, !llvm.loop !84
 
 88:                                               ; preds = %.preheader.us.us, %88
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %88 ]
@@ -933,29 +933,29 @@ bytestream2_init.exit.preheader:                  ; preds = %20
   br i1 %exitcond.not, label %87, label %88, !llvm.loop !87
 
 .preheader.us.us:                                 ; preds = %87, %42
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %87 ], [ 0, %42 ]
-  %indvars.iv80.tr = trunc i64 %indvars.iv80 to i32
-  %99 = shl i32 %indvars.iv80.tr, 1
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %87 ], [ 0, %42 ]
+  %indvars.iv78.tr = trunc i64 %indvars.iv78 to i32
+  %99 = shl i32 %indvars.iv78.tr, 1
   %100 = and i32 %99, 24
-  %101 = mul nuw nsw i64 %indvars.iv80, %29
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.14367.us.us, i64 %101
+  %101 = mul nuw nsw i64 %indvars.iv78, %29
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %.14365.us.us, i64 %101
   br label %88
 
 ._crit_edge.split.us.us:                          ; preds = %82
   %102 = sub nsw i32 %27, %85
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i16, ptr %84, i64 %103
-  %105 = add nuw nsw i32 %.04175.us, 16
+  %105 = add nuw nsw i32 %.04173.us, 16
   %106 = icmp slt i32 %105, %9
-  br i1 %106, label %.preheader60.us, label %.loopexit, !llvm.loop !88
+  br i1 %106, label %.preheader58.us, label %.loopexit, !llvm.loop !88
 
 107:                                              ; preds = %20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 141) #9
   tail call void @abort() #10
   unreachable
 
-.loopexit:                                        ; preds = %._crit_edge.split.us.us, %.preheader60.lr.ph.split.us, %.preheader60.lr.ph, %bytestream2_init.exit.preheader, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ 0, %bytestream2_init.exit.preheader ], [ 0, %.preheader60.lr.ph ], [ -1094995529, %.preheader60.lr.ph.split.us ], [ 0, %._crit_edge.split.us.us ]
+.loopexit:                                        ; preds = %._crit_edge.split.us.us, %.preheader58.lr.ph.split.us, %.preheader58.lr.ph, %bytestream2_init.exit.preheader, %19
+  %.0 = phi i32 [ -1094995529, %19 ], [ 0, %bytestream2_init.exit.preheader ], [ 0, %.preheader58.lr.ph ], [ -1094995529, %.preheader58.lr.ph.split.us ], [ 0, %._crit_edge.split.us.us ]
   ret i32 %.0
 }
 

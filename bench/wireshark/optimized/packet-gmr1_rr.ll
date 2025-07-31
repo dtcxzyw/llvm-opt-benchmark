@@ -2291,26 +2291,26 @@ define internal void @gmr1_rr_msg_imm_ass_3(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gmr1_rr_msg_ciph_mode_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
-  br i1 %6, label %10, label %.thread
+  br i1 %6, label %7, label %.critedge
 
-.thread:                                          ; preds = %5
-  %7 = tail call ptr @get_gsm_a_msg_string(i32 noundef 15, i32 noundef 2)
-  %8 = tail call ptr @get_gsm_a_msg_string(i32 noundef 15, i32 noundef 3)
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gmr1_missing_mandatory_element, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.281, ptr noundef %7, ptr noundef %8)
+7:                                                ; preds = %5
+  %8 = tail call zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 15, i32 noundef 2, i32 noundef %3, i32 noundef 1)
+  %9 = tail call zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 15, i32 noundef 3, i32 noundef %3, i32 noundef 2)
+  %10 = icmp eq i32 %4, 1
+  br i1 %10, label %17, label %14
+
+.critedge:                                        ; preds = %5
+  %11 = tail call ptr @get_gsm_a_msg_string(i32 noundef 15, i32 noundef 2)
+  %12 = tail call ptr @get_gsm_a_msg_string(i32 noundef 15, i32 noundef 3)
+  %13 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gmr1_missing_mandatory_element, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.281, ptr noundef %11, ptr noundef %12)
   br label %17
 
-10:                                               ; preds = %5
-  %11 = tail call zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 15, i32 noundef 2, i32 noundef %3, i32 noundef 1)
-  %12 = tail call zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 15, i32 noundef 3, i32 noundef %3, i32 noundef 2)
-  %13 = icmp eq i32 %4, 1
-  br i1 %13, label %17, label %14
-
-14:                                               ; preds = %10
+14:                                               ; preds = %7
   %15 = add i32 %3, 1
   %16 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 117, i32 noundef 15, i32 noundef 14, i32 noundef %15, ptr noundef null)
   br label %17
 
-17:                                               ; preds = %.thread, %10, %14
+17:                                               ; preds = %7, %.critedge, %14
   ret void
 }
 

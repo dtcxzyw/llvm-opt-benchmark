@@ -4808,34 +4808,34 @@ define range(i32 0, 2) i32 @ssl_cipher_get_overhead(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = and i32 %7, 3207168
   %or.cond = icmp eq i32 %8, 0
-  br i1 %or.cond, label %9, label %.thread71
+  br i1 %or.cond, label %9, label %50
 
 9:                                                ; preds = %5
   %10 = and i32 %7, 720896
   %or.cond59 = icmp eq i32 %10, 0
-  br i1 %or.cond59, label %11, label %.thread71
+  br i1 %or.cond59, label %11, label %50
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !64
   %14 = and i32 %13, 64
   %.not56 = icmp eq i32 %14, 0
-  br i1 %.not56, label %.preheader77, label %.thread
+  br i1 %.not56, label %.preheader67, label %.critedge
 
-.preheader77:                                     ; preds = %11, %17
+.preheader67:                                     ; preds = %11, %17
   %.011.i.i = phi i64 [ %18, %17 ], [ 0, %11 ]
   %.0810.i.i = phi ptr [ %19, %17 ], [ @ssl_cipher_table_mac, %11 ]
   %15 = load i32, ptr %.0810.i.i, align 4, !tbaa !49
   %16 = icmp eq i32 %15, %13
   br i1 %16, label %ssl_cipher_info_find.exit.i, label %17
 
-17:                                               ; preds = %.preheader77
+17:                                               ; preds = %.preheader67
   %18 = add nuw nsw i64 %.011.i.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
   %exitcond.not.i.i = icmp eq i64 %18, 14
-  br i1 %exitcond.not.i.i, label %SSL_CIPHER_get_digest_nid.exit, label %.preheader77, !llvm.loop !63
+  br i1 %exitcond.not.i.i, label %SSL_CIPHER_get_digest_nid.exit, label %.preheader67, !llvm.loop !63
 
-ssl_cipher_info_find.exit.i:                      ; preds = %.preheader77
+ssl_cipher_info_find.exit.i:                      ; preds = %.preheader67
   %sext.i = shl i64 %.011.i.i, 32
   %20 = ashr exact i64 %sext.i, 32
   %21 = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %20, i32 1
@@ -4847,76 +4847,76 @@ SSL_CIPHER_get_digest_nid.exit:                   ; preds = %17, %ssl_cipher_inf
   %23 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i) #13
   %24 = tail call ptr @EVP_get_digestbyname(ptr noundef %23) #13
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %SSL_CIPHER_get_digest_nid.exit
   %27 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %24) #13
   %28 = icmp slt i32 %27, 1
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %6, align 4, !tbaa !61
   %.not57 = icmp eq i32 %30, 32
-  br i1 %.not57, label %.thread71, label %.preheader
+  br i1 %.not57, label %50, label %.preheader
 
 .preheader:                                       ; preds = %29, %33
-  %.011.i.i60 = phi i64 [ %34, %33 ], [ 0, %29 ]
-  %.0810.i.i61 = phi ptr [ %35, %33 ], [ @ssl_cipher_table_cipher, %29 ]
-  %31 = load i32, ptr %.0810.i.i61, align 4, !tbaa !49
+  %.011.i.i61 = phi i64 [ %34, %33 ], [ 0, %29 ]
+  %.0810.i.i62 = phi ptr [ %35, %33 ], [ @ssl_cipher_table_cipher, %29 ]
+  %31 = load i32, ptr %.0810.i.i62, align 4, !tbaa !49
   %32 = icmp eq i32 %31, %30
-  br i1 %32, label %ssl_cipher_info_find.exit.i64, label %33
+  br i1 %32, label %ssl_cipher_info_find.exit.i65, label %33
 
 33:                                               ; preds = %.preheader
-  %34 = add nuw nsw i64 %.011.i.i60, 1
-  %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i61, i64 8
-  %exitcond.not.i.i62 = icmp eq i64 %34, 24
-  br i1 %exitcond.not.i.i62, label %SSL_CIPHER_get_cipher_nid.exit, label %.preheader, !llvm.loop !63
+  %34 = add nuw nsw i64 %.011.i.i61, 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i62, i64 8
+  %exitcond.not.i.i63 = icmp eq i64 %34, 24
+  br i1 %exitcond.not.i.i63, label %SSL_CIPHER_get_cipher_nid.exit, label %.preheader, !llvm.loop !63
 
-ssl_cipher_info_find.exit.i64:                    ; preds = %.preheader
-  %sext.i65 = shl i64 %.011.i.i60, 32
-  %36 = ashr exact i64 %sext.i65, 32
+ssl_cipher_info_find.exit.i65:                    ; preds = %.preheader
+  %sext.i66 = shl i64 %.011.i.i61, 32
+  %36 = ashr exact i64 %sext.i66, 32
   %37 = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %36, i32 1
   %38 = load i32, ptr %37, align 4, !tbaa !43
   br label %SSL_CIPHER_get_cipher_nid.exit
 
-SSL_CIPHER_get_cipher_nid.exit:                   ; preds = %33, %ssl_cipher_info_find.exit.i64
-  %.0.i63 = phi i32 [ %38, %ssl_cipher_info_find.exit.i64 ], [ 0, %33 ]
-  %39 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i63) #13
+SSL_CIPHER_get_cipher_nid.exit:                   ; preds = %33, %ssl_cipher_info_find.exit.i65
+  %.0.i64 = phi i32 [ %38, %ssl_cipher_info_find.exit.i65 ], [ 0, %33 ]
+  %39 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i64) #13
   %40 = tail call ptr @EVP_get_cipherbyname(ptr noundef %39) #13
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %SSL_CIPHER_get_cipher_nid.exit
   %43 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %40) #13
   %.not58 = icmp eq i32 %43, 2
-  br i1 %.not58, label %44, label %.thread
+  br i1 %.not58, label %44, label %.critedge
 
 44:                                               ; preds = %42
   %45 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %40) #13
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %44
   %48 = tail call i32 @EVP_CIPHER_get_block_size(ptr noundef nonnull %40) #13
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.thread71, label %.thread
+  br i1 %49, label %50, label %.critedge
 
-.thread71:                                        ; preds = %29, %9, %5, %47
-  %.042 = phi i32 [ %45, %47 ], [ 24, %5 ], [ 16, %9 ], [ 0, %29 ]
-  %.036 = phi i32 [ %48, %47 ], [ 0, %5 ], [ 0, %9 ], [ 0, %29 ]
-  %.032 = phi i64 [ 1, %47 ], [ 0, %5 ], [ 0, %9 ], [ 0, %29 ]
-  %.030 = phi i32 [ %27, %47 ], [ 0, %5 ], [ 0, %9 ], [ %27, %29 ]
-  %50 = zext nneg i32 %.030 to i64
-  store i64 %50, ptr %1, align 8, !tbaa !55
+50:                                               ; preds = %47, %29, %9, %5
+  %.042 = phi i32 [ 24, %5 ], [ 16, %9 ], [ 0, %29 ], [ %45, %47 ]
+  %.036 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %29 ], [ %48, %47 ]
+  %.032 = phi i64 [ 0, %5 ], [ 0, %9 ], [ 0, %29 ], [ 1, %47 ]
+  %.030 = phi i32 [ 0, %5 ], [ 0, %9 ], [ %27, %29 ], [ %27, %47 ]
+  %51 = zext nneg i32 %.030 to i64
+  store i64 %51, ptr %1, align 8, !tbaa !55
   store i64 %.032, ptr %2, align 8, !tbaa !55
-  %51 = zext nneg i32 %.036 to i64
-  store i64 %51, ptr %3, align 8, !tbaa !55
-  %52 = zext nneg i32 %.042 to i64
-  store i64 %52, ptr %4, align 8, !tbaa !55
-  br label %.thread
+  %52 = zext nneg i32 %.036 to i64
+  store i64 %52, ptr %3, align 8, !tbaa !55
+  %53 = zext nneg i32 %.042 to i64
+  store i64 %53, ptr %4, align 8, !tbaa !55
+  br label %.critedge
 
-.thread:                                          ; preds = %44, %SSL_CIPHER_get_cipher_nid.exit, %42, %26, %SSL_CIPHER_get_digest_nid.exit, %11, %47, %.thread71
-  %.0 = phi i32 [ 1, %.thread71 ], [ 0, %47 ], [ 0, %11 ], [ 0, %SSL_CIPHER_get_digest_nid.exit ], [ 0, %26 ], [ 0, %42 ], [ 0, %SSL_CIPHER_get_cipher_nid.exit ], [ 0, %44 ]
+.critedge:                                        ; preds = %42, %SSL_CIPHER_get_cipher_nid.exit, %44, %47, %SSL_CIPHER_get_digest_nid.exit, %26, %11, %50
+  %.0 = phi i32 [ 1, %50 ], [ 0, %11 ], [ 0, %26 ], [ 0, %SSL_CIPHER_get_digest_nid.exit ], [ 0, %47 ], [ 0, %44 ], [ 0, %SSL_CIPHER_get_cipher_nid.exit ], [ 0, %42 ]
   ret i32 %.0
 }
 

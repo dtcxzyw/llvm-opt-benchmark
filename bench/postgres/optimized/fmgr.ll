@@ -776,20 +776,16 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %.not112 = icmp eq ptr %67, null
-  br i1 %.not112, label %._crit_edge, label %.lr.ph
+  br i1 %.not112, label %.critedge125, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pg_detoast_datum.exit
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load i32, ptr %68, align 4
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph133, label %._crit_edge
+  br i1 %71, label %.lr.ph131, label %.critedge125
 
-._crit_edge:                                      ; preds = %.lr.ph133, %.lr.ph, %pg_detoast_datum.exit
-  store ptr %56, ptr @CurrentMemoryContext, align 8
-  br label %83
-
-.lr.ph133:                                        ; preds = %.lr.ph, %.lr.ph133
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph133 ], [ 0, %.lr.ph ]
+.lr.ph131:                                        ; preds = %.lr.ph, %.lr.ph131
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph131 ], [ 0, %.lr.ph ]
   %72 = load ptr, ptr %69, align 8
   %73 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
@@ -805,9 +801,13 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %80 = load i32, ptr %68, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %.lr.ph133, label %._crit_edge
+  br i1 %82, label %.lr.ph131, label %.critedge125
 
-83:                                               ; preds = %._crit_edge, %48
+.critedge125:                                     ; preds = %.lr.ph131, %.lr.ph, %pg_detoast_datum.exit
+  store ptr %56, ptr @CurrentMemoryContext, align 8
+  br label %83
+
+83:                                               ; preds = %.critedge125, %48
   call void @ReleaseSysCache(ptr noundef nonnull %28) #13
   %.0..0..0..0.60 = load volatile ptr, ptr %2, align 8
   %84 = load ptr, ptr %0, align 8
@@ -869,38 +869,38 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %113 = select i1 %.not118, i1 true, i1 %.not116
-  %or.cond142 = select i1 %113, i1 true, i1 %.not117
-  br i1 %or.cond142, label %.critedge, label %.split.split.split
+  %or.cond140 = select i1 %113, i1 true, i1 %.not117
+  br i1 %or.cond140, label %.critedge, label %.split.split.split
 
 .split.split.split:                               ; preds = %100, %139
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %139 ], [ 0, %100 ]
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %139 ], [ 0, %100 ]
   %114 = load i32, ptr %108, align 4
   %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv139, %115
+  %116 = icmp slt i64 %indvars.iv137, %115
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %.split.split.split
   %118 = load ptr, ptr %109, align 8
-  %119 = getelementptr inbounds nuw %union.ListCell, ptr %118, i64 %indvars.iv139
+  %119 = getelementptr inbounds nuw %union.ListCell, ptr %118, i64 %indvars.iv137
   br label %120
 
 120:                                              ; preds = %.split.split.split, %117
   %121 = phi ptr [ %119, %117 ], [ null, %.split.split.split ]
   %122 = load i32, ptr %110, align 4
   %123 = sext i32 %122 to i64
-  %124 = icmp slt i64 %indvars.iv139, %123
+  %124 = icmp slt i64 %indvars.iv137, %123
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %111, align 8
-  %127 = getelementptr inbounds nuw %union.ListCell, ptr %126, i64 %indvars.iv139
+  %127 = getelementptr inbounds nuw %union.ListCell, ptr %126, i64 %indvars.iv137
   br label %128
 
 128:                                              ; preds = %120, %125
   %129 = phi ptr [ %127, %125 ], [ null, %120 ]
   %130 = load i32, ptr %107, align 4
   %131 = sext i32 %130 to i64
-  %132 = icmp slt i64 %indvars.iv139, %131
+  %132 = icmp slt i64 %indvars.iv137, %131
   br i1 %132, label %133, label %.critedge
 
 133:                                              ; preds = %128
@@ -918,7 +918,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   br i1 %.not119, label %150, label %148
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds nuw %union.ListCell, ptr %134, i64 %indvars.iv139
+  %140 = getelementptr inbounds nuw %union.ListCell, ptr %134, i64 %indvars.iv137
   %141 = call zeroext i1 @superuser() #13
   %142 = select i1 %141, i32 5, i32 6
   %143 = load ptr, ptr %121, align 8
@@ -926,7 +926,7 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %145 = load ptr, ptr %140, align 8
   %146 = call i32 @GetUserId() #13
   %147 = call i32 @set_config_with_handle(ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef %142, i32 noundef 13, i32 noundef %146, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #13
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   br label %.split.split.split, !llvm.loop !8
 
 148:                                              ; preds = %.critedge

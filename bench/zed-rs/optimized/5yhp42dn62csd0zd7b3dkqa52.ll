@@ -17288,7 +17288,7 @@ define hidden void @"_ZN71_$LT$outline..OutlineViewDelegate$u20$as$u20$picker..P
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4832
   %5 = load i64, ptr %4, align 8, !alias.scope !3954, !noalias !3957, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4808
@@ -17333,7 +17333,7 @@ define hidden void @"_ZN71_$LT$outline..OutlineViewDelegate$u20$as$u20$picker..P
   %27 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i, splat (i8 -1)
   %28 = bitcast <16 x i1> %27 to i16
   %.not.i.i.i.i = icmp eq i16 %28, 0
-  br i1 %.not.i.i.i.i, label %32, label %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit.thread
+  br i1 %.not.i.i.i.i, label %32, label %.critedge
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17heea25407e5c70676E.exit.thread.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17heea25407e5c70676E.exit.i.i.i", %.lr.ph.i.i.i
   %29 = add i16 %.sroa.06.0.i27.i.i.i, -1
@@ -17350,7 +17350,7 @@ _ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.
   %35 = getelementptr i8, ptr %22, i64 -8
   %.val5.i.i = load i64, ptr %35, align 8, !alias.scope !3989, !noalias !3992, !noundef !4
   %36 = icmp eq i64 %.val5.i.i, 0
-  br i1 %36, label %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf20e83b362c9c126E.llvm.307468510663036300.exit"
+  br i1 %36, label %.critedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf20e83b362c9c126E.llvm.307468510663036300.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf20e83b362c9c126E.llvm.307468510663036300.exit": ; preds = %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit
   %37 = getelementptr i8, ptr %22, i64 -16
@@ -17376,9 +17376,9 @@ _ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.
   tail call void @_ZN6editor6Editor20clear_row_highlights17h5b2bfbac43a0b4a3E.llvm.307468510663036300(ptr noalias noundef nonnull align 8 dereferenceable(5472) %0)
   tail call void @_ZN6editor6Editor5focus17h5c4f3767501dc6a2E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit.thread
+  br label %.critedge
 
-_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit.thread: ; preds = %._crit_edge.i.i.i, %2, %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf20e83b362c9c126E.llvm.307468510663036300.exit"
+.critedge:                                        ; preds = %._crit_edge.i.i.i, %2, %_ZN6editor6Editor16highlighted_rows17h78d19174f1cc2ec4E.llvm.307468510663036300.exit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf20e83b362c9c126E.llvm.307468510663036300.exit"
   ret void
 }
 

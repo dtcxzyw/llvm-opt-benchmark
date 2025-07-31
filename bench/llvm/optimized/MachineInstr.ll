@@ -9789,9 +9789,9 @@ _ZNK4llvm17MachineMemOperand7getSizeEv.exit117.i: ; preds = %_ZNK4llvm3LLT14getS
   %249 = and i64 %.sroa.03.0.i.i, 4611686018427387904
   %250 = icmp ne i64 %249, 0
   %251 = and i64 %.sroa.03.0.i113.i, 4611686018427387904
-  %.not179.i = icmp eq i64 %251, 0
+  %.not176.i = icmp eq i64 %251, 0
   %not..i = xor i1 %250, true
-  %252 = select i1 %not..i, i1 %.not179.i, i1 false
+  %252 = select i1 %not..i, i1 %.not176.i, i1 false
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %188, align 8
   %253 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %254 = icmp eq i64 %253, 0
@@ -9865,8 +9865,8 @@ _ZNK4llvm17MachineMemOperand7getSizeEv.exit117.i: ; preds = %_ZNK4llvm3LLT14getS
   %brmerge.i = or i1 %.not101.i, %or.cond.not.i
   %288 = icmp sgt i64 %207, 0
   %or.cond15.i = select i1 %250, i1 %288, i1 false
-  %or.cond178.i = select i1 %brmerge.i, i1 true, i1 %or.cond15.i
-  br i1 %or.cond178.i, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread, label %289
+  %or.cond175.i = select i1 %brmerge.i, i1 true, i1 %or.cond15.i
+  br i1 %or.cond175.i, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread, label %289
 
 289:                                              ; preds = %287
   %290 = icmp ne i64 %251, 0
@@ -9922,7 +9922,7 @@ _ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #25
   br i1 %.not109, label %_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit.thread103, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread
 
-_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit.thread103: ; preds = %273, %266, %283, %_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit
+_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit.thread103: ; preds = %266, %273, %283, %_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit
   %311 = getelementptr inbounds nuw i8, ptr %.040117, i64 8
   %.not42 = icmp eq ptr %311, %201
   br i1 %.not42, label %.critedge, label %205
@@ -20083,19 +20083,19 @@ declare noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef n
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !249
   %3 = icmp ult i8 %2, 29
-  br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %1
   switch i8 %2, label %43 [
-    i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 47, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 50, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 53, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 74, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 75, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 83, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+    i8 41, label %.critedge
+    i8 43, label %.critedge
+    i8 45, label %.critedge
+    i8 47, label %.critedge
+    i8 50, label %.critedge
+    i8 53, label %.critedge
+    i8 74, label %.critedge
+    i8 75, label %.critedge
+    i8 83, label %.critedge
     i8 84, label %5
     i8 86, label %5
     i8 85, label %5
@@ -20128,8 +20128,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   %18 = and i32 %16, 253
   %spec.select.i.i.i = icmp eq i32 %18, 4
-  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
-  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
+  %or.cond24 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond24, label %.critedge, label %19
 
 19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
@@ -20141,11 +20141,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
   %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
+  br i1 %.not27.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -20188,21 +20188,21 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
   %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
   %trunc.i.i.i.i.i = trunc i32 %40 to i8
   %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
-  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
-  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %switch.shifted21 = lshr i8 47, %trunc.i.i.i.i.i
+  %switch.lobit22 = trunc i8 %switch.shifted21 to i1
+  %or.cond23 = select i1 %41, i1 %switch.lobit22, i1 false
+  br i1 %or.cond23, label %.critedge, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
 _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
   %42 = and i32 %40, 253
   %spec.select.i.i21.i.i = icmp eq i32 %42, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
 43:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 
@@ -22019,40 +22019,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4
   %12 = icmp uge ptr %3, %.pre3.i
   %13 = icmp ult ptr %3, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i.i, label %16, label %14, !prof !751
+  br i1 %spec.select.i.i.i.i.i, label %14, label %.critedge.i.i.i, !prof !751
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %15, i64 noundef %7, i64 noundef 32) #25
+  %15 = ptrtoint ptr %3 to i64
+  %16 = ptrtoint ptr %.pre3.i to i64
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %7, i64 noundef 32) #25
+  %19 = load ptr, ptr %0, align 8, !tbaa !206
+  %20 = getelementptr inbounds i8, ptr %19, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
+
+.critedge.i.i.i:                                  ; preds = %10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %7, i64 noundef 32) #25
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !206
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
 
-16:                                               ; preds = %10
-  %17 = ptrtoint ptr %3 to i64
-  %18 = ptrtoint ptr %.pre3.i to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %20, i64 noundef %7, i64 noundef 32) #25
-  %21 = load ptr, ptr %0, align 8, !tbaa !206
-  %22 = getelementptr inbounds i8, ptr %21, i64 %19
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit: ; preds = %2, %14, %16
-  %23 = phi ptr [ %.pre3.i, %2 ], [ %21, %16 ], [ %.pre.i, %14 ]
-  %.016.i.i.i = phi ptr [ %3, %2 ], [ %22, %16 ], [ %3, %14 ]
-  %24 = load i32, ptr %4, align 8, !tbaa !205
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %23, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %27 = load i32, ptr %4, align 8, !tbaa !205
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %4, align 8, !tbaa !205
+_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit: ; preds = %2, %14, %.critedge.i.i.i
+  %22 = phi ptr [ %.pre3.i, %2 ], [ %19, %14 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %3, %2 ], [ %20, %14 ], [ %3, %.critedge.i.i.i ]
+  %23 = load i32, ptr %4, align 8, !tbaa !205
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %22, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %26 = load i32, ptr %4, align 8, !tbaa !205
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %4, align 8, !tbaa !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
-  %29 = load ptr, ptr %0, align 8, !tbaa !206
-  %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 -32
-  ret ptr %32
+  %28 = load ptr, ptr %0, align 8, !tbaa !206
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %28, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 -32
+  ret ptr %31
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

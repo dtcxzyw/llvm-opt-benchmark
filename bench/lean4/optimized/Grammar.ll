@@ -11685,12 +11685,12 @@ define zeroext range(i8 0, 2) i8 @l_Lake_Toml_unquotedKeyFn___lambda__1(i32 noun
   %5 = add i32 %0, -123
   %or.cond = icmp ult i32 %5, -26
   %or.cond74 = and i1 %4, %or.cond
-  br i1 %or.cond74, label %lean_dec.exit.thread, label %10
+  br i1 %or.cond74, label %lean_dec.exit.thread, label %.critedge
 
 lean_dec.exit63:                                  ; preds = %lean_dec.exit, %lean_dec.exit.thread
   %6 = icmp eq i32 %0, 45
   %7 = zext i1 %6 to i8
-  br label %10
+  br label %.critedge
 
 lean_dec.exit:                                    ; preds = %1
   %8 = icmp samesign ult i32 %0, 48
@@ -11700,9 +11700,9 @@ lean_dec.exit.thread:                             ; preds = %3, %lean_dec.exit
   %9 = icmp ult i32 %0, 58
   %.not = icmp eq i32 %0, 95
   %or.cond73 = or i1 %9, %.not
-  br i1 %or.cond73, label %10, label %lean_dec.exit63
+  br i1 %or.cond73, label %.critedge, label %lean_dec.exit63
 
-10:                                               ; preds = %lean_dec.exit.thread, %3, %lean_dec.exit63
+.critedge:                                        ; preds = %lean_dec.exit.thread, %3, %lean_dec.exit63
   %.2 = phi i8 [ %7, %lean_dec.exit63 ], [ 1, %3 ], [ 1, %lean_dec.exit.thread ]
   ret i8 %.2
 }

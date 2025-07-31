@@ -5339,7 +5339,7 @@ define hidden noundef zeroext i1 @_ZNK3smt17theory_array_base9is_sharedEi(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !551
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread121, label %_ZN3smt5enode11end_parentsEv.exit
+  br i1 %12, label %.critedge, label %_ZN3smt5enode11end_parentsEv.exit
 
 _ZN3smt5enode11end_parentsEv.exit:                ; preds = %2
   %13 = getelementptr inbounds i8, ptr %11, i64 -4
@@ -5347,21 +5347,21 @@ _ZN3smt5enode11end_parentsEv.exit:                ; preds = %2
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 %16
-  %.not151.not = icmp eq i32 %14, 0
-  br i1 %.not151.not, label %.thread121, label %.lr.ph158
+  %.not145.not = icmp eq i32 %14, 0
+  br i1 %.not145.not, label %.critedge, label %.lr.ph152
 
-.lr.ph158:                                        ; preds = %_ZN3smt5enode11end_parentsEv.exit
+.lr.ph152:                                        ; preds = %_ZN3smt5enode11end_parentsEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   br label %20
 
-20:                                               ; preds = %.lr.ph158, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
-  %.073156 = phi i8 [ 0, %.lr.ph158 ], [ %.376, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
-  %.078155 = phi i8 [ 0, %.lr.ph158 ], [ %.583, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
-  %.084154 = phi ptr [ %11, %.lr.ph158 ], [ %97, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
-  %.085153 = phi i32 [ 0, %.lr.ph158 ], [ %.792, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
-  %.094152 = phi i8 [ 0, %.lr.ph158 ], [ %.397, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
-  %21 = load ptr, ptr %.084154, align 8, !tbaa !655
+20:                                               ; preds = %.lr.ph152, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
+  %.073150 = phi i8 [ 0, %.lr.ph152 ], [ %.376, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
+  %.078149 = phi i8 [ 0, %.lr.ph152 ], [ %.583, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
+  %.084148 = phi ptr [ %11, %.lr.ph152 ], [ %97, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
+  %.085147 = phi i32 [ 0, %.lr.ph152 ], [ %.792, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
+  %.094146 = phi i8 [ 0, %.lr.ph152 ], [ %.397, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ]
+  %21 = load ptr, ptr %.084148, align 8, !tbaa !655
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 8
@@ -5398,60 +5398,60 @@ _ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit: ; preds = %_ZNK3smt5enod
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !656
   %44 = icmp ne ptr %43, %9
-  %45 = trunc nuw i8 %.073156 to i1
+  %45 = trunc nuw i8 %.073150 to i1
   %or.cond = select i1 %44, i1 true, i1 %45
   %not.or.cond = xor i1 %or.cond, true
   %46 = zext i1 %not.or.cond to i32
-  %spec.select = add nsw i32 %.085153, %46
-  %spec.select101 = select i1 %or.cond, i8 %.073156, i8 1
+  %spec.select = add nsw i32 %.085147, %46
+  %spec.select101 = select i1 %or.cond, i8 %.073150, i8 1
   %47 = icmp sgt i32 %spec.select, 1
-  br i1 %47, label %.thread121, label %.preheader
+  br i1 %47, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %39
   %48 = add i32 %28, -1
-  %.not100143 = icmp ugt i32 %48, 1
-  %wide.trip.count174 = zext i32 %48 to i64
-  br i1 %.not100143, label %.lr.ph147, label %._crit_edge
+  %.not100137 = icmp ugt i32 %48, 1
+  %wide.trip.count168 = zext i32 %48 to i64
+  br i1 %.not100137, label %.lr.ph141, label %._crit_edge
 
-.lr.ph147:                                        ; preds = %.preheader, %57
-  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %57 ], [ 1, %.preheader ]
-  %.280145 = phi i8 [ %spec.select103, %57 ], [ %.078155, %.preheader ]
-  %.388144 = phi i32 [ %spec.select102, %57 ], [ %spec.select, %.preheader ]
-  %49 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv172
+.lr.ph141:                                        ; preds = %.preheader, %57
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %57 ], [ 1, %.preheader ]
+  %.280139 = phi i8 [ %spec.select103, %57 ], [ %.078149, %.preheader ]
+  %.388138 = phi i32 [ %spec.select102, %57 ], [ %spec.select, %.preheader ]
+  %49 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %indvars.iv166
   %50 = load ptr, ptr %49, align 8, !tbaa !655
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !656
   %53 = icmp ne ptr %52, %9
-  %54 = trunc nuw i8 %.280145 to i1
+  %54 = trunc nuw i8 %.280139 to i1
   %or.cond5 = select i1 %53, i1 true, i1 %54
   %not.or.cond5 = xor i1 %or.cond5, true
   %55 = zext i1 %not.or.cond5 to i32
-  %spec.select102 = add nsw i32 %.388144, %55
+  %spec.select102 = add nsw i32 %.388138, %55
   %56 = icmp sgt i32 %spec.select102, 1
-  br i1 %56, label %.thread121, label %57
+  br i1 %56, label %.critedge, label %57
 
-57:                                               ; preds = %.lr.ph147
-  %spec.select103 = select i1 %or.cond5, i8 %.280145, i8 1
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph147, !llvm.loop !713
+57:                                               ; preds = %.lr.ph141
+  %spec.select103 = select i1 %or.cond5, i8 %.280139, i8 1
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count168
+  br i1 %exitcond169.not, label %._crit_edge, label %.lr.ph141, !llvm.loop !713
 
 ._crit_edge:                                      ; preds = %57, %.preheader
   %.388.lcssa = phi i32 [ %spec.select, %.preheader ], [ %spec.select102, %57 ]
-  %.280.lcssa = phi i8 [ %.078155, %.preheader ], [ %spec.select103, %57 ]
-  %58 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %wide.trip.count174
+  %.280.lcssa = phi i8 [ %.078149, %.preheader ], [ %spec.select103, %57 ]
+  %58 = getelementptr inbounds nuw [0 x ptr], ptr %40, i64 0, i64 %wide.trip.count168
   %59 = load ptr, ptr %58, align 8, !tbaa !655
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !656
   %62 = icmp ne ptr %61, %9
-  %63 = trunc nuw i8 %.094152 to i1
+  %63 = trunc nuw i8 %.094146 to i1
   %or.cond7 = select i1 %62, i1 true, i1 %63
-  %spec.select104 = select i1 %or.cond7, i8 %.094152, i8 1
+  %spec.select104 = select i1 %or.cond7, i8 %.094146, i8 1
   %not.or.cond7 = xor i1 %or.cond7, true
   %64 = zext i1 %not.or.cond7 to i32
   %spec.select105 = add nsw i32 %.388.lcssa, %64
   %65 = icmp sgt i32 %spec.select105, 1
-  br i1 %65, label %.thread121, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
+  br i1 %65, label %.critedge, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
 
 _ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit: ; preds = %_ZNK3smt17theory_array_base8is_storeEPKNS_5enodeE.exit
   %66 = icmp eq i32 %36, 1
@@ -5464,42 +5464,42 @@ _ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit: ; preds = %_ZNK3smt17th
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !656
   %73 = icmp ne ptr %72, %9
-  %74 = trunc nuw i8 %.073156 to i1
+  %74 = trunc nuw i8 %.073150 to i1
   %or.cond9 = select i1 %73, i1 true, i1 %74
   %not.or.cond9 = xor i1 %or.cond9, true
   %75 = zext i1 %not.or.cond9 to i32
-  %spec.select106 = add nsw i32 %.085153, %75
-  %spec.select107 = select i1 %or.cond9, i8 %.073156, i8 1
+  %spec.select106 = add nsw i32 %.085147, %75
+  %spec.select107 = select i1 %or.cond9, i8 %.073150, i8 1
   %76 = icmp sgt i32 %spec.select106, 1
-  br i1 %76, label %.thread121, label %.preheader127
+  br i1 %76, label %.critedge, label %.preheader121
 
-.preheader127:                                    ; preds = %68
-  %.not99138 = icmp ugt i32 %28, 1
-  br i1 %.not99138, label %.lr.ph.preheader, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
+.preheader121:                                    ; preds = %68
+  %.not99132 = icmp ugt i32 %28, 1
+  br i1 %.not99132, label %.lr.ph.preheader, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
 
-.lr.ph.preheader:                                 ; preds = %.preheader127
+.lr.ph.preheader:                                 ; preds = %.preheader121
   %wide.trip.count = zext i32 %28 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %85 ]
-  %.6140 = phi i8 [ %.078155, %.lr.ph.preheader ], [ %spec.select109, %85 ]
-  %.9139 = phi i32 [ %spec.select106, %.lr.ph.preheader ], [ %spec.select108, %85 ]
+  %.6134 = phi i8 [ %.078149, %.lr.ph.preheader ], [ %spec.select109, %85 ]
+  %.9133 = phi i32 [ %spec.select106, %.lr.ph.preheader ], [ %spec.select108, %85 ]
   %77 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !655
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !656
   %81 = icmp ne ptr %80, %9
-  %82 = trunc nuw i8 %.6140 to i1
+  %82 = trunc nuw i8 %.6134 to i1
   %or.cond11 = select i1 %81, i1 true, i1 %82
   %not.or.cond11 = xor i1 %or.cond11, true
   %83 = zext i1 %not.or.cond11 to i32
-  %spec.select108 = add nsw i32 %.9139, %83
+  %spec.select108 = add nsw i32 %.9133, %83
   %84 = icmp sgt i32 %spec.select108, 1
-  br i1 %84, label %.thread121, label %85
+  br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %.lr.ph
-  %spec.select109 = select i1 %or.cond11, i8 %.6140, i8 1
+  %spec.select109 = select i1 %or.cond11, i8 %.6134, i8 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread, label %.lr.ph, !llvm.loop !714
@@ -5515,27 +5515,27 @@ _ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit: ; preds = %_ZNK3smt17the
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !656
   %93 = icmp ne ptr %92, %9
-  %94 = trunc nuw i8 %.094152 to i1
+  %94 = trunc nuw i8 %.094146 to i1
   %or.cond13 = select i1 %93, i1 true, i1 %94
-  %spec.select110 = select i1 %or.cond13, i8 %.094152, i8 1
+  %spec.select110 = select i1 %or.cond13, i8 %.094146, i8 1
   %not.or.cond13 = xor i1 %or.cond13, true
   %95 = zext i1 %not.or.cond13 to i32
-  %spec.select111 = add nsw i32 %.085153, %95
+  %spec.select111 = add nsw i32 %.085147, %95
   %96 = icmp sgt i32 %spec.select111, 1
-  br i1 %96, label %.thread121, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
+  br i1 %96, label %.critedge, label %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread
 
-_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread: ; preds = %85, %.preheader127, %_ZNK3smt5enode12get_num_argsEv.exit, %88, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit, %._crit_edge
-  %.397 = phi i8 [ %spec.select104, %._crit_edge ], [ %spec.select110, %88 ], [ %.094152, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.094152, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %.094152, %.preheader127 ], [ %.094152, %85 ]
-  %.792 = phi i32 [ %spec.select105, %._crit_edge ], [ %spec.select111, %88 ], [ %.085153, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.085153, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %spec.select106, %.preheader127 ], [ %spec.select108, %85 ]
-  %.583 = phi i8 [ %.280.lcssa, %._crit_edge ], [ %.078155, %88 ], [ %.078155, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.078155, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %.078155, %.preheader127 ], [ %spec.select109, %85 ]
-  %.376 = phi i8 [ %spec.select101, %._crit_edge ], [ %.073156, %88 ], [ %.073156, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.073156, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %spec.select107, %.preheader127 ], [ %spec.select107, %85 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.084154, i64 8
+_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread: ; preds = %85, %.preheader121, %_ZNK3smt5enode12get_num_argsEv.exit, %88, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit, %._crit_edge
+  %.397 = phi i8 [ %spec.select104, %._crit_edge ], [ %spec.select110, %88 ], [ %.094146, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.094146, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %.094146, %.preheader121 ], [ %.094146, %85 ]
+  %.792 = phi i32 [ %spec.select105, %._crit_edge ], [ %spec.select111, %88 ], [ %.085147, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.085147, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %spec.select106, %.preheader121 ], [ %spec.select108, %85 ]
+  %.583 = phi i8 [ %.280.lcssa, %._crit_edge ], [ %.078149, %88 ], [ %.078149, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.078149, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %.078149, %.preheader121 ], [ %spec.select109, %85 ]
+  %.376 = phi i8 [ %spec.select101, %._crit_edge ], [ %.073150, %88 ], [ %.073150, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit ], [ %.073150, %_ZNK3smt5enode12get_num_argsEv.exit ], [ %spec.select107, %.preheader121 ], [ %spec.select107, %85 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.084148, i64 8
   %.not.not = icmp eq ptr %97, %17
-  br i1 %.not.not, label %.thread121, label %20, !llvm.loop !715
+  br i1 %.not.not, label %.critedge, label %20, !llvm.loop !715
 
-.thread121:                                       ; preds = %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread, %39, %._crit_edge, %68, %88, %.lr.ph, %.lr.ph147, %2, %_ZN3smt5enode11end_parentsEv.exit
-  %.not137 = phi i1 [ false, %_ZN3smt5enode11end_parentsEv.exit ], [ false, %2 ], [ true, %.lr.ph147 ], [ true, %.lr.ph ], [ false, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ], [ true, %39 ], [ true, %._crit_edge ], [ true, %68 ], [ true, %88 ]
-  ret i1 %.not137
+.critedge:                                        ; preds = %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread, %88, %68, %._crit_edge, %39, %.lr.ph, %.lr.ph141, %2, %_ZN3smt5enode11end_parentsEv.exit
+  %.not131 = phi i1 [ false, %_ZN3smt5enode11end_parentsEv.exit ], [ false, %2 ], [ true, %.lr.ph141 ], [ true, %.lr.ph ], [ false, %_ZNK3smt17theory_array_base8is_constEPKNS_5enodeE.exit.thread ], [ true, %88 ], [ true, %68 ], [ true, %._crit_edge ], [ true, %39 ]
+  ret i1 %.not131
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

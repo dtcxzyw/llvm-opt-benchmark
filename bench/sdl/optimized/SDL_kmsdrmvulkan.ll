@@ -101,11 +101,7 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
 .preheader:                                       ; preds = %22
   %24 = load i32, ptr %3, align 4
   %.not47 = icmp eq i32 %24, 0
-  br i1 %.not47, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %.preheader
-  call void @SDL_free_REAL(ptr noundef nonnull %23) #5
-  br label %.sink.split
+  br i1 %.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader ]
@@ -137,8 +133,12 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
   %.str.7.mux = select i1 %.129, ptr @.str.8, ptr @.str.7
   br i1 %35, label %39, label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %._crit_edge.thread
-  %.str.8.sink = phi ptr [ @.str.7, %._crit_edge.thread ], [ %.str.7.mux, %._crit_edge ]
+.critedge:                                        ; preds = %.preheader
+  call void @SDL_free_REAL(ptr noundef nonnull %23) #5
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %._crit_edge, %.critedge
+  %.str.8.sink = phi ptr [ @.str.7, %.critedge ], [ %.str.7.mux, %._crit_edge ]
   %36 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.8.sink) #5
   br label %37
 

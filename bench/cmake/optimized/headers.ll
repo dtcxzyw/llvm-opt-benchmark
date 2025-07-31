@@ -25,33 +25,33 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %or.cond7.not88 = or i1 %11, %or.cond3.not78.not84.not90
   %12 = icmp slt i32 %4, -1
   %or.cond9 = or i1 %12, %or.cond7.not88
-  br i1 %or.cond9, label %.thread, label %13
+  br i1 %or.cond9, label %.critedge, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   %15 = tail call i64 @Curl_llist_count(ptr noundef nonnull %14) #5
   %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %.thread, label %16
+  br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   %18 = load i32, ptr %17, align 8, !tbaa !4
   %19 = icmp sgt i32 %4, %18
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = icmp eq i32 %4, -1
   %spec.select = select i1 %21, i32 %18, i32 %4
   %22 = tail call ptr @Curl_llist_head(ptr noundef nonnull %14) #5
-  %.not94105 = icmp eq ptr %22, null
-  br i1 %.not94105, label %.thread, label %.lr.ph
+  %.not94103 = icmp eq ptr %22, null
+  br i1 %.not94103, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %38
-  %.0109 = phi ptr [ %.1, %38 ], [ null, %20 ]
-  %.063108 = phi i64 [ %.164, %38 ], [ 0, %20 ]
-  %.068107 = phi ptr [ %.169, %38 ], [ null, %20 ]
-  %.072106 = phi ptr [ %39, %38 ], [ %22, %20 ]
-  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072106) #5
+  %.0107 = phi ptr [ %.1, %38 ], [ null, %20 ]
+  %.063106 = phi i64 [ %.164, %38 ], [ 0, %20 ]
+  %.068105 = phi ptr [ %.169, %38 ], [ null, %20 ]
+  %.072104 = phi ptr [ %39, %38 ], [ %22, %20 ]
+  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072104) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !77
   %26 = tail call i32 @curl_strequal(ptr noundef %25, ptr noundef %1) #5
@@ -73,24 +73,24 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = add i64 %.063108, 1
+  %37 = add i64 %.063106, 1
   br label %38
 
 38:                                               ; preds = %.lr.ph, %27, %32, %36
-  %.169 = phi ptr [ %.072106, %36 ], [ %.068107, %32 ], [ %.068107, %27 ], [ %.068107, %.lr.ph ]
-  %.164 = phi i64 [ %37, %36 ], [ %.063108, %32 ], [ %.063108, %27 ], [ %.063108, %.lr.ph ]
-  %.1 = phi ptr [ %23, %36 ], [ %.0109, %32 ], [ %.0109, %27 ], [ %.0109, %.lr.ph ]
-  %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072106) #5
+  %.169 = phi ptr [ %.072104, %36 ], [ %.068105, %32 ], [ %.068105, %27 ], [ %.068105, %.lr.ph ]
+  %.164 = phi i64 [ %37, %36 ], [ %.063106, %32 ], [ %.063106, %27 ], [ %.063106, %.lr.ph ]
+  %.1 = phi ptr [ %23, %36 ], [ %.0107, %32 ], [ %.0107, %27 ], [ %.0107, %.lr.ph ]
+  %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072104) #5
   %.not94 = icmp eq ptr %39, null
   br i1 %.not94, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %38
   %.not95 = icmp eq i64 %.164, 0
-  br i1 %.not95, label %.thread, label %40
+  br i1 %.not95, label %.critedge, label %40
 
 40:                                               ; preds = %._crit_edge
   %.not96 = icmp ult i64 %2, %.164
-  br i1 %.not96, label %41, label %.thread
+  br i1 %.not96, label %41, label %.critedge
 
 41:                                               ; preds = %40
   %42 = add i64 %.164, -1
@@ -100,25 +100,25 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
 ..loopexit_crit_edge:                             ; preds = %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1, i64 52
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !79
-  %.pre119 = zext i8 %.pre to i32
+  %.pre117 = zext i8 %.pre to i32
   br label %.loopexit
 
 44:                                               ; preds = %41
   %45 = tail call ptr @Curl_llist_head(ptr noundef nonnull %14) #5
-  %.not97112 = icmp eq ptr %45, null
-  br i1 %.not97112, label %.thread, label %.lr.ph116
+  %.not97110 = icmp eq ptr %45, null
+  br i1 %.not97110, label %.critedge, label %.lr.ph114
 
-.lr.ph116:                                        ; preds = %44, %62
-  %.065114 = phi i64 [ %.166, %62 ], [ 0, %44 ]
-  %.173113 = phi ptr [ %63, %62 ], [ %45, %44 ]
-  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173113) #5
+.lr.ph114:                                        ; preds = %44, %62
+  %.065112 = phi i64 [ %.166, %62 ], [ 0, %44 ]
+  %.173111 = phi ptr [ %63, %62 ], [ %45, %44 ]
+  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173111) #5
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !77
   %49 = tail call i32 @curl_strequal(ptr noundef %48, ptr noundef %1) #5
   %.not98 = icmp eq i32 %49, 0
   br i1 %.not98, label %62, label %50
 
-50:                                               ; preds = %.lr.ph116
+50:                                               ; preds = %.lr.ph114
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 52
   %52 = load i8, ptr %51, align 4, !tbaa !79
   %53 = zext i8 %52 to i32
@@ -133,19 +133,19 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %55
-  %60 = add i64 %.065114, 1
-  %61 = icmp eq i64 %.065114, %2
+  %60 = add i64 %.065112, 1
+  %61 = icmp eq i64 %.065112, %2
   br i1 %61, label %.loopexit, label %62
 
-62:                                               ; preds = %.lr.ph116, %50, %55, %59
-  %.166 = phi i64 [ %60, %59 ], [ %.065114, %55 ], [ %.065114, %50 ], [ %.065114, %.lr.ph116 ]
-  %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173113) #5
+62:                                               ; preds = %.lr.ph114, %50, %55, %59
+  %.166 = phi i64 [ %60, %59 ], [ %.065112, %55 ], [ %.065112, %50 ], [ %.065112, %.lr.ph114 ]
+  %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173111) #5
   %.not97 = icmp eq ptr %63, null
-  br i1 %.not97, label %.thread, label %.lr.ph116, !llvm.loop !83
+  br i1 %.not97, label %.critedge, label %.lr.ph114, !llvm.loop !83
 
 .loopexit:                                        ; preds = %59, %..loopexit_crit_edge
-  %.pre-phi = phi i32 [ %.pre119, %..loopexit_crit_edge ], [ %53, %59 ]
-  %.270 = phi ptr [ %.169, %..loopexit_crit_edge ], [ %.173113, %59 ]
+  %.pre-phi = phi i32 [ %.pre117, %..loopexit_crit_edge ], [ %53, %59 ]
+  %.270 = phi ptr [ %.169, %..loopexit_crit_edge ], [ %.173111, %59 ]
   %.162 = phi ptr [ %.1, %..loopexit_crit_edge ], [ %46, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %65 = getelementptr inbounds nuw i8, ptr %.162, i64 32
@@ -165,9 +165,9 @@ define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr nound
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4632
   store ptr %.270, ptr %74, align 8, !tbaa !91
   store ptr %64, ptr %5, align 8, !tbaa !92
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
+.critedge:                                        ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
   %.067 = phi i32 [ 0, %.loopexit ], [ 6, %6 ], [ 3, %13 ], [ 4, %16 ], [ 2, %._crit_edge ], [ 1, %40 ], [ 2, %44 ], [ 2, %20 ], [ 2, %62 ]
   ret i32 %.067
 }

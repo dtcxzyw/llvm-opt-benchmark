@@ -5028,7 +5028,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
 
 .preheader.i:                                     ; preds = %55
   %.not146.i = icmp eq i64 %51, 9223372036854775807
-  br i1 %.not146.i, label %.loopexit, label %.lr.ph144.i
+  br i1 %.not146.i, label %.critedge, label %.lr.ph144.i
 
 .lr.ph144.i:                                      ; preds = %.preheader.i
   %58 = icmp eq i32 %10, 1000000000
@@ -5059,7 +5059,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   %71 = extractvalue { i64, i32 } %67, 1
   %72 = icmp ugt i32 %71, %10
   %.sroa.029.0.i = select i1 %69, i1 %72, i1 %70
-  br i1 %.sroa.029.0.i, label %.loopexit, label %.lr.ph.preheader.i
+  br i1 %.sroa.029.0.i, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %66, %64
   %73 = sub nsw i64 0, %.sroa.035.0143.i
@@ -5122,7 +5122,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
 
 ._crit_edge140.i:                                 ; preds = %120, %84, %.lr.ph139.i
   %exitcond.not.i = icmp eq i64 %.sroa.035.0143.i, %51
-  br i1 %exitcond.not.i, label %.loopexit, label %64
+  br i1 %exitcond.not.i, label %.critedge, label %64
 
 88:                                               ; preds = %86, %84
   %.sroa.7109.1.i = phi i64 [ %87, %86 ], [ %82, %84 ]
@@ -5350,7 +5350,7 @@ _ZN7similar10algorithms5myers17find_middle_snake17h9a5c4a39818ab546E.exit: ; pre
   call void @_ZN7similar10algorithms5myers7conquer17h578e6ed0fe33a5c4E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %35
 
-.loopexit:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
+.critedge:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i50 = load i64, ptr %174, align 8, !alias.scope !1627
   %.sroa.4.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5363,12 +5363,12 @@ _ZN7similar10algorithms5myers17find_middle_snake17h9a5c4a39818ab546E.exit: ; pre
   %switch.i.i57 = icmp eq i64 %.sroa.0.0.copyload.i.i50, 1
   br i1 %switch.i.i57, label %175, label %"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17hf431137171c38d33E.llvm.192534479544494332.exit.i58"
 
-175:                                              ; preds = %.loopexit
+175:                                              ; preds = %.critedge
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C$New$C$D$GT$$u20$as$u20$similar..algorithms..hook..DiffHook$GT$5equal17hfa578ba5194ae8eaE.llvm.192534479544494332"(ptr noalias noundef nonnull align 8 dereferenceable(104) %176, i64 noundef %.sroa.4.0.copyload.i.i52, i64 noundef %.sroa.5.0.copyload.i.i54, i64 noundef %.sroa.6.0.copyload.i.i56)
   br label %"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17hf431137171c38d33E.llvm.192534479544494332.exit.i58"
 
-"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17hf431137171c38d33E.llvm.192534479544494332.exit.i58": ; preds = %175, %.loopexit
+"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17hf431137171c38d33E.llvm.192534479544494332.exit.i58": ; preds = %175, %.critedge
   %.sroa.0.0.copyload.i59 = load i64, ptr %0, align 8, !alias.scope !1632
   %.sroa.5.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %switch.i61 = icmp eq i64 %.sroa.0.0.copyload.i59, 1
@@ -6109,7 +6109,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
 
 .preheader.i:                                     ; preds = %55
   %.not146.i = icmp eq i64 %51, 9223372036854775807
-  br i1 %.not146.i, label %.loopexit, label %.lr.ph144.i
+  br i1 %.not146.i, label %.critedge, label %.lr.ph144.i
 
 .lr.ph144.i:                                      ; preds = %.preheader.i
   %58 = icmp eq i32 %10, 1000000000
@@ -6140,7 +6140,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   %71 = extractvalue { i64, i32 } %67, 1
   %72 = icmp ugt i32 %71, %10
   %.sroa.029.0.i = select i1 %69, i1 %72, i1 %70
-  br i1 %.sroa.029.0.i, label %.loopexit, label %.lr.ph.preheader.i
+  br i1 %.sroa.029.0.i, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %66, %64
   %73 = sub nsw i64 0, %.sroa.035.0143.i
@@ -6203,7 +6203,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
 
 ._crit_edge140.i:                                 ; preds = %120, %84, %.lr.ph139.i
   %exitcond.not.i = icmp eq i64 %.sroa.035.0143.i, %51
-  br i1 %exitcond.not.i, label %.loopexit, label %64
+  br i1 %exitcond.not.i, label %.critedge, label %64
 
 88:                                               ; preds = %86, %84
   %.sroa.7109.1.i = phi i64 [ %87, %86 ], [ %82, %84 ]
@@ -6431,7 +6431,7 @@ _ZN7similar10algorithms5myers17find_middle_snake17hf2d8c683c6b0e29bE.exit: ; pre
   call void @_ZN7similar10algorithms5myers7conquer17hb51380b256121c48E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %35
 
-.loopexit:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
+.critedge:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i50 = load i64, ptr %174, align 8, !alias.scope !1746
   %.sroa.4.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6444,12 +6444,12 @@ _ZN7similar10algorithms5myers17find_middle_snake17hf2d8c683c6b0e29bE.exit: ; pre
   %switch.i.i57 = icmp eq i64 %.sroa.0.0.copyload.i.i50, 1
   br i1 %switch.i.i57, label %175, label %"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17h90be2cad367cdb59E.llvm.192534479544494332.exit.i58"
 
-175:                                              ; preds = %.loopexit
+175:                                              ; preds = %.critedge
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C$New$C$D$GT$$u20$as$u20$similar..algorithms..hook..DiffHook$GT$5equal17h8bf1ff27be9a3fbfE.llvm.192534479544494332"(ptr noalias noundef nonnull align 8 dereferenceable(120) %176, i64 noundef %.sroa.4.0.copyload.i.i52, i64 noundef %.sroa.5.0.copyload.i.i54, i64 noundef %.sroa.6.0.copyload.i.i56)
   br label %"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17h90be2cad367cdb59E.llvm.192534479544494332.exit.i58"
 
-"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17h90be2cad367cdb59E.llvm.192534479544494332.exit.i58": ; preds = %175, %.loopexit
+"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8flush_eq17h90be2cad367cdb59E.llvm.192534479544494332.exit.i58": ; preds = %175, %.critedge
   %.sroa.0.0.copyload.i59 = load i64, ptr %0, align 8, !alias.scope !1751
   %.sroa.5.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %switch.i61 = icmp eq i64 %.sroa.0.0.copyload.i59, 1

@@ -2475,15 +2475,15 @@ dt_focus_create_clusters.exit:                    ; preds = %.loopexit.i
   %680 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %658
   br label %682
 
-681:                                              ; preds = %.thread.i
+681:                                              ; preds = %.critedge.i
   call void @cairo_restore(ptr noundef %580) #20
   call void @free(ptr noundef %588) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
   br label %786
 
-682:                                              ; preds = %.thread.i, %644
-  %indvars.iv303.i = phi i64 [ 0, %644 ], [ %indvars.iv.next304.i, %.thread.i ]
-  %683 = getelementptr inbounds nuw %struct.dt_focus_cluster_t, ptr %27, i64 %indvars.iv303.i
+682:                                              ; preds = %.critedge.i, %644
+  %indvars.iv302.i = phi i64 [ 0, %644 ], [ %indvars.iv.next303.i, %.critedge.i ]
+  %683 = getelementptr inbounds nuw %struct.dt_focus_cluster_t, ptr %27, i64 %indvars.iv302.i
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 24
   %685 = load float, ptr %684, align 8, !tbaa !198
   %686 = fmul reassoc nsz arcp contract afn float %685, 0x3FB99999A0000000
@@ -2500,11 +2500,11 @@ dt_focus_create_clusters.exit:                    ; preds = %.loopexit.i
   %695 = sitofp i64 %694 to float
   %696 = fmul reassoc nsz arcp contract afn float %695, 6.000000e+00
   %697 = fcmp reassoc nsz arcp contract afn ogt float %696, %679
-  br i1 %697, label %698, label %.thread.i
+  br i1 %697, label %698, label %.critedge.i
 
 698:                                              ; preds = %693, %682
   %699 = fpext reassoc nsz arcp contract afn float %688 to double
-  %700 = shl nuw nsw i64 %indvars.iv303.i, 1
+  %700 = shl nuw nsw i64 %indvars.iv302.i, 1
   %701 = getelementptr inbounds nuw float, ptr %598, i64 %700
   %702 = or disjoint i64 %700, 1
   %703 = getelementptr inbounds nuw float, ptr %598, i64 %702
@@ -2620,12 +2620,12 @@ dt_focus_create_clusters.exit:                    ; preds = %.loopexit.i
   call void @cairo_set_line_width(ptr noundef %580, double noundef 2.000000e+00) #20
   call void @cairo_stroke(ptr noundef %580) #20
   call void @cairo_restore(ptr noundef %580) #20
-  br i1 %.not286.i, label %708, label %.thread.i
+  br i1 %.not286.i, label %708, label %.critedge.i
 
-.thread.i:                                        ; preds = %715, %693
-  %indvars.iv.next304.i = add nuw nsw i64 %indvars.iv303.i, 1
-  %exitcond306.not.i = icmp eq i64 %indvars.iv.next304.i, 25
-  br i1 %exitcond306.not.i, label %681, label %682
+.critedge.i:                                      ; preds = %715, %693
+  %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
+  %exitcond305.not.i = icmp eq i64 %indvars.iv.next303.i, 25
+  br i1 %exitcond305.not.i, label %681, label %682
 
 786:                                              ; preds = %681, %dt_focus_create_clusters.exit
   call void @cairo_destroy(ptr noundef %580) #20

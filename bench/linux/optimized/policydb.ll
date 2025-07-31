@@ -6409,7 +6409,7 @@ define internal fastcc i32 @perm_read(ptr noundef %0, ptr noundef captures(none)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #2 align 16 {
   %6 = icmp eq i32 %2, 0
-  br i1 %6, label %.thread16, label %7
+  br i1 %6, label %.thread14, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6417,10 +6417,10 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   br label %14
 
-11:                                               ; preds = %111
+11:                                               ; preds = %110
   %12 = add nuw i32 %15, 1
   %13 = icmp eq i32 %12, %2
-  br i1 %13, label %.thread16, label %14, !llvm.loop !63
+  br i1 %13, label %.thread14, label %14, !llvm.loop !63
 
 14:                                               ; preds = %11, %7
   %15 = phi i32 [ 0, %7 ], [ %12, %11 ]
@@ -6428,7 +6428,7 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %18 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 24) #25
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread16, label %20
+  br i1 %19, label %.thread14, label %20
 
 20:                                               ; preds = %14
   %21 = icmp eq ptr %16, null
@@ -6437,7 +6437,7 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   store ptr %18, ptr %23, align 8
   %24 = load i64, ptr %8, align 8
   %25 = icmp ugt i64 %24, 7
-  br i1 %25, label %26, label %.thread16
+  br i1 %25, label %26, label %.thread14
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %4, align 8
@@ -6450,20 +6450,20 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   store i64 %32, ptr %8, align 8
   store i32 %28, ptr %18, align 8
   %33 = icmp eq i32 %30, 0
-  br i1 %33, label %.thread16, label %34
+  br i1 %33, label %.thread14, label %34
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %36
 
-36:                                               ; preds = %107, %34
-  %37 = phi i32 [ -1, %34 ], [ %108, %107 ]
-  %38 = phi i32 [ 0, %34 ], [ %109, %107 ]
-  %39 = phi ptr [ null, %34 ], [ %41, %107 ]
+36:                                               ; preds = %106, %34
+  %37 = phi i32 [ -1, %34 ], [ %107, %106 ]
+  %38 = phi i32 [ 0, %34 ], [ %108, %106 ]
+  %39 = phi ptr [ null, %34 ], [ %41, %106 ]
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %41 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 48) #25
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread16, label %43
+  br i1 %42, label %.thread14, label %43
 
 43:                                               ; preds = %36
   %44 = icmp eq ptr %39, null
@@ -6472,7 +6472,7 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   store ptr %41, ptr %46, align 8
   %47 = load i64, ptr %8, align 8
   %48 = icmp ugt i64 %47, 11
-  br i1 %48, label %49, label %.thread16
+  br i1 %48, label %49, label %.thread14
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr %4, align 8
@@ -6490,7 +6490,7 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   store i32 %53, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %55, ptr %59, align 8
-  switch i32 %51, label %.thread16 [
+  switch i32 %51, label %.thread14 [
     i32 1, label %60
     i32 2, label %62
     i32 3, label %62
@@ -6500,23 +6500,23 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
 
 60:                                               ; preds = %49
   %61 = icmp slt i32 %37, 0
-  br i1 %61, label %.thread16, label %107
+  br i1 %61, label %.thread14, label %106
 
 62:                                               ; preds = %49, %49
   %63 = icmp slt i32 %37, 1
-  br i1 %63, label %.thread16, label %64
+  br i1 %63, label %.thread14, label %64
 
 64:                                               ; preds = %62
   %65 = add nsw i32 %37, -1
-  br label %107
+  br label %106
 
 66:                                               ; preds = %49
   %67 = icmp eq i32 %37, 4
-  br i1 %67, label %.thread16, label %68
+  br i1 %67, label %.thread14, label %68
 
 68:                                               ; preds = %66
   %69 = add i32 %37, 1
-  br label %107
+  br label %106
 
 70:                                               ; preds = %49
   br i1 %9, label %71, label %76
@@ -6526,23 +6526,23 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   %73 = icmp ne i32 %72, 0
   %74 = icmp eq i32 %37, 4
   %75 = select i1 %73, i1 true, i1 %74
-  br i1 %75, label %.thread16, label %78
+  br i1 %75, label %.thread14, label %78
 
 76:                                               ; preds = %70
   %77 = icmp eq i32 %37, 4
-  br i1 %77, label %.thread16, label %78
+  br i1 %77, label %.thread14, label %78
 
 78:                                               ; preds = %76, %71
   %79 = add i32 %37, 1
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %81 = tail call i32 @ebitmap_read(ptr noundef nonnull %80, ptr noundef %4) #22
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %.thread16
+  br i1 %82, label %83, label %.thread14
 
 83:                                               ; preds = %78
   %84 = load i32, ptr %10, align 8
   %85 = icmp ugt i32 %84, 28
-  br i1 %85, label %86, label %107
+  br i1 %85, label %86, label %106
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -6550,49 +6550,49 @@ define internal fastcc i32 @read_cons_helper(ptr noundef readonly captures(none)
   %89 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %88, ptr %89, align 8
   %90 = icmp eq ptr %88, null
-  br i1 %90, label %.thread16, label %91
+  br i1 %90, label %.thread14, label %91
 
 91:                                               ; preds = %86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   %92 = tail call i32 @ebitmap_read(ptr noundef nonnull %88, ptr noundef %4) #22
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %.thread16
+  br i1 %93, label %94, label %.thread14
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %96 = tail call i32 @ebitmap_read(ptr noundef nonnull %95, ptr noundef %4) #22
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %.thread16
+  br i1 %97, label %98, label %.thread14
 
 98:                                               ; preds = %94
   %99 = load i64, ptr %8, align 8
   %100 = icmp ult i64 %99, 4
-  br i1 %100, label %.thread16, label %101
+  br i1 %100, label %.thread14, label %.critedge
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %4, align 8
-  %103 = load i32, ptr %102, align 1
-  %104 = getelementptr i8, ptr %102, i64 4
-  store ptr %104, ptr %4, align 8
-  %105 = add i64 %99, -4
-  store i64 %105, ptr %8, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  store i32 %103, ptr %106, align 8
-  br label %107
+.critedge:                                        ; preds = %98
+  %101 = load ptr, ptr %4, align 8
+  %102 = load i32, ptr %101, align 1
+  %103 = getelementptr i8, ptr %101, i64 4
+  store ptr %103, ptr %4, align 8
+  %104 = add i64 %99, -4
+  store i64 %104, ptr %8, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  store i32 %102, ptr %105, align 8
+  br label %106
 
-107:                                              ; preds = %101, %83, %68, %64, %60
-  %108 = phi i32 [ %79, %101 ], [ %79, %83 ], [ %69, %68 ], [ %65, %64 ], [ %37, %60 ]
-  %109 = add nuw i32 %38, 1
-  %110 = icmp eq i32 %109, %30
-  br i1 %110, label %111, label %36, !llvm.loop !64
+106:                                              ; preds = %.critedge, %83, %68, %64, %60
+  %107 = phi i32 [ %79, %.critedge ], [ %79, %83 ], [ %69, %68 ], [ %65, %64 ], [ %37, %60 ]
+  %108 = add nuw i32 %38, 1
+  %109 = icmp eq i32 %108, %30
+  br i1 %109, label %110, label %36, !llvm.loop !64
 
-111:                                              ; preds = %107
-  %112 = icmp eq i32 %108, 0
-  br i1 %112, label %11, label %.thread16
+110:                                              ; preds = %106
+  %111 = icmp eq i32 %107, 0
+  br i1 %111, label %11, label %.thread14
 
-.thread16:                                        ; preds = %26, %20, %111, %14, %11, %98, %94, %91, %43, %86, %78, %76, %71, %66, %62, %60, %49, %36, %5
-  %113 = phi i32 [ 0, %5 ], [ -22, %98 ], [ -22, %94 ], [ -22, %91 ], [ -22, %43 ], [ -22, %49 ], [ -12, %86 ], [ %81, %78 ], [ -22, %76 ], [ -22, %71 ], [ -22, %66 ], [ -22, %62 ], [ -22, %60 ], [ -12, %36 ], [ -22, %26 ], [ -22, %20 ], [ -12, %14 ], [ -22, %111 ], [ 0, %11 ]
-  ret i32 %113
+.thread14:                                        ; preds = %26, %20, %110, %14, %11, %98, %94, %91, %43, %86, %78, %76, %71, %66, %62, %60, %49, %36, %5
+  %112 = phi i32 [ 0, %5 ], [ -22, %98 ], [ -22, %94 ], [ -22, %91 ], [ -22, %43 ], [ -22, %49 ], [ -12, %86 ], [ %81, %78 ], [ -22, %76 ], [ -22, %71 ], [ -22, %66 ], [ -22, %62 ], [ -22, %60 ], [ -12, %36 ], [ -22, %26 ], [ -22, %20 ], [ -12, %14 ], [ -22, %110 ], [ 0, %11 ]
+  ret i32 %112
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7064,7 +7064,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread, label %.lr.ph
+  br i1 %11, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.loopexit
   %12 = phi i32 [ %99, %.loopexit ], [ %10, %3 ]
@@ -7075,7 +7075,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, ptr noundef %0) #24
-  br label %.thread
+  br label %.critedge
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %4, align 8
@@ -7085,9 +7085,9 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader8
+  br i1 %25, label %.loopexit, label %.preheader9
 
-.preheader8:                                      ; preds = %18, %31
+.preheader9:                                      ; preds = %18, %31
   %26 = phi ptr [ %32, %31 ], [ %24, %18 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = tail call i64 @_find_first_bit(ptr noundef nonnull %27, i64 noundef 384) #22
@@ -7095,12 +7095,12 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %30 = icmp samesign ult i64 %29, 384
   br i1 %30, label %34, label %31
 
-31:                                               ; preds = %.preheader8
+31:                                               ; preds = %.preheader9
   %32 = load ptr, ptr %26, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %.preheader8, !llvm.loop !66
+  br i1 %33, label %.loopexit, label %.preheader9, !llvm.loop !66
 
-34:                                               ; preds = %.preheader8
+34:                                               ; preds = %.preheader9
   %35 = trunc i64 %28 to i32
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %37 = load i32, ptr %36, align 8
@@ -7137,7 +7137,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %61 = getelementptr ptr, ptr %51, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, ptr noundef %54, ptr noundef %57, ptr noundef %62) #24
-  br label %.thread
+  br label %.critedge
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -7192,10 +7192,10 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.thread, label %.lr.ph, !llvm.loop !69
+  br i1 %100, label %.critedge, label %.lr.ph, !llvm.loop !69
 
-.thread:                                          ; preds = %.loopexit, %3, %48, %16
-  %101 = phi i32 [ -22, %16 ], [ -22, %48 ], [ 0, %3 ], [ 0, %.loopexit ]
+.critedge:                                        ; preds = %.loopexit, %3, %16, %48
+  %101 = phi i32 [ -22, %48 ], [ -22, %16 ], [ 0, %3 ], [ 0, %.loopexit ]
   ret i32 %101
 }
 
@@ -7209,7 +7209,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread, label %.lr.ph
+  br i1 %11, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.loopexit
   %12 = phi i32 [ %99, %.loopexit ], [ %10, %3 ]
@@ -7220,7 +7220,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, ptr noundef %0) #24
-  br label %.thread
+  br label %.critedge
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %4, align 8
@@ -7230,9 +7230,9 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader8
+  br i1 %25, label %.loopexit, label %.preheader9
 
-.preheader8:                                      ; preds = %18, %31
+.preheader9:                                      ; preds = %18, %31
   %26 = phi ptr [ %32, %31 ], [ %24, %18 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = tail call i64 @_find_first_bit(ptr noundef nonnull %27, i64 noundef 384) #22
@@ -7240,12 +7240,12 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %30 = icmp samesign ult i64 %29, 384
   br i1 %30, label %34, label %31
 
-31:                                               ; preds = %.preheader8
+31:                                               ; preds = %.preheader9
   %32 = load ptr, ptr %26, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %.preheader8, !llvm.loop !66
+  br i1 %33, label %.loopexit, label %.preheader9, !llvm.loop !66
 
-34:                                               ; preds = %.preheader8
+34:                                               ; preds = %.preheader9
   %35 = trunc i64 %28 to i32
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %37 = load i32, ptr %36, align 8
@@ -7282,7 +7282,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %61 = getelementptr ptr, ptr %51, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %54, ptr noundef %57, ptr noundef %62) #24
-  br label %.thread
+  br label %.critedge
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -7337,10 +7337,10 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.thread, label %.lr.ph, !llvm.loop !71
+  br i1 %100, label %.critedge, label %.lr.ph, !llvm.loop !71
 
-.thread:                                          ; preds = %.loopexit, %3, %48, %16
-  %101 = phi i32 [ -22, %16 ], [ -22, %48 ], [ 0, %3 ], [ 0, %.loopexit ]
+.critedge:                                        ; preds = %.loopexit, %3, %16, %48
+  %101 = phi i32 [ -22, %48 ], [ -22, %16 ], [ 0, %3 ], [ 0, %.loopexit ]
   ret i32 %101
 }
 

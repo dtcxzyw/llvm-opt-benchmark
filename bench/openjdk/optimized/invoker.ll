@@ -679,48 +679,46 @@ define hidden zeroext range(i8 0, 2) i8 @invoker_doInvoke(ptr noundef %0) local_
   store i8 0, ptr %17, align 2
   %18 = load i8, ptr %11, align 8
   %.not39 = icmp eq i8 %18, 0
-  br i1 %.not39, label %.thread, label %19
+  br i1 %.not39, label %.critedge, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %21 = load i8, ptr %20, align 1
   %.not40.not = icmp eq i8 %21, 0
-  br i1 %.not40.not, label %22, label %.thread
+  br i1 %.not40.not, label %22, label %.critedge
 
 22:                                               ; preds = %19
   store i8 1, ptr %20, align 1
-  br label %.thread
-
-.thread:                                          ; preds = %16, %22, %19
-  %.not4177 = phi i1 [ false, %22 ], [ true, %19 ], [ true, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 9
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = load i8, ptr %25, align 8
   %27 = load ptr, ptr @invokerLock, align 8
   tail call void @debugMonitorExit(ptr noundef %27) #5
-  br i1 %.not4177, label %724, label %28
-
-28:                                               ; preds = %.thread
-  %29 = tail call ptr @getEnv() #5
-  tail call void @createLocalRefSpace(ptr noundef %29, i32 noundef 2) #5
-  %30 = load ptr, ptr @gdata, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 528
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 2
-  %.not42 = icmp eq i32 %33, 0
+  %28 = tail call ptr @getEnv() #5
+  tail call void @createLocalRefSpace(ptr noundef %28, i32 noundef 2) #5
+  %29 = load ptr, ptr @gdata, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 528
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 2
+  %.not42 = icmp eq i32 %32, 0
   br i1 %.not42, label %35, label %34
 
-34:                                               ; preds = %28
+.critedge:                                        ; preds = %16, %19
+  %33 = load ptr, ptr @invokerLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %33) #5
+  br label %724
+
+34:                                               ; preds = %22
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 671) #5
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #5
   br label %35
 
-35:                                               ; preds = %28, %34
-  %36 = load ptr, ptr %29, align 8
+35:                                               ; preds = %22, %34
+  %36 = load ptr, ptr %28, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull %29) #5
+  tail call void %38(ptr noundef nonnull %28) #5
   switch i8 %26, label %686 [
     i8 1, label %39
     i8 2, label %66
@@ -759,7 +757,7 @@ define hidden zeroext range(i8 0, 2) i8 @invoker_doInvoke(ptr noundef %0) local_
   br label %53
 
 53:                                               ; preds = %52, %47
-  %54 = load ptr, ptr %29, align 8
+  %54 = load ptr, ptr %28, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 240
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -768,14 +766,14 @@ define hidden zeroext range(i8 0, 2) i8 @invoker_doInvoke(ptr noundef %0) local_
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr %56(ptr noundef nonnull %29, ptr noundef %58, ptr noundef %60, ptr noundef %62) #5
+  %63 = tail call ptr %56(ptr noundef nonnull %28, ptr noundef %58, ptr noundef %60, ptr noundef %62) #5
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr null, ptr %64, align 8
   %.not15.i = icmp eq ptr %63, null
   br i1 %.not15.i, label %invokeConstructor.exit, label %65
 
 65:                                               ; preds = %53
-  tail call void @saveGlobalRef(ptr noundef nonnull %29, ptr noundef nonnull %63, ptr noundef nonnull %64) #5
+  tail call void @saveGlobalRef(ptr noundef nonnull %28, ptr noundef nonnull %63, ptr noundef nonnull %64) #5
   br label %invokeConstructor.exit
 
 66:                                               ; preds = %35
@@ -842,11 +840,11 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
 
 83:                                               ; preds = %80
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @.str.22) #5
-  %.pre.i50 = load ptr, ptr @gdata, align 8
+  %.pre.i51 = load ptr, ptr @gdata, align 8
   br label %84
 
 84:                                               ; preds = %83, %80, %76
-  %85 = phi ptr [ %77, %76 ], [ %77, %80 ], [ %.pre.i50, %83 ]
+  %85 = phi ptr [ %77, %76 ], [ %77, %80 ], [ %.pre.i51, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 528
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 2
@@ -859,7 +857,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %90
 
 90:                                               ; preds = %89, %84
-  %91 = load ptr, ptr %29, align 8
+  %91 = load ptr, ptr %28, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 928
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -868,14 +866,14 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call ptr %93(ptr noundef nonnull %29, ptr noundef %95, ptr noundef %97, ptr noundef %99) #5
+  %100 = tail call ptr %93(ptr noundef nonnull %28, ptr noundef %95, ptr noundef %97, ptr noundef %99) #5
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr null, ptr %101, align 8
   %.not80.i = icmp eq ptr %100, null
   br i1 %.not80.i, label %invokeConstructor.exit, label %102
 
 102:                                              ; preds = %90
-  tail call void @saveGlobalRef(ptr noundef nonnull %29, ptr noundef nonnull %100, ptr noundef nonnull %101) #5
+  tail call void @saveGlobalRef(ptr noundef nonnull %28, ptr noundef nonnull %100, ptr noundef nonnull %101) #5
   br label %invokeConstructor.exit
 
 103:                                              ; preds = %isReferenceTag.exit.i
@@ -892,7 +890,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %109
 
 109:                                              ; preds = %108, %103
-  %110 = load ptr, ptr %29, align 8
+  %110 = load ptr, ptr %28, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 976
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -901,7 +899,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %118 = load ptr, ptr %117, align 8
-  %119 = tail call signext i8 %112(ptr noundef nonnull %29, ptr noundef %114, ptr noundef %116, ptr noundef %118) #5
+  %119 = tail call signext i8 %112(ptr noundef nonnull %28, ptr noundef %114, ptr noundef %116, ptr noundef %118) #5
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %119, ptr %120, align 8
   br label %invokeConstructor.exit
@@ -920,7 +918,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %127
 
 127:                                              ; preds = %126, %121
-  %128 = load ptr, ptr %29, align 8
+  %128 = load ptr, ptr %28, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 1000
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -929,7 +927,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %136 = load ptr, ptr %135, align 8
-  %137 = tail call zeroext i16 %130(ptr noundef nonnull %29, ptr noundef %132, ptr noundef %134, ptr noundef %136) #5
+  %137 = tail call zeroext i16 %130(ptr noundef nonnull %28, ptr noundef %132, ptr noundef %134, ptr noundef %136) #5
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %137, ptr %138, align 8
   br label %invokeConstructor.exit
@@ -948,7 +946,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %145
 
 145:                                              ; preds = %144, %139
-  %146 = load ptr, ptr %29, align 8
+  %146 = load ptr, ptr %28, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1096
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -957,7 +955,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call float %148(ptr noundef nonnull %29, ptr noundef %150, ptr noundef %152, ptr noundef %154) #5
+  %155 = tail call float %148(ptr noundef nonnull %28, ptr noundef %150, ptr noundef %152, ptr noundef %154) #5
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store float %155, ptr %156, align 8
   br label %invokeConstructor.exit
@@ -976,7 +974,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %163
 
 163:                                              ; preds = %162, %157
-  %164 = load ptr, ptr %29, align 8
+  %164 = load ptr, ptr %28, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 1120
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -985,7 +983,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call double %166(ptr noundef nonnull %29, ptr noundef %168, ptr noundef %170, ptr noundef %172) #5
+  %173 = tail call double %166(ptr noundef nonnull %28, ptr noundef %168, ptr noundef %170, ptr noundef %172) #5
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store double %173, ptr %174, align 8
   br label %invokeConstructor.exit
@@ -1004,7 +1002,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %181
 
 181:                                              ; preds = %180, %175
-  %182 = load ptr, ptr %29, align 8
+  %182 = load ptr, ptr %28, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 1048
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1013,7 +1011,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %190 = load ptr, ptr %189, align 8
-  %191 = tail call i32 %184(ptr noundef nonnull %29, ptr noundef %186, ptr noundef %188, ptr noundef %190) #5
+  %191 = tail call i32 %184(ptr noundef nonnull %28, ptr noundef %186, ptr noundef %188, ptr noundef %190) #5
   %192 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %191, ptr %192, align 8
   br label %invokeConstructor.exit
@@ -1032,7 +1030,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %199
 
 199:                                              ; preds = %198, %193
-  %200 = load ptr, ptr %29, align 8
+  %200 = load ptr, ptr %28, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 1072
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1041,7 +1039,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %208 = load ptr, ptr %207, align 8
-  %209 = tail call i64 %202(ptr noundef nonnull %29, ptr noundef %204, ptr noundef %206, ptr noundef %208) #5
+  %209 = tail call i64 %202(ptr noundef nonnull %28, ptr noundef %204, ptr noundef %206, ptr noundef %208) #5
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %209, ptr %210, align 8
   br label %invokeConstructor.exit
@@ -1060,7 +1058,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %217
 
 217:                                              ; preds = %216, %211
-  %218 = load ptr, ptr %29, align 8
+  %218 = load ptr, ptr %28, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 1024
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1069,7 +1067,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call signext i16 %220(ptr noundef nonnull %29, ptr noundef %222, ptr noundef %224, ptr noundef %226) #5
+  %227 = tail call signext i16 %220(ptr noundef nonnull %28, ptr noundef %222, ptr noundef %224, ptr noundef %226) #5
   %228 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %227, ptr %228, align 8
   br label %invokeConstructor.exit
@@ -1088,7 +1086,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %235
 
 235:                                              ; preds = %234, %229
-  %236 = load ptr, ptr %29, align 8
+  %236 = load ptr, ptr %28, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 952
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1097,7 +1095,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %244 = load ptr, ptr %243, align 8
-  %245 = tail call zeroext i8 %238(ptr noundef nonnull %29, ptr noundef %240, ptr noundef %242, ptr noundef %244) #5
+  %245 = tail call zeroext i8 %238(ptr noundef nonnull %28, ptr noundef %240, ptr noundef %242, ptr noundef %244) #5
   %246 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %245, ptr %246, align 8
   br label %invokeConstructor.exit
@@ -1116,7 +1114,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   br label %253
 
 253:                                              ; preds = %252, %247
-  %254 = load ptr, ptr %29, align 8
+  %254 = load ptr, ptr %28, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 1144
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1125,7 +1123,7 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %262 = load ptr, ptr %261, align 8
-  tail call void %256(ptr noundef nonnull %29, ptr noundef %258, ptr noundef %260, ptr noundef %262) #5
+  tail call void %256(ptr noundef nonnull %28, ptr noundef %258, ptr noundef %260, ptr noundef %262) #5
   br label %invokeConstructor.exit
 
 263:                                              ; preds = %isReferenceTag.exit.i
@@ -1142,39 +1140,39 @@ isReferenceTag.exit.i:                            ; preds = %75, %switch.early.t
   %269 = load ptr, ptr %268, align 8
   %270 = tail call signext i8 @methodSignature_returnTag(ptr noundef %269) #5
   %271 = load ptr, ptr @gdata, align 8
-  %.not.i.i58 = icmp eq ptr %271, null
+  %.not.i.i59 = icmp eq ptr %271, null
   br i1 %.not43, label %490, label %272
 
 272:                                              ; preds = %266
-  br i1 %.not.i.i58, label %isReferenceTag.exit.i54, label %273
+  br i1 %.not.i.i59, label %isReferenceTag.exit.i55, label %273
 
 273:                                              ; preds = %272
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 17
   %275 = load i8, ptr %274, align 1
-  %.fr.i.i52 = freeze i8 %275
-  %276 = icmp eq i8 %.fr.i.i52, 0
-  br i1 %276, label %isReferenceTag.exit.i54, label %switch.early.test.i.i53
+  %.fr.i.i53 = freeze i8 %275
+  %276 = icmp eq i8 %.fr.i.i53, 0
+  br i1 %276, label %isReferenceTag.exit.i55, label %switch.early.test.i.i54
 
-switch.early.test.i.i53:                          ; preds = %273
+switch.early.test.i.i54:                          ; preds = %273
   switch i8 %270, label %277 [
-    i8 91, label %isReferenceTag.exit.i54
-    i8 90, label %isReferenceTag.exit.i54
-    i8 86, label %isReferenceTag.exit.i54
-    i8 83, label %isReferenceTag.exit.i54
-    i8 76, label %isReferenceTag.exit.i54
-    i8 74, label %isReferenceTag.exit.i54
-    i8 73, label %isReferenceTag.exit.i54
-    i8 70, label %isReferenceTag.exit.i54
-    i8 68, label %isReferenceTag.exit.i54
-    i8 67, label %isReferenceTag.exit.i54
-    i8 66, label %isReferenceTag.exit.i54
+    i8 91, label %isReferenceTag.exit.i55
+    i8 90, label %isReferenceTag.exit.i55
+    i8 86, label %isReferenceTag.exit.i55
+    i8 83, label %isReferenceTag.exit.i55
+    i8 76, label %isReferenceTag.exit.i55
+    i8 74, label %isReferenceTag.exit.i55
+    i8 73, label %isReferenceTag.exit.i55
+    i8 70, label %isReferenceTag.exit.i55
+    i8 68, label %isReferenceTag.exit.i55
+    i8 67, label %isReferenceTag.exit.i55
+    i8 66, label %isReferenceTag.exit.i55
   ]
 
-277:                                              ; preds = %switch.early.test.i.i53
+277:                                              ; preds = %switch.early.test.i.i54
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.56, i32 noundef 49, ptr noundef nonnull @.str.57) #5
-  br label %isReferenceTag.exit.i54
+  br label %isReferenceTag.exit.i55
 
-isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %switch.early.test.i.i53, %273, %272
+isReferenceTag.exit.i55:                          ; preds = %277, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %switch.early.test.i.i54, %273, %272
   switch i8 %270, label %487 [
     i8 91, label %278
     i8 76, label %278
@@ -1189,7 +1187,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
     i8 86, label %469
   ]
 
-278:                                              ; preds = %isReferenceTag.exit.i54, %isReferenceTag.exit.i54
+278:                                              ; preds = %isReferenceTag.exit.i55, %isReferenceTag.exit.i55
   %279 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 17
   %281 = load i8, ptr %280, align 1
@@ -1200,7 +1198,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %284 = load ptr, ptr %283, align 8
   %.not90.i = icmp eq ptr %284, null
-  br i1 %.not90.i, label %.thread101.i, label %.thread101.i.thread80
+  br i1 %.not90.i, label %.thread101.i, label %.thread101.i.thread79
 
 .thread101.i:                                     ; preds = %282
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @.str.22) #5
@@ -1208,22 +1206,22 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %285 = icmp eq i8 %.pre, 0
-  br i1 %285, label %.thread.i, label %.thread101.i.thread80
+  br i1 %285, label %.thread.i, label %.thread101.i.thread79
 
-.thread101.i.thread80:                            ; preds = %282, %.thread101.i
-  %.pr104.i83 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %279, %282 ]
+.thread101.i.thread79:                            ; preds = %282, %.thread101.i
+  %.pr104.i82 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %279, %282 ]
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %287 = load ptr, ptr %286, align 8
   %.not93.i = icmp eq ptr %287, null
   br i1 %.not93.i, label %288, label %.thread.i
 
-288:                                              ; preds = %.thread101.i.thread80
+288:                                              ; preds = %.thread101.i.thread79
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @.str.35) #5
-  %.pre.i57 = load ptr, ptr @gdata, align 8
+  %.pre.i58 = load ptr, ptr @gdata, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %278, %288, %.thread101.i.thread80, %.thread101.i
-  %289 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %.pr104.i83, %.thread101.i.thread80 ], [ %.pre.i57, %288 ], [ %279, %278 ]
+.thread.i:                                        ; preds = %278, %288, %.thread101.i.thread79, %.thread101.i
+  %289 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %.pr104.i82, %.thread101.i.thread79 ], [ %.pre.i58, %288 ], [ %279, %278 ]
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 528
   %291 = load i32, ptr %290, align 8
   %292 = and i32 %291, 2
@@ -1236,7 +1234,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %294
 
 294:                                              ; preds = %293, %.thread.i
-  %295 = load ptr, ptr %29, align 8
+  %295 = load ptr, ptr %28, align 8
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 528
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1247,17 +1245,17 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %305 = load ptr, ptr %304, align 8
-  %306 = tail call ptr %297(ptr noundef nonnull %29, ptr noundef %299, ptr noundef %301, ptr noundef %303, ptr noundef %305) #5
+  %306 = tail call ptr %297(ptr noundef nonnull %28, ptr noundef %299, ptr noundef %301, ptr noundef %303, ptr noundef %305) #5
   %307 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr null, ptr %307, align 8
   %.not95.i = icmp eq ptr %306, null
   br i1 %.not95.i, label %invokeConstructor.exit, label %308
 
 308:                                              ; preds = %294
-  tail call void @saveGlobalRef(ptr noundef nonnull %29, ptr noundef nonnull %306, ptr noundef nonnull %307) #5
+  tail call void @saveGlobalRef(ptr noundef nonnull %28, ptr noundef nonnull %306, ptr noundef nonnull %307) #5
   br label %invokeConstructor.exit
 
-309:                                              ; preds = %isReferenceTag.exit.i54
+309:                                              ; preds = %isReferenceTag.exit.i55
   %310 = load ptr, ptr @gdata, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 528
   %312 = load i32, ptr %311, align 8
@@ -1271,7 +1269,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %315
 
 315:                                              ; preds = %314, %309
-  %316 = load ptr, ptr %29, align 8
+  %316 = load ptr, ptr %28, align 8
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 576
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1282,12 +1280,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %326 = load ptr, ptr %325, align 8
-  %327 = tail call signext i8 %318(ptr noundef nonnull %29, ptr noundef %320, ptr noundef %322, ptr noundef %324, ptr noundef %326) #5
+  %327 = tail call signext i8 %318(ptr noundef nonnull %28, ptr noundef %320, ptr noundef %322, ptr noundef %324, ptr noundef %326) #5
   %328 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %327, ptr %328, align 8
   br label %invokeConstructor.exit
 
-329:                                              ; preds = %isReferenceTag.exit.i54
+329:                                              ; preds = %isReferenceTag.exit.i55
   %330 = load ptr, ptr @gdata, align 8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 528
   %332 = load i32, ptr %331, align 8
@@ -1301,7 +1299,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %335
 
 335:                                              ; preds = %334, %329
-  %336 = load ptr, ptr %29, align 8
+  %336 = load ptr, ptr %28, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 600
   %338 = load ptr, ptr %337, align 8
   %339 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1312,12 +1310,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %346 = load ptr, ptr %345, align 8
-  %347 = tail call zeroext i16 %338(ptr noundef nonnull %29, ptr noundef %340, ptr noundef %342, ptr noundef %344, ptr noundef %346) #5
+  %347 = tail call zeroext i16 %338(ptr noundef nonnull %28, ptr noundef %340, ptr noundef %342, ptr noundef %344, ptr noundef %346) #5
   %348 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %347, ptr %348, align 8
   br label %invokeConstructor.exit
 
-349:                                              ; preds = %isReferenceTag.exit.i54
+349:                                              ; preds = %isReferenceTag.exit.i55
   %350 = load ptr, ptr @gdata, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 528
   %352 = load i32, ptr %351, align 8
@@ -1331,7 +1329,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %355
 
 355:                                              ; preds = %354, %349
-  %356 = load ptr, ptr %29, align 8
+  %356 = load ptr, ptr %28, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 696
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1342,12 +1340,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %364 = load ptr, ptr %363, align 8
   %365 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %366 = load ptr, ptr %365, align 8
-  %367 = tail call float %358(ptr noundef nonnull %29, ptr noundef %360, ptr noundef %362, ptr noundef %364, ptr noundef %366) #5
+  %367 = tail call float %358(ptr noundef nonnull %28, ptr noundef %360, ptr noundef %362, ptr noundef %364, ptr noundef %366) #5
   %368 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store float %367, ptr %368, align 8
   br label %invokeConstructor.exit
 
-369:                                              ; preds = %isReferenceTag.exit.i54
+369:                                              ; preds = %isReferenceTag.exit.i55
   %370 = load ptr, ptr @gdata, align 8
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 528
   %372 = load i32, ptr %371, align 8
@@ -1361,7 +1359,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %375
 
 375:                                              ; preds = %374, %369
-  %376 = load ptr, ptr %29, align 8
+  %376 = load ptr, ptr %28, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 720
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1372,12 +1370,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %384 = load ptr, ptr %383, align 8
   %385 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %386 = load ptr, ptr %385, align 8
-  %387 = tail call double %378(ptr noundef nonnull %29, ptr noundef %380, ptr noundef %382, ptr noundef %384, ptr noundef %386) #5
+  %387 = tail call double %378(ptr noundef nonnull %28, ptr noundef %380, ptr noundef %382, ptr noundef %384, ptr noundef %386) #5
   %388 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store double %387, ptr %388, align 8
   br label %invokeConstructor.exit
 
-389:                                              ; preds = %isReferenceTag.exit.i54
+389:                                              ; preds = %isReferenceTag.exit.i55
   %390 = load ptr, ptr @gdata, align 8
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 528
   %392 = load i32, ptr %391, align 8
@@ -1391,7 +1389,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %395
 
 395:                                              ; preds = %394, %389
-  %396 = load ptr, ptr %29, align 8
+  %396 = load ptr, ptr %28, align 8
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 648
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1402,12 +1400,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %406 = load ptr, ptr %405, align 8
-  %407 = tail call i32 %398(ptr noundef nonnull %29, ptr noundef %400, ptr noundef %402, ptr noundef %404, ptr noundef %406) #5
+  %407 = tail call i32 %398(ptr noundef nonnull %28, ptr noundef %400, ptr noundef %402, ptr noundef %404, ptr noundef %406) #5
   %408 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %407, ptr %408, align 8
   br label %invokeConstructor.exit
 
-409:                                              ; preds = %isReferenceTag.exit.i54
+409:                                              ; preds = %isReferenceTag.exit.i55
   %410 = load ptr, ptr @gdata, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 528
   %412 = load i32, ptr %411, align 8
@@ -1421,7 +1419,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %415
 
 415:                                              ; preds = %414, %409
-  %416 = load ptr, ptr %29, align 8
+  %416 = load ptr, ptr %28, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 672
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1432,12 +1430,12 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %426 = load ptr, ptr %425, align 8
-  %427 = tail call i64 %418(ptr noundef nonnull %29, ptr noundef %420, ptr noundef %422, ptr noundef %424, ptr noundef %426) #5
+  %427 = tail call i64 %418(ptr noundef nonnull %28, ptr noundef %420, ptr noundef %422, ptr noundef %424, ptr noundef %426) #5
   %428 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %427, ptr %428, align 8
   br label %invokeConstructor.exit
 
-429:                                              ; preds = %isReferenceTag.exit.i54
+429:                                              ; preds = %isReferenceTag.exit.i55
   %430 = load ptr, ptr @gdata, align 8
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 528
   %432 = load i32, ptr %431, align 8
@@ -1451,7 +1449,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %435
 
 435:                                              ; preds = %434, %429
-  %436 = load ptr, ptr %29, align 8
+  %436 = load ptr, ptr %28, align 8
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 624
   %438 = load ptr, ptr %437, align 8
   %439 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1462,18 +1460,18 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %444 = load ptr, ptr %443, align 8
   %445 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %446 = load ptr, ptr %445, align 8
-  %447 = tail call signext i16 %438(ptr noundef nonnull %29, ptr noundef %440, ptr noundef %442, ptr noundef %444, ptr noundef %446) #5
+  %447 = tail call signext i16 %438(ptr noundef nonnull %28, ptr noundef %440, ptr noundef %442, ptr noundef %444, ptr noundef %446) #5
   %448 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %447, ptr %448, align 8
   br label %invokeConstructor.exit
 
-449:                                              ; preds = %isReferenceTag.exit.i54
+449:                                              ; preds = %isReferenceTag.exit.i55
   %450 = load ptr, ptr @gdata, align 8
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 528
   %452 = load i32, ptr %451, align 8
   %453 = and i32 %452, 2
-  %.not80.i56 = icmp eq i32 %453, 0
-  br i1 %.not80.i56, label %455, label %454
+  %.not80.i57 = icmp eq i32 %453, 0
+  br i1 %.not80.i57, label %455, label %454
 
 454:                                              ; preds = %449
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 611) #5
@@ -1481,7 +1479,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %455
 
 455:                                              ; preds = %454, %449
-  %456 = load ptr, ptr %29, align 8
+  %456 = load ptr, ptr %28, align 8
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 552
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1492,18 +1490,18 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %464 = load ptr, ptr %463, align 8
   %465 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %466 = load ptr, ptr %465, align 8
-  %467 = tail call zeroext i8 %458(ptr noundef nonnull %29, ptr noundef %460, ptr noundef %462, ptr noundef %464, ptr noundef %466) #5
+  %467 = tail call zeroext i8 %458(ptr noundef nonnull %28, ptr noundef %460, ptr noundef %462, ptr noundef %464, ptr noundef %466) #5
   %468 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %467, ptr %468, align 8
   br label %invokeConstructor.exit
 
-469:                                              ; preds = %isReferenceTag.exit.i54
+469:                                              ; preds = %isReferenceTag.exit.i55
   %470 = load ptr, ptr @gdata, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 528
   %472 = load i32, ptr %471, align 8
   %473 = and i32 %472, 2
-  %.not79.i55 = icmp eq i32 %473, 0
-  br i1 %.not79.i55, label %475, label %474
+  %.not79.i56 = icmp eq i32 %473, 0
+  br i1 %.not79.i56, label %475, label %474
 
 474:                                              ; preds = %469
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 619) #5
@@ -1511,7 +1509,7 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %475
 
 475:                                              ; preds = %474, %469
-  %476 = load ptr, ptr %29, align 8
+  %476 = load ptr, ptr %28, align 8
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 744
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1522,10 +1520,10 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %486 = load ptr, ptr %485, align 8
-  tail call void %478(ptr noundef nonnull %29, ptr noundef %480, ptr noundef %482, ptr noundef %484, ptr noundef %486) #5
+  tail call void %478(ptr noundef nonnull %28, ptr noundef %480, ptr noundef %482, ptr noundef %484, ptr noundef %486) #5
   br label %invokeConstructor.exit
 
-487:                                              ; preds = %isReferenceTag.exit.i54
+487:                                              ; preds = %isReferenceTag.exit.i55
   %488 = load ptr, ptr @stderr, align 8
   %489 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %488, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %489, i32 noundef 201, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 627) #5
@@ -1533,35 +1531,35 @@ isReferenceTag.exit.i54:                          ; preds = %277, %switch.early.
   br label %invokeConstructor.exit
 
 490:                                              ; preds = %266
-  br i1 %.not.i.i58, label %isReferenceTag.exit.i61, label %491
+  br i1 %.not.i.i59, label %isReferenceTag.exit.i62, label %491
 
 491:                                              ; preds = %490
   %492 = getelementptr inbounds nuw i8, ptr %271, i64 17
   %493 = load i8, ptr %492, align 1
-  %.fr.i.i59 = freeze i8 %493
-  %494 = icmp eq i8 %.fr.i.i59, 0
-  br i1 %494, label %isReferenceTag.exit.i61, label %switch.early.test.i.i60
+  %.fr.i.i60 = freeze i8 %493
+  %494 = icmp eq i8 %.fr.i.i60, 0
+  br i1 %494, label %isReferenceTag.exit.i62, label %switch.early.test.i.i61
 
-switch.early.test.i.i60:                          ; preds = %491
+switch.early.test.i.i61:                          ; preds = %491
   switch i8 %270, label %495 [
-    i8 91, label %isReferenceTag.exit.i61
-    i8 90, label %isReferenceTag.exit.i61
-    i8 86, label %isReferenceTag.exit.i61
-    i8 83, label %isReferenceTag.exit.i61
-    i8 76, label %isReferenceTag.exit.i61
-    i8 74, label %isReferenceTag.exit.i61
-    i8 73, label %isReferenceTag.exit.i61
-    i8 70, label %isReferenceTag.exit.i61
-    i8 68, label %isReferenceTag.exit.i61
-    i8 67, label %isReferenceTag.exit.i61
-    i8 66, label %isReferenceTag.exit.i61
+    i8 91, label %isReferenceTag.exit.i62
+    i8 90, label %isReferenceTag.exit.i62
+    i8 86, label %isReferenceTag.exit.i62
+    i8 83, label %isReferenceTag.exit.i62
+    i8 76, label %isReferenceTag.exit.i62
+    i8 74, label %isReferenceTag.exit.i62
+    i8 73, label %isReferenceTag.exit.i62
+    i8 70, label %isReferenceTag.exit.i62
+    i8 68, label %isReferenceTag.exit.i62
+    i8 67, label %isReferenceTag.exit.i62
+    i8 66, label %isReferenceTag.exit.i62
   ]
 
-495:                                              ; preds = %switch.early.test.i.i60
+495:                                              ; preds = %switch.early.test.i.i61
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.56, i32 noundef 49, ptr noundef nonnull @.str.57) #5
-  br label %isReferenceTag.exit.i61
+  br label %isReferenceTag.exit.i62
 
-isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %switch.early.test.i.i60, %491, %490
+isReferenceTag.exit.i62:                          ; preds = %495, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %switch.early.test.i.i61, %491, %490
   switch i8 %270, label %683 [
     i8 91, label %496
     i8 76, label %496
@@ -1576,31 +1574,31 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
     i8 86, label %667
   ]
 
-496:                                              ; preds = %isReferenceTag.exit.i61, %isReferenceTag.exit.i61
+496:                                              ; preds = %isReferenceTag.exit.i62, %isReferenceTag.exit.i62
   %497 = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 17
   %499 = load i8, ptr %498, align 1
-  %.not77.i71 = icmp eq i8 %499, 0
-  br i1 %.not77.i71, label %504, label %500
+  %.not77.i72 = icmp eq i8 %499, 0
+  br i1 %.not77.i72, label %504, label %500
 
 500:                                              ; preds = %496
   %501 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %502 = load ptr, ptr %501, align 8
-  %.not78.i72 = icmp eq ptr %502, null
-  br i1 %.not78.i72, label %503, label %504
+  %.not78.i73 = icmp eq ptr %502, null
+  br i1 %.not78.i73, label %503, label %504
 
 503:                                              ; preds = %500
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 451, ptr noundef nonnull @.str.35) #5
-  %.pre.i75 = load ptr, ptr @gdata, align 8
+  %.pre.i76 = load ptr, ptr @gdata, align 8
   br label %504
 
 504:                                              ; preds = %503, %500, %496
-  %505 = phi ptr [ %497, %496 ], [ %497, %500 ], [ %.pre.i75, %503 ]
+  %505 = phi ptr [ %497, %496 ], [ %497, %500 ], [ %.pre.i76, %503 ]
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 528
   %507 = load i32, ptr %506, align 8
   %508 = and i32 %507, 2
-  %.not79.i73 = icmp eq i32 %508, 0
-  br i1 %.not79.i73, label %510, label %509
+  %.not79.i74 = icmp eq i32 %508, 0
+  br i1 %.not79.i74, label %510, label %509
 
 509:                                              ; preds = %504
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 452) #5
@@ -1608,7 +1606,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %510
 
 510:                                              ; preds = %509, %504
-  %511 = load ptr, ptr %29, align 8
+  %511 = load ptr, ptr %28, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 288
   %513 = load ptr, ptr %512, align 8
   %514 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1617,23 +1615,23 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %519 = load ptr, ptr %518, align 8
-  %520 = tail call ptr %513(ptr noundef nonnull %29, ptr noundef %515, ptr noundef %517, ptr noundef %519) #5
+  %520 = tail call ptr %513(ptr noundef nonnull %28, ptr noundef %515, ptr noundef %517, ptr noundef %519) #5
   %521 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr null, ptr %521, align 8
-  %.not80.i74 = icmp eq ptr %520, null
-  br i1 %.not80.i74, label %invokeConstructor.exit, label %522
+  %.not80.i75 = icmp eq ptr %520, null
+  br i1 %.not80.i75, label %invokeConstructor.exit, label %522
 
 522:                                              ; preds = %510
-  tail call void @saveGlobalRef(ptr noundef nonnull %29, ptr noundef nonnull %520, ptr noundef nonnull %521) #5
+  tail call void @saveGlobalRef(ptr noundef nonnull %28, ptr noundef nonnull %520, ptr noundef nonnull %521) #5
   br label %invokeConstructor.exit
 
-523:                                              ; preds = %isReferenceTag.exit.i61
+523:                                              ; preds = %isReferenceTag.exit.i62
   %524 = load ptr, ptr @gdata, align 8
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 528
   %526 = load i32, ptr %525, align 8
   %527 = and i32 %526, 2
-  %.not75.i70 = icmp eq i32 %527, 0
-  br i1 %.not75.i70, label %529, label %528
+  %.not75.i71 = icmp eq i32 %527, 0
+  br i1 %.not75.i71, label %529, label %528
 
 528:                                              ; preds = %523
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 465) #5
@@ -1641,7 +1639,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %529
 
 529:                                              ; preds = %528, %523
-  %530 = load ptr, ptr %29, align 8
+  %530 = load ptr, ptr %28, align 8
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 336
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1650,18 +1648,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %538 = load ptr, ptr %537, align 8
-  %539 = tail call signext i8 %532(ptr noundef nonnull %29, ptr noundef %534, ptr noundef %536, ptr noundef %538) #5
+  %539 = tail call signext i8 %532(ptr noundef nonnull %28, ptr noundef %534, ptr noundef %536, ptr noundef %538) #5
   %540 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %539, ptr %540, align 8
   br label %invokeConstructor.exit
 
-541:                                              ; preds = %isReferenceTag.exit.i61
+541:                                              ; preds = %isReferenceTag.exit.i62
   %542 = load ptr, ptr @gdata, align 8
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 528
   %544 = load i32, ptr %543, align 8
   %545 = and i32 %544, 2
-  %.not74.i69 = icmp eq i32 %545, 0
-  br i1 %.not74.i69, label %547, label %546
+  %.not74.i70 = icmp eq i32 %545, 0
+  br i1 %.not74.i70, label %547, label %546
 
 546:                                              ; preds = %541
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 472) #5
@@ -1669,7 +1667,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %547
 
 547:                                              ; preds = %546, %541
-  %548 = load ptr, ptr %29, align 8
+  %548 = load ptr, ptr %28, align 8
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 360
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1678,18 +1676,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %554 = load ptr, ptr %553, align 8
   %555 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %556 = load ptr, ptr %555, align 8
-  %557 = tail call zeroext i16 %550(ptr noundef nonnull %29, ptr noundef %552, ptr noundef %554, ptr noundef %556) #5
+  %557 = tail call zeroext i16 %550(ptr noundef nonnull %28, ptr noundef %552, ptr noundef %554, ptr noundef %556) #5
   %558 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %557, ptr %558, align 8
   br label %invokeConstructor.exit
 
-559:                                              ; preds = %isReferenceTag.exit.i61
+559:                                              ; preds = %isReferenceTag.exit.i62
   %560 = load ptr, ptr @gdata, align 8
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 528
   %562 = load i32, ptr %561, align 8
   %563 = and i32 %562, 2
-  %.not73.i68 = icmp eq i32 %563, 0
-  br i1 %.not73.i68, label %565, label %564
+  %.not73.i69 = icmp eq i32 %563, 0
+  br i1 %.not73.i69, label %565, label %564
 
 564:                                              ; preds = %559
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 479) #5
@@ -1697,7 +1695,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %565
 
 565:                                              ; preds = %564, %559
-  %566 = load ptr, ptr %29, align 8
+  %566 = load ptr, ptr %28, align 8
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 456
   %568 = load ptr, ptr %567, align 8
   %569 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1706,18 +1704,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %572 = load ptr, ptr %571, align 8
   %573 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %574 = load ptr, ptr %573, align 8
-  %575 = tail call float %568(ptr noundef nonnull %29, ptr noundef %570, ptr noundef %572, ptr noundef %574) #5
+  %575 = tail call float %568(ptr noundef nonnull %28, ptr noundef %570, ptr noundef %572, ptr noundef %574) #5
   %576 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store float %575, ptr %576, align 8
   br label %invokeConstructor.exit
 
-577:                                              ; preds = %isReferenceTag.exit.i61
+577:                                              ; preds = %isReferenceTag.exit.i62
   %578 = load ptr, ptr @gdata, align 8
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 528
   %580 = load i32, ptr %579, align 8
   %581 = and i32 %580, 2
-  %.not72.i67 = icmp eq i32 %581, 0
-  br i1 %.not72.i67, label %583, label %582
+  %.not72.i68 = icmp eq i32 %581, 0
+  br i1 %.not72.i68, label %583, label %582
 
 582:                                              ; preds = %577
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 486) #5
@@ -1725,7 +1723,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %583
 
 583:                                              ; preds = %582, %577
-  %584 = load ptr, ptr %29, align 8
+  %584 = load ptr, ptr %28, align 8
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 480
   %586 = load ptr, ptr %585, align 8
   %587 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1734,18 +1732,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %590 = load ptr, ptr %589, align 8
   %591 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %592 = load ptr, ptr %591, align 8
-  %593 = tail call double %586(ptr noundef nonnull %29, ptr noundef %588, ptr noundef %590, ptr noundef %592) #5
+  %593 = tail call double %586(ptr noundef nonnull %28, ptr noundef %588, ptr noundef %590, ptr noundef %592) #5
   %594 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store double %593, ptr %594, align 8
   br label %invokeConstructor.exit
 
-595:                                              ; preds = %isReferenceTag.exit.i61
+595:                                              ; preds = %isReferenceTag.exit.i62
   %596 = load ptr, ptr @gdata, align 8
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 528
   %598 = load i32, ptr %597, align 8
   %599 = and i32 %598, 2
-  %.not71.i66 = icmp eq i32 %599, 0
-  br i1 %.not71.i66, label %601, label %600
+  %.not71.i67 = icmp eq i32 %599, 0
+  br i1 %.not71.i67, label %601, label %600
 
 600:                                              ; preds = %595
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 493) #5
@@ -1753,7 +1751,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %601
 
 601:                                              ; preds = %600, %595
-  %602 = load ptr, ptr %29, align 8
+  %602 = load ptr, ptr %28, align 8
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 408
   %604 = load ptr, ptr %603, align 8
   %605 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1762,18 +1760,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %610 = load ptr, ptr %609, align 8
-  %611 = tail call i32 %604(ptr noundef nonnull %29, ptr noundef %606, ptr noundef %608, ptr noundef %610) #5
+  %611 = tail call i32 %604(ptr noundef nonnull %28, ptr noundef %606, ptr noundef %608, ptr noundef %610) #5
   %612 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %611, ptr %612, align 8
   br label %invokeConstructor.exit
 
-613:                                              ; preds = %isReferenceTag.exit.i61
+613:                                              ; preds = %isReferenceTag.exit.i62
   %614 = load ptr, ptr @gdata, align 8
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 528
   %616 = load i32, ptr %615, align 8
   %617 = and i32 %616, 2
-  %.not70.i65 = icmp eq i32 %617, 0
-  br i1 %.not70.i65, label %619, label %618
+  %.not70.i66 = icmp eq i32 %617, 0
+  br i1 %.not70.i66, label %619, label %618
 
 618:                                              ; preds = %613
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 500) #5
@@ -1781,7 +1779,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %619
 
 619:                                              ; preds = %618, %613
-  %620 = load ptr, ptr %29, align 8
+  %620 = load ptr, ptr %28, align 8
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 432
   %622 = load ptr, ptr %621, align 8
   %623 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1790,18 +1788,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %626 = load ptr, ptr %625, align 8
   %627 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %628 = load ptr, ptr %627, align 8
-  %629 = tail call i64 %622(ptr noundef nonnull %29, ptr noundef %624, ptr noundef %626, ptr noundef %628) #5
+  %629 = tail call i64 %622(ptr noundef nonnull %28, ptr noundef %624, ptr noundef %626, ptr noundef %628) #5
   %630 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %629, ptr %630, align 8
   br label %invokeConstructor.exit
 
-631:                                              ; preds = %isReferenceTag.exit.i61
+631:                                              ; preds = %isReferenceTag.exit.i62
   %632 = load ptr, ptr @gdata, align 8
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 528
   %634 = load i32, ptr %633, align 8
   %635 = and i32 %634, 2
-  %.not69.i64 = icmp eq i32 %635, 0
-  br i1 %.not69.i64, label %637, label %636
+  %.not69.i65 = icmp eq i32 %635, 0
+  br i1 %.not69.i65, label %637, label %636
 
 636:                                              ; preds = %631
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 507) #5
@@ -1809,7 +1807,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %637
 
 637:                                              ; preds = %636, %631
-  %638 = load ptr, ptr %29, align 8
+  %638 = load ptr, ptr %28, align 8
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 384
   %640 = load ptr, ptr %639, align 8
   %641 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1818,18 +1816,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %644 = load ptr, ptr %643, align 8
   %645 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %646 = load ptr, ptr %645, align 8
-  %647 = tail call signext i16 %640(ptr noundef nonnull %29, ptr noundef %642, ptr noundef %644, ptr noundef %646) #5
+  %647 = tail call signext i16 %640(ptr noundef nonnull %28, ptr noundef %642, ptr noundef %644, ptr noundef %646) #5
   %648 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i16 %647, ptr %648, align 8
   br label %invokeConstructor.exit
 
-649:                                              ; preds = %isReferenceTag.exit.i61
+649:                                              ; preds = %isReferenceTag.exit.i62
   %650 = load ptr, ptr @gdata, align 8
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 528
   %652 = load i32, ptr %651, align 8
   %653 = and i32 %652, 2
-  %.not68.i63 = icmp eq i32 %653, 0
-  br i1 %.not68.i63, label %655, label %654
+  %.not68.i64 = icmp eq i32 %653, 0
+  br i1 %.not68.i64, label %655, label %654
 
 654:                                              ; preds = %649
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 514) #5
@@ -1837,7 +1835,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %655
 
 655:                                              ; preds = %654, %649
-  %656 = load ptr, ptr %29, align 8
+  %656 = load ptr, ptr %28, align 8
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 312
   %658 = load ptr, ptr %657, align 8
   %659 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1846,18 +1844,18 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %662 = load ptr, ptr %661, align 8
   %663 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %664 = load ptr, ptr %663, align 8
-  %665 = tail call zeroext i8 %658(ptr noundef nonnull %29, ptr noundef %660, ptr noundef %662, ptr noundef %664) #5
+  %665 = tail call zeroext i8 %658(ptr noundef nonnull %28, ptr noundef %660, ptr noundef %662, ptr noundef %664) #5
   %666 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 %665, ptr %666, align 8
   br label %invokeConstructor.exit
 
-667:                                              ; preds = %isReferenceTag.exit.i61
+667:                                              ; preds = %isReferenceTag.exit.i62
   %668 = load ptr, ptr @gdata, align 8
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 528
   %670 = load i32, ptr %669, align 8
   %671 = and i32 %670, 2
-  %.not67.i62 = icmp eq i32 %671, 0
-  br i1 %.not67.i62, label %673, label %672
+  %.not67.i63 = icmp eq i32 %671, 0
+  br i1 %.not67.i63, label %673, label %672
 
 672:                                              ; preds = %667
   tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 521) #5
@@ -1865,7 +1863,7 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   br label %673
 
 673:                                              ; preds = %672, %667
-  %674 = load ptr, ptr %29, align 8
+  %674 = load ptr, ptr %28, align 8
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 504
   %676 = load ptr, ptr %675, align 8
   %677 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1874,10 +1872,10 @@ isReferenceTag.exit.i61:                          ; preds = %495, %switch.early.
   %680 = load ptr, ptr %679, align 8
   %681 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %682 = load ptr, ptr %681, align 8
-  tail call void %676(ptr noundef nonnull %29, ptr noundef %678, ptr noundef %680, ptr noundef %682) #5
+  tail call void %676(ptr noundef nonnull %28, ptr noundef %678, ptr noundef %680, ptr noundef %682) #5
   br label %invokeConstructor.exit
 
-683:                                              ; preds = %isReferenceTag.exit.i61
+683:                                              ; preds = %isReferenceTag.exit.i62
   %684 = load ptr, ptr @stderr, align 8
   %685 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %684, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %685, i32 noundef 201, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 528) #5
@@ -1915,10 +1913,10 @@ invokeConstructor.exit:                           ; preds = %683, %673, %655, %6
   br label %698
 
 698:                                              ; preds = %invokeConstructor.exit, %697
-  %699 = load ptr, ptr %29, align 8
+  %699 = load ptr, ptr %28, align 8
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 120
   %701 = load ptr, ptr %700, align 8
-  %702 = tail call ptr %701(ptr noundef nonnull %29) #5
+  %702 = tail call ptr %701(ptr noundef nonnull %28) #5
   %.not47 = icmp eq ptr %702, null
   br i1 %.not47, label %713, label %703
 
@@ -1936,11 +1934,11 @@ invokeConstructor.exit:                           ; preds = %683, %673, %655, %6
   br label %709
 
 709:                                              ; preds = %703, %708
-  %710 = load ptr, ptr %29, align 8
+  %710 = load ptr, ptr %28, align 8
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 136
   %712 = load ptr, ptr %711, align 8
-  tail call void %712(ptr noundef nonnull %29) #5
-  tail call void @saveGlobalRef(ptr noundef nonnull %29, ptr noundef nonnull %702, ptr noundef nonnull %692) #5
+  tail call void %712(ptr noundef nonnull %28) #5
+  tail call void @saveGlobalRef(ptr noundef nonnull %28, ptr noundef nonnull %702, ptr noundef nonnull %692) #5
   br label %713
 
 713:                                              ; preds = %709, %698
@@ -1957,14 +1955,14 @@ invokeConstructor.exit:                           ; preds = %683, %673, %655, %6
   br label %719
 
 719:                                              ; preds = %713, %718
-  %720 = load ptr, ptr %29, align 8
+  %720 = load ptr, ptr %28, align 8
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 160
   %722 = load ptr, ptr %721, align 8
-  %723 = tail call ptr %722(ptr noundef nonnull %29, ptr noundef null) #5
+  %723 = tail call ptr %722(ptr noundef nonnull %28, ptr noundef null) #5
   br label %724
 
-724:                                              ; preds = %.thread, %719
-  %.0 = phi i8 [ 1, %719 ], [ 0, %.thread ]
+724:                                              ; preds = %.critedge, %719
+  %.0 = phi i8 [ 1, %719 ], [ 0, %.critedge ]
   ret i8 %.0
 }
 

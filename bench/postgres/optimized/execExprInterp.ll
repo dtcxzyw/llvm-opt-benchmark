@@ -1318,8 +1318,8 @@ slot_getsomeattrs.exit:                           ; preds = %54, %60
   %61 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %slot_getsomeattrs.exit, %slot_getsomeattrs.exit921, %slot_getsomeattrs.exit922, %slot_getsomeattrs.exit923, %slot_getsomeattrs.exit924, %94, %109, %124, %139, %154, %169, %171, %173, %175, %177, %179, %181, %199, %217, %235, %253, %271, %296, %300, %310, %.loopexit, %345, %ExecEvalFuncExprStrictFusage.exit, %397, %403, %421, %438, %444, %462, %464, %479, %487, %489, %500, %506, %513, %519, %530, %536, %538, %547, %ExecEvalRowNull.exit, %ExecEvalRowNotNull.exit, %628, %642, %656, %667, %ExecEvalParamExec.exit, %686, %688, %692, %703, %715, %735, %779, %ExecEvalCoerceViaIOSafe.exit, %857, %885, %915, %921, %928, %ExecEvalNextValueExpr.exit, %956, %966, %968, %ExecEvalArrayCoerce.exit, %997, %1028, %1047, %1057, %1063, %1086, %1088, %1090, %1092, %1094, %1118, %1120, %1126, %1130, %1132, %1134, %1136, %1148, %ExecEvalConstraintNotNull.exit, %1174, %1176, %1194, %1207, %1216, %1241, %1254, %1264, %1281, %1283, %1285, %1287, %1292, %1294, %1296, %ExecEvalGroupingFunc.exit, %1336, %1355, %1357, %1372, %1378, %1407, %._crit_edge958, %1424, %._crit_edge, %1441, %1447, %1513, %1557, %1559, %1670, %1721, %ExecAggPlainTransByRef.exit920, %1775, %1777, %1788, %1790, %1796, %1814
-  %.0905.be = phi ptr [ %61, %slot_getsomeattrs.exit ], [ %69, %slot_getsomeattrs.exit921 ], [ %77, %slot_getsomeattrs.exit922 ], [ %85, %slot_getsomeattrs.exit923 ], [ %93, %slot_getsomeattrs.exit924 ], [ %108, %94 ], [ %123, %109 ], [ %138, %124 ], [ %153, %139 ], [ %168, %154 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %198, %181 ], [ %216, %199 ], [ %234, %217 ], [ %252, %235 ], [ %270, %253 ], [ %281, %271 ], [ %299, %296 ], [ %309, %300 ], [ %322, %310 ], [ %344, %.loopexit ], [ %357, %345 ], [ %381, %ExecEvalFuncExprStrictFusage.exit ], [ %404, %403 ], [ %402, %397 ], [ %422, %421 ], [ %445, %444 ], [ %443, %438 ], [ %463, %462 ], [ %469, %464 ], [ %486, %479 ], [ %488, %487 ], [ %494, %489 ], [ %505, %500 ], [ %507, %506 ], [ %520, %519 ], [ %518, %513 ], [ %535, %530 ], [ %537, %536 ], [ %546, %538 ], [ %556, %547 ], [ %587, %ExecEvalRowNull.exit ], [ %618, %ExecEvalRowNotNull.exit ], [ %629, %628 ], [ %643, %642 ], [ %657, %656 ], [ %668, %667 ], [ %685, %ExecEvalParamExec.exit ], [ %687, %686 ], [ %691, %688 ], [ %702, %692 ], [ %714, %703 ], [ %722, %715 ], [ %739, %735 ], [ %780, %779 ], [ %831, %ExecEvalCoerceViaIOSafe.exit ], [ %860, %857 ], [ %888, %885 ], [ %927, %921 ], [ %920, %915 ], [ %929, %928 ], [ %950, %ExecEvalNextValueExpr.exit ], [ %965, %956 ], [ %967, %966 ], [ %969, %968 ], [ %996, %ExecEvalArrayCoerce.exit ], [ %1011, %997 ], [ %1035, %1028 ], [ %1052, %1047 ], [ %1062, %1057 ], [ %1064, %1063 ], [ %1087, %1086 ], [ %1089, %1088 ], [ %1091, %1090 ], [ %1093, %1092 ], [ %1113, %1094 ], [ %1119, %1118 ], [ %1125, %1120 ], [ %1129, %1126 ], [ %1838, %1814 ], [ %1813, %1796 ], [ %1147, %1136 ], [ %1155, %1148 ], [ %1173, %ExecEvalConstraintNotNull.exit ], [ %1175, %1174 ], [ %1183, %1176 ], [ %1199, %1194 ], [ %1215, %1207 ], [ %1223, %1216 ], [ %1247, %1241 ], [ %1263, %1254 ], [ %1280, %1264 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1135, %1134 ], [ %1282, %1281 ], [ %1284, %1283 ], [ %1286, %1285 ], [ %1291, %1287 ], [ %1293, %1292 ], [ %1295, %1294 ], [ %1310, %1296 ], [ %1335, %ExecEvalGroupingFunc.exit ], [ %1354, %1336 ], [ %1356, %1355 ], [ %1365, %1357 ], [ %1377, %1372 ], [ %1396, %1378 ], [ %1412, %1407 ], [ %1413, %._crit_edge958 ], [ %1429, %1424 ], [ %1430, %._crit_edge ], [ %1446, %1441 ], [ %1448, %1447 ], [ %1514, %1513 ], [ %1558, %1557 ], [ %1598, %1559 ], [ %1671, %1670 ], [ %1722, %1721 ], [ %1769, %ExecAggPlainTransByRef.exit920 ], [ %1776, %1775 ], [ %1782, %1777 ], [ %1789, %1788 ], [ %1795, %1790 ]
+.backedge.backedge:                               ; preds = %slot_getsomeattrs.exit, %slot_getsomeattrs.exit921, %slot_getsomeattrs.exit922, %slot_getsomeattrs.exit923, %slot_getsomeattrs.exit924, %94, %109, %124, %139, %154, %169, %171, %173, %175, %177, %179, %181, %199, %217, %235, %253, %271, %296, %300, %310, %.loopexit, %345, %ExecEvalFuncExprStrictFusage.exit, %397, %403, %421, %438, %444, %462, %464, %479, %487, %489, %500, %506, %513, %519, %530, %536, %538, %547, %ExecEvalRowNull.exit, %ExecEvalRowNotNull.exit, %628, %642, %656, %667, %ExecEvalParamExec.exit, %686, %688, %692, %703, %715, %735, %779, %ExecEvalCoerceViaIOSafe.exit, %857, %885, %915, %921, %928, %ExecEvalNextValueExpr.exit, %956, %966, %968, %ExecEvalArrayCoerce.exit, %997, %1028, %1047, %1057, %1063, %1086, %1088, %1090, %1092, %1094, %1118, %1120, %1126, %1130, %1132, %1134, %1136, %1148, %ExecEvalConstraintNotNull.exit, %1174, %1176, %1194, %1207, %1216, %1241, %1254, %1264, %1281, %1283, %1285, %1287, %1292, %1294, %1296, %ExecEvalGroupingFunc.exit, %1336, %1355, %1357, %1372, %1378, %1407, %._crit_edge959, %1424, %._crit_edge, %1441, %1447, %1513, %1557, %1559, %1670, %1721, %ExecAggPlainTransByRef.exit920, %1775, %1777, %1788, %1790, %1796, %1814
+  %.0905.be = phi ptr [ %61, %slot_getsomeattrs.exit ], [ %69, %slot_getsomeattrs.exit921 ], [ %77, %slot_getsomeattrs.exit922 ], [ %85, %slot_getsomeattrs.exit923 ], [ %93, %slot_getsomeattrs.exit924 ], [ %108, %94 ], [ %123, %109 ], [ %138, %124 ], [ %153, %139 ], [ %168, %154 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %198, %181 ], [ %216, %199 ], [ %234, %217 ], [ %252, %235 ], [ %270, %253 ], [ %281, %271 ], [ %299, %296 ], [ %309, %300 ], [ %322, %310 ], [ %344, %.loopexit ], [ %357, %345 ], [ %381, %ExecEvalFuncExprStrictFusage.exit ], [ %404, %403 ], [ %402, %397 ], [ %422, %421 ], [ %445, %444 ], [ %443, %438 ], [ %463, %462 ], [ %469, %464 ], [ %486, %479 ], [ %488, %487 ], [ %494, %489 ], [ %505, %500 ], [ %507, %506 ], [ %520, %519 ], [ %518, %513 ], [ %535, %530 ], [ %537, %536 ], [ %546, %538 ], [ %556, %547 ], [ %587, %ExecEvalRowNull.exit ], [ %618, %ExecEvalRowNotNull.exit ], [ %629, %628 ], [ %643, %642 ], [ %657, %656 ], [ %668, %667 ], [ %685, %ExecEvalParamExec.exit ], [ %687, %686 ], [ %691, %688 ], [ %702, %692 ], [ %714, %703 ], [ %722, %715 ], [ %739, %735 ], [ %780, %779 ], [ %831, %ExecEvalCoerceViaIOSafe.exit ], [ %860, %857 ], [ %888, %885 ], [ %927, %921 ], [ %920, %915 ], [ %929, %928 ], [ %950, %ExecEvalNextValueExpr.exit ], [ %965, %956 ], [ %967, %966 ], [ %969, %968 ], [ %996, %ExecEvalArrayCoerce.exit ], [ %1011, %997 ], [ %1035, %1028 ], [ %1052, %1047 ], [ %1062, %1057 ], [ %1064, %1063 ], [ %1087, %1086 ], [ %1089, %1088 ], [ %1091, %1090 ], [ %1093, %1092 ], [ %1113, %1094 ], [ %1119, %1118 ], [ %1125, %1120 ], [ %1129, %1126 ], [ %1838, %1814 ], [ %1813, %1796 ], [ %1147, %1136 ], [ %1155, %1148 ], [ %1173, %ExecEvalConstraintNotNull.exit ], [ %1175, %1174 ], [ %1183, %1176 ], [ %1199, %1194 ], [ %1215, %1207 ], [ %1223, %1216 ], [ %1247, %1241 ], [ %1263, %1254 ], [ %1280, %1264 ], [ %1131, %1130 ], [ %1133, %1132 ], [ %1135, %1134 ], [ %1282, %1281 ], [ %1284, %1283 ], [ %1286, %1285 ], [ %1291, %1287 ], [ %1293, %1292 ], [ %1295, %1294 ], [ %1310, %1296 ], [ %1335, %ExecEvalGroupingFunc.exit ], [ %1354, %1336 ], [ %1356, %1355 ], [ %1365, %1357 ], [ %1377, %1372 ], [ %1396, %1378 ], [ %1412, %1407 ], [ %1413, %._crit_edge959 ], [ %1429, %1424 ], [ %1430, %._crit_edge ], [ %1446, %1441 ], [ %1448, %1447 ], [ %1514, %1513 ], [ %1558, %1557 ], [ %1598, %1559 ], [ %1671, %1670 ], [ %1722, %1721 ], [ %1769, %ExecAggPlainTransByRef.exit920 ], [ %1776, %1775 ], [ %1782, %1777 ], [ %1789, %1788 ], [ %1795, %1790 ]
   br label %.backedge
 
 62:                                               ; preds = %.backedge
@@ -1701,27 +1701,27 @@ slot_getsomeattrs.exit924:                        ; preds = %86, %92
   %326 = getelementptr inbounds nuw i8, ptr %.0905, i64 48
   %327 = load i32, ptr %326, align 8
   %328 = icmp sgt i32 %327, 0
-  br i1 %328, label %.lr.ph961, label %._crit_edge962
+  br i1 %328, label %.lr.ph962, label %._crit_edge963
 
-.lr.ph961:                                        ; preds = %323
+.lr.ph962:                                        ; preds = %323
   %329 = getelementptr i8, ptr %325, i64 40
-  %wide.trip.count974 = zext nneg i32 %327 to i64
+  %wide.trip.count975 = zext nneg i32 %327 to i64
   br label %331
 
 330:                                              ; preds = %331
-  %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
-  %exitcond975.not = icmp eq i64 %indvars.iv.next972, %wide.trip.count974
-  br i1 %exitcond975.not, label %._crit_edge962, label %331, !llvm.loop !12
+  %indvars.iv.next973 = add nuw nsw i64 %indvars.iv972, 1
+  %exitcond976.not = icmp eq i64 %indvars.iv.next973, %wide.trip.count975
+  br i1 %exitcond976.not, label %._crit_edge963, label %331, !llvm.loop !12
 
-331:                                              ; preds = %.lr.ph961, %330
-  %indvars.iv971 = phi i64 [ 0, %.lr.ph961 ], [ %indvars.iv.next972, %330 ]
-  %.idx = shl nuw nsw i64 %indvars.iv971, 4
+331:                                              ; preds = %.lr.ph962, %330
+  %indvars.iv972 = phi i64 [ 0, %.lr.ph962 ], [ %indvars.iv.next973, %330 ]
+  %.idx = shl nuw nsw i64 %indvars.iv972, 4
   %332 = getelementptr i8, ptr %329, i64 %.idx
   %333 = load i8, ptr %332, align 8, !range !8, !noundef !9
   %334 = trunc nuw i8 %333 to i1
   br i1 %334, label %.loopexit, label %330
 
-._crit_edge962:                                   ; preds = %330, %323
+._crit_edge963:                                   ; preds = %330, %323
   %335 = getelementptr inbounds nuw i8, ptr %325, i64 28
   store i8 0, ptr %335, align 4
   %336 = getelementptr inbounds nuw i8, ptr %.0905, i64 40
@@ -1733,11 +1733,11 @@ slot_getsomeattrs.exit924:                        ; preds = %86, %92
   %341 = load i8, ptr %335, align 4, !range !8, !noundef !9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %331, %._crit_edge962
-  %.sink981 = phi i8 [ %341, %._crit_edge962 ], [ 1, %331 ]
+.loopexit:                                        ; preds = %331, %._crit_edge963
+  %.sink982 = phi i8 [ %341, %._crit_edge963 ], [ 1, %331 ]
   %342 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %343 = load ptr, ptr %342, align 8
-  store i8 %.sink981, ptr %343, align 1
+  store i8 %.sink982, ptr %343, align 1
   %344 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -1841,8 +1841,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %394 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %395 = load ptr, ptr %394, align 8
   %396 = load i64, ptr %395, align 8
-  %.not951 = icmp eq i64 %396, 0
-  br i1 %.not951, label %397, label %403
+  %.not952 = icmp eq i64 %396, 0
+  br i1 %.not952, label %397, label %403
 
 397:                                              ; preds = %393
   %398 = load ptr, ptr %10, align 8
@@ -1867,8 +1867,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %411 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %412 = load ptr, ptr %411, align 8
   %413 = load i64, ptr %412, align 8
-  %.not950 = icmp eq i64 %413, 0
-  br i1 %.not950, label %421, label %414
+  %.not951 = icmp eq i64 %413, 0
+  br i1 %.not951, label %421, label %414
 
 414:                                              ; preds = %410
   %415 = getelementptr inbounds nuw i8, ptr %.0905, i64 24
@@ -1910,8 +1910,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %435 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %436 = load ptr, ptr %435, align 8
   %437 = load i64, ptr %436, align 8
-  %.not949 = icmp eq i64 %437, 0
-  br i1 %.not949, label %444, label %438
+  %.not950 = icmp eq i64 %437, 0
+  br i1 %.not950, label %444, label %438
 
 438:                                              ; preds = %434
   %439 = load ptr, ptr %10, align 8
@@ -1936,8 +1936,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %452 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %453 = load ptr, ptr %452, align 8
   %454 = load i64, ptr %453, align 8
-  %.not948 = icmp eq i64 %454, 0
-  br i1 %.not948, label %455, label %462
+  %.not949 = icmp eq i64 %454, 0
+  br i1 %.not949, label %455, label %462
 
 455:                                              ; preds = %451
   %456 = getelementptr inbounds nuw i8, ptr %.0905, i64 24
@@ -1960,8 +1960,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %465 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %466 = load ptr, ptr %465, align 8
   %467 = load i64, ptr %466, align 8
-  %.not947 = icmp eq i64 %467, 0
-  %468 = zext i1 %.not947 to i64
+  %.not948 = icmp eq i64 %467, 0
+  %468 = zext i1 %.not948 to i64
   store i64 %468, ptr %466, align 8
   %469 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
@@ -1977,8 +1977,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %476 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %477 = load ptr, ptr %476, align 8
   %478 = load i64, ptr %477, align 8
-  %.not946 = icmp eq i64 %478, 0
-  br i1 %.not946, label %479, label %487
+  %.not947 = icmp eq i64 %478, 0
+  br i1 %.not947, label %479, label %487
 
 479:                                              ; preds = %475, %470
   store i8 0, ptr %472, align 1
@@ -2053,8 +2053,8 @@ ExecEvalFuncExprStrictFusage.exit:                ; preds = %369, %.critedge.i
   %527 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %528 = load ptr, ptr %527, align 8
   %529 = load i64, ptr %528, align 8
-  %.not945 = icmp eq i64 %529, 0
-  br i1 %.not945, label %530, label %536
+  %.not946 = icmp eq i64 %529, 0
+  br i1 %.not946, label %530, label %536
 
 530:                                              ; preds = %521, %526
   %531 = load ptr, ptr %10, align 8
@@ -2263,8 +2263,8 @@ ExecEvalRowNotNull.exit:                          ; preds = %612, %614, %588, %5
 
 639:                                              ; preds = %630
   %640 = load i64, ptr %636, align 8
-  %.not944 = icmp eq i64 %640, 0
-  %641 = zext i1 %.not944 to i64
+  %.not945 = icmp eq i64 %640, 0
+  %641 = zext i1 %.not945 to i64
   store i64 %641, ptr %636, align 8
   br label %642
 
@@ -2289,8 +2289,8 @@ ExecEvalRowNotNull.exit:                          ; preds = %612, %614, %588, %5
 
 653:                                              ; preds = %644
   %654 = load i64, ptr %650, align 8
-  %.not943 = icmp eq i64 %654, 0
-  %655 = zext i1 %.not943 to i64
+  %.not944 = icmp eq i64 %654, 0
+  %655 = zext i1 %.not944 to i64
   store i64 %655, ptr %650, align 8
   br label %656
 
@@ -2416,11 +2416,11 @@ ExecEvalParamExec.exit:                           ; preds = %669, %676
   %734 = load ptr, ptr %733, align 8
   store i64 %732, ptr %734, align 8
   %.pre = load ptr, ptr %724, align 8
-  %.pre976 = load i8, ptr %.pre, align 1, !range !8
+  %.pre977 = load i8, ptr %.pre, align 1, !range !8
   br label %735
 
 735:                                              ; preds = %728, %723
-  %736 = phi i8 [ %.pre976, %728 ], [ 1, %723 ]
+  %736 = phi i8 [ %.pre977, %728 ], [ 1, %723 ]
   %737 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %738 = load ptr, ptr %737, align 8
   store i8 %736, ptr %738, align 1
@@ -2612,10 +2612,10 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   br label %857
 
 857:                                              ; preds = %842, %848, %.thread
-  %.sink984 = phi i8 [ 0, %842 ], [ %856, %848 ], [ 0, %.thread ]
+  %.sink985 = phi i8 [ 0, %842 ], [ %856, %848 ], [ 0, %.thread ]
   %858 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %859 = load ptr, ptr %858, align 8
-  store i8 %.sink984, ptr %859, align 1
+  store i8 %.sink985, ptr %859, align 1
   %860 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -2631,7 +2631,7 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   br i1 %866, label %870, label %874
 
 870:                                              ; preds = %861
-  br i1 %869, label %871, label %.thread940
+  br i1 %869, label %871, label %.thread941
 
 871:                                              ; preds = %870
   %872 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
@@ -2640,9 +2640,9 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   br label %885
 
 874:                                              ; preds = %861
-  br i1 %869, label %.thread940, label %877
+  br i1 %869, label %.thread941, label %877
 
-.thread940:                                       ; preds = %870, %874
+.thread941:                                       ; preds = %870, %874
   %875 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %876 = load ptr, ptr %875, align 8
   store i64 0, ptr %876, align 8
@@ -2660,11 +2660,11 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   %884 = load i8, ptr %878, align 4, !range !8, !noundef !9
   br label %885
 
-885:                                              ; preds = %871, %877, %.thread940
-  %.sink987 = phi i8 [ 0, %871 ], [ %884, %877 ], [ 0, %.thread940 ]
+885:                                              ; preds = %871, %877, %.thread941
+  %.sink988 = phi i8 [ 0, %871 ], [ %884, %877 ], [ 0, %.thread941 ]
   %886 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %887 = load ptr, ptr %886, align 8
-  store i8 %.sink987, ptr %887, align 1
+  store i8 %.sink988, ptr %887, align 1
   %888 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -2704,8 +2704,8 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %799, %806, %822, %8
   %912 = load i8, ptr %908, align 4, !range !8, !noundef !9
   %913 = trunc nuw i8 %912 to i1
   %914 = icmp eq i64 %911, 0
-  %or.cond.not942 = select i1 %913, i1 true, i1 %914
-  br i1 %or.cond.not942, label %921, label %915
+  %or.cond.not943 = select i1 %913, i1 true, i1 %914
+  br i1 %or.cond.not943, label %921, label %915
 
 915:                                              ; preds = %907
   %916 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
@@ -2989,9 +2989,9 @@ ExecEvalArrayCoerce.exit:                         ; preds = %970, %.sink.split.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1082, %1079, %1076, %1074
-  %.sink990 = phi i64 [ %1075, %1074 ], [ %1078, %1076 ], [ %1081, %1079 ], [ %1084, %1082 ]
+  %.sink991 = phi i64 [ %1075, %1074 ], [ %1078, %1076 ], [ %1081, %1079 ], [ %1084, %1082 ]
   %1085 = load ptr, ptr %1066, align 8
-  store i64 %.sink990, ptr %1085, align 8
+  store i64 %.sink991, ptr %1085, align 8
   br label %1086
 
 1086:                                             ; preds = %.sink.split, %1065
@@ -3166,10 +3166,10 @@ ExecEvalConstraintNotNull.exit:                   ; preds = %1156, %1161, %1165
   br label %1194
 
 1194:                                             ; preds = %1184, %1190
-  %.sink992 = phi i64 [ %1193, %1190 ], [ 0, %1184 ]
+  %.sink993 = phi i64 [ %1193, %1190 ], [ 0, %1184 ]
   %1195 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %1196 = load ptr, ptr %1195, align 8
-  store i64 %.sink992, ptr %1196, align 8
+  store i64 %.sink993, ptr %1196, align 8
   %1197 = getelementptr inbounds nuw i8, ptr %.0905, i64 16
   %1198 = load ptr, ptr %1197, align 8
   store i8 0, ptr %1198, align 1
@@ -3351,31 +3351,31 @@ ExecEvalConstraintNotNull.exit:                   ; preds = %1156, %1161, %1165
   %1318 = getelementptr inbounds nuw i8, ptr %1316, i64 16
   %1319 = load i32, ptr %1317, align 4
   %1320 = icmp sgt i32 %1319, 0
-  br i1 %1320, label %.lr.ph26.i, label %ExecEvalGroupingFunc.exit
+  br i1 %1320, label %.lr.ph24.i, label %ExecEvalGroupingFunc.exit
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph26.i
-  %1321 = sext i32 %spec.select.i to i64
+.lr.ph24.i:                                       ; preds = %.lr.ph.i937, %.lr.ph24.i
+  %indvars.iv.i939 = phi i64 [ %indvars.iv.next.i940, %.lr.ph24.i ], [ 0, %.lr.ph.i937 ]
+  %.01822.i = phi i32 [ %.1.i, %.lr.ph24.i ], [ 0, %.lr.ph.i937 ]
+  %1321 = load ptr, ptr %1318, align 8
+  %1322 = getelementptr inbounds nuw %union.ListCell, ptr %1321, i64 %indvars.iv.i939
+  %1323 = load i32, ptr %1322, align 8
+  %1324 = shl i32 %.01822.i, 1
+  %1325 = call zeroext i1 @bms_is_member(i32 noundef %1323, ptr noundef %1314) #17
+  %not..i = xor i1 %1325, true
+  %1326 = zext i1 %not..i to i32
+  %.1.i = or disjoint i32 %1324, %1326
+  %indvars.iv.next.i940 = add nuw nsw i64 %indvars.iv.i939, 1
+  %1327 = load i32, ptr %1317, align 4
+  %1328 = sext i32 %1327 to i64
+  %1329 = icmp slt i64 %indvars.iv.next.i940, %1328
+  br i1 %1329, label %.lr.ph24.i, label %.critedge.loopexit.i
+
+.critedge.loopexit.i:                             ; preds = %.lr.ph24.i
+  %1330 = sext i32 %.1.i to i64
   br label %ExecEvalGroupingFunc.exit
 
-.lr.ph26.i:                                       ; preds = %.lr.ph.i937, %.lr.ph26.i
-  %indvars.iv.i938 = phi i64 [ %indvars.iv.next.i939, %.lr.ph26.i ], [ 0, %.lr.ph.i937 ]
-  %.02024.i = phi i32 [ %spec.select.i, %.lr.ph26.i ], [ 0, %.lr.ph.i937 ]
-  %1322 = load ptr, ptr %1318, align 8
-  %1323 = getelementptr inbounds nuw %union.ListCell, ptr %1322, i64 %indvars.iv.i938
-  %1324 = load i32, ptr %1323, align 8
-  %1325 = shl i32 %.02024.i, 1
-  %1326 = call zeroext i1 @bms_is_member(i32 noundef %1324, ptr noundef %1314) #17
-  %not..i = xor i1 %1326, true
-  %1327 = zext i1 %not..i to i32
-  %spec.select.i = or disjoint i32 %1325, %1327
-  %indvars.iv.next.i939 = add nuw nsw i64 %indvars.iv.i938, 1
-  %1328 = load i32, ptr %1317, align 4
-  %1329 = sext i32 %1328 to i64
-  %1330 = icmp slt i64 %indvars.iv.next.i939, %1329
-  br i1 %1330, label %.lr.ph26.i, label %._crit_edge.loopexit.i
-
-ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i64 [ 0, %1311 ], [ 0, %.lr.ph.i937 ], [ %1321, %._crit_edge.loopexit.i ]
+ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937, %.critedge.loopexit.i
+  %.0.lcssa.i = phi i64 [ 0, %1311 ], [ 0, %.lr.ph.i937 ], [ %1330, %.critedge.loopexit.i ]
   %1331 = getelementptr inbounds nuw i8, ptr %.0905, i64 8
   %1332 = load ptr, ptr %1331, align 8
   store i64 %.0.lcssa.i, ptr %1332, align 8
@@ -3474,25 +3474,25 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1400 = getelementptr inbounds nuw i8, ptr %.0905, i64 40
   %1401 = load i32, ptr %1400, align 8
   %1402 = icmp sgt i32 %1401, 0
-  br i1 %1402, label %.lr.ph957.preheader, label %._crit_edge958
+  br i1 %1402, label %.lr.ph958.preheader, label %._crit_edge959
 
-.lr.ph957.preheader:                              ; preds = %1397
-  %wide.trip.count969 = zext nneg i32 %1401 to i64
-  br label %.lr.ph957
+.lr.ph958.preheader:                              ; preds = %1397
+  %wide.trip.count970 = zext nneg i32 %1401 to i64
+  br label %.lr.ph958
 
-1403:                                             ; preds = %.lr.ph957
-  %indvars.iv.next967 = add nuw nsw i64 %indvars.iv966, 1
-  %exitcond970.not = icmp eq i64 %indvars.iv.next967, %wide.trip.count969
-  br i1 %exitcond970.not, label %._crit_edge958, label %.lr.ph957, !llvm.loop !18
+1403:                                             ; preds = %.lr.ph958
+  %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 1
+  %exitcond971.not = icmp eq i64 %indvars.iv.next968, %wide.trip.count970
+  br i1 %exitcond971.not, label %._crit_edge959, label %.lr.ph958, !llvm.loop !18
 
-.lr.ph957:                                        ; preds = %.lr.ph957.preheader, %1403
-  %indvars.iv966 = phi i64 [ 0, %.lr.ph957.preheader ], [ %indvars.iv.next967, %1403 ]
-  %1404 = getelementptr inbounds nuw %struct.NullableDatum, ptr %1399, i64 %indvars.iv966, i32 1
+.lr.ph958:                                        ; preds = %.lr.ph958.preheader, %1403
+  %indvars.iv967 = phi i64 [ 0, %.lr.ph958.preheader ], [ %indvars.iv.next968, %1403 ]
+  %1404 = getelementptr inbounds nuw %struct.NullableDatum, ptr %1399, i64 %indvars.iv967, i32 1
   %1405 = load i8, ptr %1404, align 8, !range !8, !noundef !9
   %1406 = trunc nuw i8 %1405 to i1
   br i1 %1406, label %1407, label %1403
 
-1407:                                             ; preds = %.lr.ph957
+1407:                                             ; preds = %.lr.ph958
   %1408 = load ptr, ptr %10, align 8
   %1409 = getelementptr inbounds nuw i8, ptr %.0905, i64 44
   %1410 = load i32, ptr %1409, align 4
@@ -3500,7 +3500,7 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1412 = getelementptr inbounds %struct.ExprEvalStep, ptr %1408, i64 %1411
   br label %.backedge.backedge
 
-._crit_edge958:                                   ; preds = %1403, %1397
+._crit_edge959:                                   ; preds = %1403, %1397
   %1413 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -3606,7 +3606,7 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1484 = getelementptr inbounds nuw i8, ptr %1463, i64 8
   store i8 0, ptr %1484, align 8
   store i8 0, ptr %1464, align 1
-  br label %.sink.split995
+  br label %.sink.split996
 
 1485:                                             ; preds = %1449
   %1486 = getelementptr inbounds nuw i8, ptr %1463, i64 8
@@ -3647,14 +3647,14 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   store i64 %1511, ptr %1463, align 8
   %1512 = load i8, ptr %1508, align 4, !range !8, !noundef !9
   store i8 %1512, ptr %1486, align 8
-  br label %.sink.split995
+  br label %.sink.split996
 
-.sink.split995:                                   ; preds = %1489, %1467
-  %.sink996 = phi ptr [ %1474, %1467 ], [ %1503, %1489 ]
-  store ptr %.sink996, ptr @CurrentMemoryContext, align 8
+.sink.split996:                                   ; preds = %1489, %1467
+  %.sink997 = phi ptr [ %1474, %1467 ], [ %1503, %1489 ]
+  store ptr %.sink997, ptr @CurrentMemoryContext, align 8
   br label %1513
 
-1513:                                             ; preds = %.sink.split995, %1485
+1513:                                             ; preds = %.sink.split996, %1485
   %1514 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -3812,7 +3812,7 @@ ExecEvalGroupingFunc.exit:                        ; preds = %1311, %.lr.ph.i937,
   %1634 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   store i8 0, ptr %1634, align 8
   store i8 0, ptr %1614, align 1
-  br label %.sink.split997
+  br label %.sink.split998
 
 1635:                                             ; preds = %1599
   %1636 = getelementptr inbounds nuw i8, ptr %1613, i64 8
@@ -3867,14 +3867,14 @@ ExecAggPlainTransByRef.exit:                      ; preds = %1639, %1663
   store i64 %.0.i, ptr %1613, align 8
   %1669 = load i8, ptr %1658, align 4, !range !8, !noundef !9
   store i8 %1669, ptr %1636, align 8
-  br label %.sink.split997
+  br label %.sink.split998
 
-.sink.split997:                                   ; preds = %ExecAggPlainTransByRef.exit, %1617
-  %.sink998 = phi ptr [ %1624, %1617 ], [ %1653, %ExecAggPlainTransByRef.exit ]
-  store ptr %.sink998, ptr @CurrentMemoryContext, align 8
+.sink.split998:                                   ; preds = %ExecAggPlainTransByRef.exit, %1617
+  %.sink999 = phi ptr [ %1624, %1617 ], [ %1653, %ExecAggPlainTransByRef.exit ]
+  store ptr %.sink999, ptr @CurrentMemoryContext, align 8
   br label %1670
 
-1670:                                             ; preds = %.sink.split997, %1635
+1670:                                             ; preds = %.sink.split998, %1635
   %1671 = getelementptr inbounds nuw i8, ptr %.0905, i64 64
   br label %.backedge.backedge
 
@@ -8852,44 +8852,44 @@ define dso_local void @ExecEvalGroupingFunc(ptr noundef readonly captures(none) 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph26, label %._crit_edge
+  br i1 %12, label %.lr.ph24, label %.critedge
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph26
-  %13 = sext i32 %spec.select to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.0.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph ], [ %13, %._crit_edge.loopexit ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8
-  store i64 %.0.lcssa, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8
-  store i8 0, ptr %17, align 1
-  ret void
-
-.lr.ph26:                                         ; preds = %.lr.ph, %.lr.ph26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph26 ], [ 0, %.lr.ph ]
-  %.02024 = phi i32 [ %spec.select, %.lr.ph26 ], [ 0, %.lr.ph ]
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 8
-  %21 = shl i32 %.02024, 1
-  %22 = tail call zeroext i1 @bms_is_member(i32 noundef %20, ptr noundef %6) #17
-  %not. = xor i1 %22, true
-  %23 = zext i1 %not. to i32
-  %spec.select = or disjoint i32 %21, %23
+.lr.ph24:                                         ; preds = %.lr.ph, %.lr.ph24
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph24 ], [ 0, %.lr.ph ]
+  %.01822 = phi i32 [ %.1, %.lr.ph24 ], [ 0, %.lr.ph ]
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 8
+  %16 = shl i32 %.01822, 1
+  %17 = tail call zeroext i1 @bms_is_member(i32 noundef %15, ptr noundef %6) #17
+  %not. = xor i1 %17, true
+  %18 = zext i1 %not. to i32
+  %.1 = or disjoint i32 %16, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %9, align 4
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph26, label %._crit_edge.loopexit
+  %19 = load i32, ptr %9, align 4
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph24, label %.critedge.loopexit
+
+.critedge.loopexit:                               ; preds = %.lr.ph24
+  %22 = sext i32 %.1 to i64
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %2
+  %.0.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph ], [ %22, %.critedge.loopexit ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  store i64 %.0.lcssa, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  store i8 0, ptr %26, align 1
+  ret void
 }
 
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #6

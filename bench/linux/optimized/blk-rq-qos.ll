@@ -17,7 +17,7 @@ define dso_local noundef zeroext i1 @rq_wait_inc_below(ptr noundef %0, i32 nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp ult i32 %4, %1
-  br i1 %5, label %.lr.ph, label %.thread
+  br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2, %11
   %6 = phi i32 [ %12, %11 ], [ %4, %2 ]
@@ -27,14 +27,14 @@ define dso_local noundef zeroext i1 @rq_wait_inc_below(ptr noundef %0, i32 nound
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %.not.not = icmp ne i8 %9, 0
-  br i1 %.not.not, label %.thread, label %11, !prof !6
+  br i1 %.not.not, label %.critedge, label %11, !prof !6
 
 11:                                               ; preds = %.lr.ph
   %12 = extractvalue { i8, i32 } %8, 1
   %13 = icmp ult i32 %12, %1
-  br i1 %13, label %.lr.ph, label %.thread, !llvm.loop !7
+  br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !7
 
-.thread:                                          ; preds = %11, %.lr.ph, %2
+.critedge:                                        ; preds = %11, %.lr.ph, %2
   %.lcssa = phi i1 [ false, %2 ], [ %.not.not, %.lr.ph ], [ %.not.not, %11 ]
   ret i1 %.lcssa
 }

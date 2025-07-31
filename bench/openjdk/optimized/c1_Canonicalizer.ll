@@ -3323,20 +3323,20 @@ _ZNK11AccessField10field_typeEv.exit:             ; preds = %189, %195
   %209 = load ptr, ptr %208, align 8
   %210 = tail call noundef ptr %209(ptr noundef nonnull align 8 dereferenceable(96) %184) #9
   %.not55 = icmp eq ptr %210, null
-  br i1 %.not55, label %.thread71, label %211
+  br i1 %.not55, label %.thread69, label %211
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 96
   %213 = load i32, ptr %212, align 8
   %switch.tableidx = add i32 %213, -145
   %214 = icmp ult i32 %switch.tableidx, 3
-  br i1 %214, label %switch.lookup, label %.thread71
+  br i1 %214, label %switch.lookup, label %.thread69
 
 215:                                              ; preds = %204, %_ZNK11AccessField10field_typeEv.exit
   %.0.in = phi ptr [ %198, %_ZNK11AccessField10field_typeEv.exit ], [ %205, %204 ]
   %.0 = load i8, ptr %.0.in, align 8
   %.not56 = icmp eq i8 %.0, 99
-  br i1 %.not56, label %.thread71, label %.thread
+  br i1 %.not56, label %.thread69, label %.thread
 
 switch.lookup:                                    ; preds = %211
   %switch.cast = trunc nuw i32 %switch.tableidx to i24
@@ -3346,75 +3346,75 @@ switch.lookup:                                    ; preds = %211
   br label %.thread
 
 .thread:                                          ; preds = %switch.lookup, %215
-  %.069 = phi i8 [ %.0, %215 ], [ %switch.masked, %switch.lookup ]
+  %.067 = phi i8 [ %.0, %215 ], [ %switch.masked, %switch.lookup ]
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %217 = load i32, ptr %216, align 8
-  switch i32 %217, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit [
+  switch i32 %217, label %.critedge [
     i32 145, label %218
     i32 147, label %225
     i32 146, label %232
   ]
 
 218:                                              ; preds = %.thread
-  %219 = icmp eq i8 %.069, 8
-  br i1 %219, label %220, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  %219 = icmp eq i8 %.067, 8
+  br i1 %219, label %220, label %.critedge
 
 220:                                              ; preds = %218
   %221 = load ptr, ptr %3, align 8
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %223 = load ptr, ptr %222, align 8
   %.not.i = icmp eq ptr %223, %221
-  br i1 %.not.i, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %224
+  br i1 %.not.i, label %.critedge, label %224
 
 224:                                              ; preds = %220
   store ptr %221, ptr %222, align 8
-  br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br label %.critedge
 
 225:                                              ; preds = %.thread
-  %226 = and i8 %.069, -2
+  %226 = and i8 %.067, -2
   %or.cond = icmp eq i8 %226, 8
-  br i1 %or.cond, label %227, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br i1 %or.cond, label %227, label %.critedge
 
 227:                                              ; preds = %225
   %228 = load ptr, ptr %3, align 8
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %230 = load ptr, ptr %229, align 8
-  %.not.i61 = icmp eq ptr %230, %228
-  br i1 %.not.i61, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %231
+  %.not.i59 = icmp eq ptr %230, %228
+  br i1 %.not.i59, label %.critedge, label %231
 
 231:                                              ; preds = %227
   store ptr %228, ptr %229, align 8
-  br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br label %.critedge
 
 232:                                              ; preds = %.thread
-  %233 = icmp eq i8 %.069, 5
-  br i1 %233, label %234, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  %233 = icmp eq i8 %.067, 5
+  br i1 %233, label %234, label %.critedge
 
 234:                                              ; preds = %232
   %235 = load ptr, ptr %3, align 8
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %237 = load ptr, ptr %236, align 8
-  %.not.i63 = icmp eq ptr %237, %235
-  br i1 %.not.i63, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %238
+  %.not.i61 = icmp eq ptr %237, %235
+  br i1 %.not.i61, label %.critedge, label %238
 
 238:                                              ; preds = %234
   store ptr %235, ptr %236, align 8
-  br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br label %.critedge
 
-.thread71:                                        ; preds = %211, %206, %215
+.thread69:                                        ; preds = %211, %206, %215
   %239 = load ptr, ptr %3, align 8
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 112
   %242 = load ptr, ptr %241, align 8
   %243 = tail call noundef ptr %242(ptr noundef nonnull align 8 dereferenceable(96) %239) #9
   %.not57 = icmp eq ptr %243, null
-  br i1 %.not57, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %244
+  br i1 %.not57, label %.critedge, label %244
 
-244:                                              ; preds = %.thread71
+244:                                              ; preds = %.thread69
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 96
   %246 = load i32, ptr %245, align 8
   %247 = icmp eq i32 %246, 126
-  br i1 %247, label %248, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br i1 %247, label %248, label %.critedge
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %243, i64 112
@@ -3425,7 +3425,7 @@ switch.lookup:                                    ; preds = %211
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
   %256 = tail call noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %252) #9
-  br i1 %256, label %257, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br i1 %256, label %257, label %.critedge
 
 257:                                              ; preds = %248
   %258 = load ptr, ptr %249, align 8
@@ -3437,32 +3437,32 @@ switch.lookup:                                    ; preds = %211
   %264 = tail call noundef ptr %263(ptr noundef nonnull align 8 dereferenceable(16) %260) #9
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %266 = load i32, ptr %265, align 8
-  %switch.tableidx79 = add i32 %266, -145
-  %267 = icmp ult i32 %switch.tableidx79, 3
-  br i1 %267, label %switch.lookup78, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  %switch.tableidx73 = add i32 %266, -145
+  %267 = icmp ult i32 %switch.tableidx73, 3
+  br i1 %267, label %switch.lookup72, label %.critedge
 
-switch.lookup78:                                  ; preds = %257
+switch.lookup72:                                  ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %269 = load i32, ptr %268, align 8
-  %270 = zext nneg i32 %switch.tableidx79 to i64
+  %270 = zext nneg i32 %switch.tableidx73 to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert, i64 0, i64 %270
   %switch.load = load i32, ptr %switch.gep, align 4
   %271 = and i32 %switch.load, %269
   %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br i1 %272, label %273, label %.critedge
 
-273:                                              ; preds = %switch.lookup78
+273:                                              ; preds = %switch.lookup72
   %274 = load ptr, ptr %3, align 8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %276 = load ptr, ptr %275, align 8
-  %.not.i65 = icmp eq ptr %276, %274
-  br i1 %.not.i65, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %277
+  %.not.i63 = icmp eq ptr %276, %274
+  br i1 %.not.i63, label %.critedge, label %277
 
 277:                                              ; preds = %273
   store ptr %274, ptr %275, align 8
-  br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+  br label %.critedge
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread71, %244, %248, %switch.lookup78, %218, %225, %232, %.thread
+.critedge:                                        ; preds = %257, %277, %273, %238, %234, %231, %227, %224, %220, %.thread69, %244, %248, %switch.lookup72, %218, %225, %232, %.thread
   ret void
 }
 

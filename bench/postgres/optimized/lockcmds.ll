@@ -20,7 +20,7 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -28,12 +28,9 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph25, label %._crit_edge
+  br i1 %9, label %.lr.ph23, label %.critedge
 
-._crit_edge:                                      ; preds = %32, %.lr.ph, %1
-  ret void
-
-.lr.ph25:                                         ; preds = %.lr.ph, %32
+.lr.ph23:                                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
@@ -49,14 +46,17 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %21 = icmp eq i8 %20, 118
   br i1 %21, label %22, label %26
 
-22:                                               ; preds = %.lr.ph25
+.critedge:                                        ; preds = %32, %.lr.ph, %1
+  ret void
+
+22:                                               ; preds = %.lr.ph23
   %23 = load i32, ptr %6, align 8
   %24 = load i8, ptr %7, align 4, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1
   tail call fastcc void @LockViewRecurse(i32 noundef %19, i32 noundef %23, i1 noundef zeroext %25, ptr noundef null)
   br label %32
 
-26:                                               ; preds = %.lr.ph25
+26:                                               ; preds = %.lr.ph23
   %27 = trunc nuw i8 %14 to i1
   br i1 %27, label %28, label %32
 
@@ -72,7 +72,7 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load i32, ptr %4, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph25, label %._crit_edge
+  br i1 %35, label %.lr.ph23, label %.critedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -196,7 +196,7 @@ define internal fastcc void @LockViewRecurse(i32 noundef %0, i32 noundef %1, i1 
 define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @find_all_inheritors(i32 noundef %0, i32 noundef 0, ptr noundef null) #5
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -206,17 +206,17 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   br i1 %2, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph40, label %._crit_edge
+  br i1 %8, label %.lr.ph38, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv3439 = phi i64 [ %indvars.iv.next35, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph38:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv3237 = phi i64 [ %indvars.iv.next33, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv3439
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv3237
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.lr.ph.split.us, label %13
 
-13:                                               ; preds = %.lr.ph40
+13:                                               ; preds = %.lr.ph38
   %14 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %11, i32 noundef %1) #5
   br i1 %14, label %17, label %15
 
@@ -234,20 +234,17 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   tail call void @UnlockRelationOid(i32 noundef %11, i32 noundef %1) #5
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %20, %17, %15, %.lr.ph40
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv3439, 1
+.lr.ph.split.us:                                  ; preds = %20, %17, %15, %.lr.ph38
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv3237, 1
   %21 = load i32, ptr %5, align 4
   %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next35, %22
-  br i1 %23, label %.lr.ph40, label %._crit_edge
+  %23 = icmp slt i64 %indvars.iv.next33, %22
+  br i1 %23, label %.lr.ph38, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph31, label %._crit_edge
+  br i1 %8, label %.lr.ph29, label %.critedge
 
-._crit_edge:                                      ; preds = %35, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %3
-  ret void
-
-.lr.ph31:                                         ; preds = %.lr.ph.split.split, %35
+.lr.ph29:                                         ; preds = %.lr.ph.split.split, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph.split.split ]
   %24 = load ptr, ptr %6, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
@@ -255,7 +252,10 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   %27 = icmp eq i32 %26, %0
   br i1 %27, label %35, label %28
 
-28:                                               ; preds = %.lr.ph31
+.critedge:                                        ; preds = %35, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %3
+  ret void
+
+28:                                               ; preds = %.lr.ph29
   tail call void @LockRelationOid(i32 noundef %26, i32 noundef %1) #5
   %29 = zext i32 %26 to i64
   %30 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %29, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
@@ -273,12 +273,12 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   tail call void @UnlockRelationOid(i32 noundef %26, i32 noundef %1) #5
   br label %35
 
-35:                                               ; preds = %28, %.lr.ph31, %34
+35:                                               ; preds = %28, %.lr.ph29, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %5, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph31, label %._crit_edge
+  br i1 %38, label %.lr.ph29, label %.critedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -337,7 +337,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -347,31 +347,31 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %10, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph60, label %._crit_edge
+  br i1 %16, label %.lr.ph58, label %.critedge
 
-._crit_edge:                                      ; preds = %64, %.lr.ph, %7
-  %17 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #5
-  br label %70
-
-.lr.ph60:                                         ; preds = %.lr.ph, %64
-  %indvars.iv59 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
-  %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv59
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 33
-  %24 = load i8, ptr %23, align 1
-  %25 = tail call ptr @get_rel_name(i32 noundef %22) #5
-  switch i8 %24, label %64 [
+.lr.ph58:                                         ; preds = %.lr.ph, %64
+  %indvars.iv57 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
+  %17 = load ptr, ptr %11, align 8
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv57
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 33
+  %23 = load i8, ptr %22, align 1
+  %24 = tail call ptr @get_rel_name(i32 noundef %21) #5
+  switch i8 %23, label %64 [
     i8 118, label %26
     i8 114, label %26
     i8 112, label %26
   ]
 
-26:                                               ; preds = %.lr.ph60, %.lr.ph60, %.lr.ph60
+.critedge:                                        ; preds = %64, %.lr.ph, %7
+  %25 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1, i32 noundef 4) #5
+  br label %70
+
+26:                                               ; preds = %.lr.ph58, %.lr.ph58, %.lr.ph58
   %27 = load ptr, ptr %12, align 8
-  %28 = tail call zeroext i1 @list_member_oid(ptr noundef %27, i32 noundef %22) #5
+  %28 = tail call zeroext i1 @list_member_oid(ptr noundef %27, i32 noundef %21) #5
   br i1 %28, label %64, label %29
 
 29:                                               ; preds = %26
@@ -382,13 +382,13 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %33 = icmp slt i32 %30, 4
   %34 = zext i1 %33 to i64
   %.1.i = or disjoint i64 %spec.select.i, %34
-  %35 = tail call i32 @pg_class_aclcheck(i32 noundef %22, i32 noundef %31, i64 noundef %.1.i) #5
+  %35 = tail call i32 @pg_class_aclcheck(i32 noundef %21, i32 noundef %31, i64 noundef %.1.i) #5
   %.not53 = icmp eq i32 %35, 0
   br i1 %.not53, label %38, label %36
 
 36:                                               ; preds = %29
-  %37 = tail call i32 @get_relkind_objtype(i8 noundef signext %24) #5
-  tail call void @aclcheck_error(i32 noundef %35, i32 noundef %37, ptr noundef %25) #5
+  %37 = tail call i32 @get_relkind_objtype(i8 noundef signext %23) #5
+  tail call void @aclcheck_error(i32 noundef %35, i32 noundef %37, ptr noundef %24) #5
   br label %38
 
 38:                                               ; preds = %36, %29
@@ -398,23 +398,23 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   br i1 %40, label %43, label %42
 
 42:                                               ; preds = %38
-  tail call void @LockRelationOid(i32 noundef %22, i32 noundef %41) #5
+  tail call void @LockRelationOid(i32 noundef %21, i32 noundef %41) #5
   br label %49
 
 43:                                               ; preds = %38
-  %44 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %22, i32 noundef %41) #5
+  %44 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %21, i32 noundef %41) #5
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %43
   %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %46)
   %47 = tail call i32 @errcode(i32 noundef 50463045) #5
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %25) #5
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %24) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.LockViewRecurse_walker) #5
   unreachable
 
 49:                                               ; preds = %43, %42
-  %50 = icmp eq i8 %24, 118
+  %50 = icmp eq i8 %23, 118
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %49
@@ -422,11 +422,11 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %53 = load i8, ptr %14, align 4, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %12, align 8
-  tail call fastcc void @LockViewRecurse(i32 noundef %22, i32 noundef %52, i1 noundef zeroext %54, ptr noundef %55)
+  tail call fastcc void @LockViewRecurse(i32 noundef %21, i32 noundef %52, i1 noundef zeroext %54, ptr noundef %55)
   br label %64
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %58 = load i8, ptr %57, align 8, !range !4, !noundef !5
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %64
@@ -435,22 +435,22 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   %61 = load i32, ptr %1, align 8
   %62 = load i8, ptr %14, align 4, !range !4, !noundef !5
   %63 = trunc nuw i8 %62 to i1
-  tail call fastcc void @LockTableRecurse(i32 noundef %22, i32 noundef %61, i1 noundef zeroext %63)
+  tail call fastcc void @LockTableRecurse(i32 noundef %21, i32 noundef %61, i1 noundef zeroext %63)
   br label %64
 
-64:                                               ; preds = %51, %60, %56, %26, %.lr.ph60
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
+64:                                               ; preds = %.lr.ph58, %51, %60, %56, %26
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %65 = load i32, ptr %10, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph60, label %._crit_edge
+  br i1 %67, label %.lr.ph58, label %.critedge
 
 68:                                               ; preds = %4
   %69 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @LockViewRecurse_walker, ptr noundef %1) #5
   br label %70
 
-70:                                               ; preds = %2, %68, %._crit_edge
-  %.0 = phi i1 [ %17, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
+70:                                               ; preds = %2, %68, %.critedge
+  %.0 = phi i1 [ %25, %.critedge ], [ %69, %68 ], [ false, %2 ]
   ret i1 %.0
 }
 

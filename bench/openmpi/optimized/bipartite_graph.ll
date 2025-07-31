@@ -1199,8 +1199,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph146
 ._crit_edge147:                                   ; preds = %._crit_edge143
   %70 = add nuw nsw i32 %.182149, 1
   %71 = icmp slt i32 %70, %66
-  %or.cond176 = select i1 %.286.lcssa, i1 %71, i1 false
-  br i1 %or.cond176, label %.preheader, label %._crit_edge150, !llvm.loop !68
+  %or.cond175 = select i1 %.286.lcssa, i1 %71, i1 false
+  br i1 %or.cond175, label %.preheader, label %._crit_edge150, !llvm.loop !68
 
 ._crit_edge150:                                   ; preds = %._crit_edge147, %._crit_edge
   %72 = phi i32 [ %.pre, %._crit_edge ], [ %66, %._crit_edge147 ]

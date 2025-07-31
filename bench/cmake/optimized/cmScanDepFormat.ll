@@ -5270,8 +5270,8 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   %50 = load ptr, ptr %49, align 8, !tbaa !377
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !377
-  %.not139 = icmp eq ptr %50, %52
-  br i1 %.not139, label %._crit_edge, label %.lr.ph
+  %.not136 = icmp eq ptr %50, %52
+  br i1 %.not136, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %82, %47
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #22
@@ -5292,7 +5292,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 57:                                               ; preds = %55, %53
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
-  br label %308
+  br label %307
 
 58:                                               ; preds = %30
   %59 = landingpad { ptr, i32 }
@@ -5308,7 +5308,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 62:                                               ; preds = %60, %58
   %.pn70 = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
-  br label %308
+  br label %307
 
 63:                                               ; preds = %34
   %64 = landingpad { ptr, i32 }
@@ -5324,12 +5324,12 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 67:                                               ; preds = %65, %63
   %.pn72 = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #22
-  br label %308
+  br label %307
 
 68:                                               ; preds = %38
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %307
+  br label %306
 
 70:                                               ; preds = %40
   %71 = landingpad { ptr, i32 }
@@ -5345,7 +5345,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 74:                                               ; preds = %72, %70
   %.pn74 = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
-  br label %306
+  br label %305
 
 75:                                               ; preds = %43
   %76 = landingpad { ptr, i32 }
@@ -5361,12 +5361,12 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 79:                                               ; preds = %77, %75
   %.pn76 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
-  br label %306
+  br label %305
 
 .lr.ph:                                           ; preds = %47, %82
-  %.sroa.0130.0140 = phi ptr [ %83, %82 ], [ %50, %47 ]
+  %.sroa.0130.0137 = phi ptr [ %83, %82 ], [ %50, %47 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #22
-  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0130.0140)
+  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0130.0137)
           to label %80 unwind label %84
 
 80:                                               ; preds = %.lr.ph
@@ -5376,7 +5376,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 82:                                               ; preds = %80
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #22
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0140, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0130.0137, i64 32
   %.not = icmp eq ptr %83, %52
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5394,7 +5394,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 88:                                               ; preds = %86, %84
   %.pn115 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #22
-  br label %306
+  br label %305
 
 89:                                               ; preds = %._crit_edge
   %90 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull @.str.11)
@@ -5408,10 +5408,10 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   %94 = load ptr, ptr %93, align 8, !tbaa !378
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %96 = load ptr, ptr %95, align 8, !tbaa !378
-  %.not136141 = icmp eq ptr %94, %96
-  br i1 %.not136141, label %._crit_edge145, label %.lr.ph144
+  %.not133138 = icmp eq ptr %94, %96
+  br i1 %.not133138, label %._crit_edge142, label %.lr.ph141
 
-._crit_edge145:                                   ; preds = %176, %91
+._crit_edge142:                                   ; preds = %176, %91
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #22
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 6)
           to label %186 unwind label %195
@@ -5430,17 +5430,17 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 101:                                              ; preds = %99, %97
   %.pn78 = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #22
-  br label %306
+  br label %305
 
-.lr.ph144:                                        ; preds = %91, %176
-  %.sroa.0126.0142 = phi ptr [ %177, %176 ], [ %94, %91 ]
+.lr.ph141:                                        ; preds = %91, %176
+  %.sroa.0126.0139 = phi ptr [ %177, %176 ], [ %94, %91 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #22
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 7)
           to label %102 unwind label %117
 
-102:                                              ; preds = %.lr.ph144
+102:                                              ; preds = %.lr.ph141
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #22
-  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0126.0142)
+  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0126.0139)
           to label %103 unwind label %119
 
 103:                                              ; preds = %102
@@ -5452,13 +5452,13 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
           to label %107 unwind label %121
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 72
   %109 = load i64, ptr %108, align 8, !tbaa !24
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %128, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #22
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %112)
           to label %113 unwind label %123
@@ -5473,7 +5473,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #22
   br label %128
 
-117:                                              ; preds = %.lr.ph144
+117:                                              ; preds = %.lr.ph141
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %185
@@ -5505,7 +5505,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   br label %183
 
 128:                                              ; preds = %115, %107
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 96
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 96
   %130 = load i8, ptr %129, align 8, !tbaa !146, !range !88, !noundef !89
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %152
@@ -5524,7 +5524,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #22
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 32
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %137)
           to label %138 unwind label %147
 
@@ -5571,13 +5571,13 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   br label %183
 
 152:                                              ; preds = %128
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 40
   %154 = load i64, ptr %153, align 8, !tbaa !24
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %167, label %156
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #22
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %158 unwind label %162
@@ -5610,7 +5610,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 
 167:                                              ; preds = %152, %160, %140
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #22
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 97
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 97
   %169 = load i8, ptr %168, align 1, !tbaa !149, !range !88, !noundef !89
   %170 = trunc nuw i8 %169 to i1
   invoke void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %18, i1 noundef zeroext %170)
@@ -5632,9 +5632,9 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #22
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #22
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0142, i64 104
-  %.not136 = icmp eq ptr %177, %96
-  br i1 %.not136, label %._crit_edge145, label %.lr.ph144
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0139, i64 104
+  %.not133 = icmp eq ptr %177, %96
+  br i1 %.not133, label %._crit_edge142, label %.lr.ph141
 
 178:                                              ; preds = %167
   %179 = landingpad { ptr, i32 }
@@ -5666,9 +5666,9 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 185:                                              ; preds = %184, %117
   %.pn110.pn.pn = phi { ptr, i32 } [ %.pn110.pn, %184 ], [ %118, %117 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #22
-  br label %306
+  br label %305
 
-186:                                              ; preds = %._crit_edge145
+186:                                              ; preds = %._crit_edge142
   %187 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueixEPKc(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull @.str.21)
           to label %188 unwind label %197
 
@@ -5680,14 +5680,14 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   %191 = load ptr, ptr %190, align 8, !tbaa !378
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %193 = load ptr, ptr %192, align 8, !tbaa !378
-  %.not137146 = icmp eq ptr %191, %193
-  br i1 %.not137146, label %._crit_edge150, label %.lr.ph149
+  %.not134143 = icmp eq ptr %191, %193
+  br i1 %.not134143, label %._crit_edge147, label %.lr.ph146
 
-._crit_edge150:                                   ; preds = %281, %188
+._crit_edge147:                                   ; preds = %280, %188
   %194 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %288 unwind label %299
+          to label %287 unwind label %298
 
-195:                                              ; preds = %._crit_edge145
+195:                                              ; preds = %._crit_edge142
   %196 = landingpad { ptr, i32 }
           cleanup
   br label %199
@@ -5701,17 +5701,17 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 199:                                              ; preds = %197, %195
   %.pn80 = phi { ptr, i32 } [ %198, %197 ], [ %196, %195 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #22
-  br label %306
+  br label %305
 
-.lr.ph149:                                        ; preds = %188, %281
-  %.sroa.0122.0147 = phi ptr [ %282, %281 ], [ %191, %188 ]
+.lr.ph146:                                        ; preds = %188, %280
+  %.sroa.0122.0144 = phi ptr [ %281, %280 ], [ %191, %188 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #22
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 7)
           to label %200 unwind label %215
 
-200:                                              ; preds = %.lr.ph149
+200:                                              ; preds = %.lr.ph146
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #22
-  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0122.0147)
+  invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0122.0144)
           to label %201 unwind label %217
 
 201:                                              ; preds = %200
@@ -5723,13 +5723,13 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
           to label %205 unwind label %219
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 72
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 72
   %207 = load i64, ptr %206, align 8, !tbaa !24
   %208 = icmp eq i64 %207, 0
   br i1 %208, label %226, label %209
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 64
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #22
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %210)
           to label %211 unwind label %221
@@ -5744,20 +5744,20 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #22
   br label %226
 
-215:                                              ; preds = %.lr.ph149
+215:                                              ; preds = %.lr.ph146
   %216 = landingpad { ptr, i32 }
           cleanup
-  br label %287
+  br label %286
 
 217:                                              ; preds = %200
   %218 = landingpad { ptr, i32 }
           cleanup
-  br label %286
+  br label %285
 
 219:                                              ; preds = %203, %201
   %220 = landingpad { ptr, i32 }
           cleanup
-  br label %285
+  br label %284
 
 221:                                              ; preds = %209
   %222 = landingpad { ptr, i32 }
@@ -5773,10 +5773,10 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 225:                                              ; preds = %223, %221
   %.pn84 = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #22
-  br label %285
+  br label %284
 
 226:                                              ; preds = %213, %205
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 96
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 96
   %228 = load i8, ptr %227, align 8, !tbaa !146, !range !88, !noundef !89
   %229 = trunc nuw i8 %228 to i1
   br i1 %229, label %230, label %250
@@ -5795,7 +5795,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #22
-  %235 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 32
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %235)
           to label %236 unwind label %245
 
@@ -5823,7 +5823,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 244:                                              ; preds = %242, %240
   %.pn88 = phi { ptr, i32 } [ %243, %242 ], [ %241, %240 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #22
-  br label %285
+  br label %284
 
 245:                                              ; preds = %233
   %246 = landingpad { ptr, i32 }
@@ -5839,16 +5839,16 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 249:                                              ; preds = %247, %245
   %.pn90 = phi { ptr, i32 } [ %248, %247 ], [ %246, %245 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #22
-  br label %285
+  br label %284
 
 250:                                              ; preds = %226
-  %251 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 40
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 40
   %252 = load i64, ptr %251, align 8, !tbaa !24
   %253 = icmp eq i64 %252, 0
   br i1 %253, label %265, label %254
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #22
   invoke fastcc void @_ZL14EncodeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %255)
           to label %256 unwind label %260
@@ -5877,12 +5877,12 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 264:                                              ; preds = %262, %260
   %.pn86 = phi { ptr, i32 } [ %263, %262 ], [ %261, %260 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #22
-  br label %285
+  br label %284
 
 265:                                              ; preds = %250, %258, %238
-  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 100
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 100
   %267 = load i32, ptr %266, align 4, !tbaa !150
-  switch i32 %267, label %279 [
+  switch i32 %267, label %.critedge [
     i32 2, label %268
     i32 1, label %269
   ]
@@ -5891,9 +5891,9 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   br label %269
 
 269:                                              ; preds = %265, %268
-  %.0.ph = phi ptr [ @.str.27, %268 ], [ @.str.26, %265 ]
+  %.0 = phi ptr [ @.str.27, %268 ], [ @.str.26, %265 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #22
-  invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %.0.ph)
+  invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull %.0)
           to label %270 unwind label %274
 
 270:                                              ; preds = %269
@@ -5904,7 +5904,7 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
   %273 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %271, ptr noundef nonnull align 8 dereferenceable(40) %26) #22
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %26) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #22
-  br label %279
+  br label %.critedge
 
 274:                                              ; preds = %269
   %275 = landingpad { ptr, i32 }
@@ -5920,101 +5920,101 @@ define dso_local noundef zeroext i1 @_Z27cmScanDepFormat_P1689_WriteRKNSt7__cxx1
 278:                                              ; preds = %276, %274
   %.pn92 = phi { ptr, i32 } [ %277, %276 ], [ %275, %274 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #22
-  br label %285
+  br label %284
 
-279:                                              ; preds = %265, %272
-  %280 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %189, ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %281 unwind label %283
+.critedge:                                        ; preds = %265, %272
+  %279 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5Value6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %189, ptr noundef nonnull align 8 dereferenceable(40) %20)
+          to label %280 unwind label %282
 
-281:                                              ; preds = %279
+280:                                              ; preds = %.critedge
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #22
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #22
-  %282 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0147, i64 104
-  %.not137 = icmp eq ptr %282, %193
-  br i1 %.not137, label %._crit_edge150, label %.lr.ph149
+  %281 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0144, i64 104
+  %.not134 = icmp eq ptr %281, %193
+  br i1 %.not134, label %._crit_edge147, label %.lr.ph146
 
-283:                                              ; preds = %279
-  %284 = landingpad { ptr, i32 }
+282:                                              ; preds = %.critedge
+  %283 = landingpad { ptr, i32 }
           cleanup
+  br label %284
+
+284:                                              ; preds = %278, %282, %264, %249, %244, %225, %219
+  %.pn94.pn = phi { ptr, i32 } [ %.pn90, %249 ], [ %.pn88, %244 ], [ %.pn86, %264 ], [ %.pn84, %225 ], [ %220, %219 ], [ %283, %282 ], [ %.pn92, %278 ]
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #22
   br label %285
 
-285:                                              ; preds = %278, %283, %264, %249, %244, %225, %219
-  %.pn94.pn = phi { ptr, i32 } [ %.pn90, %249 ], [ %.pn88, %244 ], [ %.pn86, %264 ], [ %.pn84, %225 ], [ %220, %219 ], [ %284, %283 ], [ %.pn92, %278 ]
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #22
+285:                                              ; preds = %284, %217
+  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %284 ], [ %218, %217 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #22
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #22
   br label %286
 
-286:                                              ; preds = %285, %217
-  %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %285 ], [ %218, %217 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #22
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #22
-  br label %287
-
-287:                                              ; preds = %286, %215
-  %.pn94.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn, %286 ], [ %216, %215 ]
+286:                                              ; preds = %285, %215
+  %.pn94.pn.pn.pn = phi { ptr, i32 } [ %.pn94.pn.pn, %285 ], [ %216, %215 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #22
-  br label %306
+  br label %305
 
-288:                                              ; preds = %._crit_edge150
+287:                                              ; preds = %._crit_edge147
   call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %27) #22
   invoke void @_ZN21cmGeneratedFileStreamC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb16codecvt_Encoding(ptr noundef nonnull align 8 dereferenceable(348) %27, ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext false, i32 noundef 0)
-          to label %289 unwind label %301
+          to label %288 unwind label %300
 
-289:                                              ; preds = %288
-  %290 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4JsonlsERSoRKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %291 unwind label %303
+288:                                              ; preds = %287
+  %289 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4JsonlsERSoRKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %290 unwind label %302
 
-291:                                              ; preds = %289
-  %292 = load ptr, ptr %27, align 8, !tbaa !379
-  %293 = getelementptr i8, ptr %292, i64 -24
-  %294 = load i64, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %27, i64 %294
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %297 = load i32, ptr %296, align 8, !tbaa !381
-  %298 = and i32 %297, 5
-  %.not138 = icmp eq i32 %298, 0
+290:                                              ; preds = %288
+  %291 = load ptr, ptr %27, align 8, !tbaa !379
+  %292 = getelementptr i8, ptr %291, i64 -24
+  %293 = load i64, ptr %292, align 8
+  %294 = getelementptr inbounds i8, ptr %27, i64 %293
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
+  %296 = load i32, ptr %295, align 8, !tbaa !381
+  %297 = and i32 %296, 5
+  %.not135 = icmp eq i32 %297, 0
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %27) #22
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %27) #22
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
-  ret i1 %.not138
+  ret i1 %.not135
 
-299:                                              ; preds = %._crit_edge150
-  %300 = landingpad { ptr, i32 }
-          cleanup
-  br label %306
-
-301:                                              ; preds = %288
-  %302 = landingpad { ptr, i32 }
+298:                                              ; preds = %._crit_edge147
+  %299 = landingpad { ptr, i32 }
           cleanup
   br label %305
 
-303:                                              ; preds = %289
-  %304 = landingpad { ptr, i32 }
+300:                                              ; preds = %287
+  %301 = landingpad { ptr, i32 }
+          cleanup
+  br label %304
+
+302:                                              ; preds = %288
+  %303 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %27) #22
+  br label %304
+
+304:                                              ; preds = %302, %300
+  %.pn82 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ]
+  call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %27) #22
   br label %305
 
-305:                                              ; preds = %303, %301
-  %.pn82 = phi { ptr, i32 } [ %304, %303 ], [ %302, %301 ]
-  call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %27) #22
+305:                                              ; preds = %79, %88, %199, %286, %298, %304, %185, %101, %74
+  %.pn115.pn.pn = phi { ptr, i32 } [ %.pn74, %74 ], [ %.pn115, %88 ], [ %.pn76, %79 ], [ %.pn110.pn.pn, %185 ], [ %.pn78, %101 ], [ %.pn94.pn.pn.pn, %286 ], [ %.pn82, %304 ], [ %299, %298 ], [ %.pn80, %199 ]
+  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #22
   br label %306
 
-306:                                              ; preds = %79, %88, %199, %287, %299, %305, %185, %101, %74
-  %.pn115.pn.pn = phi { ptr, i32 } [ %.pn74, %74 ], [ %.pn115, %88 ], [ %.pn76, %79 ], [ %.pn110.pn.pn, %185 ], [ %.pn78, %101 ], [ %.pn94.pn.pn.pn, %287 ], [ %.pn82, %305 ], [ %300, %299 ], [ %.pn80, %199 ]
-  call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #22
+306:                                              ; preds = %305, %68
+  %.pn115.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn, %305 ], [ %69, %68 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
   br label %307
 
-307:                                              ; preds = %306, %68
-  %.pn115.pn.pn.pn = phi { ptr, i32 } [ %.pn115.pn.pn, %306 ], [ %69, %68 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22
-  br label %308
-
-308:                                              ; preds = %67, %307, %62, %57
-  %.pn115.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70, %62 ], [ %.pn, %57 ], [ %.pn115.pn.pn.pn, %307 ], [ %.pn72, %67 ]
+307:                                              ; preds = %67, %306, %62, %57
+  %.pn115.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn70, %62 ], [ %.pn, %57 ], [ %.pn115.pn.pn.pn, %306 ], [ %.pn72, %67 ]
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #22
   resume { ptr, i32 } %.pn115.pn.pn.pn.pn.pn

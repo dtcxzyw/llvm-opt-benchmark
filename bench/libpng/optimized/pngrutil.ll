@@ -4069,18 +4069,18 @@ png_crc_read.exit:                                ; preds = %3, %10
   %12 = sub i32 %2, %spec.select
   store i32 %12, ptr %4, align 4, !tbaa !61
   %13 = icmp ult i32 %12, 11
-  br i1 %13, label %.thread147, label %.preheader
+  br i1 %13, label %.thread146, label %.preheader
 
 .preheader:                                       ; preds = %png_crc_read.exit
   %invariant.umin = call i32 @llvm.umin.i32(i32 %2, i32 80)
-  %or.cond123172.not = icmp eq i32 %2, 0
-  br i1 %or.cond123172.not, label %.thread156, label %.lr.ph.preheader
+  %or.cond123171.not = icmp eq i32 %2, 0
+  br i1 %or.cond123171.not, label %.thread155, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %invariant.umin to i64
   br label %.lr.ph
 
-.thread147:                                       ; preds = %png_crc_read.exit
+.thread146:                                       ; preds = %png_crc_read.exit
   %14 = call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef %0, i32 noundef %12, i32 noundef 0)
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.14) #12
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5) #12
@@ -4106,19 +4106,19 @@ png_crc_read.exit:                                ; preds = %3, %10
   %.0105.lcssa = phi i32 [ %18, %.critedge.split.loop.exit ], [ %invariant.umin, %17 ]
   %19 = add nsw i32 %.0105.lcssa, -1
   %or.cond = icmp ult i32 %19, 79
-  br i1 %or.cond, label %20, label %.thread156
+  br i1 %or.cond, label %20, label %.thread155
 
 20:                                               ; preds = %.critedge
   %21 = add nuw nsw i32 %.0105.lcssa, 1
   %22 = icmp samesign ult i32 %21, %spec.select
-  br i1 %22, label %23, label %.thread156
+  br i1 %22, label %23, label %.thread155
 
 23:                                               ; preds = %20
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw [81 x i8], ptr %5, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %.thread156
+  br i1 %27, label %28, label %.thread155
 
 28:                                               ; preds = %23
   %29 = call fastcc i32 @png_inflate_claim(ptr noundef %0, i32 noundef 1766015824)
@@ -4142,7 +4142,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   call fastcc void @png_inflate_read(ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef %6, ptr noundef %8, i32 noundef 0)
   %38 = load i64, ptr %8, align 8, !tbaa !170
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.thread161
+  br i1 %39, label %40, label %.thread160
 
 40:                                               ; preds = %31
   %41 = load i8, ptr %6, align 16, !tbaa !3
@@ -4164,7 +4164,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   %57 = or disjoint i32 %53, %56
   %58 = call i32 @png_icc_check_length(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %57) #12
   %.not113 = icmp eq i32 %58, 0
-  br i1 %.not113, label %.thread165, label %59
+  br i1 %.not113, label %.thread164, label %59
 
 59:                                               ; preds = %40
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 623
@@ -4172,7 +4172,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   %62 = zext i8 %61 to i32
   %63 = call i32 @png_icc_check_header(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %57, ptr noundef nonnull %6, i32 noundef %62) #12
   %.not114 = icmp eq i32 %63, 0
-  br i1 %.not114, label %.thread165, label %64
+  br i1 %.not114, label %.thread164, label %64
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -4186,7 +4186,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   %73 = zext i32 %57 to i64
   %74 = call fastcc ptr @png_read_buffer(ptr noundef nonnull %0, i64 noundef %73)
   %.not115 = icmp eq ptr %74, null
-  br i1 %.not115, label %.thread165, label %75
+  br i1 %.not115, label %.thread164, label %75
 
 75:                                               ; preds = %64
   %76 = zext i8 %66 to i64
@@ -4207,12 +4207,12 @@ png_crc_read.exit:                                ; preds = %3, %10
   call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %4, ptr noundef %88, ptr noundef %8, i32 noundef 0)
   %89 = load i64, ptr %8, align 8, !tbaa !170
   %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %.thread165.sink.split
+  br i1 %90, label %91, label %.thread164.sink.split
 
 91:                                               ; preds = %75
   %92 = call i32 @png_icc_check_tag_table(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %57, ptr noundef nonnull %74) #12
   %.not116 = icmp eq i32 %92, 0
-  br i1 %.not116, label %.thread165, label %93
+  br i1 %.not116, label %.thread164, label %93
 
 93:                                               ; preds = %91
   %94 = add nsw i64 %73, -132
@@ -4229,17 +4229,17 @@ png_crc_read.exit:                                ; preds = %3, %10
   %100 = load i32, ptr %99, align 8, !tbaa !33
   %101 = and i32 %100, 1048576
   %.not118 = icmp eq i32 %101, 0
-  br i1 %.not118, label %.thread165, label %.thread
+  br i1 %.not118, label %.thread164, label %.thread
 
 102:                                              ; preds = %93
   %103 = load i64, ptr %8, align 8, !tbaa !170
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %108, label %.thread165.sink.split
+  br i1 %104, label %108, label %.thread164.sink.split
 
 .thread:                                          ; preds = %98
   %105 = load i64, ptr %8, align 8, !tbaa !170
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %107, label %.thread165.sink.split
+  br i1 %106, label %107, label %.thread164.sink.split
 
 107:                                              ; preds = %.thread
   call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.34) #12
@@ -4256,7 +4256,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %111, ptr %112, align 8, !tbaa !171
   %.not121 = icmp eq ptr %111, null
-  br i1 %.not121, label %.thread168, label %113
+  br i1 %.not121, label %.thread167, label %113
 
 113:                                              ; preds = %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %24, i1 false)
@@ -4276,7 +4276,7 @@ png_crc_read.exit:                                ; preds = %3, %10
   store i32 %122, ptr %120, align 8, !tbaa !175
   br label %129
 
-.thread161:                                       ; preds = %31
+.thread160:                                       ; preds = %31
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %124 = load ptr, ptr %123, align 8, !tbaa !43
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -4284,14 +4284,14 @@ png_crc_read.exit:                                ; preds = %3, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6) #12
-  br label %.thread156
+  br label %.thread155
 
 126:                                              ; preds = %28
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %128 = load ptr, ptr %127, align 8, !tbaa !43
-  br label %.thread156
+  br label %.thread155
 
-129:                                              ; preds = %113, %108
+129:                                              ; preds = %108, %113
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %130, align 8, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -4300,21 +4300,21 @@ png_crc_read.exit:                                ; preds = %3, %10
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5) #12
   br label %138
 
-.thread165.sink.split:                            ; preds = %75, %.thread, %102
+.thread164.sink.split:                            ; preds = %75, %.thread, %102
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %132 = load ptr, ptr %131, align 8, !tbaa !43
-  br label %.thread165
+  br label %.thread164
 
-.thread165:                                       ; preds = %.thread165.sink.split, %98, %64, %91, %40, %59
-  %.690.ph.ph = phi ptr [ null, %59 ], [ null, %40 ], [ null, %91 ], [ @.str.22, %64 ], [ @.str.34, %98 ], [ %132, %.thread165.sink.split ]
+.thread164:                                       ; preds = %.thread164.sink.split, %98, %64, %91, %40, %59
+  %.690.ph.ph = phi ptr [ null, %59 ], [ null, %40 ], [ null, %91 ], [ @.str.22, %64 ], [ @.str.34, %98 ], [ %132, %.thread164.sink.split ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %133, align 8, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6) #12
-  br label %.thread156
+  br label %.thread155
 
-.thread168:                                       ; preds = %110
+.thread167:                                       ; preds = %110
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %134, align 8, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
@@ -4323,21 +4323,21 @@ png_crc_read.exit:                                ; preds = %3, %10
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5) #12
   br label %137
 
-.thread156:                                       ; preds = %.critedge, %20, %23, %126, %.preheader, %.thread161, %.thread165
-  %.084146160 = phi ptr [ %124, %.thread161 ], [ %.690.ph.ph, %.thread165 ], [ @.str.36, %.critedge ], [ @.str.35, %20 ], [ @.str.35, %23 ], [ %128, %126 ], [ @.str.36, %.preheader ]
+.thread155:                                       ; preds = %.critedge, %20, %23, %126, %.preheader, %.thread160, %.thread164
+  %.084145159 = phi ptr [ %124, %.thread160 ], [ %.690.ph.ph, %.thread164 ], [ @.str.36, %.critedge ], [ @.str.35, %20 ], [ @.str.35, %23 ], [ %128, %126 ], [ @.str.36, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5) #12
   %135 = load i32, ptr %4, align 4, !tbaa !61
   %136 = call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef %0, i32 noundef %135, i32 noundef 0)
-  %.not122 = icmp eq ptr %.084146160, null
+  %.not122 = icmp eq ptr %.084145159, null
   br i1 %.not122, label %138, label %137
 
-137:                                              ; preds = %.thread168, %.thread156
-  %.084146159171 = phi ptr [ @.str.22, %.thread168 ], [ %.084146160, %.thread156 ]
-  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.084146159171) #12
+137:                                              ; preds = %.thread167, %.thread155
+  %.084145158170 = phi ptr [ @.str.22, %.thread167 ], [ %.084145159, %.thread155 ]
+  call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull %.084145158170) #12
   br label %138
 
-138:                                              ; preds = %129, %.thread147, %.thread156, %137
-  %.7 = phi i32 [ 3, %129 ], [ 0, %137 ], [ 0, %.thread156 ], [ 0, %.thread147 ]
+138:                                              ; preds = %129, %.thread146, %.thread155, %137
+  %.7 = phi i32 [ 3, %129 ], [ 0, %137 ], [ 0, %.thread155 ], [ 0, %.thread146 ]
   ret i32 %.7
 }
 
@@ -4354,7 +4354,7 @@ define internal range(i32 0, 4) i32 @png_handle_iTXt(ptr noalias noundef %0, ptr
 
 8:                                                ; preds = %3
   %9 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
-  br label %107
+  br label %.critedge116
 
 10:                                               ; preds = %3
   %11 = add i32 %7, -1
@@ -4365,7 +4365,7 @@ define internal range(i32 0, 4) i32 @png_handle_iTXt(ptr noalias noundef %0, ptr
 13:                                               ; preds = %10
   %14 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #12
-  br label %107
+  br label %.critedge116
 
 15:                                               ; preds = %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -4419,7 +4419,7 @@ define internal range(i32 0, 4) i32 @png_handle_iTXt(ptr noalias noundef %0, ptr
 39:                                               ; preds = %21, %35
   %40 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #12
-  br label %107
+  br label %.critedge116
 
 png_crc_read.exit:                                ; preds = %37, %30
   %.021.i = phi ptr [ %36, %37 ], [ %25, %30 ]
@@ -4428,11 +4428,11 @@ png_crc_read.exit:                                ; preds = %37, %30
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %41) #12
   %42 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %.not104 = icmp eq i32 %42, 0
-  br i1 %.not104, label %.preheader, label %107
+  br i1 %.not104, label %.preheader, label %.critedge116
 
 .preheader:                                       ; preds = %png_crc_read.exit
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.thread127, label %.lr.ph
+  br i1 %.not, label %.thread125, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.preheader ]
@@ -4454,19 +4454,19 @@ png_crc_read.exit:                                ; preds = %37, %30
   %.095.lcssa = phi i32 [ %46, %.critedge.split.loop.exit ], [ %2, %45 ]
   %47 = add i32 %.095.lcssa, -80
   %or.cond = icmp ult i32 %47, -79
-  br i1 %or.cond, label %.thread127, label %48
+  br i1 %or.cond, label %.thread125, label %48
 
 48:                                               ; preds = %.critedge
   %49 = add nuw nsw i32 %.095.lcssa, 5
   %50 = icmp ugt i32 %49, %2
-  br i1 %50, label %.thread127, label %51
+  br i1 %50, label %.thread125, label %51
 
 51:                                               ; preds = %48
   %52 = zext nneg i32 %.095.lcssa to i64
   %53 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !3
-  switch i8 %55, label %.thread127 [
+  switch i8 %55, label %.thread125 [
     i8 0, label %60
     i8 1, label %56
   ]
@@ -4475,65 +4475,65 @@ png_crc_read.exit:                                ; preds = %37, %30
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %60, label %.thread127
+  br i1 %59, label %60, label %.thread125
 
 60:                                               ; preds = %51, %56
   %.not108 = icmp ne i8 %55, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %61 = add nuw nsw i32 %.095.lcssa, 3
   %62 = icmp ult i32 %61, %2
-  br i1 %62, label %.lr.ph135.preheader, label %.critedge4
+  br i1 %62, label %.lr.ph137.preheader, label %.critedge4
 
-.lr.ph135.preheader:                              ; preds = %60
+.lr.ph137.preheader:                              ; preds = %60
   %63 = zext nneg i32 %61 to i64
-  br label %.lr.ph135
+  br label %.lr.ph137
 
-.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %66
-  %indvars.iv145 = phi i64 [ %63, %.lr.ph135.preheader ], [ %indvars.iv.next146, %66 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv145
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %66
+  %indvars.iv147 = phi i64 [ %63, %.lr.ph137.preheader ], [ %indvars.iv.next148, %66 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv147
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %.not106 = icmp eq i8 %65, 0
-  br i1 %.not106, label %.critedge4.loopexit.split.loop.exit158, label %66
+  br i1 %.not106, label %.critedge4.loopexit.split.loop.exit160, label %66
 
-66:                                               ; preds = %.lr.ph135
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next146 to i32
-  %exitcond148.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond148.not, label %.critedge4, label %.lr.ph135, !llvm.loop !180
+66:                                               ; preds = %.lr.ph137
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next148 to i32
+  %exitcond150.not = icmp eq i32 %2, %lftr.wideiv
+  br i1 %exitcond150.not, label %.critedge4, label %.lr.ph137, !llvm.loop !180
 
-.critedge4.loopexit.split.loop.exit158:           ; preds = %.lr.ph135
-  %67 = trunc nuw i64 %indvars.iv145 to i32
+.critedge4.loopexit.split.loop.exit160:           ; preds = %.lr.ph137
+  %67 = trunc nuw i64 %indvars.iv147 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %66, %.critedge4.loopexit.split.loop.exit158, %60
-  %.196.lcssa = phi i32 [ %61, %60 ], [ %67, %.critedge4.loopexit.split.loop.exit158 ], [ %2, %66 ]
+.critedge4:                                       ; preds = %66, %.critedge4.loopexit.split.loop.exit160, %60
+  %.196.lcssa = phi i32 [ %61, %60 ], [ %67, %.critedge4.loopexit.split.loop.exit160 ], [ %2, %66 ]
   %68 = add i32 %.196.lcssa, 1
   %69 = icmp ult i32 %68, %2
-  br i1 %69, label %.lr.ph140.preheader, label %.critedge6
+  br i1 %69, label %.lr.ph142.preheader, label %.critedge6
 
-.lr.ph140.preheader:                              ; preds = %.critedge4
+.lr.ph142.preheader:                              ; preds = %.critedge4
   %70 = zext i32 %68 to i64
-  br label %.lr.ph140
+  br label %.lr.ph142
 
-.lr.ph140:                                        ; preds = %.lr.ph140.preheader, %73
-  %indvars.iv149 = phi i64 [ %70, %.lr.ph140.preheader ], [ %indvars.iv.next150, %73 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv149
+.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %73
+  %indvars.iv151 = phi i64 [ %70, %.lr.ph142.preheader ], [ %indvars.iv.next152, %73 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv151
   %72 = load i8, ptr %71, align 1, !tbaa !3
   %.not107 = icmp eq i8 %72, 0
-  br i1 %.not107, label %.critedge6.loopexit.split.loop.exit160, label %73
+  br i1 %.not107, label %.critedge6.loopexit.split.loop.exit162, label %73
 
-73:                                               ; preds = %.lr.ph140
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %lftr.wideiv152 = trunc i64 %indvars.iv.next150 to i32
-  %exitcond153.not = icmp eq i32 %2, %lftr.wideiv152
-  br i1 %exitcond153.not, label %.critedge6, label %.lr.ph140, !llvm.loop !181
+73:                                               ; preds = %.lr.ph142
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %lftr.wideiv154 = trunc i64 %indvars.iv.next152 to i32
+  %exitcond155.not = icmp eq i32 %2, %lftr.wideiv154
+  br i1 %exitcond155.not, label %.critedge6, label %.lr.ph142, !llvm.loop !181
 
-.critedge6.loopexit.split.loop.exit160:           ; preds = %.lr.ph140
-  %74 = trunc nuw i64 %indvars.iv149 to i32
+.critedge6.loopexit.split.loop.exit162:           ; preds = %.lr.ph142
+  %74 = trunc nuw i64 %indvars.iv151 to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %73, %.critedge6.loopexit.split.loop.exit160, %.critedge4
-  %.297.lcssa = phi i32 [ %68, %.critedge4 ], [ %74, %.critedge6.loopexit.split.loop.exit160 ], [ %2, %73 ]
+.critedge6:                                       ; preds = %73, %.critedge6.loopexit.split.loop.exit162, %.critedge4
+  %.297.lcssa = phi i32 [ %68, %.critedge4 ], [ %74, %.critedge6.loopexit.split.loop.exit162 ], [ %2, %73 ]
   %75 = add i32 %.297.lcssa, 1
   %.not109 = icmp ugt i32 %75, %2
   %or.cond112 = or i1 %.not108, %.not109
@@ -4548,7 +4548,7 @@ png_crc_read.exit:                                ; preds = %37, %30
 79:                                               ; preds = %.critedge6
   %80 = icmp ult i32 %75, %2
   %or.cond114 = and i1 %.not108, %80
-  br i1 %or.cond114, label %81, label %.thread123
+  br i1 %or.cond114, label %81, label %.thread130
 
 81:                                               ; preds = %79
   store i64 -1, ptr %4, align 8, !tbaa !170
@@ -4564,34 +4564,29 @@ png_crc_read.exit:                                ; preds = %37, %30
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %88 = load ptr, ptr %87, align 8, !tbaa !43
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread, label %.thread123
-
-.thread123:                                       ; preds = %86, %79
-  %.4.ph = phi ptr [ %88, %86 ], [ @.str.38, %79 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  br label %.thread127
+  br i1 %89, label %.thread, label %.thread130
 
 .thread:                                          ; preds = %84, %76, %86
-  %.092118 = phi ptr [ %.021.i, %86 ], [ %85, %84 ], [ %.021.i, %76 ]
+  %.092120 = phi ptr [ %.021.i, %86 ], [ %85, %84 ], [ %.021.i, %76 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   %90 = load i64, ptr %4, align 8, !tbaa !170
   %91 = zext i32 %75 to i64
-  %92 = getelementptr i8, ptr %.092118, i64 %90
+  %92 = getelementptr i8, ptr %.092120, i64 %90
   %93 = getelementptr i8, ptr %92, i64 %91
   store i8 0, ptr %93, align 1, !tbaa !3
   %. = select i1 %.not108, i32 2, i32 1
   store i32 %., ptr %5, align 8, !tbaa !182
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.092118, ptr %94, align 8, !tbaa !184
+  store ptr %.092120, ptr %94, align 8, !tbaa !184
   %95 = zext nneg i32 %61 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %.092118, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.092120, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %96, ptr %97, align 8, !tbaa !185
   %98 = zext i32 %68 to i64
-  %99 = getelementptr inbounds nuw i8, ptr %.092118, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %.092120, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %99, ptr %100, align 8, !tbaa !186
-  %101 = getelementptr inbounds nuw i8, ptr %.092118, i64 %91
+  %101 = getelementptr inbounds nuw i8, ptr %.092120, i64 %91
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %101, ptr %102, align 8, !tbaa !187
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -4600,18 +4595,23 @@ png_crc_read.exit:                                ; preds = %37, %30
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %104, ptr %105, align 8, !tbaa !189
   %106 = call i32 @png_set_text_2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #12
-  %.not110.not = icmp eq i32 %106, 0
+  %.not110 = icmp eq i32 %106, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  br i1 %.not110.not, label %107, label %.thread127
+  br i1 %.not110, label %.critedge116, label %.thread125
 
-.thread127:                                       ; preds = %.preheader, %.thread, %.thread123, %56, %51, %48, %.critedge
-  %.088130 = phi ptr [ %.4.ph, %.thread123 ], [ @.str.39, %56 ], [ @.str.39, %51 ], [ @.str.38, %48 ], [ @.str.36, %.critedge ], [ @.str.22, %.thread ], [ @.str.36, %.preheader ]
-  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull %.088130) #12
-  br label %107
+.thread130:                                       ; preds = %86, %79
+  %.4.ph = phi ptr [ %88, %86 ], [ @.str.38, %79 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  br label %.thread125
 
-107:                                              ; preds = %.thread127, %png_crc_read.exit, %.thread, %39, %13, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %39 ], [ 3, %.thread ], [ 0, %png_crc_read.exit ], [ 0, %.thread127 ]
+.thread125:                                       ; preds = %.thread, %.preheader, %56, %51, %48, %.critedge, %.thread130
+  %.088128 = phi ptr [ %.4.ph, %.thread130 ], [ @.str.39, %56 ], [ @.str.39, %51 ], [ @.str.38, %48 ], [ @.str.36, %.critedge ], [ @.str.36, %.preheader ], [ @.str.22, %.thread ]
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull %.088128) #12
+  br label %.critedge116
+
+.critedge116:                                     ; preds = %.thread, %.thread125, %png_crc_read.exit, %39, %13, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %39 ], [ 0, %png_crc_read.exit ], [ 0, %.thread125 ], [ 3, %.thread ]
   ret i32 %.0
 }
 
@@ -6097,7 +6097,7 @@ define internal range(i32 0, 4) i32 @png_handle_zTXt(ptr noalias noundef %0, ptr
 
 8:                                                ; preds = %3
   %9 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
-  br label %75
+  br label %77
 
 10:                                               ; preds = %3
   %11 = add i32 %7, -1
@@ -6108,7 +6108,7 @@ define internal range(i32 0, 4) i32 @png_handle_zTXt(ptr noalias noundef %0, ptr
 13:                                               ; preds = %10
   %14 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #12
-  br label %75
+  br label %77
 
 15:                                               ; preds = %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -6161,7 +6161,7 @@ define internal range(i32 0, 4) i32 @png_handle_zTXt(ptr noalias noundef %0, ptr
 38:                                               ; preds = %21, %34
   %39 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #12
-  br label %75
+  br label %77
 
 png_crc_read.exit:                                ; preds = %36, %29
   %.021.i = phi ptr [ %35, %36 ], [ %24, %29 ]
@@ -6169,11 +6169,11 @@ png_crc_read.exit:                                ; preds = %36, %29
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %22) #12
   %40 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %.not62 = icmp eq i32 %40, 0
-  br i1 %.not62, label %.preheader, label %75
+  br i1 %.not62, label %.preheader, label %77
 
 .preheader:                                       ; preds = %png_crc_read.exit
-  %.not76 = icmp eq i32 %2, 0
-  br i1 %.not76, label %.critedge.thread, label %.lr.ph
+  %.not74 = icmp eq i32 %2, 0
+  br i1 %.not74, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader ]
@@ -6216,58 +6216,61 @@ png_crc_read.exit:                                ; preds = %36, %29
   %55 = add nuw nsw i32 %.050.lcssa, 2
   %56 = call fastcc i32 @png_decompress_chunk(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %55, ptr noundef %4)
   %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %.thread
+  br i1 %57, label %58, label %73
 
 58:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
   %59 = load ptr, ptr %23, align 8, !tbaa !106
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread70, label %63
+  br i1 %60, label %.thread, label %61
 
-.thread70:                                        ; preds = %58
+.thread:                                          ; preds = %58
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
-  br label %.critedge.thread.sink.split
+  br label %76
 
-.thread:                                          ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %62 = load ptr, ptr %61, align 8, !tbaa !43
-  br label %.critedge.thread.sink.split
-
-63:                                               ; preds = %58
-  %64 = load i64, ptr %4, align 8, !tbaa !170
-  %65 = zext nneg i32 %55 to i64
-  %66 = getelementptr i8, ptr %59, i64 %64
-  %67 = getelementptr i8, ptr %66, i64 %65
-  store i8 0, ptr %67, align 1, !tbaa !3
+61:                                               ; preds = %58
+  %62 = load i64, ptr %4, align 8, !tbaa !170
+  %63 = zext nneg i32 %55 to i64
+  %64 = getelementptr i8, ptr %59, i64 %62
+  %65 = getelementptr i8, ptr %64, i64 %63
+  store i8 0, ptr %65, align 1, !tbaa !3
   store i32 0, ptr %5, align 8, !tbaa !182
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %59, ptr %68, align 8, !tbaa !184
-  %69 = getelementptr inbounds nuw i8, ptr %59, i64 %50
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %70, ptr %71, align 8, !tbaa !187
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %64, ptr %72, align 8, !tbaa !188
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  %74 = call i32 @png_set_text_2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #12
-  %.not = icmp eq i32 %74, 0
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %59, ptr %66, align 8, !tbaa !184
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %50
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %68, ptr %69, align 8, !tbaa !187
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %62, ptr %70, align 8, !tbaa !188
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  %72 = call i32 @png_set_text_2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #12
+  %.not = icmp eq i32 %72, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  br i1 %.not, label %75, label %.critedge.thread
+  br i1 %.not, label %.critedge66, label %76
 
-.critedge.thread.sink.split:                      ; preds = %.thread, %.thread70
-  %.051.ph = phi ptr [ @.str.56, %.thread70 ], [ %62, %.thread ]
+73:                                               ; preds = %54
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %75 = load ptr, ptr %74, align 8, !tbaa !43
+  br label %76
+
+76:                                               ; preds = %.thread, %61, %73
+  %.3 = phi ptr [ %75, %73 ], [ @.str.22, %61 ], [ @.str.56, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %.preheader, %49, %46, %.critedge, %63
-  %.051 = phi ptr [ @.str.22, %63 ], [ @.str.36, %.critedge ], [ @.str.38, %46 ], [ @.str.55, %49 ], [ @.str.36, %.preheader ], [ %.051.ph, %.critedge.thread.sink.split ]
+.critedge.thread:                                 ; preds = %.preheader, %76, %49, %46, %.critedge
+  %.051 = phi ptr [ %.3, %76 ], [ @.str.36, %.critedge ], [ @.str.38, %46 ], [ @.str.55, %49 ], [ @.str.36, %.preheader ]
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef %.051) #12
-  br label %75
+  br label %77
 
-75:                                               ; preds = %png_crc_read.exit, %63, %.critedge.thread, %38, %13, %8
-  %.053 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %38 ], [ 0, %.critedge.thread ], [ 3, %63 ], [ 0, %png_crc_read.exit ]
+.critedge66:                                      ; preds = %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  br label %77
+
+77:                                               ; preds = %.critedge66, %png_crc_read.exit, %.critedge.thread, %38, %13, %8
+  %.053 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %38 ], [ 0, %.critedge.thread ], [ 0, %png_crc_read.exit ], [ 3, %.critedge66 ]
   ret i32 %.053
 }
 

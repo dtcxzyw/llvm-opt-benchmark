@@ -4577,7 +4577,7 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
   %9 = load i32, ptr %0, align 8, !tbaa !32
   %10 = or i32 %9, 2
   store i32 %10, ptr %0, align 8, !tbaa !32
-  br label %.thread86
+  br label %.critedge67
 
 11:                                               ; preds = %2
   %12 = icmp eq i64 %1, 0
@@ -4612,17 +4612,17 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %148
-  %.147125 = phi i64 [ %.046, %24 ], [ %spec.select65, %148 ]
-  %.050124 = phi ptr [ %26, %24 ], [ %.151, %148 ]
-  %.pre123 = phi i32 [ %.pre.pre, %24 ], [ %149, %148 ]
-  %35 = and i32 %.pre123, 4
+  %.147121 = phi i64 [ %.046, %24 ], [ %spec.select65, %148 ]
+  %.050120 = phi ptr [ %26, %24 ], [ %.151, %148 ]
+  %.pre119 = phi i32 [ %.pre.pre, %24 ], [ %149, %148 ]
+  %35 = and i32 %.pre119, 4
   %.not58 = icmp eq i32 %35, 0
-  %36 = lshr i32 %.pre123, 3
+  %36 = lshr i32 %.pre119, 3
   %spec.select = select i1 %.not58, i32 %36, i32 1
   %37 = tail call i32 @rand() #26
   %38 = load ptr, ptr %3, align 8, !tbaa !36
   %39 = load ptr, ptr %38, align 8, !tbaa !11
-  %40 = icmp ne ptr %.050124, %39
+  %40 = icmp ne ptr %.050120, %39
   %41 = zext i1 %40 to i32
   %42 = add nuw nsw i32 %spec.select, %41
   %43 = srem i32 %37, %42
@@ -4650,10 +4650,10 @@ raxStackPop.exit:                                 ; preds = %.critedge
   br label %148
 
 57:                                               ; preds = %.critedge
-  %58 = load i32, ptr %.050124, align 4
+  %58 = load i32, ptr %.050120, align 4
   %59 = and i32 %58, 4
   %.not59 = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds nuw i8, ptr %.050124, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.050120, i64 4
   br i1 %.not59, label %84, label %61
 
 61:                                               ; preds = %57
@@ -4667,12 +4667,12 @@ raxStackPop.exit:                                 ; preds = %.critedge
   %67 = load i64, ptr %28, align 8, !tbaa !37
   %68 = add i64 %67, %63
   %69 = icmp ult i64 %66, %68
-  %.pre106 = load ptr, ptr %29, align 8, !tbaa !38
+  %.pre102 = load ptr, ptr %29, align 8, !tbaa !38
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %65
-  %71 = icmp eq ptr %.pre106, %30
-  %spec.select.i = select i1 %71, ptr null, ptr %.pre106
+  %71 = icmp eq ptr %.pre102, %30
+  %spec.select.i = select i1 %71, ptr null, ptr %.pre102
   %72 = shl i64 %68, 1
   %73 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %72) #27
   store ptr %73, ptr %29, align 8, !tbaa !38
@@ -4686,17 +4686,17 @@ raxStackPop.exit:                                 ; preds = %.critedge
 76:                                               ; preds = %75
   %77 = load i64, ptr %28, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 8 %30, i64 %77, i1 false)
-  %.pre105.pre = load ptr, ptr %29, align 8, !tbaa !38
+  %.pre101.pre = load ptr, ptr %29, align 8, !tbaa !38
   br label %.thread.i
 
 .thread.i:                                        ; preds = %76, %75
-  %.pre105 = phi ptr [ %.pre105.pre, %76 ], [ %73, %75 ]
+  %.pre101 = phi ptr [ %.pre101.pre, %76 ], [ %73, %75 ]
   store i64 %72, ptr %27, align 8, !tbaa !39
   %.pre.i = load i64, ptr %28, align 8, !tbaa !37
   br label %78
 
 78:                                               ; preds = %.thread.i, %65
-  %79 = phi ptr [ %.pre105, %.thread.i ], [ %.pre106, %65 ]
+  %79 = phi ptr [ %.pre101, %.thread.i ], [ %.pre102, %65 ]
   %80 = phi i64 [ %.pre.i, %.thread.i ], [ %67, %65 ]
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %81, ptr nonnull readonly align 1 %60, i64 %63, i1 false)
@@ -4707,7 +4707,7 @@ raxIteratorAddChars.exit:                         ; preds = %70
   store ptr %82, ptr %29, align 8, !tbaa !38
   %83 = tail call ptr @__errno_location() #29
   store i32 12, ptr %83, align 4, !tbaa !5
-  br label %.thread86
+  br label %.critedge67
 
 84:                                               ; preds = %57
   %85 = sext i32 %43 to i64
@@ -4716,58 +4716,58 @@ raxIteratorAddChars.exit:                         ; preds = %70
   %88 = load i64, ptr %28, align 8, !tbaa !37
   %89 = add i64 %88, 1
   %90 = icmp ult i64 %87, %89
-  %.pre108 = load ptr, ptr %29, align 8, !tbaa !38
-  br i1 %90, label %91, label %raxIteratorAddChars.exit71
+  %.pre104 = load ptr, ptr %29, align 8, !tbaa !38
+  br i1 %90, label %91, label %raxIteratorAddChars.exit74
 
 91:                                               ; preds = %84
-  %92 = icmp eq ptr %.pre108, %30
-  %spec.select.i67 = select i1 %92, ptr null, ptr %.pre108
+  %92 = icmp eq ptr %.pre104, %30
+  %spec.select.i70 = select i1 %92, ptr null, ptr %.pre104
   %93 = shl i64 %89, 1
-  %94 = tail call ptr @zrealloc(ptr noundef %spec.select.i67, i64 noundef %93) #27
+  %94 = tail call ptr @zrealloc(ptr noundef %spec.select.i70, i64 noundef %93) #27
   store ptr %94, ptr %29, align 8, !tbaa !38
   %95 = icmp eq ptr %94, null
-  %.not.i68 = icmp eq ptr %spec.select.i67, null
-  br i1 %95, label %raxIteratorAddChars.exit71.thread, label %96
+  %.not.i71 = icmp eq ptr %spec.select.i70, null
+  br i1 %95, label %raxIteratorAddChars.exit74.thread, label %96
 
 96:                                               ; preds = %91
-  br i1 %.not.i68, label %97, label %.thread.i69
+  br i1 %.not.i71, label %97, label %.thread.i72
 
 97:                                               ; preds = %96
   %98 = load i64, ptr %28, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 8 %30, i64 %98, i1 false)
-  %.pre107.pre = load ptr, ptr %29, align 8, !tbaa !38
-  br label %.thread.i69
+  %.pre103.pre = load ptr, ptr %29, align 8, !tbaa !38
+  br label %.thread.i72
 
-.thread.i69:                                      ; preds = %97, %96
-  %.pre107 = phi ptr [ %.pre107.pre, %97 ], [ %94, %96 ]
+.thread.i72:                                      ; preds = %97, %96
+  %.pre103 = phi ptr [ %.pre103.pre, %97 ], [ %94, %96 ]
   store i64 %93, ptr %27, align 8, !tbaa !39
-  %.pre.i70 = load i64, ptr %28, align 8, !tbaa !37
-  br label %raxIteratorAddChars.exit71
+  %.pre.i73 = load i64, ptr %28, align 8, !tbaa !37
+  br label %raxIteratorAddChars.exit74
 
-raxIteratorAddChars.exit71.thread:                ; preds = %91
-  %99 = select i1 %.not.i68, ptr %30, ptr %spec.select.i67
+raxIteratorAddChars.exit74.thread:                ; preds = %91
+  %99 = select i1 %.not.i71, ptr %30, ptr %spec.select.i70
   store ptr %99, ptr %29, align 8, !tbaa !38
   %100 = tail call ptr @__errno_location() #29
   store i32 12, ptr %100, align 4, !tbaa !5
-  br label %.thread86
+  br label %.critedge67
 
-raxIteratorAddChars.exit71:                       ; preds = %84, %.thread.i69
-  %101 = phi ptr [ %.pre107, %.thread.i69 ], [ %.pre108, %84 ]
-  %102 = phi i64 [ %.pre.i70, %.thread.i69 ], [ %88, %84 ]
+raxIteratorAddChars.exit74:                       ; preds = %84, %.thread.i72
+  %101 = phi ptr [ %.pre103, %.thread.i72 ], [ %.pre104, %84 ]
+  %102 = phi i64 [ %.pre.i73, %.thread.i72 ], [ %88, %84 ]
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
   %104 = load i8, ptr %86, align 1
   store i8 %104, ptr %103, align 1
   br label %raxIteratorAddChars.exit.thread.sink.split
 
-raxIteratorAddChars.exit.thread.sink.split:       ; preds = %raxIteratorAddChars.exit71, %78
-  %.sink117 = phi i64 [ %63, %78 ], [ 1, %raxIteratorAddChars.exit71 ]
+raxIteratorAddChars.exit.thread.sink.split:       ; preds = %raxIteratorAddChars.exit74, %78
+  %.sink113 = phi i64 [ %63, %78 ], [ 1, %raxIteratorAddChars.exit74 ]
   %105 = load i64, ptr %28, align 8, !tbaa !37
-  %106 = add i64 %105, %.sink117
+  %106 = add i64 %105, %.sink113
   store i64 %106, ptr %28, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit.thread
 
 raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars.exit.thread.sink.split, %61
-  %107 = load i32, ptr %.050124, align 4
+  %107 = load i32, ptr %.050120, align 4
   %108 = load i64, ptr %32, align 8, !tbaa !24
   %109 = load i64, ptr %33, align 8, !tbaa !26
   %110 = icmp eq i64 %108, %109
@@ -4791,7 +4791,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   store i32 1, ptr %118, align 8, !tbaa !28
   %119 = tail call ptr @__errno_location() #29
   store i32 12, ptr %119, align 4, !tbaa !5
-  br label %.thread86
+  br label %.critedge67
 
 120:                                              ; preds = %114
   %121 = load i64, ptr %33, align 8, !tbaa !26
@@ -4802,11 +4802,11 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
 123:                                              ; preds = %111
   %124 = tail call ptr @zrealloc(ptr noundef %.pre32.i, i64 noundef %113) #27
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %126, label %.thread.i72
+  br i1 %125, label %126, label %.thread.i75
 
-.thread.i72:                                      ; preds = %123
+.thread.i75:                                      ; preds = %123
   store ptr %124, ptr %31, align 8, !tbaa !27
-  %.pre.i73 = load i64, ptr %33, align 8, !tbaa !26
+  %.pre.i76 = load i64, ptr %33, align 8, !tbaa !26
   br label %129
 
 126:                                              ; preds = %123
@@ -4814,24 +4814,24 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   store i32 1, ptr %127, align 8, !tbaa !28
   %128 = tail call ptr @__errno_location() #29
   store i32 12, ptr %128, align 4, !tbaa !5
-  br label %.thread86
+  br label %.critedge67
 
-129:                                              ; preds = %.thread.i72, %120
-  %130 = phi ptr [ %124, %.thread.i72 ], [ %115, %120 ]
-  %131 = phi i64 [ %.pre.i73, %.thread.i72 ], [ %121, %120 ]
+129:                                              ; preds = %.thread.i75, %120
+  %130 = phi ptr [ %124, %.thread.i75 ], [ %115, %120 ]
+  %131 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %121, %120 ]
   %132 = shl i64 %131, 1
   store i64 %132, ptr %33, align 8, !tbaa !26
   %.pre33.i = load i64, ptr %32, align 8, !tbaa !24
   br label %133
 
-133:                                              ; preds = %raxIteratorAddChars.exit.thread, %129
+133:                                              ; preds = %129, %raxIteratorAddChars.exit.thread
   %134 = phi i64 [ %.pre33.i, %129 ], [ %108, %raxIteratorAddChars.exit.thread ]
   %135 = phi ptr [ %130, %129 ], [ %.pre32.i, %raxIteratorAddChars.exit.thread ]
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
-  store ptr %.050124, ptr %136, align 8, !tbaa !22
+  store ptr %.050120, ptr %136, align 8, !tbaa !22
   %137 = add i64 %134, 1
   store i64 %137, ptr %32, align 8, !tbaa !24
-  %138 = getelementptr inbounds nuw i8, ptr %.050124, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.050120, i64 4
   %139 = lshr i32 %107, 3
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 %140
@@ -4845,13 +4845,13 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %.0.copyload = load ptr, ptr %147, align 8
   br label %148
 
-148:                                              ; preds = %raxStackPop.exit, %133
+148:                                              ; preds = %133, %raxStackPop.exit
   %.151 = phi ptr [ %50, %raxStackPop.exit ], [ %.0.copyload, %133 ]
   %149 = load i32, ptr %.151, align 4
   %150 = and i32 %149, 1
   %sext = sub nsw i32 0, %150
   %151 = sext i32 %sext to i64
-  %spec.select65 = add i64 %.147125, %151
+  %spec.select65 = add i64 %.147121, %151
   %.not = icmp ne i64 %spec.select65, 0
   %152 = and i32 %149, 1
   %.not57 = icmp eq i32 %152, 0
@@ -4862,8 +4862,8 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   store ptr %.151, ptr %25, align 8, !tbaa !43
   %154 = load i32, ptr %.151, align 4
   %155 = and i32 %154, 2
-  %.not.i74 = icmp eq i32 %155, 0
-  br i1 %.not.i74, label %156, label %raxGetData.exit
+  %.not.i77 = icmp eq i32 %155, 0
+  br i1 %.not.i77, label %156, label %raxGetData.exit
 
 156:                                              ; preds = %153
   %157 = lshr i32 %154, 3
@@ -4875,27 +4875,27 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %162 = and i32 %154, 4
   %.not11.i = icmp eq i32 %162, 0
   %163 = shl nuw nsw i64 %158, 3
-  %spec.select.i76 = select i1 %.not11.i, i64 %163, i64 8
+  %spec.select.i79 = select i1 %.not11.i, i64 %163, i64 8
   %164 = shl i32 %154, 3
   %165 = and i32 %164, 8
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %.151, i64 %158
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %161
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %spec.select.i76
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %spec.select.i79
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 %166
   %172 = getelementptr inbounds i8, ptr %171, i64 -8
   %.0.copyload.i = load ptr, ptr %172, align 8
   br label %raxGetData.exit
 
 raxGetData.exit:                                  ; preds = %153, %156
-  %.0.i75 = phi ptr [ %.0.copyload.i, %156 ], [ null, %153 ]
+  %.0.i78 = phi ptr [ %.0.copyload.i, %156 ], [ null, %153 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i75, ptr %173, align 8, !tbaa !40
-  br label %.thread86
+  store ptr %.0.i78, ptr %173, align 8, !tbaa !40
+  br label %.critedge67
 
-.thread86:                                        ; preds = %117, %126, %raxIteratorAddChars.exit71.thread, %raxIteratorAddChars.exit, %raxGetData.exit, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit ], [ 0, %raxIteratorAddChars.exit71.thread ], [ 0, %126 ], [ 0, %117 ]
+.critedge67:                                      ; preds = %126, %117, %raxIteratorAddChars.exit74.thread, %raxIteratorAddChars.exit, %raxGetData.exit, %8
+  %.0 = phi i32 [ 0, %8 ], [ 1, %raxGetData.exit ], [ 0, %raxIteratorAddChars.exit ], [ 0, %raxIteratorAddChars.exit74.thread ], [ 0, %117 ], [ 0, %126 ]
   ret i32 %.0
 }
 

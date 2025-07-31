@@ -5387,15 +5387,15 @@ _ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit: ; preds = %_ZN9uv
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %33
 
-_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit.thread: ; preds = %17, %107, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %1, %54
-  %.sroa.0.0 = phi ptr [ %56, %54 ], [ null, %1 ], [ null, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ null, %107 ], [ null, %17 ]
+_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit.thread: ; preds = %17, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i, %107, %1, %54
+  %.sroa.0.0 = phi ptr [ %56, %54 ], [ null, %1 ], [ null, %107 ], [ null, %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i ], [ null, %17 ]
   ret ptr %.sroa.0.0
 
 33:                                               ; preds = %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit
   %34 = phi ptr [ %108, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ %14, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
   %35 = phi i64 [ %104, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ %11, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
-  %36 = phi i64 [ %119, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ %25, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
-  %.sroa.02.0 = phi i32 [ %120, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ 43, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
+  %36 = phi i64 [ %118, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ %25, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
+  %.sroa.02.0 = phi i32 [ %119, %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit ], [ 43, %_ZN9uv_pep4407version6Parser7bump_if17he5bb3c1a7916220dE.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !985)
   %.not3.i = icmp ult i64 %36, %35
   br i1 %.not3.i, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit.i, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread.i
@@ -5650,17 +5650,17 @@ _ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i: ; preds =
 
 116:                                              ; preds = %_ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i
   %117 = icmp eq i64 %105, -1
-  br i1 %117, label %118, label %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit, !prof !169
-
-118:                                              ; preds = %116
-  tail call void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.1495de09556023635d9825e3589d5aa9.128, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1495de09556023635d9825e3589d5aa9.134) #38, !noalias !1033
-  unreachable
+  br i1 %117, label %120, label %_ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit, !prof !169
 
 _ZN9uv_pep4407version6Parser16bump_if_byte_set17hac5cdbccbc2da95bE.exit: ; preds = %116
-  %119 = add nuw i64 %105, 1
-  store i64 %119, ptr %8, align 8, !alias.scope !1033
-  %120 = zext i8 %110 to i32
+  %118 = add nuw i64 %105, 1
+  store i64 %118, ptr %8, align 8, !alias.scope !1033
+  %119 = zext i8 %110 to i32
   br label %33
+
+120:                                              ; preds = %116
+  tail call void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.1495de09556023635d9825e3589d5aa9.128, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1495de09556023635d9825e3589d5aa9.134) #38, !noalias !1033
+  unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable

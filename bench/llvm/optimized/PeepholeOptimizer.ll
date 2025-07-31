@@ -6130,34 +6130,34 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115
   %11 = icmp uge ptr %1, %.val.pre4
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %15, label %13, !prof !519
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !519
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %6, i64 noundef 24) #22
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.val.pre4 to i64
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %6, i64 noundef 24) #22
+  %.val19.i.i = load ptr, ptr %0, align 8, !tbaa !25
+  %18 = getelementptr inbounds i8, ptr %.val19.i.i, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115RecurrenceInstrELb1EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %6, i64 noundef 24) #22
   %.val.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115RecurrenceInstrELb1EE28reserveForParamAndGetAddressERKS2_m.exit
 
-15:                                               ; preds = %9
-  %16 = ptrtoint ptr %1 to i64
-  %17 = ptrtoint ptr %.val.pre4 to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %6, i64 noundef 24) #22
-  %.val19.i.i = load ptr, ptr %0, align 8, !tbaa !25
-  %20 = getelementptr inbounds i8, ptr %.val19.i.i, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115RecurrenceInstrELb1EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115RecurrenceInstrELb1EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %15
-  %.val = phi ptr [ %.val.pre4, %2 ], [ %.val19.i.i, %15 ], [ %.val.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %20, %15 ], [ %1, %13 ]
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115RecurrenceInstrELb1EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %.val = phi ptr [ %.val.pre4, %2 ], [ %.val19.i.i, %13 ], [ %.val.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %.val3 = load i32, ptr %3, align 8, !tbaa !26
-  %21 = zext i32 %.val3 to i64
-  %22 = getelementptr inbounds nuw %"class.(anonymous namespace)::RecurrenceInstr", ptr %.val, i64 %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i, i64 24, i1 false)
-  %23 = load i32, ptr %3, align 8, !tbaa !26
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %3, align 8, !tbaa !26
+  %20 = zext i32 %.val3 to i64
+  %21 = getelementptr inbounds nuw %"class.(anonymous namespace)::RecurrenceInstr", ptr %.val, i64 %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i, i64 24, i1 false)
+  %22 = load i32, ptr %3, align 8, !tbaa !26
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %3, align 8, !tbaa !26
   ret void
 }
 

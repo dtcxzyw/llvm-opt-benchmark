@@ -608,18 +608,21 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   %25 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
   %26 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
   %27 = icmp eq i8 %26, -1
-  br i1 %27, label %28, label %.loopexit10
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %19
   %29 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %30 = extractvalue { i64, i64 } %29, 0
-  %31 = extractvalue { i64, i64 } %29, 1
-  %32 = shl i64 %31, 32
-  %33 = or i64 %32, %30
-  %34 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %35 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %36 = icmp eq i8 %35, -1
-  br i1 %36, label %.preheader9, label %.loopexit10, !llvm.loop !35
+  %30 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %31 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %32 = icmp eq i8 %31, -1
+  br i1 %32, label %.preheader9.preheader, label %.critedge, !llvm.loop !35
+
+.preheader9.preheader:                            ; preds = %28
+  %33 = extractvalue { i64, i64 } %29, 1
+  %34 = shl i64 %33, 32
+  %35 = extractvalue { i64, i64 } %29, 0
+  %36 = or i64 %34, %35
+  br label %.preheader9
 
 37:                                               ; preds = %.preheader9
   %38 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
@@ -627,9 +630,9 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   %40 = icmp eq i8 %39, -1
   br i1 %40, label %.preheader9, label %50, !llvm.loop !35
 
-.preheader9:                                      ; preds = %28, %37
-  %41 = phi i64 [ %47, %37 ], [ %33, %28 ]
-  %42 = phi i32 [ %48, %37 ], [ 1, %28 ]
+.preheader9:                                      ; preds = %.preheader9.preheader, %37
+  %41 = phi i64 [ %47, %37 ], [ %36, %.preheader9.preheader ]
+  %42 = phi i32 [ %48, %37 ], [ 1, %.preheader9.preheader ]
   %43 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   %44 = extractvalue { i64, i64 } %43, 0
   %45 = extractvalue { i64, i64 } %43, 1
@@ -643,147 +646,151 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   %51 = icmp samesign ult i32 %42, 5
   br label %.loopexit10
 
-.loopexit10:                                      ; preds = %.preheader9, %50, %28, %19
-  %52 = phi i1 [ true, %19 ], [ %51, %50 ], [ true, %28 ], [ false, %.preheader9 ]
-  %53 = phi i64 [ 0, %19 ], [ %47, %50 ], [ %33, %28 ], [ %47, %.preheader9 ]
-  %54 = phi i64 [ 0, %19 ], [ %41, %50 ], [ 0, %28 ], [ %41, %.preheader9 ]
-  %55 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %56 = extractvalue { i64, i64 } %55, 0
-  %57 = extractvalue { i64, i64 } %55, 1
-  %58 = shl i64 %57, 32
-  %59 = or i64 %58, %56
-  %60 = sub i64 %59, %54
+.loopexit10:                                      ; preds = %.preheader9, %50
+  %52 = phi i1 [ %51, %50 ], [ false, %.preheader9 ]
+  %53 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %54 = extractvalue { i64, i64 } %53, 0
+  %55 = extractvalue { i64, i64 } %53, 1
+  %56 = shl i64 %55, 32
+  %57 = or i64 %56, %54
+  %58 = sub i64 %57, %41
   br i1 %52, label %.loopexit7, label %.preheader6
 
-.preheader6:                                      ; preds = %.loopexit10, %126
-  %61 = phi i32 [ %127, %126 ], [ 1, %.loopexit10 ]
-  %62 = trunc i32 %61 to i8
-  %63 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %64 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %65 = xor i8 %64, %62
-  %66 = icmp eq i8 %65, -1
-  br i1 %66, label %67, label %.loopexit
+.preheader6:                                      ; preds = %.loopexit10, %117
+  %59 = phi i32 [ %118, %117 ], [ 1, %.loopexit10 ]
+  %60 = trunc i32 %59 to i8
+  %61 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %62 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %63 = xor i8 %62, %60
+  %64 = icmp eq i8 %63, -1
+  br i1 %64, label %65, label %.loopexit7.loopexit.critedge
 
-67:                                               ; preds = %.preheader6
-  %68 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %69 = extractvalue { i64, i64 } %68, 0
-  %70 = extractvalue { i64, i64 } %68, 1
-  %71 = shl i64 %70, 32
-  %72 = or i64 %71, %69
+65:                                               ; preds = %.preheader6
+  %66 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %67 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %68 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %69 = xor i8 %68, %60
+  %70 = icmp eq i8 %69, -1
+  br i1 %70, label %.preheader, label %.loopexit7.loopexit.critedge, !llvm.loop !35
+
+.preheader:                                       ; preds = %65
+  %71 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %72 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
   %73 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %74 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %75 = xor i8 %74, %62
-  %76 = icmp eq i8 %75, -1
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !35
-
-.preheader:                                       ; preds = %67
-  %77 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %78 = extractvalue { i64, i64 } %77, 0
-  %79 = extractvalue { i64, i64 } %77, 1
-  %80 = shl i64 %79, 32
-  %81 = or i64 %80, %78
-  %82 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %83 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %84 = xor i8 %83, %62
-  %85 = icmp eq i8 %84, -1
-  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  %74 = xor i8 %73, %60
+  %75 = icmp eq i8 %74, -1
+  br i1 %75, label %.lr.ph, label %.loopexit7.loopexit.critedge73, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader
-  br label %91, !llvm.loop !35
+  %76 = extractvalue { i64, i64 } %71, 1
+  %77 = shl i64 %76, 32
+  %78 = extractvalue { i64, i64 } %71, 0
+  %79 = or i64 %77, %78
+  br label %85, !llvm.loop !35
 
-86:                                               ; preds = %91
-  %87 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %88 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %89 = xor i8 %88, %62
-  %90 = icmp eq i8 %89, -1
-  br i1 %90, label %91, label %..loopexit.loopexit_crit_edge, !llvm.loop !35
+80:                                               ; preds = %85
+  %81 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %82 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %83 = xor i8 %82, %60
+  %84 = icmp eq i8 %83, -1
+  br i1 %84, label %85, label %..loopexit.loopexit_crit_edge, !llvm.loop !35
 
-91:                                               ; preds = %.lr.ph, %86
-  %92 = phi i64 [ %81, %.lr.ph ], [ %98, %86 ]
-  %93 = phi i32 [ 2, %.lr.ph ], [ %99, %86 ]
-  %94 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %95 = extractvalue { i64, i64 } %94, 0
-  %96 = extractvalue { i64, i64 } %94, 1
-  %97 = shl i64 %96, 32
-  %98 = or i64 %97, %95
-  %99 = add nuw nsw i32 %93, 1
-  %100 = icmp eq i32 %99, 50000
-  br i1 %100, label %..loopexit.loopexit_crit_edge66, label %86, !llvm.loop !35
+85:                                               ; preds = %.lr.ph, %80
+  %86 = phi i64 [ %79, %.lr.ph ], [ %92, %80 ]
+  %87 = phi i32 [ 2, %.lr.ph ], [ %93, %80 ]
+  %88 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  %89 = extractvalue { i64, i64 } %88, 0
+  %90 = extractvalue { i64, i64 } %88, 1
+  %91 = shl i64 %90, 32
+  %92 = or i64 %91, %89
+  %93 = add nuw nsw i32 %87, 1
+  %94 = icmp eq i32 %93, 50000
+  br i1 %94, label %..loopexit.loopexit_crit_edge69, label %80, !llvm.loop !35
 
-..loopexit.loopexit_crit_edge:                    ; preds = %86
-  %101 = icmp samesign ult i32 %93, 5
-  br label %.loopexit, !llvm.loop !35
+..loopexit.loopexit_crit_edge:                    ; preds = %80
+  %95 = icmp samesign ult i32 %87, 5
+  br label %.loopexit.loopexit, !llvm.loop !35
 
-..loopexit.loopexit_crit_edge66:                  ; preds = %91
-  br label %.loopexit, !llvm.loop !35
+..loopexit.loopexit_crit_edge69:                  ; preds = %85
+  br label %.loopexit.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %.preheader, %..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge66, %67, %.preheader6
-  %102 = phi i1 [ true, %.preheader6 ], [ true, %67 ], [ false, %..loopexit.loopexit_crit_edge66 ], [ %101, %..loopexit.loopexit_crit_edge ], [ true, %.preheader ]
-  %103 = phi i64 [ 0, %.preheader6 ], [ %72, %67 ], [ %98, %..loopexit.loopexit_crit_edge66 ], [ %98, %..loopexit.loopexit_crit_edge ], [ %81, %.preheader ]
-  %104 = phi i64 [ 0, %.preheader6 ], [ 0, %67 ], [ %92, %..loopexit.loopexit_crit_edge66 ], [ %92, %..loopexit.loopexit_crit_edge ], [ %72, %.preheader ]
-  %105 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  br i1 %102, label %.loopexit7, label %106
+.loopexit.loopexit:                               ; preds = %..loopexit.loopexit_crit_edge69, %..loopexit.loopexit_crit_edge
+  %.ph = phi i1 [ false, %..loopexit.loopexit_crit_edge69 ], [ %95, %..loopexit.loopexit_crit_edge ]
+  %96 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  br i1 %.ph, label %.loopexit7, label %97
 
-106:                                              ; preds = %.loopexit
-  %107 = extractvalue { i64, i64 } %105, 1
-  %108 = shl i64 %107, 32
-  %109 = extractvalue { i64, i64 } %105, 0
-  %110 = or i64 %108, %109
-  %111 = sub i64 %110, %104
-  %112 = sub i64 %103, %53
-  %113 = icmp eq i32 %61, 1
-  %114 = add i64 %111, %60
-  br i1 %113, label %115, label %._crit_edge
+97:                                               ; preds = %.loopexit.loopexit
+  %98 = extractvalue { i64, i64 } %96, 1
+  %99 = shl i64 %98, 32
+  %100 = extractvalue { i64, i64 } %96, 0
+  %101 = or i64 %99, %100
+  %102 = sub i64 %101, %86
+  %103 = sub i64 %92, %47
+  %104 = icmp eq i32 %59, 1
+  %105 = add i64 %102, %58
+  br i1 %104, label %106, label %._crit_edge
 
-115:                                              ; preds = %106
-  %116 = mul i64 %112, 233
-  %117 = lshr i64 %116, 11
-  %118 = icmp ult i64 %114, %117
-  br i1 %118, label %._crit_edge, label %.loopexit8
+106:                                              ; preds = %97
+  %107 = mul i64 %103, 233
+  %108 = lshr i64 %107, 11
+  %109 = icmp ult i64 %105, %108
+  br i1 %109, label %._crit_edge, label %.loopexit8
 
-._crit_edge:                                      ; preds = %106, %115
-  %119 = lshr i64 %112, 11
-  %120 = icmp ult i64 %114, %119
-  br i1 %120, label %121, label %126
+._crit_edge:                                      ; preds = %97, %106
+  %110 = lshr i64 %103, 11
+  %111 = icmp ult i64 %105, %110
+  br i1 %111, label %112, label %117
 
-121:                                              ; preds = %._crit_edge
-  %122 = sub i8 -2, %62
-  %123 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %124 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
-  %125 = icmp eq i8 %124, %122
-  br i1 %125, label %129, label %.loopexit7
+112:                                              ; preds = %._crit_edge
+  %113 = sub i8 -2, %60
+  %114 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %115 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
+  %116 = icmp eq i8 %115, %113
+  br i1 %116, label %120, label %.loopexit7
 
-126:                                              ; preds = %._crit_edge
-  %127 = add nuw nsw i32 %61, 1
-  %128 = icmp eq i32 %127, 234
-  br i1 %128, label %.loopexit7, label %.preheader6, !llvm.loop !36
+117:                                              ; preds = %._crit_edge
+  %118 = add nuw nsw i32 %59, 1
+  %119 = icmp eq i32 %118, 234
+  br i1 %119, label %.loopexit7, label %.preheader6, !llvm.loop !36
 
-129:                                              ; preds = %121
-  %130 = mul i64 %112, 1193182
-  %131 = mul nuw nsw i32 %61, 256000
-  %132 = zext nneg i32 %131 to i64
-  %133 = udiv i64 %130, %132
+120:                                              ; preds = %112
+  %121 = mul i64 %103, 1193182
+  %122 = mul nuw nsw i32 %59, 256000
+  %123 = zext nneg i32 %122 to i64
+  %124 = udiv i64 %121, %123
   br label %.loopexit7
 
-.loopexit7:                                       ; preds = %126, %.loopexit, %129, %121, %.loopexit10
-  %134 = phi ptr [ @.str.15, %129 ], [ @.str.14, %121 ], [ @.str.14, %.loopexit10 ], [ @.str.14, %.loopexit ], [ @.str.14, %126 ]
-  %135 = phi i64 [ %133, %129 ], [ 0, %121 ], [ 0, %.loopexit10 ], [ 0, %.loopexit ], [ 0, %126 ]
-  %136 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %134) #21
+.critedge:                                        ; preds = %28, %19
+  %125 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  br label %.loopexit7
+
+.loopexit7.loopexit.critedge:                     ; preds = %65, %.preheader6
+  %126 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  br label %.loopexit7
+
+.loopexit7.loopexit.critedge73:                   ; preds = %.preheader
+  %127 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  br label %.loopexit7
+
+.loopexit7:                                       ; preds = %117, %.loopexit.loopexit, %.loopexit7.loopexit.critedge73, %.loopexit7.loopexit.critedge, %.critedge, %120, %112, %.loopexit10
+  %128 = phi ptr [ @.str.15, %120 ], [ @.str.14, %112 ], [ @.str.14, %.loopexit10 ], [ @.str.14, %.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge ], [ @.str.14, %.loopexit7.loopexit.critedge73 ], [ @.str.14, %.loopexit.loopexit ], [ @.str.14, %117 ]
+  %129 = phi i64 [ %124, %120 ], [ 0, %112 ], [ 0, %.loopexit10 ], [ 0, %.critedge ], [ 0, %.loopexit7.loopexit.critedge ], [ 0, %.loopexit7.loopexit.critedge73 ], [ 0, %.loopexit.loopexit ], [ 0, %117 ]
+  %130 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %128) #21
   br label %.loopexit8
 
-.loopexit8:                                       ; preds = %115, %.loopexit7, %15
-  %137 = phi i64 [ 0, %15 ], [ %135, %.loopexit7 ], [ 0, %115 ]
-  %138 = and i64 %16, 512
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %.thread5, label %140
+.loopexit8:                                       ; preds = %106, %.loopexit7, %15
+  %131 = phi i64 [ 0, %15 ], [ %129, %.loopexit7 ], [ 0, %106 ]
+  %132 = and i64 %16, 512
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %.thread5, label %134
 
-140:                                              ; preds = %.loopexit8
+134:                                              ; preds = %.loopexit8
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !37
   br label %.thread5
 
-.thread5:                                         ; preds = %7, %140, %.loopexit8, %.thread
-  %141 = phi i64 [ %13, %.thread ], [ %137, %.loopexit8 ], [ %137, %140 ], [ %11, %7 ]
-  ret i64 %141
+.thread5:                                         ; preds = %7, %134, %.loopexit8, %.thread
+  %135 = phi i64 [ %13, %.thread ], [ %131, %.loopexit8 ], [ %131, %134 ], [ %11, %7 ]
+  ret i64 %135
 }
 
 ; Function Attrs: null_pointer_is_valid

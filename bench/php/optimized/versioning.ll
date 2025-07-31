@@ -538,7 +538,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr noundef writeonly ca
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #9
-  br label %.thread159
+  br label %.thread161
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -546,18 +546,18 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr noundef writeonly ca
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8, !tbaa !4
   %14 = icmp eq i8 %13, 6
-  br i1 %14, label %zend_parse_arg_str_ex.exit129.thread, label %zend_parse_arg_str_ex.exit129, !prof !21
+  br i1 %14, label %zend_parse_arg_str_ex.exit130.thread, label %zend_parse_arg_str_ex.exit130, !prof !21
 
-zend_parse_arg_str_ex.exit129:                    ; preds = %10
+zend_parse_arg_str_ex.exit130:                    ; preds = %10
   %15 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #9
-  br i1 %15, label %zend_parse_arg_str_ex.exit129.thread, label %zend_parse_arg_string.exit, !prof !22
+  br i1 %15, label %zend_parse_arg_str_ex.exit130.thread, label %zend_parse_arg_string.exit, !prof !22
 
-zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit129
+zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  br label %.thread159
+  br label %.thread161
 
-zend_parse_arg_str_ex.exit129.thread:             ; preds = %zend_parse_arg_str_ex.exit129, %10
-  %.in = phi ptr [ %11, %10 ], [ %4, %zend_parse_arg_str_ex.exit129 ]
+zend_parse_arg_str_ex.exit130.thread:             ; preds = %zend_parse_arg_str_ex.exit130, %10
+  %.in = phi ptr [ %11, %10 ], [ %4, %zend_parse_arg_str_ex.exit130 ]
   %16 = load ptr, ptr %.in, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
@@ -566,56 +566,56 @@ zend_parse_arg_str_ex.exit129.thread:             ; preds = %zend_parse_arg_str_
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i8, ptr %19, align 8, !tbaa !4
   %21 = icmp eq i8 %20, 6
-  br i1 %21, label %zend_parse_arg_str_ex.exit132.thread, label %zend_parse_arg_str_ex.exit132, !prof !21
+  br i1 %21, label %zend_parse_arg_str_ex.exit133.thread, label %zend_parse_arg_str_ex.exit133, !prof !21
 
-zend_parse_arg_str_ex.exit132:                    ; preds = %zend_parse_arg_str_ex.exit129.thread
+zend_parse_arg_str_ex.exit133:                    ; preds = %zend_parse_arg_str_ex.exit130.thread
   %22 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 2) #9
-  br i1 %22, label %zend_parse_arg_str_ex.exit132.thread, label %zend_parse_arg_string.exit87, !prof !22
+  br i1 %22, label %zend_parse_arg_str_ex.exit133.thread, label %zend_parse_arg_string.exit88, !prof !22
 
-zend_parse_arg_string.exit87:                     ; preds = %zend_parse_arg_str_ex.exit132
+zend_parse_arg_string.exit88:                     ; preds = %zend_parse_arg_str_ex.exit133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %.thread159
+  br label %.thread161
 
-zend_parse_arg_str_ex.exit132.thread:             ; preds = %zend_parse_arg_str_ex.exit132, %zend_parse_arg_str_ex.exit129.thread
-  %.in209 = phi ptr [ %18, %zend_parse_arg_str_ex.exit129.thread ], [ %3, %zend_parse_arg_str_ex.exit132 ]
-  %23 = load ptr, ptr %.in209, align 8, !tbaa !4
+zend_parse_arg_str_ex.exit133.thread:             ; preds = %zend_parse_arg_str_ex.exit133, %zend_parse_arg_str_ex.exit130.thread
+  %.in201 = phi ptr [ %18, %zend_parse_arg_str_ex.exit130.thread ], [ %3, %zend_parse_arg_str_ex.exit133 ]
+  %23 = load ptr, ptr %.in201, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   %25 = icmp eq i32 %7, 2
   br i1 %25, label %.critedge, label %26, !prof !23
 
-26:                                               ; preds = %zend_parse_arg_str_ex.exit132.thread
+26:                                               ; preds = %zend_parse_arg_str_ex.exit133.thread
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load i8, ptr %28, align 8, !tbaa !4
   switch i8 %29, label %zend_parse_arg_str_ex.exit [
     i8 6, label %30
-    i8 1, label %.thread204
+    i8 1, label %.thread196
   ], !prof !24
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %27, align 8, !tbaa !4
-  br label %.thread204
+  br label %.thread196
 
-.thread204:                                       ; preds = %26, %30
+.thread196:                                       ; preds = %26, %30
   %storemerge.i = phi ptr [ %31, %30 ], [ null, %26 ]
   store ptr %storemerge.i, ptr %5, align 8, !tbaa !18
   br label %.critedge
 
 zend_parse_arg_str_ex.exit:                       ; preds = %26
   %32 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 3) #9
-  %cond.fr149 = freeze i1 %32
-  br i1 %cond.fr149, label %.critedge, label %.thread159, !prof !25
+  %cond.fr151 = freeze i1 %32
+  br i1 %cond.fr151, label %.critedge, label %.thread161, !prof !25
 
-.thread159:                                       ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_string.exit87, %zend_parse_arg_string.exit, %9
-  %.0170 = phi i32 [ 2, %zend_parse_arg_string.exit87 ], [ 1, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_str_ex.exit ]
-  %.076169 = phi i32 [ 9, %zend_parse_arg_string.exit87 ], [ 9, %zend_parse_arg_string.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ]
-  %.077168 = phi ptr [ %18, %zend_parse_arg_string.exit87 ], [ %11, %zend_parse_arg_string.exit ], [ null, %9 ], [ %27, %zend_parse_arg_str_ex.exit ]
-  %.078167 = phi i32 [ 4, %zend_parse_arg_string.exit87 ], [ 4, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 5, %zend_parse_arg_str_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.076169, i32 noundef %.0170, ptr noundef null, i32 noundef %.078167, ptr noundef %.077168) #9
+.thread161:                                       ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_string.exit88, %zend_parse_arg_string.exit, %9
+  %.0172 = phi i32 [ 2, %zend_parse_arg_string.exit88 ], [ 1, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 3, %zend_parse_arg_str_ex.exit ]
+  %.076171 = phi i32 [ 9, %zend_parse_arg_string.exit88 ], [ 9, %zend_parse_arg_string.exit ], [ 1, %9 ], [ 9, %zend_parse_arg_str_ex.exit ]
+  %.077170 = phi ptr [ %18, %zend_parse_arg_string.exit88 ], [ %11, %zend_parse_arg_string.exit ], [ null, %9 ], [ %27, %zend_parse_arg_str_ex.exit ]
+  %.078169 = phi i32 [ 4, %zend_parse_arg_string.exit88 ], [ 4, %zend_parse_arg_string.exit ], [ 0, %9 ], [ 5, %zend_parse_arg_str_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.076171, i32 noundef %.0172, ptr noundef null, i32 noundef %.078169, ptr noundef %.077170) #9
   br label %64
 
-.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %.thread204, %zend_parse_arg_str_ex.exit132.thread
+.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %.thread196, %zend_parse_arg_str_ex.exit133.thread
   %33 = call i32 @php_version_compare(ptr noundef nonnull %17, ptr noundef nonnull %24)
   %34 = load ptr, ptr %5, align 8, !tbaa !18
   %.not81 = icmp eq ptr %34, null
@@ -631,123 +631,123 @@ zend_parse_arg_str_ex.exit:                       ; preds = %26
 38:                                               ; preds = %.critedge
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !26
-  switch i64 %40, label %zend_string_equals_cstr.exit126.thread [
+  switch i64 %40, label %zend_string_equals_cstr.exit127.thread [
     i64 1, label %zend_string_equals_cstr.exit
-    i64 2, label %zend_string_equals_cstr.exit90
+    i64 2, label %zend_string_equals_cstr.exit91
   ]
 
 zend_string_equals_cstr.exit:                     ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %lhsc = load i8, ptr %41, align 1
-  switch i8 %lhsc, label %zend_string_equals_cstr.exit126.thread [
+  switch i8 %lhsc, label %zend_string_equals_cstr.exit127.thread [
     i8 60, label %43
     i8 62, label %50
     i8 61, label %57
   ]
 
-zend_string_equals_cstr.exit90:                   ; preds = %38
+zend_string_equals_cstr.exit91:                   ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %bcmp.i88 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
-  %.not.i89 = icmp eq i32 %bcmp.i88, 0
-  br i1 %.not.i89, label %43, label %zend_string_equals_cstr.exit93
+  %bcmp.i89 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
+  %.not.i90 = icmp eq i32 %bcmp.i89, 0
+  br i1 %.not.i90, label %43, label %zend_string_equals_cstr.exit94
 
-43:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit90
+43:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit91
   %44 = icmp eq i32 %33, -1
   %45 = select i1 %44, i32 3, i32 2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %45, ptr %46, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit93:                   ; preds = %zend_string_equals_cstr.exit90
-  %bcmp.i91 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
-  %.not.i92 = icmp eq i32 %bcmp.i91, 0
-  br i1 %.not.i92, label %47, label %zend_string_equals_cstr.exit96
+zend_string_equals_cstr.exit94:                   ; preds = %zend_string_equals_cstr.exit91
+  %bcmp.i92 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %.not.i93 = icmp eq i32 %bcmp.i92, 0
+  br i1 %.not.i93, label %47, label %zend_string_equals_cstr.exit97
 
-zend_string_equals_cstr.exit96:                   ; preds = %zend_string_equals_cstr.exit93
-  %bcmp.i94 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
-  %.not.i95 = icmp eq i32 %bcmp.i94, 0
-  br i1 %.not.i95, label %47, label %zend_string_equals_cstr.exit102
+zend_string_equals_cstr.exit97:                   ; preds = %zend_string_equals_cstr.exit94
+  %bcmp.i95 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
+  %.not.i96 = icmp eq i32 %bcmp.i95, 0
+  br i1 %.not.i96, label %47, label %zend_string_equals_cstr.exit103
 
-47:                                               ; preds = %zend_string_equals_cstr.exit96, %zend_string_equals_cstr.exit93
+47:                                               ; preds = %zend_string_equals_cstr.exit97, %zend_string_equals_cstr.exit94
   %.not84 = icmp eq i32 %33, 1
   %48 = select i1 %.not84, i32 2, i32 3
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %48, ptr %49, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit102:                  ; preds = %zend_string_equals_cstr.exit96
-  %bcmp.i100 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.6, i64 2)
-  %.not.i101 = icmp eq i32 %bcmp.i100, 0
-  br i1 %.not.i101, label %50, label %zend_string_equals_cstr.exit105
+zend_string_equals_cstr.exit103:                  ; preds = %zend_string_equals_cstr.exit97
+  %bcmp.i101 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.6, i64 2)
+  %.not.i102 = icmp eq i32 %bcmp.i101, 0
+  br i1 %.not.i102, label %50, label %zend_string_equals_cstr.exit106
 
-50:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit102
+50:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit103
   %51 = icmp eq i32 %33, 1
   %52 = select i1 %51, i32 3, i32 2
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %52, ptr %53, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit105:                  ; preds = %zend_string_equals_cstr.exit102
-  %bcmp.i103 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.7, i64 2)
-  %.not.i104 = icmp eq i32 %bcmp.i103, 0
-  br i1 %.not.i104, label %54, label %zend_string_equals_cstr.exit108
+zend_string_equals_cstr.exit106:                  ; preds = %zend_string_equals_cstr.exit103
+  %bcmp.i104 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.7, i64 2)
+  %.not.i105 = icmp eq i32 %bcmp.i104, 0
+  br i1 %.not.i105, label %54, label %zend_string_equals_cstr.exit109
 
-zend_string_equals_cstr.exit108:                  ; preds = %zend_string_equals_cstr.exit105
-  %bcmp.i106 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.8, i64 2)
-  %.not.i107 = icmp eq i32 %bcmp.i106, 0
-  br i1 %.not.i107, label %54, label %zend_string_equals_cstr.exit111
+zend_string_equals_cstr.exit109:                  ; preds = %zend_string_equals_cstr.exit106
+  %bcmp.i107 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.8, i64 2)
+  %.not.i108 = icmp eq i32 %bcmp.i107, 0
+  br i1 %.not.i108, label %54, label %zend_string_equals_cstr.exit112
 
-54:                                               ; preds = %zend_string_equals_cstr.exit108, %zend_string_equals_cstr.exit105
+54:                                               ; preds = %zend_string_equals_cstr.exit109, %zend_string_equals_cstr.exit106
   %.not83 = icmp eq i32 %33, -1
   %55 = select i1 %.not83, i32 2, i32 3
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %55, ptr %56, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit111:                  ; preds = %zend_string_equals_cstr.exit108
-  %bcmp.i109 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
-  %.not.i110 = icmp eq i32 %bcmp.i109, 0
-  br i1 %.not.i110, label %57, label %zend_string_equals_cstr.exit117
+zend_string_equals_cstr.exit112:                  ; preds = %zend_string_equals_cstr.exit109
+  %bcmp.i110 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
+  %.not.i111 = icmp eq i32 %bcmp.i110, 0
+  br i1 %.not.i111, label %57, label %zend_string_equals_cstr.exit118
 
-zend_string_equals_cstr.exit117:                  ; preds = %zend_string_equals_cstr.exit111
-  %bcmp.i115 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.11, i64 2)
-  %.not.i116 = icmp eq i32 %bcmp.i115, 0
-  br i1 %.not.i116, label %57, label %zend_string_equals_cstr.exit120
+zend_string_equals_cstr.exit118:                  ; preds = %zend_string_equals_cstr.exit112
+  %bcmp.i116 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.11, i64 2)
+  %.not.i117 = icmp eq i32 %bcmp.i116, 0
+  br i1 %.not.i117, label %57, label %zend_string_equals_cstr.exit121
 
-57:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit117, %zend_string_equals_cstr.exit111
+57:                                               ; preds = %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit118, %zend_string_equals_cstr.exit112
   %58 = icmp eq i32 %33, 0
   %59 = select i1 %58, i32 3, i32 2
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %59, ptr %60, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit120:                  ; preds = %zend_string_equals_cstr.exit117
-  %bcmp.i118 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.12, i64 2)
-  %.not.i119 = icmp eq i32 %bcmp.i118, 0
-  br i1 %.not.i119, label %61, label %zend_string_equals_cstr.exit123
+zend_string_equals_cstr.exit121:                  ; preds = %zend_string_equals_cstr.exit118
+  %bcmp.i119 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.12, i64 2)
+  %.not.i120 = icmp eq i32 %bcmp.i119, 0
+  br i1 %.not.i120, label %61, label %zend_string_equals_cstr.exit124
 
-zend_string_equals_cstr.exit123:                  ; preds = %zend_string_equals_cstr.exit120
-  %bcmp.i121 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.13, i64 2)
-  %.not.i122 = icmp eq i32 %bcmp.i121, 0
-  br i1 %.not.i122, label %61, label %zend_string_equals_cstr.exit126
+zend_string_equals_cstr.exit124:                  ; preds = %zend_string_equals_cstr.exit121
+  %bcmp.i122 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.13, i64 2)
+  %.not.i123 = icmp eq i32 %bcmp.i122, 0
+  br i1 %.not.i123, label %61, label %zend_string_equals_cstr.exit127
 
-zend_string_equals_cstr.exit126:                  ; preds = %zend_string_equals_cstr.exit123
-  %bcmp.i124 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.14, i64 2)
-  %.not.i125 = icmp eq i32 %bcmp.i124, 0
-  br i1 %.not.i125, label %61, label %zend_string_equals_cstr.exit126.thread
+zend_string_equals_cstr.exit127:                  ; preds = %zend_string_equals_cstr.exit124
+  %bcmp.i125 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.14, i64 2)
+  %.not.i126 = icmp eq i32 %bcmp.i125, 0
+  br i1 %.not.i126, label %61, label %zend_string_equals_cstr.exit127.thread
 
-61:                                               ; preds = %zend_string_equals_cstr.exit126, %zend_string_equals_cstr.exit123, %zend_string_equals_cstr.exit120
+61:                                               ; preds = %zend_string_equals_cstr.exit127, %zend_string_equals_cstr.exit124, %zend_string_equals_cstr.exit121
   %.not82 = icmp eq i32 %33, 0
   %62 = select i1 %.not82, i32 2, i32 3
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %62, ptr %63, align 8, !tbaa !4
   br label %64
 
-zend_string_equals_cstr.exit126.thread:           ; preds = %zend_string_equals_cstr.exit, %38, %zend_string_equals_cstr.exit126
+zend_string_equals_cstr.exit127.thread:           ; preds = %zend_string_equals_cstr.exit, %38, %zend_string_equals_cstr.exit127
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #9
   br label %64
 
-64:                                               ; preds = %.thread159, %zend_string_equals_cstr.exit126.thread, %61, %57, %54, %50, %47, %43, %35
+64:                                               ; preds = %.thread161, %zend_string_equals_cstr.exit127.thread, %61, %57, %54, %50, %47, %43, %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret void
 }

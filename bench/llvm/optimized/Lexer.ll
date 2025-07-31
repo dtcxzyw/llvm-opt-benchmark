@@ -5188,7 +5188,7 @@ define dso_local i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr nou
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = load i8, ptr %1, align 1, !tbaa !381
-  switch i8 %8, label %.thread97 [
+  switch i8 %8, label %.thread96 [
     i8 92, label %9
     i8 63, label %49
   ]
@@ -5205,8 +5205,8 @@ define dso_local i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr nou
   %14 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !406
   %16 = and i16 %15, 7
-  %.not110 = icmp eq i16 %16, 0
-  br i1 %.not110, label %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread, label %.preheader
+  %.not109 = icmp eq i16 %16, 0
+  br i1 %.not109, label %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %11, %24
   %.0.i = phi i32 [ %25, %24 ], [ 0, %11 ]
@@ -5248,8 +5248,8 @@ _ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit:  ; preds = %26, %30
   br i1 %.not51, label %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread, label %32
 
 32:                                               ; preds = %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit
-  %.not111 = icmp eq ptr %2, null
-  br i1 %.not111, label %42, label %switch.early.test
+  %.not110 = icmp eq ptr %2, null
+  br i1 %.not110, label %42, label %switch.early.test
 
 switch.early.test:                                ; preds = %32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -5289,7 +5289,7 @@ switch.early.test:                                ; preds = %32
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !381
   %52 = icmp eq i8 %51, 63
-  br i1 %52, label %53, label %.thread97
+  br i1 %52, label %53, label %.thread96
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -5298,7 +5298,7 @@ switch.early.test:                                ; preds = %32
   %56 = load ptr, ptr %55, align 8, !tbaa !279
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, 16777216
-  %.not109 = icmp eq i64 %58, 0
+  %.not108 = icmp eq i64 %58, 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #28
   %59 = load i8, ptr %54, align 1, !tbaa !381
@@ -5341,7 +5341,7 @@ switch.early.test:                                ; preds = %32
 68:                                               ; preds = %67, %66, %65, %64, %63, %62, %61, %60, %53
   %.0.i.ph.i = phi i8 [ 126, %67 ], [ 123, %66 ], [ 92, %65 ], [ 125, %64 ], [ 94, %63 ], [ 124, %62 ], [ 91, %61 ], [ 93, %60 ], [ 35, %53 ]
   store i8 %.0.i.ph.i, ptr %4, align 1, !tbaa !381
-  br i1 %.not109, label %69, label %116
+  br i1 %.not108, label %69, label %116
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -5432,9 +5432,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   br label %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit.thread
 
 116:                                              ; preds = %68
-  br i1 %.not, label %.thread95, label %117
+  br i1 %.not, label %.thread94, label %117
 
-.thread95:                                        ; preds = %116
+.thread94:                                        ; preds = %116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %168
@@ -5531,7 +5531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i19.i: ; preds = 
 _ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit.thread: ; preds = %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %112, %115, %53
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  br label %.thread97
+  br label %.thread96
 
 _ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit:  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i19.i, %160, %163
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #28
@@ -5539,35 +5539,35 @@ _ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit:  ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   %.not50 = icmp eq i8 %.pre.i, 0
-  br i1 %.not50, label %.thread97, label %.thread91
+  br i1 %.not50, label %.thread96, label %.thread90
 
 164:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  br label %.thread91
+  br label %.thread90
 
-.thread91:                                        ; preds = %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit, %164
-  %.0.i569093 = phi i8 [ %.0.i.ph.i, %164 ], [ %.pre.i, %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit ]
+.thread90:                                        ; preds = %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit, %164
+  %.0.i568992 = phi i8 [ %.0.i.ph.i, %164 ], [ %.pre.i, %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit ]
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %166 = load i16, ptr %165, align 2, !tbaa !394
   %167 = or i16 %166, 8
   store i16 %167, ptr %165, align 2, !tbaa !394
   br label %168
 
-168:                                              ; preds = %.thread95, %.thread91
-  %.0.i569094 = phi i8 [ %.0.i569093, %.thread91 ], [ %.0.i.ph.i, %.thread95 ]
+168:                                              ; preds = %.thread94, %.thread90
+  %.0.i568993 = phi i8 [ %.0.i568992, %.thread90 ], [ %.0.i.ph.i, %.thread94 ]
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %170 = icmp eq i8 %.0.i569094, 92
+  %170 = icmp eq i8 %.0.i568993, 92
   br i1 %170, label %11, label %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread
 
-.thread97:                                        ; preds = %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit.thread, %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit, %3, %49
+.thread96:                                        ; preds = %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit.thread, %_ZL18DecodeTrigraphCharPKcPN5clang5LexerEb.exit, %3, %49
   %171 = load i8, ptr %1, align 1, !tbaa !381
   br label %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread
 
-_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread: ; preds = %.preheader, %168, %42, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit, %11, %.thread97
-  %.sroa.0.1 = phi i8 [ %171, %.thread97 ], [ 92, %11 ], [ %.sroa.0.0.extract.trunc, %42 ], [ 92, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ %.0.i569094, %168 ], [ 92, %.preheader ]
-  %.sroa.638.1 = phi i32 [ 1, %.thread97 ], [ %.039, %11 ], [ %47, %42 ], [ %.039, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ 3, %168 ], [ %.039, %.preheader ]
-  %.sroa.6.sroa.0.0 = phi i64 [ 0, %.thread97 ], [ 0, %11 ], [ %48, %42 ], [ 0, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ 0, %168 ], [ 0, %.preheader ]
+_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit.thread: ; preds = %.preheader, %168, %42, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit, %11, %.thread96
+  %.sroa.0.1 = phi i8 [ %171, %.thread96 ], [ 92, %11 ], [ %.sroa.0.0.extract.trunc, %42 ], [ 92, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ %.0.i568993, %168 ], [ 92, %.preheader ]
+  %.sroa.638.1 = phi i32 [ 1, %.thread96 ], [ %.039, %11 ], [ %47, %42 ], [ %.039, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ 3, %168 ], [ %.039, %.preheader ]
+  %.sroa.6.sroa.0.0 = phi i64 [ 0, %.thread96 ], [ 0, %11 ], [ %48, %42 ], [ 0, %_ZN5clang5Lexer21getEscapedNewLineSizeEPKc.exit ], [ 0, %168 ], [ 0, %.preheader ]
   %.sroa.638.0.insert.ext = zext i32 %.sroa.638.1 to i64
   %.sroa.638.0.insert.shift = shl nuw i64 %.sroa.638.0.insert.ext, 32
   %.sroa.6.0.insert.insert = or disjoint i64 %.sroa.638.0.insert.shift, %.sroa.6.sroa.0.0
@@ -9337,7 +9337,7 @@ _ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit78: ; preds = %_ZN5clang5Lexer1
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 1
   %.not56 = icmp eq i64 %67, 0
-  br i1 %.not56, label %68, label %.critedge68
+  br i1 %.not56, label %68, label %.critedge69
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %8, align 8, !tbaa !33
@@ -9390,24 +9390,24 @@ _ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88: ; preds = %74, %77
   %.not58 = icmp eq ptr %84, %39
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   %.pre155 = load ptr, ptr %4, align 8, !tbaa !377
-  br i1 %.not58, label %.critedge68, label %.critedge66.thread
+  br i1 %.not58, label %.critedge69, label %.critedge66.thread
 
 .critedge:                                        ; preds = %81
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
-  br label %.critedge68
+  br label %.critedge69
 
-.critedge68:                                      ; preds = %83, %64, %.critedge
+.critedge69:                                      ; preds = %83, %64, %.critedge
   %85 = phi ptr [ %39, %64 ], [ %39, %.critedge ], [ %.pre155, %83 ]
   %86 = icmp eq i32 %.0.lcssa, 1
   br i1 %86, label %_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit91, label %87
 
-87:                                               ; preds = %.critedge68
+87:                                               ; preds = %.critedge69
   %88 = call i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(20) %1)
   %.sroa.3.0.extract.shift.i89 = lshr i64 %88, 32
   br label %_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit91
 
-_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit91: ; preds = %.critedge68, %87
-  %.sroa.3.0.extract.shift.sink.i90 = phi i64 [ %.sroa.3.0.extract.shift.i89, %87 ], [ 1, %.critedge68 ]
+_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit91: ; preds = %.critedge69, %87
+  %.sroa.3.0.extract.shift.sink.i90 = phi i64 [ %.sroa.3.0.extract.shift.i89, %87 ], [ 1, %.critedge69 ]
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.sroa.3.0.extract.shift.sink.i90
   %90 = call noundef zeroext i1 @_ZN5clang5Lexer18LexNumericConstantERNS_5TokenEPKc(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %89)
   br label %191
@@ -9580,8 +9580,8 @@ tailrecurse.backedge:                             ; preds = %165, %162, %_ZN5cla
   %.promoted.be = phi ptr [ %61, %_ZN5clang5Lexer11ConsumeCharEPKcjRNS_5TokenE.exit78 ], [ %.pre154.pre156, %162 ], [ %.pre154.pre, %165 ]
   br label %tailrecurse
 
-.critedge66.thread:                               ; preds = %162, %165, %.critedge66, %63, %83, %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i80, %62, %.thread, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit, %91
-  %167 = phi ptr [ %39, %63 ], [ %.pre155, %83 ], [ %39, %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88 ], [ %39, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i80 ], [ %39, %62 ], [ %31, %.thread ], [ %39, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit ], [ %39, %91 ], [ %.pre154.pre156, %162 ], [ %.pre154.pre, %165 ], [ %39, %.critedge66 ]
+.critedge66.thread:                               ; preds = %162, %165, %.critedge66, %63, %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88, %83, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i80, %62, %.thread, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit, %91
+  %167 = phi ptr [ %39, %63 ], [ %39, %_ZN5clang5Lexer13isHexaLiteralEPKcRKNS_11LangOptionsE.exit88 ], [ %.pre155, %83 ], [ %39, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit.i80 ], [ %39, %62 ], [ %31, %.thread ], [ %39, %_ZN5clang5Lexer20getCharAndSizeNoWarnEPKcRKNS_11LangOptionsE.exit ], [ %39, %91 ], [ %.pre154.pre156, %162 ], [ %.pre154.pre, %165 ], [ %39, %.critedge66 ]
   %168 = load ptr, ptr %8, align 8, !tbaa !33
   %169 = ptrtoint ptr %167 to i64
   %170 = ptrtoint ptr %168 to i64
@@ -25214,79 +25214,79 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixIt
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i, label %15, label %14, !prof !390
+  br i1 %spec.select.i.i.i.i, label %14, label %.critedge.i.i, !prof !390
 
 14:                                               ; preds = %10
+  %15 = ptrtoint ptr %1 to i64
+  %16 = ptrtoint ptr %.pre3 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %18 = load ptr, ptr %0, align 8, !tbaa !283
+  %19 = getelementptr inbounds i8, ptr %18, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   %.pre = load ptr, ptr %0, align 8, !tbaa !283
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-15:                                               ; preds = %10
-  %16 = ptrtoint ptr %1 to i64
-  %17 = ptrtoint ptr %.pre3 to i64
-  %18 = sub i64 %16, %17
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %19 = load ptr, ptr %0, align 8, !tbaa !283
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %15
-  %21 = phi ptr [ %.pre3, %2 ], [ %19, %15 ], [ %.pre, %14 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %20, %15 ], [ %1, %14 ]
-  %22 = load i32, ptr %4, align 8, !tbaa !284
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %21, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %24, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr %27, ptr %25, align 8, !tbaa !379
-  %28 = load ptr, ptr %26, align 8, !tbaa !380
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !382
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %.critedge.i.i
+  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
+  %21 = load i32, ptr %4, align 8, !tbaa !284
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %20, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %23, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store ptr %26, ptr %24, align 8, !tbaa !379
+  %27 = load ptr, ptr %25, align 8, !tbaa !380
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %29 = load i64, ptr %28, align 8, !tbaa !382
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  store i64 %30, ptr %3, align 8, !tbaa !378
-  %31 = icmp ugt i64 %30, 15
-  br i1 %31, label %32, label %._crit_edge.i.i.i
+  store i64 %29, ptr %3, align 8, !tbaa !378
+  %30 = icmp ugt i64 %29, 15
+  br i1 %30, label %31, label %._crit_edge.i.i.i
 
-32:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #28
-  store ptr %33, ptr %25, align 8, !tbaa !380
-  %34 = load i64, ptr %3, align 8, !tbaa !378
-  store i64 %34, ptr %27, align 8, !tbaa !381
+31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #28
+  store ptr %32, ptr %24, align 8, !tbaa !380
+  %33 = load i64, ptr %3, align 8, !tbaa !378
+  store i64 %33, ptr %26, align 8, !tbaa !381
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %35 = phi ptr [ %33, %32 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  switch i64 %30, label %38 [
-    i64 1, label %36
+._crit_edge.i.i.i:                                ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %34 = phi ptr [ %32, %31 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  switch i64 %29, label %37 [
+    i64 1, label %35
     i64 0, label %_ZN5clang9FixItHintC2ERKS0_.exit
   ]
 
-36:                                               ; preds = %._crit_edge.i.i.i
-  %37 = load i8, ptr %28, align 1, !tbaa !381
-  store i8 %37, ptr %35, align 1, !tbaa !381
+35:                                               ; preds = %._crit_edge.i.i.i
+  %36 = load i8, ptr %27, align 1, !tbaa !381
+  store i8 %36, ptr %34, align 1, !tbaa !381
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-38:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %28, i64 %30, i1 false)
+37:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %27, i64 %29, i1 false)
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %36, %38
-  %39 = load i64, ptr %3, align 8, !tbaa !378
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i64 %39, ptr %40, align 8, !tbaa !382
-  %41 = load ptr, ptr %25, align 8, !tbaa !380
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !381
+_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %35, %37
+  %38 = load i64, ptr %3, align 8, !tbaa !378
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i64 %38, ptr %39, align 8, !tbaa !382
+  %40 = load ptr, ptr %24, align 8, !tbaa !380
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %41, align 1, !tbaa !381
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  %43 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  %45 = load i8, ptr %44, align 8, !tbaa !497, !range !375, !noundef !393
-  store i8 %45, ptr %43, align 8, !tbaa !497
-  %46 = load i32, ptr %4, align 8, !tbaa !284
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %4, align 8, !tbaa !284
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  %44 = load i8, ptr %43, align 8, !tbaa !497, !range !375, !noundef !393
+  store i8 %44, ptr %42, align 8, !tbaa !497
+  %45 = load i32, ptr %4, align 8, !tbaa !284
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %4, align 8, !tbaa !284
   ret void
 }
 

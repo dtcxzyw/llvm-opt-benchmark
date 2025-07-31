@@ -192,24 +192,24 @@ define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef readonly captures(
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %get_array_item.exit.thread, label %.preheader
+  br i1 %4, label %.critedge38, label %.preheader
 
 .preheader:                                       ; preds = %3
   %5 = load i8, ptr %1, align 1, !tbaa !13
   %6 = icmp eq i8 %5, 47
   %7 = icmp ne ptr %0, null
   %8 = and i1 %7, %6
-  br i1 %8, label %.lr.ph60, label %get_array_item.exit.thread
+  br i1 %8, label %.lr.ph59, label %.critedge38
 
-.lr.ph60:                                         ; preds = %.preheader
+.lr.ph59:                                         ; preds = %.preheader
   %.not38.i = icmp eq i32 %2, 0
   br label %9
 
-9:                                                ; preds = %.lr.ph60, %.critedge2
-  %.02259 = phi ptr [ %0, %.lr.ph60 ], [ %.2, %.critedge2 ]
-  %.02758 = phi ptr [ %1, %.lr.ph60 ], [ %.128, %.critedge2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.02758, i64 1
-  %11 = tail call i32 @cJSON_IsArray(ptr noundef nonnull %.02259) #13
+9:                                                ; preds = %.lr.ph59, %.critedge2
+  %.02258 = phi ptr [ %0, %.lr.ph59 ], [ %.2, %.critedge2 ]
+  %.02757 = phi ptr [ %1, %.lr.ph59 ], [ %.128, %.critedge2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.02757, i64 1
+  %11 = tail call i32 @cJSON_IsArray(ptr noundef nonnull %.02258) #13
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %36, label %12
 
@@ -220,9 +220,9 @@ define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef re
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.02758, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.02757, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !13
-  switch i8 %17, label %get_array_item.exit.thread [
+  switch i8 %17, label %.critedge38 [
     i8 0, label %.lr.ph.split.i.preheader
     i8 47, label %.lr.ph.split.i.preheader
   ]
@@ -253,13 +253,13 @@ define internal fastcc ptr @get_item_from_pointer(ptr noundef %0, ptr noundef re
 .critedge.i:                                      ; preds = %.lr.ph.split.i, %18
   %.016.lcssa.i = phi i64 [ 0, %18 ], [ %25, %.lr.ph.split.i ]
   %.lcssa.i = phi i8 [ %.fr29.i, %18 ], [ %28, %.lr.ph.split.i ]
-  switch i8 %.lcssa.i, label %get_array_item.exit.thread [
+  switch i8 %.lcssa.i, label %.critedge38 [
     i8 0, label %decode_array_index_from_pointer.exit
     i8 47, label %decode_array_index_from_pointer.exit
   ]
 
 decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.critedge.i
-  %30 = getelementptr inbounds nuw i8, ptr %.02259, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.02258, i64 16
   br label %31
 
 31:                                               ; preds = %31, %decode_array_index_from_pointer.exit
@@ -273,19 +273,19 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   br i1 %34, label %31, label %.critedge
 
 36:                                               ; preds = %9
-  %37 = tail call i32 @cJSON_IsObject(ptr noundef nonnull %.02259) #13
+  %37 = tail call i32 @cJSON_IsObject(ptr noundef nonnull %.02258) #13
   %.not31 = icmp eq i32 %37, 0
-  br i1 %.not31, label %get_array_item.exit.thread, label %38
+  br i1 %.not31, label %.critedge38, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %.02259, i64 16
-  %.354 = load ptr, ptr %39, align 8, !tbaa !3
-  %.not3255 = icmp eq ptr %.354, null
-  br i1 %.not3255, label %.critedge, label %.lr.ph
+  %39 = getelementptr inbounds nuw i8, ptr %.02258, i64 16
+  %.353 = load ptr, ptr %39, align 8, !tbaa !3
+  %.not3254 = icmp eq ptr %.353, null
+  br i1 %.not3254, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.backedge
-  %.356 = phi ptr [ %.3, %.backedge ], [ %.354, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.356, i64 56
+  %.355 = phi ptr [ %.3, %.backedge ], [ %.353, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.355, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.backedge, label %.preheader.i
@@ -293,10 +293,10 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
 .preheader.i:                                     ; preds = %.lr.ph
   %43 = load i8, ptr %41, align 1, !tbaa !13
   %.not50.i = icmp eq i8 %43, 0
-  br i1 %.not50.i, label %.critedge.i39, label %.lr.ph.i
+  br i1 %.not50.i, label %.critedge.i41, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  br i1 %.not38.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i37
+  br i1 %.not38.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i39
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %59
   %44 = phi i8 [ %62, %59 ], [ %43, %.lr.ph.i ]
@@ -304,8 +304,8 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %.02851.us.i = phi ptr [ %61, %59 ], [ %10, %.lr.ph.i ]
   %45 = load i8, ptr %.02851.us.i, align 1, !tbaa !13
   switch i8 %45, label %50 [
-    i8 0, label %.critedge.i39.thr_comm
-    i8 47, label %.critedge.i39.thr_comm
+    i8 0, label %.critedge.i41.thr_comm
+    i8 47, label %.critedge.i41.thr_comm
     i8 126, label %46
   ]
 
@@ -341,20 +341,20 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %61 = getelementptr inbounds nuw i8, ptr %.1.us.i, i64 1
   %62 = load i8, ptr %60, align 1, !tbaa !13
   %.not.us.i = icmp eq i8 %62, 0
-  br i1 %.not.us.i, label %.critedge.i39, label %.lr.ph.split.us.i, !llvm.loop !17
+  br i1 %.not.us.i, label %.critedge.i41, label %.lr.ph.split.us.i, !llvm.loop !17
 
-.lr.ph.split.i37:                                 ; preds = %.lr.ph.i, %69
+.lr.ph.split.i39:                                 ; preds = %.lr.ph.i, %69
   %63 = phi i8 [ %72, %69 ], [ %43, %.lr.ph.i ]
   %.02752.i = phi ptr [ %70, %69 ], [ %41, %.lr.ph.i ]
   %.02851.i = phi ptr [ %71, %69 ], [ %10, %.lr.ph.i ]
   %64 = load i8, ptr %.02851.i, align 1, !tbaa !13
   switch i8 %64, label %.critedge46.i [
-    i8 0, label %.critedge.i39.thr_comm
-    i8 47, label %.critedge.i39.thr_comm
+    i8 0, label %.critedge.i41.thr_comm
+    i8 47, label %.critedge.i41.thr_comm
     i8 126, label %65
   ]
 
-65:                                               ; preds = %.lr.ph.split.i37
+65:                                               ; preds = %.lr.ph.split.i39
   %66 = getelementptr inbounds nuw i8, ptr %.02851.i, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !13
   %.not41.i = icmp eq i8 %67, 48
@@ -368,7 +368,7 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %or.cond47.i = and i1 %.not44.i, %.not43.i
   br i1 %or.cond47.i, label %69, label %.backedge
 
-.critedge46.i:                                    ; preds = %.lr.ph.split.i37
+.critedge46.i:                                    ; preds = %.lr.ph.split.i39
   %.not40.i = icmp eq i8 %63, %64
   br i1 %.not40.i, label %69, label %.backedge
 
@@ -378,17 +378,17 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %72 = load i8, ptr %70, align 1, !tbaa !13
   %.not.i = icmp eq i8 %72, 0
-  br i1 %.not.i, label %.critedge.i39, label %.lr.ph.split.i37
+  br i1 %.not.i, label %.critedge.i41, label %.lr.ph.split.i39
 
-.critedge.i39.thr_comm:                           ; preds = %.lr.ph.split.i37, %.lr.ph.split.i37, %.lr.ph.split.us.i, %.lr.ph.split.us.i
-  %.028.lcssa.i.ph = phi ptr [ %.02851.us.i, %.lr.ph.split.us.i ], [ %.02851.us.i, %.lr.ph.split.us.i ], [ %.02851.i, %.lr.ph.split.i37 ], [ %.02851.i, %.lr.ph.split.i37 ]
+.critedge.i41.thr_comm:                           ; preds = %.lr.ph.split.i39, %.lr.ph.split.i39, %.lr.ph.split.us.i, %.lr.ph.split.us.i
+  %.028.lcssa.i.ph = phi ptr [ %.02851.us.i, %.lr.ph.split.us.i ], [ %.02851.us.i, %.lr.ph.split.us.i ], [ %.02851.i, %.lr.ph.split.i39 ], [ %.02851.i, %.lr.ph.split.i39 ]
   %73 = load i8, ptr %.028.lcssa.i.ph, align 1, !tbaa !13
   switch i8 %73, label %.critedge [
     i8 47, label %.backedge
     i8 0, label %.backedge
   ]
 
-.critedge.i39:                                    ; preds = %69, %59, %.preheader.i
+.critedge.i41:                                    ; preds = %69, %59, %.preheader.i
   %.028.lcssa.i = phi ptr [ %10, %.preheader.i ], [ %61, %59 ], [ %71, %69 ]
   %74 = load i8, ptr %.028.lcssa.i, align 1, !tbaa !13
   switch i8 %74, label %.backedge [
@@ -396,13 +396,13 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
     i8 0, label %.critedge
   ]
 
-.backedge:                                        ; preds = %.critedge46.i, %68, %49, %50, %.critedge.i39, %.critedge.i39.thr_comm, %.critedge.i39.thr_comm, %.lr.ph
-  %.3 = load ptr, ptr %.356, align 8, !tbaa !3
+.backedge:                                        ; preds = %.critedge46.i, %68, %49, %50, %.critedge.i41, %.critedge.i41.thr_comm, %.critedge.i41.thr_comm, %.lr.ph
+  %.3 = load ptr, ptr %.355, align 8, !tbaa !3
   %.not32 = icmp eq ptr %.3, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %31, %.backedge, %.critedge.i39.thr_comm, %.critedge.i39, %.critedge.i39, %38
-  %.2 = phi ptr [ null, %38 ], [ %.356, %.critedge.i39 ], [ %.356, %.critedge.i39.thr_comm ], [ %.356, %.critedge.i39 ], [ null, %.backedge ], [ %.0.i, %31 ]
+.critedge:                                        ; preds = %31, %.backedge, %.critedge.i41.thr_comm, %.critedge.i41, %.critedge.i41, %38
+  %.2 = phi ptr [ null, %38 ], [ %.355, %.critedge.i41 ], [ %.355, %.critedge.i41.thr_comm ], [ %.355, %.critedge.i41 ], [ null, %.backedge ], [ %.0.i, %31 ]
   br label %75
 
 75:                                               ; preds = %77, %.critedge
@@ -421,10 +421,10 @@ decode_array_index_from_pointer.exit:             ; preds = %.critedge.i, %.crit
   %79 = icmp eq i8 %76, 47
   %80 = icmp ne ptr %.2, null
   %81 = and i1 %80, %79
-  br i1 %81, label %9, label %get_array_item.exit.thread
+  br i1 %81, label %9, label %.critedge38
 
-get_array_item.exit.thread:                       ; preds = %36, %.critedge2, %.critedge.i, %15, %.preheader, %3
-  %.023 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %36 ], [ %.2, %.critedge2 ], [ null, %.critedge.i ], [ null, %15 ]
+.critedge38:                                      ; preds = %36, %.critedge2, %15, %.critedge.i, %.preheader, %3
+  %.023 = phi ptr [ null, %3 ], [ %0, %.preheader ], [ null, %36 ], [ %.2, %.critedge2 ], [ null, %15 ], [ null, %.critedge.i ]
   ret ptr %.023
 }
 

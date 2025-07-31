@@ -927,7 +927,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
     i8 1, label %77
     i8 2, label %77
     i8 7, label %77
-    i8 5, label %406
+    i8 5, label %404
   ]
 
 77:                                               ; preds = %76, %76, %76, %76
@@ -956,7 +956,7 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %95, ptr noundef %0, i32 noundef 114, i32 noundef %92, i32 noundef 0)
   %97 = load i32, ptr @ett_sapms, align 4
   %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97)
-  switch i8 %78, label %401 [
+  switch i8 %78, label %399 [
     i8 0, label %101
     i8 2, label %105
     i8 3, label %105
@@ -990,8 +990,8 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
     i8 67, label %305
     i8 68, label %305
     i8 69, label %305
-    i8 70, label %364
-    i8 71, label %387
+    i8 70, label %362
+    i8 71, label %385
   ]
 
 .preheader400.i:                                  ; preds = %94
@@ -1346,8 +1346,8 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 2, label %317
     i32 3, label %327
     i32 4, label %332
-    i32 5, label %350
-    i32 7, label %355
+    i32 5, label %348
+    i32 7, label %353
   ]
 
 317:                                              ; preds = %312
@@ -1377,141 +1377,136 @@ define internal i32 @dissect_sapms(ptr noundef %0, ptr noundef %1, ptr noundef %
   %334 = load i32, ptr @hf_sapms_property_param_name_length, align 4
   %335 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %334, ptr noundef %0, i32 noundef 158, i32 noundef 4, i32 noundef 0)
   %.not.i.i = icmp eq i32 %333, 0
-  br i1 %.not.i.i, label %340, label %336
+  br i1 %.not.i.i, label %.critedge.i.i, label %336
 
 336:                                              ; preds = %332
   %337 = load i32, ptr @hf_sapms_property_param_name_value, align 4
   %338 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %337, ptr noundef %0, i32 noundef 162, i32 noundef %333, i32 noundef 0)
-  %339 = add i32 %333, 162
-  br label %340
-
-340:                                              ; preds = %336, %332
-  %.0.i.i = phi i32 [ %339, %336 ], [ 162, %332 ]
-  %reass.sub.i.i = sub i32 %.0.i.i, %333
-  %341 = add i32 %reass.sub.i.i, 102
-  %342 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %341, i32 noundef 0)
-  %343 = load i32, ptr @hf_sapms_property_param_value_length, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %343, ptr noundef %0, i32 noundef %341, i32 noundef 2, i32 noundef 0)
-  br i1 %.not.i.i, label %dissect_sapms_opcode.exit.thread, label %345
-
-345:                                              ; preds = %340
-  %346 = add i32 %reass.sub.i.i, 104
-  %347 = load i32, ptr @hf_sapms_property_param_value_value, align 4
-  %348 = zext i16 %342 to i32
-  %349 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef %348, i32 noundef 0)
+  %339 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 264, i32 noundef 0)
+  %340 = load i32, ptr @hf_sapms_property_param_value_length, align 4
+  %341 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %340, ptr noundef %0, i32 noundef 264, i32 noundef 2, i32 noundef 0)
+  %342 = load i32, ptr @hf_sapms_property_param_value_value, align 4
+  %343 = zext i16 %339 to i32
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %342, ptr noundef %0, i32 noundef 266, i32 noundef %343, i32 noundef 0)
   br label %dissect_sapms_opcode.exit.thread
 
-350:                                              ; preds = %312
-  %351 = load i32, ptr @hf_sapms_property_service_number, align 4
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %351, ptr noundef %0, i32 noundef 158, i32 noundef 2, i32 noundef 0)
-  %353 = load i32, ptr @hf_sapms_property_service_value, align 4
-  %354 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %353, ptr noundef %0, i32 noundef 160, i32 noundef 1, i32 noundef 0)
+.critedge.i.i:                                    ; preds = %332
+  %345 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 264, i32 noundef 0)
+  %346 = load i32, ptr @hf_sapms_property_param_value_length, align 4
+  %347 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %346, ptr noundef %0, i32 noundef 264, i32 noundef 2, i32 noundef 0)
   br label %dissect_sapms_opcode.exit.thread
 
-355:                                              ; preds = %312
-  %356 = load i32, ptr @hf_sapms_property_release, align 4
-  %357 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %356, ptr noundef %0, i32 noundef 158, i32 noundef 10, i32 noundef 0)
-  %358 = load i32, ptr @hf_sapms_property_release_patchno, align 4
-  %359 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %358, ptr noundef %0, i32 noundef 168, i32 noundef 4, i32 noundef 0)
-  %360 = load i32, ptr @hf_sapms_property_release_supplvl, align 4
-  %361 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %360, ptr noundef %0, i32 noundef 172, i32 noundef 4, i32 noundef 0)
-  %362 = load i32, ptr @hf_sapms_property_release_platform, align 4
-  %363 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %362, ptr noundef %0, i32 noundef 176, i32 noundef 4, i32 noundef 0)
+348:                                              ; preds = %312
+  %349 = load i32, ptr @hf_sapms_property_service_number, align 4
+  %350 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %349, ptr noundef %0, i32 noundef 158, i32 noundef 2, i32 noundef 0)
+  %351 = load i32, ptr @hf_sapms_property_service_value, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %351, ptr noundef %0, i32 noundef 160, i32 noundef 1, i32 noundef 0)
   br label %dissect_sapms_opcode.exit.thread
 
-364:                                              ; preds = %94
-  switch i8 %83, label %374 [
-    i8 1, label %365
-    i8 2, label %370
+353:                                              ; preds = %312
+  %354 = load i32, ptr @hf_sapms_property_release, align 4
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %354, ptr noundef %0, i32 noundef 158, i32 noundef 10, i32 noundef 0)
+  %356 = load i32, ptr @hf_sapms_property_release_patchno, align 4
+  %357 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %356, ptr noundef %0, i32 noundef 168, i32 noundef 4, i32 noundef 0)
+  %358 = load i32, ptr @hf_sapms_property_release_supplvl, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %358, ptr noundef %0, i32 noundef 172, i32 noundef 4, i32 noundef 0)
+  %360 = load i32, ptr @hf_sapms_property_release_platform, align 4
+  %361 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %360, ptr noundef %0, i32 noundef 176, i32 noundef 4, i32 noundef 0)
+  br label %dissect_sapms_opcode.exit.thread
+
+362:                                              ; preds = %94
+  switch i8 %83, label %372 [
+    i8 1, label %363
+    i8 2, label %368
   ]
 
-365:                                              ; preds = %364
-  %366 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef 114)
-  %367 = load i32, ptr @hf_sapms_ip_to_name_address4, align 4
-  %368 = tail call ptr @proto_tree_add_ipv4(ptr noundef %98, i32 noundef %367, ptr noundef %0, i32 noundef 114, i32 noundef 4, i32 noundef %366)
-  %369 = add nsw i32 %92, -4
-  br label %374
+363:                                              ; preds = %362
+  %364 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef 114)
+  %365 = load i32, ptr @hf_sapms_ip_to_name_address4, align 4
+  %366 = tail call ptr @proto_tree_add_ipv4(ptr noundef %98, i32 noundef %365, ptr noundef %0, i32 noundef 114, i32 noundef 4, i32 noundef %364)
+  %367 = add nsw i32 %92, -4
+  br label %372
 
-370:                                              ; preds = %364
+368:                                              ; preds = %362
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
   call void @tvb_get_ipv6(ptr noundef %0, i32 noundef 114, ptr noundef nonnull %7)
-  %371 = load i32, ptr @hf_sapms_ip_to_name_address6, align 4
-  %372 = call ptr @proto_tree_add_ipv6(ptr noundef %98, i32 noundef %371, ptr noundef %0, i32 noundef 114, i32 noundef 16, ptr noundef nonnull %7)
-  %373 = add nsw i32 %92, -16
+  %369 = load i32, ptr @hf_sapms_ip_to_name_address6, align 4
+  %370 = call ptr @proto_tree_add_ipv6(ptr noundef %98, i32 noundef %369, ptr noundef %0, i32 noundef 114, i32 noundef 16, ptr noundef nonnull %7)
+  %371 = add nsw i32 %92, -16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  br label %374
+  br label %372
 
-374:                                              ; preds = %370, %365, %364
-  %.6359.i = phi i32 [ %369, %365 ], [ %373, %370 ], [ %92, %364 ]
-  %.8.i = phi i32 [ 118, %365 ], [ 130, %370 ], [ 114, %364 ]
-  %375 = load i32, ptr @hf_sapms_ip_to_name_port, align 4
-  %376 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %375, ptr noundef %0, i32 noundef %.8.i, i32 noundef 2, i32 noundef 0)
-  %377 = add nuw nsw i32 %.8.i, 2
-  %378 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %377, i32 noundef 0)
-  %379 = load i32, ptr @hf_sapms_ip_to_name_length, align 4
-  %380 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %379, ptr noundef %0, i32 noundef %377, i32 noundef 4, i32 noundef 0)
+372:                                              ; preds = %368, %363, %362
+  %.6359.i = phi i32 [ %367, %363 ], [ %371, %368 ], [ %92, %362 ]
+  %.8.i = phi i32 [ 118, %363 ], [ 130, %368 ], [ 114, %362 ]
+  %373 = load i32, ptr @hf_sapms_ip_to_name_port, align 4
+  %374 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %373, ptr noundef %0, i32 noundef %.8.i, i32 noundef 2, i32 noundef 0)
+  %375 = add nuw nsw i32 %.8.i, 2
+  %376 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %375, i32 noundef 0)
+  %377 = load i32, ptr @hf_sapms_ip_to_name_length, align 4
+  %378 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %377, ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef 0)
   %.6359.fr.i = freeze i32 %.6359.i
-  %381 = add i32 %.6359.fr.i, -6
-  %382 = add i32 %378, -1
-  %or.cond398.not.i = icmp ult i32 %382, %381
-  br i1 %or.cond398.not.i, label %383, label %dissect_sapms_opcode.exit.thread
+  %379 = add i32 %.6359.fr.i, -6
+  %380 = add i32 %376, -1
+  %or.cond398.not.i = icmp ult i32 %380, %379
+  br i1 %or.cond398.not.i, label %381, label %dissect_sapms_opcode.exit.thread
 
-383:                                              ; preds = %374
-  %384 = add nuw nsw i32 %.8.i, 6
-  %385 = load i32, ptr @hf_sapms_ip_to_name, align 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %385, ptr noundef %0, i32 noundef %384, i32 noundef %378, i32 noundef 0)
+381:                                              ; preds = %372
+  %382 = add nuw nsw i32 %.8.i, 6
+  %383 = load i32, ptr @hf_sapms_ip_to_name, align 4
+  %384 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %383, ptr noundef %0, i32 noundef %382, i32 noundef %376, i32 noundef 0)
   br label %dissect_sapms_opcode.exit.thread
 
-387:                                              ; preds = %94
-  %388 = load i32, ptr @hf_sapms_check_acl_error_code, align 4
-  %389 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %388, ptr noundef %0, i32 noundef 114, i32 noundef 2, i32 noundef 0)
-  %390 = add nsw i32 %92, -2
-  %391 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 116, i32 noundef %390)
-  %392 = add i32 %391, 1
-  %393 = load i32, ptr @hf_sapms_check_acl_acl, align 4
-  %394 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %393, ptr noundef %0, i32 noundef 116, i32 noundef %392, i32 noundef 0)
-  %395 = add i32 %391, 117
-  %396 = sub i32 %390, %392
-  %397 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %395, i32 noundef %396)
-  %398 = add i32 %397, 1
-  %399 = load i32, ptr @hf_sapms_check_acl_acl, align 4
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %399, ptr noundef %0, i32 noundef %395, i32 noundef %398, i32 noundef 0)
+385:                                              ; preds = %94
+  %386 = load i32, ptr @hf_sapms_check_acl_error_code, align 4
+  %387 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %386, ptr noundef %0, i32 noundef 114, i32 noundef 2, i32 noundef 0)
+  %388 = add nsw i32 %92, -2
+  %389 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 116, i32 noundef %388)
+  %390 = add i32 %389, 1
+  %391 = load i32, ptr @hf_sapms_check_acl_acl, align 4
+  %392 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %391, ptr noundef %0, i32 noundef 116, i32 noundef %390, i32 noundef 0)
+  %393 = add i32 %389, 117
+  %394 = sub i32 %388, %390
+  %395 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %393, i32 noundef %394)
+  %396 = add i32 %395, 1
+  %397 = load i32, ptr @hf_sapms_check_acl_acl, align 4
+  %398 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %397, ptr noundef %0, i32 noundef %393, i32 noundef %396, i32 noundef 0)
   br label %dissect_sapms_opcode.exit.thread
 
-401:                                              ; preds = %94
-  %402 = load i8, ptr @global_sapms_highlight_items, align 1, !range !10, !noundef !11
-  %403 = trunc nuw i8 %402 to i1
-  br i1 %403, label %404, label %dissect_sapms_opcode.exit.thread
+399:                                              ; preds = %94
+  %400 = load i8, ptr @global_sapms_highlight_items, align 1, !range !10, !noundef !11
+  %401 = trunc nuw i8 %400 to i1
+  br i1 %401, label %402, label %dissect_sapms_opcode.exit.thread
 
-404:                                              ; preds = %401
-  %405 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %98, ptr noundef nonnull @ei_sapms_opcode_partial, ptr noundef nonnull @.str.645, i32 noundef %88)
+402:                                              ; preds = %399
+  %403 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %98, ptr noundef nonnull @ei_sapms_opcode_partial, ptr noundef nonnull @.str.645, i32 noundef %88)
   br label %dissect_sapms_opcode.exit.thread
 
-406:                                              ; preds = %76
-  %407 = load i32, ptr @hf_sapms_adm_eyecatcher, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %407, ptr noundef %0, i32 noundef 110, i32 noundef 12, i32 noundef 0)
-  %409 = load i32, ptr @hf_sapms_adm_version, align 4
-  %410 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %409, ptr noundef %0, i32 noundef 122, i32 noundef 1, i32 noundef 0)
-  %411 = load i32, ptr @hf_sapms_adm_msgtype, align 4
-  %412 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %411, ptr noundef %0, i32 noundef 123, i32 noundef 1, i32 noundef 0)
-  %413 = load i32, ptr @hf_sapms_adm_recsize, align 4
-  %414 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %413, ptr noundef %0, i32 noundef 124, i32 noundef 11, i32 noundef 0)
-  %415 = load i32, ptr @hf_sapms_adm_recno, align 4
-  %416 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %415, ptr noundef %0, i32 noundef 135, i32 noundef 11, i32 noundef 0)
-  %417 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 146)
-  %418 = icmp sgt i32 %417, 0
-  br i1 %418, label %419, label %dissect_sapms_opcode.exit.thread
+404:                                              ; preds = %76
+  %405 = load i32, ptr @hf_sapms_adm_eyecatcher, align 4
+  %406 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %405, ptr noundef %0, i32 noundef 110, i32 noundef 12, i32 noundef 0)
+  %407 = load i32, ptr @hf_sapms_adm_version, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %407, ptr noundef %0, i32 noundef 122, i32 noundef 1, i32 noundef 0)
+  %409 = load i32, ptr @hf_sapms_adm_msgtype, align 4
+  %410 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %409, ptr noundef %0, i32 noundef 123, i32 noundef 1, i32 noundef 0)
+  %411 = load i32, ptr @hf_sapms_adm_recsize, align 4
+  %412 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %411, ptr noundef %0, i32 noundef 124, i32 noundef 11, i32 noundef 0)
+  %413 = load i32, ptr @hf_sapms_adm_recno, align 4
+  %414 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %413, ptr noundef %0, i32 noundef 135, i32 noundef 11, i32 noundef 0)
+  %415 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 146)
+  %416 = icmp sgt i32 %415, 0
+  br i1 %416, label %417, label %dissect_sapms_opcode.exit.thread
 
-419:                                              ; preds = %406
-  tail call fastcc void @dissect_sapms_adm_record(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %417)
+417:                                              ; preds = %404
+  tail call fastcc void @dissect_sapms_adm_record(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %415)
   br label %dissect_sapms_opcode.exit.thread
 
-dissect_sapms_opcode.exit.thread:                 ; preds = %.lr.ph.i, %175, %.lr.ph407.i, %406, %419, %77, %76, %94, %.preheader400.i, %101, %105, %107, %.preheader.i, %115, %119, %122, %127, %137, %143, %145, %148, %149, %159, %162, %179, %193, %196, %199, %288, %289, %299, %305, %312, %317, %323, %327, %340, %345, %350, %355, %374, %383, %387, %401, %404, %4
-  %420 = call i32 @tvb_reported_length(ptr noundef %0)
+dissect_sapms_opcode.exit.thread:                 ; preds = %.lr.ph.i, %175, %.lr.ph407.i, %404, %417, %77, %76, %94, %.preheader400.i, %101, %105, %107, %.preheader.i, %115, %119, %122, %127, %137, %143, %145, %148, %149, %159, %162, %179, %193, %196, %199, %288, %289, %299, %305, %312, %317, %323, %327, %336, %.critedge.i.i, %348, %353, %372, %381, %385, %399, %402, %4
+  %418 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %.critedge
 
 .critedge:                                        ; preds = %74, %dissect_sapms_opcode.exit.thread
-  %.1 = phi i32 [ %420, %dissect_sapms_opcode.exit.thread ], [ 0, %74 ]
+  %.1 = phi i32 [ %418, %dissect_sapms_opcode.exit.thread ], [ 0, %74 ]
   ret i32 %.1
 }
 

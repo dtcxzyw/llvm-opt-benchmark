@@ -5544,16 +5544,16 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.
   %283 = zext i32 %282 to i64
   %284 = sub nsw i64 %281, %283
   %.not.not.i.i = icmp ult i64 %284, 4
-  br i1 %.not.not.i.i, label %.thread1097, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i
+  br i1 %.not.not.i.i, label %.thread1097, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i292
+_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i292
   %285 = add nuw nsw i64 %283, 2
   %286 = add nuw nsw i64 %283, 3
   br label %287
 
-287:                                              ; preds = %.thread, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i
-  %.061.i293 = phi i64 [ %285, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i ], [ 4, %.thread ]
-  %.0.i294 = phi i64 [ %286, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i ], [ 5, %.thread ]
+287:                                              ; preds = %.thread, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i
+  %.061.i293 = phi i64 [ %285, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i ], [ 4, %.thread ]
+  %.0.i294 = phi i64 [ %286, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i ], [ 5, %.thread ]
   %288 = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !734, !noalias !737, !nonnull !4, !noundef !4
   %289 = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !734, !noalias !737, !noundef !4
   %290 = icmp ult i64 %.061.i293, %289
@@ -5652,16 +5652,16 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.
   %337 = zext i32 %336 to i64
   %338 = sub nsw i64 %335, %337
   %.not.not.i.i306 = icmp ult i64 %338, 6
-  br i1 %.not.not.i.i306, label %split.invoke, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i307
+  br i1 %.not.not.i.i306, label %split.invoke, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i307
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i307: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i305
+_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i307: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i305
   %339 = add nuw nsw i64 %337, 4
   %340 = add nuw nsw i64 %337, 5
   br label %341
 
-341:                                              ; preds = %321, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i307
-  %.061.i308 = phi i64 [ %339, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i307 ], [ 6, %321 ]
-  %.0.i309 = phi i64 [ %340, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i307 ], [ 7, %321 ]
+341:                                              ; preds = %321, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i307
+  %.061.i308 = phi i64 [ %339, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i307 ], [ 6, %321 ]
+  %.0.i309 = phi i64 [ %340, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i307 ], [ 7, %321 ]
   %342 = icmp ult i64 %.061.i308, %289
   br i1 %342, label %343, label %split.invoke
 
@@ -5704,15 +5704,15 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.
   %364 = zext i32 %363 to i64
   %365 = sub nsw i64 %362, %364
   %.not.not.i.i316 = icmp ult i64 %365, 2
-  br i1 %.not.not.i.i316, label %split.invoke, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i317
+  br i1 %.not.not.i.i316, label %split.invoke, label %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i317
 
-_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i317: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i315
+_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i317: ; preds = %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i315
   %366 = add nuw nsw i64 %364, 1
   br label %367
 
-367:                                              ; preds = %353, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i317
-  %.061.i318 = phi i64 [ %364, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i317 ], [ 2, %353 ]
-  %.0.i319 = phi i64 [ %366, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.thread.i317 ], [ 3, %353 ]
+367:                                              ; preds = %353, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i317
+  %.061.i318 = phi i64 [ %364, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i317 ], [ 2, %353 ]
+  %.0.i319 = phi i64 [ %366, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i317 ], [ 3, %353 ]
   %368 = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !744, !noalias !749, !nonnull !4, !noundef !4
   %369 = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !744, !noalias !749, !noundef !4
   %370 = icmp ult i64 %.061.i318, %369

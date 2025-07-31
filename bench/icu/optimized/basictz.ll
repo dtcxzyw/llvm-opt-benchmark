@@ -728,7 +728,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 58:                                               ; preds = %56
   %.not116 = icmp eq i32 %57, 0
-  br i1 %.not116, label %.thread153, label %59
+  br i1 %.not116, label %386, label %59
 
 59:                                               ; preds = %58
   %60 = invoke noundef ptr @_ZNK6icu_7718TimeZoneTransition5getToEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -743,12 +743,12 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   %65 = fadd double %1, 3.153600e+10
   %66 = fcmp ogt double %65, %42
   %or.cond140 = and i1 %66, %64
-  br i1 %or.cond140, label %68, label %.thread153
+  br i1 %or.cond140, label %68, label %386
 
 67:                                               ; preds = %53
   %.old = fadd double %1, 3.153600e+10
   %.old139 = fcmp ogt double %.old, %42
-  br i1 %.old139, label %68, label %.thread153
+  br i1 %.old139, label %68, label %386
 
 68:                                               ; preds = %63, %67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
@@ -767,14 +767,14 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 73:                                               ; preds = %68
   %74 = load i32, ptr %5, align 4, !tbaa !6
   %75 = icmp slt i32 %74, 1
-  br i1 %75, label %84, label %359
+  br i1 %75, label %84, label %358
 
 76:                                               ; preds = %20
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %404
 
-78:                                               ; preds = %394, %379, %376, %374, %372, %370, %368, %366, %360, %39, %37, %35, %33, %31, %29, %23
+78:                                               ; preds = %395, %379, %376, %374, %372, %370, %368, %366, %360, %39, %37, %35, %33, %31, %29, %23
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %403
@@ -787,7 +787,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 82:                                               ; preds = %68
   %83 = landingpad { ptr, i32 }
           cleanup
-  br label %358
+  br label %359
 
 84:                                               ; preds = %73
   %85 = load i32, ptr %12, align 4, !tbaa !9
@@ -950,29 +950,29 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 168:                                              ; preds = %165
   %169 = load i32, ptr %5, align 4, !tbaa !6
   %170 = icmp slt i32 %169, 1
-  br i1 %170, label %179, label %359
+  br i1 %170, label %179, label %358
 
 171:                                              ; preds = %84
   %172 = landingpad { ptr, i32 }
           cleanup
-  br label %358
+  br label %359
 
 173:                                              ; preds = %94
   %174 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %92) #12
-  br label %358
+  br label %359
 
 175:                                              ; preds = %355, %353, %351, %330, %328, %326, %324, %322, %312, %310, %294, %288, %286, %282, %280, %278, %276, %272, %270, %267, %265, %262, %260, %256, %254, %248, %237, %235, %232, %230, %222, %220, %218, %216, %214, %197, %195, %179, %165, %163, %159, %157, %155, %153, %148, %144, %142, %139, %137, %134, %132, %128, %126, %120, %116, %114, %102, %100
   %176 = landingpad { ptr, i32 }
           cleanup
-  br label %358
+  br label %359
 
 177:                                              ; preds = %111, %109, %107
   %178 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %105) #12
-  br label %358
+  br label %359
 
 179:                                              ; preds = %168
   %180 = load i32, ptr %12, align 4, !tbaa !9
@@ -1098,13 +1098,13 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   %245 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %187) #12
-  br label %358
+  br label %359
 
 246:                                              ; preds = %210, %208, %206, %204, %202
   %247 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %200) #12
-  br label %358
+  br label %359
 
 248:                                              ; preds = %240, %150, %146, %141, %125, %118
   %249 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1196,7 +1196,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 291:                                              ; preds = %288
   %292 = load i32, ptr %5, align 4, !tbaa !6
   %293 = icmp slt i32 %292, 1
-  br i1 %293, label %294, label %359
+  br i1 %293, label %294, label %358
 
 294:                                              ; preds = %291
   %295 = load i32, ptr %12, align 4, !tbaa !9
@@ -1285,23 +1285,23 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   %343 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %302) #12
-  br label %358
+  br label %359
 
 344:                                              ; preds = %319, %317
   %345 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %315) #12
-  br label %358
+  br label %359
 
 346:                                              ; preds = %338, %274, %269, %253
-  br i1 %106, label %.thread158, label %347
+  br i1 %106, label %.thread153, label %347
 
 347:                                              ; preds = %346
   %348 = load ptr, ptr %105, align 8, !tbaa !3
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load ptr, ptr %349, align 8
   call void %350(ptr noundef nonnull align 8 dereferenceable(96) %105) #12
-  br label %.thread158
+  br label %.thread153
 
 351:                                              ; preds = %335, %239
   %.484 = phi ptr [ %315, %335 ], [ %200, %239 ]
@@ -1319,19 +1319,9 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 357:                                              ; preds = %355
   store i32 %356, ptr %8, align 4, !tbaa !9
-  br label %.thread158
+  br label %.thread153
 
-358:                                              ; preds = %171, %344, %342, %246, %244, %177, %173, %175, %82
-  %.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %172, %171 ], [ %176, %175 ], [ %345, %344 ], [ %343, %342 ], [ %247, %246 ], [ %245, %244 ], [ %178, %177 ], [ %174, %173 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  br label %403
-
-.thread158:                                       ; preds = %346, %347, %357
+.thread153:                                       ; preds = %346, %347, %357
   %.181.ph = phi ptr [ %.484, %357 ], [ null, %347 ], [ null, %346 ]
   %.1.ph = phi ptr [ %105, %357 ], [ null, %347 ], [ null, %346 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
@@ -1340,16 +1330,26 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  br label %.thread153
+  br label %386
 
-359:                                              ; preds = %73, %291, %168
+358:                                              ; preds = %168, %291, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  br label %401
+  br label %.critedge
+
+359:                                              ; preds = %171, %344, %342, %246, %244, %177, %173, %175, %82
+  %.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %172, %171 ], [ %176, %175 ], [ %345, %344 ], [ %343, %342 ], [ %247, %246 ], [ %245, %244 ], [ %178, %177 ], [ %174, %173 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  br label %403
 
 360:                                              ; preds = %28
   %361 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1389,7 +1389,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 
 378:                                              ; preds = %376
   store i32 %377, ptr %8, align 4, !tbaa !9
-  br label %.thread153
+  br label %386
 
 379:                                              ; preds = %365
   %380 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1401,53 +1401,53 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
 383:                                              ; preds = %379
   %384 = load i32, ptr %5, align 4, !tbaa !6
   %385 = icmp slt i32 %384, 1
-  br i1 %385, label %.thread153, label %401
+  br i1 %385, label %386, label %.critedge
 
-.thread153:                                       ; preds = %58, %63, %67, %.thread158, %378, %383
-  %.6 = phi ptr [ null, %378 ], [ null, %383 ], [ %.181.ph, %.thread158 ], [ null, %67 ], [ null, %63 ], [ null, %58 ]
-  %.5 = phi ptr [ null, %378 ], [ null, %383 ], [ %.1.ph, %.thread158 ], [ null, %67 ], [ null, %63 ], [ null, %58 ]
-  %386 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #12
-  %387 = icmp eq ptr %386, null
-  br i1 %387, label %391, label %388
+386:                                              ; preds = %.thread153, %67, %63, %58, %378, %383
+  %.6 = phi ptr [ null, %378 ], [ null, %383 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.181.ph, %.thread153 ]
+  %.5 = phi ptr [ null, %378 ], [ null, %383 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.1.ph, %.thread153 ]
+  %387 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #12
+  %388 = icmp eq ptr %387, null
+  br i1 %388, label %392, label %389
 
-388:                                              ; preds = %.thread153
-  %389 = load i32, ptr %7, align 4, !tbaa !9
-  %390 = load i32, ptr %8, align 4, !tbaa !9
-  invoke void @_ZN6icu_7719InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %386, ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %389, i32 noundef %390)
-          to label %391 unwind label %398
+389:                                              ; preds = %386
+  %390 = load i32, ptr %7, align 4, !tbaa !9
+  %391 = load i32, ptr %8, align 4, !tbaa !9
+  invoke void @_ZN6icu_7719InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %387, ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %390, i32 noundef %391)
+          to label %392 unwind label %399
 
-391:                                              ; preds = %388, %.thread153
-  store ptr %386, ptr %2, align 8, !tbaa !14
-  %392 = icmp ne ptr %.5, null
-  %393 = icmp ne ptr %.6, null
-  %or.cond = and i1 %393, %392
-  br i1 %or.cond, label %394, label %401
+392:                                              ; preds = %389, %386
+  store ptr %387, ptr %2, align 8, !tbaa !14
+  %393 = icmp ne ptr %.5, null
+  %394 = icmp ne ptr %.6, null
+  %or.cond = and i1 %394, %393
+  br i1 %or.cond, label %395, label %.critedge
 
-394:                                              ; preds = %391
-  %395 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.5)
-          to label %396 unwind label %78
+395:                                              ; preds = %392
+  %396 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %.5)
+          to label %397 unwind label %78
 
-396:                                              ; preds = %394
-  %.not138 = icmp eq i32 %395, 0
-  br i1 %.not138, label %400, label %397
+397:                                              ; preds = %395
+  %.not138 = icmp eq i32 %396, 0
+  br i1 %.not138, label %401, label %398
 
-397:                                              ; preds = %396
+398:                                              ; preds = %397
   store ptr %.5, ptr %4, align 8, !tbaa !17
   store ptr %.6, ptr %3, align 8, !tbaa !17
-  br label %401
+  br label %.critedge
 
-398:                                              ; preds = %388
-  %399 = landingpad { ptr, i32 }
+399:                                              ; preds = %389
+  %400 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %386) #12
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %387) #12
   br label %403
 
-400:                                              ; preds = %396
+401:                                              ; preds = %397
   store ptr %.5, ptr %3, align 8, !tbaa !17
   store ptr %.6, ptr %4, align 8, !tbaa !17
-  br label %401
+  br label %.critedge
 
-401:                                              ; preds = %359, %391, %400, %397, %383
+.critedge:                                        ; preds = %358, %392, %401, %398, %383
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #12
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #12
@@ -1458,11 +1458,11 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   br label %402
 
-402:                                              ; preds = %6, %401
+402:                                              ; preds = %6, %.critedge
   ret void
 
-403:                                              ; preds = %80, %358, %398, %78
-  %.pn134 = phi { ptr, i32 } [ %79, %78 ], [ %399, %398 ], [ %.pn.pn.pn, %358 ], [ %81, %80 ]
+403:                                              ; preds = %80, %359, %399, %78
+  %.pn134 = phi { ptr, i32 } [ %79, %78 ], [ %400, %399 ], [ %.pn.pn.pn, %359 ], [ %81, %80 ]
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %404
 

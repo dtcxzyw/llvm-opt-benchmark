@@ -608,7 +608,7 @@ PKCS7_get_octet_string.exit.thread:               ; preds = %12, %16, %19, %PKCS
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %49 = tail call ptr @ASN1_OCTET_STRING_new() #4
   %.not34 = icmp eq ptr %49, null
-  br i1 %.not34, label %66, label %50
+  br i1 %.not34, label %.critedge, label %50
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr %35, align 8, !tbaa !14
@@ -635,16 +635,23 @@ PKCS7_get_octet_string.exit.thread:               ; preds = %12, %16, %19, %PKCS
   call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %49) #4
   br label %66
 
-66:                                               ; preds = %60, %65, %46
-  %spec.select = phi ptr [ null, %46 ], [ null, %65 ], [ %49, %60 ]
+66:                                               ; preds = %60, %65
+  %.123 = phi ptr [ null, %65 ], [ %49, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   br label %67
 
-67:                                               ; preds = %66, %PKCS7_get_octet_string.exit.thread, %34, %37, %40, %43, %24, %26, %30
-  %.0 = phi ptr [ %25, %30 ], [ %25, %26 ], [ null, %24 ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %34 ], [ null, %PKCS7_get_octet_string.exit.thread ], [ %spec.select, %66 ]
+.critedge:                                        ; preds = %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  br label %67
+
+67:                                               ; preds = %66, %PKCS7_get_octet_string.exit.thread, %34, %37, %40, %43, %.critedge, %24, %26, %30
+  %.0 = phi ptr [ %25, %30 ], [ %25, %26 ], [ null, %24 ], [ null, %.critedge ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %34 ], [ null, %PKCS7_get_octet_string.exit.thread ], [ %.123, %66 ]
   ret ptr %.0
 }
 

@@ -10373,15 +10373,15 @@ _ZN4core3ops8function6FnOnce9call_once17h1d85c8fafbb2ac16E.exit.i.i.i: ; preds =
           to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4d0c2d374295df6bE.exit" unwind label %226
 
 217:                                              ; preds = %213, %201, %_ZN4core4iter8adapters5chain17and_then_or_clear17hcccfdf970d30a3c3E.exit.i.i.i.i.i
-  %.sroa.3.0.i.ph.in.i.sink.i = phi ptr [ %212, %213 ], [ %191, %_ZN4core4iter8adapters5chain17and_then_or_clear17hcccfdf970d30a3c3E.exit.i.i.i.i.i ], [ %200, %201 ]
-  %.sroa.3.0.i.ph.i.i = load i8, ptr %.sroa.3.0.i.ph.in.i.sink.i, align 1, !noalias !692, !noundef !5
+  %.pn3.i.i.in.i = phi ptr [ %212, %213 ], [ %191, %_ZN4core4iter8adapters5chain17and_then_or_clear17hcccfdf970d30a3c3E.exit.i.i.i.i.i ], [ %200, %201 ]
+  %.pn3.i.i.i = load i8, ptr %.pn3.i.i.in.i, align 1, !noalias !692, !noundef !5
   %218 = load i64, ptr %.sroa.245.0..sroa_idx, align 8, !alias.scope !719, !noalias !692, !noundef !5
   %219 = add i64 %218, 1
   store i64 %219, ptr %.sroa.245.0..sroa_idx, align 8, !alias.scope !719, !noalias !692
   %220 = icmp ult i64 %218, 20
   br i1 %220, label %223, label %.split398.us
 
-.split396.us:                                     ; preds = %210, %208
+.split396.us:                                     ; preds = %208, %210
   call void @"_ZN4core3ptr284drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$C$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$$GT$$GT$17h6e0ec320302194beE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %20)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %20)
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10397,7 +10397,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1d85c8fafbb2ac16E.exit.i.i.i: ; preds =
 
 223:                                              ; preds = %217
   %224 = getelementptr inbounds nuw i8, ptr %19, i64 %218
-  store i8 %.sroa.3.0.i.ph.i.i, ptr %224, align 1
+  store i8 %.pn3.i.i.i, ptr %224, align 1
   %.pre = load i64, ptr %20, align 8, !range !6, !alias.scope !710, !noalias !692
   br label %.split, !llvm.loop !720
 

@@ -455,9 +455,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %41
 
 _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.2, i64 noundef 43)
-          to label %.critedge22 unwind label %47
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23 unwind label %47
 
-.critedge22:                                      ; preds = %_ZNSolsEm.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %_ZNSolsEm.exit
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %6) #16
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %6) #16
   br label %.critedge
@@ -469,7 +469,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %6) #16
   resume { ptr, i32 } %48
 
-.critedge:                                        ; preds = %.critedge22, %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit, %37, %5
+.critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23, %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit, %37, %5
   %49 = load i64, ptr %10, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !19
@@ -480,9 +480,9 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
   %54 = load i64, ptr %53, align 8, !tbaa !8
   %55 = add i64 %52, 3
   %.not.i.i = icmp ule i64 %55, %54
-  br i1 %.not.i.i, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i25, label %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
+  br i1 %.not.i.i, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i24, label %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
 
-_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i25: ; preds = %.critedge
+_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i24: ; preds = %.critedge
   %56 = add i64 %52, %9
   %57 = sub i64 %54, %56
   %58 = trunc i64 %57 to i32
@@ -500,11 +500,11 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i25: ; preds = %.critedge
   %.not.i9.i.i = icmp ugt i64 %65, %66
   br i1 %.not.i9.i.i, label %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit, label %67
 
-67:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i25
+67:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i24
   store i64 %64, ptr %10, align 8, !tbaa !20
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
 
-_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit:    ; preds = %.critedge, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i25, %67
+_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit:    ; preds = %.critedge, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i24, %67
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load i32, ptr %68, align 8, !tbaa !18
   %70 = call noundef i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef %69, i32 noundef %2)
@@ -513,10 +513,10 @@ _ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit:    ; preds = %.critedge, %_ZNK3ne
   %73 = add i64 %71, 1
   %74 = add i64 %73, %72
   %75 = load i64, ptr %53, align 8, !tbaa !8
-  %.not.i.i26 = icmp ule i64 %74, %75
-  br i1 %.not.i.i26, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit
+  %.not.i.i25 = icmp ule i64 %74, %75
+  br i1 %.not.i.i25, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit
 
-_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27: ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
+_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26: ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
   %76 = trunc i32 %70 to i8
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %71
@@ -527,23 +527,23 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27: ; preds = %_ZN3net16SpdyFram
   %82 = add i64 %81, 1
   %83 = add i64 %82, %80
   %84 = load i64, ptr %53, align 8, !tbaa !8
-  %.not.i9.i.i28 = icmp ugt i64 %83, %84
-  br i1 %.not.i9.i.i28, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, label %85
+  %.not.i9.i.i27 = icmp ugt i64 %83, %84
+  br i1 %.not.i9.i.i27, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, label %85
 
-85:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27
+85:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26
   store i64 %82, ptr %10, align 8, !tbaa !20
   br label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit
 
-_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27, %85
-  %86 = phi i64 [ %75, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %84, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27 ], [ %84, %85 ]
-  %87 = phi i64 [ %72, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %81, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27 ], [ %82, %85 ]
-  %88 = phi i64 [ %71, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %80, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i27 ], [ %80, %85 ]
+_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26, %85
+  %86 = phi i64 [ %75, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %84, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26 ], [ %84, %85 ]
+  %87 = phi i64 [ %72, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %81, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26 ], [ %82, %85 ]
+  %88 = phi i64 [ %71, %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit ], [ %80, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i26 ], [ %80, %85 ]
   %89 = add i64 %88, 1
   %90 = add i64 %89, %87
-  %.not.i.i29 = icmp ule i64 %90, %86
-  br i1 %.not.i.i29, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32
+  %.not.i.i28 = icmp ule i64 %90, %86
+  br i1 %.not.i.i28, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31
 
-_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30: ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit
+_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29: ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %88
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %87
@@ -553,23 +553,23 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30: ; preds = %_ZN3net16SpdyFram
   %96 = add i64 %95, 1
   %97 = add i64 %96, %94
   %98 = load i64, ptr %53, align 8, !tbaa !8
-  %.not.i9.i.i31 = icmp ugt i64 %97, %98
-  br i1 %.not.i9.i.i31, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32, label %99
+  %.not.i9.i.i30 = icmp ugt i64 %97, %98
+  br i1 %.not.i9.i.i30, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31, label %99
 
-99:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30
+99:                                               ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29
   store i64 %96, ptr %10, align 8, !tbaa !20
-  br label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32
+  br label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31
 
-_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32:   ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30, %99
-  %100 = phi i64 [ %86, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %98, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30 ], [ %98, %99 ]
-  %101 = phi i64 [ %87, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %95, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30 ], [ %96, %99 ]
-  %102 = phi i64 [ %88, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %94, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i30 ], [ %94, %99 ]
+_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31:   ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29, %99
+  %100 = phi i64 [ %86, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %98, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29 ], [ %98, %99 ]
+  %101 = phi i64 [ %87, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %95, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29 ], [ %96, %99 ]
+  %102 = phi i64 [ %88, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit ], [ %94, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i29 ], [ %94, %99 ]
   %103 = add i64 %102, 4
   %104 = add i64 %103, %101
-  %.not.i.i33 = icmp ule i64 %104, %100
-  br i1 %.not.i.i33, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i34, label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit
+  %.not.i.i32 = icmp ule i64 %104, %100
+  br i1 %.not.i.i32, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i33, label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit
 
-_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i34: ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32
+_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i33: ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31
   %105 = call noundef i32 @llvm.bswap.i32(i32 %4)
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %102
@@ -580,17 +580,17 @@ _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i34: ; preds = %_ZN3net16SpdyFram
   %111 = add i64 %110, 4
   %112 = add i64 %111, %109
   %113 = load i64, ptr %53, align 8, !tbaa !8
-  %.not.i9.i.i35 = icmp ugt i64 %112, %113
-  br i1 %.not.i9.i.i35, label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit, label %114
+  %.not.i9.i.i34 = icmp ugt i64 %112, %113
+  br i1 %.not.i9.i.i34, label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit, label %114
 
-114:                                              ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i34
+114:                                              ; preds = %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i33
   store i64 %111, ptr %10, align 8, !tbaa !20
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit
 
-_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %114, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i34, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit32
-  %115 = and i1 %.not.i.i, %.not.i.i26
-  %116 = and i1 %115, %.not.i.i29
-  %117 = and i1 %116, %.not.i.i33
+_ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %114, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i33, %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit31
+  %115 = and i1 %.not.i.i, %.not.i.i25
+  %116 = and i1 %115, %.not.i.i28
+  %117 = and i1 %116, %.not.i.i32
   ret i1 %117
 }
 

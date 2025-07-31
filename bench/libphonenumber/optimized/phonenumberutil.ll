@@ -17444,12 +17444,12 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberUtil35GetRegionCodesF
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i: ; preds = %3, %45
-  %.02155.i.i = phi i64 [ %.2.i.i, %45 ], [ %12, %3 ]
-  %.sroa.038.054.i.i = phi ptr [ %.sroa.038.1.i.i, %45 ], [ %6, %3 ]
-  %14 = lshr i64 %.02155.i.i, 1
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i: ; preds = %3, %44
+  %.02150.i.i = phi i64 [ %.2.i.i, %44 ], [ %12, %3 ]
+  %.sroa.038.049.i.i = phi ptr [ %.sroa.038.1.i.i, %44 ], [ %6, %3 ]
+  %14 = lshr i64 %.02150.i.i, 1
   %.idx34 = shl nuw nsw i64 %14, 4
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.038.054.i.i, i64 %.idx34
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx34
   %16 = load i32, ptr %15, align 8, !tbaa !274
   %17 = icmp slt i32 %16, %1
   br i1 %17, label %18, label %22
@@ -17457,77 +17457,77 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12ba
 18:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = xor i64 %14, -1
-  %21 = add nsw i64 %.02155.i.i, %20
-  br label %45
+  %21 = add nsw i64 %.02150.i.i, %20
+  br label %44
 
 22:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i
   %23 = icmp slt i32 %1, %16
-  br i1 %23, label %45, label %24
+  br i1 %23, label %44, label %.critedge.i.i
 
-24:                                               ; preds = %22
-  %.not33 = icmp samesign ult i64 %.02155.i.i, 2
+.critedge.i.i:                                    ; preds = %22
+  %.not33 = icmp samesign ult i64 %.02150.i.i, 2
   br i1 %.not33, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i: ; preds = %24, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i
-  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %14, %24 ]
-  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.038.054.i.i, %24 ]
-  %25 = lshr i64 %.013.i.i.i, 1
-  %26 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.sroa.011.012.i.i.i, i64 %25
-  %27 = load i32, ptr %26, align 8, !tbaa !274
-  %28 = icmp slt i32 %27, %1
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = xor i64 %25, -1
-  %31 = add nsw i64 %.013.i.i.i, %30
-  %.sroa.011.1.i.i.i = select i1 %28, ptr %29, ptr %.sroa.011.012.i.i.i
-  %.1.i.i.i = select i1 %28, i64 %31, i64 %25
-  %32 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %32, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i, !llvm.loop !275
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i: ; preds = %.critedge.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i
+  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %14, %.critedge.i.i ]
+  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.038.049.i.i, %.critedge.i.i ]
+  %24 = lshr i64 %.013.i.i.i, 1
+  %25 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.sroa.011.012.i.i.i, i64 %24
+  %26 = load i32, ptr %25, align 8, !tbaa !274
+  %27 = icmp slt i32 %26, %1
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %29 = xor i64 %24, -1
+  %30 = add nsw i64 %.013.i.i.i, %29
+  %.sroa.011.1.i.i.i = select i1 %27, ptr %28, ptr %.sroa.011.012.i.i.i
+  %.1.i.i.i = select i1 %27, i64 %30, i64 %24
+  %31 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %31, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i, !llvm.loop !275
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i, %24
-  %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.054.i.i, %24 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ]
-  %.idx = shl nuw nsw i64 %.02155.i.i, 4
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %34 = add nuw nsw i64 %.idx34, 16
-  %gepdiff = sub nsw i64 %.idx, %34
-  %35 = ashr exact i64 %gepdiff, 4
-  %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i, %.critedge.i.i
+  %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.049.i.i, %.critedge.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ]
+  %.idx = shl nuw nsw i64 %.02150.i.i, 4
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %33 = add nuw nsw i64 %.idx34, 16
+  %gepdiff = sub nsw i64 %.idx, %33
+  %34 = ashr exact i64 %gepdiff, 4
+  %35 = icmp sgt i64 %34, 0
+  br i1 %35, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i
-  %.013.i28.i.i = phi i64 [ %.1.i33.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ], [ %35, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ]
-  %.sroa.011.012.i29.i.i = phi ptr [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ], [ %33, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ]
-  %37 = lshr i64 %.013.i28.i.i, 1
-  %38 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.sroa.011.012.i29.i.i, i64 %37
-  %39 = load i32, ptr %38, align 8, !tbaa !274
-  %40 = icmp slt i32 %1, %39
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %42 = xor i64 %37, -1
-  %43 = add nsw i64 %.013.i28.i.i, %42
-  %.sroa.011.1.i32.i.i = select i1 %40, ptr %.sroa.011.012.i29.i.i, ptr %41
-  %.1.i33.i.i = select i1 %40, i64 %37, i64 %43
-  %44 = icmp sgt i64 %.1.i33.i.i, 0
-  br i1 %44, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit, !llvm.loop !343
+  %.013.i28.i.i = phi i64 [ %.1.i33.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ], [ %34, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ]
+  %.sroa.011.012.i29.i.i = phi ptr [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ], [ %32, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ]
+  %36 = lshr i64 %.013.i28.i.i, 1
+  %37 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %.sroa.011.012.i29.i.i, i64 %36
+  %38 = load i32, ptr %37, align 8, !tbaa !274
+  %39 = icmp slt i32 %1, %38
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %41 = xor i64 %36, -1
+  %42 = add nsw i64 %.013.i28.i.i, %41
+  %.sroa.011.1.i32.i.i = select i1 %39, ptr %.sroa.011.012.i29.i.i, ptr %40
+  %.1.i33.i.i = select i1 %39, i64 %36, i64 %42
+  %43 = icmp sgt i64 %.1.i33.i.i, 0
+  br i1 %43, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit, !llvm.loop !343
 
-45:                                               ; preds = %22, %18
-  %.sroa.038.1.i.i = phi ptr [ %19, %18 ], [ %.sroa.038.054.i.i, %22 ]
+44:                                               ; preds = %22, %18
+  %.sroa.038.1.i.i = phi ptr [ %19, %18 ], [ %.sroa.038.049.i.i, %22 ]
   %.2.i.i = phi i64 [ %21, %18 ], [ %14, %22 ]
-  %46 = icmp sgt i64 %.2.i.i, 0
-  br i1 %46, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread, !llvm.loop !344
+  %45 = icmp sgt i64 %.2.i.i, 0
+  br i1 %45, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread, !llvm.loop !344
 
 _ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i
-  %.sroa.3.2.i.i = phi ptr [ %33, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ], [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ]
-  %.not = icmp eq ptr %.sroa.011.0.lcssa.i.i.i, %.sroa.3.2.i.i
-  br i1 %.not, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread, label %47
+  %.sroa.3.0.i.i = phi ptr [ %32, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_NS0_5__ops14_Iter_comp_valIN4i18n12phonenumbers3gtl12OrderByFirstEEEET_SQ_SQ_RKT0_T1_.exit.i.i ], [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i27.i.i ]
+  %.not = icmp eq ptr %.sroa.011.0.lcssa.i.i.i, %.sroa.3.0.i.i
+  br i1 %.not, label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread, label %46
 
-47:                                               ; preds = %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
-  %48 = load ptr, ptr %2, align 8, !tbaa !173
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !216
-  %51 = load ptr, ptr %50, align 8, !tbaa !173
-  %52 = tail call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertISt14_List_iteratorIS5_EvEESA_St20_List_const_iteratorIS5_ET_SD_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %48, ptr %51, ptr nonnull %50)
+46:                                               ; preds = %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
+  %47 = load ptr, ptr %2, align 8, !tbaa !173
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !216
+  %50 = load ptr, ptr %49, align 8, !tbaa !173
+  %51 = tail call ptr @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertISt14_List_iteratorIS5_EvEESA_St20_List_const_iteratorIS5_ET_SD_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %47, ptr %50, ptr nonnull %49)
   br label %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread
 
-_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread: ; preds = %45, %3, %47, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
+_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit.thread: ; preds = %44, %3, %46, %_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEESD_N4i18n12phonenumbers3gtl12OrderByFirstEES2_IT_SN_ESN_SN_RKT0_T1_.exit
   ret void
 }
 

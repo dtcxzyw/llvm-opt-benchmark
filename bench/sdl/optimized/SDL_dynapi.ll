@@ -20420,8 +20420,8 @@ define internal fastcc void @SDL_InitDynamicAPI() unnamed_addr #0 {
 
 .preheader42.i:                                   ; preds = %1
   %3 = load i8, ptr %2, align 1
-  %.not47.i = icmp eq i8 %3, 0
-  br i1 %.not47.i, label %.critedge.sink.split.i, label %.preheader.i
+  %.not48.i = icmp eq i8 %3, 0
+  br i1 %.not48.i, label %.critedge.sink.split.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader42.i, %17
   %4 = phi i8 [ %19, %17 ], [ %3, %.preheader42.i ]
@@ -20451,9 +20451,9 @@ thread-pre-split.i:                               ; preds = %6
 11:                                               ; preds = %8
   %12 = tail call ptr @dlsym(ptr noundef nonnull %10, ptr noundef nonnull @.str.2) #12
   %.not9.i.i = icmp eq ptr %12, null
-  br i1 %.not9.i.i, label %15, label %._crit_edge.thread56.i
+  br i1 %.not9.i.i, label %15, label %._crit_edge.thread.i
 
-._crit_edge.thread56.i:                           ; preds = %11
+._crit_edge.thread.i:                             ; preds = %11
   store i8 %7, ptr %.022.i, align 1
   %13 = tail call i32 %12(i32 noundef 2, ptr noundef nonnull @jump_table, i32 noundef 10008) #12
   %14 = icmp slt i32 %13, 0
@@ -20468,11 +20468,11 @@ thread-pre-split.i:                               ; preds = %6
   %.idx.i = zext i1 %9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.022.i, i64 %.idx.i
   %19 = load i8, ptr %18, align 1
-  %.not63.i = icmp eq i8 %19, 0
-  br i1 %.not63.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
+  %.not60.i = icmp eq i8 %19, 0
+  br i1 %.not60.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
 
-.critedge.sink.split.i:                           ; preds = %17, %._crit_edge.thread56.i, %.preheader42.i
-  %.str.3.sink.i = phi ptr [ @.str.3, %.preheader42.i ], [ @.str.4, %._crit_edge.thread56.i ], [ @.str.3, %17 ]
+.critedge.sink.split.i:                           ; preds = %17, %._crit_edge.thread.i, %.preheader42.i
+  %.str.3.sink.i = phi ptr [ @.str.3, %.preheader42.i ], [ @.str.4, %._crit_edge.thread.i ], [ @.str.3, %17 ]
   tail call fastcc void @dynapi_warn(ptr noundef nonnull %.str.3.sink.i)
   br label %.critedge.i
 
@@ -20486,7 +20486,7 @@ thread-pre-split.i:                               ; preds = %6
   tail call void @SDL_ExitProcess(i32 noundef 86) #13
   unreachable
 
-SDL_InitDynamicAPILocked.exit:                    ; preds = %._crit_edge.thread56.i, %.critedge.i
+SDL_InitDynamicAPILocked.exit:                    ; preds = %._crit_edge.thread.i, %.critedge.i
   store i1 true, ptr @SDL_InitDynamicAPI.already_initialized, align 1
   br label %23
 

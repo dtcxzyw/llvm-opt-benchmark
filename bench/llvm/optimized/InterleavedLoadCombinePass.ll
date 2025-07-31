@@ -7383,7 +7383,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110Polynomial14pushBOperationENS0_4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load ptr, ptr %5, align 8, !tbaa !330
   %.not = icmp eq ptr %.val3, null
-  br i1 %.not, label %46, label %6
+  br i1 %.not, label %45, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7423,58 +7423,58 @@ _ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25_
   %24 = icmp uge ptr %4, %.val.pre4.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %27, label %26, !prof !346
+  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !346
 
 26:                                               ; preds = %22
+  %27 = ptrtoint ptr %4 to i64
+  %28 = ptrtoint ptr %.val.pre4.i to i64
+  %29 = sub i64 %27, %28
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %19)
+  %.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !25
+  %30 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %29
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %22
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %19)
   %.val.pre.i = load ptr, ptr %7, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit
 
-27:                                               ; preds = %22
-  %28 = ptrtoint ptr %4 to i64
-  %29 = ptrtoint ptr %.val.pre4.i to i64
-  %30 = sub i64 %28, %29
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %19)
-  %.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !25
-  %31 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %30
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit: ; preds = %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, %26, %27
-  %.val.i = phi ptr [ %.val.pre4.i, %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit ], [ %.val.i.i.i, %27 ], [ %.val.pre.i, %26 ]
-  %.016.i.i.i = phi ptr [ %4, %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit ], [ %31, %27 ], [ %4, %26 ]
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit: ; preds = %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, %26, %.critedge.i.i.i
+  %.val.i = phi ptr [ %.val.pre4.i, %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit ], [ %.val.i.i.i, %26 ], [ %.val.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %_ZSt9make_pairIRKN12_GLOBAL__N_110Polynomial4BOpsERKN4llvm5APIntEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit ], [ %30, %26 ], [ %4, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %16, align 8, !tbaa !26
-  %32 = zext i32 %.val3.i to i64
-  %33 = getelementptr inbounds nuw %"struct.std::pair.233", ptr %.val.i, i64 %32
-  %34 = load i32, ptr %.016.i.i.i, align 8, !tbaa !321
-  store i32 %34, ptr %33, align 8, !tbaa !321
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %39 = load i32, ptr %38, align 8, !tbaa !133
-  store i32 %39, ptr %37, align 8, !tbaa !133
-  %40 = load i64, ptr %36, align 8
-  store i64 %40, ptr %35, align 8
-  store i32 0, ptr %38, align 8, !tbaa !133
-  %41 = load i32, ptr %16, align 8, !tbaa !26
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %16, align 8, !tbaa !26
+  %31 = zext i32 %.val3.i to i64
+  %32 = getelementptr inbounds nuw %"struct.std::pair.233", ptr %.val.i, i64 %31
+  %33 = load i32, ptr %.016.i.i.i, align 8, !tbaa !321
+  store i32 %33, ptr %32, align 8, !tbaa !321
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
+  %38 = load i32, ptr %37, align 8, !tbaa !133
+  store i32 %38, ptr %36, align 8, !tbaa !133
+  %39 = load i64, ptr %35, align 8
+  store i64 %39, ptr %34, align 8
+  store i32 0, ptr %37, align 8, !tbaa !133
+  %40 = load i32, ptr %16, align 8, !tbaa !26
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %16, align 8, !tbaa !26
   %.val = load ptr, ptr %8, align 8
   %.val2 = load i32, ptr %9, align 8, !tbaa !133
-  %43 = icmp ult i32 %.val2, 65
-  %44 = icmp eq ptr %.val, null
-  %or.cond.i = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond.i, label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit, label %45
+  %42 = icmp ult i32 %.val2, 65
+  %43 = icmp eq ptr %.val, null
+  %or.cond.i = select i1 %42, i1 true, i1 %43
+  br i1 %or.cond.i, label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit
+44:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit
   call void @_ZdaPv(ptr noundef nonnull %.val) #21
   br label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit
 
-_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit, %45
+_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE9push_backEOS6_.exit, %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
-  br label %46
+  br label %45
 
-46:                                               ; preds = %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit, %3
+45:                                               ; preds = %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit, %3
   ret void
 }
 

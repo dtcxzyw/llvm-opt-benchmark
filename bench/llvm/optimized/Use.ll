@@ -111,7 +111,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !23
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %44
+  br i1 %6, label %7, label %43
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
@@ -143,50 +143,50 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %25 = icmp uge ptr %3, %.pre3.i.i
   %26 = icmp ult ptr %3, %24
   %spec.select.i.i.i.i.i.i = and i1 %25, %26
-  br i1 %spec.select.i.i.i.i.i.i, label %28, label %27, !prof !52
+  br i1 %spec.select.i.i.i.i.i.i, label %27, label %.critedge.i.i.i.i, !prof !52
 
 27:                                               ; preds = %23
+  %28 = ptrtoint ptr %3 to i64
+  %29 = ptrtoint ptr %.pre3.i.i to i64
+  %30 = sub i64 %28, %29
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19)
+  %31 = load ptr, ptr %0, align 8, !tbaa !50
+  %32 = getelementptr inbounds i8, ptr %31, i64 %30
+  %.pre = load i64, ptr %32, align 8, !tbaa !53
+  br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
+
+.critedge.i.i.i.i:                                ; preds = %23
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19)
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !50
   br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
 
-28:                                               ; preds = %23
-  %29 = ptrtoint ptr %3 to i64
-  %30 = ptrtoint ptr %.pre3.i.i to i64
-  %31 = sub i64 %29, %30
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %19)
-  %32 = load ptr, ptr %0, align 8, !tbaa !50
-  %33 = getelementptr inbounds i8, ptr %32, i64 %31
-  %.pre = load i64, ptr %33, align 8, !tbaa !53
-  br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
-
-_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit: ; preds = %7, %27, %28
-  %34 = phi i64 [ %22, %7 ], [ %.pre, %28 ], [ %22, %27 ]
-  %35 = phi ptr [ %.pre3.i.i, %7 ], [ %32, %28 ], [ %.pre.i.i, %27 ]
-  %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %33, %28 ], [ %3, %27 ]
-  %36 = load i32, ptr %16, align 8, !tbaa !48
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %35, i64 %37
-  store i64 %34, ptr %38, align 8, !tbaa !53
+_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit: ; preds = %7, %27, %.critedge.i.i.i.i
+  %33 = phi i64 [ %22, %7 ], [ %.pre, %27 ], [ %22, %.critedge.i.i.i.i ]
+  %34 = phi ptr [ %.pre3.i.i, %7 ], [ %31, %27 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %32, %27 ], [ %3, %.critedge.i.i.i.i ]
+  %35 = load i32, ptr %16, align 8, !tbaa !48
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %34, i64 %36
+  store i64 %33, ptr %37, align 8, !tbaa !53
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !53
-  %39 = add i32 %36, 1
-  store i32 %39, ptr %16, align 8, !tbaa !48
-  %40 = load ptr, ptr %3, align 8, !tbaa !53
-  %.not.i = icmp eq ptr %40, null
+  %38 = add i32 %35, 1
+  store i32 %38, ptr %16, align 8, !tbaa !48
+  %39 = load ptr, ptr %3, align 8, !tbaa !53
+  %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i: ; preds = %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
-  %41 = load ptr, ptr %40, align 8, !tbaa !36
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #8
+  %40 = load ptr, ptr %39, align 8, !tbaa !36
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #8
   br label %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i, %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  br label %44
+  br label %43
 
-44:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
+43:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
   ret i1 %6
 }
 
@@ -240,43 +240,43 @@ define dso_local void @_ZN4llvm9sandboxir3Use4swapERS1_(ptr noundef nonnull read
   %23 = icmp uge ptr %3, %.pre3.i.i.i
   %24 = icmp ult ptr %3, %22
   %spec.select.i.i.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i.i.i, label %26, label %25, !prof !52
+  br i1 %spec.select.i.i.i.i.i.i.i, label %25, label %.critedge.i.i.i.i.i, !prof !52
 
 25:                                               ; preds = %21
+  %26 = ptrtoint ptr %3 to i64
+  %27 = ptrtoint ptr %.pre3.i.i.i to i64
+  %28 = sub i64 %26, %27
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %6, i64 noundef %17)
+  %29 = load ptr, ptr %6, align 8, !tbaa !50
+  %30 = getelementptr inbounds i8, ptr %29, i64 %28
+  %.pre.i = load i64, ptr %30, align 8, !tbaa !53
+  br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i
+
+.critedge.i.i.i.i.i:                              ; preds = %21
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %6, i64 noundef %17)
   %.pre.i.i.i = load ptr, ptr %6, align 8, !tbaa !50
   br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i
 
-26:                                               ; preds = %21
-  %27 = ptrtoint ptr %3 to i64
-  %28 = ptrtoint ptr %.pre3.i.i.i to i64
-  %29 = sub i64 %27, %28
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %6, i64 noundef %17)
-  %30 = load ptr, ptr %6, align 8, !tbaa !50
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  %.pre.i = load i64, ptr %31, align 8, !tbaa !53
-  br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i
-
-_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i: ; preds = %26, %25, %10
-  %32 = phi i64 [ %20, %10 ], [ %.pre.i, %26 ], [ %20, %25 ]
-  %33 = phi ptr [ %.pre3.i.i.i, %10 ], [ %30, %26 ], [ %.pre.i.i.i, %25 ]
-  %.016.i.i.i.i.i = phi ptr [ %3, %10 ], [ %31, %26 ], [ %3, %25 ]
-  %34 = load i32, ptr %14, align 8, !tbaa !48
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %33, i64 %35
-  store i64 %32, ptr %36, align 8, !tbaa !53
+_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i: ; preds = %.critedge.i.i.i.i.i, %25, %10
+  %31 = phi i64 [ %20, %10 ], [ %.pre.i, %25 ], [ %20, %.critedge.i.i.i.i.i ]
+  %32 = phi ptr [ %.pre3.i.i.i, %10 ], [ %29, %25 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %.016.i.i.i.i.i = phi ptr [ %3, %10 ], [ %30, %25 ], [ %3, %.critedge.i.i.i.i.i ]
+  %33 = load i32, ptr %14, align 8, !tbaa !48
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %32, i64 %34
+  store i64 %31, ptr %35, align 8, !tbaa !53
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !53
-  %37 = add i32 %34, 1
-  store i32 %37, ptr %14, align 8, !tbaa !48
-  %38 = load ptr, ptr %3, align 8, !tbaa !53
-  %.not.i.i = icmp eq ptr %38, null
+  %36 = add i32 %33, 1
+  store i32 %36, ptr %14, align 8, !tbaa !48
+  %37 = load ptr, ptr %3, align 8, !tbaa !53
+  %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm9sandboxir7UseSwapESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i.i: ; preds = %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !36
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38) #8
+  %38 = load ptr, ptr %37, align 8, !tbaa !36
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37) #8
   br label %_ZNSt10unique_ptrIN4llvm9sandboxir7UseSwapESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm9sandboxir7UseSwapESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i.i, %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit.i
@@ -284,9 +284,9 @@ _ZNSt10unique_ptrIN4llvm9sandboxir7UseSwapESt14default_deleteIS2_EED2Ev.exit.i: 
   br label %_ZN4llvm9sandboxir7Tracker17emplaceIfTrackingINS0_7UseSwapEJNS0_3UseES4_EEEbDpT0_.exit
 
 _ZN4llvm9sandboxir7Tracker17emplaceIfTrackingINS0_7UseSwapEJNS0_3UseES4_EEEbDpT0_.exit: ; preds = %2, %_ZNSt10unique_ptrIN4llvm9sandboxir7UseSwapESt14default_deleteIS2_EED2Ev.exit.i
-  %42 = load ptr, ptr %0, align 8, !tbaa !11
-  %43 = load ptr, ptr %1, align 8, !tbaa !11
-  call void @_ZN4llvm3Use4swapERS0_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %43) #8
+  %41 = load ptr, ptr %0, align 8, !tbaa !11
+  %42 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @_ZN4llvm3Use4swapERS0_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42) #8
   ret void
 }
 

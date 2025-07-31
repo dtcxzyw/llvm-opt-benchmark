@@ -2131,7 +2131,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = icmp eq ptr %2, %5
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %1 to i64
@@ -2139,12 +2139,12 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   %10 = inttoptr i64 %9 to ptr
   %11 = load i32, ptr %10, align 8, !tbaa !35
   %12 = icmp eq i32 %11, 2147483647
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %7
   %14 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddChangePolarity, ptr noundef %1, ptr noundef %2) #19
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %.thread
+  br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -2202,7 +2202,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.077 = phi ptr [ %49, %47 ], [ %2, %45 ]
   %51 = tail call ptr @extraBddChangePolarity(ptr noundef nonnull %0, ptr noundef %.079, ptr noundef %.077)
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %50
   %54 = ptrtoint ptr %51 to i64
@@ -2218,7 +2218,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 62:                                               ; preds = %53
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %51) #19
-  br label %.thread
+  br label %.critedge
 
 63:                                               ; preds = %53
   %64 = ptrtoint ptr %60 to i64
@@ -2253,7 +2253,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
 82:                                               ; preds = %74
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %spec.select100) #19
-  br label %.thread
+  br label %.critedge
 
 83:                                               ; preds = %74
   %84 = ptrtoint ptr %80 to i64
@@ -2269,10 +2269,10 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
 90:                                               ; preds = %87
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %spec.select100) #19
-  br label %.thread
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %63, %87, %83
-  %.284 = phi ptr [ %88, %87 ], [ %86, %83 ], [ %spec.select100, %63 ]
+._crit_edge:                                      ; preds = %63, %83, %87
+  %.284 = phi ptr [ %86, %83 ], [ %88, %87 ], [ %spec.select100, %63 ]
   %91 = ptrtoint ptr %spec.select to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
@@ -2291,10 +2291,10 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
 102:                                              ; preds = %._crit_edge, %27
   %.082 = phi ptr [ %30, %27 ], [ %.284, %._crit_edge ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddChangePolarity, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %.082) #19
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %50, %90, %82, %62, %102, %13, %7, %3
-  %.0 = phi ptr [ %1, %3 ], [ %1, %7 ], [ %14, %13 ], [ %.082, %102 ], [ null, %62 ], [ null, %82 ], [ null, %90 ], [ null, %50 ]
+.critedge:                                        ; preds = %102, %50, %90, %82, %62, %13, %7, %3
+  %.0 = phi ptr [ %1, %3 ], [ %1, %7 ], [ %14, %13 ], [ %.082, %102 ], [ null, %50 ], [ null, %90 ], [ null, %82 ], [ null, %62 ]
   ret ptr %.0
 }
 

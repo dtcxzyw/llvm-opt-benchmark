@@ -20072,7 +20072,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i: ; pr
   br label %34
 
 34:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.02.i.i.i.i.i.i.i.i = phi ptr [ %.val6.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %58, %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i ]
+  %.02.i.i.i.i.i.i.i.i = phi ptr [ %.val6.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %57, %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i ]
   %.sroa.01.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %.02.i.i.i.i.i.i.i.i, align 8, !tbaa !121
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i.i.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !tbaa !38
@@ -20103,57 +20103,57 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i: ; pr
   %43 = icmp uge ptr %1, %.val.pre1.i.i.i.i.i.i.i.i.i.i
   %44 = icmp ult ptr %1, %42
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %43, %44
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %46, label %45, !prof !652
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %45, label %.critedge.i.i.i.i.i.i.i.i.i.i.i.i, !prof !652
 
 45:                                               ; preds = %41
+  %46 = ptrtoint ptr %.val.pre1.i.i.i.i.i.i.i.i.i.i to i64
+  %47 = sub i64 %33, %46
+  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm(i64 noundef %39)
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 160), align 8, !tbaa !10
+  %48 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %47
+  br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i
+
+.critedge.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %41
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm(i64 noundef %39)
   %.val.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 160), align 8, !tbaa !10
   br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i
 
-46:                                               ; preds = %41
-  %47 = ptrtoint ptr %.val.pre1.i.i.i.i.i.i.i.i.i.i to i64
-  %48 = sub i64 %33, %47
-  call fastcc void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE10OptionInfoELb0EE4growEm(i64 noundef %39)
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 160), align 8, !tbaa !10
-  %49 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %48
-  br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i
-
-_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i: ; preds = %46, %45, %34
-  %.val.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.pre1.i.i.i.i.i.i.i.i.i.i, %34 ], [ %.val.i.i.i.i.i.i.i.i.i.i.i.i, %46 ], [ %.val.pre.i.i.i.i.i.i.i.i.i.i, %45 ]
-  %.016.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %34 ], [ %49, %46 ], [ %1, %45 ]
+_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i: ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i.i.i, %45, %34
+  %.val.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.pre1.i.i.i.i.i.i.i.i.i.i, %34 ], [ %.val.i.i.i.i.i.i.i.i.i.i.i.i, %45 ], [ %.val.pre.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.016.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %34 ], [ %48, %45 ], [ %1, %.critedge.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.val3.i.i.i.i.i.i.i.i.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8, !tbaa !79
-  %50 = zext i32 %.val3.i.i.i.i.i.i.i.i.i.i to i64
-  %51 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull readonly align 8 dereferenceable(48) %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !575
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %52, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %54 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %53, ptr noundef nonnull readonly align 8 dereferenceable(5) %54, i64 5, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %52, align 8, !tbaa !3
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8, !tbaa !79
-  %56 = add i32 %55, 1
-  store i32 %56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8, !tbaa !79
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 152), align 8, !tbaa !515
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %57, ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i) #32
+  %49 = zext i32 %.val3.i.i.i.i.i.i.i.i.i.i to i64
+  %50 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull readonly align 8 dereferenceable(48) %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !575
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %51, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %52, ptr noundef nonnull readonly align 8 dereferenceable(5) %53, i64 5, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %51, align 8, !tbaa !3
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8, !tbaa !79
+  %55 = add i32 %54, 1
+  store i32 %55, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), align 8, !tbaa !79
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 152), align 8, !tbaa !515
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %56, ptr %.sroa.01.0.copyload.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i) #32
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #32
-  %58 = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %58, %28
+  %57 = getelementptr inbounds nuw i8, ptr %.02.i.i.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %57, %28
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, label %34
 
 _ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i: ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i
   call void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(120) @_ZL13PassDebugging) #32
-  %59 = load ptr, ptr %2, align 8, !tbaa !10
-  %60 = icmp eq ptr %59, %3
-  br i1 %60, label %__cxx_global_var_init.exit, label %61
+  %58 = load ptr, ptr %2, align 8, !tbaa !10
+  %59 = icmp eq ptr %58, %3
+  br i1 %59, label %__cxx_global_var_init.exit, label %60
 
-61:                                               ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i
-  call void @free(ptr noundef %59) #32
+60:                                               ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i
+  call void @free(ptr noundef %58) #32
   br label %__cxx_global_var_init.exit
 
-__cxx_global_var_init.exit:                       ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, %61
+__cxx_global_var_init.exit:                       ; preds = %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEC2IJA11_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassEEEEDpRKT_.exit.i, %60
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2) #32
-  %62 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEED2Ev, ptr nonnull @_ZL13PassDebugging, ptr nonnull @__dso_handle) #32
+  %61 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEED2Ev, ptr nonnull @_ZL13PassDebugging, ptr nonnull @__dso_handle) #32
   ret void
 }
 

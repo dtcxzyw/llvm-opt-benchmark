@@ -286,7 +286,7 @@ define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly captures
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -334,51 +334,51 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  br label %47
+  br label %38
 
-38:                                               ; preds = %60
-  %39 = getelementptr i32, ptr %55, i64 %61
-  %40 = load i32, ptr %39, align 4
-  %41 = and i32 %40, 3
-  %42 = or i32 %41, %49
-  %43 = zext i32 %52 to i64
-  %44 = getelementptr i8, ptr %55, i64 %43
-  %45 = add nuw nsw i32 %48, 1
-  %46 = icmp eq i32 %45, %34
-  br i1 %46, label %.loopexit, label %47, !llvm.loop !12
+38:                                               ; preds = %55, %36
+  %39 = phi i32 [ %62, %55 ], [ 0, %36 ]
+  %40 = phi i32 [ %59, %55 ], [ %13, %36 ]
+  %41 = phi ptr [ %61, %55 ], [ %37, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load i32, ptr %42, align 1
+  %44 = icmp ult i32 %43, 8
+  br i1 %44, label %.critedge, label %45
 
-47:                                               ; preds = %38, %36
-  %48 = phi i32 [ %45, %38 ], [ 0, %36 ]
-  %49 = phi i32 [ %42, %38 ], [ %13, %36 ]
-  %50 = phi ptr [ %44, %38 ], [ %37, %36 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %52 = load i32, ptr %51, align 1
-  %53 = icmp ult i32 %52, 8
-  br i1 %53, label %.thread, label %54
-
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  %56 = getelementptr i8, ptr %50, i64 48
-  %57 = load i32, ptr %56, align 4
-  switch i32 %57, label %59 [
-    i32 -301989376, label %60
-    i32 -301989627, label %58
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 44
+  %47 = getelementptr i8, ptr %41, i64 48
+  %48 = load i32, ptr %47, align 4
+  switch i32 %48, label %50 [
+    i32 -301989376, label %51
+    i32 -301989627, label %49
   ]
 
-58:                                               ; preds = %54
-  br label %60
+49:                                               ; preds = %45
+  br label %51
 
-59:                                               ; preds = %54
-  br label %60
+50:                                               ; preds = %45
+  br label %51
 
-60:                                               ; preds = %59, %58, %54
-  %61 = phi i64 [ 21, %58 ], [ 19, %59 ], [ 20, %54 ]
-  %62 = phi i32 [ 96, %58 ], [ 84, %59 ], [ 88, %54 ]
-  %63 = icmp ult i32 %52, %62
-  br i1 %63, label %.thread, label %38
+51:                                               ; preds = %50, %49, %45
+  %52 = phi i64 [ 21, %49 ], [ 19, %50 ], [ 20, %45 ]
+  %53 = phi i32 [ 96, %49 ], [ 84, %50 ], [ 88, %45 ]
+  %54 = icmp ult i32 %43, %53
+  br i1 %54, label %.critedge, label %55
 
-.loopexit:                                        ; preds = %38, %27, %22, %18, %11
-  %64 = phi i32 [ %13, %22 ], [ %13, %18 ], [ %13, %11 ], [ %13, %27 ], [ %42, %38 ]
+55:                                               ; preds = %51
+  %56 = getelementptr i32, ptr %46, i64 %52
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, 3
+  %59 = or i32 %58, %40
+  %60 = zext i32 %43 to i64
+  %61 = getelementptr i8, ptr %46, i64 %60
+  %62 = add nuw nsw i32 %39, 1
+  %63 = icmp eq i32 %62, %34
+  br i1 %63, label %.loopexit, label %38, !llvm.loop !12
+
+.loopexit:                                        ; preds = %55, %27, %22, %18, %11
+  %64 = phi i32 [ %13, %22 ], [ %13, %18 ], [ %13, %11 ], [ %13, %27 ], [ %59, %55 ]
   %65 = load i32, ptr %14, align 1
   %66 = zext i32 %65 to i64
   %67 = getelementptr i8, ptr %14, i64 %66
@@ -392,10 +392,10 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   %72 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %71) #9, !srcloc !14
   %73 = icmp eq i64 %72, 1
   %74 = select i1 %73, i32 %70, i32 -22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %60, %47, %.loopexit4, %2
-  %75 = phi i32 [ 0, %2 ], [ %74, %.loopexit4 ], [ -22, %47 ], [ -22, %60 ]
+.critedge:                                        ; preds = %38, %51, %.loopexit4, %2
+  %75 = phi i32 [ 0, %2 ], [ %74, %.loopexit4 ], [ -22, %51 ], [ -22, %38 ]
   ret i32 %75
 }
 

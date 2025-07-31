@@ -49,7 +49,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %18 = getelementptr i8, ptr %17, i64 %.idx
   %.04861 = load ptr, ptr %18, align 8
   %.not62 = icmp eq ptr %.04861, null
-  br i1 %.not62, label %.thread, label %.lr.ph
+  br i1 %.not62, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %22
   %.04863 = phi ptr [ %.048, %22 ], [ %.04861, %13 ]
@@ -63,7 +63,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %23 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
   %.048 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.048, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
@@ -127,15 +127,15 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %59 = load i64, ptr %25, align 8
   %60 = or i64 %59, 1
   store i64 %60, ptr %25, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %22, %13, %58
+.critedge:                                        ; preds = %22, %13, %58
   %.050 = phi ptr [ %26, %58 ], [ null, %13 ], [ null, %22 ]
   call void @mm_unlock(ptr noundef nonnull %0) #4
   br label %61
 
-61:                                               ; preds = %free_delaylist.exit, %.thread
-  %.0 = phi ptr [ %.050, %.thread ], [ null, %free_delaylist.exit ]
+61:                                               ; preds = %free_delaylist.exit, %.critedge
+  %.0 = phi ptr [ %.050, %.critedge ], [ null, %free_delaylist.exit ]
   ret ptr %.0
 }
 

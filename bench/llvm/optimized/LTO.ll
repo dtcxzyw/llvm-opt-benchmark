@@ -29145,40 +29145,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
   %19 = icmp uge ptr %5, %.pre3.i
   %20 = icmp ult ptr %5, %18
   %spec.select.i.i.i.i.i = and i1 %19, %20
-  br i1 %spec.select.i.i.i.i.i, label %23, label %21, !prof !550
+  br i1 %spec.select.i.i.i.i.i, label %21, label %.critedge.i.i.i, !prof !550
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %14, i64 noundef 80) #29
+  %22 = ptrtoint ptr %5 to i64
+  %23 = ptrtoint ptr %.pre3.i to i64
+  %24 = sub i64 %22, %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %14, i64 noundef 80) #29
+  %26 = load ptr, ptr %0, align 8, !tbaa !25
+  %27 = getelementptr inbounds i8, ptr %26, i64 %24
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
+
+.critedge.i.i.i:                                  ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef %14, i64 noundef 80) #29
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
 
-23:                                               ; preds = %17
-  %24 = ptrtoint ptr %5 to i64
-  %25 = ptrtoint ptr %.pre3.i to i64
-  %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %14, i64 noundef 80) #29
-  %28 = load ptr, ptr %0, align 8, !tbaa !25
-  %29 = getelementptr inbounds i8, ptr %28, i64 %26
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit: ; preds = %4, %21, %23
-  %30 = phi ptr [ %.pre3.i, %4 ], [ %28, %23 ], [ %.pre.i, %21 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %29, %23 ], [ %5, %21 ]
-  %31 = load i32, ptr %11, align 8, !tbaa !26
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %30, i64 %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %33, ptr noundef nonnull align 8 dereferenceable(80) %.016.i.i.i, i64 80, i1 false)
-  %34 = load i32, ptr %11, align 8, !tbaa !26
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %11, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefENS_13BitcodeModuleEELb1EE9push_backERKS4_.exit: ; preds = %4, %21, %.critedge.i.i.i
+  %29 = phi ptr [ %.pre3.i, %4 ], [ %26, %21 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %27, %21 ], [ %5, %.critedge.i.i.i ]
+  %30 = load i32, ptr %11, align 8, !tbaa !26
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %29, i64 %31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %32, ptr noundef nonnull align 8 dereferenceable(80) %.016.i.i.i, i64 80, i1 false)
+  %33 = load i32, ptr %11, align 8, !tbaa !26
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #29
-  %36 = load ptr, ptr %0, align 8, !tbaa !25
-  %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %36, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 -80
-  ret ptr %39
+  %35 = load ptr, ptr %0, align 8, !tbaa !25
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %35, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 -80
+  ret ptr %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

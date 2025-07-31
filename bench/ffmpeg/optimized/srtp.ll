@@ -17,14 +17,14 @@ define void @ff_srtp_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  tail call void @av_freep(ptr noundef nonnull %0) #8
+  tail call void @av_freep(ptr noundef nonnull %0) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @av_hmac_free(ptr noundef nonnull %4) #8
+  tail call void @av_hmac_free(ptr noundef nonnull %4) #9
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -54,19 +54,19 @@ define range(i32 -22, 1) i32 @ff_srtp_set_crypto(ptr noundef %0, ptr noundef %1,
   %14 = alloca [16 x i8], align 16
   %15 = alloca [16 x i8], align 16
   %16 = alloca [30 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %16) #9
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ff_srtp_free.exit, label %17
 
 17:                                               ; preds = %3
-  tail call void @av_freep(ptr noundef nonnull %0) #8
+  tail call void @av_freep(ptr noundef nonnull %0) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %19, null
   br i1 %.not6.i, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @av_hmac_free(ptr noundef nonnull %19) #8
+  tail call void @av_hmac_free(ptr noundef nonnull %19) #9
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -74,12 +74,12 @@ define range(i32 -22, 1) i32 @ff_srtp_set_crypto(ptr noundef %0, ptr noundef %1,
   br label %ff_srtp_free.exit
 
 ff_srtp_free.exit:                                ; preds = %3, %21
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str) #9
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str) #10
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %ff_srtp_free.exit
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.1) #9
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.1) #10
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %25, label %28
 
@@ -91,7 +91,7 @@ ff_srtp_free.exit:                                ; preds = %3, %21
   br label %39
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str.2) #9
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str.2) #10
   %.not40 = icmp eq i32 %29, 0
   br i1 %.not40, label %30, label %33
 
@@ -103,7 +103,7 @@ ff_srtp_free.exit:                                ; preds = %3, %21
   br label %39
 
 33:                                               ; preds = %28
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.3) #9
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(28) @.str.3) #10
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %35, label %38
 
@@ -115,22 +115,22 @@ ff_srtp_free.exit:                                ; preds = %3, %21
   br label %39
 
 38:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #9
   br label %169
 
 39:                                               ; preds = %30, %35, %25
-  %40 = call i32 @av_base64_decode(ptr noundef nonnull %16, ptr noundef %2, i32 noundef 30) #8
+  %40 = call i32 @av_base64_decode(ptr noundef nonnull %16, ptr noundef %2, i32 noundef 30) #9
   %.not42 = icmp eq i32 %40, 30
   br i1 %.not42, label %42, label %41
 
 41:                                               ; preds = %39
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.5) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.5) #9
   br label %169
 
 42:                                               ; preds = %39
-  %43 = call ptr @av_aes_alloc() #8
+  %43 = call ptr @av_aes_alloc() #9
   store ptr %43, ptr %0, align 8, !tbaa !14
-  %44 = call ptr @av_hmac_alloc(i32 noundef 1) #8
+  %44 = call ptr @av_hmac_alloc(i32 noundef 1) #9
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !4
   %46 = load ptr, ptr %0, align 8, !tbaa !14
@@ -145,10 +145,10 @@ ff_srtp_free.exit:                                ; preds = %3, %21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %49, ptr noundef nonnull align 16 dereferenceable(14) %50, i64 14, i1 false)
-  %51 = call i32 @av_aes_init(ptr noundef nonnull %46, ptr noundef nonnull %48, i32 noundef 128, i32 noundef 0) #8
+  %51 = call i32 @av_aes_init(ptr noundef nonnull %46, ptr noundef nonnull %48, i32 noundef 128, i32 noundef 0) #9
   %52 = load ptr, ptr %0, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %15, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 14
@@ -157,10 +157,10 @@ ff_srtp_free.exit:                                ; preds = %3, %21
 55:                                               ; preds = %67, %47
   %.020.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %67 ]
   %.01519.i.i = phi i16 [ 0, %47 ], [ %68, %67 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
   %56 = call i16 @llvm.bswap.i16(i16 %.01519.i.i)
   store i16 %56, ptr %54, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %52, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %52, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i = shl i64 %.020.i.i, 32
   %57 = ashr exact i64 %sext.i.i, 32
   br label %58
@@ -182,15 +182,15 @@ ff_srtp_free.exit:                                ; preds = %3, %21
   br i1 %66, label %58, label %67, !llvm.loop !16
 
 67:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
   %68 = add i16 %.01519.i.i, 1
   br i1 %65, label %55, label %derive_key.exit, !llvm.loop !18
 
 derive_key.exit:                                  ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #9
   %69 = load ptr, ptr %0, align 8, !tbaa !14
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %13, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 7
   %72 = load i8, ptr %71, align 1, !tbaa !15
@@ -203,10 +203,10 @@ derive_key.exit:                                  ; preds = %67
 75:                                               ; preds = %87, %derive_key.exit
   %.020.i.i45 = phi i64 [ 0, %derive_key.exit ], [ %indvars.iv.next.i.i51, %87 ]
   %.01519.i.i46 = phi i16 [ 0, %derive_key.exit ], [ %88, %87 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #9
   %76 = call i16 @llvm.bswap.i16(i16 %.01519.i.i46)
   store i16 %76, ptr %74, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %69, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %69, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i47 = shl i64 %.020.i.i45, 32
   %77 = ashr exact i64 %sext.i.i47, 32
   br label %78
@@ -228,15 +228,15 @@ derive_key.exit:                                  ; preds = %67
   br i1 %86, label %78, label %87, !llvm.loop !16
 
 87:                                               ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #9
   %88 = add i16 %.01519.i.i46, 1
   br i1 %85, label %75, label %derive_key.exit52, !llvm.loop !18
 
 derive_key.exit52:                                ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
   %89 = load ptr, ptr %0, align 8, !tbaa !14
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %11, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 7
   %92 = load i8, ptr %91, align 1, !tbaa !15
@@ -249,10 +249,10 @@ derive_key.exit52:                                ; preds = %87
 95:                                               ; preds = %107, %derive_key.exit52
   %.020.i.i53 = phi i64 [ 0, %derive_key.exit52 ], [ %indvars.iv.next.i.i59, %107 ]
   %.01519.i.i54 = phi i16 [ 0, %derive_key.exit52 ], [ %108, %107 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
   %96 = call i16 @llvm.bswap.i16(i16 %.01519.i.i54)
   store i16 %96, ptr %94, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %89, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %89, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i55 = shl i64 %.020.i.i53, 32
   %97 = ashr exact i64 %sext.i.i55, 32
   br label %98
@@ -274,15 +274,15 @@ derive_key.exit52:                                ; preds = %87
   br i1 %106, label %98, label %107, !llvm.loop !16
 
 107:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
   %108 = add i16 %.01519.i.i54, 1
   br i1 %105, label %95, label %derive_key.exit60, !llvm.loop !18
 
 derive_key.exit60:                                ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #9
   %109 = load ptr, ptr %0, align 8, !tbaa !14
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %9, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %112 = load i8, ptr %111, align 1, !tbaa !15
@@ -295,10 +295,10 @@ derive_key.exit60:                                ; preds = %107
 115:                                              ; preds = %127, %derive_key.exit60
   %.020.i.i61 = phi i64 [ 0, %derive_key.exit60 ], [ %indvars.iv.next.i.i67, %127 ]
   %.01519.i.i62 = phi i16 [ 0, %derive_key.exit60 ], [ %128, %127 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   %116 = call i16 @llvm.bswap.i16(i16 %.01519.i.i62)
   store i16 %116, ptr %114, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %109, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %109, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i63 = shl i64 %.020.i.i61, 32
   %117 = ashr exact i64 %sext.i.i63, 32
   br label %118
@@ -320,15 +320,15 @@ derive_key.exit60:                                ; preds = %107
   br i1 %126, label %118, label %127, !llvm.loop !16
 
 127:                                              ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   %128 = add i16 %.01519.i.i62, 1
   br i1 %125, label %115, label %derive_key.exit68, !llvm.loop !18
 
 derive_key.exit68:                                ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
   %129 = load ptr, ptr %0, align 8, !tbaa !14
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %7, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %132 = load i8, ptr %131, align 1, !tbaa !15
@@ -341,10 +341,10 @@ derive_key.exit68:                                ; preds = %127
 135:                                              ; preds = %147, %derive_key.exit68
   %.020.i.i69 = phi i64 [ 0, %derive_key.exit68 ], [ %indvars.iv.next.i.i75, %147 ]
   %.01519.i.i70 = phi i16 [ 0, %derive_key.exit68 ], [ %148, %147 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   %136 = call i16 @llvm.bswap.i16(i16 %.01519.i.i70)
   store i16 %136, ptr %134, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %129, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %129, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i71 = shl i64 %.020.i.i69, 32
   %137 = ashr exact i64 %sext.i.i71, 32
   br label %138
@@ -366,15 +366,15 @@ derive_key.exit68:                                ; preds = %127
   br i1 %146, label %138, label %147, !llvm.loop !16
 
 147:                                              ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %148 = add i16 %.01519.i.i70, 1
   br i1 %145, label %135, label %derive_key.exit76, !llvm.loop !18
 
 derive_key.exit76:                                ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
   %149 = load ptr, ptr %0, align 8, !tbaa !14
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %5, ptr noundef nonnull readonly align 1 dereferenceable(14) %49, i64 14, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %152 = load i8, ptr %151, align 1, !tbaa !15
@@ -387,10 +387,10 @@ derive_key.exit76:                                ; preds = %147
 155:                                              ; preds = %167, %derive_key.exit76
   %.020.i.i77 = phi i64 [ 0, %derive_key.exit76 ], [ %indvars.iv.next.i.i83, %167 ]
   %.01519.i.i78 = phi i16 [ 0, %derive_key.exit76 ], [ %168, %167 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   %156 = call i16 @llvm.bswap.i16(i16 %.01519.i.i78)
   store i16 %156, ptr %154, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %149, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %149, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i.i79 = shl i64 %.020.i.i77, 32
   %157 = ashr exact i64 %sext.i.i79, 32
   br label %158
@@ -412,17 +412,17 @@ derive_key.exit76:                                ; preds = %147
   br i1 %166, label %158, label %167, !llvm.loop !16
 
 167:                                              ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   %168 = add i16 %.01519.i.i78, 1
   br i1 %165, label %155, label %derive_key.exit84, !llvm.loop !18
 
 derive_key.exit84:                                ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
   br label %169
 
 169:                                              ; preds = %42, %derive_key.exit84, %41, %38
   %.0 = phi i32 [ -22, %38 ], [ -22, %41 ], [ 0, %derive_key.exit84 ], [ -12, %42 ]
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %16) #9
   ret i32 %.0
 }
 
@@ -451,180 +451,180 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
-  %5 = alloca [8 x i8], align 8
-  %6 = alloca [16 x i8], align 16
-  %7 = alloca [20 x i8], align 16
-  %8 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #8
-  %9 = load i32, ptr %2, align 4, !tbaa !19
-  %10 = icmp slt i32 %9, 2
-  br i1 %10, label %encrypt_counter.exit, label %11
+  %5 = alloca [20 x i8], align 16
+  %6 = alloca [4 x i8], align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  %7 = load i32, ptr %2, align 4, !tbaa !19
+  %8 = icmp slt i32 %7, 2
+  br i1 %8, label %.critedge, label %9
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !15
-  %.fr152 = freeze i8 %13
-  %14 = and i8 %.fr152, -4
-  %or.cond = icmp eq i8 %14, -64
-  %15 = add i8 %.fr152, 56
-  %spec.select = icmp ult i8 %15, 11
-  %16 = or i1 %or.cond, %spec.select
-  %.v153 = select i1 %16, i64 20, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.v153
-  %18 = load i32, ptr %17, align 4, !tbaa !19
-  %19 = icmp slt i32 %9, %18
-  br i1 %19, label %encrypt_counter.exit, label %20
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %11 = load i8, ptr %10, align 1, !tbaa !15
+  %.fr146 = freeze i8 %11
+  %12 = and i8 %.fr146, -4
+  %or.cond = icmp eq i8 %12, -64
+  %13 = add i8 %.fr146, 56
+  %spec.select = icmp ult i8 %13, 11
+  %14 = or i1 %or.cond, %spec.select
+  %.v147 = select i1 %14, i64 20, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.v147
+  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %17 = icmp slt i32 %7, %16
+  br i1 %17, label %.critedge, label %18
 
-20:                                               ; preds = %11
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !4
-  %.v = select i1 %16, i64 134, i64 114
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  tail call void @av_hmac_init(ptr noundef %22, ptr noundef nonnull %23, i32 noundef 20) #8
-  %24 = load ptr, ptr %21, align 8, !tbaa !4
-  %25 = sub nsw i32 %9, %18
-  tail call void @av_hmac_update(ptr noundef %24, ptr noundef nonnull %1, i32 noundef %25) #8
-  br i1 %16, label %62, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !4
+  %.v = select i1 %14, i64 134, i64 114
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
+  tail call void @av_hmac_init(ptr noundef %20, ptr noundef nonnull %21, i32 noundef 20) #9
+  %22 = load ptr, ptr %19, align 8, !tbaa !4
+  %23 = sub nsw i32 %7, %16
+  tail call void @av_hmac_update(ptr noundef %22, ptr noundef nonnull %1, i32 noundef %23) #9
+  br i1 %14, label %60, label %24
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %28 = load i16, ptr %27, align 1, !tbaa !15
-  %29 = tail call i16 @llvm.bswap.i16(i16 %28)
-  %30 = zext i16 %29 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %32 = load i32, ptr %31, align 8, !tbaa !20
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %36, label %33
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %26 = load i16, ptr %25, align 1, !tbaa !15
+  %27 = tail call i16 @llvm.bswap.i16(i16 %26)
+  %28 = zext i16 %27 to i32
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %30 = load i32, ptr %29, align 8, !tbaa !20
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %34, label %31
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %35 = load i32, ptr %34, align 4, !tbaa !21
-  br label %36
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %33 = load i32, ptr %32, align 4, !tbaa !21
+  br label %34
 
-36:                                               ; preds = %26, %33
-  %37 = phi i32 [ %35, %33 ], [ %30, %26 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %39 = load i32, ptr %38, align 4, !tbaa !22
-  %40 = icmp slt i32 %37, 32768
-  br i1 %40, label %41, label %45
+34:                                               ; preds = %24, %31
+  %35 = phi i32 [ %33, %31 ], [ %28, %24 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %37 = load i32, ptr %36, align 4, !tbaa !22
+  %38 = icmp slt i32 %35, 32768
+  br i1 %38, label %39, label %43
 
-41:                                               ; preds = %36
-  %42 = sub nsw i32 %30, %37
-  %43 = icmp sgt i32 %42, 32768
-  %44 = sext i1 %43 to i32
-  br label %49
+39:                                               ; preds = %34
+  %40 = sub nsw i32 %28, %35
+  %41 = icmp sgt i32 %40, 32768
+  %42 = sext i1 %41 to i32
+  br label %47
 
-45:                                               ; preds = %36
-  %46 = add nsw i32 %37, -32768
-  %47 = icmp samesign ugt i32 %46, %30
-  %48 = zext i1 %47 to i32
-  br label %49
+43:                                               ; preds = %34
+  %44 = add nsw i32 %35, -32768
+  %45 = icmp samesign ugt i32 %44, %28
+  %46 = zext i1 %45 to i32
+  br label %47
 
-49:                                               ; preds = %45, %41
-  %.pn = phi i32 [ %44, %41 ], [ %48, %45 ]
-  %.0111 = add i32 %.pn, %39
-  %50 = icmp eq i32 %.pn, 0
-  br i1 %50, label %51, label %53
+47:                                               ; preds = %43, %39
+  %.pn = phi i32 [ %42, %39 ], [ %46, %43 ]
+  %.0111 = add i32 %.pn, %37
+  %48 = icmp eq i32 %.pn, 0
+  br i1 %48, label %49, label %51
 
-51:                                               ; preds = %49
-  %52 = tail call i32 @llvm.smax.i32(i32 %37, i32 %30)
-  br label %55
+49:                                               ; preds = %47
+  %50 = tail call i32 @llvm.smax.i32(i32 %35, i32 %28)
+  br label %53
 
-53:                                               ; preds = %49
-  %54 = icmp eq i32 %.pn, 1
-  %spec.select142 = select i1 %54, i32 %.0111, i32 %39
-  %spec.select143 = select i1 %54, i32 %30, i32 %37
-  br label %55
+51:                                               ; preds = %47
+  %52 = icmp eq i32 %.pn, 1
+  %spec.select142 = select i1 %52, i32 %.0111, i32 %37
+  %spec.select143 = select i1 %52, i32 %28, i32 %35
+  br label %53
 
-55:                                               ; preds = %53, %51
-  %.1123 = phi i32 [ %39, %51 ], [ %spec.select142, %53 ]
-  %.1118 = phi i32 [ %52, %51 ], [ %spec.select143, %53 ]
-  %56 = zext i16 %29 to i64
-  %57 = zext i32 %.0111 to i64
-  %58 = shl nuw nsw i64 %57, 16
-  %59 = or disjoint i64 %58, %56
-  %60 = tail call i32 @llvm.bswap.i32(i32 %.1123)
-  store i32 %60, ptr %8, align 4, !tbaa !15
-  %61 = load ptr, ptr %21, align 8, !tbaa !4
-  call void @av_hmac_update(ptr noundef %61, ptr noundef nonnull %8, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  br label %62
+53:                                               ; preds = %51, %49
+  %.1123 = phi i32 [ %37, %49 ], [ %spec.select142, %51 ]
+  %.1118 = phi i32 [ %50, %49 ], [ %spec.select143, %51 ]
+  %54 = zext i16 %27 to i64
+  %55 = zext i32 %.0111 to i64
+  %56 = shl nuw nsw i64 %55, 16
+  %57 = or disjoint i64 %56, %54
+  %58 = tail call i32 @llvm.bswap.i32(i32 %.1123)
+  store i32 %58, ptr %6, align 4, !tbaa !15
+  %59 = load ptr, ptr %19, align 8, !tbaa !4
+  call void @av_hmac_update(ptr noundef %59, ptr noundef nonnull %6, i32 noundef 4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  br label %60
 
-62:                                               ; preds = %55, %20
-  %.0122 = phi i32 [ undef, %20 ], [ %.1123, %55 ]
-  %.0120 = phi i64 [ undef, %20 ], [ %59, %55 ]
-  %.0117 = phi i32 [ undef, %20 ], [ %.1118, %55 ]
-  %63 = load ptr, ptr %21, align 8, !tbaa !4
-  %64 = call i32 @av_hmac_final(ptr noundef %63, ptr noundef nonnull %7, i32 noundef 20) #8
-  %65 = zext nneg i32 %9 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %65
-  %67 = sext i32 %18 to i64
-  %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds i8, ptr %66, i64 %68
-  %bcmp = call i32 @bcmp(ptr nonnull %7, ptr nonnull %69, i64 %67)
+60:                                               ; preds = %53, %18
+  %.0122 = phi i32 [ undef, %18 ], [ %.1123, %53 ]
+  %.0120 = phi i64 [ undef, %18 ], [ %57, %53 ]
+  %.0117 = phi i32 [ undef, %18 ], [ %.1118, %53 ]
+  %61 = load ptr, ptr %19, align 8, !tbaa !4
+  %62 = call i32 @av_hmac_final(ptr noundef %61, ptr noundef nonnull %5, i32 noundef 20) #9
+  %63 = zext nneg i32 %7 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
+  %65 = sext i32 %16 to i64
+  %66 = sub nsw i64 0, %65
+  %67 = getelementptr inbounds i8, ptr %64, i64 %66
+  %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %67, i64 %65)
   %.not135 = icmp eq i32 %bcmp, 0
-  br i1 %.not135, label %71, label %70
+  br i1 %.not135, label %69, label %68
 
-70:                                               ; preds = %62
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.6) #8
-  br label %encrypt_counter.exit
+68:                                               ; preds = %60
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.6) #9
+  br label %.critedge
 
-71:                                               ; preds = %62
-  store i32 %25, ptr %2, align 4, !tbaa !19
-  %72 = icmp slt i32 %25, 12
-  br i1 %72, label %encrypt_counter.exit, label %73
+69:                                               ; preds = %60
+  store i32 %23, ptr %2, align 4, !tbaa !19
+  %70 = icmp slt i32 %23, 12
+  br i1 %70, label %.critedge, label %71
 
-73:                                               ; preds = %71
-  br i1 %16, label %74, label %87
+71:                                               ; preds = %69
+  br i1 %14, label %72, label %86
 
-74:                                               ; preds = %73
-  %75 = zext nneg i32 %25 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 -4
-  %78 = load i32, ptr %77, align 1, !tbaa !15
-  %79 = call i32 @llvm.bswap.i32(i32 %78)
-  %80 = add nsw i32 %25, -4
-  store i32 %80, ptr %2, align 4, !tbaa !19
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %82 = load i32, ptr %81, align 1, !tbaa !15
-  %83 = and i32 %79, 2147483647
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = add nsw i32 %25, -12
-  %.not137 = icmp slt i32 %79, 0
-  br i1 %.not137, label %119, label %encrypt_counter.exit
+72:                                               ; preds = %71
+  %73 = zext nneg i32 %23 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
+  %75 = getelementptr inbounds i8, ptr %74, i64 -4
+  %76 = load i32, ptr %75, align 1, !tbaa !15
+  %77 = call i32 @llvm.bswap.i32(i32 %76)
+  %78 = add nsw i32 %23, -4
+  store i32 %78, ptr %2, align 4, !tbaa !19
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %80 = load i32, ptr %79, align 1, !tbaa !15
+  %81 = call i32 @llvm.bswap.i32(i32 %80)
+  %82 = and i32 %77, 2147483647
+  %83 = zext nneg i32 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %85 = add nsw i32 %23, -12
+  %.not137 = icmp slt i32 %77, 0
+  br i1 %.not137, label %119, label %.critedge
 
-87:                                               ; preds = %73
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 1, ptr %88, align 8, !tbaa !20
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %.0117, ptr %89, align 4, !tbaa !21
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %.0122, ptr %90, align 4, !tbaa !22
-  %91 = load i8, ptr %1, align 1, !tbaa !15
-  %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %94 = load i32, ptr %93, align 1, !tbaa !15
+86:                                               ; preds = %71
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 1, ptr %87, align 8, !tbaa !20
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i32 %.0117, ptr %88, align 4, !tbaa !21
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  store i32 %.0122, ptr %89, align 4, !tbaa !22
+  %90 = load i8, ptr %1, align 1, !tbaa !15
+  %91 = zext i8 %90 to i32
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %93 = load i32, ptr %92, align 1, !tbaa !15
+  %94 = call i32 @llvm.bswap.i32(i32 %93)
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %96 = add nsw i32 %25, -12
-  %97 = shl nuw nsw i32 %92, 2
+  %96 = add nsw i32 %23, -12
+  %97 = shl nuw nsw i32 %91, 2
   %98 = and i32 %97, 60
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 %99
   %101 = sub nsw i32 %96, %98
   %102 = icmp slt i32 %101, 0
-  br i1 %102, label %encrypt_counter.exit, label %103
+  br i1 %102, label %.critedge, label %103
 
-103:                                              ; preds = %87
-  %104 = and i32 %92, 16
+103:                                              ; preds = %86
+  %104 = and i32 %91, 16
   %.not136 = icmp eq i32 %104, 0
   br i1 %.not136, label %119, label %105
 
 105:                                              ; preds = %103
   %106 = icmp samesign ult i32 %101, 4
-  br i1 %106, label %encrypt_counter.exit, label %107
+  br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 2
@@ -634,7 +634,7 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %112 = shl nuw nsw i32 %111, 2
   %113 = add nuw nsw i32 %112, 4
   %114 = icmp samesign ult i32 %101, %113
-  br i1 %114, label %encrypt_counter.exit, label %115
+  br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %107
   %116 = sub nuw nsw i32 %101, %113
@@ -642,102 +642,26 @@ define range(i32 -1094995529, 1) i32 @ff_srtp_decrypt(ptr noundef %0, ptr nounde
   %118 = getelementptr inbounds nuw i8, ptr %100, i64 %117
   br label %119
 
-119:                                              ; preds = %115, %103, %74
-  %.v139 = phi i64 [ 70, %74 ], [ 54, %103 ], [ 54, %115 ]
-  %.v138 = phi i64 [ 100, %74 ], [ 86, %103 ], [ 86, %115 ]
-  %.1121 = phi i64 [ %84, %74 ], [ %.0120, %103 ], [ %.0120, %115 ]
-  %.0119 = phi i32 [ %82, %74 ], [ %94, %103 ], [ %94, %115 ]
-  %.0112 = phi i32 [ %86, %74 ], [ %101, %103 ], [ %116, %115 ]
-  %.0108 = phi ptr [ %85, %74 ], [ %100, %103 ], [ %118, %115 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %120 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %.0119, ptr %120, align 4, !tbaa !15
-  %121 = call noundef i64 @llvm.bswap.i64(i64 %.1121)
-  store i64 %121, ptr %5, align 8, !tbaa !15
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 6
-  br label %122
+119:                                              ; preds = %115, %103, %72
+  %.v139 = phi i64 [ 70, %72 ], [ 54, %103 ], [ 54, %115 ]
+  %.v138 = phi i64 [ 100, %72 ], [ 86, %103 ], [ 86, %115 ]
+  %.1121 = phi i64 [ %83, %72 ], [ %.0120, %103 ], [ %.0120, %115 ]
+  %.0119 = phi i32 [ %81, %72 ], [ %94, %103 ], [ %94, %115 ]
+  %.0112 = phi i32 [ %85, %72 ], [ %101, %103 ], [ %116, %115 ]
+  %.0108 = phi ptr [ %84, %72 ], [ %100, %103 ], [ %118, %115 ]
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.v138
+  call fastcc void @create_iv(ptr noundef %4, ptr noundef nonnull %120, i64 noundef %.1121, i32 noundef %.0119)
+  %121 = load ptr, ptr %0, align 8, !tbaa !14
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 %.v139
+  %123 = call i32 @av_aes_init(ptr noundef %121, ptr noundef nonnull %122, i32 noundef 128, i32 noundef 0) #9
+  %124 = load ptr, ptr %0, align 8, !tbaa !14
+  call fastcc void @encrypt_counter(ptr noundef %124, ptr noundef %4, ptr noundef nonnull %.0108, i32 noundef %.0112)
+  br label %.critedge
 
-122:                                              ; preds = %122, %119
-  %indvars.iv.i = phi i64 [ 0, %119 ], [ %indvars.iv.next.i, %122 ]
-  %123 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %124 = load i8, ptr %123, align 1, !tbaa !15
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %125 = load i8, ptr %gep.i, align 1, !tbaa !15
-  %126 = xor i8 %125, %124
-  store i8 %126, ptr %gep.i, align 1, !tbaa !15
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %122, !llvm.loop !23
-
-.preheader.i.preheader:                           ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.v138
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv17.i
-  %129 = load i8, ptr %128, align 1, !tbaa !15
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv17.i
-  %131 = load i8, ptr %130, align 1, !tbaa !15
-  %132 = xor i8 %131, %129
-  store i8 %132, ptr %130, align 1, !tbaa !15
-  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
-  %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 14
-  br i1 %exitcond20.not.i, label %create_iv.exit, label %.preheader.i, !llvm.loop !24
-
-create_iv.exit:                                   ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  %133 = load ptr, ptr %0, align 8, !tbaa !14
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 %.v139
-  %135 = call i32 @av_aes_init(ptr noundef %133, ptr noundef nonnull %134, i32 noundef 128, i32 noundef 0) #8
-  %136 = load ptr, ptr %0, align 8, !tbaa !14
-  %.not154 = icmp eq i32 %.0112, 0
-  br i1 %.not154, label %encrypt_counter.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %create_iv.exit
-  %137 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  %138 = zext nneg i32 %.0112 to i64
-  br label %139
-
-139:                                              ; preds = %151, %.lr.ph.i
-  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i145, %151 ]
-  %.01519.i = phi i16 [ 0, %.lr.ph.i ], [ %153, %151 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
-  %140 = call i16 @llvm.bswap.i16(i16 %.01519.i)
-  store i16 %140, ptr %137, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %136, ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
-  %sext.i = shl i64 %.020.i, 32
-  %141 = ashr exact i64 %sext.i, 32
-  br label %142
-
-142:                                              ; preds = %142, %139
-  %indvars.iv21.i = phi i64 [ 0, %139 ], [ %indvars.iv.next22.i, %142 ]
-  %indvars.iv.i144 = phi i64 [ %141, %139 ], [ %indvars.iv.next.i145, %142 ]
-  %143 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv21.i
-  %144 = load i8, ptr %143, align 1, !tbaa !15
-  %145 = getelementptr inbounds i8, ptr %.0108, i64 %indvars.iv.i144
-  %146 = load i8, ptr %145, align 1, !tbaa !15
-  %147 = xor i8 %146, %144
-  store i8 %147, ptr %145, align 1, !tbaa !15
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %indvars.iv.next.i145 = add nsw i64 %indvars.iv.i144, 1
-  %148 = icmp samesign ult i64 %indvars.iv21.i, 15
-  %149 = icmp slt i64 %indvars.iv.next.i145, %138
-  %150 = select i1 %148, i1 %149, i1 false
-  br i1 %150, label %142, label %151, !llvm.loop !16
-
-151:                                              ; preds = %142
-  %152 = trunc nsw i64 %indvars.iv.next.i145 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
-  %153 = add i16 %.01519.i, 1
-  %154 = icmp sgt i32 %.0112, %152
-  br i1 %154, label %139, label %encrypt_counter.exit, !llvm.loop !18
-
-encrypt_counter.exit:                             ; preds = %151, %107, %105, %87, %create_iv.exit, %71, %11, %3, %74, %70
-  %.0 = phi i32 [ -1094995529, %70 ], [ 0, %74 ], [ -1094995529, %3 ], [ -1094995529, %11 ], [ -1094995529, %71 ], [ 0, %create_iv.exit ], [ -1094995529, %87 ], [ -1094995529, %105 ], [ -1094995529, %107 ], [ 0, %151 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+.critedge:                                        ; preds = %86, %105, %107, %69, %9, %3, %72, %119, %68
+  %.0 = phi i32 [ -1094995529, %68 ], [ 0, %119 ], [ 0, %72 ], [ -1094995529, %3 ], [ -1094995529, %9 ], [ -1094995529, %69 ], [ -1094995529, %107 ], [ -1094995529, %105 ], [ -1094995529, %86 ]
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   ret i32 %.0
 }
 
@@ -750,6 +674,97 @@ declare void @av_hmac_update(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 declare i32 @av_hmac_final(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @create_iv(ptr noundef nonnull captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #6 {
+  %5 = alloca [8 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  %6 = tail call i32 @llvm.bswap.i32(i32 %3)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %6, ptr %7, align 1, !tbaa !15
+  %8 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  store i64 %8, ptr %5, align 8, !tbaa !15
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 6
+  br label %9
+
+9:                                                ; preds = %4, %9
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1, !tbaa !15
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %12 = load i8, ptr %gep, align 1, !tbaa !15
+  %13 = xor i8 %12, %11
+  store i8 %13, ptr %gep, align 1, !tbaa !15
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %.preheader, label %9, !llvm.loop !23
+
+.preheader:                                       ; preds = %9, %.preheader
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.preheader ], [ 0, %9 ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv17
+  %15 = load i8, ptr %14, align 1, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv17
+  %17 = load i8, ptr %16, align 1, !tbaa !15
+  %18 = xor i8 %17, %15
+  store i8 %18, ptr %16, align 1, !tbaa !15
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %exitcond20.not = icmp eq i64 %indvars.iv.next18, 14
+  br i1 %exitcond20.not, label %19, label %.preheader, !llvm.loop !24
+
+19:                                               ; preds = %.preheader
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @encrypt_counter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, i32 noundef range(i32 -262140, 2147483640) %3) unnamed_addr #0 {
+  %5 = alloca [16 x i8], align 16
+  %6 = icmp sgt i32 %3, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %8 = zext nneg i32 %3 to i64
+  br label %9
+
+9:                                                ; preds = %.lr.ph, %21
+  %.020 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.01519 = phi i16 [ 0, %.lr.ph ], [ %23, %21 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  %10 = call i16 @llvm.bswap.i16(i16 %.01519)
+  store i16 %10, ptr %7, align 1, !tbaa !15
+  call void @av_aes_crypt(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
+  %sext = shl i64 %.020, 32
+  %11 = ashr exact i64 %sext, 32
+  br label %12
+
+12:                                               ; preds = %9, %12
+  %indvars.iv21 = phi i64 [ 0, %9 ], [ %indvars.iv.next22, %12 ]
+  %indvars.iv = phi i64 [ %11, %9 ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv21
+  %14 = load i8, ptr %13, align 1, !tbaa !15
+  %15 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %16 = load i8, ptr %15, align 1, !tbaa !15
+  %17 = xor i8 %16, %14
+  store i8 %17, ptr %15, align 1, !tbaa !15
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %18 = icmp samesign ult i64 %indvars.iv21, 15
+  %19 = icmp slt i64 %indvars.iv.next, %8
+  %20 = select i1 %18, i1 %19, i1 false
+  br i1 %20, label %12, label %21, !llvm.loop !16
+
+21:                                               ; preds = %12
+  %22 = trunc nsw i64 %indvars.iv.next to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  %23 = add i16 %.01519, 1
+  %24 = icmp sgt i32 %3, %22
+  br i1 %24, label %9, label %._crit_edge, !llvm.loop !18
+
+._crit_edge:                                      ; preds = %21, %4
+  ret void
+}
+
 ; Function Attrs: nounwind uwtable
 define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
@@ -757,21 +772,21 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %8 = alloca [16 x i8], align 16
   %9 = alloca [20 x i8], align 16
   %10 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
   %11 = icmp slt i32 %2, 8
-  br i1 %11, label %.thread115, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !15
-  %.fr124 = freeze i8 %14
-  %15 = and i8 %.fr124, -4
+  %.fr118 = freeze i8 %14
+  %15 = and i8 %.fr118, -4
   %or.cond = icmp eq i8 %15, -64
-  br i1 %or.cond, label %.thread121, label %16
+  br i1 %or.cond, label %.thread115, label %16
 
 16:                                               ; preds = %12
-  %17 = add i8 %.fr124, 56
+  %17 = add i8 %.fr118, 56
   %spec.select = icmp ult i8 %17, 11
   br i1 %spec.select, label %18, label %.thread
 
@@ -781,25 +796,25 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %21 = add nsw i32 %20, 4
   %22 = add nsw i32 %21, %2
   %23 = icmp sgt i32 %22, %4
-  br i1 %23, label %.thread115, label %.thread122
+  br i1 %23, label %.critedge, label %.thread116
 
 .thread:                                          ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %26 = add nsw i32 %25, %2
   %27 = icmp sgt i32 %26, %4
-  br i1 %27, label %.thread115, label %43
+  br i1 %27, label %.critedge, label %43
 
-.thread121:                                       ; preds = %12
+.thread115:                                       ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = add nuw i32 %2, 4
   %31 = add i32 %30, %29
   %32 = icmp sgt i32 %31, %4
-  br i1 %32, label %.thread115, label %.thread122
+  br i1 %32, label %.critedge, label %.thread116
 
-.thread122:                                       ; preds = %18, %.thread121
-  %33 = phi i32 [ %29, %.thread121 ], [ %20, %18 ]
+.thread116:                                       ; preds = %18, %.thread115
+  %33 = phi i32 [ %29, %.thread115 ], [ %20, %18 ]
   %34 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %1, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -821,7 +836,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %47 = tail call i16 @llvm.bswap.i16(i16 %46)
   %48 = zext i16 %47 to i32
   %49 = icmp samesign ult i32 %2, 12
-  br i1 %49, label %.thread115, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -855,7 +870,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 %71
   %73 = sub nsw i32 %68, %70
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %.thread115, label %75
+  br i1 %74, label %.critedge, label %75
 
 75:                                               ; preds = %._crit_edge
   %76 = and i32 %66, 16
@@ -864,7 +879,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
 
 77:                                               ; preds = %75
   %78 = icmp samesign ult i32 %73, 4
-  br i1 %78, label %.thread115, label %79
+  br i1 %78, label %.critedge, label %79
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 2
@@ -874,7 +889,7 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %84 = shl nuw nsw i32 %83, 2
   %85 = add nuw nsw i32 %84, 4
   %86 = icmp samesign ult i32 %73, %85
-  br i1 %86, label %.thread115, label %87
+  br i1 %86, label %.critedge, label %87
 
 87:                                               ; preds = %79
   %88 = sub nuw nsw i32 %73, %85
@@ -882,16 +897,16 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 %89
   br label %91
 
-91:                                               ; preds = %87, %75, %.thread122
-  %92 = phi i32 [ %33, %.thread122 ], [ %25, %75 ], [ %25, %87 ]
-  %93 = phi i1 [ true, %.thread122 ], [ false, %75 ], [ false, %87 ]
-  %.v106 = phi i64 [ 70, %.thread122 ], [ 54, %75 ], [ 54, %87 ]
-  %.v = phi i64 [ 100, %.thread122 ], [ 86, %75 ], [ 86, %87 ]
-  %.099 = phi i32 [ %36, %.thread122 ], [ %52, %75 ], [ %52, %87 ]
-  %.097 = phi i64 [ %40, %.thread122 ], [ %64, %75 ], [ %64, %87 ]
-  %.093 = phi ptr [ %41, %.thread122 ], [ %72, %75 ], [ %90, %87 ]
-  %.090 = phi i32 [ %42, %.thread122 ], [ %73, %75 ], [ %88, %87 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+91:                                               ; preds = %87, %75, %.thread116
+  %92 = phi i32 [ %33, %.thread116 ], [ %25, %75 ], [ %25, %87 ]
+  %93 = phi i1 [ true, %.thread116 ], [ false, %75 ], [ false, %87 ]
+  %.v106 = phi i64 [ 70, %.thread116 ], [ 54, %75 ], [ 54, %87 ]
+  %.v = phi i64 [ 100, %.thread116 ], [ 86, %75 ], [ 86, %87 ]
+  %.099 = phi i32 [ %36, %.thread116 ], [ %52, %75 ], [ %52, %87 ]
+  %.097 = phi i64 [ %40, %.thread116 ], [ %64, %75 ], [ %64, %87 ]
+  %.093 = phi ptr [ %41, %.thread116 ], [ %72, %75 ], [ %90, %87 ]
+  %.090 = phi i32 [ %42, %.thread116 ], [ %73, %75 ], [ %88, %87 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.099, ptr %94, align 4, !tbaa !15
@@ -929,13 +944,13 @@ define i32 @ff_srtp_encrypt(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %exitcond20.not.i, label %create_iv.exit, label %.preheader.i, !llvm.loop !24
 
 create_iv.exit:                                   ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %107 = load ptr, ptr %0, align 8, !tbaa !14
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 %.v106
-  %109 = tail call i32 @av_aes_init(ptr noundef %107, ptr noundef nonnull %108, i32 noundef 128, i32 noundef 0) #8
+  %109 = tail call i32 @av_aes_init(ptr noundef %107, ptr noundef nonnull %108, i32 noundef 128, i32 noundef 0) #9
   %110 = load ptr, ptr %0, align 8, !tbaa !14
-  %.not126 = icmp eq i32 %.090, 0
-  br i1 %.not126, label %encrypt_counter.exit, label %.lr.ph.i
+  %.not120 = icmp eq i32 %.090, 0
+  br i1 %.not120, label %encrypt_counter.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %create_iv.exit
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 14
@@ -945,10 +960,10 @@ create_iv.exit:                                   ; preds = %.preheader.i
 113:                                              ; preds = %125, %.lr.ph.i
   %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i109, %125 ]
   %.01519.i = phi i16 [ 0, %.lr.ph.i ], [ %127, %125 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   %114 = call i16 @llvm.bswap.i16(i16 %.01519.i)
   store i16 %114, ptr %111, align 2, !tbaa !15
-  call void @av_aes_crypt(ptr noundef %110, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, i32 noundef 0) #8
+  call void @av_aes_crypt(ptr noundef %110, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, i32 noundef 0) #9
   %sext.i = shl i64 %.020.i, 32
   %115 = ashr exact i64 %sext.i, 32
   br label %116
@@ -971,7 +986,7 @@ create_iv.exit:                                   ; preds = %.preheader.i
 
 125:                                              ; preds = %116
   %126 = trunc nsw i64 %indvars.iv.next.i109 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %127 = add i16 %.01519.i, 1
   %128 = icmp sgt i32 %.090, %126
   br i1 %128, label %113, label %encrypt_counter.exit, !llvm.loop !18
@@ -995,7 +1010,7 @@ encrypt_counter.exit:                             ; preds = %125, %create_iv.exi
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !4
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 %.v107
-  call void @av_hmac_init(ptr noundef %138, ptr noundef nonnull %139, i32 noundef 20) #8
+  call void @av_hmac_init(ptr noundef %138, ptr noundef nonnull %139, i32 noundef 20) #9
   %140 = load ptr, ptr %137, align 8, !tbaa !4
   %141 = sext i32 %.3 to i64
   %142 = getelementptr inbounds i8, ptr %.093, i64 %141
@@ -1003,23 +1018,23 @@ encrypt_counter.exit:                             ; preds = %125, %create_iv.exi
   %144 = ptrtoint ptr %3 to i64
   %145 = sub i64 %143, %144
   %146 = trunc i64 %145 to i32
-  call void @av_hmac_update(ptr noundef %140, ptr noundef %3, i32 noundef %146) #8
+  call void @av_hmac_update(ptr noundef %140, ptr noundef %3, i32 noundef %146) #9
   br i1 %93, label %152, label %147
 
 147:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %149 = load i32, ptr %148, align 4, !tbaa !22
   %150 = call i32 @llvm.bswap.i32(i32 %149)
   store i32 %150, ptr %10, align 4, !tbaa !15
   %151 = load ptr, ptr %137, align 8, !tbaa !4
-  call void @av_hmac_update(ptr noundef %151, ptr noundef nonnull %10, i32 noundef 4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @av_hmac_update(ptr noundef %151, ptr noundef nonnull %10, i32 noundef 4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   br label %152
 
 152:                                              ; preds = %147, %136
   %153 = load ptr, ptr %137, align 8, !tbaa !4
-  %154 = call i32 @av_hmac_final(ptr noundef %153, ptr noundef nonnull %9, i32 noundef 20) #8
+  %154 = call i32 @av_hmac_final(ptr noundef %153, ptr noundef nonnull %9, i32 noundef 20) #9
   %155 = sext i32 %92 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr nonnull align 16 %9, i64 %155, i1 false)
   %156 = add nsw i32 %.3, %92
@@ -1028,31 +1043,31 @@ encrypt_counter.exit:                             ; preds = %125, %create_iv.exi
   %159 = ptrtoint ptr %158 to i64
   %160 = sub i64 %159, %144
   %161 = trunc i64 %160 to i32
-  br label %.thread115
+  br label %.critedge
 
-.thread115:                                       ; preds = %.thread, %79, %77, %._crit_edge, %43, %.thread121, %18, %5, %152
-  %.0 = phi i32 [ %161, %152 ], [ -1094995529, %5 ], [ 0, %18 ], [ 0, %.thread121 ], [ -1094995529, %43 ], [ -1094995529, %._crit_edge ], [ -1094995529, %77 ], [ -1094995529, %79 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+.critedge:                                        ; preds = %.thread, %.thread115, %43, %._crit_edge, %77, %79, %18, %5, %152
+  %.0 = phi i32 [ %161, %152 ], [ -1094995529, %5 ], [ 0, %18 ], [ -1094995529, %79 ], [ -1094995529, %77 ], [ -1094995529, %._crit_edge ], [ -1094995529, %43 ], [ 0, %.thread115 ], [ 0, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
   ret i32 %.0
 }
 
 declare void @av_aes_crypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #6
+declare i64 @llvm.bswap.i64(i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1060,10 +1075,11 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

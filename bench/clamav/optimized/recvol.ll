@@ -2586,29 +2586,30 @@ declare void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11RecVolumes5C2EP11CommandDatab(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 40), (48, 56), (64, 84), (100, 112)) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %4, align 8, !tbaa !133
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
+.critedge:
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %3, align 8, !tbaa !133
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  store i32 1, ptr %6, align 4, !tbaa !139
-  %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znam(i64 noundef 48) #16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %7, ptr %8, align 8, !tbaa !140
-  store ptr %0, ptr %7, align 8, !tbaa !141
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %9, align 8, !tbaa !145
-  br i1 %2, label %13, label %10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
+  store i32 1, ptr %5, align 4, !tbaa !139
+  %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znam(i64 noundef 48) #16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %6, ptr %7, align 8, !tbaa !140
+  store ptr %0, ptr %6, align 8, !tbaa !141
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %8, align 8, !tbaa !145
+  br i1 %2, label %12, label %9
 
-10:                                               ; preds = %3
-  %11 = tail call noalias noundef nonnull dereferenceable(67108865) ptr @_Znam(i64 noundef 67108865) #16
-  store ptr %11, ptr %4, align 8, !tbaa !133
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %11, ptr %12, align 8, !tbaa !146
-  br label %13
+9:                                                ; preds = %.critedge
+  %10 = tail call noalias noundef nonnull dereferenceable(67108865) ptr @_Znam(i64 noundef 67108865) #16
+  store ptr %10, ptr %3, align 8, !tbaa !133
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %10, ptr %11, align 8, !tbaa !146
+  br label %12
 
-13:                                               ; preds = %3, %10
+12:                                               ; preds = %.critedge, %9
   ret void
 }
 

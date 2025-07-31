@@ -518,8 +518,8 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %11 = load ptr, ptr @pendingOps, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %11) #9
   %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
-  %.not42 = icmp eq ptr %12, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq ptr %12, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %24
   %13 = phi ptr [ %25, %24 ], [ %12, %10 ]
@@ -549,20 +549,16 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %26 = load ptr, ptr @pendingUnlinks, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.not37 = icmp eq ptr %26, null
-  br i1 %.not37, label %._crit_edge46, label %.lr.ph45
+  br i1 %.not37, label %.critedge, label %.lr.ph43
 
-.lr.ph45:                                         ; preds = %._crit_edge
+.lr.ph43:                                         ; preds = %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %27, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph49, label %._crit_edge46
+  br i1 %30, label %.lr.ph46, label %.critedge
 
-._crit_edge46:                                    ; preds = %44, %.lr.ph45, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
-  br label %73
-
-.lr.ph49:                                         ; preds = %.lr.ph45, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph45 ]
+.lr.ph46:                                         ; preds = %.lr.ph43, %44
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph43 ]
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
@@ -571,7 +567,11 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %36 = icmp eq i16 %34, %35
   br i1 %36, label %37, label %44
 
-37:                                               ; preds = %.lr.ph49
+.critedge:                                        ; preds = %44, %.lr.ph43, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  br label %73
+
+37:                                               ; preds = %.lr.ph46
   %38 = sext i16 %34 to i64
   %39 = getelementptr inbounds [5 x %struct.SyncOps], ptr @syncsw, i64 0, i64 %38, i32 2
   %40 = load ptr, ptr %39, align 8
@@ -583,12 +583,12 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   store i8 1, ptr %43, align 2
   br label %44
 
-44:                                               ; preds = %42, %37, %.lr.ph49
+44:                                               ; preds = %42, %37, %.lr.ph46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %27, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph49, label %._crit_edge46
+  br i1 %47, label %.lr.ph46, label %.critedge
 
 48:                                               ; preds = %2
   %49 = load ptr, ptr @pendingOpsCxt, align 8
@@ -637,7 +637,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
   br label %73
 
-73:                                               ; preds = %5, %8, %._crit_edge46, %72, %48
+73:                                               ; preds = %5, %8, %.critedge, %72, %48
   ret void
 }
 

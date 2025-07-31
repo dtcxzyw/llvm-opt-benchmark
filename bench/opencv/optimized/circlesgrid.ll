@@ -16146,7 +16146,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK17CirclesGridFinder14get
 26:                                               ; preds = %15, %5
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %145
 
 28:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #30
@@ -16189,7 +16189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #30
-  br label %146
+  br label %145
 
 41:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #30
@@ -16209,8 +16209,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.preheader.preheader
 
 .split:                                           ; preds = %41, %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit
-  %.02457 = phi i64 [ %110, %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit ], [ 0, %41 ]
-  %49 = getelementptr inbounds nuw %"class.std::vector.79", ptr %21, i64 %.02457
+  %.02456 = phi i64 [ %110, %_ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit ], [ 0, %41 ]
+  %49 = getelementptr inbounds nuw %"class.std::vector.79", ptr %21, i64 %.02456
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !487
   %52 = load ptr, ptr %49, align 8, !tbaa !490
@@ -16311,9 +16311,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERKS0_IS3_SaIS3_EE.exit: ; preds = %._crit_edge39.us.i, %61, %.split
   %.not3135.i = phi i8 [ 0, %.split ], [ 1, %61 ], [ 0, %._crit_edge39.us.i ]
-  %109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %.02457
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %.02456
   store i8 %.not3135.i, ptr %109, align 1, !tbaa !494
-  %110 = add nuw nsw i64 %.02457, 1
+  %110 = add nuw nsw i64 %.02456, 1
   %exitcond.not = icmp eq i64 %110, 4
   br i1 %exitcond.not, label %.preheader.preheader, label %.split, !llvm.loop !495
 
@@ -16321,121 +16321,121 @@ _ZN17CirclesGridFinder21doesIntersectionExistERKSt6vectorINS_7SegmentESaIS1_EERK
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %117
-  %.02160 = phi i64 [ %118, %117 ], [ 0, %.preheader.preheader ]
-  %.02259 = phi i1 [ %.mux, %117 ], [ true, %.preheader.preheader ]
-  %.02358 = phi i32 [ %112, %117 ], [ 0, %.preheader.preheader ]
-  %111 = add nuw nsw i32 %.02358, 1
+  %.02159 = phi i64 [ %118, %117 ], [ 0, %.preheader.preheader ]
+  %.02258 = phi i1 [ %.mux, %117 ], [ true, %.preheader.preheader ]
+  %.02357 = phi i32 [ %112, %117 ], [ 0, %.preheader.preheader ]
+  %111 = add nuw nsw i32 %.02357, 1
   %112 = and i32 %111, 3
   %113 = zext nneg i32 %112 to i64
   %114 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1, !tbaa !494, !range !112, !noundef !113
   %116 = trunc nuw i8 %115 to i1
   %.not = xor i1 %116, true
-  %brmerge = select i1 %.02259, i1 true, i1 %.not
-  br i1 %brmerge, label %117, label %132
+  %brmerge = select i1 %.02258, i1 true, i1 %.not
+  br i1 %brmerge, label %117, label %131
 
 117:                                              ; preds = %.preheader
-  %.mux = select i1 %.02259, i1 %116, i1 false
-  %118 = add nuw nsw i64 %.02160, 1
-  %exitcond64 = icmp eq i64 %118, 8
-  br i1 %exitcond64, label %119, label %.preheader, !llvm.loop !496
+  %.mux = select i1 %.02258, i1 %116, i1 false
+  %118 = add nuw nsw i64 %.02159, 1
+  %exitcond63 = icmp eq i64 %118, 8
+  br i1 %exitcond63, label %.critedge, label %.preheader, !llvm.loop !496
 
-119:                                              ; preds = %117
+.critedge:                                        ; preds = %117
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %120 unwind label %122
+          to label %119 unwind label %121
+
+119:                                              ; preds = %.critedge
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -7, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_, ptr noundef nonnull @.str.1, i32 noundef 1656) #31
+          to label %120 unwind label %123
 
 120:                                              ; preds = %119
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -7, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_, ptr noundef nonnull @.str.1, i32 noundef 1656) #31
-          to label %121 unwind label %124
-
-121:                                              ; preds = %120
   unreachable
 
-122:                                              ; preds = %119
-  %123 = landingpad { ptr, i32 }
+121:                                              ; preds = %.critedge
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
-124:                                              ; preds = %120
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %119
+  %124 = landingpad { ptr, i32 }
           cleanup
-  %126 = load ptr, ptr %11, align 8, !tbaa !123
-  %127 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %128 = icmp eq ptr %126, %127
-  br i1 %128, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
+  %125 = load ptr, ptr %11, align 8, !tbaa !123
+  %126 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %127 = icmp eq ptr %125, %126
+  br i1 %127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41: ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %130 = load i64, ptr %129, align 8, !tbaa !126
-  %131 = icmp ult i64 %130, 16
-  call void @llvm.assume(i1 %131)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41: ; preds = %123
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %129 = load i64, ptr %128, align 8, !tbaa !126
+  %130 = icmp ult i64 %129, 16
+  call void @llvm.assume(i1 %130)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40: ; preds = %124
-  call void @_ZdlPv(ptr noundef %126) #33
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40: ; preds = %123
+  call void @_ZdlPv(ptr noundef %125) #33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, %122
-  %.pn34 = phi { ptr, i32 } [ %123, %122 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, %121
+  %.pn34 = phi { ptr, i32 } [ %122, %121 ], [ %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41 ], [ %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #30
-  br label %146
+  br label %145
 
-132:                                              ; preds = %.preheader
+131:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #30
   br i1 %.not.i.fr, label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %132, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i ], [ %44, %132 ]
-  %133 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !490
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i, label %134
+.lr.ph.i.i.i.i:                                   ; preds = %131, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %134, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i ], [ %44, %131 ]
+  %132 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !490
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %132, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i, label %133
 
-134:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %133) #33
+133:                                              ; preds = %.lr.ph.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %132) #33
   br label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq ptr %135, %43
+_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i: ; preds = %133, %.lr.ph.i.i.i.i
+  %134 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq ptr %134, %43
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !497
 
 _ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %7, align 8, !tbaa !486
   br label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %132
-  %136 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %44, %132 ]
-  %.not.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit, label %137
+_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i, %131
+  %135 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i ], [ %44, %131 ]
+  %.not.i.i.i = icmp eq ptr %135, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit, label %136
 
-137:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %136) #33
+136:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %135) #33
   br label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %137
+_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i, %136
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #30
-  %138 = load ptr, ptr %6, align 8, !tbaa !486
-  %139 = load ptr, ptr %19, align 8, !tbaa !483
-  %.not4.i.i.i.i43 = icmp eq ptr %138, %139
+  %137 = load ptr, ptr %6, align 8, !tbaa !486
+  %138 = load ptr, ptr %19, align 8, !tbaa !483
+  %.not4.i.i.i.i43 = icmp eq ptr %137, %138
   br i1 %.not4.i.i.i.i43, label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51, label %.lr.ph.i.i.i.i44
 
 .lr.ph.i.i.i.i44:                                 ; preds = %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47
-  %.05.i.i.i.i45 = phi ptr [ %142, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47 ], [ %138, %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit ]
-  %140 = load ptr, ptr %.05.i.i.i.i45, align 8, !tbaa !490
-  %.not.i.i.i.i.i.i.i.i46 = icmp eq ptr %140, null
-  br i1 %.not.i.i.i.i.i.i.i.i46, label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47, label %141
+  %.05.i.i.i.i45 = phi ptr [ %141, %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47 ], [ %137, %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit ]
+  %139 = load ptr, ptr %.05.i.i.i.i45, align 8, !tbaa !490
+  %.not.i.i.i.i.i.i.i.i46 = icmp eq ptr %139, null
+  br i1 %.not.i.i.i.i.i.i.i.i46, label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47, label %140
 
-141:                                              ; preds = %.lr.ph.i.i.i.i44
-  call void @_ZdlPv(ptr noundef nonnull %140) #33
+140:                                              ; preds = %.lr.ph.i.i.i.i44
+  call void @_ZdlPv(ptr noundef nonnull %139) #33
   br label %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47
 
-_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47: ; preds = %141, %.lr.ph.i.i.i.i44
-  %142 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i45, i64 24
-  %.not.i.i.i.i48 = icmp eq ptr %142, %139
+_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47: ; preds = %140, %.lr.ph.i.i.i.i44
+  %141 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i45, i64 24
+  %.not.i.i.i.i48 = icmp eq ptr %141, %138
   br i1 %.not.i.i.i.i48, label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i49, label %.lr.ph.i.i.i.i44, !llvm.loop !497
 
 _ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i49: ; preds = %_ZSt8_DestroyISt6vectorIN17CirclesGridFinder7SegmentESaIS2_EEEvPT_.exit.i.i.i.i47
@@ -16443,20 +16443,20 @@ _ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E
   br label %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51
 
 _ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i49, %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit
-  %143 = phi ptr [ %.pr.i50, %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i49 ], [ %138, %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit ]
-  %.not.i.i.i52 = icmp eq ptr %143, null
-  br i1 %.not.i.i.i52, label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit53, label %144
+  %142 = phi ptr [ %.pr.i50, %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i49 ], [ %137, %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit ]
+  %.not.i.i.i52 = icmp eq ptr %142, null
+  br i1 %.not.i.i.i52, label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit53, label %143
 
-144:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51
-  call void @_ZdlPv(ptr noundef nonnull %143) #33
+143:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51
+  call void @_ZdlPv(ptr noundef nonnull %142) #33
   br label %_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit53
 
-_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit53: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51, %144
-  %145 = zext nneg i32 %.02358 to i64
+_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev.exit53: ; preds = %_ZSt8_DestroyIPSt6vectorIN17CirclesGridFinder7SegmentESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i51, %143
+  %144 = zext nneg i32 %.02357 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #30
-  ret i64 %145
+  ret i64 %144
 
-146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %26
+145:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %26
   %.pn36.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @_ZNSt6vectorIS_IN17CirclesGridFinder7SegmentESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #30

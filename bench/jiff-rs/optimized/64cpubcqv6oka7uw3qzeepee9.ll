@@ -2685,11 +2685,11 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit.i.i
   br i1 %307, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %303, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i"
-  %.sroa.0.03664.i.i.i = phi ptr [ %308, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i" ], [ %304, %303 ]
-  %.sroa.8.063.i.i.i = phi i64 [ %309, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i" ], [ 0, %303 ]
-  %308 = getelementptr inbounds nuw i8, ptr %.sroa.0.03664.i.i.i, i64 8
-  %309 = add nuw nsw i64 %.sroa.8.063.i.i.i, 1
-  %310 = load i32, ptr %.sroa.0.03664.i.i.i, align 4, !noalias !172, !noundef !3
+  %.sroa.0.03666.i.i.i = phi ptr [ %308, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i" ], [ %304, %303 ]
+  %.sroa.8.065.i.i.i = phi i64 [ %309, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i" ], [ 0, %303 ]
+  %308 = getelementptr inbounds nuw i8, ptr %.sroa.0.03666.i.i.i, i64 8
+  %309 = add nuw nsw i64 %.sroa.8.065.i.i.i, 1
+  %310 = load i32, ptr %.sroa.0.03666.i.i.i, align 4, !noalias !172, !noundef !3
   %311 = icmp eq i32 %.sroa.910.0.copyload.i.i, %310
   br i1 %311, label %389, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i"
 
@@ -2701,7 +2701,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit.i.i
   br i1 %313, label %._crit_edge.thread.i.i.i, label %.loopexit212
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %303
-  %.sroa.69.084.i.i.i = phi i8 [ %314, %._crit_edge.i.i.i ], [ 0, %303 ]
+  %.sroa.69.087.i.i.i = phi i8 [ %314, %._crit_edge.i.i.i ], [ 0, %303 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   br label %315
 
@@ -2854,7 +2854,7 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
   %374 = add i64 %.sroa.017.0.i.i.i.i, %.sroa.56.0.copyload.i.i
   %375 = or i64 %374, %.sroa.017.0.i.i.i.i
   %or.cond.i.i.i = icmp ult i64 %375, 256
-  br i1 %or.cond.i.i.i, label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread88.i.i.i", label %.loopexit212
+  br i1 %or.cond.i.i.i, label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i", label %.loopexit212
 
 376:                                              ; preds = %362, %360, %354
   %.not.i44.i.i.i.i = icmp eq i64 %.sroa.56.0.copyload.i.i, %342
@@ -2871,14 +2871,14 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
 
 379:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.i.i.i.i"
   %380 = or i64 %352, %.sroa.017.0.i.i.i.i
-  %or.cond114.i.i.i = icmp ult i64 %380, 256
-  br i1 %or.cond114.i.i.i, label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread88.i.i.i", label %.loopexit212
+  %or.cond110.i.i.i = icmp ult i64 %380, 256
+  br i1 %or.cond110.i.i.i, label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i", label %.loopexit212
 
-"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread88.i.i.i": ; preds = %379, %.noexc95
-  %.sroa.9.1.i92.i.i.i = phi i64 [ %374, %.noexc95 ], [ %352, %379 ]
+"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i": ; preds = %379, %.noexc95
+  %.sroa.9.1.i90.i.i.i = phi i64 [ %374, %.noexc95 ], [ %352, %379 ]
   %381 = zext nneg i8 %275 to i64
   %.sroa.727.0.insert.shift.i.i.i = shl nuw nsw i64 %381, 56
-  %.sroa.021.2.extract.trunc.i.i.i = shl nuw nsw i64 %.sroa.9.1.i92.i.i.i, 40
+  %.sroa.021.2.extract.trunc.i.i.i = shl nuw nsw i64 %.sroa.9.1.i90.i.i.i, 40
   %.sroa.525.0.insert.shift.i.i.i = and i64 %.sroa.021.2.extract.trunc.i.i.i, 280375465082880
   %.sroa.424.0.insert.shift.i.i.i = shl nuw nsw i64 %.sroa.017.0.i.i.i.i, 32
   %.sroa.023.0.insert.ext.i.i.i = zext i32 %.sroa.910.0.copyload.i.i to i64
@@ -2890,11 +2890,11 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
   %384 = icmp eq i64 %382, %383
   br i1 %384, label %385, label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i"
 
-385:                                              ; preds = %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread88.i.i.i"
+385:                                              ; preds = %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h36b9972685d493feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %270, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67dad9dcef2fc81dfd84617a6557cc60.190)
           to label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i": ; preds = %385, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread88.i.i.i"
+"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i": ; preds = %385, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$26find_or_create_designation17he5d002e90b1808beE.exit.thread.i.i.i"
   %386 = load ptr, ptr %271, align 8, !alias.scope !204, !noalias !207, !nonnull !3, !noundef !3
   %387 = getelementptr inbounds nuw { i32, { i8, i8 }, i8, i8 }, ptr %386, i64 %382
   store i64 %.sroa.023.0.insert.insert.i.i.i, ptr %387, align 4, !noalias !198
@@ -2903,9 +2903,9 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
   br label %423
 
 389:                                              ; preds = %.lr.ph.i.i.i
-  %390 = getelementptr i8, ptr %.sroa.0.03664.i.i.i, i64 4
+  %390 = getelementptr i8, ptr %.sroa.0.03666.i.i.i, i64 4
   %.val30.i.i.i = load i8, ptr %390, align 4, !noalias !172, !noundef !3
-  %391 = getelementptr i8, ptr %.sroa.0.03664.i.i.i, i64 5
+  %391 = getelementptr i8, ptr %.sroa.0.03666.i.i.i, i64 5
   %.val31.i.i.i = load i8, ptr %391, align 1, !noalias !172, !noundef !3
   %392 = zext i8 %.val30.i.i.i to i64
   %393 = zext i8 %.val31.i.i.i to i64
@@ -2964,19 +2964,19 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread18.i.i.i.i.i.i: ; pr
   br i1 %415, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 416:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.i.i.i"
-  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.03664.i.i.i, i64 7
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.03666.i.i.i, i64 7
   %418 = load i8, ptr %417, align 1, !range !218, !noalias !172, !noundef !3
   %419 = xor i8 %418, %275
   %420 = trunc i8 %419 to i1
   br i1 %420, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5d7d8d106305fa16E.exit.thread.i.i.i", label %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.i.i"
 
 "_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.i.i": ; preds = %416
-  %421 = icmp samesign ult i64 %.sroa.8.063.i.i.i, 256
-  %422 = trunc nuw i64 %.sroa.8.063.i.i.i to i8
+  %421 = icmp samesign ult i64 %.sroa.8.065.i.i.i, 256
+  %422 = trunc nuw i64 %.sroa.8.065.i.i.i to i8
   br i1 %421, label %423, label %.loopexit212
 
 423:                                              ; preds = %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.i.i", %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i"
-  %.sroa.6.0.i23.i.i = phi i8 [ %.sroa.69.084.i.i.i, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i" ], [ %422, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.i.i" ]
+  %.sroa.6.0.i23.i.i = phi i8 [ %.sroa.69.087.i.i.i, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.thread20.i.i" ], [ %422, %"_ZN4jiff6shared4tzif371_$LT$impl$u20$jiff..shared..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$30find_or_create_local_time_type17h753a4d272f0cdb9aE.exit.i.i" ]
   invoke fastcc void @"_ZN4jiff6shared4tzif243_$LT$impl$u20$jiff..shared..TzifTransitions$LT$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$19add_with_type_index17h2fe10da9d4becf45E"(ptr noalias noundef align 8 dereferenceable(96) %273, i64 noundef %.sroa.67.0.copyload.i.i, i8 noundef %.sroa.6.0.i23.i.i)
           to label %.noexc99 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 

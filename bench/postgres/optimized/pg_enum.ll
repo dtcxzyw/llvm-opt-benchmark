@@ -80,17 +80,17 @@ list_length.exit:                                 ; preds = %19, %20
   %26 = shl nsw i64 %25, 2
   %27 = call ptr @palloc(i64 noundef %26) #10
   %28 = icmp sgt i32 %23, 0
-  br i1 %28, label %.preheader85.preheader, label %._crit_edge
+  br i1 %28, label %.preheader83.preheader, label %._crit_edge
 
-.preheader85.preheader:                           ; preds = %list_length.exit
+.preheader83.preheader:                           ; preds = %list_length.exit
   %wide.trip.count = zext nneg i32 %23 to i64
-  br label %.preheader85
+  br label %.preheader83
 
-.preheader85:                                     ; preds = %.preheader85.preheader, %32
-  %indvars.iv = phi i64 [ 0, %.preheader85.preheader ], [ %indvars.iv.next, %32 ]
+.preheader83:                                     ; preds = %.preheader83.preheader, %32
+  %indvars.iv = phi i64 [ 0, %.preheader83.preheader ], [ %indvars.iv.next, %32 ]
   br label %29
 
-29:                                               ; preds = %.preheader85, %29
+29:                                               ; preds = %.preheader83, %29
   %30 = call i32 @GetNewOidWithIndex(ptr noundef %24, i32 noundef 3502, i16 noundef signext 1) #10
   %31 = and i32 %30, 1
   %.not82 = icmp eq i32 %31, 0
@@ -101,7 +101,7 @@ list_length.exit:                                 ; preds = %19, %20
   store i32 %30, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader85, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader83, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %32, %list_length.exit
   call void @pg_qsort(ptr noundef %27, i64 noundef %25, i64 noundef 4, ptr noundef nonnull @oid_cmp) #10
@@ -118,54 +118,54 @@ list_length.exit:                                 ; preds = %19, %20
   br label %44
 
 .preheader:                                       ; preds = %44, %._crit_edge
-  br i1 %.not.i, label %._crit_edge95.thread, label %.lr.ph94
+  br i1 %.not.i, label %.critedge.thread, label %.lr.ph92
 
-.lr.ph94:                                         ; preds = %.preheader
+.lr.ph92:                                         ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load i32, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph128, label %._crit_edge95
+  br i1 %43, label %.lr.ph125, label %.critedge
 
 44:                                               ; preds = %.lr.ph, %44
-  %indvars.iv105 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next106, %44 ]
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next103, %44 ]
   %45 = load ptr, ptr %39, align 8
   %46 = call ptr @MakeSingleTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsHeapTuple) #10
-  %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv105
+  %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv102
   store ptr %46, ptr %47, align 8
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %35
-  br i1 %exitcond109.not, label %.preheader, label %44, !llvm.loop !7
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %35
+  br i1 %exitcond106.not, label %.preheader, label %44, !llvm.loop !7
 
-._crit_edge95:                                    ; preds = %107, %.lr.ph94
-  %.07492.lcssa = phi i32 [ 0, %.lr.ph94 ], [ %.175, %107 ]
-  %48 = icmp sgt i32 %.07492.lcssa, 0
-  br i1 %48, label %111, label %._crit_edge95.thread
+.lr.ph125:                                        ; preds = %.lr.ph92, %107
+  %.07490124 = phi i32 [ %.175, %107 ], [ 0, %.lr.ph92 ]
+  %indvars.iv107123 = phi i64 [ %indvars.iv.next108, %107 ], [ 0, %.lr.ph92 ]
+  %48 = load ptr, ptr %41, align 8
+  %49 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv107123
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @palloc0(i64 noundef 64) #10
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #11
+  %55 = icmp ugt i64 %54, 63
+  br i1 %55, label %57, label %62
 
-.lr.ph128:                                        ; preds = %.lr.ph94, %107
-  %.07492127 = phi i32 [ %.175, %107 ], [ 0, %.lr.ph94 ]
-  %indvars.iv110126 = phi i64 [ %indvars.iv.next111, %107 ], [ 0, %.lr.ph94 ]
-  %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv110126
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @palloc0(i64 noundef 64) #10
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #11
-  %56 = icmp ugt i64 %55, 63
-  br i1 %56, label %57, label %62
+.critedge:                                        ; preds = %107, %.lr.ph92
+  %.07490.lcssa = phi i32 [ 0, %.lr.ph92 ], [ %.175, %107 ]
+  %56 = icmp sgt i32 %.07490.lcssa, 0
+  br i1 %56, label %111, label %.critedge.thread
 
-57:                                               ; preds = %.lr.ph128
+57:                                               ; preds = %.lr.ph125
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %58)
   %59 = call i32 @errcode(i32 noundef 33579140) #10
-  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %53) #10
+  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %52) #10
   %61 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__func__.EnumValuesCreate) #10
   unreachable
 
-62:                                               ; preds = %.lr.ph128
-  %63 = sext i32 %.07492127 to i64
+62:                                               ; preds = %.lr.ph125
+  %63 = sext i32 %.07490124 to i64
   %64 = getelementptr inbounds ptr, ptr %38, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -181,7 +181,7 @@ list_length.exit:                                 ; preds = %19, %20
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %72, i8 0, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv110126
+  %77 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv107123
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
   %80 = load ptr, ptr %64, align 8
@@ -195,8 +195,8 @@ list_length.exit:                                 ; preds = %19, %20
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %84, ptr %88, align 8
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110126, 1
-  %89 = trunc nsw i64 %indvars.iv.next111 to i32
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107123, 1
+  %89 = trunc nsw i64 %indvars.iv.next108 to i32
   %90 = sitofp i32 %89 to float
   %91 = bitcast float %90 to i32
   %92 = sext i32 %91 to i64
@@ -205,8 +205,8 @@ list_length.exit:                                 ; preds = %19, %20
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 %92, ptr %96, align 8
-  call void @namestrcpy(ptr noundef %54, ptr noundef nonnull %53) #10
-  %97 = ptrtoint ptr %54 to i64
+  call void @namestrcpy(ptr noundef %53, ptr noundef nonnull %52) #10
+  %97 = ptrtoint ptr %53 to i64
   %98 = load ptr, ptr %64, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
@@ -214,7 +214,7 @@ list_length.exit:                                 ; preds = %19, %20
   store i64 %97, ptr %101, align 8
   %102 = load ptr, ptr %64, align 8
   %103 = call ptr @ExecStoreVirtualTuple(ptr noundef %102) #10
-  %104 = add i32 %.07492127, 1
+  %104 = add i32 %.07490124, 1
   %105 = icmp eq i32 %104, %36
   br i1 %105, label %106, label %107
 
@@ -226,30 +226,30 @@ list_length.exit:                                 ; preds = %19, %20
   %.175 = phi i32 [ 0, %106 ], [ %104, %62 ]
   %108 = load i32, ptr %40, align 4
   %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next111, %109
-  br i1 %110, label %.lr.ph128, label %._crit_edge95
+  %110 = icmp slt i64 %indvars.iv.next108, %109
+  br i1 %110, label %.lr.ph125, label %.critedge
 
-111:                                              ; preds = %._crit_edge95
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %24, ptr noundef %38, i32 noundef %.07492.lcssa, ptr noundef %34) #10
-  br label %._crit_edge95.thread
+111:                                              ; preds = %.critedge
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %24, ptr noundef %38, i32 noundef %.07490.lcssa, ptr noundef %34) #10
+  br label %.critedge.thread
 
-._crit_edge95.thread:                             ; preds = %.preheader, %111, %._crit_edge95
+.critedge.thread:                                 ; preds = %.preheader, %111, %.critedge
   call void @pfree(ptr noundef %27) #10
-  br i1 %.not, label %._crit_edge101, label %.lr.ph100
+  br i1 %.not, label %._crit_edge98, label %.lr.ph97
 
-._crit_edge101:                                   ; preds = %.lr.ph100, %._crit_edge95.thread
+._crit_edge98:                                    ; preds = %.lr.ph97, %.critedge.thread
   call void @CatalogCloseIndexes(ptr noundef %34) #10
   call void @table_close(ptr noundef %24, i32 noundef 3) #10
   ret void
 
-.lr.ph100:                                        ; preds = %._crit_edge95.thread, %.lr.ph100
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph100 ], [ 0, %._crit_edge95.thread ]
-  %112 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv115
+.lr.ph97:                                         ; preds = %.critedge.thread, %.lr.ph97
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph97 ], [ 0, %.critedge.thread ]
+  %112 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv112
   %113 = load ptr, ptr %112, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %113) #10
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next116, %35
-  br i1 %exitcond120.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !8
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next113, %35
+  br i1 %exitcond117.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

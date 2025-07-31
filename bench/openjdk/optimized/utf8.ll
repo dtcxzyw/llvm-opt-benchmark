@@ -86,16 +86,16 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   %41 = or disjoint i32 %38, %40
   store i32 %41, ptr %1, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  br label %78
+  br label %77
 
 43:                                               ; preds = %2
   %44 = lshr i8 %3, 4
   switch i8 %44, label %45 [
-    i8 8, label %74
-    i8 9, label %74
-    i8 10, label %74
-    i8 11, label %74
-    i8 15, label %74
+    i8 8, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 11, label %.critedge.i
+    i8 15, label %.critedge.i
     i8 12, label %47
     i8 13, label %47
     i8 14, label %..thread_crit_edge
@@ -114,7 +114,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp slt i8 %49, -64
-  br i1 %50, label %51, label %74
+  br i1 %50, label %51, label %.critedge.i
 
 51:                                               ; preds = %47
   %52 = and i8 %3, 31
@@ -128,14 +128,14 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
 .thread:                                          ; preds = %..thread_crit_edge, %5
   %58 = phi i8 [ %.pre, %..thread_crit_edge ], [ %7, %5 ]
   %59 = icmp slt i8 %58, -64
-  br i1 %59, label %.thread.thread, label %74
+  br i1 %59, label %.thread.thread, label %.critedge.i
 
 .thread.thread:                                   ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %18, %14, %10, %.thread
   %60 = phi i8 [ %58, %.thread ], [ %7, %10 ], [ %7, %14 ], [ %7, %18 ], [ %7, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = icmp slt i8 %62, -64
-  br i1 %63, label %64, label %74
+  br i1 %63, label %64, label %.critedge.i
 
 64:                                               ; preds = %.thread.thread
   %65 = and i8 %60, 63
@@ -149,20 +149,20 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   %73 = or disjoint i32 %71, %72
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-74:                                               ; preds = %.thread.thread, %.thread, %47, %43, %43, %43, %43, %43
-  %75 = zext i8 %3 to i32
+.critedge.i:                                      ; preds = %.thread.thread, %.thread, %47, %43, %43, %43, %43, %43
+  %74 = zext i8 %3 to i32
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %45, %51, %64, %74
-  %.025.sink.i = phi i32 [ %75, %74 ], [ %46, %45 ], [ %57, %51 ], [ %73, %64 ]
-  %.024.sink.i = phi i64 [ 1, %74 ], [ 1, %45 ], [ 2, %51 ], [ 3, %64 ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink.i
-  %77 = and i32 %.025.sink.i, 65535
-  store i32 %77, ptr %1, align 4
-  br label %78
+_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %45, %51, %64, %.critedge.i
+  %.025.sink.i = phi i32 [ %74, %.critedge.i ], [ %46, %45 ], [ %57, %51 ], [ %73, %64 ]
+  %.024.sink.i = phi i64 [ 1, %.critedge.i ], [ 1, %45 ], [ 2, %51 ], [ 3, %64 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink.i
+  %76 = and i32 %.025.sink.i, 65535
+  store i32 %76, ptr %1, align 4
+  br label %77
 
-78:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit, %26
-  %.0 = phi ptr [ %42, %26 ], [ %76, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
+77:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit, %26
+  %.0 = phi ptr [ %42, %26 ], [ %75, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
   ret ptr %.0
 }
 
@@ -242,11 +242,11 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   %3 = load i8, ptr %0, align 1
   %4 = lshr i8 %3, 4
   switch i8 %4, label %5 [
-    i8 8, label %36
-    i8 9, label %36
-    i8 10, label %36
-    i8 11, label %36
-    i8 15, label %36
+    i8 8, label %.critedge
+    i8 9, label %.critedge
+    i8 10, label %.critedge
+    i8 11, label %.critedge
+    i8 15, label %.critedge
     i8 12, label %7
     i8 13, label %7
     i8 14, label %18
@@ -254,13 +254,13 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
 
 5:                                                ; preds = %2
   %6 = zext i8 %3 to i16
-  br label %38
+  br label %37
 
 7:                                                ; preds = %2, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp slt i8 %9, -64
-  br i1 %10, label %11, label %36
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
   %12 = and i8 %3, 31
@@ -269,19 +269,19 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   %15 = shl nuw nsw i16 %14, 6
   %16 = zext nneg i8 %13 to i16
   %17 = or disjoint i16 %15, %16
-  br label %38
+  br label %37
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp slt i8 %20, -64
-  br i1 %21, label %22, label %36
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp slt i8 %24, -64
-  br i1 %25, label %26, label %36
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %22
   %27 = and i8 %20, 63
@@ -293,18 +293,18 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   %33 = or disjoint i16 %32, %31
   %34 = zext nneg i8 %28 to i16
   %35 = or disjoint i16 %33, %34
-  br label %38
+  br label %37
 
-36:                                               ; preds = %2, %2, %2, %2, %2, %7, %22, %18
-  %37 = zext i8 %3 to i16
-  br label %38
+.critedge:                                        ; preds = %18, %22, %7, %2, %2, %2, %2, %2
+  %36 = zext i8 %3 to i16
+  br label %37
 
-38:                                               ; preds = %26, %11, %5, %36
-  %.025.sink = phi i16 [ %37, %36 ], [ %6, %5 ], [ %17, %11 ], [ %35, %26 ]
-  %.024.sink = phi i64 [ 1, %36 ], [ 1, %5 ], [ 2, %11 ], [ 3, %26 ]
+37:                                               ; preds = %26, %11, %5, %.critedge
+  %.025.sink = phi i16 [ %36, %.critedge ], [ %6, %5 ], [ %17, %11 ], [ %35, %26 ]
+  %.024.sink = phi i64 [ 1, %.critedge ], [ 1, %5 ], [ 2, %11 ], [ 3, %26 ]
   store i16 %.025.sink, ptr %1, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
-  ret ptr %39
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
+  ret ptr %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -396,7 +396,7 @@ define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr noundef readonl
 define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = lshr i8 %3, 4
-  switch i8 %4, label %25 [
+  switch i8 %4, label %.critedge [
     i8 14, label %13
     i8 13, label %5
     i8 12, label %5
@@ -406,38 +406,38 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp slt i8 %7, -64
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
   %10 = and i8 %7, 63
   %11 = shl i8 %3, 6
   %12 = or disjoint i8 %11, %10
-  br label %25
+  br label %.critedge
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, -64
-  br i1 %16, label %17, label %25
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp slt i8 %19, -64
-  br i1 %20, label %21, label %25
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %17
   %22 = and i8 %19, 63
   %23 = shl i8 %15, 6
   %24 = or disjoint i8 %23, %22
-  br label %25
+  br label %.critedge
 
-25:                                               ; preds = %21, %9, %2, %13, %17, %5
-  %.025.sink = phi i8 [ %3, %5 ], [ %3, %17 ], [ %3, %13 ], [ %12, %9 ], [ %24, %21 ], [ %3, %2 ]
-  %.024.sink = phi i64 [ 1, %5 ], [ 1, %17 ], [ 1, %13 ], [ 2, %9 ], [ 3, %21 ], [ 1, %2 ]
+.critedge:                                        ; preds = %21, %9, %2, %5, %17, %13
+  %.025.sink = phi i8 [ %3, %13 ], [ %3, %17 ], [ %3, %5 ], [ %12, %9 ], [ %24, %21 ], [ %3, %2 ]
+  %.024.sink = phi i64 [ 1, %13 ], [ 1, %17 ], [ 1, %5 ], [ 2, %9 ], [ 3, %21 ], [ 1, %2 ]
   store i8 %.025.sink, ptr %1, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
-  ret ptr %26
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -481,16 +481,16 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %_ZN4UTF84nextItEEPcPKcPT_.exit
   %indvars.iv29 = phi i64 [ %13, %.lr.ph26.preheader ], [ %indvars.iv.next30, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
-  %.11522 = phi ptr [ %.014.lcssa, %.lr.ph26.preheader ], [ %50, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
+  %.11522 = phi ptr [ %.014.lcssa, %.lr.ph26.preheader ], [ %49, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
   %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv29
   %15 = load i8, ptr %.11522, align 1
   %16 = lshr i8 %15, 4
   switch i8 %16, label %17 [
-    i8 8, label %48
-    i8 9, label %48
-    i8 10, label %48
-    i8 11, label %48
-    i8 15, label %48
+    i8 8, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 11, label %.critedge.i
+    i8 15, label %.critedge.i
     i8 12, label %19
     i8 13, label %19
     i8 14, label %30
@@ -504,7 +504,7 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp slt i8 %21, -64
-  br i1 %22, label %23, label %48
+  br i1 %22, label %23, label %.critedge.i
 
 23:                                               ; preds = %19
   %24 = and i8 %15, 31
@@ -519,13 +519,13 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   %31 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp slt i8 %32, -64
-  br i1 %33, label %34, label %48
+  br i1 %33, label %34, label %.critedge.i
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.11522, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = icmp slt i8 %36, -64
-  br i1 %37, label %38, label %48
+  br i1 %37, label %38, label %.critedge.i
 
 38:                                               ; preds = %34
   %39 = and i8 %32, 63
@@ -539,19 +539,19 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   %47 = or disjoint i16 %45, %46
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-48:                                               ; preds = %34, %30, %19, %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26
-  %49 = zext i8 %15 to i16
+.critedge.i:                                      ; preds = %34, %30, %19, %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26, %.lr.ph26
+  %48 = zext i8 %15 to i16
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %17, %23, %38, %48
-  %.025.sink.i = phi i16 [ %49, %48 ], [ %18, %17 ], [ %29, %23 ], [ %47, %38 ]
-  %.024.sink.i = phi i64 [ 1, %48 ], [ 1, %17 ], [ 2, %23 ], [ 3, %38 ]
+_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %17, %23, %38, %.critedge.i
+  %.025.sink.i = phi i16 [ %48, %.critedge.i ], [ %18, %17 ], [ %29, %23 ], [ %47, %38 ]
+  %.024.sink.i = phi i64 [ 1, %.critedge.i ], [ 1, %17 ], [ 2, %23 ], [ 3, %38 ]
   store i16 %.025.sink.i, ptr %14, align 2
-  %50 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
+  %49 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %51 = trunc nuw i64 %indvars.iv.next30 to i32
-  %52 = icmp sgt i32 %2, %51
-  br i1 %52, label %.lr.ph26, label %._crit_edge27, !llvm.loop !10
+  %50 = trunc nuw i64 %indvars.iv.next30 to i32
+  %51 = icmp sgt i32 %2, %50
+  br i1 %51, label %.lr.ph26, label %._crit_edge27, !llvm.loop !10
 
 ._crit_edge27:                                    ; preds = %7, %_ZN4UTF84nextItEEPcPKcPT_.exit, %._crit_edge
   ret void
@@ -638,8 +638,8 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextIaEEPcPKcPT_.exit
 
 _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %20, %24, %28, %32
-  %.025.sink.i = phi i8 [ %14, %16 ], [ %14, %28 ], [ %14, %24 ], [ %23, %20 ], [ %35, %32 ], [ %14, %.lr.ph25 ]
-  %.024.sink.i = phi i64 [ 1, %16 ], [ 1, %28 ], [ 1, %24 ], [ 2, %20 ], [ 3, %32 ], [ 1, %.lr.ph25 ]
+  %.025.sink.i = phi i8 [ %14, %24 ], [ %14, %28 ], [ %14, %16 ], [ %23, %20 ], [ %35, %32 ], [ %14, %.lr.ph25 ]
+  %.024.sink.i = phi i64 [ 1, %24 ], [ 1, %28 ], [ 1, %16 ], [ 2, %20 ], [ 3, %32 ], [ 1, %.lr.ph25 ]
   store i8 %.025.sink.i, ptr %13, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -660,15 +660,15 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
 
 .lr.ph:                                           ; preds = %2, %_ZN4UTF84nextItEEPcPKcPT_.exit
   %.013 = phi i32 [ %.1, %_ZN4UTF84nextItEEPcPKcPT_.exit ], [ 0, %2 ]
-  %.01011 = phi ptr [ %41, %_ZN4UTF84nextItEEPcPKcPT_.exit ], [ %0, %2 ]
+  %.01011 = phi ptr [ %40, %_ZN4UTF84nextItEEPcPKcPT_.exit ], [ %0, %2 ]
   %6 = load i8, ptr %.01011, align 1
   %7 = lshr i8 %6, 4
   switch i8 %7, label %8 [
-    i8 8, label %39
-    i8 9, label %39
-    i8 10, label %39
-    i8 11, label %39
-    i8 15, label %39
+    i8 8, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 11, label %.critedge.i
+    i8 15, label %.critedge.i
     i8 12, label %10
     i8 13, label %10
     i8 14, label %21
@@ -682,7 +682,7 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   %11 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp slt i8 %12, -64
-  br i1 %13, label %14, label %39
+  br i1 %13, label %14, label %.critedge.i
 
 14:                                               ; preds = %10
   %15 = and i8 %6, 31
@@ -697,13 +697,13 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   %22 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp slt i8 %23, -64
-  br i1 %24, label %25, label %39
+  br i1 %24, label %25, label %.critedge.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.01011, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp slt i8 %27, -64
-  br i1 %28, label %29, label %39
+  br i1 %28, label %29, label %.critedge.i
 
 29:                                               ; preds = %25
   %30 = and i8 %23, 63
@@ -717,20 +717,20 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   %38 = or disjoint i16 %36, %37
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-39:                                               ; preds = %25, %21, %10, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %40 = zext i8 %6 to i16
+.critedge.i:                                      ; preds = %25, %21, %10, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %39 = zext i8 %6 to i16
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %8, %14, %29, %39
-  %.025.sink.i = phi i16 [ %40, %39 ], [ %9, %8 ], [ %20, %14 ], [ %38, %29 ]
-  %.024.sink.i = phi i64 [ 1, %39 ], [ 1, %8 ], [ 2, %14 ], [ 3, %29 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01011, i64 %.024.sink.i
-  %42 = add i16 %.025.sink.i, -32
-  %or.cond = icmp ult i16 %42, 95
+_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %8, %14, %29, %.critedge.i
+  %.025.sink.i = phi i16 [ %39, %.critedge.i ], [ %9, %8 ], [ %20, %14 ], [ %38, %29 ]
+  %.024.sink.i = phi i64 [ 1, %.critedge.i ], [ 1, %8 ], [ 2, %14 ], [ 3, %29 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01011, i64 %.024.sink.i
+  %41 = add i16 %.025.sink.i, -32
+  %or.cond = icmp ult i16 %41, 95
   %.1.v = select i1 %or.cond, i32 1, i32 6
   %.1 = add nuw nsw i32 %.1.v, %.013
-  %43 = icmp ult ptr %41, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %42 = icmp ult ptr %40, %4
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
@@ -746,17 +746,17 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captu
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %56
-  %.023 = phi ptr [ %45, %56 ], [ %0, %4 ]
-  %.01822 = phi ptr [ %.1, %56 ], [ %2, %4 ]
+.lr.ph:                                           ; preds = %4, %55
+  %.023 = phi ptr [ %44, %55 ], [ %0, %4 ]
+  %.01822 = phi ptr [ %.1, %55 ], [ %2, %4 ]
   %10 = load i8, ptr %.023, align 1
   %11 = lshr i8 %10, 4
   switch i8 %11, label %12 [
-    i8 8, label %43
-    i8 9, label %43
-    i8 10, label %43
-    i8 11, label %43
-    i8 15, label %43
+    i8 8, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 11, label %.critedge.i
+    i8 15, label %.critedge.i
     i8 12, label %14
     i8 13, label %14
     i8 14, label %25
@@ -770,7 +770,7 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp slt i8 %16, -64
-  br i1 %17, label %18, label %43
+  br i1 %17, label %18, label %.critedge.i
 
 18:                                               ; preds = %14
   %19 = and i8 %10, 31
@@ -785,13 +785,13 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captu
   %26 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp slt i8 %27, -64
-  br i1 %28, label %29, label %43
+  br i1 %28, label %29, label %.critedge.i
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp slt i8 %31, -64
-  br i1 %32, label %33, label %43
+  br i1 %32, label %33, label %.critedge.i
 
 33:                                               ; preds = %29
   %34 = and i8 %27, 63
@@ -805,45 +805,45 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captu
   %42 = or disjoint i16 %40, %41
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-43:                                               ; preds = %29, %25, %14, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %44 = zext i8 %10 to i16
+.critedge.i:                                      ; preds = %29, %25, %14, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %43 = zext i8 %10 to i16
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
-_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
-  %.025.sink.i = phi i16 [ %44, %43 ], [ %13, %12 ], [ %24, %18 ], [ %42, %33 ]
-  %.024.sink.i = phi i64 [ 1, %43 ], [ 1, %12 ], [ 2, %18 ], [ 3, %33 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.023, i64 %.024.sink.i
-  %46 = zext i16 %.025.sink.i to i32
-  %47 = add i16 %.025.sink.i, -32
-  %or.cond = icmp ult i16 %47, 95
-  br i1 %or.cond, label %48, label %52
+_ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %.critedge.i
+  %.025.sink.i = phi i16 [ %43, %.critedge.i ], [ %13, %12 ], [ %24, %18 ], [ %42, %33 ]
+  %.024.sink.i = phi i64 [ 1, %.critedge.i ], [ 1, %12 ], [ 2, %18 ], [ 3, %33 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.023, i64 %.024.sink.i
+  %45 = zext i16 %.025.sink.i to i32
+  %46 = add i16 %.025.sink.i, -32
+  %or.cond = icmp ult i16 %46, 95
+  br i1 %or.cond, label %47, label %51
 
-48:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.01822, i64 1
-  %.not21 = icmp ult ptr %49, %8
-  br i1 %.not21, label %50, label %._crit_edge
+47:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
+  %48 = getelementptr inbounds nuw i8, ptr %.01822, i64 1
+  %.not21 = icmp ult ptr %48, %8
+  br i1 %.not21, label %49, label %._crit_edge
 
-50:                                               ; preds = %48
-  %51 = trunc nuw nsw i16 %.025.sink.i to i8
-  store i8 %51, ptr %.01822, align 1
-  br label %56
+49:                                               ; preds = %47
+  %50 = trunc nuw nsw i16 %.025.sink.i to i8
+  store i8 %50, ptr %.01822, align 1
+  br label %55
 
-52:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.01822, i64 6
-  %.not = icmp ult ptr %53, %8
-  br i1 %.not, label %54, label %._crit_edge
+51:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
+  %52 = getelementptr inbounds nuw i8, ptr %.01822, i64 6
+  %.not = icmp ult ptr %52, %8
+  br i1 %.not, label %53, label %._crit_edge
 
-54:                                               ; preds = %52
-  %55 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef %.01822, i64 noundef 7, ptr noundef nonnull @.str, i32 noundef %46) #6
-  br label %56
+53:                                               ; preds = %51
+  %54 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef %.01822, i64 noundef 7, ptr noundef nonnull @.str, i32 noundef %45) #6
+  br label %55
 
-56:                                               ; preds = %54, %50
-  %.1 = phi ptr [ %49, %50 ], [ %53, %54 ]
-  %57 = icmp ult ptr %45, %6
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+55:                                               ; preds = %53, %49
+  %.1 = phi ptr [ %48, %49 ], [ %52, %53 ]
+  %56 = icmp ult ptr %44, %6
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %56, %48, %52, %4
-  %.018.lcssa = phi ptr [ %2, %4 ], [ %.01822, %52 ], [ %.01822, %48 ], [ %.1, %56 ]
+._crit_edge:                                      ; preds = %55, %47, %51, %4
+  %.018.lcssa = phi ptr [ %2, %4 ], [ %.01822, %51 ], [ %.01822, %47 ], [ %.1, %55 ]
   store i8 0, ptr %.018.lcssa, align 1
   ret void
 }

@@ -1543,19 +1543,19 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
   %17 = icmp eq i64 %15, 0
-  br i1 %17, label %.thread9, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 7
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %.thread9
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %25 = load i16, ptr %24, align 8
-  switch i16 %25, label %.thread9 [
+  switch i16 %25, label %.critedge [
     i16 1, label %26
     i16 2, label %33
   ]
@@ -1565,12 +1565,12 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread9, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @__icmp_send(ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %32) #11
-  br label %.thread9
+  br label %.critedge
 
 33:                                               ; preds = %23
   %34 = getelementptr i8, ptr %12, i64 2
@@ -1579,7 +1579,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr i8, ptr %12, i64 -1
   %39 = icmp ugt i8 %35, %37
-  br i1 %39, label %.thread9, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -1603,7 +1603,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %55 = zext i8 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @__icmp_send(ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef %55, ptr noundef nonnull %56) #11
-  br label %.thread9
+  br label %.critedge
 
 57:                                               ; preds = %48
   %58 = getelementptr i8, ptr %38, i64 %49
@@ -1691,7 +1691,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
 
 110:                                              ; preds = %108, %.loopexit
   store i64 %60, ptr %13, align 8
-  br label %.thread9
+  br label %.critedge
 
 111:                                              ; preds = %97
   %112 = and i64 %60, 1
@@ -1716,7 +1716,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   store i8 %121, ptr %45, align 4
   %122 = add nuw nsw i64 %49, 4
   %123 = icmp samesign ugt i64 %122, %47
-  br i1 %123, label %.thread9, label %48, !llvm.loop !21
+  br i1 %123, label %.critedge, label %48, !llvm.loop !21
 
 124:                                              ; preds = %116
   %125 = load i8, ptr %45, align 4
@@ -1724,9 +1724,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   store i32 %59, ptr %126, align 4
   %127 = or i8 %125, 6
   store i8 %127, ptr %45, align 4
-  br label %.thread9
+  br label %.critedge
 
-.thread9:                                         ; preds = %119, %33, %124, %110, %52, %31, %26, %23, %18, %2
+.critedge:                                        ; preds = %119, %33, %124, %110, %52, %31, %26, %23, %18, %2
   %128 = phi i32 [ -22, %31 ], [ -22, %52 ], [ -22, %110 ], [ 0, %2 ], [ -22, %18 ], [ 0, %26 ], [ -22, %23 ], [ 0, %124 ], [ 0, %33 ], [ 0, %119 ]
   ret i32 %128
 }

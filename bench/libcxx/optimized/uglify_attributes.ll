@@ -3538,90 +3538,90 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixIt
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !82
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !82
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !474
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !474
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !474
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !475
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %19, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %22, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store ptr %25, ptr %23, align 8, !tbaa !55
+  %26 = load ptr, ptr %24, align 8, !tbaa !61
+  %27 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %28 = load i64, ptr %27, align 8, !tbaa !57
+  %29 = icmp ugt i64 %28, 15
+  br i1 %29, label %30, label %._crit_edge.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !475
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %20, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %23, ptr noundef nonnull align 8 dereferenceable(57) %.016.i.i, i64 21, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store ptr %26, ptr %24, align 8, !tbaa !55
-  %27 = load ptr, ptr %25, align 8, !tbaa !61
-  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %29 = load i64, ptr %28, align 8, !tbaa !57
-  %30 = icmp ugt i64 %29, 15
-  br i1 %30, label %31, label %._crit_edge.i.i.i
+30:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %31 = icmp slt i64 %28, 0
+  br i1 %31, label %.noexc.i.i, label %32
 
-31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %32 = icmp slt i64 %29, 0
-  br i1 %32, label %.noexc.i.i, label %33
-
-.noexc.i.i:                                       ; preds = %31
+.noexc.i.i:                                       ; preds = %30
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #24
   unreachable
 
-33:                                               ; preds = %31
-  %34 = add nuw i64 %29, 1
-  %35 = icmp slt i64 %34, 0
-  br i1 %35, label %.noexc6.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i, !prof !82
+32:                                               ; preds = %30
+  %33 = add nuw i64 %28, 1
+  %34 = icmp slt i64 %33, 0
+  br i1 %34, label %.noexc6.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i, !prof !82
 
-.noexc6.i.i:                                      ; preds = %33
+.noexc6.i.i:                                      ; preds = %32
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: ; preds = %33
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #23
-  store ptr %36, ptr %24, align 8, !tbaa !61
-  store i64 %29, ptr %26, align 8, !tbaa !60
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i: ; preds = %32
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #23
+  store ptr %35, ptr %23, align 8, !tbaa !61
+  store i64 %28, ptr %25, align 8, !tbaa !60
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %37 = phi ptr [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  switch i64 %29, label %40 [
-    i64 1, label %38
+  %36 = phi ptr [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i ], [ %25, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  switch i64 %28, label %39 [
+    i64 1, label %37
     i64 0, label %_ZN5clang9FixItHintC2ERKS0_.exit
   ]
 
-38:                                               ; preds = %._crit_edge.i.i.i
-  %39 = load i8, ptr %27, align 1, !tbaa !60
-  store i8 %39, ptr %37, align 1, !tbaa !60
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = load i8, ptr %26, align 1, !tbaa !60
+  store i8 %38, ptr %36, align 1, !tbaa !60
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-40:                                               ; preds = %._crit_edge.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %27, i64 %29, i1 false)
+39:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %26, i64 %28, i1 false)
   br label %_ZN5clang9FixItHintC2ERKS0_.exit
 
-_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %38, %40
-  %41 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i64 %29, ptr %41, align 8, !tbaa !57
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %29
-  store i8 0, ptr %42, align 1, !tbaa !60
-  %43 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  %45 = load i8, ptr %44, align 8, !tbaa !468, !range !44, !noundef !45
-  store i8 %45, ptr %43, align 8, !tbaa !468
-  %46 = load i32, ptr %3, align 8, !tbaa !475
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %3, align 8, !tbaa !475
+_ZN5clang9FixItHintC2ERKS0_.exit:                 ; preds = %._crit_edge.i.i.i, %37, %39
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i64 %28, ptr %40, align 8, !tbaa !57
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %28
+  store i8 0, ptr %41, align 1, !tbaa !60
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  %44 = load i8, ptr %43, align 8, !tbaa !468, !range !44, !noundef !45
+  store i8 %44, ptr %42, align 8, !tbaa !468
+  %45 = load i32, ptr %3, align 8, !tbaa !475
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %3, align 8, !tbaa !475
   ret void
 }
 

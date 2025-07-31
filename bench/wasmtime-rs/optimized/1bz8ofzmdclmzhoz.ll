@@ -37169,7 +37169,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen5write17write_instructio
   %.not.i121 = icmp eq i32 %155, 0
   br i1 %.not.i121, label %156, label %159
 
-156:                                              ; preds = %179, %168, %.thread18.i, %154
+156:                                              ; preds = %.critedge.i, %179, %168, %154
   %157 = invoke noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph12ctrl_typevar17hdfb58d954b9d252eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %2, i32 noundef %4)
           to label %.noexc125 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -37207,12 +37207,8 @@ default.unreachable:                              ; preds = %.noexc128
   switch i32 %165, label %default.unreachable [
     i32 0, label %168
     i32 1, label %.thread.i
-    i32 2, label %.thread18.i
+    i32 2, label %.critedge.i
   ]
-
-.thread18.i:                                      ; preds = %.noexc128
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !6278
-  br label %156
 
 .thread.i:                                        ; preds = %.noexc128
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -37220,8 +37216,8 @@ default.unreachable:                              ; preds = %.noexc128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !6278
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 688
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !6282
-  %.phi.trans.insert22.i = getelementptr inbounds nuw i8, ptr %2, i64 696
-  %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !alias.scope !6282
+  %.phi.trans.insert19.i = getelementptr inbounds nuw i8, ptr %2, i64 696
+  %.pre20.i = load i64, ptr %.phi.trans.insert19.i, align 8, !alias.scope !6282
   br label %179
 
 168:                                              ; preds = %.noexc128
@@ -37237,12 +37233,12 @@ default.unreachable:                              ; preds = %.noexc128
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %.0.i.i.i = select i1 %.not.i.i, ptr %176, ptr %177
   %178 = load i32, ptr %.0.i.i.i, align 4, !noundef !11
-  %.not21.i = icmp eq i32 %178, -1
+  %.not18.i = icmp eq i32 %178, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !6278
-  br i1 %.not21.i, label %156, label %179
+  br i1 %.not18.i, label %156, label %179
 
 179:                                              ; preds = %168, %.thread.i
-  %180 = phi i64 [ %.pre23.i, %.thread.i ], [ %174, %168 ]
+  %180 = phi i64 [ %.pre20.i, %.thread.i ], [ %174, %168 ]
   %181 = phi ptr [ %.pre.i, %.thread.i ], [ %172, %168 ]
   %.sroa.8.017.i = phi i32 [ %167, %.thread.i ], [ %178, %168 ]
   %.not.i12.i = icmp ugt i64 %180, %45
@@ -37254,6 +37250,10 @@ default.unreachable:                              ; preds = %.noexc128
   %186 = icmp eq i32 %.sroa.8.017.i, %184
   %.0.i122 = and i1 %185, %186
   br i1 %.0.i122, label %192, label %156
+
+.critedge.i:                                      ; preds = %.noexc128
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !6278
+  br label %156
 
 187:                                              ; preds = %.noexc125
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !6278

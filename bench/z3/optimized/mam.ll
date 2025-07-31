@@ -10067,10 +10067,10 @@ _ZNK6vectorIPN12_GLOBAL__N_111instructionELb0EjE5emptyEv.exit.thread.i: ; preds 
 
 993:                                              ; preds = %1361, %992
   %994 = phi ptr [ %.pre.i326.i, %992 ], [ %1345, %1361 ]
-  %.01449.i.i = phi ptr [ %storemerge.lcssa.i, %992 ], [ %1364, %1361 ]
-  %.01648.i.i = phi i32 [ 0, %992 ], [ %spec.select28.i.i, %1361 ]
-  %.01947.i.i = phi ptr [ null, %992 ], [ %spec.select.i330.i, %1361 ]
-  %.02246.i.i = phi i32 [ 0, %992 ], [ %.123.i.i, %1361 ]
+  %.01444.i.i = phi ptr [ %storemerge.lcssa.i, %992 ], [ %1364, %1361 ]
+  %.01643.i.i = phi i32 [ 0, %992 ], [ %spec.select28.i.i, %1361 ]
+  %.01942.i.i = phi ptr [ null, %992 ], [ %spec.select.i330.i, %1361 ]
+  %.02241.i.i = phi i32 [ 0, %992 ], [ %.123.i.i, %1361 ]
   %.not.i.i.i.i = icmp eq ptr %994, null
   br i1 %.not.i.i.i.i, label %_ZN6vectorIjLb0EjE5resetEv.exit.i.i.i, label %995
 
@@ -10080,7 +10080,7 @@ _ZNK6vectorIPN12_GLOBAL__N_111instructionELb0EjE5emptyEv.exit.thread.i: ; preds 
   br label %_ZN6vectorIjLb0EjE5resetEv.exit.i.i.i
 
 _ZN6vectorIjLb0EjE5resetEv.exit.i.i.i:            ; preds = %995, %993
-  %.049.in119.i.i.i = getelementptr inbounds nuw i8, ptr %.01449.i.i, i64 8
+  %.049.in119.i.i.i = getelementptr inbounds nuw i8, ptr %.01444.i.i, i64 8
   %.049120.i.i.i = load ptr, ptr %.049.in119.i.i.i, align 8, !tbaa !743
   %.not121.i.i.i = icmp eq ptr %.049120.i.i.i, null
   br i1 %.not121.i.i.i, label %.critedge.thread161.i.i.i, label %.lr.ph125.i.i.i
@@ -10869,16 +10869,16 @@ _ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i: ;
   br i1 %.0.i328.i, label %1358, label %1361
 
 1358:                                             ; preds = %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i
-  %1359 = add nuw nsw i32 %.02246.i.i, 1
-  %1360 = icmp ugt i32 %.02246.i.i, 63
+  %1359 = add nuw nsw i32 %.02241.i.i, 1
+  %1360 = icmp ugt i32 %.02241.i.i, 63
   br i1 %1360, label %_ZN12_GLOBAL__N_18compiler15find_best_childEPNS_6chooseE.exit.thread.i, label %1361
 
 1361:                                             ; preds = %1358, %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i
-  %.123.i.i = phi i32 [ %1359, %1358 ], [ %.02246.i.i, %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i ]
-  %1362 = icmp ugt i32 %.0113.i.i.i, %.01648.i.i
-  %spec.select.i330.i = select i1 %1362, ptr %.01449.i.i, ptr %.01947.i.i
-  %spec.select28.i.i = tail call i32 @llvm.umax.i32(i32 %.0113.i.i.i, i32 %.01648.i.i)
-  %1363 = getelementptr inbounds nuw i8, ptr %.01449.i.i, i64 16
+  %.123.i.i = phi i32 [ %1359, %1358 ], [ %.02241.i.i, %_ZN12_GLOBAL__N_18compiler25get_compatibility_measureEPNS_6chooseERb.exit.i.i ]
+  %1362 = icmp ugt i32 %.0113.i.i.i, %.01643.i.i
+  %spec.select.i330.i = select i1 %1362, ptr %.01444.i.i, ptr %.01942.i.i
+  %spec.select28.i.i = tail call i32 @llvm.umax.i32(i32 %.0113.i.i.i, i32 %.01643.i.i)
+  %1363 = getelementptr inbounds nuw i8, ptr %.01444.i.i, i64 16
   %1364 = load ptr, ptr %1363, align 8, !tbaa !770
   %.not.i331.i = icmp eq ptr %1364, null
   br i1 %.not.i331.i, label %_ZN12_GLOBAL__N_18compiler15find_best_childEPNS_6chooseE.exit.i, label %993, !llvm.loop !773

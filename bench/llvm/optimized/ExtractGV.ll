@@ -126,8 +126,8 @@ define dso_local void @_ZN4llvm13ExtractGVPass3runERNS_6ModuleERNS_15AnalysisMan
 12:                                               ; preds = %11, %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.0212.0237 = load ptr, ptr %13, align 8, !tbaa !37
-  %.not228238 = icmp eq ptr %.sroa.0212.0237, %14
+  %.sroa.0213.0237 = load ptr, ptr %13, align 8, !tbaa !37
+  %.not228238 = icmp eq ptr %.sroa.0213.0237, %14
   br i1 %.not228238, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
@@ -138,8 +138,8 @@ define dso_local void @_ZN4llvm13ExtractGVPass3runERNS_6ModuleERNS_15AnalysisMan
 ._crit_edge:                                      ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit, %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.0206.0240 = load ptr, ptr %17, align 8, !tbaa !37
-  %.not229241 = icmp eq ptr %.sroa.0206.0240, %18
+  %.sroa.0207.0240 = load ptr, ptr %17, align 8, !tbaa !37
+  %.not229241 = icmp eq ptr %.sroa.0207.0240, %18
   br i1 %.not229241, label %._crit_edge245, label %.lr.ph244
 
 .lr.ph244:                                        ; preds = %._crit_edge
@@ -147,8 +147,8 @@ define dso_local void @_ZN4llvm13ExtractGVPass3runERNS_6ModuleERNS_15AnalysisMan
   br label %102
 
 20:                                               ; preds = %.lr.ph, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit
-  %.sroa.0212.0239 = phi ptr [ %.sroa.0212.0237, %.lr.ph ], [ %.sroa.0212.0, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.0212.0239, i64 -56
+  %.sroa.0213.0239 = phi ptr [ %.sroa.0213.0237, %.lr.ph ], [ %.sroa.0213.0, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.0213.0239, i64 -56
   %22 = load i8, ptr %8, align 8, !tbaa !25, !range !18, !noundef !19
   %23 = load ptr, ptr %1, align 8, !tbaa !40
   %24 = load i32, ptr %15, align 8, !tbaa !41
@@ -196,7 +196,7 @@ _ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0212.0239, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0213.0239, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
   %54 = load i8, ptr %16, align 1, !range !18
@@ -205,7 +205,7 @@ _ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_
   br i1 %56, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %50, %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit, %48
-  %57 = getelementptr inbounds i8, ptr %.sroa.0212.0239, i64 -24
+  %57 = getelementptr inbounds i8, ptr %.sroa.0213.0239, i64 -24
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 15
   %60 = icmp eq i32 %59, 1
@@ -271,31 +271,31 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i: ;
   br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit
 
 .critedge:                                        ; preds = %50
-  %82 = getelementptr inbounds i8, ptr %.sroa.0212.0239, i64 -24
+  %82 = getelementptr inbounds i8, ptr %.sroa.0213.0239, i64 -24
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 15
   %85 = add nsw i32 %84, -7
-  %spec.select.i.i.i76 = icmp ult i32 %85, 2
+  %spec.select.i.i.i77 = icmp ult i32 %85, 2
   %86 = and i32 %83, -16
   %87 = and i32 %83, 48
-  %.not21.i86 = icmp eq i32 %87, 0
+  %.not21.i87 = icmp eq i32 %87, 0
   %88 = or i32 %86, 16384
-  %spec.select.i87 = select i1 %.not21.i86, i32 %86, i32 %88
-  %89 = and i32 %spec.select.i87, -16448
+  %spec.select.i88 = select i1 %.not21.i87, i32 %86, i32 %88
+  %89 = and i32 %spec.select.i88, -16448
   %90 = or disjoint i32 %89, 16400
-  %storemerge233 = select i1 %spec.select.i.i.i76, i32 %90, i32 %spec.select.i87
+  %storemerge233 = select i1 %spec.select.i.i.i77, i32 %90, i32 %spec.select.i88
   store i32 %storemerge233, ptr %82, align 8
   tail call void @_ZN4llvm14GlobalVariable14setInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81) %21, ptr noundef null) #11
   tail call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef null) #11
   br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit
 
 _ZL11makeVisibleRN4llvm11GlobalValueEb.exit:      ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i, %79, %76, %71, %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit, %.thread
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0212.0239, i64 8
-  %.sroa.0212.0 = load ptr, ptr %91, align 8, !tbaa !37
-  %.not228 = icmp eq ptr %.sroa.0212.0, %14
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0213.0239, i64 8
+  %.sroa.0213.0 = load ptr, ptr %91, align 8, !tbaa !37
+  %.not228 = icmp eq ptr %.sroa.0213.0, %14
   br i1 %.not228, label %._crit_edge, label %20
 
-._crit_edge245:                                   ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116, %._crit_edge
+._crit_edge245:                                   ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117, %._crit_edge
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %93 = load ptr, ptr %92, align 8, !tbaa !37
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -312,14 +312,14 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit:      ; preds = %_ZN4llvm11GlobalVal
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %172
 
-102:                                              ; preds = %.lr.ph244, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116
-  %.sroa.0206.0242 = phi ptr [ %.sroa.0206.0240, %.lr.ph244 ], [ %.sroa.0206.0, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116 ]
-  %103 = getelementptr inbounds i8, ptr %.sroa.0206.0242, i64 -56
+102:                                              ; preds = %.lr.ph244, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117
+  %.sroa.0207.0242 = phi ptr [ %.sroa.0207.0240, %.lr.ph244 ], [ %.sroa.0207.0, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117 ]
+  %103 = getelementptr inbounds i8, ptr %.sroa.0207.0242, i64 -56
   %104 = load i8, ptr %8, align 8, !tbaa !25, !range !18, !noundef !19
   %105 = load ptr, ptr %1, align 8, !tbaa !40
   %106 = load i32, ptr %19, align 8, !tbaa !41
   %107 = icmp eq i32 %106, 0
-  br i1 %107, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102, label %108
+  br i1 %107, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103, label %108
 
 108:                                              ; preds = %102
   %109 = ptrtoint ptr %103 to i64
@@ -328,121 +328,121 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit:      ; preds = %_ZN4llvm11GlobalVal
   %112 = lshr i32 %110, 9
   %113 = xor i32 %111, %112
   %114 = add i32 %106, -1
-  %.01828.i.i.i.i.i.i96 = and i32 %114, %113
-  %115 = zext nneg i32 %.01828.i.i.i.i.i.i96 to i64
+  %.01828.i.i.i.i.i.i97 = and i32 %114, %113
+  %115 = zext nneg i32 %.01828.i.i.i.i.i.i97 to i64
   %116 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %105, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !20
   %118 = icmp eq ptr %103, %117
-  br i1 %118, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102, label %.lr.ph.i.i.i.i.i.i97, !prof !42
+  br i1 %118, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103, label %.lr.ph.i.i.i.i.i.i98, !prof !42
 
-.lr.ph.i.i.i.i.i.i97:                             ; preds = %108, %121
+.lr.ph.i.i.i.i.i.i98:                             ; preds = %108, %121
   %119 = phi ptr [ %126, %121 ], [ %117, %108 ]
-  %.01830.i.i.i.i.i.i98 = phi i32 [ %.018.i.i.i.i.i.i100, %121 ], [ %.01828.i.i.i.i.i.i96, %108 ]
-  %.01629.i.i.i.i.i.i99 = phi i32 [ %122, %121 ], [ 1, %108 ]
+  %.01830.i.i.i.i.i.i99 = phi i32 [ %.018.i.i.i.i.i.i101, %121 ], [ %.01828.i.i.i.i.i.i97, %108 ]
+  %.01629.i.i.i.i.i.i100 = phi i32 [ %122, %121 ], [ 1, %108 ]
   %120 = icmp eq ptr %119, inttoptr (i64 -4096 to ptr)
-  br i1 %120, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102, label %121, !prof !22
+  br i1 %120, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103, label %121, !prof !22
 
-121:                                              ; preds = %.lr.ph.i.i.i.i.i.i97
-  %122 = add i32 %.01629.i.i.i.i.i.i99, 1
-  %123 = add i32 %.01629.i.i.i.i.i.i99, %.01830.i.i.i.i.i.i98
-  %.018.i.i.i.i.i.i100 = and i32 %123, %114
-  %124 = zext i32 %.018.i.i.i.i.i.i100 to i64
+121:                                              ; preds = %.lr.ph.i.i.i.i.i.i98
+  %122 = add i32 %.01629.i.i.i.i.i.i100, 1
+  %123 = add i32 %.01629.i.i.i.i.i.i100, %.01830.i.i.i.i.i.i99
+  %.018.i.i.i.i.i.i101 = and i32 %123, %114
+  %124 = zext i32 %.018.i.i.i.i.i.i101 to i64
   %125 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %105, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !20
   %127 = icmp eq ptr %103, %126
-  br i1 %127, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102, label %.lr.ph.i.i.i.i.i.i97, !prof !43, !llvm.loop !44
+  br i1 %127, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103, label %.lr.ph.i.i.i.i.i.i98, !prof !43, !llvm.loop !44
 
-_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102: ; preds = %.lr.ph.i.i.i.i.i.i97, %121, %102, %108
-  %128 = phi i8 [ 0, %102 ], [ 1, %108 ], [ 1, %121 ], [ 0, %.lr.ph.i.i.i.i.i.i97 ]
+_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103: ; preds = %.lr.ph.i.i.i.i.i.i98, %121, %102, %108
+  %128 = phi i8 [ 0, %102 ], [ 1, %108 ], [ 1, %121 ], [ 0, %.lr.ph.i.i.i.i.i.i98 ]
   %129 = icmp eq i8 %104, %128
   br i1 %129, label %130, label %.thread223
 
-130:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102
+130:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103
   %131 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %103) #11
   br i1 %131, label %.thread223, label %.critedge74
 
-.thread223:                                       ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit102, %130
-  %132 = getelementptr inbounds i8, ptr %.sroa.0206.0242, i64 -24
+.thread223:                                       ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit103, %130
+  %132 = getelementptr inbounds i8, ptr %.sroa.0207.0242, i64 -24
   %133 = load i32, ptr %132, align 8
   %134 = and i32 %133, 15
   %135 = icmp eq i32 %134, 1
-  br i1 %135, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116, label %136
+  br i1 %135, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117, label %136
 
 136:                                              ; preds = %.thread223
   %137 = add nsw i32 %134, -7
-  %spec.select.i.i.i103 = icmp ult i32 %137, 2
-  br i1 %spec.select.i.i.i103, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i112, label %140
+  %spec.select.i.i.i104 = icmp ult i32 %137, 2
+  br i1 %spec.select.i.i.i104, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i113, label %140
 
-_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i112: ; preds = %136
+_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i113: ; preds = %136
   %138 = and i32 %133, -16448
   %139 = or disjoint i32 %138, 16400
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i109
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i110
 
 140:                                              ; preds = %136
   %141 = and i32 %133, 14
-  %spec.select.i.i12.i105 = icmp eq i32 %141, 2
-  br i1 %spec.select.i.i12.i105, label %142, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116
+  %spec.select.i.i12.i106 = icmp eq i32 %141, 2
+  br i1 %spec.select.i.i12.i106, label %142, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117
 
 142:                                              ; preds = %140
-  %switch.i106 = icmp eq i32 %134, 2
+  %switch.i107 = icmp eq i32 %134, 2
   %143 = and i32 %133, -16
   %144 = and i32 %133, 48
-  %.not20.i107 = icmp eq i32 %144, 0
-  br i1 %switch.i106, label %145, label %148
+  %.not20.i108 = icmp eq i32 %144, 0
+  br i1 %switch.i107, label %145, label %148
 
 145:                                              ; preds = %142
   %146 = or disjoint i32 %143, 4
   store i32 %146, ptr %132, align 8
-  br i1 %.not20.i107, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i111
+  br i1 %.not20.i108, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i112
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i111: ; preds = %145
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i112: ; preds = %145
   %147 = or i32 %143, 16388
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i109
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i110
 
 148:                                              ; preds = %142
   %149 = or disjoint i32 %143, 5
   store i32 %149, ptr %132, align 8
-  br i1 %.not20.i107, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i108
+  br i1 %.not20.i108, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i109
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i108: ; preds = %148
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i109: ; preds = %148
   %150 = or i32 %143, 16389
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i109
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i110
 
-_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i109: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i108, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i111, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i112
-  %.sink.i110 = phi i32 [ %150, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i108 ], [ %147, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i111 ], [ %139, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i112 ]
-  store i32 %.sink.i110, ptr %132, align 8
-  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i110: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i109, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i112, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i113
+  %.sink.i111 = phi i32 [ %150, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i109 ], [ %147, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i112 ], [ %139, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i113 ]
+  store i32 %.sink.i111, ptr %132, align 8
+  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117
 
 .critedge74:                                      ; preds = %130
-  %151 = getelementptr inbounds i8, ptr %.sroa.0206.0242, i64 -24
+  %151 = getelementptr inbounds i8, ptr %.sroa.0207.0242, i64 -24
   %152 = load i32, ptr %151, align 8
   %153 = and i32 %152, 15
   %154 = add nsw i32 %153, -7
-  %spec.select.i.i.i117 = icmp ult i32 %154, 2
+  %spec.select.i.i.i118 = icmp ult i32 %154, 2
   %155 = and i32 %152, -16
   %156 = and i32 %152, 48
-  %.not21.i127 = icmp eq i32 %156, 0
+  %.not21.i128 = icmp eq i32 %156, 0
   %157 = or i32 %155, 16384
-  %spec.select.i128 = select i1 %.not21.i127, i32 %155, i32 %157
-  %158 = and i32 %spec.select.i128, -16448
+  %spec.select.i129 = select i1 %.not21.i128, i32 %155, i32 %157
+  %158 = and i32 %spec.select.i129, -16448
   %159 = or disjoint i32 %158, 16400
-  %storemerge = select i1 %spec.select.i.i.i117, i32 %159, i32 %spec.select.i128
+  %storemerge = select i1 %spec.select.i.i.i118, i32 %159, i32 %spec.select.i129
   store i32 %storemerge, ptr %151, align 8
   tail call void @_ZN4llvm8Function14deleteBodyImplEb(ptr noundef nonnull align 8 dereferenceable(136) %103, i1 noundef zeroext false) #11
   %160 = load i32, ptr %151, align 8
   %161 = and i32 %160, -16
   %162 = and i32 %160, 48
-  %.not.i132 = icmp eq i32 %162, 0
+  %.not.i133 = icmp eq i32 %162, 0
   %163 = or i32 %161, 16384
-  %spec.select.i133 = select i1 %.not.i132, i32 %161, i32 %163
-  store i32 %spec.select.i133, ptr %151, align 8
+  %spec.select.i134 = select i1 %.not.i133, i32 %161, i32 %163
+  store i32 %spec.select.i134, ptr %151, align 8
   tail call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef null) #11
-  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116
+  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117
 
-_ZL11makeVisibleRN4llvm11GlobalValueEb.exit116:   ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i109, %148, %145, %140, %.critedge74, %.thread223
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0206.0242, i64 8
-  %.sroa.0206.0 = load ptr, ptr %164, align 8, !tbaa !37
-  %.not229 = icmp eq ptr %.sroa.0206.0, %18
+_ZL11makeVisibleRN4llvm11GlobalValueEb.exit117:   ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i110, %148, %145, %140, %.critedge74, %.thread223
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0207.0242, i64 8
+  %.sroa.0207.0 = load ptr, ptr %164, align 8, !tbaa !37
+  %.not229 = icmp eq ptr %.sroa.0207.0, %18
   br i1 %.not229, label %._crit_edge245, label %102
 
 ._crit_edge250:                                   ; preds = %245, %._crit_edge245
@@ -460,15 +460,15 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit116:   ; preds = %_ZN4llvm11GlobalVal
   br label %255
 
 172:                                              ; preds = %.lr.ph249, %245
-  %.sroa.0199.0247 = phi ptr [ %93, %.lr.ph249 ], [ %174, %245 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0199.0247, i64 8
+  %.sroa.0200.0247 = phi ptr [ %93, %.lr.ph249 ], [ %174, %245 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0200.0247, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !37
-  %175 = getelementptr inbounds i8, ptr %.sroa.0199.0247, i64 -48
+  %175 = getelementptr inbounds i8, ptr %.sroa.0200.0247, i64 -48
   %176 = load i8, ptr %8, align 8, !tbaa !25, !range !18, !noundef !19
   %177 = load ptr, ptr %1, align 8, !tbaa !40
   %178 = load i32, ptr %95, align 8, !tbaa !41
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148, label %180
+  br i1 %179, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149, label %180
 
 180:                                              ; preds = %172
   %181 = ptrtoint ptr %175 to i64
@@ -477,95 +477,95 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit116:   ; preds = %_ZN4llvm11GlobalVal
   %184 = lshr i32 %182, 9
   %185 = xor i32 %183, %184
   %186 = add i32 %178, -1
-  %.01828.i.i.i.i.i.i142 = and i32 %186, %185
-  %187 = zext nneg i32 %.01828.i.i.i.i.i.i142 to i64
+  %.01828.i.i.i.i.i.i143 = and i32 %186, %185
+  %187 = zext nneg i32 %.01828.i.i.i.i.i.i143 to i64
   %188 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %177, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !20
   %190 = icmp eq ptr %175, %189
-  br i1 %190, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148, label %.lr.ph.i.i.i.i.i.i143, !prof !42
+  br i1 %190, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149, label %.lr.ph.i.i.i.i.i.i144, !prof !42
 
-.lr.ph.i.i.i.i.i.i143:                            ; preds = %180, %193
+.lr.ph.i.i.i.i.i.i144:                            ; preds = %180, %193
   %191 = phi ptr [ %198, %193 ], [ %189, %180 ]
-  %.01830.i.i.i.i.i.i144 = phi i32 [ %.018.i.i.i.i.i.i146, %193 ], [ %.01828.i.i.i.i.i.i142, %180 ]
-  %.01629.i.i.i.i.i.i145 = phi i32 [ %194, %193 ], [ 1, %180 ]
+  %.01830.i.i.i.i.i.i145 = phi i32 [ %.018.i.i.i.i.i.i147, %193 ], [ %.01828.i.i.i.i.i.i143, %180 ]
+  %.01629.i.i.i.i.i.i146 = phi i32 [ %194, %193 ], [ 1, %180 ]
   %192 = icmp eq ptr %191, inttoptr (i64 -4096 to ptr)
-  br i1 %192, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148, label %193, !prof !22
+  br i1 %192, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149, label %193, !prof !22
 
-193:                                              ; preds = %.lr.ph.i.i.i.i.i.i143
-  %194 = add i32 %.01629.i.i.i.i.i.i145, 1
-  %195 = add i32 %.01629.i.i.i.i.i.i145, %.01830.i.i.i.i.i.i144
-  %.018.i.i.i.i.i.i146 = and i32 %195, %186
-  %196 = zext i32 %.018.i.i.i.i.i.i146 to i64
+193:                                              ; preds = %.lr.ph.i.i.i.i.i.i144
+  %194 = add i32 %.01629.i.i.i.i.i.i146, 1
+  %195 = add i32 %.01629.i.i.i.i.i.i146, %.01830.i.i.i.i.i.i145
+  %.018.i.i.i.i.i.i147 = and i32 %195, %186
+  %196 = zext i32 %.018.i.i.i.i.i.i147 to i64
   %197 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %177, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !20
   %199 = icmp eq ptr %175, %198
-  br i1 %199, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148, label %.lr.ph.i.i.i.i.i.i143, !prof !43, !llvm.loop !44
+  br i1 %199, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149, label %.lr.ph.i.i.i.i.i.i144, !prof !43, !llvm.loop !44
 
-_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148: ; preds = %.lr.ph.i.i.i.i.i.i143, %193, %172, %180
-  %200 = phi i8 [ 0, %172 ], [ 1, %180 ], [ 1, %193 ], [ 0, %.lr.ph.i.i.i.i.i.i143 ]
+_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149: ; preds = %.lr.ph.i.i.i.i.i.i144, %193, %172, %180
+  %200 = phi i8 [ 0, %172 ], [ 1, %180 ], [ 1, %193 ], [ 0, %.lr.ph.i.i.i.i.i.i144 ]
   %201 = icmp eq i8 %176, %200
-  %202 = getelementptr inbounds i8, ptr %.sroa.0199.0247, i64 -16
+  %202 = getelementptr inbounds i8, ptr %.sroa.0200.0247, i64 -16
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, 15
   %205 = add nsw i32 %204, -7
-  %spec.select.i.i.i149 = icmp ult i32 %205, 2
-  %or.cond.i150 = or i1 %201, %spec.select.i.i.i149
-  br i1 %or.cond.i150, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i158, label %211
+  %spec.select.i.i.i150 = icmp ult i32 %205, 2
+  %or.cond.i151 = or i1 %201, %spec.select.i.i.i150
+  br i1 %or.cond.i151, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i159, label %211
 
-_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i158: ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148
+_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i159: ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149
   %206 = and i32 %203, -16
   %207 = and i32 %203, 48
-  %.not21.i159 = icmp eq i32 %207, 0
+  %.not21.i160 = icmp eq i32 %207, 0
   %208 = or i32 %206, 16384
-  %spec.select.i160 = select i1 %.not21.i159, i32 %206, i32 %208
-  store i32 %spec.select.i160, ptr %202, align 8
-  br i1 %spec.select.i.i.i149, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i161, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162
+  %spec.select.i161 = select i1 %.not21.i160, i32 %206, i32 %208
+  store i32 %spec.select.i161, ptr %202, align 8
+  br i1 %spec.select.i.i.i150, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i162, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i161: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i158
-  %209 = and i32 %spec.select.i160, -16448
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i162: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i159
+  %209 = and i32 %spec.select.i161, -16448
   %210 = or disjoint i32 %209, 16400
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i155
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i156
 
-211:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit148
+211:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit149
   %212 = and i32 %203, 14
-  %spec.select.i.i12.i151 = icmp eq i32 %212, 2
-  br i1 %spec.select.i.i12.i151, label %213, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162
+  %spec.select.i.i12.i152 = icmp eq i32 %212, 2
+  br i1 %spec.select.i.i12.i152, label %213, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163
 
 213:                                              ; preds = %211
-  %switch.i152 = icmp eq i32 %204, 2
+  %switch.i153 = icmp eq i32 %204, 2
   %214 = and i32 %203, -16
   %215 = and i32 %203, 48
-  %.not20.i153 = icmp eq i32 %215, 0
-  br i1 %switch.i152, label %216, label %219
+  %.not20.i154 = icmp eq i32 %215, 0
+  br i1 %switch.i153, label %216, label %219
 
 216:                                              ; preds = %213
   %217 = or disjoint i32 %214, 4
   store i32 %217, ptr %202, align 8
-  br i1 %.not20.i153, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i157
+  br i1 %.not20.i154, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i158
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i157: ; preds = %216
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i158: ; preds = %216
   %218 = or i32 %214, 16388
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i155
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i156
 
 219:                                              ; preds = %213
   %220 = or disjoint i32 %214, 5
   store i32 %220, ptr %202, align 8
-  br i1 %.not20.i153, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i154
+  br i1 %.not20.i154, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i155
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i154: ; preds = %219
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i155: ; preds = %219
   %221 = or i32 %214, 16389
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i155
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i156
 
-_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i155: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i154, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i157, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i161
-  %.sink.i156 = phi i32 [ %221, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i154 ], [ %218, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i157 ], [ %210, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i161 ]
-  store i32 %.sink.i156, ptr %202, align 8
-  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i156: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i155, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i158, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i162
+  %.sink.i157 = phi i32 [ %221, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i155 ], [ %218, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i158 ], [ %210, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i162 ]
+  store i32 %.sink.i157, ptr %202, align 8
+  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163
 
-_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i158, %211, %216, %219, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i155
+_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163:   ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i159, %211, %216, %219, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i156
   br i1 %201, label %222, label %245
 
-222:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162
-  %223 = getelementptr inbounds i8, ptr %.sroa.0199.0247, i64 -24
+222:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163
+  %223 = getelementptr inbounds i8, ptr %.sroa.0200.0247, i64 -24
   %224 = load ptr, ptr %223, align 8, !tbaa !45
   call void @_ZN4llvm11GlobalAlias16removeFromParentEv(ptr noundef nonnull align 8 dereferenceable(64) %175) #11
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -577,7 +577,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalVal
   br i1 %.not, label %239, label %229
 
 229:                                              ; preds = %222
-  %230 = getelementptr inbounds i8, ptr %.sroa.0199.0247, i64 -40
+  %230 = getelementptr inbounds i8, ptr %.sroa.0200.0247, i64 -40
   %231 = load ptr, ptr %230, align 8, !tbaa !54
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load i32, ptr %232, align 8
@@ -617,7 +617,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalVal
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %175) #11
   br label %245
 
-245:                                              ; preds = %244, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit162
+245:                                              ; preds = %244, %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit163
   %.not230 = icmp eq ptr %174, %94
   br i1 %.not230, label %._crit_edge250, label %172
 
@@ -642,15 +642,15 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalVal
   ret void
 
 255:                                              ; preds = %.lr.ph254, %321
-  %.sroa.0187.0252 = phi ptr [ %166, %.lr.ph254 ], [ %257, %321 ]
-  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0187.0252, i64 8
+  %.sroa.0188.0252 = phi ptr [ %166, %.lr.ph254 ], [ %257, %321 ]
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0252, i64 8
   %257 = load ptr, ptr %256, align 8, !tbaa !37
-  %258 = getelementptr inbounds i8, ptr %.sroa.0187.0252, i64 -56
+  %258 = getelementptr inbounds i8, ptr %.sroa.0188.0252, i64 -56
   %259 = load i8, ptr %8, align 8, !tbaa !25, !range !18, !noundef !19
   %260 = load ptr, ptr %1, align 8, !tbaa !40
   %261 = load i32, ptr %168, align 8, !tbaa !41
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170, label %263
+  br i1 %262, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171, label %263
 
 263:                                              ; preds = %255
   %264 = ptrtoint ptr %258 to i64
@@ -659,103 +659,103 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit162:   ; preds = %_ZN4llvm11GlobalVal
   %267 = lshr i32 %265, 9
   %268 = xor i32 %266, %267
   %269 = add i32 %261, -1
-  %.01828.i.i.i.i.i.i164 = and i32 %269, %268
-  %270 = zext nneg i32 %.01828.i.i.i.i.i.i164 to i64
+  %.01828.i.i.i.i.i.i165 = and i32 %269, %268
+  %270 = zext nneg i32 %.01828.i.i.i.i.i.i165 to i64
   %271 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %260, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !20
   %273 = icmp eq ptr %258, %272
-  br i1 %273, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170, label %.lr.ph.i.i.i.i.i.i165, !prof !42
+  br i1 %273, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171, label %.lr.ph.i.i.i.i.i.i166, !prof !42
 
-.lr.ph.i.i.i.i.i.i165:                            ; preds = %263, %276
+.lr.ph.i.i.i.i.i.i166:                            ; preds = %263, %276
   %274 = phi ptr [ %281, %276 ], [ %272, %263 ]
-  %.01830.i.i.i.i.i.i166 = phi i32 [ %.018.i.i.i.i.i.i168, %276 ], [ %.01828.i.i.i.i.i.i164, %263 ]
-  %.01629.i.i.i.i.i.i167 = phi i32 [ %277, %276 ], [ 1, %263 ]
+  %.01830.i.i.i.i.i.i167 = phi i32 [ %.018.i.i.i.i.i.i169, %276 ], [ %.01828.i.i.i.i.i.i165, %263 ]
+  %.01629.i.i.i.i.i.i168 = phi i32 [ %277, %276 ], [ 1, %263 ]
   %275 = icmp eq ptr %274, inttoptr (i64 -4096 to ptr)
-  br i1 %275, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170, label %276, !prof !22
+  br i1 %275, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171, label %276, !prof !22
 
-276:                                              ; preds = %.lr.ph.i.i.i.i.i.i165
-  %277 = add i32 %.01629.i.i.i.i.i.i167, 1
-  %278 = add i32 %.01629.i.i.i.i.i.i167, %.01830.i.i.i.i.i.i166
-  %.018.i.i.i.i.i.i168 = and i32 %278, %269
-  %279 = zext i32 %.018.i.i.i.i.i.i168 to i64
+276:                                              ; preds = %.lr.ph.i.i.i.i.i.i166
+  %277 = add i32 %.01629.i.i.i.i.i.i168, 1
+  %278 = add i32 %.01629.i.i.i.i.i.i168, %.01830.i.i.i.i.i.i167
+  %.018.i.i.i.i.i.i169 = and i32 %278, %269
+  %279 = zext i32 %.018.i.i.i.i.i.i169 to i64
   %280 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %260, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !20
   %282 = icmp eq ptr %258, %281
-  br i1 %282, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170, label %.lr.ph.i.i.i.i.i.i165, !prof !43, !llvm.loop !44
+  br i1 %282, label %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171, label %.lr.ph.i.i.i.i.i.i166, !prof !43, !llvm.loop !44
 
-_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170: ; preds = %.lr.ph.i.i.i.i.i.i165, %276, %255, %263
-  %283 = phi i8 [ 0, %255 ], [ 1, %263 ], [ 1, %276 ], [ 0, %.lr.ph.i.i.i.i.i.i165 ]
+_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171: ; preds = %.lr.ph.i.i.i.i.i.i166, %276, %255, %263
+  %283 = phi i8 [ 0, %255 ], [ 1, %263 ], [ 1, %276 ], [ 0, %.lr.ph.i.i.i.i.i.i166 ]
   %284 = icmp eq i8 %259, %283
-  %285 = getelementptr inbounds i8, ptr %.sroa.0187.0252, i64 -24
+  %285 = getelementptr inbounds i8, ptr %.sroa.0188.0252, i64 -24
   %286 = load i32, ptr %285, align 8
   %287 = and i32 %286, 15
   %288 = add nsw i32 %287, -7
-  %spec.select.i.i.i171 = icmp ult i32 %288, 2
-  %or.cond.i172 = or i1 %284, %spec.select.i.i.i171
-  br i1 %or.cond.i172, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i180, label %294
+  %spec.select.i.i.i172 = icmp ult i32 %288, 2
+  %or.cond.i173 = or i1 %284, %spec.select.i.i.i172
+  br i1 %or.cond.i173, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i181, label %294
 
-_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i180: ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170
+_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i181: ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171
   %289 = and i32 %286, -16
   %290 = and i32 %286, 48
-  %.not21.i181 = icmp eq i32 %290, 0
+  %.not21.i182 = icmp eq i32 %290, 0
   %291 = or i32 %289, 16384
-  %spec.select.i182 = select i1 %.not21.i181, i32 %289, i32 %291
-  store i32 %spec.select.i182, ptr %285, align 8
-  br i1 %spec.select.i.i.i171, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i183, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184
+  %spec.select.i183 = select i1 %.not21.i182, i32 %289, i32 %291
+  store i32 %spec.select.i183, ptr %285, align 8
+  br i1 %spec.select.i.i.i172, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i184, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i183: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i180
-  %292 = and i32 %spec.select.i182, -16448
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i184: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i181
+  %292 = and i32 %spec.select.i183, -16448
   %293 = or disjoint i32 %292, 16400
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i177
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i178
 
-294:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit170
+294:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11GlobalValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE5countERKS2_.exit171
   %295 = and i32 %286, 14
-  %spec.select.i.i12.i173 = icmp eq i32 %295, 2
-  br i1 %spec.select.i.i12.i173, label %296, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184
+  %spec.select.i.i12.i174 = icmp eq i32 %295, 2
+  br i1 %spec.select.i.i12.i174, label %296, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185
 
 296:                                              ; preds = %294
-  %switch.i174 = icmp eq i32 %287, 2
+  %switch.i175 = icmp eq i32 %287, 2
   %297 = and i32 %286, -16
   %298 = and i32 %286, 48
-  %.not20.i175 = icmp eq i32 %298, 0
-  br i1 %switch.i174, label %299, label %302
+  %.not20.i176 = icmp eq i32 %298, 0
+  br i1 %switch.i175, label %299, label %302
 
 299:                                              ; preds = %296
   %300 = or disjoint i32 %297, 4
   store i32 %300, ptr %285, align 8
-  br i1 %.not20.i175, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i179
+  br i1 %.not20.i176, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i180
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i179: ; preds = %299
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i180: ; preds = %299
   %301 = or i32 %297, 16388
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i177
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i178
 
 302:                                              ; preds = %296
   %303 = or disjoint i32 %297, 5
   store i32 %303, ptr %285, align 8
-  br i1 %.not20.i175, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i176
+  br i1 %.not20.i176, label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i177
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i176: ; preds = %302
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i177: ; preds = %302
   %304 = or i32 %297, 16389
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i177
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i178
 
-_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i177: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i176, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i179, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i183
-  %.sink.i178 = phi i32 [ %304, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i176 ], [ %301, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i179 ], [ %293, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i183 ]
-  store i32 %.sink.i178, ptr %285, align 8
-  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i178: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i177, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i180, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i184
+  %.sink.i179 = phi i32 [ %304, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i17.i177 ], [ %301, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i180 ], [ %293, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i11.i184 ]
+  store i32 %.sink.i179, ptr %285, align 8
+  br label %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185
 
-_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184:   ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i180, %294, %299, %302, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i177
+_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185:   ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i181, %294, %299, %302, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i178
   br i1 %284, label %305, label %321
 
-305:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184
-  %306 = getelementptr inbounds i8, ptr %.sroa.0187.0252, i64 -32
+305:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185
+  %306 = getelementptr inbounds i8, ptr %.sroa.0188.0252, i64 -32
   %307 = load ptr, ptr %306, align 8, !tbaa !45
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i32, ptr %308, align 8
   %310 = and i32 %309, 255
   %311 = icmp eq i32 %310, 13
-  %spec.select.i.i185 = select i1 %311, ptr %307, ptr null
+  %spec.select.i.i186 = select i1 %311, ptr %307, ptr null
   call void @_ZN4llvm11GlobalIFunc16removeFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %258) #11
-  %312 = getelementptr inbounds i8, ptr %.sroa.0187.0252, i64 -48
+  %312 = getelementptr inbounds i8, ptr %.sroa.0188.0252, i64 -48
   %313 = load ptr, ptr %312, align 8, !tbaa !54
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load i32, ptr %314, align 8
@@ -769,14 +769,14 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit184:   ; preds = %_ZN4llvm11GlobalVal
   store ptr %318, ptr %7, align 8, !tbaa !59
   store i64 %319, ptr %171, align 8, !tbaa !59
   %320 = call noundef ptr @_ZN4llvm4UsernwEmNS0_26HungOffOperandsAllocMarkerE(i64 noundef 136) #11
-  call void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %320, ptr noundef %spec.select.i.i185, i32 noundef 0, i32 noundef %316, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull %2) #11
+  call void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTypesEjRKNS_5TwineEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %320, ptr noundef %spec.select.i.i186, i32 noundef 0, i32 noundef %316, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull %2) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %258, ptr noundef nonnull %320) #11
   call void @_ZN4llvm12GlobalObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %258) #11
   call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %258) #11
   br label %321
 
-321:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit184, %305
+321:                                              ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit185, %305
   %.not231 = icmp eq ptr %257, %167
   br i1 %.not231, label %._crit_edge255, label %255
 }

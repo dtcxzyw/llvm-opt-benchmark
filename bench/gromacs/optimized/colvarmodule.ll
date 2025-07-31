@@ -34269,7 +34269,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %99 = select i1 %97, i64 16, i64 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #33
   store i64 %99, ptr %4, align 8, !tbaa !77
-  br i1 %97, label %.noexc.i65, label %._crit_edge.i.i64
+  br i1 %97, label %.noexc.i65, label %.critedge203
 
 .noexc.i65:                                       ; preds = %.critedge
   %100 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
@@ -34280,12 +34280,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %102 = load i64, ptr %4, align 8, !tbaa !77
   store i64 %102, ptr %98, align 8, !tbaa !61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %100, ptr noundef nonnull align 1 dereferenceable(16) @.str.127, i64 16, i1 false)
-  %.pre207 = load ptr, ptr %7, align 8, !tbaa !74
-  br label %._crit_edge.i.i64
+  %.pre208 = load ptr, ptr %7, align 8, !tbaa !74
+  br label %.critedge203
 
-._crit_edge.i.i64:                                ; preds = %.critedge, %101
-  %103 = phi ptr [ %.pre207, %101 ], [ %98, %.critedge ]
-  %104 = phi i64 [ %102, %101 ], [ 0, %.critedge ]
+.critedge203:                                     ; preds = %.critedge, %101
+  %103 = phi ptr [ %98, %.critedge ], [ %.pre208, %101 ]
+  %104 = phi i64 [ 0, %.critedge ], [ %102, %101 ]
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %104, ptr %105, align 8, !tbaa !60
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 %104
@@ -34296,7 +34296,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %.not38 = icmp eq i64 %108, 0
   br i1 %.not38, label %234, label %109
 
-109:                                              ; preds = %._crit_edge.i.i64
+109:                                              ; preds = %.critedge203
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #33
@@ -34644,7 +34644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #33
   br label %489
 
-234:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %._crit_edge.i.i64
+234:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %.critedge203
   %235 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8, !tbaa !75, !nonnull !267, !noundef !267
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 1080
   %237 = load ptr, ptr %236, align 8, !tbaa !162
@@ -34909,7 +34909,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #33
-  %.pre208 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8, !tbaa !75
+  %.pre209 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8, !tbaa !75
   br label %367
 
 337:                                              ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %376, %367
@@ -34997,7 +34997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   br label %489
 
 367:                                              ; preds = %.critedge58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
-  %368 = phi ptr [ %.pre208, %.critedge58 ], [ %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
+  %368 = phi ptr [ %.pre209, %.critedge58 ], [ %249, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 856
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %371 = load ptr, ptr %369, align 8, !tbaa !100
@@ -35234,8 +35234,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %467 = load ptr, ptr %466, align 8, !tbaa !331
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %469 = load ptr, ptr %468, align 8, !tbaa !331
-  %.not202204 = icmp eq ptr %467, %469
-  br i1 %.not202204, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread195, label %.lr.ph
+  %.not202205 = icmp eq ptr %467, %469
+  br i1 %.not202205, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread195, label %.lr.ph
 
 470:                                              ; preds = %.noexc.i.i161
   %471 = landingpad { ptr, i32 }
@@ -35248,9 +35248,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %489
 
 .lr.ph:                                           ; preds = %.critedge62, %477
-  %.1206 = phi i32 [ %478, %477 ], [ 0, %.critedge62 ]
-  %.sroa.0188.0205 = phi ptr [ %479, %477 ], [ %467, %.critedge62 ]
-  %472 = load ptr, ptr %.sroa.0188.0205, align 8, !tbaa !332
+  %.1207 = phi i32 [ %478, %477 ], [ 0, %.critedge62 ]
+  %.sroa.0188.0206 = phi ptr [ %479, %477 ], [ %467, %.critedge62 ]
+  %472 = load ptr, ptr %.sroa.0188.0206, align 8, !tbaa !332
   %473 = load ptr, ptr %472, align 8, !tbaa !100
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 232
   %475 = load ptr, ptr %474, align 8
@@ -35258,8 +35258,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
           to label %477 unwind label %481
 
 477:                                              ; preds = %.lr.ph
-  %478 = or i32 %476, %.1206
-  %479 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0205, i64 8
+  %478 = or i32 %476, %.1207
+  %479 = getelementptr inbounds nuw i8, ptr %.sroa.0188.0206, i64 8
   %480 = load ptr, ptr %468, align 8, !tbaa !331
   %.not202 = icmp eq ptr %479, %480
   br i1 %.not202, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread195, label %.lr.ph, !llvm.loop !705

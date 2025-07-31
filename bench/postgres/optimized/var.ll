@@ -1629,7 +1629,7 @@ define internal fastcc void @adjust_standard_join_alias_expression(ptr noundef c
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
   %.tr = phi ptr [ %0, %2 ], [ %.tr.be, %tailrecurse.backedge ]
   %3 = load i32, ptr %.tr, align 4
-  switch i32 %3, label %.thread42 [
+  switch i32 %3, label %.critedge [
     i32 6, label %4
     i32 318, label %10
     i32 15, label %16
@@ -1645,7 +1645,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %6, %8
-  br i1 %9, label %.thread42.sink.split, label %.thread42
+  br i1 %9, label %.critedge.sink.split, label %.critedge
 
 10:                                               ; preds = %tailrecurse
   %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 36
@@ -1653,7 +1653,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %12, %14
-  br i1 %15, label %.thread42.sink.split, label %.thread42
+  br i1 %15, label %.critedge.sink.split, label %.critedge
 
 16:                                               ; preds = %tailrecurse
   %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
@@ -1684,16 +1684,16 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.thread42, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i32, ptr %29, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph55, label %.thread42
+  br i1 %32, label %.lr.ph51, label %.critedge
 
-.lr.ph55:                                         ; preds = %.lr.ph, %.lr.ph55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph55 ], [ 0, %.lr.ph ]
+.lr.ph51:                                         ; preds = %.lr.ph, %.lr.ph51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph51 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -1702,18 +1702,18 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
   %36 = load i32, ptr %29, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph55, label %.thread42
+  br i1 %38, label %.lr.ph51, label %.critedge
 
-.thread42.sink.split:                             ; preds = %10, %4
+.critedge.sink.split:                             ; preds = %10, %4
   %39 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @bms_add_members(ptr noundef %40, ptr noundef %42) #6
   store ptr %43, ptr %39, align 8
-  br label %.thread42
+  br label %.critedge
 
-.thread42:                                        ; preds = %tailrecurse, %.lr.ph55, %.thread42.sink.split, %26, %.lr.ph, %4, %10
+.critedge:                                        ; preds = %tailrecurse, %.lr.ph51, %.critedge.sink.split, %26, %.lr.ph, %4, %10
   ret void
 }
 

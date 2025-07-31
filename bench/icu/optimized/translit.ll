@@ -4487,8 +4487,8 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7714Transliter
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not29 = icmp eq ptr %9, getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN6icu_7710UnicodeSetE, i64 16)
-  br i1 %.not29, label %16, label %10
+  %.not26 = icmp eq ptr %9, getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN6icu_7710UnicodeSetE, i64 16)
+  br i1 %.not26, label %.critedge, label %10
 
 10:                                               ; preds = %8
   %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 200) #21
@@ -4497,7 +4497,7 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7714Transliter
 
 13:                                               ; preds = %10
   invoke void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %11)
-          to label %18 unwind label %14
+          to label %16 unwind label %14
 
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
@@ -4505,23 +4505,23 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7714Transliter
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #21
   resume { ptr, i32 } %15
 
-16:                                               ; preds = %8
-  %17 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9retainAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(200) %7)
-  br label %.thread
-
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %6, align 8, !tbaa !17
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(200) %11)
-  %24 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9retainAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(200) %11)
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %6, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(200) %11)
+  %22 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9retainAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(200) %11)
   tail call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %11) #21
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #21
   br label %.thread
 
-.thread:                                          ; preds = %10, %16, %18, %2
+.critedge:                                        ; preds = %8
+  %23 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet9retainAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(200) %7)
+  br label %.thread
+
+.thread:                                          ; preds = %10, %.critedge, %16, %2
   ret ptr %1
 }
 

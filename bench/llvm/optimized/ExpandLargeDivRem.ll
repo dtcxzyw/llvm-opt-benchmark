@@ -1156,7 +1156,7 @@ _ZNK4llvm13IRBuilderBase10setFPAttrsEPNS_11InstructionEPNS_6MDNodeENS_13FastMath
   call void @_ZN4llvm11Instruction16setFastMathFlagsENS_13FastMathFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %335, i32 %.sroa.0.0.copyload.i) #17
   br label %_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit.thread14
 
-_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit.thread14: ; preds = %338, %334, %355, %353, %_ZNK4llvm13IRBuilderBase10setFPAttrsEPNS_11InstructionEPNS_6MDNodeENS_13FastMathFlagsE.exit.i, %_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit
+_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit.thread14: ; preds = %338, %355, %353, %334, %_ZNK4llvm13IRBuilderBase10setFPAttrsEPNS_11InstructionEPNS_6MDNodeENS_13FastMathFlagsE.exit.i, %_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE.exit
   %377 = load ptr, ptr %51, align 8, !tbaa !150
   %.sroa.0.0.copyload.i.i = load ptr, ptr %52, align 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8

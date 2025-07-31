@@ -758,12 +758,12 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %entry, %if.the
 lor.rhs:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
   %7 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i2 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i2, label %lor.end, label %if.then.i.i3
+  br i1 %tobool.not.i.i2, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %lor.rhs
   %8 = load atomic i32, ptr %7 acquire, align 4
   %cmp.not.i.i.i4 = icmp eq i32 %8, 221
-  br i1 %cmp.not.i.i.i4, label %lor.end, label %if.then.i.i.i5
+  br i1 %cmp.not.i.i.i4, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %if.then.i.i3
   %9 = cmpxchg ptr %7, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -773,19 +773,19 @@ if.then.i.i.i5:                                   ; preds = %if.then.i.i3
 lor.lhs.false.i.i.i.i6:                           ; preds = %if.then.i.i.i5
   %call1.i.i.i.i7 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i8 = icmp eq i32 %call1.i.i.i.i7, 0
-  br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i12, label %lor.end
+  br i1 %cmp.i.i.i.i8, label %if.then.i.i.i.i12, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15
 
 if.then.i.i.i.i12:                                ; preds = %lor.lhs.false.i.i.i.i6, %if.then.i.i.i5
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %field)
   %11 = atomicrmw xchg ptr %7, i32 221 release, align 4
   %cmp4.i.i.i.i13 = icmp eq i32 %11, 94570706
-  br i1 %cmp4.i.i.i.i13, label %if.then5.i.i.i.i14, label %lor.end
+  br i1 %cmp4.i.i.i.i13, label %if.then5.i.i.i.i14, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15
 
 if.then5.i.i.i.i14:                               ; preds = %if.then.i.i.i.i12
   tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true)
-  br label %lor.end
+  br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15
 
-lor.end:                                          ; preds = %if.then5.i.i.i.i14, %if.then.i.i.i.i12, %lor.lhs.false.i.i.i.i6, %if.then.i.i3, %lor.rhs
+_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15: ; preds = %lor.rhs, %if.then.i.i3, %lor.lhs.false.i.i.i.i6, %if.then.i.i.i.i12, %if.then5.i.i.i.i14
   %12 = load i8, ptr %type_.i.i, align 2
   %idxprom.i10 = zext i8 %12 to i64
   %arrayidx.i11 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i10
@@ -793,7 +793,7 @@ lor.end:                                          ; preds = %if.then5.i.i.i.i14,
   %cmp3.not = icmp eq i32 %13, 5
   br i1 %cmp3.not, label %cleanup.done, label %cond.false
 
-cond.false:                                       ; preds = %lor.end
+cond.false:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 155, i64 107, ptr nonnull @.str.3) #26
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i64 53, ptr nonnull @.str.4)
           to label %invoke.cont6 unwind label %lpad
@@ -815,7 +815,7 @@ lpad:                                             ; preds = %cond.false, %invoke
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #23
   unreachable
 
-cleanup.done:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %lor.end
+cleanup.done:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit15
   %map_tolerance_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %16 = load ptr, ptr %map_tolerance_, align 8, !noalias !4
   tail call void @llvm.prefetch.p0(ptr %16, i32 0, i32 1, i32 1), !noalias !4

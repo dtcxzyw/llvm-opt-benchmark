@@ -842,9 +842,9 @@ define internal void @mov_text_text_cb(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not.i, label %utf8_strlen.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %18
-  %.01625.i = phi i32 [ %20, %18 ], [ 0, %3 ]
-  %.01824.i = phi i32 [ %19, %18 ], [ 0, %3 ]
-  %4 = zext i32 %.01824.i to i64
+  %.01622.i = phi i32 [ %20, %18 ], [ 0, %3 ]
+  %.01821.i = phi i32 [ %19, %18 ], [ 0, %3 ]
+  %4 = zext i32 %.01821.i to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !58
   %7 = zext i8 %6 to i32
@@ -868,8 +868,8 @@ define internal void @mov_text_text_cb(ptr noundef %0, ptr noundef %1, i32 nound
 
 18:                                               ; preds = %15, %12, %9, %.lr.ph.i
   %.sink.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %9 ], [ 3, %12 ], [ 4, %15 ]
-  %19 = add i32 %.sink.i, %.01824.i
-  %20 = add i32 %.01625.i, 1
+  %19 = add i32 %.sink.i, %.01821.i
+  %20 = add i32 %.01622.i, 1
   %21 = icmp ult i32 %19, %2
   br i1 %21, label %.lr.ph.i, label %utf8_strlen.exit, !llvm.loop !107
 

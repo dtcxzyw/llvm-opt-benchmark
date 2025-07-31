@@ -325,7 +325,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %68, %67
           to label %.backedge unwind label %.loopexit38
 
 .backedge:                                        ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit, %32, %18
-  br label %18, !llvm.loop !29
+  br label %18
 
 .loopexit:                                        ; preds = %18, %9
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef nonnull @.str.2)
@@ -333,7 +333,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %68, %67
 
 71:                                               ; preds = %.loopexit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !30
+  %73 = load ptr, ptr %72, align 8, !tbaa !29
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef %73)
           to label %74 unwind label %.loopexit.split-lp
 
@@ -343,7 +343,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %68, %67
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !31
+  %77 = load i32, ptr %76, align 8, !tbaa !30
   %78 = zext i32 %77 to i64
   br label %79
 
@@ -410,7 +410,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit37: ; preds = %98, %97
 
 102:                                              ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !32
+  %104 = load ptr, ptr %103, align 8, !tbaa !31
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef %104)
           to label %105 unwind label %.loopexit.split-lp
 
@@ -442,7 +442,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit37: ; preds = %98, %97
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !33
+  %116 = load ptr, ptr %115, align 8, !tbaa !32
   br label %117
 
 117:                                              ; preds = %112, %114
@@ -497,7 +497,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__errno_location() #20
-  %8 = load i32, ptr %7, align 4, !tbaa !35
+  %8 = load i32, ptr %7, align 4, !tbaa !34
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %13, label %_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm.exit
 
@@ -512,7 +512,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr
   %14 = icmp ne i64 %4, 0
   %15 = icmp ne i64 %.121.i.i, 0
   %16 = and i1 %14, %15
-  br i1 %16, label %3, label %_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm.exit, !llvm.loop !36
+  br i1 %16, label %3, label %_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm.exit, !llvm.loop !35
 
 _ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm.exit: ; preds = %6, %13
   ret void
@@ -545,7 +545,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(pt
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__errno_location() #20
-  %8 = load i32, ptr %7, align 4, !tbaa !35
+  %8 = load i32, ptr %7, align 4, !tbaa !34
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %13, label %_ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit
 
@@ -560,7 +560,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(pt
   %14 = icmp ne i64 %4, 0
   %15 = icmp ne i64 %.121.i, 0
   %16 = and i1 %14, %15
-  br i1 %16, label %3, label %_ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit, !llvm.loop !36
+  br i1 %16, label %3, label %_ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit, !llvm.loop !35
 
 _ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit: ; preds = %6, %13
   ret void
@@ -670,7 +670,7 @@ define internal fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail
   %21 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 64
   %22 = add nsw i64 %.057.i.i, -1
   %23 = icmp sgt i64 %.057.i.i, 1
-  br i1 %23, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !37
+  br i1 %23, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !36
 
 ._crit_edge.loopexit.i.i:                         ; preds = %20
   %.pre.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -743,9 +743,9 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111flushStderrEv() unn
 
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #20
-  %6 = load i32, ptr %5, align 4, !tbaa !35
+  %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = icmp eq i32 %6, 4
-  br i1 %7, label %1, label %_ZN5folly15fileutil_detail9wrapNoIntIPFiiEJiEEElT_DpT0_.exit, !llvm.loop !38
+  br i1 %7, label %1, label %_ZN5folly15fileutil_detail9wrapNoIntIPFiiEJiEEElT_DpT0_.exit, !llvm.loop !37
 
 _ZN5folly15fileutil_detail9wrapNoIntIPFiiEJiEEElT_DpT0_.exit: ; preds = %1, %4
   ret void
@@ -771,7 +771,7 @@ define void @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = tail call ptr @__errno_location() #20
-  %4 = load i32, ptr %3, align 4, !tbaa !35
+  %4 = load i32, ptr %3, align 4, !tbaa !34
   call fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr noundef %0, i32 noundef %4, ptr noundef %2) #17
   unreachable
 }
@@ -832,13 +832,12 @@ attributes #20 = { nounwind willreturn memory(none) }
 !26 = !{!"branch_weights", i32 0, i32 1}
 !27 = distinct !{!27, !22}
 !28 = !{!11, !11, i64 0}
-!29 = distinct !{!29, !22}
-!30 = !{!8, !9, i64 8}
-!31 = !{!8, !13, i64 16}
-!32 = !{!8, !9, i64 24}
-!33 = !{!34, !9, i64 8}
-!34 = !{!"_ZTSSt4pairIiPKcE", !13, i64 0, !9, i64 8}
-!35 = !{!13, !13, i64 0}
+!29 = !{!8, !9, i64 8}
+!30 = !{!8, !13, i64 16}
+!31 = !{!8, !9, i64 24}
+!32 = !{!33, !9, i64 8}
+!33 = !{!"_ZTSSt4pairIiPKcE", !13, i64 0, !9, i64 8}
+!34 = !{!13, !13, i64 0}
+!35 = distinct !{!35, !22}
 !36 = distinct !{!36, !22}
 !37 = distinct !{!37, !22}
-!38 = distinct !{!38, !22}

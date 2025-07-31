@@ -255,29 +255,29 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %4)
-  %.not.not.i1.i = icmp eq ptr %15, %2
-  br i1 %.not.not.i1.i, label %.loopexit, label %.lr.ph.i
+  %.not.not12.i.i = icmp eq ptr %15, %2
+  br i1 %.not.not12.i.i, label %.loopexit, label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i"
 
-.lr.ph.i:                                         ; preds = %25, %.noexc
+"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i": ; preds = %25, %.noexc
   %27 = phi ptr [ %32, %.noexc ], [ %26, %25 ]
   %28 = phi i64 [ %34, %.noexc ], [ 1, %25 ]
-  %.sroa.0.0.i2.i = phi ptr [ %29, %.noexc ], [ %15, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2.i, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %4, ptr noundef nonnull align 4 dereferenceable(132) %.sroa.0.0.i2.i, i64 132, i1 false), !noalias !60
+  %.sroa.0.013.i.i = phi ptr [ %29, %.noexc ], [ %15, %25 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %4, ptr noundef nonnull align 4 dereferenceable(132) %.sroa.0.013.i.i, i64 132, i1 false), !noalias !60
   %30 = load i64, ptr %7, align 8, !alias.scope !60, !noundef !9
   %31 = icmp eq i64 %28, %30
   br i1 %31, label %35, label %.noexc
 
-.noexc:                                           ; preds = %..noexc_crit_edge, %.lr.ph.i
-  %32 = phi ptr [ %.pre, %..noexc_crit_edge ], [ %27, %.lr.ph.i ]
+.noexc:                                           ; preds = %..noexc_crit_edge, %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i"
+  %32 = phi ptr [ %.pre, %..noexc_crit_edge ], [ %27, %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i" ]
   %33 = getelementptr inbounds { { i32, [128 x i8] } }, ptr %32, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %33, ptr noundef nonnull align 4 dereferenceable(132) %4, i64 132, i1 false)
   %34 = add i64 %28, 1
   store i64 %34, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !60
   %.not.not.i.i = icmp eq ptr %29, %2
-  br i1 %.not.not.i.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not.not.i.i, label %.loopexit, label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i"
 
-35:                                               ; preds = %.lr.ph.i
+35:                                               ; preds = %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he9dbedb420308bb6E.exit.i.i"
   %36 = ptrtoint ptr %29 to i64
   %37 = sub nuw i64 %16, %36
   %38 = udiv exact i64 %37, 132

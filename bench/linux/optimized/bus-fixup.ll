@@ -245,32 +245,32 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   call void @kfree(ptr noundef nonnull %39) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %2) #10
-  switch i8 %54, label %65 [
+  switch i8 %54, label %.critedge [
     i8 0, label %61
     i8 1, label %63
   ]
 
 61:                                               ; preds = %50
   %62 = icmp eq i8 %56, 0
-  br i1 %62, label %67, label %65
+  br i1 %62, label %66, label %.critedge
 
 63:                                               ; preds = %50
   %64 = icmp eq i8 %56, 1
-  br i1 %64, label %67, label %65
+  br i1 %64, label %66, label %.critedge
 
-65:                                               ; preds = %61, %63, %50
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %66, ptr noundef nonnull @.str.3, i32 noundef -2) #11
+.critedge:                                        ; preds = %61, %63, %50
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %65, ptr noundef nonnull @.str.3, i32 noundef -2) #11
   br label %70
 
-67:                                               ; preds = %61, %63
-  %.ph10 = phi ptr [ @.str.11, %63 ], [ @.str.10, %61 ]
+66:                                               ; preds = %61, %63
+  %67 = phi ptr [ @.str.10, %61 ], [ @.str.11, %63 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %69 = call i64 @strscpy(ptr noundef nonnull %68, ptr noundef nonnull %.ph10, i64 noundef 32) #10
+  %69 = call i64 @strscpy(ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef 32) #10
   br label %70
 
-70:                                               ; preds = %48, %.thread, %67, %65
-  %71 = phi i32 [ -5, %48 ], [ 0, %67 ], [ -2, %65 ], [ %.ph, %.thread ]
+70:                                               ; preds = %48, %.thread, %66, %.critedge
+  %71 = phi i32 [ -5, %48 ], [ 0, %66 ], [ -2, %.critedge ], [ %.ph, %.thread ]
   call void @mutex_lock(ptr noundef nonnull %6) #10
   %72 = call i32 @mei_cl_disconnect(ptr noundef %7) #10
   %73 = icmp slt i32 %72, 0

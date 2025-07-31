@@ -816,7 +816,7 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 1) #8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -826,12 +826,9 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %15 = load i32, ptr %9, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph23, label %._crit_edge
+  br i1 %16, label %.lr.ph21, label %.critedge
 
-._crit_edge:                                      ; preds = %31, %.lr.ph, %1
-  ret i64 0
-
-.lr.ph23:                                         ; preds = %.lr.ph, %31
+.lr.ph21:                                         ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
@@ -849,17 +846,20 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
   %.not17 = icmp eq ptr %25, null
   br i1 %.not17, label %31, label %26
 
-26:                                               ; preds = %.lr.ph23
+.critedge:                                        ; preds = %31, %.lr.ph, %1
+  ret i64 0
+
+26:                                               ; preds = %.lr.ph21
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @cstring_to_text(ptr noundef %28) #8
   %30 = ptrtoint ptr %29 to i64
   br label %31
 
-31:                                               ; preds = %.lr.ph23, %26
-  %storemerge25 = phi i64 [ %30, %26 ], [ 0, %.lr.ph23 ]
-  %storemerge = phi i8 [ 0, %26 ], [ 1, %.lr.ph23 ]
-  store i64 %storemerge25, ptr %11, align 8
+31:                                               ; preds = %.lr.ph21, %26
+  %storemerge23 = phi i64 [ %30, %26 ], [ 0, %.lr.ph21 ]
+  %storemerge = phi i8 [ 0, %26 ], [ 1, %.lr.ph21 ]
+  store i64 %storemerge23, ptr %11, align 8
   store i8 %storemerge, ptr %12, align 1
   %32 = load ptr, ptr %13, align 8
   %33 = load ptr, ptr %14, align 8
@@ -870,7 +870,7 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph23, label %._crit_edge
+  br i1 %36, label %.lr.ph21, label %.critedge
 }
 
 declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -889,22 +889,22 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr noundef readonly capt
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph40, label %._crit_edge
+  br i1 %11, label %.lr.ph38, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph
+.lr.ph38:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph40, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next, %52 ]
+14:                                               ; preds = %.lr.ph38, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %52 ]
   %15 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -930,6 +930,9 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr noundef readonly capt
   %.not.not.i = icmp eq ptr %29, null
   br i1 %.not.not.i, label %is_conninfo_option.exit, label %19, !llvm.loop !7
 
+.critedge:                                        ; preds = %52, %.lr.ph, %1
+  ret i64 1
+
 is_conninfo_option.exit:                          ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
@@ -938,9 +941,9 @@ is_conninfo_option.exit:                          ; preds = %27
 
 31:                                               ; preds = %is_conninfo_option.exit, %37
   %32 = phi ptr [ @.str.15, %is_conninfo_option.exit ], [ %39, %37 ]
-  %.042 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %37 ]
-  %.02441 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.02441, i64 8
+  %.040 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %37 ]
+  %.02439 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %8
   br i1 %35, label %36, label %37
@@ -950,8 +953,8 @@ is_conninfo_option.exit:                          ; preds = %27
   br label %37
 
 37:                                               ; preds = %31, %36
-  %.1 = phi i1 [ true, %36 ], [ %.042, %31 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.02441, i64 16
+  %.1 = phi i1 [ true, %36 ], [ %.040, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not31 = icmp eq ptr %39, null
   br i1 %.not31, label %40, label %31, !llvm.loop !9
@@ -984,10 +987,7 @@ is_conninfo_option.exit:                          ; preds = %27
 52:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14
-
-._crit_edge:                                      ; preds = %52, %.lr.ph, %1
-  ret i64 1
+  br i1 %exitcond.not, label %.critedge, label %14
 }
 
 declare void @initClosestMatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

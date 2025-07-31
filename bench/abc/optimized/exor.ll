@@ -565,7 +565,7 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #5 {
 71:                                               ; preds = %68
   store i32 1, ptr @s_fDecreaseLiterals, align 4, !tbaa !14
   %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4, !tbaa !21
-  switch i32 %72, label %77 [
+  switch i32 %72, label %.critedge [
     i32 2, label %73
     i32 1, label %76
   ]
@@ -573,23 +573,23 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #5 {
 73:                                               ; preds = %71
   %74 = add nsw i32 %.1, 1
   %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %74)
-  br label %77
+  br label %.critedge
 
 76:                                               ; preds = %71
   %putchar53 = tail call i32 @putchar(i32 46)
-  br label %77
+  br label %.critedge
 
-77:                                               ; preds = %71, %76, %73
-  %78 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
-  %79 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
-  %80 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
-  %81 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
-  %82 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
-  %83 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
-  %84 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
-  %85 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
-  %86 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
-  %87 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
+.critedge:                                        ; preds = %71, %76, %73
+  %77 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
+  %78 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
+  %79 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
+  %80 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
+  %81 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
+  %82 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
+  %83 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
+  %84 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
+  %85 = tail call i32 @IterativelyApplyExorLink2(i8 noundef signext 3) #17
+  %86 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
   ret i32 0
 }
 

@@ -4925,8 +4925,8 @@ define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %
   %6 = alloca [2 x %struct.anon.3], align 16
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i16 %7, 8194
-  %indvars.iv.sroa.gep34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not, label %8, label %50
+  %indvars.iv.sroa.gep46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br i1 %.not, label %8, label %56
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
@@ -4941,89 +4941,105 @@ define internal fastcc void @add_ipv6_address_6to4(ptr noundef %0, ptr noundef %
   store i32 %13, ptr %12, align 4
   %14 = add nuw nsw i32 %2, 2
   %15 = add nuw nsw i32 %2, 6
-  br label %17
-
-16:                                               ; preds = %proto_item_set_hidden.exit26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  br label %50
-
-17:                                               ; preds = %8, %proto_item_set_hidden.exit26
-  %.not31 = phi i1 [ false, %8 ], [ true, %proto_item_set_hidden.exit26 ]
-  %18 = phi i1 [ true, %8 ], [ false, %proto_item_set_hidden.exit26 ]
-  %indvars.iv.sroa.phi = phi ptr [ %6, %8 ], [ %indvars.iv.sroa.gep34, %proto_item_set_hidden.exit26 ]
-  %19 = load i32, ptr %indvars.iv.sroa.phi, align 8
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %21
-
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %.not5.i = icmp eq ptr %23, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %24
-
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %26 = load i32, ptr %25, align 4
-  %27 = or i32 %26, 2
-  store i32 %27, ptr %25, align 4
-  br label %proto_item_set_generated.exit
-
-proto_item_set_generated.exit:                    ; preds = %21, %24
-  br i1 %.not31, label %28, label %proto_item_set_hidden.exit
-
-28:                                               ; preds = %proto_item_set_generated.exit
-  %29 = load ptr, ptr %22, align 8
-  %.not5.i20 = icmp eq ptr %29, null
-  br i1 %.not5.i20, label %proto_item_set_hidden.exit, label %30
-
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = or i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  br label %proto_item_set_hidden.exit
-
-proto_item_set_hidden.exit:                       ; preds = %17, %proto_item_set_generated.exit, %30, %28
-  %.not29 = phi i1 [ true, %proto_item_set_generated.exit ], [ false, %28 ], [ false, %30 ], [ %18, %17 ]
-  %34 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  %.not.i21 = icmp eq ptr %36, null
-  br i1 %.not.i21, label %proto_item_set_hidden.exit26, label %37
-
-37:                                               ; preds = %proto_item_set_hidden.exit
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %39 = load ptr, ptr %38, align 8
-  %.not5.i22 = icmp eq ptr %39, null
-  br i1 %.not5.i22, label %proto_item_set_generated.exit23, label %40
-
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = or i32 %42, 2
-  store i32 %43, ptr %41, align 4
-  br label %proto_item_set_generated.exit23
-
-proto_item_set_generated.exit23:                  ; preds = %37, %40
-  br i1 %.not29, label %proto_item_set_hidden.exit26, label %44
-
-44:                                               ; preds = %proto_item_set_generated.exit23
-  %45 = load ptr, ptr %38, align 8
-  %.not5.i25 = icmp eq ptr %45, null
-  br i1 %.not5.i25, label %proto_item_set_hidden.exit26, label %46
-
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %48 = load i32, ptr %47, align 4
-  %49 = or i32 %48, 1
-  store i32 %49, ptr %47, align 4
   br label %proto_item_set_hidden.exit26
 
-proto_item_set_hidden.exit26:                     ; preds = %proto_item_set_generated.exit23, %proto_item_set_hidden.exit, %46, %44
-  br i1 %18, label %17, label %16, !llvm.loop !22
+.thread:                                          ; preds = %35, %42, %38, %proto_item_set_hidden.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  br label %56
 
-50:                                               ; preds = %5, %16
+proto_item_set_hidden.exit26:                     ; preds = %proto_item_set_hidden.exit26.backedge, %8
+  %.not32 = phi i1 [ true, %8 ], [ false, %proto_item_set_hidden.exit26.backedge ]
+  %indvars.iv.sroa.phi = phi ptr [ %6, %8 ], [ %indvars.iv.sroa.gep46, %proto_item_set_hidden.exit26.backedge ]
+  %16 = load i32, ptr %indvars.iv.sroa.phi, align 8
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %proto_item_set_generated.exit.thread, label %18
+
+18:                                               ; preds = %proto_item_set_hidden.exit26
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.not5.i = icmp eq ptr %20, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %21
+
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %23 = load i32, ptr %22, align 4
+  %24 = or i32 %23, 2
+  store i32 %24, ptr %22, align 4
+  br label %proto_item_set_generated.exit
+
+proto_item_set_generated.exit:                    ; preds = %18, %21
+  br i1 %.not32, label %.critedge, label %25
+
+proto_item_set_generated.exit.thread:             ; preds = %proto_item_set_hidden.exit26
+  br i1 %.not32, label %.critedge, label %proto_item_set_hidden.exit
+
+25:                                               ; preds = %proto_item_set_generated.exit
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %.not5.i20 = icmp eq ptr %27, null
+  br i1 %.not5.i20, label %proto_item_set_hidden.exit, label %28
+
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = or i32 %30, 1
+  store i32 %31, ptr %29, align 4
+  br label %proto_item_set_hidden.exit
+
+proto_item_set_hidden.exit:                       ; preds = %proto_item_set_generated.exit.thread, %25, %28
+  %32 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  %.not.i21 = icmp eq ptr %34, null
+  br i1 %.not.i21, label %.thread, label %35
+
+35:                                               ; preds = %proto_item_set_hidden.exit
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %.not5.i22 = icmp eq ptr %37, null
+  br i1 %.not5.i22, label %.thread, label %38
+
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  %40 = load i32, ptr %39, align 4
+  %41 = or i32 %40, 2
+  store i32 %41, ptr %39, align 4
+  %.pre = load ptr, ptr %36, align 8
+  %.not5.i25 = icmp eq ptr %.pre, null
+  br i1 %.not5.i25, label %.thread, label %42
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
+  %44 = load i32, ptr %43, align 4
+  %45 = or i32 %44, 1
+  store i32 %45, ptr %43, align 4
+  br label %.thread
+
+.critedge:                                        ; preds = %proto_item_set_generated.exit.thread, %proto_item_set_generated.exit
+  %46 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  %.not.i27 = icmp eq ptr %48, null
+  br i1 %.not.i27, label %proto_item_set_hidden.exit26.backedge, label %49
+
+49:                                               ; preds = %.critedge
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %.not5.i28 = icmp eq ptr %51, null
+  br i1 %.not5.i28, label %proto_item_set_hidden.exit26.backedge, label %52
+
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
+  %54 = load i32, ptr %53, align 4
+  %55 = or i32 %54, 2
+  store i32 %55, ptr %53, align 4
+  br label %proto_item_set_hidden.exit26.backedge
+
+proto_item_set_hidden.exit26.backedge:            ; preds = %52, %49, %.critedge
+  br label %proto_item_set_hidden.exit26, !llvm.loop !22
+
+56:                                               ; preds = %5, %.thread
   ret void
 }
 
@@ -5032,8 +5048,8 @@ define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef
   %7 = alloca [2 x %struct.anon.4], align 16
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %8, 536936448
-  %indvars.iv.sroa.gep55 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  br i1 %.not, label %9, label %81
+  %indvars.iv.sroa.gep64 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  br i1 %.not, label %9, label %78
 
 9:                                                ; preds = %6
   %10 = add nuw nsw i32 %2, 10
@@ -5061,130 +5077,134 @@ define internal fastcc void @add_ipv6_address_teredo(ptr noundef %0, ptr noundef
   %25 = zext i16 %12 to i32
   br label %27
 
-26:                                               ; preds = %proto_item_set_hidden.exit46
+26:                                               ; preds = %proto_item_set_hidden.exit51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  br label %81
+  br label %78
 
-27:                                               ; preds = %9, %proto_item_set_hidden.exit46
-  %.not52 = phi i1 [ false, %9 ], [ true, %proto_item_set_hidden.exit46 ]
-  %28 = phi i1 [ true, %9 ], [ false, %proto_item_set_hidden.exit46 ]
-  %indvars.iv.sroa.phi = phi ptr [ %7, %9 ], [ %indvars.iv.sroa.gep55, %proto_item_set_hidden.exit46 ]
-  %29 = load i32, ptr %indvars.iv.sroa.phi, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef %24, i32 noundef 4, i32 noundef 0)
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %31
+27:                                               ; preds = %9, %proto_item_set_hidden.exit51
+  %.not56 = phi i1 [ true, %9 ], [ false, %proto_item_set_hidden.exit51 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %9 ], [ %indvars.iv.sroa.gep64, %proto_item_set_hidden.exit51 ]
+  %28 = load i32, ptr %indvars.iv.sroa.phi, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %24, i32 noundef 4, i32 noundef 0)
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %proto_item_set_generated.exit.thread, label %30
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %.not5.i = icmp eq ptr %33, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %34
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %.not5.i = icmp eq ptr %32, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %33
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 28
-  %36 = load i32, ptr %35, align 4
-  %37 = or i32 %36, 2
-  store i32 %37, ptr %35, align 4
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = or i32 %35, 2
+  store i32 %36, ptr %34, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %31, %34
-  br i1 %.not52, label %38, label %proto_item_set_hidden.exit
+proto_item_set_generated.exit:                    ; preds = %30, %33
+  br i1 %.not56, label %.critedge, label %37
 
-38:                                               ; preds = %proto_item_set_generated.exit
-  %39 = load ptr, ptr %32, align 8
-  %.not5.i34 = icmp eq ptr %39, null
-  br i1 %.not5.i34, label %proto_item_set_hidden.exit, label %40
+proto_item_set_generated.exit.thread:             ; preds = %27
+  br i1 %.not56, label %.critedge, label %proto_item_set_hidden.exit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = or i32 %42, 1
-  store i32 %43, ptr %41, align 4
+37:                                               ; preds = %proto_item_set_generated.exit
+  %38 = load ptr, ptr %31, align 8
+  %.not5.i36 = icmp eq ptr %38, null
+  br i1 %.not5.i36, label %proto_item_set_hidden.exit, label %39
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 28
+  %41 = load i32, ptr %40, align 4
+  %42 = or i32 %41, 1
+  store i32 %42, ptr %40, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %27, %proto_item_set_generated.exit, %40, %38
-  %44 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %38 ], [ true, %40 ], [ %.not52, %27 ]
-  %45 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %10, i32 noundef 2, i32 noundef %25)
-  %.not.i35 = icmp eq ptr %47, null
-  br i1 %.not.i35, label %proto_item_set_hidden.exit40, label %48
+proto_item_set_hidden.exit:                       ; preds = %proto_item_set_generated.exit.thread, %37, %39
+  %43 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %10, i32 noundef 2, i32 noundef %25)
+  %.not.i37 = icmp eq ptr %45, null
+  br i1 %.not.i37, label %proto_item_set_hidden.exit42, label %46
 
-48:                                               ; preds = %proto_item_set_hidden.exit
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %.not5.i36 = icmp eq ptr %50, null
-  br i1 %.not5.i36, label %proto_item_set_generated.exit37, label %51
+46:                                               ; preds = %proto_item_set_hidden.exit
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %.not5.i38 = icmp eq ptr %48, null
+  br i1 %.not5.i38, label %proto_item_set_hidden.exit42, label %49
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 28
-  %53 = load i32, ptr %52, align 4
-  %54 = or i32 %53, 2
-  store i32 %54, ptr %52, align 4
-  br label %proto_item_set_generated.exit37
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 28
+  %51 = load i32, ptr %50, align 4
+  %52 = or i32 %51, 2
+  store i32 %52, ptr %50, align 4
+  %.pre = load ptr, ptr %47, align 8
+  %.not5.i41 = icmp eq ptr %.pre, null
+  br i1 %.not5.i41, label %proto_item_set_hidden.exit42, label %proto_item_set_hidden.exit42.sink.split
 
-proto_item_set_generated.exit37:                  ; preds = %48, %51
-  br i1 %44, label %55, label %proto_item_set_hidden.exit40.thread
+.critedge:                                        ; preds = %proto_item_set_generated.exit.thread, %proto_item_set_generated.exit
+  %53 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %54, ptr noundef %1, i32 noundef %10, i32 noundef 2, i32 noundef %25)
+  %.not.i43 = icmp eq ptr %55, null
+  br i1 %.not.i43, label %proto_item_set_hidden.exit42, label %56
 
-55:                                               ; preds = %proto_item_set_generated.exit37
-  %56 = load ptr, ptr %49, align 8
-  %.not5.i39 = icmp eq ptr %56, null
-  br i1 %.not5.i39, label %proto_item_set_hidden.exit40, label %57
+56:                                               ; preds = %.critedge
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %.not5.i44 = icmp eq ptr %58, null
+  br i1 %.not5.i44, label %proto_item_set_hidden.exit42, label %proto_item_set_hidden.exit42.sink.split
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 28
-  %59 = load i32, ptr %58, align 4
-  %60 = or i32 %59, 1
-  store i32 %60, ptr %58, align 4
-  br label %proto_item_set_hidden.exit40
+proto_item_set_hidden.exit42.sink.split:          ; preds = %56, %49
+  %.sink63 = phi ptr [ %.pre, %49 ], [ %58, %56 ]
+  %.sink62 = phi i32 [ 1, %49 ], [ 2, %56 ]
+  %.not53.ph = phi i1 [ false, %49 ], [ true, %56 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sink63, i64 28
+  %60 = load i32, ptr %59, align 4
+  %61 = or i32 %60, %.sink62
+  store i32 %61, ptr %59, align 4
+  br label %proto_item_set_hidden.exit42
 
-proto_item_set_hidden.exit40:                     ; preds = %proto_item_set_hidden.exit, %57, %55
-  %61 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef %15)
-  %.not.i41 = icmp eq ptr %63, null
-  br i1 %.not.i41, label %proto_item_set_hidden.exit46, label %67
+proto_item_set_hidden.exit42:                     ; preds = %proto_item_set_hidden.exit42.sink.split, %46, %56, %.critedge, %49, %proto_item_set_hidden.exit
+  %.not53 = phi i1 [ false, %proto_item_set_hidden.exit ], [ false, %49 ], [ true, %.critedge ], [ true, %56 ], [ false, %46 ], [ %.not53.ph, %proto_item_set_hidden.exit42.sink.split ]
+  %62 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %63 = load i32, ptr %62, align 4
+  %64 = tail call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %63, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef %15)
+  %.not.i46 = icmp eq ptr %64, null
+  br i1 %.not.i46, label %proto_item_set_hidden.exit51, label %65
 
-proto_item_set_hidden.exit40.thread:              ; preds = %proto_item_set_generated.exit37
-  %64 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %65 = load i32, ptr %64, align 4
-  %66 = tail call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %13, i32 noundef 4, i32 noundef %15)
-  %.not.i4149 = icmp eq ptr %66, null
-  br i1 %.not.i4149, label %proto_item_set_hidden.exit46, label %67
+65:                                               ; preds = %proto_item_set_hidden.exit42
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %.not5.i47 = icmp eq ptr %67, null
+  br i1 %.not5.i47, label %proto_item_set_generated.exit48, label %68
 
-67:                                               ; preds = %proto_item_set_hidden.exit40.thread, %proto_item_set_hidden.exit40
-  %68 = phi ptr [ %66, %proto_item_set_hidden.exit40.thread ], [ %63, %proto_item_set_hidden.exit40 ]
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %.not5.i42 = icmp eq ptr %70, null
-  br i1 %.not5.i42, label %proto_item_set_generated.exit43, label %71
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 28
+  %70 = load i32, ptr %69, align 4
+  %71 = or i32 %70, 2
+  store i32 %71, ptr %69, align 4
+  br label %proto_item_set_generated.exit48
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 28
-  %73 = load i32, ptr %72, align 4
-  %74 = or i32 %73, 2
-  store i32 %74, ptr %72, align 4
-  br label %proto_item_set_generated.exit43
+proto_item_set_generated.exit48:                  ; preds = %65, %68
+  br i1 %.not53, label %proto_item_set_hidden.exit51, label %72
 
-proto_item_set_generated.exit43:                  ; preds = %67, %71
-  br i1 %44, label %75, label %proto_item_set_hidden.exit46
+72:                                               ; preds = %proto_item_set_generated.exit48
+  %73 = load ptr, ptr %66, align 8
+  %.not5.i50 = icmp eq ptr %73, null
+  br i1 %.not5.i50, label %proto_item_set_hidden.exit51, label %74
 
-75:                                               ; preds = %proto_item_set_generated.exit43
-  %76 = load ptr, ptr %69, align 8
-  %.not5.i45 = icmp eq ptr %76, null
-  br i1 %.not5.i45, label %proto_item_set_hidden.exit46, label %77
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 28
+  %76 = load i32, ptr %75, align 4
+  %77 = or i32 %76, 1
+  store i32 %77, ptr %75, align 4
+  br label %proto_item_set_hidden.exit51
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = or i32 %79, 1
-  store i32 %80, ptr %78, align 4
-  br label %proto_item_set_hidden.exit46
+proto_item_set_hidden.exit51:                     ; preds = %proto_item_set_generated.exit48, %proto_item_set_hidden.exit42, %74, %72
+  br i1 %.not56, label %27, label %26, !llvm.loop !23
 
-proto_item_set_hidden.exit46:                     ; preds = %proto_item_set_hidden.exit40, %proto_item_set_hidden.exit40.thread, %77, %75, %proto_item_set_generated.exit43
-  br i1 %28, label %27, label %26, !llvm.loop !23
-
-81:                                               ; preds = %6, %26
+78:                                               ; preds = %6, %26
   ret void
 }
 

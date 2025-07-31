@@ -10877,25 +10877,26 @@ define internal fastcc range(i32 0, 2) i32 @handle_rstn(ptr noundef captures(non
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = icmp eq i32 %14, 100
-  br i1 %15, label %16, label %thread-pre-split.thread
+  %16 = getelementptr i8, ptr %0, i64 32
+  %.val.i = load i32, ptr %16, align 8, !tbaa !61
+  br i1 %15, label %17, label %thread-pre-split.thread
 
-16:                                               ; preds = %10
-  %17 = getelementptr i8, ptr %0, i64 32
-  %.val.i = load i32, ptr %17, align 8, !tbaa !61
+17:                                               ; preds = %10
   %18 = sub nsw i32 0, %.val.i
   %19 = and i32 %18, 7
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %align_get_bits.exit, label %20
 
-20:                                               ; preds = %16
+20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8, !tbaa !59
   %23 = add i32 %19, %.val.i
   %24 = tail call i32 @llvm.umin.i32(i32 %22, i32 %23)
-  store i32 %24, ptr %17, align 8, !tbaa !61
+  store i32 %24, ptr %16, align 8, !tbaa !61
   br label %align_get_bits.exit
 
-align_get_bits.exit:                              ; preds = %16, %20
+align_get_bits.exit:                              ; preds = %17, %20
+  %.val3770 = phi i32 [ %.val.i, %17 ], [ %24, %20 ]
   %25 = icmp sgt i32 %1, 0
   br i1 %25, label %.lr.ph, label %thread-pre-split.thread
 
@@ -10920,19 +10921,19 @@ thread-pre-split:                                 ; preds = %30
   %32 = icmp eq i32 %.pr.pre, 0
   br i1 %32, label %thread-pre-split.thread, label %.loopexit
 
-thread-pre-split.thread:                          ; preds = %10, %align_get_bits.exit, %thread-pre-split
+thread-pre-split.thread:                          ; preds = %align_get_bits.exit, %10, %thread-pre-split
+  %.val3776 = phi i32 [ %.val3770, %thread-pre-split ], [ %.val3770, %align_get_bits.exit ], [ %.val.i, %10 ]
   %33 = getelementptr i8, ptr %0, i64 32
-  %.val3770 = load i32, ptr %33, align 8, !tbaa !61
-  %.in = sub nsw i32 0, %.val3770
+  %.in = sub nsw i32 0, %.val3776
   %34 = and i32 %.in, 7
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val46 = load ptr, ptr %35, align 8, !tbaa !57
-  %36 = lshr i32 %.val3770, 3
+  %36 = lshr i32 %.val3776, 3
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.val46, i64 %37
   %39 = load i32, ptr %38, align 1, !tbaa !67
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = and i32 %.val3770, 7
+  %41 = and i32 %.val3776, 7
   %42 = shl i32 %40, %41
   %43 = sub nuw nsw i32 24, %34
   %44 = lshr i32 %42, %43
@@ -10950,80 +10951,80 @@ thread-pre-split.thread:                          ; preds = %10, %align_get_bits
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !59
-  %53 = add i32 %34, %.val3770
+  %53 = add i32 %34, %.val3776
   %54 = tail call i32 @llvm.umin.i32(i32 %52, i32 %53)
   store i32 %54, ptr %33, align 8, !tbaa !61
   br label %align_get_bits.exit50
 
 align_get_bits.exit50:                            ; preds = %49, %50
-  %.promoted = phi i32 [ %.val3770, %49 ], [ %54, %50 ]
+  %.promoted = phi i32 [ %.val3776, %49 ], [ %54, %50 ]
   %55 = getelementptr i8, ptr %0, i64 36
   %.val41 = load i32, ptr %55, align 4, !tbaa !58
   %56 = sub nsw i32 %.val41, %.promoted
   %57 = icmp sgt i32 %56, 7
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %57, label %.lr.ph56.preheader, label %align_get_bits.exit50..critedge_crit_edge
+  br i1 %57, label %.lr.ph58.preheader, label %align_get_bits.exit50..critedge_crit_edge
 
-.lr.ph56.preheader:                               ; preds = %align_get_bits.exit50
+.lr.ph58.preheader:                               ; preds = %align_get_bits.exit50
   %59 = load i32, ptr %58, align 8, !tbaa !59
-  br label %.lr.ph56
+  br label %.lr.ph58
 
 align_get_bits.exit50..critedge_crit_edge:        ; preds = %align_get_bits.exit50
   %.pre = load i32, ptr %58, align 8, !tbaa !59
   br label %.critedge
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %70
-  %.val405455 = phi i32 [ %69, %70 ], [ %.promoted, %.lr.ph56.preheader ]
-  %60 = lshr i32 %.val405455, 3
+.lr.ph58:                                         ; preds = %.lr.ph58.preheader, %70
+  %.val405657 = phi i32 [ %69, %70 ], [ %.promoted, %.lr.ph58.preheader ]
+  %60 = lshr i32 %.val405657, 3
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %.val46, i64 %61
   %63 = load i32, ptr %62, align 1, !tbaa !67
   %64 = tail call i32 @llvm.bswap.i32(i32 %63)
-  %65 = and i32 %.val405455, 7
+  %65 = and i32 %.val405657, 7
   %66 = shl i32 %64, %65
   %67 = icmp ugt i32 %66, -16777217
-  %68 = add i32 %.val405455, 8
+  %68 = add i32 %.val405657, 8
   %69 = tail call i32 @llvm.umin.i32(i32 %59, i32 %68)
   store i32 %69, ptr %33, align 8, !tbaa !61
   br i1 %67, label %70, label %73
 
-70:                                               ; preds = %.lr.ph56
+70:                                               ; preds = %.lr.ph58
   %71 = sub nsw i32 %.val41, %69
   %72 = icmp sgt i32 %71, 7
-  br i1 %72, label %.lr.ph56, label %.critedge, !llvm.loop !303
+  br i1 %72, label %.lr.ph58, label %.critedge, !llvm.loop !303
 
-73:                                               ; preds = %.lr.ph56
+73:                                               ; preds = %.lr.ph58
   %74 = and i32 %66, -134217728
   %75 = icmp eq i32 %74, -805306368
   br i1 %75, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %73
   %76 = icmp sgt i32 %1, 0
-  br i1 %76, label %.lr.ph58, label %.loopexit
+  br i1 %76, label %.lr.ph60, label %.loopexit
 
-.lr.ph58:                                         ; preds = %.preheader
+.lr.ph60:                                         ; preds = %.preheader
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %78 = load i32, ptr %77, align 4, !tbaa !113
   %79 = shl i32 4, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %wide.trip.count64 = zext nneg i32 %1 to i64
+  %wide.trip.count66 = zext nneg i32 %1 to i64
   br label %81
 
-81:                                               ; preds = %.lr.ph58, %81
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next62, %81 ]
-  %82 = getelementptr inbounds nuw [4 x i32], ptr %80, i64 0, i64 %indvars.iv61
+81:                                               ; preds = %.lr.ph60, %81
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next64, %81 ]
+  %82 = getelementptr inbounds nuw [4 x i32], ptr %80, i64 0, i64 %indvars.iv63
   store i32 %79, ptr %82, align 4, !tbaa !93
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %.loopexit, label %81, !llvm.loop !304
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.loopexit, label %81, !llvm.loop !304
 
 .critedge:                                        ; preds = %70, %align_get_bits.exit50..critedge_crit_edge, %73
   %83 = phi i32 [ %.pre, %align_get_bits.exit50..critedge_crit_edge ], [ %59, %73 ], [ %59, %70 ]
   %.val = phi i32 [ %.promoted, %align_get_bits.exit50..critedge_crit_edge ], [ %69, %73 ], [ %69, %70 ]
-  %84 = sub nsw i32 %.val3770, %.val
+  %84 = sub nsw i32 %.val3776, %.val
   %85 = sub nsw i32 0, %.val
   %86 = sub nsw i32 %83, %.val
-  %87 = icmp slt i32 %.val3770, 0
+  %87 = icmp slt i32 %.val3776, 0
   %..i.i = tail call i32 @llvm.smin.i32(i32 %84, i32 %86)
   %.0.i.i = select i1 %87, i32 %85, i32 %..i.i
   %88 = add nsw i32 %.0.i.i, %.val

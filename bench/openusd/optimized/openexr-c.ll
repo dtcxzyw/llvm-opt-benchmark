@@ -10474,9 +10474,9 @@ nanoexr_getPixelTypeSize.exit:                    ; preds = %43, %switch.lookup
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load i16, ptr %51, align 8
   %53 = icmp sgt i16 %52, 0
-  br i1 %53, label %.lr.ph66, label %.loopexit
+  br i1 %53, label %.lr.ph64, label %.loopexit
 
-.lr.ph66:                                         ; preds = %.preheader
+.lr.ph64:                                         ; preds = %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -10492,19 +10492,19 @@ nanoexr_getPixelTypeSize.exit:                    ; preds = %43, %switch.lookup
   %60 = icmp slt i64 %indvars.iv.next, %59
   br i1 %60, label %.lr.ph, label %.preheader, !llvm.loop !50
 
-61:                                               ; preds = %.lr.ph66, %90
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next69, %90 ]
+61:                                               ; preds = %.lr.ph64, %.critedge
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next67, %.critedge ]
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %62, i64 %indvars.iv68, i32 12
+  %63 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %62, i64 %indvars.iv66, i32 12
   store ptr null, ptr %63, align 8
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %64, i64 %indvars.iv68
+  %65 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %64, i64 %indvars.iv66
   %66 = load ptr, ptr %65, align 8
   %67 = tail call fastcc zeroext i1 @strIsComponent(ptr noundef %2, ptr noundef %66, ptr noundef nonnull @.str.329)
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %61
-  %69 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %69, ptr %6, align 4
   br label %82
 
@@ -10513,7 +10513,7 @@ nanoexr_getPixelTypeSize.exit:                    ; preds = %43, %switch.lookup
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %73, ptr %56, align 4
   br label %82
 
@@ -10522,43 +10522,43 @@ nanoexr_getPixelTypeSize.exit:                    ; preds = %43, %switch.lookup
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
-  %77 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %77, ptr %55, align 4
   br label %82
 
 78:                                               ; preds = %74
   %79 = tail call fastcc zeroext i1 @strIsComponent(ptr noundef %2, ptr noundef %66, ptr noundef nonnull @.str.393)
-  br i1 %79, label %80, label %90
+  br i1 %79, label %80, label %.critedge
 
 80:                                               ; preds = %78
-  %81 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %81, ptr %54, align 4
   br label %82
 
-82:                                               ; preds = %68, %72, %76, %80
-  %.0.ph = phi i32 [ 3, %80 ], [ 2, %76 ], [ 1, %72 ], [ 0, %68 ]
+82:                                               ; preds = %68, %76, %80, %72
+  %.0 = phi i32 [ 0, %68 ], [ 1, %72 ], [ 2, %76 ], [ 3, %80 ]
   %83 = load i32, ptr %48, align 4
-  %.not50 = icmp slt i32 %.0.ph, %83
-  br i1 %.not50, label %84, label %90
+  %.not50 = icmp slt i32 %.0, %83
+  br i1 %.not50, label %84, label %.critedge
 
 84:                                               ; preds = %82
-  %85 = mul nuw nsw i32 %.0.ph, %.0.i52
+  %85 = mul nuw nsw i32 %.0, %.0.i52
   %86 = zext nneg i32 %85 to i64
   %87 = inttoptr i64 %86 to ptr
   %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %88, i64 %indvars.iv68, i32 12
+  %89 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %88, i64 %indvars.iv66, i32 12
   store ptr %87, ptr %89, align 8
-  br label %90
+  br label %.critedge
 
-90:                                               ; preds = %78, %82, %84
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %91 = load i16, ptr %51, align 8
-  %92 = sext i16 %91 to i64
-  %93 = icmp slt i64 %indvars.iv.next69, %92
-  br i1 %93, label %61, label %.loopexit, !llvm.loop !51
+.critedge:                                        ; preds = %78, %82, %84
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %90 = load i16, ptr %51, align 8
+  %91 = sext i16 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next67, %91
+  br i1 %92, label %61, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %90, %.preheader, %exr_decoding_initialize.exit.thread
-  %.0.i55 = phi i32 [ %.0.i56, %exr_decoding_initialize.exit.thread ], [ 0, %.preheader ], [ 0, %90 ]
+.loopexit:                                        ; preds = %.critedge, %.preheader, %exr_decoding_initialize.exit.thread
+  %.0.i55 = phi i32 [ %.0.i56, %exr_decoding_initialize.exit.thread ], [ 0, %.preheader ], [ 0, %.critedge ]
   ret i32 %.0.i55
 }
 

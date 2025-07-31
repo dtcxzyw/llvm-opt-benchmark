@@ -1107,16 +1107,16 @@ define internal fastcc ptr @lock_remote(ptr noundef %0) unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 47) #17
-  %.not65 = icmp eq ptr %18, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph
+  %.not63 = icmp eq ptr %18, null
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %42
-  %.05666 = phi ptr [ %18, %.lr.ph ], [ %43, %42 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.05666, i64 1
+  %.05664 = phi ptr [ %18, %.lr.ph ], [ %43, %42 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.05664, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !11
   store i8 0, ptr %21, align 1, !tbaa !11
   %23 = call ptr @get_active_slot() #16
@@ -1144,13 +1144,13 @@ define internal fastcc ptr @lock_remote(ptr noundef %0) unnamed_addr #0 {
   %37 = load ptr, ptr @stderr, align 8, !tbaa !40
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.56, ptr noundef %12) #19
   call void @free(ptr noundef %12) #16
-  br label %.thread
+  br label %.critedge
 
 39:                                               ; preds = %20
   %40 = load ptr, ptr @stderr, align 8, !tbaa !40
   %41 = call i64 @fwrite(ptr nonnull @.str.57, i64 30, i64 1, ptr %40) #20
   call void @free(ptr noundef %12) #16
-  br label %.thread
+  br label %.critedge
 
 42:                                               ; preds = %31
   store i8 %22, ptr %21, align 1, !tbaa !11
@@ -1265,7 +1265,7 @@ define internal fastcc ptr @lock_remote(ptr noundef %0) unnamed_addr #0 {
   call void @free(ptr noundef %100) #16
   call void @free(ptr noundef %12) #16
   call void @free(ptr noundef nonnull %56) #16
-  br label %.thread
+  br label %.critedge
 
 101:                                              ; preds = %95
   store ptr %12, ptr %56, align 8, !tbaa !79
@@ -1281,10 +1281,10 @@ define internal fastcc ptr @lock_remote(ptr noundef %0) unnamed_addr #0 {
   %108 = getelementptr inbounds nuw i8, ptr %56, i64 120
   store ptr %107, ptr %108, align 8, !tbaa !84
   store ptr %56, ptr %106, align 8, !tbaa !83
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %39, %36, %98, %101
-  %.2 = phi ptr [ null, %98 ], [ %56, %101 ], [ null, %36 ], [ null, %39 ]
+.critedge:                                        ; preds = %36, %39, %98, %101
+  %.2 = phi ptr [ null, %98 ], [ %56, %101 ], [ null, %39 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16

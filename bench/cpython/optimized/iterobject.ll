@@ -1865,7 +1865,7 @@ define internal ptr @calliter_reduce(ptr noundef readonly captures(none) %0, ptr
 define internal fastcc ptr @anextawaitable_getiter(ptr %.16.val) unnamed_addr #0 {
   %1 = tail call ptr @_PyCoro_GetAwaitableIter(ptr noundef %.16.val) #4
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %Py_DECREF.exit23, label %3
+  br i1 %2, label %.critedge, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1873,7 +1873,7 @@ define internal fastcc ptr @anextawaitable_getiter(ptr %.16.val) unnamed_addr #0
   %5 = getelementptr inbounds nuw i8, ptr %.val26, i64 224
   %6 = load ptr, ptr %5, align 8, !tbaa !112
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %Py_DECREF.exit23
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val26, i64 80
@@ -1886,13 +1886,13 @@ define internal fastcc ptr @anextawaitable_getiter(ptr %.16.val) unnamed_addr #0
   br i1 %13, label %15, label %19
 
 15:                                               ; preds = %8
-  br i1 %.not.i22, label %16, label %Py_DECREF.exit23
+  br i1 %.not.i22, label %16, label %.critedge
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %14, -1
   store i32 %17, ptr %1, align 8, !tbaa !13
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %Py_DECREF.exit23.sink.split, label %Py_DECREF.exit23
+  br i1 %18, label %.critedge.sink.split, label %.critedge
 
 19:                                               ; preds = %8
   br i1 %.not.i22, label %20, label %Py_DECREF.exit21
@@ -1910,28 +1910,28 @@ define internal fastcc ptr @anextawaitable_getiter(ptr %.16.val) unnamed_addr #0
 Py_DECREF.exit21:                                 ; preds = %19, %20, %23
   %24 = tail call i32 @PyIter_Check(ptr noundef nonnull %12) #4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %Py_DECREF.exit23
+  br i1 %.not, label %25, label %.critedge
 
 25:                                               ; preds = %Py_DECREF.exit21
   %26 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !99
   tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.15) #4
   %27 = load i32, ptr %12, align 8, !tbaa !13
   %.not.i = icmp sgt i32 %27, -1
-  br i1 %.not.i, label %28, label %Py_DECREF.exit23
+  br i1 %.not.i, label %28, label %.critedge
 
 28:                                               ; preds = %25
   %29 = add nsw i32 %27, -1
   store i32 %29, ptr %12, align 8, !tbaa !13
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %Py_DECREF.exit23.sink.split, label %Py_DECREF.exit23
+  br i1 %30, label %.critedge.sink.split, label %.critedge
 
-Py_DECREF.exit23.sink.split:                      ; preds = %28, %16
+.critedge.sink.split:                             ; preds = %28, %16
   %.sink = phi ptr [ %1, %16 ], [ %12, %28 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #4
-  br label %Py_DECREF.exit23
+  br label %.critedge
 
-Py_DECREF.exit23:                                 ; preds = %Py_DECREF.exit23.sink.split, %28, %25, %16, %15, %Py_DECREF.exit21, %3, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %3 ], [ %12, %Py_DECREF.exit21 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %28 ], [ null, %Py_DECREF.exit23.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %28, %25, %16, %15, %3, %Py_DECREF.exit21, %0
+  %.0 = phi ptr [ null, %0 ], [ %1, %3 ], [ %12, %Py_DECREF.exit21 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %28 ], [ null, %.critedge.sink.split ]
   ret ptr %.0
 }
 

@@ -384,7 +384,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %_ZN4llvm5E
 
 39:                                               ; preds = %34
   %40 = icmp eq i32 %.046.i, 63
-  br i1 %40, label %switch.early.test.i, label %.critedge.i
+  br i1 %40, label %switch.early.test.i, label %.critedge65.i
 
 switch.early.test.i:                              ; preds = %39
   switch i8 %35, label %_ZN4llvm5ErrorD2Ev.exit4 [
@@ -394,13 +394,13 @@ switch.early.test.i:                              ; preds = %39
     i8 0, label %43
   ]
 
-.critedge.i:                                      ; preds = %39
+.critedge65.i:                                    ; preds = %39
   %41 = icmp slt i64 %.048.i, 0
   %42 = select i1 %41, i64 127, i64 0
   %.not57.i = icmp eq i64 %42, %37
   br i1 %.not57.i, label %43, label %_ZN4llvm5ErrorD2Ev.exit4
 
-43:                                               ; preds = %.critedge.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %34
+43:                                               ; preds = %.critedge65.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %34
   %44 = zext nneg i32 %.046.i to i64
   %45 = shl i64 %37, %44
   %46 = or i64 %45, %.048.i
@@ -419,8 +419,8 @@ switch.early.test.i:                              ; preds = %39
   %.250.i = or i64 %46, %54
   br label %_ZN4llvm5ErrorD2Ev.exit4
 
-_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %32, %.critedge.i, %switch.early.test.i, %50
-  %.1.i = phi i64 [ %.250.i, %50 ], [ 0, %switch.early.test.i ], [ 0, %.critedge.i ], [ 0, %32 ]
+_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %32, %.critedge65.i, %switch.early.test.i, %50
+  %.1.i = phi i64 [ %.250.i, %50 ], [ 0, %switch.early.test.i ], [ 0, %.critedge65.i ], [ 0, %32 ]
   store i64 %.1.i, ptr %2, align 8, !tbaa !46
   store ptr null, ptr %0, align 8, !tbaa !28
   br label %.critedge

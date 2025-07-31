@@ -52,13 +52,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %4, align 4, !tbaa !3
   %20 = load ptr, ptr %1, align 8, !tbaa !7
   %.not498 = icmp eq ptr %20, null
-  br i1 %.not498, label %.thread717, label %.thread581
+  br i1 %.not498, label %.thread713, label %.thread582
 
 .thread:                                          ; preds = %17
   store i8 0, ptr %0, align 1, !tbaa !16
   %21 = load ptr, ptr %1, align 8, !tbaa !7
-  %.not498573 = icmp eq ptr %21, null
-  br i1 %.not498573, label %38, label %22
+  %.not498577 = icmp eq ptr %21, null
+  br i1 %.not498577, label %38, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -100,18 +100,18 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-38:                                               ; preds = %33, %.thread
-  %.0379 = phi i32 [ 0, %.thread ], [ %34, %33 ]
+38:                                               ; preds = %.thread, %33
+  %.0379 = phi i32 [ %34, %33 ], [ 0, %.thread ]
   %39 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #5
   %.not503 = icmp eq i32 %39, 0
   br i1 %.not503, label %288, label %49
 
-.thread717:                                       ; preds = %19
+.thread713:                                       ; preds = %19
   %40 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #5
-  %.not503719 = icmp eq i32 %40, 0
-  br i1 %.not503719, label %288, label %.thread721
+  %.not503715 = icmp eq i32 %40, 0
+  br i1 %.not503715, label %288, label %.thread717
 
-.thread581:                                       ; preds = %19
+.thread582:                                       ; preds = %19
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !17
   %43 = ptrtoint ptr %42 to i64
@@ -121,13 +121,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %47 = add i32 %46, 1
   store i32 %47, ptr %4, align 4, !tbaa !3
   %48 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #5
-  %.not503583 = icmp eq i32 %48, 0
-  br i1 %.not503583, label %288, label %.thread721
+  %.not503584 = icmp eq i32 %48, 0
+  br i1 %.not503584, label %288, label %.thread717
 
 49:                                               ; preds = %38
   %50 = add nsw i32 %.0379, 2
   %.not504.not = icmp slt i32 %50, %2
-  br i1 %.not504.not, label %.thread588, label %51
+  br i1 %.not504.not, label %.thread589, label %51
 
 51:                                               ; preds = %49
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -138,7 +138,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread721:                                       ; preds = %.thread717, %.thread581
+.thread717:                                       ; preds = %.thread713, %.thread582
   %53 = load i32, ptr %4, align 4, !tbaa !3
   %54 = add nsw i32 %53, 2
   store i32 %54, ptr %4, align 4, !tbaa !3
@@ -147,16 +147,16 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %.not506 = icmp eq ptr %56, null
   br i1 %.not506, label %90, label %81
 
-.thread588:                                       ; preds = %49
+.thread589:                                       ; preds = %49
   %57 = sext i32 %.0379 to i64
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   store i16 12079, ptr %58, align 1
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !18
-  %.not506590 = icmp eq ptr %60, null
-  br i1 %.not506590, label %90, label %61
+  %.not506591 = icmp eq ptr %60, null
+  br i1 %.not506591, label %90, label %61
 
-61:                                               ; preds = %.thread588
+61:                                               ; preds = %.thread589
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !19
   %64 = ptrtoint ptr %63 to i64
@@ -201,7 +201,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-81:                                               ; preds = %.thread721
+81:                                               ; preds = %.thread717
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !19
   %84 = ptrtoint ptr %83 to i64
@@ -213,19 +213,19 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 %89, ptr %4, align 4, !tbaa !3
   br label %90
 
-90:                                               ; preds = %81, %75, %.thread588, %.thread721
-  %.6385 = phi i32 [ 0, %.thread721 ], [ %50, %.thread588 ], [ %76, %75 ], [ 0, %81 ]
+90:                                               ; preds = %.thread589, %81, %75, %.thread717
+  %.6385 = phi i32 [ 0, %.thread717 ], [ %76, %75 ], [ 0, %81 ], [ %50, %.thread589 ]
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %92 = load ptr, ptr %91, align 8, !tbaa !20
   %.not512 = icmp eq ptr %92, null
-  br i1 %.not512, label %155, label %.preheader684
+  br i1 %.not512, label %155, label %.preheader680
 
-.preheader684:                                    ; preds = %90
+.preheader680:                                    ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  br i1 %9, label %.preheader684.split.us, label %.preheader684.split.preheader
+  br i1 %9, label %.preheader680.split.us, label %.preheader680.split.preheader
 
-.preheader684.split.preheader:                    ; preds = %.preheader684
+.preheader680.split.preheader:                    ; preds = %.preheader680
   %95 = load ptr, ptr %91, align 8, !tbaa !20
   %96 = load i8, ptr %95, align 1, !tbaa !16
   %97 = icmp ugt i8 %96, 99
@@ -233,39 +233,39 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %99 = select i1 %98, i32 2, i32 1
   %100 = select i1 %97, i32 3, i32 %99
   %101 = add nsw i32 %100, %.6385
-  %.not534.not789 = icmp slt i32 %101, %2
-  br i1 %.not534.not789, label %.lr.ph, label %.preheader684.split._crit_edge
+  %.not534.not785 = icmp slt i32 %101, %2
+  br i1 %.not534.not785, label %.lr.ph, label %.preheader680.split._crit_edge
 
-.preheader684.split.us:                           ; preds = %.preheader684
+.preheader680.split.us:                           ; preds = %.preheader680
   %.promoted = load i32, ptr %4, align 4, !tbaa !3
   br label %102
 
-102:                                              ; preds = %102, %.preheader684.split.us
-  %indvars.iv708 = phi i64 [ %indvars.iv.next709, %102 ], [ 0, %.preheader684.split.us ]
-  %103 = phi i32 [ %113, %102 ], [ %.promoted, %.preheader684.split.us ]
-  %104 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 0, i64 %indvars.iv708
+102:                                              ; preds = %102, %.preheader680.split.us
+  %indvars.iv704 = phi i64 [ %indvars.iv.next705, %102 ], [ 0, %.preheader680.split.us ]
+  %103 = phi i32 [ %113, %102 ], [ %.promoted, %.preheader680.split.us ]
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 0, i64 %indvars.iv704
   %105 = load i8, ptr %104, align 1, !tbaa !16
   %106 = icmp ugt i8 %105, 99
   %107 = icmp ugt i8 %105, 9
   %108 = select i1 %107, i32 2, i32 1
   %109 = select i1 %106, i32 3, i32 %108
-  %110 = icmp ne i64 %indvars.iv708, 3
+  %110 = icmp ne i64 %indvars.iv704, 3
   %111 = zext i1 %110 to i32
   %112 = add nuw nsw i32 %109, %111
   %113 = add nsw i32 %112, %103
   store i32 %113, ptr %4, align 4, !tbaa !3
-  %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
-  %exitcond711 = icmp eq i64 %indvars.iv.next709, 4
-  br i1 %exitcond711, label %.thread603, label %102, !llvm.loop !21
+  %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
+  %exitcond707 = icmp eq i64 %indvars.iv.next705, 4
+  br i1 %exitcond707, label %.thread599, label %102, !llvm.loop !21
 
-.lr.ph:                                           ; preds = %.preheader684.split.preheader, %.preheader684.split
-  %114 = phi i32 [ %154, %.preheader684.split ], [ %101, %.preheader684.split.preheader ]
-  %115 = phi i32 [ %153, %.preheader684.split ], [ %100, %.preheader684.split.preheader ]
-  %116 = phi i1 [ %151, %.preheader684.split ], [ %98, %.preheader684.split.preheader ]
-  %117 = phi i1 [ %150, %.preheader684.split ], [ %97, %.preheader684.split.preheader ]
-  %118 = phi i8 [ %149, %.preheader684.split ], [ %96, %.preheader684.split.preheader ]
-  %.9388692791 = phi i32 [ %144, %.preheader684.split ], [ %.6385, %.preheader684.split.preheader ]
-  %indvars.iv790 = phi i64 [ %indvars.iv.next, %.preheader684.split ], [ 0, %.preheader684.split.preheader ]
+.lr.ph:                                           ; preds = %.preheader680.split.preheader, %.preheader680.split
+  %114 = phi i32 [ %154, %.preheader680.split ], [ %101, %.preheader680.split.preheader ]
+  %115 = phi i32 [ %153, %.preheader680.split ], [ %100, %.preheader680.split.preheader ]
+  %116 = phi i1 [ %151, %.preheader680.split ], [ %98, %.preheader680.split.preheader ]
+  %117 = phi i1 [ %150, %.preheader680.split ], [ %97, %.preheader680.split.preheader ]
+  %118 = phi i8 [ %149, %.preheader680.split ], [ %96, %.preheader680.split.preheader ]
+  %.9388688787 = phi i32 [ %144, %.preheader680.split ], [ %.6385, %.preheader680.split.preheader ]
+  %indvars.iv786 = phi i64 [ %indvars.iv.next, %.preheader680.split ], [ 0, %.preheader680.split.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   br i1 %117, label %119, label %127
 
@@ -303,25 +303,25 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %136 = zext nneg i32 %115 to i64
   %137 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %136
   store i8 0, ptr %137, align 1, !tbaa !16
-  %138 = sext i32 %.9388692791 to i64
+  %138 = sext i32 %.9388688787 to i64
   %139 = getelementptr inbounds i8, ptr %0, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %139, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %136, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  %.not536 = icmp eq i64 %indvars.iv790, 3
-  br i1 %.not536, label %.thread603, label %141
+  %.not536 = icmp eq i64 %indvars.iv786, 3
+  br i1 %.not536, label %.thread599, label %141
 
-.preheader684.split._crit_edge:                   ; preds = %.preheader684.split, %.preheader684.split.preheader
+.preheader680.split._crit_edge:                   ; preds = %.preheader680.split, %.preheader680.split.preheader
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not535 = icmp eq ptr %3, null
   br i1 %.not535, label %.critedge, label %140
 
-140:                                              ; preds = %.preheader684.split._crit_edge
+140:                                              ; preds = %.preheader680.split._crit_edge
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
 141:                                              ; preds = %135
   %.not537.not = icmp slt i32 %114, %18
-  br i1 %.not537.not, label %.preheader684.split, label %142
+  br i1 %.not537.not, label %.preheader680.split, label %142
 
 142:                                              ; preds = %141
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -332,12 +332,12 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.preheader684.split:                              ; preds = %141
+.preheader680.split:                              ; preds = %141
   %144 = add nsw i32 %114, 1
   %145 = sext i32 %114 to i64
   %146 = getelementptr inbounds i8, ptr %0, i64 %145
   store i8 46, ptr %146, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv790, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv786, 1
   %147 = load ptr, ptr %91, align 8, !tbaa !20
   %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 0, i64 %indvars.iv.next
   %149 = load i8, ptr %148, align 1, !tbaa !16
@@ -347,7 +347,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %153 = select i1 %150, i32 3, i32 %152
   %154 = add nsw i32 %153, %144
   %.not534.not = icmp slt i32 %154, %2
-  br i1 %.not534.not, label %.lr.ph, label %.preheader684.split._crit_edge
+  br i1 %.not534.not, label %.lr.ph, label %.preheader680.split._crit_edge
 
 155:                                              ; preds = %90
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -386,23 +386,23 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 
 167:                                              ; preds = %167, %.split.us
   %168 = phi i32 [ %166, %.split.us ], [ %spec.select, %167 ]
-  %.0417693.us = phi i32 [ 0, %.split.us ], [ %172, %167 ]
-  %169 = and i32 %.0417693.us, 1
+  %.0417689.us = phi i32 [ 0, %.split.us ], [ %172, %167 ]
+  %169 = and i32 %.0417689.us, 1
   %170 = icmp ne i32 %169, 0
-  %171 = icmp ne i32 %.0417693.us, 15
+  %171 = icmp ne i32 %.0417689.us, 15
   %or.cond15.us = and i1 %171, %170
   %spec.select.v = select i1 %or.cond15.us, i32 3, i32 2
   %spec.select = add i32 %168, %spec.select.v
-  %172 = add nuw nsw i32 %.0417693.us, 1
-  %exitcond716.not = icmp eq i32 %172, 16
-  br i1 %exitcond716.not, label %202, label %167, !llvm.loop !25
+  %172 = add nuw nsw i32 %.0417689.us, 1
+  %exitcond712.not = icmp eq i32 %172, 16
+  br i1 %exitcond712.not, label %202, label %167, !llvm.loop !25
 
 .split:                                           ; preds = %.split.preheader, %195
-  %indvars.iv712 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next713, %195 ]
-  %.16395694 = phi i32 [ %162, %.split.preheader ], [ %.17396.ph, %195 ]
-  %173 = add nsw i32 %.16395694, 2
+  %indvars.iv708 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next709, %195 ]
+  %.16395690 = phi i32 [ %162, %.split.preheader ], [ %.17396.ph, %195 ]
+  %173 = add nsw i32 %.16395690, 2
   %.not530.not = icmp slt i32 %173, %2
-  br i1 %.not530.not, label %.thread605, label %174
+  br i1 %.not530.not, label %.thread601, label %174
 
 174:                                              ; preds = %.split
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -413,38 +413,38 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread605:                                       ; preds = %.split
+.thread601:                                       ; preds = %.split
   %176 = load ptr, ptr %156, align 8, !tbaa !24
-  %177 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 0, i64 %indvars.iv712
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 0, i64 %indvars.iv708
   %178 = load i8, ptr %177, align 1, !tbaa !16
   %179 = zext i8 %178 to i32
   %180 = lshr i32 %179, 4
   %181 = tail call signext i8 @uriHexToLetterExA(i32 noundef %180, i32 noundef 0) #5
   %182 = and i32 %179, 15
   %183 = tail call signext i8 @uriHexToLetterExA(i32 noundef %182, i32 noundef 0) #5
-  %184 = sext i32 %.16395694 to i64
+  %184 = sext i32 %.16395690 to i64
   %185 = getelementptr inbounds i8, ptr %0, i64 %184
   store i8 %181, ptr %185, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 1
   store i8 %183, ptr %.sroa.4.0..sroa_idx, align 1
-  %186 = and i64 %indvars.iv712, 1
+  %186 = and i64 %indvars.iv708, 1
   %187 = icmp ne i64 %186, 0
-  %188 = icmp ne i64 %indvars.iv712, 15
-  %or.cond15607 = and i1 %188, %187
-  br i1 %or.cond15607, label %.thread609, label %195
+  %188 = icmp ne i64 %indvars.iv708, 15
+  %or.cond15603 = and i1 %188, %187
+  br i1 %or.cond15603, label %.thread605, label %195
 
-.thread609:                                       ; preds = %.thread605
+.thread605:                                       ; preds = %.thread601
   %.not532.not = icmp slt i32 %173, %18
   br i1 %.not532.not, label %189, label %193
 
-189:                                              ; preds = %.thread609
-  %190 = add nsw i32 %.16395694, 3
+189:                                              ; preds = %.thread605
+  %190 = add nsw i32 %.16395690, 3
   %191 = sext i32 %173 to i64
   %192 = getelementptr inbounds i8, ptr %0, i64 %191
   store i8 58, ptr %192, align 1
   br label %195
 
-193:                                              ; preds = %.thread609
+193:                                              ; preds = %.thread605
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not533 = icmp eq ptr %3, null
   br i1 %.not533, label %.critedge, label %194
@@ -453,24 +453,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-195:                                              ; preds = %189, %.thread605
-  %.17396.ph = phi i32 [ %173, %.thread605 ], [ %190, %189 ]
-  %indvars.iv.next713 = add nuw nsw i64 %indvars.iv712, 1
-  %exitcond715.not = icmp eq i64 %indvars.iv.next713, 16
-  br i1 %exitcond715.not, label %.split696, label %.split, !llvm.loop !26
+195:                                              ; preds = %189, %.thread601
+  %.17396.ph = phi i32 [ %173, %.thread601 ], [ %190, %189 ]
+  %indvars.iv.next709 = add nuw nsw i64 %indvars.iv708, 1
+  %exitcond711.not = icmp eq i64 %indvars.iv.next709, 16
+  br i1 %exitcond711.not, label %.split692, label %.split, !llvm.loop !26
 
-.split696:                                        ; preds = %195
+.split692:                                        ; preds = %195
   %.not528.not = icmp slt i32 %.17396.ph, %18
   br i1 %.not528.not, label %196, label %200
 
-196:                                              ; preds = %.split696
+196:                                              ; preds = %.split692
   %197 = add nsw i32 %.17396.ph, 1
   %198 = sext i32 %.17396.ph to i64
   %199 = getelementptr inbounds i8, ptr %0, i64 %198
   store i8 93, ptr %199, align 1
-  br label %.thread603
+  br label %.thread599
 
-200:                                              ; preds = %.split696
+200:                                              ; preds = %.split692
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not529 = icmp eq ptr %3, null
   br i1 %.not529, label %.critedge, label %201
@@ -482,7 +482,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
 202:                                              ; preds = %167
   %203 = add nsw i32 %spec.select, 1
   store i32 %203, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
 204:                                              ; preds = %155
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -545,7 +545,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %231 = sext i32 %219 to i64
   %232 = getelementptr inbounds i8, ptr %0, i64 %231
   store i8 93, ptr %232, align 1
-  br label %.thread603
+  br label %.thread599
 
 233:                                              ; preds = %222
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -561,13 +561,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %237 = load i32, ptr %4, align 4, !tbaa !3
   %238 = add nsw i32 %236, %237
   store i32 %238, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
 239:                                              ; preds = %204
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %241 = load ptr, ptr %240, align 8, !tbaa !29
   %.not515 = icmp eq ptr %241, null
-  br i1 %.not515, label %.thread603, label %242
+  br i1 %.not515, label %.thread599, label %242
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -589,7 +589,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %sext518 = shl i64 %247, 32
   %254 = ashr exact i64 %sext518, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %253, ptr nonnull align 1 %241, i64 %254, i1 false)
-  br label %.thread603
+  br label %.thread599
 
 255:                                              ; preds = %249
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -604,16 +604,16 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %258 = load i32, ptr %4, align 4, !tbaa !3
   %259 = add nsw i32 %258, %248
   store i32 %259, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
-.thread603:                                       ; preds = %135, %102, %251, %257, %235, %229, %202, %196, %239
+.thread599:                                       ; preds = %135, %102, %251, %257, %235, %229, %202, %196, %239
   %.13392 = phi i32 [ %.6385, %239 ], [ %197, %196 ], [ %.6385, %202 ], [ %230, %229 ], [ %.6385, %235 ], [ %.6385, %257 ], [ %250, %251 ], [ %.6385, %102 ], [ %114, %135 ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %261 = load ptr, ptr %260, align 8, !tbaa !31
   %.not539 = icmp eq ptr %261, null
   br i1 %.not539, label %288, label %262
 
-262:                                              ; preds = %.thread603
+262:                                              ; preds = %.thread599
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %264 = load ptr, ptr %263, align 8, !tbaa !32
   %265 = ptrtoint ptr %264 to i64
@@ -669,8 +669,8 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 %287, ptr %4, align 4, !tbaa !3
   br label %288
 
-288:                                              ; preds = %.thread717, %284, %277, %.thread581, %.thread603, %38
-  %.4383 = phi i32 [ %.13392, %.thread603 ], [ %.0379, %38 ], [ 0, %.thread581 ], [ %274, %277 ], [ %.13392, %284 ], [ 0, %.thread717 ]
+288:                                              ; preds = %.thread713, %284, %277, %.thread582, %.thread599, %38
+  %.4383 = phi i32 [ %.13392, %.thread599 ], [ %.0379, %38 ], [ 0, %.thread582 ], [ %274, %277 ], [ %.13392, %284 ], [ 0, %.thread713 ]
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %290 = load i32, ptr %289, align 8, !tbaa !33
   %.not545 = icmp eq i32 %290, 0
@@ -688,11 +688,11 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   br i1 %.not547, label %300, label %296
 
 296:                                              ; preds = %294, %288
-  br i1 %9, label %.thread739, label %297
+  br i1 %9, label %.thread735, label %297
 
 297:                                              ; preds = %296
   %.not548.not = icmp slt i32 %.4383, %18
-  br i1 %.not548.not, label %.thread733, label %298
+  br i1 %.not548.not, label %.thread729, label %298
 
 298:                                              ; preds = %297
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -707,42 +707,42 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %302 = load ptr, ptr %301, align 8, !tbaa !34
   %.not550 = icmp eq ptr %302, null
-  br i1 %.not550, label %.thread649, label %.preheader
+  br i1 %.not550, label %.thread645, label %.preheader
 
-.thread739:                                       ; preds = %296
+.thread735:                                       ; preds = %296
   %303 = load i32, ptr %4, align 4, !tbaa !3
   %304 = add nsw i32 %303, 1
   store i32 %304, ptr %4, align 4, !tbaa !3
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %306 = load ptr, ptr %305, align 8, !tbaa !34
-  %.not550740 = icmp eq ptr %306, null
-  br i1 %.not550740, label %.thread649.thread750, label %.preheader.split.us
+  %.not550736 = icmp eq ptr %306, null
+  br i1 %.not550736, label %.thread645.thread746, label %.preheader.split.us
 
-.thread733:                                       ; preds = %297
+.thread729:                                       ; preds = %297
   %307 = add nsw i32 %.4383, 1
   %308 = sext i32 %.4383 to i64
   %309 = getelementptr inbounds i8, ptr %0, i64 %308
   store i8 47, ptr %309, align 1
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %311 = load ptr, ptr %310, align 8, !tbaa !34
-  %.not550735 = icmp eq ptr %311, null
-  br i1 %.not550735, label %.thread649.thread744, label %.preheader.split.preheader
+  %.not550731 = icmp eq ptr %311, null
+  br i1 %.not550731, label %.thread645.thread740, label %.preheader.split.preheader
 
 .preheader:                                       ; preds = %300
   br i1 %9, label %.preheader.split.us, label %.preheader.split.preheader
 
-.preheader.split.preheader:                       ; preds = %.thread733, %.preheader
-  %.0401.ph = phi ptr [ %311, %.thread733 ], [ %302, %.preheader ]
-  %.29.ph = phi i32 [ %307, %.thread733 ], [ %.4383, %.preheader ]
+.preheader.split.preheader:                       ; preds = %.thread729, %.preheader
+  %.0401.ph = phi ptr [ %311, %.thread729 ], [ %302, %.preheader ]
+  %.29.ph = phi i32 [ %307, %.thread729 ], [ %.4383, %.preheader ]
   br label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.thread739, %.preheader
-  %312 = phi ptr [ %302, %.preheader ], [ %306, %.thread739 ]
-  %.promoted701 = load i32, ptr %4, align 4, !tbaa !3
+.preheader.split.us:                              ; preds = %.thread735, %.preheader
+  %312 = phi ptr [ %302, %.preheader ], [ %306, %.thread735 ]
+  %.promoted697 = load i32, ptr %4, align 4, !tbaa !3
   br label %313
 
 313:                                              ; preds = %313, %.preheader.split.us
-  %314 = phi i32 [ %325, %313 ], [ %.promoted701, %.preheader.split.us ]
+  %314 = phi i32 [ %325, %313 ], [ %.promoted697, %.preheader.split.us ]
   %.0401.us = phi ptr [ %324, %313 ], [ %312, %.preheader.split.us ]
   %315 = getelementptr inbounds nuw i8, ptr %.0401.us, i64 8
   %316 = load ptr, ptr %315, align 8, !tbaa !35
@@ -756,11 +756,11 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %324 = load ptr, ptr %323, align 8, !tbaa !38
   %.not554.us = icmp eq ptr %324, null
   %325 = add nsw i32 %322, 1
-  br i1 %.not554.us, label %.thread649.loopexit.split.us, label %313
+  br i1 %.not554.us, label %.thread645.loopexit.split.us, label %313
 
-.thread649.loopexit.split.us:                     ; preds = %313
+.thread645.loopexit.split.us:                     ; preds = %313
   store i32 %322, ptr %4, align 4, !tbaa !3
-  br label %.thread649
+  br label %.thread645
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %341
   %.0401 = phi ptr [ %.pr, %341 ], [ %.0401.ph, %.preheader.split.preheader ]
@@ -774,7 +774,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %332 = trunc i64 %331 to i32
   %333 = add nsw i32 %.29, %332
   %.not551.not = icmp slt i32 %333, %2
-  br i1 %.not551.not, label %.thread633, label %334
+  br i1 %.not551.not, label %.thread629, label %334
 
 334:                                              ; preds = %.preheader.split
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -785,7 +785,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread633:                                       ; preds = %.preheader.split
+.thread629:                                       ; preds = %.preheader.split
   %336 = sext i32 %.29 to i64
   %337 = getelementptr inbounds i8, ptr %0, i64 %336
   %sext553 = shl i64 %331, 32
@@ -793,23 +793,23 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %337, ptr align 1 %328, i64 %338, i1 false)
   %339 = getelementptr inbounds nuw i8, ptr %.0401, i64 16
   %340 = load ptr, ptr %339, align 8, !tbaa !38
-  %.not554635 = icmp eq ptr %340, null
-  br i1 %.not554635, label %.thread649.thread, label %.thread637
+  %.not554631 = icmp eq ptr %340, null
+  br i1 %.not554631, label %.thread645.thread, label %.thread633
 
-.thread637:                                       ; preds = %.thread633
+.thread633:                                       ; preds = %.thread629
   %.not555.not = icmp slt i32 %333, %18
   br i1 %.not555.not, label %341, label %345
 
-341:                                              ; preds = %.thread637
+341:                                              ; preds = %.thread633
   %342 = add nsw i32 %333, 1
   %343 = sext i32 %333 to i64
   %344 = getelementptr inbounds i8, ptr %0, i64 %343
   store i8 47, ptr %344, align 1
   %.pr = load ptr, ptr %339, align 8, !tbaa !38
   %.not557 = icmp eq ptr %.pr, null
-  br i1 %.not557, label %.thread649, label %.preheader.split, !llvm.loop !39
+  br i1 %.not557, label %.thread645, label %.preheader.split, !llvm.loop !39
 
-345:                                              ; preds = %.thread637
+345:                                              ; preds = %.thread633
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not556 = icmp eq ptr %3, null
   br i1 %.not556, label %.critedge, label %346
@@ -818,41 +818,41 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread649:                                       ; preds = %341, %.thread649.loopexit.split.us, %300
-  %.28 = phi i32 [ %.4383, %300 ], [ %.4383, %.thread649.loopexit.split.us ], [ %342, %341 ]
+.thread645:                                       ; preds = %341, %.thread645.loopexit.split.us, %300
+  %.28 = phi i32 [ %.4383, %300 ], [ %.4383, %.thread645.loopexit.split.us ], [ %342, %341 ]
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %348 = load ptr, ptr %347, align 8, !tbaa !40
   %.not558 = icmp eq ptr %348, null
-  br i1 %.not558, label %.thread657, label %355
+  br i1 %.not558, label %.thread653, label %355
 
-.thread649.thread750:                             ; preds = %.thread739
+.thread645.thread746:                             ; preds = %.thread735
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %350 = load ptr, ptr %349, align 8, !tbaa !40
-  %.not558752 = icmp eq ptr %350, null
-  br i1 %.not558752, label %.thread657.thread763, label %.thread657.thread
+  %.not558748 = icmp eq ptr %350, null
+  br i1 %.not558748, label %.thread653.thread759, label %.thread653.thread
 
-.thread649.thread744:                             ; preds = %.thread733
+.thread645.thread740:                             ; preds = %.thread729
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %352 = load ptr, ptr %351, align 8, !tbaa !40
-  %.not558746 = icmp eq ptr %352, null
-  br i1 %.not558746, label %.thread657.thread755, label %.thread670
+  %.not558742 = icmp eq ptr %352, null
+  br i1 %.not558742, label %.thread653.thread751, label %.thread666
 
-.thread649.thread:                                ; preds = %.thread633
+.thread645.thread:                                ; preds = %.thread629
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %354 = load ptr, ptr %353, align 8, !tbaa !40
-  %.not558668 = icmp eq ptr %354, null
-  br i1 %.not558668, label %.thread657, label %.thread670
+  %.not558664 = icmp eq ptr %354, null
+  br i1 %.not558664, label %.thread653, label %.thread666
 
-355:                                              ; preds = %.thread649
-  br i1 %9, label %.thread657.thread, label %.thread670
+355:                                              ; preds = %.thread645
+  br i1 %9, label %.thread653.thread, label %.thread666
 
-.thread670:                                       ; preds = %.thread649.thread744, %.thread649.thread, %355
-  %.28669672 = phi i32 [ %.28, %355 ], [ %333, %.thread649.thread ], [ %307, %.thread649.thread744 ]
-  %356 = phi ptr [ %347, %355 ], [ %353, %.thread649.thread ], [ %351, %.thread649.thread744 ]
-  %.not559.not = icmp slt i32 %.28669672, %18
+.thread666:                                       ; preds = %.thread645.thread740, %.thread645.thread, %355
+  %.28665668 = phi i32 [ %.28, %355 ], [ %333, %.thread645.thread ], [ %307, %.thread645.thread740 ]
+  %356 = phi ptr [ %347, %355 ], [ %353, %.thread645.thread ], [ %351, %.thread645.thread740 ]
+  %.not559.not = icmp slt i32 %.28665668, %18
   br i1 %.not559.not, label %359, label %357
 
-357:                                              ; preds = %.thread670
+357:                                              ; preds = %.thread666
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not560 = icmp eq ptr %3, null
   br i1 %.not560, label %.critedge, label %358
@@ -861,9 +861,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-359:                                              ; preds = %.thread670
-  %360 = add nsw i32 %.28669672, 1
-  %361 = sext i32 %.28669672 to i64
+359:                                              ; preds = %.thread666
+  %360 = add nsw i32 %.28665668, 1
+  %361 = sext i32 %.28665668 to i64
   %362 = getelementptr inbounds i8, ptr %0, i64 %361
   store i8 63, ptr %362, align 1
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -883,7 +883,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %sext563 = shl i64 %368, 32
   %374 = ashr exact i64 %sext563, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %373, ptr align 1 %365, i64 %374, i1 false)
-  br label %.thread657
+  br label %.thread653
 
 375:                                              ; preds = %359
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -894,27 +894,27 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread657:                                       ; preds = %371, %.thread649.thread, %.thread649
-  %.33 = phi i32 [ %.28, %.thread649 ], [ %333, %.thread649.thread ], [ %370, %371 ]
+.thread653:                                       ; preds = %371, %.thread645.thread, %.thread645
+  %.33 = phi i32 [ %.28, %.thread645 ], [ %333, %.thread645.thread ], [ %370, %371 ]
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %378 = load ptr, ptr %377, align 8, !tbaa !42
   %.not564 = icmp eq ptr %378, null
-  br i1 %.not564, label %.thread664, label %395
+  br i1 %.not564, label %.thread660, label %395
 
-.thread657.thread763:                             ; preds = %.thread649.thread750
+.thread653.thread759:                             ; preds = %.thread645.thread746
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %380 = load ptr, ptr %379, align 8, !tbaa !42
-  %.not564765 = icmp eq ptr %380, null
-  br i1 %.not564765, label %.critedge, label %..thread676_crit_edge
+  %.not564761 = icmp eq ptr %380, null
+  br i1 %.not564761, label %.critedge, label %..thread672_crit_edge
 
-.thread657.thread755:                             ; preds = %.thread649.thread744
+.thread653.thread751:                             ; preds = %.thread645.thread740
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %382 = load ptr, ptr %381, align 8, !tbaa !42
-  %.not564757 = icmp eq ptr %382, null
-  br i1 %.not564757, label %.thread664.thread769, label %.thread760
+  %.not564753 = icmp eq ptr %382, null
+  br i1 %.not564753, label %.thread660.thread765, label %.thread756
 
-.thread657.thread:                                ; preds = %.thread649.thread750, %355
-  %383 = phi ptr [ %348, %355 ], [ %350, %.thread649.thread750 ]
+.thread653.thread:                                ; preds = %.thread645.thread746, %355
+  %383 = phi ptr [ %348, %355 ], [ %350, %.thread645.thread746 ]
   %384 = load i32, ptr %4, align 4, !tbaa !3
   %385 = add nsw i32 %384, 1
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -927,24 +927,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 %392, ptr %4, align 4, !tbaa !3
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %394 = load ptr, ptr %393, align 8, !tbaa !42
-  %.not564674 = icmp eq ptr %394, null
-  br i1 %.not564674, label %.critedge, label %.thread676
+  %.not564670 = icmp eq ptr %394, null
+  br i1 %.not564670, label %.critedge, label %.thread672
 
-395:                                              ; preds = %.thread657
-  br i1 %9, label %..thread676_crit_edge, label %.thread760
+395:                                              ; preds = %.thread653
+  br i1 %9, label %..thread672_crit_edge, label %.thread756
 
-..thread676_crit_edge:                            ; preds = %.thread657.thread763, %395
-  %396 = phi ptr [ %378, %395 ], [ %380, %.thread657.thread763 ]
+..thread672_crit_edge:                            ; preds = %.thread653.thread759, %395
+  %396 = phi ptr [ %378, %395 ], [ %380, %.thread653.thread759 ]
   %.pre = load i32, ptr %4, align 4, !tbaa !3
-  br label %.thread676
+  br label %.thread672
 
-.thread760:                                       ; preds = %.thread657.thread755, %395
-  %.33759762 = phi i32 [ %.33, %395 ], [ %307, %.thread657.thread755 ]
-  %397 = phi ptr [ %377, %395 ], [ %381, %.thread657.thread755 ]
-  %.not565.not = icmp slt i32 %.33759762, %18
+.thread756:                                       ; preds = %.thread653.thread751, %395
+  %.33755758 = phi i32 [ %.33, %395 ], [ %307, %.thread653.thread751 ]
+  %397 = phi ptr [ %377, %395 ], [ %381, %.thread653.thread751 ]
+  %.not565.not = icmp slt i32 %.33755758, %18
   br i1 %.not565.not, label %400, label %398
 
-398:                                              ; preds = %.thread760
+398:                                              ; preds = %.thread756
   store i8 0, ptr %0, align 1, !tbaa !16
   %.not566 = icmp eq ptr %3, null
   br i1 %.not566, label %.critedge, label %399
@@ -953,9 +953,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-400:                                              ; preds = %.thread760
-  %401 = add nsw i32 %.33759762, 1
-  %402 = sext i32 %.33759762 to i64
+400:                                              ; preds = %.thread756
+  %401 = add nsw i32 %.33755758, 1
+  %402 = sext i32 %.33755758 to i64
   %403 = getelementptr inbounds i8, ptr %0, i64 %402
   store i8 35, ptr %403, align 1
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -967,15 +967,15 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %410 = trunc i64 %409 to i32
   %411 = add nsw i32 %401, %410
   %.not567.not = icmp slt i32 %411, %2
-  br i1 %.not567.not, label %.thread664.thread680, label %415
+  br i1 %.not567.not, label %.thread660.thread676, label %415
 
-.thread664.thread680:                             ; preds = %400
+.thread660.thread676:                             ; preds = %400
   %412 = sext i32 %401 to i64
   %413 = getelementptr inbounds i8, ptr %0, i64 %412
   %sext569 = shl i64 %409, 32
   %414 = ashr exact i64 %sext569, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %413, ptr align 1 %406, i64 %414, i1 false)
-  br label %.thread664.thread769
+  br label %.thread660.thread765
 
 415:                                              ; preds = %400
   store i8 0, ptr %0, align 1, !tbaa !16
@@ -986,9 +986,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread676:                                       ; preds = %..thread676_crit_edge, %.thread657.thread
-  %417 = phi ptr [ %396, %..thread676_crit_edge ], [ %394, %.thread657.thread ]
-  %418 = phi i32 [ %.pre, %..thread676_crit_edge ], [ %392, %.thread657.thread ]
+.thread672:                                       ; preds = %..thread672_crit_edge, %.thread653.thread
+  %417 = phi ptr [ %396, %..thread672_crit_edge ], [ %394, %.thread653.thread ]
+  %418 = phi i32 [ %.pre, %..thread672_crit_edge ], [ %392, %.thread653.thread ]
   %419 = add nsw i32 %418, 1
   %420 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %421 = load ptr, ptr %420, align 8, !tbaa !43
@@ -1000,24 +1000,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   store i32 %426, ptr %4, align 4, !tbaa !3
   br label %.critedge
 
-.thread664:                                       ; preds = %.thread657
-  br i1 %9, label %.critedge, label %.thread664.thread769
+.thread660:                                       ; preds = %.thread653
+  br i1 %9, label %.critedge, label %.thread660.thread765
 
-.thread664.thread769:                             ; preds = %.thread657.thread755, %.thread664.thread680, %.thread664
-  %.37682 = phi i32 [ %411, %.thread664.thread680 ], [ %.33, %.thread664 ], [ %307, %.thread657.thread755 ]
-  %427 = sext i32 %.37682 to i64
+.thread660.thread765:                             ; preds = %.thread653.thread751, %.thread660.thread676, %.thread660
+  %.37678 = phi i32 [ %411, %.thread660.thread676 ], [ %.33, %.thread660 ], [ %307, %.thread653.thread751 ]
+  %427 = sext i32 %.37678 to i64
   %428 = getelementptr inbounds i8, ptr %0, i64 %427
   store i8 0, ptr %428, align 1, !tbaa !16
   %.not570 = icmp eq ptr %3, null
   br i1 %.not570, label %.critedge, label %429
 
-429:                                              ; preds = %.thread664.thread769
-  %430 = add nsw i32 %.37682, 1
+429:                                              ; preds = %.thread660.thread765
+  %430 = add nsw i32 %.37678, 1
   store i32 %430, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread657.thread763, %.thread657.thread, %.thread676, %345, %346, %334, %335, %282, %283, %275, %276, %233, %234, %227, %228, %220, %221, %175, %174, %194, %193, %200, %201, %160, %161, %79, %80, %73, %74, %36, %37, %29, %30, %416, %415, %376, %375, %256, %255, %142, %143, %.preheader684.split._crit_edge, %140, %.thread664, %429, %.thread664.thread769, %398, %399, %357, %358, %298, %299, %51, %52, %15, %16, %11, %12
-  %.0 = phi i32 [ 2, %12 ], [ 2, %11 ], [ 4, %16 ], [ 4, %15 ], [ 4, %52 ], [ 4, %51 ], [ 4, %299 ], [ 4, %298 ], [ 4, %358 ], [ 4, %357 ], [ 4, %399 ], [ 4, %398 ], [ 0, %.thread664.thread769 ], [ 0, %429 ], [ 0, %.thread664 ], [ 4, %140 ], [ 4, %.preheader684.split._crit_edge ], [ 4, %143 ], [ 4, %142 ], [ 4, %255 ], [ 4, %256 ], [ 4, %375 ], [ 4, %376 ], [ 4, %415 ], [ 4, %416 ], [ 4, %30 ], [ 4, %29 ], [ 4, %37 ], [ 4, %36 ], [ 4, %74 ], [ 4, %73 ], [ 4, %80 ], [ 4, %79 ], [ 4, %161 ], [ 4, %160 ], [ 4, %201 ], [ 4, %200 ], [ 4, %193 ], [ 4, %194 ], [ 4, %174 ], [ 4, %175 ], [ 4, %221 ], [ 4, %220 ], [ 4, %228 ], [ 4, %227 ], [ 4, %234 ], [ 4, %233 ], [ 4, %276 ], [ 4, %275 ], [ 4, %283 ], [ 4, %282 ], [ 4, %335 ], [ 4, %334 ], [ 4, %346 ], [ 4, %345 ], [ 0, %.thread676 ], [ 0, %.thread657.thread ], [ 0, %.thread657.thread763 ]
+.critedge:                                        ; preds = %.thread653.thread759, %.thread653.thread, %.thread672, %345, %346, %334, %335, %282, %283, %275, %276, %233, %234, %227, %228, %220, %221, %175, %174, %194, %193, %200, %201, %160, %161, %416, %415, %376, %375, %256, %255, %142, %143, %.preheader680.split._crit_edge, %140, %74, %73, %80, %79, %30, %29, %37, %36, %.thread660, %429, %.thread660.thread765, %398, %399, %357, %358, %298, %299, %51, %52, %15, %16, %11, %12
+  %.0 = phi i32 [ 2, %12 ], [ 2, %11 ], [ 4, %16 ], [ 4, %15 ], [ 4, %52 ], [ 4, %51 ], [ 4, %299 ], [ 4, %298 ], [ 4, %358 ], [ 4, %357 ], [ 4, %399 ], [ 4, %398 ], [ 0, %.thread660.thread765 ], [ 0, %429 ], [ 0, %.thread660 ], [ 4, %36 ], [ 4, %37 ], [ 4, %29 ], [ 4, %30 ], [ 4, %79 ], [ 4, %80 ], [ 4, %73 ], [ 4, %74 ], [ 4, %140 ], [ 4, %.preheader680.split._crit_edge ], [ 4, %143 ], [ 4, %142 ], [ 4, %255 ], [ 4, %256 ], [ 4, %375 ], [ 4, %376 ], [ 4, %415 ], [ 4, %416 ], [ 4, %161 ], [ 4, %160 ], [ 4, %201 ], [ 4, %200 ], [ 4, %193 ], [ 4, %194 ], [ 4, %174 ], [ 4, %175 ], [ 4, %221 ], [ 4, %220 ], [ 4, %228 ], [ 4, %227 ], [ 4, %234 ], [ 4, %233 ], [ 4, %276 ], [ 4, %275 ], [ 4, %283 ], [ 4, %282 ], [ 4, %335 ], [ 4, %334 ], [ 4, %346 ], [ 4, %345 ], [ 0, %.thread672 ], [ 0, %.thread653.thread ], [ 0, %.thread653.thread759 ]
   ret i32 %.0
 }
 
@@ -1076,13 +1076,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %4, align 4, !tbaa !3
   %20 = load ptr, ptr %1, align 8, !tbaa !44
   %.not498 = icmp eq ptr %20, null
-  br i1 %.not498, label %.thread727, label %.thread581
+  br i1 %.not498, label %.thread723, label %.thread582
 
 .thread:                                          ; preds = %17
   store i32 0, ptr %0, align 4, !tbaa !3
   %21 = load ptr, ptr %1, align 8, !tbaa !44
-  %.not498573 = icmp eq ptr %21, null
-  br i1 %.not498573, label %41, label %22
+  %.not498577 = icmp eq ptr %21, null
+  br i1 %.not498577, label %41, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1127,18 +1127,18 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-41:                                               ; preds = %35, %.thread
-  %.0379 = phi i32 [ 0, %.thread ], [ %36, %35 ]
+41:                                               ; preds = %.thread, %35
+  %.0379 = phi i32 [ %36, %35 ], [ 0, %.thread ]
   %42 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #5
   %.not503 = icmp eq i32 %42, 0
   br i1 %.not503, label %308, label %53
 
-.thread727:                                       ; preds = %19
+.thread723:                                       ; preds = %19
   %43 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #5
-  %.not503729 = icmp eq i32 %43, 0
-  br i1 %.not503729, label %308, label %.thread731
+  %.not503725 = icmp eq i32 %43, 0
+  br i1 %.not503725, label %308, label %.thread727
 
-.thread581:                                       ; preds = %19
+.thread582:                                       ; preds = %19
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = ptrtoint ptr %45 to i64
@@ -1149,13 +1149,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %51 = add i32 %50, 1
   store i32 %51, ptr %4, align 4, !tbaa !3
   %52 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #5
-  %.not503583 = icmp eq i32 %52, 0
-  br i1 %.not503583, label %308, label %.thread731
+  %.not503584 = icmp eq i32 %52, 0
+  br i1 %.not503584, label %308, label %.thread727
 
 53:                                               ; preds = %41
   %54 = add nsw i32 %.0379, 2
   %.not504.not = icmp slt i32 %54, %2
-  br i1 %.not504.not, label %.thread588, label %55
+  br i1 %.not504.not, label %.thread589, label %55
 
 55:                                               ; preds = %53
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread731:                                       ; preds = %.thread727, %.thread581
+.thread727:                                       ; preds = %.thread723, %.thread582
   %57 = load i32, ptr %4, align 4, !tbaa !3
   %58 = add nsw i32 %57, 2
   store i32 %58, ptr %4, align 4, !tbaa !3
@@ -1175,16 +1175,16 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %.not506 = icmp eq ptr %60, null
   br i1 %.not506, label %97, label %87
 
-.thread588:                                       ; preds = %53
+.thread589:                                       ; preds = %53
   %61 = sext i32 %.0379 to i64
   %62 = getelementptr inbounds i32, ptr %0, i64 %61
   store i64 201863462959, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !51
-  %.not506590 = icmp eq ptr %64, null
-  br i1 %.not506590, label %97, label %65
+  %.not506591 = icmp eq ptr %64, null
+  br i1 %.not506591, label %97, label %65
 
-65:                                               ; preds = %.thread588
+65:                                               ; preds = %.thread589
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %68 = ptrtoint ptr %67 to i64
@@ -1231,7 +1231,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-87:                                               ; preds = %.thread731
+87:                                               ; preds = %.thread727
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !52
   %90 = ptrtoint ptr %89 to i64
@@ -1244,19 +1244,19 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 %96, ptr %4, align 4, !tbaa !3
   br label %97
 
-97:                                               ; preds = %87, %81, %.thread588, %.thread731
-  %.6385 = phi i32 [ 0, %.thread731 ], [ %54, %.thread588 ], [ %82, %81 ], [ 0, %87 ]
+97:                                               ; preds = %.thread589, %87, %81, %.thread727
+  %.6385 = phi i32 [ 0, %.thread727 ], [ %82, %81 ], [ 0, %87 ], [ %54, %.thread589 ]
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %99 = load ptr, ptr %98, align 8, !tbaa !53
   %.not512 = icmp eq ptr %99, null
-  br i1 %.not512, label %169, label %.preheader694
+  br i1 %.not512, label %169, label %.preheader690
 
-.preheader694:                                    ; preds = %97
+.preheader690:                                    ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %9, label %.preheader694.split.us, label %.preheader694.split.preheader
+  br i1 %9, label %.preheader690.split.us, label %.preheader690.split.preheader
 
-.preheader694.split.preheader:                    ; preds = %.preheader694
+.preheader690.split.preheader:                    ; preds = %.preheader690
   %102 = load ptr, ptr %98, align 8, !tbaa !53
   %103 = load i8, ptr %102, align 1, !tbaa !16
   %104 = icmp ugt i8 %103, 99
@@ -1264,39 +1264,39 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %106 = select i1 %105, i32 2, i32 1
   %107 = select i1 %104, i32 3, i32 %106
   %108 = add nsw i32 %107, %.6385
-  %.not534.not799 = icmp slt i32 %108, %2
-  br i1 %.not534.not799, label %.lr.ph, label %.preheader694.split._crit_edge
+  %.not534.not795 = icmp slt i32 %108, %2
+  br i1 %.not534.not795, label %.lr.ph, label %.preheader690.split._crit_edge
 
-.preheader694.split.us:                           ; preds = %.preheader694
+.preheader690.split.us:                           ; preds = %.preheader690
   %.promoted = load i32, ptr %4, align 4, !tbaa !3
   br label %109
 
-109:                                              ; preds = %109, %.preheader694.split.us
-  %indvars.iv718 = phi i64 [ %indvars.iv.next719, %109 ], [ 0, %.preheader694.split.us ]
-  %110 = phi i32 [ %120, %109 ], [ %.promoted, %.preheader694.split.us ]
-  %111 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 0, i64 %indvars.iv718
+109:                                              ; preds = %109, %.preheader690.split.us
+  %indvars.iv714 = phi i64 [ %indvars.iv.next715, %109 ], [ 0, %.preheader690.split.us ]
+  %110 = phi i32 [ %120, %109 ], [ %.promoted, %.preheader690.split.us ]
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 0, i64 %indvars.iv714
   %112 = load i8, ptr %111, align 1, !tbaa !16
   %113 = icmp ugt i8 %112, 99
   %114 = icmp ugt i8 %112, 9
   %115 = select i1 %114, i32 2, i32 1
   %116 = select i1 %113, i32 3, i32 %115
-  %117 = icmp ne i64 %indvars.iv718, 3
+  %117 = icmp ne i64 %indvars.iv714, 3
   %118 = zext i1 %117 to i32
   %119 = add nuw nsw i32 %116, %118
   %120 = add nsw i32 %119, %110
   store i32 %120, ptr %4, align 4, !tbaa !3
-  %indvars.iv.next719 = add nuw nsw i64 %indvars.iv718, 1
-  %exitcond721 = icmp eq i64 %indvars.iv.next719, 4
-  br i1 %exitcond721, label %.thread603, label %109, !llvm.loop !54
+  %indvars.iv.next715 = add nuw nsw i64 %indvars.iv714, 1
+  %exitcond717 = icmp eq i64 %indvars.iv.next715, 4
+  br i1 %exitcond717, label %.thread599, label %109, !llvm.loop !54
 
-.lr.ph:                                           ; preds = %.preheader694.split.preheader, %.preheader694.split
-  %121 = phi i32 [ %168, %.preheader694.split ], [ %108, %.preheader694.split.preheader ]
-  %122 = phi i32 [ %167, %.preheader694.split ], [ %107, %.preheader694.split.preheader ]
-  %123 = phi i1 [ %165, %.preheader694.split ], [ %105, %.preheader694.split.preheader ]
-  %124 = phi i1 [ %164, %.preheader694.split ], [ %104, %.preheader694.split.preheader ]
-  %125 = phi i8 [ %163, %.preheader694.split ], [ %103, %.preheader694.split.preheader ]
-  %.9388702801 = phi i32 [ %158, %.preheader694.split ], [ %.6385, %.preheader694.split.preheader ]
-  %indvars.iv800 = phi i64 [ %indvars.iv.next, %.preheader694.split ], [ 0, %.preheader694.split.preheader ]
+.lr.ph:                                           ; preds = %.preheader690.split.preheader, %.preheader690.split
+  %121 = phi i32 [ %168, %.preheader690.split ], [ %108, %.preheader690.split.preheader ]
+  %122 = phi i32 [ %167, %.preheader690.split ], [ %107, %.preheader690.split.preheader ]
+  %123 = phi i1 [ %165, %.preheader690.split ], [ %105, %.preheader690.split.preheader ]
+  %124 = phi i1 [ %164, %.preheader690.split ], [ %104, %.preheader690.split.preheader ]
+  %125 = phi i8 [ %163, %.preheader690.split ], [ %103, %.preheader690.split.preheader ]
+  %.9388698797 = phi i32 [ %158, %.preheader690.split ], [ %.6385, %.preheader690.split.preheader ]
+  %indvars.iv796 = phi i64 [ %indvars.iv.next, %.preheader690.split ], [ 0, %.preheader690.split.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   br i1 %124, label %126, label %137
 
@@ -1340,26 +1340,26 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %149 = zext nneg i32 %122 to i64
   %150 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %149
   store i32 0, ptr %150, align 4, !tbaa !3
-  %151 = sext i32 %.9388702801 to i64
+  %151 = sext i32 %.9388698797 to i64
   %152 = getelementptr inbounds i32, ptr %0, i64 %151
   %153 = shl nuw nsw i64 %149, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %152, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %153, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  %.not536 = icmp eq i64 %indvars.iv800, 3
-  br i1 %.not536, label %.thread603, label %155
+  %.not536 = icmp eq i64 %indvars.iv796, 3
+  br i1 %.not536, label %.thread599, label %155
 
-.preheader694.split._crit_edge:                   ; preds = %.preheader694.split, %.preheader694.split.preheader
+.preheader690.split._crit_edge:                   ; preds = %.preheader690.split, %.preheader690.split.preheader
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not535 = icmp eq ptr %3, null
   br i1 %.not535, label %.critedge, label %154
 
-154:                                              ; preds = %.preheader694.split._crit_edge
+154:                                              ; preds = %.preheader690.split._crit_edge
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
 155:                                              ; preds = %148
   %.not537.not = icmp slt i32 %121, %18
-  br i1 %.not537.not, label %.preheader694.split, label %156
+  br i1 %.not537.not, label %.preheader690.split, label %156
 
 156:                                              ; preds = %155
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1370,12 +1370,12 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.preheader694.split:                              ; preds = %155
+.preheader690.split:                              ; preds = %155
   %158 = add nsw i32 %121, 1
   %159 = sext i32 %121 to i64
   %160 = getelementptr inbounds i32, ptr %0, i64 %159
   store i32 46, ptr %160, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv800, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv796, 1
   %161 = load ptr, ptr %98, align 8, !tbaa !53
   %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 0, i64 %indvars.iv.next
   %163 = load i8, ptr %162, align 1, !tbaa !16
@@ -1385,7 +1385,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %167 = select i1 %164, i32 3, i32 %166
   %168 = add nsw i32 %167, %158
   %.not534.not = icmp slt i32 %168, %2
-  br i1 %.not534.not, label %.lr.ph, label %.preheader694.split._crit_edge
+  br i1 %.not534.not, label %.lr.ph, label %.preheader690.split._crit_edge
 
 169:                                              ; preds = %97
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1424,23 +1424,23 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 181:                                              ; preds = %181, %.split.us
   %182 = phi i32 [ %180, %.split.us ], [ %spec.select, %181 ]
-  %.0417703.us = phi i32 [ 0, %.split.us ], [ %186, %181 ]
-  %183 = and i32 %.0417703.us, 1
+  %.0417699.us = phi i32 [ 0, %.split.us ], [ %186, %181 ]
+  %183 = and i32 %.0417699.us, 1
   %184 = icmp ne i32 %183, 0
-  %185 = icmp ne i32 %.0417703.us, 15
+  %185 = icmp ne i32 %.0417699.us, 15
   %or.cond15.us = and i1 %185, %184
   %spec.select.v = select i1 %or.cond15.us, i32 3, i32 2
   %spec.select = add i32 %182, %spec.select.v
-  %186 = add nuw nsw i32 %.0417703.us, 1
-  %exitcond726.not = icmp eq i32 %186, 16
-  br i1 %exitcond726.not, label %216, label %181, !llvm.loop !56
+  %186 = add nuw nsw i32 %.0417699.us, 1
+  %exitcond722.not = icmp eq i32 %186, 16
+  br i1 %exitcond722.not, label %216, label %181, !llvm.loop !56
 
 .split:                                           ; preds = %.split.preheader, %209
-  %indvars.iv722 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next723, %209 ]
-  %.16395704 = phi i32 [ %176, %.split.preheader ], [ %.17396.ph, %209 ]
-  %187 = add nsw i32 %.16395704, 2
+  %indvars.iv718 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next719, %209 ]
+  %.16395700 = phi i32 [ %176, %.split.preheader ], [ %.17396.ph, %209 ]
+  %187 = add nsw i32 %.16395700, 2
   %.not530.not = icmp slt i32 %187, %2
-  br i1 %.not530.not, label %.thread605, label %188
+  br i1 %.not530.not, label %.thread601, label %188
 
 188:                                              ; preds = %.split
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1451,38 +1451,38 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread605:                                       ; preds = %.split
+.thread601:                                       ; preds = %.split
   %190 = load ptr, ptr %170, align 8, !tbaa !55
-  %191 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 0, i64 %indvars.iv722
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 0, i64 %indvars.iv718
   %192 = load i8, ptr %191, align 1, !tbaa !16
   %193 = zext i8 %192 to i32
   %194 = lshr i32 %193, 4
   %195 = tail call i32 @uriHexToLetterExW(i32 noundef %194, i32 noundef 0) #5
   %196 = and i32 %193, 15
   %197 = tail call i32 @uriHexToLetterExW(i32 noundef %196, i32 noundef 0) #5
-  %198 = sext i32 %.16395704 to i64
+  %198 = sext i32 %.16395700 to i64
   %199 = getelementptr inbounds i32, ptr %0, i64 %198
   store i32 %195, ptr %199, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 4
   store i32 %197, ptr %.sroa.4.0..sroa_idx, align 4
-  %200 = and i64 %indvars.iv722, 1
+  %200 = and i64 %indvars.iv718, 1
   %201 = icmp ne i64 %200, 0
-  %202 = icmp ne i64 %indvars.iv722, 15
-  %or.cond15607 = and i1 %202, %201
-  br i1 %or.cond15607, label %.thread609, label %209
+  %202 = icmp ne i64 %indvars.iv718, 15
+  %or.cond15603 = and i1 %202, %201
+  br i1 %or.cond15603, label %.thread605, label %209
 
-.thread609:                                       ; preds = %.thread605
+.thread605:                                       ; preds = %.thread601
   %.not532.not = icmp slt i32 %187, %18
   br i1 %.not532.not, label %203, label %207
 
-203:                                              ; preds = %.thread609
-  %204 = add nsw i32 %.16395704, 3
+203:                                              ; preds = %.thread605
+  %204 = add nsw i32 %.16395700, 3
   %205 = sext i32 %187 to i64
   %206 = getelementptr inbounds i32, ptr %0, i64 %205
   store i32 58, ptr %206, align 4
   br label %209
 
-207:                                              ; preds = %.thread609
+207:                                              ; preds = %.thread605
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not533 = icmp eq ptr %3, null
   br i1 %.not533, label %.critedge, label %208
@@ -1491,24 +1491,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-209:                                              ; preds = %203, %.thread605
-  %.17396.ph = phi i32 [ %187, %.thread605 ], [ %204, %203 ]
-  %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
-  %exitcond725.not = icmp eq i64 %indvars.iv.next723, 16
-  br i1 %exitcond725.not, label %.split706, label %.split, !llvm.loop !57
+209:                                              ; preds = %203, %.thread601
+  %.17396.ph = phi i32 [ %187, %.thread601 ], [ %204, %203 ]
+  %indvars.iv.next719 = add nuw nsw i64 %indvars.iv718, 1
+  %exitcond721.not = icmp eq i64 %indvars.iv.next719, 16
+  br i1 %exitcond721.not, label %.split702, label %.split, !llvm.loop !57
 
-.split706:                                        ; preds = %209
+.split702:                                        ; preds = %209
   %.not528.not = icmp slt i32 %.17396.ph, %18
   br i1 %.not528.not, label %210, label %214
 
-210:                                              ; preds = %.split706
+210:                                              ; preds = %.split702
   %211 = add nsw i32 %.17396.ph, 1
   %212 = sext i32 %.17396.ph to i64
   %213 = getelementptr inbounds i32, ptr %0, i64 %212
   store i32 93, ptr %213, align 4
-  br label %.thread603
+  br label %.thread599
 
-214:                                              ; preds = %.split706
+214:                                              ; preds = %.split702
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not529 = icmp eq ptr %3, null
   br i1 %.not529, label %.critedge, label %215
@@ -1520,7 +1520,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 216:                                              ; preds = %181
   %217 = add nsw i32 %spec.select, 1
   store i32 %217, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
 218:                                              ; preds = %169
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1585,7 +1585,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %247 = sext i32 %234 to i64
   %248 = getelementptr inbounds i32, ptr %0, i64 %247
   store i32 93, ptr %248, align 4
-  br label %.thread603
+  br label %.thread599
 
 249:                                              ; preds = %237
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1601,13 +1601,13 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %253 = load i32, ptr %4, align 4, !tbaa !3
   %254 = add nsw i32 %252, %253
   store i32 %254, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
 255:                                              ; preds = %218
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %257 = load ptr, ptr %256, align 8, !tbaa !60
   %.not515 = icmp eq ptr %257, null
-  br i1 %.not515, label %.thread603, label %258
+  br i1 %.not515, label %.thread599, label %258
 
 258:                                              ; preds = %255
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1631,7 +1631,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %271 = ashr exact i64 %sext518, 30
   %272 = and i64 %271, -4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %270, ptr nonnull align 4 %257, i64 %272, i1 false)
-  br label %.thread603
+  br label %.thread599
 
 273:                                              ; preds = %266
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1646,16 +1646,16 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %276 = load i32, ptr %4, align 4, !tbaa !3
   %277 = add nsw i32 %276, %265
   store i32 %277, ptr %4, align 4, !tbaa !3
-  br label %.thread603
+  br label %.thread599
 
-.thread603:                                       ; preds = %148, %109, %268, %275, %251, %245, %216, %210, %255
+.thread599:                                       ; preds = %148, %109, %268, %275, %251, %245, %216, %210, %255
   %.13392 = phi i32 [ %.6385, %255 ], [ %211, %210 ], [ %.6385, %216 ], [ %246, %245 ], [ %.6385, %251 ], [ %.6385, %275 ], [ %267, %268 ], [ %.6385, %109 ], [ %121, %148 ]
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %279 = load ptr, ptr %278, align 8, !tbaa !62
   %.not539 = icmp eq ptr %279, null
   br i1 %.not539, label %308, label %280
 
-280:                                              ; preds = %.thread603
+280:                                              ; preds = %.thread599
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %282 = load ptr, ptr %281, align 8, !tbaa !63
   %283 = ptrtoint ptr %282 to i64
@@ -1713,8 +1713,8 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 %307, ptr %4, align 4, !tbaa !3
   br label %308
 
-308:                                              ; preds = %.thread727, %304, %296, %.thread581, %.thread603, %41
-  %.4383 = phi i32 [ %.13392, %.thread603 ], [ %.0379, %41 ], [ 0, %.thread581 ], [ %293, %296 ], [ %.13392, %304 ], [ 0, %.thread727 ]
+308:                                              ; preds = %.thread723, %304, %296, %.thread582, %.thread599, %41
+  %.4383 = phi i32 [ %.13392, %.thread599 ], [ %.0379, %41 ], [ 0, %.thread582 ], [ %293, %296 ], [ %.13392, %304 ], [ 0, %.thread723 ]
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %310 = load i32, ptr %309, align 8, !tbaa !64
   %.not545 = icmp eq i32 %310, 0
@@ -1732,11 +1732,11 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   br i1 %.not547, label %320, label %316
 
 316:                                              ; preds = %314, %308
-  br i1 %9, label %.thread749, label %317
+  br i1 %9, label %.thread745, label %317
 
 317:                                              ; preds = %316
   %.not548.not = icmp slt i32 %.4383, %18
-  br i1 %.not548.not, label %.thread743, label %318
+  br i1 %.not548.not, label %.thread739, label %318
 
 318:                                              ; preds = %317
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1751,42 +1751,42 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %322 = load ptr, ptr %321, align 8, !tbaa !65
   %.not550 = icmp eq ptr %322, null
-  br i1 %.not550, label %.thread649, label %.preheader
+  br i1 %.not550, label %.thread645, label %.preheader
 
-.thread749:                                       ; preds = %316
+.thread745:                                       ; preds = %316
   %323 = load i32, ptr %4, align 4, !tbaa !3
   %324 = add nsw i32 %323, 1
   store i32 %324, ptr %4, align 4, !tbaa !3
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %326 = load ptr, ptr %325, align 8, !tbaa !65
-  %.not550750 = icmp eq ptr %326, null
-  br i1 %.not550750, label %.thread649.thread760, label %.preheader.split.us
+  %.not550746 = icmp eq ptr %326, null
+  br i1 %.not550746, label %.thread645.thread756, label %.preheader.split.us
 
-.thread743:                                       ; preds = %317
+.thread739:                                       ; preds = %317
   %327 = add nsw i32 %.4383, 1
   %328 = sext i32 %.4383 to i64
   %329 = getelementptr inbounds i32, ptr %0, i64 %328
   store i32 47, ptr %329, align 4
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %331 = load ptr, ptr %330, align 8, !tbaa !65
-  %.not550745 = icmp eq ptr %331, null
-  br i1 %.not550745, label %.thread649.thread754, label %.preheader.split.preheader
+  %.not550741 = icmp eq ptr %331, null
+  br i1 %.not550741, label %.thread645.thread750, label %.preheader.split.preheader
 
 .preheader:                                       ; preds = %320
   br i1 %9, label %.preheader.split.us, label %.preheader.split.preheader
 
-.preheader.split.preheader:                       ; preds = %.thread743, %.preheader
-  %.0401.ph = phi ptr [ %331, %.thread743 ], [ %322, %.preheader ]
-  %.29.ph = phi i32 [ %327, %.thread743 ], [ %.4383, %.preheader ]
+.preheader.split.preheader:                       ; preds = %.thread739, %.preheader
+  %.0401.ph = phi ptr [ %331, %.thread739 ], [ %322, %.preheader ]
+  %.29.ph = phi i32 [ %327, %.thread739 ], [ %.4383, %.preheader ]
   br label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.thread749, %.preheader
-  %332 = phi ptr [ %322, %.preheader ], [ %326, %.thread749 ]
-  %.promoted711 = load i32, ptr %4, align 4, !tbaa !3
+.preheader.split.us:                              ; preds = %.thread745, %.preheader
+  %332 = phi ptr [ %322, %.preheader ], [ %326, %.thread745 ]
+  %.promoted707 = load i32, ptr %4, align 4, !tbaa !3
   br label %333
 
 333:                                              ; preds = %333, %.preheader.split.us
-  %334 = phi i32 [ %346, %333 ], [ %.promoted711, %.preheader.split.us ]
+  %334 = phi i32 [ %346, %333 ], [ %.promoted707, %.preheader.split.us ]
   %.0401.us = phi ptr [ %345, %333 ], [ %332, %.preheader.split.us ]
   %335 = getelementptr inbounds nuw i8, ptr %.0401.us, i64 8
   %336 = load ptr, ptr %335, align 8, !tbaa !66
@@ -1801,11 +1801,11 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %345 = load ptr, ptr %344, align 8, !tbaa !69
   %.not554.us = icmp eq ptr %345, null
   %346 = add nsw i32 %343, 1
-  br i1 %.not554.us, label %.thread649.loopexit.split.us, label %333
+  br i1 %.not554.us, label %.thread645.loopexit.split.us, label %333
 
-.thread649.loopexit.split.us:                     ; preds = %333
+.thread645.loopexit.split.us:                     ; preds = %333
   store i32 %343, ptr %4, align 4, !tbaa !3
-  br label %.thread649
+  br label %.thread645
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %364
   %.0401 = phi ptr [ %.pr, %364 ], [ %.0401.ph, %.preheader.split.preheader ]
@@ -1820,7 +1820,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %354 = trunc i64 %353 to i32
   %355 = add nsw i32 %.29, %354
   %.not551.not = icmp slt i32 %355, %2
-  br i1 %.not551.not, label %.thread633, label %356
+  br i1 %.not551.not, label %.thread629, label %356
 
 356:                                              ; preds = %.preheader.split
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1831,7 +1831,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread633:                                       ; preds = %.preheader.split
+.thread629:                                       ; preds = %.preheader.split
   %358 = sext i32 %.29 to i64
   %359 = getelementptr inbounds i32, ptr %0, i64 %358
   %sext553 = shl i64 %352, 30
@@ -1840,23 +1840,23 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %359, ptr align 4 %349, i64 %361, i1 false)
   %362 = getelementptr inbounds nuw i8, ptr %.0401, i64 16
   %363 = load ptr, ptr %362, align 8, !tbaa !69
-  %.not554635 = icmp eq ptr %363, null
-  br i1 %.not554635, label %.thread649.thread, label %.thread637
+  %.not554631 = icmp eq ptr %363, null
+  br i1 %.not554631, label %.thread645.thread, label %.thread633
 
-.thread637:                                       ; preds = %.thread633
+.thread633:                                       ; preds = %.thread629
   %.not555.not = icmp slt i32 %355, %18
   br i1 %.not555.not, label %364, label %368
 
-364:                                              ; preds = %.thread637
+364:                                              ; preds = %.thread633
   %365 = add nsw i32 %355, 1
   %366 = sext i32 %355 to i64
   %367 = getelementptr inbounds i32, ptr %0, i64 %366
   store i32 47, ptr %367, align 4
   %.pr = load ptr, ptr %362, align 8, !tbaa !69
   %.not557 = icmp eq ptr %.pr, null
-  br i1 %.not557, label %.thread649, label %.preheader.split, !llvm.loop !70
+  br i1 %.not557, label %.thread645, label %.preheader.split, !llvm.loop !70
 
-368:                                              ; preds = %.thread637
+368:                                              ; preds = %.thread633
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not556 = icmp eq ptr %3, null
   br i1 %.not556, label %.critedge, label %369
@@ -1865,41 +1865,41 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread649:                                       ; preds = %364, %.thread649.loopexit.split.us, %320
-  %.28 = phi i32 [ %.4383, %320 ], [ %.4383, %.thread649.loopexit.split.us ], [ %365, %364 ]
+.thread645:                                       ; preds = %364, %.thread645.loopexit.split.us, %320
+  %.28 = phi i32 [ %.4383, %320 ], [ %.4383, %.thread645.loopexit.split.us ], [ %365, %364 ]
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %371 = load ptr, ptr %370, align 8, !tbaa !71
   %.not558 = icmp eq ptr %371, null
-  br i1 %.not558, label %.thread657, label %378
+  br i1 %.not558, label %.thread653, label %378
 
-.thread649.thread760:                             ; preds = %.thread749
+.thread645.thread756:                             ; preds = %.thread745
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %373 = load ptr, ptr %372, align 8, !tbaa !71
-  %.not558762 = icmp eq ptr %373, null
-  br i1 %.not558762, label %.thread657.thread773, label %.thread657.thread
+  %.not558758 = icmp eq ptr %373, null
+  br i1 %.not558758, label %.thread653.thread769, label %.thread653.thread
 
-.thread649.thread754:                             ; preds = %.thread743
+.thread645.thread750:                             ; preds = %.thread739
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %375 = load ptr, ptr %374, align 8, !tbaa !71
-  %.not558756 = icmp eq ptr %375, null
-  br i1 %.not558756, label %.thread657.thread765, label %.thread670
+  %.not558752 = icmp eq ptr %375, null
+  br i1 %.not558752, label %.thread653.thread761, label %.thread666
 
-.thread649.thread:                                ; preds = %.thread633
+.thread645.thread:                                ; preds = %.thread629
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %377 = load ptr, ptr %376, align 8, !tbaa !71
-  %.not558668 = icmp eq ptr %377, null
-  br i1 %.not558668, label %.thread657, label %.thread670
+  %.not558664 = icmp eq ptr %377, null
+  br i1 %.not558664, label %.thread653, label %.thread666
 
-378:                                              ; preds = %.thread649
-  br i1 %9, label %.thread657.thread, label %.thread670
+378:                                              ; preds = %.thread645
+  br i1 %9, label %.thread653.thread, label %.thread666
 
-.thread670:                                       ; preds = %.thread649.thread754, %.thread649.thread, %378
-  %.28669672 = phi i32 [ %.28, %378 ], [ %355, %.thread649.thread ], [ %327, %.thread649.thread754 ]
-  %379 = phi ptr [ %370, %378 ], [ %376, %.thread649.thread ], [ %374, %.thread649.thread754 ]
-  %.not559.not = icmp slt i32 %.28669672, %18
+.thread666:                                       ; preds = %.thread645.thread750, %.thread645.thread, %378
+  %.28665668 = phi i32 [ %.28, %378 ], [ %355, %.thread645.thread ], [ %327, %.thread645.thread750 ]
+  %379 = phi ptr [ %370, %378 ], [ %376, %.thread645.thread ], [ %374, %.thread645.thread750 ]
+  %.not559.not = icmp slt i32 %.28665668, %18
   br i1 %.not559.not, label %382, label %380
 
-380:                                              ; preds = %.thread670
+380:                                              ; preds = %.thread666
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not560 = icmp eq ptr %3, null
   br i1 %.not560, label %.critedge, label %381
@@ -1908,9 +1908,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-382:                                              ; preds = %.thread670
-  %383 = add nsw i32 %.28669672, 1
-  %384 = sext i32 %.28669672 to i64
+382:                                              ; preds = %.thread666
+  %383 = add nsw i32 %.28665668, 1
+  %384 = sext i32 %.28665668 to i64
   %385 = getelementptr inbounds i32, ptr %0, i64 %384
   store i32 63, ptr %385, align 4
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -1932,7 +1932,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %398 = ashr exact i64 %sext563, 30
   %399 = and i64 %398, -4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %397, ptr align 4 %388, i64 %399, i1 false)
-  br label %.thread657
+  br label %.thread653
 
 400:                                              ; preds = %382
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -1943,27 +1943,27 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread657:                                       ; preds = %395, %.thread649.thread, %.thread649
-  %.33 = phi i32 [ %.28, %.thread649 ], [ %355, %.thread649.thread ], [ %394, %395 ]
+.thread653:                                       ; preds = %395, %.thread645.thread, %.thread645
+  %.33 = phi i32 [ %.28, %.thread645 ], [ %355, %.thread645.thread ], [ %394, %395 ]
   %402 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %403 = load ptr, ptr %402, align 8, !tbaa !73
   %.not564 = icmp eq ptr %403, null
-  br i1 %.not564, label %.thread664, label %421
+  br i1 %.not564, label %.thread660, label %421
 
-.thread657.thread773:                             ; preds = %.thread649.thread760
+.thread653.thread769:                             ; preds = %.thread645.thread756
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %405 = load ptr, ptr %404, align 8, !tbaa !73
-  %.not564775 = icmp eq ptr %405, null
-  br i1 %.not564775, label %.critedge, label %..thread676_crit_edge
+  %.not564771 = icmp eq ptr %405, null
+  br i1 %.not564771, label %.critedge, label %..thread672_crit_edge
 
-.thread657.thread765:                             ; preds = %.thread649.thread754
+.thread653.thread761:                             ; preds = %.thread645.thread750
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %407 = load ptr, ptr %406, align 8, !tbaa !73
-  %.not564767 = icmp eq ptr %407, null
-  br i1 %.not564767, label %.thread664.thread779, label %.thread770
+  %.not564763 = icmp eq ptr %407, null
+  br i1 %.not564763, label %.thread660.thread775, label %.thread766
 
-.thread657.thread:                                ; preds = %.thread649.thread760, %378
-  %408 = phi ptr [ %371, %378 ], [ %373, %.thread649.thread760 ]
+.thread653.thread:                                ; preds = %.thread645.thread756, %378
+  %408 = phi ptr [ %371, %378 ], [ %373, %.thread645.thread756 ]
   %409 = load i32, ptr %4, align 4, !tbaa !3
   %410 = add nsw i32 %409, 1
   %411 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -1977,24 +1977,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 %418, ptr %4, align 4, !tbaa !3
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %420 = load ptr, ptr %419, align 8, !tbaa !73
-  %.not564674 = icmp eq ptr %420, null
-  br i1 %.not564674, label %.critedge, label %.thread676
+  %.not564670 = icmp eq ptr %420, null
+  br i1 %.not564670, label %.critedge, label %.thread672
 
-421:                                              ; preds = %.thread657
-  br i1 %9, label %..thread676_crit_edge, label %.thread770
+421:                                              ; preds = %.thread653
+  br i1 %9, label %..thread672_crit_edge, label %.thread766
 
-..thread676_crit_edge:                            ; preds = %.thread657.thread773, %421
-  %422 = phi ptr [ %403, %421 ], [ %405, %.thread657.thread773 ]
+..thread672_crit_edge:                            ; preds = %.thread653.thread769, %421
+  %422 = phi ptr [ %403, %421 ], [ %405, %.thread653.thread769 ]
   %.pre = load i32, ptr %4, align 4, !tbaa !3
-  br label %.thread676
+  br label %.thread672
 
-.thread770:                                       ; preds = %.thread657.thread765, %421
-  %.33769772 = phi i32 [ %.33, %421 ], [ %327, %.thread657.thread765 ]
-  %423 = phi ptr [ %402, %421 ], [ %406, %.thread657.thread765 ]
-  %.not565.not = icmp slt i32 %.33769772, %18
+.thread766:                                       ; preds = %.thread653.thread761, %421
+  %.33765768 = phi i32 [ %.33, %421 ], [ %327, %.thread653.thread761 ]
+  %423 = phi ptr [ %402, %421 ], [ %406, %.thread653.thread761 ]
+  %.not565.not = icmp slt i32 %.33765768, %18
   br i1 %.not565.not, label %426, label %424
 
-424:                                              ; preds = %.thread770
+424:                                              ; preds = %.thread766
   store i32 0, ptr %0, align 4, !tbaa !3
   %.not566 = icmp eq ptr %3, null
   br i1 %.not566, label %.critedge, label %425
@@ -2003,9 +2003,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-426:                                              ; preds = %.thread770
-  %427 = add nsw i32 %.33769772, 1
-  %428 = sext i32 %.33769772 to i64
+426:                                              ; preds = %.thread766
+  %427 = add nsw i32 %.33765768, 1
+  %428 = sext i32 %.33765768 to i64
   %429 = getelementptr inbounds i32, ptr %0, i64 %428
   store i32 35, ptr %429, align 4
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2018,16 +2018,16 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %437 = trunc i64 %436 to i32
   %438 = add nsw i32 %427, %437
   %.not567.not = icmp slt i32 %438, %2
-  br i1 %.not567.not, label %.thread664.thread680, label %443
+  br i1 %.not567.not, label %.thread660.thread676, label %443
 
-.thread664.thread680:                             ; preds = %426
+.thread660.thread676:                             ; preds = %426
   %439 = sext i32 %427 to i64
   %440 = getelementptr inbounds i32, ptr %0, i64 %439
   %sext569 = shl i64 %435, 30
   %441 = ashr exact i64 %sext569, 30
   %442 = and i64 %441, -4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %440, ptr align 4 %432, i64 %442, i1 false)
-  br label %.thread664.thread779
+  br label %.thread660.thread775
 
 443:                                              ; preds = %426
   store i32 0, ptr %0, align 4, !tbaa !3
@@ -2038,9 +2038,9 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 0, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.thread676:                                       ; preds = %..thread676_crit_edge, %.thread657.thread
-  %445 = phi ptr [ %422, %..thread676_crit_edge ], [ %420, %.thread657.thread ]
-  %446 = phi i32 [ %.pre, %..thread676_crit_edge ], [ %418, %.thread657.thread ]
+.thread672:                                       ; preds = %..thread672_crit_edge, %.thread653.thread
+  %445 = phi ptr [ %422, %..thread672_crit_edge ], [ %420, %.thread653.thread ]
+  %446 = phi i32 [ %.pre, %..thread672_crit_edge ], [ %418, %.thread653.thread ]
   %447 = add nsw i32 %446, 1
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %449 = load ptr, ptr %448, align 8, !tbaa !74
@@ -2053,24 +2053,24 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   store i32 %455, ptr %4, align 4, !tbaa !3
   br label %.critedge
 
-.thread664:                                       ; preds = %.thread657
-  br i1 %9, label %.critedge, label %.thread664.thread779
+.thread660:                                       ; preds = %.thread653
+  br i1 %9, label %.critedge, label %.thread660.thread775
 
-.thread664.thread779:                             ; preds = %.thread657.thread765, %.thread664.thread680, %.thread664
-  %.37682 = phi i32 [ %438, %.thread664.thread680 ], [ %.33, %.thread664 ], [ %327, %.thread657.thread765 ]
-  %456 = sext i32 %.37682 to i64
+.thread660.thread775:                             ; preds = %.thread653.thread761, %.thread660.thread676, %.thread660
+  %.37678 = phi i32 [ %438, %.thread660.thread676 ], [ %.33, %.thread660 ], [ %327, %.thread653.thread761 ]
+  %456 = sext i32 %.37678 to i64
   %457 = getelementptr inbounds i32, ptr %0, i64 %456
   store i32 0, ptr %457, align 4, !tbaa !3
   %.not570 = icmp eq ptr %3, null
   br i1 %.not570, label %.critedge, label %458
 
-458:                                              ; preds = %.thread664.thread779
-  %459 = add nsw i32 %.37682, 1
+458:                                              ; preds = %.thread660.thread775
+  %459 = add nsw i32 %.37678, 1
   store i32 %459, ptr %3, align 4, !tbaa !3
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread657.thread773, %.thread657.thread, %.thread676, %368, %369, %356, %357, %302, %303, %294, %295, %249, %250, %243, %244, %235, %236, %189, %188, %208, %207, %214, %215, %174, %175, %85, %86, %79, %80, %39, %40, %30, %31, %444, %443, %401, %400, %274, %273, %156, %157, %.preheader694.split._crit_edge, %154, %.thread664, %458, %.thread664.thread779, %424, %425, %380, %381, %318, %319, %55, %56, %15, %16, %11, %12
-  %.0 = phi i32 [ 2, %12 ], [ 2, %11 ], [ 4, %16 ], [ 4, %15 ], [ 4, %56 ], [ 4, %55 ], [ 4, %319 ], [ 4, %318 ], [ 4, %381 ], [ 4, %380 ], [ 4, %425 ], [ 4, %424 ], [ 0, %.thread664.thread779 ], [ 0, %458 ], [ 0, %.thread664 ], [ 4, %154 ], [ 4, %.preheader694.split._crit_edge ], [ 4, %157 ], [ 4, %156 ], [ 4, %273 ], [ 4, %274 ], [ 4, %400 ], [ 4, %401 ], [ 4, %443 ], [ 4, %444 ], [ 4, %31 ], [ 4, %30 ], [ 4, %40 ], [ 4, %39 ], [ 4, %80 ], [ 4, %79 ], [ 4, %86 ], [ 4, %85 ], [ 4, %175 ], [ 4, %174 ], [ 4, %215 ], [ 4, %214 ], [ 4, %207 ], [ 4, %208 ], [ 4, %188 ], [ 4, %189 ], [ 4, %236 ], [ 4, %235 ], [ 4, %244 ], [ 4, %243 ], [ 4, %250 ], [ 4, %249 ], [ 4, %295 ], [ 4, %294 ], [ 4, %303 ], [ 4, %302 ], [ 4, %357 ], [ 4, %356 ], [ 4, %369 ], [ 4, %368 ], [ 0, %.thread676 ], [ 0, %.thread657.thread ], [ 0, %.thread657.thread773 ]
+.critedge:                                        ; preds = %.thread653.thread769, %.thread653.thread, %.thread672, %368, %369, %356, %357, %302, %303, %294, %295, %249, %250, %243, %244, %235, %236, %189, %188, %208, %207, %214, %215, %174, %175, %444, %443, %401, %400, %274, %273, %156, %157, %.preheader690.split._crit_edge, %154, %80, %79, %86, %85, %31, %30, %40, %39, %.thread660, %458, %.thread660.thread775, %424, %425, %380, %381, %318, %319, %55, %56, %15, %16, %11, %12
+  %.0 = phi i32 [ 2, %12 ], [ 2, %11 ], [ 4, %16 ], [ 4, %15 ], [ 4, %56 ], [ 4, %55 ], [ 4, %319 ], [ 4, %318 ], [ 4, %381 ], [ 4, %380 ], [ 4, %425 ], [ 4, %424 ], [ 0, %.thread660.thread775 ], [ 0, %458 ], [ 0, %.thread660 ], [ 4, %39 ], [ 4, %40 ], [ 4, %30 ], [ 4, %31 ], [ 4, %85 ], [ 4, %86 ], [ 4, %79 ], [ 4, %80 ], [ 4, %154 ], [ 4, %.preheader690.split._crit_edge ], [ 4, %157 ], [ 4, %156 ], [ 4, %273 ], [ 4, %274 ], [ 4, %400 ], [ 4, %401 ], [ 4, %443 ], [ 4, %444 ], [ 4, %175 ], [ 4, %174 ], [ 4, %215 ], [ 4, %214 ], [ 4, %207 ], [ 4, %208 ], [ 4, %188 ], [ 4, %189 ], [ 4, %236 ], [ 4, %235 ], [ 4, %244 ], [ 4, %243 ], [ 4, %250 ], [ 4, %249 ], [ 4, %295 ], [ 4, %294 ], [ 4, %303 ], [ 4, %302 ], [ 4, %357 ], [ 4, %356 ], [ 4, %369 ], [ 4, %368 ], [ 0, %.thread672 ], [ 0, %.thread653.thread ], [ 0, %.thread653.thread769 ]
   ret i32 %.0
 }
 

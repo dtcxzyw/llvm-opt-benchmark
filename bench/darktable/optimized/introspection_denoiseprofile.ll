@@ -256,13 +256,13 @@ define hidden range(i32 0, 2) i32 @legacy_params_to11(ptr noundef %0, ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 132
   %45 = load float, ptr %44, align 4, !tbaa !45, !noalias !37
   %46 = fptosi float %45 to i32
-  %.not31.i = icmp eq ptr %42, null
-  br i1 %.not31.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
+  %.not28.i = icmp eq ptr %42, null
+  br i1 %.not28.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %60
-  %.033.i = phi ptr [ %47, %60 ], [ null, %40 ]
-  %.02132.i = phi ptr [ %62, %60 ], [ %42, %40 ]
-  %47 = load ptr, ptr %.02132.i, align 8, !tbaa !74, !noalias !37
+  %.030.i = phi ptr [ %47, %60 ], [ null, %40 ]
+  %.02129.i = phi ptr [ %62, %60 ], [ %42, %40 ]
+  %47 = load ptr, ptr %.02129.i, align 8, !tbaa !74, !noalias !37
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !76, !noalias !37
   %50 = icmp eq i32 %49, %46
@@ -273,11 +273,11 @@ define hidden range(i32 0, 2) i32 @legacy_params_to11(ptr noundef %0, ptr nounde
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 52:                                               ; preds = %.lr.ph.i
-  %.not24.i = icmp eq ptr %.033.i, null
+  %.not24.i = icmp eq ptr %.030.i, null
   br i1 %.not24.i, label %60, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.030.i, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !76, !noalias !37
   %56 = icmp slt i32 %55, %46
   %57 = icmp sgt i32 %49, %46
@@ -287,11 +287,11 @@ define hidden range(i32 0, 2) i32 @legacy_params_to11(ptr noundef %0, ptr nounde
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %46, ptr %59, align 8, !tbaa !76, !alias.scope !37
-  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.033.i, ptr noundef nonnull %47, ptr noundef nonnull align 16 %6) #21
+  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.030.i, ptr noundef nonnull %47, ptr noundef nonnull align 16 %6) #21
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 60:                                               ; preds = %53, %52
-  %61 = getelementptr inbounds nuw i8, ptr %.02132.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !78, !noalias !37
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
@@ -3776,13 +3776,13 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
   %28 = load ptr, ptr %2, align 16, !tbaa !247
   %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %28, i32 noundef 5) #21
   %30 = call i64 @g_strlcpy(ptr noundef nonnull %3, ptr noundef %29, i64 noundef 512) #21
-  %.not92 = icmp eq ptr %23, null
-  br i1 %.not92, label %.loopexit, label %.lr.ph
+  %.not89 = icmp eq ptr %23, null
+  br i1 %.not89, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %54
-  %.094 = phi ptr [ %31, %54 ], [ null, %1 ]
-  %.07293 = phi ptr [ %56, %54 ], [ %23, %1 ]
-  %31 = load ptr, ptr %.07293, align 8, !tbaa !74
+  %.091 = phi ptr [ %31, %54 ], [ null, %1 ]
+  %.07290 = phi ptr [ %56, %54 ], [ %23, %1 ]
+  %31 = load ptr, ptr %.07290, align 8, !tbaa !74
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !76
   %34 = icmp eq i32 %33, %27
@@ -3794,14 +3794,14 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
   store float -1.000000e+00, ptr %36, align 16, !tbaa !36
   %37 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #21
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 512, ptr noundef %37, i32 noundef %27) #21
-  br label %.loopexit
+  br label %.critedge
 
 39:                                               ; preds = %.lr.ph
-  %.not79 = icmp eq ptr %.094, null
+  %.not79 = icmp eq ptr %.091, null
   br i1 %.not79, label %54, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.094, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.091, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !76
   %43 = icmp slt i32 %42, %27
   %44 = icmp sgt i32 %33, %27
@@ -3810,25 +3810,25 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %.094, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.091, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %27, ptr %48, align 8, !tbaa !76
-  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.094, ptr noundef nonnull %31, ptr noundef nonnull %2) #21
+  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.091, ptr noundef nonnull %31, ptr noundef nonnull %2) #21
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store float -1.000000e+00, ptr %49, align 16, !tbaa !36
   %50 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #21
   %51 = load i32, ptr %47, align 8, !tbaa !76
   %52 = load i32, ptr %46, align 8, !tbaa !76
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 512, ptr noundef %50, i32 noundef %51, i32 noundef %52) #21
-  br label %.loopexit
+  br label %.critedge
 
 54:                                               ; preds = %40, %39
-  %55 = getelementptr inbounds nuw i8, ptr %.07293, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.07290, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !78
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
-.loopexit:                                        ; preds = %54, %1, %35, %45
+.critedge:                                        ; preds = %54, %1, %35, %45
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %59 = load float, ptr %58, align 4, !tbaa !36
@@ -3873,8 +3873,8 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
   %.not80 = icmp eq ptr %5, null
   br i1 %.not80, label %107, label %94
 
-87:                                               ; preds = %.loopexit, %87
-  %indvars.iv = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next, %87 ]
+87:                                               ; preds = %.critedge, %87
+  %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %87 ]
   %88 = getelementptr inbounds nuw [4 x float], ptr %57, i64 0, i64 %indvars.iv
   %89 = load float, ptr %88, align 4, !tbaa !36
   %90 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv
@@ -3905,26 +3905,26 @@ define void @reload_defaults(ptr noundef readonly captures(none) %0) local_unnam
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %100, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !40
   %101 = load ptr, ptr %5, align 16, !tbaa !248
   call void @dt_bauhaus_combobox_add(ptr noundef %101, ptr noundef nonnull %3) #21
-  %.07096 = load ptr, ptr %96, align 8, !tbaa !250
-  %.not8297 = icmp eq ptr %.07096, null
-  br i1 %.not8297, label %._crit_edge, label %.lr.ph99
+  %.07093 = load ptr, ptr %96, align 8, !tbaa !250
+  %.not8294 = icmp eq ptr %.07093, null
+  br i1 %.not8294, label %._crit_edge, label %.lr.ph96
 
-._crit_edge:                                      ; preds = %.lr.ph99, %99
+._crit_edge:                                      ; preds = %.lr.ph96, %99
   %102 = load ptr, ptr %5, align 16, !tbaa !248
   call void @dt_bauhaus_combobox_set(ptr noundef %102, i32 noundef 0) #21
   call void @gui_update(ptr noundef %0)
   br label %107
 
-.lr.ph99:                                         ; preds = %99, %.lr.ph99
-  %.07098 = phi ptr [ %.070, %.lr.ph99 ], [ %.07096, %99 ]
-  %103 = load ptr, ptr %.07098, align 8, !tbaa !74
+.lr.ph96:                                         ; preds = %99, %.lr.ph96
+  %.07095 = phi ptr [ %.070, %.lr.ph96 ], [ %.07093, %99 ]
+  %103 = load ptr, ptr %.07095, align 8, !tbaa !74
   %104 = load ptr, ptr %5, align 16, !tbaa !248
   %105 = load ptr, ptr %103, align 16, !tbaa !247
   call void @dt_bauhaus_combobox_add(ptr noundef %104, ptr noundef %105) #21
-  %106 = getelementptr inbounds nuw i8, ptr %.07098, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.07095, i64 8
   %.070 = load ptr, ptr %106, align 8, !tbaa !250
   %.not82 = icmp eq ptr %.070, null
-  br i1 %.not82, label %._crit_edge, label %.lr.ph99
+  br i1 %.not82, label %._crit_edge, label %.lr.ph96
 
 107:                                              ; preds = %._crit_edge, %86
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #21
@@ -4162,13 +4162,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 132
   %47 = load float, ptr %46, align 4, !tbaa !45, !noalias !264
   %48 = fptosi float %47 to i32
-  %.not31.i = icmp eq ptr %44, null
-  br i1 %.not31.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
+  %.not28.i = icmp eq ptr %44, null
+  br i1 %.not28.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %62
-  %.033.i = phi ptr [ %49, %62 ], [ null, %40 ]
-  %.02132.i = phi ptr [ %64, %62 ], [ %44, %40 ]
-  %49 = load ptr, ptr %.02132.i, align 8, !tbaa !74, !noalias !264
+  %.030.i = phi ptr [ %49, %62 ], [ null, %40 ]
+  %.02129.i = phi ptr [ %64, %62 ], [ %44, %40 ]
+  %49 = load ptr, ptr %.02129.i, align 8, !tbaa !74, !noalias !264
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i32, ptr %50, align 8, !tbaa !76, !noalias !264
   %52 = icmp eq i32 %51, %48
@@ -4179,11 +4179,11 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 54:                                               ; preds = %.lr.ph.i
-  %.not24.i = icmp eq ptr %.033.i, null
+  %.not24.i = icmp eq ptr %.030.i, null
   br i1 %.not24.i, label %62, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.030.i, i64 24
   %57 = load i32, ptr %56, align 8, !tbaa !76, !noalias !264
   %58 = icmp slt i32 %57, %48
   %59 = icmp sgt i32 %51, %48
@@ -4193,11 +4193,11 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %48, ptr %61, align 8, !tbaa !76, !alias.scope !264
-  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.033.i, ptr noundef nonnull %49, ptr noundef nonnull align 16 %5) #21
+  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.030.i, ptr noundef nonnull %49, ptr noundef nonnull align 16 %5) #21
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 62:                                               ; preds = %55, %54
-  %63 = getelementptr inbounds nuw i8, ptr %.02132.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !78, !noalias !264
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
@@ -4677,13 +4677,13 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 132
   %121 = load float, ptr %120, align 4, !tbaa !45, !noalias !294
   %122 = fptosi float %121 to i32
-  %.not31.i = icmp eq ptr %118, null
-  br i1 %.not31.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
+  %.not28.i = icmp eq ptr %118, null
+  br i1 %.not28.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %113, %136
-  %.033.i = phi ptr [ %123, %136 ], [ null, %113 ]
-  %.02132.i = phi ptr [ %138, %136 ], [ %118, %113 ]
-  %123 = load ptr, ptr %.02132.i, align 8, !tbaa !74, !noalias !294
+  %.030.i = phi ptr [ %123, %136 ], [ null, %113 ]
+  %.02129.i = phi ptr [ %138, %136 ], [ %118, %113 ]
+  %123 = load ptr, ptr %.02129.i, align 8, !tbaa !74, !noalias !294
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load i32, ptr %124, align 8, !tbaa !76, !noalias !294
   %126 = icmp eq i32 %125, %122
@@ -4694,11 +4694,11 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 128:                                              ; preds = %.lr.ph.i
-  %.not24.i = icmp eq ptr %.033.i, null
+  %.not24.i = icmp eq ptr %.030.i, null
   br i1 %.not24.i, label %136, label %129
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.030.i, i64 24
   %131 = load i32, ptr %130, align 8, !tbaa !76, !noalias !294
   %132 = icmp slt i32 %131, %122
   %133 = icmp sgt i32 %125, %122
@@ -4708,11 +4708,11 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %122, ptr %135, align 8, !tbaa !76, !alias.scope !294
-  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.033.i, ptr noundef nonnull %123, ptr noundef nonnull align 16 %4) #21
+  call void @dt_noiseprofile_interpolate(ptr noundef nonnull %.030.i, ptr noundef nonnull %123, ptr noundef nonnull align 16 %4) #21
   br label %dt_iop_denoiseprofile_get_auto_profile.exit
 
 136:                                              ; preds = %129, %128
-  %137 = getelementptr inbounds nuw i8, ptr %.02132.i, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !78, !noalias !294
   %.not.i = icmp eq ptr %138, null
   br i1 %.not.i, label %dt_iop_denoiseprofile_get_auto_profile.exit, label %.lr.ph.i

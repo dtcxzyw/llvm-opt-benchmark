@@ -5122,7 +5122,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h082ea60a2dce7d8cE"(
 13:                                               ; preds = %24
   %14 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not1130, label %.thread, label %36
+  br i1 %.not1127, label %.thread, label %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit_crit_edge", %3
   %15 = phi i64 [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit_crit_edge" ], [ %7, %3 ]
@@ -5132,13 +5132,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h082ea60a2dce7d8cE"(
   store ptr %6, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %15, ptr %19, align 8
-  %.not23 = icmp ugt i64 %1, 1
-  br i1 %.not23, label %.lr.ph, label %._crit_edge
+  %.not20 = icmp ugt i64 %1, 1
+  br i1 %.not20, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit", %30
-  %.025 = phi ptr [ %31, %30 ], [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit" ]
-  %.sroa.03.024 = phi i64 [ %20, %30 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit" ]
-  %20 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.024, i64 1)
+  %.022 = phi ptr [ %31, %30 ], [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit" ]
+  %.sroa.03.021 = phi i64 [ %20, %30 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit" ]
+  %20 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.021, i64 1)
           to label %23 unwind label %21
 
 21:                                               ; preds = %23, %.lr.ph
@@ -5147,29 +5147,29 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h082ea60a2dce7d8cE"(
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %5) #17
           to label %.thread unwind label %34
 
-._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
+.critedge:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc3732def2b0f12d0E.exit"
   %.not11 = icmp eq i64 %1, 0
-  br i1 %.not11, label %24, label %._crit_edge.thread
+  br i1 %.not11, label %24, label %.critedge.thread
 
 23:                                               ; preds = %.lr.ph
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr align 8 %2)
           to label %30 unwind label %21
 
-24:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.not1130 = phi i1 [ false, %._crit_edge.thread ], [ true, %._crit_edge ]
+24:                                               ; preds = %.critedge.thread, %.critedge
+  %.not1127 = phi i1 [ false, %.critedge.thread ], [ true, %.critedge ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %5)
           to label %27 unwind label %13
 
-._crit_edge.thread:                               ; preds = %30, %._crit_edge
-  %.0.lcssa28 = phi ptr [ %18, %._crit_edge ], [ %31, %30 ]
-  %25 = phi i64 [ %15, %._crit_edge ], [ %33, %30 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa28, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+.critedge.thread:                                 ; preds = %30, %.critedge
+  %.0.lcssa25 = phi ptr [ %18, %.critedge ], [ %31, %30 ]
+  %25 = phi i64 [ %15, %.critedge ], [ %33, %30 ]
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa25, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %26 = add i64 %25, 1
   store i64 %26, ptr %19, align 8
   br label %24
 
 27:                                               ; preds = %24
-  br i1 %.not1130, label %29, label %28
+  br i1 %.not1127, label %29, label %28
 
 28:                                               ; preds = %29, %27
   ret void
@@ -5179,13 +5179,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h082ea60a2dce7d8cE"(
   br label %28
 
 30:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.025, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %.025, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.022, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %32 = load i64, ptr %19, align 8, !noundef !4
   %33 = add i64 %32, 1
   store i64 %33, ptr %19, align 8
   %.not = icmp ult i64 %20, %1
-  br i1 %.not, label %.lr.ph, label %._crit_edge.thread
+  br i1 %.not, label %.lr.ph, label %.critedge.thread
 
 34:                                               ; preds = %.thread, %21
   %35 = landingpad { ptr, i32 }
@@ -5228,13 +5228,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h981f6d3602f7ed7cE"(
   store ptr %6, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %16, align 8
-  %.not13 = icmp ugt i64 %1, 1
-  br i1 %.not13, label %.lr.ph, label %._crit_edge
+  %.not11 = icmp ugt i64 %1, 1
+  br i1 %.not11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit", %26
-  %.015 = phi ptr [ %27, %26 ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit" ]
-  %.sroa.03.014 = phi i64 [ %17, %26 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit" ]
-  %17 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.014, i64 1)
+  %.013 = phi ptr [ %27, %26 ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit" ]
+  %.sroa.03.012 = phi i64 [ %17, %26 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit" ]
+  %17 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.012, i64 1)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %.lr.ph
@@ -5243,35 +5243,35 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h981f6d3602f7ed7cE"(
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %4) #17
           to label %32 unwind label %30
 
-._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit"
+.critedge:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfe3dc9daf95a5cbcE.exit"
   %.not8 = icmp eq i64 %1, 0
-  br i1 %.not8, label %22, label %._crit_edge.thread
+  br i1 %.not8, label %22, label %.critedge.thread
 
 20:                                               ; preds = %.lr.ph
   %21 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heb6ec82f4307e14aE"(ptr nonnull align 8 %5)
           to label %26 unwind label %18
 
-22:                                               ; preds = %._crit_edge.thread, %._crit_edge
+22:                                               ; preds = %.critedge.thread, %.critedge
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %4)
   ret void
 
-._crit_edge.thread:                               ; preds = %26, %._crit_edge
-  %.0.lcssa18 = phi ptr [ %15, %._crit_edge ], [ %27, %26 ]
-  %23 = phi i64 [ %12, %._crit_edge ], [ %29, %26 ]
+.critedge.thread:                                 ; preds = %26, %.critedge
+  %.0.lcssa16 = phi ptr [ %15, %.critedge ], [ %27, %26 ]
+  %23 = phi i64 [ %12, %.critedge ], [ %29, %26 ]
   %24 = load ptr, ptr %5, align 8, !align !8, !noundef !4
-  store ptr %24, ptr %.0.lcssa18, align 8
+  store ptr %24, ptr %.0.lcssa16, align 8
   %25 = add i64 %23, 1
   store i64 %25, ptr %16, align 8
   br label %22
 
 26:                                               ; preds = %20
-  store ptr %21, ptr %.015, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  store ptr %21, ptr %.013, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %28 = load i64, ptr %16, align 8, !noundef !4
   %29 = add i64 %28, 1
   store i64 %29, ptr %16, align 8
   %.not = icmp ult i64 %17, %1
-  br i1 %.not, label %.lr.ph, label %._crit_edge.thread
+  br i1 %.not, label %.lr.ph, label %.critedge.thread
 
 30:                                               ; preds = %18
   %31 = landingpad { ptr, i32 }
@@ -5308,13 +5308,13 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haea7ef94360d7bd9E"(
   store ptr %6, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %16, align 8
-  %.not13 = icmp ugt i64 %1, 1
-  br i1 %.not13, label %.lr.ph, label %._crit_edge
+  %.not11 = icmp ugt i64 %1, 1
+  br i1 %.not11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit", %26
-  %.015 = phi ptr [ %27, %26 ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit" ]
-  %.sroa.03.014 = phi i64 [ %17, %26 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit" ]
-  %17 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.014, i64 1)
+  %.013 = phi ptr [ %27, %26 ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit" ]
+  %.sroa.03.012 = phi i64 [ %17, %26 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit" ]
+  %17 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.012, i64 1)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %.lr.ph
@@ -5323,35 +5323,35 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17haea7ef94360d7bd9E"(
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %4) #17
           to label %32 unwind label %30
 
-._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit"
+.critedge:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h05c0dc32a9d1401dE.exit"
   %.not8 = icmp eq i64 %1, 0
-  br i1 %.not8, label %22, label %._crit_edge.thread
+  br i1 %.not8, label %22, label %.critedge.thread
 
 20:                                               ; preds = %.lr.ph
   %21 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09332e3ef37a2708E"(ptr nonnull align 8 %5)
           to label %26 unwind label %18
 
-22:                                               ; preds = %._crit_edge.thread, %._crit_edge
+22:                                               ; preds = %.critedge.thread, %.critedge
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %4)
   ret void
 
-._crit_edge.thread:                               ; preds = %26, %._crit_edge
-  %.0.lcssa18 = phi ptr [ %15, %._crit_edge ], [ %27, %26 ]
-  %23 = phi i64 [ %12, %._crit_edge ], [ %29, %26 ]
+.critedge.thread:                                 ; preds = %26, %.critedge
+  %.0.lcssa16 = phi ptr [ %15, %.critedge ], [ %27, %26 ]
+  %23 = phi i64 [ %12, %.critedge ], [ %29, %26 ]
   %24 = load ptr, ptr %5, align 8, !align !8, !noundef !4
-  store ptr %24, ptr %.0.lcssa18, align 8
+  store ptr %24, ptr %.0.lcssa16, align 8
   %25 = add i64 %23, 1
   store i64 %25, ptr %16, align 8
   br label %22
 
 26:                                               ; preds = %20
-  store ptr %21, ptr %.015, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  store ptr %21, ptr %.013, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %28 = load i64, ptr %16, align 8, !noundef !4
   %29 = add i64 %28, 1
   store i64 %29, ptr %16, align 8
   %.not = icmp ult i64 %17, %1
-  br i1 %.not, label %.lr.ph, label %._crit_edge.thread
+  br i1 %.not, label %.lr.ph, label %.critedge.thread
 
 30:                                               ; preds = %18
   %31 = landingpad { ptr, i32 }
@@ -5386,17 +5386,17 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf7584c7b3b21fdcdE"(
   store ptr %6, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %16, align 8
-  %.not15 = icmp ugt i64 %1, 1
-  br i1 %.not15, label %.lr.ph, label %._crit_edge
+  %.not13 = icmp ugt i64 %1, 1
+  br i1 %.not13, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
   %17 = icmp ne ptr %2, null
   br label %18
 
 18:                                               ; preds = %.lr.ph, %27
-  %.017 = phi ptr [ %15, %.lr.ph ], [ %29, %27 ]
-  %.sroa.03.016 = phi i64 [ 1, %.lr.ph ], [ %19, %27 ]
-  %19 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.016, i64 1)
+  %.015 = phi ptr [ %15, %.lr.ph ], [ %29, %27 ]
+  %.sroa.03.014 = phi i64 [ 1, %.lr.ph ], [ %19, %27 ]
+  %19 = invoke i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.03.014, i64 1)
           to label %27 unwind label %20
 
 20:                                               ; preds = %18
@@ -5405,21 +5405,21 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf7584c7b3b21fdcdE"(
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %5) #17
           to label %34 unwind label %32
 
-._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
+.critedge:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf55a42444ef05690E.exit"
   %.not8 = icmp eq i64 %1, 0
-  br i1 %.not8, label %22, label %._crit_edge.thread
+  br i1 %.not8, label %22, label %.critedge.thread
 
-22:                                               ; preds = %._crit_edge.thread, %._crit_edge
+22:                                               ; preds = %.critedge.thread, %.critedge
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17hca746c8f8c667e49E"(ptr nonnull align 8 %5)
   ret void
 
-._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %.0.lcssa20 = phi ptr [ %15, %._crit_edge ], [ %29, %27 ]
-  %23 = phi i64 [ %12, %._crit_edge ], [ %31, %27 ]
+.critedge.thread:                                 ; preds = %27, %.critedge
+  %.0.lcssa18 = phi ptr [ %15, %.critedge ], [ %29, %27 ]
+  %23 = phi i64 [ %12, %.critedge ], [ %31, %27 ]
   %24 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %24)
-  store ptr %2, ptr %.0.lcssa20, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa20, i64 8
+  store ptr %2, ptr %.0.lcssa18, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa18, i64 8
   store i64 %3, ptr %25, align 8
   %26 = add i64 %23, 1
   store i64 %26, ptr %16, align 8
@@ -5427,15 +5427,15 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf7584c7b3b21fdcdE"(
 
 27:                                               ; preds = %18
   tail call void @llvm.assume(i1 %17)
-  store ptr %2, ptr %.017, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.017, i64 8
+  store ptr %2, ptr %.015, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   store i64 %3, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %30 = load i64, ptr %16, align 8, !noundef !4
   %31 = add i64 %30, 1
   store i64 %31, ptr %16, align 8
   %.not = icmp ult i64 %19, %1
-  br i1 %.not, label %18, label %._crit_edge.thread
+  br i1 %.not, label %18, label %.critedge.thread
 
 32:                                               ; preds = %20
   %33 = landingpad { ptr, i32 }

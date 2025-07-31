@@ -1874,9 +1874,9 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
 
 3:                                                ; preds = %2, %1
   tail call void @SDL_LockJoysticks_REAL() #10
-  %.06994 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not7795 = icmp eq ptr %.06994, null
-  br i1 %.not7795, label %._crit_edge, label %.lr.ph
+  %.06991 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not7792 = icmp eq ptr %.06991, null
+  br i1 %.not7792, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.053.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %.lr.ph ]
@@ -1884,136 +1884,136 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
   %5 = zext nneg i32 %4 to i64
   %6 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %5, i64 noundef 8) #11
   %.not78 = icmp eq ptr %6, null
-  br i1 %.not78, label %.thread90, label %.preheader
+  br i1 %.not78, label %.thread87, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.05898 = load ptr, ptr @s_pSupportedGamepads, align 8
-  %.not7999 = icmp eq ptr %.05898, null
-  br i1 %.not7999, label %._crit_edge104, label %.lr.ph103
-
-.thread90:                                        ; preds = %._crit_edge
-  tail call void @SDL_UnlockJoysticks_REAL() #10
-  br label %45
+  %.05895 = load ptr, ptr @s_pSupportedGamepads, align 8
+  %.not7996 = icmp eq ptr %.05895, null
+  br i1 %.not7996, label %._crit_edge101, label %.lr.ph100
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.06997 = phi ptr [ %.069, %.lr.ph ], [ %.06994, %3 ]
-  %.05396 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %3 ]
-  %7 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.06997, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+  %.06994 = phi ptr [ %.069, %.lr.ph ], [ %.06991, %3 ]
+  %.05393 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %3 ]
+  %7 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.06994, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i32
-  %spec.select = add nuw nsw i32 %.05396, %9
-  %10 = getelementptr inbounds nuw i8, ptr %.06997, i64 40
+  %spec.select = add nuw nsw i32 %.05393, %9
+  %10 = getelementptr inbounds nuw i8, ptr %.06994, i64 40
   %.069 = load ptr, ptr %10, align 8
   %.not77 = icmp eq ptr %.069, null
   br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-.lr.ph103:                                        ; preds = %.preheader, %25
-  %.058102 = phi ptr [ %.058, %25 ], [ %.05898, %.preheader ]
-  %.059101 = phi i32 [ %.160, %25 ], [ 0, %.preheader ]
-  %.165100 = phi i64 [ %.367, %25 ], [ 8, %.preheader ]
-  %11 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.058102, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
+.lr.ph100:                                        ; preds = %.preheader, %25
+  %.05899 = phi ptr [ %.058, %25 ], [ %.05895, %.preheader ]
+  %.05998 = phi i32 [ %.160, %25 ], [ 0, %.preheader ]
+  %.16597 = phi i64 [ %.367, %25 ], [ 8, %.preheader ]
+  %11 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.05899, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %25, label %13
 
-13:                                               ; preds = %.lr.ph103
-  %14 = load i64, ptr %.058102, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.058102, i64 8
+13:                                               ; preds = %.lr.ph100
+  %14 = load i64, ptr %.05899, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05899, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = tail call fastcc ptr @CreateMappingString(ptr noundef nonnull %.058102, i64 %14, i64 %16)
+  %17 = tail call fastcc ptr @CreateMappingString(ptr noundef nonnull %.05899, i64 %14, i64 %16)
   %.not80.not = icmp eq ptr %17, null
-  br i1 %.not80.not, label %.thread88, label %18
+  br i1 %.not80.not, label %.thread85, label %18
 
-.thread88:                                        ; preds = %13
+.thread85:                                        ; preds = %13
   tail call void @SDL_UnlockJoysticks_REAL() #10
   br label %42
 
 18:                                               ; preds = %13
-  %19 = add nsw i32 %.059101, 1
-  %20 = sext i32 %.059101 to i64
+  %19 = add nsw i32 %.05998, 1
+  %20 = sext i32 %.05998 to i64
   %21 = getelementptr inbounds ptr, ptr %6, i64 %20
   store ptr %17, ptr %21, align 8
   %22 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %17) #10
-  %23 = add i64 %.165100, 9
+  %23 = add i64 %.16597, 9
   %24 = add i64 %23, %22
   br label %25
 
-25:                                               ; preds = %18, %.lr.ph103
-  %.367 = phi i64 [ %.165100, %.lr.ph103 ], [ %24, %18 ]
-  %.160 = phi i32 [ %.059101, %.lr.ph103 ], [ %19, %18 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.058102, i64 40
+25:                                               ; preds = %18, %.lr.ph100
+  %.367 = phi i64 [ %.16597, %.lr.ph100 ], [ %24, %18 ]
+  %.160 = phi i32 [ %.05998, %.lr.ph100 ], [ %19, %18 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.05899, i64 40
   %.058 = load ptr, ptr %26, align 8
   %.not79 = icmp eq ptr %.058, null
-  br i1 %.not79, label %._crit_edge104, label %.lr.ph103, !llvm.loop !26
+  br i1 %.not79, label %._crit_edge101, label %.lr.ph100, !llvm.loop !26
 
-._crit_edge104:                                   ; preds = %25, %.preheader
+._crit_edge101:                                   ; preds = %25, %.preheader
   %.165.lcssa = phi i64 [ 8, %.preheader ], [ %.367, %25 ]
   tail call void @SDL_UnlockJoysticks_REAL() #10
   %27 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %.165.lcssa) #10
   %.not81 = icmp eq ptr %27, null
   br i1 %.not81, label %42, label %28
 
-28:                                               ; preds = %._crit_edge104
+28:                                               ; preds = %._crit_edge101
   %29 = zext i32 %.053.lcssa to i64
-  %.not116 = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not116, label %._crit_edge111, label %.lr.ph110.preheader
+  %.not113 = icmp eq i32 %.053.lcssa, 0
+  br i1 %.not113, label %._crit_edge108, label %.lr.ph107.preheader
 
-.lr.ph110.preheader:                              ; preds = %28
+.lr.ph107.preheader:                              ; preds = %28
   %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %5
   %31 = shl nuw nsw i64 %29, 3
   %.neg = xor i64 %31, -1
   %32 = add i64 %.165.lcssa, %.neg
-  br label %.lr.ph110
+  br label %.lr.ph107
 
-._crit_edge111:                                   ; preds = %.lr.ph110, %28
+._crit_edge108:                                   ; preds = %.lr.ph107, %28
   %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
   store ptr null, ptr %33, align 8
   br i1 %.not, label %42, label %41
 
-.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
-  %indvars.iv = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next, %.lr.ph110 ]
-  %.055107 = phi ptr [ %30, %.lr.ph110.preheader ], [ %40, %.lr.ph110 ]
-  %.5106 = phi i64 [ %32, %.lr.ph110.preheader ], [ %39, %.lr.ph110 ]
+.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
+  %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %.lr.ph107 ]
+  %.055104 = phi ptr [ %30, %.lr.ph107.preheader ], [ %40, %.lr.ph107 ]
+  %.5103 = phi i64 [ %32, %.lr.ph107.preheader ], [ %39, %.lr.ph107 ]
   %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  store ptr %.055107, ptr %34, align 8
+  store ptr %.055104, ptr %34, align 8
   %35 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i64 @SDL_strlcpy_REAL(ptr noundef %.055107, ptr noundef %36, i64 noundef %.5106) #10
+  %37 = tail call i64 @SDL_strlcpy_REAL(ptr noundef %.055104, ptr noundef %36, i64 noundef %.5103) #10
   %38 = add i64 %37, 1
-  %39 = sub i64 %.5106, %38
-  %40 = getelementptr inbounds nuw i8, ptr %.055107, i64 %38
+  %39 = sub i64 %.5103, %38
+  %40 = getelementptr inbounds nuw i8, ptr %.055104, i64 %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
-  br i1 %exitcond.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !27
 
-41:                                               ; preds = %._crit_edge111
+41:                                               ; preds = %._crit_edge108
   store i32 %.053.lcssa, ptr %0, align 4
   br label %42
 
-42:                                               ; preds = %.thread88, %._crit_edge111, %41, %._crit_edge104
-  %.056 = phi ptr [ null, %._crit_edge104 ], [ %27, %41 ], [ %27, %._crit_edge111 ], [ null, %.thread88 ]
-  %.not117 = icmp eq i32 %.053.lcssa, 0
-  br i1 %.not117, label %._crit_edge115, label %.lr.ph114.preheader
+.thread87:                                        ; preds = %._crit_edge
+  tail call void @SDL_UnlockJoysticks_REAL() #10
+  br label %45
 
-.lr.ph114.preheader:                              ; preds = %42
-  %wide.trip.count122 = zext i32 %.053.lcssa to i64
-  br label %.lr.ph114
+42:                                               ; preds = %.thread85, %._crit_edge108, %41, %._crit_edge101
+  %.056 = phi ptr [ null, %._crit_edge101 ], [ %27, %41 ], [ %27, %._crit_edge108 ], [ null, %.thread85 ]
+  %.not114 = icmp eq i32 %.053.lcssa, 0
+  br i1 %.not114, label %._crit_edge112, label %.lr.ph111.preheader
 
-._crit_edge115:                                   ; preds = %.lr.ph114, %42
+.lr.ph111.preheader:                              ; preds = %42
+  %wide.trip.count119 = zext i32 %.053.lcssa to i64
+  br label %.lr.ph111
+
+._crit_edge112:                                   ; preds = %.lr.ph111, %42
   tail call void @SDL_free_REAL(ptr noundef nonnull %6) #10
   br label %45
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %indvars.iv119 = phi i64 [ 0, %.lr.ph114.preheader ], [ %indvars.iv.next120, %.lr.ph114 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv119
+.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next117, %.lr.ph111 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv116
   %44 = load ptr, ptr %43, align 8
   tail call void @SDL_free_REAL(ptr noundef %44) #10
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !28
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
+  br i1 %exitcond120.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !28
 
-45:                                               ; preds = %.thread90, %._crit_edge115
-  %.05692 = phi ptr [ null, %.thread90 ], [ %.056, %._crit_edge115 ]
-  ret ptr %.05692
+45:                                               ; preds = %.thread87, %._crit_edge112
+  %.05689 = phi ptr [ null, %.thread87 ], [ %.056, %._crit_edge112 ]
+  ret ptr %.05689
 }
 
 declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

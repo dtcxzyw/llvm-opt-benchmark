@@ -3814,7 +3814,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %.loopexit
+  br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3824,7 +3824,7 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !27
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -3896,9 +3896,9 @@ RemoveGXact.exit:                                 ; preds = %31
   %42 = load ptr, ptr %25, align 8
   store ptr %42, ptr %11, align 8
   store ptr %11, ptr %25, align 8
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %8, %2, %RemoveGXact.exit
+.critedge:                                        ; preds = %8, %2, %RemoveGXact.exit
   ret void
 }
 

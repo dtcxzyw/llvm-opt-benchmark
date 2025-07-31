@@ -1028,9 +1028,9 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   %11 = phi ptr [ %6, %4 ], [ %51, %.thread9 ]
   %12 = load volatile ptr, ptr %7, align 8
   %13 = icmp eq ptr %12, %7
-  br i1 %13, label %.thread, label %.preheader12
+  br i1 %13, label %.thread, label %.preheader10
 
-.preheader12:                                     ; preds = %10, %29
+.preheader10:                                     ; preds = %10, %29
   %14 = phi ptr [ %30, %29 ], [ %12, %10 ]
   %15 = phi ptr [ %17, %29 ], [ null, %10 ]
   %16 = phi i8 [ %19, %29 ], [ 0, %10 ]
@@ -1040,7 +1040,7 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %29, label %21
 
-21:                                               ; preds = %.preheader12
+21:                                               ; preds = %.preheader10
   %22 = load volatile i32, ptr %17, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %29, label %24
@@ -1052,10 +1052,10 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %32, label %29
 
-29:                                               ; preds = %24, %21, %.preheader12
+29:                                               ; preds = %24, %21, %.preheader10
   %30 = load volatile ptr, ptr %14, align 8
   %31 = icmp eq ptr %30, %7
-  br i1 %31, label %.thread, label %.preheader12, !llvm.loop !24
+  br i1 %31, label %.thread, label %.preheader10, !llvm.loop !24
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %17, null
@@ -1064,7 +1064,7 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
 .thread:                                          ; preds = %29, %10, %32
   %34 = load volatile ptr, ptr %7, align 8
   %35 = icmp eq ptr %34, %7
-  br i1 %35, label %.thread11, label %.preheader
+  br i1 %35, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %45
   %36 = phi ptr [ %46, %45 ], [ %34, %.thread ]
@@ -1083,12 +1083,12 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
 45:                                               ; preds = %40, %.preheader
   %46 = load volatile ptr, ptr %36, align 8
   %47 = icmp eq ptr %46, %7
-  br i1 %47, label %.thread11, label %.preheader, !llvm.loop !21
+  br i1 %47, label %.critedge, label %.preheader, !llvm.loop !21
 
 48:                                               ; preds = %40
   %49 = getelementptr i8, ptr %36, i64 -1056
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread11, label %.thread9
+  br i1 %50, label %.critedge, label %.thread9
 
 .thread9:                                         ; preds = %32, %48
   %51 = phi ptr [ %49, %48 ], [ %17, %32 ]
@@ -1099,16 +1099,16 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   %56 = zext i32 %55 to i64
   %57 = mul i64 %53, %56
   %58 = icmp ugt i64 %57, %54
-  br i1 %58, label %10, label %.thread11
+  br i1 %58, label %10, label %.critedge
 
-.thread11:                                        ; preds = %.thread, %48, %.thread9, %45
-  %59 = phi ptr [ null, %45 ], [ null, %.thread ], [ null, %48 ], [ %51, %.thread9 ]
+.critedge:                                        ; preds = %.thread, %48, %.thread9, %45
+  %59 = phi ptr [ null, %45 ], [ null, %.thread ], [ %51, %.thread9 ], [ null, %48 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
   store volatile ptr %59, ptr %5, align 8
   br label %60
 
-60:                                               ; preds = %.thread11, %1
-  %61 = phi ptr [ %59, %.thread11 ], [ null, %1 ]
+60:                                               ; preds = %.critedge, %1
+  %61 = phi ptr [ %59, %.critedge ], [ null, %1 ]
   ret ptr %61
 }
 

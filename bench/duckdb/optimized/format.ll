@@ -5707,8 +5707,8 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal19parse_format_stringILb0Ec
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
   store ptr %2, ptr %7, align 8, !tbaa !122
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not78 = icmp samesign eq i64 %1, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph
+  %.not74 = icmp samesign eq i64 %1, 0
+  br i1 %.not74, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %16 = ptrtoint ptr %15 to i64
@@ -5728,25 +5728,25 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal19parse_format_stringILb0Ec
   br label %30
 
 30:                                               ; preds = %.lr.ph, %122
-  %.079 = phi ptr [ %0, %.lr.ph ], [ %123, %122 ]
-  %31 = load i8, ptr %.079, align 1, !tbaa !18
+  %.075 = phi ptr [ %0, %.lr.ph ], [ %123, %122 ]
+  %31 = load i8, ptr %.075, align 1, !tbaa !18
   %.not45 = icmp eq i8 %31, 123
   br i1 %.not45, label %36, label %32
 
 32:                                               ; preds = %30
-  %33 = ptrtoint ptr %.079 to i64
+  %33 = ptrtoint ptr %.075 to i64
   %34 = sub i64 %16, %33
-  %35 = call noundef ptr @memchr(ptr noundef nonnull %.079, i32 noundef 123, i64 noundef %34) #26
-  %.not73 = icmp eq ptr %35, null
-  br i1 %.not73, label %.thread70, label %36
+  %35 = call noundef ptr @memchr(ptr noundef nonnull %.075, i32 noundef 123, i64 noundef %34) #26
+  %.not69 = icmp eq ptr %35, null
+  br i1 %.not69, label %.critedge, label %36
 
-.thread70:                                        ; preds = %32
-  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EcRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKcSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.079, ptr noundef nonnull %15)
+.critedge:                                        ; preds = %32
+  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EcRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKcSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.075, ptr noundef nonnull %15)
   br label %.loopexit
 
 36:                                               ; preds = %32, %30
-  %.068 = phi ptr [ %.079, %30 ], [ %35, %32 ]
-  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EcRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKcSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.079, ptr noundef nonnull %.068)
+  %.068 = phi ptr [ %.075, %30 ], [ %35, %32 ]
+  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EcRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKcSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.075, ptr noundef nonnull %.068)
   %37 = getelementptr inbounds nuw i8, ptr %.068, i64 1
   %38 = icmp eq ptr %37, %15
   br i1 %38, label %39, label %52
@@ -5984,9 +5984,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #25
   br label %124
 
-122:                                              ; preds = %54, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit, %95, %82
-  %.169 = phi ptr [ %79, %82 ], [ %93, %95 ], [ %37, %54 ], [ %37, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit ]
-  %123 = getelementptr inbounds nuw i8, ptr %.169, i64 1
+122:                                              ; preds = %82, %95, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit, %54
+  %.1 = phi ptr [ %79, %82 ], [ %93, %95 ], [ %37, %54 ], [ %37, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEE7on_textEPKcSF_.exit ]
+  %123 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not = icmp eq ptr %123, %15
   br i1 %.not, label %.loopexit, label %30, !llvm.loop !139
 
@@ -5995,7 +5995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   resume { ptr, i32 } %.pn52.pn
 
-.loopexit:                                        ; preds = %122, %3, %.thread70
+.loopexit:                                        ; preds = %122, %3, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   ret void
 }
@@ -34075,32 +34075,32 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal11parse_alignIcRNS1_
   %9 = zext i1 %.not to i64
   br label %10
 
-10:                                               ; preds = %70, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ %9, %3 ]
+10:                                               ; preds = %.critedge, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ %9, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !18
-  switch i8 %12, label %70 [
+  switch i8 %12, label %.critedge [
     i8 60, label %.loopexit.loopexit
     i8 62, label %.loopexit
-    i8 61, label %.loopexit54
-    i8 94, label %.loopexit60
+    i8 61, label %.loopexit51
+    i8 94, label %.loopexit57
   ]
 
-.loopexit54:                                      ; preds = %10
+.loopexit51:                                      ; preds = %10
   br label %.loopexit
 
-.loopexit60:                                      ; preds = %10
+.loopexit57:                                      ; preds = %10
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %.loopexit.loopexit, %.loopexit60, %.loopexit54
-  %13 = phi i1 [ true, %.loopexit54 ], [ false, %.loopexit60 ], [ false, %.loopexit.loopexit ], [ false, %10 ]
-  %.128.ph = phi i8 [ 4, %.loopexit54 ], [ 3, %.loopexit60 ], [ 1, %.loopexit.loopexit ], [ 2, %10 ]
+.loopexit:                                        ; preds = %10, %.loopexit.loopexit, %.loopexit57, %.loopexit51
+  %13 = phi i1 [ true, %.loopexit51 ], [ false, %.loopexit57 ], [ false, %.loopexit.loopexit ], [ false, %10 ]
+  %.128 = phi i8 [ 4, %.loopexit51 ], [ 3, %.loopexit57 ], [ 1, %.loopexit.loopexit ], [ 2, %10 ]
   %14 = and i64 %indvars.iv, 4294967295
-  %.not41 = icmp eq i64 %14, 0
-  br i1 %.not41, label %37, label %15
+  %.not38 = icmp eq i64 %14, 0
+  br i1 %.not38, label %37, label %15
 
 15:                                               ; preds = %.loopexit
   %16 = load i8, ptr %0, align 1, !tbaa !18
@@ -34178,7 +34178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 9
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, -16
-  %42 = or disjoint i8 %41, %.128.ph
+  %42 = or disjoint i8 %41, %.128
   store i8 %42, ptr %39, align 1
   br label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit
 
@@ -34252,13 +34252,13 @@ _ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26bas
   store i8 %69, ptr %66, align 1
   br label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit
 
-70:                                               ; preds = %10
+.critedge:                                        ; preds = %10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %71 = icmp sgt i64 %indvars.iv, 0
-  br i1 %71, label %10, label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit, !llvm.loop !653
+  %70 = icmp sgt i64 %indvars.iv, 0
+  br i1 %70, label %10, label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit, !llvm.loop !653
 
-_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit: ; preds = %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i, %.split.i
-  %.1 = phi ptr [ %.130, %.split.i ], [ %.130, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %70 ]
+_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE8on_alignENS0_5align4typeE.exit: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i, %.split.i
+  %.1 = phi ptr [ %.130, %.split.i ], [ %.130, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEE24require_numeric_argumentEv.exit.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %.critedge ]
   ret ptr %.1
 }
 
@@ -38723,8 +38723,8 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal19parse_format_stringILb0Ew
   store ptr %2, ptr %7, align 8, !tbaa !699
   %.idx = shl nuw nsw i64 %1, 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.not80 = icmp eq i64 %1, 0
-  br i1 %.not80, label %.loopexit, label %.lr.ph
+  %.not76 = icmp eq i64 %1, 0
+  br i1 %.not76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -38743,8 +38743,8 @@ define linkonce_odr void @_ZN10duckdb_fmt2v68internal19parse_format_stringILb0Ew
   br label %29
 
 29:                                               ; preds = %.lr.ph, %123
-  %.081 = phi ptr [ %0, %.lr.ph ], [ %124, %123 ]
-  %30 = load i32, ptr %.081, align 4, !tbaa !117
+  %.077 = phi ptr [ %0, %.lr.ph ], [ %124, %123 ]
+  %30 = load i32, ptr %.077, align 4, !tbaa !117
   %.not44 = icmp eq i32 %30, 123
   br i1 %.not44, label %_ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit.thread, label %.lr.ph.i.preheader
 
@@ -38754,18 +38754,18 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.preheader
   br i1 %31, label %_ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %29, %thread-pre-split
-  %storemerge9.i79 = phi ptr [ %32, %thread-pre-split ], [ %.081, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %storemerge9.i79, i64 4
+  %storemerge9.i75 = phi ptr [ %32, %thread-pre-split ], [ %.077, %29 ]
+  %32 = getelementptr inbounds nuw i8, ptr %storemerge9.i75, i64 4
   %.not.not.i = icmp eq ptr %32, %15
-  br i1 %.not.not.i, label %.thread71, label %thread-pre-split, !llvm.loop !701
+  br i1 %.not.not.i, label %.critedge, label %thread-pre-split, !llvm.loop !701
 
-.thread71:                                        ; preds = %.lr.ph.i.preheader
-  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EwRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKwSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.081, ptr noundef nonnull %15)
+.critedge:                                        ; preds = %.lr.ph.i.preheader
+  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EwRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKwSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.077, ptr noundef nonnull %15)
   br label %.loopexit
 
 _ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit.thread: ; preds = %thread-pre-split, %29
-  %.067 = phi ptr [ %.081, %29 ], [ %32, %thread-pre-split ]
-  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EwRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKwSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.081, ptr noundef nonnull %.067)
+  %.067 = phi ptr [ %.077, %29 ], [ %32, %thread-pre-split ]
+  call void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0EwRNS0_14format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEvNS0_17basic_string_viewIT0_EEOT1_EN10pfs_writerclEPKwSN_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.077, ptr noundef nonnull %.067)
   %33 = getelementptr inbounds nuw i8, ptr %.067, i64 4
   %34 = icmp eq ptr %33, %15
   br i1 %34, label %35, label %48
@@ -39008,9 +39008,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #25
   br label %125
 
-123:                                              ; preds = %51, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit, %96, %82
-  %.168 = phi ptr [ %33, %51 ], [ %33, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit ], [ %79, %82 ], [ %94, %96 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.168, i64 4
+123:                                              ; preds = %82, %96, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit, %51
+  %.1 = phi ptr [ %33, %51 ], [ %33, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIwEEEEwNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIwEEEwEEE7on_textEPKwSF_.exit ], [ %79, %82 ], [ %94, %96 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %.not = icmp eq ptr %124, %15
   br i1 %.not, label %.loopexit, label %29, !llvm.loop !715
 
@@ -39019,7 +39019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   resume { ptr, i32 } %.pn51.pn
 
-.loopexit:                                        ; preds = %123, %3, %.thread71
+.loopexit:                                        ; preds = %123, %3, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   ret void
 }
@@ -70055,34 +70055,34 @@ define linkonce_odr noundef ptr @_ZN10duckdb_fmt2v68internal11parse_alignIwRNS1_
   %9 = zext i1 %.not to i64
   br label %10
 
-10:                                               ; preds = %71, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ %9, %3 ]
+10:                                               ; preds = %.critedge, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ %9, %3 ]
   %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !117
   %sext = shl i32 %12, 24
   %13 = ashr exact i32 %sext, 24
-  switch i32 %13, label %71 [
+  switch i32 %13, label %.critedge [
     i32 60, label %.loopexit.loopexit
     i32 62, label %.loopexit
-    i32 61, label %.loopexit55
-    i32 94, label %.loopexit61
+    i32 61, label %.loopexit52
+    i32 94, label %.loopexit58
   ]
 
-.loopexit55:                                      ; preds = %10
+.loopexit52:                                      ; preds = %10
   br label %.loopexit
 
-.loopexit61:                                      ; preds = %10
+.loopexit58:                                      ; preds = %10
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %.loopexit.loopexit, %.loopexit61, %.loopexit55
-  %14 = phi i1 [ true, %.loopexit55 ], [ false, %.loopexit61 ], [ false, %.loopexit.loopexit ], [ false, %10 ]
-  %.128.ph = phi i8 [ 4, %.loopexit55 ], [ 3, %.loopexit61 ], [ 1, %.loopexit.loopexit ], [ 2, %10 ]
+.loopexit:                                        ; preds = %10, %.loopexit.loopexit, %.loopexit58, %.loopexit52
+  %14 = phi i1 [ true, %.loopexit52 ], [ false, %.loopexit58 ], [ false, %.loopexit.loopexit ], [ false, %10 ]
+  %.128 = phi i8 [ 4, %.loopexit52 ], [ 3, %.loopexit58 ], [ 1, %.loopexit.loopexit ], [ 2, %10 ]
   %15 = and i64 %indvars.iv, 4294967295
-  %.not42 = icmp eq i64 %15, 0
-  br i1 %.not42, label %38, label %16
+  %.not39 = icmp eq i64 %15, 0
+  br i1 %.not39, label %38, label %16
 
 16:                                               ; preds = %.loopexit
   %17 = load i32, ptr %0, align 4, !tbaa !117
@@ -70160,7 +70160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 9
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, -16
-  %43 = or disjoint i8 %42, %.128.ph
+  %43 = or disjoint i8 %42, %.128
   store i8 %43, ptr %40, align 1
   br label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit
 
@@ -70234,13 +70234,13 @@ _ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26bas
   store i8 %70, ptr %67, align 1
   br label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit
 
-71:                                               ; preds = %10
+.critedge:                                        ; preds = %10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %72 = icmp sgt i64 %indvars.iv, 0
-  br i1 %72, label %10, label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit, !llvm.loop !1227
+  %71 = icmp sgt i64 %indvars.iv, 0
+  br i1 %71, label %10, label %_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit, !llvm.loop !1227
 
-_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit: ; preds = %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE24require_numeric_argumentEv.exit.i, %.split.i
-  %.1 = phi ptr [ %.130, %.split.i ], [ %.130, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE24require_numeric_argumentEv.exit.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %71 ]
+_ZN10duckdb_fmt2v68internal13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE8on_alignENS0_5align4typeE.exit: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE24require_numeric_argumentEv.exit.i, %.split.i
+  %.1 = phi ptr [ %.130, %.split.i ], [ %.130, %_ZN10duckdb_fmt2v68internal21numeric_specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEE24require_numeric_argumentEv.exit.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %0, %.critedge ]
   ret ptr %.1
 }
 

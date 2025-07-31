@@ -474,13 +474,13 @@ define hidden { i64, i8 } @"_ZN109_$LT$futures_util..stream..futures_ordered..Or
   %13 = load ptr, ptr %11, align 8, !alias.scope !83, !noalias !84
   store i64 0, ptr %0, align 8, !alias.scope !83, !noalias !84
   %switch.i.i = icmp eq i64 %9, 0
-  br i1 %switch.i.i, label %21, label %22
+  br i1 %switch.i.i, label %21, label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit.i"
 
 14:                                               ; preds = %2
   %15 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h33f9d8bdb55c6238E.llvm.5196727410964091947"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %16 = extractvalue { i64, ptr } %15, 0
   switch i64 %16, label %17 [
-    i64 2, label %26
+    i64 2, label %25
     i64 0, label %18
     i64 1, label %19
   ]
@@ -494,31 +494,31 @@ define hidden { i64, i8 } @"_ZN109_$LT$futures_util..stream..futures_ordered..Or
 
 19:                                               ; preds = %14
   %20 = extractvalue { i64, ptr } %15, 1
-  br label %22
+  br label %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit.i"
 
 21:                                               ; preds = %12
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.143.llvm.17120096847998249645) #36, !noalias !86
   unreachable
 
-22:                                               ; preds = %19, %12
-  %.sroa.3.0.i.pn.i.ph.i = phi ptr [ %20, %19 ], [ %13, %12 ]
-  %23 = icmp eq ptr %.sroa.3.0.i.pn.i.ph.i, null
-  br i1 %23, label %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit", label %24
+"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit.i": ; preds = %19, %12
+  %.sroa.3.0.i.pn.i.i = phi ptr [ %13, %12 ], [ %20, %19 ]
+  %22 = icmp eq ptr %.sroa.3.0.i.pn.i.i, null
+  br i1 %22, label %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit", label %23
 
-24:                                               ; preds = %22
-  call void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.ph.i, i64 noundef %7)
+23:                                               ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit.i"
+  call void @_ZN4util21log_error_with_caller17h35e97f66897bd922E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.pn.i.i, i64 noundef %7)
   br label %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit"
 
-"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit": ; preds = %22, %24
-  %25 = zext i1 %23 to i8
-  br label %26
+"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit": ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1c3d9c3dc4a3056E.exit.i", %23
+  %24 = zext i1 %22 to i8
+  br label %25
 
-26:                                               ; preds = %14, %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit"
-  %27 = phi i8 [ %25, %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit" ], [ 2, %14 ]
+25:                                               ; preds = %14, %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit"
+  %26 = phi i8 [ %24, %"_ZN78_$LT$util..LogErrorFuture$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9f2cd85de72cd7b9E.exit" ], [ 2, %14 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %28 = insertvalue { i64, i8 } poison, i64 %5, 0
-  %29 = insertvalue { i64, i8 } %28, i8 %27, 1
-  ret { i64, i8 } %29
+  %27 = insertvalue { i64, i8 } poison, i64 %5, 0
+  %28 = insertvalue { i64, i8 } %27, i8 %26, 1
+  ret { i64, i8 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -12788,7 +12788,7 @@ define internal i32 @ext4_iomap_xattr_begin(ptr noundef %0, i64 noundef %1, i64 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !19
   %17 = call i32 @ext4_get_inode_loc(ptr noundef %0, ptr noundef nonnull %7) #16
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %40
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %7, align 8
@@ -12810,25 +12810,21 @@ define internal i32 @ext4_iomap_xattr_begin(ptr noundef %0, i64 noundef %1, i64 
   %36 = sub i32 %35, %28
   %37 = sext i32 %36 to i64
   %38 = icmp eq ptr %20, null
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %40, label %39
 
 39:                                               ; preds = %19
   call void @__brelse(ptr noundef nonnull %20) #16
-  br label %.thread
+  br label %40
 
-.thread:                                          ; preds = %39, %19
+40:                                               ; preds = %39, %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
   br label %50
-
-40:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  br label %.thread5
 
 41:                                               ; preds = %6
   %42 = getelementptr i8, ptr %0, i64 -232
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.thread5, label %45
+  br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
   %46 = zext nneg i8 %11 to i64
@@ -12837,10 +12833,14 @@ define internal i32 @ext4_iomap_xattr_begin(ptr noundef %0, i64 noundef %1, i64 
   %49 = load i64, ptr %48, align 8
   br label %50
 
-50:                                               ; preds = %.thread, %45
-  %51 = phi i16 [ 2, %45 ], [ 4, %.thread ]
-  %52 = phi i64 [ %49, %45 ], [ %37, %.thread ]
-  %53 = phi i64 [ %47, %45 ], [ %30, %.thread ]
+.critedge:                                        ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  br label %.thread
+
+50:                                               ; preds = %40, %45
+  %51 = phi i16 [ 4, %40 ], [ 2, %45 ]
+  %52 = phi i64 [ %37, %40 ], [ %49, %45 ]
+  %53 = phi i64 [ %30, %40 ], [ %47, %45 ]
   store i64 %53, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %54, align 8
@@ -12852,10 +12852,10 @@ define internal i32 @ext4_iomap_xattr_begin(ptr noundef %0, i64 noundef %1, i64 
   store i16 0, ptr %57, align 2
   %58 = icmp ugt i64 %52, %1
   %59 = select i1 %58, i32 0, i32 -2
-  br label %.thread5
+  br label %.thread
 
-.thread5:                                         ; preds = %41, %40, %50
-  %60 = phi i32 [ %59, %50 ], [ -2, %41 ], [ %17, %40 ]
+.thread:                                          ; preds = %.critedge, %41, %50
+  %60 = phi i32 [ %59, %50 ], [ %17, %.critedge ], [ -2, %41 ]
   ret i32 %60
 }
 

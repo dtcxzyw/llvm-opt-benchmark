@@ -1108,29 +1108,29 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = icmp ne i32 %1, 0
   %16 = load i32, ptr %12, align 4, !tbaa !36
-  %.not266365 = icmp eq i32 %16, 0
-  br i1 %.not266365, label %remove_decoded_packets.exit203, label %.lr.ph.lr.ph
+  %.not264363 = icmp eq i32 %16, 0
+  br i1 %.not264363, label %.critedge195, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %2
   %17 = load i64, ptr %7, align 8, !tbaa !85
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %remove_decoded_packets.exit
-  %.0141371 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2143.ph, %remove_decoded_packets.exit ]
-  %.0154370 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.2156.ph, %remove_decoded_packets.exit ]
-  %.0158369 = phi i32 [ -2147483648, %.lr.ph.lr.ph ], [ %.2160.ph, %remove_decoded_packets.exit ]
-  %.0162368 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2164, %remove_decoded_packets.exit ]
-  %.0166367 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1167, %remove_decoded_packets.exit ]
-  %.0169366 = phi i64 [ %17, %.lr.ph.lr.ph ], [ %.1170, %remove_decoded_packets.exit ]
-  %18 = icmp ne i32 %.0162368, 0
-  %19 = icmp ne i32 %.0166367, 0
+  %.0141369 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2143.ph, %remove_decoded_packets.exit ]
+  %.0154368 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.2156.ph, %remove_decoded_packets.exit ]
+  %.0158367 = phi i32 [ -2147483648, %.lr.ph.lr.ph ], [ %.2160.ph, %remove_decoded_packets.exit ]
+  %.0162366 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.2164, %remove_decoded_packets.exit ]
+  %.0166365 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1167, %remove_decoded_packets.exit ]
+  %.0169364 = phi i64 [ %17, %.lr.ph.lr.ph ], [ %.1170, %remove_decoded_packets.exit ]
+  %18 = icmp ne i32 %.0162366, 0
+  %19 = icmp ne i32 %.0166365, 0
   br label %20
 
 20:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %.1142248 = phi i32 [ %.0141371, %.lr.ph ], [ %.2143.ph, %67 ]
-  %.1155247 = phi i32 [ %.0154370, %.lr.ph ], [ %.2156.ph, %67 ]
-  %.1159246 = phi i32 [ %.0158369, %.lr.ph ], [ %.2160.ph, %67 ]
+  %.1142246 = phi i32 [ %.0141369, %.lr.ph ], [ %.2143.ph, %67 ]
+  %.1155245 = phi i32 [ %.0154368, %.lr.ph ], [ %.2156.ph, %67 ]
+  %.1159244 = phi i32 [ %.0158367, %.lr.ph ], [ %.2160.ph, %67 ]
   %21 = load ptr, ptr %13, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !38
@@ -1161,14 +1161,14 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   %45 = load ptr, ptr %44, align 8, !tbaa !47
   %46 = load i32, ptr %45, align 8, !tbaa !48
   %.not190 = icmp eq i32 %46, 3
-  br i1 %.not190, label %47, label %remove_decoded_packets.exit203
+  br i1 %.not190, label %47, label %.critedge195
 
 47:                                               ; preds = %43, %20
   %48 = icmp ne i64 %27, 0
   %49 = icmp sge i32 %32, %40
   %or.cond3 = select i1 %49, i1 true, i1 %18
-  %or.cond265 = select i1 %48, i1 %or.cond3, i1 false
-  br i1 %or.cond265, label %50, label %67
+  %or.cond263 = select i1 %48, i1 %or.cond3, i1 false
+  br i1 %or.cond263, label %50, label %67
 
 50:                                               ; preds = %47
   %.not191 = icmp eq ptr %39, null
@@ -1177,7 +1177,7 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !100
-  %54 = sub nsw i64 %53, %.0169366
+  %54 = sub nsw i64 %53, %.0169364
   %55 = icmp sle i64 %54, %11
   %or.cond5 = select i1 %55, i1 true, i1 %19
   br i1 %or.cond5, label %56, label %67
@@ -1198,17 +1198,17 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
 
 64:                                               ; preds = %59, %56
   %.0153 = phi i32 [ %37, %56 ], [ %spec.select, %59 ]
-  %65 = icmp sgt i32 %.0153, %.1159246
-  %.3161 = call i32 @llvm.smax.i32(i32 %.0153, i32 %.1159246)
+  %65 = icmp sgt i32 %.0153, %.1159244
+  %.3161 = call i32 @llvm.smax.i32(i32 %.0153, i32 %.1159244)
   %66 = trunc nuw nsw i64 %indvars.iv to i32
-  %.3157 = select i1 %65, i32 %66, i32 %.1155247
-  %.3144 = select i1 %65, i32 %32, i32 %.1142248
+  %.3157 = select i1 %65, i32 %66, i32 %.1155245
+  %.3144 = select i1 %65, i32 %32, i32 %.1142246
   br label %67
 
 67:                                               ; preds = %64, %47, %51
-  %.2160.ph = phi i32 [ %.1159246, %51 ], [ %.1159246, %47 ], [ %.3161, %64 ]
-  %.2156.ph = phi i32 [ %.1155247, %51 ], [ %.1155247, %47 ], [ %.3157, %64 ]
-  %.2143.ph = phi i32 [ %.1142248, %51 ], [ %.1142248, %47 ], [ %.3144, %64 ]
+  %.2160.ph = phi i32 [ %.1159244, %51 ], [ %.1159244, %47 ], [ %.3161, %64 ]
+  %.2156.ph = phi i32 [ %.1155245, %51 ], [ %.1155245, %47 ], [ %.3157, %64 ]
+  %.2143.ph = phi i32 [ %.1142246, %51 ], [ %.1142246, %47 ], [ %.3144, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load i32, ptr %12, align 4, !tbaa !36
   %69 = zext i32 %68 to i64
@@ -1217,22 +1217,22 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
 
 ._crit_edge:                                      ; preds = %67
   %71 = icmp slt i32 %.2156.ph, 0
-  br i1 %71, label %.preheader223, label %140
+  br i1 %71, label %.preheader221, label %140
 
-.preheader223:                                    ; preds = %._crit_edge
-  %.not267 = icmp eq i32 %68, 0
-  br i1 %.not267, label %remove_decoded_packets.exit203, label %.lr.ph256
+.preheader221:                                    ; preds = %._crit_edge
+  %.not265 = icmp eq i32 %68, 0
+  br i1 %.not265, label %.critedge195, label %.lr.ph254
 
-.lr.ph256:                                        ; preds = %.preheader223
+.lr.ph254:                                        ; preds = %.preheader221
   %72 = load ptr, ptr %13, align 8, !tbaa !37
   %wide.trip.count = zext i32 %68 to i64
   br label %73
 
-73:                                               ; preds = %.lr.ph256, %83
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next287, %83 ]
-  %.0147254 = phi i32 [ 0, %.lr.ph256 ], [ %88, %83 ]
-  %.0148253 = phi i64 [ 9223372036854775807, %.lr.ph256 ], [ %.1149, %83 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv286
+73:                                               ; preds = %.lr.ph254, %83
+  %indvars.iv284 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next285, %83 ]
+  %.0147252 = phi i32 [ 0, %.lr.ph254 ], [ %88, %83 ]
+  %.0148251 = phi i64 [ 9223372036854775807, %.lr.ph254 ], [ %.1149, %83 ]
+  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv284
   %75 = load ptr, ptr %74, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !40
@@ -1244,33 +1244,33 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !100
-  %spec.select193 = call i64 @llvm.smin.i64(i64 %82, i64 %.0148253)
+  %spec.select193 = call i64 @llvm.smin.i64(i64 %82, i64 %.0148251)
   br label %83
 
 83:                                               ; preds = %80, %73
-  %.1149 = phi i64 [ %.0148253, %73 ], [ %spec.select193, %80 ]
+  %.1149 = phi i64 [ %.0148251, %73 ], [ %spec.select193, %80 ]
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !98
   %86 = icmp ne ptr %85, null
   %87 = zext i1 %86 to i32
-  %88 = or i32 %.0147254, %87
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge257, label %73, !llvm.loop !111
+  %88 = or i32 %.0147252, %87
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge255, label %73, !llvm.loop !111
 
-._crit_edge257:                                   ; preds = %83
+._crit_edge255:                                   ; preds = %83
   %.not188 = icmp eq i64 %.1149, 9223372036854775807
   br i1 %.not188, label %136, label %89
 
-89:                                               ; preds = %._crit_edge257
-  %90 = sitofp i64 %.0169366 to double
+89:                                               ; preds = %._crit_edge255
+  %90 = sitofp i64 %.0169364 to double
   %91 = fdiv nsz double %90, 9.000000e+04
   %92 = sitofp i64 %.1149 to double
   %93 = fdiv nsz double %92, 9.000000e+04
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.38, double noundef %91, double noundef %93) #8
   %94 = add nsw i64 %.1149, 1
-  %95 = icmp sle i64 %.0169366, %.1149
-  %96 = icmp ne i32 %.0162368, 0
+  %95 = icmp sle i64 %.0169364, %.1149
+  %96 = icmp ne i32 %.0162366, 0
   %or.cond7 = select i1 %95, i1 true, i1 %96
   br i1 %or.cond7, label %98, label %97
 
@@ -1279,8 +1279,8 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   br label %98
 
 98:                                               ; preds = %97, %89
-  %.1163 = phi i32 [ %.0162368, %89 ], [ 1, %97 ]
-  %99 = select i1 %95, i64 %94, i64 %.0169366
+  %.1163 = phi i32 [ %.0162366, %89 ], [ 1, %97 ]
+  %99 = select i1 %95, i64 %94, i64 %.0169364
   %100 = load i32, ptr %12, align 4, !tbaa !36
   %.not27.i = icmp eq i32 %100, 0
   br i1 %.not27.i, label %remove_decoded_packets.exit, label %.lr.ph26.i
@@ -1357,22 +1357,22 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   %135 = icmp samesign ult i64 %indvars.iv.next.i, %134
   br i1 %135, label %.lr.ph26.i, label %remove_decoded_packets.exit, !llvm.loop !114
 
-136:                                              ; preds = %._crit_edge257
+136:                                              ; preds = %._crit_edge255
   %137 = icmp ne i32 %88, 0
   %or.cond9 = and i1 %15, %137
-  br i1 %or.cond9, label %138, label %remove_decoded_packets.exit203
+  br i1 %or.cond9, label %138, label %.critedge195
 
 138:                                              ; preds = %136
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.40) #8
   br label %remove_decoded_packets.exit
 
 remove_decoded_packets.exit:                      ; preds = %.critedge.i, %98, %138
-  %.1170 = phi i64 [ %.0169366, %138 ], [ %99, %98 ], [ %99, %.critedge.i ]
-  %.1167 = phi i32 [ 1, %138 ], [ %.0166367, %98 ], [ %.0166367, %.critedge.i ]
+  %.1170 = phi i64 [ %.0169364, %138 ], [ %99, %98 ], [ %99, %.critedge.i ]
+  %.1167 = phi i32 [ 1, %138 ], [ %.0166365, %98 ], [ %.0166365, %.critedge.i ]
   %.2164 = phi i32 [ 1, %138 ], [ %.1163, %98 ], [ %.1163, %.critedge.i ]
   %139 = load i32, ptr %12, align 4, !tbaa !36
-  %.not266 = icmp eq i32 %139, 0
-  br i1 %.not266, label %remove_decoded_packets.exit203, label %.lr.ph
+  %.not264 = icmp eq i32 %139, 0
+  br i1 %.not264, label %.critedge195, label %.lr.ph
 
 140:                                              ; preds = %._crit_edge
   %141 = load ptr, ptr %13, align 8, !tbaa !37
@@ -1394,7 +1394,7 @@ remove_decoded_packets.exit:                      ; preds = %.critedge.i, %98, %
 150:                                              ; preds = %140
   %151 = load i32, ptr %14, align 8, !tbaa !32
   %152 = icmp sge i32 %.2143.ph, %151
-  %153 = icmp ne i32 %.0162368, 0
+  %153 = icmp ne i32 %.0162366, 0
   %or.cond11 = select i1 %152, i1 true, i1 %153
   br i1 %or.cond11, label %155, label %154
 
@@ -1411,30 +1411,30 @@ remove_decoded_packets.exit:                      ; preds = %.critedge.i, %98, %
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %161 = load i32, ptr %160, align 8, !tbaa !101
   %162 = icmp eq i32 %159, %161
-  br i1 %162, label %.thread215, label %163
+  br i1 %162, label %.thread213, label %163
 
 163:                                              ; preds = %155
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !96
   %.not181 = icmp eq ptr %165, null
-  br i1 %.not181, label %178, label %.thread215
+  br i1 %.not181, label %178, label %.thread213
 
-.thread215:                                       ; preds = %155, %163
-  %.0152220 = phi i32 [ %159, %163 ], [ 0, %155 ]
-  %.0172219 = phi ptr [ %165, %163 ], [ %157, %155 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.0172219, i64 8
+.thread213:                                       ; preds = %155, %163
+  %.0152218 = phi i32 [ %159, %163 ], [ 0, %155 ]
+  %.0172217 = phi ptr [ %165, %163 ], [ %157, %155 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.0172217, i64 8
   %167 = load i64, ptr %166, align 8, !tbaa !100
   %168 = sitofp i64 %167 to double
   %169 = fdiv nsz double %168, 9.000000e+04
-  %170 = load i64, ptr %.0172219, align 8, !tbaa !99
+  %170 = load i64, ptr %.0172217, align 8, !tbaa !99
   %171 = sitofp i64 %170 to double
   %172 = fdiv nsz double %171, 9.000000e+04
-  %173 = sitofp i64 %.0169366 to double
+  %173 = sitofp i64 %.0169364 to double
   %174 = fdiv nsz double %173, 9.000000e+04
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.44, double noundef %169, double noundef %172, double noundef %174, i32 noundef %.2156.ph) #8
-  %175 = load i64, ptr %.0172219, align 8, !tbaa !99
+  %175 = load i64, ptr %.0172217, align 8, !tbaa !99
   %176 = load i64, ptr %166, align 8, !tbaa !100
-  %177 = call fastcc i32 @flush_packet(ptr noundef nonnull %0, i32 noundef %.2156.ph, i64 noundef %175, i64 noundef %176, i64 noundef %.0169366, i32 noundef %.0152220)
+  %177 = call fastcc i32 @flush_packet(ptr noundef nonnull %0, i32 noundef %.2156.ph, i64 noundef %175, i64 noundef %176, i64 noundef %.0169364, i32 noundef %.0152218)
   br label %186
 
 178:                                              ; preds = %163
@@ -1450,11 +1450,11 @@ remove_decoded_packets.exit:                      ; preds = %.critedge.i, %98, %
   unreachable
 
 184:                                              ; preds = %178
-  %185 = call fastcc i32 @flush_packet(ptr noundef nonnull %0, i32 noundef %.2156.ph, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808, i64 noundef %.0169366, i32 noundef %159)
+  %185 = call fastcc i32 @flush_packet(ptr noundef nonnull %0, i32 noundef %.2156.ph, i64 noundef -9223372036854775808, i64 noundef -9223372036854775808, i64 noundef %.0169364, i32 noundef %159)
   br label %186
 
-186:                                              ; preds = %184, %.thread215
-  %.0145 = phi i32 [ %177, %.thread215 ], [ %185, %184 ]
+186:                                              ; preds = %184, %.thread213
+  %.0145 = phi i32 [ %177, %.thread213 ], [ %185, %184 ]
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %188 = load i32, ptr %187, align 8, !tbaa !27
   %.not182 = icmp eq i32 %188, 0
@@ -1543,33 +1543,33 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   %239 = load i64, ptr %7, align 8, !tbaa !85
   %240 = add nsw i64 %239, %238
   store i64 %240, ptr %7, align 8, !tbaa !85
-  %.not184260 = icmp eq ptr %.pr, null
-  br i1 %.not184260, label %.critedge, label %.lr.ph263
+  %.not184258 = icmp eq ptr %.pr, null
+  br i1 %.not184258, label %.critedge, label %.lr.ph261
 
-.lr.ph263:                                        ; preds = %.loopexit, %244
-  %.1146261 = phi i32 [ %245, %244 ], [ %.0145, %.loopexit ]
+.lr.ph261:                                        ; preds = %.loopexit, %244
+  %.1146259 = phi i32 [ %245, %244 ], [ %.0145, %.loopexit ]
   %241 = phi ptr [ %247, %244 ], [ %.pr, %.loopexit ]
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 20
   %243 = load i32, ptr %242, align 4, !tbaa !102
-  %.not185 = icmp sgt i32 %243, %.1146261
+  %.not185 = icmp sgt i32 %243, %.1146259
   br i1 %.not185, label %.critedge.thread, label %244
 
-244:                                              ; preds = %.lr.ph263
-  %245 = sub nsw i32 %.1146261, %243
+244:                                              ; preds = %.lr.ph261
+  %245 = sub nsw i32 %.1146259, %243
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %247 = load ptr, ptr %246, align 8, !tbaa !96
   store ptr %247, ptr %156, align 8, !tbaa !98
   %.not184 = icmp eq ptr %247, null
-  br i1 %.not184, label %.critedge, label %.lr.ph263, !llvm.loop !118
+  br i1 %.not184, label %.critedge, label %.lr.ph261, !llvm.loop !118
 
 .critedge:                                        ; preds = %244, %.loopexit
   %.1146.lcssa = phi i32 [ %.0145, %.loopexit ], [ %245, %244 ]
   %.not186 = icmp eq i32 %.1146.lcssa, 0
   br i1 %.not186, label %252, label %248
 
-.critedge.thread:                                 ; preds = %.lr.ph263
-  %.not186221 = icmp eq i32 %.1146261, 0
-  br i1 %.not186221, label %252, label %249
+.critedge.thread:                                 ; preds = %.lr.ph261
+  %.not186219 = icmp eq i32 %.1146259, 0
+  br i1 %.not186219, label %252, label %249
 
 248:                                              ; preds = %.critedge
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.37, i32 noundef 1147) #8
@@ -1578,19 +1578,19 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
 
 249:                                              ; preds = %.critedge.thread
   %250 = getelementptr inbounds nuw i8, ptr %241, i64 20
-  %251 = sub nsw i32 %243, %.1146261
+  %251 = sub nsw i32 %243, %.1146259
   store i32 %251, ptr %250, align 4, !tbaa !102
   br label %252
 
 252:                                              ; preds = %.critedge.thread, %249, %.critedge
   %253 = load i32, ptr %12, align 4, !tbaa !36
-  %.not27.i194 = icmp eq i32 %253, 0
-  br i1 %.not27.i194, label %remove_decoded_packets.exit203, label %.lr.ph26.i195
+  %.not27.i196 = icmp eq i32 %253, 0
+  br i1 %.not27.i196, label %.critedge195, label %.lr.ph26.i197
 
-.lr.ph26.i195:                                    ; preds = %252, %.critedge.i199
-  %indvars.iv.i196 = phi i64 [ %indvars.iv.next.i200, %.critedge.i199 ], [ 0, %252 ]
+.lr.ph26.i197:                                    ; preds = %252, %.critedge.i201
+  %indvars.iv.i198 = phi i64 [ %indvars.iv.next.i202, %.critedge.i201 ], [ 0, %252 ]
   %254 = load ptr, ptr %13, align 8, !tbaa !37
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i196
+  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i198
   %256 = load ptr, ptr %255, align 8, !tbaa !38
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %258 = load ptr, ptr %257, align 8, !tbaa !40
@@ -1598,21 +1598,21 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8, !tbaa !94
   store ptr %260, ptr %3, align 8, !tbaa !112
-  %.not22.i197 = icmp eq ptr %260, null
-  br i1 %.not22.i197, label %.critedge.i199, label %.lr.ph.i198
+  %.not22.i199 = icmp eq ptr %260, null
+  br i1 %.not22.i199, label %.critedge.i201, label %.lr.ph.i200
 
-.lr.ph.i198:                                      ; preds = %.lr.ph26.i195
+.lr.ph.i200:                                      ; preds = %.lr.ph26.i197
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 40
   %263 = getelementptr inbounds nuw i8, ptr %258, i64 32
   br label %264
 
-264:                                              ; preds = %284, %.lr.ph.i198
-  %265 = phi ptr [ %260, %.lr.ph.i198 ], [ %285, %284 ]
+264:                                              ; preds = %284, %.lr.ph.i200
+  %265 = phi ptr [ %260, %.lr.ph.i200 ], [ %285, %284 ]
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load i64, ptr %266, align 8, !tbaa !100
   %268 = icmp sgt i64 %240, %267
-  br i1 %268, label %269, label %.critedge.i199
+  br i1 %268, label %269, label %.critedge.i201
 
 269:                                              ; preds = %264
   %270 = load i32, ptr %261, align 8, !tbaa !109
@@ -1627,9 +1627,9 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %274, %269
-  %278 = trunc nuw nsw i64 %indvars.iv.i196 to i32
+  %278 = trunc nuw nsw i64 %indvars.iv.i198 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.47, i32 noundef %278, i32 noundef %270, i32 noundef %272) #8
-  br label %.critedge.i199
+  br label %.critedge.i201
 
 279:                                              ; preds = %274
   %280 = sub nsw i32 %270, %272
@@ -1637,8 +1637,8 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   %281 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %282 = load ptr, ptr %281, align 8, !tbaa !96
   store ptr %282, ptr %259, align 8, !tbaa !94
-  %.not20.i201 = icmp eq ptr %282, null
-  br i1 %.not20.i201, label %283, label %284
+  %.not20.i203 = icmp eq ptr %282, null
+  br i1 %.not20.i203, label %283, label %284
 
 283:                                              ; preds = %279
   store ptr null, ptr %263, align 8, !tbaa !95
@@ -1648,19 +1648,19 @@ get_vcd_padding_size.exit:                        ; preds = %191, %198
   call void @av_freep(ptr noundef nonnull %3) #8
   %285 = load ptr, ptr %259, align 8, !tbaa !94
   store ptr %285, ptr %3, align 8, !tbaa !112
-  %.not.i202 = icmp eq ptr %285, null
-  br i1 %.not.i202, label %.critedge.i199, label %264, !llvm.loop !113
+  %.not.i204 = icmp eq ptr %285, null
+  br i1 %.not.i204, label %.critedge.i201, label %264, !llvm.loop !113
 
-.critedge.i199:                                   ; preds = %284, %264, %277, %.lr.ph26.i195
+.critedge.i201:                                   ; preds = %284, %264, %277, %.lr.ph26.i197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i196, 1
+  %indvars.iv.next.i202 = add nuw nsw i64 %indvars.iv.i198, 1
   %286 = load i32, ptr %12, align 4, !tbaa !36
   %287 = zext i32 %286 to i64
-  %288 = icmp samesign ult i64 %indvars.iv.next.i200, %287
-  br i1 %288, label %.lr.ph26.i195, label %remove_decoded_packets.exit203, !llvm.loop !114
+  %288 = icmp samesign ult i64 %indvars.iv.next.i202, %287
+  br i1 %288, label %.lr.ph26.i197, label %.critedge195, !llvm.loop !114
 
-remove_decoded_packets.exit203:                   ; preds = %136, %remove_decoded_packets.exit, %.preheader223, %43, %.critedge.i199, %2, %252
-  %.3 = phi i32 [ 1, %252 ], [ 0, %2 ], [ 1, %.critedge.i199 ], [ 0, %43 ], [ 0, %.preheader223 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
+.critedge195:                                     ; preds = %136, %remove_decoded_packets.exit, %.preheader221, %43, %.critedge.i201, %2, %252
+  %.3 = phi i32 [ 1, %252 ], [ 0, %2 ], [ 1, %.critedge.i201 ], [ 0, %43 ], [ 0, %.preheader221 ], [ 0, %remove_decoded_packets.exit ], [ 0, %136 ]
   ret i32 %.3
 }
 

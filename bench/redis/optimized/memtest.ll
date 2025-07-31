@@ -151,7 +151,7 @@ define dso_local range(i32 0, 2) i32 @memtest_addressing(ptr noundef %0, i64 nou
   %10 = load i64, ptr %.146.us, align 8, !tbaa !13
   %11 = ptrtoint ptr %.146.us to i64
   %.not.us = icmp eq i64 %10, %11
-  br i1 %.not.us, label %12, label %.split.us
+  br i1 %.not.us, label %12, label %.loopexit
 
 12:                                               ; preds = %.lr.ph47.split.us
   %13 = getelementptr inbounds nuw i8, ptr %.146.us, i64 8
@@ -197,61 +197,56 @@ memtest_progress_step.exit:                       ; preds = %.lr.ph.i, %19
   %exitcond.not = icmp eq i64 %31, %4
   br i1 %exitcond.not, label %.lr.ph47, label %.lr.ph.split, !llvm.loop !22
 
-.lr.ph47.split:                                   ; preds = %.lr.ph47, %52
-  %.146 = phi ptr [ %37, %52 ], [ %0, %.lr.ph47 ]
-  %.13145 = phi i64 [ %53, %52 ], [ 0, %.lr.ph47 ]
+.lr.ph47.split:                                   ; preds = %.lr.ph47, %51
+  %.146 = phi ptr [ %36, %51 ], [ %0, %.lr.ph47 ]
+  %.13145 = phi i64 [ %52, %51 ], [ 0, %.lr.ph47 ]
   %32 = load i64, ptr %.146, align 8, !tbaa !13
   %33 = ptrtoint ptr %.146 to i64
   %.not = icmp eq i64 %32, %33
-  br i1 %.not, label %36, label %.split.us
+  br i1 %.not, label %35, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph47.split, %.lr.ph47.split.us
-  %.us-phi = phi i64 [ %10, %.lr.ph47.split.us ], [ %32, %.lr.ph47.split ]
-  %.us-phi48 = phi ptr [ %.146.us, %.lr.ph47.split.us ], [ %.146, %.lr.ph47.split ]
-  br i1 %.not50, label %.loopexit, label %34
-
-34:                                               ; preds = %.split.us
-  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %.us-phi48, i64 noundef %.us-phi)
+.split.us:                                        ; preds = %.lr.ph47.split
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %.146, i64 noundef %32)
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
-36:                                               ; preds = %.lr.ph47.split
-  %37 = getelementptr inbounds nuw i8, ptr %.146, i64 8
-  %38 = and i64 %.13145, 65535
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %52
+35:                                               ; preds = %.lr.ph47.split
+  %36 = getelementptr inbounds nuw i8, ptr %.146, i64 8
+  %37 = and i64 %.13145, 65535
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %51
 
-40:                                               ; preds = %36
-  %41 = add nuw nsw i64 %.13145, %4
-  %42 = load i64, ptr @progress_full, align 8, !tbaa !13
-  %43 = mul i64 %42, %41
-  %44 = udiv i64 %43, %9
-  %45 = load i64, ptr @progress_printed, align 8, !tbaa !13
-  %.not.i37 = icmp eq i64 %44, %45
+39:                                               ; preds = %35
+  %40 = add nuw nsw i64 %.13145, %4
+  %41 = load i64, ptr @progress_full, align 8, !tbaa !13
+  %42 = mul i64 %41, %40
+  %43 = udiv i64 %42, %9
+  %44 = load i64, ptr @progress_printed, align 8, !tbaa !13
+  %.not.i37 = icmp eq i64 %43, %44
   br i1 %.not.i37, label %memtest_progress_step.exit41, label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %40, %.lr.ph.i38
-  %.07.i39 = phi i64 [ %46, %.lr.ph.i38 ], [ 0, %40 ]
+.lr.ph.i38:                                       ; preds = %39, %.lr.ph.i38
+  %.07.i39 = phi i64 [ %45, %.lr.ph.i38 ], [ 0, %39 ]
   %putchar.i40 = tail call i32 @putchar(i32 65)
-  %46 = add nuw i64 %.07.i39, 1
-  %47 = load i64, ptr @progress_printed, align 8, !tbaa !13
-  %48 = sub i64 %44, %47
-  %49 = icmp ult i64 %46, %48
-  br i1 %49, label %.lr.ph.i38, label %memtest_progress_step.exit41, !llvm.loop !18
+  %45 = add nuw i64 %.07.i39, 1
+  %46 = load i64, ptr @progress_printed, align 8, !tbaa !13
+  %47 = sub i64 %43, %46
+  %48 = icmp ult i64 %45, %47
+  br i1 %48, label %.lr.ph.i38, label %memtest_progress_step.exit41, !llvm.loop !18
 
-memtest_progress_step.exit41:                     ; preds = %.lr.ph.i38, %40
-  store i64 %44, ptr @progress_printed, align 8, !tbaa !13
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !15
-  %51 = tail call i32 @fflush(ptr noundef %50)
-  br label %52
+memtest_progress_step.exit41:                     ; preds = %.lr.ph.i38, %39
+  store i64 %43, ptr @progress_printed, align 8, !tbaa !13
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !15
+  %50 = tail call i32 @fflush(ptr noundef %49)
+  br label %51
 
-52:                                               ; preds = %36, %memtest_progress_step.exit41
-  %53 = add nuw nsw i64 %.13145, 1
-  %exitcond62.not = icmp eq i64 %53, %4
+51:                                               ; preds = %35, %memtest_progress_step.exit41
+  %52 = add nuw nsw i64 %.13145, 1
+  %exitcond62.not = icmp eq i64 %52, %4
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !23
 
-.loopexit:                                        ; preds = %52, %12, %3, %.split.us
-  %.032 = phi i32 [ 1, %.split.us ], [ 0, %3 ], [ 0, %12 ], [ 0, %52 ]
+.loopexit:                                        ; preds = %51, %.lr.ph47.split.us, %12, %3
+  %.032 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 1, %.lr.ph47.split.us ], [ 0, %51 ]
   ret i32 %.032
 }
 
@@ -635,8 +630,8 @@ memtest_compare.exit.thread15:                    ; preds = %.lr.ph, %memtest_co
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @memtest_test(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
-  %.not143 = icmp eq i32 %2, 0
-  br i1 %.not143, label %._crit_edge, label %.lr.ph
+  %.not141 = icmp eq i32 %2, 0
+  br i1 %.not141, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not68 = icmp eq i32 %3, 0
@@ -650,12 +645,12 @@ define dso_local i32 @memtest_test(ptr noundef %0, i64 noundef %1, i32 noundef %
   %.not38.i.i = icmp ult i64 %1, 16
   %10 = getelementptr inbounds nuw i64, ptr %0, i64 %6
   %11 = lshr exact i64 %1, 1
-  br i1 %.not68, label %.split.us, label %memtest_addressing.exit.thread132
+  br i1 %.not68, label %.split.us, label %memtest_addressing.exit.thread130
 
-.split.us:                                        ; preds = %.lr.ph, %memtest_compare_times.exit130.loopexit.us
-  %.0145.us = phi i32 [ %92, %memtest_compare_times.exit130.loopexit.us ], [ 0, %.lr.ph ]
-  %.043144.us = phi i32 [ %12, %memtest_compare_times.exit130.loopexit.us ], [ 0, %.lr.ph ]
-  %12 = add nuw nsw i32 %.043144.us, 1
+.split.us:                                        ; preds = %.lr.ph, %memtest_compare_times.exit128.loopexit.us
+  %.0143.us = phi i32 [ %92, %memtest_compare_times.exit128.loopexit.us ], [ 0, %.lr.ph ]
+  %.043142.us = phi i32 [ %12, %memtest_compare_times.exit128.loopexit.us ], [ 0, %.lr.ph ]
+  %12 = add nuw nsw i32 %.043142.us, 1
   br i1 %.not49.i, label %.split46.us, label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.split.us, %.lr.ph.split.us.i.us
@@ -684,15 +679,15 @@ define dso_local i32 @memtest_test(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 memtest_addressing.exit.us:                       ; preds = %18, %.lr.ph47.split.us.i.us
   %phi.call.us = phi i32 [ 0, %18 ], [ 1, %.lr.ph47.split.us.i.us ]
-  %21 = add nsw i32 %phi.call.us, %.0145.us
+  %21 = add nsw i32 %phi.call.us, %.0143.us
   br label %.split46.us
 
 .split46.us:                                      ; preds = %memtest_addressing.exit.us, %.split.us
-  %22 = phi i32 [ %21, %memtest_addressing.exit.us ], [ %.0145.us, %.split.us ]
-  br i1 %9, label %.preheader.i.us, label %.split147.us, !prof !24
+  %22 = phi i32 [ %21, %memtest_addressing.exit.us ], [ %.0143.us, %.split.us ]
+  br i1 %9, label %.preheader.i.us, label %.split145.us, !prof !24
 
 .preheader.i.us:                                  ; preds = %.split46.us
-  br i1 %.not.i, label %.split.us.i73.us.preheader, label %.lr.ph.us.i.us
+  br i1 %.not.i, label %.split.us.i.us.preheader, label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %.preheader.i.us, %._crit_edge.us.i.us
   %.044.us.i69.us = phi i64 [ %30, %._crit_edge.us.i.us ], [ -3372857614747716250, %.preheader.i.us ]
@@ -724,20 +719,20 @@ memtest_addressing.exit.us:                       ; preds = %18, %.lr.ph47.split
 ._crit_edge.us.i.us:                              ; preds = %.lr.ph.split.us.us.i.us
   %35 = add nuw nsw i64 %.03743.us.i.us, 1
   %exitcond57.not.i.us = icmp eq i64 %35, 512
-  br i1 %exitcond57.not.i.us, label %.split.us.i73.us.preheader, label %.lr.ph.us.i.us, !llvm.loop !26
+  br i1 %exitcond57.not.i.us, label %.split.us.i.us.preheader, label %.lr.ph.us.i.us, !llvm.loop !26
 
-.split.us.i73.us.preheader:                       ; preds = %._crit_edge.us.i.us, %.preheader.i.us
-  br label %.split.us.i73.us
+.split.us.i.us.preheader:                         ; preds = %._crit_edge.us.i.us, %.preheader.i.us
+  br label %.split.us.i.us
 
-.split.us.i73.us:                                 ; preds = %.split.us.i73.us.preheader, %memtest_compare.exit.thread.us.i.us
-  %.019.us.i.us = phi i32 [ %43, %memtest_compare.exit.thread.us.i.us ], [ 0, %.split.us.i73.us.preheader ]
-  %.01018.us.i.us = phi i32 [ %44, %memtest_compare.exit.thread.us.i.us ], [ 0, %.split.us.i73.us.preheader ]
+.split.us.i.us:                                   ; preds = %.split.us.i.us.preheader, %memtest_compare.exit.thread.us.i.us
+  %.019.us.i.us = phi i32 [ %43, %memtest_compare.exit.thread.us.i.us ], [ 0, %.split.us.i.us.preheader ]
+  %.01018.us.i.us = phi i32 [ %44, %memtest_compare.exit.thread.us.i.us ], [ 0, %.split.us.i.us.preheader ]
   br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i.us, label %.lr.ph.split.us.i.us.i.us
 
-.lr.ph.split.us.i.us.i.us:                        ; preds = %.split.us.i73.us, %38
-  %.034.us.i.us.i.us = phi ptr [ %40, %38 ], [ %10, %.split.us.i73.us ]
-  %.02233.us.i.us.i.us = phi ptr [ %39, %38 ], [ %0, %.split.us.i73.us ]
-  %.02332.us.i.us.i.us = phi i64 [ %41, %38 ], [ 0, %.split.us.i73.us ]
+.lr.ph.split.us.i.us.i.us:                        ; preds = %.split.us.i.us, %38
+  %.034.us.i.us.i.us = phi ptr [ %40, %38 ], [ %10, %.split.us.i.us ]
+  %.02233.us.i.us.i.us = phi ptr [ %39, %38 ], [ %0, %.split.us.i.us ]
+  %.02332.us.i.us.i.us = phi i64 [ %41, %38 ], [ 0, %.split.us.i.us ]
   %36 = load i64, ptr %.02233.us.i.us.i.us, align 8, !tbaa !13
   %37 = load i64, ptr %.034.us.i.us.i.us, align 8, !tbaa !13
   %.not.us.i.us.i.us = icmp eq i64 %36, %37
@@ -755,18 +750,18 @@ memtest_compare.exit.us.i.us:                     ; preds = %38, %.lr.ph.split.u
   %42 = add nuw nsw i32 %phi.call.us.i.us, %.019.us.i.us
   br label %memtest_compare.exit.thread.us.i.us
 
-memtest_compare.exit.thread.us.i.us:              ; preds = %memtest_compare.exit.us.i.us, %.split.us.i73.us
-  %43 = phi i32 [ %42, %memtest_compare.exit.us.i.us ], [ %.019.us.i.us, %.split.us.i73.us ]
+memtest_compare.exit.thread.us.i.us:              ; preds = %memtest_compare.exit.us.i.us, %.split.us.i.us
+  %43 = phi i32 [ %42, %memtest_compare.exit.us.i.us ], [ %.019.us.i.us, %.split.us.i.us ]
   %44 = add nuw nsw i32 %.01018.us.i.us, 1
   %exitcond24.not.i.us = icmp eq i32 %44, 4
-  br i1 %exitcond24.not.i.us, label %memtest_compare_times.exit.us, label %.split.us.i73.us, !llvm.loop !33
+  br i1 %exitcond24.not.i.us, label %memtest_compare_times.exit.us, label %.split.us.i.us, !llvm.loop !33
 
 memtest_compare_times.exit.us:                    ; preds = %memtest_compare.exit.thread.us.i.us
   %45 = add nsw i32 %43, %22
-  br i1 %.not.i, label %.split.us.i85.us.preheader, label %.lr.ph.us.i76.us
+  br i1 %.not.i, label %.split.us.i83.us.preheader, label %.lr.ph.us.i74.us
 
-.lr.ph.us.i76.us:                                 ; preds = %memtest_compare_times.exit.us, %._crit_edge.us.i79.us
-  %.041.us.i.us = phi i64 [ %58, %._crit_edge.us.i79.us ], [ 0, %memtest_compare_times.exit.us ]
+.lr.ph.us.i74.us:                                 ; preds = %memtest_compare_times.exit.us, %._crit_edge.us.i77.us
+  %.041.us.i.us = phi i64 [ %58, %._crit_edge.us.i77.us ], [ 0, %memtest_compare_times.exit.us ]
   %46 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.i.us
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %11
   %48 = and i64 %.041.us.i.us, 1
@@ -777,143 +772,143 @@ memtest_compare_times.exit.us:                    ; preds = %memtest_compare.exi
   %52 = or i64 %49, %50
   %53 = or i64 %52, %51
   %54 = or i64 %53, %sext.us
-  br label %.lr.ph.split.us.us.i78.us
+  br label %.lr.ph.split.us.us.i76.us
 
-.lr.ph.split.us.us.i78.us:                        ; preds = %.lr.ph.split.us.us.i78.us, %.lr.ph.us.i76.us
-  %.03440.us.us.i.us = phi ptr [ %56, %.lr.ph.split.us.us.i78.us ], [ %47, %.lr.ph.us.i76.us ]
-  %.03539.us.us.i.us = phi ptr [ %55, %.lr.ph.split.us.us.i78.us ], [ %46, %.lr.ph.us.i76.us ]
-  %.03638.us.us.i.us = phi i64 [ %57, %.lr.ph.split.us.us.i78.us ], [ 0, %.lr.ph.us.i76.us ]
+.lr.ph.split.us.us.i76.us:                        ; preds = %.lr.ph.split.us.us.i76.us, %.lr.ph.us.i74.us
+  %.03440.us.us.i.us = phi ptr [ %56, %.lr.ph.split.us.us.i76.us ], [ %47, %.lr.ph.us.i74.us ]
+  %.03539.us.us.i.us = phi ptr [ %55, %.lr.ph.split.us.us.i76.us ], [ %46, %.lr.ph.us.i74.us ]
+  %.03638.us.us.i.us = phi i64 [ %57, %.lr.ph.split.us.us.i76.us ], [ 0, %.lr.ph.us.i74.us ]
   store i64 %54, ptr %.03440.us.us.i.us, align 8, !tbaa !13
   store i64 %54, ptr %.03539.us.us.i.us, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i.us, i64 4096
   %56 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i.us, i64 4096
   %57 = add nuw nsw i64 %.03638.us.us.i.us, 1
   %exitcond50.not.i.us = icmp eq i64 %57, %7
-  br i1 %exitcond50.not.i.us, label %._crit_edge.us.i79.us, label %.lr.ph.split.us.us.i78.us, !llvm.loop !30
+  br i1 %exitcond50.not.i.us, label %._crit_edge.us.i77.us, label %.lr.ph.split.us.us.i76.us, !llvm.loop !30
 
-._crit_edge.us.i79.us:                            ; preds = %.lr.ph.split.us.us.i78.us
+._crit_edge.us.i77.us:                            ; preds = %.lr.ph.split.us.us.i76.us
   %58 = add nuw nsw i64 %.041.us.i.us, 1
   %exitcond51.not.i.us = icmp eq i64 %58, 512
-  br i1 %exitcond51.not.i.us, label %.split.us.i85.us.preheader, label %.lr.ph.us.i76.us, !llvm.loop !29
+  br i1 %exitcond51.not.i.us, label %.split.us.i83.us.preheader, label %.lr.ph.us.i74.us, !llvm.loop !29
 
-.split.us.i85.us.preheader:                       ; preds = %._crit_edge.us.i79.us, %memtest_compare_times.exit.us
-  br label %.split.us.i85.us
+.split.us.i83.us.preheader:                       ; preds = %._crit_edge.us.i77.us, %memtest_compare_times.exit.us
+  br label %.split.us.i83.us
 
-.split.us.i85.us:                                 ; preds = %.split.us.i85.us.preheader, %memtest_compare.exit.thread.us.i95.us
-  %.019.us.i86.us = phi i32 [ %66, %memtest_compare.exit.thread.us.i95.us ], [ 0, %.split.us.i85.us.preheader ]
-  %.01018.us.i87.us = phi i32 [ %67, %memtest_compare.exit.thread.us.i95.us ], [ 0, %.split.us.i85.us.preheader ]
-  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i95.us, label %.lr.ph.split.us.i.us.i88.us
+.split.us.i83.us:                                 ; preds = %.split.us.i83.us.preheader, %memtest_compare.exit.thread.us.i93.us
+  %.019.us.i84.us = phi i32 [ %66, %memtest_compare.exit.thread.us.i93.us ], [ 0, %.split.us.i83.us.preheader ]
+  %.01018.us.i85.us = phi i32 [ %67, %memtest_compare.exit.thread.us.i93.us ], [ 0, %.split.us.i83.us.preheader ]
+  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i93.us, label %.lr.ph.split.us.i.us.i86.us
 
-.lr.ph.split.us.i.us.i88.us:                      ; preds = %.split.us.i85.us, %61
-  %.034.us.i.us.i89.us = phi ptr [ %63, %61 ], [ %10, %.split.us.i85.us ]
-  %.02233.us.i.us.i90.us = phi ptr [ %62, %61 ], [ %0, %.split.us.i85.us ]
-  %.02332.us.i.us.i91.us = phi i64 [ %64, %61 ], [ 0, %.split.us.i85.us ]
-  %59 = load i64, ptr %.02233.us.i.us.i90.us, align 8, !tbaa !13
-  %60 = load i64, ptr %.034.us.i.us.i89.us, align 8, !tbaa !13
-  %.not.us.i.us.i92.us = icmp eq i64 %59, %60
-  br i1 %.not.us.i.us.i92.us, label %61, label %memtest_compare.exit.us.i93.us
+.lr.ph.split.us.i.us.i86.us:                      ; preds = %.split.us.i83.us, %61
+  %.034.us.i.us.i87.us = phi ptr [ %63, %61 ], [ %10, %.split.us.i83.us ]
+  %.02233.us.i.us.i88.us = phi ptr [ %62, %61 ], [ %0, %.split.us.i83.us ]
+  %.02332.us.i.us.i89.us = phi i64 [ %64, %61 ], [ 0, %.split.us.i83.us ]
+  %59 = load i64, ptr %.02233.us.i.us.i88.us, align 8, !tbaa !13
+  %60 = load i64, ptr %.034.us.i.us.i87.us, align 8, !tbaa !13
+  %.not.us.i.us.i90.us = icmp eq i64 %59, %60
+  br i1 %.not.us.i.us.i90.us, label %61, label %memtest_compare.exit.us.i91.us
 
-61:                                               ; preds = %.lr.ph.split.us.i.us.i88.us
-  %62 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i90.us, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i89.us, i64 8
-  %64 = add nuw nsw i64 %.02332.us.i.us.i91.us, 1
-  %exitcond53.not.i.us.i97.us = icmp eq i64 %64, %6
-  br i1 %exitcond53.not.i.us.i97.us, label %memtest_compare.exit.us.i93.us, label %.lr.ph.split.us.i.us.i88.us, !llvm.loop !31
+61:                                               ; preds = %.lr.ph.split.us.i.us.i86.us
+  %62 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i88.us, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i87.us, i64 8
+  %64 = add nuw nsw i64 %.02332.us.i.us.i89.us, 1
+  %exitcond53.not.i.us.i95.us = icmp eq i64 %64, %6
+  br i1 %exitcond53.not.i.us.i95.us, label %memtest_compare.exit.us.i91.us, label %.lr.ph.split.us.i.us.i86.us, !llvm.loop !31
 
-memtest_compare.exit.us.i93.us:                   ; preds = %61, %.lr.ph.split.us.i.us.i88.us
-  %phi.call.us.i94.us = phi i32 [ 0, %61 ], [ 1, %.lr.ph.split.us.i.us.i88.us ]
-  %65 = add nuw nsw i32 %phi.call.us.i94.us, %.019.us.i86.us
-  br label %memtest_compare.exit.thread.us.i95.us
+memtest_compare.exit.us.i91.us:                   ; preds = %61, %.lr.ph.split.us.i.us.i86.us
+  %phi.call.us.i92.us = phi i32 [ 0, %61 ], [ 1, %.lr.ph.split.us.i.us.i86.us ]
+  %65 = add nuw nsw i32 %phi.call.us.i92.us, %.019.us.i84.us
+  br label %memtest_compare.exit.thread.us.i93.us
 
-memtest_compare.exit.thread.us.i95.us:            ; preds = %memtest_compare.exit.us.i93.us, %.split.us.i85.us
-  %66 = phi i32 [ %65, %memtest_compare.exit.us.i93.us ], [ %.019.us.i86.us, %.split.us.i85.us ]
-  %67 = add nuw nsw i32 %.01018.us.i87.us, 1
-  %exitcond24.not.i96.us = icmp eq i32 %67, 4
-  br i1 %exitcond24.not.i96.us, label %memtest_compare_times.exit98.us, label %.split.us.i85.us, !llvm.loop !33
+memtest_compare.exit.thread.us.i93.us:            ; preds = %memtest_compare.exit.us.i91.us, %.split.us.i83.us
+  %66 = phi i32 [ %65, %memtest_compare.exit.us.i91.us ], [ %.019.us.i84.us, %.split.us.i83.us ]
+  %67 = add nuw nsw i32 %.01018.us.i85.us, 1
+  %exitcond24.not.i94.us = icmp eq i32 %67, 4
+  br i1 %exitcond24.not.i94.us, label %memtest_compare_times.exit96.us, label %.split.us.i83.us, !llvm.loop !33
 
-memtest_compare_times.exit98.us:                  ; preds = %memtest_compare.exit.thread.us.i95.us
+memtest_compare_times.exit96.us:                  ; preds = %memtest_compare.exit.thread.us.i93.us
   %68 = add nsw i32 %45, %66
-  br i1 %.not.i, label %.split.us.i117.us.preheader, label %.lr.ph.us.i101.us
+  br i1 %.not.i, label %.split.us.i115.us.preheader, label %.lr.ph.us.i99.us
 
-.lr.ph.us.i101.us:                                ; preds = %memtest_compare_times.exit98.us, %._crit_edge.us.i109.us
-  %.041.us.i102.us = phi i64 [ %82, %._crit_edge.us.i109.us ], [ 0, %memtest_compare_times.exit98.us ]
-  %69 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.i102.us
+.lr.ph.us.i99.us:                                 ; preds = %memtest_compare_times.exit96.us, %._crit_edge.us.i107.us
+  %.041.us.i100.us = phi i64 [ %82, %._crit_edge.us.i107.us ], [ 0, %memtest_compare_times.exit96.us ]
+  %69 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.i100.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %11
-  %71 = and i64 %.041.us.i102.us, 1
-  %.not.us.i103.us = icmp eq i64 %71, 0
-  %72 = select i1 %.not.us.i103.us, i64 -6148914691236517206, i64 6148914691236517205
+  %71 = and i64 %.041.us.i100.us, 1
+  %.not.us.i101.us = icmp eq i64 %71, 0
+  %72 = select i1 %.not.us.i101.us, i64 -6148914691236517206, i64 6148914691236517205
   %73 = shl i64 %72, 16
   %74 = shl i64 %72, 32
   %75 = shl i64 %72, 48
   %76 = or i64 %73, %74
   %77 = or i64 %76, %75
   %78 = or i64 %77, %72
-  br label %.lr.ph.split.us.us.i104.us
+  br label %.lr.ph.split.us.us.i102.us
 
-.lr.ph.split.us.us.i104.us:                       ; preds = %.lr.ph.split.us.us.i104.us, %.lr.ph.us.i101.us
-  %.03440.us.us.i105.us = phi ptr [ %80, %.lr.ph.split.us.us.i104.us ], [ %70, %.lr.ph.us.i101.us ]
-  %.03539.us.us.i106.us = phi ptr [ %79, %.lr.ph.split.us.us.i104.us ], [ %69, %.lr.ph.us.i101.us ]
-  %.03638.us.us.i107.us = phi i64 [ %81, %.lr.ph.split.us.us.i104.us ], [ 0, %.lr.ph.us.i101.us ]
-  store i64 %78, ptr %.03440.us.us.i105.us, align 8, !tbaa !13
-  store i64 %78, ptr %.03539.us.us.i106.us, align 8, !tbaa !13
-  %79 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i106.us, i64 4096
-  %80 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i105.us, i64 4096
-  %81 = add nuw nsw i64 %.03638.us.us.i107.us, 1
-  %exitcond50.not.i108.us = icmp eq i64 %81, %7
-  br i1 %exitcond50.not.i108.us, label %._crit_edge.us.i109.us, label %.lr.ph.split.us.us.i104.us, !llvm.loop !30
+.lr.ph.split.us.us.i102.us:                       ; preds = %.lr.ph.split.us.us.i102.us, %.lr.ph.us.i99.us
+  %.03440.us.us.i103.us = phi ptr [ %80, %.lr.ph.split.us.us.i102.us ], [ %70, %.lr.ph.us.i99.us ]
+  %.03539.us.us.i104.us = phi ptr [ %79, %.lr.ph.split.us.us.i102.us ], [ %69, %.lr.ph.us.i99.us ]
+  %.03638.us.us.i105.us = phi i64 [ %81, %.lr.ph.split.us.us.i102.us ], [ 0, %.lr.ph.us.i99.us ]
+  store i64 %78, ptr %.03440.us.us.i103.us, align 8, !tbaa !13
+  store i64 %78, ptr %.03539.us.us.i104.us, align 8, !tbaa !13
+  %79 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i104.us, i64 4096
+  %80 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i103.us, i64 4096
+  %81 = add nuw nsw i64 %.03638.us.us.i105.us, 1
+  %exitcond50.not.i106.us = icmp eq i64 %81, %7
+  br i1 %exitcond50.not.i106.us, label %._crit_edge.us.i107.us, label %.lr.ph.split.us.us.i102.us, !llvm.loop !30
 
-._crit_edge.us.i109.us:                           ; preds = %.lr.ph.split.us.us.i104.us
-  %82 = add nuw nsw i64 %.041.us.i102.us, 1
-  %exitcond51.not.i110.us = icmp eq i64 %82, 512
-  br i1 %exitcond51.not.i110.us, label %.split.us.i117.us.preheader, label %.lr.ph.us.i101.us, !llvm.loop !29
+._crit_edge.us.i107.us:                           ; preds = %.lr.ph.split.us.us.i102.us
+  %82 = add nuw nsw i64 %.041.us.i100.us, 1
+  %exitcond51.not.i108.us = icmp eq i64 %82, 512
+  br i1 %exitcond51.not.i108.us, label %.split.us.i115.us.preheader, label %.lr.ph.us.i99.us, !llvm.loop !29
 
-.split.us.i117.us.preheader:                      ; preds = %._crit_edge.us.i109.us, %memtest_compare_times.exit98.us
-  br label %.split.us.i117.us
+.split.us.i115.us.preheader:                      ; preds = %._crit_edge.us.i107.us, %memtest_compare_times.exit96.us
+  br label %.split.us.i115.us
 
-.split.us.i117.us:                                ; preds = %.split.us.i117.us.preheader, %memtest_compare.exit.thread.us.i127.us
-  %.019.us.i118.us = phi i32 [ %90, %memtest_compare.exit.thread.us.i127.us ], [ 0, %.split.us.i117.us.preheader ]
-  %.01018.us.i119.us = phi i32 [ %91, %memtest_compare.exit.thread.us.i127.us ], [ 0, %.split.us.i117.us.preheader ]
-  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i127.us, label %.lr.ph.split.us.i.us.i120.us
+.split.us.i115.us:                                ; preds = %.split.us.i115.us.preheader, %memtest_compare.exit.thread.us.i125.us
+  %.019.us.i116.us = phi i32 [ %90, %memtest_compare.exit.thread.us.i125.us ], [ 0, %.split.us.i115.us.preheader ]
+  %.01018.us.i117.us = phi i32 [ %91, %memtest_compare.exit.thread.us.i125.us ], [ 0, %.split.us.i115.us.preheader ]
+  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i125.us, label %.lr.ph.split.us.i.us.i118.us
 
-.lr.ph.split.us.i.us.i120.us:                     ; preds = %.split.us.i117.us, %85
-  %.034.us.i.us.i121.us = phi ptr [ %87, %85 ], [ %10, %.split.us.i117.us ]
-  %.02233.us.i.us.i122.us = phi ptr [ %86, %85 ], [ %0, %.split.us.i117.us ]
-  %.02332.us.i.us.i123.us = phi i64 [ %88, %85 ], [ 0, %.split.us.i117.us ]
-  %83 = load i64, ptr %.02233.us.i.us.i122.us, align 8, !tbaa !13
-  %84 = load i64, ptr %.034.us.i.us.i121.us, align 8, !tbaa !13
-  %.not.us.i.us.i124.us = icmp eq i64 %83, %84
-  br i1 %.not.us.i.us.i124.us, label %85, label %memtest_compare.exit.us.i125.us
+.lr.ph.split.us.i.us.i118.us:                     ; preds = %.split.us.i115.us, %85
+  %.034.us.i.us.i119.us = phi ptr [ %87, %85 ], [ %10, %.split.us.i115.us ]
+  %.02233.us.i.us.i120.us = phi ptr [ %86, %85 ], [ %0, %.split.us.i115.us ]
+  %.02332.us.i.us.i121.us = phi i64 [ %88, %85 ], [ 0, %.split.us.i115.us ]
+  %83 = load i64, ptr %.02233.us.i.us.i120.us, align 8, !tbaa !13
+  %84 = load i64, ptr %.034.us.i.us.i119.us, align 8, !tbaa !13
+  %.not.us.i.us.i122.us = icmp eq i64 %83, %84
+  br i1 %.not.us.i.us.i122.us, label %85, label %memtest_compare.exit.us.i123.us
 
-85:                                               ; preds = %.lr.ph.split.us.i.us.i120.us
-  %86 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i122.us, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i121.us, i64 8
-  %88 = add nuw nsw i64 %.02332.us.i.us.i123.us, 1
-  %exitcond53.not.i.us.i129.us = icmp eq i64 %88, %6
-  br i1 %exitcond53.not.i.us.i129.us, label %memtest_compare.exit.us.i125.us, label %.lr.ph.split.us.i.us.i120.us, !llvm.loop !31
+85:                                               ; preds = %.lr.ph.split.us.i.us.i118.us
+  %86 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i120.us, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i119.us, i64 8
+  %88 = add nuw nsw i64 %.02332.us.i.us.i121.us, 1
+  %exitcond53.not.i.us.i127.us = icmp eq i64 %88, %6
+  br i1 %exitcond53.not.i.us.i127.us, label %memtest_compare.exit.us.i123.us, label %.lr.ph.split.us.i.us.i118.us, !llvm.loop !31
 
-memtest_compare.exit.us.i125.us:                  ; preds = %85, %.lr.ph.split.us.i.us.i120.us
-  %phi.call.us.i126.us = phi i32 [ 0, %85 ], [ 1, %.lr.ph.split.us.i.us.i120.us ]
-  %89 = add nuw nsw i32 %phi.call.us.i126.us, %.019.us.i118.us
-  br label %memtest_compare.exit.thread.us.i127.us
+memtest_compare.exit.us.i123.us:                  ; preds = %85, %.lr.ph.split.us.i.us.i118.us
+  %phi.call.us.i124.us = phi i32 [ 0, %85 ], [ 1, %.lr.ph.split.us.i.us.i118.us ]
+  %89 = add nuw nsw i32 %phi.call.us.i124.us, %.019.us.i116.us
+  br label %memtest_compare.exit.thread.us.i125.us
 
-memtest_compare.exit.thread.us.i127.us:           ; preds = %memtest_compare.exit.us.i125.us, %.split.us.i117.us
-  %90 = phi i32 [ %89, %memtest_compare.exit.us.i125.us ], [ %.019.us.i118.us, %.split.us.i117.us ]
-  %91 = add nuw nsw i32 %.01018.us.i119.us, 1
-  %exitcond24.not.i128.us = icmp eq i32 %91, 4
-  br i1 %exitcond24.not.i128.us, label %memtest_compare_times.exit130.loopexit.us, label %.split.us.i117.us, !llvm.loop !33
+memtest_compare.exit.thread.us.i125.us:           ; preds = %memtest_compare.exit.us.i123.us, %.split.us.i115.us
+  %90 = phi i32 [ %89, %memtest_compare.exit.us.i123.us ], [ %.019.us.i116.us, %.split.us.i115.us ]
+  %91 = add nuw nsw i32 %.01018.us.i117.us, 1
+  %exitcond24.not.i126.us = icmp eq i32 %91, 4
+  br i1 %exitcond24.not.i126.us, label %memtest_compare_times.exit128.loopexit.us, label %.split.us.i115.us, !llvm.loop !33
 
-memtest_compare_times.exit130.loopexit.us:        ; preds = %memtest_compare.exit.thread.us.i127.us
+memtest_compare_times.exit128.loopexit.us:        ; preds = %memtest_compare.exit.thread.us.i125.us
   %92 = add nsw i32 %90, %68
   %.not.us = icmp eq i32 %12, %2
   br i1 %.not.us, label %._crit_edge, label %.split.us, !llvm.loop !35
 
-memtest_addressing.exit.thread132:                ; preds = %.lr.ph, %memtest_addressing.exit.thread132
-  %.0145 = phi i32 [ %105, %memtest_addressing.exit.thread132 ], [ 0, %.lr.ph ]
-  %.043144 = phi i32 [ %93, %memtest_addressing.exit.thread132 ], [ 0, %.lr.ph ]
-  %93 = add nuw nsw i32 %.043144, 1
+memtest_addressing.exit.thread130:                ; preds = %.lr.ph, %memtest_addressing.exit.thread130
+  %.0143 = phi i32 [ %105, %memtest_addressing.exit.thread130 ], [ 0, %.lr.ph ]
+  %.043142 = phi i32 [ %93, %memtest_addressing.exit.thread130 ], [ 0, %.lr.ph ]
+  %93 = add nuw nsw i32 %.043142, 1
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.12, i32 noundef %93)
   %94 = tail call i32 @memtest_addressing(ptr noundef %0, i64 noundef %1, i32 noundef %3)
-  %95 = add nsw i32 %94, %.0145
+  %95 = add nsw i32 %94, %.0143
   %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   tail call void @memtest_progress_start(ptr noundef nonnull @.str.13, i32 noundef %93)
   tail call void @memtest_fill_random(ptr noundef %0, i64 noundef %1, i32 noundef %3)
@@ -931,15 +926,15 @@ memtest_addressing.exit.thread132:                ; preds = %.lr.ph, %memtest_ad
   %104 = tail call i32 @memtest_compare_times(ptr noundef %0, i64 noundef %1, i32 noundef %93, i32 noundef 4, i32 noundef %3)
   %105 = add nsw i32 %104, %102
   %.not = icmp eq i32 %93, %2
-  br i1 %.not, label %._crit_edge, label %memtest_addressing.exit.thread132, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %memtest_addressing.exit.thread130, !llvm.loop !36
 
-.split147.us:                                     ; preds = %.split46.us
+.split145.us:                                     ; preds = %.split46.us
   tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 135) #16
   tail call void @abort() #17
   unreachable
 
-._crit_edge:                                      ; preds = %memtest_addressing.exit.thread132, %memtest_compare_times.exit130.loopexit.us, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %92, %memtest_compare_times.exit130.loopexit.us ], [ %105, %memtest_addressing.exit.thread132 ]
+._crit_edge:                                      ; preds = %memtest_addressing.exit.thread130, %memtest_compare_times.exit128.loopexit.us, %4
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %92, %memtest_compare_times.exit128.loopexit.us ], [ %105, %memtest_addressing.exit.thread130 ]
   ret i32 %.0.lcssa
 }
 
@@ -954,8 +949,8 @@ define dso_local i32 @memtest_preserving_test(ptr noundef %0, i64 noundef %1, i3
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not72252 = icmp eq i32 %2, 0
-  br i1 %.not72252, label %.preheader.split.us, label %.preheader.split
+  %.not72250 = icmp eq i32 %2, 0
+  br i1 %.not72250, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %9
   %.067.us = phi ptr [ %15, %9 ], [ %0, %.preheader ]
@@ -1016,10 +1011,10 @@ define dso_local i32 @memtest_preserving_test(ptr noundef %0, i64 noundef %1, i3
   %26 = getelementptr inbounds nuw i64, ptr %.168, i64 %22
   br i1 %25, label %.lr.ph.split.us, label %.lr.ph.split, !prof !24
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %memtest_compare_times.exit228.us
-  %.062254.us = phi i32 [ %27, %memtest_compare_times.exit228.us ], [ 0, %.lr.ph ]
-  %.1253.us = phi i32 [ %107, %memtest_compare_times.exit228.us ], [ %.063, %.lr.ph ]
-  %27 = add nuw nsw i32 %.062254.us, 1
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %memtest_compare_times.exit226.us
+  %.062252.us = phi i32 [ %27, %memtest_compare_times.exit226.us ], [ 0, %.lr.ph ]
+  %.1251.us = phi i32 [ %107, %memtest_compare_times.exit226.us ], [ %.063, %.lr.ph ]
+  %27 = add nuw nsw i32 %.062252.us, 1
   br i1 %.not49.i, label %memtest_fill_random.exit.us, label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us, %.lr.ph.split.us.i.us
@@ -1048,7 +1043,7 @@ define dso_local i32 @memtest_preserving_test(ptr noundef %0, i64 noundef %1, i3
 
 memtest_addressing.exit.us:                       ; preds = %.lr.ph47.split.us.i.us, %33
   %.032.i.us = phi i32 [ 0, %33 ], [ 1, %.lr.ph47.split.us.i.us ]
-  %36 = add nsw i32 %.032.i.us, %.1253.us
+  %36 = add nsw i32 %.032.i.us, %.1251.us
   br i1 %.not.i, label %memtest_fill_random.exit.us, label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %memtest_addressing.exit.us, %._crit_edge.us.i.us
@@ -1084,47 +1079,47 @@ memtest_addressing.exit.us:                       ; preds = %.lr.ph47.split.us.i
   br i1 %exitcond57.not.i.us, label %memtest_fill_random.exit.us, label %.lr.ph.us.i.us, !llvm.loop !26
 
 memtest_fill_random.exit.us:                      ; preds = %._crit_edge.us.i.us, %.lr.ph.split.us, %memtest_addressing.exit.us
-  %50 = phi i32 [ %36, %memtest_addressing.exit.us ], [ %.1253.us, %.lr.ph.split.us ], [ %36, %._crit_edge.us.i.us ]
-  br label %.split.us.i95.us
+  %50 = phi i32 [ %36, %memtest_addressing.exit.us ], [ %.1251.us, %.lr.ph.split.us ], [ %36, %._crit_edge.us.i.us ]
+  br label %.split.us.i93.us
 
-.split.us.i95.us:                                 ; preds = %memtest_fill_random.exit.us, %memtest_compare.exit.thread.us.i.us
-  %.019.us.i96.us = phi i32 [ %58, %memtest_compare.exit.thread.us.i.us ], [ 0, %memtest_fill_random.exit.us ]
-  %.01018.us.i97.us = phi i32 [ %59, %memtest_compare.exit.thread.us.i.us ], [ 0, %memtest_fill_random.exit.us ]
-  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i.us, label %.lr.ph.split.us.i.us.i98.us
+.split.us.i93.us:                                 ; preds = %memtest_fill_random.exit.us, %memtest_compare.exit.thread.us.i.us
+  %.019.us.i94.us = phi i32 [ %58, %memtest_compare.exit.thread.us.i.us ], [ 0, %memtest_fill_random.exit.us ]
+  %.01018.us.i95.us = phi i32 [ %59, %memtest_compare.exit.thread.us.i.us ], [ 0, %memtest_fill_random.exit.us ]
+  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i.us, label %.lr.ph.split.us.i.us.i96.us
 
-.lr.ph.split.us.i.us.i98.us:                      ; preds = %.split.us.i95.us, %53
-  %.034.us.i.us.i99.us = phi ptr [ %55, %53 ], [ %26, %.split.us.i95.us ]
-  %.02233.us.i.us.i100.us = phi ptr [ %54, %53 ], [ %.168, %.split.us.i95.us ]
-  %.02332.us.i.us.i101.us = phi i64 [ %56, %53 ], [ 0, %.split.us.i95.us ]
-  %51 = load i64, ptr %.02233.us.i.us.i100.us, align 8, !tbaa !13
-  %52 = load i64, ptr %.034.us.i.us.i99.us, align 8, !tbaa !13
-  %.not.us.i.us.i102.us = icmp eq i64 %51, %52
-  br i1 %.not.us.i.us.i102.us, label %53, label %memtest_compare.exit.us.i103.us
+.lr.ph.split.us.i.us.i96.us:                      ; preds = %.split.us.i93.us, %53
+  %.034.us.i.us.i97.us = phi ptr [ %55, %53 ], [ %26, %.split.us.i93.us ]
+  %.02233.us.i.us.i98.us = phi ptr [ %54, %53 ], [ %.168, %.split.us.i93.us ]
+  %.02332.us.i.us.i99.us = phi i64 [ %56, %53 ], [ 0, %.split.us.i93.us ]
+  %51 = load i64, ptr %.02233.us.i.us.i98.us, align 8, !tbaa !13
+  %52 = load i64, ptr %.034.us.i.us.i97.us, align 8, !tbaa !13
+  %.not.us.i.us.i100.us = icmp eq i64 %51, %52
+  br i1 %.not.us.i.us.i100.us, label %53, label %memtest_compare.exit.us.i101.us
 
-53:                                               ; preds = %.lr.ph.split.us.i.us.i98.us
-  %54 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i100.us, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i99.us, i64 8
-  %56 = add nuw nsw i64 %.02332.us.i.us.i101.us, 1
-  %exitcond53.not.i.us.i106.us = icmp eq i64 %56, %22
-  br i1 %exitcond53.not.i.us.i106.us, label %memtest_compare.exit.us.i103.us, label %.lr.ph.split.us.i.us.i98.us, !llvm.loop !31
+53:                                               ; preds = %.lr.ph.split.us.i.us.i96.us
+  %54 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i98.us, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i97.us, i64 8
+  %56 = add nuw nsw i64 %.02332.us.i.us.i99.us, 1
+  %exitcond53.not.i.us.i104.us = icmp eq i64 %56, %22
+  br i1 %exitcond53.not.i.us.i104.us, label %memtest_compare.exit.us.i101.us, label %.lr.ph.split.us.i.us.i96.us, !llvm.loop !31
 
-memtest_compare.exit.us.i103.us:                  ; preds = %53, %.lr.ph.split.us.i.us.i98.us
-  %phi.call.us.i104.us = phi i32 [ 0, %53 ], [ 1, %.lr.ph.split.us.i.us.i98.us ]
-  %57 = add nuw nsw i32 %phi.call.us.i104.us, %.019.us.i96.us
+memtest_compare.exit.us.i101.us:                  ; preds = %53, %.lr.ph.split.us.i.us.i96.us
+  %phi.call.us.i102.us = phi i32 [ 0, %53 ], [ 1, %.lr.ph.split.us.i.us.i96.us ]
+  %57 = add nuw nsw i32 %phi.call.us.i102.us, %.019.us.i94.us
   br label %memtest_compare.exit.thread.us.i.us
 
-memtest_compare.exit.thread.us.i.us:              ; preds = %memtest_compare.exit.us.i103.us, %.split.us.i95.us
-  %58 = phi i32 [ %57, %memtest_compare.exit.us.i103.us ], [ %.019.us.i96.us, %.split.us.i95.us ]
-  %59 = add nuw nsw i32 %.01018.us.i97.us, 1
-  %exitcond24.not.i105.us = icmp eq i32 %59, 4
-  br i1 %exitcond24.not.i105.us, label %.preheader.i108.us, label %.split.us.i95.us, !llvm.loop !33
+memtest_compare.exit.thread.us.i.us:              ; preds = %memtest_compare.exit.us.i101.us, %.split.us.i93.us
+  %58 = phi i32 [ %57, %memtest_compare.exit.us.i101.us ], [ %.019.us.i94.us, %.split.us.i93.us ]
+  %59 = add nuw nsw i32 %.01018.us.i95.us, 1
+  %exitcond24.not.i103.us = icmp eq i32 %59, 4
+  br i1 %exitcond24.not.i103.us, label %.preheader.i106.us, label %.split.us.i93.us, !llvm.loop !33
 
-.preheader.i108.us:                               ; preds = %memtest_compare.exit.thread.us.i.us
+.preheader.i106.us:                               ; preds = %memtest_compare.exit.thread.us.i.us
   %60 = add nsw i32 %50, %58
-  br i1 %.not.i, label %.split.us.i151.us.preheader, label %.lr.ph.us.i110.us
+  br i1 %.not.i, label %.split.us.i149.us.preheader, label %.lr.ph.us.i108.us
 
-.lr.ph.us.i110.us:                                ; preds = %.preheader.i108.us, %._crit_edge.us.i113.us
-  %.041.us.i.us = phi i64 [ %73, %._crit_edge.us.i113.us ], [ 0, %.preheader.i108.us ]
+.lr.ph.us.i108.us:                                ; preds = %.preheader.i106.us, %._crit_edge.us.i111.us
+  %.041.us.i.us = phi i64 [ %73, %._crit_edge.us.i111.us ], [ 0, %.preheader.i106.us ]
   %61 = getelementptr inbounds nuw i64, ptr %.168, i64 %.041.us.i.us
   %62 = getelementptr inbounds nuw i64, ptr %61, i64 %22
   %63 = and i64 %.041.us.i.us, 1
@@ -1135,137 +1130,137 @@ memtest_compare.exit.thread.us.i.us:              ; preds = %memtest_compare.exi
   %67 = or i64 %64, %65
   %68 = or i64 %67, %66
   %69 = or i64 %68, %sext.us
-  br label %.lr.ph.split.us.us.i112.us
+  br label %.lr.ph.split.us.us.i110.us
 
-.lr.ph.split.us.us.i112.us:                       ; preds = %.lr.ph.split.us.us.i112.us, %.lr.ph.us.i110.us
-  %.03440.us.us.i.us = phi ptr [ %71, %.lr.ph.split.us.us.i112.us ], [ %62, %.lr.ph.us.i110.us ]
-  %.03539.us.us.i.us = phi ptr [ %70, %.lr.ph.split.us.us.i112.us ], [ %61, %.lr.ph.us.i110.us ]
-  %.03638.us.us.i.us = phi i64 [ %72, %.lr.ph.split.us.us.i112.us ], [ 0, %.lr.ph.us.i110.us ]
+.lr.ph.split.us.us.i110.us:                       ; preds = %.lr.ph.split.us.us.i110.us, %.lr.ph.us.i108.us
+  %.03440.us.us.i.us = phi ptr [ %71, %.lr.ph.split.us.us.i110.us ], [ %62, %.lr.ph.us.i108.us ]
+  %.03539.us.us.i.us = phi ptr [ %70, %.lr.ph.split.us.us.i110.us ], [ %61, %.lr.ph.us.i108.us ]
+  %.03638.us.us.i.us = phi i64 [ %72, %.lr.ph.split.us.us.i110.us ], [ 0, %.lr.ph.us.i108.us ]
   store i64 %69, ptr %.03440.us.us.i.us, align 8, !tbaa !13
   store i64 %69, ptr %.03539.us.us.i.us, align 8, !tbaa !13
   %70 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i.us, i64 4096
   %71 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i.us, i64 4096
   %72 = add nuw nsw i64 %.03638.us.us.i.us, 1
   %exitcond50.not.i.us = icmp eq i64 %72, %23
-  br i1 %exitcond50.not.i.us, label %._crit_edge.us.i113.us, label %.lr.ph.split.us.us.i112.us, !llvm.loop !30
+  br i1 %exitcond50.not.i.us, label %._crit_edge.us.i111.us, label %.lr.ph.split.us.us.i110.us, !llvm.loop !30
 
-._crit_edge.us.i113.us:                           ; preds = %.lr.ph.split.us.us.i112.us
+._crit_edge.us.i111.us:                           ; preds = %.lr.ph.split.us.us.i110.us
   %73 = add nuw nsw i64 %.041.us.i.us, 1
   %exitcond51.not.i.us = icmp eq i64 %73, 512
-  br i1 %exitcond51.not.i.us, label %.split.us.i151.us.preheader, label %.lr.ph.us.i110.us, !llvm.loop !29
+  br i1 %exitcond51.not.i.us, label %.split.us.i149.us.preheader, label %.lr.ph.us.i108.us, !llvm.loop !29
 
-.split.us.i151.us.preheader:                      ; preds = %._crit_edge.us.i113.us, %.preheader.i108.us
-  br label %.split.us.i151.us
+.split.us.i149.us.preheader:                      ; preds = %._crit_edge.us.i111.us, %.preheader.i106.us
+  br label %.split.us.i149.us
 
-.split.us.i151.us:                                ; preds = %.split.us.i151.us.preheader, %memtest_compare.exit.thread.us.i161.us
-  %.019.us.i152.us = phi i32 [ %81, %memtest_compare.exit.thread.us.i161.us ], [ 0, %.split.us.i151.us.preheader ]
-  %.01018.us.i153.us = phi i32 [ %82, %memtest_compare.exit.thread.us.i161.us ], [ 0, %.split.us.i151.us.preheader ]
-  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i161.us, label %.lr.ph.split.us.i.us.i154.us
+.split.us.i149.us:                                ; preds = %.split.us.i149.us.preheader, %memtest_compare.exit.thread.us.i159.us
+  %.019.us.i150.us = phi i32 [ %81, %memtest_compare.exit.thread.us.i159.us ], [ 0, %.split.us.i149.us.preheader ]
+  %.01018.us.i151.us = phi i32 [ %82, %memtest_compare.exit.thread.us.i159.us ], [ 0, %.split.us.i149.us.preheader ]
+  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i159.us, label %.lr.ph.split.us.i.us.i152.us
 
-.lr.ph.split.us.i.us.i154.us:                     ; preds = %.split.us.i151.us, %76
-  %.034.us.i.us.i155.us = phi ptr [ %78, %76 ], [ %26, %.split.us.i151.us ]
-  %.02233.us.i.us.i156.us = phi ptr [ %77, %76 ], [ %.168, %.split.us.i151.us ]
-  %.02332.us.i.us.i157.us = phi i64 [ %79, %76 ], [ 0, %.split.us.i151.us ]
-  %74 = load i64, ptr %.02233.us.i.us.i156.us, align 8, !tbaa !13
-  %75 = load i64, ptr %.034.us.i.us.i155.us, align 8, !tbaa !13
-  %.not.us.i.us.i158.us = icmp eq i64 %74, %75
-  br i1 %.not.us.i.us.i158.us, label %76, label %memtest_compare.exit.us.i159.us
+.lr.ph.split.us.i.us.i152.us:                     ; preds = %.split.us.i149.us, %76
+  %.034.us.i.us.i153.us = phi ptr [ %78, %76 ], [ %26, %.split.us.i149.us ]
+  %.02233.us.i.us.i154.us = phi ptr [ %77, %76 ], [ %.168, %.split.us.i149.us ]
+  %.02332.us.i.us.i155.us = phi i64 [ %79, %76 ], [ 0, %.split.us.i149.us ]
+  %74 = load i64, ptr %.02233.us.i.us.i154.us, align 8, !tbaa !13
+  %75 = load i64, ptr %.034.us.i.us.i153.us, align 8, !tbaa !13
+  %.not.us.i.us.i156.us = icmp eq i64 %74, %75
+  br i1 %.not.us.i.us.i156.us, label %76, label %memtest_compare.exit.us.i157.us
 
-76:                                               ; preds = %.lr.ph.split.us.i.us.i154.us
-  %77 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i156.us, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i155.us, i64 8
-  %79 = add nuw nsw i64 %.02332.us.i.us.i157.us, 1
-  %exitcond53.not.i.us.i163.us = icmp eq i64 %79, %22
-  br i1 %exitcond53.not.i.us.i163.us, label %memtest_compare.exit.us.i159.us, label %.lr.ph.split.us.i.us.i154.us, !llvm.loop !31
+76:                                               ; preds = %.lr.ph.split.us.i.us.i152.us
+  %77 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i154.us, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i153.us, i64 8
+  %79 = add nuw nsw i64 %.02332.us.i.us.i155.us, 1
+  %exitcond53.not.i.us.i161.us = icmp eq i64 %79, %22
+  br i1 %exitcond53.not.i.us.i161.us, label %memtest_compare.exit.us.i157.us, label %.lr.ph.split.us.i.us.i152.us, !llvm.loop !31
 
-memtest_compare.exit.us.i159.us:                  ; preds = %76, %.lr.ph.split.us.i.us.i154.us
-  %phi.call.us.i160.us = phi i32 [ 0, %76 ], [ 1, %.lr.ph.split.us.i.us.i154.us ]
-  %80 = add nuw nsw i32 %phi.call.us.i160.us, %.019.us.i152.us
-  br label %memtest_compare.exit.thread.us.i161.us
+memtest_compare.exit.us.i157.us:                  ; preds = %76, %.lr.ph.split.us.i.us.i152.us
+  %phi.call.us.i158.us = phi i32 [ 0, %76 ], [ 1, %.lr.ph.split.us.i.us.i152.us ]
+  %80 = add nuw nsw i32 %phi.call.us.i158.us, %.019.us.i150.us
+  br label %memtest_compare.exit.thread.us.i159.us
 
-memtest_compare.exit.thread.us.i161.us:           ; preds = %memtest_compare.exit.us.i159.us, %.split.us.i151.us
-  %81 = phi i32 [ %80, %memtest_compare.exit.us.i159.us ], [ %.019.us.i152.us, %.split.us.i151.us ]
-  %82 = add nuw nsw i32 %.01018.us.i153.us, 1
-  %exitcond24.not.i162.us = icmp eq i32 %82, 4
-  br i1 %exitcond24.not.i162.us, label %.preheader.i165.us, label %.split.us.i151.us, !llvm.loop !33
+memtest_compare.exit.thread.us.i159.us:           ; preds = %memtest_compare.exit.us.i157.us, %.split.us.i149.us
+  %81 = phi i32 [ %80, %memtest_compare.exit.us.i157.us ], [ %.019.us.i150.us, %.split.us.i149.us ]
+  %82 = add nuw nsw i32 %.01018.us.i151.us, 1
+  %exitcond24.not.i160.us = icmp eq i32 %82, 4
+  br i1 %exitcond24.not.i160.us, label %.preheader.i163.us, label %.split.us.i149.us, !llvm.loop !33
 
-.preheader.i165.us:                               ; preds = %memtest_compare.exit.thread.us.i161.us
+.preheader.i163.us:                               ; preds = %memtest_compare.exit.thread.us.i159.us
   %83 = add nsw i32 %60, %81
-  br i1 %.not.i, label %.split.us.i215.us.preheader, label %.lr.ph.us.i167.us
+  br i1 %.not.i, label %.split.us.i213.us.preheader, label %.lr.ph.us.i165.us
 
-.lr.ph.us.i167.us:                                ; preds = %.preheader.i165.us, %._crit_edge.us.i175.us
-  %.041.us.i168.us = phi i64 [ %97, %._crit_edge.us.i175.us ], [ 0, %.preheader.i165.us ]
-  %84 = getelementptr inbounds nuw i64, ptr %.168, i64 %.041.us.i168.us
+.lr.ph.us.i165.us:                                ; preds = %.preheader.i163.us, %._crit_edge.us.i173.us
+  %.041.us.i166.us = phi i64 [ %97, %._crit_edge.us.i173.us ], [ 0, %.preheader.i163.us ]
+  %84 = getelementptr inbounds nuw i64, ptr %.168, i64 %.041.us.i166.us
   %85 = getelementptr inbounds nuw i64, ptr %84, i64 %22
-  %86 = and i64 %.041.us.i168.us, 1
-  %.not.us.i169.us = icmp eq i64 %86, 0
-  %87 = select i1 %.not.us.i169.us, i64 -6148914691236517206, i64 6148914691236517205
+  %86 = and i64 %.041.us.i166.us, 1
+  %.not.us.i167.us = icmp eq i64 %86, 0
+  %87 = select i1 %.not.us.i167.us, i64 -6148914691236517206, i64 6148914691236517205
   %88 = shl i64 %87, 16
   %89 = shl i64 %87, 32
   %90 = shl i64 %87, 48
   %91 = or i64 %88, %89
   %92 = or i64 %91, %90
   %93 = or i64 %92, %87
-  br label %.lr.ph.split.us.us.i170.us
+  br label %.lr.ph.split.us.us.i168.us
 
-.lr.ph.split.us.us.i170.us:                       ; preds = %.lr.ph.split.us.us.i170.us, %.lr.ph.us.i167.us
-  %.03440.us.us.i171.us = phi ptr [ %95, %.lr.ph.split.us.us.i170.us ], [ %85, %.lr.ph.us.i167.us ]
-  %.03539.us.us.i172.us = phi ptr [ %94, %.lr.ph.split.us.us.i170.us ], [ %84, %.lr.ph.us.i167.us ]
-  %.03638.us.us.i173.us = phi i64 [ %96, %.lr.ph.split.us.us.i170.us ], [ 0, %.lr.ph.us.i167.us ]
-  store i64 %93, ptr %.03440.us.us.i171.us, align 8, !tbaa !13
-  store i64 %93, ptr %.03539.us.us.i172.us, align 8, !tbaa !13
-  %94 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i172.us, i64 4096
-  %95 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i171.us, i64 4096
-  %96 = add nuw nsw i64 %.03638.us.us.i173.us, 1
-  %exitcond50.not.i174.us = icmp eq i64 %96, %23
-  br i1 %exitcond50.not.i174.us, label %._crit_edge.us.i175.us, label %.lr.ph.split.us.us.i170.us, !llvm.loop !30
+.lr.ph.split.us.us.i168.us:                       ; preds = %.lr.ph.split.us.us.i168.us, %.lr.ph.us.i165.us
+  %.03440.us.us.i169.us = phi ptr [ %95, %.lr.ph.split.us.us.i168.us ], [ %85, %.lr.ph.us.i165.us ]
+  %.03539.us.us.i170.us = phi ptr [ %94, %.lr.ph.split.us.us.i168.us ], [ %84, %.lr.ph.us.i165.us ]
+  %.03638.us.us.i171.us = phi i64 [ %96, %.lr.ph.split.us.us.i168.us ], [ 0, %.lr.ph.us.i165.us ]
+  store i64 %93, ptr %.03440.us.us.i169.us, align 8, !tbaa !13
+  store i64 %93, ptr %.03539.us.us.i170.us, align 8, !tbaa !13
+  %94 = getelementptr inbounds nuw i8, ptr %.03539.us.us.i170.us, i64 4096
+  %95 = getelementptr inbounds nuw i8, ptr %.03440.us.us.i169.us, i64 4096
+  %96 = add nuw nsw i64 %.03638.us.us.i171.us, 1
+  %exitcond50.not.i172.us = icmp eq i64 %96, %23
+  br i1 %exitcond50.not.i172.us, label %._crit_edge.us.i173.us, label %.lr.ph.split.us.us.i168.us, !llvm.loop !30
 
-._crit_edge.us.i175.us:                           ; preds = %.lr.ph.split.us.us.i170.us
-  %97 = add nuw nsw i64 %.041.us.i168.us, 1
-  %exitcond51.not.i176.us = icmp eq i64 %97, 512
-  br i1 %exitcond51.not.i176.us, label %.split.us.i215.us.preheader, label %.lr.ph.us.i167.us, !llvm.loop !29
+._crit_edge.us.i173.us:                           ; preds = %.lr.ph.split.us.us.i168.us
+  %97 = add nuw nsw i64 %.041.us.i166.us, 1
+  %exitcond51.not.i174.us = icmp eq i64 %97, 512
+  br i1 %exitcond51.not.i174.us, label %.split.us.i213.us.preheader, label %.lr.ph.us.i165.us, !llvm.loop !29
 
-.split.us.i215.us.preheader:                      ; preds = %._crit_edge.us.i175.us, %.preheader.i165.us
-  br label %.split.us.i215.us
+.split.us.i213.us.preheader:                      ; preds = %._crit_edge.us.i173.us, %.preheader.i163.us
+  br label %.split.us.i213.us
 
-.split.us.i215.us:                                ; preds = %.split.us.i215.us.preheader, %memtest_compare.exit.thread.us.i225.us
-  %.019.us.i216.us = phi i32 [ %105, %memtest_compare.exit.thread.us.i225.us ], [ 0, %.split.us.i215.us.preheader ]
-  %.01018.us.i217.us = phi i32 [ %106, %memtest_compare.exit.thread.us.i225.us ], [ 0, %.split.us.i215.us.preheader ]
-  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i225.us, label %.lr.ph.split.us.i.us.i218.us
+.split.us.i213.us:                                ; preds = %.split.us.i213.us.preheader, %memtest_compare.exit.thread.us.i223.us
+  %.019.us.i214.us = phi i32 [ %105, %memtest_compare.exit.thread.us.i223.us ], [ 0, %.split.us.i213.us.preheader ]
+  %.01018.us.i215.us = phi i32 [ %106, %memtest_compare.exit.thread.us.i223.us ], [ 0, %.split.us.i213.us.preheader ]
+  br i1 %.not38.i.i, label %memtest_compare.exit.thread.us.i223.us, label %.lr.ph.split.us.i.us.i216.us
 
-.lr.ph.split.us.i.us.i218.us:                     ; preds = %.split.us.i215.us, %100
-  %.034.us.i.us.i219.us = phi ptr [ %102, %100 ], [ %26, %.split.us.i215.us ]
-  %.02233.us.i.us.i220.us = phi ptr [ %101, %100 ], [ %.168, %.split.us.i215.us ]
-  %.02332.us.i.us.i221.us = phi i64 [ %103, %100 ], [ 0, %.split.us.i215.us ]
-  %98 = load i64, ptr %.02233.us.i.us.i220.us, align 8, !tbaa !13
-  %99 = load i64, ptr %.034.us.i.us.i219.us, align 8, !tbaa !13
-  %.not.us.i.us.i222.us = icmp eq i64 %98, %99
-  br i1 %.not.us.i.us.i222.us, label %100, label %memtest_compare.exit.us.i223.us
+.lr.ph.split.us.i.us.i216.us:                     ; preds = %.split.us.i213.us, %100
+  %.034.us.i.us.i217.us = phi ptr [ %102, %100 ], [ %26, %.split.us.i213.us ]
+  %.02233.us.i.us.i218.us = phi ptr [ %101, %100 ], [ %.168, %.split.us.i213.us ]
+  %.02332.us.i.us.i219.us = phi i64 [ %103, %100 ], [ 0, %.split.us.i213.us ]
+  %98 = load i64, ptr %.02233.us.i.us.i218.us, align 8, !tbaa !13
+  %99 = load i64, ptr %.034.us.i.us.i217.us, align 8, !tbaa !13
+  %.not.us.i.us.i220.us = icmp eq i64 %98, %99
+  br i1 %.not.us.i.us.i220.us, label %100, label %memtest_compare.exit.us.i221.us
 
-100:                                              ; preds = %.lr.ph.split.us.i.us.i218.us
-  %101 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i220.us, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i219.us, i64 8
-  %103 = add nuw nsw i64 %.02332.us.i.us.i221.us, 1
-  %exitcond53.not.i.us.i227.us = icmp eq i64 %103, %22
-  br i1 %exitcond53.not.i.us.i227.us, label %memtest_compare.exit.us.i223.us, label %.lr.ph.split.us.i.us.i218.us, !llvm.loop !31
+100:                                              ; preds = %.lr.ph.split.us.i.us.i216.us
+  %101 = getelementptr inbounds nuw i8, ptr %.02233.us.i.us.i218.us, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.034.us.i.us.i217.us, i64 8
+  %103 = add nuw nsw i64 %.02332.us.i.us.i219.us, 1
+  %exitcond53.not.i.us.i225.us = icmp eq i64 %103, %22
+  br i1 %exitcond53.not.i.us.i225.us, label %memtest_compare.exit.us.i221.us, label %.lr.ph.split.us.i.us.i216.us, !llvm.loop !31
 
-memtest_compare.exit.us.i223.us:                  ; preds = %100, %.lr.ph.split.us.i.us.i218.us
-  %phi.call.us.i224.us = phi i32 [ 0, %100 ], [ 1, %.lr.ph.split.us.i.us.i218.us ]
-  %104 = add nuw nsw i32 %phi.call.us.i224.us, %.019.us.i216.us
-  br label %memtest_compare.exit.thread.us.i225.us
+memtest_compare.exit.us.i221.us:                  ; preds = %100, %.lr.ph.split.us.i.us.i216.us
+  %phi.call.us.i222.us = phi i32 [ 0, %100 ], [ 1, %.lr.ph.split.us.i.us.i216.us ]
+  %104 = add nuw nsw i32 %phi.call.us.i222.us, %.019.us.i214.us
+  br label %memtest_compare.exit.thread.us.i223.us
 
-memtest_compare.exit.thread.us.i225.us:           ; preds = %memtest_compare.exit.us.i223.us, %.split.us.i215.us
-  %105 = phi i32 [ %104, %memtest_compare.exit.us.i223.us ], [ %.019.us.i216.us, %.split.us.i215.us ]
-  %106 = add nuw nsw i32 %.01018.us.i217.us, 1
-  %exitcond24.not.i226.us = icmp eq i32 %106, 4
-  br i1 %exitcond24.not.i226.us, label %memtest_compare_times.exit228.us, label %.split.us.i215.us, !llvm.loop !33
+memtest_compare.exit.thread.us.i223.us:           ; preds = %memtest_compare.exit.us.i221.us, %.split.us.i213.us
+  %105 = phi i32 [ %104, %memtest_compare.exit.us.i221.us ], [ %.019.us.i214.us, %.split.us.i213.us ]
+  %106 = add nuw nsw i32 %.01018.us.i215.us, 1
+  %exitcond24.not.i224.us = icmp eq i32 %106, 4
+  br i1 %exitcond24.not.i224.us, label %memtest_compare_times.exit226.us, label %.split.us.i213.us, !llvm.loop !33
 
-memtest_compare_times.exit228.us:                 ; preds = %memtest_compare.exit.thread.us.i225.us
+memtest_compare_times.exit226.us:                 ; preds = %memtest_compare.exit.thread.us.i223.us
   %107 = add nsw i32 %83, %105
   %.not72.us = icmp eq i32 %27, %2
   br i1 %.not72.us, label %._crit_edge.split.us, label %.lr.ph.split.us, !llvm.loop !38
 
-._crit_edge.split.us:                             ; preds = %memtest_compare_times.exit228.us
+._crit_edge.split.us:                             ; preds = %memtest_compare_times.exit226.us
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.168, ptr nonnull align 16 %4, i64 %spec.select, i1 false)
   %108 = sub i64 %.165, %spec.select
   %109 = getelementptr inbounds nuw i8, ptr %.168, i64 %spec.select

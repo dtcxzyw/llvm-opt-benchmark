@@ -1876,40 +1876,40 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gat
   %23 = icmp uge ptr %17, %.pre3.i
   %24 = icmp ult ptr %17, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i, label %26, label %25, !prof !102
+  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !102
 
 25:                                               ; preds = %21
+  %26 = ptrtoint ptr %17 to i64
+  %27 = ptrtoint ptr %.pre3.i to i64
+  %28 = sub i64 %26, %27
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %9, i64 noundef %19, i64 noundef 20) #16
+  %29 = load ptr, ptr %6, align 8, !tbaa !51
+  %30 = getelementptr inbounds i8, ptr %29, i64 %28
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %21
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %9, i64 noundef %19, i64 noundef 20) #16
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !51
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit
 
-26:                                               ; preds = %21
-  %27 = ptrtoint ptr %17 to i64
-  %28 = ptrtoint ptr %.pre3.i to i64
-  %29 = sub i64 %27, %28
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %9, i64 noundef %19, i64 noundef 20) #16
-  %30 = load ptr, ptr %6, align 8, !tbaa !51
-  %31 = getelementptr inbounds i8, ptr %30, i64 %29
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit: ; preds = %14, %25, %26
-  %32 = phi ptr [ %.pre3.i, %14 ], [ %30, %26 ], [ %.pre.i, %25 ]
-  %.016.i.i.i = phi ptr [ %17, %14 ], [ %31, %26 ], [ %17, %25 ]
-  %33 = load i32, ptr %7, align 8, !tbaa !54
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %32, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %35, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
-  %36 = load i32, ptr %7, align 8, !tbaa !54
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %7, align 8, !tbaa !54
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %.sroa.01.0.copyload = load i64, ptr %38, align 4
+_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit: ; preds = %14, %25, %.critedge.i.i.i
+  %31 = phi ptr [ %.pre3.i, %14 ], [ %29, %25 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %17, %14 ], [ %30, %25 ], [ %17, %.critedge.i.i.i ]
+  %32 = load i32, ptr %7, align 8, !tbaa !54
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %31, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
+  %35 = load i32, ptr %7, align 8, !tbaa !54
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %7, align 8, !tbaa !54
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.sroa.01.0.copyload = load i64, ptr %37, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gatherUsedEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %0, i64 %.sroa.01.0.copyload)
-  %39 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %.sroa.0.0.copyload = load i64, ptr %39, align 4
-  %40 = and i64 %.sroa.0.0.copyload, 4294967295
-  %41 = icmp eq i64 %40, 2
-  br i1 %41, label %10, label %tailrecurse._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %.sroa.0.0.copyload = load i64, ptr %38, align 4
+  %39 = and i64 %.sroa.0.0.copyload, 4294967295
+  %40 = icmp eq i64 %39, 2
+  br i1 %40, label %10, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %10, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit, %2
   ret void

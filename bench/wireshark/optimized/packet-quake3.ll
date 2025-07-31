@@ -395,13 +395,13 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   %136 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.5)
   %137 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
   %.not.i28 = icmp eq ptr %136, null
-  br i1 %.not.i28, label %138, label %.thread70.i
+  br i1 %.not.i28, label %138, label %.thread.i
 
 138:                                              ; preds = %127
   %139 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2)
   br i1 %133, label %163, label %170
 
-.thread70.i:                                      ; preds = %127
+.thread.i:                                        ; preds = %127
   %140 = and i16 %137, 32767
   %141 = zext nneg i16 %140 to i32
   %.lobit.i = lshr i16 %137, 15
@@ -433,15 +433,15 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   %164 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
   br label %170
 
-165:                                              ; preds = %.thread70.i
+165:                                              ; preds = %.thread.i
   %166 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
   %167 = load i32, ptr @hf_quake3_game_qport, align 4
   %168 = zext i16 %166 to i32
   %169 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %136, i32 noundef %167, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %168)
   br label %170
 
-170:                                              ; preds = %165, %163, %.thread70.i, %138
-  %.0.i29 = phi i32 [ 4, %138 ], [ 6, %165 ], [ 6, %163 ], [ 4, %.thread70.i ]
+170:                                              ; preds = %165, %163, %.thread.i, %138
+  %.0.i29 = phi i32 [ 4, %138 ], [ 6, %165 ], [ 6, %163 ], [ 4, %.thread.i ]
   %171 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not69.i = icmp eq i32 %171, %.0.i29
   br i1 %.not69.i, label %dissect_quake3_GamePacket.exit, label %.sink.split.i

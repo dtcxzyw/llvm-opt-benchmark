@@ -431,7 +431,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 2) #7
-  br label %.thread74
+  br label %.thread
 
 11:                                               ; preds = %2
   %12 = icmp eq i32 %8, 0
@@ -446,27 +446,27 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8, !tbaa !11
-  switch i8 %17, label %zend_parse_arg_long_ex.exit57 [
+  switch i8 %17, label %zend_parse_arg_long_ex.exit58 [
     i8 4, label %18
-    i8 1, label %zend_parse_arg_long_ex.exit57.thread
+    i8 1, label %zend_parse_arg_long_ex.exit58.thread
   ], !prof !22
 
 18:                                               ; preds = %14
   %19 = load i64, ptr %15, align 8, !tbaa !11
-  br label %zend_parse_arg_long_ex.exit57.thread
+  br label %zend_parse_arg_long_ex.exit58.thread
 
-zend_parse_arg_long_ex.exit57.thread:             ; preds = %14, %18
-  %.1 = phi i1 [ false, %18 ], [ true, %14 ]
+zend_parse_arg_long_ex.exit58.thread:             ; preds = %14, %18
+  %.2 = phi i1 [ false, %18 ], [ true, %14 ]
   %storemerge.i = phi i64 [ %19, %18 ], [ 0, %14 ]
   store i64 %storemerge.i, ptr %3, align 8, !tbaa !20
   br label %21
 
-zend_parse_arg_long_ex.exit57:                    ; preds = %14
+zend_parse_arg_long_ex.exit58:                    ; preds = %14
   %20 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 1) #7
-  br i1 %20, label %21, label %.thread74, !prof !23
+  br i1 %20, label %21, label %.thread, !prof !23
 
-21:                                               ; preds = %zend_parse_arg_long_ex.exit57.thread, %zend_parse_arg_long_ex.exit57
-  %.260 = phi i1 [ %.1, %zend_parse_arg_long_ex.exit57.thread ], [ false, %zend_parse_arg_long_ex.exit57 ]
+21:                                               ; preds = %zend_parse_arg_long_ex.exit58.thread, %zend_parse_arg_long_ex.exit58
+  %.361 = phi i1 [ %.2, %zend_parse_arg_long_ex.exit58.thread ], [ false, %zend_parse_arg_long_ex.exit58 ]
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %22, label %.critedge.thread, !prof !24
 
@@ -475,36 +475,36 @@ zend_parse_arg_long_ex.exit57:                    ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i8, ptr %24, align 8, !tbaa !11
   %26 = icmp eq i8 %25, 4
-  br i1 %26, label %zend_parse_arg_long_ex.exit.thread, label %zend_parse_arg_long_ex.exit, !prof !24
+  br i1 %26, label %.thread76, label %zend_parse_arg_long_ex.exit, !prof !24
 
-zend_parse_arg_long_ex.exit.thread:               ; preds = %22
+.thread76:                                        ; preds = %22
   %27 = load i64, ptr %23, align 8, !tbaa !11
   store i64 %27, ptr %4, align 8, !tbaa !20
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %22
   %28 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 2) #7
-  br i1 %28, label %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, label %.thread74, !prof !25
+  br i1 %28, label %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, label %.thread, !prof !25
 
 zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend_parse_arg_long_ex.exit
   %.pr.pre = load i64, ptr %4, align 8, !tbaa !20
   br label %.critedge
 
-.thread74:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit57, %10
-  %.04984 = phi i32 [ 9, %zend_parse_arg_long_ex.exit57 ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.05083 = phi i32 [ 1, %zend_parse_arg_long_ex.exit57 ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.05182 = phi i32 [ 1, %zend_parse_arg_long_ex.exit57 ], [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.05281 = phi ptr [ %15, %zend_parse_arg_long_ex.exit57 ], [ null, %10 ], [ %23, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.04984, i32 noundef %.05083, ptr noundef null, i32 noundef %.05182, ptr noundef %.05281) #7
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit58, %10
+  %.04975 = phi i32 [ 9, %zend_parse_arg_long_ex.exit58 ], [ 1, %10 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.05074 = phi i32 [ 1, %zend_parse_arg_long_ex.exit58 ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ]
+  %.05173 = phi i32 [ 1, %zend_parse_arg_long_ex.exit58 ], [ 0, %10 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.05272 = phi ptr [ %15, %zend_parse_arg_long_ex.exit58 ], [ null, %10 ], [ %23, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.04975, i32 noundef %.05074, ptr noundef null, i32 noundef %.05173, ptr noundef %.05272) #7
   br label %58
 
 .critedge.thread:                                 ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
   store i32 0, ptr %29, align 4, !tbaa !10
-  br i1 %.260, label %38, label %46
+  br i1 %.361, label %38, label %46
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, %zend_parse_arg_long_ex.exit.thread
-  %30 = phi i64 [ %27, %zend_parse_arg_long_ex.exit.thread ], [ %.pr.pre, %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge ]
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, %.thread76
+  %30 = phi i64 [ %27, %.thread76 ], [ %.pr.pre, %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge ]
   switch i64 %30, label %33 [
     i64 0, label %36
     i64 1, label %31
@@ -514,7 +514,7 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str) #7
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
   store i32 1, ptr %32, align 4, !tbaa !10
-  br i1 %.260, label %38, label %46
+  br i1 %.361, label %38, label %46
 
 33:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.1) #7
@@ -526,7 +526,7 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 36:                                               ; preds = %.critedge
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 4
   store i32 0, ptr %37, align 4, !tbaa !10
-  br i1 %.260, label %38, label %46
+  br i1 %.361, label %38, label %46
 
 38:                                               ; preds = %.critedge.thread.thread, %.critedge.thread, %31, %36
   %39 = call i32 @php_random_bytes(ptr noundef nonnull %3, i64 noundef 8, i1 noundef zeroext true) #7
@@ -567,7 +567,7 @@ php_random_mt19937_seed32.exit:                   ; preds = %50
   call fastcc void @mt19937_reload(ptr noundef nonnull %.sroa.3.0.copyload)
   br label %58
 
-58:                                               ; preds = %.thread74, %php_random_mt19937_seed32.exit, %41, %33
+58:                                               ; preds = %.thread, %php_random_mt19937_seed32.exit, %41, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void

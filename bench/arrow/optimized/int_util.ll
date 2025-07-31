@@ -8281,127 +8281,127 @@ define void @_ZN5arrow8internal20CheckIntegersInRangeERKNS_9ArraySpanERKNS_6Scal
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef %59, i64 noundef %55, i64 noundef %61), !noalias !425
   %62 = load i64, ptr %60, align 8, !tbaa !215, !noalias !425
   %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %.lr.ph183.preheader.i.i, label %._crit_edge.i.i
+  br i1 %63, label %.lr.ph180.preheader.i.i, label %._crit_edge.i.i
 
-.lr.ph183.preheader.i.i:                          ; preds = %53
+.lr.ph180.preheader.i.i:                          ; preds = %53
   %64 = load i64, ptr %54, align 8, !tbaa !211, !noalias !425
   %65 = getelementptr inbounds i8, ptr %58, i64 %55
-  br label %.lr.ph183.i.i
+  br label %.lr.ph180.i.i
 
-.lr.ph183.i.i:                                    ; preds = %.thread.i.i, %.lr.ph183.preheader.i.i
-  %.088180.i.i = phi ptr [ %161, %.thread.i.i ], [ %65, %.lr.ph183.preheader.i.i ]
-  %.090179.i.i = phi i64 [ %163, %.thread.i.i ], [ 0, %.lr.ph183.preheader.i.i ]
-  %.092176.i.i = phi i64 [ %164, %.thread.i.i ], [ %64, %.lr.ph183.preheader.i.i ]
+.lr.ph180.i.i:                                    ; preds = %.critedge.i.i, %.lr.ph180.preheader.i.i
+  %.088177.i.i = phi ptr [ %161, %.critedge.i.i ], [ %65, %.lr.ph180.preheader.i.i ]
+  %.090176.i.i = phi i64 [ %163, %.critedge.i.i ], [ 0, %.lr.ph180.preheader.i.i ]
+  %.092173.i.i = phi i64 [ %164, %.critedge.i.i ], [ %64, %.lr.ph180.preheader.i.i ]
   %66 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %28), !noalias !425
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %66 to i16
   %67 = ashr i32 %66, 16
   %sext.i.i = shl i32 %66, 16
   %68 = ashr exact i32 %sext.i.i, 16
   %69 = icmp eq i32 %67, %68
-  br i1 %69, label %.preheader144.i.i, label %90
+  br i1 %69, label %.preheader141.i.i, label %90
 
-.preheader144.i.i:                                ; preds = %.lr.ph183.i.i
+.preheader141.i.i:                                ; preds = %.lr.ph180.i.i
   %70 = icmp sgt i32 %67, 7
-  br i1 %70, label %.preheader.preheader.i.i, label %.preheader143.i.i
+  br i1 %70, label %.preheader.preheader.i.i, label %.preheader140.i.i
 
-.preheader.preheader.i.i:                         ; preds = %.preheader144.i.i
+.preheader.preheader.i.i:                         ; preds = %.preheader141.i.i
   %71 = lshr i32 %67, 3
-  %smax201.i.i = zext nneg i32 %71 to i64
+  %smax198.i.i = zext nneg i32 %71 to i64
   br label %.preheader.i.i
 
-.preheader143.loopexit.i.i:                       ; preds = %75
-  %72 = shl nuw nsw i64 %smax201.i.i, 3
-  br label %.preheader143.i.i
+.preheader140.loopexit.i.i:                       ; preds = %75
+  %72 = shl nuw nsw i64 %smax198.i.i, 3
+  br label %.preheader140.i.i
 
-.preheader143.i.i:                                ; preds = %.preheader143.loopexit.i.i, %.preheader144.i.i
-  %.085.lcssa.i.i = phi i1 [ false, %.preheader144.i.i ], [ %83, %.preheader143.loopexit.i.i ]
-  %.082.lcssa.i.i = phi i64 [ 0, %.preheader144.i.i ], [ %72, %.preheader143.loopexit.i.i ]
+.preheader140.i.i:                                ; preds = %.preheader140.loopexit.i.i, %.preheader141.i.i
+  %.085.lcssa.i.i = phi i1 [ false, %.preheader141.i.i ], [ %83, %.preheader140.loopexit.i.i ]
+  %.082.lcssa.i.i = phi i64 [ 0, %.preheader141.i.i ], [ %72, %.preheader140.loopexit.i.i ]
   %73 = sext i16 %.sroa.0.0.extract.trunc.i.i to i64
   %74 = icmp slt i64 %.082.lcssa.i.i, %73
-  br i1 %74, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i, label %.loopexit.i.i
+  br i1 %74, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i, label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %75, %.preheader.preheader.i.i
-  %indvars.iv199.i.i = phi i64 [ 8, %.preheader.preheader.i.i ], [ %indvars.iv.next200.i.i, %75 ]
-  %.081164.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %77, %75 ]
-  %.082163.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %76, %75 ]
-  %.085162.i.i = phi i1 [ false, %.preheader.preheader.i.i ], [ %83, %75 ]
+  %indvars.iv196.i.i = phi i64 [ 8, %.preheader.preheader.i.i ], [ %indvars.iv.next197.i.i, %75 ]
+  %.081161.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %77, %75 ]
+  %.082160.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %76, %75 ]
+  %.085159.i.i = phi i1 [ false, %.preheader.preheader.i.i ], [ %83, %75 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i
 
 75:                                               ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i
-  %76 = add nuw nsw i64 %.082163.i.i, 8
-  %77 = add nuw nsw i64 %.081164.i.i, 1
-  %indvars.iv.next200.i.i = add nuw nsw i64 %indvars.iv199.i.i, 8
-  %exitcond202.not.i.i = icmp eq i64 %77, %smax201.i.i
-  br i1 %exitcond202.not.i.i, label %.preheader143.loopexit.i.i, label %.preheader.i.i, !llvm.loop !429
+  %76 = add nuw nsw i64 %.082160.i.i, 8
+  %77 = add nuw nsw i64 %.081161.i.i, 1
+  %indvars.iv.next197.i.i = add nuw nsw i64 %indvars.iv196.i.i, 8
+  %exitcond199.not.i.i = icmp eq i64 %77, %smax198.i.i
+  br i1 %exitcond199.not.i.i, label %.preheader140.loopexit.i.i, label %.preheader.i.i, !llvm.loop !429
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i, %.preheader.i.i
-  %.183160.i.i = phi i64 [ %.082163.i.i, %.preheader.i.i ], [ %78, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i ]
-  %.186159.i.i = phi i1 [ %.085162.i.i, %.preheader.i.i ], [ %83, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i ]
-  %78 = add nuw nsw i64 %.183160.i.i, 1
-  %79 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.183160.i.i
+  %.183157.i.i = phi i64 [ %.082160.i.i, %.preheader.i.i ], [ %78, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i ]
+  %.186156.i.i = phi i1 [ %.085159.i.i, %.preheader.i.i ], [ %83, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i ]
+  %78 = add nuw nsw i64 %.183157.i.i, 1
+  %79 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.183157.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !3, !noalias !425
   %81 = icmp slt i8 %80, %.val
   %82 = icmp sgt i8 %80, %.val37
   %spec.select.i.i = or i1 %81, %82
-  %83 = or i1 %.186159.i.i, %spec.select.i.i
-  %exitcond198.not.i.i = icmp eq i64 %78, %indvars.iv199.i.i
-  br i1 %exitcond198.not.i.i, label %75, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i, !llvm.loop !430
+  %83 = or i1 %.186156.i.i, %spec.select.i.i
+  %exitcond195.not.i.i = icmp eq i64 %78, %indvars.iv196.i.i
+  br i1 %exitcond195.not.i.i, label %75, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit.i.i, !llvm.loop !430
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i: ; preds = %.preheader143.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i
-  %.284168.i.i = phi i64 [ %89, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i ], [ %.082.lcssa.i.i, %.preheader143.i.i ]
-  %.287167.i.i = phi i1 [ %88, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i ], [ %.085.lcssa.i.i, %.preheader143.i.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.284168.i.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i: ; preds = %.preheader140.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i
+  %.284165.i.i = phi i64 [ %89, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i ], [ %.082.lcssa.i.i, %.preheader140.i.i ]
+  %.287164.i.i = phi i1 [ %88, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i ], [ %.085.lcssa.i.i, %.preheader140.i.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.284165.i.i
   %85 = load i8, ptr %84, align 1, !tbaa !3, !noalias !425
   %86 = icmp slt i8 %85, %.val
   %87 = icmp sgt i8 %85, %.val37
-  %spec.select131.i.i = or i1 %86, %87
-  %88 = or i1 %.287167.i.i, %spec.select131.i.i
-  %89 = add nuw nsw i64 %.284168.i.i, 1
-  %exitcond203.not.i.i = icmp eq i64 %89, %73
-  br i1 %exitcond203.not.i.i, label %.loopexit.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i, !llvm.loop !431
+  %spec.select128.i.i = or i1 %86, %87
+  %88 = or i1 %.287164.i.i, %spec.select128.i.i
+  %89 = add nuw nsw i64 %.284165.i.i, 1
+  %exitcond200.not.i.i = icmp eq i64 %89, %73
+  br i1 %exitcond200.not.i.i, label %.loopexit.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i, !llvm.loop !431
 
-90:                                               ; preds = %.lr.ph183.i.i
+90:                                               ; preds = %.lr.ph180.i.i
   %91 = icmp sgt i32 %67, 0
-  br i1 %91, label %.preheader147.i.i, label %.thread.i.i
+  br i1 %91, label %.preheader144.i.i, label %.critedge.i.i
 
-.preheader147.i.i:                                ; preds = %90
+.preheader144.i.i:                                ; preds = %90
   %92 = icmp sgt i32 %68, 7
-  br i1 %92, label %.preheader139.preheader.i.i, label %.preheader145.i.i
+  br i1 %92, label %.preheader136.preheader.i.i, label %.preheader142.i.i
 
-.preheader139.preheader.i.i:                      ; preds = %.preheader147.i.i
+.preheader136.preheader.i.i:                      ; preds = %.preheader144.i.i
   %93 = lshr i32 %68, 3
   %smax.i.i = zext nneg i32 %93 to i64
-  br label %.preheader139.i.i
+  br label %.preheader136.i.i
 
-.preheader145.loopexit.i.i:                       ; preds = %97
+.preheader142.loopexit.i.i:                       ; preds = %97
   %94 = shl nuw nsw i64 %smax.i.i, 3
-  br label %.preheader145.i.i
+  br label %.preheader142.i.i
 
-.preheader145.i.i:                                ; preds = %.preheader145.loopexit.i.i, %.preheader147.i.i
-  %.4.lcssa.i.i = phi i1 [ false, %.preheader147.i.i ], [ %116, %.preheader145.loopexit.i.i ]
-  %.076.lcssa.i.i = phi i64 [ 0, %.preheader147.i.i ], [ %94, %.preheader145.loopexit.i.i ]
+.preheader142.i.i:                                ; preds = %.preheader142.loopexit.i.i, %.preheader144.i.i
+  %.4.lcssa.i.i = phi i1 [ false, %.preheader144.i.i ], [ %116, %.preheader142.loopexit.i.i ]
+  %.076.lcssa.i.i = phi i64 [ 0, %.preheader144.i.i ], [ %94, %.preheader142.loopexit.i.i ]
   %95 = sext i16 %.sroa.0.0.extract.trunc.i.i to i64
   %96 = icmp slt i64 %.076.lcssa.i.i, %95
   br i1 %96, label %.lr.ph.i.i, label %.loopexit.i.i
 
-.preheader139.i.i:                                ; preds = %97, %.preheader139.preheader.i.i
-  %indvars.iv194.i.i = phi i64 [ 8, %.preheader139.preheader.i.i ], [ %indvars.iv.next195.i.i, %97 ]
-  %.075154.i.i = phi i64 [ 0, %.preheader139.preheader.i.i ], [ %99, %97 ]
-  %.076153.i.i = phi i64 [ 0, %.preheader139.preheader.i.i ], [ %98, %97 ]
-  %.4152.i.i = phi i1 [ false, %.preheader139.preheader.i.i ], [ %116, %97 ]
+.preheader136.i.i:                                ; preds = %97, %.preheader136.preheader.i.i
+  %indvars.iv191.i.i = phi i64 [ 8, %.preheader136.preheader.i.i ], [ %indvars.iv.next192.i.i, %97 ]
+  %.075151.i.i = phi i64 [ 0, %.preheader136.preheader.i.i ], [ %99, %97 ]
+  %.076150.i.i = phi i64 [ 0, %.preheader136.preheader.i.i ], [ %98, %97 ]
+  %.4149.i.i = phi i1 [ false, %.preheader136.preheader.i.i ], [ %116, %97 ]
   br label %100
 
 97:                                               ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i
-  %98 = add nuw nsw i64 %.076153.i.i, 8
-  %99 = add nuw nsw i64 %.075154.i.i, 1
-  %indvars.iv.next195.i.i = add nuw nsw i64 %indvars.iv194.i.i, 8
-  %exitcond196.not.i.i = icmp eq i64 %99, %smax.i.i
-  br i1 %exitcond196.not.i.i, label %.preheader145.loopexit.i.i, label %.preheader139.i.i, !llvm.loop !432
+  %98 = add nuw nsw i64 %.076150.i.i, 8
+  %99 = add nuw nsw i64 %.075151.i.i, 1
+  %indvars.iv.next192.i.i = add nuw nsw i64 %indvars.iv191.i.i, 8
+  %exitcond193.not.i.i = icmp eq i64 %99, %smax.i.i
+  br i1 %exitcond193.not.i.i, label %.preheader142.loopexit.i.i, label %.preheader136.i.i, !llvm.loop !432
 
-100:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i, %.preheader139.i.i
-  %.1150.i.i = phi i64 [ %.076153.i.i, %.preheader139.i.i ], [ %117, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i ]
-  %.5149.i.i = phi i1 [ %.4152.i.i, %.preheader139.i.i ], [ %116, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i ]
-  %101 = add nsw i64 %.1150.i.i, %.092176.i.i
+100:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i, %.preheader136.i.i
+  %.1147.i.i = phi i64 [ %.076150.i.i, %.preheader136.i.i ], [ %117, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i ]
+  %.5146.i.i = phi i1 [ %.4149.i.i, %.preheader136.i.i ], [ %116, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i ]
+  %101 = add nsw i64 %.1147.i.i, %.092173.i.i
   %102 = lshr i64 %101, 3
   %103 = getelementptr inbounds nuw i8, ptr %59, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !3, !noalias !425
@@ -8410,28 +8410,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERK
   %107 = and i32 %106, 7
   %108 = shl nuw nsw i32 1, %107
   %109 = and i32 %108, %105
-  %.not137.i.i = icmp eq i32 %109, 0
-  br i1 %.not137.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i, label %110
+  %.not134.i.i = icmp eq i32 %109, 0
+  br i1 %.not134.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i, label %110
 
 110:                                              ; preds = %100
-  %111 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.1150.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.1147.i.i
   %112 = load i8, ptr %111, align 1, !tbaa !3, !noalias !425
   %113 = icmp slt i8 %112, %.val
   %114 = icmp sgt i8 %112, %.val37
-  %spec.select132.i.i = or i1 %113, %114
+  %spec.select129.i.i = or i1 %113, %114
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit.i.i: ; preds = %110, %100
-  %115 = phi i1 [ false, %100 ], [ %spec.select132.i.i, %110 ]
-  %116 = or i1 %.5149.i.i, %115
-  %117 = add nuw nsw i64 %.1150.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %117, %indvars.iv194.i.i
+  %115 = phi i1 [ false, %100 ], [ %spec.select129.i.i, %110 ]
+  %116 = or i1 %.5146.i.i, %115
+  %117 = add nuw nsw i64 %.1147.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %117, %indvars.iv191.i.i
   br i1 %exitcond.not.i.i, label %97, label %100, !llvm.loop !433
 
-.lr.ph.i.i:                                       ; preds = %.preheader145.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i
-  %.2157.i.i = phi i64 [ %134, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i ], [ %.076.lcssa.i.i, %.preheader145.i.i ]
-  %.6156.i.i = phi i1 [ %133, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i ], [ %.4.lcssa.i.i, %.preheader145.i.i ]
-  %118 = add nsw i64 %.2157.i.i, %.092176.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader142.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i
+  %.2154.i.i = phi i64 [ %134, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i ], [ %.076.lcssa.i.i, %.preheader142.i.i ]
+  %.6153.i.i = phi i1 [ %133, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i ], [ %.4.lcssa.i.i, %.preheader142.i.i ]
+  %118 = add nsw i64 %.2154.i.i, %.092173.i.i
   %119 = lshr i64 %118, 3
   %120 = getelementptr inbounds nuw i8, ptr %59, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !3, !noalias !425
@@ -8440,44 +8440,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERK
   %124 = and i32 %123, 7
   %125 = shl nuw nsw i32 1, %124
   %126 = and i32 %125, %122
-  %.not136.i.i = icmp eq i32 %126, 0
-  br i1 %.not136.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i, label %127
+  %.not133.i.i = icmp eq i32 %126, 0
+  br i1 %.not133.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i, label %127
 
 127:                                              ; preds = %.lr.ph.i.i
-  %128 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.2157.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.2154.i.i
   %129 = load i8, ptr %128, align 1, !tbaa !3, !noalias !425
   %130 = icmp slt i8 %129, %.val
   %131 = icmp sgt i8 %129, %.val37
-  %spec.select133.i.i = or i1 %130, %131
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i
+  %spec.select130.i.i = or i1 %130, %131
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i: ; preds = %127, %.lr.ph.i.i
-  %132 = phi i1 [ false, %.lr.ph.i.i ], [ %spec.select133.i.i, %127 ]
-  %133 = or i1 %.6156.i.i, %132
-  %134 = add nuw nsw i64 %.2157.i.i, 1
-  %exitcond197.not.i.i = icmp eq i64 %134, %95
-  br i1 %exitcond197.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !434
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i: ; preds = %127, %.lr.ph.i.i
+  %132 = phi i1 [ false, %.lr.ph.i.i ], [ %spec.select130.i.i, %127 ]
+  %133 = or i1 %.6153.i.i, %132
+  %134 = add nuw nsw i64 %.2154.i.i, 1
+  %exitcond194.not.i.i = icmp eq i64 %134, %95
+  br i1 %exitcond194.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !434
 
-.loopexit.i.i:                                    ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i, %.preheader145.i.i, %.preheader143.i.i
-  %.3.i.i = phi i1 [ %.085.lcssa.i.i, %.preheader143.i.i ], [ %.4.lcssa.i.i, %.preheader145.i.i ], [ %88, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit117.i.i ], [ %133, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit118.i.i ]
-  br i1 %.3.i.i, label %135, label %.thread.i.i, !prof !435
+.loopexit.i.i:                                    ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i, %.preheader142.i.i, %.preheader140.i.i
+  %.3.i.i = phi i1 [ %.085.lcssa.i.i, %.preheader140.i.i ], [ %.4.lcssa.i.i, %.preheader142.i.i ], [ %88, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit119.i.i ], [ %133, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit120.i.i ]
+  br i1 %.3.i.i, label %135, label %.critedge.i.i, !prof !435
 
 135:                                              ; preds = %.loopexit.i.i
   %136 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !425
   %137 = icmp sgt i64 %136, 0
   %138 = sext i16 %.sroa.0.0.extract.trunc.i.i to i64
-  %.not99173.i.i = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %137, label %.preheader140.i.i, label %.preheader141.i.i
+  %.not99170.i.i = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i, 0
+  br i1 %137, label %.preheader137.i.i, label %.preheader138.i.i
 
-.preheader141.i.i:                                ; preds = %135
-  br i1 %.not99173.i.i, label %.lr.ph172.i.i, label %.thread.i.i
+.preheader138.i.i:                                ; preds = %135
+  br i1 %.not99170.i.i, label %.lr.ph169.i.i, label %.critedge.i.i
 
-.preheader140.i.i:                                ; preds = %135
-  br i1 %.not99173.i.i, label %.lr.ph175.i.i, label %.thread.i.i
+.preheader137.i.i:                                ; preds = %135
+  br i1 %.not99170.i.i, label %.lr.ph172.i.i, label %.critedge.i.i
 
-.lr.ph175.i.i:                                    ; preds = %.preheader140.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i
-  %.073174.i.i = phi i64 [ %153, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i ], [ 0, %.preheader140.i.i ]
-  %139 = add nsw i64 %.073174.i.i, %.092176.i.i
+.lr.ph172.i.i:                                    ; preds = %.preheader137.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i
+  %.073171.i.i = phi i64 [ %153, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i ], [ 0, %.preheader137.i.i ]
+  %139 = add nsw i64 %.073171.i.i, %.092173.i.i
   %140 = lshr i64 %139, 3
   %141 = getelementptr inbounds nuw i8, ptr %59, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !3, !noalias !425
@@ -8486,63 +8486,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERK
   %145 = and i32 %144, 7
   %146 = shl nuw nsw i32 1, %145
   %147 = and i32 %146, %143
-  %.not138.i.i = icmp eq i32 %147, 0
-  br i1 %.not138.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i, label %148
+  %.not135.i.i = icmp eq i32 %147, 0
+  br i1 %.not135.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i, label %148
 
-148:                                              ; preds = %.lr.ph175.i.i
-  %149 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.073174.i.i
+148:                                              ; preds = %.lr.ph172.i.i
+  %149 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.073171.i.i
   %150 = load i8, ptr %149, align 1, !tbaa !3, !noalias !425
   %151 = icmp slt i8 %150, %.val
   %152 = icmp sgt i8 %150, %.val37
-  %or.cond134.i.i = or i1 %151, %152
-  br i1 %or.cond134.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i
+  %or.cond131.i.i = or i1 %151, %152
+  br i1 %or.cond131.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread.i.i: ; preds = %148
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread.i.i: ; preds = %148
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE0_clEa(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %26, ptr nonnull %27, i8 noundef signext %150)
-  br label %.thread126.i.i
+  br label %.critedge103.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i: ; preds = %148, %.lr.ph175.i.i
-  %153 = add nuw nsw i64 %.073174.i.i, 1
-  %exitcond205.not.i.i = icmp eq i64 %153, %138
-  br i1 %exitcond205.not.i.i, label %.thread.i.i, label %.lr.ph175.i.i, !llvm.loop !436
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i: ; preds = %148, %.lr.ph172.i.i
+  %153 = add nuw nsw i64 %.073171.i.i, 1
+  %exitcond202.not.i.i = icmp eq i64 %153, %138
+  br i1 %exitcond202.not.i.i, label %.critedge.i.i, label %.lr.ph172.i.i, !llvm.loop !436
 
-154:                                              ; preds = %.lr.ph172.i.i
-  %155 = add nuw nsw i64 %.0171.i.i, 1
-  %exitcond204.not.i.i = icmp eq i64 %155, %138
-  br i1 %exitcond204.not.i.i, label %.thread.i.i, label %.lr.ph172.i.i, !llvm.loop !437
+154:                                              ; preds = %.lr.ph169.i.i
+  %155 = add nuw nsw i64 %.0168.i.i, 1
+  %exitcond201.not.i.i = icmp eq i64 %155, %138
+  br i1 %exitcond201.not.i.i, label %.critedge.i.i, label %.lr.ph169.i.i, !llvm.loop !437
 
-.lr.ph172.i.i:                                    ; preds = %.preheader141.i.i, %154
-  %.0171.i.i = phi i64 [ %155, %154 ], [ 0, %.preheader141.i.i ]
-  %156 = getelementptr inbounds nuw i8, ptr %.088180.i.i, i64 %.0171.i.i
+.lr.ph169.i.i:                                    ; preds = %.preheader138.i.i, %154
+  %.0168.i.i = phi i64 [ %155, %154 ], [ 0, %.preheader138.i.i ]
+  %156 = getelementptr inbounds nuw i8, ptr %.088177.i.i, i64 %.0168.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !3, !noalias !425
   %158 = icmp slt i8 %157, %.val
   %159 = icmp sgt i8 %157, %.val37
-  %or.cond135.i.i = or i1 %158, %159
-  br i1 %or.cond135.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit120.thread.i.i, label %154
+  %or.cond132.i.i = or i1 %158, %159
+  br i1 %or.cond132.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit122.thread.i.i, label %154
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit120.thread.i.i: ; preds = %.lr.ph172.i.i
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit122.thread.i.i: ; preds = %.lr.ph169.i.i
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE0_clEa(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %26, ptr nonnull %27, i8 noundef signext %157)
-  br label %.thread126.i.i
+  br label %.critedge103.i.i
 
-.thread.i.i:                                      ; preds = %154, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread125.i.i, %.preheader140.i.i, %.preheader141.i.i, %.loopexit.i.i, %90
+.critedge.i.i:                                    ; preds = %154, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread127.i.i, %.preheader137.i.i, %.preheader138.i.i, %.loopexit.i.i, %90
   %160 = sext i32 %68 to i64
-  %161 = getelementptr inbounds i8, ptr %.088180.i.i, i64 %160
+  %161 = getelementptr inbounds i8, ptr %.088177.i.i, i64 %160
   %162 = sext i16 %.sroa.0.0.extract.trunc.i.i to i64
-  %163 = add nsw i64 %.090179.i.i, %162
-  %164 = add nsw i64 %.092176.i.i, %162
+  %163 = add nsw i64 %.090176.i.i, %162
+  %164 = add nsw i64 %.092173.i.i, %162
   %165 = load i64, ptr %60, align 8, !tbaa !215, !noalias !425
   %166 = icmp slt i64 %163, %165
-  br i1 %166, label %.lr.ph183.i.i, label %._crit_edge.i.i, !llvm.loop !438
+  br i1 %166, label %.lr.ph180.i.i, label %._crit_edge.i.i, !llvm.loop !438
 
-._crit_edge.i.i:                                  ; preds = %.thread.i.i, %53
+._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %53
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !439
-  br label %.thread126.i.i
+  br label %.critedge103.i.i
 
-.thread126.i.i:                                   ; preds = %._crit_edge.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit119.thread.i.i
+.critedge103.i.i:                                 ; preds = %._crit_edge.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlaE_clEa.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28) #21, !noalias !425
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %52, %.thread126.i.i
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %52, %.critedge103.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26), !noalias !419
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27), !noalias !419
   br label %994
@@ -8580,127 +8580,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_8Int8TypeEEENS_6St
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %177, i64 noundef %173, i64 noundef %179), !noalias !450
   %180 = load i64, ptr %178, align 8, !tbaa !215, !noalias !450
   %181 = icmp sgt i64 %180, 0
-  br i1 %181, label %.lr.ph183.preheader.i.i57, label %._crit_edge.i.i55
+  br i1 %181, label %.lr.ph180.preheader.i.i57, label %._crit_edge.i.i55
 
-.lr.ph183.preheader.i.i57:                        ; preds = %171
+.lr.ph180.preheader.i.i57:                        ; preds = %171
   %182 = load i64, ptr %172, align 8, !tbaa !211, !noalias !450
   %183 = getelementptr inbounds i16, ptr %176, i64 %173
-  br label %.lr.ph183.i.i58
+  br label %.lr.ph180.i.i58
 
-.lr.ph183.i.i58:                                  ; preds = %.thread.i.i64, %.lr.ph183.preheader.i.i57
-  %.088180.i.i59 = phi ptr [ %279, %.thread.i.i64 ], [ %183, %.lr.ph183.preheader.i.i57 ]
-  %.090179.i.i60 = phi i64 [ %281, %.thread.i.i64 ], [ 0, %.lr.ph183.preheader.i.i57 ]
-  %.092176.i.i61 = phi i64 [ %282, %.thread.i.i64 ], [ %182, %.lr.ph183.preheader.i.i57 ]
+.lr.ph180.i.i58:                                  ; preds = %.critedge.i.i64, %.lr.ph180.preheader.i.i57
+  %.088177.i.i59 = phi ptr [ %279, %.critedge.i.i64 ], [ %183, %.lr.ph180.preheader.i.i57 ]
+  %.090176.i.i60 = phi i64 [ %281, %.critedge.i.i64 ], [ 0, %.lr.ph180.preheader.i.i57 ]
+  %.092173.i.i61 = phi i64 [ %282, %.critedge.i.i64 ], [ %182, %.lr.ph180.preheader.i.i57 ]
   %184 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %25), !noalias !450
   %.sroa.0.0.extract.trunc.i.i62 = trunc i32 %184 to i16
   %185 = ashr i32 %184, 16
   %sext.i.i63 = shl i32 %184, 16
   %186 = ashr exact i32 %sext.i.i63, 16
   %187 = icmp eq i32 %185, %186
-  br i1 %187, label %.preheader144.i.i104, label %208
+  br i1 %187, label %.preheader141.i.i104, label %208
 
-.preheader144.i.i104:                             ; preds = %.lr.ph183.i.i58
+.preheader141.i.i104:                             ; preds = %.lr.ph180.i.i58
   %188 = icmp sgt i32 %185, 7
-  br i1 %188, label %.preheader.preheader.i.i112, label %.preheader143.i.i105
+  br i1 %188, label %.preheader.preheader.i.i112, label %.preheader140.i.i105
 
-.preheader.preheader.i.i112:                      ; preds = %.preheader144.i.i104
+.preheader.preheader.i.i112:                      ; preds = %.preheader141.i.i104
   %189 = lshr i32 %185, 3
-  %smax201.i.i113 = zext nneg i32 %189 to i64
+  %smax198.i.i113 = zext nneg i32 %189 to i64
   br label %.preheader.i.i114
 
-.preheader143.loopexit.i.i125:                    ; preds = %193
-  %190 = shl nuw nsw i64 %smax201.i.i113, 3
-  br label %.preheader143.i.i105
+.preheader140.loopexit.i.i125:                    ; preds = %193
+  %190 = shl nuw nsw i64 %smax198.i.i113, 3
+  br label %.preheader140.i.i105
 
-.preheader143.i.i105:                             ; preds = %.preheader143.loopexit.i.i125, %.preheader144.i.i104
-  %.085.lcssa.i.i106 = phi i1 [ false, %.preheader144.i.i104 ], [ %201, %.preheader143.loopexit.i.i125 ]
-  %.082.lcssa.i.i107 = phi i64 [ 0, %.preheader144.i.i104 ], [ %190, %.preheader143.loopexit.i.i125 ]
+.preheader140.i.i105:                             ; preds = %.preheader140.loopexit.i.i125, %.preheader141.i.i104
+  %.085.lcssa.i.i106 = phi i1 [ false, %.preheader141.i.i104 ], [ %201, %.preheader140.loopexit.i.i125 ]
+  %.082.lcssa.i.i107 = phi i64 [ 0, %.preheader141.i.i104 ], [ %190, %.preheader140.loopexit.i.i125 ]
   %191 = sext i16 %.sroa.0.0.extract.trunc.i.i62 to i64
   %192 = icmp slt i64 %.082.lcssa.i.i107, %191
-  br i1 %192, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i, label %.loopexit.i.i69
+  br i1 %192, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i, label %.loopexit.i.i69
 
 .preheader.i.i114:                                ; preds = %193, %.preheader.preheader.i.i112
-  %indvars.iv199.i.i115 = phi i64 [ 8, %.preheader.preheader.i.i112 ], [ %indvars.iv.next200.i.i123, %193 ]
-  %.081164.i.i116 = phi i64 [ 0, %.preheader.preheader.i.i112 ], [ %195, %193 ]
-  %.082163.i.i117 = phi i64 [ 0, %.preheader.preheader.i.i112 ], [ %194, %193 ]
-  %.085162.i.i118 = phi i1 [ false, %.preheader.preheader.i.i112 ], [ %201, %193 ]
+  %indvars.iv196.i.i115 = phi i64 [ 8, %.preheader.preheader.i.i112 ], [ %indvars.iv.next197.i.i123, %193 ]
+  %.081161.i.i116 = phi i64 [ 0, %.preheader.preheader.i.i112 ], [ %195, %193 ]
+  %.082160.i.i117 = phi i64 [ 0, %.preheader.preheader.i.i112 ], [ %194, %193 ]
+  %.085159.i.i118 = phi i1 [ false, %.preheader.preheader.i.i112 ], [ %201, %193 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i
 
 193:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i
-  %194 = add nuw nsw i64 %.082163.i.i117, 8
-  %195 = add nuw nsw i64 %.081164.i.i116, 1
-  %indvars.iv.next200.i.i123 = add nuw nsw i64 %indvars.iv199.i.i115, 8
-  %exitcond202.not.i.i124 = icmp eq i64 %195, %smax201.i.i113
-  br i1 %exitcond202.not.i.i124, label %.preheader143.loopexit.i.i125, label %.preheader.i.i114, !llvm.loop !454
+  %194 = add nuw nsw i64 %.082160.i.i117, 8
+  %195 = add nuw nsw i64 %.081161.i.i116, 1
+  %indvars.iv.next197.i.i123 = add nuw nsw i64 %indvars.iv196.i.i115, 8
+  %exitcond199.not.i.i124 = icmp eq i64 %195, %smax198.i.i113
+  br i1 %exitcond199.not.i.i124, label %.preheader140.loopexit.i.i125, label %.preheader.i.i114, !llvm.loop !454
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i, %.preheader.i.i114
-  %.183160.i.i119 = phi i64 [ %.082163.i.i117, %.preheader.i.i114 ], [ %196, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i ]
-  %.186159.i.i120 = phi i1 [ %.085162.i.i118, %.preheader.i.i114 ], [ %201, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i ]
-  %196 = add nuw nsw i64 %.183160.i.i119, 1
-  %197 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.183160.i.i119
+  %.183157.i.i119 = phi i64 [ %.082160.i.i117, %.preheader.i.i114 ], [ %196, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i ]
+  %.186156.i.i120 = phi i1 [ %.085159.i.i118, %.preheader.i.i114 ], [ %201, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i ]
+  %196 = add nuw nsw i64 %.183157.i.i119, 1
+  %197 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.183157.i.i119
   %198 = load i16, ptr %197, align 2, !tbaa !13, !noalias !450
   %199 = icmp slt i16 %198, %.val38
   %200 = icmp sgt i16 %198, %.val39
   %spec.select.i.i121 = or i1 %199, %200
-  %201 = or i1 %.186159.i.i120, %spec.select.i.i121
-  %exitcond198.not.i.i122 = icmp eq i64 %196, %indvars.iv199.i.i115
-  br i1 %exitcond198.not.i.i122, label %193, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i, !llvm.loop !455
+  %201 = or i1 %.186156.i.i120, %spec.select.i.i121
+  %exitcond195.not.i.i122 = icmp eq i64 %196, %indvars.iv196.i.i115
+  br i1 %exitcond195.not.i.i122, label %193, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit.i.i, !llvm.loop !455
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i: ; preds = %.preheader143.i.i105, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i
-  %.284168.i.i108 = phi i64 [ %207, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i ], [ %.082.lcssa.i.i107, %.preheader143.i.i105 ]
-  %.287167.i.i109 = phi i1 [ %206, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i ], [ %.085.lcssa.i.i106, %.preheader143.i.i105 ]
-  %202 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.284168.i.i108
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i: ; preds = %.preheader140.i.i105, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i
+  %.284165.i.i108 = phi i64 [ %207, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i ], [ %.082.lcssa.i.i107, %.preheader140.i.i105 ]
+  %.287164.i.i109 = phi i1 [ %206, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i ], [ %.085.lcssa.i.i106, %.preheader140.i.i105 ]
+  %202 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.284165.i.i108
   %203 = load i16, ptr %202, align 2, !tbaa !13, !noalias !450
   %204 = icmp slt i16 %203, %.val38
   %205 = icmp sgt i16 %203, %.val39
-  %spec.select131.i.i110 = or i1 %204, %205
-  %206 = or i1 %.287167.i.i109, %spec.select131.i.i110
-  %207 = add nuw nsw i64 %.284168.i.i108, 1
-  %exitcond203.not.i.i111 = icmp eq i64 %207, %191
-  br i1 %exitcond203.not.i.i111, label %.loopexit.i.i69, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i, !llvm.loop !456
+  %spec.select128.i.i110 = or i1 %204, %205
+  %206 = or i1 %.287164.i.i109, %spec.select128.i.i110
+  %207 = add nuw nsw i64 %.284165.i.i108, 1
+  %exitcond200.not.i.i111 = icmp eq i64 %207, %191
+  br i1 %exitcond200.not.i.i111, label %.loopexit.i.i69, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i, !llvm.loop !456
 
-208:                                              ; preds = %.lr.ph183.i.i58
+208:                                              ; preds = %.lr.ph180.i.i58
   %209 = icmp sgt i32 %185, 0
-  br i1 %209, label %.preheader147.i.i65, label %.thread.i.i64
+  br i1 %209, label %.preheader144.i.i65, label %.critedge.i.i64
 
-.preheader147.i.i65:                              ; preds = %208
+.preheader144.i.i65:                              ; preds = %208
   %210 = icmp sgt i32 %186, 7
-  br i1 %210, label %.preheader139.preheader.i.i89, label %.preheader145.i.i66
+  br i1 %210, label %.preheader136.preheader.i.i89, label %.preheader142.i.i66
 
-.preheader139.preheader.i.i89:                    ; preds = %.preheader147.i.i65
+.preheader136.preheader.i.i89:                    ; preds = %.preheader144.i.i65
   %211 = lshr i32 %186, 3
   %smax.i.i90 = zext nneg i32 %211 to i64
-  br label %.preheader139.i.i91
+  br label %.preheader136.i.i91
 
-.preheader145.loopexit.i.i103:                    ; preds = %215
+.preheader142.loopexit.i.i103:                    ; preds = %215
   %212 = shl nuw nsw i64 %smax.i.i90, 3
-  br label %.preheader145.i.i66
+  br label %.preheader142.i.i66
 
-.preheader145.i.i66:                              ; preds = %.preheader145.loopexit.i.i103, %.preheader147.i.i65
-  %.4.lcssa.i.i67 = phi i1 [ false, %.preheader147.i.i65 ], [ %234, %.preheader145.loopexit.i.i103 ]
-  %.076.lcssa.i.i68 = phi i64 [ 0, %.preheader147.i.i65 ], [ %212, %.preheader145.loopexit.i.i103 ]
+.preheader142.i.i66:                              ; preds = %.preheader142.loopexit.i.i103, %.preheader144.i.i65
+  %.4.lcssa.i.i67 = phi i1 [ false, %.preheader144.i.i65 ], [ %234, %.preheader142.loopexit.i.i103 ]
+  %.076.lcssa.i.i68 = phi i64 [ 0, %.preheader144.i.i65 ], [ %212, %.preheader142.loopexit.i.i103 ]
   %213 = sext i16 %.sroa.0.0.extract.trunc.i.i62 to i64
   %214 = icmp slt i64 %.076.lcssa.i.i68, %213
   br i1 %214, label %.lr.ph.i.i83, label %.loopexit.i.i69
 
-.preheader139.i.i91:                              ; preds = %215, %.preheader139.preheader.i.i89
-  %indvars.iv194.i.i92 = phi i64 [ 8, %.preheader139.preheader.i.i89 ], [ %indvars.iv.next195.i.i101, %215 ]
-  %.075154.i.i93 = phi i64 [ 0, %.preheader139.preheader.i.i89 ], [ %217, %215 ]
-  %.076153.i.i94 = phi i64 [ 0, %.preheader139.preheader.i.i89 ], [ %216, %215 ]
-  %.4152.i.i95 = phi i1 [ false, %.preheader139.preheader.i.i89 ], [ %234, %215 ]
+.preheader136.i.i91:                              ; preds = %215, %.preheader136.preheader.i.i89
+  %indvars.iv191.i.i92 = phi i64 [ 8, %.preheader136.preheader.i.i89 ], [ %indvars.iv.next192.i.i101, %215 ]
+  %.075151.i.i93 = phi i64 [ 0, %.preheader136.preheader.i.i89 ], [ %217, %215 ]
+  %.076150.i.i94 = phi i64 [ 0, %.preheader136.preheader.i.i89 ], [ %216, %215 ]
+  %.4149.i.i95 = phi i1 [ false, %.preheader136.preheader.i.i89 ], [ %234, %215 ]
   br label %218
 
 215:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i
-  %216 = add nuw nsw i64 %.076153.i.i94, 8
-  %217 = add nuw nsw i64 %.075154.i.i93, 1
-  %indvars.iv.next195.i.i101 = add nuw nsw i64 %indvars.iv194.i.i92, 8
-  %exitcond196.not.i.i102 = icmp eq i64 %217, %smax.i.i90
-  br i1 %exitcond196.not.i.i102, label %.preheader145.loopexit.i.i103, label %.preheader139.i.i91, !llvm.loop !457
+  %216 = add nuw nsw i64 %.076150.i.i94, 8
+  %217 = add nuw nsw i64 %.075151.i.i93, 1
+  %indvars.iv.next192.i.i101 = add nuw nsw i64 %indvars.iv191.i.i92, 8
+  %exitcond193.not.i.i102 = icmp eq i64 %217, %smax.i.i90
+  br i1 %exitcond193.not.i.i102, label %.preheader142.loopexit.i.i103, label %.preheader136.i.i91, !llvm.loop !457
 
-218:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i, %.preheader139.i.i91
-  %.1150.i.i96 = phi i64 [ %.076153.i.i94, %.preheader139.i.i91 ], [ %235, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i ]
-  %.5149.i.i97 = phi i1 [ %.4152.i.i95, %.preheader139.i.i91 ], [ %234, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i ]
-  %219 = add nsw i64 %.1150.i.i96, %.092176.i.i61
+218:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i, %.preheader136.i.i91
+  %.1147.i.i96 = phi i64 [ %.076150.i.i94, %.preheader136.i.i91 ], [ %235, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i ]
+  %.5146.i.i97 = phi i1 [ %.4149.i.i95, %.preheader136.i.i91 ], [ %234, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i ]
+  %219 = add nsw i64 %.1147.i.i96, %.092173.i.i61
   %220 = lshr i64 %219, 3
   %221 = getelementptr inbounds nuw i8, ptr %177, i64 %220
   %222 = load i8, ptr %221, align 1, !tbaa !3, !noalias !450
@@ -8709,28 +8709,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusER
   %225 = and i32 %224, 7
   %226 = shl nuw nsw i32 1, %225
   %227 = and i32 %226, %223
-  %.not137.i.i98 = icmp eq i32 %227, 0
-  br i1 %.not137.i.i98, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i, label %228
+  %.not134.i.i98 = icmp eq i32 %227, 0
+  br i1 %.not134.i.i98, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i, label %228
 
 228:                                              ; preds = %218
-  %229 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.1150.i.i96
+  %229 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.1147.i.i96
   %230 = load i16, ptr %229, align 2, !tbaa !13, !noalias !450
   %231 = icmp slt i16 %230, %.val38
   %232 = icmp sgt i16 %230, %.val39
-  %spec.select132.i.i99 = or i1 %231, %232
+  %spec.select129.i.i99 = or i1 %231, %232
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit.i.i: ; preds = %228, %218
-  %233 = phi i1 [ false, %218 ], [ %spec.select132.i.i99, %228 ]
-  %234 = or i1 %.5149.i.i97, %233
-  %235 = add nuw nsw i64 %.1150.i.i96, 1
-  %exitcond.not.i.i100 = icmp eq i64 %235, %indvars.iv194.i.i92
+  %233 = phi i1 [ false, %218 ], [ %spec.select129.i.i99, %228 ]
+  %234 = or i1 %.5146.i.i97, %233
+  %235 = add nuw nsw i64 %.1147.i.i96, 1
+  %exitcond.not.i.i100 = icmp eq i64 %235, %indvars.iv191.i.i92
   br i1 %exitcond.not.i.i100, label %215, label %218, !llvm.loop !458
 
-.lr.ph.i.i83:                                     ; preds = %.preheader145.i.i66, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i
-  %.2157.i.i84 = phi i64 [ %252, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i ], [ %.076.lcssa.i.i68, %.preheader145.i.i66 ]
-  %.6156.i.i85 = phi i1 [ %251, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i ], [ %.4.lcssa.i.i67, %.preheader145.i.i66 ]
-  %236 = add nsw i64 %.2157.i.i84, %.092176.i.i61
+.lr.ph.i.i83:                                     ; preds = %.preheader142.i.i66, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i
+  %.2154.i.i84 = phi i64 [ %252, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i ], [ %.076.lcssa.i.i68, %.preheader142.i.i66 ]
+  %.6153.i.i85 = phi i1 [ %251, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i ], [ %.4.lcssa.i.i67, %.preheader142.i.i66 ]
+  %236 = add nsw i64 %.2154.i.i84, %.092173.i.i61
   %237 = lshr i64 %236, 3
   %238 = getelementptr inbounds nuw i8, ptr %177, i64 %237
   %239 = load i8, ptr %238, align 1, !tbaa !3, !noalias !450
@@ -8739,44 +8739,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusER
   %242 = and i32 %241, 7
   %243 = shl nuw nsw i32 1, %242
   %244 = and i32 %243, %240
-  %.not136.i.i86 = icmp eq i32 %244, 0
-  br i1 %.not136.i.i86, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i, label %245
+  %.not133.i.i86 = icmp eq i32 %244, 0
+  br i1 %.not133.i.i86, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i, label %245
 
 245:                                              ; preds = %.lr.ph.i.i83
-  %246 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.2157.i.i84
+  %246 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.2154.i.i84
   %247 = load i16, ptr %246, align 2, !tbaa !13, !noalias !450
   %248 = icmp slt i16 %247, %.val38
   %249 = icmp sgt i16 %247, %.val39
-  %spec.select133.i.i87 = or i1 %248, %249
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i
+  %spec.select130.i.i87 = or i1 %248, %249
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i: ; preds = %245, %.lr.ph.i.i83
-  %250 = phi i1 [ false, %.lr.ph.i.i83 ], [ %spec.select133.i.i87, %245 ]
-  %251 = or i1 %.6156.i.i85, %250
-  %252 = add nuw nsw i64 %.2157.i.i84, 1
-  %exitcond197.not.i.i88 = icmp eq i64 %252, %213
-  br i1 %exitcond197.not.i.i88, label %.loopexit.i.i69, label %.lr.ph.i.i83, !llvm.loop !459
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i: ; preds = %245, %.lr.ph.i.i83
+  %250 = phi i1 [ false, %.lr.ph.i.i83 ], [ %spec.select130.i.i87, %245 ]
+  %251 = or i1 %.6153.i.i85, %250
+  %252 = add nuw nsw i64 %.2154.i.i84, 1
+  %exitcond194.not.i.i88 = icmp eq i64 %252, %213
+  br i1 %exitcond194.not.i.i88, label %.loopexit.i.i69, label %.lr.ph.i.i83, !llvm.loop !459
 
-.loopexit.i.i69:                                  ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i, %.preheader145.i.i66, %.preheader143.i.i105
-  %.3.i.i70 = phi i1 [ %.085.lcssa.i.i106, %.preheader143.i.i105 ], [ %.4.lcssa.i.i67, %.preheader145.i.i66 ], [ %206, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit117.i.i ], [ %251, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit118.i.i ]
-  br i1 %.3.i.i70, label %253, label %.thread.i.i64, !prof !435
+.loopexit.i.i69:                                  ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i, %.preheader142.i.i66, %.preheader140.i.i105
+  %.3.i.i70 = phi i1 [ %.085.lcssa.i.i106, %.preheader140.i.i105 ], [ %.4.lcssa.i.i67, %.preheader142.i.i66 ], [ %206, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit119.i.i ], [ %251, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit120.i.i ]
+  br i1 %.3.i.i70, label %253, label %.critedge.i.i64, !prof !435
 
 253:                                              ; preds = %.loopexit.i.i69
   %254 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !450
   %255 = icmp sgt i64 %254, 0
   %256 = sext i16 %.sroa.0.0.extract.trunc.i.i62 to i64
-  %.not99173.i.i71 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i62, 0
-  br i1 %255, label %.preheader140.i.i77, label %.preheader141.i.i72
+  %.not99170.i.i71 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i62, 0
+  br i1 %255, label %.preheader137.i.i77, label %.preheader138.i.i72
 
-.preheader141.i.i72:                              ; preds = %253
-  br i1 %.not99173.i.i71, label %.lr.ph172.i.i73, label %.thread.i.i64
+.preheader138.i.i72:                              ; preds = %253
+  br i1 %.not99170.i.i71, label %.lr.ph169.i.i73, label %.critedge.i.i64
 
-.preheader140.i.i77:                              ; preds = %253
-  br i1 %.not99173.i.i71, label %.lr.ph175.i.i78, label %.thread.i.i64
+.preheader137.i.i77:                              ; preds = %253
+  br i1 %.not99170.i.i71, label %.lr.ph172.i.i78, label %.critedge.i.i64
 
-.lr.ph175.i.i78:                                  ; preds = %.preheader140.i.i77, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i
-  %.073174.i.i79 = phi i64 [ %271, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i77 ]
-  %257 = add nsw i64 %.073174.i.i79, %.092176.i.i61
+.lr.ph172.i.i78:                                  ; preds = %.preheader137.i.i77, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i
+  %.073171.i.i79 = phi i64 [ %271, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i77 ]
+  %257 = add nsw i64 %.073171.i.i79, %.092173.i.i61
   %258 = lshr i64 %257, 3
   %259 = getelementptr inbounds nuw i8, ptr %177, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !3, !noalias !450
@@ -8785,63 +8785,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusER
   %263 = and i32 %262, 7
   %264 = shl nuw nsw i32 1, %263
   %265 = and i32 %264, %261
-  %.not138.i.i80 = icmp eq i32 %265, 0
-  br i1 %.not138.i.i80, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i, label %266
+  %.not135.i.i80 = icmp eq i32 %265, 0
+  br i1 %.not135.i.i80, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i, label %266
 
-266:                                              ; preds = %.lr.ph175.i.i78
-  %267 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.073174.i.i79
+266:                                              ; preds = %.lr.ph172.i.i78
+  %267 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.073171.i.i79
   %268 = load i16, ptr %267, align 2, !tbaa !13, !noalias !450
   %269 = icmp slt i16 %268, %.val38
   %270 = icmp sgt i16 %268, %.val39
-  %or.cond134.i.i81 = or i1 %269, %270
-  br i1 %or.cond134.i.i81, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i
+  %or.cond131.i.i81 = or i1 %269, %270
+  br i1 %or.cond131.i.i81, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread.i.i: ; preds = %266
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread.i.i: ; preds = %266
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE0_clEs(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %23, ptr nonnull %24, i16 noundef signext %268)
-  br label %.thread126.i.i56
+  br label %.critedge103.i.i56
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i: ; preds = %266, %.lr.ph175.i.i78
-  %271 = add nuw nsw i64 %.073174.i.i79, 1
-  %exitcond205.not.i.i82 = icmp eq i64 %271, %256
-  br i1 %exitcond205.not.i.i82, label %.thread.i.i64, label %.lr.ph175.i.i78, !llvm.loop !460
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i: ; preds = %266, %.lr.ph172.i.i78
+  %271 = add nuw nsw i64 %.073171.i.i79, 1
+  %exitcond202.not.i.i82 = icmp eq i64 %271, %256
+  br i1 %exitcond202.not.i.i82, label %.critedge.i.i64, label %.lr.ph172.i.i78, !llvm.loop !460
 
-272:                                              ; preds = %.lr.ph172.i.i73
-  %273 = add nuw nsw i64 %.0171.i.i74, 1
-  %exitcond204.not.i.i76 = icmp eq i64 %273, %256
-  br i1 %exitcond204.not.i.i76, label %.thread.i.i64, label %.lr.ph172.i.i73, !llvm.loop !461
+272:                                              ; preds = %.lr.ph169.i.i73
+  %273 = add nuw nsw i64 %.0168.i.i74, 1
+  %exitcond201.not.i.i76 = icmp eq i64 %273, %256
+  br i1 %exitcond201.not.i.i76, label %.critedge.i.i64, label %.lr.ph169.i.i73, !llvm.loop !461
 
-.lr.ph172.i.i73:                                  ; preds = %.preheader141.i.i72, %272
-  %.0171.i.i74 = phi i64 [ %273, %272 ], [ 0, %.preheader141.i.i72 ]
-  %274 = getelementptr inbounds nuw i16, ptr %.088180.i.i59, i64 %.0171.i.i74
+.lr.ph169.i.i73:                                  ; preds = %.preheader138.i.i72, %272
+  %.0168.i.i74 = phi i64 [ %273, %272 ], [ 0, %.preheader138.i.i72 ]
+  %274 = getelementptr inbounds nuw i16, ptr %.088177.i.i59, i64 %.0168.i.i74
   %275 = load i16, ptr %274, align 2, !tbaa !13, !noalias !450
   %276 = icmp slt i16 %275, %.val38
   %277 = icmp sgt i16 %275, %.val39
-  %or.cond135.i.i75 = or i1 %276, %277
-  br i1 %or.cond135.i.i75, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit120.thread.i.i, label %272
+  %or.cond132.i.i75 = or i1 %276, %277
+  br i1 %or.cond132.i.i75, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit122.thread.i.i, label %272
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit120.thread.i.i: ; preds = %.lr.ph172.i.i73
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit122.thread.i.i: ; preds = %.lr.ph169.i.i73
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE0_clEs(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %23, ptr nonnull %24, i16 noundef signext %275)
-  br label %.thread126.i.i56
+  br label %.critedge103.i.i56
 
-.thread.i.i64:                                    ; preds = %272, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread125.i.i, %.preheader140.i.i77, %.preheader141.i.i72, %.loopexit.i.i69, %208
+.critedge.i.i64:                                  ; preds = %272, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread127.i.i, %.preheader137.i.i77, %.preheader138.i.i72, %.loopexit.i.i69, %208
   %278 = sext i32 %186 to i64
-  %279 = getelementptr inbounds i16, ptr %.088180.i.i59, i64 %278
+  %279 = getelementptr inbounds i16, ptr %.088177.i.i59, i64 %278
   %280 = sext i16 %.sroa.0.0.extract.trunc.i.i62 to i64
-  %281 = add nsw i64 %.090179.i.i60, %280
-  %282 = add nsw i64 %.092176.i.i61, %280
+  %281 = add nsw i64 %.090176.i.i60, %280
+  %282 = add nsw i64 %.092173.i.i61, %280
   %283 = load i64, ptr %178, align 8, !tbaa !215, !noalias !450
   %284 = icmp slt i64 %281, %283
-  br i1 %284, label %.lr.ph183.i.i58, label %._crit_edge.i.i55, !llvm.loop !462
+  br i1 %284, label %.lr.ph180.i.i58, label %._crit_edge.i.i55, !llvm.loop !462
 
-._crit_edge.i.i55:                                ; preds = %.thread.i.i64, %171
+._crit_edge.i.i55:                                ; preds = %.critedge.i.i64, %171
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !463
-  br label %.thread126.i.i56
+  br label %.critedge103.i.i56
 
-.thread126.i.i56:                                 ; preds = %._crit_edge.i.i55, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit119.thread.i.i
+.critedge103.i.i56:                               ; preds = %._crit_edge.i.i55, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsE_clEs.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25) #21, !noalias !450
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %170, %.thread126.i.i56
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %170, %.critedge103.i.i56
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23), !noalias !444
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24), !noalias !444
   br label %994
@@ -8879,127 +8879,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int16TypeEEENS_6S
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %295, i64 noundef %291, i64 noundef %297), !noalias !474
   %298 = load i64, ptr %296, align 8, !tbaa !215, !noalias !474
   %299 = icmp sgt i64 %298, 0
-  br i1 %299, label %.lr.ph183.preheader.i.i131, label %._crit_edge.i.i129
+  br i1 %299, label %.lr.ph180.preheader.i.i131, label %._crit_edge.i.i129
 
-.lr.ph183.preheader.i.i131:                       ; preds = %289
+.lr.ph180.preheader.i.i131:                       ; preds = %289
   %300 = load i64, ptr %290, align 8, !tbaa !211, !noalias !474
   %301 = getelementptr inbounds i32, ptr %294, i64 %291
-  br label %.lr.ph183.i.i132
+  br label %.lr.ph180.i.i132
 
-.lr.ph183.i.i132:                                 ; preds = %.thread.i.i138, %.lr.ph183.preheader.i.i131
-  %.088180.i.i133 = phi ptr [ %397, %.thread.i.i138 ], [ %301, %.lr.ph183.preheader.i.i131 ]
-  %.090179.i.i134 = phi i64 [ %399, %.thread.i.i138 ], [ 0, %.lr.ph183.preheader.i.i131 ]
-  %.092176.i.i135 = phi i64 [ %400, %.thread.i.i138 ], [ %300, %.lr.ph183.preheader.i.i131 ]
+.lr.ph180.i.i132:                                 ; preds = %.critedge.i.i138, %.lr.ph180.preheader.i.i131
+  %.088177.i.i133 = phi ptr [ %397, %.critedge.i.i138 ], [ %301, %.lr.ph180.preheader.i.i131 ]
+  %.090176.i.i134 = phi i64 [ %399, %.critedge.i.i138 ], [ 0, %.lr.ph180.preheader.i.i131 ]
+  %.092173.i.i135 = phi i64 [ %400, %.critedge.i.i138 ], [ %300, %.lr.ph180.preheader.i.i131 ]
   %302 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %22), !noalias !474
   %.sroa.0.0.extract.trunc.i.i136 = trunc i32 %302 to i16
   %303 = ashr i32 %302, 16
   %sext.i.i137 = shl i32 %302, 16
   %304 = ashr exact i32 %sext.i.i137, 16
   %305 = icmp eq i32 %303, %304
-  br i1 %305, label %.preheader144.i.i178, label %326
+  br i1 %305, label %.preheader141.i.i178, label %326
 
-.preheader144.i.i178:                             ; preds = %.lr.ph183.i.i132
+.preheader141.i.i178:                             ; preds = %.lr.ph180.i.i132
   %306 = icmp sgt i32 %303, 7
-  br i1 %306, label %.preheader.preheader.i.i186, label %.preheader143.i.i179
+  br i1 %306, label %.preheader.preheader.i.i186, label %.preheader140.i.i179
 
-.preheader.preheader.i.i186:                      ; preds = %.preheader144.i.i178
+.preheader.preheader.i.i186:                      ; preds = %.preheader141.i.i178
   %307 = lshr i32 %303, 3
-  %smax201.i.i187 = zext nneg i32 %307 to i64
+  %smax198.i.i187 = zext nneg i32 %307 to i64
   br label %.preheader.i.i188
 
-.preheader143.loopexit.i.i199:                    ; preds = %311
-  %308 = shl nuw nsw i64 %smax201.i.i187, 3
-  br label %.preheader143.i.i179
+.preheader140.loopexit.i.i199:                    ; preds = %311
+  %308 = shl nuw nsw i64 %smax198.i.i187, 3
+  br label %.preheader140.i.i179
 
-.preheader143.i.i179:                             ; preds = %.preheader143.loopexit.i.i199, %.preheader144.i.i178
-  %.085.lcssa.i.i180 = phi i1 [ false, %.preheader144.i.i178 ], [ %319, %.preheader143.loopexit.i.i199 ]
-  %.082.lcssa.i.i181 = phi i64 [ 0, %.preheader144.i.i178 ], [ %308, %.preheader143.loopexit.i.i199 ]
+.preheader140.i.i179:                             ; preds = %.preheader140.loopexit.i.i199, %.preheader141.i.i178
+  %.085.lcssa.i.i180 = phi i1 [ false, %.preheader141.i.i178 ], [ %319, %.preheader140.loopexit.i.i199 ]
+  %.082.lcssa.i.i181 = phi i64 [ 0, %.preheader141.i.i178 ], [ %308, %.preheader140.loopexit.i.i199 ]
   %309 = sext i16 %.sroa.0.0.extract.trunc.i.i136 to i64
   %310 = icmp slt i64 %.082.lcssa.i.i181, %309
-  br i1 %310, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i, label %.loopexit.i.i143
+  br i1 %310, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i, label %.loopexit.i.i143
 
 .preheader.i.i188:                                ; preds = %311, %.preheader.preheader.i.i186
-  %indvars.iv199.i.i189 = phi i64 [ 8, %.preheader.preheader.i.i186 ], [ %indvars.iv.next200.i.i197, %311 ]
-  %.081164.i.i190 = phi i64 [ 0, %.preheader.preheader.i.i186 ], [ %313, %311 ]
-  %.082163.i.i191 = phi i64 [ 0, %.preheader.preheader.i.i186 ], [ %312, %311 ]
-  %.085162.i.i192 = phi i1 [ false, %.preheader.preheader.i.i186 ], [ %319, %311 ]
+  %indvars.iv196.i.i189 = phi i64 [ 8, %.preheader.preheader.i.i186 ], [ %indvars.iv.next197.i.i197, %311 ]
+  %.081161.i.i190 = phi i64 [ 0, %.preheader.preheader.i.i186 ], [ %313, %311 ]
+  %.082160.i.i191 = phi i64 [ 0, %.preheader.preheader.i.i186 ], [ %312, %311 ]
+  %.085159.i.i192 = phi i1 [ false, %.preheader.preheader.i.i186 ], [ %319, %311 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i
 
 311:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i
-  %312 = add nuw nsw i64 %.082163.i.i191, 8
-  %313 = add nuw nsw i64 %.081164.i.i190, 1
-  %indvars.iv.next200.i.i197 = add nuw nsw i64 %indvars.iv199.i.i189, 8
-  %exitcond202.not.i.i198 = icmp eq i64 %313, %smax201.i.i187
-  br i1 %exitcond202.not.i.i198, label %.preheader143.loopexit.i.i199, label %.preheader.i.i188, !llvm.loop !478
+  %312 = add nuw nsw i64 %.082160.i.i191, 8
+  %313 = add nuw nsw i64 %.081161.i.i190, 1
+  %indvars.iv.next197.i.i197 = add nuw nsw i64 %indvars.iv196.i.i189, 8
+  %exitcond199.not.i.i198 = icmp eq i64 %313, %smax198.i.i187
+  br i1 %exitcond199.not.i.i198, label %.preheader140.loopexit.i.i199, label %.preheader.i.i188, !llvm.loop !478
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i, %.preheader.i.i188
-  %.183160.i.i193 = phi i64 [ %.082163.i.i191, %.preheader.i.i188 ], [ %314, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i ]
-  %.186159.i.i194 = phi i1 [ %.085162.i.i192, %.preheader.i.i188 ], [ %319, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i ]
-  %314 = add nuw nsw i64 %.183160.i.i193, 1
-  %315 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.183160.i.i193
+  %.183157.i.i193 = phi i64 [ %.082160.i.i191, %.preheader.i.i188 ], [ %314, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i ]
+  %.186156.i.i194 = phi i1 [ %.085159.i.i192, %.preheader.i.i188 ], [ %319, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i ]
+  %314 = add nuw nsw i64 %.183157.i.i193, 1
+  %315 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.183157.i.i193
   %316 = load i32, ptr %315, align 4, !tbaa !6, !noalias !474
   %317 = icmp slt i32 %316, %.val40
   %318 = icmp sgt i32 %316, %.val41
   %spec.select.i.i195 = or i1 %317, %318
-  %319 = or i1 %.186159.i.i194, %spec.select.i.i195
-  %exitcond198.not.i.i196 = icmp eq i64 %314, %indvars.iv199.i.i189
-  br i1 %exitcond198.not.i.i196, label %311, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i, !llvm.loop !479
+  %319 = or i1 %.186156.i.i194, %spec.select.i.i195
+  %exitcond195.not.i.i196 = icmp eq i64 %314, %indvars.iv196.i.i189
+  br i1 %exitcond195.not.i.i196, label %311, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit.i.i, !llvm.loop !479
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i: ; preds = %.preheader143.i.i179, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i
-  %.284168.i.i182 = phi i64 [ %325, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i ], [ %.082.lcssa.i.i181, %.preheader143.i.i179 ]
-  %.287167.i.i183 = phi i1 [ %324, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i ], [ %.085.lcssa.i.i180, %.preheader143.i.i179 ]
-  %320 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.284168.i.i182
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i: ; preds = %.preheader140.i.i179, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i
+  %.284165.i.i182 = phi i64 [ %325, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i ], [ %.082.lcssa.i.i181, %.preheader140.i.i179 ]
+  %.287164.i.i183 = phi i1 [ %324, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i ], [ %.085.lcssa.i.i180, %.preheader140.i.i179 ]
+  %320 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.284165.i.i182
   %321 = load i32, ptr %320, align 4, !tbaa !6, !noalias !474
   %322 = icmp slt i32 %321, %.val40
   %323 = icmp sgt i32 %321, %.val41
-  %spec.select131.i.i184 = or i1 %322, %323
-  %324 = or i1 %.287167.i.i183, %spec.select131.i.i184
-  %325 = add nuw nsw i64 %.284168.i.i182, 1
-  %exitcond203.not.i.i185 = icmp eq i64 %325, %309
-  br i1 %exitcond203.not.i.i185, label %.loopexit.i.i143, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i, !llvm.loop !480
+  %spec.select128.i.i184 = or i1 %322, %323
+  %324 = or i1 %.287164.i.i183, %spec.select128.i.i184
+  %325 = add nuw nsw i64 %.284165.i.i182, 1
+  %exitcond200.not.i.i185 = icmp eq i64 %325, %309
+  br i1 %exitcond200.not.i.i185, label %.loopexit.i.i143, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i, !llvm.loop !480
 
-326:                                              ; preds = %.lr.ph183.i.i132
+326:                                              ; preds = %.lr.ph180.i.i132
   %327 = icmp sgt i32 %303, 0
-  br i1 %327, label %.preheader147.i.i139, label %.thread.i.i138
+  br i1 %327, label %.preheader144.i.i139, label %.critedge.i.i138
 
-.preheader147.i.i139:                             ; preds = %326
+.preheader144.i.i139:                             ; preds = %326
   %328 = icmp sgt i32 %304, 7
-  br i1 %328, label %.preheader139.preheader.i.i163, label %.preheader145.i.i140
+  br i1 %328, label %.preheader136.preheader.i.i163, label %.preheader142.i.i140
 
-.preheader139.preheader.i.i163:                   ; preds = %.preheader147.i.i139
+.preheader136.preheader.i.i163:                   ; preds = %.preheader144.i.i139
   %329 = lshr i32 %304, 3
   %smax.i.i164 = zext nneg i32 %329 to i64
-  br label %.preheader139.i.i165
+  br label %.preheader136.i.i165
 
-.preheader145.loopexit.i.i177:                    ; preds = %333
+.preheader142.loopexit.i.i177:                    ; preds = %333
   %330 = shl nuw nsw i64 %smax.i.i164, 3
-  br label %.preheader145.i.i140
+  br label %.preheader142.i.i140
 
-.preheader145.i.i140:                             ; preds = %.preheader145.loopexit.i.i177, %.preheader147.i.i139
-  %.4.lcssa.i.i141 = phi i1 [ false, %.preheader147.i.i139 ], [ %352, %.preheader145.loopexit.i.i177 ]
-  %.076.lcssa.i.i142 = phi i64 [ 0, %.preheader147.i.i139 ], [ %330, %.preheader145.loopexit.i.i177 ]
+.preheader142.i.i140:                             ; preds = %.preheader142.loopexit.i.i177, %.preheader144.i.i139
+  %.4.lcssa.i.i141 = phi i1 [ false, %.preheader144.i.i139 ], [ %352, %.preheader142.loopexit.i.i177 ]
+  %.076.lcssa.i.i142 = phi i64 [ 0, %.preheader144.i.i139 ], [ %330, %.preheader142.loopexit.i.i177 ]
   %331 = sext i16 %.sroa.0.0.extract.trunc.i.i136 to i64
   %332 = icmp slt i64 %.076.lcssa.i.i142, %331
   br i1 %332, label %.lr.ph.i.i157, label %.loopexit.i.i143
 
-.preheader139.i.i165:                             ; preds = %333, %.preheader139.preheader.i.i163
-  %indvars.iv194.i.i166 = phi i64 [ 8, %.preheader139.preheader.i.i163 ], [ %indvars.iv.next195.i.i175, %333 ]
-  %.075154.i.i167 = phi i64 [ 0, %.preheader139.preheader.i.i163 ], [ %335, %333 ]
-  %.076153.i.i168 = phi i64 [ 0, %.preheader139.preheader.i.i163 ], [ %334, %333 ]
-  %.4152.i.i169 = phi i1 [ false, %.preheader139.preheader.i.i163 ], [ %352, %333 ]
+.preheader136.i.i165:                             ; preds = %333, %.preheader136.preheader.i.i163
+  %indvars.iv191.i.i166 = phi i64 [ 8, %.preheader136.preheader.i.i163 ], [ %indvars.iv.next192.i.i175, %333 ]
+  %.075151.i.i167 = phi i64 [ 0, %.preheader136.preheader.i.i163 ], [ %335, %333 ]
+  %.076150.i.i168 = phi i64 [ 0, %.preheader136.preheader.i.i163 ], [ %334, %333 ]
+  %.4149.i.i169 = phi i1 [ false, %.preheader136.preheader.i.i163 ], [ %352, %333 ]
   br label %336
 
 333:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i
-  %334 = add nuw nsw i64 %.076153.i.i168, 8
-  %335 = add nuw nsw i64 %.075154.i.i167, 1
-  %indvars.iv.next195.i.i175 = add nuw nsw i64 %indvars.iv194.i.i166, 8
-  %exitcond196.not.i.i176 = icmp eq i64 %335, %smax.i.i164
-  br i1 %exitcond196.not.i.i176, label %.preheader145.loopexit.i.i177, label %.preheader139.i.i165, !llvm.loop !481
+  %334 = add nuw nsw i64 %.076150.i.i168, 8
+  %335 = add nuw nsw i64 %.075151.i.i167, 1
+  %indvars.iv.next192.i.i175 = add nuw nsw i64 %indvars.iv191.i.i166, 8
+  %exitcond193.not.i.i176 = icmp eq i64 %335, %smax.i.i164
+  br i1 %exitcond193.not.i.i176, label %.preheader142.loopexit.i.i177, label %.preheader136.i.i165, !llvm.loop !481
 
-336:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i, %.preheader139.i.i165
-  %.1150.i.i170 = phi i64 [ %.076153.i.i168, %.preheader139.i.i165 ], [ %353, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i ]
-  %.5149.i.i171 = phi i1 [ %.4152.i.i169, %.preheader139.i.i165 ], [ %352, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i ]
-  %337 = add nsw i64 %.1150.i.i170, %.092176.i.i135
+336:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i, %.preheader136.i.i165
+  %.1147.i.i170 = phi i64 [ %.076150.i.i168, %.preheader136.i.i165 ], [ %353, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i ]
+  %.5146.i.i171 = phi i1 [ %.4149.i.i169, %.preheader136.i.i165 ], [ %352, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i ]
+  %337 = add nsw i64 %.1147.i.i170, %.092173.i.i135
   %338 = lshr i64 %337, 3
   %339 = getelementptr inbounds nuw i8, ptr %295, i64 %338
   %340 = load i8, ptr %339, align 1, !tbaa !3, !noalias !474
@@ -9008,28 +9008,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusER
   %343 = and i32 %342, 7
   %344 = shl nuw nsw i32 1, %343
   %345 = and i32 %344, %341
-  %.not137.i.i172 = icmp eq i32 %345, 0
-  br i1 %.not137.i.i172, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i, label %346
+  %.not134.i.i172 = icmp eq i32 %345, 0
+  br i1 %.not134.i.i172, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i, label %346
 
 346:                                              ; preds = %336
-  %347 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.1150.i.i170
+  %347 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.1147.i.i170
   %348 = load i32, ptr %347, align 4, !tbaa !6, !noalias !474
   %349 = icmp slt i32 %348, %.val40
   %350 = icmp sgt i32 %348, %.val41
-  %spec.select132.i.i173 = or i1 %349, %350
+  %spec.select129.i.i173 = or i1 %349, %350
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit.i.i: ; preds = %346, %336
-  %351 = phi i1 [ false, %336 ], [ %spec.select132.i.i173, %346 ]
-  %352 = or i1 %.5149.i.i171, %351
-  %353 = add nuw nsw i64 %.1150.i.i170, 1
-  %exitcond.not.i.i174 = icmp eq i64 %353, %indvars.iv194.i.i166
+  %351 = phi i1 [ false, %336 ], [ %spec.select129.i.i173, %346 ]
+  %352 = or i1 %.5146.i.i171, %351
+  %353 = add nuw nsw i64 %.1147.i.i170, 1
+  %exitcond.not.i.i174 = icmp eq i64 %353, %indvars.iv191.i.i166
   br i1 %exitcond.not.i.i174, label %333, label %336, !llvm.loop !482
 
-.lr.ph.i.i157:                                    ; preds = %.preheader145.i.i140, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i
-  %.2157.i.i158 = phi i64 [ %370, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i ], [ %.076.lcssa.i.i142, %.preheader145.i.i140 ]
-  %.6156.i.i159 = phi i1 [ %369, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i ], [ %.4.lcssa.i.i141, %.preheader145.i.i140 ]
-  %354 = add nsw i64 %.2157.i.i158, %.092176.i.i135
+.lr.ph.i.i157:                                    ; preds = %.preheader142.i.i140, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i
+  %.2154.i.i158 = phi i64 [ %370, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i ], [ %.076.lcssa.i.i142, %.preheader142.i.i140 ]
+  %.6153.i.i159 = phi i1 [ %369, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i ], [ %.4.lcssa.i.i141, %.preheader142.i.i140 ]
+  %354 = add nsw i64 %.2154.i.i158, %.092173.i.i135
   %355 = lshr i64 %354, 3
   %356 = getelementptr inbounds nuw i8, ptr %295, i64 %355
   %357 = load i8, ptr %356, align 1, !tbaa !3, !noalias !474
@@ -9038,44 +9038,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusER
   %360 = and i32 %359, 7
   %361 = shl nuw nsw i32 1, %360
   %362 = and i32 %361, %358
-  %.not136.i.i160 = icmp eq i32 %362, 0
-  br i1 %.not136.i.i160, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i, label %363
+  %.not133.i.i160 = icmp eq i32 %362, 0
+  br i1 %.not133.i.i160, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i, label %363
 
 363:                                              ; preds = %.lr.ph.i.i157
-  %364 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.2157.i.i158
+  %364 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.2154.i.i158
   %365 = load i32, ptr %364, align 4, !tbaa !6, !noalias !474
   %366 = icmp slt i32 %365, %.val40
   %367 = icmp sgt i32 %365, %.val41
-  %spec.select133.i.i161 = or i1 %366, %367
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i
+  %spec.select130.i.i161 = or i1 %366, %367
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i: ; preds = %363, %.lr.ph.i.i157
-  %368 = phi i1 [ false, %.lr.ph.i.i157 ], [ %spec.select133.i.i161, %363 ]
-  %369 = or i1 %.6156.i.i159, %368
-  %370 = add nuw nsw i64 %.2157.i.i158, 1
-  %exitcond197.not.i.i162 = icmp eq i64 %370, %331
-  br i1 %exitcond197.not.i.i162, label %.loopexit.i.i143, label %.lr.ph.i.i157, !llvm.loop !483
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i: ; preds = %363, %.lr.ph.i.i157
+  %368 = phi i1 [ false, %.lr.ph.i.i157 ], [ %spec.select130.i.i161, %363 ]
+  %369 = or i1 %.6153.i.i159, %368
+  %370 = add nuw nsw i64 %.2154.i.i158, 1
+  %exitcond194.not.i.i162 = icmp eq i64 %370, %331
+  br i1 %exitcond194.not.i.i162, label %.loopexit.i.i143, label %.lr.ph.i.i157, !llvm.loop !483
 
-.loopexit.i.i143:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i, %.preheader145.i.i140, %.preheader143.i.i179
-  %.3.i.i144 = phi i1 [ %.085.lcssa.i.i180, %.preheader143.i.i179 ], [ %.4.lcssa.i.i141, %.preheader145.i.i140 ], [ %324, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit117.i.i ], [ %369, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit118.i.i ]
-  br i1 %.3.i.i144, label %371, label %.thread.i.i138, !prof !435
+.loopexit.i.i143:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i, %.preheader142.i.i140, %.preheader140.i.i179
+  %.3.i.i144 = phi i1 [ %.085.lcssa.i.i180, %.preheader140.i.i179 ], [ %.4.lcssa.i.i141, %.preheader142.i.i140 ], [ %324, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit119.i.i ], [ %369, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit120.i.i ]
+  br i1 %.3.i.i144, label %371, label %.critedge.i.i138, !prof !435
 
 371:                                              ; preds = %.loopexit.i.i143
   %372 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !474
   %373 = icmp sgt i64 %372, 0
   %374 = sext i16 %.sroa.0.0.extract.trunc.i.i136 to i64
-  %.not99173.i.i145 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i136, 0
-  br i1 %373, label %.preheader140.i.i151, label %.preheader141.i.i146
+  %.not99170.i.i145 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i136, 0
+  br i1 %373, label %.preheader137.i.i151, label %.preheader138.i.i146
 
-.preheader141.i.i146:                             ; preds = %371
-  br i1 %.not99173.i.i145, label %.lr.ph172.i.i147, label %.thread.i.i138
+.preheader138.i.i146:                             ; preds = %371
+  br i1 %.not99170.i.i145, label %.lr.ph169.i.i147, label %.critedge.i.i138
 
-.preheader140.i.i151:                             ; preds = %371
-  br i1 %.not99173.i.i145, label %.lr.ph175.i.i152, label %.thread.i.i138
+.preheader137.i.i151:                             ; preds = %371
+  br i1 %.not99170.i.i145, label %.lr.ph172.i.i152, label %.critedge.i.i138
 
-.lr.ph175.i.i152:                                 ; preds = %.preheader140.i.i151, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i
-  %.073174.i.i153 = phi i64 [ %389, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i ], [ 0, %.preheader140.i.i151 ]
-  %375 = add nsw i64 %.073174.i.i153, %.092176.i.i135
+.lr.ph172.i.i152:                                 ; preds = %.preheader137.i.i151, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i
+  %.073171.i.i153 = phi i64 [ %389, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i ], [ 0, %.preheader137.i.i151 ]
+  %375 = add nsw i64 %.073171.i.i153, %.092173.i.i135
   %376 = lshr i64 %375, 3
   %377 = getelementptr inbounds nuw i8, ptr %295, i64 %376
   %378 = load i8, ptr %377, align 1, !tbaa !3, !noalias !474
@@ -9084,63 +9084,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusER
   %381 = and i32 %380, 7
   %382 = shl nuw nsw i32 1, %381
   %383 = and i32 %382, %379
-  %.not138.i.i154 = icmp eq i32 %383, 0
-  br i1 %.not138.i.i154, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i, label %384
+  %.not135.i.i154 = icmp eq i32 %383, 0
+  br i1 %.not135.i.i154, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i, label %384
 
-384:                                              ; preds = %.lr.ph175.i.i152
-  %385 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.073174.i.i153
+384:                                              ; preds = %.lr.ph172.i.i152
+  %385 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.073171.i.i153
   %386 = load i32, ptr %385, align 4, !tbaa !6, !noalias !474
   %387 = icmp slt i32 %386, %.val40
   %388 = icmp sgt i32 %386, %.val41
-  %or.cond134.i.i155 = or i1 %387, %388
-  br i1 %or.cond134.i.i155, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i
+  %or.cond131.i.i155 = or i1 %387, %388
+  br i1 %or.cond131.i.i155, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread.i.i: ; preds = %384
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread.i.i: ; preds = %384
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE0_clEi(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %20, ptr nonnull %21, i32 noundef %386)
-  br label %.thread126.i.i130
+  br label %.critedge103.i.i130
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i: ; preds = %384, %.lr.ph175.i.i152
-  %389 = add nuw nsw i64 %.073174.i.i153, 1
-  %exitcond205.not.i.i156 = icmp eq i64 %389, %374
-  br i1 %exitcond205.not.i.i156, label %.thread.i.i138, label %.lr.ph175.i.i152, !llvm.loop !484
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i: ; preds = %384, %.lr.ph172.i.i152
+  %389 = add nuw nsw i64 %.073171.i.i153, 1
+  %exitcond202.not.i.i156 = icmp eq i64 %389, %374
+  br i1 %exitcond202.not.i.i156, label %.critedge.i.i138, label %.lr.ph172.i.i152, !llvm.loop !484
 
-390:                                              ; preds = %.lr.ph172.i.i147
-  %391 = add nuw nsw i64 %.0171.i.i148, 1
-  %exitcond204.not.i.i150 = icmp eq i64 %391, %374
-  br i1 %exitcond204.not.i.i150, label %.thread.i.i138, label %.lr.ph172.i.i147, !llvm.loop !485
+390:                                              ; preds = %.lr.ph169.i.i147
+  %391 = add nuw nsw i64 %.0168.i.i148, 1
+  %exitcond201.not.i.i150 = icmp eq i64 %391, %374
+  br i1 %exitcond201.not.i.i150, label %.critedge.i.i138, label %.lr.ph169.i.i147, !llvm.loop !485
 
-.lr.ph172.i.i147:                                 ; preds = %.preheader141.i.i146, %390
-  %.0171.i.i148 = phi i64 [ %391, %390 ], [ 0, %.preheader141.i.i146 ]
-  %392 = getelementptr inbounds nuw i32, ptr %.088180.i.i133, i64 %.0171.i.i148
+.lr.ph169.i.i147:                                 ; preds = %.preheader138.i.i146, %390
+  %.0168.i.i148 = phi i64 [ %391, %390 ], [ 0, %.preheader138.i.i146 ]
+  %392 = getelementptr inbounds nuw i32, ptr %.088177.i.i133, i64 %.0168.i.i148
   %393 = load i32, ptr %392, align 4, !tbaa !6, !noalias !474
   %394 = icmp slt i32 %393, %.val40
   %395 = icmp sgt i32 %393, %.val41
-  %or.cond135.i.i149 = or i1 %394, %395
-  br i1 %or.cond135.i.i149, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit120.thread.i.i, label %390
+  %or.cond132.i.i149 = or i1 %394, %395
+  br i1 %or.cond132.i.i149, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit122.thread.i.i, label %390
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit120.thread.i.i: ; preds = %.lr.ph172.i.i147
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit122.thread.i.i: ; preds = %.lr.ph169.i.i147
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE0_clEi(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %20, ptr nonnull %21, i32 noundef %393)
-  br label %.thread126.i.i130
+  br label %.critedge103.i.i130
 
-.thread.i.i138:                                   ; preds = %390, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread125.i.i, %.preheader140.i.i151, %.preheader141.i.i146, %.loopexit.i.i143, %326
+.critedge.i.i138:                                 ; preds = %390, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread127.i.i, %.preheader137.i.i151, %.preheader138.i.i146, %.loopexit.i.i143, %326
   %396 = sext i32 %304 to i64
-  %397 = getelementptr inbounds i32, ptr %.088180.i.i133, i64 %396
+  %397 = getelementptr inbounds i32, ptr %.088177.i.i133, i64 %396
   %398 = sext i16 %.sroa.0.0.extract.trunc.i.i136 to i64
-  %399 = add nsw i64 %.090179.i.i134, %398
-  %400 = add nsw i64 %.092176.i.i135, %398
+  %399 = add nsw i64 %.090176.i.i134, %398
+  %400 = add nsw i64 %.092173.i.i135, %398
   %401 = load i64, ptr %296, align 8, !tbaa !215, !noalias !474
   %402 = icmp slt i64 %399, %401
-  br i1 %402, label %.lr.ph183.i.i132, label %._crit_edge.i.i129, !llvm.loop !486
+  br i1 %402, label %.lr.ph180.i.i132, label %._crit_edge.i.i129, !llvm.loop !486
 
-._crit_edge.i.i129:                               ; preds = %.thread.i.i138, %289
+._crit_edge.i.i129:                               ; preds = %.critedge.i.i138, %289
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !487
-  br label %.thread126.i.i130
+  br label %.critedge103.i.i130
 
-.thread126.i.i130:                                ; preds = %._crit_edge.i.i129, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit119.thread.i.i
+.critedge103.i.i130:                              ; preds = %._crit_edge.i.i129, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUliE_clEi.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22) #21, !noalias !474
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %288, %.thread126.i.i130
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %288, %.critedge103.i.i130
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20), !noalias !468
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21), !noalias !468
   br label %994
@@ -9178,127 +9178,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int32TypeEEENS_6S
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %413, i64 noundef %409, i64 noundef %415), !noalias !498
   %416 = load i64, ptr %414, align 8, !tbaa !215, !noalias !498
   %417 = icmp sgt i64 %416, 0
-  br i1 %417, label %.lr.ph183.preheader.i.i205, label %._crit_edge.i.i203
+  br i1 %417, label %.lr.ph180.preheader.i.i205, label %._crit_edge.i.i203
 
-.lr.ph183.preheader.i.i205:                       ; preds = %407
+.lr.ph180.preheader.i.i205:                       ; preds = %407
   %418 = load i64, ptr %408, align 8, !tbaa !211, !noalias !498
   %419 = getelementptr inbounds i64, ptr %412, i64 %409
-  br label %.lr.ph183.i.i206
+  br label %.lr.ph180.i.i206
 
-.lr.ph183.i.i206:                                 ; preds = %.thread.i.i212, %.lr.ph183.preheader.i.i205
-  %.088180.i.i207 = phi ptr [ %515, %.thread.i.i212 ], [ %419, %.lr.ph183.preheader.i.i205 ]
-  %.090179.i.i208 = phi i64 [ %517, %.thread.i.i212 ], [ 0, %.lr.ph183.preheader.i.i205 ]
-  %.092176.i.i209 = phi i64 [ %518, %.thread.i.i212 ], [ %418, %.lr.ph183.preheader.i.i205 ]
+.lr.ph180.i.i206:                                 ; preds = %.critedge.i.i212, %.lr.ph180.preheader.i.i205
+  %.088177.i.i207 = phi ptr [ %515, %.critedge.i.i212 ], [ %419, %.lr.ph180.preheader.i.i205 ]
+  %.090176.i.i208 = phi i64 [ %517, %.critedge.i.i212 ], [ 0, %.lr.ph180.preheader.i.i205 ]
+  %.092173.i.i209 = phi i64 [ %518, %.critedge.i.i212 ], [ %418, %.lr.ph180.preheader.i.i205 ]
   %420 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %19), !noalias !498
   %.sroa.0.0.extract.trunc.i.i210 = trunc i32 %420 to i16
   %421 = ashr i32 %420, 16
   %sext.i.i211 = shl i32 %420, 16
   %422 = ashr exact i32 %sext.i.i211, 16
   %423 = icmp eq i32 %421, %422
-  br i1 %423, label %.preheader144.i.i252, label %444
+  br i1 %423, label %.preheader141.i.i252, label %444
 
-.preheader144.i.i252:                             ; preds = %.lr.ph183.i.i206
+.preheader141.i.i252:                             ; preds = %.lr.ph180.i.i206
   %424 = icmp sgt i32 %421, 7
-  br i1 %424, label %.preheader.preheader.i.i260, label %.preheader143.i.i253
+  br i1 %424, label %.preheader.preheader.i.i260, label %.preheader140.i.i253
 
-.preheader.preheader.i.i260:                      ; preds = %.preheader144.i.i252
+.preheader.preheader.i.i260:                      ; preds = %.preheader141.i.i252
   %425 = lshr i32 %421, 3
-  %smax201.i.i261 = zext nneg i32 %425 to i64
+  %smax198.i.i261 = zext nneg i32 %425 to i64
   br label %.preheader.i.i262
 
-.preheader143.loopexit.i.i273:                    ; preds = %429
-  %426 = shl nuw nsw i64 %smax201.i.i261, 3
-  br label %.preheader143.i.i253
+.preheader140.loopexit.i.i273:                    ; preds = %429
+  %426 = shl nuw nsw i64 %smax198.i.i261, 3
+  br label %.preheader140.i.i253
 
-.preheader143.i.i253:                             ; preds = %.preheader143.loopexit.i.i273, %.preheader144.i.i252
-  %.085.lcssa.i.i254 = phi i1 [ false, %.preheader144.i.i252 ], [ %437, %.preheader143.loopexit.i.i273 ]
-  %.082.lcssa.i.i255 = phi i64 [ 0, %.preheader144.i.i252 ], [ %426, %.preheader143.loopexit.i.i273 ]
+.preheader140.i.i253:                             ; preds = %.preheader140.loopexit.i.i273, %.preheader141.i.i252
+  %.085.lcssa.i.i254 = phi i1 [ false, %.preheader141.i.i252 ], [ %437, %.preheader140.loopexit.i.i273 ]
+  %.082.lcssa.i.i255 = phi i64 [ 0, %.preheader141.i.i252 ], [ %426, %.preheader140.loopexit.i.i273 ]
   %427 = sext i16 %.sroa.0.0.extract.trunc.i.i210 to i64
   %428 = icmp slt i64 %.082.lcssa.i.i255, %427
-  br i1 %428, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i, label %.loopexit.i.i217
+  br i1 %428, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i, label %.loopexit.i.i217
 
 .preheader.i.i262:                                ; preds = %429, %.preheader.preheader.i.i260
-  %indvars.iv199.i.i263 = phi i64 [ 8, %.preheader.preheader.i.i260 ], [ %indvars.iv.next200.i.i271, %429 ]
-  %.081164.i.i264 = phi i64 [ 0, %.preheader.preheader.i.i260 ], [ %431, %429 ]
-  %.082163.i.i265 = phi i64 [ 0, %.preheader.preheader.i.i260 ], [ %430, %429 ]
-  %.085162.i.i266 = phi i1 [ false, %.preheader.preheader.i.i260 ], [ %437, %429 ]
+  %indvars.iv196.i.i263 = phi i64 [ 8, %.preheader.preheader.i.i260 ], [ %indvars.iv.next197.i.i271, %429 ]
+  %.081161.i.i264 = phi i64 [ 0, %.preheader.preheader.i.i260 ], [ %431, %429 ]
+  %.082160.i.i265 = phi i64 [ 0, %.preheader.preheader.i.i260 ], [ %430, %429 ]
+  %.085159.i.i266 = phi i1 [ false, %.preheader.preheader.i.i260 ], [ %437, %429 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i
 
 429:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i
-  %430 = add nuw nsw i64 %.082163.i.i265, 8
-  %431 = add nuw nsw i64 %.081164.i.i264, 1
-  %indvars.iv.next200.i.i271 = add nuw nsw i64 %indvars.iv199.i.i263, 8
-  %exitcond202.not.i.i272 = icmp eq i64 %431, %smax201.i.i261
-  br i1 %exitcond202.not.i.i272, label %.preheader143.loopexit.i.i273, label %.preheader.i.i262, !llvm.loop !502
+  %430 = add nuw nsw i64 %.082160.i.i265, 8
+  %431 = add nuw nsw i64 %.081161.i.i264, 1
+  %indvars.iv.next197.i.i271 = add nuw nsw i64 %indvars.iv196.i.i263, 8
+  %exitcond199.not.i.i272 = icmp eq i64 %431, %smax198.i.i261
+  br i1 %exitcond199.not.i.i272, label %.preheader140.loopexit.i.i273, label %.preheader.i.i262, !llvm.loop !502
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i, %.preheader.i.i262
-  %.183160.i.i267 = phi i64 [ %.082163.i.i265, %.preheader.i.i262 ], [ %432, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i ]
-  %.186159.i.i268 = phi i1 [ %.085162.i.i266, %.preheader.i.i262 ], [ %437, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i ]
-  %432 = add nuw nsw i64 %.183160.i.i267, 1
-  %433 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.183160.i.i267
+  %.183157.i.i267 = phi i64 [ %.082160.i.i265, %.preheader.i.i262 ], [ %432, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i ]
+  %.186156.i.i268 = phi i1 [ %.085159.i.i266, %.preheader.i.i262 ], [ %437, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i ]
+  %432 = add nuw nsw i64 %.183157.i.i267, 1
+  %433 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.183157.i.i267
   %434 = load i64, ptr %433, align 8, !tbaa !23, !noalias !498
   %435 = icmp slt i64 %434, %.val42
   %436 = icmp sgt i64 %434, %.val43
   %spec.select.i.i269 = or i1 %435, %436
-  %437 = or i1 %.186159.i.i268, %spec.select.i.i269
-  %exitcond198.not.i.i270 = icmp eq i64 %432, %indvars.iv199.i.i263
-  br i1 %exitcond198.not.i.i270, label %429, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i, !llvm.loop !503
+  %437 = or i1 %.186156.i.i268, %spec.select.i.i269
+  %exitcond195.not.i.i270 = icmp eq i64 %432, %indvars.iv196.i.i263
+  br i1 %exitcond195.not.i.i270, label %429, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit.i.i, !llvm.loop !503
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i: ; preds = %.preheader143.i.i253, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i
-  %.284168.i.i256 = phi i64 [ %443, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i ], [ %.082.lcssa.i.i255, %.preheader143.i.i253 ]
-  %.287167.i.i257 = phi i1 [ %442, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i ], [ %.085.lcssa.i.i254, %.preheader143.i.i253 ]
-  %438 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.284168.i.i256
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i: ; preds = %.preheader140.i.i253, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i
+  %.284165.i.i256 = phi i64 [ %443, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i ], [ %.082.lcssa.i.i255, %.preheader140.i.i253 ]
+  %.287164.i.i257 = phi i1 [ %442, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i ], [ %.085.lcssa.i.i254, %.preheader140.i.i253 ]
+  %438 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.284165.i.i256
   %439 = load i64, ptr %438, align 8, !tbaa !23, !noalias !498
   %440 = icmp slt i64 %439, %.val42
   %441 = icmp sgt i64 %439, %.val43
-  %spec.select131.i.i258 = or i1 %440, %441
-  %442 = or i1 %.287167.i.i257, %spec.select131.i.i258
-  %443 = add nuw nsw i64 %.284168.i.i256, 1
-  %exitcond203.not.i.i259 = icmp eq i64 %443, %427
-  br i1 %exitcond203.not.i.i259, label %.loopexit.i.i217, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i, !llvm.loop !504
+  %spec.select128.i.i258 = or i1 %440, %441
+  %442 = or i1 %.287164.i.i257, %spec.select128.i.i258
+  %443 = add nuw nsw i64 %.284165.i.i256, 1
+  %exitcond200.not.i.i259 = icmp eq i64 %443, %427
+  br i1 %exitcond200.not.i.i259, label %.loopexit.i.i217, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i, !llvm.loop !504
 
-444:                                              ; preds = %.lr.ph183.i.i206
+444:                                              ; preds = %.lr.ph180.i.i206
   %445 = icmp sgt i32 %421, 0
-  br i1 %445, label %.preheader147.i.i213, label %.thread.i.i212
+  br i1 %445, label %.preheader144.i.i213, label %.critedge.i.i212
 
-.preheader147.i.i213:                             ; preds = %444
+.preheader144.i.i213:                             ; preds = %444
   %446 = icmp sgt i32 %422, 7
-  br i1 %446, label %.preheader139.preheader.i.i237, label %.preheader145.i.i214
+  br i1 %446, label %.preheader136.preheader.i.i237, label %.preheader142.i.i214
 
-.preheader139.preheader.i.i237:                   ; preds = %.preheader147.i.i213
+.preheader136.preheader.i.i237:                   ; preds = %.preheader144.i.i213
   %447 = lshr i32 %422, 3
   %smax.i.i238 = zext nneg i32 %447 to i64
-  br label %.preheader139.i.i239
+  br label %.preheader136.i.i239
 
-.preheader145.loopexit.i.i251:                    ; preds = %451
+.preheader142.loopexit.i.i251:                    ; preds = %451
   %448 = shl nuw nsw i64 %smax.i.i238, 3
-  br label %.preheader145.i.i214
+  br label %.preheader142.i.i214
 
-.preheader145.i.i214:                             ; preds = %.preheader145.loopexit.i.i251, %.preheader147.i.i213
-  %.4.lcssa.i.i215 = phi i1 [ false, %.preheader147.i.i213 ], [ %470, %.preheader145.loopexit.i.i251 ]
-  %.076.lcssa.i.i216 = phi i64 [ 0, %.preheader147.i.i213 ], [ %448, %.preheader145.loopexit.i.i251 ]
+.preheader142.i.i214:                             ; preds = %.preheader142.loopexit.i.i251, %.preheader144.i.i213
+  %.4.lcssa.i.i215 = phi i1 [ false, %.preheader144.i.i213 ], [ %470, %.preheader142.loopexit.i.i251 ]
+  %.076.lcssa.i.i216 = phi i64 [ 0, %.preheader144.i.i213 ], [ %448, %.preheader142.loopexit.i.i251 ]
   %449 = sext i16 %.sroa.0.0.extract.trunc.i.i210 to i64
   %450 = icmp slt i64 %.076.lcssa.i.i216, %449
   br i1 %450, label %.lr.ph.i.i231, label %.loopexit.i.i217
 
-.preheader139.i.i239:                             ; preds = %451, %.preheader139.preheader.i.i237
-  %indvars.iv194.i.i240 = phi i64 [ 8, %.preheader139.preheader.i.i237 ], [ %indvars.iv.next195.i.i249, %451 ]
-  %.075154.i.i241 = phi i64 [ 0, %.preheader139.preheader.i.i237 ], [ %453, %451 ]
-  %.076153.i.i242 = phi i64 [ 0, %.preheader139.preheader.i.i237 ], [ %452, %451 ]
-  %.4152.i.i243 = phi i1 [ false, %.preheader139.preheader.i.i237 ], [ %470, %451 ]
+.preheader136.i.i239:                             ; preds = %451, %.preheader136.preheader.i.i237
+  %indvars.iv191.i.i240 = phi i64 [ 8, %.preheader136.preheader.i.i237 ], [ %indvars.iv.next192.i.i249, %451 ]
+  %.075151.i.i241 = phi i64 [ 0, %.preheader136.preheader.i.i237 ], [ %453, %451 ]
+  %.076150.i.i242 = phi i64 [ 0, %.preheader136.preheader.i.i237 ], [ %452, %451 ]
+  %.4149.i.i243 = phi i1 [ false, %.preheader136.preheader.i.i237 ], [ %470, %451 ]
   br label %454
 
 451:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i
-  %452 = add nuw nsw i64 %.076153.i.i242, 8
-  %453 = add nuw nsw i64 %.075154.i.i241, 1
-  %indvars.iv.next195.i.i249 = add nuw nsw i64 %indvars.iv194.i.i240, 8
-  %exitcond196.not.i.i250 = icmp eq i64 %453, %smax.i.i238
-  br i1 %exitcond196.not.i.i250, label %.preheader145.loopexit.i.i251, label %.preheader139.i.i239, !llvm.loop !505
+  %452 = add nuw nsw i64 %.076150.i.i242, 8
+  %453 = add nuw nsw i64 %.075151.i.i241, 1
+  %indvars.iv.next192.i.i249 = add nuw nsw i64 %indvars.iv191.i.i240, 8
+  %exitcond193.not.i.i250 = icmp eq i64 %453, %smax.i.i238
+  br i1 %exitcond193.not.i.i250, label %.preheader142.loopexit.i.i251, label %.preheader136.i.i239, !llvm.loop !505
 
-454:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i, %.preheader139.i.i239
-  %.1150.i.i244 = phi i64 [ %.076153.i.i242, %.preheader139.i.i239 ], [ %471, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i ]
-  %.5149.i.i245 = phi i1 [ %.4152.i.i243, %.preheader139.i.i239 ], [ %470, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i ]
-  %455 = add nsw i64 %.1150.i.i244, %.092176.i.i209
+454:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i, %.preheader136.i.i239
+  %.1147.i.i244 = phi i64 [ %.076150.i.i242, %.preheader136.i.i239 ], [ %471, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i ]
+  %.5146.i.i245 = phi i1 [ %.4149.i.i243, %.preheader136.i.i239 ], [ %470, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i ]
+  %455 = add nsw i64 %.1147.i.i244, %.092173.i.i209
   %456 = lshr i64 %455, 3
   %457 = getelementptr inbounds nuw i8, ptr %413, i64 %456
   %458 = load i8, ptr %457, align 1, !tbaa !3, !noalias !498
@@ -9307,28 +9307,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusER
   %461 = and i32 %460, 7
   %462 = shl nuw nsw i32 1, %461
   %463 = and i32 %462, %459
-  %.not137.i.i246 = icmp eq i32 %463, 0
-  br i1 %.not137.i.i246, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i, label %464
+  %.not134.i.i246 = icmp eq i32 %463, 0
+  br i1 %.not134.i.i246, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i, label %464
 
 464:                                              ; preds = %454
-  %465 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.1150.i.i244
+  %465 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.1147.i.i244
   %466 = load i64, ptr %465, align 8, !tbaa !23, !noalias !498
   %467 = icmp slt i64 %466, %.val42
   %468 = icmp sgt i64 %466, %.val43
-  %spec.select132.i.i247 = or i1 %467, %468
+  %spec.select129.i.i247 = or i1 %467, %468
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit.i.i: ; preds = %464, %454
-  %469 = phi i1 [ false, %454 ], [ %spec.select132.i.i247, %464 ]
-  %470 = or i1 %.5149.i.i245, %469
-  %471 = add nuw nsw i64 %.1150.i.i244, 1
-  %exitcond.not.i.i248 = icmp eq i64 %471, %indvars.iv194.i.i240
+  %469 = phi i1 [ false, %454 ], [ %spec.select129.i.i247, %464 ]
+  %470 = or i1 %.5146.i.i245, %469
+  %471 = add nuw nsw i64 %.1147.i.i244, 1
+  %exitcond.not.i.i248 = icmp eq i64 %471, %indvars.iv191.i.i240
   br i1 %exitcond.not.i.i248, label %451, label %454, !llvm.loop !506
 
-.lr.ph.i.i231:                                    ; preds = %.preheader145.i.i214, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i
-  %.2157.i.i232 = phi i64 [ %488, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i ], [ %.076.lcssa.i.i216, %.preheader145.i.i214 ]
-  %.6156.i.i233 = phi i1 [ %487, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i ], [ %.4.lcssa.i.i215, %.preheader145.i.i214 ]
-  %472 = add nsw i64 %.2157.i.i232, %.092176.i.i209
+.lr.ph.i.i231:                                    ; preds = %.preheader142.i.i214, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i
+  %.2154.i.i232 = phi i64 [ %488, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i ], [ %.076.lcssa.i.i216, %.preheader142.i.i214 ]
+  %.6153.i.i233 = phi i1 [ %487, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i ], [ %.4.lcssa.i.i215, %.preheader142.i.i214 ]
+  %472 = add nsw i64 %.2154.i.i232, %.092173.i.i209
   %473 = lshr i64 %472, 3
   %474 = getelementptr inbounds nuw i8, ptr %413, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !3, !noalias !498
@@ -9337,44 +9337,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusER
   %478 = and i32 %477, 7
   %479 = shl nuw nsw i32 1, %478
   %480 = and i32 %479, %476
-  %.not136.i.i234 = icmp eq i32 %480, 0
-  br i1 %.not136.i.i234, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i, label %481
+  %.not133.i.i234 = icmp eq i32 %480, 0
+  br i1 %.not133.i.i234, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i, label %481
 
 481:                                              ; preds = %.lr.ph.i.i231
-  %482 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.2157.i.i232
+  %482 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.2154.i.i232
   %483 = load i64, ptr %482, align 8, !tbaa !23, !noalias !498
   %484 = icmp slt i64 %483, %.val42
   %485 = icmp sgt i64 %483, %.val43
-  %spec.select133.i.i235 = or i1 %484, %485
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i
+  %spec.select130.i.i235 = or i1 %484, %485
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i: ; preds = %481, %.lr.ph.i.i231
-  %486 = phi i1 [ false, %.lr.ph.i.i231 ], [ %spec.select133.i.i235, %481 ]
-  %487 = or i1 %.6156.i.i233, %486
-  %488 = add nuw nsw i64 %.2157.i.i232, 1
-  %exitcond197.not.i.i236 = icmp eq i64 %488, %449
-  br i1 %exitcond197.not.i.i236, label %.loopexit.i.i217, label %.lr.ph.i.i231, !llvm.loop !507
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i: ; preds = %481, %.lr.ph.i.i231
+  %486 = phi i1 [ false, %.lr.ph.i.i231 ], [ %spec.select130.i.i235, %481 ]
+  %487 = or i1 %.6153.i.i233, %486
+  %488 = add nuw nsw i64 %.2154.i.i232, 1
+  %exitcond194.not.i.i236 = icmp eq i64 %488, %449
+  br i1 %exitcond194.not.i.i236, label %.loopexit.i.i217, label %.lr.ph.i.i231, !llvm.loop !507
 
-.loopexit.i.i217:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i, %.preheader145.i.i214, %.preheader143.i.i253
-  %.3.i.i218 = phi i1 [ %.085.lcssa.i.i254, %.preheader143.i.i253 ], [ %.4.lcssa.i.i215, %.preheader145.i.i214 ], [ %442, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit117.i.i ], [ %487, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit118.i.i ]
-  br i1 %.3.i.i218, label %489, label %.thread.i.i212, !prof !435
+.loopexit.i.i217:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i, %.preheader142.i.i214, %.preheader140.i.i253
+  %.3.i.i218 = phi i1 [ %.085.lcssa.i.i254, %.preheader140.i.i253 ], [ %.4.lcssa.i.i215, %.preheader142.i.i214 ], [ %442, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit119.i.i ], [ %487, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit120.i.i ]
+  br i1 %.3.i.i218, label %489, label %.critedge.i.i212, !prof !435
 
 489:                                              ; preds = %.loopexit.i.i217
   %490 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !498
   %491 = icmp sgt i64 %490, 0
   %492 = sext i16 %.sroa.0.0.extract.trunc.i.i210 to i64
-  %.not99173.i.i219 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i210, 0
-  br i1 %491, label %.preheader140.i.i225, label %.preheader141.i.i220
+  %.not99170.i.i219 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i210, 0
+  br i1 %491, label %.preheader137.i.i225, label %.preheader138.i.i220
 
-.preheader141.i.i220:                             ; preds = %489
-  br i1 %.not99173.i.i219, label %.lr.ph172.i.i221, label %.thread.i.i212
+.preheader138.i.i220:                             ; preds = %489
+  br i1 %.not99170.i.i219, label %.lr.ph169.i.i221, label %.critedge.i.i212
 
-.preheader140.i.i225:                             ; preds = %489
-  br i1 %.not99173.i.i219, label %.lr.ph175.i.i226, label %.thread.i.i212
+.preheader137.i.i225:                             ; preds = %489
+  br i1 %.not99170.i.i219, label %.lr.ph172.i.i226, label %.critedge.i.i212
 
-.lr.ph175.i.i226:                                 ; preds = %.preheader140.i.i225, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i
-  %.073174.i.i227 = phi i64 [ %507, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i225 ]
-  %493 = add nsw i64 %.073174.i.i227, %.092176.i.i209
+.lr.ph172.i.i226:                                 ; preds = %.preheader137.i.i225, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i
+  %.073171.i.i227 = phi i64 [ %507, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i225 ]
+  %493 = add nsw i64 %.073171.i.i227, %.092173.i.i209
   %494 = lshr i64 %493, 3
   %495 = getelementptr inbounds nuw i8, ptr %413, i64 %494
   %496 = load i8, ptr %495, align 1, !tbaa !3, !noalias !498
@@ -9383,63 +9383,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusER
   %499 = and i32 %498, 7
   %500 = shl nuw nsw i32 1, %499
   %501 = and i32 %500, %497
-  %.not138.i.i228 = icmp eq i32 %501, 0
-  br i1 %.not138.i.i228, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i, label %502
+  %.not135.i.i228 = icmp eq i32 %501, 0
+  br i1 %.not135.i.i228, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i, label %502
 
-502:                                              ; preds = %.lr.ph175.i.i226
-  %503 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.073174.i.i227
+502:                                              ; preds = %.lr.ph172.i.i226
+  %503 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.073171.i.i227
   %504 = load i64, ptr %503, align 8, !tbaa !23, !noalias !498
   %505 = icmp slt i64 %504, %.val42
   %506 = icmp sgt i64 %504, %.val43
-  %or.cond134.i.i229 = or i1 %505, %506
-  br i1 %or.cond134.i.i229, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i
+  %or.cond131.i.i229 = or i1 %505, %506
+  br i1 %or.cond131.i.i229, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread.i.i: ; preds = %502
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread.i.i: ; preds = %502
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE0_clEl(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %17, ptr nonnull %18, i64 noundef %504)
-  br label %.thread126.i.i204
+  br label %.critedge103.i.i204
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i: ; preds = %502, %.lr.ph175.i.i226
-  %507 = add nuw nsw i64 %.073174.i.i227, 1
-  %exitcond205.not.i.i230 = icmp eq i64 %507, %492
-  br i1 %exitcond205.not.i.i230, label %.thread.i.i212, label %.lr.ph175.i.i226, !llvm.loop !508
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i: ; preds = %502, %.lr.ph172.i.i226
+  %507 = add nuw nsw i64 %.073171.i.i227, 1
+  %exitcond202.not.i.i230 = icmp eq i64 %507, %492
+  br i1 %exitcond202.not.i.i230, label %.critedge.i.i212, label %.lr.ph172.i.i226, !llvm.loop !508
 
-508:                                              ; preds = %.lr.ph172.i.i221
-  %509 = add nuw nsw i64 %.0171.i.i222, 1
-  %exitcond204.not.i.i224 = icmp eq i64 %509, %492
-  br i1 %exitcond204.not.i.i224, label %.thread.i.i212, label %.lr.ph172.i.i221, !llvm.loop !509
+508:                                              ; preds = %.lr.ph169.i.i221
+  %509 = add nuw nsw i64 %.0168.i.i222, 1
+  %exitcond201.not.i.i224 = icmp eq i64 %509, %492
+  br i1 %exitcond201.not.i.i224, label %.critedge.i.i212, label %.lr.ph169.i.i221, !llvm.loop !509
 
-.lr.ph172.i.i221:                                 ; preds = %.preheader141.i.i220, %508
-  %.0171.i.i222 = phi i64 [ %509, %508 ], [ 0, %.preheader141.i.i220 ]
-  %510 = getelementptr inbounds nuw i64, ptr %.088180.i.i207, i64 %.0171.i.i222
+.lr.ph169.i.i221:                                 ; preds = %.preheader138.i.i220, %508
+  %.0168.i.i222 = phi i64 [ %509, %508 ], [ 0, %.preheader138.i.i220 ]
+  %510 = getelementptr inbounds nuw i64, ptr %.088177.i.i207, i64 %.0168.i.i222
   %511 = load i64, ptr %510, align 8, !tbaa !23, !noalias !498
   %512 = icmp slt i64 %511, %.val42
   %513 = icmp sgt i64 %511, %.val43
-  %or.cond135.i.i223 = or i1 %512, %513
-  br i1 %or.cond135.i.i223, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit120.thread.i.i, label %508
+  %or.cond132.i.i223 = or i1 %512, %513
+  br i1 %or.cond132.i.i223, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit122.thread.i.i, label %508
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit120.thread.i.i: ; preds = %.lr.ph172.i.i221
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit122.thread.i.i: ; preds = %.lr.ph169.i.i221
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE0_clEl(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %17, ptr nonnull %18, i64 noundef %511)
-  br label %.thread126.i.i204
+  br label %.critedge103.i.i204
 
-.thread.i.i212:                                   ; preds = %508, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread125.i.i, %.preheader140.i.i225, %.preheader141.i.i220, %.loopexit.i.i217, %444
+.critedge.i.i212:                                 ; preds = %508, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread127.i.i, %.preheader137.i.i225, %.preheader138.i.i220, %.loopexit.i.i217, %444
   %514 = sext i32 %422 to i64
-  %515 = getelementptr inbounds i64, ptr %.088180.i.i207, i64 %514
+  %515 = getelementptr inbounds i64, ptr %.088177.i.i207, i64 %514
   %516 = sext i16 %.sroa.0.0.extract.trunc.i.i210 to i64
-  %517 = add nsw i64 %.090179.i.i208, %516
-  %518 = add nsw i64 %.092176.i.i209, %516
+  %517 = add nsw i64 %.090176.i.i208, %516
+  %518 = add nsw i64 %.092173.i.i209, %516
   %519 = load i64, ptr %414, align 8, !tbaa !215, !noalias !498
   %520 = icmp slt i64 %517, %519
-  br i1 %520, label %.lr.ph183.i.i206, label %._crit_edge.i.i203, !llvm.loop !510
+  br i1 %520, label %.lr.ph180.i.i206, label %._crit_edge.i.i203, !llvm.loop !510
 
-._crit_edge.i.i203:                               ; preds = %.thread.i.i212, %407
+._crit_edge.i.i203:                               ; preds = %.critedge.i.i212, %407
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !511
-  br label %.thread126.i.i204
+  br label %.critedge103.i.i204
 
-.thread126.i.i204:                                ; preds = %._crit_edge.i.i203, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit119.thread.i.i
+.critedge103.i.i204:                              ; preds = %._crit_edge.i.i203, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllE_clEl.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #21, !noalias !498
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %406, %.thread126.i.i204
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %406, %.critedge103.i.i204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !492
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !492
   br label %994
@@ -9477,127 +9477,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9Int64TypeEEENS_6S
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %531, i64 noundef %527, i64 noundef %533), !noalias !522
   %534 = load i64, ptr %532, align 8, !tbaa !215, !noalias !522
   %535 = icmp sgt i64 %534, 0
-  br i1 %535, label %.lr.ph183.preheader.i.i279, label %._crit_edge.i.i277
+  br i1 %535, label %.lr.ph180.preheader.i.i279, label %._crit_edge.i.i277
 
-.lr.ph183.preheader.i.i279:                       ; preds = %525
+.lr.ph180.preheader.i.i279:                       ; preds = %525
   %536 = load i64, ptr %526, align 8, !tbaa !211, !noalias !522
   %537 = getelementptr inbounds i8, ptr %530, i64 %527
-  br label %.lr.ph183.i.i280
+  br label %.lr.ph180.i.i280
 
-.lr.ph183.i.i280:                                 ; preds = %.thread.i.i286, %.lr.ph183.preheader.i.i279
-  %.088180.i.i281 = phi ptr [ %633, %.thread.i.i286 ], [ %537, %.lr.ph183.preheader.i.i279 ]
-  %.090179.i.i282 = phi i64 [ %635, %.thread.i.i286 ], [ 0, %.lr.ph183.preheader.i.i279 ]
-  %.092176.i.i283 = phi i64 [ %636, %.thread.i.i286 ], [ %536, %.lr.ph183.preheader.i.i279 ]
+.lr.ph180.i.i280:                                 ; preds = %.critedge.i.i286, %.lr.ph180.preheader.i.i279
+  %.088177.i.i281 = phi ptr [ %633, %.critedge.i.i286 ], [ %537, %.lr.ph180.preheader.i.i279 ]
+  %.090176.i.i282 = phi i64 [ %635, %.critedge.i.i286 ], [ 0, %.lr.ph180.preheader.i.i279 ]
+  %.092173.i.i283 = phi i64 [ %636, %.critedge.i.i286 ], [ %536, %.lr.ph180.preheader.i.i279 ]
   %538 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %16), !noalias !522
   %.sroa.0.0.extract.trunc.i.i284 = trunc i32 %538 to i16
   %539 = ashr i32 %538, 16
   %sext.i.i285 = shl i32 %538, 16
   %540 = ashr exact i32 %sext.i.i285, 16
   %541 = icmp eq i32 %539, %540
-  br i1 %541, label %.preheader144.i.i326, label %562
+  br i1 %541, label %.preheader141.i.i326, label %562
 
-.preheader144.i.i326:                             ; preds = %.lr.ph183.i.i280
+.preheader141.i.i326:                             ; preds = %.lr.ph180.i.i280
   %542 = icmp sgt i32 %539, 7
-  br i1 %542, label %.preheader.preheader.i.i334, label %.preheader143.i.i327
+  br i1 %542, label %.preheader.preheader.i.i334, label %.preheader140.i.i327
 
-.preheader.preheader.i.i334:                      ; preds = %.preheader144.i.i326
+.preheader.preheader.i.i334:                      ; preds = %.preheader141.i.i326
   %543 = lshr i32 %539, 3
-  %smax201.i.i335 = zext nneg i32 %543 to i64
+  %smax198.i.i335 = zext nneg i32 %543 to i64
   br label %.preheader.i.i336
 
-.preheader143.loopexit.i.i347:                    ; preds = %547
-  %544 = shl nuw nsw i64 %smax201.i.i335, 3
-  br label %.preheader143.i.i327
+.preheader140.loopexit.i.i347:                    ; preds = %547
+  %544 = shl nuw nsw i64 %smax198.i.i335, 3
+  br label %.preheader140.i.i327
 
-.preheader143.i.i327:                             ; preds = %.preheader143.loopexit.i.i347, %.preheader144.i.i326
-  %.085.lcssa.i.i328 = phi i1 [ false, %.preheader144.i.i326 ], [ %555, %.preheader143.loopexit.i.i347 ]
-  %.082.lcssa.i.i329 = phi i64 [ 0, %.preheader144.i.i326 ], [ %544, %.preheader143.loopexit.i.i347 ]
+.preheader140.i.i327:                             ; preds = %.preheader140.loopexit.i.i347, %.preheader141.i.i326
+  %.085.lcssa.i.i328 = phi i1 [ false, %.preheader141.i.i326 ], [ %555, %.preheader140.loopexit.i.i347 ]
+  %.082.lcssa.i.i329 = phi i64 [ 0, %.preheader141.i.i326 ], [ %544, %.preheader140.loopexit.i.i347 ]
   %545 = sext i16 %.sroa.0.0.extract.trunc.i.i284 to i64
   %546 = icmp slt i64 %.082.lcssa.i.i329, %545
-  br i1 %546, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i, label %.loopexit.i.i291
+  br i1 %546, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i, label %.loopexit.i.i291
 
 .preheader.i.i336:                                ; preds = %547, %.preheader.preheader.i.i334
-  %indvars.iv199.i.i337 = phi i64 [ 8, %.preheader.preheader.i.i334 ], [ %indvars.iv.next200.i.i345, %547 ]
-  %.081164.i.i338 = phi i64 [ 0, %.preheader.preheader.i.i334 ], [ %549, %547 ]
-  %.082163.i.i339 = phi i64 [ 0, %.preheader.preheader.i.i334 ], [ %548, %547 ]
-  %.085162.i.i340 = phi i1 [ false, %.preheader.preheader.i.i334 ], [ %555, %547 ]
+  %indvars.iv196.i.i337 = phi i64 [ 8, %.preheader.preheader.i.i334 ], [ %indvars.iv.next197.i.i345, %547 ]
+  %.081161.i.i338 = phi i64 [ 0, %.preheader.preheader.i.i334 ], [ %549, %547 ]
+  %.082160.i.i339 = phi i64 [ 0, %.preheader.preheader.i.i334 ], [ %548, %547 ]
+  %.085159.i.i340 = phi i1 [ false, %.preheader.preheader.i.i334 ], [ %555, %547 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i
 
 547:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i
-  %548 = add nuw nsw i64 %.082163.i.i339, 8
-  %549 = add nuw nsw i64 %.081164.i.i338, 1
-  %indvars.iv.next200.i.i345 = add nuw nsw i64 %indvars.iv199.i.i337, 8
-  %exitcond202.not.i.i346 = icmp eq i64 %549, %smax201.i.i335
-  br i1 %exitcond202.not.i.i346, label %.preheader143.loopexit.i.i347, label %.preheader.i.i336, !llvm.loop !526
+  %548 = add nuw nsw i64 %.082160.i.i339, 8
+  %549 = add nuw nsw i64 %.081161.i.i338, 1
+  %indvars.iv.next197.i.i345 = add nuw nsw i64 %indvars.iv196.i.i337, 8
+  %exitcond199.not.i.i346 = icmp eq i64 %549, %smax198.i.i335
+  br i1 %exitcond199.not.i.i346, label %.preheader140.loopexit.i.i347, label %.preheader.i.i336, !llvm.loop !526
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i, %.preheader.i.i336
-  %.183160.i.i341 = phi i64 [ %.082163.i.i339, %.preheader.i.i336 ], [ %550, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i ]
-  %.186159.i.i342 = phi i1 [ %.085162.i.i340, %.preheader.i.i336 ], [ %555, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i ]
-  %550 = add nuw nsw i64 %.183160.i.i341, 1
-  %551 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.183160.i.i341
+  %.183157.i.i341 = phi i64 [ %.082160.i.i339, %.preheader.i.i336 ], [ %550, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i ]
+  %.186156.i.i342 = phi i1 [ %.085159.i.i340, %.preheader.i.i336 ], [ %555, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i ]
+  %550 = add nuw nsw i64 %.183157.i.i341, 1
+  %551 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.183157.i.i341
   %552 = load i8, ptr %551, align 1, !tbaa !3, !noalias !522
   %553 = icmp ult i8 %552, %.val44
   %554 = icmp ugt i8 %552, %.val45
   %spec.select.i.i343 = or i1 %553, %554
-  %555 = or i1 %.186159.i.i342, %spec.select.i.i343
-  %exitcond198.not.i.i344 = icmp eq i64 %550, %indvars.iv199.i.i337
-  br i1 %exitcond198.not.i.i344, label %547, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i, !llvm.loop !527
+  %555 = or i1 %.186156.i.i342, %spec.select.i.i343
+  %exitcond195.not.i.i344 = icmp eq i64 %550, %indvars.iv196.i.i337
+  br i1 %exitcond195.not.i.i344, label %547, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit.i.i, !llvm.loop !527
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i: ; preds = %.preheader143.i.i327, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i
-  %.284168.i.i330 = phi i64 [ %561, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i ], [ %.082.lcssa.i.i329, %.preheader143.i.i327 ]
-  %.287167.i.i331 = phi i1 [ %560, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i ], [ %.085.lcssa.i.i328, %.preheader143.i.i327 ]
-  %556 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.284168.i.i330
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i: ; preds = %.preheader140.i.i327, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i
+  %.284165.i.i330 = phi i64 [ %561, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i ], [ %.082.lcssa.i.i329, %.preheader140.i.i327 ]
+  %.287164.i.i331 = phi i1 [ %560, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i ], [ %.085.lcssa.i.i328, %.preheader140.i.i327 ]
+  %556 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.284165.i.i330
   %557 = load i8, ptr %556, align 1, !tbaa !3, !noalias !522
   %558 = icmp ult i8 %557, %.val44
   %559 = icmp ugt i8 %557, %.val45
-  %spec.select131.i.i332 = or i1 %558, %559
-  %560 = or i1 %.287167.i.i331, %spec.select131.i.i332
-  %561 = add nuw nsw i64 %.284168.i.i330, 1
-  %exitcond203.not.i.i333 = icmp eq i64 %561, %545
-  br i1 %exitcond203.not.i.i333, label %.loopexit.i.i291, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i, !llvm.loop !528
+  %spec.select128.i.i332 = or i1 %558, %559
+  %560 = or i1 %.287164.i.i331, %spec.select128.i.i332
+  %561 = add nuw nsw i64 %.284165.i.i330, 1
+  %exitcond200.not.i.i333 = icmp eq i64 %561, %545
+  br i1 %exitcond200.not.i.i333, label %.loopexit.i.i291, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i, !llvm.loop !528
 
-562:                                              ; preds = %.lr.ph183.i.i280
+562:                                              ; preds = %.lr.ph180.i.i280
   %563 = icmp sgt i32 %539, 0
-  br i1 %563, label %.preheader147.i.i287, label %.thread.i.i286
+  br i1 %563, label %.preheader144.i.i287, label %.critedge.i.i286
 
-.preheader147.i.i287:                             ; preds = %562
+.preheader144.i.i287:                             ; preds = %562
   %564 = icmp sgt i32 %540, 7
-  br i1 %564, label %.preheader139.preheader.i.i311, label %.preheader145.i.i288
+  br i1 %564, label %.preheader136.preheader.i.i311, label %.preheader142.i.i288
 
-.preheader139.preheader.i.i311:                   ; preds = %.preheader147.i.i287
+.preheader136.preheader.i.i311:                   ; preds = %.preheader144.i.i287
   %565 = lshr i32 %540, 3
   %smax.i.i312 = zext nneg i32 %565 to i64
-  br label %.preheader139.i.i313
+  br label %.preheader136.i.i313
 
-.preheader145.loopexit.i.i325:                    ; preds = %569
+.preheader142.loopexit.i.i325:                    ; preds = %569
   %566 = shl nuw nsw i64 %smax.i.i312, 3
-  br label %.preheader145.i.i288
+  br label %.preheader142.i.i288
 
-.preheader145.i.i288:                             ; preds = %.preheader145.loopexit.i.i325, %.preheader147.i.i287
-  %.4.lcssa.i.i289 = phi i1 [ false, %.preheader147.i.i287 ], [ %588, %.preheader145.loopexit.i.i325 ]
-  %.076.lcssa.i.i290 = phi i64 [ 0, %.preheader147.i.i287 ], [ %566, %.preheader145.loopexit.i.i325 ]
+.preheader142.i.i288:                             ; preds = %.preheader142.loopexit.i.i325, %.preheader144.i.i287
+  %.4.lcssa.i.i289 = phi i1 [ false, %.preheader144.i.i287 ], [ %588, %.preheader142.loopexit.i.i325 ]
+  %.076.lcssa.i.i290 = phi i64 [ 0, %.preheader144.i.i287 ], [ %566, %.preheader142.loopexit.i.i325 ]
   %567 = sext i16 %.sroa.0.0.extract.trunc.i.i284 to i64
   %568 = icmp slt i64 %.076.lcssa.i.i290, %567
   br i1 %568, label %.lr.ph.i.i305, label %.loopexit.i.i291
 
-.preheader139.i.i313:                             ; preds = %569, %.preheader139.preheader.i.i311
-  %indvars.iv194.i.i314 = phi i64 [ 8, %.preheader139.preheader.i.i311 ], [ %indvars.iv.next195.i.i323, %569 ]
-  %.075154.i.i315 = phi i64 [ 0, %.preheader139.preheader.i.i311 ], [ %571, %569 ]
-  %.076153.i.i316 = phi i64 [ 0, %.preheader139.preheader.i.i311 ], [ %570, %569 ]
-  %.4152.i.i317 = phi i1 [ false, %.preheader139.preheader.i.i311 ], [ %588, %569 ]
+.preheader136.i.i313:                             ; preds = %569, %.preheader136.preheader.i.i311
+  %indvars.iv191.i.i314 = phi i64 [ 8, %.preheader136.preheader.i.i311 ], [ %indvars.iv.next192.i.i323, %569 ]
+  %.075151.i.i315 = phi i64 [ 0, %.preheader136.preheader.i.i311 ], [ %571, %569 ]
+  %.076150.i.i316 = phi i64 [ 0, %.preheader136.preheader.i.i311 ], [ %570, %569 ]
+  %.4149.i.i317 = phi i1 [ false, %.preheader136.preheader.i.i311 ], [ %588, %569 ]
   br label %572
 
 569:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i
-  %570 = add nuw nsw i64 %.076153.i.i316, 8
-  %571 = add nuw nsw i64 %.075154.i.i315, 1
-  %indvars.iv.next195.i.i323 = add nuw nsw i64 %indvars.iv194.i.i314, 8
-  %exitcond196.not.i.i324 = icmp eq i64 %571, %smax.i.i312
-  br i1 %exitcond196.not.i.i324, label %.preheader145.loopexit.i.i325, label %.preheader139.i.i313, !llvm.loop !529
+  %570 = add nuw nsw i64 %.076150.i.i316, 8
+  %571 = add nuw nsw i64 %.075151.i.i315, 1
+  %indvars.iv.next192.i.i323 = add nuw nsw i64 %indvars.iv191.i.i314, 8
+  %exitcond193.not.i.i324 = icmp eq i64 %571, %smax.i.i312
+  br i1 %exitcond193.not.i.i324, label %.preheader142.loopexit.i.i325, label %.preheader136.i.i313, !llvm.loop !529
 
-572:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i, %.preheader139.i.i313
-  %.1150.i.i318 = phi i64 [ %.076153.i.i316, %.preheader139.i.i313 ], [ %589, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i ]
-  %.5149.i.i319 = phi i1 [ %.4152.i.i317, %.preheader139.i.i313 ], [ %588, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i ]
-  %573 = add nsw i64 %.1150.i.i318, %.092176.i.i283
+572:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i, %.preheader136.i.i313
+  %.1147.i.i318 = phi i64 [ %.076150.i.i316, %.preheader136.i.i313 ], [ %589, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i ]
+  %.5146.i.i319 = phi i1 [ %.4149.i.i317, %.preheader136.i.i313 ], [ %588, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i ]
+  %573 = add nsw i64 %.1147.i.i318, %.092173.i.i283
   %574 = lshr i64 %573, 3
   %575 = getelementptr inbounds nuw i8, ptr %531, i64 %574
   %576 = load i8, ptr %575, align 1, !tbaa !3, !noalias !522
@@ -9606,28 +9606,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusER
   %579 = and i32 %578, 7
   %580 = shl nuw nsw i32 1, %579
   %581 = and i32 %580, %577
-  %.not137.i.i320 = icmp eq i32 %581, 0
-  br i1 %.not137.i.i320, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i, label %582
+  %.not134.i.i320 = icmp eq i32 %581, 0
+  br i1 %.not134.i.i320, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i, label %582
 
 582:                                              ; preds = %572
-  %583 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.1150.i.i318
+  %583 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.1147.i.i318
   %584 = load i8, ptr %583, align 1, !tbaa !3, !noalias !522
   %585 = icmp ult i8 %584, %.val44
   %586 = icmp ugt i8 %584, %.val45
-  %spec.select132.i.i321 = or i1 %585, %586
+  %spec.select129.i.i321 = or i1 %585, %586
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit.i.i: ; preds = %582, %572
-  %587 = phi i1 [ false, %572 ], [ %spec.select132.i.i321, %582 ]
-  %588 = or i1 %.5149.i.i319, %587
-  %589 = add nuw nsw i64 %.1150.i.i318, 1
-  %exitcond.not.i.i322 = icmp eq i64 %589, %indvars.iv194.i.i314
+  %587 = phi i1 [ false, %572 ], [ %spec.select129.i.i321, %582 ]
+  %588 = or i1 %.5146.i.i319, %587
+  %589 = add nuw nsw i64 %.1147.i.i318, 1
+  %exitcond.not.i.i322 = icmp eq i64 %589, %indvars.iv191.i.i314
   br i1 %exitcond.not.i.i322, label %569, label %572, !llvm.loop !530
 
-.lr.ph.i.i305:                                    ; preds = %.preheader145.i.i288, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i
-  %.2157.i.i306 = phi i64 [ %606, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i ], [ %.076.lcssa.i.i290, %.preheader145.i.i288 ]
-  %.6156.i.i307 = phi i1 [ %605, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i ], [ %.4.lcssa.i.i289, %.preheader145.i.i288 ]
-  %590 = add nsw i64 %.2157.i.i306, %.092176.i.i283
+.lr.ph.i.i305:                                    ; preds = %.preheader142.i.i288, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i
+  %.2154.i.i306 = phi i64 [ %606, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i ], [ %.076.lcssa.i.i290, %.preheader142.i.i288 ]
+  %.6153.i.i307 = phi i1 [ %605, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i ], [ %.4.lcssa.i.i289, %.preheader142.i.i288 ]
+  %590 = add nsw i64 %.2154.i.i306, %.092173.i.i283
   %591 = lshr i64 %590, 3
   %592 = getelementptr inbounds nuw i8, ptr %531, i64 %591
   %593 = load i8, ptr %592, align 1, !tbaa !3, !noalias !522
@@ -9636,44 +9636,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusER
   %596 = and i32 %595, 7
   %597 = shl nuw nsw i32 1, %596
   %598 = and i32 %597, %594
-  %.not136.i.i308 = icmp eq i32 %598, 0
-  br i1 %.not136.i.i308, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i, label %599
+  %.not133.i.i308 = icmp eq i32 %598, 0
+  br i1 %.not133.i.i308, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i, label %599
 
 599:                                              ; preds = %.lr.ph.i.i305
-  %600 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.2157.i.i306
+  %600 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.2154.i.i306
   %601 = load i8, ptr %600, align 1, !tbaa !3, !noalias !522
   %602 = icmp ult i8 %601, %.val44
   %603 = icmp ugt i8 %601, %.val45
-  %spec.select133.i.i309 = or i1 %602, %603
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i
+  %spec.select130.i.i309 = or i1 %602, %603
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i: ; preds = %599, %.lr.ph.i.i305
-  %604 = phi i1 [ false, %.lr.ph.i.i305 ], [ %spec.select133.i.i309, %599 ]
-  %605 = or i1 %.6156.i.i307, %604
-  %606 = add nuw nsw i64 %.2157.i.i306, 1
-  %exitcond197.not.i.i310 = icmp eq i64 %606, %567
-  br i1 %exitcond197.not.i.i310, label %.loopexit.i.i291, label %.lr.ph.i.i305, !llvm.loop !531
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i: ; preds = %599, %.lr.ph.i.i305
+  %604 = phi i1 [ false, %.lr.ph.i.i305 ], [ %spec.select130.i.i309, %599 ]
+  %605 = or i1 %.6153.i.i307, %604
+  %606 = add nuw nsw i64 %.2154.i.i306, 1
+  %exitcond194.not.i.i310 = icmp eq i64 %606, %567
+  br i1 %exitcond194.not.i.i310, label %.loopexit.i.i291, label %.lr.ph.i.i305, !llvm.loop !531
 
-.loopexit.i.i291:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i, %.preheader145.i.i288, %.preheader143.i.i327
-  %.3.i.i292 = phi i1 [ %.085.lcssa.i.i328, %.preheader143.i.i327 ], [ %.4.lcssa.i.i289, %.preheader145.i.i288 ], [ %560, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit117.i.i ], [ %605, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit118.i.i ]
-  br i1 %.3.i.i292, label %607, label %.thread.i.i286, !prof !435
+.loopexit.i.i291:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i, %.preheader142.i.i288, %.preheader140.i.i327
+  %.3.i.i292 = phi i1 [ %.085.lcssa.i.i328, %.preheader140.i.i327 ], [ %.4.lcssa.i.i289, %.preheader142.i.i288 ], [ %560, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit119.i.i ], [ %605, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit120.i.i ]
+  br i1 %.3.i.i292, label %607, label %.critedge.i.i286, !prof !435
 
 607:                                              ; preds = %.loopexit.i.i291
   %608 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !522
   %609 = icmp sgt i64 %608, 0
   %610 = sext i16 %.sroa.0.0.extract.trunc.i.i284 to i64
-  %.not99173.i.i293 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i284, 0
-  br i1 %609, label %.preheader140.i.i299, label %.preheader141.i.i294
+  %.not99170.i.i293 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i284, 0
+  br i1 %609, label %.preheader137.i.i299, label %.preheader138.i.i294
 
-.preheader141.i.i294:                             ; preds = %607
-  br i1 %.not99173.i.i293, label %.lr.ph172.i.i295, label %.thread.i.i286
+.preheader138.i.i294:                             ; preds = %607
+  br i1 %.not99170.i.i293, label %.lr.ph169.i.i295, label %.critedge.i.i286
 
-.preheader140.i.i299:                             ; preds = %607
-  br i1 %.not99173.i.i293, label %.lr.ph175.i.i300, label %.thread.i.i286
+.preheader137.i.i299:                             ; preds = %607
+  br i1 %.not99170.i.i293, label %.lr.ph172.i.i300, label %.critedge.i.i286
 
-.lr.ph175.i.i300:                                 ; preds = %.preheader140.i.i299, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i
-  %.073174.i.i301 = phi i64 [ %625, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i299 ]
-  %611 = add nsw i64 %.073174.i.i301, %.092176.i.i283
+.lr.ph172.i.i300:                                 ; preds = %.preheader137.i.i299, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i
+  %.073171.i.i301 = phi i64 [ %625, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i299 ]
+  %611 = add nsw i64 %.073171.i.i301, %.092173.i.i283
   %612 = lshr i64 %611, 3
   %613 = getelementptr inbounds nuw i8, ptr %531, i64 %612
   %614 = load i8, ptr %613, align 1, !tbaa !3, !noalias !522
@@ -9682,63 +9682,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusER
   %617 = and i32 %616, 7
   %618 = shl nuw nsw i32 1, %617
   %619 = and i32 %618, %615
-  %.not138.i.i302 = icmp eq i32 %619, 0
-  br i1 %.not138.i.i302, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i, label %620
+  %.not135.i.i302 = icmp eq i32 %619, 0
+  br i1 %.not135.i.i302, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i, label %620
 
-620:                                              ; preds = %.lr.ph175.i.i300
-  %621 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.073174.i.i301
+620:                                              ; preds = %.lr.ph172.i.i300
+  %621 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.073171.i.i301
   %622 = load i8, ptr %621, align 1, !tbaa !3, !noalias !522
   %623 = icmp ult i8 %622, %.val44
   %624 = icmp ugt i8 %622, %.val45
-  %or.cond134.i.i303 = or i1 %623, %624
-  br i1 %or.cond134.i.i303, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i
+  %or.cond131.i.i303 = or i1 %623, %624
+  br i1 %or.cond131.i.i303, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread.i.i: ; preds = %620
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread.i.i: ; preds = %620
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE0_clEh(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %14, ptr nonnull %15, i8 noundef zeroext %622)
-  br label %.thread126.i.i278
+  br label %.critedge103.i.i278
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i: ; preds = %620, %.lr.ph175.i.i300
-  %625 = add nuw nsw i64 %.073174.i.i301, 1
-  %exitcond205.not.i.i304 = icmp eq i64 %625, %610
-  br i1 %exitcond205.not.i.i304, label %.thread.i.i286, label %.lr.ph175.i.i300, !llvm.loop !532
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i: ; preds = %620, %.lr.ph172.i.i300
+  %625 = add nuw nsw i64 %.073171.i.i301, 1
+  %exitcond202.not.i.i304 = icmp eq i64 %625, %610
+  br i1 %exitcond202.not.i.i304, label %.critedge.i.i286, label %.lr.ph172.i.i300, !llvm.loop !532
 
-626:                                              ; preds = %.lr.ph172.i.i295
-  %627 = add nuw nsw i64 %.0171.i.i296, 1
-  %exitcond204.not.i.i298 = icmp eq i64 %627, %610
-  br i1 %exitcond204.not.i.i298, label %.thread.i.i286, label %.lr.ph172.i.i295, !llvm.loop !533
+626:                                              ; preds = %.lr.ph169.i.i295
+  %627 = add nuw nsw i64 %.0168.i.i296, 1
+  %exitcond201.not.i.i298 = icmp eq i64 %627, %610
+  br i1 %exitcond201.not.i.i298, label %.critedge.i.i286, label %.lr.ph169.i.i295, !llvm.loop !533
 
-.lr.ph172.i.i295:                                 ; preds = %.preheader141.i.i294, %626
-  %.0171.i.i296 = phi i64 [ %627, %626 ], [ 0, %.preheader141.i.i294 ]
-  %628 = getelementptr inbounds nuw i8, ptr %.088180.i.i281, i64 %.0171.i.i296
+.lr.ph169.i.i295:                                 ; preds = %.preheader138.i.i294, %626
+  %.0168.i.i296 = phi i64 [ %627, %626 ], [ 0, %.preheader138.i.i294 ]
+  %628 = getelementptr inbounds nuw i8, ptr %.088177.i.i281, i64 %.0168.i.i296
   %629 = load i8, ptr %628, align 1, !tbaa !3, !noalias !522
   %630 = icmp ult i8 %629, %.val44
   %631 = icmp ugt i8 %629, %.val45
-  %or.cond135.i.i297 = or i1 %630, %631
-  br i1 %or.cond135.i.i297, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit120.thread.i.i, label %626
+  %or.cond132.i.i297 = or i1 %630, %631
+  br i1 %or.cond132.i.i297, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit122.thread.i.i, label %626
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit120.thread.i.i: ; preds = %.lr.ph172.i.i295
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit122.thread.i.i: ; preds = %.lr.ph169.i.i295
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE0_clEh(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %14, ptr nonnull %15, i8 noundef zeroext %629)
-  br label %.thread126.i.i278
+  br label %.critedge103.i.i278
 
-.thread.i.i286:                                   ; preds = %626, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread125.i.i, %.preheader140.i.i299, %.preheader141.i.i294, %.loopexit.i.i291, %562
+.critedge.i.i286:                                 ; preds = %626, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread127.i.i, %.preheader137.i.i299, %.preheader138.i.i294, %.loopexit.i.i291, %562
   %632 = sext i32 %540 to i64
-  %633 = getelementptr inbounds i8, ptr %.088180.i.i281, i64 %632
+  %633 = getelementptr inbounds i8, ptr %.088177.i.i281, i64 %632
   %634 = sext i16 %.sroa.0.0.extract.trunc.i.i284 to i64
-  %635 = add nsw i64 %.090179.i.i282, %634
-  %636 = add nsw i64 %.092176.i.i283, %634
+  %635 = add nsw i64 %.090176.i.i282, %634
+  %636 = add nsw i64 %.092173.i.i283, %634
   %637 = load i64, ptr %532, align 8, !tbaa !215, !noalias !522
   %638 = icmp slt i64 %635, %637
-  br i1 %638, label %.lr.ph183.i.i280, label %._crit_edge.i.i277, !llvm.loop !534
+  br i1 %638, label %.lr.ph180.i.i280, label %._crit_edge.i.i277, !llvm.loop !534
 
-._crit_edge.i.i277:                               ; preds = %.thread.i.i286, %525
+._crit_edge.i.i277:                               ; preds = %.critedge.i.i286, %525
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !535
-  br label %.thread126.i.i278
+  br label %.critedge103.i.i278
 
-.thread126.i.i278:                                ; preds = %._crit_edge.i.i277, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit119.thread.i.i
+.critedge103.i.i278:                              ; preds = %._crit_edge.i.i277, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhE_clEh.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #21, !noalias !522
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %524, %.thread126.i.i278
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %524, %.critedge103.i.i278
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !516
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !516
   br label %994
@@ -9776,127 +9776,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_9UInt8TypeEEENS_6S
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %649, i64 noundef %645, i64 noundef %651), !noalias !546
   %652 = load i64, ptr %650, align 8, !tbaa !215, !noalias !546
   %653 = icmp sgt i64 %652, 0
-  br i1 %653, label %.lr.ph183.preheader.i.i353, label %._crit_edge.i.i351
+  br i1 %653, label %.lr.ph180.preheader.i.i353, label %._crit_edge.i.i351
 
-.lr.ph183.preheader.i.i353:                       ; preds = %643
+.lr.ph180.preheader.i.i353:                       ; preds = %643
   %654 = load i64, ptr %644, align 8, !tbaa !211, !noalias !546
   %655 = getelementptr inbounds i16, ptr %648, i64 %645
-  br label %.lr.ph183.i.i354
+  br label %.lr.ph180.i.i354
 
-.lr.ph183.i.i354:                                 ; preds = %.thread.i.i360, %.lr.ph183.preheader.i.i353
-  %.088180.i.i355 = phi ptr [ %751, %.thread.i.i360 ], [ %655, %.lr.ph183.preheader.i.i353 ]
-  %.090179.i.i356 = phi i64 [ %753, %.thread.i.i360 ], [ 0, %.lr.ph183.preheader.i.i353 ]
-  %.092176.i.i357 = phi i64 [ %754, %.thread.i.i360 ], [ %654, %.lr.ph183.preheader.i.i353 ]
+.lr.ph180.i.i354:                                 ; preds = %.critedge.i.i360, %.lr.ph180.preheader.i.i353
+  %.088177.i.i355 = phi ptr [ %751, %.critedge.i.i360 ], [ %655, %.lr.ph180.preheader.i.i353 ]
+  %.090176.i.i356 = phi i64 [ %753, %.critedge.i.i360 ], [ 0, %.lr.ph180.preheader.i.i353 ]
+  %.092173.i.i357 = phi i64 [ %754, %.critedge.i.i360 ], [ %654, %.lr.ph180.preheader.i.i353 ]
   %656 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %13), !noalias !546
   %.sroa.0.0.extract.trunc.i.i358 = trunc i32 %656 to i16
   %657 = ashr i32 %656, 16
   %sext.i.i359 = shl i32 %656, 16
   %658 = ashr exact i32 %sext.i.i359, 16
   %659 = icmp eq i32 %657, %658
-  br i1 %659, label %.preheader144.i.i400, label %680
+  br i1 %659, label %.preheader141.i.i400, label %680
 
-.preheader144.i.i400:                             ; preds = %.lr.ph183.i.i354
+.preheader141.i.i400:                             ; preds = %.lr.ph180.i.i354
   %660 = icmp sgt i32 %657, 7
-  br i1 %660, label %.preheader.preheader.i.i408, label %.preheader143.i.i401
+  br i1 %660, label %.preheader.preheader.i.i408, label %.preheader140.i.i401
 
-.preheader.preheader.i.i408:                      ; preds = %.preheader144.i.i400
+.preheader.preheader.i.i408:                      ; preds = %.preheader141.i.i400
   %661 = lshr i32 %657, 3
-  %smax201.i.i409 = zext nneg i32 %661 to i64
+  %smax198.i.i409 = zext nneg i32 %661 to i64
   br label %.preheader.i.i410
 
-.preheader143.loopexit.i.i421:                    ; preds = %665
-  %662 = shl nuw nsw i64 %smax201.i.i409, 3
-  br label %.preheader143.i.i401
+.preheader140.loopexit.i.i421:                    ; preds = %665
+  %662 = shl nuw nsw i64 %smax198.i.i409, 3
+  br label %.preheader140.i.i401
 
-.preheader143.i.i401:                             ; preds = %.preheader143.loopexit.i.i421, %.preheader144.i.i400
-  %.085.lcssa.i.i402 = phi i1 [ false, %.preheader144.i.i400 ], [ %673, %.preheader143.loopexit.i.i421 ]
-  %.082.lcssa.i.i403 = phi i64 [ 0, %.preheader144.i.i400 ], [ %662, %.preheader143.loopexit.i.i421 ]
+.preheader140.i.i401:                             ; preds = %.preheader140.loopexit.i.i421, %.preheader141.i.i400
+  %.085.lcssa.i.i402 = phi i1 [ false, %.preheader141.i.i400 ], [ %673, %.preheader140.loopexit.i.i421 ]
+  %.082.lcssa.i.i403 = phi i64 [ 0, %.preheader141.i.i400 ], [ %662, %.preheader140.loopexit.i.i421 ]
   %663 = sext i16 %.sroa.0.0.extract.trunc.i.i358 to i64
   %664 = icmp slt i64 %.082.lcssa.i.i403, %663
-  br i1 %664, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i, label %.loopexit.i.i365
+  br i1 %664, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i, label %.loopexit.i.i365
 
 .preheader.i.i410:                                ; preds = %665, %.preheader.preheader.i.i408
-  %indvars.iv199.i.i411 = phi i64 [ 8, %.preheader.preheader.i.i408 ], [ %indvars.iv.next200.i.i419, %665 ]
-  %.081164.i.i412 = phi i64 [ 0, %.preheader.preheader.i.i408 ], [ %667, %665 ]
-  %.082163.i.i413 = phi i64 [ 0, %.preheader.preheader.i.i408 ], [ %666, %665 ]
-  %.085162.i.i414 = phi i1 [ false, %.preheader.preheader.i.i408 ], [ %673, %665 ]
+  %indvars.iv196.i.i411 = phi i64 [ 8, %.preheader.preheader.i.i408 ], [ %indvars.iv.next197.i.i419, %665 ]
+  %.081161.i.i412 = phi i64 [ 0, %.preheader.preheader.i.i408 ], [ %667, %665 ]
+  %.082160.i.i413 = phi i64 [ 0, %.preheader.preheader.i.i408 ], [ %666, %665 ]
+  %.085159.i.i414 = phi i1 [ false, %.preheader.preheader.i.i408 ], [ %673, %665 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i
 
 665:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i
-  %666 = add nuw nsw i64 %.082163.i.i413, 8
-  %667 = add nuw nsw i64 %.081164.i.i412, 1
-  %indvars.iv.next200.i.i419 = add nuw nsw i64 %indvars.iv199.i.i411, 8
-  %exitcond202.not.i.i420 = icmp eq i64 %667, %smax201.i.i409
-  br i1 %exitcond202.not.i.i420, label %.preheader143.loopexit.i.i421, label %.preheader.i.i410, !llvm.loop !550
+  %666 = add nuw nsw i64 %.082160.i.i413, 8
+  %667 = add nuw nsw i64 %.081161.i.i412, 1
+  %indvars.iv.next197.i.i419 = add nuw nsw i64 %indvars.iv196.i.i411, 8
+  %exitcond199.not.i.i420 = icmp eq i64 %667, %smax198.i.i409
+  br i1 %exitcond199.not.i.i420, label %.preheader140.loopexit.i.i421, label %.preheader.i.i410, !llvm.loop !550
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i, %.preheader.i.i410
-  %.183160.i.i415 = phi i64 [ %.082163.i.i413, %.preheader.i.i410 ], [ %668, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i ]
-  %.186159.i.i416 = phi i1 [ %.085162.i.i414, %.preheader.i.i410 ], [ %673, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i ]
-  %668 = add nuw nsw i64 %.183160.i.i415, 1
-  %669 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.183160.i.i415
+  %.183157.i.i415 = phi i64 [ %.082160.i.i413, %.preheader.i.i410 ], [ %668, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i ]
+  %.186156.i.i416 = phi i1 [ %.085159.i.i414, %.preheader.i.i410 ], [ %673, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i ]
+  %668 = add nuw nsw i64 %.183157.i.i415, 1
+  %669 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.183157.i.i415
   %670 = load i16, ptr %669, align 2, !tbaa !13, !noalias !546
   %671 = icmp ult i16 %670, %.val46
   %672 = icmp ugt i16 %670, %.val47
   %spec.select.i.i417 = or i1 %671, %672
-  %673 = or i1 %.186159.i.i416, %spec.select.i.i417
-  %exitcond198.not.i.i418 = icmp eq i64 %668, %indvars.iv199.i.i411
-  br i1 %exitcond198.not.i.i418, label %665, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i, !llvm.loop !551
+  %673 = or i1 %.186156.i.i416, %spec.select.i.i417
+  %exitcond195.not.i.i418 = icmp eq i64 %668, %indvars.iv196.i.i411
+  br i1 %exitcond195.not.i.i418, label %665, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit.i.i, !llvm.loop !551
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i: ; preds = %.preheader143.i.i401, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i
-  %.284168.i.i404 = phi i64 [ %679, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i ], [ %.082.lcssa.i.i403, %.preheader143.i.i401 ]
-  %.287167.i.i405 = phi i1 [ %678, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i ], [ %.085.lcssa.i.i402, %.preheader143.i.i401 ]
-  %674 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.284168.i.i404
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i: ; preds = %.preheader140.i.i401, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i
+  %.284165.i.i404 = phi i64 [ %679, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i ], [ %.082.lcssa.i.i403, %.preheader140.i.i401 ]
+  %.287164.i.i405 = phi i1 [ %678, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i ], [ %.085.lcssa.i.i402, %.preheader140.i.i401 ]
+  %674 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.284165.i.i404
   %675 = load i16, ptr %674, align 2, !tbaa !13, !noalias !546
   %676 = icmp ult i16 %675, %.val46
   %677 = icmp ugt i16 %675, %.val47
-  %spec.select131.i.i406 = or i1 %676, %677
-  %678 = or i1 %.287167.i.i405, %spec.select131.i.i406
-  %679 = add nuw nsw i64 %.284168.i.i404, 1
-  %exitcond203.not.i.i407 = icmp eq i64 %679, %663
-  br i1 %exitcond203.not.i.i407, label %.loopexit.i.i365, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i, !llvm.loop !552
+  %spec.select128.i.i406 = or i1 %676, %677
+  %678 = or i1 %.287164.i.i405, %spec.select128.i.i406
+  %679 = add nuw nsw i64 %.284165.i.i404, 1
+  %exitcond200.not.i.i407 = icmp eq i64 %679, %663
+  br i1 %exitcond200.not.i.i407, label %.loopexit.i.i365, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i, !llvm.loop !552
 
-680:                                              ; preds = %.lr.ph183.i.i354
+680:                                              ; preds = %.lr.ph180.i.i354
   %681 = icmp sgt i32 %657, 0
-  br i1 %681, label %.preheader147.i.i361, label %.thread.i.i360
+  br i1 %681, label %.preheader144.i.i361, label %.critedge.i.i360
 
-.preheader147.i.i361:                             ; preds = %680
+.preheader144.i.i361:                             ; preds = %680
   %682 = icmp sgt i32 %658, 7
-  br i1 %682, label %.preheader139.preheader.i.i385, label %.preheader145.i.i362
+  br i1 %682, label %.preheader136.preheader.i.i385, label %.preheader142.i.i362
 
-.preheader139.preheader.i.i385:                   ; preds = %.preheader147.i.i361
+.preheader136.preheader.i.i385:                   ; preds = %.preheader144.i.i361
   %683 = lshr i32 %658, 3
   %smax.i.i386 = zext nneg i32 %683 to i64
-  br label %.preheader139.i.i387
+  br label %.preheader136.i.i387
 
-.preheader145.loopexit.i.i399:                    ; preds = %687
+.preheader142.loopexit.i.i399:                    ; preds = %687
   %684 = shl nuw nsw i64 %smax.i.i386, 3
-  br label %.preheader145.i.i362
+  br label %.preheader142.i.i362
 
-.preheader145.i.i362:                             ; preds = %.preheader145.loopexit.i.i399, %.preheader147.i.i361
-  %.4.lcssa.i.i363 = phi i1 [ false, %.preheader147.i.i361 ], [ %706, %.preheader145.loopexit.i.i399 ]
-  %.076.lcssa.i.i364 = phi i64 [ 0, %.preheader147.i.i361 ], [ %684, %.preheader145.loopexit.i.i399 ]
+.preheader142.i.i362:                             ; preds = %.preheader142.loopexit.i.i399, %.preheader144.i.i361
+  %.4.lcssa.i.i363 = phi i1 [ false, %.preheader144.i.i361 ], [ %706, %.preheader142.loopexit.i.i399 ]
+  %.076.lcssa.i.i364 = phi i64 [ 0, %.preheader144.i.i361 ], [ %684, %.preheader142.loopexit.i.i399 ]
   %685 = sext i16 %.sroa.0.0.extract.trunc.i.i358 to i64
   %686 = icmp slt i64 %.076.lcssa.i.i364, %685
   br i1 %686, label %.lr.ph.i.i379, label %.loopexit.i.i365
 
-.preheader139.i.i387:                             ; preds = %687, %.preheader139.preheader.i.i385
-  %indvars.iv194.i.i388 = phi i64 [ 8, %.preheader139.preheader.i.i385 ], [ %indvars.iv.next195.i.i397, %687 ]
-  %.075154.i.i389 = phi i64 [ 0, %.preheader139.preheader.i.i385 ], [ %689, %687 ]
-  %.076153.i.i390 = phi i64 [ 0, %.preheader139.preheader.i.i385 ], [ %688, %687 ]
-  %.4152.i.i391 = phi i1 [ false, %.preheader139.preheader.i.i385 ], [ %706, %687 ]
+.preheader136.i.i387:                             ; preds = %687, %.preheader136.preheader.i.i385
+  %indvars.iv191.i.i388 = phi i64 [ 8, %.preheader136.preheader.i.i385 ], [ %indvars.iv.next192.i.i397, %687 ]
+  %.075151.i.i389 = phi i64 [ 0, %.preheader136.preheader.i.i385 ], [ %689, %687 ]
+  %.076150.i.i390 = phi i64 [ 0, %.preheader136.preheader.i.i385 ], [ %688, %687 ]
+  %.4149.i.i391 = phi i1 [ false, %.preheader136.preheader.i.i385 ], [ %706, %687 ]
   br label %690
 
 687:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i
-  %688 = add nuw nsw i64 %.076153.i.i390, 8
-  %689 = add nuw nsw i64 %.075154.i.i389, 1
-  %indvars.iv.next195.i.i397 = add nuw nsw i64 %indvars.iv194.i.i388, 8
-  %exitcond196.not.i.i398 = icmp eq i64 %689, %smax.i.i386
-  br i1 %exitcond196.not.i.i398, label %.preheader145.loopexit.i.i399, label %.preheader139.i.i387, !llvm.loop !553
+  %688 = add nuw nsw i64 %.076150.i.i390, 8
+  %689 = add nuw nsw i64 %.075151.i.i389, 1
+  %indvars.iv.next192.i.i397 = add nuw nsw i64 %indvars.iv191.i.i388, 8
+  %exitcond193.not.i.i398 = icmp eq i64 %689, %smax.i.i386
+  br i1 %exitcond193.not.i.i398, label %.preheader142.loopexit.i.i399, label %.preheader136.i.i387, !llvm.loop !553
 
-690:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i, %.preheader139.i.i387
-  %.1150.i.i392 = phi i64 [ %.076153.i.i390, %.preheader139.i.i387 ], [ %707, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i ]
-  %.5149.i.i393 = phi i1 [ %.4152.i.i391, %.preheader139.i.i387 ], [ %706, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i ]
-  %691 = add nsw i64 %.1150.i.i392, %.092176.i.i357
+690:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i, %.preheader136.i.i387
+  %.1147.i.i392 = phi i64 [ %.076150.i.i390, %.preheader136.i.i387 ], [ %707, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i ]
+  %.5146.i.i393 = phi i1 [ %.4149.i.i391, %.preheader136.i.i387 ], [ %706, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i ]
+  %691 = add nsw i64 %.1147.i.i392, %.092173.i.i357
   %692 = lshr i64 %691, 3
   %693 = getelementptr inbounds nuw i8, ptr %649, i64 %692
   %694 = load i8, ptr %693, align 1, !tbaa !3, !noalias !546
@@ -9905,28 +9905,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6Status
   %697 = and i32 %696, 7
   %698 = shl nuw nsw i32 1, %697
   %699 = and i32 %698, %695
-  %.not137.i.i394 = icmp eq i32 %699, 0
-  br i1 %.not137.i.i394, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i, label %700
+  %.not134.i.i394 = icmp eq i32 %699, 0
+  br i1 %.not134.i.i394, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i, label %700
 
 700:                                              ; preds = %690
-  %701 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.1150.i.i392
+  %701 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.1147.i.i392
   %702 = load i16, ptr %701, align 2, !tbaa !13, !noalias !546
   %703 = icmp ult i16 %702, %.val46
   %704 = icmp ugt i16 %702, %.val47
-  %spec.select132.i.i395 = or i1 %703, %704
+  %spec.select129.i.i395 = or i1 %703, %704
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit.i.i: ; preds = %700, %690
-  %705 = phi i1 [ false, %690 ], [ %spec.select132.i.i395, %700 ]
-  %706 = or i1 %.5149.i.i393, %705
-  %707 = add nuw nsw i64 %.1150.i.i392, 1
-  %exitcond.not.i.i396 = icmp eq i64 %707, %indvars.iv194.i.i388
+  %705 = phi i1 [ false, %690 ], [ %spec.select129.i.i395, %700 ]
+  %706 = or i1 %.5146.i.i393, %705
+  %707 = add nuw nsw i64 %.1147.i.i392, 1
+  %exitcond.not.i.i396 = icmp eq i64 %707, %indvars.iv191.i.i388
   br i1 %exitcond.not.i.i396, label %687, label %690, !llvm.loop !554
 
-.lr.ph.i.i379:                                    ; preds = %.preheader145.i.i362, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i
-  %.2157.i.i380 = phi i64 [ %724, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i ], [ %.076.lcssa.i.i364, %.preheader145.i.i362 ]
-  %.6156.i.i381 = phi i1 [ %723, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i ], [ %.4.lcssa.i.i363, %.preheader145.i.i362 ]
-  %708 = add nsw i64 %.2157.i.i380, %.092176.i.i357
+.lr.ph.i.i379:                                    ; preds = %.preheader142.i.i362, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i
+  %.2154.i.i380 = phi i64 [ %724, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i ], [ %.076.lcssa.i.i364, %.preheader142.i.i362 ]
+  %.6153.i.i381 = phi i1 [ %723, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i ], [ %.4.lcssa.i.i363, %.preheader142.i.i362 ]
+  %708 = add nsw i64 %.2154.i.i380, %.092173.i.i357
   %709 = lshr i64 %708, 3
   %710 = getelementptr inbounds nuw i8, ptr %649, i64 %709
   %711 = load i8, ptr %710, align 1, !tbaa !3, !noalias !546
@@ -9935,44 +9935,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6Status
   %714 = and i32 %713, 7
   %715 = shl nuw nsw i32 1, %714
   %716 = and i32 %715, %712
-  %.not136.i.i382 = icmp eq i32 %716, 0
-  br i1 %.not136.i.i382, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i, label %717
+  %.not133.i.i382 = icmp eq i32 %716, 0
+  br i1 %.not133.i.i382, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i, label %717
 
 717:                                              ; preds = %.lr.ph.i.i379
-  %718 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.2157.i.i380
+  %718 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.2154.i.i380
   %719 = load i16, ptr %718, align 2, !tbaa !13, !noalias !546
   %720 = icmp ult i16 %719, %.val46
   %721 = icmp ugt i16 %719, %.val47
-  %spec.select133.i.i383 = or i1 %720, %721
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i
+  %spec.select130.i.i383 = or i1 %720, %721
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i: ; preds = %717, %.lr.ph.i.i379
-  %722 = phi i1 [ false, %.lr.ph.i.i379 ], [ %spec.select133.i.i383, %717 ]
-  %723 = or i1 %.6156.i.i381, %722
-  %724 = add nuw nsw i64 %.2157.i.i380, 1
-  %exitcond197.not.i.i384 = icmp eq i64 %724, %685
-  br i1 %exitcond197.not.i.i384, label %.loopexit.i.i365, label %.lr.ph.i.i379, !llvm.loop !555
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i: ; preds = %717, %.lr.ph.i.i379
+  %722 = phi i1 [ false, %.lr.ph.i.i379 ], [ %spec.select130.i.i383, %717 ]
+  %723 = or i1 %.6153.i.i381, %722
+  %724 = add nuw nsw i64 %.2154.i.i380, 1
+  %exitcond194.not.i.i384 = icmp eq i64 %724, %685
+  br i1 %exitcond194.not.i.i384, label %.loopexit.i.i365, label %.lr.ph.i.i379, !llvm.loop !555
 
-.loopexit.i.i365:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i, %.preheader145.i.i362, %.preheader143.i.i401
-  %.3.i.i366 = phi i1 [ %.085.lcssa.i.i402, %.preheader143.i.i401 ], [ %.4.lcssa.i.i363, %.preheader145.i.i362 ], [ %678, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit117.i.i ], [ %723, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit118.i.i ]
-  br i1 %.3.i.i366, label %725, label %.thread.i.i360, !prof !435
+.loopexit.i.i365:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i, %.preheader142.i.i362, %.preheader140.i.i401
+  %.3.i.i366 = phi i1 [ %.085.lcssa.i.i402, %.preheader140.i.i401 ], [ %.4.lcssa.i.i363, %.preheader142.i.i362 ], [ %678, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit119.i.i ], [ %723, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit120.i.i ]
+  br i1 %.3.i.i366, label %725, label %.critedge.i.i360, !prof !435
 
 725:                                              ; preds = %.loopexit.i.i365
   %726 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !546
   %727 = icmp sgt i64 %726, 0
   %728 = sext i16 %.sroa.0.0.extract.trunc.i.i358 to i64
-  %.not99173.i.i367 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i358, 0
-  br i1 %727, label %.preheader140.i.i373, label %.preheader141.i.i368
+  %.not99170.i.i367 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i358, 0
+  br i1 %727, label %.preheader137.i.i373, label %.preheader138.i.i368
 
-.preheader141.i.i368:                             ; preds = %725
-  br i1 %.not99173.i.i367, label %.lr.ph172.i.i369, label %.thread.i.i360
+.preheader138.i.i368:                             ; preds = %725
+  br i1 %.not99170.i.i367, label %.lr.ph169.i.i369, label %.critedge.i.i360
 
-.preheader140.i.i373:                             ; preds = %725
-  br i1 %.not99173.i.i367, label %.lr.ph175.i.i374, label %.thread.i.i360
+.preheader137.i.i373:                             ; preds = %725
+  br i1 %.not99170.i.i367, label %.lr.ph172.i.i374, label %.critedge.i.i360
 
-.lr.ph175.i.i374:                                 ; preds = %.preheader140.i.i373, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i
-  %.073174.i.i375 = phi i64 [ %743, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i373 ]
-  %729 = add nsw i64 %.073174.i.i375, %.092176.i.i357
+.lr.ph172.i.i374:                                 ; preds = %.preheader137.i.i373, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i
+  %.073171.i.i375 = phi i64 [ %743, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i373 ]
+  %729 = add nsw i64 %.073171.i.i375, %.092173.i.i357
   %730 = lshr i64 %729, 3
   %731 = getelementptr inbounds nuw i8, ptr %649, i64 %730
   %732 = load i8, ptr %731, align 1, !tbaa !3, !noalias !546
@@ -9981,63 +9981,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6Status
   %735 = and i32 %734, 7
   %736 = shl nuw nsw i32 1, %735
   %737 = and i32 %736, %733
-  %.not138.i.i376 = icmp eq i32 %737, 0
-  br i1 %.not138.i.i376, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i, label %738
+  %.not135.i.i376 = icmp eq i32 %737, 0
+  br i1 %.not135.i.i376, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i, label %738
 
-738:                                              ; preds = %.lr.ph175.i.i374
-  %739 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.073174.i.i375
+738:                                              ; preds = %.lr.ph172.i.i374
+  %739 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.073171.i.i375
   %740 = load i16, ptr %739, align 2, !tbaa !13, !noalias !546
   %741 = icmp ult i16 %740, %.val46
   %742 = icmp ugt i16 %740, %.val47
-  %or.cond134.i.i377 = or i1 %741, %742
-  br i1 %or.cond134.i.i377, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i
+  %or.cond131.i.i377 = or i1 %741, %742
+  br i1 %or.cond131.i.i377, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread.i.i: ; preds = %738
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread.i.i: ; preds = %738
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE0_clEt(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %11, ptr nonnull %12, i16 noundef zeroext %740)
-  br label %.thread126.i.i352
+  br label %.critedge103.i.i352
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i: ; preds = %738, %.lr.ph175.i.i374
-  %743 = add nuw nsw i64 %.073174.i.i375, 1
-  %exitcond205.not.i.i378 = icmp eq i64 %743, %728
-  br i1 %exitcond205.not.i.i378, label %.thread.i.i360, label %.lr.ph175.i.i374, !llvm.loop !556
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i: ; preds = %738, %.lr.ph172.i.i374
+  %743 = add nuw nsw i64 %.073171.i.i375, 1
+  %exitcond202.not.i.i378 = icmp eq i64 %743, %728
+  br i1 %exitcond202.not.i.i378, label %.critedge.i.i360, label %.lr.ph172.i.i374, !llvm.loop !556
 
-744:                                              ; preds = %.lr.ph172.i.i369
-  %745 = add nuw nsw i64 %.0171.i.i370, 1
-  %exitcond204.not.i.i372 = icmp eq i64 %745, %728
-  br i1 %exitcond204.not.i.i372, label %.thread.i.i360, label %.lr.ph172.i.i369, !llvm.loop !557
+744:                                              ; preds = %.lr.ph169.i.i369
+  %745 = add nuw nsw i64 %.0168.i.i370, 1
+  %exitcond201.not.i.i372 = icmp eq i64 %745, %728
+  br i1 %exitcond201.not.i.i372, label %.critedge.i.i360, label %.lr.ph169.i.i369, !llvm.loop !557
 
-.lr.ph172.i.i369:                                 ; preds = %.preheader141.i.i368, %744
-  %.0171.i.i370 = phi i64 [ %745, %744 ], [ 0, %.preheader141.i.i368 ]
-  %746 = getelementptr inbounds nuw i16, ptr %.088180.i.i355, i64 %.0171.i.i370
+.lr.ph169.i.i369:                                 ; preds = %.preheader138.i.i368, %744
+  %.0168.i.i370 = phi i64 [ %745, %744 ], [ 0, %.preheader138.i.i368 ]
+  %746 = getelementptr inbounds nuw i16, ptr %.088177.i.i355, i64 %.0168.i.i370
   %747 = load i16, ptr %746, align 2, !tbaa !13, !noalias !546
   %748 = icmp ult i16 %747, %.val46
   %749 = icmp ugt i16 %747, %.val47
-  %or.cond135.i.i371 = or i1 %748, %749
-  br i1 %or.cond135.i.i371, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit120.thread.i.i, label %744
+  %or.cond132.i.i371 = or i1 %748, %749
+  br i1 %or.cond132.i.i371, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit122.thread.i.i, label %744
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit120.thread.i.i: ; preds = %.lr.ph172.i.i369
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit122.thread.i.i: ; preds = %.lr.ph169.i.i369
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE0_clEt(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %11, ptr nonnull %12, i16 noundef zeroext %747)
-  br label %.thread126.i.i352
+  br label %.critedge103.i.i352
 
-.thread.i.i360:                                   ; preds = %744, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread125.i.i, %.preheader140.i.i373, %.preheader141.i.i368, %.loopexit.i.i365, %680
+.critedge.i.i360:                                 ; preds = %744, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread127.i.i, %.preheader137.i.i373, %.preheader138.i.i368, %.loopexit.i.i365, %680
   %750 = sext i32 %658 to i64
-  %751 = getelementptr inbounds i16, ptr %.088180.i.i355, i64 %750
+  %751 = getelementptr inbounds i16, ptr %.088177.i.i355, i64 %750
   %752 = sext i16 %.sroa.0.0.extract.trunc.i.i358 to i64
-  %753 = add nsw i64 %.090179.i.i356, %752
-  %754 = add nsw i64 %.092176.i.i357, %752
+  %753 = add nsw i64 %.090176.i.i356, %752
+  %754 = add nsw i64 %.092173.i.i357, %752
   %755 = load i64, ptr %650, align 8, !tbaa !215, !noalias !546
   %756 = icmp slt i64 %753, %755
-  br i1 %756, label %.lr.ph183.i.i354, label %._crit_edge.i.i351, !llvm.loop !558
+  br i1 %756, label %.lr.ph180.i.i354, label %._crit_edge.i.i351, !llvm.loop !558
 
-._crit_edge.i.i351:                               ; preds = %.thread.i.i360, %643
+._crit_edge.i.i351:                               ; preds = %.critedge.i.i360, %643
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !559
-  br label %.thread126.i.i352
+  br label %.critedge103.i.i352
 
-.thread126.i.i352:                                ; preds = %._crit_edge.i.i351, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit119.thread.i.i
+.critedge103.i.i352:                              ; preds = %._crit_edge.i.i351, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltE_clEt.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #21, !noalias !546
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %642, %.thread126.i.i352
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %642, %.critedge103.i.i352
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11), !noalias !540
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12), !noalias !540
   br label %994
@@ -10075,127 +10075,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt16TypeEEENS_
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %767, i64 noundef %763, i64 noundef %769), !noalias !570
   %770 = load i64, ptr %768, align 8, !tbaa !215, !noalias !570
   %771 = icmp sgt i64 %770, 0
-  br i1 %771, label %.lr.ph183.preheader.i.i427, label %._crit_edge.i.i425
+  br i1 %771, label %.lr.ph180.preheader.i.i427, label %._crit_edge.i.i425
 
-.lr.ph183.preheader.i.i427:                       ; preds = %761
+.lr.ph180.preheader.i.i427:                       ; preds = %761
   %772 = load i64, ptr %762, align 8, !tbaa !211, !noalias !570
   %773 = getelementptr inbounds i32, ptr %766, i64 %763
-  br label %.lr.ph183.i.i428
+  br label %.lr.ph180.i.i428
 
-.lr.ph183.i.i428:                                 ; preds = %.thread.i.i434, %.lr.ph183.preheader.i.i427
-  %.088180.i.i429 = phi ptr [ %869, %.thread.i.i434 ], [ %773, %.lr.ph183.preheader.i.i427 ]
-  %.090179.i.i430 = phi i64 [ %871, %.thread.i.i434 ], [ 0, %.lr.ph183.preheader.i.i427 ]
-  %.092176.i.i431 = phi i64 [ %872, %.thread.i.i434 ], [ %772, %.lr.ph183.preheader.i.i427 ]
+.lr.ph180.i.i428:                                 ; preds = %.critedge.i.i434, %.lr.ph180.preheader.i.i427
+  %.088177.i.i429 = phi ptr [ %869, %.critedge.i.i434 ], [ %773, %.lr.ph180.preheader.i.i427 ]
+  %.090176.i.i430 = phi i64 [ %871, %.critedge.i.i434 ], [ 0, %.lr.ph180.preheader.i.i427 ]
+  %.092173.i.i431 = phi i64 [ %872, %.critedge.i.i434 ], [ %772, %.lr.ph180.preheader.i.i427 ]
   %774 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %10), !noalias !570
   %.sroa.0.0.extract.trunc.i.i432 = trunc i32 %774 to i16
   %775 = ashr i32 %774, 16
   %sext.i.i433 = shl i32 %774, 16
   %776 = ashr exact i32 %sext.i.i433, 16
   %777 = icmp eq i32 %775, %776
-  br i1 %777, label %.preheader144.i.i474, label %798
+  br i1 %777, label %.preheader141.i.i474, label %798
 
-.preheader144.i.i474:                             ; preds = %.lr.ph183.i.i428
+.preheader141.i.i474:                             ; preds = %.lr.ph180.i.i428
   %778 = icmp sgt i32 %775, 7
-  br i1 %778, label %.preheader.preheader.i.i482, label %.preheader143.i.i475
+  br i1 %778, label %.preheader.preheader.i.i482, label %.preheader140.i.i475
 
-.preheader.preheader.i.i482:                      ; preds = %.preheader144.i.i474
+.preheader.preheader.i.i482:                      ; preds = %.preheader141.i.i474
   %779 = lshr i32 %775, 3
-  %smax201.i.i483 = zext nneg i32 %779 to i64
+  %smax198.i.i483 = zext nneg i32 %779 to i64
   br label %.preheader.i.i484
 
-.preheader143.loopexit.i.i495:                    ; preds = %783
-  %780 = shl nuw nsw i64 %smax201.i.i483, 3
-  br label %.preheader143.i.i475
+.preheader140.loopexit.i.i495:                    ; preds = %783
+  %780 = shl nuw nsw i64 %smax198.i.i483, 3
+  br label %.preheader140.i.i475
 
-.preheader143.i.i475:                             ; preds = %.preheader143.loopexit.i.i495, %.preheader144.i.i474
-  %.085.lcssa.i.i476 = phi i1 [ false, %.preheader144.i.i474 ], [ %791, %.preheader143.loopexit.i.i495 ]
-  %.082.lcssa.i.i477 = phi i64 [ 0, %.preheader144.i.i474 ], [ %780, %.preheader143.loopexit.i.i495 ]
+.preheader140.i.i475:                             ; preds = %.preheader140.loopexit.i.i495, %.preheader141.i.i474
+  %.085.lcssa.i.i476 = phi i1 [ false, %.preheader141.i.i474 ], [ %791, %.preheader140.loopexit.i.i495 ]
+  %.082.lcssa.i.i477 = phi i64 [ 0, %.preheader141.i.i474 ], [ %780, %.preheader140.loopexit.i.i495 ]
   %781 = sext i16 %.sroa.0.0.extract.trunc.i.i432 to i64
   %782 = icmp slt i64 %.082.lcssa.i.i477, %781
-  br i1 %782, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i, label %.loopexit.i.i439
+  br i1 %782, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i, label %.loopexit.i.i439
 
 .preheader.i.i484:                                ; preds = %783, %.preheader.preheader.i.i482
-  %indvars.iv199.i.i485 = phi i64 [ 8, %.preheader.preheader.i.i482 ], [ %indvars.iv.next200.i.i493, %783 ]
-  %.081164.i.i486 = phi i64 [ 0, %.preheader.preheader.i.i482 ], [ %785, %783 ]
-  %.082163.i.i487 = phi i64 [ 0, %.preheader.preheader.i.i482 ], [ %784, %783 ]
-  %.085162.i.i488 = phi i1 [ false, %.preheader.preheader.i.i482 ], [ %791, %783 ]
+  %indvars.iv196.i.i485 = phi i64 [ 8, %.preheader.preheader.i.i482 ], [ %indvars.iv.next197.i.i493, %783 ]
+  %.081161.i.i486 = phi i64 [ 0, %.preheader.preheader.i.i482 ], [ %785, %783 ]
+  %.082160.i.i487 = phi i64 [ 0, %.preheader.preheader.i.i482 ], [ %784, %783 ]
+  %.085159.i.i488 = phi i1 [ false, %.preheader.preheader.i.i482 ], [ %791, %783 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i
 
 783:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i
-  %784 = add nuw nsw i64 %.082163.i.i487, 8
-  %785 = add nuw nsw i64 %.081164.i.i486, 1
-  %indvars.iv.next200.i.i493 = add nuw nsw i64 %indvars.iv199.i.i485, 8
-  %exitcond202.not.i.i494 = icmp eq i64 %785, %smax201.i.i483
-  br i1 %exitcond202.not.i.i494, label %.preheader143.loopexit.i.i495, label %.preheader.i.i484, !llvm.loop !574
+  %784 = add nuw nsw i64 %.082160.i.i487, 8
+  %785 = add nuw nsw i64 %.081161.i.i486, 1
+  %indvars.iv.next197.i.i493 = add nuw nsw i64 %indvars.iv196.i.i485, 8
+  %exitcond199.not.i.i494 = icmp eq i64 %785, %smax198.i.i483
+  br i1 %exitcond199.not.i.i494, label %.preheader140.loopexit.i.i495, label %.preheader.i.i484, !llvm.loop !574
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i, %.preheader.i.i484
-  %.183160.i.i489 = phi i64 [ %.082163.i.i487, %.preheader.i.i484 ], [ %786, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i ]
-  %.186159.i.i490 = phi i1 [ %.085162.i.i488, %.preheader.i.i484 ], [ %791, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i ]
-  %786 = add nuw nsw i64 %.183160.i.i489, 1
-  %787 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.183160.i.i489
+  %.183157.i.i489 = phi i64 [ %.082160.i.i487, %.preheader.i.i484 ], [ %786, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i ]
+  %.186156.i.i490 = phi i1 [ %.085159.i.i488, %.preheader.i.i484 ], [ %791, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i ]
+  %786 = add nuw nsw i64 %.183157.i.i489, 1
+  %787 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.183157.i.i489
   %788 = load i32, ptr %787, align 4, !tbaa !6, !noalias !570
   %789 = icmp ult i32 %788, %.val48
   %790 = icmp ugt i32 %788, %.val49
   %spec.select.i.i491 = or i1 %789, %790
-  %791 = or i1 %.186159.i.i490, %spec.select.i.i491
-  %exitcond198.not.i.i492 = icmp eq i64 %786, %indvars.iv199.i.i485
-  br i1 %exitcond198.not.i.i492, label %783, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i, !llvm.loop !575
+  %791 = or i1 %.186156.i.i490, %spec.select.i.i491
+  %exitcond195.not.i.i492 = icmp eq i64 %786, %indvars.iv196.i.i485
+  br i1 %exitcond195.not.i.i492, label %783, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit.i.i, !llvm.loop !575
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i: ; preds = %.preheader143.i.i475, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i
-  %.284168.i.i478 = phi i64 [ %797, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i ], [ %.082.lcssa.i.i477, %.preheader143.i.i475 ]
-  %.287167.i.i479 = phi i1 [ %796, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i ], [ %.085.lcssa.i.i476, %.preheader143.i.i475 ]
-  %792 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.284168.i.i478
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i: ; preds = %.preheader140.i.i475, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i
+  %.284165.i.i478 = phi i64 [ %797, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i ], [ %.082.lcssa.i.i477, %.preheader140.i.i475 ]
+  %.287164.i.i479 = phi i1 [ %796, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i ], [ %.085.lcssa.i.i476, %.preheader140.i.i475 ]
+  %792 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.284165.i.i478
   %793 = load i32, ptr %792, align 4, !tbaa !6, !noalias !570
   %794 = icmp ult i32 %793, %.val48
   %795 = icmp ugt i32 %793, %.val49
-  %spec.select131.i.i480 = or i1 %794, %795
-  %796 = or i1 %.287167.i.i479, %spec.select131.i.i480
-  %797 = add nuw nsw i64 %.284168.i.i478, 1
-  %exitcond203.not.i.i481 = icmp eq i64 %797, %781
-  br i1 %exitcond203.not.i.i481, label %.loopexit.i.i439, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i, !llvm.loop !576
+  %spec.select128.i.i480 = or i1 %794, %795
+  %796 = or i1 %.287164.i.i479, %spec.select128.i.i480
+  %797 = add nuw nsw i64 %.284165.i.i478, 1
+  %exitcond200.not.i.i481 = icmp eq i64 %797, %781
+  br i1 %exitcond200.not.i.i481, label %.loopexit.i.i439, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i, !llvm.loop !576
 
-798:                                              ; preds = %.lr.ph183.i.i428
+798:                                              ; preds = %.lr.ph180.i.i428
   %799 = icmp sgt i32 %775, 0
-  br i1 %799, label %.preheader147.i.i435, label %.thread.i.i434
+  br i1 %799, label %.preheader144.i.i435, label %.critedge.i.i434
 
-.preheader147.i.i435:                             ; preds = %798
+.preheader144.i.i435:                             ; preds = %798
   %800 = icmp sgt i32 %776, 7
-  br i1 %800, label %.preheader139.preheader.i.i459, label %.preheader145.i.i436
+  br i1 %800, label %.preheader136.preheader.i.i459, label %.preheader142.i.i436
 
-.preheader139.preheader.i.i459:                   ; preds = %.preheader147.i.i435
+.preheader136.preheader.i.i459:                   ; preds = %.preheader144.i.i435
   %801 = lshr i32 %776, 3
   %smax.i.i460 = zext nneg i32 %801 to i64
-  br label %.preheader139.i.i461
+  br label %.preheader136.i.i461
 
-.preheader145.loopexit.i.i473:                    ; preds = %805
+.preheader142.loopexit.i.i473:                    ; preds = %805
   %802 = shl nuw nsw i64 %smax.i.i460, 3
-  br label %.preheader145.i.i436
+  br label %.preheader142.i.i436
 
-.preheader145.i.i436:                             ; preds = %.preheader145.loopexit.i.i473, %.preheader147.i.i435
-  %.4.lcssa.i.i437 = phi i1 [ false, %.preheader147.i.i435 ], [ %824, %.preheader145.loopexit.i.i473 ]
-  %.076.lcssa.i.i438 = phi i64 [ 0, %.preheader147.i.i435 ], [ %802, %.preheader145.loopexit.i.i473 ]
+.preheader142.i.i436:                             ; preds = %.preheader142.loopexit.i.i473, %.preheader144.i.i435
+  %.4.lcssa.i.i437 = phi i1 [ false, %.preheader144.i.i435 ], [ %824, %.preheader142.loopexit.i.i473 ]
+  %.076.lcssa.i.i438 = phi i64 [ 0, %.preheader144.i.i435 ], [ %802, %.preheader142.loopexit.i.i473 ]
   %803 = sext i16 %.sroa.0.0.extract.trunc.i.i432 to i64
   %804 = icmp slt i64 %.076.lcssa.i.i438, %803
   br i1 %804, label %.lr.ph.i.i453, label %.loopexit.i.i439
 
-.preheader139.i.i461:                             ; preds = %805, %.preheader139.preheader.i.i459
-  %indvars.iv194.i.i462 = phi i64 [ 8, %.preheader139.preheader.i.i459 ], [ %indvars.iv.next195.i.i471, %805 ]
-  %.075154.i.i463 = phi i64 [ 0, %.preheader139.preheader.i.i459 ], [ %807, %805 ]
-  %.076153.i.i464 = phi i64 [ 0, %.preheader139.preheader.i.i459 ], [ %806, %805 ]
-  %.4152.i.i465 = phi i1 [ false, %.preheader139.preheader.i.i459 ], [ %824, %805 ]
+.preheader136.i.i461:                             ; preds = %805, %.preheader136.preheader.i.i459
+  %indvars.iv191.i.i462 = phi i64 [ 8, %.preheader136.preheader.i.i459 ], [ %indvars.iv.next192.i.i471, %805 ]
+  %.075151.i.i463 = phi i64 [ 0, %.preheader136.preheader.i.i459 ], [ %807, %805 ]
+  %.076150.i.i464 = phi i64 [ 0, %.preheader136.preheader.i.i459 ], [ %806, %805 ]
+  %.4149.i.i465 = phi i1 [ false, %.preheader136.preheader.i.i459 ], [ %824, %805 ]
   br label %808
 
 805:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i
-  %806 = add nuw nsw i64 %.076153.i.i464, 8
-  %807 = add nuw nsw i64 %.075154.i.i463, 1
-  %indvars.iv.next195.i.i471 = add nuw nsw i64 %indvars.iv194.i.i462, 8
-  %exitcond196.not.i.i472 = icmp eq i64 %807, %smax.i.i460
-  br i1 %exitcond196.not.i.i472, label %.preheader145.loopexit.i.i473, label %.preheader139.i.i461, !llvm.loop !577
+  %806 = add nuw nsw i64 %.076150.i.i464, 8
+  %807 = add nuw nsw i64 %.075151.i.i463, 1
+  %indvars.iv.next192.i.i471 = add nuw nsw i64 %indvars.iv191.i.i462, 8
+  %exitcond193.not.i.i472 = icmp eq i64 %807, %smax.i.i460
+  br i1 %exitcond193.not.i.i472, label %.preheader142.loopexit.i.i473, label %.preheader136.i.i461, !llvm.loop !577
 
-808:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i, %.preheader139.i.i461
-  %.1150.i.i466 = phi i64 [ %.076153.i.i464, %.preheader139.i.i461 ], [ %825, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i ]
-  %.5149.i.i467 = phi i1 [ %.4152.i.i465, %.preheader139.i.i461 ], [ %824, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i ]
-  %809 = add nsw i64 %.1150.i.i466, %.092176.i.i431
+808:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i, %.preheader136.i.i461
+  %.1147.i.i466 = phi i64 [ %.076150.i.i464, %.preheader136.i.i461 ], [ %825, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i ]
+  %.5146.i.i467 = phi i1 [ %.4149.i.i465, %.preheader136.i.i461 ], [ %824, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i ]
+  %809 = add nsw i64 %.1147.i.i466, %.092173.i.i431
   %810 = lshr i64 %809, 3
   %811 = getelementptr inbounds nuw i8, ptr %767, i64 %810
   %812 = load i8, ptr %811, align 1, !tbaa !3, !noalias !570
@@ -10204,28 +10204,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6Status
   %815 = and i32 %814, 7
   %816 = shl nuw nsw i32 1, %815
   %817 = and i32 %816, %813
-  %.not137.i.i468 = icmp eq i32 %817, 0
-  br i1 %.not137.i.i468, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i, label %818
+  %.not134.i.i468 = icmp eq i32 %817, 0
+  br i1 %.not134.i.i468, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i, label %818
 
 818:                                              ; preds = %808
-  %819 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.1150.i.i466
+  %819 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.1147.i.i466
   %820 = load i32, ptr %819, align 4, !tbaa !6, !noalias !570
   %821 = icmp ult i32 %820, %.val48
   %822 = icmp ugt i32 %820, %.val49
-  %spec.select132.i.i469 = or i1 %821, %822
+  %spec.select129.i.i469 = or i1 %821, %822
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit.i.i: ; preds = %818, %808
-  %823 = phi i1 [ false, %808 ], [ %spec.select132.i.i469, %818 ]
-  %824 = or i1 %.5149.i.i467, %823
-  %825 = add nuw nsw i64 %.1150.i.i466, 1
-  %exitcond.not.i.i470 = icmp eq i64 %825, %indvars.iv194.i.i462
+  %823 = phi i1 [ false, %808 ], [ %spec.select129.i.i469, %818 ]
+  %824 = or i1 %.5146.i.i467, %823
+  %825 = add nuw nsw i64 %.1147.i.i466, 1
+  %exitcond.not.i.i470 = icmp eq i64 %825, %indvars.iv191.i.i462
   br i1 %exitcond.not.i.i470, label %805, label %808, !llvm.loop !578
 
-.lr.ph.i.i453:                                    ; preds = %.preheader145.i.i436, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i
-  %.2157.i.i454 = phi i64 [ %842, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i ], [ %.076.lcssa.i.i438, %.preheader145.i.i436 ]
-  %.6156.i.i455 = phi i1 [ %841, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i ], [ %.4.lcssa.i.i437, %.preheader145.i.i436 ]
-  %826 = add nsw i64 %.2157.i.i454, %.092176.i.i431
+.lr.ph.i.i453:                                    ; preds = %.preheader142.i.i436, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i
+  %.2154.i.i454 = phi i64 [ %842, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i ], [ %.076.lcssa.i.i438, %.preheader142.i.i436 ]
+  %.6153.i.i455 = phi i1 [ %841, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i ], [ %.4.lcssa.i.i437, %.preheader142.i.i436 ]
+  %826 = add nsw i64 %.2154.i.i454, %.092173.i.i431
   %827 = lshr i64 %826, 3
   %828 = getelementptr inbounds nuw i8, ptr %767, i64 %827
   %829 = load i8, ptr %828, align 1, !tbaa !3, !noalias !570
@@ -10234,44 +10234,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6Status
   %832 = and i32 %831, 7
   %833 = shl nuw nsw i32 1, %832
   %834 = and i32 %833, %830
-  %.not136.i.i456 = icmp eq i32 %834, 0
-  br i1 %.not136.i.i456, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i, label %835
+  %.not133.i.i456 = icmp eq i32 %834, 0
+  br i1 %.not133.i.i456, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i, label %835
 
 835:                                              ; preds = %.lr.ph.i.i453
-  %836 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.2157.i.i454
+  %836 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.2154.i.i454
   %837 = load i32, ptr %836, align 4, !tbaa !6, !noalias !570
   %838 = icmp ult i32 %837, %.val48
   %839 = icmp ugt i32 %837, %.val49
-  %spec.select133.i.i457 = or i1 %838, %839
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i
+  %spec.select130.i.i457 = or i1 %838, %839
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i: ; preds = %835, %.lr.ph.i.i453
-  %840 = phi i1 [ false, %.lr.ph.i.i453 ], [ %spec.select133.i.i457, %835 ]
-  %841 = or i1 %.6156.i.i455, %840
-  %842 = add nuw nsw i64 %.2157.i.i454, 1
-  %exitcond197.not.i.i458 = icmp eq i64 %842, %803
-  br i1 %exitcond197.not.i.i458, label %.loopexit.i.i439, label %.lr.ph.i.i453, !llvm.loop !579
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i: ; preds = %835, %.lr.ph.i.i453
+  %840 = phi i1 [ false, %.lr.ph.i.i453 ], [ %spec.select130.i.i457, %835 ]
+  %841 = or i1 %.6153.i.i455, %840
+  %842 = add nuw nsw i64 %.2154.i.i454, 1
+  %exitcond194.not.i.i458 = icmp eq i64 %842, %803
+  br i1 %exitcond194.not.i.i458, label %.loopexit.i.i439, label %.lr.ph.i.i453, !llvm.loop !579
 
-.loopexit.i.i439:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i, %.preheader145.i.i436, %.preheader143.i.i475
-  %.3.i.i440 = phi i1 [ %.085.lcssa.i.i476, %.preheader143.i.i475 ], [ %.4.lcssa.i.i437, %.preheader145.i.i436 ], [ %796, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit117.i.i ], [ %841, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit118.i.i ]
-  br i1 %.3.i.i440, label %843, label %.thread.i.i434, !prof !435
+.loopexit.i.i439:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i, %.preheader142.i.i436, %.preheader140.i.i475
+  %.3.i.i440 = phi i1 [ %.085.lcssa.i.i476, %.preheader140.i.i475 ], [ %.4.lcssa.i.i437, %.preheader142.i.i436 ], [ %796, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit119.i.i ], [ %841, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit120.i.i ]
+  br i1 %.3.i.i440, label %843, label %.critedge.i.i434, !prof !435
 
 843:                                              ; preds = %.loopexit.i.i439
   %844 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !570
   %845 = icmp sgt i64 %844, 0
   %846 = sext i16 %.sroa.0.0.extract.trunc.i.i432 to i64
-  %.not99173.i.i441 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i432, 0
-  br i1 %845, label %.preheader140.i.i447, label %.preheader141.i.i442
+  %.not99170.i.i441 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i432, 0
+  br i1 %845, label %.preheader137.i.i447, label %.preheader138.i.i442
 
-.preheader141.i.i442:                             ; preds = %843
-  br i1 %.not99173.i.i441, label %.lr.ph172.i.i443, label %.thread.i.i434
+.preheader138.i.i442:                             ; preds = %843
+  br i1 %.not99170.i.i441, label %.lr.ph169.i.i443, label %.critedge.i.i434
 
-.preheader140.i.i447:                             ; preds = %843
-  br i1 %.not99173.i.i441, label %.lr.ph175.i.i448, label %.thread.i.i434
+.preheader137.i.i447:                             ; preds = %843
+  br i1 %.not99170.i.i441, label %.lr.ph172.i.i448, label %.critedge.i.i434
 
-.lr.ph175.i.i448:                                 ; preds = %.preheader140.i.i447, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i
-  %.073174.i.i449 = phi i64 [ %861, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i447 ]
-  %847 = add nsw i64 %.073174.i.i449, %.092176.i.i431
+.lr.ph172.i.i448:                                 ; preds = %.preheader137.i.i447, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i
+  %.073171.i.i449 = phi i64 [ %861, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i447 ]
+  %847 = add nsw i64 %.073171.i.i449, %.092173.i.i431
   %848 = lshr i64 %847, 3
   %849 = getelementptr inbounds nuw i8, ptr %767, i64 %848
   %850 = load i8, ptr %849, align 1, !tbaa !3, !noalias !570
@@ -10280,63 +10280,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6Status
   %853 = and i32 %852, 7
   %854 = shl nuw nsw i32 1, %853
   %855 = and i32 %854, %851
-  %.not138.i.i450 = icmp eq i32 %855, 0
-  br i1 %.not138.i.i450, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i, label %856
+  %.not135.i.i450 = icmp eq i32 %855, 0
+  br i1 %.not135.i.i450, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i, label %856
 
-856:                                              ; preds = %.lr.ph175.i.i448
-  %857 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.073174.i.i449
+856:                                              ; preds = %.lr.ph172.i.i448
+  %857 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.073171.i.i449
   %858 = load i32, ptr %857, align 4, !tbaa !6, !noalias !570
   %859 = icmp ult i32 %858, %.val48
   %860 = icmp ugt i32 %858, %.val49
-  %or.cond134.i.i451 = or i1 %859, %860
-  br i1 %or.cond134.i.i451, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i
+  %or.cond131.i.i451 = or i1 %859, %860
+  br i1 %or.cond131.i.i451, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread.i.i: ; preds = %856
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread.i.i: ; preds = %856
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE0_clEj(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %8, ptr nonnull %9, i32 noundef %858)
-  br label %.thread126.i.i426
+  br label %.critedge103.i.i426
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i: ; preds = %856, %.lr.ph175.i.i448
-  %861 = add nuw nsw i64 %.073174.i.i449, 1
-  %exitcond205.not.i.i452 = icmp eq i64 %861, %846
-  br i1 %exitcond205.not.i.i452, label %.thread.i.i434, label %.lr.ph175.i.i448, !llvm.loop !580
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i: ; preds = %856, %.lr.ph172.i.i448
+  %861 = add nuw nsw i64 %.073171.i.i449, 1
+  %exitcond202.not.i.i452 = icmp eq i64 %861, %846
+  br i1 %exitcond202.not.i.i452, label %.critedge.i.i434, label %.lr.ph172.i.i448, !llvm.loop !580
 
-862:                                              ; preds = %.lr.ph172.i.i443
-  %863 = add nuw nsw i64 %.0171.i.i444, 1
-  %exitcond204.not.i.i446 = icmp eq i64 %863, %846
-  br i1 %exitcond204.not.i.i446, label %.thread.i.i434, label %.lr.ph172.i.i443, !llvm.loop !581
+862:                                              ; preds = %.lr.ph169.i.i443
+  %863 = add nuw nsw i64 %.0168.i.i444, 1
+  %exitcond201.not.i.i446 = icmp eq i64 %863, %846
+  br i1 %exitcond201.not.i.i446, label %.critedge.i.i434, label %.lr.ph169.i.i443, !llvm.loop !581
 
-.lr.ph172.i.i443:                                 ; preds = %.preheader141.i.i442, %862
-  %.0171.i.i444 = phi i64 [ %863, %862 ], [ 0, %.preheader141.i.i442 ]
-  %864 = getelementptr inbounds nuw i32, ptr %.088180.i.i429, i64 %.0171.i.i444
+.lr.ph169.i.i443:                                 ; preds = %.preheader138.i.i442, %862
+  %.0168.i.i444 = phi i64 [ %863, %862 ], [ 0, %.preheader138.i.i442 ]
+  %864 = getelementptr inbounds nuw i32, ptr %.088177.i.i429, i64 %.0168.i.i444
   %865 = load i32, ptr %864, align 4, !tbaa !6, !noalias !570
   %866 = icmp ult i32 %865, %.val48
   %867 = icmp ugt i32 %865, %.val49
-  %or.cond135.i.i445 = or i1 %866, %867
-  br i1 %or.cond135.i.i445, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit120.thread.i.i, label %862
+  %or.cond132.i.i445 = or i1 %866, %867
+  br i1 %or.cond132.i.i445, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit122.thread.i.i, label %862
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit120.thread.i.i: ; preds = %.lr.ph172.i.i443
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit122.thread.i.i: ; preds = %.lr.ph169.i.i443
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE0_clEj(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %8, ptr nonnull %9, i32 noundef %865)
-  br label %.thread126.i.i426
+  br label %.critedge103.i.i426
 
-.thread.i.i434:                                   ; preds = %862, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread125.i.i, %.preheader140.i.i447, %.preheader141.i.i442, %.loopexit.i.i439, %798
+.critedge.i.i434:                                 ; preds = %862, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread127.i.i, %.preheader137.i.i447, %.preheader138.i.i442, %.loopexit.i.i439, %798
   %868 = sext i32 %776 to i64
-  %869 = getelementptr inbounds i32, ptr %.088180.i.i429, i64 %868
+  %869 = getelementptr inbounds i32, ptr %.088177.i.i429, i64 %868
   %870 = sext i16 %.sroa.0.0.extract.trunc.i.i432 to i64
-  %871 = add nsw i64 %.090179.i.i430, %870
-  %872 = add nsw i64 %.092176.i.i431, %870
+  %871 = add nsw i64 %.090176.i.i430, %870
+  %872 = add nsw i64 %.092173.i.i431, %870
   %873 = load i64, ptr %768, align 8, !tbaa !215, !noalias !570
   %874 = icmp slt i64 %871, %873
-  br i1 %874, label %.lr.ph183.i.i428, label %._crit_edge.i.i425, !llvm.loop !582
+  br i1 %874, label %.lr.ph180.i.i428, label %._crit_edge.i.i425, !llvm.loop !582
 
-._crit_edge.i.i425:                               ; preds = %.thread.i.i434, %761
+._crit_edge.i.i425:                               ; preds = %.critedge.i.i434, %761
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !583
-  br label %.thread126.i.i426
+  br label %.critedge103.i.i426
 
-.thread126.i.i426:                                ; preds = %._crit_edge.i.i425, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit119.thread.i.i
+.critedge103.i.i426:                              ; preds = %._crit_edge.i.i425, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljE_clEj.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #21, !noalias !570
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %760, %.thread126.i.i426
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %760, %.critedge103.i.i426
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !564
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !564
   br label %994
@@ -10374,127 +10374,127 @@ _ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt32TypeEEENS_
   call void @_ZN5arrow8internal23OptionalBitBlockCounterC1EPKhll(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %885, i64 noundef %881, i64 noundef %887), !noalias !594
   %888 = load i64, ptr %886, align 8, !tbaa !215, !noalias !594
   %889 = icmp sgt i64 %888, 0
-  br i1 %889, label %.lr.ph183.preheader.i.i501, label %._crit_edge.i.i499
+  br i1 %889, label %.lr.ph180.preheader.i.i501, label %._crit_edge.i.i499
 
-.lr.ph183.preheader.i.i501:                       ; preds = %879
+.lr.ph180.preheader.i.i501:                       ; preds = %879
   %890 = load i64, ptr %880, align 8, !tbaa !211, !noalias !594
   %891 = getelementptr inbounds i64, ptr %884, i64 %881
-  br label %.lr.ph183.i.i502
+  br label %.lr.ph180.i.i502
 
-.lr.ph183.i.i502:                                 ; preds = %.thread.i.i508, %.lr.ph183.preheader.i.i501
-  %.088180.i.i503 = phi ptr [ %987, %.thread.i.i508 ], [ %891, %.lr.ph183.preheader.i.i501 ]
-  %.090179.i.i504 = phi i64 [ %989, %.thread.i.i508 ], [ 0, %.lr.ph183.preheader.i.i501 ]
-  %.092176.i.i505 = phi i64 [ %990, %.thread.i.i508 ], [ %890, %.lr.ph183.preheader.i.i501 ]
+.lr.ph180.i.i502:                                 ; preds = %.critedge.i.i508, %.lr.ph180.preheader.i.i501
+  %.088177.i.i503 = phi ptr [ %987, %.critedge.i.i508 ], [ %891, %.lr.ph180.preheader.i.i501 ]
+  %.090176.i.i504 = phi i64 [ %989, %.critedge.i.i508 ], [ 0, %.lr.ph180.preheader.i.i501 ]
+  %.092173.i.i505 = phi i64 [ %990, %.critedge.i.i508 ], [ %890, %.lr.ph180.preheader.i.i501 ]
   %892 = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %7), !noalias !594
   %.sroa.0.0.extract.trunc.i.i506 = trunc i32 %892 to i16
   %893 = ashr i32 %892, 16
   %sext.i.i507 = shl i32 %892, 16
   %894 = ashr exact i32 %sext.i.i507, 16
   %895 = icmp eq i32 %893, %894
-  br i1 %895, label %.preheader144.i.i548, label %916
+  br i1 %895, label %.preheader141.i.i548, label %916
 
-.preheader144.i.i548:                             ; preds = %.lr.ph183.i.i502
+.preheader141.i.i548:                             ; preds = %.lr.ph180.i.i502
   %896 = icmp sgt i32 %893, 7
-  br i1 %896, label %.preheader.preheader.i.i556, label %.preheader143.i.i549
+  br i1 %896, label %.preheader.preheader.i.i556, label %.preheader140.i.i549
 
-.preheader.preheader.i.i556:                      ; preds = %.preheader144.i.i548
+.preheader.preheader.i.i556:                      ; preds = %.preheader141.i.i548
   %897 = lshr i32 %893, 3
-  %smax201.i.i557 = zext nneg i32 %897 to i64
+  %smax198.i.i557 = zext nneg i32 %897 to i64
   br label %.preheader.i.i558
 
-.preheader143.loopexit.i.i569:                    ; preds = %901
-  %898 = shl nuw nsw i64 %smax201.i.i557, 3
-  br label %.preheader143.i.i549
+.preheader140.loopexit.i.i569:                    ; preds = %901
+  %898 = shl nuw nsw i64 %smax198.i.i557, 3
+  br label %.preheader140.i.i549
 
-.preheader143.i.i549:                             ; preds = %.preheader143.loopexit.i.i569, %.preheader144.i.i548
-  %.085.lcssa.i.i550 = phi i1 [ false, %.preheader144.i.i548 ], [ %909, %.preheader143.loopexit.i.i569 ]
-  %.082.lcssa.i.i551 = phi i64 [ 0, %.preheader144.i.i548 ], [ %898, %.preheader143.loopexit.i.i569 ]
+.preheader140.i.i549:                             ; preds = %.preheader140.loopexit.i.i569, %.preheader141.i.i548
+  %.085.lcssa.i.i550 = phi i1 [ false, %.preheader141.i.i548 ], [ %909, %.preheader140.loopexit.i.i569 ]
+  %.082.lcssa.i.i551 = phi i64 [ 0, %.preheader141.i.i548 ], [ %898, %.preheader140.loopexit.i.i569 ]
   %899 = sext i16 %.sroa.0.0.extract.trunc.i.i506 to i64
   %900 = icmp slt i64 %.082.lcssa.i.i551, %899
-  br i1 %900, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i, label %.loopexit.i.i513
+  br i1 %900, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i, label %.loopexit.i.i513
 
 .preheader.i.i558:                                ; preds = %901, %.preheader.preheader.i.i556
-  %indvars.iv199.i.i559 = phi i64 [ 8, %.preheader.preheader.i.i556 ], [ %indvars.iv.next200.i.i567, %901 ]
-  %.081164.i.i560 = phi i64 [ 0, %.preheader.preheader.i.i556 ], [ %903, %901 ]
-  %.082163.i.i561 = phi i64 [ 0, %.preheader.preheader.i.i556 ], [ %902, %901 ]
-  %.085162.i.i562 = phi i1 [ false, %.preheader.preheader.i.i556 ], [ %909, %901 ]
+  %indvars.iv196.i.i559 = phi i64 [ 8, %.preheader.preheader.i.i556 ], [ %indvars.iv.next197.i.i567, %901 ]
+  %.081161.i.i560 = phi i64 [ 0, %.preheader.preheader.i.i556 ], [ %903, %901 ]
+  %.082160.i.i561 = phi i64 [ 0, %.preheader.preheader.i.i556 ], [ %902, %901 ]
+  %.085159.i.i562 = phi i1 [ false, %.preheader.preheader.i.i556 ], [ %909, %901 ]
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i
 
 901:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i
-  %902 = add nuw nsw i64 %.082163.i.i561, 8
-  %903 = add nuw nsw i64 %.081164.i.i560, 1
-  %indvars.iv.next200.i.i567 = add nuw nsw i64 %indvars.iv199.i.i559, 8
-  %exitcond202.not.i.i568 = icmp eq i64 %903, %smax201.i.i557
-  br i1 %exitcond202.not.i.i568, label %.preheader143.loopexit.i.i569, label %.preheader.i.i558, !llvm.loop !598
+  %902 = add nuw nsw i64 %.082160.i.i561, 8
+  %903 = add nuw nsw i64 %.081161.i.i560, 1
+  %indvars.iv.next197.i.i567 = add nuw nsw i64 %indvars.iv196.i.i559, 8
+  %exitcond199.not.i.i568 = icmp eq i64 %903, %smax198.i.i557
+  br i1 %exitcond199.not.i.i568, label %.preheader140.loopexit.i.i569, label %.preheader.i.i558, !llvm.loop !598
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i: ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i, %.preheader.i.i558
-  %.183160.i.i563 = phi i64 [ %.082163.i.i561, %.preheader.i.i558 ], [ %904, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i ]
-  %.186159.i.i564 = phi i1 [ %.085162.i.i562, %.preheader.i.i558 ], [ %909, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i ]
-  %904 = add nuw nsw i64 %.183160.i.i563, 1
-  %905 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.183160.i.i563
+  %.183157.i.i563 = phi i64 [ %.082160.i.i561, %.preheader.i.i558 ], [ %904, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i ]
+  %.186156.i.i564 = phi i1 [ %.085159.i.i562, %.preheader.i.i558 ], [ %909, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i ]
+  %904 = add nuw nsw i64 %.183157.i.i563, 1
+  %905 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.183157.i.i563
   %906 = load i64, ptr %905, align 8, !tbaa !23, !noalias !594
   %907 = icmp ult i64 %906, %.val50
   %908 = icmp ugt i64 %906, %.val51
   %spec.select.i.i565 = or i1 %907, %908
-  %909 = or i1 %.186159.i.i564, %spec.select.i.i565
-  %exitcond198.not.i.i566 = icmp eq i64 %904, %indvars.iv199.i.i559
-  br i1 %exitcond198.not.i.i566, label %901, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i, !llvm.loop !599
+  %909 = or i1 %.186156.i.i564, %spec.select.i.i565
+  %exitcond195.not.i.i566 = icmp eq i64 %904, %indvars.iv196.i.i559
+  br i1 %exitcond195.not.i.i566, label %901, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit.i.i, !llvm.loop !599
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i: ; preds = %.preheader143.i.i549, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i
-  %.284168.i.i552 = phi i64 [ %915, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i ], [ %.082.lcssa.i.i551, %.preheader143.i.i549 ]
-  %.287167.i.i553 = phi i1 [ %914, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i ], [ %.085.lcssa.i.i550, %.preheader143.i.i549 ]
-  %910 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.284168.i.i552
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i: ; preds = %.preheader140.i.i549, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i
+  %.284165.i.i552 = phi i64 [ %915, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i ], [ %.082.lcssa.i.i551, %.preheader140.i.i549 ]
+  %.287164.i.i553 = phi i1 [ %914, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i ], [ %.085.lcssa.i.i550, %.preheader140.i.i549 ]
+  %910 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.284165.i.i552
   %911 = load i64, ptr %910, align 8, !tbaa !23, !noalias !594
   %912 = icmp ult i64 %911, %.val50
   %913 = icmp ugt i64 %911, %.val51
-  %spec.select131.i.i554 = or i1 %912, %913
-  %914 = or i1 %.287167.i.i553, %spec.select131.i.i554
-  %915 = add nuw nsw i64 %.284168.i.i552, 1
-  %exitcond203.not.i.i555 = icmp eq i64 %915, %899
-  br i1 %exitcond203.not.i.i555, label %.loopexit.i.i513, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i, !llvm.loop !600
+  %spec.select128.i.i554 = or i1 %912, %913
+  %914 = or i1 %.287164.i.i553, %spec.select128.i.i554
+  %915 = add nuw nsw i64 %.284165.i.i552, 1
+  %exitcond200.not.i.i555 = icmp eq i64 %915, %899
+  br i1 %exitcond200.not.i.i555, label %.loopexit.i.i513, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i, !llvm.loop !600
 
-916:                                              ; preds = %.lr.ph183.i.i502
+916:                                              ; preds = %.lr.ph180.i.i502
   %917 = icmp sgt i32 %893, 0
-  br i1 %917, label %.preheader147.i.i509, label %.thread.i.i508
+  br i1 %917, label %.preheader144.i.i509, label %.critedge.i.i508
 
-.preheader147.i.i509:                             ; preds = %916
+.preheader144.i.i509:                             ; preds = %916
   %918 = icmp sgt i32 %894, 7
-  br i1 %918, label %.preheader139.preheader.i.i533, label %.preheader145.i.i510
+  br i1 %918, label %.preheader136.preheader.i.i533, label %.preheader142.i.i510
 
-.preheader139.preheader.i.i533:                   ; preds = %.preheader147.i.i509
+.preheader136.preheader.i.i533:                   ; preds = %.preheader144.i.i509
   %919 = lshr i32 %894, 3
   %smax.i.i534 = zext nneg i32 %919 to i64
-  br label %.preheader139.i.i535
+  br label %.preheader136.i.i535
 
-.preheader145.loopexit.i.i547:                    ; preds = %923
+.preheader142.loopexit.i.i547:                    ; preds = %923
   %920 = shl nuw nsw i64 %smax.i.i534, 3
-  br label %.preheader145.i.i510
+  br label %.preheader142.i.i510
 
-.preheader145.i.i510:                             ; preds = %.preheader145.loopexit.i.i547, %.preheader147.i.i509
-  %.4.lcssa.i.i511 = phi i1 [ false, %.preheader147.i.i509 ], [ %942, %.preheader145.loopexit.i.i547 ]
-  %.076.lcssa.i.i512 = phi i64 [ 0, %.preheader147.i.i509 ], [ %920, %.preheader145.loopexit.i.i547 ]
+.preheader142.i.i510:                             ; preds = %.preheader142.loopexit.i.i547, %.preheader144.i.i509
+  %.4.lcssa.i.i511 = phi i1 [ false, %.preheader144.i.i509 ], [ %942, %.preheader142.loopexit.i.i547 ]
+  %.076.lcssa.i.i512 = phi i64 [ 0, %.preheader144.i.i509 ], [ %920, %.preheader142.loopexit.i.i547 ]
   %921 = sext i16 %.sroa.0.0.extract.trunc.i.i506 to i64
   %922 = icmp slt i64 %.076.lcssa.i.i512, %921
   br i1 %922, label %.lr.ph.i.i527, label %.loopexit.i.i513
 
-.preheader139.i.i535:                             ; preds = %923, %.preheader139.preheader.i.i533
-  %indvars.iv194.i.i536 = phi i64 [ 8, %.preheader139.preheader.i.i533 ], [ %indvars.iv.next195.i.i545, %923 ]
-  %.075154.i.i537 = phi i64 [ 0, %.preheader139.preheader.i.i533 ], [ %925, %923 ]
-  %.076153.i.i538 = phi i64 [ 0, %.preheader139.preheader.i.i533 ], [ %924, %923 ]
-  %.4152.i.i539 = phi i1 [ false, %.preheader139.preheader.i.i533 ], [ %942, %923 ]
+.preheader136.i.i535:                             ; preds = %923, %.preheader136.preheader.i.i533
+  %indvars.iv191.i.i536 = phi i64 [ 8, %.preheader136.preheader.i.i533 ], [ %indvars.iv.next192.i.i545, %923 ]
+  %.075151.i.i537 = phi i64 [ 0, %.preheader136.preheader.i.i533 ], [ %925, %923 ]
+  %.076150.i.i538 = phi i64 [ 0, %.preheader136.preheader.i.i533 ], [ %924, %923 ]
+  %.4149.i.i539 = phi i1 [ false, %.preheader136.preheader.i.i533 ], [ %942, %923 ]
   br label %926
 
 923:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i
-  %924 = add nuw nsw i64 %.076153.i.i538, 8
-  %925 = add nuw nsw i64 %.075154.i.i537, 1
-  %indvars.iv.next195.i.i545 = add nuw nsw i64 %indvars.iv194.i.i536, 8
-  %exitcond196.not.i.i546 = icmp eq i64 %925, %smax.i.i534
-  br i1 %exitcond196.not.i.i546, label %.preheader145.loopexit.i.i547, label %.preheader139.i.i535, !llvm.loop !601
+  %924 = add nuw nsw i64 %.076150.i.i538, 8
+  %925 = add nuw nsw i64 %.075151.i.i537, 1
+  %indvars.iv.next192.i.i545 = add nuw nsw i64 %indvars.iv191.i.i536, 8
+  %exitcond193.not.i.i546 = icmp eq i64 %925, %smax.i.i534
+  br i1 %exitcond193.not.i.i546, label %.preheader142.loopexit.i.i547, label %.preheader136.i.i535, !llvm.loop !601
 
-926:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i, %.preheader139.i.i535
-  %.1150.i.i540 = phi i64 [ %.076153.i.i538, %.preheader139.i.i535 ], [ %943, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i ]
-  %.5149.i.i541 = phi i1 [ %.4152.i.i539, %.preheader139.i.i535 ], [ %942, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i ]
-  %927 = add nsw i64 %.1150.i.i540, %.092176.i.i505
+926:                                              ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i, %.preheader136.i.i535
+  %.1147.i.i540 = phi i64 [ %.076150.i.i538, %.preheader136.i.i535 ], [ %943, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i ]
+  %.5146.i.i541 = phi i1 [ %.4149.i.i539, %.preheader136.i.i535 ], [ %942, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i ]
+  %927 = add nsw i64 %.1147.i.i540, %.092173.i.i505
   %928 = lshr i64 %927, 3
   %929 = getelementptr inbounds nuw i8, ptr %885, i64 %928
   %930 = load i8, ptr %929, align 1, !tbaa !3, !noalias !594
@@ -10503,28 +10503,28 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6Status
   %933 = and i32 %932, 7
   %934 = shl nuw nsw i32 1, %933
   %935 = and i32 %934, %931
-  %.not137.i.i542 = icmp eq i32 %935, 0
-  br i1 %.not137.i.i542, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i, label %936
+  %.not134.i.i542 = icmp eq i32 %935, 0
+  br i1 %.not134.i.i542, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i, label %936
 
 936:                                              ; preds = %926
-  %937 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.1150.i.i540
+  %937 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.1147.i.i540
   %938 = load i64, ptr %937, align 8, !tbaa !23, !noalias !594
   %939 = icmp ult i64 %938, %.val50
   %940 = icmp ugt i64 %938, %.val51
-  %spec.select132.i.i543 = or i1 %939, %940
+  %spec.select129.i.i543 = or i1 %939, %940
   br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i
 
 _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit.i.i: ; preds = %936, %926
-  %941 = phi i1 [ false, %926 ], [ %spec.select132.i.i543, %936 ]
-  %942 = or i1 %.5149.i.i541, %941
-  %943 = add nuw nsw i64 %.1150.i.i540, 1
-  %exitcond.not.i.i544 = icmp eq i64 %943, %indvars.iv194.i.i536
+  %941 = phi i1 [ false, %926 ], [ %spec.select129.i.i543, %936 ]
+  %942 = or i1 %.5146.i.i541, %941
+  %943 = add nuw nsw i64 %.1147.i.i540, 1
+  %exitcond.not.i.i544 = icmp eq i64 %943, %indvars.iv191.i.i536
   br i1 %exitcond.not.i.i544, label %923, label %926, !llvm.loop !602
 
-.lr.ph.i.i527:                                    ; preds = %.preheader145.i.i510, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i
-  %.2157.i.i528 = phi i64 [ %960, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i ], [ %.076.lcssa.i.i512, %.preheader145.i.i510 ]
-  %.6156.i.i529 = phi i1 [ %959, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i ], [ %.4.lcssa.i.i511, %.preheader145.i.i510 ]
-  %944 = add nsw i64 %.2157.i.i528, %.092176.i.i505
+.lr.ph.i.i527:                                    ; preds = %.preheader142.i.i510, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i
+  %.2154.i.i528 = phi i64 [ %960, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i ], [ %.076.lcssa.i.i512, %.preheader142.i.i510 ]
+  %.6153.i.i529 = phi i1 [ %959, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i ], [ %.4.lcssa.i.i511, %.preheader142.i.i510 ]
+  %944 = add nsw i64 %.2154.i.i528, %.092173.i.i505
   %945 = lshr i64 %944, 3
   %946 = getelementptr inbounds nuw i8, ptr %885, i64 %945
   %947 = load i8, ptr %946, align 1, !tbaa !3, !noalias !594
@@ -10533,44 +10533,44 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6Status
   %950 = and i32 %949, 7
   %951 = shl nuw nsw i32 1, %950
   %952 = and i32 %951, %948
-  %.not136.i.i530 = icmp eq i32 %952, 0
-  br i1 %.not136.i.i530, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i, label %953
+  %.not133.i.i530 = icmp eq i32 %952, 0
+  br i1 %.not133.i.i530, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i, label %953
 
 953:                                              ; preds = %.lr.ph.i.i527
-  %954 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.2157.i.i528
+  %954 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.2154.i.i528
   %955 = load i64, ptr %954, align 8, !tbaa !23, !noalias !594
   %956 = icmp ult i64 %955, %.val50
   %957 = icmp ugt i64 %955, %.val51
-  %spec.select133.i.i531 = or i1 %956, %957
-  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i
+  %spec.select130.i.i531 = or i1 %956, %957
+  br label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i: ; preds = %953, %.lr.ph.i.i527
-  %958 = phi i1 [ false, %.lr.ph.i.i527 ], [ %spec.select133.i.i531, %953 ]
-  %959 = or i1 %.6156.i.i529, %958
-  %960 = add nuw nsw i64 %.2157.i.i528, 1
-  %exitcond197.not.i.i532 = icmp eq i64 %960, %921
-  br i1 %exitcond197.not.i.i532, label %.loopexit.i.i513, label %.lr.ph.i.i527, !llvm.loop !603
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i: ; preds = %953, %.lr.ph.i.i527
+  %958 = phi i1 [ false, %.lr.ph.i.i527 ], [ %spec.select130.i.i531, %953 ]
+  %959 = or i1 %.6153.i.i529, %958
+  %960 = add nuw nsw i64 %.2154.i.i528, 1
+  %exitcond194.not.i.i532 = icmp eq i64 %960, %921
+  br i1 %exitcond194.not.i.i532, label %.loopexit.i.i513, label %.lr.ph.i.i527, !llvm.loop !603
 
-.loopexit.i.i513:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i, %.preheader145.i.i510, %.preheader143.i.i549
-  %.3.i.i514 = phi i1 [ %.085.lcssa.i.i550, %.preheader143.i.i549 ], [ %.4.lcssa.i.i511, %.preheader145.i.i510 ], [ %914, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit117.i.i ], [ %959, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit118.i.i ]
-  br i1 %.3.i.i514, label %961, label %.thread.i.i508, !prof !435
+.loopexit.i.i513:                                 ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i, %.preheader142.i.i510, %.preheader140.i.i549
+  %.3.i.i514 = phi i1 [ %.085.lcssa.i.i550, %.preheader140.i.i549 ], [ %.4.lcssa.i.i511, %.preheader142.i.i510 ], [ %914, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit119.i.i ], [ %959, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit120.i.i ]
+  br i1 %.3.i.i514, label %961, label %.critedge.i.i508, !prof !435
 
 961:                                              ; preds = %.loopexit.i.i513
   %962 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !594
   %963 = icmp sgt i64 %962, 0
   %964 = sext i16 %.sroa.0.0.extract.trunc.i.i506 to i64
-  %.not99173.i.i515 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i506, 0
-  br i1 %963, label %.preheader140.i.i521, label %.preheader141.i.i516
+  %.not99170.i.i515 = icmp sgt i16 %.sroa.0.0.extract.trunc.i.i506, 0
+  br i1 %963, label %.preheader137.i.i521, label %.preheader138.i.i516
 
-.preheader141.i.i516:                             ; preds = %961
-  br i1 %.not99173.i.i515, label %.lr.ph172.i.i517, label %.thread.i.i508
+.preheader138.i.i516:                             ; preds = %961
+  br i1 %.not99170.i.i515, label %.lr.ph169.i.i517, label %.critedge.i.i508
 
-.preheader140.i.i521:                             ; preds = %961
-  br i1 %.not99173.i.i515, label %.lr.ph175.i.i522, label %.thread.i.i508
+.preheader137.i.i521:                             ; preds = %961
+  br i1 %.not99170.i.i515, label %.lr.ph172.i.i522, label %.critedge.i.i508
 
-.lr.ph175.i.i522:                                 ; preds = %.preheader140.i.i521, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i
-  %.073174.i.i523 = phi i64 [ %979, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i ], [ 0, %.preheader140.i.i521 ]
-  %965 = add nsw i64 %.073174.i.i523, %.092176.i.i505
+.lr.ph172.i.i522:                                 ; preds = %.preheader137.i.i521, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i
+  %.073171.i.i523 = phi i64 [ %979, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i ], [ 0, %.preheader137.i.i521 ]
+  %965 = add nsw i64 %.073171.i.i523, %.092173.i.i505
   %966 = lshr i64 %965, 3
   %967 = getelementptr inbounds nuw i8, ptr %885, i64 %966
   %968 = load i8, ptr %967, align 1, !tbaa !3, !noalias !594
@@ -10579,63 +10579,63 @@ _ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6Status
   %971 = and i32 %970, 7
   %972 = shl nuw nsw i32 1, %971
   %973 = and i32 %972, %969
-  %.not138.i.i524 = icmp eq i32 %973, 0
-  br i1 %.not138.i.i524, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i, label %974
+  %.not135.i.i524 = icmp eq i32 %973, 0
+  br i1 %.not135.i.i524, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i, label %974
 
-974:                                              ; preds = %.lr.ph175.i.i522
-  %975 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.073174.i.i523
+974:                                              ; preds = %.lr.ph172.i.i522
+  %975 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.073171.i.i523
   %976 = load i64, ptr %975, align 8, !tbaa !23, !noalias !594
   %977 = icmp ult i64 %976, %.val50
   %978 = icmp ugt i64 %976, %.val51
-  %or.cond134.i.i525 = or i1 %977, %978
-  br i1 %or.cond134.i.i525, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i
+  %or.cond131.i.i525 = or i1 %977, %978
+  br i1 %or.cond131.i.i525, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread.i.i, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread.i.i: ; preds = %974
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread.i.i: ; preds = %974
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE0_clEm(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %5, ptr nonnull %6, i64 noundef %976)
-  br label %.thread126.i.i500
+  br label %.critedge103.i.i500
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i: ; preds = %974, %.lr.ph175.i.i522
-  %979 = add nuw nsw i64 %.073174.i.i523, 1
-  %exitcond205.not.i.i526 = icmp eq i64 %979, %964
-  br i1 %exitcond205.not.i.i526, label %.thread.i.i508, label %.lr.ph175.i.i522, !llvm.loop !604
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i: ; preds = %974, %.lr.ph172.i.i522
+  %979 = add nuw nsw i64 %.073171.i.i523, 1
+  %exitcond202.not.i.i526 = icmp eq i64 %979, %964
+  br i1 %exitcond202.not.i.i526, label %.critedge.i.i508, label %.lr.ph172.i.i522, !llvm.loop !604
 
-980:                                              ; preds = %.lr.ph172.i.i517
-  %981 = add nuw nsw i64 %.0171.i.i518, 1
-  %exitcond204.not.i.i520 = icmp eq i64 %981, %964
-  br i1 %exitcond204.not.i.i520, label %.thread.i.i508, label %.lr.ph172.i.i517, !llvm.loop !605
+980:                                              ; preds = %.lr.ph169.i.i517
+  %981 = add nuw nsw i64 %.0168.i.i518, 1
+  %exitcond201.not.i.i520 = icmp eq i64 %981, %964
+  br i1 %exitcond201.not.i.i520, label %.critedge.i.i508, label %.lr.ph169.i.i517, !llvm.loop !605
 
-.lr.ph172.i.i517:                                 ; preds = %.preheader141.i.i516, %980
-  %.0171.i.i518 = phi i64 [ %981, %980 ], [ 0, %.preheader141.i.i516 ]
-  %982 = getelementptr inbounds nuw i64, ptr %.088180.i.i503, i64 %.0171.i.i518
+.lr.ph169.i.i517:                                 ; preds = %.preheader138.i.i516, %980
+  %.0168.i.i518 = phi i64 [ %981, %980 ], [ 0, %.preheader138.i.i516 ]
+  %982 = getelementptr inbounds nuw i64, ptr %.088177.i.i503, i64 %.0168.i.i518
   %983 = load i64, ptr %982, align 8, !tbaa !23, !noalias !594
   %984 = icmp ult i64 %983, %.val50
   %985 = icmp ugt i64 %983, %.val51
-  %or.cond135.i.i519 = or i1 %984, %985
-  br i1 %or.cond135.i.i519, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit120.thread.i.i, label %980
+  %or.cond132.i.i519 = or i1 %984, %985
+  br i1 %or.cond132.i.i519, label %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit122.thread.i.i, label %980
 
-_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit120.thread.i.i: ; preds = %.lr.ph172.i.i517
+_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit122.thread.i.i: ; preds = %.lr.ph169.i.i517
   call fastcc void @_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE0_clEm(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %5, ptr nonnull %6, i64 noundef %983)
-  br label %.thread126.i.i500
+  br label %.critedge103.i.i500
 
-.thread.i.i508:                                   ; preds = %980, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread125.i.i, %.preheader140.i.i521, %.preheader141.i.i516, %.loopexit.i.i513, %916
+.critedge.i.i508:                                 ; preds = %980, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread127.i.i, %.preheader137.i.i521, %.preheader138.i.i516, %.loopexit.i.i513, %916
   %986 = sext i32 %894 to i64
-  %987 = getelementptr inbounds i64, ptr %.088180.i.i503, i64 %986
+  %987 = getelementptr inbounds i64, ptr %.088177.i.i503, i64 %986
   %988 = sext i16 %.sroa.0.0.extract.trunc.i.i506 to i64
-  %989 = add nsw i64 %.090179.i.i504, %988
-  %990 = add nsw i64 %.092176.i.i505, %988
+  %989 = add nsw i64 %.090176.i.i504, %988
+  %990 = add nsw i64 %.092173.i.i505, %988
   %991 = load i64, ptr %886, align 8, !tbaa !215, !noalias !594
   %992 = icmp slt i64 %989, %991
-  br i1 %992, label %.lr.ph183.i.i502, label %._crit_edge.i.i499, !llvm.loop !606
+  br i1 %992, label %.lr.ph180.i.i502, label %._crit_edge.i.i499, !llvm.loop !606
 
-._crit_edge.i.i499:                               ; preds = %.thread.i.i508, %879
+._crit_edge.i.i499:                               ; preds = %.critedge.i.i508, %879
   store ptr null, ptr %0, align 8, !tbaa !229, !alias.scope !607
-  br label %.thread126.i.i500
+  br label %.critedge103.i.i500
 
-.thread126.i.i500:                                ; preds = %._crit_edge.i.i499, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit120.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit119.thread.i.i
+.critedge103.i.i500:                              ; preds = %._crit_edge.i.i499, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmE_clEm.exit122.thread.i.i, %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit121.thread.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #21, !noalias !594
   br label %_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit
 
-_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %878, %.thread126.i.i500
+_ZN5arrow8internal12_GLOBAL__N_124CheckIntegersInRangeImplINS_10UInt64TypeEEENS_6StatusERKNS_9ArraySpanERKNS_6ScalarESA_.exit: ; preds = %878, %.critedge103.i.i500
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !588
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !588
   br label %994

@@ -6824,7 +6824,7 @@ define internal noundef i32 @palToRgbWrapper(ptr noundef %0, ptr noundef readonl
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
   %17 = load ptr, ptr %1, align 8, !tbaa !49
-  switch i32 %9, label %usePal.exit.thread [
+  switch i32 %9, label %.critedge [
     i32 56, label %18
     i32 11, label %usePal.exit
     i32 19, label %usePal.exit
@@ -6835,9 +6835,9 @@ define internal noundef i32 @palToRgbWrapper(ptr noundef %0, ptr noundef readonl
   ]
 
 18:                                               ; preds = %7
-  switch i32 %11, label %usePal.exit.thread [
-    i32 28, label %22
-    i32 26, label %22
+  switch i32 %11, label %.critedge [
+    i32 28, label %24
+    i32 26, label %24
     i32 25, label %19
     i32 27, label %19
     i32 2, label %20
@@ -6845,57 +6845,57 @@ define internal noundef i32 @palToRgbWrapper(ptr noundef %0, ptr noundef readonl
   ]
 
 19:                                               ; preds = %18, %18
-  br label %22
+  br label %24
 
 20:                                               ; preds = %18, %18
-  br label %22
+  br label %24
 
 usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, %7
-  switch i32 %11, label %usePal.exit.thread [
-    i32 28, label %22
-    i32 26, label %22
-    i32 25, label %22
-    i32 27, label %22
+  switch i32 %11, label %.critedge [
+    i32 28, label %24
+    i32 26, label %24
+    i32 25, label %24
+    i32 27, label %24
     i32 2, label %21
     i32 3, label %21
   ]
 
 21:                                               ; preds = %usePal.exit, %usePal.exit
-  br label %22
+  br label %24
 
-22:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %21, %19, %20
-  %.028 = phi ptr [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked24, %20 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
-  %23 = icmp sgt i32 %4, 0
-  br i1 %23, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  br label %28
-
-usePal.exit.thread:                               ; preds = %7, %18, %usePal.exit
-  %26 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #13
-  %27 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %26, ptr noundef %27) #13
+.critedge:                                        ; preds = %7, %usePal.exit, %18
+  %22 = tail call ptr @av_get_pix_fmt_name(i32 noundef %9) #13
+  %23 = tail call ptr @av_get_pix_fmt_name(i32 noundef %11) #13
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef %23) #13
   br label %.loopexit
 
+24:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %20, %19, %21
+  %.028 = phi ptr [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked24, %20 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
+  %25 = icmp sgt i32 %4, 0
+  br i1 %25, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  br label %28
+
 28:                                               ; preds = %.lr.ph, %28
-  %.037 = phi ptr [ %17, %.lr.ph ], [ %32, %28 ]
-  %.02636 = phi ptr [ %16, %.lr.ph ], [ %35, %28 ]
-  %.02735 = phi i32 [ 0, %.lr.ph ], [ %36, %28 ]
-  %29 = load i32, ptr %24, align 8, !tbaa !50
-  tail call void %.028(ptr noundef %.037, ptr noundef %.02636, i32 noundef %29, ptr noundef nonnull %25) #13
+  %.035 = phi ptr [ %17, %.lr.ph ], [ %32, %28 ]
+  %.02634 = phi ptr [ %16, %.lr.ph ], [ %35, %28 ]
+  %.02733 = phi i32 [ 0, %.lr.ph ], [ %36, %28 ]
+  %29 = load i32, ptr %26, align 8, !tbaa !50
+  tail call void %.028(ptr noundef %.035, ptr noundef %.02634, i32 noundef %29, ptr noundef nonnull %27) #13
   %30 = load i32, ptr %2, align 4, !tbaa !48
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %.037, i64 %31
+  %32 = getelementptr inbounds i8, ptr %.035, i64 %31
   %33 = load i32, ptr %6, align 4, !tbaa !48
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %.02636, i64 %34
-  %36 = add nuw nsw i32 %.02735, 1
+  %35 = getelementptr inbounds i8, ptr %.02634, i64 %34
+  %36 = add nuw nsw i32 %.02733, 1
   %exitcond.not = icmp eq i32 %36, %4
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !103
 
-.loopexit:                                        ; preds = %28, %22, %usePal.exit.thread
+.loopexit:                                        ; preds = %28, %24, %.critedge
   ret i32 %4
 }
 

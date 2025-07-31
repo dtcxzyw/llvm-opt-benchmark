@@ -1130,7 +1130,7 @@ lor.lhs.false:                                    ; preds = %while.body18
   %9 = load ptr, ptr %mpNext.i, align 8
   %10 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i14 = icmp eq ptr %9, %10
-  br i1 %cmp.i14, label %while.end37.critedge, label %land.rhs24
+  br i1 %cmp.i14, label %while.end37.critedge.critedge, label %land.rhs24
 
 land.rhs24:                                       ; preds = %lor.lhs.false, %while.body18
   %call26 = call { i64, i64 } @_ZN2EA6Thread13GetThreadTimeEv()
@@ -1151,11 +1151,11 @@ if.then33:                                        ; preds = %land.rhs24
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
   br label %while.body18
 
-while.end37.critedge:                             ; preds = %lor.lhs.false
+while.end37.critedge.critedge:                    ; preds = %lor.lhs.false
   %call31.c = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   br label %while.end37
 
-while.end37:                                      ; preds = %land.rhs24, %while.end37.critedge
+while.end37:                                      ; preds = %land.rhs24, %while.end37.critedge.critedge
   %call39 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %15 = load atomic i32, ptr %mnActiveCount20 seq_cst, align 8
   %cmp42 = icmp eq i32 %15, 0

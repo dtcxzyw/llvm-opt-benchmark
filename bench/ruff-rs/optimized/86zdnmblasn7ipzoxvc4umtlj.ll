@@ -2251,9 +2251,9 @@ define void @_ZN7ty_wasm9Workspace9open_file17h1bad84b1fcaf1f42E(ptr dead_on_unw
 18:                                               ; preds = %30, %19
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h4e6c8b33e0e1cd55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #26
-          to label %53 unwind label %48
+          to label %52 unwind label %47
 
-19:                                               ; preds = %42, %.noexc21, %.noexc, %35, %45, %43, %32, %28, %22, %6
+19:                                               ; preds = %42, %.noexc21, %.noexc, %35, %44, %.critedge, %32, %28, %22, %6
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %18
@@ -2264,7 +2264,7 @@ define void @_ZN7ty_wasm9Workspace9open_file17h1bad84b1fcaf1f42E(ptr dead_on_unw
 
 22:                                               ; preds = %21
   %23 = invoke noundef i32 @_ZN7ty_wasm10into_error17h3ba223f75df82ec5E(ptr noundef nonnull %17)
-          to label %51 unwind label %19
+          to label %50 unwind label %19
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -2275,7 +2275,7 @@ define void @_ZN7ty_wasm9Workspace9open_file17h1bad84b1fcaf1f42E(ptr dead_on_unw
 
 28:                                               ; preds = %24
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef 8, i64 noundef 32) #28
-          to label %50 unwind label %19
+          to label %49 unwind label %19
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %.sroa.5)
@@ -2329,7 +2329,7 @@ define void @_ZN7ty_wasm9Workspace9open_file17h1bad84b1fcaf1f42E(ptr dead_on_unw
 
 .noexc22:                                         ; preds = %.noexc21
   switch i8 %40, label %default.unreachable [
-    i8 0, label %43
+    i8 0, label %.critedge
     i8 1, label %42
     i8 2, label %41
   ]
@@ -2341,50 +2341,50 @@ default.unreachable:                              ; preds = %.noexc22
   br label %42
 
 42:                                               ; preds = %.noexc22, %41
-  %.sroa.4.0.i.ph = phi i8 [ 1, %41 ], [ 0, %.noexc22 ]
+  %.sroa.4.0.i = phi i8 [ 1, %41 ], [ 0, %.noexc22 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  store i8 %.sroa.4.0.i.ph, ptr %7, align 1
+  store i8 %.sroa.4.0.i, ptr %7, align 1
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.2771f431ce980d04cdb4dacc2de721e2.84, i64 noundef 13, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2771f431ce980d04cdb4dacc2de721e2.40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2771f431ce980d04cdb4dacc2de721e2.85) #28
           to label %.noexc23 unwind label %19
 
 .noexc23:                                         ; preds = %42
   unreachable
 
-43:                                               ; preds = %.noexc22
-  %44 = invoke noundef i32 @"_ZN70_$LT$ty_project..db..ProjectDatabase$u20$as$u20$ty_project..db..Db$GT$7project17h0844fbe52204efafE"(ptr noundef nonnull align 8 %1)
+.critedge:                                        ; preds = %.noexc22
+  %43 = invoke noundef i32 @"_ZN70_$LT$ty_project..db..ProjectDatabase$u20$as$u20$ty_project..db..Db$GT$7project17h0844fbe52204efafE"(ptr noundef nonnull align 8 %1)
+          to label %44 unwind label %19
+
+44:                                               ; preds = %.critedge
+  invoke void @_ZN10ty_project7Project9open_file17h2b9c283cae62f36aE(i32 noundef %43, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(240) @anon.2771f431ce980d04cdb4dacc2de721e2.56, i32 noundef %39)
           to label %45 unwind label %19
 
-45:                                               ; preds = %43
-  invoke void @_ZN10ty_project7Project9open_file17h2b9c283cae62f36aE(i32 noundef %44, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(240) @anon.2771f431ce980d04cdb4dacc2de721e2.56, i32 noundef %39)
-          to label %46 unwind label %19
-
-46:                                               ; preds = %45
+45:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %39, ptr %.sroa.411.0..sroa_idx, align 8
-  br label %47
+  br label %46
 
-47:                                               ; preds = %51, %46
+46:                                               ; preds = %50, %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
-48:                                               ; preds = %18
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %18
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #27
   unreachable
 
-50:                                               ; preds = %28
+49:                                               ; preds = %28
   unreachable
 
-51:                                               ; preds = %22
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %23, ptr %52, align 8
+50:                                               ; preds = %22
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %23, ptr %51, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h4e6c8b33e0e1cd55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-  br label %47
+  br label %46
 
-53:                                               ; preds = %18
+52:                                               ; preds = %18
   resume { ptr, i32 } %.pn
 }
 

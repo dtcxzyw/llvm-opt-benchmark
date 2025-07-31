@@ -2545,12 +2545,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr nounde
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %53, !prof !9
+  br i1 %10, label %11, label %.critedge, !prof !9
 
 11:                                               ; preds = %4
   %12 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_copy_search_comm_dt_key_t_reg_free_list) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread37, label %14
+  br i1 %13, label %.thread33, label %14
 
 14:                                               ; preds = %11
   %15 = tail call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3, ptr noundef null) #7
@@ -2586,7 +2586,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr nounde
   %35 = load ptr, ptr %34, align 8, !tbaa !45
   %36 = tail call i32 @H5SL_insert(ptr noundef %35, ptr noundef nonnull %25, ptr noundef nonnull %12) #7
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %53
+  br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %31
   %39 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -2594,14 +2594,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr nounde
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy_insert_comm_dt, i32 noundef 1619, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.18) #7
   br label %45
 
-.thread37:                                        ; preds = %11
+.thread33:                                        ; preds = %11
   %42 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %43 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__copy_insert_comm_dt, i32 noundef 1602, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.17) #7
-  br label %53
+  br label %.critedge
 
 45:                                               ; preds = %17, %27, %38
-  %.022.ph.ph = phi ptr [ null, %17 ], [ null, %27 ], [ %25, %38 ]
+  %.022.ph = phi ptr [ %25, %38 ], [ null, %27 ], [ null, %17 ]
   %46 = load ptr, ptr %12, align 8, !tbaa !62
   %.not28 = icmp eq ptr %46, null
   br i1 %.not28, label %49, label %47
@@ -2613,15 +2613,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_insert_comm_dt(ptr nounde
 
 49:                                               ; preds = %45, %47
   %50 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_search_comm_dt_key_t_reg_free_list, ptr noundef nonnull %12) #7
-  %.not29 = icmp eq ptr %.022.ph.ph, null
-  br i1 %.not29, label %53, label %51
+  %.not29 = icmp eq ptr %.022.ph, null
+  br i1 %.not29, label %.critedge, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_haddr_t_reg_free_list, ptr noundef nonnull %.022.ph.ph) #7
-  br label %53
+  %52 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_haddr_t_reg_free_list, ptr noundef nonnull %.022.ph) #7
+  br label %.critedge
 
-53:                                               ; preds = %.thread37, %31, %51, %49, %4
-  %.0 = phi i32 [ -1, %51 ], [ -1, %49 ], [ 0, %4 ], [ 0, %31 ], [ -1, %.thread37 ]
+.critedge:                                        ; preds = %.thread33, %31, %51, %49, %4
+  %.0 = phi i32 [ -1, %51 ], [ -1, %49 ], [ 0, %4 ], [ 0, %31 ], [ -1, %.thread33 ]
   ret i32 %.0
 }
 

@@ -38416,8 +38416,8 @@ define void @_ZN7glslang13TParseContext14arraySizeCheckERKNS_10TSourceLocEPNS_12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 4294967296
-  %.not40 = icmp eq i64 %25, 0
-  br i1 %.not40, label %46, label %26
+  %.not37 = icmp eq i64 %25, 0
+  br i1 %.not37, label %46, label %26
 
 26:                                               ; preds = %18
   store ptr %2, ptr %7, align 8
@@ -38457,7 +38457,7 @@ _ZNK7glslang16TConstUnionArray4sizeEv.exit:       ; preds = %31
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %.not33 = icmp eq ptr %50, null
-  br i1 %.not33, label %80, label %51
+  br i1 %.not33, label %.critedge, label %51
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %2, align 8
@@ -38467,7 +38467,7 @@ _ZNK7glslang16TConstUnionArray4sizeEv.exit:       ; preds = %31
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 184
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 600
-  br i1 %58, label %59, label %80
+  br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %2, align 8
@@ -38485,8 +38485,8 @@ _ZNK7glslang16TConstUnionArray4sizeEv.exit:       ; preds = %31
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2097152
-  %.not41 = icmp eq i32 %74, 0
-  br i1 %.not41, label %80, label %75
+  %.not38 = icmp eq i32 %74, 0
+  br i1 %.not38, label %.critedge, label %75
 
 75:                                               ; preds = %59
   %76 = load ptr, ptr %2, align 8
@@ -38496,48 +38496,48 @@ _ZNK7glslang16TConstUnionArray4sizeEv.exit:       ; preds = %31
   store ptr %79, ptr %7, align 8
   br label %_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread
 
-80:                                               ; preds = %59, %51, %46
+_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread: ; preds = %31, %44, %_ZNK7glslang16TConstUnionArray4sizeEv.exit, %26, %75, %12
+  %.030 = phi i32 [ %17, %12 ], [ %45, %44 ], [ 1, %_ZNK7glslang16TConstUnionArray4sizeEv.exit ], [ 1, %26 ], [ 1, %75 ], [ 1, %31 ]
+  store i32 %.030, ptr %3, align 8
+  %80 = load ptr, ptr %2, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 256
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(184) %2) #22
+  %.not35 = icmp eq i32 %83, 8
+  br i1 %.not35, label %89, label %84
+
+84:                                               ; preds = %_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 256
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef i32 %87(ptr noundef nonnull align 8 dereferenceable(184) %2) #22
+  %.not36 = icmp eq i32 %88, 9
+  br i1 %.not36, label %89, label %.sink.split
+
+.critedge:                                        ; preds = %46, %51, %59
   store i32 1, ptr %3, align 8
   br label %.sink.split
 
-_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread: ; preds = %31, %12, %44, %_ZNK7glslang16TConstUnionArray4sizeEv.exit, %26, %75
-  %.030.ph = phi i32 [ 1, %75 ], [ 1, %26 ], [ 1, %_ZNK7glslang16TConstUnionArray4sizeEv.exit ], [ %45, %44 ], [ %17, %12 ], [ 1, %31 ]
-  store i32 %.030.ph, ptr %3, align 8
-  %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 256
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(184) %2) #22
-  %.not35 = icmp eq i32 %84, 8
-  br i1 %.not35, label %90, label %85
+89:                                               ; preds = %84, %_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread
+  br i1 %5, label %90, label %92
 
-85:                                               ; preds = %_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(184) %2) #22
-  %.not36 = icmp eq i32 %89, 9
-  br i1 %.not36, label %90, label %.sink.split
+90:                                               ; preds = %89
+  %91 = icmp slt i32 %.030, 0
+  br i1 %91, label %.sink.split, label %97
 
-90:                                               ; preds = %85, %_ZNK7glslang16TConstUnionArray4sizeEv.exit.thread
-  br i1 %5, label %91, label %93
+92:                                               ; preds = %89
+  %93 = icmp slt i32 %.030, 1
+  br i1 %93, label %.sink.split, label %97
 
-91:                                               ; preds = %90
-  %92 = icmp slt i32 %.030.ph, 0
-  br i1 %92, label %.sink.split, label %98
+.sink.split:                                      ; preds = %92, %90, %84, %.critedge
+  %.str.465.sink = phi ptr [ @.str.463, %.critedge ], [ @.str.463, %84 ], [ @.str.464, %90 ], [ @.str.465, %92 ]
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 344
+  %96 = load ptr, ptr %95, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %96(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.465.sink) #22
+  br label %97
 
-93:                                               ; preds = %90
-  %94 = icmp slt i32 %.030.ph, 1
-  br i1 %94, label %.sink.split, label %98
-
-.sink.split:                                      ; preds = %93, %91, %85, %80
-  %.str.465.sink = phi ptr [ @.str.463, %80 ], [ @.str.463, %85 ], [ @.str.464, %91 ], [ @.str.465, %93 ]
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 344
-  %97 = load ptr, ptr %96, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %97(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.465.sink) #22
-  br label %98
-
-98:                                               ; preds = %.sink.split, %93, %91
+97:                                               ; preds = %.sink.split, %92, %90
   ret void
 }
 

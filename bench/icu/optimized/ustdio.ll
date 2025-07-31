@@ -504,7 +504,7 @@ define range(i32 0, 1114112) i32 @u_fputc_77(i32 noundef %0, ptr noundef capture
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %0, 1114112
-  br i1 %8, label %9, label %21
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 10
@@ -519,13 +519,13 @@ define range(i32 0, 1114112) i32 @u_fputc_77(i32 noundef %0, ptr noundef capture
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.014.ph = phi i32 [ 2, %9 ], [ 1, %5 ]
-  %18 = call i32 @u_file_write_flush_77(ptr noundef nonnull %3, i32 noundef %.014.ph, ptr noundef %1, i8 noundef signext 0, i8 noundef signext 0)
-  %19 = icmp eq i32 %18, %.014.ph
+  %.014 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %18 = call i32 @u_file_write_flush_77(ptr noundef nonnull %3, i32 noundef %.014, ptr noundef %1, i8 noundef signext 0, i8 noundef signext 0)
+  %19 = icmp eq i32 %18, %.014
   %20 = select i1 %19, i32 %0, i32 65535
-  br label %21
+  br label %.critedge
 
-21:                                               ; preds = %7, %17
+.critedge:                                        ; preds = %7, %17
   %.015 = phi i32 [ %20, %17 ], [ 65535, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   ret i32 %.015

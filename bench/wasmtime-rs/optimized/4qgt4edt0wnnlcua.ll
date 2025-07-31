@@ -6740,7 +6740,7 @@ define hidden void @_ZN16wasmtime_runtime3sys4unix2vm17MemoryImageSource9from_da
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %10, ptr %7, align 8
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %.loopexit59, label %.lr.ph.i
+  br i1 %14, label %.loopexit57, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6845,7 +6845,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i: ; preds = %22
   %.sroa.4.121.i = phi i64 [ %.sroa.4.028.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb6509007960ddaedE.exit.i" ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !806
   %46 = icmp eq i64 %.sroa.4.121.i, 0
-  br i1 %46, label %.loopexit59, label %17
+  br i1 %46, label %.loopexit57, label %17
 
 .loopexit:                                        ; preds = %17, %.thread.i, %44
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6863,13 +6863,13 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.i: ; preds = %22
   %49 = invoke noundef i32 @close(i32 noundef %48)
           to label %"_ZN4core3ptr40drop_in_place$LT$memfd..memfd..Memfd$GT$17hed419651db826da5E.exit" unwind label %73
 
-.loopexit59:                                      ; preds = %45, %12
+.loopexit57:                                      ; preds = %45, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %switch.lookup, %.loopexit59
-  %.014.i = phi i32 [ 0, %.loopexit59 ], [ %52, %switch.lookup ]
-  %.sroa.0.0.idx13.i = phi i64 [ 0, %.loopexit59 ], [ %.sroa.0.0.add.i, %switch.lookup ]
+switch.lookup:                                    ; preds = %switch.lookup, %.loopexit57
+  %.014.i = phi i32 [ 0, %.loopexit57 ], [ %52, %switch.lookup ]
+  %.sroa.0.0.idx13.i = phi i64 [ 0, %.loopexit57 ], [ %.sroa.0.0.add.i, %switch.lookup ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr @anon.67fb7fd6011dc43f2cc4f192ea7a8237.184, i64 %.sroa.0.0.idx13.i
   %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx13.i, 1
   %50 = load i8, ptr %.sroa.0.0.ptr.i, align 1, !range !833, !alias.scope !834, !noundef !4
@@ -6961,8 +6961,8 @@ _ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E.exit: ; preds = %switch
   br i1 %switch, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread54, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
 
 79:                                               ; preds = %75
-  %.mask58 = and i64 %76, -4294967296
-  %cond = icmp eq i64 %.mask58, 163208757248
+  %.mask56 = and i64 %76, -4294967296
+  %cond = icmp eq i64 %.mask56, 163208757248
   br i1 %cond, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread54, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
 
 80:                                               ; preds = %75

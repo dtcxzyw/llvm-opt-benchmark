@@ -5374,7 +5374,7 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
   tail call void @out_string(ptr noundef nonnull %0, ptr noundef nonnull @.str.121) #13
   br label %77
 
-.critedge:                                        ; preds = %set_noreply_maybe.exit, %26, %3
+.critedge:                                        ; preds = %26, %set_noreply_maybe.exit, %3
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24

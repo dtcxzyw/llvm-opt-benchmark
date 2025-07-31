@@ -16116,13 +16116,13 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
 define internal range(i32 0, 2) i32 @selinux_ip_output(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = tail call i32 @netlbl_enabled() #24
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %29, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %21, label %10
+  br i1 %9, label %22, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 18
@@ -16131,27 +16131,27 @@ define internal range(i32 0, 2) i32 @selinux_ip_output(ptr readnone captures(non
   %14 = shl nuw i32 1, %13
   %15 = and i32 %14, 5120
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.thread, label %29
+  br i1 %16, label %17, label %.critedge
 
-.thread:                                          ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 640
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8
-  br label %21
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 640
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i32, ptr %20, align 8
+  br label %22
 
-21:                                               ; preds = %.thread, %6
-  %22 = phi i32 [ 1, %6 ], [ %20, %.thread ]
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i16
-  %26 = tail call i32 @selinux_netlbl_skbuff_setsid(ptr noundef %1, i16 noundef zeroext %25, i32 noundef %22) #24
-  %27 = icmp eq i32 %26, 0
-  %28 = zext i1 %27 to i32
-  br label %29
+22:                                               ; preds = %17, %6
+  %23 = phi i32 [ %21, %17 ], [ 1, %6 ]
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i16
+  %27 = tail call i32 @selinux_netlbl_skbuff_setsid(ptr noundef %1, i16 noundef zeroext %26, i32 noundef %23) #24
+  %28 = icmp eq i32 %27, 0
+  %29 = zext i1 %28 to i32
+  br label %.critedge
 
-29:                                               ; preds = %10, %21, %3
-  %30 = phi i32 [ 1, %3 ], [ %28, %21 ], [ 1, %10 ]
+.critedge:                                        ; preds = %10, %22, %3
+  %30 = phi i32 [ 1, %3 ], [ %29, %22 ], [ 1, %10 ]
   ret i32 %30
 }
 

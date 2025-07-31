@@ -15427,7 +15427,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZSt13__equal_rangeIN9__gnu_cxx17__n
   %6 = sub i64 %4, %5
   %7 = ashr exact i64 %6, 3
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph, label %.thread
+  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph: ; preds = %3
   %9 = load ptr, ptr %2, align 8, !tbaa !328
@@ -15441,12 +15441,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vec
   %17 = load i64, ptr %16, align 1
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph, %73
-  %.02155 = phi i64 [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph ], [ %.2, %73 ]
-  %.sroa.038.054 = phi ptr [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph ], [ %.sroa.038.1, %73 ]
-  %18 = lshr i64 %.02155, 1
-  %.idx69 = shl nuw nsw i64 %18, 3
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.038.054, i64 %.idx69
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph, %72
+  %.02150 = phi i64 [ %7, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph ], [ %.2, %72 ]
+  %.sroa.038.049 = phi ptr [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.lr.ph ], [ %.sroa.038.1, %72 ]
+  %18 = lshr i64 %.02150, 1
+  %.idx64 = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.038.049, i64 %.idx64
   %20 = load ptr, ptr %19, align 8, !tbaa !328
   %21 = load ptr, ptr %20, align 8, !tbaa !329
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -15462,84 +15462,84 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vec
 30:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %32 = xor i64 %18, -1
-  %33 = add nsw i64 %.02155, %32
-  br label %73
+  %33 = add nsw i64 %.02150, %32
+  br label %72
 
 34:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit
   %35 = icmp ult i64 %17, %28
-  br i1 %35, label %73, label %36
+  br i1 %35, label %72, label %.critedge
 
-36:                                               ; preds = %34
-  %.not = icmp ult i64 %.02155, 2
+.critedge:                                        ; preds = %34
+  %.not = icmp ult i64 %.02150, 2
   br i1 %.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i: ; preds = %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
-  %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %18, %36 ]
-  %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %.sroa.038.054, %36 ]
-  %37 = lshr i64 %.013.i, 1
-  %38 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !328
-  %40 = load ptr, ptr %39, align 8, !tbaa !329
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 36
-  %43 = load i32, ptr %42, align 4, !tbaa !337
-  %44 = sext i32 %43 to i64
-  %45 = load ptr, ptr %41, align 8, !tbaa !338
-  %46 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %45, i64 %44, i32 4
-  %47 = load i64, ptr %46, align 1
-  %48 = icmp ult i64 %47, %17
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %50 = xor i64 %37, -1
-  %51 = add nsw i64 %.013.i, %50
-  %.sroa.011.1.i = select i1 %48, ptr %49, ptr %.sroa.011.012.i
-  %.1.i = select i1 %48, i64 %51, i64 %37
-  %52 = icmp sgt i64 %.1.i, 0
-  br i1 %52, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, !llvm.loop !833
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i: ; preds = %.critedge, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i
+  %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %18, %.critedge ]
+  %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %.sroa.038.049, %.critedge ]
+  %36 = lshr i64 %.013.i, 1
+  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !328
+  %39 = load ptr, ptr %38, align 8, !tbaa !329
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 36
+  %42 = load i32, ptr %41, align 4, !tbaa !337
+  %43 = sext i32 %42 to i64
+  %44 = load ptr, ptr %40, align 8, !tbaa !338
+  %45 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %44, i64 %43, i32 4
+  %46 = load i64, ptr %45, align 1
+  %47 = icmp ult i64 %46, %17
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %49 = xor i64 %36, -1
+  %50 = add nsw i64 %.013.i, %49
+  %.sroa.011.1.i = select i1 %47, ptr %48, ptr %.sroa.011.012.i
+  %.1.i = select i1 %47, i64 %50, i64 %36
+  %51 = icmp sgt i64 %.1.i, 0
+  br i1 %51, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, !llvm.loop !833
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, %36
-  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.038.054, %36 ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ]
-  %.idx = shl nuw nsw i64 %.02155, 3
-  %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %54 = add nuw nsw i64 %.idx69, 8
-  %gepdiff = sub nsw i64 %.idx, %54
-  %55 = ashr exact i64 %gepdiff, 3
-  %56 = icmp sgt i64 %55, 0
-  br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, label %.thread
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, %.critedge
+  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.038.049, %.critedge ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ]
+  %.idx = shl nuw nsw i64 %.02150, 3
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %53 = add nuw nsw i64 %.idx64, 8
+  %gepdiff = sub nsw i64 %.idx, %53
+  %54 = ashr exact i64 %gepdiff, 3
+  %55 = icmp sgt i64 %54, 0
+  br i1 %55, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27
-  %.013.i28 = phi i64 [ %.1.i33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %55, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
-  %.sroa.011.012.i29 = phi ptr [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %53, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
-  %57 = lshr i64 %.013.i28, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i29, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !328
-  %60 = load ptr, ptr %59, align 8, !tbaa !329
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 36
-  %63 = load i32, ptr %62, align 4, !tbaa !337
-  %64 = sext i32 %63 to i64
-  %65 = load ptr, ptr %61, align 8, !tbaa !338
-  %66 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %65, i64 %64, i32 4
-  %67 = load i64, ptr %66, align 1
-  %68 = icmp ult i64 %17, %67
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %70 = xor i64 %57, -1
-  %71 = add nsw i64 %.013.i28, %70
-  %.sroa.011.1.i32 = select i1 %68, ptr %.sroa.011.012.i29, ptr %69
-  %.1.i33 = select i1 %68, i64 %57, i64 %71
-  %72 = icmp sgt i64 %.1.i33, 0
-  br i1 %72, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, label %.thread, !llvm.loop !834
+  %.013.i28 = phi i64 [ %.1.i33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %54, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
+  %.sroa.011.012.i29 = phi ptr [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %52, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
+  %56 = lshr i64 %.013.i28, 1
+  %57 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i29, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !328
+  %59 = load ptr, ptr %58, align 8, !tbaa !329
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 36
+  %62 = load i32, ptr %61, align 4, !tbaa !337
+  %63 = sext i32 %62 to i64
+  %64 = load ptr, ptr %60, align 8, !tbaa !338
+  %65 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %64, i64 %63, i32 4
+  %66 = load i64, ptr %65, align 1
+  %67 = icmp ult i64 %17, %66
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %69 = xor i64 %56, -1
+  %70 = add nsw i64 %.013.i28, %69
+  %.sroa.011.1.i32 = select i1 %67, ptr %.sroa.011.012.i29, ptr %68
+  %.1.i33 = select i1 %67, i64 %56, i64 %70
+  %71 = icmp sgt i64 %.1.i33, 0
+  br i1 %71, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, !llvm.loop !834
 
-73:                                               ; preds = %30, %34
-  %.sroa.038.1 = phi ptr [ %31, %30 ], [ %.sroa.038.054, %34 ]
+72:                                               ; preds = %30, %34
+  %.sroa.038.1 = phi ptr [ %31, %30 ], [ %.sroa.038.049, %34 ]
   %.2 = phi i64 [ %33, %30 ], [ %18, %34 ]
-  %74 = icmp sgt i64 %.2, 0
-  br i1 %74, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit, label %.thread, !llvm.loop !835
+  %73 = icmp sgt i64 %.2, 0
+  br i1 %73, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, !llvm.loop !835
 
-.thread:                                          ; preds = %73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit
-  %.sroa.043.2 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %73 ]
-  %.sroa.3.2 = phi ptr [ %53, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %73 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.043.2, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit: ; preds = %72, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit
+  %.sroa.043.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %72 ]
+  %.sroa.3.0 = phi ptr [ %52, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %72 ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.043.0, 0
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

@@ -975,7 +975,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %4 = alloca [2 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3578
   %6 = load i16, ptr %5, align 2, !tbaa !88
-  switch i16 %6, label %.thread [
+  switch i16 %6, label %.fold.split [
     i16 0, label %96
     i16 5, label %7
     i16 6, label %13
@@ -997,51 +997,51 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
 12:                                               ; preds = %3
   br label %13
 
-13:                                               ; preds = %3, %3, %7, %12, %11
+13:                                               ; preds = %11, %12, %7, %3, %3
   %.0 = phi i16 [ 6488, %11 ], [ 6284, %12 ], [ %., %7 ], [ 6444, %3 ], [ 6444, %3 ]
   %14 = icmp ult i16 %.0, %2
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.fold.split
 
 15:                                               ; preds = %13
   %16 = zext nneg i16 %.0 to i64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !101
   switch i8 %18, label %22 [
-    i8 0, label %.thread.sink.split
+    i8 0, label %.fold.split.sink.split
     i8 1, label %19
     i8 8, label %20
     i8 27, label %21
   ]
 
 19:                                               ; preds = %15
-  br label %.thread.sink.split
+  br label %.fold.split.sink.split
 
 20:                                               ; preds = %15
-  br label %.thread.sink.split
+  br label %.fold.split.sink.split
 
 21:                                               ; preds = %15
-  br label %.thread.sink.split
+  br label %.fold.split.sink.split
 
 22:                                               ; preds = %15
   %23 = zext i8 %18 to i64
   %24 = getelementptr inbounds nuw [257 x i8], ptr @_ZL16SonySubstitution, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !101
   %26 = uitofp i8 %25 to float
-  br label %.thread.sink.split
+  br label %.fold.split.sink.split
 
-.thread.sink.split:                               ; preds = %15, %19, %21, %22, %20
+.fold.split.sink.split:                           ; preds = %15, %19, %21, %22, %20
   %.sink = phi float [ 1.500000e+03, %20 ], [ %26, %22 ], [ 1.000000e+03, %21 ], [ 1.333000e+03, %19 ], [ 1.777000e+03, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3692
   store float %.sink, ptr %27, align 4, !tbaa !103
-  br label %.thread
+  br label %.fold.split
 
-.thread:                                          ; preds = %.thread.sink.split, %3, %13
+.fold.split:                                      ; preds = %.fold.split.sink.split, %3, %13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   %29 = load i16, ptr %28, align 8, !tbaa !93
   %.not27 = icmp eq i16 %29, -1
   br i1 %.not27, label %58, label %30
 
-30:                                               ; preds = %.thread
+30:                                               ; preds = %.fold.split
   %31 = zext i16 %29 to i32
   %32 = zext i16 %2 to i32
   %33 = add nuw nsw i32 %31, 2
@@ -1083,7 +1083,7 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   br label %58
 
-58:                                               ; preds = %38, %34, %30, %.thread
+58:                                               ; preds = %38, %34, %30, %.fold.split
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 3586
   %60 = load i16, ptr %59, align 2, !tbaa !95
   %.not29 = icmp eq i16 %60, -1
@@ -1094,8 +1094,8 @@ define void @_ZN6LibRaw19process_Sony_0x2010EPht(ptr noundef nonnull align 8 der
   %63 = load i16, ptr %62, align 4, !tbaa !96
   %64 = icmp ugt i16 %2, %60
   %65 = icmp ugt i16 %2, %63
-  %or.cond33 = and i1 %64, %65
-  br i1 %or.cond33, label %66, label %83
+  %or.cond32 = and i1 %64, %65
+  br i1 %or.cond32, label %66, label %83
 
 66:                                               ; preds = %61
   %67 = zext i16 %60 to i64

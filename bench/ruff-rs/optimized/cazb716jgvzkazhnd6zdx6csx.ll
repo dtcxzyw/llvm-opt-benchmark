@@ -43352,24 +43352,20 @@ _ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit: ; preds = %2
   %12 = load i64, ptr %6, align 8, !noundef !3
   br label %13
 
-13:                                               ; preds = %.preheader.i, %.backedge.i
-  %14 = phi i32 [ 0, %.preheader.i ], [ %15, %.backedge.i ]
+13:                                               ; preds = %.preheader.i, %.critedge.backedge.i
+  %14 = phi i32 [ 0, %.preheader.i ], [ %15, %.critedge.backedge.i ]
   %15 = add nuw nsw i32 %14, 1
   %16 = call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %14), !noalias !7805
   %.not.i.i.i = icmp ult i32 %1, %16
   %17 = sub nuw i32 %1, %16
-  br i1 %.not.i.i.i, label %.backedge.i, label %18
+  br i1 %.not.i.i.i, label %.critedge.backedge.i, label %18
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !7811
   store i32 %17, ptr %5, align 4, !noalias !7811
   %19 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !7811
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.thread.i", label %21
-
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.thread.i": ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !7811
-  br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit"
+  br i1 %20, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.thread.critedge.i", label %21
 
 21:                                               ; preds = %18
   %.not.i.i.i.i.i = icmp ult i64 %19, %12
@@ -43380,18 +43376,18 @@ _ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit: ; preds = %2
   %23 = load i8, ptr %22, align 1, !noalias !7814, !noundef !3
   %24 = icmp sgt i8 %23, -65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !7811
-  br i1 %24, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit", label %.backedge.i
+  br i1 %24, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit", label %.critedge.backedge.i
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i": ; preds = %21
   %25 = icmp eq i64 %19, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !7811
-  br i1 %25, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit", label %.backedge.i
+  br i1 %25, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit", label %.critedge.backedge.i
 
-.backedge.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i", %13
+.critedge.backedge.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i", %13
   %exitcond.not.i = icmp eq i32 %15, 3
   br i1 %exitcond.not.i, label %26, label %13
 
-26:                                               ; preds = %.backedge.i
+26:                                               ; preds = %.critedge.backedge.i
   %27 = call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef 3), !noalias !7817
   %.not.i.i11.i = icmp ult i32 %1, %27
   %28 = sub nuw i32 %1, %27
@@ -43427,6 +43423,10 @@ _ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit: ; preds = %2
 37:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i20.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.thread26.i"
   br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit"
 
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.thread.critedge.i": ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !7811
+  br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit"
+
 38:                                               ; preds = %_ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit
   %39 = load i64, ptr %6, align 8, !noundef !3
   %40 = icmp ugt i64 %39, 4294967295
@@ -43442,8 +43442,8 @@ _ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit14: ; preds = 
   %42 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %41)
   br label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit"
 
-"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i", %37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i20.i", %26, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.thread.i", %_ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit14
-  %.sroa.0.0 = phi i32 [ %42, %_ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit14 ], [ %28, %37 ], [ 0, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.i" ], [ 0, %26 ], [ 0, %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i20.i" ], [ %17, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.thread.i" ], [ %17, %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i" ], [ %17, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i" ]
+"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17h41d32f3a9791573dE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.thread.critedge.i", %37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.i", %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i20.i", %26, %_ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit14
+  %.sroa.0.0 = phi i32 [ %42, %_ZN11ruff_linter7locator7Locator8text_len17hfad0988c4fd929c7E.exit14 ], [ %28, %37 ], [ 0, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.i" ], [ 0, %26 ], [ %17, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6529a687ca1cb9d4E.exit21.thread.critedge.i" ], [ 0, %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i20.i" ], [ %17, %"_ZN11ruff_linter7locator7Locator19floor_char_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hc0b08afa0e0dc8b7E.exit.i.i.i.i" ], [ %17, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h462c49d804657895E.exit.i.i.i" ]
   ret i32 %.sroa.0.0
 }
 

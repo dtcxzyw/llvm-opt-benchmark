@@ -3013,19 +3013,19 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
-  br i1 %20, label %21, label %54
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %3
   %22 = icmp eq i32 %13, 2
-  br i1 %22, label %26, label %.thread45
+  br i1 %22, label %26, label %.critedge.thread44
 
-.thread45:                                        ; preds = %21
+.critedge.thread44:                               ; preds = %21
   %23 = load ptr, ptr %2, align 8
   store float 2.500000e-01, ptr %23, align 4
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 2.500000e-01, ptr %25, align 4
-  br label %59
+  br label %58
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %1, align 8
@@ -3068,73 +3068,73 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
 .loopexit:                                        ; preds = %.lr.ph.i
   %.pre = load i32, ptr %4, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre49 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre48 = load i32, ptr %.phi.trans.insert, align 4
   %51 = icmp eq i32 %.pre, 3
-  %52 = icmp eq i32 %.pre49, 3
+  %52 = icmp eq i32 %.pre48, 3
   %53 = select i1 %51, i1 true, i1 %52
-  br i1 %53, label %.loopexit.thread, label %.loopexit46.sink.split.sink.split
+  br i1 %53, label %.loopexit.thread, label %.loopexit45.sink.split.sink.split
 
-54:                                               ; preds = %3
+.critedge:                                        ; preds = %3
+  %54 = load ptr, ptr %2, align 8
+  store float 2.500000e-01, ptr %54, align 4
   %55 = load ptr, ptr %2, align 8
-  store float 2.500000e-01, ptr %55, align 4
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store float 2.500000e-01, ptr %57, align 4
-  %58 = icmp eq i32 %13, 2
-  br i1 %58, label %.loopexit46.sink.split, label %59
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store float 2.500000e-01, ptr %56, align 4
+  %57 = icmp eq i32 %13, 2
+  br i1 %57, label %.loopexit45.sink.split, label %58
 
-59:                                               ; preds = %.thread45, %54
-  %60 = sitofp i32 %13 to float
-  %61 = fdiv float 5.000000e-01, %60
-  %62 = icmp sgt i32 %13, 0
-  br i1 %62, label %.lr.ph, label %.loopexit46
+58:                                               ; preds = %.critedge.thread44, %.critedge
+  %59 = sitofp i32 %13 to float
+  %60 = fdiv float 5.000000e-01, %59
+  %61 = icmp sgt i32 %13, 0
+  br i1 %61, label %.lr.ph, label %.loopexit45
 
-.lr.ph:                                           ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
+.lr.ph:                                           ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %wide.trip.count = zext nneg i32 %13 to i64
-  br label %64
+  br label %63
 
-64:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
-  store float %61, ptr %66, align 4
+63:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %64 = load ptr, ptr %62, align 8
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
+  store float %60, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit46, label %64, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit45, label %63, !llvm.loop !41
 
 .loopexit.thread:                                 ; preds = %26, %.loopexit
-  %67 = phi i1 [ %51, %.loopexit ], [ undef, %26 ]
-  %68 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
-  %69 = select i1 %68, float 0x3FDE147AE0000000, float 2.500000e-01
-  %70 = select i1 %67, float 0x3FDE147AE0000000, float 2.500000e-01
-  %71 = fadd float %70, %69
-  %72 = fmul float %71, 5.000000e-01
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float -2.000000e+00, float 1.000000e+00)
-  %74 = fmul float %73, 5.000000e-01
-  br label %.loopexit46.sink.split.sink.split
+  %66 = phi i1 [ %51, %.loopexit ], [ undef, %26 ]
+  %67 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
+  %68 = select i1 %67, float 0x3FDE147AE0000000, float 2.500000e-01
+  %69 = select i1 %66, float 0x3FDE147AE0000000, float 2.500000e-01
+  %70 = fadd float %69, %68
+  %71 = fmul float %70, 5.000000e-01
+  %72 = tail call float @llvm.fmuladd.f32(float %71, float -2.000000e+00, float 1.000000e+00)
+  %73 = fmul float %72, 5.000000e-01
+  br label %.loopexit45.sink.split.sink.split
 
-.loopexit46.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
-  %.sink58 = phi float [ %74, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
-  %.sink53.ph = phi float [ %72, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+.loopexit45.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
+  %.sink57 = phi float [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink52.ph = phi float [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %74 = load ptr, ptr %2, align 8
+  store float %.sink57, ptr %74, align 4
   %75 = load ptr, ptr %2, align 8
-  store float %.sink58, ptr %75, align 4
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store float %.sink58, ptr %77, align 4
-  br label %.loopexit46.sink.split
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store float %.sink57, ptr %76, align 4
+  br label %.loopexit45.sink.split
 
-.loopexit46.sink.split:                           ; preds = %.loopexit46.sink.split.sink.split, %54
-  %.sink53 = phi float [ 2.500000e-01, %54 ], [ %.sink53.ph, %.loopexit46.sink.split.sink.split ]
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %79 = load ptr, ptr %78, align 8
-  store float %.sink53, ptr %79, align 4
-  %80 = load ptr, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  store float %.sink53, ptr %81, align 4
-  br label %.loopexit46
+.loopexit45.sink.split:                           ; preds = %.loopexit45.sink.split.sink.split, %.critedge
+  %.sink52 = phi float [ 2.500000e-01, %.critedge ], [ %.sink52.ph, %.loopexit45.sink.split.sink.split ]
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %78 = load ptr, ptr %77, align 8
+  store float %.sink52, ptr %78, align 4
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store float %.sink52, ptr %80, align 4
+  br label %.loopexit45
 
-.loopexit46:                                      ; preds = %64, %.loopexit46.sink.split, %59
+.loopexit45:                                      ; preds = %63, %.loopexit45.sink.split, %58
   ret void
 }
 
@@ -11911,19 +11911,19 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 1
-  br i1 %20, label %21, label %54
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %3
   %22 = icmp eq i32 %13, 2
-  br i1 %22, label %26, label %.thread45
+  br i1 %22, label %26, label %.critedge.thread44
 
-.thread45:                                        ; preds = %21
+.critedge.thread44:                               ; preds = %21
   %23 = load ptr, ptr %2, align 8
   store double 2.500000e-01, ptr %23, align 8
   %24 = load ptr, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store double 2.500000e-01, ptr %25, align 8
-  br label %59
+  br label %58
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %1, align 8
@@ -11966,73 +11966,73 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
 .loopexit:                                        ; preds = %.lr.ph.i
   %.pre = load i32, ptr %4, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.pre49 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre48 = load i32, ptr %.phi.trans.insert, align 4
   %51 = icmp eq i32 %.pre, 3
-  %52 = icmp eq i32 %.pre49, 3
+  %52 = icmp eq i32 %.pre48, 3
   %53 = select i1 %51, i1 true, i1 %52
-  br i1 %53, label %.loopexit.thread, label %.loopexit46.sink.split.sink.split
+  br i1 %53, label %.loopexit.thread, label %.loopexit45.sink.split.sink.split
 
-54:                                               ; preds = %3
+.critedge:                                        ; preds = %3
+  %54 = load ptr, ptr %2, align 8
+  store double 2.500000e-01, ptr %54, align 8
   %55 = load ptr, ptr %2, align 8
-  store double 2.500000e-01, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store double 2.500000e-01, ptr %57, align 8
-  %58 = icmp eq i32 %13, 2
-  br i1 %58, label %.loopexit46.sink.split, label %59
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store double 2.500000e-01, ptr %56, align 8
+  %57 = icmp eq i32 %13, 2
+  br i1 %57, label %.loopexit45.sink.split, label %58
 
-59:                                               ; preds = %.thread45, %54
-  %60 = sitofp i32 %13 to double
-  %61 = fdiv double 5.000000e-01, %60
-  %62 = icmp sgt i32 %13, 0
-  br i1 %62, label %.lr.ph, label %.loopexit46
+58:                                               ; preds = %.critedge.thread44, %.critedge
+  %59 = sitofp i32 %13 to double
+  %60 = fdiv double 5.000000e-01, %59
+  %61 = icmp sgt i32 %13, 0
+  br i1 %61, label %.lr.ph, label %.loopexit45
 
-.lr.ph:                                           ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
+.lr.ph:                                           ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %wide.trip.count = zext nneg i32 %13 to i64
-  br label %64
+  br label %63
 
-64:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
-  store double %61, ptr %66, align 8
+63:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %64 = load ptr, ptr %62, align 8
+  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
+  store double %60, ptr %65, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit46, label %64, !llvm.loop !139
+  br i1 %exitcond.not, label %.loopexit45, label %63, !llvm.loop !139
 
 .loopexit.thread:                                 ; preds = %26, %.loopexit
-  %67 = phi i1 [ %51, %.loopexit ], [ undef, %26 ]
-  %68 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
-  %69 = select i1 %68, double 4.700000e-01, double 2.500000e-01
-  %70 = select i1 %67, double 4.700000e-01, double 2.500000e-01
-  %71 = fadd double %70, %69
-  %72 = fmul double %71, 5.000000e-01
-  %73 = tail call double @llvm.fmuladd.f64(double %72, double -2.000000e+00, double 1.000000e+00)
-  %74 = fmul double %73, 5.000000e-01
-  br label %.loopexit46.sink.split.sink.split
+  %66 = phi i1 [ %51, %.loopexit ], [ undef, %26 ]
+  %67 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
+  %68 = select i1 %67, double 4.700000e-01, double 2.500000e-01
+  %69 = select i1 %66, double 4.700000e-01, double 2.500000e-01
+  %70 = fadd double %69, %68
+  %71 = fmul double %70, 5.000000e-01
+  %72 = tail call double @llvm.fmuladd.f64(double %71, double -2.000000e+00, double 1.000000e+00)
+  %73 = fmul double %72, 5.000000e-01
+  br label %.loopexit45.sink.split.sink.split
 
-.loopexit46.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
-  %.sink58 = phi double [ %74, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
-  %.sink53.ph = phi double [ %72, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+.loopexit45.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
+  %.sink57 = phi double [ %73, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %.sink52.ph = phi double [ %71, %.loopexit.thread ], [ 2.500000e-01, %.loopexit ]
+  %74 = load ptr, ptr %2, align 8
+  store double %.sink57, ptr %74, align 8
   %75 = load ptr, ptr %2, align 8
-  store double %.sink58, ptr %75, align 8
-  %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store double %.sink58, ptr %77, align 8
-  br label %.loopexit46.sink.split
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store double %.sink57, ptr %76, align 8
+  br label %.loopexit45.sink.split
 
-.loopexit46.sink.split:                           ; preds = %.loopexit46.sink.split.sink.split, %54
-  %.sink53 = phi double [ 2.500000e-01, %54 ], [ %.sink53.ph, %.loopexit46.sink.split.sink.split ]
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %79 = load ptr, ptr %78, align 8
-  store double %.sink53, ptr %79, align 8
-  %80 = load ptr, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store double %.sink53, ptr %81, align 8
-  br label %.loopexit46
+.loopexit45.sink.split:                           ; preds = %.loopexit45.sink.split.sink.split, %.critedge
+  %.sink52 = phi double [ 2.500000e-01, %.critedge ], [ %.sink52.ph, %.loopexit45.sink.split.sink.split ]
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %78 = load ptr, ptr %77, align 8
+  store double %.sink52, ptr %78, align 8
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store double %.sink52, ptr %80, align 8
+  br label %.loopexit45
 
-.loopexit46:                                      ; preds = %64, %.loopexit46.sink.split, %59
+.loopexit45:                                      ; preds = %63, %.loopexit45.sink.split, %58
   ret void
 }
 

@@ -143,12 +143,12 @@ define dso_local i64 @pvclock_clocksource_read(ptr noundef captures(none) %0) lo
   %45 = and i8 %30, 1
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %44, i1 true, i1 %46
-  br i1 %47, label %48, label %.thread
+  br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %41
   %49 = load volatile i64, ptr @last_value, align 8
   %50 = icmp ugt i64 %35, %49
-  br i1 %50, label %.lr.ph, label %.thread
+  br i1 %50, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %48, %56
   %51 = phi i64 [ %57, %56 ], [ %49, %48 ]
@@ -157,14 +157,14 @@ define dso_local i64 @pvclock_clocksource_read(ptr noundef captures(none) %0) lo
   %54 = icmp ult i8 %53, 2
   tail call void @llvm.assume(i1 %54)
   %55 = icmp eq i8 %53, 0
-  br i1 %55, label %56, label %.thread, !prof !15
+  br i1 %55, label %56, label %.critedge, !prof !15
 
 56:                                               ; preds = %.lr.ph
   %57 = extractvalue { i8, i64 } %52, 1
   %58 = icmp ugt i64 %35, %57
-  br i1 %58, label %.lr.ph, label %.thread, !llvm.loop !16
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !16
 
-.thread:                                          ; preds = %56, %.lr.ph, %48, %41
+.critedge:                                        ; preds = %56, %.lr.ph, %48, %41
   %59 = phi i64 [ %35, %41 ], [ %49, %48 ], [ %57, %56 ], [ %35, %.lr.ph ]
   ret i64 %59
 }
@@ -218,12 +218,12 @@ define dso_local i64 @pvclock_clocksource_read_nowd(ptr noundef readonly capture
   %39 = and i8 %30, 1
   %40 = icmp eq i8 %39, 0
   %41 = select i1 %38, i1 true, i1 %40
-  br i1 %41, label %42, label %.thread
+  br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %33
   %43 = load volatile i64, ptr @last_value, align 8
   %44 = icmp ugt i64 %35, %43
-  br i1 %44, label %.lr.ph, label %.thread
+  br i1 %44, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %42, %50
   %45 = phi i64 [ %51, %50 ], [ %43, %42 ]
@@ -232,14 +232,14 @@ define dso_local i64 @pvclock_clocksource_read_nowd(ptr noundef readonly capture
   %48 = icmp ult i8 %47, 2
   tail call void @llvm.assume(i1 %48)
   %49 = icmp eq i8 %47, 0
-  br i1 %49, label %50, label %.thread, !prof !15
+  br i1 %49, label %50, label %.critedge, !prof !15
 
 50:                                               ; preds = %.lr.ph
   %51 = extractvalue { i8, i64 } %46, 1
   %52 = icmp ugt i64 %35, %51
-  br i1 %52, label %.lr.ph, label %.thread, !llvm.loop !16
+  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !16
 
-.thread:                                          ; preds = %50, %.lr.ph, %42, %33
+.critedge:                                        ; preds = %50, %.lr.ph, %42, %33
   %53 = phi i64 [ %35, %33 ], [ %43, %42 ], [ %51, %50 ], [ %35, %.lr.ph ]
   ret i64 %53
 }

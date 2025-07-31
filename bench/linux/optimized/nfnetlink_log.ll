@@ -1244,7 +1244,7 @@ define internal ptr @seq_next(ptr noundef readonly captures(none) %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 2536
   %11 = load volatile ptr, ptr %1, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.lr.ph.preheader, label %.thread
+  br i1 %12, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %3
   %.pre = load i32, ptr %9, align 8
@@ -1255,7 +1255,7 @@ define internal ptr @seq_next(ptr noundef readonly captures(none) %0, ptr nounde
   %14 = add i32 %13, 1
   store i32 %14, ptr %9, align 8
   %15 = icmp ult i32 %14, 16
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %.lr.ph
   %17 = load i32, ptr @nfnl_log_net_id, align 4
@@ -1271,9 +1271,9 @@ define internal ptr @seq_next(ptr noundef readonly captures(none) %0, ptr nounde
   %25 = getelementptr [16 x %struct.hlist_head], ptr %22, i64 0, i64 %24
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.lr.ph, label %.thread
+  br i1 %27, label %.lr.ph, label %.critedge
 
-.thread:                                          ; preds = %16, %.lr.ph, %3
+.critedge:                                        ; preds = %16, %.lr.ph, %3
   %.lcssa = phi ptr [ %11, %3 ], [ null, %.lr.ph ], [ %26, %16 ]
   ret ptr %.lcssa
 }

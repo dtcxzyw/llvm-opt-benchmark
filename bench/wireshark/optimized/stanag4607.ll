@@ -149,15 +149,15 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %6) #6
   store i32 0, ptr %2, align 4
   %10 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 37, ptr noundef %2, ptr noundef %3)
-  br i1 %10, label %11, label %120
+  br i1 %10, label %11, label %119
 
 11:                                               ; preds = %4
   %.val = load i8, ptr %6, align 16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.val75 = load i8, ptr %12, align 1
+  %.val77 = load i8, ptr %12, align 1
   %13 = zext i8 %.val to i16
   %14 = shl nuw i16 %13, 8
-  %15 = zext i8 %.val75 to i16
+  %15 = zext i8 %.val77 to i16
   %16 = or disjoint i16 %14, %15
   switch i16 %16, label %17 [
     i16 13104, label %19
@@ -168,7 +168,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 -13, ptr %2, align 4
   %18 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
   store ptr %18, ptr %3, align 8
-  br label %120
+  br label %119
 
 19:                                               ; preds = %11, %11
   store i32 0, ptr %1, align 8
@@ -200,7 +200,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 -13, ptr %2, align 4
   %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %39, i32 noundef 262144)
   store ptr %42, ptr %3, align 8
-  br label %120
+  br label %119
 
 43:                                               ; preds = %19
   %44 = icmp samesign ult i32 %39, 37
@@ -210,7 +210,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 -13, ptr %2, align 4
   %46 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %39, i32 noundef 37)
   store ptr %46, ptr %3, align 8
-  br label %120
+  br label %119
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -227,26 +227,26 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 0, ptr %5, align 4
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %55 = load i8, ptr %54, align 16
-  switch i8 %55, label %.thread4 [
+  switch i8 %55, label %.thread [
     i8 1, label %56
-    i8 13, label %80
-    i8 2, label %85
+    i8 13, label %79
+    i8 2, label %84
   ]
 
 56:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #6
   %57 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 39, ptr noundef %2, ptr noundef %3)
-  br i1 %57, label %.thread8, label %79
+  br i1 %57, label %.thread4, label %.critedge
 
-.thread8:                                         ; preds = %56
+.thread4:                                         ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 35
-  %.val76 = load i8, ptr %58, align 1
+  %.val78 = load i8, ptr %58, align 1
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %.val77 = load i8, ptr %59, align 4
-  %60 = zext i8 %.val76 to i32
+  %.val79 = load i8, ptr %59, align 4
+  %60 = zext i8 %.val78 to i32
   %61 = shl nuw nsw i32 %60, 8
-  %62 = zext i8 %.val77 to i32
+  %62 = zext i8 %.val79 to i32
   %63 = or disjoint i32 %61, %62
   %64 = add nsw i32 %63, -1900
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -274,29 +274,24 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i64 %78, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %7) #6
-  br label %.thread4
+  br label %.thread
 
-79:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %7) #6
-  br label %120
+79:                                               ; preds = %47
+  %80 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %2, ptr noundef %3)
+  br i1 %80, label %81, label %119
 
-80:                                               ; preds = %47
-  %81 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4, ptr noundef %2, ptr noundef %3)
-  br i1 %81, label %82, label %120
+81:                                               ; preds = %79
+  %82 = load i32, ptr %5, align 4
+  %83 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %82) #8, !srcloc !6
+  store i32 %83, ptr %5, align 4
+  br label %105
 
-82:                                               ; preds = %80
-  %83 = load i32, ptr %5, align 4
-  %84 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %83) #8, !srcloc !6
-  store i32 %84, ptr %5, align 4
-  br label %106
-
-85:                                               ; preds = %47
+84:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %9) #6
-  %86 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 19, ptr noundef %2, ptr noundef %3)
-  br i1 %86, label %.thread2, label %105
+  %85 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 19, ptr noundef %2, ptr noundef %3)
+  br i1 %85, label %86, label %.critedge76
 
-.thread2:                                         ; preds = %85
+86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 15
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
@@ -317,43 +312,48 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   %104 = or disjoint i32 %100, %103
   store i32 %104, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %9) #6
-  br label %106
+  br label %105
 
-105:                                              ; preds = %85
+105:                                              ; preds = %86, %81
+  %106 = phi i32 [ %104, %86 ], [ %83, %81 ]
+  %.167.neg = phi i64 [ -56, %86 ], [ -41, %81 ]
+  %.not = icmp eq i32 %106, 0
+  br i1 %.not, label %.thread, label %107
+
+107:                                              ; preds = %105
+  %108 = udiv i32 %106, 1000
+  %.neg = mul i32 %108, -1000
+  %109 = add i32 %.neg, %106
+  %110 = mul i32 %109, 1000000
+  %111 = load i64, ptr %.96.val, align 8
+  %112 = zext nneg i32 %108 to i64
+  %113 = add i64 %111, %112
+  store i64 %113, ptr %52, align 8
+  store i32 %110, ptr %53, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %.thread4, %47, %107, %105
+  %.167.neg3 = phi i64 [ %.167.neg, %107 ], [ %.167.neg, %105 ], [ -37, %47 ], [ -76, %.thread4 ]
+  %114 = call i64 @file_seek(ptr noundef %0, i64 noundef %.167.neg3, i32 noundef 1, ptr noundef %2)
+  %115 = icmp eq i64 %114, -1
+  br i1 %115, label %119, label %116
+
+116:                                              ; preds = %.thread
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %118 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %117, i32 noundef %39, ptr noundef %2, ptr noundef %3)
+  br label %119
+
+.critedge:                                        ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %7) #6
+  br label %119
+
+.critedge76:                                      ; preds = %84
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %9) #6
-  br label %120
+  br label %119
 
-106:                                              ; preds = %.thread2, %82
-  %107 = phi i32 [ %104, %.thread2 ], [ %84, %82 ]
-  %.167.neg = phi i64 [ -56, %.thread2 ], [ -41, %82 ]
-  %.not = icmp eq i32 %107, 0
-  br i1 %.not, label %.thread4, label %108
-
-108:                                              ; preds = %106
-  %109 = udiv i32 %107, 1000
-  %.neg = mul i32 %109, -1000
-  %110 = add i32 %.neg, %107
-  %111 = mul i32 %110, 1000000
-  %112 = load i64, ptr %.96.val, align 8
-  %113 = zext nneg i32 %109 to i64
-  %114 = add i64 %112, %113
-  store i64 %114, ptr %52, align 8
-  store i32 %111, ptr %53, align 8
-  br label %.thread4
-
-.thread4:                                         ; preds = %.thread8, %47, %108, %106
-  %.167.neg7 = phi i64 [ %.167.neg, %108 ], [ %.167.neg, %106 ], [ -37, %47 ], [ -76, %.thread8 ]
-  %115 = call i64 @file_seek(ptr noundef %0, i64 noundef %.167.neg7, i32 noundef 1, ptr noundef %2)
-  %116 = icmp eq i64 %115, -1
-  br i1 %116, label %120, label %117
-
-117:                                              ; preds = %.thread4
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %119 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %118, i32 noundef %39, ptr noundef %2, ptr noundef %3)
-  br label %120
-
-120:                                              ; preds = %105, %79, %.thread4, %80, %4, %117, %45, %41, %17
-  %.0 = phi i1 [ false, %41 ], [ false, %45 ], [ %119, %117 ], [ false, %79 ], [ false, %105 ], [ false, %17 ], [ false, %4 ], [ false, %80 ], [ false, %.thread4 ]
+119:                                              ; preds = %.thread, %.critedge76, %79, %.critedge, %4, %116, %45, %41, %17
+  %.0 = phi i1 [ false, %41 ], [ false, %45 ], [ %118, %116 ], [ false, %17 ], [ false, %4 ], [ false, %.critedge ], [ false, %79 ], [ false, %.critedge76 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   ret i1 %.0

@@ -20867,15 +20867,15 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread.i.i.i.i: ; preds = 
   call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %.sroa.5.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3316)
   switch i64 %.sroa.4.0.i.i.i, label %thread-pre-split.i.i.i.i [
-    i64 0, label %.loopexit.i.i8.i
+    i64 0, label %.critedge.i.i.i
     i64 1, label %68
   ]
 
 68:                                               ; preds = %67
   %69 = load i8, ptr %.sroa.0.0.i.i.i, align 1, !alias.scope !3319, !noalias !3322, !noundef !7
   switch i8 %69, label %70 [
-    i8 43, label %.loopexit.i.i8.i
-    i8 45, label %.loopexit.i.i8.i
+    i8 43, label %.critedge.i.i.i
+    i8 45, label %.critedge.i.i.i
   ]
 
 thread-pre-split.i.i.i.i:                         ; preds = %67
@@ -20914,15 +20914,15 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %.sroa.025.0.i.i.i.i = phi i32 [ %118, %112 ], [ 0, %.preheader86.i.i.i.i.preheader ]
   %.sroa.23.0.i.i.i.i = phi i64 [ %114, %112 ], [ %.sroa.23.0.i.i.i.i.ph, %.preheader86.i.i.i.i.preheader ]
   %.sroa.03.0.i.i.i.i = phi ptr [ %115, %112 ], [ %.sroa.03.0.i.i.i.i.ph, %.preheader86.i.i.i.i.preheader ]
-  %.not76.i.not.i.i.i = icmp eq i64 %.sroa.23.0.i.i.i.i, 0
-  br i1 %.not76.i.not.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc0f72251d2fc214eE.exit.i", label %105
+  %.not76.i.i.i.i = icmp eq i64 %.sroa.23.0.i.i.i.i, 0
+  br i1 %.not76.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc0f72251d2fc214eE.exit.i", label %105
 
 .preheader92.i.i.i.i:                             ; preds = %76, %87
   %.sroa.025.3.i.i.i.i = phi i32 [ %93, %87 ], [ 0, %76 ]
   %.sroa.23.2.i.i.i.i = phi i64 [ %89, %87 ], [ %78, %76 ]
   %.sroa.03.2.i.i.i.i = phi ptr [ %90, %87 ], [ %77, %76 ]
-  %.not.i.not.i.i.i = icmp eq i64 %.sroa.23.2.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc0f72251d2fc214eE.exit.i", label %80
+  %.not.i.i.i8.i = icmp eq i64 %.sroa.23.2.i.i.i.i, 0
+  br i1 %.not.i.i.i8.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc0f72251d2fc214eE.exit.i", label %80
 
 80:                                               ; preds = %.preheader92.i.i.i.i
   %81 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.sroa.025.3.i.i.i.i, i32 10)
@@ -20932,7 +20932,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %85 = add nsw i32 %84, -48
   %86 = icmp ugt i32 %85, 9
   %brmerge.i.i.i.i = select i1 %86, i1 true, i1 %82
-  br i1 %brmerge.i.i.i.i, label %.loopexit.i.i8.i, label %87
+  br i1 %brmerge.i.i.i.i, label %.critedge.i.i.i, label %87
 
 87:                                               ; preds = %80
   %88 = extractvalue { i32, i1 } %81, 0
@@ -20941,7 +20941,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %91 = tail call { i32, i1 } @llvm.ssub.with.overflow.i32(i32 %88, i32 %85)
   %92 = extractvalue { i32, i1 } %91, 1
   %93 = extractvalue { i32, i1 } %91, 0
-  br i1 %92, label %.loopexit.i.i8.i, label %.preheader92.i.i.i.i
+  br i1 %92, label %.critedge.i.i.i, label %.preheader92.i.i.i.i
 
 .lr.ph.i.i.i9.i:                                  ; preds = %.preheader89.i.i.i.i, %98
   %.sroa.03.3105.i.i.i.i = phi ptr [ %101, %98 ], [ %77, %.preheader89.i.i.i.i ]
@@ -20950,8 +20950,8 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %94 = load i8, ptr %.sroa.03.3105.i.i.i.i, align 1, !alias.scope !3319, !noalias !3322, !noundef !7
   %95 = zext i8 %94 to i32
   %96 = add nsw i32 %95, -48
-  %97 = icmp ugt i32 %96, 9
-  br i1 %97, label %.loopexit.i.i8.i, label %98
+  %97 = icmp ult i32 %96, 10
+  br i1 %97, label %98, label %.critedge.i.i.i
 
 98:                                               ; preds = %.lr.ph.i.i.i9.i
   %99 = mul i32 %.sroa.025.4103.i.i.i.i, 10
@@ -20982,7 +20982,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %110 = add nsw i32 %109, -48
   %111 = icmp ugt i32 %110, 9
   %brmerge80.i.i.i.i = select i1 %111, i1 true, i1 %107
-  br i1 %brmerge80.i.i.i.i, label %.loopexit.i.i8.i, label %112
+  br i1 %brmerge80.i.i.i.i, label %.critedge.i.i.i, label %112
 
 112:                                              ; preds = %105
   %113 = extractvalue { i32, i1 } %106, 0
@@ -20991,7 +20991,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %116 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %113, i32 %110)
   %117 = extractvalue { i32, i1 } %116, 1
   %118 = extractvalue { i32, i1 } %116, 0
-  br i1 %117, label %.loopexit.i.i8.i, label %.preheader86.i.i.i.i
+  br i1 %117, label %.critedge.i.i.i, label %.preheader86.i.i.i.i
 
 .lr.ph113.i.i.i.i:                                ; preds = %.lr.ph113.i.i.i.i.preheader, %123
   %.sroa.03.1112.i.i.i.i = phi ptr [ %126, %123 ], [ %.sroa.03.1112.i.i.i.i.ph, %.lr.ph113.i.i.i.i.preheader ]
@@ -21000,8 +21000,8 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %119 = load i8, ptr %.sroa.03.1112.i.i.i.i, align 1, !alias.scope !3319, !noalias !3322, !noundef !7
   %120 = zext i8 %119 to i32
   %121 = add nsw i32 %120, -48
-  %122 = icmp ugt i32 %121, 9
-  br i1 %122, label %.loopexit.i.i8.i, label %123
+  %122 = icmp ult i32 %121, 10
+  br i1 %122, label %123, label %.critedge.i.i.i
 
 123:                                              ; preds = %.lr.ph113.i.i.i.i
   %124 = mul i32 %.sroa.025.2110.i.i.i.i, 10
@@ -21011,7 +21011,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %.not77.i.i.i.i = icmp eq i64 %125, 0
   br i1 %.not77.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc0f72251d2fc214eE.exit.i", label %.lr.ph113.i.i.i.i
 
-.loopexit.i.i8.i:                                 ; preds = %87, %80, %.lr.ph.i.i.i9.i, %112, %105, %.lr.ph113.i.i.i.i, %68, %68, %67
+.critedge.i.i.i:                                  ; preds = %87, %80, %.lr.ph.i.i.i9.i, %112, %105, %.lr.ph113.i.i.i.i, %68, %68, %67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !3324
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3324
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3325)
@@ -21026,12 +21026,12 @@ thread-pre-split.i.i.i.i:                         ; preds = %67
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %129, label %133, label %135, !prof !74
 
-133:                                              ; preds = %.loopexit.i.i8.i
+133:                                              ; preds = %.critedge.i.i.i
   %134 = load i64, ptr %132, align 8, !noalias !3334
   tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %131, i64 %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24f4d32620cadd7a8485e89c19c1ef71.62) #21, !noalias !3344
   unreachable
 
-135:                                              ; preds = %.loopexit.i.i8.i
+135:                                              ; preds = %.critedge.i.i.i
   %136 = load ptr, ptr %132, align 8, !noalias !3334, !nonnull !7, !noundef !7
   %137 = icmp samesign ugt i64 %131, 35
   tail call void @llvm.assume(i1 %137)

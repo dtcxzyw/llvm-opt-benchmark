@@ -939,13 +939,13 @@ BufferGetPage.exit.us.us.preheader:               ; preds = %.split.us
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %18
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 10
-  %.val63.us.us87 = load i16, ptr %28, align 2
-  %29 = and i16 %.val63.us.us87, 4
-  %.not69.us.us88 = icmp eq i16 %29, 0
-  br i1 %.not69.us.us88, label %.thread, label %.lr.ph
+  %.val63.us.us85 = load i16, ptr %28, align 2
+  %29 = and i16 %.val63.us.us85, 4
+  %.not69.us.us86 = icmp eq i16 %29, 0
+  br i1 %.not69.us.us86, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit.us.us.preheader, %BufferGetPage.exit.us.us
-  %.050.us.us89 = phi i1 [ true, %BufferGetPage.exit.us.us ], [ false, %BufferGetPage.exit.us.us.preheader ]
+  %.050.us.us87 = phi i1 [ true, %BufferGetPage.exit.us.us ], [ false, %BufferGetPage.exit.us.us.preheader ]
   %30 = load i32, ptr %.052, align 4
   %31 = tail call zeroext i1 @visibilitymap_pin_ok(i32 noundef %.049, i32 noundef %30) #8
   br i1 %31, label %.thread, label %32
@@ -1085,8 +1085,8 @@ BufferGetPage.exit65:                             ; preds = %61, %65
   tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #8
   br label %.thread
 
-.thread:                                          ; preds = %74, %83, %82, %.lr.ph, %BufferGetPage.exit.us.us, %BufferGetPage.exit.us.us.preheader, %.thread.sink.split, %BufferGetPage.exit.us.us72, %42
-  %.us-phi = phi i1 [ false, %42 ], [ false, %BufferGetPage.exit.us.us72 ], [ true, %.thread.sink.split ], [ false, %BufferGetPage.exit.us.us.preheader ], [ true, %BufferGetPage.exit.us.us ], [ %.050.us.us89, %.lr.ph ], [ true, %83 ], [ %.050, %74 ], [ true, %82 ]
+.thread:                                          ; preds = %74, %83, %82, %.lr.ph, %BufferGetPage.exit.us.us, %BufferGetPage.exit.us.us.preheader, %.thread.sink.split, %42, %BufferGetPage.exit.us.us72
+  %.us-phi = phi i1 [ false, %42 ], [ false, %BufferGetPage.exit.us.us72 ], [ true, %.thread.sink.split ], [ false, %BufferGetPage.exit.us.us.preheader ], [ true, %BufferGetPage.exit.us.us ], [ %.050.us.us87, %.lr.ph ], [ true, %83 ], [ %.050, %74 ], [ true, %82 ]
   ret i1 %.us-phi
 }
 

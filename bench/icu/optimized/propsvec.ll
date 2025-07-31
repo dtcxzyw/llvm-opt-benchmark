@@ -104,13 +104,13 @@ define void @upvec_close_77(ptr noundef %0) local_unnamed_addr #0 {
 define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %6, align 4, !tbaa !3
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %.loopexit
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %0, null
   %12 = icmp slt i32 %1, 0
   %or.cond = or i1 %11, %12
-  br i1 %or.cond, label %.loopexit.sink.split, label %13
+  br i1 %or.cond, label %.critedge.sink.split, label %13
 
 13:                                               ; preds = %10
   %14 = icmp sgt i32 %1, %2
@@ -118,20 +118,20 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %or.cond4 = or i1 %14, %15
   %16 = icmp slt i32 %3, 0
   %or.cond6 = or i1 %or.cond4, %16
-  br i1 %or.cond6, label %.loopexit.sink.split, label %17
+  br i1 %or.cond6, label %.critedge.sink.split, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !12
   %20 = add nsw i32 %19, -2
   %.not145 = icmp slt i32 %3, %20
-  br i1 %.not145, label %21, label %.loopexit.sink.split
+  br i1 %.not145, label %21, label %.critedge.sink.split
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i8, ptr %22, align 8, !tbaa !18
   %.not146 = icmp eq i8 %23, 0
-  br i1 %.not146, label %24, label %.loopexit.sink.split
+  br i1 %.not146, label %24, label %.critedge.sink.split
 
 24:                                               ; preds = %21
   %25 = add nuw nsw i32 %2, 1
@@ -169,11 +169,11 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 47:                                               ; preds = %41, %37
   %48 = phi i1 [ false, %37 ], [ %46, %41 ]
   %or.cond8 = select i1 %38, i1 true, i1 %48
-  br i1 %or.cond8, label %49, label %..thread153_crit_edge
+  br i1 %or.cond8, label %49, label %._crit_edge152
 
-..thread153_crit_edge:                            ; preds = %47
-  %.pre159 = sext i32 %19 to i64
-  br label %.thread153
+._crit_edge152:                                   ; preds = %47
+  %.pre153 = sext i32 %19 to i64
+  br label %118
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -189,7 +189,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 ._crit_edge:                                      ; preds = %49
   %.pre = load ptr, ptr %0, align 8, !tbaa !7
-  %.pre158 = sext i32 %19 to i64
+  %.pre151 = sext i32 %19 to i64
   br label %82
 
 59:                                               ; preds = %49
@@ -198,7 +198,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 61:                                               ; preds = %59
   %62 = icmp samesign ult i32 %57, 1114114
-  br i1 %62, label %63, label %.loopexit.sink.split
+  br i1 %62, label %63, label %.critedge.sink.split
 
 63:                                               ; preds = %61, %59
   %.0 = phi i32 [ 65536, %59 ], [ 1114114, %61 ]
@@ -207,7 +207,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %66 = sext i32 %65 to i64
   %67 = tail call noalias ptr @uprv_malloc_77(i64 noundef %66) #11
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.loopexit.sink.split, label %69
+  br i1 %68, label %.critedge.sink.split, label %69
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %0, align 8, !tbaa !7
@@ -229,7 +229,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   br label %82
 
 82:                                               ; preds = %._crit_edge, %69
-  %.pre-phi = phi i64 [ %.pre158, %._crit_edge ], [ %72, %69 ]
+  %.pre-phi = phi i64 [ %.pre151, %._crit_edge ], [ %72, %69 ]
   %83 = phi ptr [ %.pre, %._crit_edge ], [ %67, %69 ]
   %.1134 = phi ptr [ %29, %._crit_edge ], [ %81, %69 ]
   %.1132 = phi ptr [ %28, %._crit_edge ], [ %78, %69 ]
@@ -278,7 +278,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 113:                                              ; preds = %102, %101
   %.4137 = phi ptr [ %87, %102 ], [ %.1134, %101 ]
   %.4 = phi ptr [ %109, %102 ], [ %.1132, %101 ]
-  br i1 %48, label %114, label %.thread153
+  br i1 %48, label %114, label %118
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds i32, ptr %.4137, i64 %.pre-phi
@@ -287,48 +287,48 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   store i32 %25, ptr %115, align 4, !tbaa !15
   %117 = getelementptr inbounds nuw i8, ptr %.4137, i64 4
   store i32 %25, ptr %117, align 4, !tbaa !15
-  br label %.thread153
+  br label %118
 
-.thread153:                                       ; preds = %..thread153_crit_edge, %113, %114
-  %.pre-phi160 = phi i64 [ %.pre159, %..thread153_crit_edge ], [ %.pre-phi, %113 ], [ %.pre-phi, %114 ]
-  %.0133 = phi ptr [ %29, %..thread153_crit_edge ], [ %.4137, %113 ], [ %.4137, %114 ]
-  %.0131 = phi ptr [ %28, %..thread153_crit_edge ], [ %.4, %113 ], [ %.4, %114 ]
-  %118 = load ptr, ptr %0, align 8, !tbaa !7
-  %119 = ptrtoint ptr %.0133 to i64
-  %120 = ptrtoint ptr %118 to i64
-  %121 = sub i64 %119, %120
-  %122 = ashr exact i64 %121, 2
-  %123 = sdiv i64 %122, %.pre-phi160
-  %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %124, ptr %125, align 4, !tbaa !19
-  %126 = zext nneg i32 %26 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %.0131, i64 %126
-  %128 = getelementptr inbounds nuw i32, ptr %.0133, i64 %126
-  %129 = xor i32 %5, -1
-  %130 = load i32, ptr %127, align 4, !tbaa !15
-  %131 = and i32 %130, %129
-  %132 = or disjoint i32 %131, %27
-  store i32 %132, ptr %127, align 4, !tbaa !15
-  %133 = icmp eq ptr %.0131, %.0133
-  br i1 %133, label %.loopexit, label %.lr.ph
+118:                                              ; preds = %._crit_edge152, %114, %113
+  %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge152 ], [ %.pre-phi, %114 ], [ %.pre-phi, %113 ]
+  %.0133 = phi ptr [ %29, %._crit_edge152 ], [ %.4137, %114 ], [ %.4137, %113 ]
+  %.0131 = phi ptr [ %28, %._crit_edge152 ], [ %.4, %114 ], [ %.4, %113 ]
+  %119 = load ptr, ptr %0, align 8, !tbaa !7
+  %120 = ptrtoint ptr %.0133 to i64
+  %121 = ptrtoint ptr %119 to i64
+  %122 = sub i64 %120, %121
+  %123 = ashr exact i64 %122, 2
+  %124 = sdiv i64 %123, %.pre-phi154
+  %125 = trunc i64 %124 to i32
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %125, ptr %126, align 4, !tbaa !19
+  %127 = zext nneg i32 %26 to i64
+  %128 = getelementptr inbounds nuw i32, ptr %.0131, i64 %127
+  %129 = getelementptr inbounds nuw i32, ptr %.0133, i64 %127
+  %130 = xor i32 %5, -1
+  %131 = load i32, ptr %128, align 4, !tbaa !15
+  %132 = and i32 %131, %130
+  %133 = or disjoint i32 %132, %27
+  store i32 %133, ptr %128, align 4, !tbaa !15
+  %134 = icmp eq ptr %.0131, %.0133
+  br i1 %134, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread153, %.lr.ph
-  %.5157 = phi ptr [ %134, %.lr.ph ], [ %127, %.thread153 ]
-  %134 = getelementptr inbounds i32, ptr %.5157, i64 %.pre-phi160
-  %135 = load i32, ptr %134, align 4, !tbaa !15
-  %136 = and i32 %135, %129
-  %137 = or disjoint i32 %136, %27
-  store i32 %137, ptr %134, align 4, !tbaa !15
-  %138 = icmp eq ptr %134, %128
-  br i1 %138, label %.loopexit, label %.lr.ph, !llvm.loop !20
+.lr.ph:                                           ; preds = %118, %.lr.ph
+  %.5150 = phi ptr [ %135, %.lr.ph ], [ %128, %118 ]
+  %135 = getelementptr inbounds i32, ptr %.5150, i64 %.pre-phi154
+  %136 = load i32, ptr %135, align 4, !tbaa !15
+  %137 = and i32 %136, %130
+  %138 = or disjoint i32 %137, %27
+  store i32 %138, ptr %135, align 4, !tbaa !15
+  %139 = icmp eq ptr %135, %129
+  br i1 %139, label %.critedge, label %.lr.ph, !llvm.loop !20
 
-.loopexit.sink.split:                             ; preds = %63, %61, %21, %10, %13, %17
+.critedge.sink.split:                             ; preds = %63, %61, %21, %10, %13, %17
   %.sink = phi i32 [ 1, %17 ], [ 1, %13 ], [ 1, %10 ], [ 30, %21 ], [ 5, %61 ], [ 7, %63 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !3
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %.thread153, %7
+.critedge:                                        ; preds = %.lr.ph, %.critedge.sink.split, %118, %7
   ret void
 }
 

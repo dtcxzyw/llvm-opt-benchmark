@@ -1519,7 +1519,7 @@ _ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE8allocateEllj.exit: ;
   br i1 %113, label %.preheader201, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit203, %.preheader202, %95
-  %114 = phi i64 [ %106, %95 ], [ %112, %.preheader202 ], [ %262, %.loopexit203 ]
+  %114 = phi i64 [ %106, %95 ], [ %262, %.loopexit203 ], [ %112, %.preheader202 ]
   %115 = icmp sgt i64 %114, 0
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %115, label %.lr.ph, label %._crit_edge.thread
@@ -1544,7 +1544,7 @@ _ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE8allocateEllj.exit: ;
   %123 = getelementptr i8, ptr %122, i64 %.idx.i68
   %124 = getelementptr inbounds i8, ptr %0, i64 %.idx.i68
   %125 = getelementptr inbounds i8, ptr %105, i64 %.idx.i68
-  %invariant.gep234 = getelementptr i8, ptr %96, i64 %.idx.i68
+  %invariant.gep232 = getelementptr i8, ptr %96, i64 %.idx.i68
   br label %126
 
 126:                                              ; preds = %.preheader201, %258
@@ -1562,8 +1562,8 @@ _ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE8allocateEllj.exit: ;
   br i1 %132, label %._crit_edge223, label %133
 
 ._crit_edge223:                                   ; preds = %126
-  %gep235 = getelementptr double, ptr %invariant.gep234, i64 %.064207
-  %.pre226 = load double, ptr %gep235, align 8
+  %gep233 = getelementptr double, ptr %invariant.gep232, i64 %.064207
+  %.pre226 = load double, ptr %gep233, align 8
   br label %137
 
 133:                                              ; preds = %126

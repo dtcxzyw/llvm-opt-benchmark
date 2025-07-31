@@ -271,13 +271,13 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load i32, ptr %34, align 8, !tbaa !49
   %36 = tail call i32 @av_packet_from_data(ptr noundef nonnull %3, ptr noundef %33, i32 noundef %35) #7
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %.thread130
+  br i1 %37, label %38, label %.thread128
 
 38:                                               ; preds = %32
   tail call void @av_freep(ptr noundef nonnull %16) #7
-  br label %.thread130
+  br label %.thread128
 
-.thread130:                                       ; preds = %32, %38
+.thread128:                                       ; preds = %32, %38
   store ptr null, ptr %16, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %39, align 8, !tbaa !57
@@ -291,13 +291,13 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %41, label %.thread, label %.thread111
 
 .thread111:                                       ; preds = %21, %40
-  %.174.ph129 = phi i32 [ 1, %40 ], [ 0, %21 ]
+  %.174.ph127 = phi i32 [ 1, %40 ], [ 0, %21 ]
   %43 = load i32, ptr %4, align 4, !tbaa !54
   store i32 %43, ptr %13, align 4, !tbaa !55
   br label %50
 
-.thread:                                          ; preds = %.thread130, %15, %40
-  %.174110 = phi i32 [ 1, %40 ], [ 0, %15 ], [ 1, %.thread130 ]
+.thread:                                          ; preds = %.thread128, %15, %40
+  %.174110 = phi i32 [ 1, %40 ], [ 0, %15 ], [ 1, %.thread128 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !49
   %46 = zext i32 %45 to i64
@@ -310,17 +310,17 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
 
 49:                                               ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.26) #7
-  br label %.thread114
+  br label %.critedge
 
 50:                                               ; preds = %.thread111, %.thread, %9
-  %.073 = phi i32 [ %.174110, %.thread ], [ 0, %9 ], [ %.174.ph129, %.thread111 ]
+  %.073 = phi i32 [ %.174110, %.thread ], [ 0, %9 ], [ %.174.ph127, %.thread111 ]
   br label %51
 
 51:                                               ; preds = %53, %50
   %.078 = phi ptr [ %10, %50 ], [ %56, %53 ]
   %.075 = phi i32 [ %11, %50 ], [ %57, %53 ]
   %52 = icmp slt i32 %.075, 6
-  br i1 %52, label %.thread114, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %.078, i64 4
@@ -346,7 +346,7 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %.176 = phi i32 [ %118, %113 ], [ %57, %.preheader ]
   %66 = load i32, ptr %58, align 4, !tbaa !44
   %67 = icmp ult i32 %.176, %66
-  br i1 %67, label %.thread114, label %68
+  br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %65
   %69 = load i8, ptr %.081, align 1, !tbaa !60
@@ -378,12 +378,12 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %95 = getelementptr inbounds nuw i8, ptr %.081, i64 6
   store i32 %79, ptr %59, align 8, !tbaa !57
   %.not96 = icmp eq i32 %66, 0
-  br i1 %.not96, label %.thread114, label %96
+  br i1 %.not96, label %.critedge, label %96
 
 96:                                               ; preds = %68
   %97 = urem i32 %75, %66
   %.not97 = icmp eq i32 %97, 0
-  br i1 %.not97, label %98, label %.thread114
+  br i1 %.not97, label %98, label %.critedge
 
 98:                                               ; preds = %96
   %spec.select = tail call i32 @llvm.smin.i32(i32 %75, i32 %.176)
@@ -401,12 +401,12 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %108 = add nsw i32 %107, %spec.select
   %109 = load i32, ptr %63, align 8, !tbaa !49
   %110 = icmp ugt i32 %108, %109
-  br i1 %110, label %.thread114, label %111
+  br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %98
   %112 = load ptr, ptr %64, align 8, !tbaa !56
   %.not99 = icmp eq ptr %112, null
-  br i1 %.not99, label %.thread114, label %113
+  br i1 %.not99, label %.critedge, label %113
 
 113:                                              ; preds = %111
   %114 = sext i32 %107 to i64
@@ -455,15 +455,15 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
 rfc4175_finalize_packet.exit106:                  ; preds = %126, %134
   %.0.i105 = phi i32 [ %131, %134 ], [ 0, %126 ]
   store i32 0, ptr %59, align 8, !tbaa !57
-  br label %.thread114
+  br label %.critedge
 
 135:                                              ; preds = %119
   %.not102 = icmp eq i32 %.073, 0
   %. = select i1 %.not102, i32 -11, i32 0
-  br label %.thread114
+  br label %.critedge
 
-.thread114:                                       ; preds = %51, %98, %111, %68, %96, %65, %135, %rfc4175_finalize_packet.exit106, %49
-  %.0 = phi i32 [ %.0.i105, %rfc4175_finalize_packet.exit106 ], [ -12, %49 ], [ %., %135 ], [ -1094995529, %65 ], [ -1094995529, %96 ], [ -1094995529, %68 ], [ -1094995529, %111 ], [ -1094995529, %98 ], [ -1094995529, %51 ]
+.critedge:                                        ; preds = %51, %65, %96, %68, %111, %98, %135, %rfc4175_finalize_packet.exit106, %49
+  %.0 = phi i32 [ %.0.i105, %rfc4175_finalize_packet.exit106 ], [ -12, %49 ], [ %., %135 ], [ -1094995529, %98 ], [ -1094995529, %111 ], [ -1094995529, %68 ], [ -1094995529, %96 ], [ -1094995529, %65 ], [ -1094995529, %51 ]
   ret i32 %.0
 }
 

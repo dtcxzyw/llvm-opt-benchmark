@@ -2373,7 +2373,7 @@ define dso_local i32 @i915_gem_context_create_ioctl(ptr noundef %0, ptr noundef 
   %76 = inttoptr i64 %75 to ptr
   %77 = call i32 @i915_user_extensions(ptr noundef %76, ptr noundef nonnull @create_extensions, i32 noundef 2, ptr noundef nonnull %4) #17
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %._crit_edge, label %.thread10
+  br i1 %78, label %._crit_edge, label %104
 
 ._crit_edge:                                      ; preds = %73
   %.pre = load ptr, ptr %22, align 8
@@ -2384,52 +2384,52 @@ define dso_local i32 @i915_gem_context_create_ioctl(ptr noundef %0, ptr noundef 
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %82 = load i8, ptr %81, align 8
   %83 = icmp ugt i8 %82, 12
-  br i1 %83, label %84, label %99
+  br i1 %83, label %84, label %98
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %86 = call fastcc i32 @xa_alloc(ptr noundef nonnull %85, ptr noundef nonnull %5)
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %.thread10
+  br i1 %87, label %88, label %104
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %4, align 8
   %90 = call fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef %89)
   %91 = icmp ugt ptr %90, inttoptr (i64 -4096 to ptr)
-  br i1 %91, label %92, label %95
+  br i1 %91, label %92, label %.critedge
 
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %90 to i64
   %94 = trunc i64 %93 to i32
-  br label %.thread10
+  br label %104
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr %4, align 8
-  call fastcc void @proto_context_close(ptr noundef %0, ptr noundef %96)
-  %97 = load ptr, ptr %22, align 8
-  %98 = load i32, ptr %5, align 4
-  call fastcc void @gem_context_register(ptr noundef %90, ptr noundef %97, i32 noundef %98)
-  br label %103
+.critedge:                                        ; preds = %88
+  %95 = load ptr, ptr %4, align 8
+  call fastcc void @proto_context_close(ptr noundef %0, ptr noundef %95)
+  %96 = load ptr, ptr %22, align 8
+  %97 = load i32, ptr %5, align 4
+  call fastcc void @gem_context_register(ptr noundef %90, ptr noundef %96, i32 noundef %97)
+  br label %102
 
-99:                                               ; preds = %79
-  %100 = load ptr, ptr %4, align 8
-  %101 = call fastcc i32 @proto_context_register(ptr noundef %80, ptr noundef %100, ptr noundef nonnull %5)
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %.thread10, label %103
+98:                                               ; preds = %79
+  %99 = load ptr, ptr %4, align 8
+  %100 = call fastcc i32 @proto_context_register(ptr noundef %80, ptr noundef %99, ptr noundef nonnull %5)
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %104, label %102
 
-103:                                              ; preds = %95, %99
-  %104 = load i32, ptr %5, align 4
-  store i32 %104, ptr %1, align 8
+102:                                              ; preds = %.critedge, %98
+  %103 = load i32, ptr %5, align 4
+  store i32 %103, ptr %1, align 8
   br label %107
 
-.thread10:                                        ; preds = %84, %92, %99, %73
-  %105 = phi i32 [ %77, %73 ], [ %101, %99 ], [ %86, %84 ], [ %94, %92 ]
+104:                                              ; preds = %84, %92, %98, %73
+  %105 = phi i32 [ %77, %73 ], [ %100, %98 ], [ %94, %92 ], [ %86, %84 ]
   %106 = load ptr, ptr %4, align 8
   call fastcc void @proto_context_close(ptr noundef %0, ptr noundef %106)
   br label %107
 
-107:                                              ; preds = %.thread10, %103, %.thread, %31, %14, %10, %3
-  %108 = phi i32 [ -5, %31 ], [ %68, %.thread ], [ %105, %.thread10 ], [ 0, %103 ], [ -19, %3 ], [ -22, %10 ], [ %17, %14 ]
+107:                                              ; preds = %104, %102, %.thread, %31, %14, %10, %3
+  %108 = phi i32 [ -5, %31 ], [ %68, %.thread ], [ %105, %104 ], [ 0, %102 ], [ -19, %3 ], [ -22, %10 ], [ %17, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   ret i32 %108
@@ -3370,17 +3370,17 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
 27:                                               ; preds = %23
   %28 = tail call zeroext i1 @capable(i32 noundef 21) #17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.pre33 = load i64, ptr %.phi.trans.insert, align 8
-  %29 = icmp eq i64 %.pre33, 0
+  %.pre32 = load i64, ptr %.phi.trans.insert, align 8
+  %29 = icmp eq i64 %.pre32, 0
   br i1 %28, label %31, label %30
 
 30:                                               ; preds = %27
-  br i1 %29, label %.thread, label %.thread34
+  br i1 %29, label %.thread, label %.thread33
 
 31:                                               ; preds = %27
-  br i1 %29, label %35, label %.thread34
+  br i1 %29, label %35, label %.thread33
 
-.thread34:                                        ; preds = %30, %31
+.thread33:                                        ; preds = %30, %31
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %33, 4
@@ -3462,11 +3462,11 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   br i1 %81, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %80
-  %.pre31 = load i64, ptr %64, align 8
+  %.pre30 = load i64, ptr %64, align 8
   br label %82
 
 82:                                               ; preds = %._crit_edge, %78
-  %83 = phi i64 [ %.pre31, %._crit_edge ], [ %65, %78 ]
+  %83 = phi i64 [ %.pre30, %._crit_edge ], [ %65, %78 ]
   %84 = trunc i64 %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %84, ptr %85, align 8
@@ -3479,13 +3479,13 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = icmp ult i32 %89, 32
-  br i1 %90, label %.thread13, label %91
+  br i1 %90, label %.critedge, label %91
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 7176
   %93 = load i8, ptr %92, align 8
   %94 = icmp eq i8 %93, 11
-  br i1 %94, label %95, label %.thread13
+  br i1 %94, label %95, label %.critedge
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3493,19 +3493,19 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %98 = inttoptr i64 %97 to ptr
   %99 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %98, i64 noundef 32) #17
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %.thread13
+  br i1 %100, label %101, label %.critedge
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %.thread13
+  br i1 %104, label %105, label %.critedge
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = icmp ult i32 %107, 2
-  br i1 %108, label %109, label %.thread13
+  br i1 %108, label %109, label %.critedge
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -3513,7 +3513,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %112 = icmp sgt i32 %111, -1
   %113 = zext i1 %112 to i32
   %114 = icmp eq i32 %107, %113
-  br i1 %114, label %115, label %.thread13
+  br i1 %114, label %115, label %.critedge
 
 115:                                              ; preds = %109
   br i1 %112, label %116, label %135
@@ -3523,7 +3523,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
   %120 = icmp samesign ugt i32 %111, %119
-  br i1 %120, label %121, label %.thread13
+  br i1 %120, label %121, label %.critedge
 
 121:                                              ; preds = %116
   %122 = zext i16 %118 to i64
@@ -3539,7 +3539,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %132 = load i8, ptr %131, align 8
   %133 = icmp eq i8 %132, 0
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  br i1 %133, label %144, label %.thread13
+  br i1 %133, label %144, label %.critedge
 
 135:                                              ; preds = %115
   %136 = load i16, ptr %6, align 8
@@ -3548,7 +3548,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %139 = load i16, ptr %138, align 2
   %140 = icmp eq i16 %139, 0
   %141 = select i1 %137, i1 %140, i1 false
-  br i1 %141, label %142, label %.thread13
+  br i1 %141, label %142, label %.critedge
 
 142:                                              ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3560,13 +3560,13 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %147 = load ptr, ptr %146, align 8
   %148 = call i32 @i915_gem_user_to_context_sseu(ptr noundef %147, ptr noundef nonnull %6, ptr noundef nonnull %145), !range !63
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %.thread13
+  br i1 %149, label %150, label %.critedge
 
 150:                                              ; preds = %144
   store i32 32, ptr %88, align 4
-  br label %.thread13
+  br label %.critedge
 
-.thread13:                                        ; preds = %116, %150, %144, %135, %121, %109, %105, %101, %95, %91, %86
+.critedge:                                        ; preds = %116, %150, %144, %135, %121, %109, %105, %101, %95, %91, %86
   %151 = phi i32 [ 0, %150 ], [ -22, %121 ], [ -22, %86 ], [ -19, %91 ], [ -14, %95 ], [ -22, %101 ], [ -22, %105 ], [ -22, %109 ], [ -22, %135 ], [ %148, %144 ], [ -22, %116 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   br label %.thread
@@ -3618,7 +3618,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread15, label %182
+  br i1 %181, label %.thread14, label %182
 
 182:                                              ; preds = %178
   %183 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %180, i32 -1, ptr nonnull elementtype(i32) %180) #17, !srcloc !25
@@ -3627,18 +3627,18 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
 
 185:                                              ; preds = %182
   %186 = icmp sgt i32 %183, 0
-  br i1 %186, label %.thread15, label %187, !prof !10
+  br i1 %186, label %.thread14, label %187, !prof !10
 
 187:                                              ; preds = %185
   tail call void @refcount_warn_saturate(ptr noundef nonnull %180, i32 noundef 3) #17
-  br label %.thread15
+  br label %.thread14
 
 188:                                              ; preds = %182
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
   tail call void @i915_vm_release(ptr noundef nonnull %180) #17
-  br label %.thread15
+  br label %.thread14
 
-.thread15:                                        ; preds = %185, %187, %188, %178
+.thread14:                                        ; preds = %185, %187, %188, %178
   store ptr %167, ptr %179, align 8
   br label %.thread
 
@@ -3738,7 +3738,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %244 = getelementptr [0 x %struct.i915_engine_class_instance], ptr %236, i64 0, i64 %243
   %245 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %244, i64 noundef 4) #17
   %246 = icmp eq i64 %245, 0
-  br i1 %246, label %247, label %.thread18
+  br i1 %246, label %247, label %.thread17
 
 247:                                              ; preds = %240
   %248 = getelementptr %struct.i915_gem_proto_engine, ptr %242, i64 %243
@@ -3773,7 +3773,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %268 = trunc nuw i64 %243 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %263, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %268, i32 noundef %265, i32 noundef %267) #17
   %269 = load ptr, ptr %194, align 8
-  br label %.thread18
+  br label %.thread17
 
 270:                                              ; preds = %254
   store i32 1, ptr %248, align 8
@@ -3783,10 +3783,10 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %.pre = load i32, ptr %193, align 8
   br label %273
 
-.thread18:                                        ; preds = %240, %262
-  %.lcssa37.sink = phi ptr [ %269, %262 ], [ %242, %240 ]
-  %.ph17 = phi i32 [ -2, %262 ], [ -14, %240 ]
-  call void @kfree(ptr noundef %.lcssa37.sink) #17
+.thread17:                                        ; preds = %240, %262
+  %.lcssa36.sink = phi ptr [ %269, %262 ], [ %242, %240 ]
+  %.ph16 = phi i32 [ -2, %262 ], [ -14, %240 ]
+  call void @kfree(ptr noundef %.lcssa36.sink) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   br label %297
 
@@ -3809,18 +3809,18 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   call void @llvm.write_register.i64(metadata !0, i64 %283)
   %285 = and i64 %284, 4294967295
   %286 = icmp eq i64 %285, 0
-  br i1 %286, label %287, label %.thread19
+  br i1 %286, label %287, label %.thread18
 
 287:                                              ; preds = %.loopexit
   %288 = extractvalue { ptr, i64, i64 } %281, 1
   %289 = inttoptr i64 %288 to ptr
   %290 = call i32 @i915_user_extensions(ptr noundef %289, ptr noundef nonnull @set_proto_ctx_engines_extensions, i32 noundef 3, ptr noundef nonnull %4) #17
   %291 = icmp eq i32 %290, 0
-  %.pre30 = load ptr, ptr %194, align 8
-  br i1 %291, label %294, label %.thread19
+  %.pre29 = load ptr, ptr %194, align 8
+  br i1 %291, label %294, label %.thread18
 
-.thread19:                                        ; preds = %.loopexit, %287
-  %292 = phi ptr [ %.pre30, %287 ], [ %279, %.loopexit ]
+.thread18:                                        ; preds = %.loopexit, %287
+  %292 = phi ptr [ %.pre29, %287 ], [ %279, %.loopexit ]
   %293 = phi i32 [ %290, %287 ], [ -14, %.loopexit ]
   call void @kfree(ptr noundef %292) #17
   br label %297
@@ -3829,11 +3829,11 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %295 = load i32, ptr %193, align 8
   store i32 %295, ptr %198, align 4
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %.pre30, ptr %296, align 8
+  store ptr %.pre29, ptr %296, align 8
   br label %297
 
-297:                                              ; preds = %.thread18, %294, %.thread19, %228, %223, %221, %206
-  %298 = phi i32 [ -22, %206 ], [ -22, %221 ], [ %293, %.thread19 ], [ 0, %294 ], [ -22, %223 ], [ -12, %228 ], [ %.ph17, %.thread18 ]
+297:                                              ; preds = %.thread17, %294, %.thread18, %228, %223, %221, %206
+  %298 = phi i32 [ -22, %206 ], [ -22, %221 ], [ %293, %.thread18 ], [ 0, %294 ], [ -22, %223 ], [ -12, %228 ], [ %.ph16, %.thread17 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
   br label %.thread
 
@@ -3924,8 +3924,8 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr noundef capt
   %354 = tail call i32 @intel_pxp_start(ptr noundef %353) #17
   br label %.thread
 
-.thread:                                          ; preds = %80, %75, %69, %63, %352, %345, %340, %336, %334, %325, %321, %316, %312, %308, %299, %297, %189, %.thread15, %161, %156, %152, %.thread13, %82, %59, %55, %51, %43, %39, %35, %.thread34, %30, %23, %21, %19, %9, %3
-  %355 = phi i32 [ %298, %297 ], [ %151, %.thread13 ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread34 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread15 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %340 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
+.thread:                                          ; preds = %80, %75, %69, %63, %352, %345, %340, %336, %334, %325, %321, %316, %312, %308, %299, %297, %189, %.thread14, %161, %156, %152, %.critedge, %82, %59, %55, %51, %43, %39, %35, %.thread33, %30, %23, %21, %19, %9, %3
+  %355 = phi i32 [ %298, %297 ], [ %151, %.critedge ], [ 0, %82 ], [ 0, %59 ], [ 0, %51 ], [ 0, %.thread33 ], [ 0, %39 ], [ 0, %19 ], [ 0, %21 ], [ -22, %9 ], [ -22, %23 ], [ -1, %30 ], [ -1, %35 ], [ -22, %43 ], [ -1, %55 ], [ -22, %299 ], [ -22, %3 ], [ 0, %.thread14 ], [ -22, %152 ], [ -19, %156 ], [ -2, %161 ], [ -2, %189 ], [ -22, %308 ], [ -19, %316 ], [ -19, %321 ], [ 0, %325 ], [ 0, %312 ], [ 0, %345 ], [ %354, %352 ], [ 0, %334 ], [ -19, %336 ], [ -1, %340 ], [ -1, %80 ], [ -22, %75 ], [ -19, %69 ], [ -22, %63 ]
   ret i32 %355
 }
 
@@ -4977,7 +4977,7 @@ define internal fastcc ptr @lookup_user_engine(ptr noundef %0, i64 noundef range
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %1, 0
   %9 = xor i1 %8, %7
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %3
   %11 = load volatile i64, ptr %4, align 8
@@ -4994,7 +4994,7 @@ define internal fastcc ptr @lookup_user_engine(ptr noundef %0, i64 noundef range
   %20 = trunc i16 %19 to i8
   %21 = tail call ptr @intel_engine_lookup_user(ptr noundef %15, i8 noundef zeroext %17, i8 noundef zeroext %20) #17
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 36
@@ -5048,9 +5048,9 @@ define internal fastcc ptr @lookup_user_engine(ptr noundef %0, i64 noundef range
 54:                                               ; preds = %52, %48, %39, %35, %30
   %55 = phi ptr [ inttoptr (i64 -2 to ptr), %30 ], [ %43, %48 ], [ inttoptr (i64 -22 to ptr), %35 ], [ inttoptr (i64 -22 to ptr), %39 ], [ %43, %52 ]
   tail call void @__rcu_read_unlock() #17
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %54, %3
+.critedge:                                        ; preds = %14, %54, %3
   %56 = phi ptr [ %55, %54 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %14 ]
   ret ptr %56
 }

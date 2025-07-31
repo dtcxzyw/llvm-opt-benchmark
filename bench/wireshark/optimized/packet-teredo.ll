@@ -234,30 +234,30 @@ parse_teredo_auth.exit:                           ; preds = %48, %55
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i16 %80, ptr %81, align 4
   %.not26.i = icmp eq ptr %.0.i26, null
-  br i1 %.not26.i, label %.thread.i, label %85
+  br i1 %.not26.i, label %.critedge.i, label %82
 
-.thread.i:                                        ; preds = %78
-  %82 = add nuw nsw i32 %.0, 4
-  %83 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %82)
-  %84 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  store i32 %83, ptr %84, align 4
+82:                                               ; preds = %78
+  %83 = load i32, ptr @hf_teredo_orig_port, align 4
+  %84 = xor i16 %80, -1
+  %85 = zext i16 %84 to i32
+  %86 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0.i26, i32 noundef %83, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef %85)
+  %87 = add nuw nsw i32 %.0, 4
+  %88 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %87)
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 20
+  store i32 %88, ptr %89, align 4
+  %90 = load i32, ptr @hf_teredo_orig_addr, align 4
+  %91 = xor i32 %88, -1
+  %92 = tail call ptr @proto_tree_add_ipv4(ptr noundef nonnull %.0.i26, i32 noundef %90, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef %91)
   br label %parse_teredo_orig.exit
 
-85:                                               ; preds = %78
-  %86 = load i32, ptr @hf_teredo_orig_port, align 4
-  %87 = xor i16 %80, -1
-  %88 = zext i16 %87 to i32
-  %89 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0.i26, i32 noundef %86, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef %88)
-  %90 = add nuw nsw i32 %.0, 4
-  %91 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %90)
-  %92 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  store i32 %91, ptr %92, align 4
-  %93 = load i32, ptr @hf_teredo_orig_addr, align 4
-  %94 = xor i32 %91, -1
-  %95 = tail call ptr @proto_tree_add_ipv4(ptr noundef nonnull %.0.i26, i32 noundef %93, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef %94)
+.critedge.i:                                      ; preds = %78
+  %93 = add nuw nsw i32 %.0, 4
+  %94 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %93)
+  %95 = getelementptr inbounds nuw i8, ptr %70, i64 20
+  store i32 %94, ptr %95, align 4
   br label %parse_teredo_orig.exit
 
-parse_teredo_orig.exit:                           ; preds = %.thread.i, %85
+parse_teredo_orig.exit:                           ; preds = %82, %.critedge.i
   %96 = add nuw nsw i32 %.0, 8
   br label %97
 
@@ -325,7 +325,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef zeroext i1 @dissect_teredo_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   %6 = icmp slt i32 %5, 40
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
@@ -341,7 +341,7 @@ define internal noundef zeroext i1 @dissect_teredo_heur(ptr noundef %0, ptr noun
   %16 = add nuw nsw i32 %15, %14
   %17 = add nuw nsw i32 %16, 40
   %.not = icmp slt i32 %13, %17
-  br i1 %.not, label %.thread, label %18
+  br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %10
   %19 = add nuw nsw i32 %16, 13
@@ -358,7 +358,7 @@ define internal noundef zeroext i1 @dissect_teredo_heur(ptr noundef %0, ptr noun
   %24 = add nuw nsw i32 %.043, 8
   %25 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %24)
   %26 = icmp slt i32 %25, 40
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %23
   %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24)
@@ -369,26 +369,26 @@ define internal noundef zeroext i1 @dissect_teredo_heur(ptr noundef %0, ptr noun
   %.2 = phi i16 [ %28, %27 ], [ %.040, %21 ]
   %.mask = and i16 %.2, -4096
   %30 = icmp eq i16 %.mask, 24576
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %29
   %32 = add nuw nsw i32 %.245, 4
   %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %32)
   %34 = icmp ugt i16 %33, -69
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %31
   %36 = zext i16 %33 to i32
   %37 = add nuw nsw i32 %.245, 40
   %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37)
   %.not47 = icmp eq i32 %38, %36
-  br i1 %.not47, label %39, label %.thread
+  br i1 %.not47, label %39, label %.critedge
 
 39:                                               ; preds = %35
   %40 = tail call i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %10, %29, %35, %31, %23, %4, %39
+.critedge:                                        ; preds = %10, %29, %35, %31, %23, %4, %39
   %.0 = phi i1 [ true, %39 ], [ false, %4 ], [ false, %23 ], [ false, %31 ], [ false, %35 ], [ false, %29 ], [ false, %10 ]
   ret i1 %.0
 }

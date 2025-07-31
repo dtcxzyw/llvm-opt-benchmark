@@ -580,12 +580,12 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %9 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
   %10 = icmp ult i64 %4, %2
-  br i1 %10, label %125, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
   store i64 %2, ptr %5, align 8, !tbaa !13
   %12 = icmp eq i64 %2, 0
-  br i1 %12, label %125, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %11
   %14 = icmp ugt ptr %3, %1
@@ -594,7 +594,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %17 = sub i64 %15, %16
   %18 = icmp ult i64 %17, %2
   %or.cond = and i1 %14, %18
-  br i1 %or.cond, label %125, label %19
+  br i1 %or.cond, label %.critedge, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -603,7 +603,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %23 = icmp ult i64 %22, %21
   %24 = icmp ugt i64 %22, 68719476704
   %or.cond96 = or i1 %23, %24
-  br i1 %or.cond96, label %125, label %25
+  br i1 %or.cond96, label %.critedge, label %25
 
 25:                                               ; preds = %19
   %26 = icmp eq i64 %21, 0
@@ -614,7 +614,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = and i64 %29, 15
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %.thread138, label %31
+  br i1 %.not, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -626,7 +626,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %34 = phi i64 [ %.pre, %31 ], [ %21, %25 ]
   %35 = and i64 %34, 15
   %.not88 = icmp eq i64 %35, 0
-  br i1 %.not88, label %.thread138, label %36
+  br i1 %.not88, label %.thread, label %36
 
 36:                                               ; preds = %33
   %37 = sub nuw nsw i64 16, %35
@@ -636,7 +636,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %38, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8)
   %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %.preheader.i, label %76
+  br i1 %.not.i, label %.preheader.i, label %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit
 
 .preheader.i:                                     ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -688,40 +688,40 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %exitcond.not.i = icmp eq i64 %66, %spec.select
   br i1 %exitcond.not.i, label %67, label %42, !llvm.loop !35
 
+_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  br label %.critedge
+
 67:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   %68 = add nuw nsw i64 %spec.select, %35
   %69 = icmp eq i64 %68, 16
-  br i1 %69, label %70, label %.thread
+  br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
   call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull %41)
+  br label %71
+
+71:                                               ; preds = %70, %67
+  %72 = load i64, ptr %20, align 8, !tbaa !34
+  %73 = add i64 %72, %spec.select
+  %74 = sub i64 %2, %spec.select
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
   br label %.thread
 
-.thread:                                          ; preds = %67, %70
-  %71 = load i64, ptr %20, align 8, !tbaa !34
-  %72 = add i64 %71, %spec.select
-  %73 = sub i64 %2, %spec.select
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
-  br label %.thread138
-
-76:                                               ; preds = %36
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  br label %125
-
-.thread138:                                       ; preds = %27, %.thread, %33
-  %77 = phi i64 [ %34, %33 ], [ %72, %.thread ], [ 0, %27 ]
-  %.076 = phi i64 [ %2, %33 ], [ %73, %.thread ], [ %2, %27 ]
-  %.073 = phi ptr [ %1, %33 ], [ %74, %.thread ], [ %1, %27 ]
-  %.071 = phi ptr [ %3, %33 ], [ %75, %.thread ], [ %3, %27 ]
+.thread:                                          ; preds = %27, %71, %33
+  %77 = phi i64 [ %73, %71 ], [ %34, %33 ], [ 0, %27 ]
+  %.076 = phi i64 [ %74, %71 ], [ %2, %33 ], [ %2, %27 ]
+  %.073 = phi ptr [ %75, %71 ], [ %1, %33 ], [ %1, %27 ]
+  %.071 = phi ptr [ %76, %71 ], [ %3, %33 ], [ %3, %27 ]
   %78 = add i64 %77, %.076
   store i64 %78, ptr %20, align 8, !tbaa !34
   %79 = icmp ugt i64 %.076, 15
   br i1 %79, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread138
+.lr.ph:                                           ; preds = %.thread
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %invariant.gep.i = getelementptr i8, ptr %0, i64 359
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -729,9 +729,9 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %83
 
 83:                                               ; preds = %.lr.ph, %112
-  %.2131 = phi ptr [ %.071, %.lr.ph ], [ %115, %112 ]
-  %.275130 = phi ptr [ %.073, %.lr.ph ], [ %114, %112 ]
-  %.278129 = phi i64 [ %.076, %.lr.ph ], [ %113, %112 ]
+  %.2123 = phi ptr [ %.071, %.lr.ph ], [ %115, %112 ]
+  %.275122 = phi ptr [ %.073, %.lr.ph ], [ %114, %112 ]
+  %.278121 = phi i64 [ %.076, %.lr.ph ], [ %113, %112 ]
   br label %84
 
 84:                                               ; preds = %84, %83
@@ -760,7 +760,7 @@ _ZL8gcm_incrPh.exit:                              ; preds = %84
   br i1 %91, label %92, label %._crit_edge.i102
 
 92:                                               ; preds = %.preheader.i100
-  %93 = getelementptr inbounds nuw i8, ptr %.275130, i64 %.029.i101
+  %93 = getelementptr inbounds nuw i8, ptr %.275122, i64 %.029.i101
   %94 = load i8, ptr %93, align 1, !tbaa !15
   %95 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i101
   %96 = load i8, ptr %95, align 1, !tbaa !15
@@ -771,10 +771,10 @@ _ZL8gcm_incrPh.exit:                              ; preds = %84
 ._crit_edge.i102:                                 ; preds = %.preheader.i100, %92
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 %.029.i101
   %99 = load i8, ptr %98, align 1, !tbaa !15
-  %100 = getelementptr inbounds nuw i8, ptr %.275130, i64 %.029.i101
+  %100 = getelementptr inbounds nuw i8, ptr %.275122, i64 %.029.i101
   %101 = load i8, ptr %100, align 1, !tbaa !15
   %102 = xor i8 %101, %99
-  %103 = getelementptr inbounds nuw i8, ptr %.2131, i64 %.029.i101
+  %103 = getelementptr inbounds nuw i8, ptr %.2123, i64 %.029.i101
   store i8 %102, ptr %103, align 1, !tbaa !15
   %104 = load i32, ptr %81, align 8, !tbaa !20
   %105 = icmp eq i32 %104, 1
@@ -795,21 +795,21 @@ _ZL8gcm_incrPh.exit:                              ; preds = %84
 _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.exit
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  br label %125
+  br label %.critedge
 
 112:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
-  %113 = add i64 %.278129, -16
-  %114 = getelementptr inbounds nuw i8, ptr %.275130, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %.2131, i64 16
+  %113 = add i64 %.278121, -16
+  %114 = getelementptr inbounds nuw i8, ptr %.275122, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.2123, i64 16
   %116 = icmp ugt i64 %113, 15
   br i1 %116, label %83, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %112, %.thread138
-  %.278.lcssa = phi i64 [ %.076, %.thread138 ], [ %113, %112 ]
-  %.275.lcssa = phi ptr [ %.073, %.thread138 ], [ %114, %112 ]
-  %.2.lcssa = phi ptr [ %.071, %.thread138 ], [ %115, %112 ]
+._crit_edge:                                      ; preds = %112, %.thread
+  %.278.lcssa = phi i64 [ %.076, %.thread ], [ %113, %112 ]
+  %.275.lcssa = phi ptr [ %.073, %.thread ], [ %114, %112 ]
+  %.2.lcssa = phi ptr [ %.071, %.thread ], [ %115, %112 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
   br i1 %.not90, label %124, label %117
 
@@ -832,14 +832,14 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.
 _ZL8gcm_incrPh.exit112:                           ; preds = %118
   %123 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
   %.not91 = icmp eq i32 %123, 0
-  br i1 %.not91, label %124, label %125
+  br i1 %.not91, label %124, label %.critedge
 
 124:                                              ; preds = %_ZL8gcm_incrPh.exit112, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
-  br label %125
+  br label %.critedge
 
-125:                                              ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %76, %_ZL8gcm_incrPh.exit112, %19, %13, %11, %6, %124
-  %.070 = phi i32 [ 0, %124 ], [ %39, %76 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %89, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %123, %_ZL8gcm_incrPh.exit112 ]
+.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit112, %19, %13, %11, %6, %124
+  %.070 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %89, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %123, %_ZL8gcm_incrPh.exit112 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
   ret i32 %.070
 }

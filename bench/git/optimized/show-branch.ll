@@ -2119,7 +2119,7 @@ name_commits.exit:                                ; preds = %name_commits.exit.l
   %841 = icmp eq i32 %840, -1
   %842 = zext i1 %841 to i32
   %843 = or i32 %.0162378, %842
-  br i1 %553, label %844, label %889
+  br i1 %553, label %844, label %888
 
 844:                                              ; preds = %836
   %845 = getelementptr inbounds nuw i8, ptr %837, i64 48
@@ -2180,81 +2180,81 @@ omit_in_dense.exit:                               ; preds = %.preheader
 omit_in_dense.exit.thread.preheader:              ; preds = %.preheader316, %omit_in_dense.exit, %856
   br label %omit_in_dense.exit.thread
 
-omit_in_dense.exit.thread:                        ; preds = %omit_in_dense.exit.thread.preheader, %884
-  %.5374 = phi i32 [ %885, %884 ], [ 0, %omit_in_dense.exit.thread.preheader ]
+omit_in_dense.exit.thread:                        ; preds = %omit_in_dense.exit.thread.preheader, %883
+  %.5374 = phi i32 [ %884, %883 ], [ 0, %omit_in_dense.exit.thread.preheader ]
   %867 = shl nuw i32 4, %.5374
   %868 = and i32 %867, %839
   %.not200 = icmp eq i32 %868, 0
-  %869 = icmp eq i32 %.5374, %.0164303
-  %. = select i1 %869, i32 42, i32 43
-  %.mux = select i1 %852, i32 45, i32 %.
-  br i1 %.not200, label %870, label %873
+  br i1 %.not200, label %.critedge, label %869
 
-870:                                              ; preds = %omit_in_dense.exit.thread
-  %871 = load ptr, ptr @stdout, align 8, !tbaa !41
-  %872 = call noundef i32 @putc(i32 noundef 32, ptr noundef %871)
-  br label %884
+869:                                              ; preds = %omit_in_dense.exit.thread
+  %870 = icmp eq i32 %.5374, %.0164303
+  %. = select i1 %870, i32 42, i32 43
+  %.0152 = select i1 %852, i32 45, i32 %.
+  %871 = load i32, ptr @showbranch_use_color, align 4, !tbaa !9
+  %872 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %871) #17
+  %.not.i281 = icmp eq i32 %872, 0
+  br i1 %.not.i281, label %get_color_code.exit283, label %873
 
-873:                                              ; preds = %omit_in_dense.exit.thread
-  %874 = load i32, ptr @showbranch_use_color, align 4, !tbaa !9
-  %875 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %874) #17
-  %.not.i281 = icmp eq i32 %875, 0
-  br i1 %.not.i281, label %get_color_code.exit283, label %876
-
-876:                                              ; preds = %873
-  %877 = srem i32 %.5374, %835
-  %878 = zext nneg i32 %877 to i64
-  %879 = getelementptr inbounds nuw [0 x ptr], ptr @column_colors_ansi, i64 0, i64 %878
-  %880 = load ptr, ptr %879, align 8, !tbaa !11
+873:                                              ; preds = %869
+  %874 = srem i32 %.5374, %835
+  %875 = zext nneg i32 %874 to i64
+  %876 = getelementptr inbounds nuw [0 x ptr], ptr @column_colors_ansi, i64 0, i64 %875
+  %877 = load ptr, ptr %876, align 8, !tbaa !11
   br label %get_color_code.exit283
 
-get_color_code.exit283:                           ; preds = %873, %876
-  %.0.i282 = phi ptr [ %880, %876 ], [ @.str.58, %873 ]
-  %881 = load i32, ptr @showbranch_use_color, align 4, !tbaa !9
-  %882 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %881) #17
-  %.not.i284 = icmp eq i32 %882, 0
+get_color_code.exit283:                           ; preds = %869, %873
+  %.0.i282 = phi ptr [ %877, %873 ], [ @.str.58, %869 ]
+  %878 = load i32, ptr @showbranch_use_color, align 4, !tbaa !9
+  %879 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %878) #17
+  %.not.i284 = icmp eq i32 %879, 0
   %.str.58..str.74.i285 = select i1 %.not.i284, ptr @.str.58, ptr @.str.74
-  %883 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %.0.i282, i32 noundef %.mux, ptr noundef nonnull %.str.58..str.74.i285)
-  br label %884
+  %880 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %.0.i282, i32 noundef %.0152, ptr noundef nonnull %.str.58..str.74.i285)
+  br label %883
 
-884:                                              ; preds = %get_color_code.exit283, %870
-  %885 = add nuw nsw i32 %.5374, 1
-  %exitcond420.not = icmp eq i32 %885, %umax
-  br i1 %exitcond420.not, label %886, label %omit_in_dense.exit.thread, !llvm.loop !84
+.critedge:                                        ; preds = %omit_in_dense.exit.thread
+  %881 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %882 = call noundef i32 @putc(i32 noundef 32, ptr noundef %881)
+  br label %883
 
-886:                                              ; preds = %884
-  %887 = load ptr, ptr @stdout, align 8, !tbaa !41
-  %888 = call noundef i32 @putc(i32 noundef 32, ptr noundef %887)
-  br label %889
+883:                                              ; preds = %get_color_code.exit283, %.critedge
+  %884 = add nuw nsw i32 %.5374, 1
+  %exitcond420.not = icmp eq i32 %884, %umax
+  br i1 %exitcond420.not, label %885, label %omit_in_dense.exit.thread, !llvm.loop !84
 
-889:                                              ; preds = %886, %836
-  %890 = load i32, ptr %18, align 4, !tbaa !9
-  call fastcc void @show_one_commit(ptr noundef nonnull %837, i32 noundef %890)
+885:                                              ; preds = %883
+  %886 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %887 = call noundef i32 @putc(i32 noundef 32, ptr noundef %886)
+  br label %888
+
+888:                                              ; preds = %885, %836
+  %889 = load i32, ptr %18, align 4, !tbaa !9
+  call fastcc void @show_one_commit(ptr noundef nonnull %837, i32 noundef %889)
   %.not201 = icmp eq i32 %843, 0
-  br i1 %.not201, label %.thread307, label %891
+  br i1 %.not201, label %.thread307, label %890
 
-891:                                              ; preds = %889
-  %892 = load i32, ptr %11, align 4, !tbaa !9
-  %893 = add nsw i32 %892, -1
-  store i32 %893, ptr %11, align 4, !tbaa !9
-  %894 = icmp slt i32 %892, 1
-  br i1 %894, label %show_merge_base.exit, label %.thread307
+890:                                              ; preds = %888
+  %891 = load i32, ptr %11, align 4, !tbaa !9
+  %892 = add nsw i32 %891, -1
+  store i32 %892, ptr %11, align 4, !tbaa !9
+  %893 = icmp slt i32 %891, 1
+  br i1 %893, label %show_merge_base.exit, label %.thread307
 
-.thread307:                                       ; preds = %889, %891, %omit_in_dense.exit, %851
-  %895 = getelementptr inbounds nuw i8, ptr %.0161379, i64 8
-  %.0161 = load ptr, ptr %895, align 8, !tbaa !4
+.thread307:                                       ; preds = %888, %890, %omit_in_dense.exit, %851
+  %894 = getelementptr inbounds nuw i8, ptr %.0161379, i64 8
+  %.0161 = load ptr, ptr %894, align 8, !tbaa !4
   %.not196 = icmp eq ptr %.0161, null
   br i1 %.not196, label %show_merge_base.exit, label %836, !llvm.loop !85
 
-show_merge_base.exit:                             ; preds = %532, %549, %.thread307, %891, %628, %._crit_edge369.thread, %name_commits.exit, %._crit_edge369, %537, %516, %._crit_edge373, %401
-  %.0170 = phi i32 [ 0, %401 ], [ 0, %._crit_edge373 ], [ 1, %516 ], [ 0, %537 ], [ 0, %._crit_edge369 ], [ 0, %name_commits.exit ], [ 0, %._crit_edge369.thread ], [ 0, %628 ], [ 0, %891 ], [ 0, %.thread307 ], [ 0, %549 ], [ %.1.i, %532 ]
-  br label %899
+show_merge_base.exit:                             ; preds = %532, %549, %.thread307, %890, %628, %._crit_edge369.thread, %name_commits.exit, %._crit_edge369, %537, %516, %._crit_edge373, %401
+  %.0170 = phi i32 [ 0, %401 ], [ 0, %._crit_edge373 ], [ 1, %516 ], [ 0, %537 ], [ 0, %._crit_edge369 ], [ 0, %name_commits.exit ], [ 0, %._crit_edge369.thread ], [ 0, %628 ], [ 0, %890 ], [ 0, %.thread307 ], [ 0, %549 ], [ %.1.i, %532 ]
+  br label %898
 
-896:                                              ; preds = %899
-  %897 = load ptr, ptr %9, align 8, !tbaa !4
+895:                                              ; preds = %898
+  %896 = load ptr, ptr %9, align 8, !tbaa !4
+  call void @free_commit_list(ptr noundef %896) #17
+  %897 = load ptr, ptr %8, align 8, !tbaa !4
   call void @free_commit_list(ptr noundef %897) #17
-  %898 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @free_commit_list(ptr noundef %898) #17
   call void @free(ptr noundef %.0169) #17
   call void @free(ptr noundef %366) #17
   call void @llvm.lifetime.end.p0(i64 1408, ptr nonnull %24) #17
@@ -2278,14 +2278,14 @@ show_merge_base.exit:                             ; preds = %532, %549, %.thread
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #17
   ret i32 %.0170
 
-899:                                              ; preds = %show_merge_base.exit, %899
-  %.0382 = phi i64 [ 0, %show_merge_base.exit ], [ %902, %899 ]
-  %900 = getelementptr inbounds nuw [26 x ptr], ptr %7, i64 0, i64 %.0382
-  %901 = load ptr, ptr %900, align 8, !tbaa !11
-  call void @free(ptr noundef %901) #17
-  %902 = add nuw nsw i64 %.0382, 1
-  %exitcond421.not = icmp eq i64 %902, 26
-  br i1 %exitcond421.not, label %896, label %899, !llvm.loop !86
+898:                                              ; preds = %show_merge_base.exit, %898
+  %.0382 = phi i64 [ 0, %show_merge_base.exit ], [ %901, %898 ]
+  %899 = getelementptr inbounds nuw [26 x ptr], ptr %7, i64 0, i64 %.0382
+  %900 = load ptr, ptr %899, align 8, !tbaa !11
+  call void @free(ptr noundef %900) #17
+  %901 = add nuw nsw i64 %.0382, 1
+  %exitcond421.not = icmp eq i64 %901, 26
+  br i1 %exitcond421.not, label %895, label %898, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

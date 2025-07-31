@@ -844,7 +844,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 474, ptr noundef nonnull @__func__.EVP_DigestSignFinal) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
-  br label %142
+  br label %141
 
 12:                                               ; preds = %3
   %13 = icmp eq ptr %7, null
@@ -890,19 +890,19 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 160
   %37 = load ptr, ptr %36, align 8, !tbaa !64
   %38 = icmp eq ptr %1, null
-  br i1 %38, label %.thread141, label %40
+  br i1 %38, label %.thread143, label %40
 
-.thread141:                                       ; preds = %35
+.thread143:                                       ; preds = %35
   %39 = tail call i32 %37(ptr noundef nonnull %18, ptr noundef null, ptr noundef %2, i64 noundef 0) #6
   br label %49
 
 40:                                               ; preds = %35, %.thread
   %41 = phi ptr [ %34, %.thread ], [ %18, %35 ]
   %42 = phi ptr [ %32, %.thread ], [ %37, %35 ]
-  %.0105139 = phi ptr [ %28, %.thread ], [ null, %35 ]
+  %.0105141 = phi ptr [ %28, %.thread ], [ null, %35 ]
   %43 = load i64, ptr %2, align 8, !tbaa !65
   %44 = tail call i32 %42(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %43) #6
-  %45 = icmp eq ptr %.0105139, null
+  %45 = icmp eq ptr %.0105141, null
   %or.cond = and i1 %25, %45
   br i1 %or.cond, label %46, label %49
 
@@ -910,13 +910,13 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %47 = load i64, ptr %8, align 8, !tbaa !61
   %48 = or i64 %47, 2048
   store i64 %48, ptr %8, align 8, !tbaa !61
-  br label %142
+  br label %141
 
-49:                                               ; preds = %.thread141, %40
-  %50 = phi i32 [ %39, %.thread141 ], [ %44, %40 ]
-  %.0105140144 = phi ptr [ null, %.thread141 ], [ %.0105139, %40 ]
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %.0105140144) #6
-  br label %142
+49:                                               ; preds = %.thread143, %40
+  %50 = phi i32 [ %39, %.thread143 ], [ %44, %40 ]
+  %.0105142146 = phi ptr [ null, %.thread143 ], [ %.0105141, %40 ]
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %.0105142146) #6
+  br label %141
 
 51:                                               ; preds = %20, %16, %14
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -928,7 +928,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__.EVP_DigestSignFinal) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %142
+  br label %141
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 160
@@ -942,15 +942,15 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %61 = load ptr, ptr %60, align 8, !tbaa !60
   %62 = tail call i32 %61(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
   %.not122 = icmp eq i32 %62, 0
-  br i1 %.not122, label %142, label %._crit_edge
+  br i1 %.not122, label %141, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %59
   %.pre = load i8, ptr %56, align 8
-  %.pre155 = load ptr, ptr %52, align 8, !tbaa !51
+  %.pre152 = load ptr, ptr %52, align 8, !tbaa !51
   br label %63
 
 63:                                               ; preds = %._crit_edge, %55
-  %64 = phi ptr [ %.pre155, %._crit_edge ], [ %53, %55 ]
+  %64 = phi ptr [ %.pre152, %._crit_edge ], [ %53, %55 ]
   %65 = phi i8 [ %.pre, %._crit_edge ], [ %57, %55 ]
   %66 = and i8 %65, -2
   store i8 %66, ptr %56, align 8
@@ -968,7 +968,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 120
   %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = tail call i32 %74(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
-  br label %142
+  br label %141
 
 76:                                               ; preds = %70
   %77 = load i64, ptr %8, align 8, !tbaa !61
@@ -983,12 +983,12 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %83 = load i64, ptr %8, align 8, !tbaa !61
   %84 = or i64 %83, 2048
   store i64 %84, ptr %8, align 8, !tbaa !61
-  br label %142
+  br label %141
 
 85:                                               ; preds = %76
   %86 = tail call ptr @EVP_PKEY_CTX_dup(ptr noundef nonnull %7) #6
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %142, label %88
+  br i1 %87, label %141, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 120
@@ -997,14 +997,14 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %92 = load ptr, ptr %91, align 8, !tbaa !66
   %93 = tail call i32 %92(ptr noundef nonnull %86, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %86) #6
-  br label %142
+  br label %141
 
 94:                                               ; preds = %63
   %95 = getelementptr inbounds nuw i8, ptr %64, i64 120
   %96 = load ptr, ptr %95, align 8, !tbaa !66
   %.not124 = icmp eq ptr %96, null
   %.not125 = icmp eq ptr %1, null
-  br i1 %.not125, label %129, label %97
+  br i1 %.not125, label %128, label %97
 
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
@@ -1016,11 +1016,11 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not127, label %104, label %100
 
 100:                                              ; preds = %97
-  br i1 %.not124, label %102, label %.thread148
+  br i1 %.not124, label %102, label %.thread147
 
-.thread148:                                       ; preds = %100
+.thread147:                                       ; preds = %100
   %101 = tail call i32 %96(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %0) #6
-  br label %.thread152
+  br label %.critedge136.thread
 
 102:                                              ; preds = %100
   %103 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -1029,7 +1029,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 104:                                              ; preds = %97
   %105 = tail call ptr @EVP_MD_CTX_new() #6
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread152, label %107
+  br i1 %106, label %.critedge136.thread, label %107
 
 107:                                              ; preds = %104
   %108 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %105, ptr noundef nonnull %0) #6
@@ -1038,7 +1038,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 109:                                              ; preds = %107
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %105) #6
-  br label %.thread152
+  br label %.critedge136.thread
 
 110:                                              ; preds = %107
   br i1 %.not124, label %119, label %111
@@ -1057,7 +1057,7 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %120 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %105, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   br label %121
 
-121:                                              ; preds = %111, %119
+121:                                              ; preds = %119, %111
   %.3109 = phi i32 [ %118, %111 ], [ %120, %119 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %105) #6
   br label %122
@@ -1066,49 +1066,49 @@ define i32 @EVP_DigestSignFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.1107 = phi i32 [ %103, %102 ], [ %.3109, %121 ]
   %123 = icmp ne i32 %.1107, 0
   %or.cond5 = select i1 %.not124, i1 %123, i1 false
-  br i1 %or.cond5, label %124, label %.thread152
+  br i1 %or.cond5, label %.critedge136, label %.critedge136.thread
 
-.thread152:                                       ; preds = %122, %.thread148, %109, %104
-  %.3.ph = phi i32 [ %101, %.thread148 ], [ %.1107, %122 ], [ 0, %109 ], [ 0, %104 ]
+.critedge136.thread:                              ; preds = %122, %104, %109, %.thread147
+  %.3.ph = phi i32 [ %101, %.thread147 ], [ 0, %109 ], [ 0, %104 ], [ %.1107, %122 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  br label %142
+  br label %141
 
-124:                                              ; preds = %122
-  %125 = load i32, ptr %5, align 4, !tbaa !54
-  %126 = zext i32 %125 to i64
-  %127 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %126) #6
-  %128 = icmp sgt i32 %127, 0
+.critedge136:                                     ; preds = %122
+  %124 = load i32, ptr %5, align 4, !tbaa !54
+  %125 = zext i32 %124 to i64
+  %126 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i64 noundef %125) #6
+  %127 = icmp sgt i32 %126, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  br i1 %128, label %.critedge136, label %142
+  br i1 %127, label %.critedge138, label %141
 
-129:                                              ; preds = %94
-  br i1 %.not124, label %133, label %130
+128:                                              ; preds = %94
+  br i1 %.not124, label %132, label %129
 
-130:                                              ; preds = %129
-  %131 = tail call i32 %96(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
-  %132 = icmp slt i32 %131, 1
-  br i1 %132, label %142, label %.critedge136
+129:                                              ; preds = %128
+  %130 = tail call i32 %96(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef nonnull %0) #6
+  %131 = icmp slt i32 %130, 1
+  br i1 %131, label %141, label %.critedge138
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !48
-  %136 = tail call i32 @EVP_MD_get_size(ptr noundef %135) #6
-  %137 = icmp slt i32 %136, 1
-  br i1 %137, label %142, label %138
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !48
+  %135 = tail call i32 @EVP_MD_get_size(ptr noundef %134) #6
+  %136 = icmp slt i32 %135, 1
+  br i1 %136, label %141, label %137
 
-138:                                              ; preds = %133
-  %139 = zext nneg i32 %136 to i64
-  %140 = tail call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef null, i64 noundef %139) #6
-  %141 = icmp slt i32 %140, 1
-  br i1 %141, label %142, label %.critedge136
+137:                                              ; preds = %132
+  %138 = zext nneg i32 %135 to i64
+  %139 = tail call i32 @EVP_PKEY_sign(ptr noundef nonnull %7, ptr noundef null, ptr noundef %2, ptr noundef null, i64 noundef %138) #6
+  %140 = icmp slt i32 %139, 1
+  br i1 %140, label %141, label %.critedge138
 
-.critedge136:                                     ; preds = %138, %130, %124
-  br label %142
+.critedge138:                                     ; preds = %137, %129, %.critedge136
+  br label %141
 
-142:                                              ; preds = %.thread152, %138, %133, %130, %79, %88, %85, %59, %46, %49, %124, %.critedge136, %72, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %75, %72 ], [ 1, %.critedge136 ], [ 0, %124 ], [ %50, %49 ], [ %44, %46 ], [ 0, %59 ], [ 0, %85 ], [ %82, %79 ], [ %93, %88 ], [ 0, %130 ], [ 0, %133 ], [ 0, %138 ], [ %.3.ph, %.thread152 ]
+141:                                              ; preds = %.critedge136.thread, %137, %132, %129, %79, %88, %85, %59, %46, %49, %.critedge136, %.critedge138, %72, %.critedge, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %75, %72 ], [ 1, %.critedge138 ], [ 0, %.critedge136 ], [ %50, %49 ], [ %44, %46 ], [ 0, %59 ], [ 0, %85 ], [ %82, %79 ], [ %93, %88 ], [ 0, %129 ], [ 0, %132 ], [ 0, %137 ], [ %.3.ph, %.critedge136.thread ]
   ret i32 %.0
 }
 
@@ -1255,7 +1255,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 620, ptr noundef nonnull @__func__.EVP_DigestVerifyFinal) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 188, ptr noundef null) #6
-  br label %.thread
+  br label %.critedge76
 
 12:                                               ; preds = %3
   %13 = icmp eq ptr %7, null
@@ -1281,9 +1281,9 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 24:                                               ; preds = %20
   %25 = and i64 %9, 512
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %30, label %.thread84
+  br i1 %26, label %30, label %.thread83
 
-.thread84:                                        ; preds = %24
+.thread83:                                        ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %28 = load ptr, ptr %27, align 8, !tbaa !68
   %29 = tail call i32 %28(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %2) #6
@@ -1295,24 +1295,24 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %spec.select74 = select i1 %.not66, ptr %7, ptr %31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select74, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
-  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %spec.select74, i64 48
-  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !25
+  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %spec.select74, i64 48
+  %.pre80 = load ptr, ptr %.phi.trans.insert79, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
   %33 = load ptr, ptr %32, align 8, !tbaa !68
-  %34 = tail call i32 %33(ptr noundef %.pre81, ptr noundef %1, i64 noundef %2) #6
+  %34 = tail call i32 %33(ptr noundef %.pre80, ptr noundef %1, i64 noundef %2) #6
   %35 = icmp eq ptr %31, null
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.thread84, %30
-  %37 = phi i32 [ %29, %.thread84 ], [ %34, %30 ]
+36:                                               ; preds = %.thread83, %30
+  %37 = phi i32 [ %29, %.thread83 ], [ %34, %30 ]
   %38 = load i64, ptr %8, align 8, !tbaa !61
   %39 = or i64 %38, 2048
   store i64 %39, ptr %8, align 8, !tbaa !61
-  br label %.thread
+  br label %.critedge76
 
 40:                                               ; preds = %30
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %31) #6
-  br label %.thread
+  br label %.critedge76
 
 41:                                               ; preds = %20, %16, %14
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -1324,7 +1324,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 646, ptr noundef nonnull @__func__.EVP_DigestVerifyFinal) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
-  br label %.thread
+  br label %.critedge76
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 160
@@ -1338,16 +1338,16 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %51 = load ptr, ptr %50, align 8, !tbaa !60
   %52 = tail call i32 %51(ptr noundef nonnull %7, ptr noundef nonnull %0) #6
   %.not68 = icmp eq i32 %52, 0
-  br i1 %.not68, label %.thread, label %._crit_edge
+  br i1 %.not68, label %.critedge76, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
-  %.pre82 = load i8, ptr %46, align 8
-  %.pre83 = load ptr, ptr %42, align 8, !tbaa !51
+  %.pre81 = load i8, ptr %46, align 8
+  %.pre82 = load ptr, ptr %42, align 8, !tbaa !51
   br label %53
 
 53:                                               ; preds = %._crit_edge, %45
-  %54 = phi ptr [ %.pre83, %._crit_edge ], [ %43, %45 ]
-  %55 = phi i8 [ %.pre82, %._crit_edge ], [ %47, %45 ]
+  %54 = phi ptr [ %.pre82, %._crit_edge ], [ %43, %45 ]
+  %55 = phi i8 [ %.pre81, %._crit_edge ], [ %47, %45 ]
   %56 = and i8 %55, -2
   store i8 %56, ptr %46, align 8
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 136
@@ -1359,15 +1359,15 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not70, label %68, label %61
 
 61:                                               ; preds = %53
-  br i1 %.not69, label %66, label %.thread77
+  br i1 %.not69, label %66, label %.thread
 
-.thread77:                                        ; preds = %61
+.thread:                                          ; preds = %61
   %62 = trunc i64 %2 to i32
   %63 = tail call i32 %58(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %62, ptr noundef nonnull %0) #6
   %64 = load i64, ptr %8, align 8, !tbaa !61
   %65 = or i64 %64, 2048
   store i64 %65, ptr %8, align 8, !tbaa !61
-  br label %.thread
+  br label %.critedge76
 
 66:                                               ; preds = %61
   %67 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
@@ -1376,7 +1376,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 68:                                               ; preds = %53
   %69 = tail call ptr @EVP_MD_CTX_new() #6
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread, label %71
+  br i1 %70, label %.critedge76, label %71
 
 71:                                               ; preds = %68
   %72 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %69, ptr noundef nonnull %0) #6
@@ -1385,7 +1385,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 73:                                               ; preds = %71
   tail call void @EVP_MD_CTX_free(ptr noundef nonnull %69) #6
-  br label %.thread
+  br label %.critedge76
 
 74:                                               ; preds = %71
   br i1 %.not69, label %84, label %75
@@ -1405,7 +1405,7 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %85 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %69, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
   br label %86
 
-86:                                               ; preds = %75, %84
+86:                                               ; preds = %84, %75
   %.2 = phi i32 [ %83, %75 ], [ %85, %84 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %69) #6
   br label %87
@@ -1414,16 +1414,16 @@ define i32 @EVP_DigestVerifyFinal(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %.058 = phi i32 [ %67, %66 ], [ %.2, %86 ]
   %88 = icmp ne i32 %.058, 0
   %or.cond = select i1 %.not69, i1 %88, i1 false
-  br i1 %or.cond, label %89, label %.thread
+  br i1 %or.cond, label %89, label %.critedge76
 
 89:                                               ; preds = %87
   %90 = load i32, ptr %4, align 4, !tbaa !54
   %91 = zext i32 %90 to i64
   %92 = call i32 @EVP_PKEY_verify(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef %91) #6
-  br label %.thread
+  br label %.critedge76
 
-.thread:                                          ; preds = %68, %73, %.thread77, %87, %49, %36, %40, %89, %.critedge, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %92, %89 ], [ %34, %40 ], [ %37, %36 ], [ 0, %49 ], [ %.058, %87 ], [ %63, %.thread77 ], [ -1, %73 ], [ -1, %68 ]
+.critedge76:                                      ; preds = %.thread, %73, %68, %87, %49, %36, %40, %89, %.critedge, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %92, %89 ], [ %34, %40 ], [ %37, %36 ], [ 0, %49 ], [ %.058, %87 ], [ -1, %68 ], [ -1, %73 ], [ %63, %.thread ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i32 %.0

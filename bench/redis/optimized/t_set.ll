@@ -6380,8 +6380,8 @@ define dso_local void @sinterCardCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #10
   br label %.loopexit
 
-.preheader:                                       ; preds = %9, %31
-  %.0.in = phi i64 [ %.0, %31 ], [ %10, %9 ]
+.preheader:                                       ; preds = %9, %30
+  %.0.in = phi i64 [ %.0, %30 ], [ %10, %9 ]
   %.0 = add nsw i64 %.0.in, 2
   %17 = load i32, ptr %11, align 8, !tbaa !74
   %18 = sext i32 %17 to i64
@@ -6400,19 +6400,19 @@ define dso_local void @sinterCardCommand(ptr noundef %0) local_unnamed_addr #0 {
   %28 = icmp eq i32 %27, 0
   %29 = icmp ne i32 %17, %.neg
   %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %31, label %.thread
+  br i1 %or.cond, label %30, label %.critedge
 
-.thread:                                          ; preds = %21
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !108
-  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %30) #10
-  br label %.loopexit
-
-31:                                               ; preds = %21
-  %32 = getelementptr i8, ptr %22, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !73
-  %34 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %3, ptr noundef nonnull @.str.21) #10
-  %.not23 = icmp eq i32 %34, 0
+30:                                               ; preds = %21
+  %31 = getelementptr i8, ptr %22, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !73
+  %33 = call i32 @getPositiveLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %3, ptr noundef nonnull @.str.21) #10
+  %.not23 = icmp eq i32 %33, 0
   br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !133
+
+.critedge:                                        ; preds = %21
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !108
+  call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %34) #10
+  br label %.loopexit
 
 35:                                               ; preds = %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -6421,7 +6421,7 @@ define dso_local void @sinterCardCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @sinterGenericCommand(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %37, ptr noundef null, i32 noundef 1, i64 noundef %38)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %.thread, %1, %35, %16
+.loopexit:                                        ; preds = %30, %.critedge, %1, %35, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   ret void

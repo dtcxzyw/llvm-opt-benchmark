@@ -8769,7 +8769,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %9
 
 Vec_IntFree.exit:                                 ; preds = %17, %19
   tail call void @free(ptr noundef nonnull %calloc) #26
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8780,9 +8780,9 @@ Vec_IntFree.exit:                                 ; preds = %17, %19
   %26 = tail call i32 @Wlc_ObjAlloc(ptr noundef %22, i32 noundef 6, i32 noundef %23, i32 noundef %25, i32 noundef 0) #26
   %27 = load ptr, ptr %21, align 8, !tbaa !31
   %28 = getelementptr i8, ptr %27, i64 640
-  %.val43 = load ptr, ptr %28, align 8, !tbaa !66
+  %.val45 = load ptr, ptr %28, align 8, !tbaa !66
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val43, i64 %29
+  %30 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val45, i64 %29
   tail call void @Wlc_ObjAddFanins(ptr noundef %27, ptr noundef %30, ptr noundef nonnull %calloc) #26
   %31 = load i32, ptr %8, align 4, !tbaa !36
   %32 = load ptr, ptr %21, align 8, !tbaa !31
@@ -8797,14 +8797,14 @@ Vec_IntFree.exit:                                 ; preds = %17, %19
   %40 = or disjoint i16 %39, %38
   store i16 %40, ptr %34, align 8
   %41 = load ptr, ptr %14, align 8, !tbaa !21
-  %.not.i45 = icmp eq ptr %41, null
-  br i1 %.not.i45, label %Vec_IntFree.exit46, label %42
+  %.not.i47 = icmp eq ptr %41, null
+  br i1 %.not.i47, label %Vec_IntFree.exit48, label %42
 
 42:                                               ; preds = %20
   tail call void @free(ptr noundef nonnull %41) #26
-  br label %Vec_IntFree.exit46
+  br label %Vec_IntFree.exit48
 
-Vec_IntFree.exit46:                               ; preds = %20, %42
+Vec_IntFree.exit48:                               ; preds = %20, %42
   tail call void @free(ptr noundef nonnull %calloc) #26
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i32, ptr %43, align 8, !tbaa !103
@@ -8819,18 +8819,11 @@ Vec_IntFree.exit46:                               ; preds = %20, %42
   %.not42 = icmp eq i32 %51, 0
   br i1 %.not42, label %54, label %52
 
-52:                                               ; preds = %Vec_IntFree.exit46
+52:                                               ; preds = %Vec_IntFree.exit48
   %53 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.108, ptr noundef nonnull %5)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %Vec_IntFree.exit, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #26
-  br label %Wlc_PrsSkipSpaces.exit50
-
-54:                                               ; preds = %Vec_IntFree.exit46
+54:                                               ; preds = %Vec_IntFree.exit48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
@@ -8924,7 +8917,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %62
 
 76:                                               ; preds = %60
   %77 = tail call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.109)
-  br label %Wlc_PrsSkipSpaces.exit50
+  br label %Wlc_PrsSkipSpaces.exit52
 
 .loopexit:                                        ; preds = %72, %66, %.critedge.i
   %.020.lcssa.i = phi ptr [ %.0.i.i, %.critedge.i ], [ %73, %72 ], [ %.02037.i, %66 ]
@@ -8941,7 +8934,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %62
 
 84:                                               ; preds = %.loopexit
   %85 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef nonnull %.020.lcssa.i, ptr noundef nonnull @.str.110, ptr noundef nonnull @Wlc_PrsFindName.Buffer)
-  br label %Wlc_PrsSkipSpaces.exit50
+  br label %Wlc_PrsSkipSpaces.exit52
 
 86:                                               ; preds = %.loopexit, %54
   %.136 = phi i32 [ %50, %54 ], [ %82, %.loopexit ]
@@ -9015,14 +9008,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %118
 
 118:                                              ; preds = %118, %Vec_IntPush.exit
-  %.0.i47 = phi ptr [ %.034, %Vec_IntPush.exit ], [ %120, %118 ]
-  %119 = load i8, ptr %.0.i47, align 1, !tbaa !39
-  %cond.i48 = icmp eq i8 %119, 32
-  %120 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 1
-  br i1 %cond.i48, label %118, label %Wlc_PrsSkipSpaces.exit50, !llvm.loop !54
+  %.0.i49 = phi ptr [ %.034, %Vec_IntPush.exit ], [ %120, %118 ]
+  %119 = load i8, ptr %.0.i49, align 1, !tbaa !39
+  %cond.i50 = icmp eq i8 %119, 32
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 1
+  br i1 %cond.i50, label %118, label %Wlc_PrsSkipSpaces.exit52, !llvm.loop !54
 
-Wlc_PrsSkipSpaces.exit50:                         ; preds = %118, %84, %76, %.thread
-  %.133 = phi ptr [ null, %.thread ], [ null, %76 ], [ null, %84 ], [ %.0.i47, %118 ]
+.critedge:                                        ; preds = %52, %Vec_IntFree.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #26
+  br label %Wlc_PrsSkipSpaces.exit52
+
+Wlc_PrsSkipSpaces.exit52:                         ; preds = %118, %76, %84, %.critedge
+  %.133 = phi ptr [ null, %.critedge ], [ null, %84 ], [ null, %76 ], [ %.0.i49, %118 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
   ret ptr %.133
 }

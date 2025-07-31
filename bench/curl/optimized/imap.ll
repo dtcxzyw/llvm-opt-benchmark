@@ -715,7 +715,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   %.val.i.i.i = load ptr, ptr %189, align 8, !tbaa !98
   %263 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 1328
   store i32 11, ptr %263, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread104.i.i
+  br label %imap_perform_append.exit.thread102.i.i
 
 264:                                              ; preds = %217
   %265 = getelementptr inbounds nuw i8, ptr %191, i64 64
@@ -729,7 +729,7 @@ imap_parse_url_path.exit:                         ; preds = %165
 268:                                              ; preds = %267
   %269 = load ptr, ptr %197, align 8, !tbaa !81
   %.not66.i.i = icmp eq ptr %269, null
-  br i1 %.not66.i.i, label %270, label %.thread108.i.i
+  br i1 %.not66.i.i, label %270, label %.thread106.i.i
 
 270:                                              ; preds = %268, %267
   %271 = load ptr, ptr %7, align 8, !tbaa !7
@@ -778,13 +778,13 @@ imap_parse_url_path.exit:                         ; preds = %165
   br i1 %.not26.i.i.i, label %292, label %imap_parse_custom_request.exit
 
 292:                                              ; preds = %291
-  %.val.i77.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %293 = getelementptr inbounds nuw i8, ptr %.val.i77.i.i, i64 1328
+  %.val.i76.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %293 = getelementptr inbounds nuw i8, ptr %.val.i76.i.i, i64 1328
   store i32 7, ptr %293, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread104.i.i
+  br label %imap_perform_append.exit.thread102.i.i
 
 294:                                              ; preds = %264
-  br i1 %.0.i.i, label %295, label %.thread96.i.i
+  br i1 %.0.i.i, label %295, label %.thread94.i.i
 
 295:                                              ; preds = %294
   %296 = getelementptr inbounds nuw i8, ptr %191, i64 24
@@ -806,36 +806,36 @@ imap_parse_url_path.exit:                         ; preds = %165
   %304 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %305 = load ptr, ptr %304, align 8, !tbaa !111
   %.not69.i.i = icmp eq ptr %305, null
-  br i1 %.not69.i.i, label %.thread98.i.i, label %306
+  br i1 %.not69.i.i, label %.thread96.i.i, label %306
 
 306:                                              ; preds = %303
   %307 = call fastcc i32 @imap_perform_search(ptr noundef nonnull %0)
   br label %imap_perform_append.exit.i.i
 
-.thread96.i.i:                                    ; preds = %294
+.thread94.i.i:                                    ; preds = %294
   %308 = load ptr, ptr %197, align 8, !tbaa !81
   %309 = icmp eq ptr %308, null
-  br i1 %309, label %.thread98.i.i, label %.thread100.i.i
+  br i1 %309, label %.thread96.i.i, label %.thread98.i.i
 
-.thread100.i.i:                                   ; preds = %.thread96.i.i
+.thread98.i.i:                                    ; preds = %.thread94.i.i
   %310 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %311 = load ptr, ptr %310, align 8, !tbaa !88
   %.not71.i.i = icmp eq ptr %311, null
-  br i1 %.not71.i.i, label %312, label %.thread108.i.i
+  br i1 %.not71.i.i, label %312, label %.thread106.i.i
 
-312:                                              ; preds = %.thread100.i.i
+312:                                              ; preds = %.thread98.i.i
   %313 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %314 = load ptr, ptr %313, align 8, !tbaa !89
   %.not72.i.i = icmp eq ptr %314, null
-  br i1 %.not72.i.i, label %315, label %.thread108.i.i
+  br i1 %.not72.i.i, label %315, label %.thread106.i.i
 
 315:                                              ; preds = %312
   %316 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %317 = load ptr, ptr %316, align 8, !tbaa !111
   %.not73.i.i = icmp eq ptr %317, null
-  br i1 %.not73.i.i, label %.thread98.i.i, label %.thread108.i.i
+  br i1 %.not73.i.i, label %.thread96.i.i, label %.thread106.i.i
 
-.thread108.i.i:                                   ; preds = %315, %312, %.thread100.i.i, %268
+.thread106.i.i:                                   ; preds = %315, %312, %.thread98.i.i, %268
   %318 = load ptr, ptr %189, align 8, !tbaa !98
   %319 = load ptr, ptr %7, align 8, !tbaa !7
   %320 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -850,14 +850,14 @@ imap_parse_url_path.exit:                         ; preds = %165
   store ptr null, ptr %324, align 8, !tbaa !105
   %326 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %327 = load ptr, ptr %326, align 8, !tbaa !81
-  %.not.i78.i.i = icmp eq ptr %327, null
-  br i1 %.not.i78.i.i, label %328, label %329
+  %.not.i77.i.i = icmp eq ptr %327, null
+  br i1 %.not.i77.i.i, label %328, label %329
 
-328:                                              ; preds = %.thread108.i.i
+328:                                              ; preds = %.thread106.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.67) #7
   br label %imap_parse_custom_request.exit
 
-329:                                              ; preds = %.thread108.i.i
+329:                                              ; preds = %.thread106.i.i
   %330 = call fastcc ptr @imap_atom(ptr noundef nonnull %327, i1 noundef zeroext false)
   %.not19.i.i.i = icmp eq ptr %330, null
   br i1 %.not19.i.i.i, label %imap_parse_custom_request.exit, label %331
@@ -870,31 +870,31 @@ imap_parse_url_path.exit:                         ; preds = %165
   br i1 %.not20.i.i.i, label %334, label %imap_parse_custom_request.exit
 
 334:                                              ; preds = %331
-  %.val.i80.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %335 = getelementptr inbounds nuw i8, ptr %.val.i80.i.i, i64 1328
+  %.val.i79.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %335 = getelementptr inbounds nuw i8, ptr %.val.i79.i.i, i64 1328
   store i32 8, ptr %335, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread104.i.i
+  br label %imap_perform_append.exit.thread102.i.i
 
-.thread98.i.i:                                    ; preds = %315, %.thread96.i.i, %303
+.thread96.i.i:                                    ; preds = %315, %.thread94.i.i, %303
   %336 = load ptr, ptr %7, align 8, !tbaa !7
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 64
   %338 = load ptr, ptr %337, align 8, !tbaa !94
-  %.not.i81.i.i = icmp eq ptr %338, null
-  br i1 %.not.i81.i.i, label %343, label %339
+  %.not.i80.i.i = icmp eq ptr %338, null
+  br i1 %.not.i80.i.i, label %343, label %339
 
-339:                                              ; preds = %.thread98.i.i
+339:                                              ; preds = %.thread96.i.i
   %340 = getelementptr inbounds nuw i8, ptr %336, i64 72
   %341 = load ptr, ptr %340, align 8, !tbaa !96
-  %.not25.i82.i.i = icmp eq ptr %341, null
-  %spec.select.i83.i.i = select i1 %.not25.i82.i.i, ptr @.str.15, ptr %341
-  %342 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %338, ptr noundef nonnull %spec.select.i83.i.i)
+  %.not25.i81.i.i = icmp eq ptr %341, null
+  %spec.select.i82.i.i = select i1 %.not25.i81.i.i, ptr @.str.15, ptr %341
+  %342 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %338, ptr noundef nonnull %spec.select.i82.i.i)
   br label %356
 
-343:                                              ; preds = %.thread98.i.i
+343:                                              ; preds = %.thread96.i.i
   %344 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %345 = load ptr, ptr %344, align 8, !tbaa !81
-  %.not23.i89.i.i = icmp eq ptr %345, null
-  br i1 %.not23.i89.i.i, label %348, label %346
+  %.not23.i87.i.i = icmp eq ptr %345, null
+  br i1 %.not23.i87.i.i, label %348, label %346
 
 346:                                              ; preds = %343
   %347 = call fastcc ptr @imap_atom(ptr noundef nonnull %345, i1 noundef zeroext true)
@@ -907,8 +907,8 @@ imap_parse_url_path.exit:                         ; preds = %165
 
 351:                                              ; preds = %348, %346
   %352 = phi ptr [ %347, %346 ], [ %350, %348 ]
-  %.not24.not.i90.i.i = icmp eq ptr %352, null
-  br i1 %.not24.not.i90.i.i, label %imap_parse_custom_request.exit, label %353
+  %.not24.not.i88.i.i = icmp eq ptr %352, null
+  br i1 %.not24.not.i88.i.i, label %imap_parse_custom_request.exit, label %353
 
 353:                                              ; preds = %351
   %354 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %352)
@@ -917,37 +917,37 @@ imap_parse_url_path.exit:                         ; preds = %165
   br label %356
 
 356:                                              ; preds = %353, %339
-  %.017.i84.i.i = phi i32 [ %342, %339 ], [ %354, %353 ]
-  %.not26.i85.i.i = icmp eq i32 %.017.i84.i.i, 0
-  br i1 %.not26.i85.i.i, label %357, label %imap_parse_custom_request.exit
+  %.017.i83.i.i = phi i32 [ %342, %339 ], [ %354, %353 ]
+  %.not26.i84.i.i = icmp eq i32 %.017.i83.i.i, 0
+  br i1 %.not26.i84.i.i, label %357, label %imap_parse_custom_request.exit
 
 357:                                              ; preds = %356
-  %.val.i88.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %358 = getelementptr inbounds nuw i8, ptr %.val.i88.i.i, i64 1328
+  %.val.i86.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %358 = getelementptr inbounds nuw i8, ptr %.val.i86.i.i, i64 1328
   store i32 7, ptr %358, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread104.i.i
+  br label %imap_perform_append.exit.thread102.i.i
 
 imap_perform_append.exit.i.i:                     ; preds = %306, %301
   %.052.i.i = phi i32 [ %302, %301 ], [ %307, %306 ]
   %.not74.i.i = icmp eq i32 %.052.i.i, 0
-  br i1 %.not74.i.i, label %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i, label %imap_parse_custom_request.exit
+  br i1 %.not74.i.i, label %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i, label %imap_parse_custom_request.exit
 
-imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i: ; preds = %imap_perform_append.exit.i.i
+imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i: ; preds = %imap_perform_append.exit.i.i
   %.pre.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  br label %imap_perform_append.exit.thread104.i.i
+  br label %imap_perform_append.exit.thread102.i.i
 
-imap_perform_append.exit.thread104.i.i:           ; preds = %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i, %357, %334, %292, %262
-  %359 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i ], [ %.val.i88.i.i, %357 ], [ %.val.i80.i.i, %334 ], [ %.val.i77.i.i, %292 ], [ %.val.i.i.i, %262 ]
+imap_perform_append.exit.thread102.i.i:           ; preds = %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i, %357, %334, %292, %262
+  %359 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i ], [ %.val.i86.i.i, %357 ], [ %.val.i79.i.i, %334 ], [ %.val.i76.i.i, %292 ], [ %.val.i.i.i, %262 ]
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 1088
   %361 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %359, i32 noundef 0) #7
   br i1 %361, label %362, label %374
 
-362:                                              ; preds = %imap_perform_append.exit.thread104.i.i
+362:                                              ; preds = %imap_perform_append.exit.thread102.i.i
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 1339
   %364 = load i8, ptr %363, align 1
   %365 = and i8 %364, 1
-  %.not.i93.i.i = icmp eq i8 %365, 0
-  br i1 %.not.i93.i.i, label %366, label %374
+  %.not.i91.i.i = icmp eq i8 %365, 0
+  br i1 %.not.i91.i.i, label %366, label %374
 
 366:                                              ; preds = %362
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -964,7 +964,7 @@ imap_perform_append.exit.thread104.i.i:           ; preds = %imap_perform_append
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
   br i1 %or.cond.i.i.i, label %374, label %imap_perform.exit.i
 
-374:                                              ; preds = %366, %362, %imap_perform_append.exit.thread104.i.i
+374:                                              ; preds = %366, %362, %imap_perform_append.exit.thread102.i.i
   %375 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %360, i1 noundef zeroext false, i1 noundef zeroext false) #7
   %376 = getelementptr inbounds nuw i8, ptr %359, i64 1328
   %377 = load i32, ptr %376, align 8, !tbaa !110
@@ -974,9 +974,9 @@ imap_perform_append.exit.thread104.i.i:           ; preds = %imap_perform_append
   br label %imap_perform.exit.i
 
 imap_perform.exit.i:                              ; preds = %374, %366
-  %.1.i92.i.i = phi i32 [ %375, %374 ], [ %367, %366 ]
+  %.1.i90.i.i = phi i32 [ %375, %374 ], [ %367, %366 ]
   %380 = call zeroext i1 @Curl_conn_is_connected(ptr noundef %190, i32 noundef 0) #7
-  %.not.i17 = icmp eq i32 %.1.i92.i.i, 0
+  %.not.i17 = icmp eq i32 %.1.i90.i.i, 0
   br i1 %.not.i17, label %381, label %imap_parse_custom_request.exit
 
 381:                                              ; preds = %imap_perform.exit.i
@@ -995,7 +995,7 @@ imap_perform.exit.i:                              ; preds = %374, %366
   br label %imap_parse_custom_request.exit
 
 imap_parse_custom_request.exit:                   ; preds = %177, %.thread.i, %165, %19, %387, %384, %381, %imap_perform.exit.i, %imap_perform_append.exit.i.i, %356, %351, %331, %329, %328, %291, %286, %258, %255, %254, %246, %.thread.i.i.i, %239, %229, %224, %168
-  %.0 = phi i32 [ %170, %168 ], [ %.1.i92.i.i, %imap_perform.exit.i ], [ 0, %381 ], [ 0, %384 ], [ 0, %387 ], [ 25, %254 ], [ 3, %224 ], [ %242, %.thread.i.i.i ], [ %249, %246 ], [ 27, %255 ], [ %260, %258 ], [ %241, %239 ], [ %236, %229 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 3, %328 ], [ 27, %329 ], [ %332, %331 ], [ %.017.i84.i.i, %356 ], [ 27, %351 ], [ %.052.i.i, %imap_perform_append.exit.i.i ], [ %.464.ph.i, %.thread.i ], [ 3, %165 ], [ %27, %19 ], [ 27, %177 ]
+  %.0 = phi i32 [ %170, %168 ], [ %.1.i90.i.i, %imap_perform.exit.i ], [ 0, %381 ], [ 0, %384 ], [ 0, %387 ], [ 25, %254 ], [ 3, %224 ], [ %242, %.thread.i.i.i ], [ %249, %246 ], [ 27, %255 ], [ %260, %258 ], [ %241, %239 ], [ %236, %229 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 3, %328 ], [ 27, %329 ], [ %332, %331 ], [ %.017.i83.i.i, %356 ], [ 27, %351 ], [ %.052.i.i, %imap_perform_append.exit.i.i ], [ %.464.ph.i, %.thread.i ], [ 3, %165 ], [ %27, %19 ], [ 27, %177 ]
   ret i32 %.0
 }
 

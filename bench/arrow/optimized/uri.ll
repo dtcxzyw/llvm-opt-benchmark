@@ -5063,9 +5063,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   %84 = mul nuw i16 %75, 10
   %85 = zext nneg i8 %81 to i16
   %86 = add i16 %84, %85
-  %.not78.i = icmp ult i16 %86, %84
+  %.not76.i = icmp ult i16 %86, %84
   %.75.i = tail call i16 @llvm.umax.i16(i16 %86, i16 %84)
-  br i1 %.not78.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split
+  br i1 %.not76.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50, %58, %67, %76, %83
   %.151.i.sink = phi i16 [ %.75.i, %83 ], [ %75, %76 ], [ %66, %67 ], [ %57, %58 ], [ %49, %50 ], [ 0, %43 ], [ %.2.i, %38 ]

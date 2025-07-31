@@ -4228,12 +4228,12 @@ define internal range(i32 0, 2) i32 @dt_iop_basecurve_key_press(ptr noundef %0, 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load i32, ptr %6, align 8, !tbaa !193
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %18, label %9
+  br i1 %8, label %.fold.split, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4, !tbaa !243
-  switch i32 %11, label %18 [
+  switch i32 %11, label %.fold.split [
     i32 65362, label %15
     i32 65431, label %15
     i32 65364, label %12
@@ -4253,15 +4253,15 @@ define internal range(i32 0, 2) i32 @dt_iop_basecurve_key_press(ptr noundef %0, 
 14:                                               ; preds = %9, %9
   br label %15
 
-15:                                               ; preds = %12, %13, %14, %9, %9
-  %.016.ph = phi float [ 0.000000e+00, %9 ], [ 0.000000e+00, %9 ], [ 0xBF50624DE0000000, %14 ], [ 0x3F50624DE0000000, %13 ], [ 0.000000e+00, %12 ]
-  %.0.ph = phi float [ 0x3F50624DE0000000, %9 ], [ 0x3F50624DE0000000, %9 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %13 ], [ 0xBF50624DE0000000, %12 ]
+15:                                               ; preds = %13, %14, %12, %9, %9
+  %.016 = phi nsz float [ 0.000000e+00, %12 ], [ 0x3F50624DE0000000, %13 ], [ 0xBF50624DE0000000, %14 ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %9 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %12 ], [ 0.000000e+00, %13 ], [ 0.000000e+00, %14 ], [ 0x3F50624DE0000000, %9 ], [ 0x3F50624DE0000000, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !245
-  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.016.ph, float noundef %.0.ph, i32 noundef %17)
-  br label %18
+  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.016, float noundef %.0, i32 noundef %17)
+  br label %.fold.split
 
-18:                                               ; preds = %9, %15, %3
+.fold.split:                                      ; preds = %9, %15, %3
   %.018 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 0, %9 ]
   ret i32 %.018
 }

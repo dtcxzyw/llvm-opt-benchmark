@@ -686,8 +686,8 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 44
   %.pre241 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !143
   %105 = icmp sgt i32 %.pre241, 5920
-  %or.cond266 = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond266, label %._crit_edge240, label %.preheader195
+  %or.cond262 = select i1 %104, i1 true, i1 %105
+  br i1 %or.cond262, label %._crit_edge240, label %.preheader195
 
 .preheader195:                                    ; preds = %98
   %106 = load i32, ptr %25, align 4, !tbaa !144
@@ -841,7 +841,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %171 = icmp sgt i32 %170, -1
   tail call void @llvm.assume(i1 %171)
   %172 = icmp eq i32 %170, 0
-  br i1 %172, label %.invoke269, label %.lr.ph219
+  br i1 %172, label %.invoke265, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %169, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit
   %.sroa.14.0217 = phi i1 [ true, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ false, %169 ]
@@ -891,9 +891,9 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %187 = add nsw i32 %.sroa.8.8.extract.trunc133, %.sroa.0126.0.extract.trunc
   %188 = icmp eq i32 %187, %.sroa.17106.sroa.0.0213
   %or.cond193 = select i1 %186, i1 %188, i1 false
-  br i1 %or.cond193, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread, label %.invoke267
+  br i1 %or.cond193, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread, label %.invoke263
 
-189:                                              ; preds = %.invoke267
+189:                                              ; preds = %.invoke263
   %190 = landingpad { ptr, i32 }
           cleanup
   br label %216
@@ -907,14 +907,14 @@ _ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exi
   %193 = icmp slt i32 %.sroa.17106.sroa.0.0213, %150
   %194 = icmp slt i32 %.sroa.17106.sroa.8.0214, %153
   %195 = and i1 %193, %194
-  br i1 %195, label %.invoke267, label %.loopexit
+  br i1 %195, label %.invoke263, label %.loopexit
 
-.invoke267:                                       ; preds = %.critedge.i, %192
+.invoke263:                                       ; preds = %.critedge.i, %192
   %196 = phi ptr [ @.str.14, %192 ], [ @.str.13, %.critedge.i ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %196, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #14
-          to label %.cont268 unwind label %189
+          to label %.cont264 unwind label %189
 
-.cont268:                                         ; preds = %.invoke267
+.cont264:                                         ; preds = %.invoke263
   unreachable
 
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread
@@ -941,9 +941,9 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   br i1 %206, label %.loopexit.thread, label %.lr.ph219
 
 .loopexit:                                        ; preds = %192
-  br i1 %.sroa.14.0217, label %.loopexit.thread, label %.invoke269
+  br i1 %.sroa.14.0217, label %.loopexit.thread, label %.invoke265
 
-207:                                              ; preds = %.invoke269
+207:                                              ; preds = %.invoke265
   %208 = landingpad { ptr, i32 }
           cleanup
   br label %216
@@ -961,14 +961,14 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   %211 = icmp eq i32 %150, %.sroa.0.0.extract.trunc
   %212 = icmp eq i32 %210, %153
   %213 = select i1 %211, i1 %212, i1 false
-  br i1 %213, label %215, label %.invoke269
+  br i1 %213, label %215, label %.invoke265
 
-.invoke269:                                       ; preds = %.loopexit, %169, %.loopexit.thread
+.invoke265:                                       ; preds = %.loopexit, %169, %.loopexit.thread
   %214 = phi ptr [ @.str.16, %.loopexit.thread ], [ @.str.15, %169 ], [ @.str.15, %.loopexit ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %214, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #14
-          to label %.cont270 unwind label %207
+          to label %.cont266 unwind label %207
 
-.cont270:                                         ; preds = %.invoke269
+.cont266:                                         ; preds = %.invoke265
   unreachable
 
 215:                                              ; preds = %.loopexit.thread

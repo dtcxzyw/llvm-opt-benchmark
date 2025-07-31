@@ -3914,13 +3914,13 @@ define range(i32 -41, 1) i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_
 
 7:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 3137, ptr noundef nonnull @__func__.mriStep_SetCoupling, ptr noundef nonnull @.str, ptr noundef nonnull @.str.75) #14
-  br label %70
+  br label %69
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !125
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %70
+  br i1 %.not, label %11, label %69
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -3940,22 +3940,22 @@ define range(i32 -41, 1) i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_
   %.not40 = icmp eq i32 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %21 = load i32, ptr %20, align 8, !tbaa !137
-  %switch.tableidx47 = add i32 %21, -1
-  %22 = icmp ult i32 %switch.tableidx47, 4
+  %switch.tableidx44 = add i32 %21, -1
+  %22 = icmp ult i32 %switch.tableidx44, 4
   br i1 %.not40, label %24, label %23
 
 23:                                               ; preds = %17
-  br i1 %22, label %switch.lookup, label %42
+  br i1 %22, label %switch.lookup, label %.critedge
 
 24:                                               ; preds = %17
-  br i1 %22, label %switch.lookup46, label %42
+  br i1 %22, label %switch.lookup43, label %.critedge
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %27 = load i32, ptr %26, align 8, !tbaa !137
-  %switch.tableidx51 = add i32 %27, -1
-  %28 = icmp ult i32 %switch.tableidx51, 5
-  br i1 %28, label %switch.lookup50, label %42
+  %switch.tableidx48 = add i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx48, 5
+  br i1 %28, label %switch.lookup47, label %.critedge
 
 29:                                               ; preds = %11
   br i1 %.not36, label %38, label %30
@@ -3966,99 +3966,99 @@ define range(i32 -41, 1) i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_
   %.not37 = icmp eq i32 %32, 0
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %34 = load i32, ptr %33, align 8, !tbaa !137
-  %switch.tableidx57 = add i32 %34, -2
-  %35 = icmp ult i32 %switch.tableidx57, 3
+  %switch.tableidx54 = add i32 %34, -2
+  %35 = icmp ult i32 %switch.tableidx54, 3
   br i1 %.not37, label %37, label %36
 
 36:                                               ; preds = %30
-  br i1 %35, label %switch.lookup54, label %42
+  br i1 %35, label %switch.lookup51, label %.critedge
 
 37:                                               ; preds = %30
-  br i1 %35, label %switch.lookup56, label %42
+  br i1 %35, label %switch.lookup53, label %.critedge
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %40 = load i32, ptr %39, align 8, !tbaa !137
-  %switch.tableidx60 = add i32 %40, -2
-  %41 = icmp ult i32 %switch.tableidx60, 4
-  br i1 %41, label %switch.lookup59, label %42
+  %switch.tableidx57 = add i32 %40, -2
+  %41 = icmp ult i32 %switch.tableidx57, 4
+  br i1 %41, label %switch.lookup56, label %.critedge
 
-42:                                               ; preds = %38, %37, %36, %25, %24, %23
+.critedge:                                        ; preds = %38, %37, %36, %25, %24, %23
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 3214, ptr noundef nonnull @__func__.mriStep_SetCoupling, ptr noundef nonnull @.str, ptr noundef nonnull @.str.76) #14
-  br label %70
+  br label %69
 
 switch.lookup:                                    ; preds = %23
-  %43 = zext nneg i32 %switch.tableidx47 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling, i64 0, i64 %43
+  %42 = zext nneg i32 %switch.tableidx44 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling, i64 0, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %47
+  br label %46
 
-switch.lookup46:                                  ; preds = %24
-  %44 = zext nneg i32 %switch.tableidx47 to i64
-  %switch.gep48 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling.1, i64 0, i64 %44
-  %switch.load49 = load i32, ptr %switch.gep48, align 4
-  br label %47
+switch.lookup43:                                  ; preds = %24
+  %43 = zext nneg i32 %switch.tableidx44 to i64
+  %switch.gep45 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling.1, i64 0, i64 %43
+  %switch.load46 = load i32, ptr %switch.gep45, align 4
+  br label %46
 
-switch.lookup50:                                  ; preds = %25
-  %45 = zext nneg i32 %switch.tableidx51 to i64
-  %switch.gep52 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.mriStep_SetCoupling.2, i64 0, i64 %45
-  %switch.load53 = load i32, ptr %switch.gep52, align 4
-  br label %47
+switch.lookup47:                                  ; preds = %25
+  %44 = zext nneg i32 %switch.tableidx48 to i64
+  %switch.gep49 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.mriStep_SetCoupling.2, i64 0, i64 %44
+  %switch.load50 = load i32, ptr %switch.gep49, align 4
+  br label %46
 
-switch.lookup54:                                  ; preds = %36
+switch.lookup51:                                  ; preds = %36
   %switch.offset = add nuw nsw i32 %34, 221
-  br label %47
+  br label %46
 
-switch.lookup56:                                  ; preds = %37
-  %switch.offset58 = add nuw nsw i32 %34, 201
-  br label %47
+switch.lookup53:                                  ; preds = %37
+  %switch.offset55 = add nuw nsw i32 %34, 201
+  br label %46
 
-switch.lookup59:                                  ; preds = %38
-  %46 = zext nneg i32 %switch.tableidx60 to i64
-  %switch.gep61 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling.3, i64 0, i64 %46
-  %switch.load62 = load i32, ptr %switch.gep61, align 4
-  br label %47
+switch.lookup56:                                  ; preds = %38
+  %45 = zext nneg i32 %switch.tableidx57 to i64
+  %switch.gep58 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mriStep_SetCoupling.3, i64 0, i64 %45
+  %switch.load59 = load i32, ptr %switch.gep58, align 4
+  br label %46
 
-47:                                               ; preds = %switch.lookup59, %switch.lookup56, %switch.lookup54, %switch.lookup50, %switch.lookup46, %switch.lookup
-  %.0.ph = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load49, %switch.lookup46 ], [ %switch.load53, %switch.lookup50 ], [ %switch.offset, %switch.lookup54 ], [ %switch.offset58, %switch.lookup56 ], [ %switch.load62, %switch.lookup59 ]
-  %48 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0.ph) #14
-  store ptr %48, ptr %9, align 8, !tbaa !125
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %51
+46:                                               ; preds = %switch.lookup56, %switch.lookup53, %switch.lookup51, %switch.lookup47, %switch.lookup43, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load46, %switch.lookup43 ], [ %switch.load50, %switch.lookup47 ], [ %switch.offset, %switch.lookup51 ], [ %switch.offset55, %switch.lookup53 ], [ %switch.load59, %switch.lookup56 ]
+  %47 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0) #14
+  store ptr %47, ptr %9, align 8, !tbaa !125
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -41, i32 noundef 3222, ptr noundef nonnull @__func__.mriStep_SetCoupling, ptr noundef nonnull @.str, ptr noundef nonnull @.str.77) #14
-  br label %70
+  br label %69
 
-51:                                               ; preds = %47
-  call void @MRIStepCoupling_Space(ptr noundef nonnull %48, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
-  %52 = load i64, ptr %2, align 8, !tbaa !193
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %54 = load i64, ptr %53, align 8, !tbaa !85
-  %55 = add nsw i64 %54, %52
-  store i64 %55, ptr %53, align 8, !tbaa !85
-  %56 = load i64, ptr %3, align 8, !tbaa !193
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %58 = load i64, ptr %57, align 8, !tbaa !86
-  %59 = add nsw i64 %58, %56
-  store i64 %59, ptr %57, align 8, !tbaa !86
-  %60 = load ptr, ptr %9, align 8, !tbaa !125
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !130
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i32 %62, ptr %63, align 8, !tbaa !131
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !132
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %65, ptr %66, align 8, !tbaa !137
-  %67 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !138
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store i32 %68, ptr %69, align 4, !tbaa !140
-  br label %70
+50:                                               ; preds = %46
+  call void @MRIStepCoupling_Space(ptr noundef nonnull %47, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
+  %51 = load i64, ptr %2, align 8, !tbaa !193
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %53 = load i64, ptr %52, align 8, !tbaa !85
+  %54 = add nsw i64 %53, %51
+  store i64 %54, ptr %52, align 8, !tbaa !85
+  %55 = load i64, ptr %3, align 8, !tbaa !193
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %57 = load i64, ptr %56, align 8, !tbaa !86
+  %58 = add nsw i64 %57, %55
+  store i64 %58, ptr %56, align 8, !tbaa !86
+  %59 = load ptr, ptr %9, align 8, !tbaa !125
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load i32, ptr %60, align 8, !tbaa !130
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i32 %61, ptr %62, align 8, !tbaa !131
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %64 = load i32, ptr %63, align 4, !tbaa !132
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i32 %64, ptr %65, align 8, !tbaa !137
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %67 = load i32, ptr %66, align 8, !tbaa !138
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  store i32 %67, ptr %68, align 4, !tbaa !140
+  br label %69
 
-70:                                               ; preds = %8, %51, %50, %42, %7
-  %.032 = phi i32 [ -21, %7 ], [ -22, %42 ], [ -41, %50 ], [ 0, %51 ], [ 0, %8 ]
+69:                                               ; preds = %8, %50, %49, %.critedge, %7
+  %.032 = phi i32 [ -21, %7 ], [ -22, %.critedge ], [ -41, %49 ], [ 0, %50 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret i32 %.032

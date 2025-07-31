@@ -10550,7 +10550,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 .noexc27:                                         ; preds = %31
   %34 = load i32, ptr %11, align 8, !tbaa !96
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %35, label %.thread.thread, !prof !284
+  br i1 %.not, label %35, label %.critedge, !prof !284
 
 35:                                               ; preds = %.noexc27
   %36 = and i32 %33, -1024
@@ -10574,7 +10574,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   store i32 9, ptr %11, align 8, !tbaa !96
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %19, ptr %46, align 8, !tbaa !99
-  br label %.thread.thread
+  br label %.critedge
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 2
@@ -10585,7 +10585,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 .noexc30:                                         ; preds = %47
   %50 = load i32, ptr %11, align 8, !tbaa !96
   %.not45 = icmp eq i32 %50, 0
-  br i1 %.not45, label %51, label %.thread.thread, !prof !284
+  br i1 %.not45, label %51, label %.critedge, !prof !284
 
 51:                                               ; preds = %.noexc30
   %52 = add i32 %49, -57344
@@ -10596,7 +10596,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   store i32 9, ptr %11, align 8, !tbaa !96
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %19, ptr %54, align 8, !tbaa !99
-  br label %.thread.thread
+  br label %.critedge
 
 55:                                               ; preds = %51
   %56 = shl nuw nsw i32 %33, 10
@@ -10613,7 +10613,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   store i32 10, ptr %11, align 8, !tbaa !96
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %19, ptr %59, align 8, !tbaa !99
-  br label %.thread.thread
+  br label %.critedge
 
 60:                                               ; preds = %12
   %61 = icmp ult i8 %14, 32
@@ -10631,12 +10631,12 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 .noexc33:                                         ; preds = %62
   store i32 11, ptr %11, align 8, !tbaa !96
   store i64 %67, ptr %68, align 8, !tbaa !99
-  br label %.thread.thread
+  br label %.critedge
 
 .noexc34:                                         ; preds = %62
   store i32 10, ptr %11, align 8, !tbaa !96
   store i64 %67, ptr %68, align 8, !tbaa !99
-  br label %.thread.thread
+  br label %.critedge
 
 69:                                               ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -10661,7 +10661,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   store i8 0, ptr %75, align 1, !tbaa !20
   %.pre86 = load i32, ptr %11, align 8, !tbaa !96
   %77 = icmp eq i32 %.pre86, 0
-  br i1 %77, label %80, label %.thread.thread, !prof !309
+  br i1 %77, label %80, label %.critedge, !prof !309
 
 78:                                               ; preds = %47, %31
   %79 = landingpad { ptr, i32 }
@@ -10710,7 +10710,7 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   %104 = inttoptr i64 %103 to ptr
   store ptr %104, ptr %99, align 8, !tbaa !20
   store i32 %86, ptr %96, align 8, !tbaa !20
-  br label %.thread.thread
+  br label %.critedge
 
 105:                                              ; preds = %80
   br i1 %92, label %106, label %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit, !prof !144
@@ -10739,14 +10739,14 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   %116 = inttoptr i64 %115 to ptr
   store ptr %116, ptr %111, align 8, !tbaa !20
   store i32 %86, ptr %108, align 8, !tbaa !20
-  br label %.thread.thread
+  br label %.critedge
 
 117:                                              ; preds = %94, %106
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %120
 
-.thread.thread:                                   ; preds = %.noexc30, %.noexc27, %.noexc34, %.noexc33, %.noexc28, %.noexc32, %.noexc31, %.thread, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit
+.critedge:                                        ; preds = %.noexc30, %.noexc27, %.noexc34, %.noexc33, %.noexc28, %.noexc32, %.noexc31, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit, %.thread
   %119 = load ptr, ptr %6, align 8, !tbaa !310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 24, i1 false), !tbaa.struct !305
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #31

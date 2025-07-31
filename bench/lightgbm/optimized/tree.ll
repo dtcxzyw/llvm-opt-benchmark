@@ -54655,20 +54655,20 @@ define linkonce_odr noundef double @_ZNK8LightGBM7CommonC17__StringToTHelperIdLb
 
 26:                                               ; preds = %23
   %27 = zext nneg i8 %24 to i64
-  %.2100.i41.i = getelementptr inbounds nuw i8, ptr %.098.i.i, i64 1
-  %28 = load i8, ptr %.2100.i41.i, align 1, !tbaa !157
+  %.2100.i33.i = getelementptr inbounds nuw i8, ptr %.098.i.i, i64 1
+  %28 = load i8, ptr %.2100.i33.i, align 1, !tbaa !157
   %29 = add i8 %28, -48
   %30 = icmp ult i8 %29, 10
   br i1 %30, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %31 = phi i8 [ %36, %.lr.ph.i ], [ %29, %26 ]
-  %.2100.i43.i = phi ptr [ %.2100.i.i, %.lr.ph.i ], [ %.2100.i41.i, %26 ]
-  %.1110.i42.i = phi i64 [ %34, %.lr.ph.i ], [ %27, %26 ]
-  %32 = mul i64 %.1110.i42.i, 10
+  %.2100.i35.i = phi ptr [ %.2100.i.i, %.lr.ph.i ], [ %.2100.i33.i, %26 ]
+  %.1110.i34.i = phi i64 [ %34, %.lr.ph.i ], [ %27, %26 ]
+  %32 = mul i64 %.1110.i34.i, 10
   %33 = zext nneg i8 %31 to i64
   %34 = add i64 %32, %33
-  %.2100.i.i = getelementptr inbounds nuw i8, ptr %.2100.i43.i, i64 1
+  %.2100.i.i = getelementptr inbounds nuw i8, ptr %.2100.i35.i, i64 1
   %35 = load i8, ptr %.2100.i.i, align 1, !tbaa !157
   %36 = add i8 %35, -48
   %37 = icmp ult i8 %36, 10
@@ -54677,12 +54677,12 @@ define linkonce_odr noundef double @_ZNK8LightGBM7CommonC17__StringToTHelperIdLb
 .loopexit.i:                                      ; preds = %.lr.ph.i, %26, %18
   %38 = phi i8 [ %20, %18 ], [ %28, %26 ], [ %35, %.lr.ph.i ]
   %.0109.i.i = phi i64 [ 0, %18 ], [ %27, %26 ], [ %34, %.lr.ph.i ]
-  %.199.i.i = phi ptr [ %19, %18 ], [ %.2100.i41.i, %26 ], [ %.2100.i.i, %.lr.ph.i ]
+  %.199.i.i = phi ptr [ %19, %18 ], [ %.2100.i33.i, %26 ], [ %.2100.i.i, %.lr.ph.i ]
   %39 = icmp eq i8 %38, 46
   br i1 %39, label %40, label %.loopexit._crit_edge.i
 
 .loopexit._crit_edge.i:                           ; preds = %.loopexit.i
-  %.pre62.i = ptrtoint ptr %.199.i.i to i64
+  %.pre54.i = ptrtoint ptr %.199.i.i to i64
   br label %65
 
 40:                                               ; preds = %.loopexit.i
@@ -54700,39 +54700,39 @@ define linkonce_odr noundef double @_ZNK8LightGBM7CommonC17__StringToTHelperIdLb
   %50 = load i8, ptr %46, align 1, !tbaa !157
   %51 = add i8 %50, -48
   %52 = icmp ult i8 %51, 10
-  br i1 %52, label %.lr.ph48.i, label %._crit_edge.i
+  br i1 %52, label %.lr.ph40.i, label %._crit_edge.i
 
-.lr.ph48.i:                                       ; preds = %45, %.lr.ph48.i
-  %53 = phi i8 [ %59, %.lr.ph48.i ], [ %51, %45 ]
-  %.4102.i47.i = phi ptr [ %54, %.lr.ph48.i ], [ %46, %45 ]
-  %.3112.i46.i = phi i64 [ %57, %.lr.ph48.i ], [ %49, %45 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.4102.i47.i, i64 1
-  %55 = mul i64 %.3112.i46.i, 10
+.lr.ph40.i:                                       ; preds = %45, %.lr.ph40.i
+  %53 = phi i8 [ %59, %.lr.ph40.i ], [ %51, %45 ]
+  %.4102.i39.i = phi ptr [ %54, %.lr.ph40.i ], [ %46, %45 ]
+  %.3112.i38.i = phi i64 [ %57, %.lr.ph40.i ], [ %49, %45 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.4102.i39.i, i64 1
+  %55 = mul i64 %.3112.i38.i, 10
   %56 = zext nneg i8 %53 to i64
   %57 = add i64 %55, %56
   %58 = load i8, ptr %54, align 1, !tbaa !157
   %59 = add i8 %58, -48
   %60 = icmp ult i8 %59, 10
-  br i1 %60, label %.lr.ph48.i, label %._crit_edge.i, !llvm.loop !1043
+  br i1 %60, label %.lr.ph40.i, label %._crit_edge.i, !llvm.loop !1043
 
-._crit_edge.i:                                    ; preds = %.lr.ph48.i, %45
-  %61 = phi i8 [ %50, %45 ], [ %58, %.lr.ph48.i ]
-  %.3112.i.lcssa.i = phi i64 [ %49, %45 ], [ %57, %.lr.ph48.i ]
-  %.4102.i.lcssa.i = phi ptr [ %46, %45 ], [ %54, %.lr.ph48.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph40.i, %45
+  %61 = phi i8 [ %50, %45 ], [ %58, %.lr.ph40.i ]
+  %.3112.i.lcssa.i = phi i64 [ %49, %45 ], [ %57, %.lr.ph40.i ]
+  %.4102.i.lcssa.i = phi ptr [ %46, %45 ], [ %54, %.lr.ph40.i ]
   %62 = ptrtoint ptr %41 to i64
   %63 = ptrtoint ptr %.4102.i.lcssa.i to i64
   %64 = sub i64 %62, %63
   br label %65
 
 65:                                               ; preds = %._crit_edge.i, %.loopexit._crit_edge.i
-  %.pre-phi63.i = phi i64 [ %.pre62.i, %.loopexit._crit_edge.i ], [ %63, %._crit_edge.i ]
+  %.pre-phi55.i = phi i64 [ %.pre54.i, %.loopexit._crit_edge.i ], [ %63, %._crit_edge.i ]
   %66 = phi i8 [ %38, %.loopexit._crit_edge.i ], [ %61, %._crit_edge.i ]
   %.2111.i.i = phi i64 [ %.0109.i.i, %.loopexit._crit_edge.i ], [ %.3112.i.lcssa.i, %._crit_edge.i ]
   %.0106.i.i = phi i64 [ 0, %.loopexit._crit_edge.i ], [ %64, %._crit_edge.i ]
   %.3101.i.i = phi ptr [ %.199.i.i, %.loopexit._crit_edge.i ], [ %.4102.i.lcssa.i, %._crit_edge.i ]
   %67 = ptrtoint ptr %.098.i.i to i64
   %68 = xor i64 %67, -1
-  %69 = add i64 %.pre-phi63.i, %68
+  %69 = add i64 %.pre-phi55.i, %68
   %70 = trunc i64 %69 to i32
   switch i8 %66, label %112 [
     i8 101, label %71
@@ -54776,36 +54776,36 @@ define linkonce_odr noundef double @_ZNK8LightGBM7CommonC17__StringToTHelperIdLb
   %97 = load i8, ptr %.9.i.i, align 1, !tbaa !157
   %98 = add i8 %97, -48
   %99 = icmp ult i8 %98, 10
-  br i1 %99, label %.lr.ph54.i, label %._crit_edge55.i
+  br i1 %99, label %.lr.ph46.i, label %._crit_edge47.i
 
-.lr.ph54.i:                                       ; preds = %81, %.lr.ph54.i
-  %100 = phi i8 [ %107, %.lr.ph54.i ], [ %98, %81 ]
-  %.2.i52.i = phi i64 [ %.3.i.i, %.lr.ph54.i ], [ %.1.i.i, %81 ]
-  %.10.i51.i = phi ptr [ %105, %.lr.ph54.i ], [ %.9.i.i, %81 ]
-  %101 = icmp slt i64 %.2.i52.i, 4294967296
-  %102 = mul nsw i64 %.2.i52.i, 10
+.lr.ph46.i:                                       ; preds = %81, %.lr.ph46.i
+  %100 = phi i8 [ %107, %.lr.ph46.i ], [ %98, %81 ]
+  %.2.i44.i = phi i64 [ %.3.i.i, %.lr.ph46.i ], [ %.1.i.i, %81 ]
+  %.10.i43.i = phi ptr [ %105, %.lr.ph46.i ], [ %.9.i.i, %81 ]
+  %101 = icmp slt i64 %.2.i44.i, 4294967296
+  %102 = mul nsw i64 %.2.i44.i, 10
   %103 = zext nneg i8 %100 to i64
   %104 = add nsw i64 %102, %103
-  %.3.i.i = select i1 %101, i64 %104, i64 %.2.i52.i
-  %105 = getelementptr inbounds nuw i8, ptr %.10.i51.i, i64 1
+  %.3.i.i = select i1 %101, i64 %104, i64 %.2.i44.i
+  %105 = getelementptr inbounds nuw i8, ptr %.10.i43.i, i64 1
   %106 = load i8, ptr %105, align 1, !tbaa !157
   %107 = add i8 %106, -48
   %108 = icmp ult i8 %107, 10
-  br i1 %108, label %.lr.ph54.i, label %._crit_edge55.i, !llvm.loop !1044
+  br i1 %108, label %.lr.ph46.i, label %._crit_edge47.i, !llvm.loop !1044
 
-._crit_edge55.i:                                  ; preds = %.lr.ph54.i, %81
-  %.10.i.lcssa.i = phi ptr [ %.9.i.i, %81 ], [ %105, %.lr.ph54.i ]
-  %.2.i.lcssa.i = phi i64 [ %.1.i.i, %81 ], [ %.3.i.i, %.lr.ph54.i ]
+._crit_edge47.i:                                  ; preds = %.lr.ph46.i, %81
+  %.10.i.lcssa.i = phi ptr [ %.9.i.i, %81 ], [ %105, %.lr.ph46.i ]
+  %.2.i.lcssa.i = phi i64 [ %.1.i.i, %81 ], [ %.3.i.i, %.lr.ph46.i ]
   %109 = sub nsw i64 0, %.2.i.lcssa.i
   %110 = select i1 %74, i64 %109, i64 %.2.i.lcssa.i
   %111 = add nsw i64 %110, %.0106.i.i
   br label %112
 
-112:                                              ; preds = %._crit_edge55.i, %65
-  %.1107.i.i = phi i64 [ %111, %._crit_edge55.i ], [ %.0106.i.i, %65 ]
-  %.5103.i.i = phi ptr [ %.10.i.lcssa.i, %._crit_edge55.i ], [ %.3101.i.i, %65 ]
+112:                                              ; preds = %._crit_edge47.i, %65
+  %.1107.i.i = phi i64 [ %111, %._crit_edge47.i ], [ %.0106.i.i, %65 ]
+  %.5103.i.i = phi ptr [ %.10.i.lcssa.i, %._crit_edge47.i ], [ %.3101.i.i, %65 ]
   %113 = icmp sgt i32 %70, 18
-  br i1 %113, label %.preheader.i, label %.thread26.i, !prof !180
+  br i1 %113, label %.preheader.i, label %.thread.i, !prof !180
 
 .preheader.i:                                     ; preds = %112, %.critedge.i.i
   %114 = phi i8 [ %.pre.i, %.critedge.i.i ], [ %16, %112 ]
@@ -54826,18 +54826,18 @@ define linkonce_odr noundef double @_ZNK8LightGBM7CommonC17__StringToTHelperIdLb
   %.neg120.i.i = trunc i64 %.neg.i.i to i32
   %118 = add i32 %.neg120.i.i, %70
   %119 = icmp slt i32 %118, 19
-  br i1 %119, label %.thread26.i, label %120
+  br i1 %119, label %.thread.i, label %120
 
 120:                                              ; preds = %116
   %121 = call fastcc noundef ptr @_ZN18fast_double_parserL18parse_float_strtodEPKcPd(ptr noundef nonnull %7, ptr noundef nonnull %6)
   br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i
 
-.thread26.i:                                      ; preds = %116, %112
+.thread.i:                                        ; preds = %116, %112
   %122 = add i64 %.1107.i.i, -309
   %or.cond.i.i = icmp ult i64 %122, -634
   br i1 %or.cond.i.i, label %123, label %135, !prof !1046
 
-123:                                              ; preds = %.thread26.i
+123:                                              ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %124 = load atomic i8, ptr @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale acquire, align 8
   %125 = icmp eq i8 %124, 0
@@ -54864,7 +54864,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i: ; preds = %128, %126,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br i1 %133, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i
 
-135:                                              ; preds = %.thread26.i
+135:                                              ; preds = %.thread.i
   %136 = add nsw i64 %.1107.i.i, 22
   %or.cond.i12.i = icmp ult i64 %136, 45
   %137 = icmp ult i64 %.2111.i.i, 9007199254740992
@@ -54893,7 +54893,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i: ; preds = %128, %126,
   %.078.i.i = phi double [ %145, %141 ], [ %149, %146 ]
   %151 = fneg double %.078.i.i
   %.179.i.i = select i1 %9, double %151, double %.078.i.i
-  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i
+  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i
 
 152:                                              ; preds = %135
   %153 = icmp eq i64 %.2111.i.i, 0
@@ -54901,7 +54901,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i: ; preds = %128, %126,
 
 154:                                              ; preds = %152
   %155 = select i1 %9, double -0.000000e+00, double 0.000000e+00
-  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i
+  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i
 
 156:                                              ; preds = %152
   %157 = add nsw i64 %.1107.i.i, 325
@@ -54920,12 +54920,12 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i: ; preds = %128, %126,
   %170 = trunc nuw i128 %169 to i64
   %171 = and i64 %170, 511
   %172 = icmp eq i64 %171, 511
-  br i1 %172, label %173, label %.thread28.i, !prof !180
+  br i1 %172, label %173, label %192, !prof !180
 
 173:                                              ; preds = %156
   %174 = xor i64 %168, -1
   %175 = icmp ugt i64 %164, %174
-  br i1 %175, label %176, label %.thread28.i
+  br i1 %175, label %176, label %192
 
 176:                                              ; preds = %173
   %177 = getelementptr inbounds [634 x i64], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12mantissa_128, i64 0, i64 %157
@@ -54938,135 +54938,135 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i: ; preds = %128, %126,
   %184 = add i64 %183, %168
   %185 = icmp ult i64 %184, %168
   %186 = zext i1 %185 to i64
-  %spec.select.i16.i = add nuw i64 %186, %170
+  %spec.select.i15.i = add nuw i64 %186, %170
   %187 = icmp eq i64 %184, -1
-  %188 = and i64 %spec.select.i16.i, 511
+  %188 = and i64 %spec.select.i15.i, 511
   %189 = icmp eq i64 %188, 511
   %or.cond95.i.i = select i1 %187, i1 %189, i1 false
   %190 = xor i64 %181, -1
   %191 = icmp ugt i64 %164, %190
   %or.cond97.i.i = and i1 %191, %or.cond95.i.i
-  br i1 %or.cond97.i.i, label %218, label %.thread28.i
+  br i1 %or.cond97.i.i, label %219, label %192
 
-.thread28.i:                                      ; preds = %176, %173, %156
+192:                                              ; preds = %176, %173, %156
   %.pre-phi.i = phi i64 [ %188, %176 ], [ 511, %173 ], [ %171, %156 ]
-  %.085.i.i = phi i64 [ %spec.select.i16.i, %176 ], [ %170, %173 ], [ %170, %156 ]
+  %.085.i.i = phi i64 [ %spec.select.i15.i, %176 ], [ %170, %173 ], [ %170, %156 ]
   %.083.i.i = phi i64 [ %184, %176 ], [ %168, %173 ], [ %168, %156 ]
-  %192 = lshr i64 %.085.i.i, 63
-  %193 = add nuw nsw i64 %192, 9
-  %194 = lshr i64 %.085.i.i, %193
-  %195 = icmp eq i64 %.083.i.i, 0
-  %196 = icmp eq i64 %.pre-phi.i, 0
-  %or.cond99.i.i = select i1 %195, i1 %196, i1 false
-  %197 = and i64 %194, 3
-  %198 = icmp eq i64 %197, 1
-  %or.cond103.i.i = select i1 %or.cond99.i.i, i1 %198, i1 false
-  br i1 %or.cond103.i.i, label %218, label %.critedge.i13.i, !prof !1050
+  %193 = lshr i64 %.085.i.i, 63
+  %194 = add nuw nsw i64 %193, 9
+  %195 = lshr i64 %.085.i.i, %194
+  %196 = icmp eq i64 %.083.i.i, 0
+  %197 = icmp eq i64 %.pre-phi.i, 0
+  %or.cond99.i.i = select i1 %196, i1 %197, i1 false
+  %198 = and i64 %195, 3
+  %199 = icmp eq i64 %198, 1
+  %or.cond105.i.i = select i1 %or.cond99.i.i, i1 %199, i1 false
+  br i1 %or.cond105.i.i, label %219, label %.critedge101.i.i, !prof !1050
 
-.critedge.i13.i:                                  ; preds = %.thread28.i
-  %199 = xor i64 %192, 1
-  %200 = add nuw nsw i64 %199, %163
-  %201 = and i64 %194, 1
-  %202 = add nuw nsw i64 %201, %194
-  %203 = icmp samesign ugt i64 %202, 18014398509481983
-  %204 = sext i1 %203 to i64
-  %spec.select100.i.i = add nsw i64 %200, %204
-  %205 = sub nsw i64 %162, %spec.select100.i.i
-  %206 = icmp eq i64 %162, %spec.select100.i.i
-  %207 = icmp ugt i64 %205, 2046
-  %208 = select i1 %206, i1 true, i1 %207, !prof !180
-  br i1 %208, label %218, label %209, !prof !180
+.critedge101.i.i:                                 ; preds = %192
+  %200 = xor i64 %193, 1
+  %201 = add nuw nsw i64 %200, %163
+  %202 = and i64 %195, 1
+  %203 = add nuw nsw i64 %202, %195
+  %204 = icmp samesign ugt i64 %203, 18014398509481983
+  %205 = sext i1 %204 to i64
+  %spec.select102.i.i = add nsw i64 %201, %205
+  %206 = sub nsw i64 %162, %spec.select102.i.i
+  %207 = icmp eq i64 %162, %spec.select102.i.i
+  %208 = icmp ugt i64 %206, 2046
+  %209 = select i1 %207, i1 true, i1 %208, !prof !180
+  br i1 %209, label %219, label %210, !prof !180
 
-209:                                              ; preds = %.critedge.i13.i
-  %210 = lshr i64 %202, 1
-  %211 = and i64 %210, 67553994410557439
-  %212 = select i1 %203, i64 0, i64 %211
-  %213 = shl nuw nsw i64 %205, 52
-  %214 = select i1 %9, i64 -9223372036854775808, i64 0
-  %215 = or disjoint i64 %212, %214
-  %216 = or i64 %215, %213
-  %217 = bitcast i64 %216 to double
-  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i
+210:                                              ; preds = %.critedge101.i.i
+  %211 = lshr i64 %203, 1
+  %212 = and i64 %211, 67553994410557439
+  %213 = select i1 %204, i64 0, i64 %212
+  %214 = shl nuw nsw i64 %206, 52
+  %215 = select i1 %9, i64 -9223372036854775808, i64 0
+  %216 = or disjoint i64 %213, %215
+  %217 = or i64 %216, %214
+  %218 = bitcast i64 %217 to double
+  br label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i
 
-_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i: ; preds = %209, %154, %150
-  %.0.i15.ph.i = phi double [ %217, %209 ], [ %155, %154 ], [ %.179.i.i, %150 ]
-  store double %.0.i15.ph.i, ptr %6, align 8, !tbaa !66
+_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i: ; preds = %210, %154, %150
+  %.0.i14.ph.i = phi double [ %218, %210 ], [ %155, %154 ], [ %.179.i.i, %150 ]
+  store double %.0.i14.ph.i, ptr %6, align 8, !tbaa !66
   br label %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
 
-218:                                              ; preds = %.critedge.i13.i, %.thread28.i, %176
+219:                                              ; preds = %.critedge101.i.i, %192, %176
   store double 0.000000e+00, ptr %6, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %219 = load atomic i8, ptr @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale acquire, align 8
-  %220 = icmp eq i8 %219, 0
-  br i1 %220, label %221, label %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, !prof !1047
+  %220 = load atomic i8, ptr @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale acquire, align 8
+  %221 = icmp eq i8 %220, 0
+  br i1 %221, label %222, label %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, !prof !1047
 
-221:                                              ; preds = %218
-  %222 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale) #16
-  %.not.i21.i = icmp eq i32 %222, 0
-  br i1 %.not.i21.i, label %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, label %223
+222:                                              ; preds = %219
+  %223 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale) #16
+  %.not.i21.i = icmp eq i32 %223, 0
+  br i1 %.not.i21.i, label %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, label %224
 
-223:                                              ; preds = %221
-  %224 = tail call ptr @newlocale(i32 noundef 8127, ptr noundef nonnull @.str.183, ptr noundef null) #16
-  store ptr %224, ptr @_ZZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale, align 8, !tbaa !1048
+224:                                              ; preds = %222
+  %225 = tail call ptr @newlocale(i32 noundef 8127, ptr noundef nonnull @.str.183, ptr noundef null) #16
+  store ptr %225, ptr @_ZZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale, align 8, !tbaa !1048
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale) #16
   br label %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i
 
-_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i: ; preds = %223, %221, %218
-  %225 = load ptr, ptr @_ZZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale, align 8, !tbaa !1048
-  %226 = call double @strtod_l(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %225) #16
-  store double %226, ptr %6, align 8, !tbaa !66
-  %227 = call double @llvm.fabs.f64(double %226)
-  %228 = fcmp ueq double %227, 0x7FF0000000000000
-  %229 = load ptr, ptr %3, align 8
+_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i: ; preds = %224, %222, %219
+  %226 = load ptr, ptr @_ZZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale, align 8, !tbaa !1048
+  %227 = call double @strtod_l(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %226) #16
+  store double %227, ptr %6, align 8, !tbaa !66
+  %228 = call double @llvm.fabs.f64(double %227)
+  %229 = fcmp ueq double %228, 0x7FF0000000000000
+  %230 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br i1 %228, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i
+  br i1 %229, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i
 
 _ZN18fast_double_parser12parse_numberEPKcPd.exit.i: ; preds = %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i, %120
-  %.094.i.i = phi ptr [ %121, %120 ], [ %134, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i ], [ %229, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i ]
+  %.094.i.i = phi ptr [ %121, %120 ], [ %134, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i ], [ %230, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i ]
   %.not.i = icmp eq ptr %.094.i.i, null
   br i1 %.not.i, label %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i, label %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
 
 _ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i: ; preds = %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit22.i, %_ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit.i, %71, %40, %23, %18, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %230 = tail call ptr @__errno_location() #48
-  store i32 0, ptr %230, align 4, !tbaa !36
-  %231 = call double @strtod(ptr noundef nonnull %7, ptr noundef nonnull %5) #16
-  store double %231, ptr %6, align 8, !tbaa !66
-  %232 = load ptr, ptr %5, align 8, !tbaa !419
-  %233 = icmp eq ptr %232, %7
-  br i1 %233, label %234, label %235
+  %231 = tail call ptr @__errno_location() #48
+  store i32 0, ptr %231, align 4, !tbaa !36
+  %232 = call double @strtod(ptr noundef nonnull %7, ptr noundef nonnull %5) #16
+  store double %232, ptr %6, align 8, !tbaa !66
+  %233 = load ptr, ptr %5, align 8, !tbaa !419
+  %234 = icmp eq ptr %233, %7
+  br i1 %234, label %235, label %236
 
-234:                                              ; preds = %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i
+235:                                              ; preds = %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i
   call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.181, ptr noundef nonnull %7)
-  br label %235
+  br label %236
 
-235:                                              ; preds = %234, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i
-  %236 = load i32, ptr %230, align 4, !tbaa !36
-  %237 = icmp eq i32 %236, 34
-  br i1 %237, label %238, label %239
+236:                                              ; preds = %235, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread.i
+  %237 = load i32, ptr %231, align 4, !tbaa !36
+  %238 = icmp eq i32 %237, 34
+  br i1 %238, label %239, label %240
 
-238:                                              ; preds = %235
+239:                                              ; preds = %236
   call void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef nonnull @.str.182, ptr noundef nonnull %7)
-  br label %239
+  br label %240
 
-239:                                              ; preds = %238, %235
+240:                                              ; preds = %239, %236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
 
-_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit:     ; preds = %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i, %239
-  %.0.i = phi ptr [ %232, %239 ], [ %.094.i.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i ], [ %.5103.i.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread38.i ]
-  %240 = load ptr, ptr %1, align 8, !tbaa !403
-  %241 = icmp eq ptr %.0.i, %240
-  br i1 %241, label %242, label %243
+_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit:     ; preds = %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i, %240
+  %.0.i = phi ptr [ %233, %240 ], [ %.094.i.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.i ], [ %.5103.i.i, %_ZN18fast_double_parser12parse_numberEPKcPd.exit.thread30.i ]
+  %241 = load ptr, ptr %1, align 8, !tbaa !403
+  %242 = icmp eq ptr %.0.i, %241
+  br i1 %242, label %243, label %244
 
-242:                                              ; preds = %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
-  call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.180, ptr noundef %240)
-  br label %243
+243:                                              ; preds = %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
+  call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.180, ptr noundef %241)
+  br label %244
 
-243:                                              ; preds = %242, %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
-  %244 = load double, ptr %6, align 8, !tbaa !66
+244:                                              ; preds = %243, %_ZN8LightGBM6CommonL11AtofPreciseEPKcPd.exit
+  %245 = load double, ptr %6, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  ret double %244
+  ret double %245
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

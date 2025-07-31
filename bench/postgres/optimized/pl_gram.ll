@@ -241,7 +241,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %27 = getelementptr inbounds i16, ptr %.01109, i64 %.01106
   %28 = getelementptr inbounds i8, ptr %27, i64 -2
   %.not = icmp ugt ptr %28, %.01115
-  br i1 %.not, label %.thread1383, label %29
+  br i1 %.not, label %.thread1385, label %29
 
 29:                                               ; preds = %25
   %30 = ptrtoint ptr %.01115 to i64
@@ -291,9 +291,9 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %59 = getelementptr inbounds i32, ptr %51, i64 %34
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %.not1208 = icmp sgt i64 %spec.store.select, %34
-  br i1 %.not1208, label %.thread1383, label %.thread1525
+  br i1 %.not1208, label %.thread1385, label %.thread1519
 
-.thread1383:                                      ; preds = %54, %25
+.thread1385:                                      ; preds = %54, %25
   %.21141 = phi ptr [ %.01139, %25 ], [ %60, %54 ]
   %.11136 = phi ptr [ %.01135, %25 ], [ %51, %54 ]
   %.21129 = phi ptr [ %.01127, %25 ], [ %58, %54 ]
@@ -302,9 +302,9 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %.11110 = phi ptr [ %.01109, %25 ], [ %40, %54 ]
   %.11107 = phi i64 [ %.01106, %25 ], [ %spec.store.select, %54 ]
   %61 = icmp eq i32 %.01099, 3
-  br i1 %61, label %.thread1525, label %62
+  br i1 %61, label %.thread1519, label %62
 
-62:                                               ; preds = %.thread1383
+62:                                               ; preds = %.thread1385
   %63 = sext i32 %.01099 to i64
   %64 = getelementptr inbounds [334 x i16], ptr @yypact, i64 0, i64 %63
   %65 = load i16, ptr %64, align 2
@@ -575,14 +575,14 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
 sub_0:                                            ; preds = %108
   %122 = load ptr, ptr %.21129, align 8
   %123 = load i8, ptr %122, align 1
-  %.not1778 = icmp eq i8 %123, 111
-  br i1 %.not1778, label %sub_1, label %.tail.thread
+  %.not1771 = icmp eq i8 %123, 111
+  br i1 %.not1771, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %125 = load i8, ptr %124, align 1
-  %.not1779 = icmp eq i8 %125, 110
-  br i1 %.not1779, label %.tail, label %.tail.thread
+  %.not1772 = icmp eq i8 %125, 110
+  br i1 %.not1772, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 2
@@ -932,45 +932,45 @@ list_length.exit:                                 ; preds = %297, %307
   %321 = load ptr, ptr %305, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %.not1259 = icmp eq ptr %321, null
-  br i1 %.not1259, label %._crit_edge1766, label %.lr.ph1765
+  br i1 %.not1259, label %.critedge, label %.lr.ph1759
 
-.lr.ph1765:                                       ; preds = %list_length.exit
+.lr.ph1759:                                       ; preds = %list_length.exit
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %324 = load i32, ptr %322, align 4
   %325 = icmp sgt i32 %324, 0
-  br i1 %325, label %.lr.ph1770, label %._crit_edge1766
+  br i1 %325, label %.lr.ph1763, label %.critedge
 
-._crit_edge1766.loopexit:                         ; preds = %.lr.ph1770
-  %.pre1975 = load ptr, ptr %305, align 8
-  br label %._crit_edge1766
+.lr.ph1763:                                       ; preds = %.lr.ph1759, %.lr.ph1763
+  %indvars.iv1961 = phi i64 [ %indvars.iv.next1962, %.lr.ph1763 ], [ 0, %.lr.ph1759 ]
+  %326 = load ptr, ptr %323, align 8
+  %327 = getelementptr inbounds nuw %union.ListCell, ptr %326, i64 %indvars.iv1961
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = load ptr, ptr %315, align 8
+  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv1961
+  store ptr %330, ptr %332, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %328, i64 4
+  %334 = load i32, ptr %333, align 4
+  %335 = load ptr, ptr %320, align 8
+  %336 = getelementptr inbounds nuw i32, ptr %335, i64 %indvars.iv1961
+  store i32 %334, ptr %336, align 4
+  %indvars.iv.next1962 = add nuw nsw i64 %indvars.iv1961, 1
+  %337 = load i32, ptr %322, align 4
+  %338 = sext i32 %337 to i64
+  %339 = icmp slt i64 %indvars.iv.next1962, %338
+  br i1 %339, label %.lr.ph1763, label %.critedge.loopexit
 
-._crit_edge1766:                                  ; preds = %._crit_edge1766.loopexit, %.lr.ph1765, %list_length.exit
-  %326 = phi ptr [ %.pre1975, %._crit_edge1766.loopexit ], [ %321, %.lr.ph1765 ], [ null, %list_length.exit ]
-  call void @list_free(ptr noundef %326) #12
+.critedge.loopexit:                               ; preds = %.lr.ph1763
+  %.pre1968 = load ptr, ptr %305, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph1759, %list_length.exit
+  %340 = phi ptr [ %.pre1968, %.critedge.loopexit ], [ %321, %.lr.ph1759 ], [ null, %list_length.exit ]
+  call void @list_free(ptr noundef %340) #12
   call void @plpgsql_adddatum(ptr noundef nonnull %298) #12
   store ptr %298, ptr %8, align 8
   br label %1842
-
-.lr.ph1770:                                       ; preds = %.lr.ph1765, %.lr.ph1770
-  %indvars.iv1968 = phi i64 [ %indvars.iv.next1969, %.lr.ph1770 ], [ 0, %.lr.ph1765 ]
-  %327 = load ptr, ptr %323, align 8
-  %328 = getelementptr inbounds nuw %union.ListCell, ptr %327, i64 %indvars.iv1968
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  %331 = load ptr, ptr %330, align 8
-  %332 = load ptr, ptr %315, align 8
-  %333 = getelementptr inbounds nuw ptr, ptr %332, i64 %indvars.iv1968
-  store ptr %331, ptr %333, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %329, i64 4
-  %335 = load i32, ptr %334, align 4
-  %336 = load ptr, ptr %320, align 8
-  %337 = getelementptr inbounds nuw i32, ptr %336, i64 %indvars.iv1968
-  store i32 %335, ptr %337, align 4
-  %indvars.iv.next1969 = add nuw nsw i64 %indvars.iv1968, 1
-  %338 = load i32, ptr %322, align 4
-  %339 = sext i32 %338 to i64
-  %340 = icmp slt i64 %indvars.iv.next1969, %339
-  br i1 %340, label %.lr.ph1770, label %._crit_edge1766.loopexit
 
 341:                                              ; preds = %108
   %342 = load ptr, ptr %.21129, align 8
@@ -1042,18 +1042,18 @@ list_length.exit:                                 ; preds = %297, %307
 
 382:                                              ; preds = %108
   %383 = load ptr, ptr %.21129, align 8
-  %.not.i1279 = icmp eq ptr %383, null
-  br i1 %.not.i1279, label %.thread1398, label %list_length.exit1280
+  %.not.i1281 = icmp eq ptr %383, null
+  br i1 %.not.i1281, label %.thread1396, label %list_length.exit1282
 
-list_length.exit1280:                             ; preds = %382
+list_length.exit1282:                             ; preds = %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 4
   %385 = load i32, ptr %384, align 4
-  switch i32 %385, label %.thread1398 [
+  switch i32 %385, label %.thread1396 [
     i32 2, label %386
     i32 3, label %398
   ]
 
-386:                                              ; preds = %list_length.exit1280
+386:                                              ; preds = %list_length.exit1282
   %387 = call ptr @plpgsql_ns_top() #12
   %388 = load ptr, ptr %.21129, align 8
   %389 = getelementptr i8, ptr %388, i64 16
@@ -1068,19 +1068,19 @@ list_length.exit1280:                             ; preds = %382
   %397 = call ptr @plpgsql_ns_lookup(ptr noundef %387, i1 noundef zeroext false, ptr noundef %392, ptr noundef %396, ptr noundef null, ptr noundef null) #12
   br label %414
 
-398:                                              ; preds = %list_length.exit1280
+398:                                              ; preds = %list_length.exit1282
   %399 = call ptr @plpgsql_ns_top() #12
   %400 = load ptr, ptr %.21129, align 8
   %401 = getelementptr i8, ptr %400, i64 16
-  %.val1276 = load ptr, ptr %401, align 8
-  %402 = load ptr, ptr %.val1276, align 8
+  %.val1278 = load ptr, ptr %401, align 8
+  %402 = load ptr, ptr %.val1278, align 8
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %.val1276, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %.val1278, i64 8
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %.val1276, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %.val1278, i64 16
   %410 = load ptr, ptr %409, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   %412 = load ptr, ptr %411, align 8
@@ -1090,9 +1090,9 @@ list_length.exit1280:                             ; preds = %382
 414:                                              ; preds = %398, %386
   %.01158 = phi ptr [ %397, %386 ], [ %413, %398 ]
   %415 = icmp eq ptr %.01158, null
-  br i1 %415, label %.thread1398, label %423
+  br i1 %415, label %.thread1396, label %423
 
-.thread1398:                                      ; preds = %list_length.exit1280, %382, %414
+.thread1396:                                      ; preds = %list_length.exit1282, %382, %414
   %416 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %416)
   %417 = call i32 @errcode(i32 noundef 67137668) #12
@@ -1512,33 +1512,33 @@ list_length.exit1280:                             ; preds = %382
   %629 = getelementptr inbounds nuw i8, ptr %.21129, i64 8
   %630 = load ptr, ptr %629, align 8
   %.not1244 = icmp eq ptr %630, null
-  br i1 %.not1244, label %631, label %list_length.exit1284.thread1400
+  br i1 %.not1244, label %631, label %list_length.exit1286.thread1398
 
 631:                                              ; preds = %628
   %632 = getelementptr inbounds nuw i8, ptr %.21129, i64 24
   %633 = load ptr, ptr %632, align 8
-  %.not.i1283 = icmp eq ptr %633, null
-  br i1 %.not.i1283, label %list_length.exit1284.thread, label %list_length.exit1284
+  %.not.i1285 = icmp eq ptr %633, null
+  br i1 %.not.i1285, label %list_length.exit1286.thread, label %list_length.exit1286
 
-list_length.exit1284:                             ; preds = %631
+list_length.exit1286:                             ; preds = %631
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 4
   %635 = load i32, ptr %634, align 4
   %switch.tableidx = add i32 %635, -1
   %636 = icmp ult i32 %switch.tableidx, 3
-  br i1 %636, label %switch.lookup, label %list_length.exit1284.thread
+  br i1 %636, label %switch.lookup, label %list_length.exit1286.thread
 
-list_length.exit1284.thread:                      ; preds = %list_length.exit1284, %631
+list_length.exit1286.thread:                      ; preds = %list_length.exit1286, %631
   %637 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %637)
   %638 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #12
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 990, ptr noundef nonnull @__func__.plpgsql_yyparse) #12
   unreachable
 
-switch.lookup:                                    ; preds = %list_length.exit1284
+switch.lookup:                                    ; preds = %list_length.exit1286
   %switch.offset = add nuw nsw i32 %635, 2
-  br label %list_length.exit1284.thread1400
+  br label %list_length.exit1286.thread1398
 
-list_length.exit1284.thread1400:                  ; preds = %switch.lookup, %628
+list_length.exit1286.thread1398:                  ; preds = %switch.lookup, %628
   %.01159 = phi i32 [ 3, %628 ], [ %switch.offset, %switch.lookup ]
   %639 = load ptr, ptr %.21129, align 8
   %640 = load i32, ptr %.21141, align 4
@@ -1568,20 +1568,20 @@ list_length.exit1284.thread1400:                  ; preds = %switch.lookup, %628
   %656 = load ptr, ptr %.21129, align 8
   %657 = load i32, ptr %656, align 4
   %658 = icmp eq i32 %657, 0
-  br i1 %658, label %659, label %mark_expr_as_assignment_source.exit1287
+  br i1 %658, label %659, label %mark_expr_as_assignment_source.exit1289
 
-659:                                              ; preds = %list_length.exit1284.thread1400
+659:                                              ; preds = %list_length.exit1286.thread1398
   %660 = getelementptr inbounds nuw i8, ptr %656, i64 4
   %661 = load i32, ptr %660, align 4
-  br label %mark_expr_as_assignment_source.exit1287
+  br label %mark_expr_as_assignment_source.exit1289
 
-mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit1284.thread1400, %659
-  %.sink6.i1285 = phi i32 [ %661, %659 ], [ -1, %list_length.exit1284.thread1400 ]
-  %.sink.i1286 = phi i8 [ 1, %659 ], [ 0, %list_length.exit1284.thread1400 ]
+mark_expr_as_assignment_source.exit1289:          ; preds = %list_length.exit1286.thread1398, %659
+  %.sink6.i1287 = phi i32 [ %661, %659 ], [ -1, %list_length.exit1286.thread1398 ]
+  %.sink.i1288 = phi i8 [ 1, %659 ], [ 0, %list_length.exit1286.thread1398 ]
   %662 = getelementptr inbounds nuw i8, ptr %654, i64 32
-  store i32 %.sink6.i1285, ptr %662, align 8
+  store i32 %.sink6.i1287, ptr %662, align 8
   %663 = getelementptr inbounds nuw i8, ptr %654, i64 36
-  store i8 %.sink.i1286, ptr %663, align 4
+  store i8 %.sink.i1288, ptr %663, align 4
   store ptr %641, ptr %8, align 8
   br label %1842
 
@@ -1609,27 +1609,23 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   %680 = getelementptr inbounds nuw i8, ptr %665, i64 16
   store ptr %679, ptr %680, align 8
   %.not1242 = icmp eq ptr %679, null
-  br i1 %.not1242, label %._crit_edge, label %.lr.ph1751
+  br i1 %.not1242, label %.critedge1273, label %.lr.ph1745
 
-.lr.ph1751:                                       ; preds = %664
+.lr.ph1745:                                       ; preds = %664
   %681 = getelementptr inbounds nuw i8, ptr %679, i64 4
   %682 = load i32, ptr %681, align 4
   %683 = trunc nuw i8 %676 to i1
   %684 = icmp sgt i32 %682, 0
-  br i1 %684, label %.lr.ph1762, label %._crit_edge
+  br i1 %684, label %.lr.ph1756, label %.critedge1273
 
-.lr.ph1762:                                       ; preds = %.lr.ph1751
+.lr.ph1756:                                       ; preds = %.lr.ph1745
   %685 = getelementptr inbounds nuw i8, ptr %679, i64 16
   %686 = load ptr, ptr %685, align 8
   %wide.trip.count = zext nneg i32 %682 to i64
   br label %687
 
-._crit_edge:                                      ; preds = %712, %.lr.ph1751, %664
-  store ptr %665, ptr %8, align 8
-  br label %1842
-
-687:                                              ; preds = %.lr.ph1762, %712
-  %indvars.iv = phi i64 [ 0, %.lr.ph1762 ], [ %indvars.iv.next, %712 ]
+687:                                              ; preds = %.lr.ph1756, %712
+  %indvars.iv = phi i64 [ 0, %.lr.ph1756 ], [ %indvars.iv.next, %712 ]
   %688 = getelementptr inbounds nuw %union.ListCell, ptr %686, i64 %indvars.iv
   %689 = load ptr, ptr %688, align 8
   %690 = load i32, ptr %689, align 4
@@ -1649,10 +1645,14 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
     i32 2, label %712
   ]
 
-691:                                              ; preds = %687, %687
-  br i1 %683, label %.split1758, label %712
+.critedge1273:                                    ; preds = %712, %.lr.ph1745, %664
+  store ptr %665, ptr %8, align 8
+  br label %1842
 
-.split1758:                                       ; preds = %691
+691:                                              ; preds = %687, %687
+  br i1 %683, label %.split1752, label %712
+
+.split1752:                                       ; preds = %691
   %692 = getelementptr inbounds i8, ptr %.21141, i64 -16
   %693 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %693)
@@ -1666,9 +1666,9 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   unreachable
 
 700:                                              ; preds = %687, %687, %687, %687, %687, %687, %687, %687, %687, %687
-  br i1 %683, label %712, label %.split1754
+  br i1 %683, label %712, label %.split1748
 
-.split1754:                                       ; preds = %700
+.split1748:                                       ; preds = %700
   %701 = getelementptr inbounds i8, ptr %.21141, i64 -16
   %702 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %702)
@@ -1692,7 +1692,7 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
 712:                                              ; preds = %700, %691, %687
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %687
+  br i1 %exitcond.not, label %.critedge1273, label %687
 
 713:                                              ; preds = %108
   store i8 0, ptr %8, align 8
@@ -1735,7 +1735,7 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
 
 732:                                              ; preds = %108
   %733 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  switch i32 %733, label %tok_is_keyword.exit1324 [
+  switch i32 %733, label %tok_is_keyword.exit1326 [
     i32 365, label %742
     i32 277, label %734
     i32 355, label %746
@@ -1755,12 +1755,12 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
 734:                                              ; preds = %732
   %735 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %736 = trunc nuw i8 %735 to i1
-  br i1 %736, label %tok_is_keyword.exit1324, label %737
+  br i1 %736, label %tok_is_keyword.exit1326, label %737
 
 737:                                              ; preds = %734
   %738 = load ptr, ptr %19, align 8
-  %.not.i1288 = icmp eq ptr %738, null
-  br i1 %.not.i1288, label %tok_is_keyword.exit1324, label %739
+  %.not.i1290 = icmp eq ptr %738, null
+  br i1 %.not.i1290, label %tok_is_keyword.exit1326, label %739
 
 739:                                              ; preds = %737
   %740 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %738, ptr noundef nonnull dereferenceable(10) @.str.18) #13
@@ -1782,8 +1782,8 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
 
 747:                                              ; preds = %743
   %.pr = load ptr, ptr %19, align 8
-  %.not.i1293 = icmp eq ptr %.pr, null
-  br i1 %.not.i1293, label %tok_is_keyword.exit1324, label %748
+  %.not.i1295 = icmp eq ptr %.pr, null
+  br i1 %.not.i1295, label %tok_is_keyword.exit1326, label %748
 
 748:                                              ; preds = %747
   %749 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(11) @.str.20) #13
@@ -1797,19 +1797,19 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
 752:                                              ; preds = %748
   %753 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr, ptr noundef nonnull dereferenceable(20) @.str.21) #13
   %754 = icmp eq i32 %753, 0
-  br i1 %754, label %755, label %.thread1986
+  br i1 %754, label %755, label %.thread1979
 
 755:                                              ; preds = %732, %752
   store i32 4, ptr %8, align 8
   br label %1842
 
-.thread1986:                                      ; preds = %752
-  %.pr2047 = load ptr, ptr %19, align 8
-  %.not.i1299 = icmp eq ptr %.pr2047, null
-  br i1 %.not.i1299, label %tok_is_keyword.exit1324, label %756
+.thread1979:                                      ; preds = %752
+  %.pr2040 = load ptr, ptr %19, align 8
+  %.not.i1301 = icmp eq ptr %.pr2040, null
+  br i1 %.not.i1301, label %tok_is_keyword.exit1326, label %756
 
-756:                                              ; preds = %.thread1986
-  %757 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2047, ptr noundef nonnull dereferenceable(18) @.str.22) #13
+756:                                              ; preds = %.thread1979
+  %757 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2040, ptr noundef nonnull dereferenceable(18) @.str.22) #13
   %758 = icmp eq i32 %757, 0
   br i1 %758, label %759, label %760
 
@@ -1818,7 +1818,7 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 760:                                              ; preds = %756
-  %761 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2047, ptr noundef nonnull dereferenceable(21) @.str.23) #13
+  %761 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2040, ptr noundef nonnull dereferenceable(21) @.str.23) #13
   %762 = icmp eq i32 %761, 0
   br i1 %762, label %763, label %764
 
@@ -1827,12 +1827,12 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 764:                                              ; preds = %760
-  %.pr1995 = load ptr, ptr %19, align 8
-  %.not.i1305 = icmp eq ptr %.pr1995, null
-  br i1 %.not.i1305, label %tok_is_keyword.exit1324, label %765
+  %.pr1988 = load ptr, ptr %19, align 8
+  %.not.i1307 = icmp eq ptr %.pr1988, null
+  br i1 %.not.i1307, label %tok_is_keyword.exit1326, label %765
 
 765:                                              ; preds = %764
-  %766 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1995, ptr noundef nonnull dereferenceable(12) @.str.24) #13
+  %766 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1988, ptr noundef nonnull dereferenceable(12) @.str.24) #13
   %767 = icmp eq i32 %766, 0
   br i1 %767, label %768, label %769
 
@@ -1841,21 +1841,21 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 769:                                              ; preds = %765
-  %770 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1995, ptr noundef nonnull dereferenceable(16) @.str.25) #13
+  %770 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr1988, ptr noundef nonnull dereferenceable(16) @.str.25) #13
   %771 = icmp eq i32 %770, 0
-  br i1 %771, label %772, label %.thread2001
+  br i1 %771, label %772, label %.thread1994
 
 772:                                              ; preds = %732, %769
   store i32 8, ptr %8, align 8
   br label %1842
 
-.thread2001:                                      ; preds = %769
-  %.pr2049.pr = load ptr, ptr %19, align 8
-  %.not.i1311 = icmp eq ptr %.pr2049.pr, null
-  br i1 %.not.i1311, label %tok_is_keyword.exit1324, label %773
+.thread1994:                                      ; preds = %769
+  %.pr2042.pr = load ptr, ptr %19, align 8
+  %.not.i1313 = icmp eq ptr %.pr2042.pr, null
+  br i1 %.not.i1313, label %tok_is_keyword.exit1326, label %773
 
-773:                                              ; preds = %.thread2001
-  %774 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2049.pr, ptr noundef nonnull dereferenceable(17) @.str.26) #13
+773:                                              ; preds = %.thread1994
+  %774 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2042.pr, ptr noundef nonnull dereferenceable(17) @.str.26) #13
   %775 = icmp eq i32 %774, 0
   br i1 %775, label %776, label %777
 
@@ -1864,7 +1864,7 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 777:                                              ; preds = %773
-  %778 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2049.pr, ptr noundef nonnull dereferenceable(13) @.str.27) #13
+  %778 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2042.pr, ptr noundef nonnull dereferenceable(13) @.str.27) #13
   %779 = icmp eq i32 %778, 0
   br i1 %779, label %780, label %781
 
@@ -1873,12 +1873,12 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 781:                                              ; preds = %777
-  %.pr2010 = load ptr, ptr %19, align 8
-  %.not.i1317 = icmp eq ptr %.pr2010, null
-  br i1 %.not.i1317, label %tok_is_keyword.exit1324, label %782
+  %.pr2003 = load ptr, ptr %19, align 8
+  %.not.i1319 = icmp eq ptr %.pr2003, null
+  br i1 %.not.i1319, label %tok_is_keyword.exit1326, label %782
 
 782:                                              ; preds = %781
-  %783 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2010, ptr noundef nonnull dereferenceable(11) @.str.28) #13
+  %783 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2003, ptr noundef nonnull dereferenceable(11) @.str.28) #13
   %784 = icmp eq i32 %783, 0
   br i1 %784, label %785, label %786
 
@@ -1887,29 +1887,29 @@ mark_expr_as_assignment_source.exit1287:          ; preds = %list_length.exit128
   br label %1842
 
 786:                                              ; preds = %782
-  %787 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2010, ptr noundef nonnull dereferenceable(12) @.str.29) #13
+  %787 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2003, ptr noundef nonnull dereferenceable(12) @.str.29) #13
   %788 = icmp eq i32 %787, 0
-  br i1 %788, label %789, label %.thread2016
+  br i1 %788, label %789, label %.thread2009
 
 789:                                              ; preds = %732, %786
   store i32 12, ptr %8, align 8
   br label %1842
 
-.thread2016:                                      ; preds = %786
-  %.pr2051.pr = load ptr, ptr %19, align 8
-  %.not.i1323 = icmp eq ptr %.pr2051.pr, null
-  br i1 %.not.i1323, label %tok_is_keyword.exit1324, label %790
+.thread2009:                                      ; preds = %786
+  %.pr2044.pr = load ptr, ptr %19, align 8
+  %.not.i1325 = icmp eq ptr %.pr2044.pr, null
+  br i1 %.not.i1325, label %tok_is_keyword.exit1326, label %790
 
-790:                                              ; preds = %.thread2016
-  %791 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2051.pr, ptr noundef nonnull dereferenceable(18) @.str.30) #13
+790:                                              ; preds = %.thread2009
+  %791 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2044.pr, ptr noundef nonnull dereferenceable(18) @.str.30) #13
   %792 = icmp eq i32 %791, 0
-  br i1 %792, label %793, label %tok_is_keyword.exit1324
+  br i1 %792, label %793, label %tok_is_keyword.exit1326
 
 793:                                              ; preds = %732, %790
   store i32 6, ptr %8, align 8
   br label %1842
 
-tok_is_keyword.exit1324:                          ; preds = %.thread1986, %764, %737, %747, %781, %.thread2001, %734, %732, %790, %.thread2016
+tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, %737, %747, %781, %.thread1994, %734, %732, %790, %.thread2009
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.31) #15
   unreachable
 
@@ -2264,22 +2264,22 @@ tok_is_keyword.exit1324:                          ; preds = %.thread1986, %764, 
   store ptr %963, ptr %997, align 8
   %998 = load i32, ptr %11, align 4
   %999 = icmp eq i32 %998, 381
-  br i1 %999, label %.preheader1551, label %.loopexit1552
+  br i1 %999, label %.preheader1545, label %.loopexit1546
 
-.preheader1551:                                   ; preds = %996
+.preheader1545:                                   ; preds = %996
   %1000 = getelementptr inbounds nuw i8, ptr %964, i64 48
   br label %1001
 
-1001:                                             ; preds = %.preheader1551, %1001
+1001:                                             ; preds = %.preheader1545, %1001
   %1002 = call fastcc ptr @read_sql_construct(i32 noundef 44, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.36, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1)
   %1003 = load ptr, ptr %1000, align 8
   %1004 = call ptr @lappend(ptr noundef %1003, ptr noundef %1002) #12
   store ptr %1004, ptr %1000, align 8
   %1005 = load i32, ptr %11, align 4
   %1006 = icmp eq i32 %1005, 44
-  br i1 %1006, label %1001, label %.loopexit1552, !llvm.loop !5
+  br i1 %1006, label %1001, label %.loopexit1546, !llvm.loop !5
 
-.loopexit1552:                                    ; preds = %1001, %996
+.loopexit1546:                                    ; preds = %1001, %996
   store ptr %964, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   br label %1159
@@ -2366,40 +2366,40 @@ tok_is_keyword.exit1324:                          ; preds = %.thread1986, %764, 
 1057:                                             ; preds = %959
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
   %1058 = icmp eq i32 %960, 363
-  br i1 %1058, label %tok_is_keyword.exit1327.thread, label %.thread1459
+  br i1 %1058, label %tok_is_keyword.exit1329.thread, label %.thread1453
 
 1059:                                             ; preds = %1011, %1007
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
   %1060 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1061 = trunc nuw i8 %1060 to i1
-  br i1 %1061, label %.thread1459, label %1062
+  br i1 %1061, label %.thread1453, label %1062
 
 1062:                                             ; preds = %1059
   %1063 = load ptr, ptr %19, align 8
-  %.not.i1326 = icmp eq ptr %1063, null
-  br i1 %.not.i1326, label %.thread1459, label %1064
+  %.not.i1328 = icmp eq ptr %1063, null
+  br i1 %.not.i1328, label %.thread1453, label %1064
 
 1064:                                             ; preds = %1062
   %1065 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1063, ptr noundef nonnull dereferenceable(8) @.str.39) #13
   %1066 = icmp eq i32 %1065, 0
-  br i1 %1066, label %tok_is_keyword.exit1327.thread, label %.thread1459
+  br i1 %1066, label %tok_is_keyword.exit1329.thread, label %.thread1453
 
-tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
+tok_is_keyword.exit1329.thread:                   ; preds = %1064, %1057
   %1067 = call fastcc ptr @read_sql_construct(i32 noundef 269, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.40, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4, ptr noundef %1)
   %1068 = load i32, ptr %10, align 4
   %1069 = icmp eq i32 %1068, 269
   br i1 %1069, label %1073, label %1114
 
-.thread1459:                                      ; preds = %1059, %1062, %1064, %1057
+.thread1453:                                      ; preds = %1059, %1062, %1064, %1057
   call void @plpgsql_push_back_token(i32 noundef %960, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   %1070 = call fastcc ptr @read_sql_construct(i32 noundef 269, i32 noundef 336, i32 noundef 0, ptr noundef nonnull @.str.40, i32 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4, ptr noundef %1)
   %1071 = load i32, ptr %10, align 4
   %1072 = icmp eq i32 %1071, 269
   br i1 %1072, label %1073, label %1119
 
-1073:                                             ; preds = %.thread1459, %tok_is_keyword.exit1327.thread
-  %1074 = phi ptr [ %1070, %.thread1459 ], [ %1067, %tok_is_keyword.exit1327.thread ]
-  %.0.i132514581461 = phi i32 [ 0, %.thread1459 ], [ 1, %tok_is_keyword.exit1327.thread ]
+1073:                                             ; preds = %.thread1453, %tok_is_keyword.exit1329.thread
+  %1074 = phi ptr [ %1070, %.thread1453 ], [ %1067, %tok_is_keyword.exit1329.thread ]
+  %.0.i132714521455 = phi i32 [ 0, %.thread1453 ], [ 1, %tok_is_keyword.exit1329.thread ]
   %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 8
   store i32 2, ptr %1075, align 8
   %1076 = load ptr, ptr %1074, align 8
@@ -2457,7 +2457,7 @@ tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
   %1109 = getelementptr inbounds nuw i8, ptr %1103, i64 24
   store ptr %1102, ptr %1109, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %1103, i64 56
-  store i32 %.0.i132514581461, ptr %1110, align 8
+  store i32 %.0.i132714521455, ptr %1110, align 8
   %1111 = getelementptr inbounds nuw i8, ptr %1103, i64 32
   store ptr %1074, ptr %1111, align 8
   %1112 = getelementptr inbounds nuw i8, ptr %1103, i64 40
@@ -2466,7 +2466,7 @@ tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
   store ptr %.01163, ptr %1113, align 8
   br label %1158
 
-1114:                                             ; preds = %tok_is_keyword.exit1327.thread
+1114:                                             ; preds = %tok_is_keyword.exit1329.thread
   %1115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   call void @llvm.assume(i1 %1115)
   %1116 = call i32 @errcode(i32 noundef 16801924) #12
@@ -2475,7 +2475,7 @@ tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1569, ptr noundef nonnull @__func__.plpgsql_yyparse) #12
   unreachable
 
-1119:                                             ; preds = %.thread1459
+1119:                                             ; preds = %.thread1453
   %1120 = load ptr, ptr %1070, align 8
   %1121 = getelementptr inbounds nuw i8, ptr %1070, i64 8
   %1122 = load i32, ptr %1121, align 8
@@ -2544,15 +2544,15 @@ tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   br label %1159
 
-1159:                                             ; preds = %1049, %1158, %.loopexit1552
+1159:                                             ; preds = %1049, %1158, %.loopexit1546
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   br label %1842
 
 1160:                                             ; preds = %108
   %1161 = getelementptr inbounds nuw i8, ptr %.21129, i64 8
   %1162 = load ptr, ptr %1161, align 8
-  %.not.i1328 = icmp eq ptr %1162, null
-  br i1 %.not.i1328, label %1163, label %NameOfDatum.exit
+  %.not.i1330 = icmp eq ptr %1162, null
+  br i1 %.not.i1330, label %1163, label %NameOfDatum.exit
 
 1163:                                             ; preds = %1160
   %1164 = getelementptr inbounds nuw i8, ptr %.21129, i64 24
@@ -2561,16 +2561,16 @@ tok_is_keyword.exit1327.thread:                   ; preds = %1064, %1057
   br label %NameOfDatum.exit
 
 NameOfDatum.exit:                                 ; preds = %1160, %1163
-  %.0.i1329 = phi ptr [ %1166, %1163 ], [ %1162, %1160 ]
-  store ptr %.0.i1329, ptr %8, align 8
+  %.0.i1331 = phi ptr [ %1166, %1163 ], [ %1162, %1160 ]
+  store ptr %.0.i1331, ptr %8, align 8
   %1167 = load i32, ptr %.21141, align 4
   %1168 = call i32 @plpgsql_location_to_lineno(i32 noundef %1167, ptr noundef %1) #12
   store i32 %1168, ptr %20, align 8
   %1169 = load ptr, ptr %.21129, align 8
   %1170 = load i32, ptr %1169, align 4
-  %.off1273 = add i32 %1170, -1
-  %switch1274 = icmp ult i32 %.off1273, 2
-  br i1 %switch1274, label %1171, label %1173
+  %.off1275 = add i32 %1170, -1
+  %switch1276 = icmp ult i32 %.off1275, 2
+  br i1 %switch1276, label %1171, label %1173
 
 1171:                                             ; preds = %NameOfDatum.exit
   store ptr null, ptr %21, align 8
@@ -2669,16 +2669,16 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
   unreachable
 
 1225:                                             ; preds = %1215, %1191
-  %.sink2466 = phi ptr [ %1214, %1191 ], [ %1217, %1215 ]
-  %.sink2269.in = phi ptr [ %1213, %1191 ], [ %1216, %1215 ]
-  %1226 = getelementptr inbounds nuw i8, ptr %.sink2466, i64 4
+  %.sink2459 = phi ptr [ %1214, %1191 ], [ %1217, %1215 ]
+  %.sink2262.in = phi ptr [ %1213, %1191 ], [ %1216, %1215 ]
+  %1226 = getelementptr inbounds nuw i8, ptr %.sink2459, i64 4
   %1227 = load i32, ptr %1226, align 4
   %1228 = getelementptr inbounds nuw i8, ptr %1192, i64 24
   store i32 %1227, ptr %1228, align 8
-  %.sink2269 = load ptr, ptr %.sink2269.in, align 8
+  %.sink2262 = load ptr, ptr %.sink2262.in, align 8
   %1229 = getelementptr inbounds i8, ptr %.21141, i64 -20
   %1230 = load i32, ptr %1229, align 4
-  call fastcc void @check_assignable(ptr noundef %.sink2269, i32 noundef %1230, ptr noundef %1)
+  call fastcc void @check_assignable(ptr noundef %.sink2262, i32 noundef %1230, ptr noundef %1)
   %1231 = load ptr, ptr %1202, align 8
   %1232 = getelementptr inbounds nuw i8, ptr %.21129, i64 8
   %1233 = load ptr, ptr %1232, align 8
@@ -2803,7 +2803,7 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
 
 1301:                                             ; preds = %108
   %1302 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  switch i32 %1302, label %tok_is_keyword.exit1335 [
+  switch i32 %1302, label %tok_is_keyword.exit1337 [
     i32 0, label %1303
     i32 341, label %1312
     i32 277, label %1304
@@ -2817,12 +2817,12 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
 1304:                                             ; preds = %1301
   %1305 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1306 = trunc nuw i8 %1305 to i1
-  br i1 %1306, label %tok_is_keyword.exit1335, label %1307
+  br i1 %1306, label %tok_is_keyword.exit1337, label %1307
 
 1307:                                             ; preds = %1304
   %1308 = load ptr, ptr %19, align 8
-  %.not.i1331 = icmp eq ptr %1308, null
-  br i1 %.not.i1331, label %tok_is_keyword.exit1335, label %1309
+  %.not.i1333 = icmp eq ptr %1308, null
+  br i1 %.not.i1333, label %tok_is_keyword.exit1337, label %1309
 
 1309:                                             ; preds = %1307
   %1310 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1308, ptr noundef nonnull dereferenceable(5) @.str.49) #13
@@ -2838,7 +2838,7 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
 1315:                                             ; preds = %1309
   %1316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1308, ptr noundef nonnull dereferenceable(6) @.str.50) #13
   %1317 = icmp eq i32 %1316, 0
-  br i1 %1317, label %1318, label %tok_is_keyword.exit1335
+  br i1 %1317, label %1318, label %tok_is_keyword.exit1337
 
 1318:                                             ; preds = %1301, %1315
   %1319 = load i32, ptr %.21141, align 4
@@ -2846,7 +2846,7 @@ NameOfDatum.exit:                                 ; preds = %1160, %1163
   store ptr %1320, ptr %8, align 8
   br label %1842
 
-tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301, %1315
+tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301, %1315
   call void @plpgsql_push_back_token(i32 noundef %1302, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   %1321 = load i32, ptr %.21141, align 4
   %1322 = call fastcc ptr @make_return_stmt(i32 noundef %1321, ptr noundef %3, ptr noundef %4, ptr noundef %1)
@@ -2876,7 +2876,7 @@ tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301,
   %1337 = getelementptr inbounds nuw i8, ptr %1324, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1334, i8 0, i64 32, i1 false)
   %1338 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  switch i32 %1338, label %tok_is_keyword.exit1353 [
+  switch i32 %1338, label %tok_is_keyword.exit1355 [
     i32 0, label %1339
     i32 59, label %1420
     i32 316, label %1348
@@ -2895,12 +2895,12 @@ tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301,
 1340:                                             ; preds = %1323
   %1341 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1342 = trunc nuw i8 %1341 to i1
-  br i1 %1342, label %tok_is_keyword.exit1353.thread, label %1343
+  br i1 %1342, label %tok_is_keyword.exit1355.thread, label %1343
 
 1343:                                             ; preds = %1340
   %1344 = load ptr, ptr %19, align 8
-  %.not.i1337 = icmp eq ptr %1344, null
-  br i1 %.not.i1337, label %tok_is_keyword.exit1353.thread, label %1345
+  %.not.i1339 = icmp eq ptr %1344, null
+  br i1 %.not.i1339, label %tok_is_keyword.exit1355.thread, label %1345
 
 1345:                                             ; preds = %1343
   %1346 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1344, ptr noundef nonnull dereferenceable(10) @.str.51) #13
@@ -2910,7 +2910,7 @@ tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301,
 1348:                                             ; preds = %1323, %1345
   store i32 21, ptr %1333, align 4
   %1349 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
 1350:                                             ; preds = %1345
   %1351 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1344, ptr noundef nonnull dereferenceable(8) @.str.52) #13
@@ -2920,41 +2920,41 @@ tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301,
 1353:                                             ; preds = %1323, %1350
   store i32 19, ptr %1333, align 4
   %1354 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
 1355:                                             ; preds = %1350
-  %.pr2029 = load ptr, ptr %19, align 8
-  %.not.i1343 = icmp eq ptr %.pr2029, null
-  br i1 %.not.i1343, label %tok_is_keyword.exit1353.thread, label %1356
+  %.pr2022 = load ptr, ptr %19, align 8
+  %.not.i1345 = icmp eq ptr %.pr2022, null
+  br i1 %.not.i1345, label %tok_is_keyword.exit1355.thread, label %1356
 
 1356:                                             ; preds = %1355
-  %1357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2029, ptr noundef nonnull dereferenceable(7) @.str.53) #13
+  %1357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2022, ptr noundef nonnull dereferenceable(7) @.str.53) #13
   %1358 = icmp eq i32 %1357, 0
   br i1 %1358, label %1359, label %1361
 
 1359:                                             ; preds = %1323, %1356
   store i32 18, ptr %1333, align 4
   %1360 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
 1361:                                             ; preds = %1356
-  %1362 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2029, ptr noundef nonnull dereferenceable(5) @.str.54) #13
+  %1362 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2022, ptr noundef nonnull dereferenceable(5) @.str.54) #13
   %1363 = icmp eq i32 %1362, 0
-  br i1 %1363, label %1364, label %.thread2033
+  br i1 %1363, label %1364, label %.thread2026
 
 1364:                                             ; preds = %1323, %1361
   store i32 17, ptr %1333, align 4
   %1365 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   store i32 %1365, ptr %13, align 4
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
-.thread2033:                                      ; preds = %1361
-  %.pr2053 = load ptr, ptr %19, align 8
-  %.not.i1349 = icmp eq ptr %.pr2053, null
-  br i1 %.not.i1349, label %tok_is_keyword.exit1353.thread, label %1366
+.thread2026:                                      ; preds = %1361
+  %.pr2046 = load ptr, ptr %19, align 8
+  %.not.i1351 = icmp eq ptr %.pr2046, null
+  br i1 %.not.i1351, label %tok_is_keyword.exit1355.thread, label %1366
 
-1366:                                             ; preds = %.thread2033
-  %1367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2053, ptr noundef nonnull dereferenceable(4) @.str.55) #13
+1366:                                             ; preds = %.thread2026
+  %1367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2046, ptr noundef nonnull dereferenceable(4) @.str.55) #13
   %1368 = icmp eq i32 %1367, 0
   br i1 %1368, label %1369, label %1371
 
@@ -2962,35 +2962,35 @@ tok_is_keyword.exit1335:                          ; preds = %1307, %1304, %1301,
   store i32 15, ptr %1333, align 4
   %1370 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   store i32 %1370, ptr %13, align 4
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
 1371:                                             ; preds = %1366
-  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2053, ptr noundef nonnull dereferenceable(6) @.str.56) #13
+  %1372 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr2046, ptr noundef nonnull dereferenceable(6) @.str.56) #13
   %1373 = icmp eq i32 %1372, 0
-  br i1 %1373, label %1374, label %tok_is_keyword.exit1353.thread
+  br i1 %1373, label %1374, label %tok_is_keyword.exit1355.thread
 
 1374:                                             ; preds = %1323, %1371
   store i32 14, ptr %1333, align 4
   %1375 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   store i32 %1375, ptr %13, align 4
-  br label %tok_is_keyword.exit1353
+  br label %tok_is_keyword.exit1355
 
-tok_is_keyword.exit1353:                          ; preds = %1323, %1353, %1364, %1374, %1369, %1359, %1348
+tok_is_keyword.exit1355:                          ; preds = %1323, %1353, %1364, %1374, %1369, %1359, %1348
   %1376 = phi i32 [ %1354, %1353 ], [ %1365, %1364 ], [ %1375, %1374 ], [ %1370, %1369 ], [ %1360, %1359 ], [ %1349, %1348 ], [ %1338, %1323 ]
-  switch i32 %1376, label %tok_is_keyword.exit1356.thread1494 [
+  switch i32 %1376, label %tok_is_keyword.exit1358.thread1488 [
     i32 0, label %1377
     i32 261, label %1378
     i32 381, label %thread-pre-split.thread
     i32 371, label %1393
-    i32 277, label %tok_is_keyword.exit1353.thread
+    i32 277, label %tok_is_keyword.exit1355.thread
     i32 275, label %1404
   ]
 
-1377:                                             ; preds = %tok_is_keyword.exit1353
+1377:                                             ; preds = %tok_is_keyword.exit1355
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.48) #15
   unreachable
 
-1378:                                             ; preds = %tok_is_keyword.exit1353
+1378:                                             ; preds = %tok_is_keyword.exit1355
   %1379 = load ptr, ptr %3, align 8
   store ptr %1379, ptr %1335, align 8
   %1380 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
@@ -3010,26 +3010,26 @@ tok_is_keyword.exit1353:                          ; preds = %1323, %1353, %1364,
   %1383 = load ptr, ptr %1336, align 8
   %1384 = call ptr @lappend(ptr noundef %1383, ptr noundef %1382) #12
   store ptr %1384, ptr %1336, align 8
-  %.pr1491 = load i32, ptr %13, align 4
-  %1385 = icmp eq i32 %.pr1491, 44
+  %.pr1485 = load i32, ptr %13, align 4
+  %1385 = icmp eq i32 %.pr1485, 44
   br i1 %1385, label %.lr.ph, label %thread-pre-split, !llvm.loop !7
 
-tok_is_keyword.exit1353.thread:                   ; preds = %1355, %1343, %.thread2033, %1371, %1340, %tok_is_keyword.exit1353
+tok_is_keyword.exit1355.thread:                   ; preds = %1355, %1343, %.thread2026, %1371, %1340, %tok_is_keyword.exit1355
   %1386 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1387 = trunc nuw i8 %1386 to i1
-  br i1 %1387, label %tok_is_keyword.exit1356.thread1494, label %1388
+  br i1 %1387, label %tok_is_keyword.exit1358.thread1488, label %1388
 
-1388:                                             ; preds = %tok_is_keyword.exit1353.thread
+1388:                                             ; preds = %tok_is_keyword.exit1355.thread
   %1389 = load ptr, ptr %19, align 8
-  %.not.i1355 = icmp eq ptr %1389, null
-  br i1 %.not.i1355, label %tok_is_keyword.exit1356.thread1494, label %1390
+  %.not.i1357 = icmp eq ptr %1389, null
+  br i1 %.not.i1357, label %tok_is_keyword.exit1358.thread1488, label %1390
 
 1390:                                             ; preds = %1388
   %1391 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1389, ptr noundef nonnull dereferenceable(9) @.str.59) #13
   %1392 = icmp eq i32 %1391, 0
-  br i1 %1392, label %1393, label %tok_is_keyword.exit1356.thread1494
+  br i1 %1392, label %1393, label %tok_is_keyword.exit1358.thread1488
 
-1393:                                             ; preds = %tok_is_keyword.exit1353, %1390
+1393:                                             ; preds = %tok_is_keyword.exit1355, %1390
   %1394 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   %.not1224 = icmp eq i32 %1394, 261
   br i1 %.not1224, label %1396, label %1395
@@ -3061,21 +3061,21 @@ tok_is_keyword.exit1353.thread:                   ; preds = %1355, %1343, %.thre
   store ptr %1397, ptr %1334, align 8
   br label %1414
 
-1404:                                             ; preds = %tok_is_keyword.exit1353
+1404:                                             ; preds = %tok_is_keyword.exit1355
   %1405 = load ptr, ptr %3, align 8
   br label %1412
 
-tok_is_keyword.exit1356.thread1494:               ; preds = %tok_is_keyword.exit1353, %tok_is_keyword.exit1353.thread, %1388, %1390
-  %1406 = phi i32 [ %1376, %tok_is_keyword.exit1353 ], [ 277, %tok_is_keyword.exit1353.thread ], [ 277, %1388 ], [ 277, %1390 ]
+tok_is_keyword.exit1358.thread1488:               ; preds = %tok_is_keyword.exit1355, %tok_is_keyword.exit1355.thread, %1388, %1390
+  %1406 = phi i32 [ %1376, %tok_is_keyword.exit1355 ], [ 277, %tok_is_keyword.exit1355.thread ], [ 277, %1388 ], [ 277, %1390 ]
   %1407 = call zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef %1406) #12
   br i1 %1407, label %1408, label %1411
 
-1408:                                             ; preds = %tok_is_keyword.exit1356.thread1494
+1408:                                             ; preds = %tok_is_keyword.exit1358.thread1488
   %1409 = load ptr, ptr %3, align 8
   %1410 = call ptr @pstrdup(ptr noundef %1409) #12
   br label %1412
 
-1411:                                             ; preds = %tok_is_keyword.exit1356.thread1494
+1411:                                             ; preds = %tok_is_keyword.exit1358.thread1488
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.57) #15
   unreachable
 
@@ -3098,11 +3098,11 @@ tok_is_keyword.exit1356.thread1494:               ; preds = %tok_is_keyword.exit
   unreachable
 
 thread-pre-split:                                 ; preds = %.lr.ph, %1378, %1378, %1414, %1414
-  %1417 = phi i32 [ %1415, %1414 ], [ %1415, %1414 ], [ %1380, %1378 ], [ %1380, %1378 ], [ %.pr1491, %.lr.ph ]
+  %1417 = phi i32 [ %1415, %1414 ], [ %1415, %1414 ], [ %1380, %1378 ], [ %1380, %1378 ], [ %.pr1485, %.lr.ph ]
   %1418 = icmp eq i32 %1417, 381
   br i1 %1418, label %thread-pre-split.thread, label %1420
 
-thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit1353, %thread-pre-split
+thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit1355, %thread-pre-split
   %1419 = call fastcc ptr @read_raise_options(ptr noundef %3, ptr noundef %4, ptr noundef %1)
   store ptr %1419, ptr %1337, align 8
   br label %1420
@@ -3140,9 +3140,9 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
   br label %1437
 
 1437:                                             ; preds = %1421, %1435
-  %.sink1973 = phi ptr [ %1436, %1435 ], [ null, %1421 ]
+  %.sink1966 = phi ptr [ %1436, %1435 ], [ null, %1421 ]
   %1438 = getelementptr inbounds nuw i8, ptr %1422, i64 24
-  store ptr %.sink1973, ptr %1438, align 8
+  store ptr %.sink1966, ptr %1438, align 8
   store ptr %1422, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
   br label %1842
@@ -3332,90 +3332,90 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
 
 1522:                                             ; preds = %1502
   %1523 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  switch i32 %1523, label %tok_is_keyword.exit1362 [
+  switch i32 %1523, label %tok_is_keyword.exit1364 [
     i32 342, label %1535
     i32 277, label %1524
-    i32 369, label %tok_is_keyword.exit1362.sink.split
+    i32 369, label %tok_is_keyword.exit1364.sink.split
   ]
 
 1524:                                             ; preds = %1522
   %1525 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1526 = trunc nuw i8 %1525 to i1
-  br i1 %1526, label %tok_is_keyword.exit1362.thread1503, label %1527
+  br i1 %1526, label %tok_is_keyword.exit1364.thread1497, label %1527
 
 1527:                                             ; preds = %1524
   %1528 = load ptr, ptr %19, align 8
-  %.not.i1358 = icmp eq ptr %1528, null
-  br i1 %.not.i1358, label %tok_is_keyword.exit1362.thread1503, label %sub_01547
+  %.not.i1360 = icmp eq ptr %1528, null
+  br i1 %.not.i1360, label %tok_is_keyword.exit1364.thread1497, label %sub_01541
 
-sub_01547:                                        ; preds = %1527
+sub_01541:                                        ; preds = %1527
   %1529 = load i8, ptr %1528, align 1
-  %.not1776 = icmp eq i8 %1529, 110
-  br i1 %.not1776, label %sub_11548, label %.tail1546.thread.thread
+  %.not1769 = icmp eq i8 %1529, 110
+  br i1 %.not1769, label %sub_11542, label %.tail1540.thread.thread
 
-sub_11548:                                        ; preds = %sub_01547
+sub_11542:                                        ; preds = %sub_01541
   %1530 = getelementptr inbounds nuw i8, ptr %1528, i64 1
   %1531 = load i8, ptr %1530, align 1
-  %.not1777 = icmp eq i8 %1531, 111
-  br i1 %.not1777, label %.tail1546, label %.tail1546.thread
+  %.not1770 = icmp eq i8 %1531, 111
+  br i1 %.not1770, label %.tail1540, label %.tail1540.thread
 
-.tail1546:                                        ; preds = %sub_11548
+.tail1540:                                        ; preds = %sub_11542
   %1532 = getelementptr inbounds nuw i8, ptr %1528, i64 2
   %1533 = load i8, ptr %1532, align 1
   %1534 = icmp eq i8 %1533, 0
-  br i1 %1534, label %1535, label %.tail1546.thread
+  br i1 %1534, label %1535, label %.tail1540.thread
 
-1535:                                             ; preds = %1522, %.tail1546
+1535:                                             ; preds = %1522, %.tail1540
   %1536 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  switch i32 %1536, label %tok_is_keyword.exit1362 [
-    i32 369, label %tok_is_keyword.exit1362.sink.split
+  switch i32 %1536, label %tok_is_keyword.exit1364 [
+    i32 369, label %tok_is_keyword.exit1364.sink.split
     i32 277, label %1537
   ]
 
 1537:                                             ; preds = %1535
   %1538 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1539 = trunc nuw i8 %1538 to i1
-  br i1 %1539, label %tok_is_keyword.exit1362.thread1503, label %1540
+  br i1 %1539, label %tok_is_keyword.exit1364.thread1497, label %1540
 
 1540:                                             ; preds = %1537
   %1541 = load ptr, ptr %19, align 8
-  %.not.i1361 = icmp eq ptr %1541, null
-  br i1 %.not.i1361, label %tok_is_keyword.exit1362.thread1503, label %1542
+  %.not.i1363 = icmp eq ptr %1541, null
+  br i1 %.not.i1363, label %tok_is_keyword.exit1364.thread1497, label %1542
 
 1542:                                             ; preds = %1540
   %1543 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1541, ptr noundef nonnull dereferenceable(7) @.str.66) #13
   %1544 = icmp eq i32 %1543, 0
-  br i1 %1544, label %tok_is_keyword.exit1362.sink.split, label %tok_is_keyword.exit1362.thread1503
+  br i1 %1544, label %tok_is_keyword.exit1364.sink.split, label %tok_is_keyword.exit1364.thread1497
 
-.tail1546.thread:                                 ; preds = %sub_11548, %.tail1546
-  %.pr2044.pr = load ptr, ptr %19, align 8
-  %.not.i1364 = icmp eq ptr %.pr2044.pr, null
-  br i1 %.not.i1364, label %tok_is_keyword.exit1362.thread1503, label %.tail1546.thread.thread
+.tail1540.thread:                                 ; preds = %sub_11542, %.tail1540
+  %.pr2037.pr = load ptr, ptr %19, align 8
+  %.not.i1366 = icmp eq ptr %.pr2037.pr, null
+  br i1 %.not.i1366, label %tok_is_keyword.exit1364.thread1497, label %.tail1540.thread.thread
 
-.tail1546.thread.thread:                          ; preds = %sub_01547, %.tail1546.thread
-  %.pr20442057 = phi ptr [ %.pr2044.pr, %.tail1546.thread ], [ %1528, %sub_01547 ]
-  %1545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr20442057, ptr noundef nonnull dereferenceable(7) @.str.66) #13
+.tail1540.thread.thread:                          ; preds = %sub_01541, %.tail1540.thread
+  %.pr20372050 = phi ptr [ %.pr2037.pr, %.tail1540.thread ], [ %1528, %sub_01541 ]
+  %1545 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr20372050, ptr noundef nonnull dereferenceable(7) @.str.66) #13
   %1546 = icmp eq i32 %1545, 0
-  br i1 %1546, label %tok_is_keyword.exit1362.sink.split, label %tok_is_keyword.exit1362.thread1503
+  br i1 %1546, label %tok_is_keyword.exit1364.sink.split, label %tok_is_keyword.exit1364.thread1497
 
-tok_is_keyword.exit1362.sink.split:               ; preds = %.tail1546.thread.thread, %1522, %1542, %1535
-  %.sink2274 = phi i32 [ 4, %1535 ], [ 4, %1542 ], [ 2, %1522 ], [ 2, %.tail1546.thread.thread ]
+tok_is_keyword.exit1364.sink.split:               ; preds = %.tail1540.thread.thread, %1522, %1542, %1535
+  %.sink2267 = phi i32 [ 4, %1535 ], [ 4, %1542 ], [ 2, %1522 ], [ 2, %.tail1540.thread.thread ]
   %1547 = load i32, ptr %1517, align 8
-  %1548 = or i32 %1547, %.sink2274
+  %1548 = or i32 %1547, %.sink2267
   store i32 %1548, ptr %1517, align 8
   %1549 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
-  br label %tok_is_keyword.exit1362
+  br label %tok_is_keyword.exit1364
 
-tok_is_keyword.exit1362:                          ; preds = %tok_is_keyword.exit1362.sink.split, %1522, %1535
-  %.01151 = phi i32 [ %1536, %1535 ], [ %1523, %1522 ], [ %1549, %tok_is_keyword.exit1362.sink.split ]
+tok_is_keyword.exit1364:                          ; preds = %tok_is_keyword.exit1364.sink.split, %1522, %1535
+  %.01151 = phi i32 [ %1536, %1535 ], [ %1523, %1522 ], [ %1549, %tok_is_keyword.exit1364.sink.split ]
   %.not1220 = icmp eq i32 %.01151, 321
-  br i1 %.not1220, label %1550, label %tok_is_keyword.exit1362.thread1503
+  br i1 %.not1220, label %1550, label %tok_is_keyword.exit1364.thread1497
 
-tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail1546.thread.thread, %.tail1546.thread, %1542, %1540, %1537, %tok_is_keyword.exit1362
+tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail1540.thread.thread, %.tail1540.thread, %1542, %1540, %1537, %tok_is_keyword.exit1364
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.67) #15
   unreachable
 
-1550:                                             ; preds = %tok_is_keyword.exit1362
+1550:                                             ; preds = %tok_is_keyword.exit1364
   %1551 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   %1552 = icmp eq i32 %1551, 317
   br i1 %1552, label %1553, label %1565
@@ -3427,22 +3427,22 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   store ptr %1554, ptr %1555, align 8
   %1556 = load i32, ptr %16, align 4
   %1557 = icmp eq i32 %1556, 381
-  br i1 %1557, label %.preheader1554, label %.loopexit1555
+  br i1 %1557, label %.preheader1548, label %.loopexit1549
 
-.preheader1554:                                   ; preds = %1553
+.preheader1548:                                   ; preds = %1553
   %1558 = getelementptr inbounds nuw i8, ptr %1503, i64 48
   br label %1559
 
-1559:                                             ; preds = %.preheader1554, %1559
+1559:                                             ; preds = %.preheader1548, %1559
   %1560 = call fastcc ptr @read_sql_construct(i32 noundef 44, i32 noundef 59, i32 noundef 0, ptr noundef nonnull @.str.62, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1)
   %1561 = load ptr, ptr %1558, align 8
   %1562 = call ptr @lappend(ptr noundef %1561, ptr noundef %1560) #12
   store ptr %1562, ptr %1558, align 8
   %1563 = load i32, ptr %16, align 4
   %1564 = icmp eq i32 %1563, 44
-  br i1 %1564, label %1559, label %.loopexit1555, !llvm.loop !9
+  br i1 %1564, label %1559, label %.loopexit1549, !llvm.loop !9
 
-.loopexit1555:                                    ; preds = %1559, %1553
+.loopexit1549:                                    ; preds = %1559, %1553
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
   br label %1571
 
@@ -3459,7 +3459,7 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   store ptr %1569, ptr %1570, align 8
   br label %1571
 
-1571:                                             ; preds = %.loopexit1555, %1565, %1568
+1571:                                             ; preds = %.loopexit1549, %1565, %1568
   store ptr %1503, ptr %8, align 8
   br label %1842
 
@@ -3946,8 +3946,8 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   store ptr %1838, ptr %8, align 8
   br label %1842
 
-1842:                                             ; preds = %480, %487, %445, %452, %1312, %tok_is_keyword.exit1335, %1318, %1181, %1173, %1176, %742, %751, %759, %768, %776, %785, %793, %789, %780, %772, %763, %755, %746, %476, %441, %250, %mark_expr_as_assignment_source.exit, %108, %1761, %1773, %1171, %891, %892, %523, %524, %472, %437, %129, %134, %1841, %1833, %1831, %1829, %1828, %1826, %1825, %1821, %1820, %1816, %1815, %1813, %1811, %1809, %1756, %1752, %1736, %1733, %1728, %1723, %1701, %1700, %1695, %1667, %1666, %1665, %1649, %1633, %1632, %1616, %1614, %1601, %1588, %1571, %1501, %1466, %1459, %1452, %1449, %1446, %1439, %1437, %1420, %1300, %1299, %1298, %1237, %1236, %1225, %1159, %939, %915, %894, %888, %878, %875, %870, %869, %855, %853, %852, %839, %838, %815, %807, %724, %721, %716, %715, %714, %713, %._crit_edge, %mark_expr_as_assignment_source.exit1287, %613, %598, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %526, %517, %515, %514, %513, %512, %509, %503, %498, %497, %495, %494, %493, %423, %381, %368, %349, %344, %341, %._crit_edge1766, %296, %294, %293, %292, %291, %285, %267, %259, %193, %189, %186, %184, %155, %152, %150, %147, %144, %141, %121, %118
-  %.8 = phi i32 [ %.7, %108 ], [ %.7, %118 ], [ %.7, %121 ], [ %.7, %129 ], [ %.7, %134 ], [ %.7, %141 ], [ %.7, %144 ], [ %.7, %147 ], [ %.7, %150 ], [ %.7, %152 ], [ %.7, %155 ], [ %.7, %184 ], [ %.7, %186 ], [ %.7, %189 ], [ %.7, %193 ], [ %.7, %1841 ], [ %.7, %259 ], [ %.7, %267 ], [ %.7, %285 ], [ %.7, %291 ], [ %.7, %292 ], [ %.7, %293 ], [ %.7, %294 ], [ %.7, %296 ], [ %.7, %._crit_edge1766 ], [ %.7, %341 ], [ %.7, %344 ], [ %.7, %349 ], [ %.7, %368 ], [ %.7, %381 ], [ %.7, %423 ], [ %.7, %437 ], [ %.7, %472 ], [ %.7, %493 ], [ %.7, %494 ], [ -2, %495 ], [ %.7, %497 ], [ %.7, %498 ], [ %.7, %503 ], [ %.7, %509 ], [ %.7, %512 ], [ %.7, %513 ], [ %.7, %514 ], [ %.7, %515 ], [ %.7, %517 ], [ %.7, %523 ], [ %.7, %524 ], [ %.7, %526 ], [ %.7, %529 ], [ %.7, %531 ], [ %.7, %533 ], [ %.7, %535 ], [ %.7, %537 ], [ %.7, %539 ], [ %.7, %541 ], [ %.7, %543 ], [ %.7, %545 ], [ %.7, %547 ], [ %.7, %549 ], [ %.7, %551 ], [ %.7, %553 ], [ %.7, %555 ], [ %.7, %557 ], [ %.7, %559 ], [ %.7, %561 ], [ %.7, %563 ], [ %.7, %565 ], [ %.7, %567 ], [ %.7, %569 ], [ %.7, %571 ], [ %.7, %573 ], [ %.7, %575 ], [ %.7, %598 ], [ %.7, %613 ], [ %.7, %mark_expr_as_assignment_source.exit1287 ], [ %.7, %._crit_edge ], [ %.7, %713 ], [ %.7, %714 ], [ %.7, %715 ], [ %.7, %716 ], [ %.7, %721 ], [ %.7, %724 ], [ %.7, %807 ], [ %.7, %815 ], [ %.7, %838 ], [ %.7, %839 ], [ %.7, %852 ], [ %.7, %853 ], [ %.7, %855 ], [ %.7, %869 ], [ %.7, %870 ], [ %.7, %875 ], [ %.7, %878 ], [ %.7, %888 ], [ %.7, %891 ], [ %.7, %892 ], [ %.7, %894 ], [ %.7, %915 ], [ %.7, %939 ], [ %.7, %1159 ], [ %.7, %1171 ], [ %.7, %1225 ], [ %.7, %1236 ], [ %.7, %1237 ], [ %.7, %1298 ], [ %.7, %1299 ], [ %.7, %1300 ], [ %.7, %1420 ], [ %.7, %1437 ], [ %.7, %1439 ], [ %.7, %1446 ], [ %.7, %1449 ], [ %.7, %1452 ], [ %.7, %1459 ], [ %.7, %1466 ], [ %.7, %1501 ], [ %.7, %1571 ], [ %.7, %1588 ], [ %.7, %1601 ], [ %.7, %1614 ], [ %.7, %1616 ], [ %.7, %1632 ], [ %.7, %1633 ], [ %.7, %1649 ], [ %.7, %1665 ], [ %.7, %1666 ], [ %.7, %1667 ], [ %.7, %1695 ], [ %.7, %1700 ], [ %.7, %1701 ], [ %.7, %1723 ], [ %.7, %1728 ], [ %.7, %1733 ], [ %.7, %1736 ], [ %.7, %1752 ], [ %.7, %1756 ], [ %.7, %1761 ], [ %.7, %1773 ], [ %.7, %1809 ], [ %.7, %1811 ], [ %.7, %1813 ], [ %.7, %1815 ], [ %.7, %1816 ], [ %.7, %1820 ], [ %.7, %1821 ], [ %.7, %1825 ], [ %.7, %1826 ], [ %.7, %1828 ], [ %.7, %1829 ], [ %.7, %1831 ], [ %.7, %1833 ], [ %.7, %mark_expr_as_assignment_source.exit ], [ %.7, %250 ], [ %.7, %441 ], [ %.7, %476 ], [ %.7, %746 ], [ %.7, %755 ], [ %.7, %763 ], [ %.7, %772 ], [ %.7, %780 ], [ %.7, %789 ], [ %.7, %793 ], [ %.7, %785 ], [ %.7, %776 ], [ %.7, %768 ], [ %.7, %759 ], [ %.7, %751 ], [ %.7, %742 ], [ %.7, %1176 ], [ %.7, %1173 ], [ %.7, %1181 ], [ %.7, %1318 ], [ %.7, %tok_is_keyword.exit1335 ], [ %.7, %1312 ], [ %.7, %452 ], [ %.7, %445 ], [ %.7, %487 ], [ %.7, %480 ]
+1842:                                             ; preds = %480, %487, %445, %452, %1312, %tok_is_keyword.exit1337, %1318, %1181, %1173, %1176, %742, %751, %759, %768, %776, %785, %793, %789, %780, %772, %763, %755, %746, %476, %441, %250, %mark_expr_as_assignment_source.exit, %108, %1761, %1773, %1171, %891, %892, %523, %524, %472, %437, %129, %134, %1841, %1833, %1831, %1829, %1828, %1826, %1825, %1821, %1820, %1816, %1815, %1813, %1811, %1809, %1756, %1752, %1736, %1733, %1728, %1723, %1701, %1700, %1695, %1667, %1666, %1665, %1649, %1633, %1632, %1616, %1614, %1601, %1588, %1571, %1501, %1466, %1459, %1452, %1449, %1446, %1439, %1437, %1420, %1300, %1299, %1298, %1237, %1236, %1225, %1159, %939, %915, %894, %888, %878, %875, %870, %869, %855, %853, %852, %839, %838, %815, %807, %724, %721, %716, %715, %714, %713, %.critedge1273, %mark_expr_as_assignment_source.exit1289, %613, %598, %575, %573, %571, %569, %567, %565, %563, %561, %559, %557, %555, %553, %551, %549, %547, %545, %543, %541, %539, %537, %535, %533, %531, %529, %526, %517, %515, %514, %513, %512, %509, %503, %498, %497, %495, %494, %493, %423, %381, %368, %349, %344, %341, %.critedge, %296, %294, %293, %292, %291, %285, %267, %259, %193, %189, %186, %184, %155, %152, %150, %147, %144, %141, %121, %118
+  %.8 = phi i32 [ %.7, %108 ], [ %.7, %118 ], [ %.7, %121 ], [ %.7, %129 ], [ %.7, %134 ], [ %.7, %141 ], [ %.7, %144 ], [ %.7, %147 ], [ %.7, %150 ], [ %.7, %152 ], [ %.7, %155 ], [ %.7, %184 ], [ %.7, %186 ], [ %.7, %189 ], [ %.7, %193 ], [ %.7, %1841 ], [ %.7, %259 ], [ %.7, %267 ], [ %.7, %285 ], [ %.7, %291 ], [ %.7, %292 ], [ %.7, %293 ], [ %.7, %294 ], [ %.7, %296 ], [ %.7, %.critedge ], [ %.7, %341 ], [ %.7, %344 ], [ %.7, %349 ], [ %.7, %368 ], [ %.7, %381 ], [ %.7, %423 ], [ %.7, %437 ], [ %.7, %472 ], [ %.7, %493 ], [ %.7, %494 ], [ -2, %495 ], [ %.7, %497 ], [ %.7, %498 ], [ %.7, %503 ], [ %.7, %509 ], [ %.7, %512 ], [ %.7, %513 ], [ %.7, %514 ], [ %.7, %515 ], [ %.7, %517 ], [ %.7, %523 ], [ %.7, %524 ], [ %.7, %526 ], [ %.7, %529 ], [ %.7, %531 ], [ %.7, %533 ], [ %.7, %535 ], [ %.7, %537 ], [ %.7, %539 ], [ %.7, %541 ], [ %.7, %543 ], [ %.7, %545 ], [ %.7, %547 ], [ %.7, %549 ], [ %.7, %551 ], [ %.7, %553 ], [ %.7, %555 ], [ %.7, %557 ], [ %.7, %559 ], [ %.7, %561 ], [ %.7, %563 ], [ %.7, %565 ], [ %.7, %567 ], [ %.7, %569 ], [ %.7, %571 ], [ %.7, %573 ], [ %.7, %575 ], [ %.7, %598 ], [ %.7, %613 ], [ %.7, %mark_expr_as_assignment_source.exit1289 ], [ %.7, %.critedge1273 ], [ %.7, %713 ], [ %.7, %714 ], [ %.7, %715 ], [ %.7, %716 ], [ %.7, %721 ], [ %.7, %724 ], [ %.7, %807 ], [ %.7, %815 ], [ %.7, %838 ], [ %.7, %839 ], [ %.7, %852 ], [ %.7, %853 ], [ %.7, %855 ], [ %.7, %869 ], [ %.7, %870 ], [ %.7, %875 ], [ %.7, %878 ], [ %.7, %888 ], [ %.7, %891 ], [ %.7, %892 ], [ %.7, %894 ], [ %.7, %915 ], [ %.7, %939 ], [ %.7, %1159 ], [ %.7, %1171 ], [ %.7, %1225 ], [ %.7, %1236 ], [ %.7, %1237 ], [ %.7, %1298 ], [ %.7, %1299 ], [ %.7, %1300 ], [ %.7, %1420 ], [ %.7, %1437 ], [ %.7, %1439 ], [ %.7, %1446 ], [ %.7, %1449 ], [ %.7, %1452 ], [ %.7, %1459 ], [ %.7, %1466 ], [ %.7, %1501 ], [ %.7, %1571 ], [ %.7, %1588 ], [ %.7, %1601 ], [ %.7, %1614 ], [ %.7, %1616 ], [ %.7, %1632 ], [ %.7, %1633 ], [ %.7, %1649 ], [ %.7, %1665 ], [ %.7, %1666 ], [ %.7, %1667 ], [ %.7, %1695 ], [ %.7, %1700 ], [ %.7, %1701 ], [ %.7, %1723 ], [ %.7, %1728 ], [ %.7, %1733 ], [ %.7, %1736 ], [ %.7, %1752 ], [ %.7, %1756 ], [ %.7, %1761 ], [ %.7, %1773 ], [ %.7, %1809 ], [ %.7, %1811 ], [ %.7, %1813 ], [ %.7, %1815 ], [ %.7, %1816 ], [ %.7, %1820 ], [ %.7, %1821 ], [ %.7, %1825 ], [ %.7, %1826 ], [ %.7, %1828 ], [ %.7, %1829 ], [ %.7, %1831 ], [ %.7, %1833 ], [ %.7, %mark_expr_as_assignment_source.exit ], [ %.7, %250 ], [ %.7, %441 ], [ %.7, %476 ], [ %.7, %746 ], [ %.7, %755 ], [ %.7, %763 ], [ %.7, %772 ], [ %.7, %780 ], [ %.7, %789 ], [ %.7, %793 ], [ %.7, %785 ], [ %.7, %776 ], [ %.7, %768 ], [ %.7, %759 ], [ %.7, %751 ], [ %.7, %742 ], [ %.7, %1176 ], [ %.7, %1173 ], [ %.7, %1181 ], [ %.7, %1318 ], [ %.7, %tok_is_keyword.exit1337 ], [ %.7, %1312 ], [ %.7, %452 ], [ %.7, %445 ], [ %.7, %487 ], [ %.7, %480 ]
   %1843 = getelementptr inbounds %union.YYSTYPE, ptr %.21129, i64 %115
   %1844 = getelementptr inbounds i16, ptr %.21117, i64 %115
   %1845 = getelementptr inbounds nuw i8, ptr %1843, i64 32
@@ -4006,7 +4006,7 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
 
 1874:                                             ; preds = %1872
   %1875 = icmp eq i32 %.3, 0
-  br i1 %1875, label %.thread1525, label %1876
+  br i1 %1875, label %.thread1519, label %1876
 
 1876:                                             ; preds = %1872, %1869, %1874, %76
   %.sroa.2.0 = phi i32 [ %1870, %1874 ], [ %1870, %1869 ], [ %77, %76 ], [ %1870, %1872 ]
@@ -4014,7 +4014,7 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   br label %1877
 
 1877:                                             ; preds = %1892, %1876
-  %1878 = phi i16 [ %65, %1876 ], [ %.pre1977, %1892 ]
+  %1878 = phi i16 [ %65, %1876 ], [ %.pre1970, %1892 ]
   %.sroa.2.1 = phi i32 [ %.sroa.2.0, %1876 ], [ %1893, %1892 ]
   %.51144 = phi ptr [ %.21141, %1876 ], [ %1896, %1892 ]
   %.51132 = phi ptr [ %.21129, %1876 ], [ %1894, %1892 ]
@@ -4038,7 +4038,7 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
 
 1890:                                             ; preds = %1880, %1886, %1877
   %1891 = icmp eq ptr %.51120, %.11110
-  br i1 %1891, label %.thread1525, label %1892
+  br i1 %1891, label %.thread1519, label %1892
 
 1892:                                             ; preds = %1890
   %1893 = load i32, ptr %.51144, align 4
@@ -4047,8 +4047,8 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   %1896 = getelementptr inbounds i8, ptr %.51144, i64 -4
   %1897 = load i16, ptr %1895, align 2
   %.phi.trans.insert = sext i16 %1897 to i64
-  %.phi.trans.insert1976 = getelementptr inbounds [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre1977 = load i16, ptr %.phi.trans.insert1976, align 2
+  %.phi.trans.insert1969 = getelementptr inbounds [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre1970 = load i16, ptr %.phi.trans.insert1969, align 2
   br label %1877
 
 1898:                                             ; preds = %1886
@@ -4063,24 +4063,24 @@ tok_is_keyword.exit1362.thread1503:               ; preds = %1527, %1524, %.tail
   call void @plpgsql_yyerror(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76) #15
   unreachable
 
-.thread1525:                                      ; preds = %.thread1383, %54, %1874, %1890
-  %.511141523 = phi ptr [ %.11110, %1890 ], [ %40, %54 ], [ %.11110, %.thread1383 ], [ %.11110, %1874 ]
-  %.011481515 = phi i32 [ 1, %1890 ], [ 1, %54 ], [ 0, %.thread1383 ], [ 1, %1874 ]
-  %.not1267 = icmp eq ptr %.511141523, %5
+.thread1519:                                      ; preds = %.thread1385, %54, %1874, %1890
+  %.511141517 = phi ptr [ %.11110, %1890 ], [ %40, %54 ], [ %.11110, %.thread1385 ], [ %.11110, %1874 ]
+  %.011481509 = phi i32 [ 1, %1890 ], [ 1, %54 ], [ 0, %.thread1385 ], [ 1, %1874 ]
+  %.not1267 = icmp eq ptr %.511141517, %5
   br i1 %.not1267, label %1904, label %1903
 
-1903:                                             ; preds = %.thread1525
-  call void @pfree(ptr noundef %.511141523) #12
+1903:                                             ; preds = %.thread1519
+  call void @pfree(ptr noundef %.511141517) #12
   br label %1904
 
-1904:                                             ; preds = %.thread1525, %1903
+1904:                                             ; preds = %.thread1519, %1903
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 6400, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
-  ret i32 %.011481515
+  ret i32 %.011481509
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -4990,20 +4990,16 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   store i32 %38, ptr %17, align 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not33 = icmp eq ptr %2, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  br i1 %.not33, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i32, ptr %39, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph40, label %._crit_edge
+  br i1 %42, label %.lr.ph38, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph40, %.lr.ph, %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
-  br label %58
-
-.lr.ph40:                                         ; preds = %.lr.ph, %.lr.ph40
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph40 ], [ 0, %.lr.ph ]
+.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph38 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %40, align 8
   %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
@@ -5028,9 +5024,13 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   %55 = load i32, ptr %39, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph40, label %._crit_edge
+  br i1 %57, label %.lr.ph38, label %.critedge
 
-58:                                               ; preds = %._crit_edge, %29
+.critedge:                                        ; preds = %.lr.ph38, %.lr.ph, %31
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  br label %58
+
+58:                                               ; preds = %.critedge, %29
   ret ptr %8
 }
 

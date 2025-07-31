@@ -1500,110 +1500,110 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
   %52 = icmp uge ptr %9, %.pre3.i
   %53 = icmp ult ptr %9, %51
   %spec.select.i.i.i.i.i = and i1 %52, %53
-  br i1 %spec.select.i.i.i.i.i, label %55, label %54, !prof !192
+  br i1 %spec.select.i.i.i.i.i, label %54, label %.critedge.i.i.i, !prof !192
 
 54:                                               ; preds = %50
+  %55 = ptrtoint ptr %9 to i64
+  %56 = ptrtoint ptr %.pre3.i to i64
+  %57 = sub i64 %55, %56
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %47)
+  %58 = load ptr, ptr %43, align 8, !tbaa !20
+  %59 = getelementptr inbounds i8, ptr %58, i64 %57
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+
+.critedge.i.i.i:                                  ; preds = %50
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %47)
   %.pre.i = load ptr, ptr %43, align 8, !tbaa !20
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
 
-55:                                               ; preds = %50
-  %56 = ptrtoint ptr %9 to i64
-  %57 = ptrtoint ptr %.pre3.i to i64
-  %58 = sub i64 %56, %57
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %47)
-  %59 = load ptr, ptr %43, align 8, !tbaa !20
-  %60 = getelementptr inbounds i8, ptr %59, i64 %58
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i: ; preds = %.critedge.i.i.i, %54, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
+  %60 = phi ptr [ %.pre3.i, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit ], [ %58, %54 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %9, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit ], [ %59, %54 ], [ %9, %.critedge.i.i.i ]
+  %61 = load i32, ptr %44, align 8, !tbaa !23
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"struct.llvm::pdb::PDBFileBuilder::InjectedSourceDescriptor", ptr %60, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %64, ptr %63, align 8, !tbaa !190
+  %65 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !30
+  %66 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i: ; preds = %55, %54, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
-  %61 = phi ptr [ %.pre3.i, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit ], [ %59, %55 ], [ %.pre.i, %54 ]
-  %.016.i.i.i = phi ptr [ %9, %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit ], [ %60, %55 ], [ %9, %54 ]
-  %62 = load i32, ptr %44, align 8, !tbaa !23
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::pdb::PDBFileBuilder::InjectedSourceDescriptor", ptr %61, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %65, ptr %64, align 8, !tbaa !190
-  %66 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !30
-  %67 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %68 = icmp eq ptr %66, %67
-  br i1 %68, label %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
-  %70 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %71 = load i64, ptr %70, align 8, !tbaa !34
-  %72 = icmp ult i64 %71, 16
-  call void @llvm.assume(i1 %72)
-  %73 = add nuw nsw i64 %71, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %65, ptr noundef nonnull align 8 dereferenceable(1) %67, i64 %73, i1 false)
+68:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  %70 = load i64, ptr %69, align 8, !tbaa !34
+  %71 = icmp ult i64 %70, 16
+  call void @llvm.assume(i1 %71)
+  %72 = add nuw nsw i64 %70, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %64, ptr noundef nonnull align 8 dereferenceable(1) %66, i64 %72, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
-  store ptr %66, ptr %64, align 8, !tbaa !30
-  %74 = load i64, ptr %67, align 8, !tbaa !35
-  store i64 %74, ptr %65, align 8, !tbaa !35
+  store ptr %65, ptr %63, align 8, !tbaa !30
+  %73 = load i64, ptr %66, align 8, !tbaa !35
+  store i64 %73, ptr %64, align 8, !tbaa !35
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit: ; preds = %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %75 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !34
-  %77 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i64 %76, ptr %77, align 8, !tbaa !34
-  store ptr %67, ptr %.016.i.i.i, align 8, !tbaa !30
-  store i64 0, ptr %75, align 8, !tbaa !34
-  store i8 0, ptr %67, align 1, !tbaa !35
-  %78 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %79 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
-  %80 = load i64, ptr %79, align 8
-  store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %82 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 40
-  %83 = load i64, ptr %82, align 8, !tbaa !46
-  store i64 %83, ptr %81, align 8, !tbaa !46
-  store ptr null, ptr %82, align 8, !tbaa !46
-  %84 = load i32, ptr %44, align 8, !tbaa !23
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %44, align 8, !tbaa !23
-  %86 = load ptr, ptr %31, align 8, !tbaa !46
-  %.not.i.i = icmp eq ptr %86, null
+_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit: ; preds = %68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  %75 = load i64, ptr %74, align 8, !tbaa !34
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %75, ptr %76, align 8, !tbaa !34
+  store ptr %66, ptr %.016.i.i.i, align 8, !tbaa !30
+  store i64 0, ptr %74, align 8, !tbaa !34
+  store i8 0, ptr %66, align 1, !tbaa !35
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
+  %79 = load i64, ptr %78, align 8
+  store i64 %79, ptr %77, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 40
+  %82 = load i64, ptr %81, align 8, !tbaa !46
+  store i64 %82, ptr %80, align 8, !tbaa !46
+  store ptr null, ptr %81, align 8, !tbaa !46
+  %83 = load i32, ptr %44, align 8, !tbaa !23
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %44, align 8, !tbaa !23
+  %85 = load ptr, ptr %31, align 8, !tbaa !46
+  %.not.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit
-  %87 = load ptr, ptr %86, align 8, !tbaa !48
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(24) %86) #19
+  %86 = load ptr, ptr %85, align 8, !tbaa !48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(24) %85) #19
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3pdb14PDBFileBuilder24InjectedSourceDescriptorELb0EE9push_backEOS3_.exit
   store ptr null, ptr %31, align 8, !tbaa !46
-  %90 = load ptr, ptr %9, align 8, !tbaa !30
-  %91 = icmp eq ptr %90, %29
-  br i1 %91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8
+  %89 = load ptr, ptr %9, align 8, !tbaa !30
+  %90 = icmp eq ptr %89, %29
+  br i1 %90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
-  %92 = load i64, ptr %30, align 8, !tbaa !34
-  %93 = icmp ult i64 %92, 16
-  call void @llvm.assume(i1 %93)
+  %91 = load i64, ptr %30, align 8, !tbaa !34
+  %92 = icmp ult i64 %91, 16
+  call void @llvm.assume(i1 %92)
   br label %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
-  %94 = load i64, ptr %29, align 8, !tbaa !35
-  %95 = add i64 %94, 1
-  call void @_ZdlPvm(ptr noundef %90, i64 noundef %95) #21
+  %93 = load i64, ptr %29, align 8, !tbaa !35
+  %94 = add i64 %93, 1
+  call void @_ZdlPvm(ptr noundef %89, i64 noundef %94) #21
   br label %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit
 
 _ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #19
-  %96 = load ptr, ptr %6, align 8, !tbaa !200
-  %97 = icmp eq ptr %96, %11
-  br i1 %97, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %98
+  %95 = load ptr, ptr %6, align 8, !tbaa !200
+  %96 = icmp eq ptr %95, %11
+  br i1 %96, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %97
 
-98:                                               ; preds = %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit
-  call void @free(ptr noundef %96) #19
+97:                                               ; preds = %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit
+  call void @free(ptr noundef %95) #19
   br label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit, %98
+_ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %_ZN4llvm3pdb14PDBFileBuilder24InjectedSourceDescriptorD2Ev.exit, %97
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #19
   ret void
 }

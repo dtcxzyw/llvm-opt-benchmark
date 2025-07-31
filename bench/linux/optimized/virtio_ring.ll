@@ -5270,19 +5270,19 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
 26:                                               ; preds = %.preheader.split.us
   %27 = call ptr @dma_alloc_attrs(ptr noundef %5, i64 noundef %22, ptr noundef nonnull %7, i32 noundef 11712, i64 noundef 256) #17
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread25, label %.thread22
+  br i1 %28, label %.critedge, label %.thread17
 
 29:                                               ; preds = %.preheader.split.us
   %30 = add nuw nsw i64 %22, 4095
   %31 = and i64 %30, 8589930496
   %32 = tail call noalias ptr @alloc_pages_exact(i64 noundef %31, i32 noundef 11712) #18
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread25, label %.thread22.sink.split
+  br i1 %33, label %.critedge, label %.thread17.sink.split
 
 34:                                               ; preds = %6
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %35, ptr noundef nonnull @.str.5, i32 noundef %2) #19
-  br label %.thread25
+  br label %.critedge
 
 36:                                               ; preds = %.thread
   %37 = lshr i32 %46, 1
@@ -5309,21 +5309,21 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   %53 = and i64 %52, 8589930496
   %54 = call noalias ptr @alloc_pages_exact(i64 noundef %53, i32 noundef 11712) #18
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread, label %.thread22.sink.split
+  br i1 %55, label %.thread, label %.thread17.sink.split
 
 56:                                               ; preds = %.preheader.split
   %57 = call ptr @dma_alloc_attrs(ptr noundef %5, i64 noundef %47, ptr noundef nonnull %7, i32 noundef 11712, i64 noundef 256) #17
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.thread, label %.thread22
+  br i1 %58, label %.thread, label %.thread17
 
 .thread:                                          ; preds = %51, %56
   %59 = icmp ult i32 %46, 2
-  br i1 %59, label %.thread25, label %36, !llvm.loop !97
+  br i1 %59, label %.critedge, label %36, !llvm.loop !97
 
 .loopexit:                                        ; preds = %36, %11
-  %.pre-phi46 = phi i32 [ %20, %11 ], [ %43, %36 ]
-  %.ph.ph = phi i32 [ %2, %11 ], [ %37, %36 ]
-  %60 = zext nneg i32 %.pre-phi46 to i64
+  %.pre-phi38 = phi i32 [ %20, %11 ], [ %43, %36 ]
+  %.ph = phi i32 [ %2, %11 ], [ %37, %36 ]
+  %60 = zext nneg i32 %.pre-phi38 to i64
   %61 = load i64, ptr %14, align 8
   %62 = and i64 %61, 8589934592
   %63 = icmp eq i64 %62, 0
@@ -5334,75 +5334,75 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   %66 = and i64 %65, 12288
   %67 = call noalias ptr @alloc_pages_exact(i64 noundef %66, i32 noundef 3520) #18
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread25, label %.thread22.sink.split
+  br i1 %68, label %.critedge, label %.thread17.sink.split
 
 69:                                               ; preds = %.loopexit
   %70 = call ptr @dma_alloc_attrs(ptr noundef %5, i64 noundef %60, ptr noundef nonnull %7, i32 noundef 3520, i64 noundef 0) #17
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread25, label %.thread22
+  br i1 %71, label %.critedge, label %.thread17
 
-.thread22.sink.split:                             ; preds = %51, %64, %29
-  %.us-phi35.sink59 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
-  %.ph1924.ph = phi i32 [ %2, %29 ], [ %.ph.ph, %64 ], [ %46, %51 ]
-  %72 = ptrtoint ptr %.us-phi35.sink59 to i64
+.thread17.sink.split:                             ; preds = %51, %64, %29
+  %.us-phi27.sink53 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
+  %.ph47 = phi i32 [ %2, %29 ], [ %.ph, %64 ], [ %46, %51 ]
+  %72 = ptrtoint ptr %.us-phi27.sink53 to i64
   %73 = add i64 %72, 2147483648
-  %74 = icmp ugt ptr %.us-phi35.sink59, inttoptr (i64 -2147483649 to ptr)
+  %74 = icmp ugt ptr %.us-phi27.sink53, inttoptr (i64 -2147483649 to ptr)
   %75 = load i64, ptr @phys_base, align 8
   %76 = load i64, ptr @page_offset_base, align 8
   %77 = sub i64 -2147483648, %76
   %78 = select i1 %74, i64 %75, i64 %77
   %79 = add i64 %73, %78
   store i64 %79, ptr %7, align 8
-  br label %.thread22
+  br label %.thread17
 
-.thread22:                                        ; preds = %56, %.thread22.sink.split, %26, %69
-  %80 = phi ptr [ %70, %69 ], [ %27, %26 ], [ %.us-phi35.sink59, %.thread22.sink.split ], [ %57, %56 ]
-  %.ph1924 = phi i32 [ %.ph.ph, %69 ], [ %2, %26 ], [ %.ph1924.ph, %.thread22.sink.split ], [ %46, %56 ]
-  %81 = zext i32 %3 to i64
-  store i32 %.ph1924, ptr %0, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %80, ptr %82, align 8
-  %83 = zext i32 %.ph1924 to i64
-  %84 = shl nuw nsw i64 %83, 4
-  %85 = getelementptr i8, ptr %80, i64 %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %88 = getelementptr [0 x i16], ptr %87, i64 0, i64 %83
-  %89 = ptrtoint ptr %88 to i64
-  %90 = add nuw nsw i64 %81, 1
-  %91 = add i64 %90, %89
-  %92 = sub nsw i64 0, %81
-  %93 = and i64 %91, %92
-  %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %94, ptr %95, align 8
-  %96 = load i64, ptr %7, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %96, ptr %97, align 8
-  %98 = add nuw i32 %.ph1924, 3
-  %99 = zext i32 %98 to i64
-  %100 = shl nuw nsw i64 %99, 1
-  %101 = add nuw nsw i64 %81, 4294967295
-  %102 = add nuw nsw i64 %101, %84
-  %103 = add nuw nsw i64 %102, %100
-  %104 = and i64 %103, %92
-  %105 = shl nuw nsw i64 %83, 3
-  %106 = or disjoint i64 %105, 6
-  %107 = add nuw nsw i64 %106, %104
-  %108 = and i64 %107, 4294967295
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %108, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i8 %8, ptr %111, align 4
-  br label %.thread25
+.thread17:                                        ; preds = %56, %.thread17.sink.split, %26, %69
+  %80 = phi ptr [ %70, %69 ], [ %27, %26 ], [ %.us-phi27.sink53, %.thread17.sink.split ], [ %57, %56 ]
+  %81 = phi i32 [ %.ph, %69 ], [ %2, %26 ], [ %.ph47, %.thread17.sink.split ], [ %46, %56 ]
+  %82 = zext i32 %3 to i64
+  store i32 %81, ptr %0, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %80, ptr %83, align 8
+  %84 = zext i32 %81 to i64
+  %85 = shl nuw nsw i64 %84, 4
+  %86 = getelementptr i8, ptr %80, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %89 = getelementptr [0 x i16], ptr %88, i64 0, i64 %84
+  %90 = ptrtoint ptr %89 to i64
+  %91 = add nuw nsw i64 %82, 1
+  %92 = add i64 %91, %90
+  %93 = sub nsw i64 0, %82
+  %94 = and i64 %92, %93
+  %95 = inttoptr i64 %94 to ptr
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %95, ptr %96, align 8
+  %97 = load i64, ptr %7, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %97, ptr %98, align 8
+  %99 = add nuw i32 %81, 3
+  %100 = zext i32 %99 to i64
+  %101 = shl nuw nsw i64 %100, 1
+  %102 = add nuw nsw i64 %82, 4294967295
+  %103 = add nuw nsw i64 %102, %85
+  %104 = add nuw nsw i64 %103, %101
+  %105 = and i64 %104, %93
+  %106 = shl nuw nsw i64 %84, 3
+  %107 = or disjoint i64 %106, 6
+  %108 = add nuw nsw i64 %107, %105
+  %109 = and i64 %108, 4294967295
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %109, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %3, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i8 %8, ptr %112, align 4
+  br label %.critedge
 
-.thread25:                                        ; preds = %.thread, %26, %29, %64, %.thread22, %69, %34
-  %112 = phi i32 [ 0, %.thread22 ], [ -22, %34 ], [ -12, %69 ], [ -12, %64 ], [ -12, %29 ], [ -12, %26 ], [ -12, %.thread ]
+.critedge:                                        ; preds = %.thread, %26, %29, %64, %.thread17, %69, %34
+  %113 = phi i32 [ 0, %.thread17 ], [ -22, %34 ], [ -12, %69 ], [ -12, %64 ], [ -12, %29 ], [ -12, %26 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  ret i32 %112
+  ret i32 %113
 }
 
 ; Function Attrs: cold null_pointer_is_valid

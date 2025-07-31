@@ -383,13 +383,13 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
   %11 = getelementptr i8, ptr %0, i64 %10
   br i1 %.not, label %.split, label %.split.us
 
-.split.us:                                        ; preds = %6, %.thread128.us
-  %.099.us = phi i32 [ %.2101133.us, %.thread128.us ], [ 0, %6 ]
-  %.095.us = phi ptr [ %.297127132.us, %.thread128.us ], [ null, %6 ]
-  %.091.us = phi ptr [ %23, %.thread128.us ], [ %0, %6 ]
+.split.us:                                        ; preds = %6, %.thread130.us
+  %.099.us = phi i32 [ %.2101135.us, %.thread130.us ], [ 0, %6 ]
+  %.095.us = phi ptr [ %.297129134.us, %.thread130.us ], [ null, %6 ]
+  %.091.us = phi ptr [ %23, %.thread130.us ], [ %0, %6 ]
   %12 = load i8, ptr %.091.us, align 1, !tbaa !19
   switch i8 %12, label %15 [
-    i8 0, label %.thread135
+    i8 0, label %.thread137
     i8 123, label %.thread.us
   ]
 
@@ -397,34 +397,34 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
   %13 = add i32 %.099.us, 1
   %14 = icmp eq i32 %.099.us, 0
   %spec.select.us = select i1 %14, ptr %.091.us, ptr %.095.us
-  br label %.thread128.us
+  br label %.thread130.us
 
 15:                                               ; preds = %.split.us
   %16 = icmp eq i8 %12, 125
   %17 = icmp ne ptr %.095.us, null
   %or.cond.us = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.us, label %18, label %.thread128.us
+  br i1 %or.cond.us, label %18, label %.thread130.us
 
 18:                                               ; preds = %15
   %19 = add i32 %.099.us, -1
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.split147.us, label %.thread128.us
+  br i1 %20, label %.split147.us, label %.thread130.us
 
-.thread128.us:                                    ; preds = %15, %18, %.thread.us
-  %.2101133.us = phi i32 [ %13, %.thread.us ], [ %19, %18 ], [ %.099.us, %15 ]
-  %.297127132.us = phi ptr [ %spec.select.us, %.thread.us ], [ %.095.us, %18 ], [ %.095.us, %15 ]
+.thread130.us:                                    ; preds = %15, %18, %.thread.us
+  %.2101135.us = phi i32 [ %13, %.thread.us ], [ %19, %18 ], [ %.099.us, %15 ]
+  %.297129134.us = phi ptr [ %spec.select.us, %.thread.us ], [ %.095.us, %18 ], [ %.095.us, %15 ]
   %21 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.091.us, ptr noundef %11, ptr noundef %4) #22
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %.091.us, i64 %22
   br label %.split.us, !llvm.loop !45
 
-.split:                                           ; preds = %6, %.thread128
-  %.099 = phi i32 [ %.2101133, %.thread128 ], [ 0, %6 ]
-  %.095 = phi ptr [ %.297127132, %.thread128 ], [ null, %6 ]
-  %.091 = phi ptr [ %40, %.thread128 ], [ %0, %6 ]
+.split:                                           ; preds = %6, %.thread130
+  %.099 = phi i32 [ %.2101135, %.thread130 ], [ 0, %6 ]
+  %.095 = phi ptr [ %.297129134, %.thread130 ], [ null, %6 ]
+  %.091 = phi ptr [ %40, %.thread130 ], [ %0, %6 ]
   %24 = load i8, ptr %.091, align 1, !tbaa !19
   switch i8 %24, label %27 [
-    i8 0, label %.thread135
+    i8 0, label %.thread137
     i8 123, label %.thread
   ]
 
@@ -432,7 +432,7 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
   %25 = add i32 %.099, 1
   %26 = icmp eq i32 %.099, 0
   %spec.select = select i1 %26, ptr %.091, ptr %.095
-  br label %.thread128
+  br label %.thread130
 
 27:                                               ; preds = %.split
   %28 = icmp eq i8 %24, 125
@@ -443,28 +443,28 @@ define internal fastcc i32 @ruby_brace_expand(ptr noundef %0, i32 noundef %1, pt
 30:                                               ; preds = %27
   %31 = add i32 %.099, -1
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.split147.us, label %.thread128
+  br i1 %32, label %.split147.us, label %.thread130
 
 33:                                               ; preds = %27
   %34 = icmp eq i8 %24, 92
-  br i1 %34, label %35, label %.thread128
+  br i1 %34, label %35, label %.thread130
 
 35:                                               ; preds = %33
   %36 = getelementptr i8, ptr %.091, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !19
   %.not114 = icmp eq i8 %37, 0
-  br i1 %.not114, label %.thread135, label %.thread128
+  br i1 %.not114, label %.thread137, label %.thread130
 
-.thread128:                                       ; preds = %30, %.thread, %35, %33
-  %.2101133 = phi i32 [ %.099, %35 ], [ %.099, %33 ], [ %25, %.thread ], [ %31, %30 ]
-  %.297127132 = phi ptr [ %.095, %35 ], [ %.095, %33 ], [ %spec.select, %.thread ], [ %.095, %30 ]
+.thread130:                                       ; preds = %30, %.thread, %35, %33
+  %.2101135 = phi i32 [ %.099, %35 ], [ %.099, %33 ], [ %25, %.thread ], [ %31, %30 ]
+  %.297129134 = phi ptr [ %.095, %35 ], [ %.095, %33 ], [ %spec.select, %.thread ], [ %.095, %30 ]
   %.192 = phi ptr [ %36, %35 ], [ %.091, %33 ], [ %.091, %.thread ], [ %.091, %30 ]
   %38 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.192, ptr noundef %11, ptr noundef %4) #22
   %39 = sext i32 %38 to i64
   %40 = getelementptr i8, ptr %.192, i64 %39
   br label %.split, !llvm.loop !47
 
-.thread135:                                       ; preds = %.split.us, %.split, %35
+.thread137:                                       ; preds = %.split.us, %.split, %35
   %.us-phi = phi ptr [ %.095, %35 ], [ %.095, %.split ], [ %.095.us, %.split.us ]
   %.not141 = icmp eq ptr %.us-phi, null
   br i1 %.not141, label %107, label %109
@@ -484,7 +484,7 @@ rb_mul_size_overflow.exit.i.i:                    ; preds = %.split147.us
 glob_alloc_n.exit:                                ; preds = %.split147.us
   %44 = tail call noalias noundef ptr @malloc(i64 noundef %42) #25
   %.not115.not = icmp eq ptr %44, null
-  br i1 %.not115.not, label %.thread139, label %45
+  br i1 %.not115.not, label %.critedge122, label %45
 
 45:                                               ; preds = %glob_alloc_n.exit
   %46 = ptrtoint ptr %.us-phi148 to i64
@@ -503,15 +503,15 @@ ruby_nonempty_memcpy.exit:                        ; preds = %45, %49
   %.neg143 = sub i64 %42, %48
   br i1 %.not, label %ruby_nonempty_memcpy.exit.split.us, label %ruby_nonempty_memcpy.exit.split
 
-ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit123.us
-  %.2.us = phi ptr [ %.4.us181, %ruby_nonempty_memcpy.exit123.us ], [ %.us-phi148, %ruby_nonempty_memcpy.exit ]
+ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit125.us
+  %.2.us = phi ptr [ %.4.us181, %ruby_nonempty_memcpy.exit125.us ], [ %.us-phi148, %ruby_nonempty_memcpy.exit ]
   %52 = icmp ult ptr %.2.us, %.us-phi149
   br i1 %52, label %53, label %.split169.us
 
 53:                                               ; preds = %ruby_nonempty_memcpy.exit.split.us
   %54 = getelementptr i8, ptr %.2.us, i64 1
   %55 = icmp ult ptr %54, %.us-phi149
-  br i1 %55, label %.lr.ph.us, label %ruby_nonempty_memcpy.exit123.us
+  br i1 %55, label %.lr.ph.us, label %ruby_nonempty_memcpy.exit125.us
 
 .lr.ph.us:                                        ; preds = %53, %68
   %.3151.us158 = phi ptr [ %71, %68 ], [ %54, %53 ]
@@ -547,17 +547,17 @@ ruby_nonempty_memcpy.exit.split.us:               ; preds = %ruby_nonempty_memcp
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %65, %68
   %.4.us = phi ptr [ %.3151.us158, %.lr.ph.us ], [ %66, %65 ], [ %71, %68 ]
-  %.not.i121.us = icmp eq ptr %.4.us, %54
-  br i1 %.not.i121.us, label %ruby_nonempty_memcpy.exit123.us, label %73
+  %.not.i123.us = icmp eq ptr %.4.us, %54
+  br i1 %.not.i123.us, label %ruby_nonempty_memcpy.exit125.us, label %73
 
 73:                                               ; preds = %.critedge.us
   %74 = ptrtoint ptr %.4.us to i64
   %75 = ptrtoint ptr %54 to i64
   %76 = sub i64 %74, %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull readonly align 1 %54, i64 noundef range(i64 1, 0) %76, i1 noundef false) #22
-  br label %ruby_nonempty_memcpy.exit123.us
+  br label %ruby_nonempty_memcpy.exit125.us
 
-ruby_nonempty_memcpy.exit123.us:                  ; preds = %53, %73, %.critedge.us
+ruby_nonempty_memcpy.exit125.us:                  ; preds = %53, %73, %.critedge.us
   %77 = phi i64 [ %76, %73 ], [ 0, %.critedge.us ], [ 0, %53 ]
   %.4.us181 = phi ptr [ %.4.us, %73 ], [ %.4.us, %.critedge.us ], [ %54, %53 ]
   %78 = getelementptr i8, ptr %50, i64 %77
@@ -567,15 +567,15 @@ ruby_nonempty_memcpy.exit123.us:                  ; preds = %53, %73, %.critedge
   %.not119.us = icmp eq i32 %81, 0
   br i1 %.not119.us, label %ruby_nonempty_memcpy.exit.split.us, label %.split169.us, !llvm.loop !49
 
-ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit123
-  %.2 = phi ptr [ %.4184, %ruby_nonempty_memcpy.exit123 ], [ %.us-phi148, %ruby_nonempty_memcpy.exit ]
+ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcpy.exit, %ruby_nonempty_memcpy.exit125
+  %.2 = phi ptr [ %.4184, %ruby_nonempty_memcpy.exit125 ], [ %.us-phi148, %ruby_nonempty_memcpy.exit ]
   %82 = icmp ult ptr %.2, %.us-phi149
   br i1 %82, label %83, label %.split169.us
 
 83:                                               ; preds = %ruby_nonempty_memcpy.exit.split
   %84 = getelementptr i8, ptr %.2, i64 1
   %85 = icmp ult ptr %84, %.us-phi149
-  br i1 %85, label %.lr.ph, label %ruby_nonempty_memcpy.exit123
+  br i1 %85, label %.lr.ph, label %ruby_nonempty_memcpy.exit125
 
 .lr.ph:                                           ; preds = %83, %89
   %.3151.us = phi ptr [ %96, %89 ], [ %84, %83 ]
@@ -601,17 +601,17 @@ ruby_nonempty_memcpy.exit.split:                  ; preds = %ruby_nonempty_memcp
 
 .critedge:                                        ; preds = %89, %.lr.ph
   %.4 = phi ptr [ %96, %89 ], [ %.3151.us, %.lr.ph ]
-  %.not.i121 = icmp eq ptr %.4, %84
-  br i1 %.not.i121, label %ruby_nonempty_memcpy.exit123, label %98
+  %.not.i123 = icmp eq ptr %.4, %84
+  br i1 %.not.i123, label %ruby_nonempty_memcpy.exit125, label %98
 
 98:                                               ; preds = %.critedge
   %99 = ptrtoint ptr %.4 to i64
   %100 = ptrtoint ptr %84 to i64
   %101 = sub i64 %99, %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull readonly align 1 %84, i64 noundef range(i64 1, 0) %101, i1 noundef false) #22
-  br label %ruby_nonempty_memcpy.exit123
+  br label %ruby_nonempty_memcpy.exit125
 
-ruby_nonempty_memcpy.exit123:                     ; preds = %83, %.critedge, %98
+ruby_nonempty_memcpy.exit125:                     ; preds = %83, %.critedge, %98
   %102 = phi i64 [ 0, %.critedge ], [ %101, %98 ], [ 0, %83 ]
   %.4184 = phi ptr [ %.4, %.critedge ], [ %.4, %98 ], [ %84, %83 ]
   %103 = getelementptr i8, ptr %50, i64 %102
@@ -621,26 +621,26 @@ ruby_nonempty_memcpy.exit123:                     ; preds = %83, %.critedge, %98
   %.not119 = icmp eq i32 %106, 0
   br i1 %.not119, label %ruby_nonempty_memcpy.exit.split, label %.split169.us
 
-.split169.us:                                     ; preds = %ruby_nonempty_memcpy.exit123, %ruby_nonempty_memcpy.exit.split, %ruby_nonempty_memcpy.exit.split.us, %ruby_nonempty_memcpy.exit123.us
-  %.us-phi170 = phi i32 [ %81, %ruby_nonempty_memcpy.exit123.us ], [ 0, %ruby_nonempty_memcpy.exit.split.us ], [ %106, %ruby_nonempty_memcpy.exit123 ], [ 0, %ruby_nonempty_memcpy.exit.split ]
+.split169.us:                                     ; preds = %ruby_nonempty_memcpy.exit.split, %ruby_nonempty_memcpy.exit125, %ruby_nonempty_memcpy.exit.split.us, %ruby_nonempty_memcpy.exit125.us
+  %.us-phi170 = phi i32 [ %81, %ruby_nonempty_memcpy.exit125.us ], [ 0, %ruby_nonempty_memcpy.exit.split.us ], [ %106, %ruby_nonempty_memcpy.exit125 ], [ 0, %ruby_nonempty_memcpy.exit.split ]
   tail call void @free(ptr noundef nonnull %44) #22
   br label %109
 
-107:                                              ; preds = %.thread135
+107:                                              ; preds = %.thread137
   %108 = tail call i32 %2(ptr noundef nonnull %0, i64 noundef %3, ptr noundef %4) #22
   br label %109
 
-109:                                              ; preds = %.split169.us, %.thread135, %107
-  %.3108 = phi i32 [ %.us-phi170, %.split169.us ], [ 0, %.thread135 ], [ %108, %107 ]
+109:                                              ; preds = %.split169.us, %.thread137, %107
+  %.3108 = phi i32 [ %.us-phi170, %.split169.us ], [ 0, %.thread137 ], [ %108, %107 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   store ptr %7, ptr %8, align 8, !tbaa !51
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #22, !srcloc !52
   %110 = load ptr, ptr %8, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   %111 = load volatile i64, ptr %110, align 8, !tbaa !7
-  br label %.thread139
+  br label %.critedge122
 
-.thread139:                                       ; preds = %glob_alloc_n.exit, %109
+.critedge122:                                     ; preds = %glob_alloc_n.exit, %109
   %.1 = phi i32 [ %.3108, %109 ], [ -1, %glob_alloc_n.exit ]
   ret i32 %.1
 }

@@ -1902,7 +1902,7 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8, !tbaa !51
   %38 = icmp eq i32 %6, 4
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %49
 
 39:                                               ; preds = %sdslen.exit
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1911,35 +1911,35 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
   %43 = load ptr, ptr %42, align 8, !tbaa !99
   %44 = tail call i32 @strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.23) #15
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %.thread, label %45
+  br i1 %.not, label %49, label %45
 
 45:                                               ; preds = %39
   %46 = tail call i32 @strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.24) #15
   %.not33 = icmp eq i32 %46, 0
-  br i1 %.not33, label %.thread, label %47
+  br i1 %.not33, label %49, label %47
 
 47:                                               ; preds = %45
   %48 = tail call i32 @strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.25) #15
   %.not34 = icmp eq i32 %48, 0
-  br i1 %.not34, label %.thread, label %49
+  br i1 %.not34, label %49, label %.critedge
 
-49:                                               ; preds = %47
+.critedge:                                        ; preds = %47
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #12
   br label %152
 
-.thread:                                          ; preds = %39, %45, %47, %sdslen.exit
-  %50 = phi i1 [ false, %sdslen.exit ], [ true, %47 ], [ false, %45 ], [ false, %39 ]
-  %.not64.i = phi i1 [ true, %sdslen.exit ], [ true, %47 ], [ false, %45 ], [ true, %39 ]
+49:                                               ; preds = %47, %45, %39, %sdslen.exit
+  %50 = phi i1 [ false, %sdslen.exit ], [ false, %39 ], [ false, %45 ], [ true, %47 ]
+  %.not64.i = phi i1 [ true, %sdslen.exit ], [ true, %39 ], [ false, %45 ], [ true, %47 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #12
   %51 = call i32 @verifyDumpPayload(ptr noundef nonnull %15, i64 noundef %.0.i, ptr noundef nonnull %4) #12
   %.not35 = icmp eq i32 %51, 0
   br i1 %.not35, label %53, label %52
 
-52:                                               ; preds = %.thread
+52:                                               ; preds = %49
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #12
   br label %151
 
-53:                                               ; preds = %.thread
+53:                                               ; preds = %49
   %54 = call ptr @functionsLibCtxCreate()
   call void @rioInitWithBuffer(ptr noundef nonnull %2, ptr noundef nonnull %15) #12
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1962,17 +1962,17 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
 62:                                               ; preds = %60
   %63 = call ptr @sdsnew(ptr noundef nonnull @.str.28) #12
   store ptr %63, ptr %3, align 8, !tbaa !51
-  br label %.thread45
+  br label %.thread
 
 64:                                               ; preds = %60
   %65 = call ptr @sdsnew(ptr noundef nonnull @.str.29) #12
   store ptr %65, ptr %3, align 8, !tbaa !51
-  br label %.thread45
+  br label %.thread
 
 66:                                               ; preds = %60
   %67 = call ptr @sdsnew(ptr noundef nonnull @.str.30) #12
   store ptr %67, ptr %3, align 8, !tbaa !51
-  br label %.thread45
+  br label %.thread
 
 68:                                               ; preds = %60
   %69 = load i16, ptr %4, align 2, !tbaa !45
@@ -1984,12 +1984,12 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
 72:                                               ; preds = %68
   %73 = load ptr, ptr %3, align 8, !tbaa !51
   %.not39 = icmp eq ptr %73, null
-  br i1 %.not39, label %74, label %.thread45.thread
+  br i1 %.not39, label %74, label %.thread.thread
 
 74:                                               ; preds = %72
   %75 = call ptr @sdsnew(ptr noundef nonnull @.str.31) #12
   store ptr %75, ptr %3, align 8, !tbaa !51
-  br label %.thread45
+  br label %.thread
 
 76:                                               ; preds = %56
   %77 = load ptr, ptr @curr_functions_lib_ctx, align 8, !tbaa !40
@@ -2129,13 +2129,13 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
 
 131:                                              ; preds = %130, %.thread.i
   %.not67.i = icmp eq ptr %.05292.i, null
-  br i1 %.not67.i, label %.thread45thread-pre-split, label %.preheader.i
+  br i1 %.not67.i, label %.threadthread-pre-split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %131
   %132 = getelementptr inbounds nuw i8, ptr %.05292.i, i64 40
   %133 = load i64, ptr %132, align 8, !tbaa !132
   %.not68101.i = icmp eq i64 %133, 0
-  br i1 %.not68101.i, label %libraryJoin.exit.thread53, label %.lr.ph102.i
+  br i1 %.not68101.i, label %libraryJoin.exit.thread49, label %.lr.ph102.i
 
 .lr.ph102.i:                                      ; preds = %.preheader.i, %.lr.ph102.i
   %134 = load ptr, ptr %.05292.i, align 8, !tbaa !133
@@ -2146,11 +2146,11 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
   call void @listDelNode(ptr noundef nonnull %.05292.i, ptr noundef %134) #12
   %137 = load i64, ptr %132, align 8, !tbaa !132
   %.not68.i = icmp eq i64 %137, 0
-  br i1 %.not68.i, label %libraryJoin.exit.thread53, label %.lr.ph102.i, !llvm.loop !135
+  br i1 %.not68.i, label %libraryJoin.exit.thread49, label %.lr.ph102.i, !llvm.loop !135
 
-libraryJoin.exit.thread53:                        ; preds = %.lr.ph102.i, %.preheader.i
+libraryJoin.exit.thread49:                        ; preds = %.lr.ph102.i, %.preheader.i
   call void @listRelease(ptr noundef nonnull %.05292.i) #12
-  br label %.thread45thread-pre-split
+  br label %.threadthread-pre-split
 
 libraryJoin.exit:                                 ; preds = %._crit_edge107.i
   call void @listRelease(ptr noundef nonnull %.052.lcssa.i) #12
@@ -2161,53 +2161,53 @@ libraryJoin.exit.thread:                          ; preds = %._crit_edge107.i, %
   %138 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !115
   %139 = add nsw i64 %138, 1
   store i64 %139, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !115
-  br label %.thread45thread-pre-split
+  br label %.threadthread-pre-split
 
-.thread45thread-pre-split:                        ; preds = %libraryJoin.exit.thread, %libraryJoin.exit.thread53, %131
-  %.027.ph = phi ptr [ %54, %131 ], [ %54, %libraryJoin.exit.thread53 ], [ %.128, %libraryJoin.exit.thread ]
+.threadthread-pre-split:                          ; preds = %libraryJoin.exit.thread, %libraryJoin.exit.thread49, %131
+  %.027.ph = phi ptr [ %54, %131 ], [ %54, %libraryJoin.exit.thread49 ], [ %.128, %libraryJoin.exit.thread ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !51
-  br label %.thread45
+  br label %.thread
 
-.thread45:                                        ; preds = %.thread45thread-pre-split, %74, %66, %64, %62
-  %140 = phi ptr [ %.pr, %.thread45thread-pre-split ], [ %75, %74 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ]
-  %.027 = phi ptr [ %.027.ph, %.thread45thread-pre-split ], [ %54, %74 ], [ %54, %66 ], [ %54, %64 ], [ %54, %62 ]
+.thread:                                          ; preds = %.threadthread-pre-split, %74, %66, %64, %62
+  %140 = phi ptr [ %.pr, %.threadthread-pre-split ], [ %75, %74 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ]
+  %.027 = phi ptr [ %.027.ph, %.threadthread-pre-split ], [ %54, %74 ], [ %54, %66 ], [ %54, %64 ], [ %54, %62 ]
   %.not40 = icmp eq ptr %140, null
-  br i1 %.not40, label %142, label %.thread45.thread
+  br i1 %.not40, label %142, label %.thread.thread
 
-.thread45.thread:                                 ; preds = %72, %.thread45
-  %.02760 = phi ptr [ %.027, %.thread45 ], [ %54, %72 ]
-  %141 = phi ptr [ %140, %.thread45 ], [ %73, %72 ]
+.thread.thread:                                   ; preds = %72, %.thread
+  %.02756 = phi ptr [ %.027, %.thread ], [ %54, %72 ]
+  %141 = phi ptr [ %140, %.thread ], [ %73, %72 ]
   call void @addReplyErrorSds(ptr noundef %0, ptr noundef nonnull %141) #12
   br label %144
 
-142:                                              ; preds = %.thread45
+142:                                              ; preds = %.thread
   %143 = load ptr, ptr @shared, align 8, !tbaa !116
   call void @addReply(ptr noundef %0, ptr noundef %143) #12
   br label %144
 
-144:                                              ; preds = %142, %.thread45.thread
-  %.02759 = phi ptr [ %.027, %142 ], [ %.02760, %.thread45.thread ]
-  %.not41 = icmp eq ptr %.02759, null
+144:                                              ; preds = %142, %.thread.thread
+  %.02755 = phi ptr [ %.027, %142 ], [ %.02756, %.thread.thread ]
+  %.not41 = icmp eq ptr %.02755, null
   br i1 %.not41, label %151, label %145
 
 145:                                              ; preds = %144
-  call void @functionsLibCtxClear(ptr noundef nonnull %.02759)
-  %146 = getelementptr inbounds nuw i8, ptr %.02759, i64 8
+  call void @functionsLibCtxClear(ptr noundef nonnull %.02755)
+  %146 = getelementptr inbounds nuw i8, ptr %.02755, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !33
   call void @dictRelease(ptr noundef %147) #12
-  %148 = load ptr, ptr %.02759, align 8, !tbaa !35
+  %148 = load ptr, ptr %.02755, align 8, !tbaa !35
   call void @dictRelease(ptr noundef %148) #12
-  %149 = getelementptr inbounds nuw i8, ptr %.02759, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.02755, i64 24
   %150 = load ptr, ptr %149, align 8, !tbaa !36
   call void @dictRelease(ptr noundef %150) #12
-  call void @zfree(ptr noundef nonnull %.02759) #12
+  call void @zfree(ptr noundef nonnull %.02755) #12
   br label %151
 
 151:                                              ; preds = %144, %145, %52
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #12
   br label %152
 
-152:                                              ; preds = %49, %151
+152:                                              ; preds = %.critedge, %151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #12
   br label %153

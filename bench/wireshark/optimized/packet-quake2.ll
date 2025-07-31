@@ -256,13 +256,13 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %47 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.6)
   %48 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %49, label %.thread70.i
+  br i1 %.not.i, label %49, label %.thread.i
 
 49:                                               ; preds = %40
   %50 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   br i1 %45, label %70, label %77
 
-.thread70.i:                                      ; preds = %40
+.thread.i:                                        ; preds = %40
   %51 = and i32 %48, 2147483647
   %.lobit.i = lshr i32 %48, 31
   %52 = load i32, ptr @ett_quake2_game_seq1, align 4
@@ -290,15 +290,15 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %71 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
   br label %77
 
-72:                                               ; preds = %.thread70.i
+72:                                               ; preds = %.thread.i
   %73 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
   %74 = load i32, ptr @hf_quake2_game_qport, align 4
   %75 = zext i16 %73 to i32
   %76 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %47, i32 noundef %74, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef %75)
   br label %77
 
-77:                                               ; preds = %72, %70, %.thread70.i, %49
-  %.0.i = phi i32 [ 8, %49 ], [ 10, %72 ], [ 10, %70 ], [ 8, %.thread70.i ]
+77:                                               ; preds = %72, %70, %.thread.i, %49
+  %.0.i = phi i32 [ 8, %49 ], [ 10, %72 ], [ 10, %70 ], [ 8, %.thread.i ]
   %78 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not68.i = icmp eq i32 %78, %.0.i
   br i1 %.not68.i, label %dissect_quake2_GamePacket.exit, label %79

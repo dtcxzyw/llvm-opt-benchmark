@@ -2734,7 +2734,7 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #5 {
 23:                                               ; preds = %1
   %24 = tail call i32 @isHLLObjectOrReply(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %93
+  br i1 %.not, label %25, label %92
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %2, align 8, !tbaa !66
@@ -2752,9 +2752,9 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #5 {
   %34 = icmp sgt i32 %33, 2
   br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %31, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 2, %31 ]
-  %.143 = phi i32 [ %.3.ph, %66 ], [ %.036, %31 ]
+.lr.ph:                                           ; preds = %31, %65
+  %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 2, %31 ]
+  %.140 = phi i32 [ %.3, %65 ], [ %.036, %31 ]
   %35 = load ptr, ptr %4, align 8, !tbaa !77
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !78
@@ -2803,65 +2803,65 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #5 {
 sdslen.exit:                                      ; preds = %.lr.ph, %44, %47, %51, %55, %59
   %.0.i = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
   %62 = tail call i32 @hllAdd(ptr noundef %.0, ptr noundef nonnull %39, i64 noundef %.0.i)
-  switch i32 %62, label %66 [
+  switch i32 %62, label %65 [
     i32 1, label %63
-    i32 -1, label %65
+    i32 -1, label %.critedge
   ]
 
 63:                                               ; preds = %sdslen.exit
-  %64 = add nsw i32 %.143, 1
-  br label %66
+  %64 = add nsw i32 %.140, 1
+  br label %65
 
-65:                                               ; preds = %sdslen.exit
+.critedge:                                        ; preds = %sdslen.exit
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #20
-  br label %93
+  br label %92
 
-66:                                               ; preds = %63, %sdslen.exit
-  %.3.ph = phi i32 [ %64, %63 ], [ %.143, %sdslen.exit ]
+65:                                               ; preds = %63, %sdslen.exit
+  %.3 = phi i32 [ %.140, %sdslen.exit ], [ %64, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %32, align 8, !tbaa !79
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !80
+  %66 = load i32, ptr %32, align 8, !tbaa !79
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %66, %31
-  %.1.lcssa = phi i32 [ %.036, %31 ], [ %.3.ph, %66 ]
+._crit_edge:                                      ; preds = %65, %31
+  %.1.lcssa = phi i32 [ %.036, %31 ], [ %.3, %65 ]
   %.not38 = icmp eq i32 %.1.lcssa, 0
-  br i1 %.not38, label %89, label %70
+  br i1 %.not38, label %88, label %69
 
-70:                                               ; preds = %._crit_edge
-  %71 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !15
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 15
-  %74 = load i8, ptr %73, align 1, !tbaa !11
-  %75 = or i8 %74, -128
-  store i8 %75, ptr %73, align 1, !tbaa !11
-  %76 = load ptr, ptr %2, align 8, !tbaa !66
-  %77 = load ptr, ptr %4, align 8, !tbaa !77
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !78
-  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %79) #20
-  %80 = load ptr, ptr %4, align 8, !tbaa !77
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !78
-  %83 = load ptr, ptr %2, align 8, !tbaa !66
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
-  %85 = load i32, ptr %84, align 8, !tbaa !81
-  tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef %82, i32 noundef %85) #20
-  %86 = sext i32 %.1.lcssa to i64
-  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
-  %88 = add nsw i64 %87, %86
-  store i64 %88, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
-  br label %89
+69:                                               ; preds = %._crit_edge
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !15
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 15
+  %73 = load i8, ptr %72, align 1, !tbaa !11
+  %74 = or i8 %73, -128
+  store i8 %74, ptr %72, align 1, !tbaa !11
+  %75 = load ptr, ptr %2, align 8, !tbaa !66
+  %76 = load ptr, ptr %4, align 8, !tbaa !77
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !78
+  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %78) #20
+  %79 = load ptr, ptr %4, align 8, !tbaa !77
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !78
+  %82 = load ptr, ptr %2, align 8, !tbaa !66
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %84 = load i32, ptr %83, align 8, !tbaa !81
+  tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef %81, i32 noundef %84) #20
+  %85 = sext i32 %.1.lcssa to i64
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
+  %87 = add nsw i64 %86, %85
+  store i64 %87, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
+  br label %88
 
-89:                                               ; preds = %70, %._crit_edge
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
-  %92 = select i1 %.not38, ptr %91, ptr %90
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %92) #20
-  br label %93
+88:                                               ; preds = %69, %._crit_edge
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
+  %91 = select i1 %.not38, ptr %90, ptr %89
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %91) #20
+  br label %92
 
-93:                                               ; preds = %65, %23, %89
+92:                                               ; preds = %.critedge, %23, %88
   ret void
 }
 

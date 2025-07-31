@@ -2230,12 +2230,12 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %47, align 8
   %.not25.i = icmp eq i32 %48, 0
-  br i1 %.not25.i, label %find_tcaphash_end.exit, label %49
+  br i1 %.not25.i, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = load i32, ptr %42, align 4
   %51 = icmp eq i32 %50, %48
-  br i1 %51, label %find_tcaphash_end.exit, label %52
+  br i1 %51, label %.critedge, label %52
 
 52:                                               ; preds = %49, %43
   %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
@@ -2273,14 +2273,14 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   br label %75
 
 75:                                               ; preds = %69, %65
-  %.sink103 = phi i32 [ %74, %69 ], [ %68, %65 ]
+  %.sink94 = phi i32 [ %74, %69 ], [ %68, %65 ]
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %.sink103, ptr %76, align 4
+  store i32 %.sink94, ptr %76, align 4
   store i32 %56, ptr %6, align 4
   %77 = load ptr, ptr @tcaphash_begin, align 8
   %78 = call ptr @wmem_map_lookup(ptr noundef %77, ptr noundef nonnull %6)
   %.not.i56 = icmp eq ptr %78, null
-  br i1 %.not.i56, label %.thread85, label %.preheader.i57
+  br i1 %.not.i56, label %.thread, label %.preheader.i57
 
 .preheader.i57:                                   ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2306,23 +2306,23 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   %.not24.i59 = icmp ne i32 %89, 0
   %.not25.i60 = icmp ugt i32 %84, %89
   %or.cond.i = and i1 %.not24.i59, %.not25.i60
-  br i1 %or.cond.i, label %90, label %find_tcaphash_end.exit
+  br i1 %or.cond.i, label %90, label %.critedge
 
 90:                                               ; preds = %87, %83, %80
   %91 = getelementptr inbounds nuw i8, ptr %.0.i58, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread85, label %80
+  br i1 %93, label %.thread, label %80
 
-find_tcaphash_end.exit:                           ; preds = %46, %49, %87
-  %.049 = phi ptr [ %82, %87 ], [ %45, %49 ], [ %45, %46 ]
+.critedge:                                        ; preds = %49, %46, %87
+  %.049 = phi ptr [ %82, %87 ], [ %45, %46 ], [ %45, %49 ]
   %94 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %95 = trunc nuw i8 %94 to i1
   %96 = icmp ne ptr %2, null
   %or.cond = and i1 %96, %95
   br i1 %or.cond, label %97, label %proto_item_set_generated.exit70
 
-97:                                               ; preds = %find_tcaphash_end.exit
+97:                                               ; preds = %.critedge
   %98 = load i32, ptr @ett_tcap_stat, align 4
   %99 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %98, ptr noundef nonnull %8, ptr noundef nonnull @.str.221)
   %100 = load ptr, ptr %8, align 8
@@ -2413,17 +2413,17 @@ proto_item_set_generated.exit67:                  ; preds = %122, %127, %130
   store i32 %144, ptr %142, align 4
   br label %proto_item_set_generated.exit70
 
-proto_item_set_generated.exit70:                  ; preds = %find_tcaphash_end.exit, %141, %138, %proto_item_set_generated.exit67, %proto_item_set_generated.exit64
+proto_item_set_generated.exit70:                  ; preds = %.critedge, %141, %138, %proto_item_set_generated.exit67, %proto_item_set_generated.exit64
   call void @tcapsrt_close(ptr noundef nonnull %.049, ptr noundef nonnull %1)
-  br label %.thread85
+  br label %.thread
 
-.thread85:                                        ; preds = %90, %75, %proto_item_set_generated.exit70
-  %.04988 = phi ptr [ %.049, %proto_item_set_generated.exit70 ], [ null, %75 ], [ null, %90 ]
+.thread:                                          ; preds = %90, %75, %proto_item_set_generated.exit70
+  %.04979 = phi ptr [ %.049, %proto_item_set_generated.exit70 ], [ null, %75 ], [ null, %90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  ret ptr %.04988
+  ret ptr %.04979
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

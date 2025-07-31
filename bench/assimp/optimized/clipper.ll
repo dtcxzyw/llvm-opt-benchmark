@@ -870,9 +870,9 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %5 = load i64, ptr %0, align 8
   br label %6
 
-6:                                                ; preds = %75, %2
-  %.058 = phi i32 [ 0, %2 ], [ %.159, %75 ]
-  %.055 = phi ptr [ %1, %2 ], [ %8, %75 ]
+6:                                                ; preds = %77, %2
+  %.058 = phi i32 [ 0, %2 ], [ %.159, %77 ]
+  %.055 = phi ptr [ %1, %2 ], [ %8, %77 ]
   %7 = getelementptr inbounds nuw i8, ptr %.055, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -889,7 +889,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %5
-  br i1 %15, label %77, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.055, i64 16
@@ -903,35 +903,35 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %23 = load i64, ptr %21, align 8
   %24 = icmp sge i64 %23, %5
   %25 = xor i1 %22, %24
-  br i1 %25, label %77, label %._crit_edge80
+  br i1 %25, label %.critedge, label %._crit_edge79
 
-._crit_edge80:                                    ; preds = %20
-  %.not81 = icmp slt i64 %10, %4
-  br i1 %.not81, label %30, label %75
+._crit_edge79:                                    ; preds = %20
+  %.not80 = icmp slt i64 %10, %4
+  br i1 %.not80, label %30, label %77
 
 26:                                               ; preds = %._crit_edge, %16
   %27 = phi i64 [ %.pre, %._crit_edge ], [ %18, %16 ]
   %28 = icmp slt i64 %27, %4
   %29 = icmp sge i64 %10, %4
   %.not = xor i1 %29, %28
-  br i1 %.not, label %75, label %30
+  br i1 %.not, label %77, label %30
 
-30:                                               ; preds = %._crit_edge80, %26
-  %31 = phi i64 [ %4, %._crit_edge80 ], [ %27, %26 ]
+30:                                               ; preds = %._crit_edge79, %26
+  %31 = phi i64 [ %4, %._crit_edge79 ], [ %27, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %34 = load i64, ptr %33, align 8
   %.not75 = icmp slt i64 %34, %5
   %35 = load i64, ptr %32, align 8
   %36 = icmp sgt i64 %35, %5
-  br i1 %.not75, label %57, label %37
+  br i1 %.not75, label %58, label %37
 
 37:                                               ; preds = %30
   br i1 %36, label %38, label %40
 
 38:                                               ; preds = %37
   %39 = sub nuw nsw i32 1, %.058
-  br label %75
+  br label %77
 
 40:                                               ; preds = %37
   %41 = sub nsw i64 %34, %5
@@ -946,49 +946,49 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %50 = fmul double %49, %46
   %51 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %50)
   %52 = fcmp une double %51, 0.000000e+00
-  br i1 %52, label %.thread, label %77
+  br i1 %52, label %53, label %.critedge
 
-.thread:                                          ; preds = %40
-  %53 = fcmp ogt double %51, 0.000000e+00
-  %54 = icmp sle i64 %10, %31
-  %55 = xor i1 %54, %53
-  %56 = sub nuw nsw i32 1, %.058
-  %spec.select = select i1 %55, i32 %56, i32 %.058
-  br label %75
+53:                                               ; preds = %40
+  %54 = fcmp ogt double %51, 0.000000e+00
+  %55 = icmp sle i64 %10, %31
+  %56 = xor i1 %55, %54
+  %57 = sub nuw nsw i32 1, %.058
+  %spec.select = select i1 %56, i32 %57, i32 %.058
+  br label %77
 
-57:                                               ; preds = %30
-  br i1 %36, label %58, label %75
+58:                                               ; preds = %30
+  br i1 %36, label %59, label %77
 
-58:                                               ; preds = %57
-  %59 = sub nsw i64 %34, %5
-  %60 = sitofp i64 %59 to double
-  %61 = sub nsw i64 %10, %4
-  %62 = sitofp i64 %61 to double
-  %63 = sub nsw i64 %35, %5
-  %64 = sitofp i64 %63 to double
-  %65 = sub nsw i64 %31, %4
-  %66 = sitofp i64 %65 to double
-  %67 = fneg double %66
-  %68 = fmul double %67, %64
-  %69 = tail call double @llvm.fmuladd.f64(double %60, double %62, double %68)
-  %70 = fcmp une double %69, 0.000000e+00
-  br i1 %70, label %.thread78, label %77
+59:                                               ; preds = %58
+  %60 = sub nsw i64 %34, %5
+  %61 = sitofp i64 %60 to double
+  %62 = sub nsw i64 %10, %4
+  %63 = sitofp i64 %62 to double
+  %64 = sub nsw i64 %35, %5
+  %65 = sitofp i64 %64 to double
+  %66 = sub nsw i64 %31, %4
+  %67 = sitofp i64 %66 to double
+  %68 = fneg double %67
+  %69 = fmul double %68, %65
+  %70 = tail call double @llvm.fmuladd.f64(double %61, double %63, double %69)
+  %71 = fcmp une double %70, 0.000000e+00
+  br i1 %71, label %72, label %.critedge
 
-.thread78:                                        ; preds = %58
-  %71 = fcmp ogt double %69, 0.000000e+00
-  %72 = icmp sle i64 %10, %31
-  %73 = xor i1 %72, %71
-  %74 = sub nuw nsw i32 1, %.058
-  %spec.select76 = select i1 %73, i32 %74, i32 %.058
-  br label %75
+72:                                               ; preds = %59
+  %73 = fcmp ogt double %70, 0.000000e+00
+  %74 = icmp sle i64 %10, %31
+  %75 = xor i1 %74, %73
+  %76 = sub nuw nsw i32 1, %.058
+  %spec.select76 = select i1 %75, i32 %76, i32 %.058
+  br label %77
 
-75:                                               ; preds = %._crit_edge80, %.thread78, %.thread, %38, %57, %26
-  %.159 = phi i32 [ %39, %38 ], [ %.058, %57 ], [ %.058, %26 ], [ %spec.select, %.thread ], [ %spec.select76, %.thread78 ], [ %.058, %._crit_edge80 ]
-  %76 = icmp eq ptr %1, %8
-  br i1 %76, label %77, label %6, !llvm.loop !12
+77:                                               ; preds = %._crit_edge79, %72, %53, %38, %58, %26
+  %.159 = phi i32 [ %39, %38 ], [ %spec.select, %53 ], [ %spec.select76, %72 ], [ %.058, %58 ], [ %.058, %26 ], [ %.058, %._crit_edge79 ]
+  %78 = icmp eq ptr %1, %8
+  br i1 %78, label %.critedge, label %6, !llvm.loop !12
 
-77:                                               ; preds = %58, %40, %75, %12, %20
-  %.1 = phi i32 [ -1, %20 ], [ -1, %12 ], [ %.159, %75 ], [ -1, %40 ], [ -1, %58 ]
+.critedge:                                        ; preds = %59, %40, %77, %12, %20
+  %.1 = phi i32 [ -1, %20 ], [ -1, %12 ], [ %.159, %77 ], [ -1, %40 ], [ -1, %59 ]
   ret i32 %.1
 }
 
@@ -7104,12 +7104,7 @@ _ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit:       ; preds = %_ZNSt7__cxx114listI
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = call noundef zeroext i1 @_ZN10ClipperLib11ClipperBase11PopScanbeamERx(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %33, label %48, label %.thread51
-
-.thread51:                                        ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
-  br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit48
+  br i1 %33, label %48, label %.critedge28
 
 34:                                               ; preds = %1
   %35 = landingpad { ptr, i32 }
@@ -7243,7 +7238,7 @@ _ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit: ; preds = %.noexc, %.critedg
   %81 = load ptr, ptr %51, align 8
   %82 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %81, %82
-  br i1 %.not.i, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit, label %.lr.ph.i27
+  br i1 %.not.i, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit, label %.lr.ph.i29
 
 ._crit_edge.i:                                    ; preds = %91
   %83 = icmp eq ptr %93, %92
@@ -7253,7 +7248,7 @@ _ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit: ; preds = %.noexc, %.critedg
   store ptr %92, ptr %51, align 8
   br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit
 
-.lr.ph.i27:                                       ; preds = %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, %91
+.lr.ph.i29:                                       ; preds = %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit, %91
   %85 = phi ptr [ %92, %91 ], [ %82, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
   %86 = phi ptr [ %93, %91 ], [ %81, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
   %.06.i = phi i64 [ %94, %91 ], [ 0, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit ]
@@ -7262,22 +7257,22 @@ _ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit: ; preds = %.noexc, %.critedg
   %89 = icmp eq ptr %88, null
   br i1 %89, label %91, label %90
 
-90:                                               ; preds = %.lr.ph.i27
+90:                                               ; preds = %.lr.ph.i29
   call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef 32) #34
   %.pre.i = load ptr, ptr %51, align 8
   %.pre10.i = load ptr, ptr %50, align 8
   br label %91
 
-91:                                               ; preds = %90, %.lr.ph.i27
-  %92 = phi ptr [ %85, %.lr.ph.i27 ], [ %.pre10.i, %90 ]
-  %93 = phi ptr [ %86, %.lr.ph.i27 ], [ %.pre.i, %90 ]
+91:                                               ; preds = %90, %.lr.ph.i29
+  %92 = phi ptr [ %85, %.lr.ph.i29 ], [ %.pre10.i, %90 ]
+  %93 = phi ptr [ %86, %.lr.ph.i29 ], [ %.pre.i, %90 ]
   %94 = add nuw i64 %.06.i, 1
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %92 to i64
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 3
   %99 = icmp ult i64 %94, %98
-  br i1 %99, label %.lr.ph.i27, label %._crit_edge.i, !llvm.loop !84
+  br i1 %99, label %.lr.ph.i29, label %._crit_edge.i, !llvm.loop !84
 
 _ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %84, %._crit_edge.i, %_ZN10ClipperLib7Clipper18ProcessHorizontalsEv.exit
   %100 = load i64, ptr %4, align 8
@@ -7430,9 +7425,9 @@ _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit: ; preds = %_ZN10ClipperLib
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %185 = load ptr, ptr %184, align 8
   %.not19.i = icmp eq ptr %178, %185
-  br i1 %.not19.i, label %._crit_edge.i33, label %.lr.ph.i30
+  br i1 %.not19.i, label %._crit_edge.i35, label %.lr.ph.i32
 
-.lr.ph.i30:                                       ; preds = %183, %207
+.lr.ph.i32:                                       ; preds = %183, %207
   %.021.i = phi ptr [ %.1.i, %207 ], [ %185, %183 ]
   %.01720.i = phi ptr [ %.118.i, %207 ], [ %178, %183 ]
   %186 = getelementptr inbounds nuw i8, ptr %.01720.i, i64 24
@@ -7452,7 +7447,7 @@ _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit: ; preds = %_ZN10ClipperLib
   %200 = select i1 %194, i1 %199, i1 false
   br i1 %200, label %201, label %207
 
-201:                                              ; preds = %.lr.ph.i30
+201:                                              ; preds = %.lr.ph.i32
   %202 = icmp eq ptr %187, %.021.i
   %spec.select.i = select i1 %202, ptr %190, ptr %.021.i
   %203 = getelementptr inbounds nuw i8, ptr %187, i64 24
@@ -7464,37 +7459,37 @@ _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit: ; preds = %_ZN10ClipperLib
   call void @_ZdlPvm(ptr noundef nonnull %187, i64 noundef 40) #34
   br label %207
 
-207:                                              ; preds = %201, %.lr.ph.i30
-  %.118.i = phi ptr [ %190, %201 ], [ %187, %.lr.ph.i30 ]
-  %.1.i = phi ptr [ %spec.select.i, %201 ], [ %.021.i, %.lr.ph.i30 ]
-  %.not.i31 = icmp eq ptr %.118.i, %.1.i
-  br i1 %.not.i31, label %._crit_edge.loopexit.i, label %.lr.ph.i30, !llvm.loop !87
+207:                                              ; preds = %201, %.lr.ph.i32
+  %.118.i = phi ptr [ %190, %201 ], [ %187, %.lr.ph.i32 ]
+  %.1.i = phi ptr [ %spec.select.i, %201 ], [ %.021.i, %.lr.ph.i32 ]
+  %.not.i33 = icmp eq ptr %.118.i, %.1.i
+  br i1 %.not.i33, label %._crit_edge.loopexit.i, label %.lr.ph.i32, !llvm.loop !87
 
 ._crit_edge.loopexit.i:                           ; preds = %207
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.118.i, i64 32
-  %.pre.i32 = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %._crit_edge.i33
+  %.pre.i34 = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %._crit_edge.i35
 
-._crit_edge.i33:                                  ; preds = %._crit_edge.loopexit.i, %183
-  %208 = phi ptr [ %185, %183 ], [ %.pre.i32, %._crit_edge.loopexit.i ]
+._crit_edge.i35:                                  ; preds = %._crit_edge.loopexit.i, %183
+  %208 = phi ptr [ %185, %183 ], [ %.pre.i34, %._crit_edge.loopexit.i ]
   %.017.lcssa.i = phi ptr [ %178, %183 ], [ %.118.i, %._crit_edge.loopexit.i ]
   %209 = icmp eq ptr %.017.lcssa.i, %208
   br i1 %209, label %210, label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
-210:                                              ; preds = %._crit_edge.i33
+210:                                              ; preds = %._crit_edge.i35
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store ptr null, ptr %211, align 8
-  br label %.lr.ph.i.i34
+  br label %.lr.ph.i.i36
 
-.lr.ph.i.i34:                                     ; preds = %.lr.ph.i.i34, %210
-  %212 = phi ptr [ %214, %.lr.ph.i.i34 ], [ %.017.lcssa.i, %210 ]
+.lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %210
+  %212 = phi ptr [ %214, %.lr.ph.i.i36 ], [ %.017.lcssa.i, %210 ]
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
   call void @_ZdlPvm(ptr noundef nonnull %212, i64 noundef 40) #34
-  %.not.i.i35 = icmp eq ptr %214, null
-  br i1 %.not.i.i35, label %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, label %.lr.ph.i.i34, !llvm.loop !15
+  %.not.i.i37 = icmp eq ptr %214, null
+  br i1 %.not.i.i37, label %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, label %.lr.ph.i.i36, !llvm.loop !15
 
-_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i: ; preds = %.lr.ph.i.i34
+_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i: ; preds = %.lr.ph.i.i36
   store ptr null, ptr %177, align 8
   br label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
@@ -7502,7 +7497,7 @@ _ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i: ; preds = %.lr.ph.i.i34
   call void @_ZN10ClipperLib7Clipper15FixupOutPolygonERNS_6OutRecE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull align 8 dereferenceable(40) %176)
   br label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
-_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, %._crit_edge.i33, %215, %.lr.ph68
+_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, %._crit_edge.i35, %215, %.lr.ph68
   %216 = add nuw i64 %.02066, 1
   %217 = load ptr, ptr %0, align 8
   %218 = getelementptr i8, ptr %217, i64 -24
@@ -7524,92 +7519,97 @@ _ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10Cli
   br label %231
 
 231:                                              ; preds = %105, %.thread, %._crit_edge69, %230
-  %.12250 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %230 ], [ false, %105 ]
+  %.12252 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %230 ], [ false, %105 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %234 = load ptr, ptr %233, align 8
   %235 = load ptr, ptr %232, align 8
-  %.not.i36 = icmp eq ptr %234, %235
-  br i1 %.not.i36, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %.lr.ph.i37
+  %.not.i38 = icmp eq ptr %234, %235
+  br i1 %.not.i38, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %.lr.ph.i39
 
-._crit_edge.i41:                                  ; preds = %244
+._crit_edge.i43:                                  ; preds = %244
   %236 = icmp eq ptr %246, %245
   br i1 %236, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %237
 
-237:                                              ; preds = %._crit_edge.i41
+237:                                              ; preds = %._crit_edge.i43
   store ptr %245, ptr %233, align 8
   br label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit
 
-.lr.ph.i37:                                       ; preds = %231, %244
+.lr.ph.i39:                                       ; preds = %231, %244
   %238 = phi ptr [ %245, %244 ], [ %235, %231 ]
   %239 = phi ptr [ %246, %244 ], [ %234, %231 ]
-  %.06.i38 = phi i64 [ %247, %244 ], [ 0, %231 ]
-  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %.06.i38
+  %.06.i40 = phi i64 [ %247, %244 ], [ 0, %231 ]
+  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %.06.i40
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %241, null
   br i1 %242, label %244, label %243
 
-243:                                              ; preds = %.lr.ph.i37
+243:                                              ; preds = %.lr.ph.i39
   call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 32) #34
-  %.pre.i39 = load ptr, ptr %233, align 8
-  %.pre10.i40 = load ptr, ptr %232, align 8
+  %.pre.i41 = load ptr, ptr %233, align 8
+  %.pre10.i42 = load ptr, ptr %232, align 8
   br label %244
 
-244:                                              ; preds = %243, %.lr.ph.i37
-  %245 = phi ptr [ %238, %.lr.ph.i37 ], [ %.pre10.i40, %243 ]
-  %246 = phi ptr [ %239, %.lr.ph.i37 ], [ %.pre.i39, %243 ]
-  %247 = add nuw i64 %.06.i38, 1
+244:                                              ; preds = %243, %.lr.ph.i39
+  %245 = phi ptr [ %238, %.lr.ph.i39 ], [ %.pre10.i42, %243 ]
+  %246 = phi ptr [ %239, %.lr.ph.i39 ], [ %.pre.i41, %243 ]
+  %247 = add nuw i64 %.06.i40, 1
   %248 = ptrtoint ptr %246 to i64
   %249 = ptrtoint ptr %245 to i64
   %250 = sub i64 %248, %249
   %251 = ashr exact i64 %250, 3
   %252 = icmp ult i64 %247, %251
-  br i1 %252, label %.lr.ph.i37, label %._crit_edge.i41, !llvm.loop !89
+  br i1 %252, label %.lr.ph.i39, label %._crit_edge.i43, !llvm.loop !89
 
-_ZN10ClipperLib7Clipper10ClearJoinsEv.exit:       ; preds = %231, %._crit_edge.i41, %237
+_ZN10ClipperLib7Clipper10ClearJoinsEv.exit:       ; preds = %231, %._crit_edge.i43, %237
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %253, align 8
-  %.not.i42 = icmp eq ptr %255, %256
-  br i1 %.not.i42, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit48, label %.lr.ph.i43
+  %.not.i44 = icmp eq ptr %255, %256
+  br i1 %.not.i44, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50, label %.lr.ph.i45
 
-._crit_edge.i47:                                  ; preds = %265
+._crit_edge.i49:                                  ; preds = %265
   %257 = icmp eq ptr %267, %266
-  br i1 %257, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit48, label %258
+  br i1 %257, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50, label %258
 
-258:                                              ; preds = %._crit_edge.i47
+258:                                              ; preds = %._crit_edge.i49
   store ptr %266, ptr %254, align 8
-  br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit48
+  br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50
 
-.lr.ph.i43:                                       ; preds = %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %265
+.lr.ph.i45:                                       ; preds = %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %265
   %259 = phi ptr [ %266, %265 ], [ %256, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
   %260 = phi ptr [ %267, %265 ], [ %255, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
-  %.06.i44 = phi i64 [ %268, %265 ], [ 0, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
-  %261 = getelementptr inbounds nuw ptr, ptr %259, i64 %.06.i44
+  %.06.i46 = phi i64 [ %268, %265 ], [ 0, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
+  %261 = getelementptr inbounds nuw ptr, ptr %259, i64 %.06.i46
   %262 = load ptr, ptr %261, align 8
   %263 = icmp eq ptr %262, null
   br i1 %263, label %265, label %264
 
-264:                                              ; preds = %.lr.ph.i43
+264:                                              ; preds = %.lr.ph.i45
   call void @_ZdlPvm(ptr noundef nonnull %262, i64 noundef 32) #34
-  %.pre.i45 = load ptr, ptr %254, align 8
-  %.pre10.i46 = load ptr, ptr %253, align 8
+  %.pre.i47 = load ptr, ptr %254, align 8
+  %.pre10.i48 = load ptr, ptr %253, align 8
   br label %265
 
-265:                                              ; preds = %264, %.lr.ph.i43
-  %266 = phi ptr [ %259, %.lr.ph.i43 ], [ %.pre10.i46, %264 ]
-  %267 = phi ptr [ %260, %.lr.ph.i43 ], [ %.pre.i45, %264 ]
-  %268 = add nuw i64 %.06.i44, 1
+265:                                              ; preds = %264, %.lr.ph.i45
+  %266 = phi ptr [ %259, %.lr.ph.i45 ], [ %.pre10.i48, %264 ]
+  %267 = phi ptr [ %260, %.lr.ph.i45 ], [ %.pre.i47, %264 ]
+  %268 = add nuw i64 %.06.i46, 1
   %269 = ptrtoint ptr %267 to i64
   %270 = ptrtoint ptr %266 to i64
   %271 = sub i64 %269, %270
   %272 = ashr exact i64 %271, 3
   %273 = icmp ult i64 %268, %272
-  br i1 %273, label %.lr.ph.i43, label %._crit_edge.i47, !llvm.loop !84
+  br i1 %273, label %.lr.ph.i45, label %._crit_edge.i49, !llvm.loop !84
 
-_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit48: ; preds = %258, %._crit_edge.i47, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %.thread51
-  %.1 = phi i1 [ false, %.thread51 ], [ %.12250, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ], [ %.12250, %._crit_edge.i47 ], [ %.12250, %258 ]
+.critedge28:                                      ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
+  br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50
+
+_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50: ; preds = %258, %._crit_edge.i49, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %.critedge28
+  %.1 = phi i1 [ false, %.critedge28 ], [ %.12252, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ], [ %.12252, %._crit_edge.i49 ], [ %.12252, %258 ]
   ret i1 %.1
 }
 
@@ -10162,19 +10162,19 @@ define hidden void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonn
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %.not113 = icmp eq ptr %8, %9
-  br i1 %.not113, label %._crit_edge112, label %.lr.ph111
+  %.not111 = icmp eq ptr %8, %9
+  br i1 %.not111, label %._crit_edge110, label %.lr.ph109
 
-.lr.ph111:                                        ; preds = %1
+.lr.ph109:                                        ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 133
   br label %11
 
-11:                                               ; preds = %.lr.ph111, %.loopexit
-  %12 = phi ptr [ %2, %.lr.ph111 ], [ %388, %.loopexit ]
-  %13 = phi ptr [ %9, %.lr.ph111 ], [ %395, %.loopexit ]
-  %.0109 = phi i64 [ 0, %.lr.ph111 ], [ %14, %.loopexit ]
-  %14 = add nuw i64 %.0109, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0109
+11:                                               ; preds = %.lr.ph109, %.loopexit
+  %12 = phi ptr [ %2, %.lr.ph109 ], [ %394, %.loopexit ]
+  %13 = phi ptr [ %9, %.lr.ph109 ], [ %401, %.loopexit ]
+  %.0107 = phi i64 [ 0, %.lr.ph109 ], [ %14, %.loopexit ]
+  %14 = add nuw i64 %.0107, 1
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0107
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -10185,20 +10185,20 @@ define hidden void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonn
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 5
   %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %.loopexit, label %.preheader103, !llvm.loop !102
+  br i1 %22, label %.loopexit, label %.preheader101, !llvm.loop !102
 
-.preheader103:                                    ; preds = %19
+.preheader101:                                    ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %25
 
-25:                                               ; preds = %.preheader103, %._crit_edge
-  %26 = phi ptr [ %387, %._crit_edge ], [ %18, %.preheader103 ]
-  %.060 = phi ptr [ %386, %._crit_edge ], [ %18, %.preheader103 ]
+25:                                               ; preds = %.preheader101, %._crit_edge
+  %26 = phi ptr [ %393, %._crit_edge ], [ %18, %.preheader101 ]
+  %.060 = phi ptr [ %392, %._crit_edge ], [ %18, %.preheader101 ]
   %27 = getelementptr inbounds nuw i8, ptr %.060, i64 24
-  %.061106 = load ptr, ptr %27, align 8
-  %.not66107 = icmp eq ptr %.061106, %26
-  br i1 %.not66107, label %._crit_edge, label %.lr.ph
+  %.061104 = load ptr, ptr %27, align 8
+  %.not66105 = icmp eq ptr %.061104, %26
+  br i1 %.not66105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.060, i64 8
@@ -10207,26 +10207,26 @@ define hidden void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonn
   br label %31
 
 31:                                               ; preds = %.lr.ph, %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
-  %.061108 = phi ptr [ %.061106, %.lr.ph ], [ %.061, %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %.061108, i64 8
+  %.061106 = phi ptr [ %.061104, %.lr.ph ], [ %.061, %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit ]
+  %32 = getelementptr inbounds nuw i8, ptr %.061106, i64 8
   %33 = load i64, ptr %28, align 8
   %34 = load i64, ptr %32, align 8
   %35 = icmp eq i64 %33, %34
   %36 = load i64, ptr %29, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.061108, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.061106, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %36, %38
   %40 = select i1 %35, i1 %39, i1 false
   br i1 %40, label %41, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds nuw i8, ptr %.061108, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.061106, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not68 = icmp eq ptr %43, %.060
   br i1 %.not68, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.061108, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.061106, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not69 = icmp eq ptr %46, %.060
   br i1 %.not69, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit, label %47
@@ -10238,7 +10238,7 @@ define hidden void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonn
   store ptr %.060, ptr %49, align 8
   store ptr %48, ptr %45, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %.061108, ptr %50, align 8
+  store ptr %.061106, ptr %50, align 8
   store ptr %.060, ptr %17, align 8
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
@@ -10326,11 +10326,11 @@ _ZN10ClipperLib11ClipperBase12CreateOutRecEv.exit: ; preds = %64, %_ZNSt6vectorI
   %94 = add nsw i32 %93, -1
   store i32 %94, ptr %55, align 8
   %95 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %.061108, ptr %95, align 8
+  store ptr %.061106, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %96, %_ZN10ClipperLib11ClipperBase12CreateOutRecEv.exit
-  %.0.i = phi ptr [ %.061108, %_ZN10ClipperLib11ClipperBase12CreateOutRecEv.exit ], [ %98, %96 ]
+  %.0.i = phi ptr [ %.061106, %_ZN10ClipperLib11ClipperBase12CreateOutRecEv.exit ], [ %98, %96 ]
   store i32 %94, ptr %.0.i, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %98 = load ptr, ptr %97, align 8
@@ -10343,16 +10343,16 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   br label %101
 
 101:                                              ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit
-  %.010.i = phi ptr [ %99, %_ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit ], [ %176, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
+  %.010.i = phi ptr [ %99, %_ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit ], [ %178, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
   %102 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = load i64, ptr %102, align 8
   br label %106
 
-106:                                              ; preds = %._crit_edge80.i, %101
-  %.058.i = phi i32 [ 0, %101 ], [ %.159.i, %._crit_edge80.i ]
-  %.055.i = phi ptr [ %100, %101 ], [ %108, %._crit_edge80.i ]
+106:                                              ; preds = %._crit_edge79.i, %101
+  %.058.i = phi i32 [ 0, %101 ], [ %.159.i, %._crit_edge79.i ]
+  %.055.i = phi ptr [ %100, %101 ], [ %108, %._crit_edge79.i ]
   %107 = getelementptr inbounds nuw i8, ptr %.055.i, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -10383,14 +10383,14 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   %123 = load i64, ptr %121, align 8
   %124 = icmp sge i64 %123, %105
   %125 = xor i1 %122, %124
-  br i1 %125, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge80.i
+  br i1 %125, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge79.i
 
 126:                                              ; preds = %116, %._crit_edge.i
   %127 = phi i64 [ %.pre.i79, %._crit_edge.i ], [ %118, %116 ]
   %128 = icmp slt i64 %127, %104
   %129 = icmp sge i64 %110, %104
   %.not.i80 = xor i1 %129, %128
-  br i1 %.not.i80, label %._crit_edge80.i, label %130
+  br i1 %.not.i80, label %._crit_edge79.i, label %130
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -10399,14 +10399,14 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   %.not75.i = icmp slt i64 %133, %105
   %134 = load i64, ptr %131, align 8
   %135 = icmp sgt i64 %134, %105
-  br i1 %.not75.i, label %156, label %136
+  br i1 %.not75.i, label %157, label %136
 
 136:                                              ; preds = %130
   br i1 %135, label %137, label %139
 
 137:                                              ; preds = %136
   %138 = sub nuw nsw i32 1, %.058.i
-  br label %._crit_edge80.i
+  br label %._crit_edge79.i
 
 139:                                              ; preds = %136
   %140 = sub nsw i64 %133, %105
@@ -10421,432 +10421,432 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   %149 = fmul double %148, %145
   %150 = tail call double @llvm.fmuladd.f64(double %141, double %143, double %149)
   %151 = fcmp une double %150, 0.000000e+00
-  br i1 %151, label %.thread.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+  br i1 %151, label %152, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread.i:                                        ; preds = %139
-  %152 = fcmp ogt double %150, 0.000000e+00
-  %153 = icmp sle i64 %110, %127
-  %154 = xor i1 %153, %152
-  %155 = sub nuw nsw i32 1, %.058.i
-  %spec.select.i = select i1 %154, i32 %155, i32 %.058.i
-  br label %._crit_edge80.i
+152:                                              ; preds = %139
+  %153 = fcmp ogt double %150, 0.000000e+00
+  %154 = icmp sle i64 %110, %127
+  %155 = xor i1 %154, %153
+  %156 = sub nuw nsw i32 1, %.058.i
+  %spec.select.i = select i1 %155, i32 %156, i32 %.058.i
+  br label %._crit_edge79.i
 
-156:                                              ; preds = %130
-  br i1 %135, label %157, label %._crit_edge80.i
+157:                                              ; preds = %130
+  br i1 %135, label %158, label %._crit_edge79.i
 
-157:                                              ; preds = %156
-  %158 = sub nsw i64 %133, %105
-  %159 = sitofp i64 %158 to double
-  %160 = sub nsw i64 %110, %104
-  %161 = sitofp i64 %160 to double
-  %162 = sub nsw i64 %134, %105
-  %163 = sitofp i64 %162 to double
-  %164 = sub nsw i64 %127, %104
-  %165 = sitofp i64 %164 to double
-  %166 = fneg double %165
-  %167 = fmul double %166, %163
-  %168 = tail call double @llvm.fmuladd.f64(double %159, double %161, double %167)
-  %169 = fcmp une double %168, 0.000000e+00
-  br i1 %169, label %.thread78.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+158:                                              ; preds = %157
+  %159 = sub nsw i64 %133, %105
+  %160 = sitofp i64 %159 to double
+  %161 = sub nsw i64 %110, %104
+  %162 = sitofp i64 %161 to double
+  %163 = sub nsw i64 %134, %105
+  %164 = sitofp i64 %163 to double
+  %165 = sub nsw i64 %127, %104
+  %166 = sitofp i64 %165 to double
+  %167 = fneg double %166
+  %168 = fmul double %167, %164
+  %169 = tail call double @llvm.fmuladd.f64(double %160, double %162, double %168)
+  %170 = fcmp une double %169, 0.000000e+00
+  br i1 %170, label %171, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread78.i:                                      ; preds = %157
-  %170 = fcmp ogt double %168, 0.000000e+00
-  %171 = icmp sle i64 %110, %127
-  %172 = xor i1 %171, %170
-  %173 = sub nuw nsw i32 1, %.058.i
-  %spec.select76.i = select i1 %172, i32 %173, i32 %.058.i
-  br label %._crit_edge80.i
+171:                                              ; preds = %158
+  %172 = fcmp ogt double %169, 0.000000e+00
+  %173 = icmp sle i64 %110, %127
+  %174 = xor i1 %173, %172
+  %175 = sub nuw nsw i32 1, %.058.i
+  %spec.select76.i = select i1 %174, i32 %175, i32 %.058.i
+  br label %._crit_edge79.i
 
-._crit_edge80.i:                                  ; preds = %120, %.thread78.i, %156, %.thread.i, %137, %126
-  %.159.i = phi i32 [ %138, %137 ], [ %.058.i, %156 ], [ %.058.i, %126 ], [ %spec.select.i, %.thread.i ], [ %spec.select76.i, %.thread78.i ], [ %.058.i, %120 ]
-  %174 = icmp eq ptr %100, %108
-  br i1 %174, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %106, !llvm.loop !12
+._crit_edge79.i:                                  ; preds = %120, %171, %157, %152, %137, %126
+  %.159.i = phi i32 [ %138, %137 ], [ %spec.select.i, %152 ], [ %spec.select76.i, %171 ], [ %.058.i, %157 ], [ %.058.i, %126 ], [ %.058.i, %120 ]
+  %176 = icmp eq ptr %100, %108
+  br i1 %176, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %106, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %157, %139, %112, %120
-  %175 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
-  %176 = load ptr, ptr %175, align 8
-  %.not.i71 = icmp eq ptr %176, %98
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %158, %139, %112, %120
+  %177 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
+  %178 = load ptr, ptr %177, align 8
+  %.not.i71 = icmp eq ptr %178, %98
   br i1 %.not.i71, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, label %101, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge80.i
-  %.not101 = icmp eq i32 %.159.i, 0
-  br i1 %.not101, label %.preheader, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge79.i
+  %.not99 = icmp eq i32 %.159.i, 0
+  br i1 %.not99, label %.preheader, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
 
 _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread: ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
-  %177 = load i8, ptr %23, align 4, !range !6, !noundef !7
-  %178 = xor i8 %177, 1
-  store i8 %178, ptr %56, align 4
+  %179 = load i8, ptr %23, align 4, !range !6, !noundef !7
+  %180 = xor i8 %179, 1
+  store i8 %180, ptr %56, align 4
   store ptr %16, ptr %58, align 8
-  %179 = load i8, ptr %10, align 1, !range !6, !noundef !7
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
+  %181 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %182 = trunc nuw i8 %181 to i1
+  br i1 %182, label %183, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
-181:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
+183:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
   tail call void @_ZN10ClipperLib7Clipper16FixupFirstLefts2EPNS_6OutRecES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %55, ptr noundef nonnull %16)
   br label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
-.preheader:                                       ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread
-  %.010.i72 = phi ptr [ %256, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread ], [ %100, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ]
-  %182 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 8
-  %183 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 16
-  %184 = load i64, ptr %183, align 8
-  %185 = load i64, ptr %182, align 8
-  br label %186
+.preheader:                                       ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread
+  %.010.i72 = phi ptr [ %260, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread ], [ %100, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ]
+  %184 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 16
+  %186 = load i64, ptr %185, align 8
+  %187 = load i64, ptr %184, align 8
+  br label %188
 
-186:                                              ; preds = %._crit_edge80.i94, %.preheader
-  %.058.i81 = phi i32 [ 0, %.preheader ], [ %.159.i91, %._crit_edge80.i94 ]
-  %.055.i82 = phi ptr [ %99, %.preheader ], [ %188, %._crit_edge80.i94 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 24
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %190 = load i64, ptr %189, align 8
-  %191 = icmp eq i64 %190, %184
-  br i1 %191, label %192, label %._crit_edge.i83
+188:                                              ; preds = %._crit_edge79.i92, %.preheader
+  %.058.i81 = phi i32 [ 0, %.preheader ], [ %.159.i90, %._crit_edge79.i92 ]
+  %.055.i82 = phi ptr [ %99, %.preheader ], [ %190, %._crit_edge79.i92 ]
+  %189 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 24
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %192 = load i64, ptr %191, align 8
+  %193 = icmp eq i64 %192, %186
+  br i1 %193, label %194, label %._crit_edge.i83
 
-._crit_edge.i83:                                  ; preds = %186
+._crit_edge.i83:                                  ; preds = %188
   %.phi.trans.insert.i84 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 16
   %.pre.i85 = load i64, ptr %.phi.trans.insert.i84, align 8
-  br label %206
+  br label %208
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %194 = load i64, ptr %193, align 8
-  %195 = icmp eq i64 %194, %185
-  br i1 %195, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread, label %196
+194:                                              ; preds = %188
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %196 = load i64, ptr %195, align 8
+  %197 = icmp eq i64 %196, %187
+  br i1 %197, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread, label %198
 
-196:                                              ; preds = %192
-  %197 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 16
-  %198 = load i64, ptr %197, align 8
-  %199 = icmp eq i64 %198, %184
-  br i1 %199, label %200, label %206
+198:                                              ; preds = %194
+  %199 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 16
+  %200 = load i64, ptr %199, align 8
+  %201 = icmp eq i64 %200, %186
+  br i1 %201, label %202, label %208
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 8
-  %202 = icmp sgt i64 %194, %185
-  %203 = load i64, ptr %201, align 8
-  %204 = icmp sge i64 %203, %185
-  %205 = xor i1 %202, %204
-  br i1 %205, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread, label %._crit_edge80.i94
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 8
+  %204 = icmp sgt i64 %196, %187
+  %205 = load i64, ptr %203, align 8
+  %206 = icmp sge i64 %205, %187
+  %207 = xor i1 %204, %206
+  br i1 %207, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread, label %._crit_edge79.i92
 
-206:                                              ; preds = %196, %._crit_edge.i83
-  %207 = phi i64 [ %.pre.i85, %._crit_edge.i83 ], [ %198, %196 ]
-  %208 = icmp slt i64 %207, %184
-  %209 = icmp sge i64 %190, %184
-  %.not.i86 = xor i1 %209, %208
-  br i1 %.not.i86, label %._crit_edge80.i94, label %210
+208:                                              ; preds = %198, %._crit_edge.i83
+  %209 = phi i64 [ %.pre.i85, %._crit_edge.i83 ], [ %200, %198 ]
+  %210 = icmp slt i64 %209, %186
+  %211 = icmp sge i64 %192, %186
+  %.not.i86 = xor i1 %211, %210
+  br i1 %.not.i86, label %._crit_edge79.i92, label %212
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %212 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 8
-  %213 = load i64, ptr %212, align 8
-  %.not75.i87 = icmp slt i64 %213, %185
-  %214 = load i64, ptr %211, align 8
-  %215 = icmp sgt i64 %214, %185
-  br i1 %.not75.i87, label %236, label %216
+212:                                              ; preds = %208
+  %213 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %.055.i82, i64 8
+  %215 = load i64, ptr %214, align 8
+  %.not75.i87 = icmp slt i64 %215, %187
+  %216 = load i64, ptr %213, align 8
+  %217 = icmp sgt i64 %216, %187
+  br i1 %.not75.i87, label %239, label %218
 
-216:                                              ; preds = %210
-  br i1 %215, label %217, label %219
+218:                                              ; preds = %212
+  br i1 %217, label %219, label %221
 
-217:                                              ; preds = %216
-  %218 = sub nuw nsw i32 1, %.058.i81
-  br label %._crit_edge80.i94
+219:                                              ; preds = %218
+  %220 = sub nuw nsw i32 1, %.058.i81
+  br label %._crit_edge79.i92
 
-219:                                              ; preds = %216
-  %220 = sub nsw i64 %213, %185
-  %221 = sitofp i64 %220 to double
-  %222 = sub nsw i64 %190, %184
+221:                                              ; preds = %218
+  %222 = sub nsw i64 %215, %187
   %223 = sitofp i64 %222 to double
-  %224 = sub nsw i64 %214, %185
+  %224 = sub nsw i64 %192, %186
   %225 = sitofp i64 %224 to double
-  %226 = sub nsw i64 %207, %184
+  %226 = sub nsw i64 %216, %187
   %227 = sitofp i64 %226 to double
-  %228 = fneg double %227
-  %229 = fmul double %228, %225
-  %230 = tail call double @llvm.fmuladd.f64(double %221, double %223, double %229)
-  %231 = fcmp une double %230, 0.000000e+00
-  br i1 %231, label %.thread.i89, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread
+  %228 = sub nsw i64 %209, %186
+  %229 = sitofp i64 %228 to double
+  %230 = fneg double %229
+  %231 = fmul double %230, %227
+  %232 = tail call double @llvm.fmuladd.f64(double %223, double %225, double %231)
+  %233 = fcmp une double %232, 0.000000e+00
+  br i1 %233, label %234, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread
 
-.thread.i89:                                      ; preds = %219
-  %232 = fcmp ogt double %230, 0.000000e+00
-  %233 = icmp sle i64 %190, %207
-  %234 = xor i1 %233, %232
-  %235 = sub nuw nsw i32 1, %.058.i81
-  %spec.select.i90 = select i1 %234, i32 %235, i32 %.058.i81
-  br label %._crit_edge80.i94
+234:                                              ; preds = %221
+  %235 = fcmp ogt double %232, 0.000000e+00
+  %236 = icmp sle i64 %192, %209
+  %237 = xor i1 %236, %235
+  %238 = sub nuw nsw i32 1, %.058.i81
+  %spec.select.i89 = select i1 %237, i32 %238, i32 %.058.i81
+  br label %._crit_edge79.i92
 
-236:                                              ; preds = %210
-  br i1 %215, label %237, label %._crit_edge80.i94
+239:                                              ; preds = %212
+  br i1 %217, label %240, label %._crit_edge79.i92
 
-237:                                              ; preds = %236
-  %238 = sub nsw i64 %213, %185
-  %239 = sitofp i64 %238 to double
-  %240 = sub nsw i64 %190, %184
-  %241 = sitofp i64 %240 to double
-  %242 = sub nsw i64 %214, %185
-  %243 = sitofp i64 %242 to double
-  %244 = sub nsw i64 %207, %184
-  %245 = sitofp i64 %244 to double
-  %246 = fneg double %245
-  %247 = fmul double %246, %243
-  %248 = tail call double @llvm.fmuladd.f64(double %239, double %241, double %247)
-  %249 = fcmp une double %248, 0.000000e+00
-  br i1 %249, label %.thread78.i92, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread
+240:                                              ; preds = %239
+  %241 = sub nsw i64 %215, %187
+  %242 = sitofp i64 %241 to double
+  %243 = sub nsw i64 %192, %186
+  %244 = sitofp i64 %243 to double
+  %245 = sub nsw i64 %216, %187
+  %246 = sitofp i64 %245 to double
+  %247 = sub nsw i64 %209, %186
+  %248 = sitofp i64 %247 to double
+  %249 = fneg double %248
+  %250 = fmul double %249, %246
+  %251 = tail call double @llvm.fmuladd.f64(double %242, double %244, double %250)
+  %252 = fcmp une double %251, 0.000000e+00
+  br i1 %252, label %253, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread
 
-.thread78.i92:                                    ; preds = %237
-  %250 = fcmp ogt double %248, 0.000000e+00
-  %251 = icmp sle i64 %190, %207
-  %252 = xor i1 %251, %250
-  %253 = sub nuw nsw i32 1, %.058.i81
-  %spec.select76.i93 = select i1 %252, i32 %253, i32 %.058.i81
-  br label %._crit_edge80.i94
+253:                                              ; preds = %240
+  %254 = fcmp ogt double %251, 0.000000e+00
+  %255 = icmp sle i64 %192, %209
+  %256 = xor i1 %255, %254
+  %257 = sub nuw nsw i32 1, %.058.i81
+  %spec.select76.i91 = select i1 %256, i32 %257, i32 %.058.i81
+  br label %._crit_edge79.i92
 
-._crit_edge80.i94:                                ; preds = %200, %.thread78.i92, %236, %.thread.i89, %217, %206
-  %.159.i91 = phi i32 [ %218, %217 ], [ %.058.i81, %236 ], [ %.058.i81, %206 ], [ %spec.select.i90, %.thread.i89 ], [ %spec.select76.i93, %.thread78.i92 ], [ %.058.i81, %200 ]
-  %254 = icmp eq ptr %98, %188
-  br i1 %254, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75, label %186, !llvm.loop !12
+._crit_edge79.i92:                                ; preds = %202, %253, %239, %234, %219, %208
+  %.159.i90 = phi i32 [ %220, %219 ], [ %spec.select.i89, %234 ], [ %spec.select76.i91, %253 ], [ %.058.i81, %239 ], [ %.058.i81, %208 ], [ %.058.i81, %202 ]
+  %258 = icmp eq ptr %98, %190
+  br i1 %258, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75, label %188, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread: ; preds = %237, %219, %192, %200
-  %255 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 24
-  %256 = load ptr, ptr %255, align 8
-  %.not.i74 = icmp eq ptr %256, %100
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread: ; preds = %240, %221, %194, %202
+  %259 = getelementptr inbounds nuw i8, ptr %.010.i72, i64 24
+  %260 = load ptr, ptr %259, align 8
+  %.not.i74 = icmp eq ptr %260, %100
   br i1 %.not.i74, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread, label %.preheader, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75: ; preds = %._crit_edge80.i94
-  %.not102 = icmp eq i32 %.159.i91, 0
-  br i1 %.not102, label %263, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75: ; preds = %._crit_edge79.i92
+  %.not100 = icmp eq i32 %.159.i90, 0
+  br i1 %.not100, label %267, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread: ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit96.thread, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75
-  %257 = load i8, ptr %23, align 4, !range !6, !noundef !7
-  store i8 %257, ptr %56, align 4
-  %258 = xor i8 %257, 1
-  store i8 %258, ptr %23, align 4
-  %259 = load ptr, ptr %24, align 8
-  store ptr %259, ptr %58, align 8
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread: ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75
+  %261 = load i8, ptr %23, align 4, !range !6, !noundef !7
+  store i8 %261, ptr %56, align 4
+  %262 = xor i8 %261, 1
+  store i8 %262, ptr %23, align 4
+  %263 = load ptr, ptr %24, align 8
+  store ptr %263, ptr %58, align 8
   store ptr %55, ptr %24, align 8
-  %260 = load i8, ptr %10, align 1, !range !6, !noundef !7
-  %261 = trunc nuw i8 %260 to i1
-  br i1 %261, label %262, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
+  %264 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %265 = trunc nuw i8 %264 to i1
+  br i1 %265, label %266, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
-262:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread
+266:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread
   tail call void @_ZN10ClipperLib7Clipper16FixupFirstLefts2EPNS_6OutRecES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %16, ptr noundef nonnull %55)
   br label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
-263:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75
-  %264 = load i8, ptr %23, align 4, !range !6, !noundef !7
-  store i8 %264, ptr %56, align 4
-  %265 = load ptr, ptr %24, align 8
-  store ptr %265, ptr %58, align 8
-  %266 = load i8, ptr %10, align 1, !range !6, !noundef !7
-  %267 = trunc nuw i8 %266 to i1
-  br i1 %267, label %268, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
+267:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75
+  %268 = load i8, ptr %23, align 4, !range !6, !noundef !7
+  store i8 %268, ptr %56, align 4
+  %269 = load ptr, ptr %24, align 8
+  store ptr %269, ptr %58, align 8
+  %270 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %271 = trunc nuw i8 %270 to i1
+  br i1 %271, label %272, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
 
-268:                                              ; preds = %263
-  %269 = load ptr, ptr %0, align 8
-  %270 = getelementptr i8, ptr %269, i64 -24
-  %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 %271
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 80
-  %274 = getelementptr inbounds nuw i8, ptr %272, i64 88
-  %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %273, align 8
-  %.not18.i = icmp eq ptr %275, %276
+272:                                              ; preds = %267
+  %273 = load ptr, ptr %0, align 8
+  %274 = getelementptr i8, ptr %273, i64 -24
+  %275 = load i64, ptr %274, align 8
+  %276 = getelementptr inbounds i8, ptr %0, i64 %275
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 80
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 88
+  %279 = load ptr, ptr %278, align 8
+  %280 = load ptr, ptr %277, align 8
+  %.not18.i = icmp eq ptr %279, %280
   br i1 %.not18.i, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %268, %369
-  %277 = phi ptr [ %370, %369 ], [ %269, %268 ]
-  %278 = phi ptr [ %378, %369 ], [ %276, %268 ]
-  %.017.i = phi i64 [ %371, %369 ], [ 0, %268 ]
-  %279 = getelementptr inbounds nuw ptr, ptr %278, i64 %.017.i
-  %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = load ptr, ptr %281, align 8
-  %.not5.i.i = icmp eq ptr %282, null
+.lr.ph.i:                                         ; preds = %272, %375
+  %281 = phi ptr [ %376, %375 ], [ %273, %272 ]
+  %282 = phi ptr [ %384, %375 ], [ %280, %272 ]
+  %.017.i = phi i64 [ %377, %375 ], [ 0, %272 ]
+  %283 = getelementptr inbounds nuw ptr, ptr %282, i64 %.017.i
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
+  %286 = load ptr, ptr %285, align 8
+  %.not5.i.i = icmp eq ptr %286, null
   br i1 %.not5.i.i, label %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %285
-  %.06.i.i = phi ptr [ %287, %285 ], [ %282, %.lr.ph.i ]
-  %283 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 24
-  %284 = load ptr, ptr %283, align 8
-  %.not4.i.i = icmp eq ptr %284, null
-  br i1 %.not4.i.i, label %285, label %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %289
+  %.06.i.i = phi ptr [ %291, %289 ], [ %286, %.lr.ph.i ]
+  %287 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 24
+  %288 = load ptr, ptr %287, align 8
+  %.not4.i.i = icmp eq ptr %288, null
+  br i1 %.not4.i.i, label %289, label %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
 
-285:                                              ; preds = %.lr.ph.i.i
-  %286 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %287 = load ptr, ptr %286, align 8
-  %.not.i.i78 = icmp eq ptr %287, null
+289:                                              ; preds = %.lr.ph.i.i
+  %290 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
+  %291 = load ptr, ptr %290, align 8
+  %.not.i.i78 = icmp eq ptr %291, null
   br i1 %.not.i.i78, label %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i, label %.lr.ph.i.i, !llvm.loop !98
 
-_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i: ; preds = %285, %.lr.ph.i.i, %.lr.ph.i
-  %.0.lcssa.i.i = phi ptr [ null, %.lr.ph.i ], [ null, %285 ], [ %.06.i.i, %.lr.ph.i.i ]
-  %288 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %289 = load ptr, ptr %288, align 8
-  %.not.i76 = icmp ne ptr %289, null
-  %290 = icmp eq ptr %.0.lcssa.i.i, %16
-  %or.cond.i = and i1 %290, %.not.i76
-  br i1 %or.cond.i, label %291, label %369
+_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i: ; preds = %289, %.lr.ph.i.i, %.lr.ph.i
+  %.0.lcssa.i.i = phi ptr [ null, %.lr.ph.i ], [ null, %289 ], [ %.06.i.i, %.lr.ph.i.i ]
+  %292 = getelementptr inbounds nuw i8, ptr %284, i64 24
+  %293 = load ptr, ptr %292, align 8
+  %.not.i76 = icmp ne ptr %293, null
+  %294 = icmp eq ptr %.0.lcssa.i.i, %16
+  %or.cond.i = and i1 %294, %.not.i76
+  br i1 %or.cond.i, label %295, label %375
 
-291:                                              ; preds = %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
-  %292 = load ptr, ptr %95, align 8
-  br label %293
+295:                                              ; preds = %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
+  %296 = load ptr, ptr %95, align 8
+  br label %297
 
-293:                                              ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, %291
-  %.010.i.i = phi ptr [ %289, %291 ], [ %368, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i ]
-  %294 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
-  %295 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
-  %296 = load i64, ptr %295, align 8
-  %297 = load i64, ptr %294, align 8
-  br label %298
+297:                                              ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, %295
+  %.010.i.i = phi ptr [ %293, %295 ], [ %374, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i ]
+  %298 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 16
+  %300 = load i64, ptr %299, align 8
+  %301 = load i64, ptr %298, align 8
+  br label %302
 
-298:                                              ; preds = %._crit_edge80.i.i, %293
-  %.058.i.i = phi i32 [ 0, %293 ], [ %.159.i.i, %._crit_edge80.i.i ]
-  %.055.i.i = phi ptr [ %292, %293 ], [ %300, %._crit_edge80.i.i ]
-  %299 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 24
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  %302 = load i64, ptr %301, align 8
-  %303 = icmp eq i64 %302, %296
-  br i1 %303, label %304, label %._crit_edge.i.i
+302:                                              ; preds = %._crit_edge79.i.i, %297
+  %.058.i.i = phi i32 [ 0, %297 ], [ %.159.i.i, %._crit_edge79.i.i ]
+  %.055.i.i = phi ptr [ %296, %297 ], [ %304, %._crit_edge79.i.i ]
+  %303 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 24
+  %304 = load ptr, ptr %303, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
+  %306 = load i64, ptr %305, align 8
+  %307 = icmp eq i64 %306, %300
+  br i1 %307, label %308, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %298
+._crit_edge.i.i:                                  ; preds = %302
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 16
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  br label %318
+  br label %322
 
-304:                                              ; preds = %298
-  %305 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %306 = load i64, ptr %305, align 8
-  %307 = icmp eq i64 %306, %297
-  br i1 %307, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, label %308
-
-308:                                              ; preds = %304
-  %309 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 16
+308:                                              ; preds = %302
+  %309 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %310 = load i64, ptr %309, align 8
-  %311 = icmp eq i64 %310, %296
-  br i1 %311, label %312, label %318
+  %311 = icmp eq i64 %310, %301
+  br i1 %311, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, label %312
 
 312:                                              ; preds = %308
-  %313 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 8
-  %314 = icmp sgt i64 %306, %297
-  %315 = load i64, ptr %313, align 8
-  %316 = icmp sge i64 %315, %297
-  %317 = xor i1 %314, %316
-  br i1 %317, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, label %._crit_edge80.i.i
+  %313 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 16
+  %314 = load i64, ptr %313, align 8
+  %315 = icmp eq i64 %314, %300
+  br i1 %315, label %316, label %322
 
-318:                                              ; preds = %308, %._crit_edge.i.i
-  %319 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %310, %308 ]
-  %320 = icmp slt i64 %319, %296
-  %321 = icmp sge i64 %302, %296
-  %.not.i13.i = xor i1 %321, %320
-  br i1 %.not.i13.i, label %._crit_edge80.i.i, label %322
+316:                                              ; preds = %312
+  %317 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 8
+  %318 = icmp sgt i64 %310, %301
+  %319 = load i64, ptr %317, align 8
+  %320 = icmp sge i64 %319, %301
+  %321 = xor i1 %318, %320
+  br i1 %321, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, label %._crit_edge79.i.i
 
-322:                                              ; preds = %318
-  %323 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %324 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 8
-  %325 = load i64, ptr %324, align 8
-  %.not75.i.i = icmp slt i64 %325, %297
-  %326 = load i64, ptr %323, align 8
-  %327 = icmp sgt i64 %326, %297
-  br i1 %.not75.i.i, label %348, label %328
+322:                                              ; preds = %312, %._crit_edge.i.i
+  %323 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %314, %312 ]
+  %324 = icmp slt i64 %323, %300
+  %325 = icmp sge i64 %306, %300
+  %.not.i13.i = xor i1 %325, %324
+  br i1 %.not.i13.i, label %._crit_edge79.i.i, label %326
 
-328:                                              ; preds = %322
-  br i1 %327, label %329, label %331
+326:                                              ; preds = %322
+  %327 = getelementptr inbounds nuw i8, ptr %304, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %.055.i.i, i64 8
+  %329 = load i64, ptr %328, align 8
+  %.not75.i.i = icmp slt i64 %329, %301
+  %330 = load i64, ptr %327, align 8
+  %331 = icmp sgt i64 %330, %301
+  br i1 %.not75.i.i, label %353, label %332
 
-329:                                              ; preds = %328
-  %330 = sub nuw nsw i32 1, %.058.i.i
-  br label %._crit_edge80.i.i
+332:                                              ; preds = %326
+  br i1 %331, label %333, label %335
 
-331:                                              ; preds = %328
-  %332 = sub nsw i64 %325, %297
-  %333 = sitofp i64 %332 to double
-  %334 = sub nsw i64 %302, %296
-  %335 = sitofp i64 %334 to double
-  %336 = sub nsw i64 %326, %297
+333:                                              ; preds = %332
+  %334 = sub nuw nsw i32 1, %.058.i.i
+  br label %._crit_edge79.i.i
+
+335:                                              ; preds = %332
+  %336 = sub nsw i64 %329, %301
   %337 = sitofp i64 %336 to double
-  %338 = sub nsw i64 %319, %296
+  %338 = sub nsw i64 %306, %300
   %339 = sitofp i64 %338 to double
-  %340 = fneg double %339
-  %341 = fmul double %340, %337
-  %342 = tail call double @llvm.fmuladd.f64(double %333, double %335, double %341)
-  %343 = fcmp une double %342, 0.000000e+00
-  br i1 %343, label %.thread.i.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
+  %340 = sub nsw i64 %330, %301
+  %341 = sitofp i64 %340 to double
+  %342 = sub nsw i64 %323, %300
+  %343 = sitofp i64 %342 to double
+  %344 = fneg double %343
+  %345 = fmul double %344, %341
+  %346 = tail call double @llvm.fmuladd.f64(double %337, double %339, double %345)
+  %347 = fcmp une double %346, 0.000000e+00
+  br i1 %347, label %348, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
 
-.thread.i.i:                                      ; preds = %331
-  %344 = fcmp ogt double %342, 0.000000e+00
-  %345 = icmp sle i64 %302, %319
-  %346 = xor i1 %345, %344
-  %347 = sub nuw nsw i32 1, %.058.i.i
-  %spec.select.i.i = select i1 %346, i32 %347, i32 %.058.i.i
-  br label %._crit_edge80.i.i
+348:                                              ; preds = %335
+  %349 = fcmp ogt double %346, 0.000000e+00
+  %350 = icmp sle i64 %306, %323
+  %351 = xor i1 %350, %349
+  %352 = sub nuw nsw i32 1, %.058.i.i
+  %spec.select.i.i = select i1 %351, i32 %352, i32 %.058.i.i
+  br label %._crit_edge79.i.i
 
-348:                                              ; preds = %322
-  br i1 %327, label %349, label %._crit_edge80.i.i
+353:                                              ; preds = %326
+  br i1 %331, label %354, label %._crit_edge79.i.i
 
-349:                                              ; preds = %348
-  %350 = sub nsw i64 %325, %297
-  %351 = sitofp i64 %350 to double
-  %352 = sub nsw i64 %302, %296
-  %353 = sitofp i64 %352 to double
-  %354 = sub nsw i64 %326, %297
-  %355 = sitofp i64 %354 to double
-  %356 = sub nsw i64 %319, %296
-  %357 = sitofp i64 %356 to double
-  %358 = fneg double %357
-  %359 = fmul double %358, %355
-  %360 = tail call double @llvm.fmuladd.f64(double %351, double %353, double %359)
-  %361 = fcmp une double %360, 0.000000e+00
-  br i1 %361, label %.thread78.i.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
+354:                                              ; preds = %353
+  %355 = sub nsw i64 %329, %301
+  %356 = sitofp i64 %355 to double
+  %357 = sub nsw i64 %306, %300
+  %358 = sitofp i64 %357 to double
+  %359 = sub nsw i64 %330, %301
+  %360 = sitofp i64 %359 to double
+  %361 = sub nsw i64 %323, %300
+  %362 = sitofp i64 %361 to double
+  %363 = fneg double %362
+  %364 = fmul double %363, %360
+  %365 = tail call double @llvm.fmuladd.f64(double %356, double %358, double %364)
+  %366 = fcmp une double %365, 0.000000e+00
+  br i1 %366, label %367, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
 
-.thread78.i.i:                                    ; preds = %349
-  %362 = fcmp ogt double %360, 0.000000e+00
-  %363 = icmp sle i64 %302, %319
-  %364 = xor i1 %363, %362
-  %365 = sub nuw nsw i32 1, %.058.i.i
-  %spec.select76.i.i = select i1 %364, i32 %365, i32 %.058.i.i
-  br label %._crit_edge80.i.i
+367:                                              ; preds = %354
+  %368 = fcmp ogt double %365, 0.000000e+00
+  %369 = icmp sle i64 %306, %323
+  %370 = xor i1 %369, %368
+  %371 = sub nuw nsw i32 1, %.058.i.i
+  %spec.select76.i.i = select i1 %370, i32 %371, i32 %.058.i.i
+  br label %._crit_edge79.i.i
 
-._crit_edge80.i.i:                                ; preds = %.thread78.i.i, %348, %.thread.i.i, %329, %318, %312
-  %.159.i.i = phi i32 [ %330, %329 ], [ %.058.i.i, %348 ], [ %.058.i.i, %318 ], [ %spec.select.i.i, %.thread.i.i ], [ %spec.select76.i.i, %.thread78.i.i ], [ %.058.i.i, %312 ]
-  %366 = icmp eq ptr %292, %300
-  br i1 %366, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i, label %298, !llvm.loop !12
+._crit_edge79.i.i:                                ; preds = %367, %353, %348, %333, %322, %316
+  %.159.i.i = phi i32 [ %334, %333 ], [ %spec.select.i.i, %348 ], [ %spec.select76.i.i, %367 ], [ %.058.i.i, %353 ], [ %.058.i.i, %322 ], [ %.058.i.i, %316 ]
+  %372 = icmp eq ptr %296, %304
+  br i1 %372, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i, label %302, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i: ; preds = %349, %331, %312, %304
-  %367 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
-  %368 = load ptr, ptr %367, align 8
-  %.not.i12.i = icmp eq ptr %368, %289
-  br i1 %.not.i12.i, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i, label %293, !llvm.loop !13
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i: ; preds = %354, %335, %316, %308
+  %373 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
+  %374 = load ptr, ptr %373, align 8
+  %.not.i12.i = icmp eq ptr %374, %293
+  br i1 %.not.i12.i, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i, label %297, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i: ; preds = %._crit_edge80.i.i
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i: ; preds = %._crit_edge79.i.i
   %.not16.i = icmp eq i32 %.159.i.i, 0
-  br i1 %.not16.i, label %369, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i
+  br i1 %.not16.i, label %375, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i
 
 _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i: ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i
-  store ptr %55, ptr %281, align 8
+  store ptr %55, ptr %285, align 8
   %.pre.i77 = load ptr, ptr %0, align 8
-  br label %369
+  br label %375
 
-369:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
-  %370 = phi ptr [ %277, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i ], [ %.pre.i77, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i ], [ %277, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i ]
-  %371 = add nuw i64 %.017.i, 1
-  %372 = getelementptr i8, ptr %370, i64 -24
-  %373 = load i64, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %0, i64 %373
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 80
-  %376 = getelementptr inbounds nuw i8, ptr %374, i64 88
-  %377 = load ptr, ptr %376, align 8
-  %378 = load ptr, ptr %375, align 8
-  %379 = ptrtoint ptr %377 to i64
-  %380 = ptrtoint ptr %378 to i64
-  %381 = sub i64 %379, %380
-  %382 = ashr exact i64 %381, 3
-  %383 = icmp ult i64 %371, %382
-  br i1 %383, label %.lr.ph.i, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit, !llvm.loop !103
+375:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i
+  %376 = phi ptr [ %281, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.i ], [ %.pre.i77, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread.i ], [ %281, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i ]
+  %377 = add nuw i64 %.017.i, 1
+  %378 = getelementptr i8, ptr %376, i64 -24
+  %379 = load i64, ptr %378, align 8
+  %380 = getelementptr inbounds i8, ptr %0, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 80
+  %382 = getelementptr inbounds nuw i8, ptr %380, i64 88
+  %383 = load ptr, ptr %382, align 8
+  %384 = load ptr, ptr %381, align 8
+  %385 = ptrtoint ptr %383 to i64
+  %386 = ptrtoint ptr %384 to i64
+  %387 = sub i64 %385, %386
+  %388 = ashr exact i64 %387, 3
+  %389 = icmp ult i64 %377, %388
+  br i1 %389, label %.lr.ph.i, label %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit, !llvm.loop !103
 
-_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit: ; preds = %369, %268, %181, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, %263, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread, %262, %44, %41, %31
-  %.1 = phi ptr [ %.061108, %44 ], [ %.061108, %41 ], [ %.061108, %31 ], [ %.060, %262 ], [ %.060, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread ], [ %.060, %263 ], [ %.060, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread ], [ %.060, %181 ], [ %.060, %268 ], [ %.060, %369 ]
-  %384 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %.061 = load ptr, ptr %384, align 8
-  %385 = load ptr, ptr %17, align 8
-  %.not66 = icmp eq ptr %.061, %385
+_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit: ; preds = %375, %272, %183, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, %267, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread, %266, %44, %41, %31
+  %.1 = phi ptr [ %.061106, %44 ], [ %.061106, %41 ], [ %.061106, %31 ], [ %.060, %266 ], [ %.060, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit75.thread ], [ %.060, %267 ], [ %.060, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread ], [ %.060, %183 ], [ %.060, %272 ], [ %.060, %375 ]
+  %390 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %.061 = load ptr, ptr %390, align 8
+  %391 = load ptr, ptr %17, align 8
+  %.not66 = icmp eq ptr %.061, %391
   br i1 %.not66, label %._crit_edge.loopexit, label %31, !llvm.loop !104
 
 ._crit_edge.loopexit:                             ; preds = %_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit
@@ -10854,32 +10854,32 @@ _ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_.exit: ; preds = %369, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %386 = phi ptr [ %.061106, %25 ], [ %.pre, %._crit_edge.loopexit ]
-  %387 = phi ptr [ %26, %25 ], [ %.061, %._crit_edge.loopexit ]
-  %.not67 = icmp eq ptr %386, %387
+  %392 = phi ptr [ %.061104, %25 ], [ %.pre, %._crit_edge.loopexit ]
+  %393 = phi ptr [ %26, %25 ], [ %.061, %._crit_edge.loopexit ]
+  %.not67 = icmp eq ptr %392, %393
   br i1 %.not67, label %.loopexit.loopexit, label %25, !llvm.loop !105
 
 .loopexit.loopexit:                               ; preds = %._crit_edge
-  %.pre115 = load ptr, ptr %0, align 8
+  %.pre113 = load ptr, ptr %0, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %11, %19
-  %388 = phi ptr [ %.pre115, %.loopexit.loopexit ], [ %12, %11 ], [ %12, %19 ]
-  %389 = getelementptr i8, ptr %388, i64 -24
-  %390 = load i64, ptr %389, align 8
-  %391 = getelementptr inbounds i8, ptr %0, i64 %390
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 80
-  %393 = getelementptr inbounds nuw i8, ptr %391, i64 88
-  %394 = load ptr, ptr %393, align 8
-  %395 = load ptr, ptr %392, align 8
-  %396 = ptrtoint ptr %394 to i64
-  %397 = ptrtoint ptr %395 to i64
-  %398 = sub i64 %396, %397
-  %399 = ashr exact i64 %398, 3
-  %400 = icmp ult i64 %14, %399
-  br i1 %400, label %11, label %._crit_edge112
+  %394 = phi ptr [ %.pre113, %.loopexit.loopexit ], [ %12, %11 ], [ %12, %19 ]
+  %395 = getelementptr i8, ptr %394, i64 -24
+  %396 = load i64, ptr %395, align 8
+  %397 = getelementptr inbounds i8, ptr %0, i64 %396
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 80
+  %399 = getelementptr inbounds nuw i8, ptr %397, i64 88
+  %400 = load ptr, ptr %399, align 8
+  %401 = load ptr, ptr %398, align 8
+  %402 = ptrtoint ptr %400 to i64
+  %403 = ptrtoint ptr %401 to i64
+  %404 = sub i64 %402, %403
+  %405 = ashr exact i64 %404, 3
+  %406 = icmp ult i64 %14, %405
+  br i1 %406, label %11, label %._crit_edge110
 
-._crit_edge112:                                   ; preds = %.loopexit, %1
+._crit_edge110:                                   ; preds = %.loopexit, %1
   ret void
 }
 
@@ -17764,13 +17764,13 @@ define hidden void @_ZN10ClipperLib7Clipper16FixupFirstLefts1EPNS_6OutRecES2_(pt
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %13
 
-._crit_edge:                                      ; preds = %106, %3
+._crit_edge:                                      ; preds = %108, %3
   ret void
 
-13:                                               ; preds = %.lr.ph, %106
-  %14 = phi ptr [ %4, %.lr.ph ], [ %107, %106 ]
-  %15 = phi ptr [ %11, %.lr.ph ], [ %115, %106 ]
-  %.017 = phi i64 [ 0, %.lr.ph ], [ %108, %106 ]
+13:                                               ; preds = %.lr.ph, %108
+  %14 = phi ptr [ %4, %.lr.ph ], [ %109, %108 ]
+  %15 = phi ptr [ %11, %.lr.ph ], [ %117, %108 ]
+  %.017 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.017
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -17798,23 +17798,23 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %.not = icmp ne ptr %26, null
   %27 = icmp eq ptr %.0.lcssa.i, %1
   %or.cond = and i1 %27, %.not
-  br i1 %or.cond, label %28, label %106
+  br i1 %or.cond, label %28, label %108
 
 28:                                               ; preds = %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit
   %29 = load ptr, ptr %12, align 8
   br label %30
 
 30:                                               ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %28
-  %.010.i = phi ptr [ %26, %28 ], [ %105, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
+  %.010.i = phi ptr [ %26, %28 ], [ %107, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
   %31 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = load i64, ptr %31, align 8
   br label %35
 
-35:                                               ; preds = %._crit_edge80.i, %30
-  %.058.i = phi i32 [ 0, %30 ], [ %.159.i, %._crit_edge80.i ]
-  %.055.i = phi ptr [ %29, %30 ], [ %37, %._crit_edge80.i ]
+35:                                               ; preds = %._crit_edge79.i, %30
+  %.058.i = phi i32 [ 0, %30 ], [ %.159.i, %._crit_edge79.i ]
+  %.055.i = phi ptr [ %29, %30 ], [ %37, %._crit_edge79.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.055.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -17845,14 +17845,14 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %52 = load i64, ptr %50, align 8
   %53 = icmp sge i64 %52, %34
   %54 = xor i1 %51, %53
-  br i1 %54, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge80.i
+  br i1 %54, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge79.i
 
 55:                                               ; preds = %45, %._crit_edge.i
   %56 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %47, %45 ]
   %57 = icmp slt i64 %56, %33
   %58 = icmp sge i64 %39, %33
   %.not.i13 = xor i1 %58, %57
-  br i1 %.not.i13, label %._crit_edge80.i, label %59
+  br i1 %.not.i13, label %._crit_edge79.i, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -17861,14 +17861,14 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %.not75.i = icmp slt i64 %62, %34
   %63 = load i64, ptr %60, align 8
   %64 = icmp sgt i64 %63, %34
-  br i1 %.not75.i, label %85, label %65
+  br i1 %.not75.i, label %86, label %65
 
 65:                                               ; preds = %59
   br i1 %64, label %66, label %68
 
 66:                                               ; preds = %65
   %67 = sub nuw nsw i32 1, %.058.i
-  br label %._crit_edge80.i
+  br label %._crit_edge79.i
 
 68:                                               ; preds = %65
   %69 = sub nsw i64 %62, %34
@@ -17883,78 +17883,78 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %78 = fmul double %77, %74
   %79 = tail call double @llvm.fmuladd.f64(double %70, double %72, double %78)
   %80 = fcmp une double %79, 0.000000e+00
-  br i1 %80, label %.thread.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+  br i1 %80, label %81, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread.i:                                        ; preds = %68
-  %81 = fcmp ogt double %79, 0.000000e+00
-  %82 = icmp sle i64 %39, %56
-  %83 = xor i1 %82, %81
-  %84 = sub nuw nsw i32 1, %.058.i
-  %spec.select.i = select i1 %83, i32 %84, i32 %.058.i
-  br label %._crit_edge80.i
+81:                                               ; preds = %68
+  %82 = fcmp ogt double %79, 0.000000e+00
+  %83 = icmp sle i64 %39, %56
+  %84 = xor i1 %83, %82
+  %85 = sub nuw nsw i32 1, %.058.i
+  %spec.select.i = select i1 %84, i32 %85, i32 %.058.i
+  br label %._crit_edge79.i
 
-85:                                               ; preds = %59
-  br i1 %64, label %86, label %._crit_edge80.i
+86:                                               ; preds = %59
+  br i1 %64, label %87, label %._crit_edge79.i
 
-86:                                               ; preds = %85
-  %87 = sub nsw i64 %62, %34
-  %88 = sitofp i64 %87 to double
-  %89 = sub nsw i64 %39, %33
-  %90 = sitofp i64 %89 to double
-  %91 = sub nsw i64 %63, %34
-  %92 = sitofp i64 %91 to double
-  %93 = sub nsw i64 %56, %33
-  %94 = sitofp i64 %93 to double
-  %95 = fneg double %94
-  %96 = fmul double %95, %92
-  %97 = tail call double @llvm.fmuladd.f64(double %88, double %90, double %96)
-  %98 = fcmp une double %97, 0.000000e+00
-  br i1 %98, label %.thread78.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+87:                                               ; preds = %86
+  %88 = sub nsw i64 %62, %34
+  %89 = sitofp i64 %88 to double
+  %90 = sub nsw i64 %39, %33
+  %91 = sitofp i64 %90 to double
+  %92 = sub nsw i64 %63, %34
+  %93 = sitofp i64 %92 to double
+  %94 = sub nsw i64 %56, %33
+  %95 = sitofp i64 %94 to double
+  %96 = fneg double %95
+  %97 = fmul double %96, %93
+  %98 = tail call double @llvm.fmuladd.f64(double %89, double %91, double %97)
+  %99 = fcmp une double %98, 0.000000e+00
+  br i1 %99, label %100, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread78.i:                                      ; preds = %86
-  %99 = fcmp ogt double %97, 0.000000e+00
-  %100 = icmp sle i64 %39, %56
-  %101 = xor i1 %100, %99
-  %102 = sub nuw nsw i32 1, %.058.i
-  %spec.select76.i = select i1 %101, i32 %102, i32 %.058.i
-  br label %._crit_edge80.i
+100:                                              ; preds = %87
+  %101 = fcmp ogt double %98, 0.000000e+00
+  %102 = icmp sle i64 %39, %56
+  %103 = xor i1 %102, %101
+  %104 = sub nuw nsw i32 1, %.058.i
+  %spec.select76.i = select i1 %103, i32 %104, i32 %.058.i
+  br label %._crit_edge79.i
 
-._crit_edge80.i:                                  ; preds = %49, %.thread78.i, %85, %.thread.i, %66, %55
-  %.159.i = phi i32 [ %67, %66 ], [ %.058.i, %85 ], [ %.058.i, %55 ], [ %spec.select.i, %.thread.i ], [ %spec.select76.i, %.thread78.i ], [ %.058.i, %49 ]
-  %103 = icmp eq ptr %29, %37
-  br i1 %103, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %35, !llvm.loop !12
+._crit_edge79.i:                                  ; preds = %49, %100, %86, %81, %66, %55
+  %.159.i = phi i32 [ %67, %66 ], [ %spec.select.i, %81 ], [ %spec.select76.i, %100 ], [ %.058.i, %86 ], [ %.058.i, %55 ], [ %.058.i, %49 ]
+  %105 = icmp eq ptr %29, %37
+  br i1 %105, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %35, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %86, %68, %41, %49
-  %104 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %.not.i12 = icmp eq ptr %105, %26
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %87, %68, %41, %49
+  %106 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
+  %107 = load ptr, ptr %106, align 8
+  %.not.i12 = icmp eq ptr %107, %26
   br i1 %.not.i12, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, label %30, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge80.i
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge79.i
   %.not16 = icmp eq i32 %.159.i, 0
-  br i1 %.not16, label %106, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
+  br i1 %.not16, label %108, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread
 
 _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread: ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
   store ptr %2, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
-  br label %106
+  br label %108
 
-106:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit
-  %107 = phi ptr [ %14, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %.pre, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread ], [ %14, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit ]
-  %108 = add nuw i64 %.017, 1
-  %109 = getelementptr i8, ptr %107, i64 -24
-  %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 %110
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 80
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 88
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %112, align 8
-  %116 = ptrtoint ptr %114 to i64
-  %117 = ptrtoint ptr %115 to i64
-  %118 = sub i64 %116, %117
-  %119 = ashr exact i64 %118, 3
-  %120 = icmp ult i64 %108, %119
-  br i1 %120, label %13, label %._crit_edge, !llvm.loop !103
+108:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit
+  %109 = phi ptr [ %14, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %.pre, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread ], [ %14, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit ]
+  %110 = add nuw i64 %.017, 1
+  %111 = getelementptr i8, ptr %109, i64 -24
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 80
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 88
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %114, align 8
+  %118 = ptrtoint ptr %116 to i64
+  %119 = ptrtoint ptr %117 to i64
+  %120 = sub i64 %118, %119
+  %121 = ashr exact i64 %120, 3
+  %122 = icmp ult i64 %110, %121
+  br i1 %122, label %13, label %._crit_edge, !llvm.loop !103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -17969,21 +17969,21 @@ define hidden void @_ZN10ClipperLib7Clipper16FixupFirstLefts2EPNS_6OutRecES2_(pt
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
-  %.not71 = icmp eq ptr %12, %13
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %.not69 = icmp eq ptr %12, %13
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %16
 
-._crit_edge:                                      ; preds = %191, %3
+._crit_edge:                                      ; preds = %195, %3
   ret void
 
-16:                                               ; preds = %.lr.ph, %191
-  %17 = phi ptr [ %13, %.lr.ph ], [ %200, %191 ]
-  %.070 = phi i64 [ 0, %.lr.ph ], [ %192, %191 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.070
+16:                                               ; preds = %.lr.ph, %195
+  %17 = phi ptr [ %13, %.lr.ph ], [ %204, %195 ]
+  %.068 = phi i64 [ 0, %.lr.ph ], [ %196, %195 ]
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.068
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
@@ -17992,7 +17992,7 @@ define hidden void @_ZN10ClipperLib7Clipper16FixupFirstLefts2EPNS_6OutRecES2_(pt
   %or.cond = or i1 %22, %.not
   %23 = icmp eq ptr %19, %1
   %or.cond38 = or i1 %23, %or.cond
-  br i1 %or.cond38, label %191, label %24
+  br i1 %or.cond38, label %195, label %24
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -18020,23 +18020,23 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %or.cond39 = or i1 %.not35, %.not36
   %.not37 = icmp eq ptr %.0.lcssa.i, %2
   %or.cond40 = or i1 %.not37, %or.cond39
-  br i1 %or.cond40, label %32, label %191
+  br i1 %or.cond40, label %32, label %195
 
 32:                                               ; preds = %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit
   %33 = load ptr, ptr %14, align 8
   br label %34
 
 34:                                               ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %32
-  %.010.i = phi ptr [ %21, %32 ], [ %109, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
+  %.010.i = phi ptr [ %21, %32 ], [ %111, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
   %35 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = load i64, ptr %35, align 8
   br label %39
 
-39:                                               ; preds = %._crit_edge80.i, %34
-  %.058.i = phi i32 [ 0, %34 ], [ %.159.i, %._crit_edge80.i ]
-  %.055.i = phi ptr [ %33, %34 ], [ %41, %._crit_edge80.i ]
+39:                                               ; preds = %._crit_edge79.i, %34
+  %.058.i = phi i32 [ 0, %34 ], [ %.159.i, %._crit_edge79.i ]
+  %.055.i = phi ptr [ %33, %34 ], [ %41, %._crit_edge79.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.055.i, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -18067,14 +18067,14 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %56 = load i64, ptr %54, align 8
   %57 = icmp sge i64 %56, %38
   %58 = xor i1 %55, %57
-  br i1 %58, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge80.i
+  br i1 %58, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, label %._crit_edge79.i
 
 59:                                               ; preds = %49, %._crit_edge.i
   %60 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %51, %49 ]
   %61 = icmp slt i64 %60, %37
   %62 = icmp sge i64 %43, %37
   %.not.i47 = xor i1 %62, %61
-  br i1 %.not.i47, label %._crit_edge80.i, label %63
+  br i1 %.not.i47, label %._crit_edge79.i, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -18083,14 +18083,14 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %.not75.i = icmp slt i64 %66, %38
   %67 = load i64, ptr %64, align 8
   %68 = icmp sgt i64 %67, %38
-  br i1 %.not75.i, label %89, label %69
+  br i1 %.not75.i, label %90, label %69
 
 69:                                               ; preds = %63
   br i1 %68, label %70, label %72
 
 70:                                               ; preds = %69
   %71 = sub nuw nsw i32 1, %.058.i
-  br label %._crit_edge80.i
+  br label %._crit_edge79.i
 
 72:                                               ; preds = %69
   %73 = sub nsw i64 %66, %38
@@ -18105,218 +18105,218 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %82 = fmul double %81, %78
   %83 = tail call double @llvm.fmuladd.f64(double %74, double %76, double %82)
   %84 = fcmp une double %83, 0.000000e+00
-  br i1 %84, label %.thread.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+  br i1 %84, label %85, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread.i:                                        ; preds = %72
-  %85 = fcmp ogt double %83, 0.000000e+00
-  %86 = icmp sle i64 %43, %60
-  %87 = xor i1 %86, %85
-  %88 = sub nuw nsw i32 1, %.058.i
-  %spec.select.i = select i1 %87, i32 %88, i32 %.058.i
-  br label %._crit_edge80.i
+85:                                               ; preds = %72
+  %86 = fcmp ogt double %83, 0.000000e+00
+  %87 = icmp sle i64 %43, %60
+  %88 = xor i1 %87, %86
+  %89 = sub nuw nsw i32 1, %.058.i
+  %spec.select.i = select i1 %88, i32 %89, i32 %.058.i
+  br label %._crit_edge79.i
 
-89:                                               ; preds = %63
-  br i1 %68, label %90, label %._crit_edge80.i
+90:                                               ; preds = %63
+  br i1 %68, label %91, label %._crit_edge79.i
 
-90:                                               ; preds = %89
-  %91 = sub nsw i64 %66, %38
-  %92 = sitofp i64 %91 to double
-  %93 = sub nsw i64 %43, %37
-  %94 = sitofp i64 %93 to double
-  %95 = sub nsw i64 %67, %38
-  %96 = sitofp i64 %95 to double
-  %97 = sub nsw i64 %60, %37
-  %98 = sitofp i64 %97 to double
-  %99 = fneg double %98
-  %100 = fmul double %99, %96
-  %101 = tail call double @llvm.fmuladd.f64(double %92, double %94, double %100)
-  %102 = fcmp une double %101, 0.000000e+00
-  br i1 %102, label %.thread78.i, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
+91:                                               ; preds = %90
+  %92 = sub nsw i64 %66, %38
+  %93 = sitofp i64 %92 to double
+  %94 = sub nsw i64 %43, %37
+  %95 = sitofp i64 %94 to double
+  %96 = sub nsw i64 %67, %38
+  %97 = sitofp i64 %96 to double
+  %98 = sub nsw i64 %60, %37
+  %99 = sitofp i64 %98 to double
+  %100 = fneg double %99
+  %101 = fmul double %100, %97
+  %102 = tail call double @llvm.fmuladd.f64(double %93, double %95, double %101)
+  %103 = fcmp une double %102, 0.000000e+00
+  br i1 %103, label %104, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
 
-.thread78.i:                                      ; preds = %90
-  %103 = fcmp ogt double %101, 0.000000e+00
-  %104 = icmp sle i64 %43, %60
-  %105 = xor i1 %104, %103
-  %106 = sub nuw nsw i32 1, %.058.i
-  %spec.select76.i = select i1 %105, i32 %106, i32 %.058.i
-  br label %._crit_edge80.i
+104:                                              ; preds = %91
+  %105 = fcmp ogt double %102, 0.000000e+00
+  %106 = icmp sle i64 %43, %60
+  %107 = xor i1 %106, %105
+  %108 = sub nuw nsw i32 1, %.058.i
+  %spec.select76.i = select i1 %107, i32 %108, i32 %.058.i
+  br label %._crit_edge79.i
 
-._crit_edge80.i:                                  ; preds = %53, %.thread78.i, %89, %.thread.i, %70, %59
-  %.159.i = phi i32 [ %71, %70 ], [ %.058.i, %89 ], [ %.058.i, %59 ], [ %spec.select.i, %.thread.i ], [ %spec.select76.i, %.thread78.i ], [ %.058.i, %53 ]
-  %107 = icmp eq ptr %33, %41
-  br i1 %107, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %39, !llvm.loop !12
+._crit_edge79.i:                                  ; preds = %53, %104, %90, %85, %70, %59
+  %.159.i = phi i32 [ %71, %70 ], [ %spec.select.i, %85 ], [ %spec.select76.i, %104 ], [ %.058.i, %90 ], [ %.058.i, %59 ], [ %.058.i, %53 ]
+  %109 = icmp eq ptr %33, %41
+  br i1 %109, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit, label %39, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %90, %72, %45, %53
-  %108 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %.not.i42 = icmp eq ptr %109, %21
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread: ; preds = %91, %72, %45, %53
+  %110 = getelementptr inbounds nuw i8, ptr %.010.i, i64 24
+  %111 = load ptr, ptr %110, align 8
+  %.not.i42 = icmp eq ptr %111, %21
   br i1 %.not.i42, label %.sink.split, label %34, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge80.i
-  %.not68 = icmp eq i32 %.159.i, 0
-  br i1 %.not68, label %110, label %.sink.split
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge79.i
+  %.not66 = icmp eq i32 %.159.i, 0
+  br i1 %.not66, label %112, label %.sink.split
 
-110:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
-  %111 = load ptr, ptr %15, align 8
-  br label %112
+112:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
+  %113 = load ptr, ptr %15, align 8
+  br label %114
 
-112:                                              ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread, %110
-  %.010.i43 = phi ptr [ %21, %110 ], [ %187, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread ]
-  %113 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = load i64, ptr %113, align 8
-  br label %117
+114:                                              ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread, %112
+  %.010.i43 = phi ptr [ %21, %112 ], [ %191, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread ]
+  %115 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 16
+  %117 = load i64, ptr %116, align 8
+  %118 = load i64, ptr %115, align 8
+  br label %119
 
-117:                                              ; preds = %._crit_edge80.i61, %112
-  %.058.i48 = phi i32 [ 0, %112 ], [ %.159.i58, %._crit_edge80.i61 ]
-  %.055.i49 = phi ptr [ %111, %112 ], [ %119, %._crit_edge80.i61 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp eq i64 %121, %115
-  br i1 %122, label %123, label %._crit_edge.i50
+119:                                              ; preds = %._crit_edge79.i59, %114
+  %.058.i48 = phi i32 [ 0, %114 ], [ %.159.i57, %._crit_edge79.i59 ]
+  %.055.i49 = phi ptr [ %113, %114 ], [ %121, %._crit_edge79.i59 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 24
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp eq i64 %123, %117
+  br i1 %124, label %125, label %._crit_edge.i50
 
-._crit_edge.i50:                                  ; preds = %117
+._crit_edge.i50:                                  ; preds = %119
   %.phi.trans.insert.i51 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 16
   %.pre.i52 = load i64, ptr %.phi.trans.insert.i51, align 8
-  br label %137
+  br label %139
 
-123:                                              ; preds = %117
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp eq i64 %125, %116
-  br i1 %126, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread, label %127
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %127 = load i64, ptr %126, align 8
+  %128 = icmp eq i64 %127, %118
+  br i1 %128, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread, label %129
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 16
-  %129 = load i64, ptr %128, align 8
-  %130 = icmp eq i64 %129, %115
-  br i1 %130, label %131, label %137
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 16
+  %131 = load i64, ptr %130, align 8
+  %132 = icmp eq i64 %131, %117
+  br i1 %132, label %133, label %139
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 8
-  %133 = icmp sgt i64 %125, %116
-  %134 = load i64, ptr %132, align 8
-  %135 = icmp sge i64 %134, %116
-  %136 = xor i1 %133, %135
-  br i1 %136, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread, label %._crit_edge80.i61
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 8
+  %135 = icmp sgt i64 %127, %118
+  %136 = load i64, ptr %134, align 8
+  %137 = icmp sge i64 %136, %118
+  %138 = xor i1 %135, %137
+  br i1 %138, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread, label %._crit_edge79.i59
 
-137:                                              ; preds = %127, %._crit_edge.i50
-  %138 = phi i64 [ %.pre.i52, %._crit_edge.i50 ], [ %129, %127 ]
-  %139 = icmp slt i64 %138, %115
-  %140 = icmp sge i64 %121, %115
-  %.not.i53 = xor i1 %140, %139
-  br i1 %.not.i53, label %._crit_edge80.i61, label %141
+139:                                              ; preds = %129, %._crit_edge.i50
+  %140 = phi i64 [ %.pre.i52, %._crit_edge.i50 ], [ %131, %129 ]
+  %141 = icmp slt i64 %140, %117
+  %142 = icmp sge i64 %123, %117
+  %.not.i53 = xor i1 %142, %141
+  br i1 %.not.i53, label %._crit_edge79.i59, label %143
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %143 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 8
-  %144 = load i64, ptr %143, align 8
-  %.not75.i54 = icmp slt i64 %144, %116
-  %145 = load i64, ptr %142, align 8
-  %146 = icmp sgt i64 %145, %116
-  br i1 %.not75.i54, label %167, label %147
+143:                                              ; preds = %139
+  %144 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.055.i49, i64 8
+  %146 = load i64, ptr %145, align 8
+  %.not75.i54 = icmp slt i64 %146, %118
+  %147 = load i64, ptr %144, align 8
+  %148 = icmp sgt i64 %147, %118
+  br i1 %.not75.i54, label %170, label %149
 
-147:                                              ; preds = %141
-  br i1 %146, label %148, label %150
+149:                                              ; preds = %143
+  br i1 %148, label %150, label %152
 
-148:                                              ; preds = %147
-  %149 = sub nuw nsw i32 1, %.058.i48
-  br label %._crit_edge80.i61
+150:                                              ; preds = %149
+  %151 = sub nuw nsw i32 1, %.058.i48
+  br label %._crit_edge79.i59
 
-150:                                              ; preds = %147
-  %151 = sub nsw i64 %144, %116
-  %152 = sitofp i64 %151 to double
-  %153 = sub nsw i64 %121, %115
+152:                                              ; preds = %149
+  %153 = sub nsw i64 %146, %118
   %154 = sitofp i64 %153 to double
-  %155 = sub nsw i64 %145, %116
+  %155 = sub nsw i64 %123, %117
   %156 = sitofp i64 %155 to double
-  %157 = sub nsw i64 %138, %115
+  %157 = sub nsw i64 %147, %118
   %158 = sitofp i64 %157 to double
-  %159 = fneg double %158
-  %160 = fmul double %159, %156
-  %161 = tail call double @llvm.fmuladd.f64(double %152, double %154, double %160)
-  %162 = fcmp une double %161, 0.000000e+00
-  br i1 %162, label %.thread.i56, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread
+  %159 = sub nsw i64 %140, %117
+  %160 = sitofp i64 %159 to double
+  %161 = fneg double %160
+  %162 = fmul double %161, %158
+  %163 = tail call double @llvm.fmuladd.f64(double %154, double %156, double %162)
+  %164 = fcmp une double %163, 0.000000e+00
+  br i1 %164, label %165, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread
 
-.thread.i56:                                      ; preds = %150
-  %163 = fcmp ogt double %161, 0.000000e+00
-  %164 = icmp sle i64 %121, %138
-  %165 = xor i1 %164, %163
-  %166 = sub nuw nsw i32 1, %.058.i48
-  %spec.select.i57 = select i1 %165, i32 %166, i32 %.058.i48
-  br label %._crit_edge80.i61
+165:                                              ; preds = %152
+  %166 = fcmp ogt double %163, 0.000000e+00
+  %167 = icmp sle i64 %123, %140
+  %168 = xor i1 %167, %166
+  %169 = sub nuw nsw i32 1, %.058.i48
+  %spec.select.i56 = select i1 %168, i32 %169, i32 %.058.i48
+  br label %._crit_edge79.i59
 
-167:                                              ; preds = %141
-  br i1 %146, label %168, label %._crit_edge80.i61
+170:                                              ; preds = %143
+  br i1 %148, label %171, label %._crit_edge79.i59
 
-168:                                              ; preds = %167
-  %169 = sub nsw i64 %144, %116
-  %170 = sitofp i64 %169 to double
-  %171 = sub nsw i64 %121, %115
-  %172 = sitofp i64 %171 to double
-  %173 = sub nsw i64 %145, %116
-  %174 = sitofp i64 %173 to double
-  %175 = sub nsw i64 %138, %115
-  %176 = sitofp i64 %175 to double
-  %177 = fneg double %176
-  %178 = fmul double %177, %174
-  %179 = tail call double @llvm.fmuladd.f64(double %170, double %172, double %178)
-  %180 = fcmp une double %179, 0.000000e+00
-  br i1 %180, label %.thread78.i59, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread
+171:                                              ; preds = %170
+  %172 = sub nsw i64 %146, %118
+  %173 = sitofp i64 %172 to double
+  %174 = sub nsw i64 %123, %117
+  %175 = sitofp i64 %174 to double
+  %176 = sub nsw i64 %147, %118
+  %177 = sitofp i64 %176 to double
+  %178 = sub nsw i64 %140, %117
+  %179 = sitofp i64 %178 to double
+  %180 = fneg double %179
+  %181 = fmul double %180, %177
+  %182 = tail call double @llvm.fmuladd.f64(double %173, double %175, double %181)
+  %183 = fcmp une double %182, 0.000000e+00
+  br i1 %183, label %184, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread
 
-.thread78.i59:                                    ; preds = %168
-  %181 = fcmp ogt double %179, 0.000000e+00
-  %182 = icmp sle i64 %121, %138
-  %183 = xor i1 %182, %181
-  %184 = sub nuw nsw i32 1, %.058.i48
-  %spec.select76.i60 = select i1 %183, i32 %184, i32 %.058.i48
-  br label %._crit_edge80.i61
+184:                                              ; preds = %171
+  %185 = fcmp ogt double %182, 0.000000e+00
+  %186 = icmp sle i64 %123, %140
+  %187 = xor i1 %186, %185
+  %188 = sub nuw nsw i32 1, %.058.i48
+  %spec.select76.i58 = select i1 %187, i32 %188, i32 %.058.i48
+  br label %._crit_edge79.i59
 
-._crit_edge80.i61:                                ; preds = %131, %.thread78.i59, %167, %.thread.i56, %148, %137
-  %.159.i58 = phi i32 [ %149, %148 ], [ %.058.i48, %167 ], [ %.058.i48, %137 ], [ %spec.select.i57, %.thread.i56 ], [ %spec.select76.i60, %.thread78.i59 ], [ %.058.i48, %131 ]
-  %185 = icmp eq ptr %111, %119
-  br i1 %185, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46, label %117, !llvm.loop !12
+._crit_edge79.i59:                                ; preds = %133, %184, %170, %165, %150, %139
+  %.159.i57 = phi i32 [ %151, %150 ], [ %spec.select.i56, %165 ], [ %spec.select76.i58, %184 ], [ %.058.i48, %170 ], [ %.058.i48, %139 ], [ %.058.i48, %133 ]
+  %189 = icmp eq ptr %113, %121
+  br i1 %189, label %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46, label %119, !llvm.loop !12
 
-_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread: ; preds = %168, %150, %123, %131
-  %186 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 24
-  %187 = load ptr, ptr %186, align 8
-  %.not.i45 = icmp eq ptr %187, %21
-  br i1 %.not.i45, label %.sink.split, label %112, !llvm.loop !13
+_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread: ; preds = %171, %152, %125, %133
+  %190 = getelementptr inbounds nuw i8, ptr %.010.i43, i64 24
+  %191 = load ptr, ptr %190, align 8
+  %.not.i45 = icmp eq ptr %191, %21
+  br i1 %.not.i45, label %.sink.split, label %114, !llvm.loop !13
 
-_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46: ; preds = %._crit_edge80.i61
-  %.not69 = icmp eq i32 %.159.i58, 0
-  br i1 %.not69, label %188, label %.sink.split
+_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46: ; preds = %._crit_edge79.i59
+  %.not67 = icmp eq i32 %.159.i57, 0
+  br i1 %.not67, label %192, label %.sink.split
 
-188:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46
-  %189 = icmp eq ptr %26, %1
-  %190 = icmp eq ptr %26, %2
-  %or.cond41 = or i1 %189, %190
-  br i1 %or.cond41, label %.sink.split, label %191
+192:                                              ; preds = %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46
+  %193 = icmp eq ptr %26, %1
+  %194 = icmp eq ptr %26, %2
+  %or.cond41 = or i1 %193, %194
+  br i1 %or.cond41, label %.sink.split, label %195
 
-.sink.split:                                      ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread, %188, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
-  %.sink = phi ptr [ %1, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %2, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46 ], [ %5, %188 ], [ %2, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit63.thread ], [ %1, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
+.sink.split:                                      ; preds = %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread, %192, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit
+  %.sink = phi ptr [ %1, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit ], [ %2, %_ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit46 ], [ %5, %192 ], [ %2, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread ], [ %1, %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread ]
   store ptr %.sink, ptr %25, align 8
-  br label %191
+  br label %195
 
-191:                                              ; preds = %.sink.split, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit, %188, %16
-  %192 = add nuw i64 %.070, 1
-  %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr i8, ptr %193, i64 -24
-  %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 %195
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 80
-  %198 = getelementptr inbounds nuw i8, ptr %196, i64 88
-  %199 = load ptr, ptr %198, align 8
-  %200 = load ptr, ptr %197, align 8
-  %201 = ptrtoint ptr %199 to i64
-  %202 = ptrtoint ptr %200 to i64
-  %203 = sub i64 %201, %202
-  %204 = ashr exact i64 %203, 3
-  %205 = icmp ult i64 %192, %204
-  br i1 %205, label %16, label %._crit_edge, !llvm.loop !161
+195:                                              ; preds = %.sink.split, %_ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit, %192, %16
+  %196 = add nuw i64 %.068, 1
+  %197 = load ptr, ptr %0, align 8
+  %198 = getelementptr i8, ptr %197, i64 -24
+  %199 = load i64, ptr %198, align 8
+  %200 = getelementptr inbounds i8, ptr %0, i64 %199
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 88
+  %203 = load ptr, ptr %202, align 8
+  %204 = load ptr, ptr %201, align 8
+  %205 = ptrtoint ptr %203 to i64
+  %206 = ptrtoint ptr %204 to i64
+  %207 = sub i64 %205, %206
+  %208 = ashr exact i64 %207, 3
+  %209 = icmp ult i64 %196, %208
+  br i1 %209, label %16, label %._crit_edge, !llvm.loop !161
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

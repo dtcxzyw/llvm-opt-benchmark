@@ -430,7 +430,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   %15 = load i32, ptr %1, align 8, !tbaa !16
   switch i32 %15, label %.loopexit.loopexit [
     i32 0, label %16
-    i32 1, label %96
+    i32 1, label %97
     i32 2, label %.loopexit
   ]
 
@@ -446,7 +446,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 20:                                               ; preds = %16
   %21 = load ptr, ptr %10, align 8, !tbaa !24
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %62
+  br i1 %22, label %23, label %63
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -471,12 +471,12 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   %35 = load i8, ptr %34, align 1, !tbaa !31
   switch i8 %35, label %.loopexit88 [
     i8 58, label %36
-    i8 0, label %.thread.i
+    i8 0, label %50
   ]
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  br label %.thread.i
+  br label %50
 
 38:                                               ; preds = %23
   %39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 58) #11
@@ -491,210 +491,210 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 
 44:                                               ; preds = %41, %38
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #11
-  br label %.thread.i
+  br label %50
 
 46:                                               ; preds = %41
   %47 = ptrtoint ptr %39 to i64
   %48 = ptrtoint ptr %17 to i64
   %49 = sub i64 %47, %48
-  br label %.thread.i
+  br label %50
 
-.thread.i:                                        ; preds = %46, %44, %36, %29
-  %.240.i = phi ptr [ null, %44 ], [ %42, %46 ], [ %37, %36 ], [ null, %29 ]
-  %.136.i = phi i64 [ %45, %44 ], [ %49, %46 ], [ %33, %36 ], [ %33, %29 ]
-  %.134.i = phi ptr [ %17, %44 ], [ %17, %46 ], [ %30, %36 ], [ %30, %29 ]
-  %50 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
-  store ptr %50, ptr %4, align 8, !tbaa !30
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit88, label %52
+50:                                               ; preds = %46, %44, %36, %29
+  %.240.i = phi ptr [ %37, %36 ], [ null, %44 ], [ %42, %46 ], [ null, %29 ]
+  %.136.i = phi i64 [ %33, %36 ], [ %45, %44 ], [ %49, %46 ], [ %33, %29 ]
+  %.134.i = phi ptr [ %30, %36 ], [ %17, %44 ], [ %17, %46 ], [ %30, %29 ]
+  %51 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
+  store ptr %51, ptr %4, align 8, !tbaa !30
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.loopexit88, label %53
 
-52:                                               ; preds = %.thread.i
-  %53 = icmp ne ptr %.240.i, null
-  br i1 %53, label %54, label %.sink.split.i
+53:                                               ; preds = %50
+  %54 = icmp ne ptr %.240.i, null
+  br i1 %54, label %55, label %.critedge.sink.split.i
 
-54:                                               ; preds = %52
-  %55 = call ptr @OPENSSL_strdup(ptr noundef nonnull %.240.i) #10
-  store ptr %55, ptr %5, align 8, !tbaa !30
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %split_host_and_port.exit
+55:                                               ; preds = %53
+  %56 = call ptr @OPENSSL_strdup(ptr noundef nonnull %.240.i) #10
+  store ptr %56, ptr %5, align 8, !tbaa !30
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %split_host_and_port.exit
 
-57:                                               ; preds = %54
-  call void @free(ptr noundef nonnull %50) #10
-  br label %.sink.split.i
+58:                                               ; preds = %55
+  call void @free(ptr noundef nonnull %51) #10
+  br label %.critedge.sink.split.i
 
-.sink.split.i:                                    ; preds = %57, %52
-  %.sink.i = phi ptr [ %4, %57 ], [ %5, %52 ]
+.critedge.sink.split.i:                           ; preds = %58, %53
+  %.sink.i = phi ptr [ %4, %58 ], [ %5, %53 ]
   store ptr null, ptr %.sink.i, align 8, !tbaa !30
   %.0..0..0.79.pre = load ptr, ptr %5, align 8
   br label %split_host_and_port.exit
 
-split_host_and_port.exit:                         ; preds = %54, %.sink.split.i
-  %.0..0.79 = phi ptr [ %55, %54 ], [ %.0..0..0.79.pre, %.sink.split.i ]
-  %.1.i = phi i1 [ false, %54 ], [ %53, %.sink.split.i ]
-  %58 = icmp eq ptr %.0..0.79, null
-  %or.cond = select i1 %.1.i, i1 true, i1 %58
+split_host_and_port.exit:                         ; preds = %55, %.critedge.sink.split.i
+  %.0..0.79 = phi ptr [ %56, %55 ], [ %.0..0..0.79.pre, %.critedge.sink.split.i ]
+  %.1.i = phi i1 [ false, %55 ], [ %54, %.critedge.sink.split.i ]
+  %59 = icmp eq ptr %.0..0.79, null
+  %or.cond = select i1 %.1.i, i1 true, i1 %59
   br i1 %or.cond, label %.loopexit88.loopexit, label %.thread
 
 .thread:                                          ; preds = %split_host_and_port.exit
-  %59 = load ptr, ptr %10, align 8, !tbaa !24
-  call void @free(ptr noundef %59) #10
-  store ptr %.0..0.79, ptr %10, align 8, !tbaa !24
-  %60 = load ptr, ptr %9, align 8, !tbaa !23
+  %60 = load ptr, ptr %10, align 8, !tbaa !24
   call void @free(ptr noundef %60) #10
+  store ptr %.0..0.79, ptr %10, align 8, !tbaa !24
+  %61 = load ptr, ptr %9, align 8, !tbaa !23
+  call void @free(ptr noundef %61) #10
   %.0..0..0.81 = load ptr, ptr %4, align 8, !tbaa !30
   store ptr %.0..0..0.81, ptr %9, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.pre = load ptr, ptr %10, align 8, !tbaa !24
-  br label %62
+  br label %63
 
 .loopexit88.loopexit:                             ; preds = %split_host_and_port.exit
   %.0..0..0.80.pre = load ptr, ptr %4, align 8, !tbaa !30
   br label %.loopexit88
 
-.loopexit88:                                      ; preds = %26, %29, %.thread.i, %.loopexit88.loopexit
-  %.0..0.80 = phi ptr [ %.0..0..0.80.pre, %.loopexit88.loopexit ], [ null, %.thread.i ], [ null, %29 ], [ null, %26 ]
-  %.0.7986 = phi ptr [ %.0..0.79, %.loopexit88.loopexit ], [ null, %.thread.i ], [ null, %29 ], [ null, %26 ]
+.loopexit88:                                      ; preds = %26, %29, %50, %.loopexit88.loopexit
+  %.0..0.80 = phi ptr [ %.0..0..0.80.pre, %.loopexit88.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
+  %.0.7986 = phi ptr [ %.0..0.79, %.loopexit88.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
   call void @free(ptr noundef %.0..0.80) #10
   call void @free(ptr noundef %.0.7986) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str.2, i32 noundef 192) #10
-  %61 = load ptr, ptr %9, align 8, !tbaa !23
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %61) #10
+  %62 = load ptr, ptr %9, align 8, !tbaa !23
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %62) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.loopexit
 
-62:                                               ; preds = %.thread, %20
-  %63 = phi ptr [ %.pre, %.thread ], [ %21, %20 ]
-  %64 = phi ptr [ %.0..0..0.81, %.thread ], [ %17, %20 ]
-  %65 = call i32 @bio_ip_and_port_to_socket_and_addr(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %64, ptr noundef %63) #10
-  %.not72 = icmp eq i32 %65, 0
-  br i1 %.not72, label %66, label %69
+63:                                               ; preds = %.thread, %20
+  %64 = phi ptr [ %.pre, %.thread ], [ %21, %20 ]
+  %65 = phi ptr [ %.0..0..0.81, %.thread ], [ %17, %20 ]
+  %66 = call i32 @bio_ip_and_port_to_socket_and_addr(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %65, ptr noundef %64) #10
+  %.not72 = icmp eq i32 %66, 0
+  br i1 %.not72, label %67, label %70
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 113, ptr noundef nonnull @.str.2, i32 noundef 206) #10
-  %67 = load ptr, ptr %9, align 8, !tbaa !23
-  %68 = load ptr, ptr %10, align 8, !tbaa !24
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %67, ptr noundef nonnull @.str.4, ptr noundef %68) #10
+  %68 = load ptr, ptr %9, align 8, !tbaa !23
+  %69 = load ptr, ptr %10, align 8, !tbaa !24
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %68, ptr noundef nonnull @.str.4, ptr noundef %69) #10
   br label %.loopexit
 
-69:                                               ; preds = %62
-  %70 = load i32, ptr %13, align 8, !tbaa !25
-  %.not73 = icmp eq i32 %70, 0
-  br i1 %.not73, label %77, label %71
+70:                                               ; preds = %63
+  %71 = load i32, ptr %13, align 8, !tbaa !25
+  %.not73 = icmp eq i32 %71, 0
+  br i1 %.not73, label %78, label %72
 
-71:                                               ; preds = %69
-  %72 = load i32, ptr %8, align 8, !tbaa !20
-  %73 = call i32 @bio_socket_nbio(i32 noundef %72, i32 noundef 1) #10
-  %.not74 = icmp eq i32 %73, 0
-  br i1 %.not74, label %74, label %77
+72:                                               ; preds = %70
+  %73 = load i32, ptr %8, align 8, !tbaa !20
+  %74 = call i32 @bio_socket_nbio(i32 noundef %73, i32 noundef 1) #10
+  %.not74 = icmp eq i32 %74, 0
+  br i1 %.not74, label %75, label %78
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str.2, i32 noundef 213) #10
-  %75 = load ptr, ptr %9, align 8, !tbaa !23
-  %76 = load ptr, ptr %10, align 8, !tbaa !24
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %75, ptr noundef nonnull @.str.4, ptr noundef %76) #10
+  %76 = load ptr, ptr %9, align 8, !tbaa !23
+  %77 = load ptr, ptr %10, align 8, !tbaa !24
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %76, ptr noundef nonnull @.str.4, ptr noundef %77) #10
   br label %.loopexit
 
-77:                                               ; preds = %71, %69
+78:                                               ; preds = %72, %70
   store i32 1, ptr %3, align 4, !tbaa !26
-  %78 = load i32, ptr %8, align 8, !tbaa !20
-  %79 = call i32 @setsockopt(i32 noundef %78, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %3, i32 noundef 4) #10
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %84
+  %79 = load i32, ptr %8, align 8, !tbaa !20
+  %80 = call i32 @setsockopt(i32 noundef %79, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %3, i32 noundef 4) #10
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %85
 
-81:                                               ; preds = %77
+82:                                               ; preds = %78
   call void @ERR_put_error(i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 224) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str.2, i32 noundef 225) #10
-  %82 = load ptr, ptr %9, align 8, !tbaa !23
-  %83 = load ptr, ptr %10, align 8, !tbaa !24
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %82, ptr noundef nonnull @.str.4, ptr noundef %83) #10
+  %83 = load ptr, ptr %9, align 8, !tbaa !23
+  %84 = load ptr, ptr %10, align 8, !tbaa !24
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %83, ptr noundef nonnull @.str.4, ptr noundef %84) #10
   br label %.loopexit
 
-84:                                               ; preds = %77
+85:                                               ; preds = %78
   call void @BIO_clear_retry_flags(ptr noundef nonnull %0) #10
-  %85 = load i32, ptr %8, align 8, !tbaa !20
-  %86 = load i32, ptr %12, align 8, !tbaa !32
-  %87 = call i32 @connect(i32 noundef %85, ptr noundef nonnull %11, i32 noundef %86) #10
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %106
+  %86 = load i32, ptr %8, align 8, !tbaa !20
+  %87 = load i32, ptr %12, align 8, !tbaa !32
+  %88 = call i32 @connect(i32 noundef %86, ptr noundef nonnull %11, i32 noundef %87) #10
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %107
 
-89:                                               ; preds = %84
-  %90 = call i32 @bio_fd_should_retry(i32 noundef %87) #10
-  %.not76 = icmp eq i32 %90, 0
-  br i1 %.not76, label %93, label %91
+90:                                               ; preds = %85
+  %91 = call i32 @bio_fd_should_retry(i32 noundef %88) #10
+  %.not76 = icmp eq i32 %91, 0
+  br i1 %.not76, label %94, label %92
 
-91:                                               ; preds = %89
+92:                                               ; preds = %90
   call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 12) #10
   store i32 1, ptr %1, align 8, !tbaa !16
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 2, ptr %92, align 4, !tbaa !33
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 2, ptr %93, align 4, !tbaa !33
   br label %.loopexit
 
-93:                                               ; preds = %89
+94:                                               ; preds = %90
   call void @ERR_put_error(i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 238) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str.2, i32 noundef 239) #10
-  %94 = load ptr, ptr %9, align 8, !tbaa !23
-  %95 = load ptr, ptr %10, align 8, !tbaa !24
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %94, ptr noundef nonnull @.str.4, ptr noundef %95) #10
+  %95 = load ptr, ptr %9, align 8, !tbaa !23
+  %96 = load ptr, ptr %10, align 8, !tbaa !24
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %95, ptr noundef nonnull @.str.4, ptr noundef %96) #10
   br label %.loopexit
 
-96:                                               ; preds = %14
-  %97 = load i32, ptr %8, align 8, !tbaa !20
-  %98 = call i32 @bio_sock_error(i32 noundef %97) #10
-  store i32 %98, ptr %3, align 4, !tbaa !26
-  %.not70 = icmp eq i32 %98, 0
-  br i1 %.not70, label %106, label %99
+97:                                               ; preds = %14
+  %98 = load i32, ptr %8, align 8, !tbaa !20
+  %99 = call i32 @bio_sock_error(i32 noundef %98) #10
+  store i32 %99, ptr %3, align 4, !tbaa !26
+  %.not70 = icmp eq i32 %99, 0
+  br i1 %.not70, label %107, label %100
 
-99:                                               ; preds = %96
-  %100 = call i32 @bio_fd_should_retry(i32 noundef %.062) #10
-  %.not71 = icmp eq i32 %100, 0
-  br i1 %.not71, label %103, label %101
+100:                                              ; preds = %97
+  %101 = call i32 @bio_fd_should_retry(i32 noundef %.062) #10
+  %.not71 = icmp eq i32 %101, 0
+  br i1 %.not71, label %104, label %102
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 12) #10
   store i32 1, ptr %1, align 8, !tbaa !16
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 2, ptr %102, align 4, !tbaa !33
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 2, ptr %103, align 4, !tbaa !33
   br label %.loopexit
 
-103:                                              ; preds = %99
+104:                                              ; preds = %100
   call void @BIO_clear_retry_flags(ptr noundef nonnull %0) #10
   call void @ERR_put_error(i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 259) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 107, ptr noundef nonnull @.str.2, i32 noundef 260) #10
-  %104 = load ptr, ptr %9, align 8, !tbaa !23
-  %105 = load ptr, ptr %10, align 8, !tbaa !24
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %104, ptr noundef nonnull @.str.4, ptr noundef %105) #10
+  %105 = load ptr, ptr %9, align 8, !tbaa !23
+  %106 = load ptr, ptr %10, align 8, !tbaa !24
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %105, ptr noundef nonnull @.str.4, ptr noundef %106) #10
   br label %.loopexit
 
-106:                                              ; preds = %96, %84
-  %.2 = phi i32 [ %87, %84 ], [ %.062, %96 ]
+107:                                              ; preds = %97, %85
+  %.2 = phi i32 [ %88, %85 ], [ %.062, %97 ]
   store i32 2, ptr %1, align 8, !tbaa !16
-  br i1 %.not, label %.backedge, label %107
+  br i1 %.not, label %.backedge, label %108
 
-107:                                              ; preds = %106
-  %108 = call i32 %7(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.2) #10
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.loopexit89, label %.backedge
+108:                                              ; preds = %107
+  %109 = call i32 %7(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.2) #10
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %.loopexit89, label %.backedge
 
-.backedge:                                        ; preds = %107, %106
-  %.062.be = phi i32 [ %108, %107 ], [ %.2, %106 ]
+.backedge:                                        ; preds = %108, %107
+  %.062.be = phi i32 [ %109, %108 ], [ %.2, %107 ]
   br label %14
 
 .loopexit.loopexit:                               ; preds = %14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit88, %101, %103, %91, %93, %81, %74, %66, %19
-  %.1 = phi i32 [ %.062, %19 ], [ %79, %81 ], [ %87, %91 ], [ %87, %93 ], [ %.062, %74 ], [ %.062, %66 ], [ %.062, %.loopexit88 ], [ -1, %101 ], [ 0, %103 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
-  br i1 %.not, label %.loopexit89, label %110
+.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit88, %102, %104, %92, %94, %82, %75, %67, %19
+  %.1 = phi i32 [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit88 ], [ -1, %102 ], [ 0, %104 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
+  br i1 %.not, label %.loopexit89, label %111
 
-110:                                              ; preds = %.loopexit
-  %111 = load i32, ptr %1, align 8, !tbaa !16
-  %112 = call i32 %7(ptr noundef %0, i32 noundef %111, i32 noundef %.1) #10
+111:                                              ; preds = %.loopexit
+  %112 = load i32, ptr %1, align 8, !tbaa !16
+  %113 = call i32 %7(ptr noundef %0, i32 noundef %112, i32 noundef %.1) #10
   br label %.loopexit89
 
-.loopexit89:                                      ; preds = %107, %110, %.loopexit
-  %.063 = phi i32 [ %112, %110 ], [ %.1, %.loopexit ], [ 0, %107 ]
+.loopexit89:                                      ; preds = %108, %111, %.loopexit
+  %.063 = phi i32 [ %113, %111 ], [ %.1, %.loopexit ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   ret i32 %.063
 }

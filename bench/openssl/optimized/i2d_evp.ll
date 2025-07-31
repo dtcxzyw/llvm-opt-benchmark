@@ -63,19 +63,19 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   br i1 %6, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %12
-  %.01830.us = phi ptr [ %16, %12 ], [ %2, %4 ]
-  %7 = load ptr, ptr %.01830.us, align 8, !tbaa !24
+  %.01831.us = phi ptr [ %16, %12 ], [ %2, %4 ]
+  %7 = load ptr, ptr %.01831.us, align 8, !tbaa !24
   %.not.us = icmp eq ptr %7, null
   br i1 %.not.us, label %.critedge, label %8
 
 8:                                                ; preds = %.split.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   store i64 2147483647, ptr %5, align 8, !tbaa !26
-  %9 = getelementptr inbounds nuw i8, ptr %.01830.us, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01831.us, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7, ptr noundef %10, ptr noundef null) #3
   %.not25.us = icmp eq ptr %11, null
-  br i1 %.not25.us, label %.thread, label %12
+  br i1 %.not25.us, label %.critedge27, label %12
 
 12:                                               ; preds = %8
   %13 = call i32 @OSSL_ENCODER_to_data(ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %5) #3
@@ -84,14 +84,14 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   %15 = trunc i64 %14 to i32
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  %16 = getelementptr inbounds nuw i8, ptr %.01830.us, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.01831.us, i64 16
   %17 = icmp eq i32 %15, -1
   %18 = select i1 %.not24.us, i1 true, i1 %17
-  br i1 %18, label %.split.us, label %.critedge26, !llvm.loop !28
+  br i1 %18, label %.split.us, label %.critedge28, !llvm.loop !28
 
 .split:                                           ; preds = %4, %32
-  %.01830 = phi ptr [ %33, %32 ], [ %2, %4 ]
-  %19 = load ptr, ptr %.01830, align 8, !tbaa !24
+  %.01831 = phi ptr [ %33, %32 ], [ %2, %4 ]
+  %19 = load ptr, ptr %.01831, align 8, !tbaa !24
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %20
 
@@ -100,15 +100,11 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   store i64 2147483647, ptr %5, align 8, !tbaa !26
   %21 = load ptr, ptr %3, align 8, !tbaa !31
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds nuw i8, ptr %.01830, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.01831, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %19, ptr noundef %24, ptr noundef null) #3
   %.not25 = icmp eq ptr %25, null
-  br i1 %.not25, label %.thread, label %26
-
-.thread:                                          ; preds = %20, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  br label %.critedge26
+  br i1 %.not25, label %.critedge27, label %26
 
 26:                                               ; preds = %20
   %27 = call i32 @OSSL_ENCODER_to_data(ptr noundef nonnull %25, ptr noundef nonnull %3, ptr noundef nonnull %5) #3
@@ -118,30 +114,34 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
 28:                                               ; preds = %26
   %29 = load i64, ptr %5, align 8, !tbaa !26
   %30 = trunc i64 %29 to i32
-  br i1 %22, label %32, label %.thread34
+  br i1 %22, label %32, label %.thread
 
-.thread34:                                        ; preds = %28
+.thread:                                          ; preds = %28
   %31 = sub nsw i32 2147483647, %30
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %25) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  br label %.critedge26
+  br label %.critedge28
 
 32:                                               ; preds = %28, %26
   %.221 = phi i32 [ -1, %26 ], [ %30, %28 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %25) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  %33 = getelementptr inbounds nuw i8, ptr %.01830, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.01831, i64 16
   %34 = icmp eq i32 %.221, -1
-  br i1 %34, label %.split, label %.critedge26, !llvm.loop !32
+  br i1 %34, label %.split, label %.critedge28, !llvm.loop !32
 
 .critedge:                                        ; preds = %.split, %.split.us
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__func__.i2d_provided) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 196, ptr noundef null) #3
-  br label %.critedge26
+  br label %.critedge28
 
-.critedge26:                                      ; preds = %32, %12, %.thread34, %.thread, %.critedge
-  %.2 = phi i32 [ -1, %.critedge ], [ -1, %.thread ], [ %31, %.thread34 ], [ %15, %12 ], [ %.221, %32 ]
+.critedge27:                                      ; preds = %20, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  br label %.critedge28
+
+.critedge28:                                      ; preds = %32, %12, %.thread, %.critedge, %.critedge27
+  %.2 = phi i32 [ -1, %.critedge27 ], [ -1, %.critedge ], [ %31, %.thread ], [ %15, %12 ], [ %.221, %32 ]
   ret i32 %.2
 }
 

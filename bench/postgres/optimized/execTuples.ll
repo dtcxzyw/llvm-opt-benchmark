@@ -3813,7 +3813,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #5
 define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3822,12 +3822,12 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   br i1 %1, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %6, label %.lr.ph46, label %._crit_edge
+  br i1 %6, label %.lr.ph44, label %.critedge
 
-.lr.ph46:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv4045 = phi i64 [ %indvars.iv.next41, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph44:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv3843 = phi i64 [ %indvars.iv.next39, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv4045
+  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv3843
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -3843,7 +3843,7 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   %.not26.us = icmp eq ptr %18, null
   br i1 %.not26.us, label %25, label %19
 
-19:                                               ; preds = %.lr.ph46
+19:                                               ; preds = %.lr.ph44
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1
@@ -3857,7 +3857,7 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   store ptr null, ptr %17, align 8
   br label %25
 
-25:                                               ; preds = %24, %.lr.ph46
+25:                                               ; preds = %24, %.lr.ph44
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %27 = load i16, ptr %26, align 4
   %28 = and i16 %27, 16
@@ -3886,19 +3886,16 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
 
 .lr.ph.split.us:                                  ; preds = %36, %33, %25
   tail call void @pfree(ptr noundef nonnull %9) #14
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv4045, 1
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv3843, 1
   %37 = load i32, ptr %3, align 4
   %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next41, %38
-  br i1 %39, label %.lr.ph46, label %._crit_edge
+  %39 = icmp slt i64 %indvars.iv.next39, %38
+  br i1 %39, label %.lr.ph44, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %6, label %.lr.ph37, label %._crit_edge.thread
+  br i1 %6, label %.lr.ph35, label %.critedge.thread
 
-._crit_edge:                                      ; preds = %58, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %2
-  br i1 %1, label %62, label %._crit_edge.thread
-
-.lr.ph37:                                         ; preds = %.lr.ph.split.split, %58
+.lr.ph35:                                         ; preds = %.lr.ph.split.split, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.split.split ]
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
@@ -3917,7 +3914,10 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   %.not26 = icmp eq ptr %51, null
   br i1 %.not26, label %58, label %52
 
-52:                                               ; preds = %.lr.ph37
+.critedge:                                        ; preds = %58, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %2
+  br i1 %1, label %62, label %.critedge.thread
+
+52:                                               ; preds = %.lr.ph35
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
@@ -3931,18 +3931,18 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   store ptr null, ptr %50, align 8
   br label %58
 
-58:                                               ; preds = %57, %.lr.ph37
+58:                                               ; preds = %57, %.lr.ph35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %3, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph37, label %._crit_edge
+  br i1 %61, label %.lr.ph35, label %.critedge
 
-62:                                               ; preds = %._crit_edge
+62:                                               ; preds = %.critedge
   tail call void @list_free(ptr noundef %0) #14
-  br label %._crit_edge.thread
+  br label %.critedge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.split, %62, %._crit_edge
+.critedge.thread:                                 ; preds = %.lr.ph.split.split, %62, %.critedge
   ret void
 }
 
@@ -5431,24 +5431,24 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
 4:                                                ; preds = %2
   %5 = tail call i32 @ExecCleanTargetListLength(ptr noundef %0) #14
   %6 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %5) #14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.us.preheader
+  br i1 %.not, label %.critedge, label %.lr.ph.split.us.preheader
 
 .thread:                                          ; preds = %2
   %7 = tail call i32 @ExecTargetListLength(ptr noundef %0) #14
   %8 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %7) #14
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
+  br i1 %.not, label %.critedge, label %.lr.ph.split.split
 
 .lr.ph.split.us.preheader:                        ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %3, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.02227.us43 = phi i16 [ %.1.us, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
-  %indvars.iv3642 = phi i64 [ %indvars.iv.next37, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %.02225.us41 = phi i16 [ %.1.us, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
+  %indvars.iv3440 = phi i64 [ %indvars.iv.next35, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv3642
+  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv3440
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 42
   %16 = load i8, ptr %15, align 2, !range !5, !noundef !6
@@ -5463,54 +5463,54 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %23 = tail call i32 @exprType(ptr noundef %22) #14
   %24 = load ptr, ptr %21, align 8
   %25 = tail call i32 @exprTypmod(ptr noundef %24) #14
-  tail call void @TupleDescInitEntry(ptr noundef %6, i16 noundef signext %.02227.us43, ptr noundef %20, i32 noundef %23, i32 noundef %25, i32 noundef 0) #14
+  tail call void @TupleDescInitEntry(ptr noundef %6, i16 noundef signext %.02225.us41, ptr noundef %20, i32 noundef %23, i32 noundef %25, i32 noundef 0) #14
   %26 = load ptr, ptr %21, align 8
   %27 = tail call i32 @exprCollation(ptr noundef %26) #14
-  tail call void @TupleDescInitEntryCollation(ptr noundef %6, i16 noundef signext %.02227.us43, i32 noundef %27) #14
-  %28 = add i16 %.02227.us43, 1
+  tail call void @TupleDescInitEntryCollation(ptr noundef %6, i16 noundef signext %.02225.us41, i32 noundef %27) #14
+  %28 = add i16 %.02225.us41, 1
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %18, %.lr.ph
-  %.1.us = phi i16 [ %28, %18 ], [ %.02227.us43, %.lr.ph ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv3642, 1
+  %.1.us = phi i16 [ %28, %18 ], [ %.02225.us41, %.lr.ph ]
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv3440, 1
   %29 = load i32, ptr %3, align 4
   %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next37, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %31 = icmp slt i64 %indvars.iv.next35, %30
+  br i1 %31, label %.lr.ph, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.thread
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %3, align 4
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph34, label %._crit_edge
+  br i1 %34, label %.lr.ph32, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph34, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.thread, %.lr.ph.split.split, %4
-  %35 = phi ptr [ %8, %.thread ], [ %8, %.lr.ph.split.split ], [ %6, %4 ], [ %6, %.lr.ph.split.us.preheader ], [ %6, %.lr.ph.split.us ], [ %8, %.lr.ph34 ]
-  ret ptr %35
-
-.lr.ph34:                                         ; preds = %.lr.ph.split.split, %.lr.ph34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph.split.split ]
-  %.0222733 = phi i16 [ %48, %.lr.ph34 ], [ 1, %.lr.ph.split.split ]
-  %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @exprType(ptr noundef %42) #14
-  %44 = load ptr, ptr %41, align 8
-  %45 = tail call i32 @exprTypmod(ptr noundef %44) #14
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext %.0222733, ptr noundef %40, i32 noundef %43, i32 noundef %45, i32 noundef 0) #14
-  %46 = load ptr, ptr %41, align 8
-  %47 = tail call i32 @exprCollation(ptr noundef %46) #14
-  tail call void @TupleDescInitEntryCollation(ptr noundef %8, i16 noundef signext %.0222733, i32 noundef %47) #14
-  %48 = add i16 %.0222733, 1
+.lr.ph32:                                         ; preds = %.lr.ph.split.split, %.lr.ph32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph32 ], [ 0, %.lr.ph.split.split ]
+  %.0222531 = phi i16 [ %47, %.lr.ph32 ], [ 1, %.lr.ph.split.split ]
+  %35 = load ptr, ptr %32, align 8
+  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i32 @exprType(ptr noundef %41) #14
+  %43 = load ptr, ptr %40, align 8
+  %44 = tail call i32 @exprTypmod(ptr noundef %43) #14
+  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext %.0222531, ptr noundef %39, i32 noundef %42, i32 noundef %44, i32 noundef 0) #14
+  %45 = load ptr, ptr %40, align 8
+  %46 = tail call i32 @exprCollation(ptr noundef %45) #14
+  tail call void @TupleDescInitEntryCollation(ptr noundef %8, i16 noundef signext %.0222531, i32 noundef %46) #14
+  %47 = add i16 %.0222531, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load i32, ptr %3, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph34, label %._crit_edge
+  %48 = load i32, ptr %3, align 4
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph32, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph32, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.thread, %.lr.ph.split.split, %4
+  %51 = phi ptr [ %8, %.thread ], [ %8, %.lr.ph.split.split ], [ %6, %4 ], [ %6, %.lr.ph.split.us.preheader ], [ %6, %.lr.ph.split.us ], [ %8, %.lr.ph32 ]
+  ret ptr %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5526,7 +5526,7 @@ define dso_local ptr @ExecTypeFromExprList(ptr noundef readonly captures(address
 
 list_length.exit.thread:                          ; preds = %1
   %2 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 0) #14
-  br label %._crit_edge
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5536,29 +5536,29 @@ list_length.exit.thread:                          ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph25, label %._crit_edge
+  br i1 %9, label %.lr.ph23, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph25, %list_length.exit.thread, %.lr.ph
-  %10 = phi ptr [ %2, %list_length.exit.thread ], [ %5, %.lr.ph ], [ %5, %.lr.ph25 ]
-  ret ptr %10
-
-.lr.ph25:                                         ; preds = %.lr.ph, %.lr.ph25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph25 ], [ 0, %.lr.ph ]
-  %.0152123 = phi i16 [ %17, %.lr.ph25 ], [ 1, %.lr.ph ]
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @exprType(ptr noundef %13) #14
-  %15 = tail call i32 @exprTypmod(ptr noundef %13) #14
-  tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext %.0152123, ptr noundef null, i32 noundef %14, i32 noundef %15, i32 noundef 0) #14
-  %16 = tail call i32 @exprCollation(ptr noundef %13) #14
-  tail call void @TupleDescInitEntryCollation(ptr noundef %5, i16 noundef signext %.0152123, i32 noundef %16) #14
-  %17 = add i16 %.0152123, 1
+.lr.ph23:                                         ; preds = %.lr.ph, %.lr.ph23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23 ], [ 0, %.lr.ph ]
+  %.0151921 = phi i16 [ %16, %.lr.ph23 ], [ 1, %.lr.ph ]
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 @exprType(ptr noundef %12) #14
+  %14 = tail call i32 @exprTypmod(ptr noundef %12) #14
+  tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext %.0151921, ptr noundef null, i32 noundef %13, i32 noundef %14, i32 noundef 0) #14
+  %15 = tail call i32 @exprCollation(ptr noundef %12) #14
+  tail call void @TupleDescInitEntryCollation(ptr noundef %5, i16 noundef signext %.0151921, i32 noundef %15) #14
+  %16 = add i16 %.0151921, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %6, align 4
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph25, label %._crit_edge
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph23, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph23, %list_length.exit.thread, %.lr.ph
+  %20 = phi ptr [ %2, %list_length.exit.thread ], [ %5, %.lr.ph ], [ %5, %.lr.ph23 ]
+  ret ptr %20
 }
 
 declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #5
@@ -5579,14 +5579,14 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not = icmp eq ptr %1, null
   %invariant.gep = getelementptr i8, ptr %0, i64 24
-  br i1 %.not, label %.thread, label %.lr.ph.split
+  br i1 %.not, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %2
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph33, label %.thread
+  br i1 %6, label %.lr.ph29, label %.critedge
 
-.lr.ph33:                                         ; preds = %.lr.ph.split, %26
+.lr.ph29:                                         ; preds = %.lr.ph.split, %26
   %7 = phi i32 [ %27, %26 ], [ %5, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph.split ]
   %8 = load ptr, ptr %4, align 8
@@ -5597,9 +5597,9 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %.not19 = icmp slt i64 %indvars.iv, %14
-  br i1 %.not19, label %15, label %.thread
+  br i1 %.not19, label %15, label %.critedge
 
-15:                                               ; preds = %.lr.ph33
+15:                                               ; preds = %.lr.ph29
   %16 = shl nsw i64 %14, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %16
   %17 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %gep, i64 %indvars.iv
@@ -5624,9 +5624,9 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %27 = phi i32 [ %.pre, %24 ], [ %7, %20 ], [ %7, %15 ]
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph33, label %.thread
+  br i1 %29, label %.lr.ph29, label %.critedge
 
-.thread:                                          ; preds = %.lr.ph33, %26, %.lr.ph.split, %2
+.critedge:                                        ; preds = %26, %.lr.ph29, %.lr.ph.split, %2
   ret void
 }
 

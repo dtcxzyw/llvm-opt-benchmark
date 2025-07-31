@@ -18303,18 +18303,18 @@ define void @stbtt_FreeSDF(ptr noundef captures(none) %0, ptr noundef readnone c
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
-  %invariant.gep108 = getelementptr i8, ptr %0, i64 2
-  %.not110 = icmp eq i32 %3, 0
-  br i1 %.not110, label %.thread101, label %.lr.ph
+  %invariant.gep99 = getelementptr i8, ptr %0, i64 2
+  %.not101 = icmp eq i32 %3, 0
+  br i1 %.not101, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %106
-  %.064113 = phi ptr [ %107, %106 ], [ %2, %4 ]
-  %.070112 = phi i32 [ %108, %106 ], [ %3, %4 ]
-  %.074111 = phi i32 [ %.276, %106 ], [ 0, %4 ]
-  %5 = load i8, ptr %.064113, align 1, !tbaa !12
+  %.064104 = phi ptr [ %107, %106 ], [ %2, %4 ]
+  %.070103 = phi i32 [ %108, %106 ], [ %3, %4 ]
+  %.074102 = phi i32 [ %.276, %106 ], [ 0, %4 ]
+  %5 = load i8, ptr %.064104, align 1, !tbaa !12
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
-  %8 = getelementptr inbounds nuw i8, ptr %.064113, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.064104, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !12
   %10 = zext i8 %9 to i32
   %11 = or disjoint i32 %7, %10
@@ -18322,39 +18322,39 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
-  %.not93 = icmp slt i32 %.074111, %1
-  br i1 %.not93, label %14, label %.thread101
+  %.not93 = icmp slt i32 %.074102, %1
+  br i1 %.not93, label %14, label %.critedge
 
 14:                                               ; preds = %13
-  %15 = add nsw i32 %.074111, 1
-  %16 = sext i32 %.074111 to i64
+  %15 = add nsw i32 %.074102, 1
+  %16 = sext i32 %.074102 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = zext i8 %18 to i32
   %.not94 = icmp eq i32 %11, %19
-  br i1 %.not94, label %106, label %.thread101
+  br i1 %.not94, label %106, label %.critedge
 
 20:                                               ; preds = %.lr.ph
   %21 = icmp ult i8 %5, 8
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.074111, 1
+  %23 = add nsw i32 %.074102, 1
   %.not90 = icmp slt i32 %23, %1
-  br i1 %.not90, label %24, label %.thread101
+  br i1 %.not90, label %24, label %.critedge
 
 24:                                               ; preds = %22
-  %25 = sext i32 %.074111 to i64
+  %25 = sext i32 %.074102 to i64
   %26 = getelementptr inbounds i8, ptr %0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = zext i8 %27 to i32
   %29 = lshr i32 %11, 6
   %30 = or disjoint i32 %29, 192
   %.not91 = icmp eq i32 %30, %28
-  br i1 %.not91, label %31, label %.thread101
+  br i1 %.not91, label %31, label %.critedge
 
 31:                                               ; preds = %24
-  %32 = add nsw i32 %.074111, 2
+  %32 = add nsw i32 %.074102, 2
   %33 = sext i32 %23 to i64
   %34 = getelementptr inbounds i8, ptr %0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !12
@@ -18362,7 +18362,7 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   %37 = and i32 %10, 63
   %38 = or disjoint i32 %37, 128
   %.not92 = icmp eq i32 %38, %36
-  br i1 %.not92, label %106, label %.thread101
+  br i1 %.not92, label %106, label %.critedge
 
 39:                                               ; preds = %20
   %40 = and i8 %5, -4
@@ -18370,13 +18370,13 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   br i1 %or.cond, label %41, label %83
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %.064113, i64 2
-  %43 = add nsw i32 %.074111, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.064104, i64 2
+  %43 = add nsw i32 %.074102, 3
   %.not85 = icmp slt i32 %43, %1
-  br i1 %.not85, label %44, label %.thread101
+  br i1 %.not85, label %44, label %.critedge
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.064113, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.064104, i64 3
   %46 = load i8, ptr %45, align 1, !tbaa !12
   %47 = load i8, ptr %42, align 1, !tbaa !12
   %48 = zext i8 %47 to i32
@@ -18386,34 +18386,34 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   %52 = shl nuw nsw i32 %11, 10
   %53 = add nsw i32 %52, -56613888
   %54 = add nuw nsw i32 %53, %51
-  %55 = sext i32 %.074111 to i64
+  %55 = sext i32 %.074102 to i64
   %56 = getelementptr inbounds i8, ptr %0, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !12
   %58 = zext i8 %57 to i32
   %59 = lshr i32 %54, 18
   %60 = add nuw nsw i32 %59, 240
   %.not86 = icmp eq i32 %60, %58
-  br i1 %.not86, label %61, label %.thread101
+  br i1 %.not86, label %61, label %.critedge
 
 61:                                               ; preds = %44
-  %gep107 = getelementptr i8, ptr %invariant.gep, i64 %55
-  %62 = load i8, ptr %gep107, align 1, !tbaa !12
+  %gep98 = getelementptr i8, ptr %invariant.gep, i64 %55
+  %62 = load i8, ptr %gep98, align 1, !tbaa !12
   %63 = zext i8 %62 to i32
   %64 = lshr i32 %54, 12
   %65 = and i32 %64, 63
   %66 = or disjoint i32 %65, 128
   %.not87 = icmp eq i32 %66, %63
-  br i1 %.not87, label %67, label %.thread101
+  br i1 %.not87, label %67, label %.critedge
 
 67:                                               ; preds = %61
-  %gep109 = getelementptr i8, ptr %invariant.gep108, i64 %55
-  %68 = load i8, ptr %gep109, align 1, !tbaa !12
+  %gep100 = getelementptr i8, ptr %invariant.gep99, i64 %55
+  %68 = load i8, ptr %gep100, align 1, !tbaa !12
   %69 = zext i8 %68 to i32
   %70 = lshr i32 %54, 6
   %71 = and i32 %70, 63
   %72 = or disjoint i32 %71, 128
   %.not88 = icmp eq i32 %72, %69
-  br i1 %.not88, label %73, label %.thread101
+  br i1 %.not88, label %73, label %.critedge
 
 73:                                               ; preds = %67
   %74 = sext i32 %43 to i64
@@ -18423,29 +18423,29 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   %78 = and i32 %50, 63
   %79 = or disjoint i32 %78, 128
   %.not89 = icmp eq i32 %79, %77
-  br i1 %.not89, label %80, label %.thread101
+  br i1 %.not89, label %80, label %.critedge
 
 80:                                               ; preds = %73
-  %81 = add nsw i32 %.074111, 4
-  %82 = add nsw i32 %.070112, -2
+  %81 = add nsw i32 %.074102, 4
+  %82 = add nsw i32 %.070103, -2
   br label %106
 
 83:                                               ; preds = %39
   %or.cond6 = icmp ne i8 %40, -36
-  %84 = add nsw i32 %.074111, 2
+  %84 = add nsw i32 %.074102, 2
   %.not81 = icmp slt i32 %84, %1
-  %or.cond95 = select i1 %or.cond6, i1 %.not81, i1 false
-  br i1 %or.cond95, label %85, label %.thread101
+  %or.cond96 = select i1 %or.cond6, i1 %.not81, i1 false
+  br i1 %or.cond96, label %85, label %.critedge
 
 85:                                               ; preds = %83
-  %86 = sext i32 %.074111 to i64
+  %86 = sext i32 %.074102 to i64
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !12
   %89 = zext i8 %88 to i32
   %90 = lshr i32 %6, 4
   %91 = or disjoint i32 %90, 224
   %.not82 = icmp eq i32 %91, %89
-  br i1 %.not82, label %92, label %.thread101
+  br i1 %.not82, label %92, label %.critedge
 
 92:                                               ; preds = %85
   %gep = getelementptr i8, ptr %invariant.gep, i64 %86
@@ -18455,10 +18455,10 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   %96 = and i32 %95, 63
   %97 = or disjoint i32 %96, 128
   %.not83 = icmp eq i32 %97, %94
-  br i1 %.not83, label %98, label %.thread101
+  br i1 %.not83, label %98, label %.critedge
 
 98:                                               ; preds = %92
-  %99 = add nsw i32 %.074111, 3
+  %99 = add nsw i32 %.074102, 3
   %100 = sext i32 %84 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !12
@@ -18466,19 +18466,19 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
   %104 = and i32 %10, 63
   %105 = or disjoint i32 %104, 128
   %.not84 = icmp eq i32 %105, %103
-  br i1 %.not84, label %106, label %.thread101
+  br i1 %.not84, label %106, label %.critedge
 
-106:                                              ; preds = %14, %98, %31, %80
+106:                                              ; preds = %80, %31, %98, %14
   %.276 = phi i32 [ %15, %14 ], [ %32, %31 ], [ %81, %80 ], [ %99, %98 ]
-  %.272 = phi i32 [ %.070112, %14 ], [ %.070112, %31 ], [ %82, %80 ], [ %.070112, %98 ]
-  %.266 = phi ptr [ %.064113, %14 ], [ %.064113, %31 ], [ %42, %80 ], [ %.064113, %98 ]
+  %.272 = phi i32 [ %.070103, %14 ], [ %.070103, %31 ], [ %82, %80 ], [ %.070103, %98 ]
+  %.266 = phi ptr [ %.064104, %14 ], [ %.064104, %31 ], [ %42, %80 ], [ %.064104, %98 ]
   %107 = getelementptr inbounds nuw i8, ptr %.266, i64 2
   %108 = add nsw i32 %.272, -2
   %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %.thread101, label %.lr.ph, !llvm.loop !240
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !240
 
-.thread101:                                       ; preds = %106, %13, %14, %22, %24, %31, %83, %85, %92, %98, %41, %44, %61, %67, %73, %4
-  %.4 = phi i32 [ 0, %4 ], [ -1, %73 ], [ -1, %67 ], [ -1, %61 ], [ -1, %44 ], [ -1, %41 ], [ -1, %98 ], [ -1, %92 ], [ -1, %85 ], [ -1, %83 ], [ -1, %31 ], [ -1, %24 ], [ -1, %22 ], [ -1, %14 ], [ -1, %13 ], [ %.276, %106 ]
+.critedge:                                        ; preds = %106, %98, %92, %85, %83, %31, %24, %22, %14, %13, %73, %67, %61, %44, %41, %4
+  %.4 = phi i32 [ 0, %4 ], [ -1, %41 ], [ -1, %44 ], [ -1, %61 ], [ -1, %67 ], [ -1, %73 ], [ -1, %13 ], [ -1, %14 ], [ -1, %22 ], [ -1, %24 ], [ -1, %31 ], [ -1, %83 ], [ -1, %85 ], [ -1, %92 ], [ -1, %98 ], [ %.276, %106 ]
   ret i32 %.4
 }
 

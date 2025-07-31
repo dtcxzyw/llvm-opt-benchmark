@@ -102,7 +102,7 @@ define ptr @ossl_cms_get0_auth_enveloped(ptr noundef readonly captures(none) %0)
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !13
-  switch i32 %3, label %.thread [
+  switch i32 %3, label %.critedge [
     i32 0, label %4
     i32 1, label %9
   ]
@@ -120,12 +120,12 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %9
   %16 = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef nonnull %13) #6
-  %.not42 = icmp eq ptr %16, null
-  br i1 %.not42, label %.thread, label %17
+  %.not40 = icmp eq ptr %16, null
+  br i1 %.not40, label %.critedge, label %17
 
 17:                                               ; preds = %15, %4
   %.027 = phi ptr [ %8, %4 ], [ %16, %15 ]
@@ -140,7 +140,7 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
 
 21:                                               ; preds = %19, %17
   %22 = tail call i32 @ossl_cms_dh_envelope(ptr noundef nonnull %0, i32 noundef %1) #6
-  br label %.thread
+  br label %.critedge
 
 23:                                               ; preds = %19
   %24 = tail call i32 @EVP_PKEY_is_a(ptr noundef %.027, ptr noundef nonnull @.str.3) #6
@@ -149,7 +149,7 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
 
 25:                                               ; preds = %23
   %26 = tail call i32 @ossl_cms_ecdh_envelope(ptr noundef nonnull %0, i32 noundef %1) #6
-  br label %.thread
+  br label %.critedge
 
 27:                                               ; preds = %23
   %28 = tail call i32 @EVP_PKEY_is_a(ptr noundef %.027, ptr noundef nonnull @.str.4) #6
@@ -158,19 +158,19 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
 
 29:                                               ; preds = %27
   %30 = tail call i32 @ossl_cms_rsa_envelope(ptr noundef nonnull %0, i32 noundef %1) #6
-  br label %.thread
+  br label %.critedge
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 176
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %35
   %40 = sext i32 %1 to i64
@@ -182,19 +182,19 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @__func__.ossl_cms_env_asn1_ctrl) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 125, ptr noundef null) #6
-  br label %.thread
+  br label %.critedge
 
 44:                                               ; preds = %39
   %45 = icmp slt i32 %41, 1
-  br i1 %45, label %46, label %.thread
+  br i1 %45, label %46, label %.critedge
 
 46:                                               ; preds = %44
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 143, ptr noundef nonnull @__func__.ossl_cms_env_asn1_ctrl) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 111, ptr noundef null) #6
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %44, %31, %35, %2, %15, %46, %43, %29, %25, %21
+.critedge:                                        ; preds = %9, %44, %31, %35, %2, %15, %46, %43, %29, %25, %21
   %.1 = phi i32 [ %22, %21 ], [ %26, %25 ], [ %30, %29 ], [ 0, %43 ], [ 0, %46 ], [ 0, %15 ], [ 0, %2 ], [ 1, %35 ], [ 1, %31 ], [ 1, %44 ], [ 0, %9 ]
   ret i32 %.1
 }

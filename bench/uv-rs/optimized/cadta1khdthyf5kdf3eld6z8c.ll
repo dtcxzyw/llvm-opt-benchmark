@@ -560,23 +560,23 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %.sroa.620.0..sroa_idx, align 8
   %19 = icmp eq i64 %2, 0
-  br i1 %19, label %.loopexit, label %.lr.ph.i.i.preheader
+  br i1 %19, label %.critedge, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %16, %100
   %20 = phi i64 [ %106, %100 ], [ 0, %16 ]
-  %.sroa.08.063 = phi i64 [ %65, %100 ], [ 0, %16 ]
-  %.promoted.i.i2262 = phi ptr [ %61, %100 ], [ %1, %16 ]
+  %.promoted.i.i2249 = phi ptr [ %61, %100 ], [ %1, %16 ]
+  %.promoted11.i.i2448 = phi i64 [ %65, %100 ], [ 0, %16 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   br label %.lr.ph.i.i
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i": ; preds = %66
   %21 = icmp eq ptr %61, %18
-  br i1 %21, label %.loopexit, label %.lr.ph.i.i
+  br i1 %21, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i"
-  %22 = phi i64 [ %65, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %.sroa.08.063, %.lr.ph.i.i.preheader ]
-  %23 = phi ptr [ %61, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %.promoted.i.i2262, %.lr.ph.i.i.preheader ]
+  %22 = phi i64 [ %65, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %.promoted11.i.i2448, %.lr.ph.i.i.preheader ]
+  %23 = phi ptr [ %61, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %.promoted.i.i2249, %.lr.ph.i.i.preheader ]
   %24 = ptrtoint ptr %23 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
@@ -664,18 +664,18 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
           cleanup
   br label %13
 
-.loopexit:                                        ; preds = %100, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i", %16
+.critedge:                                        ; preds = %100, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i", %16
   %71 = phi i64 [ 0, %16 ], [ %20, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %106, %100 ]
-  %.sroa.08.060 = phi i64 [ 0, %16 ], [ %.sroa.08.063, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %65, %100 ]
+  %.promoted11.i.i2447 = phi i64 [ 0, %16 ], [ %.promoted11.i.i2448, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h37e6c887407f2f0bE.exit.loopexit.i.i" ], [ %65, %100 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %gepdiff49 = sub nsw i64 %2, %.sroa.08.060
+  %gepdiff38 = sub nsw i64 %2, %.promoted11.i.i2447
   %72 = load i64, ptr %6, align 8, !range !167, !alias.scope !168, !noundef !3
   %73 = sub i64 %72, %71
-  %74 = icmp ugt i64 %gepdiff49, %73
+  %74 = icmp ugt i64 %gepdiff38, %73
   br i1 %74, label %75, label %82, !prof !76
 
-75:                                               ; preds = %.loopexit
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17haf55c8f50e688a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %71, i64 noundef %gepdiff49, i64 noundef 1, i64 noundef 1)
+75:                                               ; preds = %.critedge
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17haf55c8f50e688a3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %71, i64 noundef %gepdiff38, i64 noundef 1, i64 noundef 1)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %75
@@ -683,8 +683,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
   br label %82
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %1, i64 %.sroa.08.063
-  %gepdiff = sub nsw i64 %22, %.sroa.08.063
+  %77 = getelementptr inbounds i8, ptr %1, i64 %.promoted11.i.i2448
+  %gepdiff = sub nsw i64 %22, %.promoted11.i.i2448
   %78 = load i64, ptr %6, align 8, !range !167, !alias.scope !176, !noundef !3
   %79 = sub i64 %78, %20
   %80 = icmp ugt i64 %gepdiff, %79
@@ -698,16 +698,16 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
   %.pre.i.i36 = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !183
   br label %90
 
-82:                                               ; preds = %.noexc, %.loopexit
-  %83 = phi i64 [ %71, %.loopexit ], [ %.pre.i.i, %.noexc ]
-  %84 = getelementptr inbounds i8, ptr %1, i64 %.sroa.08.060
+82:                                               ; preds = %.noexc, %.critedge
+  %83 = phi i64 [ %71, %.critedge ], [ %.pre.i.i, %.noexc ]
+  %84 = getelementptr inbounds i8, ptr %1, i64 %.promoted11.i.i2447
   %85 = icmp sgt i64 %83, -1
   call void @llvm.assume(i1 %85)
   %86 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !175, !nonnull !3, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %83
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %84, i64 %gepdiff49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %84, i64 %gepdiff38, i1 false)
   %88 = load i64, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !175, !noundef !3
-  %89 = add i64 %88, %gepdiff49
+  %89 = add i64 %88, %gepdiff38
   store i64 %89, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -746,7 +746,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hf1b
   %106 = add i64 %105, 1
   store i64 %106, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !191
   %107 = icmp eq ptr %61, %18
-  br i1 %107, label %.loopexit, label %.lr.ph.i.i.preheader
+  br i1 %107, label %.critedge, label %.lr.ph.i.i.preheader
 
 108:                                              ; preds = %13
   %109 = landingpad { ptr, i32 }

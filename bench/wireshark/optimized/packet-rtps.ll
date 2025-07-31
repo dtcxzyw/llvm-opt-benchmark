@@ -3597,9 +3597,9 @@ dissect_rtps_submessage_v1.exit:                  ; preds = %125
     i8 48, label %1799
     i8 49, label %1991
     i8 51, label %1991
-    i8 50, label %2057
-    i8 52, label %2057
-    i8 -126, label %2087
+    i8 50, label %2062
+    i8 52, label %2062
+    i8 -126, label %2092
   ]
 
 627:                                              ; preds = %626
@@ -5957,7 +5957,7 @@ proto_item_set_generated.exit.i105:               ; preds = %1973, %1970, %rtps_
   %1995 = call ptr @proto_tree_add_bitmask_value(ptr noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %1992, i32 noundef %1993, ptr noundef nonnull @SECURE_PREFIX_FLAGS, i64 noundef %1994)
   %1996 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %112)
   %1997 = and i8 %1996, 4
-  %.not81.i = icmp eq i8 %1997, 0
+  %.not82.i = icmp eq i8 %1997, 0
   %1998 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
   %1999 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %1998, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef range(i32 0, -2147483647) %115)
   %2000 = add i32 %.093184, 4
@@ -5971,7 +5971,7 @@ proto_item_set_generated.exit.i105:               ; preds = %1973, %1970, %rtps_
   %2008 = add i32 %.093184, 8
   %2009 = load i32, ptr @hf_rtps_secure_dataheader_transformation_key_id, align 4
   %2010 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2009, ptr noundef %0, i32 noundef %2008, i32 noundef 4, i32 noundef 0)
-  br i1 %.not81.i, label %2017, label %2011
+  br i1 %.not82.i, label %.critedge.critedge.i, label %2011
 
 2011:                                             ; preds = %1991
   %2012 = add i32 %.093184, 11
@@ -5979,183 +5979,186 @@ proto_item_set_generated.exit.i105:               ; preds = %1973, %1970, %rtps_
   %2014 = call ptr @proto_item_add_subtree(ptr noundef null, i32 noundef %2013)
   %2015 = load i32, ptr @hf_rtps_secure_dataheader_passphrase_key_id, align 4
   %2016 = call ptr @proto_tree_add_item(ptr noundef %2014, i32 noundef %2015, ptr noundef %0, i32 noundef %2012, i32 noundef 1, i32 noundef 0)
-  br label %2017
+  %2017 = add i32 %.093184, 12
+  %2018 = load i32, ptr @hf_rtps_secure_dataheader_session_id, align 4
+  %2019 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2018, ptr noundef %0, i32 noundef %2017, i32 noundef 4, i32 noundef 0)
+  %2020 = add i32 %.093184, 16
+  %2021 = load i32, ptr @hf_rtps_secure_dataheader_init_vector_suffix, align 4
+  %2022 = add i32 %.0, -12
+  %2023 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2021, ptr noundef %0, i32 noundef %2020, i32 noundef %2022, i32 noundef 0)
+  %2024 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %81, i32 noundef %2000, i64 noundef 3)
+  %2025 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %2012, i64 noundef 1)
+  %2026 = load i32, ptr @hf_rtps_secure_dataheader_passphrase_id, align 4
+  %2027 = load i32, ptr %58, align 4
+  %2028 = call ptr @proto_tree_add_uint(ptr noundef %2002, i32 noundef %2026, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %2027)
+  %.not.i.i100 = icmp eq ptr %2028, null
+  br i1 %.not.i.i100, label %proto_item_set_generated.exit.i, label %2029
 
-2017:                                             ; preds = %2011, %1991
-  %.078.i = phi i32 [ %2012, %2011 ], [ 0, %1991 ]
-  %2018 = add i32 %.093184, 12
-  %2019 = load i32, ptr @hf_rtps_secure_dataheader_session_id, align 4
-  %2020 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2019, ptr noundef %0, i32 noundef %2018, i32 noundef 4, i32 noundef 0)
-  %2021 = add i32 %.093184, 16
-  %2022 = load i32, ptr @hf_rtps_secure_dataheader_init_vector_suffix, align 4
-  %2023 = add i32 %.0, -12
-  %2024 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2022, ptr noundef %0, i32 noundef %2021, i32 noundef %2023, i32 noundef 0)
-  br i1 %.not81.i, label %dissect_SECURE_PREFIX.exit, label %2025
+2029:                                             ; preds = %2011
+  %2030 = getelementptr inbounds nuw i8, ptr %2028, i64 40
+  %2031 = load ptr, ptr %2030, align 8
+  %.not5.i.i = icmp eq ptr %2031, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %2032
 
-2025:                                             ; preds = %2017
-  %2026 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %81, i32 noundef %2000, i64 noundef 3)
-  %2027 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %.078.i, i64 noundef 1)
-  %2028 = load i32, ptr @hf_rtps_secure_dataheader_passphrase_id, align 4
-  %2029 = load i32, ptr %58, align 4
-  %2030 = call ptr @proto_tree_add_uint(ptr noundef %2002, i32 noundef %2028, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %2029)
-  %.not.i.i100 = icmp eq ptr %2030, null
-  br i1 %.not.i.i100, label %proto_item_set_generated.exit.i, label %2031
-
-2031:                                             ; preds = %2025
-  %2032 = getelementptr inbounds nuw i8, ptr %2030, i64 40
-  %2033 = load ptr, ptr %2032, align 8
-  %.not5.i.i = icmp eq ptr %2033, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %2034
-
-2034:                                             ; preds = %2031
-  %2035 = getelementptr inbounds nuw i8, ptr %2033, i64 28
-  %2036 = load i32, ptr %2035, align 4
-  %2037 = or i32 %2036, 2
-  store i32 %2037, ptr %2035, align 4
+2032:                                             ; preds = %2029
+  %2033 = getelementptr inbounds nuw i8, ptr %2031, i64 28
+  %2034 = load i32, ptr %2033, align 4
+  %2035 = or i32 %2034, 2
+  store i32 %2035, ptr %2033, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %2034, %2031, %2025
-  %2038 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !8
-  %2039 = trunc nuw i8 %2038 to i1
-  br i1 %2039, label %2040, label %dissect_SECURE_PREFIX.exit
+proto_item_set_generated.exit.i:                  ; preds = %2032, %2029, %2011
+  %2036 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !8
+  %2037 = trunc nuw i8 %2036 to i1
+  br i1 %2037, label %2038, label %dissect_SECURE_PREFIX.exit
 
-2040:                                             ; preds = %proto_item_set_generated.exit.i
-  %2041 = load ptr, ptr %74, align 8
-  %2042 = load i32, ptr @proto_rtps, align 4
-  %2043 = call ptr @p_get_proto_data(ptr noundef %2041, ptr noundef %2, i32 noundef %2042, i32 noundef 5)
-  %.not.i101 = icmp eq ptr %2043, null
-  br i1 %.not.i101, label %dissect_SECURE_PREFIX.exit, label %2044
+2038:                                             ; preds = %proto_item_set_generated.exit.i
+  %2039 = load ptr, ptr %74, align 8
+  %2040 = load i32, ptr @proto_rtps, align 4
+  %2041 = call ptr @p_get_proto_data(ptr noundef %2039, ptr noundef %2, i32 noundef %2040, i32 noundef 5)
+  %.not.i101 = icmp eq ptr %2041, null
+  br i1 %.not.i101, label %dissect_SECURE_PREFIX.exit, label %2042
 
-2044:                                             ; preds = %2040
-  %2045 = getelementptr inbounds nuw i8, ptr %2043, i64 12
-  store i8 1, ptr %2045, align 4
-  %2046 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2005)
-  %2047 = zext i8 %2046 to i32
-  %2048 = getelementptr inbounds nuw i8, ptr %2043, i64 24
-  store i32 %2047, ptr %2048, align 4
-  %2049 = getelementptr inbounds nuw i8, ptr %2043, i64 16
-  %2050 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2049, i32 noundef %2018, i64 noundef 4)
-  %2051 = getelementptr inbounds nuw i8, ptr %2043, i64 28
-  %2052 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2051, i32 noundef %2018, i64 noundef 12)
-  %2053 = getelementptr inbounds nuw i8, ptr %2043, i64 20
-  %2054 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2053, i32 noundef %2008, i64 noundef 4)
-  %2055 = load i32, ptr %58, align 4
-  %2056 = getelementptr inbounds nuw i8, ptr %2043, i64 40
-  store i32 %2055, ptr %2056, align 4
+2042:                                             ; preds = %2038
+  %2043 = getelementptr inbounds nuw i8, ptr %2041, i64 12
+  store i8 1, ptr %2043, align 4
+  %2044 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2005)
+  %2045 = zext i8 %2044 to i32
+  %2046 = getelementptr inbounds nuw i8, ptr %2041, i64 24
+  store i32 %2045, ptr %2046, align 4
+  %2047 = getelementptr inbounds nuw i8, ptr %2041, i64 16
+  %2048 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2047, i32 noundef %2017, i64 noundef 4)
+  %2049 = getelementptr inbounds nuw i8, ptr %2041, i64 28
+  %2050 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2049, i32 noundef %2017, i64 noundef 12)
+  %2051 = getelementptr inbounds nuw i8, ptr %2041, i64 20
+  %2052 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2051, i32 noundef %2008, i64 noundef 4)
+  %2053 = load i32, ptr %58, align 4
+  %2054 = getelementptr inbounds nuw i8, ptr %2041, i64 40
+  store i32 %2053, ptr %2054, align 4
   br label %dissect_SECURE_PREFIX.exit
 
-dissect_SECURE_PREFIX.exit:                       ; preds = %2017, %proto_item_set_generated.exit.i, %2040, %2044
+.critedge.critedge.i:                             ; preds = %1991
+  %2055 = add i32 %.093184, 12
+  %2056 = load i32, ptr @hf_rtps_secure_dataheader_session_id, align 4
+  %2057 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2056, ptr noundef %0, i32 noundef %2055, i32 noundef 4, i32 noundef 0)
+  %2058 = add i32 %.093184, 16
+  %2059 = load i32, ptr @hf_rtps_secure_dataheader_init_vector_suffix, align 4
+  %2060 = add i32 %.0, -12
+  %2061 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2059, ptr noundef %0, i32 noundef %2058, i32 noundef %2060, i32 noundef 0)
+  br label %dissect_SECURE_PREFIX.exit
+
+dissect_SECURE_PREFIX.exit:                       ; preds = %proto_item_set_generated.exit.i, %2038, %2042, %.critedge.critedge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #17
   br label %dissect_rtps_submessage_v1.exit.thread
 
-2057:                                             ; preds = %626, %626
-  %2058 = load i32, ptr @hf_rtps_sm_flags, align 4
-  %2059 = load i32, ptr @ett_rtps_flags, align 4
-  %2060 = zext i8 %113 to i64
-  %2061 = call ptr @proto_tree_add_bitmask_value(ptr noundef %111, ptr noundef %0, i32 noundef %116, i32 noundef %2058, i32 noundef %2059, ptr noundef nonnull @SECURE_POSTFIX_FLAGS, i64 noundef %2060)
-  %2062 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
-  %2063 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2062, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef range(i32 0, -2147483647) %115)
-  %2064 = add i32 %.093184, 4
-  %2065 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag_common_mac, align 4
-  %2066 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2065, ptr noundef %0, i32 noundef %2064, i32 noundef 16, i32 noundef range(i32 0, -2147483647) %115)
-  %2067 = add i32 %.093184, 20
-  %2068 = load i32, ptr @hf_rtps_secure_datatag_plugin_specific_macs_len, align 4
-  %2069 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2068, ptr noundef %0, i32 noundef %2067, i32 noundef 4, i32 noundef 0)
-  %2070 = call i32 @tvb_get_int32(ptr noundef %0, i32 noundef %2067, i32 noundef 0)
-  %2071 = add i32 %.093184, 24
-  %2072 = icmp sgt i32 %2070, 0
-  br i1 %2072, label %2073, label %dissect_rtps_submessage_v1.exit.thread
+2062:                                             ; preds = %626, %626
+  %2063 = load i32, ptr @hf_rtps_sm_flags, align 4
+  %2064 = load i32, ptr @ett_rtps_flags, align 4
+  %2065 = zext i8 %113 to i64
+  %2066 = call ptr @proto_tree_add_bitmask_value(ptr noundef %111, ptr noundef %0, i32 noundef %116, i32 noundef %2063, i32 noundef %2064, ptr noundef nonnull @SECURE_POSTFIX_FLAGS, i64 noundef %2065)
+  %2067 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
+  %2068 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2067, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef range(i32 0, -2147483647) %115)
+  %2069 = add i32 %.093184, 4
+  %2070 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag_common_mac, align 4
+  %2071 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2070, ptr noundef %0, i32 noundef %2069, i32 noundef 16, i32 noundef range(i32 0, -2147483647) %115)
+  %2072 = add i32 %.093184, 20
+  %2073 = load i32, ptr @hf_rtps_secure_datatag_plugin_specific_macs_len, align 4
+  %2074 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2073, ptr noundef %0, i32 noundef %2072, i32 noundef 4, i32 noundef 0)
+  %2075 = call i32 @tvb_get_int32(ptr noundef %0, i32 noundef %2072, i32 noundef 0)
+  %2076 = add i32 %.093184, 24
+  %2077 = icmp sgt i32 %2075, 0
+  br i1 %2077, label %2078, label %dissect_rtps_submessage_v1.exit.thread
 
-2073:                                             ; preds = %2057
-  %2074 = load i32, ptr @ett_rtps_secure_dataheader_tree, align 4
-  %2075 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %111, ptr noundef %0, i32 noundef %2071, i32 noundef %.0, i32 noundef %2074, ptr noundef null, ptr noundef nonnull @.str.1435)
-  br label %2076
+2078:                                             ; preds = %2062
+  %2079 = load i32, ptr @ett_rtps_secure_dataheader_tree, align 4
+  %2080 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %111, ptr noundef %0, i32 noundef %2076, i32 noundef %.0, i32 noundef %2079, ptr noundef null, ptr noundef nonnull @.str.1435)
+  br label %2081
 
-2076:                                             ; preds = %2076, %2073
-  %.01.i = phi i32 [ 0, %2073 ], [ %2086, %2076 ]
-  %2077 = mul i32 %.01.i, 20
-  %2078 = add i32 %2077, %2071
-  %2079 = load i32, ptr @ett_rtps_secure_postfix_tag_list_item, align 4
-  %2080 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2075, ptr noundef %0, i32 noundef %2078, i32 noundef 20, i32 noundef %2079, ptr noundef null, ptr noundef nonnull @.str.1436, i32 noundef %.01.i)
-  %2081 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag, align 4
-  %2082 = call ptr @proto_tree_add_item(ptr noundef %2080, i32 noundef %2081, ptr noundef %0, i32 noundef %2078, i32 noundef 16, i32 noundef range(i32 0, -2147483647) %115)
-  %2083 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag_key, align 4
-  %2084 = add i32 %2078, 16
-  %2085 = call ptr @proto_tree_add_item(ptr noundef %2080, i32 noundef %2083, ptr noundef %0, i32 noundef %2084, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115)
-  %2086 = add nuw nsw i32 %.01.i, 1
-  %exitcond.not.i = icmp eq i32 %2086, %2070
-  br i1 %exitcond.not.i, label %dissect_rtps_submessage_v1.exit.thread, label %2076, !llvm.loop !24
+2081:                                             ; preds = %2081, %2078
+  %.01.i = phi i32 [ 0, %2078 ], [ %2091, %2081 ]
+  %2082 = mul i32 %.01.i, 20
+  %2083 = add i32 %2082, %2076
+  %2084 = load i32, ptr @ett_rtps_secure_postfix_tag_list_item, align 4
+  %2085 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2080, ptr noundef %0, i32 noundef %2083, i32 noundef 20, i32 noundef %2084, ptr noundef null, ptr noundef nonnull @.str.1436, i32 noundef %.01.i)
+  %2086 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag, align 4
+  %2087 = call ptr @proto_tree_add_item(ptr noundef %2085, i32 noundef %2086, ptr noundef %0, i32 noundef %2083, i32 noundef 16, i32 noundef range(i32 0, -2147483647) %115)
+  %2088 = load i32, ptr @hf_rtps_secure_datatag_plugin_sec_tag_key, align 4
+  %2089 = add i32 %2083, 16
+  %2090 = call ptr @proto_tree_add_item(ptr noundef %2085, i32 noundef %2088, ptr noundef %0, i32 noundef %2089, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115)
+  %2091 = add nuw nsw i32 %.01.i, 1
+  %exitcond.not.i = icmp eq i32 %2091, %2075
+  br i1 %exitcond.not.i, label %dissect_rtps_submessage_v1.exit.thread, label %2081, !llvm.loop !24
 
-2087:                                             ; preds = %626
-  %2088 = add i32 %.093184, 4
-  %2089 = add i32 %.093184, 8
-  %2090 = load i32, ptr @hf_rtps_udpv4_wan_binding_ping_flags, align 4
-  %2091 = load i32, ptr @ett_rtps_flags, align 4
-  %2092 = zext i8 %113 to i64
-  %2093 = call ptr @proto_tree_add_bitmask_value(ptr noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %2090, i32 noundef %2091, ptr noundef nonnull @UDPV4_WAN_BINDING_PING_FLAGS, i64 noundef %2092)
-  %2094 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
-  %2095 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2094, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef range(i32 0, -2147483647) %115)
-  %2096 = load i32, ptr @hf_rtps_udpv4_wan_binding_ping_port, align 4
-  %2097 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2096, ptr noundef %0, i32 noundef %2088, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115)
-  %2098 = and i8 %113, 2
-  %.not.i99 = icmp eq i8 %2098, 0
+2092:                                             ; preds = %626
+  %2093 = add i32 %.093184, 4
+  %2094 = add i32 %.093184, 8
+  %2095 = load i32, ptr @hf_rtps_udpv4_wan_binding_ping_flags, align 4
+  %2096 = load i32, ptr @ett_rtps_flags, align 4
+  %2097 = zext i8 %113 to i64
+  %2098 = call ptr @proto_tree_add_bitmask_value(ptr noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %2095, i32 noundef %2096, ptr noundef nonnull @UDPV4_WAN_BINDING_PING_FLAGS, i64 noundef %2097)
+  %2099 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
+  %2100 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2099, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef range(i32 0, -2147483647) %115)
+  %2101 = load i32, ptr @hf_rtps_udpv4_wan_binding_ping_port, align 4
+  %2102 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2101, ptr noundef %0, i32 noundef %2093, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115)
+  %2103 = and i8 %113, 2
+  %.not.i99 = icmp eq i8 %2103, 0
   %..i = select i1 %.not.i99, i32 9, i32 16
   %hf_rtps_uuid.val.i = load i32, ptr @hf_rtps_uuid, align 4
   %hf_rtps_long_address.val.i = load i32, ptr @hf_rtps_long_address, align 4
-  %2099 = select i1 %.not.i99, i32 %hf_rtps_uuid.val.i, i32 %hf_rtps_long_address.val.i
-  %2100 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2099, ptr noundef %0, i32 noundef %2089, i32 noundef %..i, i32 noundef range(i32 0, -2147483647) %115)
+  %2104 = select i1 %.not.i99, i32 %hf_rtps_uuid.val.i, i32 %hf_rtps_long_address.val.i
+  %2105 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %2104, ptr noundef %0, i32 noundef %2094, i32 noundef %..i, i32 noundef range(i32 0, -2147483647) %115)
   br label %dissect_rtps_submessage_v1.exit.thread
 
 dissect_rtps_submessage_v2.exit:                  ; preds = %626, %dissect_rtps_submessage_v1.exit
-  %2101 = load i32, ptr @hf_rtps_sm_flags, align 4
-  %2102 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %2101, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef %114)
-  %2103 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
-  %2104 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %2103, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef %.0)
+  %2106 = load i32, ptr @hf_rtps_sm_flags, align 4
+  %2107 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %2106, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef %114)
+  %2108 = load i32, ptr @hf_rtps_sm_octets_to_next_header, align 4
+  %2109 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %2108, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef %.0)
   br label %dissect_rtps_submessage_v1.exit.thread
 
-dissect_rtps_submessage_v1.exit.thread:           ; preds = %2076, %1990, %.preheader, %2057, %1821, %1799, %1989, %1792, %1790, %985, %rtps_util_add_fragment_number_set.exit.i, %rtps_util_add_fragment_number_set.exit.thread.i, %879, %dissect_HEADER_EXTENSION.exit, %dissect_DATA_FRAG.exit, %dissect_NOKEY_DATA_FRAG.exit, %988, %dissect_APP_ACK.exit, %dissect_APP_ACK_CONF.exit, %dissect_HEARTBEAT_BATCH.exit, %dissect_HEARTBEAT_FRAG.exit, %dissect_HEARTBEAT_VIRTUAL.exit, %dissect_RTPS_DATA_SESSION.exit, %1413, %dissect_RTPS_DATA_FRAG_kind.exit, %dissect_RTPS_DATA_BATCH.exit, %dissect_SECURE_PREFIX.exit, %2087, %1782, %625, %614, %rtps_util_add_locator_list.exit.i.i, %599, %576, %569, %567, %564, %554, %552, %550, %536, %530, %494, %491, %478, %477, %475, %138, %131, %dissect_NOKEY_DATA.exit.i, %373, %dissect_HEARTBEAT.exit.i, %dissect_GAP.exit.i, %dissect_DATA_v2.exit.i, %dissect_DATA_v1.exit.i, %dissect_rtps_submessage_v2.exit
-  %2105 = load ptr, ptr %67, align 8
-  %.not.i = icmp eq ptr %2105, null
-  br i1 %.not.i, label %2108, label %2106
+dissect_rtps_submessage_v1.exit.thread:           ; preds = %2081, %1990, %.preheader, %2062, %1821, %1799, %1989, %1792, %1790, %985, %rtps_util_add_fragment_number_set.exit.i, %rtps_util_add_fragment_number_set.exit.thread.i, %879, %dissect_HEADER_EXTENSION.exit, %dissect_DATA_FRAG.exit, %dissect_NOKEY_DATA_FRAG.exit, %988, %dissect_APP_ACK.exit, %dissect_APP_ACK_CONF.exit, %dissect_HEARTBEAT_BATCH.exit, %dissect_HEARTBEAT_FRAG.exit, %dissect_HEARTBEAT_VIRTUAL.exit, %dissect_RTPS_DATA_SESSION.exit, %1413, %dissect_RTPS_DATA_FRAG_kind.exit, %dissect_RTPS_DATA_BATCH.exit, %dissect_SECURE_PREFIX.exit, %2092, %1782, %625, %614, %rtps_util_add_locator_list.exit.i.i, %599, %576, %569, %567, %564, %554, %552, %550, %536, %530, %494, %491, %478, %477, %475, %138, %131, %dissect_NOKEY_DATA.exit.i, %373, %dissect_HEARTBEAT.exit.i, %dissect_GAP.exit.i, %dissect_DATA_v2.exit.i, %dissect_DATA_v1.exit.i, %dissect_rtps_submessage_v2.exit
+  %2110 = load ptr, ptr %67, align 8
+  %.not.i = icmp eq ptr %2110, null
+  br i1 %.not.i, label %2113, label %2111
 
-2106:                                             ; preds = %dissect_rtps_submessage_v1.exit.thread
-  %2107 = load ptr, ptr %72, align 8
-  call void @col_append_str(ptr noundef %2107, i32 noundef 25, ptr noundef nonnull %2105)
-  br label %2108
+2111:                                             ; preds = %dissect_rtps_submessage_v1.exit.thread
+  %2112 = load ptr, ptr %72, align 8
+  call void @col_append_str(ptr noundef %2112, i32 noundef 25, ptr noundef nonnull %2110)
+  br label %2113
 
-2108:                                             ; preds = %2106, %dissect_rtps_submessage_v1.exit.thread
-  %2109 = load ptr, ptr %74, align 8
-  %2110 = load i32, ptr @proto_rtps, align 4
-  %2111 = call ptr @p_get_proto_data(ptr noundef %2109, ptr noundef %2, i32 noundef %2110, i32 noundef 2)
-  %.not15.i = icmp eq ptr %2111, null
-  br i1 %.not15.i, label %2117, label %2112
+2113:                                             ; preds = %2111, %dissect_rtps_submessage_v1.exit.thread
+  %2114 = load ptr, ptr %74, align 8
+  %2115 = load i32, ptr @proto_rtps, align 4
+  %2116 = call ptr @p_get_proto_data(ptr noundef %2114, ptr noundef %2, i32 noundef %2115, i32 noundef 2)
+  %.not15.i = icmp eq ptr %2116, null
+  br i1 %.not15.i, label %2122, label %2117
 
-2112:                                             ; preds = %2108
-  %2113 = load i8, ptr %2111, align 1, !range !8, !noundef !9
-  %2114 = trunc nuw i8 %2113 to i1
-  br i1 %2114, label %2117, label %2115
+2117:                                             ; preds = %2113
+  %2118 = load i8, ptr %2116, align 1, !range !8, !noundef !9
+  %2119 = trunc nuw i8 %2118 to i1
+  br i1 %2119, label %2122, label %2120
 
-2115:                                             ; preds = %2112
+2120:                                             ; preds = %2117
   store ptr @.str.1437, ptr %93, align 8
-  %2116 = load ptr, ptr %72, align 8
-  call void @col_append_str(ptr noundef %2116, i32 noundef 25, ptr noundef nonnull @.str.1437)
-  br label %2117
+  %2121 = load ptr, ptr %72, align 8
+  call void @col_append_str(ptr noundef %2121, i32 noundef 25, ptr noundef nonnull @.str.1437)
+  br label %2122
 
-2117:                                             ; preds = %2115, %2112, %2108
-  %2118 = load ptr, ptr %94, align 8
-  %.not16.i = icmp eq ptr %2118, null
-  br i1 %.not16.i, label %append_submessage_col_info.exit, label %2119
+2122:                                             ; preds = %2120, %2117, %2113
+  %2123 = load ptr, ptr %94, align 8
+  %.not16.i = icmp eq ptr %2123, null
+  br i1 %.not16.i, label %append_submessage_col_info.exit, label %2124
 
-2119:                                             ; preds = %2117
-  %2120 = load ptr, ptr %72, align 8
-  call void @col_append_sep_str(ptr noundef %2120, i32 noundef 25, ptr noundef nonnull @.str.1438, ptr noundef nonnull %2118)
+2124:                                             ; preds = %2122
+  %2125 = load ptr, ptr %72, align 8
+  call void @col_append_sep_str(ptr noundef %2125, i32 noundef 25, ptr noundef nonnull @.str.1438, ptr noundef nonnull %2123)
   br label %append_submessage_col_info.exit
 
-append_submessage_col_info.exit:                  ; preds = %2117, %2119
+append_submessage_col_info.exit:                  ; preds = %2122, %2124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  %2121 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127)
-  %2122 = icmp sgt i32 %2121, 0
-  br i1 %2122, label %95, label %._crit_edge, !llvm.loop !25
+  %2126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127)
+  %2127 = icmp sgt i32 %2126, 0
+  br i1 %2127, label %95, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %append_submessage_col_info.exit, %8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #17

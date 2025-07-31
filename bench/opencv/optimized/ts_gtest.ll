@@ -25421,7 +25421,7 @@ define void @_ZN7testing8internal16WideStringToUtf8B5cxx11EPKwi(ptr dead_on_unwi
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #59
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %11 = icmp sgt i32 %.029, 0
-  br i1 %11, label %.lr.ph, label %.thread
+  br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -25435,7 +25435,7 @@ define void @_ZN7testing8internal16WideStringToUtf8B5cxx11EPKwi(ptr dead_on_unwi
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !282
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.thread, label %18
+  br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #59
@@ -25463,11 +25463,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZdlPv(ptr noundef %23) #60
   br label %27
 
-27:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+27:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %15, !llvm.loop !528
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !528
 
 28:                                               ; preds = %18
   %29 = landingpad { ptr, i32 }
@@ -25496,11 +25496,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #59
   br label %62
 
-.thread:                                          ; preds = %27, %15, %10
+.critedge:                                        ; preds = %27, %15, %10
   invoke void @_ZN7testing8internal20StringStreamToStringEPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull %4)
           to label %36 unwind label %60
 
-36:                                               ; preds = %.thread
+36:                                               ; preds = %.critedge
   %37 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %37, ptr %4, align 8, !tbaa !23
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
@@ -25548,7 +25548,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %4) #59
   ret void
 
-60:                                               ; preds = %.thread
+60:                                               ; preds = %.critedge
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %62

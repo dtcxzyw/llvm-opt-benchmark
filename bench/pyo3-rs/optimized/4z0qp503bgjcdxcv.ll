@@ -16446,131 +16446,131 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_a
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %21
+  br i1 %15, label %16, label %20
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+  br i1 %19, label %.critedge, label %20
 
-20:                                               ; preds = %16
+.critedge:                                        ; preds = %16
   call void @"_ZN67_$LT$proc_macro2..TokenStream$u20$as$u20$core..default..Default$GT$7default17he7a0b895c7f2dd92E"(ptr nonnull sret([32 x i8]) align 8 %11)
-  br label %23
+  br label %22
 
-21:                                               ; preds = %16, %3
+20:                                               ; preds = %16, %3
   %.sink = phi i64 [ 124, %3 ], [ 132, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %.sroa.4.0.ph = load i32, ptr %22, align 4
-  call void @"_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms28_$u7b$$u7b$closure$u7d$$u7d$17hd8d672ab40c86840E"(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %12, i32 %.sroa.4.0.ph)
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
+  %.sroa.4.0 = load i32, ptr %21, align 4
+  call void @"_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms28_$u7b$$u7b$closure$u7d$$u7d$17hd8d672ab40c86840E"(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %12, i32 %.sroa.4.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %21, %20
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %._crit_edge [
-    i32 1, label %26
-    i32 0, label %40
+22:                                               ; preds = %20, %.critedge
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %24 = load i32, ptr %23, align 8
+  switch i32 %24, label %._crit_edge [
+    i32 1, label %25
+    i32 0, label %39
   ]
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 172
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %41
+  br label %40
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %10, align 4
-  %29 = icmp eq i32 %14, 1
-  br i1 %29, label %41, label %30
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 172
+  %27 = load i32, ptr %26, align 4
+  store i32 %27, ptr %10, align 4
+  %28 = icmp eq i32 %14, 1
+  br i1 %28, label %40, label %29
 
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8f313a951f9e6eb1E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 4 %10)
-          to label %34 unwind label %32
+          to label %33 unwind label %31
 
-31:                                               ; preds = %45, %32
-  %.pn16 = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %45 ]
+30:                                               ; preds = %44, %31
+  %.pn16 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %44 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %11) #14
-          to label %55 unwind label %53
+          to label %54 unwind label %52
 
-32:                                               ; preds = %52, %41, %40, %36, %34, %30
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %51, %40, %39, %35, %33, %29
+  %32 = landingpad { ptr, i32 }
           cleanup
-  br label %31
+  br label %30
 
-34:                                               ; preds = %30
-  %35 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %5)
-          to label %36 unwind label %32
+33:                                               ; preds = %29
+  %34 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %5)
+          to label %35 unwind label %31
 
-36:                                               ; preds = %34
-  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %9, i32 %35, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.204, i64 42)
-          to label %37 unwind label %32
+35:                                               ; preds = %33
+  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %9, i32 %34, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.204, i64 42)
+          to label %36 unwind label %31
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %39
+  br label %38
 
-39:                                               ; preds = %52, %37
+38:                                               ; preds = %51, %36
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %11)
   ret void
 
-40:                                               ; preds = %23
+39:                                               ; preds = %22
   invoke void @"_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms28_$u7b$$u7b$closure$u7d$$u7d$17hc6617d58726f1384E"(ptr nonnull sret([32 x i8]) align 8 %8)
-          to label %43 unwind label %32
+          to label %42 unwind label %31
 
-41:                                               ; preds = %._crit_edge, %26
-  %42 = phi i32 [ %.pre, %._crit_edge ], [ %28, %26 ]
-  invoke void @"_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms28_$u7b$$u7b$closure$u7d$$u7d$17hfd5021e878e13090E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %12, i32 %42)
-          to label %44 unwind label %32
+40:                                               ; preds = %._crit_edge, %25
+  %41 = phi i32 [ %.pre, %._crit_edge ], [ %27, %25 ]
+  invoke void @"_ZN19pyo3_macros_backend7pyclass20pyclass_richcmp_arms28_$u7b$$u7b$closure$u7d$$u7d$17hfd5021e878e13090E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %12, i32 %41)
+          to label %43 unwind label %31
 
-43:                                               ; preds = %40, %44
+42:                                               ; preds = %39, %43
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %7)
-          to label %48 unwind label %46
+          to label %47 unwind label %45
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br label %43
+  br label %42
 
-45:                                               ; preds = %49, %46
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %47, %46 ]
+44:                                               ; preds = %48, %45
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %8) #14
-          to label %31 unwind label %53
+          to label %30 unwind label %52
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
-48:                                               ; preds = %43
+47:                                               ; preds = %42
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %11, ptr nonnull align 8 %7)
-          to label %51 unwind label %49
+          to label %50 unwind label %48
 
-49:                                               ; preds = %51, %48
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %50, %47
+  %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %7) #14
-          to label %45 unwind label %53
+          to label %44 unwind label %52
 
-51:                                               ; preds = %48
+50:                                               ; preds = %47
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %8, ptr nonnull align 8 %7)
-          to label %52 unwind label %49
+          to label %51 unwind label %48
 
-52:                                               ; preds = %51
+51:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %8)
-          to label %39 unwind label %32
+          to label %38 unwind label %31
 
-53:                                               ; preds = %49, %45, %31
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %48, %44, %30
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #15
   unreachable
 
-55:                                               ; preds = %31
+54:                                               ; preds = %30
   resume { ptr, i32 } %.pn16
 }
 

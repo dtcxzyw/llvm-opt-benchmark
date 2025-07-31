@@ -1502,28 +1502,28 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load i32, ptr %3, align 4, !tbaa !58
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %._crit_edge, label %.preheader
+  br i1 %5, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %7 = load i32, ptr %6, align 4, !tbaa !56
-  %.not4147 = icmp sgt i32 %7, 0
-  br i1 %.not4147, label %.lr.ph, label %._crit_edge
+  %.not4142 = icmp sgt i32 %7, 0
+  br i1 %.not4142, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader ]
-  %.02950 = phi ptr [ %.130.ph, %40 ], [ null, %.preheader ]
-  %.03548 = phi i8 [ %11, %40 ], [ 0, %.preheader ]
+  %.02945 = phi ptr [ %.130, %40 ], [ null, %.preheader ]
+  %.03543 = phi i8 [ %11, %40 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds nuw [31 x i32], ptr %1, i64 0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = ashr i32 %9, 8
   %11 = trunc i32 %9 to i8
-  %.not = icmp eq ptr %.02950, null
+  %.not = icmp eq ptr %.02945, null
   br i1 %.not, label %22, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ult i8 %.03548, %11
-  %14 = icmp eq i8 %.03548, 0
+  %13 = icmp ult i8 %.03543, %11
+  %14 = icmp eq i8 %.03543, 0
   %or.cond = or i1 %14, %13
   br i1 %or.cond, label %15, label %22
 
@@ -1535,9 +1535,9 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   br i1 %.not38, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call noundef i32 @_ZNK6icu_774Norm7combineEi(ptr noundef nonnull align 8 dereferenceable(64) %.02950, i32 noundef %10)
+  %20 = tail call noundef i32 @_ZNK6icu_774Norm7combineEi(ptr noundef nonnull align 8 dereferenceable(64) %.02945, i32 noundef %10)
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %._crit_edge, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %12, %19, %15, %.lr.ph
   %23 = icmp eq i8 %11, 0
@@ -1561,21 +1561,21 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   %35 = ashr i32 %34, 8
   %36 = add nsw i32 %35, -4470
   %37 = icmp ult i32 %36, -21
-  br i1 %37, label %40, label %._crit_edge
+  br i1 %37, label %40, label %.critedge
 
 38:                                               ; preds = %24
   %39 = tail call noundef ptr @_ZNK6icu_775Norms7getNormEi(ptr noundef nonnull align 8 dereferenceable(424) %0, i32 noundef %10)
   br label %40
 
 40:                                               ; preds = %32, %27, %22, %38
-  %.130.ph = phi ptr [ null, %27 ], [ %.02950, %22 ], [ %39, %38 ], [ null, %32 ]
+  %.130 = phi ptr [ %39, %38 ], [ %.02945, %22 ], [ null, %27 ], [ null, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %6, align 4, !tbaa !56
   %42 = sext i32 %41 to i64
   %.not41 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %.not41, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %.not41, label %.lr.ph, label %.critedge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %19, %32, %40, %.preheader, %2
+.critedge:                                        ; preds = %19, %32, %40, %.preheader, %2
   %.0 = phi i8 [ 0, %2 ], [ 0, %.preheader ], [ 1, %19 ], [ 1, %32 ], [ 0, %40 ]
   ret i8 %.0
 }

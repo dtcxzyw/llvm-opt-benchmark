@@ -1802,25 +1802,25 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
-  %.06491 = phi i32 [ %3, %.lr.ph.preheader ], [ %41, %40 ]
-  %.06790 = phi ptr [ %7, %.lr.ph.preheader ], [ %37, %40 ]
-  %.06989 = phi ptr [ %7, %.lr.ph.preheader ], [ %23, %40 ]
-  %.07188 = phi i32 [ %4, %.lr.ph.preheader ], [ %48, %40 ]
+  %.06486 = phi i32 [ %3, %.lr.ph.preheader ], [ %41, %40 ]
+  %.06785 = phi ptr [ %7, %.lr.ph.preheader ], [ %37, %40 ]
+  %.06984 = phi ptr [ %7, %.lr.ph.preheader ], [ %23, %40 ]
+  %.07183 = phi i32 [ %4, %.lr.ph.preheader ], [ %48, %40 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8, !tbaa !28
-  %20 = and i32 %.06491, 1
+  %20 = and i32 %.06486, 1
   %.not = icmp eq i32 %20, 0
-  %21 = select i1 %.not, ptr %7, ptr %.06989
-  %22 = select i1 %.not, ptr %.06989, ptr %10
+  %21 = select i1 %.not, ptr %7, ptr %.06984
+  %22 = select i1 %.not, ptr %.06984, ptr %10
   %23 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %19, ptr noundef %21, ptr noundef %22) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %.lr.ph
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06989) #7
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06790) #7
-  br label %.thread
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06984) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06785) #7
+  br label %.critedge
 
 26:                                               ; preds = %.lr.ph
   %27 = ptrtoint ptr %23 to i64
@@ -1830,23 +1830,23 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %31 = load i32, ptr %30, align 4, !tbaa !29
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !29
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06989) #7
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06984) #7
   %33 = load ptr, ptr %18, align 8, !tbaa !28
-  %34 = and i32 %.07188, 1
+  %34 = and i32 %.07183, 1
   %.not76 = icmp eq i32 %34, 0
-  %35 = select i1 %.not76, ptr %10, ptr %.06790
-  %36 = select i1 %.not76, ptr %.06790, ptr %7
+  %35 = select i1 %.not76, ptr %10, ptr %.06785
+  %36 = select i1 %.not76, ptr %.06785, ptr %7
   %37 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %33, ptr noundef %35, ptr noundef %36) #7
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %26
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef nonnull %23) #7
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06790) #7
-  br label %.thread
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06785) #7
+  br label %.critedge
 
 40:                                               ; preds = %26
-  %41 = lshr i32 %.06491, 1
+  %41 = lshr i32 %.06486, 1
   %42 = ptrtoint ptr %37 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
@@ -1854,8 +1854,8 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %46 = load i32, ptr %45, align 4, !tbaa !29
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !29
-  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06790) #7
-  %48 = lshr i32 %.07188, 1
+  tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06785) #7
+  %48 = lshr i32 %.07183, 1
   %49 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
@@ -1869,7 +1869,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
 52:                                               ; preds = %._crit_edge
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.069.lcssa) #7
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.067.lcssa) #7
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %._crit_edge
   %54 = ptrtoint ptr %50 to i64
@@ -1884,10 +1884,10 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %60 = load i32, ptr %57, align 4, !tbaa !29
   %61 = add i32 %60, -1
   store i32 %61, ptr %57, align 4, !tbaa !29
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %39, %25, %53, %52
-  %.2 = phi ptr [ null, %52 ], [ %50, %53 ], [ null, %25 ], [ null, %39 ]
+.critedge:                                        ; preds = %25, %39, %53, %52
+  %.2 = phi ptr [ null, %52 ], [ %50, %53 ], [ null, %39 ], [ null, %25 ]
   ret ptr %.2
 }
 

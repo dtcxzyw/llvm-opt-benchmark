@@ -9245,8 +9245,8 @@ define void @_ZN7rocksdb27ExternalSstFileIngestionJob3RunEv(ptr dead_on_unwind n
   %53 = load ptr, ptr %52, align 8, !tbaa !566
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 9064
   %55 = load ptr, ptr %54, align 8, !tbaa !566
-  %.not4748 = icmp eq ptr %53, %55
-  br i1 %.not4748, label %._crit_edge, label %.lr.ph
+  %.not4647 = icmp eq ptr %53, %55
+  br i1 %.not4647, label %.critedge26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
   %.not.i = icmp eq ptr %.fr, %7
@@ -9264,14 +9264,14 @@ define void @_ZN7rocksdb27ExternalSstFileIngestionJob3RunEv(ptr dead_on_unwind n
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %71
-  %.sroa.6.051.us = phi i64 [ 4294967296, %71 ], [ 0, %.lr.ph ]
-  %.sroa.035.050.us = phi i64 [ %.sroa.0.0.insert.ext.us, %71 ], [ 0, %.lr.ph ]
-  %.sroa.032.049.us = phi ptr [ %73, %71 ], [ %53, %.lr.ph ]
+  %.sroa.6.050.us = phi i64 [ 4294967296, %71 ], [ 0, %.lr.ph ]
+  %.sroa.037.049.us = phi i64 [ %.sroa.0.0.insert.ext.us, %71 ], [ 0, %.lr.ph ]
+  %.sroa.034.048.us = phi ptr [ %73, %71 ], [ %53, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #27
   store i32 0, ptr %6, align 4, !tbaa !411
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
-  %.sroa.035.0.insert.insert.us = or disjoint i64 %.sroa.6.051.us, %.sroa.035.050.us
-  invoke void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(169) %.sroa.032.049.us, ptr noundef %11, i1 noundef zeroext %.017, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 %.sroa.035.0.insert.insert.us)
+  %.sroa.037.0.insert.insert.us = or disjoint i64 %.sroa.6.050.us, %.sroa.037.049.us
+  invoke void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(169) %.sroa.034.048.us, ptr noundef %11, i1 noundef zeroext %.017, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 %.sroa.037.0.insert.insert.us)
           to label %_ZN7rocksdb6StatusaSEOS0_.exit.us unwind label %.split.us
 
 _ZN7rocksdb6StatusaSEOS0_.exit.us:                ; preds = %.lr.ph.split.us
@@ -9287,15 +9287,15 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
   %69 = load i8, ptr %.fr, align 8, !tbaa !45
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %.split53.us
+  br i1 %70, label %71, label %.split52.us
 
 71:                                               ; preds = %68
   %72 = load i32, ptr %6, align 4, !tbaa !411
   %.sroa.0.0.insert.ext.us = zext i32 %72 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.us, i64 176
-  %.not47.us = icmp eq ptr %73, %55
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !626
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.034.048.us, i64 176
+  %.not46.us = icmp eq ptr %73, %55
+  br i1 %.not46.us, label %.critedge26, label %.lr.ph.split.us, !llvm.loop !626
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %74 = landingpad { ptr, i32 }
@@ -9303,14 +9303,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %89
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %90
-  %.sroa.6.051 = phi i64 [ 4294967296, %90 ], [ 0, %.lr.ph ]
-  %.sroa.035.050 = phi i64 [ %.sroa.0.0.insert.ext, %90 ], [ 0, %.lr.ph ]
-  %.sroa.032.049 = phi ptr [ %92, %90 ], [ %53, %.lr.ph ]
+  %.sroa.6.050 = phi i64 [ 4294967296, %90 ], [ 0, %.lr.ph ]
+  %.sroa.037.049 = phi i64 [ %.sroa.0.0.insert.ext, %90 ], [ 0, %.lr.ph ]
+  %.sroa.034.048 = phi ptr [ %92, %90 ], [ %53, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #27
   store i32 0, ptr %6, align 4, !tbaa !411
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.6.051, %.sroa.035.050
-  invoke void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(169) %.sroa.032.049, ptr noundef %11, i1 noundef zeroext %.017, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 %.sroa.035.0.insert.insert)
+  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.6.050, %.sroa.037.049
+  invoke void @_ZN7rocksdb27ExternalSstFileIngestionJob23AssignLevelsForOneBatchERNS_13FileBatchInfoEPNS_12SuperVersionEbPmPiSt8optionalIiE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(9696) %1, ptr noundef nonnull align 8 dereferenceable(169) %.sroa.034.048, ptr noundef %11, i1 noundef zeroext %.017, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 %.sroa.037.0.insert.insert)
           to label %75 unwind label %.split
 
 75:                                               ; preds = %.lr.ph.split
@@ -9356,7 +9356,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
   %86 = load i8, ptr %.fr, align 8, !tbaa !45
   %87 = icmp eq i8 %86, 0
-  br i1 %87, label %90, label %.split53.us
+  br i1 %87, label %90, label %.split52.us
 
 .split:                                           ; preds = %.lr.ph.split
   %88 = landingpad { ptr, i32 }
@@ -9373,20 +9373,20 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %91 = load i32, ptr %6, align 4, !tbaa !411
   %.sroa.0.0.insert.ext = zext i32 %91 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.032.049, i64 176
-  %.not47 = icmp eq ptr %92, %55
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.034.048, i64 176
+  %.not46 = icmp eq ptr %92, %55
+  br i1 %.not46, label %.critedge26, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %90, %71, %44
+.critedge26:                                      ; preds = %90, %71, %44
   invoke void @_ZN7rocksdb27ExternalSstFileIngestionJob40CreateEquivalentFileIngestingCompactionsEv(ptr noundef nonnull align 8 dereferenceable(9696) %1)
           to label %.critedge unwind label %93
 
-93:                                               ; preds = %._crit_edge
+93:                                               ; preds = %.critedge26
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %95
 
-.split53.us:                                      ; preds = %85, %68
+.split52.us:                                      ; preds = %85, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   br label %97
@@ -9395,22 +9395,22 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %.pn23 = phi { ptr, i32 } [ %94, %93 ], [ %.us-phi, %89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   %96 = load ptr, ptr %32, align 8, !tbaa !64
-  %.not.i.i25 = icmp eq ptr %96, null
-  br i1 %.not.i.i25, label %_ZN7rocksdb6StatusD2Ev.exit27, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26
+  %.not.i.i27 = icmp eq ptr %96, null
+  br i1 %.not.i.i27, label %_ZN7rocksdb6StatusD2Ev.exit29, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i28
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26: ; preds = %95
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i28: ; preds = %95
   call void @_ZdaPv(ptr noundef nonnull %96) #26
-  br label %_ZN7rocksdb6StatusD2Ev.exit27
+  br label %_ZN7rocksdb6StatusD2Ev.exit29
 
-_ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %95, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26
+_ZN7rocksdb6StatusD2Ev.exit29:                    ; preds = %95, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i28
   store ptr null, ptr %32, align 8, !tbaa !64
   resume { ptr, i32 } %.pn23
 
-.critedge:                                        ; preds = %._crit_edge
+.critedge:                                        ; preds = %.critedge26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   br label %97
 
-97:                                               ; preds = %.split53.us, %.critedge, %28
+97:                                               ; preds = %.split52.us, %.critedge, %28
   ret void
 }
 

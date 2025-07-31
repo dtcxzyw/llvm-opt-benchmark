@@ -6376,7 +6376,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %6 = icmp ult i64 %2, %5
-  br i1 %6, label %.thread107, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %2, 7
@@ -6472,7 +6472,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
   %82 = getelementptr inbounds nuw i8, ptr %.097, i64 1
   %83 = sub i64 0, %5
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
-  br label %.thread107
+  br label %.critedge
 
 85:                                               ; preds = %71
   %86 = sub i64 54, %57
@@ -6483,7 +6483,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 89:                                               ; preds = %85
   %90 = sub i64 0, %5
   %91 = getelementptr inbounds i8, ptr %72, i64 %90
-  br label %.thread107
+  br label %.critedge
 
 92:                                               ; preds = %85
   %93 = sub i64 54, %59
@@ -6494,7 +6494,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 96:                                               ; preds = %92
   %97 = sub i64 0, %5
   %98 = getelementptr inbounds i8, ptr %73, i64 %97
-  br label %.thread107
+  br label %.critedge
 
 99:                                               ; preds = %92
   %100 = sub i64 54, %61
@@ -6505,7 +6505,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 103:                                              ; preds = %99
   %104 = sub i64 0, %5
   %105 = getelementptr inbounds i8, ptr %74, i64 %104
-  br label %.thread107
+  br label %.critedge
 
 106:                                              ; preds = %99
   %107 = sub i64 54, %63
@@ -6516,7 +6516,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 110:                                              ; preds = %106
   %111 = sub i64 0, %5
   %112 = getelementptr inbounds i8, ptr %75, i64 %111
-  br label %.thread107
+  br label %.critedge
 
 113:                                              ; preds = %106
   %114 = sub i64 54, %65
@@ -6527,7 +6527,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 117:                                              ; preds = %113
   %118 = sub i64 0, %5
   %119 = getelementptr inbounds i8, ptr %76, i64 %118
-  br label %.thread107
+  br label %.critedge
 
 120:                                              ; preds = %113
   %121 = sub i64 54, %67
@@ -6538,13 +6538,13 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
 124:                                              ; preds = %120
   %125 = sub i64 0, %5
   %126 = getelementptr inbounds i8, ptr %77, i64 %125
-  br label %.thread107
+  br label %.critedge
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds nuw i8, ptr %.097, i64 8
   %129 = sub i64 0, %5
   %130 = getelementptr inbounds i8, ptr %128, i64 %129
-  br label %.thread107
+  br label %.critedge
 
 131:                                              ; preds = %14
   %132 = getelementptr inbounds nuw i8, ptr %.097, i64 8
@@ -6567,7 +6567,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
   %.396 = phi i64 [ %.093, %135 ], [ %146, %139 ]
   %.089 = phi ptr [ %.085, %135 ], [ %140, %139 ]
   %.not = icmp eq ptr %.089, %137
-  br i1 %.not, label %.thread107, label %139
+  br i1 %.not, label %.critedge, label %139
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds nuw i8, ptr %.089, i64 1
@@ -6579,15 +6579,15 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
   %146 = lshr i64 %144, %145
   %147 = and i64 %146, 63
   %.not101 = icmp eq i64 %147, 54
-  br i1 %.not101, label %.thread107.loopexit.split.loop.exit, label %138, !llvm.loop !220
+  br i1 %.not101, label %.critedge.loopexit.split.loop.exit, label %138, !llvm.loop !220
 
-.thread107.loopexit.split.loop.exit:              ; preds = %139
+.critedge.loopexit.split.loop.exit:               ; preds = %139
   %148 = sub i64 0, %5
   %149 = getelementptr inbounds i8, ptr %140, i64 %148
-  br label %.thread107
+  br label %.critedge
 
-.thread107:                                       ; preds = %138, %.thread107.loopexit.split.loop.exit, %127, %124, %117, %110, %103, %96, %89, %81, %3
-  %.0 = phi ptr [ null, %3 ], [ %130, %127 ], [ %126, %124 ], [ %119, %117 ], [ %112, %110 ], [ %105, %103 ], [ %98, %96 ], [ %91, %89 ], [ %84, %81 ], [ %149, %.thread107.loopexit.split.loop.exit ], [ null, %138 ]
+.critedge:                                        ; preds = %138, %.critedge.loopexit.split.loop.exit, %81, %89, %96, %103, %110, %117, %124, %127, %3
+  %.0 = phi ptr [ null, %3 ], [ %130, %127 ], [ %126, %124 ], [ %119, %117 ], [ %112, %110 ], [ %105, %103 ], [ %98, %96 ], [ %91, %89 ], [ %84, %81 ], [ %149, %.critedge.loopexit.split.loop.exit ], [ null, %138 ]
   ret ptr %.0
 }
 

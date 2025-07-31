@@ -4666,40 +4666,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
-  br i1 %spec.select.i.i.i.i.i, label %20, label %18, !prof !193
+  br i1 %spec.select.i.i.i.i.i, label %18, label %.critedge.i.i.i, !prof !193
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %11, i64 noundef 24) #15
+  %19 = ptrtoint ptr %4 to i64
+  %20 = ptrtoint ptr %.pre3.i to i64
+  %21 = sub i64 %19, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %11, i64 noundef 24) #15
+  %23 = load ptr, ptr %0, align 8, !tbaa !69
+  %24 = getelementptr inbounds i8, ptr %23, i64 %21
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
+
+.critedge.i.i.i:                                  ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %11, i64 noundef 24) #15
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !69
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
 
-20:                                               ; preds = %14
-  %21 = ptrtoint ptr %4 to i64
-  %22 = ptrtoint ptr %.pre3.i to i64
-  %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %11, i64 noundef 24) #15
-  %25 = load ptr, ptr %0, align 8, !tbaa !69
-  %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; preds = %3, %18, %20
-  %27 = phi ptr [ %.pre3.i, %3 ], [ %25, %20 ], [ %.pre.i, %18 ]
-  %.016.i.i.i = phi ptr [ %4, %3 ], [ %26, %20 ], [ %4, %18 ]
-  %28 = load i32, ptr %8, align 8, !tbaa !71
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %27, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %31 = load i32, ptr %8, align 8, !tbaa !71
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %8, align 8, !tbaa !71
+_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; preds = %3, %18, %.critedge.i.i.i
+  %26 = phi ptr [ %.pre3.i, %3 ], [ %23, %18 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
+  %27 = load i32, ptr %8, align 8, !tbaa !71
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %30 = load i32, ptr %8, align 8, !tbaa !71
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %8, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  %33 = load ptr, ptr %0, align 8, !tbaa !69
-  %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 -24
-  ret ptr %36
+  %32 = load ptr, ptr %0, align 8, !tbaa !69
+  %33 = zext i32 %31 to i64
+  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %35 = getelementptr inbounds i8, ptr %34, i64 -24
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5049,40 +5049,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
-  br i1 %spec.select.i.i.i.i.i, label %20, label %18, !prof !193
+  br i1 %spec.select.i.i.i.i.i, label %18, label %.critedge.i.i.i, !prof !193
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %11, i64 noundef 24) #15
+  %19 = ptrtoint ptr %4 to i64
+  %20 = ptrtoint ptr %.pre3.i to i64
+  %21 = sub i64 %19, %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %11, i64 noundef 24) #15
+  %23 = load ptr, ptr %0, align 8, !tbaa !69
+  %24 = getelementptr inbounds i8, ptr %23, i64 %21
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
+
+.critedge.i.i.i:                                  ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %11, i64 noundef 24) #15
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !69
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
 
-20:                                               ; preds = %14
-  %21 = ptrtoint ptr %4 to i64
-  %22 = ptrtoint ptr %.pre3.i to i64
-  %23 = sub i64 %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %11, i64 noundef 24) #15
-  %25 = load ptr, ptr %0, align 8, !tbaa !69
-  %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; preds = %3, %18, %20
-  %27 = phi ptr [ %.pre3.i, %3 ], [ %25, %20 ], [ %.pre.i, %18 ]
-  %.016.i.i.i = phi ptr [ %4, %3 ], [ %26, %20 ], [ %4, %18 ]
-  %28 = load i32, ptr %8, align 8, !tbaa !71
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %27, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %31 = load i32, ptr %8, align 8, !tbaa !71
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %8, align 8, !tbaa !71
+_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; preds = %3, %18, %.critedge.i.i.i
+  %26 = phi ptr [ %.pre3.i, %3 ], [ %23, %18 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
+  %27 = load i32, ptr %8, align 8, !tbaa !71
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %30 = load i32, ptr %8, align 8, !tbaa !71
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %8, align 8, !tbaa !71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  %33 = load ptr, ptr %0, align 8, !tbaa !69
-  %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 -24
-  ret ptr %36
+  %32 = load ptr, ptr %0, align 8, !tbaa !69
+  %33 = zext i32 %31 to i64
+  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %35 = getelementptr inbounds i8, ptr %34, i64 -24
+  ret ptr %35
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

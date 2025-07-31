@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @__io_account_mem(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %.thread, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
@@ -48,7 +48,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__io_account_mem(ptr noundef %0,
   %13 = load volatile i64, ptr %12, align 8
   %14 = add i64 %13, %1
   %15 = icmp ugt i64 %14, %11
-  br i1 %15, label %.thread, label %.lr.ph
+  br i1 %15, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %22
   %16 = phi i64 [ %24, %22 ], [ %14, %4 ]
@@ -58,15 +58,15 @@ define dso_local noundef range(i32 -12, 1) i32 @__io_account_mem(ptr noundef %0,
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %22, label %.thread, !prof !7
+  br i1 %21, label %22, label %.critedge, !prof !7
 
 22:                                               ; preds = %.lr.ph
   %23 = extractvalue { i8, i64 } %18, 1
   %24 = add i64 %23, %1
   %25 = icmp ugt i64 %24, %11
-  br i1 %25, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %25, label %.critedge, label %.lr.ph, !llvm.loop !8
 
-.thread:                                          ; preds = %22, %.lr.ph, %4, %2
+.critedge:                                        ; preds = %22, %.lr.ph, %4, %2
   %26 = phi i32 [ 0, %2 ], [ -12, %4 ], [ -12, %22 ], [ 0, %.lr.ph ]
   ret i32 %26
 }

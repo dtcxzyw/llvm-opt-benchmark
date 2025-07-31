@@ -6645,8 +6645,8 @@ define dso_local void @_ZN4llvm2gi12GroupMatcher8finalizeEv(ptr noundef nonnull 
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.loopexit, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
-  %.be = phi ptr [ %.pre49.pre, %.loopexit.loopexit ], [ %74, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit ]
-  %.be56 = phi ptr [ %.pre.pre, %.loopexit.loopexit ], [ %75, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit ]
+  %.be = phi ptr [ %.pre49.pre, %.loopexit.loopexit ], [ %73, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit ]
+  %.be56 = phi ptr [ %.pre.pre, %.loopexit.loopexit ], [ %74, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit ]
   br label %.loopexit, !llvm.loop !289
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %9
@@ -6727,77 +6727,77 @@ define dso_local void @_ZN4llvm2gi12GroupMatcher8finalizeEv(ptr noundef nonnull 
   %56 = icmp uge ptr %2, %.pre3.i
   %57 = icmp ult ptr %2, %55
   %spec.select.i.i.i.i.i = and i1 %56, %57
-  br i1 %spec.select.i.i.i.i.i, label %59, label %58, !prof !292
+  br i1 %spec.select.i.i.i.i.i, label %58, label %.critedge.i.i.i, !prof !292
 
 58:                                               ; preds = %54
+  %59 = ptrtoint ptr %.pre3.i to i64
+  %60 = sub i64 %14, %59
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %52)
+  %61 = load ptr, ptr %11, align 8, !tbaa !9
+  %62 = getelementptr inbounds i8, ptr %61, i64 %60
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %54
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %52)
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
 
-59:                                               ; preds = %54
-  %60 = ptrtoint ptr %.pre3.i to i64
-  %61 = sub i64 %14, %60
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %52)
-  %62 = load ptr, ptr %11, align 8, !tbaa !9
-  %63 = getelementptr inbounds i8, ptr %62, i64 %61
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %.critedge24, %58, %59
-  %64 = phi ptr [ %.pre3.i, %.critedge24 ], [ %62, %59 ], [ %.pre.i, %58 ]
-  %.016.i.i.i = phi ptr [ %2, %.critedge24 ], [ %63, %59 ], [ %2, %58 ]
-  %65 = load i32, ptr %12, align 8, !tbaa !291
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %64, i64 %66
-  %68 = load i64, ptr %.016.i.i.i, align 8, !tbaa !293
-  store i64 %68, ptr %67, align 8, !tbaa !293
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %.critedge24, %58, %.critedge.i.i.i
+  %63 = phi ptr [ %.pre3.i, %.critedge24 ], [ %61, %58 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %.critedge24 ], [ %62, %58 ], [ %2, %.critedge.i.i.i ]
+  %64 = load i32, ptr %12, align 8, !tbaa !291
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %63, i64 %65
+  %67 = load i64, ptr %.016.i.i.i, align 8, !tbaa !293
+  store i64 %67, ptr %66, align 8, !tbaa !293
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !293
-  %69 = add i32 %65, 1
-  store i32 %69, ptr %12, align 8, !tbaa !291
-  %70 = load ptr, ptr %2, align 8, !tbaa !293
-  %.not.i = icmp eq ptr %70, null
+  %68 = add i32 %64, 1
+  store i32 %68, ptr %12, align 8, !tbaa !291
+  %69 = load ptr, ptr %2, align 8, !tbaa !293
+  %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
-  %71 = load ptr, ptr %70, align 8, !tbaa !6
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(20) %70) #32
+  %70 = load ptr, ptr %69, align 8, !tbaa !6
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(20) %69) #32
   br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
-  %74 = load ptr, ptr %6, align 8, !tbaa !28
-  %75 = load ptr, ptr %4, align 8, !tbaa !32
+  %73 = load ptr, ptr %6, align 8, !tbaa !28
+  %74 = load ptr, ptr %4, align 8, !tbaa !32
+  %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %74 to i64
-  %77 = ptrtoint ptr %75 to i64
-  %78 = sub i64 %76, %77
-  %79 = and i64 %78, 34359738352
-  %.not52 = icmp eq i64 %79, 0
+  %77 = sub i64 %75, %76
+  %78 = and i64 %77, 34359738352
+  %.not52 = icmp eq i64 %78, 0
   br i1 %.not52, label %.loopexit.backedge, label %.lr.ph41.preheader
 
 .lr.ph41.preheader:                               ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
-  %80 = lshr exact i64 %78, 3
-  %wide.trip.count47 = and i64 %80, 4294967295
+  %79 = lshr exact i64 %77, 3
+  %wide.trip.count47 = and i64 %79, 4294967295
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit29
   %indvars.iv44 = phi i64 [ 1, %.lr.ph41.preheader ], [ %indvars.iv.next45, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit29 ]
-  %81 = load ptr, ptr %4, align 8, !tbaa !32
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv44
-  %83 = load ptr, ptr %82, align 8, !tbaa !26
-  %84 = load ptr, ptr %83, align 8, !tbaa !6
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %86 = load ptr, ptr %85, align 8
-  call void %86(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.16") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %83) #32
-  %87 = load ptr, ptr %3, align 8, !tbaa !293
-  %.not.i27 = icmp eq ptr %87, null
+  %80 = load ptr, ptr %4, align 8, !tbaa !32
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv44
+  %82 = load ptr, ptr %81, align 8, !tbaa !26
+  %83 = load ptr, ptr %82, align 8, !tbaa !6
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %85 = load ptr, ptr %84, align 8
+  call void %85(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.16") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %82) #32
+  %86 = load ptr, ptr %3, align 8, !tbaa !293
+  %.not.i27 = icmp eq ptr %86, null
   br i1 %.not.i27, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit29, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i28
 
 _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i28: ; preds = %.lr.ph41
-  %88 = load ptr, ptr %87, align 8, !tbaa !6
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(20) %87) #32
+  %87 = load ptr, ptr %86, align 8, !tbaa !6
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(20) %86) #32
   br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit29
 
 _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit29: ; preds = %.lr.ph41, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i28
@@ -9389,9 +9389,9 @@ _ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_front
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   store ptr %48, ptr %17, align 8, !tbaa !368, !noalias !532
   %.pre = load i32, ptr %13, align 8, !tbaa !291
-  %.pre142 = load i32, ptr %14, align 4, !tbaa !14
+  %.pre144 = load i32, ptr %14, align 4, !tbaa !14
   %.pre3.i.pre = load ptr, ptr %6, align 8, !tbaa !9
-  %49 = icmp ult i32 %.pre, %.pre142
+  %49 = icmp ult i32 %.pre, %.pre144
   %50 = zext i32 %.pre to i64
   store ptr %47, ptr %15, align 8, !tbaa !535, !noalias !532
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9404,611 +9404,611 @@ _ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_front
   %55 = icmp uge ptr %7, %.pre3.i.pre
   %56 = icmp ult ptr %7, %54
   %spec.select.i.i.i.i.i = and i1 %55, %56
-  br i1 %spec.select.i.i.i.i.i, label %58, label %57, !prof !292
+  br i1 %spec.select.i.i.i.i.i, label %57, label %.critedge.i.i.i, !prof !292
 
 57:                                               ; preds = %53
+  %58 = ptrtoint ptr %7 to i64
+  %59 = ptrtoint ptr %.pre3.i.pre to i64
+  %60 = sub i64 %58, %59
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %52)
+  %61 = load ptr, ptr %6, align 8, !tbaa !9
+  %62 = getelementptr inbounds i8, ptr %61, i64 %60
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %53
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %52)
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
 
-58:                                               ; preds = %53
-  %59 = ptrtoint ptr %7 to i64
-  %60 = ptrtoint ptr %.pre3.i.pre to i64
-  %61 = sub i64 %59, %60
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %52)
-  %62 = load ptr, ptr %6, align 8, !tbaa !9
-  %63 = getelementptr inbounds i8, ptr %62, i64 %61
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit, %57, %58
-  %64 = phi ptr [ %.pre3.i.pre, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit ], [ %62, %58 ], [ %.pre.i, %57 ], [ %12, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread ]
-  %.016.i.i.i = phi ptr [ %7, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit ], [ %63, %58 ], [ %7, %57 ], [ %7, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread ]
-  %65 = load i32, ptr %13, align 8, !tbaa !291
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %64, i64 %66
-  %68 = load i64, ptr %.016.i.i.i, align 8, !tbaa !293
-  store i64 %68, ptr %67, align 8, !tbaa !293
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit: ; preds = %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit, %57, %.critedge.i.i.i
+  %63 = phi ptr [ %.pre3.i.pre, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit ], [ %61, %57 ], [ %.pre.i, %.critedge.i.i.i ], [ %12, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread ]
+  %.016.i.i.i = phi ptr [ %7, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit ], [ %62, %57 ], [ %7, %.critedge.i.i.i ], [ %7, %_ZN4llvm2gi20PredicateListMatcherINS0_16PredicateMatcherEE20predicates_pop_frontEv.exit.thread ]
+  %64 = load i32, ptr %13, align 8, !tbaa !291
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %63, i64 %65
+  %67 = load i64, ptr %.016.i.i.i, align 8, !tbaa !293
+  store i64 %67, ptr %66, align 8, !tbaa !293
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !293
-  %69 = add i32 %65, 1
-  store i32 %69, ptr %13, align 8, !tbaa !291
-  %70 = load ptr, ptr %7, align 8, !tbaa !293
-  %.not.i24 = icmp eq ptr %70, null
+  %68 = add i32 %64, 1
+  store i32 %68, ptr %13, align 8, !tbaa !291
+  %69 = load ptr, ptr %7, align 8, !tbaa !293
+  %.not.i24 = icmp eq ptr %69, null
   br i1 %.not.i24, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit
-  %71 = load ptr, ptr %70, align 8, !tbaa !6
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(20) %70) #32
-  %.pre144 = load ptr, ptr %6, align 8, !tbaa !9
-  %.pre145 = load i32, ptr %13, align 8, !tbaa !291
+  %70 = load ptr, ptr %69, align 8, !tbaa !6
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(20) %69) #32
+  %.pre146 = load ptr, ptr %6, align 8, !tbaa !9
+  %.pre147 = load i32, ptr %13, align 8, !tbaa !291
   br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i
-  %74 = phi i32 [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit ], [ %.pre145, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i ]
-  %75 = phi ptr [ %64, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit ], [ %.pre144, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i ]
+  %73 = phi i32 [ %68, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit ], [ %.pre147, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i ]
+  %74 = phi ptr [ %63, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit ], [ %.pre146, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %75, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  %79 = load ptr, ptr %78, align 8, !tbaa !293
-  %80 = icmp eq ptr %79, %.lcssa.i
-  br i1 %80, label %81, label %.loopexit114
+  %75 = zext i32 %73 to i64
+  %76 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %74, i64 %75
+  %77 = getelementptr inbounds i8, ptr %76, i64 -8
+  %78 = load ptr, ptr %77, align 8, !tbaa !293
+  %79 = icmp eq ptr %78, %.lcssa.i
+  br i1 %79, label %80, label %.loopexit116
 
-81:                                               ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %83 = load i8, ptr %82, align 4, !tbaa !546, !range !483, !noundef !484
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
+80:                                               ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %82 = load i8, ptr %81, align 4, !tbaa !546, !range !483, !noundef !484
+  %83 = trunc nuw i8 %82 to i1
+  br i1 %83, label %84, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %87 = load ptr, ptr %86, align 8, !tbaa !402
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %89 = load ptr, ptr %88, align 8, !tbaa !402
-  %90 = icmp eq ptr %87, %89
-  br i1 %90, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit, label %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %86 = load ptr, ptr %85, align 8, !tbaa !402
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %88 = load ptr, ptr %87, align 8, !tbaa !402
+  %89 = icmp eq ptr %86, %88
+  br i1 %89, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit, label %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i
 
-_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i: ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %89, i64 -8
-  %92 = load ptr, ptr %91, align 8, !tbaa !404
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 152
-  %94 = load i8, ptr %93, align 8, !tbaa !553, !range !483, !noundef !484
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
+_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i: ; preds = %84
+  %90 = getelementptr inbounds i8, ptr %88, i64 -8
+  %91 = load ptr, ptr %90, align 8, !tbaa !404
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 152
+  %93 = load i8, ptr %92, align 8, !tbaa !553, !range !483, !noundef !484
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
 
-_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit: ; preds = %85, %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i
-  %96 = load ptr, ptr %15, align 8, !tbaa !309, !noalias !555
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !544, !noalias !555
-  %99 = load ptr, ptr %17, align 8, !tbaa !368, !noalias !555
-  %100 = load ptr, ptr %19, align 8, !tbaa !369, !noalias !555
-  %101 = load ptr, ptr %21, align 8, !tbaa !309, !noalias !564
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %103 = load ptr, ptr %102, align 8, !tbaa !544, !noalias !564
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !368, !noalias !564
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %107 = load ptr, ptr %106, align 8, !tbaa !369, !noalias !564
+_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit: ; preds = %84, %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i
+  %95 = load ptr, ptr %15, align 8, !tbaa !309, !noalias !555
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8, !tbaa !544, !noalias !555
+  %98 = load ptr, ptr %17, align 8, !tbaa !368, !noalias !555
+  %99 = load ptr, ptr %19, align 8, !tbaa !369, !noalias !555
+  %100 = load ptr, ptr %21, align 8, !tbaa !309, !noalias !564
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %102 = load ptr, ptr %101, align 8, !tbaa !544, !noalias !564
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %104 = load ptr, ptr %103, align 8, !tbaa !368, !noalias !564
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %106 = load ptr, ptr %105, align 8, !tbaa !369, !noalias !564
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !573
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !573
-  store ptr %96, ptr %3, align 8, !tbaa !576, !noalias !578
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %98, ptr %108, align 8, !tbaa !581, !noalias !578
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %99, ptr %109, align 8, !tbaa !582, !noalias !578
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %100, ptr %110, align 8, !tbaa !583, !noalias !578
-  store ptr %101, ptr %4, align 8, !tbaa !576, !noalias !578
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %103, ptr %111, align 8, !tbaa !581, !noalias !578
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %105, ptr %112, align 8, !tbaa !582, !noalias !578
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %107, ptr %113, align 8, !tbaa !583, !noalias !578
+  store ptr %95, ptr %3, align 8, !tbaa !576, !noalias !578
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %97, ptr %107, align 8, !tbaa !581, !noalias !578
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %98, ptr %108, align 8, !tbaa !582, !noalias !578
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %99, ptr %109, align 8, !tbaa !583, !noalias !578
+  store ptr %100, ptr %4, align 8, !tbaa !576, !noalias !578
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %102, ptr %110, align 8, !tbaa !581, !noalias !578
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %104, ptr %111, align 8, !tbaa !582, !noalias !578
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %106, ptr %112, align 8, !tbaa !583, !noalias !578
   call void @_ZSt9__find_ifISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS4_EERKS7_PS8_EN9__gnu_cxx5__ops10_Iter_predIZNKS3_18InstructionMatcher22canAddNumOperandsCheckEvEUlRKT_E_EEESG_SG_SG_T0_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator.692") align 8 %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !573
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !573
-  %114 = load ptr, ptr %5, align 8, !tbaa !576
-  %115 = icmp eq ptr %101, %114
+  %113 = load ptr, ptr %5, align 8, !tbaa !576
+  %114 = icmp eq ptr %100, %113
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
-  br i1 %115, label %116, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
+  br i1 %114, label %115, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
 
-116:                                              ; preds = %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
-  %117 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !9
-  %119 = load ptr, ptr %118, align 8, !tbaa !376
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 122
-  %121 = load i8, ptr %120, align 2, !tbaa !584, !range !483, !noundef !484
-  %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
+115:                                              ; preds = %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
+  %116 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 24
+  %117 = load ptr, ptr %116, align 8, !tbaa !9
+  %118 = load ptr, ptr %117, align 8, !tbaa !376
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 122
+  %120 = load i8, ptr %119, align 2, !tbaa !584, !range !483, !noundef !484
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
 
-123:                                              ; preds = %116
-  %124 = load ptr, ptr %88, align 8, !tbaa !585
-  %125 = load ptr, ptr %86, align 8, !tbaa !586
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %87, align 8, !tbaa !585
+  %124 = load ptr, ptr %85, align 8, !tbaa !586
+  %125 = ptrtoint ptr %123 to i64
   %126 = ptrtoint ptr %124 to i64
-  %127 = ptrtoint ptr %125 to i64
-  %128 = sub i64 %126, %127
-  %129 = lshr exact i64 %128, 3
-  %130 = trunc i64 %129 to i32
-  %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, label %131
+  %127 = sub i64 %125, %126
+  %128 = lshr exact i64 %127, 3
+  %129 = trunc i64 %128 to i32
+  %.not = icmp eq i32 %129, 0
+  br i1 %.not, label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, label %130
 
-131:                                              ; preds = %123
+130:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #32
-  %132 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %134 = load i32, ptr %133, align 8, !tbaa !587
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 1, ptr %135, align 8, !tbaa !313
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 12
-  store i32 %134, ptr %136, align 4, !tbaa !34
-  %137 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store i32 -1, ptr %137, align 8, !tbaa !314
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm2gi29InstructionNumOperandsMatcherE, i64 16), ptr %132, align 8, !tbaa !6
-  %138 = getelementptr inbounds nuw i8, ptr %132, i64 20
-  store i32 %130, ptr %138, align 4, !tbaa !588
-  %139 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  store i32 0, ptr %139, align 8, !tbaa !592
-  store ptr %132, ptr %8, align 8, !tbaa !593
-  %140 = load i32, ptr %13, align 8, !tbaa !291
-  %141 = load i32, ptr %14, align 4, !tbaa !14
-  %.not.i25 = icmp ult i32 %140, %141
-  br i1 %.not.i25, label %144, label %142, !prof !180
+  %131 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %133 = load i32, ptr %132, align 8, !tbaa !587
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i32 1, ptr %134, align 8, !tbaa !313
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 12
+  store i32 %133, ptr %135, align 4, !tbaa !34
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i32 -1, ptr %136, align 8, !tbaa !314
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm2gi29InstructionNumOperandsMatcherE, i64 16), ptr %131, align 8, !tbaa !6
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 20
+  store i32 %129, ptr %137, align 4, !tbaa !588
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i32 0, ptr %138, align 8, !tbaa !592
+  store ptr %131, ptr %8, align 8, !tbaa !593
+  %139 = load i32, ptr %13, align 8, !tbaa !291
+  %140 = load i32, ptr %14, align 4, !tbaa !14
+  %.not.i25 = icmp ult i32 %139, %140
+  br i1 %.not.i25, label %143, label %141, !prof !180
 
-142:                                              ; preds = %131
-  %143 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE18growAndEmplaceBackIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+141:                                              ; preds = %130
+  %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE18growAndEmplaceBackIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit
 
-144:                                              ; preds = %131
-  %145 = zext i32 %140 to i64
-  %146 = load ptr, ptr %6, align 8, !tbaa !9
-  %147 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %146, i64 %145
-  store ptr %132, ptr %147, align 8, !tbaa !293
-  %148 = add nuw i32 %140, 1
-  store i32 %148, ptr %13, align 8, !tbaa !291
+143:                                              ; preds = %130
+  %144 = zext i32 %139 to i64
+  %145 = load ptr, ptr %6, align 8, !tbaa !9
+  %146 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %145, i64 %144
+  store ptr %131, ptr %146, align 8, !tbaa !293
+  %147 = add nuw i32 %139, 1
+  store i32 %147, ptr %13, align 8, !tbaa !291
   br label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit: ; preds = %142, %144
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit: ; preds = %141, %143
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
   br label %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
 
-_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread: ; preds = %81, %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit, %123, %116, %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
-  store i8 0, ptr %82, align 4, !tbaa !546
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %150 = load ptr, ptr %149, align 8, !tbaa !402
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %152 = load ptr, ptr %151, align 8, !tbaa !402
-  %.not109120 = icmp eq ptr %150, %152
-  br i1 %.not109120, label %.loopexit114, label %.lr.ph122
+_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread: ; preds = %80, %_ZNK4llvm2gi18InstructionMatcher18hasVariadicMatcherEv.exit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12emplace_backIJPNS2_29InstructionNumOperandsMatcherEEEERS6_DpOT_.exit, %122, %115, %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit
+  store i8 0, ptr %81, align 4, !tbaa !546
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %149 = load ptr, ptr %148, align 8, !tbaa !402
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %151 = load ptr, ptr %150, align 8, !tbaa !402
+  %.not111122 = icmp eq ptr %149, %151
+  br i1 %.not111122, label %.loopexit116, label %.lr.ph124
 
-.lr.ph122:                                        ; preds = %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
-  %153 = ptrtoint ptr %9 to i64
-  br label %154
+.lr.ph124:                                        ; preds = %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread
+  %152 = ptrtoint ptr %9 to i64
+  br label %153
 
-154:                                              ; preds = %.lr.ph122, %.loopexit
-  %.sroa.0106.0121 = phi ptr [ %150, %.lr.ph122 ], [ %200, %.loopexit ]
-  %155 = load ptr, ptr %.sroa.0106.0121, align 8, !tbaa !404
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %157 = load ptr, ptr %156, align 8, !tbaa !406, !noalias !595
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 48
-  %159 = load ptr, ptr %158, align 8, !tbaa !406, !noalias !602
-  %.not113116 = icmp eq ptr %157, %159
-  br i1 %.not113116, label %.loopexit, label %.lr.ph.preheader
+153:                                              ; preds = %.lr.ph124, %.loopexit
+  %.sroa.0108.0123 = phi ptr [ %149, %.lr.ph124 ], [ %198, %.loopexit ]
+  %154 = load ptr, ptr %.sroa.0108.0123, align 8, !tbaa !404
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load ptr, ptr %155, align 8, !tbaa !406, !noalias !595
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 48
+  %158 = load ptr, ptr %157, align 8, !tbaa !406, !noalias !602
+  %.not115118 = icmp eq ptr %156, %158
+  br i1 %.not115118, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %154
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 40
-  %161 = load ptr, ptr %160, align 8, !tbaa !418, !noalias !595
-  %162 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %163 = load ptr, ptr %162, align 8, !tbaa !417, !noalias !595
+.lr.ph.preheader:                                 ; preds = %153
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 40
+  %160 = load ptr, ptr %159, align 8, !tbaa !418, !noalias !595
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  %162 = load ptr, ptr %161, align 8, !tbaa !417, !noalias !595
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit
-  %.sroa.1396.0119 = phi ptr [ %.sroa.1396.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %161, %.lr.ph.preheader ]
-  %.sroa.1095.0118 = phi ptr [ %.sroa.1095.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %163, %.lr.ph.preheader ]
-  %.sroa.091.0117 = phi ptr [ %.sroa.091.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %157, %.lr.ph.preheader ]
-  %164 = load ptr, ptr %.sroa.091.0117, align 8, !tbaa !458
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load i32, ptr %165, align 8, !tbaa !313
-  %167 = icmp eq i32 %166, 16
-  br i1 %167, label %168, label %.critedge
+  %.sroa.1398.0121 = phi ptr [ %.sroa.1398.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %160, %.lr.ph.preheader ]
+  %.sroa.1097.0120 = phi ptr [ %.sroa.1097.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %162, %.lr.ph.preheader ]
+  %.sroa.093.0119 = phi ptr [ %.sroa.093.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit ], [ %156, %.lr.ph.preheader ]
+  %163 = load ptr, ptr %.sroa.093.0119, align 8, !tbaa !458
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load i32, ptr %164, align 8, !tbaa !313
+  %166 = icmp eq i32 %165, 16
+  br i1 %166, label %167, label %.critedge
 
-168:                                              ; preds = %.lr.ph
+167:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #32
-  store ptr null, ptr %.sroa.091.0117, align 8, !tbaa !458
-  store ptr %164, ptr %9, align 8, !tbaa !463
-  %169 = load i32, ptr %13, align 8, !tbaa !291
-  %170 = zext i32 %169 to i64
-  %171 = add nuw nsw i64 %170, 1
-  %172 = load i32, ptr %14, align 4, !tbaa !14
-  %.not.i.i.not.i26 = icmp ult i32 %169, %172
+  store ptr null, ptr %.sroa.093.0119, align 8, !tbaa !458
+  store ptr %163, ptr %9, align 8, !tbaa !463
+  %168 = load i32, ptr %13, align 8, !tbaa !291
+  %169 = zext i32 %168 to i64
+  %170 = add nuw nsw i64 %169, 1
+  %171 = load i32, ptr %14, align 4, !tbaa !14
+  %.not.i.i.not.i26 = icmp ult i32 %168, %171
   %.pre3.i27 = load ptr, ptr %6, align 8, !tbaa !9
-  br i1 %.not.i.i.not.i26, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31, label %173, !prof !180
+  br i1 %.not.i.i.not.i26, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32, label %172, !prof !180
 
-173:                                              ; preds = %168
-  %174 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %.pre3.i27, i64 %170
-  %175 = icmp uge ptr %9, %.pre3.i27
-  %176 = icmp ult ptr %9, %174
-  %spec.select.i.i.i.i.i28 = and i1 %175, %176
-  br i1 %spec.select.i.i.i.i.i28, label %178, label %177, !prof !292
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %.pre3.i27, i64 %169
+  %174 = icmp uge ptr %9, %.pre3.i27
+  %175 = icmp ult ptr %9, %173
+  %spec.select.i.i.i.i.i28 = and i1 %174, %175
+  br i1 %spec.select.i.i.i.i.i28, label %176, label %.critedge.i.i.i29, !prof !292
 
-177:                                              ; preds = %173
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %171)
-  %.pre.i29 = load ptr, ptr %6, align 8, !tbaa !9
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31
+176:                                              ; preds = %172
+  %177 = ptrtoint ptr %.pre3.i27 to i64
+  %178 = sub i64 %152, %177
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %170)
+  %179 = load ptr, ptr %6, align 8, !tbaa !9
+  %180 = getelementptr inbounds i8, ptr %179, i64 %178
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32
 
-178:                                              ; preds = %173
-  %179 = ptrtoint ptr %.pre3.i27 to i64
-  %180 = sub i64 %153, %179
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %171)
-  %181 = load ptr, ptr %6, align 8, !tbaa !9
-  %182 = getelementptr inbounds i8, ptr %181, i64 %180
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31
+.critedge.i.i.i29:                                ; preds = %172
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %170)
+  %.pre.i30 = load ptr, ptr %6, align 8, !tbaa !9
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31: ; preds = %168, %177, %178
-  %183 = phi ptr [ %.pre3.i27, %168 ], [ %181, %178 ], [ %.pre.i29, %177 ]
-  %.016.i.i.i30 = phi ptr [ %9, %168 ], [ %182, %178 ], [ %9, %177 ]
-  %184 = load i32, ptr %13, align 8, !tbaa !291
-  %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %183, i64 %185
-  %187 = load i64, ptr %.016.i.i.i30, align 8, !tbaa !293
-  store i64 %187, ptr %186, align 8, !tbaa !293
-  store ptr null, ptr %.016.i.i.i30, align 8, !tbaa !293
-  %188 = add i32 %184, 1
-  store i32 %188, ptr %13, align 8, !tbaa !291
-  %189 = load ptr, ptr %9, align 8, !tbaa !293
-  %.not.i32 = icmp eq ptr %189, null
-  br i1 %.not.i32, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit34, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i33
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32: ; preds = %167, %176, %.critedge.i.i.i29
+  %181 = phi ptr [ %.pre3.i27, %167 ], [ %179, %176 ], [ %.pre.i30, %.critedge.i.i.i29 ]
+  %.016.i.i.i31 = phi ptr [ %9, %167 ], [ %180, %176 ], [ %9, %.critedge.i.i.i29 ]
+  %182 = load i32, ptr %13, align 8, !tbaa !291
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %181, i64 %183
+  %185 = load i64, ptr %.016.i.i.i31, align 8, !tbaa !293
+  store i64 %185, ptr %184, align 8, !tbaa !293
+  store ptr null, ptr %.016.i.i.i31, align 8, !tbaa !293
+  %186 = add i32 %182, 1
+  store i32 %186, ptr %13, align 8, !tbaa !291
+  %187 = load ptr, ptr %9, align 8, !tbaa !293
+  %.not.i33 = icmp eq ptr %187, null
+  br i1 %.not.i33, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit35, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i34
 
-_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i33: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31
-  %190 = load ptr, ptr %189, align 8, !tbaa !6
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %192 = load ptr, ptr %191, align 8
-  call void %192(ptr noundef nonnull align 8 dereferenceable(20) %189) #32
-  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit34
+_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i34: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32
+  %188 = load ptr, ptr %187, align 8, !tbaa !6
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = load ptr, ptr %189, align 8
+  call void %190(ptr noundef nonnull align 8 dereferenceable(20) %187) #32
+  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit35
 
-_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit34: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit31, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i33
+_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit35: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit32, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #32
-  %193 = load ptr, ptr %.sroa.0106.0121, align 8, !tbaa !404
-  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %193)
+  %191 = load ptr, ptr %.sroa.0108.0123, align 8, !tbaa !404
+  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %191)
   br label %.loopexit
 
 .critedge:                                        ; preds = %.lr.ph
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 8
-  %195 = icmp eq ptr %194, %.sroa.1095.0118
-  br i1 %195, label %196, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.093.0119, i64 8
+  %193 = icmp eq ptr %192, %.sroa.1097.0120
+  br i1 %193, label %194, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit
 
-196:                                              ; preds = %.critedge
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.1396.0119, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !446
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 512
+194:                                              ; preds = %.critedge
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.1398.0121, i64 8
+  %196 = load ptr, ptr %195, align 8, !tbaa !446
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 512
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit
 
-_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit: ; preds = %.critedge, %196
-  %.sroa.091.1 = phi ptr [ %198, %196 ], [ %194, %.critedge ]
-  %.sroa.1095.1 = phi ptr [ %199, %196 ], [ %.sroa.1095.0118, %.critedge ]
-  %.sroa.1396.1 = phi ptr [ %197, %196 ], [ %.sroa.1396.0119, %.critedge ]
-  %.not113 = icmp eq ptr %.sroa.091.1, %159
-  br i1 %.not113, label %.loopexit, label %.lr.ph
+_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit: ; preds = %.critedge, %194
+  %.sroa.093.1 = phi ptr [ %196, %194 ], [ %192, %.critedge ]
+  %.sroa.1097.1 = phi ptr [ %197, %194 ], [ %.sroa.1097.0120, %.critedge ]
+  %.sroa.1398.1 = phi ptr [ %195, %194 ], [ %.sroa.1398.0121, %.critedge ]
+  %.not115 = icmp eq ptr %.sroa.093.1, %158
+  br i1 %.not115, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit, %154, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit34
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0121, i64 8
-  %.not109 = icmp eq ptr %200, %152
-  br i1 %.not109, label %.loopexit114, label %154
+.loopexit:                                        ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit, %153, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit35
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0123, i64 8
+  %.not111 = icmp eq ptr %198, %151
+  br i1 %.not111, label %.loopexit116, label %153
 
-.loopexit114:                                     ; preds = %.loopexit, %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %202 = load i32, ptr %201, align 8, !tbaa !587
-  %.not23 = icmp eq i32 %202, 0
-  br i1 %.not23, label %226, label %203
+.loopexit116:                                     ; preds = %.loopexit, %_ZNK4llvm2gi18InstructionMatcher22canAddNumOperandsCheckEv.exit.thread, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %200 = load i32, ptr %199, align 8, !tbaa !587
+  %.not23 = icmp eq i32 %200, 0
+  br i1 %.not23, label %224, label %201
 
-203:                                              ; preds = %.loopexit114
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %205 = load ptr, ptr %204, align 8, !tbaa !586
-  %206 = load ptr, ptr %205, align 8, !tbaa !404
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %208 = load ptr, ptr %207, align 8, !tbaa !406, !noalias !607
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 48
-  %210 = load ptr, ptr %209, align 8, !tbaa !406, !noalias !614
-  %.not110123 = icmp eq ptr %208, %210
-  br i1 %.not110123, label %._crit_edge, label %.lr.ph127.preheader
+201:                                              ; preds = %.loopexit116
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %203 = load ptr, ptr %202, align 8, !tbaa !586
+  %204 = load ptr, ptr %203, align 8, !tbaa !404
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %206 = load ptr, ptr %205, align 8, !tbaa !406, !noalias !607
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 48
+  %208 = load ptr, ptr %207, align 8, !tbaa !406, !noalias !614
+  %.not112125 = icmp eq ptr %206, %208
+  br i1 %.not112125, label %._crit_edge, label %.lr.ph129.preheader
 
-.lr.ph127.preheader:                              ; preds = %203
-  %211 = getelementptr inbounds nuw i8, ptr %206, i64 40
-  %212 = load ptr, ptr %211, align 8, !tbaa !418, !noalias !607
-  %213 = getelementptr inbounds nuw i8, ptr %206, i64 32
-  %214 = load ptr, ptr %213, align 8, !tbaa !417, !noalias !607
-  br label %.lr.ph127
+.lr.ph129.preheader:                              ; preds = %201
+  %209 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  %210 = load ptr, ptr %209, align 8, !tbaa !418, !noalias !607
+  %211 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  %212 = load ptr, ptr %211, align 8, !tbaa !417, !noalias !607
+  br label %.lr.ph129
 
-._crit_edge.loopexit:                             ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36
-  %.pre146 = load ptr, ptr %204, align 8, !tbaa !586
-  %.pre147 = load ptr, ptr %.pre146, align 8, !tbaa !404
+._crit_edge.loopexit:                             ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37
+  %.pre148 = load ptr, ptr %202, align 8, !tbaa !586
+  %.pre149 = load ptr, ptr %.pre148, align 8, !tbaa !404
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %203
-  %215 = phi ptr [ %.pre147, %._crit_edge.loopexit ], [ %206, %203 ]
-  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %215)
-  br label %226
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %201
+  %213 = phi ptr [ %.pre149, %._crit_edge.loopexit ], [ %204, %201 ]
+  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %213)
+  br label %224
 
-.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36
-  %.sroa.1378.0126 = phi ptr [ %.sroa.1378.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36 ], [ %212, %.lr.ph127.preheader ]
-  %.sroa.1077.0125 = phi ptr [ %.sroa.1077.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36 ], [ %214, %.lr.ph127.preheader ]
-  %.sroa.073.0124 = phi ptr [ %.sroa.073.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36 ], [ %208, %.lr.ph127.preheader ]
-  %216 = load ptr, ptr %.sroa.073.0124, align 8, !tbaa !458
-  store ptr null, ptr %.sroa.073.0124, align 8, !tbaa !458
-  %.not.i.i35 = icmp eq ptr %216, null
-  br i1 %.not.i.i35, label %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i
+.lr.ph129:                                        ; preds = %.lr.ph129.preheader, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37
+  %.sroa.1380.0128 = phi ptr [ %.sroa.1380.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37 ], [ %210, %.lr.ph129.preheader ]
+  %.sroa.1079.0127 = phi ptr [ %.sroa.1079.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37 ], [ %212, %.lr.ph129.preheader ]
+  %.sroa.075.0126 = phi ptr [ %.sroa.075.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37 ], [ %206, %.lr.ph129.preheader ]
+  %214 = load ptr, ptr %.sroa.075.0126, align 8, !tbaa !458
+  store ptr null, ptr %.sroa.075.0126, align 8, !tbaa !458
+  %.not.i.i36 = icmp eq ptr %214, null
+  br i1 %.not.i.i36, label %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i: ; preds = %.lr.ph127
-  %217 = load ptr, ptr %216, align 8, !tbaa !6
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %219 = load ptr, ptr %218, align 8
-  call void %219(ptr noundef nonnull align 8 dereferenceable(20) %216) #32
+_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i: ; preds = %.lr.ph129
+  %215 = load ptr, ptr %214, align 8, !tbaa !6
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8
+  call void %217(ptr noundef nonnull align 8 dereferenceable(20) %214) #32
   br label %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit
 
-_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %.lr.ph127, %_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.073.0124, i64 8
-  %221 = icmp eq ptr %220, %.sroa.1077.0125
-  br i1 %221, label %222, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36
+_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %.lr.ph129, %_ZNKSt14default_deleteIN4llvm2gi23OperandPredicateMatcherEEclEPS2_.exit.i.i
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.075.0126, i64 8
+  %219 = icmp eq ptr %218, %.sroa.1079.0127
+  br i1 %219, label %220, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37
 
-222:                                              ; preds = %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.1378.0126, i64 8
-  %224 = load ptr, ptr %223, align 8, !tbaa !446
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 512
-  br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36
+220:                                              ; preds = %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.1380.0128, i64 8
+  %222 = load ptr, ptr %221, align 8, !tbaa !446
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 512
+  br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37
 
-_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit36: ; preds = %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit, %222
-  %.sroa.073.1 = phi ptr [ %224, %222 ], [ %220, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
-  %.sroa.1077.1 = phi ptr [ %225, %222 ], [ %.sroa.1077.0125, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
-  %.sroa.1378.1 = phi ptr [ %223, %222 ], [ %.sroa.1378.0126, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
-  %.not110 = icmp eq ptr %.sroa.073.1, %210
-  br i1 %.not110, label %._crit_edge.loopexit, label %.lr.ph127
+_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit37: ; preds = %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit, %220
+  %.sroa.075.1 = phi ptr [ %222, %220 ], [ %218, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
+  %.sroa.1079.1 = phi ptr [ %223, %220 ], [ %.sroa.1079.0127, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
+  %.sroa.1380.1 = phi ptr [ %221, %220 ], [ %.sroa.1380.0128, %_ZNSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS2_EE5resetEPS2_.exit ]
+  %.not112 = icmp eq ptr %.sroa.075.1, %208
+  br i1 %.not112, label %._crit_edge.loopexit, label %.lr.ph129
 
-226:                                              ; preds = %._crit_edge, %.loopexit114
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 96
+224:                                              ; preds = %._crit_edge, %.loopexit116
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %226 = load ptr, ptr %225, align 8, !tbaa !402
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %228 = load ptr, ptr %227, align 8, !tbaa !402
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %230 = load ptr, ptr %229, align 8, !tbaa !402
-  %.not111135 = icmp eq ptr %228, %230
-  br i1 %.not111135, label %.preheader, label %.lr.ph138
+  %.not113137 = icmp eq ptr %226, %228
+  br i1 %.not113137, label %.preheader, label %.lr.ph140
 
-.lr.ph138:                                        ; preds = %226
-  %231 = ptrtoint ptr %10 to i64
-  br label %233
+.lr.ph140:                                        ; preds = %224
+  %229 = ptrtoint ptr %10 to i64
+  br label %231
 
-.preheader:                                       ; preds = %._crit_edge134, %226
-  %232 = load i32, ptr %13, align 8, !tbaa !291
-  %.not.i47139 = icmp eq i32 %232, 0
-  br i1 %.not.i47139, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, label %.lr.ph140
+.preheader:                                       ; preds = %._crit_edge136, %224
+  %230 = load i32, ptr %13, align 8, !tbaa !291
+  %.not.i49141 = icmp eq i32 %230, 0
+  br i1 %.not.i49141, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, label %.lr.ph142
 
-233:                                              ; preds = %.lr.ph138, %._crit_edge134
-  %.sroa.066.0136 = phi ptr [ %228, %.lr.ph138 ], [ %244, %._crit_edge134 ]
-  %234 = load ptr, ptr %.sroa.066.0136, align 8, !tbaa !404
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !406, !noalias !619
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 48
-  %238 = load ptr, ptr %237, align 8, !tbaa !406, !noalias !626
-  %.not112128 = icmp eq ptr %236, %238
-  br i1 %.not112128, label %._crit_edge134, label %.lr.ph133.preheader
+231:                                              ; preds = %.lr.ph140, %._crit_edge136
+  %.sroa.068.0138 = phi ptr [ %226, %.lr.ph140 ], [ %242, %._crit_edge136 ]
+  %232 = load ptr, ptr %.sroa.068.0138, align 8, !tbaa !404
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
+  %234 = load ptr, ptr %233, align 8, !tbaa !406, !noalias !619
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 48
+  %236 = load ptr, ptr %235, align 8, !tbaa !406, !noalias !626
+  %.not114130 = icmp eq ptr %234, %236
+  br i1 %.not114130, label %._crit_edge136, label %.lr.ph135.preheader
 
-.lr.ph133.preheader:                              ; preds = %233
-  %239 = getelementptr inbounds nuw i8, ptr %234, i64 40
-  %240 = load ptr, ptr %239, align 8, !tbaa !418, !noalias !619
-  %241 = getelementptr inbounds nuw i8, ptr %234, i64 32
-  %242 = load ptr, ptr %241, align 8, !tbaa !417, !noalias !619
-  br label %.lr.ph133
+.lr.ph135.preheader:                              ; preds = %231
+  %237 = getelementptr inbounds nuw i8, ptr %232, i64 40
+  %238 = load ptr, ptr %237, align 8, !tbaa !418, !noalias !619
+  %239 = getelementptr inbounds nuw i8, ptr %232, i64 32
+  %240 = load ptr, ptr %239, align 8, !tbaa !417, !noalias !619
+  br label %.lr.ph135
 
-._crit_edge134.loopexit:                          ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46
-  %.pre148 = load ptr, ptr %.sroa.066.0136, align 8, !tbaa !404
-  br label %._crit_edge134
+._crit_edge136.loopexit:                          ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48
+  %.pre150 = load ptr, ptr %.sroa.068.0138, align 8, !tbaa !404
+  br label %._crit_edge136
 
-._crit_edge134:                                   ; preds = %._crit_edge134.loopexit, %233
-  %243 = phi ptr [ %.pre148, %._crit_edge134.loopexit ], [ %234, %233 ]
-  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %243)
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.066.0136, i64 8
-  %.not111 = icmp eq ptr %244, %230
-  br i1 %.not111, label %.preheader, label %233
+._crit_edge136:                                   ; preds = %._crit_edge136.loopexit, %231
+  %241 = phi ptr [ %.pre150, %._crit_edge136.loopexit ], [ %232, %231 ]
+  call void @_ZN4llvm2gi20PredicateListMatcherINS0_23OperandPredicateMatcherEE19eraseNullPredicatesEv(ptr noundef nonnull align 8 dereferenceable(81) %241)
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.068.0138, i64 8
+  %.not113 = icmp eq ptr %242, %228
+  br i1 %.not113, label %.preheader, label %231
 
-.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46
-  %.sroa.057.0131 = phi ptr [ %.sroa.057.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46 ], [ %236, %.lr.ph133.preheader ]
-  %.sroa.10.0130 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46 ], [ %242, %.lr.ph133.preheader ]
-  %.sroa.13.0129 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46 ], [ %240, %.lr.ph133.preheader ]
-  %245 = load ptr, ptr %.sroa.057.0131, align 8, !tbaa !458
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %247 = load i32, ptr %246, align 8, !tbaa !313
-  %248 = icmp eq i32 %247, 21
-  br i1 %248, label %249, label %292
+.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48
+  %.sroa.059.0133 = phi ptr [ %.sroa.059.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48 ], [ %234, %.lr.ph135.preheader ]
+  %.sroa.10.0132 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48 ], [ %240, %.lr.ph135.preheader ]
+  %.sroa.13.0131 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48 ], [ %238, %.lr.ph135.preheader ]
+  %243 = load ptr, ptr %.sroa.059.0133, align 8, !tbaa !458
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %245 = load i32, ptr %244, align 8, !tbaa !313
+  %246 = icmp eq i32 %245, 21
+  br i1 %246, label %247, label %289
 
-249:                                              ; preds = %.lr.ph133
+247:                                              ; preds = %.lr.ph135
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #32
-  store ptr null, ptr %.sroa.057.0131, align 8, !tbaa !458
-  store ptr %245, ptr %10, align 8, !tbaa !463
-  %250 = load i32, ptr %13, align 8, !tbaa !291
-  %251 = zext i32 %250 to i64
-  %252 = add nuw nsw i64 %251, 1
-  %253 = load i32, ptr %14, align 4, !tbaa !14
-  %.not.i.i.not.i37 = icmp ult i32 %250, %253
-  %.pre3.i38 = load ptr, ptr %6, align 8, !tbaa !9
-  br i1 %.not.i.i.not.i37, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42, label %254, !prof !180
+  store ptr null, ptr %.sroa.059.0133, align 8, !tbaa !458
+  store ptr %243, ptr %10, align 8, !tbaa !463
+  %248 = load i32, ptr %13, align 8, !tbaa !291
+  %249 = zext i32 %248 to i64
+  %250 = add nuw nsw i64 %249, 1
+  %251 = load i32, ptr %14, align 4, !tbaa !14
+  %.not.i.i.not.i38 = icmp ult i32 %248, %251
+  %.pre3.i39 = load ptr, ptr %6, align 8, !tbaa !9
+  br i1 %.not.i.i.not.i38, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44, label %252, !prof !180
 
-254:                                              ; preds = %249
-  %255 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %.pre3.i38, i64 %251
-  %256 = icmp uge ptr %10, %.pre3.i38
-  %257 = icmp ult ptr %10, %255
-  %spec.select.i.i.i.i.i39 = and i1 %256, %257
-  br i1 %spec.select.i.i.i.i.i39, label %277, label %258, !prof !292
+252:                                              ; preds = %247
+  %253 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %.pre3.i39, i64 %249
+  %254 = icmp uge ptr %10, %.pre3.i39
+  %255 = icmp ult ptr %10, %253
+  %spec.select.i.i.i.i.i40 = and i1 %254, %255
+  br i1 %spec.select.i.i.i.i.i40, label %256, label %.critedge.i.i.i41, !prof !292
 
-258:                                              ; preds = %254
+256:                                              ; preds = %252
+  %257 = ptrtoint ptr %.pre3.i39 to i64
+  %258 = sub i64 %229, %257
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %250)
+  %259 = load ptr, ptr %6, align 8, !tbaa !9
+  %260 = getelementptr inbounds i8, ptr %259, i64 %258
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44
+
+.critedge.i.i.i41:                                ; preds = %252
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #32
-  %259 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %12, i64 noundef %252, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %2) #32
-  %260 = load ptr, ptr %6, align 8, !tbaa !9
-  %261 = load i32, ptr %13, align 8, !tbaa !291
-  %262 = zext i32 %261 to i64
-  %.idx.i.i = shl nuw nsw i64 %262, 3
-  %263 = getelementptr inbounds nuw i8, ptr %260, i64 %.idx.i.i
-  %.not7.i.i.i.i.i.i.i = icmp eq i32 %261, 0
+  %261 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %12, i64 noundef %250, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %2) #32
+  %262 = load ptr, ptr %6, align 8, !tbaa !9
+  %263 = load i32, ptr %13, align 8, !tbaa !291
+  %264 = zext i32 %263 to i64
+  %.idx.i.i = shl nuw nsw i64 %264, 3
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx.i.i
+  %.not7.i.i.i.i.i.i.i = icmp eq i32 %263, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %258, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %266, %.lr.ph.i.i.i.i.i.i.i ], [ %259, %258 ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %265, %.lr.ph.i.i.i.i.i.i.i ], [ %260, %258 ]
-  %264 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !293
-  store i64 %264, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !293
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.critedge.i.i.i41, %.lr.ph.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i = phi ptr [ %268, %.lr.ph.i.i.i.i.i.i.i ], [ %261, %.critedge.i.i.i41 ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %267, %.lr.ph.i.i.i.i.i.i.i ], [ %262, %.critedge.i.i.i41 ]
+  %266 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !293
+  store i64 %266, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !293
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !293
-  %265 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 8
-  %266 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %265, %263
+  %267 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %267, %265
   br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !631
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %267, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i ], [ %263, %.lr.ph.i.i.i.i.i.i.i ]
-  %267 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
-  %268 = load ptr, ptr %267, align 8, !tbaa !293
-  %.not.i.i.i.i = icmp eq ptr %268, null
+  %.05.i.i.i = phi ptr [ %269, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i ], [ %265, %.lr.ph.i.i.i.i.i.i.i ]
+  %269 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
+  %270 = load ptr, ptr %269, align 8, !tbaa !293
+  %.not.i.i.i.i = icmp eq ptr %270, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %269 = load ptr, ptr %268, align 8, !tbaa !6
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %271 = load ptr, ptr %270, align 8
-  call void %271(ptr noundef nonnull align 8 dereferenceable(20) %268) #32
+  %271 = load ptr, ptr %270, align 8, !tbaa !6
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  %273 = load ptr, ptr %272, align 8
+  call void %273(ptr noundef nonnull align 8 dereferenceable(20) %270) #32
   br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %267, align 8, !tbaa !293
-  %.not.i.i.i55 = icmp eq ptr %260, %267
-  br i1 %.not.i.i.i55, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !632
+  store ptr null, ptr %269, align 8, !tbaa !293
+  %.not.i.i.i57 = icmp eq ptr %262, %269
+  br i1 %.not.i.i.i57, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !632
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  %.pre.i56 = load ptr, ptr %6, align 8, !tbaa !9
+  %.pre.i58 = load ptr, ptr %6, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %258
-  %272 = phi ptr [ %.pre.i56, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %260, %258 ]
-  %273 = load i64, ptr %2, align 8, !tbaa !78
-  %274 = icmp eq ptr %272, %12
-  br i1 %274, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit, label %275
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %.critedge.i.i.i41
+  %274 = phi ptr [ %.pre.i58, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %262, %.critedge.i.i.i41 ]
+  %275 = load i64, ptr %2, align 8, !tbaa !78
+  %276 = icmp eq ptr %274, %12
+  br i1 %276, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit, label %277
 
-275:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i
-  call void @free(ptr noundef %272) #32
+277:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i
+  call void @free(ptr noundef %274) #32
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i, %275
-  store ptr %259, ptr %6, align 8, !tbaa !9
-  %276 = trunc i64 %273 to i32
-  store i32 %276, ptr %14, align 4, !tbaa !14
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i, %277
+  store ptr %261, ptr %6, align 8, !tbaa !9
+  %278 = trunc i64 %275 to i32
+  store i32 %278, ptr %14, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44
 
-277:                                              ; preds = %254
-  %278 = ptrtoint ptr %.pre3.i38 to i64
-  %279 = sub i64 %231, %278
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %252)
-  %280 = load ptr, ptr %6, align 8, !tbaa !9
-  %281 = getelementptr inbounds i8, ptr %280, i64 %279
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44: ; preds = %247, %256, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit
+  %279 = phi ptr [ %.pre3.i39, %247 ], [ %259, %256 ], [ %261, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit ]
+  %.016.i.i.i43 = phi ptr [ %10, %247 ], [ %260, %256 ], [ %10, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit ]
+  %280 = load i32, ptr %13, align 8, !tbaa !291
+  %281 = zext i32 %280 to i64
+  %282 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %279, i64 %281
+  %283 = load i64, ptr %.016.i.i.i43, align 8, !tbaa !293
+  store i64 %283, ptr %282, align 8, !tbaa !293
+  store ptr null, ptr %.016.i.i.i43, align 8, !tbaa !293
+  %284 = add i32 %280, 1
+  store i32 %284, ptr %13, align 8, !tbaa !291
+  %285 = load ptr, ptr %10, align 8, !tbaa !293
+  %.not.i45 = icmp eq ptr %285, null
+  br i1 %.not.i45, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit47, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i46
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42: ; preds = %249, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit, %277
-  %282 = phi ptr [ %.pre3.i38, %249 ], [ %280, %277 ], [ %259, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit ]
-  %.016.i.i.i41 = phi ptr [ %10, %249 ], [ %281, %277 ], [ %10, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE4growEm.exit ]
-  %283 = load i32, ptr %13, align 8, !tbaa !291
-  %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %282, i64 %284
-  %286 = load i64, ptr %.016.i.i.i41, align 8, !tbaa !293
-  store i64 %286, ptr %285, align 8, !tbaa !293
-  store ptr null, ptr %.016.i.i.i41, align 8, !tbaa !293
-  %287 = add i32 %283, 1
-  store i32 %287, ptr %13, align 8, !tbaa !291
-  %288 = load ptr, ptr %10, align 8, !tbaa !293
-  %.not.i43 = icmp eq ptr %288, null
-  br i1 %.not.i43, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit45, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i44
+_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i46: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44
+  %286 = load ptr, ptr %285, align 8, !tbaa !6
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load ptr, ptr %287, align 8
+  call void %288(ptr noundef nonnull align 8 dereferenceable(20) %285) #32
+  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit47
 
-_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i44: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42
-  %289 = load ptr, ptr %288, align 8, !tbaa !6
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %291 = load ptr, ptr %290, align 8
-  call void %291(ptr noundef nonnull align 8 dereferenceable(20) %288) #32
-  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit45
-
-_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit45: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit42, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i44
+_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit47: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit44, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
-  br label %292
+  br label %289
 
-292:                                              ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit45, %.lr.ph133
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.057.0131, i64 8
-  %294 = icmp eq ptr %293, %.sroa.10.0130
-  br i1 %294, label %295, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46
+289:                                              ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit47, %.lr.ph135
+  %290 = getelementptr inbounds nuw i8, ptr %.sroa.059.0133, i64 8
+  %291 = icmp eq ptr %290, %.sroa.10.0132
+  br i1 %291, label %292, label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48
 
-295:                                              ; preds = %292
-  %296 = getelementptr inbounds nuw i8, ptr %.sroa.13.0129, i64 8
-  %297 = load ptr, ptr %296, align 8, !tbaa !446
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 512
-  br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46
+292:                                              ; preds = %289
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.13.0131, i64 8
+  %294 = load ptr, ptr %293, align 8, !tbaa !446
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 512
+  br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48
 
-_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit46: ; preds = %292, %295
-  %.sroa.13.1 = phi ptr [ %296, %295 ], [ %.sroa.13.0129, %292 ]
-  %.sroa.10.1 = phi ptr [ %298, %295 ], [ %.sroa.10.0130, %292 ]
-  %.sroa.057.1 = phi ptr [ %297, %295 ], [ %293, %292 ]
-  %.not112 = icmp eq ptr %.sroa.057.1, %238
-  br i1 %.not112, label %._crit_edge134.loopexit, label %.lr.ph133
+_ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_EppEv.exit48: ; preds = %289, %292
+  %.sroa.13.1 = phi ptr [ %293, %292 ], [ %.sroa.13.0131, %289 ]
+  %.sroa.10.1 = phi ptr [ %295, %292 ], [ %.sroa.10.0132, %289 ]
+  %.sroa.059.1 = phi ptr [ %294, %292 ], [ %290, %289 ]
+  %.not114 = icmp eq ptr %.sroa.059.1, %236
+  br i1 %.not114, label %._crit_edge136.loopexit, label %.lr.ph135
 
-.lr.ph140:                                        ; preds = %.preheader, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50
-  %299 = phi i32 [ %317, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50 ], [ %232, %.preheader ]
+.lr.ph142:                                        ; preds = %.preheader, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52
+  %296 = phi i32 [ %314, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52 ], [ %230, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #32
   call void @llvm.experimental.noalias.scope.decl(metadata !633)
-  %300 = load ptr, ptr %6, align 8, !tbaa !9, !noalias !633
-  %301 = zext i32 %299 to i64
-  %302 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %300, i64 %301
-  %303 = getelementptr inbounds i8, ptr %302, i64 -8
-  %304 = load i64, ptr %303, align 8, !tbaa !293, !noalias !633
-  store i64 %304, ptr %11, align 8, !tbaa !293, !alias.scope !633
-  store ptr null, ptr %303, align 8, !tbaa !293, !noalias !633
-  %305 = add i32 %299, -1
-  store i32 %305, ptr %13, align 8, !tbaa !291, !noalias !633
-  %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %300, i64 %306
-  %308 = load ptr, ptr %307, align 8, !tbaa !293, !noalias !633
-  %.not.i.i.i = icmp eq ptr %308, null
+  %297 = load ptr, ptr %6, align 8, !tbaa !9, !noalias !633
+  %298 = zext i32 %296 to i64
+  %299 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %297, i64 %298
+  %300 = getelementptr inbounds i8, ptr %299, i64 -8
+  %301 = load i64, ptr %300, align 8, !tbaa !293, !noalias !633
+  store i64 %301, ptr %11, align 8, !tbaa !293, !alias.scope !633
+  store ptr null, ptr %300, align 8, !tbaa !293, !noalias !633
+  %302 = add i32 %296, -1
+  store i32 %302, ptr %13, align 8, !tbaa !291, !noalias !633
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %297, i64 %303
+  %305 = load ptr, ptr %304, align 8, !tbaa !293, !noalias !633
+  %.not.i.i.i = icmp eq ptr %305, null
   br i1 %.not.i.i.i, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i: ; preds = %.lr.ph140
-  %309 = load ptr, ptr %308, align 8, !tbaa !6, !noalias !633
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %311 = load ptr, ptr %310, align 8, !noalias !633
-  call void %311(ptr noundef nonnull align 8 dereferenceable(20) %308) #32, !noalias !633
+_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i: ; preds = %.lr.ph142
+  %306 = load ptr, ptr %305, align 8, !tbaa !6, !noalias !633
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
+  %308 = load ptr, ptr %307, align 8, !noalias !633
+  call void %308(ptr noundef nonnull align 8 dereferenceable(20) %305) #32, !noalias !633
   br label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit: ; preds = %.lr.ph140, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i
-  store ptr null, ptr %307, align 8, !tbaa !293, !noalias !633
-  %312 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeISt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS3_EESaIS6_EE13emplace_frontIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %313 = load ptr, ptr %11, align 8, !tbaa !293
-  %.not.i48 = icmp eq ptr %313, null
-  br i1 %.not.i48, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i49
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit: ; preds = %.lr.ph142, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i
+  store ptr null, ptr %304, align 8, !tbaa !293, !noalias !633
+  %309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeISt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS3_EESaIS6_EE13emplace_frontIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %310 = load ptr, ptr %11, align 8, !tbaa !293
+  %.not.i50 = icmp eq ptr %310, null
+  br i1 %.not.i50, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i51
 
-_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i49: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit
-  %314 = load ptr, ptr %313, align 8, !tbaa !6
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %316 = load ptr, ptr %315, align 8
-  call void %316(ptr noundef nonnull align 8 dereferenceable(20) %313) #32
-  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50
+_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i51: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit
+  %311 = load ptr, ptr %310, align 8, !tbaa !6
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
+  %313 = load ptr, ptr %312, align 8
+  call void %313(ptr noundef nonnull align 8 dereferenceable(20) %310) #32
+  br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52
 
-_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i49
+_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EEE12pop_back_valEv.exit, %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
-  %317 = load i32, ptr %13, align 8, !tbaa !291
-  %.not.i47 = icmp eq i32 %317, 0
-  br i1 %.not.i47, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, label %.lr.ph140, !llvm.loop !636
+  %314 = load i32, ptr %13, align 8, !tbaa !291
+  %.not.i49 = icmp eq i32 %314, 0
+  br i1 %.not.i49, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, label %.lr.ph142, !llvm.loop !636
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit50, %.preheader
-  %318 = load ptr, ptr %6, align 8, !tbaa !9
-  %319 = icmp eq ptr %318, %12
-  br i1 %319, label %_ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELj8EED2Ev.exit, label %320
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit52, %.preheader
+  %315 = load ptr, ptr %6, align 8, !tbaa !9
+  %316 = icmp eq ptr %315, %12
+  br i1 %316, label %_ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELj8EED2Ev.exit, label %317
 
-320:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i
-  call void @free(ptr noundef %318) #32
+317:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i
+  call void @free(ptr noundef %315) #32
   br label %_ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELj8EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, %320
+_ZN4llvm11SmallVectorISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELj8EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi16PredicateMatcherESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i, %317
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #32
   ret void
 }

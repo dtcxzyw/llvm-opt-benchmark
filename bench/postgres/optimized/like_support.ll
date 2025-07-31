@@ -40,7 +40,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @like_regex_support(ptr noundef captures(ret: address, provenance) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
-  switch i32 %3, label %is_funcclause.exit.thread [
+  switch i32 %3, label %.critedge [
     i32 457, label %4
     i32 460, label %22
   ]
@@ -69,23 +69,23 @@ define internal fastcc ptr @like_regex_support(ptr noundef captures(ret: address
   %.036 = phi double [ %19, %8 ], [ 5.000000e-03, %4 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %.036, ptr %21, align 8
-  br label %is_funcclause.exit.thread
+  br label %.critedge
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %is_funcclause.exit.thread
+  br i1 %.not, label %25, label %.critedge
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %is_funcclause.exit.thread, label %is_opclause.exit
+  br i1 %.not.i, label %.critedge, label %is_opclause.exit
 
 is_opclause.exit:                                 ; preds = %25
   %28 = load i32, ptr %27, align 4
-  switch i32 %28, label %is_funcclause.exit.thread [
+  switch i32 %28, label %.critedge [
     i32 17, label %29
     i32 15, label %43
   ]
@@ -105,7 +105,7 @@ is_opclause.exit:                                 ; preds = %25
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = tail call fastcc ptr @match_pattern_prefix(ptr noundef %33, ptr noundef %35, i32 noundef %1, i32 noundef %37, i32 noundef %39, i32 noundef %41)
-  br label %is_funcclause.exit.thread
+  br label %.critedge
 
 43:                                               ; preds = %is_opclause.exit
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -122,9 +122,9 @@ is_opclause.exit:                                 ; preds = %25
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i32, ptr %54, align 8
   %56 = tail call fastcc ptr @match_pattern_prefix(ptr noundef %47, ptr noundef %49, i32 noundef %1, i32 noundef %51, i32 noundef %53, i32 noundef %55)
-  br label %is_funcclause.exit.thread
+  br label %.critedge
 
-is_funcclause.exit.thread:                        ; preds = %is_opclause.exit, %22, %43, %29, %25, %20, %2
+.critedge:                                        ; preds = %is_opclause.exit, %25, %43, %29, %22, %20, %2
   %.1 = phi ptr [ %0, %20 ], [ null, %2 ], [ null, %22 ], [ %42, %29 ], [ %56, %43 ], [ null, %25 ], [ null, %is_opclause.exit ]
   ret ptr %.1
 }

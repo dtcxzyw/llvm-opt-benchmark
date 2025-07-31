@@ -273,16 +273,16 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17h9f4675f0c72f72dbE.e
   %.sroa.049.2.i.i.i.i.i.i = phi i64 [ 0, %110 ], [ %119, %117 ]
   %.sroa.051.0.i.i.i.i.i.i = phi i64 [ 1, %110 ], [ %120, %117 ]
   %122 = load i64, ptr %49, align 8, !alias.scope !57, !noalias !58, !noundef !8
-  %.not58.i.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i.i, %122
+  %.not57.i.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i.i, %122
   %123 = load ptr, ptr %47, align 8, !alias.scope !57, !noalias !58, !nonnull !8
-  br i1 %.not58.i.i.i.i.i.i, label %124, label %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i
+  br i1 %.not57.i.i.i.i.i.i, label %124, label %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i64, ptr %123, i64 %.sroa.049.2.i.i.i.i.i.i
   %126 = load i64, ptr %125, align 8, !noalias !61, !noundef !8
   %.not.i.i1.i.i.i.i = icmp ne i64 %126, 0
-  %.not59.i.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i.i, %122
-  %or.cond.i.i.i.i.i.i = select i1 %.not.i.i1.i.i.i.i, i1 %.not59.i.i.i.i.i.i, i1 false
+  %.not58.i.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i.i, %122
+  %or.cond.i.i.i.i.i.i = select i1 %.not.i.i1.i.i.i.i, i1 %.not58.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %127, label %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i
 
 127:                                              ; preds = %124
@@ -3191,16 +3191,16 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h749f6a58ba204e02E.exit.i.i
   %.sroa.049.2.i.i.i.i.i = phi i64 [ 0, %567 ], [ %575, %573 ]
   %.sroa.051.0.i.i.i.i.i = phi i64 [ 1, %567 ], [ %576, %573 ]
   %578 = load i64, ptr %159, align 8, !alias.scope !405, !noalias !408, !noundef !8
-  %.not58.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i, %578
+  %.not57.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i, %578
   %579 = load ptr, ptr %158, align 8, !alias.scope !405, !noalias !408, !nonnull !8
-  br i1 %.not58.i.i.i.i.i, label %580, label %608
+  br i1 %.not57.i.i.i.i.i, label %580, label %608
 
 580:                                              ; preds = %577
   %581 = getelementptr inbounds nuw i64, ptr %579, i64 %.sroa.049.2.i.i.i.i.i
   %582 = load i64, ptr %581, align 8, !noalias !410, !noundef !8
   %.not.i112.i.i.i.i = icmp ne i64 %582, 0
-  %.not59.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i, %578
-  %or.cond.i.i.i.i.i = select i1 %.not.i112.i.i.i.i, i1 %.not59.i.i.i.i.i, i1 false
+  %.not58.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i, %578
+  %or.cond.i.i.i.i.i = select i1 %.not.i112.i.i.i.i, i1 %.not58.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %583, label %608
 
 583:                                              ; preds = %580

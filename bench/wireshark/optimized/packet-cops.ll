@@ -4993,7 +4993,7 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
   %61 = zext i16 %59 to i32
   %62 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %60, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef %61, ptr noundef nonnull @.str.729, ptr noundef nonnull @.str.169, i32 noundef %61)
   %63 = add i32 %.2, 2
-  br i1 %4, label %64, label %75
+  br i1 %4, label %64, label %.critedge
 
 64:                                               ; preds = %58
   %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %63)
@@ -5006,30 +5006,30 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
   %72 = zext i16 %70 to i32
   %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %71, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef %72, ptr noundef nonnull @.str.731, ptr noundef nonnull @.str.828, i32 noundef %72)
   %74 = add i32 %.2, 6
-  br label %75
+  %75 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %74)
+  %76 = load i32, ptr @hf_cops_pcmm_classifier_priority, align 4
+  %77 = zext i8 %75 to i32
+  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %76, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef %77, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.320, i32 noundef %77)
+  %79 = add i32 %.2, 7
+  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %79)
+  %81 = load i32, ptr @hf_cops_pcmm_classifier_activation_state, align 4
+  %82 = zext i8 %80 to i32
+  %83 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %81, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef %82, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.326, i32 noundef %82)
+  %84 = add i32 %.2, 8
+  %85 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %84)
+  %86 = load i32, ptr @hf_cops_pcmm_classifier_action, align 4
+  %87 = zext i8 %85 to i32
+  %88 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef %87, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.329, i32 noundef %87)
+  br label %93
 
-75:                                               ; preds = %58, %64
-  %.4 = phi i32 [ %74, %64 ], [ %63, %58 ]
-  %76 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4)
-  %77 = load i32, ptr @hf_cops_pcmm_classifier_priority, align 4
-  %78 = zext i8 %76 to i32
-  %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %77, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef %78, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.320, i32 noundef %78)
-  br i1 %4, label %80, label %91
+.critedge:                                        ; preds = %58
+  %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %63)
+  %90 = load i32, ptr @hf_cops_pcmm_classifier_priority, align 4
+  %91 = zext i8 %89 to i32
+  %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %90, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef %91, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.320, i32 noundef %91)
+  br label %93
 
-80:                                               ; preds = %75
-  %81 = add i32 %.4, 1
-  %82 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %81)
-  %83 = load i32, ptr @hf_cops_pcmm_classifier_activation_state, align 4
-  %84 = zext i8 %82 to i32
-  %85 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %83, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef %84, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.326, i32 noundef %84)
-  %86 = add i32 %.4, 2
-  %87 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %86)
-  %88 = load i32, ptr @hf_cops_pcmm_classifier_action, align 4
-  %89 = zext i8 %87 to i32
-  %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %88, ptr noundef %0, i32 noundef %86, i32 noundef 1, i32 noundef %89, ptr noundef nonnull @.str.728, ptr noundef nonnull @.str.329, i32 noundef %89)
-  br label %91
-
-91:                                               ; preds = %80, %75
+93:                                               ; preds = %.critedge, %64
   ret void
 }
 

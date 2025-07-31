@@ -766,8 +766,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread:          ; preds = %5
 
 _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   %7 = load i8, ptr %0, align 1, !tbaa !3
-  %.not36 = icmp eq i8 %7, 0
-  br i1 %.not36, label %.critedge, label %8
+  %.not34 = icmp eq i8 %7, 0
+  br i1 %.not34, label %.critedge, label %8
 
 8:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
   %9 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
@@ -803,8 +803,8 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   store ptr %17, ptr %22, align 8, !tbaa !55
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %19, %20, %8, %_ZL7isAliasPKcP10UErrorCode.exit.thread, %3, %_ZL7isAliasPKcP10UErrorCode.exit
-  %.3 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ], [ null, %15 ], [ null, %19 ], [ null, %8 ], [ %13, %20 ]
+.critedge:                                        ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.thread, %19, %15, %3, %_ZL7isAliasPKcP10UErrorCode.exit, %8, %20
+  %.3 = phi ptr [ null, %_ZL7isAliasPKcP10UErrorCode.exit ], [ null, %3 ], [ %13, %20 ], [ null, %8 ], [ null, %15 ], [ null, %19 ], [ null, %_ZL7isAliasPKcP10UErrorCode.exit.thread ]
   ret ptr %.3
 }
 

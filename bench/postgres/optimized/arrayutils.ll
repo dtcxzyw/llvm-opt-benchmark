@@ -61,7 +61,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItems(i32 noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %0, 1
-  br i1 %4, label %.thread, label %.preheader.preheader
+  br i1 %4, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -74,7 +74,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
 
 .preheader:                                       ; preds = %.preheader.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
-  %.02435 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
+  %.02433 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
   %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
@@ -82,10 +82,10 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
 
 9:                                                ; preds = %.preheader
   %10 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
-  br i1 %10, label %.thread.sink.split, label %.thread
+  br i1 %10, label %.critedge.sink.split, label %.critedge
 
 11:                                               ; preds = %.preheader
-  %sext = shl i64 %.02435, 32
+  %sext = shl i64 %.02433, 32
   %12 = ashr exact i64 %sext, 32
   %13 = zext nneg i32 %7 to i64
   %14 = mul nsw i64 %12, %13
@@ -95,26 +95,26 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
 
 16:                                               ; preds = %11
   %17 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
-  br i1 %17, label %.thread.sink.split, label %.thread
+  br i1 %17, label %.critedge.sink.split, label %.critedge
 
 18:                                               ; preds = %5
-  %19 = trunc nuw nsw i64 %14 to i32
+  %19 = trunc nsw i64 %14 to i32
   %20 = icmp ugt i64 %14, 134217727
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %18
   %22 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
-  br i1 %22, label %.thread.sink.split, label %.thread
+  br i1 %22, label %.critedge.sink.split, label %.critedge
 
-.thread.sink.split:                               ; preds = %21, %16, %9
+.critedge.sink.split:                             ; preds = %21, %16, %9
   %.sink = phi i32 [ 84, %9 ], [ 93, %16 ], [ 100, %21 ]
   %23 = tail call i32 @errcode(i32 noundef 261) #8
   %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 134217727) #8
   tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ArrayGetNItemsSafe) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.sink.split, %16, %9, %18, %21, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %21 ], [ %19, %18 ], [ -1, %9 ], [ -1, %16 ], [ -1, %.thread.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %9, %16, %18, %21, %3
+  %.0 = phi i32 [ 0, %3 ], [ -1, %21 ], [ %19, %18 ], [ -1, %16 ], [ -1, %9 ], [ -1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

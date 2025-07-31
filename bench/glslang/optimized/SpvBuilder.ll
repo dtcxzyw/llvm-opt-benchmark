@@ -17945,21 +17945,21 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
   %15 = lshr exact i64 %14, 3
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph26, label %.critedge.thread
+  br i1 %17, label %.lr.ph27, label %.critedge23
 
-.lr.ph26:                                         ; preds = %4, %.loopexit
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.loopexit ], [ 0, %4 ]
+.lr.ph27:                                         ; preds = %4, %.loopexit
+  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.loopexit ], [ 0, %4 ]
   store i32 %1, ptr %6, align 4
   %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv31
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, %2
   br i1 %.not, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph26
+.preheader:                                       ; preds = %.lr.ph27
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -17991,8 +17991,8 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
   %.not21 = icmp eq i32 %38, %40
   br i1 %.not21, label %35, label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.lr.ph26
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+.loopexit:                                        ; preds = %36, %.lr.ph27
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   store i32 %1, ptr %5, align 4
   %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -18003,15 +18003,15 @@ define noundef i32 @_ZN3spv7Builder21findCompositeConstantENS_2OpEjRKSt6vectorIj
   %47 = sub i64 %45, %46
   %sext = shl i64 %47, 29
   %48 = ashr i64 %sext, 32
-  %49 = icmp slt i64 %indvars.iv.next32, %48
-  br i1 %49, label %.lr.ph26, label %.critedge.thread, !llvm.loop !336
+  %49 = icmp slt i64 %indvars.iv.next33, %48
+  br i1 %49, label %.lr.ph27, label %.critedge23, !llvm.loop !336
 
 .critedge:                                        ; preds = %.preheader, %35
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %51 = load i32, ptr %50, align 8
-  br label %.critedge.thread
+  br label %.critedge23
 
-.critedge.thread:                                 ; preds = %.loopexit, %4, %.critedge
+.critedge23:                                      ; preds = %.loopexit, %4, %.critedge
   %52 = phi i32 [ %51, %.critedge ], [ 0, %4 ], [ 0, %.loopexit ]
   ret i32 %52
 }
@@ -18031,13 +18031,13 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
   %13 = lshr exact i64 %12, 3
   %14 = trunc i64 %13 to i32
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph22, label %.critedge.thread
+  br i1 %15, label %.lr.ph23, label %.critedge18
 
-.lr.ph22:                                         ; preds = %3, %37
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %37 ], [ 0, %3 ]
+.lr.ph23:                                         ; preds = %3, %37
+  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %37 ], [ 0, %3 ]
   %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv27
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv28
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -18051,7 +18051,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %30 = load ptr, ptr %2, align 8
   %wide.trip.count = and i64 %27, 2147483647
   br label %32
@@ -18071,7 +18071,7 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
   br i1 %.not, label %31, label %37
 
 37:                                               ; preds = %32
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -18081,15 +18081,15 @@ define noundef i32 @_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE(ptr
   %44 = sub i64 %42, %43
   %sext = shl i64 %44, 29
   %45 = ashr i64 %sext, 32
-  %46 = icmp slt i64 %indvars.iv.next28, %45
-  br i1 %46, label %.lr.ph22, label %.critedge.thread, !llvm.loop !338
+  %46 = icmp slt i64 %indvars.iv.next29, %45
+  br i1 %46, label %.lr.ph23, label %.critedge18, !llvm.loop !338
 
-.critedge:                                        ; preds = %.lr.ph22, %31
+.critedge:                                        ; preds = %.lr.ph23, %31
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %48 = load i32, ptr %47, align 8
-  br label %.critedge.thread
+  br label %.critedge18
 
-.critedge.thread:                                 ; preds = %37, %3, %.critedge
+.critedge18:                                      ; preds = %37, %3, %.critedge
   %49 = phi i32 [ %48, %.critedge ], [ 0, %3 ], [ 0, %37 ]
   ret i32 %49
 }
@@ -18255,13 +18255,13 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %76 = lshr exact i64 %75, 3
   %77 = trunc i64 %76 to i32
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph22.i, label %_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit.thread
+  br i1 %78, label %.lr.ph23.i, label %_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit.thread
 
-.lr.ph22.i:                                       ; preds = %67, %100
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %100 ], [ 0, %67 ]
+.lr.ph23.i:                                       ; preds = %67, %100
+  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %100 ], [ 0, %67 ]
   %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv27.i
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv28.i
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
@@ -18275,7 +18275,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.lr.ph.i, label %_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph22.i
+.lr.ph.i:                                         ; preds = %.lr.ph23.i
   %93 = load ptr, ptr %2, align 8
   %wide.trip.count.i = and i64 %90, 2147483647
   br label %95
@@ -18295,7 +18295,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %.not.i, label %94, label %100
 
 100:                                              ; preds = %95
-  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %101 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIjSt4pairIKjSt6vectorIPN3spv11InstructionESaIS6_EEESaIS9_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %68, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
@@ -18305,14 +18305,14 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %107 = sub i64 %105, %106
   %sext.i = shl i64 %107, 29
   %108 = ashr i64 %sext.i, 32
-  %109 = icmp slt i64 %indvars.iv.next28.i, %108
-  br i1 %109, label %.lr.ph22.i, label %_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit.thread, !llvm.loop !338
+  %109 = icmp slt i64 %indvars.iv.next29.i, %108
+  br i1 %109, label %.lr.ph23.i, label %_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit.thread, !llvm.loop !338
 
 _ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit.thread: ; preds = %100, %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %114
 
-_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit: ; preds = %.lr.ph22.i, %94
+_ZN3spv7Builder18findStructConstantEjRKSt6vectorIjSaIjEE.exit: ; preds = %.lr.ph23.i, %94
   %110 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %111 = load i32, ptr %110, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

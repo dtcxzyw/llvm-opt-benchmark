@@ -20,7 +20,7 @@ define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(no
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load i32, ptr %4, align 1, !tbaa !11
   %.not = icmp eq i32 %5, 1735092833
-  br i1 %.not, label %6, label %.thread
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -47,7 +47,7 @@ define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(no
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %or.cond.i.i, label %.thread, label %23
+  br i1 %or.cond.i.i, label %.critedge, label %23
 
 23:                                               ; preds = %6
   %.not36 = icmp eq i8 %8, 0
@@ -81,8 +81,8 @@ define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(no
   %38 = add nsw i32 %33, -4
   %39 = lshr i32 %25, %38
   %40 = shl nuw nsw i32 %33, 4
-  %reass.sub212 = sub nsw i32 %39, %40
-  %41 = add nsw i32 %reass.sub212, 480
+  %reass.sub208 = sub nsw i32 %39, %40
+  %41 = add nsw i32 %reass.sub208, 480
   %42 = sub nsw i32 36, %33
   %..i.i = tail call i32 @llvm.umin.i32(i32 %17, i32 %42)
   br label %get_ur_golomb_shorten.exit
@@ -188,8 +188,8 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
 
 99:                                               ; preds = %get_ur_golomb_shorten.exit
   %100 = lshr i32 %88, %96
-  %reass.sub213 = sub nsw i32 %100, %96
-  %101 = add nsw i32 %reass.sub213, 30
+  %reass.sub209 = sub nsw i32 %100, %96
+  %101 = add nsw i32 %reass.sub209, 30
   br label %get_ur_golomb_shorten.exit62
 
 .preheader.i.i44:                                 ; preds = %106, %.preheader126.i.i43
@@ -256,8 +256,8 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
   %132 = add nsw i32 %33, -2
   %133 = lshr i32 %25, %132
   %134 = shl nuw nsw i32 %33, 2
-  %reass.sub210 = sub nsw i32 %133, %134
-  %135 = add nsw i32 %reass.sub210, 120
+  %reass.sub206 = sub nsw i32 %133, %134
+  %135 = add nsw i32 %reass.sub206, 120
   %136 = sub nsw i32 34, %33
   %..i.i87 = tail call i32 @llvm.umin.i32(i32 %17, i32 %136)
   br label %get_ur_golomb_shorten.exit88
@@ -275,7 +275,7 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
   %140 = phi i32 [ %151, %141 ], [ 25, %.preheader126.i.i69 ]
   %.0110130.i.i85 = phi i32 [ %143, %141 ], [ 0, %.preheader126.i.i69 ]
   %.not122.i.i86 = icmp ugt i32 %.018.i.i, %.0110130.i.i85
-  br i1 %.not122.i.i86, label %141, label %.thread
+  br i1 %.not122.i.i86, label %141, label %.critedge
 
 141:                                              ; preds = %.lr.ph.i.i84
   %142 = add i32 %.0110130.i.i85, 25
@@ -327,7 +327,7 @@ get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %6
 
 174:                                              ; preds = %._crit_edge.i.i74
   %175 = icmp eq i32 %.1.lcssa.i.i76, 2147483646
-  br i1 %175, label %get_ur_golomb_shorten.exit88.thread143, label %.thread
+  br i1 %175, label %get_ur_golomb_shorten.exit88.thread143, label %.critedge
 
 get_ur_golomb_shorten.exit88.thread143:           ; preds = %174
   store i32 %161, ptr %22, align 8, !tbaa !21
@@ -338,7 +338,7 @@ get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
   %.0106.i.i79 = phi i32 [ %135, %131 ], [ %173, %163 ]
   store i32 %storemerge123.i.i78, ptr %22, align 8, !tbaa !21
   %176 = icmp ugt i32 %.0106.i.i79, 31
-  br i1 %176, label %.thread, label %177
+  br i1 %176, label %.critedge, label %177
 
 177:                                              ; preds = %get_ur_golomb_shorten.exit88.thread143, %get_ur_golomb_shorten.exit88
   %.0106.i.i79146 = phi i32 [ 1, %get_ur_golomb_shorten.exit88.thread143 ], [ %.0106.i.i79, %get_ur_golomb_shorten.exit88 ]
@@ -402,7 +402,7 @@ get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
   %211 = phi i32 [ 25, %.lr.ph.i.i110 ], [ %222, %212 ]
   %.0110130.i.i111 = phi i32 [ %179, %.lr.ph.i.i110 ], [ %214, %212 ]
   %.not122.i.i112 = icmp ugt i32 %199, %.0110130.i.i111
-  br i1 %.not122.i.i112, label %212, label %.thread
+  br i1 %.not122.i.i112, label %212, label %.critedge
 
 212:                                              ; preds = %210
   %213 = add i32 %.0110130.i.i111, 25
@@ -454,7 +454,7 @@ get_ur_golomb_shorten.exit88:                     ; preds = %131, %163
 
 245:                                              ; preds = %._crit_edge.i.i100
   %246 = icmp eq i32 %.1.lcssa.i.i102, 2147483646
-  br i1 %246, label %get_ur_golomb_shorten.exit114.thread150, label %.thread
+  br i1 %246, label %get_ur_golomb_shorten.exit114.thread150, label %.critedge
 
 get_ur_golomb_shorten.exit114.thread150:          ; preds = %245
   store i32 %232, ptr %22, align 8, !tbaa !21
@@ -465,7 +465,7 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   %.0106.i.i105 = phi i32 [ %204, %200 ], [ %244, %234 ]
   store i32 %storemerge123.i.i104, ptr %22, align 8, !tbaa !21
   %247 = icmp ugt i32 %.0106.i.i105, 31
-  br i1 %247, label %.thread, label %248
+  br i1 %247, label %.critedge, label %248
 
 248:                                              ; preds = %get_ur_golomb_shorten.exit114.thread150, %get_ur_golomb_shorten.exit114
   %.0106.i.i105153 = phi i32 [ 1, %get_ur_golomb_shorten.exit114.thread150 ], [ %.0106.i.i105, %get_ur_golomb_shorten.exit114 ]
@@ -509,8 +509,8 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   %272 = add nsw i32 %267, -2
   %273 = lshr i32 %259, %272
   %274 = shl nuw nsw i32 %267, 2
-  %reass.sub211 = sub nsw i32 %273, %274
-  %275 = add nsw i32 %reass.sub211, 120
+  %reass.sub207 = sub nsw i32 %273, %274
+  %275 = add nsw i32 %reass.sub207, 120
   %276 = add i32 %250, 34
   %277 = sub i32 %276, %267
   %..i.i139 = tail call i32 @llvm.umin.i32(i32 %251, i32 %277)
@@ -529,7 +529,7 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
   %282 = phi i32 [ 25, %.lr.ph.i.i136 ], [ %293, %283 ]
   %.0110130.i.i137 = phi i32 [ %250, %.lr.ph.i.i136 ], [ %285, %283 ]
   %.not122.i.i138 = icmp ugt i32 %270, %.0110130.i.i137
-  br i1 %.not122.i.i138, label %283, label %.thread
+  br i1 %.not122.i.i138, label %283, label %.critedge
 
 283:                                              ; preds = %281
   %284 = add i32 %.0110130.i.i137, 25
@@ -581,7 +581,7 @@ get_ur_golomb_shorten.exit114:                    ; preds = %200, %234
 
 316:                                              ; preds = %._crit_edge.i.i126
   %317 = icmp eq i32 %.1.lcssa.i.i128, 2147483646
-  br i1 %317, label %get_ur_golomb_shorten.exit140.thread157, label %.thread
+  br i1 %317, label %get_ur_golomb_shorten.exit140.thread157, label %.critedge
 
 get_ur_golomb_shorten.exit140.thread157:          ; preds = %316
   store i32 %303, ptr %22, align 8, !tbaa !21
@@ -592,9 +592,9 @@ get_ur_golomb_shorten.exit140:                    ; preds = %271, %305
   %.0106.i.i131 = phi i32 [ %275, %271 ], [ %315, %305 ]
   store i32 %storemerge123.i.i130, ptr %22, align 8, !tbaa !21
   %318 = icmp ugt i32 %.0106.i.i131, 31
-  br i1 %318, label %.thread, label %319
+  br i1 %318, label %.critedge, label %319
 
-319:                                              ; preds = %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit140.thread157
+319:                                              ; preds = %get_ur_golomb_shorten.exit140.thread157, %get_ur_golomb_shorten.exit140
   %.0106.i.i131160 = phi i32 [ 1, %get_ur_golomb_shorten.exit140.thread157 ], [ %.0106.i.i131, %get_ur_golomb_shorten.exit140 ]
   %320 = call fastcc i32 @get_ur_golomb_shorten(ptr noundef %2, i32 noundef %.0106.i.i131160)
   %321 = add i32 %320, -65536
@@ -606,7 +606,7 @@ get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126,
   %.029 = phi i32 [ %178, %319 ], [ %.0106.i.i, %._crit_edge.i.i48 ], [ %.0106.i.i, %99 ], [ %.0106.i.i, %126 ], [ %.0106.i.i, %.lr.ph.i.i58 ]
   %.027 = phi i32 [ %249, %319 ], [ %.1.lcssa.i.i50, %._crit_edge.i.i48 ], [ %101, %99 ], [ %.125.i.i51, %126 ], [ -1, %.lr.ph.i.i58 ]
   %.026 = phi i32 [ %323, %319 ], [ 51, %._crit_edge.i.i48 ], [ 51, %99 ], [ 51, %126 ], [ 51, %.lr.ph.i.i58 ]
-  switch i32 %.029, label %.thread [
+  switch i32 %.029, label %.critedge [
     i32 5, label %324
     i32 3, label %324
     i32 2, label %324
@@ -616,10 +616,10 @@ get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126,
   %325 = add i32 %.027, -9
   %or.cond5 = icmp ult i32 %325, -8
   %spec.select = select i1 %or.cond5, i32 0, i32 %.026
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i84, %210, %281, %316, %245, %174, %324, %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit114, %get_ur_golomb_shorten.exit88, %get_ur_golomb_shorten.exit62, %6, %1
-  %.031 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ %spec.select, %324 ], [ 0, %174 ], [ 0, %245 ], [ 0, %316 ], [ 0, %281 ], [ 0, %210 ], [ 0, %.lr.ph.i.i84 ]
+.critedge:                                        ; preds = %.lr.ph.i.i84, %210, %281, %316, %245, %174, %324, %get_ur_golomb_shorten.exit88, %get_ur_golomb_shorten.exit114, %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit62, %6, %1
+  %.031 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ %spec.select, %324 ], [ 0, %174 ], [ 0, %245 ], [ 0, %316 ], [ 0, %281 ], [ 0, %210 ], [ 0, %.lr.ph.i.i84 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
   ret i32 %.031
 }

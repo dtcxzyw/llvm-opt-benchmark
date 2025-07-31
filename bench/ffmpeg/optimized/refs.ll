@@ -204,13 +204,13 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_set_new_ref(ptr noundef readonly ca
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3
   %39 = load i8, ptr %38, align 1, !tbaa !94
   %.not.i = icmp eq i8 %39, 0
-  br i1 %.not.i, label %.thread.i, label %.preheader.i
+  br i1 %.not.i, label %.critedge.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !98
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %.thread.i, label %.lr.ph.i
+  br i1 %42, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -218,9 +218,12 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_set_new_ref(ptr noundef readonly ca
   %45 = zext nneg i32 %41 to i64
   br label %46
 
+._crit_edge.i:                                    ; preds = %59
+  br i1 %.226.i, label %62, label %.critedge.i
+
 46:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
-  %.12536.i = phi i1 [ false, %.lr.ph.i ], [ %.226.i, %59 ]
+  %.12534.i = phi i1 [ false, %.lr.ph.i ], [ %.226.i, %59 ]
   %47 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %44, i64 %indvars.iv.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !100
@@ -236,22 +239,19 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_set_new_ref(ptr noundef readonly ca
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 1345
   %55 = load i8, ptr %54, align 1, !tbaa !103
   %56 = icmp ne i8 %55, 2
-  %57 = or i1 %.12536.i, %56
+  %57 = or i1 %.12534.i, %56
   %58 = icmp eq i8 %55, 0
   br label %59
 
 59:                                               ; preds = %53, %50, %46
-  %.226.i = phi i1 [ %57, %53 ], [ %.12536.i, %50 ], [ %.12536.i, %46 ]
+  %.226.i = phi i1 [ %57, %53 ], [ %.12534.i, %50 ], [ %.12534.i, %46 ]
   %.2.i = phi i1 [ %58, %53 ], [ false, %50 ], [ false, %46 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = icmp samesign uge i64 %indvars.iv.next.i, %45
   %.not31.i = select i1 %60, i1 true, i1 %.2.i
   br i1 %.not31.i, label %._crit_edge.i, label %46, !llvm.loop !106
 
-._crit_edge.i:                                    ; preds = %59
-  br i1 %.226.i, label %62, label %.thread.i
-
-.thread.i:                                        ; preds = %._crit_edge.i, %.preheader.i, %36
+.critedge.i:                                      ; preds = %._crit_edge.i, %.preheader.i, %36
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 120
   store i32 1, ptr %61, align 8, !tbaa !84
   br label %set_pict_type.exit
@@ -268,7 +268,7 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_set_new_ref(ptr noundef readonly ca
   store i32 2, ptr %63, align 8, !tbaa !84
   br label %set_pict_type.exit
 
-set_pict_type.exit:                               ; preds = %31, %.thread.i, %64, %65
+set_pict_type.exit:                               ; preds = %31, %.critedge.i, %64, %65
   store ptr %28, ptr %2, align 8, !tbaa !107
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 18952
   store ptr %26, ptr %66, align 8, !tbaa !108

@@ -571,7 +571,7 @@ define internal fastcc zeroext i1 @check_pte(ptr noundef readonly captures(none)
   %13 = icmp eq i64 %12, 0
   %14 = icmp ne i64 %10, 0
   %15 = or i1 %13, %14
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
   %17 = xor i64 %5, -1
@@ -581,7 +581,7 @@ define internal fastcc zeroext i1 @check_pte(ptr noundef readonly captures(none)
   %.mask = and i64 %5, -576460752303423488
   %21 = icmp ne i64 %.mask, -1152921504606846976
   %22 = and i1 %21, %20
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %16
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #6
@@ -590,14 +590,14 @@ define internal fastcc zeroext i1 @check_pte(ptr noundef readonly captures(none)
 24:                                               ; preds = %23
   br label %25
 
-25:                                               ; preds = %23, %23, %24
+25:                                               ; preds = %24, %23, %23
   %26 = phi i64 [ 17179869183, %24 ], [ 1099511627775, %23 ], [ 1099511627775, %23 ]
   %27 = and i64 %26, %18
   br label %35
 
 28:                                               ; preds = %1
   %29 = icmp eq i64 %10, 0
-  br i1 %29, label %.thread, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %28
   %31 = and i64 %5, 1
@@ -614,10 +614,10 @@ define internal fastcc zeroext i1 @check_pte(ptr noundef readonly captures(none)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp ult i64 %38, %40
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %16, %11, %35, %28
-  %42 = phi i1 [ %41, %35 ], [ false, %28 ], [ false, %11 ], [ false, %16 ]
+.critedge:                                        ; preds = %11, %16, %35, %28
+  %42 = phi i1 [ %41, %35 ], [ false, %28 ], [ false, %16 ], [ false, %11 ]
   ret i1 %42
 }
 

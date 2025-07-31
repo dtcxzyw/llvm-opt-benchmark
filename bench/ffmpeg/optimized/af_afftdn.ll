@@ -1903,11 +1903,11 @@ factor.exit:                                      ; preds = %105
 
 .preheader.i:                                     ; preds = %226, %232
   %indvars.iv.i474 = phi i64 [ %indvars.iv.next.i476, %232 ], [ 0, %226 ]
-  %.01524.i = phi ptr [ null, %232 ], [ %227, %226 ]
+  %.01522.i = phi ptr [ null, %232 ], [ %227, %226 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  %228 = call ptr @av_strtok(ptr noundef %.01524.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #14
+  %228 = call ptr @av_strtok(ptr noundef %.01522.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #14
   %.not20.i = icmp eq ptr %228, null
-  br i1 %.not20.i, label %.thread.i, label %229
+  br i1 %.not20.i, label %.critedge.i, label %229
 
 229:                                              ; preds = %.preheader.i
   %230 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %228, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #14
@@ -1916,11 +1916,7 @@ factor.exit:                                      ; preds = %105
 
 231:                                              ; preds = %229
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.5) #14
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %.preheader.i, %231
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  br label %.loopexit.i475
+  br label %.critedge.i
 
 232:                                              ; preds = %229
   %233 = load float, ptr %4, align 4, !tbaa !84
@@ -1936,7 +1932,11 @@ factor.exit:                                      ; preds = %105
   %exitcond.not.i477 = icmp eq i64 %indvars.iv.next.i476, 15
   br i1 %exitcond.not.i477, label %.loopexit.i475, label %.preheader.i, !llvm.loop !156
 
-.loopexit.i475:                                   ; preds = %232, %.thread.i
+.critedge.i:                                      ; preds = %.preheader.i, %231
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  br label %.loopexit.i475
+
+.loopexit.i475:                                   ; preds = %232, %.critedge.i
   call void @av_free(ptr noundef nonnull %227) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %180, ptr noundef nonnull align 16 dereferenceable(120) %3, i64 120, i1 false)
   br label %read_custom_noise.exit

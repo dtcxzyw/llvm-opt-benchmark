@@ -11904,8 +11904,8 @@ _ZNK4llvh6detail9IEEEFloat10isSmallestEv.exit:    ; preds = %land.lhs.true.i
   %bf.load.i.i.i.i44.pre = load i8, ptr %category, align 2
   %30 = and i8 %bf.load.i.i.i.i44.pre, 8
   %tobool.i39.not = icmp eq i8 %30, 0
-  %or.cond174 = select i1 %cmp4.i, i1 true, i1 %tobool.i39.not
-  br i1 %or.cond174, label %if.end19, label %if.then13
+  %or.cond172 = select i1 %cmp4.i, i1 true, i1 %tobool.i39.not
+  br i1 %or.cond172, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat10isSmallestEv.exit
   %31 = load ptr, ptr %this, align 8
@@ -11940,7 +11940,7 @@ land.lhs.true.i48:                                ; preds = %if.end19
   %38 = load i16, ptr %exponent.i49, align 8
   %39 = load i16, ptr %37, align 4
   %cmp.i50 = icmp eq i16 %38, %39
-  br i1 %cmp.i50, label %land.rhs.i51, label %if.end32.thread146
+  br i1 %cmp.i50, label %land.rhs.i51, label %if.end32.thread156
 
 land.rhs.i51:                                     ; preds = %land.lhs.true.i48
   %precision.i.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -12000,58 +12000,50 @@ if.then23:                                        ; preds = %_ZNK4llvh6detail9IE
   br label %sw.epilog
 
 if.end32.loopexit:                                ; preds = %for.body.i.i
-  %.pre159 = and i8 %bf.load.i.i.i.i44, 8
+  %.pre167 = and i8 %bf.load.i.i.i.i44, 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.loopexit, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit
-  %.pre-phi = phi i8 [ %.pre159, %if.end32.loopexit ], [ %45, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit ]
+  %.pre-phi = phi i8 [ %.pre167, %if.end32.loopexit ], [ %45, %_ZNK4llvh6detail9IEEEFloat9isLargestEv.exit ]
   %tobool.i71.not = icmp eq i8 %.pre-phi, 0
   br i1 %tobool.i71.not, label %land.lhs.true.i98, label %if.then34
 
-if.end32.thread146:                               ; preds = %land.lhs.true.i48
+if.end32.thread156:                               ; preds = %land.lhs.true.i48
   %48 = and i8 %bf.load.i.i.i.i44, 8
-  %tobool.i71147.not = icmp eq i8 %48, 0
-  br i1 %tobool.i71147.not, label %land.lhs.true.i98, label %if.then34
+  %tobool.i71157.not = icmp eq i8 %48, 0
+  br i1 %tobool.i71157.not, label %land.lhs.true.i98, label %if.then34
 
 if.end32.thread:                                  ; preds = %if.end19
   %49 = and i8 %bf.load.i.i.i.i44, 8
-  %tobool.i71145.not = icmp eq i8 %49, 0
-  br i1 %tobool.i71145.not, label %land.rhs51, label %if.end32.thread.if.then34_crit_edge
+  %tobool.i71155.not = icmp eq i8 %49, 0
+  br i1 %tobool.i71155.not, label %land.rhs51, label %if.end32.thread.if.then34_crit_edge
 
 if.end32.thread.if.then34_crit_edge:              ; preds = %if.end32.thread
   %exponent35.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load i16, ptr %exponent35.phi.trans.insert, align 8
   br label %if.then34
 
-if.then34:                                        ; preds = %if.end32.thread.if.then34_crit_edge, %if.end32.thread146, %if.end32
-  %50 = phi i16 [ %.pre, %if.end32.thread.if.then34_crit_edge ], [ %38, %if.end32.thread146 ], [ %38, %if.end32 ]
+if.then34:                                        ; preds = %if.end32.thread.if.then34_crit_edge, %if.end32.thread156, %if.end32
+  %50 = phi i16 [ %.pre, %if.end32.thread.if.then34_crit_edge ], [ %38, %if.end32.thread156 ], [ %38, %if.end32 ]
   %exponent35 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %minExponent = getelementptr inbounds nuw i8, ptr %37, i64 2
   %51 = load i16, ptr %minExponent, align 2
   %cmp.not = icmp eq i16 %50, %51
-  %precision.i.i86.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.pre152 = load i32, ptr %precision.i.i86.phi.trans.insert, align 4
-  br i1 %cmp.not, label %if.then34.land.end_crit_edge, label %land.rhs
-
-if.then34.land.end_crit_edge:                     ; preds = %if.then34
-  %significand.i88.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre153 = load ptr, ptr %significand.i88.phi.trans.insert, align 8
-  %.pre164 = add i32 %.pre152, -64
-  %.pre166 = add i32 %.pre152, 64
-  %.pre167 = lshr i32 %.pre166, 6
-  br label %land.end.thread
+  %precision.i.i141 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %52 = load i32, ptr %precision.i.i141, align 4
+  %53 = add i32 %52, -64
+  %cmp.i142 = icmp ult i32 %53, -128
+  %significand.i143 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %54 = load ptr, ptr %significand.i143, align 8
+  %retval.0.i144 = select i1 %cmp.i142, ptr %54, ptr %significand.i143
+  %sub.i.i146 = add i32 %52, 64
+  %div1.i.i147 = lshr i32 %sub.i.i146, 6
+  br i1 %cmp.not, label %sw.epilog.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then34
-  %52 = add i32 %.pre152, -64
-  %cmp.i.i.i73 = icmp ult i32 %52, -128
-  %significand.i.i.i74 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %53 = load ptr, ptr %significand.i.i.i74, align 8
-  %retval.0.i.i.i75 = select i1 %cmp.i.i.i73, ptr %53, ptr %significand.i.i.i74
-  %sub.i.i.i76 = add i32 %.pre152, 64
-  %div1.i.i.i77 = lshr i32 %sub.i.i.i76, 6
-  %sub.i78 = add nsw i32 %div1.i.i.i77, -1
+  %sub.i78 = add nsw i32 %div1.i.i147, -1
   %cmp7.not.i = icmp eq i32 %sub.i78, 0
-  br i1 %cmp7.not.i, label %land.end, label %for.body.preheader.i
+  br i1 %cmp7.not.i, label %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %land.rhs
   %wide.trip.count.i = zext i32 %sub.i78 to i64
@@ -12060,92 +12052,83 @@ for.body.preheader.i:                             ; preds = %land.rhs
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %land.end, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i79 = getelementptr inbounds nuw i64, ptr %retval.0.i.i.i75, i64 %indvars.iv.i
-  %54 = load i64, ptr %arrayidx.i79, align 8
-  %tobool.not.i80 = icmp eq i64 %54, 0
-  br i1 %tobool.not.i80, label %for.cond.i, label %land.end.thread
+  %arrayidx.i79 = getelementptr inbounds nuw i64, ptr %retval.0.i144, i64 %indvars.iv.i
+  %55 = load i64, ptr %arrayidx.i79, align 8
+  %tobool.not.i80 = icmp eq i64 %55, 0
+  br i1 %tobool.not.i80, label %for.cond.i, label %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit.thread
 
-land.end.thread:                                  ; preds = %for.body.i, %if.then34.land.end_crit_edge
-  %div1.i.i92.pre-phi.ph = phi i32 [ %.pre167, %if.then34.land.end_crit_edge ], [ %div1.i.i.i77, %for.body.i ]
-  %.pre-phi165.ph = phi i32 [ %.pre164, %if.then34.land.end_crit_edge ], [ %52, %for.body.i ]
-  %.ph = phi ptr [ %.pre153, %if.then34.land.end_crit_edge ], [ %53, %for.body.i ]
-  %cmp.i87170 = icmp ult i32 %.pre-phi165.ph, -128
-  %significand.i88171 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %retval.0.i89172 = select i1 %cmp.i87170, ptr %.ph, ptr %significand.i88171
-  %call.i173 = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i89172, i64 noundef 1, i32 noundef %div1.i.i92.pre-phi.ph) #26
+_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit.thread: ; preds = %for.body.i
+  %call.i153 = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef nonnull %retval.0.i144, i64 noundef 1, i32 noundef %div1.i.i147) #26
   br label %sw.epilog
 
-land.end:                                         ; preds = %for.cond.i, %land.rhs
+_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit: ; preds = %for.cond.i, %land.rhs
   %idxprom5.pre-phi.i = phi i64 [ 0, %land.rhs ], [ %wide.trip.count.i, %for.cond.i ]
-  %mul.i82 = and i32 %sub.i.i.i76, -64
-  %reass.sub = sub i32 %mul.i82, %.pre152
+  %mul.i82 = and i32 %sub.i.i146, -64
+  %reass.sub = sub i32 %mul.i82, %52
   %add.i83 = add i32 %reass.sub, 1
   %sh_prom.i84 = zext nneg i32 %add.i83 to i64
   %shr.i85 = lshr i64 -1, %sh_prom.i84
-  %arrayidx6.i = getelementptr inbounds nuw i64, ptr %retval.0.i.i.i75, i64 %idxprom5.pre-phi.i
-  %55 = load i64, ptr %arrayidx6.i, align 8
-  %and.i = and i64 %55, %shr.i85
+  %arrayidx6.i = getelementptr inbounds nuw i64, ptr %retval.0.i144, i64 %idxprom5.pre-phi.i
+  %56 = load i64, ptr %arrayidx6.i, align 8
+  %and.i = and i64 %56, %shr.i85
   %tobool7.not.i = icmp eq i64 %and.i, 0
-  %cmp.i87 = icmp ult i32 %52, -128
-  %significand.i88 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %retval.0.i89 = select i1 %cmp.i87, ptr %53, ptr %significand.i88
-  %call.i = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i89, i64 noundef 1, i32 noundef %div1.i.i.i77) #26
+  %call.i = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i144, i64 noundef 1, i32 noundef %div1.i.i147) #26
   br i1 %tobool7.not.i, label %if.then45, label %sw.epilog
 
-if.then45:                                        ; preds = %land.end
-  %56 = load ptr, ptr %this, align 8
-  %precision = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %57 = load i32, ptr %precision, align 4
-  %sub = add i32 %57, -1
-  tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef %retval.0.i89, i32 noundef %sub) #26
-  %58 = load i16, ptr %exponent35, align 8
-  %dec = add i16 %58, -1
+if.then45:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit
+  %57 = load ptr, ptr %this, align 8
+  %precision = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %58 = load i32, ptr %precision, align 4
+  %sub = add i32 %58, -1
+  tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef nonnull %retval.0.i144, i32 noundef %sub) #26
+  %59 = load i16, ptr %exponent35, align 8
+  %dec = add i16 %59, -1
   store i16 %dec, ptr %exponent35, align 8
   br label %sw.epilog
 
-land.lhs.true.i98:                                ; preds = %if.end32, %if.end32.thread146
+land.lhs.true.i98:                                ; preds = %if.end32, %if.end32.thread156
   %minExponent.i100 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %59 = load i16, ptr %minExponent.i100, align 2
-  %cmp.i101 = icmp eq i16 %38, %59
+  %60 = load i16, ptr %minExponent.i100, align 2
+  %cmp.i101 = icmp eq i16 %38, %60
   br i1 %cmp.i101, label %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit, label %land.rhs51
 
 _ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit:    ; preds = %land.lhs.true.i98
   %precision.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %60 = load i32, ptr %precision.i.i.i.i103, align 4
-  %61 = add i32 %60, -64
-  %cmp.i.i1.i = icmp ult i32 %61, -128
+  %61 = load i32, ptr %precision.i.i.i.i103, align 4
+  %62 = add i32 %61, -64
+  %cmp.i.i1.i = icmp ult i32 %62, -128
   %significand.i.i.i104 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %62 = load ptr, ptr %significand.i.i.i104, align 8
-  %retval.0.i.i.i105 = select i1 %cmp.i.i1.i, ptr %62, ptr %significand.i.i.i104
-  %sub.i106 = add i32 %60, -1
+  %63 = load ptr, ptr %significand.i.i.i104, align 8
+  %retval.0.i.i.i105 = select i1 %cmp.i.i1.i, ptr %63, ptr %significand.i.i.i104
+  %sub.i106 = add i32 %61, -1
   %call5.i = tail call noundef i32 @_ZN4llvh5APInt12tcExtractBitEPKmj(ptr noundef %retval.0.i.i.i105, i32 noundef %sub.i106) #26
   %cmp6.i = icmp eq i32 %call5.i, 0
-  %.pre156 = load ptr, ptr %this, align 8
+  %.pre164 = load ptr, ptr %this, align 8
   br i1 %cmp6.i, label %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge, label %land.rhs51
 
 _ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge: ; preds = %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit
-  %precision.i.i.i135.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre156, i64 4
-  %.pre157 = load i32, ptr %precision.i.i.i135.phi.trans.insert, align 4
-  %.pre158 = load ptr, ptr %significand.i.i.i104, align 8
-  %.pre160 = add i32 %.pre157, -64
-  %.pre162 = add i32 %.pre157, 64
-  %.pre163 = lshr i32 %.pre162, 6
+  %precision.i.i.i135.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre164, i64 4
+  %.pre165 = load i32, ptr %precision.i.i.i135.phi.trans.insert, align 4
+  %.pre166 = load ptr, ptr %significand.i.i.i104, align 8
+  %.pre168 = add i32 %.pre165, -64
+  %.pre170 = add i32 %.pre165, 64
+  %.pre171 = lshr i32 %.pre170, 6
   br label %if.else64
 
 land.rhs51:                                       ; preds = %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit, %if.end32.thread, %land.lhs.true.i98
-  %63 = phi ptr [ %37, %if.end32.thread ], [ %37, %land.lhs.true.i98 ], [ %.pre156, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit ]
-  %precision.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %64 = load i32, ptr %precision.i.i.i.i107, align 4
-  %65 = add i32 %64, -64
-  %cmp.i.i.i108 = icmp ult i32 %65, -128
+  %64 = phi ptr [ %37, %if.end32.thread ], [ %37, %land.lhs.true.i98 ], [ %.pre164, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit ]
+  %precision.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %65 = load i32, ptr %precision.i.i.i.i107, align 4
+  %66 = add i32 %65, -64
+  %cmp.i.i.i108 = icmp ult i32 %66, -128
   %significand.i.i.i109 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %66 = load ptr, ptr %significand.i.i.i109, align 8
-  %retval.0.i.i.i110 = select i1 %cmp.i.i.i108, ptr %66, ptr %significand.i.i.i109
-  %sub.i.i.i111 = add i32 %64, 64
+  %67 = load ptr, ptr %significand.i.i.i109, align 8
+  %retval.0.i.i.i110 = select i1 %cmp.i.i.i108, ptr %67, ptr %significand.i.i.i109
+  %sub.i.i.i111 = add i32 %65, 64
   %div1.i.i.i112 = lshr i32 %sub.i.i.i111, 6
   %sub.i113 = add nsw i32 %div1.i.i.i112, -1
   %cmp7.not.i114 = icmp eq i32 %sub.i113, 0
@@ -12163,54 +12146,58 @@ for.cond.i122:                                    ; preds = %for.body.i117
 for.body.i117:                                    ; preds = %for.cond.i122, %for.body.preheader.i115
   %indvars.iv.i118 = phi i64 [ 0, %for.body.preheader.i115 ], [ %indvars.iv.next.i123, %for.cond.i122 ]
   %arrayidx.i119 = getelementptr inbounds nuw i64, ptr %retval.0.i.i.i110, i64 %indvars.iv.i118
-  %67 = load i64, ptr %arrayidx.i119, align 8
-  %tobool.not.i120 = icmp eq i64 %67, -1
+  %68 = load i64, ptr %arrayidx.i119, align 8
+  %tobool.not.i120 = icmp eq i64 %68, -1
   br i1 %tobool.not.i120, label %for.cond.i122, label %if.else64
 
 _ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit: ; preds = %for.cond.i122, %land.rhs51
   %idxprom6.pre-phi.i = phi i64 [ 0, %land.rhs51 ], [ %wide.trip.count.i116, %for.cond.i122 ]
   %mul.i126 = and i32 %sub.i.i.i111, -64
-  %sub3.neg.i = add i32 %64, 63
+  %sub3.neg.i = add i32 %65, 63
   %sub4.i = sub i32 %sub3.neg.i, %mul.i126
   %sh_prom.i127 = zext nneg i32 %sub4.i to i64
   %shl.i = shl nsw i64 -1, %sh_prom.i127
   %arrayidx7.i = getelementptr inbounds nuw i64, ptr %retval.0.i.i.i110, i64 %idxprom6.pre-phi.i
-  %68 = load i64, ptr %arrayidx7.i, align 8
-  %or.i = or i64 %68, %shl.i
+  %69 = load i64, ptr %arrayidx7.i, align 8
+  %or.i = or i64 %69, %shl.i
   %tobool9.not.i = icmp eq i64 %or.i, -1
   br i1 %tobool9.not.i, label %if.then56, label %if.else64
 
 if.then56:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit
   tail call void @_ZN4llvh5APInt5tcSetEPmmj(ptr noundef nonnull %retval.0.i.i.i110, i64 noundef 0, i32 noundef %div1.i.i.i112) #26
-  %69 = load ptr, ptr %this, align 8
-  %precision61 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %70 = load i32, ptr %precision61, align 4
-  %sub62 = add i32 %70, -1
+  %70 = load ptr, ptr %this, align 8
+  %precision61 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %71 = load i32, ptr %precision61, align 4
+  %sub62 = add i32 %71, -1
   tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef nonnull %retval.0.i.i.i110, i32 noundef %sub62) #26
   %exponent63 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %71 = load i16, ptr %exponent63, align 8
-  %inc = add i16 %71, 1
+  %72 = load i16, ptr %exponent63, align 8
+  %inc = add i16 %72, 1
   store i16 %inc, ptr %exponent63, align 8
   br label %sw.epilog
 
 if.else64:                                        ; preds = %for.body.i117, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit
-  %div1.i.i.i140.pre-phi = phi i32 [ %.pre163, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %div1.i.i.i112, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %div1.i.i.i112, %for.body.i117 ]
-  %.pre-phi161 = phi i32 [ %.pre160, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %65, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %65, %for.body.i117 ]
-  %72 = phi ptr [ %.pre158, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %66, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %66, %for.body.i117 ]
-  %cmp.i.i136 = icmp ult i32 %.pre-phi161, -128
+  %div1.i.i.i140.pre-phi = phi i32 [ %.pre171, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %div1.i.i.i112, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %div1.i.i.i112, %for.body.i117 ]
+  %.pre-phi169 = phi i32 [ %.pre168, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %66, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %66, %for.body.i117 ]
+  %73 = phi ptr [ %.pre166, %_ZNK4llvh6detail9IEEEFloat10isDenormalEv.exit.if.else64_crit_edge ], [ %67, %_ZNK4llvh6detail9IEEEFloat20isSignificandAllOnesEv.exit ], [ %67, %for.body.i117 ]
+  %cmp.i.i136 = icmp ult i32 %.pre-phi169, -128
   %significand.i.i137 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %retval.0.i.i138 = select i1 %cmp.i.i136, ptr %72, ptr %significand.i.i137
+  %retval.0.i.i138 = select i1 %cmp.i.i136, ptr %73, ptr %significand.i.i137
   %call.i.i = tail call noundef i64 @_ZN4llvh5APInt9tcAddPartEPmmj(ptr noundef %retval.0.i.i138, i64 noundef 1, i32 noundef %div1.i.i.i140.pre-phi) #26
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %land.end.thread, %if.then32.i, %if.then6, %if.then45, %land.end, %if.else64, %if.then56, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit, %sw.bb, %if.then23, %if.then13, %sw.bb9, %if.end3, %if.end
-  %result.0 = phi i32 [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %sw.bb ], [ 0, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %sw.bb9 ], [ 0, %if.then13 ], [ 0, %if.then45 ], [ 0, %land.end ], [ 0, %if.then56 ], [ 0, %if.else64 ], [ 0, %if.then23 ], [ 1, %if.then6 ], [ 1, %if.then32.i ], [ 0, %land.end.thread ]
+sw.epilog.critedge:                               ; preds = %if.then34
+  %call.i148 = tail call noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef %retval.0.i144, i64 noundef 1, i32 noundef %div1.i.i147) #26
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit.thread, %if.then32.i, %if.then6, %sw.epilog.critedge, %if.then45, %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit, %if.else64, %if.then56, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit, %sw.bb, %if.then23, %if.then13, %sw.bb9, %if.end3, %if.end
+  %result.0 = phi i32 [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %sw.bb ], [ 0, %_ZNK4llvh6detail9IEEEFloat11isSignalingEv.exit ], [ 0, %sw.bb9 ], [ 0, %if.then13 ], [ 0, %if.then45 ], [ 0, %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit ], [ 0, %if.then56 ], [ 0, %if.else64 ], [ 0, %if.then23 ], [ 0, %sw.epilog.critedge ], [ 1, %if.then6 ], [ 1, %if.then32.i ], [ 0, %_ZNK4llvh6detail9IEEEFloat21isSignificandAllZerosEv.exit.thread ]
   br i1 %nextDown, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %sw.epilog
-  %bf.load.i142 = load i8, ptr %category, align 2
-  %bf.set.i143 = xor i8 %bf.load.i142, 8
-  store i8 %bf.set.i143, ptr %category, align 2
+  %bf.load.i150 = load i8, ptr %category, align 2
+  %bf.set.i151 = xor i8 %bf.load.i150, 8
+  store i8 %bf.set.i151, ptr %category, align 2
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then68, %sw.epilog

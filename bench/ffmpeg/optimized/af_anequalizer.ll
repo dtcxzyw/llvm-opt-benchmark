@@ -201,8 +201,8 @@ define internal range(i32 -38, 1) i32 @process_command(ptr noundef %0, ptr nound
   call fastcc void @draw_curves(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %48)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %34, %46, %25, %28, %19, %22, %17
-  %.119.ph = phi i32 [ -22, %17 ], [ -22, %22 ], [ -22, %19 ], [ -22, %28 ], [ -22, %25 ], [ 0, %46 ], [ 0, %34 ]
+.sink.split:                                      ; preds = %17, %22, %19, %28, %25, %46, %34
+  %.119.ph = phi i32 [ 0, %34 ], [ 0, %46 ], [ -22, %25 ], [ -22, %28 ], [ -22, %19 ], [ -22, %22 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15

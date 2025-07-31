@@ -1331,9 +1331,9 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %45 = load ptr, ptr @names_cachep, align 8
   %46 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %45, i32 noundef 3264) #17
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread83, label %48
+  br i1 %47, label %.thread80, label %48
 
-.thread83:                                        ; preds = %39
+.thread80:                                        ; preds = %39
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #17
@@ -1351,7 +1351,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 
 55:                                               ; preds = %48
   %56 = icmp sgt i32 %35, 0
-  br i1 %56, label %57, label %.thread54
+  br i1 %56, label %57, label %.thread51
 
 57:                                               ; preds = %55
   %58 = and i16 %50, 64
@@ -1364,17 +1364,17 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 63:                                               ; preds = %48
   %64 = tail call i32 @utf8s_to_utf16s(ptr noundef %40, i32 noundef %35, i32 noundef 0, ptr noundef nonnull %46, i32 noundef 257) #17
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %.thread86, label %66
+  br i1 %65, label %.thread83, label %66
 
 66:                                               ; preds = %63
   %67 = icmp samesign ugt i32 %64, 255
-  br i1 %67, label %.thread86, label %68
+  br i1 %67, label %.thread83, label %68
 
 68:                                               ; preds = %66
   %69 = shl nuw nsw i32 %64, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr i8, ptr %46, i64 %70
-  br label %.loopexit98
+  br label %.loopexit95
 
 72:                                               ; preds = %106, %57
   %73 = phi i32 [ 0, %57 ], [ %110, %106 ]
@@ -1382,7 +1382,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %75 = phi ptr [ %46, %57 ], [ %109, %106 ]
   %76 = phi ptr [ %40, %57 ], [ %107, %106 ]
   %77 = icmp eq i32 %73, 255
-  br i1 %77, label %.thread86, label %78
+  br i1 %77, label %.thread83, label %78
 
 78:                                               ; preds = %72
   br i1 %59, label %97, label %79
@@ -1396,17 +1396,13 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #17
   store i16 0, ptr %15, align 2, !annotation !5
   %83 = icmp sgt i32 %74, %60
-  br i1 %83, label %.thread49, label %84
+  br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr i8, ptr %76, i64 1
   %86 = call i32 @hex2bin(ptr noundef nonnull %15, ptr noundef %85, i64 noundef 2) #17
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.thread49, label %88
-
-.thread49:                                        ; preds = %82, %84
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #17
-  br label %.thread86
+  br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %84
   %89 = load i8, ptr %15, align 2
@@ -1426,7 +1422,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %99 = sub i32 %35, %74
   %100 = call i32 %98(ptr noundef %76, i32 noundef %99, ptr noundef %75) #17
   %101 = icmp slt i32 %100, 0
-  br i1 %101, label %.thread86, label %102
+  br i1 %101, label %.thread83, label %102
 
 102:                                              ; preds = %97
   %103 = zext nneg i32 %100 to i64
@@ -1440,16 +1436,16 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %109 = getelementptr i8, ptr %75, i64 2
   %110 = add nuw nsw i32 %73, 1
   %111 = icmp slt i32 %108, %35
-  br i1 %111, label %72, label %.loopexit98, !llvm.loop !9
+  br i1 %111, label %72, label %.loopexit95, !llvm.loop !9
 
-.loopexit98:                                      ; preds = %106, %68
+.loopexit95:                                      ; preds = %106, %68
   %112 = phi i32 [ %64, %68 ], [ %110, %106 ]
   %113 = phi ptr [ %71, %68 ], [ %109, %106 ]
   %114 = srem i32 %112, 13
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %127, label %116
 
-116:                                              ; preds = %.loopexit98
+116:                                              ; preds = %.loopexit95
   %117 = getelementptr i8, ptr %113, i64 1
   store i8 0, ptr %113, align 1
   store i8 0, ptr %117, align 1
@@ -1467,10 +1463,14 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %126 = add i32 %122, %118
   br label %127
 
-127:                                              ; preds = %.loopexit98, %116, %121
-  %128 = phi i32 [ %112, %.loopexit98 ], [ %118, %116 ], [ %126, %121 ]
+.critedge:                                        ; preds = %84, %82
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #17
+  br label %.thread83
+
+127:                                              ; preds = %.loopexit95, %116, %121
+  %128 = phi i32 [ %112, %.loopexit95 ], [ %118, %116 ], [ %126, %121 ]
   %129 = icmp sgt i32 %112, 0
-  br i1 %129, label %130, label %.thread54
+  br i1 %129, label %130, label %.thread51
 
 130:                                              ; preds = %127
   %131 = add nsw i32 %112, -1
@@ -1482,19 +1482,19 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %135 = getelementptr i16, ptr %46, i64 %134
   %136 = load i16, ptr %135, align 2
   %137 = icmp ult i16 %136, 32
-  br i1 %137, label %.thread86, label %138
+  br i1 %137, label %.thread83, label %138
 
 138:                                              ; preds = %133
   switch i16 %136, label %139 [
-    i16 124, label %.thread86
-    i16 63, label %.thread86
-    i16 62, label %.thread86
-    i16 60, label %.thread86
-    i16 58, label %.thread86
-    i16 47, label %.thread86
-    i16 42, label %.thread86
-    i16 34, label %.thread86
-    i16 92, label %.thread86
+    i16 124, label %.thread83
+    i16 63, label %.thread83
+    i16 62, label %.thread83
+    i16 60, label %.thread83
+    i16 58, label %.thread83
+    i16 47, label %.thread83
+    i16 42, label %.thread83
+    i16 34, label %.thread83
+    i16 92, label %.thread83
   ]
 
 139:                                              ; preds = %138
@@ -1504,18 +1504,18 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 
 142:                                              ; preds = %139
   %143 = zext nneg i32 %131 to i64
-  br label %.thread54
+  br label %.thread51
 
-.thread54:                                        ; preds = %55, %142, %127
+.thread51:                                        ; preds = %55, %142, %127
   %144 = phi i32 [ %128, %127 ], [ %128, %142 ], [ 0, %55 ]
   %145 = phi i32 [ %112, %127 ], [ %112, %142 ], [ 0, %55 ]
   %146 = phi i64 [ -1, %127 ], [ %143, %142 ], [ -1, %55 ]
   %147 = getelementptr i16, ptr %46, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, 32
-  br i1 %149, label %.thread86, label %150
+  br i1 %149, label %.thread83, label %150
 
-150:                                              ; preds = %.thread54
+150:                                              ; preds = %.thread51
   %151 = getelementptr inbounds nuw i8, ptr %44, i64 232
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %41, align 8
@@ -1537,7 +1537,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %159 = phi ptr [ %157, %150 ], [ %160, %162 ]
   %160 = getelementptr i8, ptr %159, i64 -2
   %161 = icmp ult ptr %160, %46
-  br i1 %161, label %.loopexit96, label %162
+  br i1 %161, label %.loopexit93, label %162
 
 162:                                              ; preds = %158
   %163 = load i16, ptr %160, align 2
@@ -1548,27 +1548,27 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %166 = icmp eq ptr %159, %157
   %167 = select i1 %166, ptr null, ptr %160
   %168 = select i1 %166, i32 %145, i32 0
-  br label %.loopexit96
+  br label %.loopexit93
 
-.loopexit96:                                      ; preds = %158, %165
+.loopexit93:                                      ; preds = %158, %165
   %169 = phi ptr [ %167, %165 ], [ %160, %158 ]
   %170 = phi i32 [ %168, %165 ], [ 0, %158 ]
   %171 = getelementptr i8, ptr %46, i64 -2
   %172 = icmp eq ptr %169, %171
   br i1 %172, label %191, label %173
 
-173:                                              ; preds = %.loopexit96
+173:                                              ; preds = %.loopexit93
   %174 = icmp eq ptr %169, null
   br i1 %174, label %191, label %175
 
 175:                                              ; preds = %173
   %176 = icmp ugt ptr %169, %46
-  br i1 %176, label %.preheader, label %.loopexit94
+  br i1 %176, label %.preheader, label %.loopexit91
 
 .preheader:                                       ; preds = %175, %179
   %177 = phi ptr [ %180, %179 ], [ %46, %175 ]
   %178 = load i16, ptr %177, align 2
-  switch i16 %178, label %.loopexit94 [
+  switch i16 %178, label %.loopexit91 [
     i16 46, label %179
     i16 32, label %179
   ]
@@ -1576,14 +1576,14 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 179:                                              ; preds = %.preheader, %.preheader
   %180 = getelementptr i8, ptr %177, i64 2
   %181 = icmp ult ptr %180, %169
-  br i1 %181, label %.preheader, label %.loopexit94, !llvm.loop !12
+  br i1 %181, label %.preheader, label %.loopexit91, !llvm.loop !12
 
-.loopexit94:                                      ; preds = %179, %.preheader, %175
+.loopexit91:                                      ; preds = %179, %.preheader, %175
   %182 = phi ptr [ %46, %175 ], [ %177, %.preheader ], [ %180, %179 ]
   %183 = icmp eq ptr %182, %169
   br i1 %183, label %191, label %184
 
-184:                                              ; preds = %.loopexit94
+184:                                              ; preds = %.loopexit91
   %185 = ptrtoint ptr %169 to i64
   %186 = ptrtoint ptr %46 to i64
   %187 = sub i64 %185, %186
@@ -1592,25 +1592,25 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %190 = getelementptr i8, ptr %169, i64 2
   br label %191
 
-191:                                              ; preds = %184, %.loopexit94, %173, %.loopexit96
-  %192 = phi ptr [ %190, %184 ], [ null, %173 ], [ null, %.loopexit96 ], [ null, %.loopexit94 ]
-  %193 = phi i32 [ %189, %184 ], [ %170, %173 ], [ %145, %.loopexit96 ], [ %145, %.loopexit94 ]
+191:                                              ; preds = %184, %.loopexit91, %173, %.loopexit93
+  %192 = phi ptr [ %190, %184 ], [ null, %173 ], [ null, %.loopexit93 ], [ null, %.loopexit91 ]
+  %193 = phi i32 [ %189, %184 ], [ %170, %173 ], [ %145, %.loopexit93 ], [ %145, %.loopexit91 ]
   %194 = icmp sgt i32 %193, 0
-  br i1 %194, label %195, label %.thread65
+  br i1 %194, label %195, label %.thread62
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %197 = getelementptr inbounds nuw i8, ptr %152, i64 40
   br label %198
 
-198:                                              ; preds = %.loopexit93, %195
-  %199 = phi i32 [ 2, %195 ], [ %283, %.loopexit93 ]
-  %200 = phi i32 [ 6, %195 ], [ %282, %.loopexit93 ]
-  %201 = phi i32 [ 0, %195 ], [ %284, %.loopexit93 ]
-  %202 = phi i32 [ 0, %195 ], [ %281, %.loopexit93 ]
-  %203 = phi ptr [ %11, %195 ], [ %280, %.loopexit93 ]
-  %204 = phi ptr [ %46, %195 ], [ %285, %.loopexit93 ]
-  %205 = phi i8 [ 7, %195 ], [ %279, %.loopexit93 ]
+198:                                              ; preds = %.loopexit90, %195
+  %199 = phi i32 [ 2, %195 ], [ %283, %.loopexit90 ]
+  %200 = phi i32 [ 6, %195 ], [ %282, %.loopexit90 ]
+  %201 = phi i32 [ 0, %195 ], [ %284, %.loopexit90 ]
+  %202 = phi i32 [ 0, %195 ], [ %281, %.loopexit90 ]
+  %203 = phi ptr [ %11, %195 ], [ %280, %.loopexit90 ]
+  %204 = phi ptr [ %46, %195 ], [ %285, %.loopexit90 ]
+  %205 = phi i8 [ 7, %195 ], [ %279, %.loopexit90 ]
   %206 = load i16, ptr %204, align 2
   switch i16 %206, label %207 [
     i16 46, label %241
@@ -1680,13 +1680,13 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 
 241:                                              ; preds = %198, %198
   %242 = and i8 %205, -5
-  br label %.loopexit93
+  br label %.loopexit90
 
 243:                                              ; preds = %213, %217, %235, %237, %239, %211
   %.ph = phi i8 [ %212, %211 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %221, %217 ], [ %214, %213 ]
-  %.ph59 = phi i32 [ 1, %211 ], [ %209, %239 ], [ 1, %237 ], [ 1, %235 ], [ 1, %217 ], [ 1, %213 ]
+  %.ph56 = phi i32 [ 1, %211 ], [ %209, %239 ], [ 1, %237 ], [ 1, %235 ], [ 1, %217 ], [ 1, %213 ]
   %244 = icmp slt i32 %202, 2
-  %245 = add i32 %.ph59, %202
+  %245 = add i32 %.ph56, %202
   %246 = icmp sgt i32 %245, 2
   %247 = and i1 %244, %246
   %248 = select i1 %247, i32 %202, i32 %199
@@ -1694,7 +1694,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %250 = icmp sgt i32 %245, 6
   %251 = and i1 %249, %250
   %252 = select i1 %251, i32 %202, i32 %200
-  %253 = zext nneg i32 %.ph59 to i64
+  %253 = zext nneg i32 %.ph56 to i64
   br label %254
 
 254:                                              ; preds = %262, %243
@@ -1712,11 +1712,11 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %263 = getelementptr i8, ptr %257, i64 1
   %264 = add nuw nsw i64 %255, 1
   %265 = icmp eq i64 %264, %253
-  br i1 %265, label %.loopexit93, label %254, !llvm.loop !13
+  br i1 %265, label %.loopexit90, label %254, !llvm.loop !13
 
 266:                                              ; preds = %254
   %267 = trunc i64 %255 to i32
-  %268 = add nsw i32 %.ph59, -1
+  %268 = add nsw i32 %.ph56, -1
   %269 = icmp sgt i32 %268, %267
   br i1 %269, label %278, label %270
 
@@ -1728,12 +1728,12 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %275 = ashr exact i64 %274, 1
   %276 = zext nneg i32 %193 to i64
   %277 = icmp slt i64 %275, %276
-  br i1 %277, label %278, label %.thread64
+  br i1 %277, label %278, label %.thread61
 
 278:                                              ; preds = %270, %266
-  br label %.thread64
+  br label %.thread61
 
-.loopexit93:                                      ; preds = %262, %241
+.loopexit90:                                      ; preds = %262, %241
   %279 = phi i8 [ %242, %241 ], [ %.ph, %262 ]
   %280 = phi ptr [ %203, %241 ], [ %263, %262 ]
   %281 = phi i32 [ %202, %241 ], [ %260, %262 ]
@@ -1744,11 +1744,11 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %286 = icmp eq i32 %284, %193
   br i1 %286, label %287, label %198, !llvm.loop !14
 
-287:                                              ; preds = %.loopexit93
+287:                                              ; preds = %.loopexit90
   %288 = icmp eq i32 %281, 0
-  br i1 %288, label %.thread65, label %.thread64
+  br i1 %288, label %.thread62, label %.thread61
 
-.thread64:                                        ; preds = %270, %278, %287
+.thread61:                                        ; preds = %270, %278, %287
   %289 = phi i32 [ 1, %287 ], [ 1, %270 ], [ 0, %278 ]
   %290 = phi i32 [ %283, %287 ], [ %248, %270 ], [ %248, %278 ]
   %291 = phi i32 [ %282, %287 ], [ %252, %270 ], [ %252, %278 ]
@@ -1757,13 +1757,13 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %294 = icmp ne ptr %192, null
   %295 = icmp ult ptr %192, %157
   %296 = and i1 %294, %295
-  br i1 %296, label %.preheader180, label %.loopexit89
+  br i1 %296, label %.preheader177, label %.loopexit86
 
-.preheader180:                                    ; preds = %.thread64, %357
-  %297 = phi i32 [ %360, %357 ], [ 0, %.thread64 ]
-  %298 = phi ptr [ %359, %357 ], [ %12, %.thread64 ]
-  %299 = phi ptr [ %361, %357 ], [ %192, %.thread64 ]
-  %300 = phi i8 [ %358, %357 ], [ 7, %.thread64 ]
+.preheader177:                                    ; preds = %.thread61, %357
+  %297 = phi i32 [ %360, %357 ], [ 0, %.thread61 ]
+  %298 = phi ptr [ %359, %357 ], [ %12, %.thread61 ]
+  %299 = phi ptr [ %361, %357 ], [ %192, %.thread61 ]
+  %300 = phi i8 [ %358, %357 ], [ 7, %.thread61 ]
   %301 = load i16, ptr %299, align 2
   switch i16 %301, label %302 [
     i16 46, label %336
@@ -1776,13 +1776,13 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
     i16 61, label %306
   ]
 
-302:                                              ; preds = %.preheader180
+302:                                              ; preds = %.preheader177
   %303 = load ptr, ptr %196, align 8
   %304 = call i32 %303(i16 noundef zeroext %301, ptr noundef nonnull %14, i32 noundef 6) #17
   %305 = icmp slt i32 %304, 1
   br i1 %305, label %308, label %310
 
-306:                                              ; preds = %.preheader180, %.preheader180, %.preheader180, %.preheader180, %.preheader180, %.preheader180
+306:                                              ; preds = %.preheader177, %.preheader177, %.preheader177, %.preheader177, %.preheader177, %.preheader177
   %307 = and i8 %300, -5
   store i8 95, ptr %14, align 1
   br label %338
@@ -1831,19 +1831,19 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %335 = and i8 %300, -4
   br label %338
 
-336:                                              ; preds = %.preheader180, %.preheader180
+336:                                              ; preds = %.preheader177, %.preheader177
   %337 = and i8 %300, -5
   br label %357
 
 338:                                              ; preds = %308, %312, %330, %332, %334, %306
-  %.ph67 = phi i8 [ %307, %306 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %316, %312 ], [ %309, %308 ]
-  %.ph68 = phi i32 [ 1, %306 ], [ %304, %334 ], [ 1, %332 ], [ 1, %330 ], [ 1, %312 ], [ 1, %308 ]
-  %339 = add i32 %.ph68, %297
+  %.ph64 = phi i8 [ %307, %306 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %316, %312 ], [ %309, %308 ]
+  %.ph65 = phi i32 [ 1, %306 ], [ %304, %334 ], [ 1, %332 ], [ 1, %330 ], [ 1, %312 ], [ 1, %308 ]
+  %339 = add i32 %.ph65, %297
   %340 = icmp sgt i32 %339, 3
-  br i1 %340, label %.loopexit89.loopexit, label %341
+  br i1 %340, label %.loopexit86.loopexit, label %341
 
 341:                                              ; preds = %338
-  %342 = zext nneg i32 %.ph68 to i64
+  %342 = zext nneg i32 %.ph65 to i64
   br label %343
 
 343:                                              ; preds = %343, %341
@@ -1865,27 +1865,27 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %354 = getelementptr i8, ptr %299, i64 2
   %355 = icmp eq ptr %354, %157
   %356 = select i1 %355, i32 %289, i32 0
-  br label %.loopexit89
+  br label %.loopexit86
 
 357:                                              ; preds = %336, %351
-  %358 = phi i8 [ %337, %336 ], [ %.ph67, %351 ]
+  %358 = phi i8 [ %337, %336 ], [ %.ph64, %351 ]
   %359 = phi ptr [ %298, %336 ], [ %348, %351 ]
   %360 = phi i32 [ %297, %336 ], [ %339, %351 ]
   %361 = getelementptr i8, ptr %299, i64 2
   %362 = icmp ult ptr %361, %157
-  br i1 %362, label %.preheader180, label %.loopexit89.loopexit, !llvm.loop !16
+  br i1 %362, label %.preheader177, label %.loopexit86.loopexit, !llvm.loop !16
 
-.loopexit89.loopexit:                             ; preds = %338, %357
-  %.ph123 = phi i8 [ %.ph67, %338 ], [ %358, %357 ]
-  %.ph124 = phi i32 [ %297, %338 ], [ %360, %357 ]
-  %.ph125 = phi i32 [ 0, %338 ], [ %289, %357 ]
-  %363 = sext i32 %.ph124 to i64
-  br label %.loopexit89
+.loopexit86.loopexit:                             ; preds = %338, %357
+  %.ph120 = phi i8 [ %.ph64, %338 ], [ %358, %357 ]
+  %.ph121 = phi i32 [ %297, %338 ], [ %360, %357 ]
+  %.ph122 = phi i32 [ 0, %338 ], [ %289, %357 ]
+  %363 = sext i32 %.ph121 to i64
+  br label %.loopexit86
 
-.loopexit89:                                      ; preds = %.loopexit89.loopexit, %353, %.thread64
-  %364 = phi i8 [ 7, %.thread64 ], [ %.ph67, %353 ], [ %.ph123, %.loopexit89.loopexit ]
-  %365 = phi i64 [ 0, %.thread64 ], [ 3, %353 ], [ %363, %.loopexit89.loopexit ]
-  %366 = phi i32 [ %289, %.thread64 ], [ %356, %353 ], [ %.ph125, %.loopexit89.loopexit ]
+.loopexit86:                                      ; preds = %.loopexit86.loopexit, %353, %.thread61
+  %364 = phi i8 [ 7, %.thread61 ], [ %.ph64, %353 ], [ %.ph120, %.loopexit86.loopexit ]
+  %365 = phi i64 [ 0, %.thread61 ], [ 3, %353 ], [ %363, %.loopexit86.loopexit ]
+  %366 = phi i32 [ %289, %.thread61 ], [ %356, %353 ], [ %.ph122, %.loopexit86.loopexit ]
   %367 = getelementptr [4 x i8], ptr %12, i64 0, i64 %365
   store i8 0, ptr %367, align 1
   %368 = sext i32 %292 to i64
@@ -1912,7 +1912,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %384 = select i1 %381, i1 true, i1 %383
   br i1 %384, label %415, label %385
 
-385:                                              ; preds = %.loopexit89
+385:                                              ; preds = %.loopexit86
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !5
   %386 = call i32 @fat_scan(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %10) #17
@@ -1931,7 +1931,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 
 393:                                              ; preds = %392, %388
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
-  br label %.thread65
+  br label %.thread62
 
 394:                                              ; preds = %385
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
@@ -1953,9 +1953,9 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %406 = and i8 %364, 3
   %407 = icmp eq i8 %406, 0
   %408 = select i1 %405, i1 true, i1 %407
-  br i1 %408, label %.thread75, label %.thread80
+  br i1 %408, label %.thread72, label %.thread77
 
-.thread80:                                        ; preds = %403
+.thread77:                                        ; preds = %403
   %409 = icmp eq i8 %404, 1
   %410 = select i1 %409, i8 8, i8 0
   %411 = icmp eq i8 %406, 1
@@ -1972,7 +1972,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 464, i32 0, i64 12) #17, !srcloc !18
   unreachable
 
-415:                                              ; preds = %.loopexit89
+415:                                              ; preds = %.loopexit86
   %416 = getelementptr inbounds nuw i8, ptr %155, i64 224
   %417 = load i16, ptr %416, align 8
   %418 = and i16 %417, 128
@@ -2057,11 +2057,11 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 458:                                              ; preds = %453
   %459 = getelementptr inbounds nuw i8, ptr %16, i64 7
   store i8 32, ptr %459, align 1
-  %.pre152 = sext i32 %290 to i64
+  %.pre149 = sext i32 %290 to i64
   br label %460
 
 460:                                              ; preds = %458, %453
-  %.pre-phi153 = phi i64 [ %.pre152, %458 ], [ %.pre-phi, %453 ]
+  %.pre-phi150 = phi i64 [ %.pre149, %458 ], [ %.pre-phi, %453 ]
   %461 = phi i32 [ %290, %458 ], [ %434, %453 ]
   %462 = add i32 %461, 4
   %463 = sext i32 %462 to i64
@@ -2077,14 +2077,14 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   store i8 %468, ptr %471, align 1
   %472 = and i32 %455, 65535
   %473 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 5, ptr noundef nonnull @.str.3, i32 noundef %472) #17
-  %474 = getelementptr i8, ptr %16, i64 %.pre-phi153
+  %474 = getelementptr i8, ptr %16, i64 %.pre-phi150
   %475 = load i32, ptr %13, align 4
   store i32 %475, ptr %474, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   %476 = call i32 @fat_scan(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %7) #17
   %477 = icmp eq i32 %476, 0
-  br i1 %477, label %478, label %.loopexit88
+  br i1 %477, label %478, label %.loopexit85
 
 478:                                              ; preds = %460
   %479 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2111,29 +2111,29 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   %490 = call i32 @fat_scan(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %7) #17
   %491 = icmp eq i32 %490, 0
-  br i1 %491, label %480, label %.loopexit88, !llvm.loop !20
+  br i1 %491, label %480, label %.loopexit85, !llvm.loop !20
 
 492:                                              ; preds = %420
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #17
-  br label %.thread75
+  br label %.thread72
 
 493:                                              ; preds = %440
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
-  br label %.thread75
+  br label %.thread72
 
-.loopexit88:                                      ; preds = %485, %460
+.loopexit85:                                      ; preds = %485, %460
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
-  br label %.thread75
+  br label %.thread72
 
-.thread65:                                        ; preds = %191, %393, %287
+.thread62:                                        ; preds = %191, %393, %287
   %494 = phi i32 [ -22, %287 ], [ -17, %393 ], [ -22, %191 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #17
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %11) #17
-  br label %.thread86
+  br label %.thread83
 
-.thread75:                                        ; preds = %403, %492, %493, %.loopexit88
+.thread72:                                        ; preds = %403, %492, %493, %.loopexit85
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #17
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
@@ -2148,11 +2148,11 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %11) #17
   %498 = and i8 %364, 2
-  %.not87 = icmp eq i8 %498, 0
-  %.not = select i1 %497, i1 true, i1 %.not87
+  %.not84 = icmp eq i8 %498, 0
+  %.not = select i1 %497, i1 true, i1 %.not84
   br i1 %.not, label %499, label %570
 
-499:                                              ; preds = %.thread75, %495
+499:                                              ; preds = %.thread72, %495
   %500 = load i8, ptr %16, align 1
   %501 = call i8 @llvm.fshl.i8(i8 %500, i8 %500, i8 7)
   %502 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -2240,8 +2240,8 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %568 = add nsw i32 %540, 1
   br label %570
 
-.thread86:                                        ; preds = %72, %97, %133, %138, %138, %138, %138, %138, %138, %138, %138, %138, %.thread65, %63, %66, %.thread49, %.thread54
-  %.ph85 = phi i32 [ %494, %.thread65 ], [ -22, %.thread49 ], [ -36, %66 ], [ %64, %63 ], [ -22, %.thread54 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %133 ], [ -36, %72 ], [ -22, %97 ]
+.thread83:                                        ; preds = %72, %97, %133, %138, %138, %138, %138, %138, %138, %138, %138, %138, %.thread62, %63, %66, %.critedge, %.thread51
+  %.ph82 = phi i32 [ %494, %.thread62 ], [ -22, %.critedge ], [ -36, %66 ], [ %64, %63 ], [ -22, %.thread51 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %138 ], [ -22, %133 ], [ -36, %72 ], [ -22, %97 ]
   %569 = load ptr, ptr @names_cachep, align 8
   call void @kmem_cache_free(ptr noundef %569, ptr noundef nonnull %46) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #17
@@ -2250,17 +2250,17 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %16) #17
   br label %610
 
-570:                                              ; preds = %.thread80, %.loopexit, %495
-  %.ph7179 = phi i8 [ 0, %495 ], [ 0, %.loopexit ], [ %413, %.thread80 ]
-  %571 = phi i32 [ 1, %495 ], [ %568, %.loopexit ], [ 1, %.thread80 ]
-  %572 = phi ptr [ %37, %495 ], [ %565, %.loopexit ], [ %37, %.thread80 ]
+570:                                              ; preds = %.thread77, %.loopexit, %495
+  %.ph6876 = phi i8 [ 0, %495 ], [ 0, %.loopexit ], [ %413, %.thread77 ]
+  %571 = phi i32 [ 1, %495 ], [ %568, %.loopexit ], [ 1, %.thread77 ]
+  %572 = phi ptr [ %37, %495 ], [ %565, %.loopexit ], [ %37, %.thread77 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(11) %572, ptr noundef nonnull align 1 dereferenceable(11) %16, i64 11, i1 false)
   %573 = icmp eq i32 %2, 0
   %574 = select i1 %573, i8 32, i8 16
   %575 = getelementptr inbounds nuw i8, ptr %572, i64 11
   store i8 %574, ptr %575, align 1
   %576 = getelementptr inbounds nuw i8, ptr %572, i64 12
-  store i8 %.ph7179, ptr %576, align 4
+  store i8 %.ph6876, ptr %576, align 4
   call void @fat_time_unix2fat(ptr noundef %44, ptr noundef %4, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #17
   %577 = load i16, ptr %17, align 2
   %578 = getelementptr inbounds nuw i8, ptr %572, i64 14
@@ -2320,8 +2320,8 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @__mark_inode_dirty(ptr noundef %0, i32 noundef 7) #17
   br label %610
 
-610:                                              ; preds = %.thread86, %.thread83, %609, %607, %570
-  %611 = phi i32 [ %593, %570 ], [ 0, %607 ], [ 0, %609 ], [ -12, %.thread83 ], [ %.ph85, %.thread86 ]
+610:                                              ; preds = %.thread83, %.thread80, %609, %607, %570
+  %611 = phi i32 [ %593, %570 ], [ 0, %607 ], [ 0, %609 ], [ -12, %.thread80 ], [ %.ph82, %.thread83 ]
   call void @kfree(ptr noundef nonnull %37) #17
   br label %.thread
 

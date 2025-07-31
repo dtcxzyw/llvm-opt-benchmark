@@ -2009,14 +2009,14 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   %54 = add nuw nsw i32 %.033.i, 1
   %55 = load i32, ptr %28, align 8
   %56 = tail call i32 @slurm_job_node_ready(i32 noundef %55) #13
-  %.not58.not.not.i.not.not.not = icmp eq i32 %56, -2
+  %.not55.not.not.i.not.not.not = icmp eq i32 %56, -2
   %.b46.pr.pre.i = load i1, ptr @allocation_interrupted, align 1
-  br i1 %.not58.not.not.i.not.not.not, label %thread-pre-split.i, label %57
+  br i1 %.not55.not.not.i.not.not.not, label %thread-pre-split.i, label %57
 
 57:                                               ; preds = %53
   %.b4143.i = load i1, ptr @allocation_revoked, align 1
   %or.cond.i = select i1 %.b46.pr.pre.i, i1 true, i1 %.b4143.i
-  br i1 %or.cond.i, label %75, label %58
+  br i1 %or.cond.i, label %74, label %58
 
 58:                                               ; preds = %57
   switch i32 %56, label %59 [
@@ -2040,20 +2040,20 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   %67 = load i16, ptr getelementptr inbounds nuw (i8, ptr @saopt, i64 10), align 2
   %68 = icmp ne i16 %67, 0
   %or.cond5.i = select i1 %66, i1 %68, i1 false
-  br i1 %or.cond5.i, label %.backedge.i.backedge, label %69
+  br i1 %or.cond5.i, label %.backedge.i.backedge, label %.critedge.i
 
 .backedge.i.backedge:                             ; preds = %64, %62, %58, %58
   br label %.backedge.i, !llvm.loop !21
 
-69:                                               ; preds = %64
-  %70 = tail call i32 @get_log_level() #13
-  %71 = icmp sgt i32 %70, 2
-  br i1 %71, label %72, label %_wait_nodes_ready.exit
+.critedge.i:                                      ; preds = %64
+  %69 = tail call i32 @get_log_level() #13
+  %70 = icmp sgt i32 %69, 2
+  br i1 %70, label %71, label %_wait_nodes_ready.exit
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %74 = load ptr, ptr %73, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef %74) #13
+71:                                               ; preds = %.critedge.i
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %73 = load ptr, ptr %72, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef %73) #13
   br label %_wait_nodes_ready.exit
 
 thread-pre-split.i:                               ; preds = %53
@@ -2061,33 +2061,33 @@ thread-pre-split.i:                               ; preds = %53
 
 thread-pre-split._crit_edge.i:                    ; preds = %thread-pre-split.i
   %.b4047.pre.i = load i1, ptr @allocation_revoked, align 1
-  br i1 %.b4047.pre.i, label %thread-pre-split._crit_edge.i.thread, label %79
+  br i1 %.b4047.pre.i, label %thread-pre-split._crit_edge.i.thread, label %78
 
-75:                                               ; preds = %57
-  br i1 %.b46.pr.pre.i, label %_wait_nodes_ready.exit, label %76
+74:                                               ; preds = %57
+  br i1 %.b46.pr.pre.i, label %_wait_nodes_ready.exit, label %75
 
-76:                                               ; preds = %75
-  br i1 %.b4143.i, label %thread-pre-split._crit_edge.i.thread, label %79
+75:                                               ; preds = %74
+  br i1 %.b4143.i, label %thread-pre-split._crit_edge.i.thread, label %78
 
-thread-pre-split._crit_edge.i.thread:             ; preds = %59, %76, %thread-pre-split._crit_edge.i
-  %77 = load i32, ptr %28, align 8
-  %78 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %77) #13
+thread-pre-split._crit_edge.i.thread:             ; preds = %59, %75, %thread-pre-split._crit_edge.i
+  %76 = load i32, ptr %28, align 8
+  %77 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %76) #13
   store i1 true, ptr @allocation_interrupted, align 1
   br label %_wait_nodes_ready.exit
 
-79:                                               ; preds = %76, %thread-pre-split._crit_edge.i
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, ptr noundef %81) #13
+78:                                               ; preds = %75, %thread-pre-split._crit_edge.i
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, ptr noundef %80) #13
   %.b5.pr.pre = load i1, ptr @allocation_interrupted, align 1
-  br i1 %.b5.pr.pre, label %_wait_nodes_ready.exit, label %83
+  br i1 %.b5.pr.pre, label %_wait_nodes_ready.exit, label %82
 
-83:                                               ; preds = %79
-  %84 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38) #13
+82:                                               ; preds = %78
+  %83 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38) #13
   br label %_wait_nodes_ready.exit
 
-_wait_nodes_ready.exit:                           ; preds = %thread-pre-split.i, %79, %75, %thread-pre-split._crit_edge.i.thread, %72, %69, %83
-  %.0 = phi i32 [ -1, %83 ], [ 0, %69 ], [ 0, %72 ], [ -1, %thread-pre-split._crit_edge.i.thread ], [ -1, %75 ], [ -1, %79 ], [ -1, %thread-pre-split.i ]
+_wait_nodes_ready.exit:                           ; preds = %thread-pre-split.i, %78, %74, %thread-pre-split._crit_edge.i.thread, %71, %.critedge.i, %82
+  %.0 = phi i32 [ -1, %82 ], [ 0, %.critedge.i ], [ 0, %71 ], [ -1, %thread-pre-split._crit_edge.i.thread ], [ -1, %74 ], [ -1, %78 ], [ -1, %thread-pre-split.i ]
   ret i32 %.0
 }
 

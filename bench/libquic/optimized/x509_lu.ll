@@ -1326,7 +1326,7 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %17) #10
   %18 = call i32 @X509_STORE_get_by_subject(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.thread, label %19
+  br i1 %.not, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %4, align 8, !tbaa !38
@@ -1362,12 +1362,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   %35 = load ptr, ptr %0, align 8, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %36) #10
-  br label %.thread
-
-.thread:                                          ; preds = %15, %34
-  call void @sk_free(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  br label %57
+  br label %.critedge
 
 37:                                               ; preds = %X509_OBJECT_free_contents.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
@@ -1385,7 +1380,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.03041 = phi i32 [ 0, %.lr.ph.preheader ], [ %54, %53 ]
+  %.03039 = phi i32 [ 0, %.lr.ph.preheader ], [ %54, %53 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !45
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !27
@@ -1406,7 +1401,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   br label %57
 
 53:                                               ; preds = %.lr.ph
-  %54 = add nuw nsw i32 %.03041, 1
+  %54 = add nuw nsw i32 %.03039, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %54, %39
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
@@ -1417,8 +1412,13 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %56) #10
   br label %57
 
-57:                                               ; preds = %.thread, %2, %._crit_edge, %50
-  %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.thread ]
+.critedge:                                        ; preds = %15, %34
+  call void @sk_free(ptr noundef nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  br label %57
+
+57:                                               ; preds = %.critedge, %2, %._crit_edge, %50
+  %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   ret ptr %.029
 }

@@ -3474,34 +3474,34 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ModuleLinker15getC
 13:                                               ; preds = %5
   %14 = load i8, ptr %12, align 8, !tbaa !261
   %15 = icmp eq i8 %14, 1
-  br i1 %15, label %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit, label %.thread45
+  br i1 %15, label %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit, label %.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit: ; preds = %13
   %16 = tail call noundef ptr @_ZNK4llvm11GlobalAlias16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(64) %12) #15
   %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %17, label %.thread45thread-pre-split
+  br i1 %.not16, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %.threadthread-pre-split
 
-17:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 3, ptr %18, align 8, !tbaa !82, !alias.scope !341
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 5, ptr %19, align 1, !tbaa !88, !alias.scope !341
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 3, ptr %17, align 8, !tbaa !82, !alias.scope !341
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 5, ptr %18, align 1, !tbaa !88, !alias.scope !341
   store ptr @.str.3, ptr %9, align 8, !tbaa !13, !alias.scope !341
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %2, ptr %20, align 8, !tbaa !13, !alias.scope !341
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %3, ptr %21, align 8, !tbaa !13, !alias.scope !341
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %2, ptr %19, align 8, !tbaa !13, !alias.scope !341
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 %3, ptr %20, align 8, !tbaa !13, !alias.scope !341
   store ptr %9, ptr %8, align 8, !alias.scope !344
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @.str.7, ptr %22, align 8, !alias.scope !344
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 2, ptr %23, align 8, !tbaa !82, !alias.scope !344
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 3, ptr %24, align 1, !tbaa !88, !alias.scope !344
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val18 = load ptr, ptr %25, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @.str.7, ptr %21, align 8, !alias.scope !344
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 2, ptr %22, align 8, !tbaa !82, !alias.scope !344
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 3, ptr %23, align 1, !tbaa !88, !alias.scope !344
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val18 = load ptr, ptr %24, align 8, !tbaa !3
   %.val18.val = load ptr, ptr %.val18, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
   call void @_ZN4llvm18LinkDiagnosticInfoC1ENS_18DiagnosticSeverityERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(34) %8) #15
@@ -3509,44 +3509,44 @@ _ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #15
-  br label %36
+  br label %35
 
-.thread45thread-pre-split:                        ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit
+.threadthread-pre-split:                          ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11GlobalAliasEKNS_11GlobalValueEEEDaPT0_.exit
   %.pr = load i8, ptr %16, align 8, !tbaa !261
-  br label %.thread45
+  br label %.thread
 
-.thread45:                                        ; preds = %.thread45thread-pre-split, %13
-  %26 = phi i8 [ %.pr, %.thread45thread-pre-split ], [ %14, %13 ]
-  %.112.ph48 = phi ptr [ %16, %.thread45thread-pre-split ], [ %12, %13 ]
-  %27 = icmp eq i8 %26, 3
-  br i1 %27, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit, label %_ZN4llvmplERKNS_5TwineES2_.exit37
+.thread:                                          ; preds = %.threadthread-pre-split, %13
+  %25 = phi i8 [ %.pr, %.threadthread-pre-split ], [ %14, %13 ]
+  %.11244 = phi ptr [ %16, %.threadthread-pre-split ], [ %12, %13 ]
+  %26 = icmp eq i8 %25, 3
+  br i1 %26, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit, label %_ZN4llvmplERKNS_5TwineES2_.exit37
 
-_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit: ; preds = %.thread45
-  store ptr %.112.ph48, ptr %4, align 8, !tbaa !185
-  br label %36
+_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit: ; preds = %.thread
+  store ptr %.11244, ptr %4, align 8, !tbaa !185
+  br label %35
 
-_ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %5, %.thread45
+_ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %5, %.thread
   store ptr null, ptr %4, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 3, ptr %28, align 8, !tbaa !82, !alias.scope !349
-  %29 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 5, ptr %29, align 1, !tbaa !88, !alias.scope !349
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i8 3, ptr %27, align 8, !tbaa !82, !alias.scope !349
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 5, ptr %28, align 1, !tbaa !88, !alias.scope !349
   store ptr @.str.3, ptr %11, align 8, !tbaa !13, !alias.scope !349
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %2, ptr %30, align 8, !tbaa !13, !alias.scope !349
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %3, ptr %31, align 8, !tbaa !13, !alias.scope !349
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %2, ptr %29, align 8, !tbaa !13, !alias.scope !349
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 %3, ptr %30, align 8, !tbaa !13, !alias.scope !349
   store ptr %11, ptr %10, align 8, !alias.scope !352
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr @.str.8, ptr %32, align 8, !alias.scope !352
-  %33 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 2, ptr %33, align 8, !tbaa !82, !alias.scope !352
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 3, ptr %34, align 1, !tbaa !88, !alias.scope !352
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %35, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr @.str.8, ptr %31, align 8, !alias.scope !352
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 2, ptr %32, align 8, !tbaa !82, !alias.scope !352
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 3, ptr %33, align 1, !tbaa !88, !alias.scope !352
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load ptr, ptr %34, align 8, !tbaa !3
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   call void @_ZN4llvm18LinkDiagnosticInfoC1ENS_18DiagnosticSeverityERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(34) %10) #15
@@ -3554,10 +3554,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %5, %.thread45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #15
-  br label %36
+  br label %35
 
-36:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit, %17, %_ZN4llvmplERKNS_5TwineES2_.exit37
-  %.1 = phi i1 [ true, %_ZN4llvmplERKNS_5TwineES2_.exit37 ], [ true, %17 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit ]
+35:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit37
+  %.1 = phi i1 [ true, %_ZN4llvmplERKNS_5TwineES2_.exit37 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_11GlobalValueEEEDaPT0_.exit ]
   ret i1 %.1
 }
 

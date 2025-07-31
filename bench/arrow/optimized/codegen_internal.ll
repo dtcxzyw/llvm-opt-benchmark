@@ -3603,7 +3603,7 @@ define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr de
   %.idx = mul nuw nsw i64 %2, 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not75 = icmp eq i64 %2, 0
-  br i1 %.not75, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not75, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %12
   %.079 = phi i1 [ %.2.ph, %12 ], [ true, %3 ]
@@ -3646,18 +3646,18 @@ define void @_ZN5arrow7compute8internal12CommonBinaryEPKNS_10TypeHolderEm(ptr de
   br label %79
 
 ._crit_edge:                                      ; preds = %12
-  %15 = trunc nuw i8 %.219.ph to i1
-  br i1 %.222.ph, label %._crit_edge.thread, label %16
+  br i1 %.222.ph, label %.critedge, label %15
 
-._crit_edge.thread:                               ; preds = %3, %._crit_edge
+.critedge:                                        ; preds = %3, %._crit_edge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %79
 
-16:                                               ; preds = %._crit_edge
+15:                                               ; preds = %._crit_edge
+  %16 = trunc nuw i8 %.219.ph to i1
   br i1 %.2.ph, label %17, label %48
 
-17:                                               ; preds = %16
-  br i1 %15, label %18, label %33
+17:                                               ; preds = %15
+  br i1 %16, label %18, label %33
 
 18:                                               ; preds = %17
   %19 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4utf8Ev()
@@ -3723,8 +3723,8 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31: 
   store ptr %37, ptr %47, align 8, !tbaa !39
   br label %79
 
-48:                                               ; preds = %16
-  br i1 %15, label %49, label %64
+48:                                               ; preds = %15
+  br i1 %16, label %49, label %64
 
 49:                                               ; preds = %48
   %50 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6binaryEv()
@@ -3790,7 +3790,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit47: 
   store ptr %68, ptr %78, align 8, !tbaa !39
   br label %79
 
-79:                                               ; preds = %14, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit47, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %._crit_edge.thread
+79:                                               ; preds = %14, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit47, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.critedge
   ret void
 }
 

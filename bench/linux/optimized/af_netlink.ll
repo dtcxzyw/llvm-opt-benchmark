@@ -1498,14 +1498,14 @@ define internal fastcc noundef ptr @netlink_trim(ptr noundef %0, i32 noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @is_vmalloc_addr(ptr noundef %14) #23
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %7
   %17 = shl i32 %12, 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -1516,7 +1516,7 @@ define internal fastcc noundef ptr @netlink_trim(ptr noundef %0, i32 noundef %1)
 25:                                               ; preds = %21
   %26 = tail call ptr @skb_clone(ptr noundef %0, i32 noundef %1) #23
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %25
   tail call void @consume_skb(ptr noundef %0) #23
@@ -1528,9 +1528,9 @@ define internal fastcc noundef ptr @netlink_trim(ptr noundef %0, i32 noundef %1)
   %32 = and i32 %1, -74753
   %33 = or disjoint i32 %32, 73728
   %34 = tail call i32 @pskb_expand_head(ptr noundef %30, i32 noundef 0, i32 noundef %31, i32 noundef %33) #23
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %25, %29, %16, %7
+.critedge:                                        ; preds = %25, %29, %16, %7
   %35 = phi ptr [ %30, %29 ], [ %0, %16 ], [ %0, %7 ], [ %0, %25 ]
   ret ptr %35
 }
@@ -5953,7 +5953,7 @@ define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23
   store i32 0, ptr %7, align 4
   %10 = icmp eq i32 %1, 270
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %6
   %12 = icmp ugt i32 %5, 3
@@ -5968,7 +5968,7 @@ define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, 
   %17 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %3, i64 noundef 4) #23
   %18 = and i64 %17, 4294967295
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %22, label %.thread
+  br i1 %19, label %22, label %.critedge
 
 20:                                               ; preds = %13
   %21 = load i32, ptr %3, align 1
@@ -5976,7 +5976,7 @@ define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, 
   br label %22
 
 22:                                               ; preds = %20, %16, %11
-  switch i32 %2, label %.thread [
+  switch i32 %2, label %.critedge [
     i32 3, label %129
     i32 1, label %23
     i32 2, label %23
@@ -6006,7 +6006,7 @@ define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, 
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 16
   %38 = call zeroext i1 @ns_capable(ptr noundef %37, i32 noundef 12) #23
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %33, %23
   call void @netlink_table_grab()
@@ -6058,19 +6058,19 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   %73 = phi i32 [ 0, %50 ], [ 0, %63 ], [ -2, %39 ], [ -12, %54 ]
   call void @_raw_write_unlock_irq(ptr noundef nonnull @nl_table_lock) #23
   %74 = call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
-  br i1 %72, label %75, label %.thread
+  br i1 %72, label %75, label %.critedge
 
 75:                                               ; preds = %netlink_realloc_groups.exit
   %76 = load i32, ptr %7, align 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.thread, label %78
+  br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %75
   %79 = add i32 %76, -1
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 768
   %81 = load i32, ptr %80, align 8
   %82 = icmp ult i32 %79, %81
-  br i1 %82, label %83, label %.thread
+  br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %78
   %84 = icmp eq i32 %2, 1
@@ -6087,7 +6087,7 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %87(ptr noundef %91, i32 noundef %76) #23
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %.thread
+  br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %89, %85, %83
   call void @netlink_table_grab()
@@ -6096,20 +6096,20 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   call fastcc void @netlink_update_socket_mc(ptr noundef %9, i32 noundef %95, i32 noundef %96)
   call void @netlink_table_ungrab()
   %97 = icmp eq i32 %2, 2
-  br i1 %97, label %98, label %.thread
+  br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 1016
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread, label %102
+  br i1 %101, label %.critedge, label %102
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr %7, align 4
   call void %100(ptr noundef %104, i32 noundef %105) #23
-  br label %.thread
+  br label %.critedge
 
 106:                                              ; preds = %22
   br label %129
@@ -6131,14 +6131,14 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
 113:                                              ; preds = %112, %111
   %114 = load i32, ptr %7, align 4
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread, label %116
+  br i1 %115, label %.critedge, label %116
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 784
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %117, i32 -2, ptr nonnull elementtype(i8) %117) #23, !srcloc !73
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %119 = call i32 @__wake_up(ptr noundef nonnull %118, i32 noundef 1, i32 noundef 1, ptr noundef null) #23
-  br label %.thread
+  br label %.critedge
 
 120:                                              ; preds = %22
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -6146,7 +6146,7 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = load ptr, ptr %123, align 16
   %125 = call zeroext i1 @ns_capable(ptr noundef %124, i32 noundef 11) #23
-  br i1 %125, label %129, label %.thread
+  br i1 %125, label %129, label %.critedge
 
 126:                                              ; preds = %22
   br label %129
@@ -6157,25 +6157,25 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
 128:                                              ; preds = %22
   br label %129
 
-129:                                              ; preds = %128, %127, %126, %106, %22, %120
-  %.ph6 = phi i64 [ 4, %120 ], [ 1, %22 ], [ 2, %106 ], [ 5, %126 ], [ 6, %127 ], [ 7, %128 ]
-  %130 = getelementptr inbounds nuw i8, ptr %9, i64 744
-  %131 = load i32, ptr %7, align 4
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %134, label %133
-
-133:                                              ; preds = %129
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %130, i64 %.ph6) #23, !srcloc !145
-  br label %.thread
+129:                                              ; preds = %22, %106, %120, %126, %127, %128
+  %130 = phi i64 [ 7, %128 ], [ 6, %127 ], [ 5, %126 ], [ 2, %106 ], [ 1, %22 ], [ 4, %120 ]
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 744
+  %132 = load i32, ptr %7, align 4
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %135, label %134
 
 134:                                              ; preds = %129
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %130, i64 %.ph6) #23, !srcloc !146
-  br label %.thread
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %131, i64 %130) #23, !srcloc !145
+  br label %.critedge
 
-.thread:                                          ; preds = %89, %75, %78, %netlink_realloc_groups.exit, %33, %113, %116, %102, %98, %94, %134, %133, %120, %22, %16, %6
-  %135 = phi i32 [ -92, %6 ], [ -14, %16 ], [ -1, %120 ], [ -92, %22 ], [ 0, %134 ], [ 0, %133 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %116 ], [ 0, %113 ], [ %92, %89 ], [ -22, %75 ], [ -22, %78 ], [ %73, %netlink_realloc_groups.exit ], [ -1, %33 ]
+135:                                              ; preds = %129
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %131, i64 %130) #23, !srcloc !146
+  br label %.critedge
+
+.critedge:                                        ; preds = %89, %75, %78, %netlink_realloc_groups.exit, %33, %116, %113, %102, %98, %94, %135, %134, %120, %22, %16, %6
+  %136 = phi i32 [ -92, %6 ], [ -14, %16 ], [ -1, %120 ], [ -92, %22 ], [ 0, %135 ], [ 0, %134 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %113 ], [ 0, %116 ], [ %92, %89 ], [ -22, %75 ], [ -22, %78 ], [ %73, %netlink_realloc_groups.exit ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23
-  ret i32 %135
+  ret i32 %136
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -62,7 +62,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %.thread, label %.lr.ph
+  br i1 %4, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %48
   %.in = phi i64 [ %7, %48 ], [ %2, %3 ]
@@ -88,7 +88,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
   %24 = and i32 %23, %19
   %25 = add nsw i32 %17, %24
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.thread, label %27, !prof !5
+  br i1 %26, label %.critedge, label %27, !prof !5
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr i8, ptr %5, i64 1
@@ -111,7 +111,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
   %45 = and i32 %44, %40
   %46 = add nsw i32 %38, %45
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread, label %48, !prof !5
+  br i1 %47, label %.critedge, label %48, !prof !5
 
 48:                                               ; preds = %27
   %49 = getelementptr i8, ptr %5, i64 2
@@ -121,10 +121,10 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly ca
   %53 = getelementptr i8, ptr %6, i64 1
   store i8 %52, ptr %6, align 1
   %54 = icmp eq i64 %7, 0
-  br i1 %54, label %.thread, label %.lr.ph
+  br i1 %54, label %.critedge, label %.lr.ph
 
-.thread:                                          ; preds = %48, %.lr.ph, %27, %3
-  %55 = phi i32 [ 0, %3 ], [ -22, %27 ], [ -22, %.lr.ph ], [ 0, %48 ]
+.critedge:                                        ; preds = %48, %27, %.lr.ph, %3
+  %55 = phi i32 [ 0, %3 ], [ -22, %.lr.ph ], [ -22, %27 ], [ 0, %48 ]
   ret i32 %55
 }
 

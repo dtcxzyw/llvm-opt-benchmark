@@ -2685,13 +2685,13 @@ define internal fastcc ptr @x509_to_req(ptr noundef nonnull %0, i32 noundef %1, 
   %7 = tail call ptr @OBJ_nid2obj(i32 noundef 90) #8
   %8 = tail call ptr @X509_to_X509_REQ(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %46, label %10
+  br i1 %9, label %47, label %10
 
 10:                                               ; preds = %3
   %11 = tail call i32 @OBJ_obj2nid(ptr noundef %6) #8
   %12 = tail call ptr @OBJ_nid2sn(i32 noundef %11) #8
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %warn_copying.exit, label %13
+  br i1 %.not.i, label %warn_copying.exit43.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %12) #9
@@ -2703,82 +2703,84 @@ define internal fastcc ptr @x509_to_req(ptr noundef nonnull %0, i32 noundef %1, 
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.247, ptr noundef nonnull %12) #8
   br label %warn_copying.exit
 
-warn_copying.exit:                                ; preds = %10, %13, %15
+warn_copying.exit:                                ; preds = %13, %15
   %18 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #8
   %19 = tail call ptr @OBJ_nid2sn(i32 noundef %18) #8
-  br i1 %.not.i, label %warn_copying.exit43, label %20
+  %20 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %19) #9
+  %.not5.i42 = icmp eq ptr %20, null
+  br i1 %.not5.i42, label %warn_copying.exit43, label %21
 
-20:                                               ; preds = %warn_copying.exit
-  %21 = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %19) #9
-  %.not5.i42 = icmp eq ptr %21, null
-  br i1 %.not5.i42, label %warn_copying.exit43, label %22
-
-22:                                               ; preds = %20
-  %23 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.247, ptr noundef nonnull %19) #8
+21:                                               ; preds = %warn_copying.exit
+  %22 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.247, ptr noundef nonnull %19) #8
   br label %warn_copying.exit43
 
-warn_copying.exit43:                              ; preds = %warn_copying.exit, %20, %22
-  %25 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %5) #8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %.preheader
+warn_copying.exit43.critedge:                     ; preds = %10
+  %24 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #8
+  %25 = tail call ptr @OBJ_nid2sn(i32 noundef %24) #8
+  br label %warn_copying.exit43
+
+warn_copying.exit43:                              ; preds = %warn_copying.exit43.critedge, %warn_copying.exit, %21
+  %26 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %5) #8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %warn_copying.exit43
-  %27 = icmp sgt i32 %5, 0
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %28 = icmp sgt i32 %5, 0
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %35
-  %.03246 = phi i32 [ %36, %35 ], [ 0, %.preheader ]
-  %28 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.03246) #8
-  %29 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %28) #8
-  %30 = tail call i32 @OBJ_cmp(ptr noundef %29, ptr noundef %6) #8
-  %.not36 = icmp eq i32 %30, 0
-  br i1 %.not36, label %35, label %31
+.lr.ph:                                           ; preds = %.preheader, %36
+  %.03246 = phi i32 [ %37, %36 ], [ 0, %.preheader ]
+  %29 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.03246) #8
+  %30 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %29) #8
+  %31 = tail call i32 @OBJ_cmp(ptr noundef %30, ptr noundef %6) #8
+  %.not36 = icmp eq i32 %31, 0
+  br i1 %.not36, label %36, label %32
 
-31:                                               ; preds = %.lr.ph
-  %32 = tail call i32 @OBJ_cmp(ptr noundef %29, ptr noundef %7) #8
-  %.not37 = icmp eq i32 %32, 0
-  br i1 %.not37, label %35, label %33
+32:                                               ; preds = %.lr.ph
+  %33 = tail call i32 @OBJ_cmp(ptr noundef %30, ptr noundef %7) #8
+  %.not37 = icmp eq i32 %33, 0
+  br i1 %.not37, label %36, label %34
 
-33:                                               ; preds = %31
-  %34 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %25, ptr noundef %28) #8
-  %.not38 = icmp eq i32 %34, 0
-  br i1 %.not38, label %.loopexit, label %35
+34:                                               ; preds = %32
+  %35 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %26, ptr noundef %29) #8
+  %.not38 = icmp eq i32 %35, 0
+  br i1 %.not38, label %.loopexit, label %36
 
-35:                                               ; preds = %.lr.ph, %31, %33
-  %36 = add nuw nsw i32 %.03246, 1
-  %exitcond.not = icmp eq i32 %36, %5
+36:                                               ; preds = %.lr.ph, %32, %34
+  %37 = add nuw nsw i32 %.03246, 1
+  %exitcond.not = icmp eq i32 %37, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %35, %.preheader
-  %37 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %25) #8
-  %38 = icmp sgt i32 %37, 0
-  %39 = add i32 %1, -1
-  %or.cond = icmp ult i32 %39, -2
-  %or.cond40 = and i1 %or.cond, %38
-  br i1 %or.cond40, label %40, label %45
+._crit_edge:                                      ; preds = %36, %.preheader
+  %38 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #8
+  %39 = icmp sgt i32 %38, 0
+  %40 = add i32 %1, -1
+  %or.cond = icmp ult i32 %40, -2
+  %or.cond40 = and i1 %or.cond, %39
+  br i1 %or.cond40, label %41, label %46
 
-40:                                               ; preds = %._crit_edge
-  %41 = tail call i32 @X509_REQ_add_extensions(ptr noundef nonnull %8, ptr noundef nonnull %25) #8
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %42, label %45
+41:                                               ; preds = %._crit_edge
+  %42 = tail call i32 @X509_REQ_add_extensions(ptr noundef nonnull %8, ptr noundef nonnull %26) #8
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %43, label %46
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %43, ptr noundef nonnull @.str.246) #8
+43:                                               ; preds = %41
+  %44 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.246) #8
   br label %.loopexit
 
-45:                                               ; preds = %40, %._crit_edge
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %25) #8
-  br label %46
+46:                                               ; preds = %41, %._crit_edge
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %26) #8
+  br label %47
 
-.loopexit:                                        ; preds = %33, %warn_copying.exit43, %42
-  tail call void @OPENSSL_sk_free(ptr noundef %25) #8
+.loopexit:                                        ; preds = %34, %warn_copying.exit43, %43
+  tail call void @OPENSSL_sk_free(ptr noundef %26) #8
   tail call void @X509_REQ_free(ptr noundef nonnull %8) #8
-  br label %46
+  br label %47
 
-46:                                               ; preds = %3, %.loopexit, %45
-  %.0 = phi ptr [ null, %.loopexit ], [ %8, %45 ], [ null, %3 ]
+47:                                               ; preds = %3, %.loopexit, %46
+  %.0 = phi ptr [ null, %.loopexit ], [ %8, %46 ], [ null, %3 ]
   ret ptr %.0
 }
 

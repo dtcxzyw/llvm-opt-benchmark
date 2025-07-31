@@ -8254,7 +8254,7 @@ define void @_ZN7ide_ssr11MatchFinder13at_first_file17hcd5f667d48e395ffE(ptr noa
   invoke void @_ZN7ide_ssr11MatchFinder10in_context17h7e0f81e0788efca8E(ptr noalias noundef nonnull sret({ i64, [37 x i64] }) align 8 captures(none) dereferenceable(304) %0, ptr noundef nonnull align 8 %1, i32 noundef %.sroa.3.0.i.i, i32 noundef 0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %70 unwind label %23
 
-.thread:                                          ; preds = %2, %65, %33
+.thread:                                          ; preds = %2, %33, %65
   %69 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h608d8887e77cbd41E"(i64 noundef 18, i1 noundef zeroext false)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %23
 

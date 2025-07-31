@@ -4555,8 +4555,8 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %18 = load i32, ptr %17, align 4, !noundef !7
   %19 = or i32 %18, %16
-  %or.cond = icmp ult i32 %19, 65536
-  br i1 %or.cond, label %24, label %.noexc
+  %or.cond.i = icmp ult i32 %19, 65536
+  br i1 %or.cond.i, label %24, label %.noexc
 
 20:                                               ; preds = %3
   invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34ad03ac7dbb51fd0fc21b39122f0032.74) #21
@@ -4705,8 +4705,8 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
   %10 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %11 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %12 = or i32 %5, %4
-  %or.cond = icmp ult i32 %12, 65536
-  br i1 %or.cond, label %13, label %15
+  %or.cond.i = icmp ult i32 %12, 65536
+  br i1 %or.cond.i, label %13, label %15
 
 13:                                               ; preds = %7
   %14 = trunc nuw i32 %5 to i16

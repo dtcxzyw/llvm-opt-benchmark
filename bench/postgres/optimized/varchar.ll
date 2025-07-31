@@ -54,63 +54,63 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
   %8 = trunc i64 %1 to i32
   %9 = tail call i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %8) #13
   %10 = icmp ugt i32 %9, %7
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %23
 
 11:                                               ; preds = %6
   %12 = tail call i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %8, i32 noundef %7) #13
   %13 = sext i32 %12 to i64
-  %.not5765 = icmp ugt i64 %1, %13
-  br i1 %.not5765, label %.lr.ph, label %.loopexit
+  %.not5760 = icmp ugt i64 %1, %13
+  br i1 %.not5760, label %.lr.ph, label %.loopexit
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i64 %.04366, 1
+  %15 = add i64 %.04361, 1
   %exitcond.not = icmp eq i64 %15, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %11, %14
-  %.04366 = phi i64 [ %15, %14 ], [ %13, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.04366
+  %.04361 = phi i64 [ %15, %14 ], [ %13, %11 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.04361
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 32
   br i1 %.not, label %14, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #13
-  br i1 %19, label %20, label %.thread61
+  br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %18
   %21 = tail call i32 @errcode(i32 noundef 16777346) #13
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #13
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.bpchar_input) #13
-  br label %.thread61
+  br label %.critedge
 
-.thread:                                          ; preds = %6
+23:                                               ; preds = %6
   %narrow = sub nuw nsw i32 %7, %9
-  %23 = zext nneg i32 %narrow to i64
-  %24 = add i64 %1, %23
+  %24 = zext nneg i32 %narrow to i64
+  %25 = add i64 %1, %24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %11, %.thread, %4
-  %.048 = phi i64 [ %1, %4 ], [ %24, %.thread ], [ %13, %11 ], [ %13, %14 ]
-  %.044 = phi i64 [ %1, %4 ], [ %1, %.thread ], [ %13, %11 ], [ %13, %14 ]
-  %25 = add i64 %.048, 4
-  %26 = tail call ptr @palloc(i64 noundef %25) #13
-  %27 = trunc i64 %25 to i32
-  %28 = shl i32 %27, 2
-  store i32 %28, ptr %26, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %0, i64 %.044, i1 false)
-  %30 = icmp ugt i64 %.048, %.044
-  br i1 %30, label %31, label %.thread61
+.loopexit:                                        ; preds = %14, %11, %23, %4
+  %.048 = phi i64 [ %1, %4 ], [ %25, %23 ], [ %13, %11 ], [ %13, %14 ]
+  %.044 = phi i64 [ %1, %4 ], [ %1, %23 ], [ %13, %11 ], [ %13, %14 ]
+  %26 = add i64 %.048, 4
+  %27 = tail call ptr @palloc(i64 noundef %26) #13
+  %28 = trunc i64 %26 to i32
+  %29 = shl i32 %28, 2
+  store i32 %29, ptr %27, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %0, i64 %.044, i1 false)
+  %31 = icmp ugt i64 %.048, %.044
+  br i1 %31, label %32, label %.critedge
 
-31:                                               ; preds = %.loopexit
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.044
-  %33 = sub nuw i64 %.048, %.044
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 32, i64 %33, i1 false)
-  br label %.thread61
+32:                                               ; preds = %.loopexit
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.044
+  %34 = sub nuw i64 %.048, %.044
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %33, i8 32, i64 %34, i1 false)
+  br label %.critedge
 
-.thread61:                                        ; preds = %18, %20, %.loopexit, %31
-  %.3 = phi ptr [ %26, %31 ], [ %26, %.loopexit ], [ null, %20 ], [ null, %18 ]
+.critedge:                                        ; preds = %20, %18, %.loopexit, %32
+  %.3 = phi ptr [ %27, %32 ], [ %27, %.loopexit ], [ null, %18 ], [ null, %20 ]
   ret ptr %.3
 }
 

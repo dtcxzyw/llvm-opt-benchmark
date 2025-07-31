@@ -16205,6 +16205,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %199
 
 202:                                              ; preds = %186
+  store ptr null, ptr %60, align 8, !noalias !3423
   %203 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 0, ptr %203, align 8, !noalias !3423
   br label %205
@@ -16214,11 +16215,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.440.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.440.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13111.8..sroa_idx.i, i64 16, i1 false), !noalias !3423
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52), !noalias !3474
+  store ptr %197, ptr %60, align 8, !noalias !3423
   br label %205
 
 205:                                              ; preds = %204, %202
-  %.sink.i = phi ptr [ %197, %204 ], [ null, %202 ]
-  store ptr %.sink.i, ptr %60, align 8, !noalias !3423
   call void @llvm.experimental.noalias.scope.decl(metadata !3480)
   call void @llvm.experimental.noalias.scope.decl(metadata !3483)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !3486

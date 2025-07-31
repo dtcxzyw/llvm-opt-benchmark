@@ -30607,7 +30607,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h58759bef32f34c5aE.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !6161
   br label %64
 
-.loopexit.i.i:                                    ; preds = %200, %169, %164, %158, %155, %152, %148, %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i, %_ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i, %74
+.loopexit.i.i:                                    ; preds = %200, %169, %164, %158, %155, %152, %148, %.critedge.i.i.i, %_ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i, %74
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -30918,19 +30918,19 @@ _ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !6194
   %switch.tableidx = add i16 %.08.i135.i.i.i, -1
   %143 = icmp ult i16 %switch.tableidx, 18
-  br i1 %143, label %switch.hole_check, label %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+  br i1 %143, label %switch.hole_check, label %.critedge.i.i.i
 
 144:                                              ; preds = %.noexc135.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !6194
   br label %.loopexit217.i.i
 
-_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i: ; preds = %switch.hole_check, %138
+.critedge.i.i.i:                                  ; preds = %switch.hole_check, %138
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !6202
   store i32 0, ptr %7, align 4, !noalias !6202
   %145 = invoke noundef ptr @_ZN3std2io18default_read_exact17h21f440578981abb8E(ptr noalias noundef nonnull align 8 dereferenceable(56) %31, ptr noalias noundef nonnull align 1 %7, i64 noundef 4)
           to label %.noexc136.i.i unwind label %.loopexit.i.i, !noalias !6138
 
-.noexc136.i.i:                                    ; preds = %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+.noexc136.i.i:                                    ; preds = %.critedge.i.i.i
   %146 = icmp eq ptr %145, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !6202
   br i1 %146, label %148, label %.loopexit217.i.i
@@ -30939,7 +30939,7 @@ switch.hole_check:                                ; preds = %138
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 237567, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+  br i1 %switch.lobit, label %switch.lookup, label %.critedge.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %147 = zext nneg i16 %switch.tableidx to i64
@@ -31053,7 +31053,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %168
 
 .loopexit216.i.i:                                 ; preds = %.noexc142.i.i, %174
-  %.sink195.i.i.i = phi ptr [ %156, %174 ], [ %172, %.noexc142.i.i ]
+  %.sink193.i.i.i = phi ptr [ %156, %174 ], [ %172, %.noexc142.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !6210
   br label %.loopexit217.i.i
 
@@ -31116,7 +31116,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h58759bef32f34c5aE.exit130.threa
   br i1 %199, label %.backedge.i.i, label %200
 
 .loopexit217.i.i:                                 ; preds = %.noexc137.i.i, %.noexc136.i.i, %.loopexit216.i.i, %.loopexit215.i.i, %144, %137
-  %.sroa.12.1.ph.i.i = phi ptr [ %76, %137 ], [ %135, %144 ], [ %.sink.i.i.i, %.loopexit215.i.i ], [ %.sink195.i.i.i, %.loopexit216.i.i ], [ %145, %.noexc136.i.i ], [ %149, %.noexc137.i.i ]
+  %.sroa.12.1.ph.i.i = phi ptr [ %76, %137 ], [ %135, %144 ], [ %.sink.i.i.i, %.loopexit215.i.i ], [ %.sink193.i.i.i, %.loopexit216.i.i ], [ %145, %.noexc136.i.i ], [ %149, %.noexc137.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !6142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.817.sroa.9.sroa.8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !6142
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.28.i.i)
@@ -31464,7 +31464,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h289e784fb5ff02bfE.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !6287
   br label %58
 
-.loopexit.i.i:                                    ; preds = %194, %163, %158, %152, %149, %146, %142, %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i, %_ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i, %68
+.loopexit.i.i:                                    ; preds = %194, %163, %158, %152, %149, %146, %142, %.critedge.i.i.i, %_ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i, %68
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -31772,19 +31772,19 @@ _ZN4tiff4tags3Tag17__from_inner_type17h6c682d1eb4c5fb63E.exit.i.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !6320
   %switch.tableidx = add i16 %.08.i135.i.i.i, -1
   %137 = icmp ult i16 %switch.tableidx, 18
-  br i1 %137, label %switch.hole_check, label %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+  br i1 %137, label %switch.hole_check, label %.critedge.i.i.i
 
 138:                                              ; preds = %.noexc135.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !6320
   br label %.loopexit217.i.i
 
-_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i: ; preds = %switch.hole_check, %132
+.critedge.i.i.i:                                  ; preds = %switch.hole_check, %132
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !6328
   store i32 0, ptr %7, align 4, !noalias !6328
   %139 = invoke noundef ptr @_ZN3std2io18default_read_exact17h71726e02921fd06fE(ptr noalias noundef nonnull align 8 dereferenceable(32) %29, ptr noalias noundef nonnull align 1 %7, i64 noundef 4)
           to label %.noexc136.i.i unwind label %.loopexit.i.i, !noalias !6283
 
-.noexc136.i.i:                                    ; preds = %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+.noexc136.i.i:                                    ; preds = %.critedge.i.i.i
   %140 = icmp eq ptr %139, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !6328
   br i1 %140, label %142, label %.loopexit217.i.i
@@ -31793,7 +31793,7 @@ switch.hole_check:                                ; preds = %132
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 237567, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4tiff4tags4Type17__from_inner_type17hd733f153ea1d6e17E.exit.i.i.i
+  br i1 %switch.lobit, label %switch.lookup, label %.critedge.i.i.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %141 = zext nneg i16 %switch.tableidx to i64
@@ -31907,7 +31907,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %162
 
 .loopexit216.i.i:                                 ; preds = %.noexc142.i.i, %168
-  %.sink195.i.i.i = phi ptr [ %150, %168 ], [ %166, %.noexc142.i.i ]
+  %.sink193.i.i.i = phi ptr [ %150, %168 ], [ %166, %.noexc142.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !6336
   br label %.loopexit217.i.i
 
@@ -31970,7 +31970,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_u6417h289e784fb5ff02bfE.exit130.threa
   br i1 %193, label %.backedge.i.i, label %194
 
 .loopexit217.i.i:                                 ; preds = %.noexc137.i.i, %.noexc136.i.i, %.loopexit216.i.i, %.loopexit215.i.i, %138, %131
-  %.sroa.12.1.ph.i.i = phi ptr [ %70, %131 ], [ %129, %138 ], [ %.sink.i.i.i, %.loopexit215.i.i ], [ %.sink195.i.i.i, %.loopexit216.i.i ], [ %139, %.noexc136.i.i ], [ %143, %.noexc137.i.i ]
+  %.sroa.12.1.ph.i.i = phi ptr [ %70, %131 ], [ %129, %138 ], [ %.sink.i.i.i, %.loopexit215.i.i ], [ %.sink193.i.i.i, %.loopexit216.i.i ], [ %139, %.noexc136.i.i ], [ %143, %.noexc137.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !6267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.817.sroa.9.sroa.8.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i.i, i64 24, i1 false), !noalias !6267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.28.i.i)

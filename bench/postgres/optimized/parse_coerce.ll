@@ -148,7 +148,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp sgt i32 %0, 0
-  br i1 %6, label %.lr.ph.preheader, label %.critedge
+  br i1 %6, label %.lr.ph.preheader, label %.critedge77
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -156,7 +156,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %.06183 = phi i1 [ false, %.lr.ph.preheader ], [ %.16272, %45 ]
+  %.06176 = phi i1 [ false, %.lr.ph.preheader ], [ %.162, %45 ]
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
@@ -165,31 +165,31 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
   %11 = icmp eq i32 %8, %10
   %12 = icmp eq i32 %10, 2276
   %or.cond = or i1 %11, %12
-  br i1 %or.cond, label %typeIsOfTypedTable.exit.thread, label %13
+  br i1 %or.cond, label %45, label %13
 
 13:                                               ; preds = %.lr.ph
   switch i32 %10, label %14 [
-    i32 5080, label %typeIsOfTypedTable.exit.thread
-    i32 5079, label %typeIsOfTypedTable.exit.thread
-    i32 5078, label %typeIsOfTypedTable.exit.thread
-    i32 5077, label %typeIsOfTypedTable.exit.thread
-    i32 4538, label %typeIsOfTypedTable.exit.thread
-    i32 4537, label %typeIsOfTypedTable.exit.thread
-    i32 3831, label %typeIsOfTypedTable.exit.thread
-    i32 3500, label %typeIsOfTypedTable.exit.thread
-    i32 2776, label %typeIsOfTypedTable.exit.thread
-    i32 2283, label %typeIsOfTypedTable.exit.thread
-    i32 2277, label %typeIsOfTypedTable.exit.thread
+    i32 5080, label %45
+    i32 5079, label %45
+    i32 5078, label %45
+    i32 5077, label %45
+    i32 4538, label %45
+    i32 4537, label %45
+    i32 3831, label %45
+    i32 3500, label %45
+    i32 2776, label %45
+    i32 2283, label %45
+    i32 2277, label %45
   ]
 
 14:                                               ; preds = %13
   %15 = icmp eq i32 %8, 705
-  br i1 %15, label %typeIsOfTypedTable.exit.thread, label %16
+  br i1 %15, label %45, label %16
 
 16:                                               ; preds = %14
   %17 = call i32 @find_coercion_pathway(i32 noundef %10, i32 noundef %8, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %typeIsOfTypedTable.exit.thread
+  br i1 %.not, label %18, label %45
 
 18:                                               ; preds = %16
   %19 = icmp eq i32 %8, 2249
@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
 20:                                               ; preds = %18
   %21 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %10) #5
   %.not67 = icmp eq i32 %21, 0
-  br i1 %.not67, label %22, label %typeIsOfTypedTable.exit.thread
+  br i1 %.not67, label %22, label %45
 
 22:                                               ; preds = %20, %18
   switch i32 %10, label %is_complex_array.exit.thread [
@@ -209,7 +209,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
 23:                                               ; preds = %22
   %24 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #5
   %.not68 = icmp eq i32 %24, 0
-  br i1 %.not68, label %is_complex_array.exit.thread, label %typeIsOfTypedTable.exit.thread
+  br i1 %.not68, label %is_complex_array.exit.thread, label %45
 
 25:                                               ; preds = %22
   %26 = tail call i32 @get_element_type(i32 noundef %8) #5
@@ -218,21 +218,17 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
 
 is_complex_array.exit:                            ; preds = %25
   %27 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %26) #5
-  %.not76 = icmp eq i32 %27, 0
-  br i1 %.not76, label %is_complex_array.exit.thread, label %typeIsOfTypedTable.exit.thread
+  %.not71 = icmp eq i32 %27, 0
+  br i1 %.not71, label %is_complex_array.exit.thread, label %45
 
 is_complex_array.exit.thread:                     ; preds = %25, %23, %22, %is_complex_array.exit
   %28 = tail call zeroext i1 @typeInheritsFrom(i32 noundef %8, i32 noundef %10) #5
-  br i1 %28, label %typeIsOfTypedTable.exit.thread, label %29
+  br i1 %28, label %45, label %29
 
 29:                                               ; preds = %is_complex_array.exit.thread
   %30 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #5
   %.not.i69 = icmp eq i32 %30, 0
-  br i1 %.not.i69, label %typeIsOfTypedTable.exit.thread73, label %31
-
-typeIsOfTypedTable.exit.thread73:                 ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  br label %.loopexit
+  br i1 %.not.i69, label %.critedge, label %31
 
 31:                                               ; preds = %29
   %32 = zext i32 %30 to i64
@@ -247,11 +243,6 @@ typeIsOfTypedTable.exit.thread73:                 ; preds = %29
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3392, ptr noundef nonnull @__func__.typeIsOfTypedTable) #5
   unreachable
 
-typeIsOfTypedTable.exit.thread:                   ; preds = %.lr.ph, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %14, %16, %20, %23, %is_complex_array.exit, %is_complex_array.exit.thread
-  %.162.ph = phi i1 [ %.06183, %is_complex_array.exit.thread ], [ %.06183, %is_complex_array.exit ], [ %.06183, %23 ], [ %.06183, %20 ], [ %.06183, %16 ], [ %.06183, %14 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %.06183, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  br label %45
-
 typeIsOfTypedTable.exit:                          ; preds = %31
   %37 = getelementptr i8, ptr %33, i64 16
   %.val.i = load ptr, ptr %37, align 8
@@ -263,27 +254,31 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %10
   tail call void @ReleaseSysCache(ptr noundef nonnull %33) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  br i1 %44, label %45, label %.loopexit
+  br i1 %44, label %45, label %.critedge
 
-45:                                               ; preds = %typeIsOfTypedTable.exit.thread, %typeIsOfTypedTable.exit
-  %.16272 = phi i1 [ %.162.ph, %typeIsOfTypedTable.exit.thread ], [ %.06183, %typeIsOfTypedTable.exit ]
+.critedge:                                        ; preds = %29, %typeIsOfTypedTable.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  br label %48
+
+45:                                               ; preds = %is_complex_array.exit.thread, %typeIsOfTypedTable.exit, %is_complex_array.exit, %23, %20, %16, %14, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %.lr.ph
+  %.162 = phi i1 [ %.06176, %.lr.ph ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %.06176, %14 ], [ %.06176, %16 ], [ %.06176, %20 ], [ %.06176, %23 ], [ %.06176, %is_complex_array.exit ], [ %.06176, %typeIsOfTypedTable.exit ], [ %.06176, %is_complex_array.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %45
-  br i1 %.16272, label %46, label %.critedge
+  br i1 %.162, label %46, label %.critedge77
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call zeroext i1 @check_generic_type_consistency(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %0)
-  br i1 %47, label %.critedge, label %.loopexit
+  br i1 %47, label %.critedge77, label %48
 
-.critedge:                                        ; preds = %4, %46, %._crit_edge
-  br label %.loopexit
+.critedge77:                                      ; preds = %4, %46, %._crit_edge
+  br label %48
 
-.loopexit:                                        ; preds = %typeIsOfTypedTable.exit, %typeIsOfTypedTable.exit.thread73, %46, %.critedge
-  %.2 = phi i1 [ true, %.critedge ], [ false, %46 ], [ false, %typeIsOfTypedTable.exit.thread73 ], [ false, %typeIsOfTypedTable.exit ]
+48:                                               ; preds = %46, %.critedge, %.critedge77
+  %.2 = phi i1 [ true, %.critedge77 ], [ false, %.critedge ], [ false, %46 ]
   ret i1 %.2
 }
 

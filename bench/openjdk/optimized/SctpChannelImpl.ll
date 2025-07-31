@@ -847,7 +847,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %27 = tail call ptr @__errno_location() #13
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %.split59.us [
-    i32 11, label %.split61.us.loopexit135
+    i32 11, label %.split61.us.loopexit128
     i32 4, label %.split61.us
     i32 107, label %29
   ]
@@ -892,7 +892,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %43 = tail call ptr @__errno_location() #13
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %.split59.us [
-    i32 11, label %.split61.us.loopexit129
+    i32 11, label %.split61.us.loopexit122
     i32 4, label %.split61.us
     i32 107, label %45
   ]
@@ -952,26 +952,26 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %69 = call zeroext i8 @handleNotification(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %53, i32 noundef %68, i8 zeroext poison, ptr noundef nonnull %8)
   %.not49 = icmp eq i8 %69, 0
   call void @free(ptr noundef nonnull %53) #12
-  br i1 %.not49, label %.thread96, label %.split61.us
+  br i1 %.not49, label %.thread93, label %.split61.us
 
 .thread:                                          ; preds = %50
   %70 = trunc i64 %.040 to i32
   %71 = call zeroext i8 @handleNotification(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef %12, i32 noundef %70, i8 zeroext poison, ptr noundef nonnull %8)
-  %.not4993 = icmp eq i8 %71, 0
-  br i1 %.not4993, label %.thread96, label %.split61.us
+  %.not4988 = icmp eq i8 %71, 0
+  br i1 %.not4988, label %.thread93, label %.split61.us
 
-.thread96:                                        ; preds = %65, %.thread
-  %.19599 = phi i64 [ %.040, %.thread ], [ %67, %65 ]
+.thread93:                                        ; preds = %65, %.thread
+  %.19196 = phi i64 [ %.040, %.thread ], [ %67, %65 ]
   store ptr %12, ptr %9, align 16
   store i64 %16, ptr %17, align 8
   store ptr %11, ptr %20, align 16
   store i64 48, ptr %21, align 8
-  %.pre88 = load i32, ptr %22, align 16
+  %.pre85 = load i32, ptr %22, align 16
   br label %72
 
-72:                                               ; preds = %47, %.thread96
-  %73 = phi i32 [ %.pre88, %.thread96 ], [ %48, %47 ]
-  %.2 = phi i64 [ %.19599, %.thread96 ], [ %.040, %47 ]
+72:                                               ; preds = %47, %.thread93
+  %73 = phi i32 [ %.pre85, %.thread93 ], [ %48, %47 ]
+  %.2 = phi i64 [ %.19196, %.thread93 ], [ %.040, %47 ]
   %74 = and i32 %73, 32768
   %.not50 = icmp eq i32 %74, 0
   br i1 %.not50, label %.split67.us, label %.split, !llvm.loop !11
@@ -985,14 +985,14 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   call void @handleMessage(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef %75, i8 noundef zeroext %77, ptr noundef nonnull %8)
   br label %.split61.us
 
-.split61.us.loopexit129:                          ; preds = %42
+.split61.us.loopexit122:                          ; preds = %42
   br label %.split61.us
 
-.split61.us.loopexit135:                          ; preds = %26
+.split61.us.loopexit128:                          ; preds = %26
   br label %.split61.us
 
-.split61.us:                                      ; preds = %33, %.thread, %65, %26, %42, %.split61.us.loopexit135, %.split61.us.loopexit129, %.split67.us, %61, %55, %.split59.us
-  %.0 = phi i32 [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ 0, %.thread ], [ 0, %65 ], [ -2, %.split61.us.loopexit129 ], [ 0, %33 ], [ -2, %.split61.us.loopexit135 ]
+.split61.us:                                      ; preds = %33, %.thread, %65, %26, %42, %.split61.us.loopexit128, %.split61.us.loopexit122, %.split67.us, %61, %55, %.split59.us
+  %.0 = phi i32 [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ 0, %.thread ], [ 0, %65 ], [ -2, %.split61.us.loopexit122 ], [ 0, %33 ], [ -2, %.split61.us.loopexit128 ]
   ret i32 %.0
 }
 

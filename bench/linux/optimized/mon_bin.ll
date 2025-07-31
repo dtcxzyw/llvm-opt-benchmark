@@ -1151,7 +1151,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
 28:                                               ; preds = %20
   %29 = load i32, ptr %23, align 4
   %30 = icmp ult i32 %29, 4096
-  br i1 %30, label %.loopexit6, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %28
   %32 = lshr i32 %29, 12
@@ -1198,9 +1198,9 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
   store ptr %61, ptr %49, align 8
   %62 = add nuw nsw i64 %35, 1
   %63 = icmp eq i64 %62, %33
-  br i1 %63, label %.loopexit6, label %34, !llvm.loop !11
+  br i1 %63, label %.critedge, label %34, !llvm.loop !11
 
-.loopexit6:                                       ; preds = %47, %28
+.critedge:                                        ; preds = %47, %28
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store ptr %6, ptr %65, align 8
@@ -1226,8 +1226,8 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
   tail call void @kfree(ptr noundef nonnull %18) #12
   br label %73
 
-73:                                               ; preds = %72, %.loopexit6, %16, %14, %2
-  %74 = phi i32 [ -19, %14 ], [ 0, %.loopexit6 ], [ -19, %2 ], [ -12, %72 ], [ -12, %16 ]
+73:                                               ; preds = %72, %.critedge, %16, %14, %2
+  %74 = phi i32 [ -19, %14 ], [ 0, %.critedge ], [ -19, %2 ], [ -12, %72 ], [ -12, %16 ]
   tail call void @mutex_unlock(ptr noundef nonnull @mon_lock) #12
   ret i32 %74
 }

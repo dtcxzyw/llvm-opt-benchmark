@@ -174,28 +174,25 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %parse_subscription_options.specialized.6.exit.thread
 
-._crit_edge.i:                                    ; preds = %173
-  br i1 %.sroa.49.sroa.0.2, label %198, label %177
-
 .lr.ph:                                           ; preds = %.lr.ph.i, %173
-  %indvars.iv.i649 = phi i64 [ %indvars.iv.next.i, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.94147.0648 = phi ptr [ %.sroa.94147.2, %173 ], [ %12, %.lr.ph.i ]
-  %.sroa.0.0647 = phi i32 [ %.sroa.0.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.90.0646 = phi i8 [ %.sroa.90.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.88.0645 = phi i8 [ %.sroa.88.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.82.0644 = phi i8 [ %.sroa.82.2, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.79.0643 = phi i8 [ %.sroa.79.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.76.0642 = phi i1 [ %.sroa.76.2, %173 ], [ false, %.lr.ph.i ]
-  %.sroa.73.0641 = phi i8 [ %.sroa.73.2, %173 ], [ 112, %.lr.ph.i ]
-  %.sroa.71141.0640 = phi i8 [ %.sroa.71141.2, %173 ], [ 0, %.lr.ph.i ]
-  %.sroa.37110.1639 = phi ptr [ %.sroa.37110.3, %173 ], [ null, %.lr.ph.i ]
-  %.sroa.49.sroa.20.0638 = phi i8 [ %.sroa.49.sroa.20.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.14.0637 = phi i8 [ %.sroa.49.sroa.14.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.8.0636 = phi i8 [ %.sroa.49.sroa.8.3, %173 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.0.0635 = phi i1 [ %.sroa.49.sroa.0.2, %173 ], [ true, %.lr.ph.i ]
-  %.sroa.45.1634 = phi ptr [ %.sroa.45.3, %173 ], [ null, %.lr.ph.i ]
+  %indvars.iv.i648 = phi i64 [ %indvars.iv.next.i, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.94149.0647 = phi ptr [ %.sroa.94149.2, %173 ], [ %12, %.lr.ph.i ]
+  %.sroa.0.0646 = phi i32 [ %.sroa.0.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.90.0645 = phi i8 [ %.sroa.90.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.88.0644 = phi i8 [ %.sroa.88.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.82.0643 = phi i8 [ %.sroa.82.2, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.79.0642 = phi i8 [ %.sroa.79.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.76.0641 = phi i1 [ %.sroa.76.2, %173 ], [ false, %.lr.ph.i ]
+  %.sroa.73.0640 = phi i8 [ %.sroa.73.2, %173 ], [ 112, %.lr.ph.i ]
+  %.sroa.71143.0639 = phi i8 [ %.sroa.71143.2, %173 ], [ 0, %.lr.ph.i ]
+  %.sroa.37112.1638 = phi ptr [ %.sroa.37112.3, %173 ], [ null, %.lr.ph.i ]
+  %.sroa.49.sroa.20.0637 = phi i8 [ %.sroa.49.sroa.20.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.14.0636 = phi i8 [ %.sroa.49.sroa.14.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.8.0635 = phi i8 [ %.sroa.49.sroa.8.3, %173 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.0.0634 = phi i1 [ %.sroa.49.sroa.0.2, %173 ], [ true, %.lr.ph.i ]
+  %.sroa.45.1633 = phi ptr [ %.sroa.45.3, %173 ], [ null, %.lr.ph.i ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv.i649
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv.i648
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -203,8 +200,11 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %30
 
+.critedge.i:                                      ; preds = %173
+  br i1 %.sroa.49.sroa.0.2, label %198, label %177
+
 24:                                               ; preds = %.lr.ph
-  %25 = and i32 %.sroa.0.0647, 1
+  %25 = and i32 %.sroa.0.0646, 1
   %.not24.i = icmp eq i32 %25, 0
   br i1 %.not24.i, label %27, label %26
 
@@ -213,7 +213,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 27:                                               ; preds = %24
-  %28 = or disjoint i32 %.sroa.0.0647, 1
+  %28 = or disjoint i32 %.sroa.0.0646, 1
   %29 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   br label %173
 
@@ -223,7 +223,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = and i32 %.sroa.0.0647, 2
+  %34 = and i32 %.sroa.0.0646, 2
   %.not23.i = icmp eq i32 %34, 0
   br i1 %.not23.i, label %36, label %35
 
@@ -232,7 +232,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 36:                                               ; preds = %33
-  %37 = or disjoint i32 %.sroa.0.0647, 2
+  %37 = or disjoint i32 %.sroa.0.0646, 2
   %38 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %39 = zext i1 %38 to i8
   br label %173
@@ -243,7 +243,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %42, label %43, label %50
 
 43:                                               ; preds = %40
-  %44 = and i32 %.sroa.0.0647, 4
+  %44 = and i32 %.sroa.0.0646, 4
   %.not22.i = icmp eq i32 %44, 0
   br i1 %.not22.i, label %46, label %45
 
@@ -252,7 +252,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 46:                                               ; preds = %43
-  %47 = or disjoint i32 %.sroa.0.0647, 4
+  %47 = or disjoint i32 %.sroa.0.0646, 4
   %48 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %49 = zext i1 %48 to i8
   br label %173
@@ -263,7 +263,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %50
-  %54 = and i32 %.sroa.0.0647, 8
+  %54 = and i32 %.sroa.0.0646, 8
   %.not21.i = icmp eq i32 %54, 0
   br i1 %.not21.i, label %56, label %55
 
@@ -272,7 +272,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 56:                                               ; preds = %53
-  %57 = or disjoint i32 %.sroa.0.0647, 8
+  %57 = or disjoint i32 %.sroa.0.0646, 8
   %58 = call ptr @defGetString(ptr noundef nonnull %19) #11
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(5) @.str.58) #12
   %60 = icmp eq i32 %59, 0
@@ -288,7 +288,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %63
-  %67 = and i32 %.sroa.0.0647, 16
+  %67 = and i32 %.sroa.0.0646, 16
   %.not20.i = icmp eq i32 %67, 0
   br i1 %.not20.i, label %69, label %68
 
@@ -297,7 +297,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 69:                                               ; preds = %66
-  %70 = or disjoint i32 %.sroa.0.0647, 16
+  %70 = or disjoint i32 %.sroa.0.0646, 16
   %71 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %72 = zext i1 %71 to i8
   br label %173
@@ -308,7 +308,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %73
-  %77 = and i32 %.sroa.0.0647, 32
+  %77 = and i32 %.sroa.0.0646, 32
   %.not19.i = icmp eq i32 %77, 0
   br i1 %.not19.i, label %79, label %78
 
@@ -317,7 +317,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 79:                                               ; preds = %76
-  %80 = or disjoint i32 %.sroa.0.0647, 32
+  %80 = or disjoint i32 %.sroa.0.0646, 32
   %81 = call ptr @defGetString(ptr noundef nonnull %19) #11
   %82 = call i32 @set_config_option(ptr noundef nonnull @.str.60, ptr noundef %81, i32 noundef 4, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false) #11
   br label %173
@@ -328,7 +328,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %83
-  %87 = and i32 %.sroa.0.0647, 128
+  %87 = and i32 %.sroa.0.0646, 128
   %.not18.i = icmp eq i32 %87, 0
   br i1 %.not18.i, label %89, label %88
 
@@ -337,7 +337,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 89:                                               ; preds = %86
-  %90 = or disjoint i32 %.sroa.0.0647, 128
+  %90 = or disjoint i32 %.sroa.0.0646, 128
   %91 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %92 = zext i1 %91 to i8
   br label %173
@@ -348,7 +348,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %93
-  %97 = and i32 %.sroa.0.0647, 256
+  %97 = and i32 %.sroa.0.0646, 256
   %.not17.i = icmp eq i32 %97, 0
   br i1 %.not17.i, label %99, label %98
 
@@ -357,7 +357,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 99:                                               ; preds = %96
-  %100 = or disjoint i32 %.sroa.0.0647, 256
+  %100 = or disjoint i32 %.sroa.0.0646, 256
   %101 = call signext i8 @defGetStreamingMode(ptr noundef nonnull %19)
   br label %173
 
@@ -367,7 +367,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %102
-  %106 = and i32 %.sroa.0.0647, 512
+  %106 = and i32 %.sroa.0.0646, 512
   %.not16.i = icmp eq i32 %106, 0
   br i1 %.not16.i, label %108, label %107
 
@@ -376,7 +376,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 108:                                              ; preds = %105
-  %109 = or disjoint i32 %.sroa.0.0647, 512
+  %109 = or disjoint i32 %.sroa.0.0646, 512
   %110 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   br label %173
 
@@ -386,7 +386,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %113, label %114, label %121
 
 114:                                              ; preds = %111
-  %115 = and i32 %.sroa.0.0647, 1024
+  %115 = and i32 %.sroa.0.0646, 1024
   %.not15.i = icmp eq i32 %115, 0
   br i1 %.not15.i, label %117, label %116
 
@@ -395,7 +395,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 117:                                              ; preds = %114
-  %118 = or disjoint i32 %.sroa.0.0647, 1024
+  %118 = or disjoint i32 %.sroa.0.0646, 1024
   %119 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %120 = zext i1 %119 to i8
   br label %173
@@ -406,7 +406,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %123, label %124, label %131
 
 124:                                              ; preds = %121
-  %125 = and i32 %.sroa.0.0647, 2048
+  %125 = and i32 %.sroa.0.0646, 2048
   %.not14.i = icmp eq i32 %125, 0
   br i1 %.not14.i, label %127, label %126
 
@@ -415,7 +415,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 127:                                              ; preds = %124
-  %128 = or disjoint i32 %.sroa.0.0647, 2048
+  %128 = or disjoint i32 %.sroa.0.0646, 2048
   %129 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %130 = zext i1 %129 to i8
   br label %173
@@ -426,7 +426,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %133, label %134, label %141
 
 134:                                              ; preds = %131
-  %135 = and i32 %.sroa.0.0647, 4096
+  %135 = and i32 %.sroa.0.0646, 4096
   %.not13.i = icmp eq i32 %135, 0
   br i1 %.not13.i, label %137, label %136
 
@@ -435,7 +435,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 137:                                              ; preds = %134
-  %138 = or disjoint i32 %.sroa.0.0647, 4096
+  %138 = or disjoint i32 %.sroa.0.0646, 4096
   %139 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %140 = zext i1 %139 to i8
   br label %173
@@ -446,7 +446,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %143, label %144, label %151
 
 144:                                              ; preds = %141
-  %145 = and i32 %.sroa.0.0647, 8192
+  %145 = and i32 %.sroa.0.0646, 8192
   %.not12.i = icmp eq i32 %145, 0
   br i1 %.not12.i, label %147, label %146
 
@@ -455,7 +455,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 147:                                              ; preds = %144
-  %148 = or disjoint i32 %.sroa.0.0647, 8192
+  %148 = or disjoint i32 %.sroa.0.0646, 8192
   %149 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %19) #11
   %150 = zext i1 %149 to i8
   br label %173
@@ -466,7 +466,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   br i1 %153, label %154, label %167
 
 154:                                              ; preds = %151
-  %155 = and i32 %.sroa.0.0647, 32768
+  %155 = and i32 %.sroa.0.0646, 32768
   %.not9.i = icmp eq i32 %155, 0
   br i1 %.not9.i, label %157, label %156
 
@@ -475,8 +475,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 157:                                              ; preds = %154
-  %158 = or disjoint i32 %.sroa.0.0647, 32768
-  call void @pfree(ptr noundef %.sroa.94147.0648) #11
+  %158 = or disjoint i32 %.sroa.0.0646, 32768
+  call void @pfree(ptr noundef %.sroa.94149.0647) #11
   %159 = call ptr @defGetString(ptr noundef nonnull %19) #11
   %160 = call i32 @pg_strcasecmp(ptr noundef %159, ptr noundef nonnull @.str.58) #11
   %.not10.i = icmp eq i32 %160, 0
@@ -506,33 +506,33 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   unreachable
 
 173:                                              ; preds = %56, %161, %157, %147, %137, %127, %117, %108, %99, %89, %79, %69, %61, %46, %36, %27
-  %.sroa.45.3 = phi ptr [ %.sroa.45.1634, %27 ], [ %.sroa.45.1634, %36 ], [ %.sroa.45.1634, %46 ], [ %.sroa.45.1634, %61 ], [ %.sroa.45.1634, %69 ], [ %81, %79 ], [ %.sroa.45.1634, %89 ], [ %.sroa.45.1634, %99 ], [ %.sroa.45.1634, %108 ], [ %.sroa.45.1634, %117 ], [ %.sroa.45.1634, %127 ], [ %.sroa.45.1634, %137 ], [ %.sroa.45.1634, %147 ], [ %.sroa.45.1634, %157 ], [ %.sroa.45.1634, %161 ], [ %.sroa.45.1634, %56 ]
-  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0635, %36 ], [ %.sroa.49.sroa.0.0635, %46 ], [ %.sroa.49.sroa.0.0635, %61 ], [ %.sroa.49.sroa.0.0635, %69 ], [ %.sroa.49.sroa.0.0635, %79 ], [ %.sroa.49.sroa.0.0635, %89 ], [ %.sroa.49.sroa.0.0635, %99 ], [ %.sroa.49.sroa.0.0635, %108 ], [ %.sroa.49.sroa.0.0635, %117 ], [ %.sroa.49.sroa.0.0635, %127 ], [ %.sroa.49.sroa.0.0635, %137 ], [ %.sroa.49.sroa.0.0635, %147 ], [ %.sroa.49.sroa.0.0635, %157 ], [ %.sroa.49.sroa.0.0635, %161 ], [ %.sroa.49.sroa.0.0635, %56 ]
-  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0636, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0636, %46 ], [ %.sroa.49.sroa.8.0636, %61 ], [ %.sroa.49.sroa.8.0636, %69 ], [ %.sroa.49.sroa.8.0636, %79 ], [ %.sroa.49.sroa.8.0636, %89 ], [ %.sroa.49.sroa.8.0636, %99 ], [ %.sroa.49.sroa.8.0636, %108 ], [ %.sroa.49.sroa.8.0636, %117 ], [ %.sroa.49.sroa.8.0636, %127 ], [ %.sroa.49.sroa.8.0636, %137 ], [ %.sroa.49.sroa.8.0636, %147 ], [ %.sroa.49.sroa.8.0636, %157 ], [ %.sroa.49.sroa.8.0636, %161 ], [ %.sroa.49.sroa.8.0636, %56 ]
-  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0637, %27 ], [ %.sroa.49.sroa.14.0637, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0637, %61 ], [ %.sroa.49.sroa.14.0637, %69 ], [ %.sroa.49.sroa.14.0637, %79 ], [ %.sroa.49.sroa.14.0637, %89 ], [ %.sroa.49.sroa.14.0637, %99 ], [ %.sroa.49.sroa.14.0637, %108 ], [ %.sroa.49.sroa.14.0637, %117 ], [ %.sroa.49.sroa.14.0637, %127 ], [ %.sroa.49.sroa.14.0637, %137 ], [ %.sroa.49.sroa.14.0637, %147 ], [ %.sroa.49.sroa.14.0637, %157 ], [ %.sroa.49.sroa.14.0637, %161 ], [ %.sroa.49.sroa.14.0637, %56 ]
-  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0638, %27 ], [ %.sroa.49.sroa.20.0638, %36 ], [ %.sroa.49.sroa.20.0638, %46 ], [ %.sroa.49.sroa.20.0638, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0638, %79 ], [ %.sroa.49.sroa.20.0638, %89 ], [ %.sroa.49.sroa.20.0638, %99 ], [ %.sroa.49.sroa.20.0638, %108 ], [ %.sroa.49.sroa.20.0638, %117 ], [ %.sroa.49.sroa.20.0638, %127 ], [ %.sroa.49.sroa.20.0638, %137 ], [ %.sroa.49.sroa.20.0638, %147 ], [ %.sroa.49.sroa.20.0638, %157 ], [ %.sroa.49.sroa.20.0638, %161 ], [ %.sroa.49.sroa.20.0638, %56 ]
-  %.sroa.37110.3 = phi ptr [ %.sroa.37110.1639, %27 ], [ %.sroa.37110.1639, %36 ], [ %.sroa.37110.1639, %46 ], [ %58, %61 ], [ %.sroa.37110.1639, %69 ], [ %.sroa.37110.1639, %79 ], [ %.sroa.37110.1639, %89 ], [ %.sroa.37110.1639, %99 ], [ %.sroa.37110.1639, %108 ], [ %.sroa.37110.1639, %117 ], [ %.sroa.37110.1639, %127 ], [ %.sroa.37110.1639, %137 ], [ %.sroa.37110.1639, %147 ], [ %.sroa.37110.1639, %157 ], [ %.sroa.37110.1639, %161 ], [ null, %56 ]
-  %.sroa.71141.2 = phi i8 [ %.sroa.71141.0640, %27 ], [ %.sroa.71141.0640, %36 ], [ %.sroa.71141.0640, %46 ], [ %.sroa.71141.0640, %61 ], [ %.sroa.71141.0640, %69 ], [ %.sroa.71141.0640, %79 ], [ %92, %89 ], [ %.sroa.71141.0640, %99 ], [ %.sroa.71141.0640, %108 ], [ %.sroa.71141.0640, %117 ], [ %.sroa.71141.0640, %127 ], [ %.sroa.71141.0640, %137 ], [ %.sroa.71141.0640, %147 ], [ %.sroa.71141.0640, %157 ], [ %.sroa.71141.0640, %161 ], [ %.sroa.71141.0640, %56 ]
-  %.sroa.73.2 = phi i8 [ %.sroa.73.0641, %27 ], [ %.sroa.73.0641, %36 ], [ %.sroa.73.0641, %46 ], [ %.sroa.73.0641, %61 ], [ %.sroa.73.0641, %69 ], [ %.sroa.73.0641, %79 ], [ %.sroa.73.0641, %89 ], [ %101, %99 ], [ %.sroa.73.0641, %108 ], [ %.sroa.73.0641, %117 ], [ %.sroa.73.0641, %127 ], [ %.sroa.73.0641, %137 ], [ %.sroa.73.0641, %147 ], [ %.sroa.73.0641, %157 ], [ %.sroa.73.0641, %161 ], [ %.sroa.73.0641, %56 ]
-  %.sroa.76.2 = phi i1 [ %.sroa.76.0642, %27 ], [ %.sroa.76.0642, %36 ], [ %.sroa.76.0642, %46 ], [ %.sroa.76.0642, %61 ], [ %.sroa.76.0642, %69 ], [ %.sroa.76.0642, %79 ], [ %.sroa.76.0642, %89 ], [ %.sroa.76.0642, %99 ], [ %110, %108 ], [ %.sroa.76.0642, %117 ], [ %.sroa.76.0642, %127 ], [ %.sroa.76.0642, %137 ], [ %.sroa.76.0642, %147 ], [ %.sroa.76.0642, %157 ], [ %.sroa.76.0642, %161 ], [ %.sroa.76.0642, %56 ]
-  %.sroa.79.2 = phi i8 [ %.sroa.79.0643, %27 ], [ %.sroa.79.0643, %36 ], [ %.sroa.79.0643, %46 ], [ %.sroa.79.0643, %61 ], [ %.sroa.79.0643, %69 ], [ %.sroa.79.0643, %79 ], [ %.sroa.79.0643, %89 ], [ %.sroa.79.0643, %99 ], [ %.sroa.79.0643, %108 ], [ %120, %117 ], [ %.sroa.79.0643, %127 ], [ %.sroa.79.0643, %137 ], [ %.sroa.79.0643, %147 ], [ %.sroa.79.0643, %157 ], [ %.sroa.79.0643, %161 ], [ %.sroa.79.0643, %56 ]
-  %.sroa.82.2 = phi i8 [ %.sroa.82.0644, %27 ], [ %.sroa.82.0644, %36 ], [ %.sroa.82.0644, %46 ], [ %.sroa.82.0644, %61 ], [ %.sroa.82.0644, %69 ], [ %.sroa.82.0644, %79 ], [ %.sroa.82.0644, %89 ], [ %.sroa.82.0644, %99 ], [ %.sroa.82.0644, %108 ], [ %.sroa.82.0644, %117 ], [ %130, %127 ], [ %.sroa.82.0644, %137 ], [ %.sroa.82.0644, %147 ], [ %.sroa.82.0644, %157 ], [ %.sroa.82.0644, %161 ], [ %.sroa.82.0644, %56 ]
-  %.sroa.88.2 = phi i8 [ %.sroa.88.0645, %27 ], [ %.sroa.88.0645, %36 ], [ %.sroa.88.0645, %46 ], [ %.sroa.88.0645, %61 ], [ %.sroa.88.0645, %69 ], [ %.sroa.88.0645, %79 ], [ %.sroa.88.0645, %89 ], [ %.sroa.88.0645, %99 ], [ %.sroa.88.0645, %108 ], [ %.sroa.88.0645, %117 ], [ %.sroa.88.0645, %127 ], [ %140, %137 ], [ %.sroa.88.0645, %147 ], [ %.sroa.88.0645, %157 ], [ %.sroa.88.0645, %161 ], [ %.sroa.88.0645, %56 ]
-  %.sroa.90.2 = phi i8 [ %.sroa.90.0646, %27 ], [ %.sroa.90.0646, %36 ], [ %.sroa.90.0646, %46 ], [ %.sroa.90.0646, %61 ], [ %.sroa.90.0646, %69 ], [ %.sroa.90.0646, %79 ], [ %.sroa.90.0646, %89 ], [ %.sroa.90.0646, %99 ], [ %.sroa.90.0646, %108 ], [ %.sroa.90.0646, %117 ], [ %.sroa.90.0646, %127 ], [ %.sroa.90.0646, %137 ], [ %150, %147 ], [ %.sroa.90.0646, %157 ], [ %.sroa.90.0646, %161 ], [ %.sroa.90.0646, %56 ]
+  %.sroa.45.3 = phi ptr [ %.sroa.45.1633, %27 ], [ %.sroa.45.1633, %36 ], [ %.sroa.45.1633, %46 ], [ %.sroa.45.1633, %61 ], [ %.sroa.45.1633, %69 ], [ %81, %79 ], [ %.sroa.45.1633, %89 ], [ %.sroa.45.1633, %99 ], [ %.sroa.45.1633, %108 ], [ %.sroa.45.1633, %117 ], [ %.sroa.45.1633, %127 ], [ %.sroa.45.1633, %137 ], [ %.sroa.45.1633, %147 ], [ %.sroa.45.1633, %157 ], [ %.sroa.45.1633, %161 ], [ %.sroa.45.1633, %56 ]
+  %.sroa.49.sroa.0.2 = phi i1 [ %29, %27 ], [ %.sroa.49.sroa.0.0634, %36 ], [ %.sroa.49.sroa.0.0634, %46 ], [ %.sroa.49.sroa.0.0634, %61 ], [ %.sroa.49.sroa.0.0634, %69 ], [ %.sroa.49.sroa.0.0634, %79 ], [ %.sroa.49.sroa.0.0634, %89 ], [ %.sroa.49.sroa.0.0634, %99 ], [ %.sroa.49.sroa.0.0634, %108 ], [ %.sroa.49.sroa.0.0634, %117 ], [ %.sroa.49.sroa.0.0634, %127 ], [ %.sroa.49.sroa.0.0634, %137 ], [ %.sroa.49.sroa.0.0634, %147 ], [ %.sroa.49.sroa.0.0634, %157 ], [ %.sroa.49.sroa.0.0634, %161 ], [ %.sroa.49.sroa.0.0634, %56 ]
+  %.sroa.49.sroa.8.3 = phi i8 [ %.sroa.49.sroa.8.0635, %27 ], [ %39, %36 ], [ %.sroa.49.sroa.8.0635, %46 ], [ %.sroa.49.sroa.8.0635, %61 ], [ %.sroa.49.sroa.8.0635, %69 ], [ %.sroa.49.sroa.8.0635, %79 ], [ %.sroa.49.sroa.8.0635, %89 ], [ %.sroa.49.sroa.8.0635, %99 ], [ %.sroa.49.sroa.8.0635, %108 ], [ %.sroa.49.sroa.8.0635, %117 ], [ %.sroa.49.sroa.8.0635, %127 ], [ %.sroa.49.sroa.8.0635, %137 ], [ %.sroa.49.sroa.8.0635, %147 ], [ %.sroa.49.sroa.8.0635, %157 ], [ %.sroa.49.sroa.8.0635, %161 ], [ %.sroa.49.sroa.8.0635, %56 ]
+  %.sroa.49.sroa.14.3 = phi i8 [ %.sroa.49.sroa.14.0636, %27 ], [ %.sroa.49.sroa.14.0636, %36 ], [ %49, %46 ], [ %.sroa.49.sroa.14.0636, %61 ], [ %.sroa.49.sroa.14.0636, %69 ], [ %.sroa.49.sroa.14.0636, %79 ], [ %.sroa.49.sroa.14.0636, %89 ], [ %.sroa.49.sroa.14.0636, %99 ], [ %.sroa.49.sroa.14.0636, %108 ], [ %.sroa.49.sroa.14.0636, %117 ], [ %.sroa.49.sroa.14.0636, %127 ], [ %.sroa.49.sroa.14.0636, %137 ], [ %.sroa.49.sroa.14.0636, %147 ], [ %.sroa.49.sroa.14.0636, %157 ], [ %.sroa.49.sroa.14.0636, %161 ], [ %.sroa.49.sroa.14.0636, %56 ]
+  %.sroa.49.sroa.20.3 = phi i8 [ %.sroa.49.sroa.20.0637, %27 ], [ %.sroa.49.sroa.20.0637, %36 ], [ %.sroa.49.sroa.20.0637, %46 ], [ %.sroa.49.sroa.20.0637, %61 ], [ %72, %69 ], [ %.sroa.49.sroa.20.0637, %79 ], [ %.sroa.49.sroa.20.0637, %89 ], [ %.sroa.49.sroa.20.0637, %99 ], [ %.sroa.49.sroa.20.0637, %108 ], [ %.sroa.49.sroa.20.0637, %117 ], [ %.sroa.49.sroa.20.0637, %127 ], [ %.sroa.49.sroa.20.0637, %137 ], [ %.sroa.49.sroa.20.0637, %147 ], [ %.sroa.49.sroa.20.0637, %157 ], [ %.sroa.49.sroa.20.0637, %161 ], [ %.sroa.49.sroa.20.0637, %56 ]
+  %.sroa.37112.3 = phi ptr [ %.sroa.37112.1638, %27 ], [ %.sroa.37112.1638, %36 ], [ %.sroa.37112.1638, %46 ], [ %58, %61 ], [ %.sroa.37112.1638, %69 ], [ %.sroa.37112.1638, %79 ], [ %.sroa.37112.1638, %89 ], [ %.sroa.37112.1638, %99 ], [ %.sroa.37112.1638, %108 ], [ %.sroa.37112.1638, %117 ], [ %.sroa.37112.1638, %127 ], [ %.sroa.37112.1638, %137 ], [ %.sroa.37112.1638, %147 ], [ %.sroa.37112.1638, %157 ], [ %.sroa.37112.1638, %161 ], [ null, %56 ]
+  %.sroa.71143.2 = phi i8 [ %.sroa.71143.0639, %27 ], [ %.sroa.71143.0639, %36 ], [ %.sroa.71143.0639, %46 ], [ %.sroa.71143.0639, %61 ], [ %.sroa.71143.0639, %69 ], [ %.sroa.71143.0639, %79 ], [ %92, %89 ], [ %.sroa.71143.0639, %99 ], [ %.sroa.71143.0639, %108 ], [ %.sroa.71143.0639, %117 ], [ %.sroa.71143.0639, %127 ], [ %.sroa.71143.0639, %137 ], [ %.sroa.71143.0639, %147 ], [ %.sroa.71143.0639, %157 ], [ %.sroa.71143.0639, %161 ], [ %.sroa.71143.0639, %56 ]
+  %.sroa.73.2 = phi i8 [ %.sroa.73.0640, %27 ], [ %.sroa.73.0640, %36 ], [ %.sroa.73.0640, %46 ], [ %.sroa.73.0640, %61 ], [ %.sroa.73.0640, %69 ], [ %.sroa.73.0640, %79 ], [ %.sroa.73.0640, %89 ], [ %101, %99 ], [ %.sroa.73.0640, %108 ], [ %.sroa.73.0640, %117 ], [ %.sroa.73.0640, %127 ], [ %.sroa.73.0640, %137 ], [ %.sroa.73.0640, %147 ], [ %.sroa.73.0640, %157 ], [ %.sroa.73.0640, %161 ], [ %.sroa.73.0640, %56 ]
+  %.sroa.76.2 = phi i1 [ %.sroa.76.0641, %27 ], [ %.sroa.76.0641, %36 ], [ %.sroa.76.0641, %46 ], [ %.sroa.76.0641, %61 ], [ %.sroa.76.0641, %69 ], [ %.sroa.76.0641, %79 ], [ %.sroa.76.0641, %89 ], [ %.sroa.76.0641, %99 ], [ %110, %108 ], [ %.sroa.76.0641, %117 ], [ %.sroa.76.0641, %127 ], [ %.sroa.76.0641, %137 ], [ %.sroa.76.0641, %147 ], [ %.sroa.76.0641, %157 ], [ %.sroa.76.0641, %161 ], [ %.sroa.76.0641, %56 ]
+  %.sroa.79.2 = phi i8 [ %.sroa.79.0642, %27 ], [ %.sroa.79.0642, %36 ], [ %.sroa.79.0642, %46 ], [ %.sroa.79.0642, %61 ], [ %.sroa.79.0642, %69 ], [ %.sroa.79.0642, %79 ], [ %.sroa.79.0642, %89 ], [ %.sroa.79.0642, %99 ], [ %.sroa.79.0642, %108 ], [ %120, %117 ], [ %.sroa.79.0642, %127 ], [ %.sroa.79.0642, %137 ], [ %.sroa.79.0642, %147 ], [ %.sroa.79.0642, %157 ], [ %.sroa.79.0642, %161 ], [ %.sroa.79.0642, %56 ]
+  %.sroa.82.2 = phi i8 [ %.sroa.82.0643, %27 ], [ %.sroa.82.0643, %36 ], [ %.sroa.82.0643, %46 ], [ %.sroa.82.0643, %61 ], [ %.sroa.82.0643, %69 ], [ %.sroa.82.0643, %79 ], [ %.sroa.82.0643, %89 ], [ %.sroa.82.0643, %99 ], [ %.sroa.82.0643, %108 ], [ %.sroa.82.0643, %117 ], [ %130, %127 ], [ %.sroa.82.0643, %137 ], [ %.sroa.82.0643, %147 ], [ %.sroa.82.0643, %157 ], [ %.sroa.82.0643, %161 ], [ %.sroa.82.0643, %56 ]
+  %.sroa.88.2 = phi i8 [ %.sroa.88.0644, %27 ], [ %.sroa.88.0644, %36 ], [ %.sroa.88.0644, %46 ], [ %.sroa.88.0644, %61 ], [ %.sroa.88.0644, %69 ], [ %.sroa.88.0644, %79 ], [ %.sroa.88.0644, %89 ], [ %.sroa.88.0644, %99 ], [ %.sroa.88.0644, %108 ], [ %.sroa.88.0644, %117 ], [ %.sroa.88.0644, %127 ], [ %140, %137 ], [ %.sroa.88.0644, %147 ], [ %.sroa.88.0644, %157 ], [ %.sroa.88.0644, %161 ], [ %.sroa.88.0644, %56 ]
+  %.sroa.90.2 = phi i8 [ %.sroa.90.0645, %27 ], [ %.sroa.90.0645, %36 ], [ %.sroa.90.0645, %46 ], [ %.sroa.90.0645, %61 ], [ %.sroa.90.0645, %69 ], [ %.sroa.90.0645, %79 ], [ %.sroa.90.0645, %89 ], [ %.sroa.90.0645, %99 ], [ %.sroa.90.0645, %108 ], [ %.sroa.90.0645, %117 ], [ %.sroa.90.0645, %127 ], [ %.sroa.90.0645, %137 ], [ %150, %147 ], [ %.sroa.90.0645, %157 ], [ %.sroa.90.0645, %161 ], [ %.sroa.90.0645, %56 ]
   %.sroa.0.2 = phi i32 [ %28, %27 ], [ %37, %36 ], [ %47, %46 ], [ %57, %61 ], [ %70, %69 ], [ %80, %79 ], [ %90, %89 ], [ %100, %99 ], [ %109, %108 ], [ %118, %117 ], [ %128, %127 ], [ %138, %137 ], [ %148, %147 ], [ %158, %157 ], [ %158, %161 ], [ %57, %56 ]
-  %.sroa.94147.2 = phi ptr [ %.sroa.94147.0648, %27 ], [ %.sroa.94147.0648, %36 ], [ %.sroa.94147.0648, %46 ], [ %.sroa.94147.0648, %61 ], [ %.sroa.94147.0648, %69 ], [ %.sroa.94147.0648, %79 ], [ %.sroa.94147.0648, %89 ], [ %.sroa.94147.0648, %99 ], [ %.sroa.94147.0648, %108 ], [ %.sroa.94147.0648, %117 ], [ %.sroa.94147.0648, %127 ], [ %.sroa.94147.0648, %137 ], [ %.sroa.94147.0648, %147 ], [ %159, %157 ], [ %159, %161 ], [ %.sroa.94147.0648, %56 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i649, 1
+  %.sroa.94149.2 = phi ptr [ %.sroa.94149.0647, %27 ], [ %.sroa.94149.0647, %36 ], [ %.sroa.94149.0647, %46 ], [ %.sroa.94149.0647, %61 ], [ %.sroa.94149.0647, %69 ], [ %.sroa.94149.0647, %79 ], [ %.sroa.94149.0647, %89 ], [ %.sroa.94149.0647, %99 ], [ %.sroa.94149.0647, %108 ], [ %.sroa.94149.0647, %117 ], [ %.sroa.94149.0647, %127 ], [ %.sroa.94149.0647, %137 ], [ %.sroa.94149.0647, %147 ], [ %159, %157 ], [ %159, %161 ], [ %.sroa.94149.0647, %56 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i648, 1
   %174 = load i32, ptr %13, align 4
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next.i, %175
-  br i1 %176, label %.lr.ph, label %._crit_edge.i
+  br i1 %176, label %.lr.ph, label %.critedge.i
 
-177:                                              ; preds = %._crit_edge.i
+177:                                              ; preds = %.critedge.i
   %178 = trunc nuw i8 %.sroa.49.sroa.8.3 to i1
   %179 = and i32 %.sroa.0.2, 2
   %.not2.i = icmp ne i32 %179, 0
-  %or.cond352.not = select i1 %178, i1 %.not2.i, i1 false
-  br i1 %or.cond352.not, label %180, label %184
+  %or.cond351.not = select i1 %178, i1 %.not2.i, i1 false
+  br i1 %or.cond351.not, label %180, label %184
 
 180:                                              ; preds = %177
   %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -546,8 +546,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %185 = trunc nuw i8 %.sroa.49.sroa.14.3 to i1
   %186 = and i32 %.sroa.0.2, 4
   %.not3.i = icmp ne i32 %186, 0
-  %or.cond354.not = select i1 %185, i1 %.not3.i, i1 false
-  br i1 %or.cond354.not, label %187, label %191
+  %or.cond353.not = select i1 %185, i1 %.not3.i, i1 false
+  br i1 %or.cond353.not, label %187, label %191
 
 187:                                              ; preds = %184
   %188 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -561,8 +561,8 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   %192 = trunc nuw i8 %.sroa.49.sroa.20.3 to i1
   %193 = and i32 %.sroa.0.2, 16
   %.not4.i = icmp ne i32 %193, 0
-  %or.cond356.not = select i1 %192, i1 %.not4.i, i1 false
-  br i1 %or.cond356.not, label %194, label %198
+  %or.cond355.not = select i1 %192, i1 %.not4.i, i1 false
+  br i1 %or.cond355.not, label %194, label %198
 
 194:                                              ; preds = %191
   %195 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -572,15 +572,15 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 393, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-198:                                              ; preds = %191, %._crit_edge.i
-  %.sroa.49.sroa.8.2 = phi i8 [ %.sroa.49.sroa.8.3, %._crit_edge.i ], [ 0, %191 ]
-  %.sroa.49.sroa.14.2 = phi i8 [ %.sroa.49.sroa.14.3, %._crit_edge.i ], [ 0, %191 ]
-  %.sroa.49.sroa.20.2 = phi i8 [ %.sroa.49.sroa.20.3, %._crit_edge.i ], [ 0, %191 ]
-  %.not5.i = icmp eq ptr %.sroa.37110.3, null
+198:                                              ; preds = %191, %.critedge.i
+  %.sroa.49.sroa.8.2 = phi i8 [ %.sroa.49.sroa.8.3, %.critedge.i ], [ 0, %191 ]
+  %.sroa.49.sroa.14.2 = phi i8 [ %.sroa.49.sroa.14.3, %.critedge.i ], [ 0, %191 ]
+  %.sroa.49.sroa.20.2 = phi i8 [ %.sroa.49.sroa.20.3, %.critedge.i ], [ 0, %191 ]
+  %.not5.i = icmp eq ptr %.sroa.37112.3, null
   %199 = and i32 %.sroa.0.2, 8
   %.not6.i = icmp ne i32 %199, 0
-  %or.cond359.not = select i1 %.not5.i, i1 %.not6.i, i1 false
-  br i1 %or.cond359.not, label %200, label %parse_subscription_options.specialized.6.exit
+  %or.cond358.not = select i1 %.not5.i, i1 %.not6.i, i1 false
+  br i1 %or.cond358.not, label %200, label %parse_subscription_options.specialized.6.exit
 
 200:                                              ; preds = %198
   %201 = trunc nuw i8 %.sroa.49.sroa.8.2 to i1
@@ -606,7 +606,7 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
 
 210:                                              ; preds = %200
   %211 = trunc nuw i8 %.sroa.49.sroa.14.2 to i1
-  br i1 %211, label %212, label %parse_subscription_options.specialized.6.exit.thread332
+  br i1 %211, label %212, label %parse_subscription_options.specialized.6.exit.thread334
 
 212:                                              ; preds = %210
   %213 = and i32 %.sroa.0.2, 4
@@ -628,48 +628,48 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef re
 
 parse_subscription_options.specialized.6.exit:    ; preds = %198
   %220 = trunc nuw i8 %.sroa.49.sroa.14.2 to i1
-  br i1 %220, label %parse_subscription_options.specialized.6.exit.thread, label %parse_subscription_options.specialized.6.exit.thread332
+  br i1 %220, label %parse_subscription_options.specialized.6.exit.thread, label %parse_subscription_options.specialized.6.exit.thread334
 
 parse_subscription_options.specialized.6.exit.thread: ; preds = %.lr.ph.i, %3, %parse_subscription_options.specialized.6.exit
   %221 = phi i1 [ %.sroa.49.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
-  %.sroa.94147.1226242331 = phi ptr [ %.sroa.94147.2, %parse_subscription_options.specialized.6.exit ], [ %12, %3 ], [ %12, %.lr.ph.i ]
-  %.sroa.0.1225245329 = phi i32 [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.90.1224246327 = phi i8 [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.88.1223248325 = phi i8 [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.82.1222250323 = phi i8 [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.sroa.79.1221252321 = phi i8 [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.76.1220254319 = phi i1 [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ false, %3 ], [ false, %.lr.ph.i ]
-  %.sroa.73.1219256317 = phi i8 [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ 112, %3 ], [ 112, %.lr.ph.i ]
-  %.sroa.71141.1218258315 = phi i8 [ %.sroa.71141.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
-  %.sroa.37110.2217260313 = phi ptr [ %.sroa.37110.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
-  %.sroa.45.2216262311 = phi ptr [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
-  %.sroa.49.sroa.8.2264309 = phi i8 [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.sroa.49.sroa.20.2268307 = phi i8 [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
-  %.not5.i270305 = phi i1 [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
+  %.sroa.94149.1228244333 = phi ptr [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %12, %3 ], [ %12, %.lr.ph.i ]
+  %.sroa.0.1227247331 = phi i32 [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.90.1226248329 = phi i8 [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.88.1225250327 = phi i8 [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.82.1224252325 = phi i8 [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.sroa.79.1223254323 = phi i8 [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.76.1222256321 = phi i1 [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ false, %3 ], [ false, %.lr.ph.i ]
+  %.sroa.73.1221258319 = phi i8 [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ 112, %3 ], [ 112, %.lr.ph.i ]
+  %.sroa.71143.1220260317 = phi i8 [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ 0, %3 ], [ 0, %.lr.ph.i ]
+  %.sroa.37112.2219262315 = phi ptr [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
+  %.sroa.45.2218264313 = phi ptr [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ null, %3 ], [ null, %.lr.ph.i ]
+  %.sroa.49.sroa.8.2266311 = phi i8 [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.sroa.49.sroa.20.2270309 = phi i8 [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ 1, %3 ], [ 1, %.lr.ph.i ]
+  %.not5.i272307 = phi i1 [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %3 ], [ true, %.lr.ph.i ]
   call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str) #11
-  br label %parse_subscription_options.specialized.6.exit.thread332
+  br label %parse_subscription_options.specialized.6.exit.thread334
 
-parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_subscription_options.specialized.6.exit.thread, %parse_subscription_options.specialized.6.exit
+parse_subscription_options.specialized.6.exit.thread334: ; preds = %210, %parse_subscription_options.specialized.6.exit.thread, %parse_subscription_options.specialized.6.exit
   %222 = phi i1 [ true, %parse_subscription_options.specialized.6.exit.thread ], [ false, %parse_subscription_options.specialized.6.exit ], [ false, %210 ]
   %223 = phi i1 [ %221, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.0.2, %210 ]
-  %.sroa.94147.1226242330 = phi ptr [ %.sroa.94147.1226242331, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.94147.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.94147.2, %210 ]
-  %.sroa.0.1225245328 = phi i32 [ %.sroa.0.1225245329, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.0.2, %210 ]
-  %.sroa.90.1224246326 = phi i8 [ %.sroa.90.1224246327, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.90.2, %210 ]
-  %.sroa.88.1223248324 = phi i8 [ %.sroa.88.1223248325, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.88.2, %210 ]
-  %.sroa.82.1222250322 = phi i8 [ %.sroa.82.1222250323, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.82.2, %210 ]
-  %.sroa.79.1221252320 = phi i8 [ %.sroa.79.1221252321, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.79.2, %210 ]
-  %.sroa.76.1220254318 = phi i1 [ %.sroa.76.1220254319, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.76.2, %210 ]
-  %.sroa.73.1219256316 = phi i8 [ %.sroa.73.1219256317, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.73.2, %210 ]
-  %.sroa.71141.1218258314 = phi i8 [ %.sroa.71141.1218258315, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.71141.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.71141.2, %210 ]
-  %.sroa.37110.2217260312 = phi ptr [ %.sroa.37110.2217260313, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.37110.3, %parse_subscription_options.specialized.6.exit ], [ null, %210 ]
-  %.sroa.45.2216262310 = phi ptr [ %.sroa.45.2216262311, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ %.sroa.45.3, %210 ]
-  %.sroa.49.sroa.8.2264308 = phi i8 [ %.sroa.49.sroa.8.2264309, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 0, %210 ]
-  %.sroa.49.sroa.20.2268306 = phi i8 [ %.sroa.49.sroa.20.2268307, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.20.2, %210 ]
-  %.not5.i270304 = phi i1 [ %.not5.i270305, %parse_subscription_options.specialized.6.exit.thread ], [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %210 ]
+  %.sroa.94149.1228244332 = phi ptr [ %.sroa.94149.1228244333, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.94149.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.94149.2, %210 ]
+  %.sroa.0.1227247330 = phi i32 [ %.sroa.0.1227247331, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.0.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.0.2, %210 ]
+  %.sroa.90.1226248328 = phi i8 [ %.sroa.90.1226248329, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.90.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.90.2, %210 ]
+  %.sroa.88.1225250326 = phi i8 [ %.sroa.88.1225250327, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.88.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.88.2, %210 ]
+  %.sroa.82.1224252324 = phi i8 [ %.sroa.82.1224252325, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.82.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.82.2, %210 ]
+  %.sroa.79.1223254322 = phi i8 [ %.sroa.79.1223254323, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.79.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.79.2, %210 ]
+  %.sroa.76.1222256320 = phi i1 [ %.sroa.76.1222256321, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.76.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.76.2, %210 ]
+  %.sroa.73.1221258318 = phi i8 [ %.sroa.73.1221258319, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.73.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.73.2, %210 ]
+  %.sroa.71143.1220260316 = phi i8 [ %.sroa.71143.1220260317, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.71143.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.71143.2, %210 ]
+  %.sroa.37112.2219262314 = phi ptr [ %.sroa.37112.2219262315, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.37112.3, %parse_subscription_options.specialized.6.exit ], [ null, %210 ]
+  %.sroa.45.2218264312 = phi ptr [ %.sroa.45.2218264313, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.45.3, %parse_subscription_options.specialized.6.exit ], [ %.sroa.45.3, %210 ]
+  %.sroa.49.sroa.8.2266310 = phi i8 [ %.sroa.49.sroa.8.2266311, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.8.2, %parse_subscription_options.specialized.6.exit ], [ 0, %210 ]
+  %.sroa.49.sroa.20.2270308 = phi i8 [ %.sroa.49.sroa.20.2270309, %parse_subscription_options.specialized.6.exit.thread ], [ %.sroa.49.sroa.20.2, %parse_subscription_options.specialized.6.exit ], [ %.sroa.49.sroa.20.2, %210 ]
+  %.not5.i272306 = phi i1 [ %.not5.i272307, %parse_subscription_options.specialized.6.exit.thread ], [ %.not5.i, %parse_subscription_options.specialized.6.exit ], [ true, %210 ]
   %224 = call zeroext i1 @has_privs_of_role(i32 noundef %9, i32 noundef 6304) #11
   br i1 %224, label %230, label %225
 
-225:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread332
+225:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread334
   %226 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %226)
   %227 = call i32 @errcode(i32 noundef 16797828) #11
@@ -678,7 +678,7 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 588, ptr noundef nonnull @__func__.CreateSubscription) #11
   unreachable
 
-230:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread332
+230:                                              ; preds = %parse_subscription_options.specialized.6.exit.thread334
   %231 = load i32, ptr @MyDatabaseId, align 4
   %232 = call i32 @object_aclcheck(i32 noundef 1262, i32 noundef %231, i32 noundef %9, i64 noundef 512) #11
   %.not85 = icmp eq i32 %232, 0
@@ -691,7 +691,7 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   br label %236
 
 236:                                              ; preds = %233, %230
-  %237 = trunc nuw i8 %.sroa.82.1222250322 to i1
+  %237 = trunc nuw i8 %.sroa.82.1224252324 to i1
   br i1 %237, label %245, label %238
 
 238:                                              ; preds = %236
@@ -728,9 +728,9 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   unreachable
 
 258:                                              ; preds = %245
-  %259 = and i32 %.sroa.0.1225245328, 8
+  %259 = and i32 %.sroa.0.1227247330, 8
   %260 = icmp eq i32 %259, 0
-  %or.cond = and i1 %260, %.not5.i270304
+  %or.cond = and i1 %260, %.not5.i272306
   br i1 %or.cond, label %261, label %263
 
 261:                                              ; preds = %258
@@ -738,9 +738,9 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   br label %263
 
 263:                                              ; preds = %261, %258
-  %.sroa.37110.0 = phi ptr [ %262, %261 ], [ %.sroa.37110.2217260312, %258 ]
-  %264 = icmp eq ptr %.sroa.45.2216262310, null
-  %spec.select = select i1 %264, ptr @.str.8, ptr %.sroa.45.2216262310
+  %.sroa.37112.0 = phi ptr [ %262, %261 ], [ %.sroa.37112.2219262314, %258 ]
+  %264 = icmp eq ptr %.sroa.45.2218264312, null
+  %spec.select = select i1 %264, ptr @.str.8, ptr %.sroa.45.2218264312
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -779,45 +779,45 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   %288 = zext i32 %9 to i64
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %288, ptr %289, align 16
-  %290 = trunc nuw i8 %.sroa.49.sroa.8.2264308 to i1
-  %291 = zext nneg i8 %.sroa.49.sroa.8.2264308 to i64
+  %290 = trunc nuw i8 %.sroa.49.sroa.8.2266310 to i1
+  %291 = zext nneg i8 %.sroa.49.sroa.8.2266310 to i64
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %291, ptr %292, align 8
-  %293 = and i8 %.sroa.71141.1218258314, 1
+  %293 = and i8 %.sroa.71143.1220260316, 1
   %294 = zext nneg i8 %293 to i64
   %295 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %294, ptr %295, align 16
-  %296 = sext i8 %.sroa.73.1219256316 to i64
+  %296 = sext i8 %.sroa.73.1221258318 to i64
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %296, ptr %297, align 8
-  %298 = select i1 %.sroa.76.1220254318, i64 112, i64 100
+  %298 = select i1 %.sroa.76.1222256320, i64 112, i64 100
   %299 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %298, ptr %299, align 16
-  %300 = and i8 %.sroa.79.1221252320, 1
+  %300 = and i8 %.sroa.79.1223254322, 1
   %301 = zext nneg i8 %300 to i64
   %302 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 %301, ptr %302, align 8
-  %303 = zext nneg i8 %.sroa.82.1222250322 to i64
+  %303 = zext nneg i8 %.sroa.82.1224252324 to i64
   %304 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %303, ptr %304, align 16
-  %305 = and i8 %.sroa.88.1223248324, 1
+  %305 = and i8 %.sroa.88.1225250326, 1
   %306 = zext nneg i8 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %306, ptr %307, align 8
-  %308 = trunc nuw i8 %.sroa.90.1224246326 to i1
-  %.mask358 = and i8 %.sroa.90.1224246326, 1
-  %309 = zext nneg i8 %.mask358 to i64
+  %308 = trunc nuw i8 %.sroa.90.1226248328 to i1
+  %.mask357 = and i8 %.sroa.90.1226248328, 1
+  %309 = zext nneg i8 %.mask357 to i64
   %310 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %309, ptr %310, align 16
   %311 = call ptr @cstring_to_text(ptr noundef %266) #11
   %312 = ptrtoint ptr %311 to i64
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %312, ptr %313, align 8
-  %.not87 = icmp eq ptr %.sroa.37110.0, null
+  %.not87 = icmp eq ptr %.sroa.37112.0, null
   br i1 %.not87, label %318, label %314
 
 314:                                              ; preds = %275
-  %315 = ptrtoint ptr %.sroa.37110.0 to i64
+  %315 = ptrtoint ptr %.sroa.37112.0 to i64
   %316 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %315) #11
   %317 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %316, ptr %317, align 16
@@ -866,7 +866,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %339 = ptrtoint ptr %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i64 %339, ptr %340, align 16
-  %341 = call ptr @cstring_to_text(ptr noundef %.sroa.94147.1226242330) #11
+  %341 = call ptr @cstring_to_text(ptr noundef %.sroa.94149.1228244332) #11
   %342 = ptrtoint ptr %341 to i64
   %343 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i64 %342, ptr %343, align 8
@@ -913,23 +913,23 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
 365:                                              ; preds = %361
   store ptr %8, ptr @PG_exception_stack, align 8
   call fastcc void @check_publications(ptr noundef %354, ptr noundef %268)
-  %366 = trunc nuw i8 %.sroa.49.sroa.20.2268306 to i1
+  %366 = trunc nuw i8 %.sroa.49.sroa.20.2270308 to i1
   %367 = load ptr, ptr %249, align 8
-  call fastcc void @check_publications_origin(ptr noundef %354, ptr noundef %268, i1 noundef zeroext %366, ptr noundef %.sroa.94147.1226242330, ptr noundef null, i32 noundef 0, ptr noundef %367)
+  call fastcc void @check_publications_origin(ptr noundef %354, ptr noundef %268, i1 noundef zeroext %366, ptr noundef %.sroa.94149.1228244332, ptr noundef null, i32 noundef 0, ptr noundef %367)
   %368 = select i1 %366, i8 105, i8 114
   %369 = call fastcc ptr @fetch_table_list(ptr noundef %354, ptr noundef %268)
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 4
-  %.not672 = icmp ne ptr %369, null
-  br i1 %.not672, label %.lr.ph665, label %._crit_edge
+  %.not671 = icmp ne ptr %369, null
+  br i1 %.not671, label %.lr.ph664, label %.critedge
 
-.lr.ph665:                                        ; preds = %365
+.lr.ph664:                                        ; preds = %365
   %371 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %372 = load i32, ptr %370, align 4
   %373 = icmp sgt i32 %372, 0
-  br i1 %373, label %.lr.ph670, label %._crit_edge
+  br i1 %373, label %.lr.ph669, label %.critedge
 
-.lr.ph670:                                        ; preds = %.lr.ph665, %.lr.ph670
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph670 ], [ 0, %.lr.ph665 ]
+.lr.ph669:                                        ; preds = %.lr.ph664, %.lr.ph669
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph669 ], [ 0, %.lr.ph664 ]
   %374 = load ptr, ptr %371, align 8
   %375 = getelementptr inbounds nuw %union.ListCell, ptr %374, i64 %indvars.iv
   %376 = load ptr, ptr %375, align 8
@@ -945,19 +945,19 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %383 = load i32, ptr %370, align 4
   %384 = sext i32 %383 to i64
   %385 = icmp slt i64 %indvars.iv.next, %384
-  br i1 %385, label %.lr.ph670, label %._crit_edge, !llvm.loop !4
+  br i1 %385, label %.lr.ph669, label %.critedge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph670, %.lr.ph665, %365
+.critedge:                                        ; preds = %.lr.ph669, %.lr.ph664, %365
   br i1 %222, label %386, label %400
 
-386:                                              ; preds = %._crit_edge
+386:                                              ; preds = %.critedge
   %.not90 = xor i1 %366, true
-  %or.cond5.not = and i1 %.sroa.76.1220254318, %.not90
-  %or.cond7 = and i1 %or.cond5.not, %.not672
+  %or.cond5.not = and i1 %.sroa.76.1222256320, %.not90
+  %or.cond7 = and i1 %or.cond5.not, %.not671
   %387 = load ptr, ptr @WalReceiverFunctions, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 96
   %389 = load ptr, ptr %388, align 8
-  %390 = call ptr %389(ptr noundef nonnull %354, ptr noundef %.sroa.37110.0, i1 noundef zeroext false, i1 noundef zeroext %or.cond7, i1 noundef zeroext %308, i32 noundef 1, ptr noundef null) #11
+  %390 = call ptr %389(ptr noundef nonnull %354, ptr noundef %.sroa.37112.0, i1 noundef zeroext false, i1 noundef zeroext %or.cond7, i1 noundef zeroext %308, i32 noundef 1, ptr noundef null) #11
   br i1 %or.cond7, label %391, label %392
 
 391:                                              ; preds = %386
@@ -969,7 +969,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   br i1 %393, label %394, label %400
 
 394:                                              ; preds = %392
-  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.sroa.37110.0) #11
+  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %.sroa.37112.0) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 791, ptr noundef nonnull @__func__.CreateSubscription) #11
   br label %400
 
@@ -983,7 +983,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   call void @pg_re_throw() #13
   unreachable
 
-400:                                              ; preds = %._crit_edge, %394, %392
+400:                                              ; preds = %.critedge, %394, %392
   store ptr %362, ptr @PG_exception_stack, align 8
   store ptr %363, ptr @error_context_stack, align 8
   %401 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -1728,7 +1728,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %59, ptr %60, align 8
   %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -1737,27 +1737,27 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %65 = load i32, ptr %61, align 4
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph266, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %202, %.lr.ph.i, %49
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not2.i = icmp eq ptr %68, null
-  %.pre298 = load i32, ptr %7, align 8
-  %69 = and i32 %.pre298, 8
-  %.not3.i = icmp eq i32 %69, 0
-  br i1 %.not2.i, label %206, label %parse_subscription_options.specialized.5.exit
+  br i1 %66, label %.lr.ph266, label %.critedge.i
 
 .lr.ph266:                                        ; preds = %.lr.ph.i, %202
   %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i, %202 ], [ 0, %.lr.ph.i ]
-  %70 = load ptr, ptr %62, align 8
-  %71 = getelementptr inbounds nuw %union.ListCell, ptr %70, i64 %indvars.iv.i265
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(10) @.str.57) #12
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %89
+  %67 = load ptr, ptr %62, align 8
+  %68 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv.i265
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(10) @.str.57) #12
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %77, label %89
+
+.critedge.i:                                      ; preds = %202, %.lr.ph.i, %49
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %.not2.i = icmp eq ptr %75, null
+  %.pre298 = load i32, ptr %7, align 8
+  %76 = and i32 %.pre298, 8
+  %.not3.i = icmp eq i32 %76, 0
+  br i1 %.not2.i, label %206, label %parse_subscription_options.specialized.5.exit
 
 77:                                               ; preds = %.lr.ph266
   %78 = load i32, ptr %7, align 8
@@ -1766,13 +1766,13 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not17.i, label %81, label %80
 
 80:                                               ; preds = %77
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 81:                                               ; preds = %77
   %82 = or disjoint i32 %78, 8
   store i32 %82, ptr %7, align 8
-  %83 = call ptr @defGetString(ptr noundef nonnull %72) #11
+  %83 = call ptr @defGetString(ptr noundef nonnull %69) #11
   store ptr %83, ptr %64, align 8
   %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(5) @.str.58) #12
   %85 = icmp eq i32 %84, 0
@@ -1787,7 +1787,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br label %202
 
 89:                                               ; preds = %.lr.ph266
-  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(19) @.str.60) #12
+  %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(19) @.str.60) #12
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %100
 
@@ -1798,19 +1798,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not16.i, label %96, label %95
 
 95:                                               ; preds = %92
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 96:                                               ; preds = %92
   %97 = or disjoint i32 %93, 32
   store i32 %97, ptr %7, align 8
-  %98 = call ptr @defGetString(ptr noundef nonnull %72) #11
+  %98 = call ptr @defGetString(ptr noundef nonnull %69) #11
   store ptr %98, ptr %63, align 8
   %99 = call i32 @set_config_option(ptr noundef nonnull @.str.60, ptr noundef %98, i32 noundef 4, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false) #11
   br label %202
 
 100:                                              ; preds = %89
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.62) #12
+  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(7) @.str.62) #12
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %111
 
@@ -1821,19 +1821,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not15.i, label %107, label %106
 
 106:                                              ; preds = %103
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 107:                                              ; preds = %103
   %108 = or disjoint i32 %104, 128
   store i32 %108, ptr %7, align 8
-  %109 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %109 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %110 = zext i1 %109 to i8
   store i8 %110, ptr %52, align 1
   br label %202
 
 111:                                              ; preds = %100
-  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(10) @.str.63) #12
+  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(10) @.str.63) #12
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %121
 
@@ -1844,18 +1844,18 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not14.i, label %118, label %117
 
 117:                                              ; preds = %114
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 118:                                              ; preds = %114
   %119 = or disjoint i32 %115, 256
   store i32 %119, ptr %7, align 8
-  %120 = call signext i8 @defGetStreamingMode(ptr noundef nonnull %72)
+  %120 = call signext i8 @defGetStreamingMode(ptr noundef nonnull %69)
   store i8 %120, ptr %53, align 2
   br label %202
 
 121:                                              ; preds = %111
-  %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(10) @.str.17) #12
+  %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(10) @.str.17) #12
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %132
 
@@ -1866,19 +1866,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not13.i, label %128, label %127
 
 127:                                              ; preds = %124
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 128:                                              ; preds = %124
   %129 = or disjoint i32 %125, 512
   store i32 %129, ptr %7, align 8
-  %130 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %130 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %131 = zext i1 %130 to i8
   store i8 %131, ptr %54, align 1
   br label %202
 
 132:                                              ; preds = %121
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(17) @.str.64) #12
+  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(17) @.str.64) #12
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %143
 
@@ -1889,19 +1889,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not12.i, label %139, label %138
 
 138:                                              ; preds = %135
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 139:                                              ; preds = %135
   %140 = or disjoint i32 %136, 1024
   store i32 %140, ptr %7, align 8
-  %141 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %141 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %142 = zext i1 %141 to i8
   store i8 %142, ptr %55, align 8
   br label %202
 
 143:                                              ; preds = %132
-  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(18) @.str.65) #12
+  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(18) @.str.65) #12
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %154
 
@@ -1912,19 +1912,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not11.i, label %150, label %149
 
 149:                                              ; preds = %146
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 150:                                              ; preds = %146
   %151 = or disjoint i32 %147, 2048
   store i32 %151, ptr %7, align 8
-  %152 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %152 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %153 = zext i1 %152 to i8
   store i8 %153, ptr %56, align 1
   br label %202
 
 154:                                              ; preds = %143
-  %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(13) @.str.66) #12
+  %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(13) @.str.66) #12
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %165
 
@@ -1935,19 +1935,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not10.i, label %161, label %160
 
 160:                                              ; preds = %157
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 161:                                              ; preds = %157
   %162 = or disjoint i32 %158, 4096
   store i32 %162, ptr %7, align 8
-  %163 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %163 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %164 = zext i1 %163 to i8
   store i8 %164, ptr %57, align 2
   br label %202
 
 165:                                              ; preds = %154
-  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(9) @.str.23) #12
+  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(9) @.str.23) #12
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %176
 
@@ -1958,19 +1958,19 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not9.i, label %172, label %171
 
 171:                                              ; preds = %168
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 172:                                              ; preds = %168
   %173 = or disjoint i32 %169, 8192
   store i32 %173, ptr %7, align 8
-  %174 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %72) #11
+  %174 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %69) #11
   %175 = zext i1 %174 to i8
   store i8 %175, ptr %58, align 1
   br label %202
 
 176:                                              ; preds = %165
-  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(7) @.str.67) #12
+  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(7) @.str.67) #12
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %196
 
@@ -1981,7 +1981,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   br i1 %.not6.i, label %183, label %182
 
 182:                                              ; preds = %179
-  call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #13
+  call void @errorConflictingDefElem(ptr noundef nonnull %69, ptr noundef %0) #13
   unreachable
 
 183:                                              ; preds = %179
@@ -1989,7 +1989,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   store i32 %184, ptr %7, align 8
   %185 = load ptr, ptr %60, align 8
   call void @pfree(ptr noundef %185) #11
-  %186 = call ptr @defGetString(ptr noundef nonnull %72) #11
+  %186 = call ptr @defGetString(ptr noundef nonnull %69) #11
   store ptr %186, ptr %60, align 8
   %187 = call i32 @pg_strcasecmp(ptr noundef %186, ptr noundef nonnull @.str.58) #11
   %.not7.i = icmp eq i32 %187, 0
@@ -2011,7 +2011,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   unreachable
 
 196:                                              ; preds = %176
-  %197 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %198)
   %199 = call i32 @errcode(i32 noundef 16801924) #11
@@ -2025,9 +2025,9 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   %203 = load i32, ptr %61, align 4
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv.next.i, %204
-  br i1 %205, label %.lr.ph266, label %._crit_edge.i
+  br i1 %205, label %.lr.ph266, label %.critedge.i
 
-206:                                              ; preds = %._crit_edge.i
+206:                                              ; preds = %.critedge.i
   br i1 %.not3.i, label %parse_subscription_options.specialized.5.exit.thread, label %207
 
 207:                                              ; preds = %206
@@ -2078,7 +2078,7 @@ define dso_local { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef rea
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-parse_subscription_options.specialized.5.exit:    ; preds = %._crit_edge.i
+parse_subscription_options.specialized.5.exit:    ; preds = %.critedge.i
   br i1 %.not3.i, label %parse_subscription_options.specialized.5.exit.thread, label %239
 
 231:                                              ; preds = %219
@@ -2096,7 +2096,7 @@ parse_subscription_options.specialized.5.exit:    ; preds = %._crit_edge.i
   unreachable
 
 239:                                              ; preds = %parse_subscription_options.specialized.5.exit
-  %240 = ptrtoint ptr %68 to i64
+  %240 = ptrtoint ptr %75 to i64
   %241 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %240) #11
   %242 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i64 %241, ptr %242, align 16
@@ -2346,49 +2346,49 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   %361 = getelementptr inbounds nuw i8, ptr %358, i64 16
   %362 = load i32, ptr %360, align 4
   %363 = icmp sgt i32 %362, 0
-  br i1 %363, label %.lr.ph19.i, label %parse_subscription_options.specialized.3.exit
+  br i1 %363, label %.lr.ph17.i, label %parse_subscription_options.specialized.3.exit
 
-._crit_edge.i158:                                 ; preds = %375
+.lr.ph17.i:                                       ; preds = %.lr.ph.i153, %375
+  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i157, %375 ], [ 0, %.lr.ph.i153 ]
+  %364 = load ptr, ptr %361, align 8
+  %365 = getelementptr inbounds nuw %union.ListCell, ptr %364, i64 %indvars.iv.i155
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 16
+  %368 = load ptr, ptr %367, align 8
+  %369 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %368, ptr noundef nonnull dereferenceable(8) @.str.55) #12
+  %370 = icmp eq i32 %369, 0
+  br i1 %370, label %372, label %.split.i
+
+.critedge.i158:                                   ; preds = %375
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %364 = icmp eq ptr %.pre.i, null
-  br i1 %364, label %387, label %parse_subscription_options.specialized.3.exit
+  %371 = icmp eq ptr %.pre.i, null
+  br i1 %371, label %387, label %parse_subscription_options.specialized.3.exit
 
-.lr.ph19.i:                                       ; preds = %.lr.ph.i153, %375
-  %indvars.iv.i155 = phi i64 [ %indvars.iv.next.i157, %375 ], [ 0, %.lr.ph.i153 ]
-  %365 = load ptr, ptr %361, align 8
-  %366 = getelementptr inbounds nuw %union.ListCell, ptr %365, i64 %indvars.iv.i155
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
-  %369 = load ptr, ptr %368, align 8
-  %370 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %369, ptr noundef nonnull dereferenceable(8) @.str.55) #12
-  %371 = icmp eq i32 %370, 0
-  br i1 %371, label %372, label %.split.i
-
-372:                                              ; preds = %.lr.ph19.i
+372:                                              ; preds = %.lr.ph17.i
   %373 = load i32, ptr %7, align 8
   %374 = and i32 %373, 2
   %.not6.i156 = icmp eq i32 %374, 0
-  br i1 %.not6.i156, label %375, label %.split16.i
+  br i1 %.not6.i156, label %375, label %.split14.i
 
-.split16.i:                                       ; preds = %372
-  call void @errorConflictingDefElem(ptr noundef nonnull %367, ptr noundef %0) #13
+.split14.i:                                       ; preds = %372
+  call void @errorConflictingDefElem(ptr noundef nonnull %366, ptr noundef %0) #13
   unreachable
 
 375:                                              ; preds = %372
   %376 = or disjoint i32 %373, 2
   store i32 %376, ptr %7, align 8
-  %377 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %367) #11
+  %377 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %366) #11
   %378 = zext i1 %377 to i8
   store i8 %378, ptr %359, align 1
   %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i155, 1
   %379 = load i32, ptr %360, align 4
   %380 = sext i32 %379 to i64
   %381 = icmp slt i64 %indvars.iv.next.i157, %380
-  br i1 %381, label %.lr.ph19.i, label %._crit_edge.i158
+  br i1 %381, label %.lr.ph17.i, label %.critedge.i158
 
-.split.i:                                         ; preds = %.lr.ph19.i
-  %382 = getelementptr inbounds nuw i8, ptr %367, i64 16
+.split.i:                                         ; preds = %.lr.ph17.i
+  %382 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %383 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %383)
   %384 = call i32 @errcode(i32 noundef 16801924) #11
@@ -2397,16 +2397,16 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 363, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-387:                                              ; preds = %._crit_edge.i158
+387:                                              ; preds = %.critedge.i158
   %388 = load i32, ptr %7, align 8
   %389 = and i32 %388, 8
   %.not3.i159 = icmp eq i32 %389, 0
   br i1 %.not3.i159, label %parse_subscription_options.specialized.3.exit, label %390
 
 390:                                              ; preds = %387
-  br i1 %377, label %.thread25.i, label %398
+  br i1 %377, label %.thread23.i, label %398
 
-.thread25.i:                                      ; preds = %390
+.thread23.i:                                      ; preds = %390
   %391 = and i32 %388, 2
   %.not5.i154 = icmp eq i32 %391, 0
   %392 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2414,12 +2414,12 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   %393 = call i32 @errcode(i32 noundef 16801924) #11
   br i1 %.not5.i154, label %396, label %394
 
-394:                                              ; preds = %.thread25.i
+394:                                              ; preds = %.thread23.i
   %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.74) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 415, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-396:                                              ; preds = %.thread25.i
+396:                                              ; preds = %.thread23.i
   %397 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.78) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 421, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
@@ -2455,8 +2455,8 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-parse_subscription_options.specialized.3.exit:    ; preds = %356, %.lr.ph.i153, %._crit_edge.i158, %387
-  %412 = phi i8 [ %378, %._crit_edge.i158 ], [ %378, %387 ], [ 1, %.lr.ph.i153 ], [ 1, %356 ]
+parse_subscription_options.specialized.3.exit:    ; preds = %356, %.lr.ph.i153, %.critedge.i158, %387
+  %412 = phi i8 [ %378, %.critedge.i158 ], [ %378, %387 ], [ 1, %.lr.ph.i153 ], [ 1, %356 ]
   %413 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %414 = load ptr, ptr %413, align 8
   %415 = icmp eq ptr %414, null
@@ -2617,45 +2617,45 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   %507 = call ptr @list_copy(ptr noundef %503) #11
   call fastcc void @check_duplicates_in_publist(ptr noundef readonly %505, ptr noundef null)
   %.not42.i = icmp eq ptr %505, null
-  br i1 %.not42.i, label %._crit_edge82.i, label %.lr.ph81.i
+  br i1 %.not42.i, label %.critedge.i161, label %.lr.ph76.i
 
-.lr.ph81.i:                                       ; preds = %498
+.lr.ph76.i:                                       ; preds = %498
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 4
   %509 = getelementptr inbounds nuw i8, ptr %505, i64 16
   %510 = load i32, ptr %508, align 4
   %511 = icmp sgt i32 %510, 0
-  br i1 %511, label %.lr.ph, label %._crit_edge82.i
+  br i1 %511, label %.lr.ph, label %.critedge.i161
 
-._crit_edge82.i:                                  ; preds = %542, %.lr.ph81.i, %498
-  %.0.lcssa.i = phi ptr [ %507, %498 ], [ %507, %.lr.ph81.i ], [ %.4.i, %542 ]
-  %.not44.i = icmp eq ptr %.0.lcssa.i, null
-  br i1 %.not44.i, label %546, label %publicationListToArray.exit168
-
-.lr.ph:                                           ; preds = %.lr.ph81.i, %542
-  %.077.i262 = phi ptr [ %.4.i, %542 ], [ %507, %.lr.ph81.i ]
-  %indvars.iv88.i261 = phi i64 [ %indvars.iv.next89.i, %542 ], [ 0, %.lr.ph81.i ]
+.lr.ph:                                           ; preds = %.lr.ph76.i, %542
+  %.075.i262 = phi ptr [ %.4.i, %542 ], [ %507, %.lr.ph76.i ]
+  %indvars.iv82.i261 = phi i64 [ %indvars.iv.next83.i, %542 ], [ 0, %.lr.ph76.i ]
   %512 = load ptr, ptr %509, align 8
-  %513 = getelementptr inbounds nuw %union.ListCell, ptr %512, i64 %indvars.iv88.i261
+  %513 = getelementptr inbounds nuw %union.ListCell, ptr %512, i64 %indvars.iv82.i261
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %516 = load ptr, ptr %515, align 8
-  %.not45.i = icmp eq ptr %.077.i262, null
-  br i1 %.not45.i, label %._crit_edge.i162, label %.lr.ph.i161
+  %.not45.i = icmp eq ptr %.075.i262, null
+  br i1 %.not45.i, label %.critedge49.i, label %.lr.ph.i162
 
-.lr.ph.i161:                                      ; preds = %.lr.ph
-  %517 = getelementptr inbounds nuw i8, ptr %.077.i262, i64 4
+.lr.ph.i162:                                      ; preds = %.lr.ph
+  %517 = getelementptr inbounds nuw i8, ptr %.075.i262, i64 4
   %518 = load i32, ptr %517, align 4
   %519 = icmp sgt i32 %518, 0
-  br i1 %519, label %.lr.ph75.i, label %._crit_edge.i162
+  br i1 %519, label %.lr.ph72.i, label %.critedge49.i
 
-.lr.ph75.i:                                       ; preds = %.lr.ph.i161
-  %520 = getelementptr inbounds nuw i8, ptr %.077.i262, i64 16
+.lr.ph72.i:                                       ; preds = %.lr.ph.i162
+  %520 = getelementptr inbounds nuw i8, ptr %.075.i262, i64 16
   %521 = load ptr, ptr %520, align 8
   %wide.trip.count.i = zext nneg i32 %518 to i64
   br label %522
 
-522:                                              ; preds = %534, %.lr.ph75.i
-  %indvars.iv.i163 = phi i64 [ 0, %.lr.ph75.i ], [ %indvars.iv.next.i164, %534 ]
+.critedge.i161:                                   ; preds = %542, %.lr.ph76.i, %498
+  %.0.lcssa.i = phi ptr [ %507, %498 ], [ %507, %.lr.ph76.i ], [ %.4.i, %542 ]
+  %.not44.i = icmp eq ptr %.0.lcssa.i, null
+  br i1 %.not44.i, label %546, label %publicationListToArray.exit168
+
+522:                                              ; preds = %534, %.lr.ph72.i
+  %indvars.iv.i163 = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next.i164, %534 ]
   %523 = getelementptr inbounds nuw %union.ListCell, ptr %521, i64 %indvars.iv.i163
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 8
@@ -2665,7 +2665,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   br i1 %.not47.i, label %.split.i165, label %534
 
 .split.i165:                                      ; preds = %522
-  br i1 %499, label %528, label %.thread65.i
+  br i1 %499, label %528, label %.thread59.i
 
 528:                                              ; preds = %.split.i165
   %529 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -2675,25 +2675,25 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2422, ptr noundef nonnull @__func__.merge_publications) #11
   unreachable
 
-.thread65.i:                                      ; preds = %.split.i165
+.thread59.i:                                      ; preds = %.split.i165
   %532 = trunc nuw nsw i64 %indvars.iv.i163 to i32
-  %533 = call ptr @list_delete_nth_cell(ptr noundef nonnull %.077.i262, i32 noundef %532) #11
+  %533 = call ptr @list_delete_nth_cell(ptr noundef nonnull %.075.i262, i32 noundef %532) #11
   br label %542
 
 534:                                              ; preds = %522
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i163, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i164, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i162, label %522
+  br i1 %exitcond.not.i, label %.critedge49.i, label %522
 
-._crit_edge.i162:                                 ; preds = %534, %.lr.ph.i161, %.lr.ph
+.critedge49.i:                                    ; preds = %534, %.lr.ph.i162, %.lr.ph
   br i1 %499, label %535, label %538
 
-535:                                              ; preds = %._crit_edge.i162
+535:                                              ; preds = %.critedge49.i
   %536 = call ptr @makeString(ptr noundef %516) #11
-  %537 = call ptr @lappend(ptr noundef %.077.i262, ptr noundef %536) #11
+  %537 = call ptr @lappend(ptr noundef %.075.i262, ptr noundef %536) #11
   br label %542
 
-538:                                              ; preds = %._crit_edge.i162
+538:                                              ; preds = %.critedge49.i
   %539 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %539)
   %540 = call i32 @errcode(i32 noundef 117833860) #11
@@ -2701,15 +2701,15 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2436, ptr noundef nonnull @__func__.merge_publications) #11
   unreachable
 
-542:                                              ; preds = %535, %.thread65.i
-  %.4.i = phi ptr [ %537, %535 ], [ %533, %.thread65.i ]
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i261, 1
+542:                                              ; preds = %535, %.thread59.i
+  %.4.i = phi ptr [ %537, %535 ], [ %533, %.thread59.i ]
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i261, 1
   %543 = load i32, ptr %508, align 4
   %544 = sext i32 %543 to i64
-  %545 = icmp slt i64 %indvars.iv.next89.i, %544
-  br i1 %545, label %.lr.ph, label %._crit_edge82.i
+  %545 = icmp slt i64 %indvars.iv.next83.i, %544
+  br i1 %545, label %.lr.ph, label %.critedge.i161
 
-546:                                              ; preds = %._crit_edge82.i
+546:                                              ; preds = %.critedge.i161
   %547 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %547)
   %548 = call i32 @errcode(i32 noundef 117833860) #11
@@ -2717,7 +2717,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2446, ptr noundef nonnull @__func__.merge_publications) #11
   unreachable
 
-publicationListToArray.exit168:                   ; preds = %._crit_edge82.i
+publicationListToArray.exit168:                   ; preds = %.critedge.i161
   %550 = load ptr, ptr @CurrentMemoryContext, align 8
   %551 = call ptr @AllocSetContextCreateInternal(ptr noundef %550, ptr noundef nonnull @.str.80, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #11
   %552 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2822,49 +2822,49 @@ publicationListToArray.exit168:                   ; preds = %._crit_edge82.i
   %609 = getelementptr inbounds nuw i8, ptr %606, i64 16
   %610 = load i32, ptr %608, align 4
   %611 = icmp sgt i32 %610, 0
-  br i1 %611, label %.lr.ph19.i174, label %parse_subscription_options.specialized.2.exit
+  br i1 %611, label %.lr.ph17.i174, label %parse_subscription_options.specialized.2.exit
 
-._crit_edge.i180:                                 ; preds = %623
+.lr.ph17.i174:                                    ; preds = %.lr.ph.i170, %623
+  %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i179, %623 ], [ 0, %.lr.ph.i170 ]
+  %612 = load ptr, ptr %609, align 8
+  %613 = getelementptr inbounds nuw %union.ListCell, ptr %612, i64 %indvars.iv.i175
+  %614 = load ptr, ptr %613, align 8
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 16
+  %616 = load ptr, ptr %615, align 8
+  %617 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %616, ptr noundef nonnull dereferenceable(10) @.str.59) #12
+  %618 = icmp eq i32 %617, 0
+  br i1 %618, label %620, label %.split.i176
+
+.critedge.i180:                                   ; preds = %623
   %.phi.trans.insert.i181 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre.i182 = load ptr, ptr %.phi.trans.insert.i181, align 8
-  %612 = icmp eq ptr %.pre.i182, null
-  br i1 %612, label %._crit_edge.thread.i, label %parse_subscription_options.specialized.2.exit
+  %619 = icmp eq ptr %.pre.i182, null
+  br i1 %619, label %.critedge.thread.i, label %parse_subscription_options.specialized.2.exit
 
-.lr.ph19.i174:                                    ; preds = %.lr.ph.i170, %623
-  %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i179, %623 ], [ 0, %.lr.ph.i170 ]
-  %613 = load ptr, ptr %609, align 8
-  %614 = getelementptr inbounds nuw %union.ListCell, ptr %613, i64 %indvars.iv.i175
-  %615 = load ptr, ptr %614, align 8
-  %616 = getelementptr inbounds nuw i8, ptr %615, i64 16
-  %617 = load ptr, ptr %616, align 8
-  %618 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %617, ptr noundef nonnull dereferenceable(10) @.str.59) #12
-  %619 = icmp eq i32 %618, 0
-  br i1 %619, label %620, label %.split.i176
-
-620:                                              ; preds = %.lr.ph19.i174
+620:                                              ; preds = %.lr.ph17.i174
   %621 = load i32, ptr %7, align 8
   %622 = and i32 %621, 16
   %.not6.i177 = icmp eq i32 %622, 0
-  br i1 %.not6.i177, label %623, label %.split16.i178
+  br i1 %.not6.i177, label %623, label %.split14.i178
 
-.split16.i178:                                    ; preds = %620
-  call void @errorConflictingDefElem(ptr noundef nonnull %615, ptr noundef %0) #13
+.split14.i178:                                    ; preds = %620
+  call void @errorConflictingDefElem(ptr noundef nonnull %614, ptr noundef %0) #13
   unreachable
 
 623:                                              ; preds = %620
   %624 = or disjoint i32 %621, 16
   store i32 %624, ptr %7, align 8
-  %625 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %615) #11
+  %625 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %614) #11
   %626 = zext i1 %625 to i8
   store i8 %626, ptr %607, align 1
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i175, 1
   %627 = load i32, ptr %608, align 4
   %628 = sext i32 %627 to i64
   %629 = icmp slt i64 %indvars.iv.next.i179, %628
-  br i1 %629, label %.lr.ph19.i174, label %._crit_edge.i180
+  br i1 %629, label %.lr.ph17.i174, label %.critedge.i180
 
-.split.i176:                                      ; preds = %.lr.ph19.i174
-  %630 = getelementptr inbounds nuw i8, ptr %615, i64 16
+.split.i176:                                      ; preds = %.lr.ph17.i174
+  %630 = getelementptr inbounds nuw i8, ptr %614, i64 16
   %631 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %631)
   %632 = call i32 @errcode(i32 noundef 16801924) #11
@@ -2873,13 +2873,13 @@ publicationListToArray.exit168:                   ; preds = %._crit_edge82.i
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 363, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i180
+.critedge.thread.i:                               ; preds = %.critedge.i180
   %.pre = load i32, ptr %7, align 8
   %635 = and i32 %.pre, 8
   %.not3.i171 = icmp eq i32 %635, 0
   br i1 %.not3.i171, label %parse_subscription_options.specialized.2.exit, label %636
 
-636:                                              ; preds = %._crit_edge.thread.i
+636:                                              ; preds = %.critedge.thread.i
   %637 = getelementptr inbounds nuw i8, ptr %7, i64 25
   %638 = load i8, ptr %637, align 1, !range !12, !noundef !13
   %639 = trunc nuw i8 %638 to i1
@@ -2927,8 +2927,8 @@ publicationListToArray.exit168:                   ; preds = %._crit_edge82.i
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, %._crit_edge.i180, %._crit_edge.thread.i, %648
-  %660 = phi i1 [ %625, %._crit_edge.i180 ], [ %625, %._crit_edge.thread.i ], [ %625, %648 ], [ true, %.lr.ph.i170 ], [ true, %604 ]
+parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, %.critedge.i180, %.critedge.thread.i, %648
+  %660 = phi i1 [ %625, %.critedge.i180 ], [ %625, %.critedge.thread.i ], [ %625, %648 ], [ true, %.lr.ph.i170 ], [ true, %604 ]
   %661 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %662 = load i8, ptr %661, align 8
   %663 = icmp eq i8 %662, 101
@@ -2957,37 +2957,37 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   %674 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %675 = load i32, ptr %672, align 4
   %676 = icmp sgt i32 %675, 0
-  br i1 %676, label %.lr.ph26.i, label %parse_subscription_options.specialized.4.exit.thread
+  br i1 %676, label %.lr.ph24.i, label %parse_subscription_options.specialized.4.exit.thread
 
-._crit_edge.i191:                                 ; preds = %700
+.lr.ph24.i:                                       ; preds = %.lr.ph.i184, %700
+  %indvars.iv.i186 = phi i64 [ %indvars.iv.next.i190, %700 ], [ 0, %.lr.ph.i184 ]
+  %677 = load ptr, ptr %673, align 8
+  %678 = getelementptr inbounds nuw %union.ListCell, ptr %677, i64 %indvars.iv.i186
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 16
+  %681 = load ptr, ptr %680, align 8
+  %682 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %681, ptr noundef nonnull dereferenceable(4) @.str.69) #12
+  %683 = icmp eq i32 %682, 0
+  br i1 %683, label %686, label %.split.i187
+
+.critedge.i191:                                   ; preds = %700
   %.phi.trans.insert.i192 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.pre35.i = load ptr, ptr %.phi.trans.insert.i192, align 8
-  %677 = icmp ne ptr %.pre35.i, null
-  %678 = and i32 %701, 8
-  %.not3.i193 = icmp eq i32 %678, 0
-  %or.cond.i = select i1 %677, i1 true, i1 %.not3.i193
+  %.pre32.i = load ptr, ptr %.phi.trans.insert.i192, align 8
+  %684 = icmp ne ptr %.pre32.i, null
+  %685 = and i32 %701, 8
+  %.not3.i193 = icmp eq i32 %685, 0
+  %or.cond.i = select i1 %684, i1 true, i1 %.not3.i193
   br i1 %or.cond.i, label %parse_subscription_options.specialized.4.exit, label %711
 
-.lr.ph26.i:                                       ; preds = %.lr.ph.i184, %700
-  %indvars.iv.i186 = phi i64 [ %indvars.iv.next.i190, %700 ], [ 0, %.lr.ph.i184 ]
-  %679 = load ptr, ptr %673, align 8
-  %680 = getelementptr inbounds nuw %union.ListCell, ptr %679, i64 %indvars.iv.i186
-  %681 = load ptr, ptr %680, align 8
-  %682 = getelementptr inbounds nuw i8, ptr %681, i64 16
-  %683 = load ptr, ptr %682, align 8
-  %684 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %683, ptr noundef nonnull dereferenceable(4) @.str.69) #12
-  %685 = icmp eq i32 %684, 0
-  br i1 %685, label %686, label %.split.i187
-
-686:                                              ; preds = %.lr.ph26.i
-  %687 = call ptr @defGetString(ptr noundef nonnull %681) #11
+686:                                              ; preds = %.lr.ph24.i
+  %687 = call ptr @defGetString(ptr noundef nonnull %679) #11
   %688 = load i32, ptr %7, align 8
   %689 = and i32 %688, 16384
   %.not6.i188 = icmp eq i32 %689, 0
-  br i1 %.not6.i188, label %690, label %.split20.i
+  br i1 %.not6.i188, label %690, label %.split18.i
 
-.split20.i:                                       ; preds = %686
-  call void @errorConflictingDefElem(ptr noundef nonnull %681, ptr noundef %0) #13
+.split18.i:                                       ; preds = %686
+  call void @errorConflictingDefElem(ptr noundef nonnull %679, ptr noundef %0) #13
   unreachable
 
 690:                                              ; preds = %686
@@ -2999,13 +2999,13 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   %694 = ptrtoint ptr %687 to i64
   %695 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @pg_lsn_in, i32 noundef 0, i64 noundef %694) #11
   %696 = icmp eq i64 %695, 0
-  br i1 %696, label %.split23.i, label %._crit_edge34.i
+  br i1 %696, label %.split21.i, label %._crit_edge.i
 
-._crit_edge34.i:                                  ; preds = %693
+._crit_edge.i:                                    ; preds = %693
   %.pre.i189 = load i32, ptr %7, align 8
   br label %700
 
-.split23.i:                                       ; preds = %693
+.split21.i:                                       ; preds = %693
   %697 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %697)
   %698 = call i32 @errcode(i32 noundef 50856066) #11
@@ -3013,9 +3013,9 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 354, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-700:                                              ; preds = %._crit_edge34.i, %690
-  %701 = phi i32 [ %.pre.i189, %._crit_edge34.i ], [ %688, %690 ]
-  %.0.i = phi i64 [ %695, %._crit_edge34.i ], [ 0, %690 ]
+700:                                              ; preds = %._crit_edge.i, %690
+  %701 = phi i32 [ %.pre.i189, %._crit_edge.i ], [ %688, %690 ]
+  %.0.i = phi i64 [ %695, %._crit_edge.i ], [ 0, %690 ]
   %702 = or i32 %701, 16384
   store i32 %702, ptr %7, align 8
   store i64 %.0.i, ptr %674, align 8
@@ -3023,10 +3023,10 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   %703 = load i32, ptr %672, align 4
   %704 = sext i32 %703 to i64
   %705 = icmp slt i64 %indvars.iv.next.i190, %704
-  br i1 %705, label %.lr.ph26.i, label %._crit_edge.i191
+  br i1 %705, label %.lr.ph24.i, label %.critedge.i191
 
-.split.i187:                                      ; preds = %.lr.ph26.i
-  %706 = getelementptr inbounds nuw i8, ptr %681, i64 16
+.split.i187:                                      ; preds = %.lr.ph24.i
+  %706 = getelementptr inbounds nuw i8, ptr %679, i64 16
   %707 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %707)
   %708 = call i32 @errcode(i32 noundef 16801924) #11
@@ -3035,7 +3035,7 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 363, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-711:                                              ; preds = %._crit_edge.i191
+711:                                              ; preds = %.critedge.i191
   %712 = getelementptr inbounds nuw i8, ptr %7, i64 25
   %713 = load i8, ptr %712, align 1, !range !12, !noundef !13
   %714 = trunc nuw i8 %713 to i1
@@ -3083,7 +3083,7 @@ parse_subscription_options.specialized.2.exit:    ; preds = %604, %.lr.ph.i170, 
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-parse_subscription_options.specialized.4.exit:    ; preds = %._crit_edge.i191, %723
+parse_subscription_options.specialized.4.exit:    ; preds = %.critedge.i191, %723
   %735 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %736 = icmp eq i64 %.0.i, 0
   br i1 %736, label %parse_subscription_options.specialized.4.exit.thread, label %737
@@ -3371,7 +3371,7 @@ define internal fastcc void @AlterSubscription_refresh(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #11
   %37 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #15
   %.not114 = icmp eq i32 %37, 0
-  br i1 %.not114, label %38, label %.loopexit
+  br i1 %.not114, label %38, label %175
 
 38:                                               ; preds = %34
   store ptr %5, ptr @PG_exception_stack, align 8
@@ -3393,7 +3393,7 @@ define internal fastcc void @AlterSubscription_refresh(ptr noundef readonly capt
 
 list_length.exit.thread:                          ; preds = %40
   %46 = call ptr @palloc(i64 noundef 0) #11
-  br label %._crit_edge
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -3405,210 +3405,210 @@ list_length.exit.thread:                          ; preds = %40
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %54 = load i32, ptr %52, align 4
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph156, label %._crit_edge
+  br i1 %55, label %.lr.ph152, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph156, %list_length.exit.thread, %.lr.ph
-  %56 = phi ptr [ %46, %list_length.exit.thread ], [ %51, %.lr.ph ], [ %51, %.lr.ph156 ]
-  %57 = phi i64 [ 0, %list_length.exit.thread ], [ %49, %.lr.ph ], [ %49, %.lr.ph156 ]
-  %58 = phi i32 [ 0, %list_length.exit.thread ], [ %48, %.lr.ph ], [ %48, %.lr.ph156 ]
-  call void @pg_qsort(ptr noundef %56, i64 noundef %57, i64 noundef 4, ptr noundef nonnull @oid_cmp) #11
-  %59 = load ptr, ptr %41, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %25, align 8
-  call fastcc void @check_publications_origin(ptr noundef %27, ptr noundef %59, i1 noundef zeroext %1, ptr noundef %61, ptr noundef %56, i32 noundef %58, ptr noundef %62)
-  %63 = shl nsw i64 %57, 3
-  %64 = call ptr @palloc(i64 noundef %63) #11
-  %.not.i122 = icmp eq ptr %43, null
-  br i1 %.not.i122, label %list_length.exit123.thread, label %.lr.ph159
-
-list_length.exit123.thread:                       ; preds = %._crit_edge
-  %65 = call ptr @palloc(i64 noundef 0) #11
-  br label %list_length.exit125
-
-.lr.ph159:                                        ; preds = %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = sext i32 %67 to i64
-  %69 = shl nsw i64 %68, 2
-  %70 = call ptr @palloc(i64 noundef %69) #11
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %72 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.not24.i = icmp eq i32 %58, 0
-  %73 = select i1 %1, i8 105, i8 114
-  %74 = load i32, ptr %71, align 4
-  %75 = sext i32 %74 to i64
-  %76 = icmp sgt i32 %74, 0
-  br i1 %76, label %.lr.ph186, label %list_length.exit125
-
-.lr.ph156:                                        ; preds = %.lr.ph, %.lr.ph156
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph156 ], [ 0, %.lr.ph ]
-  %77 = load ptr, ptr %53, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %79, align 8
+.lr.ph152:                                        ; preds = %.lr.ph, %.lr.ph152
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph152 ], [ 0, %.lr.ph ]
+  %56 = load ptr, ptr %53, align 8
+  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %58, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
-  store i32 %80, ptr %81, align 4
-  %82 = load i32, ptr %52, align 4
+  %60 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  store i32 %59, ptr %60, align 4
+  %61 = load i32, ptr %52, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %.lr.ph152, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph152, %list_length.exit.thread, %.lr.ph
+  %64 = phi ptr [ %46, %list_length.exit.thread ], [ %51, %.lr.ph ], [ %51, %.lr.ph152 ]
+  %65 = phi i64 [ 0, %list_length.exit.thread ], [ %49, %.lr.ph ], [ %49, %.lr.ph152 ]
+  %66 = phi i32 [ 0, %list_length.exit.thread ], [ %48, %.lr.ph ], [ %48, %.lr.ph152 ]
+  call void @pg_qsort(ptr noundef %64, i64 noundef %65, i64 noundef 4, ptr noundef nonnull @oid_cmp) #11
+  %67 = load ptr, ptr %41, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %25, align 8
+  call fastcc void @check_publications_origin(ptr noundef %27, ptr noundef %67, i1 noundef zeroext %1, ptr noundef %69, ptr noundef %64, i32 noundef %66, ptr noundef %70)
+  %71 = shl nsw i64 %65, 3
+  %72 = call ptr @palloc(i64 noundef %71) #11
+  %.not.i126 = icmp eq ptr %43, null
+  br i1 %.not.i126, label %list_length.exit127.thread, label %.lr.ph155
+
+list_length.exit127.thread:                       ; preds = %.critedge
+  %73 = call ptr @palloc(i64 noundef 0) #11
+  br label %list_length.exit130
+
+.lr.ph155:                                        ; preds = %.critedge
+  %74 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = sext i32 %75 to i64
+  %77 = shl nsw i64 %76, 2
+  %78 = call ptr @palloc(i64 noundef %77) #11
+  %79 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.not24.i = icmp eq i32 %66, 0
+  %81 = select i1 %1, i8 105, i8 114
+  %82 = load i32, ptr %79, align 4
   %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph156, label %._crit_edge
+  %84 = icmp sgt i32 %82, 0
+  br i1 %84, label %.lr.ph183, label %list_length.exit130
 
-list_length.exit125:                              ; preds = %bsearch.exit, %.lr.ph159, %list_length.exit123.thread
-  %85 = phi ptr [ %65, %list_length.exit123.thread ], [ %70, %.lr.ph159 ], [ %70, %bsearch.exit ]
-  %86 = phi i64 [ 0, %list_length.exit123.thread ], [ %75, %.lr.ph159 ], [ %120, %bsearch.exit ]
-  call void @pg_qsort(ptr noundef %85, i64 noundef %86, i64 noundef 4, ptr noundef nonnull @oid_cmp) #11
-  %87 = icmp sgt i32 %58, 0
-  br i1 %87, label %.lr.ph163, label %.loopexit
+.lr.ph183:                                        ; preds = %.lr.ph155, %bsearch.exit
+  %indvars.iv166182 = phi i64 [ %indvars.iv.next167, %bsearch.exit ], [ 0, %.lr.ph155 ]
+  %85 = load ptr, ptr %80, align 8
+  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv166182
+  %87 = load ptr, ptr %86, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  %88 = call i32 @RangeVarGetRelidExtended(ptr noundef %87, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null) #11
+  store i32 %88, ptr %6, align 4
+  %89 = call signext i8 @get_rel_relkind(i32 noundef %88) #11
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %93 = load ptr, ptr %92, align 8
+  call void @CheckSubscriptionRelkind(i8 noundef signext %89, ptr noundef %91, ptr noundef %93) #11
+  %94 = load i32, ptr %6, align 4
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166182, 1
+  %95 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv166182
+  store i32 %94, ptr %95, align 4
+  br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph163:                                        ; preds = %list_length.exit125
-  %88 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %wide.trip.count = zext nneg i32 %58 to i64
+.lr.ph.i:                                         ; preds = %.lr.ph183, %105
+  %.01621.i = phi i64 [ %.1.i, %105 ], [ 0, %.lr.ph183 ]
+  %.01720.i = phi i64 [ %.118.i, %105 ], [ %65, %.lr.ph183 ]
+  %96 = add i64 %.01720.i, %.01621.i
+  %97 = lshr i64 %96, 1
+  %98 = shl i64 %97, 2
+  %99 = getelementptr inbounds nuw i8, ptr %64, i64 %98
+  %100 = call i32 @oid_cmp(ptr noundef nonnull %6, ptr noundef nonnull %99) #11
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %105, label %102
+
+102:                                              ; preds = %.lr.ph.i
+  %.not.i128 = icmp eq i32 %100, 0
+  br i1 %.not.i128, label %bsearch.exit, label %103
+
+103:                                              ; preds = %102
+  %104 = add nuw i64 %97, 1
+  br label %105
+
+105:                                              ; preds = %103, %.lr.ph.i
+  %.118.i = phi i64 [ %.01720.i, %103 ], [ %97, %.lr.ph.i ]
+  %.1.i = phi i64 [ %104, %103 ], [ %.01621.i, %.lr.ph.i ]
+  %106 = icmp ult i64 %.1.i, %.118.i
+  br i1 %106, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !14
+
+list_length.exit130:                              ; preds = %bsearch.exit, %.lr.ph155, %list_length.exit127.thread
+  %107 = phi ptr [ %73, %list_length.exit127.thread ], [ %78, %.lr.ph155 ], [ %78, %bsearch.exit ]
+  %108 = phi i64 [ 0, %list_length.exit127.thread ], [ %83, %.lr.ph155 ], [ %120, %bsearch.exit ]
+  call void @pg_qsort(ptr noundef %107, i64 noundef %108, i64 noundef 4, ptr noundef nonnull @oid_cmp) #11
+  %109 = icmp sgt i32 %66, 0
+  br i1 %109, label %.lr.ph159, label %._crit_edge
+
+.lr.ph159:                                        ; preds = %list_length.exit130
+  %110 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %wide.trip.count = zext nneg i32 %66 to i64
   br label %123
 
-.lr.ph186:                                        ; preds = %.lr.ph159, %bsearch.exit
-  %indvars.iv170185 = phi i64 [ %indvars.iv.next171, %bsearch.exit ], [ 0, %.lr.ph159 ]
-  %89 = load ptr, ptr %72, align 8
-  %90 = getelementptr inbounds nuw %union.ListCell, ptr %89, i64 %indvars.iv170185
-  %91 = load ptr, ptr %90, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  %92 = call i32 @RangeVarGetRelidExtended(ptr noundef %91, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null) #11
-  store i32 %92, ptr %6, align 4
-  %93 = call signext i8 @get_rel_relkind(i32 noundef %92) #11
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %97 = load ptr, ptr %96, align 8
-  call void @CheckSubscriptionRelkind(i8 noundef signext %93, ptr noundef %95, ptr noundef %97) #11
-  %98 = load i32, ptr %6, align 4
-  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170185, 1
-  %99 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv170185
-  store i32 %98, ptr %99, align 4
-  br i1 %.not24.i, label %.loopexit150, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph186, %109
-  %.01621.i = phi i64 [ %.1.i, %109 ], [ 0, %.lr.ph186 ]
-  %.01720.i = phi i64 [ %.118.i, %109 ], [ %57, %.lr.ph186 ]
-  %100 = add i64 %.01720.i, %.01621.i
-  %101 = lshr i64 %100, 1
-  %102 = shl i64 %101, 2
-  %103 = getelementptr inbounds nuw i8, ptr %56, i64 %102
-  %104 = call i32 @oid_cmp(ptr noundef nonnull %6, ptr noundef nonnull %103) #11
-  %105 = icmp slt i32 %104, 0
-  br i1 %105, label %109, label %106
-
-106:                                              ; preds = %.lr.ph.i
-  %.not.i126 = icmp eq i32 %104, 0
-  br i1 %.not.i126, label %bsearch.exit, label %107
-
-107:                                              ; preds = %106
-  %108 = add nuw i64 %101, 1
-  br label %109
-
-109:                                              ; preds = %107, %.lr.ph.i
-  %.118.i = phi i64 [ %.01720.i, %107 ], [ %101, %.lr.ph.i ]
-  %.1.i = phi i64 [ %108, %107 ], [ %.01621.i, %.lr.ph.i ]
-  %110 = icmp ult i64 %.1.i, %.118.i
-  br i1 %110, label %.lr.ph.i, label %.loopexit150.loopexit, !llvm.loop !14
-
-.loopexit150.loopexit:                            ; preds = %109
+.loopexit.loopexit:                               ; preds = %105
   %.pre = load i32, ptr %6, align 4
-  br label %.loopexit150
+  br label %.loopexit
 
-.loopexit150:                                     ; preds = %.loopexit150.loopexit, %.lr.ph186
-  %111 = phi i32 [ %.pre, %.loopexit150.loopexit ], [ %98, %.lr.ph186 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph183
+  %111 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %94, %.lr.ph183 ]
   %112 = load i32, ptr %0, align 8
-  call void @AddSubscriptionRelState(i32 noundef %112, i32 noundef %111, i8 noundef signext %73, i64 noundef 0, i1 noundef zeroext true) #11
+  call void @AddSubscriptionRelState(i32 noundef %112, i32 noundef %111, i8 noundef signext %81, i64 noundef 0, i1 noundef zeroext true) #11
   %113 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
   br i1 %113, label %114, label %bsearch.exit
 
-114:                                              ; preds = %.loopexit150
-  %115 = load ptr, ptr %94, align 8
-  %116 = load ptr, ptr %96, align 8
+114:                                              ; preds = %.loopexit
+  %115 = load ptr, ptr %90, align 8
+  %116 = load ptr, ptr %92, align 8
   %117 = load ptr, ptr %25, align 8
   %118 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.89, ptr noundef %115, ptr noundef %116, ptr noundef %117) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 924, ptr noundef nonnull @__func__.AlterSubscription_refresh) #11
   br label %bsearch.exit
 
-bsearch.exit:                                     ; preds = %106, %.loopexit150, %114
+bsearch.exit:                                     ; preds = %102, %.loopexit, %114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  %119 = load i32, ptr %71, align 4
+  %119 = load i32, ptr %79, align 4
   %120 = sext i32 %119 to i64
-  %121 = icmp slt i64 %indvars.iv.next171, %120
-  br i1 %121, label %.lr.ph186, label %list_length.exit125
+  %121 = icmp slt i64 %indvars.iv.next167, %120
+  br i1 %121, label %.lr.ph183, label %list_length.exit130
 
-.preheader:                                       ; preds = %bsearch.exit137
+.preheader:                                       ; preds = %bsearch.exit141
   %122 = icmp sgt i32 %.198, 0
-  br i1 %122, label %.lr.ph166.preheader, label %.loopexit
+  br i1 %122, label %.lr.ph162.preheader, label %._crit_edge
 
-.lr.ph166.preheader:                              ; preds = %.preheader
-  %wide.trip.count181 = zext nneg i32 %.198 to i64
-  br label %.lr.ph166
+.lr.ph162.preheader:                              ; preds = %.preheader
+  %wide.trip.count177 = zext nneg i32 %.198 to i64
+  br label %.lr.ph162
 
-123:                                              ; preds = %.lr.ph163, %bsearch.exit137
-  %indvars.iv175 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next176, %bsearch.exit137 ]
-  %.097161 = phi i32 [ 0, %.lr.ph163 ], [ %.198, %bsearch.exit137 ]
-  %.099160 = phi ptr [ null, %.lr.ph163 ], [ %.1100, %bsearch.exit137 ]
+123:                                              ; preds = %.lr.ph159, %bsearch.exit141
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next172, %bsearch.exit141 ]
+  %.097157 = phi i32 [ 0, %.lr.ph159 ], [ %.198, %bsearch.exit141 ]
+  %.099156 = phi ptr [ null, %.lr.ph159 ], [ %.1100, %bsearch.exit141 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  %124 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv175
+  %124 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv171
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %7, align 4
-  br i1 %.not.i122, label %list_length.exit128.thread, label %list_length.exit128
+  br i1 %.not.i126, label %list_length.exit132.thread, label %list_length.exit132
 
-list_length.exit128:                              ; preds = %123
-  %126 = load i32, ptr %88, align 4
-  %.not24.i129 = icmp eq i32 %126, 0
-  br i1 %.not24.i129, label %list_length.exit128.thread, label %.lr.ph.i130.preheader
+list_length.exit132:                              ; preds = %123
+  %126 = load i32, ptr %110, align 4
+  %.not24.i133 = icmp eq i32 %126, 0
+  br i1 %.not24.i133, label %list_length.exit132.thread, label %.lr.ph.i134.preheader
 
-.lr.ph.i130.preheader:                            ; preds = %list_length.exit128
+.lr.ph.i134.preheader:                            ; preds = %list_length.exit132
   %127 = sext i32 %126 to i64
-  br label %.lr.ph.i130
+  br label %.lr.ph.i134
 
-.lr.ph.i130:                                      ; preds = %.lr.ph.i130.preheader, %137
-  %.01621.i131 = phi i64 [ %.1.i135, %137 ], [ 0, %.lr.ph.i130.preheader ]
-  %.01720.i132 = phi i64 [ %.118.i134, %137 ], [ %127, %.lr.ph.i130.preheader ]
-  %128 = add i64 %.01720.i132, %.01621.i131
+.lr.ph.i134:                                      ; preds = %.lr.ph.i134.preheader, %137
+  %.01621.i135 = phi i64 [ %.1.i139, %137 ], [ 0, %.lr.ph.i134.preheader ]
+  %.01720.i136 = phi i64 [ %.118.i138, %137 ], [ %127, %.lr.ph.i134.preheader ]
+  %128 = add i64 %.01720.i136, %.01621.i135
   %129 = lshr i64 %128, 1
   %130 = shl i64 %129, 2
-  %131 = getelementptr inbounds nuw i8, ptr %85, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %107, i64 %130
   %132 = call i32 @oid_cmp(ptr noundef nonnull %7, ptr noundef nonnull %131) #11
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %137, label %134
 
-134:                                              ; preds = %.lr.ph.i130
-  %.not.i133 = icmp eq i32 %132, 0
-  br i1 %.not.i133, label %bsearch.exit137, label %135
+134:                                              ; preds = %.lr.ph.i134
+  %.not.i137 = icmp eq i32 %132, 0
+  br i1 %.not.i137, label %bsearch.exit141, label %135
 
 135:                                              ; preds = %134
   %136 = add nuw i64 %129, 1
   br label %137
 
-137:                                              ; preds = %135, %.lr.ph.i130
-  %.118.i134 = phi i64 [ %.01720.i132, %135 ], [ %129, %.lr.ph.i130 ]
-  %.1.i135 = phi i64 [ %136, %135 ], [ %.01621.i131, %.lr.ph.i130 ]
-  %138 = icmp ult i64 %.1.i135, %.118.i134
-  br i1 %138, label %.lr.ph.i130, label %list_length.exit128.thread, !llvm.loop !14
+137:                                              ; preds = %135, %.lr.ph.i134
+  %.118.i138 = phi i64 [ %.01720.i136, %135 ], [ %129, %.lr.ph.i134 ]
+  %.1.i139 = phi i64 [ %136, %135 ], [ %.01621.i135, %.lr.ph.i134 ]
+  %138 = icmp ult i64 %.1.i139, %.118.i138
+  br i1 %138, label %.lr.ph.i134, label %list_length.exit132.thread, !llvm.loop !14
 
-list_length.exit128.thread:                       ; preds = %137, %123, %list_length.exit128
+list_length.exit132.thread:                       ; preds = %137, %123, %list_length.exit132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  %.not119 = icmp eq ptr %.099160, null
+  %.not119 = icmp eq ptr %.099156, null
   br i1 %.not119, label %139, label %141
 
-139:                                              ; preds = %list_length.exit128.thread
+139:                                              ; preds = %list_length.exit132.thread
   %140 = call ptr @table_open(i32 noundef 6102, i32 noundef 8) #11
   br label %141
 
-141:                                              ; preds = %139, %list_length.exit128.thread
-  %.2101 = phi ptr [ %.099160, %list_length.exit128.thread ], [ %140, %139 ]
+141:                                              ; preds = %139, %list_length.exit132.thread
+  %.2101 = phi ptr [ %.099156, %list_length.exit132.thread ], [ %140, %139 ]
   %142 = load i32, ptr %0, align 8
   %143 = load i32, ptr %7, align 4
   %144 = call signext i8 @GetSubscriptionRelState(i32 noundef %142, i32 noundef %143, ptr noundef nonnull %8) #11
   %145 = load i32, ptr %7, align 4
-  %146 = sext i32 %.097161 to i64
-  %147 = getelementptr inbounds %struct.SubRemoveRels, ptr %64, i64 %146
+  %146 = sext i32 %.097157 to i64
+  %147 = getelementptr inbounds %struct.SubRemoveRels, ptr %72, i64 %146
   store i32 %145, ptr %147, align 4
-  %148 = add i32 %.097161, 1
+  %148 = add i32 %.097157, 1
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i8 %144, ptr %149, align 4
   %150 = load i32, ptr %0, align 8
@@ -3645,26 +3645,26 @@ list_length.exit128.thread:                       ; preds = %137, %123, %list_le
 
 166:                                              ; preds = %158, %156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  br label %bsearch.exit137
+  br label %bsearch.exit141
 
-bsearch.exit137:                                  ; preds = %134, %166
-  %.1100 = phi ptr [ %.2101, %166 ], [ %.099160, %134 ]
-  %.198 = phi i32 [ %148, %166 ], [ %.097161, %134 ]
+bsearch.exit141:                                  ; preds = %134, %166
+  %.1100 = phi ptr [ %.2101, %166 ], [ %.099156, %134 ]
+  %.198 = phi i32 [ %148, %166 ], [ %.097157, %134 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !15
 
-.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %174
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next179, %174 ]
-  %167 = getelementptr inbounds nuw %struct.SubRemoveRels, ptr %64, i64 %indvars.iv178
+.lr.ph162:                                        ; preds = %.lr.ph162.preheader, %174
+  %indvars.iv174 = phi i64 [ 0, %.lr.ph162.preheader ], [ %indvars.iv.next175, %174 ]
+  %167 = getelementptr inbounds nuw %struct.SubRemoveRels, ptr %72, i64 %indvars.iv174
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %169 = load i8, ptr %168, align 4
   %170 = and i8 %169, -2
   %switch = icmp eq i8 %170, 114
   br i1 %switch, label %174, label %171
 
-171:                                              ; preds = %.lr.ph166
+171:                                              ; preds = %.lr.ph162
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %172 = load i32, ptr %0, align 8
@@ -3674,37 +3674,40 @@ bsearch.exit137:                                  ; preds = %134, %166
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11
   br label %174
 
-174:                                              ; preds = %.lr.ph166, %171
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %.loopexit, label %.lr.ph166, !llvm.loop !16
+174:                                              ; preds = %.lr.ph162, %171
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
+  br i1 %exitcond178.not, label %._crit_edge, label %.lr.ph162, !llvm.loop !16
 
-.loopexit:                                        ; preds = %174, %list_length.exit125, %.preheader, %34
-  %.3102 = phi ptr [ null, %34 ], [ %.1100, %.preheader ], [ null, %list_length.exit125 ], [ %.1100, %174 ]
+175:                                              ; preds = %34
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
-  %175 = load ptr, ptr @WalReceiverFunctions, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 128
-  %177 = load ptr, ptr %176, align 8
-  call void %177(ptr noundef nonnull %27) #11
-  br i1 %.not114, label %179, label %178
-
-178:                                              ; preds = %.loopexit
+  %176 = load ptr, ptr @WalReceiverFunctions, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 128
+  %178 = load ptr, ptr %177, align 8
+  call void %178(ptr noundef nonnull %27) #11
   call void @pg_re_throw() #13
   unreachable
 
-179:                                              ; preds = %.loopexit
+._crit_edge:                                      ; preds = %174, %list_length.exit130, %.preheader
+  %.099.lcssa181 = phi ptr [ %.1100, %.preheader ], [ null, %list_length.exit130 ], [ %.1100, %174 ]
+  store ptr %35, ptr @PG_exception_stack, align 8
+  store ptr %36, ptr @error_context_stack, align 8
+  %179 = load ptr, ptr @WalReceiverFunctions, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 128
+  %181 = load ptr, ptr %180, align 8
+  call void %181(ptr noundef nonnull %27) #11
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #11
-  %.not115 = icmp eq ptr %.3102, null
-  br i1 %.not115, label %181, label %180
+  %.not115 = icmp eq ptr %.099.lcssa181, null
+  br i1 %.not115, label %183, label %182
 
-180:                                              ; preds = %179
-  call void @table_close(ptr noundef nonnull %.3102, i32 noundef 0) #11
-  br label %181
+182:                                              ; preds = %._crit_edge
+  call void @table_close(ptr noundef nonnull %.099.lcssa181, i32 noundef 0) #11
+  br label %183
 
-181:                                              ; preds = %180, %179
+183:                                              ; preds = %182, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret void
 }
@@ -3836,8 +3839,8 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %54, %64, %67
-  %.not104118 = phi i1 [ true, %64 ], [ false, %67 ], [ true, %54 ]
-  %.0117 = phi ptr [ null, %64 ], [ %66, %67 ], [ null, %54 ]
+  %.not104124 = phi i1 [ true, %64 ], [ false, %67 ], [ true, %54 ]
+  %.0123 = phi ptr [ null, %64 ], [ %66, %67 ], [ null, %54 ]
   store i32 6100, ptr %4, align 4
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %37, ptr %68, align 4
@@ -3850,81 +3853,81 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   %71 = call ptr @logicalrep_workers_find(i32 noundef %37, i1 noundef zeroext false, i1 noundef zeroext true) #11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.not105 = icmp eq ptr %71, null
-  br i1 %.not105, label %._crit_edge, label %.lr.ph
+  br i1 %.not105, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i32, ptr %72, align 4
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph134, label %._crit_edge
+  br i1 %75, label %.lr.ph129, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph134, %.lr.ph, %.thread
+.lr.ph129:                                        ; preds = %.lr.ph, %.lr.ph129
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph129 ], [ 0, %.lr.ph ]
+  %76 = load ptr, ptr %73, align 8
+  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 44
+  %82 = load i32, ptr %81, align 4
+  call void @logicalrep_worker_stop(i32 noundef %80, i32 noundef %82) #11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %83 = load i32, ptr %72, align 4
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next, %84
+  br i1 %85, label %.lr.ph129, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph129, %.lr.ph, %.thread
   call void @list_free(ptr noundef %71) #11
   call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %37) #11
-  %76 = call ptr @GetSubscriptionRelations(i32 noundef %37, i1 noundef zeroext true) #11
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %.not107 = icmp eq ptr %76, null
-  br i1 %.not107, label %._crit_edge138, label %.lr.ph137
+  %86 = call ptr @GetSubscriptionRelations(i32 noundef %37, i1 noundef zeroext true) #11
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %.not107 = icmp eq ptr %86, null
+  br i1 %.not107, label %.critedge115, label %.lr.ph131
 
-.lr.ph137:                                        ; preds = %._crit_edge
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %79 = load i32, ptr %77, align 4
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph143, label %._crit_edge138
+.lr.ph131:                                        ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %89 = load i32, ptr %87, align 4
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %.lr.ph136, label %.critedge115
 
-.lr.ph134:                                        ; preds = %.lr.ph, %.lr.ph134
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph134 ], [ 0, %.lr.ph ]
-  %81 = load ptr, ptr %73, align 8
-  %82 = getelementptr inbounds nuw %union.ListCell, ptr %81, i64 %indvars.iv
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 44
-  %87 = load i32, ptr %86, align 4
-  call void @logicalrep_worker_stop(i32 noundef %85, i32 noundef %87) #11
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = load i32, ptr %72, align 4
-  %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %.lr.ph134, label %._crit_edge
-
-._crit_edge138:                                   ; preds = %97, %.lr.ph137, %._crit_edge
-  call void @deleteSharedDependencyRecordsFor(i32 noundef 6100, i32 noundef %37, i32 noundef 0) #11
-  call void @RemoveSubscriptionRel(i32 noundef %37, i32 noundef 0) #11
-  call void @ReplicationOriginNameForLogicalRep(i32 noundef %37, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 64) #11
-  call void @replorigin_drop_by_name(ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  call void @pgstat_drop_subscription(i32 noundef %37) #11
-  %or.cond = and i1 %.not104118, %.not107
-  br i1 %or.cond, label %101, label %102
-
-.lr.ph143:                                        ; preds = %.lr.ph137, %97
-  %91 = phi i32 [ %98, %97 ], [ %79, %.lr.ph137 ]
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %97 ], [ 0, %.lr.ph137 ]
-  %92 = load ptr, ptr %78, align 8
-  %93 = getelementptr inbounds nuw %union.ListCell, ptr %92, i64 %indvars.iv153
+.lr.ph136:                                        ; preds = %.lr.ph131, %97
+  %91 = phi i32 [ %98, %97 ], [ %89, %.lr.ph131 ]
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %97 ], [ 0, %.lr.ph131 ]
+  %92 = load ptr, ptr %88, align 8
+  %93 = getelementptr inbounds nuw %union.ListCell, ptr %92, i64 %indvars.iv143
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %94, align 8
   %.not113 = icmp eq i32 %95, 0
   br i1 %.not113, label %97, label %96
 
-96:                                               ; preds = %.lr.ph143
+.critedge115:                                     ; preds = %97, %.lr.ph131, %.critedge
+  call void @deleteSharedDependencyRecordsFor(i32 noundef 6100, i32 noundef %37, i32 noundef 0) #11
+  call void @RemoveSubscriptionRel(i32 noundef %37, i32 noundef 0) #11
+  call void @ReplicationOriginNameForLogicalRep(i32 noundef %37, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 64) #11
+  call void @replorigin_drop_by_name(ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  call void @pgstat_drop_subscription(i32 noundef %37) #11
+  %or.cond = and i1 %.not104124, %.not107
+  br i1 %or.cond, label %101, label %102
+
+96:                                               ; preds = %.lr.ph136
   call void @ReplicationOriginNameForLogicalRep(i32 noundef %37, i32 noundef %95, ptr noundef nonnull %6, i64 noundef 64) #11
   call void @replorigin_drop_by_name(ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  %.pre = load i32, ptr %77, align 4
+  %.pre = load i32, ptr %87, align 4
   br label %97
 
-97:                                               ; preds = %.lr.ph143, %96
-  %98 = phi i32 [ %91, %.lr.ph143 ], [ %.pre, %96 ]
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+97:                                               ; preds = %.lr.ph136, %96
+  %98 = phi i32 [ %91, %.lr.ph136 ], [ %.pre, %96 ]
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next154, %99
-  br i1 %100, label %.lr.ph143, label %._crit_edge138
+  %100 = icmp slt i64 %indvars.iv.next144, %99
+  br i1 %100, label %.lr.ph136, label %.critedge115
 
-101:                                              ; preds = %._crit_edge138
+101:                                              ; preds = %.critedge115
   call void @table_close(ptr noundef %10, i32 noundef 0) #11
   br label %165
 
-102:                                              ; preds = %._crit_edge138
+102:                                              ; preds = %.critedge115
   call void @load_file(ptr noundef nonnull @.str.9, i1 noundef zeroext false) #11
   %103 = load ptr, ptr @WalReceiverFunctions, align 8
   %104 = load ptr, ptr %103, align 8
@@ -3933,44 +3936,44 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   br i1 %106, label %107, label %135
 
 107:                                              ; preds = %102
-  br i1 %.not104118, label %108, label %109
+  br i1 %.not104124, label %108, label %109
 
 108:                                              ; preds = %107
-  call void @list_free(ptr noundef %76) #11
+  call void @list_free(ptr noundef %86) #11
   call void @table_close(ptr noundef %10, i32 noundef 0) #11
   br label %165
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %7, align 8
-  br i1 %.not107, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not107, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %109
-  %111 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %112 = load i32, ptr %77, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %112 = load i32, ptr %87, align 4
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph22.i, label %._crit_edge.i
+  br i1 %113, label %.lr.ph20.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %131, %.lr.ph.i, %109
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %114)
-  %115 = call i32 @errcode(i32 noundef 100663808) #11
-  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105, ptr noundef nonnull %.0117, ptr noundef %110) #11
-  %117 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108) #11
+.lr.ph20.i:                                       ; preds = %.lr.ph.i, %131
+  %114 = phi i32 [ %132, %131 ], [ %112, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 0, %.lr.ph.i ]
+  %115 = load ptr, ptr %111, align 8
+  %116 = getelementptr inbounds nuw %union.ListCell, ptr %115, i64 %indvars.iv.i
+  %117 = load ptr, ptr %116, align 8
+  %118 = load i32, ptr %117, align 8
+  %.not15.i = icmp eq i32 %118, 0
+  br i1 %.not15.i, label %131, label %123
+
+.critedge.i:                                      ; preds = %131, %.lr.ph.i, %109
+  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %119)
+  %120 = call i32 @errcode(i32 noundef 100663808) #11
+  %121 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105, ptr noundef nonnull %.0123, ptr noundef %110) #11
+  %122 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2348, ptr noundef nonnull @__func__.ReportSlotConnectionError) #11
   unreachable
 
-.lr.ph22.i:                                       ; preds = %.lr.ph.i, %131
-  %118 = phi i32 [ %132, %131 ], [ %112, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 0, %.lr.ph.i ]
-  %119 = load ptr, ptr %111, align 8
-  %120 = getelementptr inbounds nuw %union.ListCell, ptr %119, i64 %indvars.iv.i
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %121, align 8
-  %.not15.i = icmp eq i32 %122, 0
-  br i1 %.not15.i, label %131, label %123
-
-123:                                              ; preds = %.lr.ph22.i
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
+123:                                              ; preds = %.lr.ph20.i
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %125 = load i8, ptr %124, align 8
   %.not16.i = icmp eq i8 %125, 115
   br i1 %.not16.i, label %131, label %126
@@ -3978,7 +3981,7 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
 126:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  call void @ReplicationSlotNameForTablesync(i32 noundef %37, i32 noundef %122, ptr noundef nonnull %3, i64 noundef 64) #11
+  call void @ReplicationSlotNameForTablesync(i32 noundef %37, i32 noundef %118, ptr noundef nonnull %3, i64 noundef 64) #11
   %127 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %127, label %128, label %130
 
@@ -3989,15 +3992,15 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
 
 130:                                              ; preds = %128, %126
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
-  %.pre.i = load i32, ptr %77, align 4
+  %.pre.i = load i32, ptr %87, align 4
   br label %131
 
-131:                                              ; preds = %130, %123, %.lr.ph22.i
-  %132 = phi i32 [ %118, %123 ], [ %.pre.i, %130 ], [ %118, %.lr.ph22.i ]
+131:                                              ; preds = %130, %123, %.lr.ph20.i
+  %132 = phi i32 [ %114, %123 ], [ %.pre.i, %130 ], [ %114, %.lr.ph20.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next.i, %133
-  br i1 %134, label %.lr.ph22.i, label %._crit_edge.i
+  br i1 %134, label %.lr.ph20.i, label %.critedge.i
 
 135:                                              ; preds = %102
   %136 = load ptr, ptr @PG_exception_stack, align 8
@@ -4009,29 +4012,29 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
 
 139:                                              ; preds = %135
   store ptr %8, ptr @PG_exception_stack, align 8
-  br i1 %.not107, label %._crit_edge148, label %.lr.ph147
+  br i1 %.not107, label %.critedge117, label %.lr.ph138
 
-.lr.ph147:                                        ; preds = %139
-  %140 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %141 = load i32, ptr %77, align 4
+.lr.ph138:                                        ; preds = %139
+  %140 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %141 = load i32, ptr %87, align 4
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph151, label %._crit_edge148
+  br i1 %142, label %.lr.ph141, label %.critedge117
 
-._crit_edge148:                                   ; preds = %152, %.lr.ph147, %139
-  call void @list_free(ptr noundef %76) #11
-  br i1 %.not104118, label %161, label %156
-
-.lr.ph151:                                        ; preds = %.lr.ph147, %152
-  %143 = phi i32 [ %153, %152 ], [ %141, %.lr.ph147 ]
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %152 ], [ 0, %.lr.ph147 ]
+.lr.ph141:                                        ; preds = %.lr.ph138, %152
+  %143 = phi i32 [ %153, %152 ], [ %141, %.lr.ph138 ]
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %152 ], [ 0, %.lr.ph138 ]
   %144 = load ptr, ptr %140, align 8
-  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv156
+  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv146
   %146 = load ptr, ptr %145, align 8
   %147 = load i32, ptr %146, align 8
   %.not111 = icmp eq i32 %147, 0
   br i1 %.not111, label %152, label %148
 
-148:                                              ; preds = %.lr.ph151
+.critedge117:                                     ; preds = %152, %.lr.ph138, %139
+  call void @list_free(ptr noundef %86) #11
+  br i1 %.not104124, label %161, label %156
+
+148:                                              ; preds = %.lr.ph141
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %150 = load i8, ptr %149, align 8
   %.not112 = icmp eq i8 %150, 115
@@ -4043,18 +4046,18 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   call void @ReplicationSlotNameForTablesync(i32 noundef %37, i32 noundef %147, ptr noundef nonnull %9, i64 noundef 64) #11
   call void @ReplicationSlotDropAtPubNode(ptr noundef nonnull %105, ptr noundef nonnull %9, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  %.pre159 = load i32, ptr %77, align 4
+  %.pre149 = load i32, ptr %87, align 4
   br label %152
 
-152:                                              ; preds = %148, %151, %.lr.ph151
-  %153 = phi i32 [ %143, %148 ], [ %.pre159, %151 ], [ %143, %.lr.ph151 ]
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+152:                                              ; preds = %148, %151, %.lr.ph141
+  %153 = phi i32 [ %143, %148 ], [ %.pre149, %151 ], [ %143, %.lr.ph141 ]
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %154 = sext i32 %153 to i64
-  %155 = icmp slt i64 %indvars.iv.next157, %154
-  br i1 %155, label %.lr.ph151, label %._crit_edge148
+  %155 = icmp slt i64 %indvars.iv.next147, %154
+  br i1 %155, label %.lr.ph141, label %.critedge117
 
-156:                                              ; preds = %._crit_edge148
-  call void @ReplicationSlotDropAtPubNode(ptr noundef nonnull %105, ptr noundef nonnull %.0117, i1 noundef zeroext false)
+156:                                              ; preds = %.critedge117
+  call void @ReplicationSlotDropAtPubNode(ptr noundef nonnull %105, ptr noundef nonnull %.0123, i1 noundef zeroext false)
   br label %161
 
 157:                                              ; preds = %135
@@ -4067,7 +4070,7 @@ define dso_local void @DropSubscription(ptr noundef readonly captures(none) %0, 
   call void @pg_re_throw() #13
   unreachable
 
-161:                                              ; preds = %156, %._crit_edge148
+161:                                              ; preds = %156, %.critedge117
   store ptr %136, ptr @PG_exception_stack, align 8
   store ptr %137, ptr @error_context_stack, align 8
   %162 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -4486,47 +4489,47 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph44
+  br i1 %.not, label %.critedge, label %.lr.ph42
 
-.lr.ph44:                                         ; preds = %2
+.lr.ph42:                                         ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not33 = icmp eq ptr %1, null
   %5 = load i32, ptr %3, align 4
-  br i1 %.not33, label %.lr.ph44.split.us, label %.lr.ph44.split.split
-
-.lr.ph44.split.us:                                ; preds = %.lr.ph44
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
-  %wide.trip.count77 = zext nneg i32 %smax to i64
   %6 = icmp sgt i32 %5, 0
-  %wide.trip.count72 = zext nneg i32 %5 to i64
-  %exitcond78.not85 = icmp slt i32 %5, 1
-  br i1 %exitcond78.not85, label %._crit_edge, label %.lr.ph88.preheader
+  br i1 %.not33, label %.lr.ph42.split.us, label %.lr.ph42.split.split
 
-.lr.ph88.preheader:                               ; preds = %.lr.ph44.split.us
+.lr.ph42.split.us:                                ; preds = %.lr.ph42
+  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %wide.trip.count75 = zext nneg i32 %smax to i64
+  %wide.trip.count70 = zext nneg i32 %5 to i64
+  %exitcond76.not83 = icmp slt i32 %5, 1
+  br i1 %exitcond76.not83, label %.critedge, label %.lr.ph86.preheader
+
+.lr.ph86.preheader:                               ; preds = %.lr.ph42.split.us
   %7 = load ptr, ptr %4, align 8
-  br label %.lr.ph88
+  br label %.lr.ph86
 
-.lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.critedge.us
-  %indvars.iv7486 = phi i64 [ %indvars.iv.next75, %.critedge.us ], [ 0, %.lr.ph88.preheader ]
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv7486
+.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.critedge37.us
+  %indvars.iv7284 = phi i64 [ %indvars.iv.next73, %.critedge37.us ], [ 0, %.lr.ph86.preheader ]
+  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv7284
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  br i1 %6, label %.lr.ph.us, label %.critedge.us
+  br i1 %6, label %.lr.ph.us, label %.critedge37.us
 
 12:                                               ; preds = %13
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %.critedge.us, label %.lr.ph.us, !llvm.loop !17
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
+  br i1 %exitcond71.not, label %.critedge37.us, label %.lr.ph.us, !llvm.loop !17
 
-.lr.ph.us:                                        ; preds = %.lr.ph88, %12
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %12 ], [ 0, %.lr.ph88 ]
-  %.not32.us = icmp samesign eq i64 %indvars.iv69, %indvars.iv7486
-  br i1 %.not32.us, label %.critedge.us, label %13
+.lr.ph.us:                                        ; preds = %.lr.ph86, %12
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %12 ], [ 0, %.lr.ph86 ]
+  %.not32.us = icmp eq i64 %indvars.iv67, %indvars.iv7284
+  br i1 %.not32.us, label %.critedge37.us, label %13
 
 13:                                               ; preds = %.lr.ph.us
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv69
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv67
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -4534,71 +4537,70 @@ define internal fastcc void @check_duplicates_in_publist(ptr noundef readonly ca
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.split.us, label %12
 
-.critedge.us:                                     ; preds = %.lr.ph.us, %12, %.lr.ph88
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv7486, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph88
+.critedge37.us:                                   ; preds = %.lr.ph.us, %12, %.lr.ph86
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv7284, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %.critedge, label %.lr.ph86
 
-.lr.ph44.split.split:                             ; preds = %.lr.ph44
-  %20 = icmp sgt i32 %5, 0
-  br i1 %20, label %.lr.ph58, label %._crit_edge
+.lr.ph42.split.split:                             ; preds = %.lr.ph42
+  br i1 %6, label %.lr.ph56, label %.critedge
 
-._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %.lr.ph44.split.us, %.lr.ph44.split.split, %2
+.lr.ph56:                                         ; preds = %.lr.ph42.split.split, %.critedge37
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.critedge37 ], [ 0, %.lr.ph42.split.split ]
+  %20 = phi i32 [ %41, %.critedge37 ], [ %5, %.lr.ph42.split.split ]
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv62
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp sgt i32 %20, 0
+  br i1 %26, label %.lr.ph.preheader, label %.critedge37
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph56
+  %wide.trip.count = zext nneg i32 %20 to i64
+  br label %.lr.ph
+
+.critedge:                                        ; preds = %.critedge37, %.critedge37.us, %.lr.ph42.split.us, %.lr.ph42.split.split, %2
   ret void
 
-.lr.ph58:                                         ; preds = %.lr.ph44.split.split, %.critedge
-  %21 = phi i32 [ %43, %.critedge ], [ %5, %.lr.ph44.split.split ]
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.critedge ], [ 0, %.lr.ph44.split.split ]
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv64
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp sgt i32 %21, 0
-  br i1 %27, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.lr.ph58
-  %wide.trip.count = zext nneg i32 %21 to i64
-  br label %29
-
-28:                                               ; preds = %30
+27:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %29, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge37, label %.lr.ph, !llvm.loop !17
 
-29:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.not32 = icmp samesign eq i64 %indvars.iv, %indvars.iv64
-  br i1 %.not32, label %.critedge, label %30
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
+  %.not32 = icmp eq i64 %indvars.iv, %indvars.iv62
+  br i1 %.not32, label %.critedge37, label %28
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %34) #12
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.split.us, label %28
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %32) #12
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.split.us, label %27
 
-.split.us:                                        ; preds = %30, %13
-  %.us-phi = phi ptr [ %17, %13 ], [ %34, %30 ]
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 290948) #11
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81, ptr noundef nonnull %.us-phi) #11
+.split.us:                                        ; preds = %28, %13
+  %.us-phi = phi ptr [ %17, %13 ], [ %32, %28 ]
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 290948) #11
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81, ptr noundef nonnull %.us-phi) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2378, ptr noundef nonnull @__func__.check_duplicates_in_publist) #11
   unreachable
 
-.critedge:                                        ; preds = %29, %28, %.lr.ph58
-  %40 = tail call ptr @cstring_to_text(ptr noundef %26) #11
-  %41 = ptrtoint ptr %40 to i64
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv64
-  store i64 %41, ptr %42, align 8
-  %43 = load i32, ptr %3, align 4
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next65, %44
-  br i1 %45, label %.lr.ph58, label %._crit_edge
+.critedge37:                                      ; preds = %.lr.ph, %27, %.lr.ph56
+  %38 = tail call ptr @cstring_to_text(ptr noundef %25) #11
+  %39 = ptrtoint ptr %38 to i64
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %40 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv62
+  store i64 %39, ptr %40, align 8
+  %41 = load i32, ptr %3, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next63, %42
+  br i1 %43, label %.lr.ph56, label %.critedge
 }
 
 declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -4674,52 +4676,52 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 1, ptr %5, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph25, label %._crit_edge.thread
+  br i1 %9, label %.lr.ph23, label %.critedge.thread
 
-._crit_edge:                                      ; preds = %40
+.lr.ph23:                                         ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
+  %10 = load ptr, ptr %7, align 8
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.59) #12
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %18, label %25
+
+.critedge:                                        ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %10 = icmp eq ptr %.pre, null
-  br i1 %10, label %._crit_edge.thread, label %70
+  %17 = icmp eq ptr %.pre, null
+  br i1 %17, label %.critedge.thread, label %70
 
-.lr.ph25:                                         ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.59) #12
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %25
-
-18:                                               ; preds = %.lr.ph25
+18:                                               ; preds = %.lr.ph23
   %19 = load i32, ptr %2, align 8
   %20 = and i32 %19, 16
   %.not7 = icmp eq i32 %20, 0
-  br i1 %.not7, label %21, label %.split22
+  br i1 %.not7, label %21, label %.split20
 
-.split22:                                         ; preds = %18
-  tail call void @errorConflictingDefElem(ptr noundef nonnull %13, ptr noundef %0) #13
+.split20:                                         ; preds = %18
+  tail call void @errorConflictingDefElem(ptr noundef nonnull %12, ptr noundef %0) #13
   unreachable
 
 21:                                               ; preds = %18
   %22 = or disjoint i32 %19, 16
   store i32 %22, ptr %2, align 8
-  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %13) #11
+  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %12) #11
   %24 = zext i1 %23 to i8
   store i8 %24, ptr %4, align 1
   br label %40
 
-25:                                               ; preds = %.lr.ph25
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.61) #12
+25:                                               ; preds = %.lr.ph23
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(8) @.str.61) #12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.split
 
@@ -4727,22 +4729,22 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
   %29 = load i32, ptr %2, align 8
   %30 = and i32 %29, 64
   %.not6 = icmp eq i32 %30, 0
-  br i1 %.not6, label %31, label %.split19
+  br i1 %.not6, label %31, label %.split17
 
-.split19:                                         ; preds = %28
-  tail call void @errorConflictingDefElem(ptr noundef nonnull %13, ptr noundef %0) #13
+.split17:                                         ; preds = %28
+  tail call void @errorConflictingDefElem(ptr noundef nonnull %12, ptr noundef %0) #13
   unreachable
 
 31:                                               ; preds = %28
   %32 = or disjoint i32 %29, 64
   store i32 %32, ptr %2, align 8
-  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %13) #11
+  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %12) #11
   %34 = zext i1 %33 to i8
   store i8 %34, ptr %5, align 4
   br label %40
 
 .split:                                           ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 16801924) #11
@@ -4756,15 +4758,15 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
   %41 = load i32, ptr %6, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph25, label %._crit_edge
+  br i1 %43, label %.lr.ph23, label %.critedge
 
-._crit_edge.thread:                               ; preds = %3, %.lr.ph, %._crit_edge
+.critedge.thread:                                 ; preds = %3, %.lr.ph, %.critedge
   %44 = load i32, ptr %2, align 8
   %45 = and i32 %44, 8
   %.not3 = icmp eq i32 %45, 0
   br i1 %.not3, label %70, label %46
 
-46:                                               ; preds = %._crit_edge.thread
+46:                                               ; preds = %.critedge.thread
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %48 = load i8, ptr %47, align 1, !range !12, !noundef !13
   %49 = trunc nuw i8 %48 to i1
@@ -4812,7 +4814,7 @@ define internal fastcc void @parse_subscription_options.specialized.1(ptr nounde
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @__func__.parse_subscription_options) #11
   unreachable
 
-70:                                               ; preds = %58, %._crit_edge.thread, %._crit_edge
+70:                                               ; preds = %58, %.critedge.thread, %.critedge
   ret void
 }
 

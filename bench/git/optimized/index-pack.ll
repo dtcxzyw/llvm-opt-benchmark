@@ -5166,11 +5166,11 @@ get_thread_data.exit.us:                          ; preds = %34, %.split.us
   %38 = load i32, ptr %37, align 8, !tbaa !58
   %39 = call i64 @xpread(i32 noundef %38, ptr noundef %22, i64 noundef %33, i64 noundef %.050.us) #24
   %40 = icmp slt i64 %39, 0
-  br i1 %40, label %.split66.us, label %41
+  br i1 %40, label %.split63.us, label %41
 
 41:                                               ; preds = %get_thread_data.exit.us
   %.not53.us = icmp eq i64 %39, 0
-  br i1 %.not53.us, label %.split68.us, label %42
+  br i1 %.not53.us, label %.split65.us, label %42
 
 42:                                               ; preds = %41
   %43 = add nsw i64 %39, %.050.us
@@ -5184,7 +5184,7 @@ get_thread_data.exit.us:                          ; preds = %34, %.split.us
   %48 = load i64, ptr %32, align 8
   %.not55.us = icmp eq i64 %48, 0
   %49 = select i1 %or.cond.us, i1 %.not55.us, i1 false
-  br i1 %49, label %.split.us, label %.split70.us, !llvm.loop !185
+  br i1 %49, label %.split.us, label %.split67.us, !llvm.loop !185
 
 .split:                                           ; preds = %.split.preheader, %.loopexit
   %.050 = phi i64 [ %61, %.loopexit ], [ %10, %.split.preheader ]
@@ -5204,18 +5204,18 @@ get_thread_data.exit:                             ; preds = %.split, %51
   %55 = load i32, ptr %54, align 8, !tbaa !58
   %56 = call i64 @xpread(i32 noundef %55, ptr noundef %22, i64 noundef %50, i64 noundef %.050) #24
   %57 = icmp slt i64 %56, 0
-  br i1 %57, label %.split66.us, label %59
+  br i1 %57, label %.split63.us, label %59
 
-.split66.us:                                      ; preds = %get_thread_data.exit, %get_thread_data.exit.us
+.split63.us:                                      ; preds = %get_thread_data.exit, %get_thread_data.exit.us
   %58 = call fastcc ptr @_(ptr noundef nonnull @.str.80)
   call void (ptr, ...) @die_errno(ptr noundef %58) #25
   unreachable
 
 59:                                               ; preds = %get_thread_data.exit
   %.not53 = icmp eq i64 %56, 0
-  br i1 %.not53, label %.split68.us, label %.preheader
+  br i1 %.not53, label %.split65.us, label %.preheader
 
-.split68.us:                                      ; preds = %59, %41
+.split65.us:                                      ; preds = %59, %41
   %.us-phi = phi i64 [ %.049.us, %41 ], [ %.049, %59 ]
   %60 = call fastcc ptr @Q_(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, i64 noundef %.us-phi)
   call void (ptr, ...) @die(ptr noundef %60, i64 noundef %.us-phi) #25
@@ -5235,7 +5235,11 @@ get_thread_data.exit:                             ; preds = %.split, %51
   %67 = sub i64 %66, %27
   %68 = call i32 %1(ptr noundef %19, i64 noundef %67, ptr noundef %2) #24, !callees !186
   %.not54 = icmp eq i32 %68, 0
-  br i1 %.not54, label %69, label %74
+  br i1 %.not54, label %69, label %.critedge
+
+.critedge:                                        ; preds = %63
+  call void @free(ptr noundef %22) #24
+  br label %.sink.split
 
 69:                                               ; preds = %63
   store ptr %19, ptr %23, align 8, !tbaa !86
@@ -5246,46 +5250,42 @@ get_thread_data.exit:                             ; preds = %.split, %51
   %73 = select i1 %70, i1 %72, i1 false
   br i1 %73, label %63, label %.loopexit, !llvm.loop !187
 
-74:                                               ; preds = %63
-  call void @free(ptr noundef %22) #24
-  br label %.sink.split
-
 .loopexit:                                        ; preds = %69
-  %75 = icmp ne i64 %62, 0
-  %or.cond = and i1 %75, %70
+  %74 = icmp ne i64 %62, 0
+  %or.cond = and i1 %74, %70
   %.not55 = icmp eq i64 %71, 0
-  %76 = select i1 %or.cond, i1 %.not55, i1 false
-  br i1 %76, label %.split, label %.split70.us, !llvm.loop !188
+  %75 = select i1 %or.cond, i1 %.not55, i1 false
+  br i1 %75, label %.split, label %.split67.us, !llvm.loop !188
 
-.split70.us:                                      ; preds = %.loopexit, %42
-  %.us-phi71 = phi i32 [ %45, %42 ], [ %64, %.loopexit ]
-  %.not56 = icmp eq i32 %.us-phi71, 1
-  br i1 %.not56, label %77, label %82
+.split67.us:                                      ; preds = %.loopexit, %42
+  %.us-phi68 = phi i32 [ %45, %42 ], [ %64, %.loopexit ]
+  %.not56 = icmp eq i32 %.us-phi68, 1
+  br i1 %.not56, label %76, label %81
 
-77:                                               ; preds = %.split70.us
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %79 = load i64, ptr %78, align 8, !tbaa !97
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %81 = load i64, ptr %80, align 8, !tbaa !80
-  %.not57 = icmp eq i64 %79, %81
-  br i1 %.not57, label %84, label %82
+76:                                               ; preds = %.split67.us
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %78 = load i64, ptr %77, align 8, !tbaa !97
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %80 = load i64, ptr %79, align 8, !tbaa !80
+  %.not57 = icmp eq i64 %78, %80
+  br i1 %.not57, label %83, label %81
 
-82:                                               ; preds = %77, %.split70.us
-  %83 = call fastcc ptr @_(ptr noundef nonnull @.str.83)
-  call void (ptr, ...) @die(ptr noundef %83) #25
+81:                                               ; preds = %76, %.split67.us
+  %82 = call fastcc ptr @_(ptr noundef nonnull @.str.83)
+  call void (ptr, ...) @die(ptr noundef %82) #25
   unreachable
 
-84:                                               ; preds = %77
+83:                                               ; preds = %76
   call void @git_inflate_end(ptr noundef nonnull %4) #24
   call void @free(ptr noundef %22) #24
-  br i1 %.not, label %85, label %.sink.split
+  br i1 %.not, label %84, label %.sink.split
 
-.sink.split:                                      ; preds = %84, %74
+.sink.split:                                      ; preds = %83, %.critedge
   call void @free(ptr noundef %19) #24
-  br label %85
+  br label %84
 
-85:                                               ; preds = %.sink.split, %84
-  %.2 = phi ptr [ %19, %84 ], [ null, %.sink.split ]
+84:                                               ; preds = %.sink.split, %83
+  %.2 = phi ptr [ %19, %83 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #24
   ret ptr %.2
 }

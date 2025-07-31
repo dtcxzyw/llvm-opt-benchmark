@@ -613,7 +613,7 @@ define dso_local ptr @xgetnameinfo(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = tail call fastcc ptr @_getnameinfo(ptr noundef %0)
-  br label %76
+  br label %81
 
 5:                                                ; preds = %1
   %6 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @getnameinfo_cache_lock) #14
@@ -661,16 +661,16 @@ define dso_local ptr @xgetnameinfo(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %27 = and i64 %26, 1024
   %.not59 = icmp eq i64 %27, 0
-  br i1 %.not59, label %76, label %28
+  br i1 %.not59, label %81, label %28
 
 28:                                               ; preds = %25
   %29 = tail call i32 @get_log_level() #14
   %30 = icmp sgt i32 %29, 3
-  br i1 %30, label %31, label %76
+  br i1 %30, label %31, label %81
 
 31:                                               ; preds = %28
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.xgetnameinfo, ptr noundef %0, ptr noundef %21) #14
-  br label %76
+  br label %81
 
 32:                                               ; preds = %9, %14, %12
   %33 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @getnameinfo_cache_lock) #14
@@ -686,7 +686,7 @@ define dso_local ptr @xgetnameinfo(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %32
   %37 = tail call fastcc ptr @_getnameinfo(ptr noundef %0)
   %.not51 = icmp eq ptr %37, null
-  br i1 %.not51, label %76, label %38
+  br i1 %.not51, label %81, label %38
 
 38:                                               ; preds = %36
   %39 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @getnameinfo_cache_lock) #14
@@ -713,71 +713,76 @@ define dso_local ptr @xgetnameinfo(ptr noundef %0) local_unnamed_addr #0 {
   %47 = phi ptr [ %45, %44 ], [ %43, %42 ]
   %48 = tail call ptr @list_find_first(ptr noundef %47, ptr noundef nonnull @_name_cache_find, ptr noundef %0) #14
   %.not54 = icmp eq ptr %48, null
-  br i1 %.not54, label %49, label %51
+  br i1 %.not54, label %49, label %.critedge
 
 49:                                               ; preds = %46
   %50 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.13, i32 noundef 459, ptr noundef nonnull @__func__.xgetnameinfo) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %50, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 128, i1 false)
-  br label %51
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 136
+  tail call void @slurm_xfree(ptr noundef nonnull %51) #14
+  %52 = tail call ptr @xstrdup(ptr noundef nonnull %37) #14
+  store ptr %52, ptr %51, align 8
+  %53 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 398), align 2
+  %54 = zext i16 %53 to i64
+  %55 = add nsw i64 %10, %54
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 128
+  store i64 %55, ptr %56, align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %58 = and i64 %57, 1024
+  %.not56 = icmp eq i64 %58, 0
+  br i1 %.not56, label %63, label %59
 
-51:                                               ; preds = %49, %46
-  %.036 = phi ptr [ %48, %46 ], [ %50, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.036, i64 136
-  tail call void @slurm_xfree(ptr noundef nonnull %52) #14
-  %53 = tail call ptr @xstrdup(ptr noundef nonnull %37) #14
-  store ptr %53, ptr %52, align 8
-  %54 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 398), align 2
-  %55 = zext i16 %54 to i64
-  %56 = add nsw i64 %10, %55
-  %57 = getelementptr inbounds nuw i8, ptr %.036, i64 128
-  store i64 %56, ptr %57, align 8
-  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %59 = and i64 %58, 1024
-  %.not56 = icmp eq i64 %59, 0
-  br i1 %.not54, label %60, label %67
+59:                                               ; preds = %49
+  %60 = tail call i32 @get_log_level() #14
+  %61 = icmp sgt i32 %60, 3
+  br i1 %61, label %62, label %63
 
-60:                                               ; preds = %51
-  br i1 %.not56, label %65, label %61
+62:                                               ; preds = %59
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.xgetnameinfo, ptr noundef nonnull %0, ptr noundef nonnull %37) #14
+  br label %63
 
-61:                                               ; preds = %60
-  %62 = tail call i32 @get_log_level() #14
-  %63 = icmp sgt i32 %62, 3
-  br i1 %63, label %64, label %65
+63:                                               ; preds = %59, %62, %49
+  %64 = load ptr, ptr @nameinfo_cache, align 8
+  tail call void @list_append(ptr noundef %64, ptr noundef nonnull %50) #14
+  br label %77
 
-64:                                               ; preds = %61
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.xgetnameinfo, ptr noundef %0, ptr noundef nonnull %37) #14
-  br label %65
+.critedge:                                        ; preds = %46
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 136
+  tail call void @slurm_xfree(ptr noundef nonnull %65) #14
+  %66 = tail call ptr @xstrdup(ptr noundef nonnull %37) #14
+  store ptr %66, ptr %65, align 8
+  %67 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 398), align 2
+  %68 = zext i16 %67 to i64
+  %69 = add nsw i64 %10, %68
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 128
+  store i64 %69, ptr %70, align 8
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %72 = and i64 %71, 1024
+  %.not55 = icmp eq i64 %72, 0
+  br i1 %.not55, label %77, label %73
 
-65:                                               ; preds = %61, %64, %60
-  %66 = load ptr, ptr @nameinfo_cache, align 8
-  tail call void @list_append(ptr noundef %66, ptr noundef nonnull %.036) #14
-  br label %72
+73:                                               ; preds = %.critedge
+  %74 = tail call i32 @get_log_level() #14
+  %75 = icmp sgt i32 %74, 3
+  br i1 %75, label %76, label %77
 
-67:                                               ; preds = %51
-  br i1 %.not56, label %72, label %68
-
-68:                                               ; preds = %67
-  %69 = tail call i32 @get_log_level() #14
-  %70 = icmp sgt i32 %69, 3
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %68
+76:                                               ; preds = %73
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.xgetnameinfo, ptr noundef %0, ptr noundef nonnull %37) #14
-  br label %72
+  br label %77
 
-72:                                               ; preds = %65, %68, %71, %67
-  %73 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @getnameinfo_cache_lock) #14
-  %.not57 = icmp eq i32 %73, 0
-  br i1 %.not57, label %76, label %74
+77:                                               ; preds = %63, %73, %76, %.critedge
+  %78 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @getnameinfo_cache_lock) #14
+  %.not57 = icmp eq i32 %78, 0
+  br i1 %.not57, label %81, label %79
 
-74:                                               ; preds = %72
-  %75 = tail call ptr @__errno_location() #15
-  store i32 %73, ptr %75, align 4
+79:                                               ; preds = %77
+  %80 = tail call ptr @__errno_location() #15
+  store i32 %78, ptr %80, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.xgetnameinfo) #16
   unreachable
 
-76:                                               ; preds = %72, %36, %25, %31, %28, %3
-  %.0 = phi ptr [ %4, %3 ], [ %21, %28 ], [ %21, %31 ], [ %21, %25 ], [ null, %36 ], [ %37, %72 ]
+81:                                               ; preds = %77, %36, %25, %31, %28, %3
+  %.0 = phi ptr [ %4, %3 ], [ %21, %28 ], [ %21, %31 ], [ %21, %25 ], [ null, %36 ], [ %37, %77 ]
   ret ptr %.0
 }
 

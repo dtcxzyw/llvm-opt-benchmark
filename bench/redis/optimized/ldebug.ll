@@ -858,7 +858,7 @@ define internal fastcc i32 @symbexec(ptr noundef readonly captures(none) %0, i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 115
   %7 = load i8, ptr %6, align 1, !tbaa !63
   %8 = icmp ult i8 %7, -5
-  br i1 %8, label %9, label %precheck.exit.thread
+  br i1 %8, label %9, label %.critedge232
 
 9:                                                ; preds = %3
   %10 = zext i8 %7 to i32
@@ -874,7 +874,7 @@ define internal fastcc i32 @symbexec(ptr noundef readonly captures(none) %0, i32
   %19 = and i32 %16, 5
   %or.cond.i = icmp eq i32 %19, 4
   %or.cond22.i = or i1 %or.cond.i, %.not.i
-  br i1 %or.cond22.i, label %precheck.exit.thread, label %20
+  br i1 %or.cond22.i, label %.critedge232, label %20
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -883,7 +883,7 @@ define internal fastcc i32 @symbexec(ptr noundef readonly captures(none) %0, i32
   %24 = load i8, ptr %23, align 8, !tbaa !67
   %25 = zext i8 %24 to i32
   %.not19.i = icmp sgt i32 %22, %25
-  br i1 %.not19.i, label %precheck.exit.thread, label %26
+  br i1 %.not19.i, label %.critedge232, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -893,7 +893,7 @@ define internal fastcc i32 @symbexec(ptr noundef readonly captures(none) %0, i32
   %or.cond20.i = or i1 %30, %29
   %31 = icmp sgt i32 %5, 0
   %or.cond21.i = and i1 %31, %or.cond20.i
-  br i1 %or.cond21.i, label %precheck.exit, label %precheck.exit.thread
+  br i1 %or.cond21.i, label %precheck.exit, label %.critedge232
 
 precheck.exit:                                    ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -904,14 +904,14 @@ precheck.exit:                                    ; preds = %26
   %37 = load i32, ptr %36, align 4, !tbaa !53
   %38 = and i32 %37, 63
   %.not = icmp eq i32 %38, 30
-  br i1 %.not, label %39, label %precheck.exit.thread
+  br i1 %.not, label %39, label %.critedge232
 
 39:                                               ; preds = %precheck.exit
   %40 = add nsw i32 %5, -1
   %41 = icmp sgt i32 %1, 0
-  br i1 %41, label %.lr.ph284, label %._crit_edge285
+  br i1 %41, label %.lr.ph281, label %._crit_edge282
 
-.lr.ph284:                                        ; preds = %39
+.lr.ph281:                                        ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -921,10 +921,10 @@ precheck.exit:                                    ; preds = %26
   %or.cond230 = icmp eq i8 %46, 2
   br label %47
 
-47:                                               ; preds = %.lr.ph284, %225
-  %.0162282 = phi i32 [ 0, %.lr.ph284 ], [ %226, %225 ]
-  %.0168281 = phi i32 [ %40, %.lr.ph284 ], [ %.3171, %225 ]
-  %48 = sext i32 %.0162282 to i64
+47:                                               ; preds = %.lr.ph281, %225
+  %.0162279 = phi i32 [ 0, %.lr.ph281 ], [ %226, %225 ]
+  %.0168278 = phi i32 [ %40, %.lr.ph281 ], [ %.3171, %225 ]
+  %48 = sext i32 %.0162279 to i64
   %49 = getelementptr inbounds i32, ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !53
   %51 = and i32 %50, 63
@@ -932,8 +932,8 @@ precheck.exit:                                    ; preds = %26
   %53 = and i32 %52, 255
   %54 = icmp samesign ult i32 %51, 38
   %55 = icmp samesign ult i32 %53, %10
-  %or.cond288 = select i1 %54, i1 %55, i1 false
-  br i1 %or.cond288, label %56, label %precheck.exit.thread
+  %or.cond285 = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond285, label %56, label %.critedge232
 
 56:                                               ; preds = %47
   %57 = zext nneg i32 %51 to i64
@@ -941,7 +941,7 @@ precheck.exit:                                    ; preds = %26
   %59 = load i8, ptr %58, align 1, !tbaa !26
   %60 = zext i8 %59 to i32
   %61 = and i32 %60, 3
-  switch i32 %61, label %default.unreachable296 [
+  switch i32 %61, label %default.unreachable293 [
     i32 0, label %62
     i32 1, label %92
     i32 2, label %99
@@ -952,7 +952,7 @@ precheck.exit:                                    ; preds = %26
   %63 = lshr i32 %50, 23
   %64 = lshr i32 %60, 4
   %65 = and i32 %64, 3
-  switch i32 %65, label %default.unreachable296 [
+  switch i32 %65, label %default.unreachable293 [
     i32 0, label %66
     i32 3, label %70
     i32 2, label %68
@@ -961,32 +961,32 @@ precheck.exit:                                    ; preds = %26
 
 66:                                               ; preds = %62
   %67 = icmp ult i32 %50, 8388608
-  br i1 %67, label %checkArgMode.exit, label %precheck.exit.thread
+  br i1 %67, label %checkArgMode.exit, label %.critedge232
 
 68:                                               ; preds = %62
   %69 = icmp samesign ult i32 %63, %10
-  br i1 %69, label %checkArgMode.exit, label %precheck.exit.thread
+  br i1 %69, label %checkArgMode.exit, label %.critedge232
 
 70:                                               ; preds = %62
-  %.not.i233 = icmp sgt i32 %50, -1
-  br i1 %.not.i233, label %75, label %71
+  %.not.i235 = icmp sgt i32 %50, -1
+  br i1 %.not.i235, label %75, label %71
 
 71:                                               ; preds = %70
   %72 = and i32 %63, 255
   %73 = load i32, ptr %42, align 4, !tbaa !68
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %checkArgMode.exit, label %precheck.exit.thread
+  br i1 %74, label %checkArgMode.exit, label %.critedge232
 
 75:                                               ; preds = %70
   %76 = icmp samesign ult i32 %63, %10
-  br i1 %76, label %checkArgMode.exit, label %precheck.exit.thread
+  br i1 %76, label %checkArgMode.exit, label %.critedge232
 
 checkArgMode.exit:                                ; preds = %75, %71, %68, %66, %62
   %77 = lshr i32 %50, 14
   %78 = and i32 %77, 511
   %79 = lshr i8 %59, 2
   %80 = and i8 %79, 3
-  switch i8 %80, label %default.unreachable296 [
+  switch i8 %80, label %default.unreachable293 [
     i8 0, label %81
     i8 3, label %85
     i8 2, label %83
@@ -995,25 +995,25 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
 
 81:                                               ; preds = %checkArgMode.exit
   %82 = icmp eq i32 %78, 0
-  br i1 %82, label %.critedge, label %precheck.exit.thread
+  br i1 %82, label %.critedge, label %.critedge232
 
 83:                                               ; preds = %checkArgMode.exit
   %84 = icmp samesign ult i32 %78, %10
-  br i1 %84, label %.critedge, label %precheck.exit.thread
+  br i1 %84, label %.critedge, label %.critedge232
 
 85:                                               ; preds = %checkArgMode.exit
-  %.not.i235 = icmp samesign ult i32 %78, 256
-  br i1 %.not.i235, label %90, label %86
+  %.not.i237 = icmp samesign ult i32 %78, 256
+  br i1 %.not.i237, label %90, label %86
 
 86:                                               ; preds = %85
   %87 = and i32 %77, 255
   %88 = load i32, ptr %42, align 4, !tbaa !68
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %.critedge, label %precheck.exit.thread
+  br i1 %89, label %.critedge, label %.critedge232
 
 90:                                               ; preds = %85
   %91 = icmp samesign ult i32 %78, %10
-  br i1 %91, label %.critedge, label %precheck.exit.thread
+  br i1 %91, label %.critedge, label %.critedge232
 
 92:                                               ; preds = %56
   %93 = lshr i32 %50, 14
@@ -1024,7 +1024,7 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
 96:                                               ; preds = %92
   %97 = load i32, ptr %42, align 4, !tbaa !68
   %98 = icmp slt i32 %93, %97
-  br i1 %98, label %.critedge, label %precheck.exit.thread
+  br i1 %98, label %.critedge, label %.critedge232
 
 99:                                               ; preds = %56
   %100 = lshr i32 %50, 14
@@ -1034,19 +1034,19 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
   br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %99
-  %105 = add nsw i32 %.0162282, 1
+  %105 = add nsw i32 %.0162279, 1
   %106 = add nsw i32 %105, %101
   %107 = icmp sgt i32 %106, -1
   %108 = icmp slt i32 %106, %5
-  %or.cond259 = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond259, label %109, label %precheck.exit.thread
+  %or.cond256 = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond256, label %109, label %.critedge232
 
 109:                                              ; preds = %104
   %.not194 = icmp eq i32 %106, 0
   br i1 %.not194, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %109
-  %110 = add i32 %101, %.0162282
+  %110 = add i32 %101, %.0162279
   %wide.trip.count = zext nneg i32 %106 to i64
   br label %.lr.ph
 
@@ -1070,9 +1070,9 @@ checkArgMode.exit:                                ; preds = %75, %71, %68, %66, 
   %.0178.lcssa.ph = phi i32 [ %106, %117 ], [ %111, %.lr.ph ]
   %118 = and i32 %.0178.lcssa.ph, 1
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.critedge, label %precheck.exit.thread
+  br i1 %119, label %.critedge, label %.critedge232
 
-default.unreachable296:                           ; preds = %checkArgMode.exit, %62, %56
+default.unreachable293:                           ; preds = %checkArgMode.exit, %62, %56
   unreachable
 
 .critedge:                                        ; preds = %90, %86, %83, %81, %checkArgMode.exit, %109, %._crit_edge, %99, %92, %96, %56
@@ -1082,21 +1082,21 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
   %.not197 = icmp ne i8 %120, 0
   %121 = icmp eq i32 %53, %2
   %or.cond222 = and i1 %121, %.not197
-  %.2170 = select i1 %or.cond222, i32 %.0162282, i32 %.0168281
+  %.2170 = select i1 %or.cond222, i32 %.0162279, i32 %.0168278
   %.not198 = icmp sgt i8 %59, -1
   br i1 %.not198, label %130, label %122
 
 122:                                              ; preds = %.critedge
-  %123 = add nsw i32 %.0162282, 2
+  %123 = add nsw i32 %.0162279, 2
   %124 = icmp slt i32 %123, %5
-  br i1 %124, label %125, label %precheck.exit.thread
+  br i1 %124, label %125, label %.critedge232
 
 125:                                              ; preds = %122
   %126 = getelementptr i8, ptr %49, i64 4
   %127 = load i32, ptr %126, align 4, !tbaa !53
   %128 = and i32 %127, 63
   %129 = icmp eq i32 %128, 22
-  br i1 %129, label %130, label %precheck.exit.thread
+  br i1 %129, label %130, label %.critedge232
 
 130:                                              ; preds = %125, %.critedge
   switch i32 %51, label %225 [
@@ -1125,27 +1125,27 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
   br i1 %132, label %133, label %225
 
 133:                                              ; preds = %131
-  %134 = add nsw i32 %.0162282, 2
+  %134 = add nsw i32 %.0162279, 2
   %135 = icmp slt i32 %134, %5
-  br i1 %135, label %136, label %precheck.exit.thread
+  br i1 %135, label %136, label %.critedge232
 
 136:                                              ; preds = %133
   %137 = getelementptr i8, ptr %49, i64 4
   %138 = load i32, ptr %137, align 4, !tbaa !53
   %139 = and i32 %138, 8372287
   %or.cond223 = icmp eq i32 %139, 34
-  br i1 %or.cond223, label %precheck.exit.thread, label %225
+  br i1 %or.cond223, label %.critedge232, label %225
 
 140:                                              ; preds = %130
   %.not216 = icmp sgt i32 %53, %2
   %.not217 = icmp sgt i32 %2, %.0179
   %or.cond224 = select i1 %.not216, i1 true, i1 %.not217
-  %spec.select231 = select i1 %or.cond224, i32 %.2170, i32 %.0162282
+  %spec.select233 = select i1 %or.cond224, i32 %.2170, i32 %.0162279
   br label %225
 
 141:                                              ; preds = %130, %130
   %142 = icmp slt i32 %.0179, %25
-  br i1 %142, label %225, label %precheck.exit.thread
+  br i1 %142, label %225, label %.critedge232
 
 143:                                              ; preds = %130, %130
   %144 = load ptr, ptr %45, align 8, !tbaa !70
@@ -1153,59 +1153,59 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
   %146 = getelementptr inbounds %struct.lua_TValue, ptr %144, i64 %145, i32 1
   %147 = load i32, ptr %146, align 8, !tbaa !33
   %148 = icmp eq i32 %147, 4
-  br i1 %148, label %225, label %precheck.exit.thread
+  br i1 %148, label %225, label %.critedge232
 
 149:                                              ; preds = %130
   %150 = add nuw nsw i32 %53, 1
   %151 = icmp samesign ult i32 %150, %10
-  br i1 %151, label %152, label %precheck.exit.thread
+  br i1 %151, label %152, label %.critedge232
 
 152:                                              ; preds = %149
   %153 = icmp eq i32 %2, %150
-  %spec.select = select i1 %153, i32 %.0162282, i32 %.2170
+  %spec.select = select i1 %153, i32 %.0162279, i32 %.2170
   br label %225
 
 154:                                              ; preds = %130
   %155 = icmp slt i32 %.0179, %.0180
-  br i1 %155, label %225, label %precheck.exit.thread
+  br i1 %155, label %225, label %.critedge232
 
 156:                                              ; preds = %130
   %.not214 = icmp eq i32 %.0180, 0
-  br i1 %.not214, label %precheck.exit.thread, label %157
+  br i1 %.not214, label %.critedge232, label %157
 
 157:                                              ; preds = %156
   %158 = add nuw nsw i32 %53, 2
   %159 = add nuw nsw i32 %.0180, %158
   %160 = icmp samesign ult i32 %159, %10
-  br i1 %160, label %161, label %precheck.exit.thread
+  br i1 %160, label %161, label %.critedge232
 
 161:                                              ; preds = %157
   %.not215 = icmp slt i32 %2, %158
-  %spec.select225 = select i1 %.not215, i32 %.2170, i32 %.0162282
+  %spec.select225 = select i1 %.not215, i32 %.2170, i32 %.0162279
   br label %225
 
 162:                                              ; preds = %130, %130
   %163 = add nuw nsw i32 %53, 3
   %164 = icmp samesign ult i32 %163, %10
-  br i1 %164, label %165, label %precheck.exit.thread
+  br i1 %164, label %165, label %.critedge232
 
 165:                                              ; preds = %162, %130
-  %166 = add nsw i32 %.0162282, 1
+  %166 = add nsw i32 %.0162279, 1
   %167 = add nsw i32 %166, %.0179
-  %168 = icmp sge i32 %.0162282, %167
+  %168 = icmp sge i32 %.0162279, %167
   %.not213 = icmp sgt i32 %167, %1
   %169 = or i1 %168, %.not213
   %or.cond227 = select i1 %.not204, i1 true, i1 %169
   %170 = select i1 %or.cond227, i32 0, i32 %.0179
-  %.3165 = add nsw i32 %170, %.0162282
+  %.3165 = add nsw i32 %170, %.0162279
   br label %225
 
 171:                                              ; preds = %130, %130
   %.not206 = icmp ne i32 %.0179, 0
   %172 = add nsw i32 %.0179, %53
   %.not207 = icmp sgt i32 %172, %10
-  %or.cond260 = select i1 %.not206, i1 %.not207, i1 false
-  br i1 %or.cond260, label %precheck.exit.thread, label %173
+  %or.cond257 = select i1 %.not206, i1 %.not207, i1 false
+  br i1 %or.cond257, label %.critedge232, label %173
 
 173:                                              ; preds = %171
   %174 = icmp eq i32 %.0180, 0
@@ -1215,7 +1215,7 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
   %176 = getelementptr i8, ptr %49, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !53
   %178 = and i32 %177, 63
-  switch i32 %178, label %precheck.exit.thread [
+  switch i32 %178, label %.critedge232 [
     i32 28, label %luaG_checkopenop.exit
     i32 29, label %luaG_checkopenop.exit
     i32 30, label %luaG_checkopenop.exit
@@ -1224,19 +1224,19 @@ default.unreachable296:                           ; preds = %checkArgMode.exit, 
 
 luaG_checkopenop.exit:                            ; preds = %175, %175, %175, %175
   %179 = icmp ugt i32 %177, 8388607
-  br i1 %179, label %precheck.exit.thread, label %183
+  br i1 %179, label %.critedge232, label %183
 
 180:                                              ; preds = %173
   %181 = add nsw i32 %.0180, -1
   %.not208 = icmp ne i32 %181, 0
   %182 = add nuw nsw i32 %181, %53
   %.not209 = icmp sgt i32 %182, %10
-  %or.cond261 = select i1 %.not208, i1 %.not209, i1 false
-  br i1 %or.cond261, label %precheck.exit.thread, label %183
+  %or.cond258 = select i1 %.not208, i1 %.not209, i1 false
+  br i1 %or.cond258, label %.critedge232, label %183
 
 183:                                              ; preds = %180, %luaG_checkopenop.exit
   %.not211 = icmp slt i32 %2, %53
-  %spec.select228 = select i1 %.not211, i32 %.0168281, i32 %.0162282
+  %spec.select228 = select i1 %.not211, i32 %.0168278, i32 %.0162279
   br label %225
 
 184:                                              ; preds = %130
@@ -1247,28 +1247,28 @@ luaG_checkopenop.exit:                            ; preds = %175, %175, %175, %1
   %187 = add nsw i32 %53, -1
   %188 = add nsw i32 %187, %.0179
   %.not205 = icmp sgt i32 %188, %10
-  br i1 %.not205, label %precheck.exit.thread, label %225
+  br i1 %.not205, label %.critedge232, label %225
 
 189:                                              ; preds = %130
   %190 = icmp slt i32 %.0179, 1
   %191 = add nuw nsw i32 %.0179, %53
   %192 = icmp slt i32 %191, %10
-  %or.cond263 = select i1 %190, i1 true, i1 %192
-  br i1 %or.cond263, label %193, label %precheck.exit.thread
+  %or.cond260 = select i1 %190, i1 true, i1 %192
+  br i1 %or.cond260, label %193, label %.critedge232
 
 193:                                              ; preds = %189
   %194 = icmp eq i32 %.0180, 0
   br i1 %194, label %195, label %225
 
 195:                                              ; preds = %193
-  %196 = add nsw i32 %.0162282, 1
+  %196 = add nsw i32 %.0162279, 1
   %197 = icmp slt i32 %196, %40
-  br i1 %197, label %225, label %precheck.exit.thread
+  br i1 %197, label %225, label %.critedge232
 
 198:                                              ; preds = %130
   %199 = load i32, ptr %43, align 8, !tbaa !71
   %200 = icmp slt i32 %.0179, %199
-  br i1 %200, label %201, label %precheck.exit.thread
+  br i1 %200, label %201, label %.critedge232
 
 201:                                              ; preds = %198
   %202 = load ptr, ptr %44, align 8, !tbaa !72
@@ -1278,39 +1278,39 @@ luaG_checkopenop.exit:                            ; preds = %175, %175, %175, %1
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 112
   %207 = load i8, ptr %206, align 8, !tbaa !67
   %208 = zext i8 %207 to i32
-  %209 = add nsw i32 %.0162282, %208
+  %209 = add nsw i32 %.0162279, %208
   %210 = icmp slt i32 %209, %5
-  br i1 %210, label %.preheader, label %precheck.exit.thread
+  br i1 %210, label %.preheader, label %.critedge232
 
 .preheader:                                       ; preds = %201
-  %.not203277 = icmp eq i8 %207, 0
-  br i1 %.not203277, label %._crit_edge280, label %.lr.ph279.preheader
+  %.not203274 = icmp eq i8 %207, 0
+  br i1 %.not203274, label %._crit_edge277, label %.lr.ph276.preheader
 
-.lr.ph279.preheader:                              ; preds = %.preheader
+.lr.ph276.preheader:                              ; preds = %.preheader
   %211 = add nuw nsw i32 %208, 1
-  %wide.trip.count294 = zext nneg i32 %211 to i64
+  %wide.trip.count291 = zext nneg i32 %211 to i64
   %invariant.gep = getelementptr i32, ptr %33, i64 %48
-  br label %.lr.ph279
+  br label %.lr.ph276
 
-212:                                              ; preds = %.lr.ph279
-  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
-  br i1 %exitcond295.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !75
+212:                                              ; preds = %.lr.ph276
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
+  br i1 %exitcond292.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !75
 
-.lr.ph279:                                        ; preds = %.lr.ph279.preheader, %212
-  %indvars.iv291 = phi i64 [ 1, %.lr.ph279.preheader ], [ %indvars.iv.next292, %212 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv291
+.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %212
+  %indvars.iv288 = phi i64 [ 1, %.lr.ph276.preheader ], [ %indvars.iv.next289, %212 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv288
   %213 = load i32, ptr %gep, align 4, !tbaa !53
   %214 = and i32 %213, 59
   %or.cond = icmp eq i32 %214, 0
-  br i1 %or.cond, label %212, label %precheck.exit.thread
+  br i1 %or.cond, label %212, label %.critedge232
 
-._crit_edge280:                                   ; preds = %212, %.preheader
-  %spec.select229 = select i1 %.not204, i32 %.0162282, i32 %209
+._crit_edge277:                                   ; preds = %212, %.preheader
+  %spec.select229 = select i1 %.not204, i32 %.0162279, i32 %209
   br label %225
 
 215:                                              ; preds = %130
-  br i1 %or.cond230, label %216, label %precheck.exit.thread
+  br i1 %or.cond230, label %216, label %.critedge232
 
 216:                                              ; preds = %215
   %217 = icmp eq i32 %.0179, 0
@@ -1320,39 +1320,39 @@ luaG_checkopenop.exit:                            ; preds = %175, %175, %175, %1
   %219 = getelementptr i8, ptr %49, i64 4
   %220 = load i32, ptr %219, align 4, !tbaa !53
   %221 = and i32 %220, 63
-  switch i32 %221, label %precheck.exit.thread [
-    i32 28, label %luaG_checkopenop.exit241
-    i32 29, label %luaG_checkopenop.exit241
-    i32 30, label %luaG_checkopenop.exit241
-    i32 34, label %luaG_checkopenop.exit241
+  switch i32 %221, label %.critedge232 [
+    i32 28, label %luaG_checkopenop.exit243
+    i32 29, label %luaG_checkopenop.exit243
+    i32 30, label %luaG_checkopenop.exit243
+    i32 34, label %luaG_checkopenop.exit243
   ]
 
-luaG_checkopenop.exit241:                         ; preds = %218, %218, %218, %218
+luaG_checkopenop.exit243:                         ; preds = %218, %218, %218, %218
   %222 = icmp ugt i32 %220, 8388607
-  br i1 %222, label %precheck.exit.thread, label %225
+  br i1 %222, label %.critedge232, label %225
 
 223:                                              ; preds = %216
   %224 = add nsw i32 %.0179, -1
   %.old = add nsw i32 %224, %53
   %.not202.old = icmp sgt i32 %.old, %10
-  br i1 %.not202.old, label %precheck.exit.thread, label %225
+  br i1 %.not202.old, label %.critedge232, label %225
 
-225:                                              ; preds = %luaG_checkopenop.exit241, %._crit_edge280, %140, %183, %161, %152, %130, %223, %193, %195, %184, %186, %154, %143, %141, %131, %136, %165
-  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %154 ], [ %.2170, %165 ], [ %.2170, %186 ], [ %.2170, %184 ], [ %.2170, %195 ], [ %.2170, %193 ], [ %.2170, %._crit_edge280 ], [ %.2170, %223 ], [ %spec.select, %152 ], [ %spec.select225, %161 ], [ %spec.select228, %183 ], [ %spec.select231, %140 ], [ %.2170, %luaG_checkopenop.exit241 ]
-  %.2164 = phi i32 [ %.0162282, %130 ], [ %.0162282, %136 ], [ %.0162282, %131 ], [ %.0162282, %141 ], [ %.0162282, %143 ], [ %.0162282, %154 ], [ %.3165, %165 ], [ %.0162282, %186 ], [ %.0162282, %184 ], [ %196, %195 ], [ %.0162282, %193 ], [ %spec.select229, %._crit_edge280 ], [ %.0162282, %223 ], [ %.0162282, %152 ], [ %.0162282, %161 ], [ %.0162282, %183 ], [ %.0162282, %140 ], [ %.0162282, %luaG_checkopenop.exit241 ]
+225:                                              ; preds = %luaG_checkopenop.exit243, %._crit_edge277, %140, %183, %161, %152, %130, %223, %193, %195, %184, %186, %154, %143, %141, %131, %136, %165
+  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %154 ], [ %.2170, %165 ], [ %.2170, %186 ], [ %.2170, %184 ], [ %.2170, %195 ], [ %.2170, %193 ], [ %.2170, %._crit_edge277 ], [ %.2170, %223 ], [ %spec.select, %152 ], [ %spec.select225, %161 ], [ %spec.select228, %183 ], [ %spec.select233, %140 ], [ %.2170, %luaG_checkopenop.exit243 ]
+  %.2164 = phi i32 [ %.0162279, %130 ], [ %.0162279, %136 ], [ %.0162279, %131 ], [ %.0162279, %141 ], [ %.0162279, %143 ], [ %.0162279, %154 ], [ %.3165, %165 ], [ %.0162279, %186 ], [ %.0162279, %184 ], [ %196, %195 ], [ %.0162279, %193 ], [ %spec.select229, %._crit_edge277 ], [ %.0162279, %223 ], [ %.0162279, %152 ], [ %.0162279, %161 ], [ %.0162279, %183 ], [ %.0162279, %140 ], [ %.0162279, %luaG_checkopenop.exit243 ]
   %226 = add nsw i32 %.2164, 1
   %227 = icmp slt i32 %226, %1
-  br i1 %227, label %47, label %._crit_edge285, !llvm.loop !76
+  br i1 %227, label %47, label %._crit_edge282, !llvm.loop !76
 
-._crit_edge285:                                   ; preds = %225, %39
+._crit_edge282:                                   ; preds = %225, %39
   %.0168.lcssa = phi i32 [ %40, %39 ], [ %.3171, %225 ]
   %228 = sext i32 %.0168.lcssa to i64
   %229 = getelementptr inbounds i32, ptr %33, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !53
-  br label %precheck.exit.thread
+  br label %.critedge232
 
-precheck.exit.thread:                             ; preds = %189, %180, %171, %218, %201, %198, %175, %86, %90, %83, %81, %71, %75, %68, %66, %223, %luaG_checkopenop.exit241, %215, %195, %186, %luaG_checkopenop.exit, %162, %157, %156, %154, %149, %143, %141, %136, %133, %125, %122, %._crit_edge, %104, %96, %47, %.lr.ph279, %26, %20, %9, %3, %precheck.exit, %._crit_edge285
-  %.0 = phi i32 [ %230, %._crit_edge285 ], [ 0, %precheck.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %20 ], [ 0, %26 ], [ 0, %.lr.ph279 ], [ 0, %47 ], [ 0, %96 ], [ 0, %104 ], [ 0, %._crit_edge ], [ 0, %122 ], [ 0, %125 ], [ 0, %133 ], [ 0, %136 ], [ 0, %141 ], [ 0, %143 ], [ 0, %149 ], [ 0, %154 ], [ 0, %156 ], [ 0, %157 ], [ 0, %162 ], [ 0, %luaG_checkopenop.exit ], [ 0, %186 ], [ 0, %195 ], [ 0, %215 ], [ 0, %luaG_checkopenop.exit241 ], [ 0, %223 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %175 ], [ 0, %198 ], [ 0, %201 ], [ 0, %218 ], [ 0, %171 ], [ 0, %180 ], [ 0, %189 ]
+.critedge232:                                     ; preds = %189, %180, %171, %218, %201, %198, %175, %86, %90, %83, %81, %71, %75, %68, %66, %47, %96, %104, %._crit_edge, %122, %125, %133, %136, %141, %143, %149, %154, %156, %157, %162, %luaG_checkopenop.exit, %186, %195, %215, %luaG_checkopenop.exit243, %223, %.lr.ph276, %26, %20, %9, %3, %precheck.exit, %._crit_edge282
+  %.0 = phi i32 [ %230, %._crit_edge282 ], [ 0, %precheck.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %20 ], [ 0, %26 ], [ 0, %.lr.ph276 ], [ 0, %223 ], [ 0, %luaG_checkopenop.exit243 ], [ 0, %215 ], [ 0, %195 ], [ 0, %186 ], [ 0, %luaG_checkopenop.exit ], [ 0, %162 ], [ 0, %157 ], [ 0, %156 ], [ 0, %154 ], [ 0, %149 ], [ 0, %143 ], [ 0, %141 ], [ 0, %136 ], [ 0, %133 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %96 ], [ 0, %47 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %175 ], [ 0, %198 ], [ 0, %201 ], [ 0, %218 ], [ 0, %171 ], [ 0, %180 ], [ 0, %189 ]
   ret i32 %.0
 }
 

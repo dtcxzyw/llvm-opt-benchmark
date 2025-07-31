@@ -7407,15 +7407,15 @@ define noundef ptr @Gia_ManLutBalance(ptr noundef %0, i32 noundef %1, i32 nounde
 
 11:                                               ; preds = %6
   %12 = load i64, ptr %8, align 8, !tbaa !132
-  %.neg61 = mul i64 %12, -1000000
+  %.neg59 = mul i64 %12, -1000000
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !134
   %.neg = sdiv i64 %14, -1000
-  %.neg62 = add i64 %.neg, %.neg61
+  %.neg60 = add i64 %.neg, %.neg59
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %6, %11
-  %.0.i.neg = phi i64 [ %.neg62, %11 ], [ 1, %6 ]
+  %.0.i.neg = phi i64 [ %.neg60, %11 ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8, !tbaa !129
@@ -7438,7 +7438,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   store ptr %23, ptr %15, align 8, !tbaa !129
   %24 = call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #26
   %.not55 = icmp eq ptr %24, null
-  br i1 %.not55, label %.thread, label %25
+  br i1 %.not55, label %.critedge, label %25
 
 25:                                               ; preds = %21
   call void @Gia_ManTransferTiming(ptr noundef nonnull %24, ptr noundef nonnull %0) #26
@@ -7526,9 +7526,9 @@ Abc_Clock.exit58:                                 ; preds = %35, %38
 
 Str_NtkDelete.exit:                               ; preds = %63, %66
   call void @free(ptr noundef nonnull %.149) #26
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %21, %Str_NtkDelete.exit
+.critedge:                                        ; preds = %21, %Str_NtkDelete.exit
   %.1 = phi ptr [ %.147, %Str_NtkDelete.exit ], [ null, %21 ]
   ret ptr %.1
 }

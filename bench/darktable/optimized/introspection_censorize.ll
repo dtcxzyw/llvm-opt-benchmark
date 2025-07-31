@@ -175,13 +175,13 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %60 = sext i32 %26 to i64
   %61 = udiv i64 %60, %59
   %62 = add i64 %61, 1
-  %.not221 = icmp eq i64 %62, 0
-  br i1 %.not221, label %.loopexit, label %.preheader200.lr.ph
+  %.not222 = icmp eq i64 %62, 0
+  br i1 %.not222, label %.loopexit, label %.preheader201.lr.ph
 
-.preheader200.lr.ph:                              ; preds = %57
+.preheader201.lr.ph:                              ; preds = %57
   %63 = udiv i64 %58, %59
   %64 = add i64 %63, 1
-  %.not222 = icmp eq i64 %64, 0
+  %.not223 = icmp eq i64 %64, 0
   %65 = add i32 %24, -1
   %66 = sext i32 %65 to i64
   %67 = add i32 %26, -1
@@ -195,15 +195,15 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
-  br i1 %.not222, label %.loopexit, label %.preheader200.us.preheader
+  br i1 %.not223, label %.loopexit, label %.preheader201.us.preheader
 
-.preheader200.us.preheader:                       ; preds = %.preheader200.lr.ph
+.preheader201.us.preheader:                       ; preds = %.preheader201.lr.ph
   %75 = shl nsw i64 %58, 4
-  br label %.preheader200.us
+  br label %.preheader201.us
 
-.preheader200.us:                                 ; preds = %.preheader200.us.preheader, %._crit_edge.us
-  %.0172213.us = phi i64 [ %109, %._crit_edge.us ], [ 0, %.preheader200.us.preheader ]
-  %76 = mul i64 %59, %.0172213.us
+.preheader201.us:                                 ; preds = %.preheader201.us.preheader, %._crit_edge.us
+  %.0172214.us = phi i64 [ %109, %._crit_edge.us ], [ 0, %.preheader201.us.preheader ]
+  %76 = mul i64 %59, %.0172214.us
   %umin = call i64 @llvm.umin.i64(i64 %76, i64 %68)
   %77 = mul i64 %umin, %58
   %78 = add i64 %umin, %45
@@ -211,11 +211,11 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %80 = add i64 %79, %45
   %81 = call i64 @llvm.umin.i64(i64 %80, i64 %68)
   %82 = icmp ult i64 %76, %81
-  br i1 %82, label %.lr.ph.split.us.us, label %.lr.ph.split.us220
+  br i1 %82, label %.lr.ph.split.us.us, label %.lr.ph.split.us221
 
-.lr.ph.split.us220:                               ; preds = %.preheader200.us, %.preheader199.us218
-  %.0173208.us214 = phi i64 [ %107, %.preheader199.us218 ], [ 0, %.preheader200.us ]
-  %83 = mul i64 %.0173208.us214, %59
+.lr.ph.split.us221:                               ; preds = %.preheader201.us, %.preheader200.us219
+  %.0173209.us215 = phi i64 [ %107, %.preheader200.us219 ], [ 0, %.preheader201.us ]
+  %83 = mul i64 %.0173209.us215, %59
   %84 = call i64 @llvm.umin.i64(i64 %83, i64 %66)
   %85 = add i64 %84, %45
   %86 = call i64 @llvm.umin.i64(i64 %85, i64 %66)
@@ -236,66 +236,66 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %89
 
-89:                                               ; preds = %97, %.lr.ph.split.us220
-  %.0170203.us215 = phi i64 [ 0, %.lr.ph.split.us220 ], [ %98, %97 ]
-  %90 = getelementptr inbounds nuw [5 x %struct.point_t], ptr %10, i64 0, i64 %.0170203.us215
+89:                                               ; preds = %97, %.lr.ph.split.us221
+  %.0170204.us216 = phi i64 [ 0, %.lr.ph.split.us221 ], [ %98, %97 ]
+  %90 = getelementptr inbounds nuw [5 x %struct.point_t], ptr %10, i64 0, i64 %.0170204.us216
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !42
   %93 = mul i64 %92, %58
   %94 = load i64, ptr %90, align 16, !tbaa !40
   %95 = add i64 %93, %94
-  %.idx197.us216 = shl i64 %95, 4
-  %96 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us216
+  %.idx197.us217 = shl i64 %95, 4
+  %96 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us217
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 16) ]
   br label %99
 
 97:                                               ; preds = %99
-  %98 = add nuw nsw i64 %.0170203.us215, 1
-  %exitcond228.not = icmp eq i64 %98, 5
-  br i1 %exitcond228.not, label %.preheader199.us218, label %89
+  %98 = add nuw nsw i64 %.0170204.us216, 1
+  %exitcond229.not = icmp eq i64 %98, 5
+  br i1 %exitcond229.not, label %.preheader200.us219, label %89
 
 99:                                               ; preds = %99, %89
-  %.0167202.us217 = phi i64 [ 0, %89 ], [ %106, %99 ]
-  %100 = getelementptr inbounds nuw float, ptr %96, i64 %.0167202.us217
+  %.0167203.us218 = phi i64 [ 0, %89 ], [ %106, %99 ]
+  %100 = getelementptr inbounds nuw float, ptr %96, i64 %.0167203.us218
   %101 = load float, ptr %100, align 4, !tbaa !36
   %102 = fmul reassoc nsz arcp contract afn float %101, 0x3FC99999A0000000
-  %103 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0167202.us217
+  %103 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0167203.us218
   %104 = load float, ptr %103, align 4, !tbaa !36
   %105 = fadd reassoc nsz arcp contract afn float %104, %102
   store float %105, ptr %103, align 4, !tbaa !36
-  %106 = add nuw nsw i64 %.0167202.us217, 1
-  %exitcond227.not = icmp eq i64 %106, 4
-  br i1 %exitcond227.not, label %97, label %99
+  %106 = add nuw nsw i64 %.0167203.us218, 1
+  %exitcond228.not = icmp eq i64 %106, 4
+  br i1 %exitcond228.not, label %97, label %99
 
-.preheader199.us218:                              ; preds = %97
+.preheader200.us219:                              ; preds = %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #15
-  %107 = add nuw i64 %.0173208.us214, 1
+  %107 = add nuw i64 %.0173209.us215, 1
   %108 = icmp ult i64 %107, %64
-  br i1 %108, label %.lr.ph.split.us220, label %._crit_edge.us
+  br i1 %108, label %.lr.ph.split.us221, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.preheader199.us218, %._crit_edge207.us.us
-  %109 = add nuw i64 %.0172213.us, 1
+._crit_edge.us:                                   ; preds = %.preheader200.us219, %._crit_edge208.us.us
+  %109 = add nuw i64 %.0172214.us, 1
   %110 = icmp ult i64 %109, %62
-  br i1 %110, label %.preheader200.us, label %.loopexit, !llvm.loop !43
+  br i1 %110, label %.preheader201.us, label %.loopexit, !llvm.loop !43
 
-.lr.ph.split.us.us:                               ; preds = %.preheader200.us, %._crit_edge207.us.us
-  %.0173208.us.us = phi i64 [ %136, %._crit_edge207.us.us ], [ 0, %.preheader200.us ]
-  %111 = mul i64 %59, %.0173208.us.us
-  %umin231 = call i64 @llvm.umin.i64(i64 %111, i64 %66)
-  %112 = add i64 %77, %umin231
-  %113 = add i64 %umin231, %45
+.lr.ph.split.us.us:                               ; preds = %.preheader201.us, %._crit_edge208.us.us
+  %.0173209.us.us = phi i64 [ %136, %._crit_edge208.us.us ], [ 0, %.preheader201.us ]
+  %111 = mul i64 %59, %.0173209.us.us
+  %umin232 = call i64 @llvm.umin.i64(i64 %111, i64 %66)
+  %112 = add i64 %77, %umin232
+  %113 = add i64 %umin232, %45
   %114 = call i64 @llvm.umin.i64(i64 %113, i64 %66)
   %115 = add i64 %114, %45
   %116 = call i64 @llvm.umin.i64(i64 %115, i64 %66)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #15
-  store i64 %umin231, ptr %10, align 16, !tbaa !39
+  store i64 %umin232, ptr %10, align 16, !tbaa !39
   store i64 %umin, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !39
   store i64 %116, ptr %69, align 16, !tbaa !40
   store i64 %umin, ptr %70, align 8, !tbaa !42
   store i64 %114, ptr %71, align 16, !tbaa !39
   store i64 %79, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !39
-  store i64 %umin231, ptr %72, align 16, !tbaa !40
+  store i64 %umin232, ptr %72, align 16, !tbaa !40
   store i64 %81, ptr %73, align 8, !tbaa !42
   store i64 %116, ptr %74, align 16, !tbaa !39
   store i64 %81, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !39
@@ -304,8 +304,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %117
 
 117:                                              ; preds = %125, %.lr.ph.split.us.us
-  %.0170203.us.us = phi i64 [ 0, %.lr.ph.split.us.us ], [ %126, %125 ]
-  %118 = getelementptr inbounds nuw [5 x %struct.point_t], ptr %10, i64 0, i64 %.0170203.us.us
+  %.0170204.us.us = phi i64 [ 0, %.lr.ph.split.us.us ], [ %126, %125 ]
+  %118 = getelementptr inbounds nuw [5 x %struct.point_t], ptr %10, i64 0, i64 %.0170204.us.us
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !42
   %121 = mul i64 %120, %58
@@ -317,66 +317,66 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %127
 
 125:                                              ; preds = %127
-  %126 = add nuw nsw i64 %.0170203.us.us, 1
-  %exitcond230.not = icmp eq i64 %126, 5
-  br i1 %exitcond230.not, label %.preheader199.us.us, label %117
+  %126 = add nuw nsw i64 %.0170204.us.us, 1
+  %exitcond231.not = icmp eq i64 %126, 5
+  br i1 %exitcond231.not, label %.preheader200.us.us, label %117
 
 127:                                              ; preds = %127, %117
-  %.0167202.us.us = phi i64 [ 0, %117 ], [ %134, %127 ]
-  %128 = getelementptr inbounds nuw float, ptr %124, i64 %.0167202.us.us
+  %.0167203.us.us = phi i64 [ 0, %117 ], [ %134, %127 ]
+  %128 = getelementptr inbounds nuw float, ptr %124, i64 %.0167203.us.us
   %129 = load float, ptr %128, align 4, !tbaa !36
   %130 = fmul reassoc nsz arcp contract afn float %129, 0x3FC99999A0000000
-  %131 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0167202.us.us
+  %131 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0167203.us.us
   %132 = load float, ptr %131, align 4, !tbaa !36
   %133 = fadd reassoc nsz arcp contract afn float %132, %130
   store float %133, ptr %131, align 4, !tbaa !36
-  %134 = add nuw nsw i64 %.0167202.us.us, 1
-  %exitcond229.not = icmp eq i64 %134, 4
-  br i1 %exitcond229.not, label %125, label %127
+  %134 = add nuw nsw i64 %.0167203.us.us, 1
+  %exitcond230.not = icmp eq i64 %134, 4
+  br i1 %exitcond230.not, label %125, label %127
 
-.preheader199.us.us:                              ; preds = %125
+.preheader200.us.us:                              ; preds = %125
   %135 = icmp ult i64 %111, %116
-  br i1 %135, label %.preheader.us.us.us, label %._crit_edge207.us.us
+  br i1 %135, label %.preheader.us.us.us, label %._crit_edge208.us.us
 
-._crit_edge207.us.us:                             ; preds = %._crit_edge.us.us.us, %.preheader199.us.us
+._crit_edge208.us.us:                             ; preds = %._crit_edge.us.us.us, %.preheader200.us.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #15
-  %136 = add nuw i64 %.0173208.us.us, 1
+  %136 = add nuw i64 %.0173209.us.us, 1
   %137 = icmp ult i64 %136, %64
   br i1 %137, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !45
 
-.preheader.us.us.us:                              ; preds = %.preheader199.us.us, %._crit_edge.us.us.us
-  %indvar = phi i64 [ %indvar.next, %._crit_edge.us.us.us ], [ 0, %.preheader199.us.us ]
-  %.0166206.us.us.us = phi i64 [ %147, %._crit_edge.us.us.us ], [ %umin, %.preheader199.us.us ]
+.preheader.us.us.us:                              ; preds = %.preheader200.us.us, %._crit_edge.us.us.us
+  %indvar = phi i64 [ %indvar.next, %._crit_edge.us.us.us ], [ 0, %.preheader200.us.us ]
+  %.0166207.us.us.us = phi i64 [ %147, %._crit_edge.us.us.us ], [ %umin, %.preheader200.us.us ]
   %138 = mul i64 %75, %indvar
-  %139 = mul i64 %.0166206.us.us.us, %58
+  %139 = mul i64 %.0166207.us.us.us, %58
   %invariant.gep = getelementptr i8, ptr %56, i64 %138
   br label %140
 
 140:                                              ; preds = %140, %.preheader.us.us.us
-  %indvar232 = phi i64 [ %indvar.next233, %140 ], [ 0, %.preheader.us.us.us ]
-  %.0165205.us.us.us = phi i64 [ %145, %140 ], [ %umin231, %.preheader.us.us.us ]
-  %141 = add i64 %112, %indvar232
+  %indvar233 = phi i64 [ %indvar.next234, %140 ], [ 0, %.preheader.us.us.us ]
+  %.0165206.us.us.us = phi i64 [ %145, %140 ], [ %umin232, %.preheader.us.us.us ]
+  %141 = add i64 %112, %indvar233
   %142 = shl i64 %141, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %142
-  %143 = add i64 %.0165205.us.us.us, %139
+  %143 = add i64 %.0165206.us.us.us, %139
   %.idx.us.us.us = shl i64 %143, 4
   %144 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.us.us.us
   call void @llvm.assume(i1 true) [ "align"(ptr %144, i64 16) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %gep, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !36
-  %145 = add nuw i64 %.0165205.us.us.us, 1
+  %145 = add nuw i64 %.0165206.us.us.us, 1
   %146 = icmp ult i64 %145, %116
-  %indvar.next233 = add nuw i64 %indvar232, 1
+  %indvar.next234 = add nuw i64 %indvar233, 1
   br i1 %146, label %140, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %140
-  %147 = add nuw i64 %.0166206.us.us.us, 1
+  %147 = add nuw i64 %.0166207.us.us.us, 1
   %148 = icmp ult i64 %147, %81
   %indvar.next = add nuw i64 %indvar, 1
-  br i1 %148, label %.preheader.us.us.us, label %._crit_edge207.us.us, !llvm.loop !46
+  br i1 %148, label %.preheader.us.us.us, label %._crit_edge208.us.us, !llvm.loop !46
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.preheader200.lr.ph, %57, %55
-  %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader200.lr.ph ], [ %56, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.preheader201.lr.ph, %57, %55
+  %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader201.lr.ph ], [ %56, %._crit_edge.us ]
   %149 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
   br i1 %149, label %150, label %158
 
@@ -428,7 +428,7 @@ dt_simd_memcpy.exit:                              ; preds = %.lr.ph.preheader.i,
   call void @free(ptr noundef %168) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %52, %155, %167
+.critedge:                                        ; preds = %155, %52, %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   br label %169

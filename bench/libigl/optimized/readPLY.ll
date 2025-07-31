@@ -46100,13 +46100,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl26tinyply_tristrips_to_
 .preheader72.lr.ph.i:                             ; preds = %8
   %11 = add i64 %3, -2
   %.not87.i = icmp eq i64 %11, 0
+  br i1 %.not87.i, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge, label %.preheader72.us.preheader.i
+
+.preheader72.us.preheader.i:                      ; preds = %.preheader72.lr.ph.i
   %12 = mul i64 %11, %2
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %12, i64 noundef 3)
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %.idx.i = shl i64 %15, 3
-  br i1 %.not87.i, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit, label %.preheader.us.i
+  br label %.preheader.us.i
 
 ._crit_edge77.i:                                  ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46124,9 +46127,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit:
   store i64 0, ptr %16, align 8, !tbaa !283
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
-.preheader.us.i:                                  ; preds = %.preheader72.lr.ph.i, %._crit_edge.us85.i
-  %.04683.us.i = phi i64 [ %41, %._crit_edge.us85.i ], [ 0, %.preheader72.lr.ph.i ]
-  %.04782.us.i = phi i64 [ %40, %._crit_edge.us85.i ], [ 0, %.preheader72.lr.ph.i ]
+.preheader.us.i:                                  ; preds = %.preheader72.us.preheader.i, %._crit_edge.us85.i
+  %.04683.us.i = phi i64 [ %41, %._crit_edge.us85.i ], [ 0, %.preheader72.us.preheader.i ]
+  %.04782.us.i = phi i64 [ %40, %._crit_edge.us85.i ], [ 0, %.preheader72.us.preheader.i ]
   %20 = mul nsw i64 %.04683.us.i, %3
   %invariant.gep.us.i = getelementptr i8, ptr %10, i64 %20
   br label %21
@@ -46179,13 +46182,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit:
 .preheader72.lr.ph.i34:                           ; preds = %44
   %47 = add i64 %3, -2
   %.not87.i35 = icmp eq i64 %47, 0
+  br i1 %.not87.i35, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge77, label %.preheader72.us.preheader.i36
+
+.preheader72.us.preheader.i36:                    ; preds = %.preheader72.lr.ph.i34
   %48 = mul i64 %47, %2
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %48, i64 noundef 3)
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i64, ptr %50, align 8
   %.idx.i40 = shl i64 %51, 3
-  br i1 %.not87.i35, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit, label %.preheader.us.i41
+  br label %.preheader.us.i41
 
 ._crit_edge77.i52:                                ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46203,9 +46209,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit7
   store i64 0, ptr %52, align 8, !tbaa !283
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
-.preheader.us.i41:                                ; preds = %.preheader72.lr.ph.i34, %._crit_edge.us85.i50
-  %.04683.us.i42 = phi i64 [ %77, %._crit_edge.us85.i50 ], [ 0, %.preheader72.lr.ph.i34 ]
-  %.04782.us.i43 = phi i64 [ %76, %._crit_edge.us85.i50 ], [ 0, %.preheader72.lr.ph.i34 ]
+.preheader.us.i41:                                ; preds = %.preheader72.us.preheader.i36, %._crit_edge.us85.i50
+  %.04683.us.i42 = phi i64 [ %77, %._crit_edge.us85.i50 ], [ 0, %.preheader72.us.preheader.i36 ]
+  %.04782.us.i43 = phi i64 [ %76, %._crit_edge.us85.i50 ], [ 0, %.preheader72.us.preheader.i36 ]
   %56 = mul nsw i64 %.04683.us.i42, %3
   %invariant.gep.us.i44 = getelementptr i16, ptr %46, i64 %56
   br label %57
@@ -46258,13 +46264,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit7
 .preheader72.lr.ph.i54:                           ; preds = %80
   %83 = add i64 %3, -2
   %.not87.i55 = icmp eq i64 %83, 0
+  br i1 %.not87.i55, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge78, label %.preheader72.us.preheader.i56
+
+.preheader72.us.preheader.i56:                    ; preds = %.preheader72.lr.ph.i54
   %84 = mul i64 %83, %2
   tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %84, i64 noundef 3)
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load i64, ptr %86, align 8
   %.idx.i60 = shl i64 %87, 3
-  br i1 %.not87.i55, label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit, label %.preheader.us.i61
+  br label %.preheader.us.i61
 
 ._crit_edge77.i72:                                ; preds = %80
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46282,9 +46291,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit7
   store i64 0, ptr %88, align 8, !tbaa !283
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
-.preheader.us.i61:                                ; preds = %.preheader72.lr.ph.i54, %._crit_edge.us85.i70
-  %.04683.us.i62 = phi i64 [ %110, %._crit_edge.us85.i70 ], [ 0, %.preheader72.lr.ph.i54 ]
-  %.04782.us.i63 = phi i64 [ %109, %._crit_edge.us85.i70 ], [ 0, %.preheader72.lr.ph.i54 ]
+.preheader.us.i61:                                ; preds = %.preheader72.us.preheader.i56, %._crit_edge.us85.i70
+  %.04683.us.i62 = phi i64 [ %110, %._crit_edge.us85.i70 ], [ 0, %.preheader72.us.preheader.i56 ]
+  %.04782.us.i63 = phi i64 [ %109, %._crit_edge.us85.i70 ], [ 0, %.preheader72.us.preheader.i56 ]
   %92 = mul nsw i64 %.04683.us.i62, %3
   %invariant.gep.us.i64 = getelementptr i32, ptr %82, i64 %92
   br label %93
@@ -46329,8 +46338,20 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit7
   %114 = tail call noundef zeroext i1 @_ZN3igl30_tinyply_tristrips_to_trifacesIdN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2, i64 noundef %3)
   br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
 
-_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %._crit_edge.us85.i70, %._crit_edge.us85.i50, %._crit_edge.us85.i, %.preheader72.lr.ph.i54, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76, %.preheader72.lr.ph.i34, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74, %.preheader72.lr.ph.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit, %4, %113, %111, %78, %42, %6
-  %.0 = phi i1 [ %7, %6 ], [ %43, %42 ], [ %79, %78 ], [ %112, %111 ], [ %114, %113 ], [ false, %4 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit ], [ true, %.preheader72.lr.ph.i ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %.preheader72.lr.ph.i34 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %.preheader72.lr.ph.i54 ], [ true, %._crit_edge.us85.i ], [ true, %._crit_edge.us85.i50 ], [ true, %._crit_edge.us85.i70 ]
+_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge: ; preds = %.preheader72.lr.ph.i
+  tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef 3)
+  br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
+
+_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge77: ; preds = %.preheader72.lr.ph.i34
+  tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef 3)
+  br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
+
+_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge78: ; preds = %.preheader72.lr.ph.i54
+  tail call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef 3)
+  br label %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit
+
+_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit: ; preds = %._crit_edge.us85.i70, %._crit_edge.us85.i50, %._crit_edge.us85.i, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge78, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge77, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit, %4, %113, %111, %78, %42, %6
+  %.0 = phi i1 [ %7, %6 ], [ %43, %42 ], [ %79, %78 ], [ %112, %111 ], [ %114, %113 ], [ false, %4 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit74 ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit76 ], [ true, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge ], [ true, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge77 ], [ true, %_ZN3igl30_tinyply_tristrips_to_trifacesIhN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEEEEbRNS_7tinyply7PlyDataERNS1_15PlainObjectBaseIT0_EEmm.exit.critedge78 ], [ true, %._crit_edge.us85.i ], [ true, %._crit_edge.us85.i50 ], [ true, %._crit_edge.us85.i70 ]
   ret i1 %.0
 }
 

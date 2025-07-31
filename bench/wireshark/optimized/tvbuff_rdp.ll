@@ -30,7 +30,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %3)
   %6 = add i32 %3, 1
-  switch i8 %5, label %.thread [
+  switch i8 %5, label %.critedge [
     i8 -32, label %7
     i8 -31, label %20
   ]
@@ -40,7 +40,7 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 0, ptr %8, align 4
   %9 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %6)
   %10 = tail call fastcc zeroext i1 @rdp8_decompress_segment(ptr noundef %0, ptr noundef %9)
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4
@@ -51,7 +51,7 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef nonnull %15, i64 noundef range(i64 0, 4294967296) %17, i64 noundef %13) #9, !alias.scope !6
   %19 = tail call ptr @tvb_new_real_data(ptr noundef %14, i32 noundef %16, i32 noundef %16)
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %4
   %21 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %2, i32 noundef %6, i32 noundef -2147483648)
@@ -69,40 +69,40 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %29
 
 29:                                               ; preds = %.lr.ph, %39
-  %.05168 = phi ptr [ %25, %.lr.ph ], [ %45, %39 ]
+  %.05164 = phi ptr [ %25, %.lr.ph ], [ %45, %39 ]
   %30 = phi i64 [ 0, %.lr.ph ], [ %44, %39 ]
-  %.05367 = phi i32 [ %26, %.lr.ph ], [ %43, %39 ]
-  %.05566 = phi i32 [ 0, %.lr.ph ], [ %37, %39 ]
-  %.05765 = phi i16 [ 0, %.lr.ph ], [ %46, %39 ]
-  %31 = tail call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %.05367, i32 noundef -2147483648)
-  %32 = add i32 %.05367, 4
+  %.05363 = phi i32 [ %26, %.lr.ph ], [ %43, %39 ]
+  %.05562 = phi i32 [ 0, %.lr.ph ], [ %37, %39 ]
+  %.05761 = phi i16 [ 0, %.lr.ph ], [ %46, %39 ]
+  %31 = tail call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %.05363, i32 noundef -2147483648)
+  %32 = add i32 %.05363, 4
   store i32 0, ptr %27, align 4
   %33 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %32, i32 noundef %31)
   %34 = tail call fastcc zeroext i1 @rdp8_decompress_segment(ptr noundef %0, ptr noundef %33)
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %29
   %36 = load i32, ptr %27, align 4
-  %37 = add i32 %36, %.05566
+  %37 = add i32 %36, %.05562
   %38 = icmp ugt i32 %37, %23
-  br i1 %38, label %.thread, label %39
+  br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %35
   %40 = zext i32 %36 to i64
   %41 = tail call i64 @llvm.usub.sat.i64(i64 %24, i64 %30)
-  %42 = tail call ptr @__memcpy_chk(ptr noundef %.05168, ptr noundef nonnull %28, i64 noundef range(i64 0, 4294967296) %40, i64 noundef %41) #9, !alias.scope !10
+  %42 = tail call ptr @__memcpy_chk(ptr noundef %.05164, ptr noundef nonnull %28, i64 noundef range(i64 0, 4294967296) %40, i64 noundef %41) #9, !alias.scope !10
   %43 = add i32 %31, %32
   %44 = add i64 %30, %40
-  %45 = getelementptr i8, ptr %.05168, i64 %40
-  %46 = add nuw i16 %.05765, 1
+  %45 = getelementptr i8, ptr %.05164, i64 %40
+  %46 = add nuw i16 %.05761, 1
   %exitcond.not = icmp eq i16 %46, %21
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %39, %20
   %47 = tail call ptr @tvb_new_real_data(ptr noundef %25, i32 noundef %23, i32 noundef %23)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %35, %29, %4, %._crit_edge, %7, %11
+.critedge:                                        ; preds = %35, %29, %4, %._crit_edge, %7, %11
   %.0 = phi ptr [ %19, %11 ], [ null, %7 ], [ %47, %._crit_edge ], [ %2, %4 ], [ null, %29 ], [ null, %35 ]
   ret ptr %.0
 }

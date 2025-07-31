@@ -80,33 +80,33 @@ gv_calloc.exit:                                   ; preds = %.thread
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load double, ptr %2, align 8
   %33 = tail call double @llvm.minnum.f64(double %24, double %25)
-  %.pre183.i.pre24 = load i8, ptr @Verbose, align 1, !tbaa !12
+  %.pre177.i.pre24 = load i8, ptr @Verbose, align 1, !tbaa !12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse.outer.i, %.lr.ph.lr.ph.i
-  %.pre183.i = phi i8 [ %.pre183.i.pre24, %.lr.ph.lr.ph.i ], [ %.pre183.i25, %tailrecurse.outer.i ]
+  %.pre177.i = phi i8 [ %.pre177.i.pre24, %.lr.ph.lr.ph.i ], [ %.pre177.i25, %tailrecurse.outer.i ]
   %34 = phi double [ %.sroa.5.0.copyload, %.lr.ph.lr.ph.i ], [ %123, %tailrecurse.outer.i ]
   %35 = phi double [ %.sroa.0.0.copyload, %.lr.ph.lr.ph.i ], [ %124, %tailrecurse.outer.i ]
   %36 = phi double [ %33, %.lr.ph.lr.ph.i ], [ %129, %tailrecurse.outer.i ]
   %37 = phi double [ %25, %.lr.ph.lr.ph.i ], [ %121, %tailrecurse.outer.i ]
   %38 = phi double [ %24, %.lr.ph.lr.ph.i ], [ %122, %tailrecurse.outer.i ]
-  %.tr135.ph167.i = phi double [ 1.000000e+00, %.lr.ph.lr.ph.i ], [ 0.000000e+00, %tailrecurse.outer.i ]
-  %.tr132.ph164.i = phi ptr [ %27, %.lr.ph.lr.ph.i ], [ %127, %tailrecurse.outer.i ]
-  %.tr131.ph163.i = phi ptr [ %1, %.lr.ph.lr.ph.i ], [ %126, %tailrecurse.outer.i ]
-  %.tr.ph162.i = phi i64 [ %0, %.lr.ph.lr.ph.i ], [ %125, %tailrecurse.outer.i ]
+  %.tr129.ph161.i = phi double [ 1.000000e+00, %.lr.ph.lr.ph.i ], [ 0.000000e+00, %tailrecurse.outer.i ]
+  %.tr126.ph158.i = phi ptr [ %27, %.lr.ph.lr.ph.i ], [ %127, %tailrecurse.outer.i ]
+  %.tr125.ph157.i = phi ptr [ %1, %.lr.ph.lr.ph.i ], [ %126, %tailrecurse.outer.i ]
+  %.tr.ph156.i = phi i64 [ %0, %.lr.ph.lr.ph.i ], [ %125, %tailrecurse.outer.i ]
   %39 = tail call double @llvm.minnum.f64(double %38, double %37)
   br label %40
 
 40:                                               ; preds = %tailrecurse.backedge.i, %.lr.ph.i
-  %.pre183.i27 = phi i8 [ %.pre183.i, %.lr.ph.i ], [ %.pre183.i26, %tailrecurse.backedge.i ]
-  %41 = phi i8 [ %.pre183.i, %.lr.ph.i ], [ %50, %tailrecurse.backedge.i ]
-  %42 = phi i8 [ %.pre183.i, %.lr.ph.i ], [ %51, %tailrecurse.backedge.i ]
+  %.pre177.i27 = phi i8 [ %.pre177.i, %.lr.ph.i ], [ %.pre177.i26, %tailrecurse.backedge.i ]
+  %41 = phi i8 [ %.pre177.i, %.lr.ph.i ], [ %50, %tailrecurse.backedge.i ]
+  %42 = phi i8 [ %.pre177.i, %.lr.ph.i ], [ %51, %tailrecurse.backedge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %tailrecurse.backedge.i ]
   %43 = phi double [ %36, %.lr.ph.i ], [ %39, %tailrecurse.backedge.i ]
-  %.tr137157.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %.tr137.be.i, %tailrecurse.backedge.i ]
-  %.tr136156.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.tr136.be.i, %tailrecurse.backedge.i ]
-  %.tr135155.i = phi double [ %.tr135.ph167.i, %.lr.ph.i ], [ %.tr135.be.i, %tailrecurse.backedge.i ]
-  %.tr134154.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.tr134.be.i, %tailrecurse.backedge.i ]
+  %.tr131151.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %.tr131.be.i, %tailrecurse.backedge.i ]
+  %.tr130150.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.tr130.be.i, %tailrecurse.backedge.i ]
+  %.tr129149.i = phi double [ %.tr129.ph161.i, %.lr.ph.i ], [ %.tr129.be.i, %tailrecurse.backedge.i ]
+  %.tr128148.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.tr128.be.i, %tailrecurse.backedge.i ]
   %.not.i = icmp eq i8 %42, 0
   br i1 %.not.i, label %49, label %44
 
@@ -119,14 +119,14 @@ gv_calloc.exit:                                   ; preds = %.thread
   br label %49
 
 49:                                               ; preds = %44, %40
-  %.pre183.i26 = phi i8 [ %.pre.i, %44 ], [ %.pre183.i27, %40 ]
+  %.pre177.i26 = phi i8 [ %.pre.i, %44 ], [ %.pre177.i27, %40 ]
   %50 = phi i8 [ %.pre.i, %44 ], [ %41, %40 ]
   %51 = phi i8 [ %.pre.i, %44 ], [ 0, %40 ]
   %52 = icmp eq i64 %indvars.iv.i, 0
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %49
-  %54 = load double, ptr %.tr131.ph163.i, align 8, !tbaa !3
+  %54 = load double, ptr %.tr125.ph157.i, align 8, !tbaa !3
   %55 = fmul double %43, %43
   %56 = fdiv double %54, %55
   %57 = fdiv double %55, %54
@@ -134,50 +134,50 @@ gv_calloc.exit:                                   ; preds = %.thread
   br label %tailrecurse.backedge.i
 
 tailrecurse.backedge.i:                           ; preds = %61, %53
-  %.tr134.be.i = phi double [ %54, %53 ], [ %64, %61 ]
-  %.tr135.be.i = phi double [ %54, %53 ], [ %65, %61 ]
-  %.tr136.be.i = phi double [ %54, %53 ], [ %66, %61 ]
-  %.tr137.be.i = phi double [ %58, %53 ], [ %72, %61 ]
+  %.tr128.be.i = phi double [ %54, %53 ], [ %64, %61 ]
+  %.tr129.be.i = phi double [ %54, %53 ], [ %65, %61 ]
+  %.tr130.be.i = phi double [ %54, %53 ], [ %66, %61 ]
+  %.tr131.be.i = phi double [ %58, %53 ], [ %72, %61 ]
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   br label %40
 
 59:                                               ; preds = %49
-  %60 = icmp ult i64 %indvars.iv.i, %.tr.ph162.i
-  br i1 %60, label %61, label %.thread.i
+  %60 = icmp ult i64 %indvars.iv.i, %.tr.ph156.i
+  br i1 %60, label %61, label %.critedge.i
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw double, ptr %.tr131.ph163.i, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %indvars.iv.i
   %63 = load double, ptr %62, align 8, !tbaa !3
-  %64 = tail call double @llvm.maxnum.f64(double %.tr134154.i, double %63)
-  %65 = tail call double @llvm.minnum.f64(double %.tr135155.i, double %63)
-  %66 = fadd double %.tr136156.i, %63
+  %64 = tail call double @llvm.maxnum.f64(double %.tr128148.i, double %63)
+  %65 = tail call double @llvm.minnum.f64(double %.tr129149.i, double %63)
+  %66 = fadd double %.tr130150.i, %63
   %67 = fdiv double %66, %43
   %68 = fdiv double %64, %67
   %69 = fdiv double %65, %67
   %70 = fdiv double %67, %69
   %71 = fdiv double %68, %67
   %72 = tail call double @llvm.maxnum.f64(double %70, double %71)
-  %73 = fcmp ugt double %72, %.tr137157.i
-  br i1 %73, label %.thread.i, label %tailrecurse.backedge.i
+  %73 = fcmp ugt double %72, %.tr131151.i
+  br i1 %73, label %.critedge.i, label %tailrecurse.backedge.i
 
-.thread.i:                                        ; preds = %61, %59
+.critedge.i:                                      ; preds = %61, %59
   %.not123.i = icmp eq i8 %50, 0
-  br i1 %.not123.i, label %.thread.i._crit_edge, label %74
+  br i1 %.not123.i, label %.critedge.i._crit_edge, label %74
 
-.thread.i._crit_edge:                             ; preds = %.thread.i
-  %.pre = fdiv double %.tr136156.i, %43
+.critedge.i._crit_edge:                           ; preds = %.critedge.i
+  %.pre = fdiv double %.tr130150.i, %43
   br label %78
 
-74:                                               ; preds = %.thread.i
+74:                                               ; preds = %.critedge.i
   %75 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %76 = fdiv double %.tr136156.i, %43
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.4, i64 noundef %indvars.iv.i, double noundef %.tr136156.i, double noundef %43, double noundef %76) #6
-  %.pre183.i.pre = load i8, ptr @Verbose, align 1, !tbaa !12
+  %76 = fdiv double %.tr130150.i, %43
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.4, i64 noundef %indvars.iv.i, double noundef %.tr130150.i, double noundef %43, double noundef %76) #6
+  %.pre177.i.pre = load i8, ptr @Verbose, align 1, !tbaa !12
   br label %78
 
-78:                                               ; preds = %.thread.i._crit_edge, %74
-  %.pre-phi = phi double [ %.pre, %.thread.i._crit_edge ], [ %76, %74 ]
-  %.pre183.i25 = phi i8 [ %.pre183.i26, %.thread.i._crit_edge ], [ %.pre183.i.pre, %74 ]
+78:                                               ; preds = %.critedge.i._crit_edge, %74
+  %.pre-phi = phi double [ %.pre, %.critedge.i._crit_edge ], [ %76, %74 ]
+  %.pre177.i25 = phi i8 [ %.pre177.i26, %.critedge.i._crit_edge ], [ %.pre177.i.pre, %74 ]
   %79 = fcmp ugt double %38, %37
   %80 = fmul double %.pre-phi, 5.000000e-01
   br i1 %79, label %101, label %81
@@ -195,23 +195,23 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   br label %tailrecurse.outer.i
 
 89:                                               ; preds = %89, %81
-  %.0112159.i = phi i64 [ 0, %81 ], [ %100, %89 ]
-  %.0114158.i = phi double [ %83, %81 ], [ %99, %89 ]
-  %90 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr132.ph164.i, i64 %.0112159.i
+  %.0112153.i = phi i64 [ 0, %81 ], [ %100, %89 ]
+  %.0114152.i = phi double [ %83, %81 ], [ %99, %89 ]
+  %90 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %.0112153.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store double %.pre-phi, ptr %92, align 8, !tbaa !3
-  %93 = getelementptr inbounds nuw double, ptr %.tr131.ph163.i, i64 %.0112159.i
+  %93 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %.0112153.i
   %94 = load double, ptr %93, align 8, !tbaa !3
   %95 = fdiv double %94, %.pre-phi
   store double %95, ptr %91, align 8, !tbaa !3
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store double %85, ptr %96, align 8, !tbaa !3
   %97 = fmul double %95, 5.000000e-01
-  %98 = fadd double %.0114158.i, %97
+  %98 = fadd double %.0114152.i, %97
   store double %98, ptr %90, align 8, !tbaa !3
-  %99 = fadd double %.0114158.i, %95
-  %100 = add nuw i64 %.0112159.i, 1
+  %99 = fadd double %.0114152.i, %95
+  %100 = add nuw i64 %.0112153.i, 1
   %exitcond.not.i = icmp eq i64 %100, %indvars.iv.i
   br i1 %exitcond.not.i, label %86, label %89, !llvm.loop !13
 
@@ -228,34 +228,34 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   br label %tailrecurse.outer.i
 
 109:                                              ; preds = %109, %101
-  %.0161.i = phi i64 [ 0, %101 ], [ %120, %109 ]
-  %.0113160.i = phi double [ %103, %101 ], [ %119, %109 ]
-  %110 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr132.ph164.i, i64 %.0161.i
+  %.0155.i = phi i64 [ 0, %101 ], [ %120, %109 ]
+  %.0113154.i = phi double [ %103, %101 ], [ %119, %109 ]
+  %110 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %.0155.i
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store double %.pre-phi, ptr %111, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw double, ptr %.tr131.ph163.i, i64 %.0161.i
+  %112 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %.0155.i
   %113 = load double, ptr %112, align 8, !tbaa !3
   %114 = fdiv double %113, %.pre-phi
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store double %114, ptr %115, align 8, !tbaa !3
   store double %105, ptr %110, align 8, !tbaa !3
   %116 = fmul double %114, 5.000000e-01
-  %117 = fsub double %.0113160.i, %116
+  %117 = fsub double %.0113154.i, %116
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store double %117, ptr %118, align 8, !tbaa !3
-  %119 = fsub double %.0113160.i, %114
-  %120 = add nuw i64 %.0161.i, 1
-  %exitcond182.not.i = icmp eq i64 %120, %indvars.iv.i
-  br i1 %exitcond182.not.i, label %106, label %109, !llvm.loop !14
+  %119 = fsub double %.0113154.i, %114
+  %120 = add nuw i64 %.0155.i, 1
+  %exitcond176.not.i = icmp eq i64 %120, %indvars.iv.i
+  br i1 %exitcond176.not.i, label %106, label %109, !llvm.loop !14
 
 tailrecurse.outer.i:                              ; preds = %106, %86
   %121 = phi double [ %37, %106 ], [ %88, %86 ]
   %122 = phi double [ %108, %106 ], [ %38, %86 ]
   %123 = phi double [ %34, %106 ], [ %87, %86 ]
   %124 = phi double [ %107, %106 ], [ %35, %86 ]
-  %125 = sub i64 %.tr.ph162.i, %indvars.iv.i
-  %126 = getelementptr inbounds nuw double, ptr %.tr131.ph163.i, i64 %indvars.iv.i
-  %127 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr132.ph164.i, i64 %indvars.iv.i
+  %125 = sub i64 %.tr.ph156.i, %indvars.iv.i
+  %126 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %indvars.iv.i
   %128 = icmp eq i64 %125, 0
   %129 = tail call double @llvm.minnum.f64(double %122, double %121)
   br i1 %128, label %squarify.exit, label %.lr.ph.i

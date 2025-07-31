@@ -256,7 +256,7 @@ declare ptr @map_variable_attnos(ptr noundef, i32 noundef, i32 noundef, ptr noun
 define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.thread47, label %6
+  br i1 %5, label %.critedge40, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -264,7 +264,7 @@ define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 115
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 112
-  br i1 %.not, label %11, label %.thread47
+  br i1 %.not, label %11, label %.critedge40
 
 11:                                               ; preds = %6
   %12 = tail call ptr @RelationGetPartitionKey(ptr noundef nonnull %0) #5
@@ -272,31 +272,31 @@ define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr nou
   %.val = load i16, ptr %13, align 4
   %wide.trip.count = sext i16 %.val to i64
   %14 = getelementptr i8, ptr %12, i64 16
-  %.val39 = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %.val39, null
+  %.val41 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %.val41, null
   br i1 %.not.i, label %list_head.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %.val39, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.val41, i64 16
   %17 = load ptr, ptr %16, align 8
   br label %list_head.exit
 
 list_head.exit:                                   ; preds = %11, %15
   %18 = phi ptr [ %17, %15 ], [ null, %11 ]
   %19 = icmp sgt i16 %.val, 0
-  br i1 %19, label %.lr.ph, label %.thread47
+  br i1 %19, label %.lr.ph, label %.critedge40
 
 .lr.ph:                                           ; preds = %list_head.exit
   %20 = getelementptr i8, ptr %12, i64 8
-  %21 = getelementptr i8, ptr %.val39, i64 4
-  %22 = getelementptr i8, ptr %.val39, i64 16
+  %21 = getelementptr i8, ptr %.val41, i64 4
+  %22 = getelementptr i8, ptr %.val41, i64 16
   br label %23
 
 23:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.02651 = phi ptr [ %18, %.lr.ph ], [ %.127.ph, %43 ]
-  %.val40 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw i16, ptr %.val40, i64 %indvars.iv
+  %.02646 = phi ptr [ %18, %.lr.ph ], [ %.127, %43 ]
+  %.val42 = load ptr, ptr %20, align 8
+  %24 = getelementptr inbounds nuw i16, ptr %.val42, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
   %.not36 = icmp eq i16 %25, 0
   br i1 %.not36, label %32, label %26
@@ -309,52 +309,52 @@ list_head.exit:                                   ; preds = %11, %15
 
 30:                                               ; preds = %26
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %.thread47, label %31
+  br i1 %.not38, label %.critedge40, label %31
 
 31:                                               ; preds = %30
   store i8 0, ptr %2, align 1
-  br label %.thread47
+  br label %.critedge40
 
 32:                                               ; preds = %23
-  %33 = load ptr, ptr %.02651, align 8
+  %33 = load ptr, ptr %.02646, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   store ptr null, ptr %4, align 8
   call void @pull_varattnos(ptr noundef %33, i32 noundef 1, ptr noundef nonnull %4) #5
-  %.val41 = load i32, ptr %21, align 4
-  %.val42 = load ptr, ptr %22, align 8
+  %.val43 = load i32, ptr %21, align 4
+  %.val44 = load ptr, ptr %22, align 8
   %34 = load ptr, ptr %4, align 8
   %35 = call zeroext i1 @bms_overlap(ptr noundef nonnull %1, ptr noundef %34) #5
   br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %32
   %.not37 = icmp eq ptr %2, null
-  br i1 %.not37, label %42, label %37
+  br i1 %.not37, label %38, label %37
 
 37:                                               ; preds = %36
   store i8 1, ptr %2, align 1
-  br label %42
+  br label %38
+
+38:                                               ; preds = %36, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  br label %.critedge40
 
 .critedge:                                        ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %.02651, i64 8
-  %39 = sext i32 %.val41 to i64
-  %40 = getelementptr inbounds %union.ListCell, ptr %.val42, i64 %39
-  %41 = icmp ult ptr %38, %40
-  %..i = select i1 %41, ptr %38, ptr null
+  %39 = getelementptr inbounds nuw i8, ptr %.02646, i64 8
+  %40 = sext i32 %.val43 to i64
+  %41 = getelementptr inbounds %union.ListCell, ptr %.val44, i64 %40
+  %42 = icmp ult ptr %39, %41
+  %..i = select i1 %42, ptr %39, ptr null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   br label %43
 
-42:                                               ; preds = %37, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  br label %.thread47
-
 43:                                               ; preds = %.critedge, %26
-  %.127.ph = phi ptr [ %..i, %.critedge ], [ %.02651, %26 ]
+  %.127 = phi ptr [ %.02646, %26 ], [ %..i, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread47, label %23, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge40, label %23, !llvm.loop !6
 
-.thread47:                                        ; preds = %43, %list_head.exit, %30, %31, %42, %3, %6
-  %.0 = phi i1 [ true, %42 ], [ false, %6 ], [ false, %3 ], [ true, %31 ], [ true, %30 ], [ false, %list_head.exit ], [ false, %43 ]
+.critedge40:                                      ; preds = %43, %list_head.exit, %38, %31, %30, %3, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %30 ], [ true, %31 ], [ true, %38 ], [ false, %list_head.exit ], [ false, %43 ]
   ret i1 %.0
 }
 

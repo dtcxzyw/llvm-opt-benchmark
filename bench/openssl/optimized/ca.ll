@@ -2843,12 +2843,12 @@ declare i64 @TXT_DB_write(ptr noundef, ptr noundef) local_unnamed_addr #3
 define dso_local i32 @do_updatedb(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ASN1_TIME_new() #12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @X509_time_adj(ptr noundef nonnull %3, i64 noundef 0, ptr noundef %1) #12
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread.sink.split, label %.preheader
+  br i1 %7, label %.critedge.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2857,15 +2857,15 @@ define dso_local i32 @do_updatedb(ptr noundef readonly captures(none) %0, ptr no
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #12
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.thread.sink.split
+  br i1 %13, label %.lr.ph, label %.critedge.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %42
-  %.02740 = phi i32 [ %.330, %42 ], [ 0, %.preheader ]
-  %.03139 = phi i32 [ %43, %42 ], [ 0, %.preheader ]
+  %.02738 = phi i32 [ %.330, %42 ], [ 0, %.preheader ]
+  %.03137 = phi i32 [ %43, %42 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %8, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !29
-  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.03139) #12
+  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.03137) #12
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %20 = icmp eq i8 %19, 86
@@ -2874,7 +2874,7 @@ define dso_local i32 @do_updatedb(ptr noundef readonly captures(none) %0, ptr no
 21:                                               ; preds = %.lr.ph
   %22 = tail call ptr @ASN1_TIME_new() #12
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread.sink.split, label %24
+  br i1 %23, label %.critedge.sink.split, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2885,7 +2885,7 @@ define dso_local i32 @do_updatedb(ptr noundef readonly captures(none) %0, ptr no
 
 28:                                               ; preds = %24
   tail call void @ASN1_TIME_free(ptr noundef nonnull %3) #12
-  br label %.thread.sink.split
+  br label %.critedge.sink.split
 
 29:                                               ; preds = %24
   %30 = tail call i32 @ASN1_TIME_compare(ptr noundef nonnull %22, ptr noundef nonnull %3) #12
@@ -2898,36 +2898,36 @@ define dso_local i32 @do_updatedb(ptr noundef readonly captures(none) %0, ptr no
   %34 = load ptr, ptr %17, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 0, ptr %35, align 1, !tbaa !23
-  %36 = add nsw i32 %.02740, 1
+  %36 = add nsw i32 %.02738, 1
   %37 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.230, ptr noundef %39) #12
   br label %41
 
-41:                                               ; preds = %29, %32
-  %.229 = phi i32 [ %36, %32 ], [ %.02740, %29 ]
+41:                                               ; preds = %32, %29
+  %.229 = phi i32 [ %36, %32 ], [ %.02738, %29 ]
   tail call void @ASN1_TIME_free(ptr noundef nonnull %22) #12
   br label %42
 
 42:                                               ; preds = %41, %.lr.ph
-  %.330 = phi i32 [ %.229, %41 ], [ %.02740, %.lr.ph ]
-  %43 = add nuw nsw i32 %.03139, 1
+  %.330 = phi i32 [ %.229, %41 ], [ %.02738, %.lr.ph ]
+  %43 = add nuw nsw i32 %.03137, 1
   %44 = load ptr, ptr %8, align 8, !tbaa !24
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !29
   %47 = tail call i32 @OPENSSL_sk_num(ptr noundef %46) #12
   %48 = icmp slt i32 %43, %47
-  br i1 %48, label %.lr.ph, label %.thread.sink.split, !llvm.loop !53
+  br i1 %48, label %.lr.ph, label %.critedge.sink.split, !llvm.loop !53
 
-.thread.sink.split:                               ; preds = %42, %21, %.preheader, %5, %28
-  %.lcssa42.sink = phi ptr [ %22, %28 ], [ %3, %5 ], [ %3, %.preheader ], [ %3, %21 ], [ %3, %42 ]
+.critedge.sink.split:                             ; preds = %42, %21, %.preheader, %5, %28
+  %.sink = phi ptr [ %22, %28 ], [ %3, %5 ], [ %3, %.preheader ], [ %3, %21 ], [ %3, %42 ]
   %.026.ph = phi i32 [ -1, %28 ], [ -1, %5 ], [ 0, %.preheader ], [ %.330, %42 ], [ -1, %21 ]
-  tail call void @ASN1_TIME_free(ptr noundef nonnull %.lcssa42.sink) #12
-  br label %.thread
+  tail call void @ASN1_TIME_free(ptr noundef nonnull %.sink) #12
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.sink.split, %2
-  %.026 = phi i32 [ -1, %2 ], [ %.026.ph, %.thread.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %2
+  %.026 = phi i32 [ -1, %2 ], [ %.026.ph, %.critedge.sink.split ]
   ret i32 %.026
 }
 

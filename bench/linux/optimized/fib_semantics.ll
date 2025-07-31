@@ -1105,7 +1105,7 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 102
   %117 = load i8, ptr %116, align 2, !range !16, !noundef !17
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %127, label %119
+  br i1 %118, label %128, label %119
 
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 128
@@ -1113,27 +1113,27 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i16, ptr %122, align 8
   %124 = icmp ult i16 %123, 2
-  br i1 %124, label %.thread5, label %135
+  br i1 %124, label %125, label %.critedge
 
-.thread5:                                         ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %126 = load ptr, ptr %125, align 8
-  br label %127
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %127 = load ptr, ptr %126, align 8
+  br label %128
 
-127:                                              ; preds = %.thread5, %114
-  %128 = phi ptr [ %115, %114 ], [ %126, %.thread5 ]
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 128
-  %130 = load volatile ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 25
-  %132 = load i8, ptr %131, align 1, !range !16, !noundef !17
-  %133 = icmp eq i8 %132, 0
-  br i1 %133, label %135, label %134
+128:                                              ; preds = %125, %114
+  %129 = phi ptr [ %127, %125 ], [ %115, %114 ]
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 128
+  %131 = load volatile ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 25
+  %133 = load i8, ptr %132, align 1, !range !16, !noundef !17
+  %134 = icmp eq i8 %133, 0
+  br i1 %134, label %.critedge, label %135
 
-134:                                              ; preds = %127
+135:                                              ; preds = %128
   store i8 6, ptr %70, align 1
-  br label %135
+  br label %.critedge
 
-135:                                              ; preds = %119, %134, %127
+.critedge:                                        ; preds = %119, %135, %128
   %136 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1117
@@ -1141,7 +1141,7 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   %140 = icmp eq i8 %139, 0
   br i1 %140, label %153, label %141
 
-141:                                              ; preds = %135, %106
+141:                                              ; preds = %.critedge, %106
   %142 = icmp eq i32 %35, 1
   br i1 %142, label %143, label %150
 
@@ -1165,7 +1165,7 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   %152 = icmp slt i32 %151, 0
   br i1 %152, label %186, label %153
 
-153:                                              ; preds = %150, %147, %135
+153:                                              ; preds = %150, %147, %.critedge
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 22
   %155 = load i8, ptr %154, align 2
   %156 = and i8 %155, 1
@@ -1189,11 +1189,11 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   %166 = load i32, ptr %73, align 4
   %167 = or i32 %166, 32768
   store i32 %167, ptr %73, align 4
-  %.pre6 = load i8, ptr %154, align 2
+  %.pre5 = load i8, ptr %154, align 2
   br label %168
 
 168:                                              ; preds = %165, %161
-  %169 = phi i8 [ %.pre6, %165 ], [ %162, %161 ]
+  %169 = phi i8 [ %.pre5, %165 ], [ %162, %161 ]
   %170 = and i8 %169, 4
   %171 = icmp eq i8 %170, 0
   br i1 %171, label %175, label %172
@@ -1231,11 +1231,11 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #16, !srcloc !30
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 1062, i32 2305, i64 12) #16, !srcloc !31
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #16, !srcloc !32
-  %.pre7 = load ptr, ptr %187, align 8
+  %.pre6 = load ptr, ptr %187, align 8
   br label %191
 
 191:                                              ; preds = %190, %186
-  %192 = phi ptr [ %.pre7, %190 ], [ %188, %186 ]
+  %192 = phi ptr [ %.pre6, %190 ], [ %188, %186 ]
   %193 = ptrtoint ptr %49 to i64
   %194 = ptrtoint ptr %192 to i64
   %195 = sub i64 %193, %194

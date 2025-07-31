@@ -93,29 +93,29 @@ define hidden noundef zeroext i1 @_upb_Arena_Contains_dont_copy_me__upb_internal
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = ptrtoint ptr %1 to i64
-  %.not22.not = icmp eq i64 %4, 0
-  br i1 %.not22.not, label %.thread, label %.lr.ph
+  %.not20.not = icmp eq i64 %4, 0
+  br i1 %.not20.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %12
-  %.015.in23 = phi i64 [ %13, %12 ], [ %4, %2 ]
-  %.01524 = inttoptr i64 %.015.in23 to ptr
-  %.not18 = icmp ult ptr %1, %.01524
+  %.015.in21 = phi i64 [ %13, %12 ], [ %4, %2 ]
+  %.01522 = inttoptr i64 %.015.in21 to ptr
+  %.not18 = icmp ult ptr %1, %.01522
   br i1 %.not18, label %12, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.01524, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.01522, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !8
   %9 = zext i32 %8 to i64
-  %10 = add i64 %.015.in23, %9
+  %10 = add i64 %.015.in21, %9
   %11 = icmp ugt i64 %10, %5
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %.critedge, label %12
 
-12:                                               ; preds = %.lr.ph, %6
-  %13 = load atomic i64, ptr %.01524 monotonic, align 8
+12:                                               ; preds = %6, %.lr.ph
+  %13 = load atomic i64, ptr %.01522 monotonic, align 8
   %.not.not = icmp eq i64 %13, 0
-  br i1 %.not.not, label %.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
-.thread:                                          ; preds = %12, %6, %2
+.critedge:                                        ; preds = %12, %6, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %6 ], [ false, %12 ]
   ret i1 %.not.lcssa
 }

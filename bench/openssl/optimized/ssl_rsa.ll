@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %.thread90, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %10
   tail call void @ERR_clear_error() #6
@@ -1045,213 +1045,209 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %14 = phi ptr [ %8, %.thread ], [ %0, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  br label %29
+  br label %27
 
 17:                                               ; preds = %.thread
   %18 = load i32, ptr %1, align 8, !tbaa !3
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %26, label %20
+  br i1 %19, label %.thread83, label %20
 
 20:                                               ; preds = %17
   %21 = and i32 %18, 128
   %.not70 = icmp eq i32 %21, 0
-  br i1 %.not70, label %.thread90, label %22
+  br i1 %.not70, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %1) #6
   %.not71 = icmp eq ptr %23, null
-  br i1 %.not71, label %.thread90, label %.thread94
+  br i1 %.not71, label %.critedge, label %.thread83
 
-.thread94:                                        ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 5400
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 5408
-  br label %29
+.thread83:                                        ; preds = %17, %22
+  %24 = phi ptr [ %23, %22 ], [ %1, %17 ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 5400
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 5408
+  br label %27
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 5400
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 5408
-  br label %29
-
-29:                                               ; preds = %26, %.thread94, %13
-  %30 = phi ptr [ %14, %13 ], [ %8, %26 ], [ %8, %.thread94 ]
-  %31 = phi i1 [ false, %13 ], [ true, %26 ], [ true, %.thread94 ]
-  %.059.in = phi ptr [ %15, %13 ], [ %27, %26 ], [ %24, %.thread94 ]
-  %.057.in = phi ptr [ %16, %13 ], [ %28, %26 ], [ %25, %.thread94 ]
+27:                                               ; preds = %.thread83, %13
+  %28 = phi ptr [ %14, %13 ], [ %8, %.thread83 ]
+  %29 = phi i1 [ false, %13 ], [ true, %.thread83 ]
+  %.059.in = phi ptr [ %15, %13 ], [ %25, %.thread83 ]
+  %.057.in = phi ptr [ %16, %13 ], [ %26, %.thread83 ]
   %.057 = load ptr, ptr %.057.in, align 8, !tbaa !103
   %.059 = load ptr, ptr %.059.in, align 8, !tbaa !103
-  %32 = icmp eq ptr %2, null
-  br i1 %32, label %33, label %34
+  %30 = icmp eq ptr %2, null
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %29
+31:                                               ; preds = %27
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #6
-  br label %97
+  br label %95
 
-34:                                               ; preds = %29
-  %35 = tail call ptr @BIO_s_file() #6
-  %36 = tail call ptr @BIO_new(ptr noundef %35) #6
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %39
+32:                                               ; preds = %27
+  %33 = tail call ptr @BIO_s_file() #6
+  %34 = tail call ptr @BIO_new(ptr noundef %33) #6
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %37
 
-38:                                               ; preds = %34
+36:                                               ; preds = %32
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 493, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524295, ptr noundef null) #6
-  br label %97
+  br label %95
 
-39:                                               ; preds = %34
-  %40 = tail call i64 @BIO_ctrl(ptr noundef nonnull %36, i32 noundef 108, i64 noundef 3, ptr noundef nonnull %2) #6
-  %41 = trunc i64 %40 to i32
-  %42 = icmp slt i32 %41, 1
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %32
+  %38 = tail call i64 @BIO_ctrl(ptr noundef nonnull %34, i32 noundef 108, i64 noundef 3, ptr noundef nonnull %2) #6
+  %39 = trunc i64 %38 to i32
+  %40 = icmp slt i32 %39, 1
+  br i1 %40, label %41, label %42
 
-43:                                               ; preds = %39
+41:                                               ; preds = %37
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 498, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524290, ptr noundef null) #6
-  br label %97
+  br label %95
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %30, align 8, !tbaa !82
-  %46 = getelementptr inbounds nuw i8, ptr %30, i64 1152
-  %47 = load ptr, ptr %46, align 8, !tbaa !96
-  %48 = tail call ptr @X509_new_ex(ptr noundef %45, ptr noundef %47) #6
-  store ptr %48, ptr %4, align 8, !tbaa !80
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %51
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %28, align 8, !tbaa !82
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 1152
+  %45 = load ptr, ptr %44, align 8, !tbaa !96
+  %46 = tail call ptr @X509_new_ex(ptr noundef %43, ptr noundef %45) #6
+  store ptr %46, ptr %4, align 8, !tbaa !80
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %49
 
-50:                                               ; preds = %44
+48:                                               ; preds = %42
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524301, ptr noundef null) #6
-  br label %97
+  br label %95
 
-51:                                               ; preds = %44
-  %52 = call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %36, ptr noundef nonnull %4, ptr noundef %.059, ptr noundef %.057) #6
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %55
+49:                                               ; preds = %42
+  %50 = call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %34, ptr noundef nonnull %4, ptr noundef %.059, ptr noundef %.057) #6
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %53
 
-54:                                               ; preds = %51
+52:                                               ; preds = %49
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524297, ptr noundef null) #6
-  br label %97
+  br label %95
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %4, align 8, !tbaa !80
-  br i1 %31, label %59, label %57
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %4, align 8, !tbaa !80
+  br i1 %29, label %57, label %55
 
-57:                                               ; preds = %55
-  %58 = call i32 @SSL_CTX_use_certificate(ptr noundef nonnull %0, ptr noundef %56)
-  br label %61
+55:                                               ; preds = %53
+  %56 = call i32 @SSL_CTX_use_certificate(ptr noundef nonnull %0, ptr noundef %54)
+  br label %59
 
-59:                                               ; preds = %55
-  %60 = call i32 @SSL_use_certificate(ptr noundef %1, ptr noundef %56)
-  br label %61
+57:                                               ; preds = %53
+  %58 = call i32 @SSL_use_certificate(ptr noundef %1, ptr noundef %54)
+  br label %59
 
-61:                                               ; preds = %59, %57
-  %.155 = phi i32 [ %58, %57 ], [ %60, %59 ]
-  %62 = call i64 @ERR_peek_error() #6
-  %.not72 = icmp ne i64 %62, 0
-  %.not7396 = icmp eq i32 %.155, 0
-  %.not73 = select i1 %.not72, i1 true, i1 %.not7396
-  br i1 %.not73, label %97, label %63
+59:                                               ; preds = %57, %55
+  %.155 = phi i32 [ %56, %55 ], [ %58, %57 ]
+  %60 = call i64 @ERR_peek_error() #6
+  %.not72 = icmp ne i64 %60, 0
+  %.not7385 = icmp eq i32 %.155, 0
+  %.not73 = select i1 %.not72, i1 true, i1 %.not7385
+  br i1 %.not73, label %95, label %61
 
-63:                                               ; preds = %61
+61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  br i1 %31, label %64, label %.thread104
+  br i1 %29, label %62, label %.thread93
 
-64:                                               ; preds = %63
-  %65 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
-  %66 = and i64 %65, 4294967295
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %96, label %.preheader.split.us
+62:                                               ; preds = %61
+  %63 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
+  %64 = and i64 %63, 4294967295
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %94, label %.preheader.split.us
 
-.thread104:                                       ; preds = %63
-  %68 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
-  %69 = and i64 %68, 4294967295
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %96, label %.preheader.split
+.thread93:                                        ; preds = %61
+  %66 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
+  %67 = and i64 %66, 4294967295
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %94, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %64, %77
-  %71 = load ptr, ptr %30, align 8, !tbaa !82
-  %72 = load ptr, ptr %46, align 8, !tbaa !96
-  %73 = call ptr @X509_new_ex(ptr noundef %71, ptr noundef %72) #6
-  store ptr %73, ptr %5, align 8, !tbaa !80
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.split.us, label %75
+.preheader.split.us:                              ; preds = %62, %75
+  %69 = load ptr, ptr %28, align 8, !tbaa !82
+  %70 = load ptr, ptr %44, align 8, !tbaa !96
+  %71 = call ptr @X509_new_ex(ptr noundef %69, ptr noundef %70) #6
+  store ptr %71, ptr %5, align 8, !tbaa !80
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %.split.us, label %73
 
-75:                                               ; preds = %.preheader.split.us
-  %76 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %36, ptr noundef nonnull %5, ptr noundef %.059, ptr noundef %.057) #6
-  %.not74.us = icmp eq ptr %76, null
-  br i1 %.not74.us, label %.split98.us, label %77
+73:                                               ; preds = %.preheader.split.us
+  %74 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef %.059, ptr noundef %.057) #6
+  %.not74.us = icmp eq ptr %74, null
+  br i1 %.not74.us, label %.split87.us, label %75
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %5, align 8, !tbaa !80
-  %79 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 89, i64 noundef 0, ptr noundef %78) #6
-  %80 = and i64 %79, 4294967295
-  %.not75.us = icmp eq i64 %80, 0
-  br i1 %.not75.us, label %.split100.us, label %.preheader.split.us, !llvm.loop !104
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %5, align 8, !tbaa !80
+  %77 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 89, i64 noundef 0, ptr noundef %76) #6
+  %78 = and i64 %77, 4294967295
+  %.not75.us = icmp eq i64 %78, 0
+  br i1 %.not75.us, label %.split89.us, label %.preheader.split.us, !llvm.loop !104
 
-.preheader.split:                                 ; preds = %.thread104, %87
-  %81 = load ptr, ptr %30, align 8, !tbaa !82
-  %82 = load ptr, ptr %46, align 8, !tbaa !96
-  %83 = call ptr @X509_new_ex(ptr noundef %81, ptr noundef %82) #6
-  store ptr %83, ptr %5, align 8, !tbaa !80
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.split.us, label %85
+.preheader.split:                                 ; preds = %.thread93, %85
+  %79 = load ptr, ptr %28, align 8, !tbaa !82
+  %80 = load ptr, ptr %44, align 8, !tbaa !96
+  %81 = call ptr @X509_new_ex(ptr noundef %79, ptr noundef %80) #6
+  store ptr %81, ptr %5, align 8, !tbaa !80
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %.split.us, label %83
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 543, ptr noundef nonnull @__func__.use_certificate_chain_file) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524301, ptr noundef null) #6
-  br label %96
+  br label %94
 
-85:                                               ; preds = %.preheader.split
-  %86 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %36, ptr noundef nonnull %5, ptr noundef %.059, ptr noundef %.057) #6
-  %.not74 = icmp eq ptr %86, null
-  br i1 %.not74, label %.split98.us, label %87
+83:                                               ; preds = %.preheader.split
+  %84 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef %.059, ptr noundef %.057) #6
+  %.not74 = icmp eq ptr %84, null
+  br i1 %.not74, label %.split87.us, label %85
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %5, align 8, !tbaa !80
-  %89 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 89, i64 noundef 0, ptr noundef %88) #6
-  %90 = and i64 %89, 4294967295
-  %.not75 = icmp eq i64 %90, 0
-  br i1 %.not75, label %.split100.us, label %.preheader.split
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %5, align 8, !tbaa !80
+  %87 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 89, i64 noundef 0, ptr noundef %86) #6
+  %88 = and i64 %87, 4294967295
+  %.not75 = icmp eq i64 %88, 0
+  br i1 %.not75, label %.split89.us, label %.preheader.split
 
-.split100.us:                                     ; preds = %87, %77
-  %91 = load ptr, ptr %5, align 8, !tbaa !80
-  call void @X509_free(ptr noundef %91) #6
-  br label %96
+.split89.us:                                      ; preds = %85, %75
+  %89 = load ptr, ptr %5, align 8, !tbaa !80
+  call void @X509_free(ptr noundef %89) #6
+  br label %94
 
-.split98.us:                                      ; preds = %85, %75
-  %92 = load ptr, ptr %5, align 8, !tbaa !80
-  call void @X509_free(ptr noundef %92) #6
-  %93 = call i64 @ERR_peek_last_error() #6
-  %94 = and i64 %93, 4294967295
-  %or.cond = icmp eq i64 %94, 75497580
-  br i1 %or.cond, label %95, label %96
+.split87.us:                                      ; preds = %83, %73
+  %90 = load ptr, ptr %5, align 8, !tbaa !80
+  call void @X509_free(ptr noundef %90) #6
+  %91 = call i64 @ERR_peek_last_error() #6
+  %92 = and i64 %91, 4294967295
+  %or.cond = icmp eq i64 %92, 75497580
+  br i1 %or.cond, label %93, label %94
 
-95:                                               ; preds = %.split98.us
+93:                                               ; preds = %.split87.us
   call void @ERR_clear_error() #6
-  br label %96
+  br label %94
 
-96:                                               ; preds = %.thread104, %95, %.split98.us, %64, %.split100.us, %.split.us
-  %.3 = phi i32 [ %.155, %.split.us ], [ 0, %.split100.us ], [ 0, %64 ], [ %.155, %95 ], [ 0, %.split98.us ], [ 0, %.thread104 ]
+94:                                               ; preds = %.thread93, %93, %.split87.us, %62, %.split89.us, %.split.us
+  %.3 = phi i32 [ %.155, %.split.us ], [ 0, %.split89.us ], [ 0, %62 ], [ %.155, %93 ], [ 0, %.split87.us ], [ 0, %.thread93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  br label %97
+  br label %95
 
-97:                                               ; preds = %96, %61, %54, %50, %43, %38, %33
-  %.054 = phi i32 [ 0, %33 ], [ 0, %38 ], [ 0, %43 ], [ 0, %50 ], [ 0, %54 ], [ %.3, %96 ], [ 0, %61 ]
-  %.051 = phi ptr [ null, %33 ], [ null, %38 ], [ %36, %43 ], [ %36, %50 ], [ %36, %54 ], [ %36, %96 ], [ %36, %61 ]
-  %98 = load ptr, ptr %4, align 8, !tbaa !80
-  call void @X509_free(ptr noundef %98) #6
-  %99 = call i32 @BIO_free(ptr noundef %.051) #6
-  br label %.thread90
+95:                                               ; preds = %94, %59, %52, %48, %41, %36, %31
+  %.054 = phi i32 [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %48 ], [ 0, %52 ], [ %.3, %94 ], [ 0, %59 ]
+  %.051 = phi ptr [ null, %31 ], [ null, %36 ], [ %34, %41 ], [ %34, %48 ], [ %34, %52 ], [ %34, %94 ], [ %34, %59 ]
+  %96 = load ptr, ptr %4, align 8, !tbaa !80
+  call void @X509_free(ptr noundef %96) #6
+  %97 = call i32 @BIO_free(ptr noundef %.051) #6
+  br label %.critedge
 
-.thread90:                                        ; preds = %20, %22, %10, %97
-  %.0 = phi i32 [ %.054, %97 ], [ 0, %10 ], [ 0, %22 ], [ 0, %20 ]
+.critedge:                                        ; preds = %20, %22, %10, %95
+  %.0 = phi i32 [ %.054, %95 ], [ 0, %10 ], [ 0, %22 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   ret i32 %.0
 }

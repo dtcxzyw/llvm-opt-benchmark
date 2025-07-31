@@ -61702,8 +61702,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   %88 = zext nneg i32 %.0.i95 to i64
   %89 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator"], ptr %81, i64 0, i64 %88
   %.sroa.0.0.copyload.i96 = load ptr, ptr %89, align 8, !tbaa !39
-  %.not206 = icmp eq ptr %.sroa.0.0.copyload.i96, %2
-  br i1 %.not206, label %._crit_edge, label %.lr.ph
+  %.not202 = icmp eq ptr %.sroa.0.0.copyload.i96, %2
+  br i1 %.not202, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -61716,9 +61716,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   br label %94
 
 94:                                               ; preds = %.lr.ph, %236
-  %.062208 = phi i32 [ %.0.i95, %.lr.ph ], [ %.264, %236 ]
-  %.sroa.0159.0207 = phi ptr [ %.sroa.0.0.copyload.i96, %.lr.ph ], [ %.sroa.0159.1, %236 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0159.0207, i64 8
+  %.062204 = phi i32 [ %.0.i95, %.lr.ph ], [ %.264, %236 ]
+  %.sroa.0159.0203 = phi ptr [ %.sroa.0.0.copyload.i96, %.lr.ph ], [ %.sroa.0159.1, %236 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0159.0203, i64 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %11) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #22
   %96 = load ptr, ptr %13, align 8, !tbaa !23
@@ -61860,7 +61860,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
 
 165:                                              ; preds = %154, %154
   %166 = icmp eq i32 %.0.i.i, 1
-  %167 = zext nneg i32 %.062208 to i64
+  %167 = zext nneg i32 %.062204 to i64
   %168 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %167
   %169 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %167
   %.077.in = select i1 %166, ptr %168, ptr %169
@@ -61878,9 +61878,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
   %179 = load ptr, ptr %178, align 8
   %180 = invoke ptr %179(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull %170, i32 noundef %.077, ptr nonnull %1, ptr nonnull %2)
-          to label %.thread unwind label %183
+          to label %.critedge unwind label %183
 
-.thread:                                          ; preds = %176
+.critedge:                                        ; preds = %176
   store ptr %180, ptr %6, align 8, !tbaa !39
   br label %289
 
@@ -61997,21 +61997,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   br label %236
 
 236:                                              ; preds = %154, %226
-  %.sroa.0159.1 = phi ptr [ %.sroa.0159.0207, %154 ], [ %.sroa.0.0.copyload.i120, %226 ]
-  %.264 = phi i32 [ %.062208, %154 ], [ %.0.i119, %226 ]
+  %.sroa.0159.1 = phi ptr [ %.sroa.0159.0203, %154 ], [ %.sroa.0.0.copyload.i120, %226 ]
+  %.264 = phi i32 [ %.062204, %154 ], [ %.0.i119, %226 ]
   %.not = icmp eq ptr %.sroa.0159.1, %2
   br i1 %.not, label %._crit_edge.loopexit, label %94, !llvm.loop !1893
 
 ._crit_edge.loopexit:                             ; preds = %154, %236
-  %.264226 = phi i32 [ %.264, %236 ], [ %.062208, %154 ]
-  %.sroa.0159.1225 = phi ptr [ %.sroa.0159.1, %236 ], [ %.sroa.0159.0207, %154 ]
+  %.264221 = phi i32 [ %.264, %236 ], [ %.062204, %154 ]
+  %.sroa.0159.1220 = phi ptr [ %.sroa.0159.1, %236 ], [ %.sroa.0159.0203, %154 ]
   %.sroa.0.0.copyload.i121.pre = load ptr, ptr %12, align 8, !tbaa !71
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %80
   %.sroa.0.0.copyload.i121 = phi ptr [ %81, %80 ], [ %.sroa.0.0.copyload.i121.pre, %._crit_edge.loopexit ]
-  %.sroa.0159.0.lcssa = phi ptr [ %2, %80 ], [ %.sroa.0159.1225, %._crit_edge.loopexit ]
-  %.062.lcssa = phi i32 [ %.0.i95, %80 ], [ %.264226, %._crit_edge.loopexit ]
+  %.sroa.0159.0.lcssa = phi ptr [ %2, %80 ], [ %.sroa.0159.1220, %._crit_edge.loopexit ]
+  %.062.lcssa = phi i32 [ %.0.i95, %80 ], [ %.264221, %._crit_edge.loopexit ]
   %237 = ptrtoint ptr %.sroa.0159.0.lcssa to i64
   store i64 %237, ptr %6, align 8, !tbaa !39
   %238 = load ptr, ptr %3, align 8, !tbaa !1254
@@ -62101,8 +62101,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
           cleanup
   br label %340
 
-289:                                              ; preds = %276, %.thread, %32
-  %.0 = phi i1 [ true, %32 ], [ true, %.thread ], [ false, %276 ]
+289:                                              ; preds = %276, %.critedge, %32
+  %.0 = phi i1 [ true, %32 ], [ true, %.critedge ], [ false, %276 ]
   %290 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %291 = load ptr, ptr %290, align 8, !tbaa !23
   %.not.i.i.i = icmp eq ptr %291, null
@@ -82061,13 +82061,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   %78 = zext nneg i32 %.0.i80 to i64
   %79 = getelementptr inbounds nuw [3 x %"class.CGAL::internal::CC_iterator.45"], ptr %71, i64 0, i64 %78
   %.sroa.0.0.copyload.i81 = load ptr, ptr %79, align 8, !tbaa !155
-  %.not151 = icmp eq ptr %.sroa.0.0.copyload.i81, %2
-  br i1 %.not151, label %._crit_edge, label %.lr.ph
+  %.not147 = icmp eq ptr %.sroa.0.0.copyload.i81, %2
+  br i1 %.not147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %135
-  %.060153 = phi i32 [ %.262, %135 ], [ %.0.i80, %29 ]
-  %.sroa.0127.0152 = phi ptr [ %.sroa.0127.1, %135 ], [ %.sroa.0.0.copyload.i81, %29 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0152, i64 8
+  %.060149 = phi i32 [ %.262, %135 ], [ %.0.i80, %29 ]
+  %.sroa.0127.0148 = phi ptr [ %.sroa.0127.1, %135 ], [ %.sroa.0.0.copyload.i81, %29 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0148, i64 8
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %8) #22
   %81 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %80)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %8) #22
@@ -82079,7 +82079,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
 
 82:                                               ; preds = %.lr.ph, %.lr.ph
   %83 = icmp eq i32 %81, 1
-  %84 = zext nneg i32 %.060153 to i64
+  %84 = zext nneg i32 %.060149 to i64
   %85 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE7ccw_mapE, i64 0, i64 %84
   %86 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL29Triangulation_cw_ccw_static_2IvE6cw_mapE, i64 0, i64 %84
   %.067.in = select i1 %83, ptr %85, ptr %86
@@ -82090,9 +82090,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   %90 = getelementptr inbounds [3 x i8], ptr %88, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !125, !range !10, !noundef !11
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %.thread, label %97
+  br i1 %92, label %.critedge, label %97
 
-.thread:                                          ; preds = %82
+.critedge:                                        ; preds = %82
   %93 = load ptr, ptr %0, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
@@ -82171,21 +82171,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   br label %135
 
 135:                                              ; preds = %.lr.ph, %125
-  %.sroa.0127.1 = phi ptr [ %.sroa.0127.0152, %.lr.ph ], [ %.sroa.0.0.copyload.i94, %125 ]
-  %.262 = phi i32 [ %.060153, %.lr.ph ], [ %.0.i93, %125 ]
+  %.sroa.0127.1 = phi ptr [ %.sroa.0127.0148, %.lr.ph ], [ %.sroa.0.0.copyload.i94, %125 ]
+  %.262 = phi i32 [ %.060149, %.lr.ph ], [ %.0.i93, %125 ]
   %.not = icmp eq ptr %.sroa.0127.1, %2
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !2623
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %135
-  %.262163 = phi i32 [ %.262, %135 ], [ %.060153, %.lr.ph ]
-  %.sroa.0127.1162 = phi ptr [ %.sroa.0127.1, %135 ], [ %.sroa.0127.0152, %.lr.ph ]
+  %.262158 = phi i32 [ %.262, %135 ], [ %.060149, %.lr.ph ]
+  %.sroa.0127.1157 = phi ptr [ %.sroa.0127.1, %135 ], [ %.sroa.0127.0148, %.lr.ph ]
   %.sroa.0.0.copyload.i95.pre = load ptr, ptr %9, align 8, !tbaa !158
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
   %.sroa.0.0.copyload.i95 = phi ptr [ %71, %29 ], [ %.sroa.0.0.copyload.i95.pre, %._crit_edge.loopexit ]
-  %.sroa.0127.0.lcssa = phi ptr [ %2, %29 ], [ %.sroa.0127.1162, %._crit_edge.loopexit ]
-  %.060.lcssa = phi i32 [ %.0.i80, %29 ], [ %.262163, %._crit_edge.loopexit ]
+  %.sroa.0127.0.lcssa = phi ptr [ %2, %29 ], [ %.sroa.0127.1157, %._crit_edge.loopexit ]
+  %.060.lcssa = phi i32 [ %.0.i80, %29 ], [ %.262158, %._crit_edge.loopexit ]
   %136 = ptrtoint ptr %.sroa.0127.0.lcssa to i64
   store i64 %136, ptr %6, align 8, !tbaa !155
   %137 = load ptr, ptr %3, align 8, !tbaa !1254
@@ -82251,8 +82251,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL27Constrained_triangul
   store i64 %178, ptr %61, align 8, !tbaa !2583
   br label %179
 
-179:                                              ; preds = %._crit_edge, %.thread, %24
-  %.0 = phi i1 [ true, %24 ], [ true, %.thread ], [ false, %._crit_edge ]
+179:                                              ; preds = %._crit_edge, %.critedge, %24
+  %.0 = phi i1 [ true, %24 ], [ true, %.critedge ], [ false, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #22
   ret i1 %.0
 }

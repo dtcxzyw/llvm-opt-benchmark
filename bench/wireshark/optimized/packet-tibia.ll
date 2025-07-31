@@ -2004,8 +2004,8 @@ proto_item_set_generated.exit129.i:               ; preds = %210, %207, %204, %2
   br i1 %.not5.i131.i, label %proto_item_set_generated.exit.i, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %219, %198
-  %.sink152.i = phi ptr [ %200, %198 ], [ %221, %219 ]
-  %222 = getelementptr inbounds nuw i8, ptr %.sink152.i, i64 28
+  %.sink149.i = phi ptr [ %200, %198 ], [ %221, %219 ]
+  %222 = getelementptr inbounds nuw i8, ptr %.sink149.i, i64 28
   %223 = load i32, ptr %222, align 4
   %224 = or i32 %223, 2
   store i32 %224, ptr %222, align 4
@@ -2095,20 +2095,20 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
   %268 = icmp slt i32 %.1376, %261
   br i1 %268, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %263, %.lr.ph.i
-  %.0149.i = phi ptr [ %270, %.lr.ph.i ], [ %267, %263 ]
-  %.2148.i = phi i32 [ %271, %.lr.ph.i ], [ %.1376, %263 ]
-  %269 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.2148.i, i32 noundef 8)
-  call void @decrypt_xtea_le_ecb(ptr noundef %.0149.i, ptr noundef %269, ptr noundef %.0.i, i32 noundef 32)
-  %270 = getelementptr i8, ptr %.0149.i, i64 8
-  %271 = add i32 %.2148.i, 8
-  %272 = icmp slt i32 %271, %261
-  br i1 %272, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
-
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %263
-  %273 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %267, i32 noundef %186, i32 noundef %186)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %273, ptr noundef nonnull @.str.391)
+  %269 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %267, i32 noundef %186, i32 noundef %186)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %269, ptr noundef nonnull @.str.391)
   br label %277
+
+.lr.ph.i:                                         ; preds = %263, %.lr.ph.i
+  %.0146.i = phi ptr [ %271, %.lr.ph.i ], [ %267, %263 ]
+  %.2145.i = phi i32 [ %272, %.lr.ph.i ], [ %.1376, %263 ]
+  %270 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.2145.i, i32 noundef 8)
+  call void @decrypt_xtea_le_ecb(ptr noundef %.0146.i, ptr noundef %270, ptr noundef %.0.i, i32 noundef 32)
+  %271 = getelementptr i8, ptr %.0146.i, i64 8
+  %272 = add i32 %.2145.i, 8
+  %273 = icmp slt i32 %272, %261
+  br i1 %273, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 274:                                              ; preds = %240
   %275 = load i32, ptr @hf_tibia_undecoded_xtea_data, align 4
@@ -2117,7 +2117,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
 
 277:                                              ; preds = %._crit_edge.i, %proto_item_set_generated.exit135.i
   %.0112.i = phi i32 [ 0, %._crit_edge.i ], [ %.1376, %proto_item_set_generated.exit135.i ]
-  %.0109.i = phi ptr [ %273, %._crit_edge.i ], [ %0, %proto_item_set_generated.exit135.i ]
+  %.0109.i = phi ptr [ %269, %._crit_edge.i ], [ %0, %proto_item_set_generated.exit135.i ]
   %278 = load i32, ptr %62, align 8
   %279 = and i32 %278, 8
   %.not125.i = icmp eq i32 %279, 0
@@ -2146,7 +2146,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
   %294 = load i16, ptr %293, align 2
   %295 = zext i16 %294 to i32
   %296 = icmp eq i32 %292, %295
-  br i1 %296, label %297, label %.thread146.i
+  br i1 %296, label %297, label %.thread.i
 
 297:                                              ; preds = %290
   %298 = getelementptr inbounds nuw i8, ptr %.0.i, i64 66
@@ -2401,12 +2401,12 @@ dissect_loginserv_packet.exit.i:                  ; preds = %439, %301
   %448 = trunc nuw i8 %447 to i1
   br i1 %448, label %455, label %451
 
-.thread146.i:                                     ; preds = %290
+.thread.i:                                        ; preds = %290
   %449 = load i8, ptr @dissect_game_commands, align 1, !range !6, !noundef !7
   %450 = trunc nuw i8 %449 to i1
   br i1 %450, label %675, label %451
 
-451:                                              ; preds = %.thread146.i, %446
+451:                                              ; preds = %.thread.i, %446
   %452 = call ptr @tvb_new_subset_length(ptr noundef %.0109.i, i32 noundef %.3.i428, i32 noundef %.0111.i)
   %453 = call i32 @call_data_dissector(ptr noundef %452, ptr noundef %1, ptr noundef %173)
   %454 = add i32 %.0111.i, %.3.i428
@@ -2779,7 +2779,7 @@ dissect_gameserv_packet.exit.i:                   ; preds = %668, %455
   call void @ptvcursor_free(ptr noundef %458)
   br label %dissect_game_packet.exit
 
-675:                                              ; preds = %.thread146.i
+675:                                              ; preds = %.thread.i
   %676 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %677 = load ptr, ptr %676, align 8
   %678 = call ptr @ptvcursor_new(ptr noundef %677, ptr noundef %173, ptr noundef %.0109.i, i32 noundef range(i32 0, 9) %.3.i428)

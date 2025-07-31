@@ -5193,84 +5193,84 @@ define dso_local i32 @ip_tunnel_init(ptr noundef initializes((1308, 1309), (1312
   store ptr @ip_tunnel_dev_free, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(32) ptr @__alloc_percpu_gfp(i64 noundef 32, i64 noundef 32, i32 noundef 3264) #19
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread4, label %9
+  br i1 %7, label %.critedge, label %8
 
-.thread4:                                         ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = load i64, ptr @__cpu_possible_mask, align 8
+  br label %10
+
+10:                                               ; preds = %18, %8
+  %11 = phi i64 [ %22, %18 ], [ 0, %8 ]
+  %12 = and i64 %11, 4294967295
+  %13 = icmp samesign ugt i64 %12, 63
+  br i1 %13, label %.thread, label %14, !prof !14
+
+14:                                               ; preds = %10
+  %15 = shl nsw i64 -1, %12
+  %16 = and i64 %15, %9
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.thread, label %18
+
+18:                                               ; preds = %14
+  %19 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %16) #17, !srcloc !60
+  %20 = and i64 %19, 4294967232
+  %21 = icmp eq i64 %20, 0
+  %22 = add nuw nsw i64 %19, 1
+  br i1 %21, label %10, label %.thread, !llvm.loop !61
+
+.thread:                                          ; preds = %14, %10, %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %6, ptr %23, align 8
+  %24 = getelementptr i8, ptr %0, i64 2376
+  %25 = tail call i32 @dst_cache_init(ptr noundef %24, i32 noundef 3264) #16
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %29, label %27
+
+27:                                               ; preds = %.thread
+  %28 = load ptr, ptr %23, align 8
+  tail call void @free_percpu(ptr noundef %28) #16
   br label %49
 
-9:                                                ; preds = %1
-  %10 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %11
+29:                                               ; preds = %.thread
+  %30 = getelementptr i8, ptr %0, i64 2480
+  %31 = tail call i32 @gro_cells_init(ptr noundef %30, ptr noundef %0) #16
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %35, label %33
 
-11:                                               ; preds = %19, %9
-  %12 = phi i64 [ %23, %19 ], [ 0, %9 ]
-  %13 = and i64 %12, 4294967295
-  %14 = icmp samesign ugt i64 %13, 63
-  br i1 %14, label %.thread, label %15, !prof !14
-
-15:                                               ; preds = %11
-  %16 = shl nsw i64 -1, %13
-  %17 = and i64 %16, %10
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.thread, label %19
-
-19:                                               ; preds = %15
-  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #17, !srcloc !60
-  %21 = and i64 %20, 4294967232
-  %22 = icmp eq i64 %21, 0
-  %23 = add nuw nsw i64 %20, 1
-  br i1 %22, label %11, label %.thread, !llvm.loop !61
-
-.thread:                                          ; preds = %15, %11, %19
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %6, ptr %24, align 8
-  %25 = getelementptr i8, ptr %0, i64 2376
-  %26 = tail call i32 @dst_cache_init(ptr noundef %25, i32 noundef 3264) #16
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %30, label %28
-
-28:                                               ; preds = %.thread
-  %29 = load ptr, ptr %24, align 8
-  tail call void @free_percpu(ptr noundef %29) #16
+33:                                               ; preds = %29
+  tail call void @dst_cache_destroy(ptr noundef %24) #16
+  %34 = load ptr, ptr %23, align 8
+  tail call void @free_percpu(ptr noundef %34) #16
   br label %49
 
-30:                                               ; preds = %.thread
-  %31 = getelementptr i8, ptr %0, i64 2480
-  %32 = tail call i32 @gro_cells_init(ptr noundef %31, ptr noundef %0) #16
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %36, label %34
-
-34:                                               ; preds = %30
-  tail call void @dst_cache_destroy(ptr noundef %25) #16
-  %35 = load ptr, ptr %24, align 8
-  tail call void @free_percpu(ptr noundef %35) #16
-  br label %49
-
-36:                                               ; preds = %30
-  %37 = getelementptr i8, ptr %0, i64 2328
-  store ptr %0, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i8, ptr %0, i64 2336
-  store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %42 = tail call ptr @strcpy(ptr noundef %2, ptr noundef nonnull dereferenceable(1) %41) #16
+35:                                               ; preds = %29
+  %36 = getelementptr i8, ptr %0, i64 2328
+  store ptr %0, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr i8, ptr %0, i64 2336
+  store ptr %38, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %41 = tail call ptr @strcpy(ptr noundef %2, ptr noundef nonnull dereferenceable(1) %40) #16
   store i8 69, ptr %3, align 4
-  %43 = getelementptr i8, ptr %0, i64 2492
-  %44 = load i8, ptr %43, align 4, !range !40, !noundef !41
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %49, label %46
+  %42 = getelementptr i8, ptr %0, i64 2492
+  %43 = load i8, ptr %42, align 4, !range !40, !noundef !41
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %49, label %45
 
-46:                                               ; preds = %36
-  %47 = load i64, ptr %0, align 8
-  %48 = and i64 %47, -131105
-  store i64 %48, ptr %0, align 8
+45:                                               ; preds = %35
+  %46 = load i64, ptr %0, align 8
+  %47 = and i64 %46, -131105
+  store i64 %47, ptr %0, align 8
   br label %49
 
-49:                                               ; preds = %.thread4, %46, %36, %34, %28
-  %50 = phi i32 [ %26, %28 ], [ %32, %34 ], [ 0, %46 ], [ 0, %36 ], [ -12, %.thread4 ]
+.critedge:                                        ; preds = %1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr null, ptr %48, align 8
+  br label %49
+
+49:                                               ; preds = %.critedge, %45, %35, %33, %27
+  %50 = phi i32 [ %25, %27 ], [ %31, %33 ], [ 0, %45 ], [ 0, %35 ], [ -12, %.critedge ]
   ret i32 %50
 }
 

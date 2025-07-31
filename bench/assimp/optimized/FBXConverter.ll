@@ -8261,7 +8261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291: ; preds = %_Z
 129:                                              ; preds = %127, %.noexc303, %124
   %.2754 = phi i1 [ true, %127 ], [ false, %.noexc303 ], [ false, %124 ]
   %.sroa.10.0.i299 = phi float [ %.sroa.10.0.copyload.i298, %127 ], [ 0.000000e+00, %.noexc303 ], [ 0.000000e+00, %124 ]
-  %.sroa.0.1.i300 = phi <2 x float> [ %.sroa.0.0.copyload31.i296, %127 ], [ zeroinitializer, %.noexc303 ], [ zeroinitializer, %124 ]
+  %.sroa.0.0.i300 = phi <2 x float> [ %.sroa.0.0.copyload31.i296, %127 ], [ zeroinitializer, %.noexc303 ], [ zeroinitializer, %124 ]
   %130 = load ptr, ptr %16, align 8
   %131 = icmp eq ptr %130, %119
   br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i306, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i305
@@ -8283,8 +8283,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   br i1 %.2754, label %136, label %._crit_edge.i.i319
 
 136:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307
-  %.sroa.0715.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i300, i64 0
-  %.sroa.0715.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i300, i64 1
+  %.sroa.0715.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i300, i64 0
+  %.sroa.0715.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i300, i64 1
   %137 = fmul float %.sroa.0715.4.vec.extract, %.sroa.0715.4.vec.extract
   %138 = call float @llvm.fmuladd.f32(float %.sroa.0715.0.vec.extract, float %.sroa.0715.0.vec.extract, float %137)
   %139 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i299, float %.sroa.10.0.i299, float %138)
@@ -8393,7 +8393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit318: ; preds = %_Z
 172:                                              ; preds = %170, %.noexc330, %167
   %.3755 = phi i1 [ true, %170 ], [ false, %.noexc330 ], [ false, %167 ]
   %.sroa.10.0.i326 = phi float [ %.sroa.10.0.copyload.i325, %170 ], [ 0.000000e+00, %.noexc330 ], [ 0.000000e+00, %167 ]
-  %.sroa.0.1.i327 = phi <2 x float> [ %.sroa.0.0.copyload31.i323, %170 ], [ zeroinitializer, %.noexc330 ], [ zeroinitializer, %167 ]
+  %.sroa.0.0.i327 = phi <2 x float> [ %.sroa.0.0.copyload31.i323, %170 ], [ zeroinitializer, %.noexc330 ], [ zeroinitializer, %167 ]
   %173 = load ptr, ptr %17, align 8
   %174 = icmp eq ptr %173, %162
   br i1 %174, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i333, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i332
@@ -8415,8 +8415,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %_Z
   br i1 %.3755, label %179, label %._crit_edge.i.i344
 
 179:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334
-  %.sroa.0705.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i327, i64 0
-  %.sroa.0705.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i327, i64 1
+  %.sroa.0705.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i327, i64 0
+  %.sroa.0705.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i327, i64 1
   %180 = fmul float %.sroa.0705.4.vec.extract, %.sroa.0705.4.vec.extract
   %181 = call float @llvm.fmuladd.f32(float %.sroa.0705.0.vec.extract, float %.sroa.0705.0.vec.extract, float %180)
   %182 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i326, float %.sroa.10.0.i326, float %181)
@@ -8502,7 +8502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343: ; preds = %_Z
 208:                                              ; preds = %206, %.noexc355, %203
   %.4756 = phi i1 [ true, %206 ], [ false, %.noexc355 ], [ false, %203 ]
   %.sroa.10.0.i351 = phi float [ %.sroa.10.0.copyload.i350, %206 ], [ 0.000000e+00, %.noexc355 ], [ 0.000000e+00, %203 ]
-  %.sroa.0.1.i352 = phi <2 x float> [ %.sroa.0.0.copyload31.i348, %206 ], [ zeroinitializer, %.noexc355 ], [ zeroinitializer, %203 ]
+  %.sroa.0.0.i352 = phi <2 x float> [ %.sroa.0.0.copyload31.i348, %206 ], [ zeroinitializer, %.noexc355 ], [ zeroinitializer, %203 ]
   %209 = load ptr, ptr %18, align 8
   %210 = icmp eq ptr %209, %198
   br i1 %210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i358, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i357
@@ -8524,8 +8524,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   br i1 %.4756, label %215, label %._crit_edge.i.i369
 
 215:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359
-  %.sroa.0697.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i352, i64 0
-  %.sroa.0697.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i352, i64 1
+  %.sroa.0697.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i352, i64 0
+  %.sroa.0697.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i352, i64 1
   %216 = fmul float %.sroa.0697.4.vec.extract, %.sroa.0697.4.vec.extract
   %217 = call float @llvm.fmuladd.f32(float %.sroa.0697.0.vec.extract, float %.sroa.0697.0.vec.extract, float %216)
   %218 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i351, float %.sroa.10.0.i351, float %217)
@@ -8611,7 +8611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit368: ; preds = %_Z
 244:                                              ; preds = %242, %.noexc380, %239
   %.5757 = phi i1 [ true, %242 ], [ false, %.noexc380 ], [ false, %239 ]
   %.sroa.10.0.i376 = phi float [ %.sroa.10.0.copyload.i375, %242 ], [ 0.000000e+00, %.noexc380 ], [ 0.000000e+00, %239 ]
-  %.sroa.0.1.i377 = phi <2 x float> [ %.sroa.0.0.copyload31.i373, %242 ], [ zeroinitializer, %.noexc380 ], [ zeroinitializer, %239 ]
+  %.sroa.0.0.i377 = phi <2 x float> [ %.sroa.0.0.copyload31.i373, %242 ], [ zeroinitializer, %.noexc380 ], [ zeroinitializer, %239 ]
   %245 = load ptr, ptr %19, align 8
   %246 = icmp eq ptr %245, %234
   br i1 %246, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i383, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i382
@@ -8633,8 +8633,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384: ; preds = %_Z
   br i1 %.5757, label %251, label %._crit_edge.i.i404
 
 251:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384
-  %.sroa.0684.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i377, i64 0
-  %.sroa.0684.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i377, i64 1
+  %.sroa.0684.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i377, i64 0
+  %.sroa.0684.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i377, i64 1
   %252 = fmul float %.sroa.0684.4.vec.extract, %.sroa.0684.4.vec.extract
   %253 = call float @llvm.fmuladd.f32(float %.sroa.0684.0.vec.extract, float %.sroa.0684.0.vec.extract, float %252)
   %254 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i376, float %.sroa.10.0.i376, float %253)
@@ -8743,7 +8743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
 287:                                              ; preds = %285, %.noexc415, %282
   %.6758 = phi i1 [ true, %285 ], [ false, %.noexc415 ], [ false, %282 ]
   %.sroa.10.0.i411 = phi float [ %.sroa.10.0.copyload.i410, %285 ], [ 0.000000e+00, %.noexc415 ], [ 0.000000e+00, %282 ]
-  %.sroa.0.1.i412 = phi <2 x float> [ %.sroa.0.0.copyload31.i408, %285 ], [ zeroinitializer, %.noexc415 ], [ zeroinitializer, %282 ]
+  %.sroa.0.0.i412 = phi <2 x float> [ %.sroa.0.0.copyload31.i408, %285 ], [ zeroinitializer, %.noexc415 ], [ zeroinitializer, %282 ]
   %288 = load ptr, ptr %20, align 8
   %289 = icmp eq ptr %288, %277
   br i1 %289, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i418, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i417
@@ -8765,8 +8765,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419: ; preds = %_Z
   br i1 %.6758, label %294, label %._crit_edge.i.i429
 
 294:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit419
-  %.sroa.0674.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i412, i64 0
-  %.sroa.0674.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i412, i64 1
+  %.sroa.0674.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i412, i64 0
+  %.sroa.0674.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i412, i64 1
   %295 = fmul float %.sroa.0674.4.vec.extract, %.sroa.0674.4.vec.extract
   %296 = call float @llvm.fmuladd.f32(float %.sroa.0674.0.vec.extract, float %.sroa.0674.0.vec.extract, float %295)
   %297 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i411, float %.sroa.10.0.i411, float %296)
@@ -8852,7 +8852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit428: ; preds = %_Z
 323:                                              ; preds = %321, %.noexc440, %318
   %.7759 = phi i1 [ true, %321 ], [ false, %.noexc440 ], [ false, %318 ]
   %.sroa.10.0.i436 = phi float [ %.sroa.10.0.copyload.i435, %321 ], [ 0.000000e+00, %.noexc440 ], [ 0.000000e+00, %318 ]
-  %.sroa.0.1.i437 = phi <2 x float> [ %.sroa.0.0.copyload31.i433, %321 ], [ zeroinitializer, %.noexc440 ], [ zeroinitializer, %318 ]
+  %.sroa.0.0.i437 = phi <2 x float> [ %.sroa.0.0.copyload31.i433, %321 ], [ zeroinitializer, %.noexc440 ], [ zeroinitializer, %318 ]
   %324 = load ptr, ptr %21, align 8
   %325 = icmp eq ptr %324, %313
   br i1 %325, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442
@@ -8874,9 +8874,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444: ; preds = %_Z
   br i1 %.7759, label %330, label %.critedge
 
 330:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444
-  %.sroa.0667.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i437, i64 0
+  %.sroa.0667.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i437, i64 0
   %331 = fadd float %.sroa.0667.0.vec.extract, -1.000000e+00
-  %.sroa.0667.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i437, i64 1
+  %.sroa.0667.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i437, i64 1
   %332 = fadd float %.sroa.0667.4.vec.extract, -1.000000e+00
   %333 = fadd float %.sroa.10.0.i436, -1.000000e+00
   %334 = fmul float %332, %332
@@ -9067,7 +9067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit476: ; preds = %_Z
 401:                                              ; preds = %399, %.noexc488, %396
   %.9761 = phi i1 [ true, %399 ], [ false, %.noexc488 ], [ false, %396 ]
   %.sroa.10.0.i484 = phi float [ %.sroa.10.0.copyload.i483, %399 ], [ 0.000000e+00, %.noexc488 ], [ 0.000000e+00, %396 ]
-  %.sroa.0.1.i485 = phi <2 x float> [ %.sroa.0.0.copyload31.i481, %399 ], [ zeroinitializer, %.noexc488 ], [ zeroinitializer, %396 ]
+  %.sroa.0.0.i485 = phi <2 x float> [ %.sroa.0.0.copyload31.i481, %399 ], [ zeroinitializer, %.noexc488 ], [ zeroinitializer, %396 ]
   %402 = load ptr, ptr %24, align 8
   %403 = icmp eq ptr %402, %388
   br i1 %403, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i491, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i490
@@ -9089,9 +9089,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit492: ; preds = %_Z
   br i1 %.9761, label %408, label %.critedge2
 
 408:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit492
-  %.sroa.0642.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i485, i64 0
+  %.sroa.0642.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i485, i64 0
   %409 = fadd float %.sroa.0642.0.vec.extract, -1.000000e+00
-  %.sroa.0642.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i485, i64 1
+  %.sroa.0642.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i485, i64 1
   %410 = fadd float %.sroa.0642.4.vec.extract, -1.000000e+00
   %411 = fadd float %.sroa.10.0.i484, -1.000000e+00
   %412 = fmul float %410, %410
@@ -9389,7 +9389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit534: ; preds = %_Z
 504:                                              ; preds = %502, %.noexc547, %499
   %.11763 = phi i1 [ true, %502 ], [ false, %.noexc547 ], [ false, %499 ]
   %.sroa.10.0.i543 = phi float [ %.sroa.10.0.copyload.i542, %502 ], [ 0.000000e+00, %.noexc547 ], [ 0.000000e+00, %499 ]
-  %.sroa.0.1.i544 = phi <2 x float> [ %.sroa.0.0.copyload31.i540, %502 ], [ zeroinitializer, %.noexc547 ], [ zeroinitializer, %499 ]
+  %.sroa.0.0.i544 = phi <2 x float> [ %.sroa.0.0.copyload31.i540, %502 ], [ zeroinitializer, %.noexc547 ], [ zeroinitializer, %499 ]
   %505 = load ptr, ptr %27, align 8
   %506 = icmp eq ptr %505, %491
   br i1 %506, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i550, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i549
@@ -9411,8 +9411,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit551: ; preds = %_Z
   br i1 %.11763, label %511, label %539
 
 511:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit551
-  %.sroa.0625.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i544, i64 0
-  %.sroa.0625.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i544, i64 1
+  %.sroa.0625.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i544, i64 0
+  %.sroa.0625.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i544, i64 1
   %512 = fmul float %.sroa.0625.4.vec.extract, %.sroa.0625.4.vec.extract
   %513 = call float @llvm.fmuladd.f32(float %.sroa.0625.0.vec.extract, float %.sroa.0625.0.vec.extract, float %512)
   %514 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i543, float %.sroa.10.0.i543, float %513)
@@ -14161,7 +14161,7 @@ switch.lookup:                                    ; preds = %9
 34:                                               ; preds = %32, %.noexc40, %29
   %.0 = phi i1 [ true, %32 ], [ false, %.noexc40 ], [ false, %29 ]
   %.sroa.10.0.i = phi float [ %.sroa.10.0.copyload.i, %32 ], [ 0.000000e+00, %.noexc40 ], [ 0.000000e+00, %29 ]
-  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.0.copyload31.i, %32 ], [ zeroinitializer, %.noexc40 ], [ zeroinitializer, %29 ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload31.i, %32 ], [ zeroinitializer, %.noexc40 ], [ zeroinitializer, %29 ]
   %35 = load ptr, ptr %4, align 8
   %36 = icmp eq ptr %35, %7
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -14184,9 +14184,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %or.cond5, label %41, label %57
 
 41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.047.0.vec.extract = extractelement <2 x float> %.sroa.0.1.i, i64 0
+  %.sroa.047.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %42 = fadd float %.sroa.047.0.vec.extract, -1.000000e+00
-  %.sroa.047.4.vec.extract = extractelement <2 x float> %.sroa.0.1.i, i64 1
+  %.sroa.047.4.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 1
   %43 = fadd float %.sroa.047.4.vec.extract, -1.000000e+00
   %44 = fadd float %.sroa.10.0.i, -1.000000e+00
   %45 = fmul float %43, %43
@@ -14225,8 +14225,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   br i1 %.0, label %58, label %64
 
 58:                                               ; preds = %57
-  %.sroa.047.0.vec.extract49 = extractelement <2 x float> %.sroa.0.1.i, i64 0
-  %59 = fmul <2 x float> %.sroa.0.1.i, %.sroa.0.1.i
+  %.sroa.047.0.vec.extract49 = extractelement <2 x float> %.sroa.0.0.i, i64 0
+  %59 = fmul <2 x float> %.sroa.0.0.i, %.sroa.0.0.i
   %60 = extractelement <2 x float> %59, i64 1
   %61 = call float @llvm.fmuladd.f32(float %.sroa.047.0.vec.extract49, float %.sroa.047.0.vec.extract49, float %60)
   %62 = call noundef float @llvm.fmuladd.f32(float %.sroa.10.0.i, float %.sroa.10.0.i, float %61)
@@ -23492,8 +23492,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231: ; preds = %_Z
   br label %_ZN6Assimp3FBX11PropertyGetIfEET_RKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb.exit
 
 _ZN6Assimp3FBX11PropertyGetIfEET_RKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb.exit: ; preds = %225, %224, %220, %216
-  %228 = phi i1 [ false, %224 ], [ true, %225 ], [ false, %216 ], [ false, %220 ]
-  %.0.i = phi float [ 0.000000e+00, %224 ], [ %227, %225 ], [ 0.000000e+00, %216 ], [ 0.000000e+00, %220 ]
+  %228 = phi i1 [ false, %224 ], [ true, %225 ], [ false, %220 ], [ false, %216 ]
+  %.0.i = phi float [ 0.000000e+00, %224 ], [ %227, %225 ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %216 ]
   %229 = load ptr, ptr %26, align 8
   %230 = icmp eq ptr %229, %207
   br i1 %230, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i239, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238
@@ -24276,8 +24276,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338: ; preds = %_Z
   br label %_ZN6Assimp3FBX11PropertyGetIfEET_RKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb.exit347
 
 _ZN6Assimp3FBX11PropertyGetIfEET_RKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb.exit347: ; preds = %505, %504, %500, %496
-  %508 = phi i1 [ false, %504 ], [ true, %505 ], [ false, %496 ], [ false, %500 ]
-  %.0.i344 = phi float [ 0.000000e+00, %504 ], [ %507, %505 ], [ 0.000000e+00, %496 ], [ 0.000000e+00, %500 ]
+  %508 = phi i1 [ false, %504 ], [ true, %505 ], [ false, %500 ], [ false, %496 ]
+  %.0.i344 = phi float [ 0.000000e+00, %504 ], [ %507, %505 ], [ 0.000000e+00, %500 ], [ 0.000000e+00, %496 ]
   %509 = load ptr, ptr %41, align 8
   %510 = icmp eq ptr %509, %484
   br i1 %510, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i349, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i348
@@ -46388,7 +46388,7 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %.thread, %_ZNSt12_V
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
   store i32 0, ptr %5, align 4
   %.not115 = icmp eq ptr %8, %6
-  br i1 %.not115, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %28
+  br i1 %.not115, label %._crit_edge80.thread.critedge, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit
   %29 = ptrtoint ptr %8 to i64
@@ -46407,22 +46407,17 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %.thread, %_ZNSt12_V
   %.pre112 = sdiv exact i64 %.pre110, 40
   %33 = icmp eq ptr %.pre, %.pre103
   %34 = call i64 @llvm.umax.i64(i64 %.pre112, i64 1)
-  br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-
-_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102
-  %.pre-phi113 = phi i64 [ %34, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ], [ 1, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
-  %.not93 = phi i1 [ %33, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ], [ true, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not93, label %._crit_edge80.thread, label %.lr.ph79
+  br i1 %33, label %._crit_edge80.thread, label %.lr.ph79
 
 .lr.ph79.loopexit:                                ; preds = %.critedge
   br label %.lr.ph79, !llvm.loop !282
 
-.lr.ph79:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, %.lr.ph79.loopexit
-  %36 = phi ptr [ %86, %.lr.ph79.loopexit ], [ %.promoted, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ]
-  %37 = phi ptr [ %85, %.lr.ph79.loopexit ], [ %.promoted89, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ]
-  %38 = phi ptr [ %84, %.lr.ph79.loopexit ], [ %.promoted89, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ]
+.lr.ph79:                                         ; preds = %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102, %.lr.ph79.loopexit
+  %36 = phi ptr [ %86, %.lr.ph79.loopexit ], [ %.promoted, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ]
+  %37 = phi ptr [ %85, %.lr.ph79.loopexit ], [ %.promoted89, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ]
+  %38 = phi ptr [ %84, %.lr.ph79.loopexit ], [ %.promoted89, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ]
   %39 = load ptr, ptr %2, align 8
   %40 = load ptr, ptr %4, align 8
   br label %44
@@ -46464,7 +46459,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %_ZNSt6vectorIlSaIlE
 _ZNSt6vectorIlSaIlEE2atEm.exit46:                 ; preds = %58, %44
   %.1 = phi i64 [ %.06876, %44 ], [ %spec.select, %58 ]
   %61 = add nuw i64 %.03277, 1
-  %exitcond.not = icmp eq i64 %61, %.pre-phi113
+  %exitcond.not = icmp eq i64 %61, %34
   br i1 %exitcond.not, label %._crit_edge80, label %44, !llvm.loop !283
 
 62:                                               ; preds = %._crit_edge80
@@ -46594,7 +46589,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIP
 .critedge:                                        ; preds = %.lr.ph83, %.lr.ph83.preheader, %..critedge.loopexit_crit_edge, %.lr.ph86
   %124 = phi ptr [ %87, %.lr.ph86 ], [ %119, %..critedge.loopexit_crit_edge ], [ %87, %.lr.ph83.preheader ], [ %119, %.lr.ph83 ]
   %125 = add nuw i64 %.085, 1
-  %exitcond101.not = icmp eq i64 %125, %.pre-phi113
+  %exitcond101.not = icmp eq i64 %125, %34
   br i1 %exitcond101.not, label %.lr.ph79.loopexit, label %.lr.ph86, !llvm.loop !282
 
 .loopexit72:                                      ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
@@ -46609,9 +46604,13 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIP
           cleanup
   br label %133
 
-._crit_edge80.thread:                             ; preds = %._crit_edge80, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
-  %.lcssa135 = phi ptr [ %.promoted89, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ], [ %37, %._crit_edge80 ]
-  %.lcssa = phi ptr [ %.promoted, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit ], [ %36, %._crit_edge80 ]
+._crit_edge80.thread.critedge:                    ; preds = %_ZNSt6vectorIlSaIlEE7reserveEm.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  br label %._crit_edge80.thread
+
+._crit_edge80.thread:                             ; preds = %._crit_edge80, %._crit_edge80.thread.critedge, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102
+  %.lcssa135 = phi ptr [ %.promoted89, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ], [ %.promoted89, %._crit_edge80.thread.critedge ], [ %37, %._crit_edge80 ]
+  %.lcssa = phi ptr [ %.promoted, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge102 ], [ %.promoted, %._crit_edge80.thread.critedge ], [ %36, %._crit_edge80 ]
   store ptr %.lcssa, ptr %27, align 1
   store ptr %.lcssa135, ptr %0, align 8
   %126 = load ptr, ptr %4, align 8

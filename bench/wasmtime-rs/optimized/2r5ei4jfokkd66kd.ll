@@ -43,45 +43,45 @@ define zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePart
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h636f736d99ae4458E"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %.preheader.split, label %.loopexit
+  br i1 %.not, label %.preheader.split, label %.critedge
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
   %.not6.not.not = icmp uge i64 %.sroa.01.0, %1
-  br i1 %.not6.not.not, label %.loopexit, label %5
-
-.loopexit:                                        ; preds = %.preheader.split, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
-  ret i1 %.0
+  br i1 %.not6.not.not, label %.critedge, label %5
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
   %7 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %0, i64 0, i64 %.sroa.01.0
   %8 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %2, i64 0, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h2566516aa9b0a209E"(ptr align 8 %7, ptr align 8 %8)
-  br i1 %9, label %.loopexit, label %.preheader.split
+  br i1 %9, label %.critedge, label %.preheader.split
+
+.critedge:                                        ; preds = %.preheader.split, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc1b95e6fcb962aadE"(ptr align 8 %0, i64 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 {
   %.not = icmp eq i64 %1, %3
-  br i1 %.not, label %.preheader.split, label %.loopexit
+  br i1 %.not, label %.preheader.split, label %.critedge
 
 .preheader.split:                                 ; preds = %4, %5
   %.sroa.01.0 = phi i64 [ %6, %5 ], [ 0, %4 ]
   %.not6.not.not = icmp uge i64 %.sroa.01.0, %1
-  br i1 %.not6.not.not, label %.loopexit, label %5
-
-.loopexit:                                        ; preds = %.preheader.split, %5, %4
-  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
-  ret i1 %.0
+  br i1 %.not6.not.not, label %.critedge, label %5
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
   %7 = getelementptr inbounds [0 x { ptr, i64 }], ptr %0, i64 0, i64 %.sroa.01.0
   %8 = getelementptr inbounds [0 x { ptr, i64 }], ptr %2, i64 0, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hd51a3c2682bfec78E"(ptr align 8 %7, ptr align 8 %8)
-  br i1 %9, label %.loopexit, label %.preheader.split
+  br i1 %9, label %.critedge, label %.preheader.split
+
+.critedge:                                        ; preds = %.preheader.split, %5, %4
+  %.0 = phi i1 [ false, %4 ], [ %.not6.not.not, %5 ], [ %.not6.not.not, %.preheader.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

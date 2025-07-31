@@ -5751,14 +5751,14 @@ define internal i64 @subsystem_filter_write(ptr noundef readonly captures(none) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @subsystem_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call zeroext i1 @tracing_is_disabled() #19
-  br i1 %3, label %57, label %4
+  br i1 %3, label %54, label %4
 
 4:                                                ; preds = %2
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
   tail call void @mutex_lock(ptr noundef nonnull @trace_types_lock) #19
   %5 = load ptr, ptr @ftrace_trace_arrays, align 8
   %6 = icmp eq ptr %5, @ftrace_trace_arrays
-  br i1 %6, label %.loopexit, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -5767,7 +5767,7 @@ define internal i32 @subsystem_open(ptr noundef %0, ptr noundef %1) #0 align 16 
 9:                                                ; preds = %15
   %10 = load ptr, ptr %13, align 8
   %11 = icmp eq ptr %10, @ftrace_trace_arrays
-  br i1 %11, label %.loopexit, label %12, !llvm.loop !143
+  br i1 %11, label %.critedge, label %12, !llvm.loop !143
 
 12:                                               ; preds = %9, %7
   %13 = phi ptr [ %5, %7 ], [ %10, %9 ]
@@ -5789,7 +5789,7 @@ define internal i32 @subsystem_open(ptr noundef %0, ptr noundef %1) #0 align 16 
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.loopexit, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -5819,47 +5819,46 @@ define internal i32 @subsystem_open(ptr noundef %0, ptr noundef %1) #0 align 16 
   tail call void asm sideeffect "981: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 981) #19, !srcloc !139
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 952, i32 2307, i64 12) #19, !srcloc !140
   tail call void asm sideeffect "982: nop\0A\09.pushsection .discard.instr_end\0A\09.long 982b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 982) #19, !srcloc !141
-  %.pre8 = load i32, ptr %36, align 8
+  %.pre9 = load i32, ptr %36, align 8
   br label %40
 
 40:                                               ; preds = %39, %31
-  %41 = phi i32 [ %.pre8, %39 ], [ %37, %31 ]
+  %41 = phi i32 [ %.pre9, %39 ], [ %37, %31 ]
   %42 = add i32 %41, 1
   store i32 %42, ptr %36, align 8
   %43 = load ptr, ptr %34, align 8
   %44 = icmp eq ptr %43, null
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %9, %40, %22, %4
-  %45 = phi i1 [ %44, %40 ], [ true, %22 ], [ true, %4 ], [ true, %9 ]
-  %46 = phi ptr [ %13, %40 ], [ %13, %22 ], [ null, %4 ], [ null, %9 ]
-  %47 = phi ptr [ %17, %40 ], [ %17, %22 ], [ null, %4 ], [ null, %9 ]
   tail call void @mutex_unlock(ptr noundef nonnull @trace_types_lock) #19
   tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #19
-  br i1 %45, label %57, label %48
+  br i1 %44, label %54, label %45
 
-48:                                               ; preds = %.loopexit
-  %49 = tail call i32 @trace_array_get(ptr noundef %46) #19
+45:                                               ; preds = %40
+  %46 = tail call i32 @trace_array_get(ptr noundef %13) #19
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %52, label %48
+
+48:                                               ; preds = %45
+  %49 = tail call i32 @tracing_open_generic(ptr noundef %0, ptr noundef %1) #19
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %55, label %51
+  br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @tracing_open_generic(ptr noundef %0, ptr noundef %1) #19
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %57
+  tail call void @trace_array_put(ptr noundef %13) #19
+  br label %52
 
-54:                                               ; preds = %51
-  tail call void @trace_array_put(ptr noundef %46) #19
-  br label %55
+52:                                               ; preds = %51, %45
+  %53 = phi i32 [ %49, %51 ], [ -19, %45 ]
+  tail call fastcc void @put_system(ptr noundef %17)
+  br label %54
 
-55:                                               ; preds = %54, %48
-  %56 = phi i32 [ %52, %54 ], [ -19, %48 ]
-  tail call fastcc void @put_system(ptr noundef %47)
-  br label %57
+.critedge:                                        ; preds = %9, %4, %22
+  tail call void @mutex_unlock(ptr noundef nonnull @trace_types_lock) #19
+  tail call void @mutex_unlock(ptr noundef nonnull @event_mutex) #19
+  br label %54
 
-57:                                               ; preds = %55, %51, %.loopexit, %2
-  %58 = phi i32 [ -19, %2 ], [ -19, %.loopexit ], [ %52, %51 ], [ %56, %55 ]
-  ret i32 %58
+54:                                               ; preds = %.critedge, %52, %48, %40, %2
+  %55 = phi i32 [ -19, %2 ], [ -19, %40 ], [ %49, %48 ], [ %53, %52 ], [ -19, %.critedge ]
+  ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

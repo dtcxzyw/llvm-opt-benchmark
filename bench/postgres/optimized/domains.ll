@@ -171,7 +171,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   tail call void @UpdateDomainConstraintRef(ptr noundef nonnull %8) #5
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -183,30 +183,30 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br i1 %1, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %15, label %.lr.ph134, label %.thread
+  br i1 %15, label %.lr.ph129, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %30
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107132, 1
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102127, 1
   %16 = load i32, ptr %10, align 4
   %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next108, %17
-  br i1 %18, label %.lr.ph134, label %.thread
+  %18 = icmp slt i64 %indvars.iv.next103, %17
+  br i1 %18, label %.lr.ph129, label %.critedge
 
-.lr.ph134:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.065.us133 = phi ptr [ %.4.us, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
-  %indvars.iv107132 = phi i64 [ %indvars.iv.next108, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph129:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %.061.us128 = phi ptr [ %.4.us, %.lr.ph.split.us ], [ %7, %.lr.ph.split.us.preheader ]
+  %indvars.iv102127 = phi i64 [ %indvars.iv.next103, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv107132
+  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv102127
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %.split.us [
-    i32 0, label %.split74.us
+    i32 0, label %.split70.us
     i32 1, label %24
   ]
 
-24:                                               ; preds = %.lr.ph134
-  %25 = icmp eq ptr %.065.us133, null
+24:                                               ; preds = %.lr.ph129
+  %25 = icmp eq ptr %.061.us128, null
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
@@ -219,7 +219,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br label %30
 
 30:                                               ; preds = %26, %24
-  %.4.us = phi ptr [ %29, %26 ], [ %.065.us133, %24 ]
+  %.4.us = phi ptr [ %29, %26 ], [ %.061.us128, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %.4.us, i64 96
   store i64 %0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.4.us, i64 104
@@ -227,15 +227,15 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @ExecCheck(ptr noundef %34, ptr noundef %.4.us) #5
-  br i1 %35, label %.lr.ph.split.us, label %.split70.us
+  br i1 %35, label %.lr.ph.split.us, label %.split66.us
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph
-  br i1 %15, label %.lr.ph93, label %.thread
+  br i1 %15, label %.lr.ph89, label %.critedge
 
-.lr.ph93:                                         ; preds = %.lr.ph.split.split.split, %85
+.lr.ph89:                                         ; preds = %.lr.ph.split.split.split, %85
   %36 = phi i32 [ %86, %85 ], [ %14, %.lr.ph.split.split.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.lr.ph.split.split.split ]
-  %.06591 = phi ptr [ %.2, %85 ], [ %7, %.lr.ph.split.split.split ]
+  %.06187 = phi ptr [ %.2, %85 ], [ %7, %.lr.ph.split.split.split ]
   %37 = load ptr, ptr %11, align 8
   %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
@@ -246,11 +246,11 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
     i32 1, label %50
   ]
 
-.split74.us:                                      ; preds = %.lr.ph134
+.split70.us:                                      ; preds = %.lr.ph129
   %42 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #5
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.critedge
 
-43:                                               ; preds = %.split74.us
+43:                                               ; preds = %.split70.us
   %44 = tail call i32 @errcode(i32 noundef 33575106) #5
   %45 = load i32, ptr %2, align 8
   %46 = tail call ptr @format_type_be(i32 noundef %45) #5
@@ -258,10 +258,10 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %48 = load i32, ptr %2, align 8
   %49 = tail call i32 @errdatatype(i32 noundef %48)
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.domain_check_input) #5
-  br label %.thread
+  br label %.critedge
 
-50:                                               ; preds = %.lr.ph93
-  %51 = icmp eq ptr %.06591, null
+50:                                               ; preds = %.lr.ph89
+  %51 = icmp eq ptr %.06187, null
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
@@ -274,7 +274,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br label %56
 
 56:                                               ; preds = %52, %50
-  %.4 = phi ptr [ %55, %52 ], [ %.06591, %50 ]
+  %.4 = phi ptr [ %55, %52 ], [ %.06187, %50 ]
   %57 = load ptr, ptr %13, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i16, ptr %58, align 8
@@ -294,23 +294,23 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %66 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = tail call zeroext i1 @ExecCheck(ptr noundef %67, ptr noundef %.4) #5
-  br i1 %68, label %._crit_edge, label %.split70.us
+  br i1 %68, label %._crit_edge, label %.split66.us
 
 ._crit_edge:                                      ; preds = %62
   %.pre = load i32, ptr %10, align 4
   br label %85
 
-.split70.us:                                      ; preds = %62, %30
-  %.us-phi71 = phi ptr [ %21, %30 ], [ %39, %62 ]
-  %.us-phi72 = phi ptr [ %.4.us, %30 ], [ %.4, %62 ]
+.split66.us:                                      ; preds = %62, %30
+  %.us-phi67 = phi ptr [ %21, %30 ], [ %39, %62 ]
+  %.us-phi68 = phi ptr [ %.4.us, %30 ], [ %.4, %62 ]
   %69 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #5
-  br i1 %69, label %70, label %.thread.thread
+  br i1 %69, label %70, label %.critedge.thread
 
-70:                                               ; preds = %.split70.us
+70:                                               ; preds = %.split66.us
   %71 = tail call i32 @errcode(i32 noundef 67391682) #5
   %72 = load i32, ptr %2, align 8
   %73 = tail call ptr @format_type_be(i32 noundef %72) #5
-  %74 = getelementptr inbounds nuw i8, ptr %.us-phi71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.us-phi67, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73, ptr noundef %75) #5
   %77 = load i32, ptr %2, align 8
@@ -318,11 +318,11 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   %79 = tail call i32 @errdatatype(i32 noundef %77)
   %80 = tail call i32 @err_generic_string(i32 noundef 110, ptr noundef %78) #5
   tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.domain_check_input) #5
-  br label %.thread.thread
+  br label %.critedge.thread
 
-.split.us:                                        ; preds = %.lr.ph93, %.lr.ph134
-  %.us-phi68 = phi ptr [ %21, %.lr.ph134 ], [ %39, %.lr.ph93 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.us-phi68, i64 4
+.split.us:                                        ; preds = %.lr.ph89, %.lr.ph129
+  %.us-phi64 = phi ptr [ %21, %.lr.ph129 ], [ %39, %.lr.ph89 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.us-phi64, i64 4
   %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %82)
   %83 = load i32, ptr %81, align 4
@@ -330,25 +330,25 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.domain_check_input) #5
   unreachable
 
-85:                                               ; preds = %._crit_edge, %.lr.ph93
-  %86 = phi i32 [ %.pre, %._crit_edge ], [ %36, %.lr.ph93 ]
-  %.2 = phi ptr [ %.4, %._crit_edge ], [ %.06591, %.lr.ph93 ]
+85:                                               ; preds = %._crit_edge, %.lr.ph89
+  %86 = phi i32 [ %.pre, %._crit_edge ], [ %36, %.lr.ph89 ]
+  %.2 = phi ptr [ %.4, %._crit_edge ], [ %.06187, %.lr.ph89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph93, label %.thread
+  br i1 %88, label %.lr.ph89, label %.critedge
 
-.thread:                                          ; preds = %85, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %4, %.lr.ph.split.split.split, %.split74.us, %43
-  %.057 = phi ptr [ %.065.us133, %.split74.us ], [ %.065.us133, %43 ], [ %7, %4 ], [ %7, %.lr.ph.split.split.split ], [ %7, %.lr.ph.split.us.preheader ], [ %.4.us, %.lr.ph.split.us ], [ %.2, %85 ]
-  %.not44 = icmp eq ptr %.057, null
-  br i1 %.not44, label %89, label %.thread.thread
+.critedge:                                        ; preds = %85, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %4, %.lr.ph.split.split.split, %.split70.us, %43
+  %.053 = phi ptr [ %.061.us128, %.split70.us ], [ %.061.us128, %43 ], [ %7, %4 ], [ %7, %.lr.ph.split.split.split ], [ %7, %.lr.ph.split.us.preheader ], [ %.4.us, %.lr.ph.split.us ], [ %.2, %85 ]
+  %.not44 = icmp eq ptr %.053, null
+  br i1 %.not44, label %89, label %.critedge.thread
 
-.thread.thread:                                   ; preds = %70, %.split70.us, %.thread
-  %.153 = phi ptr [ %.057, %.thread ], [ %.us-phi72, %.split70.us ], [ %.us-phi72, %70 ]
-  tail call void @ReScanExprContext(ptr noundef nonnull %.153) #5
+.critedge.thread:                                 ; preds = %70, %.split66.us, %.critedge
+  %.149 = phi ptr [ %.053, %.critedge ], [ %.us-phi68, %.split66.us ], [ %.us-phi68, %70 ]
+  tail call void @ReScanExprContext(ptr noundef nonnull %.149) #5
   br label %89
 
-89:                                               ; preds = %.thread.thread, %.thread
+89:                                               ; preds = %.critedge.thread, %.critedge
   ret void
 }
 

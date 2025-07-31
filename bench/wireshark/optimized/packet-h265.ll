@@ -4362,7 +4362,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %10, i8 0, i64 128, i1 false)
-  br i1 %4, label %11, label %64
+  br i1 %4, label %11, label %59
 
 11:                                               ; preds = %6
   %12 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %3, i32 noundef 1)
@@ -4377,7 +4377,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %21 = add i32 %3, 2
   store i32 %21, ptr %7, align 4
   %or.cond = select i1 %13, i1 true, i1 %18
-  br i1 %or.cond, label %22, label %64
+  br i1 %or.cond, label %22, label %59
 
 22:                                               ; preds = %11
   %23 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %21, i32 noundef 1)
@@ -4385,7 +4385,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %25 = load i32, ptr @hf_h265_sub_pic_hrd_params_present_flag, align 4
   %26 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %21, i32 noundef 1, i32 noundef 0)
   %27 = add i32 %3, 3
-  br i1 %24, label %28, label %41
+  br i1 %24, label %28, label %.critedge
 
 28:                                               ; preds = %22
   %29 = load i32, ptr @hf_h265_tick_divisor_minus2, align 4
@@ -4400,136 +4400,133 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %38 = load i32, ptr @hf_h265_dpb_output_delay_du_length_minus1, align 4
   %39 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %37, i32 noundef 5, i32 noundef 0)
   %40 = add i32 %3, 22
-  br label %41
+  %41 = load i32, ptr @hf_h265_bit_rate_scale, align 4
+  %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef %40, i32 noundef 4, i32 noundef 0)
+  %43 = add i32 %3, 26
+  br label %.critedge
 
-41:                                               ; preds = %28, %22
-  %42 = phi i32 [ %40, %28 ], [ %27, %22 ]
-  %43 = load i32, ptr @hf_h265_bit_rate_scale, align 4
-  %44 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %43, ptr noundef %1, i32 noundef %42, i32 noundef 4, i32 noundef 0)
-  %45 = add i32 %42, 4
-  %46 = load i32, ptr @hf_h265_cpb_size_scale, align 4
-  %47 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %45, i32 noundef 4, i32 noundef 0)
-  %48 = add i32 %42, 8
-  br i1 %24, label %49, label %53
+.critedge:                                        ; preds = %22, %28
+  %hf_h265_bit_rate_scale.sink = phi ptr [ @hf_h265_cpb_size_scale, %28 ], [ @hf_h265_bit_rate_scale, %22 ]
+  %.sink85 = phi i32 [ %43, %28 ], [ %27, %22 ]
+  %.sink83 = phi i32 [ 30, %28 ], [ 7, %22 ]
+  %hf_h265_cpb_size_scale.sink = phi ptr [ @hf_h265_cpb_size_du_scale, %28 ], [ @hf_h265_cpb_size_scale, %22 ]
+  %.sink = phi i32 [ 34, %28 ], [ 11, %22 ]
+  %44 = load i32, ptr %hf_h265_bit_rate_scale.sink, align 4
+  %45 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %.sink85, i32 noundef 4, i32 noundef 0)
+  %46 = add i32 %3, %.sink83
+  %47 = load i32, ptr %hf_h265_cpb_size_scale.sink, align 4
+  %48 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  %49 = add i32 %3, %.sink
+  %50 = load i32, ptr @hf_h265_initial_cpb_removal_delay_length_minus1, align 4
+  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %49, i32 noundef 5, i32 noundef 0)
+  %52 = add i32 %49, 5
+  %53 = load i32, ptr @hf_h265_au_cpb_removal_delay_length_minus1, align 4
+  %54 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %53, ptr noundef %1, i32 noundef %52, i32 noundef 5, i32 noundef 0)
+  %55 = add i32 %49, 10
+  %56 = load i32, ptr @hf_h265_dpb_output_delay_length_minus1, align 4
+  %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef %55, i32 noundef 5, i32 noundef 0)
+  %58 = add i32 %49, 15
+  store i32 %58, ptr %7, align 4
+  br label %59
 
-49:                                               ; preds = %41
-  %50 = load i32, ptr @hf_h265_cpb_size_du_scale, align 4
-  %51 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %48, i32 noundef 4, i32 noundef 0)
-  %52 = add i32 %42, 12
-  br label %53
+59:                                               ; preds = %.critedge, %11, %6
+  %.074.shrunk = phi i1 [ %13, %.critedge ], [ false, %11 ], [ false, %6 ]
+  %.073.shrunk = phi i1 [ %18, %.critedge ], [ false, %11 ], [ false, %6 ]
+  %.0 = phi i1 [ %24, %.critedge ], [ false, %11 ], [ false, %6 ]
+  %60 = add nuw nsw i32 %5, 1
+  %wide.trip.count = zext nneg i32 %60 to i64
+  br label %61
 
-53:                                               ; preds = %49, %41
-  %54 = phi i32 [ %52, %49 ], [ %48, %41 ]
-  %55 = load i32, ptr @hf_h265_initial_cpb_removal_delay_length_minus1, align 4
-  %56 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %55, ptr noundef %1, i32 noundef %54, i32 noundef 5, i32 noundef 0)
-  %57 = add i32 %54, 5
-  %58 = load i32, ptr @hf_h265_au_cpb_removal_delay_length_minus1, align 4
-  %59 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %58, ptr noundef %1, i32 noundef %57, i32 noundef 5, i32 noundef 0)
-  %60 = add i32 %54, 10
-  %61 = load i32, ptr @hf_h265_dpb_output_delay_length_minus1, align 4
-  %62 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %60, i32 noundef 5, i32 noundef 0)
-  %63 = add i32 %54, 15
-  store i32 %63, ptr %7, align 4
-  br label %64
+61:                                               ; preds = %59, %105
+  %indvars.iv = phi i64 [ 0, %59 ], [ %indvars.iv.next, %105 ]
+  %62 = load i32, ptr %7, align 4
+  %63 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %62, i32 noundef 1)
+  %.not76 = icmp eq i8 %63, 0
+  %64 = load i32, ptr @hf_h265_fixed_pic_rate_general_flag, align 4
+  %65 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %64, ptr noundef %1, i32 noundef %62, i32 noundef 1, i32 noundef 0)
+  %66 = add i32 %62, 1
+  store i32 %66, ptr %7, align 4
+  br i1 %.not76, label %68, label %._crit_edge
 
-64:                                               ; preds = %53, %11, %6
-  %.074.shrunk = phi i1 [ %13, %53 ], [ false, %11 ], [ false, %6 ]
-  %.073.shrunk = phi i1 [ %18, %53 ], [ false, %11 ], [ false, %6 ]
-  %.0 = phi i1 [ %24, %53 ], [ false, %11 ], [ false, %6 ]
-  %65 = add nuw nsw i32 %5, 1
-  %wide.trip.count = zext nneg i32 %65 to i64
-  br label %66
-
-66:                                               ; preds = %64, %110
-  %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %110 ]
-  %67 = load i32, ptr %7, align 4
-  %68 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %67, i32 noundef 1)
-  %.not76 = icmp eq i8 %68, 0
-  %69 = load i32, ptr @hf_h265_fixed_pic_rate_general_flag, align 4
-  %70 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %69, ptr noundef %1, i32 noundef %67, i32 noundef 1, i32 noundef 0)
-  %71 = add i32 %67, 1
-  store i32 %71, ptr %7, align 4
-  br i1 %.not76, label %73, label %._crit_edge
-
-._crit_edge:                                      ; preds = %66
+._crit_edge:                                      ; preds = %61
   %.phi.trans.insert = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !38
-  %72 = trunc nuw i8 %.pre to i1
-  br i1 %72, label %90, label %81
+  %67 = trunc nuw i8 %.pre to i1
+  br i1 %67, label %85, label %76
 
-73:                                               ; preds = %66
-  %74 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %71, i32 noundef 1)
-  %75 = icmp ne i8 %74, 0
-  %76 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
-  %77 = zext i1 %75 to i8
-  store i8 %77, ptr %76, align 1
-  %78 = load i32, ptr @hf_h265_fixed_pic_rate_within_cvs_flag, align 4
-  %79 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %71, i32 noundef 1, i32 noundef 0)
-  %80 = add i32 %67, 2
-  store i32 %80, ptr %7, align 4
-  br i1 %75, label %90, label %81
+68:                                               ; preds = %61
+  %69 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %66, i32 noundef 1)
+  %70 = icmp ne i8 %69, 0
+  %71 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %72 = zext i1 %70 to i8
+  store i8 %72, ptr %71, align 1
+  %73 = load i32, ptr @hf_h265_fixed_pic_rate_within_cvs_flag, align 4
+  %74 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %66, i32 noundef 1, i32 noundef 0)
+  %75 = add i32 %62, 2
+  store i32 %75, ptr %7, align 4
+  br i1 %70, label %85, label %76
 
-81:                                               ; preds = %._crit_edge, %73
-  %82 = phi i32 [ %71, %._crit_edge ], [ %80, %73 ]
-  %83 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %82, i32 noundef 1)
-  %84 = icmp ne i8 %83, 0
-  %85 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
-  %86 = zext i1 %84 to i8
-  store i8 %86, ptr %85, align 1
-  %87 = load i32, ptr @hf_h265_low_delay_hrd_flag, align 4
-  %88 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %87, ptr noundef %1, i32 noundef %82, i32 noundef 1, i32 noundef 0)
-  %89 = add i32 %82, 1
-  store i32 %89, ptr %7, align 4
-  br i1 %84, label %98, label %94
+76:                                               ; preds = %._crit_edge, %68
+  %77 = phi i32 [ %66, %._crit_edge ], [ %75, %68 ]
+  %78 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %77, i32 noundef 1)
+  %79 = icmp ne i8 %78, 0
+  %80 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %81 = zext i1 %79 to i8
+  store i8 %81, ptr %80, align 1
+  %82 = load i32, ptr @hf_h265_low_delay_hrd_flag, align 4
+  %83 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %82, ptr noundef %1, i32 noundef %77, i32 noundef 1, i32 noundef 0)
+  %84 = add i32 %77, 1
+  store i32 %84, ptr %7, align 4
+  br i1 %79, label %93, label %89
 
-90:                                               ; preds = %73, %._crit_edge
-  %91 = load i32, ptr @hf_h265_elemental_duration_in_tc_minus1, align 4
-  %92 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %91, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
+85:                                               ; preds = %68, %._crit_edge
+  %86 = load i32, ptr @hf_h265_elemental_duration_in_tc_minus1, align 4
+  %87 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %86, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
   %.phi.trans.insert79 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
   %.pre80 = load i8, ptr %.phi.trans.insert79, align 1, !range !38
-  %93 = trunc nuw i8 %.pre80 to i1
-  br i1 %93, label %98, label %94
+  %88 = trunc nuw i8 %.pre80 to i1
+  br i1 %88, label %93, label %89
 
-94:                                               ; preds = %81, %90
-  %95 = load i32, ptr @hf_h265_cpb_cnt_minus1, align 4
-  %96 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %95, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
-  %97 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
-  store i32 %96, ptr %97, align 4
-  br label %98
+89:                                               ; preds = %76, %85
+  %90 = load i32, ptr @hf_h265_cpb_cnt_minus1, align 4
+  %91 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %90, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
+  %92 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  store i32 %91, ptr %92, align 4
+  br label %93
 
-98:                                               ; preds = %81, %94, %90
-  br i1 %.074.shrunk, label %99, label %104
+93:                                               ; preds = %76, %89, %85
+  br i1 %.074.shrunk, label %94, label %99
 
-99:                                               ; preds = %98
-  %100 = load i32, ptr %7, align 4
-  %101 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
-  %102 = load i32, ptr %101, align 4
-  %103 = add i32 %102, 1
-  tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %100, i32 noundef %103, i1 noundef zeroext %.0)
-  br label %104
+94:                                               ; preds = %93
+  %95 = load i32, ptr %7, align 4
+  %96 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %97 = load i32, ptr %96, align 4
+  %98 = add i32 %97, 1
+  tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %95, i32 noundef %98, i1 noundef zeroext %.0)
+  br label %99
 
-104:                                              ; preds = %99, %98
-  br i1 %.073.shrunk, label %105, label %110
+99:                                               ; preds = %94, %93
+  br i1 %.073.shrunk, label %100, label %105
 
-105:                                              ; preds = %104
-  %106 = load i32, ptr %7, align 4
-  %107 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
-  %108 = load i32, ptr %107, align 4
-  %109 = add i32 %108, 1
-  tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %106, i32 noundef %109, i1 noundef zeroext %.0)
-  br label %110
+100:                                              ; preds = %99
+  %101 = load i32, ptr %7, align 4
+  %102 = getelementptr [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %103 = load i32, ptr %102, align 4
+  %104 = add i32 %103, 1
+  tail call fastcc void @dissect_h265_sub_layer_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %101, i32 noundef %104, i1 noundef zeroext %.0)
+  br label %105
 
-110:                                              ; preds = %104, %105
+105:                                              ; preds = %99, %100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %111, label %66, !llvm.loop !50
+  br i1 %exitcond.not, label %106, label %61, !llvm.loop !50
 
-111:                                              ; preds = %110
-  %112 = load i32, ptr %7, align 4
+106:                                              ; preds = %105
+  %107 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  ret i32 %112
+  ret i32 %107
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

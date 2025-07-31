@@ -6941,13 +6941,13 @@ define internal fastcc i64 @deflate_compress_none(ptr noundef %0, i64 noundef %1
 
 10:                                               ; preds = %4
   %11 = icmp ult i64 %3, 5
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 1, ptr %2, align 1, !tbaa !25
   store i32 -65536, ptr %13, align 1
-  br label %.thread
+  br label %.critedge
 
 14:                                               ; preds = %.preheader, %21
   %.042 = phi ptr [ %28, %21 ], [ %0, %.preheader ]
@@ -6960,7 +6960,7 @@ define internal fastcc i64 @deflate_compress_none(ptr noundef %0, i64 noundef %1
   %19 = sub i64 %9, %18
   %20 = add nsw i64 %spec.select46, 5
   %.not = icmp ult i64 %19, %20
-  br i1 %.not, label %.thread, label %21
+  br i1 %.not, label %.critedge, label %21
 
 21:                                               ; preds = %14
   %spec.select = zext i1 %17 to i8
@@ -6982,9 +6982,9 @@ define internal fastcc i64 @deflate_compress_none(ptr noundef %0, i64 noundef %1
   %30 = ptrtoint ptr %27 to i64
   %31 = ptrtoint ptr %2 to i64
   %32 = sub i64 %30, %31
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %10, %29, %12
+.critedge:                                        ; preds = %14, %10, %29, %12
   %.039 = phi i64 [ 5, %12 ], [ %32, %29 ], [ 0, %10 ], [ 0, %14 ]
   ret i64 %.039
 }

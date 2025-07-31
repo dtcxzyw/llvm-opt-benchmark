@@ -5598,14 +5598,14 @@ define void @_ZN28RpcServiceResponseTimeDialog20provideParameterDataEv(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %12
+  br i1 %.not.i, label %.critedge, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.not10.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not10.i.i.i.i, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5632,7 +5632,7 @@ define void @_ZN28RpcServiceResponseTimeDialog20provideParameterDataEv(ptr nound
 
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_P9_guid_keyESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i: ; preds = %20
   %27 = icmp eq ptr %.19.i.i.i.i, %15
-  br i1 %27, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
+  br i1 %27, label %.critedge, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
 
 _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_P9_guid_keyESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
@@ -5641,7 +5641,7 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   %31 = load i64, ptr %30, align 8
   %32 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %19, ptr %17, i64 %31, ptr %29, i32 noundef 1) #27
   %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %36, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
+  br i1 %33, label %36, label %.critedge
 
 34:                                               ; preds = %139
   %35 = landingpad { ptr, i32 }
@@ -5677,7 +5677,7 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
 
 49:                                               ; preds = %46
   %.not.not = icmp eq ptr %48, null
-  br i1 %.not.not, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %61
+  br i1 %.not.not, label %.critedge, label %61
 
 50:                                               ; preds = %36
   %51 = landingpad { ptr, i32 }
@@ -5720,57 +5720,57 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store i16 %47, ptr %65, align 8
   %66 = invoke ptr @dcerpc_get_proto_name(ptr noundef nonnull %64, i16 noundef zeroext %47)
-          to label %67 unwind label %70
+          to label %67 unwind label %72
 
 67:                                               ; preds = %63
   store ptr %66, ptr %62, align 8
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %69 = load ptr, ptr %68, align 8
-  %.not83104 = icmp eq ptr %69, null
-  br i1 %.not83104, label %._crit_edge, label %.lr.ph
+  %.not83103 = icmp eq ptr %69, null
+  br i1 %.not83103, label %._crit_edge, label %.lr.ph
 
-70:                                               ; preds = %63
-  %71 = landingpad { ptr, i32 }
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %70 = add nuw nsw i32 %spec.select, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %67
+  %.056.lcssa = phi i32 [ 1, %67 ], [ %70, %._crit_edge.loopexit ]
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  store i32 %.056.lcssa, ptr %71, align 4
+  br label %139
+
+72:                                               ; preds = %63
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %146
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
-  %72 = phi ptr [ %77, %.lr.ph ], [ %48, %67 ]
-  %.056106 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %67 ]
-  %.068105 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
-  %73 = load i16, ptr %72, align 8
-  %74 = zext i16 %73 to i32
-  %spec.select = call i32 @llvm.umax.i32(i32 %.056106, i32 %74)
-  %75 = add i32 %.068105, 1
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct._dcerpc_sub_dissector, ptr %48, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %.not83 = icmp eq ptr %79, null
+  %74 = phi ptr [ %79, %.lr.ph ], [ %48, %67 ]
+  %.056105 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %67 ]
+  %.068104 = phi i32 [ %77, %.lr.ph ], [ 0, %67 ]
+  %75 = load i16, ptr %74, align 8
+  %76 = zext i16 %75 to i32
+  %spec.select = call i32 @llvm.umax.i32(i32 %.056105, i32 %76)
+  %77 = add i32 %.068104, 1
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr %struct._dcerpc_sub_dissector, ptr %48, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.not83 = icmp eq ptr %81, null
   br i1 %.not83, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !62
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %80 = add nuw nsw i32 %spec.select, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %67
-  %.056.lcssa = phi i32 [ 1, %67 ], [ %80, %._crit_edge.loopexit ]
-  %81 = getelementptr inbounds nuw i8, ptr %62, i64 28
-  store i32 %.056.lcssa, ptr %81, align 4
-  br label %139
 
 82:                                               ; preds = %1
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %84 = load ptr, ptr %83, align 8
   %.not.i86 = icmp eq ptr %84, null
-  br i1 %.not.i86, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %85
+  br i1 %.not.i86, label %.critedge, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.not10.i.i.i.i87 = icmp eq ptr %87, null
-  br i1 %.not10.i.i.i.i87, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %.lr.ph.i.i.i.i88
+  br i1 %.not10.i.i.i.i87, label %.critedge, label %.lr.ph.i.i.i.i88
 
 .lr.ph.i.i.i.i88:                                 ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5797,7 +5797,7 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
 
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i: ; preds = %93
   %100 = icmp eq ptr %.19.i.i.i.i91, %88
-  br i1 %100, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %_ZNK4QMapI7QStringjE8containsERKS0_.exit
+  br i1 %100, label %.critedge, label %_ZNK4QMapI7QStringjE8containsERKS0_.exit
 
 _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i91, i64 40
@@ -5806,7 +5806,7 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   %104 = load i64, ptr %103, align 8
   %105 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %92, ptr %90, i64 %104, ptr %102, i32 noundef 1) #27
   %106 = icmp sgt i32 %105, -1
-  br i1 %106, label %109, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
+  br i1 %106, label %109, label %.critedge
 
 107:                                              ; preds = %109
   %108 = landingpad { ptr, i32 }
@@ -5891,14 +5891,14 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %141 = load ptr, ptr %140, align 8
   invoke void @set_srt_table_param_data(ptr noundef %141, ptr noundef %.0)
-          to label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread unwind label %34
+          to label %.critedge unwind label %34
 
-_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread: ; preds = %85, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %82, %49, %12, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_P9_guid_keyESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %9, %139, %_ZNK4QMapI7QStringjE8containsERKS0_.exit, %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
+.critedge:                                        ; preds = %85, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %82, %12, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_P9_guid_keyESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %9, %49, %139, %_ZNK4QMapI7QStringjE8containsERKS0_.exit, %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
   %142 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %142, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %.critedge
   %143 = atomicrmw sub ptr %142, i32 1 seq_cst, align 4
   %.not.i.i = icmp eq i32 %143, 1
   br i1 %.not.i.i, label %144, label %_ZN7QStringD2Ev.exit
@@ -5908,12 +5908,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZNK4QMapI7QStringP
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %145, i64 noundef 2, i64 noundef 8) #23
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %144
+_ZN7QStringD2Ev.exit:                             ; preds = %.critedge, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #23
   ret void
 
-146:                                              ; preds = %107, %132, %138, %50, %57, %70, %59, %56, %34
-  %.pn84 = phi { ptr, i32 } [ %35, %34 ], [ %51, %50 ], [ %.pn76, %56 ], [ %58, %57 ], [ %71, %70 ], [ %60, %59 ], [ %133, %132 ], [ %.pn, %138 ], [ %108, %107 ]
+146:                                              ; preds = %107, %132, %138, %50, %57, %72, %59, %56, %34
+  %.pn84 = phi { ptr, i32 } [ %35, %34 ], [ %51, %50 ], [ %.pn76, %56 ], [ %58, %57 ], [ %73, %72 ], [ %60, %59 ], [ %133, %132 ], [ %.pn, %138 ], [ %108, %107 ]
   %147 = load ptr, ptr %2, align 8
   %.not.i.i.i97 = icmp eq ptr %147, null
   br i1 %.not.i.i.i97, label %_ZN7QStringD2Ev.exit100, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98

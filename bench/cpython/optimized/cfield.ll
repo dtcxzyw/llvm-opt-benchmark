@@ -450,13 +450,13 @@ define hidden ptr @_ctypes_get_fielddesc(ptr noundef readonly captures(none) %0)
   %2 = load i8, ptr %0, align 1, !tbaa !10
   %switch.tableidx = add i8 %2, -63
   %3 = icmp ult i8 %switch.tableidx, 60
-  br i1 %3, label %switch.hole_check, label %6
+  br i1 %3, label %switch.hole_check, label %.critedge
 
 switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 636177118765983449, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %6
+  br i1 %switch.lobit, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i8 %switch.tableidx to i64
@@ -465,9 +465,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %5 = load i8, ptr %switch.load, align 8, !tbaa !39
   %.not6 = icmp eq i8 %5, 0
   %spec.select = select i1 %.not6, ptr null, ptr %switch.load
-  br label %6
+  br label %.critedge
 
-6:                                                ; preds = %switch.hole_check, %1, %switch.lookup
+.critedge:                                        ; preds = %switch.hole_check, %1, %switch.lookup
   %.05 = phi ptr [ %spec.select, %switch.lookup ], [ null, %1 ], [ null, %switch.hole_check ]
   ret ptr %.05
 }

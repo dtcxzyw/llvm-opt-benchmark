@@ -2985,14 +2985,14 @@ default.unreachable.i:                            ; preds = %11
 13:                                               ; preds = %11
   %14 = load ptr, ptr %5, align 8, !noalias !853, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %29, label %16
 
 16:                                               ; preds = %13
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$17h32f2c7e9f1e22886E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %32 unwind label %17, !noalias !853
+          to label %33 unwind label %17, !noalias !853
 
-common.resume:                                    ; preds = %35, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %36, %35 ]
+common.resume:                                    ; preds = %36, %17
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %16
@@ -3020,42 +3020,42 @@ common.resume:                                    ; preds = %35, %17
   call void %25(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull align 1 %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !873
   tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
   %26 = load i64, ptr %4, align 8, !range !424, !alias.scope !877, !noalias !874, !noundef !4
-  switch i64 %26, label %33 [
-    i64 18, label %34
-    i64 17, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit"
-    i64 16, label %.critedge
+  switch i64 %26, label %34 [
+    i64 18, label %35
+    i64 17, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge"
+    i64 16, label %27
   ]
 
-.critedge:                                        ; preds = %21
+27:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %27 = load i8, ptr %6, align 8, !range !852, !noalias !879, !noundef !4
-  %cond.i81 = icmp eq i8 %27, 0
-  br i1 %cond.i81, label %37, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80"
+  %28 = load i8, ptr %6, align 8, !range !852, !noalias !879, !noundef !4
+  %cond.i81 = icmp eq i8 %28, 0
+  br i1 %cond.i81, label %38, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80"
 
-28:                                               ; preds = %13
-  %29 = load i64, ptr %7, align 8, !noalias !853, !noundef !4
-  %30 = load i64, ptr %8, align 8, !noalias !853, !noundef !4
+29:                                               ; preds = %13
+  %30 = load i64, ptr %7, align 8, !noalias !853, !noundef !4
+  %31 = load i64, ptr %8, align 8, !noalias !853, !noundef !4
   %.sroa.4166.0..sroa_idx167178 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 3, ptr %.sroa.4166.0..sroa_idx167178, align 8, !noalias !882
-  br label %31
+  br label %32
 
-31:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit", %28
-  %.sroa.7.sroa.0.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ %29, %28 ]
-  %.sroa.7.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ %30, %28 ]
-  %.sroa.0.1 = phi i64 [ 17, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ 16, %28 ]
+32:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge", %29
+  %.sroa.7.sroa.0.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ %30, %29 ]
+  %.sroa.7.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ %31, %29 ]
+  %.sroa.0.1 = phi i64 [ 17, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ 16, %29 ]
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.sroa.0.0, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.7.sroa.5.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx, align 8
-  br label %38
+  br label %39
 
-32:                                               ; preds = %16
+33:                                               ; preds = %16
   store i8 3, ptr %.sroa.4166.0..sroa_idx167, align 8, !noalias !882
   br label %.backedge
 
-33:                                               ; preds = %21
+34:                                               ; preds = %21
   %.sroa.10101.0.copyload102 = load i64, ptr %10, align 8, !alias.scope !885
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14.0..sroa_idx, i64 32, i1 false)
@@ -3065,39 +3065,39 @@ common.resume:                                    ; preds = %35, %17
   store i64 %.sroa.10101.0.copyload102, ptr %.sroa.4120.0..sroa_idx, align 8
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5121.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
-  br label %38
+  br label %39
 
-"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit": ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %31
-
-34:                                               ; preds = %21
+35:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 18, ptr %0, align 8
-  br label %38
+  br label %39
 
-35:                                               ; preds = %37
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %38
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
   %.sroa.5171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %.sroa.5171.0..sroa_idx, align 8, !noalias !879
   br label %common.resume
 
-37:                                               ; preds = %.critedge
+38:                                               ; preds = %27
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$17h32f2c7e9f1e22886E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80" unwind label %35
+          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80" unwind label %36
 
-"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80": ; preds = %.critedge, %37
+"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80": ; preds = %27, %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
   store i8 0, ptr %.sroa.5171.0..sroa_idx172, align 8, !noalias !879
   br label %.backedge
 
-.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80", %32
-  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80" ], [ 3, %32 ]
+.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80", %33
+  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h4ab2276fcecc4509E.exit80" ], [ 3, %33 ]
   br label %11
 
-38:                                               ; preds = %33, %34, %31
+"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge": ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  br label %32
+
+39:                                               ; preds = %34, %35, %32
   ret void
 }
 
@@ -3140,7 +3140,7 @@ default.unreachable.i:                            ; preds = %13
 14:                                               ; preds = %13
   %.sroa.02.0.copyload.i.i = load ptr, ptr %6, align 8, !noalias !886
   %15 = icmp eq ptr %.sroa.02.0.copyload.i.i, null
-  br i1 %15, label %.critedge120, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.63.0..sroa_idx.i.i, i64 40, i1 false), !noalias !886
@@ -3150,7 +3150,7 @@ default.unreachable.i:                            ; preds = %13
   %.sroa.4.sroa.6.0..sroa.459.0..sroa_idx.sroa_idx.le = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.6.0..sroa.459.0..sroa_idx.sroa_idx.le, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  br label %26
+  br label %27
 
 17:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @str.2, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4aa3d4fc1565435bc40103ffff2cde19.56) #39, !noalias !886
@@ -3171,83 +3171,83 @@ default.unreachable.i:                            ; preds = %13
   call void %23(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !909
   %24 = load i64, ptr %4, align 8, !range !910, !alias.scope !911, !noalias !914, !noundef !4
   switch i64 %24, label %default.unreachable [
-    i64 3, label %29
-    i64 2, label %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit"
-    i64 0, label %.critedge
-    i64 1, label %28
+    i64 3, label %30
+    i64 2, label %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit.critedge"
+    i64 0, label %25
+    i64 1, label %29
   ]
 
 default.unreachable:                              ; preds = %19
   unreachable
 
-.critedge:                                        ; preds = %19
+25:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %25 = load i8, ptr %7, align 8, !range !852, !noalias !916, !noundef !4
-  %cond.i48 = icmp eq i8 %25, 0
-  br i1 %cond.i48, label %30, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46"
+  %26 = load i8, ptr %7, align 8, !range !852, !noalias !916, !noundef !4
+  %cond.i48 = icmp eq i8 %26, 0
+  br i1 %cond.i48, label %31, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46"
 
-26:                                               ; preds = %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit", %16
-  %.sroa.7.sroa.0.1 = phi ptr [ undef, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit" ], [ %.sroa.02.0.copyload.i.i, %16 ]
-  %.sroa.0.1 = phi i64 [ 2, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit" ], [ 0, %16 ]
+27:                                               ; preds = %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit.critedge", %16
+  %.sroa.7.sroa.0.1 = phi ptr [ undef, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit.critedge" ], [ %.sroa.02.0.copyload.i.i, %16 ]
+  %.sroa.0.1 = phi i64 [ 2, %"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit.critedge" ], [ 0, %16 ]
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.sroa.0.1, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7.sroa.5, i64 40, i1 false)
-  br label %34
+  br label %35
 
-.critedge120:                                     ; preds = %14
+.critedge:                                        ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.560.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i.i)
   store i8 3, ptr %.sroa.4.0..sroa_idx108, align 8, !noalias !891
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br label %.backedge
 
-common.resume:                                    ; preds = %33
-  %27 = landingpad { ptr, i32 }
+common.resume:                                    ; preds = %34
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, i64 48, i1 false)
   %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i8 0, ptr %.sroa.5113.0..sroa_idx, align 8, !noalias !916
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %28
 
-28:                                               ; preds = %19
+29:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   store i64 1, ptr %0, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.434.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, i64 48, i1 false)
-  br label %34
+  br label %35
 
-"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit": ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %26
-
-29:                                               ; preds = %19
+30:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   store i64 3, ptr %0, align 8
-  br label %34
+  br label %35
 
-30:                                               ; preds = %.critedge
-  %31 = load ptr, ptr %6, align 8, !alias.scope !919, !noalias !916, !noundef !4
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46", label %33
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8, !alias.scope !919, !noalias !916, !noundef !4
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46", label %34
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   invoke void @"_ZN4core3ptr105drop_in_place$LT$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$17hfb70765b7992a139E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
           to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46" unwind label %common.resume
 
-"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46": ; preds = %30, %.critedge, %33
+"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46": ; preds = %31, %25, %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, i64 48, i1 false)
   store i8 0, ptr %.sroa.5113.0..sroa_idx114, align 8, !noalias !916
   br label %.backedge
 
-.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46", %.critedge120
-  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46" ], [ 3, %.critedge120 ]
+.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46", %.critedge
+  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h1877e1f433e9c897E.exit46" ], [ 3, %.critedge ]
   br label %10
 
-34:                                               ; preds = %29, %28, %26
+"_ZN4core3ptr202drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$ockam_identity..identities..storage..change_history_repository_sql..ChangeHistoryRow$GT$$GT$$GT$17h2bf40f13d8923272E.exit.critedge": ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  br label %27
+
+35:                                               ; preds = %30, %29, %27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.7.sroa.5)
   ret void
 }
@@ -3282,14 +3282,14 @@ default.unreachable.i:                            ; preds = %11
 13:                                               ; preds = %11
   %14 = load ptr, ptr %5, align 8, !noalias !922, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %28, label %16
+  br i1 %15, label %29, label %16
 
 16:                                               ; preds = %13
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$17h32f2c7e9f1e22886E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %32 unwind label %17, !noalias !922
+          to label %33 unwind label %17, !noalias !922
 
-common.resume:                                    ; preds = %35, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %36, %35 ]
+common.resume:                                    ; preds = %36, %17
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %37, %36 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %16
@@ -3317,42 +3317,42 @@ common.resume:                                    ; preds = %35, %17
   call void %25(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noundef nonnull align 1 %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !942
   tail call void @llvm.experimental.noalias.scope.decl(metadata !943)
   %26 = load i64, ptr %4, align 8, !range !424, !alias.scope !946, !noalias !943, !noundef !4
-  switch i64 %26, label %33 [
-    i64 18, label %34
-    i64 17, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit"
-    i64 16, label %.critedge
+  switch i64 %26, label %34 [
+    i64 18, label %35
+    i64 17, label %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge"
+    i64 16, label %27
   ]
 
-.critedge:                                        ; preds = %21
+27:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  %27 = load i8, ptr %6, align 8, !range !852, !noalias !948, !noundef !4
-  %cond.i81 = icmp eq i8 %27, 0
-  br i1 %cond.i81, label %37, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80"
+  %28 = load i8, ptr %6, align 8, !range !852, !noalias !948, !noundef !4
+  %cond.i81 = icmp eq i8 %28, 0
+  br i1 %cond.i81, label %38, label %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80"
 
-28:                                               ; preds = %13
-  %29 = load i64, ptr %7, align 8, !noalias !922, !noundef !4
-  %30 = load i64, ptr %8, align 8, !noalias !922, !noundef !4
+29:                                               ; preds = %13
+  %30 = load i64, ptr %7, align 8, !noalias !922, !noundef !4
+  %31 = load i64, ptr %8, align 8, !noalias !922, !noundef !4
   %.sroa.4166.0..sroa_idx167178 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 3, ptr %.sroa.4166.0..sroa_idx167178, align 8, !noalias !951
-  br label %31
+  br label %32
 
-31:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit", %28
-  %.sroa.7.sroa.0.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ %29, %28 ]
-  %.sroa.7.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ %30, %28 ]
-  %.sroa.0.1 = phi i64 [ 17, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit" ], [ 16, %28 ]
+32:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge", %29
+  %.sroa.7.sroa.0.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ %30, %29 ]
+  %.sroa.7.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ %31, %29 ]
+  %.sroa.0.1 = phi i64 [ 17, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge" ], [ 16, %29 ]
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.sroa.0.0, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.7.sroa.5.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx2.sroa_idx, align 8
-  br label %38
+  br label %39
 
-32:                                               ; preds = %16
+33:                                               ; preds = %16
   store i8 3, ptr %.sroa.4166.0..sroa_idx167, align 8, !noalias !951
   br label %.backedge
 
-33:                                               ; preds = %21
+34:                                               ; preds = %21
   %.sroa.10101.0.copyload102 = load i64, ptr %10, align 8, !alias.scope !954
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14.0..sroa_idx, i64 32, i1 false)
@@ -3362,39 +3362,39 @@ common.resume:                                    ; preds = %35, %17
   store i64 %.sroa.10101.0.copyload102, ptr %.sroa.4120.0..sroa_idx, align 8
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5121.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
-  br label %38
+  br label %39
 
-"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit": ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %31
-
-34:                                               ; preds = %21
+35:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   store i64 18, ptr %0, align 8
-  br label %38
+  br label %39
 
-35:                                               ; preds = %37
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %38
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
   %.sroa.5171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %.sroa.5171.0..sroa_idx, align 8, !noalias !948
   br label %common.resume
 
-37:                                               ; preds = %.critedge
+38:                                               ; preds = %27
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$17h32f2c7e9f1e22886E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80" unwind label %35
+          to label %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80" unwind label %36
 
-"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80": ; preds = %.critedge, %37
+"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80": ; preds = %27, %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, i64 32, i1 false)
   store i8 0, ptr %.sroa.5171.0..sroa_idx172, align 8, !noalias !948
   br label %.backedge
 
-.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80", %32
-  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80" ], [ 3, %32 ]
+.backedge:                                        ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80", %33
+  %.be = phi i8 [ 0, %"_ZN4core3pin12Pin$LT$P$GT$3set17h5f6985659ac38335E.exit80" ], [ 3, %33 ]
   br label %11
 
-38:                                               ; preds = %33, %34, %31
+"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$GT$$GT$17h57a4499f92600891E.exit.critedge": ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  br label %32
+
+39:                                               ; preds = %34, %35, %32
   ret void
 }
 

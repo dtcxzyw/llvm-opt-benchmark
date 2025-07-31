@@ -18485,9 +18485,9 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   %20 = sext i32 %3 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %._crit_edge63
-  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next.pre-phi, %._crit_edge63 ]
-  %.02957 = phi i1 [ false, %.lr.ph ], [ %.2, %._crit_edge63 ]
+21:                                               ; preds = %.lr.ph, %._crit_edge57
+  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next.pre-phi, %._crit_edge57 ]
+  %.02951 = phi i1 [ false, %.lr.ph ], [ %.2, %._crit_edge57 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   %22 = load volatile i32, ptr @InterruptPending, align 4
   %.not38 = icmp eq i32 %22, 0
@@ -18505,13 +18505,13 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %24
-  br i1 %27, label %46, label %29
+  br i1 %27, label %.critedge, label %29
 
 29:                                               ; preds = %28
   %30 = add nsw i64 %indvars.iv, 1
   %31 = trunc nsw i64 %30 to i32
   %32 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef %6, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %2, i32 noundef %31)
-  br label %._crit_edge63
+  br label %._crit_edge57
 
 33:                                               ; preds = %24
   br i1 %27, label %34, label %38
@@ -18520,158 +18520,158 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   %35 = add nsw i64 %indvars.iv, 1
   %36 = trunc nsw i64 %35 to i32
   %37 = call fastcc zeroext i1 @touched_lseg_inside_poly(ptr noundef %9, ptr noundef %6, ptr noundef %5, ptr noundef nonnull %2, i32 noundef %36)
-  br label %._crit_edge63
+  br label %._crit_edge57
 
 38:                                               ; preds = %33
   %39 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %40 = add nsw i64 %indvars.iv, 1
-  br i1 %39, label %41, label %._crit_edge63
+  br i1 %39, label %41, label %._crit_edge57
 
 41:                                               ; preds = %38
   %42 = trunc nsw i64 %40 to i32
-  %43 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %2, i32 noundef %42)
+  %43 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %6, ptr noundef %7, ptr noundef %2, i32 noundef %42)
   br i1 %43, label %44, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  br label %101
+  br label %100
 
 44:                                               ; preds = %41
-  %45 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %9, ptr noundef %7, ptr noundef nonnull %2, i32 noundef %42)
-  br label %._crit_edge63
+  %45 = call fastcc zeroext i1 @lseg_inside_poly(ptr noundef %9, ptr noundef %7, ptr noundef %2, i32 noundef %42)
+  br label %._crit_edge57
 
-46:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  br label %101
-
-._crit_edge63:                                    ; preds = %38, %29, %44, %34
-  %indvars.iv.next.pre-phi = phi i64 [ %30, %29 ], [ %40, %44 ], [ %35, %34 ], [ %40, %38 ]
-  %.232.shrunk = phi i1 [ %32, %29 ], [ %45, %44 ], [ %37, %34 ], [ true, %38 ]
-  %.2 = phi i1 [ %.02957, %29 ], [ true, %44 ], [ %.02957, %34 ], [ %.02957, %38 ]
+._crit_edge57:                                    ; preds = %38, %34, %44, %29
+  %indvars.iv.next.pre-phi = phi i64 [ %35, %34 ], [ %40, %44 ], [ %30, %29 ], [ %40, %38 ]
+  %.232.shrunk = phi i1 [ %37, %34 ], [ %45, %44 ], [ %32, %29 ], [ true, %38 ]
+  %.2 = phi i1 [ %.02951, %34 ], [ true, %44 ], [ %.02951, %29 ], [ %.02951, %38 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  %47 = load i32, ptr %17, align 4
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next.pre-phi, %48
-  %50 = select i1 %49, i1 %.232.shrunk, i1 false
-  br i1 %50, label %21, label %._crit_edge, !llvm.loop !72
+  %46 = load i32, ptr %17, align 4
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next.pre-phi, %47
+  %49 = select i1 %48, i1 %.232.shrunk, i1 false
+  br i1 %49, label %21, label %._crit_edge, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %._crit_edge63, %4
-  %.029.lcssa = phi i1 [ false, %4 ], [ %.2, %._crit_edge63 ]
-  %.lcssa52 = phi i32 [ %13, %4 ], [ %47, %._crit_edge63 ]
-  %.lcssa = phi i1 [ true, %4 ], [ %.232.shrunk, %._crit_edge63 ]
+._crit_edge:                                      ; preds = %._crit_edge57, %4
+  %.029.lcssa = phi i1 [ false, %4 ], [ %.2, %._crit_edge57 ]
+  %.lcssa46 = phi i32 [ %13, %4 ], [ %46, %._crit_edge57 ]
+  %.lcssa = phi i1 [ true, %4 ], [ %.232.shrunk, %._crit_edge57 ]
   %.not = xor i1 %.lcssa, true
   %or.cond = select i1 %.not, i1 true, i1 %.029.lcssa
-  br i1 %or.cond, label %101, label %51
+  br i1 %or.cond, label %100, label %50
 
-51:                                               ; preds = %._crit_edge
+50:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
-  %52 = load double, ptr %6, align 8
-  %53 = load double, ptr %9, align 8
-  %54 = fadd double %52, %53
-  %55 = call double @llvm.fabs.f64(double %54)
-  %56 = fcmp oeq double %55, 0x7FF0000000000000
-  br i1 %56, label %57, label %float8_pl.exit.thread, !prof !13
+  %51 = load double, ptr %6, align 8
+  %52 = load double, ptr %9, align 8
+  %53 = fadd double %51, %52
+  %54 = call double @llvm.fabs.f64(double %53)
+  %55 = fcmp oeq double %54, 0x7FF0000000000000
+  br i1 %55, label %56, label %float8_pl.exit.thread, !prof !13
 
-57:                                               ; preds = %51
-  %58 = call double @llvm.fabs.f64(double %52)
-  %59 = fcmp oeq double %58, 0x7FF0000000000000
-  %60 = call double @llvm.fabs.f64(double %53)
-  %61 = fcmp oeq double %60, 0x7FF0000000000000
-  %or.cond.i = or i1 %59, %61
-  br i1 %or.cond.i, label %float8_pl.exit, label %62
+56:                                               ; preds = %50
+  %57 = call double @llvm.fabs.f64(double %51)
+  %58 = fcmp oeq double %57, 0x7FF0000000000000
+  %59 = call double @llvm.fabs.f64(double %52)
+  %60 = fcmp oeq double %59, 0x7FF0000000000000
+  %or.cond.i = or i1 %58, %60
+  br i1 %or.cond.i, label %float8_pl.exit, label %61
 
-62:                                               ; preds = %57
+61:                                               ; preds = %56
   call void @float_overflow_error() #19
   unreachable
 
-float8_pl.exit:                                   ; preds = %57
-  %63 = fmul double %54, 5.000000e-01
-  br label %68
+float8_pl.exit:                                   ; preds = %56
+  %62 = fmul double %53, 5.000000e-01
+  br label %67
 
-float8_pl.exit.thread:                            ; preds = %51
-  %64 = fmul double %54, 5.000000e-01
-  %65 = call double @llvm.fabs.f64(double %64)
-  %66 = fcmp oeq double %65, 0x7FF0000000000000
-  br i1 %66, label %67, label %68, !prof !13
+float8_pl.exit.thread:                            ; preds = %50
+  %63 = fmul double %53, 5.000000e-01
+  %64 = call double @llvm.fabs.f64(double %63)
+  %65 = fcmp oeq double %64, 0x7FF0000000000000
+  br i1 %65, label %66, label %67, !prof !13
 
-67:                                               ; preds = %float8_pl.exit.thread
+66:                                               ; preds = %float8_pl.exit.thread
   call void @float_overflow_error() #19
   unreachable
 
-68:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
-  %69 = phi double [ %64, %float8_pl.exit.thread ], [ %63, %float8_pl.exit ]
-  %70 = fcmp oeq double %69, 0.000000e+00
-  br i1 %70, label %71, label %float8_div.exit, !prof !13
+67:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
+  %68 = phi double [ %63, %float8_pl.exit.thread ], [ %62, %float8_pl.exit ]
+  %69 = fcmp oeq double %68, 0.000000e+00
+  br i1 %69, label %70, label %float8_div.exit, !prof !13
 
-71:                                               ; preds = %68
-  %72 = fcmp oeq double %54, 0.000000e+00
-  br i1 %72, label %float8_div.exit, label %73
+70:                                               ; preds = %67
+  %71 = fcmp oeq double %53, 0.000000e+00
+  br i1 %71, label %float8_div.exit, label %72
 
-73:                                               ; preds = %71
+72:                                               ; preds = %70
   call void @float_underflow_error() #19
   unreachable
 
-float8_div.exit:                                  ; preds = %68, %71
-  store double %69, ptr %8, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %77 = load double, ptr %76, align 8
-  %78 = fadd double %75, %77
-  %79 = call double @llvm.fabs.f64(double %78)
-  %80 = fcmp oeq double %79, 0x7FF0000000000000
-  br i1 %80, label %81, label %float8_pl.exit41.thread, !prof !13
+float8_div.exit:                                  ; preds = %67, %70
+  store double %68, ptr %8, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %74 = load double, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %76 = load double, ptr %75, align 8
+  %77 = fadd double %74, %76
+  %78 = call double @llvm.fabs.f64(double %77)
+  %79 = fcmp oeq double %78, 0x7FF0000000000000
+  br i1 %79, label %80, label %float8_pl.exit41.thread, !prof !13
 
-81:                                               ; preds = %float8_div.exit
-  %82 = call double @llvm.fabs.f64(double %75)
-  %83 = fcmp oeq double %82, 0x7FF0000000000000
-  %84 = call double @llvm.fabs.f64(double %77)
-  %85 = fcmp oeq double %84, 0x7FF0000000000000
-  %or.cond.i40 = or i1 %83, %85
-  br i1 %or.cond.i40, label %float8_pl.exit41, label %86
+80:                                               ; preds = %float8_div.exit
+  %81 = call double @llvm.fabs.f64(double %74)
+  %82 = fcmp oeq double %81, 0x7FF0000000000000
+  %83 = call double @llvm.fabs.f64(double %76)
+  %84 = fcmp oeq double %83, 0x7FF0000000000000
+  %or.cond.i40 = or i1 %82, %84
+  br i1 %or.cond.i40, label %float8_pl.exit41, label %85
 
-86:                                               ; preds = %81
+85:                                               ; preds = %80
   call void @float_overflow_error() #19
   unreachable
 
-float8_pl.exit41:                                 ; preds = %81
-  %87 = fmul double %78, 5.000000e-01
-  br label %92
+float8_pl.exit41:                                 ; preds = %80
+  %86 = fmul double %77, 5.000000e-01
+  br label %91
 
 float8_pl.exit41.thread:                          ; preds = %float8_div.exit
-  %88 = fmul double %78, 5.000000e-01
-  %89 = call double @llvm.fabs.f64(double %88)
-  %90 = fcmp oeq double %89, 0x7FF0000000000000
-  br i1 %90, label %91, label %92, !prof !13
+  %87 = fmul double %77, 5.000000e-01
+  %88 = call double @llvm.fabs.f64(double %87)
+  %89 = fcmp oeq double %88, 0x7FF0000000000000
+  br i1 %89, label %90, label %91, !prof !13
 
-91:                                               ; preds = %float8_pl.exit41.thread
+90:                                               ; preds = %float8_pl.exit41.thread
   call void @float_overflow_error() #19
   unreachable
 
-92:                                               ; preds = %float8_pl.exit41, %float8_pl.exit41.thread
-  %93 = phi double [ %88, %float8_pl.exit41.thread ], [ %87, %float8_pl.exit41 ]
-  %94 = fcmp oeq double %93, 0.000000e+00
-  br i1 %94, label %95, label %float8_div.exit43, !prof !13
+91:                                               ; preds = %float8_pl.exit41, %float8_pl.exit41.thread
+  %92 = phi double [ %87, %float8_pl.exit41.thread ], [ %86, %float8_pl.exit41 ]
+  %93 = fcmp oeq double %92, 0.000000e+00
+  br i1 %93, label %94, label %float8_div.exit43, !prof !13
 
-95:                                               ; preds = %92
-  %96 = fcmp oeq double %78, 0.000000e+00
-  br i1 %96, label %float8_div.exit43, label %97
+94:                                               ; preds = %91
+  %95 = fcmp oeq double %77, 0.000000e+00
+  br i1 %95, label %float8_div.exit43, label %96
 
-97:                                               ; preds = %95
+96:                                               ; preds = %94
   call void @float_underflow_error() #19
   unreachable
 
-float8_div.exit43:                                ; preds = %92, %95
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %93, ptr %98, align 8
-  %99 = call fastcc i32 @point_inside(ptr noundef nonnull %8, i32 noundef %.lcssa52, ptr noundef nonnull %10)
-  %100 = icmp ne i32 %99, 0
+float8_div.exit43:                                ; preds = %91, %94
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %92, ptr %97, align 8
+  %98 = call fastcc i32 @point_inside(ptr noundef nonnull %8, i32 noundef %.lcssa46, ptr noundef nonnull %10)
+  %99 = icmp ne i32 %98, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  br label %101
+  br label %100
 
-101:                                              ; preds = %._crit_edge, %float8_div.exit43, %._crit_edge.thread, %46
-  %.236 = phi i1 [ true, %46 ], [ %.lcssa, %._crit_edge ], [ %100, %float8_div.exit43 ], [ false, %._crit_edge.thread ]
+.critedge:                                        ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  br label %100
+
+100:                                              ; preds = %._crit_edge, %float8_div.exit43, %._crit_edge.thread, %.critedge
+  %.236 = phi i1 [ true, %.critedge ], [ %.lcssa, %._crit_edge ], [ %99, %float8_div.exit43 ], [ false, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   ret i1 %.236

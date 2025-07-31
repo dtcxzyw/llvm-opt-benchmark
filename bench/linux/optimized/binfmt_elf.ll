@@ -920,7 +920,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 136) #17
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread46, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -982,7 +982,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   tail call void asm sideeffect "458: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 458b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 458) #15, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1822, i32 2305, i64 12) #15, !srcloc !22
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_end\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #15, !srcloc !23
-  br label %.thread46
+  br label %.critedge
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -1023,7 +1023,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %73 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %72, i32 noundef 3520) #16
   store ptr %73, ptr %5, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread55, label %75, !prof !14
+  br i1 %74, label %.critedge.thread, label %75, !prof !14
 
 75:                                               ; preds = %51
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1035,20 +1035,20 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.loopexit72.thread, label %.preheader70
+  br i1 %83, label %.loopexit69.thread, label %.preheader67
 
-.loopexit72:                                      ; preds = %95
-  %.pre95 = load ptr, ptr %5, align 8
-  %84 = icmp eq ptr %.pre95, null
-  br i1 %84, label %.loopexit69, label %.loopexit72.thread
+.loopexit69:                                      ; preds = %95
+  %.pre92 = load ptr, ptr %5, align 8
+  %84 = icmp eq ptr %.pre92, null
+  br i1 %84, label %.loopexit66, label %.loopexit69.thread
 
-.loopexit72.thread:                               ; preds = %75, %.loopexit72
-  %85 = phi ptr [ %.pre95, %.loopexit72 ], [ %73, %75 ]
+.loopexit69.thread:                               ; preds = %75, %.loopexit69
+  %85 = phi ptr [ %.pre92, %.loopexit69 ], [ %73, %75 ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 232
   br label %103
 
-.preheader70:                                     ; preds = %75, %95
+.preheader67:                                     ; preds = %75, %95
   %88 = phi ptr [ %101, %95 ], [ %82, %75 ]
   %89 = load i32, ptr %23, align 8
   %90 = sext i32 %89 to i64
@@ -1056,9 +1056,9 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %92 = add nsw i64 %91, 352
   %93 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %92, i32 noundef 3520) #16
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.thread46, label %95, !prof !14
+  br i1 %94, label %.critedge, label %95, !prof !14
 
-95:                                               ; preds = %.preheader70
+95:                                               ; preds = %.preheader67
   %96 = load ptr, ptr %88, align 8
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %96, ptr %97, align 8
@@ -1069,10 +1069,10 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %100 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.loopexit72, label %.preheader70, !llvm.loop !24
+  br i1 %102, label %.loopexit69, label %.preheader67, !llvm.loop !24
 
-103:                                              ; preds = %.loopexit68, %.loopexit72.thread
-  %104 = phi ptr [ %85, %.loopexit72.thread ], [ %252, %.loopexit68 ]
+103:                                              ; preds = %.loopexit65, %.loopexit69.thread
+  %104 = phi ptr [ %85, %.loopexit69.thread ], [ %252, %.loopexit65 ]
   %105 = load ptr, ptr %0, align 8
   %106 = load i32, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
@@ -1148,8 +1148,8 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 153:                                              ; preds = %143, %135
   %.pn = phi { i64, i64 } [ %142, %135 ], [ %152, %143 ]
   %.sink = extractvalue { i64, i64 } %.pn, 1
-  %.sink94 = extractvalue { i64, i64 } %.pn, 0
-  store i64 %.sink94, ptr %134, align 8
+  %.sink91 = extractvalue { i64, i64 } %.pn, 0
+  store i64 %.sink91, ptr %134, align 8
   %154 = getelementptr inbounds nuw i8, ptr %104, i64 88
   store i64 %.sink, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %104, i64 96
@@ -1202,7 +1202,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 189:                                              ; preds = %186, %153
   %190 = load i32, ptr %24, align 8
   %191 = icmp ugt i32 %190, 1
-  br i1 %191, label %192, label %.loopexit68
+  br i1 %191, label %192, label %.loopexit65
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %104, i64 344
@@ -1215,7 +1215,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %196 = load i32, ptr %24, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp samesign ult i64 %195, %197
-  br i1 %198, label %199, label %.loopexit68, !llvm.loop !25
+  br i1 %198, label %199, label %.loopexit65, !llvm.loop !25
 
 199:                                              ; preds = %194, %192
   %200 = phi i64 [ 1, %192 ], [ %195, %194 ]
@@ -1302,14 +1302,14 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1746, i32 2307, i64 12) #15, !srcloc !27
   call void asm sideeffect "457: nop\0A\09.pushsection .discard.instr_end\0A\09.long 457b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 457) #15, !srcloc !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %.loopexit68
+  br label %.loopexit65
 
-.loopexit68:                                      ; preds = %194, %251, %189
+.loopexit65:                                      ; preds = %194, %251, %189
   %252 = load ptr, ptr %104, align 8
   %253 = icmp eq ptr %252, null
-  br i1 %253, label %.loopexit69, label %103, !llvm.loop !29
+  br i1 %253, label %.loopexit66, label %103, !llvm.loop !29
 
-.loopexit69:                                      ; preds = %.loopexit68, %.loopexit72
+.loopexit66:                                      ; preds = %.loopexit65, %.loopexit69
   %254 = getelementptr inbounds nuw i8, ptr %13, i64 1376
   %255 = load ptr, ptr %254, align 32
   %256 = getelementptr inbounds nuw i8, ptr %13, i64 1192
@@ -1329,27 +1329,27 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %269 = icmp eq i64 %268, 0
   br i1 %269, label %270, label %338
 
-270:                                              ; preds = %.loopexit69
+270:                                              ; preds = %.loopexit66
   %271 = icmp eq i32 %263, 0
-  br i1 %271, label %.loopexit67, label %.preheader66
+  br i1 %271, label %.loopexit64, label %.preheader63
 
-.preheader66:                                     ; preds = %270, %277
+.preheader63:                                     ; preds = %270, %277
   %272 = phi i64 [ %278, %277 ], [ 0, %270 ]
   %273 = getelementptr [80 x i8], ptr %265, i64 0, i64 %272
   %274 = load i8, ptr %273, align 1
   %275 = icmp eq i8 %274, 0
   br i1 %275, label %276, label %277
 
-276:                                              ; preds = %.preheader66
+276:                                              ; preds = %.preheader63
   store i8 32, ptr %273, align 1
   br label %277
 
-277:                                              ; preds = %276, %.preheader66
+277:                                              ; preds = %276, %.preheader63
   %278 = add nuw nsw i64 %272, 1
   %279 = icmp eq i64 %278, %266
-  br i1 %279, label %.loopexit67, label %.preheader66, !llvm.loop !30
+  br i1 %279, label %.loopexit64, label %.preheader63, !llvm.loop !30
 
-.loopexit67:                                      ; preds = %277, %270
+.loopexit64:                                      ; preds = %277, %270
   %280 = getelementptr [80 x i8], ptr %265, i64 0, i64 %266
   store i8 0, ptr %280, align 1
   call void @__rcu_read_lock() #15
@@ -1373,11 +1373,11 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %.thread39, label %294
 
-.thread39:                                        ; preds = %.loopexit67
+.thread39:                                        ; preds = %.loopexit64
   store i8 0, ptr %15, align 8
   br label %302
 
-294:                                              ; preds = %.loopexit67
+294:                                              ; preds = %.loopexit64
   %295 = zext i32 %292 to i64
   %296 = or disjoint i64 %295, -4294967296
   %297 = call i64 asm "rep; bsf $1,$0", "=r,r,~{dirflag},~{fpsr},~{flags}"(i64 %296) #18, !srcloc !31
@@ -1436,7 +1436,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %337 = call ptr @__get_task_comm(ptr noundef nonnull %336, i64 noundef 16, ptr noundef %255) #15
   br label %338
 
-338:                                              ; preds = %307, %.loopexit69
+338:                                              ; preds = %307, %.loopexit66
   %339 = load ptr, ptr %18, align 8
   %340 = call i64 @strlen(ptr noundef %339) #15
   %341 = trunc i64 %340 to i32
@@ -1495,13 +1495,13 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %378 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %379 = load i32, ptr %7, align 8
   %380 = icmp ugt i32 %379, 67108863
-  br i1 %380, label %.loopexit64, label %381
+  br i1 %380, label %.loopexit61, label %381
 
 381:                                              ; preds = %369
   %382 = mul nuw nsw i32 %379, 24
   %383 = add nuw nsw i32 %382, 16
   %384 = icmp samesign ugt i32 %379, 65535
-  br i1 %384, label %.loopexit64, label %385
+  br i1 %384, label %.loopexit61, label %385
 
 385:                                              ; preds = %381
   %386 = shl nuw nsw i32 %379, 6
@@ -1514,7 +1514,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %390 = mul i32 %397, 5
   %391 = lshr exact i32 %390, 2
   %392 = icmp ugt i32 %390, 16777212
-  br i1 %392, label %.loopexit64.loopexit, label %393
+  br i1 %392, label %.loopexit61.loopexit, label %393
 
 393:                                              ; preds = %389, %385
   %394 = phi i32 [ %386, %385 ], [ %391, %389 ]
@@ -1524,13 +1524,13 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %398 = zext i32 %397 to i64
   %399 = call noalias ptr @kvmalloc_node(i64 noundef %398, i32 noundef 3264, i32 noundef -1) #16
   %400 = icmp ult ptr %399, inttoptr (i64 17 to ptr)
-  br i1 %400, label %.loopexit64.loopexit, label %401
+  br i1 %400, label %.loopexit61.loopexit, label %401
 
 401:                                              ; preds = %393
   %402 = getelementptr i8, ptr %399, i64 %387
   %403 = load i32, ptr %7, align 8
   %404 = icmp sgt i32 %403, 0
-  br i1 %404, label %405, label %.loopexit63
+  br i1 %404, label %405, label %.loopexit60
 
 405:                                              ; preds = %401
   %406 = sub i32 %397, %383
@@ -1546,7 +1546,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %410 = load i32, ptr %7, align 8
   %411 = sext i32 %410 to i64
   %412 = icmp slt i64 %409, %411
-  br i1 %412, label %413, label %.loopexit63, !llvm.loop !33
+  br i1 %412, label %413, label %.loopexit60, !llvm.loop !33
 
 413:                                              ; preds = %408, %405
   %414 = phi i64 [ 0, %405 ], [ %409, %408 ]
@@ -1596,7 +1596,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %448 = add i32 %418, 1
   br label %408
 
-.loopexit63:                                      ; preds = %401, %408
+.loopexit60:                                      ; preds = %401, %408
   %449 = phi i32 [ %.ph41, %408 ], [ 0, %401 ]
   %450 = phi ptr [ %.ph44, %408 ], [ %402, %401 ]
   %451 = phi i32 [ %410, %408 ], [ %403, %401 ]
@@ -1608,7 +1608,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %455 = icmp eq i32 %451, %449
   br i1 %455, label %466, label %456
 
-456:                                              ; preds = %.loopexit63
+456:                                              ; preds = %.loopexit60
   %457 = sub i32 %451, %449
   %458 = mul i32 %457, 24
   %459 = zext i32 %458 to i64
@@ -1621,8 +1621,8 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %465 = getelementptr i8, ptr %450, i64 %460
   br label %466
 
-466:                                              ; preds = %456, %.loopexit63
-  %467 = phi ptr [ %465, %456 ], [ %450, %.loopexit63 ]
+466:                                              ; preds = %456, %.loopexit60
+  %467 = phi ptr [ %465, %456 ], [ %450, %.loopexit60 ]
   %468 = ptrtoint ptr %467 to i64
   %469 = sub i64 %468, %452
   %470 = trunc i64 %469 to i32
@@ -1641,20 +1641,20 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %479 = load i64, ptr %349, align 8
   %480 = add i64 %478, %479
   store i64 %480, ptr %349, align 8
-  br label %.loopexit64
+  br label %.loopexit61
 
-.loopexit64.loopexit:                             ; preds = %389, %393
-  %.pre96 = load i64, ptr %349, align 8
-  br label %.loopexit64
+.loopexit61.loopexit:                             ; preds = %389, %393
+  %.pre93 = load i64, ptr %349, align 8
+  br label %.loopexit61
 
-.loopexit64:                                      ; preds = %.loopexit64.loopexit, %466, %381, %369
-  %481 = phi i64 [ %.pre96, %.loopexit64.loopexit ], [ %480, %466 ], [ %377, %381 ], [ %377, %369 ]
+.loopexit61:                                      ; preds = %.loopexit61.loopexit, %466, %381, %369
+  %481 = phi i64 [ %.pre93, %.loopexit61.loopexit ], [ %480, %466 ], [ %377, %381 ], [ %377, %369 ]
   %482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %483 = call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %482, i32 noundef 3264, i64 noundef 56) #17
   %484 = icmp eq ptr %483, null
-  br i1 %484, label %.thread46, label %485
+  br i1 %484, label %.critedge, label %485
 
-485:                                              ; preds = %.loopexit64
+485:                                              ; preds = %.loopexit61
   %486 = sext i32 %9 to i64
   %487 = mul nsw i64 %486, 56
   %488 = add nsw i64 %487, 64
@@ -1687,7 +1687,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %507 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %506, i32 noundef 3264, i64 noundef 64) #17
   %508 = icmp eq ptr %507, null
-  br i1 %508, label %.thread46, label %509
+  br i1 %508, label %.critedge, label %509
 
 509:                                              ; preds = %505
   %510 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1709,17 +1709,17 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %517 = phi ptr [ %507, %509 ], [ null, %485 ]
   %518 = call i32 @dump_emit(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 64) #15
   %519 = icmp eq i32 %518, 0
-  br i1 %519, label %.thread46, label %520
+  br i1 %519, label %.critedge, label %520
 
 520:                                              ; preds = %516
   %521 = call i32 @dump_emit(ptr noundef %0, ptr noundef nonnull %483, i32 noundef 56) #15
   %522 = icmp eq i32 %521, 0
-  br i1 %522, label %.thread46, label %523
+  br i1 %522, label %.critedge, label %523
 
 523:                                              ; preds = %520
   %524 = load i32, ptr %7, align 8
   %525 = icmp sgt i32 %524, 0
-  br i1 %525, label %526, label %.loopexit62
+  br i1 %525, label %526, label %.loopexit59
 
 526:                                              ; preds = %523
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1737,7 +1737,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %537 = load i32, ptr %7, align 8
   %538 = sext i32 %537 to i64
   %539 = icmp slt i64 %536, %538
-  br i1 %539, label %540, label %.loopexit62, !llvm.loop !34
+  br i1 %539, label %540, label %.loopexit59, !llvm.loop !34
 
 540:                                              ; preds = %535, %526
   %541 = phi i64 [ 0, %526 ], [ %536, %535 ]
@@ -1775,12 +1775,12 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 561:                                              ; preds = %540
   %562 = or disjoint i32 %557, 2
   store i32 %562, ptr %533, align 4
-  %.pre97 = load i64, ptr %553, align 8
+  %.pre94 = load i64, ptr %553, align 8
   br label %563
 
 563:                                              ; preds = %561, %540
   %564 = phi i32 [ %562, %561 ], [ %557, %540 ]
-  %565 = phi i64 [ %.pre97, %561 ], [ %558, %540 ]
+  %565 = phi i64 [ %.pre94, %561 ], [ %558, %540 ]
   %566 = and i64 %565, 4
   %567 = icmp eq i64 %566, 0
   br i1 %567, label %570, label %568
@@ -1795,20 +1795,20 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %571 = call i32 @dump_emit(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 56) #15
   %572 = icmp eq i32 %571, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #15
-  br i1 %572, label %.thread46, label %535
+  br i1 %572, label %.critedge, label %535
 
-.loopexit62:                                      ; preds = %535, %523
+.loopexit59:                                      ; preds = %535, %523
   %573 = load ptr, ptr %5, align 8
   %574 = getelementptr inbounds nuw i8, ptr %5, i64 96
   br label %575
 
-575:                                              ; preds = %.loopexit59, %.loopexit62
-  %576 = phi i1 [ false, %.loopexit62 ], [ true, %.loopexit59 ]
-  %577 = phi ptr [ %573, %.loopexit62 ], [ %614, %.loopexit59 ]
+575:                                              ; preds = %.loopexit56, %.loopexit59
+  %576 = phi i1 [ false, %.loopexit59 ], [ true, %.loopexit56 ]
+  %577 = phi ptr [ %573, %.loopexit59 ], [ %614, %.loopexit56 ]
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 352
   %579 = call fastcc i32 @writenote(ptr noundef nonnull %578, ptr noundef %0), !range !35
   %580 = icmp eq i32 %579, 0
-  br i1 %580, label %.thread46, label %581
+  br i1 %580, label %.critedge, label %581
 
 581:                                              ; preds = %575
   br i1 %576, label %597, label %582
@@ -1816,17 +1816,17 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 582:                                              ; preds = %581
   %583 = call fastcc i32 @writenote(ptr noundef nonnull %18, ptr noundef %0), !range !35
   %584 = icmp eq i32 %583, 0
-  br i1 %584, label %.thread46, label %585
+  br i1 %584, label %.critedge, label %585
 
 585:                                              ; preds = %582
   %586 = call fastcc i32 @writenote(ptr noundef nonnull %352, ptr noundef %0), !range !35
   %587 = icmp eq i32 %586, 0
-  br i1 %587, label %.thread46, label %588
+  br i1 %587, label %.critedge, label %588
 
 588:                                              ; preds = %585
   %589 = call fastcc i32 @writenote(ptr noundef nonnull %370, ptr noundef %0), !range !35
   %590 = icmp eq i32 %589, 0
-  br i1 %590, label %.thread46, label %591
+  br i1 %590, label %.critedge, label %591
 
 591:                                              ; preds = %588
   %592 = load ptr, ptr %574, align 8
@@ -1836,14 +1836,14 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 594:                                              ; preds = %591
   %595 = call fastcc i32 @writenote(ptr noundef nonnull %378, ptr noundef %0), !range !35
   %596 = icmp eq i32 %595, 0
-  br i1 %596, label %.thread46, label %597
+  br i1 %596, label %.critedge, label %597
 
 597:                                              ; preds = %594, %591, %581
   %598 = load i32, ptr %23, align 8
   %599 = icmp sgt i32 %598, 1
-  br i1 %599, label %.preheader57, label %.loopexit59
+  br i1 %599, label %.preheader54, label %.loopexit56
 
-.preheader57:                                     ; preds = %597, %609
+.preheader54:                                     ; preds = %597, %609
   %600 = phi i32 [ %610, %609 ], [ %598, %597 ]
   %601 = phi i64 [ %611, %609 ], [ 1, %597 ]
   %602 = getelementptr [0 x %struct.memelfnote], ptr %578, i64 0, i64 %601
@@ -1852,32 +1852,32 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %605 = icmp eq ptr %604, null
   br i1 %605, label %609, label %606
 
-606:                                              ; preds = %.preheader57
+606:                                              ; preds = %.preheader54
   %607 = call fastcc i32 @writenote(ptr noundef %602, ptr noundef %0), !range !35
   %608 = icmp eq i32 %607, 0
-  br i1 %608, label %.thread46, label %._crit_edge
+  br i1 %608, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %606
-  %.pre98 = load i32, ptr %23, align 8
+  %.pre95 = load i32, ptr %23, align 8
   br label %609
 
-609:                                              ; preds = %._crit_edge, %.preheader57
-  %610 = phi i32 [ %.pre98, %._crit_edge ], [ %600, %.preheader57 ]
+609:                                              ; preds = %._crit_edge, %.preheader54
+  %610 = phi i32 [ %.pre95, %._crit_edge ], [ %600, %.preheader54 ]
   %611 = add nuw nsw i64 %601, 1
   %612 = sext i32 %610 to i64
   %613 = icmp slt i64 %611, %612
-  br i1 %613, label %.preheader57, label %.loopexit59, !llvm.loop !36
+  br i1 %613, label %.preheader54, label %.loopexit56, !llvm.loop !36
 
-.loopexit59:                                      ; preds = %609, %597
+.loopexit56:                                      ; preds = %609, %597
   %614 = load ptr, ptr %577, align 8
   %.not = icmp eq ptr %614, null
   br i1 %.not, label %615, label %575, !llvm.loop !37
 
-615:                                              ; preds = %.loopexit59
+615:                                              ; preds = %.loopexit56
   call void @dump_skip_to(ptr noundef %0, i64 noundef %500) #15
   %616 = load i32, ptr %7, align 8
   %617 = icmp sgt i32 %616, 0
-  br i1 %617, label %618, label %.loopexit56
+  br i1 %617, label %618, label %.loopexit53
 
 618:                                              ; preds = %615
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1888,7 +1888,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %622 = load i32, ptr %7, align 8
   %623 = sext i32 %622 to i64
   %624 = icmp slt i64 %621, %623
-  br i1 %624, label %625, label %.loopexit56, !llvm.loop !38
+  br i1 %624, label %625, label %.loopexit53, !llvm.loop !38
 
 625:                                              ; preds = %620, %618
   %626 = phi i64 [ 0, %618 ], [ %621, %620 ]
@@ -1899,29 +1899,29 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %631 = load i64, ptr %630, align 8
   %632 = call i32 @dump_user_range(ptr noundef %0, i64 noundef %629, i64 noundef %631) #15
   %633 = icmp eq i32 %632, 0
-  br i1 %633, label %.thread46, label %620
+  br i1 %633, label %.critedge, label %620
 
-.loopexit56:                                      ; preds = %620, %615
-  br i1 %504, label %634, label %.thread46
+.loopexit53:                                      ; preds = %620, %615
+  br i1 %504, label %634, label %.critedge
 
-634:                                              ; preds = %.loopexit56
+634:                                              ; preds = %.loopexit53
   %635 = call i32 @dump_emit(ptr noundef %0, ptr noundef %517, i32 noundef 64) #15
-  br label %.thread46
+  br label %.critedge
 
-.thread46:                                        ; preds = %.preheader70, %570, %594, %588, %585, %582, %575, %606, %625, %.loopexit64, %634, %.loopexit56, %520, %516, %505, %.thread, %1
-  %.ph51 = phi ptr [ null, %.thread ], [ null, %1 ], [ %483, %505 ], [ %483, %516 ], [ %483, %520 ], [ %483, %.loopexit56 ], [ %483, %634 ], [ null, %.loopexit64 ], [ %483, %625 ], [ %483, %606 ], [ %483, %575 ], [ %483, %582 ], [ %483, %585 ], [ %483, %588 ], [ %483, %594 ], [ %483, %570 ], [ null, %.preheader70 ]
-  %.ph52 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %505 ], [ %517, %516 ], [ %517, %520 ], [ %517, %.loopexit56 ], [ %517, %634 ], [ null, %.loopexit64 ], [ %517, %625 ], [ %517, %606 ], [ %517, %575 ], [ %517, %582 ], [ %517, %585 ], [ %517, %588 ], [ %517, %594 ], [ %517, %570 ], [ null, %.preheader70 ]
-  %.ph53 = phi i32 [ 0, %.thread ], [ 0, %1 ], [ 1, %505 ], [ 1, %516 ], [ 1, %520 ], [ 1, %.loopexit56 ], [ 1, %634 ], [ 1, %.loopexit64 ], [ 1, %625 ], [ 1, %606 ], [ 1, %575 ], [ 1, %582 ], [ 1, %585 ], [ 1, %588 ], [ 1, %594 ], [ 1, %570 ], [ 0, %.preheader70 ]
-  %.pr54 = load ptr, ptr %5, align 8
-  %636 = icmp eq ptr %.pr54, null
-  br i1 %636, label %.thread55, label %637
+.critedge:                                        ; preds = %.preheader67, %570, %594, %588, %585, %582, %575, %606, %625, %.loopexit61, %634, %.loopexit53, %520, %516, %505, %.thread, %1
+  %.ph49 = phi ptr [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ %483, %505 ], [ %483, %516 ], [ %483, %520 ], [ %483, %.loopexit53 ], [ %483, %634 ], [ %483, %625 ], [ %483, %606 ], [ %483, %575 ], [ %483, %582 ], [ %483, %585 ], [ %483, %588 ], [ %483, %594 ], [ %483, %570 ], [ null, %.preheader67 ]
+  %.ph50 = phi ptr [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ null, %505 ], [ %517, %516 ], [ %517, %520 ], [ %517, %.loopexit53 ], [ %517, %634 ], [ %517, %625 ], [ %517, %606 ], [ %517, %575 ], [ %517, %582 ], [ %517, %585 ], [ %517, %588 ], [ %517, %594 ], [ %517, %570 ], [ null, %.preheader67 ]
+  %.ph51 = phi i32 [ 1, %.loopexit61 ], [ 0, %.thread ], [ 0, %1 ], [ 1, %505 ], [ 1, %516 ], [ 1, %520 ], [ 1, %.loopexit53 ], [ 1, %634 ], [ 1, %625 ], [ 1, %606 ], [ 1, %575 ], [ 1, %582 ], [ 1, %585 ], [ 1, %588 ], [ 1, %594 ], [ 1, %570 ], [ 0, %.preheader67 ]
+  %.pr52 = load ptr, ptr %5, align 8
+  %636 = icmp eq ptr %.pr52, null
+  br i1 %636, label %.critedge.thread, label %637
 
-637:                                              ; preds = %.thread46
+637:                                              ; preds = %.critedge
   %638 = getelementptr inbounds nuw i8, ptr %5, i64 240
   br label %639
 
 639:                                              ; preds = %.loopexit, %637
-  %640 = phi ptr [ %.pr54, %637 ], [ %641, %.loopexit ]
+  %640 = phi ptr [ %.pr52, %637 ], [ %641, %.loopexit ]
   %641 = load ptr, ptr %640, align 8
   %642 = getelementptr inbounds nuw i8, ptr %640, i64 368
   %643 = load ptr, ptr %642, align 8
@@ -1957,12 +1957,12 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 .loopexit:                                        ; preds = %.preheader, %649
   call void @kfree(ptr noundef nonnull %640) #15
   %659 = icmp eq ptr %641, null
-  br i1 %659, label %.thread55, label %639, !llvm.loop !43
+  br i1 %659, label %.critedge.thread, label %639, !llvm.loop !43
 
-.thread55:                                        ; preds = %.loopexit, %51, %.thread46
-  %660 = phi i32 [ %.ph53, %.thread46 ], [ 0, %51 ], [ %.ph53, %.loopexit ]
-  %661 = phi ptr [ %.ph52, %.thread46 ], [ null, %51 ], [ %.ph52, %.loopexit ]
-  %662 = phi ptr [ %.ph51, %.thread46 ], [ null, %51 ], [ %.ph51, %.loopexit ]
+.critedge.thread:                                 ; preds = %.loopexit, %51, %.critedge
+  %660 = phi i32 [ %.ph51, %.critedge ], [ 0, %51 ], [ %.ph51, %.loopexit ]
+  %661 = phi ptr [ %.ph50, %.critedge ], [ null, %51 ], [ %.ph50, %.loopexit ]
+  %662 = phi ptr [ %.ph49, %.critedge ], [ null, %51 ], [ %.ph49, %.loopexit ]
   %663 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %664 = load ptr, ptr %663, align 8
   call void @kfree(ptr noundef %664) #15

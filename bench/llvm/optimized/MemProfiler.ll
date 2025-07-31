@@ -5872,18 +5872,18 @@ _ZN4llvm11SmallVectorISt4pairINS_7memprof12LineLocationEmELj0EEC2ERKS5_.exit52: 
   %141 = sub nsw i32 %.0.i, %.040.i
   %142 = sub i32 1, %.043.in.i
   %143 = icmp eq i32 %141, %142
-  br i1 %143, label %._crit_edge57.i, label %144
+  br i1 %143, label %._crit_edge56.i, label %144
 
-._crit_edge57.i:                                  ; preds = %138
+._crit_edge56.i:                                  ; preds = %138
   %.pre.i = add nsw i32 %141, 1
   br label %154
 
 144:                                              ; preds = %138
   %.not.i53 = icmp eq i32 %141, %.043.i
-  br i1 %.not.i53, label %._crit_edge56.i, label %145
+  br i1 %.not.i53, label %._crit_edge55.i, label %145
 
-._crit_edge56.i:                                  ; preds = %144
-  %.pre58.i = add i32 %.043.in.i, -2
+._crit_edge55.i:                                  ; preds = %144
+  %.pre57.i = add i32 %.043.in.i, -2
   br label %154
 
 145:                                              ; preds = %144
@@ -5901,8 +5901,8 @@ _ZN4llvm11SmallVectorISt4pairINS_7memprof12LineLocationEmELj0EEC2ERKS5_.exit52: 
   %spec.select.i = add nsw i32 %141, %spec.select.i.v
   br label %154
 
-154:                                              ; preds = %145, %._crit_edge56.i, %._crit_edge57.i
-  %.045.i = phi i32 [ %.pre.i, %._crit_edge57.i ], [ %.pre58.i, %._crit_edge56.i ], [ %spec.select.i, %145 ]
+154:                                              ; preds = %145, %._crit_edge55.i, %._crit_edge56.i
+  %.045.i = phi i32 [ %.pre.i, %._crit_edge56.i ], [ %.pre57.i, %._crit_edge55.i ], [ %spec.select.i, %145 ]
   %155 = add nsw i32 %.045.i, %15
   %156 = sext i32 %155 to i64
   %157 = load ptr, ptr %140, align 8, !tbaa !406
@@ -5922,19 +5922,19 @@ _ZN4llvm11SmallVectorISt4pairINS_7memprof12LineLocationEmELj0EEC2ERKS5_.exit52: 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv51.i = phi i64 [ %166, %.lr.ph.preheader.i ], [ %indvars.iv.next52.i, %.lr.ph.i ]
+  %indvars.iv50.i = phi i64 [ %166, %.lr.ph.preheader.i ], [ %indvars.iv.next51.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %164, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
+  %indvars.iv.next51.i = add nsw i64 %indvars.iv50.i, -1
   %168 = load ptr, ptr %9, align 8, !tbaa !25
   %169 = getelementptr inbounds nuw %"struct.std::pair", ptr %168, i64 %indvars.iv.next.i
   %.sroa.01.0.copyload.i = load i64, ptr %169, align 8
   %170 = load ptr, ptr %10, align 8, !tbaa !25
-  %171 = getelementptr inbounds nuw %"struct.std::pair", ptr %170, i64 %indvars.iv.next52.i
+  %171 = getelementptr inbounds nuw %"struct.std::pair", ptr %170, i64 %indvars.iv.next51.i
   %.sroa.0.0.copyload.i = load i64, ptr %171, align 8
   call void %4(i64 noundef %5, i64 %.sroa.01.0.copyload.i, i64 %.sroa.0.0.copyload.i) #22
   %172 = icmp sgt i64 %indvars.iv.next.i, %165
-  %173 = icmp sgt i64 %indvars.iv.next52.i, %167
+  %173 = icmp sgt i64 %indvars.iv.next51.i, %167
   %174 = select i1 %172, i1 %173, i1 false
   br i1 %174, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !419
 
@@ -10266,19 +10266,19 @@ declare ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofEPKNS_5ValueE(ptr noundef %0) local_unnamed_addr #1 comdat align 2 {
   %2 = load i8, ptr %0, align 8, !tbaa !255
   %3 = icmp ult i8 %2, 29
-  br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
+  br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %1
   switch i8 %2, label %43 [
-    i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 47, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 50, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 53, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 74, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 75, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-    i8 83, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+    i8 41, label %.critedge
+    i8 43, label %.critedge
+    i8 45, label %.critedge
+    i8 47, label %.critedge
+    i8 50, label %.critedge
+    i8 53, label %.critedge
+    i8 74, label %.critedge
+    i8 75, label %.critedge
+    i8 83, label %.critedge
     i8 84, label %5
     i8 86, label %5
     i8 85, label %5
@@ -10311,8 +10311,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   %18 = and i32 %16, 253
   %spec.select.i.i.i = icmp eq i32 %18, 4
-  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
-  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
+  %or.cond24 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond24, label %.critedge, label %19
 
 19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
@@ -10324,11 +10324,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
   %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
+  br i1 %.not27.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10371,21 +10371,21 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
   %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
   %trunc.i.i.i.i.i = trunc i32 %40 to i8
   %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
-  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
-  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %switch.shifted21 = lshr i8 47, %trunc.i.i.i.i.i
+  %switch.lobit22 = trunc i8 %switch.shifted21 to i1
+  %or.cond23 = select i1 %41, i1 %switch.lobit22, i1 false
+  br i1 %or.cond23, label %.critedge, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
 _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
   %42 = and i32 %40, 253
   %spec.select.i.i21.i.i = icmp eq i32 %42, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
 43:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+  br label %.critedge
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+.critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

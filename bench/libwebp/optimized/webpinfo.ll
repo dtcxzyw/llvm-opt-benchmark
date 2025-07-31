@@ -2412,7 +2412,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   %34 = shl nuw i32 %33, %indvars46
   %35 = or i32 %34, %23
   %exitcond.not = icmp eq i64 %27, 14
-  br i1 %exitcond.not, label %LLGetBits.exit, label %22
+  br i1 %exitcond.not, label %LLGetBits.exit, label %22, !llvm.loop !48
 
 36:                                               ; preds = %22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2428,7 +2428,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
 LLGetBits.exit:                                   ; preds = %26, %45
   %42 = phi i32 [ %55, %45 ], [ 0, %26 ]
   %43 = phi i64 [ %46, %45 ], [ 14, %26 ]
-  %.01620.i46 = phi i32 [ %56, %45 ], [ 0, %26 ]
+  %.01619.i46 = phi i32 [ %56, %45 ], [ 0, %26 ]
   %44 = lshr i64 %43, 3
   %.not.i47 = icmp ult i64 %44, %21
   br i1 %.not.i47, label %45, label %57
@@ -2442,11 +2442,11 @@ LLGetBits.exit:                                   ; preds = %26, %45
   %51 = and i32 %50, 7
   %52 = lshr i32 %49, %51
   %53 = and i32 %52, 1
-  %54 = shl nuw i32 %53, %.01620.i46
+  %54 = shl nuw i32 %53, %.01619.i46
   %55 = or i32 %54, %42
-  %56 = add nuw nsw i32 %.01620.i46, 1
+  %56 = add nuw nsw i32 %.01619.i46, 1
   %exitcond47.not = icmp eq i32 %56, 14
-  br i1 %exitcond47.not, label %LLGetBits.exit49, label %LLGetBits.exit
+  br i1 %exitcond47.not, label %LLGetBits.exit49, label %LLGetBits.exit, !llvm.loop !48
 
 57:                                               ; preds = %LLGetBits.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2485,7 +2485,7 @@ LLGetBits.exit49:                                 ; preds = %45
 75:                                               ; preds = %69, %75
   %76 = phi i32 [ 0, %69 ], [ %88, %75 ]
   %77 = phi i64 [ 29, %69 ], [ %79, %75 ]
-  %.01620.i56 = phi i32 [ 0, %69 ], [ %89, %75 ]
+  %.01619.i56 = phi i32 [ 0, %69 ], [ %89, %75 ]
   %78 = lshr i64 %77, 3
   %79 = add nuw nsw i64 %77, 1
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 %78
@@ -2495,11 +2495,11 @@ LLGetBits.exit49:                                 ; preds = %45
   %84 = and i32 %83, 7
   %85 = lshr i32 %82, %84
   %86 = and i32 %85, 1
-  %87 = shl nuw i32 %86, %.01620.i56
+  %87 = shl nuw i32 %86, %.01619.i56
   %88 = or i32 %87, %76
-  %89 = add nuw nsw i32 %.01620.i56, 1
+  %89 = add nuw nsw i32 %.01619.i56, 1
   %exitcond48.not = icmp eq i32 %89, 3
-  br i1 %exitcond48.not, label %.critedge, label %75
+  br i1 %exitcond48.not, label %.critedge, label %75, !llvm.loop !48
 
 .critedge:                                        ; preds = %75
   store i64 32, ptr %2, align 8, !tbaa !20
@@ -2738,7 +2738,7 @@ GetSignedBits.exit:                               ; preds = %120, %GetBits.exit1
   %.promoted238 = phi i64 [ %111, %120 ], [ %111, %GetBits.exit18.i ], [ %80, %GetBits.exit129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %78, !llvm.loop !48
+  br i1 %exitcond.not, label %.preheader, label %78, !llvm.loop !49
 
 .preheader:                                       ; preds = %GetSignedBits.exit, %GetSignedBits.exit148
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %GetSignedBits.exit148 ], [ 0, %GetSignedBits.exit ]
@@ -2831,7 +2831,7 @@ GetSignedBits.exit148:                            ; preds = %165, %GetBits.exit1
   %169 = phi i64 [ %156, %165 ], [ %156, %GetBits.exit18.i146 ], [ %125, %GetBits.exit137 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next272, 4
-  br i1 %exitcond274.not, label %.critedge97, label %.preheader, !llvm.loop !49
+  br i1 %exitcond274.not, label %.critedge97, label %.preheader, !llvm.loop !50
 
 .critedge97:                                      ; preds = %GetSignedBits.exit148
   %170 = load i32, ptr %5, align 16, !tbaa !22
@@ -2941,7 +2941,7 @@ GetBits.exit162:                                  ; preds = %210, %GetBits.exit1
   %226 = phi i64 [ %192, %GetBits.exit155 ], [ %208, %210 ]
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond278 = icmp eq i64 %indvars.iv.next276, 3
-  br i1 %exitcond278, label %.critedge99.thread, label %190, !llvm.loop !50
+  br i1 %exitcond278, label %.critedge99.thread, label %190, !llvm.loop !51
 
 .critedge99.thread:                               ; preds = %GetBits.exit162
   %227 = load i32, ptr %7, align 4, !tbaa !22
@@ -3172,7 +3172,7 @@ GetBits.exit100:                                  ; preds = %GetBits.exit100.loo
   %113 = phi i64 [ %93, %GetBits.exit93 ], [ %106, %GetBits.exit100.loopexit ]
   %114 = add nuw nsw i32 %.0156, 1
   %exitcond = icmp eq i32 %114, 8
-  br i1 %exitcond, label %.critedge58, label %91, !llvm.loop !51
+  br i1 %exitcond, label %.critedge58, label %91, !llvm.loop !52
 
 .critedge58.sink.split:                           ; preds = %110, %102, %88, %72, %56, %35, %16
   %115 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -3286,7 +3286,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr noundef n
   %25 = phi i32 [ 0, %23 ], [ %39, %30 ]
   %26 = phi i64 [ %.promoted.i27, %23 ], [ %28, %30 ]
   %27 = phi i1 [ true, %23 ], [ false, %30 ]
-  %.01620.i = phi i32 [ 0, %23 ], [ 1, %30 ]
+  %.01619.i = phi i32 [ 0, %23 ], [ 1, %30 ]
   %28 = add i64 %26, 1
   store i64 %28, ptr %3, align 8, !tbaa !20
   %29 = lshr i64 %26, 3
@@ -3301,9 +3301,9 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr noundef n
   %35 = and i32 %34, 7
   %36 = lshr i32 %33, %35
   %37 = and i32 %36, 1
-  %38 = shl nuw nsw i32 %37, %.01620.i
+  %38 = shl nuw nsw i32 %37, %.01619.i
   %39 = or i32 %38, %25
-  br i1 %27, label %24, label %LLGetBits.exit30
+  br i1 %27, label %24, label %LLGetBits.exit30, !llvm.loop !48
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3334,7 +3334,7 @@ LLGetBits.exit30:                                 ; preds = %30
 51:                                               ; preds = %56, %50
   %52 = phi i32 [ 0, %50 ], [ %65, %56 ]
   %53 = phi i64 [ %.promoted.i31, %50 ], [ %54, %56 ]
-  %.01620.i32 = phi i32 [ 0, %50 ], [ %66, %56 ]
+  %.01619.i32 = phi i32 [ 0, %50 ], [ %66, %56 ]
   %54 = add i64 %53, 1
   store i64 %54, ptr %3, align 8, !tbaa !20
   %55 = lshr i64 %53, 3
@@ -3349,11 +3349,11 @@ LLGetBits.exit30:                                 ; preds = %30
   %61 = and i32 %60, 7
   %62 = lshr i32 %59, %61
   %63 = and i32 %62, 1
-  %64 = shl nuw i32 %63, %.01620.i32
+  %64 = shl nuw i32 %63, %.01619.i32
   %65 = or i32 %64, %52
-  %66 = add nuw nsw i32 %.01620.i32, 1
+  %66 = add nuw nsw i32 %.01619.i32, 1
   %exitcond67.not = icmp eq i32 %66, 3
-  br i1 %exitcond67.not, label %LLGetBits.exit35, label %51
+  br i1 %exitcond67.not, label %LLGetBits.exit35, label %51, !llvm.loop !48
 
 67:                                               ; preds = %51
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3379,7 +3379,7 @@ LLGetBits.exit35:                                 ; preds = %56
 77:                                               ; preds = %82, %76
   %78 = phi i32 [ 0, %76 ], [ %91, %82 ]
   %79 = phi i64 [ %.promoted.i36, %76 ], [ %80, %82 ]
-  %.01620.i37 = phi i32 [ 0, %76 ], [ %92, %82 ]
+  %.01619.i37 = phi i32 [ 0, %76 ], [ %92, %82 ]
   %80 = add i64 %79, 1
   store i64 %80, ptr %3, align 8, !tbaa !20
   %81 = lshr i64 %79, 3
@@ -3394,11 +3394,11 @@ LLGetBits.exit35:                                 ; preds = %56
   %87 = and i32 %86, 7
   %88 = lshr i32 %85, %87
   %89 = and i32 %88, 1
-  %90 = shl nuw i32 %89, %.01620.i37
+  %90 = shl nuw i32 %89, %.01619.i37
   %91 = or i32 %90, %78
-  %92 = add nuw nsw i32 %.01620.i37, 1
+  %92 = add nuw nsw i32 %.01619.i37, 1
   %exitcond.not = icmp eq i32 %92, 8
-  br i1 %exitcond.not, label %LLGetBits.exit40, label %77
+  br i1 %exitcond.not, label %LLGetBits.exit40, label %77, !llvm.loop !48
 
 93:                                               ; preds = %77
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3501,3 +3501,4 @@ attributes #13 = { cold nounwind }
 !49 = distinct !{!49, !10}
 !50 = distinct !{!50, !10}
 !51 = distinct !{!51, !10}
+!52 = distinct !{!52, !10}

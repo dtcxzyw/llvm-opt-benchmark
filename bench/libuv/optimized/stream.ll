@@ -1799,12 +1799,7 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 3
   %.not31 = icmp eq i32 %23, 0
-  br i1 %.not31, label %24, label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
-  br label %63
+  br i1 %.not31, label %24, label %.critedge32
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1906,8 +1901,13 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   %62 = sub nsw i32 0, %60
   br label %63
 
-63:                                               ; preds = %.critedge.thread, %.critedge2.thread, %.critedge2.thread, %61, %58
-  %.1 = phi i32 [ %59, %58 ], [ %62, %61 ], [ -11, %.critedge2.thread ], [ -11, %.critedge2.thread ], [ -9, %.critedge.thread ]
+.critedge32:                                      ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #12
+  br label %63
+
+63:                                               ; preds = %.critedge2.thread, %.critedge2.thread, %.critedge32, %61, %58
+  %.1 = phi i32 [ %59, %58 ], [ %62, %61 ], [ -9, %.critedge32 ], [ -11, %.critedge2.thread ], [ -11, %.critedge2.thread ]
   ret i32 %.1
 }
 

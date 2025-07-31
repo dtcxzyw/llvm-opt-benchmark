@@ -66,13 +66,13 @@ define dso_local i32 @drm_atomic_set_mode_for_crtc(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %3, i8 0, i64 68, i1 false), !annotation !6
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %32, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(120) %7, ptr noundef nonnull dereferenceable(120) %1, i64 120)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %48, label %10
+  br i1 %9, label %47, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -83,12 +83,12 @@ define dso_local i32 @drm_atomic_set_mode_for_crtc(ptr noundef %0, ptr noundef %
   %13 = load ptr, ptr %4, align 8
   %14 = call ptr @drm_property_create_blob(ptr noundef %13, i64 noundef 68, ptr noundef nonnull %3) #12
   %15 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
-  br i1 %15, label %.thread5, label %18
+  br i1 %15, label %.thread, label %18
 
-.thread5:                                         ; preds = %10
+.thread:                                          ; preds = %10
   %16 = ptrtoint ptr %14 to i64
   %17 = trunc i64 %16 to i32
-  br label %48
+  br label %47
 
 18:                                               ; preds = %10
   call void @drm_mode_copy(ptr noundef nonnull %7, ptr noundef nonnull %1) #12
@@ -112,38 +112,38 @@ define dso_local i32 @drm_atomic_set_mode_for_crtc(ptr noundef %0, ptr noundef %
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = load ptr, ptr %30, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %26, i32 noundef 4, ptr noundef nonnull @.str, ptr noundef nonnull %27, i32 noundef %29, ptr noundef %31, ptr noundef %0) #12
-  br label %48
+  br label %47
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %34 = load ptr, ptr %33, align 8
-  tail call void @drm_property_blob_put(ptr noundef %34) #12
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %36, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, i8 0, i64 128, i1 false)
-  %37 = load ptr, ptr %4, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %42, label %39
+.critedge:                                        ; preds = %2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %33 = load ptr, ptr %32, align 8
+  tail call void @drm_property_blob_put(ptr noundef %33) #12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %35, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %34, i8 0, i64 128, i1 false)
+  %36 = load ptr, ptr %4, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %41, label %38
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %41 = load ptr, ptr %40, align 8
-  br label %42
+38:                                               ; preds = %.critedge
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = load ptr, ptr %39, align 8
+  br label %41
 
-42:                                               ; preds = %39, %32
-  %43 = phi ptr [ %41, %39 ], [ null, %32 ]
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %47 = load ptr, ptr %46, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %45, ptr noundef %47, ptr noundef %0) #12
-  br label %48
+41:                                               ; preds = %38, %.critedge
+  %42 = phi ptr [ %40, %38 ], [ null, %.critedge ]
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %46 = load ptr, ptr %45, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %42, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %44, ptr noundef %46, ptr noundef %0) #12
+  br label %47
 
-48:                                               ; preds = %42, %25, %.thread5, %6
-  %49 = phi i32 [ 0, %6 ], [ %17, %.thread5 ], [ 0, %25 ], [ 0, %42 ]
+47:                                               ; preds = %41, %25, %.thread, %6
+  %48 = phi i32 [ 0, %6 ], [ %17, %.thread ], [ 0, %25 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %3) #12
-  ret i32 %49
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -37,9 +37,9 @@ zend_hrtime.exit:                                 ; preds = %2, %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = icmp ugt i32 %16, 1
-  br i1 %17, label %.thread71, label %18, !prof !14
+  br i1 %17, label %.thread66, label %18, !prof !14
 
-.thread71:                                        ; preds = %zend_hrtime.exit
+.thread66:                                        ; preds = %zend_hrtime.exit
   call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #5
   br label %25
 
@@ -51,38 +51,38 @@ zend_hrtime.exit:                                 ; preds = %2, %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8, !tbaa !13
   switch i8 %22, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread81
-    i8 2, label %.thread81.fold.split
+    i8 3, label %.thread76
+    i8 2, label %.thread76.fold.split
   ], !prof !15
 
-.thread81.fold.split:                             ; preds = %20
-  br label %.thread81
+.thread76.fold.split:                             ; preds = %20
+  br label %.thread76
 
-.thread81:                                        ; preds = %20, %.thread81.fold.split
-  %storemerge.i = phi i8 [ 1, %20 ], [ 0, %.thread81.fold.split ]
+.thread76:                                        ; preds = %20, %.thread76.fold.split
+  %storemerge.i = phi i8 [ 1, %20 ], [ 0, %.thread76.fold.split ]
   store i8 %storemerge.i, ptr %4, align 1, !tbaa !4
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 1) #5
-  %cond.fr55 = freeze i1 %24
-  br i1 %cond.fr55, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %25, !prof !16
+  %cond.fr56 = freeze i1 %24
+  br i1 %cond.fr56, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %25, !prof !16
 
 zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool_ex.exit
   %.pre = load i8, ptr %4, align 1, !tbaa !4, !range !17
   br label %.critedge
 
-25:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread71
-  %.080 = phi i32 [ 0, %.thread71 ], [ 1, %zend_parse_arg_bool_ex.exit ]
-  %.04779 = phi ptr [ null, %.thread71 ], [ %23, %zend_parse_arg_bool_ex.exit ]
-  %.04878 = phi i32 [ 0, %.thread71 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05077 = phi i32 [ 1, %.thread71 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05077, i32 noundef %.080, ptr noundef null, i32 noundef %.04878, ptr noundef %.04779) #5
+25:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread66
+  %.075 = phi i32 [ 0, %.thread66 ], [ 1, %zend_parse_arg_bool_ex.exit ]
+  %.04774 = phi ptr [ null, %.thread66 ], [ %23, %zend_parse_arg_bool_ex.exit ]
+  %.04873 = phi i32 [ 0, %.thread66 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05072 = phi i32 [ 1, %.thread66 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05072, i32 noundef %.075, ptr noundef null, i32 noundef %.04873, ptr noundef %.04774) #5
   br label %36
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit..critedge_crit_edge, %.thread81
-  %26 = phi i8 [ %.pre, %zend_parse_arg_bool_ex.exit..critedge_crit_edge ], [ %storemerge.i, %.thread81 ]
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit..critedge_crit_edge, %.thread76
+  %26 = phi i8 [ %.pre, %zend_parse_arg_bool_ex.exit..critedge_crit_edge ], [ %storemerge.i, %.thread76 ]
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %.critedge.thread, !prof !18
 

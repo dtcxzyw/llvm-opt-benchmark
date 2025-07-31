@@ -1631,7 +1631,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !95
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %.thread29
+  br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1639,18 +1639,18 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = tail call i32 @ff_request_frame(ptr noundef %10) #11
   %12 = icmp eq i32 %11, -541478725
-  br i1 %12, label %13, label %.thread29
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %.not26 = icmp eq ptr %15, null
-  br i1 %.not26, label %.thread29, label %16
+  br i1 %.not26, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = tail call ptr @av_frame_clone(ptr noundef nonnull %15) #11
   %.not27.not = icmp eq ptr %17, null
-  br i1 %.not27.not, label %.thread29, label %18
+  br i1 %.not27.not, label %.critedge, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %14, align 8, !tbaa !29
@@ -1672,10 +1672,10 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   %32 = load ptr, ptr %8, align 8, !tbaa !96
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %34 = tail call i32 @filter_frame(ptr noundef %33, ptr noundef nonnull %17)
-  br label %.thread29
+  br label %.critedge
 
-.thread29:                                        ; preds = %7, %16, %13, %18, %1
-  %.0 = phi i32 [ -541478725, %1 ], [ %34, %18 ], [ -541478725, %13 ], [ -12, %16 ], [ %11, %7 ]
+.critedge:                                        ; preds = %7, %13, %18, %16, %1
+  %.0 = phi i32 [ -541478725, %1 ], [ -12, %16 ], [ %34, %18 ], [ -541478725, %13 ], [ %11, %7 ]
   ret i32 %.0
 }
 

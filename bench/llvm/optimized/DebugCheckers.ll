@@ -2205,8 +2205,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %65, %.loopexit.i.i.i ], [ %52, %44 ], [ %61, %57 ]
   %66 = zext i32 %42 to i64
   %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %41, i64 %66
-  %.not.i.not.not.i = icmp ne ptr %.sroa.0.1.i.i.i, %67
-  tail call void @llvm.assume(i1 %.not.i.not.not.i)
+  %.not.i.not.i = icmp ne ptr %.sroa.0.1.i.i.i, %67
+  tail call void @llvm.assume(i1 %.not.i.not.i)
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !137
   %70 = load i32, ptr %37, align 8
@@ -4626,8 +4626,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %48, %.loopexit.i.i.i ], [ %35, %27 ], [ %44, %40 ]
   %49 = zext i32 %25 to i64
   %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %24, i64 %49
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %50
-  br i1 %.not.i.not.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %50
+  br i1 %.not.i.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -6806,8 +6806,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %31, %.loopexit.i.i.i ], [ %18, %10 ], [ %27, %23 ]
   %32 = zext i32 %8 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %6, i64 %32
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %33
-  br i1 %.not.i.not.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %33
+  br i1 %.not.i.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -7061,8 +7061,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %78, %.loopexit.i.i.i ], [ %65, %57 ], [ %74, %70 ]
   %79 = zext i32 %55 to i64
   %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %54, i64 %79
-  %.not.i.not.not.i = icmp ne ptr %.sroa.0.1.i.i.i, %80
-  tail call void @llvm.assume(i1 %.not.i.not.not.i)
+  %.not.i.not.i = icmp ne ptr %.sroa.0.1.i.i.i, %80
+  tail call void @llvm.assume(i1 %.not.i.not.i)
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
   %82 = load i32, ptr %81, align 4, !tbaa !137
   %83 = load i32, ptr %50, align 8
@@ -11176,8 +11176,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %48, %.loopexit.i.i.i ], [ %35, %27 ], [ %44, %40 ]
   %49 = zext i32 %25 to i64
   %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %24, i64 %49
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %50
-  br i1 %.not.i.not.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %50
+  br i1 %.not.i.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -16227,8 +16227,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %31, %.loopexit.i.i.i ], [ %18, %10 ], [ %27, %23 ]
   %32 = zext i32 %8 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %6, i64 %32
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %33
-  br i1 %.not.i.not.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %33
+  br i1 %.not.i.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -17079,8 +17079,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %115, %.loopexit.i.i.i ], [ %102, %94 ], [ %111, %107 ]
   %116 = zext i32 %92 to i64
   %117 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %90, i64 %116
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %117
-  br i1 %.not.i.not.not.i, label %_ZN4llvm15SmallPtrSetImplIPNS_15DomTreeNodeBaseIN5clang8CFGBlockEEEE6insertES5_.exit, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %117
+  br i1 %.not.i.not.i, label %_ZN4llvm15SmallPtrSetImplIPNS_15DomTreeNodeBaseIN5clang8CFGBlockEEEE6insertES5_.exit, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8
@@ -17845,8 +17845,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vE
   %.sroa.0.1.i.i.i = phi ptr [ %32, %.loopexit.i.i.i ], [ %19, %11 ], [ %28, %24 ]
   %33 = zext i32 %9 to i64
   %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.203", ptr %7, i64 %33
-  %.not.i.not.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %34
-  br i1 %.not.i.not.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
+  %.not.i.not.i = icmp eq ptr %.sroa.0.1.i.i.i, %34
+  br i1 %.not.i.not.i, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE7getNodeEPKS2_.exit, label %_ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i
 
 _ZNK4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EE12getNodeIndexEPKS2_.exit.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CFGBlockEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 8

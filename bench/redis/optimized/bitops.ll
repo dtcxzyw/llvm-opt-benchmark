@@ -2094,10 +2094,10 @@ define dso_local void @bitcountCommand(ptr noundef %0) local_unnamed_addr #4 {
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8, !tbaa !80
-  switch i32 %7, label %162 [
+  switch i32 %7, label %161 [
     i32 4, label %8
     i32 5, label %8
-    i32 2, label %116
+    i32 2, label %115
   ]
 
 8:                                                ; preds = %1, %1
@@ -2238,195 +2238,195 @@ getObjectReadOnlyString.exit.thread:              ; preds = %39, %.critedge24.i,
   %80 = icmp sgt i64 %76, %78
   %81 = and i1 %79, %80
   %or.cond81 = select i1 %77, i1 %81, i1 false
-  br i1 %or.cond81, label %114, label %82
+  br i1 %or.cond81, label %.critedge, label %83
 
-82:                                               ; preds = %getObjectReadOnlyString.exit.thread
-  %83 = shl i64 %.0.i.sink.i92, 3
-  %spec.select = select i1 %.not77, i64 %.0.i.sink.i92, i64 %83
-  br i1 %77, label %84, label %86
-
-84:                                               ; preds = %82
-  %85 = add nsw i64 %spec.select, %76
-  store i64 %85, ptr %2, align 8, !tbaa !31
-  br label %86
-
-86:                                               ; preds = %84, %82
-  %87 = phi i64 [ %85, %84 ], [ %76, %82 ]
-  br i1 %79, label %88, label %90
-
-88:                                               ; preds = %86
-  %89 = add nsw i64 %spec.select, %78
-  store i64 %89, ptr %3, align 8, !tbaa !31
-  br label %90
-
-90:                                               ; preds = %88, %86
-  %91 = phi i64 [ %89, %88 ], [ %78, %86 ]
-  %92 = icmp slt i64 %87, 0
-  br i1 %92, label %93, label %94
-
-93:                                               ; preds = %90
-  store i64 0, ptr %2, align 8, !tbaa !31
-  br label %94
-
-94:                                               ; preds = %93, %90
-  %95 = phi i64 [ 0, %93 ], [ %87, %90 ]
-  %96 = icmp slt i64 %91, 0
-  %97 = call i64 @llvm.smax.i64(i64 %91, i64 0)
-  %.not78 = icmp sge i64 %97, %spec.select
-  %98 = add nsw i64 %spec.select, -1
-  %99 = call i64 @llvm.smin.i64(i64 %97, i64 %98)
-  %100 = or i1 %96, %.not78
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %94
-  store i64 %99, ptr %3, align 8, !tbaa !31
-  br label %102
-
-102:                                              ; preds = %94, %101
-  %.not79 = icmp sgt i64 %95, %99
-  %or.cond = select i1 %.not77, i1 true, i1 %.not79
-  br i1 %or.cond, label %.thread, label %103
-
-103:                                              ; preds = %102
-  %104 = trunc i64 %95 to i16
-  %105 = and i16 %104, 7
-  %106 = sub nuw nsw i16 8, %105
-  %notmask = shl nsw i16 -1, %106
-  %107 = zext i16 %notmask to i32
-  %108 = trunc i64 %99 to i8
-  %109 = and i8 %108, 7
-  %110 = xor i8 %109, 7
-  %notmask80 = shl nsw i8 -1, %110
-  %111 = xor i8 %notmask80, -1
-  %112 = lshr i64 %95, 3
-  store i64 %112, ptr %2, align 8, !tbaa !31
-  %113 = lshr i64 %99, 3
-  br label %.thread.sink.split
-
-114:                                              ; preds = %getObjectReadOnlyString.exit.thread
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !77
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %115) #18
+.critedge:                                        ; preds = %getObjectReadOnlyString.exit.thread
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !77
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %82) #18
   br label %195
 
-116:                                              ; preds = %1
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %118 = load ptr, ptr %117, align 8, !tbaa !73
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %120 = load ptr, ptr %119, align 8, !tbaa !61
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !72
-  %123 = tail call ptr @lookupKeyRead(ptr noundef %118, ptr noundef %122) #18
-  %124 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %123, i32 noundef 0) #18
-  %.not = icmp eq i32 %124, 0
-  br i1 %.not, label %125, label %195
+83:                                               ; preds = %getObjectReadOnlyString.exit.thread
+  %84 = shl i64 %.0.i.sink.i92, 3
+  %spec.select = select i1 %.not77, i64 %.0.i.sink.i92, i64 %84
+  br i1 %77, label %85, label %87
 
-125:                                              ; preds = %116
-  %.not.i82 = icmp eq ptr %123, null
-  br i1 %.not.i82, label %getObjectReadOnlyString.exit88, label %126
+85:                                               ; preds = %83
+  %86 = add nsw i64 %spec.select, %76
+  store i64 %86, ptr %2, align 8, !tbaa !31
+  br label %87
 
-126:                                              ; preds = %125
-  %127 = load i32, ptr %123, align 8
-  %128 = and i32 %127, 15
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.critedge.i83, label %130, !prof !60
+87:                                               ; preds = %85, %83
+  %88 = phi i64 [ %86, %85 ], [ %76, %83 ]
+  br i1 %79, label %89, label %91
 
-130:                                              ; preds = %126
+89:                                               ; preds = %87
+  %90 = add nsw i64 %spec.select, %78
+  store i64 %90, ptr %3, align 8, !tbaa !31
+  br label %91
+
+91:                                               ; preds = %89, %87
+  %92 = phi i64 [ %90, %89 ], [ %78, %87 ]
+  %93 = icmp slt i64 %88, 0
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %91
+  store i64 0, ptr %2, align 8, !tbaa !31
+  br label %95
+
+95:                                               ; preds = %94, %91
+  %96 = phi i64 [ 0, %94 ], [ %88, %91 ]
+  %97 = icmp slt i64 %92, 0
+  %98 = call i64 @llvm.smax.i64(i64 %92, i64 0)
+  %.not78 = icmp sge i64 %98, %spec.select
+  %99 = add nsw i64 %spec.select, -1
+  %100 = call i64 @llvm.smin.i64(i64 %98, i64 %99)
+  %101 = or i1 %97, %.not78
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %95
+  store i64 %100, ptr %3, align 8, !tbaa !31
+  br label %103
+
+103:                                              ; preds = %95, %102
+  %.not79 = icmp sgt i64 %96, %100
+  %or.cond = select i1 %.not77, i1 true, i1 %.not79
+  br i1 %or.cond, label %163, label %104
+
+104:                                              ; preds = %103
+  %105 = trunc i64 %96 to i16
+  %106 = and i16 %105, 7
+  %107 = sub nuw nsw i16 8, %106
+  %notmask = shl nsw i16 -1, %107
+  %108 = zext i16 %notmask to i32
+  %109 = trunc i64 %100 to i8
+  %110 = and i8 %109, 7
+  %111 = xor i8 %110, 7
+  %notmask80 = shl nsw i8 -1, %111
+  %112 = xor i8 %notmask80, -1
+  %113 = lshr i64 %96, 3
+  store i64 %113, ptr %2, align 8, !tbaa !31
+  %114 = lshr i64 %100, 3
+  br label %.sink.split
+
+115:                                              ; preds = %1
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %117 = load ptr, ptr %116, align 8, !tbaa !73
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %119 = load ptr, ptr %118, align 8, !tbaa !61
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !72
+  %122 = tail call ptr @lookupKeyRead(ptr noundef %117, ptr noundef %121) #18
+  %123 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %122, i32 noundef 0) #18
+  %.not = icmp eq i32 %123, 0
+  br i1 %.not, label %124, label %195
+
+124:                                              ; preds = %115
+  %.not.i82 = icmp eq ptr %122, null
+  br i1 %.not.i82, label %getObjectReadOnlyString.exit88, label %125
+
+125:                                              ; preds = %124
+  %126 = load i32, ptr %122, align 8
+  %127 = and i32 %126, 15
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %.critedge.i83, label %129, !prof !60
+
+129:                                              ; preds = %125
   tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 531) #18
   tail call void @abort() #19
   unreachable
 
-.critedge.i83:                                    ; preds = %126
-  %131 = and i32 %127, 240
-  %132 = icmp eq i32 %131, 16
-  %133 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !26
-  br i1 %132, label %135, label %.critedge24.i84
+.critedge.i83:                                    ; preds = %125
+  %130 = and i32 %126, 240
+  %131 = icmp eq i32 %130, 16
+  %132 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !26
+  br i1 %131, label %134, label %.critedge24.i84
 
-135:                                              ; preds = %.critedge.i83
-  %136 = ptrtoint ptr %134 to i64
-  %137 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 21, i64 noundef %136) #18
-  %138 = sext i32 %137 to i64
+134:                                              ; preds = %.critedge.i83
+  %135 = ptrtoint ptr %133 to i64
+  %136 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 21, i64 noundef %135) #18
+  %137 = sext i32 %136 to i64
   br label %getObjectReadOnlyString.exit88
 
 .critedge24.i84:                                  ; preds = %.critedge.i83
-  %139 = getelementptr inbounds i8, ptr %134, i64 -1
-  %140 = load i8, ptr %139, align 1, !tbaa !5
-  %141 = zext i8 %140 to i32
-  %142 = and i32 %141, 7
-  switch i32 %142, label %getObjectReadOnlyString.exit88 [
-    i32 0, label %143
-    i32 1, label %146
-    i32 2, label %150
-    i32 3, label %154
-    i32 4, label %158
+  %138 = getelementptr inbounds i8, ptr %133, i64 -1
+  %139 = load i8, ptr %138, align 1, !tbaa !5
+  %140 = zext i8 %139 to i32
+  %141 = and i32 %140, 7
+  switch i32 %141, label %getObjectReadOnlyString.exit88 [
+    i32 0, label %142
+    i32 1, label %145
+    i32 2, label %149
+    i32 3, label %153
+    i32 4, label %157
   ]
 
-143:                                              ; preds = %.critedge24.i84
-  %144 = lshr i32 %141, 3
-  %145 = zext nneg i32 %144 to i64
+142:                                              ; preds = %.critedge24.i84
+  %143 = lshr i32 %140, 3
+  %144 = zext nneg i32 %143 to i64
   br label %getObjectReadOnlyString.exit88
 
-146:                                              ; preds = %.critedge24.i84
-  %147 = getelementptr inbounds i8, ptr %134, i64 -3
-  %148 = load i8, ptr %147, align 1, !tbaa !5
-  %149 = zext i8 %148 to i64
+145:                                              ; preds = %.critedge24.i84
+  %146 = getelementptr inbounds i8, ptr %133, i64 -3
+  %147 = load i8, ptr %146, align 1, !tbaa !5
+  %148 = zext i8 %147 to i64
   br label %getObjectReadOnlyString.exit88
 
-150:                                              ; preds = %.critedge24.i84
-  %151 = getelementptr inbounds i8, ptr %134, i64 -5
-  %152 = load i16, ptr %151, align 1, !tbaa !29
-  %153 = zext i16 %152 to i64
+149:                                              ; preds = %.critedge24.i84
+  %150 = getelementptr inbounds i8, ptr %133, i64 -5
+  %151 = load i16, ptr %150, align 1, !tbaa !29
+  %152 = zext i16 %151 to i64
   br label %getObjectReadOnlyString.exit88
 
-154:                                              ; preds = %.critedge24.i84
-  %155 = getelementptr inbounds i8, ptr %134, i64 -9
-  %156 = load i32, ptr %155, align 1, !tbaa !14
-  %157 = zext i32 %156 to i64
+153:                                              ; preds = %.critedge24.i84
+  %154 = getelementptr inbounds i8, ptr %133, i64 -9
+  %155 = load i32, ptr %154, align 1, !tbaa !14
+  %156 = zext i32 %155 to i64
   br label %getObjectReadOnlyString.exit88
 
-158:                                              ; preds = %.critedge24.i84
-  %159 = getelementptr inbounds i8, ptr %134, i64 -17
-  %160 = load i64, ptr %159, align 1, !tbaa !11
+157:                                              ; preds = %.critedge24.i84
+  %158 = getelementptr inbounds i8, ptr %133, i64 -17
+  %159 = load i64, ptr %158, align 1, !tbaa !11
   br label %getObjectReadOnlyString.exit88
 
-getObjectReadOnlyString.exit88:                   ; preds = %125, %135, %.critedge24.i84, %143, %146, %150, %154, %158
-  %.0.i.sink.i85 = phi i64 [ %138, %135 ], [ %145, %143 ], [ %149, %146 ], [ %153, %150 ], [ %157, %154 ], [ %160, %158 ], [ 0, %.critedge24.i84 ], [ 0, %125 ]
-  %.0.ph.i86 = phi ptr [ %4, %135 ], [ %134, %143 ], [ %134, %146 ], [ %134, %150 ], [ %134, %154 ], [ %134, %158 ], [ %134, %.critedge24.i84 ], [ null, %125 ]
+getObjectReadOnlyString.exit88:                   ; preds = %124, %134, %.critedge24.i84, %142, %145, %149, %153, %157
+  %.0.i.sink.i85 = phi i64 [ %137, %134 ], [ %144, %142 ], [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ %159, %157 ], [ 0, %.critedge24.i84 ], [ 0, %124 ]
+  %.0.ph.i86 = phi ptr [ %4, %134 ], [ %133, %142 ], [ %133, %145 ], [ %133, %149 ], [ %133, %153 ], [ %133, %157 ], [ %133, %.critedge24.i84 ], [ null, %124 ]
   store i64 0, ptr %2, align 8, !tbaa !31
-  %161 = add nsw i64 %.0.i.sink.i85, -1
-  br label %.thread.sink.split
+  %160 = add nsw i64 %.0.i.sink.i85, -1
+  br label %.sink.split
 
-162:                                              ; preds = %1
-  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !79
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %163) #18
+161:                                              ; preds = %1
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !79
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %162) #18
   br label %195
 
-.thread.sink.split:                               ; preds = %getObjectReadOnlyString.exit88, %103
-  %.sink = phi i64 [ %113, %103 ], [ %161, %getObjectReadOnlyString.exit88 ]
-  %.ph97 = phi i64 [ %112, %103 ], [ 0, %getObjectReadOnlyString.exit88 ]
-  %.059.ph = phi ptr [ %.0.ph.i93, %103 ], [ %.0.ph.i86, %getObjectReadOnlyString.exit88 ]
-  %.257.ph = phi i32 [ %107, %103 ], [ 0, %getObjectReadOnlyString.exit88 ]
-  %.2.ph = phi i8 [ %111, %103 ], [ 0, %getObjectReadOnlyString.exit88 ]
-  %.051.ph = phi ptr [ %37, %103 ], [ %123, %getObjectReadOnlyString.exit88 ]
+.sink.split:                                      ; preds = %getObjectReadOnlyString.exit88, %104
+  %.sink = phi i64 [ %114, %104 ], [ %160, %getObjectReadOnlyString.exit88 ]
+  %.ph94 = phi i64 [ %113, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
+  %.059.ph = phi ptr [ %.0.ph.i93, %104 ], [ %.0.ph.i86, %getObjectReadOnlyString.exit88 ]
+  %.257.ph = phi i32 [ %108, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
+  %.2.ph = phi i8 [ %112, %104 ], [ 0, %getObjectReadOnlyString.exit88 ]
+  %.051.ph = phi ptr [ %37, %104 ], [ %122, %getObjectReadOnlyString.exit88 ]
   store i64 %.sink, ptr %3, align 8, !tbaa !31
-  br label %.thread
+  br label %163
 
-.thread:                                          ; preds = %.thread.sink.split, %102
-  %164 = phi i64 [ %99, %102 ], [ %.sink, %.thread.sink.split ]
-  %165 = phi i64 [ %95, %102 ], [ %.ph97, %.thread.sink.split ]
-  %.059 = phi ptr [ %.0.ph.i93, %102 ], [ %.059.ph, %.thread.sink.split ]
-  %.257 = phi i32 [ 0, %102 ], [ %.257.ph, %.thread.sink.split ]
-  %.2 = phi i8 [ 0, %102 ], [ %.2.ph, %.thread.sink.split ]
-  %.051 = phi ptr [ %37, %102 ], [ %.051.ph, %.thread.sink.split ]
+163:                                              ; preds = %.sink.split, %103
+  %164 = phi i64 [ %100, %103 ], [ %.sink, %.sink.split ]
+  %165 = phi i64 [ %96, %103 ], [ %.ph94, %.sink.split ]
+  %.059 = phi ptr [ %.0.ph.i93, %103 ], [ %.059.ph, %.sink.split ]
+  %.257 = phi i32 [ 0, %103 ], [ %.257.ph, %.sink.split ]
+  %.2 = phi i8 [ 0, %103 ], [ %.2.ph, %.sink.split ]
+  %.051 = phi ptr [ %37, %103 ], [ %.051.ph, %.sink.split ]
   %166 = icmp eq ptr %.051, null
   br i1 %166, label %167, label %169
 
-167:                                              ; preds = %.thread
+167:                                              ; preds = %163
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !77
   call void @addReply(ptr noundef nonnull %0, ptr noundef %168) #18
   br label %195
 
-169:                                              ; preds = %.thread
+169:                                              ; preds = %163
   %170 = icmp sgt i64 %165, %164
   br i1 %170, label %171, label %173
 
@@ -2480,7 +2480,7 @@ getObjectReadOnlyString.exit88:                   ; preds = %125, %135, %.crited
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0) #18
   br label %195
 
-195:                                              ; preds = %114, %171, %194, %116, %32, %14, %8, %167, %162, %30
+195:                                              ; preds = %171, %194, %115, %.critedge, %32, %14, %8, %167, %161, %30
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18

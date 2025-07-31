@@ -833,15 +833,15 @@ define internal fastcc i32 @dissect_mux_pdu_fragment(ptr noundef %0, i32 noundef
   store volatile i32 %1, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
   store i32 0, ptr %10, align 4
-  %.0..0..0..0.2997 = load volatile i32, ptr %9, align 4
+  %.0..0..0..0.2995 = load volatile i32, ptr %9, align 4
   %15 = call i32 @tvb_reported_length(ptr noundef %0)
-  %16 = icmp ult i32 %.0..0..0..0.2997, %15
+  %16 = icmp ult i32 %.0..0..0..0.2995, %15
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %h223_mux_check_hdlc.exit.thread
-  %.06989100 = phi i1 [ %.17081, %h223_mux_check_hdlc.exit.thread ], [ false, %7 ]
-  %.0679099 = phi i32 [ %.168, %h223_mux_check_hdlc.exit.thread ], [ 0, %7 ]
-  %.0669198 = phi i32 [ %25, %h223_mux_check_hdlc.exit.thread ], [ 0, %7 ]
+  %.0698998 = phi i1 [ %.17081, %h223_mux_check_hdlc.exit.thread ], [ false, %7 ]
+  %.0679097 = phi i32 [ %.168, %h223_mux_check_hdlc.exit.thread ], [ 0, %7 ]
+  %.0669196 = phi i32 [ %25, %h223_mux_check_hdlc.exit.thread ], [ 0, %7 ]
   %.0..0..0..0.30 = load volatile i32, ptr %9, align 4
   %17 = add i32 %.0..0..0..0.30, 1
   store volatile i32 %17, ptr %9, align 4
@@ -849,13 +849,13 @@ define internal fastcc i32 @dissect_mux_pdu_fragment(ptr noundef %0, i32 noundef
   %.0..0..0..0.31 = load volatile i32, ptr %9, align 4
   %19 = sub i32 %.0..0..0..0.31, %1
   %20 = icmp ult i32 %19, 5
-  %21 = shl i32 %.0679099, 8
+  %21 = shl i32 %.0679097, 8
   %22 = zext i8 %18 to i32
   %23 = or disjoint i32 %21, %22
-  %.168 = select i1 %20, i32 %23, i32 %.0679099
-  %24 = shl i32 %.0669198, 8
+  %.168 = select i1 %20, i32 %23, i32 %.0679097
+  %24 = shl i32 %.0669196, 8
   %25 = or disjoint i32 %24, %22
-  br i1 %.06989100, label %.thread, label %26
+  br i1 %.0698998, label %.thread, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr %4, align 8
@@ -895,7 +895,7 @@ define internal fastcc i32 @dissect_mux_pdu_fragment(ptr noundef %0, i32 noundef
   %42 = icmp eq i32 %40, 57677
   %43 = and i1 %42, %41
   %cond.fr85 = freeze i1 %43
-  br i1 %cond.fr85, label %.critedge78, label %h223_mux_check_hdlc.exit.thread
+  br i1 %cond.fr85, label %.critedge78.critedge, label %h223_mux_check_hdlc.exit.thread
 
 44:                                               ; preds = %35, %35
   %45 = icmp ugt i32 %37, 1
@@ -911,57 +911,57 @@ h223_mux_check_hdlc.exit:                         ; preds = %44
   %49 = icmp eq i32 %47, 7858
   %50 = or i1 %48, %49
   %cond.fr = freeze i1 %50
-  br i1 %cond.fr, label %.critedge78, label %h223_mux_check_hdlc.exit.thread
+  br i1 %cond.fr, label %.critedge78.critedge, label %h223_mux_check_hdlc.exit.thread
 
-h223_mux_check_hdlc.exit.thread:                  ; preds = %44, %h223_mux_check_hdlc.exit, %39, %.thread, %26
-  %.17081 = phi i1 [ true, %.thread ], [ false, %26 ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ], [ true, %44 ]
-  %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
-  %51 = call i32 @tvb_reported_length(ptr noundef %0)
-  %52 = icmp ult i32 %.0..0..0..0.29, %51
-  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !9
-
-.critedge:                                        ; preds = %h223_mux_check_hdlc.exit.thread, %7
-  %53 = load i32, ptr %10, align 4
-  %.0..0..0..0.35 = load volatile i32, ptr %9, align 4
-  %54 = sub i32 %.0..0..0..0.35, %1
-  %.not75 = icmp ugt i32 %53, %54
-  br i1 %.not75, label %55, label %243
-
-55:                                               ; preds = %.critedge
-  %.0..0..0..0.36 = load volatile i32, ptr %9, align 4
-  %56 = add i32 %53, %1
-  %.neg76 = sub i32 %.0..0..0..0.36, %56
-  br label %243
-
-.critedge78:                                      ; preds = %h223_mux_check_hdlc.exit, %39
+.critedge78.critedge:                             ; preds = %39, %h223_mux_check_hdlc.exit
   %.0..0..0..0.37 = load volatile i32, ptr %9, align 4
-  %57 = sub i32 %.0..0..0..0.37, %1
-  %58 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %57)
-  store volatile ptr %58, ptr %8, align 8
+  %51 = sub i32 %.0..0..0..0.37, %1
+  %52 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %51)
+  store volatile ptr %52, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store volatile i32 0, ptr %12, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %14) #17
   call void @except_setup_try(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @dissect_mux_pdu_fragment.catch_spec, i64 noundef 1)
-  %59 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %60 = call i32 @_setjmp(ptr noundef nonnull %59) #18
-  %.not = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink = select i1 %.not, ptr null, ptr %61
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %54 = call i32 @_setjmp(ptr noundef nonnull %53) #18
+  %.not = icmp eq i32 %54, 0
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sink = select i1 %.not, ptr null, ptr %55
   store volatile ptr %.sink, ptr %11, align 8
   %.0..0..0..0. = load volatile i32, ptr %12, align 4
-  %62 = and i32 %.0..0..0..0., 1
-  %.not71 = icmp eq i32 %62, 0
+  %56 = and i32 %.0..0..0..0., 1
+  %.not71 = icmp eq i32 %56, 0
   br i1 %.not71, label %65, label %63
 
-63:                                               ; preds = %.critedge78
+h223_mux_check_hdlc.exit.thread:                  ; preds = %44, %h223_mux_check_hdlc.exit, %39, %.thread, %26
+  %.17081 = phi i1 [ true, %.thread ], [ false, %26 ], [ true, %h223_mux_check_hdlc.exit ], [ true, %39 ], [ true, %44 ]
+  %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
+  %57 = call i32 @tvb_reported_length(ptr noundef %0)
+  %58 = icmp ult i32 %.0..0..0..0.29, %57
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !9
+
+.critedge:                                        ; preds = %h223_mux_check_hdlc.exit.thread, %7
+  %59 = load i32, ptr %10, align 4
+  %.0..0..0..0.35 = load volatile i32, ptr %9, align 4
+  %60 = sub i32 %.0..0..0..0.35, %1
+  %.not75 = icmp ugt i32 %59, %60
+  br i1 %.not75, label %61, label %243
+
+61:                                               ; preds = %.critedge
+  %.0..0..0..0.36 = load volatile i32, ptr %9, align 4
+  %62 = add i32 %59, %1
+  %.neg76 = sub i32 %.0..0..0..0.36, %62
+  br label %243
+
+63:                                               ; preds = %.critedge78.critedge
   %.0..0..0..0.1 = load volatile i32, ptr %12, align 4
   %64 = or i32 %.0..0..0..0.1, 2
   store volatile i32 %64, ptr %12, align 4
   br label %65
 
-65:                                               ; preds = %63, %.critedge78
+65:                                               ; preds = %63, %.critedge78.critedge
   %.0..0..0..0.2 = load volatile i32, ptr %12, align 4
   %66 = and i32 %.0..0..0..0.2, -2
   store volatile i32 %66, ptr %12, align 4
@@ -1364,8 +1364,8 @@ dissect_mux_pdu.exit:                             ; preds = %.thread179.i, %207,
   %242 = sub i32 %.0..0..0..0.38, %1
   br label %243
 
-243:                                              ; preds = %.critedge, %238, %55
-  %.0 = phi i32 [ %.neg76, %55 ], [ %242, %238 ], [ 0, %.critedge ]
+243:                                              ; preds = %.critedge, %238, %61
+  %.0 = phi i32 [ %.neg76, %61 ], [ %242, %238 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

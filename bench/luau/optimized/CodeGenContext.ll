@@ -3398,8 +3398,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   %16 = load ptr, ptr %15, align 8, !tbaa !329
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !329
-  %.not8790 = icmp eq ptr %16, %18
-  br i1 %.not8790, label %._crit_edge, label %.lr.ph
+  %.not8587 = icmp eq ptr %16, %18
+  br i1 %.not8587, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %.084.lcssa = phi i32 [ 0, %14 ], [ %.sroa.speculated, %.lr.ph ]
@@ -3408,22 +3408,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   br i1 %.not, label %34, label %29
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.05093 = phi i32 [ %22, %.lr.ph ], [ 0, %14 ]
-  %.08492 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %14 ]
-  %.sroa.077.091 = phi ptr [ %28, %.lr.ph ], [ %16, %14 ]
-  %19 = load i8, ptr %.sroa.077.091, align 4, !tbaa !330
+  %.05090 = phi i32 [ %22, %.lr.ph ], [ 0, %14 ]
+  %.08489 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %14 ]
+  %.sroa.077.088 = phi ptr [ %28, %.lr.ph ], [ %16, %14 ]
+  %19 = load i8, ptr %.sroa.077.088, align 4, !tbaa !330
   %20 = icmp ne i8 %19, 4
   %21 = zext i1 %20 to i32
-  %22 = add i32 %.05093, %21
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.077.091, i64 8
+  %22 = add i32 %.05090, %21
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.077.088, i64 8
   %24 = load i32, ptr %23, align 4, !tbaa !333
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.077.091, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.077.088, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !334
   %27 = sub i32 %24, %26
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.08492, i32 %27)
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.077.091, i64 32
-  %.not87 = icmp eq ptr %28, %18
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.08489, i32 %27)
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.077.088, i64 32
+  %.not85 = icmp eq ptr %28, %18
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -3468,11 +3468,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   br i1 %48, label %75, label %49
 
 49:                                               ; preds = %43
-  br i1 %.not, label %.thread, label %50
-
-.thread:                                          ; preds = %49
-  tail call void @_ZN4Luau7CodeGen18createLinearBlocksERNS0_9IrBuilderEb(ptr noundef nonnull align 8 dereferenceable(752) %0, i1 noundef zeroext %46)
-  br label %75
+  br i1 %.not, label %.critedge, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3480,7 +3476,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load ptr, ptr %53, align 8, !tbaa !344
   %.not5.i.i.i = icmp eq ptr %52, %54
-  br i1 %.not5.i.i.i, label %.loopexit89, label %.lr.ph.i.i.i
+  br i1 %.not5.i.i.i, label %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %50, %.lr.ph.i.i.i
   %.07.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %50 ]
@@ -3491,9 +3487,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   %spec.select.i.i.i = add i32 %.07.i.i.i, %57
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i, i64 44
   %.not.i.i.i = icmp eq ptr %58, %54
-  br i1 %.not.i.i.i, label %.loopexit89, label %.lr.ph.i.i.i, !llvm.loop !352
+  br i1 %.not.i.i.i, label %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit, label %.lr.ph.i.i.i, !llvm.loop !352
 
-.loopexit89:                                      ; preds = %.lr.ph.i.i.i, %50
+_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit: ; preds = %.lr.ph.i.i.i, %50
   %.0.lcssa.i.i.i = phi i32 [ 0, %50 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %59 = tail call noundef double @_Z9lua_clockv()
   tail call void @_ZN4Luau7CodeGen18createLinearBlocksERNS0_9IrBuilderEb(ptr noundef nonnull align 8 dereferenceable(752) %0, i1 noundef zeroext %46)
@@ -3509,9 +3505,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   %.not5.i.i.i60 = icmp eq ptr %66, %67
   br i1 %.not5.i.i.i60, label %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67, label %.lr.ph.i.i.i61
 
-.lr.ph.i.i.i61:                                   ; preds = %.loopexit89, %.lr.ph.i.i.i61
-  %.07.i.i.i62 = phi i32 [ %spec.select.i.i.i64, %.lr.ph.i.i.i61 ], [ 0, %.loopexit89 ]
-  %.sroa.03.06.i.i.i63 = phi ptr [ %71, %.lr.ph.i.i.i61 ], [ %66, %.loopexit89 ]
+.lr.ph.i.i.i61:                                   ; preds = %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit, %.lr.ph.i.i.i61
+  %.07.i.i.i62 = phi i32 [ %spec.select.i.i.i64, %.lr.ph.i.i.i61 ], [ 0, %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit ]
+  %.sroa.03.06.i.i.i63 = phi ptr [ %71, %.lr.ph.i.i.i61 ], [ %66, %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit ]
   %68 = load i8, ptr %.sroa.03.06.i.i.i63, align 4, !tbaa !345
   %69 = icmp eq i8 %68, 118
   %70 = zext i1 %69 to i32
@@ -3520,15 +3516,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13lowerFunctio
   %.not.i.i.i65 = icmp eq ptr %71, %67
   br i1 %.not.i.i.i65, label %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67, label %.lr.ph.i.i.i61, !llvm.loop !352
 
-_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67: ; preds = %.lr.ph.i.i.i61, %.loopexit89
-  %.0.lcssa.i.i.i66 = phi i32 [ 0, %.loopexit89 ], [ %spec.select.i.i.i64, %.lr.ph.i.i.i61 ]
+_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67: ; preds = %.lr.ph.i.i.i61, %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit
+  %.0.lcssa.i.i.i66 = phi i32 [ 0, %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit ], [ %spec.select.i.i.i64, %.lr.ph.i.i.i61 ]
   %72 = sub i32 %.0.lcssa.i.i.i66, %.0.lcssa.i.i.i
   %73 = load i32, ptr %62, align 8, !tbaa !354
   %74 = add i32 %72, %73
   store i32 %74, ptr %62, align 8, !tbaa !354
   br label %75
 
-75:                                               ; preds = %.thread, %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67, %43
+.critedge:                                        ; preds = %49
+  tail call void @_ZN4Luau7CodeGen18createLinearBlocksERNS0_9IrBuilderEb(ptr noundef nonnull align 8 dereferenceable(752) %0, i1 noundef zeroext %46)
+  br label %75
+
+75:                                               ; preds = %_ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmdE.exit67, %.critedge, %43
   tail call void @_ZN4Luau7CodeGen27markDeadStoresInBlockChainsERNS0_9IrBuilderE(ptr noundef nonnull align 8 dereferenceable(752) %0)
   br label %76
 
@@ -3544,10 +3544,10 @@ _ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmd
 78:                                               ; preds = %77
   %79 = load ptr, ptr %15, align 8, !tbaa !329
   %80 = load ptr, ptr %17, align 8, !tbaa !329
-  %.not8895 = icmp eq ptr %79, %80
-  br i1 %.not8895, label %.loopexit, label %.lr.ph98
+  %.not8692 = icmp eq ptr %79, %80
+  br i1 %.not8692, label %.loopexit, label %.lr.ph95
 
-.lr.ph98:                                         ; preds = %78
+.lr.ph95:                                         ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %84
 
@@ -3556,9 +3556,9 @@ _ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmd
           cleanup
   br label %.body
 
-84:                                               ; preds = %.lr.ph98, %89
-  %.sroa.072.096 = phi ptr [ %79, %.lr.ph98 ], [ %90, %89 ]
-  %85 = load i8, ptr %.sroa.072.096, align 4, !tbaa !330
+84:                                               ; preds = %.lr.ph95, %89
+  %.sroa.072.093 = phi ptr [ %79, %.lr.ph95 ], [ %90, %89 ]
+  %85 = load i8, ptr %.sroa.072.093, align 4, !tbaa !330
   %.not59 = icmp eq i8 %85, 4
   br i1 %.not59, label %89, label %86
 
@@ -3569,9 +3569,9 @@ _ZN4Luau7CodeGen19getInstructionCountERKSt6vectorINS0_6IrInstESaIS2_EENS0_5IrCmd
   br label %89
 
 89:                                               ; preds = %86, %84
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.072.096, i64 32
-  %.not88 = icmp eq ptr %90, %80
-  br i1 %.not88, label %.loopexit, label %84
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 32
+  %.not86 = icmp eq ptr %90, %80
+  br i1 %.not86, label %.loopexit, label %84
 
 .loopexit:                                        ; preds = %89, %78, %77
   invoke void @_ZN4Luau7CodeGen25optimizeMemoryOperandsX64ERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(624) %15)

@@ -8,27 +8,27 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %22, label %.preheader57
+  br i1 %.not, label %22, label %.preheader56
 
-.preheader57:                                     ; preds = %3
+.preheader56:                                     ; preds = %3
   %4 = load i64, ptr %1, align 8, !tbaa !3
-  %.not4859.not = icmp eq i64 %4, 0
-  br i1 %.not4859.not, label %.critedge, label %.lr.ph
+  %.not4858.not = icmp eq i64 %4, 0
+  br i1 %.not4858.not, label %.critedge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = add nuw i64 %.03560, 1
+  %6 = add nuw i64 %.03559, 1
   %exitcond.not = icmp eq i64 %6, %4
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader57, %5
-  %.03560 = phi i64 [ %6, %5 ], [ 0, %.preheader57 ]
-  %7 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.03560
+.lr.ph:                                           ; preds = %.preheader56, %5
+  %.03559 = phi i64 [ %6, %5 ], [ 0, %.preheader56 ]
+  %7 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.03559
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #8
   %.not46 = icmp eq i32 %9, 0
   br i1 %.not46, label %thread-pre-split, label %5
 
-.critedge:                                        ; preds = %5, %.preheader57
+.critedge:                                        ; preds = %5, %.preheader56
   %10 = shl i64 %4, 5
   %11 = add i64 %10, 32
   %12 = tail call ptr @realloc(ptr noundef nonnull %0, i64 noundef %11) #9
@@ -37,18 +37,22 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
   br i1 %.not49, label %.preheader, label %19
 
 .preheader:                                       ; preds = %.critedge
-  %.not63 = icmp eq i64 %13, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph62
+  %.not62 = icmp eq i64 %13, 0
+  br i1 %.not62, label %.critedge52, label %.lr.ph61
 
-.lr.ph62:                                         ; preds = %.preheader, %.lr.ph62
-  %.161 = phi i64 [ %16, %.lr.ph62 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.161
+.lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
+  %.160 = phi i64 [ %16, %.lr.ph61 ], [ 0, %.preheader ]
+  %14 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.160
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   tail call void @free(ptr noundef %15) #10
-  %16 = add nuw i64 %.161, 1
+  %16 = add nuw i64 %.160, 1
   %17 = load i64, ptr %1, align 8, !tbaa !3
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %.lr.ph62, label %._crit_edge
+  br i1 %18, label %.lr.ph61, label %.critedge52
+
+.critedge52:                                      ; preds = %.lr.ph61, %.preheader
+  tail call void @free(ptr noundef nonnull %0) #10
+  br label %34
 
 19:                                               ; preds = %.critedge
   %20 = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
@@ -57,43 +61,39 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
   store i64 %21, ptr %1, align 8, !tbaa !3
   br label %thread-pre-split
 
-._crit_edge:                                      ; preds = %.lr.ph62, %.preheader
-  tail call void @free(ptr noundef nonnull %0) #10
-  br label %33
-
 22:                                               ; preds = %3
   %23 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
   %.not45 = icmp eq ptr %23, null
-  br i1 %.not45, label %33, label %.thread53
+  br i1 %.not45, label %34, label %.thread
 
-.thread53:                                        ; preds = %22
+.thread:                                          ; preds = %22
   store i64 1, ptr %1, align 8, !tbaa !3
-  br label %24
+  br label %25
 
 thread-pre-split:                                 ; preds = %.lr.ph, %19
-  %.pr = phi i64 [ %21, %19 ], [ %4, %.lr.ph ]
-  %.139.ph = phi ptr [ %12, %19 ], [ %0, %.lr.ph ]
-  %.not50 = icmp eq i64 %.pr, 0
-  br i1 %.not50, label %33, label %24
+  %24 = phi i64 [ %21, %19 ], [ %4, %.lr.ph ]
+  %.2 = phi ptr [ %12, %19 ], [ %0, %.lr.ph ]
+  %.not50 = icmp eq i64 %24, 0
+  br i1 %.not50, label %34, label %25
 
-24:                                               ; preds = %.thread53, %thread-pre-split
-  %.256 = phi ptr [ %23, %.thread53 ], [ %.139.ph, %thread-pre-split ]
-  %25 = phi i64 [ 1, %.thread53 ], [ %.pr, %thread-pre-split ]
-  %26 = getelementptr %struct.device, ptr %.256, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -32
-  %28 = load ptr, ptr %27, align 8, !tbaa !7
-  %29 = icmp eq ptr %28, null
-  %30 = icmp ne ptr %2, null
-  %or.cond = and i1 %30, %29
-  br i1 %or.cond, label %31, label %33
+25:                                               ; preds = %.thread, %thread-pre-split
+  %.255 = phi ptr [ %23, %.thread ], [ %.2, %thread-pre-split ]
+  %26 = phi i64 [ 1, %.thread ], [ %24, %thread-pre-split ]
+  %27 = getelementptr %struct.device, ptr %.255, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -32
+  %29 = load ptr, ptr %28, align 8, !tbaa !7
+  %30 = icmp eq ptr %29, null
+  %31 = icmp ne ptr %2, null
+  %or.cond = and i1 %31, %30
+  br i1 %or.cond, label %32, label %34
 
-31:                                               ; preds = %24
-  %32 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
-  store ptr %32, ptr %27, align 8, !tbaa !7
-  br label %33
+32:                                               ; preds = %25
+  %33 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
+  store ptr %33, ptr %28, align 8, !tbaa !7
+  br label %34
 
-33:                                               ; preds = %._crit_edge, %thread-pre-split, %24, %31, %22
-  %.137 = phi ptr [ null, %._crit_edge ], [ null, %22 ], [ %.256, %31 ], [ %.256, %24 ], [ %.139.ph, %thread-pre-split ]
+34:                                               ; preds = %thread-pre-split, %25, %32, %22, %.critedge52
+  %.137 = phi ptr [ null, %.critedge52 ], [ null, %22 ], [ %.255, %32 ], [ %.255, %25 ], [ %.2, %thread-pre-split ]
   ret ptr %.137
 }
 

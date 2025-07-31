@@ -619,7 +619,7 @@ define internal fastcc void @intel_engine_pm_might_get(ptr noundef readonly capt
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -630,7 +630,7 @@ define internal fastcc void @intel_engine_pm_might_get(ptr noundef readonly capt
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, %10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.lr.ph
+  br i1 %14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %15 = phi i32 [ %21, %.lr.ph ], [ %13, %6 ]
@@ -641,9 +641,9 @@ define internal fastcc void @intel_engine_pm_might_get(ptr noundef readonly capt
   %20 = xor i32 %19, -1
   %21 = and i32 %15, %20
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %22, label %.critedge, label %.lr.ph, !llvm.loop !24
 
-.thread:                                          ; preds = %.lr.ph, %6, %1
+.critedge:                                        ; preds = %.lr.ph, %6, %1
   ret void
 }
 

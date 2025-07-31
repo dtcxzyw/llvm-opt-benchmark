@@ -7680,7 +7680,7 @@ _ZNK5Parse34path_is_suitable_for_uncommon_trapEf.exit.thread: ; preds = %45, %_Z
   br i1 %140, label %141, label %160
 
 141:                                              ; preds = %_ZNK5Parse34path_is_suitable_for_uncommon_trapEf.exit.thread
-  br i1 %136, label %.thread65, label %.thread
+  br i1 %136, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %141
   %142 = load ptr, ptr %111, align 8
@@ -7704,16 +7704,16 @@ _ZNK5Parse34path_is_suitable_for_uncommon_trapEf.exit.thread: ; preds = %45, %_Z
   br label %192
 
 160:                                              ; preds = %_ZNK5Parse34path_is_suitable_for_uncommon_trapEf.exit.thread
-  br i1 %136, label %192, label %.thread65
+  br i1 %136, label %192, label %.critedge
 
-.thread65:                                        ; preds = %141, %160
+.critedge:                                        ; preds = %141, %160
   %161 = load ptr, ptr %4, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 112
   %163 = load ptr, ptr %162, align 8
   %.not.i.i.i.i39 = icmp eq ptr %163, null
   br i1 %.not.i.i.i.i39, label %_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE.exit, label %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40
 
-_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40: ; preds = %.thread65
+_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40: ; preds = %.critedge
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, %161
@@ -7824,7 +7824,7 @@ _ZNK5Parse5Block11is_SEL_headEv.exit.i50:         ; preds = %206, %.preheader.i.
   store i8 1, ptr %223, align 8
   br label %_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE.exit
 
-_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE.exit: ; preds = %20, %202, %170, %211, %_ZNK5Parse5Block11is_SEL_headEv.exit.i50, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i47, %192, %179, %_ZNK5Parse5Block11is_SEL_headEv.exit.i43, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40, %.thread65, %29, %_ZNK5Parse5Block11is_SEL_headEv.exit.i, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i, %10, %67, %110, %42
+_ZN5Parse28maybe_add_predicate_after_ifEPNS_5BlockE.exit: ; preds = %20, %202, %170, %211, %_ZNK5Parse5Block11is_SEL_headEv.exit.i50, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i47, %192, %179, %_ZNK5Parse5Block11is_SEL_headEv.exit.i43, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40, %.critedge, %29, %_ZNK5Parse5Block11is_SEL_headEv.exit.i, %_ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i, %10, %67, %110, %42
   ret void
 }
 

@@ -878,11 +878,11 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = add nsw i32 %20, 15
   %22 = icmp slt i32 %1, %21
-  br i1 %22, label %.thread55, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %15, %6
   %24 = icmp slt i32 %1, 16
-  br i1 %24, label %.thread60, label %25
+  br i1 %24, label %.thread55, label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -897,7 +897,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %35 = add nsw i32 %28, -15
   %.not43 = icmp slt i32 %33, %35
   %or.cond = select i1 %34, i1 true, i1 %.not43
-  br i1 %or.cond, label %36, label %.thread55
+  br i1 %or.cond, label %36, label %.critedge
 
 36:                                               ; preds = %25
   %37 = icmp slt i32 %28, 15
@@ -947,7 +947,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 192
   %63 = load i32, ptr %62, align 8, !tbaa !78
   %64 = trunc i32 %63 to i16
-  br label %.thread60
+  br label %.thread55
 
 65:                                               ; preds = %36
   %66 = load i32, ptr %8, align 8, !tbaa !73
@@ -956,30 +956,30 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %69 = load i32, ptr %68, align 4, !tbaa !17
   %70 = add nuw nsw i32 %1, 15
   %.not = icmp sgt i32 %69, %70
-  br i1 %.not, label %.thread60, label %.thread55
+  br i1 %.not, label %.thread55, label %.critedge
 
-.thread60:                                        ; preds = %.thread, %23, %65
-  %.03265 = phi i16 [ 0, %65 ], [ %64, %.thread ], [ 0, %23 ]
-  %.03464 = phi i32 [ 0, %65 ], [ %.3, %.thread ], [ 0, %23 ]
+.thread55:                                        ; preds = %.thread, %23, %65
+  %.03260 = phi i16 [ 0, %65 ], [ %64, %.thread ], [ 0, %23 ]
+  %.03459 = phi i32 [ 0, %65 ], [ %.3, %.thread ], [ 0, %23 ]
   store i32 0, ptr %8, align 8, !tbaa !73
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %71, align 4, !tbaa !74
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.03464, ptr %72, align 8, !tbaa !75
+  store i32 %.03459, ptr %72, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %73, align 4, !tbaa !76
-  store i32 %.03464, ptr %7, align 8, !tbaa !17
+  store i32 %.03459, ptr %7, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i16 %.03265, ptr %74, align 8, !tbaa !71
-  br label %.thread55
+  store i16 %.03260, ptr %74, align 8, !tbaa !71
+  br label %.critedge
 
-.thread55:                                        ; preds = %25, %15, %.thread60, %65
-  %75 = phi i32 [ %33, %25 ], [ %20, %15 ], [ %.03464, %.thread60 ], [ %33, %65 ]
+.critedge:                                        ; preds = %15, %25, %.thread55, %65
+  %75 = phi i32 [ %20, %15 ], [ %33, %25 ], [ %.03459, %.thread55 ], [ %33, %65 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = icmp slt i32 %75, %1
   br i1 %77, label %.preheader, label %127
 
-.preheader:                                       ; preds = %.thread55, %83
+.preheader:                                       ; preds = %.critedge, %83
   %78 = load i32, ptr %76, align 4, !tbaa !74
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %79
@@ -1004,28 +1004,28 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %89, ptr %90, align 8, !tbaa !75
   %91 = icmp sgt i32 %89, %1
-  br i1 %91, label %.lr.ph83, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
+  br i1 %91, label %.lr.ph78, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
 
-.lr.ph83:                                         ; preds = %86
+.lr.ph78:                                         ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %94 = load i32, ptr %2, align 4, !tbaa !24
   %95 = icmp slt i32 %94, 1
   tail call void @llvm.assume(i1 %95)
-  br label %.lr.ph83.split
+  br label %.lr.ph78.split
 
-.lr.ph83.splitthread-pre-split:                   ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit
+.lr.ph78.splitthread-pre-split:                   ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit
   %.pr = load i32, ptr %2, align 4, !tbaa !24
-  br label %.lr.ph83.split
+  br label %.lr.ph78.split
 
-.lr.ph83.split:                                   ; preds = %.lr.ph83, %.lr.ph83.splitthread-pre-split
-  %96 = phi i32 [ %.pr, %.lr.ph83.splitthread-pre-split ], [ %94, %.lr.ph83 ]
-  %97 = phi i32 [ %124, %.lr.ph83.splitthread-pre-split ], [ %89, %.lr.ph83 ]
-  %98 = phi i32 [ %125, %.lr.ph83.splitthread-pre-split ], [ %78, %.lr.ph83 ]
+.lr.ph78.split:                                   ; preds = %.lr.ph78, %.lr.ph78.splitthread-pre-split
+  %96 = phi i32 [ %.pr, %.lr.ph78.splitthread-pre-split ], [ %94, %.lr.ph78 ]
+  %97 = phi i32 [ %124, %.lr.ph78.splitthread-pre-split ], [ %89, %.lr.ph78 ]
+  %98 = phi i32 [ %125, %.lr.ph78.splitthread-pre-split ], [ %78, %.lr.ph78 ]
   %99 = icmp slt i32 %96, 1
   br i1 %99, label %100, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit
 
-100:                                              ; preds = %.lr.ph83.split
+100:                                              ; preds = %.lr.ph78.split
   %101 = load i32, ptr %8, align 8, !tbaa !73
   %102 = icmp eq i32 %98, %101
   br i1 %102, label %103, label %105
@@ -1064,13 +1064,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   store i32 %122, ptr %123, align 8, !tbaa !78
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit
 
-_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; preds = %.lr.ph83.split, %111
-  %124 = phi i32 [ %97, %.lr.ph83.split ], [ %112, %111 ]
-  %125 = phi i32 [ %98, %.lr.ph83.split ], [ %113, %111 ]
+_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; preds = %.lr.ph78.split, %111
+  %124 = phi i32 [ %97, %.lr.ph78.split ], [ %112, %111 ]
+  %125 = phi i32 [ %98, %.lr.ph78.split ], [ %113, %111 ]
   %126 = icmp sgt i32 %124, %1
-  br i1 %126, label %.lr.ph83.splitthread-pre-split, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50, !llvm.loop !82
+  br i1 %126, label %.lr.ph78.splitthread-pre-split, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50, !llvm.loop !82
 
-127:                                              ; preds = %.thread55
+127:                                              ; preds = %.critedge
   %128 = load i32, ptr %8, align 8, !tbaa !73
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [128 x i32], ptr %7, i64 0, i64 %129
@@ -1095,15 +1095,15 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit: ; pr
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %141, ptr %142, align 8, !tbaa !75
   %143 = icmp slt i32 %141, %1
-  br i1 %143, label %.lr.ph78, label %._crit_edge79
+  br i1 %143, label %.lr.ph73, label %._crit_edge74
 
-.lr.ph78:                                         ; preds = %._crit_edge
+.lr.ph73:                                         ; preds = %._crit_edge
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %146
 
-146:                                              ; preds = %.lr.ph78, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit
-  %147 = phi i32 [ %134, %.lr.ph78 ], [ %168, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit ]
+146:                                              ; preds = %.lr.ph73, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit
+  %147 = phi i32 [ %134, %.lr.ph73 ], [ %168, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit ]
   %148 = load i32, ptr %76, align 4, !tbaa !74
   %149 = icmp eq i32 %147, %148
   br i1 %149, label %150, label %159
@@ -1145,18 +1145,18 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %150, %159
   %170 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 192
   store i32 %169, ptr %170, align 8, !tbaa !78
   %171 = icmp slt i32 %167, %1
-  br i1 %171, label %146, label %._crit_edge79, !llvm.loop !85
+  br i1 %171, label %146, label %._crit_edge74, !llvm.loop !85
 
-._crit_edge79:                                    ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit, %._crit_edge
+._crit_edge74:                                    ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit, %._crit_edge
   %172 = phi i32 [ %134, %._crit_edge ], [ %168, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit ]
-  %.lcssa72 = phi i32 [ %141, %._crit_edge ], [ %167, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit ]
-  %173 = icmp sgt i32 %.lcssa72, %1
+  %.lcssa67 = phi i32 [ %141, %._crit_edge ], [ %167, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit ]
+  %173 = icmp sgt i32 %.lcssa67, %1
   %174 = load i32, ptr %2, align 4
   %175 = icmp slt i32 %174, 1
-  %or.cond67 = select i1 %173, i1 %175, i1 false
-  br i1 %or.cond67, label %176, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
+  %or.cond62 = select i1 %173, i1 %175, i1 false
+  br i1 %or.cond62, label %176, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
 
-176:                                              ; preds = %._crit_edge79
+176:                                              ; preds = %._crit_edge74
   %177 = load i32, ptr %8, align 8, !tbaa !73
   %178 = icmp eq i32 %172, %177
   br i1 %178, label %179, label %181
@@ -1197,8 +1197,8 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %150, %159
   store i32 %200, ptr %201, align 8, !tbaa !78
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50
 
-_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50: ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit, %86, %187, %._crit_edge79, %127, %3
-  %.0 = phi i8 [ 0, %3 ], [ 1, %127 ], [ 1, %._crit_edge79 ], [ 1, %187 ], [ 1, %86 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit ]
+_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit50: ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit, %86, %187, %._crit_edge74, %127, %3
+  %.0 = phi i8 [ 0, %3 ], [ 1, %127 ], [ 1, %._crit_edge74 ], [ 1, %187 ], [ 1, %86 ], [ 1, %_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode.exit ]
   ret i8 %.0
 }
 

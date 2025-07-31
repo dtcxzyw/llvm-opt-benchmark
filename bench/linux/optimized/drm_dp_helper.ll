@@ -6193,121 +6193,110 @@ define internal i32 @dp_aux_backlight_update_status(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %65
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %65
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %20
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %12
   %18 = load i32, ptr %0, align 8
   %19 = trunc i32 %18 to i16
-  br label %20
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  %21 = load i8, ptr %20, align 2, !range !20, !noundef !21
+  %22 = icmp eq i8 %21, 0
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load ptr, ptr %23, align 8
+  br i1 %22, label %25, label %28
 
-20:                                               ; preds = %17, %12
-  %.ph.ph = phi i16 [ %19, %17 ], [ 0, %12 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 3
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %65
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %27 = tail call i32 @drm_edp_backlight_enable(ptr noundef %24, ptr noundef nonnull %26, i16 noundef zeroext %19)
+  store i8 1, ptr %20, align 2
+  br label %67
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %27 = load i8, ptr %26, align 2, !range !20, !noundef !21
-  %28 = icmp eq i8 %27, 0
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %30 = load ptr, ptr %29, align 8
-  br i1 %28, label %31, label %34
-
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %33 = tail call i32 @drm_edp_backlight_enable(ptr noundef %30, ptr noundef nonnull %32, i16 noundef zeroext %.ph.ph)
-  store i8 1, ptr %26, align 2
-  br label %74
-
-34:                                               ; preds = %25
+28:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #18
   store i16 0, ptr %2, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %36 = load i8, ptr %35, align 2
-  %37 = and i8 %36, 4
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %63, label %39
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %30 = load i8, ptr %29, align 2
+  %31 = and i8 %30, 4
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %57, label %33
 
-39:                                               ; preds = %34
-  %40 = and i8 %36, 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %46, label %42
+33:                                               ; preds = %28
+  %34 = and i8 %30, 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %40, label %36
 
-42:                                               ; preds = %39
-  %43 = lshr i16 %.ph.ph, 8
-  %44 = trunc i16 %.ph.ph to i8
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %44, ptr %45, align 1
-  br label %46
+36:                                               ; preds = %33
+  %37 = lshr i16 %19, 8
+  %38 = trunc i32 %18 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %38, ptr %39, align 1
+  br label %40
 
-46:                                               ; preds = %39, %42
-  %.sink.in = phi i16 [ %43, %42 ], [ %.ph.ph, %39 ]
+40:                                               ; preds = %33, %36
+  %.sink.in = phi i16 [ %37, %36 ], [ %19, %33 ]
   %.sink = trunc i16 %.sink.in to i8
   store i8 %.sink, ptr %2, align 2
-  %47 = call i64 @drm_dp_dpcd_write(ptr noundef %30, i32 noundef 1826, ptr noundef nonnull %2, i64 noundef 2), !range !12
-  %48 = trunc nsw i64 %47 to i32
-  %49 = and i64 %47, 4294967295
-  %50 = icmp eq i64 %49, 2
-  br i1 %50, label %63, label %51
+  %41 = call i64 @drm_dp_dpcd_write(ptr noundef %24, i32 noundef 1826, ptr noundef nonnull %2, i64 noundef 2), !range !12
+  %42 = trunc nsw i64 %41 to i32
+  %43 = and i64 %41, 4294967295
+  %44 = icmp eq i64 %43, 2
+  br i1 %44, label %57, label %45
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 1040
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %58, label %55
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 1040
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %52, label %49
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load ptr, ptr %56, align 8
-  br label %58
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = load ptr, ptr %50, align 8
+  br label %52
 
-58:                                               ; preds = %55, %51
-  %59 = phi ptr [ %57, %55 ], [ null, %51 ]
-  %60 = load ptr, ptr %30, align 8
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %59, ptr noundef nonnull @.str.50, ptr noundef %60, i32 noundef %48) #19
-  %61 = icmp slt i64 %47, 0
-  %62 = select i1 %61, i32 %48, i32 -5
-  br label %63
+52:                                               ; preds = %49, %45
+  %53 = phi ptr [ %51, %49 ], [ null, %45 ]
+  %54 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.50, ptr noundef %54, i32 noundef %42) #19
+  %55 = icmp slt i64 %41, 0
+  %56 = select i1 %55, i32 %42, i32 -5
+  br label %57
 
-63:                                               ; preds = %58, %46, %34
-  %64 = phi i32 [ %62, %58 ], [ 0, %34 ], [ 0, %46 ]
+57:                                               ; preds = %52, %40, %28
+  %58 = phi i32 [ %56, %52 ], [ 0, %28 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #18
-  br label %74
+  br label %67
 
-65:                                               ; preds = %8, %1, %20
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %67 = load i8, ptr %66, align 2, !range !20, !noundef !21
-  %68 = icmp eq i8 %67, 0
-  br i1 %68, label %74, label %69
+.critedge:                                        ; preds = %12, %8, %1
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  %60 = load i8, ptr %59, align 2, !range !20, !noundef !21
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %67, label %62
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr i8, ptr %4, i64 20
-  %.val = load i8, ptr %72, align 2
-  %73 = tail call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %71, i8 %.val, i1 noundef zeroext false)
-  store i8 0, ptr %66, align 2
-  br label %74
+62:                                               ; preds = %.critedge
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr i8, ptr %4, i64 20
+  %.val = load i8, ptr %65, align 2
+  %66 = tail call fastcc i32 @drm_edp_backlight_set_enable(ptr noundef %64, i8 %.val, i1 noundef zeroext false)
+  store i8 0, ptr %59, align 2
+  br label %67
 
-74:                                               ; preds = %69, %65, %63, %31
-  %75 = phi i32 [ 0, %31 ], [ 0, %69 ], [ 0, %65 ], [ %64, %63 ]
-  ret i32 %75
+67:                                               ; preds = %62, %.critedge, %57, %25
+  %68 = phi i32 [ 0, %25 ], [ 0, %62 ], [ 0, %.critedge ], [ %58, %57 ]
+  ret i32 %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

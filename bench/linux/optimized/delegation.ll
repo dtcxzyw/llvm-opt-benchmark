@@ -1663,7 +1663,7 @@ define dso_local void @nfs_remove_bad_delegation(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr i8, ptr %0, i64 -72
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %46, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !51
@@ -1684,7 +1684,7 @@ define dso_local void @nfs_remove_bad_delegation(ptr noundef %0, ptr noundef %1)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %15, ptr noundef nonnull dereferenceable(12) %16, i64 12)
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %46
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -1703,7 +1703,7 @@ define dso_local void @nfs_remove_bad_delegation(ptr noundef %0, ptr noundef %1)
 
 29:                                               ; preds = %23
   tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #12
-  br label %46
+  br label %.critedge
 
 30:                                               ; preds = %23
   store i32 %21, ptr %9, align 8
@@ -1720,7 +1720,7 @@ define dso_local void @nfs_remove_bad_delegation(ptr noundef %0, ptr noundef %1)
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
-  br i1 %37, label %38, label %47
+  br i1 %37, label %38, label %46
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -1729,24 +1729,24 @@ define dso_local void @nfs_remove_bad_delegation(ptr noundef %0, ptr noundef %1)
   %40 = load volatile i64, ptr %34, align 8
   %41 = and i64 %40, 16
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %46
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void @nfs_clear_verifier_delegated(ptr noundef %45) #12
-  br label %47
+  br label %46
 
-46:                                               ; preds = %29, %14, %2
-  tail call void @__rcu_read_unlock() #12
-  br label %48
-
-47:                                               ; preds = %32, %38, %43
+46:                                               ; preds = %43, %38, %32
   tail call void @__rcu_read_unlock() #12
   call void @nfs_inode_find_state_and_recover(ptr noundef %0, ptr noundef nonnull %33) #12
-  br label %48
+  br label %47
 
-48:                                               ; preds = %46, %47
+.critedge:                                        ; preds = %14, %29, %2
+  tail call void @__rcu_read_unlock() #12
+  br label %47
+
+47:                                               ; preds = %.critedge, %46
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
   ret void
 }

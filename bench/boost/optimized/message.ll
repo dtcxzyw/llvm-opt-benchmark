@@ -9590,8 +9590,8 @@ _ZN5boost6locale11gnu_gettext11message_keyIcED2Ev.exit: ; preds = %_ZNKSt7__cxx1
 define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext7mo_file4findEPKcS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !235
-  %.not41 = icmp eq i32 %5, 0
-  br i1 %.not41, label %.thread, label %6
+  %.not37 = icmp eq i32 %5, 0
+  br i1 %.not37, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %.not = icmp eq ptr %1, null
@@ -9705,7 +9705,7 @@ _ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit: ; preds = %45
   %65 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %spec.select.i = select i1 %64, i32 %.0.copyload.i, i32 %65
   %66 = icmp eq i32 %spec.select.i, 0
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit
   %68 = add i32 %spec.select.i, -1
@@ -9745,18 +9745,18 @@ _ZNK5boost6locale11gnu_gettext7mo_file3keyEj.exit: ; preds = %67
   %86 = tail call { ptr, i64 } @_ZNK5boost6locale11gnu_gettext7mo_file5valueEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %68)
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
-  br label %.thread
+  br label %.critedge
 
 89:                                               ; preds = %_ZNK5boost6locale11gnu_gettext7mo_file3keyEj.exit
   %90 = add i32 %39, %.022
   %91 = load i32, ptr %4, align 8, !tbaa !235
   %92 = urem i32 %90, %91
   %.not25 = icmp eq i32 %92, %40
-  br i1 %.not25, label %.thread, label %45, !llvm.loop !264
+  br i1 %.not25, label %.critedge, label %45, !llvm.loop !264
 
-.thread:                                          ; preds = %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit, %89, %85, %3
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ %87, %85 ], [ null, %89 ], [ null, %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit ]
-  %.sroa.5.0 = phi i64 [ 0, %3 ], [ %88, %85 ], [ 0, %89 ], [ 0, %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit ]
+.critedge:                                        ; preds = %89, %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit, %3, %85
+  %.sroa.0.0 = phi ptr [ %87, %85 ], [ null, %3 ], [ null, %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit ], [ null, %89 ]
+  %.sroa.5.0 = phi i64 [ %88, %85 ], [ 0, %3 ], [ 0, %_ZNK5boost6locale11gnu_gettext7mo_file3getEj.exit ], [ 0, %89 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert

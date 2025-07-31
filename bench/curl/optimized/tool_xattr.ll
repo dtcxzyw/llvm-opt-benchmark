@@ -17,8 +17,8 @@ define dso_local i32 @fwrite_xattr(ptr noundef %0, ptr noundef %1, i32 noundef %
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i32 @fsetxattr(i32 noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i64 noundef 4, i32 noundef 0) #5
-  %.not38 = icmp eq i32 %6, 0
-  br i1 %.not38, label %.lr.ph, label %.critedge26
+  %.not37 = icmp eq i32 %6, 0
+  br i1 %.not37, label %.lr.ph, label %.critedge28
 
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %3 ]
@@ -49,13 +49,13 @@ xattr.exit:                                       ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq i32 %.121, 0
-  br i1 %.not, label %.lr.ph, label %.critedge26, !llvm.loop !13
+  br i1 %.not, label %.lr.ph, label %.critedge28, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %19 = call ptr @curl_url() #5
-  %.not.i27 = icmp eq ptr %19, null
-  br i1 %.not.i27, label %stripcredentials.exit.thread, label %20
+  %.not.i29 = icmp eq ptr %19, null
+  br i1 %.not.i29, label %stripcredentials.exit.thread, label %20
 
 20:                                               ; preds = %.critedge
   %21 = call i32 @curl_url_set(ptr noundef nonnull %19, i32 noundef 0, ptr noundef %1, i32 noundef 512) #5
@@ -80,23 +80,23 @@ xattr.exit:                                       ; preds = %9
 stripcredentials.exit.thread:                     ; preds = %.critedge, %20, %22, %24, %26
   call void @curl_url_cleanup(ptr noundef %19) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  br label %.critedge26
+  br label %.critedge28
 
 stripcredentials.exit:                            ; preds = %26
   call void @curl_url_cleanup(ptr noundef nonnull %19) #5
   %28 = load ptr, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   %.not25.not = icmp eq ptr %28, null
-  br i1 %.not25.not, label %.critedge26, label %29
+  br i1 %.not25.not, label %.critedge28, label %xattr.exit33
 
-29:                                               ; preds = %stripcredentials.exit
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #6
-  %31 = call i32 @fsetxattr(i32 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %28, i64 noundef %30, i32 noundef 0) #5
+xattr.exit33:                                     ; preds = %stripcredentials.exit
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #6
+  %30 = call i32 @fsetxattr(i32 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull %28, i64 noundef %29, i32 noundef 0) #5
   call void @curl_free(ptr noundef nonnull %28) #5
-  br label %.critedge26
+  br label %.critedge28
 
-.critedge26:                                      ; preds = %18, %3, %29, %stripcredentials.exit, %stripcredentials.exit.thread
-  %.1 = phi i32 [ %31, %29 ], [ 1, %stripcredentials.exit ], [ 1, %stripcredentials.exit.thread ], [ %6, %3 ], [ %.121, %18 ]
+.critedge28:                                      ; preds = %18, %3, %stripcredentials.exit.thread, %stripcredentials.exit, %xattr.exit33
+  %.1 = phi i32 [ %30, %xattr.exit33 ], [ 1, %stripcredentials.exit ], [ 1, %stripcredentials.exit.thread ], [ %6, %3 ], [ %.121, %18 ]
   ret i32 %.1
 }
 

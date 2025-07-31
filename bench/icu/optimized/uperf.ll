@@ -828,29 +828,29 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
   %15 = load ptr, ptr %4, align 8, !tbaa !52
-  %.not195 = icmp eq ptr %15, null
-  br i1 %.not195, label %.loopexit164, label %.lr.ph197
+  %.not192 = icmp eq ptr %15, null
+  br i1 %.not192, label %.loopexit161, label %.lr.ph194
 
-.lr.ph197:                                        ; preds = %.outer, %182
+.lr.ph194:                                        ; preds = %.outer, %182
   %16 = phi ptr [ %188, %182 ], [ %15, %.outer ]
-  %.095196 = phi i32 [ %183, %182 ], [ %.095.ph, %.outer ]
+  %.095193 = phi i32 [ %183, %182 ], [ %.095.ph, %.outer ]
   %17 = load i8, ptr %16, align 1, !tbaa !53
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.loopexit164, label %19
+  br i1 %18, label %.loopexit161, label %19
 
-19:                                               ; preds = %.lr.ph197
+19:                                               ; preds = %.lr.ph194
   br i1 %.not120, label %.critedge, label %20
 
 20:                                               ; preds = %19
   %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #27
-  %.not135 = icmp eq i32 %21, 0
-  br i1 %.not135, label %.critedge, label %182
+  %.not132 = icmp eq i32 %21, 0
+  br i1 %.not132, label %.critedge, label %182
 
 .critedge:                                        ; preds = %19, %20
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095196, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
+  %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095193, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
   %26 = load i32, ptr @_ZL9execCount, align 4, !tbaa !41
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr @_ZL9execCount, align 4, !tbaa !41
@@ -861,7 +861,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %30 = load ptr, ptr @stderr, align 8, !tbaa !54
   %31 = load ptr, ptr %4, align 8, !tbaa !52
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.8, ptr noundef %31) #29
-  br label %.thread131
+  br label %.critedge129
 
 33:                                               ; preds = %.critedge
   %34 = load ptr, ptr %25, align 8, !tbaa !3
@@ -875,7 +875,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %40 = load ptr, ptr @stderr, align 8, !tbaa !54
   %41 = load ptr, ptr %4, align 8, !tbaa !52
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.9, ptr noundef %41) #29
-  br label %.thread131
+  br label %.critedge129
 
 43:                                               ; preds = %33
   %44 = load i32, ptr %7, align 4, !tbaa !29
@@ -945,7 +945,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
 82:                                               ; preds = %66
   %83 = load ptr, ptr @stderr, align 8, !tbaa !54
   %84 = call i64 @fwrite(ptr nonnull @.str.11, i64 38, i64 1, ptr %83) #28
-  br label %.thread131
+  br label %.critedge129
 
 .thread:                                          ; preds = %59, %79, %43
   %.7 = phi i32 [ %44, %43 ], [ %.5107, %79 ], [ %.3105, %59 ]
@@ -955,10 +955,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   br i1 %86, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread, %123
-  %.086152 = phi i32 [ %124, %123 ], [ 0, %.thread ]
-  %.087151 = phi i64 [ %112, %123 ], [ -1, %.thread ]
-  %.088150 = phi double [ %107, %123 ], [ 0.000000e+00, %.thread ]
-  %.089149 = phi double [ %.190, %123 ], [ 1.000000e+06, %.thread ]
+  %.086149 = phi i32 [ %124, %123 ], [ 0, %.thread ]
+  %.087148 = phi i64 [ %112, %123 ], [ -1, %.thread ]
+  %.088147 = phi double [ %107, %123 ], [ 0.000000e+00, %.thread ]
+  %.089146 = phi double [ %.190, %123 ], [ 1.000000e+06, %.thread ]
   %87 = load i8, ptr %9, align 4, !tbaa !38
   %88 = icmp eq i8 %87, 1
   br i1 %88, label %.sink.split, label %96
@@ -989,9 +989,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   br label %.loopexit
 
 106:                                              ; preds = %96
-  %107 = fadd double %.088150, %100
-  %108 = fcmp olt double %100, %.089149
-  %.190 = select i1 %108, double %100, double %.089149
+  %107 = fadd double %.088147, %100
+  %108 = fcmp olt double %100, %.089146
+  %.190 = select i1 %108, double %100, double %.089146
   %109 = load ptr, ptr %25, align 8, !tbaa !3
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
@@ -1015,26 +1015,26 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   br label %123
 
 123:                                              ; preds = %106, %121, %119
-  %124 = add nuw nsw i32 %.086152, 1
+  %124 = add nuw nsw i32 %.086149, 1
   %125 = load i32, ptr %10, align 8, !tbaa !28
   %126 = icmp slt i32 %124, %125
   br i1 %126, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %123, %.thread, %103
-  %.089147 = phi double [ %.089149, %103 ], [ 1.000000e+06, %.thread ], [ %.190, %123 ]
-  %.088145 = phi double [ %.088150, %103 ], [ 0.000000e+00, %.thread ], [ %107, %123 ]
-  %.087143 = phi i64 [ %.087151, %103 ], [ -1, %.thread ], [ %112, %123 ]
+  %.089144 = phi double [ %.089146, %103 ], [ 1.000000e+06, %.thread ], [ %.190, %123 ]
+  %.088142 = phi double [ %.088147, %103 ], [ 0.000000e+00, %.thread ], [ %107, %123 ]
+  %.087140 = phi i64 [ %.087148, %103 ], [ -1, %.thread ], [ %112, %123 ]
   %127 = load i8, ptr %9, align 4, !tbaa !38
   %.not124 = icmp eq i8 %127, 0
   %128 = load i32, ptr %5, align 4
   %129 = icmp sgt i32 %128, 0
-  %or.cond137 = select i1 %.not124, i1 true, i1 %129
-  br i1 %or.cond137, label %166, label %130
+  %or.cond134 = select i1 %.not124, i1 true, i1 %129
+  br i1 %or.cond134, label %166, label %130
 
 130:                                              ; preds = %.loopexit
   %131 = load i32, ptr %10, align 8, !tbaa !28
   %132 = sitofp i32 %131 to double
-  %133 = fdiv double %.088145, %132
+  %133 = fdiv double %.088142, %132
   %134 = icmp eq i32 %.7, 0
   br i1 %134, label %135, label %139
 
@@ -1045,7 +1045,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   br label %176
 
 139:                                              ; preds = %130
-  %140 = icmp eq i64 %.087143, -1
+  %140 = icmp eq i64 %.087140, -1
   %141 = load ptr, ptr @stdout, align 8, !tbaa !54
   %142 = load ptr, ptr %4, align 8, !tbaa !52
   %143 = fmul double %133, 1.000000e+09
@@ -1059,22 +1059,22 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.18, ptr noundef %142, double noundef %133, i32 noundef %.7, double noundef %147) #23
   %150 = load ptr, ptr @stdout, align 8, !tbaa !54
   %151 = load ptr, ptr %4, align 8, !tbaa !52
-  %152 = fmul double %.089147, 1.000000e+09
+  %152 = fmul double %.089144, 1.000000e+09
   %153 = fdiv double %152, %146
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.19, ptr noundef %151, double noundef %.089147, i32 noundef %.7, double noundef %153) #23
+  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.19, ptr noundef %151, double noundef %.089144, i32 noundef %.7, double noundef %153) #23
   br label %176
 
 155:                                              ; preds = %139
-  %156 = mul nsw i64 %.087143, %144
+  %156 = mul nsw i64 %.087140, %144
   %157 = sitofp i64 %156 to double
   %158 = fdiv double %143, %157
   %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.20, ptr noundef %142, double noundef %133, i32 noundef %.7, double noundef %147, double noundef %158) #23
   %160 = load ptr, ptr @stdout, align 8, !tbaa !54
   %161 = load ptr, ptr %4, align 8, !tbaa !52
-  %162 = fmul double %.089147, 1.000000e+09
+  %162 = fmul double %.089144, 1.000000e+09
   %163 = fdiv double %162, %146
   %164 = fdiv double %162, %157
-  %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.21, ptr noundef %161, double noundef %.089147, i32 noundef %.7, double noundef %163, double noundef %164) #23
+  %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.21, ptr noundef %161, double noundef %.089144, i32 noundef %.7, double noundef %163, double noundef %164) #23
   br label %176
 
 166:                                              ; preds = %.loopexit
@@ -1083,7 +1083,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
 167:                                              ; preds = %166
   %168 = load ptr, ptr @stdout, align 8, !tbaa !54
   %169 = load ptr, ptr %4, align 8, !tbaa !52
-  %170 = fmul double %.089147, 1.000000e+09
+  %170 = fmul double %.089144, 1.000000e+09
   %171 = sext i32 %.7 to i64
   %172 = mul nsw i64 %37, %171
   %173 = sitofp i64 %172 to double
@@ -1091,33 +1091,33 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.22, ptr noundef %169, double noundef %174) #23
   br label %176
 
-176:                                              ; preds = %135, %155, %148, %166, %167
+176:                                              ; preds = %167, %166, %148, %155, %135
   %177 = load ptr, ptr %25, align 8, !tbaa !3
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8
   call void %179(ptr noundef nonnull align 8 dereferenceable(8) %25) #23
   %.pre = load ptr, ptr %4, align 8, !tbaa !52
   %180 = icmp eq ptr %.pre, null
-  %181 = add nuw nsw i32 %.095196, 1
-  br i1 %180, label %.loopexit164, label %.outer, !llvm.loop !60
+  %181 = add nuw nsw i32 %.095193, 1
+  br i1 %180, label %.loopexit161, label %.outer, !llvm.loop !60
 
 182:                                              ; preds = %20
-  %183 = add nuw nsw i32 %.095196, 1
+  %183 = add nuw nsw i32 %.095193, 1
   %184 = load ptr, ptr %0, align 8, !tbaa !3
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = call noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %183, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
   %188 = load ptr, ptr %4, align 8, !tbaa !52
   %.not = icmp eq ptr %188, null
-  br i1 %.not, label %.loopexit164, label %.lr.ph197, !llvm.loop !60
+  br i1 %.not, label %.loopexit161, label %.lr.ph194, !llvm.loop !60
 
-.loopexit164:                                     ; preds = %176, %.outer, %.lr.ph197, %182
-  %.1109 = phi i8 [ %.0108.ph, %182 ], [ %.0108.ph, %.lr.ph197 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
+.loopexit161:                                     ; preds = %176, %.outer, %.lr.ph194, %182
+  %.1109 = phi i8 [ %.0108.ph, %182 ], [ %.0108.ph, %.lr.ph194 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
   store ptr %6, ptr @_ZN9UPerfTest5gTestE, align 8, !tbaa !57
-  br label %.thread131
+  br label %.critedge129
 
-.thread131:                                       ; preds = %82, %39, %29, %.loopexit164
-  %.5 = phi i8 [ %.1109, %.loopexit164 ], [ 0, %29 ], [ 0, %39 ], [ 0, %82 ]
+.critedge129:                                     ; preds = %82, %29, %39, %.loopexit161
+  %.5 = phi i8 [ %.1109, %.loopexit161 ], [ 0, %82 ], [ 0, %39 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   ret i8 %.5

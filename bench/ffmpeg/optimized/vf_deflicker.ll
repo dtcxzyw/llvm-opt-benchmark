@@ -1333,13 +1333,13 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #14
   %9 = icmp eq i32 %8, -541478725
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2144
   %12 = load i32, ptr %11, align 8, !tbaa !46
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = add nsw i32 %12, -1
@@ -1347,7 +1347,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
   %17 = load i16, ptr %16, align 2, !tbaa !20
   %18 = zext i16 %17 to i32
   %19 = icmp samesign ult i32 %15, %18
-  br i1 %19, label %ff_bufqueue_peek.exit, label %.thread
+  br i1 %19, label %ff_bufqueue_peek.exit, label %.critedge
 
 ff_bufqueue_peek.exit:                            ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1104
@@ -1360,12 +1360,12 @@ ff_bufqueue_peek.exit:                            ; preds = %14
   %27 = getelementptr inbounds nuw [129 x ptr], ptr %20, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %.thread, label %29
+  br i1 %.not, label %.critedge, label %29
 
 29:                                               ; preds = %ff_bufqueue_peek.exit
   %30 = tail call ptr @av_frame_clone(ptr noundef nonnull %28) #14
   %.not24 = icmp eq ptr %30, null
-  br i1 %.not24, label %.thread, label %31
+  br i1 %.not24, label %.critedge, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1376,10 +1376,10 @@ ff_bufqueue_peek.exit:                            ; preds = %14
   %36 = load i32, ptr %11, align 8, !tbaa !46
   %37 = add nsw i32 %36, -1
   store i32 %37, ptr %11, align 8, !tbaa !46
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %29, %ff_bufqueue_peek.exit, %31, %1, %10
-  %.118 = phi i32 [ -541478725, %10 ], [ %8, %1 ], [ %35, %31 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %29 ], [ -12, %14 ]
+.critedge:                                        ; preds = %14, %ff_bufqueue_peek.exit, %29, %1, %10, %31
+  %.118 = phi i32 [ %35, %31 ], [ -541478725, %10 ], [ %8, %1 ], [ -12, %29 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %14 ]
   ret i32 %.118
 }
 

@@ -483,9 +483,9 @@ define internal range(i32 0, 2) i32 @kdf_tls1_3_derive(ptr noundef %0, ptr nound
   %spec.select.i = select i1 %41, i64 %40, i64 %28
   %spec.select47.i = select i1 %41, ptr @prov_tls13_hkdf_generate_secret.default_zeros, ptr %26
   %42 = icmp eq ptr %22, null
-  br i1 %42, label %.thread53.i, label %44
+  br i1 %42, label %.thread.i, label %44
 
-.thread53.i:                                      ; preds = %39
+.thread.i:                                        ; preds = %39
   %43 = tail call fastcc i32 @HKDF_Extract(ptr noundef %20, ptr noundef nonnull %12, ptr noundef nonnull @prov_tls13_hkdf_generate_secret.default_zeros, i64 noundef %40, ptr noundef nonnull %spec.select47.i, i64 noundef %spec.select.i, ptr noundef %1, i64 noundef %2)
   br label %prov_tls13_hkdf_generate_secret.exit
 
@@ -493,19 +493,19 @@ define internal range(i32 0, 2) i32 @kdf_tls1_3_derive(ptr noundef %0, ptr nound
   %45 = tail call ptr @EVP_MD_CTX_new() #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread.i, label %47
+  br i1 %46, label %.critedge.i, label %47
 
 47:                                               ; preds = %44
   %48 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef null) #7
   %49 = icmp slt i32 %48, 1
-  br i1 %49, label %.thread.i, label %50
+  br i1 %49, label %.critedge.i, label %50
 
 50:                                               ; preds = %47
   %51 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %45, ptr noundef nonnull %6, ptr noundef null) #7
   %52 = icmp slt i32 %51, 1
-  br i1 %52, label %.thread.i, label %53
+  br i1 %52, label %.critedge.i, label %53
 
-.thread.i:                                        ; preds = %50, %47, %44
+.critedge.i:                                      ; preds = %50, %47, %44
   call void @EVP_MD_CTX_free(ptr noundef %45) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
   br label %prov_tls13_hkdf_generate_secret.exit
@@ -522,8 +522,8 @@ define internal range(i32 0, 2) i32 @kdf_tls1_3_derive(ptr noundef %0, ptr nound
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef %40) #7
   br label %prov_tls13_hkdf_generate_secret.exit
 
-prov_tls13_hkdf_generate_secret.exit:             ; preds = %18, %.thread53.i, %.thread.i, %53, %55
-  %.0.i = phi i32 [ 0, %53 ], [ 0, %18 ], [ %56, %55 ], [ 0, %.thread.i ], [ %43, %.thread53.i ]
+prov_tls13_hkdf_generate_secret.exit:             ; preds = %18, %.thread.i, %.critedge.i, %53, %55
+  %.0.i = phi i32 [ 0, %53 ], [ 0, %18 ], [ 0, %.critedge.i ], [ %56, %55 ], [ %43, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   br label %75
 

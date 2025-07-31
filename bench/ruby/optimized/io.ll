@@ -32963,14 +32963,14 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %204, %162, %122
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %228 = load i64, ptr %227, align 8, !tbaa !239
   %229 = icmp sgt i64 %228, -1
-  br i1 %229, label %230, label %.thread.i13
+  br i1 %229, label %230, label %249
 
 230:                                              ; preds = %223
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %232 = load i8, ptr %231, align 8
   %233 = and i8 %232, 1
   %.not.i17 = icmp eq i8 %233, 0
-  br i1 %.not.i17, label %.thread.i13, label %234
+  br i1 %.not.i17, label %249, label %234
 
 234:                                              ; preds = %230
   %235 = call ptr @rb_errno_ptr() #28
@@ -32981,30 +32981,30 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %204, %162, %122
   %239 = load i32, ptr %238, align 8, !tbaa !7
   %240 = call i64 @lseek(i32 noundef %239, i64 noundef %228, i32 noundef 0) #28
   %241 = icmp slt i64 %240, 0
-  br i1 %241, label %242, label %.thread.i13
+  br i1 %241, label %242, label %249
 
 242:                                              ; preds = %234
   %243 = call ptr @rb_errno_ptr() #28
   %244 = load i32, ptr %243, align 4, !tbaa !20
   %.not44.i = icmp eq i32 %244, 0
-  br i1 %.not44.i, label %.thread.i13, label %245
+  br i1 %.not44.i, label %249, label %.critedge.i
 
-245:                                              ; preds = %242
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr @.str.254, ptr %246, align 8, !tbaa !457
-  %247 = call ptr @rb_errno_ptr() #28
-  %248 = load i32, ptr %247, align 4, !tbaa !20
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %248, ptr %249, align 4, !tbaa !458
+.critedge.i:                                      ; preds = %242
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr @.str.254, ptr %245, align 8, !tbaa !457
+  %246 = call ptr @rb_errno_ptr() #28
+  %247 = load i32, ptr %246, align 4, !tbaa !20
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %247, ptr %248, align 4, !tbaa !458
   br label %nogvl_copy_stream_read_write.exit
 
-.thread.i13:                                      ; preds = %242, %234, %230, %223
-  %.036.i = phi i64 [ %228, %230 ], [ %228, %223 ], [ -1, %242 ], [ -1, %234 ]
-  %.not45.i = phi i1 [ false, %230 ], [ true, %223 ], [ true, %242 ], [ true, %234 ]
-  %.not64.i = icmp eq i64 %225, 0
-  br i1 %.not64.i, label %nogvl_copy_stream_read_write.exit, label %.lr.ph.i14
+249:                                              ; preds = %242, %234, %230, %223
+  %.036.i = phi i64 [ %228, %230 ], [ %228, %223 ], [ -1, %234 ], [ -1, %242 ]
+  %.not45.i = phi i1 [ false, %230 ], [ true, %223 ], [ true, %234 ], [ true, %242 ]
+  %.not61.i13 = icmp eq i64 %225, 0
+  br i1 %.not61.i13, label %nogvl_copy_stream_read_write.exit, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %.thread.i13
+.lr.ph.i14:                                       ; preds = %249
   %250 = icmp sgt i64 %225, -1
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -33017,17 +33017,17 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %204, %162, %122
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %260
 
-260:                                              ; preds = %nogvl_copy_stream_write.exit.thread53.i, %.lr.ph.i14
-  %.262.i = phi i64 [ %.036.i, %.lr.ph.i14 ], [ %.3.i, %nogvl_copy_stream_write.exit.thread53.i ]
-  %.03861.i = phi i64 [ %225, %.lr.ph.i14 ], [ %spec.select46.i, %nogvl_copy_stream_write.exit.thread53.i ]
-  %261 = call i64 @llvm.smin.i64(i64 %.03861.i, i64 16384)
+260:                                              ; preds = %nogvl_copy_stream_write.exit.thread50.i, %.lr.ph.i14
+  %.259.i = phi i64 [ %.036.i, %.lr.ph.i14 ], [ %.3.i, %nogvl_copy_stream_write.exit.thread50.i ]
+  %.03858.i = phi i64 [ %225, %.lr.ph.i14 ], [ %spec.select46.i, %nogvl_copy_stream_write.exit.thread50.i ]
+  %261 = call i64 @llvm.smin.i64(i64 %.03858.i, i64 16384)
   %.038..i = select i1 %250, i64 %261, i64 16384
   br i1 %.not45.i, label %265, label %262
 
 262:                                              ; preds = %260
-  %263 = call fastcc i64 @maygvl_copy_stream_read(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %.038..i, i64 noundef %.262.i)
+  %263 = call fastcc i64 @maygvl_copy_stream_read(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %.038..i, i64 noundef %.259.i)
   %264 = call i64 @llvm.smax.i64(i64 %263, i64 0)
-  %spec.select.i = add i64 %264, %.262.i
+  %spec.select.i = add i64 %264, %.259.i
   br label %267
 
 265:                                              ; preds = %260
@@ -33035,7 +33035,7 @@ nogvl_copy_stream_sendfile.exit:                  ; preds = %204, %162, %122
   br label %267
 
 267:                                              ; preds = %265, %262
-  %.3.i = phi i64 [ %.262.i, %265 ], [ %spec.select.i, %262 ]
+  %.3.i = phi i64 [ %.259.i, %265 ], [ %spec.select.i, %262 ]
   %.035.i = phi i64 [ %266, %265 ], [ %263, %262 ]
   %268 = icmp slt i64 %.035.i, 1
   br i1 %268, label %nogvl_copy_stream_read_write.exit, label %.lr.ph.split.i.i
@@ -33167,7 +33167,7 @@ nogvl_copy_stream_write.exit.thread.i:            ; preds = %301
   %326 = add i64 %325, %.us-phi.i.i
   store i64 %326, ptr %253, align 8, !tbaa !240
   %.not.i.i15 = icmp eq i64 %324, 0
-  br i1 %.not.i.i15, label %nogvl_copy_stream_write.exit.thread53.i, label %.lr.ph.split.i.i, !llvm.loop !473
+  br i1 %.not.i.i15, label %nogvl_copy_stream_write.exit.thread50.i, label %.lr.ph.split.i.i, !llvm.loop !473
 
 nogvl_copy_stream_write.exit.i:                   ; preds = %286
   store ptr @.str.32, ptr %258, align 8, !tbaa !457
@@ -33175,17 +33175,17 @@ nogvl_copy_stream_write.exit.i:                   ; preds = %286
   %328 = load i32, ptr %327, align 4, !tbaa !20
   store i32 %328, ptr %259, align 4, !tbaa !458
   %329 = and i64 %276, 2147483648
-  %.not55.i = icmp eq i64 %329, 0
-  br i1 %.not55.i, label %nogvl_copy_stream_write.exit.thread53.i, label %nogvl_copy_stream_read_write.exit
+  %.not52.i = icmp eq i64 %329, 0
+  br i1 %.not52.i, label %nogvl_copy_stream_write.exit.thread50.i, label %nogvl_copy_stream_read_write.exit
 
-nogvl_copy_stream_write.exit.thread53.i:          ; preds = %.outer.i.i, %nogvl_copy_stream_write.exit.i
+nogvl_copy_stream_write.exit.thread50.i:          ; preds = %.outer.i.i, %nogvl_copy_stream_write.exit.i
   %330 = select i1 %226, i64 0, i64 %.035.i
-  %spec.select46.i = sub i64 %.03861.i, %330
+  %spec.select46.i = sub i64 %.03858.i, %330
   %331 = icmp sgt i64 %spec.select46.i, 0
   %332 = select i1 %226, i1 true, i1 %331
   br i1 %332, label %260, label %nogvl_copy_stream_read_write.exit, !llvm.loop !474
 
-nogvl_copy_stream_read_write.exit:                ; preds = %267, %nogvl_copy_stream_write.exit.i, %nogvl_copy_stream_write.exit.thread53.i, %245, %.thread.i13, %nogvl_copy_stream_write.exit.thread.i
+nogvl_copy_stream_read_write.exit:                ; preds = %267, %nogvl_copy_stream_write.exit.i, %nogvl_copy_stream_write.exit.thread50.i, %.critedge.i, %249, %nogvl_copy_stream_write.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %4) #28
   br label %333
 

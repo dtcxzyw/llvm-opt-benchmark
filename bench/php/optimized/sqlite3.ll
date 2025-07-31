@@ -2952,16 +2952,16 @@ zend_parse_arg_func.exit:                         ; preds = %16
   br label %19
 
 19:                                               ; preds = %9, %zend_parse_arg_func.exit
-  %20 = phi ptr [ %18, %zend_parse_arg_func.exit ], [ null, %9 ]
-  %.039.ph = phi i32 [ %., %zend_parse_arg_func.exit ], [ 0, %9 ]
-  %.038.ph = phi ptr [ %11, %zend_parse_arg_func.exit ], [ null, %9 ]
-  %.037.ph = phi i32 [ %.47, %zend_parse_arg_func.exit ], [ 1, %9 ]
-  %.0.ph = phi i32 [ 1, %zend_parse_arg_func.exit ], [ 0, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.037.ph, i32 noundef %.0.ph, ptr noundef %20, i32 noundef %.039.ph, ptr noundef %.038.ph) #17
+  %20 = phi ptr [ null, %9 ], [ %18, %zend_parse_arg_func.exit ]
+  %.039 = phi i32 [ 0, %9 ], [ %., %zend_parse_arg_func.exit ]
+  %.038 = phi ptr [ null, %9 ], [ %11, %zend_parse_arg_func.exit ]
+  %.037 = phi i32 [ 1, %9 ], [ %.47, %zend_parse_arg_func.exit ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_func.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.037, i32 noundef %.0, ptr noundef %20, i32 noundef %.039, ptr noundef %.038) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %83
 
-21:                                               ; preds = %15, %16
+21:                                               ; preds = %16, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %22 = load ptr, ptr %6, align 8, !tbaa !8
   %23 = getelementptr inbounds i8, ptr %22, i64 -128
@@ -2986,8 +2986,8 @@ zend_parse_arg_func.exit:                         ; preds = %16
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %22, i64 -72
   %34 = load ptr, ptr %33, align 8, !tbaa !76
-  %.not.i48 = icmp eq ptr %34, null
-  br i1 %.not.i48, label %zend_object_release.exit50, label %35
+  %.not.i49 = icmp eq ptr %34, null
+  br i1 %.not.i49, label %zend_object_release.exit51, label %35
 
 35:                                               ; preds = %32
   %36 = load i32, ptr %34, align 4, !tbaa !70
@@ -3000,27 +3000,27 @@ zend_parse_arg_func.exit:                         ; preds = %16
 
 40:                                               ; preds = %35
   call void @zend_objects_store_del(ptr noundef nonnull %34) #17
-  br label %zend_object_release.exit50
+  br label %zend_object_release.exit51
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !8
   %44 = and i32 %43, -1008
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %zend_object_release.exit50, !prof !108
+  br i1 %45, label %46, label %zend_object_release.exit51, !prof !108
 
 46:                                               ; preds = %41
   call void @gc_possible_root(ptr noundef nonnull %34) #17
-  br label %zend_object_release.exit50
+  br label %zend_object_release.exit51
 
-zend_object_release.exit50:                       ; preds = %46, %41, %40, %32
+zend_object_release.exit51:                       ; preds = %46, %41, %40, %32
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %30) #17
   %47 = getelementptr inbounds i8, ptr %22, i64 -64
   %48 = load ptr, ptr %47, align 8, !tbaa !109
   %.not8.i = icmp eq ptr %48, null
   br i1 %.not8.i, label %zend_fcc_dtor.exit, label %49
 
-49:                                               ; preds = %zend_object_release.exit50
+49:                                               ; preds = %zend_object_release.exit51
   %50 = load i32, ptr %48, align 4, !tbaa !70
   %51 = icmp ne i32 %50, 0
   call void @llvm.assume(i1 %51)
@@ -3044,7 +3044,7 @@ zend_object_release.exit50:                       ; preds = %46, %41, %40, %32
   call void @gc_possible_root(ptr noundef nonnull %48) #17
   br label %zend_fcc_dtor.exit
 
-zend_fcc_dtor.exit:                               ; preds = %60, %55, %54, %zend_object_release.exit50
+zend_fcc_dtor.exit:                               ; preds = %60, %55, %54, %zend_object_release.exit51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false)
   br label %61
 
@@ -3071,8 +3071,8 @@ zend_fcc_dtor.exit:                               ; preds = %60, %55, %54, %zend
 70:                                               ; preds = %66, %63
   %71 = getelementptr inbounds i8, ptr %22, i64 -72
   %72 = load ptr, ptr %71, align 8, !tbaa !76
-  %.not.i49 = icmp eq ptr %72, null
-  br i1 %.not.i49, label %76, label %73
+  %.not.i50 = icmp eq ptr %72, null
+  br i1 %.not.i50, label %76, label %73
 
 73:                                               ; preds = %70
   %74 = load i32, ptr %72, align 4, !tbaa !70
@@ -3601,9 +3601,9 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr noundef writeonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = icmp ugt i32 %8, 1
-  br i1 %9, label %.thread83, label %10, !prof !108
+  br i1 %9, label %.thread78, label %10, !prof !108
 
-.thread83:                                        ; preds = %2
+.thread78:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
   br label %17
 
@@ -3615,33 +3615,33 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr noundef writeonly
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8, !tbaa !8
   switch i8 %14, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread93
-    i8 2, label %.thread93.fold.split
+    i8 3, label %.thread88
+    i8 2, label %.thread88.fold.split
   ], !prof !139
 
-.thread93.fold.split:                             ; preds = %12
-  br label %.thread93
+.thread88.fold.split:                             ; preds = %12
+  br label %.thread88
 
-.thread93:                                        ; preds = %12, %.thread93.fold.split
-  %storemerge.i = phi i8 [ 1, %12 ], [ 0, %.thread93.fold.split ]
+.thread88:                                        ; preds = %12, %.thread88.fold.split
+  %storemerge.i = phi i8 [ 1, %12 ], [ 0, %.thread88.fold.split ]
   store i8 %storemerge.i, ptr %3, align 1, !tbaa !80
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 1) #17
-  %cond.fr67 = freeze i1 %16
-  br i1 %cond.fr67, label %.critedge, label %17, !prof !140
+  %cond.fr68 = freeze i1 %16
+  br i1 %cond.fr68, label %.critedge, label %17, !prof !140
 
-17:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread83
-  %.092 = phi i32 [ 0, %.thread83 ], [ 1, %zend_parse_arg_bool_ex.exit ]
-  %.05791 = phi ptr [ null, %.thread83 ], [ %15, %zend_parse_arg_bool_ex.exit ]
-  %.05890 = phi i32 [ 0, %.thread83 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05989 = phi i32 [ 1, %.thread83 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05989, i32 noundef %.092, ptr noundef null, i32 noundef %.05890, ptr noundef %.05791) #17
+17:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread78
+  %.087 = phi i32 [ 0, %.thread78 ], [ 1, %zend_parse_arg_bool_ex.exit ]
+  %.05786 = phi ptr [ null, %.thread78 ], [ %15, %zend_parse_arg_bool_ex.exit ]
+  %.05885 = phi i32 [ 0, %.thread78 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05984 = phi i32 [ 1, %.thread78 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05984, i32 noundef %.087, ptr noundef null, i32 noundef %.05885, ptr noundef %.05786) #17
   br label %64
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread93, %10
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread88, %10
   %18 = getelementptr inbounds i8, ptr %5, i64 -24
   %19 = load ptr, ptr %18, align 8, !tbaa !84
   %.not62 = icmp eq ptr %19, null
@@ -3690,7 +3690,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %12
   %41 = trunc nuw i8 %40 to i1
   %42 = load ptr, ptr %6, align 8, !tbaa !100
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %41, label %zend_string_alloc.exit, label %zend_string_alloc.exit66
+  br i1 %41, label %zend_string_alloc.exit, label %zend_string_alloc.exit67
 
 zend_string_alloc.exit:                           ; preds = %39
   %44 = call ptr @sqlite3_expanded_sql(ptr noundef %42) #17
@@ -3714,7 +3714,7 @@ zend_string_alloc.exit:                           ; preds = %39
   call void @sqlite3_free(ptr noundef nonnull %44) #17
   br label %64
 
-zend_string_alloc.exit66:                         ; preds = %39
+zend_string_alloc.exit67:                         ; preds = %39
   %54 = call ptr @sqlite3_sql(ptr noundef %42) #17
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #18
   %56 = and i64 %55, -8
@@ -3735,7 +3735,7 @@ zend_string_alloc.exit66:                         ; preds = %39
   store i32 262, ptr %43, align 8, !tbaa !8
   br label %64
 
-64:                                               ; preds = %17, %zend_string_alloc.exit, %zend_string_alloc.exit66, %37, %29, %24
+64:                                               ; preds = %17, %zend_string_alloc.exit, %zend_string_alloc.exit67, %37, %29, %24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
   ret void
 }
@@ -4070,7 +4070,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr noundef writeo
 
 14:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #17
-  br label %.thread102
+  br label %.thread
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4094,7 +4094,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr noundef writeo
 
 zend_parse_arg_str_or_long.exit:                  ; preds = %15
   %24 = call zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %5, i32 noundef 1) #17
-  br i1 %24, label %zend_parse_arg_str_or_long.exit.thread, label %.thread102, !prof !140
+  br i1 %24, label %zend_parse_arg_str_or_long.exit.thread, label %.thread, !prof !140
 
 zend_parse_arg_str_or_long.exit.thread:           ; preds = %20, %22, %zend_parse_arg_str_or_long.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4106,26 +4106,26 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %20, %22, %zend_pars
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load i8, ptr %29, align 8, !tbaa !8
   %31 = icmp eq i8 %30, 4
-  br i1 %31, label %zend_parse_arg_long_ex.exit.thread, label %zend_parse_arg_long_ex.exit, !prof !75
+  br i1 %31, label %.thread105, label %zend_parse_arg_long_ex.exit, !prof !75
 
-zend_parse_arg_long_ex.exit.thread:               ; preds = %27
+.thread105:                                       ; preds = %27
   %32 = load i64, ptr %28, align 8, !tbaa !8
   store i64 %32, ptr %10, align 8, !tbaa !4
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %27
   %33 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %28, ptr noundef nonnull %10, i32 noundef 3) #17
-  br i1 %33, label %.critedge, label %.thread102, !prof !146
+  br i1 %33, label %.critedge, label %.thread, !prof !146
 
-.thread102:                                       ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_or_long.exit, %14
-  %.0112 = phi i32 [ 1, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 3, %zend_parse_arg_long_ex.exit ]
-  %.075111 = phi ptr [ %16, %zend_parse_arg_str_or_long.exit ], [ null, %14 ], [ %28, %zend_parse_arg_long_ex.exit ]
-  %.076110 = phi i32 [ 28, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.078109 = phi i32 [ 9, %zend_parse_arg_str_or_long.exit ], [ 1, %14 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.078109, i32 noundef %.0112, ptr noundef null, i32 noundef %.076110, ptr noundef %.075111) #17
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_or_long.exit, %14
+  %.0104 = phi i32 [ 1, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 3, %zend_parse_arg_long_ex.exit ]
+  %.075103 = phi ptr [ %16, %zend_parse_arg_str_or_long.exit ], [ null, %14 ], [ %28, %zend_parse_arg_long_ex.exit ]
+  %.076102 = phi i32 [ 28, %zend_parse_arg_str_or_long.exit ], [ 0, %14 ], [ 0, %zend_parse_arg_long_ex.exit ]
+  %.078101 = phi i32 [ 9, %zend_parse_arg_str_or_long.exit ], [ 1, %14 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.078101, i32 noundef %.0104, ptr noundef null, i32 noundef %.076102, ptr noundef %.075103) #17
   br label %150
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit.thread, %zend_parse_arg_str_or_long.exit.thread
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %.thread105, %zend_parse_arg_str_or_long.exit.thread
   %34 = getelementptr inbounds i8, ptr %8, i64 -24
   %35 = load ptr, ptr %34, align 8, !tbaa !84
   %.not80 = icmp eq ptr %35, null
@@ -4382,7 +4382,7 @@ register_bound_parameter_to_sqlite.exit:          ; preds = %zend_hash_index_upd
   store i32 3, ptr %149, align 8, !tbaa !8
   br label %150
 
-150:                                              ; preds = %.thread102, %register_bound_parameter_to_sqlite.exit, %147, %45, %40
+150:                                              ; preds = %.thread, %register_bound_parameter_to_sqlite.exit, %147, %45, %40
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   ret void
 }
@@ -4853,9 +4853,9 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr noundef cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4, !tbaa !8
   %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %.thread142, label %12, !prof !108
+  br i1 %11, label %.thread143, label %12, !prof !108
 
-.thread142:                                       ; preds = %2
+.thread143:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
   br label %21
 
@@ -4868,25 +4868,25 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr noundef cap
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8, !tbaa !8
   %18 = icmp eq i8 %17, 4
-  br i1 %18, label %zend_parse_arg_long_ex.exit.thread, label %zend_parse_arg_long_ex.exit, !prof !75
+  br i1 %18, label %.thread, label %zend_parse_arg_long_ex.exit, !prof !75
 
-zend_parse_arg_long_ex.exit.thread:               ; preds = %14
+.thread:                                          ; preds = %14
   %19 = load i64, ptr %15, align 8, !tbaa !8
   store i64 %19, ptr %4, align 8, !tbaa !4
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %14
   %20 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1) #17
-  br i1 %20, label %.critedge, label %21, !prof !149
+  br i1 %20, label %.critedge, label %21, !prof !146
 
-21:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread142
-  %.0113149 = phi i32 [ 0, %.thread142 ], [ 1, %zend_parse_arg_long_ex.exit ]
-  %.0115148 = phi ptr [ null, %.thread142 ], [ %15, %zend_parse_arg_long_ex.exit ]
-  %.0117147 = phi i32 [ 1, %.thread142 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0117147, i32 noundef %.0113149, ptr noundef null, i32 noundef 0, ptr noundef %.0115148) #17
+21:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread143
+  %.0113150 = phi i32 [ 0, %.thread143 ], [ 1, %zend_parse_arg_long_ex.exit ]
+  %.0115149 = phi ptr [ null, %.thread143 ], [ %15, %zend_parse_arg_long_ex.exit ]
+  %.0117148 = phi i32 [ 1, %.thread143 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0117148, i32 noundef %.0113150, ptr noundef null, i32 noundef 0, ptr noundef %.0115149) #17
   br label %.loopexit
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit.thread, %12
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %.thread, %12
   %22 = load ptr, ptr %8, align 8, !tbaa !94
   %.not122 = icmp eq ptr %22, null
   br i1 %.not122, label %29, label %23
@@ -4957,13 +4957,13 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   %58 = load i64, ptr %4, align 8, !tbaa !4
   %59 = and i64 %58, 1
   %.not126 = icmp eq i64 %59, 0
-  br i1 %.not126, label %.loopexit151, label %60
+  br i1 %.not126, label %.loopexit152, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %7, i64 -8
   %62 = load ptr, ptr %61, align 8, !tbaa !98
   %.not127 = icmp eq ptr %62, null
-  br i1 %.not127, label %63, label %.loopexit151
+  br i1 %.not127, label %63, label %.loopexit152
 
 63:                                               ; preds = %60
   %64 = sext i32 %57 to i64
@@ -4971,7 +4971,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   %66 = call noalias ptr @_emalloc(i64 noundef %65) #19
   store ptr %66, ptr %61, align 8, !tbaa !98
   %67 = icmp sgt i32 %57, 0
-  br i1 %67, label %.lr.ph.preheader, label %.loopexit151
+  br i1 %67, label %.lr.ph.preheader, label %.loopexit152
 
 .lr.ph.preheader:                                 ; preds = %63
   %wide.trip.count = zext nneg i32 %57 to i64
@@ -5003,28 +5003,28 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   store ptr %75, ptr %82, align 8, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit151, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit152, label %.lr.ph
 
-.loopexit151:                                     ; preds = %.lr.ph, %63, %56, %60
+.loopexit152:                                     ; preds = %.lr.ph, %63, %56, %60
   %83 = call ptr @_zend_new_array_0() #17
   store ptr %83, ptr %1, align 8, !tbaa !8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %84, align 8, !tbaa !8
   %85 = icmp sgt i32 %57, 0
-  br i1 %85, label %.lr.ph154, label %.loopexit
+  br i1 %85, label %.lr.ph155, label %.loopexit
 
-.lr.ph154:                                        ; preds = %.loopexit151
+.lr.ph155:                                        ; preds = %.loopexit152
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %87 = getelementptr inbounds i8, ptr %7, i64 -8
-  %wide.trip.count159 = zext nneg i32 %57 to i64
+  %wide.trip.count160 = zext nneg i32 %57 to i64
   br label %88
 
-88:                                               ; preds = %.lr.ph154, %131
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next157, %131 ]
+88:                                               ; preds = %.lr.ph155, %131
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next158, %131 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
   %89 = load ptr, ptr %24, align 8, !tbaa !97
   %90 = load ptr, ptr %89, align 8, !tbaa !100
-  %91 = trunc nuw nsw i64 %indvars.iv156 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv157 to i32
   call fastcc void @sqlite_value_to_zval(ptr noundef %90, i32 noundef %91, ptr noundef nonnull %5)
   %92 = load i64, ptr %4, align 8, !tbaa !4
   %93 = and i64 %92, 2
@@ -5033,7 +5033,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %1, align 8, !tbaa !8
-  %96 = call ptr @zend_hash_index_update(ptr noundef %95, i64 noundef range(i64 -2147483648, 2147483648) %indvars.iv156, ptr noundef nonnull %5) #17
+  %96 = call ptr @zend_hash_index_update(ptr noundef %95, i64 noundef range(i64 -2147483648, 2147483648) %indvars.iv157, ptr noundef nonnull %5) #17
   %.pre = load i64, ptr %4, align 8, !tbaa !4
   br label %97
 
@@ -5061,7 +5061,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
 109:                                              ; preds = %105, %100
   %110 = load ptr, ptr %1, align 8, !tbaa !8
   %111 = load ptr, ptr %87, align 8, !tbaa !98
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv156
+  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv157
   %113 = load ptr, ptr %112, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
@@ -5076,8 +5076,8 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   br i1 %120, label %121, label %_zend_handle_numeric_str.exit
 
 121:                                              ; preds = %119
-  %.not.i133 = icmp eq i8 %117, 45
-  br i1 %.not.i133, label %122, label %_zend_handle_numeric_str.exit.thread
+  %.not.i134 = icmp eq i8 %117, 45
+  br i1 %.not.i134, label %122, label %_zend_handle_numeric_str.exit.thread
 
 122:                                              ; preds = %121
   %123 = getelementptr inbounds nuw i8, ptr %113, i64 25
@@ -5105,9 +5105,9 @@ zend_symtable_update.exit:                        ; preds = %127, %_zend_handle_
 
 131:                                              ; preds = %zend_symtable_update.exit, %97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %.loopexit, label %88
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
+  br i1 %exitcond161.not, label %.loopexit, label %88
 
 132:                                              ; preds = %32
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5127,7 +5127,7 @@ zend_symtable_update.exit:                        ; preds = %127, %_zend_handle_
   call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef %135, i32 noundef %139, ptr noundef nonnull @.str.22, ptr noundef %143)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %131, %.loopexit151, %21, %134, %132, %46, %29
+.loopexit:                                        ; preds = %131, %.loopexit152, %21, %134, %132, %46, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret void
 }
@@ -5461,12 +5461,12 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   %81 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %80) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %80, i8 0, i64 520, i1 false)
-  %82 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %82 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %83 = tail call ptr %82(ptr noundef nonnull @.str.64, i64 noundef 16, i1 noundef zeroext true) #17
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %83, ptr %84, align 8, !tbaa !151
+  store ptr %83, ptr %84, align 8, !tbaa !150
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 360
-  store ptr @std_object_handlers, ptr %85, align 8, !tbaa !161
+  store ptr @std_object_handlers, ptr %85, align 8, !tbaa !160
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 504
   store ptr null, ptr %86, align 8, !tbaa !8
   %87 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %80, ptr noundef %81, i32 noundef 8192) #17
@@ -5475,10 +5475,10 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_stmt_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_result_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store i32 128, ptr @sqlite3_object_handlers, align 8, !tbaa !162
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 24), align 8, !tbaa !164
-  store ptr @php_sqlite3_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 8), align 8, !tbaa !165
-  store ptr @php_sqlite3_get_gc, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 168), align 8, !tbaa !166
+  store i32 128, ptr @sqlite3_object_handlers, align 8, !tbaa !161
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 24), align 8, !tbaa !163
+  store ptr @php_sqlite3_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 8), align 8, !tbaa !164
+  store ptr @php_sqlite3_get_gc, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 168), align 8, !tbaa !165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -5518,12 +5518,12 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %5, i8 0, i64 520, i1 false)
-  %88 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %88 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %89 = call ptr %88(ptr noundef nonnull @.str.53, i64 noundef 7, i1 noundef zeroext true) #17
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %89, ptr %90, align 8, !tbaa !151
+  store ptr %89, ptr %90, align 8, !tbaa !150
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store ptr @std_object_handlers, ptr %91, align 8, !tbaa !161
+  store ptr @std_object_handlers, ptr %91, align 8, !tbaa !160
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store ptr @class_SQLite3_methods, ptr %92, align 8, !tbaa !8
   %93 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %5, ptr noundef null, i32 noundef 536870912) #17
@@ -5531,11 +5531,11 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   store i64 0, ptr %6, align 8, !tbaa !8
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %94, align 8, !tbaa !8
-  %95 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %95 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %96 = call ptr %95(ptr noundef nonnull @.str.65, i64 noundef 2, i1 noundef zeroext true) #17
-  store ptr null, ptr %7, align 8, !tbaa !167
+  store ptr null, ptr %7, align 8, !tbaa !166
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 16, ptr %97, align 8, !tbaa !169
+  store i32 16, ptr %97, align 8, !tbaa !168
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %98, align 4
   %99 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %96, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #17
@@ -5572,11 +5572,11 @@ zend_string_release.exit.i:                       ; preds = %111, %110, %103, %2
   store i64 1, ptr %8, align 8, !tbaa !8
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %112, align 8, !tbaa !8
-  %113 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %113 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %114 = call ptr %113(ptr noundef nonnull @.str.66, i64 noundef 4, i1 noundef zeroext true) #17
-  store ptr null, ptr %9, align 8, !tbaa !167
+  store ptr null, ptr %9, align 8, !tbaa !166
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 16, ptr %115, align 8, !tbaa !169
+  store i32 16, ptr %115, align 8, !tbaa !168
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %116, align 4
   %117 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %114, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #17
@@ -5613,11 +5613,11 @@ zend_string_release.exit188.i:                    ; preds = %129, %128, %121, %z
   store i64 2, ptr %10, align 8, !tbaa !8
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %130, align 8, !tbaa !8
-  %131 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %131 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %132 = call ptr %131(ptr noundef nonnull @.str.67, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %11, align 8, !tbaa !167
+  store ptr null, ptr %11, align 8, !tbaa !166
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 16, ptr %133, align 8, !tbaa !169
+  store i32 16, ptr %133, align 8, !tbaa !168
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 0, ptr %134, align 4
   %135 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %132, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %11) #17
@@ -5654,11 +5654,11 @@ zend_string_release.exit191.i:                    ; preds = %147, %146, %139, %z
   store i64 1, ptr %12, align 8, !tbaa !8
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %148, align 8, !tbaa !8
-  %149 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %149 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %150 = call ptr %149(ptr noundef nonnull @.str.68, i64 noundef 12, i1 noundef zeroext true) #17
-  store ptr null, ptr %13, align 8, !tbaa !167
+  store ptr null, ptr %13, align 8, !tbaa !166
   %151 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 16, ptr %151, align 8, !tbaa !169
+  store i32 16, ptr %151, align 8, !tbaa !168
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %152, align 4
   %153 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %150, ptr noundef nonnull %12, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %13) #17
@@ -5695,11 +5695,11 @@ zend_string_release.exit194.i:                    ; preds = %165, %164, %157, %z
   store i64 2, ptr %14, align 8, !tbaa !8
   %166 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %166, align 8, !tbaa !8
-  %167 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %167 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %168 = call ptr %167(ptr noundef nonnull @.str.69, i64 noundef 12, i1 noundef zeroext true) #17
-  store ptr null, ptr %15, align 8, !tbaa !167
+  store ptr null, ptr %15, align 8, !tbaa !166
   %169 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 16, ptr %169, align 8, !tbaa !169
+  store i32 16, ptr %169, align 8, !tbaa !168
   %170 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 0, ptr %170, align 4
   %171 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %168, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %15) #17
@@ -5736,11 +5736,11 @@ zend_string_release.exit197.i:                    ; preds = %183, %182, %175, %z
   store i64 3, ptr %16, align 8, !tbaa !8
   %184 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %184, align 8, !tbaa !8
-  %185 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %185 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %186 = call ptr %185(ptr noundef nonnull @.str.70, i64 noundef 17, i1 noundef zeroext true) #17
-  store ptr null, ptr %17, align 8, !tbaa !167
+  store ptr null, ptr %17, align 8, !tbaa !166
   %187 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 16, ptr %187, align 8, !tbaa !169
+  store i32 16, ptr %187, align 8, !tbaa !168
   %188 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %188, align 4
   %189 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %186, ptr noundef nonnull %16, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %17) #17
@@ -5777,11 +5777,11 @@ zend_string_release.exit200.i:                    ; preds = %201, %200, %193, %z
   store i64 4, ptr %18, align 8, !tbaa !8
   %202 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 4, ptr %202, align 8, !tbaa !8
-  %203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %204 = call ptr %203(ptr noundef nonnull @.str.71, i64 noundef 17, i1 noundef zeroext true) #17
-  store ptr null, ptr %19, align 8, !tbaa !167
+  store ptr null, ptr %19, align 8, !tbaa !166
   %205 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 16, ptr %205, align 8, !tbaa !169
+  store i32 16, ptr %205, align 8, !tbaa !168
   %206 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %206, align 4
   %207 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %204, ptr noundef nonnull %18, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %19) #17
@@ -5818,11 +5818,11 @@ zend_string_release.exit203.i:                    ; preds = %219, %218, %211, %z
   store i64 5, ptr %20, align 8, !tbaa !8
   %220 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 4, ptr %220, align 8, !tbaa !8
-  %221 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %221 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %222 = call ptr %221(ptr noundef nonnull @.str.72, i64 noundef 19, i1 noundef zeroext true) #17
-  store ptr null, ptr %21, align 8, !tbaa !167
+  store ptr null, ptr %21, align 8, !tbaa !166
   %223 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 16, ptr %223, align 8, !tbaa !169
+  store i32 16, ptr %223, align 8, !tbaa !168
   %224 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 0, ptr %224, align 4
   %225 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %222, ptr noundef nonnull %20, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %21) #17
@@ -5859,11 +5859,11 @@ zend_string_release.exit206.i:                    ; preds = %237, %236, %229, %z
   store i64 6, ptr %22, align 8, !tbaa !8
   %238 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 4, ptr %238, align 8, !tbaa !8
-  %239 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %239 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %240 = call ptr %239(ptr noundef nonnull @.str.73, i64 noundef 16, i1 noundef zeroext true) #17
-  store ptr null, ptr %23, align 8, !tbaa !167
+  store ptr null, ptr %23, align 8, !tbaa !166
   %241 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 16, ptr %241, align 8, !tbaa !169
+  store i32 16, ptr %241, align 8, !tbaa !168
   %242 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %242, align 4
   %243 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %240, ptr noundef nonnull %22, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %23) #17
@@ -5900,11 +5900,11 @@ zend_string_release.exit209.i:                    ; preds = %255, %254, %247, %z
   store i64 7, ptr %24, align 8, !tbaa !8
   %256 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 4, ptr %256, align 8, !tbaa !8
-  %257 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %257 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %258 = call ptr %257(ptr noundef nonnull @.str.74, i64 noundef 14, i1 noundef zeroext true) #17
-  store ptr null, ptr %25, align 8, !tbaa !167
+  store ptr null, ptr %25, align 8, !tbaa !166
   %259 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 16, ptr %259, align 8, !tbaa !169
+  store i32 16, ptr %259, align 8, !tbaa !168
   %260 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 0, ptr %260, align 4
   %261 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %258, ptr noundef nonnull %24, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %25) #17
@@ -5941,11 +5941,11 @@ zend_string_release.exit212.i:                    ; preds = %273, %272, %265, %z
   store i64 8, ptr %26, align 8, !tbaa !8
   %274 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 4, ptr %274, align 8, !tbaa !8
-  %275 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %275 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %276 = call ptr %275(ptr noundef nonnull @.str.75, i64 noundef 11, i1 noundef zeroext true) #17
-  store ptr null, ptr %27, align 8, !tbaa !167
+  store ptr null, ptr %27, align 8, !tbaa !166
   %277 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 16, ptr %277, align 8, !tbaa !169
+  store i32 16, ptr %277, align 8, !tbaa !168
   %278 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 0, ptr %278, align 4
   %279 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %276, ptr noundef nonnull %26, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %27) #17
@@ -5982,11 +5982,11 @@ zend_string_release.exit215.i:                    ; preds = %291, %290, %283, %z
   store i64 9, ptr %28, align 8, !tbaa !8
   %292 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 4, ptr %292, align 8, !tbaa !8
-  %293 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %293 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %294 = call ptr %293(ptr noundef nonnull @.str.76, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %29, align 8, !tbaa !167
+  store ptr null, ptr %29, align 8, !tbaa !166
   %295 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 16, ptr %295, align 8, !tbaa !169
+  store i32 16, ptr %295, align 8, !tbaa !168
   %296 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 0, ptr %296, align 4
   %297 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %294, ptr noundef nonnull %28, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %29) #17
@@ -6023,11 +6023,11 @@ zend_string_release.exit218.i:                    ; preds = %309, %308, %301, %z
   store i64 10, ptr %30, align 8, !tbaa !8
   %310 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 4, ptr %310, align 8, !tbaa !8
-  %311 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %311 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %312 = call ptr %311(ptr noundef nonnull @.str.77, i64 noundef 10, i1 noundef zeroext true) #17
-  store ptr null, ptr %31, align 8, !tbaa !167
+  store ptr null, ptr %31, align 8, !tbaa !166
   %313 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 16, ptr %313, align 8, !tbaa !169
+  store i32 16, ptr %313, align 8, !tbaa !168
   %314 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %314, align 4
   %315 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %312, ptr noundef nonnull %30, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %31) #17
@@ -6064,11 +6064,11 @@ zend_string_release.exit221.i:                    ; preds = %327, %326, %319, %z
   store i64 11, ptr %32, align 8, !tbaa !8
   %328 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 4, ptr %328, align 8, !tbaa !8
-  %329 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %329 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %330 = call ptr %329(ptr noundef nonnull @.str.78, i64 noundef 10, i1 noundef zeroext true) #17
-  store ptr null, ptr %33, align 8, !tbaa !167
+  store ptr null, ptr %33, align 8, !tbaa !166
   %331 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 16, ptr %331, align 8, !tbaa !169
+  store i32 16, ptr %331, align 8, !tbaa !168
   %332 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %332, align 4
   %333 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %330, ptr noundef nonnull %32, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %33) #17
@@ -6105,11 +6105,11 @@ zend_string_release.exit224.i:                    ; preds = %345, %344, %337, %z
   store i64 12, ptr %34, align 8, !tbaa !8
   %346 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 4, ptr %346, align 8, !tbaa !8
-  %347 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %347 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %348 = call ptr %347(ptr noundef nonnull @.str.79, i64 noundef 15, i1 noundef zeroext true) #17
-  store ptr null, ptr %35, align 8, !tbaa !167
+  store ptr null, ptr %35, align 8, !tbaa !166
   %349 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 16, ptr %349, align 8, !tbaa !169
+  store i32 16, ptr %349, align 8, !tbaa !168
   %350 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 0, ptr %350, align 4
   %351 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %348, ptr noundef nonnull %34, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %35) #17
@@ -6146,11 +6146,11 @@ zend_string_release.exit227.i:                    ; preds = %363, %362, %355, %z
   store i64 13, ptr %36, align 8, !tbaa !8
   %364 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 4, ptr %364, align 8, !tbaa !8
-  %365 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %365 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %366 = call ptr %365(ptr noundef nonnull @.str.80, i64 noundef 15, i1 noundef zeroext true) #17
-  store ptr null, ptr %37, align 8, !tbaa !167
+  store ptr null, ptr %37, align 8, !tbaa !166
   %367 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i32 16, ptr %367, align 8, !tbaa !169
+  store i32 16, ptr %367, align 8, !tbaa !168
   %368 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 0, ptr %368, align 4
   %369 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %366, ptr noundef nonnull %36, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %37) #17
@@ -6187,11 +6187,11 @@ zend_string_release.exit230.i:                    ; preds = %381, %380, %373, %z
   store i64 14, ptr %38, align 8, !tbaa !8
   %382 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 4, ptr %382, align 8, !tbaa !8
-  %383 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %383 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %384 = call ptr %383(ptr noundef nonnull @.str.81, i64 noundef 17, i1 noundef zeroext true) #17
-  store ptr null, ptr %39, align 8, !tbaa !167
+  store ptr null, ptr %39, align 8, !tbaa !166
   %385 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 16, ptr %385, align 8, !tbaa !169
+  store i32 16, ptr %385, align 8, !tbaa !168
   %386 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 0, ptr %386, align 4
   %387 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %384, ptr noundef nonnull %38, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %39) #17
@@ -6228,11 +6228,11 @@ zend_string_release.exit233.i:                    ; preds = %399, %398, %391, %z
   store i64 15, ptr %40, align 8, !tbaa !8
   %400 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 4, ptr %400, align 8, !tbaa !8
-  %401 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %401 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %402 = call ptr %401(ptr noundef nonnull @.str.82, i64 noundef 14, i1 noundef zeroext true) #17
-  store ptr null, ptr %41, align 8, !tbaa !167
+  store ptr null, ptr %41, align 8, !tbaa !166
   %403 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 16, ptr %403, align 8, !tbaa !169
+  store i32 16, ptr %403, align 8, !tbaa !168
   %404 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 0, ptr %404, align 4
   %405 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %402, ptr noundef nonnull %40, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %41) #17
@@ -6269,11 +6269,11 @@ zend_string_release.exit236.i:                    ; preds = %417, %416, %409, %z
   store i64 16, ptr %42, align 8, !tbaa !8
   %418 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 4, ptr %418, align 8, !tbaa !8
-  %419 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %419 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %420 = call ptr %419(ptr noundef nonnull @.str.83, i64 noundef 12, i1 noundef zeroext true) #17
-  store ptr null, ptr %43, align 8, !tbaa !167
+  store ptr null, ptr %43, align 8, !tbaa !166
   %421 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 16, ptr %421, align 8, !tbaa !169
+  store i32 16, ptr %421, align 8, !tbaa !168
   %422 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 0, ptr %422, align 4
   %423 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %420, ptr noundef nonnull %42, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %43) #17
@@ -6310,11 +6310,11 @@ zend_string_release.exit239.i:                    ; preds = %435, %434, %427, %z
   store i64 17, ptr %44, align 8, !tbaa !8
   %436 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 4, ptr %436, align 8, !tbaa !8
-  %437 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %437 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %438 = call ptr %437(ptr noundef nonnull @.str.84, i64 noundef 9, i1 noundef zeroext true) #17
-  store ptr null, ptr %45, align 8, !tbaa !167
+  store ptr null, ptr %45, align 8, !tbaa !166
   %439 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 16, ptr %439, align 8, !tbaa !169
+  store i32 16, ptr %439, align 8, !tbaa !168
   %440 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 0, ptr %440, align 4
   %441 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %438, ptr noundef nonnull %44, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %45) #17
@@ -6351,11 +6351,11 @@ zend_string_release.exit242.i:                    ; preds = %453, %452, %445, %z
   store i64 18, ptr %46, align 8, !tbaa !8
   %454 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 4, ptr %454, align 8, !tbaa !8
-  %455 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %455 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %456 = call ptr %455(ptr noundef nonnull @.str.85, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %47, align 8, !tbaa !167
+  store ptr null, ptr %47, align 8, !tbaa !166
   %457 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 16, ptr %457, align 8, !tbaa !169
+  store i32 16, ptr %457, align 8, !tbaa !168
   %458 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 0, ptr %458, align 4
   %459 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %456, ptr noundef nonnull %46, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %47) #17
@@ -6392,11 +6392,11 @@ zend_string_release.exit245.i:                    ; preds = %471, %470, %463, %z
   store i64 19, ptr %48, align 8, !tbaa !8
   %472 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 4, ptr %472, align 8, !tbaa !8
-  %473 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %473 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %474 = call ptr %473(ptr noundef nonnull @.str.86, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %49, align 8, !tbaa !167
+  store ptr null, ptr %49, align 8, !tbaa !166
   %475 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 16, ptr %475, align 8, !tbaa !169
+  store i32 16, ptr %475, align 8, !tbaa !168
   %476 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %476, align 4
   %477 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %474, ptr noundef nonnull %48, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %49) #17
@@ -6433,11 +6433,11 @@ zend_string_release.exit248.i:                    ; preds = %489, %488, %481, %z
   store i64 20, ptr %50, align 8, !tbaa !8
   %490 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 4, ptr %490, align 8, !tbaa !8
-  %491 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %491 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %492 = call ptr %491(ptr noundef nonnull @.str.87, i64 noundef 4, i1 noundef zeroext true) #17
-  store ptr null, ptr %51, align 8, !tbaa !167
+  store ptr null, ptr %51, align 8, !tbaa !166
   %493 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 16, ptr %493, align 8, !tbaa !169
+  store i32 16, ptr %493, align 8, !tbaa !168
   %494 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 0, ptr %494, align 4
   %495 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %492, ptr noundef nonnull %50, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %51) #17
@@ -6474,11 +6474,11 @@ zend_string_release.exit251.i:                    ; preds = %507, %506, %499, %z
   store i64 21, ptr %52, align 8, !tbaa !8
   %508 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 4, ptr %508, align 8, !tbaa !8
-  %509 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %509 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %510 = call ptr %509(ptr noundef nonnull @.str.88, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %53, align 8, !tbaa !167
+  store ptr null, ptr %53, align 8, !tbaa !166
   %511 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 16, ptr %511, align 8, !tbaa !169
+  store i32 16, ptr %511, align 8, !tbaa !168
   %512 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 0, ptr %512, align 4
   %513 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %510, ptr noundef nonnull %52, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %53) #17
@@ -6515,11 +6515,11 @@ zend_string_release.exit254.i:                    ; preds = %525, %524, %517, %z
   store i64 22, ptr %54, align 8, !tbaa !8
   %526 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 4, ptr %526, align 8, !tbaa !8
-  %527 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %527 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %528 = call ptr %527(ptr noundef nonnull @.str.89, i64 noundef 11, i1 noundef zeroext true) #17
-  store ptr null, ptr %55, align 8, !tbaa !167
+  store ptr null, ptr %55, align 8, !tbaa !166
   %529 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i32 16, ptr %529, align 8, !tbaa !169
+  store i32 16, ptr %529, align 8, !tbaa !168
   %530 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 0, ptr %530, align 4
   %531 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %528, ptr noundef nonnull %54, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %55) #17
@@ -6556,11 +6556,11 @@ zend_string_release.exit257.i:                    ; preds = %543, %542, %535, %z
   store i64 23, ptr %56, align 8, !tbaa !8
   %544 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 4, ptr %544, align 8, !tbaa !8
-  %545 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %545 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %546 = call ptr %545(ptr noundef nonnull @.str.90, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %57, align 8, !tbaa !167
+  store ptr null, ptr %57, align 8, !tbaa !166
   %547 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 16, ptr %547, align 8, !tbaa !169
+  store i32 16, ptr %547, align 8, !tbaa !168
   %548 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 0, ptr %548, align 4
   %549 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %546, ptr noundef nonnull %56, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %57) #17
@@ -6597,11 +6597,11 @@ zend_string_release.exit260.i:                    ; preds = %561, %560, %553, %z
   store i64 24, ptr %58, align 8, !tbaa !8
   %562 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 4, ptr %562, align 8, !tbaa !8
-  %563 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %563 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %564 = call ptr %563(ptr noundef nonnull @.str.91, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %59, align 8, !tbaa !167
+  store ptr null, ptr %59, align 8, !tbaa !166
   %565 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 16, ptr %565, align 8, !tbaa !169
+  store i32 16, ptr %565, align 8, !tbaa !168
   %566 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 0, ptr %566, align 4
   %567 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %564, ptr noundef nonnull %58, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %59) #17
@@ -6638,11 +6638,11 @@ zend_string_release.exit263.i:                    ; preds = %579, %578, %571, %z
   store i64 25, ptr %60, align 8, !tbaa !8
   %580 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 4, ptr %580, align 8, !tbaa !8
-  %581 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %581 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %582 = call ptr %581(ptr noundef nonnull @.str.92, i64 noundef 6, i1 noundef zeroext true) #17
-  store ptr null, ptr %61, align 8, !tbaa !167
+  store ptr null, ptr %61, align 8, !tbaa !166
   %583 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i32 16, ptr %583, align 8, !tbaa !169
+  store i32 16, ptr %583, align 8, !tbaa !168
   %584 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 0, ptr %584, align 4
   %585 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %582, ptr noundef nonnull %60, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %61) #17
@@ -6679,11 +6679,11 @@ zend_string_release.exit266.i:                    ; preds = %597, %596, %589, %z
   store i64 26, ptr %62, align 8, !tbaa !8
   %598 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 4, ptr %598, align 8, !tbaa !8
-  %599 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %599 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %600 = call ptr %599(ptr noundef nonnull @.str.93, i64 noundef 11, i1 noundef zeroext true) #17
-  store ptr null, ptr %63, align 8, !tbaa !167
+  store ptr null, ptr %63, align 8, !tbaa !166
   %601 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 16, ptr %601, align 8, !tbaa !169
+  store i32 16, ptr %601, align 8, !tbaa !168
   %602 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 0, ptr %602, align 4
   %603 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %600, ptr noundef nonnull %62, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %63) #17
@@ -6720,11 +6720,11 @@ zend_string_release.exit269.i:                    ; preds = %615, %614, %607, %z
   store i64 27, ptr %64, align 8, !tbaa !8
   %616 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 4, ptr %616, align 8, !tbaa !8
-  %617 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %617 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %618 = call ptr %617(ptr noundef nonnull @.str.94, i64 noundef 7, i1 noundef zeroext true) #17
-  store ptr null, ptr %65, align 8, !tbaa !167
+  store ptr null, ptr %65, align 8, !tbaa !166
   %619 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 16, ptr %619, align 8, !tbaa !169
+  store i32 16, ptr %619, align 8, !tbaa !168
   %620 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 0, ptr %620, align 4
   %621 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %618, ptr noundef nonnull %64, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %65) #17
@@ -6761,11 +6761,11 @@ zend_string_release.exit272.i:                    ; preds = %633, %632, %625, %z
   store i64 28, ptr %66, align 8, !tbaa !8
   %634 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 4, ptr %634, align 8, !tbaa !8
-  %635 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %635 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %636 = call ptr %635(ptr noundef nonnull @.str.95, i64 noundef 7, i1 noundef zeroext true) #17
-  store ptr null, ptr %67, align 8, !tbaa !167
+  store ptr null, ptr %67, align 8, !tbaa !166
   %637 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i32 16, ptr %637, align 8, !tbaa !169
+  store i32 16, ptr %637, align 8, !tbaa !168
   %638 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 0, ptr %638, align 4
   %639 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %636, ptr noundef nonnull %66, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %67) #17
@@ -6802,11 +6802,11 @@ zend_string_release.exit275.i:                    ; preds = %651, %650, %643, %z
   store i64 29, ptr %68, align 8, !tbaa !8
   %652 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 4, ptr %652, align 8, !tbaa !8
-  %653 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %653 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %654 = call ptr %653(ptr noundef nonnull @.str.96, i64 noundef 13, i1 noundef zeroext true) #17
-  store ptr null, ptr %69, align 8, !tbaa !167
+  store ptr null, ptr %69, align 8, !tbaa !166
   %655 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i32 16, ptr %655, align 8, !tbaa !169
+  store i32 16, ptr %655, align 8, !tbaa !168
   %656 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 0, ptr %656, align 4
   %657 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %654, ptr noundef nonnull %68, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %69) #17
@@ -6843,11 +6843,11 @@ zend_string_release.exit278.i:                    ; preds = %669, %668, %661, %z
   store i64 30, ptr %70, align 8, !tbaa !8
   %670 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 4, ptr %670, align 8, !tbaa !8
-  %671 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %671 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %672 = call ptr %671(ptr noundef nonnull @.str.97, i64 noundef 11, i1 noundef zeroext true) #17
-  store ptr null, ptr %71, align 8, !tbaa !167
+  store ptr null, ptr %71, align 8, !tbaa !166
   %673 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 16, ptr %673, align 8, !tbaa !169
+  store i32 16, ptr %673, align 8, !tbaa !168
   %674 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 0, ptr %674, align 4
   %675 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %672, ptr noundef nonnull %70, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %71) #17
@@ -6884,11 +6884,11 @@ zend_string_release.exit281.i:                    ; preds = %687, %686, %679, %z
   store i64 31, ptr %72, align 8, !tbaa !8
   %688 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 4, ptr %688, align 8, !tbaa !8
-  %689 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %689 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %690 = call ptr %689(ptr noundef nonnull @.str.98, i64 noundef 8, i1 noundef zeroext true) #17
-  store ptr null, ptr %73, align 8, !tbaa !167
+  store ptr null, ptr %73, align 8, !tbaa !166
   %691 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 16, ptr %691, align 8, !tbaa !169
+  store i32 16, ptr %691, align 8, !tbaa !168
   %692 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 0, ptr %692, align 4
   %693 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %690, ptr noundef nonnull %72, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %73) #17
@@ -6925,11 +6925,11 @@ zend_string_release.exit284.i:                    ; preds = %705, %704, %697, %z
   store i64 32, ptr %74, align 8, !tbaa !8
   %706 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 4, ptr %706, align 8, !tbaa !8
-  %707 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %707 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %708 = call ptr %707(ptr noundef nonnull @.str.99, i64 noundef 9, i1 noundef zeroext true) #17
-  store ptr null, ptr %75, align 8, !tbaa !167
+  store ptr null, ptr %75, align 8, !tbaa !166
   %709 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i32 16, ptr %709, align 8, !tbaa !169
+  store i32 16, ptr %709, align 8, !tbaa !168
   %710 = getelementptr inbounds nuw i8, ptr %75, i64 12
   store i32 0, ptr %710, align 4
   %711 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %708, ptr noundef nonnull %74, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %75) #17
@@ -6966,11 +6966,11 @@ zend_string_release.exit287.i:                    ; preds = %723, %722, %715, %z
   store i64 0, ptr %76, align 8, !tbaa !8
   %724 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 4, ptr %724, align 8, !tbaa !8
-  %725 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %725 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %726 = call ptr %725(ptr noundef nonnull @.str.100, i64 noundef 4, i1 noundef zeroext true) #17
-  store ptr null, ptr %77, align 8, !tbaa !167
+  store ptr null, ptr %77, align 8, !tbaa !166
   %727 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 16, ptr %727, align 8, !tbaa !169
+  store i32 16, ptr %727, align 8, !tbaa !168
   %728 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 0, ptr %728, align 4
   %729 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %726, ptr noundef nonnull %76, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %77) #17
@@ -7007,11 +7007,11 @@ zend_string_release.exit290.i:                    ; preds = %741, %740, %733, %z
   store i64 33, ptr %78, align 8, !tbaa !8
   %742 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 4, ptr %742, align 8, !tbaa !8
-  %743 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %743 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %744 = call ptr %743(ptr noundef nonnull @.str.101, i64 noundef 9, i1 noundef zeroext true) #17
-  store ptr null, ptr %79, align 8, !tbaa !167
+  store ptr null, ptr %79, align 8, !tbaa !166
   %745 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 16, ptr %745, align 8, !tbaa !169
+  store i32 16, ptr %745, align 8, !tbaa !168
   %746 = getelementptr inbounds nuw i8, ptr %79, i64 12
   store i32 0, ptr %746, align 4
   %747 = call ptr @zend_declare_typed_class_constant(ptr noundef %93, ptr noundef %744, ptr noundef nonnull %78, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %79) #17
@@ -7123,18 +7123,18 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   %760 = getelementptr inbounds nuw i8, ptr %93, i64 384
   store ptr @php_sqlite3_object_new, ptr %760, align 8, !tbaa !8
   %761 = getelementptr inbounds nuw i8, ptr %93, i64 360
-  store ptr @sqlite3_object_handlers, ptr %761, align 8, !tbaa !161
-  store i32 32, ptr @sqlite3_stmt_object_handlers, align 8, !tbaa !162
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 24), align 8, !tbaa !164
-  store ptr @php_sqlite3_stmt_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 8), align 8, !tbaa !165
+  store ptr @sqlite3_object_handlers, ptr %761, align 8, !tbaa !160
+  store i32 32, ptr @sqlite3_stmt_object_handlers, align 8, !tbaa !161
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 24), align 8, !tbaa !163
+  store ptr @php_sqlite3_stmt_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 8), align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %4, i8 0, i64 520, i1 false)
-  %762 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %762 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %763 = call ptr %762(ptr noundef nonnull @.str.148, i64 noundef 11, i1 noundef zeroext true) #17
   %764 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %763, ptr %764, align 8, !tbaa !151
+  store ptr %763, ptr %764, align 8, !tbaa !150
   %765 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  store ptr @std_object_handlers, ptr %765, align 8, !tbaa !161
+  store ptr @std_object_handlers, ptr %765, align 8, !tbaa !160
   %766 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store ptr @class_SQLite3Stmt_methods, ptr %766, align 8, !tbaa !8
   %767 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %4, ptr noundef null, i32 noundef 536870912) #17
@@ -7143,18 +7143,18 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 384
   store ptr @php_sqlite3_stmt_object_new, ptr %768, align 8, !tbaa !8
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 360
-  store ptr @sqlite3_stmt_object_handlers, ptr %769, align 8, !tbaa !161
-  store i32 32, ptr @sqlite3_result_object_handlers, align 8, !tbaa !162
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 24), align 8, !tbaa !164
-  store ptr @php_sqlite3_result_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 8), align 8, !tbaa !165
+  store ptr @sqlite3_stmt_object_handlers, ptr %769, align 8, !tbaa !160
+  store i32 32, ptr @sqlite3_result_object_handlers, align 8, !tbaa !161
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 24), align 8, !tbaa !163
+  store ptr @php_sqlite3_result_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 8), align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
-  %770 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !150
+  %770 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %771 = call ptr %770(ptr noundef nonnull @.str.151, i64 noundef 13, i1 noundef zeroext true) #17
   %772 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %771, ptr %772, align 8, !tbaa !151
+  store ptr %771, ptr %772, align 8, !tbaa !150
   %773 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  store ptr @std_object_handlers, ptr %773, align 8, !tbaa !161
+  store ptr @std_object_handlers, ptr %773, align 8, !tbaa !160
   %774 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr @class_SQLite3Result_methods, ptr %774, align 8, !tbaa !8
   %775 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef null, i32 noundef 536870912) #17
@@ -7163,7 +7163,7 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 384
   store ptr @php_sqlite3_result_object_new, ptr %776, align 8, !tbaa !8
   %777 = getelementptr inbounds nuw i8, ptr %775, i64 360
-  store ptr @sqlite3_result_object_handlers, ptr %777, align 8, !tbaa !161
+  store ptr @sqlite3_result_object_handlers, ptr %777, align 8, !tbaa !160
   %778 = call i32 @zend_register_ini_entries_ex(ptr noundef nonnull @ini_entries, i32 noundef %1, i32 noundef %0) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.210, i64 noundef 13, i64 noundef 1, i32 noundef 1, i32 noundef %1) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.211, i64 noundef 11, i64 noundef 2, i32 noundef 1, i32 noundef %1) #17
@@ -7328,7 +7328,7 @@ zend_fcc_dtor.exit62:                             ; preds = %33, %28, %27, %zend
 
 zend_string_release.exit:                         ; preds = %55, %61, %68, %69
   %70 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !170
+  %71 = load ptr, ptr %70, align 8, !tbaa !169
   %.not48 = icmp eq ptr %71, null
   br i1 %.not48, label %101, label %72
 
@@ -7399,7 +7399,7 @@ zend_fcc_dtor.exit59:                             ; preds = %100, %95, %94, %zen
 
 101:                                              ; preds = %zend_fcc_dtor.exit59, %zend_string_release.exit
   %102 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %103 = load ptr, ptr %102, align 8, !tbaa !171
+  %103 = load ptr, ptr %102, align 8, !tbaa !170
   %.not49 = icmp eq ptr %103, null
   br i1 %.not49, label %133, label %104
 
@@ -7470,7 +7470,7 @@ zend_fcc_dtor.exit56:                             ; preds = %132, %127, %126, %z
 
 133:                                              ; preds = %zend_fcc_dtor.exit56, %101
   %134 = getelementptr inbounds nuw i8, ptr %42, i64 104
-  %135 = load ptr, ptr %134, align 8, !tbaa !172
+  %135 = load ptr, ptr %134, align 8, !tbaa !171
   %.not50 = icmp eq ptr %135, null
   br i1 %.not50, label %165, label %136
 
@@ -7598,7 +7598,7 @@ zend_fcc_dtor.exit53:                             ; preds = %164, %159, %158, %z
 
 zend_string_release.exit75:                       ; preds = %179, %185, %192, %193
   %194 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %195 = load ptr, ptr %194, align 8, !tbaa !173
+  %195 = load ptr, ptr %194, align 8, !tbaa !172
   %.not46 = icmp eq ptr %195, null
   br i1 %.not46, label %225, label %196
 
@@ -7715,7 +7715,7 @@ define internal ptr @php_sqlite3_get_gc(ptr noundef %0, ptr noundef %1, ptr noun
 
 13:                                               ; preds = %7, %3
   %14 = tail call ptr @zend_get_gc_buffer_create() #17
-  %.02956 = load ptr, ptr %4, align 8, !tbaa !174
+  %.02956 = load ptr, ptr %4, align 8, !tbaa !173
   %.not57 = icmp eq ptr %.02956, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
@@ -7737,14 +7737,14 @@ define internal ptr @php_sqlite3_get_gc(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i.i, label %31, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %14, align 8, !tbaa !175
-  %24 = load ptr, ptr %15, align 8, !tbaa !176
+  %23 = load ptr, ptr %14, align 8, !tbaa !174
+  %24 = load ptr, ptr %15, align 8, !tbaa !175
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %26, label %zend_get_gc_buffer_add_obj.exit3.i, !prof !108
 
 26:                                               ; preds = %22
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre.i = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre.i = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit3.i
 
 zend_get_gc_buffer_add_obj.exit3.i:               ; preds = %26, %22
@@ -7752,9 +7752,9 @@ zend_get_gc_buffer_add_obj.exit3.i:               ; preds = %26, %22
   store ptr %21, ptr %27, align 8, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 776, ptr %28, align 8, !tbaa !8
-  %29 = load ptr, ptr %14, align 8, !tbaa !175
+  %29 = load ptr, ptr %14, align 8, !tbaa !174
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %30, ptr %14, align 8, !tbaa !175
+  store ptr %30, ptr %14, align 8, !tbaa !174
   br label %31
 
 31:                                               ; preds = %zend_get_gc_buffer_add_obj.exit3.i, %19
@@ -7764,14 +7764,14 @@ zend_get_gc_buffer_add_obj.exit3.i:               ; preds = %26, %22
   br i1 %.not8.i.i, label %php_sqlite3_gc_buffer_add_fcc.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %14, align 8, !tbaa !175
-  %36 = load ptr, ptr %15, align 8, !tbaa !176
+  %35 = load ptr, ptr %14, align 8, !tbaa !174
+  %36 = load ptr, ptr %15, align 8, !tbaa !175
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %zend_get_gc_buffer_add_obj.exit.i, !prof !108
 
 38:                                               ; preds = %34
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre4.i = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre4.i = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit.i
 
 zend_get_gc_buffer_add_obj.exit.i:                ; preds = %38, %34
@@ -7779,9 +7779,9 @@ zend_get_gc_buffer_add_obj.exit.i:                ; preds = %38, %34
   store ptr %33, ptr %39, align 8, !tbaa !8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 776, ptr %40, align 8, !tbaa !8
-  %41 = load ptr, ptr %14, align 8, !tbaa !175
+  %41 = load ptr, ptr %14, align 8, !tbaa !174
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %42, ptr %14, align 8, !tbaa !175
+  store ptr %42, ptr %14, align 8, !tbaa !174
   br label %php_sqlite3_gc_buffer_add_fcc.exit
 
 php_sqlite3_gc_buffer_add_fcc.exit:               ; preds = %16, %31, %zend_get_gc_buffer_add_obj.exit.i
@@ -7797,14 +7797,14 @@ php_sqlite3_gc_buffer_add_fcc.exit:               ; preds = %16, %31, %zend_get_
   br i1 %.not.i.i33, label %57, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %14, align 8, !tbaa !175
-  %50 = load ptr, ptr %15, align 8, !tbaa !176
+  %49 = load ptr, ptr %14, align 8, !tbaa !174
+  %50 = load ptr, ptr %15, align 8, !tbaa !175
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %52, label %zend_get_gc_buffer_add_obj.exit3.i34, !prof !108
 
 52:                                               ; preds = %48
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre.i38 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre.i38 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit3.i34
 
 zend_get_gc_buffer_add_obj.exit3.i34:             ; preds = %52, %48
@@ -7812,9 +7812,9 @@ zend_get_gc_buffer_add_obj.exit3.i34:             ; preds = %52, %48
   store ptr %47, ptr %53, align 8, !tbaa !8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 776, ptr %54, align 8, !tbaa !8
-  %55 = load ptr, ptr %14, align 8, !tbaa !175
+  %55 = load ptr, ptr %14, align 8, !tbaa !174
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %56, ptr %14, align 8, !tbaa !175
+  store ptr %56, ptr %14, align 8, !tbaa !174
   br label %57
 
 57:                                               ; preds = %zend_get_gc_buffer_add_obj.exit3.i34, %45
@@ -7824,14 +7824,14 @@ zend_get_gc_buffer_add_obj.exit3.i34:             ; preds = %52, %48
   br i1 %.not8.i.i35, label %php_sqlite3_gc_buffer_add_fcc.exit39, label %60
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr %14, align 8, !tbaa !175
-  %62 = load ptr, ptr %15, align 8, !tbaa !176
+  %61 = load ptr, ptr %14, align 8, !tbaa !174
+  %62 = load ptr, ptr %15, align 8, !tbaa !175
   %63 = icmp eq ptr %61, %62
   br i1 %63, label %64, label %zend_get_gc_buffer_add_obj.exit.i36, !prof !108
 
 64:                                               ; preds = %60
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre4.i37 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre4.i37 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit.i36
 
 zend_get_gc_buffer_add_obj.exit.i36:              ; preds = %64, %60
@@ -7839,9 +7839,9 @@ zend_get_gc_buffer_add_obj.exit.i36:              ; preds = %64, %60
   store ptr %59, ptr %65, align 8, !tbaa !8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 776, ptr %66, align 8, !tbaa !8
-  %67 = load ptr, ptr %14, align 8, !tbaa !175
+  %67 = load ptr, ptr %14, align 8, !tbaa !174
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %68, ptr %14, align 8, !tbaa !175
+  store ptr %68, ptr %14, align 8, !tbaa !174
   br label %php_sqlite3_gc_buffer_add_fcc.exit39
 
 php_sqlite3_gc_buffer_add_fcc.exit39:             ; preds = %php_sqlite3_gc_buffer_add_fcc.exit, %57, %zend_get_gc_buffer_add_obj.exit.i36
@@ -7857,14 +7857,14 @@ php_sqlite3_gc_buffer_add_fcc.exit39:             ; preds = %php_sqlite3_gc_buff
   br i1 %.not.i.i41, label %83, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr %14, align 8, !tbaa !175
-  %76 = load ptr, ptr %15, align 8, !tbaa !176
+  %75 = load ptr, ptr %14, align 8, !tbaa !174
+  %76 = load ptr, ptr %15, align 8, !tbaa !175
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %78, label %zend_get_gc_buffer_add_obj.exit3.i42, !prof !108
 
 78:                                               ; preds = %74
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre.i46 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre.i46 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit3.i42
 
 zend_get_gc_buffer_add_obj.exit3.i42:             ; preds = %78, %74
@@ -7872,9 +7872,9 @@ zend_get_gc_buffer_add_obj.exit3.i42:             ; preds = %78, %74
   store ptr %73, ptr %79, align 8, !tbaa !8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 776, ptr %80, align 8, !tbaa !8
-  %81 = load ptr, ptr %14, align 8, !tbaa !175
+  %81 = load ptr, ptr %14, align 8, !tbaa !174
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %82, ptr %14, align 8, !tbaa !175
+  store ptr %82, ptr %14, align 8, !tbaa !174
   br label %83
 
 83:                                               ; preds = %zend_get_gc_buffer_add_obj.exit3.i42, %71
@@ -7884,14 +7884,14 @@ zend_get_gc_buffer_add_obj.exit3.i42:             ; preds = %78, %74
   br i1 %.not8.i.i43, label %php_sqlite3_gc_buffer_add_fcc.exit47, label %86
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr %14, align 8, !tbaa !175
-  %88 = load ptr, ptr %15, align 8, !tbaa !176
+  %87 = load ptr, ptr %14, align 8, !tbaa !174
+  %88 = load ptr, ptr %15, align 8, !tbaa !175
   %89 = icmp eq ptr %87, %88
   br i1 %89, label %90, label %zend_get_gc_buffer_add_obj.exit.i44, !prof !108
 
 90:                                               ; preds = %86
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre4.i45 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre4.i45 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit.i44
 
 zend_get_gc_buffer_add_obj.exit.i44:              ; preds = %90, %86
@@ -7899,19 +7899,19 @@ zend_get_gc_buffer_add_obj.exit.i44:              ; preds = %90, %86
   store ptr %85, ptr %91, align 8, !tbaa !8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 776, ptr %92, align 8, !tbaa !8
-  %93 = load ptr, ptr %14, align 8, !tbaa !175
+  %93 = load ptr, ptr %14, align 8, !tbaa !174
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store ptr %94, ptr %14, align 8, !tbaa !175
+  store ptr %94, ptr %14, align 8, !tbaa !174
   br label %php_sqlite3_gc_buffer_add_fcc.exit47
 
 php_sqlite3_gc_buffer_add_fcc.exit47:             ; preds = %php_sqlite3_gc_buffer_add_fcc.exit39, %83, %zend_get_gc_buffer_add_obj.exit.i44
-  %.029 = load ptr, ptr %.02958, align 8, !tbaa !174
+  %.029 = load ptr, ptr %.02958, align 8, !tbaa !173
   %.not = icmp eq ptr %.029, null
   br i1 %.not, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %php_sqlite3_gc_buffer_add_fcc.exit47, %13
   %95 = getelementptr inbounds i8, ptr %0, i64 -104
-  %.059 = load ptr, ptr %95, align 8, !tbaa !177
+  %.059 = load ptr, ptr %95, align 8, !tbaa !176
   %.not3160 = icmp eq ptr %.059, null
   br i1 %.not3160, label %._crit_edge64, label %.lr.ph63
 
@@ -7933,14 +7933,14 @@ php_sqlite3_gc_buffer_add_fcc.exit47:             ; preds = %php_sqlite3_gc_buff
   br i1 %.not.i.i49, label %112, label %103
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr %14, align 8, !tbaa !175
-  %105 = load ptr, ptr %96, align 8, !tbaa !176
+  %104 = load ptr, ptr %14, align 8, !tbaa !174
+  %105 = load ptr, ptr %96, align 8, !tbaa !175
   %106 = icmp eq ptr %104, %105
   br i1 %106, label %107, label %zend_get_gc_buffer_add_obj.exit3.i50, !prof !108
 
 107:                                              ; preds = %103
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre.i54 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre.i54 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit3.i50
 
 zend_get_gc_buffer_add_obj.exit3.i50:             ; preds = %107, %103
@@ -7948,9 +7948,9 @@ zend_get_gc_buffer_add_obj.exit3.i50:             ; preds = %107, %103
   store ptr %102, ptr %108, align 8, !tbaa !8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 776, ptr %109, align 8, !tbaa !8
-  %110 = load ptr, ptr %14, align 8, !tbaa !175
+  %110 = load ptr, ptr %14, align 8, !tbaa !174
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr %111, ptr %14, align 8, !tbaa !175
+  store ptr %111, ptr %14, align 8, !tbaa !174
   br label %112
 
 112:                                              ; preds = %zend_get_gc_buffer_add_obj.exit3.i50, %100
@@ -7960,14 +7960,14 @@ zend_get_gc_buffer_add_obj.exit3.i50:             ; preds = %107, %103
   br i1 %.not8.i.i51, label %php_sqlite3_gc_buffer_add_fcc.exit55, label %115
 
 115:                                              ; preds = %112
-  %116 = load ptr, ptr %14, align 8, !tbaa !175
-  %117 = load ptr, ptr %96, align 8, !tbaa !176
+  %116 = load ptr, ptr %14, align 8, !tbaa !174
+  %117 = load ptr, ptr %96, align 8, !tbaa !175
   %118 = icmp eq ptr %116, %117
   br i1 %118, label %119, label %zend_get_gc_buffer_add_obj.exit.i52, !prof !108
 
 119:                                              ; preds = %115
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %14) #17
-  %.pre4.i53 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre4.i53 = load ptr, ptr %14, align 8, !tbaa !174
   br label %zend_get_gc_buffer_add_obj.exit.i52
 
 zend_get_gc_buffer_add_obj.exit.i52:              ; preds = %119, %115
@@ -7975,21 +7975,21 @@ zend_get_gc_buffer_add_obj.exit.i52:              ; preds = %119, %115
   store ptr %114, ptr %120, align 8, !tbaa !8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 776, ptr %121, align 8, !tbaa !8
-  %122 = load ptr, ptr %14, align 8, !tbaa !175
+  %122 = load ptr, ptr %14, align 8, !tbaa !174
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  store ptr %123, ptr %14, align 8, !tbaa !175
+  store ptr %123, ptr %14, align 8, !tbaa !174
   br label %php_sqlite3_gc_buffer_add_fcc.exit55
 
 php_sqlite3_gc_buffer_add_fcc.exit55:             ; preds = %97, %112, %zend_get_gc_buffer_add_obj.exit.i52
-  %.0 = load ptr, ptr %.061, align 8, !tbaa !177
+  %.0 = load ptr, ptr %.061, align 8, !tbaa !176
   %.not31 = icmp eq ptr %.0, null
   br i1 %.not31, label %._crit_edge64, label %97
 
 ._crit_edge64:                                    ; preds = %php_sqlite3_gc_buffer_add_fcc.exit55, %._crit_edge
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !178
+  %125 = load ptr, ptr %124, align 8, !tbaa !177
   store ptr %125, ptr %1, align 8, !tbaa !103
-  %126 = load ptr, ptr %14, align 8, !tbaa !175
+  %126 = load ptr, ptr %14, align 8, !tbaa !174
   %127 = ptrtoint ptr %126 to i64
   %128 = ptrtoint ptr %125 to i64
   %129 = sub i64 %127, %128
@@ -7997,15 +7997,15 @@ php_sqlite3_gc_buffer_add_fcc.exit55:             ; preds = %97, %112, %zend_get
   %131 = trunc i64 %130 to i32
   store i32 %131, ptr %2, align 4, !tbaa !104
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !179
+  %133 = load ptr, ptr %132, align 8, !tbaa !178
   %134 = icmp eq ptr %133, null
   br i1 %134, label %135, label %141
 
 135:                                              ; preds = %._crit_edge64
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !180
+  %137 = load ptr, ptr %136, align 8, !tbaa !179
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %139 = load i32, ptr %138, align 8, !tbaa !181
+  %139 = load i32, ptr %138, align 8, !tbaa !180
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %143, label %141
 
@@ -8021,9 +8021,9 @@ php_sqlite3_gc_buffer_add_fcc.exit55:             ; preds = %97, %112, %zend_get
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @php_sqlite3_object_new(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !181
+  %3 = load i32, ptr %2, align 8, !tbaa !180
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !182
+  %5 = load i32, ptr %4, align 4, !tbaa !181
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -8109,9 +8109,9 @@ zend_object_release.exit:                         ; preds = %31, %26, %25, %16
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @php_sqlite3_stmt_object_new(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !181
+  %3 = load i32, ptr %2, align 8, !tbaa !180
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !182
+  %5 = load i32, ptr %4, align 4, !tbaa !181
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -8237,9 +8237,9 @@ zend_object_release.exit:                         ; preds = %47, %42, %41, %sqli
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @php_sqlite3_result_object_new(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !181
+  %3 = load i32, ptr %2, align 8, !tbaa !180
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !182
+  %5 = load i32, ptr %4, align 4, !tbaa !181
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -8389,7 +8389,7 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
   %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !183
+  %33 = load ptr, ptr %32, align 8, !tbaa !182
   %34 = tail call i32 @sqlite3_value_type(ptr noundef %33) #17
   %35 = trunc nuw i64 %indvars.iv to i32
   %36 = add i32 %spec.store.select, %35
@@ -8402,7 +8402,7 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0, i64 %37
-  %40 = load ptr, ptr %32, align 8, !tbaa !183
+  %40 = load ptr, ptr %32, align 8, !tbaa !182
   %41 = tail call i64 @sqlite3_value_int64(ptr noundef %40) #17
   store i64 %41, ptr %39, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -8411,7 +8411,7 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0, i64 %37
-  %45 = load ptr, ptr %32, align 8, !tbaa !183
+  %45 = load ptr, ptr %32, align 8, !tbaa !182
   %46 = tail call double @sqlite3_value_double(ptr noundef %45) #17
   store double %46, ptr %44, align 8, !tbaa !8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -8425,9 +8425,9 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
 
 zend_string_alloc.exit:                           ; preds = %.lr.ph
   %50 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0, i64 %37
-  %51 = load ptr, ptr %32, align 8, !tbaa !183
+  %51 = load ptr, ptr %32, align 8, !tbaa !182
   %52 = tail call ptr @sqlite3_value_text(ptr noundef %51) #17
-  %53 = load ptr, ptr %32, align 8, !tbaa !183
+  %53 = load ptr, ptr %32, align 8, !tbaa !182
   %54 = tail call i32 @sqlite3_value_bytes(ptr noundef %53) #17
   %55 = sext i32 %54 to i64
   %56 = and i64 %55, -8
@@ -8533,7 +8533,7 @@ zend_call_known_fcc.exit:                         ; preds = %78, %70, %._crit_ed
     i8 1, label %98
     i8 5, label %99
     i8 6, label %.thread
-  ], !prof !185
+  ], !prof !184
 
 96:                                               ; preds = %93
   %97 = load i64, ptr %6, align 8, !tbaa !8
@@ -8679,7 +8679,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_sqlite3_stream_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !186
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !123
   %8 = and i32 %7, 1
@@ -8739,7 +8739,7 @@ define internal noundef i64 @php_sqlite3_stream_write(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_sqlite3_stream_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !186
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !124
   %8 = add i64 %7, %2
@@ -8784,7 +8784,7 @@ define internal i64 @php_sqlite3_stream_read(ptr noundef captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_sqlite3_stream_close(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !186
+  %4 = load ptr, ptr %3, align 8, !tbaa !185
   %5 = load ptr, ptr %4, align 8, !tbaa !121
   %6 = tail call i32 @sqlite3_blob_close(ptr noundef %5) #17
   tail call void @_efree(ptr noundef nonnull %4) #17
@@ -8799,7 +8799,7 @@ define internal noundef i32 @php_sqlite3_stream_flush(ptr readnone captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !186
+  %6 = load ptr, ptr %5, align 8, !tbaa !185
   switch i32 %2, label %57 [
     i32 1, label %7
     i32 0, label %30
@@ -8927,11 +8927,11 @@ define internal noundef i32 @php_sqlite3_stream_cast(ptr readnone captures(none)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @php_sqlite3_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((48, 56)) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !186
+  %4 = load ptr, ptr %3, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !125
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %6, ptr %7, align 8, !tbaa !187
+  store i64 %6, ptr %7, align 8, !tbaa !186
   ret i32 0
 }
 
@@ -9055,7 +9055,7 @@ declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sqlite3_free_list_dtor(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !150
+  %2 = load ptr, ptr %0, align 8, !tbaa !149
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
 
@@ -9263,45 +9263,44 @@ attributes #20 = { nounwind allocsize(0,1) }
 !146 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !147 = !{!143, !39, i64 8}
 !148 = !{!95, !18, i64 16}
-!149 = !{!"branch_weights", !"expected", i32 2147483647, i32 1}
-!150 = !{!13, !13, i64 0}
-!151 = !{!152, !39, i64 8}
-!152 = !{!"_zend_class_entry", !6, i64 0, !39, i64 8, !6, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !14, i64 64, !14, i64 120, !14, i64 176, !153, i64 232, !154, i64 240, !155, i64 248, !50, i64 256, !50, i64 264, !50, i64 272, !50, i64 280, !50, i64 288, !50, i64 296, !50, i64 304, !50, i64 312, !50, i64 320, !50, i64 328, !50, i64 336, !50, i64 344, !50, i64 352, !54, i64 360, !156, i64 368, !157, i64 376, !6, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !16, i64 424, !16, i64 428, !16, i64 432, !16, i64 436, !6, i64 440, !158, i64 448, !159, i64 456, !160, i64 464, !19, i64 472, !16, i64 480, !19, i64 488, !39, i64 496, !6, i64 504}
-!153 = !{!"p1 _ZTS24_zend_class_mutable_data", !13, i64 0}
-!154 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !13, i64 0}
-!155 = !{!"p2 _ZTS19_zend_property_info", !13, i64 0}
-!156 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !13, i64 0}
-!157 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !13, i64 0}
-!158 = !{!"p1 _ZTS16_zend_class_name", !13, i64 0}
-!159 = !{!"p2 _ZTS17_zend_trait_alias", !13, i64 0}
-!160 = !{!"p2 _ZTS22_zend_trait_precedence", !13, i64 0}
-!161 = !{!152, !54, i64 360}
-!162 = !{!163, !16, i64 0}
-!163 = !{!"_zend_object_handlers", !16, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192}
-!164 = !{!163, !13, i64 24}
-!165 = !{!163, !13, i64 8}
-!166 = !{!163, !13, i64 168}
-!167 = !{!168, !13, i64 0}
-!168 = !{!"", !13, i64 0, !16, i64 8}
-!169 = !{!168, !16, i64 8}
-!170 = !{!107, !50, i64 24}
-!171 = !{!107, !50, i64 64}
-!172 = !{!107, !50, i64 104}
-!173 = !{!116, !50, i64 16}
-!174 = !{!47, !47, i64 0}
-!175 = !{!35, !20, i64 0}
-!176 = !{!35, !20, i64 8}
-!177 = !{!48, !48, i64 0}
-!178 = !{!35, !20, i64 16}
-!179 = !{!53, !19, i64 32}
-!180 = !{!53, !23, i64 16}
-!181 = !{!152, !16, i64 32}
-!182 = !{!152, !16, i64 28}
-!183 = !{!184, !184, i64 0}
-!184 = !{!"p1 _ZTS13sqlite3_value", !13, i64 0}
-!185 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
-!186 = !{!127, !13, i64 8}
-!187 = !{!188, !5, i64 48}
-!188 = !{!"_php_stream_statbuf", !189, i64 0}
-!189 = !{!"stat", !5, i64 0, !5, i64 8, !5, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !190, i64 72, !190, i64 88, !190, i64 104, !6, i64 120}
-!190 = !{!"timespec", !5, i64 0, !5, i64 8}
+!149 = !{!13, !13, i64 0}
+!150 = !{!151, !39, i64 8}
+!151 = !{!"_zend_class_entry", !6, i64 0, !39, i64 8, !6, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !14, i64 64, !14, i64 120, !14, i64 176, !152, i64 232, !153, i64 240, !154, i64 248, !50, i64 256, !50, i64 264, !50, i64 272, !50, i64 280, !50, i64 288, !50, i64 296, !50, i64 304, !50, i64 312, !50, i64 320, !50, i64 328, !50, i64 336, !50, i64 344, !50, i64 352, !54, i64 360, !155, i64 368, !156, i64 376, !6, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !16, i64 424, !16, i64 428, !16, i64 432, !16, i64 436, !6, i64 440, !157, i64 448, !158, i64 456, !159, i64 464, !19, i64 472, !16, i64 480, !19, i64 488, !39, i64 496, !6, i64 504}
+!152 = !{!"p1 _ZTS24_zend_class_mutable_data", !13, i64 0}
+!153 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !13, i64 0}
+!154 = !{!"p2 _ZTS19_zend_property_info", !13, i64 0}
+!155 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !13, i64 0}
+!156 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !13, i64 0}
+!157 = !{!"p1 _ZTS16_zend_class_name", !13, i64 0}
+!158 = !{!"p2 _ZTS17_zend_trait_alias", !13, i64 0}
+!159 = !{!"p2 _ZTS22_zend_trait_precedence", !13, i64 0}
+!160 = !{!151, !54, i64 360}
+!161 = !{!162, !16, i64 0}
+!162 = !{!"_zend_object_handlers", !16, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192}
+!163 = !{!162, !13, i64 24}
+!164 = !{!162, !13, i64 8}
+!165 = !{!162, !13, i64 168}
+!166 = !{!167, !13, i64 0}
+!167 = !{!"", !13, i64 0, !16, i64 8}
+!168 = !{!167, !16, i64 8}
+!169 = !{!107, !50, i64 24}
+!170 = !{!107, !50, i64 64}
+!171 = !{!107, !50, i64 104}
+!172 = !{!116, !50, i64 16}
+!173 = !{!47, !47, i64 0}
+!174 = !{!35, !20, i64 0}
+!175 = !{!35, !20, i64 8}
+!176 = !{!48, !48, i64 0}
+!177 = !{!35, !20, i64 16}
+!178 = !{!53, !19, i64 32}
+!179 = !{!53, !23, i64 16}
+!180 = !{!151, !16, i64 32}
+!181 = !{!151, !16, i64 28}
+!182 = !{!183, !183, i64 0}
+!183 = !{!"p1 _ZTS13sqlite3_value", !13, i64 0}
+!184 = !{!"branch_weights", i32 1, i32 2001, i32 2001, i32 2001, i32 2001, i32 2000}
+!185 = !{!127, !13, i64 8}
+!186 = !{!187, !5, i64 48}
+!187 = !{!"_php_stream_statbuf", !188, i64 0}
+!188 = !{!"stat", !5, i64 0, !5, i64 8, !5, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !189, i64 72, !189, i64 88, !189, i64 104, !6, i64 120}
+!189 = !{!"timespec", !5, i64 0, !5, i64 8}

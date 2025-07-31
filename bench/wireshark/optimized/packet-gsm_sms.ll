@@ -3071,93 +3071,93 @@ define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 n
   %19 = load i32, ptr @hf_gsm_sms_gsm_7_bit_default_alphabet, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   store i32 1, ptr %4, align 4
-  br label %58
+  br label %56
 
 21:                                               ; preds = %.thread, %14
   %22 = lshr i32 %11, 6
-  switch i32 %22, label %default.unreachable80 [
-    i32 0, label %27
-    i32 1, label %27
-    i32 2, label %58
+  switch i32 %22, label %default.unreachable72 [
+    i32 0, label %.critedge
+    i32 1, label %.critedge
+    i32 2, label %56
     i32 3, label %23
   ]
 
 23:                                               ; preds = %21
   %24 = lshr i32 %11, 4
   %25 = and i32 %24, 3
-  switch i32 %25, label %default.unreachable80 [
-    i32 0, label %42
-    i32 1, label %42
+  switch i32 %25, label %default.unreachable72 [
+    i32 0, label %.critedge71
+    i32 1, label %.critedge71
     i32 2, label %26
-    i32 3, label %49
+    i32 3, label %47
   ]
 
 26:                                               ; preds = %23
-  br label %42
+  br label %.critedge71
 
-default.unreachable80:                            ; preds = %27, %23, %21
+default.unreachable72:                            ; preds = %.critedge, %23, %21
   unreachable
 
-27:                                               ; preds = %21, %21
-  %28 = lshr i8 %3, 5
-  %.lobit69 = and i8 %28, 1
+.critedge:                                        ; preds = %21, %21
+  %27 = lshr i8 %3, 5
+  %.lobit69 = and i8 %27, 1
   store i8 %.lobit69, ptr %5, align 1
-  %29 = load i32, ptr @hf_gsm_sms_dcs_text_compressed, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %31 = load i32, ptr @hf_gsm_sms_dcs_message_class_defined, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %33 = lshr i32 %11, 2
-  %34 = and i32 %33, 3
-  switch i32 %34, label %default.unreachable80 [
+  %28 = load i32, ptr @hf_gsm_sms_dcs_text_compressed, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  %30 = load i32, ptr @hf_gsm_sms_dcs_message_class_defined, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  %32 = lshr i32 %11, 2
+  %33 = and i32 %32, 3
+  switch i32 %33, label %default.unreachable72 [
     i32 0, label %.sink.split
-    i32 1, label %35
-    i32 2, label %36
-    i32 3, label %37
+    i32 1, label %34
+    i32 2, label %35
+    i32 3, label %36
   ]
 
-35:                                               ; preds = %27
+34:                                               ; preds = %.critedge
   br label %.sink.split
 
-36:                                               ; preds = %27
+35:                                               ; preds = %.critedge
   br label %.sink.split
 
-.sink.split:                                      ; preds = %27, %35, %36
-  %.sink = phi i32 [ 4, %36 ], [ 0, %35 ], [ 1, %27 ]
+.sink.split:                                      ; preds = %.critedge, %34, %35
+  %.sink = phi i32 [ 4, %35 ], [ 0, %34 ], [ 1, %.critedge ]
   store i32 %.sink, ptr %4, align 4
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.sink.split, %27
-  %38 = load i32, ptr @hf_gsm_sms_dcs_character_set, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %38, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %40 = load i32, ptr @hf_gsm_sms_dcs_message_class, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %40, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  br label %58
+36:                                               ; preds = %.sink.split, %.critedge
+  %37 = load i32, ptr @hf_gsm_sms_dcs_character_set, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %37, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  %39 = load i32, ptr @hf_gsm_sms_dcs_message_class, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %39, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  br label %56
 
-42:                                               ; preds = %23, %23, %26
-  %.sink81 = phi i32 [ 4, %26 ], [ 1, %23 ], [ 1, %23 ]
-  store i32 %.sink81, ptr %4, align 4
-  %43 = load i32, ptr @hf_gsm_sms_dcs_indication_sense, align 4
+.critedge71:                                      ; preds = %23, %23, %26
+  %.sink73 = phi i32 [ 4, %26 ], [ 1, %23 ], [ 1, %23 ]
+  store i32 %.sink73, ptr %4, align 4
+  %41 = load i32, ptr @hf_gsm_sms_dcs_indication_sense, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %41, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  %43 = load i32, ptr @hf_gsm_sms_dcs_reserved04, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %43, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %45 = load i32, ptr @hf_gsm_sms_dcs_reserved04, align 4
+  %45 = load i32, ptr @hf_gsm_sms_dcs_message_waiting, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %45, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %47 = load i32, ptr @hf_gsm_sms_dcs_message_waiting, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  br label %58
+  br label %56
 
-49:                                               ; preds = %23
-  %50 = lshr i32 %11, 2
-  %.lobit = and i32 %50, 1
-  %51 = xor i32 %.lobit, 1
-  store i32 %51, ptr %4, align 4
-  %52 = load i32, ptr @hf_gsm_sms_dcs_reserved08, align 4
+47:                                               ; preds = %23
+  %48 = lshr i32 %11, 2
+  %.lobit = and i32 %48, 1
+  %49 = xor i32 %.lobit, 1
+  store i32 %49, ptr %4, align 4
+  %50 = load i32, ptr @hf_gsm_sms_dcs_reserved08, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %50, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
+  %52 = load i32, ptr @hf_gsm_sms_dcs_message_coding, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %52, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %54 = load i32, ptr @hf_gsm_sms_dcs_message_coding, align 4
+  %54 = load i32, ptr @hf_gsm_sms_dcs_message_class, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %54, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %56 = load i32, ptr @hf_gsm_sms_dcs_message_class, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  br label %58
+  br label %56
 
-58:                                               ; preds = %37, %49, %42, %21, %18
+56:                                               ; preds = %36, %47, %.critedge71, %21, %18
   ret void
 }
 

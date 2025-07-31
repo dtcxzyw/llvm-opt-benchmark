@@ -2146,9 +2146,9 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
 33:                                               ; preds = %31, %21
   %.091.i = phi i8 [ 0, %31 ], [ 1, %21 ]
   %34 = icmp samesign ult i32 %17, 2
-  br i1 %34, label %.thread117.i, label %36
+  br i1 %34, label %.thread112.i, label %36
 
-.thread117.i:                                     ; preds = %33
+.thread112.i:                                     ; preds = %33
   %35 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.330)
   br label %64
 
@@ -2182,46 +2182,46 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
 49:                                               ; preds = %48, %47
   %switch.tableidx = add nsw i8 %40, -1
   %50 = icmp ult i8 %switch.tableidx, 3
-  br i1 %50, label %switch.lookup, label %.thread112.i
+  br i1 %50, label %switch.lookup, label %.critedge.i
 
 switch.lookup:                                    ; preds = %49
   %51 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_srps, i64 0, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not107.i = icmp eq i32 %switch.load, %15
-  br i1 %.not107.i, label %.thread112.i, label %52
+  br i1 %.not107.i, label %.critedge.i, label %52
 
 52:                                               ; preds = %switch.lookup
   %53 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.333, i32 noundef %switch.load)
-  br label %.thread112.i
+  br label %.critedge.i
 
-.thread112.i:                                     ; preds = %49, %52, %switch.lookup
+.critedge.i:                                      ; preds = %49, %52, %switch.lookup
   %.2.i = phi i8 [ 0, %52 ], [ %.091.i, %switch.lookup ], [ %.091.i, %49 ]
   %54 = add i32 %13, 2
   %55 = icmp slt i32 %54, %18
   br i1 %55, label %56, label %.loopexit.i
 
-56:                                               ; preds = %.thread112.i
+56:                                               ; preds = %.critedge.i
   %57 = add nsw i32 %17, -2
   %58 = tail call fastcc ptr @knxip_tree_add_data(ptr noundef %26, ptr noundef %0, i32 noundef %54, i32 noundef %57, ptr noundef %22, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.336)
   br label %59
 
 59:                                               ; preds = %59, %56
-  %.0125.i = phi i32 [ %54, %56 ], [ %62, %59 ]
-  %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0125.i)
+  %.0120.i = phi i32 [ %54, %56 ], [ %62, %59 ]
+  %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0120.i)
   %61 = zext i8 %60 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.337, i32 noundef %61)
-  %62 = add i32 %.0125.i, 1
+  %62 = add i32 %.0120.i, 1
   %exitcond.not.i = icmp eq i32 %62, %18
   br i1 %exitcond.not.i, label %.loopexit.i, label %59, !llvm.loop !15
 
-.loopexit.i:                                      ; preds = %59, %.thread112.i
+.loopexit.i:                                      ; preds = %59, %.critedge.i
   %63 = icmp eq i8 %.2.i, 0
   br i1 %63, label %64, label %dissect_srp.exit
 
-64:                                               ; preds = %.loopexit.i, %.thread117.i
-  %.194121.i = phi i1 [ %30, %.thread117.i ], [ true, %.loopexit.i ]
+64:                                               ; preds = %.loopexit.i, %.thread112.i
+  %.194116.i = phi i1 [ %30, %.thread112.i ], [ true, %.loopexit.i ]
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %24, ptr noundef nonnull @.str.231)
   br i1 %.not109.i, label %66, label %65
 
@@ -2230,7 +2230,7 @@ switch.lookup:                                    ; preds = %49
   br label %66
 
 66:                                               ; preds = %65, %64
-  br i1 %.194121.i, label %67, label %dissect_srp.exit
+  br i1 %.194116.i, label %67, label %dissect_srp.exit
 
 67:                                               ; preds = %66
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %28, ptr noundef nonnull @.str.231)

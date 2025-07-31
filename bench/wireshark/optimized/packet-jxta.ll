@@ -2360,8 +2360,8 @@ define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr noundef rea
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, %35
-  %.not153166 = phi i1 [ true, %35 ], [ false, %41 ], [ false, %45 ], [ false, %48 ], [ true, %26 ]
-  %.0140165 = phi ptr [ null, %35 ], [ %40, %41 ], [ %40, %45 ], [ %40, %48 ], [ null, %26 ]
+  %.not153167 = phi i1 [ true, %35 ], [ false, %41 ], [ false, %45 ], [ false, %48 ], [ true, %26 ]
+  %.0140166 = phi ptr [ null, %35 ], [ %40, %41 ], [ %40, %45 ], [ %40, %48 ], [ null, %26 ]
   %52 = load ptr, ptr %34, align 8
   %.not154 = icmp eq ptr %52, null
   br i1 %.not154, label %64, label %53
@@ -2370,7 +2370,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %54 = load i32, ptr @hf_jxta_welcome_sig, align 4
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #19
   %56 = trunc i64 %55 to i32
-  %57 = call ptr @proto_tree_add_item(ptr noundef %.0140165, i32 noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef %56, i32 noundef 0)
+  %57 = call ptr @proto_tree_add_item(ptr noundef %.0140166, i32 noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef %56, i32 noundef 0)
   %58 = load ptr, ptr %34, align 8
   %59 = call i64 @strlen(ptr noundef %58) #19
   %60 = trunc i64 %59 to i32
@@ -2385,13 +2385,13 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 65:                                               ; preds = %53
-  br i1 %.not153166, label %71, label %66
+  br i1 %.not153167, label %71, label %66
 
 66:                                               ; preds = %65
   %67 = load i32, ptr @hf_jxta_welcome_destAddr, align 4
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #19
   %69 = trunc i64 %68 to i32
-  %70 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %67, ptr noundef %0, i32 noundef %61, i32 noundef %69, i32 noundef 0)
+  %70 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %67, ptr noundef %0, i32 noundef %61, i32 noundef %69, i32 noundef 0)
   %.pre = load ptr, ptr %62, align 8
   br label %71
 
@@ -2411,13 +2411,13 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 80:                                               ; preds = %71
-  br i1 %.not153166, label %86, label %81
+  br i1 %.not153167, label %86, label %81
 
 81:                                               ; preds = %80
   %82 = load i32, ptr @hf_jxta_welcome_pubAddr, align 4
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #19
   %84 = trunc i64 %83 to i32
-  %85 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %82, ptr noundef %0, i32 noundef %76, i32 noundef %84, i32 noundef 0)
+  %85 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %82, ptr noundef %0, i32 noundef %76, i32 noundef %84, i32 noundef 0)
   %.pre174 = load ptr, ptr %77, align 8
   br label %86
 
@@ -2437,13 +2437,13 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 95:                                               ; preds = %86
-  br i1 %.not153166, label %101, label %96
+  br i1 %.not153167, label %101, label %96
 
 96:                                               ; preds = %95
   %97 = load i32, ptr @hf_jxta_welcome_peerid, align 4
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #19
   %99 = trunc i64 %98 to i32
-  %100 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef %99, i32 noundef 0)
+  %100 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef %99, i32 noundef 0)
   br label %101
 
 101:                                              ; preds = %96, %95
@@ -2522,13 +2522,13 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br i1 %137, label %138, label %.lr.ph
 
 138:                                              ; preds = %133
-  br i1 %.not153166, label %.critedge, label %139
+  br i1 %.not153167, label %.critedge, label %139
 
 139:                                              ; preds = %138
   %140 = load i32, ptr @hf_jxta_welcome_noProp, align 4
   %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #19
   %142 = trunc i64 %141 to i32
-  %143 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %140, ptr noundef %0, i32 noundef %123, i32 noundef %142, i32 noundef 0)
+  %143 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %140, ptr noundef %0, i32 noundef %123, i32 noundef %142, i32 noundef 0)
   %144 = load ptr, ptr %124, align 8
   %145 = call i64 @strlen(ptr noundef %144) #19
   %146 = trunc i64 %145 to i32
@@ -2538,7 +2538,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %150 = load ptr, ptr %134, align 8
   %151 = call i64 @strlen(ptr noundef %150) #19
   %152 = trunc i64 %151 to i32
-  %153 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef %152, i32 noundef 0)
+  %153 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef %152, i32 noundef 0)
   br label %.critedge
 
 154:                                              ; preds = %132
@@ -2549,38 +2549,38 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br i1 %158, label %159, label %.lr.ph
 
 159:                                              ; preds = %154
-  br i1 %.not153166, label %.critedge, label %160
+  br i1 %.not153167, label %.critedge, label %160
 
 160:                                              ; preds = %159
   %161 = load i32, ptr @hf_jxta_welcome_noProp, align 4
   %162 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #19
   %163 = trunc i64 %162 to i32
-  %164 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %161, ptr noundef %0, i32 noundef %123, i32 noundef %163, i32 noundef 0)
-  %165 = getelementptr i8, ptr %34, i64 40
-  %166 = load ptr, ptr %124, align 8
-  %167 = call i64 @strlen(ptr noundef %166) #19
-  %168 = trunc i64 %167 to i32
-  %169 = add i32 %123, 1
-  %170 = add i32 %169, %168
+  %164 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %161, ptr noundef %0, i32 noundef %123, i32 noundef %163, i32 noundef 0)
+  %165 = load ptr, ptr %124, align 8
+  %166 = call i64 @strlen(ptr noundef %165) #19
+  %167 = trunc i64 %166 to i32
+  %168 = add i32 %123, 1
+  %169 = add i32 %168, %167
+  %170 = getelementptr i8, ptr %34, i64 40
   %171 = load i32, ptr @hf_jxta_welcome_msgVers, align 4
-  %172 = load ptr, ptr %165, align 8
+  %172 = load ptr, ptr %170, align 8
   %173 = call i64 @strlen(ptr noundef %172) #19
   %174 = trunc i64 %173 to i32
-  %175 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef %174, i32 noundef 0)
-  %176 = load ptr, ptr %165, align 8
+  %175 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %171, ptr noundef %0, i32 noundef %169, i32 noundef %174, i32 noundef 0)
+  %176 = load ptr, ptr %170, align 8
   %177 = call i64 @strlen(ptr noundef %176) #19
   %178 = trunc i64 %177 to i32
-  %179 = add i32 %170, 1
+  %179 = add i32 %169, 1
   %180 = add i32 %179, %178
   %181 = load i32, ptr @hf_jxta_welcome_version, align 4
   %182 = load ptr, ptr %155, align 8
   %183 = call i64 @strlen(ptr noundef %182) #19
   %184 = trunc i64 %183 to i32
-  %185 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %181, ptr noundef %0, i32 noundef %180, i32 noundef %184, i32 noundef 0)
+  %185 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %181, ptr noundef %0, i32 noundef %180, i32 noundef %184, i32 noundef 0)
   br label %.critedge
 
 .lr.ph:                                           ; preds = %154, %132, %133
-  br i1 %.not153166, label %.critedge, label %.lr.ph.split.preheader
+  br i1 %.not153167, label %.critedge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %smax = call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1)
@@ -2597,7 +2597,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %190 = load ptr, ptr %.0142170, align 8
   %191 = call i64 @strlen(ptr noundef %190) #19
   %192 = trunc i64 %191 to i32
-  %193 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140165, i32 noundef %189, ptr noundef %0, i32 noundef %.0141171, i32 noundef %192, i32 noundef 0)
+  %193 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0140166, i32 noundef %189, ptr noundef %0, i32 noundef %.0141171, i32 noundef %192, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.181)
   %194 = load ptr, ptr %.0142170, align 8
   %195 = call i64 @strlen(ptr noundef %194) #19

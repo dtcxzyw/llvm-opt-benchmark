@@ -231,7 +231,7 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   %7 = shl i64 %1, 2
   %8 = mul i64 %3, 3
   %9 = icmp ugt i64 %7, %8
-  br i1 %9, label %131, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %3
@@ -245,38 +245,38 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.198116 = phi ptr [ %39, %.lr.ph ], [ %2, %.preheader ]
-  %.1104115 = phi ptr [ %40, %.lr.ph ], [ %0, %.preheader ]
-  %.0.copyload.i.i = load i32, ptr %.1104115, align 1
+  %.198112 = phi ptr [ %39, %.lr.ph ], [ %2, %.preheader ]
+  %.1104111 = phi ptr [ %40, %.lr.ph ], [ %0, %.preheader ]
+  %.0.copyload.i.i = load i32, ptr %.1104111, align 1
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
   %17 = lshr i32 %16, 8
   %18 = lshr i32 %16, 26
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !14
-  store i8 %21, ptr %.198116, align 1, !tbaa !14
+  store i8 %21, ptr %.198112, align 1, !tbaa !14
   %22 = lshr i32 %16, 20
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !14
-  %27 = getelementptr inbounds nuw i8, ptr %.198116, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.198112, i64 1
   store i8 %26, ptr %27, align 1, !tbaa !14
   %28 = lshr i32 %16, 14
   %29 = and i32 %28, 63
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !14
-  %33 = getelementptr inbounds nuw i8, ptr %.198116, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.198112, i64 2
   store i8 %32, ptr %33, align 1, !tbaa !14
   %34 = and i32 %17, 63
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !14
-  %38 = getelementptr inbounds nuw i8, ptr %.198116, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %.198112, i64 3
   store i8 %37, ptr %38, align 1, !tbaa !14
-  %39 = getelementptr inbounds nuw i8, ptr %.198116, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %.1104115, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %.198112, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.1104111, i64 3
   %41 = icmp ult ptr %40, %14
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
@@ -290,7 +290,7 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   %46 = ptrtoint ptr %.0103 to i64
   %47 = sub i64 %45, %46
   switch i64 %47, label %127 [
-    i64 0, label %.thread
+    i64 0, label %128
     i64 1, label %48
     i64 2, label %70
     i64 3, label %96
@@ -298,7 +298,7 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
 
 48:                                               ; preds = %.loopexit
   %49 = icmp ult i64 %44, 2
-  br i1 %49, label %131, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %48
   %51 = load i8, ptr %.0103, align 1, !tbaa !14
@@ -316,27 +316,27 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   %62 = getelementptr inbounds nuw i8, ptr %.097, i64 1
   store i8 %61, ptr %62, align 1, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %.097, i64 2
-  br i1 %5, label %64, label %.thread
+  br i1 %5, label %64, label %128
 
 64:                                               ; preds = %50
   %65 = and i64 %44, -2
   %66 = icmp eq i64 %65, 2
-  br i1 %66, label %131, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %64
   store i8 61, ptr %63, align 1, !tbaa !14
   %68 = getelementptr inbounds nuw i8, ptr %.097, i64 3
   store i8 61, ptr %68, align 1, !tbaa !14
   %69 = getelementptr inbounds nuw i8, ptr %.097, i64 4
-  br label %.thread
+  br label %128
 
 70:                                               ; preds = %.loopexit
   %71 = icmp ult i64 %44, 3
-  br i1 %71, label %131, label %72
+  br i1 %71, label %.critedge, label %72
 
 72:                                               ; preds = %70
-  %.0.copyload.i.i107 = load i16, ptr %.0103, align 1
-  %73 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i107)
+  %.0.copyload.i.i109 = load i16, ptr %.0103, align 1
+  %73 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i109)
   %74 = zext i16 %73 to i32
   %75 = lshr i32 %74, 10
   %76 = zext nneg i32 %75 to i64
@@ -358,28 +358,28 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   %90 = getelementptr inbounds nuw i8, ptr %.097, i64 2
   store i8 %89, ptr %90, align 1, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %.097, i64 3
-  br i1 %5, label %92, label %.thread
+  br i1 %5, label %92, label %128
 
 92:                                               ; preds = %72
   %93 = icmp eq i64 %44, 3
-  br i1 %93, label %131, label %94
+  br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %92
   store i8 61, ptr %91, align 1, !tbaa !14
   %95 = getelementptr inbounds nuw i8, ptr %.097, i64 4
-  br label %.thread
+  br label %128
 
 96:                                               ; preds = %.loopexit
   %97 = icmp ult i64 %44, 4
-  br i1 %97, label %131, label %98
+  br i1 %97, label %.critedge, label %98
 
 98:                                               ; preds = %96
   %99 = load i8, ptr %.0103, align 1, !tbaa !14
   %100 = zext i8 %99 to i32
   %101 = shl nuw nsw i32 %100, 16
   %102 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
-  %.0.copyload.i.i108 = load i16, ptr %102, align 1
-  %103 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i108)
+  %.0.copyload.i.i110 = load i16, ptr %102, align 1
+  %103 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i110)
   %104 = zext i16 %103 to i32
   %105 = lshr i32 %100, 2
   %106 = zext nneg i32 %105 to i64
@@ -408,21 +408,21 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
   %125 = getelementptr inbounds nuw i8, ptr %.097, i64 3
   store i8 %124, ptr %125, align 1, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %.097, i64 4
-  br label %.thread
+  br label %128
 
 127:                                              ; preds = %.loopexit
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 121), i32 noundef 201, ptr noundef nonnull @.str.3, i64 noundef %47)
   unreachable
 
-.thread:                                          ; preds = %72, %94, %50, %67, %98, %.loopexit
-  %.299 = phi ptr [ %.097, %.loopexit ], [ %126, %98 ], [ %63, %50 ], [ %69, %67 ], [ %91, %72 ], [ %95, %94 ]
-  %128 = ptrtoint ptr %.299 to i64
-  %129 = ptrtoint ptr %2 to i64
-  %130 = sub i64 %128, %129
-  br label %131
+128:                                              ; preds = %94, %72, %67, %50, %98, %.loopexit
+  %.299 = phi ptr [ %.097, %.loopexit ], [ %126, %98 ], [ %69, %67 ], [ %63, %50 ], [ %95, %94 ], [ %91, %72 ]
+  %129 = ptrtoint ptr %.299 to i64
+  %130 = ptrtoint ptr %2 to i64
+  %131 = sub i64 %129, %130
+  br label %.critedge
 
-131:                                              ; preds = %92, %64, %.thread, %48, %70, %96, %6
-  %.0 = phi i64 [ 0, %6 ], [ %130, %.thread ], [ 0, %48 ], [ 0, %70 ], [ 0, %96 ], [ 0, %64 ], [ 0, %92 ]
+.critedge:                                        ; preds = %128, %48, %70, %96, %64, %92, %6
+  %.0 = phi i64 [ 0, %6 ], [ %131, %128 ], [ 0, %48 ], [ 0, %70 ], [ 0, %96 ], [ 0, %64 ], [ 0, %92 ]
   ret i64 %.0
 }
 

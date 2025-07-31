@@ -8655,7 +8655,7 @@ JsValueToJsObject.exit:                           ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %103 = load i8, ptr %102, align 4, !range !4, !noundef !5
   %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %117, label %.thread
+  br i1 %104, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %99, %JsValueToJsObject.exit
   %105 = load ptr, ptr %10, align 8
@@ -8668,28 +8668,23 @@ JsValueToJsObject.exit:                           ; preds = %99
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %111 = load i8, ptr %110, align 4, !range !4, !noundef !5
   %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %117, label %113
+  br i1 %112, label %.critedge, label %113
 
 113:                                              ; preds = %.thread1, %109, %.thread
   %114 = phi ptr [ %106, %109 ], [ %106, %.thread ], [ %98, %.thread1 ]
   %115 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %114) #15
-  br i1 %40, label %116, label %.thread2
+  br i1 %40, label %116, label %117
 
 116:                                              ; preds = %113
   call void @hash_destroy(ptr noundef %96) #15
-  br label %.thread2
+  br label %117
 
-.thread2:                                         ; preds = %116, %113
+117:                                              ; preds = %113, %116
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
   br label %118
 
-117:                                              ; preds = %109, %JsValueToJsObject.exit
-  store i8 1, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  br label %129
-
-118:                                              ; preds = %.thread2, %update_cached_tupdesc.exit
-  %.030 = phi i64 [ 0, %update_cached_tupdesc.exit ], [ %115, %.thread2 ]
+118:                                              ; preds = %117, %update_cached_tupdesc.exit
+  %.030 = phi i64 [ %115, %117 ], [ 0, %update_cached_tupdesc.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = icmp ne i32 %1, %120
@@ -8708,8 +8703,13 @@ JsValueToJsObject.exit:                           ; preds = %99
   store i8 1, ptr %5, align 1
   br label %129
 
-129:                                              ; preds = %117, %118, %123, %128
-  %.1 = phi i64 [ 0, %128 ], [ 0, %117 ], [ %.030, %123 ], [ %.030, %118 ]
+.critedge:                                        ; preds = %109, %JsValueToJsObject.exit
+  store i8 1, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  br label %129
+
+129:                                              ; preds = %118, %123, %.critedge, %128
+  %.1 = phi i64 [ 0, %128 ], [ 0, %.critedge ], [ %.030, %123 ], [ %.030, %118 ]
   ret i64 %.1
 }
 

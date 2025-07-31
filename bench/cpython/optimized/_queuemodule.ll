@@ -752,7 +752,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %11 = call i32 @_PyTime_FromSecondsObject(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1) #7
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %5, align 8, !tbaa !44
@@ -762,11 +762,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 16:                                               ; preds = %13
   %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !17
   call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.21) #7
-  br label %.thread
-
-.thread:                                          ; preds = %16, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %99
+  br label %.critedge
 
 18:                                               ; preds = %13
   %19 = call i64 @_PyDeadline_Init(i64 noundef %14) #7
@@ -776,8 +772,8 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 20:                                               ; preds = %18, %4
   %.024 = phi i64 [ 0, %4 ], [ %19, %18 ]
   %21 = getelementptr i8, ptr %0, i64 56
-  %.val58 = load i64, ptr %21, align 8, !tbaa !23
-  %22 = icmp eq i64 %.val58, 0
+  %.val54 = load i64, ptr %21, align 8, !tbaa !23
+  %22 = icmp eq i64 %.val54, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
@@ -796,8 +792,8 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   store ptr null, ptr %7, align 8, !tbaa !17
   %24 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef -1, ptr noundef nonnull %7, i32 noundef 1) #7
   switch i32 %24, label %.split.us [
-    i32 0, label %.split60.us
-    i32 -2, label %.split62.us
+    i32 0, label %.split56.us
+    i32 -2, label %.split58.us
     i32 -3, label %25
     i32 -1, label %28
   ]
@@ -805,7 +801,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 25:                                               ; preds = %.lr.ph.split.split.us
   %26 = call i32 @Py_MakePendingCalls() #7
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread37, label %28
+  br i1 %27, label %.thread33, label %28
 
 28:                                               ; preds = %25, %.lr.ph.split.split.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
@@ -815,7 +811,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %29, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %97, %28, %20
-  %.val.lcssa = phi i64 [ %.val58, %20 ], [ %.val.us, %28 ], [ %.val, %97 ]
+  %.val.lcssa = phi i64 [ %.val54, %20 ], [ %.val.us, %28 ], [ %.val, %97 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !24
@@ -898,7 +894,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %97
   %76 = call i64 @_PyDeadline_Get(i64 noundef %.024) #7
   %77 = icmp slt i64 %76, 0
-  br i1 %77, label %.thread33, label %87
+  br i1 %77, label %.thread, label %87
 
 78:                                               ; preds = %.lr.ph
   %79 = call ptr @PyType_GetModule(ptr noundef %1) #7
@@ -909,7 +905,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   call void @PyErr_SetNone(ptr noundef %82) #7
   br label %99
 
-.thread33:                                        ; preds = %.lr.ph.split.split
+.thread:                                          ; preds = %.lr.ph.split.split
   %83 = call ptr @PyType_GetModule(ptr noundef %1) #7
   %84 = getelementptr i8, ptr %83, i64 32
   %.val.i29 = load ptr, ptr %84, align 8, !tbaa !3
@@ -926,35 +922,35 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   store ptr null, ptr %7, align 8, !tbaa !17
   %88 = call i32 @_PyParkingLot_Park(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef 1, i64 noundef %76, ptr noundef nonnull %7, i32 noundef 1) #7
   switch i32 %88, label %.split.us [
-    i32 0, label %.split60.us
-    i32 -2, label %.split62.us
+    i32 0, label %.split56.us
+    i32 -2, label %.split58.us
     i32 -3, label %94
     i32 -1, label %97
   ]
 
-.split60.us:                                      ; preds = %87, %.lr.ph.split.split.us
+.split56.us:                                      ; preds = %87, %.lr.ph.split.split.us
   %89 = load ptr, ptr %7, align 8, !tbaa !17
-  br label %.thread37
+  br label %.thread33
 
-.split62.us:                                      ; preds = %87, %.lr.ph.split.split.us
+.split58.us:                                      ; preds = %87, %.lr.ph.split.split.us
   %90 = call ptr @PyType_GetModule(ptr noundef %1) #7
   %91 = getelementptr i8, ptr %90, i64 32
   %.val.i30 = load ptr, ptr %91, align 8, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !14
   call void @PyErr_SetNone(ptr noundef %93) #7
-  br label %.thread37
+  br label %.thread33
 
 94:                                               ; preds = %87
   %95 = call i32 @Py_MakePendingCalls() #7
   %96 = icmp slt i32 %95, 0
-  br i1 %96, label %.thread37, label %97
+  br i1 %96, label %.thread33, label %97
 
 .split.us:                                        ; preds = %87, %.lr.ph.split.split.us
   unreachable
 
-.thread37:                                        ; preds = %94, %25, %.split60.us, %.split62.us
-  %.5.ph = phi ptr [ null, %.split62.us ], [ %89, %.split60.us ], [ null, %25 ], [ null, %94 ]
+.thread33:                                        ; preds = %94, %25, %.split56.us, %.split58.us
+  %.5.ph = phi ptr [ null, %.split58.us ], [ %89, %.split56.us ], [ null, %25 ], [ null, %94 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
   br label %99
@@ -966,8 +962,12 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   %98 = icmp eq i64 %.val, 0
   br i1 %98, label %.lr.ph.split.split, label %._crit_edge
 
-99:                                               ; preds = %.thread37, %.thread33, %.thread, %78, %RingBuf_Get.exit
-  %.2 = phi ptr [ null, %78 ], [ %72, %RingBuf_Get.exit ], [ null, %.thread ], [ null, %.thread33 ], [ %.5.ph, %.thread37 ]
+.critedge:                                        ; preds = %10, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  br label %99
+
+99:                                               ; preds = %.thread33, %.thread, %.critedge, %78, %RingBuf_Get.exit
+  %.2 = phi ptr [ null, %78 ], [ %72, %RingBuf_Get.exit ], [ null, %.critedge ], [ null, %.thread ], [ %.5.ph, %.thread33 ]
   ret ptr %.2
 }
 

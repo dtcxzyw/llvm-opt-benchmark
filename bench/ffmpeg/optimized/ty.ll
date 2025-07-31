@@ -655,7 +655,7 @@ find_es_header.exit.i:                            ; preds = %117
   %141 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   store i64 %140, ptr %141, align 8, !tbaa !35
   %.not74.i = icmp eq i8 %107, 6
-  br i1 %.not74.i, label %.thread4.i, label %142
+  br i1 %.not74.i, label %.thread.i, label %142
 
 142:                                              ; preds = %find_es_header.exit.i
   %143 = add nsw i32 %120, 16
@@ -678,15 +678,15 @@ find_es_header.exit.i:                            ; preds = %117
 
 find_es_header.exit.thread.i:                     ; preds = %119, %105
   %152 = icmp eq i8 %107, 6
-  br i1 %152, label %find_es_header.exit.thread..thread4_crit_edge.i, label %164
+  br i1 %152, label %find_es_header.exit.thread..thread_crit_edge.i, label %164
 
-find_es_header.exit.thread..thread4_crit_edge.i:  ; preds = %find_es_header.exit.thread.i
+find_es_header.exit.thread..thread_crit_edge.i:   ; preds = %find_es_header.exit.thread.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !79
-  br label %.thread4.i
+  br label %.thread.i
 
-.thread4.i:                                       ; preds = %find_es_header.exit.thread..thread4_crit_edge.i, %find_es_header.exit.i
-  %153 = phi i32 [ %.pre.i, %find_es_header.exit.thread..thread4_crit_edge.i ], [ %114, %find_es_header.exit.i ]
+.thread.i:                                        ; preds = %find_es_header.exit.thread..thread_crit_edge.i, %find_es_header.exit.i
+  %153 = phi i32 [ %.pre.i, %find_es_header.exit.thread..thread_crit_edge.i ], [ %114, %find_es_header.exit.i ]
   %154 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %155 = add i32 %153, %.fr.i
   store i32 %155, ptr %154, align 4, !tbaa !79
@@ -1274,8 +1274,8 @@ check_sync_pes.exit165.i:                         ; preds = %467, %432
   store i32 %496, ptr %12, align 4, !tbaa !79
   br label %demux_video.exit
 
-demux_video.exit:                                 ; preds = %489, %486, %483, %check_sync_pes.exit165.i, %475, %409, %398, %395, %394, %384, %353, %340, %295, %294, %292, %281, %269, %264, %209, %196, %193, %176, %164, %.thread4.i, %150, %144, %493
-  %.1 = phi i32 [ %.0.ph103, %493 ], [ 0, %.thread4.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
+demux_video.exit:                                 ; preds = %489, %486, %483, %check_sync_pes.exit165.i, %475, %409, %398, %395, %394, %384, %353, %340, %295, %294, %292, %281, %269, %264, %209, %196, %193, %176, %164, %.thread.i, %150, %144, %493
+  %.1 = phi i32 [ %.0.ph103, %493 ], [ 0, %.thread.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
   %497 = icmp slt i32 %.1, 1
   br i1 %497, label %.outer.split.preheader, label %get_chunk.exit.thread, !llvm.loop !80
 

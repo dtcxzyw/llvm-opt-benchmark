@@ -7237,7 +7237,7 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
 .lr.ph.preheader:                                 ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %._crit_edge, label %.lr.ph80
+  br i1 %4, label %._crit_edge.thread, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %5 = phi ptr [ %72, %.lr.ph ], [ %3, %.lr.ph.preheader ]
@@ -7371,78 +7371,71 @@ define internal fastcc void @blk_mq_plug_issue_direct(ptr noundef captures(addre
 
 .lr.ph.._crit_edge_crit_edge:                     ; preds = %.lr.ph
   %74 = icmp eq i8 %56, 0
-  br label %._crit_edge
+  br i1 %74, label %._crit_edge.thread, label %75
 
-._crit_edge:                                      ; preds = %.lr.ph.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.lcssa71 = phi ptr [ %55, %.lr.ph.._crit_edge_crit_edge ], [ null, %.lr.ph.preheader ]
-  %.lcssa68 = phi i1 [ %74, %.lr.ph.._crit_edge_crit_edge ], [ true, %.lr.ph.preheader ]
-  %.lcssa65 = phi i32 [ %71, %.lr.ph.._crit_edge_crit_edge ], [ 0, %.lr.ph.preheader ]
-  br i1 %.lcssa68, label %._crit_edge.thread, label %75
+75:                                               ; preds = %.thread9, %.lr.ph.._crit_edge_crit_edge
+  %76 = phi i32 [ %54, %.thread9 ], [ %71, %.lr.ph.._crit_edge_crit_edge ]
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 184
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp ne ptr %82, null
+  %84 = icmp ne i32 %76, 0
+  %85 = and i1 %84, %83
+  br i1 %85, label %86, label %._crit_edge.thread
 
-75:                                               ; preds = %.thread9, %._crit_edge
-  %76 = phi ptr [ %55, %.thread9 ], [ %.lcssa71, %._crit_edge ]
-  %77 = phi i32 [ %54, %.thread9 ], [ %.lcssa65, %._crit_edge ]
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 184
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp ne ptr %83, null
-  %85 = icmp ne i32 %77, 0
-  %86 = and i1 %85, %84
-  br i1 %86, label %87, label %._crit_edge.thread
-
-87:                                               ; preds = %75
+86:                                               ; preds = %75
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_block_unplug, i64 8), i32 2) #22
-          to label %108 [label %88], !srcloc !46
+          to label %107 [label %87], !srcloc !46
 
-88:                                               ; preds = %87
-  %89 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !145
-  %90 = zext i32 %89 to i64
-  %91 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %90) #22, !srcloc !48
-  %92 = icmp ult i8 %91, 2
-  tail call void @llvm.assume(i1 %92)
-  %93 = icmp eq i8 %91, 0
-  br i1 %93, label %108, label %94
+87:                                               ; preds = %86
+  %88 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !145
+  %89 = zext i32 %88 to i64
+  %90 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %89) #22, !srcloc !48
+  %91 = icmp ult i8 %90, 2
+  tail call void @llvm.assume(i1 %91)
+  %92 = icmp eq i8 %90, 0
+  br i1 %92, label %107, label %93
 
-94:                                               ; preds = %88
+93:                                               ; preds = %87
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !146
-  %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_block_unplug, i64 72), align 8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %101, label %97
+  %94 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_block_unplug, i64 72), align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %100, label %96
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = tail call i32 @__SCT__tp_func_block_unplug(ptr noundef %99, ptr noundef %79, i32 noundef %77, i1 noundef zeroext true) #22
-  br label %101
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call i32 @__SCT__tp_func_block_unplug(ptr noundef %98, ptr noundef %78, i32 noundef %76, i1 noundef zeroext true) #22
+  br label %100
 
-101:                                              ; preds = %97, %94
+100:                                              ; preds = %96, %93
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !147
-  %102 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !52
-  %103 = icmp ult i8 %102, 2
-  tail call void @llvm.assume(i1 %103)
-  %104 = icmp eq i8 %102, 0
-  br i1 %104, label %108, label %105, !prof !25
+  %101 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !52
+  %102 = icmp ult i8 %101, 2
+  tail call void @llvm.assume(i1 %102)
+  %103 = icmp eq i8 %101, 0
+  br i1 %103, label %107, label %104, !prof !25
 
-105:                                              ; preds = %101
-  %106 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %107 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %106) #22, !srcloc !148
-  tail call void @llvm.write_register.i64(metadata !0, i64 %107)
-  br label %108
+104:                                              ; preds = %100
+  %105 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %106 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %105) #22, !srcloc !148
+  tail call void @llvm.write_register.i64(metadata !0, i64 %106)
+  br label %107
 
-108:                                              ; preds = %105, %101, %88, %87
-  %109 = load ptr, ptr %78, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  tail call void %113(ptr noundef %76) #22
+107:                                              ; preds = %104, %100, %87, %86
+  %108 = load ptr, ptr %77, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  tail call void %112(ptr noundef %55) #22
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %108, %75, %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph.preheader, %1, %107, %75, %.lr.ph.._crit_edge_crit_edge
   ret void
 }
 
@@ -12824,7 +12817,7 @@ declare dso_local i32 @__SCT__tp_func_block_rq_insert(ptr noundef, ptr noundef) 
 define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load volatile ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
-  br i1 %4, label %.thread4, label %.outer
+  br i1 %4, label %.critedge, label %.outer
 
 5:                                                ; preds = %31
   tail call void @__blk_mq_end_request(ptr noundef %13, i8 noundef zeroext %20)
@@ -12832,15 +12825,15 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %36, label %11
 
-.thread7:                                         ; preds = %11
-  %8 = add i32 %.ph10, 1
+.thread6:                                         ; preds = %11
+  %8 = add i32 %.ph9, 1
   %9 = load volatile ptr, ptr %1, align 8
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.thread4, label %.outer
+  br i1 %10, label %.critedge, label %.outer
 
-.outer:                                           ; preds = %2, %.thread7
-  %.ph = phi ptr [ %9, %.thread7 ], [ %3, %2 ]
-  %.ph10 = phi i32 [ %8, %.thread7 ], [ 0, %2 ]
+.outer:                                           ; preds = %2, %.thread6
+  %.ph = phi ptr [ %9, %.thread6 ], [ %3, %2 ]
+  %.ph9 = phi i32 [ %8, %.thread6 ], [ 0, %2 ]
   br label %11
 
 11:                                               ; preds = %.outer, %5
@@ -12858,7 +12851,7 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
   %19 = icmp eq ptr %18, %1
   %20 = tail call fastcc zeroext i8 @blk_mq_request_issue_directly(ptr noundef %13, i1 noundef zeroext %19)
   switch i8 %20, label %31 [
-    i8 0, label %.thread7
+    i8 0, label %.thread6
     i8 9, label %21
     i8 13, label %21
   ]
@@ -12878,11 +12871,11 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
   tail call void @_raw_spin_unlock(ptr noundef %24) #22
   %28 = load volatile ptr, ptr %1, align 8
   %29 = icmp eq ptr %28, %1
-  br i1 %29, label %30, label %.thread6
+  br i1 %29, label %30, label %.thread5
 
 30:                                               ; preds = %21
   tail call void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext false)
-  br label %.thread6
+  br label %.thread5
 
 31:                                               ; preds = %11
   %32 = getelementptr i8, ptr %12, i64 -28
@@ -12897,9 +12890,9 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
 
 36:                                               ; preds = %5
   %37 = icmp eq i8 %20, 0
-  br i1 %37, label %.thread4, label %.thread6
+  br i1 %37, label %.critedge, label %.thread5
 
-.thread6:                                         ; preds = %21, %30, %36
+.thread5:                                         ; preds = %30, %21, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -12907,11 +12900,11 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp ne ptr %43, null
-  %45 = icmp ne i32 %.ph10, 0
+  %45 = icmp ne i32 %.ph9, 0
   %46 = and i1 %45, %44
-  br i1 %46, label %47, label %.thread4
+  br i1 %46, label %47, label %.critedge
 
-47:                                               ; preds = %.thread6
+47:                                               ; preds = %.thread5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_block_unplug, i64 8), i32 2) #22
           to label %68 [label %48], !srcloc !46
 
@@ -12934,7 +12927,7 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @__SCT__tp_func_block_unplug(ptr noundef %59, ptr noundef %39, i32 noundef %.ph10, i1 noundef zeroext true) #22
+  %60 = tail call i32 @__SCT__tp_func_block_unplug(ptr noundef %59, ptr noundef %39, i32 noundef %.ph9, i1 noundef zeroext true) #22
   br label %61
 
 61:                                               ; preds = %57, %54
@@ -12958,9 +12951,9 @@ define internal fastcc void @blk_mq_try_issue_list_directly(ptr noundef %0, ptr 
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef %0) #22
-  br label %.thread4
+  br label %.critedge
 
-.thread4:                                         ; preds = %.thread7, %2, %68, %.thread6, %36
+.critedge:                                        ; preds = %.thread6, %2, %68, %.thread5, %36
   ret void
 }
 

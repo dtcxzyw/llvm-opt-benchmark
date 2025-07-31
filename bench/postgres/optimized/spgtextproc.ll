@@ -288,9 +288,9 @@ formTextDatum.exit124:                            ; preds = %131, %127
   br i1 %148, label %.lr.ph.i125, label %.loopexit
 
 .lr.ph.i125:                                      ; preds = %.thread138, %160
-  %.01931.i = phi i32 [ %.221.i, %160 ], [ 0, %.thread138 ]
-  %.02230.i = phi i32 [ %.224.i, %160 ], [ %147, %.thread138 ]
-  %149 = add i32 %.02230.i, %.01931.i
+  %.01928.i = phi i32 [ %.221.i, %160 ], [ 0, %.thread138 ]
+  %.02227.i = phi i32 [ %.224.i, %160 ], [ %147, %.thread138 ]
+  %149 = add i32 %.02227.i, %.01928.i
   %150 = ashr i32 %149, 1
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds i64, ptr %145, i64 %151
@@ -308,8 +308,8 @@ formTextDatum.exit124:                            ; preds = %131, %127
   br label %160
 
 160:                                              ; preds = %158, %.lr.ph.i125
-  %.224.i = phi i32 [ %.02230.i, %158 ], [ %150, %.lr.ph.i125 ]
-  %.221.i = phi i32 [ %159, %158 ], [ %.01931.i, %.lr.ph.i125 ]
+  %.224.i = phi i32 [ %.02227.i, %158 ], [ %150, %.lr.ph.i125 ]
+  %.221.i = phi i32 [ %159, %158 ], [ %.01928.i, %.lr.ph.i125 ]
   %161 = icmp slt i32 %.221.i, %.224.i
   br i1 %161, label %.lr.ph.i125, label %.loopexit, !llvm.loop !8
 

@@ -1556,24 +1556,24 @@ _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3ge
   %28 = trunc i128 %.sroa.0.0.copyload39 to i8
   %extract.t = trunc i128 %.sroa.0.0.copyload39 to i64
   %extract = lshr i128 %.sroa.0.0.copyload39, 64
-  %extract.t92 = trunc nuw i128 %extract to i64
+  %extract.t90 = trunc nuw i128 %extract to i64
   br label %35
 
 _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit: ; preds = %18
   %.sroa.0.0.copyload = load i128, ptr %4, align 16, !tbaa !35
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.21.0.copyload = load i32, ptr %.sroa.21.0..sroa_idx, align 16, !tbaa !78
-  %.not63 = icmp eq i32 %.sroa.21.0.copyload, 0
+  %.not61 = icmp eq i32 %.sroa.21.0.copyload, 0
   %29 = trunc i128 %.sroa.0.0.copyload to i64
   %30 = lshr i128 %.sroa.0.0.copyload, 64
   %31 = trunc nuw i128 %30 to i64
   %32 = trunc i128 %.sroa.0.0.copyload to i80
   %33 = trunc i128 %.sroa.0.0.copyload to i32
   %34 = trunc i128 %.sroa.0.0.copyload to i8
-  %extract.t91 = trunc i128 %.sroa.0.0.copyload to i64
-  %extract93 = lshr i128 %.sroa.0.0.copyload, 64
-  %extract.t94 = trunc nuw i128 %extract93 to i64
-  br i1 %.not63, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread, label %35
+  %extract.t89 = trunc i128 %.sroa.0.0.copyload to i64
+  %extract91 = lshr i128 %.sroa.0.0.copyload, 64
+  %extract.t92 = trunc nuw i128 %extract91 to i64
+  br i1 %.not61, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread, label %35
 
 _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread: ; preds = %18, %20, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
   tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.3) #34
@@ -1582,8 +1582,8 @@ _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3ge
 35:                                               ; preds = %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
   %.sroa.0.0..sroa.0.0..sroa.0.0.36 = phi i32 [ %27, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %33, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
   %.sroa.0.0..sroa.0.0..sroa.0.0.33 = phi i64 [ %23, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %29, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
-  %.sroa.0.0..sroa.0.0..sroa.0.0.26.off0 = phi i64 [ %extract.t, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %extract.t91, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
-  %.sroa.0.0..sroa.0.0..sroa.0.0.26.off64 = phi i64 [ %extract.t92, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %extract.t94, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
+  %.sroa.0.0..sroa.0.0..sroa.0.0.26.off0 = phi i64 [ %extract.t, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %extract.t89, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
+  %.sroa.0.0..sroa.0.0..sroa.0.0.26.off64 = phi i64 [ %extract.t90, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %extract.t92, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
   %.sroa.0.0..sroa.0.0..sroa.0.0.38 = phi i8 [ %28, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %34, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
   %.sroa.0.0..sroa.0.0..sroa.0.0.27.in = phi i80 [ %26, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %32, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
   %.sroa.0.8..sroa.0.8..sroa.0.8. = phi i64 [ %25, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit.thread58 ], [ %31, %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit ]
@@ -1741,31 +1741,31 @@ _ZN3fmt3v1016visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_
   br i1 %90, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %84
-  %.not49.i68 = icmp samesign eq i64 %2, 0
-  br i1 %.not49.i68, label %._crit_edge, label %.lr.ph71
+  %.not49.i66 = icmp samesign eq i64 %2, 0
+  br i1 %.not49.i66, label %._crit_edge, label %.lr.ph69
 
-.lr.ph71:                                         ; preds = %.preheader, %112
-  %.040.i70 = phi ptr [ %.1.i, %112 ], [ %1, %.preheader ]
-  %.041.i69 = phi ptr [ %.142.i, %112 ], [ %1, %.preheader ]
-  %91 = getelementptr inbounds nuw i8, ptr %.041.i69, i64 1
-  %92 = load i8, ptr %.041.i69, align 1, !tbaa !35
+.lr.ph69:                                         ; preds = %.preheader, %112
+  %.040.i68 = phi ptr [ %.1.i, %112 ], [ %1, %.preheader ]
+  %.041.i67 = phi ptr [ %.142.i, %112 ], [ %1, %.preheader ]
+  %91 = getelementptr inbounds nuw i8, ptr %.041.i67, i64 1
+  %92 = load i8, ptr %.041.i67, align 1, !tbaa !35
   switch i8 %92, label %112 [
     i8 123, label %93
     i8 125, label %100
   ]
 
-93:                                               ; preds = %.lr.ph71
-  %94 = ptrtoint ptr %.041.i69 to i64
-  %95 = ptrtoint ptr %.040.i70 to i64
+93:                                               ; preds = %.lr.ph69
+  %94 = ptrtoint ptr %.041.i67 to i64
+  %95 = ptrtoint ptr %.040.i68 to i64
   %96 = sub i64 %94, %95
   %.sroa.0.0.copyload.i.i23 = load ptr, ptr %86, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.040.i70, i64 %96
-  %98 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.040.i70, ptr noundef %97, ptr %.sroa.0.0.copyload.i.i23)
+  %97 = getelementptr inbounds nuw i8, ptr %.040.i68, i64 %96
+  %98 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.040.i68, ptr noundef %97, ptr %.sroa.0.0.copyload.i.i23)
   store ptr %98, ptr %86, align 8
-  %99 = call noundef ptr @_ZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.041.i69, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  %99 = call noundef ptr @_ZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.041.i67, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(56) %11)
   br label %112
 
-100:                                              ; preds = %.lr.ph71
+100:                                              ; preds = %.lr.ph69
   %101 = icmp eq ptr %91, %89
   br i1 %101, label %104, label %102
 
@@ -1780,20 +1780,20 @@ _ZN3fmt3v1016visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_
 
 105:                                              ; preds = %102
   %106 = ptrtoint ptr %91 to i64
-  %107 = ptrtoint ptr %.040.i70 to i64
+  %107 = ptrtoint ptr %.040.i68 to i64
   %108 = sub i64 %106, %107
   %.sroa.0.0.copyload.i.i24 = load ptr, ptr %86, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.040.i70, i64 %108
-  %110 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.040.i70, ptr noundef %109, ptr %.sroa.0.0.copyload.i.i24)
+  %109 = getelementptr inbounds nuw i8, ptr %.040.i68, i64 %108
+  %110 = call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.040.i68, ptr noundef %109, ptr %.sroa.0.0.copyload.i.i24)
   store ptr %110, ptr %86, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.041.i69, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.041.i67, i64 2
   br label %112
 
-112:                                              ; preds = %105, %93, %.lr.ph71
-  %.142.i = phi ptr [ %99, %93 ], [ %111, %105 ], [ %91, %.lr.ph71 ]
-  %.1.i = phi ptr [ %99, %93 ], [ %111, %105 ], [ %.040.i70, %.lr.ph71 ]
+112:                                              ; preds = %105, %93, %.lr.ph69
+  %.142.i = phi ptr [ %99, %93 ], [ %111, %105 ], [ %91, %.lr.ph69 ]
+  %.1.i = phi ptr [ %99, %93 ], [ %111, %105 ], [ %.040.i68, %.lr.ph69 ]
   %.not49.i = icmp eq ptr %.142.i, %89
-  br i1 %.not49.i, label %._crit_edge.loopexit, label %.lr.ph71
+  br i1 %.not49.i, label %._crit_edge.loopexit, label %.lr.ph69
 
 ._crit_edge.loopexit:                             ; preds = %112
   %.sroa.0.0.copyload.i.i25.pre = load ptr, ptr %86, align 8
@@ -1816,31 +1816,31 @@ _ZN3fmt3v1016visit_format_argINS0_6detail21default_arg_formatterIcEENS0_20basic_
   br label %119
 
 119:                                              ; preds = %.lr.ph, %126
-  %.2.i67 = phi ptr [ %1, %.lr.ph ], [ %127, %126 ]
-  %120 = load i8, ptr %.2.i67, align 1, !tbaa !35
+  %.2.i65 = phi ptr [ %1, %.lr.ph ], [ %127, %126 ]
+  %120 = load i8, ptr %.2.i65, align 1, !tbaa !35
   %.not48.i = icmp eq i8 %120, 123
   br i1 %.not48.i, label %126, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %.2.i67, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.2.i65, i64 1
   %123 = ptrtoint ptr %122 to i64
   %124 = sub i64 %118, %123
   %125 = call noundef ptr @memchr(ptr noundef nonnull %122, i32 noundef 123, i64 noundef %124) #36
   %.not = icmp eq ptr %125, null
-  br i1 %.not, label %.thread, label %126
+  br i1 %.not, label %.critedge.i, label %126
 
-.thread:                                          ; preds = %121
-  call void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.2.i67, ptr noundef nonnull %89)
+.critedge.i:                                      ; preds = %121
+  call void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.2.i65, ptr noundef nonnull %89)
   br label %.loopexit
 
-126:                                              ; preds = %119, %121
-  %.0 = phi ptr [ %.2.i67, %119 ], [ %125, %121 ]
-  call void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.2.i67, ptr noundef nonnull %.0)
+126:                                              ; preds = %121, %119
+  %.0 = phi ptr [ %.2.i65, %119 ], [ %125, %121 ]
+  call void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_EN6writerclEPKcSL_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %.2.i65, ptr noundef nonnull %.0)
   %127 = call noundef ptr @_ZN3fmt3v106detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEPKS5_SH_SH_OT0_(ptr noundef nonnull %.0, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %.not.i = icmp eq ptr %127, %89
   br i1 %.not.i, label %.loopexit, label %119, !llvm.loop !88
 
-.loopexit:                                        ; preds = %126, %.thread
+.loopexit:                                        ; preds = %126, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   br label %_ZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS5_EENS1_12vformat_argsIS5_E4typeENS1_10locale_refEE14format_handlerEEvNS8_IT0_EEOT1_.exit
 
@@ -44571,16 +44571,16 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, %23
-  %or.cond.i.not47 = select i1 %30, i1 true, i1 %33
+  %or.cond.i.not46 = select i1 %30, i1 true, i1 %33
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, %26
-  %or.cond7.i.not = select i1 %or.cond.i.not47, i1 true, i1 %36
+  %or.cond7.i.not = select i1 %or.cond.i.not46, i1 true, i1 %36
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 0
   %40 = select i1 %or.cond7.i.not, i1 true, i1 %39
-  br i1 %40, label %41, label %81
+  br i1 %40, label %41, label %80
 
 41:                                               ; preds = %9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -44629,14 +44629,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %62 = urem i64 %49, %61
   %63 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %43, i64 noundef %62)
   %.not21.i.i = icmp eq ptr %63, null
-  br i1 %.not21.i.i, label %.thread, label %.lr.ph.i.i
+  br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
   %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %63, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !888
   %66 = icmp ugt i64 %65, %59
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %.lr.ph.i.i
   %68 = icmp eq i64 %65, %59
@@ -44672,65 +44672,65 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %.backedge.i.i, !llvm.loop !909
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %71
-  br i1 %76, label %78, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+  br i1 %76, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %67
   %77 = load atomic i64, ptr %.022.i.i acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %77 to ptr
   %.not.i.i = icmp eq i64 %77, 0
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !910
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !910
 
-78:                                               ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %80 = load i32, ptr %79, align 4, !tbaa !911
+_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %79 = load i32, ptr %78, align 4, !tbaa !911
   store i32 %20, ptr %8, align 4, !tbaa !906
   store i32 %23, ptr %31, align 4, !tbaa !914
   store i32 %26, ptr %34, align 4, !tbaa !915
-  store i32 %80, ptr %37, align 4, !tbaa !916
+  store i32 %79, ptr %37, align 4, !tbaa !916
   %.pre = load ptr, ptr %0, align 8, !tbaa !918
-  %.pre52 = load float, ptr %.pre, align 4, !tbaa !653
-  br label %81
+  %.pre51 = load float, ptr %.pre, align 4, !tbaa !653
+  br label %80
 
-81:                                               ; preds = %78, %9
-  %82 = phi float [ %.pre52, %78 ], [ %17, %9 ]
-  %.037 = phi i32 [ %80, %78 ], [ %38, %9 ]
-  %83 = sitofp i32 %20 to float
-  %84 = fneg float %83
-  %85 = tail call float @llvm.fmuladd.f32(float %84, float %82, float %13)
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !921
-  %88 = load float, ptr %87, align 4, !tbaa !653
-  %89 = fdiv float %85, %88
-  %90 = fptosi float %89 to i32
-  %91 = sitofp i32 %23 to float
-  %92 = fneg float %91
-  %93 = tail call float @llvm.fmuladd.f32(float %92, float %82, float %14)
-  %94 = fdiv float %93, %88
-  %95 = fptosi float %94 to i32
-  %96 = sitofp i32 %26 to float
-  %97 = fneg float %96
-  %98 = tail call float @llvm.fmuladd.f32(float %97, float %82, float %15)
-  %99 = fdiv float %98, %88
-  %100 = fptosi float %99 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !922
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = mul nsw i32 %103, %.037
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !923
-  %107 = load i32, ptr %106, align 4, !tbaa !19
-  %108 = mul nsw i32 %107, %100
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !924
-  %111 = load i32, ptr %110, align 4, !tbaa !19
-  %112 = mul nsw i32 %111, %95
-  %113 = add i32 %104, %90
-  %114 = add i32 %113, %108
-  %115 = add i32 %114, %112
-  br label %.thread
+80:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %9
+  %81 = phi float [ %.pre51, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %17, %9 ]
+  %.037 = phi i32 [ %79, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %38, %9 ]
+  %82 = sitofp i32 %20 to float
+  %83 = fneg float %82
+  %84 = tail call float @llvm.fmuladd.f32(float %83, float %81, float %13)
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !921
+  %87 = load float, ptr %86, align 4, !tbaa !653
+  %88 = fdiv float %84, %87
+  %89 = fptosi float %88 to i32
+  %90 = sitofp i32 %23 to float
+  %91 = fneg float %90
+  %92 = tail call float @llvm.fmuladd.f32(float %91, float %81, float %14)
+  %93 = fdiv float %92, %87
+  %94 = fptosi float %93 to i32
+  %95 = sitofp i32 %26 to float
+  %96 = fneg float %95
+  %97 = tail call float @llvm.fmuladd.f32(float %96, float %81, float %15)
+  %98 = fdiv float %97, %87
+  %99 = fptosi float %98 to i32
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !922
+  %102 = load i32, ptr %101, align 4, !tbaa !19
+  %103 = mul nsw i32 %102, %.037
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %105 = load ptr, ptr %104, align 8, !tbaa !923
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = mul nsw i32 %106, %99
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %109 = load ptr, ptr %108, align 8, !tbaa !924
+  %110 = load i32, ptr %109, align 4, !tbaa !19
+  %111 = mul nsw i32 %110, %94
+  %112 = add i32 %103, %89
+  %113 = add i32 %112, %107
+  %114 = add i32 %113, %111
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %81
-  %.1 = phi i32 [ %115, %81 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ -1, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %80
+  %.1 = phi i32 [ %114, %80 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #25
   ret i32 %.1
 }
@@ -44778,7 +44778,7 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %39 = add i32 %38, %4
   %40 = add i32 %39, %33
   %41 = add i32 %40, %37
-  br label %114
+  br label %113
 
 42:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #25
@@ -44795,16 +44795,16 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp ne i32 %44, %51
-  %or.cond.i.not50 = select i1 %49, i1 true, i1 %52
+  %or.cond.i.not49 = select i1 %49, i1 true, i1 %52
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = icmp ne i32 %45, %54
-  %or.cond7.i.not = select i1 %or.cond.i.not50, i1 true, i1 %55
+  %or.cond7.i.not = select i1 %or.cond.i.not49, i1 true, i1 %55
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, 0
   %59 = select i1 %or.cond7.i.not, i1 true, i1 %58
-  br i1 %59, label %60, label %100
+  br i1 %59, label %60, label %99
 
 60:                                               ; preds = %42
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -44853,14 +44853,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %81 = urem i64 %68, %80
   %82 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %62, i64 noundef %81)
   %.not21.i.i = icmp eq ptr %82, null
-  br i1 %.not21.i.i, label %.thread, label %.lr.ph.i.i
+  br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
   %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %82, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !888
   %85 = icmp ugt i64 %84, %78
-  br i1 %85, label %.thread, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %.lr.ph.i.i
   %87 = icmp eq i64 %84, %78
@@ -44896,49 +44896,49 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %.backedge.i.i, !llvm.loop !909
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %90
-  br i1 %95, label %97, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+  br i1 %95, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %86
   %96 = load atomic i64, ptr %.022.i.i acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %96 to ptr
   %.not.i.i = icmp eq i64 %96, 0
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !910
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !910
 
-97:                                               ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %99 = load i32, ptr %98, align 4, !tbaa !911
+_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %98 = load i32, ptr %97, align 4, !tbaa !911
   store i32 %43, ptr %8, align 4, !tbaa !906
   store i32 %44, ptr %50, align 4, !tbaa !914
   store i32 %45, ptr %53, align 4, !tbaa !915
-  store i32 %99, ptr %56, align 4, !tbaa !916
+  store i32 %98, ptr %56, align 4, !tbaa !916
   %.pre = load ptr, ptr %0, align 8, !tbaa !925
-  %.pre55 = load i32, ptr %.pre, align 4, !tbaa !19
-  br label %100
+  %.pre54 = load i32, ptr %.pre, align 4, !tbaa !19
+  br label %99
 
-100:                                              ; preds = %97, %42
-  %101 = phi i32 [ %.pre55, %97 ], [ %14, %42 ]
-  %.0 = phi i32 [ %99, %97 ], [ %57, %42 ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !927
-  %104 = load i32, ptr %103, align 4, !tbaa !19
-  %105 = mul nsw i32 %104, %.0
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !928
-  %108 = load i32, ptr %107, align 4, !tbaa !19
-  %109 = mul nsw i32 %108, %20
-  %110 = mul nsw i32 %101, %18
-  %111 = add i32 %105, %16
+99:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %42
+  %100 = phi i32 [ %.pre54, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %42 ]
+  %.0 = phi i32 [ %98, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %57, %42 ]
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !927
+  %103 = load i32, ptr %102, align 4, !tbaa !19
+  %104 = mul nsw i32 %103, %.0
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !928
+  %107 = load i32, ptr %106, align 4, !tbaa !19
+  %108 = mul nsw i32 %107, %20
+  %109 = mul nsw i32 %100, %18
+  %110 = add i32 %104, %16
+  %111 = add i32 %110, %108
   %112 = add i32 %111, %109
-  %113 = add i32 %112, %110
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %100
-  %.2 = phi i32 [ %113, %100 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ -1, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %99
+  %.2 = phi i32 [ %112, %99 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #25
-  br label %114
+  br label %113
 
-114:                                              ; preds = %.thread, %29
-  %.036 = phi i32 [ %41, %29 ], [ %.2, %.thread ]
+113:                                              ; preds = %.critedge, %29
+  %.036 = phi i32 [ %41, %29 ], [ %.2, %.critedge ]
   ret i32 %.036
 }
 
@@ -48853,16 +48853,16 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, %23
-  %or.cond.i.not47 = select i1 %30, i1 true, i1 %33
+  %or.cond.i.not46 = select i1 %30, i1 true, i1 %33
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, %26
-  %or.cond7.i.not = select i1 %or.cond.i.not47, i1 true, i1 %36
+  %or.cond7.i.not = select i1 %or.cond.i.not46, i1 true, i1 %36
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 0
   %40 = select i1 %or.cond7.i.not, i1 true, i1 %39
-  br i1 %40, label %41, label %81
+  br i1 %40, label %41, label %80
 
 41:                                               ; preds = %9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -48911,14 +48911,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %62 = urem i64 %49, %61
   %63 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %43, i64 noundef %62)
   %.not21.i.i = icmp eq ptr %63, null
-  br i1 %.not21.i.i, label %.thread, label %.lr.ph.i.i
+  br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
   %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %63, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !888
   %66 = icmp ugt i64 %65, %59
-  br i1 %66, label %.thread, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %.lr.ph.i.i
   %68 = icmp eq i64 %65, %59
@@ -48954,65 +48954,65 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %.backedge.i.i, !llvm.loop !909
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %71
-  br i1 %76, label %78, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+  br i1 %76, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %67
   %77 = load atomic i64, ptr %.022.i.i acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %77 to ptr
   %.not.i.i = icmp eq i64 %77, 0
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !910
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !910
 
-78:                                               ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %80 = load i32, ptr %79, align 4, !tbaa !911
+_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %79 = load i32, ptr %78, align 4, !tbaa !911
   store i32 %20, ptr %8, align 4, !tbaa !906
   store i32 %23, ptr %31, align 4, !tbaa !914
   store i32 %26, ptr %34, align 4, !tbaa !915
-  store i32 %80, ptr %37, align 4, !tbaa !916
+  store i32 %79, ptr %37, align 4, !tbaa !916
   %.pre = load ptr, ptr %0, align 8, !tbaa !958
-  %.pre52 = load float, ptr %.pre, align 4, !tbaa !653
-  br label %81
+  %.pre51 = load float, ptr %.pre, align 4, !tbaa !653
+  br label %80
 
-81:                                               ; preds = %78, %9
-  %82 = phi float [ %.pre52, %78 ], [ %17, %9 ]
-  %.037 = phi i32 [ %80, %78 ], [ %38, %9 ]
-  %83 = sitofp i32 %20 to float
-  %84 = fneg float %83
-  %85 = tail call float @llvm.fmuladd.f32(float %84, float %82, float %13)
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !961
-  %88 = load float, ptr %87, align 4, !tbaa !653
-  %89 = fdiv float %85, %88
-  %90 = fptosi float %89 to i32
-  %91 = sitofp i32 %23 to float
-  %92 = fneg float %91
-  %93 = tail call float @llvm.fmuladd.f32(float %92, float %82, float %14)
-  %94 = fdiv float %93, %88
-  %95 = fptosi float %94 to i32
-  %96 = sitofp i32 %26 to float
-  %97 = fneg float %96
-  %98 = tail call float @llvm.fmuladd.f32(float %97, float %82, float %15)
-  %99 = fdiv float %98, %88
-  %100 = fptosi float %99 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %102 = load ptr, ptr %101, align 8, !tbaa !962
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = mul nsw i32 %103, %.037
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !963
-  %107 = load i32, ptr %106, align 4, !tbaa !19
-  %108 = mul nsw i32 %107, %100
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !964
-  %111 = load i32, ptr %110, align 4, !tbaa !19
-  %112 = mul nsw i32 %111, %95
-  %113 = add i32 %104, %90
-  %114 = add i32 %113, %108
-  %115 = add i32 %114, %112
-  br label %.thread
+80:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %9
+  %81 = phi float [ %.pre51, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %17, %9 ]
+  %.037 = phi i32 [ %79, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %38, %9 ]
+  %82 = sitofp i32 %20 to float
+  %83 = fneg float %82
+  %84 = tail call float @llvm.fmuladd.f32(float %83, float %81, float %13)
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !961
+  %87 = load float, ptr %86, align 4, !tbaa !653
+  %88 = fdiv float %84, %87
+  %89 = fptosi float %88 to i32
+  %90 = sitofp i32 %23 to float
+  %91 = fneg float %90
+  %92 = tail call float @llvm.fmuladd.f32(float %91, float %81, float %14)
+  %93 = fdiv float %92, %87
+  %94 = fptosi float %93 to i32
+  %95 = sitofp i32 %26 to float
+  %96 = fneg float %95
+  %97 = tail call float @llvm.fmuladd.f32(float %96, float %81, float %15)
+  %98 = fdiv float %97, %87
+  %99 = fptosi float %98 to i32
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !962
+  %102 = load i32, ptr %101, align 4, !tbaa !19
+  %103 = mul nsw i32 %102, %.037
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %105 = load ptr, ptr %104, align 8, !tbaa !963
+  %106 = load i32, ptr %105, align 4, !tbaa !19
+  %107 = mul nsw i32 %106, %99
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %109 = load ptr, ptr %108, align 8, !tbaa !964
+  %110 = load i32, ptr %109, align 4, !tbaa !19
+  %111 = mul nsw i32 %110, %94
+  %112 = add i32 %103, %89
+  %113 = add i32 %112, %107
+  %114 = add i32 %113, %111
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %81
-  %.1 = phi i32 [ %115, %81 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ -1, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %80
+  %.1 = phi i32 [ %114, %80 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #25
   ret i32 %.1
 }
@@ -49060,7 +49060,7 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %39 = add i32 %38, %4
   %40 = add i32 %39, %33
   %41 = add i32 %40, %37
-  br label %114
+  br label %113
 
 42:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #25
@@ -49077,16 +49077,16 @@ define linkonce_odr hidden noundef i32 @_ZZZN6open3d1t8geometry6kernel10voxel_gr
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp ne i32 %44, %51
-  %or.cond.i.not50 = select i1 %49, i1 true, i1 %52
+  %or.cond.i.not49 = select i1 %49, i1 true, i1 %52
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = icmp ne i32 %45, %54
-  %or.cond7.i.not = select i1 %or.cond.i.not50, i1 true, i1 %55
+  %or.cond7.i.not = select i1 %or.cond.i.not49, i1 true, i1 %55
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, 0
   %59 = select i1 %or.cond7.i.not, i1 true, i1 %58
-  br i1 %59, label %60, label %100
+  br i1 %59, label %60, label %99
 
 60:                                               ; preds = %42
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -49135,14 +49135,14 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %81 = urem i64 %68, %80
   %82 = tail call noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE10get_bucketEm(ptr noundef nonnull align 8 dereferenceable(592) %62, i64 noundef %81)
   %.not21.i.i = icmp eq ptr %82, null
-  br i1 %.not21.i.i, label %.thread, label %.lr.ph.i.i
+  br i1 %.not21.i.i, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
   %.022.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ %82, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !888
   %85 = icmp ugt i64 %84, %78
-  br i1 %85, label %.thread, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %.lr.ph.i.i
   %87 = icmp eq i64 %84, %78
@@ -49178,49 +49178,49 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %.backedge.i.i, !llvm.loop !909
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i: ; preds = %90
-  br i1 %95, label %97, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
+  br i1 %95, label %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, label %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i
 
 _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i: ; preds = %.thread.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i, %86
   %96 = load atomic i64, ptr %.022.i.i acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %96 to ptr
   %.not.i.i = icmp eq i64 %96, 0
-  br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !910
+  br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !910
 
-97:                                               ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
-  %99 = load i32, ptr %98, align 4, !tbaa !911
+_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit: ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 28
+  %98 = load i32, ptr %97, align 4, !tbaa !911
   store i32 %43, ptr %8, align 4, !tbaa !906
   store i32 %44, ptr %50, align 4, !tbaa !914
   store i32 %45, ptr %53, align 4, !tbaa !915
-  store i32 %99, ptr %56, align 4, !tbaa !916
+  store i32 %98, ptr %56, align 4, !tbaa !916
   %.pre = load ptr, ptr %0, align 8, !tbaa !965
-  %.pre55 = load i32, ptr %.pre, align 4, !tbaa !19
-  br label %100
+  %.pre54 = load i32, ptr %.pre, align 4, !tbaa !19
+  br label %99
 
-100:                                              ; preds = %97, %42
-  %101 = phi i32 [ %.pre55, %97 ], [ %14, %42 ]
-  %.0 = phi i32 [ %99, %97 ], [ %57, %42 ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !967
-  %104 = load i32, ptr %103, align 4, !tbaa !19
-  %105 = mul nsw i32 %104, %.0
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !968
-  %108 = load i32, ptr %107, align 4, !tbaa !19
-  %109 = mul nsw i32 %108, %20
-  %110 = mul nsw i32 %101, %18
-  %111 = add i32 %105, %16
+99:                                               ; preds = %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit, %42
+  %100 = phi i32 [ %.pre54, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %14, %42 ]
+  %.0 = phi i32 [ %98, %_ZNK3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE4findERSE_.exit ], [ %57, %42 ]
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !967
+  %103 = load i32, ptr %102, align 4, !tbaa !19
+  %104 = mul nsw i32 %103, %.0
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !968
+  %107 = load i32, ptr %106, align 4, !tbaa !19
+  %108 = mul nsw i32 %107, %20
+  %109 = mul nsw i32 %100, %18
+  %110 = add i32 %104, %16
+  %111 = add i32 %110, %108
   %112 = add i32 %111, %109
-  %113 = add i32 %112, %110
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %100
-  %.2 = phi i32 [ %113, %100 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ], [ -1, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i, %.lr.ph.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i, %99
+  %.2 = phi i32 [ %112, %99 ], [ -1, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN6open3d7utility7MiniVecIiLi3EEEjNS5_11MiniVecHashIiLi3EEENS5_9MiniVecEqIiLi3EEENS1_13tbb_allocatorISt4pairIKS7_jEEELb0EEEE23split_order_key_regularEm.exit.i.i ], [ -1, %.lr.ph.i.i ], [ -1, %_ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHashIiLi3EEENS4_9MiniVecEqIiLi3EEEEclERKS6_SD_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #25
-  br label %114
+  br label %113
 
-114:                                              ; preds = %.thread, %29
-  %.036 = phi i32 [ %41, %29 ], [ %.2, %.thread ]
+113:                                              ; preds = %.critedge, %29
+  %.036 = phi i32 [ %41, %29 ], [ %.2, %.critedge ]
   ret i32 %.036
 }
 

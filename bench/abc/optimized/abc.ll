@@ -21535,7 +21535,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
 
 5:                                                ; preds = %5, %3
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1485) #32
-  switch i32 %6, label %56 [
+  switch i32 %6, label %58 [
     i32 -1, label %7
     i32 99, label %5
   ], !llvm.loop !298
@@ -21544,7 +21544,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   %8 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %9 = add nsw i32 %8, 1
   %10 = icmp sgt i32 %1, %9
-  br i1 %10, label %.preheader, label %24
+  br i1 %10, label %.preheader, label %26
 
 .preheader:                                       ; preds = %7
   %11 = icmp sgt i32 %1, 1
@@ -21554,153 +21554,153 @@ define internal range(i32 0, 2) i32 @Abc_CommandPutOnTop(ptr noundef %0, i32 nou
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread92
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread92 ]
-  %.058101 = phi ptr [ null, %.lr.ph.preheader ], [ %.15995, %.thread92 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
+  %.05892 = phi ptr [ null, %.lr.ph.preheader ], [ %.159, %25 ]
   %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = tail call i32 @Io_ReadFileType(ptr noundef %13) #32
   %15 = tail call ptr @Io_Read(ptr noundef %13, i32 noundef %14, i32 noundef 1, i32 noundef 0) #32
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread89, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %.lr.ph
-  %.val81 = load i32, ptr %15, align 8, !tbaa !72
-  %.not98 = icmp eq i32 %.val81, 3
-  br i1 %.not98, label %18, label %.thread
+  %.val80 = load i32, ptr %15, align 8, !tbaa !72
+  %.not90 = icmp eq i32 %.val80, 3
+  br i1 %.not90, label %18, label %.thread
 
 18:                                               ; preds = %17
   %19 = tail call ptr @Abc_NtkToLogic(ptr noundef nonnull %15) #32
   tail call void @Abc_NtkDelete(ptr noundef nonnull %15) #32
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread89, label %.thread
+  br i1 %20, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %17, %18
-  %.05588 = phi ptr [ %19, %18 ], [ %15, %17 ]
-  %21 = icmp eq ptr %.058101, null
-  br i1 %21, label %.thread92, label %22
+  %.05587 = phi ptr [ %19, %18 ], [ %15, %17 ]
+  %21 = icmp eq ptr %.05892, null
+  br i1 %21, label %25, label %22
 
 22:                                               ; preds = %.thread
-  %23 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %.058101, ptr noundef nonnull %.05588) #32
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.058101) #32
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05588) #32
-  %.not99 = icmp eq ptr %23, null
-  br i1 %.not99, label %.thread89, label %.thread92
+  %23 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %.05892, ptr noundef nonnull %.05587) #32
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05892) #32
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05587) #32
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.critedge, label %25
 
-.thread92:                                        ; preds = %.thread, %22
-  %.15995 = phi ptr [ %23, %22 ], [ %.05588, %.thread ]
+25:                                               ; preds = %22, %.thread
+  %.159 = phi ptr [ %.05587, %.thread ], [ %23, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !299
 
-._crit_edge:                                      ; preds = %.thread92, %.preheader
-  %.058.lcssa = phi ptr [ null, %.preheader ], [ %.15995, %.thread92 ]
+._crit_edge:                                      ; preds = %25, %.preheader
+  %.058.lcssa = phi ptr [ null, %.preheader ], [ %.159, %25 ]
   tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef %.058.lcssa) #32
-  br label %.thread89
+  br label %.critedge
 
-24:                                               ; preds = %7
+26:                                               ; preds = %7
   %.not69 = icmp eq i32 %1, %9
-  br i1 %.not69, label %26, label %25
-
-25:                                               ; preds = %24
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1523)
-  br label %.thread89
-
-26:                                               ; preds = %24
-  %.val85 = load i32, ptr %4, align 8, !tbaa !72
-  %.not = icmp eq i32 %.val85, 2
-  br i1 %.not, label %28, label %27
+  br i1 %.not69, label %28, label %27
 
 27:                                               ; preds = %26
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1530)
-  br label %.thread89
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1523)
+  br label %.critedge
 
 28:                                               ; preds = %26
-  %29 = getelementptr i8, ptr %4, i64 128
-  %.val = load i32, ptr %29, align 8, !tbaa !43
-  %.not71 = icmp eq i32 %.val, 0
-  br i1 %.not71, label %31, label %30
+  %.val84 = load i32, ptr %4, align 8, !tbaa !72
+  %.not = icmp eq i32 %.val84, 2
+  br i1 %.not, label %30, label %29
+
+29:                                               ; preds = %28
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1530)
+  br label %.critedge
 
 30:                                               ; preds = %28
+  %31 = getelementptr i8, ptr %4, i64 128
+  %.val = load i32, ptr %31, align 8, !tbaa !43
+  %.not71 = icmp eq i32 %.val, 0
+  br i1 %.not71, label %33, label %32
+
+32:                                               ; preds = %30
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1531)
-  br label %.thread89
+  br label %.critedge
 
-31:                                               ; preds = %28
-  %32 = sext i32 %8 to i64
-  %33 = getelementptr inbounds ptr, ptr %2, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !91
-  %35 = tail call i32 @Io_ReadFileType(ptr noundef %34) #32
-  %36 = tail call ptr @Io_Read(ptr noundef %34, i32 noundef %35, i32 noundef 1, i32 noundef 0) #32
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread89, label %38
+33:                                               ; preds = %30
+  %34 = sext i32 %8 to i64
+  %35 = getelementptr inbounds ptr, ptr %2, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !91
+  %37 = tail call i32 @Io_ReadFileType(ptr noundef %36) #32
+  %38 = tail call ptr @Io_Read(ptr noundef %36, i32 noundef %37, i32 noundef 1, i32 noundef 0) #32
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.critedge, label %40
 
-38:                                               ; preds = %31
-  %39 = getelementptr i8, ptr %36, i64 128
-  %.val78 = load i32, ptr %39, align 8, !tbaa !43
-  %.not72 = icmp eq i32 %.val78, 0
-  br i1 %.not72, label %41, label %40
+40:                                               ; preds = %33
+  %41 = getelementptr i8, ptr %38, i64 128
+  %.val77 = load i32, ptr %41, align 8, !tbaa !43
+  %.not72 = icmp eq i32 %.val77, 0
+  br i1 %.not72, label %43, label %42
 
-40:                                               ; preds = %38
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %36) #32
+42:                                               ; preds = %40
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %38) #32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1532)
-  br label %.thread89
+  br label %.critedge
 
-41:                                               ; preds = %38
-  %42 = getelementptr i8, ptr %4, i64 48
-  %.val79 = load ptr, ptr %42, align 8, !tbaa !84
-  %43 = getelementptr i8, ptr %.val79, i64 4
-  %.val79.val = load i32, ptr %43, align 4, !tbaa !25
-  %44 = getelementptr i8, ptr %36, i64 40
-  %.val83 = load ptr, ptr %44, align 8, !tbaa !151
-  %45 = getelementptr i8, ptr %.val83, i64 4
-  %.val83.val = load i32, ptr %45, align 4, !tbaa !25
-  %.not73 = icmp eq i32 %.val79.val, %.val83.val
-  br i1 %.not73, label %49, label %46
+43:                                               ; preds = %40
+  %44 = getelementptr i8, ptr %4, i64 48
+  %.val78 = load ptr, ptr %44, align 8, !tbaa !84
+  %45 = getelementptr i8, ptr %.val78, i64 4
+  %.val78.val = load i32, ptr %45, align 4, !tbaa !25
+  %46 = getelementptr i8, ptr %38, i64 40
+  %.val82 = load ptr, ptr %46, align 8, !tbaa !151
+  %47 = getelementptr i8, ptr %.val82, i64 4
+  %.val82.val = load i32, ptr %47, align 4, !tbaa !25
+  %.not73 = icmp eq i32 %.val78.val, %.val82.val
+  br i1 %.not73, label %51, label %48
 
-46:                                               ; preds = %41
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %36) #32
-  %.val80 = load ptr, ptr %42, align 8, !tbaa !84
-  %47 = getelementptr i8, ptr %.val80, i64 4
-  %.val80.val = load i32, ptr %47, align 4, !tbaa !25
-  %.val84 = load ptr, ptr %44, align 8, !tbaa !151
-  %48 = getelementptr i8, ptr %.val84, i64 4
-  %.val84.val = load i32, ptr %48, align 4, !tbaa !25
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1533, i32 noundef %.val80.val, i32 noundef %.val84.val)
-  br label %.thread89
+48:                                               ; preds = %43
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %38) #32
+  %.val79 = load ptr, ptr %44, align 8, !tbaa !84
+  %49 = getelementptr i8, ptr %.val79, i64 4
+  %.val79.val = load i32, ptr %49, align 4, !tbaa !25
+  %.val83 = load ptr, ptr %46, align 8, !tbaa !151
+  %50 = getelementptr i8, ptr %.val83, i64 4
+  %.val83.val = load i32, ptr %50, align 4, !tbaa !25
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1533, i32 noundef %.val79.val, i32 noundef %.val83.val)
+  br label %.critedge
 
-49:                                               ; preds = %41
-  %.val86 = load i32, ptr %36, align 8, !tbaa !72
-  switch i32 %.val86, label %55 [
-    i32 2, label %50
-    i32 3, label %52
+51:                                               ; preds = %43
+  %.val85 = load i32, ptr %38, align 8, !tbaa !72
+  switch i32 %.val85, label %57 [
+    i32 2, label %52
+    i32 3, label %54
   ]
 
-50:                                               ; preds = %49
-  %51 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %4, ptr noundef nonnull %36) #32
-  br label %55
+52:                                               ; preds = %51
+  %53 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %4, ptr noundef nonnull %38) #32
+  br label %57
 
-52:                                               ; preds = %49
-  %53 = tail call ptr @Abc_NtkToLogic(ptr noundef nonnull %36) #32
-  %54 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %4, ptr noundef %53) #32
-  tail call void @Abc_NtkDelete(ptr noundef %53) #32
-  br label %55
+54:                                               ; preds = %51
+  %55 = tail call ptr @Abc_NtkToLogic(ptr noundef nonnull %38) #32
+  %56 = tail call ptr @Abc_NtkPutOnTop(ptr noundef nonnull %4, ptr noundef %55) #32
+  tail call void @Abc_NtkDelete(ptr noundef %55) #32
+  br label %57
 
-55:                                               ; preds = %49, %52, %50
-  %.3 = phi ptr [ %51, %50 ], [ %54, %52 ], [ null, %49 ]
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %36) #32
+57:                                               ; preds = %51, %54, %52
+  %.3 = phi ptr [ %53, %52 ], [ %56, %54 ], [ null, %51 ]
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %38) #32
   tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef %.3) #32
-  br label %.thread89
+  br label %.critedge
 
-56:                                               ; preds = %5
+58:                                               ; preds = %5
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1534)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1535)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.552)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1529)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1536)
-  br label %.thread89
+  br label %.critedge
 
-.thread89:                                        ; preds = %18, %.lr.ph, %22, %31, %56, %55, %46, %40, %30, %27, %25, %._crit_edge
-  %.2 = phi i32 [ 1, %56 ], [ 0, %._crit_edge ], [ 1, %25 ], [ 0, %30 ], [ 0, %40 ], [ 0, %46 ], [ 0, %55 ], [ 1, %27 ], [ 1, %31 ], [ 1, %22 ], [ 1, %.lr.ph ], [ 1, %18 ]
+.critedge:                                        ; preds = %.lr.ph, %18, %22, %33, %58, %57, %48, %42, %32, %29, %27, %._crit_edge
+  %.2 = phi i32 [ 1, %58 ], [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %32 ], [ 0, %42 ], [ 0, %48 ], [ 0, %57 ], [ 1, %29 ], [ 1, %33 ], [ 1, %22 ], [ 1, %18 ], [ 1, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -24444,41 +24444,41 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 76
   tail call void (...) @Extra_UtilGetoptReset() #32
   %.promoted = load i32, ptr %14, align 4
-  %.promoted237 = load i32, ptr %13, align 4
-  %.promoted242 = load i32, ptr %12, align 4
-  %.promoted247 = load i32, ptr %11, align 4
-  %.promoted252 = load i32, ptr %10, align 4
-  %.promoted257 = load i32, ptr %9, align 4
-  %.promoted262 = load i32, ptr %8, align 4
-  %.promoted267 = load i32, ptr %7, align 4
-  %.promoted271 = load i32, ptr %4, align 4
+  %.promoted235 = load i32, ptr %13, align 4
+  %.promoted240 = load i32, ptr %12, align 4
+  %.promoted245 = load i32, ptr %11, align 4
+  %.promoted250 = load i32, ptr %10, align 4
+  %.promoted255 = load i32, ptr %9, align 4
+  %.promoted260 = load i32, ptr %8, align 4
+  %.promoted265 = load i32, ptr %7, align 4
+  %.promoted269 = load i32, ptr %4, align 4
   br label %21
 
 21:                                               ; preds = %.backedge, %3
-  %22 = phi i32 [ %.promoted271, %3 ], [ %.be, %.backedge ]
-  %23 = phi i32 [ %.promoted267, %3 ], [ %.be373, %.backedge ]
-  %24 = phi i32 [ %.promoted262, %3 ], [ %.be374, %.backedge ]
-  %25 = phi i32 [ %.promoted257, %3 ], [ %.be375, %.backedge ]
-  %26 = phi i32 [ %.promoted252, %3 ], [ %.be376, %.backedge ]
-  %27 = phi i32 [ %.promoted247, %3 ], [ %.be377, %.backedge ]
-  %28 = phi i32 [ %.promoted242, %3 ], [ %.be378, %.backedge ]
-  %29 = phi i32 [ %.promoted237, %3 ], [ %.be379, %.backedge ]
-  %30 = phi i32 [ %.promoted, %3 ], [ %.be380, %.backedge ]
-  %31 = phi i32 [ 1000, %3 ], [ %.be381, %.backedge ]
-  %32 = phi i32 [ 5, %3 ], [ %.be382, %.backedge ]
-  %33 = phi i32 [ 1, %3 ], [ %.be383, %.backedge ]
-  %34 = phi i32 [ 1, %3 ], [ %.be384, %.backedge ]
-  %35 = phi i32 [ 0, %3 ], [ %.be385, %.backedge ]
-  %36 = phi i32 [ 1, %3 ], [ %.be386, %.backedge ]
-  %37 = phi i32 [ 0, %3 ], [ %.be387, %.backedge ]
-  %38 = phi i32 [ 0, %3 ], [ %.be388, %.backedge ]
-  %39 = phi i32 [ 0, %3 ], [ %.be389, %.backedge ]
-  %40 = phi i32 [ 0, %3 ], [ %.be390, %.backedge ]
-  %41 = phi i32 [ 1, %3 ], [ %.be391, %.backedge ]
-  %42 = phi i32 [ 0, %3 ], [ %.be392, %.backedge ]
-  %43 = phi i32 [ 0, %3 ], [ %.be393, %.backedge ]
-  %44 = phi i32 [ 0, %3 ], [ %.be394, %.backedge ]
-  %45 = phi i32 [ 0, %3 ], [ %.be395, %.backedge ]
+  %22 = phi i32 [ %.promoted269, %3 ], [ %.be, %.backedge ]
+  %23 = phi i32 [ %.promoted265, %3 ], [ %.be371, %.backedge ]
+  %24 = phi i32 [ %.promoted260, %3 ], [ %.be372, %.backedge ]
+  %25 = phi i32 [ %.promoted255, %3 ], [ %.be373, %.backedge ]
+  %26 = phi i32 [ %.promoted250, %3 ], [ %.be374, %.backedge ]
+  %27 = phi i32 [ %.promoted245, %3 ], [ %.be375, %.backedge ]
+  %28 = phi i32 [ %.promoted240, %3 ], [ %.be376, %.backedge ]
+  %29 = phi i32 [ %.promoted235, %3 ], [ %.be377, %.backedge ]
+  %30 = phi i32 [ %.promoted, %3 ], [ %.be378, %.backedge ]
+  %31 = phi i32 [ 1000, %3 ], [ %.be379, %.backedge ]
+  %32 = phi i32 [ 5, %3 ], [ %.be380, %.backedge ]
+  %33 = phi i32 [ 1, %3 ], [ %.be381, %.backedge ]
+  %34 = phi i32 [ 1, %3 ], [ %.be382, %.backedge ]
+  %35 = phi i32 [ 0, %3 ], [ %.be383, %.backedge ]
+  %36 = phi i32 [ 1, %3 ], [ %.be384, %.backedge ]
+  %37 = phi i32 [ 0, %3 ], [ %.be385, %.backedge ]
+  %38 = phi i32 [ 0, %3 ], [ %.be386, %.backedge ]
+  %39 = phi i32 [ 0, %3 ], [ %.be387, %.backedge ]
+  %40 = phi i32 [ 0, %3 ], [ %.be388, %.backedge ]
+  %41 = phi i32 [ 1, %3 ], [ %.be389, %.backedge ]
+  %42 = phi i32 [ 0, %3 ], [ %.be390, %.backedge ]
+  %43 = phi i32 [ 0, %3 ], [ %.be391, %.backedge ]
+  %44 = phi i32 [ 0, %3 ], [ %.be392, %.backedge ]
+  %45 = phi i32 [ 0, %3 ], [ %.be393, %.backedge ]
   %.0 = phi i32 [ 0, %3 ], [ %.0.be, %.backedge ]
   %46 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1710) #32
   switch i32 %46, label %.loopexit [
@@ -24563,29 +24563,29 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
 
 .backedge:                                        ; preds = %62, %50, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71
   %.be = phi i32 [ %55, %50 ], [ %22, %62 ], [ %22, %71 ], [ %22, %73 ], [ %22, %75 ], [ %22, %77 ], [ %22, %79 ], [ %22, %81 ], [ %22, %83 ], [ %22, %85 ], [ %22, %87 ], [ %22, %89 ], [ %22, %91 ], [ %22, %93 ], [ %22, %95 ], [ %22, %97 ]
-  %.be373 = phi i32 [ %23, %50 ], [ %67, %62 ], [ %23, %71 ], [ %23, %73 ], [ %23, %75 ], [ %23, %77 ], [ %23, %79 ], [ %23, %81 ], [ %23, %83 ], [ %23, %85 ], [ %23, %87 ], [ %23, %89 ], [ %23, %91 ], [ %23, %93 ], [ %23, %95 ], [ %23, %97 ]
-  %.be374 = phi i32 [ %24, %50 ], [ %24, %62 ], [ %72, %71 ], [ %24, %73 ], [ %24, %75 ], [ %24, %77 ], [ %24, %79 ], [ %24, %81 ], [ %24, %83 ], [ %24, %85 ], [ %24, %87 ], [ %24, %89 ], [ %24, %91 ], [ %24, %93 ], [ %24, %95 ], [ %24, %97 ]
-  %.be375 = phi i32 [ %25, %50 ], [ %25, %62 ], [ %25, %71 ], [ %74, %73 ], [ %25, %75 ], [ %25, %77 ], [ %25, %79 ], [ %25, %81 ], [ %25, %83 ], [ %25, %85 ], [ %25, %87 ], [ %25, %89 ], [ %25, %91 ], [ %25, %93 ], [ %25, %95 ], [ %25, %97 ]
-  %.be376 = phi i32 [ %26, %50 ], [ %26, %62 ], [ %26, %71 ], [ %26, %73 ], [ %76, %75 ], [ %26, %77 ], [ %26, %79 ], [ %26, %81 ], [ %26, %83 ], [ %26, %85 ], [ %26, %87 ], [ %26, %89 ], [ %26, %91 ], [ %26, %93 ], [ %26, %95 ], [ %26, %97 ]
-  %.be377 = phi i32 [ %27, %50 ], [ %27, %62 ], [ %27, %71 ], [ %27, %73 ], [ %27, %75 ], [ %78, %77 ], [ %27, %79 ], [ %27, %81 ], [ %27, %83 ], [ %27, %85 ], [ %27, %87 ], [ %27, %89 ], [ %27, %91 ], [ %27, %93 ], [ %27, %95 ], [ %27, %97 ]
-  %.be378 = phi i32 [ %28, %50 ], [ %28, %62 ], [ %28, %71 ], [ %28, %73 ], [ %28, %75 ], [ %28, %77 ], [ %80, %79 ], [ %28, %81 ], [ %28, %83 ], [ %28, %85 ], [ %28, %87 ], [ %28, %89 ], [ %28, %91 ], [ %28, %93 ], [ %28, %95 ], [ %28, %97 ]
-  %.be379 = phi i32 [ %29, %50 ], [ %29, %62 ], [ %29, %71 ], [ %29, %73 ], [ %29, %75 ], [ %29, %77 ], [ %29, %79 ], [ %82, %81 ], [ %29, %83 ], [ %29, %85 ], [ %29, %87 ], [ %29, %89 ], [ %29, %91 ], [ %29, %93 ], [ %29, %95 ], [ %29, %97 ]
-  %.be380 = phi i32 [ %30, %50 ], [ %30, %62 ], [ %30, %71 ], [ %30, %73 ], [ %30, %75 ], [ %30, %77 ], [ %30, %79 ], [ %30, %81 ], [ %84, %83 ], [ %30, %85 ], [ %30, %87 ], [ %30, %89 ], [ %30, %91 ], [ %30, %93 ], [ %30, %95 ], [ %30, %97 ]
-  %.be381 = phi i32 [ %31, %50 ], [ %67, %62 ], [ %31, %71 ], [ %31, %73 ], [ %31, %75 ], [ %31, %77 ], [ %31, %79 ], [ %31, %81 ], [ %31, %83 ], [ %31, %85 ], [ %31, %87 ], [ %31, %89 ], [ %31, %91 ], [ %31, %93 ], [ %31, %95 ], [ %31, %97 ]
-  %.be382 = phi i32 [ %55, %50 ], [ %32, %62 ], [ %32, %71 ], [ %32, %73 ], [ %32, %75 ], [ %32, %77 ], [ %32, %79 ], [ %32, %81 ], [ %32, %83 ], [ %32, %85 ], [ %32, %87 ], [ %32, %89 ], [ %32, %91 ], [ %32, %93 ], [ %32, %95 ], [ %32, %97 ]
-  %.be383 = phi i32 [ %33, %50 ], [ %33, %62 ], [ %72, %71 ], [ %33, %73 ], [ %33, %75 ], [ %33, %77 ], [ %33, %79 ], [ %33, %81 ], [ %33, %83 ], [ %33, %85 ], [ %33, %87 ], [ %33, %89 ], [ %33, %91 ], [ %33, %93 ], [ %33, %95 ], [ %33, %97 ]
-  %.be384 = phi i32 [ %34, %50 ], [ %34, %62 ], [ %34, %71 ], [ %74, %73 ], [ %34, %75 ], [ %34, %77 ], [ %34, %79 ], [ %34, %81 ], [ %34, %83 ], [ %34, %85 ], [ %34, %87 ], [ %34, %89 ], [ %34, %91 ], [ %34, %93 ], [ %34, %95 ], [ %34, %97 ]
-  %.be385 = phi i32 [ %35, %50 ], [ %35, %62 ], [ %35, %71 ], [ %35, %73 ], [ %76, %75 ], [ %35, %77 ], [ %35, %79 ], [ %35, %81 ], [ %35, %83 ], [ %35, %85 ], [ %35, %87 ], [ %35, %89 ], [ %35, %91 ], [ %35, %93 ], [ %35, %95 ], [ %35, %97 ]
-  %.be386 = phi i32 [ %36, %50 ], [ %36, %62 ], [ %36, %71 ], [ %36, %73 ], [ %36, %75 ], [ %78, %77 ], [ %36, %79 ], [ %36, %81 ], [ %36, %83 ], [ %36, %85 ], [ %36, %87 ], [ %36, %89 ], [ %36, %91 ], [ %36, %93 ], [ %36, %95 ], [ %36, %97 ]
-  %.be387 = phi i32 [ %37, %50 ], [ %37, %62 ], [ %37, %71 ], [ %37, %73 ], [ %37, %75 ], [ %37, %77 ], [ %80, %79 ], [ %37, %81 ], [ %37, %83 ], [ %37, %85 ], [ %37, %87 ], [ %37, %89 ], [ %37, %91 ], [ %37, %93 ], [ %37, %95 ], [ %37, %97 ]
-  %.be388 = phi i32 [ %38, %50 ], [ %38, %62 ], [ %38, %71 ], [ %38, %73 ], [ %38, %75 ], [ %38, %77 ], [ %38, %79 ], [ %82, %81 ], [ %38, %83 ], [ %38, %85 ], [ %38, %87 ], [ %38, %89 ], [ %38, %91 ], [ %38, %93 ], [ %38, %95 ], [ %38, %97 ]
-  %.be389 = phi i32 [ %39, %50 ], [ %39, %62 ], [ %39, %71 ], [ %39, %73 ], [ %39, %75 ], [ %39, %77 ], [ %39, %79 ], [ %39, %81 ], [ %84, %83 ], [ %39, %85 ], [ %39, %87 ], [ %39, %89 ], [ %39, %91 ], [ %39, %93 ], [ %39, %95 ], [ %39, %97 ]
-  %.be390 = phi i32 [ %40, %50 ], [ %40, %62 ], [ %40, %71 ], [ %40, %73 ], [ %40, %75 ], [ %40, %77 ], [ %40, %79 ], [ %40, %81 ], [ %40, %83 ], [ %86, %85 ], [ %40, %87 ], [ %40, %89 ], [ %40, %91 ], [ %40, %93 ], [ %40, %95 ], [ %40, %97 ]
-  %.be391 = phi i32 [ %41, %50 ], [ %41, %62 ], [ %41, %71 ], [ %41, %73 ], [ %41, %75 ], [ %41, %77 ], [ %41, %79 ], [ %41, %81 ], [ %41, %83 ], [ %41, %85 ], [ %88, %87 ], [ %41, %89 ], [ %41, %91 ], [ %41, %93 ], [ %41, %95 ], [ %41, %97 ]
-  %.be392 = phi i32 [ %42, %50 ], [ %42, %62 ], [ %42, %71 ], [ %42, %73 ], [ %42, %75 ], [ %42, %77 ], [ %42, %79 ], [ %42, %81 ], [ %42, %83 ], [ %42, %85 ], [ %42, %87 ], [ %90, %89 ], [ %42, %91 ], [ %42, %93 ], [ %42, %95 ], [ %42, %97 ]
-  %.be393 = phi i32 [ %43, %50 ], [ %43, %62 ], [ %43, %71 ], [ %43, %73 ], [ %43, %75 ], [ %43, %77 ], [ %43, %79 ], [ %43, %81 ], [ %43, %83 ], [ %43, %85 ], [ %43, %87 ], [ %43, %89 ], [ %92, %91 ], [ %43, %93 ], [ %43, %95 ], [ %43, %97 ]
-  %.be394 = phi i32 [ %44, %50 ], [ %44, %62 ], [ %44, %71 ], [ %44, %73 ], [ %44, %75 ], [ %44, %77 ], [ %44, %79 ], [ %44, %81 ], [ %44, %83 ], [ %44, %85 ], [ %44, %87 ], [ %44, %89 ], [ %44, %91 ], [ %94, %93 ], [ %44, %95 ], [ %44, %97 ]
-  %.be395 = phi i32 [ %45, %50 ], [ %45, %62 ], [ %45, %71 ], [ %45, %73 ], [ %45, %75 ], [ %45, %77 ], [ %45, %79 ], [ %45, %81 ], [ %45, %83 ], [ %45, %85 ], [ %45, %87 ], [ %45, %89 ], [ %45, %91 ], [ %45, %93 ], [ %45, %95 ], [ %98, %97 ]
+  %.be371 = phi i32 [ %23, %50 ], [ %67, %62 ], [ %23, %71 ], [ %23, %73 ], [ %23, %75 ], [ %23, %77 ], [ %23, %79 ], [ %23, %81 ], [ %23, %83 ], [ %23, %85 ], [ %23, %87 ], [ %23, %89 ], [ %23, %91 ], [ %23, %93 ], [ %23, %95 ], [ %23, %97 ]
+  %.be372 = phi i32 [ %24, %50 ], [ %24, %62 ], [ %72, %71 ], [ %24, %73 ], [ %24, %75 ], [ %24, %77 ], [ %24, %79 ], [ %24, %81 ], [ %24, %83 ], [ %24, %85 ], [ %24, %87 ], [ %24, %89 ], [ %24, %91 ], [ %24, %93 ], [ %24, %95 ], [ %24, %97 ]
+  %.be373 = phi i32 [ %25, %50 ], [ %25, %62 ], [ %25, %71 ], [ %74, %73 ], [ %25, %75 ], [ %25, %77 ], [ %25, %79 ], [ %25, %81 ], [ %25, %83 ], [ %25, %85 ], [ %25, %87 ], [ %25, %89 ], [ %25, %91 ], [ %25, %93 ], [ %25, %95 ], [ %25, %97 ]
+  %.be374 = phi i32 [ %26, %50 ], [ %26, %62 ], [ %26, %71 ], [ %26, %73 ], [ %76, %75 ], [ %26, %77 ], [ %26, %79 ], [ %26, %81 ], [ %26, %83 ], [ %26, %85 ], [ %26, %87 ], [ %26, %89 ], [ %26, %91 ], [ %26, %93 ], [ %26, %95 ], [ %26, %97 ]
+  %.be375 = phi i32 [ %27, %50 ], [ %27, %62 ], [ %27, %71 ], [ %27, %73 ], [ %27, %75 ], [ %78, %77 ], [ %27, %79 ], [ %27, %81 ], [ %27, %83 ], [ %27, %85 ], [ %27, %87 ], [ %27, %89 ], [ %27, %91 ], [ %27, %93 ], [ %27, %95 ], [ %27, %97 ]
+  %.be376 = phi i32 [ %28, %50 ], [ %28, %62 ], [ %28, %71 ], [ %28, %73 ], [ %28, %75 ], [ %28, %77 ], [ %80, %79 ], [ %28, %81 ], [ %28, %83 ], [ %28, %85 ], [ %28, %87 ], [ %28, %89 ], [ %28, %91 ], [ %28, %93 ], [ %28, %95 ], [ %28, %97 ]
+  %.be377 = phi i32 [ %29, %50 ], [ %29, %62 ], [ %29, %71 ], [ %29, %73 ], [ %29, %75 ], [ %29, %77 ], [ %29, %79 ], [ %82, %81 ], [ %29, %83 ], [ %29, %85 ], [ %29, %87 ], [ %29, %89 ], [ %29, %91 ], [ %29, %93 ], [ %29, %95 ], [ %29, %97 ]
+  %.be378 = phi i32 [ %30, %50 ], [ %30, %62 ], [ %30, %71 ], [ %30, %73 ], [ %30, %75 ], [ %30, %77 ], [ %30, %79 ], [ %30, %81 ], [ %84, %83 ], [ %30, %85 ], [ %30, %87 ], [ %30, %89 ], [ %30, %91 ], [ %30, %93 ], [ %30, %95 ], [ %30, %97 ]
+  %.be379 = phi i32 [ %31, %50 ], [ %67, %62 ], [ %31, %71 ], [ %31, %73 ], [ %31, %75 ], [ %31, %77 ], [ %31, %79 ], [ %31, %81 ], [ %31, %83 ], [ %31, %85 ], [ %31, %87 ], [ %31, %89 ], [ %31, %91 ], [ %31, %93 ], [ %31, %95 ], [ %31, %97 ]
+  %.be380 = phi i32 [ %55, %50 ], [ %32, %62 ], [ %32, %71 ], [ %32, %73 ], [ %32, %75 ], [ %32, %77 ], [ %32, %79 ], [ %32, %81 ], [ %32, %83 ], [ %32, %85 ], [ %32, %87 ], [ %32, %89 ], [ %32, %91 ], [ %32, %93 ], [ %32, %95 ], [ %32, %97 ]
+  %.be381 = phi i32 [ %33, %50 ], [ %33, %62 ], [ %72, %71 ], [ %33, %73 ], [ %33, %75 ], [ %33, %77 ], [ %33, %79 ], [ %33, %81 ], [ %33, %83 ], [ %33, %85 ], [ %33, %87 ], [ %33, %89 ], [ %33, %91 ], [ %33, %93 ], [ %33, %95 ], [ %33, %97 ]
+  %.be382 = phi i32 [ %34, %50 ], [ %34, %62 ], [ %34, %71 ], [ %74, %73 ], [ %34, %75 ], [ %34, %77 ], [ %34, %79 ], [ %34, %81 ], [ %34, %83 ], [ %34, %85 ], [ %34, %87 ], [ %34, %89 ], [ %34, %91 ], [ %34, %93 ], [ %34, %95 ], [ %34, %97 ]
+  %.be383 = phi i32 [ %35, %50 ], [ %35, %62 ], [ %35, %71 ], [ %35, %73 ], [ %76, %75 ], [ %35, %77 ], [ %35, %79 ], [ %35, %81 ], [ %35, %83 ], [ %35, %85 ], [ %35, %87 ], [ %35, %89 ], [ %35, %91 ], [ %35, %93 ], [ %35, %95 ], [ %35, %97 ]
+  %.be384 = phi i32 [ %36, %50 ], [ %36, %62 ], [ %36, %71 ], [ %36, %73 ], [ %36, %75 ], [ %78, %77 ], [ %36, %79 ], [ %36, %81 ], [ %36, %83 ], [ %36, %85 ], [ %36, %87 ], [ %36, %89 ], [ %36, %91 ], [ %36, %93 ], [ %36, %95 ], [ %36, %97 ]
+  %.be385 = phi i32 [ %37, %50 ], [ %37, %62 ], [ %37, %71 ], [ %37, %73 ], [ %37, %75 ], [ %37, %77 ], [ %80, %79 ], [ %37, %81 ], [ %37, %83 ], [ %37, %85 ], [ %37, %87 ], [ %37, %89 ], [ %37, %91 ], [ %37, %93 ], [ %37, %95 ], [ %37, %97 ]
+  %.be386 = phi i32 [ %38, %50 ], [ %38, %62 ], [ %38, %71 ], [ %38, %73 ], [ %38, %75 ], [ %38, %77 ], [ %38, %79 ], [ %82, %81 ], [ %38, %83 ], [ %38, %85 ], [ %38, %87 ], [ %38, %89 ], [ %38, %91 ], [ %38, %93 ], [ %38, %95 ], [ %38, %97 ]
+  %.be387 = phi i32 [ %39, %50 ], [ %39, %62 ], [ %39, %71 ], [ %39, %73 ], [ %39, %75 ], [ %39, %77 ], [ %39, %79 ], [ %39, %81 ], [ %84, %83 ], [ %39, %85 ], [ %39, %87 ], [ %39, %89 ], [ %39, %91 ], [ %39, %93 ], [ %39, %95 ], [ %39, %97 ]
+  %.be388 = phi i32 [ %40, %50 ], [ %40, %62 ], [ %40, %71 ], [ %40, %73 ], [ %40, %75 ], [ %40, %77 ], [ %40, %79 ], [ %40, %81 ], [ %40, %83 ], [ %86, %85 ], [ %40, %87 ], [ %40, %89 ], [ %40, %91 ], [ %40, %93 ], [ %40, %95 ], [ %40, %97 ]
+  %.be389 = phi i32 [ %41, %50 ], [ %41, %62 ], [ %41, %71 ], [ %41, %73 ], [ %41, %75 ], [ %41, %77 ], [ %41, %79 ], [ %41, %81 ], [ %41, %83 ], [ %41, %85 ], [ %88, %87 ], [ %41, %89 ], [ %41, %91 ], [ %41, %93 ], [ %41, %95 ], [ %41, %97 ]
+  %.be390 = phi i32 [ %42, %50 ], [ %42, %62 ], [ %42, %71 ], [ %42, %73 ], [ %42, %75 ], [ %42, %77 ], [ %42, %79 ], [ %42, %81 ], [ %42, %83 ], [ %42, %85 ], [ %42, %87 ], [ %90, %89 ], [ %42, %91 ], [ %42, %93 ], [ %42, %95 ], [ %42, %97 ]
+  %.be391 = phi i32 [ %43, %50 ], [ %43, %62 ], [ %43, %71 ], [ %43, %73 ], [ %43, %75 ], [ %43, %77 ], [ %43, %79 ], [ %43, %81 ], [ %43, %83 ], [ %43, %85 ], [ %43, %87 ], [ %43, %89 ], [ %92, %91 ], [ %43, %93 ], [ %43, %95 ], [ %43, %97 ]
+  %.be392 = phi i32 [ %44, %50 ], [ %44, %62 ], [ %44, %71 ], [ %44, %73 ], [ %44, %75 ], [ %44, %77 ], [ %44, %79 ], [ %44, %81 ], [ %44, %83 ], [ %44, %85 ], [ %44, %87 ], [ %44, %89 ], [ %44, %91 ], [ %94, %93 ], [ %44, %95 ], [ %44, %97 ]
+  %.be393 = phi i32 [ %45, %50 ], [ %45, %62 ], [ %45, %71 ], [ %45, %73 ], [ %45, %75 ], [ %45, %77 ], [ %45, %79 ], [ %45, %81 ], [ %45, %83 ], [ %45, %85 ], [ %45, %87 ], [ %45, %89 ], [ %45, %91 ], [ %45, %93 ], [ %45, %95 ], [ %98, %97 ]
   %.0.be = phi i32 [ %.0, %50 ], [ %.0, %62 ], [ %.0, %71 ], [ %.0, %73 ], [ %.0, %75 ], [ %.0, %77 ], [ %.0, %79 ], [ %.0, %81 ], [ %.0, %83 ], [ %.0, %85 ], [ %.0, %87 ], [ %.0, %89 ], [ %.0, %91 ], [ %.0, %93 ], [ %96, %95 ], [ %.0, %97 ]
   br label %21, !llvm.loop !336
 
@@ -24707,21 +24707,21 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
 
 111:                                              ; preds = %110, %109
   %.not88 = icmp eq i32 %.0, 0
-  br i1 %.not88, label %.thread105, label %113
+  br i1 %.not88, label %.critedge, label %112
 
-.thread105:                                       ; preds = %111
-  %112 = call ptr @Abc_NtkCuts(ptr noundef nonnull %5, ptr noundef nonnull %4) #32
-  call void @Cut_ManStop(ptr noundef %112) #32
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  store i32 1, ptr %113, align 4, !tbaa !337
+  %114 = call ptr @Abc_NtkCuts(ptr noundef nonnull %5, ptr noundef nonnull %4) #32
+  %115 = call ptr @Cut_OracleStart(ptr noundef %114) #32
+  call void @Cut_ManStop(ptr noundef %114) #32
+  call void @Abc_NtkCutsOracle(ptr noundef nonnull %5, ptr noundef %115) #32
+  call void @Cut_OracleStop(ptr noundef %115) #32
   br label %137
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 1, ptr %114, align 4, !tbaa !337
-  %115 = call ptr @Abc_NtkCuts(ptr noundef nonnull %5, ptr noundef nonnull %4) #32
-  %116 = call ptr @Cut_OracleStart(ptr noundef %115) #32
-  call void @Cut_ManStop(ptr noundef %115) #32
-  call void @Abc_NtkCutsOracle(ptr noundef nonnull %5, ptr noundef %116) #32
-  call void @Cut_OracleStop(ptr noundef %116) #32
+.critedge:                                        ; preds = %111
+  %116 = call ptr @Abc_NtkCuts(ptr noundef nonnull %5, ptr noundef nonnull %4) #32
+  call void @Cut_ManStop(ptr noundef %116) #32
   br label %137
 
 .loopexit:                                        ; preds = %50, %62, %21
@@ -24789,8 +24789,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.552)
   br label %137
 
-137:                                              ; preds = %.thread105, %113, %121, %108, %106, %103, %101
-  %.077 = phi i32 [ 1, %121 ], [ 1, %101 ], [ 1, %106 ], [ 1, %108 ], [ 1, %103 ], [ 0, %113 ], [ 0, %.thread105 ]
+137:                                              ; preds = %112, %.critedge, %121, %108, %106, %103, %101
+  %.077 = phi i32 [ 1, %121 ], [ 1, %101 ], [ 1, %106 ], [ 1, %108 ], [ 1, %103 ], [ 0, %.critedge ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #32
   ret i32 %.077
 }
@@ -74595,7 +74595,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
 
 76:                                               ; preds = %72
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3954)
-  br label %.thread
+  br label %.critedge
 
 77:                                               ; preds = %72
   %78 = icmp eq i32 %1, %70
@@ -74615,7 +74615,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
   %88 = getelementptr inbounds ptr, ptr %2, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !91
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1696, ptr noundef %89)
-  br label %.thread
+  br label %.critedge
 
 90:                                               ; preds = %79
   %91 = tail call i32 @fclose(ptr noundef nonnull %83)
@@ -74629,7 +74629,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
 
 98:                                               ; preds = %90
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2100)
-  br label %.thread
+  br label %.critedge
 
 99:                                               ; preds = %90, %77
   %.092 = phi ptr [ null, %77 ], [ %96, %90 ]
@@ -74644,7 +74644,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
 
 101:                                              ; preds = %100, %100
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4135)
-  br label %.thread
+  br label %.critedge
 
 102:                                              ; preds = %100, %99
   %.not106 = icmp eq i32 %.075, 0
@@ -74670,7 +74670,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
 
 110:                                              ; preds = %109, %108
   tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %.091)
-  br label %.thread
+  br label %.critedge
 
 .loopexit.sink.split:                             ; preds = %51, %42, %33, %24, %15, %6, %68
   %.str.622.sink = phi ptr [ @.str.622, %68 ], [ @.str.2201, %6 ], [ @.str.4120, %15 ], [ @.str.2415, %24 ], [ @.str.914, %33 ], [ @.str.4021, %42 ], [ @.str.4134, %51 ]
@@ -74716,10 +74716,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef cap
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4162)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.908)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4129)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %98, %85, %.loopexit, %110, %101, %76
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %76 ], [ 1, %101 ], [ 0, %110 ], [ 1, %85 ], [ 1, %98 ]
+.critedge:                                        ; preds = %85, %98, %.loopexit, %110, %101, %76
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %76 ], [ 1, %101 ], [ 0, %110 ], [ 1, %98 ], [ 1, %85 ]
   ret i32 %.0
 }
 
@@ -91667,31 +91667,31 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenMux(ptr noundef captures(
 
 25:                                               ; preds = %23
   %26 = tail call ptr @Wlc_NtkMuxTreeString(i32 noundef %.038.ph) #32
-  br label %.thread
+  br label %._crit_edge.thread
 
 27:                                               ; preds = %23
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4962)
-  br label %48
+  br label %47
 
 28:                                               ; preds = %19
   %29 = add nsw i32 %20, 1
   %30 = icmp eq i32 %1, %29
-  br i1 %30, label %31, label %44
+  br i1 %30, label %31, label %43
 
 31:                                               ; preds = %28
   %32 = sext i32 %20 to i64
   %33 = getelementptr inbounds ptr, ptr %2, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !91
   %35 = load i8, ptr %34, align 1, !tbaa !101
-  %.not4759 = icmp eq i8 %35, 0
-  br i1 %.not4759, label %.thread, label %.lr.ph
+  %.not4757 = icmp eq i8 %35, 0
+  br i1 %.not4757, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %31 ]
   %36 = phi i8 [ %41, %.lr.ph ], [ %35, %31 ]
-  %.061 = phi i32 [ %39, %.lr.ph ], [ 0, %31 ]
+  %.059 = phi i32 [ %39, %.lr.ph ], [ 0, %31 ]
   %37 = sext i8 %36 to i32
-  %38 = add i32 %.061, -48
+  %38 = add i32 %.059, -48
   %39 = add i32 %38, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.next
@@ -91702,40 +91702,40 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenMux(ptr noundef captures(
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = icmp sgt i32 %39, 0
   %.not48 = icmp ne i32 %.038.ph, %39
-  %.not83 = and i1 %42, %.not48
-  %or.cond51.not = select i1 %22, i1 %.not83, i1 false
-  br i1 %or.cond51.not, label %43, label %.thread
+  %.not81 = and i1 %42, %.not48
+  %or.cond51.not = select i1 %22, i1 %.not81, i1 false
+  br i1 %or.cond51.not, label %.critedge, label %._crit_edge.thread
 
-43:                                               ; preds = %._crit_edge
+.critedge:                                        ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4963)
-  br label %48
+  br label %47
 
-44:                                               ; preds = %28
+43:                                               ; preds = %28
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4964)
-  br label %48
+  br label %47
 
-.thread:                                          ; preds = %31, %._crit_edge, %25
+._crit_edge.thread:                               ; preds = %31, %._crit_edge, %25
   %.2 = phi i32 [ %.038.ph, %25 ], [ %39, %._crit_edge ], [ 0, %31 ]
   %.036 = phi ptr [ %26, %25 ], [ %34, %._crit_edge ], [ %34, %31 ]
-  %45 = tail call ptr @Gia_ManGenMux(i32 noundef %.2, ptr noundef %.036) #32
-  tail call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef %45)
-  %46 = shl nuw i32 1, %.2
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4965, i32 noundef %46, ptr noundef %.036)
-  br label %48
+  %44 = tail call ptr @Gia_ManGenMux(i32 noundef %.2, ptr noundef %.036) #32
+  tail call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef %44)
+  %45 = shl nuw i32 1, %.2
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4965, i32 noundef %45, ptr noundef %.036)
+  br label %47
 
 .loopexit:                                        ; preds = %4, %9, %8
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4966)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4967)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4968)
   %.not50 = icmp eq i32 %.037, 0
-  %47 = select i1 %.not50, ptr @.str.551, ptr @.str.550
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.807, ptr noundef nonnull %47)
+  %46 = select i1 %.not50, ptr @.str.551, ptr @.str.550
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.807, ptr noundef nonnull %46)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.552)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4969)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %43, %.loopexit, %.thread, %44, %27
-  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %.thread ], [ 0, %27 ], [ 0, %43 ], [ 0, %44 ]
+47:                                               ; preds = %.critedge, %.loopexit, %._crit_edge.thread, %43, %27
+  %.041 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %43 ], [ 0, %.critedge ]
   ret i32 %.041
 }
 

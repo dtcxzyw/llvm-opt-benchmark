@@ -58416,9 +58416,9 @@ _ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit382
 
 _ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit388.i: ; preds = %708
   %725 = invoke noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const7as_boolEv(ptr noundef nonnull align 8 dereferenceable(40) %47)
-          to label %.critedge253.critedge.i unwind label %761
+          to label %.critedge253.i unwind label %761
 
-.critedge253.critedge.i:                          ; preds = %_ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit388.i
+.critedge253.i:                                   ; preds = %_ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit388.i
   %726 = zext i1 %725 to i8
   store i8 %726, ptr %135, align 1, !tbaa !134
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %47) #26
@@ -58429,7 +58429,7 @@ _ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit388
   %or.cond.i.i389.i = and i1 %730, %729
   br i1 %or.cond.i.i389.i, label %731, label %.critedge254.thread.i
 
-731:                                              ; preds = %.critedge253.critedge.i
+731:                                              ; preds = %.critedge253.i
   %732 = sext i32 %727 to i64
   %733 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !137
   %734 = getelementptr inbounds nuw i32, ptr %733, i64 %732
@@ -58450,7 +58450,7 @@ _ZN12_GLOBAL__N_112ice40_dsp_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.exit388
   call void @__clang_call_terminate(ptr %741) #29
   unreachable
 
-.critedge254.thread.i:                            ; preds = %738, %731, %.critedge253.critedge.i
+.critedge254.thread.i:                            ; preds = %738, %731, %.critedge253.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #26
   br label %.critedge256.i
 

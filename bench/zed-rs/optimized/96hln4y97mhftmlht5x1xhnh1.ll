@@ -16137,7 +16137,7 @@ define hidden void @_ZN11file_finder18FileFinderDelegate18set_search_matches17h7
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.sink.split:                                      ; preds = %50, %79
+.sink.split:                                      ; preds = %79, %50
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %21)
   br label %78
 
@@ -16153,12 +16153,12 @@ define hidden void @_ZN11file_finder18FileFinderDelegate18set_search_matches17h7
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit": ; preds = %79
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.0.0.i28, i64 %.sroa.3.0.i), !alias.scope !3053
-  %.not115 = icmp eq i32 %bcmp.i, 0
+  %.not102 = icmp eq i32 %bcmp.i, 0
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %81 = load i8, ptr %80, align 8, !range !682, !noundef !4
   %82 = trunc nuw i8 %81 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %21)
-  br i1 %.not115, label %83, label %78
+  br i1 %.not102, label %83, label %78
 
 83:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit"
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -16602,10 +16602,10 @@ define hidden void @_ZN11file_finder18FileFinderDelegate18set_search_matches17h7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !3068
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  %.sroa.0.0.copyload128 = load i64, ptr %21, align 8
+  %.sroa.0.0.copyload127 = load i64, ptr %21, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !3153)
   call void @llvm.experimental.noalias.scope.decl(metadata !3156)
-  %218 = icmp eq i64 %.sroa.0.0.copyload128, 2
+  %218 = icmp eq i64 %.sroa.0.0.copyload127, 2
   br i1 %218, label %219, label %230
 
 219:                                              ; preds = %217
@@ -16904,7 +16904,7 @@ define hidden void @_ZN11file_finder18FileFinderDelegate18set_search_matches17he
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.sink.split:                                      ; preds = %60, %89
+.sink.split:                                      ; preds = %89, %60
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %22)
   br label %88
 
@@ -16920,12 +16920,12 @@ define hidden void @_ZN11file_finder18FileFinderDelegate18set_search_matches17he
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit": ; preds = %89
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.0.0.i28, i64 %.sroa.3.0.i), !alias.scope !3200
-  %.not116 = icmp eq i32 %bcmp.i, 0
+  %.not103 = icmp eq i32 %bcmp.i, 0
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %91 = load i8, ptr %90, align 8, !range !682, !noundef !4
   %92 = trunc nuw i8 %91 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %22)
-  br i1 %.not116, label %93, label %88
+  br i1 %.not103, label %93, label %88
 
 93:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6093fb69c8d259aE.exit"
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 304

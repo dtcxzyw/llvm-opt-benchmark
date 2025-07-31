@@ -3654,7 +3654,7 @@ define void @duckdb_je_thread_tcache_max_set(ptr noundef %0, i64 noundef %1) loc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(146) %3, i8 0, i64 146, i1 false)
   %6 = load i8, ptr %0, align 1, !tbaa !17, !range !19, !noundef !20
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %duckdb_je_tcache_cleanup.exit
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -3684,8 +3684,7 @@ tcache_bin_settings_backup.exit:                  ; preds = %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1752) %18, i8 0, i64 1752, i1 false)
   br label %duckdb_je_tcache_cleanup.exit
 
-duckdb_je_tcache_cleanup.exit:                    ; preds = %17, %tcache_bin_settings_backup.exit, %2
-  %.0 = phi ptr [ undef, %2 ], [ %10, %tcache_bin_settings_backup.exit ], [ %10, %17 ]
+duckdb_je_tcache_cleanup.exit:                    ; preds = %tcache_bin_settings_backup.exit, %17
   %19 = icmp ult i64 %1, 4097
   br i1 %19, label %20, label %26, !prof !11
 
@@ -3706,13 +3705,33 @@ tcache_max_set.exit:                              ; preds = %20, %26
   %28 = add nuw nsw i32 %.0.i.i, 1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %28, ptr %29, align 8, !tbaa !41
-  br i1 %7, label %30, label %31
+  call fastcc void @duckdb_je_tsd_tcache_data_init(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %3)
+  br label %41
 
-30:                                               ; preds = %tcache_max_set.exit
-  call fastcc void @duckdb_je_tsd_tcache_data_init(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef nonnull %3)
-  br label %31
+.critedge:                                        ; preds = %2
+  %30 = icmp ult i64 %1, 4097
+  br i1 %30, label %31, label %37, !prof !11
 
-31:                                               ; preds = %tcache_max_set.exit, %30
+31:                                               ; preds = %.critedge
+  %32 = add nuw nsw i64 %1, 7
+  %33 = lshr i64 %32, 3
+  %34 = getelementptr inbounds nuw [0 x i8], ptr @duckdb_je_sz_size2index_tab, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !39
+  %36 = zext i8 %35 to i32
+  br label %tcache_max_set.exit12
+
+37:                                               ; preds = %.critedge
+  %38 = tail call fastcc i32 @sz_size2index_compute(i64 noundef %1)
+  br label %tcache_max_set.exit12
+
+tcache_max_set.exit12:                            ; preds = %31, %37
+  %.0.i.i11 = phi i32 [ %36, %31 ], [ %38, %37 ]
+  %39 = add nuw nsw i32 %.0.i.i11, 1
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 %39, ptr %40, align 8, !tbaa !41
+  br label %41
+
+41:                                               ; preds = %tcache_max_set.exit12, %tcache_max_set.exit
   call void @llvm.lifetime.end.p0(i64 146, ptr nonnull %3) #16
   ret void
 }

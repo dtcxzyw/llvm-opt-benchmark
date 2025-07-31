@@ -3056,7 +3056,7 @@ common.resume:                                    ; preds = %72, %51, %33
   br i1 %.not31.not, label %80, label %.thread
 
 80:                                               ; preds = %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$20perform_next_checked17h111dd4eea6150ce9E.exit"
-  br i1 %.not123.ph, label %84, label %.thread161
+  br i1 %.not123.ph, label %.thread168, label %.thread161
 
 .thread:                                          ; preds = %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$20perform_next_checked17h111dd4eea6150ce9E.exit"
   %81 = icmp ne ptr %79, null
@@ -3068,11 +3068,8 @@ common.resume:                                    ; preds = %72, %51, %33
 .thread151:                                       ; preds = %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit.thread", %67, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i41"
   br i1 %.not123.ph, label %.thread168, label %.thread161
 
-84:                                               ; preds = %.thread161, %80
-  %.sroa.523.0160 = phi i32 [ %.sroa.523.0159165, %.thread161 ], [ undef, %80 ]
-  %.sroa.322.0158 = phi i32 [ %.sroa.322.0157166, %.thread161 ], [ undef, %80 ]
-  %.not31.not150156 = phi i1 [ %.not31.not150155167, %.thread161 ], [ true, %80 ]
-  br i1 %.not31.not150156, label %.thread168, label %.thread202
+84:                                               ; preds = %.thread161
+  br i1 %.not31.not150155167, label %.thread168, label %.thread202
 
 85:                                               ; preds = %.thread
   %86 = add i32 %.sroa.319.0.ph, %.sroa.520.0.ph
@@ -3174,14 +3171,14 @@ select.unfold173:                                 ; preds = %111, %108
   br label %107
 
 .thread202:                                       ; preds = %.thread, %84
-  %.sroa.322.0158207 = phi i32 [ %.sroa.322.0158, %84 ], [ %82, %.thread ]
-  %.sroa.523.0160206 = phi i32 [ %.sroa.523.0160, %84 ], [ %83, %.thread ]
+  %.sroa.322.0158207 = phi i32 [ %.sroa.322.0157166, %84 ], [ %82, %.thread ]
+  %.sroa.523.0160206 = phi i32 [ %.sroa.523.0159165, %84 ], [ %83, %.thread ]
   %120 = add i32 %39, %1
   %121 = sub i32 %.sroa.322.0158207, %120
   %122 = icmp ult i32 %121, 24
   br i1 %122, label %131, label %.thread168
 
-.thread168:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e0f1569bf72fd54E.exit", %.thread151, %.thread202, %84
+.thread168:                                       ; preds = %80, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e0f1569bf72fd54E.exit", %.thread151, %.thread202, %84
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !469
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h075052a5add71d7fE.llvm.9369894712845813854"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %1)

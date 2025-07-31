@@ -300,34 +300,34 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit: ; preds = %72, %76
   %98 = icmp uge ptr %10, %.pre3.i.i
   %99 = icmp ult ptr %10, %97
   %spec.select.i.i.i.i.i.i = and i1 %98, %99
-  br i1 %spec.select.i.i.i.i.i.i, label %102, label %100, !prof !209
+  br i1 %spec.select.i.i.i.i.i.i, label %100, label %.critedge.i.i.i.i, !prof !209
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %101, i64 noundef %93, i64 noundef 32) #12
+  %101 = ptrtoint ptr %10 to i64
+  %102 = ptrtoint ptr %.pre3.i.i to i64
+  %103 = sub i64 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %104, i64 noundef %93, i64 noundef 32) #12
+  %105 = load ptr, ptr %89, align 8, !tbaa !161
+  %106 = getelementptr inbounds i8, ptr %105, i64 %103
+  br label %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit
+
+.critedge.i.i.i.i:                                ; preds = %96
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %107, i64 noundef %93, i64 noundef 32) #12
   %.pre.i.i = load ptr, ptr %89, align 8, !tbaa !161
   br label %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit
 
-102:                                              ; preds = %96
-  %103 = ptrtoint ptr %10 to i64
-  %104 = ptrtoint ptr %.pre3.i.i to i64
-  %105 = sub i64 %103, %104
-  %106 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %106, i64 noundef %93, i64 noundef 32) #12
-  %107 = load ptr, ptr %89, align 8, !tbaa !161
-  %108 = getelementptr inbounds i8, ptr %107, i64 %105
-  br label %_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit
-
-_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit: ; preds = %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, %100, %102
-  %109 = phi ptr [ %.pre3.i.i, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ %107, %102 ], [ %.pre.i.i, %100 ]
-  %.016.i.i.i.i = phi ptr [ %10, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ %108, %102 ], [ %10, %100 ]
-  %110 = load i32, ptr %90, align 8, !tbaa !162
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %109, i64 %111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
-  %113 = load i32, ptr %90, align 8, !tbaa !162
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %90, align 8, !tbaa !162
+_ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit: ; preds = %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit, %100, %.critedge.i.i.i.i
+  %108 = phi ptr [ %.pre3.i.i, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ %105, %100 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %10, %_ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit ], [ %106, %100 ], [ %10, %.critedge.i.i.i.i ]
+  %109 = load i32, ptr %90, align 8, !tbaa !162
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %108, i64 %110
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i64 32, i1 false)
+  %112 = load i32, ptr %90, align 8, !tbaa !162
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %90, align 8, !tbaa !162
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   ret void

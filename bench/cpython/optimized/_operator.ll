@@ -1632,12 +1632,12 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   %67 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !36
   %69 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %63, ptr noundef nonnull @.str.58, ptr noundef %65, ptr noundef %68) #7
-  br label %.thread.i
+  br label %.critedge.i
 
 70:                                               ; preds = %59, %56
   %71 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %13, ptr noundef nonnull %8, i32 noundef 0) #7
   %72 = icmp eq i32 %71, -1
-  br i1 %72, label %.thread.i, label %73
+  br i1 %72, label %.critedge.i, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -1649,7 +1649,7 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   %78 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !17
   call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.59) #7
   call void @PyBuffer_Release(ptr noundef nonnull %8) #7
-  br label %.thread.i
+  br label %.critedge.i
 
 79:                                               ; preds = %73
   %80 = call i32 @PyObject_GetBuffer(ptr noundef %15, ptr noundef nonnull %9, i32 noundef 0) #7
@@ -1658,7 +1658,7 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
 
 82:                                               ; preds = %79
   call void @PyBuffer_Release(ptr noundef nonnull %8) #7
-  br label %.thread.i
+  br label %.critedge.i
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 36
@@ -1671,7 +1671,7 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull @.str.59) #7
   call void @PyBuffer_Release(ptr noundef nonnull %8) #7
   call void @PyBuffer_Release(ptr noundef nonnull %9) #7
-  br label %.thread.i
+  br label %.critedge.i
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %8, align 8, !tbaa !40
@@ -1705,7 +1705,7 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   %.1.i44.i = phi ptr [ %91, %99 ], [ %.015.i41.i, %98 ]
   %.0..0..0..0..0..0..0..0.716.i45.i = load volatile i64, ptr %4, align 8, !tbaa !33
   %101 = icmp sgt i64 %.0..0..0..0..0..0..0..0.716.i45.i, 0
-  br i1 %101, label %.lr.ph.i47.i, label %.loopexit.i
+  br i1 %101, label %.lr.ph.i47.i, label %_tscmp.exit53.i
 
 .lr.ph.i47.i:                                     ; preds = %100, %.lr.ph.i47.i
   %.019.i48.i = phi i64 [ %108, %.lr.ph.i47.i ], [ 0, %100 ]
@@ -1722,14 +1722,9 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   %108 = add nuw nsw i64 %.019.i48.i, 1
   %.0..0..0..0..0..0..0..0.7.i52.i = load volatile i64, ptr %4, align 8, !tbaa !33
   %109 = icmp slt i64 %108, %.0..0..0..0..0..0..0..0.7.i52.i
-  br i1 %109, label %.lr.ph.i47.i, label %.loopexit.i, !llvm.loop !34
+  br i1 %109, label %.lr.ph.i47.i, label %_tscmp.exit53.i, !llvm.loop !34
 
-.thread.i:                                        ; preds = %87, %82, %77, %70, %62
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
-  br label %_operator__compare_digest_impl.exit
-
-.loopexit.i:                                      ; preds = %.lr.ph.i47.i, %100
+_tscmp.exit53.i:                                  ; preds = %.lr.ph.i47.i, %100
   %.0..0..0..0..0..0..0..0.1.i46.i = load volatile i8, ptr %5, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1739,15 +1734,20 @@ _tscmp.exit.i:                                    ; preds = %.lr.ph.i.i, %46
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
   br label %110
 
-110:                                              ; preds = %.loopexit.i, %_tscmp.exit.i
-  %.016.in.in.i = phi i8 [ %.0..0..0..0..0..0..0..0.1.i.i, %_tscmp.exit.i ], [ %.0..0..0..0..0..0..0..0.1.i46.i, %.loopexit.i ]
+110:                                              ; preds = %_tscmp.exit53.i, %_tscmp.exit.i
+  %.016.in.in.i = phi i8 [ %.0..0..0..0..0..0..0..0.1.i.i, %_tscmp.exit.i ], [ %.0..0..0..0..0..0..0..0.1.i46.i, %_tscmp.exit53.i ]
   %.016.in.i = icmp eq i8 %.016.in.in.i, 0
   %111 = zext i1 %.016.in.i to i64
   %112 = call ptr @PyBool_FromLong(i64 noundef %111) #7
   br label %_operator__compare_digest_impl.exit
 
-_operator__compare_digest_impl.exit:              ; preds = %110, %.thread.i, %29, %10
-  %.0 = phi ptr [ null, %10 ], [ %112, %110 ], [ null, %29 ], [ null, %.thread.i ]
+.critedge.i:                                      ; preds = %87, %82, %77, %70, %62
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #7
+  br label %_operator__compare_digest_impl.exit
+
+_operator__compare_digest_impl.exit:              ; preds = %.critedge.i, %110, %29, %10
+  %.0 = phi ptr [ null, %10 ], [ %112, %110 ], [ null, %29 ], [ null, %.critedge.i ]
   ret ptr %.0
 }
 

@@ -2367,20 +2367,20 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %545 = load i32, ptr %13, align 4
   %546 = add i32 %398, -25175
   %547 = icmp ult i32 %546, 574826
-  br i1 %547, label %.critedge23, label %548
+  br i1 %547, label %.critedge24, label %548
 
 548:                                              ; preds = %544
   switch i32 %398, label %551 [
     i32 1000000, label %550
     i32 800000, label %549
-    i32 1200000, label %.critedge23
+    i32 1200000, label %.critedge24
   ]
 
 549:                                              ; preds = %548
-  br label %.critedge23
+  br label %.critedge24
 
 550:                                              ; preds = %548
-  br label %.critedge23
+  br label %.critedge24
 
 551:                                              ; preds = %548
   tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #7, !srcloc !80
@@ -2390,15 +2390,15 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2236, i32 2313, i64 12) #7, !srcloc !82
   tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #7, !srcloc !83
   tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_end\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #7, !srcloc !84
-  br label %.critedge23
+  br label %.critedge24
 
-.critedge23:                                      ; preds = %551, %550, %549, %548, %544
+.critedge24:                                      ; preds = %551, %550, %549, %548, %544
   %553 = phi i8 [ 0, %551 ], [ 3, %550 ], [ 2, %549 ], [ 0, %544 ], [ 1, %548 ]
   tail call fastcc void @__intel_cx0_write(ptr noundef %12, i32 noundef %545, i32 noundef 0, i16 noundef zeroext 3329, i8 noundef zeroext %553, i1 noundef zeroext true)
   tail call fastcc void @__intel_cx0_write(ptr noundef %12, i32 noundef %545, i32 noundef 1, i16 noundef zeroext 3329, i8 noundef zeroext %553, i1 noundef zeroext true)
   br label %.loopexit27
 
-.loopexit27:                                      ; preds = %525, %.critedge23
+.loopexit27:                                      ; preds = %525, %.critedge24
   %554 = load i32, ptr %13, align 4
   br label %555
 
@@ -2426,7 +2426,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
 569:                                              ; preds = %568, %562, %555
   br i1 %556, label %555, label %.thread17, !llvm.loop !15
 
-.thread17:                                        ; preds = %569, %394, %.critedge19
+.thread17:                                        ; preds = %569, %.critedge19, %394
   %570 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %571 = load i8, ptr %570, align 1
   %572 = zext i8 %571 to i32
@@ -2487,7 +2487,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %599 = icmp ne i32 %598, 0
   %600 = icmp slt i32 %596, 2
   %601 = and i1 %600, %599
-  br i1 %601, label %602, label %.loopexit25
+  br i1 %601, label %602, label %.loopexit26
 
 602:                                              ; preds = %593
   %603 = zext nneg i8 %594 to i64
@@ -2513,9 +2513,9 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   br label %616
 
 616:                                              ; preds = %615, %611, %604
-  br i1 %605, label %604, label %.loopexit25, !llvm.loop !15
+  br i1 %605, label %604, label %.loopexit26, !llvm.loop !15
 
-.loopexit25:                                      ; preds = %616, %593
+.loopexit26:                                      ; preds = %616, %593
   %617 = lshr i32 15, %572
   %618 = shl i32 15, %572
   %619 = select i1 %104, i32 %618, i32 %617
@@ -2528,13 +2528,13 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %626 = zext nneg i32 %625 to i64
   br label %627
 
-627:                                              ; preds = %.loopexit24, %.loopexit25
-  %628 = phi i64 [ 0, %.loopexit25 ], [ %656, %.loopexit24 ]
+627:                                              ; preds = %.loopexit25, %.loopexit26
+  %628 = phi i64 [ 0, %.loopexit26 ], [ %656, %.loopexit25 ]
   %629 = icmp samesign ult i64 %628, 2
   %630 = select i1 %629, i8 1, i8 2
   %631 = and i8 %630, %594
   %632 = icmp eq i8 %631, 0
-  br i1 %632, label %.loopexit24, label %633
+  br i1 %632, label %.loopexit25, label %633
 
 633:                                              ; preds = %627
   %634 = trunc i64 %628 to i16
@@ -2568,14 +2568,14 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   br label %655
 
 655:                                              ; preds = %654, %649, %642
-  br i1 %643, label %642, label %.loopexit24, !llvm.loop !15
+  br i1 %643, label %642, label %.loopexit25, !llvm.loop !15
 
-.loopexit24:                                      ; preds = %655, %627
+.loopexit25:                                      ; preds = %655, %627
   %656 = add nuw nsw i64 %628, 1
   %657 = icmp eq i64 %656, 4
   br i1 %657, label %658, label %627, !llvm.loop !85
 
-658:                                              ; preds = %.loopexit24
+658:                                              ; preds = %.loopexit25
   %659 = tail call i32 @intel_port_to_phy(ptr noundef %12, i32 noundef %595) #7
   %660 = load i32, ptr %336, align 4
   %661 = and i32 %660, 8192
@@ -3012,7 +3012,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i32, ptr %14, align 8
-  br i1 %12, label %16, label %75
+  br i1 %12, label %16, label %74
 
 16:                                               ; preds = %2
   switch i32 %15, label %20 [
@@ -3066,204 +3066,204 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr noundef
   %47 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %46, i32 noundef 0, i16 noundef zeroext 3184)
   %48 = or i8 %47, 4
   %49 = icmp eq i8 %48, %47
-  br i1 %49, label %51, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %45
   tail call fastcc void @__intel_cx0_write(ptr noundef %13, i32 noundef %46, i32 noundef 0, i16 noundef zeroext 3184, i8 noundef zeroext %48, i1 noundef zeroext true)
-  br label %51
+  br label %.critedge
 
-51:                                               ; preds = %45, %50
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  br label %53
+.critedge:                                        ; preds = %50, %45
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  br label %52
 
-53:                                               ; preds = %53, %51
-  %54 = phi i64 [ 0, %51 ], [ %60, %53 ]
-  %55 = load i32, ptr %4, align 4
-  %56 = trunc i64 %54 to i16
-  %57 = or disjoint i16 %56, 3072
-  %58 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %55, i32 noundef 0, i16 noundef zeroext %57)
-  %59 = getelementptr [20 x i8], ptr %52, i64 0, i64 %54
-  store i8 %58, ptr %59, align 1
-  %60 = add nuw nsw i64 %54, 1
-  %61 = icmp eq i64 %60, 20
-  br i1 %61, label %62, label %53, !llvm.loop !88
+52:                                               ; preds = %52, %.critedge
+  %53 = phi i64 [ 0, %.critedge ], [ %59, %52 ]
+  %54 = load i32, ptr %4, align 4
+  %55 = trunc i64 %53 to i16
+  %56 = or disjoint i16 %55, 3072
+  %57 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %54, i32 noundef 0, i16 noundef zeroext %56)
+  %58 = getelementptr [20 x i8], ptr %51, i64 0, i64 %53
+  store i8 %57, ptr %58, align 1
+  %59 = add nuw nsw i64 %53, 1
+  %60 = icmp eq i64 %59, 20
+  br i1 %60, label %61, label %52, !llvm.loop !88
 
-62:                                               ; preds = %53
-  %63 = load i32, ptr %4, align 4
-  %64 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %63, i32 noundef 0, i16 noundef zeroext 3104)
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %64, ptr %65, align 1
-  %66 = load i32, ptr %4, align 4
-  %67 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %66, i32 noundef 0, i16 noundef zeroext 3120)
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %67, ptr %68, align 4
-  %69 = load ptr, ptr %0, align 8
-  %70 = load i32, ptr %14, align 8
-  switch i32 %70, label %74 [
-    i32 10, label %165
-    i32 7, label %165
-    i32 8, label %165
-    i32 6, label %165
-    i32 11, label %71
+61:                                               ; preds = %52
+  %62 = load i32, ptr %4, align 4
+  %63 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %62, i32 noundef 0, i16 noundef zeroext 3104)
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  store i8 %63, ptr %64, align 1
+  %65 = load i32, ptr %4, align 4
+  %66 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %65, i32 noundef 0, i16 noundef zeroext 3120)
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 %66, ptr %67, align 4
+  %68 = load ptr, ptr %0, align 8
+  %69 = load i32, ptr %14, align 8
+  switch i32 %69, label %73 [
+    i32 10, label %164
+    i32 7, label %164
+    i32 8, label %164
+    i32 6, label %164
+    i32 11, label %70
   ]
 
-71:                                               ; preds = %62
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %73 = load ptr, ptr %72, align 8
-  br label %165
+70:                                               ; preds = %61
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %72 = load ptr, ptr %71, align 8
+  br label %164
 
-74:                                               ; preds = %62
-  br label %165
+73:                                               ; preds = %61
+  br label %164
 
-75:                                               ; preds = %2
-  switch i32 %15, label %79 [
-    i32 10, label %80
-    i32 7, label %80
-    i32 8, label %80
-    i32 6, label %80
-    i32 11, label %76
+74:                                               ; preds = %2
+  switch i32 %15, label %78 [
+    i32 10, label %79
+    i32 7, label %79
+    i32 8, label %79
+    i32 6, label %79
+    i32 11, label %75
   ]
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %78 = load ptr, ptr %77, align 8
-  br label %80
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %77 = load ptr, ptr %76, align 8
+  br label %79
 
-79:                                               ; preds = %75
-  br label %80
+78:                                               ; preds = %74
+  br label %79
 
-80:                                               ; preds = %79, %76, %75, %75, %75, %75
-  %81 = phi ptr [ %78, %76 ], [ %0, %75 ], [ %0, %75 ], [ %0, %75 ], [ %0, %75 ], [ null, %79 ]
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 392
-  tail call void @intel_psr_pause(ptr noundef nonnull %82) #7
-  %83 = tail call i64 @intel_display_power_get(ptr noundef %13, i32 noundef 73) #7
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 7368
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 7512
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 7544
-  br label %88
+79:                                               ; preds = %78, %75, %74, %74, %74, %74
+  %80 = phi ptr [ %77, %75 ], [ %0, %74 ], [ %0, %74 ], [ %0, %74 ], [ %0, %74 ], [ null, %78 ]
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 392
+  tail call void @intel_psr_pause(ptr noundef nonnull %81) #7
+  %82 = tail call i64 @intel_display_power_get(ptr noundef %13, i32 noundef 73) #7
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 7368
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 7512
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 7544
+  br label %87
 
-88:                                               ; preds = %88, %80
-  %89 = phi i1 [ true, %80 ], [ false, %88 ]
-  %90 = phi i32 [ 0, %80 ], [ 4, %88 ]
-  %91 = load i32, ptr %4, align 4
-  %92 = icmp slt i32 %91, 3
-  %93 = shl i32 %91, 8
-  %94 = add i32 %93, 409816
-  %95 = shl i32 %91, 9
-  %96 = add i32 %95, 1502296
-  %97 = select i1 %92, i32 %94, i32 %96
-  %98 = or disjoint i32 %97, %90
-  %99 = load ptr, ptr %86, align 8
-  %100 = tail call i32 %99(ptr noundef nonnull %85, i32 %98, i1 noundef zeroext true) #7
-  %101 = and i32 %100, -16777216
-  %102 = or disjoint i32 %101, 40960
-  %103 = load ptr, ptr %87, align 8
-  tail call void %103(ptr noundef nonnull %85, i32 %98, i32 noundef %102, i1 noundef zeroext true) #7
-  br i1 %89, label %88, label %104, !llvm.loop !5
+87:                                               ; preds = %87, %79
+  %88 = phi i1 [ true, %79 ], [ false, %87 ]
+  %89 = phi i32 [ 0, %79 ], [ 4, %87 ]
+  %90 = load i32, ptr %4, align 4
+  %91 = icmp slt i32 %90, 3
+  %92 = shl i32 %90, 8
+  %93 = add i32 %92, 409816
+  %94 = shl i32 %90, 9
+  %95 = add i32 %94, 1502296
+  %96 = select i1 %91, i32 %93, i32 %95
+  %97 = or disjoint i32 %96, %89
+  %98 = load ptr, ptr %85, align 8
+  %99 = tail call i32 %98(ptr noundef nonnull %84, i32 %97, i1 noundef zeroext true) #7
+  %100 = and i32 %99, -16777216
+  %101 = or disjoint i32 %100, 40960
+  %102 = load ptr, ptr %86, align 8
+  tail call void %102(ptr noundef nonnull %84, i32 %97, i32 noundef %101, i1 noundef zeroext true) #7
+  br i1 %88, label %87, label %103, !llvm.loop !5
 
-104:                                              ; preds = %88
-  %105 = load i32, ptr %4, align 4
-  %106 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %105, i32 noundef 0, i16 noundef zeroext 3328)
-  %107 = and i8 %106, 1
-  %108 = icmp eq i8 %107, 0
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %110 = select i1 %108, i16 -12498, i16 -12502
-  br label %114
+103:                                              ; preds = %87
+  %104 = load i32, ptr %4, align 4
+  %105 = tail call fastcc zeroext i8 @__intel_cx0_read(ptr noundef %13, i32 noundef %104, i32 noundef 0, i16 noundef zeroext 3328)
+  %106 = and i8 %105, 1
+  %107 = icmp eq i8 %106, 0
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %109 = select i1 %107, i16 -12498, i16 -12502
+  br label %113
 
-111:                                              ; preds = %114
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %113 = select i1 %108, i16 -12886, i16 -12891
-  br label %123
+110:                                              ; preds = %113
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %112 = select i1 %107, i16 -12886, i16 -12891
+  br label %122
 
-114:                                              ; preds = %114, %104
-  %115 = phi i64 [ 0, %104 ], [ %121, %114 ]
-  %116 = load i32, ptr %4, align 4
-  %117 = trunc i64 %115 to i16
-  %118 = getelementptr [3 x i16], ptr %109, i64 0, i64 %115
-  %119 = sub nuw nsw i16 %110, %117
-  %120 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %116, i16 noundef zeroext %119)
-  store i16 %120, ptr %118, align 2
-  %121 = add nuw nsw i64 %115, 1
-  %122 = icmp eq i64 %121, 3
-  br i1 %122, label %111, label %114, !llvm.loop !89
+113:                                              ; preds = %113, %103
+  %114 = phi i64 [ 0, %103 ], [ %120, %113 ]
+  %115 = load i32, ptr %4, align 4
+  %116 = trunc i64 %114 to i16
+  %117 = getelementptr [3 x i16], ptr %108, i64 0, i64 %114
+  %118 = sub nuw nsw i16 %109, %116
+  %119 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %115, i16 noundef zeroext %118)
+  store i16 %119, ptr %117, align 2
+  %120 = add nuw nsw i64 %114, 1
+  %121 = icmp eq i64 %120, 3
+  br i1 %121, label %110, label %113, !llvm.loop !89
 
-123:                                              ; preds = %123, %111
-  %124 = phi i64 [ 0, %111 ], [ %130, %123 ]
-  %125 = load i32, ptr %4, align 4
-  %126 = trunc i64 %124 to i16
-  %127 = getelementptr [4 x i16], ptr %112, i64 0, i64 %124
-  %128 = sub nuw nsw i16 %113, %126
-  %129 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %125, i16 noundef zeroext %128)
-  store i16 %129, ptr %127, align 2
-  %130 = add nuw nsw i64 %124, 1
-  %131 = icmp eq i64 %130, 4
-  br i1 %131, label %132, label %123, !llvm.loop !90
+122:                                              ; preds = %122, %110
+  %123 = phi i64 [ 0, %110 ], [ %129, %122 ]
+  %124 = load i32, ptr %4, align 4
+  %125 = trunc i64 %123 to i16
+  %126 = getelementptr [4 x i16], ptr %111, i64 0, i64 %123
+  %127 = sub nuw nsw i16 %112, %125
+  %128 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %124, i16 noundef zeroext %127)
+  store i16 %128, ptr %126, align 2
+  %129 = add nuw nsw i64 %123, 1
+  %130 = icmp eq i64 %129, 4
+  br i1 %130, label %131, label %122, !llvm.loop !90
 
-132:                                              ; preds = %123
-  %133 = load i16, ptr %109, align 4
-  %134 = and i16 %133, 128
-  %135 = icmp eq i16 %134, 0
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  br i1 %135, label %139, label %137
+131:                                              ; preds = %122
+  %132 = load i16, ptr %108, align 4
+  %133 = and i16 %132, 128
+  %134 = icmp eq i16 %133, 0
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  br i1 %134, label %138, label %136
 
-137:                                              ; preds = %132
-  %138 = select i1 %108, i16 -13478, i16 -13490
-  br label %141
+136:                                              ; preds = %131
+  %137 = select i1 %107, i16 -13478, i16 -13490
+  br label %140
 
-139:                                              ; preds = %132
-  %140 = select i1 %108, i16 -13072, i16 -13083
-  br label %150
+138:                                              ; preds = %131
+  %139 = select i1 %107, i16 -13072, i16 -13083
+  br label %149
 
-141:                                              ; preds = %141, %137
-  %142 = phi i64 [ %148, %141 ], [ 0, %137 ]
-  %143 = load i32, ptr %4, align 4
-  %144 = trunc i64 %142 to i16
-  %145 = getelementptr [11 x i16], ptr %136, i64 0, i64 %142
-  %146 = sub nuw nsw i16 %138, %144
-  %147 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %143, i16 noundef zeroext %146)
-  store i16 %147, ptr %145, align 2
-  %148 = add nuw nsw i64 %142, 1
-  %149 = icmp eq i64 %148, 11
-  br i1 %149, label %.loopexit, label %141, !llvm.loop !91
+140:                                              ; preds = %140, %136
+  %141 = phi i64 [ %147, %140 ], [ 0, %136 ]
+  %142 = load i32, ptr %4, align 4
+  %143 = trunc i64 %141 to i16
+  %144 = getelementptr [11 x i16], ptr %135, i64 0, i64 %141
+  %145 = sub nuw nsw i16 %137, %143
+  %146 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %142, i16 noundef zeroext %145)
+  store i16 %146, ptr %144, align 2
+  %147 = add nuw nsw i64 %141, 1
+  %148 = icmp eq i64 %147, 11
+  br i1 %148, label %.loopexit, label %140, !llvm.loop !91
 
-150:                                              ; preds = %150, %139
-  %151 = phi i64 [ %157, %150 ], [ 0, %139 ]
-  %152 = load i32, ptr %4, align 4
-  %153 = trunc i64 %151 to i16
-  %154 = getelementptr [10 x i16], ptr %136, i64 0, i64 %151
-  %155 = sub nuw nsw i16 %140, %153
-  %156 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %152, i16 noundef zeroext %155)
-  store i16 %156, ptr %154, align 2
-  %157 = add nuw nsw i64 %151, 1
-  %158 = icmp eq i64 %157, 10
-  br i1 %158, label %.loopexit, label %150, !llvm.loop !92
+149:                                              ; preds = %149, %138
+  %150 = phi i64 [ %156, %149 ], [ 0, %138 ]
+  %151 = load i32, ptr %4, align 4
+  %152 = trunc i64 %150 to i16
+  %153 = getelementptr [10 x i16], ptr %135, i64 0, i64 %150
+  %154 = sub nuw nsw i16 %139, %152
+  %155 = tail call fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %13, i32 noundef %151, i16 noundef zeroext %154)
+  store i16 %155, ptr %153, align 2
+  %156 = add nuw nsw i64 %150, 1
+  %157 = icmp eq i64 %156, 10
+  br i1 %157, label %.loopexit, label %149, !llvm.loop !92
 
-.loopexit:                                        ; preds = %141, %150
-  %159 = load ptr, ptr %0, align 8
-  %160 = load i32, ptr %14, align 8
-  switch i32 %160, label %164 [
-    i32 10, label %165
-    i32 7, label %165
-    i32 8, label %165
-    i32 6, label %165
-    i32 11, label %161
+.loopexit:                                        ; preds = %140, %149
+  %158 = load ptr, ptr %0, align 8
+  %159 = load i32, ptr %14, align 8
+  switch i32 %159, label %163 [
+    i32 10, label %164
+    i32 7, label %164
+    i32 8, label %164
+    i32 6, label %164
+    i32 11, label %160
   ]
 
-161:                                              ; preds = %.loopexit
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %163 = load ptr, ptr %162, align 8
-  br label %165
+160:                                              ; preds = %.loopexit
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %162 = load ptr, ptr %161, align 8
+  br label %164
 
-164:                                              ; preds = %.loopexit
-  br label %165
+163:                                              ; preds = %.loopexit
+  br label %164
 
-165:                                              ; preds = %164, %161, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %74, %71, %62, %62, %62, %62
-  %166 = phi ptr [ %73, %71 ], [ %0, %62 ], [ %0, %62 ], [ %0, %62 ], [ %0, %62 ], [ null, %74 ], [ %163, %161 ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ null, %164 ]
-  %167 = phi ptr [ %69, %71 ], [ %69, %62 ], [ %69, %62 ], [ %69, %62 ], [ %69, %62 ], [ %69, %74 ], [ %159, %161 ], [ %159, %.loopexit ], [ %159, %.loopexit ], [ %159, %.loopexit ], [ %159, %.loopexit ], [ %159, %164 ]
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 392
-  tail call void @intel_psr_resume(ptr noundef nonnull %168) #7
-  tail call void @intel_display_power_put_unchecked(ptr noundef %167, i32 noundef 73) #7
+164:                                              ; preds = %163, %160, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %73, %70, %61, %61, %61, %61
+  %165 = phi ptr [ %72, %70 ], [ %0, %61 ], [ %0, %61 ], [ %0, %61 ], [ %0, %61 ], [ null, %73 ], [ %162, %160 ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ %0, %.loopexit ], [ null, %163 ]
+  %166 = phi ptr [ %68, %70 ], [ %68, %61 ], [ %68, %61 ], [ %68, %61 ], [ %68, %61 ], [ %68, %73 ], [ %158, %160 ], [ %158, %.loopexit ], [ %158, %.loopexit ], [ %158, %.loopexit ], [ %158, %.loopexit ], [ %158, %163 ]
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 392
+  tail call void @intel_psr_resume(ptr noundef nonnull %167) #7
+  tail call void @intel_display_power_put_unchecked(ptr noundef %166, i32 noundef 73) #7
   ret void
 }
 
@@ -4736,7 +4736,7 @@ define internal fastcc void @intel_cx0_powerdown_change_sequence(ptr noundef %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @intel_c20_sram_write(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %0, i32 noundef 73) #7
-  br i1 %5, label %.critedge, label %6, !prof !9
+  br i1 %5, label %.critedge8, label %6, !prof !9
 
 6:                                                ; preds = %4
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !138
@@ -4760,9 +4760,9 @@ define internal fastcc void @intel_c20_sram_write(ptr noundef %0, i32 noundef %1
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 71, i32 2313, i64 12) #7, !srcloc !140
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #7, !srcloc !141
   tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #7, !srcloc !142
-  br label %.critedge
+  br label %.critedge8
 
-.critedge:                                        ; preds = %16, %4
+.critedge8:                                       ; preds = %16, %4
   %18 = lshr i16 %2, 8
   %19 = trunc nuw i16 %18 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3075, i8 noundef zeroext %19, i1 noundef zeroext false)
@@ -4785,7 +4785,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %0, i32 noundef %1, i16 noundef zeroext range(i16 0, -12497) %2) unnamed_addr #1 align 16 {
   %4 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %0, i32 noundef 73) #7
-  br i1 %4, label %.critedge, label %5, !prof !9
+  br i1 %4, label %.critedge4, label %5, !prof !9
 
 5:                                                ; preds = %3
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !138
@@ -4809,9 +4809,9 @@ define internal fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %0, i32 noun
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 71, i32 2313, i64 12) #7, !srcloc !140
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_end\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #7, !srcloc !141
   tail call void asm sideeffect "902: nop\0A\09.pushsection .discard.instr_end\0A\09.long 902b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 902) #7, !srcloc !142
-  br label %.critedge
+  br label %.critedge4
 
-.critedge:                                        ; preds = %15, %3
+.critedge4:                                       ; preds = %15, %3
   %17 = lshr i16 %2, 8
   %18 = trunc nuw i16 %17 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3079, i8 noundef zeroext %18, i1 noundef zeroext false)

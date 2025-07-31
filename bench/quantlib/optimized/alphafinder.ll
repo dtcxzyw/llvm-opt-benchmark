@@ -1025,8 +1025,8 @@ for.cond.cleanup:                                 ; preds = %for.body
   store double %targetVariance, ptr %targetVariance_, align 8, !tbaa !30
   %constantPart_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   store double 0.000000e+00, ptr %constantPart_, align 8, !tbaa !28
-  %cmp12.not150 = icmp slt i32 %stepindex, 0
-  br i1 %cmp12.not150, label %for.cond.cleanup13, label %for.body14.lr.ph
+  %cmp12.not148 = icmp slt i32 %stepindex, 0
+  br i1 %cmp12.not148, label %for.cond.cleanup13, label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %for.cond.cleanup
   %6 = load ptr, ptr %rateonevols, align 8, !tbaa !23
@@ -1035,13 +1035,13 @@ for.body14.lr.ph:                                 ; preds = %for.cond.cleanup
   br label %for.body14
 
 for.body:                                         ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit, %for.body
-  %i.0149 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %inc, %for.body ]
+  %i.0147 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %inc, %for.body ]
   %8 = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %10, %for.body ]
-  %add.ptr.i60 = getelementptr inbounds nuw double, ptr %4, i64 %i.0149
+  %add.ptr.i60 = getelementptr inbounds nuw double, ptr %4, i64 %i.0147
   %9 = load double, ptr %add.ptr.i60, align 8, !tbaa !24
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %8)
   store double %10, ptr %totalVar_, align 8, !tbaa !31
-  %inc = add nuw i64 %i.0149, 1
+  %inc = add nuw i64 %i.0147, 1
   %exitcond = icmp eq i64 %inc, %umax
   br i1 %exitcond, label %for.cond.cleanup, label %for.body, !llvm.loop !44
 
@@ -1065,8 +1065,8 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %12)
   store double %14, ptr %constantPart_, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond173.not, label %for.cond.cleanup13, label %for.body14, !llvm.loop !45
+  %exitcond171.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond171.not, label %for.cond.cleanup13, label %for.body14, !llvm.loop !45
 
 if.then:                                          ; preds = %for.cond.cleanup13
   br i1 %call28, label %if.end41, label %if.then35
@@ -1146,22 +1146,22 @@ if.else48:                                        ; preds = %for.cond.cleanup13
   %conv49 = sitofp i32 %steps to double
   %div = fdiv double %sub, %conv49
   %conv51 = sext i32 %steps to i64
-  %cmp52152 = icmp eq i32 %steps, 0
-  br i1 %cmp52152, label %cleanup97, label %for.body56
+  %cmp52150 = icmp eq i32 %steps, 0
+  br i1 %cmp52150, label %cleanup97, label %for.body56
 
 for.cond.cleanup55:                               ; preds = %for.body56
   %18 = or i1 %call63, %call59
   br i1 %18, label %if.end75, label %cleanup97
 
 for.body56:                                       ; preds = %if.else48, %for.body56
-  %j.0153 = phi i64 [ %inc66, %for.body56 ], [ 0, %if.else48 ]
-  %conv57 = uitofp i64 %j.0153 to double
+  %j.0151 = phi i64 [ %inc66, %for.body56 ], [ 0, %if.else48 ]
+  %conv57 = uitofp i64 %j.0151 to double
   %19 = tail call double @llvm.fmuladd.f64(double %conv57, double %div, double %alpha0)
   %call59 = tail call noundef zeroext i1 @_ZN8QuantLib11AlphaFinder20testIfSolutionExistsEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %19)
   %neg = fneg double %conv57
   %20 = tail call double @llvm.fmuladd.f64(double %neg, double %div, double %alpha0)
   %call63 = tail call noundef zeroext i1 @_ZN8QuantLib11AlphaFinder20testIfSolutionExistsEd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %20)
-  %inc66 = add nuw i64 %j.0153, 1
+  %inc66 = add nuw i64 %j.0151, 1
   %cmp52 = icmp uge i64 %inc66, %conv51
   %or.cond1 = or i1 %cmp52, %call59
   %.demorgan = or i1 %call63, %or.cond1

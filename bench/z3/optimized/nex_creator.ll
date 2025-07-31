@@ -4658,13 +4658,13 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %7
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %.not30 = icmp eq i32 %12, 0
-  br i1 %.not30, label %.critedge, label %.lr.ph
+  %.not26 = icmp eq i32 %12, 0
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK3nla7nex_sum3endEv.exit, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26
-  %.02032 = phi i1 [ %.222, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26 ], [ false, %_ZNK3nla7nex_sum3endEv.exit ]
-  %.02331 = phi ptr [ %48, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26 ], [ %9, %_ZNK3nla7nex_sum3endEv.exit ]
-  %16 = load ptr, ptr %.02331, align 8, !tbaa !21
+.lr.ph:                                           ; preds = %_ZNK3nla7nex_sum3endEv.exit, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread
+  %.02028 = phi i1 [ %.222, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread ], [ false, %_ZNK3nla7nex_sum3endEv.exit ]
+  %.02327 = phi ptr [ %48, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread ], [ %9, %_ZNK3nla7nex_sum3endEv.exit ]
+  %16 = load ptr, ptr %.02327, align 8, !tbaa !21
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -4681,7 +4681,7 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %7
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %22
-  br i1 %.02032, label %.critedge, label %29
+  br i1 %.02028, label %.critedge, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4690,7 +4690,7 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %7
   br label %33
 
 33:                                               ; preds = %29, %22
-  %.222 = phi i1 [ %.02032, %22 ], [ %32, %29 ]
+  %.222 = phi i1 [ %.02028, %22 ], [ %32, %29 ]
   %34 = load ptr, ptr %16, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -4700,7 +4700,7 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %7
 
 39:                                               ; preds = %33
   %40 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator17mul_is_simplifiedERKNS_7nex_mulE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %16)
-  br i1 %40, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26, label %.critedge
+  br i1 %40, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread, label %.critedge
 
 41:                                               ; preds = %33
   %42 = load ptr, ptr %16, align 8, !tbaa !3
@@ -4708,19 +4708,19 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %7
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %46 = icmp eq i32 %45, 2
-  br i1 %46, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26
+  br i1 %46, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread
 
 _ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit: ; preds = %41
   %47 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator17sum_is_simplifiedERKNS_7nex_sumE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  br i1 %47, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26, label %.critedge
+  br i1 %47, label %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread, label %.critedge
 
-_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26: ; preds = %41, %39, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit
-  %48 = getelementptr inbounds nuw i8, ptr %.02331, i64 8
+_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread: ; preds = %41, %39, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit
+  %48 = getelementptr inbounds nuw i8, ptr %.02327, i64 8
   %.not = icmp eq ptr %48, %15
   br i1 %.not, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26, %39, %.lr.ph, %28, %7, %_ZNK3nla7nex_sum3endEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK3nla7nex_sum3endEv.exit ], [ true, %7 ], [ false, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit ], [ true, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread26 ], [ false, %39 ], [ false, %.lr.ph ], [ false, %28 ]
+.critedge:                                        ; preds = %.lr.ph, %28, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread, %39, %7, %_ZNK3nla7nex_sum3endEv.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK3nla7nex_sum3endEv.exit ], [ true, %7 ], [ false, %.lr.ph ], [ false, %28 ], [ false, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit ], [ true, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit.thread ], [ false, %39 ]
   ret i1 %.0
 }
 

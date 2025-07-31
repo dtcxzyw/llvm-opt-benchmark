@@ -499,12 +499,12 @@ define signext range(i8 0, 2) i8 @isFileModTimeLater(ptr noundef %0, ptr noundef
 14:                                               ; preds = %12
   %15 = tail call ptr @opendir(ptr noundef nonnull %1)
   %.not55 = icmp eq ptr %15, null
-  br i1 %.not55, label %.thread81, label %.preheader
+  br i1 %.not55, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %14
   %16 = tail call ptr @readdir(ptr noundef nonnull %15)
-  %.not56100 = icmp eq ptr %16, null
-  br i1 %.not56100, label %.thread84, label %sub_0.lr.ph
+  %.not5697 = icmp eq ptr %16, null
+  br i1 %.not5697, label %.thread81, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -516,28 +516,28 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %69
   %20 = phi ptr [ %16, %sub_0.lr.ph ], [ %70, %69 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = load i8, ptr %21, align 1
-  %.not101 = icmp eq i8 %22, 46
-  br i1 %.not101, label %.tail, label %.tail91.thread
+  %.not98 = icmp eq i8 %22, 46
+  br i1 %.not98, label %.tail, label %.tail88.thread
 
 .tail:                                            ; preds = %sub_0
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %69, label %sub_193
+  br i1 %25, label %69, label %sub_190
 
-sub_193:                                          ; preds = %.tail
+sub_190:                                          ; preds = %.tail
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %27 = load i8, ptr %26, align 1
-  %.not103 = icmp eq i8 %27, 46
-  br i1 %.not103, label %.tail91, label %.tail91.thread
+  %.not100 = icmp eq i8 %27, 46
+  br i1 %.not100, label %.tail88, label %.tail88.thread
 
-.tail91:                                          ; preds = %sub_193
+.tail88:                                          ; preds = %sub_190
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 21
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %69, label %.tail91.thread
+  br i1 %30, label %69, label %.tail88.thread
 
-.tail91.thread:                                   ; preds = %sub_0, %sub_193, %.tail91
+.tail88.thread:                                   ; preds = %sub_0, %sub_190, %.tail88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
   store i32 0, ptr %8, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
@@ -552,13 +552,13 @@ common.resume:                                    ; preds = %45, %33
   %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %lpad.phi, %45 ]
   resume { ptr, i32 } %common.resume.op
 
-33:                                               ; preds = %.tail91.thread
+33:                                               ; preds = %.tail88.thread
   %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #15
   br label %common.resume
 
-_ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.tail91.thread
+_ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.tail88.thread
   %35 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef nonnull @.str.2, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %36 unwind label %.loopexit
 
@@ -574,9 +574,9 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.tail91.thread
 41:                                               ; preds = %38
   %42 = load ptr, ptr @stderr, align 8, !tbaa !18
   %43 = invoke ptr @u_errorName_77(i32 noundef %39)
-          to label %.thread88 unwind label %.loopexit.split-lp
+          to label %.thread85 unwind label %.loopexit.split-lp
 
-.thread88:                                        ; preds = %41
+.thread85:                                        ; preds = %41
   %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %43) #18
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
@@ -661,19 +661,19 @@ _ZL23whichFileModTimeIsLaterPKcS0_.exit.thread:   ; preds = %61, %66
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  br label %.thread84
+  br label %.thread81
 
-69:                                               ; preds = %.thread, %.tail91, %.tail
+69:                                               ; preds = %.thread, %.tail88, %.tail
   %70 = call ptr @readdir(ptr noundef nonnull %15)
   %.not56 = icmp eq ptr %70, null
-  br i1 %.not56, label %.thread84, label %sub_0, !llvm.loop !24
+  br i1 %.not56, label %.thread81, label %sub_0, !llvm.loop !24
 
-.thread84:                                        ; preds = %69, %.preheader, %.thread75
+.thread81:                                        ; preds = %69, %.preheader, %.thread75
   %.138 = phi i8 [ 0, %.thread75 ], [ 1, %.preheader ], [ 1, %69 ]
   %71 = call i32 @closedir(ptr noundef nonnull %15)
   br label %93
 
-.thread81:                                        ; preds = %14
+.critedge:                                        ; preds = %14
   %72 = load ptr, ptr @stderr, align 8, !tbaa !18
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #18
   br label %93
@@ -718,8 +718,8 @@ _ZL23whichFileModTimeIsLaterPKcS0_.exit66:        ; preds = %89, %82, %90
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #15
   br label %93
 
-93:                                               ; preds = %.thread81, %.thread88, %.thread84, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66, %74, %3
-  %.0 = phi i8 [ 0, %3 ], [ %not.or.cond7, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66 ], [ 0, %74 ], [ 0, %.thread81 ], [ 0, %.thread88 ], [ %.138, %.thread84 ]
+93:                                               ; preds = %.thread85, %.thread81, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66, %74, %.critedge, %3
+  %.0 = phi i8 [ 0, %3 ], [ 0, %.critedge ], [ %not.or.cond7, %_ZL23whichFileModTimeIsLaterPKcS0_.exit66 ], [ 0, %74 ], [ 0, %.thread85 ], [ %.138, %.thread81 ]
   ret i8 %.0
 }
 

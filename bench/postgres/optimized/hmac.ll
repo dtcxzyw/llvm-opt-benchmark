@@ -68,7 +68,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -92,7 +92,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %19, align 4
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %15, i1 false)
@@ -106,7 +106,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %26, align 4
   tail call void @pfree(ptr noundef nonnull %16) #5
-  br label %.thread
+  br label %.critedge
 
 27:                                               ; preds = %20
   %28 = tail call i32 @pg_cryptohash_init(ptr noundef nonnull %23) #5
@@ -131,7 +131,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   store ptr %38, ptr %39, align 8
   tail call void @pg_cryptohash_free(ptr noundef nonnull %23) #5
   tail call void @pfree(ptr noundef nonnull %16) #5
-  br label %.thread
+  br label %.critedge
 
 40:                                               ; preds = %33
   tail call void @pg_cryptohash_free(ptr noundef nonnull %23) #5
@@ -141,12 +141,12 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %.060 = phi i64 [ %15, %40 ], [ %2, %5 ]
   %.058 = phi ptr [ %16, %40 ], [ %1, %5 ]
   %.057 = phi ptr [ %16, %40 ], [ null, %5 ]
-  %.not73 = icmp eq i64 %.060, 0
-  br i1 %.not73, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq i64 %.060, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %.lr.ph
   %42 = phi i64 [ %53, %.lr.ph ], [ 0, %41 ]
-  %.06272 = phi i32 [ %52, %.lr.ph ], [ 0, %41 ]
+  %.06269 = phi i32 [ %52, %.lr.ph ], [ 0, %41 ]
   %43 = getelementptr inbounds i8, ptr %.058, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %42
@@ -158,7 +158,7 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %48
   store i8 %51, ptr %49, align 1
-  %52 = add i32 %.06272, 1
+  %52 = add i32 %.06269, 1
   %53 = sext i32 %52 to i64
   %54 = icmp ugt i64 %.060, %53
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -185,22 +185,22 @@ define dso_local range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef 
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %67, ptr %68, align 8
   %.not68 = icmp eq ptr %.057, null
-  br i1 %.not68, label %.thread, label %69
+  br i1 %.not68, label %.critedge, label %69
 
 69:                                               ; preds = %64
   tail call void @pfree(ptr noundef nonnull %.057) #5
-  br label %.thread
+  br label %.critedge
 
 70:                                               ; preds = %58
   %.not = icmp eq ptr %.057, null
-  br i1 %.not, label %.thread, label %71
+  br i1 %.not, label %.critedge, label %71
 
 71:                                               ; preds = %70
   tail call void @pfree(ptr noundef nonnull %.057) #5
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %36, %25, %18, %70, %71, %64, %69, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %69 ], [ -1, %64 ], [ 0, %71 ], [ 0, %70 ], [ -1, %18 ], [ -1, %25 ], [ -1, %36 ]
+.critedge:                                        ; preds = %18, %25, %36, %70, %71, %64, %69, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %69 ], [ -1, %64 ], [ 0, %71 ], [ 0, %70 ], [ -1, %36 ], [ -1, %25 ], [ -1, %18 ]
   ret i32 %.0
 }
 

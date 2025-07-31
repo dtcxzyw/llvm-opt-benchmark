@@ -222,7 +222,7 @@ lib_create_table.exit:                            ; preds = %40, %47
     i8 -4, label %167
     i8 -3, label %177
     i8 -2, label %182
-    i8 -1, label %192
+    i8 -1, label %.critedge
   ]
 
 126:                                              ; preds = %125
@@ -343,7 +343,7 @@ lib_create_table.exit:                            ; preds = %40, %47
   %191 = getelementptr inbounds nuw i8, ptr %80, i64 %187
   br label %.backedge
 
-192:                                              ; preds = %125
+.critedge:                                        ; preds = %125
   ret void
 }
 

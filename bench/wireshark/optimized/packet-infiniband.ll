@@ -3067,7 +3067,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   switch i32 %3, label %23 [
     i32 1, label %.thread
-    i32 2, label %.thread410
+    i32 2, label %.thread409
   ]
 
 .thread:                                          ; preds = %4
@@ -3077,7 +3077,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %19 = trunc i32 %18 to i16
   br label %67
 
-.thread410:                                       ; preds = %4
+.thread409:                                       ; preds = %4
   %20 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.1229)
   %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
@@ -3140,7 +3140,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %65, align 8
   %66 = add nsw i16 %54, -8
-  switch i8 %39, label %default.unreachable418 [
+  switch i8 %39, label %default.unreachable413 [
     i8 3, label %67
     i8 2, label %107
     i8 1, label %164
@@ -3149,7 +3149,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
 
 67:                                               ; preds = %.thread, %23
   %68 = phi i32 [ 0, %.thread ], [ 8, %23 ]
-  %.0397409 = phi i32 [ 4, %.thread ], [ 6, %23 ]
+  %.0397408 = phi i32 [ 4, %.thread ], [ 6, %23 ]
   %.0398406 = phi i16 [ %19, %.thread ], [ %66, %23 ]
   %69 = load i32, ptr @hf_infiniband_GRH, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 40, i32 noundef 0)
@@ -3200,12 +3200,12 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   store i32 %105, ptr %5, align 4
   %106 = add i16 %.0398406, -40
   %.not = icmp eq i8 %83, 27
-  br i1 %.not, label %107, label %.thread414
+  br i1 %.not, label %107, label %.critedge
 
-107:                                              ; preds = %.thread410, %67, %23
-  %108 = phi i32 [ %105, %67 ], [ 8, %23 ], [ 0, %.thread410 ]
-  %.0397408 = phi i32 [ %.0397409, %67 ], [ 6, %23 ], [ 4, %.thread410 ]
-  %.1 = phi i16 [ %106, %67 ], [ %66, %23 ], [ %22, %.thread410 ]
+107:                                              ; preds = %.thread409, %67, %23
+  %108 = phi i32 [ %105, %67 ], [ 8, %23 ], [ 0, %.thread409 ]
+  %.0397407 = phi i32 [ %.0397408, %67 ], [ 6, %23 ], [ 4, %.thread409 ]
+  %.1 = phi i16 [ %106, %67 ], [ %66, %23 ], [ %22, %.thread409 ]
   %109 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %108)
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %109, ptr %110, align 8
@@ -3271,7 +3271,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %156 = load i32, ptr @hf_infiniband_packet_sequence_number, align 4
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %158 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %125, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %157)
-  %159 = add nsw i32 %.0393, %108
+  %159 = add nsw i32 %108, %.0393
   store i32 %159, ptr %5, align 4
   %160 = trunc nuw nsw i32 %.0393 to i16
   %161 = sub i16 %.1, %160
@@ -3279,7 +3279,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.val402 = load i8, ptr %162, align 8
   %163 = call fastcc i32 @find_next_header_sequence(i8 %.val, i8 %.val402)
-  switch i32 %163, label %265 [
+  switch i32 %163, label %266 [
     i32 0, label %204
     i32 1, label %207
     i32 2, label %210
@@ -3304,9 +3304,9 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
     i32 22, label %250
     i32 12, label %253
     i32 23, label %256
-    i32 24, label %260
-    i32 25, label %261
-    i32 26, label %262
+    i32 24, label %261
+    i32 25, label %262
+    i32 26, label %263
   ]
 
 164:                                              ; preds = %23
@@ -3329,7 +3329,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   store i32 %176, ptr %5, align 4
   %177 = load i32, ptr @hf_infiniband_variant_crc, align 4
   %178 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 2, i32 noundef 0)
-  br label %.thread414
+  br label %.critedge
 
 179:                                              ; preds = %23
   %180 = load i32, ptr @hf_infiniband_RWH, align 4
@@ -3366,9 +3366,9 @@ parse_RWH.exit:                                   ; preds = %179, %198
   store i32 %201, ptr %5, align 4
   %202 = load i32, ptr @hf_infiniband_variant_crc, align 4
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %202, ptr noundef %0, i32 noundef %201, i32 noundef 2, i32 noundef 0)
-  br label %.thread414
+  br label %.critedge
 
-default.unreachable418:                           ; preds = %23
+default.unreachable413:                           ; preds = %23
   unreachable
 
 204:                                              ; preds = %121
@@ -3376,8 +3376,8 @@ default.unreachable418:                           ; preds = %23
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %205 = add i16 %161, -12
   %206 = zext i16 %205 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %206, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %206, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 207:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
@@ -3385,8 +3385,8 @@ default.unreachable418:                           ; preds = %23
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %208 = add i16 %161, -28
   %209 = zext i16 %208 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %209, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %209, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 210:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
@@ -3394,8 +3394,8 @@ default.unreachable418:                           ; preds = %23
   call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %211 = add i16 %161, -16
   %212 = zext i16 %211 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %212, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %212, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 213:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
@@ -3404,189 +3404,190 @@ default.unreachable418:                           ; preds = %23
   call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %214 = add i16 %161, -32
   %215 = zext i16 %214 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %215, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %215, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 216:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br label %.thread414
+  br label %.critedge
 
 217:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
   %218 = add i16 %161, -8
   %219 = zext i16 %218 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %219, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %219, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 220:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %221 = add i16 %161, -4
   %222 = zext i16 %221 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %222, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %222, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 223:                                              ; preds = %121
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
-  br label %.thread414
+  br label %.critedge
 
 224:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
   call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
 225:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
 226:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
 227:                                              ; preds = %121
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %228 = add i16 %161, -8
   %229 = zext i16 %228 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %229, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %229, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 230:                                              ; preds = %121
   %231 = zext i16 %161 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %231, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %231, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 232:                                              ; preds = %121
   call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %233 = add i16 %161, -4
   %234 = zext i16 %233 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %234, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %234, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 235:                                              ; preds = %121
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %236 = add i16 %161, -20
   %237 = zext i16 %236 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %237, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %237, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 238:                                              ; preds = %121
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %239 = add i16 %161, -16
   %240 = zext i16 %239 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %240, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %240, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 241:                                              ; preds = %121
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %242 = add i16 %161, -16
   %243 = zext i16 %242 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %243, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %243, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 244:                                              ; preds = %121
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
   %245 = add i16 %161, -4
   %246 = zext i16 %245 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %246, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %246, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 247:                                              ; preds = %121
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
-  br label %.thread414
+  br label %.critedge
 
 248:                                              ; preds = %121
   call fastcc void @parse_AETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1)
   call fastcc void @parse_ATOMICACKETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
 249:                                              ; preds = %121
   call fastcc void @parse_ATOMICETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
 250:                                              ; preds = %121
   call fastcc void @parse_IETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %251 = add i16 %161, -4
   %252 = zext i16 %251 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %252, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %252, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 253:                                              ; preds = %121
   call fastcc void @parse_DETH(ptr noundef %16, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_IMMDT(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   %254 = add i16 %161, -12
   %255 = zext i16 %254 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %255, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %255, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 256:                                              ; preds = %121
-  %257 = add nsw i32 %159, 16
-  store i32 %257, ptr %5, align 4
-  %258 = add i16 %161, -16
-  %259 = zext i16 %258 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %259, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
-
-260:                                              ; preds = %121
-  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br label %.thread414
+  %257 = add nsw i32 %155, %.0393
+  %258 = add nsw i32 %257, 7
+  store i32 %258, ptr %5, align 4
+  %259 = add i16 %161, -16
+  %260 = zext i16 %259 to i32
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %260, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
 
 261:                                              ; preds = %121
-  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br label %.thread414
+  br label %.critedge
 
 262:                                              ; preds = %121
   call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_FETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
   call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %263 = add i16 %161, -20
-  %264 = zext i16 %263 to i32
-  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %264, i32 noundef %.0397408, ptr noundef %2)
-  br label %.thread414
+  br label %.critedge
 
-265:                                              ; preds = %121
+263:                                              ; preds = %121
+  call fastcc void @parse_RDETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @parse_RETH(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %264 = add i16 %161, -20
+  %265 = zext i16 %264 to i32
+  call fastcc void @parse_PAYLOAD(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %265, i32 noundef %.0397407, ptr noundef %2)
+  br label %.critedge
+
+266:                                              ; preds = %121
   call fastcc void @parse_VENDOR(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5)
-  br label %.thread414
+  br label %.critedge
 
-.thread414:                                       ; preds = %parse_RWH.exit, %164, %67, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %260, %261, %262, %265
-  %266 = load i32, ptr %5, align 4
-  %267 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %266)
-  switch i32 %267, label %283 [
-    i32 6, label %268
-    i32 4, label %275
-    i32 2, label %279
+.critedge:                                        ; preds = %67, %164, %parse_RWH.exit, %204, %207, %210, %213, %216, %217, %220, %223, %224, %225, %226, %227, %230, %232, %235, %238, %241, %244, %247, %248, %249, %250, %253, %256, %261, %262, %263, %266
+  %267 = load i32, ptr %5, align 4
+  %268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %267)
+  switch i32 %268, label %284 [
+    i32 6, label %269
+    i32 4, label %276
+    i32 2, label %280
   ]
 
-268:                                              ; preds = %.thread414
-  %269 = load i32, ptr @hf_infiniband_invariant_crc, align 4
-  %270 = load i32, ptr %5, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %269, ptr noundef %0, i32 noundef %270, i32 noundef 4, i32 noundef 0)
-  %272 = add i32 %270, 4
-  %273 = load i32, ptr @hf_infiniband_variant_crc, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %273, ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef 0)
-  br label %283
+269:                                              ; preds = %.critedge
+  %270 = load i32, ptr @hf_infiniband_invariant_crc, align 4
+  %271 = load i32, ptr %5, align 4
+  %272 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %270, ptr noundef %0, i32 noundef %271, i32 noundef 4, i32 noundef 0)
+  %273 = add i32 %271, 4
+  %274 = load i32, ptr @hf_infiniband_variant_crc, align 4
+  %275 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %274, ptr noundef %0, i32 noundef %273, i32 noundef 2, i32 noundef 0)
+  br label %284
 
-275:                                              ; preds = %.thread414
-  %276 = load i32, ptr @hf_infiniband_invariant_crc, align 4
-  %277 = load i32, ptr %5, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %276, ptr noundef %0, i32 noundef %277, i32 noundef 4, i32 noundef 0)
-  br label %283
+276:                                              ; preds = %.critedge
+  %277 = load i32, ptr @hf_infiniband_invariant_crc, align 4
+  %278 = load i32, ptr %5, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %277, ptr noundef %0, i32 noundef %278, i32 noundef 4, i32 noundef 0)
+  br label %284
 
-279:                                              ; preds = %.thread414
-  %280 = load i32, ptr @hf_infiniband_variant_crc, align 4
-  %281 = load i32, ptr %5, align 4
-  %282 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 2, i32 noundef 0)
-  br label %283
+280:                                              ; preds = %.critedge
+  %281 = load i32, ptr @hf_infiniband_variant_crc, align 4
+  %282 = load i32, ptr %5, align 4
+  %283 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %281, ptr noundef %0, i32 noundef %282, i32 noundef 2, i32 noundef 0)
+  br label %284
 
-283:                                              ; preds = %.thread414, %275, %279, %268
+284:                                              ; preds = %.critedge, %276, %280, %269
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   ret void

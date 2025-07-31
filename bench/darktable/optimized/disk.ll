@@ -415,7 +415,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %5, ptr %39, align 4, !tbaa !86
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3424), align 8, !tbaa !87
   %.not.i.not.us = icmp eq ptr %40, null
-  br i1 %.not.i.not.us, label %41, label %.split109.us
+  br i1 %.not.i.not.us, label %41, label %.split105.us
 
 41:                                               ; preds = %33
   %42 = call ptr @dt_variables_expand(ptr noundef nonnull %36, ptr noundef nonnull %17, i32 noundef 1) #13
@@ -448,9 +448,9 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %5, ptr %54, align 4, !tbaa !86
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3424), align 8, !tbaa !87
   %.not.i.not = icmp eq ptr %55, null
-  br i1 %.not.i.not, label %57, label %.split109.us
+  br i1 %.not.i.not, label %57, label %.split105.us
 
-.split109.us:                                     ; preds = %.split, %33
+.split105.us:                                     ; preds = %.split, %33
   %56 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull %17, i64 noundef 4096) #13
   br label %.thread
 
@@ -471,16 +471,16 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %64 = icmp ult i32 %63, 4096
   br i1 %64, label %.split, label %.thread
 
-.thread:                                          ; preds = %62, %57, %46, %41, %.split109.us
+.thread:                                          ; preds = %62, %57, %46, %41, %.split105.us
   %65 = call noalias ptr @g_path_get_dirname(ptr noundef nonnull %15) #13
   %66 = call i32 @g_mkdir_with_parents(ptr noundef %65, i32 noundef 493) #13
   %.not89 = icmp eq i32 %66, 0
-  br i1 %.not89, label %67, label %.critedge100
+  br i1 %.not89, label %67, label %.critedge100.critedge
 
 67:                                               ; preds = %.thread
   %68 = call i32 @g_access(ptr noundef %65, i32 noundef 3) #13
   %.not90 = icmp eq i32 %68, 0
-  br i1 %.not90, label %69, label %.critedge100
+  br i1 %.not90, label %69, label %.critedge100.critedge
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -498,13 +498,13 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .preheader:                                       ; preds = %69
   %80 = call i32 @g_file_test(ptr noundef nonnull %15, i32 noundef 16) #13
-  %.not92110 = icmp eq i32 %80, 0
-  br i1 %.not92110, label %thread-pre-split, label %.lr.ph
+  %.not92106 = icmp eq i32 %80, 0
+  br i1 %.not92106, label %thread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.084111 = phi i32 [ %82, %.lr.ph ], [ 1, %.preheader ]
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %74, i64 noundef %75, ptr noundef nonnull @.str.23, i32 noundef %.084111, ptr noundef %72) #13
-  %82 = add nuw nsw i32 %.084111, 1
+  %.084107 = phi i32 [ %82, %.lr.ph ], [ 1, %.preheader ]
+  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %74, i64 noundef %75, ptr noundef nonnull @.str.23, i32 noundef %.084107, ptr noundef %72) #13
+  %82 = add nuw nsw i32 %.084107, 1
   %83 = call i32 @g_file_test(ptr noundef nonnull %15, i32 noundef 16) #13
   %.not92 = icmp eq i32 %83, 0
   br i1 %.not92, label %thread-pre-split, label %.lr.ph
@@ -533,17 +533,17 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.preheader
   %91 = sext i32 %5 to i64
   %92 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, i64 noundef %91, i32 noundef 5) #13
   call void (ptr, ...) @dt_control_log(ptr noundef %92, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %15) #13
-  br label %119
+  br label %118
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %84
   %93 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %85, %84 ]
   %94 = icmp eq i32 %93, 2
-  br i1 %94, label %95, label %111
+  br i1 %94, label %95, label %.critedge97
 
 95:                                               ; preds = %.critedge
   %96 = call i32 @g_file_test(ptr noundef nonnull %15, i32 noundef 16) #13
   %.not94 = icmp eq i32 %96, 0
-  br i1 %.not94, label %111, label %97
+  br i1 %.not94, label %.critedge97, label %97
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !94
@@ -555,7 +555,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.preheader
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !94
   call void @dt_image_cache_read_release(ptr noundef %104, ptr noundef %99) #13
   %.not95 = icmp sgt i64 %103, %101
-  br i1 %.not95, label %105, label %111
+  br i1 %.not95, label %105, label %.critedge97
 
 105:                                              ; preds = %97
   %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
@@ -563,39 +563,39 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.preheader
   %107 = sext i32 %5 to i64
   %108 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.27, i64 noundef %107, i32 noundef 5) #13
   call void (ptr, ...) @dt_control_log(ptr noundef %108, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %15) #13
-  br label %119
+  br label %118
 
-.critedge100:                                     ; preds = %67, %.thread
-  %.str.18.sink = phi ptr [ @.str.18, %.thread ], [ @.str.20, %67 ]
-  %.str.19.sink = phi ptr [ @.str.19, %.thread ], [ @.str.21, %67 ]
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.18.sink, ptr noundef %65) #13
-  %109 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.19.sink, i32 noundef 5) #13
-  call void (ptr, ...) @dt_control_log(ptr noundef %109, ptr noundef %65) #13
+.critedge97:                                      ; preds = %97, %95, %.critedge
+  %109 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
+  %110 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #13
+  %.not96 = icmp eq i32 %110, 0
+  br i1 %.not96, label %115, label %113
+
+.critedge100.critedge:                            ; preds = %67, %.thread
+  %.str.20.sink = phi ptr [ @.str.18, %.thread ], [ @.str.20, %67 ]
+  %.str.21.sink = phi ptr [ @.str.19, %.thread ], [ @.str.21, %67 ]
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.20.sink, ptr noundef %65) #13
+  %111 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.21.sink, i32 noundef 5) #13
+  call void (ptr, ...) @dt_control_log(ptr noundef %111, ptr noundef %65) #13
   call void @g_free(ptr noundef %65) #13
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
-  br label %119
-
-111:                                              ; preds = %.critedge, %95, %97
   %112 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
-  %113 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #13
-  %.not96 = icmp eq i32 %113, 0
-  br i1 %.not96, label %116, label %114
+  br label %118
 
-114:                                              ; preds = %111
+113:                                              ; preds = %.critedge97
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, ptr noundef nonnull %15) #13
-  %115 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #13
-  call void (ptr, ...) @dt_control_log(ptr noundef %115, ptr noundef nonnull %15) #13
-  br label %119
+  %114 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #13
+  call void (ptr, ...) @dt_control_log(ptr noundef %114, ptr noundef nonnull %15) #13
+  br label %118
 
-116:                                              ; preds = %111
+115:                                              ; preds = %.critedge97
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.30, ptr noundef nonnull %15) #13
-  %117 = sext i32 %5 to i64
-  %118 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.31, i64 noundef %117, i32 noundef 5) #13
-  call void (ptr, ...) @dt_control_log(ptr noundef %118, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %15) #13
-  br label %119
+  %116 = sext i32 %5 to i64
+  %117 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.31, i64 noundef %116, i32 noundef 5) #13
+  call void (ptr, ...) @dt_control_log(ptr noundef %117, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %15) #13
+  br label %118
 
-119:                                              ; preds = %105, %.critedge100, %116, %114, %89
-  %.0 = phi i32 [ 1, %114 ], [ 0, %116 ], [ 0, %105 ], [ 0, %89 ], [ 1, %.critedge100 ]
+118:                                              ; preds = %105, %.critedge100.critedge, %115, %113, %89
+  %.0 = phi i32 [ 1, %113 ], [ 0, %115 ], [ 0, %105 ], [ 0, %89 ], [ 1, %.critedge100.critedge ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %17) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %15) #13

@@ -9429,11 +9429,11 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, %10
-  %invariant.op293 = add i32 %0, -1
+  %invariant.op289 = add i32 %0, -1
   %26 = icmp ugt i32 %2, %25
-  br i1 %26, label %._crit_edge299, label %.lr.ph298
+  br i1 %26, label %._crit_edge295, label %.lr.ph294
 
-.lr.ph298:                                        ; preds = %21
+.lr.ph294:                                        ; preds = %21
   %.lhs.trunc = trunc nuw i32 %25 to i16
   %.rhs.trunc = trunc i32 %2 to i16
   %27 = udiv i16 %.lhs.trunc, %.rhs.trunc
@@ -9444,22 +9444,22 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %zext = zext i16 %27 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph298, %56
-  %indvars.iv336 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next337, %56 ]
-  %.0227296 = phi i32 [ 0, %.lr.ph298 ], [ %.2, %56 ]
-  %33 = getelementptr [28 x i8], ptr %28, i64 0, i64 %indvars.iv336
+32:                                               ; preds = %.lr.ph294, %56
+  %indvars.iv332 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next333, %56 ]
+  %.0227292 = phi i32 [ 0, %.lr.ph294 ], [ %.2, %56 ]
+  %33 = getelementptr [28 x i8], ptr %28, i64 0, i64 %indvars.iv332
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = mul nuw nsw i32 %35, %10
   %37 = add i32 %36, %0
-  %.reass294 = add i32 %36, %invariant.op293
+  %.reass290 = add i32 %36, %invariant.op289
   br label %38
 
 38:                                               ; preds = %53, %32
   %.0238 = phi i32 [ 0, %32 ], [ %46, %53 ]
-  %.2 = phi i32 [ %.0227296, %32 ], [ %54, %53 ]
-  %exitcond335.not = icmp eq i32 %.0238, %.0225
-  br i1 %exitcond335.not, label %56, label %39
+  %.2 = phi i32 [ %.0227292, %32 ], [ %54, %53 ]
+  %exitcond331.not = icmp eq i32 %.0238, %.0225
+  br i1 %exitcond331.not, label %56, label %39
 
 39:                                               ; preds = %38
   %40 = mul i32 %.0238, %2
@@ -9473,7 +9473,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 45:                                               ; preds = %39
   %46 = add nuw nsw i32 %.0238, 1
   %47 = mul i32 %46, %2
-  %48 = add i32 %.reass294, %47
+  %48 = add i32 %.reass290, %47
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %48, ptr %49, align 4
   %50 = icmp ugt i32 %48, %31
@@ -9488,20 +9488,20 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 53:                                               ; preds = %51, %45
   %54 = add i32 %.2, 1
   %55 = icmp eq i32 %54, 512
-  br i1 %55, label %.thread263, label %38, !llvm.loop !63
+  br i1 %55, label %.critedge, label %38, !llvm.loop !63
 
 56:                                               ; preds = %38, %39
-  %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
-  %57 = icmp samesign uge i64 %indvars.iv.next337, %zext
-  %58 = icmp samesign ugt i64 %indvars.iv336, 26
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %57 = icmp samesign uge i64 %indvars.iv.next333, %zext
+  %58 = icmp samesign ugt i64 %indvars.iv332, 26
   %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %._crit_edge299, label %32, !llvm.loop !64
+  br i1 %or.cond, label %._crit_edge295, label %32, !llvm.loop !64
 
-._crit_edge299:                                   ; preds = %56, %21
+._crit_edge295:                                   ; preds = %56, %21
   %.0227.lcssa = phi i32 [ 0, %21 ], [ %.2, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 816
   store i32 %.0227.lcssa, ptr %59, align 4
-  br label %.thread263
+  br label %.critedge
 
 60:                                               ; preds = %4
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 31
@@ -9516,33 +9516,33 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %spec.select = tail call i32 @llvm.umin.i32(i32 %67, i32 512)
   store i32 %spec.select, ptr %68, align 4
-  %.not301 = icmp ugt i32 %2, %66
-  br i1 %.not301, label %._crit_edge, label %.lr.ph279
+  %.not297 = icmp ugt i32 %2, %66
+  br i1 %.not297, label %._crit_edge, label %.lr.ph275
 
-.lr.ph279:                                        ; preds = %64
+.lr.ph275:                                        ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 820
-  %invariant.op280 = add i32 %0, %65
+  %invariant.op276 = add i32 %0, %65
   %70 = add i32 %1, %0
   %71 = shl i32 %1, 1
-  %umax325 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 1)
-  %wide.trip.count326 = zext nneg i32 %umax325 to i64
+  %umax321 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 1)
+  %wide.trip.count322 = zext nneg i32 %umax321 to i64
   br label %73
 
 ._crit_edge:                                      ; preds = %82, %64
   %72 = icmp ugt i32 %67, 511
-  br i1 %72, label %.thread263, label %83
+  br i1 %72, label %.critedge, label %83
 
-73:                                               ; preds = %.lr.ph279, %82
-  %indvars.iv322 = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next323, %82 ]
-  %74 = trunc nuw nsw i64 %indvars.iv322 to i32
+73:                                               ; preds = %.lr.ph275, %82
+  %indvars.iv318 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next319, %82 ]
+  %74 = trunc nuw nsw i64 %indvars.iv318 to i32
   %75 = mul i32 %2, %74
   %76 = add i32 %75, %0
-  %77 = getelementptr [512 x %struct.anon.1], ptr %69, i64 0, i64 %indvars.iv322
+  %77 = getelementptr [512 x %struct.anon.1], ptr %69, i64 0, i64 %indvars.iv318
   store i32 %76, ptr %77, align 4
-  %.reass281 = add i32 %75, %invariant.op280
+  %.reass277 = add i32 %75, %invariant.op276
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store i32 %.reass281, ptr %78, align 4
-  %79 = icmp ugt i32 %.reass281, %70
+  store i32 %.reass277, ptr %78, align 4
+  %79 = icmp ugt i32 %.reass277, %70
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %73
@@ -9552,64 +9552,64 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   br label %82
 
 82:                                               ; preds = %73, %80
-  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
-  %exitcond327.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count326
-  br i1 %exitcond327.not, label %._crit_edge, label %73, !llvm.loop !65
+  %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
+  %exitcond323.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count322
+  br i1 %exitcond323.not, label %._crit_edge, label %73, !llvm.loop !65
 
 83:                                               ; preds = %._crit_edge
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %85 = load i32, ptr %84, align 4
-  %.not302 = icmp eq i32 %85, 0
-  br i1 %.not302, label %.thread263, label %.lr.ph292
+  %.not298 = icmp eq i32 %85, 0
+  br i1 %.not298, label %.critedge, label %.lr.ph288
 
-.lr.ph292:                                        ; preds = %83
+.lr.ph288:                                        ; preds = %83
   %86 = add i32 %1, %0
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 820
-  %wide.trip.count333 = zext i32 %85 to i64
+  %wide.trip.count329 = zext i32 %85 to i64
   br label %89
 
-89:                                               ; preds = %.lr.ph292, %._crit_edge286
-  %indvars.iv330 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next331, %._crit_edge286 ]
-  %.0235289 = phi i32 [ %86, %.lr.ph292 ], [ %116, %._crit_edge286 ]
-  %90 = getelementptr [128 x %struct.anon.0], ptr %87, i64 0, i64 %indvars.iv330
+89:                                               ; preds = %.lr.ph288, %._crit_edge282
+  %indvars.iv326 = phi i64 [ 0, %.lr.ph288 ], [ %indvars.iv.next327, %._crit_edge282 ]
+  %.0235285 = phi i32 [ %86, %.lr.ph288 ], [ %116, %._crit_edge282 ]
+  %90 = getelementptr [128 x %struct.anon.0], ptr %87, i64 0, i64 %indvars.iv326
   %91 = load i8, ptr %90, align 2
   %92 = zext i8 %91 to i32
-  %93 = add i32 %.0235289, %92
+  %93 = add i32 %.0235285, %92
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = add i32 %65, %96
-  %.not251.not282.not = icmp ugt i32 %2, %97
-  br i1 %.not251.not282.not, label %._crit_edge286, label %.lr.ph285
+  %.not251.not278.not = icmp ugt i32 %2, %97
+  br i1 %.not251.not278.not, label %._crit_edge282, label %.lr.ph281
 
-.lr.ph285:                                        ; preds = %89
+.lr.ph281:                                        ; preds = %89
   %98 = udiv i32 %97, %2
-  %invariant.op287 = add i32 %93, %65
+  %invariant.op283 = add i32 %93, %65
   %.pre = load i32, ptr %68, align 4
-  %umax328 = tail call i32 @llvm.umax.i32(i32 %98, i32 1)
+  %umax324 = tail call i32 @llvm.umax.i32(i32 %98, i32 1)
   br label %101
 
 99:                                               ; preds = %114
-  %100 = add nuw i32 %.0229283, 1
-  %exitcond329.not = icmp eq i32 %100, %umax328
-  br i1 %exitcond329.not, label %._crit_edge286.loopexit, label %101, !llvm.loop !66
+  %100 = add nuw i32 %.0229279, 1
+  %exitcond325.not = icmp eq i32 %100, %umax324
+  br i1 %exitcond325.not, label %._crit_edge282.loopexit, label %101, !llvm.loop !66
 
-101:                                              ; preds = %.lr.ph285, %99
-  %102 = phi i32 [ %.pre, %.lr.ph285 ], [ %115, %99 ]
-  %.0229283 = phi i32 [ 0, %.lr.ph285 ], [ %100, %99 ]
-  %103 = mul i32 %.0229283, %2
+101:                                              ; preds = %.lr.ph281, %99
+  %102 = phi i32 [ %.pre, %.lr.ph281 ], [ %115, %99 ]
+  %.0229279 = phi i32 [ 0, %.lr.ph281 ], [ %100, %99 ]
+  %103 = mul i32 %.0229279, %2
   %104 = add i32 %103, %93
   %105 = zext i32 %102 to i64
   %106 = getelementptr [512 x %struct.anon.1], ptr %88, i64 0, i64 %105
   store i32 %104, ptr %106, align 4
-  %.reass288 = add i32 %103, %invariant.op287
+  %.reass284 = add i32 %103, %invariant.op283
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i32 %.reass288, ptr %107, align 4
+  store i32 %.reass284, ptr %107, align 4
   %108 = load i8, ptr %94, align 1
   %109 = zext i8 %108 to i32
   %110 = add i32 %93, %109
-  %111 = icmp ugt i32 %.reass288, %110
+  %111 = icmp ugt i32 %.reass284, %110
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %101
@@ -9622,19 +9622,19 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %115 = add i32 %102, 1
   store i32 %115, ptr %68, align 4
   %.not250 = icmp eq i32 %115, 512
-  br i1 %.not250, label %.thread263, label %99
+  br i1 %.not250, label %.critedge, label %99
 
-._crit_edge286.loopexit:                          ; preds = %99
-  %.pre339 = load i8, ptr %94, align 1
-  %.pre340 = zext i8 %.pre339 to i32
-  br label %._crit_edge286
+._crit_edge282.loopexit:                          ; preds = %99
+  %.pre335 = load i8, ptr %94, align 1
+  %.pre336 = zext i8 %.pre335 to i32
+  br label %._crit_edge282
 
-._crit_edge286:                                   ; preds = %._crit_edge286.loopexit, %89
-  %.pre-phi = phi i32 [ %.pre340, %._crit_edge286.loopexit ], [ %96, %89 ]
+._crit_edge282:                                   ; preds = %._crit_edge282.loopexit, %89
+  %.pre-phi = phi i32 [ %.pre336, %._crit_edge282.loopexit ], [ %96, %89 ]
   %116 = add i32 %93, %.pre-phi
-  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
-  %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %.thread263, label %89, !llvm.loop !67
+  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
+  br i1 %exitcond330.not, label %.critedge, label %89, !llvm.loop !67
 
 117:                                              ; preds = %60
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 292
@@ -9650,40 +9650,40 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %126 = load i32, ptr %125, align 4
   %127 = mul i32 %126, %123
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %spec.select252 = tail call i32 @llvm.umin.i32(i32 %127, i32 512)
-  store i32 %spec.select252, ptr %128, align 4
-  %.not300 = icmp eq i32 %126, 0
-  br i1 %.not300, label %.thread263, label %.lr.ph277
+  %spec.select256 = tail call i32 @llvm.umin.i32(i32 %127, i32 512)
+  store i32 %spec.select256, ptr %128, align 4
+  %.not296 = icmp eq i32 %126, 0
+  br i1 %.not296, label %.critedge, label %.lr.ph273
 
-.lr.ph277:                                        ; preds = %124
-  %.not273.not = icmp ugt i32 %2, %122
+.lr.ph273:                                        ; preds = %124
+  %.not269.not = icmp ugt i32 %2, %122
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 300
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 820
-  br i1 %.not273.not, label %.thread263, label %.lr.ph275.us.preheader
+  br i1 %.not269.not, label %.critedge, label %.lr.ph271.us.preheader
 
-.lr.ph275.us.preheader:                           ; preds = %.lr.ph277
-  %wide.trip.count320 = zext i32 %126 to i64
-  %umax314 = tail call i32 @llvm.umax.i32(i32 %123, i32 1)
-  %wide.trip.count315 = zext i32 %umax314 to i64
-  br label %.lr.ph275.us
+.lr.ph271.us.preheader:                           ; preds = %.lr.ph273
+  %wide.trip.count316 = zext i32 %126 to i64
+  %umax310 = tail call i32 @llvm.umax.i32(i32 %123, i32 1)
+  %wide.trip.count311 = zext i32 %umax310 to i64
+  br label %.lr.ph271.us
 
-.lr.ph275.us:                                     ; preds = %.lr.ph275.us.preheader, %..critedge254_crit_edge.us
-  %indvars.iv317 = phi i64 [ 0, %.lr.ph275.us.preheader ], [ %indvars.iv.next318, %..critedge254_crit_edge.us ]
-  %131 = trunc nuw i64 %indvars.iv317 to i32
+.lr.ph271.us:                                     ; preds = %.lr.ph271.us.preheader, %..critedge258_crit_edge.us
+  %indvars.iv313 = phi i64 [ 0, %.lr.ph271.us.preheader ], [ %indvars.iv.next314, %..critedge258_crit_edge.us ]
+  %131 = trunc nuw i64 %indvars.iv313 to i32
   %132 = mul i32 %123, %131
-  %133 = getelementptr [128 x i32], ptr %129, i64 0, i64 %indvars.iv317
+  %133 = getelementptr [128 x i32], ptr %129, i64 0, i64 %indvars.iv313
   %134 = zext i32 %132 to i64
   br label %135
 
-135:                                              ; preds = %.lr.ph275.us, %152
-  %indvars.iv311 = phi i64 [ 0, %.lr.ph275.us ], [ %indvars.iv.next312, %152 ]
-  %136 = add nuw nsw i64 %indvars.iv311, %134
+135:                                              ; preds = %.lr.ph271.us, %152
+  %indvars.iv307 = phi i64 [ 0, %.lr.ph271.us ], [ %indvars.iv.next308, %152 ]
+  %136 = add nuw nsw i64 %indvars.iv307, %134
   %137 = icmp samesign ugt i64 %136, 511
-  br i1 %137, label %.thread263, label %138
+  br i1 %137, label %.critedge, label %138
 
 138:                                              ; preds = %135
   %139 = load i32, ptr %133, align 4
-  %140 = trunc nuw nsw i64 %indvars.iv311 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv307 to i32
   %141 = mul i32 %2, %140
   %142 = add i32 %141, %0
   %143 = add i32 %142, %139
@@ -9704,28 +9704,28 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   br label %152
 
 152:                                              ; preds = %150, %138
-  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %exitcond316.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count315
-  br i1 %exitcond316.not, label %..critedge254_crit_edge.us, label %135, !llvm.loop !68
+  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
+  %exitcond312.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count311
+  br i1 %exitcond312.not, label %..critedge258_crit_edge.us, label %135, !llvm.loop !68
 
-..critedge254_crit_edge.us:                       ; preds = %152
-  %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
-  %exitcond321.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count320
-  br i1 %exitcond321.not, label %.thread263, label %.lr.ph275.us, !llvm.loop !69
+..critedge258_crit_edge.us:                       ; preds = %152
+  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
+  %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
+  br i1 %exitcond317.not, label %.critedge, label %.lr.ph271.us, !llvm.loop !69
 
 153:                                              ; preds = %117
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %spec.select255 = tail call i32 @llvm.umin.i32(i32 %123, i32 512)
-  store i32 %spec.select255, ptr %154, align 4
+  %spec.select259 = tail call i32 @llvm.umin.i32(i32 %123, i32 512)
+  store i32 %spec.select259, ptr %154, align 4
   %.not = icmp ugt i32 %2, %122
-  br i1 %.not, label %.thread263, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 820
   %invariant.op = add i32 %0, %121
   %156 = add i32 %1, %0
   %157 = shl i32 %1, 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %spec.select255, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %spec.select259, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
   br label %158
 
@@ -9751,9 +9751,9 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 167:                                              ; preds = %158, %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread263, label %158, !llvm.loop !70
+  br i1 %exitcond.not, label %.critedge, label %158, !llvm.loop !70
 
-.thread263:                                       ; preds = %167, %..critedge254_crit_edge.us, %135, %._crit_edge286, %114, %53, %.lr.ph277, %153, %124, %83, %._crit_edge299, %._crit_edge
+.critedge:                                        ; preds = %167, %..critedge258_crit_edge.us, %135, %._crit_edge282, %114, %53, %.lr.ph273, %153, %124, %83, %._crit_edge295, %._crit_edge
   ret void
 }
 

@@ -9743,7 +9743,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 109:                                              ; preds = %106
   %110 = load i8, ptr %4, align 1
   %111 = and i8 %110, 127
-  switch i8 %111, label %.thread20 [
+  switch i8 %111, label %.critedge [
     i8 1, label %115
     i8 4, label %112
     i8 3, label %114
@@ -9752,17 +9752,17 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 112:                                              ; preds = %109
   %113 = icmp eq i16 %107, -8826
-  br i1 %113, label %117, label %.thread20
+  br i1 %113, label %117, label %.critedge
 
 114:                                              ; preds = %109, %109
-  switch i16 %107, label %.thread20 [
+  switch i16 %107, label %.critedge [
     i16 -8826, label %117
     i16 8, label %117
   ]
 
 115:                                              ; preds = %109
   %116 = icmp eq i16 %107, 8
-  br i1 %116, label %117, label %.thread20
+  br i1 %116, label %117, label %.critedge
 
 117:                                              ; preds = %114, %114, %112, %115
   store i16 %107, ptr %93, align 8
@@ -9776,12 +9776,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 120:                                              ; preds = %118
   %121 = and i32 %26, 65536
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.thread20, label %.preheader
+  br i1 %122, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %120, %125
   %123 = load i16, ptr %93, align 8
   %124 = icmp eq i16 %123, 8
-  br i1 %124, label %125, label %.thread20
+  br i1 %124, label %125, label %.critedge
 
 125:                                              ; preds = %.preheader
   store i16 -8826, ptr %93, align 8
@@ -9803,7 +9803,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 136:                                              ; preds = %.loopexit
   %137 = icmp ult i32 %131, %129
-  br i1 %137, label %.thread20, label %138, !prof !18
+  br i1 %137, label %.critedge, label %138, !prof !18
 
 138:                                              ; preds = %136
   %139 = sub nsw i32 %129, %134
@@ -9818,11 +9818,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   %146 = zext i8 %145 to i32
   %147 = icmp eq i32 %24, %146
   %148 = select i1 %143, i1 %147, i1 false
-  br i1 %148, label %149, label %.thread20
-
-.thread20:                                        ; preds = %.preheader, %114, %142, %115, %109, %120, %112, %136
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #19
-  br label %.thread
+  br i1 %148, label %149, label %.critedge
 
 149:                                              ; preds = %142
   %150 = load i16, ptr %3, align 4
@@ -9928,8 +9924,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   store i16 0, ptr %217, align 2
   br label %.thread
 
-.thread:                                          ; preds = %56, %81, %62, %58, %.thread20, %213, %207, %204, %195, %191, %187, %.thread15, %169, %167, %83, %12, %7
-  %218 = phi i32 [ -22, %83 ], [ -22, %7 ], [ -22, %12 ], [ -22, %169 ], [ 0, %213 ], [ 0, %207 ], [ 0, %.thread15 ], [ -22, %204 ], [ -22, %195 ], [ -22, %191 ], [ -22, %187 ], [ -22, %167 ], [ -22, %.thread20 ], [ -22, %58 ], [ -22, %62 ], [ -22, %81 ], [ -22, %56 ]
+.critedge:                                        ; preds = %.preheader, %114, %136, %112, %120, %109, %115, %142
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #19
+  br label %.thread
+
+.thread:                                          ; preds = %56, %81, %62, %58, %.critedge, %213, %207, %204, %195, %191, %187, %.thread15, %169, %167, %83, %12, %7
+  %218 = phi i32 [ -22, %83 ], [ -22, %7 ], [ -22, %12 ], [ -22, %169 ], [ 0, %213 ], [ 0, %207 ], [ 0, %.thread15 ], [ -22, %204 ], [ -22, %195 ], [ -22, %191 ], [ -22, %187 ], [ -22, %167 ], [ -22, %.critedge ], [ -22, %58 ], [ -22, %62 ], [ -22, %81 ], [ -22, %56 ]
   ret i32 %218
 }
 
@@ -10354,10 +10354,10 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 552
   %39 = load i16, ptr %38, align 8
   %40 = icmp eq i16 %39, 1
-  br i1 %40, label %41, label %.thread8, !prof !22
+  br i1 %40, label %41, label %.critedge, !prof !22
 
 41:                                               ; preds = %34
-  switch i16 %35, label %.thread8 [
+  switch i16 %35, label %.critedge [
     i16 -22392, label %42
     i16 129, label %42
   ]
@@ -10383,7 +10383,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
   tail call void asm sideeffect "553: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 553b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 553) #19, !srcloc !162
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 604, i32 2305, i64 12) #19, !srcloc !163
   tail call void asm sideeffect "554: nop\0A\09.pushsection .discard.instr_end\0A\09.long 554b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 554) #19, !srcloc !164
-  br label %.thread8
+  br label %.critedge
 
 51:                                               ; preds = %48
   %52 = add nsw i32 %45, -4
@@ -10430,7 +10430,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
 
 .thread:                                          ; preds = %74
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  br label %.thread8
+  br label %.critedge
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 2
@@ -10449,7 +10449,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
   %84 = phi i32 [ %45, %42 ], [ %83, %80 ]
   %85 = phi i16 [ %35, %42 ], [ %82, %80 ]
   %86 = icmp eq i16 %85, 0
-  br i1 %86, label %.thread8, label %87
+  br i1 %86, label %.critedge, label %87
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10462,13 +10462,13 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
 
 94:                                               ; preds = %87
   %95 = icmp ult i32 %89, %84
-  br i1 %95, label %.thread8, label %96, !prof !18
+  br i1 %95, label %.critedge, label %96, !prof !18
 
 96:                                               ; preds = %94
   %97 = sub i32 %84, %92
   %98 = call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %97) #19
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread8, label %100
+  br i1 %99, label %.critedge, label %100
 
 100:                                              ; preds = %96, %87
   %101 = trunc i32 %84 to i16
@@ -10483,16 +10483,16 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %111 = add i16 %109, %101
   store i16 %111, ptr %110, align 4
-  br label %.thread8
+  br label %.critedge
 
-.thread8:                                         ; preds = %.thread, %50, %96, %94, %.loopexit, %100, %41, %34
+.critedge:                                        ; preds = %.thread, %50, %.loopexit, %94, %96, %100, %41, %34
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #19
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %113 = load i16, ptr %112, align 2
   %114 = icmp eq i16 %113, -1
   br i1 %114, label %115, label %128
 
-115:                                              ; preds = %.thread8
+115:                                              ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %116 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %116, label %117, label %128
@@ -10511,7 +10511,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr no
   store i16 %127, ptr %112, align 2
   br label %128
 
-128:                                              ; preds = %117, %115, %.thread8
+128:                                              ; preds = %117, %115, %.critedge
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #19
   ret void
 }

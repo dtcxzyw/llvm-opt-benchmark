@@ -1267,11 +1267,11 @@ PickBestIntra16.exit:                             ; preds = %147, %167, %173, %1
   %236 = ashr exact i32 %224, 2
   %237 = load ptr, ptr %218, align 8, !tbaa !138, !alias.scope !135, !noalias !127
   %238 = mul nsw i32 %232, %236
-  %.pre142.i = sext i32 %238 to i64
+  %.pre140.i = sext i32 %238 to i64
   br label %239
 
 239:                                              ; preds = %235, %223
-  %.pre-phi.i = phi i64 [ %.pre142.i, %235 ], [ %225, %223 ]
+  %.pre-phi.i = phi i64 [ %.pre140.i, %235 ], [ %225, %223 ]
   %.sink.i.i = phi ptr [ %237, %235 ], [ %216, %223 ]
   %240 = getelementptr i8, ptr %.sink.i.i, i64 %.pre-phi.i
   %.in.in.i.i = getelementptr i8, ptr %240, i64 -1
@@ -1307,15 +1307,15 @@ GetCostModeI4.exit.i:                             ; preds = %247, %242
 
 256:                                              ; preds = %333, %GetCostModeI4.exit.i
   %indvars.iv.i29 = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %indvars.iv.next.i37, %333 ]
-  %.064138.i = phi i32 [ -1, %GetCostModeI4.exit.i ], [ %.165.i, %333 ]
-  %.sroa.0100.1136.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.0100.2.i, %333 ]
-  %.sroa.6102.1135.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.6102.2.i, %333 ]
-  %.sroa.9.1134.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.9.2.i, %333 ]
-  %.sroa.22109.0133.i = phi i32 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.22109.1.i, %333 ]
-  %.sroa.16.0132.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i ], [ %.sroa.16.1.i, %333 ]
-  %.sroa.13.1131.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.13.2.i, %333 ]
-  %.0116130.i = phi ptr [ %254, %GetCostModeI4.exit.i ], [ %.1.i36, %333 ]
-  %.0117129.i = phi ptr [ %252, %GetCostModeI4.exit.i ], [ %.1118.i, %333 ]
+  %.064136.i = phi i32 [ -1, %GetCostModeI4.exit.i ], [ %.165.i, %333 ]
+  %.sroa.0100.1134.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.0100.2.i, %333 ]
+  %.sroa.7.1133.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.7.2.i, %333 ]
+  %.sroa.10103.1132.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.10103.2.i, %333 ]
+  %.sroa.23110.0131.i = phi i32 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.23110.1.i, %333 ]
+  %.sroa.17.0130.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i ], [ %.sroa.17.1.i, %333 ]
+  %.sroa.14106.1129.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.14106.2.i, %333 ]
+  %.0116128.i = phi ptr [ %254, %GetCostModeI4.exit.i ], [ %.1.i36, %333 ]
+  %.0117127.i = phi ptr [ %252, %GetCostModeI4.exit.i ], [ %.1118.i, %333 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11, !noalias !129
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %257 = load ptr, ptr %13, align 8, !tbaa !95, !alias.scope !143, !noalias !144
@@ -1362,18 +1362,18 @@ GetCostModeI4.exit.i:                             ; preds = %247, %242
 ReconstructIntra4.exit.i:                         ; preds = %286, %272
   %.0.i.i = phi i32 [ %285, %272 ], [ %288, %286 ]
   %289 = load ptr, ptr @VP8ITransform, align 8, !tbaa !91, !noalias !147
-  call void %289(ptr noundef %262, ptr noundef nonnull %8, ptr noundef %.0116130.i, i32 noundef 0) #11, !noalias !150
+  call void %289(ptr noundef %262, ptr noundef nonnull %8, ptr noundef %.0116128.i, i32 noundef 0) #11, !noalias !150
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !147
   %290 = load i32, ptr %215, align 8, !tbaa !131, !alias.scope !124, !noalias !127
   %291 = shl i32 %.0.i.i, %290
   %292 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !91, !noalias !129
-  %293 = call i32 %292(ptr noundef %229, ptr noundef %.0116130.i) #11, !noalias !127
+  %293 = call i32 %292(ptr noundef %229, ptr noundef %.0116128.i) #11, !noalias !127
   %294 = sext i32 %293 to i64
   br i1 %.not77.i, label %302, label %295
 
 295:                                              ; preds = %ReconstructIntra4.exit.i
   %296 = load ptr, ptr @VP8TDisto4x4, align 8, !tbaa !91, !noalias !129
-  %297 = call i32 %296(ptr noundef %229, ptr noundef %.0116130.i, ptr noundef nonnull @kWeightY) #11, !noalias !127
+  %297 = call i32 %296(ptr noundef %229, ptr noundef %.0116128.i, ptr noundef nonnull @kWeightY) #11, !noalias !127
   %298 = mul nsw i32 %297, %201
   %299 = add nsw i32 %298, 128
   %300 = ashr i32 %299, 8
@@ -1411,8 +1411,8 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   %316 = add nsw i64 %303, %294
   %317 = shl nsw i64 %316, 8
   %318 = add nsw i64 %315, %317
-  %319 = icmp slt i32 %.064138.i, 0
-  %.not80.i = icmp slt i64 %318, %.sroa.16.0132.i
+  %319 = icmp slt i32 %.064136.i, 0
+  %.not80.i = icmp slt i64 %318, %.sroa.17.0130.i
   %or.cond.i = select i1 %319, i1 true, i1 %.not80.i
   br i1 %or.cond.i, label %320, label %333
 
@@ -1423,9 +1423,9 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   %324 = add nsw i64 %323, %306
   %325 = mul nsw i64 %324, %221
   %326 = add nsw i64 %325, %317
-  %327 = icmp slt i64 %326, %.sroa.16.0132.i
-  %or.cond123.i = select i1 %319, i1 true, i1 %327
-  br i1 %or.cond123.i, label %328, label %333
+  %327 = icmp slt i64 %326, %.sroa.17.0130.i
+  %or.cond121.i = select i1 %319, i1 true, i1 %327
+  br i1 %or.cond121.i, label %328, label %333
 
 328:                                              ; preds = %320
   %329 = load i32, ptr %215, align 8, !tbaa !131, !alias.scope !124, !noalias !127
@@ -1436,15 +1436,15 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   br label %333
 
 333:                                              ; preds = %328, %320, %IsFlat_C.exit.i35
-  %.1118.i = phi ptr [ %.0116130.i, %328 ], [ %.0117129.i, %IsFlat_C.exit.i35 ], [ %.0117129.i, %320 ]
-  %.1.i36 = phi ptr [ %.0117129.i, %328 ], [ %.0116130.i, %IsFlat_C.exit.i35 ], [ %.0116130.i, %320 ]
-  %.sroa.13.2.i = phi i64 [ %323, %328 ], [ %.sroa.13.1131.i, %IsFlat_C.exit.i35 ], [ %.sroa.13.1131.i, %320 ]
-  %.sroa.16.1.i = phi i64 [ %326, %328 ], [ %.sroa.16.0132.i, %IsFlat_C.exit.i35 ], [ %.sroa.16.0132.i, %320 ]
-  %.sroa.22109.1.i = phi i32 [ %291, %328 ], [ %.sroa.22109.0133.i, %IsFlat_C.exit.i35 ], [ %.sroa.22109.0133.i, %320 ]
-  %.sroa.9.2.i = phi i64 [ %306, %328 ], [ %.sroa.9.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.9.1134.i, %320 ]
-  %.sroa.6102.2.i = phi i64 [ %303, %328 ], [ %.sroa.6102.1135.i, %IsFlat_C.exit.i35 ], [ %.sroa.6102.1135.i, %320 ]
-  %.sroa.0100.2.i = phi i64 [ %294, %328 ], [ %.sroa.0100.1136.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1136.i, %320 ]
-  %.165.i = phi i32 [ %332, %328 ], [ %.064138.i, %IsFlat_C.exit.i35 ], [ %.064138.i, %320 ]
+  %.1118.i = phi ptr [ %.0116128.i, %328 ], [ %.0117127.i, %IsFlat_C.exit.i35 ], [ %.0117127.i, %320 ]
+  %.1.i36 = phi ptr [ %.0117127.i, %328 ], [ %.0116128.i, %IsFlat_C.exit.i35 ], [ %.0116128.i, %320 ]
+  %.sroa.14106.2.i = phi i64 [ %323, %328 ], [ %.sroa.14106.1129.i, %IsFlat_C.exit.i35 ], [ %.sroa.14106.1129.i, %320 ]
+  %.sroa.17.1.i = phi i64 [ %326, %328 ], [ %.sroa.17.0130.i, %IsFlat_C.exit.i35 ], [ %.sroa.17.0130.i, %320 ]
+  %.sroa.23110.1.i = phi i32 [ %291, %328 ], [ %.sroa.23110.0131.i, %IsFlat_C.exit.i35 ], [ %.sroa.23110.0131.i, %320 ]
+  %.sroa.10103.2.i = phi i64 [ %306, %328 ], [ %.sroa.10103.1132.i, %IsFlat_C.exit.i35 ], [ %.sroa.10103.1132.i, %320 ]
+  %.sroa.7.2.i = phi i64 [ %303, %328 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ], [ %.sroa.7.1133.i, %320 ]
+  %.sroa.0100.2.i = phi i64 [ %294, %328 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1134.i, %320 ]
+  %.165.i = phi i32 [ %332, %328 ], [ %.064136.i, %IsFlat_C.exit.i35 ], [ %.064136.i, %320 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11, !noalias !129
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 10
@@ -1452,26 +1452,26 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
 
 334:                                              ; preds = %333
   %335 = load i32, ptr %209, align 4, !tbaa !75, !noalias !127
-  %336 = add nsw i64 %.sroa.9.2.i, %.sroa.13.2.i
+  %336 = add nsw i64 %.sroa.10103.2.i, %.sroa.14106.2.i
   %337 = sext i32 %335 to i64
   %338 = mul nsw i64 %336, %337
-  %339 = add nsw i64 %.sroa.0100.2.i, %.sroa.6102.2.i
+  %339 = add nsw i64 %.sroa.0100.2.i, %.sroa.7.2.i
   %340 = shl nsw i64 %339, 8
   %341 = add nsw i64 %338, %340
   %342 = load i64, ptr %9, align 8, !tbaa !111, !alias.scope !152, !noalias !155
   %343 = add nsw i64 %342, %.sroa.0100.2.i
   store i64 %343, ptr %9, align 8, !tbaa !111, !alias.scope !152, !noalias !155
   %344 = load i64, ptr %214, align 8, !tbaa !112, !alias.scope !152, !noalias !155
-  %345 = add nsw i64 %344, %.sroa.6102.2.i
+  %345 = add nsw i64 %344, %.sroa.7.2.i
   store i64 %345, ptr %214, align 8, !tbaa !112, !alias.scope !152, !noalias !155
   %346 = load i64, ptr %211, align 8, !tbaa !114, !alias.scope !152, !noalias !155
-  %347 = add nsw i64 %346, %.sroa.13.2.i
+  %347 = add nsw i64 %346, %.sroa.14106.2.i
   store i64 %347, ptr %211, align 8, !tbaa !114, !alias.scope !152, !noalias !155
   %348 = load i64, ptr %208, align 8, !tbaa !113, !alias.scope !152, !noalias !155
-  %349 = add nsw i64 %348, %.sroa.9.2.i
+  %349 = add nsw i64 %348, %.sroa.10103.2.i
   store i64 %349, ptr %208, align 8, !tbaa !113, !alias.scope !152, !noalias !155
   %350 = load i32, ptr %206, align 8, !tbaa !96, !alias.scope !152, !noalias !155
-  %351 = or i32 %350, %.sroa.22109.1.i
+  %351 = or i32 %350, %.sroa.23110.1.i
   store i32 %351, ptr %206, align 8, !tbaa !96, !alias.scope !152, !noalias !155
   %352 = load i64, ptr %207, align 8, !tbaa !98, !alias.scope !152, !noalias !155
   %353 = add nsw i64 %341, %352
@@ -1481,7 +1481,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   br i1 %.not.i39, label %355, label %PickBestIntra4.exit.loopexit
 
 355:                                              ; preds = %334
-  %356 = trunc nuw nsw i64 %.sroa.9.2.i to i32
+  %356 = trunc nuw nsw i64 %.sroa.10103.2.i to i32
   %357 = add nuw nsw i32 %.062.i, %356
   %358 = load i32, ptr %202, align 8, !tbaa !130, !noalias !127
   %359 = icmp sgt i32 %357, %358
@@ -1501,16 +1501,16 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   %368 = load ptr, ptr @VP8Copy4x4, align 8, !tbaa !91, !noalias !129
   call void %368(ptr noundef %.1118.i, ptr noundef %366) #11, !noalias !127
   %.pre.i = load i32, ptr %215, align 8, !tbaa !131, !alias.scope !124, !noalias !127
-  %.pre143.i = sext i32 %.pre.i to i64
+  %.pre141.i = sext i32 %.pre.i to i64
   br label %369
 
 369:                                              ; preds = %367, %360
-  %.pre-phi144.i = phi i64 [ %.pre143.i, %367 ], [ %362, %360 ]
+  %.pre-phi142.i = phi i64 [ %.pre141.i, %367 ], [ %362, %360 ]
   %370 = phi i32 [ %.pre.i, %367 ], [ %361, %360 ]
   %371 = trunc i32 %.165.i to i8
-  %372 = getelementptr inbounds [16 x i8], ptr %216, i64 0, i64 %.pre-phi144.i
+  %372 = getelementptr inbounds [16 x i8], ptr %216, i64 0, i64 %.pre-phi142.i
   store i8 %371, ptr %372, align 1, !tbaa !58, !alias.scope !127, !noalias !124
-  %.not75.i = icmp ne i32 %.sroa.22109.1.i, 0
+  %.not75.i = icmp ne i32 %.sroa.23110.1.i, 0
   %373 = zext i1 %.not75.i to i32
   %374 = ashr i32 %370, 2
   %375 = sext i32 %374 to i64

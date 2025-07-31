@@ -276,7 +276,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   %22 = getelementptr inbounds nuw i8, ptr %calloc121, i64 48
   store ptr %21, ptr %22, align 8, !tbaa !42
   %23 = icmp sgt i32 %0, 0
-  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge94.critedge
 
 .lr.ph.preheader:                                 ; preds = %6
   %24 = zext nneg i32 %0 to i64
@@ -292,134 +292,140 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %.lr.ph, %6
+._crit_edge:                                      ; preds = %.lr.ph
   %27 = tail call noalias ptr @malloc(i64 noundef %20) #12
   %28 = getelementptr inbounds nuw i8, ptr %calloc121, i64 104
   store ptr %27, ptr %28, align 8, !tbaa !27
   %29 = tail call noalias ptr @malloc(i64 noundef %20) #12
   %30 = getelementptr inbounds nuw i8, ptr %calloc121, i64 112
   store ptr %29, ptr %30, align 8, !tbaa !31
-  br i1 %23, label %.lr.ph93.preheader, label %._crit_edge94
-
-.lr.ph93.preheader:                               ; preds = %._crit_edge
   %31 = zext nneg i32 %0 to i64
   %32 = shl nuw nsw i64 %31, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %27, i8 -1, i64 %32, i1 false), !tbaa !28
   br label %._crit_edge94
 
-._crit_edge94:                                    ; preds = %.lr.ph93.preheader, %._crit_edge
-  %33 = tail call ptr @Msat_OrderAlloc(ptr noundef nonnull %calloc121) #11
-  %34 = getelementptr inbounds nuw i8, ptr %calloc121, i64 72
-  store ptr %33, ptr %34, align 8, !tbaa !56
-  %35 = load i32, ptr %7, align 4, !tbaa !23
-  %36 = shl nsw i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 3
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #12
-  %40 = getelementptr inbounds nuw i8, ptr %calloc121, i64 80
-  store ptr %39, ptr %40, align 8, !tbaa !30
-  %41 = icmp sgt i32 %35, 0
-  br i1 %41, label %.lr.ph97, label %._crit_edge98
+._crit_edge94.critedge:                           ; preds = %6
+  %33 = tail call noalias ptr @malloc(i64 noundef %20) #12
+  %34 = getelementptr inbounds nuw i8, ptr %calloc121, i64 104
+  store ptr %33, ptr %34, align 8, !tbaa !27
+  %35 = tail call noalias ptr @malloc(i64 noundef %20) #12
+  %36 = getelementptr inbounds nuw i8, ptr %calloc121, i64 112
+  store ptr %35, ptr %36, align 8, !tbaa !31
+  br label %._crit_edge94
+
+._crit_edge94:                                    ; preds = %._crit_edge94.critedge, %._crit_edge
+  %37 = tail call ptr @Msat_OrderAlloc(ptr noundef nonnull %calloc121) #11
+  %38 = getelementptr inbounds nuw i8, ptr %calloc121, i64 72
+  store ptr %37, ptr %38, align 8, !tbaa !56
+  %39 = load i32, ptr %7, align 4, !tbaa !23
+  %40 = shl nsw i32 %39, 1
+  %41 = sext i32 %40 to i64
+  %42 = shl nsw i64 %41, 3
+  %43 = tail call noalias ptr @malloc(i64 noundef %42) #12
+  %44 = getelementptr inbounds nuw i8, ptr %calloc121, i64 80
+  store ptr %43, ptr %44, align 8, !tbaa !30
+  %45 = icmp sgt i32 %39, 0
+  br i1 %45, label %.lr.ph97, label %._crit_edge98
 
 .lr.ph97:                                         ; preds = %._crit_edge94, %.lr.ph97
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph97 ], [ 0, %._crit_edge94 ]
-  %42 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
-  %43 = load ptr, ptr %40, align 8, !tbaa !30
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv114
-  store ptr %42, ptr %44, align 8, !tbaa !57
+  %46 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef 16) #11
+  %47 = load ptr, ptr %44, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv114
+  store ptr %46, ptr %48, align 8, !tbaa !57
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %45 = load i32, ptr %7, align 4, !tbaa !23
-  %46 = shl nsw i32 %45, 1
-  %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next115, %47
-  br i1 %48, label %.lr.ph97, label %._crit_edge98, !llvm.loop !58
+  %49 = load i32, ptr %7, align 4, !tbaa !23
+  %50 = shl nsw i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next115, %51
+  br i1 %52, label %.lr.ph97, label %._crit_edge98, !llvm.loop !58
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %._crit_edge94
-  %.lcssa89 = phi i32 [ %35, %._crit_edge94 ], [ %45, %.lr.ph97 ]
-  %49 = tail call ptr @Msat_QueueAlloc(i32 noundef %.lcssa89) #11
-  %50 = getelementptr inbounds nuw i8, ptr %calloc121, i64 88
-  store ptr %49, ptr %50, align 8, !tbaa !59
-  %51 = load i32, ptr %7, align 4, !tbaa !23
-  %52 = tail call ptr @Msat_IntVecAlloc(i32 noundef %51) #11
-  %53 = getelementptr inbounds nuw i8, ptr %calloc121, i64 120
-  store ptr %52, ptr %53, align 8, !tbaa !60
-  %54 = load i32, ptr %7, align 4, !tbaa !23
-  %55 = tail call ptr @Msat_IntVecAlloc(i32 noundef %54) #11
-  %56 = getelementptr inbounds nuw i8, ptr %calloc121, i64 128
-  store ptr %55, ptr %56, align 8, !tbaa !24
-  %57 = load i32, ptr %7, align 4, !tbaa !23
-  %58 = sext i32 %57 to i64
-  %59 = shl nsw i64 %58, 3
-  %calloc120 = tail call ptr @calloc(i64 1, i64 %59)
-  %60 = getelementptr inbounds nuw i8, ptr %calloc121, i64 136
-  store ptr %calloc120, ptr %60, align 8, !tbaa !26
-  %61 = shl nsw i64 %58, 2
-  %62 = tail call noalias ptr @malloc(i64 noundef %61) #12
-  %63 = getelementptr inbounds nuw i8, ptr %calloc121, i64 144
-  store ptr %62, ptr %63, align 8, !tbaa !25
-  %64 = icmp sgt i32 %57, 0
-  br i1 %64, label %.lr.ph101.preheader, label %._crit_edge102
+  %.lcssa89 = phi i32 [ %39, %._crit_edge94 ], [ %49, %.lr.ph97 ]
+  %53 = tail call ptr @Msat_QueueAlloc(i32 noundef %.lcssa89) #11
+  %54 = getelementptr inbounds nuw i8, ptr %calloc121, i64 88
+  store ptr %53, ptr %54, align 8, !tbaa !59
+  %55 = load i32, ptr %7, align 4, !tbaa !23
+  %56 = tail call ptr @Msat_IntVecAlloc(i32 noundef %55) #11
+  %57 = getelementptr inbounds nuw i8, ptr %calloc121, i64 120
+  store ptr %56, ptr %57, align 8, !tbaa !60
+  %58 = load i32, ptr %7, align 4, !tbaa !23
+  %59 = tail call ptr @Msat_IntVecAlloc(i32 noundef %58) #11
+  %60 = getelementptr inbounds nuw i8, ptr %calloc121, i64 128
+  store ptr %59, ptr %60, align 8, !tbaa !24
+  %61 = load i32, ptr %7, align 4, !tbaa !23
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 3
+  %calloc120 = tail call ptr @calloc(i64 1, i64 %63)
+  %64 = getelementptr inbounds nuw i8, ptr %calloc121, i64 136
+  store ptr %calloc120, ptr %64, align 8, !tbaa !26
+  %65 = shl nsw i64 %62, 2
+  %66 = tail call noalias ptr @malloc(i64 noundef %65) #12
+  %67 = getelementptr inbounds nuw i8, ptr %calloc121, i64 144
+  store ptr %66, ptr %67, align 8, !tbaa !25
+  %68 = icmp sgt i32 %61, 0
+  br i1 %68, label %.lr.ph101.preheader, label %._crit_edge102
 
 .lr.ph101.preheader:                              ; preds = %._crit_edge98
-  %65 = zext nneg i32 %57 to i64
-  %66 = shl nuw nsw i64 %65, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %62, i8 -1, i64 %66, i1 false), !tbaa !28
+  %69 = zext nneg i32 %61 to i64
+  %70 = shl nuw nsw i64 %69, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %66, i8 -1, i64 %70, i1 false), !tbaa !28
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %.lr.ph101.preheader, %._crit_edge98
-  %67 = getelementptr inbounds nuw i8, ptr %calloc121, i64 160
-  store double 0x4195D9C3F4000000, ptr %67, align 8, !tbaa !61
-  %68 = getelementptr inbounds nuw i8, ptr %calloc121, i64 168
-  store i32 %5, ptr %68, align 8, !tbaa !37
-  %69 = getelementptr inbounds nuw i8, ptr %calloc121, i64 176
-  store double 0.000000e+00, ptr %69, align 8, !tbaa !62
-  %70 = tail call ptr @Msat_MmStepStart(i32 noundef 10) #11
-  %71 = getelementptr inbounds nuw i8, ptr %calloc121, i64 248
-  store ptr %70, ptr %71, align 8, !tbaa !34
-  %72 = load i32, ptr %7, align 4, !tbaa !23
-  %73 = tail call ptr @Msat_IntVecAlloc(i32 noundef %72) #11
-  %74 = getelementptr inbounds nuw i8, ptr %calloc121, i64 184
-  store ptr %73, ptr %74, align 8, !tbaa !44
-  %75 = load i32, ptr %7, align 4, !tbaa !23
-  %76 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef %75) #11
-  %77 = getelementptr inbounds nuw i8, ptr %calloc121, i64 200
-  store ptr %76, ptr %77, align 8, !tbaa !43
-  %78 = load i32, ptr %7, align 4, !tbaa !23
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph105, label %._crit_edge106
+  %71 = getelementptr inbounds nuw i8, ptr %calloc121, i64 160
+  store double 0x4195D9C3F4000000, ptr %71, align 8, !tbaa !61
+  %72 = getelementptr inbounds nuw i8, ptr %calloc121, i64 168
+  store i32 %5, ptr %72, align 8, !tbaa !37
+  %73 = getelementptr inbounds nuw i8, ptr %calloc121, i64 176
+  store double 0.000000e+00, ptr %73, align 8, !tbaa !62
+  %74 = tail call ptr @Msat_MmStepStart(i32 noundef 10) #11
+  %75 = getelementptr inbounds nuw i8, ptr %calloc121, i64 248
+  store ptr %74, ptr %75, align 8, !tbaa !34
+  %76 = load i32, ptr %7, align 4, !tbaa !23
+  %77 = tail call ptr @Msat_IntVecAlloc(i32 noundef %76) #11
+  %78 = getelementptr inbounds nuw i8, ptr %calloc121, i64 184
+  store ptr %77, ptr %78, align 8, !tbaa !44
+  %79 = load i32, ptr %7, align 4, !tbaa !23
+  %80 = tail call ptr @Msat_ClauseVecAlloc(i32 noundef %79) #11
+  %81 = getelementptr inbounds nuw i8, ptr %calloc121, i64 200
+  store ptr %80, ptr %81, align 8, !tbaa !43
+  %82 = load i32, ptr %7, align 4, !tbaa !23
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %._crit_edge102, %.lr.ph105
-  %.4103 = phi i32 [ %82, %.lr.ph105 ], [ 0, %._crit_edge102 ]
-  %80 = load ptr, ptr %77, align 8, !tbaa !43
-  %81 = tail call ptr @Msat_IntVecAlloc(i32 noundef 5) #11
-  tail call void @Msat_ClauseVecPush(ptr noundef %80, ptr noundef %81) #11
-  %82 = add nuw nsw i32 %.4103, 1
-  %83 = load i32, ptr %7, align 4, !tbaa !23
-  %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph105, label %._crit_edge106, !llvm.loop !63
+  %.4103 = phi i32 [ %86, %.lr.ph105 ], [ 0, %._crit_edge102 ]
+  %84 = load ptr, ptr %81, align 8, !tbaa !43
+  %85 = tail call ptr @Msat_IntVecAlloc(i32 noundef 5) #11
+  tail call void @Msat_ClauseVecPush(ptr noundef %84, ptr noundef %85) #11
+  %86 = add nuw nsw i32 %.4103, 1
+  %87 = load i32, ptr %7, align 4, !tbaa !23
+  %88 = icmp slt i32 %86, %87
+  br i1 %88, label %.lr.ph105, label %._crit_edge106, !llvm.loop !63
 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %._crit_edge102
-  %.lcssa = phi i32 [ %78, %._crit_edge102 ], [ %83, %.lr.ph105 ]
-  %85 = tail call ptr @Msat_IntVecAlloc(i32 noundef %.lcssa) #11
-  %86 = getelementptr inbounds nuw i8, ptr %calloc121, i64 192
-  store ptr %85, ptr %86, align 8, !tbaa !45
-  %87 = load i32, ptr %7, align 4, !tbaa !23
-  tail call void @Msat_IntVecFill(ptr noundef %85, i32 noundef %87, i32 noundef 1) #11
-  %88 = load i32, ptr %7, align 4, !tbaa !23
-  %89 = sext i32 %88 to i64
-  %90 = shl nsw i64 %89, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %90)
-  %91 = getelementptr inbounds nuw i8, ptr %calloc121, i64 208
-  store ptr %calloc, ptr %91, align 8, !tbaa !35
-  %92 = getelementptr inbounds nuw i8, ptr %calloc121, i64 216
-  store i32 1, ptr %92, align 8, !tbaa !36
-  %93 = tail call ptr @Msat_IntVecAlloc(i32 noundef %88) #11
-  %94 = getelementptr inbounds nuw i8, ptr %calloc121, i64 224
-  store ptr %93, ptr %94, align 8, !tbaa !64
-  %95 = load i32, ptr %7, align 4, !tbaa !23
-  %96 = tail call ptr @Msat_IntVecAlloc(i32 noundef %95) #11
-  %97 = getelementptr inbounds nuw i8, ptr %calloc121, i64 232
-  store ptr %96, ptr %97, align 8, !tbaa !65
+  %.lcssa = phi i32 [ %82, %._crit_edge102 ], [ %87, %.lr.ph105 ]
+  %89 = tail call ptr @Msat_IntVecAlloc(i32 noundef %.lcssa) #11
+  %90 = getelementptr inbounds nuw i8, ptr %calloc121, i64 192
+  store ptr %89, ptr %90, align 8, !tbaa !45
+  %91 = load i32, ptr %7, align 4, !tbaa !23
+  tail call void @Msat_IntVecFill(ptr noundef %89, i32 noundef %91, i32 noundef 1) #11
+  %92 = load i32, ptr %7, align 4, !tbaa !23
+  %93 = sext i32 %92 to i64
+  %94 = shl nsw i64 %93, 2
+  %calloc = tail call ptr @calloc(i64 1, i64 %94)
+  %95 = getelementptr inbounds nuw i8, ptr %calloc121, i64 208
+  store ptr %calloc, ptr %95, align 8, !tbaa !35
+  %96 = getelementptr inbounds nuw i8, ptr %calloc121, i64 216
+  store i32 1, ptr %96, align 8, !tbaa !36
+  %97 = tail call ptr @Msat_IntVecAlloc(i32 noundef %92) #11
+  %98 = getelementptr inbounds nuw i8, ptr %calloc121, i64 224
+  store ptr %97, ptr %98, align 8, !tbaa !64
+  %99 = load i32, ptr %7, align 4, !tbaa !23
+  %100 = tail call ptr @Msat_IntVecAlloc(i32 noundef %99) #11
+  %101 = getelementptr inbounds nuw i8, ptr %calloc121, i64 232
+  store ptr %100, ptr %101, align 8, !tbaa !65
   ret ptr %calloc121
 }
 

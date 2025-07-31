@@ -53,18 +53,14 @@ define hidden zeroext i1 @Wayland_AllocSHMBuffer(i32 noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #7
   %22 = tail call ptr @SDL_getenv_REAL(ptr noundef nonnull @.str.5) #7
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %.thread.i, label %23
+  br i1 %.not.i, label %.critedge.i, label %23
 
 23:                                               ; preds = %21
   %24 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %6, ptr noundef nonnull %22, i64 noundef 4096) #7
   %25 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %6, ptr noundef nonnull @CreateTempFD.template, i64 noundef 4096) #7
   %26 = call i32 @mkostemp(ptr noundef nonnull %6, i32 noundef 524288) #7
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread.i, label %28
-
-.thread.i:                                        ; preds = %23, %21
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #7
-  br label %46
+  br i1 %27, label %.critedge.i, label %28
 
 28:                                               ; preds = %23
   %29 = call i32 @unlink(ptr noundef nonnull %6) #7
@@ -101,9 +97,9 @@ SetTempFileSize.exit.thread.i:                    ; preds = %37
   %40 = tail call ptr @__errno_location() #8
   %41 = load i32, ptr %40, align 4
   %.not8.i.i = icmp eq i32 %41, 95
-  br i1 %.not8.i.i, label %SetTempFileSize.exit.i, label %SetTempFileSize.exit.thread21.i
+  br i1 %.not8.i.i, label %SetTempFileSize.exit.i, label %SetTempFileSize.exit.thread19.i
 
-SetTempFileSize.exit.thread21.i:                  ; preds = %39
+SetTempFileSize.exit.thread19.i:                  ; preds = %39
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #7
   br label %44
@@ -115,11 +111,15 @@ SetTempFileSize.exit.i:                           ; preds = %39, %37
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #7
   br i1 %43, label %CreateTempFD.exit, label %44
 
-44:                                               ; preds = %SetTempFileSize.exit.i, %SetTempFileSize.exit.thread21.i
+44:                                               ; preds = %SetTempFileSize.exit.i, %SetTempFileSize.exit.thread19.i
   %45 = call i32 @close(i32 noundef %.011.i) #7
   br label %46
 
-46:                                               ; preds = %44, %.thread.i
+.critedge.i:                                      ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #7
+  br label %46
+
+46:                                               ; preds = %44, %.critedge.i
   %47 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #7
   br label %77
 

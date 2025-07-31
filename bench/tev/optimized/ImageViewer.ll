@@ -9262,8 +9262,8 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui6Widg
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %37, align 8
-  %.not106 = icmp eq ptr %46, %47
-  br i1 %.not106, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph.preheader
+  %.not110 = icmp eq ptr %46, %47
+  br i1 %.not110, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %48 = ptrtoint ptr %46 to i64
@@ -9273,8 +9273,8 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui6Widg
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread
-  %.028102 = phi i64 [ %84, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread ], [ 0, %.lr.ph.preheader ]
-  %52 = getelementptr inbounds ptr, ptr %47, i64 %.028102
+  %.028106 = phi i64 [ %84, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread ], [ 0, %.lr.ph.preheader ]
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %.028106
   %53 = load ptr, ptr %52, align 8, !nonnull !10, !noundef !10
   %54 = tail call ptr @__dynamic_cast(ptr nonnull %53, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
@@ -9322,11 +9322,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit39.critedge: ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 3, ptr %82, align 16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i64 %.028102, ptr %83, align 8
+  store i64 %.028106, ptr %83, align 8
   br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread: ; preds = %58, %.lr.ph, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37, %75
-  %84 = add nuw i64 %.028102, 1
+  %84 = add nuw i64 %.028106, 1
   %exitcond.not = icmp eq i64 %84, %51
   br i1 %exitcond.not, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph, !llvm.loop !119
 
@@ -9336,7 +9336,7 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZNK7na
 
 .thread:                                          ; preds = %5
   %86 = tail call noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIiLm2EEEibi(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext false, i32 noundef %4)
-  br i1 %86, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread, label %.thread89
+  br i1 %86, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread, label %.critedge
 
 87:                                               ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -9345,102 +9345,102 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZNK7na
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %93 = load ptr, ptr %92, align 8
-  %.not92103 = icmp eq ptr %91, %93
-  br i1 %.not92103, label %._crit_edge, label %.lr.ph105
+  %.not96107 = icmp eq ptr %91, %93
+  br i1 %.not96107, label %._crit_edge, label %.lr.ph109
 
-.lr.ph105:                                        ; preds = %87, %.lr.ph105
-  %.sroa.049.0104 = phi ptr [ %96, %.lr.ph105 ], [ %91, %87 ]
-  %94 = load ptr, ptr %.sroa.049.0104, align 8, !nonnull !10, !noundef !10
+.lr.ph109:                                        ; preds = %87, %.lr.ph109
+  %.sroa.049.0108 = phi ptr [ %96, %.lr.ph109 ], [ %91, %87 ]
+  %94 = load ptr, ptr %.sroa.049.0108, align 8, !nonnull !10, !noundef !10
   %95 = tail call ptr @__dynamic_cast(ptr nonnull %94, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN3tev11ImageButtonE, i64 0) #40
   tail call void @_ZN3tev11ImageButton11hideTextBoxEv(ptr noundef nonnull align 16 dereferenceable(376) %95)
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.049.0104, i64 8
-  %.not92 = icmp eq ptr %96, %93
-  br i1 %.not92, label %._crit_edge, label %.lr.ph105
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.049.0108, i64 8
+  %.not96 = icmp eq ptr %96, %93
+  br i1 %.not96, label %._crit_edge, label %.lr.ph109
 
-.thread89:                                        ; preds = %.thread
+._crit_edge:                                      ; preds = %.lr.ph109, %87
   %97 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %99 = load i32, ptr %98, align 16
-  switch i32 %99, label %162 [
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %101 = load i32, ptr %100, align 16
+  %.not = icmp eq i32 %101, 3
+  br i1 %.not, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread, label %102
+
+102:                                              ; preds = %._crit_edge
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %104 = load i64, ptr %1, align 4
+  store i64 %104, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 88
+  %108 = load i8, ptr %107, align 8
+  %109 = trunc i8 %108 to i1
+  %.pre = load i32, ptr %1, align 4
+  br i1 %109, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
+
+_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit: ; preds = %102
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %111 = load i32, ptr %110, align 4
+  %112 = add i32 %.pre, 4
+  %113 = sub i32 %112, %111
+  %spec.select.i = icmp ult i32 %113, 14
+  br i1 %spec.select.i, label %114, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
+
+114:                                              ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit
+  store i32 4, ptr %100, align 16
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
+
+_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread: ; preds = %102, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %118 = load i32, ptr %117, align 4
+  %119 = sub nsw i32 %.pre, %118
+  %120 = load i32, ptr %15, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 44
+  %122 = load i32, ptr %121, align 4
+  %123 = sub nsw i32 %120, %122
+  %124 = icmp sgt i32 %119, -1
+  %125 = icmp sgt i32 %123, -1
+  %or.cond.i40 = select i1 %124, i1 %125, i1 false
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 48
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp slt i32 %119, %127
+  %or.cond8.i41 = select i1 %or.cond.i40, i1 %128, i1 false
+  br i1 %or.cond8.i41, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
+
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42: ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
+  %129 = getelementptr inbounds nuw i8, ptr %116, i64 52
+  %130 = load i32, ptr %129, align 4
+  %131 = icmp slt i32 %123, %130
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %133 = load ptr, ptr %132, align 16
+  %134 = icmp ne ptr %133, null
+  %or.cond = select i1 %131, i1 %134, i1 false
+  br i1 %or.cond, label %135, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
+
+135:                                              ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42
+  %136 = tail call i32 @glfwGetKey(ptr noundef %99, i32 noundef 67)
+  %.not31 = icmp eq i32 %136, 0
+  %137 = select i1 %.not31, i32 1, i32 2
+  store i32 %137, ptr %100, align 16
+  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
+
+.critedge:                                        ; preds = %.thread
+  %138 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %140 = load i32, ptr %139, align 16
+  switch i32 %140, label %162 [
     i32 3, label %141
     i32 2, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge
   ]
 
-._crit_edge:                                      ; preds = %.lr.ph105, %87
-  %100 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 136
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %104 = load i32, ptr %103, align 16
-  %.not = icmp eq i32 %104, 3
-  br i1 %.not, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread, label %105
-
-105:                                              ; preds = %._crit_edge
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %107 = load i64, ptr %1, align 4
-  store i64 %107, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 88
-  %111 = load i8, ptr %110, align 8
-  %112 = trunc i8 %111 to i1
-  %.pre = load i32, ptr %1, align 4
-  br i1 %112, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
-
-_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit: ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 56
-  %114 = load i32, ptr %113, align 4
-  %115 = add i32 %.pre, 4
-  %116 = sub i32 %115, %114
-  %spec.select.i = icmp ult i32 %116, 14
-  br i1 %spec.select.i, label %117, label %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
-
-117:                                              ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit
-  store i32 4, ptr %103, align 16
-  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
-
-_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread: ; preds = %105, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  %121 = load i32, ptr %120, align 4
-  %122 = sub nsw i32 %.pre, %121
-  %123 = load i32, ptr %15, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 44
-  %125 = load i32, ptr %124, align 4
-  %126 = sub nsw i32 %123, %125
-  %127 = icmp sgt i32 %122, -1
-  %128 = icmp sgt i32 %126, -1
-  %or.cond.i40 = select i1 %127, i1 %128, i1 false
-  %129 = getelementptr inbounds nuw i8, ptr %119, i64 48
-  %130 = load i32, ptr %129, align 4
-  %131 = icmp slt i32 %122, %130
-  %or.cond8.i41 = select i1 %or.cond.i40, i1 %131, i1 false
-  br i1 %or.cond8.i41, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
-
-_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42: ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread
-  %132 = getelementptr inbounds nuw i8, ptr %119, i64 52
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp slt i32 %126, %133
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %136 = load ptr, ptr %135, align 16
-  %137 = icmp ne ptr %136, null
-  %or.cond = select i1 %134, i1 %137, i1 false
-  br i1 %or.cond, label %138, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
-
-138:                                              ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42
-  %139 = tail call i32 @glfwGetKey(ptr noundef %102, i32 noundef 67)
-  %.not31 = icmp eq i32 %139, 0
-  %140 = select i1 %.not31, i32 1, i32 2
-  store i32 %140, ptr %103, align 16
-  br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
-
-141:                                              ; preds = %.thread89
+141:                                              ; preds = %.critedge
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 521
   store i8 1, ptr %142, align 1
   br label %162
 
-_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge: ; preds = %.thread89
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge: ; preds = %.critedge
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %144 = load i32, ptr %143, align 8
   %145 = load i32, ptr %1, align 4
@@ -9468,12 +9468,12 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge: ; preds = %.thread89
   store i8 0, ptr %.sroa.245.0..sroa_idx, align 8
   br label %162
 
-162:                                              ; preds = %.thread89, %158, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge, %141
-  store i32 0, ptr %98, align 16
+162:                                              ; preds = %.critedge, %158, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit44.critedge, %141
+  store i32 0, ptr %139, align 16
   br label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread
 
-_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread: ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread, %.thread, %162, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42, %._crit_edge, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, %138, %117
-  %.0 = phi i1 [ true, %117 ], [ true, %138 ], [ true, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ], [ false, %._crit_edge ], [ false, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42 ], [ false, %162 ], [ true, %.thread ], [ false, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread ]
+_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42.thread: ; preds = %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread, %.thread, %162, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42, %._crit_edge, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, %135, %114
+  %.0 = phi i1 [ true, %114 ], [ true, %135 ], [ true, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread ], [ false, %._crit_edge ], [ false, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit42 ], [ false, %162 ], [ true, %.thread ], [ false, %_ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread ]
   ret i1 %.0
 }
 

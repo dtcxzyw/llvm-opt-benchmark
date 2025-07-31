@@ -3816,27 +3816,27 @@ Abc_TtPrintBinary.exit70:                         ; preds = %._crit_edge.us.i68,
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
   %128 = load ptr, ptr %9, align 8, !tbaa !51
   %129 = getelementptr i8, ptr %128, i64 4
-  %.val72 = load i32, ptr %129, align 4, !tbaa !16
-  %130 = icmp sgt i32 %.val72, 0
-  br i1 %130, label %.lr.ph75, label %._crit_edge76
+  %.val73 = load i32, ptr %129, align 4, !tbaa !16
+  %130 = icmp sgt i32 %.val73, 0
+  br i1 %130, label %.lr.ph76, label %._crit_edge77
 
-.lr.ph75:                                         ; preds = %._crit_edge, %.lr.ph75
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph75 ], [ 0, %._crit_edge ]
-  %131 = phi ptr [ %136, %.lr.ph75 ], [ %128, %._crit_edge ]
+.lr.ph76:                                         ; preds = %._crit_edge, %.lr.ph76
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph76 ], [ 0, %._crit_edge ]
+  %131 = phi ptr [ %136, %.lr.ph76 ], [ %128, %._crit_edge ]
   %132 = getelementptr i8, ptr %131, i64 8
   %.val32 = load ptr, ptr %132, align 8, !tbaa !25
-  %133 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv78
+  %133 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv79
   %134 = load i32, ptr %133, align 4, !tbaa !3
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %134)
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %136 = load ptr, ptr %9, align 8, !tbaa !51
   %137 = getelementptr i8, ptr %136, i64 4
   %.val = load i32, ptr %137, align 4, !tbaa !16
   %138 = sext i32 %.val to i64
-  %139 = icmp slt i64 %indvars.iv.next79, %138
-  br i1 %139, label %.lr.ph75, label %._crit_edge76, !llvm.loop !70
+  %139 = icmp slt i64 %indvars.iv.next80, %138
+  br i1 %139, label %.lr.ph76, label %._crit_edge77, !llvm.loop !70
 
-._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge
+._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
   %putchar29 = call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17

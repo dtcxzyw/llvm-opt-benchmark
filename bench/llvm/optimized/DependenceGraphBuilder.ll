@@ -4886,7 +4886,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit21: ; preds = %_ZN4llvm11S
   br i1 %.not, label %._crit_edge32, label %40
 
 .lr.ph:                                           ; preds = %40, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit
-  %.01927 = phi ptr [ %92, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %42, %40 ]
+  %.01927 = phi ptr [ %91, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %42, %40 ]
   %47 = load ptr, ptr %.01927, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
   call void @_ZN4llvm14DependenceInfo7dependsEPNS_11InstructionES2_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %11, ptr noundef nonnull align 8 dereferenceable(44) %27, ptr noundef %41, ptr noundef %47, i1 noundef zeroext true) #18
@@ -4901,111 +4901,111 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit21: ; preds = %_ZN4llvm11S
   %53 = load i32, ptr %29, align 4, !tbaa !66
   %.not.i.i.not.i = icmp ult i32 %50, %53
   %.pre3.i = load ptr, ptr %3, align 8, !tbaa !23
-  br i1 %.not.i.i.not.i, label %82, label %54, !prof !39
+  br i1 %.not.i.i.not.i, label %81, label %54, !prof !39
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.pre3.i, i64 %51
   %56 = icmp uge ptr %11, %.pre3.i
   %57 = icmp ult ptr %11, %55
   %spec.select.i.i.i.i.i = and i1 %56, %57
-  br i1 %spec.select.i.i.i.i.i, label %77, label %58, !prof !144
+  br i1 %spec.select.i.i.i.i.i, label %58, label %.critedge.i.i.i, !prof !144
 
 58:                                               ; preds = %54
+  %59 = ptrtoint ptr %.pre3.i to i64
+  %60 = sub i64 %31, %59
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %52)
+  %61 = load ptr, ptr %3, align 8, !tbaa !23
+  %62 = getelementptr inbounds i8, ptr %61, i64 %60
+  br label %81
+
+.critedge.i.i.i:                                  ; preds = %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  %59 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %30, i64 noundef %52, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
-  %60 = load ptr, ptr %3, align 8, !tbaa !23
-  %61 = load i32, ptr %28, align 8, !tbaa !25
-  %62 = zext i32 %61 to i64
-  %.idx.i.i = shl nuw nsw i64 %62, 3
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i
-  %.not7.i.i.i.i.i.i.i = icmp eq i32 %61, 0
+  %63 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %30, i64 noundef %52, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %64 = load ptr, ptr %3, align 8, !tbaa !23
+  %65 = load i32, ptr %28, align 8, !tbaa !25
+  %66 = zext i32 %65 to i64
+  %.idx.i.i = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i
+  %.not7.i.i.i.i.i.i.i = icmp eq i32 %65, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %58, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i.i.i ], [ %59, %58 ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i ], [ %60, %58 ]
-  %64 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !99
-  store i64 %64, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !99
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.critedge.i.i.i, %.lr.ph.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i.i ], [ %63, %.critedge.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i.i.i ], [ %64, %.critedge.i.i.i ]
+  %68 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !99
+  store i64 %68, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !99
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !99
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %65, %63
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %69, %67
   br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !319
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %67, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i ], [ %63, %.lr.ph.i.i.i.i.i.i.i ]
-  %67 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
-  %68 = load ptr, ptr %67, align 8, !tbaa !99
-  %.not.i.i.i.i = icmp eq ptr %68, null
+  %.05.i.i.i = phi ptr [ %71, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i ], [ %67, %.lr.ph.i.i.i.i.i.i.i ]
+  %71 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
+  %72 = load ptr, ptr %71, align 8, !tbaa !99
+  %.not.i.i.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %69 = load ptr, ptr %68, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(40) %68) #18
+  %73 = load ptr, ptr %72, align 8, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %72) #18
   br label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %67, align 8, !tbaa !99
-  %.not.i.i.i = icmp eq ptr %60, %67
+  store ptr null, ptr %71, align 8, !tbaa !99
+  %.not.i.i.i = icmp eq ptr %64, %71
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !320
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i.i
   %.pre.i23 = load ptr, ptr %3, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i, %58
-  %72 = phi ptr [ %.pre.i23, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i ], [ %60, %58 ]
-  %73 = load i64, ptr %5, align 8, !tbaa !45
-  %74 = icmp eq ptr %72, %30
-  br i1 %74, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit, label %75
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i, %.critedge.i.i.i
+  %76 = phi ptr [ %.pre.i23, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.loopexit.i ], [ %64, %.critedge.i.i.i ]
+  %77 = load i64, ptr %5, align 8, !tbaa !45
+  %78 = icmp eq ptr %76, %30
+  br i1 %78, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit, label %79
 
-75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i
-  call void @free(ptr noundef %72) #18
+79:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i
+  call void @free(ptr noundef %76) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i, %75
-  store ptr %59, ptr %3, align 8, !tbaa !23
-  %76 = trunc i64 %73 to i32
-  store i32 %76, ptr %29, align 4, !tbaa !66
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i, %79
+  store ptr %63, ptr %3, align 8, !tbaa !23
+  %80 = trunc i64 %77 to i32
+  store i32 %80, ptr %29, align 4, !tbaa !66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  br label %82
+  br label %81
 
-77:                                               ; preds = %54
-  %78 = ptrtoint ptr %.pre3.i to i64
-  %79 = sub i64 %31, %78
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %52)
-  %80 = load ptr, ptr %3, align 8, !tbaa !23
-  %81 = getelementptr inbounds i8, ptr %80, i64 %79
-  br label %82
-
-82:                                               ; preds = %77, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit, %49
-  %83 = phi ptr [ %.pre3.i, %49 ], [ %80, %77 ], [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit ]
-  %.016.i.i.i = phi ptr [ %11, %49 ], [ %81, %77 ], [ %11, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit ]
-  %84 = load i32, ptr %28, align 8, !tbaa !25
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %83, i64 %85
-  %87 = load i64, ptr %.016.i.i.i, align 8, !tbaa !99
-  store i64 %87, ptr %86, align 8, !tbaa !99
+81:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit, %58, %49
+  %82 = phi ptr [ %.pre3.i, %49 ], [ %61, %58 ], [ %63, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit ]
+  %.016.i.i.i = phi ptr [ %11, %49 ], [ %62, %58 ], [ %11, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE4growEm.exit ]
+  %83 = load i32, ptr %28, align 8, !tbaa !25
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %82, i64 %84
+  %86 = load i64, ptr %.016.i.i.i, align 8, !tbaa !99
+  store i64 %86, ptr %85, align 8, !tbaa !99
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !99
-  %88 = add i32 %84, 1
-  store i32 %88, ptr %28, align 8, !tbaa !25
+  %87 = add i32 %83, 1
+  store i32 %87, ptr %28, align 8, !tbaa !25
   %.pr = load ptr, ptr %11, align 8, !tbaa !99
   %.not.i22 = icmp eq ptr %.pr, null
   br i1 %.not.i22, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i: ; preds = %82
-  %89 = load ptr, ptr %.pr, align 8, !tbaa !3
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(40) %.pr) #18
+_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i: ; preds = %81
+  %88 = load ptr, ptr %.pr, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(40) %.pr) #18
   br label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit: ; preds = %.lr.ph, %82, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit: ; preds = %.lr.ph, %81, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
-  %92 = getelementptr inbounds nuw i8, ptr %.01927, i64 8
-  %.not20 = icmp eq ptr %92, %45
+  %91 = getelementptr inbounds nuw i8, ptr %.01927, i64 8
+  %.not20 = icmp eq ptr %91, %45
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 }
 

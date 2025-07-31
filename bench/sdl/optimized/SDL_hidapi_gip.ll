@@ -543,14 +543,14 @@ GIP_DecodeLength.exit119.thread.i:                ; preds = %GIP_DecodeLength.ex
 
 98:                                               ; preds = %GIP_DecodeLength.exit119.thread.i
   %99 = icmp ugt i64 %48, %.0143.i
-  br i1 %99, label %100, label %.thread149.i
+  br i1 %99, label %100, label %.thread.i
 
 100:                                              ; preds = %98
   %101 = trunc nuw nsw i64 %.0143.i to i32
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef %48, i32 noundef %101) #10
   br label %GIP_ReceivePacket.exit
 
-.thread149.i:                                     ; preds = %98
+.thread.i:                                        ; preds = %98
   %102 = call noalias ptr @SDL_malloc_REAL(i64 noundef %.0143.i) #10
   %103 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   store ptr %102, ptr %103, align 8
@@ -657,17 +657,17 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
   br label %GIP_DecodeLength.exit129.i
 
 GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.exit.i128.i, %135
-  %.3.i = phi i64 [ %148, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %148, %149 ]
+  %.2140.i = phi i64 [ %148, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %148, %149 ]
   %.1.i121.i = phi i32 [ %151, %.split.loop.exit.i128.i ], [ 0, %135 ], [ %138, %149 ]
   %152 = add nsw i32 %.1.i121.i, %.1.i.i
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %154 = load i32, ptr %153, align 8
   %155 = zext i32 %154 to i64
-  %.not99.i = icmp eq i64 %.3.i, %155
+  %.not99.i = icmp eq i64 %.2140.i, %155
   br i1 %.not99.i, label %166, label %156
 
 156:                                              ; preds = %GIP_DecodeLength.exit129.i
-  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.3.i, i32 noundef %154) #10
+  call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef %.2140.i, i32 noundef %154) #10
   %157 = load i32, ptr %153, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
   %159 = load i16, ptr %158, align 2
@@ -693,7 +693,7 @@ GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.e
   br label %GIP_ReceivePacket.exit
 
 166:                                              ; preds = %GIP_DecodeLength.exit129.i
-  %167 = add i64 %.3.i, %48
+  %167 = add i64 %.2140.i, %48
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 22
   %169 = load i16, ptr %168, align 2
   %170 = zext i16 %169 to i64
@@ -754,12 +754,12 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %193 = trunc nuw i64 %167 to i16
   %194 = sub i16 %169, %193
   %.not100.i = icmp eq i64 %48, 0
-  br i1 %.not100.i, label %201, label %.critedge.i
+  br i1 %.not100.i, label %201, label %.critedge150.i
 
-.critedge.i:                                      ; preds = %192
+.critedge150.i:                                   ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.3.i
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.2140.i
   %198 = sext i32 %152 to i64
   %199 = getelementptr inbounds i8, ptr %8, i64 %198
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %197, ptr nonnull align 1 %199, i64 %48, i1 false)
@@ -783,7 +783,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
 
 208:                                              ; preds = %207, %201
   store i8 0, ptr %66, align 4
-  %209 = trunc nuw i64 %.3.i to i32
+  %209 = trunc nuw i64 %.2140.i to i32
   store i32 %209, ptr %153, align 8
   %210 = call i64 @SDL_GetTicks_REAL() #10
   %211 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
@@ -807,23 +807,23 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %221 = call fastcc zeroext i1 @GIP_HandleMessage(ptr noundef nonnull %.0.i.i, i8 %36, i8 %37, ptr noundef nonnull %220, i32 noundef %219)
   br i1 %221, label %224, label %GIP_ReceivePacket.exit
 
-.sink.split.i:                                    ; preds = %.critedge.i, %.thread149.i
-  %.2148.ph.i = phi i16 [ %194, %.critedge.i ], [ %110, %.thread149.i ]
-  %.2140147.ph.i = phi i64 [ %167, %.critedge.i ], [ %48, %.thread149.i ]
+.sink.split.i:                                    ; preds = %.critedge150.i, %.thread.i
+  %.2145.ph.i = phi i16 [ %194, %.critedge150.i ], [ %110, %.thread.i ]
+  %.1139144.ph.i = phi i64 [ %167, %.critedge150.i ], [ %48, %.thread.i ]
   %222 = call i64 @SDL_GetTicks_REAL() #10
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   store i64 %222, ptr %223, align 8
   br label %224
 
 224:                                              ; preds = %.sink.split.i, %218, %208
-  %.2148.i = phi i16 [ %194, %208 ], [ 0, %218 ], [ %.2148.ph.i, %.sink.split.i ]
-  %.2140147.i = phi i64 [ %167, %208 ], [ %48, %218 ], [ %.2140147.ph.i, %.sink.split.i ]
+  %.2145.i = phi i16 [ %194, %208 ], [ 0, %218 ], [ %.2145.ph.i, %.sink.split.i ]
+  %.1139144.i = phi i64 [ %167, %208 ], [ %48, %218 ], [ %.1139144.ph.i, %.sink.split.i ]
   %225 = and i8 %37, 16
   %.not104.i = icmp eq i8 %225, 0
   br i1 %.not104.i, label %GIP_ReceivePacket.exit, label %226
 
 226:                                              ; preds = %224
-  %227 = trunc i64 %.2140147.i to i32
+  %227 = trunc i64 %.1139144.i to i32
   %.val105.i = load ptr, ptr %10, align 8
   %228 = getelementptr i8, ptr %.val105.i, i64 128
   %.val105.val.i = load ptr, ptr %228, align 8
@@ -838,7 +838,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i130.i, align 1
   store i8 %229, ptr %.sroa.5.0..sroa_idx.i131.i, align 2
   store i32 %227, ptr %.sroa.6.0..sroa_idx.i132.i, align 1
-  store i16 %.2148.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
+  store i16 %.2145.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
   %231 = call i32 @SDL_hid_write_REAL(ptr noundef %.val105.val.i, ptr noundef nonnull %5, i64 noundef 13) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %5) #10
   br label %GIP_ReceivePacket.exit

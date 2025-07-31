@@ -34,14 +34,14 @@ define hidden void @_ZN10duckdb_re27CEscapeB5cxx11ERKNS_11StringPieceE(ptr dead_
   br label %67
 
 .lr.ph.i:                                         ; preds = %2, %52
-  %.05363.i = phi i64 [ %.255.ph.i, %52 ], [ 0, %2 ]
-  %.05662.i = phi ptr [ %53, %52 ], [ %9, %2 ]
-  %12 = sub i64 %7, %.05363.i
+  %.05360.i = phi i64 [ %.255.i, %52 ], [ 0, %2 ]
+  %.05659.i = phi ptr [ %53, %52 ], [ %9, %2 ]
+  %12 = sub i64 %7, %.05360.i
   %13 = icmp ult i64 %12, 2
   br i1 %13, label %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = load i8, ptr %.05662.i, align 1, !tbaa !14
+  %15 = load i8, ptr %.05659.i, align 1, !tbaa !14
   %16 = zext i8 %15 to i32
   switch i8 %15, label %41 [
     i8 10, label %17
@@ -53,49 +53,49 @@ define hidden void @_ZN10duckdb_re27CEscapeB5cxx11ERKNS_11StringPieceE(ptr dead_
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %18, align 1, !tbaa !14
-  %19 = add i64 %.05363.i, 2
+  %19 = add i64 %.05360.i, 2
   %20 = getelementptr i8, ptr %18, i64 1
   store i8 110, ptr %20, align 1, !tbaa !14
   br label %52
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %22, align 1, !tbaa !14
-  %23 = add i64 %.05363.i, 2
+  %23 = add i64 %.05360.i, 2
   %24 = getelementptr i8, ptr %22, i64 1
   store i8 114, ptr %24, align 1, !tbaa !14
   br label %52
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %26, align 1, !tbaa !14
-  %27 = add i64 %.05363.i, 2
+  %27 = add i64 %.05360.i, 2
   %28 = getelementptr i8, ptr %26, i64 1
   store i8 116, ptr %28, align 1, !tbaa !14
   br label %52
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %30, align 1, !tbaa !14
-  %31 = add i64 %.05363.i, 2
+  %31 = add i64 %.05360.i, 2
   %32 = getelementptr i8, ptr %30, i64 1
   store i8 34, ptr %32, align 1, !tbaa !14
   br label %52
 
 33:                                               ; preds = %14
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %34, align 1, !tbaa !14
-  %35 = add i64 %.05363.i, 2
+  %35 = add i64 %.05360.i, 2
   %36 = getelementptr i8, ptr %34, i64 1
   store i8 39, ptr %36, align 1, !tbaa !14
   br label %52
 
 37:                                               ; preds = %14
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 92, ptr %38, align 1, !tbaa !14
-  %39 = add i64 %.05363.i, 2
+  %39 = add i64 %.05360.i, 2
   %40 = getelementptr i8, ptr %38, i64 1
   store i8 92, ptr %40, align 1, !tbaa !14
   br label %52
@@ -110,25 +110,25 @@ define hidden void @_ZN10duckdb_re27CEscapeB5cxx11ERKNS_11StringPieceE(ptr dead_
   br i1 %44, label %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 5, ptr noundef nonnull @.str, i32 noundef %16) #14
-  %48 = add i64 %.05363.i, 4
+  %48 = add i64 %.05360.i, 4
   br label %52
 
 49:                                               ; preds = %41
-  %50 = add i64 %.05363.i, 1
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 %.05363.i
+  %50 = add i64 %.05360.i, 1
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 %.05360.i
   store i8 %15, ptr %51, align 1, !tbaa !14
   br label %52
 
 52:                                               ; preds = %49, %45, %37, %33, %29, %25, %21, %17
-  %.255.ph.i = phi i64 [ %39, %37 ], [ %35, %33 ], [ %31, %29 ], [ %27, %25 ], [ %23, %21 ], [ %19, %17 ], [ %50, %49 ], [ %48, %45 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.05662.i, i64 1
+  %.255.i = phi i64 [ %48, %45 ], [ %50, %49 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %39, %37 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.05659.i, i64 1
   %54 = icmp ult ptr %53, %10
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %52
-  %55 = icmp eq i64 %7, %.255.ph.i
+  %55 = icmp eq i64 %7, %.255.i
   br i1 %55, label %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread, label %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit
 
 _ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread: ; preds = %.lr.ph.i, %43, %._crit_edge.i
@@ -139,18 +139,18 @@ _ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread: ; preds = %.lr.ph.i, %43, %
   br label %.noexc.i
 
 _ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit:     ; preds = %._crit_edge.i
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 %.255.ph.i
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 %.255.i
   store i8 0, ptr %57, align 1, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %58, ptr %0, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store i64 %.255.ph.i, ptr %3, align 8, !tbaa !13
-  %59 = icmp ugt i64 %.255.ph.i, 15
+  store i64 %.255.i, ptr %3, align 8, !tbaa !13
+  %59 = icmp ugt i64 %.255.i, 15
   br i1 %59, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit
   %60 = phi ptr [ %56, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread ], [ %58, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
-  %.1.i16 = phi i64 [ -1, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread ], [ %.255.ph.i, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
+  %.1.i16 = phi i64 [ -1, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit.thread ], [ %.255.i, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
   %61 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %61, ptr %0, align 8, !tbaa !17
   %62 = load i64, ptr %3, align 8, !tbaa !13
@@ -158,7 +158,7 @@ _ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit:     ; preds = %._crit_edge.i
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit
-  %.1.i15 = phi i64 [ %.1.i16, %.noexc.i ], [ %.255.ph.i, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
+  %.1.i15 = phi i64 [ %.1.i16, %.noexc.i ], [ %.255.i, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
   %63 = phi ptr [ %61, %.noexc.i ], [ %58, %_ZN10duckdb_re2L13CEscapeStringEPKcmPcm.exit ]
   switch i64 %.1.i15, label %66 [
     i64 1, label %64

@@ -1881,8 +1881,8 @@ defragRaxNode.exit:                               ; preds = %activeDefragAlloc.e
   %34 = add i64 %33, 1
   store i64 %34, ptr %1, align 8, !tbaa !94
   %35 = call i32 @raxNext(ptr noundef nonnull %4) #10
-  %.not2533 = icmp eq i32 %35, 0
-  br i1 %.not2533, label %._crit_edge, label %.lr.ph
+  %.not2531 = icmp eq i32 %35, 0
+  br i1 %.not2531, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1890,7 +1890,7 @@ defragRaxNode.exit:                               ; preds = %activeDefragAlloc.e
   br label %38
 
 38:                                               ; preds = %.lr.ph, %64
-  %.01534 = phi i64 [ 0, %.lr.ph ], [ %.217, %64 ]
+  %.01532 = phi i64 [ 0, %.lr.ph ], [ %.217, %64 ]
   %39 = load ptr, ptr %36, align 8, !tbaa !110
   %40 = call i32 @je_get_defrag_hint(ptr noundef %39) #10
   %.not.i27 = icmp eq i32 %40, 0
@@ -1923,8 +1923,8 @@ activeDefragAlloc.exit:                           ; preds = %38
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
-  %52 = add nsw i64 %.01534, 1
-  %53 = icmp sgt i64 %.01534, 127
+  %52 = add nsw i64 %.01532, 1
+  %53 = icmp sgt i64 %.01532, 127
   br i1 %53, label %54, label %64
 
 54:                                               ; preds = %49
@@ -1936,14 +1936,14 @@ activeDefragAlloc.exit:                           ; preds = %38
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !112
   %60 = icmp eq i64 %59, 16
-  br i1 %60, label %.thread, label %61, !prof !58
+  br i1 %60, label %.critedge, label %61, !prof !58
 
 61:                                               ; preds = %57
   call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 617) #10
   call void @abort() #11
   unreachable
 
-.thread:                                          ; preds = %57
+.critedge:                                        ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @scanLaterStreamListpacks.last, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
@@ -1961,8 +1961,8 @@ activeDefragAlloc.exit:                           ; preds = %38
   store i64 0, ptr %1, align 8, !tbaa !94
   br label %66
 
-66:                                               ; preds = %.thread, %29, %._crit_edge, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 1, %.thread ]
+66:                                               ; preds = %29, %._crit_edge, %.critedge, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #10
   ret i32 %.0
 }

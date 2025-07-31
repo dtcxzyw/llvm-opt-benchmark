@@ -991,13 +991,13 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !12
   %7 = icmp eq i8 %6, 35
-  br i1 %7, label %8, label %.thread96
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i8, ptr %9, align 1, !tbaa !12
   switch i8 %10, label %41 [
-    i8 0, label %.thread96
+    i8 0, label %.critedge
     i8 120, label %11
   ]
 
@@ -1005,27 +1005,27 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %.not83 = icmp eq i8 %13, 0
-  br i1 %.not83, label %.thread96, label %14
+  br i1 %.not83, label %.critedge, label %14
 
 14:                                               ; preds = %11
   %15 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 59) #33
   %.not84 = icmp eq ptr %15, null
-  br i1 %.not84, label %.thread96, label %16
+  br i1 %.not84, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %0 to i64
   %19 = sub i64 %17, %18
-  %.069110 = getelementptr inbounds i8, ptr %15, i64 -1
-  %20 = load i8, ptr %.069110, align 1, !tbaa !12
-  %.not85111 = icmp eq i8 %20, 120
-  br i1 %.not85111, label %.loopexit, label %.lr.ph
+  %.069100 = getelementptr inbounds i8, ptr %15, i64 -1
+  %20 = load i8, ptr %.069100, align 1, !tbaa !12
+  %.not85101 = icmp eq i8 %20, 120
+  br i1 %.not85101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %35
   %21 = phi i8 [ %40, %35 ], [ %20, %16 ]
-  %.069114 = phi ptr [ %.069, %35 ], [ %.069110, %16 ]
-  %.156113 = phi i64 [ %38, %35 ], [ 0, %16 ]
-  %.071112 = phi i32 [ %39, %35 ], [ 1, %16 ]
+  %.069104 = phi ptr [ %.069, %35 ], [ %.069100, %16 ]
+  %.156103 = phi i64 [ %38, %35 ], [ 0, %16 ]
+  %.071102 = phi i32 [ %39, %35 ], [ 1, %16 ]
   %22 = add i8 %21, -48
   %or.cond = icmp ult i8 %22, 10
   br i1 %or.cond, label %23, label %25
@@ -1047,20 +1047,20 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 30:                                               ; preds = %25
   %31 = add i8 %21, -65
   %or.cond90 = icmp ult i8 %31, 6
-  br i1 %or.cond90, label %32, label %.thread96
+  br i1 %or.cond90, label %32, label %.critedge
 
 32:                                               ; preds = %30
   %33 = zext nneg i8 %21 to i32
   %34 = add nsw i32 %33, -55
   br label %35
 
-35:                                               ; preds = %23, %32, %27
+35:                                               ; preds = %27, %32, %23
   %.065 = phi i32 [ %24, %23 ], [ %29, %27 ], [ %34, %32 ]
-  %36 = mul i32 %.065, %.071112
+  %36 = mul i32 %.065, %.071102
   %37 = zext i32 %36 to i64
-  %38 = add i64 %.156113, %37
-  %39 = shl i32 %.071112, 4
-  %.069 = getelementptr inbounds i8, ptr %.069114, i64 -1
+  %38 = add i64 %.156103, %37
+  %39 = shl i32 %.071102, 4
+  %.069 = getelementptr inbounds i8, ptr %.069104, i64 -1
   %40 = load i8, ptr %.069, align 1, !tbaa !12
   %.not85 = icmp eq i8 %40, 120
   br i1 %.not85, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -1068,36 +1068,36 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 41:                                               ; preds = %8
   %42 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 59) #33
   %.not81 = icmp eq ptr %42, null
-  br i1 %.not81, label %.thread96, label %43
+  br i1 %.not81, label %.critedge, label %43
 
 43:                                               ; preds = %41
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
-  %.061115 = getelementptr inbounds i8, ptr %42, i64 -1
-  %47 = load i8, ptr %.061115, align 1, !tbaa !12
-  %.not82116 = icmp eq i8 %47, 35
-  br i1 %.not82116, label %.loopexit, label %.lr.ph120
+  %.061105 = getelementptr inbounds i8, ptr %42, i64 -1
+  %47 = load i8, ptr %.061105, align 1, !tbaa !12
+  %.not82106 = icmp eq i8 %47, 35
+  br i1 %.not82106, label %.loopexit, label %.lr.ph110
 
-.lr.ph120:                                        ; preds = %43, %50
+.lr.ph110:                                        ; preds = %43, %50
   %48 = phi i8 [ %56, %50 ], [ %47, %43 ]
-  %.061119 = phi ptr [ %.061, %50 ], [ %.061115, %43 ]
-  %.560118 = phi i64 [ %54, %50 ], [ 0, %43 ]
-  %.273117 = phi i32 [ %55, %50 ], [ 1, %43 ]
+  %.061109 = phi ptr [ %.061, %50 ], [ %.061105, %43 ]
+  %.560108 = phi i64 [ %54, %50 ], [ 0, %43 ]
+  %.273107 = phi i32 [ %55, %50 ], [ 1, %43 ]
   %49 = add i8 %48, -48
   %or.cond91 = icmp ult i8 %49, 10
-  br i1 %or.cond91, label %50, label %.thread96
+  br i1 %or.cond91, label %50, label %.critedge
 
-50:                                               ; preds = %.lr.ph120
+50:                                               ; preds = %.lr.ph110
   %51 = zext nneg i8 %49 to i32
-  %52 = mul i32 %.273117, %51
+  %52 = mul i32 %.273107, %51
   %53 = zext i32 %52 to i64
-  %54 = add i64 %.560118, %53
-  %55 = mul i32 %.273117, 10
-  %.061 = getelementptr inbounds i8, ptr %.061119, i64 -1
+  %54 = add i64 %.560108, %53
+  %55 = mul i32 %.273107, 10
+  %.061 = getelementptr inbounds i8, ptr %.061109, i64 -1
   %56 = load i8, ptr %.061, align 1, !tbaa !12
   %.not82 = icmp eq i8 %56, 35
-  br i1 %.not82, label %.loopexit, label %.lr.ph120, !llvm.loop !27
+  br i1 %.not82, label %.loopexit, label %.lr.ph110, !llvm.loop !27
 
 .loopexit:                                        ; preds = %35, %50, %16, %43
   %.163 = phi i64 [ %46, %43 ], [ %19, %16 ], [ %46, %50 ], [ %19, %35 ]
@@ -1191,10 +1191,10 @@ _ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %69, %90
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #31
   %96 = getelementptr inbounds i8, ptr %0, i64 %.163
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
-  br label %.thread96
+  br label %.critedge
 
-.thread96:                                        ; preds = %30, %.lr.ph120, %41, %14, %11, %3, %8, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit
-  %.5 = phi ptr [ %97, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ %5, %8 ], [ %5, %3 ], [ null, %11 ], [ null, %14 ], [ null, %41 ], [ null, %.lr.ph120 ], [ null, %30 ]
+.critedge:                                        ; preds = %30, %.lr.ph110, %3, %8, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit, %14, %11, %41
+  %.5 = phi ptr [ %97, %_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit ], [ null, %14 ], [ null, %11 ], [ null, %41 ], [ %5, %8 ], [ %5, %3 ], [ null, %.lr.ph110 ], [ null, %30 ]
   ret ptr %.5
 }
 
@@ -8587,8 +8587,8 @@ _ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit: ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8tinyxml210XMLElement15ParseAttributesEPcPi(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.not73 = icmp eq ptr %1, null
-  br i1 %.not73, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq ptr %1, null
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.not.not.i.i = icmp eq ptr %2, null
@@ -8597,9 +8597,9 @@ define noundef ptr @_ZN8tinyxml210XMLElement15ParseAttributesEPcPi(ptr noundef n
   br label %6
 
 6:                                                ; preds = %.backedge, %.lr.ph
-  %.02775 = phi ptr [ %1, %.lr.ph ], [ %62, %.backedge ]
-  %.03074 = phi ptr [ null, %.lr.ph ], [ %44, %.backedge ]
-  %7 = load i8, ptr %.02775, align 1, !tbaa !12
+  %.02772 = phi ptr [ %1, %.lr.ph ], [ %62, %.backedge ]
+  %.03071 = phi ptr [ null, %.lr.ph ], [ %44, %.backedge ]
+  %7 = load i8, ptr %.02772, align 1, !tbaa !12
   %8 = icmp slt i8 %7, 0
   br i1 %8, label %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread, label %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i
 
@@ -8608,7 +8608,7 @@ _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i: ; preds = %6
 
 _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i: ; preds = %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i, %12
   %9 = phi i8 [ %14, %12 ], [ %7, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
-  %.08.us.i.i = phi ptr [ %13, %12 ], [ %.02775, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
+  %.08.us.i.i = phi ptr [ %13, %12 ], [ %.02772, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
   %10 = zext nneg i8 %9 to i32
   %11 = tail call i32 @isspace(i32 noundef %10) #33
   %.not7.us.i.i = icmp eq i32 %11, 0
@@ -8622,7 +8622,7 @@ _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.us.i.i: ; preds = %_ZN8tinyxml27XMLUti
 
 _ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i.i:    ; preds = %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i, %24
   %16 = phi i8 [ %26, %24 ], [ %7, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
-  %.08.i.i = phi ptr [ %25, %24 ], [ %.02775, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
+  %.08.i.i = phi ptr [ %25, %24 ], [ %.02772, %_ZN8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.lr.ph.i.i ]
   %17 = zext nneg i8 %16 to i32
   %18 = tail call i32 @isspace(i32 noundef %17) #33
   %.not7.i.i = icmp eq i32 %18, 0
@@ -8678,7 +8678,7 @@ _ZNK8tinyxml210XMLElement4NameEv.exit:            ; preds = %28, %36
   br i1 %.not.i, label %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, label %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
 
 _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit:     ; preds = %39
-  switch i8 %.pr, label %.loopexit60 [
+  switch i8 %.pr, label %.loopexit57 [
     i8 95, label %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
     i8 58, label %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread
     i8 62, label %92
@@ -8686,7 +8686,7 @@ _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit:     ; preds = %39
   ]
 
 _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.thread: ; preds = %24, %12, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %6, %39
-  %.0.lcssa.i.i464852 = phi ptr [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.0.lcssa.i.i.ph, %39 ], [ %.02775, %6 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %13, %12 ], [ %25, %24 ]
+  %.0.lcssa.i.i464852 = phi ptr [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %.0.lcssa.i.i.ph, %39 ], [ %.02772, %6 ], [ %.0.lcssa.i.i.ph, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit ], [ %13, %12 ], [ %25, %24 ]
   %42 = load ptr, ptr %4, align 8, !tbaa !73
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 392
   %44 = tail call noundef ptr @_ZN8tinyxml28MemPoolTILi80EE5AllocEv(ptr noundef nonnull align 8 dereferenceable(128) %43)
@@ -8765,24 +8765,24 @@ _ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit: ; preds = %_
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %.not.i.i40 = icmp eq ptr %85, null
-  br i1 %.not.i.i40, label %86, label %.thread55
+  br i1 %.not.i.i40, label %86, label %_ZNK8tinyxml210XMLElement4NameEv.exit42
 
 86:                                               ; preds = %_ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = tail call noundef ptr @_ZN8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %87)
-  br label %.thread55
+  br label %_ZNK8tinyxml210XMLElement4NameEv.exit42
 
-.thread55:                                        ; preds = %86, %_ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit
+_ZNK8tinyxml210XMLElement4NameEv.exit42:          ; preds = %_ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit, %86
   %.0.i.i41 = phi ptr [ %88, %86 ], [ null, %_ZN8tinyxml210XMLElement15DeleteAttributeEPNS_12XMLAttributeE.exit ]
   tail call void (ptr, i32, i32, ptr, ...) @_ZN8tinyxml211XMLDocument8SetErrorENS_8XMLErrorEiPKcz(ptr noundef nonnull align 8 dereferenceable(776) %81, i32 noundef 7, i32 noundef %57, ptr noundef nonnull @.str.23, ptr noundef %.0.i.i41)
   br label %.loopexit
 
 _ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit.thread: ; preds = %70, %63, %_ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit
-  %.not37 = icmp eq ptr %.03074, null
+  %.not37 = icmp eq ptr %.03071, null
   br i1 %.not37, label %91, label %89
 
 89:                                               ; preds = %_ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit.thread
-  %90 = getelementptr inbounds nuw i8, ptr %.03074, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %.03071, i64 64
   store ptr %44, ptr %90, align 8, !tbaa !105
   br label %.backedge
 
@@ -8801,7 +8801,7 @@ _ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit.thread: ; preds = %70, %63, %_ZN
   %95 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.ph, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !12
   %97 = icmp eq i8 %96, 62
-  br i1 %97, label %98, label %.loopexit60
+  br i1 %97, label %98, label %.loopexit57
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8809,15 +8809,15 @@ _ZNK8tinyxml210XMLElement9AttributeEPKcS2_.exit.thread: ; preds = %70, %63, %_ZN
   %100 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.ph, i64 2
   br label %.loopexit
 
-.loopexit60:                                      ; preds = %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %94
+.loopexit57:                                      ; preds = %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit, %94
   %101 = load ptr, ptr %4, align 8, !tbaa !73
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = load i32, ptr %102, align 8, !tbaa !72
   tail call void (ptr, i32, i32, ptr, ...) @_ZN8tinyxml211XMLDocument8SetErrorENS_8XMLErrorEiPKcz(ptr noundef nonnull align 8 dereferenceable(776) %101, i32 noundef 6, i32 noundef %103, ptr noundef null)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %.thread55, %92, %.loopexit60, %98, %_ZNK8tinyxml210XMLElement4NameEv.exit
-  %.1 = phi ptr [ %100, %98 ], [ null, %.loopexit60 ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit ], [ %93, %92 ], [ null, %.thread55 ], [ null, %3 ]
+.loopexit:                                        ; preds = %3, %92, %_ZNK8tinyxml210XMLElement4NameEv.exit42, %.loopexit57, %98, %_ZNK8tinyxml210XMLElement4NameEv.exit
+  %.1 = phi ptr [ %100, %98 ], [ null, %.loopexit57 ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit ], [ null, %_ZNK8tinyxml210XMLElement4NameEv.exit42 ], [ %93, %92 ], [ null, %3 ]
   ret ptr %.1
 }
 

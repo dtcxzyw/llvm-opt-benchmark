@@ -3756,7 +3756,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = or i8 %6, %8
-  switch i8 %9, label %.critedge [
+  switch i8 %9, label %.critedge91 [
     i8 68, label %10
     i8 85, label %54
     i8 69, label %62
@@ -3774,7 +3774,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
 
 15:                                               ; preds = %13
   store i64 1, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 16:                                               ; preds = %13
   %17 = load i64, ptr %1, align 8, !tbaa !4
@@ -3783,60 +3783,60 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
 
 19:                                               ; preds = %16
   store i64 0, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 .lr.ph:                                           ; preds = %16, %45
-  %.072105 = phi i64 [ %.274, %45 ], [ 1, %16 ]
-  %.076104 = phi i64 [ %.177, %45 ], [ %17, %16 ]
-  %.080103 = phi i64 [ %.181, %45 ], [ %11, %16 ]
-  %20 = and i64 %.080103, 1
+  %.072102 = phi i64 [ %.274, %45 ], [ 1, %16 ]
+  %.076101 = phi i64 [ %.177, %45 ], [ %17, %16 ]
+  %.080100 = phi i64 [ %.181, %45 ], [ %11, %16 ]
+  %20 = and i64 %.080100, 1
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = add nsw i64 %.080103, -1
-  %23 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.072105, i64 %.076104)
+  %22 = add nsw i64 %.080100, -1
+  %23 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.072102, i64 %.076101)
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = extractvalue { i64, i1 } %23, 0
   br i1 %24, label %26, label %45
 
 26:                                               ; preds = %21
-  %27 = sitofp i64 %.072105 to double
-  %28 = sitofp i64 %.076104 to double
+  %27 = sitofp i64 %.072102 to double
+  %28 = sitofp i64 %.076101 to double
   %29 = fmul double %28, %27
   %30 = uitofp nneg i64 %22 to double
   %31 = tail call double @pow(double noundef %28, double noundef %30) #28, !tbaa !95
   %32 = fmul double %29, %31
   store double %32, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 33:                                               ; preds = %.lr.ph
-  %34 = lshr exact i64 %.080103, 1
-  %35 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.076104, i64 %.076104)
+  %34 = lshr exact i64 %.080100, 1
+  %35 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.076101, i64 %.076101)
   %36 = extractvalue { i64, i1 } %35, 1
   %37 = extractvalue { i64, i1 } %35, 0
   br i1 %36, label %38, label %45
 
 38:                                               ; preds = %33
-  %39 = sitofp i64 %.076104 to double
+  %39 = sitofp i64 %.076101 to double
   %40 = fmul double %39, %39
-  %41 = sitofp i64 %.072105 to double
+  %41 = sitofp i64 %.072102 to double
   %42 = uitofp nneg i64 %34 to double
   %43 = tail call double @pow(double noundef %40, double noundef %42) #28, !tbaa !95
   %44 = fmul double %43, %41
   store double %44, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 45:                                               ; preds = %21, %33
   %.181 = phi i64 [ %22, %21 ], [ %34, %33 ]
-  %.177 = phi i64 [ %.076104, %21 ], [ %37, %33 ]
-  %.274 = phi i64 [ %25, %21 ], [ %.072105, %33 ]
+  %.177 = phi i64 [ %.076101, %21 ], [ %37, %33 ]
+  %.274 = phi i64 [ %25, %21 ], [ %.072102, %33 ]
   %46 = icmp sgt i64 %.181, 0
-  br i1 %46, label %.lr.ph, label %._crit_edge
+  br i1 %46, label %.lr.ph, label %.critedge
 
-._crit_edge:                                      ; preds = %45
+.critedge:                                        ; preds = %45
   store i64 %.274, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 47:                                               ; preds = %10
   %48 = load i64, ptr %1, align 8, !tbaa !4
@@ -3852,7 +3852,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
 safe_pow.exit:                                    ; preds = %47, %52
   %53 = tail call double @pow(double noundef %49, double noundef %50) #28, !tbaa !95
   store double %53, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 54:                                               ; preds = %3
   %55 = load double, ptr %1, align 8, !tbaa !4
@@ -3860,16 +3860,16 @@ safe_pow.exit:                                    ; preds = %47, %52
   %57 = fcmp oeq double %55, 0.000000e+00
   %58 = fcmp olt double %56, 0.000000e+00
   %59 = and i1 %57, %58
-  br i1 %59, label %60, label %safe_pow.exit91, !prof !41
+  br i1 %59, label %60, label %safe_pow.exit92, !prof !41
 
 60:                                               ; preds = %54
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.37) #28
-  br label %safe_pow.exit91
+  br label %safe_pow.exit92
 
-safe_pow.exit91:                                  ; preds = %54, %60
+safe_pow.exit92:                                  ; preds = %54, %60
   %61 = tail call double @pow(double noundef %55, double noundef %56) #28, !tbaa !95
   store double %61, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 62:                                               ; preds = %3
   %63 = load i64, ptr %1, align 8, !tbaa !4
@@ -3878,16 +3878,16 @@ safe_pow.exit91:                                  ; preds = %54, %60
   %66 = icmp eq i64 %63, 0
   %67 = fcmp olt double %65, 0.000000e+00
   %68 = and i1 %66, %67
-  br i1 %68, label %69, label %safe_pow.exit92, !prof !41
+  br i1 %68, label %69, label %safe_pow.exit93, !prof !41
 
 69:                                               ; preds = %62
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.37) #28
-  br label %safe_pow.exit92
+  br label %safe_pow.exit93
 
-safe_pow.exit92:                                  ; preds = %62, %69
+safe_pow.exit93:                                  ; preds = %62, %69
   %70 = tail call double @pow(double noundef %64, double noundef %65) #28, !tbaa !95
   store double %70, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
 71:                                               ; preds = %3
   %72 = load double, ptr %1, align 8, !tbaa !4
@@ -3896,25 +3896,25 @@ safe_pow.exit92:                                  ; preds = %62, %69
   %75 = fcmp oeq double %72, 0.000000e+00
   %76 = icmp slt i64 %73, 0
   %77 = and i1 %75, %76
-  br i1 %77, label %78, label %safe_pow.exit93, !prof !41
+  br i1 %77, label %78, label %safe_pow.exit94, !prof !41
 
 78:                                               ; preds = %71
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.37) #28
-  br label %safe_pow.exit93
+  br label %safe_pow.exit94
 
-safe_pow.exit93:                                  ; preds = %71, %78
+safe_pow.exit94:                                  ; preds = %71, %78
   %79 = tail call double @pow(double noundef %72, double noundef %74) #28, !tbaa !95
   store double %79, ptr %0, align 8, !tbaa !4
-  br label %.critedge.sink.split
+  br label %.critedge91.sink.split
 
-.critedge.sink.split:                             ; preds = %safe_pow.exit91, %safe_pow.exit92, %safe_pow.exit93, %._crit_edge, %safe_pow.exit, %19, %15, %26, %38
-  %.sink = phi i32 [ 5, %38 ], [ 5, %26 ], [ 4, %15 ], [ 4, %19 ], [ 5, %safe_pow.exit ], [ 4, %._crit_edge ], [ 5, %safe_pow.exit93 ], [ 5, %safe_pow.exit92 ], [ 5, %safe_pow.exit91 ]
+.critedge91.sink.split:                           ; preds = %safe_pow.exit92, %safe_pow.exit93, %safe_pow.exit94, %.critedge, %safe_pow.exit, %26, %38, %19, %15
+  %.sink = phi i32 [ 4, %15 ], [ 4, %19 ], [ 5, %38 ], [ 5, %26 ], [ 5, %safe_pow.exit ], [ 4, %.critedge ], [ 5, %safe_pow.exit94 ], [ 5, %safe_pow.exit93 ], [ 5, %safe_pow.exit92 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %80, align 8, !tbaa !4
-  br label %.critedge
+  br label %.critedge91
 
-.critedge:                                        ; preds = %.critedge.sink.split, %3
-  %.3 = phi i32 [ -1, %3 ], [ 0, %.critedge.sink.split ]
+.critedge91:                                      ; preds = %.critedge91.sink.split, %3
+  %.3 = phi i32 [ -1, %3 ], [ 0, %.critedge91.sink.split ]
   ret i32 %.3
 }
 

@@ -1585,40 +1585,38 @@ _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.
 
 _PyWeakref_GET_REF.exit52.thread:                 ; preds = %_PyWeakref_GET_REF.exit, %21
   %26 = icmp eq ptr %.0.i, null
-  br i1 %26, label %Py_XDECREF.exit57, label %28
+  br i1 %26, label %Py_XDECREF.exit57, label %29
 
 _PyWeakref_GET_REF.exit52:                        ; preds = %22, %24
-  %27 = icmp eq ptr %.0.i, null
-  br i1 %27, label %Py_XDECREF.exit, label %39
+  %27 = phi i32 [ %.val.i.i49, %22 ], [ %25, %24 ]
+  %28 = icmp eq ptr %.0.i, null
+  br i1 %28, label %Py_XDECREF.exit, label %39
 
-28:                                               ; preds = %_PyWeakref_GET_REF.exit52.thread
-  %29 = load i32, ptr %.0.i, align 8, !tbaa !42
-  %.not.i.i54 = icmp sgt i32 %29, -1
-  br i1 %.not.i.i54, label %30, label %Py_XDECREF.exit57
+29:                                               ; preds = %_PyWeakref_GET_REF.exit52.thread
+  %30 = load i32, ptr %.0.i, align 8, !tbaa !42
+  %.not.i.i54 = icmp sgt i32 %30, -1
+  br i1 %.not.i.i54, label %31, label %Py_XDECREF.exit57
 
-30:                                               ; preds = %28
-  %31 = add nsw i32 %29, -1
-  store i32 %31, ptr %.0.i, align 8, !tbaa !42
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %Py_XDECREF.exit57.sink.split, label %Py_XDECREF.exit57
+31:                                               ; preds = %29
+  %32 = add nsw i32 %30, -1
+  store i32 %32, ptr %.0.i, align 8, !tbaa !42
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %Py_XDECREF.exit57
 
-Py_XDECREF.exit:                                  ; preds = %_PyWeakref_GET_REF.exit52
-  %33 = load i32, ptr %.val43, align 8, !tbaa !42
-  %.not.i.i56 = icmp sgt i32 %33, -1
-  br i1 %.not.i.i56, label %34, label %Py_XDECREF.exit57
-
-34:                                               ; preds = %Py_XDECREF.exit
-  %35 = add nsw i32 %33, -1
-  store i32 %35, ptr %.val43, align 8, !tbaa !42
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %Py_XDECREF.exit57.sink.split, label %Py_XDECREF.exit57
-
-Py_XDECREF.exit57.sink.split:                     ; preds = %34, %30
-  %.0.i.sink = phi ptr [ %.0.i, %30 ], [ %.val43, %34 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i.sink) #6
+34:                                               ; preds = %31
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #6
   br label %Py_XDECREF.exit57
 
-Py_XDECREF.exit57:                                ; preds = %Py_XDECREF.exit57.sink.split, %30, %28, %_PyWeakref_GET_REF.exit52.thread, %Py_XDECREF.exit, %34
+Py_XDECREF.exit:                                  ; preds = %_PyWeakref_GET_REF.exit52
+  %.not.i.i56 = icmp sgt i32 %27, -1
+  br i1 %.not.i.i56, label %35, label %Py_XDECREF.exit57
+
+35:                                               ; preds = %Py_XDECREF.exit
+  %36 = add nsw i32 %27, -1
+  store i32 %36, ptr %.val43, align 8, !tbaa !42
+  br label %Py_XDECREF.exit57
+
+Py_XDECREF.exit57:                                ; preds = %35, %29, %31, %34, %_PyWeakref_GET_REF.exit52.thread, %Py_XDECREF.exit
   %37 = icmp eq ptr %0, %1
   %38 = icmp eq i32 %2, 3
   %spec.select = xor i1 %37, %38

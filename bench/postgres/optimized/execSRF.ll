@@ -371,10 +371,10 @@ list_length.exit128:                              ; preds = %33, %46
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %56 = load i32, ptr %53, align 4
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph22.i, label %ExecEvalFuncArgs.exit
+  br i1 %57, label %.lr.ph20.i, label %ExecEvalFuncArgs.exit
 
-.lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph22.i ], [ 0, %.lr.ph.i ]
+.lr.ph20.i:                                       ; preds = %.lr.ph.i, %.lr.ph20.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph20.i ], [ 0, %.lr.ph.i ]
   %58 = load ptr, ptr %54, align 8
   %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
@@ -388,9 +388,9 @@ list_length.exit128:                              ; preds = %33, %46
   %66 = load i32, ptr %53, align 4
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next.i, %67
-  br i1 %68, label %.lr.ph22.i, label %ExecEvalFuncArgs.exit
+  br i1 %68, label %.lr.ph20.i, label %ExecEvalFuncArgs.exit
 
-ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_length.exit128, %.lr.ph.i
+ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %list_length.exit128, %.lr.ph.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %70 = load i8, ptr %69, align 2, !range !4, !noundef !5
   %71 = trunc nuw i8 %70 to i1
@@ -986,10 +986,10 @@ slot_getattr.exit:                                ; preds = %39, %slot_getsomeat
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %59, align 4
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph22.i, label %ExecEvalFuncArgs.exit
+  br i1 %63, label %.lr.ph20.i, label %ExecEvalFuncArgs.exit
 
-.lr.ph22.i:                                       ; preds = %.lr.ph.i, %.lr.ph22.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph22.i ], [ 0, %.lr.ph.i ]
+.lr.ph20.i:                                       ; preds = %.lr.ph.i, %.lr.ph20.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph20.i ], [ 0, %.lr.ph.i ]
   %64 = load ptr, ptr %60, align 8
   %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8
@@ -1003,9 +1003,9 @@ slot_getattr.exit:                                ; preds = %39, %slot_getsomeat
   %72 = load i32, ptr %59, align 4
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next.i, %73
-  br i1 %74, label %.lr.ph22.i, label %ExecEvalFuncArgs.exit
+  br i1 %74, label %.lr.ph20.i, label %ExecEvalFuncArgs.exit
 
-ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %56, %.lr.ph.i
+ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %56, %.lr.ph.i
   store ptr %58, ptr @CurrentMemoryContext, align 8
   br label %76
 

@@ -970,7 +970,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %40, i8 -86, i64 %39, i1 false)
   %41 = load i32, ptr %9, align 8, !tbaa !60
   %42 = icmp ult i32 %41, %spec.store.select.i
-  br i1 %42, label %43, label %.lr.ph151.i
+  br i1 %42, label %43, label %.lr.ph149.i
 
 43:                                               ; preds = %st_mult.exit.i
   %44 = zext i32 %spec.store.select.i to i64
@@ -984,27 +984,27 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %51 = shl nuw nsw i64 %44, 3
   %52 = tail call ptr @xrealloc(ptr noundef %50, i64 noundef %51) #16
   store ptr %52, ptr %49, align 8, !tbaa !66
-  %.pre.i7 = load i32, ptr %9, align 8, !tbaa !60
-  %.not148.i = icmp eq i32 %.pre.i7, 0
-  br i1 %.not148.i, label %._crit_edge152.thread.i, label %.lr.ph151.i
+  %.pre.i8 = load i32, ptr %9, align 8, !tbaa !60
+  %.not146.i = icmp eq i32 %.pre.i8, 0
+  br i1 %.not146.i, label %._crit_edge150.thread.i, label %.lr.ph149.i
 
-.lr.ph151.i:                                      ; preds = %43, %st_mult.exit.i
-  %53 = phi i32 [ %.pre.i7, %43 ], [ %41, %st_mult.exit.i ]
+.lr.ph149.i:                                      ; preds = %43, %st_mult.exit.i
+  %53 = phi i32 [ %.pre.i8, %43 ], [ %41, %st_mult.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %56 = add i32 %spec.store.select.i, -1
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %58
 
-58:                                               ; preds = %126, %.lr.ph151.i
-  %59 = phi i32 [ %53, %.lr.ph151.i ], [ %127, %126 ]
-  %.1149.i = phi i32 [ 0, %.lr.ph151.i ], [ %128, %126 ]
+58:                                               ; preds = %126, %.lr.ph149.i
+  %59 = phi i32 [ %53, %.lr.ph149.i ], [ %127, %126 ]
+  %.1147.i = phi i32 [ 0, %.lr.ph149.i ], [ %128, %126 ]
   %60 = load ptr, ptr %54, align 8, !tbaa !62
-  %61 = lshr i32 %.1149.i, 4
+  %61 = lshr i32 %.1147.i, 4
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i32, ptr %60, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !29
-  %65 = shl i32 %.1149.i, 1
+  %65 = shl i32 %.1147.i, 1
   %66 = and i32 %65, 30
   %67 = shl nuw i32 3, %66
   %68 = and i32 %67, %64
@@ -1014,7 +1014,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
 70:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.7.i)
   %71 = load ptr, ptr %55, align 8, !tbaa !63
-  %72 = zext i32 %.1149.i to i64
+  %72 = zext i32 %.1147.i to i64
   %73 = getelementptr inbounds nuw %struct.object_id, ptr %71, i64 %72
   %.sroa.0.0.copyload.i = load i32, ptr %73, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -1031,23 +1031,23 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %80 = phi ptr [ %60, %70 ], [ %117, %110 ]
   %.sroa.0.0.i = phi i32 [ %.sroa.0.0.copyload.i, %70 ], [ %.sroa.0121.0.copyload.i, %110 ]
   %.098.i = phi ptr [ %76, %70 ], [ %115, %110 ]
-  %.095139.i = and i32 %.sroa.0.0.i, %56
-  %81 = lshr i32 %.095139.i, 4
+  %.095137.i = and i32 %.sroa.0.0.i, %56
+  %81 = lshr i32 %.095137.i, 4
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i32, ptr %40, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !29
-  %85 = shl i32 %.095139.i, 1
+  %85 = shl i32 %.095137.i, 1
   %86 = and i32 %85, 30
   %87 = shl nuw i32 2, %86
   %88 = and i32 %87, %84
-  %.not102140.i = icmp eq i32 %88, 0
-  br i1 %.not102140.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not102138.i = icmp eq i32 %88, 0
+  br i1 %.not102138.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %79, %.lr.ph.i
-  %.095142.i = phi i32 [ %.095.i, %.lr.ph.i ], [ %.095139.i, %79 ]
-  %.094141.i = phi i32 [ %89, %.lr.ph.i ], [ 0, %79 ]
-  %89 = add i32 %.094141.i, 1
-  %90 = add i32 %89, %.095142.i
+  %.095140.i = phi i32 [ %.095.i, %.lr.ph.i ], [ %.095137.i, %79 ]
+  %.094139.i = phi i32 [ %89, %.lr.ph.i ], [ 0, %79 ]
+  %89 = add i32 %.094139.i, 1
+  %90 = add i32 %89, %.095140.i
   %.095.i = and i32 %90, %56
   %91 = lshr i32 %.095.i, 4
   %92 = zext nneg i32 %91 to i64
@@ -1061,36 +1061,36 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   br i1 %.not102.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !72
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %79
-  %.lcssa138.i = phi i64 [ %82, %79 ], [ %92, %.lr.ph.i ]
-  %.095.lcssa.i = phi i32 [ %.095139.i, %79 ], [ %.095.i, %.lr.ph.i ]
-  %.lcssa134.i = phi i32 [ %84, %79 ], [ %94, %.lr.ph.i ]
-  %.lcssa133.i = phi i32 [ %86, %79 ], [ %96, %.lr.ph.i ]
+  %.lcssa136.i = phi i64 [ %82, %79 ], [ %92, %.lr.ph.i ]
+  %.095.lcssa.i = phi i32 [ %.095137.i, %79 ], [ %.095.i, %.lr.ph.i ]
+  %.lcssa132.i = phi i32 [ %84, %79 ], [ %94, %.lr.ph.i ]
+  %.lcssa131.i = phi i32 [ %86, %79 ], [ %96, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %87, %79 ], [ %97, %.lr.ph.i ]
-  %99 = getelementptr inbounds nuw i32, ptr %40, i64 %.lcssa138.i
+  %99 = getelementptr inbounds nuw i32, ptr %40, i64 %.lcssa136.i
   %100 = xor i32 %.lcssa.i, -1
-  %101 = and i32 %.lcssa134.i, %100
+  %101 = and i32 %.lcssa132.i, %100
   store i32 %101, ptr %99, align 4, !tbaa !29
   %102 = load i32, ptr %9, align 8, !tbaa !60
   %103 = icmp ult i32 %.095.lcssa.i, %102
   br i1 %103, label %104, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
-  %.pre160.i = load ptr, ptr %55, align 8, !tbaa !63
+  %.pre158.i = load ptr, ptr %55, align 8, !tbaa !63
   br label %split.i
 
 104:                                              ; preds = %._crit_edge.i
-  %105 = getelementptr inbounds nuw i32, ptr %80, i64 %.lcssa138.i
+  %105 = getelementptr inbounds nuw i32, ptr %80, i64 %.lcssa136.i
   %106 = load i32, ptr %105, align 4, !tbaa !29
-  %107 = shl nuw i32 3, %.lcssa133.i
+  %107 = shl nuw i32 3, %.lcssa131.i
   %108 = and i32 %106, %107
   %109 = icmp eq i32 %108, 0
-  %.pre161.i = load ptr, ptr %55, align 8, !tbaa !63
+  %.pre159.i = load ptr, ptr %55, align 8, !tbaa !63
   br i1 %109, label %110, label %split.i
 
 110:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4.i)
   %111 = zext i32 %.095.lcssa.i to i64
-  %112 = getelementptr inbounds nuw %struct.object_id, ptr %.pre161.i, i64 %111
+  %112 = getelementptr inbounds nuw %struct.object_id, ptr %.pre159.i, i64 %111
   %.sroa.0121.0.copyload.i = load i32, ptr %112, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !71
@@ -1102,16 +1102,16 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %111
   %115 = load ptr, ptr %114, align 8, !tbaa !67
   store ptr %.098.i, ptr %114, align 8, !tbaa !67
-  %116 = shl nuw nsw i32 1, %.lcssa133.i
+  %116 = shl nuw nsw i32 1, %.lcssa131.i
   %117 = load ptr, ptr %54, align 8, !tbaa !62
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %.lcssa138.i
+  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %.lcssa136.i
   %119 = load i32, ptr %118, align 4, !tbaa !29
   %120 = or i32 %119, %116
   store i32 %120, ptr %118, align 4, !tbaa !29
   br label %79
 
 split.i:                                          ; preds = %104, %._crit_edge._crit_edge.i
-  %121 = phi ptr [ %.pre160.i, %._crit_edge._crit_edge.i ], [ %.pre161.i, %104 ]
+  %121 = phi ptr [ %.pre158.i, %._crit_edge._crit_edge.i ], [ %.pre159.i, %104 ]
   %122 = zext i32 %.095.lcssa.i to i64
   %123 = getelementptr inbounds nuw %struct.object_id, ptr %121, i64 %122
   store i32 %.sroa.0.0.i, ptr %123, align 4
@@ -1121,20 +1121,20 @@ split.i:                                          ; preds = %104, %._crit_edge._
   %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %122
   store ptr %.098.i, ptr %125, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)
-  %.pre162.i = load i32, ptr %9, align 8, !tbaa !60
+  %.pre160.i = load i32, ptr %9, align 8, !tbaa !60
   br label %126
 
 126:                                              ; preds = %split.i, %58
-  %127 = phi i32 [ %59, %58 ], [ %.pre162.i, %split.i ]
-  %128 = add i32 %.1149.i, 1
-  %.not.i6 = icmp eq i32 %128, %127
-  br i1 %.not.i6, label %._crit_edge152.i, label %58, !llvm.loop !73
+  %127 = phi i32 [ %59, %58 ], [ %.pre160.i, %split.i ]
+  %128 = add i32 %.1147.i, 1
+  %.not.i7 = icmp eq i32 %128, %127
+  br i1 %.not.i7, label %._crit_edge150.i, label %58, !llvm.loop !73
 
-._crit_edge152.i:                                 ; preds = %126
+._crit_edge150.i:                                 ; preds = %126
   %129 = icmp ugt i32 %127, %spec.store.select.i
-  br i1 %129, label %st_mult.exit111.i, label %._crit_edge152.thread.i
+  br i1 %129, label %st_mult.exit111.i, label %._crit_edge150.thread.i
 
-st_mult.exit111.i:                                ; preds = %._crit_edge152.i
+st_mult.exit111.i:                                ; preds = %._crit_edge150.i
   %130 = zext i32 %spec.store.select.i to i64
   %131 = load ptr, ptr %55, align 8, !tbaa !63
   %132 = mul nuw nsw i64 %130, 36
@@ -1144,9 +1144,9 @@ st_mult.exit111.i:                                ; preds = %._crit_edge152.i
   %135 = shl nuw nsw i64 %130, 3
   %136 = tail call ptr @xrealloc(ptr noundef %134, i64 noundef %135) #16
   store ptr %136, ptr %57, align 8, !tbaa !66
-  br label %._crit_edge152.thread.i
+  br label %._crit_edge150.thread.i
 
-._crit_edge152.thread.i:                          ; preds = %st_mult.exit111.i, %._crit_edge152.i, %43
+._crit_edge150.thread.i:                          ; preds = %st_mult.exit111.i, %._crit_edge150.i, %43
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !62
   tail call void @free(ptr noundef %138) #16
@@ -1157,8 +1157,8 @@ st_mult.exit111.i:                                ; preds = %._crit_edge152.i
   store i32 %34, ptr %13, align 4, !tbaa !69
   br label %kh_resize_oid_map.exit
 
-kh_resize_oid_map.exit:                           ; preds = %._crit_edge152.thread.i, %.sink.split.i, %10
-  %140 = phi i32 [ %spec.store.select.i, %._crit_edge152.thread.i ], [ %.pre, %.sink.split.i ], [ %.pre, %10 ]
+kh_resize_oid_map.exit:                           ; preds = %._crit_edge150.thread.i, %.sink.split.i, %10
+  %140 = phi i32 [ %spec.store.select.i, %._crit_edge150.thread.i ], [ %.pre, %.sink.split.i ], [ %.pre, %10 ]
   %141 = add i32 %140, -1
   %.val.i = load i32, ptr %5, align 8
   %142 = and i32 %.val.i, %141

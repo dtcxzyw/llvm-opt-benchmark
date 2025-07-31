@@ -100,10 +100,10 @@ define dso_local noundef ptr @ExecInitHashJoin(ptr noundef %0, ptr noundef %1, i
   unreachable
 
 .sink.split:                                      ; preds = %32, %32, %36, %37
-  %.sink129 = phi ptr [ %20, %37 ], [ %17, %36 ], [ %20, %32 ], [ %20, %32 ]
-  %.sink128 = phi i64 [ 288, %37 ], [ 280, %36 ], [ 288, %32 ], [ 288, %32 ]
-  %44 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %.sink129, ptr noundef nonnull @TTSOpsVirtual) #6
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink128
+  %.sink127 = phi ptr [ %20, %37 ], [ %17, %36 ], [ %20, %32 ], [ %20, %32 ]
+  %.sink126 = phi i64 [ 288, %37 ], [ 280, %36 ], [ 288, %32 ], [ 288, %32 ]
+  %44 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %.sink127, ptr noundef nonnull @TTSOpsVirtual) #6
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink126
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -134,67 +134,67 @@ list_length.exit:                                 ; preds = %46, %55
   %63 = tail call ptr @palloc(i64 noundef %59) #6
   %64 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %64, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %67 = load i32, ptr %65, align 4
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph123, label %._crit_edge
+  br i1 %68, label %.lr.ph121, label %.critedge
 
-._crit_edge:                                      ; preds = %104, %.lr.ph, %list_length.exit
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 144
+.lr.ph121:                                        ; preds = %.lr.ph, %104
+  %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.lr.ph ]
+  %69 = load ptr, ptr %66, align 8
+  %70 = getelementptr inbounds nuw %union.ListCell, ptr %69, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %74 = tail call zeroext i1 @get_op_hash_functions(i32 noundef %71, ptr noundef %72, ptr noundef %73) #6
+  br i1 %74, label %104, label %.split
+
+.critedge:                                        ; preds = %104, %.lr.ph, %list_length.exit
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 288
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %78 = load ptr, ptr %77, align 8
-  %79 = icmp ne ptr %78, null
-  %80 = tail call ptr @ExecBuildHash32Expr(ptr noundef %70, ptr noundef %72, ptr noundef %61, ptr noundef %74, ptr noundef %76, ptr noundef %63, ptr noundef %4, i32 noundef 0, i1 noundef zeroext %79) #6
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %47, i64 112
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %47, i64 184
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %73, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %49, i64 104
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp ne ptr %90, null
-  %92 = tail call ptr @ExecBuildHash32Expr(ptr noundef %83, ptr noundef %85, ptr noundef %62, ptr noundef %86, ptr noundef %88, ptr noundef %63, ptr noundef %47, i32 noundef 0, i1 noundef zeroext %91) #6
-  %93 = getelementptr inbounds nuw i8, ptr %47, i64 208
-  store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  %95 = load i32, ptr %94, align 8
-  %.not117 = icmp eq i32 %95, 0
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 288
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp ne ptr %84, null
+  %86 = tail call ptr @ExecBuildHash32Expr(ptr noundef %76, ptr noundef %78, ptr noundef %61, ptr noundef %80, ptr noundef %82, ptr noundef %63, ptr noundef %4, i32 noundef 0, i1 noundef zeroext %85) #6
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  store ptr %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %47, i64 112
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 184
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %79, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %49, i64 104
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 280
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp ne ptr %96, null
+  %98 = tail call ptr @ExecBuildHash32Expr(ptr noundef %89, ptr noundef %91, ptr noundef %62, ptr noundef %92, ptr noundef %94, ptr noundef %63, ptr noundef %47, i32 noundef 0, i1 noundef zeroext %97) #6
+  %99 = getelementptr inbounds nuw i8, ptr %47, i64 208
+  store ptr %98, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %49, i64 112
+  %101 = load i32, ptr %100, align 8
+  %.not117 = icmp eq i32 %101, 0
   br i1 %.not117, label %119, label %111
 
-.lr.ph123:                                        ; preds = %.lr.ph, %104
-  %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %.lr.ph ]
-  %96 = load ptr, ptr %66, align 8
-  %97 = getelementptr inbounds nuw %union.ListCell, ptr %96, i64 %indvars.iv
-  %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
-  %100 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
-  %101 = tail call zeroext i1 @get_op_hash_functions(i32 noundef %98, ptr noundef %99, ptr noundef %100) #6
-  br i1 %101, label %104, label %.split
-
-.split:                                           ; preds = %.lr.ph123
+.split:                                           ; preds = %.lr.ph121
   %102 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %102)
-  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %98) #6
+  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %71) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 861, ptr noundef nonnull @__func__.ExecInitHashJoin) #6
   unreachable
 
-104:                                              ; preds = %.lr.ph123
-  %105 = tail call zeroext i1 @op_strict(i32 noundef %98) #6
+104:                                              ; preds = %.lr.ph121
+  %105 = tail call zeroext i1 @op_strict(i32 noundef %71) #6
   %106 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
   %107 = zext i1 %105 to i8
   store i8 %107, ptr %106, align 1
@@ -202,13 +202,13 @@ list_length.exit:                                 ; preds = %46, %55
   %108 = load i32, ptr %65, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %.lr.ph123, label %._crit_edge
+  br i1 %110, label %.lr.ph121, label %.critedge
 
-111:                                              ; preds = %._crit_edge
+111:                                              ; preds = %.critedge
   %112 = tail call ptr @palloc0(i64 noundef 48) #6
   %113 = getelementptr inbounds nuw i8, ptr %47, i64 216
   store ptr %112, ptr %113, align 8
-  %114 = load ptr, ptr %73, align 8
+  %114 = load ptr, ptr %79, align 8
   %115 = getelementptr i8, ptr %114, i64 16
   %.val = load ptr, ptr %115, align 8
   %116 = load i32, ptr %.val, align 8
@@ -218,7 +218,7 @@ list_length.exit:                                 ; preds = %46, %55
   tail call void @fmgr_info(i32 noundef %118, ptr noundef %112) #6
   br label %119
 
-119:                                              ; preds = %111, %._crit_edge
+119:                                              ; preds = %111, %.critedge
   tail call void @pfree(ptr noundef %61) #6
   tail call void @pfree(ptr noundef %62) #6
   tail call void @pfree(ptr noundef %63) #6

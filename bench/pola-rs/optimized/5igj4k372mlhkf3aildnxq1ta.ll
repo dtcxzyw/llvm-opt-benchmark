@@ -113805,10 +113805,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   store i8 0, ptr %9, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !noundef !7
-  %.not33 = icmp eq i32 %16, 0
-  br i1 %.not33, label %._crit_edge35, label %.lr.ph34
+  %.not31 = icmp eq i32 %16, 0
+  br i1 %.not31, label %.critedge, label %.lr.ph32
 
-.lr.ph34:                                         ; preds = %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit"
+.lr.ph32:                                         ; preds = %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit"
   %17 = icmp ne ptr %.0.val, null
   %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -113829,15 +113829,15 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %28
 
-28:                                               ; preds = %.lr.ph34, %239
-  %29 = phi i32 [ %16, %.lr.ph34 ], [ %240, %239 ]
+28:                                               ; preds = %.lr.ph32, %239
+  %29 = phi i32 [ %16, %.lr.ph32 ], [ %240, %239 ]
   %30 = add i32 %29, -1
   store i32 %30, ptr %15, align 8
   %31 = invoke { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17hf985efcb823ab034E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
           to label %32 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %77, %221
-  %.pn = phi { ptr, i32 } [ %222, %221 ], [ %56, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit7, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit13, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp14, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %222, %221 ], [ %56, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit5, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit9, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit11, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$hashbrown..set..HashSet$LT$polars_utils..pl_str..PlSmallStr$C$foldhash..quality..RandomState$GT$$GT$17hef06c2402afc0865E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #39
           to label %274 unwind label %237
 
@@ -113847,22 +113847,22 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17ha551772126187a36E.exit.i.i", %134
-  %lpad.loopexit7 = landingpad { ptr, i32 }
+  %lpad.loopexit5 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %267, %266, %256
+  %lpad.loopexit9 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.loopexit8, %90, %49, %28
   %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.loopexit10, %90, %49, %28
-  %lpad.loopexit13 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke
-  %lpad.loopexit.split-lp14 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp12 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -113877,9 +113877,9 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %40, label %.invoke, !prof !58
 
-._crit_edge35.loopexit:                           ; preds = %239
-  %.pre44 = load i8, ptr %9, align 1, !range !179
-  br label %._crit_edge35
+.critedge.loopexit:                               ; preds = %239
+  %.pre41 = load i8, ptr %9, align 1, !range !179
+  br label %.critedge
 
 40:                                               ; preds = %32
   %41 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
@@ -113894,7 +113894,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 153
   %48 = load i8, ptr %47, align 1, !range !179, !noundef !7
   %.not25 = icmp eq i8 %48, 2
-  br i1 %.not25, label %51, label %._crit_edge35
+  br i1 %.not25, label %51, label %.critedge
 
 49:                                               ; preds = %40
   %50 = invoke noundef align 1 dereferenceable(1) ptr @_ZN11polars_plan5plans5aexpr10properties17ExprPushdownGroup16update_with_expr17h20bda56c30c7f29bE(ptr noalias noundef nonnull align 1 dereferenceable(1) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.0.val)
@@ -113973,7 +113973,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   br i1 %83, label %90, label %84, !prof !59
 
 84:                                               ; preds = %92, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h4929ab8d3f0e8659E.exit"
-  %85 = phi i64 [ %.pre41, %92 ], [ %81, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h4929ab8d3f0e8659E.exit" ]
+  %85 = phi i64 [ %.pre38, %92 ], [ %81, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h4929ab8d3f0e8659E.exit" ]
   %86 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %87 = load ptr, ptr %86, align 8, !nonnull !7, !noundef !7
   %.idx = shl nuw nsw i64 %85, 3
@@ -113982,7 +113982,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   br i1 %89, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %84
-  %.sroa.021.128 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %.sroa.021.126 = getelementptr inbounds nuw i8, ptr %87, i64 8
   br label %.lr.ph
 
 90:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h4929ab8d3f0e8659E.exit"
@@ -113993,13 +113993,13 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   %93 = extractvalue { i64, i64 } %91, 0
   %94 = icmp eq i64 %93, -9223372036854775807
   call void @llvm.assume(i1 %94)
-  %.pre41 = load i64, ptr %80, align 8
+  %.pre38 = load i64, ptr %80, align 8
   br label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %269
-  %.sroa.021.130 = phi ptr [ %.sroa.021.1, %269 ], [ %.sroa.021.128, %.lr.ph.preheader ]
-  %.sroa.021.029 = phi ptr [ %.sroa.021.130, %269 ], [ %87, %.lr.ph.preheader ]
-  %95 = load i64, ptr %.sroa.021.029, align 8, !noundef !7
+  %.sroa.021.128 = phi ptr [ %.sroa.021.1, %269 ], [ %.sroa.021.126, %.lr.ph.preheader ]
+  %.sroa.021.027 = phi ptr [ %.sroa.021.128, %269 ], [ %87, %.lr.ph.preheader ]
+  %95 = load i64, ptr %.sroa.021.027, align 8, !noundef !7
   %96 = load i64, ptr %18, align 8, !noundef !7
   %97 = icmp ult i64 %95, %96
   br i1 %97, label %241, label %.invoke, !prof !58
@@ -114016,7 +114016,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   call void @llvm.experimental.noalias.scope.decl(metadata !12710)
   %101 = load i64, ptr %25, align 8, !noundef !7
   %102 = icmp eq i64 %101, 0
-  br i1 %102, label %._crit_edge35, label %.lr.ph.i.i
+  br i1 %102, label %.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %100
   %103 = load ptr, ptr %2, align 8, !alias.scope !12713, !noalias !12714, !nonnull !7, !noundef !7
@@ -114221,13 +114221,13 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.04)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.011)
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %.thread3, label %.lr.ph32
+  br i1 %210, label %.thread, label %.lr.ph30
 
-.thread3:                                         ; preds = %235, %199
+.thread:                                          ; preds = %235, %199
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.011)
-  br label %.loopexit10
+  br label %.loopexit8
 
-.lr.ph32:                                         ; preds = %199, %235
+.lr.ph30:                                         ; preds = %199, %235
   %211 = phi i64 [ %.pr, %235 ], [ %209, %199 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12769)
   %.promoted.i32 = load i16, ptr %.sroa.010.sroa.4.0..sroa_idx, align 8, !alias.scope !12769
@@ -114235,7 +114235,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   %.promoted8.i = load ptr, ptr %7, align 8, !alias.scope !12769
   br i1 %.not9.i, label %.lr.ph.i, label %._crit_edge18.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph32
+.lr.ph.i:                                         ; preds = %.lr.ph30
   %.promoted11.i = load ptr, ptr %.sroa.010.sroa.2.0..sroa_idx, align 8, !alias.scope !12769
   br label %213
 
@@ -114262,9 +114262,9 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   invoke void @"_ZN4core3ptr82drop_in_place$LT$hashbrown..set..Drain$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h0801a44283e51248E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #39
           to label %.body unwind label %237
 
-._crit_edge18.i:                                  ; preds = %.lr.ph32, %._crit_edge.i
-  %223 = phi ptr [ %219, %._crit_edge.i ], [ %.promoted8.i, %.lr.ph32 ]
-  %.lcssa.i = phi i16 [ %212, %._crit_edge.i ], [ %.promoted.i32, %.lr.ph32 ]
+._crit_edge18.i:                                  ; preds = %.lr.ph30, %._crit_edge.i
+  %223 = phi ptr [ %219, %._crit_edge.i ], [ %.promoted8.i, %.lr.ph30 ]
+  %.lcssa.i = phi i16 [ %212, %._crit_edge.i ], [ %.promoted.i32, %.lr.ph30 ]
   %224 = add i16 %.lcssa.i, -1
   %225 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %226 = zext nneg i16 %225 to i64
@@ -114281,7 +114281,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.011, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.011)
   %.not27 = icmp eq i8 %.sroa.420.0.copyload, -38
-  br i1 %.not27, label %.loopexit10, label %232
+  br i1 %.not27, label %.loopexit8, label %232
 
 232:                                              ; preds = %._crit_edge18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %6, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.04, i64 23, i1 false)
@@ -114289,20 +114289,20 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   invoke fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he48e67e682a22f8dE"(ptr noalias noundef align 8 dereferenceable(40) %2, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
           to label %235 unwind label %221
 
-.loopexit10:                                      ; preds = %._crit_edge18.i, %.thread3
+.loopexit8:                                       ; preds = %._crit_edge18.i, %.thread
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.04)
   invoke void @"_ZN4core3ptr82drop_in_place$LT$hashbrown..set..Drain$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h0801a44283e51248E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)
           to label %233 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-233:                                              ; preds = %.loopexit10
+233:                                              ; preds = %.loopexit8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   store i8 1, ptr %1, align 1
   br label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit"
 
 "_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit": ; preds = %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17hbae97039f5c988dbE.exit.i.i", %233
-  %.pr45 = load i64, ptr %25, align 8
-  %234 = icmp eq i64 %.pr45, 0
-  br i1 %234, label %._crit_edge35, label %239
+  %.pr42 = load i64, ptr %25, align 8
+  %234 = icmp eq i64 %.pr42, 0
+  br i1 %234, label %.critedge, label %239
 
 235:                                              ; preds = %232
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.04)
@@ -114310,7 +114310,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.04)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.011)
   %236 = icmp eq i64 %.pr, 0
-  br i1 %236, label %.thread3, label %.lr.ph32
+  br i1 %236, label %.thread, label %.lr.ph30
 
 237:                                              ; preds = %221, %.body
   %238 = landingpad { ptr, i32 }
@@ -114321,7 +114321,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
 239:                                              ; preds = %271, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit"
   %240 = load i32, ptr %15, align 8, !noundef !7
   %.not = icmp eq i32 %240, 0
-  br i1 %.not, label %._crit_edge35.loopexit, label %28
+  br i1 %.not, label %.critedge.loopexit, label %28
 
 .invoke:                                          ; preds = %32, %.lr.ph
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.592) #41
@@ -114359,13 +114359,13 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
           to label %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge": ; preds = %256
-  %.pre42 = load i32, ptr %24, align 4, !range !12565, !alias.scope !12772
-  %.pre43 = load i32, ptr %15, align 8, !alias.scope !12772
+  %.pre39 = load i32, ptr %24, align 4, !range !12565, !alias.scope !12772
+  %.pre40 = load i32, ptr %15, align 8, !alias.scope !12772
   br label %"_ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit"
 
 "_ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit": ; preds = %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge", %252
-  %257 = phi i32 [ %.pre43, %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge" ], [ %253, %252 ]
-  %258 = phi i32 [ %.pre42, %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge" ], [ %254, %252 ]
+  %257 = phi i32 [ %.pre40, %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge" ], [ %253, %252 ]
+  %258 = phi i32 [ %.pre39, %"._ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit_crit_edge" ], [ %254, %252 ]
   %259 = icmp eq i32 %258, 1
   %260 = load ptr, ptr %0, align 8, !alias.scope !12772
   %spec.select.i = select i1 %259, ptr %0, ptr %260
@@ -114396,18 +114396,18 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN11polars_plan5plans9optimi
   br label %269
 
 269:                                              ; preds = %"_ZN12polars_utils7idx_vec16UnitVec$LT$T$GT$4push17h7762ce2194c41838E.exit", %268
-  %270 = icmp eq ptr %.sroa.021.130, %88
+  %270 = icmp eq ptr %.sroa.021.128, %88
   %.sroa.021.1.idx = select i1 %270, i64 0, i64 8
-  %.sroa.021.1 = getelementptr inbounds nuw i8, ptr %.sroa.021.130, i64 %.sroa.021.1.idx
+  %.sroa.021.1 = getelementptr inbounds nuw i8, ptr %.sroa.021.128, i64 %.sroa.021.1.idx
   br i1 %270, label %._crit_edge, label %.lr.ph
 
 271:                                              ; preds = %49
   %272 = load i8, ptr %50, align 1, !range !179, !noundef !7
   %273 = icmp eq i8 %272, 2
-  br i1 %273, label %._crit_edge35, label %239
+  br i1 %273, label %.critedge, label %239
 
-._crit_edge35:                                    ; preds = %46, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit", %271, %100, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit", %._crit_edge35.loopexit
-  %.sroa.0.0 = phi i8 [ %.pre44, %._crit_edge35.loopexit ], [ 0, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ 2, %100 ], [ 2, %271 ], [ 2, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit" ], [ 2, %46 ]
+.critedge:                                        ; preds = %46, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit", %271, %100, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit", %.critedge.loopexit
+  %.sroa.0.0 = phi i8 [ %.pre41, %.critedge.loopexit ], [ 0, %"_ZN70_$LT$foldhash..fast..RandomState$u20$as$u20$core..default..Default$GT$7default17ha7c0f57879e85702E.exit" ], [ 2, %100 ], [ 2, %271 ], [ 2, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17h6237ac448fe37ad8E.exit" ], [ 2, %46 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @"_ZN4core3ptr117drop_in_place$LT$hashbrown..set..HashSet$LT$polars_utils..pl_str..PlSmallStr$C$foldhash..quality..RandomState$GT$$GT$17hef06c2402afc0865E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -115538,7 +115538,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   invoke void @_ZN4core4iter8adapters11try_process17h4509983f572bf808E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %9)
           to label %79 unwind label %90
 
-.thread195:                                       ; preds = %85
+.thread183:                                       ; preds = %85
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %279
@@ -115580,7 +115580,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   invoke void @"_ZN11polars_plan5plans9optimizer18predicate_pushdown93_$LT$impl$u20$polars_plan..plans..optimizer..predicate_pushdown..inner..PredicatePushDown$GT$24optional_apply_predicate17hb5cb36008e4082c0E"(ptr noalias noundef nonnull sret([320 x i8]) align 16 captures(none) dereferenceable(320) %13, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(320) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %86 unwind label %.thread195
+          to label %86 unwind label %.thread183
 
 86:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -115774,7 +115774,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   %155 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %156 = load i64, ptr %155, align 8, !noundef !7
   %157 = icmp eq i64 %156, 0
-  br i1 %157, label %.loopexit, label %179
+  br i1 %157, label %.critedge, label %179
 
 158:                                              ; preds = %170, %159
   %.pn.pn = phi { ptr, i32 } [ %.pn, %170 ], [ %160, %159 ]
@@ -115851,7 +115851,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.64)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
   invoke fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hf11ea63b117dd396E"(ptr noalias noundef align 16 captures(none) dereferenceable(144) %11, ptr noalias noundef align 8 dereferenceable(40) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %32)
-          to label %246 unwind label %.loopexit200
+          to label %246 unwind label %.loopexit
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd16ee40daab80783E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd16ee40daab80783E.exit", %263, %161
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.092)
@@ -115865,7 +115865,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   br label %154
 
-.loopexit:                                        ; preds = %188, %154
+.critedge:                                        ; preds = %188, %154
   %177 = load i64, ptr %117, align 8, !noundef !7
   %178 = icmp ult i64 %108, %177
   br i1 %178, label %209, label %208, !prof !58
@@ -115900,12 +115900,12 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   br label %188
 
 188:                                              ; preds = %199, %179
-  %.sroa.096.0 = phi ptr [ %180, %179 ], [ %.sroa.096.2, %199 ]
-  %.sroa.697.0 = phi ptr [ %185, %179 ], [ %.sroa.697.2, %199 ]
+  %.sroa.096.0 = phi ptr [ %180, %179 ], [ %.sroa.096.1, %199 ]
+  %.sroa.697.0 = phi ptr [ %185, %179 ], [ %.sroa.697.1, %199 ]
   %.sroa.898.0 = phi i16 [ %184, %179 ], [ %203, %199 ]
   %.sroa.1099.0 = phi i64 [ %187, %179 ], [ %206, %199 ]
   %189 = icmp eq i64 %.sroa.1099.0, 0
-  br i1 %189, label %.loopexit, label %190
+  br i1 %189, label %.critedge, label %190
 
 190:                                              ; preds = %188
   %.not9.i = icmp eq i16 %.sroa.898.0, 0
@@ -115926,26 +115926,26 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   %.not.i = icmp eq i16 %196, -1
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
-199:                                              ; preds = %190, %._crit_edge.i
-  %.sroa.096.2 = phi ptr [ %197, %._crit_edge.i ], [ %.sroa.096.0, %190 ]
-  %.sroa.697.2 = phi ptr [ %198, %._crit_edge.i ], [ %.sroa.697.0, %190 ]
+199:                                              ; preds = %._crit_edge.i, %190
+  %.sroa.096.1 = phi ptr [ %197, %._crit_edge.i ], [ %.sroa.096.0, %190 ]
+  %.sroa.697.1 = phi ptr [ %198, %._crit_edge.i ], [ %.sroa.697.0, %190 ]
   %.lcssa.i = phi i16 [ %191, %._crit_edge.i ], [ %.sroa.898.0, %190 ]
   %200 = add i16 %.lcssa.i, -1
   %201 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %202 = zext nneg i16 %201 to i64
   %203 = and i16 %200, %.lcssa.i
   %204 = sub nsw i64 0, %202
-  %205 = getelementptr inbounds { { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64], { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] } }, ptr %.sroa.096.2, i64 %204
+  %205 = getelementptr inbounds { { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64], { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] } }, ptr %.sroa.096.1, i64 %204
   %206 = add i64 %.sroa.1099.0, -1
   %207 = getelementptr inbounds i8, ptr %205, i64 -112
   invoke void @_ZN11polars_plan5plans9optimizer18predicate_pushdown5utils21map_column_references17h6adc3c89c481e4ecE(ptr noalias noundef nonnull align 16 dereferenceable(112) %207, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38)
           to label %188 unwind label %.body.thread164.loopexit
 
-208:                                              ; preds = %.loopexit
+208:                                              ; preds = %.critedge
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78196254c718d13546bbe37e5b53c7b5.118) #41
           to label %102 unwind label %.body.thread164.loopexit.split-lp
 
-209:                                              ; preds = %.loopexit
+209:                                              ; preds = %.critedge
   %210 = load ptr, ptr %116, align 8, !nonnull !7, !noundef !7
   %211 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %210, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %28, ptr noundef nonnull align 16 dereferenceable(320) %211, i64 320, i1 false)
@@ -116111,18 +116111,18 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..plans..expr_ir..ExprIR$GT$$GT$17h10c664e5bb160433E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36) #39
           to label %242 unwind label %91
 
-.loopexit200:                                     ; preds = %175, %248
-  %lpad.loopexit201 = landingpad { ptr, i32 }
+.loopexit:                                        ; preds = %175, %248
+  %lpad.loopexit188 = landingpad { ptr, i32 }
           cleanup
   br label %.body84
 
 .loopexit.split-lp:                               ; preds = %258
-  %lpad.loopexit.split-lp202 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp189 = landingpad { ptr, i32 }
           cleanup
   br label %.body84
 
-.body84:                                          ; preds = %.loopexit200, %.loopexit.split-lp, %254
-  %eh.lpad-body85 = phi { ptr, i32 } [ %255, %254 ], [ %lpad.loopexit201, %.loopexit200 ], [ %lpad.loopexit.split-lp202, %.loopexit.split-lp ]
+.body84:                                          ; preds = %.loopexit, %.loopexit.split-lp, %254
+  %eh.lpad-body85 = phi { ptr, i32 } [ %255, %254 ], [ %lpad.loopexit188, %.loopexit ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h0c6c899f6525b6f8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #39
           to label %170 unwind label %91
 
@@ -116134,7 +116134,7 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
 248:                                              ; preds = %246
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.64, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.435.0..sroa_idx, i64 104, i1 false)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17h0c6c899f6525b6f8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %249 unwind label %.loopexit200
+          to label %249 unwind label %.loopexit
 
 249:                                              ; preds = %248
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
@@ -116232,10 +116232,10 @@ define internal fastcc void @"_ZN11polars_plan5plans9optimizer18predicate_pushdo
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..plans..expr_ir..ExprIR$GT$$GT$17h10c664e5bb160433E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #39
           to label %47 unwind label %91
 
-279:                                              ; preds = %.thread195, %.thread, %47
-  %.pn70125 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn70, %47 ], [ %lpad.thr_comm.split-lp, %.thread195 ]
-  %.sroa.024.3124 = phi i8 [ %.sroa.024.2, %.thread ], [ %.sroa.024.3, %47 ], [ 1, %.thread195 ]
-  %.sroa.027.4123 = phi i8 [ %.sroa.027.3, %.thread ], [ %.sroa.027.4, %47 ], [ 1, %.thread195 ]
+279:                                              ; preds = %.thread183, %.thread, %47
+  %.pn70125 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn70, %47 ], [ %lpad.thr_comm.split-lp, %.thread183 ]
+  %.sroa.024.3124 = phi i8 [ %.sroa.024.2, %.thread ], [ %.sroa.024.3, %47 ], [ 1, %.thread183 ]
+  %.sroa.027.4123 = phi i8 [ %.sroa.027.3, %.thread ], [ %.sroa.027.4, %47 ], [ 1, %.thread183 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$polars_utils..arena..Node$GT$$GT$17h053cb2ea3708209aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #39
           to label %42 unwind label %91
 

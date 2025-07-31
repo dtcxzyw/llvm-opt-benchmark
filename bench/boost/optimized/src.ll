@@ -11915,59 +11915,59 @@ _ZNK5boost6system10error_codecvbEv.exit.i.i:      ; preds = %120, %.noexc
   %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !197
   %126 = and i64 %125, -2
   %switch.i.i.i.i.i.i = icmp eq i64 %126, -5572340897628102704
-  br i1 %switch.i.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %124
   %127 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !197
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %129 = load ptr, ptr %128, align 8, !noalias !197
   %130 = call noundef zeroext i1 %129(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !197
-  br i1 %130, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i.i
+  br i1 %130, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
-  store i64 2, ptr %3, align 8
-  %.sroa.5.0..sroa_idx.i3.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i3.i, align 8
-  store i64 ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %115, align 8, !tbaa !11
-  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !200
-  %132 = and i64 %131, -2
-  %switch.i.i.i.i.i.i.i = icmp eq i64 %132, -5572340897628102704
-  br i1 %switch.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i
-
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i.i
-  %133 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !200
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %135 = load ptr, ptr %134, align 8, !noalias !200
-  %136 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !200
-  br i1 %136, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, label %137
-
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i.i
-  br label %137
-
-137:                                              ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i
-  %138 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i ]
-  %139 = or disjoint i64 %138, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %23, align 8
-  %.sroa.5.0..sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i.i, align 8
-  %.pr.pre.pre = load i64, ptr %115, align 8, !tbaa !194
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i.i
-
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %124
-  %140 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %124
+  %131 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %3, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  store i64 %140, ptr %115, align 8, !tbaa !11
+  store i64 %131, ptr %115, align 8, !tbaa !11
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.513.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i.i, i64 12, i1 false)
   store i32 2, ptr %23, align 8
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i.i
 
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i, %137
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %137 ], [ %140, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i ]
-  %.sink.i.i = phi i64 [ %139, %137 ], [ %140, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i ]
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  store i64 2, ptr %3, align 8
+  %.sroa.5.0..sroa_idx.c.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i.i, align 8
+  store i64 ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %115, align 8, !tbaa !11
+  %132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !200
+  %133 = and i64 %132, -2
+  %switch.i.i.i.i.i.i.i = icmp eq i64 %133, -5572340897628102704
+  br i1 %switch.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i
+
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i.i
+  %134 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !200
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
+  %136 = load ptr, ptr %135, align 8, !noalias !200
+  %137 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !200
+  br i1 %137, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, label %138
+
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i.i
+  br label %138
+
+138:                                              ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i
+  %139 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i.i ]
+  %140 = or disjoint i64 %139, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %23, align 8
+  %.sroa.5.0..sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i.i, align 8
+  %.pr.pre.pre = load i64, ptr %115, align 8, !tbaa !194
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i.i
+
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i.i: ; preds = %138, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %138 ], [ %131, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ]
+  %.sink.i.i = phi i64 [ %140, %138 ], [ %131, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ]
   %.sroa.5.0..sroa_idx.i1.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i64 %.sink.i.i, ptr %.sroa.5.0..sroa_idx.i1.i.i.i, align 8, !tbaa !11
   store i8 0, ptr %24, align 1, !tbaa !180
@@ -12570,7 +12570,7 @@ define void @_ZN5boost4json5parseERSiRNS_6system10error_codeENS0_11storage_ptrER
   %12 = load i64, ptr %8, align 8, !tbaa !17
   %13 = and i64 %12, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39, label %14
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37, label %14
 
 14:                                               ; preds = %5
   %15 = and i64 %12, -4
@@ -12580,16 +12580,16 @@ define void @_ZN5boost4json5parseERSiRNS_6system10error_codeENS0_11storage_ptrER
   %19 = icmp ne i64 %18, 1
   %20 = icmp eq i64 %15, 0
   %or.cond.i.i.i.i.i.i = or i1 %20, %19
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39, label %21
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37, label %21
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %16, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %16) #48
-  br label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39
+  br label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37
 
-_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
+_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37:     ; preds = %5, %14, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 177
@@ -12614,8 +12614,8 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !177
-  %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8, !tbaa !178
+  %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8, !tbaa !178
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i8 1, ptr %39, align 8, !tbaa !179
@@ -12624,46 +12624,46 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
   store i64 0, ptr %31, align 8, !tbaa !182
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not.i.i2.i40 = icmp eq ptr %.pre, %.pre73
-  br i1 %.not.i.i2.i40, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42, label %42
+  %.not.i.i2.i38 = icmp eq ptr %.pre, %.pre68
+  br i1 %.not.i.i2.i38, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i40, label %42
 
-42:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39
+42:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %44 = load i8, ptr %43, align 8, !tbaa !183, !range !184, !noundef !185
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %.lr.ph.i.i3.i45, label %.loopexit.i.i.i41
+  br i1 %45, label %.lr.ph.i.i3.i43, label %.loopexit.i.i.i39
 
-.lr.ph.i.i3.i45:                                  ; preds = %42, %.lr.ph.i.i3.i45
-  %.06.i.i.i46 = phi ptr [ %46, %.lr.ph.i.i3.i45 ], [ %.pre, %42 ]
-  %46 = getelementptr inbounds i8, ptr %.06.i.i.i46, i64 -24
+.lr.ph.i.i3.i43:                                  ; preds = %42, %.lr.ph.i.i3.i43
+  %.06.i.i.i44 = phi ptr [ %46, %.lr.ph.i.i3.i43 ], [ %.pre, %42 ]
+  %46 = getelementptr inbounds i8, ptr %.06.i.i.i44, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #48
   %47 = load ptr, ptr %41, align 8, !tbaa !178
-  %.not4.i.i.i47 = icmp eq ptr %46, %47
-  br i1 %.not4.i.i.i47, label %.loopexit.i.i.i41, label %.lr.ph.i.i3.i45, !llvm.loop !186
+  %.not4.i.i.i45 = icmp eq ptr %46, %47
+  br i1 %.not4.i.i.i45, label %.loopexit.i.i.i39, label %.lr.ph.i.i3.i43, !llvm.loop !186
 
-.loopexit.i.i.i41:                                ; preds = %.lr.ph.i.i3.i45, %42
-  %48 = phi ptr [ %.pre73, %42 ], [ %47, %.lr.ph.i.i3.i45 ]
+.loopexit.i.i.i39:                                ; preds = %.lr.ph.i.i3.i43, %42
+  %48 = phi ptr [ %.pre68, %42 ], [ %47, %.lr.ph.i.i3.i43 ]
   store ptr %48, ptr %40, align 8, !tbaa !177
-  br label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42
+  br label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i40
 
-_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42: ; preds = %.loopexit.i.i.i41, %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39
+_ZN5boost4json11value_stack5stack5clearEv.exit.i.i40: ; preds = %.loopexit.i.i.i39, %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i37
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %49, align 8, !tbaa !187
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %51 = load i64, ptr %50, align 8, !tbaa !17
   %52 = and i64 %51, 1
-  %.not.i.i.i.i43 = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i43, label %_ZN5boost4json11storage_ptrD2Ev.exit, label %53
+  %.not.i.i.i.i41 = icmp eq i64 %52, 0
+  br i1 %.not.i.i.i.i41, label %_ZN5boost4json11storage_ptrD2Ev.exit, label %53
 
-53:                                               ; preds = %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42
+53:                                               ; preds = %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i40
   %54 = and i64 %51, -4
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = atomicrmw sub ptr %56, i64 1 acq_rel, align 8
   %58 = icmp ne i64 %57, 1
   %59 = icmp eq i64 %54, 0
-  %or.cond.i.i.i.i44 = or i1 %59, %58
-  br i1 %or.cond.i.i.i.i44, label %_ZN5boost4json11storage_ptrD2Ev.exit, label %60
+  %or.cond.i.i.i.i42 = or i1 %59, %58
+  br i1 %or.cond.i.i.i.i42, label %_ZN5boost4json11storage_ptrD2Ev.exit, label %60
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %55, align 8, !tbaa !19
@@ -12672,7 +12672,7 @@ _ZN5boost4json11value_stack5stack5clearEv.exit.i.i42: ; preds = %.loopexit.i.i.i
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #48
   br label %_ZN5boost4json11storage_ptrD2Ev.exit
 
-_ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %60, %53, %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42
+_ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %60, %53, %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i40
   store i64 0, ptr %50, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i8 1, ptr %64, align 8, !tbaa !183
@@ -12799,19 +12799,19 @@ _ZN5boost4json11storage_ptrD2Ev.exit16:           ; preds = %_ZN5boost4json13str
   %116 = load ptr, ptr %1, align 8, !tbaa !19
   %117 = getelementptr i8, ptr %116, i64 -24
   %118 = load i64, ptr %117, align 8
-  %gep69 = getelementptr i8, ptr %invariant.gep, i64 %118
-  %119 = load i32, ptr %gep69, align 8, !tbaa !214
+  %gep64 = getelementptr i8, ptr %invariant.gep, i64 %118
+  %119 = load i32, ptr %gep64, align 8, !tbaa !214
   %120 = and i32 %119, 2
-  %.not70 = icmp eq i32 %120, 0
-  br i1 %.not70, label %.lr.ph, label %_ZNK5boost6system10error_code6failedEv.exit._crit_edge
+  %.not65 = icmp eq i32 %120, 0
+  br i1 %.not65, label %.lr.ph, label %_ZNK5boost6system10error_code6failedEv.exit._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit16
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.5.0..sroa_idx.i2058 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.5.0..sroa_idx.c.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.5.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %10, i64 96
   %123 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 92
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds nuw i8, ptr %10, i64 104
   br label %125
@@ -12821,8 +12821,8 @@ _ZNK5boost6system10error_code6failedEv.exit._crit_edge: ; preds = %_ZNK5boost6sy
           to label %_ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit_crit_edge unwind label %.loopexit.split-lp
 
 _ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit_crit_edge: ; preds = %_ZNK5boost6system10error_code6failedEv.exit._crit_edge
-  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.pre76 = load i64, ptr %.phi.trans.insert75, align 8, !tbaa !194
+  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.pre71 = load i64, ptr %.phi.trans.insert70, align 8, !tbaa !194
   br label %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
 
 .loopexit:                                        ; preds = %138
@@ -12830,7 +12830,7 @@ _ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_pa
           cleanup
   br label %223
 
-.loopexit.split-lp:                               ; preds = %_ZNK5boost6system10error_code6failedEv.exit._crit_edge, %188, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i30
+.loopexit.split-lp:                               ; preds = %_ZNK5boost6system10error_code6failedEv.exit._crit_edge, %188, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %223
@@ -12838,8 +12838,8 @@ _ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_pa
 125:                                              ; preds = %.lr.ph, %_ZNK5boost6system10error_code6failedEv.exit.backedge
   %126 = phi i32 [ %119, %.lr.ph ], [ %175, %_ZNK5boost6system10error_code6failedEv.exit.backedge ]
   %127 = and i32 %126, 5
-  %.not67 = icmp eq i32 %127, 0
-  br i1 %.not67, label %138, label %128
+  %.not62 = icmp eq i32 %127, 0
+  br i1 %.not62, label %138, label %128
 
 128:                                              ; preds = %125
   %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !215
@@ -12861,7 +12861,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   %136 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
   %137 = or disjoint i64 %136, ptrtoint (ptr @_ZZN5boost4json5parseERSiRNS_6system10error_codeENS0_11storage_ptrERKNS0_13parse_optionsEE3loc to i64)
   store i64 15, ptr %2, align 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i2058, align 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 %137, ptr %122, align 8, !tbaa !11
   br label %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
 
@@ -12899,32 +12899,40 @@ _ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %147, %.noexc
   %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !220
   %153 = and i64 %152, -2
   %switch.i.i.i.i.i = icmp eq i64 %153, -5572340897628102704
-  br i1 %switch.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %151
   %154 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !220
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %156 = load ptr, ptr %155, align 8, !noalias !220
   %157 = call noundef zeroext i1 %156(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !220
-  br i1 %157, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+  br i1 %157, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %151
   store i64 2, ptr %2, align 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i2058, align 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
+  store i64 %123, ptr %122, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
+  store i32 2, ptr %25, align 8
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
+
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  store i64 2, ptr %2, align 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %122, align 8, !tbaa !11
   %158 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !223
   %159 = and i64 %158, -2
   %switch.i.i.i.i.i.i = icmp eq i64 %159, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
   %160 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !223
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 48
   %162 = load ptr, ptr %161, align 8, !noalias !223
   %163 = call noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !223
   br i1 %163, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %164
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
   br label %164
 
 164:                                              ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
@@ -12935,26 +12943,18 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   %.pr.pre.pre = load i64, ptr %122, align 8, !tbaa !194
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %151
-  store i64 2, ptr %2, align 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i2058, align 8
-  store i64 %123, ptr %122, align 8, !tbaa !11
-  store i32 2, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i59, i64 12, i1 false)
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, %164
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %164 ], [ %123, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
-  %.sink.i = phi i64 [ %166, %164 ], [ %123, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %164, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %164 ], [ %123, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
+  %.sink.i = phi i64 [ %166, %164 ], [ %123, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   store i8 0, ptr %26, align 1, !tbaa !180
-  %.pre79 = and i64 %.pr.pre, 1
+  %.pre74 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
 
 _ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit: ; preds = %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i, %_ZNK5boost6system10error_codecvbEv.exit.i
-  %.pre78.pre-phi = phi i64 [ %144, %_ZNK5boost6system10error_codecvbEv.exit.i ], [ %.pre79, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ]
+  %.pre73.pre-phi = phi i64 [ %144, %_ZNK5boost6system10error_codecvbEv.exit.i ], [ %.pre74, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ]
   %.pr = phi i64 [ %143, %_ZNK5boost6system10error_codecvbEv.exit.i ], [ %.pr.pre, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ]
-  %167 = icmp eq i64 %.pre78.pre-phi, 0
+  %167 = icmp eq i64 %.pre73.pre-phi, 0
   br i1 %167, label %_ZNK5boost6system10error_code6failedEv.exit.backedge, label %168
 
 168:                                              ; preds = %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
@@ -12975,19 +12975,19 @@ _ZNK5boost6system10error_code6failedEv.exit.backedge: ; preds = %168, %_ZN5boost
   br i1 %.not, label %125, label %_ZNK5boost6system10error_code6failedEv.exit._crit_edge, !llvm.loop !226
 
 _ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit: ; preds = %145, %168, %_ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit_crit_edge, %135
-  %177 = phi i64 [ %.pre76, %_ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit_crit_edge ], [ %137, %135 ], [ %143, %145 ], [ %.pr, %168 ]
+  %177 = phi i64 [ %.pre71, %_ZNK5boost6system10error_code6failedEv.exit._crit_edge._ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit_crit_edge ], [ %137, %135 ], [ %143, %145 ], [ %.pr, %168 ]
   %178 = and i64 %177, 1
-  %.not.i21 = icmp eq i64 %178, 0
-  br i1 %.not.i21, label %_ZNK5boost6system10error_code6failedEv.exit23.thread62, label %179
+  %.not.i20 = icmp eq i64 %178, 0
+  br i1 %.not.i20, label %_ZNK5boost6system10error_code6failedEv.exit22.thread57, label %179
 
 179:                                              ; preds = %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
   %180 = icmp ne i64 %177, 1
   %181 = load i32, ptr %2, align 8
   %182 = icmp ne i32 %181, 0
-  %or.cond66 = select i1 %180, i1 true, i1 %182
-  br i1 %or.cond66, label %_ZN5boost4json11storage_ptrD2Ev.exit26, label %_ZNK5boost6system10error_code6failedEv.exit23.thread62
+  %or.cond61 = select i1 %180, i1 true, i1 %182
+  br i1 %or.cond61, label %_ZN5boost4json11storage_ptrD2Ev.exit25, label %_ZNK5boost6system10error_code6failedEv.exit22.thread57
 
-_ZN5boost4json11storage_ptrD2Ev.exit26:           ; preds = %179
+_ZN5boost4json11storage_ptrD2Ev.exit25:           ; preds = %179
   store i64 0, ptr %0, align 8, !tbaa !17
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %183, align 8, !tbaa !54
@@ -12998,32 +12998,32 @@ _ZN5boost4json11storage_ptrD2Ev.exit26:           ; preds = %179
           cleanup
   br label %223
 
-_ZNK5boost6system10error_code6failedEv.exit23.thread62: ; preds = %179, %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
+_ZNK5boost6system10error_code6failedEv.exit22.thread57: ; preds = %179, %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
   %186 = load i8, ptr %26, align 1, !tbaa !180, !range !184, !noalias !227, !noundef !185
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %200, label %188
 
-188:                                              ; preds = %_ZNK5boost6system10error_code6failedEv.exit23.thread62
+188:                                              ; preds = %_ZNK5boost6system10error_code6failedEv.exit22.thread57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #48, !noalias !227
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !227
   %189 = invoke noundef i64 @_ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(280) %10, i1 noundef zeroext false, ptr noundef null, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %.noexc31 unwind label %.loopexit.split-lp
+          to label %.noexc29 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %188
+.noexc29:                                         ; preds = %188
   %190 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %191 = load i64, ptr %190, align 8, !tbaa !194, !noalias !227
   %192 = and i64 %191, 1
-  %.not.i.i.i.i27 = icmp eq i64 %192, 0
-  br i1 %.not.i.i.i.i27, label %_ZN5boost4json13stream_parser6finishEv.exit.i, label %193
+  %.not.i.i.i.i26 = icmp eq i64 %192, 0
+  br i1 %.not.i.i.i.i26, label %_ZN5boost4json13stream_parser6finishEv.exit.i, label %193
 
-193:                                              ; preds = %.noexc31
+193:                                              ; preds = %.noexc29
   %194 = icmp ne i64 %191, 1
   %195 = load i32, ptr %6, align 8, !noalias !227
   %196 = icmp ne i32 %195, 0
-  %or.cond.i.i28 = select i1 %194, i1 true, i1 %196
-  br i1 %or.cond.i.i28, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i30, label %_ZN5boost4json13stream_parser6finishEv.exit.i
+  %or.cond.i.i27 = select i1 %194, i1 true, i1 %196
+  br i1 %or.cond.i.i27, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost4json13stream_parser6finishEv.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i30: ; preds = %193
+_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #48, !noalias !227
   store ptr @.str.70, ptr %7, align 8, !tbaa !206, !noalias !227
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13033,16 +13033,16 @@ _ZNK5boost6system10error_codecvbEv.exit.thread.i.i30: ; preds = %193
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 9, ptr %199, align 4, !tbaa !210, !noalias !227
   invoke void @_ZN5boost4json6detail18throw_system_errorERKNS_6system10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #49
-          to label %.noexc32 unwind label %.loopexit.split-lp
+          to label %.noexc30 unwind label %.loopexit.split-lp
 
-.noexc32:                                         ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i30
+.noexc30:                                         ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
   unreachable
 
-_ZN5boost4json13stream_parser6finishEv.exit.i:    ; preds = %193, %.noexc31
+_ZN5boost4json13stream_parser6finishEv.exit.i:    ; preds = %193, %.noexc29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #48, !noalias !227
   br label %200
 
-200:                                              ; preds = %_ZN5boost4json13stream_parser6finishEv.exit.i, %_ZNK5boost6system10error_code6failedEv.exit23.thread62
+200:                                              ; preds = %_ZN5boost4json13stream_parser6finishEv.exit.i, %_ZNK5boost6system10error_code6failedEv.exit22.thread57
   %201 = load i64, ptr %50, align 8, !tbaa !17, !noalias !230
   %202 = and i64 %201, 1
   %.not.i.i.i1.i = icmp eq i64 %202, 0
@@ -13055,8 +13055,8 @@ _ZN5boost4json13stream_parser6finishEv.exit.i:    ; preds = %193, %.noexc31
   %207 = atomicrmw sub ptr %206, i64 1 acq_rel, align 8, !noalias !230
   %208 = icmp ne i64 %207, 1
   %209 = icmp eq i64 %204, 0
-  %or.cond.i.i.i.i29 = or i1 %209, %208
-  br i1 %or.cond.i.i.i.i29, label %_ZN5boost4json13stream_parser7releaseEv.exit, label %210
+  %or.cond.i.i.i.i28 = or i1 %209, %208
+  br i1 %or.cond.i.i.i.i28, label %_ZN5boost4json13stream_parser7releaseEv.exit, label %210
 
 210:                                              ; preds = %203
   %211 = load ptr, ptr %205, align 8, !tbaa !19, !noalias !230
@@ -13076,7 +13076,7 @@ _ZN5boost4json13stream_parser7releaseEv.exit:     ; preds = %200, %203, %210
   store i8 0, ptr %216, align 8, !tbaa !54, !noalias !230
   br label %217
 
-217:                                              ; preds = %_ZN5boost4json13stream_parser7releaseEv.exit, %_ZN5boost4json11storage_ptrD2Ev.exit26
+217:                                              ; preds = %_ZN5boost4json13stream_parser7releaseEv.exit, %_ZN5boost4json11storage_ptrD2Ev.exit25
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11) #48
   %218 = load ptr, ptr %30, align 8, !tbaa !156
   %219 = icmp eq ptr %218, %29
@@ -13264,61 +13264,59 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !noalias !233
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !233
-  br i1 %21, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %22
+  br i1 %21, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread: ; preds = %15, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
-  br label %22
-
-22:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread
-  %.not.i.i.i = phi i1 [ false, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ true, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
-  %23 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
-  %24 = or disjoint i64 %23, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
+  %22 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx, align 8
-  store i64 %24, ptr %6, align 8, !tbaa !11
+  store i64 %22, ptr %6, align 8, !tbaa !11
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.513)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx, i64 12, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br i1 %.not.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %23, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, i64 12, i1 false), !tbaa.struct !236
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i: ; preds = %22
-  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !236
-  %27 = and i64 %26, -2
-  %switch.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
+  store i64 2, ptr %3, align 8
+  %.sroa.5.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c, align 8
+  store i64 ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.513)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !237
+  %26 = and i64 %25, -2
+  %switch.i.i.i.i.i = icmp eq i64 %26, -5572340897628102704
   br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i
-  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !236
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !noalias !236
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !236
-  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %32
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
+  %27 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !237
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8, !noalias !237
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !237
+  br i1 %30, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %31
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i
-  br label %32
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
+  br label %31
 
-32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
-  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ]
-  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %25, align 8
+31:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  %32 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ]
+  %33 = or disjoint i64 %32, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %24, align 8
   %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10, align 8
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i: ; preds = %22
-  store i32 2, ptr %25, align 8
-  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, i64 12, i1 false), !tbaa.struct !239
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit: ; preds = %32, %_ZNK5boost6system10error_codecvbEv.exit.thread.i
-  %.sink = phi i64 [ %34, %32 ], [ %24, %_ZNK5boost6system10error_codecvbEv.exit.thread.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit: ; preds = %31, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread
+  %.sink = phi i64 [ %33, %31 ], [ %22, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ]
   %.sroa.5.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i1.i, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !180
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  store i8 0, ptr %34, align 1, !tbaa !180
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.513)
   br label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
@@ -14139,61 +14137,59 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !noalias !253
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !253
-  br i1 %21, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %22
+  br i1 %21, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread: ; preds = %15, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
-  br label %22
-
-22:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread
-  %.not.i.i.i = phi i1 [ false, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ true, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
-  %23 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
-  %24 = or disjoint i64 %23, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
+  %22 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx, align 8
-  store i64 %24, ptr %6, align 8, !tbaa !11
+  store i64 %22, ptr %6, align 8, !tbaa !11
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.513)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx, i64 12, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br i1 %.not.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %23, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, i64 12, i1 false), !tbaa.struct !236
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i: ; preds = %22
-  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !256
-  %27 = and i64 %26, -2
-  %switch.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
+  store i64 2, ptr %3, align 8
+  %.sroa.5.0..sroa_idx.c = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c, align 8
+  store i64 ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.513)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !256
+  %26 = and i64 %25, -2
+  %switch.i.i.i.i.i = icmp eq i64 %26, -5572340897628102704
   br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i
-  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !256
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !noalias !256
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !256
-  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %32
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
+  %27 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !256
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8, !noalias !256
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !256
+  br i1 %30, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %31
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i
-  br label %32
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge
+  br label %31
 
-32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
-  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ]
-  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %25, align 8
+31:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  %32 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i ]
+  %33 = or disjoint i64 %32, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %24, align 8
   %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10, align 8
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i: ; preds = %22
-  store i32 2, ptr %25, align 8
-  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513, i64 12, i1 false), !tbaa.struct !239
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit: ; preds = %32, %_ZNK5boost6system10error_codecvbEv.exit.thread.i
-  %.sink = phi i64 [ %34, %32 ], [ %24, %_ZNK5boost6system10error_codecvbEv.exit.thread.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit: ; preds = %31, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread
+  %.sink = phi i64 [ %33, %31 ], [ %22, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ]
   %.sroa.5.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i1.i, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !180
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  store i8 0, ptr %34, align 1, !tbaa !180
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.513)
   br label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
@@ -14285,61 +14281,61 @@ _ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %12, %4
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !262
   %18 = and i64 %17, -2
   %switch.i.i.i.i.i = icmp eq i64 %18, -5572340897628102704
-  br i1 %switch.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %16
   %19 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !262
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !262
   %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !262
-  br i1 %22, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
+  %23 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %5, align 8
-  %.sroa.5.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i6, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %23, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %24, align 8
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
+
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  store i64 2, ptr %5, align 8
+  %.sroa.5.0..sroa_idx.c.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %7, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !265
-  %25 = and i64 %24, -2
-  %switch.i.i.i.i.i.i = icmp eq i64 %25, -5572340897628102704
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !265
+  %27 = and i64 %26, -2
+  %switch.i.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  %26 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !265
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !265
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !265
-  br i1 %29, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !265
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8, !noalias !265
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !265
+  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %32
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  br label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  br label %32
 
-30:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
-  %31 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
-  %32 = or disjoint i64 %31, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %23, align 8
+32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
+  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %25, align 8
   %.sroa.5.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i, align 8
   %.pr.pre.pre = load i64, ptr %7, align 8, !tbaa !194
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
-  %33 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
-  store i64 2, ptr %5, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i64 %33, ptr %7, align 8, !tbaa !11
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 2, ptr %34, align 8
-  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, %30
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
-  %.sink.i = phi i64 [ %32, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %32, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
+  %.sink.i = phi i64 [ %34, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
@@ -14412,80 +14408,80 @@ _ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %12, %3
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !268
   %18 = and i64 %17, -2
   %switch.i.i.i.i.i = icmp eq i64 %18, -5572340897628102704
-  br i1 %switch.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %16
   %19 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !268
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !268
   %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !268
-  br i1 %22, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
+  %23 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %4, align 8
-  %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i4, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %23, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %24, align 8
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
+
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  store i64 2, ptr %4, align 8
+  %.sroa.5.0..sroa_idx.c.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %7, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !271
-  %25 = and i64 %24, -2
-  %switch.i.i.i.i.i.i = icmp eq i64 %25, -5572340897628102704
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !271
+  %27 = and i64 %26, -2
+  %switch.i.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  %26 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !271
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !271
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !271
-  br i1 %29, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !271
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8, !noalias !271
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !271
+  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %32
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  br label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  br label %32
 
-30:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
-  %31 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
-  %32 = or disjoint i64 %31, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %23, align 8
+32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
+  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %25, align 8
   %.sroa.5.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i, align 8
   %.pr.pre.pre = load i64, ptr %7, align 8, !tbaa !194
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
-  %33 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json6parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
-  store i64 2, ptr %4, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i64 %33, ptr %7, align 8, !tbaa !11
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 2, ptr %34, align 8
-  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, %30
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
-  %.sink.i = phi i64 [ %32, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %32, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
+  %.sink.i = phi i64 [ %34, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 0, ptr %35, align 1, !tbaa !180
-  %.pre12 = and i64 %.pr.pre, 1
+  %.pre9 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
 
 _ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.i, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-  %.pre.pre-phi = phi i64 [ %.pre12, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %9, %_ZNK5boost6system10error_codecvbEv.exit.i ]
+  %.pre.pre-phi = phi i64 [ %.pre9, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %9, %_ZNK5boost6system10error_codecvbEv.exit.i ]
   %.pr = phi i64 [ %.pr.pre, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %8, %_ZNK5boost6system10error_codecvbEv.exit.i ]
   %36 = icmp eq i64 %.pre.pre-phi, 0
-  br i1 %36, label %_ZNK5boost6system10error_codecvbEv.exit.thread7, label %37
+  br i1 %36, label %_ZNK5boost6system10error_codecvbEv.exit.thread4, label %37
 
 37:                                               ; preds = %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
   %38 = icmp ne i64 %.pr, 1
   %39 = load i32, ptr %4, align 8
   %40 = icmp ne i32 %39, 0
   %or.cond = select i1 %38, i1 true, i1 %40
-  br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread7
+  br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread4
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %10, %37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #48
@@ -14499,7 +14495,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %10, %37
   call void @_ZN5boost4json6detail18throw_system_errorERKNS_6system10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #49
   unreachable
 
-_ZNK5boost6system10error_codecvbEv.exit.thread7:  ; preds = %37, %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
+_ZNK5boost6system10error_codecvbEv.exit.thread4:  ; preds = %37, %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #48
   ret i64 %6
 }
@@ -14667,7 +14663,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 17:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread
   %18 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit ]
   %19 = or disjoint i64 %18, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc to i64)
-  br label %.thread.sink.split
+  br label %.loopexit.sink.split
 
 20:                                               ; preds = %7
   %.not.i36 = icmp eq i8 %8, 45
@@ -14694,83 +14690,83 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 29:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit41, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit41.thread
   %30 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit41.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit41 ]
   %31 = or disjoint i64 %30, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc_0 to i64)
-  br label %.thread.sink.split
+  br label %.loopexit.sink.split
 
-32:                                               ; preds = %48
+32:                                               ; preds = %47
   %33 = getelementptr inbounds nuw i8, ptr %.02593, i64 1
   %.not = icmp eq ptr %33, %5
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !284
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !284
 
 .lr.ph:                                           ; preds = %20, %32
   %.02593 = phi ptr [ %33, %32 ], [ %4, %20 ]
-  %.02892 = phi i64 [ %51, %32 ], [ 0, %20 ]
+  %.02892 = phi i64 [ %50, %32 ], [ 0, %20 ]
   %34 = load i8, ptr %.02593, align 1, !tbaa !15
   %35 = sext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
-  br i1 %37, label %38, label %48
+  br i1 %37, label %.critedge, label %47
 
-38:                                               ; preds = %.lr.ph
-  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !285
-  %40 = and i64 %39, -2
-  %switch.i.i.i.i47 = icmp eq i64 %40, -5572340897628102704
+.critedge:                                        ; preds = %.lr.ph
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !285
+  %39 = and i64 %38, -2
+  %switch.i.i.i.i47 = icmp eq i64 %39, -5572340897628102704
   br i1 %switch.i.i.i.i47, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50: ; preds = %38
-  %41 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !285
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %43 = load ptr, ptr %42, align 8, !noalias !285
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 21) #48, !noalias !285
-  br i1 %44, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread, label %45
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50: ; preds = %.critedge
+  %40 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !285
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %42 = load ptr, ptr %41, align 8, !noalias !285
+  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 21) #48, !noalias !285
+  br i1 %43, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread, label %44
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread: ; preds = %38, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50
-  br label %45
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread: ; preds = %.critedge, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50
+  br label %44
 
-45:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread
-  %46 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50 ]
-  %47 = or disjoint i64 %46, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc_1 to i64)
-  br label %.thread.sink.split
+44:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread
+  %45 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit50 ]
+  %46 = or disjoint i64 %45, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc_1 to i64)
+  br label %.loopexit.sink.split
 
-48:                                               ; preds = %.lr.ph
-  %49 = mul i64 %.02892, 10
-  %50 = zext nneg i32 %36 to i64
-  %51 = add i64 %49, %50
-  %.not88 = icmp ult i64 %51, %.02892
-  br i1 %.not88, label %52, label %32
+47:                                               ; preds = %.lr.ph
+  %48 = mul i64 %.02892, 10
+  %49 = zext nneg i32 %36 to i64
+  %50 = add i64 %48, %49
+  %.not88 = icmp ult i64 %50, %.02892
+  br i1 %.not88, label %51, label %32
 
-52:                                               ; preds = %48
-  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !288
-  %54 = and i64 %53, -2
-  %switch.i.i.i.i56 = icmp eq i64 %54, -5572340897628102704
+51:                                               ; preds = %47
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !288
+  %53 = and i64 %52, -2
+  %switch.i.i.i.i56 = icmp eq i64 %53, -5572340897628102704
   br i1 %switch.i.i.i.i56, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59: ; preds = %52
-  %55 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !288
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load ptr, ptr %56, align 8, !noalias !288
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 24) #48, !noalias !288
-  br i1 %58, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread, label %59
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59: ; preds = %51
+  %54 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !288
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %56 = load ptr, ptr %55, align 8, !noalias !288
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 24) #48, !noalias !288
+  br i1 %57, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread, label %58
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread: ; preds = %52, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59
-  br label %59
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread: ; preds = %51, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59
+  br label %58
 
-59:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread
-  %60 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59 ]
-  %61 = or disjoint i64 %60, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc_2 to i64)
-  br label %.thread.sink.split
+58:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59
+  %59 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit59 ]
+  %60 = or disjoint i64 %59, ptrtoint (ptr @_ZZN5boost4json6detail18parse_number_tokenENS_4core17basic_string_viewIcEERNS_6system10error_codeEE3loc_2 to i64)
+  br label %.loopexit.sink.split
 
-.thread.sink.split:                               ; preds = %17, %29, %45, %59
-  %.sink96 = phi i64 [ 24, %59 ], [ 21, %45 ], [ 25, %29 ], [ 21, %17 ]
-  %.sink = phi i64 [ %61, %59 ], [ %47, %45 ], [ %31, %29 ], [ %19, %17 ]
+.loopexit.sink.split:                             ; preds = %17, %29, %44, %58
+  %.sink96 = phi i64 [ 24, %58 ], [ 21, %44 ], [ 25, %29 ], [ 21, %17 ]
+  %.sink = phi i64 [ %60, %58 ], [ %46, %44 ], [ %31, %29 ], [ %19, %17 ]
   store i64 %.sink96, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i64, align 8, !tbaa !11
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %32, %.thread.sink.split
-  %.0 = phi i64 [ 0, %.thread.sink.split ], [ %51, %32 ]
+.loopexit:                                        ; preds = %32, %.loopexit.sink.split
+  %.0 = phi i64 [ 0, %.loopexit.sink.split ], [ %50, %32 ]
   ret i64 %.0
 }
 
@@ -21680,61 +21676,61 @@ _ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %12, %4
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !376
   %18 = and i64 %17, -2
   %switch.i.i.i.i.i = icmp eq i64 %18, -5572340897628102704
-  br i1 %switch.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %16
   %19 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !376
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !376
   %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !376
-  br i1 %22, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
+  %23 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %5, align 8
-  %.sroa.5.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i6, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %23, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %24, align 8
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
+
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  store i64 2, ptr %5, align 8
+  %.sroa.5.0..sroa_idx.c.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %7, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !379
-  %25 = and i64 %24, -2
-  %switch.i.i.i.i.i.i = icmp eq i64 %25, -5572340897628102704
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !379
+  %27 = and i64 %26, -2
+  %switch.i.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  %26 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !379
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !379
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !379
-  br i1 %29, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !379
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8, !noalias !379
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !379
+  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %32
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  br label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  br label %32
 
-30:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
-  %31 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
-  %32 = or disjoint i64 %31, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %23, align 8
+32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
+  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %25, align 8
   %.sroa.5.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i, align 8
   %.pr.pre.pre = load i64, ptr %7, align 8, !tbaa !194
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
-  %33 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
-  store i64 2, ptr %5, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i64 %33, ptr %7, align 8, !tbaa !11
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 2, ptr %34, align 8
-  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, %30
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
-  %.sink.i = phi i64 [ %32, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %32, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
+  %.sink.i = phi i64 [ %34, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
@@ -21807,80 +21803,80 @@ _ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %12, %3
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !382
   %18 = and i64 %17, -2
   %switch.i.i.i.i.i = icmp eq i64 %18, -5572340897628102704
-  br i1 %switch.i.i.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  br i1 %switch.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i: ; preds = %16
   %19 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !382
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !382
   %22 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 2) #48, !noalias !382
-  br i1 %22, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
+  br i1 %22, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
+  %23 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
   store i64 2, ptr %4, align 8
-  %.sroa.5.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i4, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i64 %23, ptr %7, align 8, !tbaa !11
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 2, ptr %24, align 8
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
+  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
+
+_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i
+  store i64 2, ptr %4, align 8
+  %.sroa.5.0..sroa_idx.c.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.c.i, align 8
   store i64 ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64), ptr %7, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !385
-  %25 = and i64 %24, -2
-  %switch.i.i.i.i.i.i = icmp eq i64 %25, -5572340897628102704
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !385
+  %27 = and i64 %26, -2
+  %switch.i.i.i.i.i.i = icmp eq i64 %27, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  %26 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !385
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !385
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !385
-  br i1 %29, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !385
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %30 = load ptr, ptr %29, align 8, !noalias !385
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 3) #48, !noalias !385
+  br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, label %32
 
-_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.i
-  br label %30
+_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread3.i.critedge.i
+  br label %32
 
-30:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
-  %31 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
-  %32 = or disjoint i64 %31, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
-  store i64 3, ptr %23, align 8
+32:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i
+  %33 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i.i ]
+  %34 = or disjoint i64 %33, ptrtoint (ptr @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeEE3loc to i64)
+  store i64 3, ptr %25, align 8
   %.sroa.5.0..sroa_idx.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i10.i, align 8
   %.pr.pre.pre = load i64, ptr %7, align 8, !tbaa !194
   br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
 
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.i, %16
-  %33 = or disjoint i64 1, ptrtoint (ptr @_ZZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeEE3loc to i64)
-  store i64 2, ptr %4, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN5boost4json6detail19error_code_categoryE, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i64 %33, ptr %7, align 8, !tbaa !11
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 2, ptr %34, align 8
-  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.513.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.2.0..sroa_idx.i, i64 12, i1 false)
-  br label %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-
-_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i, %30
-  %.pr.pre = phi i64 [ %.pr.pre.pre, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
-  %.sink.i = phi i64 [ %32, %30 ], [ %33, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
+_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i: ; preds = %32, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i
+  %.pr.pre = phi i64 [ %.pr.pre.pre, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
+  %.sink.i = phi i64 [ %34, %32 ], [ %23, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread.i ]
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 0, ptr %35, align 1, !tbaa !180
-  %.pre12 = and i64 %.pr.pre, 1
+  %.pre9 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
 
 _ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.i, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i
-  %.pre.pre-phi = phi i64 [ %.pre12, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %9, %_ZNK5boost6system10error_codecvbEv.exit.i ]
+  %.pre.pre-phi = phi i64 [ %.pre9, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %9, %_ZNK5boost6system10error_codecvbEv.exit.i ]
   %.pr = phi i64 [ %.pr.pre, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i ], [ %8, %_ZNK5boost6system10error_codecvbEv.exit.i ]
   %36 = icmp eq i64 %.pre.pre-phi, 0
-  br i1 %36, label %_ZNK5boost6system10error_codecvbEv.exit.thread7, label %37
+  br i1 %36, label %_ZNK5boost6system10error_codecvbEv.exit.thread4, label %37
 
 37:                                               ; preds = %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
   %38 = icmp ne i64 %.pr, 1
   %39 = load i32, ptr %4, align 8
   %40 = icmp ne i32 %39, 0
   %or.cond = select i1 %38, i1 true, i1 %40
-  br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread7
+  br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread, label %_ZNK5boost6system10error_codecvbEv.exit.thread4
 
 _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %10, %37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #48
@@ -21894,7 +21890,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %10, %37
   call void @_ZN5boost4json6detail18throw_system_errorERKNS_6system10error_codeERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #49
   unreachable
 
-_ZNK5boost6system10error_codecvbEv.exit.thread7:  ; preds = %37, %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
+_ZNK5boost6system10error_codecvbEv.exit.thread4:  ; preds = %37, %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #48
   ret i64 %6
 }
@@ -62981,10 +62977,10 @@ attributes #56 = { nounwind allocsize(0) }
 !233 = !{!234}
 !234 = distinct !{!234, !235, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
 !235 = distinct !{!235, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
-!238 = distinct !{!238, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!239 = !{i64 0, i64 12, !15, i64 12, i64 8, !11}
+!236 = !{i64 0, i64 12, !15, i64 12, i64 8, !11}
+!237 = !{!238}
+!238 = distinct !{!238, !239, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
+!239 = distinct !{!239, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
 !240 = !{!241}
 !241 = distinct !{!241, !242, !"_ZN5boost4json11value_stack7releaseEv: argument 0"}
 !242 = distinct !{!242, !"_ZN5boost4json11value_stack7releaseEv"}

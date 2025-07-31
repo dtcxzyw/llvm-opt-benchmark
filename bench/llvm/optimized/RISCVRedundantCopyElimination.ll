@@ -482,8 +482,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br i1 %.not84.i, label %.thread79.i, label %.lr.ph.i
 
 .thread79.i:                                      ; preds = %126, %.thread.i
-  %.sroa.019.0.lcssa.i = phi ptr [ %.sroa.019.4.i, %126 ], [ %.sroa.019.090.i, %.thread.i ]
-  %.038.lcssa.i = phi i1 [ %.442.i, %126 ], [ %.03891.i, %.thread.i ]
+  %.sroa.019.0.lcssa.i = phi ptr [ %.sroa.019.090.i, %.thread.i ], [ %.sroa.019.4.i, %126 ]
+  %.038.lcssa.i = phi i1 [ %.03891.i, %.thread.i ], [ %.442.i, %126 ]
   br i1 %.038.lcssa.i, label %127, label %_ZL24guaranteesZeroRegInBlockRN4llvm17MachineBasicBlockERKNS_15SmallVectorImplINS_14MachineOperandEEEPS0_.exit.i
 
 127:                                              ; preds = %.thread79.i

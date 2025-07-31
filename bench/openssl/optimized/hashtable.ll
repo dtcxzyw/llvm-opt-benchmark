@@ -296,22 +296,20 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
   br i1 %87, label %91, label %90
 
 ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82
-  %.055 = phi ptr [ null, %69 ], [ null, %79 ], [ %80, %82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   %89 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
   call void @ossl_ht_read_unlock(ptr noundef %89) #8
-  br i1 %.not40, label %91, label %90
+  br i1 %.not40, label %.critedge, label %90
 
 90:                                               ; preds = %85, %ossl_ht_fz_FUZZER_VALUE_get.exit
   call void @OPENSSL_die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 303) #9
   unreachable
 
-91:                                               ; preds = %85, %ossl_ht_fz_FUZZER_VALUE_get.exit
-  %.05559 = phi ptr [ %80, %85 ], [ %.055, %ossl_ht_fz_FUZZER_VALUE_get.exit ]
+91:                                               ; preds = %85
   br i1 %.not40, label %.critedge, label %92
 
 92:                                               ; preds = %91
-  %93 = getelementptr i8, ptr %.05559, i64 8
+  %93 = getelementptr i8, ptr %80, i64 8
   %.val = load ptr, ptr %93, align 8, !tbaa !11
   %.not56 = icmp eq ptr %.val, @fz_FUZZER_VALUE_id
   br i1 %.not56, label %95, label %94
@@ -413,15 +411,15 @@ default.unreachable58:                            ; preds = %12
   unreachable
 
 .critedge.sink.split:                             ; preds = %10, %100, %95, %67, %48, %46, %140, %128, %117
-  %.sink60 = phi i64 [ %118, %117 ], [ %129, %128 ], [ %141, %140 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %96, %95 ], [ %98, %100 ], [ %11, %10 ]
+  %.sink61 = phi i64 [ %118, %117 ], [ %129, %128 ], [ %141, %140 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %96, %95 ], [ %98, %100 ], [ %11, %10 ]
   %flushes.sink = phi ptr [ @flushes, %117 ], [ @foreaches, %128 ], [ @filters, %140 ], [ @replacements, %46 ], [ @inserts, %48 ], [ @deletes, %67 ], [ @lookups, %95 ], [ @flushes, %100 ], [ @skipped_values, %10 ]
   %.0.ph = phi i32 [ 0, %117 ], [ 0, %128 ], [ 0, %140 ], [ 0, %46 ], [ 0, %48 ], [ 0, %67 ], [ 0, %95 ], [ 0, %100 ], [ -1, %10 ]
-  %142 = add i64 %.sink60, 1
+  %142 = add i64 %.sink61, 1
   store i64 %142, ptr %flushes.sink, align 8, !tbaa !20
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %36, %44, %66, %91
-  %.0 = phi i32 [ 0, %91 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ %.0.ph, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %ossl_ht_fz_FUZZER_VALUE_get.exit, %36, %44, %66, %91
+  %.0 = phi i32 [ 0, %91 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ 0, %ossl_ht_fz_FUZZER_VALUE_get.exit ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #8
   ret i32 %.0

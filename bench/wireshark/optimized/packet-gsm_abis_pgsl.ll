@@ -495,7 +495,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %.0 = select i1 %3, ptr %sub_handles.0.val, ptr %sub_handles.1.val
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
-  switch i32 %7, label %37 [
+  switch i32 %7, label %33 [
     i32 32, label %8
     i32 49, label %9
     i32 50, label %9
@@ -527,8 +527,8 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %19 = load i32, ptr %6, align 4
   switch i32 %19, label %.thread [
     i32 49, label %20
-    i32 50, label %25
-    i32 51, label %27
+    i32 50, label %31
+    i32 51, label %.thread.critedge
   ]
 
 20:                                               ; preds = %15
@@ -536,35 +536,35 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
   %22 = shl i32 %18, 3
   %23 = add nuw nsw i32 %21, 2
   %24 = add i32 %23, %22
-  br label %27
-
-25:                                               ; preds = %15
-  %26 = select i1 %3, i32 37, i32 28
-  br label %27
-
-27:                                               ; preds = %15, %25, %20
-  %28 = phi i1 [ false, %15 ], [ false, %25 ], [ true, %20 ]
-  %.sroa.0.0.i.ph = phi i32 [ 31, %15 ], [ %26, %25 ], [ %21, %20 ]
-  %.sroa.8.0.i.ph = phi i32 [ 0, %15 ], [ 0, %25 ], [ %24, %20 ]
-  %29 = shl i32 %18, 3
-  %30 = or disjoint i32 %29, 2
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1, ptr %31, align 4
-  %32 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %.sroa.0.0.i.ph, i32 noundef %30, ptr noundef %1)
-  %33 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef %4)
-  br i1 %28, label %34, label %.thread
-
-34:                                               ; preds = %27
-  store i32 2, ptr %31, align 4
-  %35 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %.sroa.8.0.i.ph, i32 noundef %30, ptr noundef %1)
-  %36 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %35, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  %25 = or disjoint i32 %22, 2
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1, ptr %26, align 4
+  %27 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %21, i32 noundef %25, ptr noundef %1)
+  %28 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  store i32 2, ptr %26, align 4
+  %29 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %24, i32 noundef %25, ptr noundef %1)
+  %30 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %29, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   br label %.thread
 
-37:                                               ; preds = %5
-  %38 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+31:                                               ; preds = %15
+  %32 = select i1 %3, i32 37, i32 28
+  br label %.thread.critedge
+
+33:                                               ; preds = %5
+  %34 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   br label %.thread
 
-.thread:                                          ; preds = %15, %27, %34, %37, %8
+.thread.critedge:                                 ; preds = %31, %15
+  %.sroa.0.0.i.ph.ph = phi i32 [ %32, %31 ], [ 31, %15 ]
+  %35 = shl i32 %18, 3
+  %36 = or disjoint i32 %35, 2
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1, ptr %37, align 4
+  %38 = tail call fastcc ptr @get_egprs_data_block(ptr noundef %0, i32 noundef %.sroa.0.0.i.ph.ph, i32 noundef %36, ptr noundef %1)
+  %39 = tail call i32 @call_dissector_with_data(ptr noundef %.0, ptr noundef %38, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.critedge, %15, %20, %33, %8
   ret void
 }
 

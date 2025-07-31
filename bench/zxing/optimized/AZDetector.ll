@@ -2125,13 +2125,13 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #13
   %12 = fptosi double %4 to i32
   %13 = fptosi double %5 to i32
-  %.sroa.279.0.insert.ext = zext i32 %13 to i64
-  %.sroa.279.0.insert.shift = shl nuw i64 %.sroa.279.0.insert.ext, 32
-  %.sroa.078.0.insert.ext = zext i32 %12 to i64
-  %.sroa.078.0.insert.insert = or disjoint i64 %.sroa.279.0.insert.shift, %.sroa.078.0.insert.ext
+  %.sroa.281.0.insert.ext = zext i32 %13 to i64
+  %.sroa.281.0.insert.shift = shl nuw i64 %.sroa.281.0.insert.ext, 32
+  %.sroa.080.0.insert.ext = zext i32 %12 to i64
+  %.sroa.080.0.insert.insert = or disjoint i64 %.sroa.281.0.insert.shift, %.sroa.080.0.insert.ext
   store ptr %1, ptr %8, align 8, !tbaa !129
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.078.0.insert.insert, ptr %14, align 8
+  store i64 %.sroa.080.0.insert.insert, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i32, ptr %1, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
@@ -2145,10 +2145,10 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   br label %20
 
 20:                                               ; preds = %7, %22
-  %.047.idx126 = phi i64 [ 0, %7 ], [ %.047.add, %22 ]
-  %.086125 = phi i32 [ %16, %7 ], [ %.sroa.speculated8.i, %22 ]
-  %.090124 = phi i32 [ 0, %7 ], [ %.sroa.speculated.i, %22 ]
-  %.047.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.047.idx126
+  %.047.idx118 = phi i64 [ 0, %7 ], [ %.047.add, %22 ]
+  %.088117 = phi i32 [ %16, %7 ], [ %.sroa.speculated8.i, %22 ]
+  %.092116 = phi i32 [ 0, %7 ], [ %.sroa.speculated.i, %22 ]
+  %.047.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.047.idx118
   %.sroa.024.0.copyload = load i64, ptr %.047.ptr, align 4
   store i64 %.sroa.024.0.copyload, ptr %15, align 8
   %21 = call noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb0ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ib(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %2, i48 %3, i32 noundef %6, i1 noundef zeroext true)
@@ -2156,9 +2156,9 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   br i1 %.not59, label %23, label %22
 
 22:                                               ; preds = %20
-  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %21, i32 %.086125)
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.090124, i32 %21)
-  %.047.add = add nuw nsw i64 %.047.idx126, 8
+  %.sroa.speculated8.i = call i32 @llvm.smin.i32(i32 %21, i32 %.088117)
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.092116, i32 %21)
+  %.047.add = add nuw nsw i64 %.047.idx118, 8
   %.not = icmp eq i64 %.047.add, 16
   br i1 %.not, label %25, label %20
 
@@ -2166,7 +2166,7 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %24, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
-  br label %54
+  br label %53
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
@@ -2181,70 +2181,70 @@ define linkonce_odr void @_ZN5ZXing23LocateConcentricPatternILb0ENS_12FixedPatte
   %29 = shl nsw i32 %6, 1
   br label %30
 
-30:                                               ; preds = %25, %32
-  %.052.idx130 = phi i64 [ 0, %25 ], [ %.052.add, %32 ]
-  %.388129 = phi i32 [ %.sroa.speculated8.i, %25 ], [ %.sroa.speculated8.i62, %32 ]
-  %.393128 = phi i32 [ %.sroa.speculated.i, %25 ], [ %.sroa.speculated.i63, %32 ]
-  %.052.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.052.idx130
+30:                                               ; preds = %25, %33
+  %.052.idx122 = phi i64 [ 0, %25 ], [ %.052.add, %33 ]
+  %.390121 = phi i32 [ %.sroa.speculated8.i, %25 ], [ %.sroa.speculated8.i64, %33 ]
+  %.395120 = phi i32 [ %.sroa.speculated.i, %25 ], [ %.sroa.speculated.i65, %33 ]
+  %.052.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.052.idx122
   %.sroa.011.0.copyload = load i64, ptr %.052.ptr, align 4
   store i64 %.sroa.011.0.copyload, ptr %15, align 8
   %31 = call noundef i32 @_ZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi7ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ib(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %2, i48 %3, i32 noundef %29, i1 noundef zeroext false)
   %.not61 = icmp eq i32 %31, 0
-  br i1 %.not61, label %33, label %32
+  br i1 %.not61, label %.critedge, label %33
 
-32:                                               ; preds = %30
-  %.sroa.speculated8.i62 = call i32 @llvm.smin.i32(i32 %31, i32 %.388129)
-  %.sroa.speculated.i63 = call i32 @llvm.smax.i32(i32 %.393128, i32 %31)
-  %.052.add = add nuw nsw i64 %.052.idx130, 8
-  %.not60 = icmp eq i64 %.052.add, 16
-  br i1 %.not60, label %35, label %30
+.critedge:                                        ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %32, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  br label %53
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %34, align 8, !tbaa !37
+  %.sroa.speculated8.i64 = call i32 @llvm.smin.i32(i32 %31, i32 %.390121)
+  %.sroa.speculated.i65 = call i32 @llvm.smax.i32(i32 %.395120, i32 %31)
+  %.052.add = add nuw nsw i64 %.052.idx122, 8
+  %.not60 = icmp eq i64 %.052.add, 16
+  br i1 %.not60, label %34, label %30
+
+34:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  br label %54
+  %35 = mul nsw i32 %.sroa.speculated8.i64, 5
+  %36 = icmp sgt i32 %.sroa.speculated.i65, %35
+  br i1 %36, label %37, label %39
 
-35:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  %36 = mul nsw i32 %.sroa.speculated8.i62, 5
-  %37 = icmp sgt i32 %.sroa.speculated.i63, %36
-  br i1 %37, label %38, label %40
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %38, align 8, !tbaa !37
+  br label %53
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %39, align 8, !tbaa !37
-  br label %54
-
-40:                                               ; preds = %35
+39:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #13
-  %41 = load i32, ptr %14, align 8, !tbaa !133
-  %42 = sitofp i32 %41 to double
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !134
-  %45 = sitofp i32 %44 to double
-  call void @_ZN5ZXing31FinetuneConcentricPatternCenterERKNS_9BitMatrixENS_6PointTIdEEii(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.24") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, double %42, double %45, i32 noundef %6, i32 noundef 7)
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %47 = load i8, ptr %46, align 8, !tbaa !135, !range !39, !noundef !40
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %52
+  %40 = load i32, ptr %14, align 8, !tbaa !133
+  %41 = sitofp i32 %40 to double
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !134
+  %44 = sitofp i32 %43 to double
+  call void @_ZN5ZXing31FinetuneConcentricPatternCenterERKNS_9BitMatrixENS_6PointTIdEEii(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.24") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, double %41, double %44, i32 noundef %6, i32 noundef 7)
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %46 = load i8, ptr %45, align 8, !tbaa !135, !range !39, !noundef !40
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %51
 
-49:                                               ; preds = %40
+48:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %50 = add nsw i32 %.sroa.speculated8.i62, %.sroa.speculated.i63
-  %51 = sdiv i32 %50, 2
+  %49 = add nsw i32 %.sroa.speculated8.i64, %.sroa.speculated.i65
+  %50 = sdiv i32 %49, 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %51, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %52
+  store i32 %50, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %51
 
-52:                                               ; preds = %40, %49
-  %.sink = phi i8 [ 1, %49 ], [ 0, %40 ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %53, align 8, !tbaa !37
+51:                                               ; preds = %39, %48
+  %.sink = phi i8 [ 1, %48 ], [ 0, %39 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink, ptr %52, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #13
-  br label %54
+  br label %53
 
-54:                                               ; preds = %33, %23, %52, %38
+53:                                               ; preds = %.critedge, %23, %51, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
   ret void
 }

@@ -108,13 +108,13 @@ define internal ptr @_weakref_getweakrefs(ptr readnone captures(none) %0, ptr no
   %.val = load ptr, ptr %3, align 8, !tbaa !9
   %4 = getelementptr i8, ptr %.val, i64 208
   %.val27 = load i64, ptr %4, align 8, !tbaa !22
-  %.not34 = icmp eq i64 %.val27, 0
+  %.not32 = icmp eq i64 %.val27, 0
   %5 = tail call ptr @PyList_New(i64 noundef 0) #3
-  br i1 %.not34, label %Py_DECREF.exit22.thread, label %6
+  br i1 %.not32, label %Py_DECREF.exit22, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %5, null
-  br i1 %7, label %Py_DECREF.exit22.thread, label %8
+  br i1 %7, label %Py_DECREF.exit22, label %8
 
 8:                                                ; preds = %6
   %.val9.i = load ptr, ptr %3, align 8, !tbaa !9
@@ -148,15 +148,15 @@ define internal ptr @_weakref_getweakrefs(ptr readnone captures(none) %0, ptr no
 
 _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %15, %22
   %.0.i = phi ptr [ %21, %15 ], [ %25, %22 ]
-  %.01436 = load ptr, ptr %.0.i, align 8, !tbaa !34
-  %.not1837 = icmp eq ptr %.01436, null
-  br i1 %.not1837, label %Py_DECREF.exit22.thread, label %.lr.ph
+  %.01434 = load ptr, ptr %.0.i, align 8, !tbaa !34
+  %.not1835 = icmp eq ptr %.01434, null
+  br i1 %.not1835, label %Py_DECREF.exit22, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit, %Py_DECREF.exit22
-  %.01438 = phi ptr [ %.014, %Py_DECREF.exit22 ], [ %.01436, %_PyObject_GET_WEAKREFS_LISTPTR.exit ]
-  %.val.i = load i32, ptr %.01438, align 8, !tbaa !36
+.lr.ph:                                           ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit, %_Py_TryIncref.exit
+  %.01436 = phi ptr [ %.014, %_Py_TryIncref.exit ], [ %.01434, %_PyObject_GET_WEAKREFS_LISTPTR.exit ]
+  %.val.i = load i32, ptr %.01436, align 8, !tbaa !36
   %.not.i28 = icmp eq i32 %.val.i, 0
-  br i1 %.not.i28, label %Py_DECREF.exit22, label %26
+  br i1 %.not.i28, label %_Py_TryIncref.exit, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = icmp slt i32 %.val.i, 0
@@ -164,65 +164,65 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %15, %22
 
 28:                                               ; preds = %26
   %29 = add nuw i32 %.val.i, 1
-  store i32 %29, ptr %.01438, align 8, !tbaa !36
+  store i32 %29, ptr %.01436, align 8, !tbaa !36
   br label %30
 
 30:                                               ; preds = %26, %28
-  %31 = tail call i32 @PyList_Append(ptr noundef nonnull %5, ptr noundef nonnull %.01438) #3
+  %31 = tail call i32 @PyList_Append(ptr noundef nonnull %5, ptr noundef nonnull %.01436) #3
   %.not20 = icmp eq i32 %31, 0
-  %32 = load i32, ptr %.01438, align 8, !tbaa !36
+  %32 = load i32, ptr %.01436, align 8, !tbaa !36
   %.not.i23 = icmp sgt i32 %32, -1
-  br i1 %.not20, label %43, label %33
+  br i1 %.not20, label %42, label %.critedge
 
-33:                                               ; preds = %30
-  br i1 %.not.i23, label %34, label %Py_DECREF.exit
+.critedge:                                        ; preds = %30
+  br i1 %.not.i23, label %33, label %Py_DECREF.exit
 
-34:                                               ; preds = %33
-  %35 = add nsw i32 %32, -1
-  store i32 %35, ptr %.01438, align 8, !tbaa !36
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %Py_DECREF.exit
+33:                                               ; preds = %.critedge
+  %34 = add nsw i32 %32, -1
+  store i32 %34, ptr %.01436, align 8, !tbaa !36
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %Py_DECREF.exit
 
-37:                                               ; preds = %34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.01438) #3
+36:                                               ; preds = %33
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.01436) #3
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %33, %34, %37
-  %38 = load i32, ptr %5, align 8, !tbaa !36
-  %.not.i21 = icmp sgt i32 %38, -1
-  br i1 %.not.i21, label %39, label %Py_DECREF.exit22.thread
+Py_DECREF.exit:                                   ; preds = %.critedge, %33, %36
+  %37 = load i32, ptr %5, align 8, !tbaa !36
+  %.not.i21 = icmp sgt i32 %37, -1
+  br i1 %.not.i21, label %38, label %Py_DECREF.exit22
 
-39:                                               ; preds = %Py_DECREF.exit
-  %40 = add nsw i32 %38, -1
-  store i32 %40, ptr %5, align 8, !tbaa !36
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %Py_DECREF.exit22.thread
+38:                                               ; preds = %Py_DECREF.exit
+  %39 = add nsw i32 %37, -1
+  store i32 %39, ptr %5, align 8, !tbaa !36
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %Py_DECREF.exit22
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void @_Py_Dealloc(ptr noundef nonnull %5) #3
-  br label %Py_DECREF.exit22.thread
-
-43:                                               ; preds = %30
-  br i1 %.not.i23, label %44, label %Py_DECREF.exit22
-
-44:                                               ; preds = %43
-  %45 = add nsw i32 %32, -1
-  store i32 %45, ptr %.01438, align 8, !tbaa !36
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %Py_DECREF.exit22
-
-47:                                               ; preds = %44
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.01438) #3
   br label %Py_DECREF.exit22
 
-Py_DECREF.exit22:                                 ; preds = %.lr.ph, %43, %44, %47
-  %48 = getelementptr inbounds nuw i8, ptr %.01438, i64 48
-  %.014 = load ptr, ptr %48, align 8, !tbaa !34
-  %.not18 = icmp eq ptr %.014, null
-  br i1 %.not18, label %Py_DECREF.exit22.thread, label %.lr.ph, !llvm.loop !37
+42:                                               ; preds = %30
+  br i1 %.not.i23, label %43, label %_Py_TryIncref.exit
 
-Py_DECREF.exit22.thread:                          ; preds = %Py_DECREF.exit22, %2, %_PyObject_GET_WEAKREFS_LISTPTR.exit, %42, %39, %Py_DECREF.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %Py_DECREF.exit ], [ null, %39 ], [ null, %42 ], [ %5, %_PyObject_GET_WEAKREFS_LISTPTR.exit ], [ %5, %2 ], [ %5, %Py_DECREF.exit22 ]
+43:                                               ; preds = %42
+  %44 = add nsw i32 %32, -1
+  store i32 %44, ptr %.01436, align 8, !tbaa !36
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %_Py_TryIncref.exit
+
+46:                                               ; preds = %43
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.01436) #3
+  br label %_Py_TryIncref.exit
+
+_Py_TryIncref.exit:                               ; preds = %46, %43, %42, %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %.01436, i64 48
+  %.014 = load ptr, ptr %47, align 8, !tbaa !34
+  %.not18 = icmp eq ptr %.014, null
+  br i1 %.not18, label %Py_DECREF.exit22, label %.lr.ph, !llvm.loop !37
+
+Py_DECREF.exit22:                                 ; preds = %_Py_TryIncref.exit, %2, %_PyObject_GET_WEAKREFS_LISTPTR.exit, %41, %38, %Py_DECREF.exit, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %Py_DECREF.exit ], [ null, %38 ], [ null, %41 ], [ %5, %_PyObject_GET_WEAKREFS_LISTPTR.exit ], [ %5, %2 ], [ %5, %_Py_TryIncref.exit ]
   ret ptr %.0
 }
 

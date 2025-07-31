@@ -85,7 +85,7 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 
 5:                                                ; preds = %3
   %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
-  br label %.thread
+  br label %.critedge47
 
 7:                                                ; preds = %3
   tail call void @SDL_SYS_InitTLSData() #6
@@ -120,7 +120,7 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
   %23 = add nuw nsw i64 %22, 24
   %24 = tail call ptr @SDL_realloc_REAL(ptr noundef %16, i64 noundef %23) #7
   %.not45 = icmp eq ptr %24, null
-  br i1 %.not45, label %.thread, label %25
+  br i1 %.not45, label %.critedge47, label %25
 
 25:                                               ; preds = %.critedge
   %26 = add nsw i32 %.037.in, 3
@@ -146,7 +146,7 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
 
 36:                                               ; preds = %._crit_edge
   tail call void @SDL_free_REAL(ptr noundef nonnull %24) #6
-  br label %.thread
+  br label %.critedge47
 
 37:                                               ; preds = %._crit_edge
   %38 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull @SDL_tls_allocated, i32 noundef 1) #6
@@ -160,10 +160,10 @@ define hidden zeroext i1 @SDL_SetTLS_REAL(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %2, ptr %43, align 8
-  br label %.thread
+  br label %.critedge47
 
-.thread:                                          ; preds = %.critedge, %36, %39, %5
-  %.0 = phi i1 [ %6, %5 ], [ true, %39 ], [ false, %36 ], [ false, %.critedge ]
+.critedge47:                                      ; preds = %36, %.critedge, %39, %5
+  %.0 = phi i1 [ %6, %5 ], [ true, %39 ], [ false, %.critedge ], [ false, %36 ]
   ret i1 %.0
 }
 

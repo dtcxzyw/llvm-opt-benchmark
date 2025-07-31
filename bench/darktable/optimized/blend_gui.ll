@@ -3973,21 +3973,21 @@ define internal void @_raster_combo_populate(ptr noundef %0, ptr noundef readonl
   tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %9, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull @free, i32 noundef 1) #18
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2056
-  %.02837 = load ptr, ptr %11, align 8, !tbaa !198
-  %.not38 = icmp eq ptr %.02837, null
-  br i1 %.not38, label %.thread, label %.lr.ph42
+  %.02836 = load ptr, ptr %11, align 8, !tbaa !198
+  %.not37 = icmp eq ptr %.02836, null
+  br i1 %.not37, label %.critedge, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %2
+.lr.ph41:                                         ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 808
   br label %14
 
-14:                                               ; preds = %.lr.ph42, %._crit_edge
-  %.02840 = phi ptr [ %.02837, %.lr.ph42 ], [ %.028, %._crit_edge ]
-  %.039 = phi i32 [ 1, %.lr.ph42 ], [ %.2.lcssa, %._crit_edge ]
-  %15 = load ptr, ptr %.02840, align 8, !tbaa !199
+14:                                               ; preds = %.lr.ph41, %._crit_edge
+  %.02839 = phi ptr [ %.02836, %.lr.ph41 ], [ %.028, %._crit_edge ]
+  %.038 = phi i32 [ 1, %.lr.ph41 ], [ %.2.lcssa, %._crit_edge ]
+  %15 = load ptr, ptr %.02839, align 8, !tbaa !199
   %.not33 = icmp eq ptr %15, %6
-  br i1 %.not33, label %.thread, label %16
+  br i1 %.not33, label %.critedge, label %16
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #18
@@ -3997,11 +3997,11 @@ define internal void @_raster_combo_populate(ptr noundef %0, ptr noundef readonl
   %18 = load ptr, ptr %17, align 8, !tbaa !201
   call void @g_hash_table_iter_init(ptr noundef nonnull %3, ptr noundef %18) #18
   %19 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
-  %.not3235 = icmp eq i32 %19, 0
-  br i1 %.not3235, label %._crit_edge, label %.lr.ph
+  %.not3234 = icmp eq i32 %19, 0
+  br i1 %.not3234, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %32
-  %.236 = phi i32 [ %33, %32 ], [ %.039, %16 ]
+  %.235 = phi i32 [ %33, %32 ], [ %.038, %16 ]
   %20 = load ptr, ptr %4, align 8, !tbaa !154
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i32
@@ -4021,26 +4021,26 @@ define internal void @_raster_combo_populate(ptr noundef %0, ptr noundef readonl
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  call void @dt_bauhaus_combobox_set(ptr noundef %0, i32 noundef %.236) #18
+  call void @dt_bauhaus_combobox_set(ptr noundef %0, i32 noundef %.235) #18
   br label %32
 
 32:                                               ; preds = %31, %28, %.lr.ph
-  %33 = add nsw i32 %.236, 1
+  %33 = add nsw i32 %.235, 1
   %34 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %.not32 = icmp eq i32 %34, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %16
-  %.2.lcssa = phi i32 [ %.039, %16 ], [ %33, %32 ]
+  %.2.lcssa = phi i32 [ %.038, %16 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #18
-  %35 = getelementptr inbounds nuw i8, ptr %.02840, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.02839, i64 8
   %.028 = load ptr, ptr %35, align 8, !tbaa !198
   %.not = icmp eq ptr %.028, null
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %.critedge, label %14
 
-.thread:                                          ; preds = %._crit_edge, %14, %2
+.critedge:                                        ; preds = %._crit_edge, %14, %2
   ret void
 }
 
@@ -4142,62 +4142,62 @@ define internal void @_raster_value_changed_callback(ptr noundef %0, ptr noundef
   %21 = phi ptr [ %.pre, %16 ], [ %5, %15 ]
   store ptr %21, ptr %6, align 16, !tbaa !202
   %.not34 = icmp eq ptr %21, null
-  br i1 %.not34, label %.thread37, label %31
+  br i1 %.not34, label %.critedge, label %22
 
-.thread37:                                        ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 808
-  store i32 -1, ptr %22, align 8, !tbaa !203
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 388
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
-  %26 = load ptr, ptr %23, align 8, !tbaa !71
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 408
-  store i32 0, ptr %27, align 4, !tbaa !206
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 412
-  store i32 -1, ptr %28, align 4, !tbaa !207
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 664
-  %30 = load ptr, ptr %29, align 8, !tbaa !80
-  tail call void @dt_dev_add_history_item(ptr noundef %30, ptr noundef nonnull %1, i32 noundef 1) #18
-  br label %56
-
-31:                                               ; preds = %20
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !197
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 808
-  store i32 %33, ptr %34, align 8, !tbaa !203
-  %35 = tail call i32 @dt_iop_is_raster_mask_used(ptr noundef nonnull %21, i32 noundef 0) #18
-  %.not39 = icmp eq i32 %35, 0
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = load i32, ptr %23, align 8, !tbaa !197
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 808
+  store i32 %24, ptr %25, align 8, !tbaa !203
+  %26 = tail call i32 @dt_iop_is_raster_mask_used(ptr noundef nonnull %21, i32 noundef 0) #18
+  %.not37 = icmp eq i32 %26, 0
+  %27 = load ptr, ptr %3, align 8, !tbaa !195
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 784
+  %29 = load ptr, ptr %28, align 16, !tbaa !205
+  %30 = tail call i32 @g_hash_table_add(ptr noundef %29, ptr noundef nonnull %1) #18
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 760
+  %32 = load ptr, ptr %31, align 8, !tbaa !71
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 388
+  %34 = load ptr, ptr %3, align 8, !tbaa !195
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 456
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(20) %35, i64 20, i1 false)
   %36 = load ptr, ptr %3, align 8, !tbaa !195
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 784
-  %38 = load ptr, ptr %37, align 16, !tbaa !205
-  %39 = tail call i32 @g_hash_table_add(ptr noundef %38, ptr noundef nonnull %1) #18
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  %41 = load ptr, ptr %40, align 8, !tbaa !71
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 388
-  %43 = load ptr, ptr %3, align 8, !tbaa !195
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 456
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, ptr noundef nonnull align 8 dereferenceable(20) %44, i64 20, i1 false)
-  %45 = load ptr, ptr %3, align 8, !tbaa !195
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 952
-  %47 = load i32, ptr %46, align 8, !tbaa !208
-  %48 = load ptr, ptr %40, align 8, !tbaa !71
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 408
-  store i32 %47, ptr %49, align 4, !tbaa !206
-  %50 = load i32, ptr %32, align 8, !tbaa !197
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 412
-  store i32 %50, ptr %51, align 4, !tbaa !207
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 952
+  %38 = load i32, ptr %37, align 8, !tbaa !206
+  %39 = load ptr, ptr %31, align 8, !tbaa !71
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 408
+  store i32 %38, ptr %40, align 4, !tbaa !207
+  %41 = load i32, ptr %23, align 8, !tbaa !197
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 412
+  store i32 %41, ptr %42, align 4, !tbaa !208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 664
+  %44 = load ptr, ptr %43, align 8, !tbaa !80
+  tail call void @dt_dev_add_history_item(ptr noundef %44, ptr noundef nonnull %1, i32 noundef 1) #18
+  br i1 %.not37, label %54, label %56
+
+.critedge:                                        ; preds = %20
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 808
+  store i32 -1, ptr %45, align 8, !tbaa !203
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 760
+  %47 = load ptr, ptr %46, align 8, !tbaa !71
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 388
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %48, i8 0, i64 20, i1 false)
+  %49 = load ptr, ptr %46, align 8, !tbaa !71
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 408
+  store i32 0, ptr %50, align 4, !tbaa !207
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 412
+  store i32 -1, ptr %51, align 4, !tbaa !208
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %53 = load ptr, ptr %52, align 8, !tbaa !80
   tail call void @dt_dev_add_history_item(ptr noundef %53, ptr noundef nonnull %1, i32 noundef 1) #18
-  br i1 %.not39, label %54, label %56
+  br label %56
 
-54:                                               ; preds = %31
-  %55 = load ptr, ptr %52, align 8, !tbaa !80
+54:                                               ; preds = %22
+  %55 = load ptr, ptr %43, align 8, !tbaa !80
   tail call void @dt_dev_reprocess_all(ptr noundef %55) #18
   br label %56
 
-56:                                               ; preds = %.thread37, %31, %54, %9, %2
+56:                                               ; preds = %22, %54, %.critedge, %9, %2
   ret void
 }
 
@@ -7755,9 +7755,9 @@ attributes #20 = { nounwind allocsize(0) }
 !203 = !{!7, !8, i64 808}
 !204 = !{!28, !30, i64 104}
 !205 = !{!7, !21, i64 784}
-!206 = !{!117, !8, i64 408}
-!207 = !{!117, !8, i64 412}
-!208 = !{!7, !8, i64 952}
+!206 = !{!7, !8, i64 952}
+!207 = !{!117, !8, i64 408}
+!208 = !{!117, !8, i64 412}
 !209 = !{!28, !29, i64 40}
 !210 = !{!28, !29, i64 48}
 !211 = !{!7, !11, i64 64}

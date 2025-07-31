@@ -793,62 +793,62 @@ define internal i32 @ipip6_tunnel_init(ptr noundef %0) #4 align 16 {
   tail call fastcc void @ipip6_tunnel_bind_dev(ptr noundef %0)
   %9 = tail call noalias dereferenceable_or_null(32) ptr @__alloc_percpu_gfp(i64 noundef 32, i64 noundef 32, i32 noundef 3264) #20
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread4, label %12
+  br i1 %10, label %.critedge, label %11
 
-.thread4:                                         ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %11, align 8
+11:                                               ; preds = %1
+  %12 = load i64, ptr @__cpu_possible_mask, align 8
+  br label %13
+
+13:                                               ; preds = %21, %11
+  %14 = phi i64 [ %25, %21 ], [ 0, %11 ]
+  %15 = and i64 %14, 4294967295
+  %16 = icmp samesign ugt i64 %15, 63
+  br i1 %16, label %.thread, label %17, !prof !11
+
+17:                                               ; preds = %13
+  %18 = shl nsw i64 -1, %15
+  %19 = and i64 %18, %12
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.thread, label %21
+
+21:                                               ; preds = %17
+  %22 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %19) #21, !srcloc !12
+  %23 = and i64 %22, 4294967232
+  %24 = icmp eq i64 %23, 0
+  %25 = add nuw nsw i64 %22, 1
+  br i1 %24, label %13, label %.thread, !llvm.loop !13
+
+.thread:                                          ; preds = %17, %13, %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %9, ptr %26, align 8
+  %27 = getelementptr i8, ptr %0, i64 2376
+  %28 = tail call i32 @dst_cache_init(ptr noundef %27, i32 noundef 3264) #18
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %32, label %30
+
+30:                                               ; preds = %.thread
+  %31 = load ptr, ptr %26, align 8
+  tail call void @free_percpu(ptr noundef %31) #18
+  store ptr null, ptr %26, align 8
   br label %38
 
-12:                                               ; preds = %1
-  %13 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %14
+32:                                               ; preds = %.thread
+  %33 = icmp eq ptr %0, null
+  br i1 %33, label %38, label %34
 
-14:                                               ; preds = %22, %12
-  %15 = phi i64 [ %26, %22 ], [ 0, %12 ]
-  %16 = and i64 %15, 4294967295
-  %17 = icmp samesign ugt i64 %16, 63
-  br i1 %17, label %.thread, label %18, !prof !11
-
-18:                                               ; preds = %14
-  %19 = shl nsw i64 -1, %16
-  %20 = and i64 %19, %13
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.thread, label %22
-
-22:                                               ; preds = %18
-  %23 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %20) #21, !srcloc !12
-  %24 = and i64 %23, 4294967232
-  %25 = icmp eq i64 %24, 0
-  %26 = add nuw nsw i64 %23, 1
-  br i1 %25, label %14, label %.thread, !llvm.loop !13
-
-.thread:                                          ; preds = %18, %14, %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %9, ptr %27, align 8
-  %28 = getelementptr i8, ptr %0, i64 2376
-  %29 = tail call i32 @dst_cache_init(ptr noundef %28, i32 noundef 3264) #18
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %33, label %31
-
-31:                                               ; preds = %.thread
-  %32 = load ptr, ptr %27, align 8
-  tail call void @free_percpu(ptr noundef %32) #18
-  store ptr null, ptr %27, align 8
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %36 = load ptr, ptr %35, align 8
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36, ptr elementtype(i32) %36) #18, !srcloc !14
   br label %38
 
-33:                                               ; preds = %.thread
-  %34 = icmp eq ptr %0, null
-  br i1 %34, label %38, label %35
-
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %37 = load ptr, ptr %36, align 8
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, ptr elementtype(i32) %37) #18, !srcloc !14
+.critedge:                                        ; preds = %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr null, ptr %37, align 8
   br label %38
 
-38:                                               ; preds = %.thread4, %35, %33, %31
-  %39 = phi i32 [ %29, %31 ], [ 0, %33 ], [ 0, %35 ], [ -12, %.thread4 ]
+38:                                               ; preds = %.critedge, %34, %32, %30
+  %39 = phi i32 [ %28, %30 ], [ 0, %32 ], [ 0, %34 ], [ -12, %.critedge ]
   ret i32 %39
 }
 

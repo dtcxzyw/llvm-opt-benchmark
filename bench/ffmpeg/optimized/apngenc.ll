@@ -281,7 +281,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @flush_packet(ptr noundef %
   %43 = zext i32 %42 to i64
   %44 = add nuw nsw i64 %43, 12
   %.not14.i = icmp ugt i64 %44, %40
-  br i1 %.not14.i, label %.loopexit154, label %.lr.ph.i.preheader
+  br i1 %.not14.i, label %.loopexit155, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %35
   %45 = getelementptr i8, ptr %37, i64 4
@@ -290,9 +290,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @flush_packet(ptr noundef %
   br i1 %47, label %apng_find_chunk.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.015.i196 = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.015.i197 = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %48 = phi i64 [ %54, %.lr.ph.i ], [ %44, %.lr.ph.i.preheader ]
-  %49 = add i64 %.015.i196, %48
+  %49 = add i64 %.015.i197, %48
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 %49
   %51 = load i32, ptr %50, align 1, !tbaa !50
   %52 = call i32 @llvm.bswap.i32(i32 %51)
@@ -300,7 +300,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @flush_packet(ptr noundef %
   %54 = add nuw nsw i64 %53, 12
   %55 = sub i64 %40, %49
   %.not.i = icmp ugt i64 %54, %55
-  br i1 %.not.i, label %.loopexit154, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %.loopexit155, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 %49
@@ -314,12 +314,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @flush_packet(ptr noundef %
   br label %apng_find_chunk.exit
 
 apng_find_chunk.exit:                             ; preds = %.lr.ph.i.apng_find_chunk.exit_crit_edge, %.lr.ph.i.preheader
-  %.lcssa194 = phi i32 [ %51, %.lr.ph.i.apng_find_chunk.exit_crit_edge ], [ %41, %.lr.ph.i.preheader ]
+  %.lcssa195 = phi i32 [ %51, %.lr.ph.i.apng_find_chunk.exit_crit_edge ], [ %41, %.lr.ph.i.preheader ]
   %.015.i.lcssa = phi i32 [ %60, %.lr.ph.i.apng_find_chunk.exit_crit_edge ], [ 0, %.lr.ph.i.preheader ]
-  %.lcssa191 = phi ptr [ %56, %.lr.ph.i.apng_find_chunk.exit_crit_edge ], [ %37, %.lr.ph.i.preheader ]
-  %61 = call i32 @llvm.bswap.i32(i32 %.lcssa194)
+  %.lcssa192 = phi ptr [ %56, %.lr.ph.i.apng_find_chunk.exit_crit_edge ], [ %37, %.lr.ph.i.preheader ]
+  %61 = call i32 @llvm.bswap.i32(i32 %.lcssa195)
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %.lcssa191, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %.lcssa192, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %37, i32 noundef %.015.i.lcssa) #7
   %65 = load ptr, ptr %36, align 8, !tbaa !42
@@ -333,11 +333,11 @@ apng_find_chunk.exit:                             ; preds = %.lr.ph.i.apng_find_
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %64, i32 noundef %72) #7
   br label %73
 
-.loopexit154:                                     ; preds = %.lr.ph, %35
+.loopexit155:                                     ; preds = %.lr.ph, %35
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %37, i32 noundef %39) #7
   br label %73
 
-73:                                               ; preds = %.loopexit154, %apng_find_chunk.exit
+73:                                               ; preds = %.loopexit155, %apng_find_chunk.exit
   %74 = load ptr, ptr %14, align 8, !tbaa !45
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !55
@@ -348,48 +348,48 @@ apng_find_chunk.exit:                             ; preds = %.lr.ph.i.apng_find_
   %81 = call i32 @llvm.bswap.i32(i32 %80)
   %82 = zext i32 %81 to i64
   %83 = add nuw nsw i64 %82, 12
-  %.not14.i126 = icmp ugt i64 %83, %79
-  br i1 %.not14.i126, label %.loopexit153, label %.lr.ph.i127.preheader
+  %.not14.i128 = icmp ugt i64 %83, %79
+  br i1 %.not14.i128, label %.loopexit154, label %.lr.ph.i129.preheader
 
-.lr.ph.i127.preheader:                            ; preds = %73
+.lr.ph.i129.preheader:                            ; preds = %73
   %84 = getelementptr i8, ptr %76, i64 4
   %85 = load i32, ptr %84, align 1, !tbaa !50
   %86 = icmp eq i32 %85, 1280598886
-  br i1 %86, label %apng_find_chunk.exit131, label %.lr.ph200
+  br i1 %86, label %apng_find_chunk.exit133, label %.lr.ph201
 
-.lr.ph200:                                        ; preds = %.lr.ph.i127.preheader, %.lr.ph.i127
-  %.015.i128199 = phi i64 [ %88, %.lr.ph.i127 ], [ 0, %.lr.ph.i127.preheader ]
-  %87 = phi i64 [ %93, %.lr.ph.i127 ], [ %83, %.lr.ph.i127.preheader ]
-  %88 = add i64 %.015.i128199, %87
+.lr.ph201:                                        ; preds = %.lr.ph.i129.preheader, %.lr.ph.i129
+  %.015.i130200 = phi i64 [ %88, %.lr.ph.i129 ], [ 0, %.lr.ph.i129.preheader ]
+  %87 = phi i64 [ %93, %.lr.ph.i129 ], [ %83, %.lr.ph.i129.preheader ]
+  %88 = add i64 %.015.i130200, %87
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 %88
   %90 = load i32, ptr %89, align 1, !tbaa !50
   %91 = call i32 @llvm.bswap.i32(i32 %90)
   %92 = zext i32 %91 to i64
   %93 = add nuw nsw i64 %92, 12
   %94 = sub i64 %79, %88
-  %.not.i129 = icmp ugt i64 %93, %94
-  br i1 %.not.i129, label %.loopexit153, label %.lr.ph.i127, !llvm.loop !53
+  %.not.i131 = icmp ugt i64 %93, %94
+  br i1 %.not.i131, label %.loopexit154, label %.lr.ph.i129, !llvm.loop !53
 
-.lr.ph.i127:                                      ; preds = %.lr.ph200
+.lr.ph.i129:                                      ; preds = %.lr.ph201
   %95 = getelementptr inbounds nuw i8, ptr %76, i64 %88
   %96 = getelementptr i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 1, !tbaa !50
   %98 = icmp eq i32 %97, 1280598886
-  br i1 %98, label %.lr.ph.i127.apng_find_chunk.exit131_crit_edge, label %.lr.ph200, !llvm.loop !53
+  br i1 %98, label %.lr.ph.i129.apng_find_chunk.exit133_crit_edge, label %.lr.ph201, !llvm.loop !53
 
-.lr.ph.i127.apng_find_chunk.exit131_crit_edge:    ; preds = %.lr.ph.i127
+.lr.ph.i129.apng_find_chunk.exit133_crit_edge:    ; preds = %.lr.ph.i129
   %99 = trunc i64 %88 to i32
-  br label %apng_find_chunk.exit131
+  br label %apng_find_chunk.exit133
 
-apng_find_chunk.exit131:                          ; preds = %.lr.ph.i127.apng_find_chunk.exit131_crit_edge, %.lr.ph.i127.preheader
-  %.lcssa189 = phi i32 [ %90, %.lr.ph.i127.apng_find_chunk.exit131_crit_edge ], [ %80, %.lr.ph.i127.preheader ]
-  %.015.i128.lcssa = phi i32 [ %99, %.lr.ph.i127.apng_find_chunk.exit131_crit_edge ], [ 0, %.lr.ph.i127.preheader ]
-  %.lcssa186 = phi ptr [ %95, %.lr.ph.i127.apng_find_chunk.exit131_crit_edge ], [ %76, %.lr.ph.i127.preheader ]
-  %100 = call i32 @llvm.bswap.i32(i32 %.lcssa189)
+apng_find_chunk.exit133:                          ; preds = %.lr.ph.i129.apng_find_chunk.exit133_crit_edge, %.lr.ph.i129.preheader
+  %.lcssa190 = phi i32 [ %90, %.lr.ph.i129.apng_find_chunk.exit133_crit_edge ], [ %80, %.lr.ph.i129.preheader ]
+  %.015.i130.lcssa = phi i32 [ %99, %.lr.ph.i129.apng_find_chunk.exit133_crit_edge ], [ 0, %.lr.ph.i129.preheader ]
+  %.lcssa187 = phi ptr [ %95, %.lr.ph.i129.apng_find_chunk.exit133_crit_edge ], [ %76, %.lr.ph.i129.preheader ]
+  %100 = call i32 @llvm.bswap.i32(i32 %.lcssa190)
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.lcssa186, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %.lcssa187, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  call void @avio_write(ptr noundef %10, ptr noundef nonnull %76, i32 noundef %.015.i128.lcssa) #7
+  call void @avio_write(ptr noundef %10, ptr noundef nonnull %76, i32 noundef %.015.i130.lcssa) #7
   %104 = load ptr, ptr %14, align 8, !tbaa !45
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !55
@@ -404,13 +404,13 @@ apng_find_chunk.exit131:                          ; preds = %.lr.ph.i127.apng_fi
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %103, i32 noundef %114) #7
   br label %231
 
-.loopexit153:                                     ; preds = %.lr.ph200, %73
+.loopexit154:                                     ; preds = %.lr.ph201, %73
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %76, i32 noundef %78) #7
   br label %231
 
 115:                                              ; preds = %30
   %116 = icmp eq i32 %32, 0
-  br i1 %116, label %117, label %apng_find_chunk.exit137
+  br i1 %116, label %117, label %apng_find_chunk.exit139
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -425,31 +425,31 @@ apng_find_chunk.exit131:                          ; preds = %.lr.ph.i127.apng_fi
   %126 = call i32 @llvm.bswap.i32(i32 %125)
   %127 = zext i32 %126 to i64
   %128 = add nuw nsw i64 %127, 12
-  %.not14.i132 = icmp ugt i64 %128, %124
-  br i1 %.not14.i132, label %.loopexit, label %.lr.ph.i133.preheader
+  %.not14.i134 = icmp ugt i64 %128, %124
+  br i1 %.not14.i134, label %.loopexit, label %.lr.ph.i135.preheader
 
-.lr.ph.i133.preheader:                            ; preds = %117
+.lr.ph.i135.preheader:                            ; preds = %117
   %invariant.gep = getelementptr i8, ptr %122, i64 4
-  br label %.lr.ph.i133
+  br label %.lr.ph.i135
 
-129:                                              ; preds = %.lr.ph.i133
-  %130 = add i64 %.015.i134, %137
+129:                                              ; preds = %.lr.ph.i135
+  %130 = add i64 %.015.i136, %137
   %131 = getelementptr inbounds nuw i8, ptr %122, i64 %130
   %132 = load i32, ptr %131, align 1, !tbaa !50
   %133 = call i32 @llvm.bswap.i32(i32 %132)
   %134 = zext i32 %133 to i64
   %135 = add nuw nsw i64 %134, 12
   %136 = sub i64 %124, %130
-  %.not.i135 = icmp ugt i64 %135, %136
-  br i1 %.not.i135, label %.loopexit, label %.lr.ph.i133, !llvm.loop !53
+  %.not.i137 = icmp ugt i64 %135, %136
+  br i1 %.not.i137, label %.loopexit, label %.lr.ph.i135, !llvm.loop !53
 
-.lr.ph.i133:                                      ; preds = %.lr.ph.i133.preheader, %129
-  %137 = phi i64 [ %135, %129 ], [ %128, %.lr.ph.i133.preheader ]
-  %.015.i134 = phi i64 [ %130, %129 ], [ 0, %.lr.ph.i133.preheader ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.015.i134
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135.preheader, %129
+  %137 = phi i64 [ %135, %129 ], [ %128, %.lr.ph.i135.preheader ]
+  %.015.i136 = phi i64 [ %130, %129 ], [ 0, %.lr.ph.i135.preheader ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.015.i136
   %138 = load i32, ptr %gep, align 1, !tbaa !50
   %139 = icmp eq i32 %138, 1280598881
-  br i1 %139, label %apng_find_chunk.exit137, label %129
+  br i1 %139, label %apng_find_chunk.exit139, label %129
 
 .loopexit:                                        ; preds = %129, %117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
@@ -464,9 +464,9 @@ apng_find_chunk.exit131:                          ; preds = %.lr.ph.i127.apng_fi
   store i32 %144, ptr %145, align 4, !tbaa !50
   call fastcc void @apng_write_chunk(ptr noundef %10, i32 noundef 1633899596, ptr noundef nonnull %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  br label %apng_find_chunk.exit137
+  br label %apng_find_chunk.exit139
 
-apng_find_chunk.exit137:                          ; preds = %.lr.ph.i133, %.loopexit, %115
+apng_find_chunk.exit139:                          ; preds = %.lr.ph.i135, %.loopexit, %115
   %146 = load ptr, ptr %14, align 8, !tbaa !45
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !55
@@ -478,48 +478,48 @@ apng_find_chunk.exit137:                          ; preds = %.lr.ph.i133, %.loop
   %154 = call i32 @llvm.bswap.i32(i32 %153)
   %155 = zext i32 %154 to i64
   %156 = add nuw nsw i64 %155, 12
-  %.not14.i138 = icmp ugt i64 %156, %151
-  br i1 %.not14.i138, label %.critedge, label %.lr.ph.i139.preheader
+  %.not14.i140 = icmp ugt i64 %156, %151
+  br i1 %.not14.i140, label %.critedge127, label %.lr.ph.i141.preheader
 
-.lr.ph.i139.preheader:                            ; preds = %apng_find_chunk.exit137
+.lr.ph.i141.preheader:                            ; preds = %apng_find_chunk.exit139
   %157 = getelementptr i8, ptr %148, i64 4
   %158 = load i32, ptr %157, align 1, !tbaa !50
   %159 = icmp eq i32 %158, 1280598886
-  br i1 %159, label %apng_find_chunk.exit143, label %.lr.ph205
+  br i1 %159, label %apng_find_chunk.exit145, label %.lr.ph206
 
-.lr.ph205:                                        ; preds = %.lr.ph.i139.preheader, %.lr.ph.i139
-  %.015.i140204 = phi i64 [ %161, %.lr.ph.i139 ], [ 0, %.lr.ph.i139.preheader ]
-  %160 = phi i64 [ %166, %.lr.ph.i139 ], [ %156, %.lr.ph.i139.preheader ]
-  %161 = add i64 %.015.i140204, %160
+.lr.ph206:                                        ; preds = %.lr.ph.i141.preheader, %.lr.ph.i141
+  %.015.i142205 = phi i64 [ %161, %.lr.ph.i141 ], [ 0, %.lr.ph.i141.preheader ]
+  %160 = phi i64 [ %166, %.lr.ph.i141 ], [ %156, %.lr.ph.i141.preheader ]
+  %161 = add i64 %.015.i142205, %160
   %162 = getelementptr inbounds nuw i8, ptr %148, i64 %161
   %163 = load i32, ptr %162, align 1, !tbaa !50
   %164 = call i32 @llvm.bswap.i32(i32 %163)
   %165 = zext i32 %164 to i64
   %166 = add nuw nsw i64 %165, 12
   %167 = sub i64 %151, %161
-  %.not.i141 = icmp ugt i64 %166, %167
-  br i1 %.not.i141, label %.critedge, label %.lr.ph.i139, !llvm.loop !53
+  %.not.i143 = icmp ugt i64 %166, %167
+  br i1 %.not.i143, label %.critedge127, label %.lr.ph.i141, !llvm.loop !53
 
-.lr.ph.i139:                                      ; preds = %.lr.ph205
+.lr.ph.i141:                                      ; preds = %.lr.ph206
   %168 = getelementptr inbounds nuw i8, ptr %148, i64 %161
   %169 = getelementptr i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 1, !tbaa !50
   %171 = icmp eq i32 %170, 1280598886
-  br i1 %171, label %.lr.ph.i139.apng_find_chunk.exit143_crit_edge, label %.lr.ph205, !llvm.loop !53
+  br i1 %171, label %.lr.ph.i141.apng_find_chunk.exit145_crit_edge, label %.lr.ph206, !llvm.loop !53
 
-.lr.ph.i139.apng_find_chunk.exit143_crit_edge:    ; preds = %.lr.ph.i139
+.lr.ph.i141.apng_find_chunk.exit145_crit_edge:    ; preds = %.lr.ph.i141
   %172 = trunc i64 %161 to i32
-  br label %apng_find_chunk.exit143
+  br label %apng_find_chunk.exit145
 
-apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_find_chunk.exit143_crit_edge, %.lr.ph.i139.preheader
-  %.lcssa184 = phi i32 [ %163, %.lr.ph.i139.apng_find_chunk.exit143_crit_edge ], [ %153, %.lr.ph.i139.preheader ]
-  %.015.i140.lcssa = phi i32 [ %172, %.lr.ph.i139.apng_find_chunk.exit143_crit_edge ], [ 0, %.lr.ph.i139.preheader ]
-  %.lcssa = phi ptr [ %168, %.lr.ph.i139.apng_find_chunk.exit143_crit_edge ], [ %148, %.lr.ph.i139.preheader ]
+apng_find_chunk.exit145:                          ; preds = %.lr.ph.i141.apng_find_chunk.exit145_crit_edge, %.lr.ph.i141.preheader
+  %.lcssa185 = phi i32 [ %163, %.lr.ph.i141.apng_find_chunk.exit145_crit_edge ], [ %153, %.lr.ph.i141.preheader ]
+  %.015.i142.lcssa = phi i32 [ %172, %.lr.ph.i141.apng_find_chunk.exit145_crit_edge ], [ 0, %.lr.ph.i141.preheader ]
+  %.lcssa = phi ptr [ %168, %.lr.ph.i141.apng_find_chunk.exit145_crit_edge ], [ %148, %.lr.ph.i141.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %.not123 = icmp eq i32 %.lcssa184, 436207616
-  br i1 %.not123, label %173, label %226
+  %.not123 = icmp eq i32 %.lcssa185, 436207616
+  br i1 %.not123, label %173, label %.critedge
 
-173:                                              ; preds = %apng_find_chunk.exit143
+173:                                              ; preds = %apng_find_chunk.exit145
   %174 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 28
   %176 = load i16, ptr %175, align 1, !tbaa !50
@@ -535,7 +535,7 @@ apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_fi
   %184 = icmp eq i16 %176, 0
   %185 = icmp eq i16 %180, 0
   %or.cond5 = select i1 %184, i1 %185, i1 false
-  br i1 %or.cond5, label %186, label %.thread
+  br i1 %or.cond5, label %186, label %224
 
 186:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %6) #7
@@ -587,7 +587,7 @@ apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_fi
   br label %214
 
 214:                                              ; preds = %187, %201, %204, %209, %211
-  call void @avio_write(ptr noundef %10, ptr noundef nonnull %148, i32 noundef %.015.i140.lcssa) #7
+  call void @avio_write(ptr noundef %10, ptr noundef nonnull %148, i32 noundef %.015.i142.lcssa) #7
   %215 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, ptr noundef nonnull align 1 dereferenceable(26) %174, i64 26, i1 false)
   %216 = load i32, ptr %5, align 8, !tbaa !57
@@ -602,22 +602,18 @@ apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_fi
   store i16 %222, ptr %223, align 2, !tbaa !50
   call fastcc void @apng_write_chunk(ptr noundef %10, i32 noundef 1717785676, ptr noundef nonnull %6, i64 noundef 26)
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %6) #7
-  br label %.thread
+  br label %224
 
-.thread:                                          ; preds = %173, %214
+224:                                              ; preds = %214, %173
   %.2111 = phi ptr [ %215, %214 ], [ %148, %173 ]
-  %224 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %225 = load i64, ptr %5, align 8
-  store i64 %225, ptr %224, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %226 = load i64, ptr %5, align 8
+  store i64 %226, ptr %225, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %.critedge
+  br label %.critedge127
 
-226:                                              ; preds = %apng_find_chunk.exit143
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %238
-
-.critedge:                                        ; preds = %.lr.ph205, %apng_find_chunk.exit137, %.thread
-  %.0109 = phi ptr [ %.2111, %.thread ], [ %148, %apng_find_chunk.exit137 ], [ %148, %.lr.ph205 ]
+.critedge127:                                     ; preds = %.lr.ph206, %apng_find_chunk.exit139, %224
+  %.0109 = phi ptr [ %.2111, %224 ], [ %148, %apng_find_chunk.exit139 ], [ %148, %.lr.ph206 ]
   %227 = ptrtoint ptr %152 to i64
   %228 = ptrtoint ptr %.0109 to i64
   %229 = sub i64 %227, %228
@@ -625,7 +621,11 @@ apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_fi
   call void @avio_write(ptr noundef %10, ptr noundef nonnull %.0109, i32 noundef %230) #7
   br label %231
 
-231:                                              ; preds = %.critedge, %apng_find_chunk.exit131, %.loopexit153
+.critedge:                                        ; preds = %apng_find_chunk.exit145
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  br label %238
+
+231:                                              ; preds = %.critedge127, %apng_find_chunk.exit133, %.loopexit154
   %232 = load i32, ptr %31, align 8, !tbaa !49
   %233 = add i32 %232, 1
   store i32 %233, ptr %31, align 8, !tbaa !49
@@ -638,8 +638,8 @@ apng_find_chunk.exit143:                          ; preds = %.lr.ph.i139.apng_fi
   %237 = call i32 @av_packet_ref(ptr noundef %236, ptr noundef nonnull %1) #7
   br label %238
 
-238:                                              ; preds = %226, %231, %235, %20
-  %.0 = phi i32 [ -12, %20 ], [ -1094995529, %226 ], [ 0, %235 ], [ 0, %231 ]
+238:                                              ; preds = %231, %235, %.critedge, %20
+  %.0 = phi i32 [ -12, %20 ], [ -1094995529, %.critedge ], [ 0, %235 ], [ 0, %231 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %.0
 }

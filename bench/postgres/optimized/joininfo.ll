@@ -38,23 +38,23 @@ list_length.exit29:                               ; preds = %list_length.exit, %
   %.023.in = getelementptr inbounds nuw i8, ptr %., i64 8
   %.023 = load ptr, ptr %.023.in, align 8
   %.not25 = icmp eq ptr %.022, null
-  br i1 %.not25, label %.thread, label %.lr.ph
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit29
   %16 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph35, label %.thread
+  br i1 %19, label %.lr.ph34, label %.critedge
 
-20:                                               ; preds = %.lr.ph35
+20:                                               ; preds = %.lr.ph34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %16, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph35, label %.thread
+  br i1 %23, label %.lr.ph34, label %.critedge
 
-.lr.ph35:                                         ; preds = %.lr.ph, %20
+.lr.ph34:                                         ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
@@ -62,26 +62,26 @@ list_length.exit29:                               ; preds = %list_length.exit, %
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @bms_overlap(ptr noundef %.023, ptr noundef %28) #2
-  br i1 %29, label %.critedge, label %20
+  br i1 %29, label %.critedge30, label %20
 
-.thread:                                          ; preds = %20, %.lr.ph, %list_length.exit29
+.critedge:                                        ; preds = %20, %.lr.ph, %list_length.exit29
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %31 = load i8, ptr %30, align 8, !range !4, !noundef !5
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %.critedge
+  br i1 %32, label %33, label %.critedge30
 
-33:                                               ; preds = %.thread
+33:                                               ; preds = %.critedge
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %35 = load i8, ptr %34, align 8, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %.critedge
+  br i1 %36, label %37, label %.critedge30
 
 37:                                               ; preds = %33
   %38 = tail call zeroext i1 @have_relevant_eclass_joinclause(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #2
-  br label %.critedge
+  br label %.critedge30
 
-.critedge:                                        ; preds = %.lr.ph35, %37, %33, %.thread
-  %.3 = phi i1 [ %38, %37 ], [ false, %33 ], [ false, %.thread ], [ true, %.lr.ph35 ]
+.critedge30:                                      ; preds = %.lr.ph34, %37, %33, %.critedge
+  %.3 = phi i1 [ %38, %37 ], [ false, %33 ], [ false, %.critedge ], [ true, %.lr.ph34 ]
   ret i1 %.3
 }
 

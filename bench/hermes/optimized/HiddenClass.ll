@@ -1333,16 +1333,16 @@ return:                                           ; preds = %if.end28, %land.lhs
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i8 } @_ZN6hermes2vm11HiddenClass19findPropertyNoAllocEPS1_RNS0_11PointerBaseENS0_8SymbolIDE(ptr noundef readonly captures(address_is_null) %self, ptr noundef nonnull align 1 dereferenceable(1) %base, i32 %name.coerce) local_unnamed_addr #1 align 2 {
 entry:
-  %tobool.not25 = icmp eq ptr %self, null
-  br i1 %tobool.not25, label %return, label %for.body.lr.ph
+  %tobool.not26 = icmp eq ptr %self, null
+  br i1 %tobool.not26, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %0 = ptrtoint ptr %base to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %curr.026 = phi ptr [ %self, %for.body.lr.ph ], [ %13, %for.inc ]
-  %propertyMap_ = getelementptr inbounds nuw i8, ptr %curr.026, i64 16
+  %curr.027 = phi ptr [ %self, %for.body.lr.ph ], [ %13, %for.inc ]
+  %propertyMap_ = getelementptr inbounds nuw i8, ptr %curr.027, i64 16
   %1 = load i32, ptr %propertyMap_, align 4
   %cmp.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.not, label %if.end13, label %if.then
@@ -1354,10 +1354,10 @@ if.then:                                          ; preds = %for.body
   %call.i = tail call { i8, ptr } @_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE(ptr noundef %2, i32 %name.coerce) #13
   %3 = extractvalue { i8, ptr } %call.i, 0
   %tobool.i = trunc i8 %3 to i1
-  br i1 %tobool.i, label %if.then6, label %if.end13
+  br i1 %tobool.i, label %if.end.i, label %if.end13
 
-if.then6:                                         ; preds = %if.then
-  %propertyMap_.le = getelementptr inbounds nuw i8, ptr %curr.026, i64 16
+if.end.i:                                         ; preds = %if.then
+  %propertyMap_.le = getelementptr inbounds nuw i8, ptr %curr.027, i64 16
   %4 = extractvalue { i8, ptr } %call.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
   %descriptorCapacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1390,15 +1390,15 @@ if.then6:                                         ; preds = %if.then
   br label %return
 
 if.end13:                                         ; preds = %if.then, %for.body
-  %symbolID_ = getelementptr inbounds nuw i8, ptr %curr.026, i64 4
+  %symbolID_ = getelementptr inbounds nuw i8, ptr %curr.027, i64 4
   %11 = load i32, ptr %symbolID_, align 4
   %cmp.i = icmp eq i32 %11, %name.coerce
   br i1 %cmp.i, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.end13
-  %propertyFlags_ = getelementptr inbounds nuw i8, ptr %curr.026, i64 8
+  %propertyFlags_ = getelementptr inbounds nuw i8, ptr %curr.027, i64 8
   %agg.tmp18.sroa.0.0.copyload = load i16, ptr %propertyFlags_, align 8
-  %numProperties_ = getelementptr inbounds nuw i8, ptr %curr.026, i64 12
+  %numProperties_ = getelementptr inbounds nuw i8, ptr %curr.027, i64 12
   %12 = load i32, ptr %numProperties_, align 4
   %sub = add i32 %12, -1
   %ref.tmp.sroa.3.0.insert.ext = zext i32 %sub to i64
@@ -1408,19 +1408,19 @@ if.then17:                                        ; preds = %if.end13
   br label %return
 
 for.inc:                                          ; preds = %if.end13
-  %parent_ = getelementptr inbounds nuw i8, ptr %curr.026, i64 40
+  %parent_ = getelementptr inbounds nuw i8, ptr %curr.027, i64 40
   %agg.tmp.sroa.0.0.copyload.i.i20 = load i32, ptr %parent_, align 4
   %cmp.i.not.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i20, 0
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i20 to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %0
   %13 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %tobool.not35 = icmp eq i64 %add.i.i.i.i.i, 0
-  %tobool.not = or i1 %cmp.i.not.i.i.i.i, %tobool.not35
+  %tobool.not34 = icmp eq i64 %add.i.i.i.i.i, 0
+  %tobool.not = or i1 %cmp.i.not.i.i.i.i, %tobool.not34
   br i1 %tobool.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc, %entry, %if.then17, %if.then6
-  %retval.sroa.0.0 = phi i64 [ %10, %if.then6 ], [ %ref.tmp.sroa.0.0.insert.insert, %if.then17 ], [ undef, %entry ], [ undef, %for.inc ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.then6 ], [ 1, %if.then17 ], [ 0, %entry ], [ 0, %for.inc ]
+return:                                           ; preds = %for.inc, %entry, %if.then17, %if.end.i
+  %retval.sroa.0.0 = phi i64 [ %10, %if.end.i ], [ %ref.tmp.sroa.0.0.insert.insert, %if.then17 ], [ undef, %entry ], [ undef, %for.inc ]
+  %retval.sroa.3.0 = phi i8 [ 1, %if.end.i ], [ 1, %if.then17 ], [ 0, %entry ], [ 0, %for.inc ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -3087,9 +3087,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call.i = tail call { i8, ptr } @_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE(ptr noundef %13, i32 %id.sroa.0.0.copyload) #13
   %14 = extractvalue { i8, ptr } %call.i, 0
   %tobool.i27 = trunc i8 %14 to i1
-  br i1 %tobool.i27, label %if.end34, label %for.inc
+  br i1 %tobool.i27, label %if.end.i, label %for.inc
 
-if.end34:                                         ; preds = %for.body
+if.end.i:                                         ; preds = %for.body
   %15 = extractvalue { i8, ptr } %call.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 28
   %descriptorCapacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -3123,7 +3123,7 @@ if.end34:                                         ; preds = %for.body
   store i16 %or.i.i, ptr %second, align 2
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %if.end34
+for.inc:                                          ; preds = %for.body, %if.end.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.056, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.end44, label %for.body

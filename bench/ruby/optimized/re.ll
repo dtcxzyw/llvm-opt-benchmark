@@ -2392,12 +2392,12 @@ define internal fastcc range(i32 -1, 1) i32 @rb_reg_initialize_str(i64 noundef %
   %7 = tail call ptr @rb_enc_get(i64 noundef %1) #29
   %8 = and i32 %2, 32
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.thread, label %9
+  br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %6
   %10 = tail call nonnull ptr @rb_ascii8bit_encoding() #29
   %.not28 = icmp eq ptr %7, %10
-  br i1 %.not28, label %.thread, label %11
+  br i1 %.not28, label %19, label %11
 
 11:                                               ; preds = %9
   %12 = inttoptr i64 %1 to ptr
@@ -2414,14 +2414,14 @@ define internal fastcc range(i32 -1, 1) i32 @rb_reg_initialize_str(i64 noundef %
 str_coderange.exit:                               ; preds = %11, %17
   %.0.i = phi i32 [ %18, %17 ], [ %15, %11 ]
   %.not29 = icmp eq i32 %.0.i, 1048576
-  br i1 %.not29, label %.thread, label %19
+  br i1 %.not29, label %19, label %.critedge
 
-19:                                               ; preds = %str_coderange.exit
+.critedge:                                        ; preds = %str_coderange.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(70) %3, ptr noundef nonnull align 1 dereferenceable(70) @.str.95, i64 noundef 70, i1 false) #29
   br label %reg_set_source.exit
 
-.thread:                                          ; preds = %9, %str_coderange.exit, %6
-  %.023 = phi ptr [ %7, %6 ], [ %10, %str_coderange.exit ], [ %7, %9 ]
+19:                                               ; preds = %str_coderange.exit, %9, %6
+  %.023 = phi ptr [ %7, %6 ], [ %7, %9 ], [ %10, %str_coderange.exit ]
   %20 = inttoptr i64 %1 to ptr
   %21 = load i64, ptr %20, align 8, !tbaa !34, !noalias !106
   %22 = and i64 %21, 8192
@@ -2429,12 +2429,12 @@ str_coderange.exit:                               ; preds = %11, %17
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %24
 
-24:                                               ; preds = %.thread
+24:                                               ; preds = %19
   %.sroa.2.0.copyload.i = load ptr, ptr %23, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %.thread, %24
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %24 ], [ %23, %.thread ]
+RSTRING_PTR.exit:                                 ; preds = %19, %24
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %24 ], [ %23, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !35
   %27 = tail call fastcc i32 @rb_reg_initialize(i64 noundef %0, ptr noundef %.sroa.2.0.i, i64 noundef %26, ptr noundef %.023, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
@@ -2467,8 +2467,8 @@ RSTRING_PTR.exit:                                 ; preds = %.thread, %24
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %37) #29
   br label %reg_set_source.exit
 
-reg_set_source.exit:                              ; preds = %42, %34, %19, %RSTRING_PTR.exit
-  %.1 = phi i32 [ -1, %19 ], [ -1, %RSTRING_PTR.exit ], [ 0, %34 ], [ 0, %42 ]
+reg_set_source.exit:                              ; preds = %42, %34, %RSTRING_PTR.exit, %.critedge
+  %.1 = phi i32 [ -1, %.critedge ], [ -1, %RSTRING_PTR.exit ], [ 0, %34 ], [ 0, %42 ]
   ret i32 %.1
 }
 
@@ -9365,13 +9365,13 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
   %20 = call i64 @ruby_scan_hex(ptr noundef %.025.lcssa, i64 noundef %19, ptr noundef nonnull %7) #29
   %21 = load i64, ptr %7, align 8, !tbaa !18
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %._crit_edge.thread, label %.lr.ph46
+  br i1 %22, label %.critedge49, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %.critedge, %.critedge2
   %23 = phi i64 [ %44, %.critedge2 ], [ %21, %.critedge ]
   %24 = phi i64 [ %43, %.critedge2 ], [ %20, %.critedge ]
   %.145 = phi ptr [ %.2.lcssa, %.critedge2 ], [ %.025.lcssa, %.critedge ]
-  %.14550 = ptrtoint ptr %.145 to i64
+  %.14551 = ptrtoint ptr %.145 to i64
   %25 = icmp ugt i64 %23, 6
   br i1 %25, label %26, label %27
 
@@ -9390,9 +9390,9 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
   br i1 %31, label %.lr.ph41.preheader, label %.critedge2
 
 .lr.ph41.preheader:                               ; preds = %29
-  %scevgep49 = getelementptr i8, ptr %.145, i64 %6
-  %32 = sub i64 0, %.14550
-  %scevgep51 = getelementptr i8, ptr %scevgep49, i64 %32
+  %scevgep50 = getelementptr i8, ptr %.145, i64 %6
+  %32 = sub i64 0, %.14551
+  %scevgep52 = getelementptr i8, ptr %scevgep50, i64 %32
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %38
@@ -9411,7 +9411,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
   br i1 %40, label %.lr.ph41, label %.critedge2, !llvm.loop !267
 
 .critedge2:                                       ; preds = %.lr.ph41, %38, %29
-  %.2.lcssa = phi ptr [ %30, %29 ], [ %scevgep51, %38 ], [ %.240, %.lr.ph41 ]
+  %.2.lcssa = phi ptr [ %30, %29 ], [ %scevgep52, %38 ], [ %.240, %.lr.ph41 ]
   %41 = ptrtoint ptr %.2.lcssa to i64
   %42 = sub i64 %6, %41
   %43 = call i64 @ruby_scan_hex(ptr noundef %.2.lcssa, i64 noundef %42, ptr noundef nonnull %7) #29
@@ -9419,7 +9419,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %._crit_edge, label %.lr.ph46
 
-._crit_edge.thread:                               ; preds = %.critedge
+.critedge49:                                      ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %4, ptr noundef nonnull align 1 dereferenceable(21) @.str.80, i64 noundef 21, i1 false) #29
   br label %.loopexit
 
@@ -9427,8 +9427,8 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_unicode_list(ptr noundef n
   store ptr %.2.lcssa, ptr %0, align 8, !tbaa !64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %._crit_edge, %._crit_edge.thread, %26
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %._crit_edge ], [ -1, %26 ], [ -1, %27 ]
+.loopexit:                                        ; preds = %27, %._crit_edge, %.critedge49, %26
+  %.0 = phi i32 [ -1, %.critedge49 ], [ 0, %._crit_edge ], [ -1, %26 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
   ret i32 %.0
 }

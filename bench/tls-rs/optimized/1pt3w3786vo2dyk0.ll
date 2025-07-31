@@ -6631,7 +6631,7 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ClientHelloPayload$u20$as$u20$r
   br label %37
 
 37:                                               ; preds = %36, %35, %34, %33, %32, %31, %30, %29, %28, %24
-  %.sroa.699.0113.ph = phi i16 [ 0, %28 ], [ 1, %29 ], [ 2, %30 ], [ 3, %31 ], [ 4, %32 ], [ 5, %33 ], [ 6, %34 ], [ 7, %35 ], [ 8, %36 ], [ 9, %24 ]
+  %.sroa.6100.0114.ph = phi i16 [ 0, %28 ], [ 1, %29 ], [ 2, %30 ], [ 3, %31 ], [ 4, %32 ], [ 5, %33 ], [ 6, %34 ], [ 7, %35 ], [ 8, %36 ], [ 9, %24 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1576)
   %38 = sub i64 %11, %17
@@ -6713,13 +6713,13 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ClientHelloPayload$u20$as$u20$r
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.619, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %114
+  br label %113
 
 62:                                               ; preds = %59
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..CipherSuite$GT$$GT$17h34bcac9ff0c500e3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #38
-          to label %112 unwind label %110
+          to label %111 unwind label %109
 
 64:                                               ; preds = %59
   %65 = load i64, ptr %5, align 8, !range !431, !noundef !4
@@ -6750,12 +6750,12 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ClientHelloPayload$u20$as$u20$r
 
 "_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..CipherSuite$GT$$GT$17h34bcac9ff0c500e3E.exit": ; preds = %67, %71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1591
-  br label %114
+  br label %113
 
 76:                                               ; preds = %96, %77
   %.pn = phi { ptr, i32 } [ %78, %77 ], [ %97, %96 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$rustls..msgs..handshake..ClientHelloPayload$GT$17h5cd15c7b0d4f1d29E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %9) #38
-          to label %112 unwind label %110
+          to label %111 unwind label %109
 
 77:                                               ; preds = %89
   %78 = landingpad { ptr, i32 }
@@ -6766,7 +6766,7 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ClientHelloPayload$u20$as$u20$r
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.622, i64 24, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  store i16 %.sroa.699.0113.ph, ptr %81, align 8
+  store i16 %.sroa.6100.0114.ph, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 146
   store i16 %27, ptr %82, align 2
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -6819,70 +6819,70 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ClientHelloPayload$u20$as$u20$r
 98:                                               ; preds = %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.628, i64 24, i1 false)
   %.pre = load i64, ptr %12, align 8, !alias.scope !1601
-  %.pre139 = load i64, ptr %10, align 8, !alias.scope !1601
-  %99 = icmp ult i64 %.pre, %.pre139
-  br i1 %99, label %103, label %.thread
+  %.pre137 = load i64, ptr %10, align 8, !alias.scope !1601
+  %99 = icmp ult i64 %.pre, %.pre137
+  br i1 %99, label %102, label %.thread
 
 .thread:                                          ; preds = %79, %98
   %100 = load i64, ptr %.sroa.526.0..sroa_idx, align 8, !noundef !4
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %103, label %102
+  br i1 %101, label %102, label %.critedge96.critedge
 
-102:                                              ; preds = %.thread
+.critedge96.critedge:                             ; preds = %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %9, i64 152, i1 false)
   br label %.critedge96
 
-103:                                              ; preds = %.thread, %98
+102:                                              ; preds = %.thread, %98
   %.sink = phi i8 [ 14, %98 ], [ 11, %.thread ]
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %104, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %103, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.b829d69e4dfa1ad4f2781c144a746ff0.48, ptr %.sroa.432.0..sroa_idx, align 8
   %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 18, ptr %.sroa.533.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..CipherSuite$GT$$GT$17h34bcac9ff0c500e3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %107 unwind label %105
+          to label %106 unwind label %104
 
-105:                                              ; preds = %103
-  %106 = landingpad { ptr, i32 }
+104:                                              ; preds = %102
+  %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..enums..Compression$GT$$GT$17hfad114b1a7bb108dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #38
-          to label %113 unwind label %110
+          to label %112 unwind label %109
 
-107:                                              ; preds = %103
+106:                                              ; preds = %102
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..enums..Compression$GT$$GT$17hfad114b1a7bb108dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80)
-          to label %.critedge unwind label %108
+          to label %.critedge unwind label %107
 
-108:                                              ; preds = %107
-  %109 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
-.critedge:                                        ; preds = %107
+.critedge:                                        ; preds = %106
   call void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..handshake..ClientExtension$GT$$GT$17ha293c72c6f03e552E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85)
   br label %.critedge96
 
-.critedge96:                                      ; preds = %.critedge, %102, %57, %114, %94, %52, %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h2057134db49fb8eeE.exit"
+.critedge96:                                      ; preds = %.critedge, %.critedge96.critedge, %57, %113, %94, %52, %"_ZN77_$LT$rustls..enums..ProtocolVersion$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h2057134db49fb8eeE.exit"
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   ret void
 
-110:                                              ; preds = %113, %105, %76, %62
-  %111 = landingpad { ptr, i32 }
+109:                                              ; preds = %112, %104, %76, %62
+  %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 
-112:                                              ; preds = %113, %76, %62
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %113 ], [ %.pn, %76 ], [ %63, %62 ]
+111:                                              ; preds = %112, %76, %62
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %112 ], [ %.pn, %76 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn75.pn
 
-113:                                              ; preds = %108, %105
-  %.pn75 = phi { ptr, i32 } [ %109, %108 ], [ %106, %105 ]
+112:                                              ; preds = %107, %104
+  %.pn75 = phi { ptr, i32 } [ %108, %107 ], [ %105, %104 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..handshake..ClientExtension$GT$$GT$17ha293c72c6f03e552E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #38
-          to label %112 unwind label %110
+          to label %111 unwind label %109
 
-114:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..CipherSuite$GT$$GT$17h34bcac9ff0c500e3E.exit", %60
+113:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$rustls..enums..CipherSuite$GT$$GT$17h34bcac9ff0c500e3E.exit", %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.critedge96
 }

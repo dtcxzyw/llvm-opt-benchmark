@@ -20119,7 +20119,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp7_fade_frame(ptr noundef
   %6 = or i32 %2, %1
   %or.cond.not = icmp eq i32 %6, 0
   %or.cond = or i1 %or.cond.not, %.not
-  br i1 %or.cond, label %copy_chroma.exit, label %7
+  br i1 %or.cond, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -20145,12 +20145,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp7_fade_frame(ptr noundef
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %23, i32 noundef 24, ptr noundef nonnull @.str.5) #12
-  br label %copy_chroma.exit
+  br label %.critedge
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %17, align 8, !tbaa !139
   %26 = icmp eq ptr %20, %17
-  br i1 %26, label %27, label %copy_chroma.exit.thread
+  br i1 %26, label %27, label %copy_chroma.exit
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 6320
@@ -20164,8 +20164,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp7_fade_frame(ptr noundef
   %33 = getelementptr inbounds nuw [5 x %struct.VP8Frame], ptr %28, i64 0, i64 %indvars.iv.i
   %.not.i = icmp eq ptr %33, %30
   %.not22.i = icmp eq ptr %33, %17
-  %or.cond62 = or i1 %.not.i, %.not22.i
-  br i1 %or.cond62, label %36, label %34
+  %or.cond57 = or i1 %.not.i, %.not22.i
+  br i1 %or.cond57, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %31, align 8, !tbaa !135
@@ -20202,7 +20202,7 @@ vp8_find_free_buffer.exit:                        ; preds = %.thread.i, %41
   %45 = load ptr, ptr %44, align 8, !tbaa !36
   %46 = tail call i32 @ff_progress_frame_get_buffer(ptr noundef %45, ptr noundef nonnull %33, i32 noundef 1) #12
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %copy_chroma.exit, label %48
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %vp8_find_free_buffer.exit
   %49 = load i16, ptr %8, align 8, !tbaa !92
@@ -20227,7 +20227,7 @@ vp8_find_free_buffer.exit:                        ; preds = %.thread.i, %41
   %.0.i = phi i32 [ %59, %56 ], [ -12, %48 ]
   tail call void @av_refstruct_unref(ptr noundef nonnull %55) #12
   tail call void @ff_progress_frame_unref(ptr noundef nonnull %33) #12
-  br label %copy_chroma.exit
+  br label %.critedge
 
 vp8_alloc_frame.exit:                             ; preds = %56
   store ptr %33, ptr %16, align 8, !tbaa !135
@@ -20238,7 +20238,7 @@ vp8_alloc_frame.exit:                             ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %66 = shl nuw nsw i32 %10, 3
   %67 = zext nneg i32 %66 to i64
-  br i1 %.not.i44, label %copy_chroma.exit.thread, label %.preheader.us.i
+  br i1 %.not.i44, label %copy_chroma.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %vp8_alloc_frame.exit, %._crit_edge.us.i
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i47, %._crit_edge.us.i ], [ 1, %vp8_alloc_frame.exit ]
@@ -20268,9 +20268,9 @@ vp8_alloc_frame.exit:                             ; preds = %56
 ._crit_edge.us.i:                                 ; preds = %72
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next.i47, 3
-  br i1 %exitcond22.not.i, label %copy_chroma.exit.thread, label %.preheader.us.i, !llvm.loop !271
+  br i1 %exitcond22.not.i, label %copy_chroma.exit, label %.preheader.us.i, !llvm.loop !271
 
-copy_chroma.exit.thread:                          ; preds = %._crit_edge.us.i, %vp8_alloc_frame.exit, %24
+copy_chroma.exit:                                 ; preds = %._crit_edge.us.i, %vp8_alloc_frame.exit, %24
   %.037 = phi ptr [ %25, %24 ], [ %62, %vp8_alloc_frame.exit ], [ %62, %._crit_edge.us.i ]
   %84 = load ptr, ptr %.037, align 8, !tbaa !70
   %85 = getelementptr inbounds nuw i8, ptr %.037, i64 64
@@ -20283,9 +20283,9 @@ copy_chroma.exit.thread:                          ; preds = %._crit_edge.us.i, %
   %.not.i48 = icmp eq i16 %13, 0
   %.not25.i49 = icmp eq i16 %9, 0
   %or.cond.i = or i1 %.not25.i49, %.not.i48
-  br i1 %or.cond.i, label %copy_chroma.exit, label %.lr.ph.us.preheader.i
+  br i1 %or.cond.i, label %.critedge, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %copy_chroma.exit.thread
+.lr.ph.us.preheader.i:                            ; preds = %copy_chroma.exit
   %wide.trip.count31.i = zext nneg i32 %15 to i64
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %.lr.ph.us.i
@@ -20321,10 +20321,10 @@ copy_chroma.exit.thread:                          ; preds = %._crit_edge.us.i, %
 ._crit_edge.us.i53:                               ; preds = %96
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count31.i
-  br i1 %exitcond32.not.i, label %copy_chroma.exit, label %.lr.ph.us.i, !llvm.loop !273
+  br i1 %exitcond32.not.i, label %.critedge, label %.lr.ph.us.i, !llvm.loop !273
 
-copy_chroma.exit:                                 ; preds = %._crit_edge.us.i53, %vp8_find_free_buffer.exit, %61, %21, %3, %copy_chroma.exit.thread
-  %.3 = phi i32 [ 0, %copy_chroma.exit.thread ], [ 0, %3 ], [ %.0.i, %61 ], [ %46, %vp8_find_free_buffer.exit ], [ -1094995529, %21 ], [ 0, %._crit_edge.us.i53 ]
+.critedge:                                        ; preds = %._crit_edge.us.i53, %copy_chroma.exit, %vp8_find_free_buffer.exit, %61, %3, %21
+  %.3 = phi i32 [ -1094995529, %21 ], [ 0, %3 ], [ %46, %vp8_find_free_buffer.exit ], [ %.0.i, %61 ], [ 0, %copy_chroma.exit ], [ 0, %._crit_edge.us.i53 ]
   ret i32 %.3
 }
 

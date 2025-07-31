@@ -49,33 +49,33 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer19AddHazardRecognizerEOSt1
   %17 = icmp uge ptr %1, %.pre3.i
   %18 = icmp ult ptr %1, %16
   %spec.select.i.i.i.i.i = and i1 %17, %18
-  br i1 %spec.select.i.i.i.i.i, label %20, label %19, !prof !17
+  br i1 %spec.select.i.i.i.i.i, label %19, label %.critedge.i.i.i, !prof !17
 
 19:                                               ; preds = %15
+  %20 = ptrtoint ptr %1 to i64
+  %21 = ptrtoint ptr %.pre3.i to i64
+  %22 = sub i64 %20, %21
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
+  %23 = load ptr, ptr %8, align 8, !tbaa !15
+  %24 = getelementptr inbounds i8, ptr %23, i64 %22
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
+
+.critedge.i.i.i:                                  ; preds = %15
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !15
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
 
-20:                                               ; preds = %15
-  %21 = ptrtoint ptr %1 to i64
-  %22 = ptrtoint ptr %.pre3.i to i64
-  %23 = sub i64 %21, %22
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %12)
-  %24 = load ptr, ptr %8, align 8, !tbaa !15
-  %25 = getelementptr inbounds i8, ptr %24, i64 %23
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %2, %19, %20
-  %26 = phi ptr [ %.pre3.i, %2 ], [ %24, %20 ], [ %.pre.i, %19 ]
-  %.016.i.i.i = phi ptr [ %1, %2 ], [ %25, %20 ], [ %1, %19 ]
-  %27 = load i32, ptr %9, align 8, !tbaa !12
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %28
-  %30 = load i64, ptr %.016.i.i.i, align 8, !tbaa !3
-  store i64 %30, ptr %29, align 8, !tbaa !3
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit: ; preds = %2, %19, %.critedge.i.i.i
+  %25 = phi ptr [ %.pre3.i, %2 ], [ %23, %19 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %1, %2 ], [ %24, %19 ], [ %1, %.critedge.i.i.i ]
+  %26 = load i32, ptr %9, align 8, !tbaa !12
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %27
+  %29 = load i64, ptr %.016.i.i.i, align 8, !tbaa !3
+  store i64 %29, ptr %28, align 8, !tbaa !3
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !3
-  %31 = add i32 %27, 1
-  store i32 %31, ptr %9, align 8, !tbaa !12
+  %30 = add i32 %26, 1
+  store i32 %30, ptr %9, align 8, !tbaa !12
   ret void
 }
 

@@ -382,7 +382,7 @@ define range(i32 -2147483648, 1) i32 @ff_generate_avci_extradata(ptr noundef rea
   %3 = load ptr, ptr %2, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !84
-  switch i32 %5, label %23 [
+  switch i32 %5, label %.fold.split [
     i32 1920, label %6
     i32 1440, label %10
     i32 1280, label %15
@@ -409,21 +409,21 @@ define range(i32 -2147483648, 1) i32 @ff_generate_avci_extradata(ptr noundef rea
   br label %15
 
 15:                                               ; preds = %14, %6, %10, %1
-  %.014.ph = phi ptr [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ]
-  %.0.ph = phi i32 [ 89, %1 ], [ %.17, %10 ], [ %., %6 ], [ 81, %14 ]
-  %16 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %3, i32 noundef %.0.ph) #6
+  %.014 = phi ptr [ @ff_generate_avci_extradata.avci50_720p_extradata, %14 ], [ %ff_generate_avci_extradata.avci100_1080p_extradata.ff_generate_avci_extradata.avci100_1080i_extradata, %6 ], [ %ff_generate_avci_extradata.avci50_1080p_extradata.ff_generate_avci_extradata.avci50_1080i_extradata, %10 ], [ @ff_generate_avci_extradata.avci100_720p_extradata, %1 ]
+  %.0 = phi i32 [ 81, %14 ], [ %., %6 ], [ %.17, %10 ], [ 89, %1 ]
+  %16 = tail call i32 @ff_alloc_extradata(ptr noundef nonnull %3, i32 noundef %.0) #6
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %23, label %18
+  br i1 %17, label %.fold.split, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %2, align 8, !tbaa !70
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !86
-  %22 = zext nneg i32 %.0.ph to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 16 dereferenceable(1) %.014.ph, i64 %22, i1 false)
-  br label %23
+  %22 = zext nneg i32 %.0 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 16 dereferenceable(1) %.014, i64 %22, i1 false)
+  br label %.fold.split
 
-23:                                               ; preds = %1, %15, %18
+.fold.split:                                      ; preds = %1, %15, %18
   %.013 = phi i32 [ 0, %18 ], [ %16, %15 ], [ 0, %1 ]
   ret i32 %.013
 }

@@ -151,7 +151,7 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = fcmp oeq float %3, 2.000000e+00
-  br i1 %18, label %19, label %44
+  br i1 %18, label %19, label %43
 
 19:                                               ; preds = %13
   %20 = load i8, ptr %4, align 1, !tbaa !37, !range !38, !noundef !39
@@ -177,7 +177,7 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
 33:                                               ; preds = %31
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 35:                                               ; preds = %22, %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
@@ -195,60 +195,60 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
   store i32 33619968, ptr %8, align 8, !tbaa !43
   store ptr %0, ptr %39, align 8, !tbaa !45
   invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 0, double noundef %11, double noundef %11, i32 noundef 2)
-          to label %41 unwind label %42
+          to label %.critedge49 unwind label %41
+
+.critedge49:                                      ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  br label %.critedge
 
 41:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  br label %.critedge
-
-42:                                               ; preds = %35
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  br label %55
+  br label %54
 
-44:                                               ; preds = %13
-  %45 = fcmp olt float %3, 1.000000e+00
-  br i1 %45, label %46, label %.critedge
+43:                                               ; preds = %13
+  %44 = fcmp olt float %3, 1.000000e+00
+  br i1 %44, label %45, label %.critedge
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #9
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %47, align 8, !tbaa !40
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %48, align 4, !tbaa !42
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 0, ptr %46, align 8, !tbaa !40
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 0, ptr %47, align 4, !tbaa !42
   store i32 16842752, ptr %9, align 8, !tbaa !43
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %2, ptr %49, align 8, !tbaa !45
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %2, ptr %48, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 0, ptr %51, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 0, ptr %50, align 8
   store i32 33619968, ptr %10, align 8, !tbaa !43
-  store ptr %0, ptr %50, align 8, !tbaa !45
+  store ptr %0, ptr %49, align 8, !tbaa !45
   invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 0, double noundef %11, double noundef %11, i32 noundef 3)
-          to label %52 unwind label %53
+          to label %51 unwind label %52
 
-52:                                               ; preds = %46
+51:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
   br label %.critedge
 
-53:                                               ; preds = %46
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %45
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
-  br label %55
+  br label %54
 
-55:                                               ; preds = %33, %42, %53
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %43, %42 ], [ %34, %33 ]
+54:                                               ; preds = %33, %41, %52
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %42, %41 ], [ %34, %33 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #9
   resume { ptr, i32 } %.pn41.pn.pn.pn
 
-.critedge:                                        ; preds = %41, %31, %52, %44, %6
+.critedge:                                        ; preds = %31, %51, %43, %.critedge49, %6
   ret void
 }
 

@@ -300,12 +300,12 @@ define dso_local noundef range(i32 -12, 1) i32 @kobject_set_name_vargs(ptr nound
   %5 = icmp eq ptr %4, null
   %6 = icmp ne ptr %1, null
   %7 = or i1 %6, %5
-  br i1 %7, label %8, label %.thread
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = tail call ptr @kvasprintf_const(i32 noundef 3264, ptr noundef %1, ptr noundef %2) #13
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 47) #13
@@ -316,7 +316,7 @@ define dso_local noundef range(i32 -12, 1) i32 @kobject_set_name_vargs(ptr nound
   %15 = tail call noalias ptr @kstrdup(ptr noundef nonnull %9, i32 noundef 3264) #13
   tail call void @kfree_const(ptr noundef nonnull %9) #13
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
   %18 = tail call ptr @strreplace(ptr noundef nonnull %15, i8 noundef zeroext 47, i8 noundef zeroext 33) #13
@@ -327,9 +327,9 @@ define dso_local noundef range(i32 -12, 1) i32 @kobject_set_name_vargs(ptr nound
   %21 = load ptr, ptr %0, align 8
   tail call void @kfree_const(ptr noundef %21) #13
   store ptr %20, ptr %0, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %19, %8, %3
+.critedge:                                        ; preds = %14, %19, %8, %3
   %22 = phi i32 [ 0, %19 ], [ 0, %3 ], [ -12, %8 ], [ -12, %14 ]
   ret i32 %22
 }

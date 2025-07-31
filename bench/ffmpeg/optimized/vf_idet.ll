@@ -989,7 +989,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %6 = load i32, ptr %5, align 8, !tbaa !26
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %29
+  br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -997,26 +997,26 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #4 {
   %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = tail call i32 @ff_request_frame(ptr noundef %10) #12
   %12 = icmp eq i32 %11, -541478725
-  br i1 %12, label %13, label %29
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %15 = load ptr, ptr %14, align 8, !tbaa !65
   %.not19 = icmp eq ptr %15, null
-  br i1 %.not19, label %29, label %16
+  br i1 %.not19, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %18 = load i32, ptr %17, align 8, !tbaa !56
   %.not20 = icmp eq i32 %18, 0
-  br i1 %.not20, label %19, label %29
+  br i1 %.not20, label %19, label %.critedge
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %21 = load ptr, ptr %20, align 8, !tbaa !52
   %22 = tail call ptr @av_frame_clone(ptr noundef %21) #12
   %.not21.not = icmp eq ptr %22, null
-  br i1 %.not21.not, label %29, label %23
+  br i1 %.not21.not, label %.critedge, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %0, align 8, !tbaa !84
@@ -1025,9 +1025,9 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #4 {
   %27 = load ptr, ptr %26, align 8, !tbaa !54
   %28 = tail call i32 @filter_frame(ptr noundef %27, ptr noundef nonnull %22)
   store i32 1, ptr %5, align 8, !tbaa !26
-  br label %29
+  br label %.critedge
 
-29:                                               ; preds = %23, %19, %7, %13, %16, %1
+.critedge:                                        ; preds = %19, %7, %13, %16, %1, %23
   %.0 = phi i32 [ -541478725, %1 ], [ -541478725, %16 ], [ -541478725, %13 ], [ %11, %7 ], [ %28, %23 ], [ -12, %19 ]
   ret i32 %.0
 }

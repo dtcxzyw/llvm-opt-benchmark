@@ -212,58 +212,58 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local range(i32 -2147483648, 1) i32 @init_module() #0 section ".init.text" align 16 {
-  %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #7
+  %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #8
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %28, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @nf_log_register(i8 noundef zeroext 2, ptr noundef nonnull @nf_ip_logger) #7
+  %4 = tail call i32 @nf_log_register(i8 noundef zeroext 2, ptr noundef nonnull @nf_ip_logger) #8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @nf_log_register(i8 noundef zeroext 3, ptr noundef nonnull @nf_arp_logger) #7
+  %7 = tail call i32 @nf_log_register(i8 noundef zeroext 3, ptr noundef nonnull @nf_arp_logger) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @nf_log_register(i8 noundef zeroext 10, ptr noundef nonnull @nf_ip6_logger) #7
+  %10 = tail call i32 @nf_log_register(i8 noundef zeroext 10, ptr noundef nonnull @nf_ip6_logger) #8
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @nf_log_register(i8 noundef zeroext 5, ptr noundef nonnull @nf_netdev_logger) #7
+  %13 = tail call i32 @nf_log_register(i8 noundef zeroext 5, ptr noundef nonnull @nf_netdev_logger) #8
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @nf_log_register(i8 noundef zeroext 7, ptr noundef nonnull @nf_bridge_logger) #7
+  %16 = tail call i32 @nf_log_register(i8 noundef zeroext 7, ptr noundef nonnull @nf_bridge_logger) #8
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %15
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_netdev_logger) #7
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_netdev_logger) #8
   br label %19
 
 19:                                               ; preds = %18, %12
   %20 = phi i32 [ %13, %12 ], [ %16, %18 ]
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip6_logger) #7
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip6_logger) #8
   br label %21
 
 21:                                               ; preds = %19, %9
   %22 = phi i32 [ %10, %9 ], [ %20, %19 ]
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_arp_logger) #7
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_arp_logger) #8
   br label %23
 
 23:                                               ; preds = %21, %6
   %24 = phi i32 [ %7, %6 ], [ %22, %21 ]
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip_logger) #7
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip_logger) #8
   br label %25
 
 25:                                               ; preds = %23, %3
   %26 = phi i32 [ %4, %3 ], [ %24, %23 ]
-  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #8
-  tail call void @unregister_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #7
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
+  tail call void @unregister_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #8
   br label %28
 
 28:                                               ; preds = %25, %15, %0
@@ -273,12 +273,12 @@ define dso_local range(i32 -2147483648, 1) i32 @init_module() #0 section ".init.
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @cleanup_module() #0 section ".exit.text" align 16 {
-  tail call void @unregister_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #7
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip_logger) #7
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_arp_logger) #7
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip6_logger) #7
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_netdev_logger) #7
-  tail call void @nf_log_unregister(ptr noundef nonnull @nf_bridge_logger) #7
+  tail call void @unregister_pernet_subsys(ptr noundef nonnull @nf_log_syslog_net_ops) #8
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip_logger) #8
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_arp_logger) #8
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_ip6_logger) #8
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_netdev_logger) #8
+  tail call void @nf_log_unregister(ptr noundef nonnull @nf_bridge_logger) #8
   ret void
 }
 
@@ -305,47 +305,47 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nf_log_syslog_net_init(ptr noundef %0) #4 align 16 {
-  %2 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull @nf_ip_logger) #7
+  %2 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull @nf_ip_logger) #8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %23
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 3, ptr noundef nonnull @nf_arp_logger) #7
+  %5 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 3, ptr noundef nonnull @nf_arp_logger) #8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 10, ptr noundef nonnull @nf_ip6_logger) #7
+  %8 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 10, ptr noundef nonnull @nf_ip6_logger) #8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 5, ptr noundef nonnull @nf_netdev_logger) #7
+  %11 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 5, ptr noundef nonnull @nf_netdev_logger) #8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 7, ptr noundef nonnull @nf_bridge_logger) #7
+  %14 = tail call i32 @nf_log_set(ptr noundef %0, i8 noundef zeroext 7, ptr noundef nonnull @nf_bridge_logger) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %13
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_netdev_logger) #7
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_netdev_logger) #8
   br label %17
 
 17:                                               ; preds = %16, %10
   %18 = phi i32 [ %11, %10 ], [ %14, %16 ]
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip6_logger) #7
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip6_logger) #8
   br label %19
 
 19:                                               ; preds = %17, %7
   %20 = phi i32 [ %8, %7 ], [ %18, %17 ]
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_arp_logger) #7
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_arp_logger) #8
   br label %21
 
 21:                                               ; preds = %19, %4
   %22 = phi i32 [ %5, %4 ], [ %20, %19 ]
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip_logger) #7
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip_logger) #8
   br label %23
 
 23:                                               ; preds = %21, %13, %1
@@ -355,11 +355,11 @@ define internal i32 @nf_log_syslog_net_init(ptr noundef %0) #4 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nf_log_syslog_net_exit(ptr noundef %0) #4 align 16 {
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip_logger) #7
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_arp_logger) #7
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip6_logger) #7
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_netdev_logger) #7
-  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_bridge_logger) #7
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip_logger) #8
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_arp_logger) #8
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_ip6_logger) #8
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_netdev_logger) #8
+  tail call void @nf_log_unset(ptr noundef %0, ptr noundef nonnull @nf_bridge_logger) #8
   ret void
 }
 
@@ -378,7 +378,7 @@ define internal void @nf_log_ip_packet(ptr noundef readnone captures(address) %0
   br i1 %12, label %13, label %42
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @nf_log_buf_open() #7
+  %14 = tail call ptr @nf_log_buf_open() #8
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -391,7 +391,7 @@ define internal void @nf_log_ip_packet(ptr noundef readnone captures(address) %0
   %24 = icmp eq ptr %5, null
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #8
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %13
@@ -412,7 +412,7 @@ define internal void @nf_log_ip_packet(ptr noundef readnone captures(address) %0
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i32
   tail call fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %16, ptr noundef %3, i32 noundef %41)
-  tail call void @nf_log_buf_close(ptr noundef %14) #7
+  tail call void @nf_log_buf_close(ptr noundef %14) #8
   br label %42
 
 42:                                               ; preds = %29, %8
@@ -451,7 +451,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
   %22 = zext i16 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %25 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %24, ptr noundef %23) #7
+  %25 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %24, ptr noundef %23) #8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
@@ -462,7 +462,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
   %31 = lshr i32 %27, 16
   %32 = tail call i16 @llvm.bswap.i16(i16 %30)
   %33 = zext i16 %32 to i32
-  %34 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %33, i32 noundef %31) #7
+  %34 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %33, i32 noundef %31) #8
   br label %35
 
 35:                                               ; preds = %29, %17
@@ -474,11 +474,11 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
   %41 = load i16, ptr %40, align 1
   %42 = tail call i16 @llvm.bswap.i16(i16 %41)
   %43 = zext i16 %42 to i32
-  %44 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %43) #7
+  %44 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %43) #8
   br label %97
 
 45:                                               ; preds = %13, %8, %3
-  %46 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.7) #7
+  %46 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.7) #8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %48 = load i16, ptr %47, align 4
   %49 = icmp eq i16 %48, 0
@@ -510,7 +510,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
 69:                                               ; preds = %56
   %70 = load i8, ptr %67, align 1
   %71 = zext i8 %70 to i32
-  %72 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %71) #7
+  %72 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %71) #8
   %73 = load i16, ptr %47, align 4
   %74 = icmp ugt i16 %73, 1
   br i1 %74, label %.preheader, label %.loopexit
@@ -521,7 +521,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
   %77 = getelementptr i8, ptr %76, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %79) #7
+  %80 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %79) #8
   %81 = add nuw nsw i32 %75, 1
   %82 = load i16, ptr %47, align 4
   %83 = zext i16 %82 to i32
@@ -540,11 +540,11 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
   %91 = getelementptr i8, ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %94 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %92, ptr noundef nonnull %93) #7
+  %94 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %92, ptr noundef nonnull %93) #8
   br label %95
 
 95:                                               ; preds = %87, %.loopexit, %50, %45
-  %96 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.11) #7
+  %96 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.11) #8
   br label %97
 
 97:                                               ; preds = %95, %35
@@ -558,7 +558,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %8 = alloca %struct.icmphdr, align 8
   %9 = alloca %struct.ip_auth_hdr, align 4
   %10 = alloca %struct.ip_esp_hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #8
   %11 = load i8, ptr %2, align 4
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
@@ -586,7 +586,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 20) #7
+  %29 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 20) #8
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread, label %.thread14, !prof !9
 
@@ -599,14 +599,14 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %36, label %.thread, label %.thread14
 
 .thread:                                          ; preds = %28, %26, %31
-  %37 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #7
+  %37 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #8
   br label %413
 
 .thread14:                                        ; preds = %28, %31
   %38 = phi ptr [ %35, %31 ], [ %6, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %41 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %39, ptr noundef nonnull %40) #7
+  %41 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %39, ptr noundef nonnull %40) #8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = call i16 @llvm.bswap.i16(i16 %43)
@@ -662,7 +662,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %86 = load i16, ptr %85, align 4
   %87 = call i16 @llvm.bswap.i16(i16 %86)
   %88 = zext i16 %87 to i32
-  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %76, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %88) #7
+  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %76, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %88) #8
   %90 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 128
@@ -670,7 +670,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %75
-  %95 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.16) #7
+  %95 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.16) #8
   %.pre = load i16, ptr %90, align 2
   br label %96
 
@@ -681,7 +681,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %96
-  %101 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.17) #7
+  %101 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.17) #8
   %.pre54 = load i16, ptr %90, align 2
   br label %102
 
@@ -692,7 +692,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %102
-  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.18) #7
+  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.18) #8
   %.pre55 = load i16, ptr %90, align 2
   br label %108
 
@@ -705,7 +705,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 112:                                              ; preds = %108
   %113 = call i16 @llvm.bswap.i16(i16 %110)
   %114 = zext nneg i16 %113 to i32
-  %115 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %114) #7
+  %115 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %114) #8
   br label %116
 
 116:                                              ; preds = %112, %108
@@ -720,7 +720,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %122, label %123, label %161
 
 123:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
   %124 = load i8, ptr %38, align 4
   %125 = shl i8 %124, 2
@@ -741,7 +741,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %137, label %.thread17, label %138
 
 138:                                              ; preds = %136
-  %139 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %129, ptr noundef nonnull %7, i32 noundef %128) #7
+  %139 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %129, ptr noundef nonnull %7, i32 noundef %128) #8
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %.thread17, label %.thread18, !prof !9
 
@@ -755,7 +755,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 .thread18:                                        ; preds = %138, %141
   %147 = phi ptr [ %145, %141 ], [ %7, %138 ]
-  %148 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.20) #7
+  %148 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.20) #8
   %149 = icmp eq i32 %128, 0
   br i1 %149, label %.loopexit, label %150
 
@@ -768,14 +768,14 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %154 = getelementptr i8, ptr %147, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
-  %157 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %156) #7
+  %157 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %156) #8
   %158 = add nuw nsw i64 %153, 1
   %159 = icmp eq i64 %158, %151
   br i1 %159, label %.loopexit, label %152, !llvm.loop !10
 
 .loopexit:                                        ; preds = %152, %.thread18
-  %160 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.22) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
+  %160 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.22) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
   br label %161
 
 161:                                              ; preds = %.loopexit, %119, %116
@@ -819,9 +819,9 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %187, label %362, label %413
 
 188:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   store i64 0, ptr %8, align 8, !annotation !8
-  %189 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.23) #7
+  %189 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.23) #8
   %190 = load i16, ptr %90, align 2
   %191 = and i16 %190, -225
   %192 = icmp eq i16 %191, 0
@@ -845,7 +845,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %205, label %.thread21, label %206
 
 206:                                              ; preds = %204
-  %207 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %198, ptr noundef nonnull %8, i32 noundef 8) #7
+  %207 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %198, ptr noundef nonnull %8, i32 noundef 8) #8
   %208 = icmp slt i32 %207, 0
   br i1 %208, label %..thread21_crit_edge, label %.thread22, !prof !9
 
@@ -870,7 +870,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %.pre-phi68 = phi i32 [ %.pre67, %..thread21_crit_edge ], [ %198, %204 ], [ %198, %209 ]
   %215 = phi i32 [ %.pre60, %..thread21_crit_edge ], [ %199, %204 ], [ %199, %209 ]
   %216 = sub i32 %215, %.pre-phi68
-  %217 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %216) #7
+  %217 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %216) #8
   br label %287
 
 .thread22:                                        ; preds = %206, %209
@@ -880,7 +880,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 1
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
-  %224 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %220, i32 noundef %223) #7
+  %224 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %220, i32 noundef %223) #8
   %225 = load i8, ptr %218, align 4
   %226 = icmp ult i8 %225, 19
   br i1 %226, label %227, label %246
@@ -907,7 +907,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %243, label %244, label %246
 
 244:                                              ; preds = %232
-  %245 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %241) #7
+  %245 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %241) #8
   br label %287
 
 246:                                              ; preds = %232, %227, %.thread22
@@ -930,19 +930,19 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %253 = load i16, ptr %252, align 2
   %254 = call i16 @llvm.bswap.i16(i16 %253)
   %255 = zext i16 %254 to i32
-  %256 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %251, i32 noundef %255) #7
+  %256 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %251, i32 noundef %255) #8
   br label %287
 
 257:                                              ; preds = %246
   %258 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 255
-  %261 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %260) #7
+  %261 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %260) #8
   br label %287
 
 262:                                              ; preds = %246
   %263 = getelementptr inbounds nuw i8, ptr %218, i64 4
-  %264 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %263) #7
+  %264 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %263) #8
   br label %265
 
 265:                                              ; preds = %262, %246, %246, %246
@@ -950,14 +950,14 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %266, label %267, label %275
 
 267:                                              ; preds = %265
-  %268 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.29) #7
+  %268 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.29) #8
   %269 = load i8, ptr %38, align 4
   %270 = shl i8 %269, 2
   %271 = and i8 %270, 60
   %272 = add nuw nsw i8 %271, 8
   %273 = zext nneg i8 %272 to i32
   call fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %273)
-  %274 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.30) #7
+  %274 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.30) #8
   br label %275
 
 275:                                              ; preds = %267, %265
@@ -975,15 +975,15 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %283 = load i16, ptr %282, align 2
   %284 = call i16 @llvm.bswap.i16(i16 %283)
   %285 = zext i16 %284 to i32
-  %286 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %285) #7
+  %286 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %285) #8
   br label %287
 
 287:                                              ; preds = %281, %278, %275, %257, %247, %246, %244, %.thread21, %188
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   br label %362
 
 288:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !8
   %289 = load i16, ptr %90, align 2
   %290 = and i16 %289, -225
@@ -991,7 +991,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %291, label %292, label %323
 
 292:                                              ; preds = %288
-  %293 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.32) #7
+  %293 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.32) #8
   %294 = load i8, ptr %38, align 4
   %295 = shl i8 %294, 2
   %296 = and i8 %295, 60
@@ -1009,7 +1009,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %305, label %.thread25, label %306
 
 306:                                              ; preds = %304
-  %307 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %298, ptr noundef nonnull %9, i32 noundef 12) #7
+  %307 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %298, ptr noundef nonnull %9, i32 noundef 12) #8
   %308 = icmp slt i32 %307, 0
   br i1 %308, label %..thread25_crit_edge, label %.thread26, !prof !9
 
@@ -1034,7 +1034,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %.pre-phi76 = phi i32 [ %.pre75, %..thread25_crit_edge ], [ %298, %304 ], [ %298, %309 ]
   %315 = phi i32 [ %.pre58, %..thread25_crit_edge ], [ %299, %304 ], [ %299, %309 ]
   %316 = sub i32 %315, %.pre-phi76
-  %317 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %316) #7
+  %317 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %316) #8
   br label %323
 
 .thread26:                                        ; preds = %306, %309
@@ -1042,17 +1042,17 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = call i32 @llvm.bswap.i32(i32 %320)
-  %322 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %321) #7
+  %322 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %321) #8
   br label %323
 
 323:                                              ; preds = %.thread26, %.thread25, %288
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #8
   br label %362
 
 324:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
   store i64 0, ptr %10, align 8, !annotation !8
-  %325 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.34) #7
+  %325 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.34) #8
   %326 = load i16, ptr %90, align 2
   %327 = and i16 %326, -225
   %328 = icmp eq i16 %327, 0
@@ -1076,7 +1076,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %341, label %.thread29, label %342
 
 342:                                              ; preds = %340
-  %343 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %334, ptr noundef nonnull %10, i32 noundef 8) #7
+  %343 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %334, ptr noundef nonnull %10, i32 noundef 8) #8
   %344 = icmp slt i32 %343, 0
   br i1 %344, label %..thread29_crit_edge, label %.thread30, !prof !9
 
@@ -1101,23 +1101,23 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %.pre-phi84 = phi i32 [ %.pre83, %..thread29_crit_edge ], [ %334, %340 ], [ %334, %345 ]
   %351 = phi i32 [ %.pre56, %..thread29_crit_edge ], [ %335, %340 ], [ %335, %345 ]
   %352 = sub i32 %351, %.pre-phi84
-  %353 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %352) #7
+  %353 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %352) #8
   br label %358
 
 .thread30:                                        ; preds = %342, %345
   %354 = phi ptr [ %349, %345 ], [ %10, %342 ]
   %355 = load i32, ptr %354, align 4
   %356 = call i32 @llvm.bswap.i32(i32 %355)
-  %357 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %356) #7
+  %357 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %356) #8
   br label %358
 
 358:                                              ; preds = %.thread30, %.thread29, %324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   br label %362
 
 359:                                              ; preds = %161
   %360 = zext i8 %163 to i32
-  %361 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %360) #7
+  %361 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %360) #8
   br label %362
 
 362:                                              ; preds = %359, %358, %323, %287, %176, %164
@@ -1150,7 +1150,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 382:                                              ; preds = %378
   %383 = getelementptr inbounds nuw i8, ptr %369, i64 536
-  call void @_raw_read_lock_bh(ptr noundef nonnull %383) #7
+  call void @_raw_read_lock_bh(ptr noundef nonnull %383) #8
   %384 = getelementptr inbounds nuw i8, ptr %369, i64 624
   %385 = load ptr, ptr %384, align 8
   %386 = icmp eq ptr %385, null
@@ -1175,11 +1175,11 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %401 = icmp eq i32 %400, -1
   %402 = load i32, ptr @overflowgid, align 4
   %403 = select i1 %401, i32 %402, i32 %400
-  %404 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.55, i32 noundef %398, i32 noundef %403) #7
+  %404 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.55, i32 noundef %398, i32 noundef %403) #8
   br label %405
 
 405:                                              ; preds = %391, %387, %382
-  call void @_raw_read_unlock_bh(ptr noundef nonnull %383) #7
+  call void @_raw_read_unlock_bh(ptr noundef nonnull %383) #8
   br label %.thread32
 
 406:                                              ; preds = %362
@@ -1192,16 +1192,16 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %409, label %413, label %410
 
 410:                                              ; preds = %.thread32
-  %411 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %408) #7
+  %411 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %408) #8
   br label %413
 
 .thread17:                                        ; preds = %138, %136, %141
-  %412 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
+  %412 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
   br label %413
 
 413:                                              ; preds = %.thread17, %410, %.thread32, %406, %176, %164, %.thread
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #8
   ret void
 }
 
@@ -1217,12 +1217,45 @@ declare i16 @llvm.bswap.i16(i16) #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
+; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
+define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #7 align 16 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %5 = load i32, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %7 = load i32, ptr %6, align 4
+  %8 = add i32 %1, %7
+  %9 = sub i32 %5, %8
+  %10 = icmp slt i32 %9, 8
+  br i1 %10, label %16, label %11, !prof !9
+
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %13 = load ptr, ptr %12, align 8
+  %14 = sext i32 %1 to i64
+  %15 = getelementptr i8, ptr %13, i64 %14
+  br label %22
+
+16:                                               ; preds = %3
+  %17 = icmp eq ptr %0, null
+  br i1 %17, label %22, label %18
+
+18:                                               ; preds = %16
+  %19 = tail call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef 8) #8
+  %20 = icmp slt i32 %19, 0
+  %21 = select i1 %20, ptr null, ptr %2, !prof !9
+  br label %22
+
+22:                                               ; preds = %18, %16, %11
+  %23 = phi ptr [ %15, %11 ], [ null, %16 ], [ %21, %18 ]
+  ret ptr %23
+}
+
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.tcphdr, align 4
   %7 = alloca [40 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
-  %8 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.37) #7
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #8
+  %8 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.37) #8
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %10, label %156
 
@@ -1242,7 +1275,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 20) #7
+  %21 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 20) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %..thread_crit_edge, label %.thread6, !prof !9
 
@@ -1261,7 +1294,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 .thread:                                          ; preds = %..thread_crit_edge, %18, %23
   %29 = phi i32 [ %.pre21, %..thread_crit_edge ], [ %12, %18 ], [ %12, %23 ]
   %30 = sub i32 %29, %3
-  %31 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %30) #7
+  %31 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %30) #8
   br label %156
 
 .thread6:                                         ; preds = %20, %23
@@ -1273,7 +1306,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %37 = load i16, ptr %36, align 2
   %38 = call i16 @llvm.bswap.i16(i16 %37)
   %39 = zext i16 %38 to i32
-  %40 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %35, i32 noundef %39) #7
+  %40 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %35, i32 noundef %39) #8
   %41 = and i32 %4, 1
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %51, label %43
@@ -1285,7 +1318,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
-  %50 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %46, i32 noundef %49) #7
+  %50 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %46, i32 noundef %49) #8
   br label %51
 
 51:                                               ; preds = %43, %.thread6
@@ -1293,18 +1326,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %53 = load i16, ptr %52, align 2
   %54 = call i16 @llvm.bswap.i16(i16 %53)
   %55 = zext i16 %54 to i32
-  %56 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %55) #7
+  %56 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %55) #8
   %57 = getelementptr i8, ptr %32, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = shl i32 %58, 2
   %60 = and i32 %59, 60
-  %61 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %60) #7
+  %61 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %60) #8
   %62 = load i16, ptr %57, align 4
   %63 = icmp sgt i16 %62, -1
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %51
-  %65 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.42) #7
+  %65 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.42) #8
   %.pre = load i16, ptr %57, align 4
   br label %66
 
@@ -1315,7 +1348,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %69, label %72, label %70
 
 70:                                               ; preds = %66
-  %71 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.43) #7
+  %71 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.43) #8
   %.pre15 = load i16, ptr %57, align 4
   br label %72
 
@@ -1326,7 +1359,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %75, label %78, label %76
 
 76:                                               ; preds = %72
-  %77 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.44) #7
+  %77 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.44) #8
   %.pre16 = load i16, ptr %57, align 4
   br label %78
 
@@ -1337,7 +1370,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %78
-  %83 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.45) #7
+  %83 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.45) #8
   %.pre17 = load i16, ptr %57, align 4
   br label %84
 
@@ -1348,7 +1381,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %84
-  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.46) #7
+  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.46) #8
   %.pre18 = load i16, ptr %57, align 4
   br label %90
 
@@ -1359,7 +1392,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %90
-  %95 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.47) #7
+  %95 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.47) #8
   %.pre19 = load i16, ptr %57, align 4
   br label %96
 
@@ -1370,7 +1403,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %96
-  %101 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.48) #7
+  %101 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.48) #8
   %.pre20 = load i16, ptr %57, align 4
   br label %102
 
@@ -1381,7 +1414,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %105, label %108, label %106
 
 106:                                              ; preds = %102
-  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.49) #7
+  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.49) #8
   br label %108
 
 108:                                              ; preds = %106, %102
@@ -1389,7 +1422,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %110 = load i16, ptr %109, align 2
   %111 = call i16 @llvm.bswap.i16(i16 %110)
   %112 = zext i16 %111 to i32
-  %113 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.50, i32 noundef %112) #7
+  %113 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.50, i32 noundef %112) #8
   %114 = and i32 %4, 2
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %156, label %116
@@ -1404,7 +1437,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 121:                                              ; preds = %116
   %122 = zext nneg i16 %119 to i32
   %123 = add nsw i32 %122, -20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
   %124 = add i32 %3, 20
   %125 = load i32, ptr %11, align 8
@@ -1420,7 +1453,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %132, label %.thread9, label %133
 
 133:                                              ; preds = %131
-  %134 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %124, ptr noundef nonnull %7, i32 noundef %123) #7
+  %134 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %124, ptr noundef nonnull %7, i32 noundef %123) #8
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %.thread9, label %.thread10, !prof !9
 
@@ -1434,7 +1467,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 
 .thread10:                                        ; preds = %133, %136
   %142 = phi ptr [ %140, %136 ], [ %7, %133 ]
-  %143 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.20) #7
+  %143 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.20) #8
   %144 = zext nneg i32 %123 to i64
   br label %145
 
@@ -1443,34 +1476,34 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %147 = getelementptr i8, ptr %142, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
-  %150 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %149) #7
+  %150 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %149) #8
   %151 = add nuw nsw i64 %146, 1
   %152 = icmp eq i64 %151, %144
   br i1 %152, label %153, label %145, !llvm.loop !12
 
 153:                                              ; preds = %145
-  %154 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.22) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
+  %154 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.22) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
   br label %156
 
 .thread9:                                         ; preds = %133, %131, %136
-  %155 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.51) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
+  %155 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.51) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
   br label %156
 
 156:                                              ; preds = %108, %116, %153, %.thread9, %.thread, %5
   %157 = phi i32 [ 1, %.thread ], [ 0, %5 ], [ 1, %.thread9 ], [ 0, %153 ], [ 0, %116 ], [ 0, %108 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #8
   ret i32 %157
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef range(i32 0, 65536) %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.udphdr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %7 = icmp eq i8 %2, 17
   %8 = select i1 %7, ptr @.str.52, ptr @.str.53
-  %9 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull %8) #7
+  %9 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull %8) #8
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %11, label %46
 
@@ -1490,7 +1523,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 8) #7
+  %22 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 8) #8
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %..thread_crit_edge, label %.thread2, !prof !9
 
@@ -1509,7 +1542,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
 .thread:                                          ; preds = %..thread_crit_edge, %19, %24
   %30 = phi i32 [ %.pre, %..thread_crit_edge ], [ %13, %19 ], [ %13, %24 ]
   %31 = sub i32 %30, %4
-  %32 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %31) #7
+  %32 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %31) #8
   br label %46
 
 .thread2:                                         ; preds = %21, %24
@@ -1525,12 +1558,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   %42 = load i16, ptr %41, align 2
   %43 = call i16 @llvm.bswap.i16(i16 %42)
   %44 = zext i16 %43 to i32
-  %45 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %36, i32 noundef %40, i32 noundef %44) #7
+  %45 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %36, i32 noundef %40, i32 noundef %44) #8
   br label %46
 
 46:                                               ; preds = %.thread2, %.thread, %5
   %47 = phi i32 [ 1, %.thread ], [ 0, %5 ], [ 0, %.thread2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 %47
 }
 
@@ -1555,7 +1588,7 @@ define internal void @nf_log_arp_packet(ptr noundef readnone captures(address) %
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @nf_log_buf_open() #7
+  %14 = tail call ptr @nf_log_buf_open() #8
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1568,7 +1601,7 @@ define internal void @nf_log_arp_packet(ptr noundef readnone captures(address) %
   %24 = icmp eq ptr %5, null
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 180
@@ -1582,7 +1615,7 @@ define internal void @nf_log_arp_packet(ptr noundef readnone captures(address) %
   %38 = sub i64 %36, %37
   %39 = trunc i64 %38 to i32
   tail call fastcc void @dump_arp_packet(ptr noundef %14, ptr noundef nonnull %16, ptr noundef %3, i32 noundef %39)
-  tail call void @nf_log_buf_close(ptr noundef %14) #7
+  tail call void @nf_log_buf_close(ptr noundef %14) #8
   br label %40
 
 40:                                               ; preds = %13, %8
@@ -1593,9 +1626,9 @@ define internal void @nf_log_arp_packet(ptr noundef readnone captures(address) %
 define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 16 {
   %5 = alloca %struct.arppayload, align 1
   %6 = alloca %struct.arphdr, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   store i64 0, ptr %6, align 8, !annotation !8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 8
@@ -1611,7 +1644,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 8) #7
+  %17 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 8) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %.thread3, !prof !9
 
@@ -1624,7 +1657,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   br i1 %24, label %.thread, label %.thread3
 
 .thread:                                          ; preds = %16, %14, %19
-  %25 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.13) #7
+  %25 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.13) #8
   br label %113
 
 .thread3:                                         ; preds = %16, %19
@@ -1648,7 +1681,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %39 = zext i16 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
-  %42 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %41, ptr noundef %40) #7
+  %42 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %41, ptr noundef %40) #8
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
@@ -1659,7 +1692,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %48 = lshr i32 %44, 16
   %49 = call i16 @llvm.bswap.i16(i16 %47)
   %50 = zext i16 %49 to i32
-  %51 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %50, i32 noundef %48) #7
+  %51 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %50, i32 noundef %48) #8
   br label %52
 
 52:                                               ; preds = %46, %34
@@ -1671,7 +1704,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %58 = load i16, ptr %57, align 1
   %59 = call i16 @llvm.bswap.i16(i16 %58)
   %60 = zext i16 %59 to i32
-  %61 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %60) #7
+  %61 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %60) #8
   br label %62
 
 62:                                               ; preds = %52, %29, %.thread3
@@ -1686,7 +1719,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %71 = load i16, ptr %70, align 2
   %72 = call i16 @llvm.bswap.i16(i16 %71)
   %73 = zext i16 %72 to i32
-  %74 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %65, i32 noundef %69, i32 noundef %73) #7
+  %74 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %65, i32 noundef %69, i32 noundef %73) #8
   %75 = load i16, ptr %26, align 2
   %76 = icmp eq i16 %75, 256
   br i1 %76, label %77, label %113
@@ -1718,7 +1751,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   br i1 %94, label %.thread6, label %95
 
 95:                                               ; preds = %93
-  %96 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull %5, i32 noundef 20) #7
+  %96 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull %5, i32 noundef 20) #8
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %..thread6_crit_edge, label %.thread7, !prof !9
 
@@ -1738,7 +1771,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %104 = phi i32 [ %.pre, %..thread6_crit_edge ], [ %87, %93 ], [ %87, %98 ]
   %105 = zext i32 %104 to i64
   %106 = add nsw i64 %105, -8
-  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %106) #7
+  %107 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %106) #8
   br label %113
 
 .thread7:                                         ; preds = %95, %98
@@ -1746,12 +1779,12 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 6
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 10
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %112 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %111) #7
+  %112 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %111) #8
   br label %113
 
 113:                                              ; preds = %.thread7, %.thread6, %81, %77, %62, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #8
   ret void
 }
 
@@ -1764,7 +1797,7 @@ define internal void @nf_log_ip6_packet(ptr noundef readnone captures(address) %
   br i1 %12, label %13, label %42
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @nf_log_buf_open() #7
+  %14 = tail call ptr @nf_log_buf_open() #8
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1777,7 +1810,7 @@ define internal void @nf_log_ip6_packet(ptr noundef readnone captures(address) %
   %24 = icmp eq ptr %5, null
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #8
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %13
@@ -1798,7 +1831,7 @@ define internal void @nf_log_ip6_packet(ptr noundef readnone captures(address) %
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i32
   tail call fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %16, ptr noundef %3, i32 noundef %41, i32 noundef 1)
-  tail call void @nf_log_buf_close(ptr noundef %14) #7
+  tail call void @nf_log_buf_close(ptr noundef %14) #8
   br label %42
 
 42:                                               ; preds = %29, %8
@@ -1813,7 +1846,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   %10 = alloca %struct.ip_auth_hdr, align 4
   %11 = alloca %struct.ip_esp_hdr, align 8
   %12 = alloca %struct.icmp6hdr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
   %13 = load i8, ptr %2, align 4
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %19
@@ -1841,9 +1874,9 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 40) #7
+  %31 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 40) #8
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread, label %.thread16, !prof !9
+  br i1 %32, label %.thread, label %.thread15, !prof !9
 
 33:                                               ; preds = %19
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -1851,17 +1884,17 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   %36 = sext i32 %4 to i64
   %37 = getelementptr i8, ptr %35, i64 %36
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %.thread16
+  br i1 %38, label %.thread, label %.thread15
 
 .thread:                                          ; preds = %30, %28, %33
-  %39 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #7
-  br label %326
+  %39 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #8
+  br label %316
 
-.thread16:                                        ; preds = %30, %33
+.thread15:                                        ; preds = %30, %33
   %40 = phi ptr [ %37, %33 ], [ %7, %30 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %43 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull %41, ptr noundef nonnull %42) #7
+  %43 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull %41, ptr noundef nonnull %42) #8
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = call i16 @llvm.bswap.i16(i16 %45)
@@ -1875,7 +1908,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = and i32 %50, 1048575
-  %57 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef %48, i32 noundef %52, i32 noundef %55, i32 noundef %56) #7
+  %57 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef %48, i32 noundef %52, i32 noundef %55, i32 noundef %56) #8
   %58 = add i32 %4, 40
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %60 = load i8, ptr %59, align 2
@@ -1885,11 +1918,11 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   %64 = icmp eq i32 %63, 0
   br label %65
 
-65:                                               ; preds = %206, %.thread16
-  %66 = phi i32 [ %58, %.thread16 ], [ %208, %206 ]
-  %67 = phi i8 [ %60, %.thread16 ], [ %207, %206 ]
-  %68 = phi i32 [ 0, %.thread16 ], [ %201, %206 ]
-  switch i8 %67, label %273 [
+65:                                               ; preds = %204, %.thread15
+  %66 = phi i32 [ %58, %.thread15 ], [ %206, %204 ]
+  %67 = phi i8 [ %60, %.thread15 ], [ %205, %204 ]
+  %68 = phi i32 [ 0, %.thread15 ], [ %201, %204 ]
+  switch i8 %67, label %263 [
     i8 58, label %215
     i8 0, label %switch.edge
     i8 51, label %switch.edge
@@ -1903,7 +1936,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   ]
 
 switch.edge:                                      ; preds = %65, %65, %65, %65, %65, %65
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #8
   store i16 0, ptr %8, align 2, !annotation !8
   %69 = load i32, ptr %21, align 8
   %70 = load i32, ptr %23, align 4
@@ -1913,33 +1946,33 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %73, label %74, label %78, !prof !9
 
 74:                                               ; preds = %switch.edge
-  br i1 %62, label %.thread19, label %75
+  br i1 %62, label %.thread18, label %75
 
 75:                                               ; preds = %74
-  %76 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %8, i32 noundef 2) #7
+  %76 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %8, i32 noundef 2) #8
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %.thread19, label %.thread20, !prof !9
+  br i1 %77, label %.thread18, label %.thread19, !prof !9
 
 78:                                               ; preds = %switch.edge
   %79 = load ptr, ptr %61, align 8
   %80 = sext i32 %66 to i64
   %81 = getelementptr i8, ptr %79, i64 %80
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread19, label %.thread20
+  br i1 %82, label %.thread18, label %.thread19
 
-.thread19:                                        ; preds = %75, %74, %78
-  %83 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #7
-  br label %.thread36
+.thread18:                                        ; preds = %75, %74, %78
+  %83 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.13) #8
+  br label %.critedge
 
-.thread20:                                        ; preds = %75, %78
+.thread19:                                        ; preds = %75, %78
   %84 = phi ptr [ %81, %78 ], [ %8, %75 ]
   br i1 %64, label %87, label %85
 
-85:                                               ; preds = %.thread20
-  %86 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.63) #7
+85:                                               ; preds = %.thread19
+  %86 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.63) #8
   br label %87
 
-87:                                               ; preds = %85, %.thread20
+87:                                               ; preds = %85, %.thread19
   switch i8 %67, label %188 [
     i8 44, label %88
     i8 60, label %126
@@ -1950,9 +1983,9 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   ]
 
 88:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   store i64 0, ptr %9, align 8, !annotation !8
-  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.64) #7
+  %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.64) #8
   %90 = load i32, ptr %21, align 8
   %91 = load i32, ptr %23, align 4
   %92 = add i32 %66, %91
@@ -1961,52 +1994,52 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %94, label %95, label %99, !prof !9
 
 95:                                               ; preds = %88
-  br i1 %62, label %.thread25, label %96
+  br i1 %62, label %.thread24, label %96
 
 96:                                               ; preds = %95
-  %97 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %9, i32 noundef 8) #7
+  %97 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %9, i32 noundef 8) #8
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread25, label %.thread24, !prof !9
+  br i1 %98, label %.thread24, label %.thread23, !prof !9
 
 99:                                               ; preds = %88
   %100 = load ptr, ptr %61, align 8
   %101 = sext i32 %66 to i64
   %102 = getelementptr i8, ptr %100, i64 %101
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread25, label %.thread24
+  br i1 %103, label %.thread24, label %.thread23
 
-.thread25:                                        ; preds = %99, %95, %96
-  %104 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.65) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  br label %.thread36
+.thread24:                                        ; preds = %99, %95, %96
+  %104 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.65) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
+  br label %.critedge
 
-.thread24:                                        ; preds = %96, %99
+.thread23:                                        ; preds = %96, %99
   %105 = phi ptr [ %102, %99 ], [ %9, %96 ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, -1793
   %109 = call i16 @llvm.bswap.i16(i16 %108)
   %110 = zext i16 %109 to i32
-  %111 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %110) #7
+  %111 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %110) #8
   %112 = load i16, ptr %106, align 2
   %113 = and i16 %112, 256
   %114 = icmp eq i16 %113, 0
   br i1 %114, label %117, label %115
 
-115:                                              ; preds = %.thread24
-  %116 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.67) #7
+115:                                              ; preds = %.thread23
+  %116 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.67) #8
   br label %117
 
-117:                                              ; preds = %.thread24, %115
+117:                                              ; preds = %.thread23, %115
   %118 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = call i32 @llvm.bswap.i32(i32 %119)
-  %121 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.68, i32 noundef %120) #7
+  %121 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.68, i32 noundef %120) #8
   %122 = load i16, ptr %106, align 2
   %123 = and i16 %122, -1793
   %124 = icmp eq i16 %123, 0
   %125 = select i1 %124, i32 %68, i32 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   br label %199
 
 126:                                              ; preds = %87, %87, %87
@@ -2014,25 +2047,25 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %127, label %191, label %128
 
 128:                                              ; preds = %126
-  br i1 %64, label %.thread36, label %129
+  br i1 %64, label %.critedge, label %129
 
 129:                                              ; preds = %128
-  %130 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #7
-  br label %.thread36
+  %130 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #8
+  br label %.critedge
 
 131:                                              ; preds = %87
   br i1 %64, label %191, label %132
 
 132:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false), !annotation !8
-  %133 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.70) #7
+  %133 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.70) #8
   %134 = icmp eq i32 %68, 0
   br i1 %134, label %137, label %135
 
 135:                                              ; preds = %132
-  %136 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #7
-  br label %204
+  %136 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #8
+  br label %207
 
 137:                                              ; preds = %132
   %138 = load i32, ptr %21, align 8
@@ -2043,52 +2076,52 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %142, label %143, label %147, !prof !9
 
 143:                                              ; preds = %137
-  br i1 %62, label %.thread28, label %144
+  br i1 %62, label %.thread27, label %144
 
 144:                                              ; preds = %143
-  %145 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %10, i32 noundef 12) #7
+  %145 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %10, i32 noundef 12) #8
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %..thread28_crit_edge, label %.thread29, !prof !9
+  br i1 %146, label %..thread27_crit_edge, label %.thread28, !prof !9
 
-..thread28_crit_edge:                             ; preds = %144
-  %.pre141 = load i32, ptr %21, align 8
-  br label %.thread28
+..thread27_crit_edge:                             ; preds = %144
+  %.pre133 = load i32, ptr %21, align 8
+  br label %.thread27
 
 147:                                              ; preds = %137
   %148 = load ptr, ptr %61, align 8
   %149 = sext i32 %66 to i64
   %150 = getelementptr i8, ptr %148, i64 %149
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %.thread28, label %.thread29
+  br i1 %151, label %.thread27, label %.thread28
 
-.thread28:                                        ; preds = %143, %147, %..thread28_crit_edge
-  %152 = phi i32 [ %.pre141, %..thread28_crit_edge ], [ %138, %147 ], [ %138, %143 ]
+.thread27:                                        ; preds = %143, %147, %..thread27_crit_edge
+  %152 = phi i32 [ %.pre133, %..thread27_crit_edge ], [ %138, %147 ], [ %138, %143 ]
   %153 = sub i32 %152, %66
-  %154 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %153) #7
-  br label %204
+  %154 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %153) #8
+  br label %207
 
-.thread29:                                        ; preds = %144, %147
+.thread28:                                        ; preds = %144, %147
   %155 = phi ptr [ %150, %147 ], [ %10, %144 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = call i32 @llvm.bswap.i32(i32 %157)
-  %159 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %158) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #7
+  %159 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %158) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #8
   br label %191
 
 160:                                              ; preds = %87
-  br i1 %64, label %.thread36, label %161
+  br i1 %64, label %.critedge, label %161
 
 161:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
   store i64 0, ptr %11, align 8, !annotation !8
-  %162 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.72) #7
+  %162 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.72) #8
   %163 = icmp eq i32 %68, 0
   br i1 %163, label %166, label %164
 
 164:                                              ; preds = %161
-  %165 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #7
-  br label %205
+  %165 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.69) #8
+  br label %208
 
 166:                                              ; preds = %161
   %167 = load i32, ptr %21, align 8
@@ -2099,46 +2132,46 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %171, label %172, label %176, !prof !9
 
 172:                                              ; preds = %166
-  br i1 %62, label %.thread32, label %173
+  br i1 %62, label %.thread31, label %173
 
 173:                                              ; preds = %172
-  %174 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %11, i32 noundef 8) #7
+  %174 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %11, i32 noundef 8) #8
   %175 = icmp slt i32 %174, 0
-  br i1 %175, label %..thread32_crit_edge, label %.thread33, !prof !9
+  br i1 %175, label %..thread31_crit_edge, label %.thread32, !prof !9
 
-..thread32_crit_edge:                             ; preds = %173
+..thread31_crit_edge:                             ; preds = %173
   %.pre = load i32, ptr %21, align 8
-  br label %.thread32
+  br label %.thread31
 
 176:                                              ; preds = %166
   %177 = load ptr, ptr %61, align 8
   %178 = sext i32 %66 to i64
   %179 = getelementptr i8, ptr %177, i64 %178
   %180 = icmp eq ptr %179, null
-  br i1 %180, label %.thread32, label %.thread33
+  br i1 %180, label %.thread31, label %.thread32
 
-.thread32:                                        ; preds = %..thread32_crit_edge, %172, %176
-  %181 = phi i32 [ %.pre, %..thread32_crit_edge ], [ %167, %172 ], [ %167, %176 ]
+.thread31:                                        ; preds = %..thread31_crit_edge, %172, %176
+  %181 = phi i32 [ %.pre, %..thread31_crit_edge ], [ %167, %172 ], [ %167, %176 ]
   %182 = sub i32 %181, %66
-  %183 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %182) #7
-  br label %205
+  %183 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.71, i32 noundef %182) #8
+  br label %208
 
-.thread33:                                        ; preds = %173, %176
+.thread32:                                        ; preds = %173, %176
   %184 = phi ptr [ %179, %176 ], [ %11, %173 ]
   %185 = load i32, ptr %184, align 4
   %186 = call i32 @llvm.bswap.i32(i32 %185)
-  %187 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.73, i32 noundef %186) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
-  br label %.thread36
+  %187 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.73, i32 noundef %186) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  br label %.critedge
 
 188:                                              ; preds = %87
   %189 = zext nneg i8 %67 to i32
-  %190 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.74, i32 noundef %189) #7
-  br label %.thread36
+  %190 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.74, i32 noundef %189) #8
+  br label %.critedge
 
-191:                                              ; preds = %.thread29, %131, %126
-  %192 = phi i32 [ 3, %126 ], [ 2, %.thread29 ], [ 2, %131 ]
-  %193 = phi i32 [ 0, %126 ], [ 0, %.thread29 ], [ %68, %131 ]
+191:                                              ; preds = %.thread28, %131, %126
+  %192 = phi i32 [ 3, %126 ], [ 2, %.thread28 ], [ 2, %131 ]
+  %193 = phi i32 [ 0, %126 ], [ 0, %.thread28 ], [ %68, %131 ]
   %194 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
@@ -2149,227 +2182,204 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 199:                                              ; preds = %117, %191
   %200 = phi i32 [ 8, %117 ], [ %198, %191 ]
   %201 = phi i32 [ %125, %117 ], [ %193, %191 ]
-  br i1 %64, label %206, label %202
+  br i1 %64, label %204, label %202
 
 202:                                              ; preds = %199
-  %203 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.22) #7
-  br label %206
+  %203 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.22) #8
+  br label %204
 
-204:                                              ; preds = %.thread28, %135
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #7
-  br label %.thread36
-
-205:                                              ; preds = %.thread32, %164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
-  br label %.thread36
-
-.thread36:                                        ; preds = %188, %.thread19, %129, %128, %204, %205, %.thread33, %160, %.thread25
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
-  br label %326
-
-206:                                              ; preds = %199, %202
-  %207 = load i8, ptr %84, align 1
-  %208 = add i32 %200, %66
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
+204:                                              ; preds = %202, %199
+  %205 = load i8, ptr %84, align 1
+  %206 = add i32 %200, %66
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #8
   br label %65, !llvm.loop !13
+
+207:                                              ; preds = %.thread27, %135
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #8
+  br label %.critedge
+
+208:                                              ; preds = %.thread31, %164
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  br label %.critedge
 
 209:                                              ; preds = %65
   %210 = call fastcc i32 @nf_log_dump_tcp_header(ptr noundef %1, ptr noundef %3, i32 noundef %68, i32 noundef %66, i32 noundef %20)
   %211 = icmp eq i32 %210, 0
-  br i1 %211, label %276, label %326
+  br i1 %211, label %266, label %316
 
 212:                                              ; preds = %65, %65
   %213 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %67, i32 noundef %68, i32 noundef %66), !range !11
   %214 = icmp eq i32 %213, 0
-  br i1 %214, label %276, label %326
+  br i1 %214, label %266, label %316
 
 215:                                              ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
   store i64 0, ptr %12, align 8, !annotation !8
-  %216 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.75) #7
+  %216 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.75) #8
   %217 = icmp eq i32 %68, 0
-  br i1 %217, label %218, label %272
+  br i1 %217, label %218, label %262
 
 218:                                              ; preds = %215
-  %219 = load i32, ptr %21, align 8
-  %220 = load i32, ptr %23, align 4
-  %221 = add i32 %66, %220
-  %222 = sub i32 %219, %221
-  %223 = icmp slt i32 %222, 8
-  br i1 %223, label %224, label %skb_header_pointer.exit, !prof !9
+  %219 = call fastcc ptr @skb_header_pointer(ptr noundef %3, i32 noundef %66, ptr noundef nonnull %12)
+  %220 = icmp eq ptr %219, null
+  br i1 %220, label %221, label %225
 
-224:                                              ; preds = %218
-  br i1 %62, label %skb_header_pointer.exit.thread, label %225
+221:                                              ; preds = %218
+  %222 = load i32, ptr %21, align 8
+  %223 = sub i32 %222, %66
+  %224 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %223) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  br label %316
 
-225:                                              ; preds = %224
-  %226 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %12, i32 noundef 8) #7
-  %227 = icmp slt i32 %226, 0
-  br i1 %227, label %.skb_header_pointer.exit.thread_crit_edge, label %skb_header_pointer.exit.thread38, !prof !9
-
-.skb_header_pointer.exit.thread_crit_edge:        ; preds = %225
-  %.pre142 = load i32, ptr %21, align 8
-  br label %skb_header_pointer.exit.thread
-
-skb_header_pointer.exit:                          ; preds = %218
-  %228 = load ptr, ptr %61, align 8
-  %229 = sext i32 %66 to i64
-  %230 = getelementptr i8, ptr %228, i64 %229
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %skb_header_pointer.exit.thread, label %skb_header_pointer.exit.thread38
-
-skb_header_pointer.exit.thread:                   ; preds = %.skb_header_pointer.exit.thread_crit_edge, %224, %skb_header_pointer.exit
-  %232 = phi i32 [ %.pre142, %.skb_header_pointer.exit.thread_crit_edge ], [ %219, %224 ], [ %219, %skb_header_pointer.exit ]
-  %233 = sub i32 %232, %66
-  %234 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %233) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  br label %326
-
-skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_pointer.exit
-  %235 = phi ptr [ %230, %skb_header_pointer.exit ], [ %12, %225 ]
-  %236 = load i8, ptr %235, align 4
-  %237 = zext i8 %236 to i32
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 1
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i32
-  %241 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %237, i32 noundef %240) #7
-  %242 = load i8, ptr %235, align 4
-  switch i8 %242, label %272 [
-    i8 -128, label %243
-    i8 -127, label %243
-    i8 3, label %258
-    i8 2, label %258
-    i8 1, label %258
-    i8 4, label %253
+225:                                              ; preds = %218
+  %226 = load i8, ptr %219, align 4
+  %227 = zext i8 %226 to i32
+  %228 = getelementptr inbounds nuw i8, ptr %219, i64 1
+  %229 = load i8, ptr %228, align 1
+  %230 = zext i8 %229 to i32
+  %231 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %227, i32 noundef %230) #8
+  %232 = load i8, ptr %219, align 4
+  switch i8 %232, label %262 [
+    i8 -128, label %233
+    i8 -127, label %233
+    i8 3, label %248
+    i8 2, label %248
+    i8 1, label %248
+    i8 4, label %243
   ]
 
-243:                                              ; preds = %skb_header_pointer.exit.thread38, %skb_header_pointer.exit.thread38
-  %244 = getelementptr inbounds nuw i8, ptr %235, i64 4
-  %245 = load i16, ptr %244, align 4
-  %246 = call i16 @llvm.bswap.i16(i16 %245)
-  %247 = zext i16 %246 to i32
-  %248 = getelementptr inbounds nuw i8, ptr %235, i64 6
-  %249 = load i16, ptr %248, align 2
-  %250 = call i16 @llvm.bswap.i16(i16 %249)
-  %251 = zext i16 %250 to i32
-  %252 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %247, i32 noundef %251) #7
-  br label %272
+233:                                              ; preds = %225, %225
+  %234 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  %235 = load i16, ptr %234, align 4
+  %236 = call i16 @llvm.bswap.i16(i16 %235)
+  %237 = zext i16 %236 to i32
+  %238 = getelementptr inbounds nuw i8, ptr %219, i64 6
+  %239 = load i16, ptr %238, align 2
+  %240 = call i16 @llvm.bswap.i16(i16 %239)
+  %241 = zext i16 %240 to i32
+  %242 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %237, i32 noundef %241) #8
+  br label %262
 
-253:                                              ; preds = %skb_header_pointer.exit.thread38
-  %254 = getelementptr inbounds nuw i8, ptr %235, i64 4
-  %255 = load i32, ptr %254, align 4
-  %256 = call i32 @llvm.bswap.i32(i32 %255)
-  %257 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.76, i32 noundef %256) #7
-  br label %258
+243:                                              ; preds = %225
+  %244 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  %245 = load i32, ptr %244, align 4
+  %246 = call i32 @llvm.bswap.i32(i32 %245)
+  %247 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.76, i32 noundef %246) #8
+  br label %248
 
-258:                                              ; preds = %253, %skb_header_pointer.exit.thread38, %skb_header_pointer.exit.thread38, %skb_header_pointer.exit.thread38
-  %259 = icmp eq i32 %5, 0
-  br i1 %259, label %264, label %260
+248:                                              ; preds = %243, %225, %225, %225
+  %249 = icmp eq i32 %5, 0
+  br i1 %249, label %254, label %250
 
-260:                                              ; preds = %258
-  %261 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.29) #7
-  %262 = add i32 %66, 8
-  call fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %262, i32 noundef 0)
-  %263 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.30) #7
-  br label %264
+250:                                              ; preds = %248
+  %251 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.29) #8
+  %252 = add i32 %66, 8
+  call fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %252, i32 noundef 0)
+  %253 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.30) #8
+  br label %254
 
-264:                                              ; preds = %260, %258
-  %265 = load i8, ptr %235, align 4
-  %266 = icmp eq i8 %265, 2
-  br i1 %266, label %267, label %272
+254:                                              ; preds = %250, %248
+  %255 = load i8, ptr %219, align 4
+  %256 = icmp eq i8 %255, 2
+  br i1 %256, label %257, label %262
 
-267:                                              ; preds = %264
-  %268 = getelementptr inbounds nuw i8, ptr %235, i64 4
-  %269 = load i32, ptr %268, align 4
-  %270 = call i32 @llvm.bswap.i32(i32 %269)
-  %271 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %270) #7
-  br label %272
+257:                                              ; preds = %254
+  %258 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  %259 = load i32, ptr %258, align 4
+  %260 = call i32 @llvm.bswap.i32(i32 %259)
+  %261 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %260) #8
+  br label %262
 
-272:                                              ; preds = %267, %264, %243, %skb_header_pointer.exit.thread38, %215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  br label %276
+262:                                              ; preds = %257, %254, %233, %225, %215
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  br label %266
 
-273:                                              ; preds = %65
-  %274 = zext i8 %67 to i32
-  %275 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %274) #7
-  br label %276
+263:                                              ; preds = %65
+  %264 = zext i8 %67 to i32
+  %265 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %264) #8
+  br label %266
 
-276:                                              ; preds = %273, %272, %212, %209
-  %277 = and i32 %20, 8
-  %278 = icmp ne i32 %277, 0
-  %279 = icmp ne i32 %5, 0
-  %280 = and i1 %279, %278
-  br i1 %280, label %281, label %320
+266:                                              ; preds = %263, %262, %212, %209
+  %267 = and i32 %20, 8
+  %268 = icmp ne i32 %267, 0
+  %269 = icmp ne i32 %5, 0
+  %270 = and i1 %269, %268
+  br i1 %270, label %271, label %310
 
-281:                                              ; preds = %276
-  %282 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %283 = load ptr, ptr %282, align 8
-  %284 = icmp eq ptr %283, null
-  br i1 %284, label %.thread40, label %285
+271:                                              ; preds = %266
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %273 = load ptr, ptr %272, align 8
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %.thread34, label %275
 
-285:                                              ; preds = %281
-  %286 = getelementptr inbounds nuw i8, ptr %283, i64 18
-  %287 = load volatile i8, ptr %286, align 2
-  %288 = zext nneg i8 %287 to i32
-  %289 = shl nuw i32 1, %288
-  %290 = and i32 %289, -4161
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %.thread40, label %292
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 18
+  %277 = load volatile i8, ptr %276, align 2
+  %278 = zext nneg i8 %277 to i32
+  %279 = shl nuw i32 1, %278
+  %280 = and i32 %279, -4161
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %.thread34, label %282
 
-292:                                              ; preds = %285
-  %293 = getelementptr inbounds nuw i8, ptr %283, i64 48
-  %294 = load ptr, ptr %293, align 8
-  %295 = icmp eq ptr %294, %0
-  br i1 %295, label %296, label %.thread40
+282:                                              ; preds = %275
+  %283 = getelementptr inbounds nuw i8, ptr %273, i64 48
+  %284 = load ptr, ptr %283, align 8
+  %285 = icmp eq ptr %284, %0
+  br i1 %285, label %286, label %.thread34
 
-296:                                              ; preds = %292
-  %297 = getelementptr inbounds nuw i8, ptr %283, i64 536
-  call void @_raw_read_lock_bh(ptr noundef nonnull %297) #7
-  %298 = getelementptr inbounds nuw i8, ptr %283, i64 624
-  %299 = load ptr, ptr %298, align 8
-  %300 = icmp eq ptr %299, null
-  br i1 %300, label %319, label %301
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds nuw i8, ptr %273, i64 536
+  call void @_raw_read_lock_bh(ptr noundef nonnull %287) #8
+  %288 = getelementptr inbounds nuw i8, ptr %273, i64 624
+  %289 = load ptr, ptr %288, align 8
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %309, label %291
 
-301:                                              ; preds = %296
-  %302 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %303 = load ptr, ptr %302, align 16
-  %304 = icmp eq ptr %303, null
-  br i1 %304, label %319, label %305
+291:                                              ; preds = %286
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
+  %293 = load ptr, ptr %292, align 16
+  %294 = icmp eq ptr %293, null
+  br i1 %294, label %309, label %295
 
-305:                                              ; preds = %301
-  %306 = getelementptr inbounds nuw i8, ptr %303, i64 112
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 32
-  %309 = load i32, ptr %308, align 8
-  %310 = icmp eq i32 %309, -1
-  %311 = load i32, ptr @overflowuid, align 4
-  %312 = select i1 %310, i32 %311, i32 %309
-  %313 = getelementptr inbounds nuw i8, ptr %307, i64 36
-  %314 = load i32, ptr %313, align 4
-  %315 = icmp eq i32 %314, -1
-  %316 = load i32, ptr @overflowgid, align 4
-  %317 = select i1 %315, i32 %316, i32 %314
-  %318 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.55, i32 noundef %312, i32 noundef %317) #7
-  br label %319
+295:                                              ; preds = %291
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 112
+  %297 = load ptr, ptr %296, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 32
+  %299 = load i32, ptr %298, align 8
+  %300 = icmp eq i32 %299, -1
+  %301 = load i32, ptr @overflowuid, align 4
+  %302 = select i1 %300, i32 %301, i32 %299
+  %303 = getelementptr inbounds nuw i8, ptr %297, i64 36
+  %304 = load i32, ptr %303, align 4
+  %305 = icmp eq i32 %304, -1
+  %306 = load i32, ptr @overflowgid, align 4
+  %307 = select i1 %305, i32 %306, i32 %304
+  %308 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.55, i32 noundef %302, i32 noundef %307) #8
+  br label %309
 
-319:                                              ; preds = %305, %301, %296
-  call void @_raw_read_unlock_bh(ptr noundef nonnull %297) #7
-  br label %.thread40
+309:                                              ; preds = %295, %291, %286
+  call void @_raw_read_unlock_bh(ptr noundef nonnull %287) #8
+  br label %.thread34
 
-320:                                              ; preds = %276
-  br i1 %279, label %.thread40, label %326
+310:                                              ; preds = %266
+  br i1 %269, label %.thread34, label %316
 
-.thread40:                                        ; preds = %281, %285, %292, %319, %320
-  %321 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %322 = load i32, ptr %321, align 4
-  %323 = icmp eq i32 %322, 0
-  br i1 %323, label %326, label %324
+.thread34:                                        ; preds = %271, %275, %282, %309, %310
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 164
+  %312 = load i32, ptr %311, align 4
+  %313 = icmp eq i32 %312, 0
+  br i1 %313, label %316, label %314
 
-324:                                              ; preds = %.thread40
-  %325 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %322) #7
-  br label %326
+314:                                              ; preds = %.thread34
+  %315 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %312) #8
+  br label %316
 
-326:                                              ; preds = %.thread36, %324, %.thread40, %320, %skb_header_pointer.exit.thread, %212, %209, %.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
+.critedge:                                        ; preds = %.thread24, %160, %.thread32, %208, %207, %128, %129, %.thread18, %188
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #8
+  br label %316
+
+316:                                              ; preds = %.critedge, %314, %.thread34, %310, %221, %212, %209, %.thread
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
   ret void
 }
 
@@ -2392,7 +2402,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   br i1 %15, label %16, label %nf_log_ip_packet.exit
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @nf_log_buf_open() #7
+  %17 = tail call ptr @nf_log_buf_open() #8
   %18 = icmp eq ptr %6, null
   %19 = select i1 %18, ptr @default_loginfo, ptr %6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -2405,7 +2415,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   %27 = icmp eq ptr %5, null
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %29 = select i1 %27, ptr @.str.4, ptr %28
-  %30 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %17, ptr noundef nonnull @.str.3, i32 noundef %23, ptr noundef %7, ptr noundef nonnull %26, ptr noundef nonnull %29) #7
+  %30 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %17, ptr noundef nonnull @.str.3, i32 noundef %23, ptr noundef %7, ptr noundef nonnull %26, ptr noundef nonnull %29) #8
   br i1 %24, label %32, label %31
 
 31:                                               ; preds = %16
@@ -2426,7 +2436,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   %43 = sub i64 %41, %42
   %44 = trunc i64 %43 to i32
   tail call fastcc void @dump_ipv4_packet(ptr noundef readnone %0, ptr noundef %17, ptr noundef nonnull %19, ptr noundef %3, i32 noundef %44)
-  tail call void @nf_log_buf_close(ptr noundef %17) #7
+  tail call void @nf_log_buf_close(ptr noundef %17) #8
   br label %nf_log_ip_packet.exit
 
 45:                                               ; preds = %8
@@ -2441,7 +2451,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   br i1 %50, label %51, label %nf_log_ip_packet.exit
 
 51:                                               ; preds = %46
-  %52 = tail call ptr @nf_log_buf_open() #7
+  %52 = tail call ptr @nf_log_buf_open() #8
   %53 = icmp eq ptr %6, null
   %54 = select i1 %53, ptr @default_loginfo, ptr %6
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -2454,7 +2464,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   %62 = icmp eq ptr %5, null
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %64 = select i1 %62, ptr @.str.4, ptr %63
-  %65 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %52, ptr noundef nonnull @.str.3, i32 noundef %58, ptr noundef %7, ptr noundef nonnull %61, ptr noundef nonnull %64) #7
+  %65 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %52, ptr noundef nonnull @.str.3, i32 noundef %58, ptr noundef %7, ptr noundef nonnull %61, ptr noundef nonnull %64) #8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 180
@@ -2468,7 +2478,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   %76 = sub i64 %74, %75
   %77 = trunc i64 %76 to i32
   tail call fastcc void @dump_arp_packet(ptr noundef %52, ptr noundef nonnull %54, ptr noundef %3, i32 noundef %77)
-  tail call void @nf_log_buf_close(ptr noundef %52) #7
+  tail call void @nf_log_buf_close(ptr noundef %52) #8
   br label %nf_log_ip_packet.exit
 
 78:                                               ; preds = %8
@@ -2479,7 +2489,7 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   br i1 %82, label %83, label %nf_log_ip_packet.exit
 
 83:                                               ; preds = %78
-  %84 = tail call ptr @nf_log_buf_open() #7
+  %84 = tail call ptr @nf_log_buf_open() #8
   %85 = icmp eq ptr %6, null
   %86 = select i1 %85, ptr @default_loginfo, ptr %6
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -2492,9 +2502,9 @@ define internal void @nf_log_netdev_packet(ptr noundef readnone captures(address
   %94 = icmp eq ptr %5, null
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %96 = select i1 %94, ptr @.str.4, ptr %95
-  %97 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %84, ptr noundef nonnull @.str.3, i32 noundef %90, ptr noundef %7, ptr noundef nonnull %93, ptr noundef nonnull %96) #7
+  %97 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %84, ptr noundef nonnull @.str.3, i32 noundef %90, ptr noundef %7, ptr noundef nonnull %93, ptr noundef nonnull %96) #8
   tail call fastcc void @dump_mac_header(ptr noundef %84, ptr noundef nonnull %86, ptr noundef %3)
-  tail call void @nf_log_buf_close(ptr noundef %84) #7
+  tail call void @nf_log_buf_close(ptr noundef %84) #8
   br label %nf_log_ip_packet.exit
 
 nf_log_ip_packet.exit:                            ; preds = %32, %11, %83, %78, %51, %46, %45
@@ -2508,8 +2518,9 @@ attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #4 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #7 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

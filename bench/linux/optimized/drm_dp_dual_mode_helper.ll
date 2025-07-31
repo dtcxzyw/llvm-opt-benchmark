@@ -372,12 +372,7 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = call noalias align 8 dereferenceable_or_null(30) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 30) #11
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %18
-
-.thread:                                          ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
-  br label %25
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -398,7 +393,12 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
     i8 0, label %25
   ]
 
-25:                                               ; preds = %.thread, %24, %24, %18
+.critedge:                                        ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  br label %25
+
+25:                                               ; preds = %.critedge, %24, %24, %18
   %26 = icmp eq ptr %0, null
   br i1 %26, label %30, label %27
 

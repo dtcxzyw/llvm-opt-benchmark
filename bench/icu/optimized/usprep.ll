@@ -115,7 +115,7 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %22, %17
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 8, !tbaa !19
   call void @umtx_unlock_77(ptr noundef nonnull @_ZL11usprepMutex)
-  br label %194
+  br label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i
 
 35:                                               ; preds = %27
   call void @umtx_unlock_77(ptr noundef nonnull @_ZL11usprepMutex)
@@ -133,10 +133,10 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %22, %17
 
 38:                                               ; preds = %.noexc.i
   store i32 7, ptr %2, align 4, !tbaa !3
-  br label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
+  br label %.critedge.i
 
 39:                                               ; preds = %114, %.invoke.i, %.noexc66.i, %.noexc65.i, %61, %55, %.noexc61.i, %47, %43, %37, %35
-  %.sroa.090.0.i = phi ptr [ %36, %114 ], [ %36, %.noexc66.i ], [ %36, %.noexc65.i ], [ %36, %61 ], [ %36, %55 ], [ %36, %.noexc61.i ], [ %36, %47 ], [ %36, %43 ], [ null, %37 ], [ null, %35 ], [ %36, %.invoke.i ]
+  %.sroa.091.0.i = phi ptr [ %36, %114 ], [ %36, %.noexc66.i ], [ %36, %.noexc65.i ], [ %36, %61 ], [ %36, %55 ], [ %36, %.noexc61.i ], [ %36, %47 ], [ %36, %43 ], [ null, %37 ], [ null, %35 ], [ %36, %.invoke.i ]
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i
@@ -147,7 +147,7 @@ _ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
   %41 = load i32, ptr %2, align 4, !tbaa !3
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %43, label %.thread104.i
+  br i1 %42, label %43, label %.thread107.i
 
 43:                                               ; preds = %_ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i
   %44 = invoke ptr @udata_openChoice_77(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef nonnull @_ZL17isSPrepAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %2)
@@ -156,7 +156,7 @@ _ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i:
 .noexc60.i:                                       ; preds = %43
   %45 = load i32, ptr %2, align 4, !tbaa !3
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %47, label %.thread104.i
+  br i1 %46, label %47, label %.thread107.i
 
 47:                                               ; preds = %.noexc60.i
   %48 = invoke ptr @udata_getMemory_77(ptr noundef %44)
@@ -270,7 +270,7 @@ _ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i:
 .invoke.i:                                        ; preds = %110, %.noexc67.i, %.noexc62.i
   %111 = phi ptr [ %.038.i.i, %110 ], [ %44, %.noexc62.i ], [ %.038.i.i, %.noexc67.i ]
   invoke void @udata_close_77(ptr noundef %111)
-          to label %.thread104.i unwind label %39
+          to label %.thread107.i unwind label %39
 
 112:                                              ; preds = %106, %70
   %113 = getelementptr inbounds nuw i8, ptr %36, i64 124
@@ -287,22 +287,22 @@ _ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i:
   invoke void @udata_close_77(ptr noundef nonnull %.038.i.i)
           to label %115 unwind label %39
 
-.thread104.i:                                     ; preds = %.invoke.i, %.noexc60.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i
+.thread107.i:                                     ; preds = %.invoke.i, %.noexc60.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileE23allocateInsteadAndResetEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
-  br label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
+  br label %.critedge.i
 
 115:                                              ; preds = %114
   %.pre.i.i = load i8, ptr %113, align 4, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
   %.not49.i = icmp eq i8 %.pre.i.i, 0
-  br i1 %.not49.i, label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i, label %116
+  br i1 %.not49.i, label %.critedge.i, label %116
 
 116:                                              ; preds = %115
   %.pre.i = load i32, ptr %2, align 4, !tbaa !3
   %117 = icmp slt i32 %.pre.i, 1
-  br i1 %117, label %118, label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
+  br i1 %117, label %118, label %.critedge.i
 
 118:                                              ; preds = %116, %.thread.i
   %119 = getelementptr inbounds nuw i8, ptr %36, i64 28
@@ -364,7 +364,7 @@ _ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread
           to label %_ZL13usprep_unloadP18UStringPrepProfile.exit.i unwind label %143
 
 143:                                              ; preds = %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i, %165, %154, %150, %149, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i, %136, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.i, %128, %118
-  %.sroa.090.3.i = phi ptr [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ], [ %.sroa.090.5.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ null, %165 ], [ %36, %154 ], [ %36, %150 ], [ %36, %149 ], [ %36, %136 ], [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.i ], [ %36, %128 ], [ %36, %118 ]
+  %.sroa.091.2.i = phi ptr [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ], [ %.sroa.091.4.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ null, %165 ], [ %36, %154 ], [ %36, %150 ], [ %36, %149 ], [ %36, %136 ], [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.i ], [ %36, %128 ], [ %36, %118 ]
   %.sroa.0.0.i = phi ptr [ %127, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ], [ %.sroa.0.2.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ null, %165 ], [ %127, %154 ], [ %127, %150 ], [ %127, %149 ], [ %127, %136 ], [ %127, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.i ], [ null, %128 ], [ null, %118 ]
   %144 = landingpad { ptr, i32 }
           cleanup
@@ -424,120 +424,123 @@ _ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread
           to label %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i unwind label %143
 
 _ZL13usprep_unloadP18UStringPrepProfile.exit77.i: ; preds = %165, %154
-  %.sroa.090.5.i = phi ptr [ null, %165 ], [ %36, %154 ]
+  %.sroa.091.4.i = phi ptr [ null, %165 ], [ %36, %154 ]
   %.sroa.0.2.i = phi ptr [ null, %165 ], [ %127, %154 ]
   %.337.i = phi ptr [ %36, %165 ], [ %152, %154 ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZL11usprepMutex)
           to label %_ZL13usprep_unloadP18UStringPrepProfile.exit.i unwind label %143
 
 _ZL13usprep_unloadP18UStringPrepProfile.exit.i:   ; preds = %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i
-  %.sroa.090.4.i = phi ptr [ %.sroa.090.5.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
+  %.sroa.091.3.i = phi ptr [ %.sroa.091.4.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ %36, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
   %.sroa.0.1.i = phi ptr [ %.sroa.0.2.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ %127, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
-  %.236.i = phi ptr [ %.337.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ null, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
-  %169 = phi i1 [ true, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ false, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
-  %170 = load ptr, ptr %8, align 8, !tbaa !33
-  invoke void @uprv_free_77(ptr noundef %170)
-          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit78.i unwind label %171
+  %spec.select.i = phi ptr [ %.337.i, %_ZL13usprep_unloadP18UStringPrepProfile.exit77.i ], [ null, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyE23allocateInsteadAndResetEi.exit.thread.i ]
+  %169 = load ptr, ptr %8, align 8, !tbaa !33
+  invoke void @uprv_free_77(ptr noundef %169)
+          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit78.i unwind label %170
 
-171:                                              ; preds = %_ZL13usprep_unloadP18UStringPrepProfile.exit.i
-  %172 = landingpad { ptr, i32 }
+170:                                              ; preds = %_ZL13usprep_unloadP18UStringPrepProfile.exit.i
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #18
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #18
   unreachable
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit78.i:          ; preds = %_ZL13usprep_unloadP18UStringPrepProfile.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  %174 = load ptr, ptr %7, align 8, !tbaa !33
-  invoke void @uprv_free_77(ptr noundef %174)
-          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i unwind label %175
+  %173 = load ptr, ptr %7, align 8, !tbaa !33
+  invoke void @uprv_free_77(ptr noundef %173)
+          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i unwind label %174
 
-175:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit78.i
-  %176 = landingpad { ptr, i32 }
+174:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit78.i
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #18
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #18
   unreachable
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit79.i:          ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit78.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   invoke void @uprv_free_77(ptr noundef %.sroa.0.1.i)
-          to label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i unwind label %178
+          to label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i unwind label %177
 
-178:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i
-  %179 = landingpad { ptr, i32 }
+177:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i
+  %178 = landingpad { ptr, i32 }
           catch ptr null
-  %180 = extractvalue { ptr, i32 } %179, 0
-  call void @__clang_call_terminate(ptr %180) #18
+  %179 = extractvalue { ptr, i32 } %178, 0
+  call void @__clang_call_terminate(ptr %179) #18
   unreachable
 
-_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i: ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i, %116, %115, %.thread104.i, %38
-  %.sroa.090.1.i = phi ptr [ null, %38 ], [ %36, %115 ], [ %36, %116 ], [ %36, %.thread104.i ], [ %.sroa.090.4.i, %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i ]
-  %.135.i = phi ptr [ null, %38 ], [ null, %115 ], [ null, %116 ], [ null, %.thread104.i ], [ %.236.i, %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i ]
-  %.032.i = phi i1 [ false, %38 ], [ false, %115 ], [ false, %116 ], [ false, %.thread104.i ], [ %169, %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i ]
-  invoke void @uprv_free_77(ptr noundef %.sroa.090.1.i)
-          to label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit.i unwind label %181
+_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i: ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit79.i
+  invoke void @uprv_free_77(ptr noundef %.sroa.091.3.i)
+          to label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i unwind label %180
 
-181:                                              ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
-  %182 = landingpad { ptr, i32 }
+180:                                              ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %183 = extractvalue { ptr, i32 } %182, 0
-  call void @__clang_call_terminate(ptr %183) #18
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #18
   unreachable
-
-_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit.i: ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i
-  %spec.select.i = select i1 %.032.i, ptr %.135.i, ptr null
-  br label %194
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit.i:            ; preds = %143
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  %184 = load ptr, ptr %7, align 8, !tbaa !33
-  invoke void @uprv_free_77(ptr noundef %184)
-          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i unwind label %185
+  %183 = load ptr, ptr %7, align 8, !tbaa !33
+  invoke void @uprv_free_77(ptr noundef %183)
+          to label %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i unwind label %184
 
-185:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit.i
-  %186 = landingpad { ptr, i32 }
+184:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit.i
+  %185 = landingpad { ptr, i32 }
           catch ptr null
-  %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #18
+  %186 = extractvalue { ptr, i32 } %185, 0
+  call void @__clang_call_terminate(ptr %186) #18
   unreachable
 
 _ZN6icu_7711LocalMemoryIcED2Ev.exit80.i:          ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   invoke void @uprv_free_77(ptr noundef %.sroa.0.0.i)
-          to label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i unwind label %188
+          to label %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i unwind label %187
 
-188:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i
-  %189 = landingpad { ptr, i32 }
+187:                                              ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i
+  %188 = landingpad { ptr, i32 }
           catch ptr null
-  %190 = extractvalue { ptr, i32 } %189, 0
-  call void @__clang_call_terminate(ptr %190) #18
+  %189 = extractvalue { ptr, i32 } %188, 0
+  call void @__clang_call_terminate(ptr %189) #18
   unreachable
 
 _ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i: ; preds = %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i, %39
-  %.sroa.090.2.i = phi ptr [ %.sroa.090.0.i, %39 ], [ %.sroa.090.3.i, %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i ]
+  %.sroa.091.1.i = phi ptr [ %.sroa.091.0.i, %39 ], [ %.sroa.091.2.i, %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %144, %_ZN6icu_7711LocalMemoryIcED2Ev.exit80.i ]
-  invoke void @uprv_free_77(ptr noundef %.sroa.090.2.i)
-          to label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit82.i unwind label %191
+  invoke void @uprv_free_77(ptr noundef %.sroa.091.1.i)
+          to label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit82.i unwind label %190
 
-191:                                              ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i
-  %192 = landingpad { ptr, i32 }
+190:                                              ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i
+  %191 = landingpad { ptr, i32 }
           catch ptr null
-  %193 = extractvalue { ptr, i32 } %192, 0
-  call void @__clang_call_terminate(ptr %193) #18
+  %192 = extractvalue { ptr, i32 } %191, 0
+  call void @__clang_call_terminate(ptr %192) #18
   unreachable
 
 _ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit82.i: ; preds = %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit81.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.i
 
-194:                                              ; preds = %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit.i, %31
-  %.341.i = phi ptr [ %30, %31 ], [ %spec.select.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit.i ]
+.critedge.i:                                      ; preds = %116, %115, %.thread107.i, %38
+  invoke void @uprv_free_77(ptr noundef %36)
+          to label %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i unwind label %193
+
+193:                                              ; preds = %.critedge.i
+  %194 = landingpad { ptr, i32 }
+          catch ptr null
+  %195 = extractvalue { ptr, i32 } %194, 0
+  call void @__clang_call_terminate(ptr %195) #18
+  unreachable
+
+_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i: ; preds = %.critedge.i, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i, %31
+  %.341.i = phi ptr [ %30, %31 ], [ null, %.critedge.i ], [ %spec.select.i, %_ZN6icu_7711LocalMemoryI14UStringPrepKeyED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   br label %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit
 
-_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit:   ; preds = %194, %_ZL9initCacheP10UErrorCode.exit.i, %25, %3, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.341.i, %194 ], [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ null, %25 ]
+_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit:   ; preds = %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i, %_ZL9initCacheP10UErrorCode.exit.i, %25, %3, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %.341.i, %_ZN6icu_7711LocalMemoryI18UStringPrepProfileED2Ev.exit83.i ], [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ null, %25 ]
   ret ptr %.0
 }
 

@@ -984,41 +984,41 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
   %28 = tail call i64 @GetCurrentTimestamp() #18
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread, label %.lr.ph102
+  br i1 %.not, label %.thread110, label %.lr.ph99
 
-.lr.ph102:                                        ; preds = %13
+.lr.ph99:                                         ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %31 = load i32, ptr %29, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph121, label %._crit_edge
+  br i1 %32, label %.lr.ph119, label %.critedge
 
-._crit_edge:                                      ; preds = %92, %.lr.ph102
-  %.06499.lcssa = phi ptr [ null, %.lr.ph102 ], [ %.2, %92 ]
-  %.06698.lcssa = phi i1 [ false, %.lr.ph102 ], [ %.167, %92 ]
-  %.not80 = icmp eq ptr %.06499.lcssa, null
-  br i1 %.not80, label %120, label %96
-
-.lr.ph121:                                        ; preds = %.lr.ph102, %92
-  %.06698120 = phi i1 [ %.167, %92 ], [ false, %.lr.ph102 ]
-  %.06499119 = phi ptr [ %.2, %92 ], [ null, %.lr.ph102 ]
-  %.062100118 = phi i1 [ %.163, %92 ], [ false, %.lr.ph102 ]
-  %.061101117 = phi i1 [ %.1, %92 ], [ false, %.lr.ph102 ]
-  %indvars.iv116 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph102 ]
+.lr.ph119:                                        ; preds = %.lr.ph99, %92
+  %.06695118 = phi i1 [ %.167, %92 ], [ false, %.lr.ph99 ]
+  %.06496117 = phi ptr [ %.2, %92 ], [ null, %.lr.ph99 ]
+  %.06297116 = phi i1 [ %.163, %92 ], [ false, %.lr.ph99 ]
+  %.06198115 = phi i1 [ %.1, %92 ], [ false, %.lr.ph99 ]
+  %indvars.iv114 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph99 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv116
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv114
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %37, i32 noundef %spec.select) #18
   br i1 %38, label %39, label %47
 
-39:                                               ; preds = %.lr.ph121
-  %40 = icmp eq ptr %.06499119, null
+.critedge:                                        ; preds = %92, %.lr.ph99
+  %.06496.lcssa = phi ptr [ null, %.lr.ph99 ], [ %.2, %92 ]
+  %.06695.lcssa = phi i1 [ false, %.lr.ph99 ], [ %.167, %92 ]
+  %.not80 = icmp eq ptr %.06496.lcssa, null
+  br i1 %.not80, label %120, label %96
+
+39:                                               ; preds = %.lr.ph119
+  %40 = icmp eq ptr %.06496117, null
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %36, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.06499119, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.06496117, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %42, i32 noundef %44) #18
   br i1 %45, label %46, label %92
@@ -1026,8 +1026,8 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
 46:                                               ; preds = %41, %39
   br label %92
 
-47:                                               ; preds = %.lr.ph121
-  br i1 %.061101117, label %92, label %48
+47:                                               ; preds = %.lr.ph119
+  br i1 %.06198115, label %92, label %48
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 20
@@ -1036,12 +1036,12 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
-  %53 = icmp eq ptr %.06499119, null
+  %53 = icmp eq ptr %.06496117, null
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %52
   %55 = load i32, ptr %49, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.06499119, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.06496117, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %55, i32 noundef %57) #18
   br i1 %58, label %59, label %92
@@ -1050,7 +1050,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
   br label %92
 
 60:                                               ; preds = %48
-  br i1 %.062100118, label %92, label %61
+  br i1 %.06297116, label %92, label %61
 
 61:                                               ; preds = %60
   %62 = load i32, ptr %35, align 8
@@ -1063,69 +1063,69 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
 65:                                               ; preds = %61
   %66 = load ptr, ptr @DatabaseList, align 8
   %.not82 = icmp eq ptr %66, null
-  %.not8395107 = icmp eq ptr %66, @DatabaseList
-  %.not8395 = or i1 %.not82, %.not8395107
-  br i1 %.not8395, label %.critedge, label %.lr.ph
+  %.not8392104 = icmp eq ptr %66, @DatabaseList
+  %.not8392 = or i1 %.not82, %.not8392104
+  br i1 %.not8392, label %.critedge90, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
   %67 = load i32, ptr %35, align 8
   br label %68
 
 68:                                               ; preds = %.lr.ph, %select.unfold
-  %.sroa.0.096 = phi ptr [ %66, %.lr.ph ], [ %80, %select.unfold ]
-  %69 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 -24
+  %.sroa.0.093 = phi ptr [ %66, %.lr.ph ], [ %80, %select.unfold ]
+  %69 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 -24
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, %67
   br i1 %71, label %72, label %select.unfold
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 -16
+  %73 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 -16
   %74 = load i64, ptr %73, align 8
   %75 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %74, i64 noundef %28, i32 noundef 0) #18
-  br i1 %75, label %.critedge, label %.thread89
+  br i1 %75, label %.critedge90, label %.thread
 
-.thread89:                                        ; preds = %72
+.thread:                                          ; preds = %72
   %76 = load i64, ptr %73, align 8
   %77 = load i32, ptr @autovacuum_naptime, align 4
   %78 = mul i32 %77, 1000
   %79 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %28, i64 noundef %76, i32 noundef %78) #18
-  br i1 %79, label %.critedge, label %92
+  br i1 %79, label %.critedge90, label %92
 
 select.unfold:                                    ; preds = %68
-  %80 = load ptr, ptr %.sroa.0.096, align 8
+  %80 = load ptr, ptr %.sroa.0.093, align 8
   %.not83 = icmp eq ptr %80, @DatabaseList
-  br i1 %.not83, label %.critedge, label %68, !llvm.loop !10
+  br i1 %.not83, label %.critedge90, label %68, !llvm.loop !10
 
-.critedge:                                        ; preds = %select.unfold, %65, %72, %.thread89
-  %81 = icmp eq ptr %.06499119, null
+.critedge90:                                      ; preds = %select.unfold, %65, %72, %.thread
+  %81 = icmp eq ptr %.06496117, null
   br i1 %81, label %91, label %82
 
-82:                                               ; preds = %.critedge
+82:                                               ; preds = %.critedge90
   %83 = load ptr, ptr %64, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.06499119, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.06496117, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %89 = load i64, ptr %88, align 8
   %90 = icmp slt i64 %85, %89
   br i1 %90, label %91, label %92
 
-91:                                               ; preds = %82, %.critedge
+91:                                               ; preds = %82, %.critedge90
   br label %92
 
-92:                                               ; preds = %82, %91, %.thread89, %61, %60, %54, %59, %47, %41, %46
-  %.167 = phi i1 [ %.06698120, %46 ], [ %.06698120, %41 ], [ %.06698120, %47 ], [ %.06698120, %59 ], [ %.06698120, %54 ], [ %.06698120, %60 ], [ %.06698120, %61 ], [ true, %.thread89 ], [ false, %91 ], [ false, %82 ]
-  %.2 = phi ptr [ %35, %46 ], [ %.06499119, %41 ], [ %.06499119, %47 ], [ %35, %59 ], [ %.06499119, %54 ], [ %.06499119, %60 ], [ %.06499119, %61 ], [ %.06499119, %.thread89 ], [ %35, %91 ], [ %.06499119, %82 ]
-  %.163 = phi i1 [ %.062100118, %46 ], [ %.062100118, %41 ], [ %.062100118, %47 ], [ true, %59 ], [ true, %54 ], [ true, %60 ], [ false, %61 ], [ false, %.thread89 ], [ false, %91 ], [ false, %82 ]
-  %.1 = phi i1 [ true, %46 ], [ true, %41 ], [ true, %47 ], [ false, %59 ], [ false, %54 ], [ false, %60 ], [ false, %61 ], [ false, %.thread89 ], [ false, %91 ], [ false, %82 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv116, 1
+92:                                               ; preds = %82, %91, %.thread, %61, %60, %54, %59, %47, %41, %46
+  %.167 = phi i1 [ %.06695118, %46 ], [ %.06695118, %41 ], [ %.06695118, %47 ], [ %.06695118, %59 ], [ %.06695118, %54 ], [ %.06695118, %60 ], [ %.06695118, %61 ], [ true, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.2 = phi ptr [ %35, %46 ], [ %.06496117, %41 ], [ %.06496117, %47 ], [ %35, %59 ], [ %.06496117, %54 ], [ %.06496117, %60 ], [ %.06496117, %61 ], [ %.06496117, %.thread ], [ %35, %91 ], [ %.06496117, %82 ]
+  %.163 = phi i1 [ %.06297116, %46 ], [ %.06297116, %41 ], [ %.06297116, %47 ], [ true, %59 ], [ true, %54 ], [ true, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.1 = phi i1 [ true, %46 ], [ true, %41 ], [ true, %47 ], [ false, %59 ], [ false, %54 ], [ false, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv114, 1
   %93 = load i32, ptr %29, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %.lr.ph121, label %._crit_edge
+  br i1 %95, label %.lr.ph119, label %.critedge
 
-96:                                               ; preds = %._crit_edge
+96:                                               ; preds = %.critedge
   %97 = load ptr, ptr @MainLWLockArray, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2816
   %99 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 0) #18
@@ -1143,7 +1143,7 @@ select.unfold:                                    ; preds = %68
   %108 = load i32, ptr %107, align 8
   %109 = add i32 %108, -1
   store i32 %109, ptr %107, align 8
-  %110 = load i32, ptr %.06499.lcssa, align 8
+  %110 = load i32, ptr %.06496.lcssa, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 16
   store i32 %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 24
@@ -1158,24 +1158,24 @@ select.unfold:                                    ; preds = %68
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2816
   tail call void @LWLockRelease(ptr noundef nonnull %118) #18
   tail call void @SendPostmasterSignal(i32 noundef 4) #18
-  %119 = load i32, ptr %.06499.lcssa, align 8
-  br label %.thread
+  %119 = load i32, ptr %.06496.lcssa, align 8
+  br label %.thread110
 
-120:                                              ; preds = %._crit_edge
-  br i1 %.06698.lcssa, label %121, label %.thread
+120:                                              ; preds = %.critedge
+  br i1 %.06695.lcssa, label %121, label %.thread110
 
 121:                                              ; preds = %120
   tail call fastcc void @rebuild_database_list(i32 noundef 0)
-  br label %.thread
+  br label %.thread110
 
-.thread:                                          ; preds = %13, %120, %121, %96
+.thread110:                                       ; preds = %13, %120, %121, %96
   %.071 = phi i32 [ %119, %96 ], [ 0, %121 ], [ 0, %120 ], [ 0, %13 ]
   store ptr %16, ptr @CurrentMemoryContext, align 8
   tail call void @MemoryContextDelete(ptr noundef %15) #18
   br label %122
 
-122:                                              ; preds = %0, %.thread
-  %.0 = phi i32 [ %.071, %.thread ], [ 0, %0 ]
+122:                                              ; preds = %0, %.thread110
+  %.0 = phi i32 [ %.071, %.thread110 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -1221,14 +1221,14 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   %.159 = phi i32 [ 0, %1 ], [ 1, %17 ], [ 0, %15 ]
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not66 = icmp eq ptr %21, null
-  %.not6775103 = icmp eq ptr %21, @DatabaseList
-  %.not6775 = or i1 %.not66, %.not6775103
-  br i1 %.not6775, label %select.unfold._crit_edge, label %.lr.ph
+  %.not677399 = icmp eq ptr %21, @DatabaseList
+  %.not6773 = or i1 %.not66, %.not677399
+  br i1 %.not6773, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %select.unfold
-  %.277 = phi i32 [ %.3, %select.unfold ], [ %.159, %20 ]
-  %.sroa.027.076 = phi ptr [ %34, %select.unfold ], [ %21, %20 ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.027.076, i64 -24
+  %.275 = phi i32 [ %.3, %select.unfold ], [ %.159, %20 ]
+  %.sroa.027.074 = phi ptr [ %34, %select.unfold ], [ %21, %20 ]
+  %22 = getelementptr inbounds i8, ptr %.sroa.027.074, i64 -24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
   %23 = load i32, ptr %22, align 8
   %24 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %23) #18
@@ -1242,15 +1242,15 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   br i1 %29, label %select.unfold, label %30
 
 30:                                               ; preds = %26
-  %31 = add i32 %.277, 1
+  %31 = add i32 %.275, 1
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 %.277, ptr %32, align 8
+  store i32 %.275, ptr %32, align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %26, %30, %.lr.ph
-  %.3 = phi i32 [ %.277, %.lr.ph ], [ %.277, %26 ], [ %31, %30 ]
+  %.3 = phi i32 [ %.275, %.lr.ph ], [ %.275, %26 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.076, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.074, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not67 = icmp eq ptr %34, @DatabaseList
   br i1 %.not67, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -1260,77 +1260,77 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %35 = call fastcc ptr @get_database_list()
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.not68 = icmp eq ptr %35, null
-  br i1 %.not68, label %._crit_edge, label %.lr.ph80
+  br i1 %.not68, label %.critedge, label %.lr.ph78
 
-.lr.ph80:                                         ; preds = %select.unfold._crit_edge
+.lr.ph78:                                         ; preds = %select.unfold._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i32, ptr %36, align 4
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph87, label %._crit_edge
+  br i1 %39, label %.lr.ph85, label %.critedge
 
-._crit_edge:                                      ; preds = %54, %.lr.ph80, %select.unfold._crit_edge
-  %.5.lcssa = phi i32 [ %.2.lcssa, %select.unfold._crit_edge ], [ %.2.lcssa, %.lr.ph80 ], [ %.6, %54 ]
+.lr.ph85:                                         ; preds = %.lr.ph78, %54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph78 ]
+  %.57783 = phi i32 [ %.6, %54 ], [ %.2.lcssa, %.lr.ph78 ]
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  %43 = load i32, ptr %42, align 8
+  %44 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %43) #18
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %54, label %47
+
+.critedge:                                        ; preds = %54, %.lr.ph78, %select.unfold._crit_edge
+  %.5.lcssa = phi i32 [ %.2.lcssa, %select.unfold._crit_edge ], [ %.2.lcssa, %.lr.ph78 ], [ %.6, %54 ]
   store ptr %8, ptr @CurrentMemoryContext, align 8
   store ptr @DatabaseList, ptr @DatabaseList, align 8
   store ptr @DatabaseList, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
-  %40 = icmp sgt i32 %.5.lcssa, 0
-  br i1 %40, label %58, label %88
+  %46 = icmp sgt i32 %.5.lcssa, 0
+  br i1 %46, label %58, label %88
 
-.lr.ph87:                                         ; preds = %.lr.ph80, %54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph80 ]
-  %.57985 = phi i32 [ %.6, %54 ], [ %.2.lcssa, %.lr.ph80 ]
-  %41 = load ptr, ptr %37, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
-  %44 = load i32, ptr %43, align 8
-  %45 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %44) #18
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %54, label %47
-
-47:                                               ; preds = %.lr.ph87
-  %48 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %43, i32 noundef 1, ptr noundef nonnull %5) #18
+47:                                               ; preds = %.lr.ph85
+  %48 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %42, i32 noundef 1, ptr noundef nonnull %5) #18
   %49 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %47
-  %52 = add i32 %.57985, 1
+  %52 = add i32 %.57783, 1
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 %.57985, ptr %53, align 8
+  store i32 %.57783, ptr %53, align 8
   br label %54
 
-54:                                               ; preds = %47, %51, %.lr.ph87
-  %.6 = phi i32 [ %.57985, %.lr.ph87 ], [ %.57985, %47 ], [ %52, %51 ]
+54:                                               ; preds = %47, %51, %.lr.ph85
+  %.6 = phi i32 [ %.57783, %.lr.ph85 ], [ %.57783, %47 ], [ %52, %51 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %36, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph87, label %._crit_edge
+  br i1 %57, label %.lr.ph85, label %.critedge
 
-58:                                               ; preds = %._crit_edge
+58:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   %59 = zext nneg i32 %.5.lcssa to i64
   %60 = mul nuw nsw i64 %59, 40
   %61 = call ptr @palloc(i64 noundef %60) #18
   call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %14) #18
   %62 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
-  %.not7089 = icmp eq ptr %62, null
-  br i1 %.not7089, label %.lr.ph97, label %.lr.ph92
+  %.not7087 = icmp eq ptr %62, null
+  br i1 %.not7087, label %.lr.ph93, label %.lr.ph89
 
-.lr.ph92:                                         ; preds = %58, %.lr.ph92
-  %63 = phi ptr [ %67, %.lr.ph92 ], [ %62, %58 ]
-  %.090 = phi i32 [ %64, %.lr.ph92 ], [ 0, %58 ]
-  %64 = add i32 %.090, 1
-  %65 = sext i32 %.090 to i64
+.lr.ph89:                                         ; preds = %58, %.lr.ph89
+  %63 = phi ptr [ %67, %.lr.ph89 ], [ %62, %58 ]
+  %.088 = phi i32 [ %64, %.lr.ph89 ], [ 0, %58 ]
+  %64 = add i32 %.088, 1
+  %65 = sext i32 %.088 to i64
   %66 = getelementptr inbounds %struct.avl_dbase, ptr %61, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
   %67 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
   %.not70 = icmp eq ptr %67, null
-  br i1 %.not70, label %.lr.ph97, label %.lr.ph92, !llvm.loop !12
+  br i1 %.not70, label %.lr.ph93, label %.lr.ph89, !llvm.loop !12
 
-.lr.ph97:                                         ; preds = %.lr.ph92, %58
+.lr.ph93:                                         ; preds = %.lr.ph89, %58
   call void @pg_qsort(ptr noundef %61, i64 noundef %59, i64 noundef 40, ptr noundef nonnull @db_comparator) #18
   %68 = load i32, ptr @autovacuum_naptime, align 4
   %69 = call i64 @GetCurrentTimestamp() #18
@@ -1346,11 +1346,11 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %wide.trip.count = zext nneg i32 %.5.lcssa to i64
   br label %78
 
-78:                                               ; preds = %.lr.ph97, %dlist_push_head.exit
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next101, %dlist_push_head.exit ]
-  %.05794 = phi i64 [ %69, %.lr.ph97 ], [ %80, %dlist_push_head.exit ]
-  %79 = getelementptr inbounds nuw %struct.avl_dbase, ptr %61, i64 %indvars.iv100
-  %80 = add i64 %.05794, %77
+78:                                               ; preds = %.lr.ph93, %dlist_push_head.exit
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next97, %dlist_push_head.exit ]
+  %.05790 = phi i64 [ %69, %.lr.ph93 ], [ %80, %dlist_push_head.exit ]
+  %79 = getelementptr inbounds nuw %struct.avl_dbase, ptr %61, i64 %indvars.iv96
+  %80 = add i64 %.05790, %77
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -1369,15 +1369,15 @@ dlist_push_head.exit:                             ; preds = %78, %85
   store ptr @DatabaseList, ptr %82, align 8
   store ptr %82, ptr %86, align 8
   store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge98, label %78, !llvm.loop !13
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge94, label %78, !llvm.loop !13
 
-._crit_edge98:                                    ; preds = %dlist_push_head.exit
+._crit_edge94:                                    ; preds = %dlist_push_head.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
   br label %88
 
-88:                                               ; preds = %._crit_edge98, %._crit_edge
+88:                                               ; preds = %._crit_edge94, %.critedge
   %89 = load ptr, ptr @DatabaseListCxt, align 8
   %.not71 = icmp eq ptr %89, null
   br i1 %.not71, label %91, label %90

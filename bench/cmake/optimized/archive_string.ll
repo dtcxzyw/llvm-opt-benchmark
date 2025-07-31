@@ -2836,7 +2836,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %10 = add i64 %9, %8
   %11 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %10)
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %0, align 8, !tbaa !11
@@ -2846,8 +2846,8 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %18 = load i64, ptr %17, align 8, !tbaa !19
   %19 = tail call i64 @__ctype_get_mb_cur_max() #23
   %20 = call fastcc i32 @_utf8_to_unicode(ptr noundef %5, ptr noundef %1, i64 noundef %2)
-  %.not63 = icmp eq i32 %20, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph.preheader
+  %.not58 = icmp eq i32 %20, 0
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 %18
@@ -2858,20 +2858,20 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %25 = phi i32 [ %64, %58 ], [ %20, %.lr.ph.preheader ]
-  %.04167 = phi ptr [ %.1, %58 ], [ %24, %.lr.ph.preheader ]
-  %.04266 = phi ptr [ %63, %58 ], [ %16, %.lr.ph.preheader ]
-  %.04665 = phi ptr [ %61, %58 ], [ %1, %.lr.ph.preheader ]
-  %.05164 = phi i64 [ %60, %58 ], [ %2, %.lr.ph.preheader ]
-  %.not56 = icmp ult ptr %.04266, %.04167
+  %.04162 = phi ptr [ %.1, %58 ], [ %24, %.lr.ph.preheader ]
+  %.04261 = phi ptr [ %63, %58 ], [ %16, %.lr.ph.preheader ]
+  %.04660 = phi ptr [ %61, %58 ], [ %1, %.lr.ph.preheader ]
+  %.05159 = phi i64 [ %60, %58 ], [ %2, %.lr.ph.preheader ]
+  %.not56 = icmp ult ptr %.04261, %.04162
   br i1 %.not56, label %52, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %0, align 8, !tbaa !11
-  %28 = ptrtoint ptr %.04266 to i64
+  %28 = ptrtoint ptr %.04261 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   store i64 %30, ptr %7, align 8, !tbaa !4
-  %31 = shl i64 %.05164, 1
+  %31 = shl i64 %.05159, 1
   %32 = call i64 @__ctype_get_mb_cur_max() #23
   %33 = icmp ugt i64 %31, %32
   br i1 %33, label %36, label %34
@@ -2886,7 +2886,7 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   %39 = add i64 %38, %37
   %40 = call ptr @archive_string_ensure(ptr noundef nonnull %0, i64 noundef %39)
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %0, align 8, !tbaa !11
@@ -2901,21 +2901,21 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   br label %52
 
 52:                                               ; preds = %42, %.lr.ph
-  %.143 = phi ptr [ %45, %42 ], [ %.04266, %.lr.ph ]
-  %.1 = phi ptr [ %51, %42 ], [ %.04167, %.lr.ph ]
+  %.143 = phi ptr [ %45, %42 ], [ %.04261, %.lr.ph ]
+  %.1 = phi ptr [ %51, %42 ], [ %.04162, %.lr.ph ]
   %53 = icmp slt i32 %25, 0
   %54 = load i32, ptr %5, align 4
   %.0 = select i1 %53, i32 63, i32 %54
   %55 = call i64 @wcrtomb(ptr noundef %.143, i32 noundef %.0, ptr noundef nonnull %6) #23
   %56 = and i64 %55, 4294967295
   %57 = icmp eq i64 %56, 4294967295
-  br i1 %57, label %.thread, label %58
+  br i1 %57, label %.critedge, label %58
 
 58:                                               ; preds = %52
   %.045 = call i32 @llvm.abs.i32(i32 %25, i1 true)
   %59 = zext nneg i32 %.045 to i64
-  %60 = sub i64 %.05164, %59
-  %61 = getelementptr inbounds nuw i8, ptr %.04665, i64 %59
+  %60 = sub i64 %.05159, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.04660, i64 %59
   %sext = shl i64 %55, 32
   %62 = ashr exact i64 %sext, 32
   %63 = getelementptr inbounds i8, ptr %.143, i64 %62
@@ -2932,10 +2932,10 @@ define internal range(i32 -1, 1) i32 @strncat_from_utf8_libarchive2(ptr noundef 
   store i64 %68, ptr %7, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
   store i8 0, ptr %69, align 1, !tbaa !12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %52, %36, %4, %._crit_edge
-  %.048 = phi i32 [ 0, %._crit_edge ], [ -1, %4 ], [ -1, %36 ], [ -1, %52 ]
+.critedge:                                        ; preds = %36, %52, %4, %._crit_edge
+  %.048 = phi i32 [ 0, %._crit_edge ], [ -1, %4 ], [ -1, %52 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
   ret i32 %.048
@@ -3753,9 +3753,9 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   ]
 
 .preheader.i:                                     ; preds = %.lr.ph1311, %292
-  %.03448.i = phi i32 [ %.236.i, %292 ], [ 930, %.lr.ph1311 ]
-  %.03747.i = phi i32 [ %.239.i, %292 ], [ 0, %.lr.ph1311 ]
-  %280 = add nuw nsw i32 %.03747.i, %.03448.i
+  %.03445.i = phi i32 [ %.236.i, %292 ], [ 930, %.lr.ph1311 ]
+  %.03744.i = phi i32 [ %.239.i, %292 ], [ 0, %.lr.ph1311 ]
+  %280 = add nuw nsw i32 %.03744.i, %.03445.i
   %281 = lshr i32 %280, 1
   %282 = zext nneg i32 %281 to i64
   %283 = getelementptr inbounds nuw [931 x %struct.unicode_decomposition_table], ptr @u_decomposition_table, i64 0, i64 %282
@@ -3776,8 +3776,8 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   br label %292
 
 292:                                              ; preds = %290, %286
-  %.239.i = phi i32 [ %287, %286 ], [ %.03747.i, %290 ]
-  %.236.i = phi i32 [ %.03448.i, %286 ], [ %291, %290 ]
+  %.239.i = phi i32 [ %287, %286 ], [ %.03744.i, %290 ]
+  %.236.i = phi i32 [ %.03445.i, %286 ], [ %291, %290 ]
   %.not.i = icmp slt i32 %.236.i, %.239.i
   br i1 %.not.i, label %.preheader546, label %.preheader.i, !llvm.loop !80
 

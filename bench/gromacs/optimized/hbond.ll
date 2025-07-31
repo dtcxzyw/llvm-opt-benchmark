@@ -17361,11 +17361,11 @@ define internal fastcc { ptr, ptr } @_ZSt11equal_rangeIN9__gnu_cxx17__normal_ite
   br label %14
 
 14:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, %.lr.ph.i
-  %.01957.i = phi i64 [ %7, %.lr.ph.i ], [ %.2.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %.sroa.036.056.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %15 = lshr i64 %.01957.i, 1
+  %.01952.i = phi i64 [ %7, %.lr.ph.i ], [ %.2.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %.sroa.036.051.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %15 = lshr i64 %.01952.i, 1
   %.idx24 = shl nuw nsw i64 %15, 4
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.036.056.i, i64 %.idx24
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.036.051.i, i64 %.idx24
   %17 = load i32, ptr %16, align 4, !tbaa !253
   %18 = icmp slt i32 %17, %9
   br i1 %18, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, label %19
@@ -17393,30 +17393,30 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismo
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %21, %14
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %31 = xor i64 %15, -1
-  %32 = add nsw i64 %.01957.i, %31
+  %32 = add nsw i64 %.01952.i, %31
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread: ; preds = %25
   %33 = icmp slt i32 %11, %23
-  br i1 %33, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i
+  br i1 %33, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %.critedge.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i: ; preds = %19
   %34 = icmp slt i32 %9, %17
-  br i1 %34, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i
+  br i1 %34, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %.critedge.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !257
   %37 = icmp slt i32 %13, %36
-  br i1 %37, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i
+  br i1 %37, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %.critedge.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i
-  %.not = icmp ult i64 %.01957.i, 2
+.critedge.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i
+  %.not = icmp ult i64 %.01952.i, 2
   br i1 %.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i
-  %.014.i.i = phi i64 [ %.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ], [ %15, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i ]
-  %.sroa.010.013.i.i = phi ptr [ %.sroa.010.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ], [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i ]
+.lr.ph.i.i:                                       ; preds = %.critedge.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i
+  %.014.i.i = phi i64 [ %.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ], [ %15, %.critedge.i ]
+  %.sroa.010.013.i.i = phi ptr [ %.sroa.010.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ], [ %.sroa.036.051.i, %.critedge.i ]
   %38 = lshr i64 %.014.i.i, 1
   %39 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::HBond", ptr %.sroa.010.013.i.i, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !253
@@ -17455,9 +17455,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismo
   %56 = icmp sgt i64 %.1.i.i, 0
   br i1 %56, label %.lr.ph.i.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i, !llvm.loop !485
 
-_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i
-  %.sroa.010.0.lcssa.i.i = phi ptr [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i ], [ %.sroa.010.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ]
-  %.idx = shl nuw nsw i64 %.01957.i, 4
+_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i, %.critedge.i
+  %.sroa.010.0.lcssa.i.i = phi ptr [ %.sroa.036.051.i, %.critedge.i ], [ %.sroa.010.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ]
+  %.idx = shl nuw nsw i64 %.01952.i, 4
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %58 = add nuw nsw i64 %.idx24, 16
   %gepdiff = sub nsw i64 %.idx, %58
@@ -17507,16 +17507,16 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBo
   br i1 %79, label %.lr.ph.i26.i, label %_ZSt13__equal_rangeIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valENSB_14_Val_less_iterEESt4pairIT_SF_ESF_SF_RKT0_T1_T2_.exit, !llvm.loop !486
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i
-  %.sroa.036.1.i = phi ptr [ %30, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i ], [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread ]
+  %.sroa.036.1.i = phi ptr [ %30, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %.sroa.036.051.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %.sroa.036.051.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i ], [ %.sroa.036.051.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread ]
   %.2.i = phi i64 [ %32, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %15, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %15, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.thread.i ], [ %15, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread42.i.thread ]
   %80 = icmp sgt i64 %.2.i, 0
   br i1 %80, label %14, label %_ZSt13__equal_rangeIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valENSB_14_Val_less_iterEESt4pairIT_SF_ESF_SF_RKT0_T1_T2_.exit, !llvm.loop !487
 
 _ZSt13__equal_rangeIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valENSB_14_Val_less_iterEESt4pairIT_SF_ESF_SF_RKT0_T1_T2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i
-  %.sroa.040.2.i = phi ptr [ %.sroa.010.0.lcssa.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i ], [ %0, %3 ], [ %.sroa.010.0.lcssa.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %.sroa.3.2.i = phi ptr [ %57, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i ], [ %0, %3 ], [ %.sroa.010.1.i31.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.040.2.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.2.i, 1
+  %.sroa.040.0.i = phi ptr [ %.sroa.010.0.lcssa.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i ], [ %0, %3 ], [ %.sroa.010.0.lcssa.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %.sroa.3.0.i = phi ptr [ %57, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.i ], [ %0, %3 ], [ %.sroa.010.1.i31.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i.i ], [ %.sroa.036.1.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.040.0.i, 0
+  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
   ret { ptr, ptr } %.fca.1.insert.i
 }
 

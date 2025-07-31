@@ -1132,15 +1132,15 @@ decode_mv_component.exit131.i.i:                  ; preds = %496, %493, %491, %g
   %665 = mul nsw i32 %.0115.i.i.i, %558
   %666 = add nsw i32 %665, %560
   %667 = sub nsw i32 0, %666
-  %.not137151.i.i.i = icmp slt i32 %640, 0
-  %spec.select.i133.i.i = select i1 %.not137151.i.i.i, i32 %667, i32 %666
+  %.not137147.i.i.i = icmp slt i32 %640, 0
+  %spec.select.i133.i.i = select i1 %.not137147.i.i.i, i32 %667, i32 %666
   br label %668
 
 668:                                              ; preds = %664, %660, %658, %655
-  %.sink164.i.i.i = phi i32 [ 1, %664 ], [ 14, %658 ], [ 14, %660 ], [ 14, %655 ]
+  %.sink160.i.i.i = phi i32 [ 1, %664 ], [ 14, %658 ], [ 14, %660 ], [ 14, %655 ]
   %.0126.i.i.i = phi i32 [ %639, %664 ], [ %651, %658 ], [ %651, %660 ], [ %651, %655 ]
   %.2.i.i.i = phi i32 [ %spec.select.i133.i.i, %664 ], [ 0, %658 ], [ %662, %660 ], [ %657, %655 ]
-  %669 = add i32 %.sink164.i.i.i, %642
+  %669 = add i32 %.sink160.i.i.i, %642
   %670 = tail call i32 @llvm.umin.i32(i32 %604, i32 %669)
   %671 = add nsw i32 %.0126.i.i.i, %.2123.i.i.i
   %672 = icmp sgt i32 %671, 63

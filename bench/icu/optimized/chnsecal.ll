@@ -608,7 +608,7 @@ declare noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef, i32 nou
 define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15ChineseCalendar7SettingEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4, !tbaa !21
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %.thread
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -618,11 +618,11 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15Chin
   %11 = tail call noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr noundef %10, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %12 = load i32, ptr %2, align 4, !tbaa !21
   %13 = icmp slt i32 %12, 1
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %6
   %15 = icmp eq i32 %11, 0
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %14
   %17 = add nsw i32 %1, -1
@@ -639,7 +639,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15Chin
   %28 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111newMoonNearEPKNS_8TimeZoneEdaR10UErrorCode(ptr noundef %8, double noundef %27, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %29 = load i32, ptr %2, align 4, !tbaa !21
   %30 = icmp slt i32 %29, 1
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %16
   %32 = sub nsw i32 %28, %22
@@ -673,7 +673,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15Chin
   %.245 = phi i32 [ %48, %45 ], [ %25, %43 ], [ %25, %31 ]
   %50 = load i32, ptr %2, align 4, !tbaa !21
   %51 = icmp slt i32 %50, 1
-  br i1 %51, label %52, label %.thread
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %9, align 8, !tbaa !29
@@ -681,10 +681,10 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15Chin
   %.pre = load i32, ptr %2, align 4, !tbaa !21
   %54 = icmp sgt i32 %.pre, 0
   %55 = select i1 %54, i32 0, i32 %.245
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %52, %49, %16, %6, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %16 ], [ 0, %49 ], [ %55, %52 ], [ %11, %14 ]
+.critedge:                                        ; preds = %14, %52, %6, %49, %16, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %49 ], [ 0, %16 ], [ %55, %52 ], [ %11, %14 ]
   ret i32 %.0
 }
 
@@ -2269,7 +2269,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   %6 = alloca %"class.icu_77::CalendarAstronomer", align 8
   %7 = load i32, ptr %2, align 4, !tbaa !21
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2279,17 +2279,17 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   %14 = tail call noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr noundef %13, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %15 = load i32, ptr %2, align 4, !tbaa !21
   %16 = icmp slt i32 %15, 1
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %9
   %18 = icmp eq i32 %14, 0
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %17
   %20 = tail call noundef i64 @_ZN6icu_775Grego11fieldsToDayEiii(i32 noundef %1, i32 noundef 11, i32 noundef 1)
   %21 = load i32, ptr %2, align 4, !tbaa !21
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %19
   %24 = sitofp i64 %20 to double
@@ -2306,9 +2306,9 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   call void %29(ptr noundef nonnull align 8 dereferenceable(72) %11, double noundef %25, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %30 = load i32, ptr %2, align 4, !tbaa !21
   %31 = icmp slt i32 %30, 1
-  br i1 %31, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread48, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
+  br i1 %31, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread48: ; preds = %26
+_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46: ; preds = %26
   %32 = load i32, ptr %4, align 4, !tbaa !20
   %33 = load i32, ptr %5, align 4, !tbaa !20
   %34 = add nsw i32 %33, %32
@@ -2325,12 +2325,12 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  br label %.thread
+  br label %.critedge
 
-38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread48, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
-  %.0.i45 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %36, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread48 ]
+38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
+  %.0.i43 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %36, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
-  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i45)
+  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i43)
   %39 = invoke noundef double @_ZN6icu_7718CalendarAstronomer15WINTER_SOLSTICEEv()
           to label %40 unwind label %47
 
@@ -2347,7 +2347,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
   %45 = load i32, ptr %2, align 4, !tbaa !21
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %49, label %.thread
+  br i1 %46, label %49, label %.critedge
 
 47:                                               ; preds = %42, %40, %38
   %48 = landingpad { ptr, i32 }
@@ -2364,7 +2364,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
 
 52:                                               ; preds = %49
   store i32 1, ptr %2, align 4, !tbaa !21
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %49
   %54 = fptosi double %43 to i32
@@ -2373,10 +2373,10 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   %.pre = load i32, ptr %2, align 4, !tbaa !21
   %56 = icmp sgt i32 %.pre, 0
   %57 = select i1 %56, i32 0, i32 %54
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %19, %17, %53, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit, %44, %52, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit ], [ 0, %52 ], [ 0, %44 ], [ %57, %53 ], [ %14, %17 ], [ 0, %19 ]
+.critedge:                                        ; preds = %19, %17, %53, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit, %9, %44, %52, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %44 ], [ 0, %52 ], [ 0, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit ], [ %57, %53 ], [ %14, %17 ], [ 0, %19 ]
   ret i32 %.0
 }
 

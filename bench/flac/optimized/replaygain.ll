@@ -62,91 +62,91 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
 
 6:                                                ; preds = %4
   %.not165 = icmp eq i32 %1, 0
-  br i1 %.not165, label %.preheader, label %.preheader172
+  br i1 %.not165, label %.preheader, label %.preheader170
 
-.preheader172:                                    ; preds = %6
+.preheader170:                                    ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
-8:                                                ; preds = %.preheader172, %28
-  %.0141 = phi i32 [ %27, %28 ], [ 0, %.preheader172 ]
-  %.0126 = phi i32 [ %26, %28 ], [ 0, %.preheader172 ]
-  %.0122 = phi i32 [ %29, %28 ], [ %3, %.preheader172 ]
+8:                                                ; preds = %.preheader170, %28
+  %.0141 = phi i32 [ %27, %28 ], [ 0, %.preheader170 ]
+  %.0126 = phi i32 [ %26, %28 ], [ 0, %.preheader170 ]
+  %.0122 = phi i32 [ %29, %28 ], [ %3, %.preheader170 ]
   %.not168 = icmp eq i32 %.0122, 0
-  br i1 %.not168, label %.thread, label %9
+  br i1 %.not168, label %.loopexit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @llvm.umin.i32(i32 %.0122, i32 2048)
   %11 = load ptr, ptr %0, align 8, !tbaa !8
   %12 = load ptr, ptr %7, align 8, !tbaa !8
-  %wide.trip.count223 = zext nneg i32 %10 to i64
+  %wide.trip.count221 = zext nneg i32 %10 to i64
   br label %13
 
 13:                                               ; preds = %9, %13
-  %indvars.iv220 = phi i64 [ 0, %9 ], [ %indvars.iv.next221, %13 ]
-  %.1127193 = phi i32 [ %.0126, %9 ], [ %26, %13 ]
-  %.1142191 = phi i32 [ %.0141, %9 ], [ %27, %13 ]
-  %14 = zext i32 %.1142191 to i64
+  %indvars.iv218 = phi i64 [ 0, %9 ], [ %indvars.iv.next219, %13 ]
+  %.1127191 = phi i32 [ %.0126, %9 ], [ %26, %13 ]
+  %.1142189 = phi i32 [ %.0141, %9 ], [ %27, %13 ]
+  %14 = zext i32 %.1142189 to i64
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sitofp i32 %16 to float
-  %18 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv220
+  %18 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv218
   store float %17, ptr %18, align 4, !tbaa !13
   %19 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
-  %20 = tail call i32 @llvm.smax.i32(i32 %.1127193, i32 %19)
+  %20 = tail call i32 @llvm.smax.i32(i32 %.1127191, i32 %19)
   %21 = getelementptr inbounds nuw i32, ptr %12, i64 %14
   %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sitofp i32 %22 to float
-  %24 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv220
+  %24 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.rbuffer, i64 0, i64 %indvars.iv218
   store float %23, ptr %24, align 4, !tbaa !13
   %25 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
   %26 = tail call i32 @llvm.umax.i32(i32 %20, i32 %25)
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %27 = add i32 %.1142191, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %28, label %13, !llvm.loop !15
+  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
+  %27 = add i32 %.1142189, 1
+  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
+  br i1 %exitcond222.not, label %28, label %13, !llvm.loop !15
 
 28:                                               ; preds = %13
   %29 = sub i32 %.0122, %10
-  %30 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count223, i32 noundef 2) #14
+  %30 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count221, i32 noundef 2) #14
   %.not169 = icmp eq i32 %30, 1
-  br i1 %.not169, label %8, label %.loopexit, !llvm.loop !17
+  br i1 %.not169, label %8, label %.critedge, !llvm.loop !17
 
 .preheader:                                       ; preds = %6, %43
   %.2143 = phi i32 [ %42, %43 ], [ 0, %6 ]
   %.2128 = phi i32 [ %41, %43 ], [ 0, %6 ]
   %.1123 = phi i32 [ %44, %43 ], [ %3, %6 ]
   %.not166 = icmp eq i32 %.1123, 0
-  br i1 %.not166, label %.thread, label %31
+  br i1 %.not166, label %.loopexit, label %31
 
 31:                                               ; preds = %.preheader
   %32 = tail call i32 @llvm.umin.i32(i32 %.1123, i32 2048)
   %33 = load ptr, ptr %0, align 8, !tbaa !8
-  %wide.trip.count228 = zext nneg i32 %32 to i64
+  %wide.trip.count226 = zext nneg i32 %32 to i64
   br label %34
 
 34:                                               ; preds = %31, %34
-  %indvars.iv225 = phi i64 [ 0, %31 ], [ %indvars.iv.next226, %34 ]
-  %.3129196 = phi i32 [ %.2128, %31 ], [ %41, %34 ]
-  %.3144194 = phi i32 [ %.2143, %31 ], [ %42, %34 ]
-  %35 = zext i32 %.3144194 to i64
+  %indvars.iv223 = phi i64 [ 0, %31 ], [ %indvars.iv.next224, %34 ]
+  %.3129194 = phi i32 [ %.2128, %31 ], [ %41, %34 ]
+  %.3144192 = phi i32 [ %.2143, %31 ], [ %42, %34 ]
+  %35 = zext i32 %.3144192 to i64
   %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv225
+  %39 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv223
   store float %38, ptr %39, align 4, !tbaa !13
   %40 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
-  %41 = tail call i32 @llvm.umax.i32(i32 %.3129196, i32 %40)
-  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %42 = add i32 %.3144194, 1
-  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %43, label %34, !llvm.loop !18
+  %41 = tail call i32 @llvm.umax.i32(i32 %.3129194, i32 %40)
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
+  %42 = add i32 %.3144192, 1
+  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
+  br i1 %exitcond227.not, label %43, label %34, !llvm.loop !18
 
 43:                                               ; preds = %34
   %44 = sub i32 %.1123, %32
-  %45 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count228, i32 noundef 1) #14
+  %45 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count226, i32 noundef 1) #14
   %.not167 = icmp eq i32 %45, 1
-  br i1 %.not167, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %.not167, label %.preheader, label %.critedge, !llvm.loop !19
 
 46:                                               ; preds = %4
   %47 = icmp ugt i32 %2, 16
@@ -168,18 +168,18 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
 57:                                               ; preds = %53, %48
   %58 = phi double [ %52, %48 ], [ %56, %53 ]
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.preheader175, label %.preheader178
+  br i1 %.not, label %.preheader173, label %.preheader176
 
-.preheader178:                                    ; preds = %57
+.preheader176:                                    ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %60
 
-60:                                               ; preds = %.preheader178, %88
-  %.4145 = phi i32 [ %87, %88 ], [ 0, %.preheader178 ]
-  %.5131 = phi i32 [ %86, %88 ], [ 0, %.preheader178 ]
-  %.2124 = phi i32 [ %89, %88 ], [ %3, %.preheader178 ]
+60:                                               ; preds = %.preheader176, %88
+  %.4145 = phi i32 [ %87, %88 ], [ 0, %.preheader176 ]
+  %.5131 = phi i32 [ %86, %88 ], [ 0, %.preheader176 ]
+  %.2124 = phi i32 [ %89, %88 ], [ %3, %.preheader176 ]
   %.not163 = icmp eq i32 %.2124, 0
-  br i1 %.not163, label %.thread, label %61
+  br i1 %.not163, label %.loopexit, label %61
 
 61:                                               ; preds = %60
   %62 = tail call i32 @llvm.umin.i32(i32 %.2124, i32 2048)
@@ -190,9 +190,9 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
 
 65:                                               ; preds = %61, %65
   %indvars.iv = phi i64 [ 0, %61 ], [ %indvars.iv.next, %65 ]
-  %.6132187 = phi i32 [ %.5131, %61 ], [ %86, %65 ]
-  %.5146185 = phi i32 [ %.4145, %61 ], [ %87, %65 ]
-  %66 = zext i32 %.5146185 to i64
+  %.6132185 = phi i32 [ %.5131, %61 ], [ %86, %65 ]
+  %.5146183 = phi i32 [ %.4145, %61 ], [ %87, %65 ]
+  %66 = zext i32 %.5146183 to i64
   %67 = getelementptr inbounds nuw i32, ptr %63, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !11
   %69 = sitofp i32 %68 to double
@@ -202,7 +202,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   store float %71, ptr %72, align 4, !tbaa !13
   %73 = icmp eq i32 %68, -2147483648
   %74 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
-  %75 = tail call i32 @llvm.smax.i32(i32 %.6132187, i32 %74)
+  %75 = tail call i32 @llvm.smax.i32(i32 %.6132185, i32 %74)
   %76 = getelementptr inbounds nuw i32, ptr %64, i64 %66
   %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = sitofp i32 %77 to double
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %85 = tail call i32 @llvm.umax.i32(i32 %75, i32 %84)
   %86 = select i1 %73, i32 2147483647, i32 %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = add i32 %.5146185, 1
+  %87 = add i32 %.5146183, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %88, label %65, !llvm.loop !20
 
@@ -224,50 +224,50 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %89 = sub i32 %.2124, %62
   %90 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count, i32 noundef 2) #14
   %.not164 = icmp eq i32 %90, 1
-  br i1 %.not164, label %60, label %.loopexit, !llvm.loop !21
+  br i1 %.not164, label %60, label %.critedge, !llvm.loop !21
 
-.preheader175:                                    ; preds = %57, %107
+.preheader173:                                    ; preds = %57, %107
   %.6147 = phi i32 [ %106, %107 ], [ 0, %57 ]
   %.9135 = phi i32 [ %105, %107 ], [ 0, %57 ]
   %.3125 = phi i32 [ %108, %107 ], [ %3, %57 ]
   %.not161 = icmp eq i32 %.3125, 0
-  br i1 %.not161, label %.thread, label %91
+  br i1 %.not161, label %.loopexit, label %91
 
-91:                                               ; preds = %.preheader175
+91:                                               ; preds = %.preheader173
   %92 = tail call i32 @llvm.umin.i32(i32 %.3125, i32 2048)
   %93 = load ptr, ptr %0, align 8, !tbaa !8
-  %wide.trip.count218 = zext nneg i32 %92 to i64
+  %wide.trip.count216 = zext nneg i32 %92 to i64
   br label %94
 
 94:                                               ; preds = %91, %94
-  %indvars.iv215 = phi i64 [ 0, %91 ], [ %indvars.iv.next216, %94 ]
-  %.10136190 = phi i32 [ %.9135, %91 ], [ %105, %94 ]
-  %.7148188 = phi i32 [ %.6147, %91 ], [ %106, %94 ]
-  %95 = zext i32 %.7148188 to i64
+  %indvars.iv213 = phi i64 [ 0, %91 ], [ %indvars.iv.next214, %94 ]
+  %.10136188 = phi i32 [ %.9135, %91 ], [ %105, %94 ]
+  %.7148186 = phi i32 [ %.6147, %91 ], [ %106, %94 ]
+  %95 = zext i32 %.7148186 to i64
   %96 = getelementptr inbounds nuw i32, ptr %93, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !11
   %98 = sitofp i32 %97 to double
   %99 = fmul double %58, %98
   %100 = fptrunc double %99 to float
-  %101 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv215
+  %101 = getelementptr inbounds nuw [2048 x float], ptr @grabbag__replaygain_analyze.lbuffer, i64 0, i64 %indvars.iv213
   store float %100, ptr %101, align 4, !tbaa !13
   %102 = icmp eq i32 %97, -2147483648
   %103 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
   %104 = select i1 %102, i32 2147483647, i32 %103
-  %105 = tail call i32 @llvm.smax.i32(i32 %.10136190, i32 %104)
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %106 = add i32 %.7148188, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %107, label %94, !llvm.loop !22
+  %105 = tail call i32 @llvm.smax.i32(i32 %.10136188, i32 %104)
+  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
+  %106 = add i32 %.7148186, 1
+  %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
+  br i1 %exitcond217.not, label %107, label %94, !llvm.loop !22
 
 107:                                              ; preds = %94
   %108 = sub i32 %.3125, %92
-  %109 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count218, i32 noundef 1) #14
+  %109 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count216, i32 noundef 1) #14
   %.not162 = icmp eq i32 %109, 1
-  br i1 %.not162, label %.preheader175, label %.loopexit, !llvm.loop !23
+  br i1 %.not162, label %.preheader173, label %.critedge, !llvm.loop !23
 
-.thread:                                          ; preds = %60, %.preheader175, %8, %.preheader
-  %.4130 = phi i32 [ %.2128, %.preheader ], [ %.0126, %8 ], [ %.9135, %.preheader175 ], [ %.5131, %60 ]
+.loopexit:                                        ; preds = %60, %.preheader173, %8, %.preheader
+  %.4130 = phi i32 [ %.2128, %.preheader ], [ %.0126, %8 ], [ %.9135, %.preheader173 ], [ %.5131, %60 ]
   %110 = add i32 %2, -1
   %111 = shl nuw i32 1, %110
   %112 = uitofp i32 %111 to double
@@ -277,20 +277,20 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %116 = fcmp ogt double %114, %115
   br i1 %116, label %117, label %118
 
-117:                                              ; preds = %.thread
+117:                                              ; preds = %.loopexit
   store double %114, ptr @title_peak_, align 8, !tbaa !4
   br label %118
 
-118:                                              ; preds = %117, %.thread
+118:                                              ; preds = %117, %.loopexit
   %119 = load double, ptr @album_peak_, align 8, !tbaa !4
   %120 = fcmp ogt double %114, %119
-  br i1 %120, label %121, label %.loopexit
+  br i1 %120, label %121, label %.critedge
 
 121:                                              ; preds = %118
   store double %114, ptr @album_peak_, align 8, !tbaa !4
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %88, %107, %28, %43, %118, %121
+.critedge:                                        ; preds = %88, %107, %28, %43, %118, %121
   %.2 = phi i32 [ 1, %121 ], [ 1, %118 ], [ 0, %43 ], [ 0, %28 ], [ 0, %107 ], [ 0, %88 ]
   ret i32 %.2
 }

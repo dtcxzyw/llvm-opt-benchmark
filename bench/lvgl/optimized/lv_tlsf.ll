@@ -815,8 +815,8 @@ search_suitable_block.exit:                       ; preds = %21, %33
   %38 = phi i32 [ %25, %21 ], [ %37, %33 ]
   %.120 = phi i32 [ %.09.i.i23, %21 ], [ %34, %33 ]
   %.pre-phi.i = phi i64 [ %23, %21 ], [ %35, %33 ]
-  %.12439.i = phi i32 [ %27, %21 ], [ %37, %33 ]
-  %39 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.12439.i, i1 true)
+  %.12436.i = phi i32 [ %27, %21 ], [ %37, %33 ]
+  %39 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.12436.i, i1 true)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %40, i64 0, i64 %.pre-phi.i
   %42 = zext nneg i32 %39 to i64
@@ -1720,7 +1720,7 @@ define ptr @lv_tlsf_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loca
 
 6:                                                ; preds = %3
   %7 = tail call i64 @lv_tlsf_free(ptr noundef %0, ptr noundef nonnull %1)
-  br label %block_trim_used.exit
+  br label %.critedge63
 
 8:                                                ; preds = %3
   br i1 %4, label %17, label %9
@@ -1740,7 +1740,7 @@ lv_tlsf_malloc.exit:                              ; preds = %9, %10
   %.0.i.i = phi i64 [ %.1.i.i, %10 ], [ 0, %9 ]
   %15 = tail call fastcc ptr @block_locate_free(ptr noundef %0, i64 noundef %.0.i.i)
   %16 = tail call fastcc ptr @block_prepare_used(ptr noundef %0, ptr noundef %15, i64 noundef %.0.i.i)
-  br label %block_trim_used.exit
+  br label %.critedge63
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds i8, ptr %1, i64 -16
@@ -1759,8 +1759,8 @@ block_next.exit:                                  ; preds = %17
   %24 = add i64 %21, %23
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr i8, ptr %25, i64 8
-  %.val63 = load i64, ptr %26, align 8, !tbaa !18
-  %27 = and i64 %.val63, -4
+  %.val65 = load i64, ptr %26, align 8, !tbaa !18
+  %27 = and i64 %.val65, -4
   %28 = add i64 %21, 8
   %29 = add i64 %28, %27
   br i1 %5, label %adjust_request_size.exit, label %30
@@ -1778,7 +1778,7 @@ adjust_request_size.exit:                         ; preds = %block_next.exit, %3
   %35 = icmp ule i64 %2, %21
   %36 = icmp ne i64 %.0.i, 0
   %or.cond3.not = or i1 %35, %36
-  br i1 %or.cond3.not, label %37, label %block_trim_used.exit
+  br i1 %or.cond3.not, label %37, label %.critedge63
 
 37:                                               ; preds = %adjust_request_size.exit
   %38 = and i64 %.val.i, 1
@@ -1793,7 +1793,7 @@ adjust_request_size.exit:                         ; preds = %block_next.exit, %3
   br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %39
-  %42 = and i64 %.val63, 1
+  %42 = and i64 %.val65, 1
   %.not57 = icmp eq i64 %42, 0
   %43 = icmp ugt i64 %.0.i, %29
   %or.cond61 = select i1 %.not57, i1 true, i1 %43
@@ -1802,13 +1802,13 @@ adjust_request_size.exit:                         ; preds = %block_next.exit, %3
 44:                                               ; preds = %41
   %45 = tail call ptr @lv_tlsf_malloc(ptr noundef %0, i64 noundef %2)
   %.not58 = icmp eq ptr %45, null
-  br i1 %.not58, label %block_trim_used.exit, label %46
+  br i1 %.not58, label %.critedge63, label %46
 
 46:                                               ; preds = %44
   %47 = tail call i64 @llvm.umin.i64(i64 %2, i64 %21)
   %48 = tail call ptr @lv_memcpy(ptr noundef nonnull %45, ptr noundef nonnull %1, i64 noundef %47) #11
   %49 = tail call i64 @lv_tlsf_free(ptr noundef %0, ptr noundef nonnull %1)
-  br label %block_trim_used.exit
+  br label %.critedge63
 
 50:                                               ; preds = %41
   %51 = tail call fastcc ptr @block_merge_next(ptr noundef %0, ptr noundef nonnull %18)
@@ -1833,11 +1833,11 @@ block_mark_as_used.exit:                          ; preds = %50
   br label %.critedge
 
 .critedge:                                        ; preds = %block_mark_as_used.exit, %39
-  %.val.i65 = phi i64 [ %.val.i, %39 ], [ %60, %block_mark_as_used.exit ]
-  %61 = and i64 %.val.i65, -4
+  %.val.i67 = phi i64 [ %.val.i, %39 ], [ %60, %block_mark_as_used.exit ]
+  %61 = and i64 %.val.i67, -4
   %62 = add nuw nsw i64 %.0.i, 32
   %.not11.i = icmp ult i64 %61, %62
-  br i1 %.not11.i, label %block_trim_used.exit, label %63
+  br i1 %.not11.i, label %.critedge63, label %63
 
 63:                                               ; preds = %.critedge
   %64 = add i64 %23, %.0.i
@@ -1862,10 +1862,10 @@ block_mark_as_used.exit:                          ; preds = %50
   %77 = or i64 %76, %73
   store i64 %77, ptr %74, align 8, !tbaa !18
   %78 = icmp ugt i64 %73, 23
-  br i1 %78, label %79, label %.preheader.i.i68
+  br i1 %78, label %79, label %.preheader.i.i70
 
-.preheader.i.i68:                                 ; preds = %72, %.preheader.i.i68
-  br label %.preheader.i.i68
+.preheader.i.i70:                                 ; preds = %72, %.preheader.i.i70
+  br label %.preheader.i.i70
 
 79:                                               ; preds = %72
   %80 = load i64, ptr %19, align 8, !tbaa !18
@@ -1894,19 +1894,19 @@ block_split.exit.i:                               ; preds = %79
   %93 = or disjoint i64 %92, 1
   store i64 %93, ptr %74, align 8, !tbaa !18
   %94 = tail call fastcc ptr @block_merge_next(ptr noundef %0, ptr noundef nonnull %65)
-  %.val.i.i69 = load i64, ptr %74, align 8, !tbaa !18
-  %95 = icmp ult i64 %.val.i.i69, 256
+  %.val.i.i71 = load i64, ptr %74, align 8, !tbaa !18
+  %95 = icmp ult i64 %.val.i.i71, 256
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %block_split.exit.i
-  %97 = trunc nuw nsw i64 %.val.i.i69 to i32
+  %97 = trunc nuw nsw i64 %.val.i.i71 to i32
   %98 = lshr i32 %97, 3
   br label %mapping_insert.exit.i.i
 
 99:                                               ; preds = %block_split.exit.i
-  %100 = and i64 %.val.i.i69, -4
-  %.not.i.i.i.i = icmp ult i64 %.val.i.i69, 4294967296
-  %101 = lshr i64 %.val.i.i69, 32
+  %100 = and i64 %.val.i.i71, -4
+  %.not.i.i.i.i = icmp ult i64 %.val.i.i71, 4294967296
+  %101 = lshr i64 %.val.i.i71, 32
   %.sink.i.i.i.i = select i1 %.not.i.i.i.i, i64 %100, i64 %101
   %.sink7.i.i.i.i = select i1 %.not.i.i.i.i, i32 31, i32 63
   %102 = trunc nuw i64 %.sink.i.i.i.i to i32
@@ -1953,9 +1953,9 @@ block_insert.exit.i:                              ; preds = %mapping_insert.exit
   %126 = load i32, ptr %125, align 4, !tbaa !12
   %127 = or i32 %126, %123
   store i32 %127, ptr %125, align 4, !tbaa !12
-  br label %block_trim_used.exit
+  br label %.critedge63
 
-block_trim_used.exit:                             ; preds = %adjust_request_size.exit, %44, %46, %.critedge, %block_insert.exit.i, %6, %lv_tlsf_malloc.exit
+.critedge63:                                      ; preds = %44, %46, %.critedge, %block_insert.exit.i, %adjust_request_size.exit, %6, %lv_tlsf_malloc.exit
   %.1 = phi ptr [ null, %6 ], [ %16, %lv_tlsf_malloc.exit ], [ null, %adjust_request_size.exit ], [ %45, %46 ], [ null, %44 ], [ %1, %.critedge ], [ %1, %block_insert.exit.i ]
   ret ptr %.1
 }

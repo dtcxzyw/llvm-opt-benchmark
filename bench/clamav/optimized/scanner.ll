@@ -1111,10 +1111,9 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 42:                                               ; preds = %30, %40
   %43 = add nuw nsw i32 %.0118143, 1
   %exitcond = icmp eq i32 %43, 1000
-  br i1 %exitcond, label %44, label %30
+  br i1 %exitcond, label %.critedge, label %30
 
-44:                                               ; preds = %37, %42
-  %.lcssa142 = phi i1 [ false, %37 ], [ true, %42 ]
+44:                                               ; preds = %37
   %45 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.43) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !70
@@ -1123,20 +1122,19 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !70
   %52 = trunc i64 %51 to i32
-  br i1 %.lcssa142, label %53, label %57
+  %53 = call i32 @listen(i32 noundef %35, i32 noundef 1) #12
+  %54 = icmp eq i32 %53, -1
+  br i1 %54, label %60, label %66
 
-53:                                               ; preds = %44
-  %54 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45) #12
-  %55 = sext i8 %5 to i32
-  %56 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.46, i32 noundef %55) #12
+.critedge:                                        ; preds = %42
+  %55 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.43) #12
+  %56 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.44) #12
+  %57 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45) #12
+  %58 = sext i8 %5 to i32
+  %59 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.46, i32 noundef %58) #12
   br label %205
 
-57:                                               ; preds = %44
-  %58 = call i32 @listen(i32 noundef %35, i32 noundef 1) #12
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %60, label %66
-
-60:                                               ; preds = %57
+60:                                               ; preds = %44
   %61 = tail call ptr @__errno_location() #13
   %62 = load i32, ptr %61, align 4, !tbaa !39
   %63 = call ptr @strerror(i32 noundef %62) #12
@@ -1144,7 +1142,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %65 = call i32 @close(i32 noundef %35) #12
   br label %205
 
-66:                                               ; preds = %57
+66:                                               ; preds = %44
   %67 = sext i8 %5 to i32
   %68 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.48, i32 noundef %33, i32 noundef %67) #12
   %69 = icmp slt i32 %68, 1
@@ -1394,8 +1392,8 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %204 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.76, ptr noundef nonnull %10, i32 noundef %33) #12
   br label %205
 
-205:                                              ; preds = %192, %200, %203, %194, %195, %144, %98, %84, %76, %70, %60, %53
-  %.0 = phi i32 [ -1, %60 ], [ -1, %70 ], [ -1, %76 ], [ -1, %84 ], [ -1, %98 ], [ -1, %144 ], [ -1, %53 ], [ %.0112, %195 ], [ %.0112, %194 ], [ 0, %203 ], [ 0, %200 ], [ 1, %192 ]
+205:                                              ; preds = %192, %200, %203, %194, %195, %144, %98, %84, %76, %70, %60, %.critedge
+  %.0 = phi i32 [ -1, %60 ], [ -1, %70 ], [ -1, %76 ], [ -1, %84 ], [ -1, %98 ], [ -1, %144 ], [ -1, %.critedge ], [ %.0112, %195 ], [ %.0112, %194 ], [ 0, %203 ], [ 0, %200 ], [ 1, %192 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12

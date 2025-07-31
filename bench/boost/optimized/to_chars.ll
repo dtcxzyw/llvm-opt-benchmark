@@ -3967,7 +3967,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %14 = icmp slt i64 %10, %13
   %15 = icmp ugt ptr %0, %1
   %or.cond = or i1 %15, %14
-  br i1 %or.cond, label %156, label %16
+  br i1 %or.cond, label %.critedge, label %16
 
 16:                                               ; preds = %5
   %17 = tail call noundef float @llvm.fabs.f32(float %2)
@@ -4003,7 +4003,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 48, ptr %.0, align 1, !tbaa !23
   %31 = icmp sgt i32 %4, -1
-  br i1 %31, label %32, label %156
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -4011,7 +4011,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %34 = zext nneg i32 %4 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %33, i8 48, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  br label %156
+  br label %.critedge
 
 36:                                               ; preds = %27
   %37 = icmp ugt i32 %.sroa.023.0.extract.trunc, 9999
@@ -4055,36 +4055,36 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
 
 _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %40, %42, %44, %46, %50, %52
   %.0.i = phi i32 [ %..i, %42 ], [ 8, %40 ], [ %.11.i, %46 ], [ 5, %44 ], [ %.12.i, %50 ], [ %.13.i, %52 ]
-  br i1 %11, label %.loopexit, label %.preheader177
+  br i1 %11, label %.loopexit, label %.preheader175
 
-.preheader177:                                    ; preds = %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
+.preheader175:                                    ; preds = %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
   %54 = add nsw i32 %4, 2
   %55 = icmp sgt i32 %.0.i, %54
   br i1 %55, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader177, %.lr.ph
-  %.sroa.023.1180 = phi i64 [ %.sroa.023.4.insert.insert, %.lr.ph ], [ %.fca.0.extract, %.preheader177 ]
-  %.1147179 = phi i32 [ %58, %.lr.ph ], [ %.0.i, %.preheader177 ]
-  %.sroa.023.0.extract.trunc27 = trunc i64 %.sroa.023.1180 to i32
+.lr.ph:                                           ; preds = %.preheader175, %.lr.ph
+  %.sroa.023.1178 = phi i64 [ %.sroa.023.4.insert.insert, %.lr.ph ], [ %.fca.0.extract, %.preheader175 ]
+  %.1147177 = phi i32 [ %58, %.lr.ph ], [ %.0.i, %.preheader175 ]
+  %.sroa.023.0.extract.trunc27 = trunc i64 %.sroa.023.1178 to i32
   %56 = udiv i32 %.sroa.023.0.extract.trunc27, 10
   %.sroa.023.0.insert.ext = zext nneg i32 %56 to i64
-  %57 = and i64 %.sroa.023.1180, -4294967296
+  %57 = and i64 %.sroa.023.1178, -4294967296
   %.sroa.023.4.insert.shift = add i64 %57, 4294967296
   %.sroa.023.4.insert.insert = or disjoint i64 %.sroa.023.4.insert.shift, %.sroa.023.0.insert.ext
-  %58 = add nsw i32 %.1147179, -1
+  %58 = add nsw i32 %.1147177, -1
   %59 = icmp sgt i32 %58, %54
   br i1 %59, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.preheader177
+._crit_edge:                                      ; preds = %.preheader175
   %60 = icmp eq i32 %.0.i, %54
   br i1 %60, label %._crit_edge.thread, label %67
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.sroa.023.1.lcssa196 = phi i64 [ %.fca.0.extract, %._crit_edge ], [ %.sroa.023.4.insert.insert, %.lr.ph ]
-  %.sroa.023.0.extract.trunc29 = trunc i64 %.sroa.023.1.lcssa196 to i32
+  %.sroa.023.1.lcssa194 = phi i64 [ %.fca.0.extract, %._crit_edge ], [ %.sroa.023.4.insert.insert, %.lr.ph ]
+  %.sroa.023.0.extract.trunc29 = trunc i64 %.sroa.023.1.lcssa194 to i32
   %61 = urem i32 %.sroa.023.0.extract.trunc29, 10
   %62 = udiv i32 %.sroa.023.0.extract.trunc29, 10
-  %63 = and i64 %.sroa.023.1.lcssa196, -4294967296
+  %63 = and i64 %.sroa.023.1.lcssa194, -4294967296
   %.sroa.023.4.insert.shift57 = add i64 %63, 4294967296
   %64 = add nsw i32 %4, 1
   %65 = icmp samesign ugt i32 %61, 4
@@ -4098,29 +4098,29 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %40, %42, %44, %46,
   %.2148 = phi i32 [ %64, %._crit_edge.thread ], [ %.0.i, %._crit_edge ]
   %.sroa.023.2 = phi i64 [ %.sroa.023.3, %._crit_edge.thread ], [ %.fca.0.extract, %._crit_edge ]
   %68 = icmp eq i32 %3, 3
-  %.sroa.023.0.extract.trunc43183 = trunc i64 %.sroa.023.2 to i32
-  %69 = urem i32 %.sroa.023.0.extract.trunc43183, 10
+  %.sroa.023.0.extract.trunc43181 = trunc i64 %.sroa.023.2 to i32
+  %69 = urem i32 %.sroa.023.0.extract.trunc43181, 10
   %70 = icmp eq i32 %69, 0
-  %or.cond191 = select i1 %68, i1 %70, i1 false
-  br i1 %or.cond191, label %.lr.ph187, label %.loopexit
+  %or.cond189 = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond189, label %.lr.ph185, label %.loopexit
 
-.lr.ph187:                                        ; preds = %67, %.lr.ph187
-  %.sroa.023.0.extract.trunc43186 = phi i32 [ %71, %.lr.ph187 ], [ %.sroa.023.0.extract.trunc43183, %67 ]
-  %.sroa.023.4185 = phi i64 [ %.sroa.023.4.insert.insert67, %.lr.ph187 ], [ %.sroa.023.2, %67 ]
-  %.3184 = phi i32 [ %73, %.lr.ph187 ], [ %.2148, %67 ]
-  %71 = udiv i32 %.sroa.023.0.extract.trunc43186, 10
+.lr.ph185:                                        ; preds = %67, %.lr.ph185
+  %.sroa.023.0.extract.trunc43184 = phi i32 [ %71, %.lr.ph185 ], [ %.sroa.023.0.extract.trunc43181, %67 ]
+  %.sroa.023.4183 = phi i64 [ %.sroa.023.4.insert.insert67, %.lr.ph185 ], [ %.sroa.023.2, %67 ]
+  %.3182 = phi i32 [ %73, %.lr.ph185 ], [ %.2148, %67 ]
+  %71 = udiv i32 %.sroa.023.0.extract.trunc43184, 10
   %.sroa.023.0.insert.ext47 = zext nneg i32 %71 to i64
-  %72 = and i64 %.sroa.023.4185, -4294967296
+  %72 = and i64 %.sroa.023.4183, -4294967296
   %.sroa.023.4.insert.shift65 = add i64 %72, 4294967296
   %.sroa.023.4.insert.insert67 = or disjoint i64 %.sroa.023.4.insert.shift65, %.sroa.023.0.insert.ext47
-  %73 = add nsw i32 %.3184, -1
+  %73 = add nsw i32 %.3182, -1
   %74 = urem i32 %71, 10
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.lr.ph187, label %.loopexit, !llvm.loop !36
+  br i1 %75, label %.lr.ph185, label %.loopexit, !llvm.loop !36
 
-.loopexit:                                        ; preds = %.lr.ph187, %67, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
-  %.0146 = phi i32 [ %.2148, %67 ], [ %.0.i, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %73, %.lr.ph187 ]
-  %.sroa.023.0 = phi i64 [ %.sroa.023.2, %67 ], [ %.fca.0.extract, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %.sroa.023.4.insert.insert67, %.lr.ph187 ]
+.loopexit:                                        ; preds = %.lr.ph185, %67, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
+  %.0146 = phi i32 [ %.2148, %67 ], [ %.0.i, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %73, %.lr.ph185 ]
+  %.sroa.023.0 = phi i64 [ %.sroa.023.2, %67 ], [ %.fca.0.extract, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %.sroa.023.4.insert.insert67, %.lr.ph185 ]
   %.sroa.023.4.extract.shift69 = lshr i64 %.sroa.023.0, 32
   %.sroa.023.4.extract.trunc70 = trunc nuw i64 %.sroa.023.4.extract.shift69 to i32
   %76 = fcmp olt float %2, 0.000000e+00
@@ -4143,7 +4143,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   %81 = add nsw i32 %80, %.0.lcssa.i.i
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %10, %82
-  br i1 %83, label %156, label %84
+  br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit
   %85 = fcmp olt float %17, 1.000000e+00
@@ -4156,7 +4156,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   %90 = ptrtoint ptr %.0 to i64
   %91 = sub i64 %8, %90
   %92 = icmp slt i64 %91, %89
-  br i1 %92, label %156, label %93
+  br i1 %92, label %.critedge, label %93
 
 93:                                               ; preds = %86
   %94 = sub i32 0, %87
@@ -4177,7 +4177,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
 
 _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread: ; preds = %98
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
-  br label %156
+  br label %.critedge
 
 100:                                              ; preds = %98
   %101 = ptrtoint ptr %.2 to i64
@@ -4248,7 +4248,7 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i: ; preds = %118, %116, %112,
 
 _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit: ; preds = %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
-  br label %156
+  br label %.critedge
 
 133:                                              ; preds = %123
   %134 = sub nuw nsw i64 10, %.0.i.i
@@ -4257,7 +4257,7 @@ _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T
   %136 = getelementptr inbounds nuw i8, ptr %.2, i64 %.0.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
   %137 = fcmp ult float %17, 1.000000e+00
-  br i1 %137, label %156, label %138
+  br i1 %137, label %.critedge, label %138
 
 138:                                              ; preds = %133
   %139 = icmp slt i64 %.sroa.023.0, 0
@@ -4281,22 +4281,22 @@ _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T
 149:                                              ; preds = %144, %140, %138
   %.sroa.0.1 = phi ptr [ %148, %144 ], [ %136, %140 ], [ %136, %138 ]
   %150 = icmp sgt i32 %.sroa.023.4.extract.trunc70, 0
-  br i1 %150, label %151, label %156
+  br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %149
   %152 = ptrtoint ptr %.sroa.0.1 to i64
   %153 = sub i64 %8, %152
   %.not158 = icmp ugt i64 %.sroa.023.4.extract.shift69, %153
-  br i1 %.not158, label %156, label %154
+  br i1 %.not158, label %.critedge, label %154
 
 154:                                              ; preds = %151
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.sroa.0.1, i8 48, i64 %.sroa.023.4.extract.shift69, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 %.sroa.023.4.extract.shift69
-  br label %156
+  br label %.critedge
 
-156:                                              ; preds = %154, %151, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread, %32, %29, %149, %133, %86, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, %5
-  %.sroa.0143.0 = phi ptr [ %1, %5 ], [ %35, %32 ], [ %30, %29 ], [ %1, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ %1, %86 ], [ %1, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit ], [ %.sroa.0.1, %149 ], [ %136, %133 ], [ %1, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread ], [ %155, %154 ], [ %1, %151 ]
-  %.sroa.8.0 = phi i32 [ 75, %5 ], [ 0, %32 ], [ 0, %29 ], [ 75, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ 75, %86 ], [ 75, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit ], [ 0, %149 ], [ 0, %133 ], [ 22, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread ], [ 0, %154 ], [ 75, %151 ]
+.critedge:                                        ; preds = %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread, %32, %29, %154, %149, %133, %151, %86, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, %5
+  %.sroa.0143.0 = phi ptr [ %1, %5 ], [ %35, %32 ], [ %30, %29 ], [ %1, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ %1, %86 ], [ %1, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit ], [ %.sroa.0.1, %149 ], [ %136, %133 ], [ %155, %154 ], [ %1, %151 ], [ %1, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread ]
+  %.sroa.8.0 = phi i32 [ 75, %5 ], [ 0, %32 ], [ 0, %29 ], [ 75, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ 75, %86 ], [ 75, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit ], [ 0, %149 ], [ 0, %133 ], [ 0, %154 ], [ 75, %151 ], [ 22, %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0143.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.8.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -9692,7 +9692,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %12 = icmp slt i64 %8, %11
   %13 = icmp ugt ptr %0, %1
   %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %.thread, label %14
+  br i1 %or.cond, label %.critedge, label %14
 
 14:                                               ; preds = %5
   %15 = tail call noundef double @llvm.fabs.f64(double %2)
@@ -9750,7 +9750,7 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 48, ptr %.0, align 1, !tbaa !23
   %42 = icmp sgt i32 %4, -1
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -9758,7 +9758,7 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS
   %45 = zext nneg i32 %4 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %44, i8 48, i64 %45, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  br label %.thread
+  br label %.critedge
 
 47:                                               ; preds = %38
   %48 = icmp ugt i64 %35, 9999999999
@@ -9845,34 +9845,34 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 _ZN5boost8charconv6detail10num_digitsImEEiT_.exit: ; preds = %53, %55, %57, %59, %63, %65, %71, %73, %75, %79, %81, %83
-  %.0.i127 = phi i32 [ %..i, %57 ], [ 18, %55 ], [ 17, %53 ], [ %.21.i, %59 ], [ %.22.i, %63 ], [ %.23.i, %65 ], [ %.24.i, %73 ], [ 8, %71 ], [ %.25.i, %75 ], [ %.26.i, %81 ], [ 3, %79 ], [ %.27.i, %83 ]
-  br i1 %9, label %.loopexit, label %.preheader135
+  %.0.i125 = phi i32 [ %..i, %57 ], [ 18, %55 ], [ 17, %53 ], [ %.21.i, %59 ], [ %.22.i, %63 ], [ %.23.i, %65 ], [ %.24.i, %73 ], [ 8, %71 ], [ %.25.i, %75 ], [ %.26.i, %81 ], [ 3, %79 ], [ %.27.i, %83 ]
+  br i1 %9, label %.loopexit, label %.preheader133
 
-.preheader135:                                    ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
+.preheader133:                                    ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
   %85 = add nsw i32 %4, 2
-  %86 = icmp sgt i32 %.0.i127, %85
+  %86 = icmp sgt i32 %.0.i125, %85
   br i1 %86, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader135, %.lr.ph
-  %.sroa.1631.1139 = phi i64 [ %88, %.lr.ph ], [ %.sroa.4.12.insert.insert, %.preheader135 ]
-  %.1111138 = phi i32 [ %89, %.lr.ph ], [ %.0.i127, %.preheader135 ]
-  %.sroa.022.1137 = phi i64 [ %87, %.lr.ph ], [ %35, %.preheader135 ]
-  %87 = udiv i64 %.sroa.022.1137, 10
-  %88 = add i64 %.sroa.1631.1139, 1
-  %89 = add nsw i32 %.1111138, -1
+.lr.ph:                                           ; preds = %.preheader133, %.lr.ph
+  %.sroa.1631.1137 = phi i64 [ %88, %.lr.ph ], [ %.sroa.4.12.insert.insert, %.preheader133 ]
+  %.1111136 = phi i32 [ %89, %.lr.ph ], [ %.0.i125, %.preheader133 ]
+  %.sroa.022.1135 = phi i64 [ %87, %.lr.ph ], [ %35, %.preheader133 ]
+  %87 = udiv i64 %.sroa.022.1135, 10
+  %88 = add i64 %.sroa.1631.1137, 1
+  %89 = add nsw i32 %.1111136, -1
   %90 = icmp sgt i32 %89, %85
   br i1 %90, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %.preheader135
-  %91 = icmp eq i32 %.0.i127, %85
+._crit_edge:                                      ; preds = %.preheader133
+  %91 = icmp eq i32 %.0.i125, %85
   br i1 %91, label %._crit_edge.thread, label %98
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.sroa.1631.1.lcssa160 = phi i64 [ %.sroa.4.12.insert.insert, %._crit_edge ], [ %88, %.lr.ph ]
-  %.sroa.022.1.lcssa159 = phi i64 [ %35, %._crit_edge ], [ %87, %.lr.ph ]
-  %92 = urem i64 %.sroa.022.1.lcssa159, 10
-  %93 = udiv i64 %.sroa.022.1.lcssa159, 10
-  %94 = add i64 %.sroa.1631.1.lcssa160, 1
+  %.sroa.1631.1.lcssa158 = phi i64 [ %.sroa.4.12.insert.insert, %._crit_edge ], [ %88, %.lr.ph ]
+  %.sroa.022.1.lcssa157 = phi i64 [ %35, %._crit_edge ], [ %87, %.lr.ph ]
+  %92 = urem i64 %.sroa.022.1.lcssa157, 10
+  %93 = udiv i64 %.sroa.022.1.lcssa157, 10
+  %94 = add i64 %.sroa.1631.1.lcssa158, 1
   %95 = add nsw i32 %4, 1
   %96 = icmp samesign ugt i64 %92, 4
   %97 = zext i1 %96 to i64
@@ -9881,29 +9881,29 @@ _ZN5boost8charconv6detail10num_digitsImEEiT_.exit: ; preds = %53, %55, %57, %59,
 
 98:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.sroa.022.2 = phi i64 [ %spec.select, %._crit_edge.thread ], [ %35, %._crit_edge ]
-  %.2112 = phi i32 [ %95, %._crit_edge.thread ], [ %.0.i127, %._crit_edge ]
+  %.2112 = phi i32 [ %95, %._crit_edge.thread ], [ %.0.i125, %._crit_edge ]
   %.sroa.1631.2 = phi i64 [ %94, %._crit_edge.thread ], [ %.sroa.4.12.insert.insert, %._crit_edge ]
   %99 = icmp eq i32 %3, 3
   %100 = urem i64 %.sroa.022.2, 10
   %101 = icmp eq i64 %100, 0
-  %or.cond151 = select i1 %99, i1 %101, i1 false
-  br i1 %or.cond151, label %.lr.ph146, label %.loopexit
+  %or.cond149 = select i1 %99, i1 %101, i1 false
+  br i1 %or.cond149, label %.lr.ph144, label %.loopexit
 
-.lr.ph146:                                        ; preds = %98, %.lr.ph146
-  %.sroa.1631.3145 = phi i64 [ %103, %.lr.ph146 ], [ %.sroa.1631.2, %98 ]
-  %.3144 = phi i32 [ %104, %.lr.ph146 ], [ %.2112, %98 ]
-  %.sroa.022.4143 = phi i64 [ %102, %.lr.ph146 ], [ %.sroa.022.2, %98 ]
-  %102 = udiv i64 %.sroa.022.4143, 10
-  %103 = add i64 %.sroa.1631.3145, 1
-  %104 = add nsw i32 %.3144, -1
+.lr.ph144:                                        ; preds = %98, %.lr.ph144
+  %.sroa.1631.3143 = phi i64 [ %103, %.lr.ph144 ], [ %.sroa.1631.2, %98 ]
+  %.3142 = phi i32 [ %104, %.lr.ph144 ], [ %.2112, %98 ]
+  %.sroa.022.4141 = phi i64 [ %102, %.lr.ph144 ], [ %.sroa.022.2, %98 ]
+  %102 = udiv i64 %.sroa.022.4141, 10
+  %103 = add i64 %.sroa.1631.3143, 1
+  %104 = add nsw i32 %.3142, -1
   %105 = urem i64 %102, 10
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.lr.ph146, label %.loopexit, !llvm.loop !74
+  br i1 %106, label %.lr.ph144, label %.loopexit, !llvm.loop !74
 
-.loopexit:                                        ; preds = %.lr.ph146, %98, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
-  %.sroa.022.0 = phi i64 [ %.sroa.022.2, %98 ], [ %35, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %102, %.lr.ph146 ]
-  %.0110 = phi i32 [ %.2112, %98 ], [ %.0.i127, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %104, %.lr.ph146 ]
-  %.sroa.1631.0 = phi i64 [ %.sroa.1631.2, %98 ], [ %.sroa.4.12.insert.insert, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %103, %.lr.ph146 ]
+.loopexit:                                        ; preds = %.lr.ph144, %98, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
+  %.sroa.022.0 = phi i64 [ %.sroa.022.2, %98 ], [ %35, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %102, %.lr.ph144 ]
+  %.0110 = phi i32 [ %.2112, %98 ], [ %.0.i125, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %104, %.lr.ph144 ]
+  %.sroa.1631.0 = phi i64 [ %.sroa.1631.2, %98 ], [ %.sroa.4.12.insert.insert, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %103, %.lr.ph144 ]
   %.sroa.1631.8.extract.trunc45 = trunc i64 %.sroa.1631.0 to i32
   %107 = fcmp olt double %2, 0.000000e+00
   %.not5.i.i = icmp eq i32 %.sroa.1631.8.extract.trunc45, 0
@@ -9925,20 +9925,20 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   %112 = add nsw i32 %111, %.0.lcssa.i.i
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %8, %113
-  br i1 %114, label %.thread, label %115
+  br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit
   %116 = fcmp olt double %15, 1.000000e+00
   br i1 %116, label %117, label %129
 
 117:                                              ; preds = %115
-  %118 = add i32 %.0.i127, %.sroa.1631.8.extract.trunc45
+  %118 = add i32 %.0.i125, %.sroa.1631.8.extract.trunc45
   %119 = sub i32 2, %118
   %120 = sext i32 %119 to i64
   %121 = ptrtoint ptr %.0 to i64
   %122 = sub i64 %6, %121
   %123 = icmp slt i64 %122, %120
-  br i1 %123, label %.thread, label %124
+  br i1 %123, label %.critedge, label %124
 
 124:                                              ; preds = %117
   %125 = sub i32 0, %118
@@ -9955,11 +9955,11 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   %131 = extractvalue { ptr, i32 } %130, 0
   %132 = extractvalue { ptr, i32 } %130, 1
   %.not123 = icmp eq i32 %132, 0
-  br i1 %.not123, label %133, label %.thread
+  br i1 %.not123, label %133, label %.critedge
 
 133:                                              ; preds = %129
   %134 = fcmp ult double %15, 1.000000e+00
-  br i1 %134, label %.thread, label %135
+  br i1 %134, label %.critedge, label %135
 
 135:                                              ; preds = %133
   %136 = icmp slt i32 %.sroa.1631.8.extract.trunc45, 0
@@ -9969,7 +9969,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   %138 = sub nsw i64 0, %.sroa.1631.0
   %139 = and i64 %138, 4294967295
   %140 = icmp slt i64 %139, %8
-  br i1 %140, label %141, label %.thread
+  br i1 %140, label %141, label %.critedge
 
 141:                                              ; preds = %137
   %sext = shl i64 %.sroa.1631.0, 32
@@ -9979,26 +9979,26 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull align 1 %143, i64 %139, i1 false)
   store i8 46, ptr %143, align 1
   %145 = getelementptr inbounds nuw i8, ptr %131, i64 1
-  br label %.thread
+  br label %.critedge
 
 146:                                              ; preds = %135
-  br i1 %.not5.i.i, label %.thread, label %147
+  br i1 %.not5.i.i, label %.critedge, label %147
 
 147:                                              ; preds = %146
   %148 = and i64 %.sroa.1631.0, 2147483647
   %149 = ptrtoint ptr %131 to i64
   %150 = sub i64 %6, %149
   %.not124 = icmp ugt i64 %148, %150
-  br i1 %.not124, label %.thread, label %151
+  br i1 %.not124, label %.critedge, label %151
 
 151:                                              ; preds = %147
   tail call void @llvm.memset.p0.i64(ptr align 1 %131, i8 48, i64 %148, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %131, i64 %148
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %151, %147, %137, %141, %43, %40, %129, %146, %133, %117, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, %5
-  %.sroa.0107.0 = phi ptr [ %1, %5 ], [ %46, %43 ], [ %41, %40 ], [ %1, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ %1, %117 ], [ %131, %129 ], [ %131, %146 ], [ %131, %133 ], [ %131, %137 ], [ %145, %141 ], [ %152, %151 ], [ %1, %147 ]
-  %.sroa.8.0 = phi i32 [ 75, %5 ], [ 0, %43 ], [ 0, %40 ], [ 75, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ 75, %117 ], [ %132, %129 ], [ 0, %146 ], [ 0, %133 ], [ 0, %137 ], [ 0, %141 ], [ 0, %151 ], [ 75, %147 ]
+.critedge:                                        ; preds = %137, %141, %43, %40, %151, %129, %146, %133, %147, %117, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, %5
+  %.sroa.0107.0 = phi ptr [ %1, %5 ], [ %46, %43 ], [ %41, %40 ], [ %1, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ %1, %117 ], [ %131, %129 ], [ %131, %146 ], [ %131, %133 ], [ %152, %151 ], [ %1, %147 ], [ %131, %137 ], [ %145, %141 ]
+  %.sroa.8.0 = phi i32 [ 75, %5 ], [ 0, %43 ], [ 0, %40 ], [ 75, %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit ], [ 75, %117 ], [ %132, %129 ], [ 0, %146 ], [ 0, %133 ], [ 0, %151 ], [ 75, %147 ], [ 0, %137 ], [ 0, %141 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0107.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.8.0, 1
   ret { ptr, i32 } %.fca.1.insert

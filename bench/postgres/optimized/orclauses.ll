@@ -12,33 +12,33 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
-  br i1 %5, label %.lr.ph34, label %._crit_edge
+  br i1 %5, label %.lr.ph32, label %._crit_edge
 
-.lr.ph34:                                         ; preds = %1
+.lr.ph32:                                         ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %7
 
-7:                                                ; preds = %.lr.ph34, %.thread
-  %8 = phi i32 [ %4, %.lr.ph34 ], [ %60, %.thread ]
-  %indvars.iv36 = phi i64 [ 1, %.lr.ph34 ], [ %indvars.iv.next37, %.thread ]
+7:                                                ; preds = %.lr.ph32, %.critedge
+  %8 = phi i32 [ %4, %.lr.ph32 ], [ %60, %.critedge ]
+  %indvars.iv34 = phi i64 [ 1, %.lr.ph32 ], [ %indvars.iv.next35, %.critedge ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv36
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv34
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %.thread
+  br i1 %.not, label %16, label %.critedge
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 328
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.not26 = icmp eq ptr %18, null
-  br i1 %.not26, label %.thread, label %.lr.ph
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -47,17 +47,17 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load i32, ptr %19, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph40, label %.thread.loopexit
+  br i1 %25, label %.lr.ph38, label %.critedge.loopexit
 
-.lr.ph40:                                         ; preds = %.lr.ph, %consider_new_or_clause.exit
-  %indvars.iv39 = phi i64 [ %indvars.iv.next, %consider_new_or_clause.exit ], [ 0, %.lr.ph ]
+.lr.ph38:                                         ; preds = %.lr.ph, %consider_new_or_clause.exit
+  %indvars.iv37 = phi i64 [ %indvars.iv.next, %consider_new_or_clause.exit ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv39
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv37
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i1 @restriction_is_or_clause(ptr noundef %28) #4
   br i1 %29, label %30, label %consider_new_or_clause.exit
 
-30:                                               ; preds = %.lr.ph40
+30:                                               ; preds = %.lr.ph38
   %31 = call zeroext i1 @join_clause_is_movable_to(ptr noundef %28, ptr noundef nonnull %11) #4
   br i1 %31, label %32, label %consider_new_or_clause.exit
 
@@ -103,25 +103,25 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #4
   br label %consider_new_or_clause.exit
 
-consider_new_or_clause.exit:                      ; preds = %47, %40, %34, %32, %30, %.lr.ph40
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
+consider_new_or_clause.exit:                      ; preds = %47, %40, %34, %32, %30, %.lr.ph38
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv37, 1
   %57 = load i32, ptr %19, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph40, label %.thread.loopexit
+  br i1 %59, label %.lr.ph38, label %.critedge.loopexit
 
-.thread.loopexit:                                 ; preds = %consider_new_or_clause.exit, %.lr.ph
+.critedge.loopexit:                               ; preds = %consider_new_or_clause.exit, %.lr.ph
   %.pre = load i32, ptr %3, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.loopexit, %16, %13, %7
-  %60 = phi i32 [ %.pre, %.thread.loopexit ], [ %8, %16 ], [ %8, %13 ], [ %8, %7 ]
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+.critedge:                                        ; preds = %.critedge.loopexit, %16, %13, %7
+  %60 = phi i32 [ %.pre, %.critedge.loopexit ], [ %8, %16 ], [ %8, %13 ], [ %8, %7 ]
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %61 = zext i32 %60 to i64
-  %62 = icmp samesign ult i64 %indvars.iv.next37, %61
+  %62 = icmp samesign ult i64 %indvars.iv.next35, %61
   br i1 %62, label %7, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.thread, %1
+._crit_edge:                                      ; preds = %.critedge, %1
   ret void
 }
 
@@ -139,26 +139,26 @@ define internal fastcc ptr @extract_or_clause(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread87, label %.lr.ph105
+  br i1 %.not, label %.thread81, label %.lr.ph98
 
-.lr.ph105:                                        ; preds = %2
+.lr.ph98:                                         ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %7, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph121, label %._crit_edge
+  br i1 %11, label %.lr.ph114, label %._crit_edge
 
-.lr.ph121:                                        ; preds = %.lr.ph105, %79
-  %.044104120 = phi ptr [ %.246, %79 ], [ null, %.lr.ph105 ]
-  %indvars.iv110119 = phi i64 [ %indvars.iv.next111, %79 ], [ 0, %.lr.ph105 ]
+.lr.ph114:                                        ; preds = %.lr.ph98, %79
+  %.04497113 = phi ptr [ %.246, %79 ], [ null, %.lr.ph98 ]
+  %indvars.iv103112 = phi i64 [ %indvars.iv.next104, %79 ], [ 0, %.lr.ph98 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv110119
+  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv103112
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %15
 
-15:                                               ; preds = %.lr.ph121
+15:                                               ; preds = %.lr.ph114
   %16 = load i32, ptr %14, align 4
   %17 = icmp eq i32 %16, 21
   br i1 %17, label %is_andclause.exit, label %is_andclause.exit.thread
@@ -174,29 +174,29 @@ is_andclause.exit:                                ; preds = %15
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not60 = icmp eq ptr %23, null
-  br i1 %.not60, label %.thread87, label %.lr.ph
+  br i1 %.not60, label %.thread81, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i32, ptr %24, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph101, label %.thread87
+  br i1 %27, label %.lr.ph95, label %.thread81
 
-.lr.ph101:                                        ; preds = %.lr.ph, %is_safe_restriction_clause_for.exit.thread
+.lr.ph95:                                         ; preds = %.lr.ph, %is_safe_restriction_clause_for.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %is_safe_restriction_clause_for.exit.thread ], [ 0, %.lr.ph ]
-  %.05294100 = phi ptr [ %.254, %is_safe_restriction_clause_for.exit.thread ], [ null, %.lr.ph ]
+  %.0528894 = phi ptr [ %.254, %is_safe_restriction_clause_for.exit.thread ], [ null, %.lr.ph ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %30) #4
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %.lr.ph101
+32:                                               ; preds = %.lr.ph95
   %33 = tail call fastcc ptr @extract_or_clause(ptr noundef %30, ptr noundef %1)
   %.not64 = icmp eq ptr %33, null
   br i1 %.not64, label %is_safe_restriction_clause_for.exit.thread, label %is_safe_restriction_clause_for.exit.thread.sink.split
 
-34:                                               ; preds = %.lr.ph101
+34:                                               ; preds = %.lr.ph95
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 18
   %36 = load i8, ptr %35, align 2, !range !6, !noundef !7
   %37 = trunc nuw i8 %36 to i1
@@ -221,47 +221,47 @@ is_safe_restriction_clause_for.exit:              ; preds = %38
 
 is_safe_restriction_clause_for.exit.thread.sink.split: ; preds = %32, %46
   %.sink = phi ptr [ %47, %46 ], [ %33, %32 ]
-  %48 = tail call ptr @lappend(ptr noundef %.05294100, ptr noundef %.sink) #4
+  %48 = tail call ptr @lappend(ptr noundef %.0528894, ptr noundef %.sink) #4
   br label %is_safe_restriction_clause_for.exit.thread
 
 is_safe_restriction_clause_for.exit.thread:       ; preds = %is_safe_restriction_clause_for.exit.thread.sink.split, %38, %34, %32, %is_safe_restriction_clause_for.exit
-  %.254 = phi ptr [ %.05294100, %is_safe_restriction_clause_for.exit ], [ %.05294100, %32 ], [ %.05294100, %34 ], [ %.05294100, %38 ], [ %48, %is_safe_restriction_clause_for.exit.thread.sink.split ]
+  %.254 = phi ptr [ %.0528894, %is_safe_restriction_clause_for.exit ], [ %.0528894, %32 ], [ %.0528894, %34 ], [ %.0528894, %38 ], [ %48, %is_safe_restriction_clause_for.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %24, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph101, label %.thread73
+  br i1 %51, label %.lr.ph95, label %.critedge
 
-is_andclause.exit.thread:                         ; preds = %.lr.ph121, %15, %is_andclause.exit
+is_andclause.exit.thread:                         ; preds = %.lr.ph114, %15, %is_andclause.exit
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 18
   %53 = load i8, ptr %52, align 2, !range !6, !noundef !7
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %.thread87, label %55
+  br i1 %54, label %.thread81, label %55
 
 55:                                               ; preds = %is_andclause.exit.thread
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %9, align 8
   %59 = tail call zeroext i1 @bms_equal(ptr noundef %57, ptr noundef %58) #4
-  br i1 %59, label %is_safe_restriction_clause_for.exit67, label %.thread87
+  br i1 %59, label %is_safe_restriction_clause_for.exit67, label %.thread81
 
 is_safe_restriction_clause_for.exit67:            ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %61) #4
-  br i1 %62, label %.thread87, label %63
+  br i1 %62, label %.thread81, label %63
 
 63:                                               ; preds = %is_safe_restriction_clause_for.exit67
   %64 = load ptr, ptr %60, align 8
   %65 = tail call ptr @lappend(ptr noundef null, ptr noundef %64) #4
-  br label %.thread73
+  br label %.critedge
 
-.thread73:                                        ; preds = %is_safe_restriction_clause_for.exit.thread, %63
+.critedge:                                        ; preds = %is_safe_restriction_clause_for.exit.thread, %63
   %.355 = phi ptr [ %65, %63 ], [ %.254, %is_safe_restriction_clause_for.exit.thread ]
   %.not62 = icmp eq ptr %.355, null
-  br i1 %.not62, label %.thread87, label %66
+  br i1 %.not62, label %.thread81, label %66
 
-66:                                               ; preds = %.thread73
+66:                                               ; preds = %.critedge
   %67 = tail call ptr @make_ands_explicit(ptr noundef nonnull %.355) #4
   %.not.i68 = icmp eq ptr %67, null
   br i1 %.not.i68, label %is_orclause.exit.thread, label %68
@@ -280,32 +280,32 @@ is_orclause.exit:                                 ; preds = %68
 74:                                               ; preds = %is_orclause.exit
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @list_concat(ptr noundef %.044104120, ptr noundef %76) #4
+  %77 = tail call ptr @list_concat(ptr noundef %.04497113, ptr noundef %76) #4
   br label %79
 
 is_orclause.exit.thread:                          ; preds = %66, %68, %is_orclause.exit
-  %78 = tail call ptr @lappend(ptr noundef %.044104120, ptr noundef %67) #4
+  %78 = tail call ptr @lappend(ptr noundef %.04497113, ptr noundef %67) #4
   br label %79
 
 79:                                               ; preds = %is_orclause.exit.thread, %74
   %.246 = phi ptr [ %77, %74 ], [ %78, %is_orclause.exit.thread ]
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110119, 1
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103112, 1
   %80 = load i32, ptr %7, align 4
   %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next111, %81
-  br i1 %82, label %.lr.ph121, label %._crit_edge
+  %82 = icmp slt i64 %indvars.iv.next104, %81
+  br i1 %82, label %.lr.ph114, label %._crit_edge
 
-._crit_edge:                                      ; preds = %79, %.lr.ph105
-  %.044104.lcssa = phi ptr [ null, %.lr.ph105 ], [ %.246, %79 ]
-  %.not63 = icmp eq ptr %.044104.lcssa, null
-  br i1 %.not63, label %.thread87, label %83
+._crit_edge:                                      ; preds = %79, %.lr.ph98
+  %.04497.lcssa = phi ptr [ null, %.lr.ph98 ], [ %.246, %79 ]
+  %.not63 = icmp eq ptr %.04497.lcssa, null
+  br i1 %.not63, label %.thread81, label %83
 
 83:                                               ; preds = %._crit_edge
-  %84 = tail call ptr @make_orclause(ptr noundef nonnull %.044104.lcssa) #4
-  br label %.thread87
+  %84 = tail call ptr @make_orclause(ptr noundef nonnull %.04497.lcssa) #4
+  br label %.thread81
 
-.thread87:                                        ; preds = %.lr.ph, %21, %.thread73, %is_safe_restriction_clause_for.exit67, %is_andclause.exit.thread, %55, %2, %._crit_edge, %83
-  %.3 = phi ptr [ %84, %83 ], [ null, %._crit_edge ], [ null, %2 ], [ null, %55 ], [ null, %is_andclause.exit.thread ], [ null, %is_safe_restriction_clause_for.exit67 ], [ null, %.thread73 ], [ null, %21 ], [ null, %.lr.ph ]
+.thread81:                                        ; preds = %.lr.ph, %21, %.critedge, %is_safe_restriction_clause_for.exit67, %is_andclause.exit.thread, %55, %2, %._crit_edge, %83
+  %.3 = phi ptr [ %84, %83 ], [ null, %._crit_edge ], [ null, %2 ], [ null, %55 ], [ null, %is_andclause.exit.thread ], [ null, %is_safe_restriction_clause_for.exit67 ], [ null, %.critedge ], [ null, %21 ], [ null, %.lr.ph ]
   ret ptr %.3
 }
 

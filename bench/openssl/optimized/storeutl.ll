@@ -575,7 +575,7 @@ define internal fastcc i32 @process(ptr noundef %0, ptr noundef %1, ptr noundef 
   %19 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.66, ptr noundef %0) #5
   %20 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %20) #5
-  br label %141
+  br label %140
 
 21:                                               ; preds = %13
   %.not = icmp eq i32 %3, 0
@@ -589,7 +589,7 @@ define internal fastcc i32 @process(ptr noundef %0, ptr noundef %1, ptr noundef 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %25) #5
-  br label %136
+  br label %135
 
 26:                                               ; preds = %22, %21
   %.not100 = icmp eq i32 %4, 0
@@ -603,7 +603,7 @@ define internal fastcc i32 @process(ptr noundef %0, ptr noundef %1, ptr noundef 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.67, ptr noundef %11) #5
-  br label %136
+  br label %135
 
 32:                                               ; preds = %27
   %33 = tail call i32 @OSSL_STORE_find(ptr noundef nonnull %15, ptr noundef %5) #5
@@ -613,7 +613,7 @@ define internal fastcc i32 @process(ptr noundef %0, ptr noundef %1, ptr noundef 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %35) #5
-  br label %136
+  br label %135
 
 36:                                               ; preds = %32, %26
   %.not104 = icmp eq i32 %6, 0
@@ -622,231 +622,231 @@ define internal fastcc i32 @process(ptr noundef %0, ptr noundef %1, ptr noundef 
   %37 = add nsw i32 %9, 2
   br label %select.unfold.outer
 
-select.unfold.outer:                              ; preds = %133, %36
-  %.089.ph = phi i32 [ %134, %133 ], [ 0, %36 ]
-  %.1.ph = phi i32 [ %.3, %133 ], [ 0, %36 ]
+select.unfold.outer:                              ; preds = %132, %36
+  %.089.ph = phi i32 [ %133, %132 ], [ 0, %36 ]
+  %.1.ph = phi i32 [ %.3, %132 ], [ 0, %36 ]
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.outer, %46
-  %.1 = phi i32 [ %48, %46 ], [ %.1.ph, %select.unfold.outer ]
+select.unfold:                                    ; preds = %select.unfold.outer, %49
+  %.1 = phi i32 [ %51, %49 ], [ %.1.ph, %select.unfold.outer ]
   %38 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %15) #5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %58
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %select.unfold
-  %41 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %15) #5
-  %.not115 = icmp eq i32 %41, 0
-  br i1 %.not115, label %49, label %42
+  %41 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %38) #5
+  %42 = tail call ptr @OSSL_STORE_INFO_type_string(i32 noundef %41) #5
+  %43 = icmp eq i32 %41, 1
+  br i1 %43, label %61, label %67
 
-42:                                               ; preds = %40
-  br i1 %.not114, label %44, label %43
+.critedge:                                        ; preds = %select.unfold
+  %44 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %15) #5
+  %.not115 = icmp eq i32 %44, 0
+  br i1 %.not115, label %52, label %45
 
-43:                                               ; preds = %42
+45:                                               ; preds = %.critedge
+  br i1 %.not114, label %47, label %46
+
+46:                                               ; preds = %45
   tail call void @ERR_clear_error() #5
-  br label %46
+  br label %49
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  tail call void @ERR_print_errors(ptr noundef %45) #5
-  br label %46
+47:                                               ; preds = %45
+  %48 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  tail call void @ERR_print_errors(ptr noundef %48) #5
+  br label %49
 
-46:                                               ; preds = %44, %43
-  %47 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %15) #5
-  %.not118 = icmp eq i32 %47, 0
-  %48 = add nsw i32 %.1, 1
+49:                                               ; preds = %47, %46
+  %50 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %15) #5
+  %.not118 = icmp eq i32 %50, 0
+  %51 = add nsw i32 %.1, 1
   br i1 %.not118, label %select.unfold, label %.loopexit
 
-49:                                               ; preds = %40
-  %50 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %15) #5
-  %.not116 = icmp eq i32 %50, 0
-  br i1 %.not116, label %51, label %.loopexit
+52:                                               ; preds = %.critedge
+  %53 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %15) #5
+  %.not116 = icmp eq i32 %53, 0
+  br i1 %.not116, label %54, label %.loopexit
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %53 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.68) #5
-  %54 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %55 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.69) #5
-  %56 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  tail call void @ERR_print_errors(ptr noundef %56) #5
-  %57 = add nsw i32 %.1, 1
+54:                                               ; preds = %52
+  %55 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %56 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.68) #5
+  %57 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %58 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %57, ptr noundef nonnull @.str.69) #5
+  %59 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  tail call void @ERR_print_errors(ptr noundef %59) #5
+  %60 = add nsw i32 %.1, 1
   br label %.loopexit
 
-58:                                               ; preds = %select.unfold
-  %59 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %38) #5
-  %60 = tail call ptr @OSSL_STORE_INFO_type_string(i32 noundef %59) #5
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %68
+61:                                               ; preds = %40
+  %62 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %38) #5
+  %63 = tail call ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef nonnull %38) #5
+  %64 = load ptr, ptr @bio_out, align 8, !tbaa !11
+  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %64, ptr noundef nonnull @.str.70, i32 noundef %.089.ph, ptr noundef %42, ptr noundef %62)
+  %.not103 = icmp eq ptr %63, null
+  br i1 %.not103, label %69, label %65
 
-62:                                               ; preds = %58
-  %63 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %38) #5
-  %64 = tail call ptr @OSSL_STORE_INFO_get0_NAME_description(ptr noundef nonnull %38) #5
-  %65 = load ptr, ptr @bio_out, align 8, !tbaa !11
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %65, ptr noundef nonnull @.str.70, i32 noundef %.089.ph, ptr noundef %60, ptr noundef %63)
-  %.not103 = icmp eq ptr %64, null
-  br i1 %.not103, label %70, label %66
+65:                                               ; preds = %61
+  %66 = load ptr, ptr @bio_out, align 8, !tbaa !11
+  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %66, ptr noundef nonnull @.str.71, ptr noundef nonnull %63)
+  br label %69
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr @bio_out, align 8, !tbaa !11
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %67, ptr noundef nonnull @.str.71, ptr noundef nonnull %64)
-  br label %70
+67:                                               ; preds = %40
+  %68 = load ptr, ptr @bio_out, align 8, !tbaa !11
+  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %68, ptr noundef nonnull @.str.72, i32 noundef %.089.ph, ptr noundef %42)
+  br label %69
 
-68:                                               ; preds = %58
-  %69 = load ptr, ptr @bio_out, align 8, !tbaa !11
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %69, ptr noundef nonnull @.str.72, i32 noundef %.089.ph, ptr noundef %60)
-  br label %70
+69:                                               ; preds = %61, %65, %67
+  %70 = load ptr, ptr @out, align 8, !tbaa !11
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %76
 
-70:                                               ; preds = %62, %66, %68
-  %71 = load ptr, ptr @out, align 8, !tbaa !11
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %77
+72:                                               ; preds = %69
+  %73 = tail call ptr @bio_open_default(ptr noundef %10, i8 noundef signext 119, i32 noundef 32769) #5
+  store ptr %73, ptr @out, align 8, !tbaa !11
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.thread127, label %76
 
-73:                                               ; preds = %70
-  %74 = tail call ptr @bio_open_default(ptr noundef %10, i8 noundef signext 119, i32 noundef 32769) #5
-  store ptr %74, ptr @out, align 8, !tbaa !11
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread128, label %77
+.thread127:                                       ; preds = %72
+  %75 = add nsw i32 %.1, 1
+  br label %135
 
-.thread128:                                       ; preds = %73
-  %76 = add nsw i32 %.1, 1
-  br label %136
-
-77:                                               ; preds = %73, %70
-  %78 = phi ptr [ %74, %73 ], [ %71, %70 ]
-  switch i32 %59, label %129 [
-    i32 1, label %79
-    i32 2, label %84
-    i32 3, label %93
-    i32 4, label %102
-    i32 5, label %111
-    i32 6, label %120
+76:                                               ; preds = %72, %69
+  %77 = phi ptr [ %73, %72 ], [ %70, %69 ]
+  switch i32 %41, label %128 [
+    i32 1, label %78
+    i32 2, label %83
+    i32 3, label %92
+    i32 4, label %101
+    i32 5, label %110
+    i32 6, label %119
   ]
 
-79:                                               ; preds = %77
-  br i1 %.not114, label %133, label %80
+78:                                               ; preds = %76
+  br i1 %.not114, label %132, label %79
 
-80:                                               ; preds = %79
-  %81 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %38) #5
-  %82 = tail call fastcc i32 @process(ptr noundef %81, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %37, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %83 = add nsw i32 %82, %.1
-  br label %133
+79:                                               ; preds = %78
+  %80 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %38) #5
+  %81 = tail call fastcc i32 @process(ptr noundef %80, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %37, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %82 = add nsw i32 %81, %.1
+  br label %132
 
-84:                                               ; preds = %77
-  br i1 %.not104, label %88, label %85
+83:                                               ; preds = %76
+  br i1 %.not104, label %87, label %84
 
-85:                                               ; preds = %84
-  %86 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %38) #5
-  %87 = tail call i32 @EVP_PKEY_print_params(ptr noundef nonnull %78, ptr noundef %86, i32 noundef 0, ptr noundef null) #5
-  br label %88
+84:                                               ; preds = %83
+  %85 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %38) #5
+  %86 = tail call i32 @EVP_PKEY_print_params(ptr noundef nonnull %77, ptr noundef %85, i32 noundef 0, ptr noundef null) #5
+  br label %87
 
-88:                                               ; preds = %85, %84
-  br i1 %.not105, label %89, label %133
+87:                                               ; preds = %84, %83
+  br i1 %.not105, label %88, label %132
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr @out, align 8, !tbaa !11
-  %91 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %38) #5
-  %92 = tail call i32 @PEM_write_bio_Parameters(ptr noundef %90, ptr noundef %91) #5
-  br label %133
+88:                                               ; preds = %87
+  %89 = load ptr, ptr @out, align 8, !tbaa !11
+  %90 = tail call ptr @OSSL_STORE_INFO_get0_PARAMS(ptr noundef nonnull %38) #5
+  %91 = tail call i32 @PEM_write_bio_Parameters(ptr noundef %89, ptr noundef %90) #5
+  br label %132
 
-93:                                               ; preds = %77
-  br i1 %.not104, label %97, label %94
+92:                                               ; preds = %76
+  br i1 %.not104, label %96, label %93
 
-94:                                               ; preds = %93
-  %95 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %38) #5
-  %96 = tail call i32 @EVP_PKEY_print_public(ptr noundef nonnull %78, ptr noundef %95, i32 noundef 0, ptr noundef null) #5
-  br label %97
+93:                                               ; preds = %92
+  %94 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %38) #5
+  %95 = tail call i32 @EVP_PKEY_print_public(ptr noundef nonnull %77, ptr noundef %94, i32 noundef 0, ptr noundef null) #5
+  br label %96
 
-97:                                               ; preds = %94, %93
-  br i1 %.not105, label %98, label %133
+96:                                               ; preds = %93, %92
+  br i1 %.not105, label %97, label %132
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr @out, align 8, !tbaa !11
-  %100 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %38) #5
-  %101 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef %99, ptr noundef %100) #5
-  br label %133
+97:                                               ; preds = %96
+  %98 = load ptr, ptr @out, align 8, !tbaa !11
+  %99 = tail call ptr @OSSL_STORE_INFO_get0_PUBKEY(ptr noundef nonnull %38) #5
+  %100 = tail call i32 @PEM_write_bio_PUBKEY(ptr noundef %98, ptr noundef %99) #5
+  br label %132
 
-102:                                              ; preds = %77
-  br i1 %.not104, label %106, label %103
+101:                                              ; preds = %76
+  br i1 %.not104, label %105, label %102
 
-103:                                              ; preds = %102
-  %104 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %38) #5
-  %105 = tail call i32 @EVP_PKEY_print_private(ptr noundef nonnull %78, ptr noundef %104, i32 noundef 0, ptr noundef null) #5
-  br label %106
+102:                                              ; preds = %101
+  %103 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %38) #5
+  %104 = tail call i32 @EVP_PKEY_print_private(ptr noundef nonnull %77, ptr noundef %103, i32 noundef 0, ptr noundef null) #5
+  br label %105
 
-106:                                              ; preds = %103, %102
-  br i1 %.not105, label %107, label %133
+105:                                              ; preds = %102, %101
+  br i1 %.not105, label %106, label %132
 
-107:                                              ; preds = %106
-  %108 = load ptr, ptr @out, align 8, !tbaa !11
-  %109 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %38) #5
-  %110 = tail call i32 @PEM_write_bio_PrivateKey(ptr noundef %108, ptr noundef %109, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #5
-  br label %133
+106:                                              ; preds = %105
+  %107 = load ptr, ptr @out, align 8, !tbaa !11
+  %108 = tail call ptr @OSSL_STORE_INFO_get0_PKEY(ptr noundef nonnull %38) #5
+  %109 = tail call i32 @PEM_write_bio_PrivateKey(ptr noundef %107, ptr noundef %108, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #5
+  br label %132
 
-111:                                              ; preds = %77
-  br i1 %.not104, label %115, label %112
+110:                                              ; preds = %76
+  br i1 %.not104, label %114, label %111
 
-112:                                              ; preds = %111
-  %113 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %38) #5
-  %114 = tail call i32 @X509_print(ptr noundef nonnull %78, ptr noundef %113) #5
-  br label %115
+111:                                              ; preds = %110
+  %112 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %38) #5
+  %113 = tail call i32 @X509_print(ptr noundef nonnull %77, ptr noundef %112) #5
+  br label %114
 
-115:                                              ; preds = %112, %111
-  br i1 %.not105, label %116, label %133
+114:                                              ; preds = %111, %110
+  br i1 %.not105, label %115, label %132
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr @out, align 8, !tbaa !11
-  %118 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %38) #5
-  %119 = tail call i32 @PEM_write_bio_X509(ptr noundef %117, ptr noundef %118) #5
-  br label %133
+115:                                              ; preds = %114
+  %116 = load ptr, ptr @out, align 8, !tbaa !11
+  %117 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %38) #5
+  %118 = tail call i32 @PEM_write_bio_X509(ptr noundef %116, ptr noundef %117) #5
+  br label %132
 
-120:                                              ; preds = %77
-  br i1 %.not104, label %124, label %121
+119:                                              ; preds = %76
+  br i1 %.not104, label %123, label %120
 
-121:                                              ; preds = %120
-  %122 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %38) #5
-  %123 = tail call i32 @X509_CRL_print(ptr noundef nonnull %78, ptr noundef %122) #5
-  br label %124
+120:                                              ; preds = %119
+  %121 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %38) #5
+  %122 = tail call i32 @X509_CRL_print(ptr noundef nonnull %77, ptr noundef %121) #5
+  br label %123
 
-124:                                              ; preds = %121, %120
-  br i1 %.not105, label %125, label %133
+123:                                              ; preds = %120, %119
+  br i1 %.not105, label %124, label %132
 
-125:                                              ; preds = %124
-  %126 = load ptr, ptr @out, align 8, !tbaa !11
-  %127 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %38) #5
-  %128 = tail call i32 @PEM_write_bio_X509_CRL(ptr noundef %126, ptr noundef %127) #5
-  br label %133
+124:                                              ; preds = %123
+  %125 = load ptr, ptr @out, align 8, !tbaa !11
+  %126 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %38) #5
+  %127 = tail call i32 @PEM_write_bio_X509_CRL(ptr noundef %125, ptr noundef %126) #5
+  br label %132
 
-129:                                              ; preds = %77
-  %130 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %131 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %130, ptr noundef nonnull @.str.73) #5
-  %132 = add nsw i32 %.1, 1
-  br label %133
+128:                                              ; preds = %76
+  %129 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %130 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.73) #5
+  %131 = add nsw i32 %.1, 1
+  br label %132
 
-133:                                              ; preds = %124, %125, %115, %116, %106, %107, %97, %98, %88, %89, %79, %80, %129
-  %.3 = phi i32 [ %132, %129 ], [ %83, %80 ], [ %.1, %79 ], [ %.1, %88 ], [ %.1, %89 ], [ %.1, %97 ], [ %.1, %98 ], [ %.1, %106 ], [ %.1, %107 ], [ %.1, %115 ], [ %.1, %116 ], [ %.1, %124 ], [ %.1, %125 ]
-  %134 = add nuw nsw i32 %.089.ph, 1
+132:                                              ; preds = %123, %124, %114, %115, %105, %106, %96, %97, %87, %88, %78, %79, %128
+  %.3 = phi i32 [ %131, %128 ], [ %82, %79 ], [ %.1, %78 ], [ %.1, %87 ], [ %.1, %88 ], [ %.1, %96 ], [ %.1, %97 ], [ %.1, %105 ], [ %.1, %106 ], [ %.1, %114 ], [ %.1, %115 ], [ %.1, %123 ], [ %.1, %124 ]
+  %133 = add nuw nsw i32 %.089.ph, 1
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %38) #5
   br label %select.unfold.outer
 
-.loopexit:                                        ; preds = %46, %51, %49
-  %.2.ph = phi i32 [ %.1, %49 ], [ %57, %51 ], [ %.1, %46 ]
-  %135 = load ptr, ptr @out, align 8, !tbaa !11
-  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %135, ptr noundef nonnull @.str.74, i32 noundef %.089.ph)
-  br label %136
+.loopexit:                                        ; preds = %49, %54, %52
+  %.2.ph = phi i32 [ %.1, %52 ], [ %60, %54 ], [ %.1, %49 ]
+  %134 = load ptr, ptr @out, align 8, !tbaa !11
+  tail call void (i32, ptr, ptr, ...) @indent_printf(i32 noundef %9, ptr noundef %134, ptr noundef nonnull @.str.74, i32 noundef %.089.ph)
+  br label %135
 
-136:                                              ; preds = %.thread128, %.loopexit, %34, %29, %24
-  %.088 = phi i32 [ %.2.ph, %.loopexit ], [ 1, %34 ], [ 1, %29 ], [ 1, %24 ], [ %76, %.thread128 ]
-  %137 = tail call i32 @OSSL_STORE_close(ptr noundef nonnull %15) #5
-  %.not119 = icmp eq i32 %137, 0
-  br i1 %.not119, label %138, label %141
+135:                                              ; preds = %.thread127, %.loopexit, %34, %29, %24
+  %.088 = phi i32 [ %.2.ph, %.loopexit ], [ 1, %34 ], [ 1, %29 ], [ 1, %24 ], [ %75, %.thread127 ]
+  %136 = tail call i32 @OSSL_STORE_close(ptr noundef nonnull %15) #5
+  %.not119 = icmp eq i32 %136, 0
+  br i1 %.not119, label %137, label %140
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  tail call void @ERR_print_errors(ptr noundef %139) #5
-  %140 = add nsw i32 %.088, 1
-  br label %141
+137:                                              ; preds = %135
+  %138 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  tail call void @ERR_print_errors(ptr noundef %138) #5
+  %139 = add nsw i32 %.088, 1
+  br label %140
 
-141:                                              ; preds = %136, %138, %17
-  %.0 = phi i32 [ 1, %17 ], [ %.088, %136 ], [ %140, %138 ]
+140:                                              ; preds = %135, %137, %17
+  %.0 = phi i32 [ 1, %17 ], [ %.088, %135 ], [ %139, %137 ]
   ret i32 %.0
 }
 

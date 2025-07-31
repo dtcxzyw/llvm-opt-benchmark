@@ -1397,13 +1397,13 @@ define internal ptr @stopiteration_error(ptr noundef readonly captures(none) %0,
   br label %.thread
 
 14:                                               ; preds = %2
-  br i1 %.not24, label %.thread41, label %15
+  br i1 %.not24, label %.critedge, label %15
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr @PyExc_StopAsyncIteration, align 8, !tbaa !4
   %17 = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %1, ptr noundef %16) #4
   %.not25 = icmp eq i32 %17, 0
-  br i1 %.not25, label %.thread41, label %.thread
+  br i1 %.not25, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %12, %11, %15
   %.02140 = phi ptr [ @.str.31, %15 ], [ %spec.select, %12 ], [ @.str.29, %11 ]
@@ -1470,18 +1470,18 @@ _Py_NewRef.exit36:                                ; preds = %_Py_NewRef.exit, %3
   tail call void @_Py_Dealloc(ptr noundef nonnull %19) #4
   br label %Py_DECREF.exit
 
-.thread41:                                        ; preds = %14, %15
+.critedge:                                        ; preds = %14, %15
   %45 = load i32, ptr %1, align 8, !tbaa !21
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %Py_DECREF.exit, label %47
 
-47:                                               ; preds = %.thread41
+47:                                               ; preds = %.critedge
   %48 = add nuw i32 %45, 1
   store i32 %48, ptr %1, align 8, !tbaa !21
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %47, %.thread41, %44, %41, %_Py_NewRef.exit36, %30, %27, %25, %.thread
-  %.2 = phi ptr [ null, %.thread ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ %23, %_Py_NewRef.exit36 ], [ %23, %41 ], [ %23, %44 ], [ %1, %.thread41 ], [ %1, %47 ]
+Py_DECREF.exit:                                   ; preds = %47, %.critedge, %44, %41, %_Py_NewRef.exit36, %30, %27, %25, %.thread
+  %.2 = phi ptr [ null, %.thread ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ %23, %_Py_NewRef.exit36 ], [ %23, %41 ], [ %23, %44 ], [ %1, %.critedge ], [ %1, %47 ]
   ret ptr %.2
 }
 

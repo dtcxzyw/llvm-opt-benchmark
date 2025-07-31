@@ -331,15 +331,15 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   br i1 %66, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %104
-  %.07291.i.i.i = phi ptr [ %105, %104 ], [ %.089122.i, %.preheader.i.i.i ]
-  %.07490.i.i.i = phi i32 [ %106, %104 ], [ %49, %.preheader.i.i.i ]
-  %67 = load i8, ptr %.07291.i.i.i, align 1, !tbaa !4
+  %.07290.i.i.i = phi ptr [ %105, %104 ], [ %.089122.i, %.preheader.i.i.i ]
+  %.07489.i.i.i = phi i32 [ %106, %104 ], [ %49, %.preheader.i.i.i ]
+  %67 = load i8, ptr %.07290.i.i.i, align 1, !tbaa !4
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.07291.i.i.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.07290.i.i.i, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = zext i8 %70 to i64
   %72 = shl nuw nsw i64 %71, 8
-  %73 = getelementptr inbounds nuw i8, ptr %.07291.i.i.i, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %.07290.i.i.i, i64 2
   %74 = load i8, ptr %73, align 1, !tbaa !4
   %75 = zext i8 %74 to i64
   %76 = or disjoint i64 %72, %75
@@ -379,15 +379,15 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   br i1 %103, label %encode.exit.thread.i.i, label %104
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds nuw i8, ptr %.07291.i.i.i, i64 3
-  %106 = add i32 %.07490.i.i.i, -3
+  %105 = getelementptr inbounds nuw i8, ptr %.07290.i.i.i, i64 3
+  %106 = add i32 %.07489.i.i.i, -3
   %107 = icmp ugt i32 %106, 2
   br i1 %107, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !25
 
 ._crit_edge.i.i.i:                                ; preds = %104, %.preheader.i.i.i
   %.074.lcssa.i.i.i = phi i32 [ %49, %.preheader.i.i.i ], [ %106, %104 ]
   %.072.lcssa.i.i.i = phi ptr [ %.089122.i, %.preheader.i.i.i ], [ %105, %104 ]
-  switch i32 %.074.lcssa.i.i.i, label %.critedge.i.i.i.preheader [
+  switch i32 %.074.lcssa.i.i.i, label %.critedge83.i.i.i.preheader [
     i32 2, label %108
     i32 1, label %138
   ]
@@ -428,7 +428,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 135:                                              ; preds = %128
   %136 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext 61, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %encode.exit.thread.i.i, label %.critedge.i.i.i.preheader
+  br i1 %137, label %encode.exit.thread.i.i, label %.critedge83.i.i.i.preheader
 
 138:                                              ; preds = %._crit_edge.i.i.i
   %139 = load i8, ptr %.072.lcssa.i.i.i, align 1, !tbaa !4
@@ -457,23 +457,23 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
 156:                                              ; preds = %153
   %157 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext 61, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %encode.exit.thread.i.i, label %.critedge.i.i.i.preheader
+  br i1 %158, label %encode.exit.thread.i.i, label %.critedge83.i.i.i.preheader
 
-.critedge.i.i.i.preheader:                        ; preds = %156, %135, %._crit_edge.i.i.i
-  br label %.critedge.i.i.i
+.critedge83.i.i.i.preheader:                      ; preds = %156, %135, %._crit_edge.i.i.i
+  br label %.critedge83.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.preheader, %160
-  %.079.i.i.i = phi i32 [ %161, %160 ], [ %50, %.critedge.i.i.i.preheader ]
+.critedge83.i.i.i:                                ; preds = %.critedge83.i.i.i.preheader, %160
+  %.079.i.i.i = phi i32 [ %161, %160 ], [ %50, %.critedge83.i.i.i.preheader ]
   %159 = icmp sgt i32 %.079.i.i.i, 0
   br i1 %159, label %160, label %164
 
-160:                                              ; preds = %.critedge.i.i.i
+160:                                              ; preds = %.critedge83.i.i.i
   %161 = add nsw i32 %.079.i.i.i, -1
   %162 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext 65, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %encode.exit.thread.i.i, label %.critedge.i.i.i, !llvm.loop !26
+  br i1 %163, label %encode.exit.thread.i.i, label %.critedge83.i.i.i, !llvm.loop !26
 
-164:                                              ; preds = %.critedge.i.i.i
+164:                                              ; preds = %.critedge83.i.i.i
   %165 = load i32, ptr %2, align 4, !tbaa !18
   %166 = icmp sgt i32 %165, 0
   br i1 %166, label %167, label %encode.exit.thread35.i.i

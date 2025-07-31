@@ -1909,7 +1909,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   %183 = phi ptr [ @vga_list, %180 ], [ %184, %186 ]
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, @vga_list
-  br i1 %185, label %.thread14, label %186
+  br i1 %185, label %.thread, label %186
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -1919,13 +1919,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
 
 190:                                              ; preds = %186
   %191 = icmp eq ptr %184, null
-  br i1 %191, label %.thread14, label %194
+  br i1 %191, label %.thread, label %194
 
-.thread14:                                        ; preds = %182, %190
+.thread:                                          ; preds = %182, %190
   %192 = icmp eq ptr %181, null
   br i1 %192, label %213, label %193
 
-193:                                              ; preds = %.thread14
+193:                                              ; preds = %.thread
   call void @pci_dev_put(ptr noundef nonnull %181) #14
   br label %213
 
@@ -1940,7 +1940,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   %199 = getelementptr [16 x %struct.vga_arb_user_card], ptr %196, i64 0, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, %181
-  br i1 %201, label %.loopexit19, label %202
+  br i1 %201, label %.loopexit18, label %202
 
 202:                                              ; preds = %197
   %203 = icmp eq ptr %200, null
@@ -1952,28 +1952,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr nounde
   store i32 0, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i32 0, ptr %206, align 8
-  br label %.loopexit19
+  br label %.loopexit18
 
 207:                                              ; preds = %202
   %208 = add nuw nsw i64 %198, 1
   %209 = icmp eq i64 %208, 16
-  br i1 %209, label %.thread15, label %197, !llvm.loop !33
+  br i1 %209, label %.thread14, label %197, !llvm.loop !33
 
-.thread15:                                        ; preds = %207
+.thread14:                                        ; preds = %207
   call void @pci_dev_put(ptr noundef %181) #14
   br label %212
 
-.loopexit19:                                      ; preds = %197, %204
+.loopexit18:                                      ; preds = %197, %204
   %210 = and i64 %198, 4294967295
   %211 = icmp eq i64 %210, 16
   call void @pci_dev_put(ptr noundef %181) #14
   br i1 %211, label %212, label %213
 
-212:                                              ; preds = %.thread15, %.loopexit19
+212:                                              ; preds = %.thread14, %.loopexit18
   br label %213
 
-213:                                              ; preds = %212, %.loopexit19, %193, %.thread14, %174, %171
-  %214 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread14 ], [ -12, %212 ], [ %2, %.loopexit19 ]
+213:                                              ; preds = %212, %.loopexit18, %193, %.thread, %174, %171
+  %214 = phi i64 [ -71, %171 ], [ -19, %174 ], [ -19, %193 ], [ -19, %.thread ], [ -12, %212 ], [ %2, %.loopexit18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14

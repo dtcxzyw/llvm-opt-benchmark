@@ -202,7 +202,7 @@ define internal i32 @mei_me_probe(ptr noundef %0, ptr noundef readonly captures(
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %82 = load volatile i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.thread, label %.lr.ph, !prof !5
+  br i1 %83, label %.critedge, label %.lr.ph, !prof !5
 
 .lr.ph:                                           ; preds = %80, %90
   %84 = phi i32 [ %91, %90 ], [ %82, %80 ]
@@ -212,20 +212,20 @@ define internal i32 @mei_me_probe(ptr noundef %0, ptr noundef readonly captures(
   %88 = icmp ult i8 %87, 2
   tail call void @llvm.assume(i1 %88)
   %89 = icmp eq i8 %87, 0
-  br i1 %89, label %90, label %.thread, !prof !7
+  br i1 %89, label %90, label %.critedge, !prof !7
 
 90:                                               ; preds = %.lr.ph
   %91 = extractvalue { i8, i32 } %86, 1
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread, label %.lr.ph, !prof !8, !llvm.loop !9
+  br i1 %92, label %.critedge, label %.lr.ph, !prof !8, !llvm.loop !9
 
-.thread:                                          ; preds = %90, %.lr.ph, %80
+.critedge:                                        ; preds = %90, %.lr.ph, %80
   %93 = getelementptr inbounds nuw i8, ptr %30, i64 3744
   %94 = load i8, ptr %93, align 8, !range !12, !noundef !13
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %109, label %96
 
-96:                                               ; preds = %.thread
+96:                                               ; preds = %.critedge
   tail call void @pm_runtime_allow(ptr noundef nonnull %23) #6
   br label %109
 
@@ -251,8 +251,8 @@ define internal i32 @mei_me_probe(ptr noundef %0, ptr noundef readonly captures(
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %108, ptr noundef nonnull @.str.6) #7
   br label %109
 
-109:                                              ; preds = %106, %96, %.thread, %74, %13, %2
-  %110 = phi i32 [ %107, %106 ], [ -19, %2 ], [ 0, %.thread ], [ 0, %96 ], [ 0, %74 ], [ -19, %13 ]
+109:                                              ; preds = %106, %96, %.critedge, %74, %13, %2
+  %110 = phi i32 [ %107, %106 ], [ -19, %2 ], [ 0, %.critedge ], [ 0, %96 ], [ 0, %74 ], [ -19, %13 ]
   ret i32 %110
 }
 

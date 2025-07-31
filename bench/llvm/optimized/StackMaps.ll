@@ -6840,40 +6840,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %20 = icmp uge ptr %5, %.pre3.i
   %21 = icmp ult ptr %5, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
-  br i1 %spec.select.i.i.i.i.i, label %24, label %22, !prof !699
+  br i1 %spec.select.i.i.i.i.i, label %22, label %.critedge.i.i.i, !prof !699
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %15, i64 noundef 24) #21
+  %23 = ptrtoint ptr %5 to i64
+  %24 = ptrtoint ptr %.pre3.i to i64
+  %25 = sub i64 %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %26, i64 noundef %15, i64 noundef 24) #21
+  %27 = load ptr, ptr %0, align 8, !tbaa !25
+  %28 = getelementptr inbounds i8, ptr %27, i64 %25
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolENS_9StackMaps12FunctionInfoEELb1EE9push_backERKS7_.exit
+
+.critedge.i.i.i:                                  ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %15, i64 noundef 24) #21
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolENS_9StackMaps12FunctionInfoEELb1EE9push_backERKS7_.exit
 
-24:                                               ; preds = %18
-  %25 = ptrtoint ptr %5 to i64
-  %26 = ptrtoint ptr %.pre3.i to i64
-  %27 = sub i64 %25, %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %28, i64 noundef %15, i64 noundef 24) #21
-  %29 = load ptr, ptr %0, align 8, !tbaa !25
-  %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolENS_9StackMaps12FunctionInfoEELb1EE9push_backERKS7_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolENS_9StackMaps12FunctionInfoEELb1EE9push_backERKS7_.exit: ; preds = %4, %22, %24
-  %31 = phi ptr [ %.pre3.i, %4 ], [ %29, %24 ], [ %.pre.i, %22 ]
-  %.016.i.i.i = phi ptr [ %5, %4 ], [ %30, %24 ], [ %5, %22 ]
-  %32 = load i32, ptr %12, align 8, !tbaa !26
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %31, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %35 = load i32, ptr %12, align 8, !tbaa !26
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %12, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8MCSymbolENS_9StackMaps12FunctionInfoEELb1EE9push_backERKS7_.exit: ; preds = %4, %22, %.critedge.i.i.i
+  %30 = phi ptr [ %.pre3.i, %4 ], [ %27, %22 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %4 ], [ %28, %22 ], [ %5, %.critedge.i.i.i ]
+  %31 = load i32, ptr %12, align 8, !tbaa !26
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %30, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %34 = load i32, ptr %12, align 8, !tbaa !26
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
-  %37 = load ptr, ptr %0, align 8, !tbaa !25
-  %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %37, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 -24
-  ret ptr %40
+  %36 = load ptr, ptr %0, align 8, !tbaa !25
+  %37 = zext i32 %35 to i64
+  %38 = getelementptr inbounds nuw %"struct.std::pair.412", ptr %36, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 -24
+  ret ptr %39
 }
 
 ; Function Attrs: nounwind uwtable

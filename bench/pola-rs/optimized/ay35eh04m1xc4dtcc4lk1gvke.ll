@@ -53664,8 +53664,8 @@ _ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread: 
   br i1 %101, label %.lr.ph233, label %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread
 
 _ZN9polars_io3csv4read6parser14skip_this_line17hdc001ded78c5d549E.exit: ; preds = %120, %111, %127, %117, %105, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread
-  %.sroa.27.3 = phi i64 [ %.sroa.27.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %128, %127 ], [ 0, %105 ], [ 0, %117 ], [ 0, %111 ], [ 0, %120 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %129, %127 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %117 ], [ inttoptr (i64 1 to ptr), %111 ], [ inttoptr (i64 1 to ptr), %120 ]
+  %.sroa.27.3 = phi i64 [ %.sroa.27.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %128, %127 ], [ 0, %117 ], [ 0, %105 ], [ 0, %111 ], [ 0, %120 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2.lcssa, %_ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.thread ], [ %129, %127 ], [ inttoptr (i64 1 to ptr), %117 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %111 ], [ inttoptr (i64 1 to ptr), %120 ]
   %.not137 = icmp eq i64 %9, 0
   br i1 %.not137, label %131, label %136
 

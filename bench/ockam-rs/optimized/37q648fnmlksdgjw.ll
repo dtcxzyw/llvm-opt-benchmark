@@ -137291,12 +137291,8 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
   br i1 %.not706, label %.preheader, label %.preheader707
 
 .preheader707:                                    ; preds = %110
-  %.not852 = icmp eq i64 %109, 0
-  br i1 %.not852, label %.thread671.thread, label %.lr.ph
-
-.thread671.thread:                                ; preds = %.preheader707
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %60)
-  br label %384
+  %.not853 = icmp eq i64 %109, 0
+  br i1 %.not853, label %.critedge852, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader707
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -138176,14 +138172,18 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
   br label %498
 
 382:                                              ; preds = %379, %.thread671
-  %.sroa.0196.2951 = phi i1 [ %.sroa.0196.0, %379 ], [ %.sroa.0196.3, %.thread671 ]
-  %.sroa.0178.2950 = phi i1 [ %.sroa.0178.0, %379 ], [ %.sroa.0178.3, %.thread671 ]
+  %.sroa.0196.2949 = phi i1 [ %.sroa.0196.0, %379 ], [ %.sroa.0196.3, %.thread671 ]
+  %.sroa.0178.2948 = phi i1 [ %.sroa.0178.0, %379 ], [ %.sroa.0178.3, %.thread671 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
   %383 = load ptr, ptr %101, align 8, !noundef !5
   %.not543 = icmp eq ptr %383, null
   br i1 %.not543, label %386, label %385
 
-384:                                              ; preds = %379, %.thread671.thread, %.thread671
+.critedge852:                                     ; preds = %.preheader707
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %60)
+  br label %384
+
+384:                                              ; preds = %379, %.critedge852, %.thread671
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %58)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %57)
@@ -138192,7 +138192,7 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
 
 385:                                              ; preds = %382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false)
-  br i1 %.sroa.0178.2950, label %387, label %389
+  br i1 %.sroa.0178.2948, label %387, label %389
 
 386:                                              ; preds = %382
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55)
@@ -138218,7 +138218,7 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
 
 390:                                              ; preds = %387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
-  br i1 %.sroa.0196.2951, label %392, label %394
+  br i1 %.sroa.0196.2949, label %392, label %394
 
 391:                                              ; preds = %387
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)

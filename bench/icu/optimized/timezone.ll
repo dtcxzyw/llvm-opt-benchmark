@@ -1513,7 +1513,7 @@ define void @_ZNK6icu_778TimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef non
   call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %.020, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %22 = load i32, ptr %5, align 4, !tbaa !13
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.lr.ph, label %.thread
+  br i1 %23, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %14
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1555,11 +1555,11 @@ _ZN6icu_775Grego11monthLengthEii.exit.us:         ; preds = %_ZN6icu_775Grego10i
   %46 = load i32, ptr %3, align 4, !tbaa !12
   %47 = sub nsw i32 %45, %46
   store i32 %47, ptr %4, align 4, !tbaa !12
-  br label %.thread
+  br label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
-  %.01929 = phi i1 [ true, %73 ], [ false, %.lr.ph ]
-  %.128 = phi double [ %75, %73 ], [ %1, %.lr.ph ]
+  %.not27 = phi i1 [ true, %73 ], [ false, %.lr.ph ]
+  %.126 = phi double [ %75, %73 ], [ %1, %.lr.ph ]
   %48 = load i32, ptr %7, align 4, !tbaa !12
   %49 = load i8, ptr %9, align 1, !tbaa !21
   %50 = sext i8 %49 to i32
@@ -1597,20 +1597,12 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %57, %_ZN6icu_775Gre
   %71 = sub nsw i32 %69, %70
   store i32 %71, ptr %4, align 4, !tbaa !12
   %72 = icmp eq i32 %69, %70
-  %or.cond23 = select i1 %.01929, i1 true, i1 %72
-  br i1 %or.cond23, label %.thread, label %73
-
-.thread:                                          ; preds = %_ZN6icu_775Grego11monthLengthEii.exit, %73, %_ZN6icu_775Grego11monthLengthEii.exit.us, %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
-  br label %78
+  %or.cond23 = select i1 %.not27, i1 true, i1 %72
+  br i1 %or.cond23, label %.critedge, label %73
 
 73:                                               ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
   %74 = sitofp i32 %71 to double
-  %75 = fsub double %.128, %74
+  %75 = fsub double %.126, %74
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
@@ -1624,9 +1616,17 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %57, %_ZN6icu_775Gre
   call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %76 = load i32, ptr %5, align 4, !tbaa !13
   %77 = icmp slt i32 %76, 1
-  br i1 %77, label %.lr.ph.split, label %.thread, !llvm.loop !28
+  br i1 %77, label %.lr.ph.split, label %.critedge, !llvm.loop !28
 
-78:                                               ; preds = %.thread, %6
+.critedge:                                        ; preds = %73, %_ZN6icu_775Grego11monthLengthEii.exit, %_ZN6icu_775Grego11monthLengthEii.exit.us, %14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
+  br label %78
+
+78:                                               ; preds = %6, %.critedge
   ret void
 }
 

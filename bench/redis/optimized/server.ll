@@ -13745,9 +13745,9 @@ define dso_local void @commandListCommand(ptr noundef %0) local_unnamed_addr #0 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !92
   %6 = icmp slt i32 %5, 3
-  br i1 %6, label %.thread59, label %.lr.ph
+  br i1 %6, label %.thread, label %.lr.ph
 
-.thread59:                                        ; preds = %1
+.thread:                                          ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
   store i32 0, ptr %3, align 4, !tbaa !50
   %7 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #43
@@ -13762,8 +13762,8 @@ define dso_local void @commandListCommand(ptr noundef %0) local_unnamed_addr #0 
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %36 ]
+12:                                               ; preds = %.lr.ph, %34
+  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !195
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -13774,7 +13774,7 @@ define dso_local void @commandListCommand(ptr noundef %0) local_unnamed_addr #0 
   %20 = sub i32 %19, %5
   %21 = icmp eq i32 %20, -3
   %or.cond = and i1 %21, %18
-  br i1 %or.cond, label %22, label %34
+  br i1 %or.cond, label %22, label %38
 
 22:                                               ; preds = %12
   %23 = getelementptr i8, ptr %13, i64 8
@@ -13783,42 +13783,42 @@ define dso_local void @commandListCommand(ptr noundef %0) local_unnamed_addr #0 
   %26 = load ptr, ptr %25, align 8, !tbaa !55
   %27 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.232) #44
   %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %36, label %28
+  br i1 %.not34, label %34, label %28
 
 28:                                               ; preds = %22
   %29 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.313) #44
   %.not35 = icmp eq i32 %29, 0
-  br i1 %.not35, label %36, label %30
+  br i1 %.not35, label %34, label %30
 
 30:                                               ; preds = %28
   %31 = tail call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.266) #44
   %.not36 = icmp eq i32 %31, 0
-  br i1 %.not36, label %36, label %32
+  br i1 %.not36, label %34, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !233
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %33) #43
-  br label %.thread
+  br label %.critedge
 
-34:                                               ; preds = %12
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !233
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %35) #43
-  br label %.thread
-
-36:                                               ; preds = %30, %28, %22
-  %37 = phi i32 [ 0, %22 ], [ 1, %28 ], [ 2, %30 ]
+34:                                               ; preds = %30, %28, %22
+  %35 = phi i32 [ 0, %22 ], [ 1, %28 ], [ 2, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %38 = trunc nuw i64 %indvars.iv.next to i32
-  %39 = icmp sgt i32 %5, %38
-  br i1 %39, label %12, label %40, !llvm.loop !585
+  %36 = trunc nuw i64 %indvars.iv.next to i32
+  %37 = icmp sgt i32 %5, %36
+  br i1 %37, label %12, label %40, !llvm.loop !585
 
-40:                                               ; preds = %36
+38:                                               ; preds = %12
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !233
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %39) #43
+  br label %.critedge
+
+40:                                               ; preds = %34
   %gep.le = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
   %41 = load ptr, ptr %gep.le, align 8, !tbaa !195
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !55
   store ptr %43, ptr %11, align 8
-  store i32 %37, ptr %2, align 8
+  store i32 %35, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
   store i32 0, ptr %3, align 4, !tbaa !50
   %44 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %0) #43
@@ -13826,15 +13826,15 @@ define dso_local void @commandListCommand(ptr noundef %0) local_unnamed_addr #0 
   call void @commandListWithFilter(ptr noundef nonnull %0, ptr noundef %45, ptr noundef nonnull byval(%struct.commandListFilter) align 8 %2, ptr noundef nonnull %3)
   br label %46
 
-46:                                               ; preds = %.thread59, %40
-  %47 = phi ptr [ %7, %.thread59 ], [ %44, %40 ]
+46:                                               ; preds = %.thread, %40
+  %47 = phi ptr [ %7, %.thread ], [ %44, %40 ]
   %48 = load i32, ptr %3, align 4, !tbaa !50
   %49 = sext i32 %48 to i64
   tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %47, i64 noundef %49) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %32, %34, %46
+.critedge:                                        ; preds = %38, %32, %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #43
   ret void
 }

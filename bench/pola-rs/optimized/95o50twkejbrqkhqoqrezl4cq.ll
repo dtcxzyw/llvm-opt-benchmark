@@ -18922,16 +18922,16 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h0c92b70abb6bc9e7E.exit.i: ; p
   %.sroa.049.2.i = phi i64 [ 2, %208 ], [ %223, %_ZN14regex_automata4util8captures9GroupInfo4slot17h0c92b70abb6bc9e7E.exit.i ]
   %.sroa.051.0.i = phi i64 [ 3, %208 ], [ %226, %_ZN14regex_automata4util8captures9GroupInfo4slot17h0c92b70abb6bc9e7E.exit.i ]
   %228 = load i64, ptr %50, align 8, !alias.scope !1418, !noalias !1421, !noundef !4
-  %.not60.i = icmp ult i64 %.sroa.049.2.i, %228
+  %.not59.i = icmp ult i64 %.sroa.049.2.i, %228
   %229 = load ptr, ptr %49, align 8, !alias.scope !1418, !noalias !1421, !nonnull !4
-  br i1 %.not60.i, label %230, label %237
+  br i1 %.not59.i, label %230, label %237
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i64, ptr %229, i64 %.sroa.049.2.i
   %232 = load i64, ptr %231, align 8, !noalias !1423, !noundef !4
   %.not.i71 = icmp ne i64 %232, 0
-  %.not61.i = icmp ult i64 %.sroa.051.0.i, %228
-  %or.cond.i = select i1 %.not.i71, i1 %.not61.i, i1 false
+  %.not60.i = icmp ult i64 %.sroa.051.0.i, %228
+  %or.cond.i = select i1 %.not.i71, i1 %.not60.i, i1 false
   br i1 %or.cond.i, label %233, label %237
 
 233:                                              ; preds = %230

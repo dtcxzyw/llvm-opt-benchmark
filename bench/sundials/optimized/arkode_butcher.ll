@@ -859,7 +859,7 @@ define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly 
 
 arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i
   store i32 -1, ptr %1, align 4, !tbaa !25
-  br i1 %.not, label %thread-pre-split1023, label %42
+  br i1 %.not, label %thread-pre-split1025, label %42
 
 42:                                               ; preds = %arkode_butcher_rowsum.exit
   %43 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 33, i64 1, ptr nonnull %3)
@@ -871,43 +871,43 @@ arkode_butcher_rowsum.exit:                       ; preds = %._crit_edge.us.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i946 = phi i64 [ %indvars.iv.next.i947, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %indvars.iv.i948 = phi i64 [ %indvars.iv.next.i949, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.08.i = phi double [ %47, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.i.preheader ]
-  %45 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i946
+  %45 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i948
   %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fsub double %.08.i, %46
-  %indvars.iv.next.i947 = add nuw nsw i64 %indvars.iv.i946, 1
-  %exitcond.not.i948 = icmp eq i64 %indvars.iv.next.i947, %wide.trip.count29.i
-  br i1 %exitcond.not.i948, label %arkode_butcher_order1.exit, label %.lr.ph.i
+  %indvars.iv.next.i949 = add nuw nsw i64 %indvars.iv.i948, 1
+  %exitcond.not.i950 = icmp eq i64 %indvars.iv.next.i949, %wide.trip.count29.i
+  br i1 %exitcond.not.i950, label %arkode_butcher_order1.exit, label %.lr.ph.i
 
 arkode_butcher_order1.exit:                       ; preds = %.lr.ph.i
   %48 = tail call double @llvm.fabs.f64(double %47)
   %49 = fcmp ogt double %48, 0x3E50000000000000
-  br i1 %49, label %arkode_butcher_order1.exit.thread, label %.thread1000
+  br i1 %49, label %arkode_butcher_order1.exit.thread, label %.thread1002
 
-.thread1000:                                      ; preds = %arkode_butcher_order1.exit
+.thread1002:                                      ; preds = %arkode_butcher_order1.exit
   store i32 1, ptr %1, align 4, !tbaa !25
-  br label %.preheader1158
+  br label %.preheader1160
 
 arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_order1.exit
-  br i1 %.not, label %.thread1130, label %50
+  br i1 %.not, label %.thread1132, label %50
 
 50:                                               ; preds = %arkode_butcher_order1.exit.thread
   %51 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr nonnull %3)
-  %.pr999.pre = load i32, ptr %1, align 4, !tbaa !25
+  %.pr1001.pre = load i32, ptr %1, align 4, !tbaa !25
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %50, %42
-  %52 = phi i32 [ %.pr, %42 ], [ %.pr999.pre, %50 ]
+  %52 = phi i32 [ %.pr, %42 ], [ %.pr1001.pre, %50 ]
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %.preheader1158, label %67
+  br i1 %53, label %.preheader1160, label %67
 
-.preheader1158:                                   ; preds = %thread-pre-split, %.thread1000
+.preheader1160:                                   ; preds = %thread-pre-split, %.thread1002
   br label %54
 
-54:                                               ; preds = %.preheader1158, %54
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1158 ]
-  %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1158 ]
+54:                                               ; preds = %.preheader1160, %54
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1160 ]
+  %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1160 ]
   %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
@@ -921,44 +921,44 @@ arkode_butcher_order2.exit:                       ; preds = %54
   %61 = fadd double %60, -5.000000e-01
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp ogt double %62, 0x3E50000000000000
-  br i1 %63, label %64, label %.thread1004
+  br i1 %63, label %64, label %.thread1006
 
-.thread1004:                                      ; preds = %arkode_butcher_order2.exit
+.thread1006:                                      ; preds = %arkode_butcher_order2.exit
   store i32 2, ptr %1, align 4, !tbaa !25
   br label %69
 
 64:                                               ; preds = %arkode_butcher_order2.exit
-  br i1 %.not, label %.thread1130, label %65
+  br i1 %.not, label %.thread1132, label %65
 
 65:                                               ; preds = %64
   %66 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr nonnull %3)
-  %.pr1003.pre = load i32, ptr %1, align 4, !tbaa !25
+  %.pr1005.pre = load i32, ptr %1, align 4, !tbaa !25
   br label %67
 
 67:                                               ; preds = %65, %thread-pre-split
-  %.pr1003 = phi i32 [ %.pr1003.pre, %65 ], [ %52, %thread-pre-split ]
-  %68 = icmp eq i32 %.pr1003, 2
+  %.pr1005 = phi i32 [ %.pr1005.pre, %65 ], [ %52, %thread-pre-split ]
+  %68 = icmp eq i32 %.pr1005, 2
   br i1 %68, label %69, label %113
 
-69:                                               ; preds = %.thread1004, %67
+69:                                               ; preds = %.thread1006, %67
   %70 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %71 = icmp eq ptr %70, null
   br i1 %71, label %arkode_butcher_order3a.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %69, %.preheader.i.i
-  %indvars.iv.i.i952 = phi i64 [ %indvars.iv.next.i.i953, %.preheader.i.i ], [ 0, %69 ]
-  %72 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i952
+  %indvars.iv.i.i954 = phi i64 [ %indvars.iv.next.i.i955, %.preheader.i.i ], [ 0, %69 ]
+  %72 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i954
   %73 = load double, ptr %72, align 8, !tbaa !18
   %74 = fmul double %73, %73
-  %75 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i.i952
+  %75 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i.i954
   store double %74, ptr %75, align 8, !tbaa !18
-  %indvars.iv.next.i.i953 = add nuw nsw i64 %indvars.iv.i.i952, 1
-  %exitcond.not.i.i954 = icmp eq i64 %indvars.iv.next.i.i953, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i954, label %.preheader1100, label %.preheader.i.i
+  %indvars.iv.next.i.i955 = add nuw nsw i64 %indvars.iv.i.i954, 1
+  %exitcond.not.i.i956 = icmp eq i64 %indvars.iv.next.i.i955, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i956, label %.preheader1102, label %.preheader.i.i
 
-.preheader1100:                                   ; preds = %.preheader.i.i, %.preheader1100
-  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader1100 ], [ 0, %.preheader.i.i ]
-  %76 = phi double [ %81, %.preheader1100 ], [ 0.000000e+00, %.preheader.i.i ]
+.preheader1102:                                   ; preds = %.preheader.i.i, %.preheader1102
+  %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i15.i, %.preheader1102 ], [ 0, %.preheader.i.i ]
+  %76 = phi double [ %81, %.preheader1102 ], [ 0.000000e+00, %.preheader.i.i ]
   %77 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i14.i
   %78 = load double, ptr %77, align 8, !tbaa !18
   %79 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.i14.i
@@ -966,9 +966,9 @@ arkode_butcher_order2.exit:                       ; preds = %54
   %81 = tail call double @llvm.fmuladd.f64(double %78, double %80, double %76)
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i14.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i16.i, label %82, label %.preheader1100
+  br i1 %exitcond.not.i16.i, label %82, label %.preheader1102
 
-82:                                               ; preds = %.preheader1100
+82:                                               ; preds = %.preheader1102
   tail call void @free(ptr noundef nonnull %70) #17
   %83 = fadd double %81, 0xBFD5555555555555
   %84 = tail call double @llvm.fabs.f64(double %83)
@@ -976,8 +976,8 @@ arkode_butcher_order2.exit:                       ; preds = %54
   br label %arkode_butcher_order3a.exit
 
 arkode_butcher_order3a.exit:                      ; preds = %69, %82
-  %.0.i955 = phi i1 [ %85, %82 ], [ false, %69 ]
-  %brmerge = or i1 %.not, %.0.i955
+  %.0.i957 = phi i1 [ %85, %82 ], [ false, %69 ]
+  %brmerge = or i1 %.not, %.0.i957
   br i1 %brmerge, label %88, label %86
 
 86:                                               ; preds = %arkode_butcher_order3a.exit
@@ -985,7 +985,7 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
   br label %88
 
 88:                                               ; preds = %arkode_butcher_order3a.exit, %86
-  %.0.not = phi i1 [ %.0.i955, %arkode_butcher_order3a.exit ], [ false, %86 ]
+  %.0.not = phi i1 [ %.0.i957, %arkode_butcher_order3a.exit ], [ false, %86 ]
   %89 = tail call noalias ptr @calloc(i64 noundef %wide.trip.count29.i, i64 noundef 8) #16
   %90 = icmp eq ptr %89, null
   br i1 %90, label %arkode_butcher_order3b.exit, label %.preheader.us.i.i
@@ -999,16 +999,16 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
   br label %94
 
 94:                                               ; preds = %94, %.preheader.us.i.i
-  %indvars.iv.i.i959 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i960, %94 ]
+  %indvars.iv.i.i961 = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i962, %94 ]
   %95 = phi double [ %.promoted.us.i.i, %.preheader.us.i.i ], [ %100, %94 ]
-  %96 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i959
+  %96 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv.i.i961
   %97 = load double, ptr %96, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i959
+  %98 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i961
   %99 = load double, ptr %98, align 8, !tbaa !18
   %100 = tail call double @llvm.fmuladd.f64(double %97, double %99, double %95)
-  %indvars.iv.next.i.i960 = add nuw nsw i64 %indvars.iv.i.i959, 1
-  %exitcond.not.i.i961 = icmp eq i64 %indvars.iv.next.i.i960, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i961, label %._crit_edge.us.i.i, label %94
+  %indvars.iv.next.i.i962 = add nuw nsw i64 %indvars.iv.i.i961, 1
+  %exitcond.not.i.i963 = icmp eq i64 %indvars.iv.next.i.i962, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i963, label %._crit_edge.us.i.i, label %94
 
 ._crit_edge.us.i.i:                               ; preds = %94
   store double %100, ptr %93, align 8, !tbaa !18
@@ -1036,32 +1036,32 @@ arkode_butcher_order3a.exit:                      ; preds = %69, %82
   br label %arkode_butcher_order3b.exit
 
 arkode_butcher_order3b.exit:                      ; preds = %88, %107
-  %.0.i962 = phi i1 [ %110, %107 ], [ false, %88 ]
-  %brmerge868 = or i1 %.not, %.0.i962
-  br i1 %brmerge868, label %112, label %.thread1006
+  %.0.i964 = phi i1 [ %110, %107 ], [ false, %88 ]
+  %brmerge868 = or i1 %.not, %.0.i964
+  br i1 %brmerge868, label %112, label %.thread1008
 
-.thread1006:                                      ; preds = %arkode_butcher_order3b.exit
+.thread1008:                                      ; preds = %arkode_butcher_order3b.exit
   %111 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 35, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1009
+  br label %thread-pre-split1011
 
 112:                                              ; preds = %arkode_butcher_order3b.exit
-  %.not790.not = and i1 %.0.not, %.0.i962
-  br i1 %.not790.not, label %.thread1011, label %thread-pre-split1009
+  %.not790.not = and i1 %.0.not, %.0.i964
+  br i1 %.not790.not, label %.thread1013, label %thread-pre-split1011
 
-.thread1011:                                      ; preds = %112
+.thread1013:                                      ; preds = %112
   store i32 3, ptr %1, align 4, !tbaa !25
   br label %116
 
-thread-pre-split1009:                             ; preds = %112, %.thread1006
-  %.pr1010 = load i32, ptr %1, align 4, !tbaa !25
+thread-pre-split1011:                             ; preds = %112, %.thread1008
+  %.pr1012 = load i32, ptr %1, align 4, !tbaa !25
   br label %113
 
-113:                                              ; preds = %thread-pre-split1009, %67
-  %114 = phi i32 [ %.pr1010, %thread-pre-split1009 ], [ %.pr1003, %67 ]
+113:                                              ; preds = %thread-pre-split1011, %67
+  %114 = phi i32 [ %.pr1012, %thread-pre-split1011 ], [ %.pr1005, %67 ]
   %115 = icmp eq i32 %114, 3
-  br i1 %115, label %116, label %.thread1130
+  br i1 %115, label %116, label %.thread1132
 
-116:                                              ; preds = %.thread1011, %113
+116:                                              ; preds = %.thread1013, %113
   %117 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not791 = icmp ne i32 %117, 0
   %brmerge869 = or i1 %.not, %.not791
@@ -1099,27 +1099,27 @@ thread-pre-split1009:                             ; preds = %112, %.thread1006
   %129 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not794 = icmp ne i32 %129, 0
   %brmerge873 = or i1 %.not, %.not794
-  br i1 %brmerge873, label %131, label %.thread1013
+  br i1 %brmerge873, label %131, label %.thread1015
 
-.thread1013:                                      ; preds = %128
+.thread1015:                                      ; preds = %128
   %130 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 35, i64 1, ptr nonnull %3)
-  br label %.thread1130
+  br label %.thread1132
 
 131:                                              ; preds = %128
-  %.not7951093 = icmp ne i32 %.4, 0
-  %.not795.not = and i1 %.not7951093, %.not794
-  br i1 %.not795.not, label %.thread1018, label %.thread1130
+  %.not7951095 = icmp ne i32 %.4, 0
+  %.not795.not = and i1 %.not7951095, %.not794
+  br i1 %.not795.not, label %.thread1020, label %.thread1132
 
-.thread1018:                                      ; preds = %131
+.thread1020:                                      ; preds = %131
   store i32 4, ptr %1, align 4, !tbaa !25
   br label %133
 
-.thread1130:                                      ; preds = %64, %arkode_butcher_order1.exit.thread, %.thread1013, %131, %113
-  %.pr1017 = load i32, ptr %1, align 4, !tbaa !25
-  %132 = icmp eq i32 %.pr1017, 4
+.thread1132:                                      ; preds = %64, %arkode_butcher_order1.exit.thread, %.thread1015, %131, %113
+  %.pr1019 = load i32, ptr %1, align 4, !tbaa !25
+  %132 = icmp eq i32 %.pr1019, 4
   br i1 %132, label %133, label %169
 
-133:                                              ; preds = %.thread1018, %.thread1130
+133:                                              ; preds = %.thread1020, %.thread1132
   %134 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not796 = icmp ne i32 %134, 0
   %brmerge874 = or i1 %.not, %.not796
@@ -1217,31 +1217,31 @@ thread-pre-split1009:                             ; preds = %112, %.thread1006
   %166 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not804 = icmp ne i32 %166, 0
   %brmerge883 = or i1 %.not, %.not804
-  br i1 %brmerge883, label %168, label %.thread1020
+  br i1 %brmerge883, label %168, label %.thread1022
 
-.thread1020:                                      ; preds = %165
+.thread1022:                                      ; preds = %165
   %167 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1023
+  br label %thread-pre-split1025
 
 168:                                              ; preds = %165
-  %.not8051094 = icmp ne i32 %.13, 0
-  %.not805.not = select i1 %.not804, i1 %.not8051094, i1 false
-  br i1 %.not805.not, label %.thread1025, label %thread-pre-split1023
+  %.not8051096 = icmp ne i32 %.13, 0
+  %.not805.not = select i1 %.not804, i1 %.not8051096, i1 false
+  br i1 %.not805.not, label %.thread1027, label %thread-pre-split1025
 
-.thread1025:                                      ; preds = %168
+.thread1027:                                      ; preds = %168
   store i32 5, ptr %1, align 4, !tbaa !25
   br label %172
 
-thread-pre-split1023:                             ; preds = %arkode_butcher_rowsum.exit, %168, %.thread1020
-  %.pr1024 = load i32, ptr %1, align 4, !tbaa !25
+thread-pre-split1025:                             ; preds = %arkode_butcher_rowsum.exit, %168, %.thread1022
+  %.pr1026 = load i32, ptr %1, align 4, !tbaa !25
   br label %169
 
-169:                                              ; preds = %thread-pre-split1023, %.thread1130
-  %170 = phi i32 [ %.pr1024, %thread-pre-split1023 ], [ %.pr1017, %.thread1130 ]
+169:                                              ; preds = %thread-pre-split1025, %.thread1132
+  %170 = phi i32 [ %.pr1026, %thread-pre-split1025 ], [ %.pr1019, %.thread1132 ]
   %171 = icmp eq i32 %170, 5
   br i1 %171, label %172, label %248
 
-172:                                              ; preds = %.thread1025, %169
+172:                                              ; preds = %.thread1027, %169
   %173 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not806 = icmp ne i32 %173, 0
   %brmerge884 = or i1 %.not, %.not806
@@ -1459,180 +1459,178 @@ thread-pre-split1023:                             ; preds = %arkode_butcher_rows
   %245 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %23, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not824 = icmp ne i32 %245, 0
   %brmerge903 = or i1 %.not, %.not824
-  br i1 %brmerge903, label %247, label %.thread1026
+  br i1 %brmerge903, label %247, label %.thread1028
 
-.thread1026:                                      ; preds = %244
+.thread1028:                                      ; preds = %244
   %246 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 35, i64 1, ptr nonnull %3)
   br label %248
 
 247:                                              ; preds = %244
-  %.not8251095 = icmp ne i32 %.32, 0
-  %.not825.not = select i1 %.not824, i1 %.not8251095, i1 false
-  br i1 %.not825.not, label %.thread1031, label %248
+  %.not8251097 = icmp ne i32 %.32, 0
+  %.not825.not = select i1 %.not824, i1 %.not8251097, i1 false
+  br i1 %.not825.not, label %.thread1033, label %248
 
-.thread1031:                                      ; preds = %247
+.thread1033:                                      ; preds = %247
   store i32 6, ptr %1, align 4, !tbaa !25
   br label %250
 
-248:                                              ; preds = %.thread1026, %247, %169
-  %.pr1030 = load i32, ptr %1, align 4, !tbaa !25
-  %249 = icmp eq i32 %.pr1030, 6
-  br i1 %249, label %250, label %256
+248:                                              ; preds = %.thread1028, %247, %169
+  %.pr1032 = load i32, ptr %1, align 4, !tbaa !25
+  %249 = icmp eq i32 %.pr1032, 6
+  br i1 %249, label %250, label %251
 
-250:                                              ; preds = %.thread1031, %248
-  br i1 %.not, label %253, label %251
+250:                                              ; preds = %.thread1033, %248
+  br i1 %.not, label %.thread1042, label %.thread1034
 
-251:                                              ; preds = %250
-  %252 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 58, i64 1, ptr nonnull %3)
-  br label %253
-
-253:                                              ; preds = %251, %250
-  %254 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %23, ptr noundef %19, i32 noundef %8)
-  %255 = load i32, ptr %1, align 4, !tbaa !25
-  %. = tail call i32 @llvm.smax.i32(i32 %255, i32 %254)
-  store i32 %., ptr %1, align 4, !tbaa !25
-  br i1 %.not, label %.thread1040, label %.thread1032
-
-256:                                              ; preds = %248
+251:                                              ; preds = %248
   %.not826 = icmp eq ptr %27, null
   br i1 %.not826, label %451, label %258
 
-.thread1040:                                      ; preds = %253
-  %.not8261041 = icmp eq ptr %27, null
-  br i1 %.not8261041, label %451, label %.preheader.us.i966.preheader
+.thread1042:                                      ; preds = %250
+  %252 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %23, ptr noundef %19, i32 noundef %8)
+  %253 = load i32, ptr %1, align 4, !tbaa !25
+  %..c = tail call i32 @llvm.smax.i32(i32 %253, i32 %252)
+  store i32 %..c, ptr %1, align 4, !tbaa !25
+  %.not8261043 = icmp eq ptr %27, null
+  br i1 %.not8261043, label %451, label %.preheader.us.i968.preheader
 
-.thread1032:                                      ; preds = %253
+.thread1034:                                      ; preds = %250
+  %254 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 58, i64 1, ptr nonnull %3)
+  %255 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %23, ptr noundef %19, i32 noundef %8)
+  %256 = load i32, ptr %1, align 4, !tbaa !25
+  %. = tail call i32 @llvm.smax.i32(i32 %256, i32 %255)
+  store i32 %., ptr %1, align 4, !tbaa !25
   %257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.) #17
-  %.not8261033 = icmp eq ptr %27, null
-  br i1 %.not8261033, label %451, label %.thread1036
+  %.not8261035 = icmp eq ptr %27, null
+  br i1 %.not8261035, label %451, label %.thread1038
 
-258:                                              ; preds = %256
-  br i1 %.not, label %.preheader.us.i966.preheader, label %.thread1036
+258:                                              ; preds = %251
+  br i1 %.not, label %.preheader.us.i968.preheader, label %.thread1038
 
-.thread1036:                                      ; preds = %.thread1032, %258
+.thread1038:                                      ; preds = %.thread1034, %258
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  br label %.preheader.us.i966.preheader
+  br label %.preheader.us.i968.preheader
 
-.preheader.us.i966.preheader:                     ; preds = %258, %.thread1036, %.thread1040
-  br label %.preheader.us.i966
+.preheader.us.i968.preheader:                     ; preds = %258, %.thread1038, %.thread1042
+  br label %.preheader.us.i968
 
-.preheader.us.i966:                               ; preds = %.preheader.us.i966.preheader, %265
-  %indvars.iv26.i967 = phi i64 [ %indvars.iv.next27.i973, %265 ], [ 0, %.preheader.us.i966.preheader ]
-  %259 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i967
+.preheader.us.i968:                               ; preds = %.preheader.us.i968.preheader, %265
+  %indvars.iv26.i969 = phi i64 [ %indvars.iv.next27.i975, %265 ], [ 0, %.preheader.us.i968.preheader ]
+  %259 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv26.i969
   %260 = load ptr, ptr %259, align 8, !tbaa !12
   br label %261
 
-261:                                              ; preds = %261, %.preheader.us.i966
-  %indvars.iv.i968 = phi i64 [ 0, %.preheader.us.i966 ], [ %indvars.iv.next.i970, %261 ]
-  %.018.us.i969 = phi double [ 0.000000e+00, %.preheader.us.i966 ], [ %264, %261 ]
-  %262 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i968
+261:                                              ; preds = %261, %.preheader.us.i968
+  %indvars.iv.i970 = phi i64 [ 0, %.preheader.us.i968 ], [ %indvars.iv.next.i972, %261 ]
+  %.018.us.i971 = phi double [ 0.000000e+00, %.preheader.us.i968 ], [ %264, %261 ]
+  %262 = getelementptr inbounds nuw double, ptr %260, i64 %indvars.iv.i970
   %263 = load double, ptr %262, align 8, !tbaa !18
-  %264 = fadd double %.018.us.i969, %263
-  %indvars.iv.next.i970 = add nuw nsw i64 %indvars.iv.i968, 1
-  %exitcond.not.i971 = icmp eq i64 %indvars.iv.next.i970, %wide.trip.count29.i
-  br i1 %exitcond.not.i971, label %._crit_edge.us.i972, label %261
+  %264 = fadd double %.018.us.i971, %263
+  %indvars.iv.next.i972 = add nuw nsw i64 %indvars.iv.i970, 1
+  %exitcond.not.i973 = icmp eq i64 %indvars.iv.next.i972, %wide.trip.count29.i
+  br i1 %exitcond.not.i973, label %._crit_edge.us.i974, label %261
 
-265:                                              ; preds = %._crit_edge.us.i972
-  %indvars.iv.next27.i973 = add nuw nsw i64 %indvars.iv26.i967, 1
-  %exitcond30.not.i974 = icmp eq i64 %indvars.iv.next27.i973, %wide.trip.count29.i
-  br i1 %exitcond30.not.i974, label %.thread1047, label %.preheader.us.i966, !llvm.loop !26
+265:                                              ; preds = %._crit_edge.us.i974
+  %indvars.iv.next27.i975 = add nuw nsw i64 %indvars.iv26.i969, 1
+  %exitcond30.not.i976 = icmp eq i64 %indvars.iv.next27.i975, %wide.trip.count29.i
+  br i1 %exitcond30.not.i976, label %.thread1049, label %.preheader.us.i968, !llvm.loop !26
 
-._crit_edge.us.i972:                              ; preds = %261
-  %266 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i967
+._crit_edge.us.i974:                              ; preds = %261
+  %266 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv26.i969
   %267 = load double, ptr %266, align 8, !tbaa !18
   %268 = fsub double %264, %267
   %269 = tail call double @llvm.fabs.f64(double %268)
   %270 = fcmp ogt double %269, 0x3E50000000000000
-  br i1 %270, label %arkode_butcher_rowsum.exit975, label %265
+  br i1 %270, label %arkode_butcher_rowsum.exit977, label %265
 
-.thread1047:                                      ; preds = %265
+.thread1049:                                      ; preds = %265
   store i32 0, ptr %2, align 4, !tbaa !25
-  br label %.lr.ph.i979.preheader
+  br label %.lr.ph.i981.preheader
 
-arkode_butcher_rowsum.exit975:                    ; preds = %._crit_edge.us.i972
+arkode_butcher_rowsum.exit977:                    ; preds = %._crit_edge.us.i974
   store i32 -1, ptr %2, align 4, !tbaa !25
-  br i1 %.not, label %thread-pre-split1076, label %271
+  br i1 %.not, label %thread-pre-split1078, label %271
 
-271:                                              ; preds = %arkode_butcher_rowsum.exit975
+271:                                              ; preds = %arkode_butcher_rowsum.exit977
   %272 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 36, i64 1, ptr nonnull %3)
-  %.pr1046 = load i32, ptr %2, align 4, !tbaa !25
-  %273 = icmp eq i32 %.pr1046, 0
-  br i1 %273, label %.lr.ph.i979.preheader, label %thread-pre-split1051
+  %.pr1048 = load i32, ptr %2, align 4, !tbaa !25
+  %273 = icmp eq i32 %.pr1048, 0
+  br i1 %273, label %.lr.ph.i981.preheader, label %thread-pre-split1053
 
-.lr.ph.i979.preheader:                            ; preds = %271, %.thread1047
-  br label %.lr.ph.i979
+.lr.ph.i981.preheader:                            ; preds = %271, %.thread1049
+  br label %.lr.ph.i981
 
-.lr.ph.i979:                                      ; preds = %.lr.ph.i979.preheader, %.lr.ph.i979
-  %indvars.iv.i980 = phi i64 [ %indvars.iv.next.i982, %.lr.ph.i979 ], [ 0, %.lr.ph.i979.preheader ]
-  %.08.i981 = phi double [ %276, %.lr.ph.i979 ], [ 1.000000e+00, %.lr.ph.i979.preheader ]
-  %274 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i980
+.lr.ph.i981:                                      ; preds = %.lr.ph.i981.preheader, %.lr.ph.i981
+  %indvars.iv.i982 = phi i64 [ %indvars.iv.next.i984, %.lr.ph.i981 ], [ 0, %.lr.ph.i981.preheader ]
+  %.08.i983 = phi double [ %276, %.lr.ph.i981 ], [ 1.000000e+00, %.lr.ph.i981.preheader ]
+  %274 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i982
   %275 = load double, ptr %274, align 8, !tbaa !18
-  %276 = fsub double %.08.i981, %275
-  %indvars.iv.next.i982 = add nuw nsw i64 %indvars.iv.i980, 1
-  %exitcond.not.i983 = icmp eq i64 %indvars.iv.next.i982, %wide.trip.count29.i
-  br i1 %exitcond.not.i983, label %arkode_butcher_order1.exit985, label %.lr.ph.i979
+  %276 = fsub double %.08.i983, %275
+  %indvars.iv.next.i984 = add nuw nsw i64 %indvars.iv.i982, 1
+  %exitcond.not.i985 = icmp eq i64 %indvars.iv.next.i984, %wide.trip.count29.i
+  br i1 %exitcond.not.i985, label %arkode_butcher_order1.exit987, label %.lr.ph.i981
 
-arkode_butcher_order1.exit985:                    ; preds = %.lr.ph.i979
+arkode_butcher_order1.exit987:                    ; preds = %.lr.ph.i981
   %277 = tail call double @llvm.fabs.f64(double %276)
   %278 = fcmp ogt double %277, 0x3E50000000000000
-  br i1 %278, label %arkode_butcher_order1.exit985.thread, label %.thread1053
+  br i1 %278, label %arkode_butcher_order1.exit987.thread, label %.thread1055
 
-.thread1053:                                      ; preds = %arkode_butcher_order1.exit985
+.thread1055:                                      ; preds = %arkode_butcher_order1.exit987
   store i32 1, ptr %2, align 4, !tbaa !25
-  br label %.preheader1152
+  br label %.preheader1154
 
-arkode_butcher_order1.exit985.thread:             ; preds = %arkode_butcher_order1.exit985
-  br i1 %.not, label %.thread1134, label %279
+arkode_butcher_order1.exit987.thread:             ; preds = %arkode_butcher_order1.exit987
+  br i1 %.not, label %.thread1136, label %279
 
-279:                                              ; preds = %arkode_butcher_order1.exit985.thread
+279:                                              ; preds = %arkode_butcher_order1.exit987.thread
   %280 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 36, i64 1, ptr nonnull %3)
-  %.pr1052.pre = load i32, ptr %2, align 4, !tbaa !25
-  br label %thread-pre-split1051
+  %.pr1054.pre = load i32, ptr %2, align 4, !tbaa !25
+  br label %thread-pre-split1053
 
-thread-pre-split1051:                             ; preds = %279, %271
-  %281 = phi i32 [ %.pr1046, %271 ], [ %.pr1052.pre, %279 ]
+thread-pre-split1053:                             ; preds = %279, %271
+  %281 = phi i32 [ %.pr1048, %271 ], [ %.pr1054.pre, %279 ]
   %282 = icmp eq i32 %281, 1
-  br i1 %282, label %.preheader1152, label %296
+  br i1 %282, label %.preheader1154, label %296
 
-.preheader1152:                                   ; preds = %thread-pre-split1051, %.thread1053
+.preheader1154:                                   ; preds = %thread-pre-split1053, %.thread1055
   br label %283
 
-283:                                              ; preds = %.preheader1152, %283
-  %indvars.iv.i.i989 = phi i64 [ %indvars.iv.next.i.i990, %283 ], [ 0, %.preheader1152 ]
-  %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1152 ]
-  %285 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i989
+283:                                              ; preds = %.preheader1154, %283
+  %indvars.iv.i.i991 = phi i64 [ %indvars.iv.next.i.i992, %283 ], [ 0, %.preheader1154 ]
+  %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1154 ]
+  %285 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i991
   %286 = load double, ptr %285, align 8, !tbaa !18
-  %287 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i989
+  %287 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i991
   %288 = load double, ptr %287, align 8, !tbaa !18
   %289 = tail call double @llvm.fmuladd.f64(double %286, double %288, double %284)
-  %indvars.iv.next.i.i990 = add nuw nsw i64 %indvars.iv.i.i989, 1
-  %exitcond.not.i.i991 = icmp eq i64 %indvars.iv.next.i.i990, %wide.trip.count29.i
-  br i1 %exitcond.not.i.i991, label %arkode_butcher_order2.exit993, label %283
+  %indvars.iv.next.i.i992 = add nuw nsw i64 %indvars.iv.i.i991, 1
+  %exitcond.not.i.i993 = icmp eq i64 %indvars.iv.next.i.i992, %wide.trip.count29.i
+  br i1 %exitcond.not.i.i993, label %arkode_butcher_order2.exit995, label %283
 
-arkode_butcher_order2.exit993:                    ; preds = %283
+arkode_butcher_order2.exit995:                    ; preds = %283
   %290 = fadd double %289, -5.000000e-01
   %291 = tail call double @llvm.fabs.f64(double %290)
   %292 = fcmp ogt double %291, 0x3E50000000000000
-  br i1 %292, label %293, label %.thread1057
+  br i1 %292, label %293, label %.thread1059
 
-.thread1057:                                      ; preds = %arkode_butcher_order2.exit993
+.thread1059:                                      ; preds = %arkode_butcher_order2.exit995
   store i32 2, ptr %2, align 4, !tbaa !25
   br label %298
 
-293:                                              ; preds = %arkode_butcher_order2.exit993
-  br i1 %.not, label %.thread1134, label %294
+293:                                              ; preds = %arkode_butcher_order2.exit995
+  br i1 %.not, label %.thread1136, label %294
 
 294:                                              ; preds = %293
   %295 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 36, i64 1, ptr nonnull %3)
-  %.pr1056.pre = load i32, ptr %2, align 4, !tbaa !25
+  %.pr1058.pre = load i32, ptr %2, align 4, !tbaa !25
   br label %296
 
-296:                                              ; preds = %294, %thread-pre-split1051
-  %.pr1056 = phi i32 [ %.pr1056.pre, %294 ], [ %281, %thread-pre-split1051 ]
-  %297 = icmp eq i32 %.pr1056, 2
+296:                                              ; preds = %294, %thread-pre-split1053
+  %.pr1058 = phi i32 [ %.pr1058.pre, %294 ], [ %281, %thread-pre-split1053 ]
+  %297 = icmp eq i32 %.pr1058, 2
   br i1 %297, label %298, label %306
 
-298:                                              ; preds = %.thread1057, %296
+298:                                              ; preds = %.thread1059, %296
   %299 = tail call fastcc i32 @arkode_butcher_order3a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not830 = icmp ne i32 %299, 0
   %brmerge904 = or i1 %.not, %.not830
@@ -1646,31 +1644,31 @@ arkode_butcher_order2.exit993:                    ; preds = %283
   %303 = tail call fastcc i32 @arkode_butcher_order3b(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not831 = icmp ne i32 %303, 0
   %brmerge906 = or i1 %.not, %.not831
-  br i1 %brmerge906, label %305, label %.thread1059
+  br i1 %brmerge906, label %305, label %.thread1061
 
-.thread1059:                                      ; preds = %302
+.thread1061:                                      ; preds = %302
   %304 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 38, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1062
+  br label %thread-pre-split1064
 
 305:                                              ; preds = %302
-  %.not8321096 = icmp ne i32 %299, 0
-  %.not832.not = and i1 %.not8321096, %.not831
-  br i1 %.not832.not, label %.thread1064, label %thread-pre-split1062
+  %.not8321098 = icmp ne i32 %299, 0
+  %.not832.not = and i1 %.not8321098, %.not831
+  br i1 %.not832.not, label %.thread1066, label %thread-pre-split1064
 
-.thread1064:                                      ; preds = %305
+.thread1066:                                      ; preds = %305
   store i32 3, ptr %2, align 4, !tbaa !25
   br label %309
 
-thread-pre-split1062:                             ; preds = %305, %.thread1059
-  %.pr1063 = load i32, ptr %2, align 4, !tbaa !25
+thread-pre-split1064:                             ; preds = %305, %.thread1061
+  %.pr1065 = load i32, ptr %2, align 4, !tbaa !25
   br label %306
 
-306:                                              ; preds = %thread-pre-split1062, %296
-  %307 = phi i32 [ %.pr1063, %thread-pre-split1062 ], [ %.pr1056, %296 ]
+306:                                              ; preds = %thread-pre-split1064, %296
+  %307 = phi i32 [ %.pr1065, %thread-pre-split1064 ], [ %.pr1058, %296 ]
   %308 = icmp eq i32 %307, 3
-  br i1 %308, label %309, label %.thread1134
+  br i1 %308, label %309, label %.thread1136
 
-309:                                              ; preds = %.thread1064, %306
+309:                                              ; preds = %.thread1066, %306
   %310 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not833 = icmp ne i32 %310, 0
   %brmerge907 = or i1 %.not, %.not833
@@ -1708,27 +1706,27 @@ thread-pre-split1062:                             ; preds = %305, %.thread1059
   %322 = tail call fastcc i32 @arkode_butcher_order4d(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not836 = icmp ne i32 %322, 0
   %brmerge911 = or i1 %.not, %.not836
-  br i1 %brmerge911, label %324, label %.thread1066
+  br i1 %brmerge911, label %324, label %.thread1068
 
-.thread1066:                                      ; preds = %321
+.thread1068:                                      ; preds = %321
   %323 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 38, i64 1, ptr nonnull %3)
-  br label %.thread1134
+  br label %.thread1136
 
 324:                                              ; preds = %321
-  %.not8371097 = icmp ne i32 %.38, 0
-  %.not837.not = and i1 %.not8371097, %.not836
-  br i1 %.not837.not, label %.thread1071, label %.thread1134
+  %.not8371099 = icmp ne i32 %.38, 0
+  %.not837.not = and i1 %.not8371099, %.not836
+  br i1 %.not837.not, label %.thread1073, label %.thread1136
 
-.thread1071:                                      ; preds = %324
+.thread1073:                                      ; preds = %324
   store i32 4, ptr %2, align 4, !tbaa !25
   br label %326
 
-.thread1134:                                      ; preds = %293, %arkode_butcher_order1.exit985.thread, %.thread1066, %324, %306
-  %.pr1070 = load i32, ptr %2, align 4, !tbaa !25
-  %325 = icmp eq i32 %.pr1070, 4
+.thread1136:                                      ; preds = %293, %arkode_butcher_order1.exit987.thread, %.thread1068, %324, %306
+  %.pr1072 = load i32, ptr %2, align 4, !tbaa !25
+  %325 = icmp eq i32 %.pr1072, 4
   br i1 %325, label %326, label %362
 
-326:                                              ; preds = %.thread1071, %.thread1134
+326:                                              ; preds = %.thread1073, %.thread1136
   %327 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not838 = icmp ne i32 %327, 0
   %brmerge912 = or i1 %.not, %.not838
@@ -1826,31 +1824,31 @@ thread-pre-split1062:                             ; preds = %305, %.thread1059
   %359 = tail call fastcc i32 @arkode_butcher_order5i(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not846 = icmp ne i32 %359, 0
   %brmerge921 = or i1 %.not, %.not846
-  br i1 %brmerge921, label %361, label %.thread1073
+  br i1 %brmerge921, label %361, label %.thread1075
 
-.thread1073:                                      ; preds = %358
+.thread1075:                                      ; preds = %358
   %360 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 38, i64 1, ptr nonnull %3)
-  br label %thread-pre-split1076
+  br label %thread-pre-split1078
 
 361:                                              ; preds = %358
-  %.not8471098 = icmp ne i32 %.47, 0
-  %.not847.not = select i1 %.not846, i1 %.not8471098, i1 false
-  br i1 %.not847.not, label %.thread1078, label %thread-pre-split1076
+  %.not8471100 = icmp ne i32 %.47, 0
+  %.not847.not = select i1 %.not846, i1 %.not8471100, i1 false
+  br i1 %.not847.not, label %.thread1080, label %thread-pre-split1078
 
-.thread1078:                                      ; preds = %361
+.thread1080:                                      ; preds = %361
   store i32 5, ptr %2, align 4, !tbaa !25
   br label %365
 
-thread-pre-split1076:                             ; preds = %arkode_butcher_rowsum.exit975, %361, %.thread1073
-  %.pr1077 = load i32, ptr %2, align 4, !tbaa !25
+thread-pre-split1078:                             ; preds = %arkode_butcher_rowsum.exit977, %361, %.thread1075
+  %.pr1079 = load i32, ptr %2, align 4, !tbaa !25
   br label %362
 
-362:                                              ; preds = %thread-pre-split1076, %.thread1134
-  %363 = phi i32 [ %.pr1077, %thread-pre-split1076 ], [ %.pr1070, %.thread1134 ]
+362:                                              ; preds = %thread-pre-split1078, %.thread1136
+  %363 = phi i32 [ %.pr1079, %thread-pre-split1078 ], [ %.pr1072, %.thread1136 ]
   %364 = icmp eq i32 %363, 5
   br i1 %364, label %365, label %441
 
-365:                                              ; preds = %.thread1078, %362
+365:                                              ; preds = %.thread1080, %362
   %366 = tail call fastcc i32 @arkode_butcher_order6a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not848 = icmp ne i32 %366, 0
   %brmerge922 = or i1 %.not, %.not848
@@ -2068,46 +2066,47 @@ thread-pre-split1076:                             ; preds = %arkode_butcher_rows
   %438 = tail call fastcc i32 @arkode_butcher_order6s(ptr noundef %27, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %19, i32 noundef %8)
   %.not866 = icmp ne i32 %438, 0
   %brmerge941 = or i1 %.not, %.not866
-  br i1 %brmerge941, label %440, label %.thread1079
+  br i1 %brmerge941, label %440, label %.thread1081
 
-.thread1079:                                      ; preds = %437
+.thread1081:                                      ; preds = %437
   %439 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 38, i64 1, ptr nonnull %3)
   br label %441
 
 440:                                              ; preds = %437
-  %.not8671099 = icmp ne i32 %.66, 0
-  %.not867.not = select i1 %.not866, i1 %.not8671099, i1 false
-  br i1 %.not867.not, label %.thread1084, label %441
+  %.not8671101 = icmp ne i32 %.66, 0
+  %.not867.not = select i1 %.not866, i1 %.not8671101, i1 false
+  br i1 %.not867.not, label %.thread1086, label %441
 
-.thread1084:                                      ; preds = %440
+.thread1086:                                      ; preds = %440
   store i32 6, ptr %2, align 4, !tbaa !25
   br label %443
 
-441:                                              ; preds = %.thread1079, %440, %362
-  %.pr1083 = load i32, ptr %2, align 4, !tbaa !25
-  %442 = icmp eq i32 %.pr1083, 6
+441:                                              ; preds = %.thread1081, %440, %362
+  %.pr1085 = load i32, ptr %2, align 4, !tbaa !25
+  %442 = icmp eq i32 %.pr1085, 6
   br i1 %442, label %443, label %451
 
-443:                                              ; preds = %.thread1084, %441
-  br i1 %.not, label %446, label %444
+443:                                              ; preds = %.thread1086, %441
+  br i1 %.not, label %.critedge947, label %444
 
 444:                                              ; preds = %443
   %445 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 61, i64 1, ptr nonnull %3)
-  br label %446
-
-446:                                              ; preds = %444, %443
-  %447 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %27, ptr noundef %19, i32 noundef %8)
-  %448 = load i32, ptr %2, align 4, !tbaa !25
-  %.942 = tail call i32 @llvm.smax.i32(i32 %448, i32 %447)
+  %446 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %27, ptr noundef %19, i32 noundef %8)
+  %447 = load i32, ptr %2, align 4, !tbaa !25
+  %.942 = tail call i32 @llvm.smax.i32(i32 %447, i32 %446)
   store i32 %.942, ptr %2, align 4, !tbaa !25
-  br i1 %.not, label %451, label %449
-
-449:                                              ; preds = %446
-  %450 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #17
+  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, i32 noundef %.942) #17
   br label %451
 
-451:                                              ; preds = %.thread1040, %.thread1032, %441, %449, %446, %256
-  %.not8261035 = phi i1 [ true, %.thread1032 ], [ false, %441 ], [ false, %449 ], [ false, %446 ], [ true, %256 ], [ true, %.thread1040 ]
+.critedge947:                                     ; preds = %443
+  %449 = tail call fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef nonnull %12, ptr noundef %27, ptr noundef %19, i32 noundef %8)
+  %450 = load i32, ptr %2, align 4, !tbaa !25
+  %.942.c = tail call i32 @llvm.smax.i32(i32 %450, i32 %449)
+  store i32 %.942.c, ptr %2, align 4, !tbaa !25
+  br label %451
+
+451:                                              ; preds = %.thread1042, %.thread1034, %.critedge947, %441, %444, %251
+  %.not8261037 = phi i1 [ true, %.thread1034 ], [ false, %.critedge947 ], [ false, %441 ], [ false, %444 ], [ true, %251 ], [ true, %.thread1042 ]
   %452 = load i32, ptr %1, align 4, !tbaa !25
   %453 = load i32, ptr %0, align 8, !tbaa !16
   %454 = icmp slt i32 %452, %453
@@ -2116,7 +2115,7 @@ thread-pre-split1076:                             ; preds = %arkode_butcher_rows
   br i1 %or.cond, label %.loopexit, label %456
 
 456:                                              ; preds = %451
-  br i1 %.not8261035, label %463, label %457
+  br i1 %.not8261037, label %463, label %457
 
 457:                                              ; preds = %456
   %458 = load i32, ptr %2, align 4, !tbaa !25
@@ -2125,34 +2124,34 @@ thread-pre-split1076:                             ; preds = %arkode_butcher_rows
   %461 = icmp slt i32 %458, %460
   %462 = icmp slt i32 %458, 6
   %or.cond943 = and i1 %462, %461
-  br i1 %or.cond943, label %.loopexit, label %.thread1085
+  br i1 %or.cond943, label %.loopexit, label %.thread1087
 
 463:                                              ; preds = %456
   %464 = icmp sgt i32 %452, %453
   %465 = icmp sgt i32 %452, 5
   %or.cond944 = and i1 %465, %454
-  %or.cond1090 = or i1 %464, %or.cond944
-  br i1 %or.cond1090, label %.loopexit, label %471
+  %or.cond1092 = or i1 %464, %or.cond944
+  br i1 %or.cond1092, label %.loopexit, label %471
 
-.thread1085:                                      ; preds = %457
+.thread1087:                                      ; preds = %457
   %466 = icmp sgt i32 %452, %453
   br i1 %466, label %.loopexit, label %467
 
-467:                                              ; preds = %.thread1085
+467:                                              ; preds = %.thread1087
   %468 = icmp sgt i32 %458, %460
   %469 = icmp sgt i32 %452, 5
-  %or.cond9441088 = and i1 %469, %454
-  %or.cond1091 = or i1 %or.cond9441088, %468
+  %or.cond9441090 = and i1 %469, %454
+  %or.cond1093 = or i1 %or.cond9441090, %468
   %470 = icmp sgt i32 %458, 5
   %or.cond945 = and i1 %470, %461
-  %or.cond1143 = or i1 %or.cond1091, %or.cond945
-  br i1 %or.cond1143, label %.loopexit, label %471
+  %or.cond1145 = or i1 %or.cond1093, %or.cond945
+  br i1 %or.cond1145, label %.loopexit, label %471
 
 471:                                              ; preds = %467, %463
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread1085, %467, %463, %457, %451, %21, %._crit_edge, %10, %6, %4, %471
-  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ 1, %.thread1085 ], [ -2, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.thread1087, %467, %463, %457, %451, %21, %._crit_edge, %10, %6, %4, %471
+  %.0702 = phi i32 [ 0, %471 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %451 ], [ -1, %457 ], [ 1, %463 ], [ 1, %467 ], [ 1, %.thread1087 ], [ -2, %.lr.ph ]
   ret i32 %.0702
 }
 

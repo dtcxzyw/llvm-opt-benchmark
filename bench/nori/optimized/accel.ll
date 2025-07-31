@@ -286,393 +286,390 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
   %58 = icmp ult i32 %54, %57
-  br i1 %58, label %.lr.ph.split.outer, label %._crit_edge.thread253, !llvm.loop !11
+  br i1 %58, label %.lr.ph.split.outer, label %._crit_edge.thread, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %44
-  br i1 %.053243.ph, label %._crit_edge.thread253, label %.loopexit
+  br i1 %.053243.ph, label %._crit_edge.thread, label %.loopexit
 
-._crit_edge.thread253:                            ; preds = %.thread, %._crit_edge
-  %.in = phi i32 [ %.054242.ph, %._crit_edge ], [ %.056241, %.thread ]
-  %59 = zext i32 %.in to i64
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %61 = load float, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %63 = load float, ptr %62, align 4
-  %64 = fadd float %61, %63
-  %65 = fsub float 1.000000e+00, %64
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 112
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 120
-  %73 = load i64, ptr %72, align 8
-  %74 = mul nsw i64 %73, %59
-  %75 = getelementptr i32, ptr %71, i64 %74
+._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
+  %.155248252 = phi i32 [ %.054242.ph, %._crit_edge ], [ %.056241, %.thread ]
+  %59 = load float, ptr %30, align 8
+  %60 = load float, ptr %31, align 4
+  %61 = fadd float %59, %60
+  %62 = fsub float 1.000000e+00, %61
+  %63 = load ptr, ptr %32, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 112
+  %67 = zext i32 %.155248252 to i64
+  %68 = load ptr, ptr %66, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 120
+  %70 = load i64, ptr %69, align 8
+  %71 = mul nsw i64 %70, %67
+  %72 = getelementptr i32, ptr %68, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr i8, ptr %68, i64 4
+  %75 = getelementptr i32, ptr %74, i64 %71
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr i8, ptr %71, i64 4
-  %78 = getelementptr i32, ptr %77, i64 %74
+  %77 = getelementptr i8, ptr %68, i64 8
+  %78 = getelementptr i32, ptr %77, i64 %71
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr i8, ptr %71, i64 8
-  %81 = getelementptr i32, ptr %80, i64 %74
-  %82 = load i32, ptr %81, align 4
-  %83 = zext i32 %76 to i64
-  %84 = load ptr, ptr %68, align 8, !noalias !12
-  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %86 = load i64, ptr %85, align 8, !noalias !12
-  %87 = mul nsw i64 %86, %83
-  %88 = getelementptr inbounds float, ptr %84, i64 %87
-  %89 = load float, ptr %88, align 4
-  %90 = getelementptr i8, ptr %88, i64 4
-  %91 = load float, ptr %90, align 4
-  %92 = getelementptr i8, ptr %88, i64 8
-  %93 = load float, ptr %92, align 4
-  %94 = zext i32 %79 to i64
-  %95 = mul nsw i64 %86, %94
-  %96 = getelementptr inbounds float, ptr %84, i64 %95
-  %97 = load float, ptr %96, align 4
-  %98 = getelementptr i8, ptr %96, i64 4
-  %99 = load float, ptr %98, align 4
-  %100 = getelementptr i8, ptr %96, i64 8
-  %101 = load float, ptr %100, align 4
-  %102 = zext i32 %82 to i64
-  %103 = mul nsw i64 %86, %102
-  %104 = getelementptr inbounds float, ptr %84, i64 %103
-  %105 = load float, ptr %104, align 4
-  %106 = getelementptr i8, ptr %104, i64 4
-  %107 = load float, ptr %106, align 4
-  %108 = getelementptr i8, ptr %104, i64 8
-  %109 = load float, ptr %108, align 4
-  %110 = fmul float %89, %65
-  %111 = fmul float %97, %61
-  %112 = fadd float %110, %111
-  %113 = fmul float %105, %63
-  %114 = fadd float %112, %113
-  store float %114, ptr %2, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %116 = fmul float %91, %65
-  %117 = fmul float %99, %61
-  %118 = fadd float %116, %117
-  %119 = fmul float %107, %63
-  %120 = fadd float %118, %119
-  store float %120, ptr %115, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %122 = fmul float %93, %65
-  %123 = fmul float %101, %61
-  %124 = fadd float %122, %123
-  %125 = fmul float %109, %63
-  %126 = fadd float %124, %125
-  store float %126, ptr %121, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %67, i64 96
-  %128 = load i64, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %67, i64 104
-  %130 = load i64, ptr %129, align 8
-  %131 = mul nsw i64 %130, %128
-  %132 = icmp sgt i64 %131, 0
-  br i1 %132, label %133, label %161
+  %80 = zext i32 %73 to i64
+  %81 = load ptr, ptr %64, align 8, !noalias !12
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %83 = load i64, ptr %82, align 8, !noalias !12
+  %84 = mul nsw i64 %83, %80
+  %85 = getelementptr inbounds float, ptr %81, i64 %84
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr i8, ptr %85, i64 4
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr i8, ptr %85, i64 8
+  %90 = load float, ptr %89, align 4
+  %91 = zext i32 %76 to i64
+  %92 = mul nsw i64 %83, %91
+  %93 = getelementptr inbounds float, ptr %81, i64 %92
+  %94 = load float, ptr %93, align 4
+  %95 = getelementptr i8, ptr %93, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = getelementptr i8, ptr %93, i64 8
+  %98 = load float, ptr %97, align 4
+  %99 = zext i32 %79 to i64
+  %100 = mul nsw i64 %83, %99
+  %101 = getelementptr inbounds float, ptr %81, i64 %100
+  %102 = load float, ptr %101, align 4
+  %103 = getelementptr i8, ptr %101, i64 4
+  %104 = load float, ptr %103, align 4
+  %105 = getelementptr i8, ptr %101, i64 8
+  %106 = load float, ptr %105, align 4
+  %107 = fmul float %86, %62
+  %108 = fmul float %94, %59
+  %109 = fadd float %107, %108
+  %110 = fmul float %102, %60
+  %111 = fadd float %109, %110
+  store float %111, ptr %2, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %113 = fmul float %88, %62
+  %114 = fmul float %96, %59
+  %115 = fadd float %113, %114
+  %116 = fmul float %104, %60
+  %117 = fadd float %115, %116
+  store float %117, ptr %112, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %119 = fmul float %90, %62
+  %120 = fmul float %98, %59
+  %121 = fadd float %119, %120
+  %122 = fmul float %106, %60
+  %123 = fadd float %121, %122
+  store float %123, ptr %118, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %63, i64 96
+  %125 = load i64, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %63, i64 104
+  %127 = load i64, ptr %126, align 8
+  %128 = mul nsw i64 %127, %125
+  %129 = icmp sgt i64 %128, 0
+  br i1 %129, label %130, label %158
 
-133:                                              ; preds = %._crit_edge.thread253
-  %134 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  %135 = load ptr, ptr %134, align 8, !noalias !15
-  %136 = mul nsw i64 %128, %83
-  %137 = getelementptr inbounds float, ptr %135, i64 %136
-  %138 = mul nsw i64 %128, %94
-  %139 = getelementptr inbounds float, ptr %135, i64 %138
-  %140 = mul nsw i64 %128, %102
-  %141 = getelementptr inbounds float, ptr %135, i64 %140
-  %142 = load float, ptr %137, align 4
-  %143 = fmul float %65, %142
-  %144 = load float, ptr %139, align 4
-  %145 = fmul float %61, %144
+130:                                              ; preds = %._crit_edge.thread
+  %131 = getelementptr inbounds nuw i8, ptr %63, i64 88
+  %132 = load ptr, ptr %131, align 8, !noalias !15
+  %133 = mul nsw i64 %125, %80
+  %134 = getelementptr inbounds float, ptr %132, i64 %133
+  %135 = mul nsw i64 %125, %91
+  %136 = getelementptr inbounds float, ptr %132, i64 %135
+  %137 = mul nsw i64 %125, %99
+  %138 = getelementptr inbounds float, ptr %132, i64 %137
+  %139 = load float, ptr %134, align 4
+  %140 = fmul float %62, %139
+  %141 = load float, ptr %136, align 4
+  %142 = fmul float %59, %141
+  %143 = fadd float %140, %142
+  %144 = load float, ptr %138, align 4
+  %145 = fmul float %60, %144
   %146 = fadd float %143, %145
-  %147 = load float, ptr %141, align 4
-  %148 = fmul float %63, %147
-  %149 = fadd float %146, %148
-  store float %149, ptr %60, align 8
-  %150 = getelementptr i8, ptr %137, i64 4
+  store float %146, ptr %30, align 8
+  %147 = getelementptr i8, ptr %134, i64 4
+  %148 = load float, ptr %147, align 4
+  %149 = fmul float %62, %148
+  %150 = getelementptr i8, ptr %136, i64 4
   %151 = load float, ptr %150, align 4
-  %152 = fmul float %65, %151
-  %153 = getelementptr i8, ptr %139, i64 4
-  %154 = load float, ptr %153, align 4
-  %155 = fmul float %61, %154
-  %156 = fadd float %152, %155
-  %157 = getelementptr i8, ptr %141, i64 4
-  %158 = load float, ptr %157, align 4
-  %159 = fmul float %63, %158
-  %160 = fadd float %156, %159
-  store float %160, ptr %62, align 4
-  br label %161
+  %152 = fmul float %59, %151
+  %153 = fadd float %149, %152
+  %154 = getelementptr i8, ptr %138, i64 4
+  %155 = load float, ptr %154, align 4
+  %156 = fmul float %60, %155
+  %157 = fadd float %153, %156
+  store float %157, ptr %31, align 4
+  br label %158
 
-161:                                              ; preds = %133, %._crit_edge.thread253
-  %162 = fsub float %99, %91
-  %163 = fsub float %109, %93
-  %164 = fsub float %101, %93
-  %165 = fsub float %107, %91
-  %166 = fneg float %165
-  %167 = fmul float %164, %166
-  %168 = call float @llvm.fmuladd.f32(float %162, float %163, float %167)
-  %169 = fsub float %105, %89
-  %170 = fsub float %97, %89
-  %171 = fneg float %163
-  %172 = fmul float %170, %171
-  %173 = call float @llvm.fmuladd.f32(float %164, float %169, float %172)
-  %174 = fneg float %169
-  %175 = fmul float %162, %174
-  %176 = call float @llvm.fmuladd.f32(float %170, float %165, float %175)
-  %177 = fmul float %168, %168
-  %178 = fmul float %173, %173
-  %179 = fmul float %176, %176
-  %180 = fadd float %179, %178
-  %181 = fadd float %177, %180
-  %182 = fcmp ogt float %181, 0.000000e+00
-  br i1 %182, label %183, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+158:                                              ; preds = %130, %._crit_edge.thread
+  %159 = fsub float %96, %88
+  %160 = fsub float %106, %90
+  %161 = fsub float %98, %90
+  %162 = fsub float %104, %88
+  %163 = fneg float %162
+  %164 = fmul float %161, %163
+  %165 = call float @llvm.fmuladd.f32(float %159, float %160, float %164)
+  %166 = fsub float %102, %86
+  %167 = fsub float %94, %86
+  %168 = fneg float %160
+  %169 = fmul float %167, %168
+  %170 = call float @llvm.fmuladd.f32(float %161, float %166, float %169)
+  %171 = fneg float %166
+  %172 = fmul float %159, %171
+  %173 = call float @llvm.fmuladd.f32(float %167, float %162, float %172)
+  %174 = fmul float %165, %165
+  %175 = fmul float %170, %170
+  %176 = fmul float %173, %173
+  %177 = fadd float %176, %175
+  %178 = fadd float %174, %177
+  %179 = fcmp ogt float %178, 0.000000e+00
+  br i1 %179, label %180, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
-183:                                              ; preds = %161
-  %184 = call float @llvm.sqrt.f32(float %181)
-  %185 = fdiv float %168, %184
-  %186 = fdiv float %173, %184
-  %187 = fdiv float %176, %184
+180:                                              ; preds = %158
+  %181 = call float @llvm.sqrt.f32(float %178)
+  %182 = fdiv float %165, %181
+  %183 = fdiv float %170, %181
+  %184 = fdiv float %173, %181
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
-_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %161, %183
-  %.sroa.0106.0 = phi float [ %185, %183 ], [ %168, %161 ]
-  %.sroa.3107.0 = phi float [ %186, %183 ], [ %173, %161 ]
-  %.sroa.6108.0 = phi float [ %187, %183 ], [ %176, %161 ]
+_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %158, %180
+  %.sroa.0106.0 = phi float [ %182, %180 ], [ %165, %158 ]
+  %.sroa.3107.0 = phi float [ %183, %180 ], [ %170, %158 ]
+  %.sroa.6108.0 = phi float [ %184, %180 ], [ %173, %158 ]
   store float %.sroa.0106.0, ptr %10, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float %.sroa.3107.0, ptr %188, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store float %.sroa.6108.0, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %191 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store float %.sroa.3107.0, ptr %185, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store float %.sroa.6108.0, ptr %186, align 4
+  %187 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %9, i8 0, i64 24, i1 false)
-  store float %.sroa.0106.0, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store float %.sroa.3107.0, ptr %192, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float %.sroa.6108.0, ptr %193, align 4
-  call void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(12) %190)
-  %194 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %195 = load float, ptr %9, align 4
+  store float %.sroa.0106.0, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  store float %.sroa.3107.0, ptr %189, align 4
+  %190 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store float %.sroa.6108.0, ptr %190, align 4
+  call void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(12) %187)
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %192 = load float, ptr %9, align 4
+  %193 = load float, ptr %191, align 4
+  store float %193, ptr %9, align 4
+  store float %192, ptr %191, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %196 = load float, ptr %194, align 4
-  store float %196, ptr %9, align 4
-  store float %195, ptr %194, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %198 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %199 = load float, ptr %197, align 4
-  %200 = load float, ptr %198, align 8
-  store float %200, ptr %197, align 4
-  store float %199, ptr %198, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %202 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %203 = load float, ptr %201, align 4
-  %204 = load float, ptr %202, align 4
-  store float %204, ptr %201, align 4
-  store float %203, ptr %202, align 4
-  %205 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %206 = load float, ptr %190, align 4
-  %207 = load float, ptr %205, align 8
-  store float %207, ptr %190, align 4
-  store float %206, ptr %205, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %209 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %210 = load float, ptr %208, align 4
+  %197 = load float, ptr %195, align 8
+  store float %197, ptr %194, align 4
+  store float %196, ptr %195, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %200 = load float, ptr %198, align 4
+  %201 = load float, ptr %199, align 4
+  store float %201, ptr %198, align 4
+  store float %200, ptr %199, align 4
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %203 = load float, ptr %187, align 4
+  %204 = load float, ptr %202, align 8
+  store float %204, ptr %187, align 4
+  store float %203, ptr %202, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 76
+  %207 = load float, ptr %205, align 4
+  %208 = load float, ptr %206, align 4
+  store float %208, ptr %205, align 4
+  store float %207, ptr %206, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %211 = load float, ptr %209, align 4
-  store float %211, ptr %208, align 4
-  store float %210, ptr %209, align 4
-  %212 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %213 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %214 = load float, ptr %212, align 4
-  %215 = load float, ptr %213, align 8
-  store float %215, ptr %212, align 4
-  store float %214, ptr %213, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %217 = load float, ptr %191, align 4
-  %218 = load float, ptr %216, align 4
-  store float %218, ptr %191, align 4
-  store float %217, ptr %216, align 4
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %220 = load float, ptr %192, align 4
-  %221 = load float, ptr %219, align 8
-  store float %221, ptr %192, align 4
-  store float %220, ptr %219, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %223 = load float, ptr %193, align 4
-  %224 = load float, ptr %222, align 4
-  store float %224, ptr %193, align 4
-  store float %223, ptr %222, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %67, i64 72
-  %226 = load i64, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  %228 = load i64, ptr %227, align 8
-  %229 = mul nsw i64 %228, %226
-  %230 = icmp sgt i64 %229, 0
-  br i1 %230, label %231, label %298
+  %212 = load float, ptr %210, align 8
+  store float %212, ptr %209, align 4
+  store float %211, ptr %210, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %214 = load float, ptr %188, align 4
+  %215 = load float, ptr %213, align 4
+  store float %215, ptr %188, align 4
+  store float %214, ptr %213, align 4
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %217 = load float, ptr %189, align 4
+  %218 = load float, ptr %216, align 8
+  store float %218, ptr %189, align 4
+  store float %217, ptr %216, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %220 = load float, ptr %190, align 4
+  %221 = load float, ptr %219, align 4
+  store float %221, ptr %190, align 4
+  store float %220, ptr %219, align 4
+  %222 = getelementptr inbounds nuw i8, ptr %63, i64 72
+  %223 = load i64, ptr %222, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  %225 = load i64, ptr %224, align 8
+  %226 = mul nsw i64 %225, %223
+  %227 = icmp sgt i64 %226, 0
+  br i1 %227, label %228, label %295
 
-231:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
-  %232 = load ptr, ptr %69, align 8, !noalias !18
-  %233 = mul nsw i64 %226, %83
-  %234 = getelementptr inbounds float, ptr %232, i64 %233
-  %235 = mul nsw i64 %226, %94
-  %236 = getelementptr inbounds float, ptr %232, i64 %235
-  %237 = mul nsw i64 %226, %102
-  %238 = getelementptr inbounds float, ptr %232, i64 %237
-  %239 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %226, ptr %239, align 8, !alias.scope !21
-  %240 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store float %65, ptr %240, align 4, !alias.scope !21
-  %241 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %234, ptr %241, align 8
+228:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+  %229 = load ptr, ptr %65, align 8, !noalias !18
+  %230 = mul nsw i64 %223, %80
+  %231 = getelementptr inbounds float, ptr %229, i64 %230
+  %232 = mul nsw i64 %223, %91
+  %233 = getelementptr inbounds float, ptr %229, i64 %232
+  %234 = mul nsw i64 %223, %99
+  %235 = getelementptr inbounds float, ptr %229, i64 %234
+  %236 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 %223, ptr %236, align 8, !alias.scope !21
+  %237 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  store float %62, ptr %237, align 4, !alias.scope !21
+  %238 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store ptr %231, ptr %238, align 8
   %.sroa.696.32..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i64 %226, ptr %.sroa.696.32..sroa_idx, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr %69, ptr %242, align 8
+  store i64 %223, ptr %.sroa.696.32..sroa_idx, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store ptr %65, ptr %239, align 8
   %.sroa.998.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 72
   store i64 0, ptr %.sroa.998.56..sroa_idx, align 8
   %.sroa.1099.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store i64 %83, ptr %.sroa.1099.56..sroa_idx, align 8
+  store i64 %80, ptr %.sroa.1099.56..sroa_idx, align 8
   %.sroa.11100.56..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 88
-  store i64 %226, ptr %.sroa.11100.56..sroa_idx, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  store i64 %226, ptr %243, align 8, !alias.scope !21
-  %244 = getelementptr inbounds nuw i8, ptr %14, i64 124
-  store float %61, ptr %244, align 4, !alias.scope !21
-  %245 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  store ptr %236, ptr %245, align 8
+  store i64 %223, ptr %.sroa.11100.56..sroa_idx, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  store i64 %223, ptr %240, align 8, !alias.scope !21
+  %241 = getelementptr inbounds nuw i8, ptr %14, i64 124
+  store float %59, ptr %241, align 4, !alias.scope !21
+  %242 = getelementptr inbounds nuw i8, ptr %14, i64 128
+  store ptr %233, ptr %242, align 8
   %.sroa.18.120..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 136
-  store i64 %226, ptr %.sroa.18.120..sroa_idx, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  store ptr %69, ptr %246, align 8
+  store i64 %223, ptr %.sroa.18.120..sroa_idx, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %14, i64 152
+  store ptr %65, ptr %243, align 8
   %.sroa.21.144..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 160
   store i64 0, ptr %.sroa.21.144..sroa_idx, align 8
   %.sroa.22.144..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 168
-  store i64 %94, ptr %.sroa.22.144..sroa_idx, align 8
+  store i64 %91, ptr %.sroa.22.144..sroa_idx, align 8
   %.sroa.23.144..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 176
-  store i64 %226, ptr %.sroa.23.144..sroa_idx, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %14, i64 208
-  store i64 %226, ptr %247, align 8, !alias.scope !21
-  %248 = getelementptr inbounds nuw i8, ptr %14, i64 220
-  store float %63, ptr %248, align 4, !alias.scope !21
-  %249 = getelementptr inbounds nuw i8, ptr %14, i64 224
-  store ptr %238, ptr %249, align 8
+  store i64 %223, ptr %.sroa.23.144..sroa_idx, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %14, i64 208
+  store i64 %223, ptr %244, align 8, !alias.scope !21
+  %245 = getelementptr inbounds nuw i8, ptr %14, i64 220
+  store float %60, ptr %245, align 4, !alias.scope !21
+  %246 = getelementptr inbounds nuw i8, ptr %14, i64 224
+  store ptr %235, ptr %246, align 8
   %.sroa.663.24..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 232
-  store i64 %226, ptr %.sroa.663.24..sroa_idx, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %14, i64 248
-  store ptr %69, ptr %250, align 8
+  store i64 %223, ptr %.sroa.663.24..sroa_idx, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %14, i64 248
+  store ptr %65, ptr %247, align 8
   %.sroa.9.48..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 256
   store i64 0, ptr %.sroa.9.48..sroa_idx, align 8
   %.sroa.10.48..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 264
-  store i64 %102, ptr %.sroa.10.48..sroa_idx, align 8
+  store i64 %99, ptr %.sroa.10.48..sroa_idx, align 8
   %.sroa.11.48..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 272
-  store i64 %226, ptr %.sroa.11.48..sroa_idx, align 8
+  store i64 %223, ptr %.sroa.11.48..sroa_idx, align 8
   call void @_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKNS1_IS4_KNS1_INS2_17scalar_product_opIffEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEEKNS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEEEKNS_5BlockIKNSA_IfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEESL_EESL_EEE10normalizedEv(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.95") align 8 %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
-  %251 = load ptr, ptr %13, align 8
+  %248 = load ptr, ptr %13, align 8
+  %249 = load float, ptr %248, align 4
+  store float %249, ptr %12, align 4
+  %250 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %251 = getelementptr i8, ptr %248, i64 4
   %252 = load float, ptr %251, align 4
-  store float %252, ptr %12, align 4
-  %253 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %254 = getelementptr i8, ptr %251, i64 4
+  store float %252, ptr %250, align 4
+  %253 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %254 = getelementptr i8, ptr %248, i64 8
   %255 = load float, ptr %254, align 4
   store float %255, ptr %253, align 4
-  %256 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %257 = getelementptr i8, ptr %251, i64 8
-  %258 = load float, ptr %257, align 4
-  store float %258, ptr %256, align 4
-  %259 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %260 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %257 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %11, i8 0, i64 24, i1 false)
-  store float %252, ptr %260, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store float %255, ptr %261, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store float %258, ptr %262, align 4
-  invoke void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(36) %11, ptr noundef nonnull align 4 dereferenceable(12) %259)
-          to label %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit unwind label %295
+  store float %249, ptr %257, align 4
+  %258 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  store float %252, ptr %258, align 4
+  %259 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store float %255, ptr %259, align 4
+  invoke void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(36) %11, ptr noundef nonnull align 4 dereferenceable(12) %256)
+          to label %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit unwind label %292
 
-_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit:      ; preds = %231
-  %263 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %264 = load float, ptr %11, align 4
-  %265 = load float, ptr %263, align 8
-  store float %265, ptr %11, align 4
-  store float %264, ptr %263, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %267 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %268 = load float, ptr %266, align 4
+_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit:      ; preds = %228
+  %260 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %261 = load float, ptr %11, align 4
+  %262 = load float, ptr %260, align 8
+  store float %262, ptr %11, align 4
+  store float %261, ptr %260, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %265 = load float, ptr %263, align 4
+  %266 = load float, ptr %264, align 4
+  store float %266, ptr %263, align 4
+  store float %265, ptr %264, align 4
+  %267 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %269 = load float, ptr %267, align 4
-  store float %269, ptr %266, align 4
-  store float %268, ptr %267, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %271 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %272 = load float, ptr %270, align 4
-  %273 = load float, ptr %271, align 8
-  store float %273, ptr %270, align 4
-  store float %272, ptr %271, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %275 = load float, ptr %259, align 4
+  %270 = load float, ptr %268, align 8
+  store float %270, ptr %267, align 4
+  store float %269, ptr %268, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %272 = load float, ptr %256, align 4
+  %273 = load float, ptr %271, align 4
+  store float %273, ptr %256, align 4
+  store float %272, ptr %271, align 4
+  %274 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %276 = load float, ptr %274, align 4
-  store float %276, ptr %259, align 4
-  store float %275, ptr %274, align 4
-  %277 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %278 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %279 = load float, ptr %277, align 4
-  %280 = load float, ptr %278, align 8
-  store float %280, ptr %277, align 4
-  store float %279, ptr %278, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %283 = load float, ptr %281, align 4
-  %284 = load float, ptr %282, align 4
-  store float %284, ptr %281, align 4
-  store float %283, ptr %282, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %286 = load float, ptr %260, align 4
-  %287 = load float, ptr %285, align 8
-  store float %287, ptr %260, align 4
-  store float %286, ptr %285, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %289 = load float, ptr %261, align 4
-  %290 = load float, ptr %288, align 4
-  store float %290, ptr %261, align 4
-  store float %289, ptr %288, align 4
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %292 = load float, ptr %262, align 4
-  %293 = load float, ptr %291, align 8
-  store float %293, ptr %262, align 4
-  store float %292, ptr %291, align 8
+  %277 = load float, ptr %275, align 8
+  store float %277, ptr %274, align 4
+  store float %276, ptr %275, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %279 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %280 = load float, ptr %278, align 4
+  %281 = load float, ptr %279, align 4
+  store float %281, ptr %278, align 4
+  store float %280, ptr %279, align 4
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %283 = load float, ptr %257, align 4
+  %284 = load float, ptr %282, align 8
+  store float %284, ptr %257, align 4
+  store float %283, ptr %282, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %286 = load float, ptr %258, align 4
+  %287 = load float, ptr %285, align 4
+  store float %287, ptr %258, align 4
+  store float %286, ptr %285, align 4
+  %288 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %289 = load float, ptr %259, align 4
+  %290 = load float, ptr %288, align 8
+  store float %290, ptr %259, align 4
+  store float %289, ptr %288, align 8
+  %291 = load ptr, ptr %13, align 8
+  call void @free(ptr noundef %291) #16
+  br label %.loopexit
+
+292:                                              ; preds = %228
+  %293 = landingpad { ptr, i32 }
+          cleanup
   %294 = load ptr, ptr %13, align 8
   call void @free(ptr noundef %294) #16
+  resume { ptr, i32 } %293
+
+295:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store float %192, ptr %296, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store float %196, ptr %297, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store float %200, ptr %298, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store float %203, ptr %299, align 4
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store float %207, ptr %300, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  store float %211, ptr %301, align 4
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store float %214, ptr %302, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  store float %217, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store float %220, ptr %304, align 8
   br label %.loopexit
 
-295:                                              ; preds = %231
-  %296 = landingpad { ptr, i32 }
-          cleanup
-  %297 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %297) #16
-  resume { ptr, i32 } %296
-
-298:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
-  %299 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %195, ptr %299, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float %199, ptr %300, align 4
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float %203, ptr %301, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float %206, ptr %302, align 4
-  %303 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float %210, ptr %303, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float %214, ptr %304, align 4
-  %305 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float %217, ptr %305, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store float %220, ptr %306, align 4
-  %307 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store float %223, ptr %307, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %35, %.lr.ph.split.us, %4, %._crit_edge, %298, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit
-  %.0 = phi i1 [ true, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit ], [ true, %298 ], [ false, %._crit_edge ], [ false, %4 ], [ %34, %.lr.ph.split.us ], [ %34, %35 ]
+.loopexit:                                        ; preds = %35, %.lr.ph.split.us, %4, %._crit_edge, %295, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit
+  %.0 = phi i1 [ true, %_ZN4nori5FrameC2ERKNS_7TVectorIfLi3EEE.exit ], [ true, %295 ], [ false, %._crit_edge ], [ false, %4 ], [ %34, %.lr.ph.split.us ], [ %34, %35 ]
   ret i1 %.0
 }
 

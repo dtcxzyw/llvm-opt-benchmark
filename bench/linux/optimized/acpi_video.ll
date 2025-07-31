@@ -1919,7 +1919,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
   store ptr null, ptr %8, align 8
   %15 = call i32 @acpi_evaluate_object(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %2) #18
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %8, align 8
@@ -1935,18 +1935,18 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %14, ptr noundef nonnull @.str.5) #18
   %24 = load ptr, ptr %8, align 8
   call void @kfree(ptr noundef %24) #18
-  br label %.thread
-
-.thread:                                          ; preds = %23, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
-  br label %26
+  br label %.critedge
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
   call void @kfree(ptr noundef nonnull %18) #18
   br label %26
 
-26:                                               ; preds = %.thread, %25
+.critedge:                                        ; preds = %9, %23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
+  br label %26
+
+26:                                               ; preds = %.critedge, %25
   %27 = load ptr, ptr %10, align 8
   %28 = icmp eq ptr %27, %4
   br i1 %28, label %.loopexit, label %9, !llvm.loop !23
@@ -3190,7 +3190,7 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   br label %51
 
 21:                                               ; preds = %5
-  switch i32 %1, label %49 [
+  switch i32 %1, label %.critedge [
     i32 133, label %22
     i32 134, label %25
     i32 135, label %28
@@ -3233,26 +3233,26 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   br label %43
 
 43:                                               ; preds = %22, %25, %28, %31, %34, %37
-  %.ph = phi i32 [ %38, %37 ], [ 245, %34 ], [ 244, %31 ], [ 224, %28 ], [ 225, %25 ], [ 243, %22 ]
+  %44 = phi i32 [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ], [ %38, %37 ]
   store i1 true, ptr @may_report_brightness_keys, align 1
-  %44 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
-  %45 = load i32, ptr @report_key_events, align 4
-  %46 = and i32 %45, 2
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %51, label %48
+  %45 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
+  %46 = load i32, ptr @report_key_events, align 4
+  %47 = and i32 %46, 2
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %51, label %49
 
-48:                                               ; preds = %43
-  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %.ph, i32 noundef 1) #18
+49:                                               ; preds = %43
+  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 1) #18
   tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %.ph, i32 noundef 0) #18
+  tail call void @input_event(ptr noundef %11, i32 noundef 1, i32 noundef %44, i32 noundef 0) #18
   tail call void @input_event(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
   br label %51
 
-49:                                               ; preds = %21
+.critedge:                                        ; preds = %21
   %50 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #18
   br label %51
 
-51:                                               ; preds = %49, %48, %43, %19, %3
+51:                                               ; preds = %.critedge, %49, %43, %19, %3
   ret void
 }
 

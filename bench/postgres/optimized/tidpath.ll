@@ -61,18 +61,18 @@ define dso_local noundef zeroext i1 @create_tidscan_paths(ptr noundef %0, ptr no
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load i32, ptr %24, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit.thread
+  br i1 %27, label %.lr.ph25.i, label %TidRangeQualFromRestrictInfoList.exit.thread
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i, %IsTidRangeClause.exit.thread.i
+.lr.ph25.i:                                       ; preds = %.lr.ph.i, %IsTidRangeClause.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %IsTidRangeClause.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.0132125.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.0131923.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef readonly %30, ptr noundef readonly %1)
   br i1 %31, label %IsTidRangeClause.exit.i, label %IsTidRangeClause.exit.thread.i
 
-IsTidRangeClause.exit.i:                          ; preds = %.lr.ph27.i
+IsTidRangeClause.exit.i:                          ; preds = %.lr.ph25.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -82,16 +82,16 @@ IsTidRangeClause.exit.i:                          ; preds = %.lr.ph27.i
   br i1 %or.cond5.i.i, label %37, label %IsTidRangeClause.exit.thread.i
 
 37:                                               ; preds = %IsTidRangeClause.exit.i
-  %38 = tail call ptr @lappend(ptr noundef %.0132125.i, ptr noundef nonnull %30) #6
+  %38 = tail call ptr @lappend(ptr noundef %.0131923.i, ptr noundef nonnull %30) #6
   br label %IsTidRangeClause.exit.thread.i
 
-IsTidRangeClause.exit.thread.i:                   ; preds = %37, %IsTidRangeClause.exit.i, %.lr.ph27.i
-  %.1.i = phi ptr [ %38, %37 ], [ %.0132125.i, %IsTidRangeClause.exit.i ], [ %.0132125.i, %.lr.ph27.i ]
+IsTidRangeClause.exit.thread.i:                   ; preds = %37, %IsTidRangeClause.exit.i, %.lr.ph25.i
+  %.1.i = phi ptr [ %38, %37 ], [ %.0131923.i, %IsTidRangeClause.exit.i ], [ %.0131923.i, %.lr.ph25.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %24, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit
+  br i1 %41, label %.lr.ph25.i, label %TidRangeQualFromRestrictInfoList.exit
 
 TidRangeQualFromRestrictInfoList.exit:            ; preds = %IsTidRangeClause.exit.thread.i
   %.not33 = icmp eq ptr %.1.i, null
@@ -137,51 +137,51 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   %5 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge163.thread, label %.lr.ph162
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph138
 
-.lr.ph162:                                        ; preds = %4
+.lr.ph138:                                        ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %9 = load i32, ptr %6, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph208, label %._crit_edge163
+  br i1 %10, label %.lr.ph171, label %._crit_edge
 
-.lr.ph208:                                        ; preds = %.lr.ph162, %.thread123
-  %.059159207 = phi ptr [ %.4.ph, %.thread123 ], [ null, %.lr.ph162 ]
-  %.055160206 = phi ptr [ %.358.ph, %.thread123 ], [ null, %.lr.ph162 ]
-  %indvars.iv171205 = phi i64 [ %indvars.iv.next172, %.thread123 ], [ 0, %.lr.ph162 ]
+.lr.ph171:                                        ; preds = %.lr.ph138, %.critedge.thread
+  %.059132170 = phi ptr [ %.4.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
+  %.055135169 = phi ptr [ %.358.ph, %.critedge.thread ], [ null, %.lr.ph138 ]
+  %indvars.iv147168 = phi i64 [ %indvars.iv.next148, %.critedge.thread ], [ 0, %.lr.ph138 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv171205
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv147168
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %13) #6
-  br i1 %14, label %15, label %120
+  br i1 %14, label %15, label %59
 
-15:                                               ; preds = %.lr.ph208
+15:                                               ; preds = %.lr.ph171
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not76 = icmp eq ptr %19, null
-  br i1 %.not76, label %.thread123, label %.lr.ph
+  br i1 %.not76, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph204, label %._crit_edge
+  br i1 %23, label %.lr.ph129, label %.critedge.thread
 
-.lr.ph204:                                        ; preds = %.lr.ph, %107
-  %.069155203 = phi ptr [ %108, %107 ], [ null, %.lr.ph ]
-  %indvars.iv202 = phi i64 [ %indvars.iv.next, %107 ], [ 0, %.lr.ph ]
+.lr.ph129:                                        ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
+  %.069123127 = phi ptr [ %47, %46 ], [ null, %.lr.ph ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv202
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %27
 
-27:                                               ; preds = %.lr.ph204
+27:                                               ; preds = %.lr.ph129
   %28 = load i32, ptr %26, align 4
   %29 = icmp eq i32 %28, 21
   br i1 %29, label %is_andclause.exit, label %is_andclause.exit.thread
@@ -199,352 +199,112 @@ is_andclause.exit:                                ; preds = %27
   %36 = call fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noundef %35, ptr noundef %2, ptr noundef %5)
   %37 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %42
+  br i1 %38, label %.split, label %41
 
-39:                                               ; preds = %33
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
+.split:                                           ; preds = %33
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__.TidQualFromRestrictInfoList) #6
   unreachable
 
-42:                                               ; preds = %33
+41:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
-  br label %106
+  br label %45
 
-is_andclause.exit.thread:                         ; preds = %.lr.ph204, %27, %is_andclause.exit
-  %43 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %44 = load i8, ptr %43, align 2, !range !4, !noundef !5
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %.thread123, label %46
+is_andclause.exit.thread:                         ; preds = %.lr.ph129, %27, %is_andclause.exit
+  %42 = tail call fastcc zeroext i1 @RestrictInfoIsTidQual(ptr noundef %0, ptr noundef %26, ptr noundef %2)
+  br i1 %42, label %43, label %.critedge.thread
 
-46:                                               ; preds = %is_andclause.exit.thread
-  %47 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %26, ptr noundef %2) #6
-  br i1 %47, label %48, label %.thread123
+43:                                               ; preds = %is_andclause.exit.thread
+  %44 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %26) #6
+  br label %45
 
-48:                                               ; preds = %46
-  %49 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %26, ptr noundef readonly %2)
-  %50 = getelementptr i8, ptr %26, i64 8
-  %51 = load ptr, ptr %50, align 8
-  br i1 %49, label %IsTidEqualClause.exit.i, label %IsTidEqualClause.exit.thread.i
-
-IsTidEqualClause.exit.i:                          ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, 387
-  br i1 %54, label %RestrictInfoIsTidQual.exit.thread112, label %IsTidEqualClause.exit.thread.thread.i
-
-IsTidEqualClause.exit.thread.i:                   ; preds = %48
-  %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %.thread123, label %IsTidEqualClause.exit.thread.thread.i
-
-IsTidEqualClause.exit.thread.thread.i:            ; preds = %IsTidEqualClause.exit.i, %IsTidEqualClause.exit.thread.i
-  %55 = load i32, ptr %51, align 4
-  %56 = icmp eq i32 %55, 20
-  br i1 %56, label %57, label %IsTidEqualAnyClause.exit.thread.thread19.i
-
-57:                                               ; preds = %IsTidEqualClause.exit.thread.thread.i
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4
-  %.not18.i.i = icmp eq i32 %59, 387
-  br i1 %.not18.i.i, label %60, label %IsTidEqualAnyClause.exit.thread.i
-
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %62 = load i8, ptr %61, align 4, !range !4, !noundef !5
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %IsTidEqualAnyClause.exit.thread.i
-
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr i8, ptr %66, i64 16
-  %.val.i.i = load ptr, ptr %67, align 8
-  %68 = load ptr, ptr %.val.i.i, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %.not19.i.i = icmp eq ptr %68, null
-  br i1 %.not19.i.i, label %IsTidEqualAnyClause.exit.thread.i, label %71
-
-71:                                               ; preds = %64
-  %72 = load i32, ptr %68, align 4
-  %73 = icmp eq i32 %72, 6
-  br i1 %73, label %74, label %IsTidEqualAnyClause.exit.thread.i
-
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %76 = load i16, ptr %75, align 8
-  %77 = icmp eq i16 %76, -1
-  br i1 %77, label %78, label %IsTidEqualAnyClause.exit.thread.i
-
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp eq i32 %80, 27
-  br i1 %81, label %82, label %IsTidEqualAnyClause.exit.thread.i
-
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = load i32, ptr %8, align 8
-  %86 = icmp eq i32 %84, %85
-  br i1 %86, label %87, label %IsTidEqualAnyClause.exit.thread.i
-
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %IsTidEqualAnyClause.exit.thread.i
-
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %IsTidEqualAnyClause.exit.thread.i
-
-95:                                               ; preds = %91
-  %96 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %70) #6
-  %97 = tail call zeroext i1 @bms_is_member(i32 noundef %84, ptr noundef %96) #6
-  br i1 %97, label %IsTidEqualAnyClause.exit.thread.i, label %IsTidEqualAnyClause.exit.i
-
-IsTidEqualAnyClause.exit.i:                       ; preds = %95
-  %98 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %70) #6
-  br i1 %98, label %IsTidEqualAnyClause.exit.thread.i, label %RestrictInfoIsTidQual.exit.thread112
-
-IsTidEqualAnyClause.exit.thread.i:                ; preds = %IsTidEqualAnyClause.exit.i, %95, %91, %87, %82, %78, %74, %71, %64, %60, %57
-  %.val11.pr.i = load ptr, ptr %50, align 8
-  %.not.i13.i = icmp eq ptr %.val11.pr.i, null
-  br i1 %.not.i13.i, label %.thread123, label %thread-pre-split.i
-
-thread-pre-split.i:                               ; preds = %IsTidEqualAnyClause.exit.thread.i
-  %.pr.i = load i32, ptr %.val11.pr.i, align 4
-  br label %IsTidEqualAnyClause.exit.thread.thread19.i
-
-IsTidEqualAnyClause.exit.thread.thread19.i:       ; preds = %thread-pre-split.i, %IsTidEqualClause.exit.thread.thread.i
-  %99 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %55, %IsTidEqualClause.exit.thread.thread.i ]
-  %.val1122.i = phi ptr [ %.val11.pr.i, %thread-pre-split.i ], [ %51, %IsTidEqualClause.exit.thread.thread.i ]
-  %100 = icmp eq i32 %99, 58
-  br i1 %100, label %RestrictInfoIsTidQual.exit, label %.thread123
-
-RestrictInfoIsTidQual.exit:                       ; preds = %IsTidEqualAnyClause.exit.thread.thread19.i
-  %101 = getelementptr inbounds nuw i8, ptr %.val1122.i, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = load i32, ptr %8, align 8
-  %104 = icmp eq i32 %102, %103
-  br i1 %104, label %RestrictInfoIsTidQual.exit.thread112, label %.thread123
-
-RestrictInfoIsTidQual.exit.thread112:             ; preds = %IsTidEqualClause.exit.i, %IsTidEqualAnyClause.exit.i, %RestrictInfoIsTidQual.exit
-  %105 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %26) #6
-  br label %106
-
-106:                                              ; preds = %RestrictInfoIsTidQual.exit.thread112, %42
-  %.064 = phi ptr [ %36, %42 ], [ %105, %RestrictInfoIsTidQual.exit.thread112 ]
+45:                                               ; preds = %43, %41
+  %.064 = phi ptr [ %36, %41 ], [ %44, %43 ]
   %.not78 = icmp eq ptr %.064, null
-  br i1 %.not78, label %.thread123, label %107
+  br i1 %.not78, label %.critedge.thread, label %46
 
-107:                                              ; preds = %106
-  %108 = tail call ptr @list_concat(ptr noundef %.069155203, ptr noundef nonnull %.064) #6
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv202, 1
-  %109 = load i32, ptr %20, align 4
-  %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph204, label %._crit_edge
+46:                                               ; preds = %45
+  %47 = tail call ptr @list_concat(ptr noundef %.069123127, ptr noundef nonnull %.064) #6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %48 = load i32, ptr %20, align 4
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph129, label %.critedge
 
-._crit_edge:                                      ; preds = %107, %.lr.ph
-  %.069155.lcssa = phi ptr [ null, %.lr.ph ], [ %108, %107 ]
-  %.not79 = icmp eq ptr %.069155.lcssa, null
-  br i1 %.not79, label %.thread123, label %112
+.critedge:                                        ; preds = %46
+  %.not79 = icmp eq ptr %47, null
+  br i1 %.not79, label %.critedge.thread, label %51
 
-112:                                              ; preds = %._crit_edge
-  %113 = icmp eq ptr %.059159207, null
-  br i1 %113, label %119, label %list_length.exit83
+51:                                               ; preds = %.critedge
+  %52 = icmp eq ptr %.059132170, null
+  br i1 %52, label %58, label %list_length.exit83
 
-list_length.exit83:                               ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %.069155.lcssa, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %.059159207, i64 4
-  %117 = load i32, ptr %116, align 4
-  %118 = icmp slt i32 %115, %117
-  br i1 %118, label %119, label %.thread123
+list_length.exit83:                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %.059132170, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp slt i32 %54, %56
+  br i1 %57, label %58, label %.critedge.thread
 
-119:                                              ; preds = %list_length.exit83, %112
-  br label %.thread123
+58:                                               ; preds = %list_length.exit83, %51
+  br label %.critedge.thread
 
-120:                                              ; preds = %.lr.ph208
-  %121 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  %122 = load i8, ptr %121, align 2, !range !4, !noundef !5
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %.thread123, label %124
+59:                                               ; preds = %.lr.ph171
+  %60 = tail call fastcc zeroext i1 @RestrictInfoIsTidQual(ptr noundef %0, ptr noundef %13, ptr noundef %2)
+  br i1 %60, label %61, label %.critedge.thread
 
-124:                                              ; preds = %120
-  %125 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %13, ptr noundef %2) #6
-  br i1 %125, label %126, label %.thread123
+61:                                               ; preds = %59
+  %62 = getelementptr i8, ptr %13, i64 8
+  %.val = load ptr, ptr %62, align 8
+  %.not.i84 = icmp eq ptr %.val, null
+  br i1 %.not.i84, label %IsCurrentOfClause.exit.thread, label %63
 
-126:                                              ; preds = %124
-  %127 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %13, ptr noundef readonly %2)
-  %128 = getelementptr i8, ptr %13, i64 8
-  %129 = load ptr, ptr %128, align 8
-  br i1 %127, label %IsTidEqualClause.exit.i98, label %IsTidEqualClause.exit.thread.i85
+63:                                               ; preds = %61
+  %64 = load i32, ptr %.val, align 4
+  %65 = icmp eq i32 %64, 58
+  br i1 %65, label %IsCurrentOfClause.exit, label %IsCurrentOfClause.exit.thread
 
-IsTidEqualClause.exit.i98:                        ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp eq i32 %131, 387
-  br i1 %132, label %RestrictInfoIsTidQual.exit100.thread128.thread, label %IsTidEqualClause.exit.thread.thread.i99
+IsCurrentOfClause.exit:                           ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = load i32, ptr %8, align 8
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %74, label %IsCurrentOfClause.exit.thread
 
-IsTidEqualClause.exit.thread.i85:                 ; preds = %126
-  %.not.i.i86 = icmp eq ptr %129, null
-  br i1 %.not.i.i86, label %.thread123, label %IsTidEqualClause.exit.thread.thread.i99
+IsCurrentOfClause.exit.thread:                    ; preds = %61, %63, %IsCurrentOfClause.exit
+  %70 = icmp eq ptr %.055135169, null
+  %spec.select = select i1 %70, ptr %13, ptr %.055135169
+  br label %.critedge.thread
 
-IsTidEqualClause.exit.thread.thread.i99:          ; preds = %IsTidEqualClause.exit.i98, %IsTidEqualClause.exit.thread.i85
-  %133 = load i32, ptr %129, align 4
-  %134 = icmp eq i32 %133, 20
-  br i1 %134, label %135, label %IsTidEqualAnyClause.exit.thread.thread19.i87
+.critedge.thread:                                 ; preds = %is_andclause.exit.thread, %45, %.lr.ph, %15, %.critedge, %58, %list_length.exit83, %59, %IsCurrentOfClause.exit.thread
+  %.4.ph = phi ptr [ %.059132170, %IsCurrentOfClause.exit.thread ], [ %.059132170, %.critedge ], [ %.059132170, %list_length.exit83 ], [ %47, %58 ], [ %.059132170, %59 ], [ %.059132170, %15 ], [ %.059132170, %.lr.ph ], [ %.059132170, %45 ], [ %.059132170, %is_andclause.exit.thread ]
+  %.358.ph = phi ptr [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055135169, %.critedge ], [ %.055135169, %list_length.exit83 ], [ %.055135169, %58 ], [ %.055135169, %59 ], [ %.055135169, %15 ], [ %.055135169, %.lr.ph ], [ %.055135169, %45 ], [ %.055135169, %is_andclause.exit.thread ]
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147168, 1
+  %71 = load i32, ptr %6, align 4
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next148, %72
+  br i1 %73, label %.lr.ph171, label %._crit_edge
 
-135:                                              ; preds = %IsTidEqualClause.exit.thread.thread.i99
-  %136 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  %137 = load i32, ptr %136, align 4
-  %.not18.i.i89 = icmp eq i32 %137, 387
-  br i1 %.not18.i.i89, label %138, label %thread-pre-split.i93
-
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 20
-  %140 = load i8, ptr %139, align 4, !range !4, !noundef !5
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %thread-pre-split.i93
-
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr i8, ptr %144, i64 16
-  %.val.i.i95 = load ptr, ptr %145, align 8
-  %146 = load ptr, ptr %.val.i.i95, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %.val.i.i95, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %.not19.i.i96 = icmp eq ptr %146, null
-  br i1 %.not19.i.i96, label %thread-pre-split.i93, label %149
-
-149:                                              ; preds = %142
-  %150 = load i32, ptr %146, align 4
-  %151 = icmp eq i32 %150, 6
-  br i1 %151, label %152, label %thread-pre-split.i93
-
-152:                                              ; preds = %149
-  %153 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %154 = load i16, ptr %153, align 8
-  %155 = icmp eq i16 %154, -1
-  br i1 %155, label %156, label %thread-pre-split.i93
-
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  %158 = load i32, ptr %157, align 4
-  %159 = icmp eq i32 %158, 27
-  br i1 %159, label %160, label %thread-pre-split.i93
-
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %162 = load i32, ptr %161, align 4
-  %163 = load i32, ptr %8, align 8
-  %164 = icmp eq i32 %162, %163
-  br i1 %164, label %165, label %thread-pre-split.i93
-
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %167 = load ptr, ptr %166, align 8
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %thread-pre-split.i93
-
-169:                                              ; preds = %165
-  %170 = getelementptr inbounds nuw i8, ptr %146, i64 32
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %thread-pre-split.i93
-
-173:                                              ; preds = %169
-  %174 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %148) #6
-  %175 = tail call zeroext i1 @bms_is_member(i32 noundef %162, ptr noundef %174) #6
-  br i1 %175, label %.IsTidEqualAnyClause.exit.thread.i90_crit_edge, label %IsTidEqualAnyClause.exit.i97
-
-.IsTidEqualAnyClause.exit.thread.i90_crit_edge:   ; preds = %173
-  %.val11.pr.i91.pre = load ptr, ptr %128, align 8
-  br label %IsTidEqualAnyClause.exit.thread.i90
-
-IsTidEqualAnyClause.exit.i97:                     ; preds = %173
-  %176 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %148) #6
-  %.val11.pr.i91.pre175 = load ptr, ptr %128, align 8
-  br i1 %176, label %IsTidEqualAnyClause.exit.thread.i90, label %RestrictInfoIsTidQual.exit100.thread128
-
-IsTidEqualAnyClause.exit.thread.i90:              ; preds = %.IsTidEqualAnyClause.exit.thread.i90_crit_edge, %IsTidEqualAnyClause.exit.i97
-  %.val11.pr.i91 = phi ptr [ %.val11.pr.i91.pre, %.IsTidEqualAnyClause.exit.thread.i90_crit_edge ], [ %.val11.pr.i91.pre175, %IsTidEqualAnyClause.exit.i97 ]
-  %.not.i13.i92 = icmp eq ptr %.val11.pr.i91, null
-  br i1 %.not.i13.i92, label %.thread123, label %thread-pre-split.i93
-
-thread-pre-split.i93:                             ; preds = %135, %138, %142, %149, %152, %156, %160, %165, %169, %IsTidEqualAnyClause.exit.thread.i90
-  %.val11.pr.i91181 = phi ptr [ %.val11.pr.i91, %IsTidEqualAnyClause.exit.thread.i90 ], [ %129, %169 ], [ %129, %165 ], [ %129, %160 ], [ %129, %156 ], [ %129, %152 ], [ %129, %149 ], [ %129, %142 ], [ %129, %138 ], [ %129, %135 ]
-  %.pr.i94 = load i32, ptr %.val11.pr.i91181, align 4
-  br label %IsTidEqualAnyClause.exit.thread.thread19.i87
-
-IsTidEqualAnyClause.exit.thread.thread19.i87:     ; preds = %thread-pre-split.i93, %IsTidEqualClause.exit.thread.thread.i99
-  %177 = phi i32 [ %.pr.i94, %thread-pre-split.i93 ], [ %133, %IsTidEqualClause.exit.thread.thread.i99 ]
-  %.val1122.i88 = phi ptr [ %.val11.pr.i91181, %thread-pre-split.i93 ], [ %129, %IsTidEqualClause.exit.thread.thread.i99 ]
-  %178 = icmp eq i32 %177, 58
-  br i1 %178, label %RestrictInfoIsTidQual.exit100, label %.thread123
-
-RestrictInfoIsTidQual.exit100:                    ; preds = %IsTidEqualAnyClause.exit.thread.thread19.i87
-  %179 = getelementptr inbounds nuw i8, ptr %.val1122.i88, i64 4
-  %180 = load i32, ptr %179, align 4
-  %181 = load i32, ptr %8, align 8
-  %182 = icmp eq i32 %180, %181
-  br i1 %182, label %RestrictInfoIsTidQual.exit100.thread128.thread, label %.thread123
-
-RestrictInfoIsTidQual.exit100.thread128:          ; preds = %IsTidEqualAnyClause.exit.i97
-  %.not.i101 = icmp eq ptr %.val11.pr.i91.pre175, null
-  br i1 %.not.i101, label %IsCurrentOfClause.exit.thread, label %RestrictInfoIsTidQual.exit100.thread128.thread
-
-RestrictInfoIsTidQual.exit100.thread128.thread:   ; preds = %RestrictInfoIsTidQual.exit100, %IsTidEqualClause.exit.i98, %RestrictInfoIsTidQual.exit100.thread128
-  %.val184 = phi ptr [ %.val11.pr.i91.pre175, %RestrictInfoIsTidQual.exit100.thread128 ], [ %.val1122.i88, %RestrictInfoIsTidQual.exit100 ], [ %129, %IsTidEqualClause.exit.i98 ]
-  %183 = load i32, ptr %.val184, align 4
-  %184 = icmp eq i32 %183, 58
-  br i1 %184, label %IsCurrentOfClause.exit, label %IsCurrentOfClause.exit.thread
-
-IsCurrentOfClause.exit:                           ; preds = %RestrictInfoIsTidQual.exit100.thread128.thread
-  %185 = getelementptr inbounds nuw i8, ptr %.val184, i64 4
-  %186 = load i32, ptr %185, align 4
-  %187 = load i32, ptr %8, align 8
-  %188 = icmp eq i32 %186, %187
-  br i1 %188, label %193, label %IsCurrentOfClause.exit.thread
-
-IsCurrentOfClause.exit.thread:                    ; preds = %RestrictInfoIsTidQual.exit100.thread128, %RestrictInfoIsTidQual.exit100.thread128.thread, %IsCurrentOfClause.exit
-  %189 = icmp eq ptr %.055160206, null
-  %spec.select = select i1 %189, ptr %13, ptr %.055160206
-  br label %.thread123
-
-.thread123:                                       ; preds = %106, %RestrictInfoIsTidQual.exit, %is_andclause.exit.thread, %46, %IsTidEqualAnyClause.exit.thread.thread19.i, %IsTidEqualAnyClause.exit.thread.i, %IsTidEqualClause.exit.thread.i, %15, %IsTidEqualClause.exit.thread.i85, %IsTidEqualAnyClause.exit.thread.i90, %IsTidEqualAnyClause.exit.thread.thread19.i87, %124, %120, %._crit_edge, %119, %list_length.exit83, %RestrictInfoIsTidQual.exit100, %IsCurrentOfClause.exit.thread
-  %.4.ph = phi ptr [ %.059159207, %IsCurrentOfClause.exit.thread ], [ %.059159207, %._crit_edge ], [ %.059159207, %list_length.exit83 ], [ %.069155.lcssa, %119 ], [ %.059159207, %RestrictInfoIsTidQual.exit100 ], [ %.059159207, %120 ], [ %.059159207, %124 ], [ %.059159207, %IsTidEqualAnyClause.exit.thread.thread19.i87 ], [ %.059159207, %IsTidEqualAnyClause.exit.thread.i90 ], [ %.059159207, %IsTidEqualClause.exit.thread.i85 ], [ %.059159207, %15 ], [ %.059159207, %IsTidEqualClause.exit.thread.i ], [ %.059159207, %IsTidEqualAnyClause.exit.thread.i ], [ %.059159207, %IsTidEqualAnyClause.exit.thread.thread19.i ], [ %.059159207, %46 ], [ %.059159207, %is_andclause.exit.thread ], [ %.059159207, %RestrictInfoIsTidQual.exit ], [ %.059159207, %106 ]
-  %.358.ph = phi ptr [ %spec.select, %IsCurrentOfClause.exit.thread ], [ %.055160206, %._crit_edge ], [ %.055160206, %list_length.exit83 ], [ %.055160206, %119 ], [ %.055160206, %RestrictInfoIsTidQual.exit100 ], [ %.055160206, %120 ], [ %.055160206, %124 ], [ %.055160206, %IsTidEqualAnyClause.exit.thread.thread19.i87 ], [ %.055160206, %IsTidEqualAnyClause.exit.thread.i90 ], [ %.055160206, %IsTidEqualClause.exit.thread.i85 ], [ %.055160206, %15 ], [ %.055160206, %IsTidEqualClause.exit.thread.i ], [ %.055160206, %IsTidEqualAnyClause.exit.thread.i ], [ %.055160206, %IsTidEqualAnyClause.exit.thread.thread19.i ], [ %.055160206, %46 ], [ %.055160206, %is_andclause.exit.thread ], [ %.055160206, %RestrictInfoIsTidQual.exit ], [ %.055160206, %106 ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171205, 1
-  %190 = load i32, ptr %6, align 4
-  %191 = sext i32 %190 to i64
-  %192 = icmp slt i64 %indvars.iv.next172, %191
-  br i1 %192, label %.lr.ph208, label %._crit_edge163
-
-193:                                              ; preds = %IsCurrentOfClause.exit
+74:                                               ; preds = %IsCurrentOfClause.exit
   store i8 1, ptr %3, align 1
-  br label %._crit_edge163.thread.sink.split
+  br label %._crit_edge.thread.sink.split
 
-._crit_edge163:                                   ; preds = %.thread123, %.lr.ph162
-  %.055160.lcssa = phi ptr [ null, %.lr.ph162 ], [ %.358.ph, %.thread123 ]
-  %.059159.lcssa = phi ptr [ null, %.lr.ph162 ], [ %.4.ph, %.thread123 ]
-  %.not80 = icmp eq ptr %.055160.lcssa, null
-  br i1 %.not80, label %._crit_edge163.thread, label %._crit_edge163.thread.sink.split
+._crit_edge:                                      ; preds = %.critedge.thread, %.lr.ph138
+  %.055135.lcssa = phi ptr [ null, %.lr.ph138 ], [ %.358.ph, %.critedge.thread ]
+  %.059132.lcssa = phi ptr [ null, %.lr.ph138 ], [ %.4.ph, %.critedge.thread ]
+  %.not80 = icmp eq ptr %.055135.lcssa, null
+  br i1 %.not80, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
-._crit_edge163.thread.sink.split:                 ; preds = %._crit_edge163, %193
-  %.lcssa.sink = phi ptr [ %13, %193 ], [ %.055160.lcssa, %._crit_edge163 ]
-  %194 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa.sink) #6
-  br label %._crit_edge163.thread
+._crit_edge.thread.sink.split:                    ; preds = %._crit_edge, %74
+  %.lcssa160.sink = phi ptr [ %13, %74 ], [ %.055135.lcssa, %._crit_edge ]
+  %75 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa160.sink) #6
+  br label %._crit_edge.thread
 
-._crit_edge163.thread:                            ; preds = %._crit_edge163.thread.sink.split, %4, %._crit_edge163
-  %.3 = phi ptr [ %.059159.lcssa, %._crit_edge163 ], [ null, %4 ], [ %194, %._crit_edge163.thread.sink.split ]
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %4, %._crit_edge
+  %.3 = phi ptr [ %.059132.lcssa, %._crit_edge ], [ null, %4 ], [ %75, %._crit_edge.thread.sink.split ]
   ret ptr %.3
 }
 
@@ -612,7 +372,7 @@ IsCTIDVar.exit:                                   ; preds = %29, %5, %8, %11, %1
 define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -620,12 +380,9 @@ define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph32, label %._crit_edge
+  br i1 %9, label %.lr.ph30, label %.critedge
 
-._crit_edge:                                      ; preds = %IsTidEqualClause.exit.thread, %.lr.ph, %3
-  ret void
-
-.lr.ph32:                                         ; preds = %.lr.ph, %IsTidEqualClause.exit.thread
+.lr.ph30:                                         ; preds = %.lr.ph, %IsTidEqualClause.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %IsTidEqualClause.exit.thread ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
@@ -635,7 +392,10 @@ define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noun
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %IsTidEqualClause.exit.thread, label %16
 
-16:                                               ; preds = %.lr.ph32
+.critedge:                                        ; preds = %IsTidEqualClause.exit.thread, %.lr.ph, %3
+  ret void
+
+16:                                               ; preds = %.lr.ph30
   %17 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %12, ptr noundef %1) #6
   br i1 %17, label %18, label %IsTidEqualClause.exit.thread
 
@@ -667,12 +427,12 @@ IsTidEqualClause.exit:                            ; preds = %18
   tail call void @add_path(ptr noundef %1, ptr noundef %35) #6
   br label %IsTidEqualClause.exit.thread
 
-IsTidEqualClause.exit.thread:                     ; preds = %18, %25, %.lr.ph32, %16, %IsTidEqualClause.exit, %27
+IsTidEqualClause.exit.thread:                     ; preds = %18, %25, %.lr.ph30, %16, %IsTidEqualClause.exit, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %4, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph32, label %._crit_edge
+  br i1 %38, label %.lr.ph30, label %.critedge
 }
 
 declare zeroext i1 @restriction_is_or_clause(ptr noundef) local_unnamed_addr #2
@@ -683,6 +443,136 @@ declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc zeroext i1 @RestrictInfoIsTidQual(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %5 = load i8, ptr %4, align 2, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %IsCurrentOfClause.exit, label %7
+
+7:                                                ; preds = %3
+  %8 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %1, ptr noundef %2) #6
+  br i1 %8, label %9, label %IsCurrentOfClause.exit
+
+9:                                                ; preds = %7
+  %10 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef nonnull readonly %1, ptr noundef readonly %2)
+  %11 = getelementptr i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  br i1 %10, label %IsTidEqualClause.exit, label %IsTidEqualClause.exit.thread
+
+IsTidEqualClause.exit:                            ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 387
+  br i1 %15, label %IsCurrentOfClause.exit, label %IsTidEqualClause.exit.thread.thread
+
+IsTidEqualClause.exit.thread:                     ; preds = %9
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %IsCurrentOfClause.exit, label %IsTidEqualClause.exit.thread.thread
+
+IsTidEqualClause.exit.thread.thread:              ; preds = %IsTidEqualClause.exit, %IsTidEqualClause.exit.thread
+  %16 = getelementptr i8, ptr %1, i64 8
+  %17 = load i32, ptr %12, align 4
+  %18 = icmp eq i32 %17, 20
+  br i1 %18, label %19, label %IsTidEqualAnyClause.exit.thread.thread19
+
+19:                                               ; preds = %IsTidEqualClause.exit.thread.thread
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %21 = load i32, ptr %20, align 4
+  %.not18.i = icmp eq i32 %21, 387
+  br i1 %.not18.i, label %22, label %IsTidEqualAnyClause.exit.thread
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %24 = load i8, ptr %23, align 4, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %IsTidEqualAnyClause.exit.thread
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr i8, ptr %28, i64 16
+  %.val.i = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %.val.i, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not19.i = icmp eq ptr %30, null
+  br i1 %.not19.i, label %IsTidEqualAnyClause.exit.thread, label %33
+
+33:                                               ; preds = %26
+  %34 = load i32, ptr %30, align 4
+  %35 = icmp eq i32 %34, 6
+  br i1 %35, label %36, label %IsTidEqualAnyClause.exit.thread
+
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %38 = load i16, ptr %37, align 8
+  %39 = icmp eq i16 %38, -1
+  br i1 %39, label %40, label %IsTidEqualAnyClause.exit.thread
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 27
+  br i1 %43, label %44, label %IsTidEqualAnyClause.exit.thread
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %46, %48
+  br i1 %49, label %50, label %IsTidEqualAnyClause.exit.thread
+
+50:                                               ; preds = %44
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %IsTidEqualAnyClause.exit.thread
+
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %IsTidEqualAnyClause.exit.thread
+
+58:                                               ; preds = %54
+  %59 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %32) #6
+  %60 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %59) #6
+  br i1 %60, label %IsTidEqualAnyClause.exit.thread, label %IsTidEqualAnyClause.exit
+
+IsTidEqualAnyClause.exit:                         ; preds = %58
+  %61 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %32) #6
+  br i1 %61, label %IsTidEqualAnyClause.exit.thread, label %IsCurrentOfClause.exit
+
+IsTidEqualAnyClause.exit.thread:                  ; preds = %54, %50, %44, %40, %36, %26, %33, %58, %22, %19, %IsTidEqualAnyClause.exit
+  %.val11.pr = load ptr, ptr %16, align 8
+  %.not.i13 = icmp eq ptr %.val11.pr, null
+  br i1 %.not.i13, label %IsCurrentOfClause.exit, label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %IsTidEqualAnyClause.exit.thread
+  %.pr = load i32, ptr %.val11.pr, align 4
+  br label %IsTidEqualAnyClause.exit.thread.thread19
+
+IsTidEqualAnyClause.exit.thread.thread19:         ; preds = %IsTidEqualClause.exit.thread.thread, %thread-pre-split
+  %62 = phi i32 [ %.pr, %thread-pre-split ], [ %17, %IsTidEqualClause.exit.thread.thread ]
+  %.val1122 = phi ptr [ %.val11.pr, %thread-pre-split ], [ %12, %IsTidEqualClause.exit.thread.thread ]
+  %63 = icmp eq i32 %62, 58
+  br i1 %63, label %64, label %IsCurrentOfClause.exit
+
+64:                                               ; preds = %IsTidEqualAnyClause.exit.thread.thread19
+  %65 = getelementptr inbounds nuw i8, ptr %.val1122, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %66, %68
+  br label %IsCurrentOfClause.exit
+
+IsCurrentOfClause.exit:                           ; preds = %IsTidEqualClause.exit.thread, %64, %IsTidEqualAnyClause.exit.thread.thread19, %IsTidEqualAnyClause.exit.thread, %IsTidEqualClause.exit, %IsTidEqualAnyClause.exit, %7, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ true, %IsTidEqualAnyClause.exit ], [ true, %IsTidEqualClause.exit ], [ false, %IsTidEqualAnyClause.exit.thread.thread19 ], [ false, %IsTidEqualAnyClause.exit.thread ], [ %69, %64 ], [ false, %IsTidEqualClause.exit.thread ]
+  ret i1 %.0
+}
 
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 

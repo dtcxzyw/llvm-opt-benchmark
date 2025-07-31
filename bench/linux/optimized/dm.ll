@@ -942,7 +942,7 @@ define dso_local noundef range(i32 -6, 1) i32 @dm_create(i32 noundef %0, ptr nou
 
 19:                                               ; preds = %15
   %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #25
-  br label %.thread6
+  br label %.thread
 
 21:                                               ; preds = %15
   %22 = tail call zeroext i1 @try_module_get(ptr noundef null) #23
@@ -973,11 +973,11 @@ define dso_local noundef range(i32 -6, 1) i32 @dm_create(i32 noundef %0, ptr nou
 
 34:                                               ; preds = %31, %25
   %35 = icmp slt i32 %26, 0
-  br i1 %35, label %.thread, label %50
+  br i1 %35, label %.critedge, label %50
 
 36:                                               ; preds = %23
   %37 = icmp sgt i32 %0, 1048575
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %36
   tail call void @idr_preload(i32 noundef 3264) #23
@@ -1001,7 +1001,7 @@ define dso_local noundef range(i32 -6, 1) i32 @dm_create(i32 noundef %0, ptr nou
 
 48:                                               ; preds = %38, %45
   %49 = icmp slt i32 %40, 0
-  br i1 %49, label %.thread, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %34, %48
   %51 = phi i32 [ %26, %34 ], [ %0, %48 ]
@@ -1174,21 +1174,21 @@ define dso_local noundef range(i32 -6, 1) i32 @dm_create(i32 noundef %0, ptr nou
   %147 = sext i32 %51 to i64
   %148 = tail call ptr @idr_remove(ptr noundef nonnull @_minor_idr, i64 noundef %147) #23
   tail call void @_raw_spin_unlock(ptr noundef nonnull @_minor_lock) #23
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %36, %34, %146, %48
+.critedge:                                        ; preds = %34, %36, %146, %48
   tail call void @module_put(ptr noundef null) #23
   br label %149
 
-149:                                              ; preds = %.thread, %21
+149:                                              ; preds = %.critedge, %21
   tail call void @kvfree(ptr noundef nonnull %17) #23
-  br label %.thread6
+  br label %.thread
 
 150:                                              ; preds = %140
   store ptr %17, ptr %1, align 8
-  br label %.thread6
+  br label %.thread
 
-.thread6:                                         ; preds = %19, %149, %150
+.thread:                                          ; preds = %19, %149, %150
   %151 = phi i32 [ 0, %150 ], [ -6, %149 ], [ -6, %19 ]
   ret i32 %151
 }
@@ -4077,13 +4077,13 @@ define internal noundef range(i32 0, 2) i32 @dm_poll_bio(ptr noundef captures(no
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 33554432
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %55, label %10
+  br i1 %9, label %54, label %10
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %5, null
-  br i1 %11, label %.thread3, label %.critedge, !prof !22
+  br i1 %11, label %.critedge4.thread, label %.critedge, !prof !22
 
-.thread3:                                         ; preds = %10
+.critedge4.thread:                                ; preds = %10
   tail call void asm sideeffect "776: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 776b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 776) #23, !srcloc !110
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1890, i32 2307, i64 12) #23, !srcloc !111
   tail call void asm sideeffect "777: nop\0A\09.pushsection .discard.instr_end\0A\09.long 777b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 777) #23, !srcloc !112
@@ -4156,27 +4156,27 @@ define internal noundef range(i32 0, 2) i32 @dm_poll_bio(ptr noundef captures(no
 47:                                               ; preds = %46, %41, %37
   %48 = phi ptr [ %19, %46 ], [ %20, %37 ], [ %20, %41 ]
   %49 = icmp eq ptr %21, null
-  br i1 %49, label %50, label %18, !llvm.loop !116
+  br i1 %49, label %.critedge4, label %18, !llvm.loop !116
 
-50:                                               ; preds = %47
-  %51 = icmp eq ptr %48, null
-  br i1 %51, label %55, label %52
+.critedge4:                                       ; preds = %47
+  %50 = icmp eq ptr %48, null
+  br i1 %50, label %54, label %51
 
-52:                                               ; preds = %50
-  %53 = load i32, ptr %6, align 8
-  %54 = or i32 %53, 33554432
-  store i32 %54, ptr %6, align 8
+51:                                               ; preds = %.critedge4
+  %52 = load i32, ptr %6, align 8
+  %53 = or i32 %52, 33554432
+  store i32 %53, ptr %6, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %52, %.thread3
-  %.sink = phi ptr [ %14, %.thread3 ], [ %48, %52 ]
-  %.ph = phi i32 [ 1, %.thread3 ], [ 0, %52 ]
+.sink.split:                                      ; preds = %51, %.critedge4.thread
+  %.sink = phi ptr [ %14, %.critedge4.thread ], [ %48, %51 ]
+  %.ph = phi i32 [ 1, %.critedge4.thread ], [ 0, %51 ]
   store ptr %.sink, ptr %4, align 8
-  br label %55
+  br label %54
 
-55:                                               ; preds = %.sink.split, %50, %3
-  %56 = phi i32 [ 0, %3 ], [ 1, %50 ], [ %.ph, %.sink.split ]
-  ret i32 %56
+54:                                               ; preds = %.sink.split, %.critedge4, %3
+  %55 = phi i32 [ 0, %3 ], [ 1, %.critedge4 ], [ %.ph, %.sink.split ]
+  ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -28558,8 +28558,8 @@ stbir__get_filter_pixel_width.exit:               ; preds = %48, %52
 69:                                               ; preds = %stbir__get_filter_pixel_width.exit
   %.not = icmp ne i32 %6, 0
   %70 = icmp slt i32 %.0.i, 33
-  %or.cond77 = select i1 %.not, i1 true, i1 %70
-  br i1 %or.cond77, label %78, label %85
+  %or.cond76 = select i1 %.not, i1 true, i1 %70
+  br i1 %or.cond76, label %78, label %85
 
 71:                                               ; preds = %stbir__get_filter_pixel_width.exit
   store i32 1, ptr %66, align 8, !tbaa !124
@@ -28605,84 +28605,84 @@ stbir__get_coefficient_width.exit:                ; preds = %71, %78, %85
   store i32 %100, ptr %101, align 4, !tbaa !123
   %102 = icmp eq i32 %4, 2
   %103 = load i32, ptr %65, align 8, !tbaa !943
-  br i1 %102, label %104, label %109
+  br i1 %102, label %104, label %.critedge
 
 104:                                              ; preds = %stbir__get_coefficient_width.exit
   %105 = load i32, ptr %5, align 4, !tbaa !49
   %106 = mul nsw i32 %105, 3
   %107 = icmp sgt i32 %103, %106
-  br i1 %107, label %108, label %112
+  br i1 %107, label %108, label %109
 
 108:                                              ; preds = %104
   store i32 %106, ptr %65, align 8, !tbaa !943
-  br label %112
+  br label %109
 
-109:                                              ; preds = %stbir__get_coefficient_width.exit
-  %110 = sdiv i32 %103, 2
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %110, ptr %111, align 4, !tbaa !31
-  br label %116
+109:                                              ; preds = %108, %104
+  %110 = phi i32 [ %106, %108 ], [ %103, %104 ]
+  %111 = sdiv i32 %110, 2
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %111, i32 %105)
+  store i32 %spec.store.select, ptr %112, align 4
+  br label %115
 
-112:                                              ; preds = %104, %108
-  %113 = phi i32 [ %103, %104 ], [ %106, %108 ]
-  %114 = sdiv i32 %113, 2
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %114, i32 %105)
-  store i32 %spec.store.select, ptr %115, align 4
-  br label %116
+.critedge:                                        ; preds = %stbir__get_coefficient_width.exit
+  %113 = sdiv i32 %103, 2
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %113, ptr %114, align 4, !tbaa !31
+  br label %115
 
-116:                                              ; preds = %112, %109
-  %117 = phi i32 [ %110, %109 ], [ %spec.store.select, %112 ]
-  %118 = phi i32 [ %103, %109 ], [ %113, %112 ]
-  %119 = load i32, ptr %66, align 8, !tbaa !124
-  %.not.i = icmp eq i32 %119, 0
-  br i1 %.not.i, label %123, label %120
+115:                                              ; preds = %109, %.critedge
+  %116 = phi i32 [ %110, %109 ], [ %103, %.critedge ]
+  %117 = phi i32 [ %spec.store.select, %109 ], [ %113, %.critedge ]
+  %118 = load i32, ptr %66, align 8, !tbaa !124
+  %.not.i = icmp eq i32 %118, 0
+  br i1 %.not.i, label %122, label %119
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %122 = load i32, ptr %121, align 4, !tbaa !29
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %121 = load i32, ptr %120, align 4, !tbaa !29
   br label %stbir__get_contributors.exit
 
-123:                                              ; preds = %116
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %125 = load i32, ptr %124, align 8, !tbaa !30
-  %126 = shl nsw i32 %117, 1
-  %127 = add nsw i32 %126, %125
+122:                                              ; preds = %115
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %124 = load i32, ptr %123, align 8, !tbaa !30
+  %125 = shl nsw i32 %117, 1
+  %126 = add nsw i32 %125, %124
   br label %stbir__get_contributors.exit
 
-stbir__get_contributors.exit:                     ; preds = %120, %123
-  %.0.i73 = phi i32 [ %122, %120 ], [ %127, %123 ]
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %.0.i73, ptr %128, align 8, !tbaa !121
-  %129 = shl i32 %.0.i73, 3
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %129, ptr %130, align 4, !tbaa !944
-  %131 = shl i32 %100, 2
-  %132 = mul i32 %131, %.0.i73
-  %133 = add i32 %132, 4
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %133, ptr %134, align 8, !tbaa !945
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
-  br i1 %.not.i, label %136, label %146
+stbir__get_contributors.exit:                     ; preds = %119, %122
+  %.0.i73 = phi i32 [ %121, %119 ], [ %126, %122 ]
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %.0.i73, ptr %127, align 8, !tbaa !121
+  %128 = shl i32 %.0.i73, 3
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %128, ptr %129, align 4, !tbaa !944
+  %130 = shl i32 %100, 2
+  %131 = mul i32 %130, %.0.i73
+  %132 = add i32 %131, 4
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %132, ptr %133, align 8, !tbaa !945
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  br i1 %.not.i, label %135, label %145
 
-136:                                              ; preds = %stbir__get_contributors.exit
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %118, ptr %137, align 8, !tbaa !130
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %139 = load i32, ptr %138, align 4, !tbaa !29
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %139, ptr %140, align 4, !tbaa !131
-  %141 = shl i32 %139, 3
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %141, ptr %142, align 4, !tbaa !946
-  %143 = shl i32 %118, 2
-  %144 = mul i32 %143, %139
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %144, ptr %145, align 8, !tbaa !947
-  br label %146
+135:                                              ; preds = %stbir__get_contributors.exit
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %116, ptr %136, align 8, !tbaa !130
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %138 = load i32, ptr %137, align 4, !tbaa !29
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i32 %138, ptr %139, align 4, !tbaa !131
+  %140 = shl i32 %138, 3
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %140, ptr %141, align 4, !tbaa !946
+  %142 = shl i32 %116, 2
+  %143 = mul i32 %142, %138
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %143, ptr %144, align 8, !tbaa !947
+  br label %145
 
-146:                                              ; preds = %136, %stbir__get_contributors.exit
+145:                                              ; preds = %135, %stbir__get_contributors.exit
   ret void
 }
 

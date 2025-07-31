@@ -622,10 +622,10 @@ _ZN4llvm15SmallVectorImplINS_17InterferenceCache5Entry11RegUnitInfoEE5clearEv.ex
   ret void
 
 72:                                               ; preds = %.lr.ph, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit
-  %.pre3.i = phi ptr [ %.pre3.i.pre, %.lr.ph ], [ %135, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
-  %73 = phi i32 [ 0, %.lr.ph ], [ %136, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
-  %.sroa.511.020 = phi ptr [ %61, %.lr.ph ], [ %140, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
-  %.sroa.010.019 = phi i32 [ %62, %.lr.ph ], [ %143, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
+  %.pre3.i = phi ptr [ %.pre3.i.pre, %.lr.ph ], [ %134, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
+  %73 = phi i32 [ 0, %.lr.ph ], [ %135, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
+  %.sroa.511.020 = phi ptr [ %61, %.lr.ph ], [ %139, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
+  %.sroa.010.019 = phi i32 [ %62, %.lr.ph ], [ %142, %_ZN4llvm13LiveIntervals10getRegUnitEj.exit ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #13
   %74 = zext i32 %.sroa.010.019 to i64
   %75 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %2, i64 %74
@@ -648,123 +648,123 @@ _ZN4llvm15SmallVectorImplINS_17InterferenceCache5Entry11RegUnitInfoEE5clearEv.ex
   %83 = icmp uge ptr %6, %.pre3.i
   %84 = icmp ult ptr %6, %82
   %spec.select.i.i.i.i.i = and i1 %83, %84
-  br i1 %spec.select.i.i.i.i.i, label %86, label %85, !prof !110
+  br i1 %spec.select.i.i.i.i.i, label %85, label %.critedge.i.i.i, !prof !110
 
 85:                                               ; preds = %81
+  %86 = ptrtoint ptr %.pre3.i to i64
+  %87 = sub i64 %70, %86
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %79)
+  %88 = load ptr, ptr %40, align 8, !tbaa !65
+  %89 = getelementptr inbounds i8, ptr %88, i64 %87
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+
+.critedge.i.i.i:                                  ; preds = %81
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %79)
   %.pre.i = load ptr, ptr %40, align 8, !tbaa !65
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
 
-86:                                               ; preds = %81
-  %87 = ptrtoint ptr %.pre3.i to i64
-  %88 = sub i64 %70, %87
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %79)
-  %89 = load ptr, ptr %40, align 8, !tbaa !65
-  %90 = getelementptr inbounds i8, ptr %89, i64 %88
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i: ; preds = %.critedge.i.i.i, %85, %72
+  %90 = phi ptr [ %.pre3.i, %72 ], [ %88, %85 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %72 ], [ %89, %85 ], [ %6, %.critedge.i.i.i ]
+  %91 = load i32, ptr %42, align 8, !tbaa !55
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw %"struct.llvm::InterferenceCache::Entry::RegUnitInfo", ptr %90, i64 %92
+  %94 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !108
+  store ptr %94, ptr %93, align 8, !tbaa !108
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  store ptr %96, ptr %95, align 8, !tbaa !65
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  store i32 0, ptr %97, align 8, !tbaa !55
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 20
+  store i32 4, ptr %98, align 4, !tbaa !102
+  %99 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
+  %100 = load i32, ptr %99, align 8, !tbaa !55
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit, label %101
 
-_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i: ; preds = %86, %85, %72
-  %91 = phi ptr [ %.pre3.i, %72 ], [ %89, %86 ], [ %.pre.i, %85 ]
-  %.016.i.i.i = phi ptr [ %6, %72 ], [ %90, %86 ], [ %6, %85 ]
-  %92 = load i32, ptr %42, align 8, !tbaa !55
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::InterferenceCache::Entry::RegUnitInfo", ptr %91, i64 %93
-  %95 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !108
-  store ptr %95, ptr %94, align 8, !tbaa !108
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr %97, ptr %96, align 8, !tbaa !65
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store i32 0, ptr %98, align 8, !tbaa !55
-  %99 = getelementptr inbounds nuw i8, ptr %94, i64 20
-  store i32 4, ptr %99, align 4, !tbaa !102
-  %100 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %101 = load i32, ptr %100, align 8, !tbaa !55
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %101, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit, label %102
-
-102:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
-  %103 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %104 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(80) %96, ptr noundef nonnull align 8 dereferenceable(80) %103)
+101:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i
+  %102 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  %103 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl4Path5EntryEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(80) %95, ptr noundef nonnull align 8 dereferenceable(80) %102)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, %102
-  %105 = getelementptr inbounds nuw i8, ptr %94, i64 88
-  %106 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
-  %107 = load i32, ptr %42, align 8, !tbaa !55
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %42, align 8, !tbaa !55
-  %109 = load ptr, ptr %63, align 8, !tbaa !65
-  %110 = icmp eq ptr %109, %64
-  br i1 %110, label %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit, label %111
+_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, %101
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %105, i64 24, i1 false)
+  %106 = load i32, ptr %42, align 8, !tbaa !55
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %42, align 8, !tbaa !55
+  %108 = load ptr, ptr %63, align 8, !tbaa !65
+  %109 = icmp eq ptr %108, %64
+  br i1 %109, label %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit, label %110
 
-111:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit
-  call void @free(ptr noundef %109) #13
+110:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit
+  call void @free(ptr noundef %108) #13
   br label %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit
 
-_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit, %111
+_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_17InterferenceCache5Entry11RegUnitInfoELb0EE9push_backEOS3_.exit, %110
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #13
-  %112 = load ptr, ptr %71, align 8, !tbaa !53
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 424
-  %114 = load ptr, ptr %113, align 8, !tbaa !65
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %74
-  %116 = load ptr, ptr %115, align 8, !tbaa !111
-  %.not.i = icmp eq ptr %116, null
-  br i1 %.not.i, label %117, label %_ZN4llvm13LiveIntervals10getRegUnitEj.exit
+  %111 = load ptr, ptr %71, align 8, !tbaa !53
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 424
+  %113 = load ptr, ptr %112, align 8, !tbaa !65
+  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %74
+  %115 = load ptr, ptr %114, align 8, !tbaa !111
+  %.not.i = icmp eq ptr %115, null
+  br i1 %.not.i, label %116, label %_ZN4llvm13LiveIntervals10getRegUnitEj.exit
 
-117:                                              ; preds = %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit
-  %118 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
-  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24UseSegmentSetForPhysRegsE, i64 120), align 8, !tbaa !112, !range !118, !noundef !119
-  %120 = trunc nuw i8 %119 to i1
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %121, ptr %118, align 8, !tbaa !65
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i32 0, ptr %122, align 8, !tbaa !55
-  %123 = getelementptr inbounds nuw i8, ptr %118, i64 12
-  store i32 2, ptr %123, align 4, !tbaa !102
-  %124 = getelementptr inbounds nuw i8, ptr %118, i64 64
-  %125 = getelementptr inbounds nuw i8, ptr %118, i64 80
-  store ptr %125, ptr %124, align 8, !tbaa !65
-  %126 = getelementptr inbounds nuw i8, ptr %118, i64 72
-  store i32 0, ptr %126, align 8, !tbaa !55
-  %127 = getelementptr inbounds nuw i8, ptr %118, i64 76
-  store i32 2, ptr %127, align 4, !tbaa !102
-  br i1 %120, label %128, label %_ZN4llvm9LiveRangeC2Eb.exit.i
+116:                                              ; preds = %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit
+  %117 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
+  %118 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24UseSegmentSetForPhysRegsE, i64 120), align 8, !tbaa !112, !range !118, !noundef !119
+  %119 = trunc nuw i8 %118 to i1
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store ptr %120, ptr %117, align 8, !tbaa !65
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i32 0, ptr %121, align 8, !tbaa !55
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 12
+  store i32 2, ptr %122, align 4, !tbaa !102
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 80
+  store ptr %124, ptr %123, align 8, !tbaa !65
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 72
+  store i32 0, ptr %125, align 8, !tbaa !55
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 76
+  store i32 2, ptr %126, align 4, !tbaa !102
+  br i1 %119, label %127, label %_ZN4llvm9LiveRangeC2Eb.exit.i
 
-128:                                              ; preds = %117
-  %129 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17, !noalias !120
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %129, i8 0, i64 32, i1 false), !noalias !120
-  store ptr %130, ptr %131, align 8, !tbaa !123, !noalias !120
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  store ptr %130, ptr %132, align 8, !tbaa !128, !noalias !120
-  %133 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  store i64 0, ptr %133, align 8, !tbaa !129, !noalias !120
+127:                                              ; preds = %116
+  %128 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17, !noalias !120
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %128, i8 0, i64 32, i1 false), !noalias !120
+  store ptr %129, ptr %130, align 8, !tbaa !123, !noalias !120
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store ptr %129, ptr %131, align 8, !tbaa !128, !noalias !120
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  store i64 0, ptr %132, align 8, !tbaa !129, !noalias !120
   br label %_ZN4llvm9LiveRangeC2Eb.exit.i
 
-_ZN4llvm9LiveRangeC2Eb.exit.i:                    ; preds = %128, %117
-  %storemerge.i.i = phi ptr [ %129, %128 ], [ null, %117 ]
-  %134 = getelementptr inbounds nuw i8, ptr %118, i64 96
-  store ptr %storemerge.i.i, ptr %134, align 8, !tbaa !130
-  store ptr %118, ptr %115, align 8, !tbaa !111
-  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %112, ptr noundef nonnull align 8 dereferenceable(104) %118, i32 noundef %.sroa.010.019) #13
+_ZN4llvm9LiveRangeC2Eb.exit.i:                    ; preds = %127, %116
+  %storemerge.i.i = phi ptr [ %128, %127 ], [ null, %116 ]
+  %133 = getelementptr inbounds nuw i8, ptr %117, i64 96
+  store ptr %storemerge.i.i, ptr %133, align 8, !tbaa !130
+  store ptr %117, ptr %114, align 8, !tbaa !111
+  call void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr noundef nonnull align 8 dereferenceable(440) %111, ptr noundef nonnull align 8 dereferenceable(104) %117, i32 noundef %.sroa.010.019) #13
   br label %_ZN4llvm13LiveIntervals10getRegUnitEj.exit
 
 _ZN4llvm13LiveIntervals10getRegUnitEj.exit:       ; preds = %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit, %_ZN4llvm9LiveRangeC2Eb.exit.i
-  %.0.i = phi ptr [ %116, %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit ], [ %118, %_ZN4llvm9LiveRangeC2Eb.exit.i ]
-  %135 = load ptr, ptr %40, align 8, !tbaa !65
-  %136 = load i32, ptr %42, align 8, !tbaa !55
-  %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"struct.llvm::InterferenceCache::Entry::RegUnitInfo", ptr %135, i64 %137
-  %139 = getelementptr inbounds i8, ptr %138, i64 -16
-  store ptr %.0.i, ptr %139, align 8, !tbaa !107
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.511.020, i64 2
-  %141 = load i16, ptr %.sroa.511.020, align 2, !tbaa !83
-  %142 = sext i16 %141 to i32
-  %143 = add i32 %.sroa.010.019, %142
-  %.not.i.i8 = icmp eq i16 %141, 0
+  %.0.i = phi ptr [ %115, %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit ], [ %117, %_ZN4llvm9LiveRangeC2Eb.exit.i ]
+  %134 = load ptr, ptr %40, align 8, !tbaa !65
+  %135 = load i32, ptr %42, align 8, !tbaa !55
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr inbounds nuw %"struct.llvm::InterferenceCache::Entry::RegUnitInfo", ptr %134, i64 %136
+  %138 = getelementptr inbounds i8, ptr %137, i64 -16
+  store ptr %.0.i, ptr %138, align 8, !tbaa !107
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.511.020, i64 2
+  %140 = load i16, ptr %.sroa.511.020, align 2, !tbaa !83
+  %141 = sext i16 %140 to i32
+  %142 = add i32 %.sroa.010.019, %141
+  %.not.i.i8 = icmp eq i16 %140, 0
   br i1 %.not.i.i8, label %._crit_edge, label %72
 }
 

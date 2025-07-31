@@ -22301,7 +22301,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFivEZN2tf12DataPip
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS5_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS5_ISD_vZ4mainE3$_2EEEE6_buildEvEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) #14 align 2 {
   %.sroa.03.i.i.i = alloca i32, align 4
-  %.sroa.6.i.i.i = alloca i32, align 4
+  %.sroa.7.i.i.i = alloca i32, align 4
   %.val = load ptr, ptr %0, align 8, !tbaa !919
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !921
@@ -22369,7 +22369,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipe
   %45 = urem i64 %40, %44
   store i64 %38, ptr %17, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.03.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7.i.i.i)
   %46 = getelementptr inbounds nuw [3 x %"struct.tf::DataPipeline<tf::DataPipe<void, int, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/taskflow/taskflow/examples/parallel_data_pipeline.cpp:18:57)>, tf::DataPipe<int, std::__cxx11::basic_string<char>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/taskflow/taskflow/examples/parallel_data_pipeline.cpp:29:64)>, tf::DataPipe<std::__cxx11::basic_string<char>, void, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/taskflow/taskflow/examples/parallel_data_pipeline.cpp:34:65)>>::PipeMeta"], ptr %8, i64 0, i64 %36
   %47 = load i32, ptr %46, align 4, !tbaa !34
   %48 = icmp eq i32 %47, 2
@@ -22388,7 +22388,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipe
   br label %55
 
 55:                                               ; preds = %54, %49, %35
-  %.0.sroa.phi.i.i.i = phi ptr [ %.sroa.6.i.i.i, %54 ], [ %.sroa.03.i.i.i, %49 ], [ %.sroa.03.i.i.i, %35 ]
+  %.0.sroa.phi.i.i.i = phi ptr [ %.sroa.7.i.i.i, %54 ], [ %.sroa.03.i.i.i, %49 ], [ %.sroa.03.i.i.i, %35 ]
   %.0.i.i.i = phi i64 [ 1, %54 ], [ 0, %49 ], [ 0, %35 ]
   %56 = load i64, ptr %.028.i.i.i, align 8, !tbaa !109
   %.val32.i.i.i = load ptr, ptr %7, align 8, !tbaa !37
@@ -22405,15 +22405,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipe
 
 63:                                               ; preds = %61, %55
   %.1.i.i.i = phi i64 [ %62, %61 ], [ %.0.i.i.i, %55 ]
-  switch i64 %.1.i.i.i, label %.thread.i.i.i [
+  switch i64 %.1.i.i.i, label %.critedge.i.i.i [
     i64 2, label %64
     i64 1, label %90
   ]
-
-.thread.i.i.i:                                    ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.03.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr %11, align 8, !tbaa !42
@@ -22474,10 +22469,15 @@ _ZN2tf7Runtime8scheduleENS_4TaskE.exit.i.i.i:     ; preds = %82, %80
 95:                                               ; preds = %92, %90, %_ZN2tf7Runtime8scheduleENS_4TaskE.exit.i.i.i
   %.129.i.i.i = phi ptr [ %.028.i.i.i, %_ZN2tf7Runtime8scheduleENS_4TaskE.exit.i.i.i ], [ %94, %92 ], [ %.028.i.i.i, %90 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.03.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7.i.i.i)
   br label %14
 
-"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %25, %.thread.i.i.i
+.critedge.i.i.i:                                  ; preds = %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.03.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7.i.i.i)
+  br label %"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit"
+
+"_ZSt10__invoke_rIvRZN2tf12DataPipelineIJNS0_8DataPipeIviZ4mainE3$_0EENS2_IiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZ4mainE3$_1EENS2_ISA_vZ4mainE3$_2EEEE6_buildEvEUlRNS0_7RuntimeEE_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %25, %.critedge.i.i.i
   ret void
 }
 

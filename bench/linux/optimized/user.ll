@@ -723,54 +723,46 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !15
   %15 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 12) #7
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %.thread, label %27
+  br i1 %16, label %17, label %.critedge
 
-.thread:                                          ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 255
-  %20 = lshr i32 %18, 12
-  %21 = and i32 %20, 1048320
-  %22 = or disjoint i32 %21, %19
-  %23 = shl i32 %18, 12
-  %24 = and i32 %23, -1048576
-  %25 = or disjoint i32 %22, %24
-  %26 = load i64, ptr %3, align 8
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = and i32 %19, 255
+  %21 = lshr i32 %19, 12
+  %22 = and i32 %21, 1048320
+  %23 = or disjoint i32 %22, %20
+  %24 = shl i32 %19, 12
+  %25 = and i32 %24, -1048576
+  %26 = or disjoint i32 %23, %25
+  %27 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
   br label %42
-
-27:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
-  br label %53
 
 28:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !15
   %29 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 12) #7
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.thread1, label %41
+  br i1 %30, label %31, label %.critedge2
 
-.thread1:                                         ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 255
-  %34 = lshr i32 %32, 12
-  %35 = and i32 %34, 1048320
-  %36 = or disjoint i32 %35, %33
-  %37 = shl i32 %32, 12
-  %38 = and i32 %37, -1048576
-  %39 = or disjoint i32 %36, %38
-  %40 = load i64, ptr %4, align 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 255
+  %35 = lshr i32 %33, 12
+  %36 = and i32 %35, 1048320
+  %37 = or disjoint i32 %36, %34
+  %38 = shl i32 %33, 12
+  %39 = and i32 %38, -1048576
+  %40 = or disjoint i32 %37, %39
+  %41 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
   br label %42
 
-41:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
-  br label %53
-
-42:                                               ; preds = %.thread1, %.thread
-  %43 = phi i64 [ %26, %.thread ], [ %40, %.thread1 ]
-  %44 = phi i32 [ %25, %.thread ], [ %39, %.thread1 ]
+42:                                               ; preds = %31, %17
+  %43 = phi i64 [ %27, %17 ], [ %41, %31 ]
+  %44 = phi i32 [ %26, %17 ], [ %40, %31 ]
   %45 = call i32 @swap_type_of(i32 noundef %44, i64 noundef %43) #7
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %45, ptr %46, align 8
@@ -787,8 +779,16 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   store i32 %44, ptr %52, align 4
   br label %53
 
-53:                                               ; preds = %41, %27, %51, %48, %2
-  %54 = phi i32 [ %50, %48 ], [ 0, %51 ], [ -14, %27 ], [ -14, %41 ], [ -1, %2 ]
+.critedge:                                        ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  br label %53
+
+.critedge2:                                       ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #7
+  br label %53
+
+53:                                               ; preds = %.critedge2, %.critedge, %51, %48, %2
+  %54 = phi i32 [ %50, %48 ], [ 0, %51 ], [ -1, %2 ], [ -14, %.critedge ], [ -14, %.critedge2 ]
   ret i32 %54
 }
 

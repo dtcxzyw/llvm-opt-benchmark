@@ -11,18 +11,18 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) local_u
   %4 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #5
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %GetBit.exit322.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %2
   %7 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %3, i32 noundef 528) #5
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %GetBit.exit322.thread
+  br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 2
-  br i1 %11, label %GetBit.exit322.thread, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %8
   %13 = icmp eq i32 %10, 0
@@ -30,16 +30,16 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) local_u
   %15 = load i32, ptr %14, align 4
   %16 = icmp ne i32 %15, 0
   %or.cond = select i1 %13, i1 true, i1 %16
-  br i1 %or.cond, label %GetBit.exit322.thread, label %.preheader402
+  br i1 %or.cond, label %.critedge, label %.preheader399
 
-.preheader402:                                    ; preds = %12, %17
+.preheader399:                                    ; preds = %12, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 42, %12 ]
   %.095 = phi i64 [ %24, %17 ], [ 0, %12 ]
   %.094 = phi i64 [ %19, %17 ], [ 0, %12 ]
   %exitcond.not = icmp eq i64 %.094, %1
-  br i1 %exitcond.not, label %GetBit.exit322.thread, label %17
+  br i1 %exitcond.not, label %.critedge, label %17
 
-17:                                               ; preds = %.preheader402
+17:                                               ; preds = %.preheader399
   %18 = lshr i64 %.095, 8
   %19 = add i64 %.094, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.094
@@ -50,54 +50,54 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) local_u
   %.mask = and i64 %24, 72057594021150720
   %25 = icmp eq i64 %.mask, 46186417356800
   %indvars.iv.next = add i64 %indvars.iv, 8
-  br i1 %25, label %26, label %.preheader402, !llvm.loop !10
+  br i1 %25, label %26, label %.preheader399, !llvm.loop !10
 
 26:                                               ; preds = %17
   %27 = add i64 %.094, 5
   %28 = icmp ugt i64 %27, %1
-  br i1 %28, label %GetBit.exit322.thread, label %GetBit.exit
+  br i1 %28, label %.critedge, label %GetBit.exit
 
 GetBit.exit:                                      ; preds = %26
   %29 = shl i64 %27, 3
   %30 = shl i64 %1, 3
   %.not.i.not = icmp ult i64 %29, %30
-  %spec.select556 = select i1 %.not.i.not, i64 %indvars.iv, i64 -9223372036854775808
-  %31 = or disjoint i64 %spec.select556, 1
-  %.not.i127.not = icmp ult i64 %spec.select556, %30
+  %spec.select553 = select i1 %.not.i.not, i64 %indvars.iv, i64 -9223372036854775808
+  %31 = or disjoint i64 %spec.select553, 1
+  %.not.i127.not = icmp ult i64 %spec.select553, %30
   br i1 %.not.i127.not, label %.preheader.i128.preheader, label %GetBit.exit133.thread
 
 .preheader.i128.preheader:                        ; preds = %GetBit.exit
-  %32 = trunc i64 %spec.select556 to i32
+  %32 = trunc i64 %spec.select553 to i32
   %33 = and i32 %32, 6
   %34 = lshr exact i32 128, %33
-  %35 = lshr i64 %spec.select556, 3
+  %35 = lshr i64 %spec.select553, 3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !9
   %38 = zext i8 %37 to i32
   %39 = and i32 %34, %38
-  %.not537 = icmp eq i32 %39, 0
-  br i1 %.not537, label %GetBit.exit133.thread, label %40
+  %.not534 = icmp eq i32 %39, 0
+  br i1 %.not534, label %GetBit.exit133.thread, label %40
 
 40:                                               ; preds = %.preheader.i128.preheader
-  %.not.i134.not = icmp ult i64 %spec.select556, %30
+  %.not.i134.not = icmp ult i64 %spec.select553, %30
   br i1 %.not.i134.not, label %.preheader.i135.preheader, label %GetBit.exit140
 
 .preheader.i135.preheader:                        ; preds = %40
-  %41 = add nuw i64 %spec.select556, 2
+  %41 = add nuw i64 %spec.select553, 2
   %42 = trunc i64 %31 to i32
   %43 = and i32 %42, 7
   %44 = lshr exact i32 128, %43
-  %45 = lshr i64 %spec.select556, 3
+  %45 = lshr i64 %spec.select553, 3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !9
   %48 = zext i8 %47 to i32
   %49 = and i32 %44, %48
-  %.not543 = icmp eq i32 %49, 0
+  %.not540 = icmp eq i32 %49, 0
   br label %GetBit.exit140
 
 GetBit.exit140:                                   ; preds = %.preheader.i135.preheader, %40
   %.18 = phi i64 [ -9223372036854775808, %40 ], [ %41, %.preheader.i135.preheader ]
-  %.1.i139 = phi i1 [ true, %40 ], [ %.not543, %.preheader.i135.preheader ]
+  %.1.i139 = phi i1 [ true, %40 ], [ %.not540, %.preheader.i135.preheader ]
   %50 = add nuw i64 %.18, 1
   %.not.i141.not = icmp ult i64 %.18, %30
   br i1 %.not.i141.not, label %.preheader.i142.preheader, label %GetBit.exit147.thread
@@ -111,8 +111,8 @@ GetBit.exit140:                                   ; preds = %.preheader.i135.pre
   %56 = load i8, ptr %55, align 1, !tbaa !9
   %57 = zext i8 %56 to i32
   %58 = and i32 %53, %57
-  %.not538 = icmp eq i32 %58, 0
-  br i1 %.not538, label %GetBit.exit147.thread, label %59
+  %.not535 = icmp eq i32 %58, 0
+  br i1 %.not535, label %GetBit.exit147.thread, label %59
 
 59:                                               ; preds = %.preheader.i142.preheader
   %60 = add nuw i64 %.18, 2
@@ -128,37 +128,37 @@ GetBit.exit140:                                   ; preds = %.preheader.i135.pre
   %66 = load i8, ptr %65, align 1, !tbaa !9
   %67 = zext i8 %66 to i32
   %68 = and i32 %63, %67
-  %.not542 = icmp eq i32 %68, 0
+  %.not539 = icmp eq i32 %68, 0
   br label %GetBit.exit154
 
 GetBit.exit154:                                   ; preds = %.preheader.i149.preheader, %59
   %.20 = phi i64 [ -9223372036854775808, %59 ], [ %60, %.preheader.i149.preheader ]
-  %.1.i153 = phi i1 [ true, %59 ], [ %.not542, %.preheader.i149.preheader ]
+  %.1.i153 = phi i1 [ true, %59 ], [ %.not539, %.preheader.i149.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %69
 
 69:                                               ; preds = %GetBit.exit154, %GetBit.exit161.thread
-  %indvars.iv530 = phi i64 [ 0, %GetBit.exit154 ], [ %indvars.iv.next531, %GetBit.exit161.thread ]
-  %.2354462 = phi i64 [ %.20, %GetBit.exit154 ], [ %.3, %GetBit.exit161.thread ]
-  %70 = add i64 %.2354462, 1
+  %indvars.iv527 = phi i64 [ 0, %GetBit.exit154 ], [ %indvars.iv.next528, %GetBit.exit161.thread ]
+  %.2353459 = phi i64 [ %.20, %GetBit.exit154 ], [ %.3, %GetBit.exit161.thread ]
+  %70 = add i64 %.2353459, 1
   %.not.i155 = icmp ugt i64 %70, %30
   br i1 %.not.i155, label %GetBit.exit161.thread, label %.preheader.i156.preheader
 
 .preheader.i156.preheader:                        ; preds = %69
-  %71 = trunc i64 %.2354462 to i32
+  %71 = trunc i64 %.2353459 to i32
   %72 = and i32 %71, 7
   %73 = lshr exact i32 128, %72
-  %74 = lshr i64 %.2354462, 3
+  %74 = lshr i64 %.2353459, 3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !9
   %77 = zext i8 %76 to i32
   %78 = and i32 %73, %77
-  %.not539 = icmp eq i32 %78, 0
-  br i1 %.not539, label %GetBit.exit161.thread, label %79
+  %.not536 = icmp eq i32 %78, 0
+  br i1 %.not536, label %GetBit.exit161.thread, label %79
 
 79:                                               ; preds = %.preheader.i156.preheader
-  %80 = add i64 %.2354462, 8
+  %80 = add i64 %.2353459, 8
   %.not.i162 = icmp ugt i64 %80, %30
   br i1 %.not.i162, label %GetBit.exit168, label %.preheader.i163
 
@@ -186,7 +186,7 @@ GetBit.exit154:                                   ; preds = %.preheader.i149.pre
 GetBit.exit168:                                   ; preds = %.preheader.i163, %79
   %.22 = phi i64 [ -9223372036854775808, %79 ], [ %80, %.preheader.i163 ]
   %.1.i167 = phi i32 [ 0, %79 ], [ %95, %.preheader.i163 ]
-  %96 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv530
+  %96 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv527
   store i32 %.1.i167, ptr %96, align 4, !tbaa !13
   %97 = add i64 %.22, 1
   %.not.i169 = icmp ugt i64 %97, %30
@@ -201,8 +201,8 @@ GetBit.exit168:                                   ; preds = %.preheader.i163, %7
   %103 = load i8, ptr %102, align 1, !tbaa !9
   %104 = zext i8 %103 to i32
   %105 = and i32 %100, %104
-  %.not540 = icmp eq i32 %105, 0
-  br i1 %.not540, label %GetBit.exit161.thread, label %106
+  %.not537 = icmp eq i32 %105, 0
+  br i1 %.not537, label %GetBit.exit161.thread, label %106
 
 106:                                              ; preds = %.preheader.i170.preheader
   %107 = sub nsw i32 0, %.1.i167
@@ -211,44 +211,44 @@ GetBit.exit168:                                   ; preds = %.preheader.i163, %7
 
 GetBit.exit161.thread:                            ; preds = %GetBit.exit168, %69, %.preheader.i156.preheader, %106, %.preheader.i170.preheader
   %.3 = phi i64 [ %70, %.preheader.i156.preheader ], [ %97, %.preheader.i170.preheader ], [ %97, %106 ], [ -9223372036854775808, %69 ], [ -9223372036854775808, %GetBit.exit168 ]
-  %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
-  %exitcond533.not = icmp eq i64 %indvars.iv.next531, 4
-  br i1 %exitcond533.not, label %108, label %69, !llvm.loop !14
+  %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
+  %exitcond530.not = icmp eq i64 %indvars.iv.next528, 4
+  br i1 %exitcond530.not, label %108, label %69, !llvm.loop !14
 
 108:                                              ; preds = %GetBit.exit161.thread
   %109 = load i32, ptr %4, align 16
   br label %110
 
 110:                                              ; preds = %108, %GetBit.exit189
-  %.197465 = phi i32 [ 0, %108 ], [ %122, %GetBit.exit189 ]
-  %.4464 = phi i64 [ %.3, %108 ], [ %.5, %GetBit.exit189 ]
-  %111 = add i64 %.4464, 1
+  %.197462 = phi i32 [ 0, %108 ], [ %122, %GetBit.exit189 ]
+  %.4461 = phi i64 [ %.3, %108 ], [ %.5, %GetBit.exit189 ]
+  %111 = add i64 %.4461, 1
   %.not.i176 = icmp ugt i64 %111, %30
   br i1 %.not.i176, label %GetBit.exit189, label %.preheader.i177.preheader
 
 .preheader.i177.preheader:                        ; preds = %110
-  %112 = trunc i64 %.4464 to i32
+  %112 = trunc i64 %.4461 to i32
   %113 = and i32 %112, 7
   %114 = lshr exact i32 128, %113
-  %115 = lshr i64 %.4464, 3
+  %115 = lshr i64 %.4461, 3
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !9
   %118 = zext i8 %117 to i32
   %119 = and i32 %114, %118
-  %.not541 = icmp eq i32 %119, 0
-  br i1 %.not541, label %GetBit.exit189, label %120
+  %.not538 = icmp eq i32 %119, 0
+  br i1 %.not538, label %GetBit.exit189, label %120
 
 120:                                              ; preds = %.preheader.i177.preheader
-  %121 = add i64 %.4464, 8
+  %121 = add i64 %.4461, 8
   %.not.i183 = icmp ugt i64 %121, %30
-  %spec.select557 = select i1 %.not.i183, i64 -9223372036854775808, i64 %121
+  %spec.select554 = select i1 %.not.i183, i64 -9223372036854775808, i64 %121
   br label %GetBit.exit189
 
 GetBit.exit189:                                   ; preds = %120, %110, %.preheader.i177.preheader
-  %.5 = phi i64 [ %111, %.preheader.i177.preheader ], [ -9223372036854775808, %110 ], [ %spec.select557, %120 ]
-  %122 = add nuw nsw i32 %.197465, 1
-  %exitcond534.not = icmp eq i32 %122, 4
-  br i1 %exitcond534.not, label %123, label %110, !llvm.loop !15
+  %.5 = phi i64 [ %111, %.preheader.i177.preheader ], [ -9223372036854775808, %110 ], [ %spec.select554, %120 ]
+  %122 = add nuw nsw i32 %.197462, 1
+  %exitcond531.not = icmp eq i32 %122, 4
+  br i1 %exitcond531.not, label %123, label %110, !llvm.loop !15
 
 123:                                              ; preds = %GetBit.exit189
   %spec.select = select i1 %.1.i153, i32 -1, i32 %109
@@ -256,65 +256,65 @@ GetBit.exit189:                                   ; preds = %120, %110, %.prehea
   br label %GetBit.exit147.thread
 
 GetBit.exit147.thread:                            ; preds = %GetBit.exit140, %123, %.preheader.i142.preheader
-  %.1353 = phi i64 [ %50, %.preheader.i142.preheader ], [ %.5, %123 ], [ -9223372036854775808, %GetBit.exit140 ]
+  %.1 = phi i64 [ %50, %.preheader.i142.preheader ], [ %.5, %123 ], [ -9223372036854775808, %GetBit.exit140 ]
   %.199 = phi i32 [ -1, %.preheader.i142.preheader ], [ %spec.select, %123 ], [ -1, %GetBit.exit140 ]
-  br i1 %.1.i139, label %GetBit.exit133.thread, label %.preheader401
+  br i1 %.1.i139, label %GetBit.exit133.thread, label %.preheader398
 
-.preheader401:                                    ; preds = %GetBit.exit147.thread, %GetBit.exit203
-  %.2467 = phi i32 [ %135, %GetBit.exit203 ], [ 0, %GetBit.exit147.thread ]
-  %.6466 = phi i64 [ %.7, %GetBit.exit203 ], [ %.1353, %GetBit.exit147.thread ]
-  %124 = add i64 %.6466, 1
+.preheader398:                                    ; preds = %GetBit.exit147.thread, %GetBit.exit203
+  %.2464 = phi i32 [ %135, %GetBit.exit203 ], [ 0, %GetBit.exit147.thread ]
+  %.6463 = phi i64 [ %.7, %GetBit.exit203 ], [ %.1, %GetBit.exit147.thread ]
+  %124 = add i64 %.6463, 1
   %.not.i190 = icmp ugt i64 %124, %30
   br i1 %.not.i190, label %GetBit.exit203, label %.preheader.i191.preheader
 
-.preheader.i191.preheader:                        ; preds = %.preheader401
-  %125 = trunc i64 %.6466 to i32
+.preheader.i191.preheader:                        ; preds = %.preheader398
+  %125 = trunc i64 %.6463 to i32
   %126 = and i32 %125, 7
   %127 = lshr exact i32 128, %126
-  %128 = lshr i64 %.6466, 3
+  %128 = lshr i64 %.6463, 3
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !9
   %131 = zext i8 %130 to i32
   %132 = and i32 %127, %131
-  %.not544 = icmp eq i32 %132, 0
-  br i1 %.not544, label %GetBit.exit203, label %133
+  %.not541 = icmp eq i32 %132, 0
+  br i1 %.not541, label %GetBit.exit203, label %133
 
 133:                                              ; preds = %.preheader.i191.preheader
-  %134 = add i64 %.6466, 9
+  %134 = add i64 %.6463, 9
   %.not.i197 = icmp ugt i64 %134, %30
-  %spec.select558 = select i1 %.not.i197, i64 -9223372036854775808, i64 %134
+  %spec.select555 = select i1 %.not.i197, i64 -9223372036854775808, i64 %134
   br label %GetBit.exit203
 
-GetBit.exit203:                                   ; preds = %133, %.preheader401, %.preheader.i191.preheader
-  %.7 = phi i64 [ %124, %.preheader.i191.preheader ], [ -9223372036854775808, %.preheader401 ], [ %spec.select558, %133 ]
-  %135 = add nuw nsw i32 %.2467, 1
-  %exitcond535.not = icmp eq i32 %135, 3
-  br i1 %exitcond535.not, label %GetBit.exit133.thread, label %.preheader401, !llvm.loop !16
+GetBit.exit203:                                   ; preds = %133, %.preheader398, %.preheader.i191.preheader
+  %.7 = phi i64 [ %124, %.preheader.i191.preheader ], [ -9223372036854775808, %.preheader398 ], [ %spec.select555, %133 ]
+  %135 = add nuw nsw i32 %.2464, 1
+  %exitcond532.not = icmp eq i32 %135, 3
+  br i1 %exitcond532.not, label %GetBit.exit133.thread, label %.preheader398, !llvm.loop !16
 
 GetBit.exit133.thread:                            ; preds = %GetBit.exit203, %GetBit.exit, %GetBit.exit147.thread, %.preheader.i128.preheader
-  %.0352 = phi i64 [ %31, %.preheader.i128.preheader ], [ %.1353, %GetBit.exit147.thread ], [ -9223372036854775808, %GetBit.exit ], [ %.7, %GetBit.exit203 ]
+  %.0352 = phi i64 [ %31, %.preheader.i128.preheader ], [ %.1, %GetBit.exit147.thread ], [ -9223372036854775808, %GetBit.exit ], [ %.7, %GetBit.exit203 ]
   %.098 = phi i32 [ -1, %.preheader.i128.preheader ], [ %.199, %GetBit.exit147.thread ], [ -1, %GetBit.exit ], [ %.199, %GetBit.exit203 ]
   %136 = add i64 %.0352, 10
   %.not.i204 = icmp ugt i64 %136, %30
-  %spec.select559 = select i1 %.not.i204, i64 -9223372036854775808, i64 %136
-  %137 = add i64 %spec.select559, 1
+  %spec.select556 = select i1 %.not.i204, i64 -9223372036854775808, i64 %136
+  %137 = add i64 %spec.select556, 1
   %.not.i211 = icmp ugt i64 %137, %30
   br i1 %.not.i211, label %GetBit.exit217.thread, label %.preheader.i212.preheader
 
 .preheader.i212.preheader:                        ; preds = %GetBit.exit133.thread
-  %138 = trunc i64 %spec.select559 to i32
+  %138 = trunc i64 %spec.select556 to i32
   %139 = and i32 %138, 7
   %140 = lshr exact i32 128, %139
-  %141 = lshr i64 %spec.select559, 3
+  %141 = lshr i64 %spec.select556, 3
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !9
   %144 = zext i8 %143 to i32
   %145 = and i32 %140, %144
-  %.not545 = icmp eq i32 %145, 0
-  br i1 %.not545, label %GetBit.exit217.thread, label %146
+  %.not542 = icmp eq i32 %145, 0
+  br i1 %.not542, label %GetBit.exit217.thread, label %146
 
 146:                                              ; preds = %.preheader.i212.preheader
-  %147 = add i64 %spec.select559, 2
+  %147 = add i64 %spec.select556, 2
   %.not.i218 = icmp ugt i64 %147, %30
   br i1 %.not.i218, label %GetBit.exit217.thread, label %.preheader.i219.preheader
 
@@ -327,53 +327,53 @@ GetBit.exit133.thread:                            ; preds = %GetBit.exit203, %Ge
   %153 = load i8, ptr %152, align 1, !tbaa !9
   %154 = zext i8 %153 to i32
   %155 = and i32 %150, %154
-  %.not546 = icmp eq i32 %155, 0
-  br i1 %.not546, label %GetBit.exit217.thread, label %.preheader
+  %.not543 = icmp eq i32 %155, 0
+  br i1 %.not543, label %GetBit.exit217.thread, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.i219.preheader, %GetBit.exit238
-  %.093469 = phi i32 [ %167, %GetBit.exit238 ], [ 0, %.preheader.i219.preheader ]
-  %.9468 = phi i64 [ %.10, %GetBit.exit238 ], [ %147, %.preheader.i219.preheader ]
-  %156 = add i64 %.9468, 1
+  %.093466 = phi i32 [ %167, %GetBit.exit238 ], [ 0, %.preheader.i219.preheader ]
+  %.9465 = phi i64 [ %.10, %GetBit.exit238 ], [ %147, %.preheader.i219.preheader ]
+  %156 = add i64 %.9465, 1
   %.not.i225 = icmp ugt i64 %156, %30
   br i1 %.not.i225, label %GetBit.exit238, label %.preheader.i226.preheader
 
 .preheader.i226.preheader:                        ; preds = %.preheader
-  %157 = trunc i64 %.9468 to i32
+  %157 = trunc i64 %.9465 to i32
   %158 = and i32 %157, 7
   %159 = lshr exact i32 128, %158
-  %160 = lshr i64 %.9468, 3
+  %160 = lshr i64 %.9465, 3
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 %160
   %162 = load i8, ptr %161, align 1, !tbaa !9
   %163 = zext i8 %162 to i32
   %164 = and i32 %159, %163
-  %.not547 = icmp eq i32 %164, 0
-  br i1 %.not547, label %GetBit.exit238, label %165
+  %.not544 = icmp eq i32 %164, 0
+  br i1 %.not544, label %GetBit.exit238, label %165
 
 165:                                              ; preds = %.preheader.i226.preheader
-  %166 = add i64 %.9468, 7
+  %166 = add i64 %.9465, 7
   %.not.i232 = icmp ugt i64 %166, %30
-  %spec.select560 = select i1 %.not.i232, i64 -9223372036854775808, i64 %166
+  %spec.select557 = select i1 %.not.i232, i64 -9223372036854775808, i64 %166
   br label %GetBit.exit238
 
 GetBit.exit238:                                   ; preds = %165, %.preheader, %.preheader.i226.preheader
-  %.10 = phi i64 [ %156, %.preheader.i226.preheader ], [ -9223372036854775808, %.preheader ], [ %spec.select560, %165 ]
-  %167 = add nuw nsw i32 %.093469, 1
-  %exitcond536.not = icmp eq i32 %167, 8
-  br i1 %exitcond536.not, label %GetBit.exit217.thread, label %.preheader, !llvm.loop !17
+  %.10 = phi i64 [ %156, %.preheader.i226.preheader ], [ -9223372036854775808, %.preheader ], [ %spec.select557, %165 ]
+  %167 = add nuw nsw i32 %.093466, 1
+  %exitcond533.not = icmp eq i32 %167, 8
+  br i1 %exitcond533.not, label %GetBit.exit217.thread, label %.preheader, !llvm.loop !17
 
 GetBit.exit217.thread:                            ; preds = %GetBit.exit238, %146, %GetBit.exit133.thread, %.preheader.i219.preheader, %.preheader.i212.preheader
   %.8 = phi i64 [ %137, %.preheader.i212.preheader ], [ %147, %.preheader.i219.preheader ], [ -9223372036854775808, %GetBit.exit133.thread ], [ -9223372036854775808, %146 ], [ %.10, %GetBit.exit238 ]
   %168 = add i64 %.8, 2
   %.not.i239 = icmp ugt i64 %168, %30
-  %spec.select561 = select i1 %.not.i239, i64 -9223372036854775808, i64 %168
-  %169 = add i64 %spec.select561, 7
+  %spec.select558 = select i1 %.not.i239, i64 -9223372036854775808, i64 %168
+  %169 = add i64 %spec.select558, 7
   %.not.i246 = icmp ugt i64 %169, %30
   br i1 %.not.i246, label %GetBit.exit252, label %.preheader.i247
 
 .preheader.i247:                                  ; preds = %GetBit.exit217.thread, %.preheader.i247
   %.014.i248 = phi i64 [ %171, %.preheader.i247 ], [ 7, %GetBit.exit217.thread ]
   %.01113.i249 = phi i32 [ %184, %.preheader.i247 ], [ 0, %GetBit.exit217.thread ]
-  %170 = phi i64 [ %172, %.preheader.i247 ], [ %spec.select561, %GetBit.exit217.thread ]
+  %170 = phi i64 [ %172, %.preheader.i247 ], [ %spec.select558, %GetBit.exit217.thread ]
   %171 = add nsw i64 %.014.i248, -1
   %172 = add i64 %170, 1
   %173 = lshr i64 %170, 3
@@ -407,17 +407,17 @@ GetBit.exit252:                                   ; preds = %.preheader.i247, %G
   %191 = load i8, ptr %190, align 1, !tbaa !9
   %192 = zext i8 %191 to i32
   %193 = and i32 %188, %192
-  %.not548 = icmp eq i32 %193, 0
-  br i1 %.not548, label %GetBit.exit266, label %194
+  %.not545 = icmp eq i32 %193, 0
+  br i1 %.not545, label %GetBit.exit266, label %194
 
 194:                                              ; preds = %.preheader.i254.preheader
   %195 = add i64 %.34, 6
   %.not.i260 = icmp ugt i64 %195, %30
-  %spec.select562 = select i1 %.not.i260, i64 -9223372036854775808, i64 %195
+  %spec.select559 = select i1 %.not.i260, i64 -9223372036854775808, i64 %195
   br label %GetBit.exit266
 
 GetBit.exit266:                                   ; preds = %194, %GetBit.exit252, %.preheader.i254.preheader
-  %.11 = phi i64 [ %185, %.preheader.i254.preheader ], [ -9223372036854775808, %GetBit.exit252 ], [ %spec.select562, %194 ]
+  %.11 = phi i64 [ %185, %.preheader.i254.preheader ], [ -9223372036854775808, %GetBit.exit252 ], [ %spec.select559, %194 ]
   %196 = add i64 %.11, 1
   %.not.i267 = icmp ugt i64 %196, %30
   br i1 %.not.i267, label %GetBit.exit280, label %.preheader.i268.preheader
@@ -431,17 +431,17 @@ GetBit.exit266:                                   ; preds = %194, %GetBit.exit25
   %202 = load i8, ptr %201, align 1, !tbaa !9
   %203 = zext i8 %202 to i32
   %204 = and i32 %199, %203
-  %.not549 = icmp eq i32 %204, 0
-  br i1 %.not549, label %GetBit.exit280, label %205
+  %.not546 = icmp eq i32 %204, 0
+  br i1 %.not546, label %GetBit.exit280, label %205
 
 205:                                              ; preds = %.preheader.i268.preheader
   %206 = add i64 %.11, 6
   %.not.i274 = icmp ugt i64 %206, %30
-  %spec.select563 = select i1 %.not.i274, i64 -9223372036854775808, i64 %206
+  %spec.select560 = select i1 %.not.i274, i64 -9223372036854775808, i64 %206
   br label %GetBit.exit280
 
 GetBit.exit280:                                   ; preds = %205, %GetBit.exit266, %.preheader.i268.preheader
-  %.12 = phi i64 [ %196, %.preheader.i268.preheader ], [ -9223372036854775808, %GetBit.exit266 ], [ %spec.select563, %205 ]
+  %.12 = phi i64 [ %196, %.preheader.i268.preheader ], [ -9223372036854775808, %GetBit.exit266 ], [ %spec.select560, %205 ]
   %207 = add i64 %.12, 1
   %.not.i281 = icmp ugt i64 %207, %30
   br i1 %.not.i281, label %GetBit.exit294, label %.preheader.i282.preheader
@@ -455,17 +455,17 @@ GetBit.exit280:                                   ; preds = %205, %GetBit.exit26
   %213 = load i8, ptr %212, align 1, !tbaa !9
   %214 = zext i8 %213 to i32
   %215 = and i32 %210, %214
-  %.not550 = icmp eq i32 %215, 0
-  br i1 %.not550, label %GetBit.exit294, label %216
+  %.not547 = icmp eq i32 %215, 0
+  br i1 %.not547, label %GetBit.exit294, label %216
 
 216:                                              ; preds = %.preheader.i282.preheader
   %217 = add i64 %.12, 6
   %.not.i288 = icmp ugt i64 %217, %30
-  %spec.select564 = select i1 %.not.i288, i64 -9223372036854775808, i64 %217
+  %spec.select561 = select i1 %.not.i288, i64 -9223372036854775808, i64 %217
   br label %GetBit.exit294
 
 GetBit.exit294:                                   ; preds = %216, %GetBit.exit280, %.preheader.i282.preheader
-  %.13 = phi i64 [ %207, %.preheader.i282.preheader ], [ -9223372036854775808, %GetBit.exit280 ], [ %spec.select564, %216 ]
+  %.13 = phi i64 [ %207, %.preheader.i282.preheader ], [ -9223372036854775808, %GetBit.exit280 ], [ %spec.select561, %216 ]
   %218 = add i64 %.13, 1
   %.not.i295 = icmp ugt i64 %218, %30
   br i1 %.not.i295, label %GetBit.exit308, label %.preheader.i296.preheader
@@ -479,20 +479,20 @@ GetBit.exit294:                                   ; preds = %216, %GetBit.exit28
   %224 = load i8, ptr %223, align 1, !tbaa !9
   %225 = zext i8 %224 to i32
   %226 = and i32 %221, %225
-  %.not551 = icmp eq i32 %226, 0
-  br i1 %.not551, label %GetBit.exit308, label %227
+  %.not548 = icmp eq i32 %226, 0
+  br i1 %.not548, label %GetBit.exit308, label %227
 
 227:                                              ; preds = %.preheader.i296.preheader
   %228 = add i64 %.13, 6
   %.not.i302 = icmp ugt i64 %228, %30
-  %spec.select565 = select i1 %.not.i302, i64 -9223372036854775808, i64 %228
+  %spec.select562 = select i1 %.not.i302, i64 -9223372036854775808, i64 %228
   br label %GetBit.exit308
 
 GetBit.exit308:                                   ; preds = %227, %GetBit.exit294, %.preheader.i296.preheader
-  %.14 = phi i64 [ %218, %.preheader.i296.preheader ], [ -9223372036854775808, %GetBit.exit294 ], [ %spec.select565, %227 ]
+  %.14 = phi i64 [ %218, %.preheader.i296.preheader ], [ -9223372036854775808, %GetBit.exit294 ], [ %spec.select562, %227 ]
   %229 = add i64 %.14, 1
   %.not.i309 = icmp ugt i64 %229, %30
-  br i1 %.not.i309, label %GetBit.exit322.thread, label %.preheader.i310.preheader
+  br i1 %.not.i309, label %.critedge, label %.preheader.i310.preheader
 
 .preheader.i310.preheader:                        ; preds = %GetBit.exit308
   %230 = trunc i64 %.14 to i32
@@ -503,18 +503,18 @@ GetBit.exit308:                                   ; preds = %227, %GetBit.exit29
   %235 = load i8, ptr %234, align 1, !tbaa !9
   %236 = zext i8 %235 to i32
   %237 = and i32 %232, %236
-  %.not552 = icmp eq i32 %237, 0
-  br i1 %.not552, label %GetBit.exit322, label %238
+  %.not549 = icmp eq i32 %237, 0
+  br i1 %.not549, label %GetBit.exit322, label %238
 
 238:                                              ; preds = %.preheader.i310.preheader
   %239 = add i64 %.14, 6
   %.not.i316 = icmp ugt i64 %239, %30
-  br i1 %.not.i316, label %GetBit.exit322.thread, label %GetBit.exit322
+  br i1 %.not.i316, label %.critedge, label %GetBit.exit322
 
 GetBit.exit322:                                   ; preds = %238, %.preheader.i310.preheader
   %.15 = phi i64 [ %229, %.preheader.i310.preheader ], [ %239, %238 ]
   %240 = icmp eq i64 %.15, -9223372036854775808
-  br i1 %240, label %GetBit.exit322.thread, label %241
+  br i1 %240, label %.critedge, label %241
 
 241:                                              ; preds = %GetBit.exit322
   %242 = icmp slt i32 %.098, 0
@@ -523,7 +523,7 @@ GetBit.exit322:                                   ; preds = %238, %.preheader.i3
   %244 = mul nsw i32 %243, 100
   %245 = sdiv i32 %244, 127
   %246 = icmp sgt i32 %spec.select126, 25
-  br i1 %246, label %247, label %GetBit.exit322.thread
+  br i1 %246, label %247, label %.critedge
 
 247:                                              ; preds = %241
   %248 = sitofp i32 %245 to double
@@ -531,10 +531,10 @@ GetBit.exit322:                                   ; preds = %238, %.preheader.i3
   %250 = call double @pow(double noundef %249, double noundef 0x40050D79435E50D8) #5, !tbaa !13
   %251 = fmul double %250, 8.000000e+01
   %252 = fptosi double %251 to i32
-  br label %GetBit.exit322.thread
+  br label %.critedge
 
-GetBit.exit322.thread:                            ; preds = %.preheader402, %GetBit.exit308, %238, %241, %247, %GetBit.exit322, %26, %12, %8, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 101, %8 ], [ -1, %12 ], [ -1, %26 ], [ -1, %GetBit.exit322 ], [ %252, %247 ], [ %245, %241 ], [ -1, %238 ], [ -1, %GetBit.exit308 ], [ -1, %.preheader402 ]
+.critedge:                                        ; preds = %.preheader399, %GetBit.exit308, %238, %241, %247, %GetBit.exit322, %26, %12, %8, %6, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 101, %8 ], [ -1, %12 ], [ -1, %26 ], [ -1, %GetBit.exit322 ], [ %252, %247 ], [ %245, %241 ], [ -1, %238 ], [ -1, %GetBit.exit308 ], [ -1, %.preheader399 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
   ret i32 %.0
 }

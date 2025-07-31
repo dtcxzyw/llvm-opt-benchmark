@@ -878,7 +878,7 @@ define hidden noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %0, i1 nounde
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.preheader.i.i
-  %.03036.i.i = phi i64 [ 0, %.preheader.i.i ], [ %120, %._crit_edge ]
+  %.03036.i.i = phi i64 [ 0, %.preheader.i.i ], [ %121, %._crit_edge ]
   %25 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %17, i64 0, i64 %.03036.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %.not.i.i16 = icmp eq ptr %26, null
@@ -966,9 +966,9 @@ mi_heap_visit_areas_page.exit.i:                  ; preds = %36, %mi_page_block_
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !49
   %64 = icmp sgt i32 %63, -1
-  %.pre97.i.i = ptrtoint ptr %55 to i64
-  %.pre98.i.i = and i64 %.pre97.i.i, -67108864
-  %.pre99.i.i = inttoptr i64 %.pre98.i.i to ptr
+  %.pre93.i.i = ptrtoint ptr %55 to i64
+  %.pre94.i.i = and i64 %.pre93.i.i, -67108864
+  %.pre95.i.i = inttoptr i64 %.pre94.i.i to ptr
   br i1 %64, label %mi_page_block_size.exit.thread.i.i10, label %mi_page_block_size.exit.i.i3, !prof !50
 
 mi_page_block_size.exit.thread.i.i10:             ; preds = %61
@@ -977,7 +977,7 @@ mi_page_block_size.exit.thread.i.i10:             ; preds = %61
 
 mi_page_block_size.exit.i.i3:                     ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  %66 = call ptr @_mi_segment_page_start(ptr noundef %.pre99.i.i, ptr noundef nonnull %55, ptr noundef nonnull %6) #8
+  %66 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %6) #8
   %67 = load i64, ptr %6, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %.pr.i.i4 = load i32, ptr %62, align 4, !tbaa !49
@@ -985,21 +985,21 @@ mi_page_block_size.exit.i.i3:                     ; preds = %61
   br i1 %68, label %mi_page_block_size.exit._crit_edge.i.i9, label %69, !prof !60
 
 mi_page_block_size.exit._crit_edge.i.i9:          ; preds = %mi_page_block_size.exit.i.i3
-  %.pre95.i.i = zext nneg i32 %.pr.i.i4 to i64
+  %.pre91.i.i = zext nneg i32 %.pr.i.i4 to i64
   br label %mi_page_usable_block_size.exit.i.i
 
 69:                                               ; preds = %mi_page_block_size.exit.i.i3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  %70 = call ptr @_mi_segment_page_start(ptr noundef %.pre99.i.i, ptr noundef nonnull %55, ptr noundef nonnull %5) #8
+  %70 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %5) #8
   %71 = load i64, ptr %5, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %mi_page_usable_block_size.exit.i.i
 
 mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_size.exit._crit_edge.i.i9, %mi_page_block_size.exit.thread.i.i10
-  %.0.i74.i.i = phi i64 [ %67, %69 ], [ %67, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
-  %.0.i.i.i.i5 = phi i64 [ %71, %69 ], [ %.pre95.i.i, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
+  %.0.i75.i.i = phi i64 [ %67, %69 ], [ %67, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
+  %.0.i.i.i.i5 = phi i64 [ %71, %69 ], [ %.pre91.i.i, %mi_page_block_size.exit._crit_edge.i.i9 ], [ %65, %mi_page_block_size.exit.thread.i.i10 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  %72 = call ptr @_mi_segment_page_start(ptr noundef %.pre99.i.i, ptr noundef nonnull %55, ptr noundef nonnull %7) #8
+  %72 = call ptr @_mi_segment_page_start(ptr noundef %.pre95.i.i, ptr noundef nonnull %55, ptr noundef nonnull %7) #8
   %73 = getelementptr inbounds nuw i8, ptr %55, i64 10
   %74 = load i16, ptr %73, align 2, !tbaa !59
   %75 = icmp eq i16 %74, 1
@@ -1019,26 +1019,26 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %8, i8 0, i64 8192, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !71
-  %.not81.i.i = icmp eq ptr %83, null
-  br i1 %.not81.i.i, label %.preheader.i.i7, label %.lr.ph.i.i
+  %.not77.i.i = icmp eq ptr %83, null
+  br i1 %.not77.i.i, label %.preheader.i.i7, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %81
   %84 = ptrtoint ptr %72 to i64
   br label %86
 
 .preheader.i.i7:                                  ; preds = %86, %81
-  %.not7283.i.i = icmp eq i16 %74, 0
-  br i1 %.not7283.i.i, label %.loopexit, label %.lr.ph87.i.i
+  %.not7279.i.i = icmp eq i16 %74, 0
+  br i1 %.not7279.i.i, label %.loopexit, label %.lr.ph83.i.i
 
-.lr.ph87.i.i:                                     ; preds = %.preheader.i.i7
+.lr.ph83.i.i:                                     ; preds = %.preheader.i.i7
   %85 = getelementptr inbounds nuw i8, ptr %55, i64 48
   br label %97
 
 86:                                               ; preds = %86, %.lr.ph.i.i
-  %.06382.i.i = phi ptr [ %83, %.lr.ph.i.i ], [ %96, %86 ]
-  %87 = ptrtoint ptr %.06382.i.i to i64
+  %.06378.i.i = phi ptr [ %83, %.lr.ph.i.i ], [ %96, %86 ]
+  %87 = ptrtoint ptr %.06378.i.i to i64
   %88 = sub i64 %87, %84
-  %89 = udiv i64 %88, %.0.i74.i.i
+  %89 = udiv i64 %88, %.0.i75.i.i
   %90 = lshr i64 %89, 3
   %91 = and i64 %89, 7
   %92 = shl nuw nsw i64 1, %91
@@ -1046,16 +1046,16 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   %94 = load i64, ptr %93, align 8, !tbaa !46
   %95 = or i64 %92, %94
   store i64 %95, ptr %93, align 8, !tbaa !46
-  %.063.val.i.i = load i64, ptr %.06382.i.i, align 8, !tbaa !72
+  %.063.val.i.i = load i64, ptr %.06378.i.i, align 8, !tbaa !72
   %96 = inttoptr i64 %.063.val.i.i to ptr
   %.not.i.i6 = icmp eq i64 %.063.val.i.i, 0
   br i1 %.not.i.i6, label %.preheader.i.i7, label %86, !llvm.loop !74
 
-97:                                               ; preds = %.thread.i.i, %.lr.ph87.i.i
-  %98 = phi i16 [ %74, %.lr.ph87.i.i ], [ %117, %.thread.i.i ]
-  %.06485.i.i = phi i64 [ 0, %.lr.ph87.i.i ], [ %118, %.thread.i.i ]
-  %99 = lshr i64 %.06485.i.i, 3
-  %100 = and i64 %.06485.i.i, 7
+97:                                               ; preds = %117, %.lr.ph83.i.i
+  %98 = phi i16 [ %74, %.lr.ph83.i.i ], [ %118, %117 ]
+  %.06481.i.i = phi i64 [ 0, %.lr.ph83.i.i ], [ %119, %117 ]
+  %99 = lshr i64 %.06481.i.i, 3
+  %100 = and i64 %.06481.i.i, 7
   %101 = getelementptr inbounds nuw [1024 x i64], ptr %8, i64 0, i64 %99
   %102 = load i64, ptr %101, align 8, !tbaa !46
   %103 = icmp eq i64 %100, 0
@@ -1064,41 +1064,41 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br i1 %or.cond.i.i, label %105, label %107
 
 105:                                              ; preds = %97
-  %106 = or disjoint i64 %.06485.i.i, 7
-  br label %.thread.i.i
+  %106 = or disjoint i64 %.06481.i.i, 7
+  br label %117
 
 107:                                              ; preds = %97
   %108 = shl nuw nsw i64 1, %100
   %109 = and i64 %108, %102
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %.thread.i.i
+  br i1 %110, label %111, label %117
 
 111:                                              ; preds = %107
-  %112 = mul i64 %.06485.i.i, %.0.i74.i.i
+  %112 = mul i64 %.06481.i.i, %.0.i75.i.i
   %113 = getelementptr inbounds nuw i8, ptr %72, i64 %112
   %114 = load atomic i64, ptr %85 monotonic, align 8
   %115 = inttoptr i64 %114 to ptr
   %116 = call zeroext i1 %2(ptr noundef %115, ptr noundef nonnull %11, ptr noundef %113, i64 noundef %.0.i.i.i.i5, ptr noundef %3) #8
-  br i1 %116, label %..thread_crit_edge.i.i, label %.thread
+  br i1 %116, label %._crit_edge.i.i, label %.thread
 
 .thread:                                          ; preds = %111
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %mi_heap_visit_areas.exit.sink.split
 
-..thread_crit_edge.i.i:                           ; preds = %111
+._crit_edge.i.i:                                  ; preds = %111
   %.pre.i.i8 = load i16, ptr %73, align 2, !tbaa !59
-  br label %.thread.i.i
+  br label %117
 
-.thread.i.i:                                      ; preds = %..thread_crit_edge.i.i, %107, %105
-  %117 = phi i16 [ %.pre.i.i8, %..thread_crit_edge.i.i ], [ %98, %107 ], [ %98, %105 ]
-  %.26680.i.i = phi i64 [ %.06485.i.i, %..thread_crit_edge.i.i ], [ %.06485.i.i, %107 ], [ %106, %105 ]
-  %118 = add nuw nsw i64 %.26680.i.i, 1
-  %119 = zext i16 %117 to i64
-  %.not72.not.i.i = icmp samesign ult i64 %118, %119
+117:                                              ; preds = %._crit_edge.i.i, %107, %105
+  %118 = phi i16 [ %98, %105 ], [ %98, %107 ], [ %.pre.i.i8, %._crit_edge.i.i ]
+  %.266.i.i = phi i64 [ %106, %105 ], [ %.06481.i.i, %107 ], [ %.06481.i.i, %._crit_edge.i.i ]
+  %119 = add nuw nsw i64 %.266.i.i, 1
+  %120 = zext i16 %118 to i64
+  %.not72.not.i.i = icmp samesign ult i64 %119, %120
   br i1 %.not72.not.i.i, label %97, label %.loopexit, !llvm.loop !75
 
-.loopexit:                                        ; preds = %.thread.i.i, %.preheader.i.i7
+.loopexit:                                        ; preds = %117, %.preheader.i.i7
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %.backedge.sink.split
@@ -1112,8 +1112,8 @@ mi_page_usable_block_size.exit.i.i:               ; preds = %69, %mi_page_block_
   br i1 %.not.i.i, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.backedge, %24
-  %120 = add nuw nsw i64 %.03036.i.i, 1
-  %exitcond.i.i = icmp eq i64 %120, 75
+  %121 = add nuw nsw i64 %.03036.i.i, 1
+  %exitcond.i.i = icmp eq i64 %121, 75
   br i1 %exitcond.i.i, label %mi_heap_visit_areas.exit, label %24, !llvm.loop !37
 
 mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas_page.exit.i, %.thread

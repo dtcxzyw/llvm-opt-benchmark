@@ -2174,13 +2174,13 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAll
   store i32 %53, ptr %54, align 4, !tbaa !202, !alias.scope !166
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %56 = load ptr, ptr %55, align 8, !tbaa !203, !noalias !204
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !207, !noalias !204
-  %59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %59, align 16, !noalias !204
-  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %57 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %57, align 16, !noalias !204
+  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !noalias !204
-  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %59 = load ptr, ptr %58, align 8, !tbaa !207, !noalias !204
+  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %14
   %.sroa.0.0.copyload.i16.i.i.i.i.i = load <2 x float>, ptr %60, align 16, !noalias !204
   %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i, align 8, !tbaa !16, !noalias !204
@@ -2997,13 +2997,13 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAll
   store i32 %53, ptr %54, align 4, !tbaa !202, !alias.scope !236
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %56 = load ptr, ptr %55, align 8, !tbaa !203, !noalias !242
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !207, !noalias !242
-  %59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %59, align 16, !noalias !242
-  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %57 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %57, align 16, !noalias !242
+  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !noalias !242
-  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %59 = load ptr, ptr %58, align 8, !tbaa !207, !noalias !242
+  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %14
   %.sroa.0.0.copyload.i16.i.i.i.i.i = load <2 x float>, ptr %60, align 16, !noalias !242
   %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i, align 8, !tbaa !16, !noalias !242
@@ -4019,13 +4019,13 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAll
   store i32 %53, ptr %54, align 4, !tbaa !202, !alias.scope !270
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %56 = load ptr, ptr %55, align 8, !tbaa !203, !noalias !276
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !207, !noalias !276
-  %59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %59, align 16, !noalias !276
-  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %57 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %57, align 16, !noalias !276
+  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !noalias !276
-  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %59 = load ptr, ptr %58, align 8, !tbaa !207, !noalias !276
+  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %14
   %.sroa.0.0.copyload.i16.i.i.i.i.i = load <2 x float>, ptr %60, align 16, !noalias !276
   %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i, align 8, !tbaa !16, !noalias !276
@@ -5949,13 +5949,13 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAll
   store i32 %53, ptr %54, align 4, !tbaa !202, !alias.scope !339
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %56 = load ptr, ptr %55, align 8, !tbaa !203, !noalias !345
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !207, !noalias !345
-  %59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %59, align 16, !noalias !345
-  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %57 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %57, align 16, !noalias !345
+  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !noalias !345
-  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %59 = load ptr, ptr %58, align 8, !tbaa !207, !noalias !345
+  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %14
   %.sroa.0.0.copyload.i16.i.i.i.i.i = load <2 x float>, ptr %60, align 16, !noalias !345
   %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i, align 8, !tbaa !16, !noalias !345
@@ -6972,13 +6972,13 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAll
   store i32 %53, ptr %54, align 4, !tbaa !202, !alias.scope !371
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %56 = load ptr, ptr %55, align 8, !tbaa !203, !noalias !377
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !207, !noalias !377
-  %59 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %59, align 16, !noalias !377
-  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %57 = getelementptr inbounds %"struct.pbrt::Float4", ptr %56, i64 %14
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %57, align 16, !noalias !377
+  %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !noalias !377
-  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %58, i64 %14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %59 = load ptr, ptr %58, align 8, !tbaa !207, !noalias !377
+  %60 = getelementptr inbounds %"struct.pbrt::Float4", ptr %59, i64 %14
   %.sroa.0.0.copyload.i16.i.i.i.i.i = load <2 x float>, ptr %60, align 16, !noalias !377
   %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.2.0.copyload.i18.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i17.i.i.i.i.i, align 8, !tbaa !16, !noalias !377

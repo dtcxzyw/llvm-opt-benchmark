@@ -60,14 +60,14 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %7 = tail call zeroext i1 @acpi_has_method(ptr noundef %0, ptr noundef nonnull @.str) #8
-  br i1 %7, label %8, label %.thread9
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %4
   store i64 0, ptr %6, align 8, !annotation !5
   store ptr null, ptr %5, align 8, !annotation !5
   %9 = call i32 @acpi_get_object_info(ptr noundef %0, ptr noundef nonnull %5) #8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.thread9
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %5, align 8
@@ -75,32 +75,23 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 4
   %16 = icmp eq i16 %15, 0
-  br i1 %16, label %.thread11, label %17
+  br i1 %16, label %.critedge2, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread11, label %21
+  br i1 %20, label %.critedge2, label %21
 
 21:                                               ; preds = %17
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.10) #8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread12, label %24
+  br i1 %23, label %.thread11, label %24
 
-.thread12:                                        ; preds = %21
+.thread11:                                        ; preds = %21
   call void @kfree(ptr noundef %12) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %27
-
-.thread9:                                         ; preds = %8, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br label %134
-
-.thread11:                                        ; preds = %17, %11
-  call void @kfree(ptr noundef %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br label %134
 
 24:                                               ; preds = %21
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.12) #8
@@ -109,8 +100,8 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br i1 %26, label %27, label %134
 
-27:                                               ; preds = %.thread12, %24
-  %28 = phi ptr [ @.str.11, %.thread12 ], [ @.str.13, %24 ]
+27:                                               ; preds = %.thread11, %24
+  %28 = phi ptr [ @.str.11, %.thread11 ], [ @.str.13, %24 ]
   call void @mutex_lock(ptr noundef nonnull @ioapic_list_lock) #8
   br label %29
 
@@ -192,7 +183,7 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   call void @pci_set_master(ptr noundef nonnull %58) #8
   %73 = call i32 @pci_request_region(ptr noundef nonnull %58, i32 noundef 0, ptr noundef nonnull %28) #8
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %.thread13
+  br i1 %74, label %75, label %.thread12
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %44, i64 88
@@ -292,15 +283,15 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br label %129
 
 129:                                              ; preds = %127, %123, %120
-  br i1 %118, label %131, label %.thread13
+  br i1 %118, label %131, label %.thread12
 
-.thread13:                                        ; preds = %72, %129
+.thread12:                                        ; preds = %72, %129
   %130 = phi ptr [ %80, %129 ], [ %58, %72 ]
   call void @pci_disable_device(ptr noundef nonnull %130) #8
   br label %131
 
-131:                                              ; preds = %.thread13, %129, %69
-  %132 = phi ptr [ %58, %69 ], [ %130, %.thread13 ], [ null, %129 ]
+131:                                              ; preds = %.thread12, %129, %69
+  %132 = phi ptr [ %58, %69 ], [ %130, %.thread12 ], [ null, %129 ]
   call void @pci_dev_put(ptr noundef %132) #8
   call void @kfree(ptr noundef nonnull %44) #8
   br label %133
@@ -310,7 +301,16 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   store i32 1, ptr %3, align 4
   br label %134
 
-134:                                              ; preds = %.thread11, %.thread9, %133, %113, %109, %37, %24
+.critedge:                                        ; preds = %4, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %134
+
+.critedge2:                                       ; preds = %11, %17
+  call void @kfree(ptr noundef %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %134
+
+134:                                              ; preds = %.critedge2, %.critedge, %133, %113, %109, %37, %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 0
 }

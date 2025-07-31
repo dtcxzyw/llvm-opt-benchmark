@@ -96,7 +96,7 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
 
 26:                                               ; preds = %24, %15
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %38, label %27
+  br i1 %.not.i, label %39, label %27
 
 27:                                               ; preds = %26
   %28 = add i64 %.0, %13
@@ -108,41 +108,41 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %1, i64 %31, i1 false)
   %34 = add i64 %31, %13
   %35 = icmp ugt i64 %34, 63
-  br i1 %35, label %.thread.i, label %md5_append.exit
+  br i1 %35, label %36, label %md5_append.exit
 
-.thread.i:                                        ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %37 = sub i64 %.0, %31
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %38 = sub i64 %.0, %31
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %32)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %.thread.i, %26
-  %.039.i = phi i64 [ %.0, %26 ], [ %37, %.thread.i ]
-  %.0.i = phi ptr [ %1, %26 ], [ %36, %.thread.i ]
-  %39 = icmp ugt i64 %.039.i, 63
-  br i1 %39, label %.lr.ph.i, label %._crit_edge.i
+39:                                               ; preds = %36, %26
+  %.039.i = phi i64 [ %38, %36 ], [ %.0, %26 ]
+  %.0.i = phi ptr [ %37, %36 ], [ %1, %26 ]
+  %40 = icmp ugt i64 %.039.i, 63
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
-  %.248.i = phi ptr [ %40, %.lr.ph.i ], [ %.0.i, %38 ]
-  %.24147.i = phi i64 [ %41, %.lr.ph.i ], [ %.039.i, %38 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248.i)
-  %40 = getelementptr inbounds nuw i8, ptr %.248.i, i64 64
-  %41 = add i64 %.24147.i, -64
-  %42 = icmp ugt i64 %41, 63
-  br i1 %42, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
+  %.246.i = phi ptr [ %41, %.lr.ph.i ], [ %.0.i, %39 ]
+  %.24145.i = phi i64 [ %42, %.lr.ph.i ], [ %.039.i, %39 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.246.i)
+  %41 = getelementptr inbounds nuw i8, ptr %.246.i, i64 64
+  %42 = add i64 %.24145.i, -64
+  %43 = icmp ugt i64 %42, 63
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %38
-  %.241.lcssa.i = phi i64 [ %.039.i, %38 ], [ %41, %.lr.ph.i ]
-  %.2.lcssa.i = phi ptr [ %.0.i, %38 ], [ %40, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %39
+  %.241.lcssa.i = phi i64 [ %.039.i, %39 ], [ %42, %.lr.ph.i ]
+  %.2.lcssa.i = phi ptr [ %.0.i, %39 ], [ %41, %.lr.ph.i ]
   %.not44.i = icmp eq i64 %.241.lcssa.i, 0
-  br i1 %.not44.i, label %md5_append.exit, label %43
+  br i1 %.not44.i, label %md5_append.exit, label %44
 
-43:                                               ; preds = %._crit_edge.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.2.lcssa.i, i64 %.241.lcssa.i, i1 false)
+44:                                               ; preds = %._crit_edge.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr align 1 %.2.lcssa.i, i64 %.241.lcssa.i, i1 false)
   br label %md5_append.exit
 
-md5_append.exit:                                  ; preds = %9, %27, %._crit_edge.i, %43
+md5_append.exit:                                  ; preds = %9, %27, %._crit_edge.i, %44
   ret void
 }
 
@@ -196,7 +196,7 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
 
 30:                                               ; preds = %28, %14
   %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %42, label %31
+  br i1 %.not.i.i, label %43, label %31
 
 31:                                               ; preds = %30
   %32 = add nuw nsw i64 %20, %22
@@ -208,122 +208,122 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @md5_finish.pad, i64 %35, i1 false)
   %38 = add nuw nsw i64 %35, %22
   %39 = icmp samesign ugt i64 %38, 63
-  br i1 %39, label %.thread.i.i, label %md5_append.exit.i
+  br i1 %39, label %40, label %md5_append.exit.i
 
-.thread.i.i:                                      ; preds = %31
-  %40 = getelementptr inbounds nuw i8, ptr @md5_finish.pad, i64 %35
-  %41 = sub nsw i64 %20, %35
+40:                                               ; preds = %31
+  %41 = getelementptr inbounds nuw i8, ptr @md5_finish.pad, i64 %35
+  %42 = sub nsw i64 %20, %35
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %36)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %.thread.i.i, %30
-  %.039.i.i = phi i64 [ %20, %30 ], [ %41, %.thread.i.i ]
-  %.0.i.i = phi ptr [ @md5_finish.pad, %30 ], [ %40, %.thread.i.i ]
-  %43 = icmp ugt i64 %.039.i.i, 63
-  br i1 %43, label %.lr.ph.i.i, label %._crit_edge.i.i
+43:                                               ; preds = %40, %30
+  %.039.i.i = phi i64 [ %42, %40 ], [ %20, %30 ]
+  %.0.i.i = phi ptr [ %41, %40 ], [ @md5_finish.pad, %30 ]
+  %44 = icmp ugt i64 %.039.i.i, 63
+  br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
-  %.248.i.i = phi ptr [ %44, %.lr.ph.i.i ], [ %.0.i.i, %42 ]
-  %.24147.i.i = phi i64 [ %45, %.lr.ph.i.i ], [ %.039.i.i, %42 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.248.i.i)
-  %44 = getelementptr inbounds nuw i8, ptr %.248.i.i, i64 64
-  %45 = add i64 %.24147.i.i, -64
-  %46 = icmp ugt i64 %45, 63
-  br i1 %46, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
+  %.246.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %.0.i.i, %43 ]
+  %.24145.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %.039.i.i, %43 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.246.i.i)
+  %45 = getelementptr inbounds nuw i8, ptr %.246.i.i, i64 64
+  %46 = add i64 %.24145.i.i, -64
+  %47 = icmp ugt i64 %46, 63
+  br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %42
-  %.241.lcssa.i.i = phi i64 [ %.039.i.i, %42 ], [ %45, %.lr.ph.i.i ]
-  %.2.lcssa.i.i = phi ptr [ %.0.i.i, %42 ], [ %44, %.lr.ph.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
+  %.241.lcssa.i.i = phi i64 [ %.039.i.i, %43 ], [ %46, %.lr.ph.i.i ]
+  %.2.lcssa.i.i = phi ptr [ %.0.i.i, %43 ], [ %45, %.lr.ph.i.i ]
   %.not44.i.i = icmp eq i64 %.241.lcssa.i.i, 0
-  br i1 %.not44.i.i, label %md5_append.exit.i, label %47
+  br i1 %.not44.i.i, label %md5_append.exit.i, label %48
 
-47:                                               ; preds = %._crit_edge.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr align 1 %.2.lcssa.i.i, i64 %.241.lcssa.i.i, i1 false)
+48:                                               ; preds = %._crit_edge.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.2.lcssa.i.i, i64 %.241.lcssa.i.i, i1 false)
   br label %md5_append.exit.i
 
-md5_append.exit.i:                                ; preds = %47, %._crit_edge.i.i, %31
-  %49 = load i32, ptr %0, align 4, !tbaa !4
-  %50 = lshr i32 %49, 3
-  %51 = and i32 %50, 63
-  %52 = zext nneg i32 %51 to i64
-  %53 = load i32, ptr %24, align 4, !tbaa !4
-  %54 = add i32 %49, 64
-  store i32 %54, ptr %0, align 4, !tbaa !4
-  %55 = icmp ugt i32 %49, -65
-  br i1 %55, label %56, label %58
+md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.i, %31
+  %50 = load i32, ptr %0, align 4, !tbaa !4
+  %51 = lshr i32 %50, 3
+  %52 = and i32 %51, 63
+  %53 = zext nneg i32 %52 to i64
+  %54 = load i32, ptr %24, align 4, !tbaa !4
+  %55 = add i32 %50, 64
+  store i32 %55, ptr %0, align 4, !tbaa !4
+  %56 = icmp ugt i32 %50, -65
+  br i1 %56, label %57, label %59
 
-56:                                               ; preds = %md5_append.exit.i
-  %57 = add i32 %53, 1
-  store i32 %57, ptr %24, align 4, !tbaa !4
-  br label %58
+57:                                               ; preds = %md5_append.exit.i
+  %58 = add i32 %54, 1
+  store i32 %58, ptr %24, align 4, !tbaa !4
+  br label %59
 
-58:                                               ; preds = %56, %md5_append.exit.i
-  %.not.i15.i = icmp eq i32 %51, 0
-  br i1 %.not.i15.i, label %._crit_edge.i19.thread.i, label %59
+59:                                               ; preds = %57, %md5_append.exit.i
+  %.not.i15.i = icmp eq i32 %52, 0
+  br i1 %.not.i15.i, label %._crit_edge.i18.thread.i, label %60
 
-59:                                               ; preds = %58
-  %60 = icmp samesign ugt i32 %51, 56
-  %61 = sub nuw nsw i64 64, %52
-  %62 = select i1 %60, i64 %61, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %62, i1 false)
-  %65 = add nuw nsw i64 %62, %52
-  %66 = icmp samesign ugt i64 %65, 63
-  br i1 %66, label %67, label %md5_append.exit26.i
+60:                                               ; preds = %59
+  %61 = icmp samesign ugt i32 %52, 56
+  %62 = sub nuw nsw i64 64, %53
+  %63 = select i1 %61, i64 %62, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
+  %66 = add nuw nsw i64 %63, %53
+  %67 = icmp samesign ugt i64 %66, 63
+  br i1 %67, label %68, label %md5_append.exit25.i
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 %62
-  %69 = sub nsw i64 8, %62
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %63)
-  %70 = icmp ugt i64 %69, 63
-  br i1 %70, label %.lr.ph.i23.i, label %._crit_edge.i19.i
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %63
+  %70 = sub nsw i64 8, %63
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %64)
+  %71 = icmp ugt i64 %70, 63
+  br i1 %71, label %.lr.ph.i22.i, label %._crit_edge.i18.i
 
-.lr.ph.i23.i:                                     ; preds = %67, %.lr.ph.i23.i
-  %.248.i24.i = phi ptr [ %71, %.lr.ph.i23.i ], [ %68, %67 ]
-  %.24147.i25.i = phi i64 [ %72, %.lr.ph.i23.i ], [ %69, %67 ]
-  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.248.i24.i)
-  %71 = getelementptr inbounds nuw i8, ptr %.248.i24.i, i64 64
-  %72 = add i64 %.24147.i25.i, -64
-  %73 = icmp ugt i64 %72, 63
-  br i1 %73, label %.lr.ph.i23.i, label %._crit_edge.i19.i, !llvm.loop !8
+.lr.ph.i22.i:                                     ; preds = %68, %.lr.ph.i22.i
+  %.246.i23.i = phi ptr [ %72, %.lr.ph.i22.i ], [ %69, %68 ]
+  %.24145.i24.i = phi i64 [ %73, %.lr.ph.i22.i ], [ %70, %68 ]
+  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.246.i23.i)
+  %72 = getelementptr inbounds nuw i8, ptr %.246.i23.i, i64 64
+  %73 = add i64 %.24145.i24.i, -64
+  %74 = icmp ugt i64 %73, 63
+  br i1 %74, label %.lr.ph.i22.i, label %._crit_edge.i18.i, !llvm.loop !8
 
-._crit_edge.i19.i:                                ; preds = %.lr.ph.i23.i, %67
-  %.241.lcssa.i20.i = phi i64 [ %69, %67 ], [ %72, %.lr.ph.i23.i ]
-  %.2.lcssa.i21.i = phi ptr [ %68, %67 ], [ %71, %.lr.ph.i23.i ]
-  %.not44.i22.i = icmp eq i64 %.241.lcssa.i20.i, 0
-  br i1 %.not44.i22.i, label %md5_append.exit26.i, label %._crit_edge.i19.thread.i
+._crit_edge.i18.i:                                ; preds = %.lr.ph.i22.i, %68
+  %.241.lcssa.i19.i = phi i64 [ %70, %68 ], [ %73, %.lr.ph.i22.i ]
+  %.2.lcssa.i20.i = phi ptr [ %69, %68 ], [ %72, %.lr.ph.i22.i ]
+  %.not44.i21.i = icmp eq i64 %.241.lcssa.i19.i, 0
+  br i1 %.not44.i21.i, label %md5_append.exit25.i, label %._crit_edge.i18.thread.i
 
-._crit_edge.i19.thread.i:                         ; preds = %._crit_edge.i19.i, %58
-  %.2.lcssa.i2133.i = phi ptr [ %.2.lcssa.i21.i, %._crit_edge.i19.i ], [ %3, %58 ]
-  %.241.lcssa.i2032.i = phi i64 [ %.241.lcssa.i20.i, %._crit_edge.i19.i ], [ 8, %58 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %74, ptr noundef nonnull align 1 dereferenceable(1) %.2.lcssa.i2133.i, i64 %.241.lcssa.i2032.i, i1 false)
-  br label %md5_append.exit26.i
+._crit_edge.i18.thread.i:                         ; preds = %._crit_edge.i18.i, %59
+  %.2.lcssa.i2032.i = phi ptr [ %.2.lcssa.i20.i, %._crit_edge.i18.i ], [ %3, %59 ]
+  %.241.lcssa.i1931.i = phi i64 [ %.241.lcssa.i19.i, %._crit_edge.i18.i ], [ 8, %59 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.2.lcssa.i2032.i, i64 %.241.lcssa.i1931.i, i1 false)
+  br label %md5_append.exit25.i
 
-md5_append.exit26.i:                              ; preds = %._crit_edge.i19.thread.i, %._crit_edge.i19.i, %59
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %76
+md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thread.i, %._crit_edge.i18.i, %60
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %77
 
-76:                                               ; preds = %76, %md5_append.exit26.i
-  %indvars.iv43.i = phi i64 [ 0, %md5_append.exit26.i ], [ %indvars.iv.next44.i, %76 ]
-  %77 = lshr i64 %indvars.iv43.i, 2
-  %78 = and i64 %77, 1073741823
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !4
-  %indvars.iv43.tr.i = trunc i64 %indvars.iv43.i to i32
-  %81 = shl i32 %indvars.iv43.tr.i, 3
-  %82 = and i32 %81, 24
-  %83 = lshr i32 %80, %82
-  %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv43.i
-  store i8 %84, ptr %85, align 1, !tbaa !10
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
-  %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 16
-  br i1 %exitcond46.not.i, label %md5_finish.exit, label %76, !llvm.loop !12
+77:                                               ; preds = %77, %md5_append.exit25.i
+  %indvars.iv42.i = phi i64 [ 0, %md5_append.exit25.i ], [ %indvars.iv.next43.i, %77 ]
+  %78 = lshr i64 %indvars.iv42.i, 2
+  %79 = and i64 %78, 1073741823
+  %80 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !4
+  %indvars.iv42.tr.i = trunc i64 %indvars.iv42.i to i32
+  %82 = shl i32 %indvars.iv42.tr.i, 3
+  %83 = and i32 %82, 24
+  %84 = lshr i32 %81, %83
+  %85 = trunc i32 %84 to i8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv42.i
+  store i8 %85, ptr %86, align 1, !tbaa !10
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 16
+  br i1 %exitcond45.not.i, label %md5_finish.exit, label %77, !llvm.loop !12
 
-md5_finish.exit:                                  ; preds = %76
+md5_finish.exit:                                  ; preds = %77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   ret void
 }

@@ -759,7 +759,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
 10:                                               ; preds = %8
   %11 = load i32, ptr %6, align 4, !tbaa !80
   %12 = icmp eq i32 %11, 46
-  br i1 %12, label %13, label %.thread.thread
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %.029, i64 8
@@ -799,22 +799,22 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   %32 = icmp eq i32 %.fr, 0
   %33 = or i1 %.ph, %32
   %34 = sext i1 %32 to i32
-  br i1 %33, label %36, label %.thread.thread
+  br i1 %33, label %36, label %.critedge
 
 .thread:                                          ; preds = %22, %20
-  br i1 %.ph, label %36, label %.thread.thread
+  br i1 %.ph, label %36, label %.critedge
 
-.thread.thread:                                   ; preds = %10, %30, %.thread
+.critedge:                                        ; preds = %30, %10, %.thread
   %35 = add nsw i32 %.01928, 1
   br label %37
 
 36:                                               ; preds = %30, %.thread
-  %cond.fr32 = phi i32 [ %34, %30 ], [ 0, %.thread ]
-  %spec.select = add nsw i32 %cond.fr32, %.01928
+  %cond.fr30 = phi i32 [ %34, %30 ], [ 0, %.thread ]
+  %spec.select = add nsw i32 %cond.fr30, %.01928
   br label %37
 
-37:                                               ; preds = %36, %.thread25, %.thread.thread, %8, %5, %.lr.ph
-  %.1 = phi i32 [ %.01928, %8 ], [ %.01928, %5 ], [ %.01928, %.lr.ph ], [ %35, %.thread.thread ], [ %29, %.thread25 ], [ %spec.select, %36 ]
+37:                                               ; preds = %36, %.thread25, %.critedge, %8, %5, %.lr.ph
+  %.1 = phi i32 [ %.01928, %8 ], [ %.01928, %5 ], [ %.01928, %.lr.ph ], [ %35, %.critedge ], [ %29, %.thread25 ], [ %spec.select, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !80
   %.not = icmp eq i32 %39, 0

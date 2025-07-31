@@ -5467,10 +5467,10 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
   store i32 0, ptr %4, align 4, !tbaa !36
-  %.not3445 = icmp sgt i32 %6, 0
+  %.not3441 = icmp sgt i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !108
-  br i1 %.not3445, label %.lr.ph, label %._crit_edge
+  br i1 %.not3441, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -5478,30 +5478,30 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
 
 13:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.02647 = phi i32 [ -1, %.lr.ph ], [ %15, %22 ]
+  %.02643 = phi i32 [ -1, %.lr.ph ], [ %15, %22 ]
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !36
-  %16 = add nsw i32 %.02647, 1
+  %16 = add nsw i32 %.02643, 1
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %13
-  %18 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02647, ptr noundef %4)
-  br i1 %18, label %19, label %.thread41
+  %18 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02643, ptr noundef %4)
+  br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %15, -1
   %21 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %20, ptr noundef %4)
-  br i1 %21, label %22, label %.thread41
-
-.thread41:                                        ; preds = %17, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
-  br label %48
+  br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %19, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !251
+
+.thread:                                          ; preds = %19, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  br label %48
 
 ._crit_edge:                                      ; preds = %22, %10
   %23 = sext i32 %6 to i64
@@ -5559,8 +5559,8 @@ _ZN3gmx17RangePartitioningD2Ev.exit36:            ; preds = %38, %41
 47:                                               ; preds = %._crit_edge, %8
   br label %48
 
-48:                                               ; preds = %.thread41, %._crit_edge, %8, %8, %3, %47, %_ZN3gmx17RangePartitioningD2Ev.exit, %9
-  %.0 = phi i1 [ true, %47 ], [ true, %9 ], [ false, %._crit_edge ], [ %29, %_ZN3gmx17RangePartitioningD2Ev.exit ], [ true, %3 ], [ false, %8 ], [ false, %8 ], [ false, %.thread41 ]
+48:                                               ; preds = %.thread, %._crit_edge, %8, %8, %3, %47, %_ZN3gmx17RangePartitioningD2Ev.exit, %9
+  %.0 = phi i1 [ true, %47 ], [ true, %9 ], [ false, %._crit_edge ], [ %29, %_ZN3gmx17RangePartitioningD2Ev.exit ], [ true, %3 ], [ false, %8 ], [ false, %8 ], [ false, %.thread ]
   ret i1 %.0
 }
 

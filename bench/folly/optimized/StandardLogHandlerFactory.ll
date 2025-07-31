@@ -2130,25 +2130,25 @@ _ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPi
   %22 = load i8, ptr %.01114.i.i.i.i.i, align 1, !tbaa !29
   %23 = sext i8 %22 to i32
   %24 = call i32 @isspace(i32 noundef %23) #29
-  %.not12.not.i.i.i.i.i.not = icmp eq i32 %24, 0
-  br i1 %.not12.not.i.i.i.i.i.not, label %_ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit, label %20
+  %.not12.not.i.i.i.i.i = icmp eq i32 %24, 0
+  br i1 %.not12.not.i.i.i.i.i, label %.critedge, label %20
 
 25:                                               ; preds = %_ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
+  br label %.critedge
 
 _ZNR5folly8ExpectedIbNS_14ConversionCodeEE5valueEv.exit: ; preds = %20, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.5.0.extract.trunc.i.i, ptr %26, align 8, !tbaa !105
   br label %_ZN5follyeqINS_5RangeIPKcEEA16_cEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKS7_RKS8_.exit.thread13
 
-_ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i.i, %25
   %27 = call ptr @__cxa_allocate_exception(i64 16) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
   invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA31_cNS_5RangeIPKcEEA33_cETnNSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISE_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSH_EEEE5valueEiE4typeELi0EEESE_DpRKSG_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 1 dereferenceable(31) @.str.7, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(33) @.str.8)
           to label %28 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-28:                                               ; preds = %_ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
+28:                                               ; preds = %.critedge
   invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %29 unwind label %31
 
@@ -2156,7 +2156,7 @@ _ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #26
           to label %43 unwind label %31
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZN5folly5tryToIbEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %.critedge
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24

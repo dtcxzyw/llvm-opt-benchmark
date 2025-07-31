@@ -7192,8 +7192,8 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   br i1 %.not79, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %36, %39
-  %.06696 = phi i32 [ %40, %39 ], [ %38, %36 ]
-  store i32 %.06696, ptr %3, align 1, !tbaa !74
+  %.06698 = phi i32 [ %40, %39 ], [ %38, %36 ]
+  store i32 %.06698, ptr %3, align 1, !tbaa !74
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %41, align 1, !tbaa !74
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.108) #16
@@ -7214,7 +7214,7 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
 
 48:                                               ; preds = %45
   %49 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.110, i32 noundef %47) #15
-  switch i32 %.06696, label %.critedge [
+  switch i32 %.06698, label %.critedge [
     i32 1630826605, label %50
     i32 1983148141, label %69
   ]
@@ -7276,7 +7276,7 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   %80 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %8) #15
   %81 = icmp slt i32 %80, 0
-  br i1 %81, label %.thread97, label %82
+  br i1 %81, label %.critedge91, label %82
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %8, align 8, !tbaa !135
@@ -7286,11 +7286,7 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
 
 86:                                               ; preds = %82
   call void @ffio_free_dyn_buf(ptr noundef nonnull %8) #15
-  br label %.thread97
-
-.thread97:                                        ; preds = %86, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  br label %105
+  br label %.critedge91
 
 87:                                               ; preds = %82
   %88 = load ptr, ptr %8, align 8, !tbaa !135
@@ -7304,7 +7300,7 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   %.063 = phi ptr [ %90, %87 ], [ null, %77 ]
   %.0 = phi i32 [ %89, %87 ], [ %76, %77 ]
   %93 = icmp sgt i32 %.0, 3
-  br i1 %93, label %94, label %.critedge91
+  br i1 %93, label %94, label %.critedge93
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
@@ -7317,14 +7313,18 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   %102 = load i8, ptr %101, align 1, !tbaa !74
   %103 = zext i8 %102 to i32
   %104 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.114, i32 noundef %97, i32 noundef %100, i32 noundef %103) #15
-  br label %.critedge91
+  br label %.critedge93
 
-.critedge91:                                      ; preds = %94, %91
+.critedge93:                                      ; preds = %94, %91
   call void @av_free(ptr noundef %.063) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   br label %.critedge
 
-105:                                              ; preds = %.thread97, %72
+.critedge91:                                      ; preds = %79, %86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  br label %105
+
+105:                                              ; preds = %.critedge91, %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   br label %.critedge
 
@@ -7338,14 +7338,14 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %110 = load i32, ptr %109, align 8, !tbaa !57
   %.not87 = icmp eq i32 %110, 0
-  br i1 %.not87, label %.critedge93, label %111
+  br i1 %.not87, label %.critedge95, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !61
   %114 = call i32 @ff_av1_parse_seq_header(ptr noundef nonnull %9, ptr noundef %113, i32 noundef %110) #15
   %115 = icmp slt i32 %114, 0
-  br i1 %115, label %.critedge93, label %116
+  br i1 %115, label %.critedge95, label %116
 
 116:                                              ; preds = %111
   %117 = load i8, ptr %9, align 1, !tbaa !281
@@ -7398,11 +7398,11 @@ set_vp9_codec_str.exit:                           ; preds = %21, %28
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %9) #15
   br label %.critedge
 
-.critedge93:                                      ; preds = %111, %108
+.critedge95:                                      ; preds = %111, %108
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %9) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %69, %50, %67, %45, %106, %.critedge91, %157, %.critedge93, %105, %39, %33, %set_vp9_codec_str.exit, %30
+.critedge:                                        ; preds = %48, %69, %50, %67, %45, %106, %.critedge93, %157, %.critedge95, %105, %39, %33, %set_vp9_codec_str.exit, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   ret void
 }

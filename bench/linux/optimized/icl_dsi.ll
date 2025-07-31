@@ -4983,14 +4983,14 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
 
 27:                                               ; preds = %15
   %28 = icmp eq ptr %18, null
-  br i1 %28, label %.thread5, label %29
+  br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %31 = load ptr, ptr %30, align 8
-  br label %.thread5
+  br label %.thread
 
-.thread5:                                         ; preds = %27, %29
+.thread:                                          ; preds = %27, %29
   %32 = phi ptr [ %31, %29 ], [ null, %27 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %32, ptr noundef nonnull @.str.73) #13
   br label %.thread7
@@ -5006,44 +5006,44 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   %39 = add nuw nsw i32 %38, 428292
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 7368
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 7544
-  br label %51
+  br label %42
 
-42:                                               ; preds = %.preheader
-  %43 = getelementptr i8, ptr %53, i64 1
-  %44 = zext nneg i32 %56 to i64
-  %45 = getelementptr i8, ptr %43, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 -1
-  %47 = load ptr, ptr %41, align 8
-  call void %47(ptr noundef nonnull %40, i32 %39, i32 noundef %66, i1 noundef zeroext true) #11
-  %48 = add nuw nsw i32 %54, 4
-  %49 = icmp ult i32 %48, %25
-  %50 = add i32 %52, -4
-  br i1 %49, label %51, label %.thread6, !llvm.loop !149
+42:                                               ; preds = %60, %35
+  %43 = phi i32 [ %25, %35 ], [ %68, %60 ]
+  %44 = phi ptr [ %37, %35 ], [ %65, %60 ]
+  %45 = phi i32 [ 0, %35 ], [ %66, %60 ]
+  %46 = call i32 @llvm.umax.i32(i32 %43, i32 1)
+  %47 = call i32 @llvm.umin.i32(i32 %46, i32 4)
+  %48 = call fastcc zeroext i1 @wait_for_payload_credits(ptr noundef %18, i32 noundef %22, i32 noundef 1)
+  br i1 %48, label %.preheader, label %.thread7
 
-51:                                               ; preds = %42, %35
-  %52 = phi i32 [ %25, %35 ], [ %50, %42 ]
-  %53 = phi ptr [ %37, %35 ], [ %46, %42 ]
-  %54 = phi i32 [ 0, %35 ], [ %48, %42 ]
-  %55 = call i32 @llvm.umax.i32(i32 %52, i32 1)
-  %56 = call i32 @llvm.umin.i32(i32 %55, i32 4)
-  %57 = call fastcc zeroext i1 @wait_for_payload_credits(ptr noundef %18, i32 noundef %22, i32 noundef 1)
-  br i1 %57, label %.preheader, label %.thread7
+.preheader:                                       ; preds = %42, %.preheader
+  %49 = phi ptr [ %52, %.preheader ], [ %44, %42 ]
+  %50 = phi i32 [ %57, %.preheader ], [ 0, %42 ]
+  %51 = phi i32 [ %58, %.preheader ], [ 0, %42 ]
+  %52 = getelementptr i8, ptr %49, i64 1
+  %53 = load i8, ptr %49, align 1
+  %54 = zext i8 %53 to i32
+  %55 = shl i32 %51, 3
+  %56 = shl i32 %54, %55
+  %57 = or i32 %56, %50
+  %58 = add nuw nsw i32 %51, 1
+  %59 = icmp eq i32 %58, %47
+  br i1 %59, label %60, label %.preheader, !llvm.loop !149
 
-.preheader:                                       ; preds = %51, %.preheader
-  %58 = phi ptr [ %61, %.preheader ], [ %53, %51 ]
-  %59 = phi i32 [ %66, %.preheader ], [ 0, %51 ]
-  %60 = phi i32 [ %67, %.preheader ], [ 0, %51 ]
-  %61 = getelementptr i8, ptr %58, i64 1
-  %62 = load i8, ptr %58, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl i32 %60, 3
-  %65 = shl i32 %63, %64
-  %66 = or i32 %65, %59
-  %67 = add nuw nsw i32 %60, 1
-  %68 = icmp eq i32 %67, %56
-  br i1 %68, label %42, label %.preheader, !llvm.loop !150
+60:                                               ; preds = %.preheader
+  %61 = getelementptr i8, ptr %44, i64 1
+  %62 = load ptr, ptr %41, align 8
+  call void %62(ptr noundef nonnull %40, i32 %39, i32 noundef %57, i1 noundef zeroext true) #11
+  %63 = zext nneg i32 %47 to i64
+  %64 = getelementptr i8, ptr %61, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -1
+  %66 = add nuw nsw i32 %45, 4
+  %67 = icmp ult i32 %66, %25
+  %68 = add i32 %43, -4
+  br i1 %67, label %42, label %.thread6, !llvm.loop !150
 
-.thread6:                                         ; preds = %42, %33, %8
+.thread6:                                         ; preds = %60, %33, %8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
@@ -5096,8 +5096,8 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   %115 = add i64 %114, 4
   br label %.thread7
 
-.thread7:                                         ; preds = %51, %.thread6, %.thread5, %77, %6
-  %116 = phi i64 [ %7, %6 ], [ %115, %77 ], [ -22, %.thread5 ], [ -16, %.thread6 ], [ -16, %51 ]
+.thread7:                                         ; preds = %42, %.thread6, %.thread, %77, %6
+  %116 = phi i64 [ %7, %6 ], [ %115, %77 ], [ -22, %.thread ], [ -16, %.thread6 ], [ -16, %42 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
   ret i64 %116
 }

@@ -2274,209 +2274,209 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
   %7 = alloca %struct.context, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #17
   %8 = icmp eq i32 %1, 0
-  br i1 %8, label %101, label %9
+  br i1 %8, label %100, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %1 to i64
   %11 = tail call ptr @kmemdup_nul(ptr noundef %0, i64 noundef %10, i32 noundef %4) #17
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %101, label %13
+  br i1 %12, label %100, label %13
 
 13:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false), !annotation !13
   %14 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
-  br i1 %15, label %.preheader, label %31
+  br i1 %15, label %.preheader, label %30
 
-16:                                               ; preds = %23, %.preheader
-  %17 = add nuw nsw i64 %19, 1
-  %18 = icmp eq i64 %17, 27
-  br i1 %18, label %28, label %.preheader, !llvm.loop !49
+.critedge:                                        ; preds = %22, %.preheader
+  %16 = add nuw nsw i64 %18, 1
+  %17 = icmp eq i64 %16, 27
+  br i1 %17, label %29, label %.preheader, !llvm.loop !49
 
-.preheader:                                       ; preds = %13, %16
-  %19 = phi i64 [ %17, %16 ], [ 1, %13 ]
-  %20 = shl nuw i64 1, %19
-  %21 = and i64 %20, 134209617
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %16
+.preheader:                                       ; preds = %13, %.critedge
+  %18 = phi i64 [ %16, %.critedge ], [ 1, %13 ]
+  %19 = shl nuw i64 1, %18
+  %20 = and i64 %19, 134209617
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %22, label %.critedge
 
-23:                                               ; preds = %.preheader
-  %24 = getelementptr [28 x ptr], ptr @initial_sid_to_string, i64 0, i64 %19
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef nonnull dereferenceable(1) %11) #17
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %29, label %16
+22:                                               ; preds = %.preheader
+  %23 = getelementptr [28 x ptr], ptr @initial_sid_to_string, i64 0, i64 %18
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i32 @strcmp(ptr noundef %24, ptr noundef nonnull dereferenceable(1) %11) #17
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %.critedge
 
-28:                                               ; preds = %16
+27:                                               ; preds = %22
+  %28 = trunc i64 %18 to i32
+  store i32 %28, ptr %2, align 4
+  br label %97
+
+29:                                               ; preds = %.critedge
   store i32 1, ptr %2, align 4
-  br label %98
+  br label %97
 
-29:                                               ; preds = %23
-  %30 = trunc i64 %19 to i32
-  store i32 %30, ptr %2, align 4
-  br label %98
-
-31:                                               ; preds = %13
+30:                                               ; preds = %13
   store i32 0, ptr %2, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.split.us, label %32
+  br i1 %.not, label %.split.us, label %31
 
-32:                                               ; preds = %31
-  %33 = tail call noalias ptr @kstrdup(ptr noundef nonnull %11, i32 noundef %4) #17
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %98, label %.split.preheader
+31:                                               ; preds = %30
+  %32 = tail call noalias ptr @kstrdup(ptr noundef nonnull %11, i32 noundef %4) #17
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %97, label %.split.preheader
 
-.split.preheader:                                 ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
+.split.preheader:                                 ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.split
 
-.split.us:                                        ; preds = %31
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
+.split.us:                                        ; preds = %30
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @__rcu_read_lock() #17
-  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %49, align 8
-  %52 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %50, ptr noundef %51, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.lr.ph, label %.loopexit
+  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %48, align 8
+  %51 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %49, ptr noundef %50, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.split.us, %62
-  %54 = phi ptr [ %66, %62 ], [ %51, %.split.us ]
-  %55 = phi ptr [ %63, %62 ], [ null, %.split.us ]
-  %56 = call i32 @sidtab_context_to_sid(ptr noundef %54, ptr noundef nonnull %7, ptr noundef %2) #17
-  %57 = icmp eq i32 %56, -116
-  br i1 %57, label %58, label %.split16.us
+.lr.ph:                                           ; preds = %.split.us, %61
+  %53 = phi ptr [ %65, %61 ], [ %50, %.split.us ]
+  %54 = phi ptr [ %62, %61 ], [ null, %.split.us ]
+  %55 = call i32 @sidtab_context_to_sid(ptr noundef %53, ptr noundef nonnull %7, ptr noundef %2) #17
+  %56 = icmp eq i32 %55, -116
+  br i1 %56, label %57, label %.split16.us
 
-58:                                               ; preds = %.lr.ph
+57:                                               ; preds = %.lr.ph
   call void @__rcu_read_unlock() #17
-  %59 = load ptr, ptr %42, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %62, label %61
+  %58 = load ptr, ptr %41, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %61, label %60
 
-61:                                               ; preds = %58
-  store ptr null, ptr %42, align 8
-  br label %62
+60:                                               ; preds = %57
+  store ptr null, ptr %41, align 8
+  br label %61
 
-62:                                               ; preds = %61, %58
-  %63 = phi ptr [ %59, %61 ], [ %55, %58 ]
-  store i32 0, ptr %44, align 8
-  store i32 0, ptr %45, align 4
+61:                                               ; preds = %60, %57
+  %62 = phi ptr [ %58, %60 ], [ %54, %57 ]
+  store i32 0, ptr %43, align 8
+  store i32 0, ptr %44, align 4
   store i32 0, ptr %7, align 8
   call void @kfree(ptr noundef null) #17
-  store ptr null, ptr %42, align 8
-  store i32 0, ptr %43, align 4
+  store ptr null, ptr %41, align 8
+  store i32 0, ptr %42, align 4
+  call void @ebitmap_destroy(ptr noundef nonnull %45) #17
   call void @ebitmap_destroy(ptr noundef nonnull %46) #17
-  call void @ebitmap_destroy(ptr noundef nonnull %47) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 48, i1 false)
   call void @__rcu_read_lock() #17
-  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %64, align 8
-  %67 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %65, ptr noundef %66, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !50
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %63, align 8
+  %66 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %64, ptr noundef %65, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
-.split:                                           ; preds = %.split.preheader, %86
-  %69 = phi ptr [ %87, %86 ], [ %33, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %85
+  %68 = phi ptr [ %86, %85 ], [ %32, %.split.preheader ]
   call void @__rcu_read_lock() #17
-  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %70, align 8
-  %73 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %71, ptr noundef %72, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
-  switch i32 %73, label %.loopexit [
-    i32 -22, label %74
-    i32 0, label %78
+  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load ptr, ptr %69, align 8
+  %72 = call fastcc i32 @string_to_context_struct(ptr noundef nonnull %70, ptr noundef %71, ptr noundef nonnull %11, ptr noundef nonnull %7, i32 noundef %3)
+  switch i32 %72, label %.loopexit [
+    i32 -22, label %73
+    i32 0, label %77
   ]
 
-74:                                               ; preds = %.split
-  store ptr %69, ptr %35, align 8
-  %75 = call i64 @strlen(ptr noundef %69) #17
-  %76 = trunc i64 %75 to i32
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %36, align 4
-  br label %78
+73:                                               ; preds = %.split
+  store ptr %68, ptr %34, align 8
+  %74 = call i64 @strlen(ptr noundef %68) #17
+  %75 = trunc i64 %74 to i32
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %35, align 4
+  br label %77
 
-78:                                               ; preds = %.split, %74
-  %79 = phi ptr [ null, %74 ], [ %69, %.split ]
-  %80 = call i32 @sidtab_context_to_sid(ptr noundef %72, ptr noundef nonnull %7, ptr noundef %2) #17
-  %81 = icmp eq i32 %80, -116
-  br i1 %81, label %82, label %.split16.us
+77:                                               ; preds = %.split, %73
+  %78 = phi ptr [ null, %73 ], [ %68, %.split ]
+  %79 = call i32 @sidtab_context_to_sid(ptr noundef %71, ptr noundef nonnull %7, ptr noundef %2) #17
+  %80 = icmp eq i32 %79, -116
+  br i1 %80, label %81, label %.split16.us
 
-82:                                               ; preds = %78
+81:                                               ; preds = %77
   call void @__rcu_read_unlock() #17
-  %83 = load ptr, ptr %35, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %86, label %85
+  %82 = load ptr, ptr %34, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %85, label %84
 
-85:                                               ; preds = %82
-  store ptr null, ptr %35, align 8
-  br label %86
+84:                                               ; preds = %81
+  store ptr null, ptr %34, align 8
+  br label %85
 
-86:                                               ; preds = %85, %82
-  %87 = phi ptr [ %83, %85 ], [ %79, %82 ]
-  store i32 0, ptr %37, align 8
-  store i32 0, ptr %38, align 4
+85:                                               ; preds = %84, %81
+  %86 = phi ptr [ %82, %84 ], [ %78, %81 ]
+  store i32 0, ptr %36, align 8
+  store i32 0, ptr %37, align 4
   store i32 0, ptr %7, align 8
   call void @kfree(ptr noundef null) #17
-  store ptr null, ptr %35, align 8
-  store i32 0, ptr %36, align 4
+  store ptr null, ptr %34, align 8
+  store i32 0, ptr %35, align 4
+  call void @ebitmap_destroy(ptr noundef nonnull %38) #17
   call void @ebitmap_destroy(ptr noundef nonnull %39) #17
-  call void @ebitmap_destroy(ptr noundef nonnull %40) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, i8 0, i64 48, i1 false)
   br label %.split
 
-.split16.us:                                      ; preds = %78, %.lr.ph
-  %88 = phi ptr [ %48, %.lr.ph ], [ %41, %78 ]
-  %89 = phi ptr [ %47, %.lr.ph ], [ %40, %78 ]
-  %90 = phi ptr [ %46, %.lr.ph ], [ %39, %78 ]
-  %91 = phi ptr [ %45, %.lr.ph ], [ %38, %78 ]
-  %92 = phi ptr [ %44, %.lr.ph ], [ %37, %78 ]
-  %93 = phi ptr [ %43, %.lr.ph ], [ %36, %78 ]
-  %94 = phi ptr [ %42, %.lr.ph ], [ %35, %78 ]
-  %.us-phi17 = phi ptr [ %55, %.lr.ph ], [ %79, %78 ]
-  %.us-phi18 = phi i32 [ %56, %.lr.ph ], [ %80, %78 ]
-  store i32 0, ptr %92, align 8
-  store i32 0, ptr %91, align 4
+.split16.us:                                      ; preds = %77, %.lr.ph
+  %87 = phi ptr [ %47, %.lr.ph ], [ %40, %77 ]
+  %88 = phi ptr [ %46, %.lr.ph ], [ %39, %77 ]
+  %89 = phi ptr [ %45, %.lr.ph ], [ %38, %77 ]
+  %90 = phi ptr [ %44, %.lr.ph ], [ %37, %77 ]
+  %91 = phi ptr [ %43, %.lr.ph ], [ %36, %77 ]
+  %92 = phi ptr [ %42, %.lr.ph ], [ %35, %77 ]
+  %93 = phi ptr [ %41, %.lr.ph ], [ %34, %77 ]
+  %.us-phi17 = phi ptr [ %54, %.lr.ph ], [ %78, %77 ]
+  %.us-phi18 = phi i32 [ %55, %.lr.ph ], [ %79, %77 ]
+  store i32 0, ptr %91, align 8
+  store i32 0, ptr %90, align 4
   store i32 0, ptr %7, align 8
-  %95 = load ptr, ptr %94, align 8
-  call void @kfree(ptr noundef %95) #17
-  store ptr null, ptr %94, align 8
-  store i32 0, ptr %93, align 4
-  call void @ebitmap_destroy(ptr noundef nonnull %90) #17
+  %94 = load ptr, ptr %93, align 8
+  call void @kfree(ptr noundef %94) #17
+  store ptr null, ptr %93, align 8
+  store i32 0, ptr %92, align 4
   call void @ebitmap_destroy(ptr noundef nonnull %89) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %88, i8 0, i64 48, i1 false)
+  call void @ebitmap_destroy(ptr noundef nonnull %88) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %87, i8 0, i64 48, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split, %62, %.split.us, %.split16.us
-  %96 = phi ptr [ %.us-phi17, %.split16.us ], [ null, %.split.us ], [ %63, %62 ], [ %69, %.split ]
-  %97 = phi i32 [ %.us-phi18, %.split16.us ], [ %52, %.split.us ], [ %67, %62 ], [ %73, %.split ]
+.loopexit:                                        ; preds = %.split, %61, %.split.us, %.split16.us
+  %95 = phi ptr [ %.us-phi17, %.split16.us ], [ null, %.split.us ], [ %62, %61 ], [ %68, %.split ]
+  %96 = phi i32 [ %.us-phi18, %.split16.us ], [ %51, %.split.us ], [ %66, %61 ], [ %72, %.split ]
   call void @__rcu_read_unlock() #17
-  br label %98
+  br label %97
 
-98:                                               ; preds = %29, %.loopexit, %32, %28
-  %99 = phi ptr [ %96, %.loopexit ], [ null, %32 ], [ null, %29 ], [ null, %28 ]
-  %100 = phi i32 [ %97, %.loopexit ], [ -12, %32 ], [ 0, %29 ], [ 0, %28 ]
+97:                                               ; preds = %27, %.loopexit, %31, %29
+  %98 = phi ptr [ %95, %.loopexit ], [ null, %31 ], [ null, %27 ], [ null, %29 ]
+  %99 = phi i32 [ %96, %.loopexit ], [ -12, %31 ], [ 0, %27 ], [ 0, %29 ]
   call void @kfree(ptr noundef nonnull %11) #17
-  call void @kfree(ptr noundef %99) #17
-  br label %101
+  call void @kfree(ptr noundef %98) #17
+  br label %100
 
-101:                                              ; preds = %98, %9, %6
-  %102 = phi i32 [ %100, %98 ], [ -22, %6 ], [ -12, %9 ]
+100:                                              ; preds = %97, %9, %6
+  %101 = phi i32 [ %99, %97 ], [ -22, %6 ], [ -12, %9 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #17
-  ret i32 %102
+  ret i32 %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4675,7 +4675,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   call void @__rcu_read_lock() #17
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %12 = load ptr, ptr %11, align 8
-  switch i16 %0, label %.thread11 [
+  switch i16 %0, label %.thread9 [
     i16 2, label %44
     i16 10, label %13
   ]
@@ -4684,7 +4684,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %14 = getelementptr i8, ptr %11, i64 488
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread11, label %17
+  br i1 %16, label %.thread9, label %17
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %1, align 4
@@ -4703,7 +4703,7 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %26 = phi i64 [ %27, %29 ], [ 0, %19 ]
   %27 = add nuw nsw i64 %26, 1
   %28 = icmp eq i64 %27, 4
-  br i1 %28, label %.thread10.us.thread50, label %29, !llvm.loop !75
+  br i1 %28, label %.thread10.us, label %29, !llvm.loop !75
 
 29:                                               ; preds = %.preheader.us
   %30 = getelementptr i32, ptr %20, i64 %27
@@ -4718,41 +4718,41 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 
 38:                                               ; preds = %29
   %39 = icmp samesign ugt i64 %26, 2
-  br i1 %39, label %.thread10.us.thread50, label %40
+  br i1 %39, label %.thread10.us, label %40
 
 40:                                               ; preds = %38, %19
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 192
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread11, label %19, !llvm.loop !76
+  br i1 %43, label %.thread9, label %19, !llvm.loop !76
 
 44:                                               ; preds = %.split.us
-  br i1 %10, label %45, label %.thread9
+  br i1 %10, label %45, label %.critedge
 
 45:                                               ; preds = %44
   %46 = load i32, ptr %1, align 4
   %47 = getelementptr i8, ptr %11, i64 472
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread11, label %.preheader13.us
+  br i1 %49, label %.thread9, label %.preheader12.us
 
-.preheader13.us:                                  ; preds = %45, %56
+.preheader12.us:                                  ; preds = %45, %56
   %50 = phi ptr [ %58, %56 ], [ %48, %45 ]
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, %46
   %55 = icmp eq i32 %51, %54
-  br i1 %55, label %.thread10.us.thread50, label %56
+  br i1 %55, label %.thread10.us, label %56
 
-56:                                               ; preds = %.preheader13.us
+56:                                               ; preds = %.preheader12.us
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread11, label %.preheader13.us, !llvm.loop !77
+  br i1 %59, label %.thread9, label %.preheader12.us, !llvm.loop !77
 
-.thread10.us.thread50:                            ; preds = %38, %.preheader13.us, %.preheader.us
-  %60 = phi ptr [ %20, %.preheader.us ], [ %50, %.preheader13.us ], [ %20, %38 ]
+.thread10.us:                                     ; preds = %38, %.preheader12.us, %.preheader.us
+  %60 = phi ptr [ %20, %.preheader.us ], [ %50, %.preheader12.us ], [ %20, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 0, ptr %5, align 4, !annotation !13
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
@@ -4760,18 +4760,18 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !70
   store i32 %62, ptr %5, align 4
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %.thread12
+  br i1 %63, label %64, label %.thread11
 
-64:                                               ; preds = %.thread10.us.thread50
+64:                                               ; preds = %.thread10.us
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %66 = call i32 @sidtab_context_to_sid(ptr noundef %12, ptr noundef nonnull %65, ptr noundef nonnull %5) #17
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.split25.us, label %68
+  br i1 %67, label %.split26.us, label %68
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   %69 = icmp eq i32 %66, -116
-  br i1 %69, label %70, label %.thread9
+  br i1 %69, label %70, label %.critedge
 
 70:                                               ; preds = %68
   call void @__rcu_read_unlock() #17
@@ -4780,13 +4780,13 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 .split:                                           ; preds = %8
   br i1 %10, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %97
+.split.split.us:                                  ; preds = %.split, %94
   call void @__rcu_read_lock() #17
   %71 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   %72 = load ptr, ptr %71, align 8
-  switch i16 %0, label %.thread11 [
+  switch i16 %0, label %.thread9 [
     i16 2, label %73
-    i16 10, label %.thread9
+    i16 10, label %.critedge
   ]
 
 73:                                               ; preds = %.split.split.us
@@ -4794,47 +4794,47 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   %75 = getelementptr i8, ptr %71, i64 472
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread11, label %.preheader13.us27
+  br i1 %77, label %.thread9, label %.preheader12.us28
 
-.preheader13.us27:                                ; preds = %73, %84
+.preheader12.us28:                                ; preds = %73, %84
   %78 = phi ptr [ %86, %84 ], [ %76, %73 ]
   %79 = load i32, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %74
   %83 = icmp eq i32 %79, %82
-  br i1 %83, label %.thread10.loopexit14.us28, label %84
+  br i1 %83, label %.thread10.loopexit13.us29, label %84
 
-84:                                               ; preds = %.preheader13.us27
+84:                                               ; preds = %.preheader12.us28
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 192
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.thread11, label %.preheader13.us27, !llvm.loop !77
+  br i1 %87, label %.thread9, label %.preheader12.us28, !llvm.loop !77
 
-.thread10.loopexit14.us28:                        ; preds = %.preheader13.us27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  store i32 0, ptr %5, align 4, !annotation !13
-  %88 = getelementptr inbounds nuw i8, ptr %78, i64 184
-  %89 = load volatile i32, ptr %88, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !70
-  store i32 %89, ptr %5, align 4
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %.thread12
+88:                                               ; preds = %.thread10.loopexit13.us29
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %90 = call i32 @sidtab_context_to_sid(ptr noundef %72, ptr noundef nonnull %89, ptr noundef nonnull %5) #17
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %.split26.us, label %92
 
-91:                                               ; preds = %.thread10.loopexit14.us28
-  %92 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %93 = call i32 @sidtab_context_to_sid(ptr noundef %72, ptr noundef nonnull %92, ptr noundef nonnull %5) #17
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %.split25.us, label %95
-
-95:                                               ; preds = %91
+92:                                               ; preds = %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  %96 = icmp eq i32 %93, -116
-  br i1 %96, label %97, label %.thread9
+  %93 = icmp eq i32 %90, -116
+  br i1 %93, label %94, label %.critedge
 
-97:                                               ; preds = %95
+94:                                               ; preds = %92
   call void @__rcu_read_unlock() #17
   br label %.split.split.us, !llvm.loop !79
+
+.thread10.loopexit13.us29:                        ; preds = %.preheader12.us28
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  store i32 0, ptr %5, align 4, !annotation !13
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 184
+  %96 = load volatile i32, ptr %95, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !70
+  store i32 %96, ptr %5, align 4
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %88, label %.thread11
 
 98:                                               ; preds = %4
   store i32 12, ptr %3, align 4
@@ -4843,36 +4843,36 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
 .split.split:                                     ; preds = %.split
   tail call void @__rcu_read_lock() #17
   %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
-  switch i16 %0, label %.thread11 [
-    i16 2, label %.thread9
-    i16 10, label %.thread9
+  switch i16 %0, label %.thread9 [
+    i16 2, label %.critedge
+    i16 10, label %.critedge
   ]
 
-.split25.us:                                      ; preds = %91, %64
-  %.us-phi26 = phi ptr [ %60, %64 ], [ %78, %91 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.us-phi26, i64 184
+.split26.us:                                      ; preds = %88, %64
+  %.us-phi27 = phi ptr [ %60, %64 ], [ %78, %88 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.us-phi27, i64 184
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !71
   %101 = load i32, ptr %5, align 4
   store volatile i32 %101, ptr %100, align 4
-  br label %.thread12
+  br label %.thread11
 
-.thread12:                                        ; preds = %.thread10.loopexit14.us28, %.thread10.us.thread50, %.split25.us
-  %102 = phi i32 [ %101, %.split25.us ], [ %62, %.thread10.us.thread50 ], [ %89, %.thread10.loopexit14.us28 ]
+.thread11:                                        ; preds = %.thread10.loopexit13.us29, %.thread10.us, %.split26.us
+  %102 = phi i32 [ %101, %.split26.us ], [ %62, %.thread10.us ], [ %96, %.thread10.loopexit13.us29 ]
   store i32 %102, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  br label %.thread9
+  br label %.critedge
 
-.thread11:                                        ; preds = %.split.split.us, %73, %84, %45, %13, %.split.us, %40, %56, %.split.split
+.thread9:                                         ; preds = %.split.split.us, %73, %84, %45, %13, %.split.us, %40, %56, %.split.split
   store i32 12, ptr %3, align 4
-  br label %.thread9
+  br label %.critedge
 
-.thread9:                                         ; preds = %95, %.split.split.us, %68, %44, %.split.split, %.split.split, %.thread12, %.thread11
-  %103 = phi i32 [ 0, %.thread11 ], [ 0, %.thread12 ], [ -22, %.split.split ], [ -22, %.split.split ], [ -22, %44 ], [ %66, %68 ], [ -22, %.split.split.us ], [ %93, %95 ]
+.critedge:                                        ; preds = %92, %.split.split.us, %68, %44, %.split.split, %.split.split, %.thread11, %.thread9
+  %103 = phi i32 [ 0, %.thread9 ], [ 0, %.thread11 ], [ -22, %.split.split ], [ -22, %.split.split ], [ -22, %44 ], [ %66, %68 ], [ -22, %.split.split.us ], [ %90, %92 ]
   call void @__rcu_read_unlock() #17
   br label %104
 
-104:                                              ; preds = %.thread9, %98
-  %105 = phi i32 [ %103, %.thread9 ], [ 0, %98 ]
+104:                                              ; preds = %.critedge, %98
+  %105 = phi i32 [ %103, %.critedge ], [ 0, %98 ]
   ret i32 %105
 }
 
@@ -5300,7 +5300,7 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %29, align 8
@@ -5319,19 +5319,19 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread, label %35, !llvm.loop !85
+  br i1 %42, label %.critedge, label %35, !llvm.loop !85
 
 .loopexit:                                        ; preds = %35, %31
   %43 = phi ptr [ %29, %31 ], [ %41, %35 ]
   %44 = phi i32 [ %33, %31 ], [ %37, %35 ]
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %.thread
+  br i1 %.not, label %45, label %.critedge
 
 45:                                               ; preds = %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %45
   %50 = zext i16 %27 to i32
@@ -5357,7 +5357,7 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 192
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread, label %51, !llvm.loop !86
+  br i1 %66, label %.critedge, label %51, !llvm.loop !86
 
 67:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
@@ -5388,9 +5388,9 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
 79:                                               ; preds = %77, %71
   %80 = phi i32 [ 0, %77 ], [ %73, %71 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.preheader, %63, %26, %79, %45, %.loopexit
+.critedge:                                        ; preds = %.preheader, %63, %26, %79, %45, %.loopexit
   %81 = phi i32 [ %80, %79 ], [ -2, %.loopexit ], [ -2, %45 ], [ -2, %26 ], [ -2, %63 ], [ -2, %.preheader ]
   ret i32 %81
 }

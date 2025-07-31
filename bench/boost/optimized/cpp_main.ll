@@ -107,7 +107,7 @@ define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEi
           to label %12 unwind label %35
 
 12:                                               ; preds = %10
-  br i1 %11, label %.lr.ph.i.i.i.i, label %.loopexit83
+  br i1 %11, label %.lr.ph.i.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %15
   %.015.i.i.i.i = phi i64 [ %18, %15 ], [ 2, %12 ]
@@ -116,16 +116,16 @@ define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEi
   %13 = load i8, ptr %.0913.i.i.i.i, align 1, !tbaa !3
   %14 = load i8, ptr %.0814.i.i.i.i, align 1, !tbaa !3
   %.not.i33 = icmp eq i8 %13, %14
-  br i1 %.not.i33, label %15, label %.loopexit83
+  br i1 %.not.i33, label %15, label %.loopexit
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i.i, i64 1
   %18 = add nsw i64 %.015.i.i.i.i, -1
   %.not.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i.i, label %.loopexit83, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
-.loopexit83:                                      ; preds = %.lr.ph.i.i.i.i, %15, %12
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %12
   %19 = phi i8 [ 1, %12 ], [ 0, %15 ], [ 1, %.lr.ph.i.i.i.i ]
   store i8 %19, ptr %4, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
@@ -141,7 +141,7 @@ define noundef range(i32 0, 201) i32 @_ZN5boost21prg_exec_monitor_mainEPFiiPPcEi
   %23 = invoke noundef i32 @_ZN5boost17execution_monitor7executeERKNS_8functionIFivEEE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %24 unwind label %39
 
-24:                                               ; preds = %.loopexit83
+24:                                               ; preds = %.loopexit
   %25 = load ptr, ptr %5, align 8, !tbaa !11
   %.not.i.i = icmp ne ptr %25, null
   %26 = ptrtoint ptr %25 to i64
@@ -185,7 +185,7 @@ _ZN5boost10function_nIiJEED2Ev.exit:              ; preds = %28, %30, %24
           catch ptr @_ZTIN5boost12system_errorE
   br label %88
 
-39:                                               ; preds = %.loopexit83
+39:                                               ; preds = %.loopexit
   %40 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5boost19execution_exceptionE
@@ -466,12 +466,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %_ZNSo
 156:                                              ; preds = %108
   %157 = call ptr @getenv(ptr noundef nonnull @.str.9) #20
   %.not.i43 = icmp eq ptr %157, null
-  br i1 %.not.i43, label %.loopexit, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46
+  br i1 %.not.i43, label %.critedge, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46
 
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46: ; preds = %156
   %strlen.i.i44 = call noundef i64 @strlen(ptr nonnull dereferenceable(1) %157)
   %158 = icmp eq i64 %strlen.i.i44, 2
-  br i1 %158, label %.lr.ph.i.i.i.i49, label %.loopexit
+  br i1 %158, label %.lr.ph.i.i.i.i49, label %.critedge
 
 .lr.ph.i.i.i.i49:                                 ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46, %161
   %.015.i.i.i.i50 = phi i64 [ %164, %161 ], [ 2, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46 ]
@@ -480,7 +480,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46: ; preds = %156
   %159 = load i8, ptr %.0913.i.i.i.i52, align 1, !tbaa !3
   %160 = load i8, ptr %.0814.i.i.i.i51, align 1, !tbaa !3
   %.not.i53 = icmp eq i8 %159, %160
-  br i1 %.not.i53, label %161, label %.loopexit
+  br i1 %.not.i53, label %161, label %.critedge
 
 161:                                              ; preds = %.lr.ph.i.i.i.i49
   %162 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i52, i64 1
@@ -489,7 +489,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46: ; preds = %156
   %.not.i.i.i.i54 = icmp eq i64 %164, 0
   br i1 %.not.i.i.i.i54, label %_ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit55, label %.lr.ph.i.i.i.i49, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i49, %156, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i49, %156, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46
   %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
   %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.10, i64 noundef 18)
   %167 = load ptr, ptr %165, align 8, !tbaa !17
@@ -501,11 +501,11 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit46: ; preds = %156
   %.not.i.i.i67 = icmp eq ptr %172, null
   br i1 %.not.i.i.i67, label %173, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68
 
-173:                                              ; preds = %.loopexit
+173:                                              ; preds = %.critedge
   call void @_ZSt16__throw_bad_castv() #22
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68: ; preds = %.loopexit
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i68: ; preds = %.critedge
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 56
   %175 = load i8, ptr %174, align 8, !tbaa !28
   %.not.i1.i.i69 = icmp eq i8 %175, 0

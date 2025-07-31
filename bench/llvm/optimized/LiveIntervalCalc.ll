@@ -1284,8 +1284,8 @@ _ZN4llvm9LiveRange15createValueCopyEPKNS_6VNInfoERNS_20BumpPtrAllocatorImplINS_1
   br i1 %.not, label %._crit_edge, label %31
 
 66:                                               ; preds = %.lr.ph31, %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit
-  %67 = phi i32 [ %.pre, %.lr.ph31 ], [ %94, %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit ]
-  %.02229 = phi ptr [ %19, %.lr.ph31 ], [ %95, %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit ]
+  %67 = phi i32 [ %.pre, %.lr.ph31 ], [ %93, %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit ]
+  %.02229 = phi ptr [ %19, %.lr.ph31 ], [ %94, %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   %.sroa.01.0.copyload = load i64, ptr %.02229, align 8, !tbaa !224
   %68 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
@@ -1312,34 +1312,34 @@ _ZN4llvm9LiveRange15createValueCopyEPKNS_6VNInfoERNS_20BumpPtrAllocatorImplINS_1
   %81 = icmp uge ptr %4, %.pre3.i
   %82 = icmp ult ptr %4, %80
   %spec.select.i.i.i.i.i = and i1 %81, %82
-  br i1 %spec.select.i.i.i.i.i, label %84, label %83, !prof !380
+  br i1 %spec.select.i.i.i.i.i, label %83, label %.critedge.i.i.i, !prof !380
 
 83:                                               ; preds = %79
+  %84 = ptrtoint ptr %.pre3.i to i64
+  %85 = sub i64 %30, %84
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %77, i64 noundef 24) #10
+  %86 = load ptr, ptr %0, align 8, !tbaa !279
+  %87 = getelementptr inbounds i8, ptr %86, i64 %85
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %79
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %77, i64 noundef 24) #10
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !279
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit
 
-84:                                               ; preds = %79
-  %85 = ptrtoint ptr %.pre3.i to i64
-  %86 = sub i64 %30, %85
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %77, i64 noundef 24) #10
-  %87 = load ptr, ptr %0, align 8, !tbaa !279
-  %88 = getelementptr inbounds i8, ptr %87, i64 %86
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit: ; preds = %66, %83, %84
-  %89 = phi ptr [ %.pre3.i, %66 ], [ %87, %84 ], [ %.pre.i, %83 ]
-  %.016.i.i.i = phi ptr [ %4, %66 ], [ %88, %84 ], [ %4, %83 ]
-  %90 = load i32, ptr %27, align 8, !tbaa !280
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %89, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %93 = load i32, ptr %27, align 8, !tbaa !280
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %27, align 8, !tbaa !280
+_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit: ; preds = %66, %83, %.critedge.i.i.i
+  %88 = phi ptr [ %.pre3.i, %66 ], [ %86, %83 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %66 ], [ %87, %83 ], [ %4, %.critedge.i.i.i ]
+  %89 = load i32, ptr %27, align 8, !tbaa !280
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw %"struct.llvm::LiveRange::Segment", ptr %88, i64 %90
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %92 = load i32, ptr %27, align 8, !tbaa !280
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %27, align 8, !tbaa !280
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  %95 = getelementptr inbounds nuw i8, ptr %.02229, i64 24
-  %.not25 = icmp eq ptr %95, %23
+  %94 = getelementptr inbounds nuw i8, ptr %.02229, i64 24
+  %.not25 = icmp eq ptr %94, %23
   br i1 %.not25, label %.loopexit, label %66
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_.exit, %._crit_edge, %3

@@ -4935,16 +4935,16 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h17d8e6bdb6c857d3E.exit.i.i.i.
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %45 = load i64, ptr %44, align 8, !alias.scope !817, !noalias !818, !noundef !6
-  %.not60.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i, %45
+  %.not59.i.i.i.i.i = icmp ult i64 %.sroa.049.2.i.i.i.i.i, %45
   %46 = load ptr, ptr %43, align 8, !alias.scope !817, !noalias !818, !nonnull !6
-  br i1 %.not60.i.i.i.i.i, label %47, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf04b7cb8d3c6e797E.exit.i.i"
+  br i1 %.not59.i.i.i.i.i, label %47, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf04b7cb8d3c6e797E.exit.i.i"
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i64, ptr %46, i64 %.sroa.049.2.i.i.i.i.i
   %49 = load i64, ptr %48, align 8, !noalias !825, !noundef !6
   %.not.i.i.i.i.i = icmp ne i64 %49, 0
-  %.not61.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i, %45
-  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %.not61.i.i.i.i.i, i1 false
+  %.not60.i.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i.i, %45
+  %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %.not60.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %50, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf04b7cb8d3c6e797E.exit.i.i"
 
 50:                                               ; preds = %47

@@ -122,8 +122,8 @@ define dso_local i32 @igmp_rcv(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %38 = load i8, ptr %34, align 8
   %39 = lshr i8 %38, 5
   %40 = and i8 %39, 3
-  switch i8 %40, label %.critedge25 [
-    i8 1, label %.critedge
+  switch i8 %40, label %.critedge [
+    i8 1, label %.critedge25
     i8 3, label %41
   ]
 
@@ -141,16 +141,16 @@ define dso_local i32 @igmp_rcv(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %52 = trunc i64 %51 to i32
   %53 = add i32 %52, %44
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.critedge25, label %.critedge
+  br i1 %54, label %.critedge, label %.critedge25
 
-.critedge:                                        ; preds = %33, %41
+.critedge25:                                      ; preds = %33, %41
   %55 = or i24 %36, 32768
   store i24 %55, ptr %35, align 1
   %56 = and i8 %38, 96
   %57 = icmp eq i8 %56, 32
   br i1 %57, label %58, label %89
 
-58:                                               ; preds = %.critedge
+58:                                               ; preds = %.critedge25
   %59 = trunc i24 %36 to i8
   %60 = and i8 %59, 96
   %61 = icmp eq i8 %60, 0
@@ -170,12 +170,12 @@ define dso_local i32 @igmp_rcv(ptr noundef %0) local_unnamed_addr #0 align 16 {
   store i24 %69, ptr %35, align 1
   br label %89
 
-.critedge25:                                      ; preds = %33, %41
+.critedge:                                        ; preds = %33, %41
   %70 = and i8 %38, 96
   %71 = icmp eq i8 %70, 64
   br i1 %71, label %72, label %81
 
-72:                                               ; preds = %.critedge25
+72:                                               ; preds = %.critedge
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %74 = load i32, ptr %73, align 8
   %75 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 %74) #15, !srcloc !6
@@ -190,7 +190,7 @@ define dso_local i32 @igmp_rcv(ptr noundef %0) local_unnamed_addr #0 align 16 {
   store i24 %80, ptr %35, align 1
   br label %89
 
-81:                                               ; preds = %72, %.critedge25
+81:                                               ; preds = %72, %.critedge
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %82, align 8
   %83 = tail call zeroext i16 @__skb_checksum_complete(ptr noundef %0) #14
@@ -202,7 +202,7 @@ define dso_local i32 @igmp_rcv(ptr noundef %0) local_unnamed_addr #0 align 16 {
   store i24 %88, ptr %35, align 1
   br i1 %84, label %89, label %467
 
-89:                                               ; preds = %.critedge27, %.critedge, %62, %64, %81
+89:                                               ; preds = %.critedge27, %.critedge25, %62, %64, %81
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 178
@@ -4445,7 +4445,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
 17:                                               ; preds = %16, %6
   %18 = and i32 %9, 240
   %19 = icmp eq i32 %18, 224
-  br i1 %19, label %20, label %.thread10
+  br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %17
   store i32 0, ptr %8, align 4, !annotation !40
@@ -4457,7 +4457,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
 24:                                               ; preds = %20
   %25 = tail call ptr @__ip_dev_find(ptr noundef %11, i32 noundef %22, i1 noundef zeroext false) #14
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread10, label %.thread9
+  br i1 %26, label %.critedge, label %.thread9
 
 27:                                               ; preds = %20
   %28 = load i32, ptr %1, align 4
@@ -4468,13 +4468,13 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   %30 = call ptr @ip_route_output_flow(ptr noundef %11, ptr noundef nonnull %7, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #14
   %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  br i1 %31, label %.thread10, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %30, align 8
   call void @dst_release(ptr noundef %30) #14
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread10, label %.thread9
+  br i1 %34, label %.critedge, label %.thread9
 
 .thread9:                                         ; preds = %24, %32
   %35 = phi ptr [ %33, %32 ], [ %25, %24 ]
@@ -4483,13 +4483,13 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 952
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread10, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %.thread9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread10, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %41
   %46 = load i32, ptr %1, align 4
@@ -4511,7 +4511,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
 56:                                               ; preds = %52, %47
   %57 = load ptr, ptr %48, align 8
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.thread10, label %47, !llvm.loop !136
+  br i1 %58, label %.critedge, label %47, !llvm.loop !136
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -4549,7 +4549,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   %83 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %8, i64 noundef 4) #14
   %84 = and i64 %83, 4294967295
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %87, label %.thread10
+  br i1 %85, label %87, label %.critedge
 
 86:                                               ; preds = %69
   store i32 %79, ptr %4, align 1
@@ -4564,7 +4564,7 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   %91 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef %1, i64 noundef 16) #14
   %92 = and i64 %91, 4294967295
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %95, label %.thread10
+  br i1 %93, label %95, label %.critedge
 
 94:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %2, ptr noundef align 1 dereferenceable(16) %1, i64 16, i1 false)
@@ -4581,13 +4581,13 @@ define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonl
   %101 = ashr exact i64 %100, 32
   %102 = call fastcc i32 @copy_to_sockptr_offset(ptr %2, i8 %3, ptr noundef nonnull %99, i64 noundef %101)
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %.thread10
+  br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %98, %95
-  br label %.thread10
+  br label %.critedge
 
-.thread10:                                        ; preds = %56, %27, %24, %32, %104, %98, %90, %82, %41, %.thread9, %17
-  %105 = phi i32 [ 0, %104 ], [ -22, %17 ], [ -14, %90 ], [ -14, %82 ], [ -14, %98 ], [ -19, %.thread9 ], [ -99, %41 ], [ -19, %32 ], [ -19, %24 ], [ -19, %27 ], [ -99, %56 ]
+.critedge:                                        ; preds = %56, %27, %32, %24, %104, %98, %90, %82, %41, %.thread9, %17
+  %105 = phi i32 [ 0, %104 ], [ -22, %17 ], [ -14, %90 ], [ -14, %82 ], [ -14, %98 ], [ -19, %.thread9 ], [ -99, %41 ], [ -19, %24 ], [ -19, %32 ], [ -19, %27 ], [ -99, %56 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   ret i32 %105
 }
@@ -6647,8 +6647,8 @@ define internal zeroext i16 @ip_mc_validate_checksum(ptr noundef %0) #0 align 16
   %6 = load i8, ptr %5, align 8
   %7 = lshr i8 %6, 5
   %8 = and i8 %7, 3
-  switch i8 %8, label %.critedge2 [
-    i8 1, label %.critedge
+  switch i8 %8, label %.critedge [
+    i8 1, label %.critedge2
     i8 3, label %9
   ]
 
@@ -6666,16 +6666,16 @@ define internal zeroext i16 @ip_mc_validate_checksum(ptr noundef %0) #0 align 16
   %20 = trunc i64 %19 to i32
   %21 = add i32 %20, %12
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.critedge2, label %.critedge
+  br i1 %22, label %.critedge, label %.critedge2
 
-.critedge:                                        ; preds = %1, %9
+.critedge2:                                       ; preds = %1, %9
   %23 = or i24 %3, 32768
   store i24 %23, ptr %2, align 1
   %24 = and i8 %6, 96
   %25 = icmp eq i8 %24, 32
   br i1 %25, label %26, label %61
 
-26:                                               ; preds = %.critedge
+26:                                               ; preds = %.critedge2
   %27 = trunc i24 %3 to i8
   %28 = and i8 %27, 96
   %29 = icmp eq i8 %28, 0
@@ -6695,12 +6695,12 @@ define internal zeroext i16 @ip_mc_validate_checksum(ptr noundef %0) #0 align 16
   store i24 %37, ptr %2, align 1
   br label %61
 
-.critedge2:                                       ; preds = %1, %9
+.critedge:                                        ; preds = %1, %9
   %38 = and i8 %6, 96
   %39 = icmp eq i8 %38, 64
   br i1 %39, label %40, label %50
 
-40:                                               ; preds = %.critedge2
+40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8
   %43 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 %42) #15, !srcloc !6
@@ -6714,7 +6714,7 @@ define internal zeroext i16 @ip_mc_validate_checksum(ptr noundef %0) #0 align 16
   %49 = or i24 %3, 32768
   br label %58
 
-50:                                               ; preds = %40, %.critedge2
+50:                                               ; preds = %40, %.critedge
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %51, align 8
   %52 = tail call zeroext i16 @__skb_checksum_complete(ptr noundef %0) #14
@@ -6731,8 +6731,8 @@ define internal zeroext i16 @ip_mc_validate_checksum(ptr noundef %0) #0 align 16
   store i24 %59, ptr %2, align 1
   br label %61
 
-61:                                               ; preds = %.critedge, %30, %32, %58
-  %62 = phi i16 [ %60, %58 ], [ 0, %32 ], [ 0, %30 ], [ 0, %.critedge ]
+61:                                               ; preds = %.critedge2, %30, %32, %58
+  %62 = phi i16 [ %60, %58 ], [ 0, %32 ], [ 0, %30 ], [ 0, %.critedge2 ]
   ret i16 %62
 }
 

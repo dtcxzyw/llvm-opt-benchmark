@@ -53,7 +53,7 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
 
 .split.us:                                        ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  br label %select.unfold
+  br label %.critedge
 
 .split:                                           ; preds = %3, %32
   %storemerge = phi i32 [ %33, %32 ], [ %1, %3 ]
@@ -85,7 +85,7 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
   %18 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i = icmp eq i16 %19, 0
-  br i1 %.not.i.i.i.i, label %29, label %select.unfold
+  br i1 %.not.i.i.i.i, label %29, label %.critedge
 
 20:                                               ; preds = %16
   %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.023.i.i.i, i1 true)
@@ -111,13 +111,13 @@ define noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph1
   %34 = icmp eq i32 %33, %2
   br i1 %34, label %.loopexit, label %.split
 
-select.unfold:                                    ; preds = %17, %.split.us
-  %storemerge14 = phi i32 [ %1, %.split.us ], [ %storemerge, %17 ]
-  %35 = icmp eq i32 %storemerge14, %2
+.critedge:                                        ; preds = %17, %.split.us
+  %storemerge13 = phi i32 [ %1, %.split.us ], [ %storemerge, %17 ]
+  %35 = icmp eq i32 %storemerge13, %2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %select.unfold
-  %.0 = phi i1 [ %35, %select.unfold ], [ true, %32 ]
+.loopexit:                                        ; preds = %32, %.critedge
+  %.0 = phi i1 [ %35, %.critedge ], [ true, %32 ]
   ret i1 %.0
 }
 

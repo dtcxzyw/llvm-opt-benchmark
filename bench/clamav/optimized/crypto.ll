@@ -1535,28 +1535,28 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #12
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %.not29 = icmp eq ptr %6, null
-  br i1 %.not29, label %41, label %7
+  br i1 %.not29, label %40, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %9 = icmp ult i64 %8, 12
-  br i1 %9, label %41, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %7
   %11 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
   %.not30 = icmp eq ptr %11, null
-  br i1 %.not30, label %41, label %12
+  br i1 %.not30, label %40, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !17
-  switch i32 %14, label %31 [
+  switch i32 %14, label %.critedge [
     i32 23, label %15
     i32 24, label %23
   ]
@@ -1571,12 +1571,12 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 48, ptr %20, align 1, !tbaa !11
   store i8 57, ptr %16, align 1, !tbaa !11
-  br label %32
+  br label %31
 
 21:                                               ; preds = %15
   %22 = add i8 %17, -1
   store i8 %22, ptr %16, align 1, !tbaa !11
-  br label %32
+  br label %31
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -1588,39 +1588,39 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 48, ptr %28, align 1, !tbaa !11
   store i8 57, ptr %24, align 1, !tbaa !11
-  br label %32
+  br label %31
 
 29:                                               ; preds = %23
   %30 = add i8 %25, -1
   store i8 %30, ptr %24, align 1, !tbaa !11
-  br label %32
+  br label %31
 
-31:                                               ; preds = %12
+.critedge:                                        ; preds = %12
   tail call void @free(ptr noundef nonnull %11) #12
-  br label %41
+  br label %40
 
-32:                                               ; preds = %19, %21, %27, %29
-  %.0.ph = phi ptr [ @.str.8, %29 ], [ @.str.8, %27 ], [ @.str.7, %21 ], [ @.str.7, %19 ]
-  %33 = tail call ptr @strptime(ptr noundef nonnull %6, ptr noundef nonnull %.0.ph, ptr noundef nonnull %11) #12
-  %.not32 = icmp eq ptr %33, null
-  br i1 %.not32, label %34, label %35
+31:                                               ; preds = %21, %19, %27, %29
+  %.0 = phi ptr [ @.str.7, %19 ], [ @.str.7, %21 ], [ @.str.8, %27 ], [ @.str.8, %29 ]
+  %32 = tail call ptr @strptime(ptr noundef nonnull %6, ptr noundef nonnull %.0, ptr noundef nonnull %11) #12
+  %.not32 = icmp eq ptr %32, null
+  br i1 %.not32, label %33, label %34
 
-34:                                               ; preds = %32
+33:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %11) #12
-  br label %41
+  br label %40
 
-35:                                               ; preds = %32
-  %36 = tail call i64 @time(ptr noundef null) #12
-  store i64 %36, ptr %2, align 8, !tbaa !18
-  %37 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !19
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 %39, ptr %40, align 8, !tbaa !19
-  br label %41
+34:                                               ; preds = %31
+  %35 = tail call i64 @time(ptr noundef null) #12
+  store i64 %35, ptr %2, align 8, !tbaa !18
+  %36 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i32 %38, ptr %39, align 8, !tbaa !19
+  br label %40
 
-41:                                               ; preds = %10, %7, %1, %4, %35, %34, %31
-  %.024 = phi ptr [ %11, %35 ], [ null, %34 ], [ null, %31 ], [ null, %4 ], [ null, %1 ], [ null, %7 ], [ null, %10 ]
+40:                                               ; preds = %10, %7, %1, %4, %34, %33, %.critedge
+  %.024 = phi ptr [ %11, %34 ], [ null, %33 ], [ null, %.critedge ], [ null, %4 ], [ null, %1 ], [ null, %7 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret ptr %.024

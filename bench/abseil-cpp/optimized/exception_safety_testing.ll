@@ -645,24 +645,24 @@ define dso_local void @_ZN7testing19exceptions_internal13GetSpecStringB5cxx11ENS
   %6 = select i1 %.not, i64 0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store i64 %6, ptr %3, align 8, !tbaa !14
-  br i1 %.not, label %._crit_edge.i.i.thread, label %7
+  br i1 %.not, label %.critedge, label %.noexc.i
 
-7:                                                ; preds = %2
-  %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %8, ptr %0, align 8, !tbaa !16
-  %9 = load i64, ptr %3, align 8, !tbaa !14
-  store i64 %9, ptr %5, align 8, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) @.str.4, i64 16, i1 false)
+.noexc.i:                                         ; preds = %2
+  %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %7, ptr %0, align 8, !tbaa !16
+  %8 = load i64, ptr %3, align 8, !tbaa !14
+  store i64 %8, ptr %5, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) @.str.4, i64 16, i1 false)
   %.pre3 = load ptr, ptr %0, align 8, !tbaa !16
-  br label %._crit_edge.i.i.thread
+  br label %.critedge
 
-._crit_edge.i.i.thread:                           ; preds = %2, %7
-  %10 = phi ptr [ %.pre3, %7 ], [ %5, %2 ]
-  %11 = phi i64 [ %9, %7 ], [ 0, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %11, ptr %12, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  store i8 0, ptr %13, align 1, !tbaa !18
+.critedge:                                        ; preds = %2, %.noexc.i
+  %9 = phi ptr [ %5, %2 ], [ %.pre3, %.noexc.i ]
+  %10 = phi i64 [ 0, %2 ], [ %8, %.noexc.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %10, ptr %11, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  store i8 0, ptr %12, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret void
 }

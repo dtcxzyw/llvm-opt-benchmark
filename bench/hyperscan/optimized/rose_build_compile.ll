@@ -4575,16 +4575,16 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %555, %549
   br label %578
 
 578:                                              ; preds = %613, %.lr.ph.i43.i
-  %.04790.i.i = phi i1 [ false, %.lr.ph.i43.i ], [ true, %613 ]
-  %.05089.i.i = phi i32 [ 0, %.lr.ph.i43.i ], [ %592, %613 ]
-  %.05388.i.i = phi i32 [ 0, %.lr.ph.i43.i ], [ %591, %613 ]
-  %.sroa.073.087.i.i = phi ptr [ %575, %.lr.ph.i43.i ], [ %614, %613 ]
+  %.04785.i.i = phi i1 [ false, %.lr.ph.i43.i ], [ true, %613 ]
+  %.05084.i.i = phi i32 [ 0, %.lr.ph.i43.i ], [ %592, %613 ]
+  %.05383.i.i = phi i32 [ 0, %.lr.ph.i43.i ], [ %591, %613 ]
+  %.sroa.073.082.i.i = phi ptr [ %575, %.lr.ph.i43.i ], [ %614, %613 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.073.087.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.073.082.i.i, i64 16, i1 false)
   %.sroa.012.0.copyload.pre.i.i = load ptr, ptr %56, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.pre.i.i, i64 108
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  br i1 %.04790.i.i, label %586, label %579
+  br i1 %.04785.i.i, label %586, label %579
 
 579:                                              ; preds = %578
   %580 = load ptr, ptr %294, align 8
@@ -4599,18 +4599,18 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %555, %549
   br label %590
 
 586:                                              ; preds = %578
-  %587 = icmp eq i32 %.05388.i.i, %.pre.i.i
+  %587 = icmp eq i32 %.05383.i.i, %.pre.i.i
   br i1 %587, label %588, label %.loopexit.sink.split.i.i
 
 588:                                              ; preds = %586
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.pre.i.i, i64 104
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %589 = icmp eq i32 %.05089.i.i, %.pre.i
+  %589 = icmp eq i32 %.05084.i.i, %.pre.i
   br i1 %589, label %590, label %.loopexit.sink.split.i.i
 
 590:                                              ; preds = %588, %.thread.i
-  %591 = phi i32 [ %.pre.i.i, %.thread.i ], [ %.05388.i.i, %588 ]
-  %592 = phi i32 [ %585, %.thread.i ], [ %.05089.i.i, %588 ]
+  %591 = phi i32 [ %.pre.i.i, %.thread.i ], [ %.05383.i.i, %588 ]
+  %592 = phi i32 [ %585, %.thread.i ], [ %.05084.i.i, %588 ]
   %593 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.pre.i.i, i64 16
   %594 = invoke noundef zeroext i1 @_ZNK3ue215RoseVertexProps8isBoringEv(ptr noundef nonnull align 8 dereferenceable(296) %593)
           to label %.noexc44.i unwind label %.loopexit216.i
@@ -4638,8 +4638,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %555, %549
   %.not65.i.i = icmp eq i64 %602, %601
   %603 = zext i32 %592 to i64
   %.not66.i.i = icmp eq i64 %602, %603
-  %or.cond81.i.i = and i1 %.not65.i.i, %.not66.i.i
-  br i1 %or.cond81.i.i, label %604, label %.loopexit.sink.split.i.i
+  %or.cond76.i.i = and i1 %.not65.i.i, %.not66.i.i
+  br i1 %or.cond76.i.i, label %604, label %.loopexit.sink.split.i.i
 
 604:                                              ; preds = %600
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %56, align 8, !noalias !397
@@ -4649,8 +4649,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %555, %549
 606:                                              ; preds = %607, %604
   %.sroa.068.0.in.i.i = phi ptr [ %605, %604 ], [ %.sroa.068.0.i.i, %607 ]
   %.sroa.068.0.i.i = load ptr, ptr %.sroa.068.0.in.i.i, align 8
-  %.not83.i.i = icmp eq ptr %.sroa.068.0.i.i, %605
-  br i1 %.not83.i.i, label %613, label %607
+  %.not78.i.i = icmp eq ptr %.sroa.068.0.i.i, %605
+  br i1 %.not78.i.i, label %613, label %607
 
 607:                                              ; preds = %606
   %608 = getelementptr inbounds nuw i8, ptr %.sroa.068.0.i.i, i64 40
@@ -4662,9 +4662,9 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %555, %549
 
 613:                                              ; preds = %606
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #26
-  %614 = getelementptr inbounds nuw i8, ptr %.sroa.073.087.i.i, i64 16
-  %.not82.i.i = icmp eq ptr %614, %576
-  br i1 %.not82.i.i, label %_ZN3ue2L19suitableForAnchoredERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE.exit.i, label %578
+  %614 = getelementptr inbounds nuw i8, ptr %.sroa.073.082.i.i, i64 16
+  %.not77.i.i = icmp eq ptr %614, %576
+  br i1 %.not77.i.i, label %_ZN3ue2L19suitableForAnchoredERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE.exit.i, label %578
 
 .loopexit.sink.split.i.i:                         ; preds = %600, %.noexc45.i, %595, %.noexc44.i, %588, %586, %579, %607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #26

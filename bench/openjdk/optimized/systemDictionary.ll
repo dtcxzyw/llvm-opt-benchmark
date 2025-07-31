@@ -4074,12 +4074,12 @@ define hidden noundef ptr @_ZN16SystemDictionary24load_instance_class_implEP6Sym
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load i64, ptr %17, align 8
-  br i1 %8, label %19, label %131
+  br i1 %8, label %19, label %141
 
 19:                                               ; preds = %3
   %20 = tail call noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr noundef %0, ptr noundef null) #14
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117, label %21
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116, label %21
 
 21:                                               ; preds = %19
   %22 = load volatile i32, ptr %20, align 4
@@ -4101,10 +4101,10 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %25, %21
   %32 = icmp eq ptr %29, null
   br i1 %31, label %45, label %35
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117: ; preds = %19
+_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116: ; preds = %19
   %33 = load i8, ptr @_ZN8Universe19_module_initializedE, align 1
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %.thread124, label %.thread
+  br i1 %34, label %.thread123, label %.thread
 
 35:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
   br i1 %32, label %.thread, label %36
@@ -4114,49 +4114,49 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117: ; preds = %19
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  %.not.i80 = icmp eq ptr %40, null
-  br i1 %.not.i80, label %.thread, label %43
+  %.not.i79 = icmp eq ptr %40, null
+  br i1 %.not.i79, label %.thread, label %43
 
-.thread:                                          ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117, %36, %35
-  %.062121123 = phi ptr [ %29, %36 ], [ null, %35 ], [ null, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117 ]
+.thread:                                          ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116, %36, %35
+  %.062120122 = phi ptr [ %29, %36 ], [ null, %35 ], [ null, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116 ]
   %41 = load ptr, ptr @_ZN16ModuleEntryTable16_javabase_moduleE, align 8
-  %.not.i81 = icmp eq ptr %41, null
-  br i1 %.not.i81, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %_ZN16ModuleEntryTable16javabase_definedEv.exit
+  %.not.i80 = icmp eq ptr %41, null
+  br i1 %.not.i80, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %_ZN16ModuleEntryTable16javabase_definedEv.exit
 
 _ZN16ModuleEntryTable16javabase_definedEv.exit:   ; preds = %.thread
   %42 = tail call noundef ptr @_ZNK11ModuleEntry6moduleEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #14
-  %.not148 = icmp eq ptr %42, null
-  br i1 %.not148, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread
+  %.not146 = icmp eq ptr %42, null
+  br i1 %.not146, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8), align 8
-  %.not147 = icmp eq ptr %40, %44
-  br i1 %.not147, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %.thread137
+  %.not145 = icmp eq ptr %40, %44
+  br i1 %.not145, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread, label %.thread135
 
 45:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  br i1 %32, label %.thread124, label %46
+  br i1 %32, label %.thread123, label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  %.not.i82 = icmp eq ptr %50, null
-  br i1 %.not.i82, label %.thread124, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
+  %.not.i81 = icmp eq ptr %50, null
+  br i1 %.not.i81, label %.thread123, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
 
-.thread124:                                       ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117, %46, %45
-  %.062119127 = phi ptr [ %29, %46 ], [ null, %45 ], [ null, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread117 ]
+.thread123:                                       ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116, %46, %45
+  %.062118126 = phi ptr [ %29, %46 ], [ null, %45 ], [ null, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread116 ]
   %51 = load volatile ptr, ptr @_ZN11ClassLoader24_first_append_entry_listE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
-  %.not149 = icmp eq ptr %51, null
-  br i1 %.not149, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
+  %.not147 = icmp eq ptr %51, null
+  br i1 %.not147, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread, label %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
 
-_ZN16ModuleEntryTable16javabase_definedEv.exit.thread: ; preds = %.thread, %.thread124, %46, %_ZN16ModuleEntryTable16javabase_definedEv.exit, %43
-  %.062120 = phi ptr [ %29, %46 ], [ %.062121123, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ %29, %43 ], [ %.062119127, %.thread124 ], [ %.062121123, %.thread ]
-  %.063 = phi i1 [ false, %46 ], [ false, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ false, %43 ], [ true, %.thread124 ], [ false, %.thread ]
+_ZN16ModuleEntryTable16javabase_definedEv.exit.thread: ; preds = %.thread, %.thread123, %46, %_ZN16ModuleEntryTable16javabase_definedEv.exit, %43
+  %.062119 = phi ptr [ %29, %46 ], [ %.062120122, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ %29, %43 ], [ %.062118126, %.thread123 ], [ %.062120122, %.thread ]
+  %.063 = phi i1 [ false, %46 ], [ false, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ false, %43 ], [ true, %.thread123 ], [ false, %.thread ]
   %52 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #14
-  %.pre152 = load i8, ptr @UsePerfData, align 1
-  br i1 %52, label %53, label %.thread128
+  %.pre149 = load i8, ptr @UsePerfData, align 1
+  br i1 %52, label %53, label %_ZN13PerfTraceTimeD2Ev.exit.thread
 
 53:                                               ; preds = %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
   %54 = load ptr, ptr @_ZN11ClassLoader27_perf_shared_classload_timeE, align 8
@@ -4165,7 +4165,7 @@ _ZN16ModuleEntryTable16javabase_definedEv.exit.thread: ; preds = %.thread, %.thr
   store i64 0, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %54, ptr %56, align 8
-  %57 = trunc i8 %.pre152 to i1
+  %57 = trunc i8 %.pre149 to i1
   %58 = icmp ne ptr %54, null
   %or.cond.not.i = and i1 %58, %57
   br i1 %or.cond.not.i, label %59, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit
@@ -4183,32 +4183,31 @@ _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit:     ; preds = %53, %59
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 308
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 192
-  %or.cond142.not = icmp eq i16 %64, 128
-  br i1 %or.cond142.not, label %65, label %_ZN22SharedClassLoadingMarkD2Ev.exit
+  %or.cond140.not = icmp eq i16 %64, 128
+  br i1 %or.cond140.not, label %65, label %_ZN22SharedClassLoadingMarkD2Ev.exit
 
 65:                                               ; preds = %61
-  %66 = call noundef ptr @_ZN16SystemDictionary17load_shared_classEP13InstanceKlass6HandleS2_PK15ClassFileStreamP12PackageEntryP10JavaThread(ptr noundef nonnull %60, ptr null, ptr null, ptr noundef null, ptr noundef %.062120, ptr noundef nonnull %2)
+  %66 = call noundef ptr @_ZN16SystemDictionary17load_shared_classEP13InstanceKlass6HandleS2_PK15ClassFileStreamP12PackageEntryP10JavaThread(ptr noundef nonnull %60, ptr null, ptr null, ptr noundef null, ptr noundef %.062119, ptr noundef nonnull %2)
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8
-  %.not150 = icmp eq ptr %68, null
-  br i1 %.not150, label %_ZN22SharedClassLoadingMarkD2Ev.exit, label %69
+  %.not.i82 = icmp eq ptr %68, null
+  br i1 %.not.i82, label %_ZN22SharedClassLoadingMarkD2Ev.exit, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 188
   %71 = load i16, ptr %70, align 4
   %72 = and i16 %71, 1
   %.not1.i = icmp eq i16 %72, 0
-  br i1 %.not1.i, label %_ZN22SharedClassLoadingMarkD2Ev.exit, label %73
+  br i1 %.not1.i, label %.critedge, label %73
 
 73:                                               ; preds = %69
   %74 = load i16, ptr %62, align 2
   %75 = or i16 %74, 64
   store i16 %75, ptr %62, align 2
-  br label %_ZN22SharedClassLoadingMarkD2Ev.exit
+  br label %.critedge
 
-_ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %73, %69, %65, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit, %61
-  %.270 = phi ptr [ null, %61 ], [ null, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ %66, %65 ], [ %66, %69 ], [ %66, %73 ]
-  %cond2 = phi i1 [ true, %61 ], [ true, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ true, %65 ], [ false, %69 ], [ false, %73 ]
+_ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %65, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit, %61
+  %.270 = phi ptr [ null, %61 ], [ null, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit ], [ %66, %65 ]
   %76 = load i8, ptr @UsePerfData, align 1
   %77 = trunc i8 %76 to i1
   %78 = load i8, ptr %55, align 8
@@ -4227,217 +4226,233 @@ _ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %73, %69, %65, %_ZN1
   store i64 %86, ptr %84, align 8
   br label %_ZN13PerfTraceTimeD2Ev.exit
 
-_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %_ZN22SharedClassLoadingMarkD2Ev.exit, %80
-  br i1 %cond2, label %87, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread
+_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %80, %_ZN22SharedClassLoadingMarkD2Ev.exit
+  %87 = icmp eq ptr %.270, null
+  br i1 %87, label %_ZN13PerfTraceTimeD2Ev.exit._ZN13PerfTraceTimeD2Ev.exit.thread_crit_edge, label %.thread128
 
-87:                                               ; preds = %_ZN13PerfTraceTimeD2Ev.exit
-  %88 = icmp eq ptr %.270, null
-  br i1 %88, label %..thread128_crit_edge, label %.thread130
-
-..thread128_crit_edge:                            ; preds = %87
+_ZN13PerfTraceTimeD2Ev.exit._ZN13PerfTraceTimeD2Ev.exit.thread_crit_edge: ; preds = %_ZN13PerfTraceTimeD2Ev.exit
   %.pre = load i8, ptr @UsePerfData, align 1
-  br label %.thread128
+  br label %_ZN13PerfTraceTimeD2Ev.exit.thread
 
-.thread128:                                       ; preds = %..thread128_crit_edge, %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
-  %89 = phi i8 [ %.pre, %..thread128_crit_edge ], [ %.pre152, %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread ]
-  %90 = load ptr, ptr @_ZN11ClassLoader24_perf_sys_classload_timeE, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %91, align 8
+_ZN13PerfTraceTimeD2Ev.exit.thread:               ; preds = %_ZN13PerfTraceTimeD2Ev.exit._ZN13PerfTraceTimeD2Ev.exit.thread_crit_edge, %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread
+  %88 = phi i8 [ %.pre, %_ZN13PerfTraceTimeD2Ev.exit._ZN13PerfTraceTimeD2Ev.exit.thread_crit_edge ], [ %.pre149, %_ZN16ModuleEntryTable16javabase_definedEv.exit.thread ]
+  %89 = load ptr, ptr @_ZN11ClassLoader24_perf_sys_classload_timeE, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 0, ptr %90, align 8
   store i64 0, ptr %5, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %90, ptr %92, align 8
-  %93 = trunc i8 %89 to i1
-  %94 = icmp ne ptr %90, null
-  %or.cond.not.i84 = and i1 %94, %93
-  br i1 %or.cond.not.i84, label %95, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit85
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %89, ptr %91, align 8
+  %92 = trunc i8 %88 to i1
+  %93 = icmp ne ptr %89, null
+  %or.cond.not.i83 = and i1 %93, %92
+  br i1 %or.cond.not.i83, label %94, label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit84
 
-95:                                               ; preds = %.thread128
+94:                                               ; preds = %_ZN13PerfTraceTimeD2Ev.exit.thread
   call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit85
+  br label %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit84
 
-_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit85:   ; preds = %.thread128, %95
-  %96 = call noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef %.062120, i1 noundef zeroext %.063, ptr noundef nonnull %2) #14
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp ne ptr %98, null
-  %100 = load i8, ptr @UsePerfData, align 1
-  %101 = trunc i8 %100 to i1
-  %102 = load i8, ptr %91, align 8
-  %103 = trunc i8 %102 to i1
-  %or.cond.i86 = select i1 %101, i1 %103, i1 false
-  br i1 %or.cond.i86, label %104, label %_ZN13PerfTraceTimeD2Ev.exit87
+_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit84:   ; preds = %_ZN13PerfTraceTimeD2Ev.exit.thread, %94
+  %95 = call noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntrybP10JavaThread(ptr noundef %0, ptr noundef %.062119, i1 noundef zeroext %.063, ptr noundef nonnull %2) #14
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp ne ptr %97, null
+  %99 = load i8, ptr @UsePerfData, align 1
+  %100 = trunc i8 %99 to i1
+  %101 = load i8, ptr %90, align 8
+  %102 = trunc i8 %101 to i1
+  %or.cond.i85 = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond.i85, label %103, label %_ZN13PerfTraceTimeD2Ev.exit86
 
-104:                                              ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit85
+103:                                              ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit84
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  %105 = load ptr, ptr %92, align 8
-  %106 = load i64, ptr %5, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i64, ptr %108, align 8
-  %110 = add nsw i64 %109, %106
-  store i64 %110, ptr %108, align 8
-  br label %_ZN13PerfTraceTimeD2Ev.exit87
+  %104 = load ptr, ptr %91, align 8
+  %105 = load i64, ptr %5, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %107 = load ptr, ptr %106, align 8
+  %108 = load i64, ptr %107, align 8
+  %109 = add nsw i64 %108, %105
+  store i64 %109, ptr %107, align 8
+  br label %_ZN13PerfTraceTimeD2Ev.exit86
 
-_ZN13PerfTraceTimeD2Ev.exit87:                    ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit85, %104
-  %.not78 = icmp eq ptr %96, null
-  %or.cond143 = or i1 %.not78, %99
-  br i1 %or.cond143, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread, label %.thread130
+_ZN13PerfTraceTimeD2Ev.exit86:                    ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit84, %103
+  %.not78 = icmp eq ptr %95, null
+  %or.cond141 = or i1 %.not78, %98
+  br i1 %or.cond141, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread, label %.thread128
 
-.thread130:                                       ; preds = %_ZN13PerfTraceTimeD2Ev.exit87, %87
-  %.371133 = phi ptr [ %.270, %87 ], [ %96, %_ZN13PerfTraceTimeD2Ev.exit87 ]
-  %111 = call noundef ptr @_ZN16SystemDictionary21find_or_define_helperEP6Symbol6HandleP13InstanceKlassP10JavaThread(ptr readnone poison, ptr null, ptr noundef nonnull %.371133, ptr noundef nonnull %2)
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp ne ptr %113, null
-  %.not.i88 = icmp eq ptr %111, %.371133
-  %or.cond.i89 = or i1 %.not.i88, %114
-  br i1 %or.cond.i89, label %115, label %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit
+.thread128:                                       ; preds = %_ZN13PerfTraceTimeD2Ev.exit86, %_ZN13PerfTraceTimeD2Ev.exit
+  %.371131 = phi ptr [ %.270, %_ZN13PerfTraceTimeD2Ev.exit ], [ %95, %_ZN13PerfTraceTimeD2Ev.exit86 ]
+  %110 = call noundef ptr @_ZN16SystemDictionary21find_or_define_helperEP6Symbol6HandleP13InstanceKlassP10JavaThread(ptr readnone poison, ptr null, ptr noundef nonnull %.371131, ptr noundef nonnull %2)
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp ne ptr %112, null
+  %.not.i87 = icmp eq ptr %110, %.371131
+  %or.cond.i88 = or i1 %.not.i87, %113
+  br i1 %or.cond.i88, label %114, label %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit
 
-115:                                              ; preds = %.thread130
-  br i1 %114, label %_Z17class_loader_data6Handle.exit.i, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread
+114:                                              ; preds = %.thread128
+  br i1 %113, label %_Z17class_loader_data6Handle.exit.i, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
 
-_Z17class_loader_data6Handle.exit.i:              ; preds = %115
-  %116 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  call void @_ZN21LoaderConstraintTable26remove_failed_loaded_klassEP13InstanceKlassP15ClassLoaderData(ptr noundef nonnull %.371133, ptr noundef %116) #14
+_Z17class_loader_data6Handle.exit.i:              ; preds = %114
+  %115 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  call void @_ZN21LoaderConstraintTable26remove_failed_loaded_klassEP13InstanceKlassP15ClassLoaderData(ptr noundef nonnull %.371131, ptr noundef %115) #14
   br label %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit
 
-_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit: ; preds = %.thread130, %_Z17class_loader_data6Handle.exit.i
-  %117 = getelementptr inbounds nuw i8, ptr %.371133, i64 152
-  %118 = load ptr, ptr %117, align 8
-  call void @_ZN15ClassLoaderData22add_to_deallocate_listEP8Metadata(ptr noundef nonnull align 8 dereferenceable(160) %118, ptr noundef nonnull %.371133) #14
-  %.pr = load ptr, ptr %112, align 8
+_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit: ; preds = %.thread128, %_Z17class_loader_data6Handle.exit.i
+  %116 = getelementptr inbounds nuw i8, ptr %.371131, i64 152
+  %117 = load ptr, ptr %116, align 8
+  call void @_ZN15ClassLoaderData22add_to_deallocate_listEP8Metadata(ptr noundef nonnull align 8 dereferenceable(160) %117, ptr noundef nonnull %.371131) #14
+  %.pr = load ptr, ptr %111, align 8
   %.pr.fr = freeze ptr %.pr
-  %.not151 = icmp eq ptr %.pr.fr, null
-  br i1 %.not151, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread, label %119
+  %.not148 = icmp eq ptr %.pr.fr, null
+  br i1 %.not148, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread, label %118
 
-119:                                              ; preds = %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit
-  %120 = getelementptr inbounds nuw i8, ptr %.371133, i64 188
-  %121 = load i16, ptr %120, align 4
-  %122 = and i16 %121, 1
-  %.not1.i91 = icmp eq i16 %122, 0
-  br i1 %.not1.i91, label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread, label %123
+118:                                              ; preds = %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit
+  %119 = getelementptr inbounds nuw i8, ptr %.371131, i64 188
+  %120 = load i16, ptr %119, align 4
+  %121 = and i16 %120, 1
+  %.not1.i90 = icmp eq i16 %121, 0
+  br i1 %.not1.i90, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread, label %122
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %.371133, i64 308
-  %125 = load i16, ptr %124, align 2
-  %126 = or i16 %125, 64
-  store i16 %126, ptr %124, align 2
-  br label %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %.371131, i64 308
+  %124 = load i16, ptr %123, align 2
+  %125 = or i16 %124, 64
+  store i16 %125, ptr %123, align 2
+  br label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
 
-_ZN22SharedClassLoadingMarkD2Ev.exit92.thread:    ; preds = %123, %119, %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit, %115, %.thread124, %_ZN16ModuleEntryTable16javabase_definedEv.exit, %_ZN13PerfTraceTimeD2Ev.exit, %_ZN13PerfTraceTimeD2Ev.exit87
-  %.0 = phi ptr [ null, %_ZN13PerfTraceTimeD2Ev.exit87 ], [ null, %_ZN13PerfTraceTimeD2Ev.exit ], [ null, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ null, %.thread124 ], [ %111, %115 ], [ %111, %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit ], [ null, %119 ], [ null, %123 ]
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %.thread137
+.critedge:                                        ; preds = %69, %73
+  %126 = load i8, ptr @UsePerfData, align 1
+  %127 = trunc i8 %126 to i1
+  %128 = load i8, ptr %55, align 8
+  %129 = trunc i8 %128 to i1
+  %or.cond.i150 = select i1 %127, i1 %129, i1 false
+  br i1 %or.cond.i150, label %130, label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
 
-.thread137:                                       ; preds = %43, %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread
-  %.0139 = phi ptr [ %.0, %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread ], [ null, %43 ]
+130:                                              ; preds = %.critedge
+  call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
+  %131 = load ptr, ptr %56, align 8
+  %132 = load i64, ptr %4, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %134 = load ptr, ptr %133, align 8
+  %135 = load i64, ptr %134, align 8
+  %136 = add nsw i64 %135, %132
+  store i64 %136, ptr %134, align 8
+  br label %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
+
+_ZN22SharedClassLoadingMarkD2Ev.exit91.thread:    ; preds = %130, %.critedge, %122, %118, %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit, %114, %.thread123, %_ZN16ModuleEntryTable16javabase_definedEv.exit, %_ZN13PerfTraceTimeD2Ev.exit86
+  %.0 = phi ptr [ null, %_ZN13PerfTraceTimeD2Ev.exit86 ], [ null, %_ZN16ModuleEntryTable16javabase_definedEv.exit ], [ null, %.thread123 ], [ %110, %114 ], [ %110, %_ZN16SystemDictionary29find_or_define_instance_classEP6Symbol6HandleP13InstanceKlassP10JavaThread.exit ], [ null, %118 ], [ null, %122 ], [ null, %.critedge ], [ null, %130 ]
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %.thread135
+
+.thread135:                                       ; preds = %43, %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread
+  %.0137 = phi ptr [ %.0, %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread ], [ null, %43 ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %20) #14
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread, %.thread137
-  %.0140 = phi ptr [ %.0, %_ZN22SharedClassLoadingMarkD2Ev.exit92.thread ], [ %.0139, %.thread137 ]
-  %127 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %127, null
-  br i1 %.not.i.i.i.i, label %129, label %128
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread, %.thread135
+  %.0138 = phi ptr [ %.0, %_ZN22SharedClassLoadingMarkD2Ev.exit91.thread ], [ %.0137, %.thread135 ]
+  %137 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %137, null
+  br i1 %.not.i.i.i.i, label %139, label %138
 
-128:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit
+138:                                              ; preds = %_ZN16SymbolHandleBaseILb1EED2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #14
-  br label %129
+  br label %139
 
-129:                                              ; preds = %128, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
-  %130 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i = icmp eq ptr %130, %14
+139:                                              ; preds = %138, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
+  %140 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i = icmp eq ptr %140, %14
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN12ResourceMarkD2Ev.exit.sink.split
 
-131:                                              ; preds = %3
-  %132 = load ptr, ptr @_ZN11ClassLoader24_perf_app_classload_timeE, align 8
-  %133 = load ptr, ptr @_ZN11ClassLoader28_perf_app_classload_selftimeE, align 8
-  %134 = load ptr, ptr @_ZN11ClassLoader25_perf_app_classload_countE, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %2, i64 1552
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 100
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 120
-  %139 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 0, ptr %139, align 8
+141:                                              ; preds = %3
+  %142 = load ptr, ptr @_ZN11ClassLoader24_perf_app_classload_timeE, align 8
+  %143 = load ptr, ptr @_ZN11ClassLoader28_perf_app_classload_selftimeE, align 8
+  %144 = load ptr, ptr @_ZN11ClassLoader25_perf_app_classload_countE, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 1552
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 100
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 120
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 0, ptr %149, align 8
   store i64 0, ptr %6, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %132, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %133, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %134, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %137, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %138, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 0, ptr %145, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %142, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %143, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %144, ptr %152, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %147, ptr %153, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %148, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i32 0, ptr %155, align 8
   call void @_ZN18PerfClassTraceTime10initializeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #14
-  %146 = call ptr @_ZN16java_lang_String21externalize_classnameEP6SymbolP10JavaThread(ptr noundef %0, ptr noundef nonnull %2) #14
-  %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %.not144 = icmp eq ptr %148, null
-  br i1 %.not144, label %149, label %168
+  %156 = call ptr @_ZN16java_lang_String21externalize_classnameEP6SymbolP10JavaThread(ptr noundef %0, ptr noundef nonnull %2) #14
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %.not142 = icmp eq ptr %158, null
+  br i1 %.not142, label %159, label %178
 
-149:                                              ; preds = %131
+159:                                              ; preds = %141
   store i8 12, ptr %7, align 8
-  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3232), align 8
-  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7256), align 8
-  call void @_ZN9JavaCalls12call_virtualEP9JavaValue6HandleP5KlassP6SymbolS6_S2_P10JavaThread(ptr noundef nonnull %7, ptr nonnull %1, ptr noundef %150, ptr noundef %151, ptr noundef %152, ptr %146, ptr noundef nonnull %2) #14
-  %153 = load ptr, ptr %147, align 8
-  %.not145 = icmp eq ptr %153, null
-  br i1 %.not145, label %154, label %168
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 32), align 8
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3232), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7256), align 8
+  call void @_ZN9JavaCalls12call_virtualEP9JavaValue6HandleP5KlassP6SymbolS6_S2_P10JavaThread(ptr noundef nonnull %7, ptr nonnull %1, ptr noundef %160, ptr noundef %161, ptr noundef %162, ptr %156, ptr noundef nonnull %2) #14
+  %163 = load ptr, ptr %157, align 8
+  %.not143 = icmp eq ptr %163, null
+  br i1 %.not143, label %164, label %178
 
-154:                                              ; preds = %149
-  %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %156 = load ptr, ptr %155, align 8
-  %.not = icmp eq ptr %156, null
-  br i1 %.not, label %167, label %157
+164:                                              ; preds = %159
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %.not = icmp eq ptr %166, null
+  br i1 %.not, label %177, label %167
 
-157:                                              ; preds = %154
-  %158 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %159 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %156, i32 noundef %158) #14
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %167, label %161
+167:                                              ; preds = %164
+  %168 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %169 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %166, i32 noundef %168) #14
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %177, label %171
 
-161:                                              ; preds = %157
-  %162 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %163 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %156, i32 noundef %162) #14
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = load ptr, ptr %164, align 8
-  %166 = icmp eq ptr %0, %165
-  br i1 %166, label %168, label %167
+171:                                              ; preds = %167
+  %172 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %173 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %166, i32 noundef %172) #14
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  %175 = load ptr, ptr %174, align 8
+  %176 = icmp eq ptr %0, %175
+  br i1 %176, label %178, label %177
 
-167:                                              ; preds = %161, %157, %154
-  br label %168
+177:                                              ; preds = %171, %167, %164
+  br label %178
 
-168:                                              ; preds = %161, %149, %131, %167
-  %.9 = phi ptr [ null, %167 ], [ null, %131 ], [ null, %149 ], [ %163, %161 ]
+178:                                              ; preds = %171, %159, %141, %177
+  %.9 = phi ptr [ null, %177 ], [ null, %141 ], [ null, %159 ], [ %173, %171 ]
   call void @_ZN18PerfClassTraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #14
-  %169 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i93 = icmp eq ptr %169, null
-  br i1 %.not.i.i.i.i93, label %171, label %170
+  %179 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i92 = icmp eq ptr %179, null
+  br i1 %.not.i.i.i.i92, label %181, label %180
 
-170:                                              ; preds = %168
+180:                                              ; preds = %178
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #14
-  br label %171
+  br label %181
 
-171:                                              ; preds = %170, %168
-  %172 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i94 = icmp eq ptr %172, %14
-  br i1 %.not8.i.i.i.i94, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN12ResourceMarkD2Ev.exit.sink.split
+181:                                              ; preds = %180, %178
+  %182 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i93 = icmp eq ptr %182, %14
+  br i1 %.not8.i.i.i.i93, label %_ZN12ResourceMarkD2Ev.exit, label %_ZN12ResourceMarkD2Ev.exit.sink.split
 
-_ZN12ResourceMarkD2Ev.exit.sink.split:            ; preds = %171, %129
-  %.8.ph = phi ptr [ %.0140, %129 ], [ %.9, %171 ]
+_ZN12ResourceMarkD2Ev.exit.sink.split:            ; preds = %181, %139
+  %.8.ph = phi ptr [ %.0138, %139 ], [ %.9, %181 ]
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2Ev.exit.sink.split, %171, %129
-  %.8 = phi ptr [ %.0140, %129 ], [ %.9, %171 ], [ %.8.ph, %_ZN12ResourceMarkD2Ev.exit.sink.split ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2Ev.exit.sink.split, %181, %139
+  %.8 = phi ptr [ %.0138, %139 ], [ %.9, %181 ], [ %.8.ph, %_ZN12ResourceMarkD2Ev.exit.sink.split ]
   ret ptr %.8
 }
 
@@ -4488,7 +4503,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %4, 
 23:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
   %.not35 = icmp ne ptr %0, %22
   %or.cond.not = or i1 %2, %.not35
-  br i1 %or.cond.not, label %24, label %46
+  br i1 %or.cond.not, label %24, label %.critedge
 
 24:                                               ; preds = %23
   %25 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #14
@@ -4532,9 +4547,8 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %4, 
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.18, ptr noundef %45) #14
   br label %46
 
-46:                                               ; preds = %39, %44, %29, %24, %23
-  %cond.not = phi i1 [ true, %23 ], [ false, %24 ], [ false, %29 ], [ false, %44 ], [ false, %39 ]
-  %.1 = phi i1 [ true, %23 ], [ false, %24 ], [ true, %29 ], [ false, %44 ], [ false, %39 ]
+46:                                               ; preds = %24, %29, %44, %39
+  %.2 = phi i1 [ true, %39 ], [ true, %44 ], [ false, %29 ], [ true, %24 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %47
 
 47:                                               ; preds = %46
@@ -4542,27 +4556,33 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %4, 
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %46, %47
-  %brmerge = or i1 %cond.not, %.1
-  br i1 %brmerge, label %51, label %48
+  br i1 %.2, label %48, label %_ZN11MutexLockerD2Ev.exit41
 
 48:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
   %50 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %5, i1 noundef zeroext false) #14
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1684, ptr noundef %49, ptr noundef %50) #14
-  br label %51
+  br label %_ZN11MutexLockerD2Ev.exit41
 
-51:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %48
+.critedge:                                        ; preds = %23
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit41, label %51
+
+51:                                               ; preds = %.critedge
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #14
+  br label %_ZN11MutexLockerD2Ev.exit41
+
+_ZN11MutexLockerD2Ev.exit41:                      ; preds = %51, %.critedge, %_ZN11MutexLockerD2Ev.exit, %48
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
   %52 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %54, label %53
 
-53:                                               ; preds = %51
+53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit41
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #14
   br label %54
 
-54:                                               ; preds = %53, %51
+54:                                               ; preds = %53, %_ZN11MutexLockerD2Ev.exit41
   %55 = load ptr, ptr %10, align 8
   %.not8.i.i.i.i = icmp eq ptr %55, %11
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %56

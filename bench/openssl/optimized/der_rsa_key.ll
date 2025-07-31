@@ -144,8 +144,8 @@ define range(i32 0, 2) i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %0, i32 nou
   br label %DER_w_MaskGenAlgorithm.exit
 
 DER_w_MaskGenAlgorithm.exit:                      ; preds = %37, %39, %40, %41, %42, %43
-  %.09.ph.i = phi ptr [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
-  %44 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.09.ph.i, i64 noundef 28) #2
+  %.09.i = phi ptr [ @der_aid_mgf1SHA256Identifier, %39 ], [ @der_aid_mgf1SHA384Identifier, %40 ], [ @der_aid_mgf1SHA512Identifier, %41 ], [ @der_aid_mgf1SHA512_224Identifier, %42 ], [ @der_aid_mgf1SHA512_256Identifier, %43 ], [ @der_aid_mgf1SHA224Identifier, %37 ]
+  %44 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %.09.i, i64 noundef 28) #2
   %.not37 = icmp eq i32 %44, 0
   br i1 %.not37, label %.critedge, label %DER_w_MaskGenAlgorithm.exit.thread41
 
@@ -193,45 +193,45 @@ declare i32 @ossl_DER_w_end_sequence(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_DER_w_algorithmIdentifier_RSA_PSS(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  switch i32 %2, label %17 [
-    i32 0, label %.thread26
+  switch i32 %2, label %.critedge [
+    i32 0, label %.thread
     i32 4096, label %5
   ]
 
 5:                                                ; preds = %4
   %6 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %0, i32 noundef %1) #2
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %17, label %8
+  br i1 %.not, label %.critedge, label %8
 
-.thread26:                                        ; preds = %4
+.thread:                                          ; preds = %4
   %7 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %0, i32 noundef %1) #2
-  %.not29 = icmp eq i32 %7, 0
-  br i1 %.not29, label %17, label %.thread32
+  %.not22 = icmp eq i32 %7, 0
+  br i1 %.not22, label %.critedge, label %.thread25
 
 8:                                                ; preds = %5
   %9 = tail call i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef %3) #2
   %.not17 = icmp eq i32 %9, 0
-  br i1 %.not17, label %10, label %.thread32
+  br i1 %.not17, label %10, label %.thread25
 
 10:                                               ; preds = %8
   %11 = tail call i32 @ossl_DER_w_RSASSA_PSS_params(ptr noundef %0, i32 noundef -1, ptr noundef %3)
   %.not18 = icmp eq i32 %11, 0
-  br i1 %.not18, label %17, label %.thread32
+  br i1 %.not18, label %.critedge, label %.thread25
 
-.thread32:                                        ; preds = %.thread26, %10, %8
-  %.013.ph3135 = phi ptr [ @ossl_der_oid_id_RSASSA_PSS, %10 ], [ @ossl_der_oid_id_RSASSA_PSS, %8 ], [ @ossl_der_oid_rsaEncryption, %.thread26 ]
-  %12 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %.013.ph3135, i64 noundef 11) #2
+.thread25:                                        ; preds = %.thread, %10, %8
+  %.0132428 = phi ptr [ @ossl_der_oid_id_RSASSA_PSS, %10 ], [ @ossl_der_oid_id_RSASSA_PSS, %8 ], [ @ossl_der_oid_rsaEncryption, %.thread ]
+  %12 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %.0132428, i64 noundef 11) #2
   %.not19 = icmp eq i32 %12, 0
-  br i1 %.not19, label %17, label %13
+  br i1 %.not19, label %.critedge, label %13
 
-13:                                               ; preds = %.thread32
+13:                                               ; preds = %.thread25
   %14 = tail call i32 @ossl_DER_w_end_sequence(ptr noundef %0, i32 noundef %1) #2
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  br label %17
+  br label %.critedge
 
-17:                                               ; preds = %.thread26, %4, %5, %10, %.thread32, %13
-  %.015 = phi i32 [ 0, %.thread32 ], [ 0, %10 ], [ 0, %5 ], [ %16, %13 ], [ 0, %4 ], [ 0, %.thread26 ]
+.critedge:                                        ; preds = %.thread, %4, %5, %10, %.thread25, %13
+  %.015 = phi i32 [ 0, %.thread25 ], [ 0, %10 ], [ 0, %5 ], [ %16, %13 ], [ 0, %4 ], [ 0, %.thread ]
   ret i32 %.015
 }
 

@@ -3517,7 +3517,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
   br i1 %93, label %128, label %193
 
 128:                                              ; preds = %127
-  switch i32 %.0297, label %.thread368 [
+  switch i32 %.0297, label %.critedge [
     i32 0, label %129
     i32 2, label %147
     i32 3, label %161
@@ -3570,7 +3570,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
 145:                                              ; preds = %144
   %146 = icmp eq i32 %40, 6
   %or.cond29 = and i1 %146, %135
-  br i1 %or.cond29, label %.thread, label %.thread368
+  br i1 %or.cond29, label %.thread, label %.critedge
 
 147:                                              ; preds = %128
   %148 = or i32 %.0296, %40
@@ -3599,7 +3599,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
   %159 = icmp ne i32 %40, 6
   %160 = icmp ne i32 %.0296, 6
   %or.cond39.not = or i1 %159, %160
-  br i1 %or.cond39.not, label %.thread368, label %.thread
+  br i1 %or.cond39.not, label %.critedge, label %.thread
 
 161:                                              ; preds = %128
   %162 = or i32 %.0296, %40
@@ -3628,7 +3628,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
   %173 = icmp ne i32 %40, 6
   %174 = icmp ne i32 %.0296, 6
   %or.cond49.not = or i1 %173, %174
-  br i1 %or.cond49.not, label %.thread368, label %.thread
+  br i1 %or.cond49.not, label %.critedge, label %.thread
 
 175:                                              ; preds = %128
   %176 = icmp eq i32 %40, 0
@@ -3676,10 +3676,10 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
 191:                                              ; preds = %190
   %192 = icmp eq i32 %40, 6
   %or.cond69 = and i1 %192, %181
-  br i1 %or.cond69, label %.thread, label %.thread368
+  br i1 %or.cond69, label %.thread, label %.critedge
 
 193:                                              ; preds = %127
-  switch i32 %.0297, label %.thread368 [
+  switch i32 %.0297, label %.critedge [
     i32 0, label %194
     i32 2, label %212
     i32 3, label %226
@@ -3732,7 +3732,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
 210:                                              ; preds = %209
   %211 = icmp eq i32 %40, 6
   %or.cond89 = and i1 %211, %200
-  br i1 %or.cond89, label %.thread, label %.thread368
+  br i1 %or.cond89, label %.thread, label %.critedge
 
 212:                                              ; preds = %193
   %213 = or i32 %.0296, %40
@@ -3761,7 +3761,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
   %224 = icmp ne i32 %40, 6
   %225 = icmp ne i32 %.0296, 6
   %or.cond99.not = or i1 %224, %225
-  br i1 %or.cond99.not, label %.thread368, label %.thread
+  br i1 %or.cond99.not, label %.critedge, label %.thread
 
 226:                                              ; preds = %193
   %227 = or i32 %.0296, %40
@@ -3790,7 +3790,7 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
   %238 = icmp ne i32 %40, 6
   %239 = icmp ne i32 %.0296, 6
   %or.cond109.not = or i1 %238, %239
-  br i1 %or.cond109.not, label %.thread368, label %.thread
+  br i1 %or.cond109.not, label %.critedge, label %.thread
 
 240:                                              ; preds = %193
   %241 = icmp eq i32 %40, 0
@@ -3838,22 +3838,22 @@ _ZNK2cv11_InputArray6getMatEi.exit360:            ; preds = %103, %106
 256:                                              ; preds = %255
   %257 = icmp eq i32 %40, 6
   %or.cond129 = and i1 %257, %246
-  br i1 %or.cond129, label %.thread, label %.thread368
+  br i1 %or.cond129, label %.thread, label %.critedge
 
-.thread368:                                       ; preds = %193, %128, %237, %223, %210, %191, %172, %158, %145, %256
+.critedge:                                        ; preds = %237, %223, %210, %191, %172, %158, %145, %128, %193, %256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %258 unwind label %260
 
-258:                                              ; preds = %.thread368
+258:                                              ; preds = %.critedge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -210, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @__func__._ZN2cv6reduceERKNS_11_InputArrayERKNS_12_OutputArrayEiii, ptr noundef nonnull @.str.1, i32 noundef 958) #18
           to label %259 unwind label %262
 
 259:                                              ; preds = %258
   unreachable
 
-260:                                              ; preds = %.thread368
+260:                                              ; preds = %.critedge
   %261 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363

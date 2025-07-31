@@ -5678,11 +5678,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snr_uncore_mmio_map(ptr no
   %8 = phi ptr [ null, %4 ], [ %9, %11 ]
   %9 = tail call ptr @pci_get_device(i32 noundef 32902, i32 noundef %3, ptr noundef %8) #20
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
-
-.thread:                                          ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
-  br label %43
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5726,8 +5722,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snr_uncore_mmio_map(ptr no
   %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.329, ptr noundef %41) #24
   br label %43
 
-43:                                               ; preds = %.thread, %40, %16
-  %44 = phi i32 [ -22, %40 ], [ 0, %16 ], [ -19, %.thread ]
+.critedge:                                        ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  br label %43
+
+43:                                               ; preds = %.critedge, %40, %16
+  %44 = phi i32 [ -22, %40 ], [ 0, %16 ], [ -19, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
   ret i32 %44
 }

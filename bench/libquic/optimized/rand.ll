@@ -47,12 +47,12 @@ define hidden noundef zeroext i1 @_Z4RandRKSt6vectorINSt7__cxx1112basic_stringIc
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = icmp eq ptr %8, %10
-  br i1 %11, label %.lr.ph78.split.thread, label %12
+  br i1 %11, label %.lr.ph76.split.thread, label %12
 
-.lr.ph78.split.thread:                            ; preds = %1
+.lr.ph76.split.thread:                            ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #15
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #15
-  br label %.lr.ph78.split.split.us.preheader
+  br label %.lr.ph76.split.split.us.preheader
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
@@ -326,32 +326,32 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #15
   %96 = icmp ne i64 %.149, 0
   %97 = select i1 %.146, i1 true, i1 %96
-  br i1 %97, label %.lr.ph78, label %._crit_edge79
+  br i1 %97, label %.lr.ph76, label %._crit_edge77
 
-.lr.ph78:                                         ; preds = %95
-  br i1 %.152, label %.preheader.us, label %.lr.ph78.split
+.lr.ph76:                                         ; preds = %95
+  br i1 %.152, label %.preheader.us, label %.lr.ph76.split
 
-.preheader.us:                                    ; preds = %.lr.ph78, %103
-  %.03676.us = phi i64 [ %104, %103 ], [ 0, %.lr.ph78 ]
-  %98 = sub i64 %.149, %.03676.us
+.preheader.us:                                    ; preds = %.lr.ph76, %103
+  %.03674.us = phi i64 [ %104, %103 ], [ 0, %.lr.ph76 ]
+  %98 = sub i64 %.149, %.03674.us
   %spec.select.us = call i64 @llvm.umin.i64(i64 %98, i64 4096)
   %.035.us = select i1 %.146, i64 4096, i64 %spec.select.us
   %99 = call i32 @RAND_bytes(ptr noundef nonnull %6, i64 noundef %.035.us)
-  %.not83 = icmp eq i64 %.035.us, 0
-  br i1 %.not83, label %._crit_edge.us, label %.lr.ph.us
+  %.not81 = icmp eq i64 %.035.us, 0
+  br i1 %.not81, label %._crit_edge.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
   %100 = shl nuw nsw i64 %.035.us, 1
   %101 = load ptr, ptr @stdout, align 8, !tbaa !38
   %102 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef %100, i64 noundef 1, ptr noundef %101)
   %.not60.us = icmp eq i64 %102, 1
-  br i1 %.not60.us, label %103, label %.thread
+  br i1 %.not60.us, label %103, label %.critedge
 
 103:                                              ; preds = %._crit_edge.us
-  %104 = add i64 %.035.us, %.03676.us
+  %104 = add i64 %.035.us, %.03674.us
   %105 = icmp ult i64 %104, %.149
   %106 = select i1 %.146, i1 true, i1 %105
-  br i1 %106, label %.preheader.us, label %._crit_edge79.thread, !llvm.loop !40
+  br i1 %106, label %.preheader.us, label %._crit_edge77.thread, !llvm.loop !40
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.preheader.us ]
@@ -375,54 +375,54 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.035.us
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !42
 
-.lr.ph78.split:                                   ; preds = %.lr.ph78
-  br i1 %.146, label %.lr.ph78.split.split.us.preheader, label %.lr.ph78.split.split
+.lr.ph76.split:                                   ; preds = %.lr.ph76
+  br i1 %.146, label %.lr.ph76.split.split.us.preheader, label %.lr.ph76.split.split
 
-.lr.ph78.split.split.us.preheader:                ; preds = %.lr.ph78.split.thread, %.lr.ph78.split
-  br label %.lr.ph78.split.split.us
+.lr.ph76.split.split.us.preheader:                ; preds = %.lr.ph76.split.thread, %.lr.ph76.split
+  br label %.lr.ph76.split.split.us
 
-.lr.ph78.split.split.us:                          ; preds = %.lr.ph78.split.split.us.preheader, %.lr.ph78.split.split.us
+.lr.ph76.split.split.us:                          ; preds = %.lr.ph76.split.split.us.preheader, %.lr.ph76.split.split.us
   %121 = call i32 @RAND_bytes(ptr noundef nonnull %6, i64 noundef 4096)
   %122 = load ptr, ptr @stdout, align 8, !tbaa !38
   %123 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4096, i64 noundef 1, ptr noundef %122)
   %.not59.us = icmp eq i64 %123, 1
-  br i1 %.not59.us, label %.lr.ph78.split.split.us, label %.thread, !llvm.loop !43
+  br i1 %.not59.us, label %.lr.ph76.split.split.us, label %.critedge, !llvm.loop !43
 
-.lr.ph78.split.split:                             ; preds = %.lr.ph78.split, %128
-  %.03676 = phi i64 [ %129, %128 ], [ 0, %.lr.ph78.split ]
-  %124 = sub i64 %.149, %.03676
+.lr.ph76.split.split:                             ; preds = %.lr.ph76.split, %128
+  %.03674 = phi i64 [ %129, %128 ], [ 0, %.lr.ph76.split ]
+  %124 = sub i64 %.149, %.03674
   %spec.select = call i64 @llvm.umin.i64(i64 %124, i64 4096)
   %125 = call i32 @RAND_bytes(ptr noundef nonnull %6, i64 noundef %spec.select)
   %126 = load ptr, ptr @stdout, align 8, !tbaa !38
   %127 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef %spec.select, i64 noundef 1, ptr noundef %126)
   %.not59 = icmp eq i64 %127, 1
-  br i1 %.not59, label %128, label %.thread
+  br i1 %.not59, label %128, label %.critedge
 
-128:                                              ; preds = %.lr.ph78.split.split
-  %129 = add i64 %spec.select, %.03676
+128:                                              ; preds = %.lr.ph76.split.split
+  %129 = add i64 %spec.select, %.03674
   %130 = icmp ult i64 %129, %.149
-  br i1 %130, label %.lr.ph78.split.split, label %._crit_edge79.thread107, !llvm.loop !44
+  br i1 %130, label %.lr.ph76.split.split, label %._crit_edge77.thread104, !llvm.loop !44
 
-._crit_edge79:                                    ; preds = %95
-  br i1 %.152, label %._crit_edge79.thread, label %._crit_edge79.thread107
+._crit_edge77:                                    ; preds = %95
+  br i1 %.152, label %._crit_edge77.thread, label %._crit_edge77.thread104
 
-._crit_edge79.thread:                             ; preds = %103, %._crit_edge79
+._crit_edge77.thread:                             ; preds = %103, %._crit_edge77
   %131 = load ptr, ptr @stdout, align 8, !tbaa !38
   %132 = call i64 @fwrite(ptr noundef nonnull @.str.1, i64 noundef 1, i64 noundef 1, ptr noundef %131)
   %.not58 = icmp eq i64 %132, 1
-  br i1 %.not58, label %._crit_edge79.thread107, label %.thread
+  br i1 %.not58, label %._crit_edge77.thread104, label %.critedge
 
-._crit_edge79.thread107:                          ; preds = %128, %._crit_edge79.thread, %._crit_edge79
-  br label %.thread
+._crit_edge77.thread104:                          ; preds = %128, %._crit_edge77.thread, %._crit_edge77
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph78.split.split, %._crit_edge.us, %.lr.ph78.split.split.us, %._crit_edge79.thread, %._crit_edge79.thread107
-  %.5 = phi i1 [ true, %._crit_edge79.thread107 ], [ false, %._crit_edge79.thread ], [ false, %.lr.ph78.split.split.us ], [ false, %._crit_edge.us ], [ false, %.lr.ph78.split.split ]
+.critedge:                                        ; preds = %.lr.ph76.split.split, %._crit_edge.us, %.lr.ph76.split.split.us, %._crit_edge77.thread, %._crit_edge77.thread104
+  %.5 = phi i1 [ true, %._crit_edge77.thread104 ], [ false, %._crit_edge77.thread ], [ false, %.lr.ph76.split.split.us ], [ false, %._crit_edge.us ], [ false, %.lr.ph76.split.split ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #15
   br label %133
 
-133:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.thread
-  %.2 = phi i1 [ %.5, %.thread ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+133:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.critedge
+  %.2 = phi i1 [ %.5, %.critedge ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   ret i1 %.2
 }
 

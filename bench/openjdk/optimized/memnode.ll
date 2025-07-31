@@ -17435,8 +17435,8 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %102, %106
   %cond = icmp eq ptr %.025, null
   br i1 %cond, label %.critedge, label %38, !llvm.loop !49
 
-.critedge:                                        ; preds = %115, %43, %43, %.critedge4, %._crit_edge, %_ZN10Node_StackC2Ei.exit
-  %.0 = phi ptr [ null, %_ZN10Node_StackC2Ei.exit ], [ null, %._crit_edge ], [ null, %.critedge4 ], [ null, %115 ], [ %.02536, %43 ], [ %.02536, %43 ]
+.critedge:                                        ; preds = %115, %43, %43, %._crit_edge, %.critedge4, %_ZN10Node_StackC2Ei.exit
+  %.0 = phi ptr [ null, %_ZN10Node_StackC2Ei.exit ], [ null, %.critedge4 ], [ null, %._crit_edge ], [ null, %115 ], [ %.02536, %43 ], [ %.02536, %43 ]
   %116 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %116, null
   br i1 %.not.i.i.i.i, label %118, label %117

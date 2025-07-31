@@ -376,19 +376,12 @@ _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %6, align 8
   %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %.lr.ph.preheader.i.i, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i
+  br i1 %7, label %.lr.ph.preheader.i.i, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit.critedge
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i
   %8 = zext nneg i32 %1 to i64
   %9 = shl nuw nsw i64 %8, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %9, i1 false)
-  br label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i
-
-_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i: ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  br label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit
-
-_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i: ; preds = %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i, %.lr.ph.preheader.i.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext 25) #14
   store i32 0, ptr %10, align 8
@@ -396,15 +389,26 @@ _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i: ; preds
   store i32 %1, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %13, align 8
-  br i1 %7, label %.lr.ph.preheader.i.i2, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit
-
-.lr.ph.preheader.i.i2:                            ; preds = %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i
   %14 = zext nneg i32 %1 to i64
   %15 = shl nuw nsw i64 %14, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %15, i1 false)
   br label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit
 
-_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit: ; preds = %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i, %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.i, %.lr.ph.preheader.i.i2
+_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i: ; preds = %2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  br label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit
+
+_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit.critedge: ; preds = %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext 25) #14
+  store i32 0, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %1, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %17, ptr %19, align 8
+  br label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit
+
+_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit: ; preds = %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EEC2Ei.exit.critedge, %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i, %.lr.ph.preheader.i.i
   ret void
 }
 
@@ -1209,10 +1213,9 @@ define hidden noundef ptr @_ZN11StringDedup5Table12make_bucketsEmm(i64 noundef %
 .lr.ph:                                           ; preds = %2
   %5 = trunc i64 %1 to i32
   %6 = icmp eq i32 %5, 0
-  %7 = shl i64 %1, 2
-  %8 = and i64 %7, 8589934588
-  %9 = shl i64 %1, 3
-  %10 = and i64 %9, 17179869176
+  %7 = and i64 %1, 2147483647
+  %8 = shl nuw nsw i64 %7, 2
+  %9 = shl nuw nsw i64 %7, 3
   br i1 %6, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i.i.us.preheader, label %.lr.ph.split
 
 _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i.i.us.preheader: ; preds = %.lr.ph
@@ -1220,49 +1223,49 @@ _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i.i
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %11 = icmp sgt i32 %5, 0
-  br i1 %11, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i
+  %10 = icmp sgt i32 %5, 0
+  br i1 %10, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i
 
 _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us: ; preds = %.lr.ph.split, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us
-  %.07.us8 = phi i64 [ %20, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us ], [ 0, %.lr.ph.split ]
-  %12 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %4, i64 %.07.us8
-  %13 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 4, i8 noundef zeroext 25) #14
-  store i32 0, ptr %12, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %5, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %13, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %8, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
-  store i32 0, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 %5, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %17, ptr %19, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %10, i1 false)
-  %20 = add nuw i64 %.07.us8, 1
-  %exitcond12.not = icmp eq i64 %20, %0
+  %.07.us8 = phi i64 [ %19, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us ], [ 0, %.lr.ph.split ]
+  %11 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %4, i64 %.07.us8
+  %12 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 4, i8 noundef zeroext 25) #14
+  store i32 0, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %5, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %12, ptr %14, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %8, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %16 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
+  store i32 0, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store i32 %5, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %16, ptr %18, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %9, i1 false)
+  %19 = add nuw i64 %.07.us8, 1
+  %exitcond12.not = icmp eq i64 %19, %0
   br i1 %exitcond12.not, label %._crit_edge, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us, !llvm.loop !15
 
 _ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i: ; preds = %.lr.ph.split, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i
-  %.07 = phi i64 [ %29, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i ], [ 0, %.lr.ph.split ]
-  %21 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %4, i64 %.07
-  %22 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 4, i8 noundef zeroext 25) #14
-  store i32 0, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %5, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %22, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %26 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
-  store i32 0, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i32 %5, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %26, ptr %28, align 8
-  %29 = add nuw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %29, %0
+  %.07 = phi i64 [ %28, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i ], [ 0, %.lr.ph.split ]
+  %20 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %4, i64 %.07
+  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 4, i8 noundef zeroext 25) #14
+  store i32 0, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 %5, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %21, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %25 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %5, i32 noundef 8, i8 noundef zeroext 25) #14
+  store i32 0, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  store i32 %5, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store ptr %25, ptr %27, align 8
+  %28 = add nuw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %28, %0
   br i1 %exitcond.not, label %._crit_edge, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i, %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i.i.us, %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i.i.us.preheader, %2

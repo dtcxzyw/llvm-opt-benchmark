@@ -2572,879 +2572,879 @@ define dso_local void @_ZN4llvm16X86TargetMachine28registerPassBuilderCallbacksE
   %46 = icmp uge ptr %4, %.pre3.i.i
   %47 = icmp ult ptr %4, %45
   %spec.select.i.i.i.i.i.i = and i1 %46, %47
-  br i1 %spec.select.i.i.i.i.i.i, label %49, label %48, !prof !120
+  br i1 %spec.select.i.i.i.i.i.i, label %48, label %.critedge.i.i.i.i, !prof !120
 
 48:                                               ; preds = %44
+  %49 = ptrtoint ptr %4 to i64
+  %50 = ptrtoint ptr %.pre3.i.i to i64
+  %51 = sub i64 %49, %50
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %41)
+  %52 = load ptr, ptr %37, align 8, !tbaa !112
+  %53 = getelementptr inbounds i8, ptr %52, i64 %51
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
+
+.critedge.i.i.i.i:                                ; preds = %44
   call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %41)
   %.pre.i.i = load ptr, ptr %37, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
 
-49:                                               ; preds = %44
-  %50 = ptrtoint ptr %4 to i64
-  %51 = ptrtoint ptr %.pre3.i.i to i64
-  %52 = sub i64 %50, %51
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %41)
-  %53 = load ptr, ptr %37, align 8, !tbaa !112
-  %54 = getelementptr inbounds i8, ptr %53, i64 %52
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %.critedge.i.i.i.i, %48, %34
+  %54 = phi ptr [ %.pre3.i.i, %34 ], [ %52, %48 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %4, %34 ], [ %53, %48 ], [ %4, %.critedge.i.i.i.i ]
+  %55 = load i32, ptr %38, align 8, !tbaa !109
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw %"class.std::function", ptr %54, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
+  %59 = load ptr, ptr %58, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %60
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %49, %48, %34
-  %55 = phi ptr [ %.pre3.i.i, %34 ], [ %53, %49 ], [ %.pre.i.i, %48 ]
-  %.016.i.i.i.i = phi ptr [ %4, %34 ], [ %54, %49 ], [ %4, %48 ]
-  %56 = load i32, ptr %38, align 8, !tbaa !109
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.std::function", ptr %55, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
-  %60 = load ptr, ptr %59, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %61
-
-61:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %64 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i32 noundef 2) #19
-  %65 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !116
-  store ptr %66, ptr %62, align 8, !tbaa !116
-  %67 = load ptr, ptr %59, align 8, !tbaa !119
-  store ptr %67, ptr %63, align 8, !tbaa !119
+60:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %63 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i, i32 noundef 2) #19
+  %64 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !116
+  store ptr %65, ptr %61, align 8, !tbaa !116
+  %66 = load ptr, ptr %58, align 8, !tbaa !119
+  store ptr %66, ptr %62, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %61
-  %68 = load i32, ptr %38, align 8, !tbaa !109
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %38, align 8, !tbaa !109
-  %70 = load ptr, ptr %35, align 8, !tbaa !119
-  %.not.i = icmp eq ptr %70, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %71
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %60
+  %67 = load i32, ptr %38, align 8, !tbaa !109
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %38, align 8, !tbaa !109
+  %69 = load ptr, ptr %35, align 8, !tbaa !119
+  %.not.i = icmp eq ptr %69, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %70
 
-71:                                               ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
-  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #19
+70:                                               ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
+  %71 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #19
   %.pre = load i32, ptr %38, align 8, !tbaa !109
   br label %_ZNSt14_Function_baseD2Ev.exit
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %71
-  %73 = phi i32 [ %69, %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit ], [ %.pre, %71 ]
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %70
+  %72 = phi i32 [ %68, %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit ], [ %.pre, %70 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_1E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %75, align 8, !tbaa !116
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %74, align 8, !tbaa !119
-  %76 = zext i32 %73 to i64
-  %77 = add nuw nsw i64 %76, 1
-  %78 = load i32, ptr %42, align 4, !tbaa !110
-  %.not.i.i.not.i.i17 = icmp ult i32 %73, %78
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_1E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %74, align 8, !tbaa !116
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %73, align 8, !tbaa !119
+  %75 = zext i32 %72 to i64
+  %76 = add nuw nsw i64 %75, 1
+  %77 = load i32, ptr %42, align 4, !tbaa !110
+  %.not.i.i.not.i.i17 = icmp ult i32 %72, %77
   %.pre3.i.i18 = load ptr, ptr %37, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21, label %79, !prof !111
+  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22, label %78, !prof !111
 
-79:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %80 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i18, i64 %76
-  %81 = icmp uge ptr %5, %.pre3.i.i18
-  %82 = icmp ult ptr %5, %80
-  %spec.select.i.i.i.i.i.i19 = and i1 %81, %82
-  br i1 %spec.select.i.i.i.i.i.i19, label %84, label %83, !prof !120
+78:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %79 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i18, i64 %75
+  %80 = icmp uge ptr %5, %.pre3.i.i18
+  %81 = icmp ult ptr %5, %79
+  %spec.select.i.i.i.i.i.i19 = and i1 %80, %81
+  br i1 %spec.select.i.i.i.i.i.i19, label %82, label %.critedge.i.i.i.i20, !prof !120
 
-83:                                               ; preds = %79
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %77)
-  %.pre.i.i20 = load ptr, ptr %37, align 8, !tbaa !112
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21
+82:                                               ; preds = %78
+  %83 = ptrtoint ptr %5 to i64
+  %84 = ptrtoint ptr %.pre3.i.i18 to i64
+  %85 = sub i64 %83, %84
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %76)
+  %86 = load ptr, ptr %37, align 8, !tbaa !112
+  %87 = getelementptr inbounds i8, ptr %86, i64 %85
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22
 
-84:                                               ; preds = %79
-  %85 = ptrtoint ptr %5 to i64
-  %86 = ptrtoint ptr %.pre3.i.i18 to i64
-  %87 = sub i64 %85, %86
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %77)
-  %88 = load ptr, ptr %37, align 8, !tbaa !112
-  %89 = getelementptr inbounds i8, ptr %88, i64 %87
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21
+.critedge.i.i.i.i20:                              ; preds = %78
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %76)
+  %.pre.i.i21 = load ptr, ptr %37, align 8, !tbaa !112
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21: ; preds = %84, %83, %_ZNSt14_Function_baseD2Ev.exit
-  %90 = phi ptr [ %.pre3.i.i18, %_ZNSt14_Function_baseD2Ev.exit ], [ %88, %84 ], [ %.pre.i.i20, %83 ]
-  %.016.i.i.i.i22 = phi ptr [ %5, %_ZNSt14_Function_baseD2Ev.exit ], [ %89, %84 ], [ %5, %83 ]
-  %91 = load i32, ptr %38, align 8, !tbaa !109
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"class.std::function", ptr %90, i64 %92
-  %94 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
-  %95 = load ptr, ptr %94, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i23 = icmp eq ptr %95, null
-  br i1 %.not.i.i.not.i.i.i23, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit24, label %96
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22: ; preds = %.critedge.i.i.i.i20, %82, %_ZNSt14_Function_baseD2Ev.exit
+  %88 = phi ptr [ %.pre3.i.i18, %_ZNSt14_Function_baseD2Ev.exit ], [ %86, %82 ], [ %.pre.i.i21, %.critedge.i.i.i.i20 ]
+  %.016.i.i.i.i23 = phi ptr [ %5, %_ZNSt14_Function_baseD2Ev.exit ], [ %87, %82 ], [ %5, %.critedge.i.i.i.i20 ]
+  %89 = load i32, ptr %38, align 8, !tbaa !109
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw %"class.std::function", ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i23, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false)
+  %93 = load ptr, ptr %92, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i24 = icmp eq ptr %93, null
+  br i1 %.not.i.i.not.i.i.i24, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit25, label %94
 
-96:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %99 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i22, i32 noundef 2) #19
-  %100 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i22, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !116
-  store ptr %101, ptr %97, align 8, !tbaa !116
-  %102 = load ptr, ptr %94, align 8, !tbaa !119
-  store ptr %102, ptr %98, align 8, !tbaa !119
-  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit24
+94:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %97 = call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i23, i32 noundef 2) #19
+  %98 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i23, i64 24
+  %99 = load ptr, ptr %98, align 8, !tbaa !116
+  store ptr %99, ptr %95, align 8, !tbaa !116
+  %100 = load ptr, ptr %92, align 8, !tbaa !119
+  store ptr %100, ptr %96, align 8, !tbaa !119
+  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit25
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit24: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i21, %96
-  %103 = load i32, ptr %38, align 8, !tbaa !109
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %38, align 8, !tbaa !109
-  %105 = load ptr, ptr %74, align 8, !tbaa !119
-  %.not.i25 = icmp eq ptr %105, null
-  br i1 %.not.i25, label %_ZNSt14_Function_baseD2Ev.exit26, label %106
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit25: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i22, %94
+  %101 = load i32, ptr %38, align 8, !tbaa !109
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %38, align 8, !tbaa !109
+  %103 = load ptr, ptr %73, align 8, !tbaa !119
+  %.not.i26 = icmp eq ptr %103, null
+  br i1 %.not.i26, label %_ZNSt14_Function_baseD2Ev.exit27, label %104
 
-106:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit24
-  %107 = call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit26
+104:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit25
+  %105 = call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit27
 
-_ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit24, %106
+_ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_6ModuleENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit25, %104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_2E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %109, align 8, !tbaa !121
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_2E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %108, align 8, !tbaa !119
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 1728
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1736
-  %112 = load i32, ptr %111, align 8, !tbaa !109
-  %113 = zext i32 %112 to i64
-  %114 = add nuw nsw i64 %113, 1
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 1740
-  %116 = load i32, ptr %115, align 4, !tbaa !110
-  %.not.i.i.not.i.i27 = icmp ult i32 %112, %116
-  %.pre3.i.i28 = load ptr, ptr %110, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i27, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, label %117, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_2E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %107, align 8, !tbaa !121
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_2E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %106, align 8, !tbaa !119
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 1728
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 1736
+  %110 = load i32, ptr %109, align 8, !tbaa !109
+  %111 = zext i32 %110 to i64
+  %112 = add nuw nsw i64 %111, 1
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 1740
+  %114 = load i32, ptr %113, align 4, !tbaa !110
+  %.not.i.i.not.i.i28 = icmp ult i32 %110, %114
+  %.pre3.i.i29 = load ptr, ptr %108, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i28, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, label %115, !prof !111
 
-117:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit26
-  %118 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i28, i64 %113
-  %119 = icmp uge ptr %6, %.pre3.i.i28
-  %120 = icmp ult ptr %6, %118
-  %spec.select.i.i.i.i.i.i29 = and i1 %119, %120
-  br i1 %spec.select.i.i.i.i.i.i29, label %122, label %121, !prof !120
+115:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit27
+  %116 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i29, i64 %111
+  %117 = icmp uge ptr %6, %.pre3.i.i29
+  %118 = icmp ult ptr %6, %116
+  %spec.select.i.i.i.i.i.i30 = and i1 %117, %118
+  br i1 %spec.select.i.i.i.i.i.i30, label %119, label %.critedge.i.i.i.i31, !prof !120
 
-121:                                              ; preds = %117
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %114)
-  %.pre.i.i30 = load ptr, ptr %110, align 8, !tbaa !112
+119:                                              ; preds = %115
+  %120 = ptrtoint ptr %6 to i64
+  %121 = ptrtoint ptr %.pre3.i.i29 to i64
+  %122 = sub i64 %120, %121
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %112)
+  %123 = load ptr, ptr %108, align 8, !tbaa !112
+  %124 = getelementptr inbounds i8, ptr %123, i64 %122
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
 
-122:                                              ; preds = %117
-  %123 = ptrtoint ptr %6 to i64
-  %124 = ptrtoint ptr %.pre3.i.i28 to i64
-  %125 = sub i64 %123, %124
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %114)
-  %126 = load ptr, ptr %110, align 8, !tbaa !112
-  %127 = getelementptr inbounds i8, ptr %126, i64 %125
+.critedge.i.i.i.i31:                              ; preds = %115
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %112)
+  %.pre.i.i32 = load ptr, ptr %108, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %122, %121, %_ZNSt14_Function_baseD2Ev.exit26
-  %128 = phi ptr [ %.pre3.i.i28, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %126, %122 ], [ %.pre.i.i30, %121 ]
-  %.016.i.i.i.i31 = phi ptr [ %6, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %127, %122 ], [ %6, %121 ]
-  %129 = load i32, ptr %111, align 8, !tbaa !109
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %"class.std::function.120", ptr %128, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i31, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, i8 0, i64 32, i1 false)
-  %133 = load ptr, ptr %132, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i32 = icmp eq ptr %133, null
-  br i1 %.not.i.i.not.i.i.i32, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %134
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %.critedge.i.i.i.i31, %119, %_ZNSt14_Function_baseD2Ev.exit27
+  %125 = phi ptr [ %.pre3.i.i29, %_ZNSt14_Function_baseD2Ev.exit27 ], [ %123, %119 ], [ %.pre.i.i32, %.critedge.i.i.i.i31 ]
+  %.016.i.i.i.i33 = phi ptr [ %6, %_ZNSt14_Function_baseD2Ev.exit27 ], [ %124, %119 ], [ %6, %.critedge.i.i.i.i31 ]
+  %126 = load i32, ptr %109, align 8, !tbaa !109
+  %127 = zext i32 %126 to i64
+  %128 = getelementptr inbounds nuw %"class.std::function.120", ptr %125, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i33, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 32, i1 false)
+  %130 = load ptr, ptr %129, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i34 = icmp eq ptr %130, null
+  br i1 %.not.i.i.not.i.i.i34, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %131
 
-134:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %137 = call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i31, i32 noundef 2) #19
-  %138 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i31, i64 24
-  %139 = load ptr, ptr %138, align 8, !tbaa !121
-  store ptr %139, ptr %135, align 8, !tbaa !121
-  %140 = load ptr, ptr %132, align 8, !tbaa !119
-  store ptr %140, ptr %136, align 8, !tbaa !119
+131:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %134 = call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i33, i32 noundef 2) #19
+  %135 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i33, i64 24
+  %136 = load ptr, ptr %135, align 8, !tbaa !121
+  store ptr %136, ptr %132, align 8, !tbaa !121
+  %137 = load ptr, ptr %129, align 8, !tbaa !119
+  store ptr %137, ptr %133, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %134
-  %141 = load i32, ptr %111, align 8, !tbaa !109
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %111, align 8, !tbaa !109
-  %143 = load ptr, ptr %108, align 8, !tbaa !119
-  %.not.i33 = icmp eq ptr %143, null
-  br i1 %.not.i33, label %_ZNSt14_Function_baseD2Ev.exit34, label %144
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %131
+  %138 = load i32, ptr %109, align 8, !tbaa !109
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %109, align 8, !tbaa !109
+  %140 = load ptr, ptr %106, align 8, !tbaa !119
+  %.not.i35 = icmp eq ptr %140, null
+  br i1 %.not.i35, label %_ZNSt14_Function_baseD2Ev.exit36, label %141
 
-144:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
-  %145 = call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #19
-  %.pre122 = load i32, ptr %111, align 8, !tbaa !109
-  br label %_ZNSt14_Function_baseD2Ev.exit34
+141:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
+  %142 = call noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3) #19
+  %.pre133 = load i32, ptr %109, align 8, !tbaa !109
+  br label %_ZNSt14_Function_baseD2Ev.exit36
 
-_ZNSt14_Function_baseD2Ev.exit34:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %144
-  %146 = phi i32 [ %142, %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit ], [ %.pre122, %144 ]
+_ZNSt14_Function_baseD2Ev.exit36:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %141
+  %143 = phi i32 [ %139, %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit ], [ %.pre133, %141 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
-  %147 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %148 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_3E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %148, align 8, !tbaa !121
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_3E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %147, align 8, !tbaa !119
-  %149 = zext i32 %146 to i64
-  %150 = add nuw nsw i64 %149, 1
-  %151 = load i32, ptr %115, align 4, !tbaa !110
-  %.not.i.i.not.i.i35 = icmp ult i32 %146, %151
-  %.pre3.i.i36 = load ptr, ptr %110, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i35, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39, label %152, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_3E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %145, align 8, !tbaa !121
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_3E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %144, align 8, !tbaa !119
+  %146 = zext i32 %143 to i64
+  %147 = add nuw nsw i64 %146, 1
+  %148 = load i32, ptr %113, align 4, !tbaa !110
+  %.not.i.i.not.i.i37 = icmp ult i32 %143, %148
+  %.pre3.i.i38 = load ptr, ptr %108, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i37, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42, label %149, !prof !111
 
-152:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit34
-  %153 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i36, i64 %149
-  %154 = icmp uge ptr %7, %.pre3.i.i36
-  %155 = icmp ult ptr %7, %153
-  %spec.select.i.i.i.i.i.i37 = and i1 %154, %155
-  br i1 %spec.select.i.i.i.i.i.i37, label %157, label %156, !prof !120
+149:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit36
+  %150 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i38, i64 %146
+  %151 = icmp uge ptr %7, %.pre3.i.i38
+  %152 = icmp ult ptr %7, %150
+  %spec.select.i.i.i.i.i.i39 = and i1 %151, %152
+  br i1 %spec.select.i.i.i.i.i.i39, label %153, label %.critedge.i.i.i.i40, !prof !120
 
-156:                                              ; preds = %152
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %150)
-  %.pre.i.i38 = load ptr, ptr %110, align 8, !tbaa !112
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39
+153:                                              ; preds = %149
+  %154 = ptrtoint ptr %7 to i64
+  %155 = ptrtoint ptr %.pre3.i.i38 to i64
+  %156 = sub i64 %154, %155
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %147)
+  %157 = load ptr, ptr %108, align 8, !tbaa !112
+  %158 = getelementptr inbounds i8, ptr %157, i64 %156
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42
 
-157:                                              ; preds = %152
-  %158 = ptrtoint ptr %7 to i64
-  %159 = ptrtoint ptr %.pre3.i.i36 to i64
-  %160 = sub i64 %158, %159
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %150)
-  %161 = load ptr, ptr %110, align 8, !tbaa !112
-  %162 = getelementptr inbounds i8, ptr %161, i64 %160
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39
+.critedge.i.i.i.i40:                              ; preds = %149
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %147)
+  %.pre.i.i41 = load ptr, ptr %108, align 8, !tbaa !112
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39: ; preds = %157, %156, %_ZNSt14_Function_baseD2Ev.exit34
-  %163 = phi ptr [ %.pre3.i.i36, %_ZNSt14_Function_baseD2Ev.exit34 ], [ %161, %157 ], [ %.pre.i.i38, %156 ]
-  %.016.i.i.i.i40 = phi ptr [ %7, %_ZNSt14_Function_baseD2Ev.exit34 ], [ %162, %157 ], [ %7, %156 ]
-  %164 = load i32, ptr %111, align 8, !tbaa !109
-  %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %"class.std::function.120", ptr %163, i64 %165
-  %167 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i40, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, i8 0, i64 32, i1 false)
-  %168 = load ptr, ptr %167, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i41 = icmp eq ptr %168, null
-  br i1 %.not.i.i.not.i.i.i41, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit42, label %169
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42: ; preds = %.critedge.i.i.i.i40, %153, %_ZNSt14_Function_baseD2Ev.exit36
+  %159 = phi ptr [ %.pre3.i.i38, %_ZNSt14_Function_baseD2Ev.exit36 ], [ %157, %153 ], [ %.pre.i.i41, %.critedge.i.i.i.i40 ]
+  %.016.i.i.i.i43 = phi ptr [ %7, %_ZNSt14_Function_baseD2Ev.exit36 ], [ %158, %153 ], [ %7, %.critedge.i.i.i.i40 ]
+  %160 = load i32, ptr %109, align 8, !tbaa !109
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds nuw %"class.std::function.120", ptr %159, i64 %161
+  %163 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i43, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, i8 0, i64 32, i1 false)
+  %164 = load ptr, ptr %163, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i44 = icmp eq ptr %164, null
+  br i1 %.not.i.i.not.i.i.i44, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit45, label %165
 
-169:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  %171 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %172 = call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i40, i32 noundef 2) #19
-  %173 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i40, i64 24
-  %174 = load ptr, ptr %173, align 8, !tbaa !121
-  store ptr %174, ptr %170, align 8, !tbaa !121
-  %175 = load ptr, ptr %167, align 8, !tbaa !119
-  store ptr %175, ptr %171, align 8, !tbaa !119
-  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit42
+165:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %168 = call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i43, i32 noundef 2) #19
+  %169 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i43, i64 24
+  %170 = load ptr, ptr %169, align 8, !tbaa !121
+  store ptr %170, ptr %166, align 8, !tbaa !121
+  %171 = load ptr, ptr %163, align 8, !tbaa !119
+  store ptr %171, ptr %167, align 8, !tbaa !119
+  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit45
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit42: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i39, %169
-  %176 = load i32, ptr %111, align 8, !tbaa !109
-  %177 = add i32 %176, 1
-  store i32 %177, ptr %111, align 8, !tbaa !109
-  %178 = load ptr, ptr %147, align 8, !tbaa !119
-  %.not.i43 = icmp eq ptr %178, null
-  br i1 %.not.i43, label %_ZNSt14_Function_baseD2Ev.exit44, label %179
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit45: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i42, %165
+  %172 = load i32, ptr %109, align 8, !tbaa !109
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %109, align 8, !tbaa !109
+  %174 = load ptr, ptr %144, align 8, !tbaa !119
+  %.not.i46 = icmp eq ptr %174, null
+  br i1 %.not.i46, label %_ZNSt14_Function_baseD2Ev.exit47, label %175
 
-179:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit42
-  %180 = call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit44
+175:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit45
+  %176 = call noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit47
 
-_ZNSt14_Function_baseD2Ev.exit44:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit42, %179
+_ZNSt14_Function_baseD2Ev.exit47:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit45, %175
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
-  %181 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %182 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERSD_E3$_4E9_M_invokeERKSt9_Any_dataOS1_SB_OSF_", ptr %182, align 8, !tbaa !123
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERSD_E3$_4E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %181, align 8, !tbaa !119
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 1888
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 1896
-  %185 = load i32, ptr %184, align 8, !tbaa !109
-  %186 = zext i32 %185 to i64
-  %187 = add nuw nsw i64 %186, 1
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 1900
-  %189 = load i32, ptr %188, align 4, !tbaa !110
-  %.not.i.i.not.i.i45 = icmp ult i32 %185, %189
-  %.pre3.i.i46 = load ptr, ptr %183, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i45, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i, label %190, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERSD_E3$_4E9_M_invokeERKSt9_Any_dataOS1_SB_OSF_", ptr %178, align 8, !tbaa !123
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERSD_E3$_4E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %177, align 8, !tbaa !119
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 1888
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 1896
+  %181 = load i32, ptr %180, align 8, !tbaa !109
+  %182 = zext i32 %181 to i64
+  %183 = add nuw nsw i64 %182, 1
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 1900
+  %185 = load i32, ptr %184, align 4, !tbaa !110
+  %.not.i.i.not.i.i48 = icmp ult i32 %181, %185
+  %.pre3.i.i49 = load ptr, ptr %179, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i48, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i, label %186, !prof !111
 
-190:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit44
-  %191 = getelementptr inbounds nuw %"class.std::function.126", ptr %.pre3.i.i46, i64 %186
-  %192 = icmp uge ptr %8, %.pre3.i.i46
-  %193 = icmp ult ptr %8, %191
-  %spec.select.i.i.i.i.i.i47 = and i1 %192, %193
-  br i1 %spec.select.i.i.i.i.i.i47, label %195, label %194, !prof !120
+186:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit47
+  %187 = getelementptr inbounds nuw %"class.std::function.126", ptr %.pre3.i.i49, i64 %182
+  %188 = icmp uge ptr %8, %.pre3.i.i49
+  %189 = icmp ult ptr %8, %187
+  %spec.select.i.i.i.i.i.i50 = and i1 %188, %189
+  br i1 %spec.select.i.i.i.i.i.i50, label %190, label %.critedge.i.i.i.i51, !prof !120
 
-194:                                              ; preds = %190
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %183, i64 noundef %187)
-  %.pre.i.i48 = load ptr, ptr %183, align 8, !tbaa !112
+190:                                              ; preds = %186
+  %191 = ptrtoint ptr %8 to i64
+  %192 = ptrtoint ptr %.pre3.i.i49 to i64
+  %193 = sub i64 %191, %192
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %179, i64 noundef %183)
+  %194 = load ptr, ptr %179, align 8, !tbaa !112
+  %195 = getelementptr inbounds i8, ptr %194, i64 %193
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i
 
-195:                                              ; preds = %190
-  %196 = ptrtoint ptr %8 to i64
-  %197 = ptrtoint ptr %.pre3.i.i46 to i64
-  %198 = sub i64 %196, %197
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %183, i64 noundef %187)
-  %199 = load ptr, ptr %183, align 8, !tbaa !112
-  %200 = getelementptr inbounds i8, ptr %199, i64 %198
+.critedge.i.i.i.i51:                              ; preds = %186
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %179, i64 noundef %183)
+  %.pre.i.i52 = load ptr, ptr %179, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i: ; preds = %195, %194, %_ZNSt14_Function_baseD2Ev.exit44
-  %201 = phi ptr [ %.pre3.i.i46, %_ZNSt14_Function_baseD2Ev.exit44 ], [ %199, %195 ], [ %.pre.i.i48, %194 ]
-  %.016.i.i.i.i49 = phi ptr [ %8, %_ZNSt14_Function_baseD2Ev.exit44 ], [ %200, %195 ], [ %8, %194 ]
-  %202 = load i32, ptr %184, align 8, !tbaa !109
-  %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw %"class.std::function.126", ptr %201, i64 %203
-  %205 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i49, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, i8 0, i64 32, i1 false)
-  %206 = load ptr, ptr %205, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i50 = icmp eq ptr %206, null
-  br i1 %.not.i.i.not.i.i.i50, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %207
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i: ; preds = %.critedge.i.i.i.i51, %190, %_ZNSt14_Function_baseD2Ev.exit47
+  %196 = phi ptr [ %.pre3.i.i49, %_ZNSt14_Function_baseD2Ev.exit47 ], [ %194, %190 ], [ %.pre.i.i52, %.critedge.i.i.i.i51 ]
+  %.016.i.i.i.i53 = phi ptr [ %8, %_ZNSt14_Function_baseD2Ev.exit47 ], [ %195, %190 ], [ %8, %.critedge.i.i.i.i51 ]
+  %197 = load i32, ptr %180, align 8, !tbaa !109
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr inbounds nuw %"class.std::function.126", ptr %196, i64 %198
+  %200 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i53, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, i8 0, i64 32, i1 false)
+  %201 = load ptr, ptr %200, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i54 = icmp eq ptr %201, null
+  br i1 %.not.i.i.not.i.i.i54, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %202
 
-207:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %209 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %210 = call noundef zeroext i1 %206(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i49, i32 noundef 2) #19
-  %211 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i49, i64 24
-  %212 = load ptr, ptr %211, align 8, !tbaa !123
-  store ptr %212, ptr %208, align 8, !tbaa !123
-  %213 = load ptr, ptr %205, align 8, !tbaa !119
-  store ptr %213, ptr %209, align 8, !tbaa !119
+202:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %205 = call noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i53, i32 noundef 2) #19
+  %206 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i53, i64 24
+  %207 = load ptr, ptr %206, align 8, !tbaa !123
+  store ptr %207, ptr %203, align 8, !tbaa !123
+  %208 = load ptr, ptr %200, align 8, !tbaa !119
+  store ptr %208, ptr %204, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i, %207
-  %214 = load i32, ptr %184, align 8, !tbaa !109
-  %215 = add i32 %214, 1
-  store i32 %215, ptr %184, align 8, !tbaa !109
-  %216 = load ptr, ptr %181, align 8, !tbaa !119
-  %.not.i51 = icmp eq ptr %216, null
-  br i1 %.not.i51, label %_ZNSt14_Function_baseD2Ev.exit52, label %217
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSI_m.exit.i.i, %202
+  %209 = load i32, ptr %180, align 8, !tbaa !109
+  %210 = add i32 %209, 1
+  store i32 %210, ptr %180, align 8, !tbaa !109
+  %211 = load ptr, ptr %177, align 8, !tbaa !119
+  %.not.i55 = icmp eq ptr %211, null
+  br i1 %.not.i55, label %_ZNSt14_Function_baseD2Ev.exit56, label %212
 
-217:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
-  %218 = call noundef zeroext i1 %216(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit52
+212:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
+  %213 = call noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit56
 
-_ZNSt14_Function_baseD2Ev.exit52:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %217
+_ZNSt14_Function_baseD2Ev.exit56:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_4LoopENS_15AnalysisManagerIS4_JRNS_27LoopStandardAnalysisResultsEEEEJS7_RNS_10LPMUpdaterEEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %212
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #19
-  %219 = ptrtoint ptr %0 to i64
-  %220 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %221 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %222 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %222, align 8
-  store i64 %219, ptr %9, align 8, !tbaa !113
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %221, align 8, !tbaa !125
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %220, align 8, !tbaa !119
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 2128
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 2136
-  %225 = load i32, ptr %224, align 8, !tbaa !109
-  %226 = zext i32 %225 to i64
-  %227 = add nuw nsw i64 %226, 1
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 2140
-  %229 = load i32, ptr %228, align 4, !tbaa !110
-  %.not.i.i.not.i.i53 = icmp ult i32 %225, %229
-  %.pre3.i.i54 = load ptr, ptr %223, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i53, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, label %230, !prof !111
+  %214 = ptrtoint ptr %0 to i64
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %217, align 8
+  store i64 %214, ptr %9, align 8, !tbaa !113
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %216, align 8, !tbaa !125
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_15MachineFunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_5E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %215, align 8, !tbaa !119
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 2128
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 2136
+  %220 = load i32, ptr %219, align 8, !tbaa !109
+  %221 = zext i32 %220 to i64
+  %222 = add nuw nsw i64 %221, 1
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 2140
+  %224 = load i32, ptr %223, align 4, !tbaa !110
+  %.not.i.i.not.i.i57 = icmp ult i32 %220, %224
+  %.pre3.i.i58 = load ptr, ptr %218, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i57, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, label %225, !prof !111
 
-230:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit52
-  %231 = getelementptr inbounds nuw %"class.std::function.130", ptr %.pre3.i.i54, i64 %226
-  %232 = icmp uge ptr %9, %.pre3.i.i54
-  %233 = icmp ult ptr %9, %231
-  %spec.select.i.i.i.i.i.i55 = and i1 %232, %233
-  br i1 %spec.select.i.i.i.i.i.i55, label %235, label %234, !prof !120
+225:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit56
+  %226 = getelementptr inbounds nuw %"class.std::function.130", ptr %.pre3.i.i58, i64 %221
+  %227 = icmp uge ptr %9, %.pre3.i.i58
+  %228 = icmp ult ptr %9, %226
+  %spec.select.i.i.i.i.i.i59 = and i1 %227, %228
+  br i1 %spec.select.i.i.i.i.i.i59, label %229, label %.critedge.i.i.i.i60, !prof !120
 
-234:                                              ; preds = %230
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %223, i64 noundef %227)
-  %.pre.i.i56 = load ptr, ptr %223, align 8, !tbaa !112
+229:                                              ; preds = %225
+  %230 = ptrtoint ptr %9 to i64
+  %231 = ptrtoint ptr %.pre3.i.i58 to i64
+  %232 = sub i64 %230, %231
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %218, i64 noundef %222)
+  %233 = load ptr, ptr %218, align 8, !tbaa !112
+  %234 = getelementptr inbounds i8, ptr %233, i64 %232
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
 
-235:                                              ; preds = %230
-  %236 = ptrtoint ptr %9 to i64
-  %237 = ptrtoint ptr %.pre3.i.i54 to i64
-  %238 = sub i64 %236, %237
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %223, i64 noundef %227)
-  %239 = load ptr, ptr %223, align 8, !tbaa !112
-  %240 = getelementptr inbounds i8, ptr %239, i64 %238
+.critedge.i.i.i.i60:                              ; preds = %225
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %218, i64 noundef %222)
+  %.pre.i.i61 = load ptr, ptr %218, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %235, %234, %_ZNSt14_Function_baseD2Ev.exit52
-  %241 = phi ptr [ %.pre3.i.i54, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %239, %235 ], [ %.pre.i.i56, %234 ]
-  %.016.i.i.i.i57 = phi ptr [ %9, %_ZNSt14_Function_baseD2Ev.exit52 ], [ %240, %235 ], [ %9, %234 ]
-  %242 = load i32, ptr %224, align 8, !tbaa !109
-  %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw %"class.std::function.130", ptr %241, i64 %243
-  %245 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i57, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 32, i1 false)
-  %246 = load ptr, ptr %245, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i58 = icmp eq ptr %246, null
-  br i1 %.not.i.i.not.i.i.i58, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %247
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i: ; preds = %.critedge.i.i.i.i60, %229, %_ZNSt14_Function_baseD2Ev.exit56
+  %235 = phi ptr [ %.pre3.i.i58, %_ZNSt14_Function_baseD2Ev.exit56 ], [ %233, %229 ], [ %.pre.i.i61, %.critedge.i.i.i.i60 ]
+  %.016.i.i.i.i62 = phi ptr [ %9, %_ZNSt14_Function_baseD2Ev.exit56 ], [ %234, %229 ], [ %9, %.critedge.i.i.i.i60 ]
+  %236 = load i32, ptr %219, align 8, !tbaa !109
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr inbounds nuw %"class.std::function.130", ptr %235, i64 %237
+  %239 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i62, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %238, i8 0, i64 32, i1 false)
+  %240 = load ptr, ptr %239, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i63 = icmp eq ptr %240, null
+  br i1 %.not.i.i.not.i.i.i63, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, label %241
 
-247:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
-  %248 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  %249 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  %250 = call noundef zeroext i1 %246(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i57, i32 noundef 2) #19
-  %251 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i57, i64 24
-  %252 = load ptr, ptr %251, align 8, !tbaa !125
-  store ptr %252, ptr %248, align 8, !tbaa !125
-  %253 = load ptr, ptr %245, align 8, !tbaa !119
-  store ptr %253, ptr %249, align 8, !tbaa !119
+241:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i
+  %242 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %244 = call noundef zeroext i1 %240(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i62, i32 noundef 2) #19
+  %245 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i62, i64 24
+  %246 = load ptr, ptr %245, align 8, !tbaa !125
+  store ptr %246, ptr %242, align 8, !tbaa !125
+  %247 = load ptr, ptr %239, align 8, !tbaa !119
+  store ptr %247, ptr %243, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %247
-  %254 = load i32, ptr %224, align 8, !tbaa !109
-  %255 = add i32 %254, 1
-  store i32 %255, ptr %224, align 8, !tbaa !109
-  %256 = load ptr, ptr %220, align 8, !tbaa !119
-  %.not.i59 = icmp eq ptr %256, null
-  br i1 %.not.i59, label %_ZNSt14_Function_baseD2Ev.exit60, label %257
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i, %241
+  %248 = load i32, ptr %219, align 8, !tbaa !109
+  %249 = add i32 %248, 1
+  store i32 %249, ptr %219, align 8, !tbaa !109
+  %250 = load ptr, ptr %215, align 8, !tbaa !119
+  %.not.i64 = icmp eq ptr %250, null
+  br i1 %.not.i64, label %_ZNSt14_Function_baseD2Ev.exit65, label %251
 
-257:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
-  %258 = call noundef zeroext i1 %256(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit60
+251:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit
+  %252 = call noundef zeroext i1 %250(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit65
 
-_ZNSt14_Function_baseD2Ev.exit60:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %257
+_ZNSt14_Function_baseD2Ev.exit65:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit, %251
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19
-  %259 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %260 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_6E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %260, align 8, !tbaa !121
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_6E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %259, align 8, !tbaa !119
-  %261 = load i32, ptr %111, align 8, !tbaa !109
-  %262 = zext i32 %261 to i64
-  %263 = add nuw nsw i64 %262, 1
-  %264 = load i32, ptr %115, align 4, !tbaa !110
-  %.not.i.i.not.i.i61 = icmp ult i32 %261, %264
-  %.pre3.i.i62 = load ptr, ptr %110, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i61, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65, label %265, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_6E9_M_invokeERKSt9_Any_dataOS1_S7_OSB_", ptr %254, align 8, !tbaa !121
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_11PassManagerINS0_8FunctionENS0_15AnalysisManagerIS3_JEEEJEEENS0_8ArrayRefINS0_11PassBuilder15PipelineElementEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERS9_E3$_6E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %253, align 8, !tbaa !119
+  %255 = load i32, ptr %109, align 8, !tbaa !109
+  %256 = zext i32 %255 to i64
+  %257 = add nuw nsw i64 %256, 1
+  %258 = load i32, ptr %113, align 4, !tbaa !110
+  %.not.i.i.not.i.i66 = icmp ult i32 %255, %258
+  %.pre3.i.i67 = load ptr, ptr %108, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i66, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71, label %259, !prof !111
 
-265:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit60
-  %266 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i62, i64 %262
-  %267 = icmp uge ptr %10, %.pre3.i.i62
-  %268 = icmp ult ptr %10, %266
-  %spec.select.i.i.i.i.i.i63 = and i1 %267, %268
-  br i1 %spec.select.i.i.i.i.i.i63, label %270, label %269, !prof !120
+259:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit65
+  %260 = getelementptr inbounds nuw %"class.std::function.120", ptr %.pre3.i.i67, i64 %256
+  %261 = icmp uge ptr %10, %.pre3.i.i67
+  %262 = icmp ult ptr %10, %260
+  %spec.select.i.i.i.i.i.i68 = and i1 %261, %262
+  br i1 %spec.select.i.i.i.i.i.i68, label %263, label %.critedge.i.i.i.i69, !prof !120
 
-269:                                              ; preds = %265
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %263)
-  %.pre.i.i64 = load ptr, ptr %110, align 8, !tbaa !112
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65
+263:                                              ; preds = %259
+  %264 = ptrtoint ptr %10 to i64
+  %265 = ptrtoint ptr %.pre3.i.i67 to i64
+  %266 = sub i64 %264, %265
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %257)
+  %267 = load ptr, ptr %108, align 8, !tbaa !112
+  %268 = getelementptr inbounds i8, ptr %267, i64 %266
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71
 
-270:                                              ; preds = %265
-  %271 = ptrtoint ptr %10 to i64
-  %272 = ptrtoint ptr %.pre3.i.i62 to i64
-  %273 = sub i64 %271, %272
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %110, i64 noundef %263)
-  %274 = load ptr, ptr %110, align 8, !tbaa !112
-  %275 = getelementptr inbounds i8, ptr %274, i64 %273
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65
+.critedge.i.i.i.i69:                              ; preds = %259
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %257)
+  %.pre.i.i70 = load ptr, ptr %108, align 8, !tbaa !112
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65: ; preds = %270, %269, %_ZNSt14_Function_baseD2Ev.exit60
-  %276 = phi ptr [ %.pre3.i.i62, %_ZNSt14_Function_baseD2Ev.exit60 ], [ %274, %270 ], [ %.pre.i.i64, %269 ]
-  %.016.i.i.i.i66 = phi ptr [ %10, %_ZNSt14_Function_baseD2Ev.exit60 ], [ %275, %270 ], [ %10, %269 ]
-  %277 = load i32, ptr %111, align 8, !tbaa !109
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw %"class.std::function.120", ptr %276, i64 %278
-  %280 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i66, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %279, i8 0, i64 32, i1 false)
-  %281 = load ptr, ptr %280, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i67 = icmp eq ptr %281, null
-  br i1 %.not.i.i.not.i.i.i67, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit68, label %282
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71: ; preds = %.critedge.i.i.i.i69, %263, %_ZNSt14_Function_baseD2Ev.exit65
+  %269 = phi ptr [ %.pre3.i.i67, %_ZNSt14_Function_baseD2Ev.exit65 ], [ %267, %263 ], [ %.pre.i.i70, %.critedge.i.i.i.i69 ]
+  %.016.i.i.i.i72 = phi ptr [ %10, %_ZNSt14_Function_baseD2Ev.exit65 ], [ %268, %263 ], [ %10, %.critedge.i.i.i.i69 ]
+  %270 = load i32, ptr %109, align 8, !tbaa !109
+  %271 = zext i32 %270 to i64
+  %272 = getelementptr inbounds nuw %"class.std::function.120", ptr %269, i64 %271
+  %273 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i72, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %272, i8 0, i64 32, i1 false)
+  %274 = load ptr, ptr %273, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i73 = icmp eq ptr %274, null
+  br i1 %.not.i.i.not.i.i.i73, label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit74, label %275
 
-282:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65
-  %283 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  %284 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %285 = call noundef zeroext i1 %281(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i66, i32 noundef 2) #19
-  %286 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i66, i64 24
-  %287 = load ptr, ptr %286, align 8, !tbaa !121
-  store ptr %287, ptr %283, align 8, !tbaa !121
-  %288 = load ptr, ptr %280, align 8, !tbaa !119
-  store ptr %288, ptr %284, align 8, !tbaa !119
-  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit68
+275:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
+  %278 = call noundef zeroext i1 %274(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i72, i32 noundef 2) #19
+  %279 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i72, i64 24
+  %280 = load ptr, ptr %279, align 8, !tbaa !121
+  store ptr %280, ptr %276, align 8, !tbaa !121
+  %281 = load ptr, ptr %273, align 8, !tbaa !119
+  store ptr %281, ptr %277, align 8, !tbaa !119
+  br label %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit74
 
-_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit68: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i65, %282
-  %289 = load i32, ptr %111, align 8, !tbaa !109
-  %290 = add i32 %289, 1
-  store i32 %290, ptr %111, align 8, !tbaa !109
-  %291 = load ptr, ptr %259, align 8, !tbaa !119
-  %.not.i69 = icmp eq ptr %291, null
-  br i1 %.not.i69, label %_ZNSt14_Function_baseD2Ev.exit70, label %292
+_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit74: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS_11PassBuilder15PipelineElementEEEEELb0EE28reserveForParamAndGetAddressERKSE_m.exit.i.i71, %275
+  %282 = load i32, ptr %109, align 8, !tbaa !109
+  %283 = add i32 %282, 1
+  store i32 %283, ptr %109, align 8, !tbaa !109
+  %284 = load ptr, ptr %253, align 8, !tbaa !119
+  %.not.i75 = icmp eq ptr %284, null
+  br i1 %.not.i75, label %_ZNSt14_Function_baseD2Ev.exit76, label %285
 
-292:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit68
-  %293 = call noundef zeroext i1 %291(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit70
+285:                                              ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit74
+  %286 = call noundef zeroext i1 %284(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit76
 
-_ZNSt14_Function_baseD2Ev.exit70:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit68, %292
+_ZNSt14_Function_baseD2Ev.exit76:                 ; preds = %_ZN4llvm11PassBuilder31registerPipelineParsingCallbackERKSt8functionIFbNS_9StringRefERNS_11PassManagerINS_8FunctionENS_15AnalysisManagerIS4_JEEEJEEENS_8ArrayRefINS0_15PipelineElementEEEEE.exit74, %285
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #19
-  %294 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %295 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_7E9_M_invokeERKSt9_Any_dataS4_", ptr %295, align 8, !tbaa !127
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %294, align 8, !tbaa !119
-  %296 = getelementptr inbounds nuw i8, ptr %1, i64 1248
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 1256
-  %298 = load i32, ptr %297, align 8, !tbaa !109
-  %299 = zext i32 %298 to i64
-  %300 = add nuw nsw i64 %299, 1
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 1260
-  %302 = load i32, ptr %301, align 4, !tbaa !110
-  %.not.i.i.not.i.i71 = icmp ult i32 %298, %302
-  %.pre3.i.i72 = load ptr, ptr %296, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i71, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %303, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_7E9_M_invokeERKSt9_Any_dataS4_", ptr %288, align 8, !tbaa !127
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_6ModuleEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %287, align 8, !tbaa !119
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 1248
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 1256
+  %291 = load i32, ptr %290, align 8, !tbaa !109
+  %292 = zext i32 %291 to i64
+  %293 = add nuw nsw i64 %292, 1
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 1260
+  %295 = load i32, ptr %294, align 4, !tbaa !110
+  %.not.i.i.not.i.i77 = icmp ult i32 %291, %295
+  %.pre3.i.i78 = load ptr, ptr %289, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i77, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %296, !prof !111
 
-303:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit70
-  %304 = getelementptr inbounds nuw %"class.std::function.135", ptr %.pre3.i.i72, i64 %299
-  %305 = icmp uge ptr %11, %.pre3.i.i72
-  %306 = icmp ult ptr %11, %304
-  %spec.select.i.i.i.i.i.i73 = and i1 %305, %306
-  br i1 %spec.select.i.i.i.i.i.i73, label %308, label %307, !prof !120
+296:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit76
+  %297 = getelementptr inbounds nuw %"class.std::function.135", ptr %.pre3.i.i78, i64 %292
+  %298 = icmp uge ptr %11, %.pre3.i.i78
+  %299 = icmp ult ptr %11, %297
+  %spec.select.i.i.i.i.i.i79 = and i1 %298, %299
+  br i1 %spec.select.i.i.i.i.i.i79, label %300, label %.critedge.i.i.i.i80, !prof !120
 
-307:                                              ; preds = %303
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %296, i64 noundef %300)
-  %.pre.i.i74 = load ptr, ptr %296, align 8, !tbaa !112
+300:                                              ; preds = %296
+  %301 = ptrtoint ptr %11 to i64
+  %302 = ptrtoint ptr %.pre3.i.i78 to i64
+  %303 = sub i64 %301, %302
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %289, i64 noundef %293)
+  %304 = load ptr, ptr %289, align 8, !tbaa !112
+  %305 = getelementptr inbounds i8, ptr %304, i64 %303
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-308:                                              ; preds = %303
-  %309 = ptrtoint ptr %11 to i64
-  %310 = ptrtoint ptr %.pre3.i.i72 to i64
-  %311 = sub i64 %309, %310
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %296, i64 noundef %300)
-  %312 = load ptr, ptr %296, align 8, !tbaa !112
-  %313 = getelementptr inbounds i8, ptr %312, i64 %311
+.critedge.i.i.i.i80:                              ; preds = %296
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %289, i64 noundef %293)
+  %.pre.i.i81 = load ptr, ptr %289, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %308, %307, %_ZNSt14_Function_baseD2Ev.exit70
-  %314 = phi ptr [ %.pre3.i.i72, %_ZNSt14_Function_baseD2Ev.exit70 ], [ %312, %308 ], [ %.pre.i.i74, %307 ]
-  %.016.i.i.i.i75 = phi ptr [ %11, %_ZNSt14_Function_baseD2Ev.exit70 ], [ %313, %308 ], [ %11, %307 ]
-  %315 = load i32, ptr %297, align 8, !tbaa !109
-  %316 = zext i32 %315 to i64
-  %317 = getelementptr inbounds nuw %"class.std::function.135", ptr %314, i64 %316
-  %318 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i75, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %317, i8 0, i64 32, i1 false)
-  %319 = load ptr, ptr %318, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i76 = icmp eq ptr %319, null
-  br i1 %.not.i.i.not.i.i.i76, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit, label %320
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %.critedge.i.i.i.i80, %300, %_ZNSt14_Function_baseD2Ev.exit76
+  %306 = phi ptr [ %.pre3.i.i78, %_ZNSt14_Function_baseD2Ev.exit76 ], [ %304, %300 ], [ %.pre.i.i81, %.critedge.i.i.i.i80 ]
+  %.016.i.i.i.i82 = phi ptr [ %11, %_ZNSt14_Function_baseD2Ev.exit76 ], [ %305, %300 ], [ %11, %.critedge.i.i.i.i80 ]
+  %307 = load i32, ptr %290, align 8, !tbaa !109
+  %308 = zext i32 %307 to i64
+  %309 = getelementptr inbounds nuw %"class.std::function.135", ptr %306, i64 %308
+  %310 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i82, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %309, i8 0, i64 32, i1 false)
+  %311 = load ptr, ptr %310, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i83 = icmp eq ptr %311, null
+  br i1 %.not.i.i.not.i.i.i83, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit, label %312
 
-320:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
-  %321 = getelementptr inbounds nuw i8, ptr %317, i64 24
-  %322 = getelementptr inbounds nuw i8, ptr %317, i64 16
-  %323 = call noundef zeroext i1 %319(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i75, i32 noundef 2) #19
-  %324 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i75, i64 24
-  %325 = load ptr, ptr %324, align 8, !tbaa !127
-  store ptr %325, ptr %321, align 8, !tbaa !127
-  %326 = load ptr, ptr %318, align 8, !tbaa !119
-  store ptr %326, ptr %322, align 8, !tbaa !119
+312:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
+  %313 = getelementptr inbounds nuw i8, ptr %309, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %309, i64 16
+  %315 = call noundef zeroext i1 %311(ptr noundef nonnull align 8 dereferenceable(32) %309, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i82, i32 noundef 2) #19
+  %316 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i82, i64 24
+  %317 = load ptr, ptr %316, align 8, !tbaa !127
+  store ptr %317, ptr %313, align 8, !tbaa !127
+  %318 = load ptr, ptr %310, align 8, !tbaa !119
+  store ptr %318, ptr %314, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit
 
-_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %320
-  %327 = load i32, ptr %297, align 8, !tbaa !109
-  %328 = add i32 %327, 1
-  store i32 %328, ptr %297, align 8, !tbaa !109
-  %329 = load ptr, ptr %294, align 8, !tbaa !119
-  %.not.i77 = icmp eq ptr %329, null
-  br i1 %.not.i77, label %_ZNSt14_Function_baseD2Ev.exit78, label %330
+_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %312
+  %319 = load i32, ptr %290, align 8, !tbaa !109
+  %320 = add i32 %319, 1
+  store i32 %320, ptr %290, align 8, !tbaa !109
+  %321 = load ptr, ptr %287, align 8, !tbaa !119
+  %.not.i84 = icmp eq ptr %321, null
+  br i1 %.not.i84, label %_ZNSt14_Function_baseD2Ev.exit85, label %322
 
-330:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit
-  %331 = call noundef zeroext i1 %329(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit78
+322:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit
+  %323 = call noundef zeroext i1 %321(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit85
 
-_ZNSt14_Function_baseD2Ev.exit78:                 ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit, %330
+_ZNSt14_Function_baseD2Ev.exit85:                 ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_6ModuleEJEEEEE.exit, %322
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #19
-  %332 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %333 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_8E9_M_invokeERKSt9_Any_dataS4_", ptr %333, align 8, !tbaa !129
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %332, align 8, !tbaa !119
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 1648
-  %335 = getelementptr inbounds nuw i8, ptr %1, i64 1656
-  %336 = load i32, ptr %335, align 8, !tbaa !109
-  %337 = zext i32 %336 to i64
-  %338 = add nuw nsw i64 %337, 1
-  %339 = getelementptr inbounds nuw i8, ptr %1, i64 1660
-  %340 = load i32, ptr %339, align 4, !tbaa !110
-  %.not.i.i.not.i.i79 = icmp ult i32 %336, %340
-  %.pre3.i.i80 = load ptr, ptr %334, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i79, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %341, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_8E9_M_invokeERKSt9_Any_dataS4_", ptr %325, align 8, !tbaa !129
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_8FunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_8E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %324, align 8, !tbaa !119
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 1648
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 1656
+  %328 = load i32, ptr %327, align 8, !tbaa !109
+  %329 = zext i32 %328 to i64
+  %330 = add nuw nsw i64 %329, 1
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 1660
+  %332 = load i32, ptr %331, align 4, !tbaa !110
+  %.not.i.i.not.i.i86 = icmp ult i32 %328, %332
+  %.pre3.i.i87 = load ptr, ptr %326, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i86, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %333, !prof !111
 
-341:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit78
-  %342 = getelementptr inbounds nuw %"class.std::function.139", ptr %.pre3.i.i80, i64 %337
-  %343 = icmp uge ptr %12, %.pre3.i.i80
-  %344 = icmp ult ptr %12, %342
-  %spec.select.i.i.i.i.i.i81 = and i1 %343, %344
-  br i1 %spec.select.i.i.i.i.i.i81, label %346, label %345, !prof !120
+333:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit85
+  %334 = getelementptr inbounds nuw %"class.std::function.139", ptr %.pre3.i.i87, i64 %329
+  %335 = icmp uge ptr %12, %.pre3.i.i87
+  %336 = icmp ult ptr %12, %334
+  %spec.select.i.i.i.i.i.i88 = and i1 %335, %336
+  br i1 %spec.select.i.i.i.i.i.i88, label %337, label %.critedge.i.i.i.i89, !prof !120
 
-345:                                              ; preds = %341
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %334, i64 noundef %338)
-  %.pre.i.i82 = load ptr, ptr %334, align 8, !tbaa !112
+337:                                              ; preds = %333
+  %338 = ptrtoint ptr %12 to i64
+  %339 = ptrtoint ptr %.pre3.i.i87 to i64
+  %340 = sub i64 %338, %339
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %326, i64 noundef %330)
+  %341 = load ptr, ptr %326, align 8, !tbaa !112
+  %342 = getelementptr inbounds i8, ptr %341, i64 %340
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-346:                                              ; preds = %341
-  %347 = ptrtoint ptr %12 to i64
-  %348 = ptrtoint ptr %.pre3.i.i80 to i64
-  %349 = sub i64 %347, %348
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %334, i64 noundef %338)
-  %350 = load ptr, ptr %334, align 8, !tbaa !112
-  %351 = getelementptr inbounds i8, ptr %350, i64 %349
+.critedge.i.i.i.i89:                              ; preds = %333
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %326, i64 noundef %330)
+  %.pre.i.i90 = load ptr, ptr %326, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %346, %345, %_ZNSt14_Function_baseD2Ev.exit78
-  %352 = phi ptr [ %.pre3.i.i80, %_ZNSt14_Function_baseD2Ev.exit78 ], [ %350, %346 ], [ %.pre.i.i82, %345 ]
-  %.016.i.i.i.i83 = phi ptr [ %12, %_ZNSt14_Function_baseD2Ev.exit78 ], [ %351, %346 ], [ %12, %345 ]
-  %353 = load i32, ptr %335, align 8, !tbaa !109
-  %354 = zext i32 %353 to i64
-  %355 = getelementptr inbounds nuw %"class.std::function.139", ptr %352, i64 %354
-  %356 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i83, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %355, i8 0, i64 32, i1 false)
-  %357 = load ptr, ptr %356, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i84 = icmp eq ptr %357, null
-  br i1 %.not.i.i.not.i.i.i84, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit, label %358
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %.critedge.i.i.i.i89, %337, %_ZNSt14_Function_baseD2Ev.exit85
+  %343 = phi ptr [ %.pre3.i.i87, %_ZNSt14_Function_baseD2Ev.exit85 ], [ %341, %337 ], [ %.pre.i.i90, %.critedge.i.i.i.i89 ]
+  %.016.i.i.i.i91 = phi ptr [ %12, %_ZNSt14_Function_baseD2Ev.exit85 ], [ %342, %337 ], [ %12, %.critedge.i.i.i.i89 ]
+  %344 = load i32, ptr %327, align 8, !tbaa !109
+  %345 = zext i32 %344 to i64
+  %346 = getelementptr inbounds nuw %"class.std::function.139", ptr %343, i64 %345
+  %347 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i91, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %346, i8 0, i64 32, i1 false)
+  %348 = load ptr, ptr %347, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i92 = icmp eq ptr %348, null
+  br i1 %.not.i.i.not.i.i.i92, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit, label %349
 
-358:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
-  %359 = getelementptr inbounds nuw i8, ptr %355, i64 24
-  %360 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %361 = call noundef zeroext i1 %357(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i83, i32 noundef 2) #19
-  %362 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i83, i64 24
-  %363 = load ptr, ptr %362, align 8, !tbaa !129
-  store ptr %363, ptr %359, align 8, !tbaa !129
-  %364 = load ptr, ptr %356, align 8, !tbaa !119
-  store ptr %364, ptr %360, align 8, !tbaa !119
+349:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
+  %350 = getelementptr inbounds nuw i8, ptr %346, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  %352 = call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(32) %346, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i91, i32 noundef 2) #19
+  %353 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i91, i64 24
+  %354 = load ptr, ptr %353, align 8, !tbaa !129
+  store ptr %354, ptr %350, align 8, !tbaa !129
+  %355 = load ptr, ptr %347, align 8, !tbaa !119
+  store ptr %355, ptr %351, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit
 
-_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %358
-  %365 = load i32, ptr %335, align 8, !tbaa !109
-  %366 = add i32 %365, 1
-  store i32 %366, ptr %335, align 8, !tbaa !109
-  %367 = load ptr, ptr %332, align 8, !tbaa !119
-  %.not.i85 = icmp eq ptr %367, null
-  br i1 %.not.i85, label %_ZNSt14_Function_baseD2Ev.exit86, label %368
+_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %349
+  %356 = load i32, ptr %327, align 8, !tbaa !109
+  %357 = add i32 %356, 1
+  store i32 %357, ptr %327, align 8, !tbaa !109
+  %358 = load ptr, ptr %324, align 8, !tbaa !119
+  %.not.i93 = icmp eq ptr %358, null
+  br i1 %.not.i93, label %_ZNSt14_Function_baseD2Ev.exit94, label %359
 
-368:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit
-  %369 = call noundef zeroext i1 %367(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit86
-
-_ZNSt14_Function_baseD2Ev.exit86:                 ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit, %368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #19
-  %370 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %371 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_9AAManagerEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_9E9_M_invokeERKSt9_Any_dataOS1_S3_", ptr %371, align 8, !tbaa !131
-  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_9AAManagerEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %370, align 8, !tbaa !119
-  %372 = getelementptr inbounds nuw i8, ptr %1, i64 1968
-  %373 = getelementptr inbounds nuw i8, ptr %1, i64 1976
-  %374 = load i32, ptr %373, align 8, !tbaa !109
-  %375 = zext i32 %374 to i64
-  %376 = add nuw nsw i64 %375, 1
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 1980
-  %378 = load i32, ptr %377, align 4, !tbaa !110
-  %.not.i.i.not.i.i87 = icmp ult i32 %374, %378
-  %.pre3.i.i88 = load ptr, ptr %372, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i87, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i, label %379, !prof !111
-
-379:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit86
-  %380 = getelementptr inbounds nuw %"class.std::function.144", ptr %.pre3.i.i88, i64 %375
-  %381 = icmp uge ptr %13, %.pre3.i.i88
-  %382 = icmp ult ptr %13, %380
-  %spec.select.i.i.i.i.i.i89 = and i1 %381, %382
-  br i1 %spec.select.i.i.i.i.i.i89, label %384, label %383, !prof !120
-
-383:                                              ; preds = %379
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %372, i64 noundef %376)
-  %.pre.i.i90 = load ptr, ptr %372, align 8, !tbaa !112
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
-
-384:                                              ; preds = %379
-  %385 = ptrtoint ptr %13 to i64
-  %386 = ptrtoint ptr %.pre3.i.i88 to i64
-  %387 = sub i64 %385, %386
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %372, i64 noundef %376)
-  %388 = load ptr, ptr %372, align 8, !tbaa !112
-  %389 = getelementptr inbounds i8, ptr %388, i64 %387
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
-
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i: ; preds = %384, %383, %_ZNSt14_Function_baseD2Ev.exit86
-  %390 = phi ptr [ %.pre3.i.i88, %_ZNSt14_Function_baseD2Ev.exit86 ], [ %388, %384 ], [ %.pre.i.i90, %383 ]
-  %.016.i.i.i.i91 = phi ptr [ %13, %_ZNSt14_Function_baseD2Ev.exit86 ], [ %389, %384 ], [ %13, %383 ]
-  %391 = load i32, ptr %373, align 8, !tbaa !109
-  %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds nuw %"class.std::function.144", ptr %390, i64 %392
-  %394 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i91, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %393, i8 0, i64 32, i1 false)
-  %395 = load ptr, ptr %394, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i92 = icmp eq ptr %395, null
-  br i1 %.not.i.i.not.i.i.i92, label %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit, label %396
-
-396:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
-  %397 = getelementptr inbounds nuw i8, ptr %393, i64 24
-  %398 = getelementptr inbounds nuw i8, ptr %393, i64 16
-  %399 = call noundef zeroext i1 %395(ptr noundef nonnull align 8 dereferenceable(32) %393, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i91, i32 noundef 2) #19
-  %400 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i91, i64 24
-  %401 = load ptr, ptr %400, align 8, !tbaa !131
-  store ptr %401, ptr %397, align 8, !tbaa !131
-  %402 = load ptr, ptr %394, align 8, !tbaa !119
-  store ptr %402, ptr %398, align 8, !tbaa !119
-  br label %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit
-
-_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i, %396
-  %403 = load i32, ptr %373, align 8, !tbaa !109
-  %404 = add i32 %403, 1
-  store i32 %404, ptr %373, align 8, !tbaa !109
-  %405 = load ptr, ptr %370, align 8, !tbaa !119
-  %.not.i93 = icmp eq ptr %405, null
-  br i1 %.not.i93, label %_ZNSt14_Function_baseD2Ev.exit94, label %406
-
-406:                                              ; preds = %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit
-  %407 = call noundef zeroext i1 %405(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #19
+359:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit
+  %360 = call noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3) #19
   br label %_ZNSt14_Function_baseD2Ev.exit94
 
-_ZNSt14_Function_baseD2Ev.exit94:                 ; preds = %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit, %406
+_ZNSt14_Function_baseD2Ev.exit94:                 ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_8FunctionEJEEEEE.exit, %359
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #19
+  %361 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false)
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_9AAManagerEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_9E9_M_invokeERKSt9_Any_dataOS1_S3_", ptr %362, align 8, !tbaa !131
+  store ptr @"_ZNSt17_Function_handlerIFbN4llvm9StringRefERNS0_9AAManagerEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_9E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %361, align 8, !tbaa !119
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 1968
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 1976
+  %365 = load i32, ptr %364, align 8, !tbaa !109
+  %366 = zext i32 %365 to i64
+  %367 = add nuw nsw i64 %366, 1
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 1980
+  %369 = load i32, ptr %368, align 4, !tbaa !110
+  %.not.i.i.not.i.i95 = icmp ult i32 %365, %369
+  %.pre3.i.i96 = load ptr, ptr %363, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i95, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i, label %370, !prof !111
+
+370:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit94
+  %371 = getelementptr inbounds nuw %"class.std::function.144", ptr %.pre3.i.i96, i64 %366
+  %372 = icmp uge ptr %13, %.pre3.i.i96
+  %373 = icmp ult ptr %13, %371
+  %spec.select.i.i.i.i.i.i97 = and i1 %372, %373
+  br i1 %spec.select.i.i.i.i.i.i97, label %374, label %.critedge.i.i.i.i98, !prof !120
+
+374:                                              ; preds = %370
+  %375 = ptrtoint ptr %13 to i64
+  %376 = ptrtoint ptr %.pre3.i.i96 to i64
+  %377 = sub i64 %375, %376
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %363, i64 noundef %367)
+  %378 = load ptr, ptr %363, align 8, !tbaa !112
+  %379 = getelementptr inbounds i8, ptr %378, i64 %377
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
+
+.critedge.i.i.i.i98:                              ; preds = %370
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %363, i64 noundef %367)
+  %.pre.i.i99 = load ptr, ptr %363, align 8, !tbaa !112
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
+
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i: ; preds = %.critedge.i.i.i.i98, %374, %_ZNSt14_Function_baseD2Ev.exit94
+  %380 = phi ptr [ %.pre3.i.i96, %_ZNSt14_Function_baseD2Ev.exit94 ], [ %378, %374 ], [ %.pre.i.i99, %.critedge.i.i.i.i98 ]
+  %.016.i.i.i.i100 = phi ptr [ %13, %_ZNSt14_Function_baseD2Ev.exit94 ], [ %379, %374 ], [ %13, %.critedge.i.i.i.i98 ]
+  %381 = load i32, ptr %364, align 8, !tbaa !109
+  %382 = zext i32 %381 to i64
+  %383 = getelementptr inbounds nuw %"class.std::function.144", ptr %380, i64 %382
+  %384 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %383, i8 0, i64 32, i1 false)
+  %385 = load ptr, ptr %384, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i101 = icmp eq ptr %385, null
+  br i1 %.not.i.i.not.i.i.i101, label %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit, label %386
+
+386:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i
+  %387 = getelementptr inbounds nuw i8, ptr %383, i64 24
+  %388 = getelementptr inbounds nuw i8, ptr %383, i64 16
+  %389 = call noundef zeroext i1 %385(ptr noundef nonnull align 8 dereferenceable(32) %383, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i100, i32 noundef 2) #19
+  %390 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 24
+  %391 = load ptr, ptr %390, align 8, !tbaa !131
+  store ptr %391, ptr %387, align 8, !tbaa !131
+  %392 = load ptr, ptr %384, align 8, !tbaa !119
+  store ptr %392, ptr %388, align 8, !tbaa !119
+  br label %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit
+
+_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFbNS_9StringRefERNS_9AAManagerEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit.i.i, %386
+  %393 = load i32, ptr %364, align 8, !tbaa !109
+  %394 = add i32 %393, 1
+  store i32 %394, ptr %364, align 8, !tbaa !109
+  %395 = load ptr, ptr %361, align 8, !tbaa !119
+  %.not.i102 = icmp eq ptr %395, null
+  br i1 %.not.i102, label %_ZNSt14_Function_baseD2Ev.exit103, label %396
+
+396:                                              ; preds = %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit
+  %397 = call noundef zeroext i1 %395(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit103
+
+_ZNSt14_Function_baseD2Ev.exit103:                ; preds = %_ZN4llvm11PassBuilder23registerParseAACallbackERKSt8functionIFbNS_9StringRefERNS_9AAManagerEEE.exit, %396
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #19
-  %408 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %409 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %399 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_10E9_M_invokeERKSt9_Any_dataS6_", ptr %409, align 8, !tbaa !133
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %408, align 8, !tbaa !119
-  %410 = getelementptr inbounds nuw i8, ptr %1, i64 1808
-  %411 = getelementptr inbounds nuw i8, ptr %1, i64 1816
-  %412 = load i32, ptr %411, align 8, !tbaa !109
-  %413 = zext i32 %412 to i64
-  %414 = add nuw nsw i64 %413, 1
-  %415 = getelementptr inbounds nuw i8, ptr %1, i64 1820
-  %416 = load i32, ptr %415, align 4, !tbaa !110
-  %.not.i.i.not.i.i95 = icmp ult i32 %412, %416
-  %.pre3.i.i96 = load ptr, ptr %410, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i95, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i, label %417, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_10E9_M_invokeERKSt9_Any_dataS6_", ptr %399, align 8, !tbaa !133
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_4LoopEJRNS0_27LoopStandardAnalysisResultsEEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_10E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %398, align 8, !tbaa !119
+  %400 = getelementptr inbounds nuw i8, ptr %1, i64 1808
+  %401 = getelementptr inbounds nuw i8, ptr %1, i64 1816
+  %402 = load i32, ptr %401, align 8, !tbaa !109
+  %403 = zext i32 %402 to i64
+  %404 = add nuw nsw i64 %403, 1
+  %405 = getelementptr inbounds nuw i8, ptr %1, i64 1820
+  %406 = load i32, ptr %405, align 4, !tbaa !110
+  %.not.i.i.not.i.i104 = icmp ult i32 %402, %406
+  %.pre3.i.i105 = load ptr, ptr %400, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i104, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i, label %407, !prof !111
 
-417:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit94
-  %418 = getelementptr inbounds nuw %"class.std::function.148", ptr %.pre3.i.i96, i64 %413
-  %419 = icmp uge ptr %14, %.pre3.i.i96
-  %420 = icmp ult ptr %14, %418
-  %spec.select.i.i.i.i.i.i97 = and i1 %419, %420
-  br i1 %spec.select.i.i.i.i.i.i97, label %422, label %421, !prof !120
+407:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit103
+  %408 = getelementptr inbounds nuw %"class.std::function.148", ptr %.pre3.i.i105, i64 %403
+  %409 = icmp uge ptr %14, %.pre3.i.i105
+  %410 = icmp ult ptr %14, %408
+  %spec.select.i.i.i.i.i.i106 = and i1 %409, %410
+  br i1 %spec.select.i.i.i.i.i.i106, label %411, label %.critedge.i.i.i.i107, !prof !120
 
-421:                                              ; preds = %417
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %410, i64 noundef %414)
-  %.pre.i.i98 = load ptr, ptr %410, align 8, !tbaa !112
+411:                                              ; preds = %407
+  %412 = ptrtoint ptr %14 to i64
+  %413 = ptrtoint ptr %.pre3.i.i105 to i64
+  %414 = sub i64 %412, %413
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %400, i64 noundef %404)
+  %415 = load ptr, ptr %400, align 8, !tbaa !112
+  %416 = getelementptr inbounds i8, ptr %415, i64 %414
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i
 
-422:                                              ; preds = %417
-  %423 = ptrtoint ptr %14 to i64
-  %424 = ptrtoint ptr %.pre3.i.i96 to i64
-  %425 = sub i64 %423, %424
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %410, i64 noundef %414)
-  %426 = load ptr, ptr %410, align 8, !tbaa !112
-  %427 = getelementptr inbounds i8, ptr %426, i64 %425
+.critedge.i.i.i.i107:                             ; preds = %407
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %400, i64 noundef %404)
+  %.pre.i.i108 = load ptr, ptr %400, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i: ; preds = %422, %421, %_ZNSt14_Function_baseD2Ev.exit94
-  %428 = phi ptr [ %.pre3.i.i96, %_ZNSt14_Function_baseD2Ev.exit94 ], [ %426, %422 ], [ %.pre.i.i98, %421 ]
-  %.016.i.i.i.i99 = phi ptr [ %14, %_ZNSt14_Function_baseD2Ev.exit94 ], [ %427, %422 ], [ %14, %421 ]
-  %429 = load i32, ptr %411, align 8, !tbaa !109
-  %430 = zext i32 %429 to i64
-  %431 = getelementptr inbounds nuw %"class.std::function.148", ptr %428, i64 %430
-  %432 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i99, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %431, i8 0, i64 32, i1 false)
-  %433 = load ptr, ptr %432, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i100 = icmp eq ptr %433, null
-  br i1 %.not.i.i.not.i.i.i100, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit, label %434
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i: ; preds = %.critedge.i.i.i.i107, %411, %_ZNSt14_Function_baseD2Ev.exit103
+  %417 = phi ptr [ %.pre3.i.i105, %_ZNSt14_Function_baseD2Ev.exit103 ], [ %415, %411 ], [ %.pre.i.i108, %.critedge.i.i.i.i107 ]
+  %.016.i.i.i.i109 = phi ptr [ %14, %_ZNSt14_Function_baseD2Ev.exit103 ], [ %416, %411 ], [ %14, %.critedge.i.i.i.i107 ]
+  %418 = load i32, ptr %401, align 8, !tbaa !109
+  %419 = zext i32 %418 to i64
+  %420 = getelementptr inbounds nuw %"class.std::function.148", ptr %417, i64 %419
+  %421 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i109, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %420, i8 0, i64 32, i1 false)
+  %422 = load ptr, ptr %421, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i110 = icmp eq ptr %422, null
+  br i1 %.not.i.i.not.i.i.i110, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit, label %423
 
-434:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i
-  %435 = getelementptr inbounds nuw i8, ptr %431, i64 24
-  %436 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  %437 = call noundef zeroext i1 %433(ptr noundef nonnull align 8 dereferenceable(32) %431, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i99, i32 noundef 2) #19
-  %438 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i99, i64 24
-  %439 = load ptr, ptr %438, align 8, !tbaa !133
-  store ptr %439, ptr %435, align 8, !tbaa !133
-  %440 = load ptr, ptr %432, align 8, !tbaa !119
-  store ptr %440, ptr %436, align 8, !tbaa !119
+423:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i
+  %424 = getelementptr inbounds nuw i8, ptr %420, i64 24
+  %425 = getelementptr inbounds nuw i8, ptr %420, i64 16
+  %426 = call noundef zeroext i1 %422(ptr noundef nonnull align 8 dereferenceable(32) %420, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i109, i32 noundef 2) #19
+  %427 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i109, i64 24
+  %428 = load ptr, ptr %427, align 8, !tbaa !133
+  store ptr %428, ptr %424, align 8, !tbaa !133
+  %429 = load ptr, ptr %421, align 8, !tbaa !119
+  store ptr %429, ptr %425, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit
 
-_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i, %434
-  %441 = load i32, ptr %411, align 8, !tbaa !109
-  %442 = add i32 %441, 1
-  store i32 %442, ptr %411, align 8, !tbaa !109
-  %443 = load ptr, ptr %408, align 8, !tbaa !119
-  %.not.i101 = icmp eq ptr %443, null
-  br i1 %.not.i101, label %_ZNSt14_Function_baseD2Ev.exit102, label %444
+_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEELb0EE28reserveForParamAndGetAddressERKS9_m.exit.i.i, %423
+  %430 = load i32, ptr %401, align 8, !tbaa !109
+  %431 = add i32 %430, 1
+  store i32 %431, ptr %401, align 8, !tbaa !109
+  %432 = load ptr, ptr %398, align 8, !tbaa !119
+  %.not.i111 = icmp eq ptr %432, null
+  br i1 %.not.i111, label %_ZNSt14_Function_baseD2Ev.exit112, label %433
 
-444:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit
-  %445 = call noundef zeroext i1 %443(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit102
+433:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit
+  %434 = call noundef zeroext i1 %432(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit112
 
-_ZNSt14_Function_baseD2Ev.exit102:                ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit, %444
+_ZNSt14_Function_baseD2Ev.exit112:                ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEEEE.exit, %433
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #19
-  %446 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %447 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %435 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %436 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_11E9_M_invokeERKSt9_Any_dataS4_", ptr %447, align 8, !tbaa !135
-  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %446, align 8, !tbaa !119
-  %448 = getelementptr inbounds nuw i8, ptr %1, i64 2048
-  %449 = getelementptr inbounds nuw i8, ptr %1, i64 2056
-  %450 = load i32, ptr %449, align 8, !tbaa !109
-  %451 = zext i32 %450 to i64
-  %452 = add nuw nsw i64 %451, 1
-  %453 = getelementptr inbounds nuw i8, ptr %1, i64 2060
-  %454 = load i32, ptr %453, align 4, !tbaa !110
-  %.not.i.i.not.i.i103 = icmp ult i32 %450, %454
-  %.pre3.i.i104 = load ptr, ptr %448, align 8, !tbaa !112
-  br i1 %.not.i.i.not.i.i103, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %455, !prof !111
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_11E9_M_invokeERKSt9_Any_dataS4_", ptr %436, align 8, !tbaa !135
+  store ptr @"_ZNSt17_Function_handlerIFvRN4llvm15AnalysisManagerINS0_15MachineFunctionEJEEEEZNS0_16X86TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE4$_11E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %435, align 8, !tbaa !119
+  %437 = getelementptr inbounds nuw i8, ptr %1, i64 2048
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 2056
+  %439 = load i32, ptr %438, align 8, !tbaa !109
+  %440 = zext i32 %439 to i64
+  %441 = add nuw nsw i64 %440, 1
+  %442 = getelementptr inbounds nuw i8, ptr %1, i64 2060
+  %443 = load i32, ptr %442, align 4, !tbaa !110
+  %.not.i.i.not.i.i113 = icmp ult i32 %439, %443
+  %.pre3.i.i114 = load ptr, ptr %437, align 8, !tbaa !112
+  br i1 %.not.i.i.not.i.i113, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, label %444, !prof !111
 
-455:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit102
-  %456 = getelementptr inbounds nuw %"class.std::function.153", ptr %.pre3.i.i104, i64 %451
-  %457 = icmp uge ptr %15, %.pre3.i.i104
-  %458 = icmp ult ptr %15, %456
-  %spec.select.i.i.i.i.i.i105 = and i1 %457, %458
-  br i1 %spec.select.i.i.i.i.i.i105, label %460, label %459, !prof !120
+444:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit112
+  %445 = getelementptr inbounds nuw %"class.std::function.153", ptr %.pre3.i.i114, i64 %440
+  %446 = icmp uge ptr %15, %.pre3.i.i114
+  %447 = icmp ult ptr %15, %445
+  %spec.select.i.i.i.i.i.i115 = and i1 %446, %447
+  br i1 %spec.select.i.i.i.i.i.i115, label %448, label %.critedge.i.i.i.i116, !prof !120
 
-459:                                              ; preds = %455
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %448, i64 noundef %452)
-  %.pre.i.i106 = load ptr, ptr %448, align 8, !tbaa !112
+448:                                              ; preds = %444
+  %449 = ptrtoint ptr %15 to i64
+  %450 = ptrtoint ptr %.pre3.i.i114 to i64
+  %451 = sub i64 %449, %450
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %437, i64 noundef %441)
+  %452 = load ptr, ptr %437, align 8, !tbaa !112
+  %453 = getelementptr inbounds i8, ptr %452, i64 %451
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-460:                                              ; preds = %455
-  %461 = ptrtoint ptr %15 to i64
-  %462 = ptrtoint ptr %.pre3.i.i104 to i64
-  %463 = sub i64 %461, %462
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %448, i64 noundef %452)
-  %464 = load ptr, ptr %448, align 8, !tbaa !112
-  %465 = getelementptr inbounds i8, ptr %464, i64 %463
+.critedge.i.i.i.i116:                             ; preds = %444
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %437, i64 noundef %441)
+  %.pre.i.i117 = load ptr, ptr %437, align 8, !tbaa !112
   br label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %460, %459, %_ZNSt14_Function_baseD2Ev.exit102
-  %466 = phi ptr [ %.pre3.i.i104, %_ZNSt14_Function_baseD2Ev.exit102 ], [ %464, %460 ], [ %.pre.i.i106, %459 ]
-  %.016.i.i.i.i107 = phi ptr [ %15, %_ZNSt14_Function_baseD2Ev.exit102 ], [ %465, %460 ], [ %15, %459 ]
-  %467 = load i32, ptr %449, align 8, !tbaa !109
-  %468 = zext i32 %467 to i64
-  %469 = getelementptr inbounds nuw %"class.std::function.153", ptr %466, i64 %468
-  %470 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i107, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %469, i8 0, i64 32, i1 false)
-  %471 = load ptr, ptr %470, align 8, !tbaa !119
-  %.not.i.i.not.i.i.i108 = icmp eq ptr %471, null
-  br i1 %.not.i.i.not.i.i.i108, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit, label %472
+_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i: ; preds = %.critedge.i.i.i.i116, %448, %_ZNSt14_Function_baseD2Ev.exit112
+  %454 = phi ptr [ %.pre3.i.i114, %_ZNSt14_Function_baseD2Ev.exit112 ], [ %452, %448 ], [ %.pre.i.i117, %.critedge.i.i.i.i116 ]
+  %.016.i.i.i.i118 = phi ptr [ %15, %_ZNSt14_Function_baseD2Ev.exit112 ], [ %453, %448 ], [ %15, %.critedge.i.i.i.i116 ]
+  %455 = load i32, ptr %438, align 8, !tbaa !109
+  %456 = zext i32 %455 to i64
+  %457 = getelementptr inbounds nuw %"class.std::function.153", ptr %454, i64 %456
+  %458 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i118, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %457, i8 0, i64 32, i1 false)
+  %459 = load ptr, ptr %458, align 8, !tbaa !119
+  %.not.i.i.not.i.i.i119 = icmp eq ptr %459, null
+  br i1 %.not.i.i.not.i.i.i119, label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit, label %460
 
-472:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
-  %473 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %474 = getelementptr inbounds nuw i8, ptr %469, i64 16
-  %475 = call noundef zeroext i1 %471(ptr noundef nonnull align 8 dereferenceable(32) %469, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i107, i32 noundef 2) #19
-  %476 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i107, i64 24
-  %477 = load ptr, ptr %476, align 8, !tbaa !135
-  store ptr %477, ptr %473, align 8, !tbaa !135
-  %478 = load ptr, ptr %470, align 8, !tbaa !119
-  store ptr %478, ptr %474, align 8, !tbaa !119
+460:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i
+  %461 = getelementptr inbounds nuw i8, ptr %457, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %457, i64 16
+  %463 = call noundef zeroext i1 %459(ptr noundef nonnull align 8 dereferenceable(32) %457, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i118, i32 noundef 2) #19
+  %464 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i118, i64 24
+  %465 = load ptr, ptr %464, align 8, !tbaa !135
+  store ptr %465, ptr %461, align 8, !tbaa !135
+  %466 = load ptr, ptr %458, align 8, !tbaa !119
+  store ptr %466, ptr %462, align 8, !tbaa !119
   br label %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit
 
-_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %472
-  %479 = load i32, ptr %449, align 8, !tbaa !109
-  %480 = add i32 %479, 1
-  store i32 %480, ptr %449, align 8, !tbaa !109
-  %481 = load ptr, ptr %446, align 8, !tbaa !119
-  %.not.i109 = icmp eq ptr %481, null
-  br i1 %.not.i109, label %_ZNSt14_Function_baseD2Ev.exit110, label %482
+_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEELb0EE28reserveForParamAndGetAddressERKS7_m.exit.i.i, %460
+  %467 = load i32, ptr %438, align 8, !tbaa !109
+  %468 = add i32 %467, 1
+  store i32 %468, ptr %438, align 8, !tbaa !109
+  %469 = load ptr, ptr %435, align 8, !tbaa !119
+  %.not.i120 = icmp eq ptr %469, null
+  br i1 %.not.i120, label %_ZNSt14_Function_baseD2Ev.exit121, label %470
 
-482:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit
-  %483 = call noundef zeroext i1 %481(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #19
-  br label %_ZNSt14_Function_baseD2Ev.exit110
+470:                                              ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit
+  %471 = call noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #19
+  br label %_ZNSt14_Function_baseD2Ev.exit121
 
-_ZNSt14_Function_baseD2Ev.exit110:                ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit, %482
+_ZNSt14_Function_baseD2Ev.exit121:                ; preds = %_ZN4llvm11PassBuilder36registerAnalysisRegistrationCallbackERKSt8functionIFvRNS_15AnalysisManagerINS_15MachineFunctionEJEEEEE.exit, %470
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
   ret void
 }

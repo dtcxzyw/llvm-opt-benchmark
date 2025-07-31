@@ -1393,7 +1393,7 @@ define dso_local noundef zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr no
     i8 12, label %50
     i8 2, label %51
     i8 13, label %52
-    i8 0, label %71
+    i8 0, label %.critedge
     i8 3, label %54
     i8 4, label %55
     i8 5, label %56
@@ -1424,7 +1424,7 @@ define dso_local noundef zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr no
   call void asm sideeffect "3394: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3394) #26, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6429, i32 2305, i64 12) #26, !srcloc !11
   call void asm sideeffect "3395: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3395b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3395) #26, !srcloc !12
-  br label %71
+  br label %.critedge
 
 54:                                               ; preds = %44
   br label %68
@@ -1439,13 +1439,13 @@ define dso_local noundef zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr no
   %58 = load i16, ptr %1, align 2
   %59 = and i16 %58, 16
   %60 = icmp eq i16 %59, 0
-  br i1 %60, label %61, label %71, !prof !13
+  br i1 %60, label %61, label %.critedge, !prof !13
 
 61:                                               ; preds = %57
   call void asm sideeffect "3396: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3396b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3396) #26, !srcloc !14
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6445, i32 2305, i64 12) #26, !srcloc !15
   call void asm sideeffect "3397: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3397b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3397) #26, !srcloc !16
-  br label %71
+  br label %.critedge
 
 62:                                               ; preds = %44
   br label %68
@@ -1454,28 +1454,28 @@ define dso_local noundef zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr no
   %64 = load i16, ptr %1, align 2
   %65 = and i16 %64, 128
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %67, label %71, !prof !13
+  br i1 %66, label %67, label %.critedge, !prof !13
 
 67:                                               ; preds = %63
   call void asm sideeffect "3398: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3398b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3398) #26, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 6452, i32 2305, i64 12) #26, !srcloc !18
   call void asm sideeffect "3399: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3399b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3399) #26, !srcloc !19
-  br label %71
+  br label %.critedge
 
-68:                                               ; preds = %62, %56, %55, %54, %52, %51, %50, %49, %48, %47, %44
-  %.ph = phi i32 [ 25, %44 ], [ 26, %47 ], [ 27, %48 ], [ 12, %49 ], [ 28, %50 ], [ 11, %51 ], [ 29, %52 ], [ 3, %54 ], [ 8, %55 ], [ 10, %56 ], [ 18, %62 ]
-  %69 = call i32 @nla_put(ptr noundef %0, i32 noundef %.ph, i32 noundef 0, ptr noundef null) #26
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %194
+68:                                               ; preds = %44, %47, %48, %49, %50, %51, %52, %54, %55, %56, %62
+  %69 = phi i32 [ 18, %62 ], [ 10, %56 ], [ 8, %55 ], [ 3, %54 ], [ 29, %52 ], [ 11, %51 ], [ 28, %50 ], [ 12, %49 ], [ 27, %48 ], [ 26, %47 ], [ 25, %44 ]
+  %70 = call i32 @nla_put(ptr noundef %0, i32 noundef %69, i32 noundef 0, ptr noundef null) #26
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %.critedge, label %194
 
-71:                                               ; preds = %44, %53, %57, %61, %63, %67, %68
+.critedge:                                        ; preds = %44, %53, %61, %57, %67, %63, %68
   %72 = load i16, ptr %1, align 2
   %73 = zext i16 %72 to i32
   %74 = and i32 %73, 1
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %88, label %76
 
-76:                                               ; preds = %71
+76:                                               ; preds = %.critedge
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = load i8, ptr %77, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #26
@@ -1496,7 +1496,7 @@ define dso_local noundef zeroext i1 @nl80211_put_sta_rate(ptr noundef %0, ptr no
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %185, label %194
 
-88:                                               ; preds = %71
+88:                                               ; preds = %.critedge
   %89 = and i32 %73, 2
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %108, label %91
@@ -16082,7 +16082,7 @@ define internal fastcc ptr @__cfg80211_rdev_from_attrs(ptr noundef %0, ptr nound
   %18 = getelementptr i8, ptr %1, i64 1224
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread10, label %25
+  br i1 %20, label %.critedge, label %25
 
 21:                                               ; preds = %9
   %22 = getelementptr i8, ptr %11, i64 4
@@ -16132,27 +16132,27 @@ define internal fastcc ptr @__cfg80211_rdev_from_attrs(ptr noundef %0, ptr nound
   %51 = icmp eq ptr %49, %26
   %52 = or i1 %50, %51
   %53 = select i1 %50, ptr %49, ptr %26
-  br i1 %52, label %.thread, label %.thread10
+  br i1 %52, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %30, %48, %25
   %54 = phi ptr [ %53, %48 ], [ %26, %25 ], [ %26, %30 ]
   %55 = getelementptr i8, ptr %1, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread11, label %58
+  br i1 %57, label %.thread10, label %58
 
 58:                                               ; preds = %.thread
   %59 = getelementptr i8, ptr %56, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = call ptr @__dev_get_by_index(ptr noundef %0, i32 noundef %60) #26
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread11, label %63
+  br i1 %62, label %.thread10, label %63
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 960
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread10, label %67
+  br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %65, align 8
@@ -16167,29 +16167,29 @@ define internal fastcc ptr @__cfg80211_rdev_from_attrs(ptr noundef %0, ptr nound
 71:                                               ; preds = %67
   %72 = getelementptr i8, ptr %68, i64 -960
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread10, label %74
+  br i1 %73, label %.critedge, label %74
 
 74:                                               ; preds = %71
   %75 = icmp eq ptr %54, null
   %76 = icmp eq ptr %72, %54
   %77 = or i1 %75, %76
   %78 = select i1 %75, ptr %72, ptr %54
-  br i1 %77, label %.thread11, label %.thread10
+  br i1 %77, label %.thread10, label %.critedge
 
-.thread11:                                        ; preds = %58, %74, %.thread
+.thread10:                                        ; preds = %58, %74, %.thread
   %79 = phi ptr [ %78, %74 ], [ %54, %.thread ], [ %54, %58 ]
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %.thread10, label %81
+  br i1 %80, label %.critedge, label %81
 
-81:                                               ; preds = %.thread11
+81:                                               ; preds = %.thread10
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 2112
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %0
   %85 = select i1 %84, ptr %79, ptr inttoptr (i64 -19 to ptr)
-  br label %.thread10
+  br label %.critedge
 
-.thread10:                                        ; preds = %63, %71, %81, %.thread11, %74, %48, %17
-  %86 = phi ptr [ inttoptr (i64 -22 to ptr), %74 ], [ inttoptr (i64 -22 to ptr), %48 ], [ inttoptr (i64 -22 to ptr), %17 ], [ inttoptr (i64 -19 to ptr), %.thread11 ], [ %85, %81 ], [ inttoptr (i64 -22 to ptr), %71 ], [ inttoptr (i64 -22 to ptr), %63 ]
+.critedge:                                        ; preds = %63, %71, %81, %.thread10, %74, %48, %17
+  %86 = phi ptr [ inttoptr (i64 -22 to ptr), %74 ], [ inttoptr (i64 -22 to ptr), %48 ], [ inttoptr (i64 -22 to ptr), %17 ], [ inttoptr (i64 -19 to ptr), %.thread10 ], [ %85, %81 ], [ inttoptr (i64 -22 to ptr), %71 ], [ inttoptr (i64 -22 to ptr), %63 ]
   ret ptr %86
 }
 
@@ -17511,23 +17511,19 @@ define internal i32 @nl80211_dump_interface(ptr noundef %0, ptr noundef captures
   store i64 -1, ptr %3, align 8
   %14 = call fastcc i32 @nl80211_dump_wiphy_parse(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread, label %23
+  br i1 %15, label %16, label %.critedge
 
-.thread:                                          ; preds = %13
-  %16 = load i64, ptr %3, align 8
-  %17 = trunc i64 %16 to i32
-  %18 = icmp sgt i32 %17, -1
-  %19 = shl i64 %16, 32
-  %20 = add i64 %19, 4294967296
-  %21 = ashr exact i64 %20, 32
-  %22 = select i1 %18, i64 %21, i64 -1
-  store i64 %22, ptr %10, align 8
+16:                                               ; preds = %13
+  %17 = load i64, ptr %3, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = icmp sgt i32 %18, -1
+  %20 = shl i64 %17, 32
+  %21 = add i64 %20, 4294967296
+  %22 = ashr exact i64 %21, 32
+  %23 = select i1 %19, i64 %22, i64 -1
+  store i64 %23, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
   br label %29
-
-23:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
-  br label %143
 
 24:                                               ; preds = %2
   %25 = icmp sgt i64 %11, 0
@@ -17538,8 +17534,8 @@ define internal i32 @nl80211_dump_interface(ptr noundef %0, ptr noundef captures
   %28 = add i32 %27, -1
   br label %29
 
-29:                                               ; preds = %.thread, %26, %24
-  %30 = phi i32 [ %28, %26 ], [ -1, %24 ], [ %17, %.thread ]
+29:                                               ; preds = %16, %26, %24
+  %30 = phi i32 [ %28, %26 ], [ -1, %24 ], [ %18, %16 ]
   %.fr24 = freeze i32 %30
   %31 = tail call i32 @rtnl_is_locked() #26
   %32 = icmp ne i32 %31, 0
@@ -17728,8 +17724,12 @@ define internal i32 @nl80211_dump_interface(ptr noundef %0, ptr noundef captures
   %142 = load i32, ptr %141, align 8
   br label %143
 
-143:                                              ; preds = %23, %.loopexit9
-  %144 = phi i32 [ %142, %.loopexit9 ], [ %14, %23 ]
+.critedge:                                        ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #26
+  br label %143
+
+143:                                              ; preds = %.critedge, %.loopexit9
+  %144 = phi i32 [ %142, %.loopexit9 ], [ %14, %.critedge ]
   tail call void @rtnl_unlock() #26
   ret i32 %144
 }
@@ -41247,7 +41247,7 @@ define internal noundef range(i32 -22, 1) i32 @nl80211_remove_link(ptr readnone 
   %5 = getelementptr i8, ptr %4, i64 2504
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %1, i64 56
@@ -41257,16 +41257,16 @@ define internal noundef range(i32 -22, 1) i32 @nl80211_remove_link(ptr readnone 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 3
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %8
   %17 = getelementptr i8, ptr %6, i64 4
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   tail call void @cfg80211_remove_link(ptr noundef %12, i32 noundef %19) #26
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %16, %8
+.critedge:                                        ; preds = %2, %16, %8
   %20 = phi i32 [ 0, %16 ], [ -22, %8 ], [ -22, %2 ]
   ret i32 %20
 }

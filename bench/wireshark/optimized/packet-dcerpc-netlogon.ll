@@ -4101,7 +4101,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
 66:                                               ; preds = %62
   %67 = call ptr @proto_tree_get_parent(ptr noundef %.0173.i)
   %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %67, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1280)
-  br label %.thread.i
+  br label %.critedge.i
 
 69:                                               ; preds = %62
   %70 = call fastcc i32 @prepare_session_key_cipher(ptr noundef %.1.i.i, ptr noundef nonnull %9)
@@ -4131,7 +4131,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
   %91 = call ptr @gcry_strsource(i32 noundef %70)
   %92 = call ptr @gcry_strerror(i32 noundef %70)
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1176, i32 noundef 5, ptr noundef nonnull @.str.1177, i64 noundef 7374, ptr noundef nonnull @__func__.netlogon_dissect_netr_CryptPassword, ptr noundef nonnull @.str.1282, ptr noundef %91, ptr noundef %92)
-  br label %.thread.i
+  br label %.critedge.i
 
 93:                                               ; preds = %69
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 408
@@ -4143,7 +4143,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
 
 99:                                               ; preds = %93
   call void @gcry_cipher_close(ptr noundef %98)
-  br label %.thread.i
+  br label %.critedge.i
 
 100:                                              ; preds = %93
   %101 = call i32 @gcry_cipher_decrypt(ptr noundef %98, ptr noundef nonnull %96, i64 noundef 516, ptr noundef null, i64 noundef 0)
@@ -4156,12 +4156,12 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
   %104 = call ptr @gcry_strsource(i32 noundef %101)
   %105 = call ptr @gcry_strerror(i32 noundef %101)
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1176, i32 noundef 5, ptr noundef nonnull @.str.1177, i64 noundef 7388, ptr noundef nonnull @__func__.netlogon_dissect_netr_CryptPassword, ptr noundef nonnull @.str.1283, ptr noundef %104, ptr noundef %105)
-  br label %.thread.i
+  br label %.critedge.i
 
 106:                                              ; preds = %100
   %107 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %96, i32 noundef 516, i32 noundef 516)
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.thread.i, label %109
+  br i1 %108, label %.critedge.i, label %109
 
 109:                                              ; preds = %106
   %110 = load i8, ptr %5, align 1
@@ -4193,11 +4193,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
 
 133:                                              ; preds = %109
   %134 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %117, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1284, i32 noundef %119, i32 noundef %122, i32 noundef %125, i32 noundef %128, i32 noundef %131, ptr noundef nonnull %132)
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %133, %106, %103, %99, %71, %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %netlogon_dissect_netr_CryptPassword.exit
+  br label %.critedge.i
 
 135:                                              ; preds = %109
   %136 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %117, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1285, i32 noundef %119, i32 noundef %122, i32 noundef %125, i32 noundef %128, i32 noundef %131, ptr noundef nonnull %132)
@@ -4256,27 +4252,27 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
   %175 = icmp eq i32 %168, 0
   %176 = icmp eq i32 %174, 35854696
   %or.cond.i = select i1 %175, i1 %176, i1 false
-  br i1 %or.cond.i, label %select.unfold.i, label %.thread202.i
+  br i1 %or.cond.i, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %162
   %.not193.i = icmp eq i32 %.1172.i, 500
-  br i1 %.not193.i, label %184, label %.thread202.thread.i
+  br i1 %.not193.i, label %184, label %.thread.thread.i
 
-.thread202.thread.i:                              ; preds = %select.unfold.i
+.thread.thread.i:                                 ; preds = %select.unfold.i
   %177 = load i32, ptr @hf_netlogon_blob, align 4
   %178 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0173.i, i32 noundef %177, ptr noundef %.1163.i, i32 noundef %.1165.i, i32 noundef %163, ptr noundef null, ptr noundef nonnull @.str.1291, i32 noundef %163, ptr noundef nonnull @.str.1292)
   %179 = add i32 %163, %.1165.i
   br label %184
 
-.thread202.i:                                     ; preds = %162
+.thread.i:                                        ; preds = %162
   %180 = sub nuw nsw i32 512, %.1172.i
   %181 = load i32, ptr @hf_netlogon_blob, align 4
   %182 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0173.i, i32 noundef %181, ptr noundef %.1163.i, i32 noundef %.1165.i, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.1291, i32 noundef %180, ptr noundef nonnull @.str.1292)
   %183 = add i32 %180, %.1165.i
   br label %195
 
-184:                                              ; preds = %.thread202.thread.i, %select.unfold.i
-  %.2209.i = phi i32 [ %.1165.i, %select.unfold.i ], [ %179, %.thread202.thread.i ]
+184:                                              ; preds = %.thread.thread.i, %select.unfold.i
+  %.2204.i = phi i32 [ %.1165.i, %select.unfold.i ], [ %179, %.thread.thread.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   store ptr null, ptr %10, align 8
   %.not194.i = icmp eq ptr %.0173.i, null
@@ -4284,13 +4280,13 @@ select.unfold.i:                                  ; preds = %162
 
 185:                                              ; preds = %184
   %186 = load i32, ptr @ett_NL_PASSWORD_VERSION, align 4
-  %187 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0173.i, ptr noundef %.1163.i, i32 noundef %.2209.i, i32 noundef 12, i32 noundef %186, ptr noundef nonnull %10, ptr noundef nonnull @.str.1293)
+  %187 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0173.i, ptr noundef %.1163.i, i32 noundef %.2204.i, i32 noundef 12, i32 noundef %186, ptr noundef nonnull %10, ptr noundef nonnull @.str.1293)
   br label %188
 
 188:                                              ; preds = %185, %184
   %.0.i = phi ptr [ %187, %185 ], [ null, %184 ]
   %189 = load i32, ptr @hf_netlogon_password_version_reserved, align 4
-  %190 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %.2209.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %189, ptr noundef null)
+  %190 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %.2204.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %189, ptr noundef null)
   %191 = load i32, ptr @hf_netlogon_password_version_number, align 4
   %192 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %190, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %191, ptr noundef null)
   %193 = load i32, ptr @hf_netlogon_password_version_present, align 4
@@ -4298,8 +4294,8 @@ select.unfold.i:                                  ; preds = %162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   br label %195
 
-195:                                              ; preds = %188, %.thread202.i
-  %.3.i = phi i32 [ %194, %188 ], [ %183, %.thread202.i ]
+195:                                              ; preds = %188, %.thread.i
+  %.3.i = phi i32 [ %194, %188 ], [ %183, %.thread.i ]
   %196 = load i32, ptr @hf_netlogon_blob, align 4
   %197 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0173.i, i32 noundef %196, ptr noundef %.1163.i, i32 noundef %.3.i, i32 noundef %.1172.i, ptr noundef null, ptr noundef nonnull @.str.1294, i32 noundef %.1172.i, ptr noundef nonnull @.str.1292)
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 408
@@ -4317,7 +4313,11 @@ select.unfold.i:                                  ; preds = %162
   %210 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %208, ptr noundef %2, ptr noundef %.0173.i, ptr noundef %4, ptr noundef %5, i32 noundef %209, ptr noundef null)
   br label %netlogon_dissect_netr_CryptPassword.exit
 
-netlogon_dissect_netr_CryptPassword.exit:         ; preds = %.thread.i, %195
+.critedge.i:                                      ; preds = %133, %106, %103, %99, %71, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  br label %netlogon_dissect_netr_CryptPassword.exit
+
+netlogon_dissect_netr_CryptPassword.exit:         ; preds = %195, %.critedge.i
   %211 = add i32 %19, 516
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   ret i32 %211
@@ -10397,8 +10397,8 @@ prepare_decryption_cipher.exit:                   ; preds = %71
   %94 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %87, i32 noundef %22, i32 noundef %22)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %19, %79, %92
-  %.0.ph = phi ptr [ %94, %92 ], [ null, %79 ], [ null, %19 ]
+.sink.split:                                      ; preds = %79, %19, %92
+  %.0.ph = phi ptr [ %94, %92 ], [ null, %19 ], [ null, %79 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
   br label %95
 

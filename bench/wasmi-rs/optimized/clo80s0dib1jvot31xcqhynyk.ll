@@ -10246,9 +10246,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %67 = add nuw i64 %60, 1
   store i64 %67, ptr %59, align 8, !alias.scope !13, !noalias !16
   %68 = icmp sgt i8 %66, -1
-  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405: ; preds = %63
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403: ; preds = %63
   %69 = zext nneg i8 %66 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br label %71
@@ -10257,15 +10257,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17h7554f8cb997ce3daE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i8 noundef %66)
   %.pre = load i32, ptr %55, align 8, !range !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.pre402 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert403 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %.pre404 = load i32, ptr %.phi.trans.insert403, align 4
+  %.pre400 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert401 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %.pre402 = load i32, ptr %.phi.trans.insert401, align 4
   %70 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br i1 %70, label %478, label %71
 
-71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
-  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405 ], [ %.pre404, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
+71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403 ], [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
   store i32 %72, ptr %56, align 4
   switch i32 %72, label %73 [
     i32 0, label %79
@@ -11007,7 +11007,7 @@ switch.lookup:                                    ; preds = %388
 
 439:                                              ; preds = %.critedge382
   %440 = icmp ult i8 %431, 4
-  br i1 %440, label %switch.lookup406, label %441
+  br i1 %440, label %switch.lookup404, label %441
 
 441:                                              ; preds = %439
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -11031,10 +11031,10 @@ switch.lookup:                                    ; preds = %388
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %477
 
-switch.lookup406:                                 ; preds = %439
-  %switch.cast408 = trunc nuw i8 %431 to i4
-  %switch.downshift410 = lshr i4 -4, %switch.cast408
-  %switch.masked411 = trunc i4 %switch.downshift410 to i1
+switch.lookup404:                                 ; preds = %439
+  %switch.cast406 = trunc nuw i8 %431 to i4
+  %switch.downshift408 = lshr i4 -4, %switch.cast406
+  %switch.masked409 = trunc i4 %switch.downshift408 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h8dd00a8e0ba98f53E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %448 = load i32, ptr %11, align 8, !range !7, !noundef !3
@@ -11046,9 +11046,9 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %449, label %477, label %453
 
-453:                                              ; preds = %switch.lookup406
-  %switch.idx.cast407 = trunc i8 %431 to i1
-  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast407, i64 %.sroa.0320.0.copyload)
+453:                                              ; preds = %switch.lookup404
+  %switch.idx.cast405 = trunc i8 %431 to i1
+  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast405, i64 %.sroa.0320.0.copyload)
   %.sroa.4360.0.extract.shift = lshr i32 %454, 8
   %.sroa.4360.0.extract.trunc = trunc nuw i32 %.sroa.4360.0.extract.shift to i24
   %455 = trunc i32 %454 to i1
@@ -11082,7 +11082,7 @@ switch.lookup406:                                 ; preds = %439
   br i1 %463, label %477, label %467
 
 467:                                              ; preds = %.critedge384
-  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked411, i64 %.sroa.0324.0.copyload)
+  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked409, i64 %.sroa.0324.0.copyload)
   %469 = trunc i32 %468 to i1
   br i1 %469, label %.critedge386, label %470, !prof !4
 
@@ -11108,13 +11108,13 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
-477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup406, %.critedge382, %441
-  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup406 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
+477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup404, %.critedge382, %441
+  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup404 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
 478:                                              ; preds = %184, %250, %252, %254, %256, %258, %260, %262, %271, %280, %289, %298, %300, %302, %311, %320, %329, %331, %333, %335, %337, %339, %348, %357, %366, %368, %370, %372, %374, %.critedge380, %.critedge386, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit, %79, %477, %426, %73, %86, %93, %264, %100, %273, %107, %282, %114, %291, %121, %128, %135, %304, %142, %313, %149, %322, %156, %163, %170, %177, %186, %193, %341, %200, %350, %207, %359, %214, %220, %226, %232, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread
-  %.sroa.51.2 = phi ptr [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
+  %.sroa.51.2 = phi ptr [ %.pre400, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
   %.sroa.0.2 = phi i64 [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ 1, %73 ], [ 1, %426 ], [ 1, %477 ], [ 1, %79 ], [ 1, %86 ], [ 1, %93 ], [ 1, %264 ], [ 1, %100 ], [ 1, %273 ], [ 1, %107 ], [ 1, %282 ], [ 1, %114 ], [ 1, %291 ], [ 1, %121 ], [ 1, %128 ], [ 1, %135 ], [ 1, %304 ], [ 1, %142 ], [ 1, %313 ], [ 1, %149 ], [ 1, %322 ], [ 1, %156 ], [ 1, %163 ], [ 1, %170 ], [ 1, %177 ], [ 1, %186 ], [ 1, %193 ], [ 1, %341 ], [ 1, %200 ], [ 1, %350 ], [ 1, %207 ], [ 1, %359 ], [ 1, %214 ], [ 1, %220 ], [ 1, %226 ], [ 1, %232 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ 0, %260 ], [ 0, %262 ], [ 0, %271 ], [ 0, %280 ], [ 0, %289 ], [ 0, %298 ], [ 0, %300 ], [ 0, %302 ], [ 0, %311 ], [ 0, %320 ], [ 0, %329 ], [ 0, %331 ], [ 0, %333 ], [ 0, %335 ], [ 0, %337 ], [ 0, %184 ], [ 0, %339 ], [ 0, %348 ], [ 0, %357 ], [ 0, %366 ], [ 0, %368 ], [ 0, %370 ], [ 0, %372 ], [ 0, %374 ], [ 0, %.critedge380 ], [ 0, %.critedge386 ], [ 0, %250 ], [ 0, %252 ], [ 0, %254 ], [ 0, %256 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   %479 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
@@ -11199,9 +11199,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %67 = add nuw i64 %60, 1
   store i64 %67, ptr %59, align 8, !alias.scope !20, !noalias !23
   %68 = icmp sgt i8 %66, -1
-  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405: ; preds = %63
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403: ; preds = %63
   %69 = zext nneg i8 %66 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br label %71
@@ -11210,15 +11210,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17h7554f8cb997ce3daE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i8 noundef %66)
   %.pre = load i32, ptr %55, align 8, !range !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.pre402 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert403 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %.pre404 = load i32, ptr %.phi.trans.insert403, align 4
+  %.pre400 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert401 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %.pre402 = load i32, ptr %.phi.trans.insert401, align 4
   %70 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br i1 %70, label %478, label %71
 
-71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
-  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405 ], [ %.pre404, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
+71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403 ], [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
   store i32 %72, ptr %56, align 4
   switch i32 %72, label %73 [
     i32 0, label %79
@@ -11960,7 +11960,7 @@ switch.lookup:                                    ; preds = %388
 
 439:                                              ; preds = %.critedge382
   %440 = icmp ult i8 %431, 4
-  br i1 %440, label %switch.lookup406, label %441
+  br i1 %440, label %switch.lookup404, label %441
 
 441:                                              ; preds = %439
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -11984,10 +11984,10 @@ switch.lookup:                                    ; preds = %388
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %477
 
-switch.lookup406:                                 ; preds = %439
-  %switch.cast408 = trunc nuw i8 %431 to i4
-  %switch.downshift410 = lshr i4 -4, %switch.cast408
-  %switch.masked411 = trunc i4 %switch.downshift410 to i1
+switch.lookup404:                                 ; preds = %439
+  %switch.cast406 = trunc nuw i8 %431 to i4
+  %switch.downshift408 = lshr i4 -4, %switch.cast406
+  %switch.masked409 = trunc i4 %switch.downshift408 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h8dd00a8e0ba98f53E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %448 = load i32, ptr %11, align 8, !range !7, !noundef !3
@@ -11999,9 +11999,9 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %449, label %477, label %453
 
-453:                                              ; preds = %switch.lookup406
-  %switch.idx.cast407 = trunc i8 %431 to i1
-  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast407, i64 %.sroa.0320.0.copyload)
+453:                                              ; preds = %switch.lookup404
+  %switch.idx.cast405 = trunc i8 %431 to i1
+  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast405, i64 %.sroa.0320.0.copyload)
   %.sroa.4360.0.extract.shift = lshr i32 %454, 8
   %.sroa.4360.0.extract.trunc = trunc nuw i32 %.sroa.4360.0.extract.shift to i24
   %455 = trunc i32 %454 to i1
@@ -12035,7 +12035,7 @@ switch.lookup406:                                 ; preds = %439
   br i1 %463, label %477, label %467
 
 467:                                              ; preds = %.critedge384
-  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked411, i64 %.sroa.0324.0.copyload)
+  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked409, i64 %.sroa.0324.0.copyload)
   %469 = trunc i32 %468 to i1
   br i1 %469, label %.critedge386, label %470, !prof !4
 
@@ -12061,13 +12061,13 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
-477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup406, %.critedge382, %441
-  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup406 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
+477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup404, %.critedge382, %441
+  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup404 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
 478:                                              ; preds = %184, %250, %252, %254, %256, %258, %260, %262, %271, %280, %289, %298, %300, %302, %311, %320, %329, %331, %333, %335, %337, %339, %348, %357, %366, %368, %370, %372, %374, %.critedge380, %.critedge386, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit, %79, %477, %426, %73, %86, %93, %264, %100, %273, %107, %282, %114, %291, %121, %128, %135, %304, %142, %313, %149, %322, %156, %163, %170, %177, %186, %193, %341, %200, %350, %207, %359, %214, %220, %226, %232, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread
-  %.sroa.51.2 = phi ptr [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
+  %.sroa.51.2 = phi ptr [ %.pre400, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
   %.sroa.0.2 = phi i64 [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ 1, %73 ], [ 1, %426 ], [ 1, %477 ], [ 1, %79 ], [ 1, %86 ], [ 1, %93 ], [ 1, %264 ], [ 1, %100 ], [ 1, %273 ], [ 1, %107 ], [ 1, %282 ], [ 1, %114 ], [ 1, %291 ], [ 1, %121 ], [ 1, %128 ], [ 1, %135 ], [ 1, %304 ], [ 1, %142 ], [ 1, %313 ], [ 1, %149 ], [ 1, %322 ], [ 1, %156 ], [ 1, %163 ], [ 1, %170 ], [ 1, %177 ], [ 1, %186 ], [ 1, %193 ], [ 1, %341 ], [ 1, %200 ], [ 1, %350 ], [ 1, %207 ], [ 1, %359 ], [ 1, %214 ], [ 1, %220 ], [ 1, %226 ], [ 1, %232 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ 0, %260 ], [ 0, %262 ], [ 0, %271 ], [ 0, %280 ], [ 0, %289 ], [ 0, %298 ], [ 0, %300 ], [ 0, %302 ], [ 0, %311 ], [ 0, %320 ], [ 0, %329 ], [ 0, %331 ], [ 0, %333 ], [ 0, %335 ], [ 0, %337 ], [ 0, %184 ], [ 0, %339 ], [ 0, %348 ], [ 0, %357 ], [ 0, %366 ], [ 0, %368 ], [ 0, %370 ], [ 0, %372 ], [ 0, %374 ], [ 0, %.critedge380 ], [ 0, %.critedge386 ], [ 0, %250 ], [ 0, %252 ], [ 0, %254 ], [ 0, %256 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   %479 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
@@ -12152,9 +12152,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %67 = add nuw i64 %60, 1
   store i64 %67, ptr %59, align 8, !alias.scope !26, !noalias !29
   %68 = icmp sgt i8 %66, -1
-  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405: ; preds = %63
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403: ; preds = %63
   %69 = zext nneg i8 %66 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br label %71
@@ -12163,15 +12163,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17h7554f8cb997ce3daE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i8 noundef %66)
   %.pre = load i32, ptr %55, align 8, !range !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.pre402 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert403 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %.pre404 = load i32, ptr %.phi.trans.insert403, align 4
+  %.pre400 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert401 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %.pre402 = load i32, ptr %.phi.trans.insert401, align 4
   %70 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br i1 %70, label %478, label %71
 
-71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
-  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405 ], [ %.pre404, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
+71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403 ], [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
   store i32 %72, ptr %56, align 4
   switch i32 %72, label %73 [
     i32 0, label %79
@@ -12913,7 +12913,7 @@ switch.lookup:                                    ; preds = %388
 
 439:                                              ; preds = %.critedge382
   %440 = icmp ult i8 %431, 4
-  br i1 %440, label %switch.lookup406, label %441
+  br i1 %440, label %switch.lookup404, label %441
 
 441:                                              ; preds = %439
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -12937,10 +12937,10 @@ switch.lookup:                                    ; preds = %388
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %477
 
-switch.lookup406:                                 ; preds = %439
-  %switch.cast408 = trunc nuw i8 %431 to i4
-  %switch.downshift410 = lshr i4 -4, %switch.cast408
-  %switch.masked411 = trunc i4 %switch.downshift410 to i1
+switch.lookup404:                                 ; preds = %439
+  %switch.cast406 = trunc nuw i8 %431 to i4
+  %switch.downshift408 = lshr i4 -4, %switch.cast406
+  %switch.masked409 = trunc i4 %switch.downshift408 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h8dd00a8e0ba98f53E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %448 = load i32, ptr %11, align 8, !range !7, !noundef !3
@@ -12952,9 +12952,9 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %449, label %477, label %453
 
-453:                                              ; preds = %switch.lookup406
-  %switch.idx.cast407 = trunc i8 %431 to i1
-  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast407, i64 %.sroa.0320.0.copyload)
+453:                                              ; preds = %switch.lookup404
+  %switch.idx.cast405 = trunc i8 %431 to i1
+  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast405, i64 %.sroa.0320.0.copyload)
   %.sroa.4360.0.extract.shift = lshr i32 %454, 8
   %.sroa.4360.0.extract.trunc = trunc nuw i32 %.sroa.4360.0.extract.shift to i24
   %455 = trunc i32 %454 to i1
@@ -12988,7 +12988,7 @@ switch.lookup406:                                 ; preds = %439
   br i1 %463, label %477, label %467
 
 467:                                              ; preds = %.critedge384
-  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked411, i64 %.sroa.0324.0.copyload)
+  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked409, i64 %.sroa.0324.0.copyload)
   %469 = trunc i32 %468 to i1
   br i1 %469, label %.critedge386, label %470, !prof !4
 
@@ -13014,13 +13014,13 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
-477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup406, %.critedge382, %441
-  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup406 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
+477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup404, %.critedge382, %441
+  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup404 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
 478:                                              ; preds = %184, %250, %252, %254, %256, %258, %260, %262, %271, %280, %289, %298, %300, %302, %311, %320, %329, %331, %333, %335, %337, %339, %348, %357, %366, %368, %370, %372, %374, %.critedge380, %.critedge386, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit, %79, %477, %426, %73, %86, %93, %264, %100, %273, %107, %282, %114, %291, %121, %128, %135, %304, %142, %313, %149, %322, %156, %163, %170, %177, %186, %193, %341, %200, %350, %207, %359, %214, %220, %226, %232, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread
-  %.sroa.51.2 = phi ptr [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
+  %.sroa.51.2 = phi ptr [ %.pre400, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
   %.sroa.0.2 = phi i64 [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ 1, %73 ], [ 1, %426 ], [ 1, %477 ], [ 1, %79 ], [ 1, %86 ], [ 1, %93 ], [ 1, %264 ], [ 1, %100 ], [ 1, %273 ], [ 1, %107 ], [ 1, %282 ], [ 1, %114 ], [ 1, %291 ], [ 1, %121 ], [ 1, %128 ], [ 1, %135 ], [ 1, %304 ], [ 1, %142 ], [ 1, %313 ], [ 1, %149 ], [ 1, %322 ], [ 1, %156 ], [ 1, %163 ], [ 1, %170 ], [ 1, %177 ], [ 1, %186 ], [ 1, %193 ], [ 1, %341 ], [ 1, %200 ], [ 1, %350 ], [ 1, %207 ], [ 1, %359 ], [ 1, %214 ], [ 1, %220 ], [ 1, %226 ], [ 1, %232 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ 0, %260 ], [ 0, %262 ], [ 0, %271 ], [ 0, %280 ], [ 0, %289 ], [ 0, %298 ], [ 0, %300 ], [ 0, %302 ], [ 0, %311 ], [ 0, %320 ], [ 0, %329 ], [ 0, %331 ], [ 0, %333 ], [ 0, %335 ], [ 0, %337 ], [ 0, %184 ], [ 0, %339 ], [ 0, %348 ], [ 0, %357 ], [ 0, %366 ], [ 0, %368 ], [ 0, %370 ], [ 0, %372 ], [ 0, %374 ], [ 0, %.critedge380 ], [ 0, %.critedge386 ], [ 0, %250 ], [ 0, %252 ], [ 0, %254 ], [ 0, %256 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   %479 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
@@ -13105,9 +13105,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %66 = add nuw i64 %59, 1
   store i64 %66, ptr %58, align 8, !alias.scope !32, !noalias !35
   %67 = icmp sgt i8 %65, -1
-  br i1 %67, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread19, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  br i1 %67, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread15, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread19: ; preds = %62
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread15: ; preds = %62
   %68 = zext nneg i8 %65 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   br label %70
@@ -13116,15 +13116,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17h7554f8cb997ce3daE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %54, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i8 noundef %65)
   %.pre = load i32, ptr %54, align 8, !range !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.pre16 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %.pre18 = load i32, ptr %.phi.trans.insert17, align 4
+  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %.pre14 = load i32, ptr %.phi.trans.insert13, align 4
   %69 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   br i1 %69, label %352, label %70
 
-70:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread19, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
-  %71 = phi i32 [ %68, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread19 ], [ %.pre18, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
+70:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread15, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  %71 = phi i32 [ %68, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread15 ], [ %.pre14, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
   store i32 %71, ptr %55, align 4
   switch i32 %71, label %72 [
     i32 0, label %78
@@ -13678,7 +13678,7 @@ switch.lookup:                                    ; preds = %266
 
 314:                                              ; preds = %.critedge382
   %315 = icmp ult i8 %308, 4
-  br i1 %315, label %switch.lookup20, label %316
+  br i1 %315, label %switch.lookup16, label %316
 
 316:                                              ; preds = %314
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -13702,10 +13702,10 @@ switch.lookup:                                    ; preds = %266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %351
 
-switch.lookup20:                                  ; preds = %314
-  %switch.cast22 = trunc nuw i8 %308 to i4
-  %switch.downshift24 = lshr i4 -4, %switch.cast22
-  %switch.masked25 = trunc i4 %switch.downshift24 to i1
+switch.lookup16:                                  ; preds = %314
+  %switch.cast18 = trunc nuw i8 %308 to i4
+  %switch.downshift20 = lshr i4 -4, %switch.cast18
+  %switch.masked21 = trunc i4 %switch.downshift20 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h8dd00a8e0ba98f53E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %323 = load i32, ptr %10, align 8, !range !7, !noundef !3
@@ -13717,9 +13717,9 @@ switch.lookup20:                                  ; preds = %314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %324, label %351, label %328
 
-328:                                              ; preds = %switch.lookup20
-  %switch.idx.cast21 = trunc i8 %308 to i1
-  %329 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast21, i64 %.sroa.0320.0.copyload)
+328:                                              ; preds = %switch.lookup16
+  %switch.idx.cast17 = trunc i8 %308 to i1
+  %329 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast17, i64 %.sroa.0320.0.copyload)
   %330 = trunc i32 %329 to i1
   br i1 %330, label %.critedge384, label %331, !prof !4
 
@@ -13751,7 +13751,7 @@ switch.lookup20:                                  ; preds = %314
   br i1 %338, label %351, label %342
 
 342:                                              ; preds = %.critedge384
-  %343 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked25, i64 %.sroa.0324.0.copyload)
+  %343 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked21, i64 %.sroa.0324.0.copyload)
   %344 = trunc i32 %343 to i1
   br i1 %344, label %.critedge386, label %345, !prof !4
 
@@ -13774,13 +13774,13 @@ switch.lookup20:                                  ; preds = %314
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   br label %205
 
-351:                                              ; preds = %345, %331, %304, %.critedge384, %switch.lookup20, %.critedge382, %316
-  %.sroa.51.4 = phi ptr [ %322, %316 ], [ %305, %304 ], [ %313, %.critedge382 ], [ %326, %switch.lookup20 ], [ %336, %331 ], [ %340, %.critedge384 ], [ %350, %345 ]
+351:                                              ; preds = %345, %331, %304, %.critedge384, %switch.lookup16, %.critedge382, %316
+  %.sroa.51.4 = phi ptr [ %322, %316 ], [ %305, %304 ], [ %313, %.critedge382 ], [ %326, %switch.lookup16 ], [ %336, %331 ], [ %340, %.critedge384 ], [ %350, %345 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   br label %352
 
 352:                                              ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit, %78, %351, %303, %72, %83, %88, %206, %93, %211, %98, %216, %103, %221, %108, %113, %118, %226, %123, %231, %128, %236, %133, %138, %143, %148, %153, %158, %241, %163, %246, %168, %251, %173, %178, %183, %188, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread, %205
-  %.sroa.51.2 = phi ptr [ null, %205 ], [ %.pre16, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %77, %72 ], [ %.sroa.51.3, %303 ], [ %.sroa.51.4, %351 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %210, %206 ], [ %97, %93 ], [ %215, %211 ], [ %102, %98 ], [ %220, %216 ], [ %107, %103 ], [ %225, %221 ], [ %112, %108 ], [ %117, %113 ], [ %122, %118 ], [ %230, %226 ], [ %127, %123 ], [ %235, %231 ], [ %132, %128 ], [ %240, %236 ], [ %137, %133 ], [ %142, %138 ], [ %147, %143 ], [ %152, %148 ], [ %157, %153 ], [ %162, %158 ], [ %245, %241 ], [ %167, %163 ], [ %250, %246 ], [ %172, %168 ], [ %255, %251 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ %61, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ]
+  %.sroa.51.2 = phi ptr [ null, %205 ], [ %.pre12, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %77, %72 ], [ %.sroa.51.3, %303 ], [ %.sroa.51.4, %351 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %210, %206 ], [ %97, %93 ], [ %215, %211 ], [ %102, %98 ], [ %220, %216 ], [ %107, %103 ], [ %225, %221 ], [ %112, %108 ], [ %117, %113 ], [ %122, %118 ], [ %230, %226 ], [ %127, %123 ], [ %235, %231 ], [ %132, %128 ], [ %240, %236 ], [ %137, %133 ], [ %142, %138 ], [ %147, %143 ], [ %152, %148 ], [ %157, %153 ], [ %162, %158 ], [ %245, %241 ], [ %167, %163 ], [ %250, %246 ], [ %172, %168 ], [ %255, %251 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ %61, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ]
   %.sroa.0.2 = phi i64 [ 0, %205 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ 1, %72 ], [ 1, %303 ], [ 1, %351 ], [ 1, %78 ], [ 1, %83 ], [ 1, %88 ], [ 1, %206 ], [ 1, %93 ], [ 1, %211 ], [ 1, %98 ], [ 1, %216 ], [ 1, %103 ], [ 1, %221 ], [ 1, %108 ], [ 1, %113 ], [ 1, %118 ], [ 1, %226 ], [ 1, %123 ], [ 1, %231 ], [ 1, %128 ], [ 1, %236 ], [ 1, %133 ], [ 1, %138 ], [ 1, %143 ], [ 1, %148 ], [ 1, %153 ], [ 1, %158 ], [ 1, %241 ], [ 1, %163 ], [ 1, %246 ], [ 1, %168 ], [ 1, %251 ], [ 1, %173 ], [ 1, %178 ], [ 1, %183 ], [ 1, %188 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
   %353 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
@@ -13865,9 +13865,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %67 = add nuw i64 %60, 1
   store i64 %67, ptr %59, align 8, !alias.scope !38, !noalias !41
   %68 = icmp sgt i8 %66, -1
-  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  br i1 %68, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405: ; preds = %63
+_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403: ; preds = %63
   %69 = zext nneg i8 %66 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br label %71
@@ -13876,15 +13876,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17h7554f8cb997ce3daE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i8 noundef %66)
   %.pre = load i32, ptr %55, align 8, !range !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %.pre402 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert403 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %.pre404 = load i32, ptr %.phi.trans.insert403, align 4
+  %.pre400 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert401 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %.pre402 = load i32, ptr %.phi.trans.insert401, align 4
   %70 = trunc nuw i32 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   br i1 %70, label %478, label %71
 
-71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
-  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread405 ], [ %.pre404, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
+71:                                               ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
+  %72 = phi i32 [ %69, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread403 ], [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ]
   store i32 %72, ptr %56, align 4
   switch i32 %72, label %73 [
     i32 0, label %79
@@ -14626,7 +14626,7 @@ switch.lookup:                                    ; preds = %388
 
 439:                                              ; preds = %.critedge382
   %440 = icmp ult i8 %431, 4
-  br i1 %440, label %switch.lookup406, label %441
+  br i1 %440, label %switch.lookup404, label %441
 
 441:                                              ; preds = %439
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -14650,10 +14650,10 @@ switch.lookup:                                    ; preds = %388
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %477
 
-switch.lookup406:                                 ; preds = %439
-  %switch.cast408 = trunc nuw i8 %431 to i4
-  %switch.downshift410 = lshr i4 -4, %switch.cast408
-  %switch.masked411 = trunc i4 %switch.downshift410 to i1
+switch.lookup404:                                 ; preds = %439
+  %switch.cast406 = trunc nuw i8 %431 to i4
+  %switch.downshift408 = lshr i4 -4, %switch.cast406
+  %switch.masked409 = trunc i4 %switch.downshift408 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @"_ZN94_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$wasmparser..readers..FromReader$GT$11from_reader17h8dd00a8e0ba98f53E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %448 = load i32, ptr %11, align 8, !range !7, !noundef !3
@@ -14665,9 +14665,9 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %449, label %477, label %453
 
-453:                                              ; preds = %switch.lookup406
-  %switch.idx.cast407 = trunc i8 %431 to i1
-  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast407, i64 %.sroa.0320.0.copyload)
+453:                                              ; preds = %switch.lookup404
+  %switch.idx.cast405 = trunc i8 %431 to i1
+  %454 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.idx.cast405, i64 %.sroa.0320.0.copyload)
   %.sroa.4360.0.extract.shift = lshr i32 %454, 8
   %.sroa.4360.0.extract.trunc = trunc nuw i32 %.sroa.4360.0.extract.shift to i24
   %455 = trunc i32 %454 to i1
@@ -14701,7 +14701,7 @@ switch.lookup406:                                 ; preds = %439
   br i1 %463, label %477, label %467
 
 467:                                              ; preds = %.critedge384
-  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked411, i64 %.sroa.0324.0.copyload)
+  %468 = tail call i32 @_ZN10wasmparser7readers4core5types7RefType3new17h4254ee66d1771955E(i1 noundef zeroext %switch.masked409, i64 %.sroa.0324.0.copyload)
   %469 = trunc i32 %468 to i1
   br i1 %469, label %.critedge386, label %470, !prof !4
 
@@ -14727,13 +14727,13 @@ switch.lookup406:                                 ; preds = %439
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
-477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup406, %.critedge382, %441
-  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup406 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
+477:                                              ; preds = %470, %456, %427, %.critedge384, %switch.lookup404, %.critedge382, %441
+  %.sroa.51.4 = phi ptr [ %447, %441 ], [ %428, %427 ], [ %436, %.critedge382 ], [ %451, %switch.lookup404 ], [ %461, %456 ], [ %465, %.critedge384 ], [ %475, %470 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %478
 
 478:                                              ; preds = %184, %250, %252, %254, %256, %258, %260, %262, %271, %280, %289, %298, %300, %302, %311, %320, %329, %331, %333, %335, %337, %339, %348, %357, %366, %368, %370, %372, %374, %.critedge380, %.critedge386, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit, %79, %477, %426, %73, %86, %93, %264, %100, %273, %107, %282, %114, %291, %121, %128, %135, %304, %142, %313, %149, %322, %156, %163, %170, %177, %186, %193, %341, %200, %350, %207, %359, %214, %220, %226, %232, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread
-  %.sroa.51.2 = phi ptr [ %.pre402, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
+  %.sroa.51.2 = phi ptr [ %.pre400, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ %78, %73 ], [ %.sroa.51.3, %426 ], [ %.sroa.51.4, %477 ], [ %83, %79 ], [ %90, %86 ], [ %97, %93 ], [ %268, %264 ], [ %104, %100 ], [ %277, %273 ], [ %111, %107 ], [ %286, %282 ], [ %118, %114 ], [ %295, %291 ], [ %125, %121 ], [ %132, %128 ], [ %139, %135 ], [ %308, %304 ], [ %146, %142 ], [ %317, %313 ], [ %153, %149 ], [ %326, %322 ], [ %160, %156 ], [ %167, %163 ], [ %174, %170 ], [ %181, %177 ], [ %190, %186 ], [ %197, %193 ], [ %345, %341 ], [ %204, %200 ], [ %354, %350 ], [ %211, %207 ], [ %363, %359 ], [ %218, %214 ], [ %224, %220 ], [ %230, %226 ], [ %236, %232 ], [ %62, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ %261, %260 ], [ %263, %262 ], [ %272, %271 ], [ %281, %280 ], [ %290, %289 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %312, %311 ], [ %321, %320 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %185, %184 ], [ %340, %339 ], [ %349, %348 ], [ %358, %357 ], [ %367, %366 ], [ %369, %368 ], [ %371, %370 ], [ %373, %372 ], [ %375, %374 ], [ %425, %.critedge380 ], [ %476, %.critedge386 ], [ %251, %250 ], [ %253, %252 ], [ %255, %254 ], [ %257, %256 ], [ %259, %258 ]
   %.sroa.0.2 = phi i64 [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit ], [ 1, %73 ], [ 1, %426 ], [ 1, %477 ], [ 1, %79 ], [ 1, %86 ], [ 1, %93 ], [ 1, %264 ], [ 1, %100 ], [ 1, %273 ], [ 1, %107 ], [ 1, %282 ], [ 1, %114 ], [ 1, %291 ], [ 1, %121 ], [ 1, %128 ], [ 1, %135 ], [ 1, %304 ], [ 1, %142 ], [ 1, %313 ], [ 1, %149 ], [ 1, %322 ], [ 1, %156 ], [ 1, %163 ], [ 1, %170 ], [ 1, %177 ], [ 1, %186 ], [ 1, %193 ], [ 1, %341 ], [ 1, %200 ], [ 1, %350 ], [ 1, %207 ], [ 1, %359 ], [ 1, %214 ], [ 1, %220 ], [ 1, %226 ], [ 1, %232 ], [ 1, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread ], [ 0, %260 ], [ 0, %262 ], [ 0, %271 ], [ 0, %280 ], [ 0, %289 ], [ 0, %298 ], [ 0, %300 ], [ 0, %302 ], [ 0, %311 ], [ 0, %320 ], [ 0, %329 ], [ 0, %331 ], [ 0, %333 ], [ 0, %335 ], [ 0, %337 ], [ 0, %184 ], [ 0, %339 ], [ 0, %348 ], [ 0, %357 ], [ 0, %366 ], [ 0, %368 ], [ 0, %370 ], [ 0, %372 ], [ 0, %374 ], [ 0, %.critedge380 ], [ 0, %.critedge386 ], [ 0, %250 ], [ 0, %252 ], [ 0, %254 ], [ 0, %256 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   %479 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0

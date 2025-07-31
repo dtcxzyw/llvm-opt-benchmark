@@ -6022,7 +6022,7 @@ validateConfigurationParameters.exit.thread834:   ; preds = %OutputByteOrderStrT
 35:                                               ; preds = %33
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.363, ptr noundef nonnull dereferenceable(5) %14, i64 5)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %36, label %.preheader909.lr.ph
+  br i1 %.not, label %36, label %.preheader908.lr.ph
 
 36:                                               ; preds = %35
   store i32 1, ptr %1, align 8, !tbaa !21
@@ -6030,9 +6030,9 @@ validateConfigurationParameters.exit.thread834:   ; preds = %OutputByteOrderStrT
   %38 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %39 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #18
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %.lr.ph978, label %validateConfigurationParameters.exit.thread831
+  br i1 %40, label %.lr.ph977, label %validateConfigurationParameters.exit.thread831
 
-.lr.ph978:                                        ; preds = %36
+.lr.ph977:                                        ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 5124
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 5204
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 5128
@@ -6058,7 +6058,7 @@ validateConfigurationParameters.exit.thread834:   ; preds = %OutputByteOrderStrT
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %64
 
-64:                                               ; preds = %.lr.ph978, %.loopexit
+64:                                               ; preds = %.lr.ph977, %.loopexit
   %rhsv = load i64, ptr %14, align 16
   %.not491 = icmp eq i64 %rhsv, 23720121924337988
   br i1 %.not491, label %65, label %84
@@ -7320,7 +7320,7 @@ OutputArchStrToInt.exit842.i:                     ; preds = %417
 424:                                              ; preds = %415
   %bcmp875 = call i32 @bcmp(ptr noundef nonnull dereferenceable(30) %15, ptr noundef nonnull dereferenceable(30) @.str.437, i64 30)
   %.not472.i = icmp eq i32 %bcmp875, 0
-  br i1 %.not472.i, label %.loopexit905, label %425
+  br i1 %.not472.i, label %.critedge.i, label %425
 
 425:                                              ; preds = %424
   %bcmp876 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %15, ptr noundef nonnull dereferenceable(11) @.str.438, i64 11)
@@ -7337,7 +7337,7 @@ OutputArchStrToInt.exit842.i:                     ; preds = %417
   %427 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i843.i
   %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %427, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i844.i = icmp eq i32 %428, 0
-  br i1 %.not.i844.i, label %.sink.split.i, label %429
+  br i1 %.not.i844.i, label %.critedge.sink.split.i, label %429
 
 429:                                              ; preds = %.preheader.i
   %indvars.iv.next.i845.i = add nuw nsw i64 %indvars.iv.i843.i, 1
@@ -7352,19 +7352,19 @@ OutputArchStrToInt.exit849.thread.i:              ; preds = %429
 432:                                              ; preds = %426
   %bcmp878 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %15, ptr noundef nonnull dereferenceable(13) @.str.440, i64 13)
   %.not475.i = icmp eq i32 %bcmp878, 0
-  br i1 %.not475.i, label %.preheader1160.i, label %438
+  br i1 %.not475.i, label %.preheader1158.i, label %438
 
-.preheader1160.i:                                 ; preds = %432, %435
+.preheader1158.i:                                 ; preds = %432, %435
   %indvars.iv.i855.i = phi i64 [ %indvars.iv.next.i857.i, %435 ], [ 0, %432 ]
   %433 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i855.i
   %434 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %433, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i856.i = icmp eq i32 %434, 0
-  br i1 %.not.i856.i, label %.sink.split.i, label %435
+  br i1 %.not.i856.i, label %.critedge.sink.split.i, label %435
 
-435:                                              ; preds = %.preheader1160.i
+435:                                              ; preds = %.preheader1158.i
   %indvars.iv.next.i857.i = add nuw nsw i64 %indvars.iv.i855.i, 1
   %exitcond.not.i858.i = icmp eq i64 %indvars.iv.next.i857.i, 8
-  br i1 %exitcond.not.i858.i, label %OutputArchStrToInt.exit861.thread.i, label %.preheader1160.i, !llvm.loop !97
+  br i1 %exitcond.not.i858.i, label %OutputArchStrToInt.exit861.thread.i, label %.preheader1158.i, !llvm.loop !97
 
 OutputArchStrToInt.exit861.thread.i:              ; preds = %435
   %436 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7374,19 +7374,19 @@ OutputArchStrToInt.exit861.thread.i:              ; preds = %435
 438:                                              ; preds = %432
   %bcmp879 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.441, i64 14)
   %.not476.i = icmp eq i32 %bcmp879, 0
-  br i1 %.not476.i, label %.preheader1161.i, label %444
+  br i1 %.not476.i, label %.preheader1159.i, label %444
 
-.preheader1161.i:                                 ; preds = %438, %441
+.preheader1159.i:                                 ; preds = %438, %441
   %indvars.iv.i867.i = phi i64 [ %indvars.iv.next.i869.i, %441 ], [ 0, %438 ]
   %439 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i867.i
   %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %439, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i868.i = icmp eq i32 %440, 0
-  br i1 %.not.i868.i, label %.sink.split.i, label %441
+  br i1 %.not.i868.i, label %.critedge.sink.split.i, label %441
 
-441:                                              ; preds = %.preheader1161.i
+441:                                              ; preds = %.preheader1159.i
   %indvars.iv.next.i869.i = add nuw nsw i64 %indvars.iv.i867.i, 1
   %exitcond.not.i870.i = icmp eq i64 %indvars.iv.next.i869.i, 8
-  br i1 %exitcond.not.i870.i, label %OutputArchStrToInt.exit873.thread.i, label %.preheader1161.i, !llvm.loop !97
+  br i1 %exitcond.not.i870.i, label %OutputArchStrToInt.exit873.thread.i, label %.preheader1159.i, !llvm.loop !97
 
 OutputArchStrToInt.exit873.thread.i:              ; preds = %441
   %442 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7396,19 +7396,19 @@ OutputArchStrToInt.exit873.thread.i:              ; preds = %441
 444:                                              ; preds = %438
   %bcmp880 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.442, i64 14)
   %.not477.i = icmp eq i32 %bcmp880, 0
-  br i1 %.not477.i, label %.preheader1162.i, label %450
+  br i1 %.not477.i, label %.preheader1160.i, label %450
 
-.preheader1162.i:                                 ; preds = %444, %447
+.preheader1160.i:                                 ; preds = %444, %447
   %indvars.iv.i879.i = phi i64 [ %indvars.iv.next.i881.i, %447 ], [ 0, %444 ]
   %445 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i879.i
   %446 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %445, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i880.i = icmp eq i32 %446, 0
-  br i1 %.not.i880.i, label %.sink.split.i, label %447
+  br i1 %.not.i880.i, label %.critedge.sink.split.i, label %447
 
-447:                                              ; preds = %.preheader1162.i
+447:                                              ; preds = %.preheader1160.i
   %indvars.iv.next.i881.i = add nuw nsw i64 %indvars.iv.i879.i, 1
   %exitcond.not.i882.i = icmp eq i64 %indvars.iv.next.i881.i, 8
-  br i1 %exitcond.not.i882.i, label %OutputArchStrToInt.exit885.thread.i, label %.preheader1162.i, !llvm.loop !97
+  br i1 %exitcond.not.i882.i, label %OutputArchStrToInt.exit885.thread.i, label %.preheader1160.i, !llvm.loop !97
 
 OutputArchStrToInt.exit885.thread.i:              ; preds = %447
   %448 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7418,19 +7418,19 @@ OutputArchStrToInt.exit885.thread.i:              ; preds = %447
 450:                                              ; preds = %444
   %bcmp881 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.443, i64 14)
   %.not478.i = icmp eq i32 %bcmp881, 0
-  br i1 %.not478.i, label %.preheader1163.i, label %456
+  br i1 %.not478.i, label %.preheader1161.i, label %456
 
-.preheader1163.i:                                 ; preds = %450, %453
+.preheader1161.i:                                 ; preds = %450, %453
   %indvars.iv.i891.i = phi i64 [ %indvars.iv.next.i893.i, %453 ], [ 0, %450 ]
   %451 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i891.i
   %452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %451, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i892.i = icmp eq i32 %452, 0
-  br i1 %.not.i892.i, label %.sink.split.i, label %453
+  br i1 %.not.i892.i, label %.critedge.sink.split.i, label %453
 
-453:                                              ; preds = %.preheader1163.i
+453:                                              ; preds = %.preheader1161.i
   %indvars.iv.next.i893.i = add nuw nsw i64 %indvars.iv.i891.i, 1
   %exitcond.not.i894.i = icmp eq i64 %indvars.iv.next.i893.i, 8
-  br i1 %exitcond.not.i894.i, label %OutputArchStrToInt.exit897.thread.i, label %.preheader1163.i, !llvm.loop !97
+  br i1 %exitcond.not.i894.i, label %OutputArchStrToInt.exit897.thread.i, label %.preheader1161.i, !llvm.loop !97
 
 OutputArchStrToInt.exit897.thread.i:              ; preds = %453
   %454 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7440,19 +7440,19 @@ OutputArchStrToInt.exit897.thread.i:              ; preds = %453
 456:                                              ; preds = %450
   %bcmp882 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.444, i64 14)
   %.not479.i = icmp eq i32 %bcmp882, 0
-  br i1 %.not479.i, label %.preheader1164.i, label %462
+  br i1 %.not479.i, label %.preheader1162.i, label %462
 
-.preheader1164.i:                                 ; preds = %456, %459
+.preheader1162.i:                                 ; preds = %456, %459
   %indvars.iv.i903.i = phi i64 [ %indvars.iv.next.i905.i, %459 ], [ 0, %456 ]
   %457 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i903.i
   %458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %457, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i904.i = icmp eq i32 %458, 0
-  br i1 %.not.i904.i, label %.sink.split.i, label %459
+  br i1 %.not.i904.i, label %.critedge.sink.split.i, label %459
 
-459:                                              ; preds = %.preheader1164.i
+459:                                              ; preds = %.preheader1162.i
   %indvars.iv.next.i905.i = add nuw nsw i64 %indvars.iv.i903.i, 1
   %exitcond.not.i906.i = icmp eq i64 %indvars.iv.next.i905.i, 8
-  br i1 %exitcond.not.i906.i, label %OutputArchStrToInt.exit909.thread.i, label %.preheader1164.i, !llvm.loop !97
+  br i1 %exitcond.not.i906.i, label %OutputArchStrToInt.exit909.thread.i, label %.preheader1162.i, !llvm.loop !97
 
 OutputArchStrToInt.exit909.thread.i:              ; preds = %459
   %460 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7462,19 +7462,19 @@ OutputArchStrToInt.exit909.thread.i:              ; preds = %459
 462:                                              ; preds = %456
   %bcmp883 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.445, i64 14)
   %.not480.i = icmp eq i32 %bcmp883, 0
-  br i1 %.not480.i, label %.preheader1165.i, label %468
+  br i1 %.not480.i, label %.preheader1163.i, label %468
 
-.preheader1165.i:                                 ; preds = %462, %465
+.preheader1163.i:                                 ; preds = %462, %465
   %indvars.iv.i915.i = phi i64 [ %indvars.iv.next.i917.i, %465 ], [ 0, %462 ]
   %463 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i915.i
   %464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %463, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i916.i = icmp eq i32 %464, 0
-  br i1 %.not.i916.i, label %.sink.split.i, label %465
+  br i1 %.not.i916.i, label %.critedge.sink.split.i, label %465
 
-465:                                              ; preds = %.preheader1165.i
+465:                                              ; preds = %.preheader1163.i
   %indvars.iv.next.i917.i = add nuw nsw i64 %indvars.iv.i915.i, 1
   %exitcond.not.i918.i = icmp eq i64 %indvars.iv.next.i917.i, 8
-  br i1 %exitcond.not.i918.i, label %OutputArchStrToInt.exit921.thread.i, label %.preheader1165.i, !llvm.loop !97
+  br i1 %exitcond.not.i918.i, label %OutputArchStrToInt.exit921.thread.i, label %.preheader1163.i, !llvm.loop !97
 
 OutputArchStrToInt.exit921.thread.i:              ; preds = %465
   %466 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7484,43 +7484,43 @@ OutputArchStrToInt.exit921.thread.i:              ; preds = %465
 468:                                              ; preds = %462
   %bcmp884 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %15, ptr noundef nonnull dereferenceable(14) @.str.446, i64 14)
   %.not481.i = icmp eq i32 %bcmp884, 0
-  br i1 %.not481.i, label %.preheader1166.i, label %.loopexit905
+  br i1 %.not481.i, label %.preheader1164.i, label %.critedge.i
 
-.preheader1166.i:                                 ; preds = %468, %471
+.preheader1164.i:                                 ; preds = %468, %471
   %indvars.iv.i927.i = phi i64 [ %indvars.iv.next.i929.i, %471 ], [ 0, %468 ]
   %469 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.OutputArchStrToInt.outputArchKeywordTable, i64 0, i64 %indvars.iv.i927.i
   %470 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %469, ptr noundef nonnull dereferenceable(4) @.str.397) #22
   %.not.i928.i = icmp eq i32 %470, 0
-  br i1 %.not.i928.i, label %.sink.split.i, label %471
+  br i1 %.not.i928.i, label %.critedge.sink.split.i, label %471
 
-471:                                              ; preds = %.preheader1166.i
+471:                                              ; preds = %.preheader1164.i
   %indvars.iv.next.i929.i = add nuw nsw i64 %indvars.iv.i927.i, 1
   %exitcond.not.i930.i = icmp eq i64 %indvars.iv.next.i929.i, 8
-  br i1 %exitcond.not.i930.i, label %OutputArchStrToInt.exit933.thread.i, label %.preheader1166.i, !llvm.loop !97
+  br i1 %exitcond.not.i930.i, label %OutputArchStrToInt.exit933.thread.i, label %.preheader1164.i, !llvm.loop !97
 
 OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   %472 = load ptr, ptr @stderr, align 8, !tbaa !4
   %473 = call i64 @fwrite(ptr nonnull @.str.18, i64 39, i64 1, ptr %472) #24
   br label %484
 
-.sink.split.i:                                    ; preds = %.preheader1166.i, %.preheader1165.i, %.preheader1164.i, %.preheader1163.i, %.preheader1162.i, %.preheader1161.i, %.preheader1160.i, %.preheader.i
-  %indvars.iv.i843.lcssa.sink.i = phi i64 [ %indvars.iv.i843.i, %.preheader.i ], [ %indvars.iv.i855.i, %.preheader1160.i ], [ %indvars.iv.i867.i, %.preheader1161.i ], [ %indvars.iv.i879.i, %.preheader1162.i ], [ %indvars.iv.i891.i, %.preheader1163.i ], [ %indvars.iv.i903.i, %.preheader1164.i ], [ %indvars.iv.i915.i, %.preheader1165.i ], [ %indvars.iv.i927.i, %.preheader1166.i ]
-  %.sink.i = phi i32 [ 0, %.preheader.i ], [ 1, %.preheader1160.i ], [ 0, %.preheader1161.i ], [ 1, %.preheader1162.i ], [ 0, %.preheader1163.i ], [ 1, %.preheader1164.i ], [ 0, %.preheader1165.i ], [ 1, %.preheader1166.i ]
+.critedge.sink.split.i:                           ; preds = %.preheader1164.i, %.preheader1163.i, %.preheader1162.i, %.preheader1161.i, %.preheader1160.i, %.preheader1159.i, %.preheader1158.i, %.preheader.i
+  %indvars.iv.i843.lcssa.sink.i = phi i64 [ %indvars.iv.i843.i, %.preheader.i ], [ %indvars.iv.i855.i, %.preheader1158.i ], [ %indvars.iv.i867.i, %.preheader1159.i ], [ %indvars.iv.i879.i, %.preheader1160.i ], [ %indvars.iv.i891.i, %.preheader1161.i ], [ %indvars.iv.i903.i, %.preheader1162.i ], [ %indvars.iv.i915.i, %.preheader1163.i ], [ %indvars.iv.i927.i, %.preheader1164.i ]
+  %.sink.i = phi i32 [ 0, %.preheader.i ], [ 1, %.preheader1158.i ], [ 0, %.preheader1159.i ], [ 1, %.preheader1160.i ], [ 0, %.preheader1161.i ], [ 1, %.preheader1162.i ], [ 0, %.preheader1163.i ], [ 1, %.preheader1164.i ]
   %474 = trunc nuw nsw i64 %indvars.iv.i843.lcssa.sink.i to i32
   store i32 %474, ptr %55, align 8, !tbaa !29
   store i32 %.sink.i, ptr %56, align 4, !tbaa !30
-  br label %.loopexit905
+  br label %.critedge.i
 
-.loopexit905:                                     ; preds = %424, %.sink.split.i, %468
+.critedge.i:                                      ; preds = %424, %.critedge.sink.split.i, %468
   %475 = load ptr, ptr @stderr, align 8, !tbaa !4
   %476 = call i64 @fwrite(ptr nonnull @.str.21, i64 31, i64 1, ptr %475) #24
   br label %484
 
 477:                                              ; preds = %425, %OutputArchStrToInt.exit842.i, %OutputArchStrToInt.exit835.i, %OutputArchStrToInt.exit828.i, %OutputArchStrToInt.exit821.i, %387, %385, %OutputByteOrderStrToInt.exit814.i, %OutputByteOrderStrToInt.exit802.i, %OutputByteOrderStrToInt.exit790.i, %OutputByteOrderStrToInt.exit778.i, %OutputByteOrderStrToInt.exit766.i, %OutputByteOrderStrToInt.exit754.i, %OutputArchStrToInt.exit742.i, %OutputArchStrToInt.exit735.i, %OutputArchStrToInt.exit728.i, %OutputArchStrToInt.exit721.i, %OutputArchStrToInt.exit714.i, %OutputArchStrToInt.exit707.i, %OutputArchStrToInt.exit700.i, %OutputArchStrToInt.exit693.i, %OutputArchStrToInt.exit686.i, %OutputArchStrToInt.exit679.i, %OutputByteOrderStrToInt.exit672.i, %OutputByteOrderStrToInt.exit660.i, %OutputByteOrderStrToInt.exit648.i, %OutputByteOrderStrToInt.exit636.i, %OutputByteOrderStrToInt.exit624.i, %OutputByteOrderStrToInt.exit612.i, %OutputByteOrderStrToInt.exit600.i, %OutputByteOrderStrToInt.exit588.i, %OutputByteOrderStrToInt.exit576.i, %OutputByteOrderStrToInt.exit564.i, %OutputByteOrderStrToInt.exit552.i, %OutputByteOrderStrToInt.exit540.i, %OutputByteOrderStrToInt.exit528.i, %OutputByteOrderStrToInt.exit516.i, %OutputByteOrderStrToInt.exit504.i, %OutputByteOrderStrToInt.exit.i
-  %switch = phi i1 [ false, %425 ], [ false, %OutputByteOrderStrToInt.exit.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit742.i ], [ true, %OutputByteOrderStrToInt.exit754.i ], [ true, %OutputByteOrderStrToInt.exit766.i ], [ true, %OutputByteOrderStrToInt.exit778.i ], [ true, %OutputByteOrderStrToInt.exit790.i ], [ true, %OutputByteOrderStrToInt.exit802.i ], [ true, %OutputByteOrderStrToInt.exit814.i ], [ true, %385 ], [ true, %387 ], [ true, %OutputArchStrToInt.exit821.i ], [ true, %OutputArchStrToInt.exit828.i ], [ true, %OutputArchStrToInt.exit835.i ], [ true, %OutputArchStrToInt.exit842.i ]
-  %478 = phi i1 [ true, %425 ], [ false, %OutputByteOrderStrToInt.exit.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %385 ], [ false, %387 ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit842.i ]
-  %cond1057 = phi i1 [ false, %425 ], [ true, %OutputByteOrderStrToInt.exit.i ], [ true, %OutputByteOrderStrToInt.exit504.i ], [ true, %OutputByteOrderStrToInt.exit516.i ], [ true, %OutputByteOrderStrToInt.exit528.i ], [ true, %OutputByteOrderStrToInt.exit540.i ], [ true, %OutputByteOrderStrToInt.exit552.i ], [ true, %OutputByteOrderStrToInt.exit564.i ], [ true, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ true, %OutputArchStrToInt.exit679.i ], [ false, %OutputArchStrToInt.exit686.i ], [ true, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit700.i ], [ true, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit714.i ], [ true, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit728.i ], [ true, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %385 ], [ false, %387 ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit842.i ]
-  %479 = phi i32 [ 5, %425 ], [ 4, %OutputByteOrderStrToInt.exit.i ], [ 4, %OutputByteOrderStrToInt.exit504.i ], [ 4, %OutputByteOrderStrToInt.exit516.i ], [ 4, %OutputByteOrderStrToInt.exit528.i ], [ 4, %OutputByteOrderStrToInt.exit540.i ], [ 4, %OutputByteOrderStrToInt.exit552.i ], [ 4, %OutputByteOrderStrToInt.exit564.i ], [ 4, %OutputByteOrderStrToInt.exit576.i ], [ 7, %OutputByteOrderStrToInt.exit588.i ], [ 7, %OutputByteOrderStrToInt.exit600.i ], [ 7, %OutputByteOrderStrToInt.exit612.i ], [ 7, %OutputByteOrderStrToInt.exit624.i ], [ 7, %OutputByteOrderStrToInt.exit636.i ], [ 7, %OutputByteOrderStrToInt.exit648.i ], [ 7, %OutputByteOrderStrToInt.exit660.i ], [ 7, %OutputByteOrderStrToInt.exit672.i ], [ 4, %OutputArchStrToInt.exit679.i ], [ 7, %OutputArchStrToInt.exit686.i ], [ 4, %OutputArchStrToInt.exit693.i ], [ 7, %OutputArchStrToInt.exit700.i ], [ 4, %OutputArchStrToInt.exit707.i ], [ 7, %OutputArchStrToInt.exit714.i ], [ 4, %OutputArchStrToInt.exit721.i ], [ 7, %OutputArchStrToInt.exit728.i ], [ 4, %OutputArchStrToInt.exit735.i ], [ 7, %OutputArchStrToInt.exit742.i ], [ 3, %OutputByteOrderStrToInt.exit754.i ], [ 3, %OutputByteOrderStrToInt.exit766.i ], [ 3, %OutputByteOrderStrToInt.exit778.i ], [ 3, %OutputByteOrderStrToInt.exit790.i ], [ 3, %OutputByteOrderStrToInt.exit802.i ], [ 3, %OutputByteOrderStrToInt.exit814.i ], [ 3, %385 ], [ 3, %387 ], [ 3, %OutputArchStrToInt.exit821.i ], [ 3, %OutputArchStrToInt.exit828.i ], [ 3, %OutputArchStrToInt.exit835.i ], [ 3, %OutputArchStrToInt.exit842.i ]
+  %switch = phi i1 [ true, %OutputArchStrToInt.exit842.i ], [ true, %OutputArchStrToInt.exit835.i ], [ true, %OutputArchStrToInt.exit828.i ], [ true, %OutputArchStrToInt.exit821.i ], [ true, %387 ], [ true, %385 ], [ true, %OutputByteOrderStrToInt.exit814.i ], [ true, %OutputByteOrderStrToInt.exit802.i ], [ true, %OutputByteOrderStrToInt.exit790.i ], [ true, %OutputByteOrderStrToInt.exit778.i ], [ true, %OutputByteOrderStrToInt.exit766.i ], [ true, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ false, %425 ]
+  %478 = phi i1 [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ false, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ false, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ false, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ false, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ false, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ false, %OutputByteOrderStrToInt.exit576.i ], [ false, %OutputByteOrderStrToInt.exit564.i ], [ false, %OutputByteOrderStrToInt.exit552.i ], [ false, %OutputByteOrderStrToInt.exit540.i ], [ false, %OutputByteOrderStrToInt.exit528.i ], [ false, %OutputByteOrderStrToInt.exit516.i ], [ false, %OutputByteOrderStrToInt.exit504.i ], [ false, %OutputByteOrderStrToInt.exit.i ], [ true, %425 ]
+  %cond1056 = phi i1 [ false, %OutputArchStrToInt.exit842.i ], [ false, %OutputArchStrToInt.exit835.i ], [ false, %OutputArchStrToInt.exit828.i ], [ false, %OutputArchStrToInt.exit821.i ], [ false, %387 ], [ false, %385 ], [ false, %OutputByteOrderStrToInt.exit814.i ], [ false, %OutputByteOrderStrToInt.exit802.i ], [ false, %OutputByteOrderStrToInt.exit790.i ], [ false, %OutputByteOrderStrToInt.exit778.i ], [ false, %OutputByteOrderStrToInt.exit766.i ], [ false, %OutputByteOrderStrToInt.exit754.i ], [ false, %OutputArchStrToInt.exit742.i ], [ true, %OutputArchStrToInt.exit735.i ], [ false, %OutputArchStrToInt.exit728.i ], [ true, %OutputArchStrToInt.exit721.i ], [ false, %OutputArchStrToInt.exit714.i ], [ true, %OutputArchStrToInt.exit707.i ], [ false, %OutputArchStrToInt.exit700.i ], [ true, %OutputArchStrToInt.exit693.i ], [ false, %OutputArchStrToInt.exit686.i ], [ true, %OutputArchStrToInt.exit679.i ], [ false, %OutputByteOrderStrToInt.exit672.i ], [ false, %OutputByteOrderStrToInt.exit660.i ], [ false, %OutputByteOrderStrToInt.exit648.i ], [ false, %OutputByteOrderStrToInt.exit636.i ], [ false, %OutputByteOrderStrToInt.exit624.i ], [ false, %OutputByteOrderStrToInt.exit612.i ], [ false, %OutputByteOrderStrToInt.exit600.i ], [ false, %OutputByteOrderStrToInt.exit588.i ], [ true, %OutputByteOrderStrToInt.exit576.i ], [ true, %OutputByteOrderStrToInt.exit564.i ], [ true, %OutputByteOrderStrToInt.exit552.i ], [ true, %OutputByteOrderStrToInt.exit540.i ], [ true, %OutputByteOrderStrToInt.exit528.i ], [ true, %OutputByteOrderStrToInt.exit516.i ], [ true, %OutputByteOrderStrToInt.exit504.i ], [ true, %OutputByteOrderStrToInt.exit.i ], [ false, %425 ]
+  %479 = phi i32 [ 3, %OutputArchStrToInt.exit842.i ], [ 3, %OutputArchStrToInt.exit835.i ], [ 3, %OutputArchStrToInt.exit828.i ], [ 3, %OutputArchStrToInt.exit821.i ], [ 3, %387 ], [ 3, %385 ], [ 3, %OutputByteOrderStrToInt.exit814.i ], [ 3, %OutputByteOrderStrToInt.exit802.i ], [ 3, %OutputByteOrderStrToInt.exit790.i ], [ 3, %OutputByteOrderStrToInt.exit778.i ], [ 3, %OutputByteOrderStrToInt.exit766.i ], [ 3, %OutputByteOrderStrToInt.exit754.i ], [ 7, %OutputArchStrToInt.exit742.i ], [ 4, %OutputArchStrToInt.exit735.i ], [ 7, %OutputArchStrToInt.exit728.i ], [ 4, %OutputArchStrToInt.exit721.i ], [ 7, %OutputArchStrToInt.exit714.i ], [ 4, %OutputArchStrToInt.exit707.i ], [ 7, %OutputArchStrToInt.exit700.i ], [ 4, %OutputArchStrToInt.exit693.i ], [ 7, %OutputArchStrToInt.exit686.i ], [ 4, %OutputArchStrToInt.exit679.i ], [ 7, %OutputByteOrderStrToInt.exit672.i ], [ 7, %OutputByteOrderStrToInt.exit660.i ], [ 7, %OutputByteOrderStrToInt.exit648.i ], [ 7, %OutputByteOrderStrToInt.exit636.i ], [ 7, %OutputByteOrderStrToInt.exit624.i ], [ 7, %OutputByteOrderStrToInt.exit612.i ], [ 7, %OutputByteOrderStrToInt.exit600.i ], [ 7, %OutputByteOrderStrToInt.exit588.i ], [ 4, %OutputByteOrderStrToInt.exit576.i ], [ 4, %OutputByteOrderStrToInt.exit564.i ], [ 4, %OutputByteOrderStrToInt.exit552.i ], [ 4, %OutputByteOrderStrToInt.exit540.i ], [ 4, %OutputByteOrderStrToInt.exit528.i ], [ 4, %OutputByteOrderStrToInt.exit516.i ], [ 4, %OutputByteOrderStrToInt.exit504.i ], [ 4, %OutputByteOrderStrToInt.exit.i ], [ 5, %425 ]
   %480 = load i32, ptr %57, align 8, !tbaa !12
   %481 = icmp eq i32 %480, 0
   br i1 %481, label %482, label %487
@@ -7530,7 +7530,7 @@ OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   store i32 %483, ptr %58, align 4, !tbaa !25
   br label %487
 
-484:                                              ; preds = %.loopexit905, %OutputArchStrToInt.exit933.thread.i, %OutputArchStrToInt.exit921.thread.i, %OutputArchStrToInt.exit909.thread.i, %OutputArchStrToInt.exit897.thread.i, %OutputArchStrToInt.exit885.thread.i, %OutputArchStrToInt.exit873.thread.i, %OutputArchStrToInt.exit861.thread.i, %OutputArchStrToInt.exit849.thread.i, %OutputArchStrToInt.exit842.thread.i, %OutputArchStrToInt.exit835.thread.i, %OutputArchStrToInt.exit828.thread.i, %OutputArchStrToInt.exit821.thread.i, %OutputArchStrToInt.exit809.thread.i, %OutputArchStrToInt.exit797.thread.i, %OutputArchStrToInt.exit785.thread.i, %OutputArchStrToInt.exit773.thread.i, %OutputArchStrToInt.exit761.thread.i, %OutputArchStrToInt.exit749.thread.i, %OutputArchStrToInt.exit742.thread.i, %OutputArchStrToInt.exit735.thread.i, %OutputArchStrToInt.exit728.thread.i, %OutputArchStrToInt.exit721.thread.i, %OutputArchStrToInt.exit714.thread.i, %OutputArchStrToInt.exit707.thread.i, %OutputArchStrToInt.exit700.thread.i, %OutputArchStrToInt.exit693.thread.i, %OutputArchStrToInt.exit686.thread.i, %OutputArchStrToInt.exit679.thread.i, %OutputArchStrToInt.exit667.thread.i, %OutputArchStrToInt.exit655.thread.i, %OutputArchStrToInt.exit643.thread.i, %OutputArchStrToInt.exit631.thread.i, %OutputArchStrToInt.exit619.thread.i, %OutputArchStrToInt.exit607.thread.i, %OutputArchStrToInt.exit595.thread.i, %OutputArchStrToInt.exit583.thread.i, %OutputArchStrToInt.exit571.thread.i, %OutputArchStrToInt.exit559.thread.i, %OutputArchStrToInt.exit547.thread.i, %OutputArchStrToInt.exit535.thread.i, %OutputArchStrToInt.exit523.thread.i, %OutputArchStrToInt.exit511.thread.i, %OutputArchStrToInt.exit499.thread.i, %OutputArchStrToInt.exit.thread.i
+484:                                              ; preds = %.critedge.i, %OutputArchStrToInt.exit933.thread.i, %OutputArchStrToInt.exit921.thread.i, %OutputArchStrToInt.exit909.thread.i, %OutputArchStrToInt.exit897.thread.i, %OutputArchStrToInt.exit885.thread.i, %OutputArchStrToInt.exit873.thread.i, %OutputArchStrToInt.exit861.thread.i, %OutputArchStrToInt.exit849.thread.i, %OutputArchStrToInt.exit842.thread.i, %OutputArchStrToInt.exit835.thread.i, %OutputArchStrToInt.exit828.thread.i, %OutputArchStrToInt.exit821.thread.i, %OutputArchStrToInt.exit809.thread.i, %OutputArchStrToInt.exit797.thread.i, %OutputArchStrToInt.exit785.thread.i, %OutputArchStrToInt.exit773.thread.i, %OutputArchStrToInt.exit761.thread.i, %OutputArchStrToInt.exit749.thread.i, %OutputArchStrToInt.exit742.thread.i, %OutputArchStrToInt.exit735.thread.i, %OutputArchStrToInt.exit728.thread.i, %OutputArchStrToInt.exit721.thread.i, %OutputArchStrToInt.exit714.thread.i, %OutputArchStrToInt.exit707.thread.i, %OutputArchStrToInt.exit700.thread.i, %OutputArchStrToInt.exit693.thread.i, %OutputArchStrToInt.exit686.thread.i, %OutputArchStrToInt.exit679.thread.i, %OutputArchStrToInt.exit667.thread.i, %OutputArchStrToInt.exit655.thread.i, %OutputArchStrToInt.exit643.thread.i, %OutputArchStrToInt.exit631.thread.i, %OutputArchStrToInt.exit619.thread.i, %OutputArchStrToInt.exit607.thread.i, %OutputArchStrToInt.exit595.thread.i, %OutputArchStrToInt.exit583.thread.i, %OutputArchStrToInt.exit571.thread.i, %OutputArchStrToInt.exit559.thread.i, %OutputArchStrToInt.exit547.thread.i, %OutputArchStrToInt.exit535.thread.i, %OutputArchStrToInt.exit523.thread.i, %OutputArchStrToInt.exit511.thread.i, %OutputArchStrToInt.exit499.thread.i, %OutputArchStrToInt.exit.thread.i
   %485 = load ptr, ptr @stderr, align 8, !tbaa !4
   %486 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %485, ptr noundef nonnull @.str.324, ptr noundef nonnull %0) #21
   br label %validateConfigurationParameters.exit.thread831
@@ -7543,7 +7543,7 @@ OutputArchStrToInt.exit933.thread.i:              ; preds = %471
   br i1 %489, label %490, label %495
 
 490:                                              ; preds = %487
-  br i1 %cond1057, label %491, label %492
+  br i1 %cond1056, label %491, label %492
 
 491:                                              ; preds = %490
   store i32 0, ptr %61, align 8, !tbaa !24
@@ -7775,8 +7775,8 @@ select.unfold:                                    ; preds = %543
   %574 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %20, i32 noundef 10) #18
   store i64 %574, ptr %19, align 16, !tbaa !33
   %575 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
-  %.not5351197 = icmp eq i32 %575, 1
-  br i1 %.not5351197, label %.lr.ph1199, label %.preheader903.preheader._crit_edge
+  %.not5351196 = icmp eq i32 %575, 1
+  br i1 %.not5351196, label %.lr.ph1198, label %.preheader903.preheader._crit_edge
 
 576:                                              ; preds = %572
   %577 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -7788,14 +7788,14 @@ select.unfold:                                    ; preds = %543
   %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %579, ptr noundef nonnull @.str.328, ptr noundef nonnull %0) #21
   br label %.thread750
 
-.lr.ph1199:                                       ; preds = %.preheader903.preheader, %.preheader903
-  %.04579721198 = phi i32 [ %586, %.preheader903 ], [ 0, %.preheader903.preheader ]
+.lr.ph1198:                                       ; preds = %.preheader903.preheader, %.preheader903
+  %.04579711197 = phi i32 [ %586, %.preheader903 ], [ 0, %.preheader903.preheader ]
   %rhsv536 = load i16, ptr %15, align 16
   %.not538 = icmp eq i16 %rhsv536, 41
   br i1 %.not538, label %591, label %581
 
-581:                                              ; preds = %.lr.ph1199
-  %582 = icmp samesign ugt i32 %.04579721198, 31
+581:                                              ; preds = %.lr.ph1198
+  %582 = icmp samesign ugt i32 %.04579711197, 31
   br i1 %582, label %583, label %.preheader903
 
 583:                                              ; preds = %581
@@ -7808,7 +7808,7 @@ select.unfold:                                    ; preds = %543
   br label %.thread768
 
 .preheader903:                                    ; preds = %581
-  %586 = add nuw nsw i32 %.04579721198, 1
+  %586 = add nuw nsw i32 %.04579711197, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #18
   store ptr %15, ptr %20, align 8, !tbaa !9
@@ -7818,10 +7818,10 @@ select.unfold:                                    ; preds = %543
   store i64 %587, ptr %589, align 8, !tbaa !33
   %590 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not535 = icmp eq i32 %590, 1
-  br i1 %.not535, label %.lr.ph1199, label %.preheader903.preheader._crit_edge, !llvm.loop !98
+  br i1 %.not535, label %.lr.ph1198, label %.preheader903.preheader._crit_edge, !llvm.loop !98
 
-591:                                              ; preds = %.lr.ph1199
-  %592 = add nuw nsw i32 %.04579721198, 1
+591:                                              ; preds = %.lr.ph1198
+  %592 = add nuw nsw i32 %.04579711197, 1
   store i32 %592, ptr %41, align 4, !tbaa !27
   store i32 1, ptr %42, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
@@ -7830,9 +7830,9 @@ select.unfold:                                    ; preds = %543
   %595 = call noalias ptr @malloc(i64 noundef %594) #23
   store ptr %595, ptr %43, align 8, !tbaa !32
   %596 = icmp eq ptr %595, null
-  br i1 %596, label %.thread768, label %.lr.ph974.preheader
+  br i1 %596, label %.thread768, label %.lr.ph973.preheader
 
-.lr.ph974.preheader:                              ; preds = %591
+.lr.ph973.preheader:                              ; preds = %591
   %597 = zext nneg i32 %592 to i64
   %598 = shl nuw nsw i64 %597, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %595, ptr noundef nonnull align 16 dereferenceable(1) %19, i64 %598, i1 false), !tbaa !33
@@ -7846,12 +7846,12 @@ select.unfold:                                    ; preds = %543
   %602 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %601, ptr noundef nonnull @.str.326, ptr noundef nonnull %0) #21
   br label %.thread768
 
-603:                                              ; preds = %.lr.ph974.preheader
+603:                                              ; preds = %.lr.ph973.preheader
   %604 = load ptr, ptr @stderr, align 8, !tbaa !4
   %605 = call i64 @fwrite(ptr nonnull @.str.356, i64 28, i64 1, ptr %604) #24
   br label %.thread768
 
-606:                                              ; preds = %.lr.ph974.preheader
+606:                                              ; preds = %.lr.ph973.preheader
   %rhsv540 = load i16, ptr %15, align 16
   %.not542 = icmp eq i16 %rhsv540, 47
   br i1 %.not542, label %607, label %654
@@ -7891,7 +7891,7 @@ select.unfold:                                    ; preds = %543
   br label %.thread768
 
 .preheader901:                                    ; preds = %619, %640
-  %.0449976 = phi i32 [ %641, %640 ], [ 0, %619 ]
+  %.0449975 = phi i32 [ %641, %640 ], [ 0, %619 ]
   %bcmp549 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) @.str.380, ptr noundef nonnull dereferenceable(14) %15, i64 14)
   %.not550 = icmp eq i32 %bcmp549, 0
   br i1 %.not550, label %625, label %624
@@ -7903,7 +7903,7 @@ select.unfold:                                    ; preds = %543
 
 625:                                              ; preds = %624, %.preheader901
   %626 = load ptr, ptr %50, align 8, !tbaa !91
-  %627 = zext nneg i32 %.0449976 to i64
+  %627 = zext nneg i32 %.0449975 to i64
   %628 = getelementptr inbounds nuw i64, ptr %626, i64 %627
   store i64 -1, ptr %628, align 8, !tbaa !33
   store i32 1, ptr %51, align 4, !tbaa !12
@@ -7914,7 +7914,7 @@ select.unfold:                                    ; preds = %543
   store ptr %15, ptr %21, align 8, !tbaa !9
   %630 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %21, i32 noundef 10) #18
   %631 = load ptr, ptr %50, align 8, !tbaa !91
-  %632 = zext nneg i32 %.0449976 to i64
+  %632 = zext nneg i32 %.0449975 to i64
   %633 = getelementptr inbounds nuw i64, ptr %631, i64 %632
   store i64 %630, ptr %633, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #18
@@ -7936,8 +7936,8 @@ select.unfold:                                    ; preds = %543
   br i1 %.not556, label %649, label %640
 
 640:                                              ; preds = %639
-  %641 = add nuw nsw i32 %.0449976, 1
-  %642 = icmp samesign ugt i32 %.0449976, 30
+  %641 = add nuw nsw i32 %.0449975, 1
+  %642 = icmp samesign ugt i32 %.0449975, 30
   br i1 %642, label %643, label %.preheader901, !llvm.loop !99
 
 643:                                              ; preds = %640
@@ -8038,8 +8038,8 @@ select.unfold:                                    ; preds = %543
   %685 = load ptr, ptr %48, align 8, !tbaa !88
   store i64 %684, ptr %685, align 8, !tbaa !33
   %686 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
-  %.not5701194 = icmp eq i32 %686, 1
-  br i1 %.not5701194, label %.lr.ph1196, label %.preheader904.preheader._crit_edge
+  %.not5701193 = icmp eq i32 %686, 1
+  br i1 %.not5701193, label %.lr.ph1195, label %.preheader904.preheader._crit_edge
 
 687:                                              ; preds = %682
   %688 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -8051,14 +8051,14 @@ select.unfold:                                    ; preds = %543
   %691 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %690, ptr noundef nonnull @.str.328, ptr noundef nonnull %0) #21
   br label %.thread771
 
-.lr.ph1196:                                       ; preds = %.preheader904.preheader, %.preheader904
-  %.04439711195 = phi i32 [ %697, %.preheader904 ], [ 0, %.preheader904.preheader ]
+.lr.ph1195:                                       ; preds = %.preheader904.preheader, %.preheader904
+  %.04439701194 = phi i32 [ %697, %.preheader904 ], [ 0, %.preheader904.preheader ]
   %rhsv571 = load i16, ptr %15, align 16
   %.not573 = icmp eq i16 %rhsv571, 41
   br i1 %.not573, label %706, label %692
 
-692:                                              ; preds = %.lr.ph1196
-  %693 = icmp samesign ugt i32 %.04439711195, 31
+692:                                              ; preds = %.lr.ph1195
+  %693 = icmp samesign ugt i32 %.04439701194, 31
   br i1 %693, label %694, label %.preheader904
 
 694:                                              ; preds = %692
@@ -8071,7 +8071,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit.thread831
 
 .preheader904:                                    ; preds = %692
-  %697 = add nuw nsw i32 %.04439711195, 1
+  %697 = add nuw nsw i32 %.04439701194, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #18
   store ptr %15, ptr %22, align 8, !tbaa !9
@@ -8082,14 +8082,14 @@ select.unfold:                                    ; preds = %543
   store i64 %698, ptr %701, align 8, !tbaa !33
   %702 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not570 = icmp eq i32 %702, 1
-  br i1 %.not570, label %.lr.ph1196, label %.preheader904.preheader._crit_edge, !llvm.loop !100
+  br i1 %.not570, label %.lr.ph1195, label %.preheader904.preheader._crit_edge, !llvm.loop !100
 
 703:                                              ; preds = %681
   %704 = load ptr, ptr @stderr, align 8, !tbaa !4
   %705 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %704, ptr noundef nonnull @.str.326, ptr noundef nonnull %0) #21
   br label %validateConfigurationParameters.exit.thread831
 
-706:                                              ; preds = %.lr.ph1196
+706:                                              ; preds = %.lr.ph1195
   store i32 1, ptr %42, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #18
   store i32 1, ptr %44, align 8, !tbaa !12
@@ -8105,22 +8105,22 @@ select.unfold:                                    ; preds = %543
 711:                                              ; preds = %706
   %bcmp575 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.384, ptr noundef nonnull dereferenceable(5) %15, i64 5)
   %.not576 = icmp eq i32 %bcmp575, 0
-  br i1 %.not576, label %712, label %.preheader1215
+  br i1 %.not576, label %712, label %.preheader1214
 
-.preheader1215:                                   ; preds = %712, %711
+.preheader1214:                                   ; preds = %712, %711
   br label %717
 
 712:                                              ; preds = %711
   %713 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #18
   %.not577 = icmp eq i32 %713, 1
-  br i1 %.not577, label %.preheader1215, label %714
+  br i1 %.not577, label %.preheader1214, label %714
 
 714:                                              ; preds = %712
   %715 = load ptr, ptr @stderr, align 8, !tbaa !4
   %716 = call i64 @fwrite(ptr nonnull @.str.357, i64 29, i64 1, ptr %715) #24
   br label %validateConfigurationParameters.exit.thread831
 
-717:                                              ; preds = %.preheader1215, %718
+717:                                              ; preds = %.preheader1214, %718
   %rhsv578 = load i16, ptr %15, align 16
   %.not580 = icmp eq i16 %rhsv578, 125
   br i1 %.not580, label %723, label %718
@@ -8222,24 +8222,24 @@ select.unfold:                                    ; preds = %543
 
 762:                                              ; preds = %756
   store i32 0, ptr %47, align 8, !tbaa !31
-  br label %.sink.split1122
+  br label %.sink.split1121
 
 763:                                              ; preds = %735
   %bcmp594 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) @.str.387, ptr noundef nonnull dereferenceable(11) %15, i64 11)
   %.not595 = icmp eq i32 %bcmp594, 0
-  br i1 %.not595, label %.sink.split1122, label %764
+  br i1 %.not595, label %.sink.split1121, label %764
 
 764:                                              ; preds = %763
   %bcmp596 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.388, ptr noundef nonnull dereferenceable(5) %15, i64 5)
   %.not597 = icmp eq i32 %bcmp596, 0
-  br i1 %.not597, label %.sink.split1122, label %765
+  br i1 %.not597, label %.sink.split1121, label %765
 
-.sink.split1122:                                  ; preds = %764, %763, %762
-  %.sink1123 = phi i32 [ 1, %762 ], [ 0, %763 ], [ 0, %764 ]
-  store i32 %.sink1123, ptr %45, align 8, !tbaa !12
+.sink.split1121:                                  ; preds = %764, %763, %762
+  %.sink1122 = phi i32 [ 1, %762 ], [ 0, %763 ], [ 0, %764 ]
+  store i32 %.sink1122, ptr %45, align 8, !tbaa !12
   br label %765
 
-765:                                              ; preds = %.sink.split1122, %764
+765:                                              ; preds = %.sink.split1121, %764
   %766 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not598 = icmp eq i32 %766, 1
   br i1 %.not598, label %.loopexit, label %767
@@ -8306,16 +8306,16 @@ select.unfold:                                    ; preds = %543
   %789 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %24, i32 noundef 10) #18
   store i64 %789, ptr %23, align 16, !tbaa !33
   %790 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
-  %.not6121188 = icmp eq i32 %790, 1
-  br i1 %.not6121188, label %.lr.ph1190, label %.preheader900.preheader._crit_edge
+  %.not6121187 = icmp eq i32 %790, 1
+  br i1 %.not6121187, label %.lr.ph1189, label %.preheader900.preheader._crit_edge
 
 791:                                              ; preds = %787
   %792 = load ptr, ptr @stderr, align 8, !tbaa !4
   %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %792, ptr noundef nonnull @.str.354, ptr noundef nonnull %0) #21
   br label %.thread809
 
-.preheader899:                                    ; preds = %.lr.ph1190
-  %794 = add nuw nsw i32 %.04389641189, 1
+.preheader899:                                    ; preds = %.lr.ph1189
+  %794 = add nuw nsw i32 %.04389631188, 1
   store i32 %794, ptr %41, align 4, !tbaa !27
   store i32 1, ptr %42, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #18
@@ -8331,14 +8331,14 @@ select.unfold:                                    ; preds = %543
   %799 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %798, ptr noundef nonnull @.str.328, ptr noundef nonnull %0) #21
   br label %.thread781
 
-.lr.ph1190:                                       ; preds = %.preheader900.preheader, %.preheader900
-  %.04389641189 = phi i32 [ %805, %.preheader900 ], [ 0, %.preheader900.preheader ]
+.lr.ph1189:                                       ; preds = %.preheader900.preheader, %.preheader900
+  %.04389631188 = phi i32 [ %805, %.preheader900 ], [ 0, %.preheader900.preheader ]
   %bcmp613 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.391, ptr noundef nonnull dereferenceable(3) %15, i64 3)
   %.not614 = icmp eq i32 %bcmp613, 0
   br i1 %.not614, label %.preheader899, label %800
 
-800:                                              ; preds = %.lr.ph1190
-  %801 = icmp samesign ugt i32 %.04389641189, 30
+800:                                              ; preds = %.lr.ph1189
+  %801 = icmp samesign ugt i32 %.04389631188, 30
   br i1 %801, label %802, label %.preheader900
 
 802:                                              ; preds = %800
@@ -8351,7 +8351,7 @@ select.unfold:                                    ; preds = %543
   br label %.thread809
 
 .preheader900:                                    ; preds = %800
-  %805 = add nuw nsw i32 %.04389641189, 1
+  %805 = add nuw nsw i32 %.04389631188, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #18
   store ptr %15, ptr %24, align 8, !tbaa !9
@@ -8361,7 +8361,7 @@ select.unfold:                                    ; preds = %543
   store i64 %806, ptr %808, align 8, !tbaa !33
   %809 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not612 = icmp eq i32 %809, 1
-  br i1 %.not612, label %.lr.ph1190, label %.preheader900.preheader._crit_edge, !llvm.loop !102
+  br i1 %.not612, label %.lr.ph1189, label %.preheader900.preheader._crit_edge, !llvm.loop !102
 
 .thread791:                                       ; preds = %786, %.preheader899, %.critedge890
   %bcmp615 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.392, ptr noundef nonnull dereferenceable(6) %15, i64 6)
@@ -8394,16 +8394,16 @@ select.unfold:                                    ; preds = %543
   %818 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %25, i32 noundef 10) #18
   store i64 %818, ptr %23, align 16, !tbaa !33
   %819 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
-  %.not6231191 = icmp eq i32 %819, 1
-  br i1 %.not6231191, label %.lr.ph1193, label %.preheader898.preheader._crit_edge
+  %.not6231190 = icmp eq i32 %819, 1
+  br i1 %.not6231190, label %.lr.ph1192, label %.preheader898.preheader._crit_edge
 
 820:                                              ; preds = %816
   %821 = load ptr, ptr @stderr, align 8, !tbaa !4
   %822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %821, ptr noundef nonnull @.str.354, ptr noundef nonnull %0) #21
   br label %.thread809
 
-.preheader:                                       ; preds = %.lr.ph1193
-  %823 = add nuw nsw i32 %.04319671192, 1
+.preheader:                                       ; preds = %.lr.ph1192
+  %823 = add nuw nsw i32 %.04319661191, 1
   store i32 %823, ptr %41, align 4, !tbaa !27
   store i32 1, ptr %42, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #18
@@ -8416,14 +8416,14 @@ select.unfold:                                    ; preds = %543
   %826 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %825, ptr noundef nonnull @.str.328, ptr noundef nonnull %0) #21
   br label %.thread795
 
-.lr.ph1193:                                       ; preds = %.preheader898.preheader, %.preheader898
-  %.04319671192 = phi i32 [ %832, %.preheader898 ], [ 0, %.preheader898.preheader ]
+.lr.ph1192:                                       ; preds = %.preheader898.preheader, %.preheader898
+  %.04319661191 = phi i32 [ %832, %.preheader898 ], [ 0, %.preheader898.preheader ]
   %bcmp624 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.391, ptr noundef nonnull dereferenceable(3) %15, i64 3)
   %.not625 = icmp eq i32 %bcmp624, 0
   br i1 %.not625, label %.preheader, label %827
 
-827:                                              ; preds = %.lr.ph1193
-  %828 = icmp samesign ugt i32 %.04319671192, 31
+827:                                              ; preds = %.lr.ph1192
+  %828 = icmp samesign ugt i32 %.04319661191, 31
   br i1 %828, label %829, label %.preheader898
 
 829:                                              ; preds = %827
@@ -8436,7 +8436,7 @@ select.unfold:                                    ; preds = %543
   br label %.thread809
 
 .preheader898:                                    ; preds = %827
-  %832 = add nuw nsw i32 %.04319671192, 1
+  %832 = add nuw nsw i32 %.04319661191, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #18
   store ptr %15, ptr %25, align 8, !tbaa !9
@@ -8446,7 +8446,7 @@ select.unfold:                                    ; preds = %543
   store i64 %833, ptr %835, align 8, !tbaa !33
   %836 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not623 = icmp eq i32 %836, 1
-  br i1 %.not623, label %.lr.ph1193, label %.preheader898.preheader._crit_edge, !llvm.loop !103
+  br i1 %.not623, label %.lr.ph1192, label %.preheader898.preheader._crit_edge, !llvm.loop !103
 
 837:                                              ; preds = %.preheader, %837
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %837 ]
@@ -8458,13 +8458,13 @@ select.unfold:                                    ; preds = %543
   store i64 %842, ptr %838, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge970, label %837, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge969, label %837, !llvm.loop !104
 
-._crit_edge970:                                   ; preds = %837
+._crit_edge969:                                   ; preds = %837
   store i32 1, ptr %44, align 8, !tbaa !12
   br label %.thread805
 
-.thread805:                                       ; preds = %815, %._crit_edge970, %.thread791
+.thread805:                                       ; preds = %815, %._crit_edge969, %.thread791
   %843 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not626 = icmp eq i32 %843, 1
   br i1 %.not626, label %select.unfold779, label %844
@@ -8497,7 +8497,7 @@ select.unfold779:                                 ; preds = %.thread805
   %850 = icmp eq i32 %849, 1
   br i1 %850, label %64, label %validateConfigurationParameters.exit.thread831, !llvm.loop !105
 
-.preheader909.lr.ph:                              ; preds = %35
+.preheader908.lr.ph:                              ; preds = %35
   %851 = getelementptr inbounds nuw i8, ptr %1, i64 5248
   %852 = getelementptr inbounds nuw i8, ptr %1, i64 5244
   %853 = getelementptr inbounds nuw i8, ptr %1, i64 5208
@@ -8527,25 +8527,25 @@ select.unfold779:                                 ; preds = %.thread805
   %877 = getelementptr inbounds nuw i8, ptr %1, i64 5108
   %878 = getelementptr inbounds nuw i8, ptr %1, i64 5192
   %879 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %.preheader909
+  br label %.preheader908
 
-.preheader909:                                    ; preds = %.preheader909.backedge, %.preheader909.lr.ph
-  %indvars.iv.i651 = phi i64 [ 0, %.preheader909.lr.ph ], [ %indvars.iv.i651.be, %.preheader909.backedge ]
+.preheader908:                                    ; preds = %.preheader908.backedge, %.preheader908.lr.ph
+  %indvars.iv.i651 = phi i64 [ 0, %.preheader908.lr.ph ], [ %indvars.iv.i651.be, %.preheader908.backedge ]
   %880 = getelementptr inbounds nuw [15 x [30 x i8]], ptr @keytable, i64 0, i64 %indvars.iv.i651
   %881 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %880, ptr noundef nonnull readonly dereferenceable(1) %14) #22
   %.not.i652 = icmp eq i32 %881, 0
   br i1 %.not.i652, label %mapKeywordToIndex.exit, label %882
 
-882:                                              ; preds = %.preheader909
+882:                                              ; preds = %.preheader908
   %indvars.iv.next.i653 = add nuw nsw i64 %indvars.iv.i651, 1
   %exitcond.not.i654 = icmp eq i64 %indvars.iv.next.i653, 15
-  br i1 %exitcond.not.i654, label %mapKeywordToIndex.exit.thread, label %.preheader909.backedge
+  br i1 %exitcond.not.i654, label %mapKeywordToIndex.exit.thread, label %.preheader908.backedge
 
-.preheader909.backedge:                           ; preds = %882, %1298
+.preheader908.backedge:                           ; preds = %882, %1298
   %indvars.iv.i651.be = phi i64 [ %indvars.iv.next.i653, %882 ], [ 0, %1298 ]
-  br label %.preheader909, !llvm.loop !106
+  br label %.preheader908, !llvm.loop !106
 
-mapKeywordToIndex.exit:                           ; preds = %.preheader909
+mapKeywordToIndex.exit:                           ; preds = %.preheader908
   %883 = trunc nuw nsw i64 %indvars.iv.i651 to i32
   switch i32 %883, label %1298 [
     i32 -1, label %mapKeywordToIndex.exit.thread
@@ -8618,24 +8618,24 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
 910:                                              ; preds = %904
   %911 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #18
   %.not633 = icmp eq i32 %911, 1
-  br i1 %.not633, label %.preheader906, label %912
+  br i1 %.not633, label %.preheader905, label %912
 
 912:                                              ; preds = %910
   %913 = load ptr, ptr @stderr, align 8, !tbaa !4
   %914 = call i64 @fwrite(ptr nonnull @.str.356, i64 28, i64 1, ptr %913) #24
   br label %validateConfigurationParameters.exit.thread831
 
-.preheader906:                                    ; preds = %910, %917
+.preheader905:                                    ; preds = %910, %917
   %indvars.iv.i.i657 = phi i64 [ %indvars.iv.next.i.i659, %917 ], [ 0, %910 ]
   %915 = getelementptr inbounds nuw [8 x [15 x i8]], ptr @__const.InputClassStrToInt.classKeywordTable, i64 0, i64 %indvars.iv.i.i657
   %916 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %915, ptr noundef nonnull readonly dereferenceable(1) %15) #22
   %.not.i.i658 = icmp eq i32 %916, 0
   br i1 %.not.i.i658, label %923, label %917
 
-917:                                              ; preds = %.preheader906
+917:                                              ; preds = %.preheader905
   %indvars.iv.next.i.i659 = add nuw nsw i64 %indvars.iv.i.i657, 1
   %exitcond.not.i.i660 = icmp eq i64 %indvars.iv.next.i.i659, 8
-  br i1 %exitcond.not.i.i660, label %918, label %.preheader906, !llvm.loop !35
+  br i1 %exitcond.not.i.i660, label %918, label %.preheader905, !llvm.loop !35
 
 918:                                              ; preds = %917
   %919 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -8644,7 +8644,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
   %922 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %921, ptr noundef nonnull @.str.324, ptr noundef nonnull %0) #21
   br label %validateConfigurationParameters.exit.thread831
 
-923:                                              ; preds = %.preheader906
+923:                                              ; preds = %.preheader905
   %924 = trunc nuw nsw i64 %indvars.iv.i.i657 to i32
   store i32 %924, ptr %877, align 4, !tbaa !22
   store i32 1, ptr %876, align 4, !tbaa !12
@@ -9121,11 +9121,11 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
 ._crit_edge.thread.i:                             ; preds = %.preheader18.i
   %1136 = load i32, ptr %854, align 4, !tbaa !27
   %.not27.i = icmp eq i32 %1136, 0
-  br i1 %.not27.i, label %.loopexit907, label %1140
+  br i1 %.not27.i, label %.loopexit906, label %1140
 
 .preheader.i707:                                  ; preds = %._crit_edge.i705
   %1137 = icmp sgt i32 %1134, 0
-  br i1 %1137, label %.lr.ph21.i, label %.loopexit907
+  br i1 %1137, label %.lr.ph21.i, label %.loopexit906
 
 .lr.ph21.i:                                       ; preds = %.preheader.i707
   %1138 = load ptr, ptr %864, align 8, !tbaa !88
@@ -9140,7 +9140,7 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
 1143:                                             ; preds = %1144
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond.not.i708 = icmp eq i64 %indvars.iv23.i, %indvars.iv.i703
-  br i1 %exitcond.not.i708, label %.loopexit907, label %1144, !llvm.loop !112
+  br i1 %exitcond.not.i708, label %.loopexit906, label %1144, !llvm.loop !112
 
 1144:                                             ; preds = %1143, %.lr.ph21.i
   %indvars.iv23.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next24.i, %1143 ]
@@ -9162,7 +9162,7 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
   %1155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1154, ptr noundef nonnull @.str.345, ptr noundef nonnull %0) #21
   br label %validateConfigurationParameters.exit.thread831
 
-.loopexit907:                                     ; preds = %1143, %.preheader.i707, %._crit_edge.thread.i
+.loopexit906:                                     ; preds = %1143, %.preheader.i707, %._crit_edge.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   store i32 1, ptr %863, align 4, !tbaa !12
   br label %1298
@@ -9371,11 +9371,11 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
 ._crit_edge.thread.i716:                          ; preds = %.preheader25.i
   %1255 = load i32, ptr %854, align 4, !tbaa !27
   %.not34.i = icmp eq i32 %1255, 0
-  br i1 %.not34.i, label %.loopexit908, label %1258
+  br i1 %.not34.i, label %.loopexit907, label %1258
 
 .preheader.i723:                                  ; preds = %._crit_edge.i721
   %1256 = icmp sgt i32 %1253, 0
-  br i1 %1256, label %.lr.ph28.i, label %.loopexit908
+  br i1 %1256, label %.lr.ph28.i, label %.loopexit907
 
 .lr.ph28.i:                                       ; preds = %.preheader.i723
   %1257 = load ptr, ptr %855, align 8, !tbaa !91
@@ -9408,7 +9408,7 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
 1272:                                             ; preds = %1264, %1261
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not.i724 = icmp eq i64 %indvars.iv30.i, %indvars.iv.i719
-  br i1 %exitcond.not.i724, label %.loopexit908, label %1261, !llvm.loop !114
+  br i1 %exitcond.not.i724, label %.loopexit907, label %1261, !llvm.loop !114
 
 1273:                                             ; preds = %1245, %1258, %1269
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -9416,7 +9416,7 @@ OutputByteOrderStrToInt.exit.thread.i:            ; preds = %1098
   %1275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1274, ptr noundef nonnull @.str.354, ptr noundef nonnull %0) #21
   br label %validateConfigurationParameters.exit.thread831
 
-.loopexit908:                                     ; preds = %1272, %.preheader.i723, %._crit_edge.thread.i716
+.loopexit907:                                     ; preds = %1272, %.preheader.i723, %._crit_edge.thread.i716
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   store i32 1, ptr %852, align 4, !tbaa !12
   br label %1298
@@ -9471,10 +9471,10 @@ OutputByteOrderStrToInt.exit.thread.i730:         ; preds = %1290
   store i32 1, ptr %851, align 8, !tbaa !12
   br label %1298
 
-1298:                                             ; preds = %.thread813, %930, %mapKeywordToIndex.exit, %1202, %1205, %1174, %1177, %956, %959, %923, %932, %1296, %.loopexit908, %1219, %.loopexit907, %1104, %1082, %1062, %1037, %1017, %980, %903
+1298:                                             ; preds = %.thread813, %930, %mapKeywordToIndex.exit, %1202, %1205, %1174, %1177, %956, %959, %923, %932, %1296, %.loopexit907, %1219, %.loopexit906, %1104, %1082, %1062, %1037, %1017, %980, %903
   %1299 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #18
   %1300 = icmp eq i32 %1299, 1
-  br i1 %1300, label %.preheader909.backedge, label %._crit_edge
+  br i1 %1300, label %.preheader908.backedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1298, %33
   %1301 = getelementptr inbounds nuw i8, ptr %1, i64 5108

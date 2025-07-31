@@ -408,8 +408,8 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %15 = getelementptr i8, ptr %1, i64 5
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15)
   %17 = tail call ptr @strrchr(ptr noundef %16, i32 noundef 58) #12
-  %.not71 = icmp eq ptr %17, null
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq ptr %17, null
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.lcssa = phi ptr [ null, %13 ], [ %22, %.lr.ph ]
@@ -418,17 +418,17 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.thread63, label %27
+  br i1 %.not, label %.thread57, label %27
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.03970 = phi i32 [ %23, %.lr.ph ], [ 2, %13 ]
+  %.03964 = phi i32 [ %23, %.lr.ph ], [ 2, %13 ]
   %20 = phi ptr [ %22, %.lr.ph ], [ %17, %13 ]
   %21 = getelementptr i8, ptr %20, i64 1
   tail call void @g_ptr_array_insert(ptr noundef %14, i32 noundef 0, ptr noundef %21)
   store i8 0, ptr %20, align 1
   %22 = tail call ptr @strrchr(ptr noundef %16, i32 noundef 58) #12
-  %23 = add nsw i32 %.03970, -1
-  %24 = icmp samesign ugt i32 %.03970, 1
+  %23 = add nsw i32 %.03964, -1
+  %24 = icmp samesign ugt i32 %.03964, 1
   %25 = icmp ne ptr %22, null
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -439,7 +439,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %30 = tail call noalias ptr @g_strdup(ptr noundef %29)
   %.pr = load i32, ptr %18, align 8
   %31 = icmp ugt i32 %.pr, 1
-  br i1 %31, label %32, label %.thread63
+  br i1 %31, label %32, label %.thread57
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %14, align 8
@@ -451,72 +451,72 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %37, %40
-  br i1 %41, label %51, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %32
   %43 = load i8, ptr %37, align 1
   %.not53 = icmp eq i8 %43, 0
-  br i1 %.not53, label %44, label %51
+  br i1 %.not53, label %44, label %.critedge
+
+.critedge:                                        ; preds = %42, %32
+  tail call void @g_free(ptr noundef %16)
+  tail call void @g_ptr_array_unref(ptr noundef %14)
+  br label %get_column_format_from_str.exit.thread
 
 44:                                               ; preds = %42
-  %.pr57 = load i32, ptr %18, align 8
-  %45 = icmp ugt i32 %.pr57, 2
-  br i1 %45, label %46, label %.thread63
+  %.pr56 = load i32, ptr %18, align 8
+  %45 = icmp ugt i32 %.pr56, 2
+  br i1 %45, label %46, label %.thread57
 
 46:                                               ; preds = %44
   %47 = getelementptr i8, ptr %38, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
-  br label %.thread63
+  br label %.thread57
 
-.thread63:                                        ; preds = %44, %46, %27, %._crit_edge
-  %.04362 = phi i64 [ %36, %46 ], [ %36, %44 ], [ 0, %27 ], [ 0, %._crit_edge ]
-  %.0465661 = phi ptr [ %30, %46 ], [ %30, %44 ], [ %30, %27 ], [ null, %._crit_edge ]
+.thread57:                                        ; preds = %._crit_edge, %27, %46, %44
+  %.04361 = phi i64 [ %36, %46 ], [ %36, %44 ], [ 0, %27 ], [ 0, %._crit_edge ]
+  %.0465560 = phi ptr [ %30, %46 ], [ %30, %44 ], [ %30, %27 ], [ null, %._crit_edge ]
   %.142 = phi i8 [ %49, %46 ], [ 82, %44 ], [ 82, %27 ], [ 82, %._crit_edge ]
   tail call void @g_free(ptr noundef %16)
   tail call void @g_ptr_array_unref(ptr noundef %14)
-  %50 = trunc i64 %.04362 to i32
-  br label %58
+  %50 = trunc i64 %.04361 to i32
+  br label %57
 
-51:                                               ; preds = %32, %42
-  tail call void @g_free(ptr noundef %16)
-  tail call void @g_ptr_array_unref(ptr noundef %14)
-  br label %get_column_format_from_str.exit.thread
+col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %55
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %col_format_to_string.exit.i.preheader ]
+  %51 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv.i
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef %52) #12
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %get_column_format_from_str.exit, label %55
 
-col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %56
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %col_format_to_string.exit.i.preheader ]
-  %52 = getelementptr [47 x ptr], ptr @col_format_to_string.slist, i64 0, i64 %indvars.iv.i
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @strcmp(ptr noundef readonly %1, ptr noundef %53) #12
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %get_column_format_from_str.exit, label %56
-
-56:                                               ; preds = %col_format_to_string.exit.i
+55:                                               ; preds = %col_format_to_string.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 47
   br i1 %exitcond.not.i, label %get_column_format_from_str.exit.thread, label %col_format_to_string.exit.i, !llvm.loop !8
 
 get_column_format_from_str.exit:                  ; preds = %col_format_to_string.exit.i
-  %57 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %58
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
+  br label %57
 
-58:                                               ; preds = %get_column_format_from_str.exit, %.thread63
-  %.048 = phi i32 [ %57, %get_column_format_from_str.exit ], [ 4, %.thread63 ]
-  %.147 = phi ptr [ null, %get_column_format_from_str.exit ], [ %.0465661, %.thread63 ]
-  %.245 = phi i32 [ 0, %get_column_format_from_str.exit ], [ %50, %.thread63 ]
-  %.2 = phi i8 [ 82, %get_column_format_from_str.exit ], [ %.142, %.thread63 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.048, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.147, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.245, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %.2, ptr %62, align 1
+57:                                               ; preds = %get_column_format_from_str.exit, %.thread57
+  %.048 = phi i32 [ 4, %.thread57 ], [ %56, %get_column_format_from_str.exit ]
+  %.147 = phi ptr [ %.0465560, %.thread57 ], [ null, %get_column_format_from_str.exit ]
+  %.245 = phi i32 [ %50, %.thread57 ], [ 0, %get_column_format_from_str.exit ]
+  %.2 = phi i8 [ %.142, %.thread57 ], [ 82, %get_column_format_from_str.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.048, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.147, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.245, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  store i8 %.2, ptr %61, align 1
   br label %get_column_format_from_str.exit.thread
 
-get_column_format_from_str.exit.thread:           ; preds = %56, %51, %58
-  %.1 = phi i1 [ true, %58 ], [ false, %51 ], [ false, %56 ]
+get_column_format_from_str.exit.thread:           ; preds = %55, %.critedge, %57
+  %.1 = phi i1 [ true, %57 ], [ false, %.critedge ], [ false, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret i1 %.1
 }

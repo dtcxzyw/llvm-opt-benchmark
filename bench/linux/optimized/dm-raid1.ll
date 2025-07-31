@@ -910,7 +910,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #12
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %13 = icmp eq ptr %11, null
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %24
   %14 = phi ptr [ %15, %24 ], [ %11, %1 ]
@@ -934,7 +934,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
 
 24:                                               ; preds = %26, %18
   %25 = icmp eq ptr %15, null
-  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %25, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 26:                                               ; preds = %.lr.ph
   store ptr null, ptr %14, align 8
@@ -946,7 +946,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #12
   br label %24
 
-._crit_edge:                                      ; preds = %24, %1
+.critedge:                                        ; preds = %24, %1
   %30 = load ptr, ptr %5, align 8
   tail call void @dm_rh_stop_recovery(ptr noundef %30) #12
   %31 = tail call i32 @__SCT__might_resched() #12
@@ -955,7 +955,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %44, label %35
 
-35:                                               ; preds = %._crit_edge
+35:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !5
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #12
@@ -978,7 +978,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
   br label %44
 
-44:                                               ; preds = %.loopexit, %._crit_edge
+44:                                               ; preds = %.loopexit, %.critedge
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8

@@ -174,14 +174,14 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   store <8 x float> %97, ptr %98, align 32, !tbaa !26
   br i1 %78, label %77, label %70, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.preheader.critedge
+._crit_edge:                                      ; preds = %.critedge.critedge.critedge
   %.pre = load i32, ptr %52, align 4, !tbaa !22
   %99 = icmp sgt i32 %spec.select, %.pre
   br i1 %99, label %138, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader.critedge
-  %indvars.iv198 = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next199, %.preheader.critedge ]
-  %.1139175 = phi i32 [ %.0138181, %.lr.ph.preheader ], [ %spec.select, %.preheader.critedge ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge.critedge.critedge
+  %indvars.iv198 = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next199, %.critedge.critedge.critedge ]
+  %.1139175 = phi i32 [ %.0138181, %.lr.ph.preheader ], [ %spec.select, %.critedge.critedge.critedge ]
   %100 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %indvars.iv198
   %101 = load i32, ptr %100, align 4, !tbaa !29
   %102 = mul nsw i32 %101, 12
@@ -222,7 +222,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   store <8 x float> %116, ptr %117, align 32, !tbaa !26
   br i1 %110, label %109, label %108, !llvm.loop !31
 
-.preheader.critedge:                              ; preds = %129
+.critedge.critedge.critedge:                      ; preds = %129
   %.sroa.0207.0..sroa.0207.0..sroa.014.0.copyload = load <8 x float>, ptr %.sroa.0207, align 32, !tbaa !26
   %118 = fcmp olt <8 x float> %.sroa.0207.0..sroa.0207.0..sroa.014.0.copyload, %34
   %.sroa.4208.0..sroa.4208.32..sroa.014.0.copyload.c = load <8 x float>, ptr %.sroa.4208, align 32, !tbaa !26
@@ -260,7 +260,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %136 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
   %137 = fadd <8 x float> %136, %135
   store <8 x float> %137, ptr %indvars.iv192.sroa.phi, align 32, !tbaa !26
-  br i1 %130, label %129, label %.preheader.critedge, !llvm.loop !33
+  br i1 %130, label %129, label %.critedge.critedge.critedge, !llvm.loop !33
 
 138:                                              ; preds = %._crit_edge
   %139 = getelementptr inbounds nuw i8, ptr %48, i64 12

@@ -566,7 +566,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %66 = getelementptr i8, ptr %19, i64 -16
   store i64 %65, ptr %66, align 8
   %.pre.i = ptrtoint ptr %19 to i64
-  br label %.thread.i
+  br label %.critedge.i
 
 .preheader.i:                                     ; preds = %57, %.preheader.i
   %67 = phi ptr [ %70, %.preheader.i ], [ %59, %57 ]
@@ -592,7 +592,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %82 = getelementptr i8, ptr %67, i64 -16
   store i64 %81, ptr %82, align 8
   %83 = icmp eq ptr %68, %67
-  br i1 %83, label %.thread.i, label %.lr.ph.i
+  br i1 %83, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72, %109
   %84 = phi ptr [ %112, %109 ], [ %68, %72 ]
@@ -628,7 +628,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %106 = getelementptr i8, ptr %84, i64 -16
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, %105
-  br i1 %108, label %.thread.i, label %109
+  br i1 %108, label %.critedge.i, label %109
 
 109:                                              ; preds = %104
   store i64 %105, ptr %106, align 8
@@ -636,9 +636,9 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %111 = and i64 %110, -4
   %112 = inttoptr i64 %111 to ptr
   %113 = icmp eq ptr %67, %112
-  br i1 %113, label %.thread.i, label %.lr.ph.i
+  br i1 %113, label %.critedge.i, label %.lr.ph.i
 
-.thread.i:                                        ; preds = %109, %104, %72, %61
+.critedge.i:                                      ; preds = %109, %104, %72, %61
   %.pre-phi.i = phi i64 [ %78, %72 ], [ %.pre.i, %61 ], [ %78, %104 ], [ %78, %109 ]
   %114 = phi ptr [ %68, %72 ], [ %19, %61 ], [ %68, %104 ], [ %68, %109 ]
   %115 = phi ptr [ %67, %72 ], [ %19, %61 ], [ %67, %104 ], [ %67, %109 ]
@@ -655,7 +655,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %132, label %125
 
-125:                                              ; preds = %.thread.i
+125:                                              ; preds = %.critedge.i
   %126 = inttoptr i64 %123 to ptr
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
@@ -664,8 +664,8 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %131 = select i1 %129, ptr %127, ptr %130
   br label %132
 
-132:                                              ; preds = %125, %.thread.i
-  %133 = phi ptr [ @memtype_rbroot, %.thread.i ], [ %131, %125 ]
+132:                                              ; preds = %125, %.critedge.i
+  %133 = phi ptr [ @memtype_rbroot, %.critedge.i ], [ %131, %125 ]
   store volatile ptr %115, ptr %133, align 8
   %134 = icmp eq ptr %116, null
   br i1 %134, label %138, label %135
@@ -692,9 +692,9 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %146 = phi ptr [ %115, %143 ], [ %26, %38 ], [ %26, %37 ], [ %47, %53 ], [ %47, %54 ], [ %47, %56 ]
   %147 = phi ptr [ %144, %143 ], [ %41, %38 ], [ null, %37 ], [ null, %53 ], [ null, %54 ], [ null, %56 ]
   %148 = icmp eq ptr %146, null
-  br i1 %148, label %.thread17.i, label %.lr.ph20.i
+  br i1 %148, label %.thread.i, label %.lr.ph19.i
 
-.lr.ph20.i:                                       ; preds = %145, %174
+.lr.ph19.i:                                       ; preds = %145, %174
   %149 = phi ptr [ %177, %174 ], [ %146, %145 ]
   %150 = getelementptr i8, ptr %149, i64 -24
   %151 = load i64, ptr %150, align 8
@@ -704,14 +704,14 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %155 = icmp eq ptr %154, null
   br i1 %155, label %160, label %156
 
-156:                                              ; preds = %.lr.ph20.i
+156:                                              ; preds = %.lr.ph19.i
   %157 = getelementptr i8, ptr %154, i64 -16
   %158 = load i64, ptr %157, align 8
   %159 = tail call i64 @llvm.umax.i64(i64 %158, i64 %152)
   br label %160
 
-160:                                              ; preds = %156, %.lr.ph20.i
-  %161 = phi i64 [ %152, %.lr.ph20.i ], [ %159, %156 ]
+160:                                              ; preds = %156, %.lr.ph19.i
+  %161 = phi i64 [ %152, %.lr.ph19.i ], [ %159, %156 ]
   %162 = getelementptr i8, ptr %149, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
@@ -728,7 +728,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %171 = getelementptr i8, ptr %149, i64 -16
   %172 = load i64, ptr %171, align 8
   %173 = icmp eq i64 %172, %170
-  br i1 %173, label %.thread17.i, label %174
+  br i1 %173, label %.thread.i, label %174
 
 174:                                              ; preds = %169
   store i64 %170, ptr %171, align 8
@@ -736,17 +736,17 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   %176 = and i64 %175, -4
   %177 = inttoptr i64 %176 to ptr
   %178 = icmp eq i64 %176, 0
-  br i1 %178, label %.thread17.i, label %.lr.ph20.i
+  br i1 %178, label %.thread.i, label %.lr.ph19.i
 
-.thread17.i:                                      ; preds = %174, %169, %145
+.thread.i:                                        ; preds = %174, %169, %145
   %179 = icmp eq ptr %147, null
   br i1 %179, label %interval_remove.exit, label %180
 
-180:                                              ; preds = %.thread17.i
+180:                                              ; preds = %.thread.i
   tail call void @__rb_erase_color(ptr noundef nonnull %147, ptr noundef nonnull @memtype_rbroot, ptr noundef nonnull @interval_augment_rotate) #11
   br label %interval_remove.exit
 
-interval_remove.exit:                             ; preds = %.thread17.i, %180
+interval_remove.exit:                             ; preds = %.thread.i, %180
   br i1 %11, label %210, label %181
 
 181:                                              ; preds = %interval_remove.exit

@@ -1041,7 +1041,7 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   %11 = fcmp uno double %9, 0.000000e+00
   %12 = fcmp uno double %10, 0.000000e+00
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %68
+  br i1 %or.cond, label %13, label %.critedge
 
 13:                                               ; preds = %4
   %14 = tail call double @llvm.fabs.f64(double %0) #14
@@ -1075,17 +1075,17 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   %.not = phi i1 [ false, %._crit_edge ], [ true, %16 ]
   %28 = tail call double @llvm.fabs.f64(double %.069) #14
   %29 = fcmp oeq double %28, 0x7FF0000000000000
-  %.pre97 = tail call double @llvm.fabs.f64(double %.064) #14
+  %.pre87 = tail call double @llvm.fabs.f64(double %.064) #14
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = fcmp oeq double %.pre97, 0x7FF0000000000000
+  %31 = fcmp oeq double %.pre87, 0x7FF0000000000000
   br i1 %31, label %.thread, label %41
 
 .thread:                                          ; preds = %27, %30
   %32 = phi double [ 0.000000e+00, %30 ], [ 1.000000e+00, %27 ]
   %33 = tail call double @llvm.copysign.f64(double %32, double %.069)
-  %34 = fcmp oeq double %.pre97, 0x7FF0000000000000
+  %34 = fcmp oeq double %.pre87, 0x7FF0000000000000
   %35 = select i1 %34, double 1.000000e+00, double 0.000000e+00
   %36 = tail call double @llvm.copysign.f64(double %35, double %.064)
   %37 = fcmp uno double %.056, 0.000000e+00
@@ -1111,7 +1111,7 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   %49 = tail call double @llvm.fabs.f64(double %8) #14
   %50 = fcmp oeq double %49, 0x7FF0000000000000
   %or.cond80 = or i1 %50, %or.cond78
-  br i1 %or.cond80, label %51, label %68
+  br i1 %or.cond80, label %51, label %.critedge
 
 51:                                               ; preds = %42
   %52 = fcmp uno double %.056, 0.000000e+00
@@ -1128,21 +1128,21 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   %.468 = select i1 %58, double %59, double %.064
   br label %60
 
-60:                                               ; preds = %41, %51, %.thread
-  %.372.ph = phi double [ %33, %.thread ], [ %.473, %51 ], [ %.069, %41 ]
-  %.367.ph = phi double [ %36, %.thread ], [ %.468, %51 ], [ %.064, %41 ]
-  %.362.ph = phi double [ %.261, %.thread ], [ %.463, %51 ], [ %.059, %41 ]
-  %.3.ph = phi double [ %.258, %.thread ], [ %.4, %51 ], [ %.056, %41 ]
-  %61 = fneg double %.367.ph
-  %62 = fmul double %.362.ph, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %.3.ph, double %.372.ph, double %62)
+60:                                               ; preds = %.thread, %41, %51
+  %.372 = phi double [ %.069, %41 ], [ %.473, %51 ], [ %33, %.thread ]
+  %.367 = phi double [ %.064, %41 ], [ %.468, %51 ], [ %36, %.thread ]
+  %.362 = phi double [ %.059, %41 ], [ %.463, %51 ], [ %.261, %.thread ]
+  %.3 = phi double [ %.056, %41 ], [ %.4, %51 ], [ %.258, %.thread ]
+  %61 = fneg double %.367
+  %62 = fmul double %.362, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %.3, double %.372, double %62)
   %64 = fmul double %63, 0x7FF0000000000000
-  %65 = fmul double %.372.ph, %.362.ph
-  %66 = tail call double @llvm.fmuladd.f64(double %.3.ph, double %.367.ph, double %65)
+  %65 = fmul double %.372, %.362
+  %66 = tail call double @llvm.fmuladd.f64(double %.3, double %.367, double %65)
   %67 = fmul double %66, 0x7FF0000000000000
-  br label %68
+  br label %.critedge
 
-68:                                               ; preds = %42, %60, %4
+.critedge:                                        ; preds = %60, %42, %4
   %.sroa.055.0 = phi double [ %9, %4 ], [ %64, %60 ], [ %9, %42 ]
   %.sroa.4.0 = phi double [ %10, %4 ], [ %67, %60 ], [ %10, %42 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.055.0, 0

@@ -1567,18 +1567,18 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
 8:                                                ; preds = %5
   %9 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %0)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = call i32 @mbedtls_oid_get_oid_by_md(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not70 = icmp eq i32 %12, 0
-  br i1 %.not70, label %13, label %.thread
+  br i1 %.not70, label %13, label %.critedge
 
 13:                                               ; preds = %11
   %14 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %9)
   %15 = zext i8 %14 to i32
   %.not71 = icmp eq i32 %1, %15
-  br i1 %.not71, label %16, label %.thread
+  br i1 %.not71, label %16, label %.critedge
 
 16:                                               ; preds = %13
   %17 = add nuw nsw i32 %1, 8
@@ -1586,28 +1586,28 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %19 = load i64, ptr %6, align 8, !tbaa !18
   %20 = add i64 %19, %18
   %21 = icmp ugt i64 %20, 127
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %16
   %23 = add nuw nsw i32 %1, 10
   %24 = zext nneg i32 %23 to i64
   %25 = add i64 %19, %24
-  %26 = icmp uge i64 %25, %24
-  %27 = icmp uge i64 %3, %25
-  %or.cond.not = and i1 %26, %27
-  br i1 %or.cond.not, label %31, label %.thread
+  %26 = icmp ult i64 %25, %24
+  %27 = icmp ult i64 %3, %25
+  %or.cond = or i1 %26, %27
+  br i1 %or.cond, label %.critedge, label %31
 
 28:                                               ; preds = %5
   %29 = zext i32 %1 to i64
   %30 = icmp ult i64 %3, %29
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %28, %22
   %32 = phi i64 [ %19, %22 ], [ 0, %28 ]
   %.pn = phi i64 [ %25, %22 ], [ %29, %28 ]
   %.161 = sub nuw i64 %3, %.pn
   %33 = icmp ult i64 %.161, 11
-  br i1 %33, label %.thread, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %31
   %35 = add i64 %.161, -3
@@ -1624,7 +1624,7 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
 40:                                               ; preds = %34
   %41 = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %2, i64 %41, i1 false)
-  br label %.thread
+  br label %.critedge
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 2
@@ -1661,14 +1661,14 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %44
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 %3
   %.not72 = icmp eq ptr %62, %63
-  br i1 %.not72, label %.thread, label %64
+  br i1 %.not72, label %.critedge, label %64
 
 64:                                               ; preds = %42
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %3)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %16, %13, %11, %8, %42, %31, %28, %22, %64, %40
-  %.1 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %22 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %16 ]
+.critedge:                                        ; preds = %8, %11, %13, %22, %16, %42, %31, %28, %64, %40
+  %.1 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %16 ], [ -16512, %22 ], [ -16512, %13 ], [ -16512, %11 ], [ -16512, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   ret i32 %.1

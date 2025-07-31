@@ -899,7 +899,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 @pci_find_capability(ptr noundef %10, i32 noundef 9) #8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.thread5, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 184
@@ -958,7 +958,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
   %40 = call zeroext i8 @pci_find_next_capability(ptr noundef %10, i8 noundef zeroext %16, i32 noundef 9) #8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.thread5, label %15, !llvm.loop !25
+  br i1 %41, label %.critedge, label %15, !llvm.loop !25
 
 42:                                               ; preds = %34
   %43 = add nuw nsw i32 %17, 8
@@ -997,7 +997,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
 
 70:                                               ; preds = %42
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %14, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.vp_get_shm_region) #10
-  br label %.thread5
+  br label %.critedge
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -1011,16 +1011,16 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
 
 78:                                               ; preds = %71
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %14, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.vp_get_shm_region) #10
-  br label %.thread5
+  br label %.critedge
 
 79:                                               ; preds = %71
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %62, ptr %80, align 8
   %81 = add i64 %67, %56
   store i64 %81, ptr %1, align 8
-  br label %.thread5
+  br label %.critedge
 
-.thread5:                                         ; preds = %39, %3, %79, %78, %70
+.critedge:                                        ; preds = %39, %3, %79, %78, %70
   %82 = phi i1 [ false, %70 ], [ false, %78 ], [ true, %79 ], [ false, %3 ], [ false, %39 ]
   ret i1 %82
 }

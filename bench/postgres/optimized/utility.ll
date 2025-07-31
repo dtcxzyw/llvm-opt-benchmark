@@ -520,7 +520,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
 75:                                               ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %77 = load i32, ptr %76, align 4
-  switch i32 %77, label %.thread [
+  switch i32 %77, label %.critedge [
     i32 0, label %78
     i32 1, label %78
     i32 2, label %105
@@ -539,18 +539,18 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.not = icmp eq ptr %80, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %83 = load i32, ptr %81, align 4
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph311, label %.thread
+  br i1 %84, label %.lr.ph309, label %.critedge
 
-.lr.ph311:                                        ; preds = %.lr.ph, %101
-  %indvars.iv310 = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
+.lr.ph309:                                        ; preds = %.lr.ph, %101
+  %indvars.iv308 = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
   %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv310
+  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv308
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
@@ -558,7 +558,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %.sink.split, label %92
 
-92:                                               ; preds = %.lr.ph311
+92:                                               ; preds = %.lr.ph309
   %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(22) @.str.6) #13
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %.sink.split, label %95
@@ -568,8 +568,8 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.sink.split, label %101
 
-.sink.split:                                      ; preds = %95, %92, %.lr.ph311
-  %.str.6.sink = phi ptr [ @.str.5, %.lr.ph311 ], [ @.str.6, %92 ], [ @.str.7, %95 ]
+.sink.split:                                      ; preds = %95, %92, %.lr.ph309
+  %.str.6.sink = phi ptr [ @.str.5, %.lr.ph309 ], [ @.str.6, %92 ], [ @.str.7, %95 ]
   %98 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %99) #11
@@ -577,11 +577,11 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   br label %101
 
 101:                                              ; preds = %.sink.split, %95
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv308, 1
   %102 = load i32, ptr %81, align 4
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph311, label %.thread
+  br i1 %104, label %.lr.ph309, label %.critedge
 
 105:                                              ; preds = %75
   %106 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -590,13 +590,13 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   %109 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext %108) #11
   %110 = icmp eq ptr %7, null
   %or.cond3.not = or i1 %110, %109
-  br i1 %or.cond3.not, label %.thread, label %111
+  br i1 %or.cond3.not, label %.critedge, label %111
 
 111:                                              ; preds = %105
   store i32 175, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %112, align 8
-  br label %.thread
+  br label %.critedge
 
 113:                                              ; preds = %75
   %114 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -604,92 +604,92 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   %116 = tail call zeroext i1 @PrepareTransactionBlock(ptr noundef %115) #11
   %117 = icmp eq ptr %7, null
   %or.cond6.not = or i1 %117, %116
-  br i1 %or.cond6.not, label %.thread, label %118
+  br i1 %or.cond6.not, label %.critedge, label %118
 
 118:                                              ; preds = %113
   store i32 175, ptr %7, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %119, align 8
-  br label %.thread
+  br label %.critedge
 
 120:                                              ; preds = %75
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.8) #11
   %121 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %122 = load ptr, ptr %121, align 8
   tail call void @FinishPreparedTransaction(ptr noundef %122, i1 noundef zeroext true) #11
-  br label %.thread
+  br label %.critedge
 
 123:                                              ; preds = %75
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.9) #11
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %125 = load ptr, ptr %124, align 8
   tail call void @FinishPreparedTransaction(ptr noundef %125, i1 noundef zeroext false) #11
-  br label %.thread
+  br label %.critedge
 
 126:                                              ; preds = %75
   %127 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
   %129 = trunc nuw i8 %128 to i1
   tail call void @UserAbortTransactionBlock(i1 noundef zeroext %129) #11
-  br label %.thread
+  br label %.critedge
 
 130:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.10) #11
   %131 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %132 = load ptr, ptr %131, align 8
   tail call void @DefineSavepoint(ptr noundef %132) #11
-  br label %.thread
+  br label %.critedge
 
 133:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.11) #11
   %134 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %135 = load ptr, ptr %134, align 8
   tail call void @ReleaseSavepoint(ptr noundef %135) #11
-  br label %.thread
+  br label %.critedge
 
 136:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.12) #11
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %138 = load ptr, ptr %137, align 8
   tail call void @RollbackToSavepoint(ptr noundef %138) #11
-  br label %.thread
+  br label %.critedge
 
 139:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PerformCursorOpen(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef %4, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 140:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.13)
   %141 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %142 = load ptr, ptr %141, align 8
   tail call void @PerformPortalClose(ptr noundef %142) #11
-  br label %.thread
+  br label %.critedge
 
 143:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PerformPortalFetch(ptr noundef nonnull %19, ptr noundef %6, ptr noundef %7) #11
-  br label %.thread
+  br label %.critedge
 
 144:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteDoStmt(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %14) #11
-  br label %.thread
+  br label %.critedge
 
 145:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.14) #11
   %146 = tail call i32 @CreateTableSpace(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 147:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.15) #11
   tail call void @DropTableSpace(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 148:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %149 = tail call i32 @AlterTableSpaceOptions(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 150:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteTruncate(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 151:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
@@ -710,7 +710,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
 
 159:                                              ; preds = %156, %151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  br label %.thread
+  br label %.critedge
 
 160:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %161 = tail call zeroext i1 @InSecurityRestrictedOperation() #11
@@ -730,42 +730,42 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   %168 = getelementptr inbounds nuw i8, ptr %.0, i64 148
   %169 = load i32, ptr %168, align 4
   tail call void @PrepareQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, i32 noundef %167, i32 noundef %169) #11
-  br label %.thread
+  br label %.critedge
 
 170:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef null, ptr noundef %4, ptr noundef %6, ptr noundef %7) #11
-  br label %.thread
+  br label %.critedge
 
 171:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.17)
   tail call void @DeallocateQuery(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 172:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @GrantRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 173:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.18) #11
   %174 = tail call i32 @createdb(ptr noundef nonnull %71, ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 175:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %176 = tail call i32 @AlterDatabase(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 177:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %178 = tail call { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 179:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %180 = tail call i32 @AlterDatabaseSet(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 181:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.19) #11
   tail call void @DropDatabase(ptr noundef nonnull %71, ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 182:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -773,7 +773,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   %185 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %186 = load ptr, ptr %185, align 8
   tail call void @Async_Notify(ptr noundef %184, ptr noundef %186) #11
-  br label %.thread
+  br label %.critedge
 
 187:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.20)
@@ -793,7 +793,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   %194 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %195 = load ptr, ptr %194, align 8
   tail call void @Async_Listen(ptr noundef %195) #11
-  br label %.thread
+  br label %.critedge
 
 196:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.22)
@@ -804,11 +804,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 199:                                              ; preds = %196
   tail call void @Async_Unlisten(ptr noundef nonnull %198) #11
-  br label %.thread
+  br label %.critedge
 
 200:                                              ; preds = %196
   tail call void @Async_UnlistenAll() #11
-  br label %.thread
+  br label %.critedge
 
 201:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @closeAllVfds() #11
@@ -817,81 +817,81 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   %204 = tail call zeroext i1 @superuser() #11
   %205 = xor i1 %204, true
   tail call void @load_file(ptr noundef %203, i1 noundef zeroext %205) #11
-  br label %.thread
+  br label %.critedge
 
 206:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteCallStmt(ptr noundef nonnull %19, ptr noundef %4, i1 noundef zeroext %14, ptr noundef %6) #11
-  br label %.thread
+  br label %.critedge
 
 207:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @cluster(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 208:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecVacuum(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 209:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExplainQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef %4, ptr noundef %6) #11
-  br label %.thread
+  br label %.critedge
 
 210:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.23) #11
   tail call void @AlterSystemSetConfigFile(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 211:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecSetVariableStmt(ptr noundef nonnull %19, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 212:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %213 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %214 = load ptr, ptr %213, align 8
   tail call void @GetPGVariable(ptr noundef %214, ptr noundef %6) #11
-  br label %.thread
+  br label %.critedge
 
 215:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.24)
   tail call void @DiscardCommand(ptr noundef nonnull %19, i1 noundef zeroext %10) #11
-  br label %.thread
+  br label %.critedge
 
 216:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %217 = tail call i32 @CreateEventTrigger(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 218:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %219 = tail call i32 @AlterEventTrigger(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 220:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %221 = tail call i32 @CreateRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 222:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %223 = tail call i32 @AlterRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 224:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %225 = tail call i32 @AlterRoleSet(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 226:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @DropRole(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 227:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ReassignOwnedObjects(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 228:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.25) #11
   tail call void @LockTableCommand(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 229:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @WarnNoTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.26) #11
   tail call void @AfterTriggerSetState(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 230:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %231 = tail call i32 @GetUserId() #11
@@ -911,7 +911,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   %239 = tail call zeroext i1 @RecoveryInProgress() #11
   %240 = select i1 %239, i32 36, i32 44
   tail call void @RequestCheckpoint(i32 noundef %240) #11
-  br label %.thread
+  br label %.critedge
 
 241:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %242 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -921,11 +921,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 245:                                              ; preds = %241
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 246:                                              ; preds = %241
   tail call void @ExecuteGrantStmt(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 247:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %248 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -935,11 +935,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 251:                                              ; preds = %247
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 252:                                              ; preds = %247
   tail call fastcc void @ExecDropStmt(ptr noundef nonnull %19, i1 noundef zeroext %10)
-  br label %.thread
+  br label %.critedge
 
 253:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %254 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -949,11 +949,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 257:                                              ; preds = %253
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 258:                                              ; preds = %253
   %259 = tail call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 260:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %261 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -963,11 +963,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 264:                                              ; preds = %260
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 265:                                              ; preds = %260
   %266 = tail call { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef nonnull %19, ptr noundef null) #11
-  br label %.thread
+  br label %.critedge
 
 267:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %268 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -977,11 +977,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 271:                                              ; preds = %267
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 272:                                              ; preds = %267
   %273 = tail call { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef nonnull %19, ptr noundef null) #11
-  br label %.thread
+  br label %.critedge
 
 274:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %275 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -991,11 +991,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 278:                                              ; preds = %274
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 279:                                              ; preds = %274
   %280 = tail call { i64, i32 } @ExecAlterOwnerStmt(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 281:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %282 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -1005,11 +1005,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 285:                                              ; preds = %281
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 286:                                              ; preds = %281
   %287 = tail call { i64, i32 } @CommentObject(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 288:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   %289 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -1019,17 +1019,17 @@ CheckRestrictedOperation.exit:                    ; preds = %160
 
 292:                                              ; preds = %288
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
 293:                                              ; preds = %288
   %294 = tail call { i64, i32 } @ExecSecLabelStmt(ptr noundef nonnull %19) #11
-  br label %.thread
+  br label %.critedge
 
 295:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %101, %.lr.ph, %78, %292, %293, %285, %286, %278, %279, %271, %272, %264, %265, %257, %258, %251, %252, %245, %246, %199, %200, %75, %120, %123, %126, %130, %133, %136, %111, %105, %118, %113, %295, %238, %229, %228, %227, %226, %224, %222, %220, %218, %216, %215, %212, %211, %210, %209, %208, %207, %206, %201, %193, %182, %181, %179, %177, %175, %173, %172, %171, %170, %CheckRestrictedOperation.exit, %159, %150, %148, %147, %145, %144, %143, %140, %139
+.critedge:                                        ; preds = %101, %.lr.ph, %78, %292, %293, %285, %286, %278, %279, %271, %272, %264, %265, %257, %258, %251, %252, %245, %246, %199, %200, %75, %120, %123, %126, %130, %133, %136, %111, %105, %118, %113, %295, %238, %229, %228, %227, %226, %224, %222, %220, %218, %216, %215, %212, %211, %210, %209, %208, %207, %206, %201, %193, %182, %181, %179, %177, %175, %173, %172, %171, %170, %CheckRestrictedOperation.exit, %159, %150, %148, %147, %145, %144, %143, %140, %139
   call void @free_parsestate(ptr noundef %71) #11
   call void @CommandCounterIncrement() #11
   ret void
@@ -2009,26 +2009,26 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %31 = load i32, ptr %30, align 4
   %32 = call i32 @CreateSchemaCommand(ptr noundef nonnull %14, ptr noundef %2, i32 noundef %29, i32 noundef %31) #11
-  br label %.loopexit
+  br label %.critedge730
 
 33:                                               ; preds = %25, %25
   %34 = call ptr @transformCreateStmt(ptr noundef nonnull %14, ptr noundef %2) #11
-  %.not72435 = icmp eq ptr %34, null
-  br i1 %.not72435, label %.loopexit, label %.lr.ph39
+  %.not72417 = icmp eq ptr %34, null
+  br i1 %.not72417, label %.critedge730, label %.lr.ph20
 
-.lr.ph39:                                         ; preds = %33
+.lr.ph20:                                         ; preds = %33
   %.sroa.2505.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 148
   br label %37
 
-37:                                               ; preds = %70, %.lr.ph39
-  %.070337 = phi ptr [ %34, %.lr.ph39 ], [ %.1, %70 ]
-  %.070436 = phi ptr [ null, %.lr.ph39 ], [ %.1705, %70 ]
-  %38 = getelementptr i8, ptr %.070337, i64 16
+37:                                               ; preds = %70, %.lr.ph20
+  %.070319 = phi ptr [ %34, %.lr.ph20 ], [ %.1, %70 ]
+  %.070418 = phi ptr [ null, %.lr.ph20 ], [ %.1705, %70 ]
+  %38 = getelementptr i8, ptr %.070319, i64 16
   %.0703.val = load ptr, ptr %38, align 8
   %39 = load ptr, ptr %.0703.val, align 8
-  %40 = call ptr @list_delete_first(ptr noundef nonnull %.070337) #11
+  %40 = call ptr @list_delete_first(ptr noundef nonnull %.070319) #11
   %41 = load i32, ptr %39, align 4
   switch i32 %41, label %57 [
     i32 159, label %42
@@ -2073,7 +2073,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   br label %ProcessUtility.exit
 
 54:                                               ; preds = %37
-  %55 = call ptr @expandTableLikeClause(ptr noundef %.070436, ptr noundef nonnull %39) #11
+  %55 = call ptr @expandTableLikeClause(ptr noundef %.070418, ptr noundef nonnull %39) #11
   %56 = call ptr @list_concat(ptr noundef %55, ptr noundef %40) #11
   br label %ProcessUtility.exit
 
@@ -2106,10 +2106,10 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   br label %ProcessUtility.exit
 
 ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, %42
-  %.1705 = phi ptr [ %44, %42 ], [ %52, %50 ], [ %.070436, %54 ], [ %.070436, %68 ], [ %.070436, %69 ]
+  %.1705 = phi ptr [ %44, %42 ], [ %52, %50 ], [ %.070418, %54 ], [ %.070418, %68 ], [ %.070418, %69 ]
   %.1 = phi ptr [ %40, %42 ], [ %40, %50 ], [ %56, %54 ], [ %40, %68 ], [ %40, %69 ]
   %cond = icmp eq ptr %.1, null
-  br i1 %cond, label %.loopexit, label %70
+  br i1 %cond, label %.critedge730, label %70
 
 70:                                               ; preds = %ProcessUtility.exit
   call void @CommandCounterIncrement() #11
@@ -2120,38 +2120,38 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.not721 = icmp eq ptr %73, null
-  br i1 %.not721, label %._crit_edge, label %.lr.ph31
+  br i1 %.not721, label %.critedge, label %.lr.ph13
 
-.lr.ph31:                                         ; preds = %71
+.lr.ph13:                                         ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i32, ptr %74, align 4
   %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph34, label %._crit_edge
+  br i1 %77, label %.lr.ph16, label %.critedge
 
-._crit_edge.loopexit:                             ; preds = %95
-  %.pre47 = load ptr, ptr %72, align 8
-  br label %._crit_edge
+.lr.ph16:                                         ; preds = %.lr.ph13, %95
+  %78 = phi i32 [ %96, %95 ], [ %76, %.lr.ph13 ]
+  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %95 ], [ 0, %.lr.ph13 ]
+  %79 = load ptr, ptr %75, align 8
+  %80 = getelementptr inbounds nuw %union.ListCell, ptr %79, i64 %indvars.iv24
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, 60
+  br i1 %84, label %88, label %95
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph31, %71
-  %78 = phi ptr [ %.pre47, %._crit_edge.loopexit ], [ %73, %.lr.ph31 ], [ null, %71 ]
-  %79 = call i32 @AlterTableGetLockLevel(ptr noundef %78) #11
-  %80 = call i32 @AlterTableLookupRelation(ptr noundef nonnull %14, i32 noundef %79) #11
-  %.not723 = icmp eq i32 %80, 0
+.critedge.loopexit:                               ; preds = %95
+  %.pre28 = load ptr, ptr %72, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph13, %71
+  %85 = phi ptr [ %.pre28, %.critedge.loopexit ], [ %73, %.lr.ph13 ], [ null, %71 ]
+  %86 = call i32 @AlterTableGetLockLevel(ptr noundef %85) #11
+  %87 = call i32 @AlterTableLookupRelation(ptr noundef nonnull %14, i32 noundef %86) #11
+  %.not723 = icmp eq i32 %87, 0
   br i1 %.not723, label %104, label %99
 
-.lr.ph34:                                         ; preds = %.lr.ph31, %95
-  %81 = phi i32 [ %96, %95 ], [ %76, %.lr.ph31 ]
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %95 ], [ 0, %.lr.ph31 ]
-  %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds nuw %union.ListCell, ptr %82, i64 %indvars.iv43
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, 60
-  br i1 %87, label %88, label %95
-
-88:                                               ; preds = %.lr.ph34
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 32
+88:                                               ; preds = %.lr.ph16
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i8, ptr %91, align 8, !range !4, !noundef !5
@@ -2160,37 +2160,37 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
 
 94:                                               ; preds = %88
   call void @PreventInTransactionBlock(i1 noundef zeroext %15, ptr noundef nonnull @.str.36) #11
-  %.pre46 = load i32, ptr %74, align 4
+  %.pre27 = load i32, ptr %74, align 4
   br label %95
 
-95:                                               ; preds = %88, %94, %.lr.ph34
-  %96 = phi i32 [ %81, %88 ], [ %.pre46, %94 ], [ %81, %.lr.ph34 ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+95:                                               ; preds = %88, %94, %.lr.ph16
+  %96 = phi i32 [ %78, %88 ], [ %.pre27, %94 ], [ %78, %.lr.ph16 ]
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next44, %97
-  br i1 %98, label %.lr.ph34, label %._crit_edge.loopexit
+  %98 = icmp slt i64 %indvars.iv.next25, %97
+  br i1 %98, label %.lr.ph16, label %.critedge.loopexit
 
-99:                                               ; preds = %._crit_edge
+99:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #11
   store ptr %1, ptr %11, align 8
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %80, ptr %101, align 8
+  store i32 %87, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %4, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %5, ptr %103, align 8
   call void @EventTriggerAlterTableStart(ptr noundef nonnull %14) #11
-  call void @EventTriggerAlterTableRelid(i32 noundef %80) #11
-  call void @AlterTable(ptr noundef nonnull %14, i32 noundef %79, ptr noundef nonnull %11) #11
+  call void @EventTriggerAlterTableRelid(i32 noundef %87) #11
+  call void @AlterTable(ptr noundef nonnull %14, i32 noundef %86, ptr noundef nonnull %11) #11
   call void @EventTriggerAlterTableEnd() #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #11
-  br label %.loopexit
+  br label %.critedge730
 
-104:                                              ; preds = %._crit_edge
+104:                                              ; preds = %.critedge
   %105 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #11
-  br i1 %105, label %106, label %.loopexit
+  br i1 %105, label %106, label %.critedge730
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2199,7 +2199,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef %110) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1329, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
-  br label %.loopexit
+  br label %.critedge730
 
 112:                                              ; preds = %25
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2409,33 +2409,33 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %247 = getelementptr inbounds nuw i8, ptr %14, i64 106
   %248 = load i32, ptr %244, align 4
   %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %.lr.ph29, label %.split
+  br i1 %249, label %.lr.ph11, label %.critedge728
 
-.split:                                           ; preds = %279, %.lr.ph
-  %250 = phi i32 [ %248, %.lr.ph ], [ %280, %279 ]
-  %251 = add i32 %250, -1
-  br label %list_length.exit
-
-list_length.exit:                                 ; preds = %242, %.split
-  %252 = phi i32 [ %251, %.split ], [ -1, %242 ]
-  call void @list_free(ptr noundef %243) #11
-  br label %283
-
-.lr.ph29:                                         ; preds = %.lr.ph, %279
+.lr.ph11:                                         ; preds = %.lr.ph, %279
   %indvars.iv = phi i64 [ %indvars.iv.next, %279 ], [ 0, %.lr.ph ]
-  %253 = load ptr, ptr %245, align 8
-  %254 = getelementptr inbounds nuw %union.ListCell, ptr %253, i64 %indvars.iv
-  %255 = load i32, ptr %254, align 8
-  %256 = call signext i8 @get_rel_relkind(i32 noundef %255) #11
-  switch i8 %256, label %.split25 [
+  %250 = load ptr, ptr %245, align 8
+  %251 = getelementptr inbounds nuw %union.ListCell, ptr %250, i64 %indvars.iv
+  %252 = load i32, ptr %251, align 8
+  %253 = call signext i8 @get_rel_relkind(i32 noundef %252) #11
+  switch i8 %253, label %.split [
     i8 102, label %263
     i8 109, label %279
     i8 112, label %279
     i8 114, label %279
   ]
 
-.split25:                                         ; preds = %.lr.ph29
-  %257 = sext i8 %256 to i32
+.critedge728:                                     ; preds = %279, %.lr.ph
+  %254 = phi i32 [ %248, %.lr.ph ], [ %280, %279 ]
+  %255 = add i32 %254, -1
+  br label %list_length.exit
+
+list_length.exit:                                 ; preds = %242, %.critedge728
+  %256 = phi i32 [ %255, %.critedge728 ], [ -1, %242 ]
+  call void @list_free(ptr noundef %243) #11
+  br label %283
+
+.split:                                           ; preds = %.lr.ph11
+  %257 = sext i8 %253 to i32
   %258 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %258)
   %259 = load ptr, ptr %232, align 8
@@ -2445,17 +2445,17 @@ list_length.exit:                                 ; preds = %242, %.split
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1512, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-263:                                              ; preds = %.lr.ph29
+263:                                              ; preds = %.lr.ph11
   %264 = load i8, ptr %246, align 8, !range !4, !noundef !5
   %265 = trunc nuw i8 %264 to i1
-  br i1 %265, label %.split27, label %266
+  br i1 %265, label %.split9, label %266
 
 266:                                              ; preds = %263
   %267 = load i8, ptr %247, align 2, !range !4, !noundef !5
   %268 = trunc nuw i8 %267 to i1
-  br i1 %268, label %.split27, label %279
+  br i1 %268, label %.split9, label %279
 
-.split27:                                         ; preds = %263, %266
+.split9:                                          ; preds = %263, %266
   %269 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %269)
   %270 = call i32 @errcode(i32 noundef 151027844) #11
@@ -2470,15 +2470,15 @@ list_length.exit:                                 ; preds = %242, %.split
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1521, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-279:                                              ; preds = %.lr.ph29, %.lr.ph29, %.lr.ph29, %266
+279:                                              ; preds = %.lr.ph11, %.lr.ph11, %.lr.ph11, %266
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %280 = load i32, ptr %244, align 4
   %281 = sext i32 %280 to i64
   %282 = icmp slt i64 %indvars.iv.next, %281
-  br i1 %282, label %.lr.ph29, label %.split
+  br i1 %282, label %.lr.ph11, label %.critedge728
 
 283:                                              ; preds = %list_length.exit, %239, %230
-  %.0707 = phi i32 [ %252, %list_length.exit ], [ -1, %239 ], [ -1, %230 ]
+  %.0707 = phi i32 [ %256, %list_length.exit ], [ -1, %239 ], [ -1, %230 ]
   %284 = getelementptr inbounds nuw i8, ptr %14, i64 111
   %285 = load i8, ptr %284, align 1, !range !4, !noundef !5
   %286 = trunc nuw i8 %285 to i1
@@ -2492,11 +2492,11 @@ list_length.exit:                                 ; preds = %242, %.split
   %.sroa.2311.0.copyload = load i32, ptr %.sroa.2311.0..sroa_idx, align 8
   call void @EventTriggerCollectSimpleCommand(i64 %.fca.0.extract314, i32 %.fca.1.extract315, i64 %.sroa.0310.0.copyload, i32 %.sroa.2311.0.copyload, ptr noundef nonnull %14) #11
   call void @EventTriggerAlterTableEnd() #11
-  br label %.loopexit
+  br label %.critedge730
 
 289:                                              ; preds = %25
   call void @ExecReindex(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
-  br label %.loopexit
+  br label %.critedge730
 
 290:                                              ; preds = %25
   %291 = call { i64, i32 } @CreateExtension(ptr noundef %0, ptr noundef nonnull %14) #11
@@ -2536,11 +2536,11 @@ list_length.exit:                                 ; preds = %242, %.split
 
 308:                                              ; preds = %25
   %309 = call i32 @RemoveUserMapping(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 310:                                              ; preds = %25
   call void @ImportForeignSchema(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 311:                                              ; preds = %25
   %312 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2576,7 +2576,7 @@ list_length.exit:                                 ; preds = %242, %.split
   %.sroa.2221.0.copyload = load i32, ptr %.sroa.2221.0..sroa_idx, align 8
   call void @EventTriggerCollectSimpleCommand(i64 %.fca.0.extract224, i32 %.fca.1.extract225, i64 %.sroa.0220.0.copyload, i32 %.sroa.2221.0.copyload, ptr noundef nonnull %14) #11
   call void @EventTriggerAlterTableEnd() #11
-  br label %.loopexit
+  br label %.critedge730
 
 329:                                              ; preds = %25
   %330 = call { i64, i32 } @CreateFunction(ptr noundef %0, ptr noundef nonnull %14) #11
@@ -2651,11 +2651,11 @@ list_length.exit:                                 ; preds = %242, %.split
 
 358:                                              ; preds = %25
   %359 = call { i64, i32 } @DefineOpClass(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 360:                                              ; preds = %25
   %361 = call { i64, i32 } @DefineOpFamily(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 362:                                              ; preds = %25
   %363 = call { i64, i32 } @CreateTransform(ptr noundef nonnull %14) #11
@@ -2663,7 +2663,7 @@ list_length.exit:                                 ; preds = %242, %.split
 
 364:                                              ; preds = %25
   %365 = call i32 @AlterOpFamily(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 366:                                              ; preds = %25
   %367 = call { i64, i32 } @AlterTSDictionary(ptr noundef nonnull %14) #11
@@ -2671,15 +2671,15 @@ list_length.exit:                                 ; preds = %242, %.split
 
 368:                                              ; preds = %25
   %369 = call { i64, i32 } @AlterTSConfiguration(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 370:                                              ; preds = %25
   %371 = call i32 @AlterTableMoveAll(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 372:                                              ; preds = %25
   call fastcc void @ExecDropStmt(ptr noundef nonnull %14, i1 noundef zeroext %15)
-  br label %.loopexit
+  br label %.critedge730
 
 373:                                              ; preds = %25
   %374 = call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %14) #11
@@ -2711,16 +2711,16 @@ list_length.exit:                                 ; preds = %242, %.split
 
 387:                                              ; preds = %25
   call void @ExecuteGrantStmt(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 388:                                              ; preds = %25
   call void @DropOwnedObjects(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 389:                                              ; preds = %25
   call void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr noundef nonnull %14) #11
   call void @EventTriggerCollectAlterDefPrivs(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 390:                                              ; preds = %25
   %391 = call { i64, i32 } @CreatePolicy(ptr noundef nonnull %14) #11
@@ -2744,7 +2744,7 @@ list_length.exit:                                 ; preds = %242, %.split
 
 400:                                              ; preds = %25
   call void @AlterPublication(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %.loopexit
+  br label %.critedge730
 
 401:                                              ; preds = %25
   %402 = call { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
@@ -2756,7 +2756,7 @@ list_length.exit:                                 ; preds = %242, %.split
 
 405:                                              ; preds = %25
   call void @DropSubscription(ptr noundef nonnull %14, i1 noundef zeroext %15) #11
-  br label %.loopexit
+  br label %.critedge730
 
 406:                                              ; preds = %25
   %407 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -2799,24 +2799,24 @@ list_length.exit:                                 ; preds = %242, %.split
   unreachable
 
 429:                                              ; preds = %160, %174, %180, %186, %192, %198, %204, %210, %115, %121, %125, %129, %135, %146, %290, %292, %294, %296, %298, %300, %302, %304, %306, %311, %317, %319, %321, %329, %331, %333, %335, %337, %339, %346, %348, %350, %352, %354, %356, %362, %366, %373, %375, %377, %379, %381, %383, %385, %390, %392, %394, %396, %398, %401, %403, %417, %421, %423
-  %.pn20 = phi { i64, i32 } [ %424, %423 ], [ %422, %421 ], [ %420, %417 ], [ %404, %403 ], [ %402, %401 ], [ %399, %398 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %367, %366 ], [ %363, %362 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %311 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %120, %115 ], [ %124, %121 ], [ %128, %125 ], [ %134, %129 ], [ %145, %135 ], [ %151, %146 ], [ %173, %160 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %197, %192 ], [ %203, %198 ], [ %209, %204 ], [ %218, %210 ]
-  %.sroa.72.0.ph = extractvalue { i64, i32 } %.pn20, 1
-  %.sroa.0552.0.ph = extractvalue { i64, i32 } %.pn20, 0
+  %.pn719.pn = phi { i64, i32 } [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ %299, %298 ], [ %301, %300 ], [ %303, %302 ], [ %305, %304 ], [ %307, %306 ], [ %316, %311 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %347, %346 ], [ %349, %348 ], [ %351, %350 ], [ %353, %352 ], [ %355, %354 ], [ %357, %356 ], [ %363, %362 ], [ %367, %366 ], [ %374, %373 ], [ %376, %375 ], [ %378, %377 ], [ %380, %379 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %391, %390 ], [ %393, %392 ], [ %395, %394 ], [ %397, %396 ], [ %399, %398 ], [ %402, %401 ], [ %404, %403 ], [ %420, %417 ], [ %422, %421 ], [ %424, %423 ], [ %120, %115 ], [ %124, %121 ], [ %128, %125 ], [ %134, %129 ], [ %145, %135 ], [ %151, %146 ], [ %173, %160 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %197, %192 ], [ %203, %198 ], [ %209, %204 ], [ %218, %210 ]
+  %.sroa.72.0 = extractvalue { i64, i32 } %.pn719.pn, 1
+  %.sroa.0552.0 = extractvalue { i64, i32 } %.pn719.pn, 0
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @EventTriggerCollectSimpleCommand(i64 %.sroa.0552.0.ph, i32 %.sroa.72.0.ph, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %14) #11
-  br label %.loopexit
+  call void @EventTriggerCollectSimpleCommand(i64 %.sroa.0552.0, i32 %.sroa.72.0, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %14) #11
+  br label %.critedge730
 
-.loopexit:                                        ; preds = %ProcessUtility.exit, %33, %27, %283, %289, %308, %310, %323, %358, %360, %364, %368, %370, %372, %387, %388, %389, %400, %405, %104, %106, %99, %429
+.critedge730:                                     ; preds = %ProcessUtility.exit, %33, %27, %283, %289, %308, %310, %323, %358, %360, %364, %368, %370, %372, %387, %388, %389, %400, %405, %104, %106, %99, %429
   br i1 %.not, label %431, label %430
 
-430:                                              ; preds = %.loopexit
+430:                                              ; preds = %.critedge730
   call void @EventTriggerSQLDrop(ptr noundef %14) #11
   call void @EventTriggerDDLCommandEnd(ptr noundef %14) #11
   br label %431
 
-431:                                              ; preds = %18, %.loopexit, %430
+431:                                              ; preds = %18, %.critedge730, %430
   store ptr %20, ptr @PG_exception_stack, align 8
   store ptr %21, ptr @error_context_stack, align 8
   br i1 %19, label %432, label %433
@@ -3152,130 +3152,130 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 1, 4) i32 @GetCommandLogLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  br label %tailrecurse120
+  br label %tailrecurse118
 
-tailrecurse120:                                   ; preds = %46, %1
-  %.tr121 = phi ptr [ %0, %1 ], [ %48, %46 ]
+tailrecurse118:                                   ; preds = %46, %1
+  %.tr119 = phi ptr [ %0, %1 ], [ %48, %46 ]
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse120
-  %.tr = phi ptr [ %.tr121, %tailrecurse120 ], [ %.tr.be, %tailrecurse.backedge ]
+tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse118
+  %.tr = phi ptr [ %.tr119, %tailrecurse118 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i32, ptr %.tr, align 4
   switch i32 %2, label %71 [
     i32 136, label %3
-    i32 137, label %.critedge.loopexit94
-    i32 138, label %.critedge.loopexit94
-    i32 139, label %.critedge.loopexit94
-    i32 140, label %.critedge.loopexit94
+    i32 137, label %.critedge70.loopexit92
+    i32 138, label %.critedge70.loopexit92
+    i32 139, label %.critedge70.loopexit92
+    i32 140, label %.critedge70.loopexit92
     i32 141, label %5
-    i32 144, label %.critedge.loopexit
-    i32 224, label %.critedge.loopexit
-    i32 200, label %.critedge.loopexit
-    i32 201, label %.critedge.loopexit
-    i32 202, label %.critedge.loopexit
-    i32 145, label %.critedge
-    i32 159, label %.critedge
-    i32 172, label %.critedge
-    i32 161, label %.critedge
-    i32 162, label %.critedge
-    i32 163, label %.critedge
-    i32 165, label %.critedge
-    i32 166, label %.critedge
-    i32 167, label %.critedge
-    i32 168, label %.critedge
-    i32 169, label %.critedge
-    i32 170, label %.critedge
-    i32 171, label %.critedge
-    i32 173, label %.critedge
-    i32 174, label %.critedge
-    i32 175, label %.critedge
-    i32 176, label %.critedge
-    i32 196, label %.critedge
-    i32 197, label %.critedge.loopexit94
-    i32 198, label %.critedge
-    i32 199, label %.critedge
+    i32 144, label %.critedge70.loopexit
+    i32 224, label %.critedge70.loopexit
+    i32 200, label %.critedge70.loopexit
+    i32 201, label %.critedge70.loopexit
+    i32 202, label %.critedge70.loopexit
+    i32 145, label %.critedge70
+    i32 159, label %.critedge70
+    i32 172, label %.critedge70
+    i32 161, label %.critedge70
+    i32 162, label %.critedge70
+    i32 163, label %.critedge70
+    i32 165, label %.critedge70
+    i32 166, label %.critedge70
+    i32 167, label %.critedge70
+    i32 168, label %.critedge70
+    i32 169, label %.critedge70
+    i32 170, label %.critedge70
+    i32 171, label %.critedge70
+    i32 173, label %.critedge70
+    i32 174, label %.critedge70
+    i32 175, label %.critedge70
+    i32 176, label %.critedge70
+    i32 196, label %.critedge70
+    i32 197, label %.critedge70.loopexit92
+    i32 198, label %.critedge70
+    i32 199, label %.critedge70
     i32 156, label %8
     i32 251, label %12
     i32 252, label %14
-    i32 253, label %.critedge.loopexit
-    i32 214, label %.critedge
-    i32 215, label %.critedge
-    i32 216, label %.critedge
-    i32 217, label %.critedge
-    i32 218, label %.critedge
-    i32 219, label %.critedge
-    i32 164, label %.critedge
-    i32 146, label %.critedge
-    i32 150, label %.critedge
-    i32 151, label %.critedge
-    i32 154, label %.critedge
-    i32 155, label %.critedge
-    i32 190, label %.critedge
-    i32 225, label %.critedge
-    i32 226, label %.critedge
-    i32 227, label %.critedge
-    i32 228, label %.critedge
-    i32 229, label %.critedge
-    i32 207, label %.critedge
-    i32 209, label %.critedge
-    i32 203, label %.critedge
-    i32 220, label %.critedge
-    i32 188, label %.critedge
-    i32 189, label %.critedge
-    i32 210, label %.critedge.loopexit
-    i32 231, label %.critedge
-    i32 232, label %.critedge
-    i32 233, label %.critedge
-    i32 234, label %.critedge
-    i32 235, label %.critedge
-    i32 221, label %.critedge.loopexit
-    i32 222, label %.critedge.loopexit
-    i32 223, label %.critedge.loopexit
-    i32 230, label %.critedge.loopexit
-    i32 212, label %.critedge.loopexit
-    i32 237, label %.critedge
-    i32 238, label %.critedge.loopexit
+    i32 253, label %.critedge70.loopexit
+    i32 214, label %.critedge70
+    i32 215, label %.critedge70
+    i32 216, label %.critedge70
+    i32 217, label %.critedge70
+    i32 218, label %.critedge70
+    i32 219, label %.critedge70
+    i32 164, label %.critedge70
+    i32 146, label %.critedge70
+    i32 150, label %.critedge70
+    i32 151, label %.critedge70
+    i32 154, label %.critedge70
+    i32 155, label %.critedge70
+    i32 190, label %.critedge70
+    i32 225, label %.critedge70
+    i32 226, label %.critedge70
+    i32 227, label %.critedge70
+    i32 228, label %.critedge70
+    i32 229, label %.critedge70
+    i32 207, label %.critedge70
+    i32 209, label %.critedge70
+    i32 203, label %.critedge70
+    i32 220, label %.critedge70
+    i32 188, label %.critedge70
+    i32 189, label %.critedge70
+    i32 210, label %.critedge70.loopexit
+    i32 231, label %.critedge70
+    i32 232, label %.critedge70
+    i32 233, label %.critedge70
+    i32 234, label %.critedge70
+    i32 235, label %.critedge70
+    i32 221, label %.critedge70.loopexit
+    i32 222, label %.critedge70.loopexit
+    i32 223, label %.critedge70.loopexit
+    i32 230, label %.critedge70.loopexit
+    i32 212, label %.critedge70.loopexit
+    i32 237, label %.critedge70
+    i32 238, label %.critedge70.loopexit
     i32 240, label %25
-    i32 241, label %.critedge
-    i32 242, label %.critedge
-    i32 236, label %.critedge
-    i32 157, label %.critedge.loopexit
-    i32 158, label %.critedge.loopexit
-    i32 244, label %.critedge.loopexit
-    i32 180, label %.critedge
-    i32 181, label %.critedge
-    i32 182, label %.critedge
-    i32 183, label %.critedge
-    i32 191, label %.critedge
-    i32 184, label %.critedge
-    i32 185, label %.critedge
-    i32 186, label %.critedge
-    i32 187, label %.critedge
-    i32 254, label %.critedge
-    i32 255, label %.critedge
-    i32 245, label %.critedge.loopexit
-    i32 246, label %.critedge.loopexit
-    i32 243, label %.critedge.loopexit
-    i32 247, label %.critedge.loopexit
-    i32 248, label %.critedge
-    i32 249, label %.critedge
-    i32 192, label %.critedge
-    i32 194, label %.critedge
-    i32 250, label %.critedge
-    i32 195, label %.critedge
-    i32 177, label %.critedge
-    i32 178, label %.critedge
-    i32 256, label %.critedge
-    i32 257, label %.critedge
-    i32 179, label %.critedge
-    i32 260, label %.critedge
-    i32 261, label %.critedge
-    i32 262, label %.critedge
-    i32 263, label %.critedge
-    i32 264, label %.critedge
-    i32 204, label %.critedge
-    i32 206, label %.critedge
-    i32 149, label %.critedge
+    i32 241, label %.critedge70
+    i32 242, label %.critedge70
+    i32 236, label %.critedge70
+    i32 157, label %.critedge70.loopexit
+    i32 158, label %.critedge70.loopexit
+    i32 244, label %.critedge70.loopexit
+    i32 180, label %.critedge70
+    i32 181, label %.critedge70
+    i32 182, label %.critedge70
+    i32 183, label %.critedge70
+    i32 191, label %.critedge70
+    i32 184, label %.critedge70
+    i32 185, label %.critedge70
+    i32 186, label %.critedge70
+    i32 187, label %.critedge70
+    i32 254, label %.critedge70
+    i32 255, label %.critedge70
+    i32 245, label %.critedge70.loopexit
+    i32 246, label %.critedge70.loopexit
+    i32 243, label %.critedge70.loopexit
+    i32 247, label %.critedge70.loopexit
+    i32 248, label %.critedge70
+    i32 249, label %.critedge70
+    i32 192, label %.critedge70
+    i32 194, label %.critedge70
+    i32 250, label %.critedge70
+    i32 195, label %.critedge70
+    i32 177, label %.critedge70
+    i32 178, label %.critedge70
+    i32 256, label %.critedge70
+    i32 257, label %.critedge70
+    i32 179, label %.critedge70
+    i32 260, label %.critedge70
+    i32 261, label %.critedge70
+    i32 262, label %.critedge70
+    i32 263, label %.critedge70
+    i32 264, label %.critedge70
+    i32 204, label %.critedge70
+    i32 206, label %.critedge70
+    i32 149, label %.critedge70
     i32 329, label %49
     i32 67, label %60
   ]
@@ -3294,14 +3294,14 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %7 = load ptr, ptr %6, align 8
   %.not45 = icmp eq ptr %7, null
   %. = select i1 %.not45, i32 3, i32 1
-  br label %.critedge
+  br label %.critedge70
 
 8:                                                ; preds = %tailrecurse
   %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   %.46 = select i1 %11, i32 2, i32 3
-  br label %.critedge
+  br label %.critedge70
 
 12:                                               ; preds = %tailrecurse
   %13 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -3312,7 +3312,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @FetchPreparedStatement(ptr noundef %16, i1 noundef zeroext false) #11
   %.not43 = icmp eq ptr %17, null
-  br i1 %.not43, label %.critedge.loopexit94, label %18
+  br i1 %.not43, label %.critedge70.loopexit92, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -3320,7 +3320,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not44 = icmp eq ptr %22, null
-  br i1 %.not44, label %.critedge.loopexit94, label %23
+  br i1 %.not44, label %.critedge70.loopexit92, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3331,21 +3331,18 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.critedge, label %.lr.ph
+  br i1 %.not, label %.critedge70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph71, label %.critedge
+  br i1 %31, label %.lr.ph69, label %.critedge70
 
-._crit_edge:                                      ; preds = %42
-  br i1 %.137, label %46, label %.critedge
-
-.lr.ph71:                                         ; preds = %.lr.ph, %42
+.lr.ph69:                                         ; preds = %.lr.ph, %42
   %32 = phi i32 [ %43, %42 ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
-  %.0366569 = phi i1 [ %.137, %42 ], [ false, %.lr.ph ]
+  %.0366367 = phi i1 [ %.137, %42 ], [ false, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -3355,33 +3352,36 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %.lr.ph71
+.critedge:                                        ; preds = %42
+  br i1 %.137, label %46, label %.critedge70
+
+40:                                               ; preds = %.lr.ph69
   %41 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %35) #11
   %.pre = load i32, ptr %28, align 4
   br label %42
 
-42:                                               ; preds = %40, %.lr.ph71
-  %43 = phi i32 [ %.pre, %40 ], [ %32, %.lr.ph71 ]
-  %.137 = phi i1 [ %41, %40 ], [ %.0366569, %.lr.ph71 ]
+42:                                               ; preds = %40, %.lr.ph69
+  %43 = phi i32 [ %.pre, %40 ], [ %32, %.lr.ph69 ]
+  %.137 = phi i1 [ %41, %40 ], [ %.0366367, %.lr.ph69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph71, label %._crit_edge
+  br i1 %45, label %.lr.ph69, label %.critedge
 
-46:                                               ; preds = %._crit_edge
+46:                                               ; preds = %.critedge
   %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %48 = load ptr, ptr %47, align 8
-  br label %tailrecurse120
+  br label %tailrecurse118
 
 49:                                               ; preds = %tailrecurse
   %50 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %54 [
-    i32 1, label %.critedge.loopexit94
-    i32 2, label %.critedge.loopexit
-    i32 3, label %.critedge.loopexit
-    i32 4, label %.critedge.loopexit
-    i32 5, label %.critedge.loopexit
+    i32 1, label %.critedge70.loopexit92
+    i32 2, label %.critedge70.loopexit
+    i32 3, label %.critedge70.loopexit
+    i32 4, label %.critedge70.loopexit
+    i32 5, label %.critedge70.loopexit
     i32 6, label %52
   ]
 
@@ -3391,24 +3391,24 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
 
 54:                                               ; preds = %49
   %55 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %55, label %56, label %.critedge
+  br i1 %55, label %56, label %.critedge70
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %58) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3724, ptr noundef nonnull @__func__.GetCommandLogLevel) #11
-  br label %.critedge
+  br label %.critedge70
 
 60:                                               ; preds = %tailrecurse
   %61 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %65 [
-    i32 1, label %.critedge.loopexit94
-    i32 2, label %.critedge.loopexit
-    i32 3, label %.critedge.loopexit
-    i32 4, label %.critedge.loopexit
-    i32 5, label %.critedge.loopexit
+    i32 1, label %.critedge70.loopexit92
+    i32 2, label %.critedge70.loopexit
+    i32 3, label %.critedge70.loopexit
+    i32 4, label %.critedge70.loopexit
+    i32 5, label %.critedge70.loopexit
     i32 6, label %63
   ]
 
@@ -3418,35 +3418,35 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
 
 65:                                               ; preds = %60
   %66 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %66, label %67, label %.critedge
+  br i1 %66, label %67, label %.critedge70
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %69) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3755, ptr noundef nonnull @__func__.GetCommandLogLevel) #11
-  br label %.critedge
+  br label %.critedge70
 
 71:                                               ; preds = %tailrecurse
   %72 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %72, label %73, label %.critedge
+  br i1 %72, label %73, label %.critedge70
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %.tr, align 4
   %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %74) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3764, ptr noundef nonnull @__func__.GetCommandLogLevel) #11
-  br label %.critedge
+  br label %.critedge70
 
-.critedge.loopexit94:                             ; preds = %60, %49, %18, %14, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.critedge70.loopexit92:                           ; preds = %60, %49, %18, %14, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   %.1.ph = phi i32 [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 3, %18 ], [ 3, %14 ], [ 3, %49 ], [ 3, %60 ]
-  br label %.critedge
+  br label %.critedge70
 
-.critedge.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %49, %49, %49, %49, %60, %60, %60, %60
-  %.1.ph103 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
-  br label %.critedge
+.critedge70.loopexit:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %49, %49, %49, %49, %60, %60, %60, %60
+  %.1.ph101 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
+  br label %.critedge70
 
-.critedge:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.critedge.loopexit, %.critedge.loopexit94, %25, %.lr.ph, %._crit_edge, %5, %8, %54, %56, %65, %67, %73, %71
-  %.1 = phi i32 [ %., %5 ], [ %.46, %8 ], [ 3, %56 ], [ 3, %54 ], [ 3, %67 ], [ 3, %65 ], [ 3, %73 ], [ 3, %71 ], [ 3, %._crit_edge ], [ 3, %.lr.ph ], [ 3, %25 ], [ %.1.ph, %.critedge.loopexit94 ], [ %.1.ph103, %.critedge.loopexit ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+.critedge70:                                      ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.critedge70.loopexit, %.critedge70.loopexit92, %25, %.lr.ph, %.critedge, %5, %8, %54, %56, %65, %67, %73, %71
+  %.1 = phi i32 [ %., %5 ], [ %.46, %8 ], [ 3, %56 ], [ 3, %54 ], [ 3, %67 ], [ 3, %65 ], [ 3, %73 ], [ 3, %71 ], [ 3, %.critedge ], [ 3, %.lr.ph ], [ 3, %25 ], [ %.1.ph, %.critedge70.loopexit92 ], [ %.1.ph101, %.critedge70.loopexit ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
   ret i32 %.1
 }
 

@@ -8457,7 +8457,7 @@ define internal range(i32 0, 2) i32 @mac_test_init(ptr noundef writeonly capture
   %4 = load ptr, ptr @propquery, align 8, !tbaa !10
   %5 = tail call ptr @EVP_MAC_fetch(ptr noundef %3, ptr noundef %1, ptr noundef %4) #10
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %28
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
@@ -8477,70 +8477,70 @@ define internal range(i32 0, 2) i32 @mac_test_init(ptr noundef writeonly capture
   %.0 = phi i64 [ %8, %7 ], [ %spec.select, %10 ]
   %17 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.101, i64 noundef %.0) #11
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
   %20 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.360, i64 noundef %.0) #11
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %28, label %22
 
 22:                                               ; preds = %19
   %23 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.361, i64 noundef %.0) #11
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
   %26 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.362, i64 noundef %.0) #11
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %46
+  br i1 %27, label %28, label %.critedge
 
-.thread:                                          ; preds = %16, %19, %22, %25, %2
-  %.034 = phi i32 [ 1062, %25 ], [ 0, %2 ], [ 1061, %22 ], [ 894, %19 ], [ 855, %16 ]
-  %28 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 152, ptr noundef nonnull @.str.29, i32 noundef 1637) #10
-  %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1637, ptr noundef nonnull @.str.214, ptr noundef %28) #10
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %46, label %30
+28:                                               ; preds = %25, %22, %19, %16, %2
+  %.034 = phi i32 [ 0, %2 ], [ 855, %16 ], [ 894, %19 ], [ 1061, %22 ], [ 1062, %25 ]
+  %29 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 152, ptr noundef nonnull @.str.29, i32 noundef 1637) #10
+  %30 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1637, ptr noundef nonnull @.str.214, ptr noundef %29) #10
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %.critedge, label %31
 
-30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 %.034, ptr %31, align 8, !tbaa !243
-  %32 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef 1641) #10
-  store ptr %32, ptr %28, align 8, !tbaa !246
-  %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1641, ptr noundef nonnull @.str.363, ptr noundef %32) #10
-  %.not37 = icmp eq i32 %33, 0
-  br i1 %.not37, label %34, label %35
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 %.034, ptr %32, align 8, !tbaa !243
+  %33 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef 1641) #10
+  store ptr %33, ptr %29, align 8, !tbaa !246
+  %34 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1641, ptr noundef nonnull @.str.363, ptr noundef %33) #10
+  %.not37 = icmp eq i32 %34, 0
+  br i1 %.not37, label %35, label %36
 
-34:                                               ; preds = %30
-  tail call void @CRYPTO_free(ptr noundef nonnull %28, ptr noundef nonnull @.str.29, i32 noundef 1642) #10
-  br label %46
+35:                                               ; preds = %31
+  tail call void @CRYPTO_free(ptr noundef nonnull %29, ptr noundef nonnull @.str.29, i32 noundef 1642) #10
+  br label %.critedge
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %5, ptr %36, align 8, !tbaa !247
-  %37 = tail call ptr @OPENSSL_sk_new_null() #10
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  store ptr %37, ptr %38, align 8, !tbaa !248
-  %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1647, ptr noundef nonnull @.str.364, ptr noundef %37) #10
-  %.not38 = icmp eq i32 %39, 0
-  br i1 %.not38, label %40, label %42
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %5, ptr %37, align 8, !tbaa !247
+  %38 = tail call ptr @OPENSSL_sk_new_null() #10
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 136
+  store ptr %38, ptr %39, align 8, !tbaa !248
+  %40 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 1647, ptr noundef nonnull @.str.364, ptr noundef %38) #10
+  %.not38 = icmp eq i32 %40, 0
+  br i1 %.not38, label %41, label %43
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %28, align 8, !tbaa !246
-  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.29, i32 noundef 1648) #10
-  tail call void @CRYPTO_free(ptr noundef nonnull %28, ptr noundef nonnull @.str.29, i32 noundef 1649) #10
-  br label %46
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %29, align 8, !tbaa !246
+  tail call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str.29, i32 noundef 1648) #10
+  tail call void @CRYPTO_free(ptr noundef nonnull %29, ptr noundef nonnull @.str.29, i32 noundef 1649) #10
+  br label %.critedge
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %28, i64 148
-  store i32 -1, ptr %43, align 4, !tbaa !249
-  %44 = getelementptr inbounds nuw i8, ptr %28, i64 144
-  store i32 -1, ptr %44, align 8, !tbaa !250
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 35272
-  store ptr %28, ptr %45, align 8, !tbaa !20
-  br label %46
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 148
+  store i32 -1, ptr %44, align 4, !tbaa !249
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 144
+  store i32 -1, ptr %45, align 8, !tbaa !250
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 35272
+  store ptr %29, ptr %46, align 8, !tbaa !20
+  br label %.critedge
 
-46:                                               ; preds = %.thread, %25, %42, %40, %34
-  %.033 = phi i32 [ 1, %42 ], [ 0, %40 ], [ 0, %34 ], [ 0, %25 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %25, %28, %43, %41, %35
+  %.033 = phi i32 [ 1, %43 ], [ 0, %41 ], [ 0, %35 ], [ 0, %28 ], [ 0, %25 ]
   ret i32 %.033
 }
 

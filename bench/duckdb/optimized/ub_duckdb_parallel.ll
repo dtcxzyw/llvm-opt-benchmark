@@ -6768,18 +6768,18 @@ _ZN6duckdb13TaskScheduler12GetSchedulerERNS_13ClientContextE.exit: ; preds = %.n
   br i1 %53, label %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !332
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i.i, %50
-  %.016.i40.i.i.i = phi ptr [ %54, %50 ], [ %46, %.preheader.i.i.i.i ]
-  %54 = load ptr, ptr %.016.i40.i.i.i, align 8, !tbaa !132
+  %.016.i35.i.i.i = phi ptr [ %54, %50 ], [ %46, %.preheader.i.i.i.i ]
+  %54 = load ptr, ptr %.016.i35.i.i.i, align 8, !tbaa !132
   %.not14.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not14.i.i.i.i, label %_ZNSt13unordered_mapIPN6duckdb4TaskENS0_10shared_ptrIS1_Lb1EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE5eraseERSA_.exit, label %50, !llvm.loop !332
 
 _ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i: ; preds = %50, %.preheader.i.i.i.i
   %55 = phi ptr [ %46, %.preheader.i.i.i.i ], [ %54, %50 ]
-  %.01115.i.lcssa.i.i.i = phi ptr [ %10, %.preheader.i.i.i.i ], [ %.016.i40.i.i.i, %50 ]
+  %.01115.i.lcssa.i.i.i = phi ptr [ %10, %.preheader.i.i.i.i ], [ %.016.i35.i.i.i, %50 ]
   %56 = load i64, ptr %9, align 8, !tbaa !322
   %57 = ptrtoint ptr %43 to i64
   %58 = urem i64 %57, %56
-  br label %.loopexit.i.i.i
+  br label %_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i
 
 59:                                               ; preds = %_ZN6duckdb13TaskScheduler12GetSchedulerERNS_13ClientContextE.exit
   %60 = ptrtoint ptr %43 to i64
@@ -6796,11 +6796,11 @@ _ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_EN
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !320
   %70 = icmp eq ptr %43, %69
-  br i1 %70, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i15
+  br i1 %70, label %_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i, label %.lr.ph.i.i.i.i15
 
 71:                                               ; preds = %74
   %72 = icmp eq ptr %43, %76
-  br i1 %72, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i15, !llvm.loop !324
+  br i1 %72, label %_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i, label %.lr.ph.i.i.i.i15, !llvm.loop !324
 
 .lr.ph.i.i.i.i15:                                 ; preds = %66, %71
   %.020.i.i.i.i16 = phi ptr [ %73, %71 ], [ %67, %66 ]
@@ -6819,14 +6819,14 @@ _ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_EN
 ..loopexit_crit_edge21.i.i.i.i19:                 ; preds = %74
   br label %_ZNSt13unordered_mapIPN6duckdb4TaskENS0_10shared_ptrIS1_Lb1EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE5eraseERSA_.exit, !llvm.loop !324
 
-.loopexit.i.i.i:                                  ; preds = %71, %66, %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i
+_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i: ; preds = %71, %66, %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i
   %.019.i.i.i = phi ptr [ %55, %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i ], [ %67, %66 ], [ %73, %71 ]
   %.018.i.i.i = phi i64 [ %58, %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i ], [ %62, %66 ], [ %62, %71 ]
   %.016.i.i.i = phi ptr [ %.01115.i.lcssa.i.i.i, %_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.i.i.i ], [ %65, %66 ], [ %.020.i.i.i.i16, %71 ]
   %79 = invoke ptr @_ZNSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS9_15_Hash_node_baseEPNS9_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %.018.i.i.i, ptr noundef nonnull %.016.i.i.i, ptr noundef nonnull %.019.i.i.i)
           to label %_ZNSt13unordered_mapIPN6duckdb4TaskENS0_10shared_ptrIS1_Lb1EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE5eraseERSA_.exit unwind label %120
 
-_ZNSt13unordered_mapIPN6duckdb4TaskENS0_10shared_ptrIS1_Lb1EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE5eraseERSA_.exit: ; preds = %.lr.ph.i.i.i.i15, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i19, %59, %45, %.loopexit.i.i.i
+_ZNSt13unordered_mapIPN6duckdb4TaskENS0_10shared_ptrIS1_Lb1EEESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE5eraseERSA_.exit: ; preds = %.lr.ph.i.i.i.i15, %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i.i19, %59, %45, %_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %81 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb10unique_ptrINS_13ProducerTokenESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %80)
           to label %_ZN6duckdb8Executor8GetTokenEv.exit unwind label %118
@@ -6920,7 +6920,7 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit:   ; preds = %94, %101, %_ZN9__gn
           cleanup
   br label %126
 
-120:                                              ; preds = %.loopexit.i.i.i
+120:                                              ; preds = %_ZNKSt10_HashtableIPN6duckdb4TaskESt4pairIKS2_NS0_10shared_ptrIS1_Lb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %126

@@ -3060,7 +3060,7 @@ define dso_local void @irq_chip_release_resources_parent(ptr noundef readonly ca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -38, 1) i32 @irq_chip_compose_msi_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread, label %.preheader
+  br i1 %3, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2, %13
   %4 = phi ptr [ %16, %13 ], [ %0, %2 ]
@@ -3086,7 +3086,7 @@ define dso_local noundef range(i32 -38, 1) i32 @irq_chip_compose_msi_msg(ptr nou
   br i1 %19, label %.preheader, label %20, !llvm.loop !72
 
 20:                                               ; preds = %13
-  br i1 %17, label %.thread, label %21
+  br i1 %17, label %.critedge, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -3094,9 +3094,9 @@ define dso_local noundef range(i32 -38, 1) i32 @irq_chip_compose_msi_msg(ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %14, ptr noundef %1) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %21, %20
+.critedge:                                        ; preds = %2, %21, %20
   %26 = phi i32 [ 0, %21 ], [ -38, %20 ], [ -38, %2 ]
   ret i32 %26
 }
@@ -3106,24 +3106,24 @@ define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr noundef read
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %7, i32 noundef 4) #8
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 432
   %14 = load volatile i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread, label %.lr.ph, !prof !58
+  br i1 %15, label %.critedge, label %.lr.ph, !prof !58
 
 .lr.ph:                                           ; preds = %12, %22
   %16 = phi i32 [ %23, %22 ], [ %14, %12 ]
@@ -3133,14 +3133,14 @@ define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr noundef read
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %22, label %.thread, !prof !14
+  br i1 %21, label %22, label %.critedge, !prof !14
 
 22:                                               ; preds = %.lr.ph
   %23 = extractvalue { i8, i32 } %18, 1
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %.lr.ph, !prof !60, !llvm.loop !61
+  br i1 %24, label %.critedge, label %.lr.ph, !prof !60, !llvm.loop !61
 
-.thread:                                          ; preds = %22, %.lr.ph, %12, %1, %9, %5
+.critedge:                                        ; preds = %22, %.lr.ph, %12, %1, %9, %5
   %25 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %1 ], [ %10, %12 ], [ %10, %.lr.ph ], [ %10, %22 ]
   ret i32 %25
 }

@@ -17138,7 +17138,7 @@ define dso_local ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17147,77 +17147,77 @@ define dso_local ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, p
   %.not = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !27
-  %.not6190 = icmp eq i32 %12, 0
-  br i1 %.not, label %.preheader71, label %.preheader75
+  %.not6189 = icmp eq i32 %12, 0
+  br i1 %.not, label %.preheader70, label %.preheader74
 
-.preheader75:                                     ; preds = %7
-  br i1 %.not6190, label %.thread, label %.lr.ph
+.preheader74:                                     ; preds = %7
+  br i1 %.not6189, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader75
+.lr.ph:                                           ; preds = %.preheader74
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !5
   br label %17
 
-.preheader71:                                     ; preds = %7
-  br i1 %.not6190, label %.thread, label %.lr.ph92
+.preheader70:                                     ; preds = %7
+  br i1 %.not6189, label %.critedge, label %.lr.ph91
 
-.lr.ph92:                                         ; preds = %.preheader71
+.lr.ph91:                                         ; preds = %.preheader70
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !5
   br label %51
 
 17:                                               ; preds = %.lr.ph, %36
-  %.05086 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
-  %18 = zext i32 %.05086 to i64
+  %.05085 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
+  %18 = zext i32 %.05085 to i64
   %19 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !5
   %.not62 = icmp eq i8 %21, 0
-  br i1 %.not62, label %36, label %.preheader73
+  br i1 %.not62, label %36, label %.preheader72
 
-.preheader73:                                     ; preds = %17
-  %22 = icmp ult i32 %.05086, %12
-  br i1 %22, label %.lr.ph89, label %.thread
+.preheader72:                                     ; preds = %17
+  %22 = icmp ult i32 %.05085, %12
+  br i1 %22, label %.lr.ph88, label %.critedge
 
-.lr.ph89:                                         ; preds = %.preheader73
+.lr.ph88:                                         ; preds = %.preheader72
   %.not63 = icmp eq i32 %2, 0
-  br i1 %.not63, label %.lr.ph89.split.us, label %.lr.ph89.split
+  br i1 %.not63, label %.lr.ph88.split.us, label %.lr.ph88.split
 
-.lr.ph89.split.us:                                ; preds = %.lr.ph89, %32
-  %23 = phi i32 [ %33, %32 ], [ %12, %.lr.ph89 ]
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %32 ], [ %18, %.lr.ph89 ]
-  %.15687.us = phi ptr [ %.257.us, %32 ], [ %19, %.lr.ph89 ]
+.lr.ph88.split.us:                                ; preds = %.lr.ph88, %32
+  %23 = phi i32 [ %33, %32 ], [ %12, %.lr.ph88 ]
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %32 ], [ %18, %.lr.ph88 ]
+  %.15686.us = phi ptr [ %.257.us, %32 ], [ %19, %.lr.ph88 ]
   %24 = load ptr, ptr %13, align 8, !tbaa !5
-  %25 = getelementptr inbounds nuw %struct._zval_struct, ptr %24, i64 %indvars.iv113
+  %25 = getelementptr inbounds nuw %struct._zval_struct, ptr %24, i64 %indvars.iv112
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i8, ptr %26, align 8, !tbaa !5
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %32, label %29, !prof !4
 
-29:                                               ; preds = %.lr.ph89.split.us
-  %30 = tail call i32 %1(ptr noundef %.15687.us, ptr noundef nonnull %25) #29
+29:                                               ; preds = %.lr.ph88.split.us
+  %30 = tail call i32 %1(ptr noundef %.15686.us, ptr noundef nonnull %25) #29
   %31 = icmp sgt i32 %30, 0
-  %spec.select65.us = select i1 %31, ptr %25, ptr %.15687.us
-  %.pre126 = load i32, ptr %11, align 8, !tbaa !27
+  %spec.select65.us = select i1 %31, ptr %25, ptr %.15686.us
+  %.pre125 = load i32, ptr %11, align 8, !tbaa !27
   br label %32
 
-32:                                               ; preds = %29, %.lr.ph89.split.us
-  %33 = phi i32 [ %23, %.lr.ph89.split.us ], [ %.pre126, %29 ]
-  %.257.us = phi ptr [ %.15687.us, %.lr.ph89.split.us ], [ %spec.select65.us, %29 ]
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+32:                                               ; preds = %29, %.lr.ph88.split.us
+  %33 = phi i32 [ %23, %.lr.ph88.split.us ], [ %.pre125, %29 ]
+  %.257.us = phi ptr [ %.15686.us, %.lr.ph88.split.us ], [ %spec.select65.us, %29 ]
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %34 = zext i32 %33 to i64
-  %35 = icmp samesign ult i64 %indvars.iv.next114, %34
-  br i1 %35, label %.lr.ph89.split.us, label %.thread, !llvm.loop !98
+  %35 = icmp samesign ult i64 %indvars.iv.next113, %34
+  br i1 %35, label %.lr.ph88.split.us, label %.critedge, !llvm.loop !98
 
 36:                                               ; preds = %17
-  %37 = add nuw i32 %.05086, 1
+  %37 = add nuw i32 %.05085, 1
   %.not64 = icmp eq i32 %37, %12
-  br i1 %.not64, label %.thread, label %17
+  br i1 %.not64, label %.critedge, label %17
 
-.lr.ph89.split:                                   ; preds = %.lr.ph89, %47
-  %38 = phi i32 [ %48, %47 ], [ %12, %.lr.ph89 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ %18, %.lr.ph89 ]
-  %.15687 = phi ptr [ %.257, %47 ], [ %19, %.lr.ph89 ]
+.lr.ph88.split:                                   ; preds = %.lr.ph88, %47
+  %38 = phi i32 [ %48, %47 ], [ %12, %.lr.ph88 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ %18, %.lr.ph88 ]
+  %.15686 = phi ptr [ %.257, %47 ], [ %19, %.lr.ph88 ]
   %39 = load ptr, ptr %13, align 8, !tbaa !5
   %40 = getelementptr inbounds nuw %struct._zval_struct, ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -17225,24 +17225,24 @@ define dso_local ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, p
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %47, label %44, !prof !4
 
-44:                                               ; preds = %.lr.ph89.split
-  %45 = tail call i32 %1(ptr noundef %.15687, ptr noundef nonnull %40) #29
+44:                                               ; preds = %.lr.ph88.split
+  %45 = tail call i32 %1(ptr noundef %.15686, ptr noundef nonnull %40) #29
   %46 = icmp slt i32 %45, 0
-  %spec.select = select i1 %46, ptr %40, ptr %.15687
+  %spec.select = select i1 %46, ptr %40, ptr %.15686
   %.pre = load i32, ptr %11, align 8, !tbaa !27
   br label %47
 
-47:                                               ; preds = %44, %.lr.ph89.split
-  %48 = phi i32 [ %38, %.lr.ph89.split ], [ %.pre, %44 ]
-  %.257 = phi ptr [ %.15687, %.lr.ph89.split ], [ %spec.select, %44 ]
+47:                                               ; preds = %44, %.lr.ph88.split
+  %48 = phi i32 [ %38, %.lr.ph88.split ], [ %.pre, %44 ]
+  %.257 = phi ptr [ %.15686, %.lr.ph88.split ], [ %spec.select, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph89.split, label %.thread
+  br i1 %50, label %.lr.ph88.split, label %.critedge
 
-51:                                               ; preds = %.lr.ph92, %70
-  %.25291 = phi i32 [ 0, %.lr.ph92 ], [ %71, %70 ]
-  %52 = zext i32 %.25291 to i64
+51:                                               ; preds = %.lr.ph91, %70
+  %.25290 = phi i32 [ 0, %.lr.ph91 ], [ %71, %70 ]
+  %52 = zext i32 %.25290 to i64
   %53 = getelementptr inbounds nuw %struct._Bucket, ptr %16, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 8, !tbaa !5
@@ -17250,72 +17250,72 @@ define dso_local ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, p
   br i1 %.not59, label %70, label %.preheader
 
 .preheader:                                       ; preds = %51
-  %56 = icmp ult i32 %.25291, %12
-  br i1 %56, label %.lr.ph95, label %.thread
+  %56 = icmp ult i32 %.25290, %12
+  br i1 %56, label %.lr.ph94, label %.critedge
 
-.lr.ph95:                                         ; preds = %.preheader
+.lr.ph94:                                         ; preds = %.preheader
   %.not60 = icmp eq i32 %2, 0
-  br i1 %.not60, label %.lr.ph95.split.us, label %.lr.ph95.split
+  br i1 %.not60, label %.lr.ph94.split.us, label %.lr.ph94.split
 
-.lr.ph95.split.us:                                ; preds = %.lr.ph95, %66
-  %57 = phi i32 [ %67, %66 ], [ %12, %.lr.ph95 ]
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %66 ], [ %52, %.lr.ph95 ]
-  %.593.us = phi ptr [ %.6.us, %66 ], [ %53, %.lr.ph95 ]
+.lr.ph94.split.us:                                ; preds = %.lr.ph94, %66
+  %57 = phi i32 [ %67, %66 ], [ %12, %.lr.ph94 ]
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %66 ], [ %52, %.lr.ph94 ]
+  %.592.us = phi ptr [ %.6.us, %66 ], [ %53, %.lr.ph94 ]
   %58 = load ptr, ptr %15, align 8, !tbaa !5
-  %59 = getelementptr inbounds nuw %struct._Bucket, ptr %58, i64 %indvars.iv123
+  %59 = getelementptr inbounds nuw %struct._Bucket, ptr %58, i64 %indvars.iv122
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8, !tbaa !5
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %66, label %63, !prof !4
 
-63:                                               ; preds = %.lr.ph95.split.us
-  %64 = tail call i32 %1(ptr noundef %.593.us, ptr noundef nonnull %59) #29
+63:                                               ; preds = %.lr.ph94.split.us
+  %64 = tail call i32 %1(ptr noundef %.592.us, ptr noundef nonnull %59) #29
   %65 = icmp sgt i32 %64, 0
-  %spec.select67.us = select i1 %65, ptr %59, ptr %.593.us
-  %.pre128 = load i32, ptr %11, align 8, !tbaa !27
+  %spec.select67.us = select i1 %65, ptr %59, ptr %.592.us
+  %.pre127 = load i32, ptr %11, align 8, !tbaa !27
   br label %66
 
-66:                                               ; preds = %63, %.lr.ph95.split.us
-  %67 = phi i32 [ %57, %.lr.ph95.split.us ], [ %.pre128, %63 ]
-  %.6.us = phi ptr [ %.593.us, %.lr.ph95.split.us ], [ %spec.select67.us, %63 ]
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+66:                                               ; preds = %63, %.lr.ph94.split.us
+  %67 = phi i32 [ %57, %.lr.ph94.split.us ], [ %.pre127, %63 ]
+  %.6.us = phi ptr [ %.592.us, %.lr.ph94.split.us ], [ %spec.select67.us, %63 ]
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %68 = zext i32 %67 to i64
-  %69 = icmp samesign ult i64 %indvars.iv.next124, %68
-  br i1 %69, label %.lr.ph95.split.us, label %.thread, !llvm.loop !99
+  %69 = icmp samesign ult i64 %indvars.iv.next123, %68
+  br i1 %69, label %.lr.ph94.split.us, label %.critedge, !llvm.loop !99
 
 70:                                               ; preds = %51
-  %71 = add nuw i32 %.25291, 1
+  %71 = add nuw i32 %.25290, 1
   %.not61 = icmp eq i32 %71, %12
-  br i1 %.not61, label %.thread, label %51
+  br i1 %.not61, label %.critedge, label %51
 
-.lr.ph95.split:                                   ; preds = %.lr.ph95, %81
-  %72 = phi i32 [ %82, %81 ], [ %12, %.lr.ph95 ]
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %81 ], [ %52, %.lr.ph95 ]
-  %.593 = phi ptr [ %.6, %81 ], [ %53, %.lr.ph95 ]
+.lr.ph94.split:                                   ; preds = %.lr.ph94, %81
+  %72 = phi i32 [ %82, %81 ], [ %12, %.lr.ph94 ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %81 ], [ %52, %.lr.ph94 ]
+  %.592 = phi ptr [ %.6, %81 ], [ %53, %.lr.ph94 ]
   %73 = load ptr, ptr %15, align 8, !tbaa !5
-  %74 = getelementptr inbounds nuw %struct._Bucket, ptr %73, i64 %indvars.iv118
+  %74 = getelementptr inbounds nuw %struct._Bucket, ptr %73, i64 %indvars.iv117
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i8, ptr %75, align 8, !tbaa !5
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %81, label %78, !prof !4
 
-78:                                               ; preds = %.lr.ph95.split
-  %79 = tail call i32 %1(ptr noundef %.593, ptr noundef nonnull %74) #29
+78:                                               ; preds = %.lr.ph94.split
+  %79 = tail call i32 %1(ptr noundef %.592, ptr noundef nonnull %74) #29
   %80 = icmp slt i32 %79, 0
-  %spec.select66 = select i1 %80, ptr %74, ptr %.593
-  %.pre127 = load i32, ptr %11, align 8, !tbaa !27
+  %spec.select66 = select i1 %80, ptr %74, ptr %.592
+  %.pre126 = load i32, ptr %11, align 8, !tbaa !27
   br label %81
 
-81:                                               ; preds = %78, %.lr.ph95.split
-  %82 = phi i32 [ %72, %.lr.ph95.split ], [ %.pre127, %78 ]
-  %.6 = phi ptr [ %.593, %.lr.ph95.split ], [ %spec.select66, %78 ]
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+81:                                               ; preds = %78, %.lr.ph94.split
+  %82 = phi i32 [ %72, %.lr.ph94.split ], [ %.pre126, %78 ]
+  %.6 = phi ptr [ %.592, %.lr.ph94.split ], [ %spec.select66, %78 ]
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %83 = zext i32 %82 to i64
-  %84 = icmp samesign ult i64 %indvars.iv.next119, %83
-  br i1 %84, label %.lr.ph95.split, label %.thread
+  %84 = icmp samesign ult i64 %indvars.iv.next118, %83
+  br i1 %84, label %.lr.ph94.split, label %.critedge
 
-.thread:                                          ; preds = %36, %47, %32, %70, %81, %66, %.preheader75, %.preheader73, %.preheader71, %.preheader, %3
-  %.0 = phi ptr [ null, %3 ], [ %53, %.preheader ], [ null, %.preheader71 ], [ %19, %.preheader73 ], [ null, %.preheader75 ], [ %.6.us, %66 ], [ %.6, %81 ], [ null, %70 ], [ %.257.us, %32 ], [ %.257, %47 ], [ null, %36 ]
+.critedge:                                        ; preds = %36, %47, %32, %70, %81, %66, %.preheader74, %.preheader72, %.preheader70, %.preheader, %3
+  %.0 = phi ptr [ null, %3 ], [ %53, %.preheader ], [ null, %.preheader70 ], [ %19, %.preheader72 ], [ null, %.preheader74 ], [ %.6.us, %66 ], [ %.6, %81 ], [ null, %70 ], [ %.257.us, %32 ], [ %.257, %47 ], [ null, %36 ]
   ret ptr %.0
 }
 

@@ -1133,9 +1133,9 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
   %5 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.03762 = load ptr, ptr %6, align 8
-  %.not63 = icmp eq ptr %.03762, null
-  br i1 %.not63, label %.thread.sink.split, label %.lr.ph
+  %.03759 = load ptr, ptr %6, align 8
+  %.not60 = icmp eq ptr %.03759, null
+  br i1 %.not60, label %.critedge.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1145,12 +1145,12 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
-  %.03766 = phi ptr [ %.03762, %.lr.ph ], [ %.037, %51 ]
-  %.03865 = phi ptr [ null, %.lr.ph ], [ %.240, %51 ]
-  %.04164 = phi ptr [ null, %.lr.ph ], [ %.243, %51 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.03766, i64 16
+  %.03763 = phi ptr [ %.03759, %.lr.ph ], [ %.037, %51 ]
+  %.03862 = phi ptr [ null, %.lr.ph ], [ %.240, %51 ]
+  %.04161 = phi ptr [ null, %.lr.ph ], [ %.243, %51 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.03763, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.03766, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.03763, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
@@ -1160,7 +1160,7 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
 
 19:                                               ; preds = %11
   %20 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef %1)
-  br i1 %20, label %51, label %.thread
+  br i1 %20, label %51, label %.critedge
 
 21:                                               ; preds = %11
   %22 = call i32 @g_str_equal(ptr noundef nonnull @.str.52, ptr noundef %13)
@@ -1169,7 +1169,7 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
 
 23:                                               ; preds = %21
   %24 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef %1)
-  br i1 %24, label %51, label %.thread
+  br i1 %24, label %51, label %.critedge
 
 25:                                               ; preds = %21
   %26 = call i32 @g_str_equal(ptr noundef nonnull @.str.53, ptr noundef %13)
@@ -1227,40 +1227,40 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
 49:                                               ; preds = %47
   %50 = call i32 @g_str_equal(ptr noundef nonnull @.str.56, ptr noundef %13)
   %.not53 = icmp eq i32 %50, 0
-  %spec.select = select i1 %.not53, ptr %.04164, ptr %17
+  %spec.select = select i1 %.not53, ptr %.04161, ptr %17
   br label %51
 
 51:                                               ; preds = %49, %47, %23, %31, %46, %27, %19
-  %.243 = phi ptr [ %.04164, %19 ], [ %.04164, %23 ], [ %.04164, %27 ], [ %.04164, %31 ], [ %.04164, %46 ], [ %.04164, %47 ], [ %spec.select, %49 ]
-  %.240 = phi ptr [ %.03865, %19 ], [ %.03865, %23 ], [ %.03865, %27 ], [ %.03865, %31 ], [ %.03865, %46 ], [ %17, %47 ], [ %.03865, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.03766, i64 48
+  %.243 = phi ptr [ %.04161, %19 ], [ %.04161, %23 ], [ %.04161, %27 ], [ %.04161, %31 ], [ %.04161, %46 ], [ %.04161, %47 ], [ %spec.select, %49 ]
+  %.240 = phi ptr [ %.03862, %19 ], [ %.03862, %23 ], [ %.03862, %27 ], [ %.03862, %31 ], [ %.03862, %46 ], [ %17, %47 ], [ %.03862, %49 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.03763, i64 48
   %.037 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %51
   %.not45 = icmp eq ptr %.243, null
-  br i1 %.not45, label %53, label %.thread.sink.split.sink.split
+  br i1 %.not45, label %53, label %.critedge.sink.split.sink.split
 
 53:                                               ; preds = %._crit_edge
   %.not46 = icmp eq ptr %.240, null
-  br i1 %.not46, label %.thread.sink.split, label %.thread.sink.split.sink.split
+  br i1 %.not46, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
 
-.thread.sink.split.sink.split:                    ; preds = %53, %._crit_edge
+.critedge.sink.split.sink.split:                  ; preds = %53, %._crit_edge
   %.240.lcssa.sink = phi ptr [ %.243, %._crit_edge ], [ %.240, %53 ]
   %54 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.240.lcssa.sink, ptr noundef null, i32 noundef 0)
-  br label %.thread.sink.split
+  br label %.critedge.sink.split
 
-.thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %53, %3
-  %.sink = phi i64 [ 0, %3 ], [ 0, %53 ], [ %54, %.thread.sink.split.sink.split ]
+.critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %53, %3
+  %.sink = phi i64 [ 0, %3 ], [ 0, %53 ], [ %54, %.critedge.sink.split.sink.split ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %.sink, ptr %55, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %23, %19, %.thread.sink.split
-  %.not59 = phi i1 [ true, %.thread.sink.split ], [ false, %19 ], [ false, %23 ]
+.critedge:                                        ; preds = %19, %23, %.critedge.sink.split
+  %.not56 = phi i1 [ true, %.critedge.sink.split ], [ false, %23 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  ret i1 %.not59
+  ret i1 %.not56
 }
 
 ; Function Attrs: null_pointer_is_valid

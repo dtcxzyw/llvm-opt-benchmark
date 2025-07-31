@@ -1030,209 +1030,212 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
 
 10:                                               ; preds = %2
   %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %13, label %11
+  br i1 %.not, label %.loopexit27.critedge, label %.lr.ph
 
-11:                                               ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192752
-  store i8 1, ptr %12, align 8, !tbaa !121
-  br label %13
+.lr.ph:                                           ; preds = %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192752
+  store i8 1, ptr %11, align 8, !tbaa !121
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 381416
+  %13 = load ptr, ptr %12, align 8, !tbaa !6
+  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %18 = shl nsw i64 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 767464
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 767472
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 381552
+  %22 = sext i32 %1 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192751
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192744
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192732
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192720
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 192708
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192748
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192750
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192749
+  br label %31
 
-13:                                               ; preds = %11, %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 381416
-  %15 = load ptr, ptr %14, align 8, !tbaa !6
-  %16 = load ptr, ptr %15, align 8, !tbaa !71
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  br i1 %.not, label %.loopexit27, label %.lr.ph
-
-.lr.ph:                                           ; preds = %13
-  %20 = shl nsw i64 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 767464
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 767472
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 381552
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192751
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192744
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 192732
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192720
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192708
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192748
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192750
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192749
-  br label %33
-
-33:                                               ; preds = %.lr.ph, %.backedge
-  %.in = phi i32 [ %8, %.lr.ph ], [ %34, %.backedge ]
-  %34 = add nsw i32 %.in, -1
+31:                                               ; preds = %.lr.ph, %.backedge
+  %.in = phi i32 [ %8, %.lr.ph ], [ %32, %.backedge ]
+  %32 = add nsw i32 %.in, -1
   call void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %35 = load i32, ptr %5, align 4, !tbaa !73
-  %36 = icmp ugt i32 %35, 1024
-  %37 = load ptr, ptr %14, align 8, !tbaa !6
-  br i1 %36, label %.backedge, label %44
+  %33 = load i32, ptr %5, align 4, !tbaa !73
+  %34 = icmp ugt i32 %33, 1024
+  %35 = load ptr, ptr %12, align 8, !tbaa !6
+  br i1 %34, label %.backedge, label %42
 
-.backedge:                                        ; preds = %33, %54, %.loopexit
-  %.sink51 = phi ptr [ %55, %54 ], [ %126, %.loopexit ], [ %37, %33 ]
-  %38 = load i32, ptr %6, align 4, !tbaa !73
-  %39 = zext i32 %38 to i64
-  %40 = load ptr, ptr %.sink51, align 8, !tbaa !71
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %.sink51, i64 noundef %39, i32 noundef 0)
-  %.not21 = icmp eq i32 %34, 0
-  br i1 %.not21, label %.loopexit27, label %33, !llvm.loop !122
+.backedge:                                        ; preds = %31, %52, %.loopexit
+  %.sink51 = phi ptr [ %53, %52 ], [ %124, %.loopexit ], [ %35, %31 ]
+  %36 = load i32, ptr %6, align 4, !tbaa !73
+  %37 = zext i32 %36 to i64
+  %38 = load ptr, ptr %.sink51, align 8, !tbaa !71
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sink51, i64 noundef %37, i32 noundef 0)
+  %.not21 = icmp eq i32 %32, 0
+  br i1 %.not21, label %.loopexit27, label %31, !llvm.loop !122
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %37, align 8, !tbaa !71
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %49 = load i32, ptr %5, align 4, !tbaa !73
-  %50 = icmp ugt i32 %49, 8
-  %51 = zext i32 %49 to i64
-  %52 = add nsw i64 %48, %51
-  %53 = icmp sgt i64 %52, %20
-  %or.cond = select i1 %50, i1 %53, i1 false
-  br i1 %or.cond, label %54, label %56
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %35, align 8, !tbaa !71
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %47 = load i32, ptr %5, align 4, !tbaa !73
+  %48 = icmp ugt i32 %47, 8
+  %49 = zext i32 %47 to i64
+  %50 = add nsw i64 %46, %49
+  %51 = icmp sgt i64 %50, %18
+  %or.cond = select i1 %48, i1 %51, i1 false
+  br i1 %or.cond, label %52, label %54
 
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %14, align 8, !tbaa !6
+52:                                               ; preds = %42
+  %53 = load ptr, ptr %12, align 8, !tbaa !6
   br label %.backedge, !llvm.loop !122
 
-56:                                               ; preds = %44
-  %57 = load ptr, ptr %21, align 8, !tbaa !76
-  %.not22 = icmp eq ptr %57, null
-  br i1 %.not22, label %71, label %58
+54:                                               ; preds = %42
+  %55 = load ptr, ptr %19, align 8, !tbaa !76
+  %.not22 = icmp eq ptr %55, null
+  br i1 %.not22, label %69, label %56
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %22, align 8, !tbaa !77
-  %60 = load i32, ptr %3, align 4, !tbaa !73
-  %61 = or i32 %60, 327680
-  %62 = load i32, ptr %4, align 4, !tbaa !73
-  %63 = load i16, ptr %23, align 8, !tbaa !78
-  %64 = sext i16 %63 to i32
-  %65 = load ptr, ptr %14, align 8, !tbaa !6
-  call void %57(ptr noundef %59, i32 noundef %61, i32 noundef %62, i32 noundef %49, i32 noundef %64, ptr noundef %65, i64 noundef %24)
-  %66 = load ptr, ptr %14, align 8, !tbaa !6
-  %67 = load ptr, ptr %66, align 8, !tbaa !71
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %48, i32 noundef 0)
-  br label %71
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %20, align 8, !tbaa !77
+  %58 = load i32, ptr %3, align 4, !tbaa !73
+  %59 = or i32 %58, 327680
+  %60 = load i32, ptr %4, align 4, !tbaa !73
+  %61 = load i16, ptr %21, align 8, !tbaa !78
+  %62 = sext i16 %61 to i32
+  %63 = load ptr, ptr %12, align 8, !tbaa !6
+  call void %55(ptr noundef %57, i32 noundef %59, i32 noundef %60, i32 noundef %47, i32 noundef %62, ptr noundef %63, i64 noundef %22)
+  %64 = load ptr, ptr %12, align 8, !tbaa !6
+  %65 = load ptr, ptr %64, align 8, !tbaa !71
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(8) %64, i64 noundef %46, i32 noundef 0)
+  br label %69
 
-71:                                               ; preds = %58, %56
-  %72 = load i32, ptr %3, align 4, !tbaa !73
-  switch i32 %72, label %.loopexit [
-    i32 1, label %73
-    i32 3, label %80
-    i32 5, label %87
-    i32 2, label %94
-    i32 4, label %101
-    i32 7, label %108
-    i32 6, label %115
-    i32 9, label %119
+69:                                               ; preds = %56, %54
+  %70 = load i32, ptr %3, align 4, !tbaa !73
+  switch i32 %70, label %.loopexit [
+    i32 1, label %71
+    i32 3, label %78
+    i32 5, label %85
+    i32 2, label %92
+    i32 4, label %99
+    i32 7, label %106
+    i32 6, label %113
+    i32 9, label %117
   ]
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %14, align 8, !tbaa !6
-  %75 = load ptr, ptr %74, align 8, !tbaa !71
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef i32 %77(ptr noundef nonnull align 8 dereferenceable(8) %74)
-  %79 = trunc i32 %78 to i8
-  store i8 %79, ptr %32, align 1, !tbaa !123
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %12, align 8, !tbaa !6
+  %73 = load ptr, ptr %72, align 8, !tbaa !71
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
+  %75 = load ptr, ptr %74, align 8
+  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(8) %72)
+  %77 = trunc i32 %76 to i8
+  store i8 %77, ptr %30, align 1, !tbaa !123
   br label %.loopexit
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %14, align 8, !tbaa !6
-  %82 = load ptr, ptr %81, align 8, !tbaa !71
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
-  %84 = load ptr, ptr %83, align 8
-  %85 = call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(8) %81)
-  %86 = trunc i32 %85 to i8
-  store i8 %86, ptr %31, align 2, !tbaa !124
+78:                                               ; preds = %69
+  %79 = load ptr, ptr %12, align 8, !tbaa !6
+  %80 = load ptr, ptr %79, align 8, !tbaa !71
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(8) %79)
+  %84 = trunc i32 %83 to i8
+  store i8 %84, ptr %29, align 2, !tbaa !124
   br label %.loopexit
 
-87:                                               ; preds = %71
-  %88 = load ptr, ptr %14, align 8, !tbaa !6
-  %89 = load ptr, ptr %88, align 8, !tbaa !71
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  %91 = load ptr, ptr %90, align 8
-  %92 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(8) %88)
-  %93 = trunc i32 %92 to i8
-  store i8 %93, ptr %30, align 4, !tbaa !125
+85:                                               ; preds = %69
+  %86 = load ptr, ptr %12, align 8, !tbaa !6
+  %87 = load ptr, ptr %86, align 8, !tbaa !71
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(8) %86)
+  %91 = trunc i32 %90 to i8
+  store i8 %91, ptr %28, align 4, !tbaa !125
   br label %.loopexit
 
-94:                                               ; preds = %71
-  %95 = load i32, ptr %5, align 4, !tbaa !73
-  %96 = icmp eq i32 %95, 3
-  br i1 %96, label %.preheader, label %.loopexit
+92:                                               ; preds = %69
+  %93 = load i32, ptr %5, align 4, !tbaa !73
+  %94 = icmp eq i32 %93, 3
+  br i1 %94, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %94, %.preheader
-  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %94 ]
-  %97 = load i32, ptr %4, align 4, !tbaa !73
-  %98 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %97)
-  %99 = fptrunc reassoc nsz arcp contract afn double %98 to float
-  %100 = getelementptr inbounds nuw [3 x float], ptr %29, i64 0, i64 %indvars.iv41
-  store float %99, ptr %100, align 4, !tbaa !111
+.preheader:                                       ; preds = %92, %.preheader
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %92 ]
+  %95 = load i32, ptr %4, align 4, !tbaa !73
+  %96 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %95)
+  %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
+  %98 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv41
+  store float %97, ptr %98, align 4, !tbaa !111
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
   br i1 %exitcond44.not, label %.loopexit, label %.preheader, !llvm.loop !126
 
-101:                                              ; preds = %71
-  %102 = load i32, ptr %5, align 4, !tbaa !73
-  %103 = icmp eq i32 %102, 3
-  br i1 %103, label %.preheader23, label %.loopexit
+99:                                               ; preds = %69
+  %100 = load i32, ptr %5, align 4, !tbaa !73
+  %101 = icmp eq i32 %100, 3
+  br i1 %101, label %.preheader23, label %.loopexit
 
-.preheader23:                                     ; preds = %101, %.preheader23
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader23 ], [ 0, %101 ]
-  %104 = load i32, ptr %4, align 4, !tbaa !73
-  %105 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %104)
-  %106 = fptrunc reassoc nsz arcp contract afn double %105 to float
-  %107 = getelementptr inbounds nuw [3 x float], ptr %28, i64 0, i64 %indvars.iv37
-  store float %106, ptr %107, align 4, !tbaa !111
+.preheader23:                                     ; preds = %99, %.preheader23
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader23 ], [ 0, %99 ]
+  %102 = load i32, ptr %4, align 4, !tbaa !73
+  %103 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %102)
+  %104 = fptrunc reassoc nsz arcp contract afn double %103 to float
+  %105 = getelementptr inbounds nuw [3 x float], ptr %26, i64 0, i64 %indvars.iv37
+  store float %104, ptr %105, align 4, !tbaa !111
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
   br i1 %exitcond40.not, label %.loopexit, label %.preheader23, !llvm.loop !127
 
-108:                                              ; preds = %71
-  %109 = load i32, ptr %5, align 4, !tbaa !73
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %.preheader25, label %.loopexit
+106:                                              ; preds = %69
+  %107 = load i32, ptr %5, align 4, !tbaa !73
+  %108 = icmp eq i32 %107, 3
+  br i1 %108, label %.preheader25, label %.loopexit
 
-.preheader25:                                     ; preds = %108, %.preheader25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader25 ], [ 0, %108 ]
-  %111 = load i32, ptr %4, align 4, !tbaa !73
-  %112 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %111)
-  %113 = fptrunc reassoc nsz arcp contract afn double %112 to float
-  %114 = getelementptr inbounds nuw [3 x float], ptr %27, i64 0, i64 %indvars.iv
-  store float %113, ptr %114, align 4, !tbaa !111
+.preheader25:                                     ; preds = %106, %.preheader25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader25 ], [ 0, %106 ]
+  %109 = load i32, ptr %4, align 4, !tbaa !73
+  %110 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %109)
+  %111 = fptrunc reassoc nsz arcp contract afn double %110 to float
+  %112 = getelementptr inbounds nuw [3 x float], ptr %25, i64 0, i64 %indvars.iv
+  store float %111, ptr %112, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader25, !llvm.loop !128
 
-115:                                              ; preds = %71
-  %116 = load i32, ptr %4, align 4, !tbaa !73
-  %117 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %116)
-  %118 = fptrunc reassoc nsz arcp contract afn double %117 to float
-  store float %118, ptr %26, align 8, !tbaa !129
+113:                                              ; preds = %69
+  %114 = load i32, ptr %4, align 4, !tbaa !73
+  %115 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %114)
+  %116 = fptrunc reassoc nsz arcp contract afn double %115 to float
+  store float %116, ptr %24, align 8, !tbaa !129
   br label %.loopexit
 
-119:                                              ; preds = %71
-  %120 = load ptr, ptr %14, align 8, !tbaa !6
-  %121 = load ptr, ptr %120, align 8, !tbaa !71
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %123 = load ptr, ptr %122, align 8
-  %124 = call noundef i32 %123(ptr noundef nonnull align 8 dereferenceable(8) %120)
-  %125 = trunc i32 %124 to i8
-  store i8 %125, ptr %25, align 1, !tbaa !130
+117:                                              ; preds = %69
+  %118 = load ptr, ptr %12, align 8, !tbaa !6
+  %119 = load ptr, ptr %118, align 8, !tbaa !71
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
+  %121 = load ptr, ptr %120, align 8
+  %122 = call noundef i32 %121(ptr noundef nonnull align 8 dereferenceable(8) %118)
+  %123 = trunc i32 %122 to i8
+  store i8 %123, ptr %23, align 1, !tbaa !130
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader25, %.preheader23, %.preheader, %108, %101, %94, %119, %115, %87, %80, %73, %71
-  %126 = load ptr, ptr %14, align 8, !tbaa !6
+.loopexit:                                        ; preds = %.preheader25, %.preheader23, %.preheader, %106, %99, %92, %117, %113, %85, %78, %71, %69
+  %124 = load ptr, ptr %12, align 8, !tbaa !6
   br label %.backedge
 
-.loopexit27:                                      ; preds = %.backedge, %13, %2
+.loopexit27.critedge:                             ; preds = %10
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 381416
+  %126 = load ptr, ptr %125, align 8, !tbaa !6
+  %127 = load ptr, ptr %126, align 8, !tbaa !71
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noundef i64 %129(ptr noundef nonnull align 8 dereferenceable(8) %126)
+  br label %.loopexit27
+
+.loopexit27:                                      ; preds = %.backedge, %.loopexit27.critedge, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10

@@ -712,7 +712,7 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
   ret void
 
 48:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
-  %.025 = phi ptr [ %19, %.lr.ph ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
+  %.025 = phi ptr [ %19, %.lr.ph ], [ %88, %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, i8 0, i64 28, i1 false)
   %49 = load i32, ptr %.025, align 8, !tbaa !93
@@ -764,34 +764,34 @@ _ZN4llvm11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EED2Ev.exit: ; preds 
   %75 = icmp uge ptr %5, %.pre3.i
   %76 = icmp ult ptr %5, %74
   %spec.select.i.i.i.i.i = and i1 %75, %76
-  br i1 %spec.select.i.i.i.i.i, label %78, label %77, !prof !116
+  br i1 %spec.select.i.i.i.i.i, label %77, label %.critedge.i.i.i, !prof !116
 
 77:                                               ; preds = %73
+  %78 = ptrtoint ptr %.pre3.i to i64
+  %79 = sub i64 %29, %78
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
+  %80 = load ptr, ptr %3, align 8, !tbaa !10
+  %81 = getelementptr inbounds i8, ptr %80, i64 %79
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %73
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !10
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
 
-78:                                               ; preds = %73
-  %79 = ptrtoint ptr %.pre3.i to i64
-  %80 = sub i64 %29, %79
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %7, i64 noundef %71, i64 noundef 32) #12
-  %81 = load ptr, ptr %3, align 8, !tbaa !10
-  %82 = getelementptr inbounds i8, ptr %81, i64 %80
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit: ; preds = %48, %77, %78
-  %83 = phi ptr [ %.pre3.i, %48 ], [ %81, %78 ], [ %.pre.i, %77 ]
-  %.016.i.i.i = phi ptr [ %5, %48 ], [ %82, %78 ], [ %5, %77 ]
-  %84 = load i32, ptr %8, align 8, !tbaa !7
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %83, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %86, ptr noundef nonnull align 4 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %87 = load i32, ptr %8, align 8, !tbaa !7
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %8, align 8, !tbaa !7
+_ZN4llvm23SmallVectorTemplateBaseINS_4dxbc23ProgramSignatureElementELb1EE9push_backERKS2_.exit: ; preds = %48, %77, %.critedge.i.i.i
+  %82 = phi ptr [ %.pre3.i, %48 ], [ %80, %77 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %5, %48 ], [ %81, %77 ], [ %5, %.critedge.i.i.i ]
+  %83 = load i32, ptr %8, align 8, !tbaa !7
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %82, i64 %84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %85, ptr noundef nonnull align 4 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %86 = load i32, ptr %8, align 8, !tbaa !7
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
-  %89 = getelementptr inbounds nuw i8, ptr %.025, i64 48
-  %.not = icmp eq ptr %89, %20
+  %88 = getelementptr inbounds nuw i8, ptr %.025, i64 48
+  %.not = icmp eq ptr %88, %20
   br i1 %.not, label %._crit_edge, label %48
 }
 

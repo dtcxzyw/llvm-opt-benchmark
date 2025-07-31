@@ -2773,8 +2773,8 @@ _ZN12_GLOBAL__N_13FPS6popRegEv.exit.lr.ph.i.i:    ; preds = %714
   br label %_ZN12_GLOBAL__N_13FPS6popRegEv.exit.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN12_GLOBAL__N_13FPS6popRegEv.exit.i.i, %714
-  %.not58.i.i = icmp eq i32 %716, 0
-  br i1 %.not58.i.i, label %._crit_edge57.i.i, label %.lr.ph56.i.i
+  %.not59.i.i = icmp eq i32 %716, 0
+  br i1 %.not59.i.i, label %._crit_edge57.i.i, label %.lr.ph56.i.i
 
 .lr.ph56.i.i:                                     ; preds = %.preheader.i.i
   %wide.trip.count.i.i = zext nneg i32 %716 to i64
@@ -2800,7 +2800,7 @@ _ZN12_GLOBAL__N_13FPS6popRegEv.exit.i.i:          ; preds = %_ZN12_GLOBAL__N_13F
 
 723:                                              ; preds = %_ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i, %.lr.ph56.i.i
   %724 = phi i32 [ 0, %.lr.ph56.i.i ], [ %733, %_ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i ]
-  %indvars.iv60.i.i = phi i64 [ 0, %.lr.ph56.i.i ], [ %indvars.iv.next61.i.i, %_ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i ]
+  %indvars.iv61.i.i = phi i64 [ 0, %.lr.ph56.i.i ], [ %indvars.iv.next62.i.i, %_ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i ]
   %725 = icmp ugt i32 %724, 7
   br i1 %725, label %726, label %_ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i
 
@@ -2809,7 +2809,7 @@ _ZN12_GLOBAL__N_13FPS6popRegEv.exit.i.i:          ; preds = %_ZN12_GLOBAL__N_13F
   unreachable
 
 _ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i:         ; preds = %723
-  %727 = trunc nuw nsw i64 %indvars.iv60.i.i to i32
+  %727 = trunc nuw nsw i64 %indvars.iv61.i.i to i32
   %728 = xor i32 %727, -1
   %729 = add nsw i32 %716, %728
   %730 = zext nneg i32 %724 to i64
@@ -2821,8 +2821,8 @@ _ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i.i:         ; preds = %723
   %734 = zext i32 %729 to i64
   %735 = getelementptr inbounds nuw [8 x i32], ptr %86, i64 0, i64 %734
   store i32 %732, ptr %735, align 4, !tbaa !279
-  %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, %wide.trip.count.i.i
+  %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next62.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge57.i.i, label %723, !llvm.loop !367
 
 736:                                              ; preds = %._crit_edge57.i.i

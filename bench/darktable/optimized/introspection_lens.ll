@@ -6964,7 +6964,7 @@ define internal void @_ZL26_camera_autosearch_clickedP10_GtkWidgetP15dt_iop_modu
   %16 = tail call noundef ptr @_ZNK10lfDatabase10GetCamerasEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #29
   %.not.not22 = icmp eq ptr %16, null
-  br i1 %.not.not22, label %.thread, label %18
+  br i1 %.not.not22, label %.critedge, label %18
 
 18:                                               ; preds = %14
   %19 = tail call fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8lfCamera(ptr noundef nonnull %1, ptr noundef %16)
@@ -6995,7 +6995,7 @@ _ZL12_parse_modelPKcPcm.exit:                     ; preds = %.lr.ph.i, %23
   %29 = call noundef ptr @_ZNK10lfDatabase14FindCamerasExtEPKcS1_i(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0)
   %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #29
   %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %.thread, label %31
+  br i1 %.not.not, label %.critedge, label %31
 
 31:                                               ; preds = %_ZL12_parse_modelPKcPcm.exit
   %32 = call fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8lfCamera(ptr noundef %1, ptr noundef %29)
@@ -7005,9 +7005,9 @@ _ZL12_parse_modelPKcPcm.exit:                     ; preds = %.lr.ph.i, %23
 33:                                               ; preds = %31, %18
   %.1 = phi ptr [ %19, %18 ], [ %32, %31 ]
   call void @dt_gui_menu_popup(ptr noundef %.1, ptr noundef %0, i32 noundef 9, i32 noundef 3)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %_ZL12_parse_modelPKcPcm.exit, %14, %33
+.critedge:                                        ; preds = %_ZL12_parse_modelPKcPcm.exit, %14, %33
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #29
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #29
   ret void

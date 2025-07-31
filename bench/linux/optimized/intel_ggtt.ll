@@ -510,7 +510,7 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   store i32 %11, ptr %12, align 8
   %13 = tail call i32 @intel_vgt_balloon(ptr noundef %6) #10
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread17
+  br i1 %14, label %15, label %.thread15
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -649,11 +649,11 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   %105 = load volatile i64, ptr %33, align 8
   %106 = and i64 %105, 1
   %107 = icmp eq i64 %106, 0
-  br i1 %107, label %.thread17, label %108
+  br i1 %107, label %.thread15, label %108
 
 108:                                              ; preds = %104
   tail call void @drm_mm_remove_node(ptr noundef nonnull %32) #10
-  br label %.thread17
+  br label %.thread15
 
 ._crit_edge:                                      ; preds = %92, %72
   %109 = load ptr, ptr %75, align 8
@@ -664,7 +664,7 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 7208
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 1
-  br i1 %115, label %116, label %.thread17
+  br i1 %115, label %116, label %.thread15
 
 116:                                              ; preds = %._crit_edge
   %117 = load ptr, ptr %3, align 8
@@ -683,7 +683,7 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   %126 = and i64 %125, 4294967295
   %127 = icmp eq i64 %126, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
-  br i1 %127, label %.thread17, label %187
+  br i1 %127, label %.thread15, label %187
 
 128:                                              ; preds = %116
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 328
@@ -767,7 +767,7 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   store ptr @aliasing_gtt_unbind_vma, ptr %178, align 8
   call void @i915_vm_free_pt_stash(ptr noundef %122, ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
-  br label %.thread17
+  br label %.thread15
 
 179:                                              ; preds = %163
   call void @i915_vm_free_pt_stash(ptr noundef %122, ptr noundef nonnull %2) #10
@@ -780,22 +780,22 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
 
 183:                                              ; preds = %180
   %184 = icmp sgt i32 %181, 0
-  br i1 %184, label %.thread19, label %185, !prof !18
+  br i1 %184, label %.thread17, label %185, !prof !18
 
 185:                                              ; preds = %183
   call void @refcount_warn_saturate(ptr noundef %122, i32 noundef 3) #10
-  br label %.thread19
+  br label %.thread17
 
 186:                                              ; preds = %180
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   call void @i915_vm_release(ptr noundef %122) #10, !callees !21
-  br label %.thread19
+  br label %.thread17
 
-.thread19:                                        ; preds = %183, %185, %186
+.thread17:                                        ; preds = %183, %185, %186
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
   br label %187
 
-187:                                              ; preds = %.thread19, %124
+187:                                              ; preds = %.thread17, %124
   %188 = load ptr, ptr %3, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
@@ -815,14 +815,14 @@ define dso_local i32 @i915_init_ggtt(ptr noundef readonly captures(none) %0) loc
   %199 = load volatile i64, ptr %198, align 8
   %200 = and i64 %199, 1
   %201 = icmp eq i64 %200, 0
-  br i1 %201, label %.thread17, label %202
+  br i1 %201, label %.thread15, label %202
 
 202:                                              ; preds = %197
   %203 = getelementptr inbounds nuw i8, ptr %190, i64 904
   call void @drm_mm_remove_node(ptr noundef nonnull %203) #10
-  br label %.thread17
+  br label %.thread15
 
-.thread17:                                        ; preds = %108, %104, %1, %202, %197, %167, %124, %._crit_edge
+.thread15:                                        ; preds = %108, %104, %1, %202, %197, %167, %124, %._crit_edge
   %204 = phi i32 [ 0, %124 ], [ 0, %._crit_edge ], [ 0, %197 ], [ 0, %202 ], [ 0, %167 ], [ %63, %108 ], [ %63, %104 ], [ %13, %1 ]
   ret i32 %204
 }

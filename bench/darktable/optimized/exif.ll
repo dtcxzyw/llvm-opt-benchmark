@@ -25417,7 +25417,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %36, label %6
+  br i1 %.not, label %35, label %6
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
@@ -25431,7 +25431,7 @@ define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, 
 
 11:                                               ; preds = %6
   call void @free(ptr noundef %9) #35
-  br label %.thread
+  br label %.critedge
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %5, align 8, !tbaa !18
@@ -25441,7 +25441,7 @@ define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, 
   %16 = call noalias ptr @g_base64_encode(ptr noundef %9, i64 noundef %13)
   call void @free(ptr noundef %9) #35
   %.not68 = icmp eq ptr %16, null
-  br i1 %.not68, label %.thread, label %17
+  br i1 %.not68, label %.critedge, label %17
 
 17:                                               ; preds = %12
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #40
@@ -25450,98 +25450,99 @@ define noundef ptr @dt_exif_xmp_encode_internal(ptr noundef %0, i32 noundef %1, 
   %21 = sext i32 %20 to i64
   %22 = call noalias ptr @malloc(i64 noundef %21) #42
   %.not69.not = icmp eq ptr %22, null
-  br i1 %.not69.not, label %23, label %24
+  br i1 %.not69.not, label %34, label %23
 
 23:                                               ; preds = %17
-  call void @g_free(ptr noundef nonnull %16)
-  br label %.thread
-
-24:                                               ; preds = %17
   store i8 103, ptr %22, align 1, !tbaa !22
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 122, ptr %25, align 1, !tbaa !22
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 122, ptr %24, align 1, !tbaa !22
   %.lhs.trunc = trunc nuw nsw i64 %spec.select73 to i8
-  %26 = udiv i8 %.lhs.trunc, 10
-  %27 = or disjoint i8 %26, 48
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  store i8 %27, ptr %28, align 1, !tbaa !22
+  %25 = udiv i8 %.lhs.trunc, 10
+  %26 = or disjoint i8 %25, 48
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  store i8 %26, ptr %27, align 1, !tbaa !22
   %.lhs.trunc76 = trunc nuw nsw i64 %spec.select73 to i8
-  %29 = urem i8 %.lhs.trunc76, 10
-  %30 = or disjoint i8 %29, 48
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 3
-  store i8 %30, ptr %31, align 1, !tbaa !22
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %33 = call i64 @g_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %16, i64 noundef %21)
+  %28 = urem i8 %.lhs.trunc76, 10
+  %29 = or disjoint i8 %28, 48
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 3
+  store i8 %29, ptr %30, align 1, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %32 = call i64 @g_strlcpy(ptr noundef nonnull %31, ptr noundef nonnull %16, i64 noundef %21)
   call void @g_free(ptr noundef nonnull %16)
   %.not70 = icmp eq ptr %2, null
-  br i1 %.not70, label %35, label %34
+  br i1 %.not70, label %.thread, label %33
 
-34:                                               ; preds = %24
+33:                                               ; preds = %23
   store i32 %20, ptr %2, align 4, !tbaa !154
-  br label %35
+  br label %.thread
 
-.thread:                                          ; preds = %11, %12, %23
+.thread:                                          ; preds = %23, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  br label %.critedge
+  br label %.critedge72
 
-35:                                               ; preds = %24, %34
+34:                                               ; preds = %17
+  call void @g_free(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  br label %.critedge
+  br label %.critedge72
 
-36:                                               ; preds = %4
-  %37 = shl nsw i32 %1, 1
-  %38 = or disjoint i32 %37, 1
-  %39 = sext i32 %38 to i64
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #42
-  %.not65.not = icmp eq ptr %40, null
-  br i1 %.not65.not, label %.critedge, label %41
+35:                                               ; preds = %4
+  %36 = shl nsw i32 %1, 1
+  %37 = or disjoint i32 %36, 1
+  %38 = sext i32 %37 to i64
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #42
+  %.not65.not = icmp eq ptr %39, null
+  br i1 %.not65.not, label %.critedge72, label %40
 
-41:                                               ; preds = %36
+40:                                               ; preds = %35
   %.not66 = icmp eq ptr %2, null
-  br i1 %.not66, label %43, label %42
+  br i1 %.not66, label %42, label %41
 
-42:                                               ; preds = %41
-  store i32 %38, ptr %2, align 4, !tbaa !154
-  br label %43
+41:                                               ; preds = %40
+  store i32 %37, ptr %2, align 4, !tbaa !154
+  br label %42
 
-43:                                               ; preds = %42, %41
-  %44 = icmp sgt i32 %1, 0
-  br i1 %44, label %.lr.ph.preheader, label %._crit_edge
+42:                                               ; preds = %41, %40
+  %43 = icmp sgt i32 %1, 0
+  br i1 %43, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %43
+.lr.ph.preheader:                                 ; preds = %42
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %43
-  %45 = sext i32 %37 to i64
-  %46 = getelementptr inbounds i8, ptr %40, i64 %45
-  store i8 0, ptr %46, align 1, !tbaa !22
-  br label %.critedge
+._crit_edge:                                      ; preds = %.lr.ph, %42
+  %44 = sext i32 %36 to i64
+  %45 = getelementptr inbounds i8, ptr %39, i64 %44
+  store i8 0, ptr %45, align 1, !tbaa !22
+  br label %.critedge72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %48 = load i8, ptr %47, align 1, !tbaa !22
-  %49 = zext i8 %48 to i32
-  %50 = lshr i32 %49, 4
-  %51 = and i32 %49, 15
-  %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr inbounds nuw [16 x i8], ptr @__const.dt_exif_xmp_encode_internal.hex, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !22
-  %55 = shl nuw nsw i64 %indvars.iv, 1
-  %56 = getelementptr inbounds nuw i8, ptr %40, i64 %55
-  store i8 %54, ptr %56, align 1, !tbaa !22
-  %57 = zext nneg i32 %51 to i64
-  %58 = getelementptr inbounds nuw [16 x i8], ptr @__const.dt_exif_xmp_encode_internal.hex, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !22
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store i8 %59, ptr %60, align 1, !tbaa !22
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %47 = load i8, ptr %46, align 1, !tbaa !22
+  %48 = zext i8 %47 to i32
+  %49 = lshr i32 %48, 4
+  %50 = and i32 %48, 15
+  %51 = zext nneg i32 %49 to i64
+  %52 = getelementptr inbounds nuw [16 x i8], ptr @__const.dt_exif_xmp_encode_internal.hex, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !22
+  %54 = shl nuw nsw i64 %indvars.iv, 1
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 %54
+  store i8 %53, ptr %55, align 1, !tbaa !22
+  %56 = zext nneg i32 %50 to i64
+  %57 = getelementptr inbounds nuw [16 x i8], ptr @__const.dt_exif_xmp_encode_internal.hex, i64 0, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !22
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  store i8 %58, ptr %59, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !264
 
-.critedge:                                        ; preds = %35, %._crit_edge, %.thread, %36
-  %.3 = phi ptr [ null, %36 ], [ null, %.thread ], [ %22, %35 ], [ %40, %._crit_edge ]
+.critedge:                                        ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  br label %.critedge72
+
+.critedge72:                                      ; preds = %.thread, %._crit_edge, %34, %35, %.critedge
+  %.3 = phi ptr [ null, %34 ], [ null, %.critedge ], [ null, %35 ], [ %39, %._crit_edge ], [ %22, %.thread ]
   ret ptr %.3
 }
 
@@ -25562,8 +25563,8 @@ sub_0:
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i8, ptr %0, align 1
-  %.not92 = icmp eq i8 %5, 103
-  br i1 %.not92, label %.tail, label %.tail.thread
+  %.not89 = icmp eq i8 %5, 103
+  br i1 %.not89, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -25579,7 +25580,7 @@ sub_0:
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = tail call noalias ptr @strdup(ptr noundef nonnull %14) #35
   %.not69 = icmp eq ptr %15, null
-  br i1 %.not69, label %.thread83, label %16
+  br i1 %.not69, label %.critedge, label %16
 
 16:                                               ; preds = %9
   %17 = sext i8 %11 to i32
@@ -25627,31 +25628,31 @@ sub_0:
 
 38:                                               ; preds = %37
   %.not73 = icmp eq ptr %2, null
-  br i1 %.not73, label %.thread83.sink.split, label %39
+  br i1 %.not73, label %.critedge.sink.split, label %39
 
 39:                                               ; preds = %38
   %40 = load i64, ptr %4, align 8, !tbaa !18
   %41 = trunc i64 %40 to i32
   store i32 %41, ptr %2, align 4, !tbaa !154
-  br label %.thread83.sink.split
+  br label %.critedge.sink.split
 
 .thread81:                                        ; preds = %30, %37
-  %.lcssa97.sink = phi ptr [ %31, %37 ], [ %15, %30 ]
-  call void @free(ptr noundef nonnull %.lcssa97.sink) #35
-  br label %.thread83.sink.split
+  %.sink = phi ptr [ %31, %37 ], [ %15, %30 ]
+  call void @free(ptr noundef nonnull %.sink) #35
+  br label %.critedge.sink.split
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %42 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.281) #40
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #40
   %.not74 = icmp eq i64 %42, %43
-  br i1 %.not74, label %44, label %.thread83
+  br i1 %.not74, label %44, label %.critedge
 
 44:                                               ; preds = %.tail.thread
   %45 = sdiv i32 %1, 2
   %46 = sext i32 %45 to i64
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #42
   %.not75 = icmp eq ptr %47, null
-  br i1 %.not75, label %.thread83, label %48
+  br i1 %.not75, label %.critedge, label %48
 
 48:                                               ; preds = %44
   %.not76 = icmp eq ptr %2, null
@@ -25663,7 +25664,7 @@ sub_0:
 
 50:                                               ; preds = %49, %48
   %51 = icmp sgt i32 %1, 1
-  br i1 %51, label %.lr.ph.preheader, label %.thread83
+  br i1 %51, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %50
   %wide.trip.count = zext nneg i32 %45 to i64
@@ -25680,24 +25681,24 @@ sub_0:
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !22
   %59 = icmp sgt i8 %58, 57
-  %.v88 = select i1 %59, i8 -87, i8 -48
-  %60 = add i8 %.v88, %58
+  %.v85 = select i1 %59, i8 -87, i8 -48
+  %60 = add i8 %.v85, %58
   %61 = shl i8 %56, 4
   %62 = or i8 %61, %60
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
   store i8 %62, ptr %63, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread83, label %.lr.ph, !llvm.loop !266
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !266
 
-.thread83.sink.split:                             ; preds = %39, %38, %.thread81
+.critedge.sink.split:                             ; preds = %39, %38, %.thread81
   %.2.ph = phi ptr [ null, %.thread81 ], [ %31, %38 ], [ %31, %39 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  br label %.thread83
+  br label %.critedge
 
-.thread83:                                        ; preds = %.lr.ph, %.thread83.sink.split, %50, %9, %44, %.tail.thread
-  %.2 = phi ptr [ null, %.tail.thread ], [ null, %44 ], [ null, %9 ], [ %47, %50 ], [ %.2.ph, %.thread83.sink.split ], [ %47, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.critedge.sink.split, %50, %9, %44, %.tail.thread
+  %.2 = phi ptr [ null, %.tail.thread ], [ null, %44 ], [ null, %9 ], [ %47, %50 ], [ %.2.ph, %.critedge.sink.split ], [ %47, %.lr.ph ]
   ret ptr %.2
 }
 

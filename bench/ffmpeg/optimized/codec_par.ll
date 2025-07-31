@@ -169,8 +169,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_copy(ptr noundef %0, pt
   br i1 %.not32.i, label %codec_parameters_copy_side_data.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %33
-  %.not3436.i = icmp sgt i32 %32, 0
-  br i1 %.not3436.i, label %.lr.ph.preheader.i, label %.loopexit
+  %.not3435.i = icmp sgt i32 %32, 0
+  br i1 %.not3435.i, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %32 to i64
@@ -178,7 +178,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_copy(ptr noundef %0, pt
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %.02538.i = phi i32 [ %34, %.lr.ph.preheader.i ], [ %49, %43 ]
+  %.02537.i = phi i32 [ %34, %.lr.ph.preheader.i ], [ %49, %43 ]
   %37 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %30, i64 %indvars.iv.i
   %38 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %37, align 8, !tbaa !30
@@ -197,7 +197,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_copy(ptr noundef %0, pt
   %47 = load i64, ptr %40, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %47, ptr %48, align 8, !tbaa !32
-  %49 = add nsw i32 %.02538.i, 1
+  %49 = add nsw i32 %.02537.i, 1
   store i32 %49, ptr %6, align 4, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -417,8 +417,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   br i1 %.not32.i, label %codec_parameters_copy_side_data.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %118
-  %.not3436.i = icmp sgt i32 %117, 0
-  br i1 %.not3436.i, label %.lr.ph.preheader.i, label %codec_parameters_copy_side_data.exit
+  %.not3435.i = icmp sgt i32 %117, 0
+  br i1 %.not3435.i, label %.lr.ph.preheader.i, label %codec_parameters_copy_side_data.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %117 to i64
@@ -426,7 +426,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
 
 .lr.ph.i:                                         ; preds = %128, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %128 ]
-  %.02538.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %134, %128 ]
+  %.02537.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %134, %128 ]
   %122 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %115, i64 %indvars.iv.i
   %123 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %121, i64 %indvars.iv.i
   %124 = load ptr, ptr %122, align 8, !tbaa !30
@@ -445,7 +445,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   %132 = load i64, ptr %125, align 8, !tbaa !32
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 %132, ptr %133, align 8, !tbaa !32
-  %134 = add nsw i32 %.02538.i, 1
+  %134 = add nsw i32 %.02537.i, 1
   store i32 %134, ptr %6, align 4, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -645,8 +645,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   br i1 %.not32.i, label %codec_parameters_copy_side_data.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %120
-  %.not3436.i = icmp sgt i32 %119, 0
-  br i1 %.not3436.i, label %.lr.ph.preheader.i, label %codec_parameters_copy_side_data.exit
+  %.not3435.i = icmp sgt i32 %119, 0
+  br i1 %.not3435.i, label %.lr.ph.preheader.i, label %codec_parameters_copy_side_data.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %119 to i64
@@ -654,7 +654,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %130, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %130 ]
-  %.02538.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %136, %130 ]
+  %.02537.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %136, %130 ]
   %124 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %117, i64 %indvars.iv.i
   %125 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %123, i64 %indvars.iv.i
   %126 = load ptr, ptr %124, align 8, !tbaa !30
@@ -673,7 +673,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   %134 = load i64, ptr %127, align 8, !tbaa !32
   %135 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 %134, ptr %135, align 8, !tbaa !32
-  %136 = add nsw i32 %.02538.i, 1
+  %136 = add nsw i32 %.02537.i, 1
   store i32 %136, ptr %115, align 4, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

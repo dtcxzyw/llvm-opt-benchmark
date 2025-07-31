@@ -2782,7 +2782,7 @@ cast_is_allowed.exit:                             ; preds = %91, %81, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2792,17 +2792,17 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures
   %10 = tail call ptr @type_get_ptr(ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %.val22 = load ptr, ptr %0, align 8
-  %13 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val22, ptr noundef %10, ptr noundef %12, i1 noundef zeroext %1) #10
+  %.val24 = load ptr, ptr %0, align 8
+  %13 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val24, ptr noundef %10, ptr noundef %12, i1 noundef zeroext %1) #10
   switch i32 %13, label %28 [
-    i32 1, label %rule_sa_to_ptr.exit
+    i32 1, label %.critedge22
     i32 2, label %14
     i32 -1, label %27
     i32 0, label %.critedge
   ]
 
 14:                                               ; preds = %3
-  br i1 %1, label %rule_sa_to_ptr.exit, label %15
+  br i1 %1, label %.critedge22, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2819,17 +2819,17 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 6
   %brmerge = or i1 %2, %26
-  br i1 %brmerge, label %rule_sa_to_ptr.exit, label %29
+  br i1 %brmerge, label %.critedge22, label %29
 
 27:                                               ; preds = %3
-  br label %rule_sa_to_ptr.exit
+  br label %.critedge22
 
 28:                                               ; preds = %3
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_sa_to_ptr, ptr noundef nonnull @.str.4, i32 noundef 864) #11
   unreachable
 
 .critedge:                                        ; preds = %3, %15
-  br i1 %2, label %rule_sa_to_ptr.exit, label %29
+  br i1 %2, label %.critedge22, label %29
 
 29:                                               ; preds = %22, %.critedge
   %30 = load ptr, ptr %4, align 8
@@ -2839,8 +2839,8 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @type_get_ptr(ptr noundef %34) #10
   %36 = load ptr, ptr %11, align 8
-  %.val22.i = load ptr, ptr %0, align 8
-  %37 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val22.i, ptr noundef %35, ptr noundef %36, i1 noundef zeroext true) #10
+  %.val24.i = load ptr, ptr %0, align 8
+  %37 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val24.i, ptr noundef %35, ptr noundef %36, i1 noundef zeroext true) #10
   %switch.tableidx = add i32 %37, 1
   %38 = icmp ult i32 %switch.tableidx, 4
   br i1 %38, label %switch.lookup, label %39
@@ -2856,11 +2856,11 @@ switch.lookup:                                    ; preds = %29
   %40 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %40, align 8
   %41 = getelementptr i8, ptr %0, i64 24
-  %.val21 = load ptr, ptr %41, align 8
-  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val21, i1 noundef zeroext %switch.masked)
-  br label %rule_sa_to_ptr.exit
+  %.val23 = load ptr, ptr %41, align 8
+  tail call fastcc void @report_cast_error(ptr %.val, ptr %.val23, i1 noundef zeroext %switch.masked)
+  br label %.critedge22
 
-rule_sa_to_ptr.exit:                              ; preds = %22, %.critedge, %switch.lookup, %14, %3, %27
+.critedge22:                                      ; preds = %22, %.critedge, %switch.lookup, %14, %3, %27
   %.020 = phi i1 [ false, %27 ], [ true, %3 ], [ %26, %22 ], [ true, %14 ], [ false, %switch.lookup ], [ false, %.critedge ]
   ret i1 %.020
 }

@@ -36021,7 +36021,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   %37 = icmp ne i32 %36, 22
   %38 = icmp eq ptr %34, null
   %39 = or i1 %38, %37
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 80
@@ -36030,12 +36030,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   %46 = icmp eq ptr %44, %45
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %40
   %48 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %44) #13
   %.not = icmp eq i8 %48, 8
-  br i1 %.not, label %49, label %.thread
+  br i1 %.not, label %49, label %.critedge
 
 49:                                               ; preds = %47
   %50 = tail call noundef ptr @_ZN8GraphKit16must_be_not_nullEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %20, i1 noundef zeroext false) #13
@@ -36050,23 +36050,23 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
 
 52:                                               ; preds = %49
   %53 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 177) #13
-  br i1 %53, label %64, label %.thread
+  br i1 %53, label %64, label %.critedge
 
 54:                                               ; preds = %49
   %55 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 178) #13
-  br i1 %55, label %64, label %.thread
+  br i1 %55, label %64, label %.critedge
 
 56:                                               ; preds = %49
   %57 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 179) #13
-  br i1 %57, label %64, label %.thread
+  br i1 %57, label %64, label %.critedge
 
 58:                                               ; preds = %49
   %59 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 180) #13
-  br i1 %59, label %64, label %.thread
+  br i1 %59, label %64, label %.critedge
 
 60:                                               ; preds = %49
   %61 = tail call noundef zeroext i1 @_ZN12vmIntrinsics22is_intrinsic_availableE13vmIntrinsicID(i32 noundef 181) #13
-  br i1 %61, label %64, label %.thread
+  br i1 %61, label %64, label %.critedge
 
 62:                                               ; preds = %49
   %63 = load ptr, ptr @g_assert_poison, align 8
@@ -36081,7 +36081,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   %.026 = phi ptr [ @.str.112, %52 ], [ @.str.114, %54 ], [ @.str.116, %56 ], [ @.str.118, %58 ], [ @.str.120, %60 ]
   %.028 = load ptr, ptr %.028.in, align 8
   %65 = icmp eq ptr %.028, null
-  br i1 %65, label %.thread, label %66
+  br i1 %65, label %.critedge, label %66
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %29, align 8
@@ -36101,9 +36101,9 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCom
   %81 = tail call noundef ptr @_ZN8ciSymbol4makeEPKc(ptr noundef nonnull %.026) #13
   %82 = tail call noundef ptr @_ZN7ciKlass10find_klassEP8ciSymbol(ptr noundef nonnull align 8 dereferenceable(44) %80, ptr noundef %81) #13
   %83 = tail call noundef zeroext i1 @_ZN14LibraryCallKit32inline_digestBase_implCompressMBEP4NodeP15ciInstanceKlass9BasicTypePhPKcS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %16, ptr noundef %82, i8 noundef zeroext %.027, ptr noundef nonnull %.028, ptr noundef nonnull %.029, ptr noundef %51, ptr noundef %24, ptr noundef %28)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %60, %58, %56, %54, %52, %64, %47, %2, %40, %66
+.critedge:                                        ; preds = %60, %58, %56, %54, %52, %64, %47, %2, %40, %66
   %.0 = phi i1 [ %83, %66 ], [ false, %40 ], [ false, %2 ], [ false, %47 ], [ false, %64 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ]
   ret i1 %.0
 }
@@ -37318,15 +37318,15 @@ _ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102: ; preds = %219, %195, %_ZN4No
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %240, %242
   %244 = icmp ult i32 %240, 4
-  %or.cond136 = and i1 %243, %244
-  br i1 %or.cond136, label %switch.lookup, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  %or.cond130 = and i1 %243, %244
+  br i1 %or.cond130, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102
   %switch.idx.cast = trunc nuw i32 %240 to i8
   %switch.offset = or disjoint i8 %switch.idx.cast, 8
   %245 = load i64, ptr @ArrayOperationPartialInlineSize, align 8
   %246 = icmp sgt i64 %245, 0
-  br i1 %246, label %247, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %246, label %247, label %.critedge
 
 247:                                              ; preds = %switch.lookup
   %248 = zext nneg i8 %switch.offset to i64
@@ -37336,19 +37336,19 @@ switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4Nod
   %252 = sdiv i64 %245, %251
   %253 = trunc i64 %252 to i32
   %254 = icmp sgt i32 %253, 15
-  br i1 %254, label %255, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %254, label %255, label %.critedge
 
 255:                                              ; preds = %247
   %256 = tail call noundef zeroext i1 @_ZN7Matcher27match_rule_supported_vectorEii9BasicType(i32 noundef 436, i32 noundef %253, i8 noundef zeroext %switch.offset) #13
-  br i1 %256, label %257, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %256, label %257, label %.critedge
 
 257:                                              ; preds = %255
   %258 = tail call noundef zeroext i1 @_ZN7Matcher27match_rule_supported_vectorEii9BasicType(i32 noundef 432, i32 noundef %253, i8 noundef zeroext %switch.offset) #13
-  br i1 %258, label %259, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %258, label %259, label %.critedge
 
 259:                                              ; preds = %257
   %260 = tail call noundef zeroext i1 @_ZN7Matcher27match_rule_supported_vectorEii9BasicType(i32 noundef 435, i32 noundef %253, i8 noundef zeroext %switch.offset) #13
-  br i1 %260, label %261, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %260, label %261, label %.critedge
 
 261:                                              ; preds = %259
   %262 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %248
@@ -37392,7 +37392,7 @@ switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4Nod
   %285 = tail call noundef ptr %284(ptr noundef nonnull align 8 dereferenceable(2400) %276, ptr noundef %277) #13
   %286 = tail call noundef ptr @_ZN14LibraryCallKit14generate_guardEP4NodeP10RegionNodef(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %285, ptr noundef null, float noundef 0x3EB0C6F7A0000000)
   %287 = tail call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #13
-  br i1 %287, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit, label %288
+  br i1 %287, label %.critedge, label %288
 
 288:                                              ; preds = %282
   %289 = load ptr, ptr %38, align 8
@@ -37521,20 +37521,20 @@ switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4Nod
   store i32 %386, ptr %384, align 4
   %387 = load i32, ptr @UseAVX, align 4
   %388 = icmp sgt i32 %387, 1
-  br i1 %388, label %389, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br i1 %388, label %389, label %.critedge
 
 389:                                              ; preds = %368
   %390 = load ptr, ptr %78, align 8
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 136
   store i8 1, ptr %391, align 8
-  br label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+  br label %.critedge
 
-_ZN14LibraryCallKit15clear_upper_avxEv.exit:      ; preds = %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102, %switch.lookup, %389, %368, %255, %257, %259, %282, %247
-  %.073 = phi ptr [ %286, %282 ], [ %228, %259 ], [ %228, %257 ], [ %228, %255 ], [ %228, %247 ], [ %286, %368 ], [ %286, %389 ], [ %228, %switch.lookup ], [ %228, %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102 ]
+.critedge:                                        ; preds = %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102, %389, %368, %switch.lookup, %255, %257, %259, %282, %247
+  %.073 = phi ptr [ %286, %282 ], [ %228, %259 ], [ %228, %257 ], [ %228, %255 ], [ %228, %247 ], [ %228, %switch.lookup ], [ %286, %368 ], [ %286, %389 ], [ %228, %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102 ]
   %.not = icmp eq ptr %.073, null
   br i1 %.not, label %_ZN4Node8init_reqEjPS_.exit115, label %392
 
-392:                                              ; preds = %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+392:                                              ; preds = %.critedge
   %393 = load ptr, ptr %4, align 8
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load ptr, ptr %394, align 8
@@ -37780,7 +37780,7 @@ _ZN4NodenwEm.exit111:                             ; preds = %499, %501
   store ptr %.0.i.i.i93, ptr %534, align 8
   br label %_ZN4Node8init_reqEjPS_.exit115
 
-_ZN4Node8init_reqEjPS_.exit115:                   ; preds = %529, %518, %511, %_ZN14LibraryCallKit15clear_upper_avxEv.exit
+_ZN4Node8init_reqEjPS_.exit115:                   ; preds = %529, %518, %511, %.critedge
   %535 = load ptr, ptr %38, align 8
   %536 = load ptr, ptr %535, align 8
   %537 = load ptr, ptr %536, align 8

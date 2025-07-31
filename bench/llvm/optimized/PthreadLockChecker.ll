@@ -8654,7 +8654,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i94:                ; preds = %_ZN4llvm11raw_ostre
   store ptr %206, ptr %195, align 8, !tbaa !168
   br label %_ZN4llvm9StringRefC2EPKc.exit.i99.preheader
 
-_ZN4llvm9StringRefC2EPKc.exit.i99.preheader:      ; preds = %201, %203, %204
+_ZN4llvm9StringRefC2EPKc.exit.i99.preheader:      ; preds = %204, %203, %201
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %_ZN4llvm9StringRefC2EPKc.exit.i99

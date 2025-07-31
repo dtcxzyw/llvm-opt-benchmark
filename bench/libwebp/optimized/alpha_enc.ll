@@ -250,15 +250,15 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br label %92
 
 92:                                               ; preds = %103, %.preheader.i.i
-  %.04566.i.i = phi i32 [ %.1.i63.i.i, %.preheader.i.i ], [ %105, %103 ]
-  %.04865.i.i = phi i32 [ 0, %.preheader.i.i ], [ %104, %103 ]
-  %93 = and i32 %.04566.i.i, 1
+  %.04565.i.i = phi i32 [ %.1.i63.i.i, %.preheader.i.i ], [ %105, %103 ]
+  %.04864.i.i = phi i32 [ 0, %.preheader.i.i ], [ %104, %103 ]
+  %93 = and i32 %.04565.i.i, 1
   %.not52.i.i = icmp eq i32 %93, 0
   br i1 %.not52.i.i, label %103, label %94
 
 94:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #5
-  %95 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef range(i32 0, 2) %18, i32 noundef %.04865.i.i, i32 noundef range(i32 0, 2) %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
+  %95 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef range(i32 0, 2) %18, i32 noundef %.04864.i.i, i32 noundef range(i32 0, 2) %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
   %.not53.i.i = icmp eq i32 %95, 0
   br i1 %.not53.i.i, label %101, label %96
 
@@ -283,10 +283,10 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
 
 103:                                              ; preds = %102, %92
   %.2.i.i = phi i32 [ %95, %102 ], [ 1, %92 ]
-  %104 = add nuw nsw i32 %.04865.i.i, 1
-  %105 = lshr i32 %.04566.i.i, 1
+  %104 = add nuw nsw i32 %.04864.i.i, 1
+  %105 = lshr i32 %.04565.i.i, 1
   %106 = icmp ne i32 %.2.i.i, 0
-  %107 = icmp ugt i32 %.04566.i.i, 1
+  %107 = icmp ugt i32 %.04565.i.i, 1
   %108 = and i1 %107, %106
   br i1 %108, label %92, label %109, !llvm.loop !60
 
@@ -574,14 +574,14 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %22 = lshr i64 %15, 3
   %23 = call i32 @VP8LBitWriterInit(ptr noundef nonnull %13, i64 noundef %22) #5
   %.not59 = icmp eq i32 %23, 0
-  br i1 %.not59, label %.thread, label %24
+  br i1 %.not59, label %.critedge, label %24
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %10) #5
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
   %25 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %11, i32 noundef 528) #5
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %.thread67, label %26
+  br i1 %.not.i, label %EncodeLossless.exit.thread, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -594,7 +594,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   store ptr %27, ptr %30, align 8, !tbaa !47
   %31 = call i32 @WebPPictureAlloc(ptr noundef nonnull %11) #5
   %.not15.i = icmp eq i32 %31, 0
-  br i1 %.not15.i, label %.thread67, label %32
+  br i1 %.not15.i, label %EncodeLossless.exit.thread, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr @WebPDispatchAlphaToGreen, align 8, !tbaa !87
@@ -607,7 +607,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   call void %33(ptr noundef %.050, i32 noundef %1, i32 noundef %34, i32 noundef %35, ptr noundef %37, i32 noundef %39) #5
   %40 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %10, i32 noundef 0, float noundef 7.500000e+01, i32 noundef 528) #5
   %.not16.i = icmp eq i32 %40, 0
-  br i1 %.not16.i, label %.thread67, label %41
+  br i1 %.not16.i, label %EncodeLossless.exit.thread, label %41
 
 41:                                               ; preds = %32
   store i32 1, ptr %10, align 4, !tbaa !91
@@ -634,12 +634,12 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
 
 .critedge.i:                                      ; preds = %41
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
-  br label %.thread67
+  br label %EncodeLossless.exit.thread
 
-.thread67:                                        ; preds = %.critedge.i, %24, %26, %32
+EncodeLossless.exit.thread:                       ; preds = %.critedge.i, %24, %26, %32
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10) #5
-  br label %.thread
+  br label %.critedge
 
 53:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
@@ -676,7 +676,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
   br label %75
 
-.thread:                                          ; preds = %21, %.thread67
+.critedge:                                        ; preds = %EncodeLossless.exit.thread, %21
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %74, i8 0, i64 48, i1 false)
@@ -684,11 +684,11 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
 
 75:                                               ; preds = %58, %20, %73
   %76 = phi ptr [ %.050, %73 ], [ %.050, %20 ], [ %54, %58 ]
-  %.049768995 = phi i32 [ 0, %73 ], [ 0, %20 ], [ 1, %58 ]
+  %.049758894 = phi i32 [ 0, %73 ], [ 0, %20 ], [ 1, %58 ]
   %77 = phi i1 [ true, %73 ], [ true, %20 ], [ false, %58 ]
   %78 = phi i64 [ %15, %73 ], [ %15, %20 ], [ %71, %58 ]
   %79 = shl i32 %4, 2
-  %80 = or disjoint i32 %.049768995, %79
+  %80 = or disjoint i32 %.049758894, %79
   %81 = trunc i32 %80 to i8
   %.not62 = icmp eq i32 %5, 0
   %82 = or i8 %81, 16
@@ -698,27 +698,27 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %84 = add i64 %78, 1
   %85 = call i32 @VP8BitWriterInit(ptr noundef nonnull %83, i64 noundef %84) #5
   %.not63.not = icmp eq i32 %85, 0
-  br i1 %.not63.not, label %.critedge, label %86
+  br i1 %.not63.not, label %.critedge68, label %86
 
 86:                                               ; preds = %75
   %87 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %83, ptr noundef nonnull %12, i64 noundef 1) #5
-  %.not98 = icmp eq i32 %87, 0
-  br i1 %.not98, label %.critedge, label %88
+  %.not97 = icmp eq i32 %87, 0
+  br i1 %.not97, label %.critedge68, label %88
 
 88:                                               ; preds = %86
   %89 = call i32 @VP8BitWriterAppend(ptr noundef nonnull %83, ptr noundef %76, i64 noundef %78) #5
   %90 = icmp ne i32 %89, 0
-  br label %.critedge
+  br label %.critedge68
 
-.critedge:                                        ; preds = %75, %88, %86
+.critedge68:                                      ; preds = %75, %88, %86
   %91 = phi i1 [ false, %86 ], [ %90, %88 ], [ false, %75 ]
   br i1 %77, label %93, label %92
 
-92:                                               ; preds = %.critedge
+92:                                               ; preds = %.critedge68
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %13) #5
   br label %93
 
-93:                                               ; preds = %92, %.critedge
+93:                                               ; preds = %92, %.critedge68
   br i1 %91, label %94, label %98
 
 94:                                               ; preds = %93
@@ -735,8 +735,8 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   store i64 %.val, ptr %8, align 8, !tbaa !48
   br label %101
 
-101:                                              ; preds = %98, %.thread, %56
-  %.048 = phi i32 [ 0, %56 ], [ %99, %98 ], [ 0, %.thread ]
+101:                                              ; preds = %98, %.critedge, %56
+  %.048 = phi i32 [ 0, %56 ], [ %99, %98 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #5
   ret i32 %.048

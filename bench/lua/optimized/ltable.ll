@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
   %12 = load i8, ptr %11, align 2, !tbaa !21
   %13 = and i8 %12, 64
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %84, label %14
 
 14:                                               ; preds = %10, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
   %21 = getelementptr inbounds i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = icmp ugt ptr %22, %20
-  br i1 %23, label %24, label %.loopexit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %22, i64 -24
@@ -1720,7 +1720,7 @@ define internal fastcc range(i32 0, 2) i32 @insertkey(ptr noundef readonly captu
 34:                                               ; preds = %35, %28
   %indvars.iv.i = phi i64 [ %36, %35 ], [ %32, %28 ]
   %.not.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.not.i, label %.loopexit, label %35
+  br i1 %.not.not.i, label %.critedge, label %35
 
 35:                                               ; preds = %34
   %36 = add nsw i64 %indvars.iv.i, -1
@@ -1786,7 +1786,7 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
 
 66:                                               ; preds = %58, %49
   store i8 16, ptr %6, align 8, !tbaa !16
-  br label %.thread
+  br label %84
 
 67:                                               ; preds = %getfreepos.exit
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1817,27 +1817,27 @@ getfreepos.exit:                                  ; preds = %35, %getfreepos.exi
   %82 = sdiv exact i64 %81, 24
   %83 = trunc i64 %82 to i32
   store i32 %83, ptr %68, align 4, !tbaa !16
-  br label %.thread
+  br label %84
 
-.thread:                                          ; preds = %79, %66, %10
-  %.048 = phi ptr [ %5, %10 ], [ %.2.i, %79 ], [ %5, %66 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %85 = load i64, ptr %1, align 8, !tbaa !16
-  store i64 %85, ptr %84, align 8, !tbaa !16
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = load i8, ptr %86, align 8, !tbaa !14
-  %88 = getelementptr inbounds nuw i8, ptr %.048, i64 9
-  store i8 %87, ptr %88, align 1, !tbaa !16
-  %89 = load i64, ptr %2, align 8, !tbaa !16
-  store i64 %89, ptr %.048, align 8, !tbaa !16
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %91 = load i8, ptr %90, align 8, !tbaa !14
-  %92 = getelementptr inbounds nuw i8, ptr %.048, i64 8
-  store i8 %91, ptr %92, align 8, !tbaa !14
-  br label %.loopexit
+84:                                               ; preds = %79, %66, %10
+  %.048 = phi ptr [ %5, %10 ], [ %5, %66 ], [ %.2.i, %79 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %86 = load i64, ptr %1, align 8, !tbaa !16
+  store i64 %86, ptr %85, align 8, !tbaa !16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = load i8, ptr %87, align 8, !tbaa !14
+  %89 = getelementptr inbounds nuw i8, ptr %.048, i64 9
+  store i8 %88, ptr %89, align 1, !tbaa !16
+  %90 = load i64, ptr %2, align 8, !tbaa !16
+  store i64 %90, ptr %.048, align 8, !tbaa !16
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %92 = load i8, ptr %91, align 8, !tbaa !14
+  %93 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  store i8 %92, ptr %93, align 8, !tbaa !14
+  br label %.critedge
 
-.loopexit:                                        ; preds = %34, %19, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %19 ], [ 0, %34 ]
+.critedge:                                        ; preds = %34, %19, %84
+  %.1 = phi i32 [ 1, %84 ], [ 0, %19 ], [ 0, %34 ]
   ret i32 %.1
 }
 

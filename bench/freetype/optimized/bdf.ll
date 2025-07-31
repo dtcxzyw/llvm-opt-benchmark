@@ -908,9 +908,9 @@ bdf_interpret_style.exit:                         ; preds = %315
 326:                                              ; preds = %317
   %327 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1288, ptr noundef nonnull @.str.5)
   %.not217 = icmp eq ptr %327, null
-  br i1 %.not217, label %.thread331, label %332
+  br i1 %.not217, label %.thread328, label %332
 
-.thread331:                                       ; preds = %326
+.thread328:                                       ; preds = %326
   %328 = getelementptr inbounds nuw i8, ptr %.1288, i64 16
   %329 = load i16, ptr %328, align 8, !tbaa !53
   %330 = sext i16 %329 to i64
@@ -930,10 +930,10 @@ bdf_interpret_style.exit:                         ; preds = %315
   store i64 32767, ptr %335, align 8, !tbaa !84
   br label %342
 
-338:                                              ; preds = %.thread331, %332
-  %339 = phi ptr [ %331, %.thread331 ], [ %335, %332 ]
-  %.sink333 = phi i64 [ %330, %.thread331 ], [ %334, %332 ]
-  %340 = icmp slt i64 %.sink333, 0
+338:                                              ; preds = %.thread328, %332
+  %339 = phi ptr [ %331, %.thread328 ], [ %335, %332 ]
+  %.sink330 = phi i64 [ %330, %.thread328 ], [ %334, %332 ]
+  %340 = icmp slt i64 %.sink330, 0
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %338
@@ -944,9 +944,9 @@ bdf_interpret_style.exit:                         ; preds = %315
   %343 = phi ptr [ %339, %338 ], [ %339, %341 ], [ %335, %337 ]
   %344 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1288, ptr noundef nonnull @.str.6)
   %.not218 = icmp eq ptr %344, null
-  br i1 %.not218, label %.thread334, label %349
+  br i1 %.not218, label %.thread331, label %349
 
-.thread334:                                       ; preds = %342
+.thread331:                                       ; preds = %342
   %345 = getelementptr inbounds nuw i8, ptr %.1288, i64 18
   %346 = load i16, ptr %345, align 2, !tbaa !55
   %347 = sext i16 %346 to i64
@@ -966,10 +966,10 @@ bdf_interpret_style.exit:                         ; preds = %315
   store i64 32767, ptr %352, align 8, !tbaa !85
   br label %359
 
-355:                                              ; preds = %.thread334, %349
-  %356 = phi ptr [ %348, %.thread334 ], [ %352, %349 ]
-  %.sink329336 = phi i64 [ %347, %.thread334 ], [ %351, %349 ]
-  %357 = icmp slt i64 %.sink329336, 0
+355:                                              ; preds = %.thread331, %349
+  %356 = phi ptr [ %348, %.thread331 ], [ %352, %349 ]
+  %.sink326333 = phi i64 [ %347, %.thread331 ], [ %351, %349 ]
+  %357 = icmp slt i64 %.sink326333, 0
   br i1 %357, label %358, label %359
 
 358:                                              ; preds = %355
@@ -977,7 +977,7 @@ bdf_interpret_style.exit:                         ; preds = %315
   br label %359
 
 359:                                              ; preds = %355, %358, %354
-  %360 = phi i64 [ %.sink329336, %355 ], [ 0, %358 ], [ 32767, %354 ]
+  %360 = phi i64 [ %.sink326333, %355 ], [ 0, %358 ], [ 32767, %354 ]
   %361 = load i64, ptr %343, align 8, !tbaa !84
   %362 = add nsw i64 %360, %361
   %363 = trunc i64 %362 to i16
@@ -1011,9 +1011,9 @@ bdf_interpret_style.exit:                         ; preds = %315
   br label %381
 
 381:                                              ; preds = %365, %369, %374
-  %.sink355 = phi i16 [ %373, %369 ], [ %380, %374 ], [ 32767, %365 ]
+  %.sink352 = phi i16 [ %373, %369 ], [ %380, %374 ], [ 32767, %365 ]
   %382 = getelementptr inbounds nuw i8, ptr %323, i64 2
-  store i16 %.sink355, ptr %382, align 2, !tbaa !88
+  store i16 %.sink352, ptr %382, align 2, !tbaa !88
   %383 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1288, ptr noundef nonnull @.str.8)
   %.not220 = icmp eq ptr %383, null
   br i1 %.not220, label %391, label %384
@@ -1051,9 +1051,9 @@ bdf_interpret_style.exit:                         ; preds = %315
   br label %403
 
 403:                                              ; preds = %394, %384, %397, %388
-  %.sink357 = phi i64 [ %402, %397 ], [ %390, %388 ], [ 32767, %384 ], [ %spec.select, %394 ]
+  %.sink354 = phi i64 [ %402, %397 ], [ %390, %388 ], [ 32767, %384 ], [ %spec.select, %394 ]
   %404 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  store i64 %.sink357, ptr %404, align 8, !tbaa !90
+  store i64 %.sink354, ptr %404, align 8, !tbaa !90
   %405 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1288, ptr noundef nonnull @.str.9)
   %.not222 = icmp eq ptr %405, null
   br i1 %.not222, label %414, label %.sink.split
@@ -1067,9 +1067,9 @@ bdf_interpret_style.exit:                         ; preds = %315
   %410 = call i32 @llvm.abs.i32(i32 %409, i1 true)
   %411 = shl nuw nsw i32 %410, 6
   %412 = zext nneg i32 %411 to i64
-  %.sink359 = select i1 %or.cond247, i64 2097088, i64 %412
+  %.sink356 = select i1 %or.cond247, i64 2097088, i64 %412
   %413 = getelementptr inbounds nuw i8, ptr %323, i64 24
-  store i64 %.sink359, ptr %413, align 8, !tbaa !91
+  store i64 %.sink356, ptr %413, align 8, !tbaa !91
   br label %414
 
 414:                                              ; preds = %.sink.split, %403
@@ -1102,7 +1102,7 @@ bdf_interpret_style.exit:                         ; preds = %315
   %.1170.in = select i1 %.not227, ptr %427, ptr %426
   %.1170 = load i64, ptr %.1170.in, align 8, !tbaa !37
   %.not228 = icmp eq i64 %.1170, 0
-  br i1 %.not228, label %.thread337, label %428
+  br i1 %.not228, label %.thread334, label %428
 
 428:                                              ; preds = %424
   %429 = add i64 %.1170, -32768
@@ -1118,13 +1118,13 @@ bdf_interpret_style.exit:                         ; preds = %315
   %436 = icmp eq i64 %435, 0
   br i1 %436, label %447, label %455
 
-.thread337:                                       ; preds = %424
+.thread334:                                       ; preds = %424
   %437 = getelementptr inbounds nuw i8, ptr %323, i64 24
   %438 = load i64, ptr %437, align 8, !tbaa !91
   %439 = icmp eq i64 %438, 0
-  br i1 %439, label %.thread340, label %.thread302
+  br i1 %439, label %.thread337, label %.thread302
 
-.thread340:                                       ; preds = %.thread337
+.thread337:                                       ; preds = %.thread334
   %440 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %441 = load i64, ptr %440, align 8, !tbaa !90
   store i64 %441, ptr %437, align 8, !tbaa !91
@@ -1160,8 +1160,8 @@ bdf_interpret_style.exit:                         ; preds = %315
 455:                                              ; preds = %.thread, %450, %430
   %456 = phi i64 [ %443, %.thread ], [ %454, %450 ], [ %435, %430 ]
   %.0171297 = phi i16 [ 32767, %.thread ], [ %.0171296301, %450 ], [ %433, %430 ]
-  %.not363 = icmp eq i16 %.0172, 0
-  br i1 %.not363, label %.thread302, label %457
+  %.not360 = icmp eq i16 %.0172, 0
+  br i1 %.not360, label %.thread302, label %457
 
 457:                                              ; preds = %455
   %458 = zext nneg i16 %.0172 to i64
@@ -1169,10 +1169,10 @@ bdf_interpret_style.exit:                         ; preds = %315
   %460 = call i64 @FT_MulDiv(i64 noundef %456, i64 noundef %458, i64 noundef %459) #17
   br label %.thread302
 
-.thread302:                                       ; preds = %455, %.thread340, %.thread337, %457
-  %.sink361 = phi i64 [ %460, %457 ], [ %456, %455 ], [ %441, %.thread340 ], [ %438, %.thread337 ]
+.thread302:                                       ; preds = %455, %.thread337, %.thread334, %457
+  %.sink358 = phi i64 [ %460, %457 ], [ %456, %455 ], [ %441, %.thread337 ], [ %438, %.thread334 ]
   %461 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  store i64 %.sink361, ptr %461, align 8, !tbaa !92
+  store i64 %.sink358, ptr %461, align 8, !tbaa !92
   %462 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1288, ptr noundef nonnull @.str.12)
   %.not231 = icmp eq ptr %462, null
   br i1 %.not231, label %466, label %463
@@ -1183,9 +1183,9 @@ bdf_interpret_style.exit:                         ; preds = %315
   br label %466
 
 466:                                              ; preds = %.thread302, %463
-  %.sink330 = phi i64 [ %465, %463 ], [ -1, %.thread302 ]
+  %.sink327 = phi i64 [ %465, %463 ], [ -1, %.thread302 ]
   %467 = getelementptr inbounds nuw i8, ptr %.1288, i64 56
-  store i64 %.sink330, ptr %467, align 8, !tbaa !93
+  store i64 %.sink327, ptr %467, align 8, !tbaa !93
   %468 = getelementptr inbounds nuw i8, ptr %.1288, i64 96
   %469 = load ptr, ptr %468, align 8, !tbaa !94
   %470 = load i64, ptr %318, align 8, !tbaa !80
@@ -1200,34 +1200,34 @@ bdf_interpret_style.exit:                         ; preds = %315
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 0, ptr %475, align 8, !tbaa !96
   %476 = load i64, ptr %318, align 8, !tbaa !80
-  %.not320 = icmp eq i64 %476, 0
-  br i1 %.not320, label %._crit_edge, label %.lr.ph
+  %.not317 = icmp eq i64 %476, 0
+  br i1 %.not317, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %474
   %477 = load i64, ptr %467, align 8, !tbaa !93
   br label %478
 
 478:                                              ; preds = %.lr.ph, %488
-  %.0168319 = phi i64 [ 0, %.lr.ph ], [ %489, %488 ]
-  %479 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %469, i64 %.0168319, i32 1
+  %.0168316 = phi i64 [ 0, %.lr.ph ], [ %489, %488 ]
+  %479 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %469, i64 %.0168316, i32 1
   %480 = load i64, ptr %479, align 8, !tbaa !97
-  %481 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %471, i64 %.0168319
+  %481 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %471, i64 %.0168316
   store i64 %480, ptr %481, align 8, !tbaa !99
-  %482 = trunc i64 %.0168319 to i16
-  %483 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %471, i64 %.0168319, i32 1
+  %482 = trunc i64 %.0168316 to i16
+  %483 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %471, i64 %.0168316, i32 1
   store i16 %482, ptr %483, align 8, !tbaa !101
   %484 = icmp eq i64 %480, %477
-  %485 = icmp ult i64 %.0168319, 4294967295
+  %485 = icmp ult i64 %.0168316, 4294967295
   %or.cond11 = and i1 %485, %484
   br i1 %or.cond11, label %486, label %488
 
 486:                                              ; preds = %478
-  %487 = trunc nuw i64 %.0168319 to i32
+  %487 = trunc nuw i64 %.0168316 to i32
   store i32 %487, ptr %475, align 8, !tbaa !96
   br label %488
 
 488:                                              ; preds = %478, %486
-  %489 = add nuw i64 %.0168319, 1
+  %489 = add nuw i64 %.0168316, 1
   %exitcond.not = icmp eq i64 %489, %476
   br i1 %exitcond.not, label %._crit_edge, label %478, !llvm.loop !102
 
@@ -1282,7 +1282,7 @@ bdf_interpret_style.exit:                         ; preds = %315
 
 517:                                              ; preds = %512
   %518 = load i8, ptr %514, align 1, !tbaa !37
-  switch i8 %518, label %.thread307 [
+  switch i8 %518, label %.critedge [
     i8 105, label %519
     i8 73, label %519
   ]
@@ -1290,7 +1290,7 @@ bdf_interpret_style.exit:                         ; preds = %315
 519:                                              ; preds = %517, %517
   %520 = getelementptr inbounds nuw i8, ptr %514, i64 1
   %521 = load i8, ptr %520, align 1, !tbaa !37
-  switch i8 %521, label %.thread307 [
+  switch i8 %521, label %.critedge [
     i8 115, label %522
     i8 83, label %522
   ]
@@ -1298,7 +1298,7 @@ bdf_interpret_style.exit:                         ; preds = %315
 522:                                              ; preds = %519, %519
   %523 = getelementptr inbounds nuw i8, ptr %514, i64 2
   %524 = load i8, ptr %523, align 1, !tbaa !37
-  switch i8 %524, label %.thread307 [
+  switch i8 %524, label %.critedge [
     i8 111, label %525
     i8 79, label %525
   ]
@@ -1307,7 +1307,7 @@ bdf_interpret_style.exit:                         ; preds = %315
   %526 = getelementptr inbounds nuw i8, ptr %514, i64 3
   %527 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %526, ptr noundef nonnull dereferenceable(6) @.str.15) #18
   %.not238 = icmp eq i32 %527, 0
-  br i1 %.not238, label %.thread310, label %528
+  br i1 %.not238, label %.thread307, label %528
 
 528:                                              ; preds = %525
   %529 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %526, ptr noundef nonnull dereferenceable(5) @.str.16) #18
@@ -1317,58 +1317,58 @@ bdf_interpret_style.exit:                         ; preds = %315
 sub_0:                                            ; preds = %528
   %530 = load ptr, ptr %510, align 8, !tbaa !103
   %531 = load i8, ptr %530, align 1
-  %.not321 = icmp eq i8 %531, 49
-  br i1 %.not321, label %.tail, label %.tail.thread
+  %.not318 = icmp eq i8 %531, 49
+  br i1 %.not318, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 1
   %533 = load i8, ptr %532, align 1
   %534 = icmp eq i8 %533, 0
-  br i1 %534, label %.thread310, label %.tail.thread
+  br i1 %534, label %.thread307, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail, %528
   %535 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %526, ptr noundef nonnull dereferenceable(9) @.str.18) #18
   %.not241 = icmp eq i32 %535, 0
-  br i1 %.not241, label %540, label %.thread307
+  br i1 %.not241, label %539, label %.critedge
 
-.thread307:                                       ; preds = %.tail.thread, %517, %519, %522
+.thread307:                                       ; preds = %.tail, %525
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
   store ptr %1, ptr %13, align 8, !tbaa !105
   %536 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %538 = getelementptr inbounds nuw i8, ptr %13, i64 14
   store i64 0, ptr %536, align 8
-  br label %550
+  br label %545
 
-.thread310:                                       ; preds = %.tail, %525
+539:                                              ; preds = %.tail.thread
+  %540 = load ptr, ptr %510, align 8, !tbaa !103
+  %541 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %540, ptr noundef nonnull dereferenceable(4) @.str.19) #18
+  %.not242.not = icmp eq i32 %541, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
   store ptr %1, ptr %13, align 8, !tbaa !105
-  %537 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %538 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %539 = getelementptr inbounds nuw i8, ptr %13, i64 14
-  store i64 0, ptr %537, align 8
-  br label %546
+  %542 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %543 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %544 = getelementptr inbounds nuw i8, ptr %13, i64 14
+  store i64 0, ptr %542, align 8
+  br i1 %.not242.not, label %545, label %550
 
-540:                                              ; preds = %.tail.thread
-  %541 = load ptr, ptr %510, align 8, !tbaa !103
-  %542 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %541, ptr noundef nonnull dereferenceable(4) @.str.19) #18
-  %.not242.not = icmp eq i32 %542, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
-  store ptr %1, ptr %13, align 8, !tbaa !105
-  %543 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %544 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %545 = getelementptr inbounds nuw i8, ptr %13, i64 14
-  store i64 0, ptr %543, align 8
-  br i1 %.not242.not, label %546, label %550
-
-546:                                              ; preds = %.thread310, %540
-  %547 = phi ptr [ %539, %.thread310 ], [ %545, %540 ]
-  %548 = phi ptr [ %538, %.thread310 ], [ %544, %540 ]
-  %549 = phi ptr [ %537, %.thread310 ], [ %543, %540 ]
-  store i32 1970170211, ptr %549, align 8, !tbaa !108
-  store i16 3, ptr %548, align 4, !tbaa !109
-  store i16 1, ptr %547, align 2, !tbaa !110
+545:                                              ; preds = %.thread307, %539
+  %546 = phi ptr [ %538, %.thread307 ], [ %544, %539 ]
+  %547 = phi ptr [ %537, %.thread307 ], [ %543, %539 ]
+  %548 = phi ptr [ %536, %.thread307 ], [ %542, %539 ]
+  store i32 1970170211, ptr %548, align 8, !tbaa !108
+  store i16 3, ptr %547, align 4, !tbaa !109
+  store i16 1, ptr %546, align 2, !tbaa !110
   br label %550
 
-550:                                              ; preds = %.thread307, %546, %540
+.critedge:                                        ; preds = %522, %519, %517, %.tail.thread
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
+  store ptr %1, ptr %13, align 8, !tbaa !105
+  %549 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 0, ptr %549, align 8
+  br label %550
+
+550:                                              ; preds = %.critedge, %545, %539
   %551 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %13, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
   br label %.thread305

@@ -2837,25 +2837,25 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #14
   %9 = icmp eq i32 %8, -541478725
-  br i1 %9, label %10, label %39
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 244
   %12 = load i32, ptr %11, align 4, !tbaa !70
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %39
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %16 = load i32, ptr %15, align 8, !tbaa !63
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %39
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %14
   %. = tail call i32 @llvm.umin.i32(i32 %12, i32 %16)
   %19 = tail call ptr @ff_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %.) #14
   %.not.not = icmp eq ptr %19, null
-  br i1 %.not.not, label %39, label %20
+  br i1 %.not.not, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
@@ -2878,9 +2878,9 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %36 = load ptr, ptr %5, align 8, !tbaa !117
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = tail call i32 @filter_frame(ptr noundef %37, ptr noundef nonnull %19)
-  br label %39
+  br label %.critedge
 
-39:                                               ; preds = %20, %18, %1, %10, %14
+.critedge:                                        ; preds = %18, %1, %10, %14, %20
   %.1 = phi i32 [ -541478725, %14 ], [ -541478725, %10 ], [ %8, %1 ], [ %38, %20 ], [ -12, %18 ]
   ret i32 %.1
 }

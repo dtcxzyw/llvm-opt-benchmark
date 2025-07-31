@@ -15227,11 +15227,11 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 
 .noexc:                                           ; preds = %47
   %.pre.i = load i64, ptr %43, align 8, !alias.scope !4065, !noalias !4068
-  %.pre34.i = load i64, ptr %45, align 8, !alias.scope !4065, !noalias !4068
+  %.pre35.i = load i64, ptr %45, align 8, !alias.scope !4065, !noalias !4068
   br label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i: ; preds = %.noexc, %40
-  %51 = phi i64 [ %41, %40 ], [ %.pre34.i, %.noexc ]
+  %51 = phi i64 [ %41, %40 ], [ %.pre35.i, %.noexc ]
   %52 = phi i64 [ %42, %40 ], [ %.pre.i, %.noexc ]
   %53 = add i64 %52, 8
   %.not28.i = icmp ugt i64 %53, %51
@@ -15283,8 +15283,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h7aad34963f6eaba0E.exit.i, label %59
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h7aad34963f6eaba0E.exit.i: ; preds = %65, %59, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
-  %.sroa.022.0.copyload.i = phi ptr [ %.sroa.0.044, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i ], [ %61, %59 ], [ %66, %65 ]
-  %.sroa.516.0.lcssa.i = phi i64 [ %52, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i ], [ %.sroa.516.029.i, %59 ], [ %60, %65 ]
+  %.sroa.022.0.copyload.i = phi ptr [ %.sroa.0.044, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i ], [ %66, %65 ], [ %61, %59 ]
+  %.sroa.516.0.lcssa.i = phi i64 [ %52, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i ], [ %60, %65 ], [ %.sroa.516.029.i, %59 ]
   store i64 %.sroa.516.0.lcssa.i, ptr %43, align 8, !alias.scope !4065, !noalias !4068
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h891507b931fbcf7dE.llvm.744410604731891449"(ptr noundef nonnull %.sroa.022.0.copyload.i, ptr noundef nonnull %.sroa.7.0.copyload16, ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(40) %.sroa.9.0.copyload18)
           to label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer16extend_from_iter17hcc2370a04ceca1eaE.exit unwind label %84
@@ -119038,13 +119038,13 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33581)
   %.not.i.i38 = icmp eq i64 %42, 0
   %.phi.trans.insert = getelementptr i8, ptr %44, i64 8
-  br i1 %.not.i.i38, label %..loopexit59_crit_edge, label %.lr.ph.i.i39
+  br i1 %.not.i.i38, label %..loopexit55_crit_edge, label %.lr.ph.i.i39
 
-..loopexit59_crit_edge:                           ; preds = %37
+..loopexit55_crit_edge:                           ; preds = %37
   %.val.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert63 = getelementptr i8, ptr %44, i64 16
-  %.val32.pre = load i64, ptr %.phi.trans.insert63, align 8
-  br label %.loopexit59
+  %.phi.trans.insert59 = getelementptr i8, ptr %44, i64 16
+  %.val32.pre = load i64, ptr %.phi.trans.insert59, align 8
+  br label %.loopexit55
 
 .lr.ph.i.i39:                                     ; preds = %37
   %46 = getelementptr i8, ptr %44, i64 16
@@ -119074,7 +119074,7 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41": ; preds = %54, %49
   %.not11.i.i42 = icmp eq ptr %51, %45
-  br i1 %.not11.i.i42, label %.loopexit59, label %49
+  br i1 %.not11.i.i42, label %.loopexit55, label %49
 
 58:                                               ; preds = %.noexc47, %.noexc46, %.noexc, %64, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h1a59eace697a7161E.exit45", %133, %123
   %59 = landingpad { ptr, i32 }
@@ -119082,17 +119082,17 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
   invoke void @"_ZN4core3ptr52drop_in_place$LT$deltalake_core..protocol..Stats$GT$17hc018a2471fd0b3a0E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %8) #53
           to label %146 unwind label %155
 
-.loopexit59:                                      ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41", %..loopexit59_crit_edge
-  %.val32 = phi i64 [ %.val32.pre, %..loopexit59_crit_edge ], [ %47, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41" ]
-  %.val = phi ptr [ %.val.pre, %..loopexit59_crit_edge ], [ %48, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41" ]
+.loopexit55:                                      ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41", %..loopexit55_crit_edge
+  %.val32 = phi i64 [ %.val32.pre, %..loopexit55_crit_edge ], [ %47, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41" ]
+  %.val = phi ptr [ %.val.pre, %..loopexit55_crit_edge ], [ %48, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h88787c2aec7253daE.llvm.7925137649769596059.exit.backedge.i.i41" ]
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33610)
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %62 = load i64, ptr %61, align 8, !alias.scope !33610, !noundef !4
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.thread56, label %64
+  br i1 %63, label %.thread52, label %64
 
-64:                                               ; preds = %.loopexit59
+64:                                               ; preds = %.loopexit55
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33613)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !33616
@@ -119193,7 +119193,7 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
   %102 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 -1)
   %103 = bitcast <16 x i1> %102 to i16
   %.not.i.i.i.i = icmp eq i16 %103, 0
-  br i1 %.not.i.i.i.i, label %116, label %.thread56
+  br i1 %.not.i.i.i.i, label %116, label %.thread52
 
 .lr.ph.i.i.i:                                     ; preds = %98, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h656deb50adf1284eE.exit.backedge.i.i.i"
   %.02337.i.i.i = phi i16 [ %107, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h656deb50adf1284eE.exit.backedge.i.i.i" ], [ %101, %98 ]
@@ -119231,7 +119231,7 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
   %120 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h307d87adadafb78dE"(ptr noalias noundef readonly align 8 dereferenceable(48) %119, ptr %48, i64 %47)
           to label %131 unwind label %58
 
-.thread56:                                        ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h656deb50adf1284eE.exit._crit_edge.i.i.i", %.loopexit59
+.thread52:                                        ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h656deb50adf1284eE.exit._crit_edge.i.i.i", %.loopexit55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %121, align 16
@@ -119239,7 +119239,7 @@ define hidden void @"_ZN139_$LT$deltalake_core..operations..transaction..state..
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false)
   br label %122
 
-122:                                              ; preds = %.thread56, %123
+122:                                              ; preds = %.thread52, %123
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %130
 

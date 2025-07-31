@@ -460,101 +460,104 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.6302.lcssa = phi ptr [ %.0296.lcssa, %._crit_edge385 ], [ %162, %161 ], [ %229, %228 ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %._crit_edge385 ], [ %164, %161 ], [ %231, %228 ]
   %233 = icmp eq i64 %.1.lcssa, 1
-  br i1 %233, label %.lr.ph420, label %._crit_edge421
+  br i1 %233, label %234, label %.critedge
 
-.lr.ph420:                                        ; preds = %._crit_edge405
-  %234 = add nsw i64 %0, -1
-  %.idx = shl nsw i64 %234, 7
-  %235 = getelementptr inbounds i8, ptr %4, i64 %.idx
-  %236 = icmp sgt i64 %1, 15
+234:                                              ; preds = %._crit_edge405
+  %235 = add nsw i64 %0, -1
+  %.idx = shl nsw i64 %235, 7
+  %236 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %237 = icmp sgt i64 %1, 15
+  br i1 %237, label %.lr.ph413, label %._crit_edge414
+
+.lr.ph413:                                        ; preds = %234
   %.idx350 = shl nsw i64 %0, 7
-  %.idx344 = mul i64 %234, -64
+  br label %238
+
+238:                                              ; preds = %.lr.ph413, %238
+  %.8411 = phi i64 [ %1, %.lr.ph413 ], [ %245, %238 ]
+  %.13410 = phi ptr [ %.6302.lcssa, %.lr.ph413 ], [ %242, %238 ]
+  %.8340409 = phi ptr [ %236, %.lr.ph413 ], [ %244, %238 ]
+  %239 = load <8 x double>, ptr %.13410, align 1, !tbaa !3
+  %240 = getelementptr inbounds nuw i8, ptr %.13410, i64 64
+  %241 = load <8 x double>, ptr %240, align 1, !tbaa !3
+  %242 = getelementptr inbounds nuw i8, ptr %.13410, i64 128
+  store <8 x double> %239, ptr %.8340409, align 1, !tbaa !3
+  %243 = getelementptr inbounds nuw i8, ptr %.8340409, i64 64
+  store <8 x double> %241, ptr %243, align 1, !tbaa !3
+  %244 = getelementptr inbounds i8, ptr %.8340409, i64 %.idx350
+  %245 = add nsw i64 %.8411, -16
+  %246 = icmp samesign ugt i64 %.8411, 31
+  br i1 %246, label %238, label %._crit_edge414, !llvm.loop !15
+
+._crit_edge414:                                   ; preds = %238, %234
+  %.8340.lcssa = phi ptr [ %236, %234 ], [ %244, %238 ]
+  %.13.lcssa = phi ptr [ %.6302.lcssa, %234 ], [ %242, %238 ]
+  %.8.lcssa = phi i64 [ %1, %234 ], [ %245, %238 ]
+  %.idx344 = mul i64 %235, -64
+  %247 = getelementptr inbounds i8, ptr %.8340.lcssa, i64 %.idx344
+  %248 = icmp sgt i64 %.8.lcssa, 7
+  br i1 %248, label %249, label %254
+
+249:                                              ; preds = %._crit_edge414
+  %250 = load <8 x double>, ptr %.13.lcssa, align 1, !tbaa !3
+  %251 = getelementptr inbounds nuw i8, ptr %.13.lcssa, i64 64
+  store <8 x double> %250, ptr %247, align 1, !tbaa !3
   %.idx345 = shl nsw i64 %0, 6
-  %.idx346 = mul i64 %234, -32
+  %252 = getelementptr inbounds i8, ptr %247, i64 %.idx345
+  %253 = add nsw i64 %.8.lcssa, -8
+  br label %254
+
+254:                                              ; preds = %249, %._crit_edge414
+  %.9341 = phi ptr [ %252, %249 ], [ %247, %._crit_edge414 ]
+  %.14 = phi ptr [ %251, %249 ], [ %.13.lcssa, %._crit_edge414 ]
+  %.9 = phi i64 [ %253, %249 ], [ %.8.lcssa, %._crit_edge414 ]
+  %.idx346 = mul i64 %235, -32
+  %255 = getelementptr inbounds i8, ptr %.9341, i64 %.idx346
+  %256 = icmp sgt i64 %.9, 3
+  br i1 %256, label %257, label %262
+
+257:                                              ; preds = %254
+  %258 = load <4 x double>, ptr %.14, align 1, !tbaa !3
+  %259 = getelementptr inbounds nuw i8, ptr %.14, i64 32
+  store <4 x double> %258, ptr %255, align 1, !tbaa !3
   %.idx347 = shl nsw i64 %0, 5
-  %.idx348 = mul i64 %234, -16
+  %260 = getelementptr inbounds i8, ptr %255, i64 %.idx347
+  %261 = add nsw i64 %.9, -4
+  br label %262
+
+262:                                              ; preds = %257, %254
+  %.10342 = phi ptr [ %260, %257 ], [ %255, %254 ]
+  %.15 = phi ptr [ %259, %257 ], [ %.14, %254 ]
+  %.10 = phi i64 [ %261, %257 ], [ %.9, %254 ]
+  %.idx348 = mul i64 %235, -16
+  %263 = getelementptr inbounds i8, ptr %.10342, i64 %.idx348
+  %264 = icmp sgt i64 %.10, 1
+  br i1 %264, label %265, label %270
+
+265:                                              ; preds = %262
+  %266 = load <2 x double>, ptr %.15, align 1, !tbaa !3
+  %267 = getelementptr inbounds nuw i8, ptr %.15, i64 16
+  store <2 x double> %266, ptr %263, align 1, !tbaa !3
   %.idx349 = shl nsw i64 %0, 4
-  %237 = sub i64 1, %0
-  br i1 %236, label %.lr.ph413, label %._crit_edge414
+  %268 = getelementptr inbounds i8, ptr %263, i64 %.idx349
+  %269 = add nsw i64 %.10, -2
+  br label %270
 
-.lr.ph413:                                        ; preds = %.lr.ph420, %.lr.ph413
-  %.8411 = phi i64 [ %244, %.lr.ph413 ], [ %1, %.lr.ph420 ]
-  %.13410 = phi ptr [ %241, %.lr.ph413 ], [ %.6302.lcssa, %.lr.ph420 ]
-  %.8340409 = phi ptr [ %243, %.lr.ph413 ], [ %235, %.lr.ph420 ]
-  %238 = load <8 x double>, ptr %.13410, align 1, !tbaa !3
-  %239 = getelementptr inbounds nuw i8, ptr %.13410, i64 64
-  %240 = load <8 x double>, ptr %239, align 1, !tbaa !3
-  %241 = getelementptr inbounds nuw i8, ptr %.13410, i64 128
-  store <8 x double> %238, ptr %.8340409, align 1, !tbaa !3
-  %242 = getelementptr inbounds nuw i8, ptr %.8340409, i64 64
-  store <8 x double> %240, ptr %242, align 1, !tbaa !3
-  %243 = getelementptr inbounds i8, ptr %.8340409, i64 %.idx350
-  %244 = add nsw i64 %.8411, -16
-  %245 = icmp samesign ugt i64 %.8411, 31
-  br i1 %245, label %.lr.ph413, label %._crit_edge414, !llvm.loop !15
+270:                                              ; preds = %265, %262
+  %.11343 = phi ptr [ %268, %265 ], [ %263, %262 ]
+  %.16 = phi ptr [ %267, %265 ], [ %.15, %262 ]
+  %.11 = phi i64 [ %269, %265 ], [ %.10, %262 ]
+  %271 = icmp sgt i64 %.11, 0
+  br i1 %271, label %272, label %.critedge
 
-._crit_edge414:                                   ; preds = %.lr.ph413, %.lr.ph420
-  %.8340.lcssa = phi ptr [ %235, %.lr.ph420 ], [ %243, %.lr.ph413 ]
-  %.13.lcssa = phi ptr [ %.6302.lcssa, %.lr.ph420 ], [ %241, %.lr.ph413 ]
-  %.8.lcssa = phi i64 [ %1, %.lr.ph420 ], [ %244, %.lr.ph413 ]
-  %246 = getelementptr inbounds i8, ptr %.8340.lcssa, i64 %.idx344
-  %247 = icmp sgt i64 %.8.lcssa, 7
-  br i1 %247, label %248, label %253
+272:                                              ; preds = %270
+  %273 = sub i64 1, %0
+  %274 = getelementptr inbounds double, ptr %.11343, i64 %273
+  %275 = load double, ptr %.16, align 8, !tbaa !8
+  store double %275, ptr %274, align 8, !tbaa !8
+  br label %.critedge
 
-248:                                              ; preds = %._crit_edge414
-  %249 = load <8 x double>, ptr %.13.lcssa, align 1, !tbaa !3
-  %250 = getelementptr inbounds nuw i8, ptr %.13.lcssa, i64 64
-  store <8 x double> %249, ptr %246, align 1, !tbaa !3
-  %251 = getelementptr inbounds i8, ptr %246, i64 %.idx345
-  %252 = add nsw i64 %.8.lcssa, -8
-  br label %253
-
-253:                                              ; preds = %248, %._crit_edge414
-  %.9341 = phi ptr [ %251, %248 ], [ %246, %._crit_edge414 ]
-  %.14 = phi ptr [ %250, %248 ], [ %.13.lcssa, %._crit_edge414 ]
-  %.9 = phi i64 [ %252, %248 ], [ %.8.lcssa, %._crit_edge414 ]
-  %254 = getelementptr inbounds i8, ptr %.9341, i64 %.idx346
-  %255 = icmp sgt i64 %.9, 3
-  br i1 %255, label %256, label %261
-
-256:                                              ; preds = %253
-  %257 = load <4 x double>, ptr %.14, align 1, !tbaa !3
-  %258 = getelementptr inbounds nuw i8, ptr %.14, i64 32
-  store <4 x double> %257, ptr %254, align 1, !tbaa !3
-  %259 = getelementptr inbounds i8, ptr %254, i64 %.idx347
-  %260 = add nsw i64 %.9, -4
-  br label %261
-
-261:                                              ; preds = %256, %253
-  %.10342 = phi ptr [ %259, %256 ], [ %254, %253 ]
-  %.15 = phi ptr [ %258, %256 ], [ %.14, %253 ]
-  %.10 = phi i64 [ %260, %256 ], [ %.9, %253 ]
-  %262 = getelementptr inbounds i8, ptr %.10342, i64 %.idx348
-  %263 = icmp sgt i64 %.10, 1
-  br i1 %263, label %264, label %269
-
-264:                                              ; preds = %261
-  %265 = load <2 x double>, ptr %.15, align 1, !tbaa !3
-  %266 = getelementptr inbounds nuw i8, ptr %.15, i64 16
-  store <2 x double> %265, ptr %262, align 1, !tbaa !3
-  %267 = getelementptr inbounds i8, ptr %262, i64 %.idx349
-  %268 = add nsw i64 %.10, -2
-  br label %269
-
-269:                                              ; preds = %264, %261
-  %.11343 = phi ptr [ %267, %264 ], [ %262, %261 ]
-  %.16 = phi ptr [ %266, %264 ], [ %.15, %261 ]
-  %.11 = phi i64 [ %268, %264 ], [ %.10, %261 ]
-  %270 = icmp sgt i64 %.11, 0
-  br i1 %270, label %271, label %._crit_edge421
-
-271:                                              ; preds = %269
-  %272 = getelementptr inbounds double, ptr %.11343, i64 %237
-  %273 = load double, ptr %.16, align 8, !tbaa !8
-  store double %273, ptr %272, align 8, !tbaa !8
-  br label %._crit_edge421
-
-._crit_edge421:                                   ; preds = %269, %271, %._crit_edge405
+.critedge:                                        ; preds = %270, %272, %._crit_edge405
   ret i32 0
 }
 

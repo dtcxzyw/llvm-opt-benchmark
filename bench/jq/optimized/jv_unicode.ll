@@ -159,8 +159,8 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   br i1 %3, label %jvp_utf8_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.0215 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
-  %4 = load i8, ptr %.0215, align 1, !tbaa !4
+  %.0214 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
+  %4 = load i8, ptr %.0214, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
 
 12:                                               ; preds = %10
   %13 = zext i8 %7 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %.0215, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.0214, i64 %13
   %15 = icmp ugt ptr %14, %1
   br i1 %15, label %jvp_utf8_next.exit.thread, label %16
 
@@ -190,7 +190,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
 .lr.ph.i:                                         ; preds = %16, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 1, %16 ]
   %.14349.i = phi i32 [ %31, %27 ], [ %20, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.0215, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0214, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %24
@@ -226,7 +226,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %39 = icmp eq i32 %spec.store.select5.i, -1
   %40 = or i1 %38, %39
   %41 = sext i32 %.2.i to i64
-  %42 = getelementptr inbounds i8, ptr %.0215, i64 %41
+  %42 = getelementptr inbounds i8, ptr %.0214, i64 %41
   br i1 %40, label %jvp_utf8_next.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i, %jvp_utf8_next.exit
@@ -235,11 +235,11 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   br i1 %43, label %jvp_utf8_next.exit.thread, label %.lr.ph, !llvm.loop !12
 
 jvp_utf8_next.exit:                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw i8, ptr %.0215, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0214, i64 1
   br label %.backedge
 
-jvp_utf8_next.exit.thread:                        ; preds = %.backedge, %._crit_edge.i, %10, %12, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %.backedge ], [ 0, %._crit_edge.i ], [ 0, %10 ], [ 0, %12 ]
+jvp_utf8_next.exit.thread:                        ; preds = %10, %12, %._crit_edge.i, %.backedge, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %10 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 1, %.backedge ]
   ret i32 %.0
 }
 

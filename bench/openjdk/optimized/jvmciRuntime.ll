@@ -8070,7 +8070,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime23get_klass_by_index_implERK18consta
   store ptr %3, ptr %5, align 8
   %6 = tail call noundef ptr @_ZN12ConstantPool18klass_at_if_loadedERK18constantPoolHandlei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #16
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %67
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
@@ -8081,7 +8081,7 @@ define hidden noundef ptr @_ZN12JVMCIRuntime23get_klass_by_index_implERK18consta
 
 13:                                               ; preds = %8
   store i8 0, ptr %2, align 1
-  br label %68
+  br label %67
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 152
@@ -8125,7 +8125,7 @@ _ZNK5Klass12class_loaderEv.exit24:                ; preds = %_ZNK5Klass12class_l
 
 39:                                               ; preds = %34
   store i8 0, ptr %2, align 1
-  br label %68
+  br label %67
 
 40:                                               ; preds = %34, %_ZNK5Klass12class_loaderEv.exit24
   %41 = load ptr, ptr %5, align 8
@@ -8177,14 +8177,14 @@ _ZN12JVMCIRuntime25check_klass_accessibilityEP5KlassS1_.exit: ; preds = %48, %58
   store i8 %.0.i, ptr %2, align 1
   %65 = trunc nuw i8 %.0.i to i1
   %66 = select i1 %65, ptr %11, ptr null
-  br label %68
+  br label %67
 
-67:                                               ; preds = %4
+.critedge:                                        ; preds = %4
   store i8 1, ptr %2, align 1
-  br label %68
+  br label %67
 
-68:                                               ; preds = %13, %_ZN12JVMCIRuntime25check_klass_accessibilityEP5KlassS1_.exit, %39, %67
-  %.0 = phi ptr [ %6, %67 ], [ null, %39 ], [ %66, %_ZN12JVMCIRuntime25check_klass_accessibilityEP5KlassS1_.exit ], [ null, %13 ]
+67:                                               ; preds = %13, %_ZN12JVMCIRuntime25check_klass_accessibilityEP5KlassS1_.exit, %39, %.critedge
+  %.0 = phi ptr [ %6, %.critedge ], [ null, %39 ], [ %66, %_ZN12JVMCIRuntime25check_klass_accessibilityEP5KlassS1_.exit ], [ null, %13 ]
   ret ptr %.0
 }
 

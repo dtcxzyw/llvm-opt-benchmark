@@ -73,10 +73,10 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %16 = select i1 %.not.i, i64 %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 %16
   %.not56 = icmp samesign eq i64 %16, 0
-  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not56, label %.critedge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %28, label %30, label %._crit_edge.thread
+  br i1 %28, label %30, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE.exit, %.lr.ph
   %.03659 = phi i64 [ %27, %.lr.ph ], [ 0, %_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE.exit ]
@@ -98,7 +98,7 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %.not = icmp eq ptr %29, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE.exit, %._crit_edge
+.critedge:                                        ; preds = %_ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncodingTypeE.exit, %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !12
   br label %80
@@ -207,7 +207,7 @@ _ZN9grpc_core12MutableSliceD2Ev.exit:             ; preds = %._crit_edge66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %80
 
-80:                                               ; preds = %_ZN9grpc_core12MutableSliceD2Ev.exit, %._crit_edge.thread
+80:                                               ; preds = %_ZN9grpc_core12MutableSliceD2Ev.exit, %.critedge
   ret void
 }
 

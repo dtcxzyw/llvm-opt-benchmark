@@ -3849,38 +3849,38 @@ endPoints.exit:                                   ; preds = %14, %18
   br label %75
 
 37:                                               ; preds = %29
-  %.not120.i = icmp eq i64 %16, 0
-  br i1 %.not120.i, label %.thread92.i, label %.lr.ph103.i
+  %.not119.i = icmp eq i64 %16, 0
+  br i1 %.not119.i, label %.critedge.i, label %.lr.ph102.i
 
-.lr.ph119.i:                                      ; preds = %._crit_edge.i
+.lr.ph118.i:                                      ; preds = %._crit_edge.i
   %38 = fmul double %.186.lcssa.i, 5.000000e-01
   br label %52
 
-.lr.ph103.i:                                      ; preds = %37, %._crit_edge.i
-  %.084101.i = phi i64 [ %41, %._crit_edge.i ], [ 0, %37 ]
-  %.085100.i = phi double [ %.186.lcssa.i, %._crit_edge.i ], [ 0.000000e+00, %37 ]
-  %39 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.084101.i
+.lr.ph102.i:                                      ; preds = %37, %._crit_edge.i
+  %.084100.i = phi i64 [ %41, %._crit_edge.i ], [ 0, %37 ]
+  %.08599.i = phi double [ %.186.lcssa.i, %._crit_edge.i ], [ 0.000000e+00, %37 ]
+  %39 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.084100.i
   %.sroa.062.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !170
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !171
   %40 = icmp ugt i64 %.sroa.8.0.copyload.i, 3
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph103.i
-  %.186.lcssa.i = phi double [ %.085100.i, %.lr.ph103.i ], [ %48, %.lr.ph.i ]
-  %41 = add nuw i64 %.084101.i, 1
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph102.i
+  %.186.lcssa.i = phi double [ %.08599.i, %.lr.ph102.i ], [ %48, %.lr.ph.i ]
+  %41 = add nuw i64 %.084100.i, 1
   %exitcond.not.i = icmp eq i64 %41, %16
-  br i1 %exitcond.not.i, label %.lr.ph119.i, label %.lr.ph103.i, !llvm.loop !172
+  br i1 %exitcond.not.i, label %.lr.ph118.i, label %.lr.ph102.i, !llvm.loop !172
 
-.lr.ph.i:                                         ; preds = %.lr.ph103.i, %.lr.ph.i
-  %.08199.i = phi i64 [ %50, %.lr.ph.i ], [ 3, %.lr.ph103.i ]
-  %.08298.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph103.i ]
-  %.18697.i = phi double [ %48, %.lr.ph.i ], [ %.085100.i, %.lr.ph103.i ]
-  %42 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload.i, i64 %.08298.i
+.lr.ph.i:                                         ; preds = %.lr.ph102.i, %.lr.ph.i
+  %.08198.i = phi i64 [ %50, %.lr.ph.i ], [ 3, %.lr.ph102.i ]
+  %.08297.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph102.i ]
+  %.18696.i = phi double [ %48, %.lr.ph.i ], [ %.08599.i, %.lr.ph102.i ]
+  %42 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload.i, i64 %.08297.i
   %.sroa.033.0.copyload.i = load double, ptr %42, align 8, !tbaa !3
   %.sroa.1040.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.1040.0.copyload.i = load double, ptr %.sroa.1040.0..sroa_idx.i, align 8, !tbaa !3
-  %43 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload.i, i64 %.08199.i
+  %43 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload.i, i64 %.08198.i
   %.sroa.0.0.copyload.i13 = load double, ptr %43, align 8, !tbaa !3
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.10.0.copyload.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !3
@@ -3889,31 +3889,31 @@ endPoints.exit:                                   ; preds = %14, %18
   %46 = fmul double %45, %45
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %46)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %47)
-  %48 = fadd double %.18697.i, %sqrt.i
-  %49 = add i64 %.08298.i, 3
-  %50 = add i64 %.08199.i, 3
+  %48 = fadd double %.18696.i, %sqrt.i
+  %49 = add i64 %.08297.i, 3
+  %50 = add i64 %.08198.i, 3
   %51 = icmp ult i64 %50, %.sroa.8.0.copyload.i
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !173
 
-52:                                               ; preds = %._crit_edge113.i, %.lr.ph119.i
-  %.080117.i = phi i64 [ 0, %.lr.ph119.i ], [ %65, %._crit_edge113.i ]
-  %.2116.i = phi double [ %38, %.lr.ph119.i ], [ %.3.lcssa.i, %._crit_edge113.i ]
-  %53 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.080117.i
+52:                                               ; preds = %._crit_edge112.i, %.lr.ph118.i
+  %.080116.i = phi i64 [ 0, %.lr.ph118.i ], [ %65, %._crit_edge112.i ]
+  %.2115.i = phi double [ %38, %.lr.ph118.i ], [ %.3.lcssa.i, %._crit_edge112.i ]
+  %53 = getelementptr inbounds nuw %struct.bezier, ptr %11, i64 %.080116.i
   %.sroa.062.0.copyload66.i = load ptr, ptr %53, align 8, !tbaa !170
   %.sroa.8.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.8.0.copyload68.i = load i64, ptr %.sroa.8.0..sroa_idx67.i, align 8, !tbaa !171
-  %.not107.i = icmp ugt i64 %.sroa.8.0.copyload68.i, 3
-  br i1 %.not107.i, label %.lr.ph112.i, label %._crit_edge113.i
+  %.not106.i = icmp ugt i64 %.sroa.8.0.copyload68.i, 3
+  br i1 %.not106.i, label %.lr.ph111.i, label %._crit_edge112.i
 
-.lr.ph112.i:                                      ; preds = %52, %61
-  %.0110.i = phi i64 [ %64, %61 ], [ 3, %52 ]
-  %.079109.i = phi i64 [ %63, %61 ], [ 0, %52 ]
-  %.3108.i = phi double [ %62, %61 ], [ %.2116.i, %52 ]
-  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.079109.i
+.lr.ph111.i:                                      ; preds = %52, %61
+  %.0109.i = phi i64 [ %64, %61 ], [ 3, %52 ]
+  %.079108.i = phi i64 [ %63, %61 ], [ 0, %52 ]
+  %.3107.i = phi double [ %62, %61 ], [ %.2115.i, %52 ]
+  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.079108.i
   %.sroa.033.0.copyload38.i = load double, ptr %54, align 8, !tbaa !3
   %.sroa.1040.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.1040.0.copyload42.i = load double, ptr %.sroa.1040.0..sroa_idx41.i, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.0110.i
+  %55 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.062.0.copyload66.i, i64 %.0109.i
   %.sroa.0.0.copyload23.i = load double, ptr %55, align 8, !tbaa !3
   %.sroa.10.0..sroa_idx25.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.10.0.copyload26.i = load double, ptr %.sroa.10.0..sroa_idx25.i, align 8, !tbaa !3
@@ -3921,39 +3921,39 @@ endPoints.exit:                                   ; preds = %14, %18
   %57 = fsub double %.sroa.1040.0.copyload42.i, %.sroa.10.0.copyload26.i
   %58 = fmul double %57, %57
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %56, double %58)
-  %sqrt95.i = tail call double @llvm.sqrt.f64(double %59)
-  %60 = fcmp ult double %sqrt95.i, %.3108.i
+  %sqrt94.i = tail call double @llvm.sqrt.f64(double %59)
+  %60 = fcmp ult double %sqrt94.i, %.3107.i
   br i1 %60, label %61, label %polylineMidpoint.exit
 
-61:                                               ; preds = %.lr.ph112.i
-  %62 = fsub double %.3108.i, %sqrt95.i
-  %63 = add i64 %.079109.i, 3
-  %64 = add i64 %.0110.i, 3
+61:                                               ; preds = %.lr.ph111.i
+  %62 = fsub double %.3107.i, %sqrt94.i
+  %63 = add i64 %.079108.i, 3
+  %64 = add i64 %.0109.i, 3
   %.not.i12 = icmp ult i64 %64, %.sroa.8.0.copyload68.i
-  br i1 %.not.i12, label %.lr.ph112.i, label %._crit_edge113.i, !llvm.loop !174
+  br i1 %.not.i12, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !174
 
-._crit_edge113.i:                                 ; preds = %61, %52
-  %.3.lcssa.i = phi double [ %.2116.i, %52 ], [ %62, %61 ]
-  %65 = add nuw i64 %.080117.i, 1
-  %exitcond128.not.i = icmp eq i64 %65, %16
-  br i1 %exitcond128.not.i, label %.thread92.i, label %52, !llvm.loop !175
+._crit_edge112.i:                                 ; preds = %61, %52
+  %.3.lcssa.i = phi double [ %.2115.i, %52 ], [ %62, %61 ]
+  %65 = add nuw i64 %.080116.i, 1
+  %exitcond127.not.i = icmp eq i64 %65, %16
+  br i1 %exitcond127.not.i, label %.critedge.i, label %52, !llvm.loop !175
 
-.thread92.i:                                      ; preds = %._crit_edge113.i, %37
+.critedge.i:                                      ; preds = %._crit_edge112.i, %37
   %66 = load ptr, ptr @stderr, align 8, !tbaa !59
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1293) #19
   tail call void @abort() #22
   unreachable
 
-polylineMidpoint.exit:                            ; preds = %.lr.ph112.i
-  %68 = fsub double %sqrt95.i, %.3108.i
-  %69 = fmul double %.sroa.1040.0.copyload42.i, %68
-  %70 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload26.i, double %.3108.i, double %69)
-  %71 = fdiv double %70, %sqrt95.i
-  %72 = fmul double %.sroa.033.0.copyload38.i, %68
-  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload23.i, double %.3108.i, double %72)
-  %74 = fdiv double %73, %sqrt95.i
-  %.fca.0.insert.i = insertvalue { double, double } poison, double %74, 0
-  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %71, 1
+polylineMidpoint.exit:                            ; preds = %.lr.ph111.i
+  %68 = fsub double %sqrt94.i, %.3107.i
+  %69 = fmul double %.sroa.033.0.copyload38.i, %68
+  %70 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload23.i, double %.3107.i, double %69)
+  %71 = fdiv double %70, %sqrt94.i
+  %72 = fmul double %.sroa.1040.0.copyload42.i, %68
+  %73 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload26.i, double %.3107.i, double %72)
+  %74 = fdiv double %73, %sqrt94.i
+  %.fca.0.insert.i = insertvalue { double, double } poison, double %71, 0
+  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %74, 1
   br label %75
 
 75:                                               ; preds = %31, %polylineMidpoint.exit, %26

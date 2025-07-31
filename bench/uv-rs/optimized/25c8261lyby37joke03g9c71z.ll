@@ -11926,20 +11926,20 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %96 = add i64 %.sroa.06.0.lcssa.i.i, 18
   %97 = icmp uge i64 %96, %83
   %98 = trunc nuw i8 %.sroa.014.0.lcssa.i.i to i1
-  %or.cond351.i.i = select i1 %97, i1 true, i1 %98
-  br i1 %or.cond351.i.i, label %._crit_edge.i.i18, label %.lr.ph53.i.i
+  %or.cond353.i.i = select i1 %97, i1 true, i1 %98
+  br i1 %or.cond353.i.i, label %._crit_edge.i.i18, label %.lr.ph55.i.i
 
 .lr.ph.i.i17:                                     ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38d728b282770ba2E.llvm.15708457484008905079.exit.i.i", %108
-  %.sroa.06.049.i.i = phi i64 [ %109, %108 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38d728b282770ba2E.llvm.15708457484008905079.exit.i.i" ]
+  %.sroa.06.051.i.i = phi i64 [ %109, %108 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38d728b282770ba2E.llvm.15708457484008905079.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !2507
   store i64 0, ptr %2, align 8, !noalias !2507
-  %99 = getelementptr i8, ptr %81, i64 %.sroa.06.049.i.i
+  %99 = getelementptr i8, ptr %81, i64 %.sroa.06.051.i.i
   br label %100
 
 100:                                              ; preds = %100, %.lr.ph.i.i17
-  %.sroa.023.045.i.i = phi i64 [ 0, %.lr.ph.i.i17 ], [ %101, %100 ]
-  %101 = add nuw nsw i64 %.sroa.023.045.i.i, 1
-  %102 = shl nuw nsw i64 %.sroa.023.045.i.i, 4
+  %.sroa.023.047.i.i = phi i64 [ 0, %.lr.ph.i.i17 ], [ %101, %100 ]
+  %101 = add nuw nsw i64 %.sroa.023.047.i.i, 1
+  %102 = shl nuw nsw i64 %.sroa.023.047.i.i, 4
   %103 = getelementptr i8, ptr %99, i64 %102
   %.val3.i.i.i = load <16 x i8>, ptr %103, align 1, !alias.scope !2507, !noalias !2508
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
@@ -11947,38 +11947,38 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %105 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 118)
   %106 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 112)
   %narrow.i.i.i = select <16 x i1> %105, <16 x i1> %106, <16 x i1> zeroinitializer
-  %107 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.023.045.i.i
+  %107 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.023.047.i.i
   store <16 x i1> %narrow.i.i.i, ptr %107, align 2, !noalias !2507
   %exitcond.not.i.i = icmp eq i64 %101, 4
   br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %100
 
 108:                                              ; preds = %117
-  %109 = add i64 %.sroa.06.049.i.i, 64
+  %109 = add i64 %.sroa.06.051.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !2507
-  %110 = add i64 %.sroa.06.049.i.i, 130
+  %110 = add i64 %.sroa.06.051.i.i, 130
   %111 = icmp uge i64 %110, %83
   %112 = trunc nuw i8 %.sroa.014.3.i.i to i1
   %or.cond.i.i = select i1 %111, i1 true, i1 %112
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.lr.ph.i.i17
 
 .preheader44.i.i:                                 ; preds = %100, %117
-  %.sroa.028.047.i.i = phi i64 [ %113, %117 ], [ 0, %100 ]
-  %.sroa.014.246.i.i = phi i8 [ %.sroa.014.3.i.i, %117 ], [ 0, %100 ]
-  %113 = add nuw nsw i64 %.sroa.028.047.i.i, 1
-  %114 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.028.047.i.i
+  %.sroa.028.049.i.i = phi i64 [ %113, %117 ], [ 0, %100 ]
+  %.sroa.014.248.i.i = phi i8 [ %.sroa.014.3.i.i, %117 ], [ 0, %100 ]
+  %113 = add nuw nsw i64 %.sroa.028.049.i.i, 1
+  %114 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.028.049.i.i
   %115 = load i16, ptr %114, align 2, !noalias !2507, !noundef !6
   %116 = icmp eq i16 %115, 0
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %118, %.preheader44.i.i
-  %.sroa.014.3.i.i = phi i8 [ %.sroa.014.246.i.i, %.preheader44.i.i ], [ %124, %118 ]
-  %exitcond58.not.i.i = icmp eq i64 %113, 4
-  br i1 %exitcond58.not.i.i, label %108, label %.preheader44.i.i
+  %.sroa.014.3.i.i = phi i8 [ %.sroa.014.248.i.i, %.preheader44.i.i ], [ %124, %118 ]
+  %exitcond62.not.i.i = icmp eq i64 %113, 4
+  br i1 %exitcond62.not.i.i, label %108, label %.preheader44.i.i
 
 118:                                              ; preds = %.preheader44.i.i
-  %119 = shl nuw nsw i64 %.sroa.028.047.i.i, 4
-  %120 = add nuw nsw i64 %119, %.sroa.06.049.i.i
-  %121 = trunc nuw i8 %.sroa.014.246.i.i to i1
+  %119 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
+  %120 = add nuw nsw i64 %119, %.sroa.06.051.i.i
+  %121 = trunc nuw i8 %.sroa.014.248.i.i to i1
   %122 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %120, i16 noundef %115, i1 noundef zeroext %121)
   %123 = or i1 %122, %121
   %124 = zext i1 %123 to i8
@@ -11999,9 +11999,9 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %131 = icmp eq i16 %130, 0
   br i1 %131, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h1a9d22c9a2b9df88E.exit", label %145
 
-.lr.ph53.i.i:                                     ; preds = %.preheader.i.i, %138
-  %.sroa.06.152.i.i = phi i64 [ %139, %138 ], [ %.sroa.06.0.lcssa.i.i, %.preheader.i.i ]
-  %132 = getelementptr inbounds i8, ptr %81, i64 %.sroa.06.152.i.i
+.lr.ph55.i.i:                                     ; preds = %.preheader.i.i, %138
+  %.sroa.06.154.i.i = phi i64 [ %139, %138 ], [ %.sroa.06.0.lcssa.i.i, %.preheader.i.i ]
+  %132 = getelementptr inbounds i8, ptr %81, i64 %.sroa.06.154.i.i
   %.val3.i70.i.i = load <16 x i8>, ptr %132, align 1, !alias.scope !2507, !noalias !2514
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 2
   %.val.i71.i.i = load <16 x i8>, ptr %133, align 1, !alias.scope !2507, !noalias !2514
@@ -12012,17 +12012,17 @@ define hidden void @_ZN9uv_python7cpuinfo38detect_hardware_floating_point_suppor
   %137 = icmp eq i16 %136, 0
   br i1 %137, label %138, label %142
 
-138:                                              ; preds = %142, %.lr.ph53.i.i
-  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph53.i.i ], [ %144, %142 ]
-  %139 = add i64 %.sroa.06.152.i.i, 16
-  %.reass.i.i = add i64 %.sroa.06.152.i.i, 34
+138:                                              ; preds = %142, %.lr.ph55.i.i
+  %.sroa.014.5.i.i = phi i8 [ 0, %.lr.ph55.i.i ], [ %144, %142 ]
+  %139 = add i64 %.sroa.06.154.i.i, 16
+  %.reass.i.i = add i64 %.sroa.06.154.i.i, 34
   %140 = icmp uge i64 %.reass.i.i, %83
   %141 = trunc nuw i8 %.sroa.014.5.i.i to i1
   %or.cond3.i.i = select i1 %140, i1 true, i1 %141
-  br i1 %or.cond3.i.i, label %._crit_edge.i.i18, label %.lr.ph53.i.i
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i18, label %.lr.ph55.i.i
 
-142:                                              ; preds = %.lr.ph53.i.i
-  %143 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %.sroa.06.152.i.i, i16 noundef %136, i1 noundef zeroext false)
+142:                                              ; preds = %.lr.ph55.i.i
+  %143 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hb4fed48b0bf91e1eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %3, i64 noundef %.sroa.06.154.i.i, i16 noundef %136, i1 noundef zeroext false)
   %144 = zext i1 %143 to i8
   br label %138
 

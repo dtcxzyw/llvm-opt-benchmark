@@ -302,7 +302,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
   %.not = icmp eq i64 %8, 0
   %.not166 = icmp slt i64 %5, %8
   %or.cond185 = select i1 %.not, i1 true, i1 %.not166
-  br i1 %or.cond185, label %9, label %.thread198
+  br i1 %or.cond185, label %9, label %.critedge188
 
 9:                                                ; preds = %2
   %10 = tail call i32 @avio_read(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 32) #4
@@ -312,7 +312,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 11:                                               ; preds = %9
   %12 = icmp slt i32 %10, 0
   %13 = select i1 %12, i32 %10, i32 -541478725
-  br label %.thread198
+  br label %.critedge188
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -322,7 +322,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 18:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #4
-  br label %.thread198
+  br label %.critedge188
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -334,13 +334,13 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 23:                                               ; preds = %19
   %24 = zext i16 %21 to i32
   tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %24) #4
-  br label %.thread198
+  br label %.critedge188
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %27 = load i32, ptr %26, align 8, !tbaa !33
   %.not168 = icmp eq i32 %27, 0
-  br i1 %.not168, label %.thread198, label %28
+  br i1 %.not168, label %.critedge188, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -394,8 +394,8 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
   %.0145 = phi i32 [ %58, %53 ], [ %46, %44 ]
   %61 = icmp eq i32 %37, 15
   %62 = icmp eq i32 %.0150, 0
-  %or.cond.not209 = select i1 %61, i1 true, i1 %62
-  %brmerge = or i1 %.not169, %or.cond.not209
+  %or.cond.not199 = select i1 %61, i1 true, i1 %62
+  %brmerge = or i1 %.not169, %or.cond.not199
   br i1 %brmerge, label %63, label %154
 
 63:                                               ; preds = %59
@@ -422,13 +422,13 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 76:                                               ; preds = %66
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #4
-  br label %.thread198
+  br label %.critedge188
 
 .lr.ph:                                           ; preds = %.preheader, %139
-  %.2138229 = phi i32 [ %.4, %139 ], [ %31, %.preheader ]
-  %.2142228 = phi i32 [ %.4144, %139 ], [ %40, %.preheader ]
-  %.3148227 = phi i32 [ %.5, %139 ], [ %.0145, %.preheader ]
-  %.3153226 = phi i32 [ %.5155, %139 ], [ %.0150, %.preheader ]
+  %.2138219 = phi i32 [ %.4, %139 ], [ %31, %.preheader ]
+  %.2142218 = phi i32 [ %.4144, %139 ], [ %40, %.preheader ]
+  %.3148217 = phi i32 [ %.5, %139 ], [ %.0145, %.preheader ]
+  %.3153216 = phi i32 [ %.5155, %139 ], [ %.0150, %.preheader ]
   %77 = tail call i32 @avio_feof(ptr noundef nonnull %1) #4
   %.not174 = icmp eq i32 %77, 0
   br i1 %.not174, label %78, label %.critedge
@@ -467,7 +467,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 93:                                               ; preds = %91
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5) #4
-  br label %.thread198
+  br label %.critedge188
 
 94:                                               ; preds = %91
   %95 = tail call i32 @avio_r8(ptr noundef nonnull %1) #4
@@ -518,7 +518,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 120:                                              ; preds = %94
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %spec.select) #4
-  br label %.thread198
+  br label %.critedge188
 
 121:                                              ; preds = %85
   %122 = icmp slt i32 %spec.select, 2
@@ -526,7 +526,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 123:                                              ; preds = %121
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.7) #4
-  br label %.thread198
+  br label %.critedge188
 
 124:                                              ; preds = %121
   %125 = tail call i32 @avio_r8(ptr noundef nonnull %1) #4
@@ -547,10 +547,10 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
   br label %136
 
 136:                                              ; preds = %124, %96, %98, %100, %102, %104, %112, %133, %131
-  %.5155 = phi i32 [ %.3153226, %133 ], [ %95, %96 ], [ %95, %98 ], [ %95, %100 ], [ %95, %102 ], [ %110, %104 ], [ %118, %112 ], [ %.3153226, %124 ], [ %.3153226, %131 ]
-  %.5 = phi i32 [ %.3148227, %133 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %111, %104 ], [ %119, %112 ], [ %.3148227, %124 ], [ %.3148227, %131 ]
-  %.4144 = phi i32 [ %.2142228, %133 ], [ %.2142228, %96 ], [ %.2142228, %98 ], [ %.2142228, %100 ], [ %.2142228, %102 ], [ %.2142228, %104 ], [ %.2142228, %112 ], [ %.2142228, %124 ], [ %132, %131 ]
-  %.4 = phi i32 [ %.2138229, %133 ], [ %.2138229, %96 ], [ %.2138229, %98 ], [ %.2138229, %100 ], [ %.2138229, %102 ], [ %.2138229, %104 ], [ %.2138229, %112 ], [ %127, %124 ], [ %.2138229, %131 ]
+  %.5155 = phi i32 [ %.3153216, %133 ], [ %95, %96 ], [ %95, %98 ], [ %95, %100 ], [ %95, %102 ], [ %110, %104 ], [ %118, %112 ], [ %.3153216, %124 ], [ %.3153216, %131 ]
+  %.5 = phi i32 [ %.3148217, %133 ], [ %97, %96 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %111, %104 ], [ %119, %112 ], [ %.3148217, %124 ], [ %.3148217, %131 ]
+  %.4144 = phi i32 [ %.2142218, %133 ], [ %.2142218, %96 ], [ %.2142218, %98 ], [ %.2142218, %100 ], [ %.2142218, %102 ], [ %.2142218, %104 ], [ %.2142218, %112 ], [ %.2142218, %124 ], [ %132, %131 ]
+  %.4 = phi i32 [ %.2138219, %133 ], [ %.2138219, %96 ], [ %.2138219, %98 ], [ %.2138219, %100 ], [ %.2138219, %102 ], [ %.2138219, %104 ], [ %.2138219, %112 ], [ %127, %124 ], [ %.2138219, %131 ]
   br i1 %.not176, label %137, label %139
 
 137:                                              ; preds = %136
@@ -563,10 +563,10 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
   br i1 %141, label %.lr.ph, label %.critedge, !llvm.loop !76
 
 .critedge:                                        ; preds = %.lr.ph, %139, %.preheader
-  %.3153.lcssa = phi i32 [ %.0150, %.preheader ], [ %.5155, %139 ], [ %.3153226, %.lr.ph ]
-  %.3148.lcssa = phi i32 [ %.0145, %.preheader ], [ %.5, %139 ], [ %.3148227, %.lr.ph ]
-  %.2142.lcssa = phi i32 [ %40, %.preheader ], [ %.4144, %139 ], [ %.2142228, %.lr.ph ]
-  %.2138.lcssa = phi i32 [ %31, %.preheader ], [ %.4, %139 ], [ %.2138229, %.lr.ph ]
+  %.3153.lcssa = phi i32 [ %.0150, %.preheader ], [ %.5155, %139 ], [ %.3153216, %.lr.ph ]
+  %.3148.lcssa = phi i32 [ %.0145, %.preheader ], [ %.5, %139 ], [ %.3148217, %.lr.ph ]
+  %.2142.lcssa = phi i32 [ %40, %.preheader ], [ %.4144, %139 ], [ %.2142218, %.lr.ph ]
+  %.2138.lcssa = phi i32 [ %31, %.preheader ], [ %.4, %139 ], [ %.2138219, %.lr.ph ]
   %142 = icmp eq i32 %.2142.lcssa, -1
   br i1 %142, label %148, label %143
 
@@ -579,7 +579,7 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 148:                                              ; preds = %143, %.critedge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.8) #4
-  br label %.thread198
+  br label %.critedge188
 
 149:                                              ; preds = %143
   %150 = load i32, ptr %15, align 8, !tbaa !34
@@ -637,8 +637,8 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 173:                                              ; preds = %171, %168
   %174 = phi i32 [ %172, %171 ], [ %170, %168 ]
-  %.not210 = icmp eq i32 %30, 0
-  br i1 %.not210, label %.thread198, label %175
+  %.not200 = icmp eq i32 %30, 0
+  br i1 %.not200, label %.critedge188, label %175
 
 175:                                              ; preds = %173
   %.not181 = icmp eq i32 %35, %159
@@ -646,35 +646,35 @@ define internal fastcc range(i32 33, 32) i32 @wv_read_block_header(ptr noundef %
 
 176:                                              ; preds = %175
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %35, i32 noundef %159) #4
-  br label %.thread198
+  br label %.critedge188
 
 177:                                              ; preds = %175
   %178 = load i32, ptr %60, align 4, !tbaa !73
   %.not182 = icmp ne i32 %178, 0
   %.not183 = icmp eq i32 %.1151, %164
   %or.cond = select i1 %.not182, i1 true, i1 %.not183
-  br i1 %or.cond, label %.critedge188, label %179
+  br i1 %or.cond, label %.critedge190, label %179
 
 179:                                              ; preds = %177
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.1151, i32 noundef %164) #4
-  br label %.thread198
+  br label %.critedge188
 
-.critedge188:                                     ; preds = %177
-  %.not211 = icmp eq i32 %.0140, -1
-  %brmerge190 = or i1 %.not169, %.not211
-  br i1 %brmerge190, label %.thread198, label %180
+.critedge190:                                     ; preds = %177
+  %.not201 = icmp eq i32 %.0140, -1
+  %brmerge192 = or i1 %.not169, %.not201
+  br i1 %brmerge192, label %.critedge188, label %180
 
-180:                                              ; preds = %.critedge188
+180:                                              ; preds = %.critedge190
   %181 = mul i32 %.0136, %.0140
   %.not184 = icmp eq i32 %181, %174
-  br i1 %.not184, label %.thread198, label %182
+  br i1 %.not184, label %.critedge188, label %182
 
 182:                                              ; preds = %180
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %181, i32 noundef %174) #4
-  br label %.thread198
+  br label %.critedge188
 
-.thread198:                                       ; preds = %173, %123, %120, %93, %76, %148, %180, %.critedge188, %25, %2, %182, %179, %176, %23, %18, %11
-  %.0133 = phi i32 [ %13, %11 ], [ %16, %18 ], [ -1163346256, %23 ], [ -1094995529, %176 ], [ -1094995529, %182 ], [ -1094995529, %179 ], [ -541478725, %2 ], [ 0, %25 ], [ 0, %.critedge188 ], [ 0, %180 ], [ -1094995529, %148 ], [ -1094995529, %76 ], [ -1094995529, %93 ], [ -1094995529, %120 ], [ -1094995529, %123 ], [ 0, %173 ]
+.critedge188:                                     ; preds = %173, %93, %120, %123, %148, %76, %180, %.critedge190, %25, %2, %182, %179, %176, %23, %18, %11
+  %.0133 = phi i32 [ %13, %11 ], [ %16, %18 ], [ -1163346256, %23 ], [ -1094995529, %176 ], [ -1094995529, %182 ], [ -1094995529, %179 ], [ -541478725, %2 ], [ 0, %25 ], [ 0, %.critedge190 ], [ 0, %180 ], [ -1094995529, %76 ], [ -1094995529, %148 ], [ -1094995529, %123 ], [ -1094995529, %120 ], [ -1094995529, %93 ], [ 0, %173 ]
   ret i32 %.0133
 }
 

@@ -36,7 +36,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 2
-  br i1 %21, label %.loopexit, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
   %23 = add nsw i32 %1, -2
@@ -56,20 +56,20 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
   %.not = icmp ne ptr %31, %20
   %.not49 = icmp eq ptr %20, null
   %or.cond = or i1 %.not49, %.not
-  br i1 %or.cond, label %.loopexit, label %32
+  br i1 %or.cond, label %.critedge, label %32
 
 32:                                               ; preds = %_ZNK5Block8get_nodeEj.exit51
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 3
-  %.not58 = icmp eq i32 %35, 2
-  br i1 %.not58, label %36, label %.loopexit
+  %.not56 = icmp eq i32 %35, 2
+  br i1 %.not56, label %36, label %.critedge
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -79,19 +79,19 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
   %45 = zext i32 %44 to i64
   %.idx = shl nuw nsw i64 %45, 3
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
-  %.not66 = icmp eq i32 %44, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph65
+  %.not64 = icmp eq i32 %44, 0
+  br i1 %.not64, label %._crit_edge, label %.lr.ph63
 
-.lr.ph65:                                         ; preds = %40, %switch.lookup
-  %.04164 = phi i32 [ %77, %switch.lookup ], [ 0, %40 ]
-  %.04263 = phi ptr [ %78, %switch.lookup ], [ %42, %40 ]
-  %47 = load ptr, ptr %.04263, align 8
+.lr.ph63:                                         ; preds = %40, %switch.lookup
+  %.04162 = phi i32 [ %77, %switch.lookup ], [ 0, %40 ]
+  %.04261 = phi ptr [ %78, %switch.lookup ], [ %42, %40 ]
+  %47 = load ptr, ptr %.04261, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 54
   %49 = load i16, ptr %48, align 2
-  %.not67 = icmp eq i16 %49, 0
-  br i1 %.not67, label %.loopexit, label %.lr.ph
+  %.not65 = icmp eq i16 %49, 0
+  br i1 %.not65, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph65
+.lr.ph:                                           ; preds = %.lr.ph63
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 56
   br label %55
 
@@ -100,7 +100,7 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
   %52 = load i16, ptr %48, align 2
   %53 = zext i16 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %55, label %.loopexit, !llvm.loop !6
+  br i1 %54, label %55, label %.critedge, !llvm.loop !6
 
 55:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
@@ -138,17 +138,17 @@ switch.lookup:                                    ; preds = %68
   %76 = zext nneg i32 %72 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj, i64 0, i64 %76
   %switch.load = load i32, ptr %switch.gep, align 4
-  %77 = or i32 %switch.load, %.04164
-  %78 = getelementptr inbounds nuw i8, ptr %.04263, i64 8
+  %77 = or i32 %switch.load, %.04162
+  %78 = getelementptr inbounds nuw i8, ptr %.04261, i64 8
   %79 = icmp ult ptr %78, %46
-  br i1 %79, label %.lr.ph65, label %._crit_edge, !llvm.loop !8
+  br i1 %79, label %.lr.ph63, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %switch.lookup, %40
   %.041.lcssa = phi i32 [ 0, %40 ], [ %77, %switch.lookup ]
   %80 = xor i32 %38, -1
   %81 = and i32 %.041.lcssa, %80
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %_ZNK5Block8get_nodeEj.exit53, label %.loopexit
+  br i1 %82, label %_ZNK5Block8get_nodeEj.exit53, label %.critedge
 
 _ZNK5Block8get_nodeEj.exit53:                     ; preds = %._crit_edge
   %83 = add nsw i32 %1, -1
@@ -193,10 +193,10 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZNK5Block8get_n
   %109 = zext i32 %104 to i64
   %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
   store ptr null, ptr %110, align 8
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph65, %51, %._crit_edge, %32, %36, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit51, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
-  %.0 = phi i1 [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ false, %32 ], [ false, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph65 ]
+.critedge:                                        ; preds = %.lr.ph63, %51, %._crit_edge, %32, %36, %_ZNK5Block8get_nodeEj.exit, %_ZNK5Block8get_nodeEj.exit51, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit
+  %.0 = phi i1 [ true, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit ], [ false, %_ZNK5Block8get_nodeEj.exit51 ], [ false, %_ZNK5Block8get_nodeEj.exit ], [ false, %36 ], [ false, %32 ], [ false, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph63 ]
   ret i1 %.0
 }
 

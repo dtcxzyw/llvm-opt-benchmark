@@ -650,17 +650,17 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not55.i.i.us, label %.preheader.i.i.us, label %474
 
 .preheader.i.i.us:                                ; preds = %362
-  %.not5662.i.i.us = icmp eq i32 %364, 0
-  br i1 %.not5662.i.i.us, label %flashsv2_prime.exit.i.us, label %.lr.ph.i.i.us
+  %.not5659.i.i.us = icmp eq i32 %364, 0
+  br i1 %.not5659.i.i.us, label %flashsv2_prime.exit.i.us, label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %.preheader.i.i.us
   %366 = getelementptr inbounds nuw i8, ptr %328, i64 240
   br label %367
 
 367:                                              ; preds = %374, %.lr.ph.i.i.us
-  %.04864.i.i.us = phi i32 [ %364, %.lr.ph.i.i.us ], [ %377, %374 ]
-  %.05063.i.i.us = phi ptr [ %345, %.lr.ph.i.i.us ], [ %376, %374 ]
-  %368 = call i32 @llvm.umin.i32(i32 %.04864.i.i.us, i32 65535)
+  %.04861.i.i.us = phi i32 [ %364, %.lr.ph.i.i.us ], [ %377, %374 ]
+  %.05060.i.i.us = phi ptr [ %345, %.lr.ph.i.i.us ], [ %376, %374 ]
+  %368 = call i32 @llvm.umin.i32(i32 %.04861.i.i.us, i32 65535)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #7
   store i8 0, ptr %5, align 1, !tbaa !42
   %369 = trunc nuw i32 %368 to i16
@@ -673,23 +673,23 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   store i32 65535, ptr %354, align 8, !tbaa !71
   %371 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %.not57.i.i.us = icmp eq i32 %371, 0
-  br i1 %.not57.i.i.us, label %372, label %.thread.i.i.us
+  br i1 %.not57.i.i.us, label %372, label %.critedge.i.i.us
 
 372:                                              ; preds = %367
-  store ptr %.05063.i.i.us, ptr %329, align 8, !tbaa !68
+  store ptr %.05060.i.i.us, ptr %329, align 8, !tbaa !68
   store i32 %368, ptr %349, align 8, !tbaa !69
   %373 = call i32 @inflate(ptr noundef nonnull %329, i32 noundef 2) #7
   %.not58.i.i.us = icmp eq i32 %373, 0
-  br i1 %.not58.i.i.us, label %374, label %.thread.i.i.us
+  br i1 %.not58.i.i.us, label %374, label %.critedge.i.i.us
 
-.thread.i.i.us:                                   ; preds = %372, %367
+.critedge.i.i.us:                                 ; preds = %372, %367
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
   br label %474
 
 374:                                              ; preds = %372
   %375 = zext nneg i32 %368 to i64
-  %376 = getelementptr inbounds nuw i8, ptr %.05063.i.i.us, i64 %375
-  %377 = sub i32 %.04864.i.i.us, %368
+  %376 = getelementptr inbounds nuw i8, ptr %.05060.i.i.us, i64 %375
+  %377 = sub i32 %.04861.i.i.us, %368
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
   %.not56.i.i.us = icmp eq i32 %377, 0
   br i1 %.not56.i.i.us, label %flashsv2_prime.exit.i.us, label %367, !llvm.loop !72
@@ -865,7 +865,7 @@ decode_hybrid.exit.thread.i.us:                   ; preds = %433, %decode_hybrid
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24) #7
   br label %474
 
-474:                                              ; preds = %decode_hybrid.exit.thread.i.us, %.thread.i.i.us, %362, %360, %346, %340, %333
+474:                                              ; preds = %decode_hybrid.exit.thread.i.us, %.critedge.i.i.us, %362, %360, %346, %340, %333
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %208, i32 noundef %200) #7
   br label %503
 

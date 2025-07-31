@@ -13842,16 +13842,7 @@ entry:
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !510
   %cmp.i.i = icmp eq ptr %this, %0
-  br i1 %cmp.i.i, label %invoke.cont.2.thread, label %if.else12.i.i
-
-invoke.cont.2.thread:                             ; preds = %entry
-  %TextureMatrix.i.16 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr null, ptr %TextureMatrix.i.16, align 8, !tbaa !510
-  %TextureMatrix.i.27 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr null, ptr %TextureMatrix.i.27, align 8, !tbaa !510
-  %TextureMatrix.i.38 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr null, ptr %TextureMatrix.i.38, align 8, !tbaa !510
-  br label %invoke.cont.3
+  br i1 %cmp.i.i, label %invoke.cont.3.critedge, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %entry
   %1 = load ptr, ptr %0, align 8, !tbaa !474
@@ -13866,7 +13857,7 @@ invoke.cont.i.i:                                  ; preds = %if.else12.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.i7, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !567
   br label %if.else12.i.i.1
 
-if.else12.i.i.1:                                  ; preds = %invoke.cont.i.i, %if.else12.i.i
+if.else12.i.i.1:                                  ; preds = %if.else12.i.i, %invoke.cont.i.i
   %storemerge.i = phi ptr [ %call.i.i7, %invoke.cont.i.i ], [ null, %if.else12.i.i ]
   store ptr %storemerge.i, ptr %TextureMatrix.i, align 8, !tbaa !510
   %TextureWrapU.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13918,7 +13909,7 @@ call.i.i.noexc.1:                                 ; preds = %invoke.cont.i.i.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.i7.1, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !567
   br label %if.else12.i.i.2
 
-if.else12.i.i.2:                                  ; preds = %call.i.i.noexc.1, %if.else12.i.i.1
+if.else12.i.i.2:                                  ; preds = %if.else12.i.i.1, %call.i.i.noexc.1
   %storemerge.i.1 = phi ptr [ %call.i.i7.1, %call.i.i.noexc.1 ], [ null, %if.else12.i.i.1 ]
   store ptr %storemerge.i.1, ptr %TextureMatrix.i.1, align 8, !tbaa !510
   %TextureWrapU.i.i.1 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -13970,7 +13961,7 @@ call.i.i.noexc.2:                                 ; preds = %invoke.cont.i.i.2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.i7.2, ptr noundef nonnull align 4 dereferenceable(64) %16, i64 64, i1 false), !tbaa.struct !567
   br label %if.else12.i.i.3
 
-if.else12.i.i.3:                                  ; preds = %call.i.i.noexc.2, %if.else12.i.i.2
+if.else12.i.i.3:                                  ; preds = %if.else12.i.i.2, %call.i.i.noexc.2
   %storemerge.i.2 = phi ptr [ %call.i.i7.2, %call.i.i.noexc.2 ], [ null, %if.else12.i.i.2 ]
   store ptr %storemerge.i.2, ptr %TextureMatrix.i.2, align 8, !tbaa !510
   %TextureWrapU.i.i.2 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14057,7 +14048,16 @@ if.end21.i.i.3:                                   ; preds = %call.i.i.noexc.3, %
   store i8 %27, ptr %LODBias46.i.i.3, align 1, !tbaa !550
   br label %invoke.cont.3
 
-invoke.cont.3:                                    ; preds = %invoke.cont.2.thread, %if.end21.i.i.3
+invoke.cont.3.critedge:                           ; preds = %entry
+  %TextureMatrix.i.1.c = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr null, ptr %TextureMatrix.i.1.c, align 8, !tbaa !510
+  %TextureMatrix.i.2.c = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store ptr null, ptr %TextureMatrix.i.2.c, align 8, !tbaa !510
+  %TextureMatrix.i.3.c = getelementptr inbounds nuw i8, ptr %this, i64 120
+  store ptr null, ptr %TextureMatrix.i.3.c, align 8, !tbaa !510
+  br label %invoke.cont.3
+
+invoke.cont.3:                                    ; preds = %invoke.cont.3.critedge, %if.end21.i.i.3
   %MaterialType = getelementptr inbounds nuw i8, ptr %this, i64 128
   %MaterialType4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %MaterialType, ptr noundef nonnull align 8 dereferenceable(50) %MaterialType4, i64 50, i1 false)

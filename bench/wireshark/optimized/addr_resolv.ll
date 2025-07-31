@@ -342,7 +342,7 @@ define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, pt
   %15 = call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread, label %.thread41
+  br i1 %16, label %.thread, label %.critedge.thread35
 
 .thread:                                          ; preds = %3, %10
   %switch.tableidx = add i32 %0, -1
@@ -356,102 +356,102 @@ switch.lookup:                                    ; preds = %.thread
   %19 = trunc i32 %1 to i16
   %20 = call ptr @global_services_lookup(i16 noundef zeroext %19, i32 noundef %switch.load)
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %add_service_name.exit, label %21
+  br i1 %.not, label %add_service_name.exit, label %.critedge
 
-21:                                               ; preds = %switch.lookup
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not30 = icmp eq ptr %23, null
-  br i1 %.not30, label %add_service_name.exit, label %.thread41
+.critedge:                                        ; preds = %switch.lookup
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not30 = icmp eq ptr %22, null
+  br i1 %.not30, label %add_service_name.exit, label %.critedge.thread35
 
-.thread41:                                        ; preds = %10, %21
-  %.144 = phi ptr [ %23, %21 ], [ %15, %10 ]
-  %24 = load ptr, ptr @serv_port_hashtable, align 8
-  %25 = call ptr @wmem_map_lookup(ptr noundef %24, ptr noundef %7)
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %32
+.critedge.thread35:                               ; preds = %10, %.critedge
+  %.138 = phi ptr [ %22, %.critedge ], [ %15, %10 ]
+  %23 = load ptr, ptr @serv_port_hashtable, align 8
+  %24 = call ptr @wmem_map_lookup(ptr noundef %23, ptr noundef %7)
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %31
 
-27:                                               ; preds = %.thread41
-  %28 = load ptr, ptr @addr_resolv_scope, align 8
-  %29 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %28, i64 noundef 40) #26
-  %30 = load ptr, ptr @serv_port_hashtable, align 8
-  %31 = call ptr @wmem_map_insert(ptr noundef %30, ptr noundef %7, ptr noundef %29)
-  br label %32
+26:                                               ; preds = %.critedge.thread35
+  %27 = load ptr, ptr @addr_resolv_scope, align 8
+  %28 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %27, i64 noundef 40) #26
+  %29 = load ptr, ptr @serv_port_hashtable, align 8
+  %30 = call ptr @wmem_map_insert(ptr noundef %29, ptr noundef %7, ptr noundef %28)
+  br label %31
 
-32:                                               ; preds = %27, %.thread41
-  %.0.i = phi ptr [ %29, %27 ], [ %25, %.thread41 ]
+31:                                               ; preds = %26, %.critedge.thread35
+  %.0.i = phi ptr [ %28, %26 ], [ %24, %.critedge.thread35 ]
   switch i32 %0, label %add_service_name.exit [
-    i32 2, label %33
-    i32 3, label %35
-    i32 1, label %36
-    i32 4, label %38
+    i32 2, label %32
+    i32 3, label %34
+    i32 1, label %35
+    i32 4, label %37
   ]
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store ptr %.144, ptr %34, align 8
-  br label %40
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store ptr %.138, ptr %33, align 8
+  br label %39
 
-35:                                               ; preds = %32
-  store ptr %.144, ptr %.0.i, align 8
-  br label %40
+34:                                               ; preds = %31
+  store ptr %.138, ptr %.0.i, align 8
+  br label %39
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store ptr %.144, ptr %37, align 8
-  br label %40
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store ptr %.138, ptr %36, align 8
+  br label %39
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store ptr %.144, ptr %39, align 8
-  br label %40
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  store ptr %.138, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %38, %36, %35, %33
+39:                                               ; preds = %37, %35, %34, %32
   store i1 true, ptr @new_resolved_objects, align 1
   br label %add_service_name.exit
 
-add_service_name.exit:                            ; preds = %.thread, %switch.lookup, %40, %32, %21
-  %.027 = phi ptr [ %8, %21 ], [ %.0.i, %32 ], [ %.0.i, %40 ], [ %8, %switch.lookup ], [ %8, %.thread ]
+add_service_name.exit:                            ; preds = %.thread, %switch.lookup, %39, %31, %.critedge
+  %.027 = phi ptr [ %8, %.critedge ], [ %.0.i, %31 ], [ %.0.i, %39 ], [ %8, %switch.lookup ], [ %8, %.thread ]
   %.not31 = icmp eq ptr %2, null
-  br i1 %.not31, label %42, label %41
+  br i1 %.not31, label %41, label %40
 
-41:                                               ; preds = %add_service_name.exit
+40:                                               ; preds = %add_service_name.exit
   store ptr %.027, ptr %2, align 8
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %add_service_name.exit
-  %43 = icmp eq ptr %.027, null
-  br i1 %43, label %56, label %44
+41:                                               ; preds = %40, %add_service_name.exit
+  %42 = icmp eq ptr %.027, null
+  br i1 %42, label %55, label %43
 
-44:                                               ; preds = %42
-  switch i32 %0, label %56 [
-    i32 3, label %45
-    i32 2, label %47
-    i32 1, label %50
-    i32 4, label %53
+43:                                               ; preds = %41
+  switch i32 %0, label %55 [
+    i32 3, label %44
+    i32 2, label %46
+    i32 1, label %49
+    i32 4, label %52
   ]
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %.027, align 8
-  br label %56
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %.027, align 8
+  br label %55
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %49 = load ptr, ptr %48, align 8
-  br label %56
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %.027, i64 8
+  %48 = load ptr, ptr %47, align 8
+  br label %55
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %.027, i64 16
-  %52 = load ptr, ptr %51, align 8
-  br label %56
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %.027, i64 16
+  %51 = load ptr, ptr %50, align 8
+  br label %55
 
-53:                                               ; preds = %44
-  %54 = getelementptr inbounds nuw i8, ptr %.027, i64 24
-  %55 = load ptr, ptr %54, align 8
-  br label %56
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %.027, i64 24
+  %54 = load ptr, ptr %53, align 8
+  br label %55
 
-56:                                               ; preds = %44, %42, %53, %50, %47, %45
-  %.024 = phi ptr [ %46, %45 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ null, %42 ], [ null, %44 ]
+55:                                               ; preds = %43, %41, %52, %49, %46, %44
+  %.024 = phi ptr [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ null, %41 ], [ null, %43 ]
   ret ptr %.024
 }
 

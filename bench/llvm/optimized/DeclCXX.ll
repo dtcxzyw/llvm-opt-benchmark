@@ -15916,8 +15916,8 @@ define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK5clang18CXXC
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %4 = load i32, ptr %3, align 8, !tbaa !457
   %5 = zext i32 %4 to i64
-  %.not4775.not.i.i.i = icmp eq i32 %4, 0
-  br i1 %.not4775.not.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i
+  %.not4764.not.i.i.i = icmp eq i32 %4, 0
+  br i1 %.not4764.not.i.i.i, label %.critedge51.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2208
@@ -15925,82 +15925,82 @@ define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK5clang18CXXC
   br label %8
 
 8:                                                ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i.i
-  %.077.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %13, %._crit_edge.i.i.i ]
-  %.03776.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %14, %._crit_edge.i.i.i ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03776.i.i.i
+  %.066.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %17, %._crit_edge.i.i.i ]
+  %.03765.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %18, %._crit_edge.i.i.i ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03765.i.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !469
   %.not.i.i.i = icmp uge ptr %0, %10
-  %.pre.i.i.i = trunc i64 %.03776.i.i.i to i32
-  %.pre88.i.i.i = lshr i32 %.pre.i.i.i, 7
-  %.pre90.i.i.i = tail call i32 @llvm.umin.i32(i32 %.pre88.i.i.i, i32 30)
-  %.pre92.i.i.i = zext nneg i32 %.pre90.i.i.i to i64
-  %.pre93.i.i.i = shl nuw nsw i64 4096, %.pre92.i.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.pre93.i.i.i
+  %.pre.i.i.i = trunc i64 %.03765.i.i.i to i32
+  %.pre77.i.i.i = lshr i32 %.pre.i.i.i, 7
+  %.pre79.i.i.i = tail call i32 @llvm.umin.i32(i32 %.pre77.i.i.i, i32 30)
+  %.pre81.i.i.i = zext nneg i32 %.pre79.i.i.i to i64
+  %.pre82.i.i.i = shl nuw nsw i64 4096, %.pre81.i.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.pre82.i.i.i
   %12 = icmp ult ptr %0, %11
-  %or.cond101.i.i.i = select i1 %.not.i.i.i, i1 %12, i1 false
-  br i1 %or.cond101.i.i.i, label %15, label %._crit_edge.i.i.i
+  %or.cond90.i.i.i = select i1 %.not.i.i.i, i1 %12, i1 false
+  br i1 %or.cond90.i.i.i, label %.critedge.i.i.i, label %._crit_edge.i.i.i
+
+.critedge.i.i.i:                                  ; preds = %8
+  %13 = ptrtoint ptr %0 to i64
+  %14 = ptrtoint ptr %10 to i64
+  %15 = add i64 %.066.i.i.i, %13
+  %16 = sub i64 %15, %14
+  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26identifyKnownAlignedObjectIN5clang18CXXCtorInitializerEEElPKv.exit
 
 ._crit_edge.i.i.i:                                ; preds = %8
-  %13 = add nuw nsw i64 %.pre93.i.i.i, %.077.i.i.i
-  %14 = add nuw nsw i64 %.03776.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %14, %5
-  br i1 %exitcond.not.i.i.i, label %.critedge.i.i.i, label %8, !llvm.loop !699
+  %17 = add nuw nsw i64 %.pre82.i.i.i, %.066.i.i.i
+  %18 = add nuw nsw i64 %.03765.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %18, %5
+  br i1 %exitcond.not.i.i.i, label %.critedge51.i.i.i, label %8, !llvm.loop !699
 
-15:                                               ; preds = %8
-  %16 = ptrtoint ptr %0 to i64
-  %17 = ptrtoint ptr %10 to i64
-  %18 = add i64 %.077.i.i.i, %16
-  %19 = sub i64 %18, %17
+.critedge51.i.i.i:                                ; preds = %._crit_edge.i.i.i, %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2264
+  %20 = load i32, ptr %19, align 8, !tbaa !457
+  %21 = zext i32 %20 to i64
+  %.not4967.not.i.i.i = icmp ne i32 %20, 0
+  tail call void @llvm.assume(i1 %.not4967.not.i.i.i)
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2256
+  %23 = load ptr, ptr %22, align 8, !tbaa !456
+  %24 = load ptr, ptr %23, align 8, !tbaa !700
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !702
+  %.not48.i6.i.i = icmp uge ptr %0, %24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  %28 = icmp ult ptr %0, %27
+  %or.cond.i7.i.i = select i1 %.not48.i6.i.i, i1 %28, i1 false
+  br i1 %or.cond.i7.i.i, label %.critedge54.i.i.i, label %.lr.ph.i.i
+
+.critedge54.i.i.i:                                ; preds = %.lr.ph.i.i, %.critedge51.i.i.i
+  %.04168.i.lcssa.i.i = phi i64 [ -1, %.critedge51.i.i.i ], [ %33, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi ptr [ %24, %.critedge51.i.i.i ], [ %36, %.lr.ph.i.i ]
+  %29 = ptrtoint ptr %0 to i64
+  %30 = ptrtoint ptr %.lcssa.i.i to i64
+  %.neg.i.i.i = sub i64 %.04168.i.lcssa.i.i, %29
+  %31 = add i64 %.neg.i.i.i, %30
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26identifyKnownAlignedObjectIN5clang18CXXCtorInitializerEEElPKv.exit
 
-.critedge.i.i.i:                                  ; preds = %._crit_edge.i.i.i, %2
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2264
-  %21 = load i32, ptr %20, align 8, !tbaa !457
-  %22 = zext i32 %21 to i64
-  %.not4978.not.i.i.i = icmp ne i32 %21, 0
-  tail call void @llvm.assume(i1 %.not4978.not.i.i.i)
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2256
-  %24 = load ptr, ptr %23, align 8, !tbaa !456
-  %25 = load ptr, ptr %24, align 8, !tbaa !700
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !702
-  %.not48.i6.i.i = icmp uge ptr %0, %25
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
-  %29 = icmp ult ptr %0, %28
-  %or.cond.i7.i.i = select i1 %.not48.i6.i.i, i1 %29, i1 false
-  br i1 %or.cond.i7.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %.critedge51.i.i.i, %.lr.ph.i.i
+  %32 = phi i64 [ %38, %.lr.ph.i.i ], [ %26, %.critedge51.i.i.i ]
+  %.04168.i9.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ -1, %.critedge51.i.i.i ]
+  %.04069.i8.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ 0, %.critedge51.i.i.i ]
+  %33 = sub nsw i64 %.04168.i9.i.i, %32
+  %34 = add nuw nsw i64 %.04069.i8.i.i, 1
+  %exitcond76.not.i.i.i = icmp ne i64 %34, %21
+  tail call void @llvm.assume(i1 %exitcond76.not.i.i.i)
+  %35 = getelementptr inbounds nuw %"struct.std::pair.660", ptr %23, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !700
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !702
+  %.not48.i.i.i = icmp uge ptr %0, %36
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
+  %40 = icmp ult ptr %0, %39
+  %or.cond.i.i.i = select i1 %.not48.i.i.i, i1 %40, i1 false
+  br i1 %or.cond.i.i.i, label %.critedge54.i.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.critedge.i.i.i, %.lr.ph.i.i
-  %30 = phi i64 [ %36, %.lr.ph.i.i ], [ %27, %.critedge.i.i.i ]
-  %.04179.i9.i.i = phi i64 [ %31, %.lr.ph.i.i ], [ -1, %.critedge.i.i.i ]
-  %.04080.i8.i.i = phi i64 [ %32, %.lr.ph.i.i ], [ 0, %.critedge.i.i.i ]
-  %31 = sub nsw i64 %.04179.i9.i.i, %30
-  %32 = add nuw nsw i64 %.04080.i8.i.i, 1
-  %exitcond87.not.i.i.i = icmp ne i64 %32, %22
-  tail call void @llvm.assume(i1 %exitcond87.not.i.i.i)
-  %33 = getelementptr inbounds nuw %"struct.std::pair.660", ptr %24, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !700
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !702
-  %.not48.i.i.i = icmp uge ptr %0, %34
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  %38 = icmp ult ptr %0, %37
-  %or.cond.i.i.i = select i1 %.not48.i.i.i, i1 %38, i1 false
-  br i1 %or.cond.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.critedge.i.i.i
-  %.04179.i.lcssa.i.i = phi i64 [ -1, %.critedge.i.i.i ], [ %31, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi ptr [ %25, %.critedge.i.i.i ], [ %34, %.lr.ph.i.i ]
-  %39 = ptrtoint ptr %0 to i64
-  %40 = ptrtoint ptr %.lcssa.i.i to i64
-  %.neg.i.i.i = sub i64 %.04179.i.lcssa.i.i, %39
-  %41 = add i64 %.neg.i.i.i, %40
-  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26identifyKnownAlignedObjectIN5clang18CXXCtorInitializerEEElPKv.exit
-
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26identifyKnownAlignedObjectIN5clang18CXXCtorInitializerEEElPKv.exit: ; preds = %15, %._crit_edge.i.i
-  %.sroa.0.2.i.i.i = phi i64 [ %19, %15 ], [ %41, %._crit_edge.i.i ]
-  %42 = lshr i64 %.sroa.0.2.i.i.i, 3
-  ret i64 %42
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26identifyKnownAlignedObjectIN5clang18CXXCtorInitializerEEElPKv.exit: ; preds = %.critedge.i.i.i, %.critedge54.i.i.i
+  %.sroa.0.0.i.i.i = phi i64 [ %16, %.critedge.i.i.i ], [ %31, %.critedge54.i.i.i ]
+  %41 = lshr i64 %.sroa.0.0.i.i.i, 3
+  ret i64 %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

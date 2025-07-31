@@ -1648,7 +1648,7 @@ _ZN7ruff_db6system4path10SystemPath11starts_with17h8680b8c0550a6300E.exit.i: ; p
 
 206:                                              ; preds = %204
   switch i8 %205, label %default.unreachable [
-    i8 0, label %210
+    i8 0, label %.critedge.i
     i8 1, label %.noexc.i
     i8 2, label %207
   ]
@@ -1659,22 +1659,22 @@ default.unreachable:                              ; preds = %206
 207:                                              ; preds = %206
   br label %.noexc.i
 
+.noexc.i:                                         ; preds = %207, %206
+  %.sroa.4.0.i.i = phi i8 [ 1, %207 ], [ 0, %206 ]
+  call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbf602143f17375b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10), !noalias !145
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !146
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !146
+  store i8 %.sroa.4.0.i.i, ptr %6, align 1, !noalias !146
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.86ecaac84f2be1d55de06e91e6d68cca.42, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.86ecaac84f2be1d55de06e91e6d68cca.44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86ecaac84f2be1d55de06e91e6d68cca.101) #26, !noalias !145
+  unreachable
+
 208:                                              ; preds = %198
   %209 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #25, !noalias !145
   unreachable
 
-.noexc.i:                                         ; preds = %207, %206
-  %.sroa.4.0.i.ph.i = phi i8 [ 1, %207 ], [ 0, %206 ]
-  call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbf602143f17375b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10), !noalias !145
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !146
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !146
-  store i8 %.sroa.4.0.i.ph.i, ptr %6, align 1, !noalias !146
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.86ecaac84f2be1d55de06e91e6d68cca.42, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.86ecaac84f2be1d55de06e91e6d68cca.44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86ecaac84f2be1d55de06e91e6d68cca.101) #26, !noalias !145
-  unreachable
-
-210:                                              ; preds = %206
+.critedge.i:                                      ; preds = %206
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbf602143f17375b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10), !noalias !145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !146
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf937761b65478db6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86ecaac84f2be1d55de06e91e6d68cca.102), !noalias !141
@@ -1692,7 +1692,7 @@ default.unreachable:                              ; preds = %206
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17hbf602143f17375b2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #27
           to label %.thread102.i unwind label %171, !noalias !145
 
-"_ZN7ty_test8run_test28_$u7b$$u7b$closure$u7d$$u7d$17hdeea0cfd6dc49344E.exit": ; preds = %29, %189, %210
+"_ZN7ty_test8run_test28_$u7b$$u7b$closure$u7d$$u7d$17hdeea0cfd6dc49344E.exit": ; preds = %29, %189, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret void
 }

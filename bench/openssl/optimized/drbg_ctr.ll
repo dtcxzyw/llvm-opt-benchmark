@@ -1359,7 +1359,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !49
   %.not71 = icmp eq i32 %21, 4
-  br i1 %.not71, label %22, label %drbg_ctr_init.exit
+  br i1 %.not71, label %22, label %.critedge
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1376,14 +1376,14 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !49
   %.not73 = icmp eq i32 %29, 4
-  br i1 %.not73, label %30, label %drbg_ctr_init.exit
+  br i1 %.not73, label %30, label %.critedge
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %33 = call ptr @ossl_provider_find(ptr noundef %8, ptr noundef %32, i32 noundef 1) #7
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %drbg_ctr_init.exit, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %30, %25
   %.057 = phi ptr [ %33, %30 ], [ null, %25 ]
@@ -1407,7 +1407,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
 
 46:                                               ; preds = %42, %37
   call void @ossl_provider_free(ptr noundef %.057) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 %44
@@ -1421,7 +1421,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 755, ptr noundef nonnull @__func__.drbg_ctr_set_ctx_params_locked) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 206, ptr noundef null) #7
   call void @ossl_provider_free(ptr noundef %.057) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %43, align 8, !tbaa !53
@@ -1431,7 +1431,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
 
 56:                                               ; preds = %52
   call void @ossl_provider_free(ptr noundef %.057) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 57:                                               ; preds = %52
   %58 = load i64, ptr %43, align 8, !tbaa !53
@@ -1486,9 +1486,9 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
 85:                                               ; preds = %82
   %86 = load ptr, ptr %61, align 8, !tbaa !18
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %.thread81
+  br i1 %87, label %88, label %.thread
 
-.thread81:                                        ; preds = %85
+.thread:                                          ; preds = %85
   call void @ossl_provider_free(ptr noundef %.057) #7
   br label %90
 
@@ -1497,13 +1497,13 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 788, ptr noundef nonnull @__func__.drbg_ctr_set_ctx_params_locked) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 207, ptr noundef null) #7
   call void @ossl_provider_free(ptr noundef %.057) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 89:                                               ; preds = %35
   call void @ossl_provider_free(ptr noundef %.057) #7
   br i1 %.not77, label %drbg_ctr_init.exit.thread, label %90
 
-90:                                               ; preds = %.thread81, %89
+90:                                               ; preds = %.thread, %89
   %91 = load ptr, ptr %4, align 8, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8, !tbaa !19
@@ -1514,7 +1514,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 566, ptr noundef nonnull @__func__.drbg_ctr_init) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 155, ptr noundef null) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 96:                                               ; preds = %90
   %97 = call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %93) #7
@@ -1664,14 +1664,14 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   %169 = load ptr, ptr %106, align 8, !tbaa !16
   call void @EVP_CIPHER_CTX_free(ptr noundef %169) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
 drbg_ctr_init.exit.thread:                        ; preds = %160, %153, %144, %89
   %170 = call i32 @ossl_drbg_set_ctx_params(ptr noundef nonnull %0, ptr noundef %1) #7
-  br label %drbg_ctr_init.exit
+  br label %.critedge
 
-drbg_ctr_init.exit:                               ; preds = %88, %56, %51, %46, %167, %95, %30, %27, %19, %drbg_ctr_init.exit.thread
-  %.0 = phi i32 [ %170, %drbg_ctr_init.exit.thread ], [ 0, %19 ], [ 0, %27 ], [ 0, %30 ], [ 0, %95 ], [ 0, %167 ], [ 0, %46 ], [ 0, %51 ], [ 0, %56 ], [ 0, %88 ]
+.critedge:                                        ; preds = %167, %95, %46, %51, %56, %88, %30, %27, %19, %drbg_ctr_init.exit.thread
+  %.0 = phi i32 [ %170, %drbg_ctr_init.exit.thread ], [ 0, %19 ], [ 0, %27 ], [ 0, %30 ], [ 0, %88 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %95 ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   ret i32 %.0
 }

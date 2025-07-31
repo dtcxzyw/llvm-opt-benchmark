@@ -12575,8 +12575,8 @@ _Z15get_array_arityPK4sort.exit.i:                ; preds = %231
   %235 = getelementptr inbounds i8, ptr %233, i64 -4
   %236 = load i32, ptr %235, align 4, !tbaa !102
   %237 = add i32 %236, -1
-  %.not5.not.i = icmp eq i32 %237, 0
-  br i1 %.not5.not.i, label %"_ZZN14array_rewriter10mk_eq_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clEP4sortj.exit", label %.lr.ph.i
+  %.not3.not.i = icmp eq i32 %237, 0
+  br i1 %.not3.not.i, label %"_ZZN14array_rewriter10mk_eq_coreEP4exprS1_R7obj_refIS0_11ast_managerEENK3$_0clEP4sortj.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_Z15get_array_arityPK4sort.exit.i, %231
   %238 = phi ptr [ %233, %_Z15get_array_arityPK4sort.exit.i ], [ %.pre195, %..lr.ph.i_crit_edge ], [ null, %231 ]
@@ -12592,7 +12592,7 @@ _Z15get_array_arityPK4sort.exit.i:                ; preds = %231
 
 242:                                              ; preds = %241, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %241 ]
-  %.0187.i = phi i64 [ 1, %.lr.ph.i ], [ %260, %241 ]
+  %.0185.i = phi i64 [ 1, %.lr.ph.i ], [ %260, %241 ]
   %243 = getelementptr inbounds nuw %class.parameter, ptr %238, i64 %indvars.iv.i
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i8, ptr %244, align 8, !tbaa !142
@@ -12631,11 +12631,11 @@ _ZNK4sort11is_infiniteEv.exit.i:                  ; preds = %_Z16get_array_domai
   br i1 %258, label %261, label %259
 
 259:                                              ; preds = %255
-  %260 = mul i64 %257, %.0187.i
-  %.not3.i = icmp ugt i64 %260, %240
-  br i1 %.not3.i, label %261, label %241
+  %260 = mul i64 %257, %.0185.i
+  %.not1.i = icmp ugt i64 %260, %240
+  br i1 %.not1.i, label %261, label %241
 
-261:                                              ; preds = %_Z16get_array_domainPK4sortj.exit.i, %255, %259, %_ZNK4sort11is_infiniteEv.exit.i
+261:                                              ; preds = %_Z16get_array_domainPK4sortj.exit.i, %259, %255, %_ZNK4sort11is_infiniteEv.exit.i
   invoke void @_ZN14array_rewriter5mk_eqEP4exprS1_S1_R10ref_vectorIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(22) %0, ptr noundef nonnull %.1, ptr noundef nonnull %.1, ptr noundef %.1158, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %262 unwind label %175
 

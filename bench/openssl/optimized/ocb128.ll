@@ -401,9 +401,9 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr noundef captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = add i64 %7, %5
-  %.05165 = add i64 %7, 1
-  %.not66 = icmp ugt i64 %.05165, %8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.05162 = add i64 %7, 1
+  %.not63 = icmp ugt i64 %.05162, %8
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -418,16 +418,16 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr noundef captures(none) %0, ptr
   br label %18
 
 18:                                               ; preds = %.lr.ph, %53
-  %.05169 = phi i64 [ %.05165, %.lr.ph ], [ %.051, %53 ]
-  %.04968 = phi ptr [ %1, %.lr.ph ], [ %62, %53 ]
-  %.051.in67 = phi i64 [ %7, %.lr.ph ], [ %.05169, %53 ]
-  %19 = and i64 %.051.in67, 1
+  %.05166 = phi i64 [ %.05162, %.lr.ph ], [ %.051, %53 ]
+  %.04965 = phi ptr [ %1, %.lr.ph ], [ %62, %53 ]
+  %.051.in64 = phi i64 [ %7, %.lr.ph ], [ %.05166, %53 ]
+  %19 = and i64 %.051.in64, 1
   %.not5.i.not = icmp eq i64 %19, 0
   br i1 %.not5.i.not, label %ocb_lookup_l.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.07.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %18 ]
-  %.046.i = phi i64 [ %20, %.lr.ph.i ], [ %.05169, %18 ]
+  %.046.i = phi i64 [ %20, %.lr.ph.i ], [ %.05166, %18 ]
   %20 = lshr exact i64 %.046.i, 1
   %21 = add i32 %.07.i, 1
   %22 = and i64 %.046.i, 2
@@ -455,7 +455,7 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i
   %33 = shl nuw nsw i64 %31, 4
   %34 = call ptr @CRYPTO_realloc(ptr noundef %32, i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 113) #6
   %.not34.i = icmp eq ptr %34, null
-  br i1 %.not34.i, label %.thread, label %35
+  br i1 %.not34.i, label %.critedge, label %35
 
 35:                                               ; preds = %27
   store ptr %34, ptr %11, align 8, !tbaa !11
@@ -502,13 +502,13 @@ ocb_double.exit.i:                                ; preds = %40
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, %._crit_edge.i
-  %.0.lcssa.i73 = phi i64 [ %23, %ocb_ntz.exit ], [ %23, %._crit_edge.i ], [ 0, %18 ]
+  %.0.lcssa.i70 = phi i64 [ %23, %ocb_ntz.exit ], [ %23, %._crit_edge.i ], [ 0, %18 ]
   %52 = load ptr, ptr %11, align 8, !tbaa !11
   %.not56 = icmp eq ptr %52, null
-  br i1 %.not56, label %.thread, label %53
+  br i1 %.not56, label %.critedge, label %53
 
 53:                                               ; preds = %ocb_lookup_l.exit
-  %54 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %52, i64 %.0.lcssa.i73
+  %54 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %52, i64 %.0.lcssa.i70
   %55 = load i64, ptr %12, align 8, !tbaa !17
   %56 = load i64, ptr %54, align 8, !tbaa !17
   %57 = xor i64 %56, %55
@@ -518,8 +518,8 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   %60 = load i64, ptr %59, align 8, !tbaa !17
   %61 = xor i64 %60, %58
   store i64 %61, ptr %13, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %.04968, i64 16, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %.04968, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %.04965, i64 16, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %.04965, i64 16
   %63 = load i64, ptr %4, align 8, !tbaa !17
   %64 = xor i64 %63, %57
   store i64 %64, ptr %4, align 8, !tbaa !17
@@ -537,7 +537,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   %73 = load i64, ptr %17, align 8, !tbaa !17
   %74 = xor i64 %73, %72
   store i64 %74, ptr %17, align 8, !tbaa !17
-  %.051 = add i64 %.05169, 1
+  %.051 = add i64 %.05166, 1
   %.not = icmp ugt i64 %.051, %8
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !25
 
@@ -589,9 +589,9 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
 
 104:                                              ; preds = %76, %._crit_edge
   store i64 %8, ptr %6, align 8, !tbaa !22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %27, %ocb_lookup_l.exit, %104
+.critedge:                                        ; preds = %27, %ocb_lookup_l.exit, %104
   %.2 = phi i32 [ 1, %104 ], [ 0, %ocb_lookup_l.exit ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret i32 %.2
@@ -615,8 +615,8 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_encrypt(ptr noundef %0, ptr noundef %1
   br i1 %.not88, label %59, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %.not91124 = icmp ult i64 %10, 2
-  br i1 %.not91124, label %ocb_lookup_l.exit, label %._crit_edge
+  %.not91122 = icmp ult i64 %10, 2
+  br i1 %.not91122, label %ocb_lookup_l.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
@@ -708,11 +708,11 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   br label %.loopexit
 
 59:                                               ; preds = %11, %4
-  %.084127 = add i64 %9, 1
-  %.not89128 = icmp ugt i64 %.084127, %10
-  br i1 %.not89128, label %.loopexit, label %.lr.ph134
+  %.084125 = add i64 %9, 1
+  %.not89126 = icmp ugt i64 %.084125, %10
+  br i1 %.not89126, label %.loopexit, label %.lr.ph132
 
-.lr.ph134:                                        ; preds = %59
+.lr.ph132:                                        ; preds = %59
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -724,35 +724,35 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %69
 
-69:                                               ; preds = %.lr.ph134, %104
-  %.084132 = phi i64 [ %.084127, %.lr.ph134 ], [ %.084, %104 ]
-  %.179131 = phi ptr [ %1, %.lr.ph134 ], [ %113, %104 ]
-  %.182130 = phi ptr [ %2, %.lr.ph134 ], [ %130, %104 ]
-  %.084.in129 = phi i64 [ %9, %.lr.ph134 ], [ %.084132, %104 ]
+69:                                               ; preds = %.lr.ph132, %104
+  %.084130 = phi i64 [ %.084125, %.lr.ph132 ], [ %.084, %104 ]
+  %.179129 = phi ptr [ %1, %.lr.ph132 ], [ %113, %104 ]
+  %.182128 = phi ptr [ %2, %.lr.ph132 ], [ %130, %104 ]
+  %.084.in127 = phi i64 [ %9, %.lr.ph132 ], [ %.084130, %104 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  %70 = and i64 %.084.in129, 1
+  %70 = and i64 %.084.in127, 1
   %.not5.i.not = icmp eq i64 %70, 0
-  br i1 %.not5.i.not, label %ocb_lookup_l.exit112, label %.lr.ph.i95
+  br i1 %.not5.i.not, label %ocb_lookup_l.exit114, label %.lr.ph.i97
 
-.lr.ph.i95:                                       ; preds = %69, %.lr.ph.i95
-  %.07.i = phi i32 [ %72, %.lr.ph.i95 ], [ 0, %69 ]
-  %.046.i = phi i64 [ %71, %.lr.ph.i95 ], [ %.084132, %69 ]
+.lr.ph.i97:                                       ; preds = %69, %.lr.ph.i97
+  %.07.i = phi i32 [ %72, %.lr.ph.i97 ], [ 0, %69 ]
+  %.046.i = phi i64 [ %71, %.lr.ph.i97 ], [ %.084130, %69 ]
   %71 = lshr exact i64 %.046.i, 1
   %72 = add i32 %.07.i, 1
   %73 = and i64 %.046.i, 2
-  %.not.i96 = icmp eq i64 %73, 0
-  br i1 %.not.i96, label %.lr.ph.i95, label %ocb_ntz.exit, !llvm.loop !23
+  %.not.i98 = icmp eq i64 %73, 0
+  br i1 %.not.i98, label %.lr.ph.i97, label %ocb_ntz.exit, !llvm.loop !23
 
-ocb_ntz.exit:                                     ; preds = %.lr.ph.i95
+ocb_ntz.exit:                                     ; preds = %.lr.ph.i97
   %74 = zext i32 %72 to i64
   %75 = load i64, ptr %60, align 8, !tbaa !20
-  %.not.i97 = icmp ult i64 %75, %74
-  br i1 %.not.i97, label %76, label %ocb_lookup_l.exit112
+  %.not.i99 = icmp ult i64 %75, %74
+  br i1 %.not.i99, label %76, label %ocb_lookup_l.exit114
 
 76:                                               ; preds = %ocb_ntz.exit
   %77 = load i64, ptr %61, align 8, !tbaa !3
-  %.not33.i100 = icmp ugt i64 %77, %74
-  br i1 %.not33.i100, label %.lr.ph.i102.preheader, label %78
+  %.not33.i102 = icmp ugt i64 %77, %74
+  br i1 %.not33.i102, label %.lr.ph.i104.preheader, label %78
 
 78:                                               ; preds = %76
   %79 = sub nuw nsw i64 %74, %77
@@ -763,65 +763,61 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i95
   %83 = load ptr, ptr %62, align 8, !tbaa !11
   %84 = shl nuw nsw i64 %82, 4
   %85 = call ptr @CRYPTO_realloc(ptr noundef %83, i64 noundef %84, ptr noundef nonnull @.str, i32 noundef 113) #6
-  %.not34.i101 = icmp eq ptr %85, null
-  br i1 %.not34.i101, label %.thread, label %86
+  %.not34.i103 = icmp eq ptr %85, null
+  br i1 %.not34.i103, label %.critedge95, label %86
 
 86:                                               ; preds = %78
   store ptr %85, ptr %62, align 8, !tbaa !11
-  br label %.lr.ph.i102.preheader
+  br label %.lr.ph.i104.preheader
 
-.lr.ph.i102.preheader:                            ; preds = %86, %76
-  br label %.lr.ph.i102
+.lr.ph.i104.preheader:                            ; preds = %86, %76
+  br label %.lr.ph.i104
 
-.lr.ph.i102:                                      ; preds = %.lr.ph.i102.preheader, %ocb_double.exit.i108
-  %.02835.i103 = phi i64 [ %102, %ocb_double.exit.i108 ], [ %75, %.lr.ph.i102.preheader ]
+.lr.ph.i104:                                      ; preds = %.lr.ph.i104.preheader, %ocb_double.exit.i110
+  %.02835.i105 = phi i64 [ %102, %ocb_double.exit.i110 ], [ %75, %.lr.ph.i104.preheader ]
   %87 = load ptr, ptr %62, align 8, !tbaa !11
-  %88 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %87, i64 %.02835.i103
+  %88 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %87, i64 %.02835.i105
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i8, ptr %88, align 8, !tbaa !17
   br label %91
 
-91:                                               ; preds = %91, %.lr.ph.i102
-  %indvars.iv.i.i.i104 = phi i64 [ 15, %.lr.ph.i102 ], [ %indvars.iv.next.i.i.i106, %91 ]
-  %.01112.i.i.i105 = phi i8 [ 0, %.lr.ph.i102 ], [ %94, %91 ]
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i.i104
+91:                                               ; preds = %91, %.lr.ph.i104
+  %indvars.iv.i.i.i106 = phi i64 [ 15, %.lr.ph.i104 ], [ %indvars.iv.next.i.i.i108, %91 ]
+  %.01112.i.i.i107 = phi i8 [ 0, %.lr.ph.i104 ], [ %94, %91 ]
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i.i106
   %93 = load i8, ptr %92, align 1, !tbaa !17
   %94 = lshr i8 %93, 7
   %95 = shl i8 %93, 1
-  %96 = or disjoint i8 %95, %.01112.i.i.i105
-  %97 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv.i.i.i104
+  %96 = or disjoint i8 %95, %.01112.i.i.i107
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv.i.i.i106
   store i8 %96, ptr %97, align 1, !tbaa !17
-  %indvars.iv.next.i.i.i106 = add nsw i64 %indvars.iv.i.i.i104, -1
-  %.not.i.i.i107 = icmp eq i64 %indvars.iv.i.i.i104, 0
-  br i1 %.not.i.i.i107, label %ocb_double.exit.i108, label %91, !llvm.loop !18
+  %indvars.iv.next.i.i.i108 = add nsw i64 %indvars.iv.i.i.i106, -1
+  %.not.i.i.i109 = icmp eq i64 %indvars.iv.i.i.i106, 0
+  br i1 %.not.i.i.i109, label %ocb_double.exit.i110, label %91, !llvm.loop !18
 
-ocb_double.exit.i108:                             ; preds = %91
-  %isneg.i.i109 = icmp slt i8 %90, 0
-  %98 = select i1 %isneg.i.i109, i8 -121, i8 0
+ocb_double.exit.i110:                             ; preds = %91
+  %isneg.i.i111 = icmp slt i8 %90, 0
+  %98 = select i1 %isneg.i.i111, i8 -121, i8 0
   %99 = getelementptr inbounds nuw i8, ptr %88, i64 31
   %100 = load i8, ptr %99, align 1, !tbaa !17
   %101 = xor i8 %100, %98
   store i8 %101, ptr %99, align 1, !tbaa !17
-  %102 = add nuw i64 %.02835.i103, 1
-  %exitcond.not.i110 = icmp eq i64 %102, %74
-  br i1 %exitcond.not.i110, label %._crit_edge.i111, label %.lr.ph.i102, !llvm.loop !24
+  %102 = add nuw i64 %.02835.i105, 1
+  %exitcond.not.i112 = icmp eq i64 %102, %74
+  br i1 %exitcond.not.i112, label %._crit_edge.i113, label %.lr.ph.i104, !llvm.loop !24
 
-._crit_edge.i111:                                 ; preds = %ocb_double.exit.i108
+._crit_edge.i113:                                 ; preds = %ocb_double.exit.i110
   store i64 %74, ptr %60, align 8, !tbaa !20
-  br label %ocb_lookup_l.exit112
+  br label %ocb_lookup_l.exit114
 
-ocb_lookup_l.exit112:                             ; preds = %69, %ocb_ntz.exit, %._crit_edge.i111
-  %.0.lcssa.i144 = phi i64 [ %74, %ocb_ntz.exit ], [ %74, %._crit_edge.i111 ], [ 0, %69 ]
+ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, %._crit_edge.i113
+  %.0.lcssa.i142 = phi i64 [ %74, %ocb_ntz.exit ], [ %74, %._crit_edge.i113 ], [ 0, %69 ]
   %103 = load ptr, ptr %62, align 8, !tbaa !11
   %.not90 = icmp eq ptr %103, null
-  br i1 %.not90, label %.thread, label %104
+  br i1 %.not90, label %.critedge95, label %104
 
-.thread:                                          ; preds = %ocb_lookup_l.exit112, %78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  br label %.critedge
-
-104:                                              ; preds = %ocb_lookup_l.exit112
-  %105 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %103, i64 %.0.lcssa.i144
+104:                                              ; preds = %ocb_lookup_l.exit114
+  %105 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %103, i64 %.0.lcssa.i142
   %106 = load i64, ptr %63, align 8, !tbaa !17
   %107 = load i64, ptr %105, align 8, !tbaa !17
   %108 = xor i64 %107, %106
@@ -831,8 +827,8 @@ ocb_lookup_l.exit112:                             ; preds = %69, %ocb_ntz.exit, 
   %111 = load i64, ptr %110, align 8, !tbaa !17
   %112 = xor i64 %111, %109
   store i64 %112, ptr %64, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %.179131, i64 16, i1 false)
-  %113 = getelementptr inbounds nuw i8, ptr %.179131, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %.179129, i64 16, i1 false)
+  %113 = getelementptr inbounds nuw i8, ptr %.179129, i64 16
   %114 = load i64, ptr %5, align 8, !tbaa !17
   %115 = load i64, ptr %65, align 8, !tbaa !17
   %116 = xor i64 %115, %114
@@ -856,10 +852,10 @@ ocb_lookup_l.exit112:                             ; preds = %69, %ocb_ntz.exit, 
   %128 = load i64, ptr %66, align 8, !tbaa !17
   %129 = xor i64 %128, %127
   store i64 %129, ptr %66, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.182130, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %130 = getelementptr inbounds nuw i8, ptr %.182130, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.182128, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %130 = getelementptr inbounds nuw i8, ptr %.182128, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  %.084 = add i64 %.084132, 1
+  %.084 = add i64 %.084130, 1
   %.not89 = icmp ugt i64 %.084, %10
   br i1 %.not89, label %.loopexit, label %69, !llvm.loop !27
 
@@ -900,8 +896,8 @@ ocb_lookup_l.exit112:                             ; preds = %69, %ocb_ntz.exit, 
   %152 = getelementptr inbounds nuw i8, ptr %.081, i64 %.08.i
   store i8 %151, ptr %152, align 1, !tbaa !17
   %153 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i113 = icmp eq i64 %153, %131
-  br i1 %exitcond.not.i113, label %ocb_block_xor.exit, label %146, !llvm.loop !21
+  %exitcond.not.i115 = icmp eq i64 %153, %131
+  br i1 %exitcond.not.i115, label %ocb_block_xor.exit, label %146, !llvm.loop !21
 
 ocb_block_xor.exit:                               ; preds = %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -926,8 +922,12 @@ ocb_block_xor.exit:                               ; preds = %146
   store i64 %10, ptr %8, align 8, !tbaa !26
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %.thread, %ocb_lookup_l.exit, %164
-  %.1 = phi i32 [ 1, %164 ], [ 0, %ocb_lookup_l.exit ], [ 0, %.thread ], [ 0, %21 ]
+.critedge95:                                      ; preds = %78, %ocb_lookup_l.exit114
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  br label %.critedge
+
+.critedge:                                        ; preds = %21, %ocb_lookup_l.exit, %.critedge95, %164
+  %.1 = phi i32 [ 1, %164 ], [ 0, %.critedge95 ], [ 0, %ocb_lookup_l.exit ], [ 0, %21 ]
   ret i32 %.1
 }
 

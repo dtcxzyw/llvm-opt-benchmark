@@ -6533,18 +6533,18 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %9, %91
-  %.07283 = phi i32 [ %92, %91 ], [ 0, %9 ]
+.lr.ph:                                           ; preds = %9, %90
+  %.07280 = phi i32 [ %91, %90 ], [ 0, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %12 = load i32, ptr @ett_r3peekpoke, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.07283, i32 noundef 3, i32 noundef %12, ptr noundef nonnull %6, ptr noundef nonnull @.str.2109)
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.07280, i32 noundef 3, i32 noundef %12, ptr noundef nonnull %6, ptr noundef nonnull @.str.2109)
   %14 = load i32, ptr @hf_r3_peekpoke_operation, align 4
-  %15 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %.07283, i32 noundef 1, i32 noundef -2147483648)
+  %15 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %.07280, i32 noundef 1, i32 noundef -2147483648)
   %16 = load i32, ptr @hf_r3_peekpoke_address, align 4
-  %17 = add nsw i32 %.07283, 1
+  %17 = add nsw i32 %.07280, 1
   %18 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648)
-  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07283)
-  switch i8 %19, label %89 [
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07280)
+  switch i8 %19, label %.critedge [
     i8 0, label %20
     i8 1, label %31
     i8 2, label %44
@@ -6554,13 +6554,13 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
 
 20:                                               ; preds = %.lr.ph
   %.not79 = icmp eq ptr %13, null
-  br i1 %.not79, label %91, label %21
+  br i1 %.not79, label %90, label %21
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr %6, align 8
   %23 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17)
   %24 = zext i16 %23 to i32
-  %25 = add i32 %.07283, 3
+  %25 = add i32 %.07280, 3
   %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
   %27 = zext i8 %26 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.2110, i32 noundef %24, i32 noundef %27)
@@ -6568,7 +6568,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   call void @proto_item_set_len(ptr noundef %28, i32 noundef 4)
   %29 = load i32, ptr @hf_r3_peekpoke_poke8, align 4
   %30 = call ptr @proto_tree_add_item(ptr noundef nonnull %13, i32 noundef %29, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648)
-  br label %91
+  br label %90
 
 31:                                               ; preds = %.lr.ph
   %.not78 = icmp eq ptr %13, null
@@ -6578,7 +6578,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   %33 = load ptr, ptr %6, align 8
   %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17)
   %35 = zext i16 %34 to i32
-  %36 = add i32 %.07283, 3
+  %36 = add i32 %.07280, 3
   %37 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %36)
   %38 = zext i16 %37 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.2111, i32 noundef %35, i32 noundef %38)
@@ -6589,29 +6589,29 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   br label %42
 
 42:                                               ; preds = %32, %31
-  %43 = add i32 %.07283, 2
-  br label %91
+  %43 = add i32 %.07280, 2
+  br label %90
 
 44:                                               ; preds = %.lr.ph
   %.not77 = icmp eq ptr %13, null
-  br i1 %.not77, label %._crit_edge85, label %45
+  br i1 %.not77, label %._crit_edge82, label %45
 
-._crit_edge85:                                    ; preds = %44
-  %.pre = add i32 %.07283, 3
-  br label %91
+._crit_edge82:                                    ; preds = %44
+  %.pre = add i32 %.07280, 3
+  br label %90
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %6, align 8
   %47 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17)
   %48 = zext i16 %47 to i32
-  %49 = add i32 %.07283, 3
+  %49 = add i32 %.07280, 3
   %50 = call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %49)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef nonnull @.str.2112, i32 noundef %48, i32 noundef %50)
   %51 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %51, i32 noundef 6)
   %52 = load i32, ptr @hf_r3_peekpoke_poke24, align 4
   %53 = call ptr @proto_tree_add_item(ptr noundef nonnull %13, i32 noundef %52, ptr noundef %0, i32 noundef %49, i32 noundef 3, i32 noundef -2147483648)
-  br label %91
+  br label %90
 
 54:                                               ; preds = %.lr.ph
   %.not76 = icmp eq ptr %13, null
@@ -6621,7 +6621,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   %56 = load ptr, ptr %6, align 8
   %57 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17)
   %58 = zext i16 %57 to i32
-  %59 = add i32 %.07283, 3
+  %59 = add i32 %.07280, 3
   %60 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %59)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.2113, i32 noundef %58, i32 noundef %60)
   %61 = load ptr, ptr %6, align 8
@@ -6631,20 +6631,20 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   br label %64
 
 64:                                               ; preds = %55, %54
-  %65 = add i32 %.07283, 4
-  br label %91
+  %65 = add i32 %.07280, 4
+  br label %90
 
 66:                                               ; preds = %.lr.ph
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %67
 
 ._crit_edge:                                      ; preds = %66
-  %.pre86 = add i32 %.07283, 3
+  %.pre83 = add i32 %.07280, 3
   br label %85
 
 67:                                               ; preds = %66
   %68 = load ptr, ptr %6, align 8
-  %69 = add i32 %.07283, 3
+  %69 = add i32 %.07280, 3
   %70 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %69)
   %71 = zext i8 %70 to i32
   %72 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17)
@@ -6658,32 +6658,32 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   %78 = load i32, ptr @hf_r3_peekpoke_length, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef nonnull %13, i32 noundef %78, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef -2147483648)
   %80 = load i32, ptr @hf_r3_peekpoke_pokestring, align 4
-  %81 = add i32 %.07283, 4
+  %81 = add i32 %.07280, 4
   %82 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %69)
   %83 = zext i8 %82 to i32
   %84 = call ptr @proto_tree_add_item(ptr noundef nonnull %13, i32 noundef %80, ptr noundef %0, i32 noundef %81, i32 noundef %83, i32 noundef 0)
   br label %85
 
 85:                                               ; preds = %._crit_edge, %67
-  %.pre-phi87 = phi i32 [ %.pre86, %._crit_edge ], [ %69, %67 ]
-  %86 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre-phi87)
+  %.pre-phi84 = phi i32 [ %.pre83, %._crit_edge ], [ %69, %67 ]
+  %86 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre-phi84)
   %87 = zext i8 %86 to i32
   %88 = add i32 %17, %87
-  br label %91
+  br label %90
 
-89:                                               ; preds = %.lr.ph
-  %90 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_r3_peekpoke_operation)
+.critedge:                                        ; preds = %.lr.ph
+  %89 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_r3_peekpoke_operation)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   br label %.loopexit
 
-91:                                               ; preds = %45, %._crit_edge85, %20, %21, %85, %64, %42
-  %.2.ph = phi i32 [ %17, %20 ], [ %17, %21 ], [ %88, %85 ], [ %65, %64 ], [ %43, %42 ], [ %.pre, %._crit_edge85 ], [ %49, %45 ]
+90:                                               ; preds = %45, %._crit_edge82, %42, %64, %85, %21, %20
+  %.2 = phi i32 [ %43, %42 ], [ %65, %64 ], [ %88, %85 ], [ %17, %21 ], [ %17, %20 ], [ %.pre, %._crit_edge82 ], [ %49, %45 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  %92 = add i32 %.2.ph, 3
-  %93 = icmp slt i32 %92, %10
-  br i1 %93, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %91 = add i32 %.2, 3
+  %92 = icmp slt i32 %91, %10
+  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %91, %9, %89
+.loopexit:                                        ; preds = %90, %9, %.critedge
   ret void
 }
 
@@ -7567,9 +7567,9 @@ define internal void @dissect_r3_cmdmfg_forceoptions(ptr noundef %0, i32 noundef
   %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   %switch.tableidx = add i8 %32, -3
   %33 = icmp ult i8 %switch.tableidx, 4
-  br i1 %33, label %switch.lookup, label %.thread
+  br i1 %33, label %switch.lookup, label %.critedge61
 
-.thread:                                          ; preds = %17
+.critedge61:                                      ; preds = %17
   %34 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %31, ptr noundef nonnull @ei_r3_malformed_length, ptr noundef nonnull @.str.2198)
   br label %.critedge
 
@@ -7586,7 +7586,7 @@ switch.lookup:                                    ; preds = %17
   %40 = icmp slt i32 %39, %12
   br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !29
 
-.critedge:                                        ; preds = %switch.lookup, %.lr.ph, %5, %.thread
+.critedge:                                        ; preds = %switch.lookup, %.lr.ph, %5, %.critedge61
   ret void
 }
 
@@ -7705,10 +7705,10 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %5, %117
-  %.0120124 = phi i32 [ %118, %117 ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %116
+  %.0120121 = phi i32 [ %117, %116 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  %15 = add i32 %.0120124, %12
+  %15 = add i32 %.0120121, %12
   %16 = load i32, ptr @ett_r3peekpoke, align 4
   %17 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %15, i32 noundef 3, i32 noundef %16, ptr noundef nonnull %6, ptr noundef nonnull @.str.2109)
   %18 = load i32, ptr @hf_r3_peekpoke_operation, align 4
@@ -7717,7 +7717,7 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   %21 = add i32 %15, 1
   %22 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648)
   %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %15)
-  switch i8 %23, label %115 [
+  switch i8 %23, label %.critedge [
     i8 0, label %24
     i8 1, label %28
     i8 2, label %32
@@ -7735,28 +7735,28 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %21)
   %27 = zext i16 %26 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.2199, i32 noundef %27)
-  br label %117
+  br label %116
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %6, align 8
   %30 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %21)
   %31 = zext i16 %30 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.2200, i32 noundef %31)
-  br label %117
+  br label %116
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %6, align 8
   %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %21)
   %35 = zext i16 %34 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.2201, i32 noundef %35)
-  br label %117
+  br label %116
 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %6, align 8
   %38 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %21)
   %39 = zext i16 %38 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2202, i32 noundef %39)
-  br label %117
+  br label %116
 
 40:                                               ; preds = %.lr.ph
   %41 = load ptr, ptr %6, align 8
@@ -7770,8 +7770,8 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @proto_item_set_len(ptr noundef %47, i32 noundef 4)
   %48 = load i32, ptr @hf_r3_peekpoke_length, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef -2147483648)
-  %50 = add nsw i32 %.0120124, 1
-  br label %117
+  %50 = add nsw i32 %.0120121, 1
+  br label %116
 
 51:                                               ; preds = %.lr.ph
   %52 = load ptr, ptr %6, align 8
@@ -7785,8 +7785,8 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @proto_item_set_len(ptr noundef %58, i32 noundef 4)
   %59 = load i32, ptr @hf_r3_peekpoke_poke8, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %59, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648)
-  %61 = add nsw i32 %.0120124, 1
-  br label %117
+  %61 = add nsw i32 %.0120121, 1
+  br label %116
 
 62:                                               ; preds = %.lr.ph
   %63 = load ptr, ptr %6, align 8
@@ -7800,8 +7800,8 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @proto_item_set_len(ptr noundef %69, i32 noundef 5)
   %70 = load i32, ptr @hf_r3_peekpoke_poke16, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %70, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef -2147483648)
-  %72 = add i32 %.0120124, 2
-  br label %117
+  %72 = add i32 %.0120121, 2
+  br label %116
 
 73:                                               ; preds = %.lr.ph
   %74 = load ptr, ptr %6, align 8
@@ -7814,8 +7814,8 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @proto_item_set_len(ptr noundef %79, i32 noundef 6)
   %80 = load i32, ptr @hf_r3_peekpoke_poke24, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %80, ptr noundef %0, i32 noundef %75, i32 noundef 3, i32 noundef -2147483648)
-  %82 = add i32 %.0120124, 3
-  br label %117
+  %82 = add i32 %.0120121, 3
+  br label %116
 
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr %6, align 8
@@ -7828,8 +7828,8 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @proto_item_set_len(ptr noundef %89, i32 noundef 7)
   %90 = load i32, ptr @hf_r3_peekpoke_poke32, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %90, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef -2147483648)
-  %92 = add i32 %.0120124, 4
-  br label %117
+  %92 = add i32 %.0120121, 4
+  br label %116
 
 93:                                               ; preds = %.lr.ph
   %94 = load ptr, ptr %6, align 8
@@ -7853,23 +7853,23 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   %110 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %106, ptr noundef %0, i32 noundef %107, i32 noundef %109, i32 noundef 0)
   %111 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %95)
   %112 = zext i8 %111 to i32
-  %113 = add nsw i32 %.0120124, 1
+  %113 = add nsw i32 %.0120121, 1
   %114 = add i32 %113, %112
-  br label %117
+  br label %116
 
-115:                                              ; preds = %.lr.ph
-  %116 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_r3_peekpoke_operation, ptr noundef nonnull @.str.2209)
+.critedge:                                        ; preds = %.lr.ph
+  %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_r3_peekpoke_operation, ptr noundef nonnull @.str.2209)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   br label %.loopexit
 
-117:                                              ; preds = %93, %83, %73, %62, %51, %40, %36, %32, %28, %24
-  %.2.ph = phi i32 [ %114, %93 ], [ %92, %83 ], [ %82, %73 ], [ %72, %62 ], [ %61, %51 ], [ %50, %40 ], [ %.0120124, %36 ], [ %.0120124, %32 ], [ %.0120124, %28 ], [ %.0120124, %24 ]
+116:                                              ; preds = %24, %28, %32, %36, %40, %51, %62, %73, %83, %93
+  %.2 = phi i32 [ %.0120121, %24 ], [ %.0120121, %28 ], [ %.0120121, %32 ], [ %.0120121, %36 ], [ %50, %40 ], [ %61, %51 ], [ %72, %62 ], [ %82, %73 ], [ %92, %83 ], [ %114, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  %118 = add i32 %.2.ph, 3
-  %119 = icmp slt i32 %118, %13
-  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  %117 = add i32 %.2, 3
+  %118 = icmp slt i32 %117, %13
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %117, %5, %115
+.loopexit:                                        ; preds = %116, %5, %.critedge
   ret void
 }
 

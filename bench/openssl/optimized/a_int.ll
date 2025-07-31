@@ -401,7 +401,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
 12:                                               ; preds = %9, %3
   %13 = tail call ptr @ASN1_INTEGER_new() #6
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %58, label %15
+  br i1 %14, label %57, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -433,7 +433,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   %28 = ashr exact i64 %sext, 32
   %29 = call noalias ptr @CRYPTO_malloc(i64 noundef %28, ptr noundef nonnull @.str, i32 noundef 439) #6
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %54, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %.025, i64 4
@@ -480,29 +480,29 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
 51:                                               ; preds = %50, %48
   %52 = load ptr, ptr %4, align 8, !tbaa !16
   store ptr %52, ptr %1, align 8, !tbaa !16
-  br label %58
+  br label %57
 
 53:                                               ; preds = %17, %21, %23
-  %.0.ph = phi i32 [ 226, %23 ], [ 115, %21 ], [ 102, %17 ]
+  %.0 = phi i32 [ 102, %17 ], [ 115, %21 ], [ 226, %23 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @__func__.d2i_ASN1_UINTEGER) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.0.ph, ptr noundef null) #6
-  br label %54
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.0, ptr noundef null) #6
+  br label %.critedge
 
-54:                                               ; preds = %26, %53
-  br i1 %8, label %57, label %55
+.critedge:                                        ; preds = %26, %53
+  br i1 %8, label %56, label %54
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %0, align 8, !tbaa !18
-  %.not37 = icmp eq ptr %56, %.025
-  br i1 %.not37, label %58, label %57
+54:                                               ; preds = %.critedge
+  %55 = load ptr, ptr %0, align 8, !tbaa !18
+  %.not37 = icmp eq ptr %55, %.025
+  br i1 %.not37, label %57, label %56
 
-57:                                               ; preds = %55, %54
+56:                                               ; preds = %54, %.critedge
   call void @ASN1_INTEGER_free(ptr noundef nonnull %.025) #6
-  br label %58
+  br label %57
 
-58:                                               ; preds = %55, %57, %12, %51
-  %.024 = phi ptr [ %.025, %51 ], [ null, %12 ], [ null, %57 ], [ null, %55 ]
+57:                                               ; preds = %54, %56, %12, %51
+  %.024 = phi ptr [ %.025, %51 ], [ null, %12 ], [ null, %56 ], [ null, %54 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6

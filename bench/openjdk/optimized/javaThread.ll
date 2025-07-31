@@ -5121,7 +5121,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %29, %31
 _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   tail call void @_ZN10JavaThread20set_threadOopHandlesEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef null)
   %34 = icmp eq i32 %2, -1
-  br i1 %34, label %_ZNK6HandleclEv.exit4, label %39
+  br i1 %34, label %_ZNK6HandleclEv.exit4, label %_ZNK6HandleclEv.exit5.critedge
 
 35:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   %36 = load ptr, ptr %.0.i.i.i.i, align 8
@@ -5133,9 +5133,9 @@ _ZNK6HandleclEv.exit4:                            ; preds = %_ZNK6HandleclEv.exi
   %38 = tail call noundef i32 @_ZN16java_lang_Thread8priorityEP7oopDesc(ptr noundef %37) #21
   br label %39
 
-39:                                               ; preds = %_ZNK6HandleclEv.exit.thread, %_ZNK6HandleclEv.exit4, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %storemerge.i911 = phi ptr [ %storemerge.i91214, %_ZNK6HandleclEv.exit4 ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK6HandleclEv.exit.thread ]
-  %.0 = phi i32 [ %38, %_ZNK6HandleclEv.exit4 ], [ %2, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %2, %_ZNK6HandleclEv.exit.thread ]
+39:                                               ; preds = %_ZNK6HandleclEv.exit4, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+  %storemerge.i911 = phi ptr [ %storemerge.i91214, %_ZNK6HandleclEv.exit4 ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %.0 = phi i32 [ %38, %_ZNK6HandleclEv.exit4 ], [ %2, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   tail call void @_ZN6Thread12set_priorityEPS_14ThreadPriority(ptr noundef nonnull %0, i32 noundef %.0) #21
   tail call void @_ZN7Threads3addEP10JavaThreadb(ptr noundef nonnull %0, i1 noundef zeroext false) #21
   br i1 %18, label %_ZNK6HandleclEv.exit5, label %40
@@ -5144,8 +5144,13 @@ _ZNK6HandleclEv.exit4:                            ; preds = %_ZNK6HandleclEv.exi
   %41 = load ptr, ptr %storemerge.i911, align 8
   br label %_ZNK6HandleclEv.exit5
 
-_ZNK6HandleclEv.exit5:                            ; preds = %39, %40
-  %42 = phi ptr [ %41, %40 ], [ null, %39 ]
+_ZNK6HandleclEv.exit5.critedge:                   ; preds = %_ZNK6HandleclEv.exit.thread
+  tail call void @_ZN6Thread12set_priorityEPS_14ThreadPriority(ptr noundef nonnull %0, i32 noundef %2) #21
+  tail call void @_ZN7Threads3addEP10JavaThreadb(ptr noundef nonnull %0, i1 noundef zeroext false) #21
+  br label %_ZNK6HandleclEv.exit5
+
+_ZNK6HandleclEv.exit5:                            ; preds = %_ZNK6HandleclEv.exit5.critedge, %39, %40
+  %42 = phi ptr [ %41, %40 ], [ null, %39 ], [ null, %_ZNK6HandleclEv.exit5.critedge ]
   tail call void @_ZN16java_lang_Thread18release_set_threadEP7oopDescP10JavaThread(ptr noundef %42, ptr noundef nonnull %0) #21
   ret void
 }

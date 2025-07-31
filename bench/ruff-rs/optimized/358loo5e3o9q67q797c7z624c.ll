@@ -24968,7 +24968,7 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   store i64 %.sink, ptr %0, align 8
   br label %52
 
-52:                                               ; preds = %218, %.critedge188, %185, %187, %146, %.critedge186, %121, %.critedge184, %.critedge182, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit193", %70, %.critedge180, %77, %205, %165, %131, %50
+52:                                               ; preds = %218, %.critedge188, %185, %187, %146, %.critedge186, %121, %.critedge184, %.critedge182, %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit194", %70, %.critedge180, %77, %205, %165, %131, %50
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..arg_matches..ArgMatches$GT$17h993e448943b2676aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
           to label %223 unwind label %221
 
@@ -25118,11 +25118,11 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   store i64 -9223372036854775799, ptr %0, align 8
   %102 = load i64, ptr %17, align 8, !range !1210, !alias.scope !2745, !noundef !3
   %103 = icmp eq i64 %102, -9223372036854775808
-  br i1 %103, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit193", label %104
+  br i1 %103, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit194", label %104
 
 104:                                              ; preds = %100
   invoke void @"_ZN4core3ptr70drop_in_place$LT$ruff..commands..completions..config..OptionString$GT$17he77eadd69b5e3e55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-          to label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit193" unwind label %33
+          to label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit194" unwind label %33
 
 .critedge182:                                     ; preds = %97
   %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25133,7 +25133,7 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   store i8 %96, ptr %.sroa.636.0..sroa_idx, align 8
   br label %52
 
-"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit193": ; preds = %100, %104
+"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$ruff..commands..completions..config..OptionString$GT$$GT$17h89befb8c3bce5468E.exit194": ; preds = %100, %104
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %52
 
@@ -25298,11 +25298,11 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   br label %165
 
 165:                                              ; preds = %164, %162
-  %.sink244 = phi i64 [ %163, %162 ], [ %158, %164 ]
-  %.sink243 = phi i64 [ -9223372036854775799, %162 ], [ -9223372036854775803, %164 ]
+  %.sink242 = phi i64 [ %163, %162 ], [ %158, %164 ]
+  %.sink241 = phi i64 [ -9223372036854775799, %162 ], [ -9223372036854775803, %164 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink244, ptr %166, align 8
-  store i64 %.sink243, ptr %0, align 8
+  store i64 %.sink242, ptr %166, align 8
+  store i64 %.sink241, ptr %0, align 8
   br label %52
 
 167:                                              ; preds = %149
@@ -25395,11 +25395,11 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   br label %205
 
 205:                                              ; preds = %204, %202
-  %.sink246 = phi i64 [ %203, %202 ], [ %198, %204 ]
-  %.sink245 = phi i64 [ -9223372036854775799, %202 ], [ -9223372036854775801, %204 ]
+  %.sink244 = phi i64 [ %203, %202 ], [ %198, %204 ]
+  %.sink243 = phi i64 [ -9223372036854775799, %202 ], [ -9223372036854775801, %204 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink246, ptr %206, align 8
-  store i64 %.sink245, ptr %0, align 8
+  store i64 %.sink244, ptr %206, align 8
+  store i64 %.sink243, ptr %0, align 8
   br label %52
 
 207:                                              ; preds = %189
@@ -25414,12 +25414,12 @@ define void @"_ZN76_$LT$ruff..args..Command$u20$as$u20$clap_builder..derive..Fro
   store ptr @anon.8c46405b0231e28584de43f9292075af.220, ptr %3, align 8, !noalias !2756
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !2756
-  %.sroa.5.0..sroa_idx195 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %12, ptr %.sroa.5.0..sroa_idx195, align 8, !noalias !2756
+  %.sroa.5.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %12, ptr %.sroa.5.0..sroa_idx196, align 8, !noalias !2756
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !2756
-  %.sroa.7.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %.sroa.7.0..sroa_idx196, align 8, !noalias !2756
+  %.sroa.7.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %.sroa.7.0..sroa_idx197, align 8, !noalias !2756
   invoke void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %225 unwind label %33
 

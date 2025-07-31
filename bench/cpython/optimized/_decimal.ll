@@ -36214,13 +36214,13 @@ define internal noundef ptr @signaldict_richcompare(ptr noundef readonly capture
 14:                                               ; preds = %10, %3
   %15 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !39
   tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.28) #14
-  br label %_Py_NewRef.exit
+  br label %.critedge
 
 16:                                               ; preds = %10
   %17 = icmp eq i32 %2, 3
   %18 = and i32 %2, -2
   %or.cond = icmp eq i32 %18, 2
-  br i1 %or.cond, label %19, label %.thread
+  br i1 %or.cond, label %19, label %44
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
@@ -36236,14 +36236,14 @@ define internal noundef ptr @signaldict_richcompare(ptr noundef readonly capture
   %26 = icmp eq i32 %24, %25
   %27 = xor i1 %17, %26
   %28 = select i1 %27, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  br label %.thread
+  br label %44
 
 29:                                               ; preds = %19
   %30 = getelementptr i8, ptr %.val28, i64 168
   %.val29 = load i64, ptr %30, align 8, !tbaa !57
   %31 = and i64 %.val29, 536870912
   %.not24 = icmp eq i64 %31, 0
-  br i1 %.not24, label %.thread, label %32
+  br i1 %.not24, label %44, label %32
 
 32:                                               ; preds = %29
   %33 = tail call fastcc i32 @dict_as_flags(ptr noundef nonnull %.val.i, ptr noundef nonnull %1)
@@ -36254,11 +36254,11 @@ define internal noundef ptr @signaldict_richcompare(ptr noundef readonly capture
 35:                                               ; preds = %32
   %36 = and i32 %33, 32768
   %.not26 = icmp eq i32 %36, 0
-  br i1 %.not26, label %_Py_NewRef.exit, label %37
+  br i1 %.not26, label %.critedge, label %37
 
 37:                                               ; preds = %35
   tail call void @PyErr_Clear() #14
-  br label %.thread
+  br label %44
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %7, align 8, !tbaa !69
@@ -36266,21 +36266,21 @@ define internal noundef ptr @signaldict_richcompare(ptr noundef readonly capture
   %41 = icmp eq i32 %40, %33
   %42 = xor i1 %17, %41
   %43 = select i1 %42, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  br label %.thread
+  br label %44
 
-.thread:                                          ; preds = %37, %38, %23, %29, %16
-  %.022 = phi ptr [ %28, %23 ], [ @_Py_NotImplementedStruct, %29 ], [ @_Py_NotImplementedStruct, %16 ], [ %43, %38 ], [ @_Py_NotImplementedStruct, %37 ]
-  %44 = load i32, ptr %.022, align 8, !tbaa !38
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %_Py_NewRef.exit, label %46
+44:                                               ; preds = %38, %37, %23, %29, %16
+  %.022 = phi ptr [ %28, %23 ], [ @_Py_NotImplementedStruct, %29 ], [ @_Py_NotImplementedStruct, %16 ], [ @_Py_NotImplementedStruct, %37 ], [ %43, %38 ]
+  %45 = load i32, ptr %.022, align 8, !tbaa !38
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %.critedge, label %47
 
-46:                                               ; preds = %.thread
-  %47 = add nuw i32 %44, 1
-  store i32 %47, ptr %.022, align 8, !tbaa !38
-  br label %_Py_NewRef.exit
+47:                                               ; preds = %44
+  %48 = add nuw i32 %45, 1
+  store i32 %48, ptr %.022, align 8, !tbaa !38
+  br label %.critedge
 
-_Py_NewRef.exit:                                  ; preds = %46, %.thread, %35, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %35 ], [ %.022, %.thread ], [ %.022, %46 ]
+.critedge:                                        ; preds = %47, %44, %35, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %35 ], [ %.022, %44 ], [ %.022, %47 ]
   ret ptr %.0
 }
 

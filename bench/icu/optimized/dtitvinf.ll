@@ -1106,7 +1106,7 @@ switch.lookup:                                    ; preds = %8
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = tail call noundef ptr @uhash_get_77(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not34 = icmp eq ptr %15, null
-  br i1 %.not34, label %16, label %24
+  br i1 %.not34, label %16, label %.critedge
 
 16:                                               ; preds = %switch.lookup
   %17 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef 584) #18
@@ -1125,42 +1125,42 @@ switch.lookup:                                    ; preds = %8
   store i16 2, ptr %21, align 8, !tbaa !17
   %.add = add nuw nsw i64 %.idx, 64
   %22 = icmp samesign eq i64 %.add, 584
-  br i1 %22, label %27, label %20
+  br i1 %22, label %24, label %20
 
 23:                                               ; preds = %16
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
 
-24:                                               ; preds = %switch.lookup
-  %25 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %15, i64 %switch.load
-  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
-
-27:                                               ; preds = %20
+24:                                               ; preds = %20
   %.ptr28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %28 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr28, i64 %switch.load
-  %29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %30 = load ptr, ptr %12, align 8, !tbaa !24
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
-  %32 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %34
+  %25 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr28, i64 %switch.load
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %27 = load ptr, ptr %12, align 8, !tbaa !24
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %29 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #18
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %31
 
-34:                                               ; preds = %27
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %35
+31:                                               ; preds = %24
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %1)
+          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %32
 
-35:                                               ; preds = %34
-  %36 = landingpad { ptr, i32 }
+32:                                               ; preds = %31
+  %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %32) #18
-  resume { ptr, i32 } %36
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %29) #18
+  resume { ptr, i32 } %33
 
-_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %27, %34
-  %37 = tail call noundef ptr @uhash_put_77(ptr noundef %31, ptr noundef %32, ptr noundef nonnull %.ptr28, ptr noundef nonnull align 4 dereferenceable(4) %4)
+_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %24, %31
+  %34 = tail call noundef ptr @uhash_put_77(ptr noundef %28, ptr noundef %29, ptr noundef nonnull %.ptr28, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %10, %5, %24, %23, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
+.critedge:                                        ; preds = %switch.lookup
+  %35 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %15, i64 %switch.load
+  %36 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
+
+_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %10, %5, %23, %.critedge, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   ret void
 }
 

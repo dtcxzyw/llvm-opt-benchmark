@@ -2302,56 +2302,56 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_delet
   %41 = icmp uge ptr %9, %.pre3.i.i
   %42 = icmp ult ptr %9, %40
   %spec.select.i.i.i.i.i.i = and i1 %41, %42
-  br i1 %spec.select.i.i.i.i.i.i, label %44, label %43, !prof !123
+  br i1 %spec.select.i.i.i.i.i.i, label %43, label %.critedge.i.i.i.i, !prof !123
 
 43:                                               ; preds = %39
+  %44 = ptrtoint ptr %9 to i64
+  %45 = ptrtoint ptr %.pre3.i.i to i64
+  %46 = sub i64 %44, %45
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %36)
+  %47 = load ptr, ptr %32, align 8, !tbaa !25
+  %48 = getelementptr inbounds i8, ptr %47, i64 %46
+  %.pre = load i64, ptr %48, align 8, !tbaa !77
+  br label %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
+
+.critedge.i.i.i.i:                                ; preds = %39
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %36)
   %.pre.i.i = load ptr, ptr %32, align 8, !tbaa !25
   br label %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
 
-44:                                               ; preds = %39
-  %45 = ptrtoint ptr %9 to i64
-  %46 = ptrtoint ptr %.pre3.i.i to i64
-  %47 = sub i64 %45, %46
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %36)
-  %48 = load ptr, ptr %32, align 8, !tbaa !25
-  %49 = getelementptr inbounds i8, ptr %48, i64 %47
-  %.pre = load i64, ptr %49, align 8, !tbaa !77
-  br label %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
-
-_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %31, %43, %44
-  %50 = phi i64 [ %25, %31 ], [ %.pre, %44 ], [ %25, %43 ]
-  %51 = phi ptr [ %.pre3.i.i, %31 ], [ %48, %44 ], [ %.pre.i.i, %43 ]
-  %.016.i.i.i.i = phi ptr [ %9, %31 ], [ %49, %44 ], [ %9, %43 ]
-  %52 = load i32, ptr %33, align 8, !tbaa !26
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %51, i64 %53
-  store i64 %50, ptr %54, align 8, !tbaa !77
+_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %31, %43, %.critedge.i.i.i.i
+  %49 = phi i64 [ %25, %31 ], [ %.pre, %43 ], [ %25, %.critedge.i.i.i.i ]
+  %50 = phi ptr [ %.pre3.i.i, %31 ], [ %47, %43 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %9, %31 ], [ %48, %43 ], [ %9, %.critedge.i.i.i.i ]
+  %51 = load i32, ptr %33, align 8, !tbaa !26
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %50, i64 %52
+  store i64 %49, ptr %53, align 8, !tbaa !77
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !77
-  %55 = add i32 %52, 1
-  store i32 %55, ptr %33, align 8, !tbaa !26
-  %56 = load ptr, ptr %9, align 8, !tbaa !77
-  %.not.i7 = icmp eq ptr %56, null
+  %54 = add i32 %51, 1
+  store i32 %54, ptr %33, align 8, !tbaa !26
+  %55 = load ptr, ptr %9, align 8, !tbaa !77
+  %.not.i7 = icmp eq ptr %55, null
   br i1 %.not.i7, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i: ; preds = %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
-  %57 = load ptr, ptr %56, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56) #20
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %55) #20
   br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit, %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i
   store ptr null, ptr %9, align 8, !tbaa !77
-  %60 = load ptr, ptr %8, align 8, !tbaa !77
-  %.not.i8 = icmp eq ptr %60, null
+  %59 = load ptr, ptr %8, align 8, !tbaa !77
+  %.not.i8 = icmp eq ptr %59, null
   br i1 %.not.i8, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit10, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i9
 
 _ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i9: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit
-  %61 = load ptr, ptr %60, align 8, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(40) %60) #20
+  %60 = load ptr, ptr %59, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(40) %59) #20
   br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit10
 
 _ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit10: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i9

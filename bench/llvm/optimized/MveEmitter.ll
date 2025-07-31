@@ -17408,16 +17408,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit133.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val80 = load ptr, ptr %347, align 8, !tbaa !31
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.not191202 = icmp eq ptr %.val80, %348
-  br i1 %.not191202, label %._crit_edge205, label %.lr.ph204
+  %.not189200 = icmp eq ptr %.val80, %348
+  br i1 %.not189200, label %._crit_edge, label %.lr.ph202
 
-.lr.ph204:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit133.thread
+.lr.ph202:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit133.thread
   %349 = getelementptr i8, ptr %346, i64 12
   br label %350
 
-350:                                              ; preds = %.lr.ph204, %364
-  %.sroa.0141.0203 = phi ptr [ %.val80, %.lr.ph204 ], [ %365, %364 ]
-  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0203, i64 64
+350:                                              ; preds = %.lr.ph202, %364
+  %.sroa.0141.0201 = phi ptr [ %.val80, %.lr.ph202 ], [ %365, %364 ]
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0141.0201, i64 64
   %.val72 = load ptr, ptr %351, align 8, !tbaa !32
   %352 = getelementptr i8, ptr %.val72, i64 12
   %.val75 = load i32, ptr %352, align 4, !tbaa !221
@@ -17438,11 +17438,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit133.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %363, label %.thread183, label %364
 
 364:                                              ; preds = %350, %354
-  %365 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0141.0203) #29
-  %.not191 = icmp eq ptr %365, %348
-  br i1 %.not191, label %._crit_edge205, label %350
+  %365 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0141.0201) #29
+  %.not189 = icmp eq ptr %365, %348
+  br i1 %.not189, label %._crit_edge, label %350
 
-._crit_edge205:                                   ; preds = %364, %_ZN4llvmeqENS_9StringRefES0_.exit133.thread
+._crit_edge:                                      ; preds = %364, %_ZN4llvmeqENS_9StringRefES0_.exit133.thread
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #27
   %366 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %367 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -17473,16 +17473,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit133.thread178:   ; preds = %337, %_ZN4llvmeqENS
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val81 = load ptr, ptr %383, align 8, !tbaa !31
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.not200 = icmp eq ptr %.val81, %384
-  br i1 %.not200, label %._crit_edge, label %.lr.ph
+  %.not198 = icmp eq ptr %.val81, %384
+  br i1 %.not198, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %369
   %385 = getelementptr i8, ptr %372, i64 12
   br label %386
 
 386:                                              ; preds = %.lr.ph, %396
-  %.sroa.0134.0201 = phi ptr [ %.val81, %.lr.ph ], [ %397, %396 ]
-  %387 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0201, i64 64
+  %.sroa.0134.0199 = phi ptr [ %.val81, %.lr.ph ], [ %397, %396 ]
+  %387 = getelementptr inbounds nuw i8, ptr %.sroa.0134.0199, i64 64
   %.val73 = load ptr, ptr %387, align 8, !tbaa !32
   %388 = getelementptr i8, ptr %.val73, i64 12
   %.val77 = load i32, ptr %388, align 4, !tbaa !221
@@ -17499,11 +17499,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit133.thread178:   ; preds = %337, %_ZN4llvmeqENS
   br i1 %395, label %.thread183, label %396
 
 396:                                              ; preds = %386, %390
-  %397 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.0201) #29
+  %397 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.0199) #29
   %.not = icmp eq ptr %397, %384
-  br i1 %.not, label %._crit_edge, label %386
+  br i1 %.not, label %.critedge, label %386
 
-._crit_edge:                                      ; preds = %396, %369
+.critedge:                                        ; preds = %396, %369
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #27
   %398 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %399 = getelementptr inbounds nuw i8, ptr %10, i64 33

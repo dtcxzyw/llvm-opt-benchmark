@@ -431,8 +431,8 @@ _ZN23NativeHeapTrimmerThread16LogStartStopMarkC2Ev.exit: ; preds = %1, %3
   %11 = tail call noundef double @_ZN2os11elapsedTimeEv() #7
   %12 = fadd double %6, %11
   %13 = load ptr, ptr %7, align 8
-  %.not.i.i28 = icmp eq ptr %13, null
-  br i1 %.not.i.i28, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %14
+  %.not.i.i30 = icmp eq ptr %13, null
+  br i1 %.not.i.i30, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %14
 
 14:                                               ; preds = %10
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #7
@@ -441,7 +441,7 @@ _ZN23NativeHeapTrimmerThread16LogStartStopMarkC2Ev.exit: ; preds = %1, %3
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %10, %14
   %15 = load i8, ptr %8, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %.loopexit, label %.preheader
+  br i1 %16, label %.critedge29, label %.preheader
 
 .preheader:                                       ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %47
   %.125 = phi i32 [ %.226, %47 ], [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ]
@@ -459,19 +459,19 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %10, 
 _ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit: ; preds = %.preheader
   %19 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %20 = icmp eq i32 %19, 1
-  %.pre40 = load i16, ptr %9, align 2
+  %.pre61 = load i16, ptr %9, align 2
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit
-  %22 = icmp ne i16 %.pre40, 0
+  %22 = icmp ne i16 %.pre61, 0
   %23 = fcmp ogt double %12, %.1
   %or.cond = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond, label %.critedge, label %.loopexit
+  br i1 %or.cond, label %.critedge, label %49
 
 .critedge:                                        ; preds = %.preheader..critedge_crit_edge, %21, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit
-  %24 = phi i16 [ %.pre, %.preheader..critedge_crit_edge ], [ %.pre40, %21 ], [ %.pre40, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit ]
-  %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %26, label %_ZN13MonitorLocker4waitEl.exit
+  %24 = phi i16 [ %.pre, %.preheader..critedge_crit_edge ], [ %.pre61, %21 ], [ %.pre61, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit ]
+  %.not44 = icmp eq i16 %24, 0
+  br i1 %.not44, label %26, label %_ZN13MonitorLocker4waitEl.exit
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.critedge
   %25 = add i32 %.119, 1
@@ -479,9 +479,9 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.critedge
 
 26:                                               ; preds = %.critedge
   %27 = fcmp ogt double %12, %.1
-  br i1 %27, label %_ZN13MonitorLocker4waitEl.exit29, label %34
+  br i1 %27, label %_ZN13MonitorLocker4waitEl.exit31, label %34
 
-_ZN13MonitorLocker4waitEl.exit29:                 ; preds = %26
+_ZN13MonitorLocker4waitEl.exit31:                 ; preds = %26
   %28 = add i32 %.125, 1
   %29 = fsub double %12, %.1
   %30 = fmul double %29, 1.000000e+03
@@ -493,78 +493,77 @@ _ZN13MonitorLocker4waitEl.exit29:                 ; preds = %26
 34:                                               ; preds = %26
   %35 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %36 = icmp eq i32 %35, 2
-  br i1 %36, label %_ZN13MonitorLocker4waitEl.exit31, label %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30
+  br i1 %36, label %_ZN13MonitorLocker4waitEl.exit33, label %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32
 
-_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30: ; preds = %34
+_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32: ; preds = %34
   %37 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %_ZN13MonitorLocker4waitEl.exit31, label %44
+  br i1 %38, label %_ZN13MonitorLocker4waitEl.exit33, label %44
 
-_ZN13MonitorLocker4waitEl.exit31:                 ; preds = %34, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30
+_ZN13MonitorLocker4waitEl.exit33:                 ; preds = %34, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32
   %39 = add i32 %.122, 1
   %40 = load i32, ptr @TrimNativeHeapInterval, align 4
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 250)
   %42 = zext nneg i32 %41 to i64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLocker4waitEl.exit31, %_ZN13MonitorLocker4waitEl.exit29
-  %.sink = phi i64 [ %33, %_ZN13MonitorLocker4waitEl.exit29 ], [ %42, %_ZN13MonitorLocker4waitEl.exit31 ], [ 0, %_ZN13MonitorLocker4waitEl.exit ]
-  %.226.ph = phi i32 [ %28, %_ZN13MonitorLocker4waitEl.exit29 ], [ %.125, %_ZN13MonitorLocker4waitEl.exit31 ], [ %.125, %_ZN13MonitorLocker4waitEl.exit ]
-  %.223.ph = phi i32 [ %.122, %_ZN13MonitorLocker4waitEl.exit29 ], [ %39, %_ZN13MonitorLocker4waitEl.exit31 ], [ %.122, %_ZN13MonitorLocker4waitEl.exit ]
-  %.2.ph = phi i32 [ %.119, %_ZN13MonitorLocker4waitEl.exit29 ], [ %.119, %_ZN13MonitorLocker4waitEl.exit31 ], [ %25, %_ZN13MonitorLocker4waitEl.exit ]
+.sink.split:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLocker4waitEl.exit33, %_ZN13MonitorLocker4waitEl.exit31
+  %.sink = phi i64 [ %33, %_ZN13MonitorLocker4waitEl.exit31 ], [ %42, %_ZN13MonitorLocker4waitEl.exit33 ], [ 0, %_ZN13MonitorLocker4waitEl.exit ]
+  %.226.ph = phi i32 [ %28, %_ZN13MonitorLocker4waitEl.exit31 ], [ %.125, %_ZN13MonitorLocker4waitEl.exit33 ], [ %.125, %_ZN13MonitorLocker4waitEl.exit ]
+  %.223.ph = phi i32 [ %.122, %_ZN13MonitorLocker4waitEl.exit31 ], [ %39, %_ZN13MonitorLocker4waitEl.exit33 ], [ %.122, %_ZN13MonitorLocker4waitEl.exit ]
+  %.2.ph = phi i32 [ %.119, %_ZN13MonitorLocker4waitEl.exit31 ], [ %.119, %_ZN13MonitorLocker4waitEl.exit33 ], [ %25, %_ZN13MonitorLocker4waitEl.exit ]
   %43 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %13, i64 noundef %.sink) #7
   br label %44
 
-44:                                               ; preds = %.sink.split, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30
-  %.226 = phi i32 [ %.125, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30 ], [ %.226.ph, %.sink.split ]
-  %.223 = phi i32 [ %.122, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30 ], [ %.223.ph, %.sink.split ]
-  %.2 = phi i32 [ %.119, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit30 ], [ %.2.ph, %.sink.split ]
+44:                                               ; preds = %.sink.split, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32
+  %.226 = phi i32 [ %.125, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32 ], [ %.226.ph, %.sink.split ]
+  %.223 = phi i32 [ %.122, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32 ], [ %.223.ph, %.sink.split ]
+  %.2 = phi i32 [ %.119, %_ZNK23NativeHeapTrimmerThread23at_or_nearing_safepointEv.exit32 ], [ %.2.ph, %.sink.split ]
   %45 = load i8, ptr %8, align 8
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %.loopexit, label %47
+  br i1 %46, label %.critedge29, label %47
 
 47:                                               ; preds = %44
   %48 = tail call noundef double @_ZN2os11elapsedTimeEv() #7
   br label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %21, %44, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
-  %.024 = phi i32 [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %.125, %21 ], [ %.226, %44 ]
-  %.021 = phi i32 [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %.122, %21 ], [ %.223, %44 ]
-  %cond = phi i1 [ false, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ true, %21 ], [ false, %44 ]
-  %.018 = phi i32 [ 0, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %.119, %21 ], [ %.2, %44 ]
-  %.0 = phi double [ %11, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ], [ %.1, %44 ], [ %.1, %21 ]
-  br i1 %.not.i.i28, label %_ZN13MonitorLockerD2Ev.exit, label %49
+49:                                               ; preds = %21
+  br i1 %.not.i.i30, label %_ZN13MonitorLockerD2Ev.exit, label %50
 
-49:                                               ; preds = %.loopexit
+50:                                               ; preds = %49
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #7
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %49
-  br i1 %cond, label %50, label %54
-
-50:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %49, %50
   %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not39 = icmp eq ptr %51, null
-  br i1 %.not39, label %53, label %52
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %53, label %52
 
-52:                                               ; preds = %50
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i32 noundef %.018, i32 noundef %.024, i32 noundef %.021)
+52:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i32 noundef %.119, i32 noundef %.125, i32 noundef %.122)
   br label %53
 
-53:                                               ; preds = %50, %52
-  tail call void @_ZN23NativeHeapTrimmerThread20execute_trim_and_logEd(ptr noundef nonnull align 8 dereferenceable(944) %0, double noundef %.0)
+53:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit, %52
+  tail call void @_ZN23NativeHeapTrimmerThread20execute_trim_and_logEd(ptr noundef nonnull align 8 dereferenceable(944) %0, double noundef %.1)
   br label %10, !llvm.loop !8
 
-54:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not.i.i33 = icmp eq ptr %55, null
-  br i1 %.not.i.i33, label %_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit, label %56
+.critedge29:                                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %44
+  br i1 %.not.i.i30, label %_ZN13MonitorLockerD2Ev.exit36, label %54
 
-56:                                               ; preds = %54
+54:                                               ; preds = %.critedge29
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #7
+  br label %_ZN13MonitorLockerD2Ev.exit36
+
+_ZN13MonitorLockerD2Ev.exit36:                    ; preds = %.critedge29, %54
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not.i.i37 = icmp eq ptr %55, null
+  br i1 %.not.i.i37, label %_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit, label %56
+
+56:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit36
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.18)
   br label %_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit
 
-_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit: ; preds = %54, %56
+_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit36, %56
   ret void
 }
 

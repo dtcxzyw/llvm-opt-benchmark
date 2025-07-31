@@ -824,19 +824,19 @@ xread.exit:                                       ; preds = %15
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @write_in_full(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pollfd, align 4
-  %.not30 = icmp eq i64 %2, 0
-  br i1 %.not30, label %.thread, label %.lr.ph
+  %.not26 = icmp eq i64 %2, 0
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %6
 
 6:                                                ; preds = %.lr.ph, %19
-  %.01633 = phi i64 [ 0, %.lr.ph ], [ %22, %19 ]
-  %.01832 = phi ptr [ %1, %.lr.ph ], [ %21, %19 ]
-  %.02031 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
-  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.02031, i64 8388608)
-  %7 = call i64 @write(i32 noundef %0, ptr noundef readonly %.01832, i64 noundef %spec.store.select.i) #20
+  %.01629 = phi i64 [ 0, %.lr.ph ], [ %22, %19 ]
+  %.01828 = phi ptr [ %1, %.lr.ph ], [ %21, %19 ]
+  %.02027 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
+  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.02027, i64 8388608)
+  %7 = call i64 @write(i32 noundef %0, ptr noundef readonly %.01828, i64 noundef %spec.store.select.i) #20
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %.lr.ph.i, label %.loopexit
 
@@ -850,7 +850,7 @@ define dso_local i64 @write_in_full(i32 noundef %0, ptr noundef readonly capture
   br i1 %12, label %.backedge.i, label %15
 
 .backedge.i:                                      ; preds = %handle_nonblock.exit.i, %10
-  %13 = call i64 @write(i32 noundef %0, ptr noundef readonly %.01832, i64 noundef %spec.store.select.i) #20
+  %13 = call i64 @write(i32 noundef %0, ptr noundef readonly %.01828, i64 noundef %spec.store.select.i) #20
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %10, label %.loopexit
 
@@ -868,7 +868,7 @@ handle_nonblock.exit.i:                           ; preds = %15
 
 xwrite.exit:                                      ; preds = %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %.thread
+  br label %.critedge
 
 .loopexit:                                        ; preds = %.backedge.i, %6
   %.ph = phi i64 [ %7, %6 ], [ %13, %.backedge.i ]
@@ -878,17 +878,17 @@ xwrite.exit:                                      ; preds = %15
 17:                                               ; preds = %.loopexit
   %18 = tail call ptr @__errno_location() #26
   store i32 28, ptr %18, align 4, !tbaa !9
-  br label %.thread
+  br label %.critedge
 
 19:                                               ; preds = %.loopexit
-  %20 = sub i64 %.02031, %.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.01832, i64 %.ph
-  %22 = add nuw nsw i64 %.ph, %.01633
+  %20 = sub i64 %.02027, %.ph
+  %21 = getelementptr inbounds nuw i8, ptr %.01828, i64 %.ph
+  %22 = add nuw nsw i64 %.ph, %.01629
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.thread, label %6, !llvm.loop !17
+  br i1 %.not, label %.critedge, label %6, !llvm.loop !17
 
-.thread:                                          ; preds = %19, %3, %xwrite.exit, %17
-  %.2 = phi i64 [ -1, %17 ], [ -1, %xwrite.exit ], [ 0, %3 ], [ %22, %19 ]
+.critedge:                                        ; preds = %19, %3, %xwrite.exit, %17
+  %.2 = phi i64 [ -1, %xwrite.exit ], [ -1, %17 ], [ 0, %3 ], [ %22, %19 ]
   ret i64 %.2
 }
 

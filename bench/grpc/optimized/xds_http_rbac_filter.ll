@@ -9092,7 +9092,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load i64, ptr %47, align 1
   %.not = icmp eq i64 %48, 0
-  br i1 %.not, label %.thread, label %49
+  br i1 %.not, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = inttoptr i64 %48 to ptr
@@ -9130,7 +9130,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit20:      ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEE7emplaceIJRA10_KcS8_EEESB_ISt17_Rb_tree_iteratorISD_EbEDpOT_.exit, %.noexc.i19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #29
-  br label %.thread
+  br label %.critedge
 
 61:                                               ; preds = %.noexc.i.i, %.noexc.i
   %62 = landingpad { ptr, i32 }
@@ -9179,7 +9179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #29
   br label %82
 
-.thread:                                          ; preds = %46, %_ZN9grpc_core12experimental4JsonD2Ev.exit20
+.critedge:                                        ; preds = %46, %_ZN9grpc_core12experimental4JsonD2Ev.exit20
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %76, align 8, !tbaa !33, !alias.scope !334
   %77 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(48) %6) #29
@@ -9187,14 +9187,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %78)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit unwind label %79
 
-79:                                               ; preds = %.thread
+79:                                               ; preds = %.critedge
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
   call void @__clang_call_terminate(ptr %81) #30
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %.thread
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #29
   ret void
 

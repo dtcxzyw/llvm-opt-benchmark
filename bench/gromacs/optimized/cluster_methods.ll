@@ -3837,14 +3837,14 @@ _ZL7jp_samePPiiii.exit.preheader:                 ; preds = %.lr.ph294
   br i1 %202, label %.lr.ph60.i.us, label %_ZL7jp_samePPiiii.exit.us
 
 .lr.ph60.i.us:                                    ; preds = %.preheader53.i.us, %.lr.ph60.i.us
-  %indvars.iv74.i.us = phi i64 [ %indvars.iv.next75.i.us, %.lr.ph60.i.us ], [ 0, %.preheader53.i.us ]
+  %indvars.iv75.i.us = phi i64 [ %indvars.iv.next76.i.us, %.lr.ph60.i.us ], [ 0, %.preheader53.i.us ]
   %203 = phi i32 [ %207, %.lr.ph60.i.us ], [ %201, %.preheader53.i.us ]
   %.14558.i.us = phi i1 [ %spec.select51.i.us, %.lr.ph60.i.us ], [ false, %.preheader53.i.us ]
   %204 = zext nneg i32 %203 to i64
   %205 = icmp eq i64 %indvar, %204
   %spec.select51.i.us = or i1 %.14558.i.us, %205
-  %indvars.iv.next75.i.us = add nuw nsw i64 %indvars.iv74.i.us, 1
-  %206 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.next75.i.us
+  %indvars.iv.next76.i.us = add nuw nsw i64 %indvars.iv75.i.us, 1
+  %206 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.next76.i.us
   %207 = load i32, ptr %206, align 4, !tbaa !46
   %208 = icmp sgt i32 %207, -1
   br i1 %208, label %.lr.ph60.i.us, label %._crit_edge61.i.us, !llvm.loop !131
@@ -3853,27 +3853,27 @@ _ZL7jp_samePPiiii.exit.preheader:                 ; preds = %.lr.ph294
   br i1 %spec.select51.i.us, label %.preheader.us.i.us, label %_ZL7jp_samePPiiii.exit.us
 
 .preheader.us.i.us:                               ; preds = %._crit_edge61.i.us, %._crit_edge67.us.i.us
-  %indvars.iv82.i.us = phi i64 [ %indvars.iv.next83.i.us, %._crit_edge67.us.i.us ], [ 0, %._crit_edge61.i.us ]
+  %indvars.iv83.i.us = phi i64 [ %indvars.iv.next84.i.us, %._crit_edge67.us.i.us ], [ 0, %._crit_edge61.i.us ]
   %209 = phi i32 [ %218, %._crit_edge67.us.i.us ], [ %188, %._crit_edge61.i.us ]
   %.070.us.i.us = phi i32 [ %.2.us.i.us, %._crit_edge67.us.i.us ], [ 0, %._crit_edge61.i.us ]
   br label %210
 
 210:                                              ; preds = %210, %.preheader.us.i.us
-  %indvars.iv79.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next80.i.us, %210 ]
+  %indvars.iv80.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next81.i.us, %210 ]
   %211 = phi i32 [ %201, %.preheader.us.i.us ], [ %215, %210 ]
   %.165.us.i.us = phi i32 [ %.070.us.i.us, %.preheader.us.i.us ], [ %.2.us.i.us, %210 ]
   %212 = icmp eq i32 %209, %211
   %213 = zext i1 %212 to i32
   %.2.us.i.us = add nsw i32 %.165.us.i.us, %213
-  %indvars.iv.next80.i.us = add nuw nsw i64 %indvars.iv79.i.us, 1
-  %214 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.next80.i.us
+  %indvars.iv.next81.i.us = add nuw nsw i64 %indvars.iv80.i.us, 1
+  %214 = getelementptr inbounds nuw i32, ptr %200, i64 %indvars.iv.next81.i.us
   %215 = load i32, ptr %214, align 4, !tbaa !46
   %216 = icmp sgt i32 %215, -1
   br i1 %216, label %210, label %._crit_edge67.us.i.us, !llvm.loop !132
 
 ._crit_edge67.us.i.us:                            ; preds = %210
-  %indvars.iv.next83.i.us = add nuw nsw i64 %indvars.iv82.i.us, 1
-  %217 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.next83.i.us
+  %indvars.iv.next84.i.us = add nuw nsw i64 %indvars.iv83.i.us, 1
+  %217 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.next84.i.us
   %218 = load i32, ptr %217, align 4, !tbaa !46
   %219 = icmp sgt i32 %218, -1
   br i1 %219, label %.preheader.us.i.us, label %._crit_edge71.i.us, !llvm.loop !133

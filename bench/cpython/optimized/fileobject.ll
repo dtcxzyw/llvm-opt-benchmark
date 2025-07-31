@@ -1461,14 +1461,14 @@ define dso_local range(i32 -1, -2147483648) i32 @PyObject_AsFileDescriptor(ptr n
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %.not36 = icmp eq ptr %.val30, @PyBool_Type
-  br i1 %.not36, label %7, label %10
+  %.not34 = icmp eq ptr %.val30, @PyBool_Type
+  br i1 %.not34, label %7, label %10
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @PyExc_RuntimeWarning, align 8, !tbaa !7
   %9 = tail call i32 @PyErr_WarnEx(ptr noundef %8, ptr noundef nonnull @.str.9, i64 noundef 1) #8
   %.not22 = icmp eq i32 %9, 0
-  br i1 %.not22, label %10, label %Py_DECREF.exit25.thread
+  br i1 %.not22, label %10, label %.critedge
 
 10:                                               ; preds = %7, %6
   %11 = tail call i32 @PyLong_AsInt(ptr noundef nonnull %0) #8
@@ -1477,7 +1477,7 @@ define dso_local range(i32 -1, -2147483648) i32 @PyObject_AsFileDescriptor(ptr n
 12:                                               ; preds = %1
   %13 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56264), ptr noundef nonnull %2) #8
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %Py_DECREF.exit25.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %2, align 8, !tbaa !7
@@ -1531,7 +1531,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
 
 Py_DECREF.exit27:                                 ; preds = %_PyObject_CallNoArgs.exit, %33, %36
   %37 = icmp eq ptr %.0.i.i, null
-  br i1 %37, label %Py_DECREF.exit25.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %Py_DECREF.exit27
   %39 = getelementptr i8, ptr %.0.i.i, i64 8
@@ -1563,24 +1563,24 @@ Py_DECREF.exit27:                                 ; preds = %_PyObject_CallNoArg
   call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.10) #8
   %51 = load i32, ptr %.0.i.i, align 8, !tbaa !4
   %.not.i = icmp sgt i32 %51, -1
-  br i1 %.not.i, label %52, label %Py_DECREF.exit25.thread
+  br i1 %.not.i, label %52, label %.critedge
 
 52:                                               ; preds = %49
   %53 = add nsw i32 %51, -1
   store i32 %53, ptr %.0.i.i, align 8, !tbaa !4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %Py_DECREF.exit25.thread
+  br i1 %54, label %55, label %.critedge
 
 55:                                               ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %.0.i.i) #8
-  br label %Py_DECREF.exit25.thread
+  br label %.critedge
 
 56:                                               ; preds = %15
   %57 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !7
   call void @PyErr_SetString(ptr noundef %57, ptr noundef nonnull @.str.11) #8
-  br label %Py_DECREF.exit25.thread
+  br label %.critedge
 
-Py_DECREF.exit25:                                 ; preds = %42, %45, %48, %10
+Py_DECREF.exit25:                                 ; preds = %48, %45, %42, %10
   %.015 = phi i32 [ %11, %10 ], [ %43, %42 ], [ %43, %45 ], [ %43, %48 ]
   %58 = icmp eq i32 %.015, -1
   br i1 %58, label %59, label %61
@@ -1588,18 +1588,18 @@ Py_DECREF.exit25:                                 ; preds = %42, %45, %48, %10
 59:                                               ; preds = %Py_DECREF.exit25
   %60 = call ptr @PyErr_Occurred() #8
   %.not23 = icmp eq ptr %60, null
-  br i1 %.not23, label %.thread, label %Py_DECREF.exit25.thread
+  br i1 %.not23, label %.thread, label %.critedge
 
 61:                                               ; preds = %Py_DECREF.exit25
   %62 = icmp slt i32 %.015, 0
-  br i1 %62, label %.thread, label %Py_DECREF.exit25.thread
+  br i1 %62, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %59, %61
   %63 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !7
   %64 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %63, ptr noundef nonnull @.str.12, i32 noundef %.015) #8
-  br label %Py_DECREF.exit25.thread
+  br label %.critedge
 
-Py_DECREF.exit25.thread:                          ; preds = %55, %52, %49, %Py_DECREF.exit27, %61, %59, %12, %7, %.thread, %56
+.critedge:                                        ; preds = %55, %52, %49, %Py_DECREF.exit27, %61, %59, %12, %7, %.thread, %56
   %.0 = phi i32 [ -1, %.thread ], [ -1, %56 ], [ -1, %7 ], [ -1, %12 ], [ -1, %59 ], [ %.015, %61 ], [ -1, %Py_DECREF.exit27 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i32 %.0

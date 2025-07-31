@@ -35,35 +35,35 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph92, label %._crit_edge
+  br i1 %10, label %.lr.ph90, label %.critedge
 
-.._crit_edge_crit_edge:                           ; preds = %57
-  %11 = trunc nuw i8 %.1 to i1
-  %12 = trunc nuw i8 %.129 to i1
-  br label %._crit_edge
+.lr.ph90:                                         ; preds = %.lr.ph, %57
+  %.0304789 = phi i1 [ %.131, %57 ], [ false, %.lr.ph ]
+  %.0284988 = phi i8 [ %.129, %57 ], [ 0, %.lr.ph ]
+  %.05087 = phi i8 [ %.1, %57 ], [ 0, %.lr.ph ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv86
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str) #7
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %20, label %29
 
-._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph
-  %.052.lcssa = phi i1 [ %11, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
-  %.02851.lcssa = phi i1 [ %12, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
-  %or.cond = select i1 %.052.lcssa, i1 %.02851.lcssa, i1 false
+..critedge_crit_edge:                             ; preds = %57
+  %18 = trunc nuw i8 %.1 to i1
+  %19 = trunc nuw i8 %.129 to i1
+  br label %.critedge
+
+.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph
+  %.050.lcssa = phi i1 [ %18, %..critedge_crit_edge ], [ false, %.lr.ph ]
+  %.02849.lcssa = phi i1 [ %19, %..critedge_crit_edge ], [ false, %.lr.ph ]
+  %or.cond = select i1 %.050.lcssa, i1 %.02849.lcssa, i1 false
   br i1 %or.cond, label %61, label %63
 
-.lr.ph92:                                         ; preds = %.lr.ph, %57
-  %.0304991 = phi i1 [ %.131, %57 ], [ false, %.lr.ph ]
-  %.0285190 = phi i8 [ %.129, %57 ], [ 0, %.lr.ph ]
-  %.05289 = phi i8 [ %.1, %57 ], [ 0, %.lr.ph ]
-  %indvars.iv88 = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
-  %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv88
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str) #7
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %29
-
-20:                                               ; preds = %.lr.ph92
-  %21 = trunc nuw i8 %.0285190 to i1
+20:                                               ; preds = %.lr.ph90
+  %21 = trunc nuw i8 %.0284988 to i1
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
@@ -75,18 +75,18 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 26:                                               ; preds = %20
-  %27 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  %27 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
   %28 = tail call ptr @get_tsearch_config_filename(ptr noundef %27, ptr noundef nonnull @.str.3) #6
   tail call void @NIImportDictionary(ptr noundef nonnull %5, ptr noundef %28) #6
   br label %57
 
-29:                                               ; preds = %.lr.ph92
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.4) #7
+29:                                               ; preds = %.lr.ph90
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.4) #7
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %29
-  %33 = trunc nuw i8 %.05289 to i1
+  %33 = trunc nuw i8 %.05087 to i1
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
@@ -98,18 +98,18 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 38:                                               ; preds = %32
-  %39 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  %39 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
   %40 = tail call ptr @get_tsearch_config_filename(ptr noundef %39, ptr noundef nonnull @.str.6) #6
   tail call void @NIImportAffixes(ptr noundef nonnull %5, ptr noundef %40) #6
   br label %57
 
 41:                                               ; preds = %29
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.7) #7
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.7) #7
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %41
-  br i1 %.0304991, label %45, label %49
+  br i1 %.0304789, label %45, label %49
 
 45:                                               ; preds = %44
   %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -120,12 +120,12 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 49:                                               ; preds = %44
-  %50 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  %50 = tail call ptr @defGetString(ptr noundef nonnull %13) #6
   tail call void @readstoplist(ptr noundef %50, ptr noundef %4, ptr noundef nonnull @str_tolower) #6
   br label %57
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 @errcode(i32 noundef 50856066) #6
@@ -135,24 +135,24 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   unreachable
 
 57:                                               ; preds = %38, %49, %26
-  %.131 = phi i1 [ %.0304991, %26 ], [ %.0304991, %38 ], [ true, %49 ]
-  %.129 = phi i8 [ 1, %26 ], [ %.0285190, %38 ], [ %.0285190, %49 ]
-  %.1 = phi i8 [ %.05289, %26 ], [ 1, %38 ], [ %.05289, %49 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv88, 1
+  %.131 = phi i1 [ %.0304789, %26 ], [ %.0304789, %38 ], [ true, %49 ]
+  %.129 = phi i8 [ 1, %26 ], [ %.0284988, %38 ], [ %.0284988, %49 ]
+  %.1 = phi i8 [ %.05087, %26 ], [ 1, %38 ], [ %.05087, %49 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv86, 1
   %58 = load i32, ptr %7, align 4
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph92, label %.._crit_edge_crit_edge
+  br i1 %60, label %.lr.ph90, label %..critedge_crit_edge
 
-61:                                               ; preds = %._crit_edge
+61:                                               ; preds = %.critedge
   tail call void @NISortDictionary(ptr noundef nonnull %5) #6
   tail call void @NISortAffixes(ptr noundef nonnull %5) #6
   tail call void @NIFinishBuild(ptr noundef nonnull %5) #6
   %62 = ptrtoint ptr %4 to i64
   ret i64 %62
 
-63:                                               ; preds = %._crit_edge
-  br i1 %.052.lcssa, label %67, label %.thread
+63:                                               ; preds = %.critedge
+  br i1 %.050.lcssa, label %67, label %.thread
 
 .thread:                                          ; preds = %1, %63
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8

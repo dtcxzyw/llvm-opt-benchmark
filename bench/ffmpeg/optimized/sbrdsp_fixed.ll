@@ -1334,12 +1334,12 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %.062.i16 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
+  %.062.i12 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
   %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
-  %12 = add nsw i32 %.062.i16, 1
+  %12 = add nsw i32 %.062.i12, 1
   %13 = and i32 %12, 511
   %14 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !38
@@ -1417,8 +1417,8 @@ define internal void @sbr_hf_apply_noise_0(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
-  %.lcssa19.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa19.sink) #6
+  %.lcssa15.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa15.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1439,13 +1439,13 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %.062.i19 = phi i32 [ %3, %.lr.ph.preheader ], [ %16, %.thread ]
-  %.063.i18 = phi i32 [ %10, %.lr.ph.preheader ], [ %69, %.thread ]
+  %.062.i15 = phi i32 [ %3, %.lr.ph.preheader ], [ %16, %.thread ]
+  %.063.i14 = phi i32 [ %10, %.lr.ph.preheader ], [ %69, %.thread ]
   %11 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !19
-  %15 = add nsw i32 %.062.i19, 1
+  %15 = add nsw i32 %.062.i15, 1
   %16 = and i32 %15, 511
   %17 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !38
@@ -1468,7 +1468,7 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %28 = shl nuw nsw i32 1, %27
   %29 = lshr i32 %28, %22
   %30 = add i32 %29, %12
-  %31 = mul nsw i32 %18, %.063.i18
+  %31 = mul nsw i32 %18, %.063.i14
   %32 = add nsw i32 %28, %31
   %33 = ashr i32 %32, %22
   %34 = add i32 %33, %14
@@ -1519,14 +1519,14 @@ define internal void @sbr_hf_apply_noise_1(ptr noundef captures(none) %0, ptr no
   %.271.i = phi i32 [ %12, %24 ], [ %30, %26 ], [ %12, %41 ], [ %58, %43 ]
   store i32 %.271.i, ptr %11, align 4, !tbaa !19
   store i32 %.276.i, ptr %13, align 4, !tbaa !19
-  %69 = sub nsw i32 0, %.063.i18
+  %69 = sub nsw i32 0, %.063.i14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %35, %19
-  %.lcssa22.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa22.sink) #6
+  %.lcssa18.sink = phi i32 [ %22, %19 ], [ %39, %35 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1544,12 +1544,12 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %.062.i16 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
+  %.062.i12 = phi i32 [ %3, %.lr.ph.preheader ], [ %13, %.thread ]
   %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
-  %12 = add nsw i32 %.062.i16, 1
+  %12 = add nsw i32 %.062.i12, 1
   %13 = and i32 %12, 511
   %14 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !38
@@ -1627,8 +1627,8 @@ define internal void @sbr_hf_apply_noise_2(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %31, %16
-  %.lcssa19.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa19.sink) #6
+  %.lcssa15.sink = phi i32 [ %19, %16 ], [ %35, %31 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa15.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6
@@ -1649,13 +1649,13 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %.062.i19 = phi i32 [ %3, %.lr.ph.preheader ], [ %15, %.thread ]
-  %.063.i18 = phi i32 [ %.neg, %.lr.ph.preheader ], [ %68, %.thread ]
+  %.062.i15 = phi i32 [ %3, %.lr.ph.preheader ], [ %15, %.thread ]
+  %.063.i14 = phi i32 [ %.neg, %.lr.ph.preheader ], [ %68, %.thread ]
   %10 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !19
-  %14 = add nsw i32 %.062.i19, 1
+  %14 = add nsw i32 %.062.i15, 1
   %15 = and i32 %14, 511
   %16 = getelementptr inbounds nuw %struct.SoftFloat, ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !38
@@ -1678,7 +1678,7 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %27 = shl nuw nsw i32 1, %26
   %28 = lshr i32 %27, %21
   %29 = add i32 %28, %11
-  %30 = mul nsw i32 %17, %.063.i18
+  %30 = mul nsw i32 %17, %.063.i14
   %31 = add nsw i32 %27, %30
   %32 = ashr i32 %31, %21
   %33 = add i32 %32, %13
@@ -1729,14 +1729,14 @@ define internal void @sbr_hf_apply_noise_3(ptr noundef captures(none) %0, ptr no
   %.271.i = phi i32 [ %11, %23 ], [ %29, %25 ], [ %11, %40 ], [ %57, %42 ]
   store i32 %.271.i, ptr %10, align 4, !tbaa !19
   store i32 %.276.i, ptr %12, align 4, !tbaa !19
-  %68 = sub nsw i32 0, %.063.i18
+  %68 = sub nsw i32 0, %.063.i14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sbr_hf_apply_noise.exit, label %.lr.ph, !llvm.loop !40
 
 sbr_hf_apply_noise.exit.sink.split:               ; preds = %34, %18
-  %.lcssa22.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa22.sink) #6
+  %.lcssa18.sink = phi i32 [ %21, %18 ], [ %38, %34 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str, i32 noundef %.lcssa18.sink) #6
   br label %sbr_hf_apply_noise.exit
 
 sbr_hf_apply_noise.exit:                          ; preds = %.thread, %sbr_hf_apply_noise.exit.sink.split, %6

@@ -5908,24 +5908,24 @@ define hidden range(i32 -1, 1) i32 @_PyMonitoring_ClearToolId(i32 noundef %0) lo
   %18 = atomicrmw xchg ptr %17, i64 0 seq_cst, align 8
   %19 = inttoptr i64 %18 to ptr
   %.not.i36.i = icmp eq i64 %18, 0
-  br i1 %.not.i36.i, label %Py_DECREF.exit32.i, label %20
+  br i1 %.not.i36.i, label %Py_XDECREF.exit.i, label %20
 
 20:                                               ; preds = %15
   %21 = load i32, ptr %19, align 8, !tbaa !33
   %.not.i.i.i = icmp sgt i32 %21, -1
-  br i1 %.not.i.i.i, label %22, label %Py_DECREF.exit32.i
+  br i1 %.not.i.i.i, label %22, label %Py_XDECREF.exit.i
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %21, -1
   store i32 %23, ptr %19, align 8, !tbaa !33
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %Py_DECREF.exit32.i
+  br i1 %24, label %25, label %Py_XDECREF.exit.i
 
 25:                                               ; preds = %22
   tail call void @_Py_Dealloc(ptr noundef nonnull %19) #11
-  br label %Py_DECREF.exit32.i
+  br label %Py_XDECREF.exit.i
 
-Py_DECREF.exit32.i:                               ; preds = %25, %22, %20, %15
+Py_XDECREF.exit.i:                                ; preds = %25, %22, %20, %15
   %26 = load ptr, ptr %2, align 8, !tbaa !78
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !47
@@ -5939,8 +5939,8 @@ Py_DECREF.exit32.i:                               ; preds = %25, %22, %20, %15
   %34 = getelementptr [19 x ptr], ptr %33, i64 0, i64 %indvars.iv
   br label %35
 
-35:                                               ; preds = %31, %Py_DECREF.exit32.i
-  %.sink = phi ptr [ %34, %31 ], [ %30, %Py_DECREF.exit32.i ]
+35:                                               ; preds = %31, %Py_XDECREF.exit.i
+  %.sink = phi ptr [ %34, %31 ], [ %30, %Py_XDECREF.exit.i ]
   %36 = atomicrmw xchg ptr %.sink, i64 0 seq_cst, align 8
   %.127.i = inttoptr i64 %36 to ptr
   %.not.i21 = icmp eq i64 %36, 0
@@ -5973,14 +5973,14 @@ _Py_NewRef.exit.i:                                ; preds = %45, %40
   %49 = add nsw i32 %47, -1
   store i32 %49, ptr %.127.i, align 8, !tbaa !33
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %Py_DECREF.exit.sink.split.i, label %51
+  br i1 %50, label %.critedge.sink.split.i, label %51
 
-Py_DECREF.exit.sink.split.i:                      ; preds = %48
+.critedge.sink.split.i:                           ; preds = %48
   tail call void @_Py_Dealloc(ptr noundef nonnull %.127.i) #11
   br label %51
 
-51:                                               ; preds = %37, %_Py_NewRef.exit.i, %48, %Py_DECREF.exit.sink.split.i
-  %.1.i.ph = phi ptr [ %42, %Py_DECREF.exit.sink.split.i ], [ %42, %48 ], [ %42, %_Py_NewRef.exit.i ], [ %.127.i, %37 ]
+51:                                               ; preds = %37, %_Py_NewRef.exit.i, %48, %.critedge.sink.split.i
+  %.1.i.ph = phi ptr [ %42, %.critedge.sink.split.i ], [ %42, %48 ], [ %42, %_Py_NewRef.exit.i ], [ %.127.i, %37 ]
   %52 = load i32, ptr %.1.i.ph, align 8, !tbaa !33
   %.not.i = icmp sgt i32 %52, -1
   br i1 %.not.i, label %53, label %_PyMonitoring_RegisterCallback.exit
@@ -6081,7 +6081,7 @@ define hidden ptr @_PyMonitoring_RegisterCallback(i32 noundef %0, i32 noundef %1
 7:                                                ; preds = %6
   %8 = tail call ptr @_PyObject_New(ptr noundef nonnull @_PyLegacyBranchEventHandler_Type) #11
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %Py_DECREF.exit, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6132,13 +6132,13 @@ make_branch_handler.exit35:                       ; preds = %22, %26
 33:                                               ; preds = %16
   %34 = load i32, ptr %8, align 8, !tbaa !33
   %.not.i31 = icmp sgt i32 %34, -1
-  br i1 %.not.i31, label %35, label %Py_DECREF.exit
+  br i1 %.not.i31, label %35, label %.critedge
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %34, -1
   store i32 %36, ptr %8, align 8, !tbaa !33
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
+  br i1 %37, label %.critedge.sink.split, label %.critedge
 
 38:                                               ; preds = %make_branch_handler.exit35, %6
   %.025 = phi i64 [ %32, %make_branch_handler.exit35 ], [ 0, %6 ]
@@ -6154,24 +6154,24 @@ make_branch_handler.exit35:                       ; preds = %22, %26
   %46 = atomicrmw xchg ptr %45, i64 %.024 seq_cst, align 8
   %47 = inttoptr i64 %46 to ptr
   %.not.i36 = icmp eq i64 %46, 0
-  br i1 %.not.i36, label %Py_DECREF.exit32, label %48
+  br i1 %.not.i36, label %Py_XDECREF.exit, label %48
 
 48:                                               ; preds = %38
   %49 = load i32, ptr %47, align 8, !tbaa !33
   %.not.i.i = icmp sgt i32 %49, -1
-  br i1 %.not.i.i, label %50, label %Py_DECREF.exit32
+  br i1 %.not.i.i, label %50, label %Py_XDECREF.exit
 
 50:                                               ; preds = %48
   %51 = add nsw i32 %49, -1
   store i32 %51, ptr %47, align 8, !tbaa !33
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %Py_DECREF.exit32
+  br i1 %52, label %53, label %Py_XDECREF.exit
 
 53:                                               ; preds = %50
   tail call void @_Py_Dealloc(ptr noundef nonnull %47) #11
-  br label %Py_DECREF.exit32
+  br label %Py_XDECREF.exit
 
-Py_DECREF.exit32:                                 ; preds = %53, %50, %48, %38
+Py_XDECREF.exit:                                  ; preds = %38, %48, %50, %53
   %54 = load ptr, ptr %39, align 8, !tbaa !78
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !47
@@ -6207,17 +6207,17 @@ _Py_XNewRef.exit:                                 ; preds = %60, %61, %64
   %76 = atomicrmw xchg ptr %74, i64 %75 seq_cst, align 8
   br label %77
 
-77:                                               ; preds = %Py_DECREF.exit32, %_Py_XNewRef.exit
-  %.127.in = phi i64 [ %59, %Py_DECREF.exit32 ], [ %76, %_Py_XNewRef.exit ]
+77:                                               ; preds = %Py_XDECREF.exit, %_Py_XNewRef.exit
+  %.127.in = phi i64 [ %59, %Py_XDECREF.exit ], [ %76, %_Py_XNewRef.exit ]
   %.127 = inttoptr i64 %.127.in to ptr
   %.not = icmp eq i64 %.127.in, 0
-  br i1 %.not, label %Py_DECREF.exit, label %78
+  br i1 %.not, label %.critedge, label %78
 
 78:                                               ; preds = %77
   %79 = getelementptr i8, ptr %.127, i64 8
   %.127.val = load ptr, ptr %79, align 8, !tbaa !68
   %80 = icmp eq ptr %.127.val, @_PyLegacyBranchEventHandler_Type
-  br i1 %80, label %81, label %Py_DECREF.exit
+  br i1 %80, label %81, label %.critedge
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %.127, i64 24
@@ -6234,22 +6234,22 @@ _Py_XNewRef.exit:                                 ; preds = %60, %61, %64
 _Py_NewRef.exit:                                  ; preds = %81, %86
   %88 = load i32, ptr %.127, align 8, !tbaa !33
   %.not.i = icmp sgt i32 %88, -1
-  br i1 %.not.i, label %89, label %Py_DECREF.exit
+  br i1 %.not.i, label %89, label %.critedge
 
 89:                                               ; preds = %_Py_NewRef.exit
   %90 = add nsw i32 %88, -1
   store i32 %90, ptr %.127, align 8, !tbaa !33
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
+  br i1 %91, label %.critedge.sink.split, label %.critedge
 
-Py_DECREF.exit.sink.split:                        ; preds = %89, %35
-  %.sink = phi ptr [ %8, %35 ], [ %.127, %89 ]
+.critedge.sink.split:                             ; preds = %89, %35
+  %.127.sink = phi ptr [ %8, %35 ], [ %.127, %89 ]
   %.1.ph = phi ptr [ null, %35 ], [ %83, %89 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #11
-  br label %Py_DECREF.exit
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.127.sink) #11
+  br label %.critedge
 
-Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %7, %35, %33, %89, %_Py_NewRef.exit, %77, %78
-  %.1 = phi ptr [ %.127, %78 ], [ null, %77 ], [ %83, %_Py_NewRef.exit ], [ %83, %89 ], [ null, %33 ], [ null, %35 ], [ null, %7 ], [ %.1.ph, %Py_DECREF.exit.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %7, %89, %_Py_NewRef.exit, %35, %33, %77, %78
+  %.1 = phi ptr [ %.127, %78 ], [ null, %77 ], [ null, %33 ], [ null, %35 ], [ %83, %_Py_NewRef.exit ], [ %83, %89 ], [ null, %7 ], [ %.1.ph, %.critedge.sink.split ]
   ret ptr %.1
 }
 

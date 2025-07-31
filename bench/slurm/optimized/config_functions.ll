@@ -266,9 +266,9 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp88 = icmp eq i64 %indvars.iv, 0
-  %switch.select89 = select i1 %switch.selectcmp88, ptr @.str.4, ptr %switch.select
-  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select89)
+  %switch.selectcmp85 = icmp eq i64 %indvars.iv, 0
+  %switch.select86 = select i1 %switch.selectcmp85, ptr @.str.4, ptr %switch.select
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select86)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %39, i32 noundef %56)
   br label %58
 
@@ -295,8 +295,8 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @list_iterator_create(ptr noundef %68) #8
   %70 = call ptr @list_next(ptr noundef %69) #8
-  %.not5877 = icmp eq ptr %70, null
-  br i1 %.not5877, label %._crit_edge, label %.preheader
+  %.not5874 = icmp eq ptr %70, null
+  br i1 %.not5874, label %._crit_edge, label %.preheader
 
 .loopexit:                                        ; preds = %86
   %71 = call ptr @list_next(ptr noundef %69) #8
@@ -309,15 +309,15 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %74
 
 74:                                               ; preds = %.preheader, %86
-  %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %86 ]
-  %.076 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
-  %75 = getelementptr inbounds nuw [3 x i64], ptr %73, i64 0, i64 %indvars.iv79
+  %indvars.iv76 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next77, %86 ]
+  %.073 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
+  %75 = getelementptr inbounds nuw [3 x i64], ptr %73, i64 0, i64 %indvars.iv76
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %86, label %78
 
 78:                                               ; preds = %74
-  br i1 %.076, label %79, label %82
+  br i1 %.073, label %79, label %82
 
 79:                                               ; preds = %78
   %80 = load ptr, ptr %72, align 8
@@ -325,17 +325,17 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %82
 
 82:                                               ; preds = %79, %78
-  %83 = trunc nuw nsw i64 %indvars.iv79 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv76 to i32
   %84 = call ptr @rollup_interval_to_string(i32 noundef %83) #8
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %84)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %72, i32 noundef %83)
   br label %86
 
 86:                                               ; preds = %74, %82
-  %.1 = phi i1 [ %.076, %74 ], [ false, %82 ]
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next80, 3
-  br i1 %exitcond81.not, label %.loopexit, label %74, !llvm.loop !15
+  %.1 = phi i1 [ %.073, %74 ], [ false, %82 ]
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next77, 3
+  br i1 %exitcond78.not, label %.loopexit, label %74, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %65
   call void @list_iterator_destroy(ptr noundef %69) #8
@@ -343,31 +343,31 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 87:                                               ; preds = %._crit_edge, %63, %59
   %.not59 = icmp eq i32 %0, 0
-  br i1 %.not59, label %.thread72, label %88
+  br i1 %.not59, label %.critedge70, label %88
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr %1, align 8
   %90 = call i32 @xstrncasecmp(ptr noundef %89, ptr noundef nonnull @.str.9, i64 noundef 2) #8
   %.not60 = icmp eq i32 %90, 0
-  br i1 %.not60, label %.thread72, label %91
+  br i1 %.not60, label %.critedge70, label %91
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %1, align 8
   %93 = call i32 @xstrncasecmp(ptr noundef %92, ptr noundef nonnull @.str.10, i64 noundef 2) #8
   %.not61 = icmp eq i32 %93, 0
   %spec.select = select i1 %.not61, ptr @_sort_rpc_obj_by_time, ptr @_sort_rpc_obj_by_cnt
-  br label %.thread72
+  br label %.critedge70
 
-.thread72:                                        ; preds = %88, %87, %91
-  %_sort_rpc_obj_by_time.sink86 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
-  %.pre84.sink = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.pre84.sink, i64 16
+.critedge70:                                      ; preds = %88, %87, %91
+  %_sort_rpc_obj_by_time.sink83 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
+  %.pre81.sink = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %.pre81.sink, i64 16
   %95 = load ptr, ptr %94, align 8
-  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #8
+  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink83) #8
   %96 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
-  call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #8
+  call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink83) #8
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   store i32 0, ptr %5, align 4
   %99 = load ptr, ptr %3, align 8
@@ -382,8 +382,8 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %106 = call i32 @list_for_each(ptr noundef %105, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %35, %.thread72
-  %.040.ph = phi i32 [ 0, %.thread72 ], [ %29, %35 ]
+.sink.split:                                      ; preds = %35, %.critedge70
+  %.040.ph = phi i32 [ 0, %.critedge70 ], [ %29, %35 ]
   %107 = load ptr, ptr %3, align 8
   call void @slurmdb_destroy_stats_rec(ptr noundef %107) #8
   br label %108

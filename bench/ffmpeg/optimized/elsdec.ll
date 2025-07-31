@@ -324,10 +324,10 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %2, %7
-  %indvars.iv85 = phi i32 [ %indvars.iv.next86, %7 ], [ 0, %2 ]
+  %indvars.iv83 = phi i32 [ %indvars.iv.next84, %7 ], [ 0, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
   %5 = getelementptr inbounds nuw [11 x i8], ptr %1, i64 0, i64 %indvars.iv
   %6 = tail call i32 @ff_els_decode_bit(ptr noundef %0, ptr noundef %5)
@@ -337,7 +337,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  %indvars.iv.next86 = add nuw nsw i32 %indvars.iv85, 1
+  %indvars.iv.next84 = add nuw nsw i32 %indvars.iv83, 1
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !26
 
 8:                                                ; preds = %.preheader
@@ -350,11 +350,11 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 
 .thread:                                          ; preds = %7, %8
   store i32 -1094995529, ptr %3, align 4, !tbaa !15
-  br label %.loopexit
+  br label %.critedge
 
 13:                                               ; preds = %8
   %.not66 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not66, label %.loopexit, label %14
+  br i1 %.not66, label %.critedge, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -370,7 +370,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
 
 19:                                               ; preds = %17
   store i32 -12, ptr %3, align 4, !tbaa !15
-  br label %.loopexit
+  br label %.critedge
 
 20:                                               ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 0, i64 256, i1 false)
@@ -384,27 +384,27 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = and i64 %indvars.iv, 4294967295
-  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv85, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv83, i32 1)
   br label %27
 
-27:                                               ; preds = %23, %69
-  %.05482 = phi ptr [ undef, %23 ], [ %.155, %69 ]
-  %.05981 = phi i32 [ 0, %23 ], [ %67, %69 ]
-  %.06080 = phi i32 [ 0, %23 ], [ %71, %69 ]
-  %.06279 = phi i32 [ 0, %23 ], [ %72, %69 ]
-  %.not69 = icmp eq i32 %.06279, 0
+27:                                               ; preds = %23, %70
+  %.05480 = phi ptr [ undef, %23 ], [ %.155, %70 ]
+  %.05979 = phi i32 [ 0, %23 ], [ %68, %70 ]
+  %.06078 = phi i32 [ 0, %23 ], [ %72, %70 ]
+  %.06277 = phi i32 [ 0, %23 ], [ %73, %70 ]
+  %.not69 = icmp eq i32 %.06277, 0
   br i1 %.not69, label %28, label %31
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %15, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw %struct.ElsRungNode, ptr %29, i64 %26
-  br label %66
+  br label %67
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %.05482, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.05480, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !33
   %.not70 = icmp eq i16 %33, 0
-  br i1 %.not70, label %34, label %59
+  br i1 %.not70, label %34, label %60
 
 34:                                               ; preds = %31
   %35 = load i64, ptr %24, align 8, !tbaa !31
@@ -413,7 +413,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %38 = shl nuw nsw i64 %37, 2
   %39 = add nuw nsw i64 %38, 8
   %.not71 = icmp ugt i64 %35, %39
-  br i1 %.not71, label %55, label %40
+  br i1 %.not71, label %56, label %40
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %15, align 8, !tbaa !27
@@ -421,64 +421,64 @@ define range(i32 -2147483647, -2147483648) i32 @ff_els_decode_unsigned(ptr nound
   %43 = tail call i32 @av_reallocp(ptr noundef nonnull %15, i64 noundef %42) #7
   store i32 %43, ptr %3, align 4, !tbaa !15
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %.thread74, label %.loopexit
+  br i1 %44, label %45, label %.critedge
 
-.thread74:                                        ; preds = %40
-  %45 = ptrtoint ptr %.05482 to i64
-  %46 = ptrtoint ptr %41 to i64
-  %47 = sub i64 %45, %46
-  %48 = load ptr, ptr %15, align 8, !tbaa !27
-  %49 = load i64, ptr %24, align 8, !tbaa !31
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %50, i8 0, i64 256, i1 false)
-  %51 = load i64, ptr %24, align 8, !tbaa !31
-  %52 = add i64 %51, 256
-  store i64 %52, ptr %24, align 8, !tbaa !31
-  %53 = load ptr, ptr %15, align 8, !tbaa !27
-  %54 = getelementptr inbounds i8, ptr %53, i64 %47
+45:                                               ; preds = %40
+  %46 = ptrtoint ptr %.05480 to i64
+  %47 = ptrtoint ptr %41 to i64
+  %48 = sub i64 %46, %47
+  %49 = load ptr, ptr %15, align 8, !tbaa !27
+  %50 = load i64, ptr %24, align 8, !tbaa !31
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %51, i8 0, i64 256, i1 false)
+  %52 = load i64, ptr %24, align 8, !tbaa !31
+  %53 = add i64 %52, 256
+  store i64 %53, ptr %24, align 8, !tbaa !31
+  %54 = load ptr, ptr %15, align 8, !tbaa !27
+  %55 = getelementptr inbounds i8, ptr %54, i64 %48
   %.pre = load i16, ptr %25, align 8, !tbaa !32
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.thread74, %34
-  %56 = phi i16 [ %36, %34 ], [ %.pre, %.thread74 ]
-  %.357 = phi ptr [ %.05482, %34 ], [ %54, %.thread74 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.357, i64 2
-  store i16 %56, ptr %57, align 2, !tbaa !33
-  %58 = add i16 %56, 2
-  store i16 %58, ptr %25, align 8, !tbaa !32
-  br label %59
+56:                                               ; preds = %45, %34
+  %57 = phi i16 [ %.pre, %45 ], [ %36, %34 ]
+  %.357 = phi ptr [ %55, %45 ], [ %.05480, %34 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.357, i64 2
+  store i16 %57, ptr %58, align 2, !tbaa !33
+  %59 = add i16 %57, 2
+  store i16 %59, ptr %25, align 8, !tbaa !32
+  br label %60
 
-59:                                               ; preds = %55, %31
-  %60 = phi i16 [ %33, %31 ], [ %56, %55 ]
-  %61 = load ptr, ptr %15, align 8, !tbaa !27
-  %62 = zext i16 %60 to i32
-  %63 = add nsw i32 %.05981, %62
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.ElsRungNode, ptr %61, i64 %64
-  br label %66
+60:                                               ; preds = %56, %31
+  %61 = phi i16 [ %33, %31 ], [ %57, %56 ]
+  %62 = load ptr, ptr %15, align 8, !tbaa !27
+  %63 = zext i16 %61 to i32
+  %64 = add nsw i32 %.05979, %63
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.ElsRungNode, ptr %62, i64 %65
+  br label %67
 
-66:                                               ; preds = %59, %28
-  %.155 = phi ptr [ %65, %59 ], [ %30, %28 ]
-  %67 = tail call i32 @ff_els_decode_bit(ptr noundef nonnull %0, ptr noundef %.155)
-  %68 = load i32, ptr %3, align 4, !tbaa !15
-  %.not72 = icmp eq i32 %68, 0
-  br i1 %.not72, label %69, label %.loopexit
+67:                                               ; preds = %60, %28
+  %.155 = phi ptr [ %66, %60 ], [ %30, %28 ]
+  %68 = tail call i32 @ff_els_decode_bit(ptr noundef nonnull %0, ptr noundef %.155)
+  %69 = load i32, ptr %3, align 4, !tbaa !15
+  %.not72 = icmp eq i32 %69, 0
+  br i1 %.not72, label %70, label %.critedge
 
-69:                                               ; preds = %66
-  %70 = shl i32 %.06080, 1
-  %71 = add nsw i32 %67, %70
-  %72 = add nuw nsw i32 %.06279, 1
-  %exitcond88.not = icmp eq i32 %72, %umax
-  br i1 %exitcond88.not, label %73, label %27, !llvm.loop !35
+70:                                               ; preds = %67
+  %71 = shl i32 %.06078, 1
+  %72 = add nsw i32 %68, %71
+  %73 = add nuw nsw i32 %.06277, 1
+  %exitcond86.not = icmp eq i32 %73, %umax
+  br i1 %exitcond86.not, label %74, label %27, !llvm.loop !35
 
-73:                                               ; preds = %69
+74:                                               ; preds = %70
   %notmask = shl nsw i32 -1, %9
-  %74 = xor i32 %notmask, -1
-  %75 = add nsw i32 %71, %74
-  br label %.loopexit
+  %75 = xor i32 %notmask, -1
+  %76 = add nsw i32 %72, %75
+  br label %.critedge
 
-.loopexit:                                        ; preds = %40, %66, %13, %2, %73, %19, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ %75, %73 ], [ 0, %19 ], [ 0, %2 ], [ 0, %13 ], [ 0, %40 ], [ %67, %66 ]
+.critedge:                                        ; preds = %40, %67, %13, %2, %74, %19, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ %76, %74 ], [ 0, %19 ], [ 0, %2 ], [ 0, %13 ], [ 0, %40 ], [ %68, %67 ]
   ret i32 %.0
 }
 

@@ -976,199 +976,201 @@ define ptr @Amap_LibReadAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24
-  %9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #24
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %Abc_Clock.exit, label %11
+  %9 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #24
+  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #24
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %Abc_Clock.exit, label %12
 
-11:                                               ; preds = %4
-  %12 = load i64, ptr %8, align 8, !tbaa !73
-  %.neg54 = mul i64 %12, -1000000
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !76
-  %.neg = sdiv i64 %14, -1000
-  %.neg55 = add i64 %.neg, %.neg54
+12:                                               ; preds = %4
+  %13 = load i64, ptr %9, align 8, !tbaa !73
+  %.neg56 = mul i64 %13, -1000000
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !76
+  %.neg = sdiv i64 %15, -1000
+  %.neg57 = add i64 %.neg, %.neg56
   br label %Abc_Clock.exit
 
-Abc_Clock.exit:                                   ; preds = %4, %11
-  %.0.i.neg = phi i64 [ %.neg55, %11 ], [ 1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #24
-  %15 = icmp eq ptr %1, null
-  br i1 %15, label %16, label %18
+Abc_Clock.exit:                                   ; preds = %4, %12
+  %.0.i.neg = phi i64 [ %.neg57, %12 ], [ 1, %4 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
+  %16 = icmp eq ptr %1, null
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %Abc_Clock.exit
-  %17 = call ptr @Amap_LibReadFile(ptr noundef %0, i32 noundef %2) #24
-  br label %27
+17:                                               ; preds = %Abc_Clock.exit
+  %18 = call ptr @Amap_LibReadFile(ptr noundef %0, i32 noundef %2) #24
+  br label %28
 
-18:                                               ; preds = %Abc_Clock.exit
-  %19 = call ptr @Amap_LibReadBuffer(ptr noundef nonnull %1, i32 noundef %2) #24
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread42, label %20
+19:                                               ; preds = %Abc_Clock.exit
+  %20 = call ptr @Amap_LibReadBuffer(ptr noundef nonnull %1, i32 noundef %2) #24
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.thread44, label %21
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %21
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %22
 
-21:                                               ; preds = %20
-  %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #26
-  %23 = add i64 %22, 1
-  %24 = call noalias ptr @malloc(i64 noundef %23) #23
-  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %0) #24
+22:                                               ; preds = %21
+  %23 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #26
+  %24 = add i64 %23, 1
+  %25 = call noalias ptr @malloc(i64 noundef %24) #23
+  %26 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %0) #24
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %20, %21
-  %26 = phi ptr [ %24, %21 ], [ null, %20 ]
-  store ptr %26, ptr %19, align 8, !tbaa !39
-  br label %27
+Abc_UtilStrsav.exit:                              ; preds = %21, %22
+  %27 = phi ptr [ %25, %22 ], [ null, %21 ]
+  store ptr %27, ptr %20, align 8, !tbaa !39
+  br label %28
 
-27:                                               ; preds = %Abc_UtilStrsav.exit, %16
-  %.0 = phi ptr [ %17, %16 ], [ %19, %Abc_UtilStrsav.exit ]
+28:                                               ; preds = %Abc_UtilStrsav.exit, %17
+  %.0 = phi ptr [ %18, %17 ], [ %20, %Abc_UtilStrsav.exit ]
   %.not33 = icmp eq i32 %2, 0
-  br i1 %.not33, label %32, label %.thread
+  br i1 %.not33, label %33, label %.thread
 
-.thread42:                                        ; preds = %18
-  %.not3344 = icmp eq i32 %2, 0
-  call void @llvm.assume(i1 %.not3344)
-  br label %.thread51
+.thread44:                                        ; preds = %19
+  %.not3346 = icmp eq i32 %2, 0
+  call void @llvm.assume(i1 %.not3346)
+  br label %.thread53
 
-.thread:                                          ; preds = %27
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !11
-  %30 = getelementptr i8, ptr %29, i64 4
-  %.val35 = load i32, ptr %30, align 4, !tbaa !3
-  %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.val35, ptr noundef %0)
-  br label %34
+.thread:                                          ; preds = %28
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = getelementptr i8, ptr %30, i64 4
+  %.val35 = load i32, ptr %31, align 4, !tbaa !3
+  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.val35, ptr noundef %0)
+  br label %35
 
-32:                                               ; preds = %27
-  %33 = icmp eq ptr %.0, null
-  br i1 %33, label %.thread51, label %34
+33:                                               ; preds = %28
+  %34 = icmp eq ptr %.0, null
+  br i1 %34, label %.thread53, label %35
 
-34:                                               ; preds = %.thread, %32
-  %35 = call i32 @Amap_LibParseEquations(ptr noundef nonnull %.0, i32 noundef %2) #24
-  %.not34 = icmp eq i32 %35, 0
-  br i1 %.not34, label %36, label %37
+35:                                               ; preds = %.thread, %33
+  %36 = call i32 @Amap_LibParseEquations(ptr noundef nonnull %.0, i32 noundef %2) #24
+  %.not34 = icmp eq i32 %36, 0
+  br i1 %.not34, label %37, label %38
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   call void @Amap_LibFree(ptr noundef nonnull %.0)
-  br label %.thread51
+  br label %.thread53
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !11
-  %40 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !3
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 %42, ptr %43, align 4, !tbaa !3
-  %44 = load i32, ptr %39, align 8, !tbaa !9
-  store i32 %44, ptr %40, align 8, !tbaa !9
-  %.not.i.i = icmp eq i32 %44, 0
-  br i1 %.not.i.i, label %Amap_LibSortGatesByArea.exit, label %45
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %41 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 %43, ptr %44, align 4, !tbaa !3
+  %45 = load i32, ptr %40, align 8, !tbaa !9
+  store i32 %45, ptr %41, align 8, !tbaa !9
+  %.not.i.i = icmp eq i32 %45, 0
+  br i1 %.not.i.i, label %Amap_LibSortGatesByArea.exit, label %46
 
-45:                                               ; preds = %37
-  %46 = sext i32 %44 to i64
-  %47 = shl nsw i64 %46, 3
-  %48 = call noalias ptr @malloc(i64 noundef %47) #23
+46:                                               ; preds = %38
+  %47 = sext i32 %45 to i64
+  %48 = shl nsw i64 %47, 3
+  %49 = call noalias ptr @malloc(i64 noundef %48) #23
   br label %Amap_LibSortGatesByArea.exit
 
-Amap_LibSortGatesByArea.exit:                     ; preds = %37, %45
-  %49 = phi ptr [ %48, %45 ], [ null, %37 ]
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %49, ptr %50, align 8, !tbaa !10
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !10
-  %53 = sext i32 %42 to i64
-  %54 = shl nsw i64 %53, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %52, i64 %54, i1 false)
-  call void @qsort(ptr noundef %49, i64 noundef %53, i64 noundef 8, ptr noundef nonnull @Amap_LibCompareGatesByArea) #24
-  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %40, ptr %55, align 8, !tbaa !23
-  %56 = call ptr @Amap_LibSelectGates(ptr noundef nonnull %.0, i32 poison)
-  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %56, ptr %57, align 8, !tbaa !22
-  br i1 %.not33, label %73, label %58
+Amap_LibSortGatesByArea.exit:                     ; preds = %38, %46
+  %50 = phi ptr [ %49, %46 ], [ null, %38 ]
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %50, ptr %51, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !10
+  %54 = sext i32 %43 to i64
+  %55 = shl nsw i64 %54, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %53, i64 %55, i1 false)
+  call void @qsort(ptr noundef %50, i64 noundef %54, i64 noundef 8, ptr noundef nonnull @Amap_LibCompareGatesByArea) #24
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %41, ptr %56, align 8, !tbaa !23
+  %57 = call ptr @Amap_LibSelectGates(ptr noundef nonnull %.0, i32 poison)
+  %58 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr %57, ptr %58, align 8, !tbaa !22
+  br i1 %.not33, label %.critedge, label %59
 
-58:                                               ; preds = %Amap_LibSortGatesByArea.exit
-  %59 = getelementptr i8, ptr %56, i64 4
-  %.val = load i32, ptr %59, align 4, !tbaa !3
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.val)
+59:                                               ; preds = %Amap_LibSortGatesByArea.exit
+  %60 = getelementptr i8, ptr %57, i64 4
+  %.val = load i32, ptr %60, align 4, !tbaa !3
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.val)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
-  %61 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #24
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %Abc_Clock.exit37, label %63
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24
+  %62 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #24
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %Abc_Clock.exit37, label %64
 
-63:                                               ; preds = %58
-  %64 = load i64, ptr %7, align 8, !tbaa !73
-  %65 = mul nsw i64 %64, 1000000
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !76
-  %68 = sdiv i64 %67, 1000
-  %69 = add nsw i64 %68, %65
+64:                                               ; preds = %59
+  %65 = load i64, ptr %8, align 8, !tbaa !73
+  %66 = mul nsw i64 %65, 1000000
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %68 = load i64, ptr %67, align 8, !tbaa !76
+  %69 = sdiv i64 %68, 1000
+  %70 = add nsw i64 %69, %66
   br label %Abc_Clock.exit37
 
-Abc_Clock.exit37:                                 ; preds = %58, %63
-  %.0.i36 = phi i64 [ %69, %63 ], [ -1, %58 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
-  %70 = add i64 %.0.i36, %.0.i.neg
-  %71 = sitofp i64 %70 to double
-  %72 = fdiv double %71, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %72)
-  br label %73
-
-73:                                               ; preds = %Abc_Clock.exit37, %Amap_LibSortGatesByArea.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #24
+Abc_Clock.exit37:                                 ; preds = %59, %64
+  %.0.i36 = phi i64 [ %70, %64 ], [ -1, %59 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #24
+  %71 = add i64 %.0.i36, %.0.i.neg
+  %72 = sitofp i64 %71 to double
+  %73 = fdiv double %72, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %73)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
+  %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #24
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %Abc_Clock.exit39, label %76
 
-76:                                               ; preds = %73
-  %77 = load i64, ptr %6, align 8, !tbaa !73
-  %.neg57 = mul i64 %77, -1000000
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
+76:                                               ; preds = %Abc_Clock.exit37
+  %77 = load i64, ptr %7, align 8, !tbaa !73
+  %.neg59 = mul i64 %77, -1000000
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !76
-  %.neg56 = sdiv i64 %79, -1000
-  %.neg58 = add i64 %.neg56, %.neg57
+  %.neg58 = sdiv i64 %79, -1000
+  %.neg60 = add i64 %.neg58, %.neg59
   br label %Abc_Clock.exit39
 
-Abc_Clock.exit39:                                 ; preds = %73, %76
-  %.0.i38.neg = phi i64 [ %.neg58, %76 ], [ 1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %76
+  %.0.i38.neg = phi i64 [ %.neg60, %76 ], [ 1, %Abc_Clock.exit37 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
   call void @Amap_LibCreateRules(ptr noundef nonnull %.0, i32 noundef %3) #24
-  br i1 %.not33, label %.thread51, label %80
-
-80:                                               ; preds = %Abc_Clock.exit39
-  %81 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  %82 = load i32, ptr %81, align 8, !tbaa !77
-  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 152
-  %84 = load i32, ptr %83, align 8, !tbaa !78
-  %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %82, i32 noundef %84)
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 96
+  %81 = load i32, ptr %80, align 8, !tbaa !77
+  %82 = getelementptr inbounds nuw i8, ptr %.0, i64 152
+  %83 = load i32, ptr %82, align 8, !tbaa !78
+  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %81, i32 noundef %83)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #24
-  %86 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #24
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %Abc_Clock.exit41, label %88
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  %85 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #24
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %Abc_Clock.exit41, label %87
 
-88:                                               ; preds = %80
-  %89 = load i64, ptr %5, align 8, !tbaa !73
-  %90 = mul nsw i64 %89, 1000000
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %92 = load i64, ptr %91, align 8, !tbaa !76
-  %93 = sdiv i64 %92, 1000
-  %94 = add nsw i64 %93, %90
+87:                                               ; preds = %Abc_Clock.exit39
+  %88 = load i64, ptr %6, align 8, !tbaa !73
+  %89 = mul nsw i64 %88, 1000000
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %91 = load i64, ptr %90, align 8, !tbaa !76
+  %92 = sdiv i64 %91, 1000
+  %93 = add nsw i64 %92, %89
   br label %Abc_Clock.exit41
 
-Abc_Clock.exit41:                                 ; preds = %80, %88
-  %.0.i40 = phi i64 [ %94, %88 ], [ -1, %80 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
-  %95 = add i64 %.0.i40, %.0.i38.neg
-  %96 = sitofp i64 %95 to double
-  %97 = fdiv double %96, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %97)
-  br label %.thread51
+Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit39, %87
+  %.0.i40 = phi i64 [ %93, %87 ], [ -1, %Abc_Clock.exit39 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+  %94 = add i64 %.0.i40, %.0.i38.neg
+  %95 = sitofp i64 %94 to double
+  %96 = fdiv double %95, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %96)
+  br label %.thread53
 
-.thread51:                                        ; preds = %.thread42, %Abc_Clock.exit39, %Abc_Clock.exit41, %32, %36
-  %.030 = phi ptr [ null, %36 ], [ null, %32 ], [ %.0, %Abc_Clock.exit41 ], [ %.0, %Abc_Clock.exit39 ], [ null, %.thread42 ]
+.critedge:                                        ; preds = %Amap_LibSortGatesByArea.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #24
+  %97 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
+  call void @Amap_LibCreateRules(ptr noundef nonnull %.0, i32 noundef %3) #24
+  br label %.thread53
+
+.thread53:                                        ; preds = %.thread44, %Abc_Clock.exit41, %.critedge, %33, %37
+  %.030 = phi ptr [ null, %37 ], [ null, %33 ], [ %.0, %.critedge ], [ %.0, %Abc_Clock.exit41 ], [ null, %.thread44 ]
   ret ptr %.030
 }
 

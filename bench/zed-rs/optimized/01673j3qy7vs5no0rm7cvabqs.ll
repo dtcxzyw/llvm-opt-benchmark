@@ -66,7 +66,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 ..thread58_crit_edge:                             ; preds = %19
   %.pre = load i64, ptr %4, align 8, !alias.scope !17, !noalias !20
-  %.pre80 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 2)
+  %.pre77 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 2)
   br label %.thread58
 
 .thread55:                                        ; preds = %13, %10, %19
@@ -79,7 +79,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 .thread58:                                        ; preds = %..thread58_crit_edge, %2
-  %.sink.i.pre-phi = phi i64 [ %.pre80, %..thread58_crit_edge ], [ %.sink.i.i, %2 ]
+  %.sink.i.pre-phi = phi i64 [ %.pre77, %..thread58_crit_edge ], [ %.sink.i.i, %2 ]
   %24 = phi i64 [ %.pre, %..thread58_crit_edge ], [ %5, %2 ]
   %25 = icmp ugt i64 %24, 2
   %26 = load ptr, ptr %0, align 8, !alias.scope !17, !noalias !20, !nonnull !15
@@ -89,74 +89,74 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %28 = icmp ult i64 %27, %.sink.i.pre-phi
   br i1 %28, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread58, %41
-  %.sroa.7.072 = phi i64 [ 1, %41 ], [ %.sroa.7.0.copyload23, %.thread58 ]
-  %.sroa.733.069 = phi i64 [ %45, %41 ], [ %27, %.thread58 ]
-  %.not.i.i.not.not = icmp eq i64 %.sroa.10.0.copyload26.fr, %.sroa.7.072
-  br i1 %.not.i.i.not.not, label %46, label %41
+.lr.ph:                                           ; preds = %.thread58, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit"
+  %.sroa.7.070 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit" ], [ %.sroa.7.0.copyload23, %.thread58 ]
+  %.sroa.733.069 = phi i64 [ %32, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit" ], [ %27, %.thread58 ]
+  %.not.i.i.not.not = icmp eq i64 %.sroa.10.0.copyload26.fr, %.sroa.7.070
+  br i1 %.not.i.i.not.not, label %.critedge, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit"
 
-._crit_edge:                                      ; preds = %41, %.thread58
-  %.sroa.733.0.lcssa = phi i64 [ %27, %.thread58 ], [ %.sink.i.pre-phi, %41 ]
-  %.sroa.7.0.lcssa = phi i64 [ %.sroa.7.0.copyload23, %.thread58 ], [ 1, %41 ]
-  store i64 %.sroa.733.0.lcssa, ptr %.sink9.i, align 8
-  %.not.i.i1374 = icmp eq i64 %.sroa.10.0.copyload26.fr, %.sroa.7.0.lcssa
-  br i1 %.not.i.i1374, label %.loopexit, label %.lr.ph77
-
-.lr.ph77:                                         ; preds = %._crit_edge
-  %.not.i.i13 = icmp eq i64 %.sroa.10.0.copyload26.fr, 1
-  %29 = icmp eq i64 %.sroa.7.0.lcssa, 0
+"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit": ; preds = %.lr.ph
+  %29 = icmp eq i64 %.sroa.7.070, 0
   tail call void @llvm.assume(i1 %29)
-  br i1 %.not.i.i13, label %.lr.ph77.split.us, label %.lr.ph77.split
+  %30 = getelementptr inbounds { i64, i64 }, ptr %.sink10.i, i64 %.sroa.733.069
+  store i64 %.sroa.0.0.copyload19, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 %.sroa.6.0.copyload21, ptr %31, align 8
+  %32 = add i64 %.sroa.733.069, 1
+  %exitcond.not = icmp eq i64 %32, %.sink.i.pre-phi
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph77.split.us:                                ; preds = %.lr.ph77
-  %30 = load i64, ptr %4, align 8, !alias.scope !22, !noalias !27, !noundef !15
-  %31 = icmp ugt i64 %30, 2
-  %.sink9.i.i.us = select i1 %31, ptr %7, ptr %4
-  %32 = load i64, ptr %.sink9.i.i.us, align 8, !alias.scope !29, !noundef !15
-  %.sink.i.i16.us = tail call i64 @llvm.umax.i64(i64 %30, i64 2)
-  %33 = icmp eq i64 %32, %.sink.i.i16.us
-  %34 = load ptr, ptr %0, align 8, !alias.scope !22, !noalias !27, !nonnull !15
-  %.sink10.i.i.us = select i1 %31, ptr %34, ptr %0
-  br i1 %33, label %.noexc18.us, label %..loopexit_crit_edge.split.us
+._crit_edge:                                      ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit", %.thread58
+  %.sroa.733.0.lcssa = phi i64 [ %27, %.thread58 ], [ %.sink.i.pre-phi, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit" ]
+  %.sroa.7.0.lcssa = phi i64 [ %.sroa.7.0.copyload23, %.thread58 ], [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8641df1f49ac648cE.exit" ]
+  store i64 %.sroa.733.0.lcssa, ptr %.sink9.i, align 8
+  %.not.i.i1372 = icmp eq i64 %.sroa.10.0.copyload26.fr, %.sroa.7.0.lcssa
+  br i1 %.not.i.i1372, label %.loopexit, label %.lr.ph75
 
-.noexc18.us:                                      ; preds = %.lr.ph77.split.us
+.lr.ph75:                                         ; preds = %._crit_edge
+  %.not.i.i13 = icmp eq i64 %.sroa.10.0.copyload26.fr, 1
+  %33 = icmp eq i64 %.sroa.7.0.lcssa, 0
+  tail call void @llvm.assume(i1 %33)
+  br i1 %.not.i.i13, label %.lr.ph75.split.us, label %.lr.ph75.split
+
+.lr.ph75.split.us:                                ; preds = %.lr.ph75
+  %34 = load i64, ptr %4, align 8, !alias.scope !22, !noalias !27, !noundef !15
+  %35 = icmp ugt i64 %34, 2
+  %.sink9.i.i.us = select i1 %35, ptr %7, ptr %4
+  %36 = load i64, ptr %.sink9.i.i.us, align 8, !alias.scope !29, !noundef !15
+  %.sink.i.i16.us = tail call i64 @llvm.umax.i64(i64 %34, i64 2)
+  %37 = icmp eq i64 %36, %.sink.i.i16.us
+  %38 = load ptr, ptr %0, align 8, !alias.scope !22, !noalias !27, !nonnull !15
+  %.sink10.i.i.us = select i1 %35, ptr %38, ptr %0
+  br i1 %37, label %.noexc18.us, label %..loopexit_crit_edge.split.us
+
+.noexc18.us:                                      ; preds = %.lr.ph75.split.us
   tail call void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h83a272489f24de02E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
-  %35 = load ptr, ptr %0, align 8, !alias.scope !29, !nonnull !15, !noundef !15
+  %39 = load ptr, ptr %0, align 8, !alias.scope !29, !nonnull !15, !noundef !15
   %.pre.i.us = load i64, ptr %7, align 8, !alias.scope !29
   br label %..loopexit_crit_edge.split.us
 
-..loopexit_crit_edge.split.us:                    ; preds = %.noexc18.us, %.lr.ph77.split.us
-  %36 = phi i64 [ %.pre.i.us, %.noexc18.us ], [ %32, %.lr.ph77.split.us ]
-  %.sroa.01.0.i.us = phi ptr [ %7, %.noexc18.us ], [ %.sink9.i.i.us, %.lr.ph77.split.us ]
-  %.sroa.0.0.i17.us = phi ptr [ %35, %.noexc18.us ], [ %.sink10.i.i.us, %.lr.ph77.split.us ]
-  %37 = getelementptr inbounds { i64, i64 }, ptr %.sroa.0.0.i17.us, i64 %36
-  store i64 %.sroa.0.0.copyload19, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %.sroa.6.0.copyload21, ptr %38, align 8
-  %39 = load i64, ptr %.sroa.01.0.i.us, align 8, !alias.scope !29, !noundef !15
-  %40 = add i64 %39, 1
-  store i64 %40, ptr %.sroa.01.0.i.us, align 8, !alias.scope !29
+..loopexit_crit_edge.split.us:                    ; preds = %.noexc18.us, %.lr.ph75.split.us
+  %40 = phi i64 [ %.pre.i.us, %.noexc18.us ], [ %36, %.lr.ph75.split.us ]
+  %.sroa.01.0.i.us = phi ptr [ %7, %.noexc18.us ], [ %.sink9.i.i.us, %.lr.ph75.split.us ]
+  %.sroa.0.0.i17.us = phi ptr [ %39, %.noexc18.us ], [ %.sink10.i.i.us, %.lr.ph75.split.us ]
+  %41 = getelementptr inbounds { i64, i64 }, ptr %.sroa.0.0.i17.us, i64 %40
+  store i64 %.sroa.0.0.copyload19, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i64 %.sroa.6.0.copyload21, ptr %42, align 8
+  %43 = load i64, ptr %.sroa.01.0.i.us, align 8, !alias.scope !29, !noundef !15
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %.sroa.01.0.i.us, align 8, !alias.scope !29
   br label %.loopexit
 
-.lr.ph77.split:                                   ; preds = %.lr.ph77
+.lr.ph75.split:                                   ; preds = %.lr.ph75
   tail call void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h83a272489f24de02E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   unreachable
 
-.loopexit:                                        ; preds = %._crit_edge, %..loopexit_crit_edge.split.us, %46
+.loopexit:                                        ; preds = %._crit_edge, %..loopexit_crit_edge.split.us, %.critedge
   ret void
 
-41:                                               ; preds = %.lr.ph
-  %42 = icmp eq i64 %.sroa.7.072, 0
-  tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds { i64, i64 }, ptr %.sink10.i, i64 %.sroa.733.069
-  store i64 %.sroa.0.0.copyload19, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %.sroa.6.0.copyload21, ptr %44, align 8
-  %45 = add i64 %.sroa.733.069, 1
-  %exitcond.not = icmp eq i64 %45, %.sink.i.pre-phi
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
-
-46:                                               ; preds = %.lr.ph
+.critedge:                                        ; preds = %.lr.ph
   store i64 %.sroa.733.069, ptr %.sink9.i, align 8
   br label %.loopexit
 }

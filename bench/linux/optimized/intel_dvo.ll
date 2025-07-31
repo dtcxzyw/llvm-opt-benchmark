@@ -688,44 +688,44 @@ define internal i32 @intel_dvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 ali
   %10 = load i32, ptr %1, align 8
   %11 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #7
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %34
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 32
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = icmp eq ptr %6, null
-  br i1 %19, label %24, label %20
+  br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
   %21 = tail call i32 @intel_panel_mode_valid(ptr noundef %0, ptr noundef %1) #7
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %34
+  br i1 %22, label %23, label %.critedge
 
-.thread:                                          ; preds = %20
-  %23 = load i32, ptr %6, align 8
-  br label %24
+23:                                               ; preds = %20
+  %24 = load i32, ptr %6, align 8
+  br label %25
 
-24:                                               ; preds = %.thread, %18
-  %25 = phi i32 [ %10, %18 ], [ %23, %.thread ]
-  %26 = icmp sgt i32 %25, %9
-  br i1 %26, label %34, label %27
+25:                                               ; preds = %23, %18
+  %26 = phi i32 [ %24, %23 ], [ %10, %18 ]
+  %27 = icmp sgt i32 %26, %9
+  br i1 %27, label %.critedge, label %28
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 408
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef nonnull %28, ptr noundef %1) #7
-  br label %34
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 408
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 %33(ptr noundef nonnull %29, ptr noundef %1) #7
+  br label %.critedge
 
-34:                                               ; preds = %20, %27, %24, %13, %2
-  %35 = phi i32 [ %33, %27 ], [ %11, %2 ], [ 8, %13 ], [ 15, %24 ], [ %21, %20 ]
+.critedge:                                        ; preds = %20, %28, %25, %13, %2
+  %35 = phi i32 [ %34, %28 ], [ %11, %2 ], [ 8, %13 ], [ 15, %25 ], [ %21, %20 ]
   ret i32 %35
 }
 

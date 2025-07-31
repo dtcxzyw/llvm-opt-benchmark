@@ -2770,11 +2770,7 @@ rb_num2char_inline.exit:                          ; preds = %38, %40
   %42 = trunc i64 %.0.i5.i to i8
   store i8 %42, ptr %3, align 1, !tbaa !33
   %43 = icmp eq i64 %.pre, 4
-  br i1 %43, label %.thread20, label %44
-
-.thread20:                                        ; preds = %rb_num2char_inline.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
-  br label %48
+  br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %rb_num2char_inline.exit
   %45 = call i64 @rb_str_new(ptr noundef nonnull %3, i64 noundef 1) #16
@@ -2786,7 +2782,11 @@ rb_num2char_inline.exit:                          ; preds = %38, %40
   %47 = call fastcc i64 @strio_write(i64 noundef %0, i64 noundef %.013)
   br label %48
 
-48:                                               ; preds = %.thread20, %34, %46
+.critedge:                                        ; preds = %rb_num2char_inline.exit
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  br label %48
+
+48:                                               ; preds = %.critedge, %34, %46
   ret i64 %1
 }
 

@@ -11572,9 +11572,9 @@ define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nounde
   %.pre = load i32, ptr %19, align 8
   br label %34
 
-34:                                               ; preds = %165, %2
-  %35 = phi i32 [ %.pre, %2 ], [ %166, %165 ]
-  %.0 = phi i32 [ 0, %2 ], [ %.1, %165 ]
+34:                                               ; preds = %164, %2
+  %35 = phi i32 [ %.pre, %2 ], [ %165, %164 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %164 ]
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.loopexit
 
@@ -11585,7 +11585,7 @@ define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nounde
   %41 = load i64, ptr @LiveNodeCountInliningCutoff, align 8
   %42 = trunc i64 %41 to i32
   %43 = icmp ugt i32 %40, %42
-  br i1 %43, label %44, label %119
+  br i1 %43, label %44, label %118
 
 44:                                               ; preds = %37
   %45 = shl i32 %42, 3
@@ -11614,282 +11614,307 @@ define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nounde
   %60 = load ptr, ptr %27, align 8
   %61 = icmp ne ptr %60, null
   %62 = select i1 %59, i1 true, i1 %61
-  br i1 %62, label %67, label %63
+  br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %48
   %64 = load i32, ptr %20, align 8
   %65 = load i32, ptr %21, align 4
   %66 = sub i32 %64, %65
   store i32 1, ptr %28, align 4
-  br label %67
+  %67 = load ptr, ptr %22, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 352
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 88
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 376
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp ne ptr %74, null
+  %76 = select i1 %72, i1 true, i1 %75
+  br i1 %76, label %86, label %77
 
-67:                                               ; preds = %48, %63
-  %.3 = phi i32 [ %66, %63 ], [ %.0, %48 ]
-  %68 = load ptr, ptr %22, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 352
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ne ptr %72, null
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 376
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp ne ptr %75, null
-  %77 = select i1 %73, i1 true, i1 %76
-  br i1 %77, label %_ZN7Compile10TracePhaseD2Ev.exit, label %78
+77:                                               ; preds = %63
+  %78 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %78, null
+  br i1 %.not.i, label %86, label %79
 
-78:                                               ; preds = %67
-  %79 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %_ZN7Compile10TracePhaseD2Ev.exit, label %80
+79:                                               ; preds = %77
+  %80 = load ptr, ptr %24, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 592
+  %82 = load i32, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %67, i64 596
+  %84 = load i32, ptr %83, align 4
+  %85 = sub i32 %82, %84
+  call void (ptr, ptr, ...) @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %78, ptr noundef nonnull @.str.42, ptr noundef %80, i32 noundef %82, i32 noundef %85) #17
+  br label %86
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %24, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %68, i64 592
-  %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %68, i64 596
-  %85 = load i32, ptr %84, align 4
-  %86 = sub i32 %83, %85
-  call void (ptr, ptr, ...) @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %79, ptr noundef nonnull @.str.42, ptr noundef %81, i32 noundef %83, i32 noundef %86) #17
-  br label %_ZN7Compile10TracePhaseD2Ev.exit
-
-_ZN7Compile10TracePhaseD2Ev.exit:                 ; preds = %67, %78, %80
+86:                                               ; preds = %79, %77, %63
   call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #17
-  br i1 %62, label %.loopexit25, label %87
+  %.pre41 = load i32, ptr %20, align 8
+  %.pre42 = load i32, ptr %21, align 4
+  %.pre43 = load i64, ptr @LiveNodeCountInliningCutoff, align 8
+  %.pre47 = sub i32 %.pre41, %.pre42
+  %.pre48 = trunc i64 %.pre43 to i32
+  %87 = icmp ugt i32 %.pre47, %.pre48
+  br i1 %87, label %.thread, label %118
 
-87:                                               ; preds = %_ZN7Compile10TracePhaseD2Ev.exit
-  %.pre35 = load i32, ptr %20, align 8
-  %.pre36 = load i32, ptr %21, align 4
-  %.pre37 = load i64, ptr @LiveNodeCountInliningCutoff, align 8
-  %.pre41 = sub i32 %.pre35, %.pre36
-  %.pre42 = trunc i64 %.pre37 to i32
-  %88 = icmp ugt i32 %.pre41, %.pre42
-  br i1 %88, label %.thread, label %119
-
-.thread:                                          ; preds = %44, %87
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 275
-  %90 = load i8, ptr %89, align 1
-  %91 = trunc i8 %90 to i1
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %93 = load i8, ptr %92, align 4
-  %94 = trunc i8 %93 to i1
-  %or.cond = select i1 %91, i1 true, i1 %94
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %96 = load ptr, ptr %95, align 8
-  %.not = icmp ne ptr %96, null
-  %or.cond23.not = select i1 %or.cond, i1 true, i1 %.not
-  %97 = load i32, ptr %19, align 8
-  %98 = icmp sgt i32 %97, 0
-  %or.cond49 = select i1 %or.cond23.not, i1 %98, i1 false
-  br i1 %or.cond49, label %.lr.ph, label %.loopexit
+.thread:                                          ; preds = %44, %86
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 275
+  %89 = load i8, ptr %88, align 1
+  %90 = trunc i8 %89 to i1
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %92 = load i8, ptr %91, align 4
+  %93 = trunc i8 %92 to i1
+  %or.cond = select i1 %90, i1 true, i1 %93
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %95 = load ptr, ptr %94, align 8
+  %.not = icmp ne ptr %95, null
+  %or.cond25.not = select i1 %or.cond, i1 true, i1 %.not
+  %96 = load i32, ptr %19, align 8
+  %97 = icmp sgt i32 %96, 0
+  %or.cond55 = select i1 %or.cond25.not, i1 %97, i1 false
+  br i1 %or.cond55, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1992
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us ], [ 0, %.lr.ph ]
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv32
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us ], [ 0, %.lr.ph ]
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv38
+  %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 192
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %102, i32 noundef 1, ptr noundef nonnull @.str.16) #17
-  call void @_ZN7Compile15log_late_inlineEP13CallGenerator(ptr noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef nonnull %102)
-  %106 = load ptr, ptr %95, align 8
-  %.not.i17.us = icmp eq ptr %106, null
-  br i1 %.not.i17.us, label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us, label %107
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 192
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(16) %101, i32 noundef 1, ptr noundef nonnull @.str.16) #17
+  call void @_ZN7Compile15log_late_inlineEP13CallGenerator(ptr noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef nonnull %101)
+  %105 = load ptr, ptr %94, align 8
+  %.not.i17.us = icmp eq ptr %105, null
+  br i1 %.not.i17.us, label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us, label %106
 
-107:                                              ; preds = %.lr.ph.split.us
-  call void @_ZN10CompileLog11inline_failEPKc(ptr noundef nonnull align 8 dereferenceable(440) %106, ptr noundef nonnull @.str.16) #17
+106:                                              ; preds = %.lr.ph.split.us
+  call void @_ZN10CompileLog11inline_failEPKc(ptr noundef nonnull align 8 dereferenceable(440) %105, ptr noundef nonnull @.str.16) #17
   br label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us
 
-_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us: ; preds = %107, %.lr.ph.split.us
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %108 = load i32, ptr %19, align 8
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next33, %109
-  br i1 %110, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !50
+_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us: ; preds = %106, %.lr.ph.split.us
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %107 = load i32, ptr %19, align 8
+  %108 = sext i32 %107 to i64
+  %109 = icmp slt i64 %indvars.iv.next39, %108
+  br i1 %109, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit ], [ 0, %.lr.ph ]
-  %111 = load ptr, ptr %99, align 8
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv
-  %113 = load ptr, ptr %112, align 8
-  call void @_ZN7Compile15log_late_inlineEP13CallGenerator(ptr noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef %113)
-  %114 = load ptr, ptr %95, align 8
-  %.not.i17 = icmp eq ptr %114, null
-  br i1 %.not.i17, label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit, label %115
+  %110 = load ptr, ptr %98, align 8
+  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv
+  %112 = load ptr, ptr %111, align 8
+  call void @_ZN7Compile15log_late_inlineEP13CallGenerator(ptr noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef %112)
+  %113 = load ptr, ptr %94, align 8
+  %.not.i17 = icmp eq ptr %113, null
+  br i1 %.not.i17, label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit, label %114
 
-115:                                              ; preds = %.lr.ph.split
-  call void @_ZN10CompileLog11inline_failEPKc(ptr noundef nonnull align 8 dereferenceable(440) %114, ptr noundef nonnull @.str.16) #17
+114:                                              ; preds = %.lr.ph.split
+  call void @_ZN10CompileLog11inline_failEPKc(ptr noundef nonnull align 8 dereferenceable(440) %113, ptr noundef nonnull @.str.16) #17
   br label %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit
 
-_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit: ; preds = %.lr.ph.split, %115
+_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit: ; preds = %.lr.ph.split, %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %116 = load i32, ptr %19, align 8
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph.split, label %.loopexit, !llvm.loop !51
+  %115 = load i32, ptr %19, align 8
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next, %116
+  br i1 %117, label %.lr.ph.split, label %.loopexit, !llvm.loop !51
 
-119:                                              ; preds = %87, %37
-  %.1 = phi i32 [ %.3, %87 ], [ %.0, %37 ]
-  %120 = load ptr, ptr %29, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
+118:                                              ; preds = %86, %37
+  %.1 = phi i32 [ %66, %86 ], [ %.0, %37 ]
+  %119 = load ptr, ptr %29, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  store i32 0, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i32 0, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store i32 0, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = zext i32 %126 to i64
-  %128 = shl nuw nsw i64 %127, 3
-  call void @llvm.memset.p0.i64(ptr align 1 %124, i8 0, i64 %128, i1 false)
-  %129 = getelementptr inbounds nuw i8, ptr %120, i64 64
-  store i32 0, ptr %129, align 8
-  br label %130
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %125 = load i32, ptr %124, align 8
+  %126 = zext i32 %125 to i64
+  %127 = shl nuw nsw i64 %126, 3
+  call void @llvm.memset.p0.i64(ptr align 1 %123, i8 0, i64 %127, i1 false)
+  %128 = getelementptr inbounds nuw i8, ptr %119, i64 64
+  store i32 0, ptr %128, align 8
+  br label %129
 
-130:                                              ; preds = %130, %119
-  %131 = call noundef zeroext i1 @_ZN7Compile24inline_incrementally_oneEv(ptr noundef nonnull align 8 dereferenceable(2316) %0)
-  br i1 %131, label %130, label %132, !llvm.loop !52
+129:                                              ; preds = %129, %118
+  %130 = call noundef zeroext i1 @_ZN7Compile24inline_incrementally_oneEv(ptr noundef nonnull align 8 dereferenceable(2316) %0)
+  br i1 %130, label %129, label %131, !llvm.loop !52
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr %26, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 88
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp ne ptr %135, null
-  %137 = load ptr, ptr %27, align 8
-  %138 = icmp ne ptr %137, null
-  %139 = select i1 %136, i1 true, i1 %138
-  br i1 %139, label %.loopexit25, label %140
+131:                                              ; preds = %129
+  %132 = load ptr, ptr %26, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 88
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp ne ptr %134, null
+  %136 = load ptr, ptr %27, align 8
+  %137 = icmp ne ptr %136, null
+  %138 = select i1 %135, i1 true, i1 %137
+  br i1 %138, label %.loopexit27, label %139
 
-140:                                              ; preds = %132
+139:                                              ; preds = %131
   call void @_ZN7Compile28inline_incrementally_cleanupER12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %141 = load ptr, ptr %26, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 88
-  %143 = load ptr, ptr %142, align 8
-  %144 = icmp ne ptr %143, null
-  %145 = load ptr, ptr %27, align 8
-  %146 = icmp ne ptr %145, null
-  %147 = select i1 %144, i1 true, i1 %146
-  br i1 %147, label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, label %148
+  %140 = load ptr, ptr %26, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 88
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp ne ptr %142, null
+  %144 = load ptr, ptr %27, align 8
+  %145 = icmp ne ptr %144, null
+  %146 = select i1 %143, i1 true, i1 %145
+  br i1 %146, label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, label %147
 
-148:                                              ; preds = %140
+147:                                              ; preds = %139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %3, i8 0, i64 16, i1 false)
   store i8 1, ptr %30, align 8
   store i8 0, ptr %31, align 1
   store i8 0, ptr %32, align 2
-  %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1913), align 1
-  %.not.i.i = icmp eq i8 %149, 0
-  br i1 %.not.i.i, label %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i, label %150
+  %148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1913), align 1
+  %.not.i.i = icmp eq i8 %148, 0
+  br i1 %.not.i.i, label %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i, label %149
 
-150:                                              ; preds = %148
-  %151 = load ptr, ptr %33, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 2296
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %154 = load i32, ptr %153, align 8
-  call void @_ZN13CompilerEvent10PhaseEvent4postER18EventCompilerPhaseRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEiii(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr noundef nonnull align 8 dereferenceable(16) %152, i32 noundef 8, i32 noundef %154, i32 noundef 3) #17
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %33, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 2296
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %153 = load i32, ptr %152, align 8
+  call void @_ZN13CompilerEvent10PhaseEvent4postER18EventCompilerPhaseRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEiii(ptr noundef nonnull align 8 dereferenceable(38) %3, ptr noundef nonnull align 8 dereferenceable(16) %151, i32 noundef 8, i32 noundef %153, i32 noundef 3) #17
   br label %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
 
-_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %150, %148
-  %155 = load ptr, ptr %33, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 2296
-  %157 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
-  %158 = extractvalue { i64, i64 } %157, 0
-  %159 = extractvalue { i64, i64 } %157, 1
-  store i64 %158, ptr %156, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %155, i64 2304
-  store i64 %159, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.pre38 = load ptr, ptr %26, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre38, i64 88
-  %.pre39 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre40 = load ptr, ptr %27, align 8
+_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i: ; preds = %149, %147
+  %154 = load ptr, ptr %33, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 2296
+  %156 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
+  %157 = extractvalue { i64, i64 } %156, 0
+  %158 = extractvalue { i64, i64 } %156, 1
+  store i64 %157, ptr %155, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %154, i64 2304
+  store i64 %158, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %.pre44 = load ptr, ptr %26, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre44, i64 88
+  %.pre45 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre46 = load ptr, ptr %27, align 8
   br label %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
 
-_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %140, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
-  %160 = phi ptr [ %145, %140 ], [ %.pre40, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
-  %161 = phi ptr [ %143, %140 ], [ %.pre39, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
+_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %139, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i
+  %159 = phi ptr [ %144, %139 ], [ %.pre46, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
+  %160 = phi ptr [ %142, %139 ], [ %.pre45, %_ZN8JfrEventI18EventCompilerPhaseE13should_commitEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %162 = icmp ne ptr %161, null
-  %163 = icmp ne ptr %160, null
-  %164 = select i1 %162, i1 true, i1 %163
-  br i1 %164, label %.loopexit25, label %165
+  %161 = icmp ne ptr %160, null
+  %162 = icmp ne ptr %159, null
+  %163 = select i1 %161, i1 true, i1 %162
+  br i1 %163, label %.loopexit27, label %164
 
-165:                                              ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
-  %166 = load i32, ptr %19, align 8
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %.loopexit, label %34, !llvm.loop !53
+164:                                              ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit
+  %165 = load i32, ptr %19, align 8
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %.loopexit, label %34, !llvm.loop !53
 
-.loopexit:                                        ; preds = %165, %34, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us, %.thread
-  %168 = load ptr, ptr %29, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
+.loopexit:                                        ; preds = %164, %34, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit, %_ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit.us, %.thread
+  %167 = load ptr, ptr %29, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
+  store i32 0, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store i32 0, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store i32 0, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %174 = load i32, ptr %173, align 8
-  %175 = zext i32 %174 to i64
-  %176 = shl nuw nsw i64 %175, 3
-  call void @llvm.memset.p0.i64(ptr align 1 %172, i8 0, i64 %176, i1 false)
-  %177 = getelementptr inbounds nuw i8, ptr %168, i64 64
-  store i32 0, ptr %177, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 2008
-  %179 = load i32, ptr %178, align 8
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %190
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %173 = load i32, ptr %172, align 8
+  %174 = zext i32 %173 to i64
+  %175 = shl nuw nsw i64 %174, 3
+  call void @llvm.memset.p0.i64(ptr align 1 %171, i8 0, i64 %175, i1 false)
+  %176 = getelementptr inbounds nuw i8, ptr %167, i64 64
+  store i32 0, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 2008
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp sgt i32 %178, 0
+  br i1 %179, label %180, label %189
 
-181:                                              ; preds = %.loopexit
+180:                                              ; preds = %.loopexit
   call void @_ZN7Compile19inline_string_callsEb(ptr noundef nonnull align 8 dereferenceable(2316) %0, i1 noundef zeroext false)
-  %182 = load ptr, ptr %26, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 88
-  %184 = load ptr, ptr %183, align 8
-  %185 = icmp ne ptr %184, null
-  %186 = load ptr, ptr %27, align 8
-  %187 = icmp ne ptr %186, null
-  %188 = select i1 %185, i1 true, i1 %187
-  br i1 %188, label %.loopexit25, label %189
+  %181 = load ptr, ptr %26, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 88
+  %183 = load ptr, ptr %182, align 8
+  %184 = icmp ne ptr %183, null
+  %185 = load ptr, ptr %27, align 8
+  %186 = icmp ne ptr %185, null
+  %187 = select i1 %184, i1 true, i1 %186
+  br i1 %187, label %.loopexit27, label %188
 
-189:                                              ; preds = %181
+188:                                              ; preds = %180
   call void @_ZN7Compile28inline_incrementally_cleanupER12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %1)
-  br label %190
+  br label %189
 
-190:                                              ; preds = %189, %.loopexit
+189:                                              ; preds = %188, %.loopexit
   store i8 0, ptr %18, align 1
-  br label %.loopexit25
+  br label %.loopexit27
 
-.loopexit25:                                      ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, %132, %_ZN7Compile10TracePhaseD2Ev.exit, %181, %190
-  %191 = load ptr, ptr %8, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 352
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 88
-  %195 = load ptr, ptr %194, align 8
-  %196 = icmp ne ptr %195, null
-  %197 = getelementptr inbounds nuw i8, ptr %191, i64 376
-  %198 = load ptr, ptr %197, align 8
-  %199 = icmp ne ptr %198, null
-  %200 = select i1 %196, i1 true, i1 %199
-  br i1 %200, label %_ZN7Compile10TracePhaseD2Ev.exit19, label %201
+.critedge:                                        ; preds = %48
+  %190 = load ptr, ptr %22, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 352
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 88
+  %194 = load ptr, ptr %193, align 8
+  %195 = icmp ne ptr %194, null
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 376
+  %197 = load ptr, ptr %196, align 8
+  %198 = icmp ne ptr %197, null
+  %199 = select i1 %195, i1 true, i1 %198
+  br i1 %199, label %_ZN7Compile10TracePhaseD2Ev.exit19, label %200
 
-201:                                              ; preds = %.loopexit25
-  %202 = load ptr, ptr %15, align 8
-  %.not.i18 = icmp eq ptr %202, null
-  br i1 %.not.i18, label %_ZN7Compile10TracePhaseD2Ev.exit19, label %203
+200:                                              ; preds = %.critedge
+  %201 = load ptr, ptr %23, align 8
+  %.not.i18 = icmp eq ptr %201, null
+  br i1 %.not.i18, label %_ZN7Compile10TracePhaseD2Ev.exit19, label %202
 
-203:                                              ; preds = %201
-  %204 = load ptr, ptr %16, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %191, i64 592
-  %206 = load i32, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %191, i64 596
-  %208 = load i32, ptr %207, align 4
-  %209 = sub i32 %206, %208
-  call void (ptr, ptr, ...) @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %202, ptr noundef nonnull @.str.42, ptr noundef %204, i32 noundef %206, i32 noundef %209) #17
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %24, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %190, i64 592
+  %205 = load i32, ptr %204, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %190, i64 596
+  %207 = load i32, ptr %206, align 4
+  %208 = sub i32 %205, %207
+  call void (ptr, ptr, ...) @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %201, ptr noundef nonnull @.str.42, ptr noundef %203, i32 noundef %205, i32 noundef %208) #17
   br label %_ZN7Compile10TracePhaseD2Ev.exit19
 
-_ZN7Compile10TracePhaseD2Ev.exit19:               ; preds = %.loopexit25, %201, %203
+_ZN7Compile10TracePhaseD2Ev.exit19:               ; preds = %.critedge, %200, %202
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %5) #17
+  br label %.loopexit27
+
+.loopexit27:                                      ; preds = %_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit, %131, %180, %_ZN7Compile10TracePhaseD2Ev.exit19, %189
+  %209 = load ptr, ptr %8, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 352
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 88
+  %213 = load ptr, ptr %212, align 8
+  %214 = icmp ne ptr %213, null
+  %215 = getelementptr inbounds nuw i8, ptr %209, i64 376
+  %216 = load ptr, ptr %215, align 8
+  %217 = icmp ne ptr %216, null
+  %218 = select i1 %214, i1 true, i1 %217
+  br i1 %218, label %_ZN7Compile10TracePhaseD2Ev.exit21, label %219
+
+219:                                              ; preds = %.loopexit27
+  %220 = load ptr, ptr %15, align 8
+  %.not.i20 = icmp eq ptr %220, null
+  br i1 %.not.i20, label %_ZN7Compile10TracePhaseD2Ev.exit21, label %221
+
+221:                                              ; preds = %219
+  %222 = load ptr, ptr %16, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %209, i64 592
+  %224 = load i32, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %209, i64 596
+  %226 = load i32, ptr %225, align 4
+  %227 = sub i32 %224, %226
+  call void (ptr, ptr, ...) @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %220, ptr noundef nonnull @.str.42, ptr noundef %222, i32 noundef %224, i32 noundef %227) #17
+  br label %_ZN7Compile10TracePhaseD2Ev.exit21
+
+_ZN7Compile10TracePhaseD2Ev.exit21:               ; preds = %.loopexit27, %219, %221
   call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #17
   ret void
 }

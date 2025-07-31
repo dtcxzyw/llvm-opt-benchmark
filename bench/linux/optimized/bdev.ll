@@ -628,7 +628,7 @@ define dso_local i32 @bdev_thaw(ptr noundef %0) #1 align 16 {
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
-  br i1 %12, label %13, label %17, !prof !9
+  br i1 %12, label %13, label %.critedge, !prof !9
 
 13:                                               ; preds = %.lr.ph
   %14 = extractvalue { i8, i32 } %9, 1
@@ -636,41 +636,41 @@ define dso_local i32 @bdev_thaw(ptr noundef %0) #1 align 16 {
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.loopexit, label %.lr.ph, !prof !23, !llvm.loop !24
 
-17:                                               ; preds = %.lr.ph
-  %18 = icmp eq i32 %7, 0
-  br i1 %18, label %19, label %.loopexit
+.critedge:                                        ; preds = %.lr.ph
+  %17 = icmp eq i32 %7, 0
+  br i1 %17, label %18, label %.loopexit
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @mutex_lock(ptr noundef nonnull %20) #12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread4, label %24
+18:                                               ; preds = %.critedge
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @mutex_lock(ptr noundef nonnull %19) #12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.thread, label %23
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread4, label %28
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %.thread, label %27
 
-.thread4:                                         ; preds = %19, %24
-  tail call void @mutex_unlock(ptr noundef nonnull %20) #12
+.thread:                                          ; preds = %18, %23
+  tail call void @mutex_unlock(ptr noundef nonnull %19) #12
   br label %.loopexit
 
-28:                                               ; preds = %24
-  %29 = tail call i32 %26(ptr noundef %0) #12
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit, label %31
+27:                                               ; preds = %23
+  %28 = tail call i32 %25(ptr noundef %0) #12
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.loopexit, label %30
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #12, !srcloc !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %1, %.thread4, %31, %28, %17
-  %32 = phi i32 [ 0, %17 ], [ %29, %31 ], [ 0, %28 ], [ 0, %.thread4 ], [ -22, %1 ], [ -22, %13 ]
+.loopexit:                                        ; preds = %13, %1, %.thread, %30, %27, %.critedge
+  %31 = phi i32 [ 0, %.critedge ], [ %28, %30 ], [ 0, %27 ], [ 0, %.thread ], [ -22, %1 ], [ -22, %13 ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #12
-  ret i32 %32
+  ret i32 %31
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

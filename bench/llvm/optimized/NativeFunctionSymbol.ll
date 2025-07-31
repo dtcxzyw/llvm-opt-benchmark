@@ -1134,12 +1134,12 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %158, %157, 
   store ptr %.sroa.790.4, ptr %86, align 8, !tbaa !104
   store i64 %166, ptr %.sroa.66.56..sroa_idx.i, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false), !alias.scope !101
-  %.not.i.i.i.i19.not.i = icmp eq ptr %.sroa.11.4, %.sroa.790.4
-  br i1 %.not.i.i.i.i19.not.i, label %.loopexit, label %.lr.ph.i
+  %.not.i.i.i.i16.not.i = icmp eq ptr %.sroa.11.4, %.sroa.790.4
+  br i1 %.not.i.i.i.i16.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i
-  %.02521.i = phi i1 [ %.126.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ false, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
-  %.02820.i = phi i32 [ %.129.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ 0, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
+  %.02518.i = phi i1 [ %.126.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ false, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
+  %.02817.i = phi i32 [ %.129.i, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i ], [ 0, %_ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit ]
   %167 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   %168 = load i32, ptr %88, align 8, !tbaa !105
   switch i32 %168, label %183 [
@@ -1152,21 +1152,21 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %158, %157, 
 
 169:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %170 = load i32, ptr %90, align 4, !tbaa !108
-  %171 = add i32 %170, %.02820.i
+  %171 = add i32 %170, %.02817.i
   %.not36.i = icmp ule i32 %171, %63
-  %spec.select.i = select i1 %.not36.i, i1 true, i1 %.02521.i
+  %spec.select.i = select i1 %.not36.i, i1 true, i1 %.02518.i
   br label %183
 
 172:                                              ; preds = %.lr.ph.i
   %173 = load i32, ptr %90, align 4, !tbaa !108
-  %174 = add i32 %173, %.02820.i
+  %174 = add i32 %173, %.02817.i
   %175 = icmp ugt i32 %174, %63
-  %or.cond.i = select i1 %.02521.i, i1 %175, i1 false
+  %or.cond.i = select i1 %.02518.i, i1 %175, i1 false
   br i1 %or.cond.i, label %190, label %183
 
 176:                                              ; preds = %.lr.ph.i
   %177 = load i32, ptr %89, align 8, !tbaa !109
-  %178 = add i32 %177, %.02820.i
+  %178 = add i32 %177, %.02817.i
   %.not.i26 = icmp ugt i32 %178, %63
   br i1 %.not.i26, label %183, label %179
 
@@ -1177,8 +1177,8 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %158, %157, 
   br i1 %182, label %190, label %183
 
 183:                                              ; preds = %179, %176, %172, %169, %.lr.ph.i
-  %.129.i = phi i32 [ %.02820.i, %.lr.ph.i ], [ %171, %169 ], [ %174, %172 ], [ %178, %179 ], [ %178, %176 ]
-  %.126.i = phi i1 [ %.02521.i, %.lr.ph.i ], [ %spec.select.i, %169 ], [ false, %172 ], [ false, %179 ], [ false, %176 ]
+  %.129.i = phi i32 [ %.02817.i, %.lr.ph.i ], [ %171, %169 ], [ %174, %172 ], [ %178, %179 ], [ %178, %176 ]
+  %.126.i = phi i1 [ %.02518.i, %.lr.ph.i ], [ %spec.select.i, %169 ], [ false, %172 ], [ false, %179 ], [ false, %176 ]
   %184 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   br i1 %184, label %186, label %185
 

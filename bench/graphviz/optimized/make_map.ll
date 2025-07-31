@@ -1320,7 +1320,7 @@ define dso_local range(i32 -1, 1) i32 @make_map_from_rectangle_groups(i1 noundef
 
 46:                                               ; preds = %45
   %47 = tail call fastcc i32 @make_map_internal(i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %6, double noundef %7, i32 noundef %8, i32 noundef %10, double noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19)
-  br label %248
+  br label %264
 
 48:                                               ; preds = %45
   %49 = icmp sgt i32 %1, 0
@@ -1590,7 +1590,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %179, double %186, ptr noundef %24)
   %187 = add nsw i32 %165, -1
   %.not296 = icmp eq i32 %165, 1
-  br i1 %.not296, label %._crit_edge276, label %.lr.ph275
+  br i1 %.not296, label %.loopexit251.critedge, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %171, %.lr.ph275
   %.0210273 = phi i32 [ %192, %.lr.ph275 ], [ 0, %171 ]
@@ -1604,7 +1604,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %exitcond330.not = icmp eq i32 %192, %187
   br i1 %exitcond330.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !50
 
-._crit_edge276:                                   ; preds = %.lr.ph275, %171
+._crit_edge276:                                   ; preds = %.lr.ph275
   %193 = load double, ptr %176, align 8, !tbaa !20
   %194 = load double, ptr %172, align 8, !tbaa !20
   %195 = fmul double %194, 5.000000e-01
@@ -1614,7 +1614,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %199 = fmul double %198, 5.000000e-01
   %200 = fsub double %197, %199
   call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %196, double %200, ptr noundef %24)
-  br i1 %.not296, label %.loopexit251, label %.lr.ph281
+  br label %.lr.ph281
 
 .lr.ph281:                                        ; preds = %._crit_edge276, %.lr.ph281
   %.1211279 = phi i32 [ %205, %.lr.ph281 ], [ 0, %._crit_edge276 ]
@@ -1628,72 +1628,96 @@ get_boundingbox.exit:                             ; preds = %114, %109
   %exitcond331.not = icmp eq i32 %205, %187
   br i1 %exitcond331.not, label %.loopexit251, label %.lr.ph281, !llvm.loop !51
 
-.loopexit251:                                     ; preds = %.lr.ph281, %158, %._crit_edge276, %.split.preheader
-  %.sroa.5.0364 = phi i32 [ %169, %._crit_edge276 ], [ %169, %.split.preheader ], [ 0, %158 ], [ %169, %.lr.ph281 ]
-  %206 = icmp sgt i32 %.sroa.5.0364, 0
-  br i1 %206, label %207, label %.loopexit
+.loopexit251.critedge:                            ; preds = %171
+  %206 = load double, ptr %176, align 8, !tbaa !20
+  %207 = load double, ptr %172, align 8, !tbaa !20
+  %208 = fmul double %207, 5.000000e-01
+  %209 = fadd double %206, %208
+  %210 = load double, ptr %181, align 8, !tbaa !20
+  %211 = load double, ptr %183, align 8, !tbaa !20
+  %212 = fmul double %211, 5.000000e-01
+  %213 = fsub double %210, %212
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %209, double %213, ptr noundef %24)
+  br label %.loopexit251
 
-207:                                              ; preds = %.loopexit251
-  %208 = add nsw i64 %161, 1
-  %209 = getelementptr inbounds double, ptr %4, i64 %208
-  %210 = load double, ptr %209, align 8, !tbaa !20
-  %211 = uitofp nneg i32 %.sroa.5.0364 to double
-  %212 = fdiv double %210, %211
-  %213 = getelementptr inbounds double, ptr %3, i64 %161
-  %214 = load double, ptr %213, align 8, !tbaa !20
-  %215 = getelementptr inbounds double, ptr %4, i64 %161
-  %216 = load double, ptr %215, align 8, !tbaa !20
-  %217 = fmul double %216, 5.000000e-01
-  %218 = fsub double %214, %217
-  %219 = getelementptr inbounds double, ptr %3, i64 %208
-  %220 = load double, ptr %219, align 8, !tbaa !20
-  %221 = fmul double %210, 5.000000e-01
-  %222 = fsub double %220, %221
-  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %218, double %222, ptr noundef %24)
-  %223 = add nsw i32 %.sroa.5.0364, -1
+.loopexit251:                                     ; preds = %.lr.ph281, %158, %.loopexit251.critedge, %.split.preheader
+  %.sroa.5.0364 = phi i32 [ %169, %.loopexit251.critedge ], [ %169, %.split.preheader ], [ 0, %158 ], [ %169, %.lr.ph281 ]
+  %214 = icmp sgt i32 %.sroa.5.0364, 0
+  br i1 %214, label %215, label %.loopexit
+
+215:                                              ; preds = %.loopexit251
+  %216 = add nsw i64 %161, 1
+  %217 = getelementptr inbounds double, ptr %4, i64 %216
+  %218 = load double, ptr %217, align 8, !tbaa !20
+  %219 = uitofp nneg i32 %.sroa.5.0364 to double
+  %220 = fdiv double %218, %219
+  %221 = getelementptr inbounds double, ptr %3, i64 %161
+  %222 = load double, ptr %221, align 8, !tbaa !20
+  %223 = getelementptr inbounds double, ptr %4, i64 %161
+  %224 = load double, ptr %223, align 8, !tbaa !20
+  %225 = fmul double %224, 5.000000e-01
+  %226 = fsub double %222, %225
+  %227 = getelementptr inbounds double, ptr %3, i64 %216
+  %228 = load double, ptr %227, align 8, !tbaa !20
+  %229 = fmul double %218, 5.000000e-01
+  %230 = fsub double %228, %229
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %226, double %230, ptr noundef %24)
+  %231 = add nsw i32 %.sroa.5.0364, -1
   %.not298 = icmp eq i32 %.sroa.5.0364, 1
-  br i1 %.not298, label %._crit_edge286, label %.lr.ph285
+  br i1 %.not298, label %.loopexit.critedge, label %.lr.ph285
 
-.lr.ph285:                                        ; preds = %207, %.lr.ph285
-  %.2212283 = phi i32 [ %228, %.lr.ph285 ], [ 0, %207 ]
-  %.sroa.20.0282 = phi double [ %227, %.lr.ph285 ], [ %222, %207 ]
-  %224 = tail call double @drand() #19
-  %225 = fsub double 5.000000e-01, %224
-  %226 = tail call double @llvm.fmuladd.f64(double %225, double %.sroa.0.0, double %218)
-  %227 = fadd double %212, %.sroa.20.0282
-  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %226, double %227, ptr noundef %24)
-  %228 = add nuw nsw i32 %.2212283, 1
-  %exitcond332.not = icmp eq i32 %228, %223
+.lr.ph285:                                        ; preds = %215, %.lr.ph285
+  %.2212283 = phi i32 [ %236, %.lr.ph285 ], [ 0, %215 ]
+  %.sroa.20.0282 = phi double [ %235, %.lr.ph285 ], [ %230, %215 ]
+  %232 = tail call double @drand() #19
+  %233 = fsub double 5.000000e-01, %232
+  %234 = tail call double @llvm.fmuladd.f64(double %233, double %.sroa.0.0, double %226)
+  %235 = fadd double %220, %.sroa.20.0282
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %234, double %235, ptr noundef %24)
+  %236 = add nuw nsw i32 %.2212283, 1
+  %exitcond332.not = icmp eq i32 %236, %231
   br i1 %exitcond332.not, label %._crit_edge286, label %.lr.ph285, !llvm.loop !52
 
-._crit_edge286:                                   ; preds = %.lr.ph285, %207
-  %229 = load double, ptr %213, align 8, !tbaa !20
-  %230 = load double, ptr %215, align 8, !tbaa !20
-  %231 = fmul double %230, 5.000000e-01
-  %232 = fadd double %229, %231
-  %233 = load double, ptr %219, align 8, !tbaa !20
-  %234 = load double, ptr %209, align 8, !tbaa !20
-  %235 = fmul double %234, 5.000000e-01
-  %236 = fadd double %233, %235
-  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %232, double %236, ptr noundef %24)
-  br i1 %.not298, label %.loopexit, label %.lr.ph291
+._crit_edge286:                                   ; preds = %.lr.ph285
+  %237 = load double, ptr %221, align 8, !tbaa !20
+  %238 = load double, ptr %223, align 8, !tbaa !20
+  %239 = fmul double %238, 5.000000e-01
+  %240 = fadd double %237, %239
+  %241 = load double, ptr %227, align 8, !tbaa !20
+  %242 = load double, ptr %217, align 8, !tbaa !20
+  %243 = fmul double %242, 5.000000e-01
+  %244 = fadd double %241, %243
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %240, double %244, ptr noundef %24)
+  br label %.lr.ph291
 
 .lr.ph291:                                        ; preds = %._crit_edge286, %.lr.ph291
-  %.3213289 = phi i32 [ %241, %.lr.ph291 ], [ 0, %._crit_edge286 ]
-  %.sroa.20.1288 = phi double [ %240, %.lr.ph291 ], [ %236, %._crit_edge286 ]
-  %237 = tail call double @drand() #19
-  %238 = fsub double 5.000000e-01, %237
-  %239 = tail call double @llvm.fmuladd.f64(double %238, double %.sroa.0.0, double %232)
-  %240 = fsub double %.sroa.20.1288, %212
-  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %239, double %240, ptr noundef %24)
-  %241 = add nuw nsw i32 %.3213289, 1
-  %exitcond334.not = icmp eq i32 %241, %223
+  %.3213289 = phi i32 [ %249, %.lr.ph291 ], [ 0, %._crit_edge286 ]
+  %.sroa.20.1288 = phi double [ %248, %.lr.ph291 ], [ %244, %._crit_edge286 ]
+  %245 = tail call double @drand() #19
+  %246 = fsub double 5.000000e-01, %245
+  %247 = tail call double @llvm.fmuladd.f64(double %246, double %.sroa.0.0, double %240)
+  %248 = fsub double %.sroa.20.1288, %220
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %247, double %248, ptr noundef %24)
+  %249 = add nuw nsw i32 %.3213289, 1
+  %exitcond334.not = icmp eq i32 %249, %231
   br i1 %exitcond334.not, label %.loopexit, label %.lr.ph291, !llvm.loop !53
 
-.loopexit:                                        ; preds = %.lr.ph291, %._crit_edge286, %.loopexit251
-  %242 = load i32, ptr %22, align 4, !tbaa !19
-  %243 = sub nsw i32 %242, %1
-  store i32 %243, ptr %9, align 4, !tbaa !19
+.loopexit.critedge:                               ; preds = %215
+  %250 = load double, ptr %221, align 8, !tbaa !20
+  %251 = load double, ptr %223, align 8, !tbaa !20
+  %252 = fmul double %251, 5.000000e-01
+  %253 = fadd double %250, %252
+  %254 = load double, ptr %227, align 8, !tbaa !20
+  %255 = load double, ptr %217, align 8, !tbaa !20
+  %256 = fmul double %255, 5.000000e-01
+  %257 = fadd double %254, %256
+  call fastcc void @add_point(ptr noundef %22, i32 noundef %160, ptr noundef %21, ptr noundef %23, double %253, double %257, ptr noundef %24)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph291, %.loopexit.critedge, %.loopexit251
+  %258 = load i32, ptr %22, align 4, !tbaa !19
+  %259 = sub nsw i32 %258, %1
+  store i32 %259, ptr %9, align 4, !tbaa !19
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
   br i1 %exitcond339.not, label %._crit_edge295.loopexit, label %158, !llvm.loop !54
@@ -1704,16 +1728,16 @@ get_boundingbox.exit:                             ; preds = %114, %109
   br label %._crit_edge295
 
 ._crit_edge295:                                   ; preds = %._crit_edge295.loopexit, %154
-  %244 = phi ptr [ %.pre341, %._crit_edge295.loopexit ], [ %102, %154 ]
-  %245 = phi ptr [ %.pre340, %._crit_edge295.loopexit ], [ %82, %154 ]
-  %246 = phi i32 [ %242, %._crit_edge295.loopexit ], [ 0, %154 ]
-  %247 = tail call fastcc i32 @make_map_internal(i1 noundef zeroext %0, i32 noundef %246, i32 noundef %2, ptr noundef %245, ptr noundef %244, ptr noundef %6, double noundef %7, i32 noundef %8, i32 noundef %10, double noundef %.0204, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19)
-  tail call void @free(ptr noundef %244) #19
-  tail call void @free(ptr noundef %245) #19
-  br label %248
+  %260 = phi ptr [ %.pre341, %._crit_edge295.loopexit ], [ %102, %154 ]
+  %261 = phi ptr [ %.pre340, %._crit_edge295.loopexit ], [ %82, %154 ]
+  %262 = phi i32 [ %258, %._crit_edge295.loopexit ], [ 0, %154 ]
+  %263 = tail call fastcc i32 @make_map_internal(i1 noundef zeroext %0, i32 noundef %262, i32 noundef %2, ptr noundef %261, ptr noundef %260, ptr noundef %6, double noundef %7, i32 noundef %8, i32 noundef %10, double noundef %.0204, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19)
+  tail call void @free(ptr noundef %260) #19
+  tail call void @free(ptr noundef %261) #19
+  br label %264
 
-248:                                              ; preds = %._crit_edge295, %46
-  %.0 = phi i32 [ %247, %._crit_edge295 ], [ %47, %46 ]
+264:                                              ; preds = %._crit_edge295, %46
+  %.0 = phi i32 [ %263, %._crit_edge295 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #19

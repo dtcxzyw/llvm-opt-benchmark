@@ -2174,12 +2174,12 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
-  %.not49 = icmp eq i32 %1, 0
-  br i1 %.not49, label %.thread, label %.lr.ph
+  %.not47 = icmp eq i32 %1, 0
+  br i1 %.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.02944 = phi i32 [ %34, %.loopexit ], [ 0, %2 ]
-  %3 = zext i32 %.02944 to i64
+  %.02942 = phi i32 [ %34, %.loopexit ], [ 0, %2 ]
+  %3 = zext i32 %.02942 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !3
   %6 = icmp sgt i8 %5, -1
@@ -2188,7 +2188,7 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
 7:                                                ; preds = %.lr.ph
   %8 = and i8 %5, 64
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %11 = and i8 %5, 32
@@ -2213,11 +2213,11 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
 22:                                               ; preds = %19
   %23 = and i8 %5, 2
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %22, %19, %16, %13, %10
   %.0 = phi i32 [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ 4, %19 ], [ 5, %22 ]
-  %26 = add i32 %.0, %.02944
+  %26 = add i32 %.0, %.02942
   br label %28
 
 27:                                               ; preds = %30
@@ -2225,26 +2225,26 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not, label %.loopexit, label %28
 
 28:                                               ; preds = %25, %27
-  %.342 = phi i32 [ %.02944, %25 ], [ %29, %27 ]
-  %29 = add nuw i32 %.342, 1
+  %.340 = phi i32 [ %.02942, %25 ], [ %29, %27 ]
+  %29 = add nuw i32 %.340, 1
   %.not = icmp ult i32 %29, %1
-  br i1 %.not, label %30, label %.thread
+  br i1 %.not, label %30, label %.critedge
 
 30:                                               ; preds = %28
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !3
   %or.cond = icmp slt i8 %33, -64
-  br i1 %or.cond, label %27, label %.thread
+  br i1 %or.cond, label %27, label %.critedge
 
 .loopexit:                                        ; preds = %27, %.lr.ph
-  %.1 = phi i32 [ %.02944, %.lr.ph ], [ %26, %27 ]
+  %.1 = phi i32 [ %.02942, %.lr.ph ], [ %26, %27 ]
   %34 = add i32 %.1, 1
   %35 = icmp ult i32 %34, %1
-  br i1 %35, label %.lr.ph, label %.thread
+  br i1 %35, label %.lr.ph, label %.critedge
 
-.thread:                                          ; preds = %7, %.loopexit, %22, %30, %28, %2
-  %.232 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %30 ], [ 0, %7 ], [ 1, %.loopexit ], [ 0, %22 ]
+.critedge:                                        ; preds = %7, %.loopexit, %22, %28, %30, %2
+  %.232 = phi i32 [ 1, %2 ], [ 0, %30 ], [ 0, %28 ], [ 0, %7 ], [ 1, %.loopexit ], [ 0, %22 ]
   ret i32 %.232
 }
 

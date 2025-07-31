@@ -3319,7 +3319,7 @@ define internal fastcc void @mc_dir_part(ptr noundef readonly captures(none) %0,
   %50 = load i32, ptr %49, align 4, !tbaa !73
   %51 = shl nsw i32 %50, 4
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %100, label %52
+  br i1 %.not, label %101, label %52
 
 52:                                               ; preds = %10
   %53 = and i32 %11, 7
@@ -3334,73 +3334,73 @@ define internal fastcc void @mc_dir_part(ptr noundef readonly captures(none) %0,
   %57 = icmp slt i32 %22, %spec.select.neg
   %58 = icmp slt i32 %25, %.094.neg
   %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %.critedge102, label %59
+  br i1 %or.cond, label %67, label %59
 
 59:                                               ; preds = %52
   %spec.select = select i1 %.not97, i32 0, i32 -3
   %60 = add nuw nsw i32 %22, 16
   %61 = add nsw i32 %48, %spec.select
   %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %.critedge102, label %63
+  br i1 %62, label %67, label %63
 
 63:                                               ; preds = %59
   %64 = add nuw nsw i32 %25, 16
   %65 = add nsw i32 %51, %.094
   %66 = icmp sgt i32 %64, %65
-  br i1 %66, label %.critedge102, label %.critedge
+  br i1 %66, label %67, label %.critedge.critedge
 
-.critedge102:                                     ; preds = %63, %59, %52
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %68 = load ptr, ptr %67, align 8, !tbaa !112
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %70 = load ptr, ptr %69, align 8, !tbaa !113
-  %71 = getelementptr inbounds i8, ptr %30, i64 -2
+67:                                               ; preds = %63, %59, %52
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %69 = load ptr, ptr %68, align 8, !tbaa !112
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1528
+  %71 = load ptr, ptr %70, align 8, !tbaa !113
+  %72 = getelementptr inbounds i8, ptr %30, i64 -2
   %.neg = mul i64 %28, -2
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.neg
-  %73 = add nsw i32 %22, -2
-  %74 = add nsw i32 %25, -2
-  tail call void %68(ptr noundef %70, ptr noundef nonnull %72, i64 noundef %28, i64 noundef %28, i32 noundef 21, i32 noundef 21, i32 noundef %73, i32 noundef %74, i32 noundef %48, i32 noundef %51) #14
-  %75 = load ptr, ptr %69, align 8, !tbaa !113
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  %77 = load i64, ptr %27, align 8, !tbaa !31
-  %78 = shl nsw i64 %77, 1
-  %79 = getelementptr inbounds i8, ptr %76, i64 %78
-  %80 = zext nneg i32 %20 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %8, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !58
-  tail call void %82(ptr noundef %3, ptr noundef nonnull %79, i64 noundef %77) #14
-  %83 = load ptr, ptr %67, align 8, !tbaa !112
-  %84 = load ptr, ptr %69, align 8, !tbaa !113
-  %85 = load i64, ptr %38, align 8, !tbaa !33
-  %86 = shl nsw i32 %47, 3
-  %87 = shl nsw i32 %50, 3
-  tail call void %83(ptr noundef %84, ptr noundef %41, i64 noundef %85, i64 noundef %85, i32 noundef 9, i32 noundef 9, i32 noundef %33, i32 noundef %36, i32 noundef %86, i32 noundef %87) #14
-  %88 = load ptr, ptr %69, align 8, !tbaa !113
-  %89 = load i64, ptr %38, align 8, !tbaa !33
-  tail call void %9(ptr noundef %4, ptr noundef %88, i64 noundef %89, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
-  %90 = load ptr, ptr %67, align 8, !tbaa !112
-  %91 = load ptr, ptr %69, align 8, !tbaa !113
-  %92 = load i64, ptr %38, align 8, !tbaa !33
-  tail call void %90(ptr noundef %91, ptr noundef %45, i64 noundef %92, i64 noundef %92, i32 noundef 9, i32 noundef 9, i32 noundef %33, i32 noundef %36, i32 noundef %86, i32 noundef %87) #14
-  %93 = load ptr, ptr %69, align 8, !tbaa !113
-  br label %98
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.neg
+  %74 = add nsw i32 %22, -2
+  %75 = add nsw i32 %25, -2
+  tail call void %69(ptr noundef %71, ptr noundef nonnull %73, i64 noundef %28, i64 noundef %28, i32 noundef 21, i32 noundef 21, i32 noundef %74, i32 noundef %75, i32 noundef %48, i32 noundef %51) #14
+  %76 = load ptr, ptr %70, align 8, !tbaa !113
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 2
+  %78 = load i64, ptr %27, align 8, !tbaa !31
+  %79 = shl nsw i64 %78, 1
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  %81 = zext nneg i32 %20 to i64
+  %82 = getelementptr inbounds nuw ptr, ptr %8, i64 %81
+  %83 = load ptr, ptr %82, align 8, !tbaa !58
+  tail call void %83(ptr noundef %3, ptr noundef nonnull %80, i64 noundef %78) #14
+  %84 = load ptr, ptr %68, align 8, !tbaa !112
+  %85 = load ptr, ptr %70, align 8, !tbaa !113
+  %86 = load i64, ptr %38, align 8, !tbaa !33
+  %87 = shl nsw i32 %47, 3
+  %88 = shl nsw i32 %50, 3
+  tail call void %84(ptr noundef %85, ptr noundef %41, i64 noundef %86, i64 noundef %86, i32 noundef 9, i32 noundef 9, i32 noundef %33, i32 noundef %36, i32 noundef %87, i32 noundef %88) #14
+  %89 = load ptr, ptr %70, align 8, !tbaa !113
+  %90 = load i64, ptr %38, align 8, !tbaa !33
+  tail call void %9(ptr noundef %4, ptr noundef %89, i64 noundef %90, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
+  %91 = load ptr, ptr %68, align 8, !tbaa !112
+  %92 = load ptr, ptr %70, align 8, !tbaa !113
+  %93 = load i64, ptr %38, align 8, !tbaa !33
+  tail call void %91(ptr noundef %92, ptr noundef %45, i64 noundef %93, i64 noundef %93, i32 noundef 9, i32 noundef 9, i32 noundef %33, i32 noundef %36, i32 noundef %87, i32 noundef %88) #14
+  %94 = load ptr, ptr %70, align 8, !tbaa !113
+  br label %99
 
-.critedge:                                        ; preds = %63
-  %94 = zext nneg i32 %20 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %8, i64 %94
-  %96 = load ptr, ptr %95, align 8, !tbaa !58
-  tail call void %96(ptr noundef %3, ptr noundef nonnull %30, i64 noundef %28) #14
-  %97 = load i64, ptr %38, align 8, !tbaa !33
-  tail call void %9(ptr noundef %4, ptr noundef %41, i64 noundef %97, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
-  br label %98
+.critedge.critedge:                               ; preds = %63
+  %95 = zext nneg i32 %20 to i64
+  %96 = getelementptr inbounds nuw ptr, ptr %8, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !58
+  tail call void %97(ptr noundef %3, ptr noundef nonnull %30, i64 noundef %28) #14
+  %98 = load i64, ptr %38, align 8, !tbaa !33
+  tail call void %9(ptr noundef %4, ptr noundef %41, i64 noundef %98, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
+  br label %99
 
-98:                                               ; preds = %.critedge, %.critedge102
-  %.092 = phi ptr [ %93, %.critedge102 ], [ %45, %.critedge ]
-  %99 = load i64, ptr %38, align 8, !tbaa !33
-  tail call void %9(ptr noundef %5, ptr noundef %.092, i64 noundef %99, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
-  br label %100
+99:                                               ; preds = %.critedge.critedge, %67
+  %.092 = phi ptr [ %94, %67 ], [ %45, %.critedge.critedge ]
+  %100 = load i64, ptr %38, align 8, !tbaa !33
+  tail call void %9(ptr noundef %5, ptr noundef %.092, i64 noundef %100, i32 noundef %2, i32 noundef %53, i32 noundef %55) #14
+  br label %101
 
-100:                                              ; preds = %10, %98
+101:                                              ; preds = %10, %99
   ret void
 }
 

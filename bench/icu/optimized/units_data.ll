@@ -2451,7 +2451,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %78
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph.i49, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %83, %.thread5.i56.loopexit
+.backedge.backedge:                               ; preds = %83, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit57.loopexit
   br label %.backedge, !llvm.loop !111
 
 .lr.ph.i49:                                       ; preds = %83
@@ -2498,13 +2498,13 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52: ; pr
   %spec.select.i54 = select i1 %112, i32 %.02511.i51, i32 %93
   %spec.select10.i55 = select i1 %112, i32 %113, i32 %.02212.i50
   %114 = icmp slt i32 %spec.select10.i55, %spec.select.i54
-  br i1 %114, label %90, label %.thread5.i56.loopexit, !llvm.loop !110
+  br i1 %114, label %90, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit57.loopexit, !llvm.loop !110
 
-.thread5.i56.loopexit:                            ; preds = %_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52
+_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit57.loopexit: ; preds = %_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52
   %115 = trunc nuw i8 %111 to i1
   br i1 %115, label %._crit_edge.thread, label %.backedge.backedge
 
-._crit_edge.thread:                               ; preds = %.thread5.i56.loopexit, %.preheader
+._crit_edge.thread:                               ; preds = %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit57.loopexit, %.preheader
   store i8 0, ptr %10, align 1
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %117 = load ptr, ptr %116, align 8, !tbaa !3

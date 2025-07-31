@@ -18361,20 +18361,20 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %.not44 = icmp eq i8 %13, 0
-  br i1 %.not44, label %.critedge, label %.lr.ph
+  %.not43 = icmp eq i8 %13, 0
+  br i1 %.not43, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %48
   %14 = phi i8 [ %50, %48 ], [ %13, %3 ]
-  %.01638.not46 = phi i1 [ %or.cond.not.not.not, %48 ], [ true, %3 ]
   %.0193745 = phi ptr [ %49, %48 ], [ %12, %3 ]
-  %.01638.not46.not = xor i1 %.01638.not46, true
-  %15 = icmp ne i8 %14, 37
-  %or.cond.not.not.not = or i1 %15, %.01638.not46.not
-  br i1 %or.cond.not.not.not, label %16, label %48
+  %.0163844 = phi i1 [ %or.cond.not.not, %48 ], [ false, %3 ]
+  %.01638.not = xor i1 %.0163844, true
+  %15 = icmp eq i8 %14, 37
+  %or.cond.not.not = and i1 %15, %.01638.not
+  br i1 %or.cond.not.not, label %48, label %16
 
 16:                                               ; preds = %.lr.ph
-  br i1 %.01638.not46, label %17, label %30
+  br i1 %.0163844, label %30, label %17
 
 17:                                               ; preds = %16
   %18 = load i64, ptr %10, align 8
@@ -18470,7 +18470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28: ; preds = %_ZN
   %.not = icmp eq i8 %50, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !143
 
-.critedge:                                        ; preds = %48, %30, %3
+.critedge:                                        ; preds = %30, %48, %3
   %51 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9Verilated3t_sE)
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null

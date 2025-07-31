@@ -4032,7 +4032,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
   %488 = getelementptr inbounds %struct._ir_insn, ptr %33, i64 %487
   %489 = load i8, ptr %488, align 8, !tbaa !39
   switch i8 %489, label %ir_iter_fold.exit.backedge [
-    i8 102, label %._crit_edge265.i.i
+    i8 102, label %._crit_edge263.i.i
     i8 103, label %490
   ]
 
@@ -4040,9 +4040,9 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
   %491 = getelementptr inbounds %struct._ir_use_list, ptr %452, i64 %487, i32 1
   %492 = load i32, ptr %491, align 4, !tbaa !42
   %493 = icmp eq i32 %492, 2
-  br i1 %493, label %._crit_edge265.i.i, label %ir_iter_fold.exit.backedge
+  br i1 %493, label %._crit_edge263.i.i, label %ir_iter_fold.exit.backedge
 
-._crit_edge265.i.i:                               ; preds = %490, %486
+._crit_edge263.i.i:                               ; preds = %490, %486
   %494 = load ptr, ptr %7, align 8, !tbaa !47
   %495 = load i32, ptr %453, align 4, !tbaa !48
   %496 = sext i32 %495 to i64
@@ -4054,7 +4054,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
   %or.cond.i.i = icmp sgt i32 %501, 1
   br i1 %or.cond.i.i, label %.lr.ph.preheader.i.i.i, label %ir_remove_unused_vars.exit.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %._crit_edge265.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %._crit_edge263.i.i
   %502 = getelementptr inbounds %struct._ir_use_list, ptr %452, i64 %478
   %503 = load i32, ptr %502, align 4, !tbaa !48
   %504 = sext i32 %503 to i64
@@ -4082,15 +4082,15 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
   br i1 %514, label %.lr.ph.i.i.i, label %ir_remove_unused_vars.exit.loopexit.i.i
 
 ir_remove_unused_vars.exit.loopexit.i.i:          ; preds = %511
-  %.pre266.i.i = load ptr, ptr %6, align 8, !tbaa !41
+  %.pre264.i.i = load ptr, ptr %6, align 8, !tbaa !41
   br label %ir_remove_unused_vars.exit.i.i
 
-ir_remove_unused_vars.exit.i.i:                   ; preds = %ir_remove_unused_vars.exit.loopexit.i.i, %._crit_edge265.i.i
-  %515 = phi ptr [ %.pre266.i.i, %ir_remove_unused_vars.exit.loopexit.i.i ], [ %452, %._crit_edge265.i.i ]
+ir_remove_unused_vars.exit.i.i:                   ; preds = %ir_remove_unused_vars.exit.loopexit.i.i, %._crit_edge263.i.i
+  %515 = phi ptr [ %.pre264.i.i, %ir_remove_unused_vars.exit.loopexit.i.i ], [ %452, %._crit_edge263.i.i ]
   %516 = getelementptr inbounds %struct._ir_use_list, ptr %515, i64 %480, i32 1
   %517 = load i32, ptr %516, align 4, !tbaa !42
-  %or.cond267.i.i = icmp sgt i32 %517, 1
-  br i1 %or.cond267.i.i, label %.lr.ph.preheader.i233.i.i, label %ir_remove_unused_vars.exit238.i.i
+  %or.cond265.i.i = icmp sgt i32 %517, 1
+  br i1 %or.cond265.i.i, label %.lr.ph.preheader.i233.i.i, label %ir_remove_unused_vars.exit238.i.i
 
 .lr.ph.preheader.i233.i.i:                        ; preds = %ir_remove_unused_vars.exit.i.i
   %518 = getelementptr inbounds %struct._ir_use_list, ptr %515, i64 %480
@@ -4211,8 +4211,8 @@ ir_bitqueue_add.exit232.i.i:                      ; preds = %553, %541, %538, %i
   br label %ir_iter_fold.exit.backedge
 
 584:                                              ; preds = %456
-  %.not250252.not.i.i = icmp eq i16 %458, 0
-  br i1 %.not250252.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not248250.not.i.i = icmp eq i16 %458, 0
+  br i1 %.not248250.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %584
   %wide.trip.count.i.i = zext i16 %458 to i64
@@ -4220,7 +4220,7 @@ ir_bitqueue_add.exit232.i.i:                      ; preds = %553, %541, %538, %i
 
 585:                                              ; preds = %625, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %625 ]
-  %.0207253.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2209.i.i, %625 ]
+  %.0207251.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2209.i.i, %625 ]
   %586 = getelementptr inbounds nuw i32, ptr %461, i64 %indvars.iv.i.i
   %587 = load i32, ptr %586, align 4, !tbaa !40
   %588 = load ptr, ptr %0, align 8, !tbaa !38
@@ -4244,8 +4244,8 @@ ir_bitqueue_add.exit232.i.i:                      ; preds = %553, %541, %538, %i
   %600 = load ptr, ptr %6, align 8, !tbaa !41
   %601 = getelementptr inbounds %struct._ir_use_list, ptr %600, i64 %595, i32 1
   %602 = load i32, ptr %601, align 4, !tbaa !42
-  %or.cond268.i.i = icmp sgt i32 %602, 1
-  br i1 %or.cond268.i.i, label %.lr.ph.preheader.i239.i.i, label %ir_remove_unused_vars.exit244.i.i
+  %or.cond266.i.i = icmp sgt i32 %602, 1
+  br i1 %or.cond266.i.i, label %.lr.ph.preheader.i239.i.i, label %ir_remove_unused_vars.exit244.i.i
 
 .lr.ph.preheader.i239.i.i:                        ; preds = %599
   %603 = getelementptr inbounds %struct._ir_use_list, ptr %600, i64 %595
@@ -4276,7 +4276,7 @@ ir_bitqueue_add.exit232.i.i:                      ; preds = %553, %541, %538, %i
   br i1 %616, label %.lr.ph.i240.i.i, label %ir_remove_unused_vars.exit244.i.i
 
 ir_remove_unused_vars.exit244.i.i:                ; preds = %613, %599
-  %.not221.i.i = icmp eq i32 %.0207253.i.i, 0
+  %.not221.i.i = icmp eq i32 %.0207251.i.i, 0
   %617 = getelementptr inbounds nuw i8, ptr %596, i64 4
   %618 = load i32, ptr %617, align 4, !tbaa !39
   br i1 %.not221.i.i, label %619, label %624
@@ -4290,11 +4290,11 @@ ir_remove_unused_vars.exit244.i.i:                ; preds = %613, %599
   br i1 %.not222.i.i, label %625, label %ir_iter_fold.exit.backedge
 
 624:                                              ; preds = %ir_remove_unused_vars.exit244.i.i
-  %.not223.i.i = icmp eq i32 %618, %.0207253.i.i
+  %.not223.i.i = icmp eq i32 %618, %.0207251.i.i
   br i1 %.not223.i.i, label %625, label %ir_iter_fold.exit.backedge
 
 625:                                              ; preds = %624, %619
-  %.2209.i.i = phi i32 [ %.0207253.i.i, %624 ], [ %618, %619 ]
+  %.2209.i.i = phi i32 [ %.0207251.i.i, %624 ], [ %618, %619 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.loopexit.i, label %585
@@ -4383,15 +4383,15 @@ ir_bitqueue_add.exit230.i.i:                      ; preds = %674, %ir_is_dead.ex
   %675 = load ptr, ptr %6, align 8, !tbaa !41
   %676 = getelementptr inbounds %struct._ir_use_list, ptr %675, i64 %635, i32 1
   store i32 0, ptr %676, align 4, !tbaa !42
-  br i1 %.not250252.not.i.i, label %._crit_edge257.i.i, label %.lr.ph256.preheader.i.i
+  br i1 %.not248250.not.i.i, label %._crit_edge255.i.i, label %.lr.ph254.preheader.i.i
 
-.lr.ph256.preheader.i.i:                          ; preds = %ir_bitqueue_add.exit230.i.i
-  %wide.trip.count263.i.i = zext i16 %458 to i64
-  br label %.lr.ph256.i.i
+.lr.ph254.preheader.i.i:                          ; preds = %ir_bitqueue_add.exit230.i.i
+  %wide.trip.count261.i.i = zext i16 %458 to i64
+  br label %.lr.ph254.i.i
 
-.lr.ph256.i.i:                                    ; preds = %.lr.ph256.i.i, %.lr.ph256.preheader.i.i
-  %indvars.iv260.i.i = phi i64 [ 0, %.lr.ph256.preheader.i.i ], [ %indvars.iv.next261.i.i, %.lr.ph256.i.i ]
-  %677 = getelementptr inbounds nuw i32, ptr %461, i64 %indvars.iv260.i.i
+.lr.ph254.i.i:                                    ; preds = %.lr.ph254.i.i, %.lr.ph254.preheader.i.i
+  %indvars.iv258.i.i = phi i64 [ 0, %.lr.ph254.preheader.i.i ], [ %indvars.iv.next259.i.i, %.lr.ph254.i.i ]
+  %677 = getelementptr inbounds nuw i32, ptr %461, i64 %indvars.iv258.i.i
   %678 = load i32, ptr %677, align 4, !tbaa !40
   %679 = load ptr, ptr %0, align 8, !tbaa !38
   %680 = sext i32 %678 to i64
@@ -4408,11 +4408,11 @@ ir_bitqueue_add.exit230.i.i:                      ; preds = %674, %ir_is_dead.ex
   %688 = load ptr, ptr %6, align 8, !tbaa !41
   %689 = getelementptr inbounds %struct._ir_use_list, ptr %688, i64 %680, i32 1
   store i32 0, ptr %689, align 4, !tbaa !42
-  %indvars.iv.next261.i.i = add nuw nsw i64 %indvars.iv260.i.i, 1
-  %exitcond264.not.i.i = icmp eq i64 %indvars.iv.next261.i.i, %wide.trip.count263.i.i
-  br i1 %exitcond264.not.i.i, label %._crit_edge257.i.i, label %.lr.ph256.i.i
+  %indvars.iv.next259.i.i = add nuw nsw i64 %indvars.iv258.i.i, 1
+  %exitcond262.not.i.i = icmp eq i64 %indvars.iv.next259.i.i, %wide.trip.count261.i.i
+  br i1 %exitcond262.not.i.i, label %._crit_edge255.i.i, label %.lr.ph254.i.i
 
-._crit_edge257.i.i:                               ; preds = %.lr.ph256.i.i, %ir_bitqueue_add.exit230.i.i
+._crit_edge255.i.i:                               ; preds = %.lr.ph254.i.i, %ir_bitqueue_add.exit230.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %690 = load ptr, ptr %6, align 8, !tbaa !41
   %691 = getelementptr inbounds nuw %struct._ir_use_list, ptr %690, i64 %34, i32 1
@@ -4427,7 +4427,7 @@ ir_bitqueue_add.exit230.i.i:                      ; preds = %674, %ir_is_dead.ex
     i8 98, label %697
   ]
 
-697:                                              ; preds = %._crit_edge257.i.i, %._crit_edge257.i.i
+697:                                              ; preds = %._crit_edge255.i.i, %._crit_edge255.i.i
   %698 = lshr i32 %693, 6
   %699 = and i32 %693, 63
   %700 = zext nneg i32 %699 to i64
@@ -5210,7 +5210,7 @@ ir_remove_unused_vars.exit404.i.i:                ; preds = %1069, %ir_remove_un
   %or.cond.i119 = and i1 %1136, %1135
   br i1 %or.cond.i119, label %ir_iter_fold.exit.backedge, label %1137
 
-ir_iter_fold.exit.backedge:                       ; preds = %585, %592, %619, %624, %290, %ir_bitqueue_add.exit.i, %1133, %1128, %1127, %1115, %1090, %1024, %ir_is_zero.exit392.i.i, %1017, %ir_is_zero.exit389.thread.i.i, %1000, %996, %ir_is_zero.exit386.thread.i.i, %948, %936, %916, %826, %825, %817, %802, %797, %783, %780, %.critedge.i113, %767, %744, %.thread.i, %728, %710, %709, %697, %._crit_edge257.i.i, %583, %571, %ir_bitqueue_add.exit232.i.i, %490, %486, %473, %471, %462, %451, %450, %438, %416, %.loopexit.sink.split.i, %359, %314, %ir_try_promote_ext.exit, %403, %411, %404, %400, %1137, %ir_bitqueue_add.exit, %96, %71, %67, %58
+ir_iter_fold.exit.backedge:                       ; preds = %585, %592, %619, %624, %290, %ir_bitqueue_add.exit.i, %1133, %1128, %1127, %1115, %1090, %1024, %ir_is_zero.exit392.i.i, %1017, %ir_is_zero.exit389.thread.i.i, %1000, %996, %ir_is_zero.exit386.thread.i.i, %948, %936, %916, %826, %825, %817, %802, %797, %783, %780, %.critedge.i113, %767, %744, %.thread.i, %728, %710, %709, %697, %._crit_edge255.i.i, %583, %571, %ir_bitqueue_add.exit232.i.i, %490, %486, %473, %471, %462, %451, %450, %438, %416, %.loopexit.sink.split.i, %359, %314, %ir_try_promote_ext.exit, %403, %411, %404, %400, %1137, %ir_bitqueue_add.exit, %96, %71, %67, %58
   br label %ir_iter_fold.exit
 
 1137:                                             ; preds = %1133

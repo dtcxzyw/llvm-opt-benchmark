@@ -8776,8 +8776,8 @@ define dso_local void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonn
   br label %37
 
 37:                                               ; preds = %.preheader51, %57
-  %.01326.i = phi ptr [ %.1.i, %57 ], [ %8, %.preheader51 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.01326.i, i64 8
+  %.01325.i = phi ptr [ %.1.i, %57 ], [ %8, %.preheader51 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01325.i, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %.not21.i = icmp eq ptr %39, null
   br i1 %.not21.i, label %46, label %40
@@ -8797,25 +8797,21 @@ define dso_local void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonn
 
 46:                                               ; preds = %43, %40, %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
-  store ptr %.01326.i, ptr %6, align 8, !tbaa !152
-  %47 = getelementptr inbounds nuw i8, ptr %.01326.i, i64 56
+  store ptr %.01325.i, ptr %6, align 8, !tbaa !152
+  %47 = getelementptr inbounds nuw i8, ptr %.01325.i, i64 56
   store ptr %6, ptr %47, align 8, !tbaa !150
-  %48 = load ptr, ptr %.01326.i, align 8, !tbaa !14
+  %48 = load ptr, ptr %.01325.i, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 288
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(152) %.01326.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void %50(ptr noundef nonnull align 8 dereferenceable(152) %.01325.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %51 = load ptr, ptr %6, align 8, !tbaa !152
   %.not23.not.i = icmp eq ptr %51, null
-  br i1 %.not23.not.i, label %.thread.i, label %52
-
-.thread.i:                                        ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #31
-  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit
+  br i1 %.not23.not.i, label %.critedge.i, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 56
   store ptr null, ptr %53, align 8, !tbaa !150
-  %.not24.i = icmp eq ptr %51, %.01326.i
+  %.not24.i = icmp eq ptr %51, %.01325.i
   br i1 %.not24.i, label %54, label %57, !prof !141
 
 54:                                               ; preds = %52
@@ -8829,7 +8825,11 @@ define dso_local void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonn
   %.not20.i = icmp eq ptr %.1.i, null
   br i1 %.not20.i, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit, label %37, !llvm.loop !211
 
-_ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.thread.i, %30
+.critedge.i:                                      ; preds = %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #31
+  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit
+
+_ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.critedge.i, %30
   %58 = load ptr, ptr %13, align 8, !tbaa !143
   %.not16 = icmp eq ptr %58, null
   br i1 %.not16, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28, label %59
@@ -8851,8 +8851,8 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.thread.i, %30
   br label %65
 
 65:                                               ; preds = %.preheader50, %85
-  %.01326.i20 = phi ptr [ %.1.i25, %85 ], [ %58, %.preheader50 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.01326.i20, i64 8
+  %.01325.i20 = phi ptr [ %.1.i25, %85 ], [ %58, %.preheader50 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.01325.i20, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !47
   %.not21.i21 = icmp eq ptr %67, null
   br i1 %.not21.i21, label %74, label %68
@@ -8872,25 +8872,21 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.thread.i, %30
 
 74:                                               ; preds = %71, %68, %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
-  store ptr %.01326.i20, ptr %5, align 8, !tbaa !152
-  %75 = getelementptr inbounds nuw i8, ptr %.01326.i20, i64 56
+  store ptr %.01325.i20, ptr %5, align 8, !tbaa !152
+  %75 = getelementptr inbounds nuw i8, ptr %.01325.i20, i64 56
   store ptr %5, ptr %75, align 8, !tbaa !150
-  %76 = load ptr, ptr %.01326.i20, align 8, !tbaa !14
+  %76 = load ptr, ptr %.01325.i20, align 8, !tbaa !14
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 288
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(152) %.01326.i20, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void %78(ptr noundef nonnull align 8 dereferenceable(152) %.01325.i20, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %79 = load ptr, ptr %5, align 8, !tbaa !152
   %.not23.not.i23 = icmp eq ptr %79, null
-  br i1 %.not23.not.i23, label %.thread.i27, label %80
-
-.thread.i27:                                      ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
-  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28
+  br i1 %.not23.not.i23, label %.critedge.i27, label %80
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 56
   store ptr null, ptr %81, align 8, !tbaa !150
-  %.not24.i24 = icmp eq ptr %79, %.01326.i20
+  %.not24.i24 = icmp eq ptr %79, %.01325.i20
   br i1 %.not24.i24, label %82, label %85, !prof !141
 
 82:                                               ; preds = %80
@@ -8904,7 +8900,11 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit:     ; preds = %57, %.thread.i, %30
   %.not20.i26 = icmp eq ptr %.1.i25, null
   br i1 %.not20.i26, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28, label %65, !llvm.loop !211
 
-_ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.thread.i27, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit
+.critedge.i27:                                    ; preds = %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
+  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28
+
+_ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.critedge.i27, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit
   %86 = load ptr, ptr %19, align 8, !tbaa !144
   %.not17 = icmp eq ptr %86, null
   br i1 %.not17, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38, label %87
@@ -8926,8 +8926,8 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.thread.i27, %
   br label %93
 
 93:                                               ; preds = %.preheader49, %113
-  %.01326.i30 = phi ptr [ %.1.i35, %113 ], [ %86, %.preheader49 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.01326.i30, i64 8
+  %.01325.i30 = phi ptr [ %.1.i35, %113 ], [ %86, %.preheader49 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.01325.i30, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !47
   %.not21.i31 = icmp eq ptr %95, null
   br i1 %.not21.i31, label %102, label %96
@@ -8947,25 +8947,21 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.thread.i27, %
 
 102:                                              ; preds = %99, %96, %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #31
-  store ptr %.01326.i30, ptr %4, align 8, !tbaa !152
-  %103 = getelementptr inbounds nuw i8, ptr %.01326.i30, i64 56
+  store ptr %.01325.i30, ptr %4, align 8, !tbaa !152
+  %103 = getelementptr inbounds nuw i8, ptr %.01325.i30, i64 56
   store ptr %4, ptr %103, align 8, !tbaa !150
-  %104 = load ptr, ptr %.01326.i30, align 8, !tbaa !14
+  %104 = load ptr, ptr %.01325.i30, align 8, !tbaa !14
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 288
   %106 = load ptr, ptr %105, align 8
-  call void %106(ptr noundef nonnull align 8 dereferenceable(152) %.01326.i30, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void %106(ptr noundef nonnull align 8 dereferenceable(152) %.01325.i30, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %107 = load ptr, ptr %4, align 8, !tbaa !152
   %.not23.not.i33 = icmp eq ptr %107, null
-  br i1 %.not23.not.i33, label %.thread.i37, label %108
-
-.thread.i37:                                      ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38
+  br i1 %.not23.not.i33, label %.critedge.i37, label %108
 
 108:                                              ; preds = %102
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 56
   store ptr null, ptr %109, align 8, !tbaa !150
-  %.not24.i34 = icmp eq ptr %107, %.01326.i30
+  %.not24.i34 = icmp eq ptr %107, %.01325.i30
   br i1 %.not24.i34, label %110, label %113, !prof !141
 
 110:                                              ; preds = %108
@@ -8979,7 +8975,11 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit28:   ; preds = %85, %.thread.i27, %
   %.not20.i36 = icmp eq ptr %.1.i35, null
   br i1 %.not20.i36, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38, label %93, !llvm.loop !211
 
-_ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.thread.i37, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28
+.critedge.i37:                                    ; preds = %102
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
+  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38
+
+_ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.critedge.i37, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit28
   %114 = load ptr, ptr %25, align 8, !tbaa !145
   %.not18 = icmp eq ptr %114, null
   br i1 %.not18, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit48, label %115
@@ -9001,8 +9001,8 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.thread.i37, 
   br label %121
 
 121:                                              ; preds = %.preheader, %141
-  %.01326.i40 = phi ptr [ %.1.i45, %141 ], [ %114, %.preheader ]
-  %122 = getelementptr inbounds nuw i8, ptr %.01326.i40, i64 8
+  %.01325.i40 = phi ptr [ %.1.i45, %141 ], [ %114, %.preheader ]
+  %122 = getelementptr inbounds nuw i8, ptr %.01325.i40, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !47
   %.not21.i41 = icmp eq ptr %123, null
   br i1 %.not21.i41, label %130, label %124
@@ -9022,25 +9022,21 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.thread.i37, 
 
 130:                                              ; preds = %127, %124, %121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #31
-  store ptr %.01326.i40, ptr %3, align 8, !tbaa !152
-  %131 = getelementptr inbounds nuw i8, ptr %.01326.i40, i64 56
+  store ptr %.01325.i40, ptr %3, align 8, !tbaa !152
+  %131 = getelementptr inbounds nuw i8, ptr %.01325.i40, i64 56
   store ptr %3, ptr %131, align 8, !tbaa !150
-  %132 = load ptr, ptr %.01326.i40, align 8, !tbaa !14
+  %132 = load ptr, ptr %.01325.i40, align 8, !tbaa !14
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 288
   %134 = load ptr, ptr %133, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(152) %.01326.i40, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call void %134(ptr noundef nonnull align 8 dereferenceable(152) %.01325.i40, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %135 = load ptr, ptr %3, align 8, !tbaa !152
   %.not23.not.i43 = icmp eq ptr %135, null
-  br i1 %.not23.not.i43, label %.thread.i47, label %136
-
-.thread.i47:                                      ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
-  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit48
+  br i1 %.not23.not.i43, label %.critedge.i47, label %136
 
 136:                                              ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 56
   store ptr null, ptr %137, align 8, !tbaa !150
-  %.not24.i44 = icmp eq ptr %135, %.01326.i40
+  %.not24.i44 = icmp eq ptr %135, %.01325.i40
   br i1 %.not24.i44, label %138, label %141, !prof !141
 
 138:                                              ; preds = %136
@@ -9054,7 +9050,11 @@ _ZN7AstNode14iterateAndNextER9VNVisitor.exit38:   ; preds = %113, %.thread.i37, 
   %.not20.i46 = icmp eq ptr %.1.i45, null
   br i1 %.not20.i46, label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit48, label %121, !llvm.loop !211
 
-_ZN7AstNode14iterateAndNextER9VNVisitor.exit48:   ; preds = %141, %.thread.i47, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38
+.critedge.i47:                                    ; preds = %130
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
+  br label %_ZN7AstNode14iterateAndNextER9VNVisitor.exit48
+
+_ZN7AstNode14iterateAndNextER9VNVisitor.exit48:   ; preds = %141, %.critedge.i47, %_ZN7AstNode14iterateAndNextER9VNVisitor.exit38
   ret void
 }
 
@@ -9080,8 +9080,8 @@ define dso_local void @_ZN7AstNode14iterateAndNextER9VNVisitor(ptr noundef nonnu
   br label %9
 
 9:                                                ; preds = %.preheader, %29
-  %.01326 = phi ptr [ %.1, %29 ], [ %0, %.preheader ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01326, i64 8
+  %.01325 = phi ptr [ %.1, %29 ], [ %0, %.preheader ]
+  %10 = getelementptr inbounds nuw i8, ptr %.01325, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %18, label %12
@@ -9101,25 +9101,21 @@ define dso_local void @_ZN7AstNode14iterateAndNextER9VNVisitor(ptr noundef nonnu
 
 18:                                               ; preds = %12, %15, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #31
-  store ptr %.01326, ptr %3, align 8, !tbaa !152
-  %19 = getelementptr inbounds nuw i8, ptr %.01326, i64 56
+  store ptr %.01325, ptr %3, align 8, !tbaa !152
+  %19 = getelementptr inbounds nuw i8, ptr %.01325, i64 56
   store ptr %3, ptr %19, align 8, !tbaa !150
-  %20 = load ptr, ptr %.01326, align 8, !tbaa !14
+  %20 = load ptr, ptr %.01325, align 8, !tbaa !14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 288
   %22 = load ptr, ptr %21, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(152) %.01326, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(152) %.01325, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %23 = load ptr, ptr %3, align 8, !tbaa !152
   %.not23.not = icmp eq ptr %23, null
-  br i1 %.not23.not, label %.thread, label %24
-
-.thread:                                          ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
-  br label %.loopexit
+  br i1 %.not23.not, label %.critedge, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr null, ptr %25, align 8, !tbaa !150
-  %.not24 = icmp eq ptr %23, %.01326
+  %.not24 = icmp eq ptr %23, %.01325
   br i1 %.not24, label %26, label %29, !prof !141
 
 26:                                               ; preds = %24
@@ -9133,7 +9129,11 @@ define dso_local void @_ZN7AstNode14iterateAndNextER9VNVisitor(ptr noundef nonnu
   %.not20 = icmp eq ptr %.1, null
   br i1 %.not20, label %.loopexit, label %9, !llvm.loop !211
 
-.loopexit:                                        ; preds = %29, %.thread
+.critedge:                                        ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %29, %.critedge
   ret void
 }
 

@@ -3363,42 +3363,42 @@ define internal fastcc void @dissect_rtmpt_body_audio(ptr noundef %0, i32 nounde
   br i1 %44, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split.us.preheader, %.split.us
-  %.1118119.us128 = phi i32 [ %65, %.split.us ], [ %.0117.ph, %.split.us.preheader ]
-  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1118119.us128)
+  %.1118119.us127 = phi i32 [ %63, %.split.us ], [ %.0117.ph, %.split.us.preheader ]
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1118119.us127)
   %46 = load i32, ptr @hf_rtmpt_audio_track_id, align 4
   %47 = zext i8 %45 to i32
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.1118119.us128, i32 noundef 1, i32 noundef %47)
+  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.1118119.us127, i32 noundef 1, i32 noundef %47)
   %49 = load i32, ptr @ett_rtmpt_audio_multitrack_track, align 4
   %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
-  %51 = add i32 %.1118119.us128, 1
+  %51 = add i32 %.1118119.us127, 1
   br i1 %38, label %52, label %56
 
 52:                                               ; preds = %.lr.ph
   %53 = load i32, ptr @hf_rtmpt_audio_fourcc, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0)
-  %55 = add i32 %.1118119.us128, 5
+  %55 = add i32 %.1118119.us127, 5
   br label %56
 
 56:                                               ; preds = %52, %.lr.ph
   %.2.us = phi i32 [ %55, %52 ], [ %51, %.lr.ph ]
-  br i1 %37, label %.thread126, label %.split.us
-
-.thread126:                                       ; preds = %56
-  %57 = load i32, ptr @hf_rtmpt_audio_data, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %57, ptr noundef %0, i32 noundef %.2.us, i32 noundef -1, i32 noundef 0)
-  br label %.critedge
+  br i1 %37, label %.critedge.loopexit.split.us.critedge, label %.split.us
 
 .split.us:                                        ; preds = %56
-  %59 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %.2.us, i32 noundef 0)
-  %60 = load i32, ptr @hf_rtmpt_audio_track_length, align 4
-  %61 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %60, ptr noundef %0, i32 noundef %.2.us, i32 noundef 3, i32 noundef %59)
-  %62 = add i32 %.2.us, 3
-  %63 = load i32, ptr @hf_rtmpt_audio_data, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef -1, i32 noundef 0)
-  %65 = add i32 %59, %62
-  %66 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %65)
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !20
+  %57 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %.2.us, i32 noundef 0)
+  %58 = load i32, ptr @hf_rtmpt_audio_track_length, align 4
+  %59 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %.2.us, i32 noundef 3, i32 noundef %57)
+  %60 = add i32 %.2.us, 3
+  %61 = load i32, ptr @hf_rtmpt_audio_data, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef -1, i32 noundef 0)
+  %63 = add i32 %57, %60
+  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %63)
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !20
+
+.critedge.loopexit.split.us.critedge:             ; preds = %56
+  %66 = load i32, ptr @hf_rtmpt_audio_data, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %66, ptr noundef %0, i32 noundef %.2.us, i32 noundef -1, i32 noundef 0)
+  br label %.critedge
 
 .split:                                           ; preds = %8
   %68 = load i32, ptr @hf_rtmpt_audio_fourcc, align 4
@@ -3441,7 +3441,7 @@ define internal fastcc void @dissect_rtmpt_body_audio(ptr noundef %0, i32 nounde
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef -1, i32 noundef 0)
   br label %.critedge
 
-.critedge:                                        ; preds = %.split.us, %.split.us.preheader, %.thread126, %73, %.split, %76
+.critedge:                                        ; preds = %.split.us, %.split.us.preheader, %.critedge.loopexit.split.us.critedge, %73, %.split, %76
   ret void
 }
 
@@ -3520,7 +3520,7 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
   br i1 %56, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.1119123.us142 = phi i32 [ %75, %.lr.ph.split.us ], [ %.0118.ph.ph, %.lr.ph.split.us.preheader ]
+  %.1119123.us142 = phi i32 [ %73, %.lr.ph.split.us ], [ %.0118.ph.ph, %.lr.ph.split.us.preheader ]
   %57 = load i32, ptr @hf_rtmpt_video_track_id, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.1119123.us142, i32 noundef 1, i32 noundef 0)
   %59 = load i32, ptr @ett_rtmpt_video_multitrack_track, align 4
@@ -3536,24 +3536,24 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
 65:                                               ; preds = %61, %.lr.ph
   %.2120.us = phi i32 [ %64, %61 ], [ %.1119123.us142, %.lr.ph ]
   %66 = add i32 %.2120.us, 1
-  br i1 %46, label %.thread138, label %.lr.ph.split.us
-
-.thread138:                                       ; preds = %65
-  %67 = load i32, ptr @hf_rtmpt_video_data, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef -1, i32 noundef 0)
-  br label %.critedge
+  br i1 %46, label %..critedge.loopexit_crit_edge.split.us.critedge, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %65
-  %69 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %66, i32 noundef 0)
-  %70 = load i32, ptr @hf_rtmpt_video_track_length, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %70, ptr noundef %0, i32 noundef %66, i32 noundef 3, i32 noundef 0)
-  %72 = add i32 %.2120.us, 4
-  %73 = load i32, ptr @hf_rtmpt_video_data, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef %69, i32 noundef 0)
-  %75 = add i32 %69, %72
-  %76 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %75)
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph, label %.critedge, !llvm.loop !23
+  %67 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %66, i32 noundef 0)
+  %68 = load i32, ptr @hf_rtmpt_video_track_length, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %68, ptr noundef %0, i32 noundef %66, i32 noundef 3, i32 noundef 0)
+  %70 = add i32 %.2120.us, 4
+  %71 = load i32, ptr @hf_rtmpt_video_data, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef %67, i32 noundef 0)
+  %73 = add i32 %67, %70
+  %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !23
+
+..critedge.loopexit_crit_edge.split.us.critedge:  ; preds = %65
+  %76 = load i32, ptr @hf_rtmpt_video_data, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %76, ptr noundef %0, i32 noundef %66, i32 noundef -1, i32 noundef 0)
+  br label %.critedge
 
 .lr.ph.split:                                     ; preds = %27
   %78 = load i32, ptr @hf_rtmpt_video_fourcc, align 4
@@ -3595,7 +3595,7 @@ define internal fastcc void @dissect_rtmpt_body_video(ptr noundef %0, i32 nounde
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %104, ptr noundef %0, i32 noundef %98, i32 noundef -1, i32 noundef 0)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.thread138, %52, %..critedge.loopexit_crit_edge.split, %.lr.ph.split, %100, %103
+.critedge:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader, %52, %..critedge.loopexit_crit_edge.split.us.critedge, %..critedge.loopexit_crit_edge.split, %.lr.ph.split, %100, %103
   ret void
 }
 

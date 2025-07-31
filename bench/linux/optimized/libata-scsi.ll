@@ -138,25 +138,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   %14 = getelementptr i8, ptr %0, i64 -292
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread9, !prof !6
+  br i1 %16, label %17, label %.thread8, !prof !6
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %0, i64 -288
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %29, label %.thread9, !prof !6
+  br i1 %20, label %29, label %.thread8, !prof !6
 
 21:                                               ; preds = %3
   %22 = getelementptr i8, ptr %0, i64 -296
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread9, !prof !6
+  br i1 %24, label %25, label %.thread8, !prof !6
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %0, i64 -288
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %51, label %.thread9, !prof !6
+  br i1 %28, label %51, label %.thread8, !prof !6
 
 29:                                               ; preds = %17
   %30 = getelementptr i8, ptr %0, i64 -296
@@ -170,22 +170,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 14720
   %37 = load ptr, ptr %36, align 64
   %38 = icmp eq ptr %37, %32
-  br i1 %38, label %39, label %.thread7
+  br i1 %38, label %39, label %.thread6
 
 39:                                               ; preds = %35, %29
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 1
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread7, label %45
+  br i1 %43, label %.thread6, label %45
 
-.thread7:                                         ; preds = %39, %35
+.thread6:                                         ; preds = %35, %39
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   br label %63
 
 45:                                               ; preds = %39
   %46 = icmp ult i32 %31, 2
-  br i1 %46, label %47, label %.thread9
+  br i1 %46, label %47, label %.thread8
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 9408
@@ -197,7 +197,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   %52 = getelementptr i8, ptr %0, i64 -292
   %53 = load i32, ptr %52, align 4
   %54 = icmp ugt i32 %11, %53
-  br i1 %54, label %55, label %.thread9
+  br i1 %54, label %55, label %.thread8
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 14736
@@ -209,13 +209,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
 60:                                               ; preds = %55, %47
   %61 = phi ptr [ %59, %55 ], [ %50, %47 ]
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread9, label %63, !prof !7
+  br i1 %62, label %.thread8, label %63, !prof !7
 
-63:                                               ; preds = %.thread7, %60
-  %64 = phi ptr [ %44, %.thread7 ], [ %61, %60 ]
+63:                                               ; preds = %.thread6, %60
+  %64 = phi ptr [ %44, %.thread6 ], [ %61, %60 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 800
   %66 = load i32, ptr %65, align 32
-  switch i32 %66, label %.thread9 [
+  switch i32 %66, label %.thread8 [
     i32 7, label %select.unfold
     i32 5, label %select.unfold
     i32 3, label %select.unfold
@@ -228,7 +228,7 @@ select.unfold:                                    ; preds = %63, %63, %63, %63, 
   %68 = load i64, ptr %67, align 16
   %69 = and i64 %68, 262144
   %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %.thread9
+  br i1 %70, label %71, label %.thread8
 
 71:                                               ; preds = %select.unfold
   %72 = load ptr, ptr %64, align 64
@@ -261,7 +261,7 @@ select.unfold:                                    ; preds = %63, %63, %63, %63, 
   %93 = tail call i32 @jiffies_to_msecs(i64 noundef %92) #19
   br label %96
 
-.thread9:                                         ; preds = %63, %51, %45, %21, %13, %25, %17, %60, %select.unfold
+.thread8:                                         ; preds = %63, %51, %45, %21, %13, %25, %17, %60, %select.unfold
   %94 = phi i32 [ -95, %select.unfold ], [ -19, %60 ], [ -19, %17 ], [ -19, %25 ], [ -19, %13 ], [ -19, %21 ], [ -19, %45 ], [ -19, %51 ], [ -19, %63 ]
   %95 = load ptr, ptr %8, align 16
   tail call void @_raw_spin_unlock_irq(ptr noundef %95) #19
@@ -274,8 +274,8 @@ select.unfold:                                    ; preds = %63, %63, %63, %63, 
   %98 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.5, i32 noundef %.ph) #19
   br label %99
 
-99:                                               ; preds = %.thread9, %96
-  %100 = phi i32 [ %98, %96 ], [ %94, %.thread9 ]
+99:                                               ; preds = %.thread8, %96
+  %100 = phi i32 [ %98, %96 ], [ %94, %.thread8 ]
   %101 = sext i32 %100 to i64
   ret i64 %101
 }
@@ -324,25 +324,25 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %29 = getelementptr i8, ptr %0, i64 -292
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.thread13, !prof !6
+  br i1 %31, label %32, label %.thread12, !prof !6
 
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %0, i64 -288
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %44, label %.thread13, !prof !6
+  br i1 %35, label %44, label %.thread12, !prof !6
 
 36:                                               ; preds = %17
   %37 = getelementptr i8, ptr %0, i64 -296
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.thread13, !prof !6
+  br i1 %39, label %40, label %.thread12, !prof !6
 
 40:                                               ; preds = %36
   %41 = getelementptr i8, ptr %0, i64 -288
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %66, label %.thread13, !prof !6
+  br i1 %43, label %66, label %.thread12, !prof !6
 
 44:                                               ; preds = %32
   %45 = getelementptr i8, ptr %0, i64 -296
@@ -356,22 +356,22 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 14720
   %52 = load ptr, ptr %51, align 64
   %53 = icmp eq ptr %52, %47
-  br i1 %53, label %54, label %.thread11
+  br i1 %53, label %54, label %.thread10
 
 54:                                               ; preds = %50, %44
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 1
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %.thread11, label %60
+  br i1 %58, label %.thread10, label %60
 
-.thread11:                                        ; preds = %54, %50
+.thread10:                                        ; preds = %50, %54
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 9408
   br label %78
 
 60:                                               ; preds = %54
   %61 = icmp ult i32 %46, 2
-  br i1 %61, label %62, label %.thread13
+  br i1 %61, label %62, label %.thread12
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 9408
@@ -383,7 +383,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %67 = getelementptr i8, ptr %0, i64 -292
   %68 = load i32, ptr %67, align 4
   %69 = icmp ugt i32 %26, %68
-  br i1 %69, label %70, label %.thread13
+  br i1 %69, label %70, label %.thread12
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 14736
@@ -395,18 +395,18 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
 75:                                               ; preds = %70, %62
   %76 = phi ptr [ %74, %70 ], [ %65, %62 ]
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread13, label %78, !prof !7
+  br i1 %77, label %.thread12, label %78, !prof !7
 
-78:                                               ; preds = %.thread11, %75
-  %79 = phi ptr [ %59, %.thread11 ], [ %76, %75 ]
+78:                                               ; preds = %.thread10, %75
+  %79 = phi ptr [ %59, %.thread10 ], [ %76, %75 ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 800
   %81 = load i32, ptr %80, align 32
-  switch i32 %81, label %.thread13 [
+  switch i32 %81, label %.thread12 [
     i32 1, label %82
     i32 9, label %82
-    i32 3, label %.thread13.fold.split
-    i32 5, label %.thread13.fold.split
-    i32 7, label %.thread13.fold.split
+    i32 3, label %.thread12.fold.split
+    i32 5, label %.thread12.fold.split
+    i32 7, label %.thread12.fold.split
   ], !prof !10
 
 82:                                               ; preds = %78, %78
@@ -419,7 +419,7 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %87 = load i64, ptr %86, align 16
   %88 = and i64 %87, 262144
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %.thread13
+  br i1 %89, label %90, label %.thread12
 
 90:                                               ; preds = %85
   %91 = load volatile i64, ptr @jiffies, align 64
@@ -439,10 +439,10 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   call void @ata_port_schedule_eh(ptr noundef %21) #19
   %103 = getelementptr inbounds nuw i8, ptr %21, i64 15784
   call void @complete(ptr noundef nonnull %103) #19
-  br label %.thread13
+  br label %.thread12
 
 104:                                              ; preds = %82
-  switch i32 %83, label %.thread13 [
+  switch i32 %83, label %.thread12 [
     i32 -1, label %105
     i32 -2, label %109
   ]
@@ -452,20 +452,20 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %107 = load i64, ptr %106, align 16
   %108 = and i64 %107, -262145
   store i64 %108, ptr %106, align 16
-  br label %.thread13
+  br label %.thread12
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %111 = load i64, ptr %110, align 16
   %112 = or i64 %111, 262144
   store i64 %112, ptr %110, align 16
-  br label %.thread13
+  br label %.thread12
 
-.thread13.fold.split:                             ; preds = %78, %78, %78
-  br label %.thread13
+.thread12.fold.split:                             ; preds = %78, %78, %78
+  br label %.thread12
 
-.thread13:                                        ; preds = %78, %.thread13.fold.split, %66, %60, %36, %28, %40, %32, %75, %109, %105, %104, %90, %85
-  %113 = phi i32 [ %18, %90 ], [ %18, %104 ], [ %18, %109 ], [ %18, %105 ], [ -95, %85 ], [ -19, %75 ], [ -19, %32 ], [ -19, %40 ], [ -19, %28 ], [ -19, %36 ], [ -19, %60 ], [ -19, %66 ], [ -19, %78 ], [ -95, %.thread13.fold.split ]
+.thread12:                                        ; preds = %78, %.thread12.fold.split, %66, %60, %36, %28, %40, %32, %75, %109, %105, %104, %90, %85
+  %113 = phi i32 [ %18, %90 ], [ %18, %104 ], [ %18, %109 ], [ %18, %105 ], [ -95, %85 ], [ -19, %75 ], [ -19, %32 ], [ -19, %40 ], [ -19, %28 ], [ -19, %36 ], [ -19, %60 ], [ -19, %66 ], [ -19, %78 ], [ -95, %.thread12.fold.split ]
   %114 = load ptr, ptr %22, align 16
   call void @_raw_spin_unlock_irqrestore(ptr noundef %114, i64 noundef %24) #19
   %115 = icmp eq i32 %113, 0
@@ -473,8 +473,8 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %spec.select = select i1 %115, i64 %3, i64 %116
   br label %117
 
-117:                                              ; preds = %.thread13, %11, %9
-  %118 = phi i64 [ %10, %9 ], [ -22, %11 ], [ %spec.select, %.thread13 ]
+117:                                              ; preds = %.thread12, %11, %9
+  %118 = phi i64 [ %10, %9 ], [ -22, %11 ], [ %spec.select, %.thread12 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
   ret i64 %118
 }
@@ -560,25 +560,25 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread9, !prof !6
+  br i1 %14, label %15, label %.thread8, !prof !6
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %27, label %.thread9, !prof !6
+  br i1 %18, label %27, label %.thread8, !prof !6
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.thread9, !prof !6
+  br i1 %22, label %23, label %.thread8, !prof !6
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %49, label %.thread9, !prof !6
+  br i1 %26, label %49, label %.thread8, !prof !6
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -592,22 +592,22 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 14720
   %35 = load ptr, ptr %34, align 64
   %36 = icmp eq ptr %35, %30
-  br i1 %36, label %37, label %.thread7
+  br i1 %36, label %37, label %.thread6
 
 37:                                               ; preds = %33, %27
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 1
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.thread7, label %43
+  br i1 %41, label %.thread6, label %43
 
-.thread7:                                         ; preds = %37, %33
+.thread6:                                         ; preds = %33, %37
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   br label %61
 
 43:                                               ; preds = %37
   %44 = icmp ult i32 %29, 2
-  br i1 %44, label %45, label %.thread9
+  br i1 %44, label %45, label %.thread8
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 9408
@@ -619,7 +619,7 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %51 = load i32, ptr %50, align 4
   %52 = icmp ugt i32 %9, %51
-  br i1 %52, label %53, label %.thread9
+  br i1 %52, label %53, label %.thread8
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 14736
@@ -631,13 +631,13 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
 58:                                               ; preds = %53, %45
   %59 = phi ptr [ %57, %53 ], [ %48, %45 ]
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread9, label %61, !prof !7
+  br i1 %60, label %.thread8, label %61, !prof !7
 
-61:                                               ; preds = %.thread7, %58
-  %62 = phi ptr [ %42, %.thread7 ], [ %59, %58 ]
+61:                                               ; preds = %.thread6, %58
+  %62 = phi ptr [ %42, %.thread6 ], [ %59, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 800
   %64 = load i32, ptr %63, align 32
-  switch i32 %64, label %.thread9 [
+  switch i32 %64, label %.thread8 [
     i32 7, label %select.unfold
     i32 5, label %select.unfold
     i32 3, label %select.unfold
@@ -651,7 +651,7 @@ select.unfold:                                    ; preds = %61, %61, %61, %61, 
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 792
   %68 = load i64, ptr %67, align 8
   %69 = icmp ult i64 %66, %68
-  br i1 %69, label %70, label %.thread9
+  br i1 %69, label %70, label %.thread8
 
 70:                                               ; preds = %select.unfold
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -664,9 +664,9 @@ select.unfold:                                    ; preds = %61, %61, %61, %61, 
   %77 = or i32 %76, 6
   store i32 %77, ptr %75, align 8
   tail call void @ata_port_schedule_eh(ptr noundef %4) #19
-  br label %.thread9
+  br label %.thread8
 
-.thread9:                                         ; preds = %61, %49, %43, %19, %11, %23, %15, %58, %70, %select.unfold
+.thread8:                                         ; preds = %61, %49, %43, %19, %11, %23, %15, %58, %70, %select.unfold
   %78 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %78, i64 noundef %7) #19
   tail call void @ata_port_wait_eh(ptr noundef %4) #19
@@ -687,25 +687,25 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %.thread5, !prof !6
+  br i1 %9, label %10, label %.thread4, !prof !6
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %22, label %.thread5, !prof !6
+  br i1 %13, label %22, label %.thread4, !prof !6
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread5, !prof !6
+  br i1 %17, label %18, label %.thread4, !prof !6
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %44, label %.thread5, !prof !6
+  br i1 %21, label %44, label %.thread4, !prof !6
 
 22:                                               ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -719,22 +719,22 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 14720
   %30 = load ptr, ptr %29, align 64
   %31 = icmp eq ptr %30, %25
-  br i1 %31, label %32, label %.thread6
+  br i1 %31, label %32, label %.thread5
 
 32:                                               ; preds = %28, %22
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 1
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.thread6, label %38
+  br i1 %36, label %.thread5, label %38
 
-.thread6:                                         ; preds = %32, %28
+.thread5:                                         ; preds = %28, %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   br label %56
 
 38:                                               ; preds = %32
   %39 = icmp ult i32 %24, 2
-  br i1 %39, label %40, label %.thread5
+  br i1 %39, label %40, label %.thread4
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 9408
@@ -746,7 +746,7 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %46 = load i32, ptr %45, align 4
   %47 = icmp ugt i32 %4, %46
-  br i1 %47, label %48, label %.thread5
+  br i1 %47, label %48, label %.thread4
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 14736
@@ -758,25 +758,25 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
 53:                                               ; preds = %48, %40
   %54 = phi ptr [ %52, %48 ], [ %43, %40 ]
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread5, label %56, !prof !7
+  br i1 %55, label %.thread4, label %56, !prof !7
 
-56:                                               ; preds = %.thread6, %53
-  %57 = phi ptr [ %37, %.thread6 ], [ %54, %53 ]
+56:                                               ; preds = %.thread5, %53
+  %57 = phi ptr [ %37, %.thread5 ], [ %54, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 800
   %59 = load i32, ptr %58, align 32
   switch i32 %59, label %60 [
-    i32 7, label %.thread5
-    i32 5, label %.thread5
-    i32 3, label %.thread5
-    i32 1, label %.thread5
+    i32 7, label %.thread4
+    i32 5, label %.thread4
+    i32 3, label %.thread4
+    i32 1, label %.thread4
   ]
 
 60:                                               ; preds = %56
   %61 = icmp eq i32 %59, 9
   %62 = select i1 %61, ptr %57, ptr null, !prof !6
-  br label %.thread5
+  br label %.thread4
 
-.thread5:                                         ; preds = %44, %38, %14, %6, %18, %10, %60, %56, %56, %56, %56, %53
+.thread4:                                         ; preds = %44, %38, %14, %6, %18, %10, %60, %56, %56, %56, %56, %53
   %63 = phi ptr [ null, %53 ], [ %57, %56 ], [ %62, %60 ], [ %57, %56 ], [ %57, %56 ], [ %57, %56 ], [ null, %10 ], [ null, %18 ], [ null, %6 ], [ null, %14 ], [ null, %38 ], [ null, %44 ]
   ret ptr %63
 }
@@ -1244,25 +1244,25 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %.thread9, !prof !6
+  br i1 %79, label %80, label %.thread8, !prof !6
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %92, label %.thread9, !prof !6
+  br i1 %83, label %92, label %.thread8, !prof !6
 
 84:                                               ; preds = %72
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %.thread9, !prof !6
+  br i1 %87, label %88, label %.thread8, !prof !6
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 0
-  br i1 %91, label %114, label %.thread9, !prof !6
+  br i1 %91, label %114, label %.thread8, !prof !6
 
 92:                                               ; preds = %80
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -1276,22 +1276,22 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 14720
   %100 = load ptr, ptr %99, align 64
   %101 = icmp eq ptr %100, %95
-  br i1 %101, label %102, label %.thread7
+  br i1 %101, label %102, label %.thread6
 
 102:                                              ; preds = %98, %92
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %104 = load i64, ptr %103, align 8
   %105 = and i64 %104, 1
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.thread7, label %108
+  br i1 %106, label %.thread6, label %108
 
-.thread7:                                         ; preds = %102, %98
+.thread6:                                         ; preds = %98, %102
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   br label %126
 
 108:                                              ; preds = %102
   %109 = icmp ult i32 %94, 2
-  br i1 %109, label %110, label %.thread9
+  br i1 %109, label %110, label %.thread8
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 9408
@@ -1303,7 +1303,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %116 = load i32, ptr %115, align 4
   %117 = icmp ugt i32 %74, %116
-  br i1 %117, label %118, label %.thread9
+  br i1 %117, label %118, label %.thread8
 
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 14736
@@ -1315,13 +1315,13 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 123:                                              ; preds = %118, %110
   %124 = phi ptr [ %122, %118 ], [ %113, %110 ]
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.thread9, label %126, !prof !7
+  br i1 %125, label %.thread8, label %126, !prof !7
 
-126:                                              ; preds = %.thread7, %123
-  %127 = phi ptr [ %107, %.thread7 ], [ %124, %123 ]
+126:                                              ; preds = %.thread6, %123
+  %127 = phi ptr [ %107, %.thread6 ], [ %124, %123 ]
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 800
   %129 = load i32, ptr %128, align 32
-  switch i32 %129, label %.thread9 [
+  switch i32 %129, label %.thread8 [
     i32 7, label %select.unfold
     i32 5, label %select.unfold
     i32 3, label %select.unfold
@@ -1329,7 +1329,7 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
     i32 9, label %select.unfold
   ], !prof !8
 
-.thread9:                                         ; preds = %126, %123, %80, %88, %76, %84, %108, %114
+.thread8:                                         ; preds = %126, %123, %80, %88, %76, %84, %108, %114
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #19
   br label %146
 
@@ -1363,8 +1363,8 @@ select.unfold:                                    ; preds = %126, %126, %126, %1
   %145 = select i1 %144, i32 0, i32 -14
   br label %146
 
-146:                                              ; preds = %.thread9, %141, %137, %133, %select.unfold
-  %147 = phi i32 [ -14, %select.unfold ], [ -14, %133 ], [ -14, %137 ], [ %145, %141 ], [ -42, %.thread9 ]
+146:                                              ; preds = %.thread8, %141, %137, %133, %select.unfold
+  %147 = phi i32 [ -14, %select.unfold ], [ -14, %133 ], [ -14, %137 ], [ %145, %141 ], [ -42, %.thread8 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #19
   br label %160
 
@@ -1704,25 +1704,25 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread5, !prof !6
+  br i1 %11, label %12, label %.thread4, !prof !6
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %24, label %.thread5, !prof !6
+  br i1 %15, label %24, label %.thread4, !prof !6
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.thread5, !prof !6
+  br i1 %19, label %20, label %.thread4, !prof !6
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %46, label %.thread5, !prof !6
+  br i1 %23, label %46, label %.thread4, !prof !6
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1736,22 +1736,22 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 14720
   %32 = load ptr, ptr %31, align 64
   %33 = icmp eq ptr %32, %27
-  br i1 %33, label %34, label %.thread6
+  br i1 %33, label %34, label %.thread5
 
 34:                                               ; preds = %30, %24
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 1
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread6, label %40
+  br i1 %38, label %.thread5, label %40
 
-.thread6:                                         ; preds = %34, %30
+.thread5:                                         ; preds = %30, %34
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   br label %58
 
 40:                                               ; preds = %34
   %41 = icmp ult i32 %26, 2
-  br i1 %41, label %42, label %.thread5
+  br i1 %41, label %42, label %.thread4
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9408
@@ -1763,7 +1763,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %48 = load i32, ptr %47, align 4
   %49 = icmp ugt i32 %6, %48
-  br i1 %49, label %50, label %.thread5
+  br i1 %49, label %50, label %.thread4
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 14736
@@ -1775,14 +1775,14 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
 55:                                               ; preds = %50, %42
   %56 = phi ptr [ %54, %50 ], [ %45, %42 ]
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread5, label %58
+  br i1 %57, label %.thread4, label %58
 
-58:                                               ; preds = %.thread6, %55
-  %59 = phi ptr [ %39, %.thread6 ], [ %56, %55 ]
+58:                                               ; preds = %.thread5, %55
+  %59 = phi ptr [ %39, %.thread5 ], [ %56, %55 ]
   %60 = tail call i32 @ata_scsi_dev_config(ptr noundef %0, ptr noundef nonnull %59), !range !19
-  br label %.thread5
+  br label %.thread4
 
-.thread5:                                         ; preds = %46, %40, %16, %8, %20, %12, %58, %55
+.thread4:                                         ; preds = %46, %40, %16, %8, %20, %12, %58, %55
   %61 = phi i32 [ %60, %58 ], [ 0, %55 ], [ 0, %12 ], [ 0, %20 ], [ 0, %8 ], [ 0, %16 ], [ 0, %40 ], [ 0, %46 ]
   ret i32 %61
 }
@@ -1807,25 +1807,25 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread5, !prof !6
+  br i1 %16, label %17, label %.thread4, !prof !6
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %29, label %.thread5, !prof !6
+  br i1 %20, label %29, label %.thread4, !prof !6
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread5, !prof !6
+  br i1 %24, label %25, label %.thread4, !prof !6
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %51, label %.thread5, !prof !6
+  br i1 %28, label %51, label %.thread4, !prof !6
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1839,22 +1839,22 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 14720
   %37 = load ptr, ptr %36, align 64
   %38 = icmp eq ptr %37, %32
-  br i1 %38, label %39, label %.thread6
+  br i1 %38, label %39, label %.thread5
 
 39:                                               ; preds = %35, %29
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 1
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread6, label %45
+  br i1 %43, label %.thread5, label %45
 
-.thread6:                                         ; preds = %39, %35
+.thread5:                                         ; preds = %35, %39
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 9408
   br label %63
 
 45:                                               ; preds = %39
   %46 = icmp ult i32 %31, 2
-  br i1 %46, label %47, label %.thread5
+  br i1 %46, label %47, label %.thread4
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 9408
@@ -1866,7 +1866,7 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %53 = load i32, ptr %52, align 4
   %54 = icmp ugt i32 %11, %53
-  br i1 %54, label %55, label %.thread5
+  br i1 %54, label %55, label %.thread4
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 14736
@@ -1878,14 +1878,14 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
 60:                                               ; preds = %55, %47
   %61 = phi ptr [ %59, %55 ], [ %50, %47 ]
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread5, label %63
+  br i1 %62, label %.thread4, label %63
 
-63:                                               ; preds = %.thread6, %60
-  %64 = phi ptr [ %44, %.thread6 ], [ %61, %60 ]
+63:                                               ; preds = %.thread5, %60
+  %64 = phi ptr [ %44, %.thread5 ], [ %61, %60 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.thread5, label %68
+  br i1 %67, label %.thread4, label %68
 
 68:                                               ; preds = %63
   store ptr null, ptr %65, align 8
@@ -1894,9 +1894,9 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %71 = or i64 %70, 16777216
   store i64 %71, ptr %69, align 16
   tail call void @ata_port_schedule_eh(ptr noundef %4) #19
-  br label %.thread5
+  br label %.thread4
 
-.thread5:                                         ; preds = %51, %45, %21, %13, %25, %17, %68, %63, %60
+.thread4:                                         ; preds = %51, %45, %21, %13, %25, %17, %68, %63, %60
   %72 = load ptr, ptr %7, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %72, i64 noundef %9) #19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1952
@@ -1924,7 +1924,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %13 = load i16, ptr %12, align 4
   %14 = icmp eq i16 %13, 0
-  br i1 %14, label %.thread5, label %15, !prof !20
+  br i1 %14, label %.critedge, label %15, !prof !20
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 800
@@ -1939,7 +1939,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %21 = load i32, ptr %20, align 64
   %22 = icmp ult i32 %21, %19
-  br i1 %22, label %.thread5, label %44, !prof !20
+  br i1 %22, label %.critedge, label %44, !prof !20
 
 23:                                               ; preds = %15
   %24 = icmp ne i8 %6, -123
@@ -1955,7 +1955,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i16
   %34 = icmp ult i16 %13, %33
-  br i1 %34, label %.thread5, label %35, !prof !20
+  br i1 %34, label %.critedge, label %35, !prof !20
 
 35:                                               ; preds = %28
   %36 = zext i8 %32 to i32
@@ -1964,27 +1964,27 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %39 = icmp ult i32 %38, %36
   %40 = icmp ugt i16 %13, 16
   %41 = or i1 %40, %39
-  br i1 %41, label %.thread5, label %75, !prof !7
+  br i1 %41, label %.critedge, label %ata_get_xlat_func.exit.thread
 
 42:                                               ; preds = %23
   %43 = icmp ugt i16 %13, 16
-  br i1 %43, label %.thread5, label %.thread6, !prof !20
+  br i1 %43, label %.critedge, label %.thread, !prof !20
 
 44:                                               ; preds = %18
-  switch i8 %6, label %ata_get_xlat_func.exit [
-    i8 8, label %75
-    i8 40, label %75
-    i8 -120, label %75
-    i8 10, label %75
-    i8 42, label %75
-    i8 -118, label %75
+  switch i8 %6, label %ata_get_xlat_func.exit.thread5 [
+    i8 8, label %ata_get_xlat_func.exit.thread
+    i8 40, label %ata_get_xlat_func.exit.thread
+    i8 -120, label %ata_get_xlat_func.exit.thread
+    i8 10, label %ata_get_xlat_func.exit.thread
+    i8 42, label %ata_get_xlat_func.exit.thread
+    i8 -118, label %ata_get_xlat_func.exit.thread
     i8 -109, label %45
     i8 53, label %46
     i8 -111, label %46
     i8 47, label %64
     i8 -113, label %64
-    i8 -95, label %.thread6
-    i8 -123, label %.thread6
+    i8 -95, label %.thread
+    i8 -123, label %.thread
     i8 127, label %65
     i8 21, label %66
     i8 85, label %66
@@ -1996,7 +1996,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   ]
 
 45:                                               ; preds = %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
 46:                                               ; preds = %44, %44
   %47 = getelementptr i8, ptr %1, i64 1070
@@ -2010,7 +2010,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 32
   %55 = icmp eq i16 %54, 0
-  br i1 %55, label %56, label %75
+  br i1 %55, label %56, label %ata_get_xlat_func.exit.thread
 
 56:                                               ; preds = %51, %46
   %57 = getelementptr i8, ptr %1, i64 1062
@@ -2020,43 +2020,43 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %61 = and i16 %58, -8192
   %62 = icmp ne i16 %61, 24576
   %63 = and i1 %60, %62
-  br i1 %63, label %ata_get_xlat_func.exit, label %75
+  br i1 %63, label %ata_get_xlat_func.exit.thread5, label %ata_get_xlat_func.exit.thread
 
 64:                                               ; preds = %44, %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
-.thread6:                                         ; preds = %42, %44, %44
-  br label %75
+.thread:                                          ; preds = %42, %44, %44
+  br label %ata_get_xlat_func.exit.thread
 
 65:                                               ; preds = %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
 66:                                               ; preds = %44, %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
 67:                                               ; preds = %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
 68:                                               ; preds = %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
 69:                                               ; preds = %44, %44
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load i64, ptr %70, align 16
   %72 = and i64 %71, 256
   %73 = icmp eq i64 %72, 0
-  br i1 %73, label %ata_get_xlat_func.exit, label %75
+  br i1 %73, label %ata_get_xlat_func.exit.thread5, label %ata_get_xlat_func.exit.thread
 
 74:                                               ; preds = %44
-  br label %75
+  br label %ata_get_xlat_func.exit.thread
 
-75:                                               ; preds = %35, %74, %68, %67, %66, %65, %.thread6, %64, %45, %44, %44, %44, %44, %44, %44, %69, %51, %56
-  %.ph = phi ptr [ @ata_scsi_flush_xlat, %56 ], [ @ata_scsi_flush_xlat, %51 ], [ @ata_scsi_security_inout_xlat, %69 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_write_same_xlat, %45 ], [ @ata_scsi_verify_xlat, %64 ], [ @ata_scsi_pass_thru, %.thread6 ], [ @ata_scsi_var_len_cdb_xlat, %65 ], [ @ata_scsi_mode_select_xlat, %66 ], [ @ata_scsi_zbc_in_xlat, %67 ], [ @ata_scsi_zbc_out_xlat, %68 ], [ @ata_scsi_start_stop_xlat, %74 ], [ @atapi_xlat, %35 ]
+ata_get_xlat_func.exit.thread:                    ; preds = %35, %56, %51, %69, %44, %44, %44, %44, %44, %44, %45, %64, %.thread, %65, %66, %67, %68, %74
+  %75 = phi ptr [ @ata_scsi_flush_xlat, %56 ], [ @ata_scsi_flush_xlat, %51 ], [ @ata_scsi_security_inout_xlat, %69 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_rw_xlat, %44 ], [ @ata_scsi_write_same_xlat, %45 ], [ @ata_scsi_verify_xlat, %64 ], [ @ata_scsi_pass_thru, %.thread ], [ @ata_scsi_var_len_cdb_xlat, %65 ], [ @ata_scsi_mode_select_xlat, %66 ], [ @ata_scsi_zbc_in_xlat, %67 ], [ @ata_scsi_zbc_out_xlat, %68 ], [ @ata_scsi_start_stop_xlat, %74 ], [ @atapi_xlat, %35 ]
   %76 = and i32 %8, 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %.thread7, !prof !6
+  br i1 %77, label %78, label %.thread6, !prof !6
 
-78:                                               ; preds = %75
+78:                                               ; preds = %ata_get_xlat_func.exit.thread
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, 16777216
@@ -2073,7 +2073,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #19, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 672, i32 2307, i64 12) #19, !srcloc !22
   tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #19, !srcloc !23
-  br label %.thread7
+  br label %.thread6
 
 88:                                               ; preds = %78
   %89 = getelementptr i8, ptr %0, i64 -216
@@ -2150,7 +2150,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   store i64 %133, ptr %102, align 8
   br label %138
 
-.thread7:                                         ; preds = %75, %87
+.thread6:                                         ; preds = %ata_get_xlat_func.exit.thread, %87
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %135 = load i32, ptr %134, align 8
   %136 = and i32 %135, -16711936
@@ -2203,7 +2203,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
 164:                                              ; preds = %160, %140
   %165 = getelementptr inbounds nuw i8, ptr %96, i64 216
   store ptr @ata_scsi_qc_complete, ptr %165, align 8
-  %166 = tail call i32 %.ph(ptr noundef nonnull %95) #19
+  %166 = tail call i32 %75(ptr noundef nonnull %95) #19
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %177
 
@@ -2234,18 +2234,18 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %180 = select i1 %179, i32 4182, i32 4181
   br label %182
 
-ata_get_xlat_func.exit:                           ; preds = %69, %56, %44
+ata_get_xlat_func.exit.thread5:                   ; preds = %69, %56, %44
   tail call void @ata_scsi_simulate(ptr noundef %1, ptr noundef %0)
   br label %182
 
-.thread5:                                         ; preds = %35, %28, %42, %18, %11
+.critedge:                                        ; preds = %28, %42, %35, %18, %11
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 458752, ptr %181, align 8
   tail call void @scsi_done(ptr noundef %0) #19
   br label %182
 
-182:                                              ; preds = %.thread7, %.thread5, %ata_get_xlat_func.exit, %178, %177, %176, %149, %138, %2
-  %183 = phi i32 [ 0, %.thread5 ], [ 0, %ata_get_xlat_func.exit ], [ 4182, %2 ], [ 0, %177 ], [ 0, %176 ], [ 0, %138 ], [ 0, %149 ], [ %180, %178 ], [ 0, %.thread7 ]
+182:                                              ; preds = %.thread6, %.critedge, %ata_get_xlat_func.exit.thread5, %178, %177, %176, %149, %138, %2
+  %183 = phi i32 [ 0, %.critedge ], [ 0, %ata_get_xlat_func.exit.thread5 ], [ 4182, %2 ], [ 0, %177 ], [ 0, %176 ], [ 0, %138 ], [ 0, %149 ], [ %180, %178 ], [ 0, %.thread6 ]
   ret i32 %183
 }
 
@@ -3077,25 +3077,25 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.thread6, !prof !6
+  br i1 %15, label %16, label %.thread5, !prof !6
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %28, label %.thread6, !prof !6
+  br i1 %19, label %28, label %.thread5, !prof !6
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread6, !prof !6
+  br i1 %23, label %24, label %.thread5, !prof !6
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %50, label %.thread6, !prof !6
+  br i1 %27, label %50, label %.thread5, !prof !6
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -3109,22 +3109,22 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 14720
   %36 = load ptr, ptr %35, align 64
   %37 = icmp eq ptr %36, %31
-  br i1 %37, label %38, label %.thread7
+  br i1 %37, label %38, label %.thread6
 
 38:                                               ; preds = %34, %28
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 1
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.thread7, label %44
+  br i1 %42, label %.thread6, label %44
 
-.thread7:                                         ; preds = %38, %34
+.thread6:                                         ; preds = %34, %38
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 9408
   br label %62
 
 44:                                               ; preds = %38
   %45 = icmp ult i32 %30, 2
-  br i1 %45, label %46, label %.thread6
+  br i1 %45, label %46, label %.thread5
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 9408
@@ -3136,7 +3136,7 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %52 = load i32, ptr %51, align 4
   %53 = icmp ugt i32 %10, %52
-  br i1 %53, label %54, label %.thread6
+  br i1 %53, label %54, label %.thread5
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 14736
@@ -3148,13 +3148,13 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
 59:                                               ; preds = %54, %46
   %60 = phi ptr [ %58, %54 ], [ %49, %46 ]
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread6, label %62, !prof !7
+  br i1 %61, label %.thread5, label %62, !prof !7
 
-62:                                               ; preds = %.thread7, %59
-  %63 = phi ptr [ %43, %.thread7 ], [ %60, %59 ]
+62:                                               ; preds = %.thread6, %59
+  %63 = phi ptr [ %43, %.thread6 ], [ %60, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 800
   %65 = load i32, ptr %64, align 32
-  switch i32 %65, label %.thread6 [
+  switch i32 %65, label %.thread5 [
     i32 7, label %select.unfold
     i32 5, label %select.unfold
     i32 3, label %select.unfold
@@ -3166,14 +3166,14 @@ select.unfold:                                    ; preds = %62, %62, %62, %62, 
   %66 = tail call i32 @__ata_scsi_queuecmd(ptr noundef %1, ptr noundef nonnull %63)
   br label %68
 
-.thread6:                                         ; preds = %62, %50, %44, %20, %12, %24, %16, %59
+.thread5:                                         ; preds = %62, %50, %44, %20, %12, %24, %16, %59
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 262144, ptr %67, align 8
   tail call void @scsi_done(ptr noundef %1) #19
   br label %68
 
-68:                                               ; preds = %.thread6, %select.unfold
-  %69 = phi i32 [ %66, %select.unfold ], [ 0, %.thread6 ]
+68:                                               ; preds = %.thread5, %select.unfold
+  %69 = phi i32 [ %66, %select.unfold ], [ 0, %.thread5 ]
   %70 = load ptr, ptr %6, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %70, i64 noundef %8) #19
   ret i32 %69
@@ -4166,7 +4166,7 @@ define dso_local void @ata_scsi_scan_host(ptr noundef %0, i32 noundef %1) local_
 .loopexit19:                                      ; preds = %.loopexit16, %7
   %47 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #19
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread, label %.preheader17
+  br i1 %48, label %.critedge, label %.preheader17
 
 .preheader17:                                     ; preds = %.loopexit19, %.loopexit
   %49 = phi ptr [ %59, %.loopexit ], [ %47, %.loopexit19 ]
@@ -4189,7 +4189,7 @@ define dso_local void @ata_scsi_scan_host(ptr noundef %0, i32 noundef %1) local_
 .loopexit:                                        ; preds = %56, %.preheader17
   %59 = tail call ptr @ata_link_next(ptr noundef nonnull %49, ptr noundef %0, i32 noundef 0) #19
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread, label %.preheader17, !llvm.loop !31
+  br i1 %60, label %.critedge, label %.preheader17, !llvm.loop !31
 
 61:                                               ; preds = %.preheader
   br i1 %3, label %.loopexit21, label %62
@@ -4222,9 +4222,9 @@ define dso_local void @ata_scsi_scan_host(ptr noundef %0, i32 noundef %1) local_
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 15552
   %75 = tail call i64 @round_jiffies_relative(i64 noundef 1000) #19
   %76 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %73, ptr noundef nonnull %74, i64 noundef %75) #19
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.loopexit19, %.loopexit, %.loopexit21
+.critedge:                                        ; preds = %.loopexit19, %.loopexit, %.loopexit21
   ret void
 }
 
@@ -4494,22 +4494,22 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 14720
   %46 = load ptr, ptr %45, align 64
   %47 = icmp eq ptr %46, %41
-  br i1 %47, label %48, label %.thread6
+  br i1 %47, label %48, label %.thread5
 
 48:                                               ; preds = %44, %40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.thread6, label %54
+  br i1 %52, label %.thread5, label %54
 
-.thread6:                                         ; preds = %48, %44
+.thread5:                                         ; preds = %44, %48
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 9408
   br label %70
 
 54:                                               ; preds = %48
   %55 = icmp ult i32 %20, 2
-  br i1 %55, label %56, label %.thread5
+  br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 9408
@@ -4519,7 +4519,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
 
 60:                                               ; preds = %37
   %61 = icmp ugt i32 %38, %20
-  br i1 %61, label %62, label %.thread5
+  br i1 %61, label %62, label %.thread
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 14736
@@ -4531,10 +4531,10 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
 67:                                               ; preds = %62, %56
   %68 = phi ptr [ %66, %62 ], [ %59, %56 ]
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread5, label %70
+  br i1 %69, label %.thread, label %70
 
-70:                                               ; preds = %.thread6, %67
-  %71 = phi ptr [ %53, %.thread6 ], [ %68, %67 ]
+70:                                               ; preds = %.thread5, %67
+  %71 = phi ptr [ %53, %.thread5 ], [ %68, %67 ]
   %72 = load ptr, ptr %71, align 64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load i32, ptr %73, align 8
@@ -4556,13 +4556,13 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
   tail call void @ata_port_wait_eh(ptr noundef %6) #19
   br label %84
 
-.thread5:                                         ; preds = %60, %54, %67
+.thread:                                          ; preds = %60, %54, %67
   %83 = load ptr, ptr %21, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %23) #19
   br label %84
 
-84:                                               ; preds = %.thread5, %.loopexit, %16, %13, %4
-  %85 = phi i32 [ -22, %4 ], [ -22, %13 ], [ -22, %16 ], [ -22, %.thread5 ], [ 0, %.loopexit ]
+84:                                               ; preds = %.thread, %.loopexit, %16, %13, %4
+  %85 = phi i32 [ -22, %4 ], [ -22, %13 ], [ -22, %16 ], [ -22, %.thread ], [ 0, %.loopexit ]
   ret i32 %85
 }
 
@@ -5425,8 +5425,8 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %14 = load i8, ptr %13, align 1
   %15 = lshr i8 %14, 1
   %16 = and i8 %15, 15
-  switch i8 %16, label %20 [
-    i8 3, label %22
+  switch i8 %16, label %.critedge [
+    i8 3, label %21
     i8 6, label %17
     i8 10, label %17
     i8 11, label %17
@@ -5436,24 +5436,24 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   ]
 
 17:                                               ; preds = %1, %1, %1
-  br label %22
+  br label %21
 
 18:                                               ; preds = %1, %1
-  br label %22
+  br label %21
 
 19:                                               ; preds = %1
-  br label %22
+  br label %21
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 -1, ptr %21, align 8
+.critedge:                                        ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 -1, ptr %20, align 8
   br label %273
 
-22:                                               ; preds = %19, %18, %17, %1
-  %23 = phi i1 [ true, %1 ], [ true, %17 ], [ true, %18 ], [ false, %19 ]
-  %.ph = phi i8 [ 0, %1 ], [ 2, %17 ], [ 1, %18 ], [ 6, %19 ]
+21:                                               ; preds = %19, %18, %17, %1
+  %22 = phi i1 [ false, %19 ], [ true, %18 ], [ true, %17 ], [ true, %1 ]
+  %23 = phi i8 [ 6, %19 ], [ 1, %18 ], [ 2, %17 ], [ 0, %1 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %.ph, ptr %24, align 8
+  store i8 %23, ptr %24, align 8
   %25 = or disjoint i32 %10, 2
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr i8, ptr %7, i64 %26
@@ -5462,7 +5462,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %39
 
-31:                                               ; preds = %22
+31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 3
@@ -5473,14 +5473,14 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   br label %273
 
 37:                                               ; preds = %31
-  br i1 %23, label %39, label %38
+  br i1 %22, label %39, label %38
 
 38:                                               ; preds = %37
   store i8 4, ptr %24, align 8
   br label %39
 
-39:                                               ; preds = %38, %37, %22
-  %40 = phi i8 [ 4, %38 ], [ %.ph, %37 ], [ %.ph, %22 ]
+39:                                               ; preds = %38, %37, %21
+  %40 = phi i8 [ 4, %38 ], [ %23, %37 ], [ %23, %21 ]
   %41 = load i64, ptr %2, align 8
   %42 = or i64 %41, 16
   store i64 %42, ptr %2, align 8
@@ -5782,25 +5782,25 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 817
   %221 = load i8, ptr %220, align 1
   %222 = icmp eq i8 %221, -1
-  br i1 %222, label %273, label %.thread2
+  br i1 %222, label %273, label %.thread
 
 223:                                              ; preds = %207
-  br i1 %171, label %.thread2, label %224
+  br i1 %171, label %.thread, label %224
 
 224:                                              ; preds = %223
   %225 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %226 = load i64, ptr %225, align 16
   %227 = and i64 %226, 49160
   %228 = icmp eq i64 %227, 8
-  br i1 %228, label %.thread2, label %273
+  br i1 %228, label %.thread, label %273
 
-.thread2:                                         ; preds = %219, %224, %223
+.thread:                                          ; preds = %219, %224, %223
   %229 = getelementptr i8, ptr %4, i64 165
   %230 = load i8, ptr %229, align 1
   %231 = icmp ult i8 %230, 32
   br i1 %231, label %233, label %232
 
-232:                                              ; preds = %.thread2
+232:                                              ; preds = %.thread
   switch i8 %168, label %273 [
     i8 -60, label %234
     i8 -59, label %234
@@ -5809,7 +5809,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
     i8 -50, label %234
   ]
 
-233:                                              ; preds = %.thread2
+233:                                              ; preds = %.thread
   switch i8 %168, label %251 [
     i8 -60, label %234
     i8 -59, label %234
@@ -5849,7 +5849,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %256 = load i8, ptr %255, align 1
   %257 = icmp eq i8 %256, 3
-  br i1 %257, label %258, label %.thread4
+  br i1 %257, label %258, label %.thread3
 
 258:                                              ; preds = %254
   %259 = load i8, ptr %7, align 1
@@ -5859,14 +5859,14 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
 
 262:                                              ; preds = %251
   %263 = icmp ugt i8 %252, 91
-  br i1 %263, label %264, label %.thread4
+  br i1 %263, label %264, label %.thread3
 
 264:                                              ; preds = %262
   %265 = icmp ugt i8 %252, 95
   %266 = load i32, ptr @libata_allow_tpm, align 4
   %267 = icmp ne i32 %266, 0
   %268 = select i1 %265, i1 true, i1 %267
-  br i1 %268, label %.thread4, label %269
+  br i1 %268, label %.thread3, label %269
 
 269:                                              ; preds = %264
   %270 = load i8, ptr %7, align 1
@@ -5874,8 +5874,8 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %272 = select i1 %271, i16 14, i16 9
   br label %273
 
-273:                                              ; preds = %232, %20, %269, %258, %224, %219, %188, %35
-  %274 = phi i16 [ %36, %35 ], [ %261, %258 ], [ %272, %269 ], [ 1, %20 ], [ 1, %188 ], [ 1, %219 ], [ 1, %224 ], [ 1, %232 ]
+273:                                              ; preds = %232, %.critedge, %269, %258, %224, %219, %188, %35
+  %274 = phi i16 [ %36, %35 ], [ %261, %258 ], [ %272, %269 ], [ 1, %188 ], [ 1, %219 ], [ 1, %224 ], [ 1, %232 ], [ 1, %.critedge ]
   %275 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %276 = load i64, ptr %275, align 16
   %277 = trunc i64 %276 to i32
@@ -5885,9 +5885,9 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef capt
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %281 = load ptr, ptr %280, align 8
   %282 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %281, i32 noundef 96, i16 noundef zeroext %274, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %.thread4
+  br label %.thread3
 
-.thread4:                                         ; preds = %254, %273, %264, %262
+.thread3:                                         ; preds = %254, %273, %264, %262
   %283 = phi i32 [ 1, %273 ], [ 0, %264 ], [ 0, %262 ], [ 0, %254 ]
   ret i32 %283
 }

@@ -1286,9 +1286,9 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   %97 = select i1 %94, i64 -1, i64 %96
   %98 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %97) #17
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread197, label %100
+  br i1 %99, label %.thread201, label %100
 
-.thread197:                                       ; preds = %90
+.thread201:                                       ; preds = %90
   store ptr null, ptr %25, align 8, !tbaa !86
   br label %114
 
@@ -1296,7 +1296,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   store i64 %92, ptr %98, align 8
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = icmp eq i32 %91, 0
-  br i1 %102, label %.loopexit210, label %103
+  br i1 %102, label %.loopexit211, label %103
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds %"struct.icu_77::LSR", ptr %101, i64 %92
@@ -1313,26 +1313,26 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %109, i8 0, i64 20, i1 false)
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %111 = icmp eq ptr %110, %104
-  br i1 %111, label %.loopexit210, label %105
+  br i1 %111, label %.loopexit211, label %105
 
-.loopexit210:                                     ; preds = %105, %100
+.loopexit211:                                     ; preds = %105, %100
   store ptr %101, ptr %25, align 8, !tbaa !86
   %112 = load ptr, ptr %24, align 8, !tbaa !85
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %115
 
-114:                                              ; preds = %.thread197, %.loopexit210
+114:                                              ; preds = %.thread201, %.loopexit211
   store i32 7, ptr %2, align 4, !tbaa !16
   br label %.loopexit
 
-115:                                              ; preds = %.loopexit210
+115:                                              ; preds = %.loopexit211
   %116 = load i32, ptr %26, align 8, !tbaa !81
   %117 = sext i32 %116 to i64
   %118 = shl nsw i64 %117, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %112, i8 0, i64 %118, i1 false)
   %119 = load i32, ptr %26, align 8, !tbaa !81
-  %.not152219 = icmp sgt i32 %119, 0
-  br i1 %.not152219, label %.lr.ph, label %.critedge170
+  %.not152220 = icmp sgt i32 %119, 0
+  br i1 %.not152220, label %.lr.ph, label %.critedge170
 
 .lr.ph:                                           ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1385,9 +1385,9 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   %144 = icmp slt i32 %143, 1
   %145 = getelementptr inbounds nuw i8, ptr %134, i64 216
   %146 = load i8, ptr %145, align 8, !noalias !89
-  %.not6.i176 = icmp eq i8 %146, 0
-  %or.cond.i177 = select i1 %144, i1 %.not6.i176, i1 false
-  br i1 %or.cond.i177, label %147, label %152
+  %.not6.i180 = icmp eq i8 %146, 0
+  %or.cond.i181 = select i1 %144, i1 %.not6.i180, i1 false
+  br i1 %or.cond.i181, label %147, label %152
 
 147:                                              ; preds = %141
   %148 = getelementptr inbounds nuw i8, ptr %134, i64 40
@@ -1402,29 +1402,29 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %_ZN6icu_7712_GLOBAL
   store ptr @.str, ptr %121, align 8, !tbaa !70, !alias.scope !89
   store ptr null, ptr %122, align 8, !tbaa !77, !alias.scope !89
   %153 = invoke noundef i32 @_ZN6icu_773LSR14indexForRegionEPKc(ptr noundef nonnull @.str)
-          to label %.noexc178 unwind label %167
+          to label %.noexc182 unwind label %167
 
-.noexc178:                                        ; preds = %152
+.noexc182:                                        ; preds = %152
   store i32 %153, ptr %123, align 8, !tbaa !78, !alias.scope !89
   store i32 7, ptr %124, align 4, !tbaa !79, !alias.scope !89
   store i32 0, ptr %125, align 8, !tbaa !80, !alias.scope !89
-  br label %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit180
+  br label %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184
 
 154:                                              ; preds = %147
   invoke void @_ZNK6icu_7713LikelySubtags20makeMaximizedLsrFromERKNS_6LocaleEbR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"struct.icu_77::LSR") align 8 %6, ptr noundef nonnull align 8 dereferenceable(352) %142, ptr noundef nonnull align 8 dereferenceable(217) %134, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit180 unwind label %167
+          to label %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184 unwind label %167
 
-_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit180: ; preds = %.noexc178, %154
+_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184: ; preds = %.noexc182, %154
   %155 = load ptr, ptr %25, align 8, !tbaa !86
   %156 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %155, i64 %indvars.iv
   %157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_773LSRaSEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   %158 = load ptr, ptr %122, align 8, !tbaa !77
-  %.not.i181 = icmp eq ptr %158, null
-  br i1 %.not.i181, label %_ZN6icu_773LSRD2Ev.exit182, label %159
+  %.not.i185 = icmp eq ptr %158, null
+  br i1 %.not.i185, label %_ZN6icu_773LSRD2Ev.exit186, label %159
 
-159:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit180
+159:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184
   invoke void @_ZN6icu_773LSR11deleteOwnedEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
-          to label %_ZN6icu_773LSRD2Ev.exit182 unwind label %160
+          to label %_ZN6icu_773LSRD2Ev.exit186 unwind label %160
 
 160:                                              ; preds = %159
   %161 = landingpad { ptr, i32 }
@@ -1433,12 +1433,12 @@ _ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER
   call void @__clang_call_terminate(ptr %162) #18
   unreachable
 
-_ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit180, %159
+_ZN6icu_773LSRD2Ev.exit186:                       ; preds = %_ZN6icu_7712_GLOBAL__N_118getMaximalLsrOrUndERKNS_13LikelySubtagsERKNS_6LocaleER10UErrorCode.exit184, %159
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
   %163 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_773LSR11setHashCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %157)
           to label %164 unwind label %169
 
-164:                                              ; preds = %_ZN6icu_773LSRD2Ev.exit182
+164:                                              ; preds = %_ZN6icu_773LSRD2Ev.exit186
   %165 = load i32, ptr %2, align 4, !tbaa !16
   %166 = icmp slt i32 %165, 1
   br i1 %166, label %126, label %.loopexit
@@ -1449,7 +1449,7 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
   br label %374
 
-169:                                              ; preds = %_ZN6icu_773LSRD2Ev.exit182
+169:                                              ; preds = %_ZN6icu_773LSRD2Ev.exit186
   %170 = landingpad { ptr, i32 }
           cleanup
   br label %374
@@ -1502,14 +1502,14 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
 194:                                              ; preds = %191
   %195 = load i32, ptr %2, align 4, !tbaa !16
   %196 = icmp slt i32 %195, 1
-  br i1 %196, label %.preheader209, label %.thread206
+  br i1 %196, label %.preheader210, label %.critedge176
 
-.preheader209:                                    ; preds = %194
+.preheader210:                                    ; preds = %194
   %197 = load i32, ptr %26, align 8, !tbaa !81
-  %.not158.not221 = icmp sgt i32 %197, 0
-  br i1 %.not158.not221, label %.lr.ph227, label %._crit_edge238
+  %.not158.not222 = icmp sgt i32 %197, 0
+  br i1 %.not158.not222, label %.lr.ph228, label %._crit_edge239
 
-.lr.ph227:                                        ; preds = %.preheader209
+.lr.ph228:                                        ; preds = %.preheader210
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %204
 
@@ -1519,24 +1519,24 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
   br label %323
 
 201:                                              ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
-  %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
+  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %202 = load i32, ptr %26, align 8, !tbaa !81
   %203 = sext i32 %202 to i64
-  %.not158.not = icmp slt i64 %indvars.iv.next245, %203
+  %.not158.not = icmp slt i64 %indvars.iv.next246, %203
   br i1 %.not158.not, label %204, label %._crit_edge, !llvm.loop !92
 
-204:                                              ; preds = %.lr.ph227, %201
-  %indvars.iv244 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next245, %201 ]
-  %.3226 = phi ptr [ %.0, %.lr.ph227 ], [ %.5.ph, %201 ]
-  %.1102225 = phi ptr [ %.0101, %.lr.ph227 ], [ %.2103.ph, %201 ]
-  %.0119223 = phi i32 [ 0, %.lr.ph227 ], [ %.2121.ph, %201 ]
-  %.0122222 = phi i32 [ 0, %.lr.ph227 ], [ %.2124.ph, %201 ]
+204:                                              ; preds = %.lr.ph228, %201
+  %indvars.iv245 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next246, %201 ]
+  %.3227 = phi ptr [ %.0, %.lr.ph228 ], [ %.5.ph, %201 ]
+  %.1102226 = phi ptr [ %.0101, %.lr.ph228 ], [ %.2103.ph, %201 ]
+  %.0119224 = phi i32 [ 0, %.lr.ph228 ], [ %.2121.ph, %201 ]
+  %.0122223 = phi i32 [ 0, %.lr.ph228 ], [ %.2124.ph, %201 ]
   %205 = load ptr, ptr %24, align 8, !tbaa !85
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv244
+  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv245
   %207 = load ptr, ptr %206, align 8, !tbaa !88
   %208 = load ptr, ptr %25, align 8, !tbaa !86
-  %209 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %208, i64 %indvars.iv244
-  %210 = icmp eq ptr %.1102225, null
+  %209 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %208, i64 %indvars.iv245
+  %210 = icmp eq ptr %.1102226, null
   %211 = load i8, ptr %198, align 8, !range !35
   %212 = trunc nuw i8 %211 to i1
   %or.cond174 = select i1 %210, i1 %212, i1 false
@@ -1544,38 +1544,38 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
 
 213:                                              ; preds = %204
   %214 = load ptr, ptr %7, align 8, !tbaa !93
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv244
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv245
   store i8 1, ptr %215, align 1, !tbaa !18
   %216 = load i32, ptr %2, align 4, !tbaa !16
   %217 = icmp slt i32 %216, 1
-  br i1 %217, label %218, label %.thread206
+  br i1 %217, label %218, label %.critedge178
 
 218:                                              ; preds = %213
   %219 = load ptr, ptr %27, align 8, !tbaa !48
   %220 = invoke signext i8 @uhash_containsKey_77(ptr noundef %219, ptr noundef nonnull align 8 dereferenceable(48) %209)
-          to label %.noexc183 unwind label %233
+          to label %.noexc187 unwind label %233
 
-.noexc183:                                        ; preds = %218
+.noexc187:                                        ; preds = %218
   %.not14.i = icmp eq i8 %220, 0
   br i1 %.not14.i, label %221, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
 
-221:                                              ; preds = %.noexc183
+221:                                              ; preds = %.noexc187
   %222 = load ptr, ptr %27, align 8, !tbaa !48
   %223 = invoke i32 @uhash_putiAllowZero_77(ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(48) %209, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc184 unwind label %233
+          to label %.noexc188 unwind label %233
 
-.noexc184:                                        ; preds = %221
+.noexc188:                                        ; preds = %221
   %224 = load i32, ptr %2, align 4, !tbaa !16
   %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %.thread206, label %226
+  br i1 %225, label %.critedge178, label %226
 
-226:                                              ; preds = %.noexc184
+226:                                              ; preds = %.noexc188
   %227 = load ptr, ptr %28, align 8, !tbaa !57
-  %228 = sext i32 %.0122222 to i64
+  %228 = sext i32 %.0122223 to i64
   %229 = getelementptr inbounds ptr, ptr %227, i64 %228
   store ptr %209, ptr %229, align 8, !tbaa !58
   %230 = load ptr, ptr %29, align 8, !tbaa !59
-  %231 = add nsw i32 %.0122222, 1
+  %231 = add nsw i32 %.0122223, 1
   %232 = getelementptr inbounds i32, ptr %230, i64 %228
   store i32 0, ptr %232, align 4, !tbaa !60
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
@@ -1589,7 +1589,7 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
   br i1 %210, label %244, label %236
 
 236:                                              ; preds = %235
-  %237 = invoke noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %209, ptr noundef nonnull align 8 dereferenceable(48) %.1102225)
+  %237 = invoke noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %209, ptr noundef nonnull align 8 dereferenceable(48) %.1102226)
           to label %238 unwind label %233
 
 238:                                              ; preds = %236
@@ -1598,10 +1598,10 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
 
 239:                                              ; preds = %238
   %240 = load ptr, ptr %7, align 8, !tbaa !93
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv244
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv245
   store i8 1, ptr %241, align 1, !tbaa !18
-  %242 = trunc nuw nsw i64 %indvars.iv244 to i32
-  %243 = invoke noundef i32 @_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(48) %209, i32 noundef %242, i32 noundef %.0122222, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %242 = trunc nuw nsw i64 %indvars.iv245 to i32
+  %243 = invoke noundef i32 @_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(48) %209, i32 noundef %242, i32 noundef %.0122223, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit unwind label %233
 
 244:                                              ; preds = %238, %235
@@ -1611,174 +1611,169 @@ _ZN6icu_773LSRD2Ev.exit182:                       ; preds = %_ZN6icu_7712_GLOBAL
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr %7, align 8, !tbaa !93
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %indvars.iv244
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %indvars.iv245
   br i1 %246, label %250, label %252
 
 250:                                              ; preds = %247
   store i8 2, ptr %249, align 1, !tbaa !18
-  %251 = add nsw i32 %.0119223, 1
+  %251 = add nsw i32 %.0119224, 1
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
 
 252:                                              ; preds = %247
   store i8 3, ptr %249, align 1, !tbaa !18
   br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
 
-_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit: ; preds = %226, %.noexc183, %239, %252, %250
-  %.2124.ph = phi i32 [ %231, %226 ], [ %.0122222, %.noexc183 ], [ %243, %239 ], [ %.0122222, %252 ], [ %.0122222, %250 ]
-  %.2121.ph = phi i32 [ %.0119223, %226 ], [ %.0119223, %.noexc183 ], [ %.0119223, %239 ], [ %.0119223, %252 ], [ %251, %250 ]
-  %.2103.ph = phi ptr [ %209, %226 ], [ %209, %.noexc183 ], [ %.1102225, %239 ], [ %.1102225, %252 ], [ %.1102225, %250 ]
-  %.5.ph = phi ptr [ %207, %226 ], [ %207, %.noexc183 ], [ %.3226, %239 ], [ %.3226, %252 ], [ %.3226, %250 ]
+_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit: ; preds = %226, %.noexc187, %239, %252, %250
+  %.2124.ph = phi i32 [ %231, %226 ], [ %.0122223, %.noexc187 ], [ %243, %239 ], [ %.0122223, %252 ], [ %.0122223, %250 ]
+  %.2121.ph = phi i32 [ %.0119224, %226 ], [ %.0119224, %.noexc187 ], [ %.0119224, %239 ], [ %.0119224, %252 ], [ %251, %250 ]
+  %.2103.ph = phi ptr [ %209, %226 ], [ %209, %.noexc187 ], [ %.1102226, %239 ], [ %.1102226, %252 ], [ %.1102226, %250 ]
+  %.5.ph = phi ptr [ %207, %226 ], [ %207, %.noexc187 ], [ %.3227, %239 ], [ %.3227, %252 ], [ %.3227, %250 ]
   %.pr = load i32, ptr %2, align 4, !tbaa !16
   %253 = icmp slt i32 %.pr, 1
-  br i1 %253, label %201, label %.thread206
+  br i1 %253, label %201, label %.critedge178
 
 ._crit_edge:                                      ; preds = %201
   %254 = add nsw i32 %.2121.ph, %.2124.ph
   %255 = icmp sgt i32 %202, 0
   %256 = icmp sgt i32 %.2121.ph, 0
   %257 = select i1 %255, i1 %256, i1 false
-  br i1 %257, label %.lr.ph233, label %.preheader
+  br i1 %257, label %.lr.ph234, label %.preheader
 
-.preheader:                                       ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189, %._crit_edge
-  %258 = phi i32 [ %202, %._crit_edge ], [ %287, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189 ]
-  %.3125.lcssa = phi i32 [ %.2124.ph, %._crit_edge ], [ %.4126, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189 ]
+.preheader:                                       ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193, %._crit_edge
+  %258 = phi i32 [ %202, %._crit_edge ], [ %287, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193 ]
+  %.3125.lcssa = phi i32 [ %.2124.ph, %._crit_edge ], [ %.4126, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193 ]
   %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %.lr.ph237, label %._crit_edge238
+  br i1 %259, label %.lr.ph238, label %._crit_edge239
 
-.lr.ph233:                                        ; preds = %._crit_edge, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189
-  %indvars.iv247 = phi i64 [ %indvars.iv.next248, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189 ], [ 0, %._crit_edge ]
-  %.3125230 = phi i32 [ %.4126, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189 ], [ %.2124.ph, %._crit_edge ]
+.lr.ph234:                                        ; preds = %._crit_edge, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
+  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193 ], [ 0, %._crit_edge ]
+  %.3125231 = phi i32 [ %.4126, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193 ], [ %.2124.ph, %._crit_edge ]
   %260 = load ptr, ptr %7, align 8, !tbaa !93
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv247
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv248
   %262 = load i8, ptr %261, align 1, !tbaa !18
   %263 = icmp eq i8 %262, 2
-  br i1 %263, label %264, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189
+  br i1 %263, label %264, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
 
-264:                                              ; preds = %.lr.ph233
+264:                                              ; preds = %.lr.ph234
   %265 = load ptr, ptr %25, align 8, !tbaa !86
-  %266 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %265, i64 %indvars.iv247
+  %266 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %265, i64 %indvars.iv248
   %267 = load i32, ptr %2, align 4, !tbaa !16
   %268 = icmp slt i32 %267, 1
-  br i1 %268, label %269, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189
+  br i1 %268, label %269, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
 
 269:                                              ; preds = %264
   %270 = load ptr, ptr %27, align 8, !tbaa !48
   %271 = invoke signext i8 @uhash_containsKey_77(ptr noundef %270, ptr noundef nonnull align 8 dereferenceable(48) %266)
-          to label %.noexc187 unwind label %285
+          to label %.noexc191 unwind label %285
 
-.noexc187:                                        ; preds = %269
-  %.not14.i186 = icmp eq i8 %271, 0
-  br i1 %.not14.i186, label %272, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189
+.noexc191:                                        ; preds = %269
+  %.not14.i190 = icmp eq i8 %271, 0
+  br i1 %.not14.i190, label %272, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
 
-272:                                              ; preds = %.noexc187
+272:                                              ; preds = %.noexc191
   %273 = load ptr, ptr %27, align 8, !tbaa !48
-  %274 = trunc nuw nsw i64 %indvars.iv247 to i32
+  %274 = trunc nuw nsw i64 %indvars.iv248 to i32
   %275 = invoke i32 @uhash_putiAllowZero_77(ptr noundef %273, ptr noundef nonnull align 8 dereferenceable(48) %266, i32 noundef %274, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc188 unwind label %285
+          to label %.noexc192 unwind label %285
 
-.noexc188:                                        ; preds = %272
+.noexc192:                                        ; preds = %272
   %276 = load i32, ptr %2, align 4, !tbaa !16
   %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189, label %278
+  br i1 %277, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193, label %278
 
-278:                                              ; preds = %.noexc188
+278:                                              ; preds = %.noexc192
   %279 = load ptr, ptr %28, align 8, !tbaa !57
-  %280 = sext i32 %.3125230 to i64
+  %280 = sext i32 %.3125231 to i64
   %281 = getelementptr inbounds ptr, ptr %279, i64 %280
   store ptr %266, ptr %281, align 8, !tbaa !58
   %282 = load ptr, ptr %29, align 8, !tbaa !59
-  %283 = add nsw i32 %.3125230, 1
+  %283 = add nsw i32 %.3125231, 1
   %284 = getelementptr inbounds i32, ptr %282, i64 %280
   store i32 %274, ptr %284, align 4, !tbaa !60
-  br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189
+  br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193
 
 285:                                              ; preds = %272, %269
   %286 = landingpad { ptr, i32 }
           cleanup
   br label %322
 
-_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit189: ; preds = %278, %.noexc188, %.noexc187, %264, %.lr.ph233
-  %.4126 = phi i32 [ %.3125230, %.lr.ph233 ], [ %.3125230, %264 ], [ %.3125230, %.noexc187 ], [ %283, %278 ], [ %.3125230, %.noexc188 ]
-  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
+_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193: ; preds = %278, %.noexc192, %.noexc191, %264, %.lr.ph234
+  %.4126 = phi i32 [ %.3125231, %.lr.ph234 ], [ %.3125231, %264 ], [ %.3125231, %.noexc191 ], [ %283, %278 ], [ %.3125231, %.noexc192 ]
+  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %287 = load i32, ptr %26, align 8, !tbaa !81
   %288 = sext i32 %287 to i64
-  %289 = icmp slt i64 %indvars.iv.next248, %288
+  %289 = icmp slt i64 %indvars.iv.next249, %288
   %290 = icmp slt i32 %.4126, %254
   %291 = select i1 %289, i1 %290, i1 false
-  br i1 %291, label %.lr.ph233, label %.preheader, !llvm.loop !96
+  br i1 %291, label %.lr.ph234, label %.preheader, !llvm.loop !96
 
-.lr.ph237:                                        ; preds = %.preheader, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194
-  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194 ], [ 0, %.preheader ]
-  %.5127235 = phi i32 [ %.6128, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194 ], [ %.3125.lcssa, %.preheader ]
+._crit_edge239:                                   ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198, %.preheader210, %.preheader
+  %.3.lcssa261264 = phi ptr [ %.5.ph, %.preheader ], [ %.0, %.preheader210 ], [ %.5.ph, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ]
+  %.5127.lcssa = phi i32 [ %.3125.lcssa, %.preheader ], [ 0, %.preheader210 ], [ %.6128, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ]
+  store i32 %.5127.lcssa, ptr %30, align 8, !tbaa !97
+  call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  br label %324
+
+.lr.ph238:                                        ; preds = %.preheader, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
+  %indvars.iv251 = phi i64 [ %indvars.iv.next252, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ], [ 0, %.preheader ]
+  %.5127236 = phi i32 [ %.6128, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ], [ %.3125.lcssa, %.preheader ]
   %292 = load ptr, ptr %7, align 8, !tbaa !93
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 %indvars.iv250
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 %indvars.iv251
   %294 = load i8, ptr %293, align 1, !tbaa !18
   %295 = icmp eq i8 %294, 3
-  br i1 %295, label %296, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194
+  br i1 %295, label %296, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
 
-296:                                              ; preds = %.lr.ph237
+296:                                              ; preds = %.lr.ph238
   %297 = load ptr, ptr %25, align 8, !tbaa !86
-  %298 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %297, i64 %indvars.iv250
+  %298 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %297, i64 %indvars.iv251
   %299 = load i32, ptr %2, align 4, !tbaa !16
   %300 = icmp slt i32 %299, 1
-  br i1 %300, label %301, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194
+  br i1 %300, label %301, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
 
 301:                                              ; preds = %296
   %302 = load ptr, ptr %27, align 8, !tbaa !48
   %303 = invoke signext i8 @uhash_containsKey_77(ptr noundef %302, ptr noundef nonnull align 8 dereferenceable(48) %298)
-          to label %.noexc192 unwind label %317
+          to label %.noexc196 unwind label %317
 
-.noexc192:                                        ; preds = %301
-  %.not14.i191 = icmp eq i8 %303, 0
-  br i1 %.not14.i191, label %304, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194
+.noexc196:                                        ; preds = %301
+  %.not14.i195 = icmp eq i8 %303, 0
+  br i1 %.not14.i195, label %304, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
 
-304:                                              ; preds = %.noexc192
+304:                                              ; preds = %.noexc196
   %305 = load ptr, ptr %27, align 8, !tbaa !48
-  %306 = trunc nuw nsw i64 %indvars.iv250 to i32
+  %306 = trunc nuw nsw i64 %indvars.iv251 to i32
   %307 = invoke i32 @uhash_putiAllowZero_77(ptr noundef %305, ptr noundef nonnull align 8 dereferenceable(48) %298, i32 noundef %306, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc193 unwind label %317
+          to label %.noexc197 unwind label %317
 
-.noexc193:                                        ; preds = %304
+.noexc197:                                        ; preds = %304
   %308 = load i32, ptr %2, align 4, !tbaa !16
   %309 = icmp sgt i32 %308, 0
-  br i1 %309, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194, label %310
+  br i1 %309, label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198, label %310
 
-310:                                              ; preds = %.noexc193
+310:                                              ; preds = %.noexc197
   %311 = load ptr, ptr %28, align 8, !tbaa !57
-  %312 = sext i32 %.5127235 to i64
+  %312 = sext i32 %.5127236 to i64
   %313 = getelementptr inbounds ptr, ptr %311, i64 %312
   store ptr %298, ptr %313, align 8, !tbaa !58
   %314 = load ptr, ptr %29, align 8, !tbaa !59
-  %315 = add nsw i32 %.5127235, 1
+  %315 = add nsw i32 %.5127236, 1
   %316 = getelementptr inbounds i32, ptr %314, i64 %312
   store i32 %306, ptr %316, align 4, !tbaa !60
-  br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194
+  br label %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198
 
 317:                                              ; preds = %304, %301
   %318 = landingpad { ptr, i32 }
           cleanup
   br label %322
 
-_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194: ; preds = %310, %.noexc193, %.noexc192, %296, %.lr.ph237
-  %.6128 = phi i32 [ %.5127235, %.lr.ph237 ], [ %.5127235, %296 ], [ %.5127235, %.noexc192 ], [ %315, %310 ], [ %.5127235, %.noexc193 ]
-  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
+_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198: ; preds = %310, %.noexc197, %.noexc196, %296, %.lr.ph238
+  %.6128 = phi i32 [ %.5127236, %.lr.ph238 ], [ %.5127236, %296 ], [ %.5127236, %.noexc196 ], [ %315, %310 ], [ %.5127236, %.noexc197 ]
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %319 = load i32, ptr %26, align 8, !tbaa !81
   %320 = sext i32 %319 to i64
-  %321 = icmp slt i64 %indvars.iv.next251, %320
-  br i1 %321, label %.lr.ph237, label %._crit_edge238, !llvm.loop !97
-
-.thread206:                                       ; preds = %213, %.noexc184, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit, %194
-  call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
-  br label %.loopexit
-
-._crit_edge238:                                   ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194, %.preheader209, %.preheader
-  %.3.lcssa260263 = phi ptr [ %.5.ph, %.preheader ], [ %.0, %.preheader209 ], [ %.5.ph, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194 ]
-  %.5127.lcssa = phi i32 [ %.3125.lcssa, %.preheader ], [ 0, %.preheader209 ], [ %.6128, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194 ]
-  store i32 %.5127.lcssa, ptr %30, align 8, !tbaa !98
-  call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
-  br label %324
+  %321 = icmp slt i64 %indvars.iv.next252, %320
+  br i1 %321, label %.lr.ph238, label %._crit_edge239, !llvm.loop !98
 
 322:                                              ; preds = %285, %317, %233
   %.pn159.pn = phi { ptr, i32 } [ %234, %233 ], [ %286, %285 ], [ %318, %317 ]
@@ -1790,8 +1785,8 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194: ; pred
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
   br label %374
 
-324:                                              ; preds = %._crit_edge238, %.thread, %82
-  %.1 = phi ptr [ %.3.lcssa260263, %._crit_edge238 ], [ %.0, %82 ], [ %.0, %.thread ]
+324:                                              ; preds = %._crit_edge239, %.thread, %82
+  %.1 = phi ptr [ %.3.lcssa261264, %._crit_edge239 ], [ %.0, %82 ], [ %.0, %.thread ]
   store ptr %.1, ptr %32, align 8, !tbaa !99
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %326 = load i32, ptr %325, align 4, !tbaa !32
@@ -1890,14 +1885,24 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194: ; pred
   store i32 %367, ptr %14, align 8, !tbaa !63
   br label %.loopexit
 
-.loopexit:                                        ; preds = %164, %.thread206, %.critedge, %332, %364, %350, %173, %_ZN6icu_773LSRD2Ev.exit, %190, %114, %45
+.critedge176:                                     ; preds = %194
+  call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  br label %.loopexit
+
+.critedge178:                                     ; preds = %213, %.noexc188, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit
+  call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %164, %.critedge, %332, %364, %350, %.critedge178, %.critedge176, %173, %_ZN6icu_773LSRD2Ev.exit, %190, %114, %45
   %368 = load ptr, ptr %40, align 8, !tbaa !77
-  %.not.i195 = icmp eq ptr %368, null
-  br i1 %.not.i195, label %_ZN6icu_773LSRD2Ev.exit196, label %369
+  %.not.i199 = icmp eq ptr %368, null
+  br i1 %.not.i199, label %_ZN6icu_773LSRD2Ev.exit200, label %369
 
 369:                                              ; preds = %.loopexit
   invoke void @_ZN6icu_773LSR11deleteOwnedEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
-          to label %_ZN6icu_773LSRD2Ev.exit196 unwind label %370
+          to label %_ZN6icu_773LSRD2Ev.exit200 unwind label %370
 
 370:                                              ; preds = %369
   %371 = landingpad { ptr, i32 }
@@ -1906,11 +1911,11 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit194: ; pred
   call void @__clang_call_terminate(ptr %372) #18
   unreachable
 
-_ZN6icu_773LSRD2Ev.exit196:                       ; preds = %.loopexit, %369
+_ZN6icu_773LSRD2Ev.exit200:                       ; preds = %.loopexit, %369
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #17
   br label %373
 
-373:                                              ; preds = %3, %_ZN6icu_773LSRD2Ev.exit196
+373:                                              ; preds = %3, %_ZN6icu_773LSRD2Ev.exit200
   ret void
 
 374:                                              ; preds = %139, %169, %167, %363, %323, %77, %46
@@ -2155,8 +2160,8 @@ define void @_ZN6icu_7713LocaleMatcherC2EOS0_(ptr noundef nonnull writeonly alig
   store ptr %36, ptr %34, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %39 = load i32, ptr %38, align 8, !tbaa !98
-  store i32 %39, ptr %37, align 8, !tbaa !98
+  %39 = load i32, ptr %38, align 8, !tbaa !97
+  store i32 %39, ptr %37, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load ptr, ptr %41, align 8, !tbaa !71
@@ -2358,9 +2363,9 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN6icu_7713LocaleMatch
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %31, ptr %32, align 8, !tbaa !59
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %34 = load i32, ptr %33, align 8, !tbaa !98
+  %34 = load i32, ptr %33, align 8, !tbaa !97
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %34, ptr %35, align 8, !tbaa !98
+  store i32 %34, ptr %35, align 8, !tbaa !97
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %37 = load ptr, ptr %36, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2587,7 +2592,7 @@ common.resume:                                    ; preds = %93, %60
 62:                                               ; preds = %.critedge, %31
   %63 = load ptr, ptr %14, align 8, !tbaa !95
   %64 = load ptr, ptr %15, align 8, !tbaa !57
-  %65 = load i32, ptr %16, align 8, !tbaa !98
+  %65 = load i32, ptr %16, align 8, !tbaa !97
   %66 = load i32, ptr %17, align 8, !tbaa !65
   %67 = load i32, ptr %18, align 4, !tbaa !66
   %68 = call noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %63, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %64, i32 noundef %65, i32 noundef %.030, i32 noundef %66, i32 noundef %67)
@@ -4323,8 +4328,8 @@ attributes #21 = { builtin nounwind }
 !94 = !{!"_ZTSN6icu_7715MaybeStackArrayIaLi100EEE", !22, i64 0, !9, i64 8, !7, i64 12, !7, i64 13}
 !95 = !{!49, !51, i64 8}
 !96 = distinct !{!96, !46}
-!97 = distinct !{!97, !46}
-!98 = !{!49, !9, i64 80}
+!97 = !{!49, !9, i64 80}
+!98 = distinct !{!98, !46}
 !99 = !{!49, !5, i64 96}
 !100 = !{!101, !9, i64 84}
 !101 = !{!"_ZTSN6icu_7714LocaleDistanceE", !50, i64 0, !102, i64 8, !22, i64 40, !103, i64 48, !54, i64 56, !9, i64 64, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84}

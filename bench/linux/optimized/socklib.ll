@@ -388,7 +388,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   %14 = add i32 %12, %13
   store i32 0, ptr %5, align 4
   %15 = icmp eq ptr %0, null
-  br i1 %15, label %118, label %16, !prof !9
+  br i1 %15, label %119, label %16, !prof !9
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -400,7 +400,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   %22 = trunc i64 %21 to i32
   %23 = add i32 %10, %22
   %24 = icmp ugt i32 %23, %3
-  br i1 %24, label %25, label %58
+  br i1 %24, label %25, label %59
 
 25:                                               ; preds = %16
   %26 = sub nuw i32 %23, %3
@@ -464,116 +464,116 @@ define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0
   %53 = phi i32 [ %43, %42 ], [ %51, %50 ]
   %54 = icmp eq i32 %53, %26
   %55 = select i1 %28, i1 %54, i1 false
-  br i1 %55, label %.thread, label %112
+  br i1 %55, label %56, label %.critedge
 
-.thread:                                          ; preds = %52
-  %56 = load i32, ptr %5, align 4
-  %57 = add i32 %56, %26
-  store i32 %57, ptr %5, align 4
-  br label %60
+56:                                               ; preds = %52
+  %57 = load i32, ptr %5, align 4
+  %58 = add i32 %57, %26
+  store i32 %58, ptr %5, align 4
+  br label %61
 
-58:                                               ; preds = %16
-  %59 = sub nuw i32 %3, %23
-  br label %60
+59:                                               ; preds = %16
+  %60 = sub nuw i32 %3, %23
+  br label %61
 
-60:                                               ; preds = %.thread, %58
-  %61 = phi i32 [ %59, %58 ], [ 0, %.thread ]
-  %62 = phi i32 [ %14, %58 ], [ %27, %.thread ]
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp ult i32 %61, %64
-  br i1 %65, label %66, label %94
+61:                                               ; preds = %56, %59
+  %62 = phi i32 [ 0, %56 ], [ %60, %59 ]
+  %63 = phi i32 [ %27, %56 ], [ %14, %59 ]
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp ult i32 %62, %65
+  br i1 %66, label %67, label %96
 
-66:                                               ; preds = %60
-  %67 = sub nuw i32 %64, %61
-  %68 = icmp ne i32 %62, %67
-  br i1 %68, label %72, label %69
+67:                                               ; preds = %61
+  %68 = sub nuw i32 %65, %62
+  %69 = icmp ne i32 %63, %68
+  br i1 %69, label %73, label %70
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr %17, align 4
-  %71 = and i32 %70, -32769
-  store i32 %71, ptr %17, align 4
-  br label %72
+70:                                               ; preds = %67
+  %71 = load i32, ptr %17, align 4
+  %72 = and i32 %71, -32769
+  store i32 %72, ptr %17, align 4
+  br label %73
 
-72:                                               ; preds = %69, %66
-  %73 = zext i32 %61 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i64 @xdr_buf_pagecount(ptr noundef %2) #9
-  %78 = load i32, ptr %63, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %80 = load i32, ptr %79, align 8
-  %81 = add i32 %80, %78
-  %82 = zext i32 %81 to i64
-  call void @iov_iter_bvec(ptr noundef nonnull %74, i32 noundef 1, ptr noundef %76, i64 noundef %77, i64 noundef %82) #9
-  %83 = load i32, ptr %79, align 8
-  %84 = zext i32 %83 to i64
-  %85 = add nuw nsw i64 %84, %73
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %88, label %87
+73:                                               ; preds = %70, %67
+  %74 = zext i32 %62 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i64 @xdr_buf_pagecount(ptr noundef %2) #9
+  %79 = load i32, ptr %64, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %81 = load i32, ptr %80, align 8
+  %82 = add i32 %81, %79
+  %83 = zext i32 %82 to i64
+  call void @iov_iter_bvec(ptr noundef nonnull %75, i32 noundef 1, ptr noundef %77, i64 noundef %78, i64 noundef %83) #9
+  %84 = load i32, ptr %80, align 8
+  %85 = zext i32 %84 to i64
+  %86 = add nuw nsw i64 %85, %74
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %89, label %88
 
-87:                                               ; preds = %72
-  call void @iov_iter_advance(ptr noundef nonnull %74, i64 noundef %85) #9
-  br label %88
+88:                                               ; preds = %73
+  call void @iov_iter_advance(ptr noundef nonnull %75, i64 noundef %86) #9
+  br label %89
 
-88:                                               ; preds = %87, %72
-  %89 = call i32 @sock_sendmsg(ptr noundef nonnull %0, ptr noundef %1) #9
-  %90 = icmp eq i32 %89, %67
-  %91 = select i1 %68, i1 %90, i1 false
-  br i1 %91, label %.thread15, label %112
+89:                                               ; preds = %88, %73
+  %90 = call i32 @sock_sendmsg(ptr noundef nonnull %0, ptr noundef %1) #9
+  %91 = icmp eq i32 %90, %68
+  %92 = select i1 %69, i1 %91, i1 false
+  br i1 %92, label %93, label %.critedge
 
-.thread15:                                        ; preds = %88
-  %92 = load i32, ptr %5, align 4
-  %93 = add i32 %92, %67
-  store i32 %93, ptr %5, align 4
-  br label %96
+93:                                               ; preds = %89
+  %94 = load i32, ptr %5, align 4
+  %95 = add i32 %94, %68
+  store i32 %95, ptr %5, align 4
+  br label %98
 
-94:                                               ; preds = %60
-  %95 = sub nuw i32 %61, %64
-  br label %96
+96:                                               ; preds = %61
+  %97 = sub nuw i32 %62, %65
+  br label %98
 
-96:                                               ; preds = %.thread15, %94
-  %97 = phi i32 [ %95, %94 ], [ 0, %.thread15 ]
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp ugt i64 %100, %98
-  br i1 %101, label %102, label %118
+98:                                               ; preds = %93, %96
+  %99 = phi i32 [ 0, %93 ], [ %97, %96 ]
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %102 = load i64, ptr %101, align 8
+  %103 = icmp ugt i64 %102, %100
+  br i1 %103, label %104, label %119
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %104 = load i32, ptr %17, align 4
-  %105 = and i32 %104, -32769
-  store i32 %105, ptr %17, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %107 = load i64, ptr %99, align 8
-  call void @iov_iter_kvec(ptr noundef nonnull %106, i32 noundef 1, ptr noundef nonnull %103, i64 noundef 1, i64 noundef %107) #9
-  %108 = icmp eq i32 %97, 0
-  br i1 %108, label %110, label %109
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %106 = load i32, ptr %17, align 4
+  %107 = and i32 %106, -32769
+  store i32 %107, ptr %17, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %109 = load i64, ptr %101, align 8
+  call void @iov_iter_kvec(ptr noundef nonnull %108, i32 noundef 1, ptr noundef nonnull %105, i64 noundef 1, i64 noundef %109) #9
+  %110 = icmp eq i32 %99, 0
+  br i1 %110, label %112, label %111
 
-109:                                              ; preds = %102
-  call void @iov_iter_advance(ptr noundef nonnull %106, i64 noundef %98) #9
-  br label %110
-
-110:                                              ; preds = %109, %102
-  %111 = call i32 @sock_sendmsg(ptr noundef nonnull %0, ptr noundef %1) #9
+111:                                              ; preds = %104
+  call void @iov_iter_advance(ptr noundef nonnull %108, i64 noundef %100) #9
   br label %112
 
-112:                                              ; preds = %88, %52, %110
-  %113 = phi i32 [ %111, %110 ], [ %53, %52 ], [ %89, %88 ]
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %118
+112:                                              ; preds = %111, %104
+  %113 = call i32 @sock_sendmsg(ptr noundef nonnull %0, ptr noundef %1) #9
+  br label %.critedge
 
-115:                                              ; preds = %112
-  %116 = load i32, ptr %5, align 4
-  %117 = add i32 %116, %113
-  store i32 %117, ptr %5, align 4
-  br label %118
+.critedge:                                        ; preds = %89, %52, %112
+  %114 = phi i32 [ %113, %112 ], [ %53, %52 ], [ %90, %89 ]
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %116, label %119
 
-118:                                              ; preds = %115, %112, %96, %6
-  %119 = phi i32 [ -88, %6 ], [ 0, %96 ], [ 0, %115 ], [ %113, %112 ]
-  ret i32 %119
+116:                                              ; preds = %.critedge
+  %117 = load i32, ptr %5, align 4
+  %118 = add i32 %117, %114
+  store i32 %118, ptr %5, align 4
+  br label %119
+
+119:                                              ; preds = %116, %.critedge, %98, %6
+  %120 = phi i32 [ -88, %6 ], [ 0, %98 ], [ 0, %116 ], [ %114, %.critedge ]
+  ret i32 %120
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -98,7 +98,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %33 = add nuw i64 %.sroa.01.039, 1
   %34 = load i64, ptr %5, align 8, !noundef !4
   %35 = icmp ugt i64 %34, %.val29
-  br i1 %35, label %36, label %50
+  br i1 %35, label %36, label %.critedge
 
 "_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit": ; preds = %6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd3dc628e23f969f0E.exit"
   ret void
@@ -124,60 +124,55 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %.0.sroa.speculated.i1.i.i31 = zext i8 %48 to i32
   %49 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i31, 1
   %.not.i32.not = icmp samesign ult i32 %49, %.0.sroa.speculated.i.i.i30
-  br i1 %.not.i32.not, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, label %53
+  br i1 %.not.i32.not, label %.critedge, label %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit
 
-50:                                               ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge, %.preheader.split
-  %51 = phi i64 [ %.pre, %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge ], [ %34, %.preheader.split ]
-  %52 = icmp ult i64 %.sroa.01.039, %51
-  br i1 %52, label %56, label %71, !prof !35
+.critedge:                                        ; preds = %36, %.preheader.split
+  %50 = icmp ult i64 %.sroa.01.039, %34
+  br i1 %50, label %53, label %68, !prof !35
 
-_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit._crit_edge: ; preds = %36
-  %.pre = load i64, ptr %5, align 8
-  br label %50
-
-53:                                               ; preds = %36
-  %54 = call noundef i8 @_ZN4core3cmp6min_by17h57de30d459500e02E.llvm.8118306253422699639(i8 noundef %41, i8 noundef %44), !noalias !36
-  %55 = call noundef i8 @_ZN4core3cmp6max_by17h463597687c5f886cE.llvm.8118306253422699639(i8 noundef %43, i8 noundef %46), !noalias !36
-  %..i.i = call i8 @llvm.umin.i8(i8 %54, i8 %55)
-  %.6.i.i = call i8 @llvm.umax.i8(i8 %54, i8 %55)
+_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit: ; preds = %36
+  %51 = call noundef i8 @_ZN4core3cmp6min_by17h57de30d459500e02E.llvm.8118306253422699639(i8 noundef %41, i8 noundef %44), !noalias !36
+  %52 = call noundef i8 @_ZN4core3cmp6max_by17h463597687c5f886cE.llvm.8118306253422699639(i8 noundef %43, i8 noundef %46), !noalias !36
+  %..i.i = call i8 @llvm.umin.i8(i8 %51, i8 %52)
+  %.6.i.i = call i8 @llvm.umax.i8(i8 %51, i8 %52)
   store i8 %..i.i, ptr %39, align 1
   store i8 %.6.i.i, ptr %42, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
+.backedge:                                        ; preds = %_ZN12regex_syntax3hir8interval8Interval5union17h3b0e974a9a940794E.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
   %exitcond.not = icmp eq i64 %33, %.val29
   br i1 %exitcond.not, label %22, label %.preheader.split
 
-56:                                               ; preds = %50
-  %57 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds [0 x { i8, i8 }], ptr %57, i64 0, i64 %.sroa.01.039
-  %59 = load i8, ptr %58, align 1, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  %61 = load i8, ptr %60, align 1, !noundef !4
-  %62 = load i64, ptr %0, align 8, !alias.scope !37, !noundef !4
-  %63 = icmp eq i64 %51, %62
-  br i1 %63, label %64, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
+53:                                               ; preds = %.critedge
+  %54 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
+  %55 = getelementptr inbounds [0 x { i8, i8 }], ptr %54, i64 0, i64 %.sroa.01.039
+  %56 = load i8, ptr %55, align 1, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %58 = load i8, ptr %57, align 1, !noundef !4
+  %59 = load i64, ptr %0, align 8, !alias.scope !37, !noundef !4
+  %60 = icmp eq i64 %34, %59
+  br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
 
-64:                                               ; preds = %56
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9280b10f99ee8b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %51)
+61:                                               ; preds = %53
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9280b10f99ee8b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %.pre.i = load i64, ptr %5, align 8, !alias.scope !37
-  %.pre41 = load ptr, ptr %4, align 8, !alias.scope !37
+  %.pre = load ptr, ptr %4, align 8, !alias.scope !37
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit": ; preds = %56, %64
-  %65 = phi ptr [ %.pre41, %64 ], [ %57, %56 ]
-  %66 = phi i64 [ %.pre.i, %64 ], [ %51, %56 ]
-  %67 = getelementptr inbounds { i8, i8 }, ptr %65, i64 %66
-  store i8 %59, ptr %67, align 1
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store i8 %61, ptr %68, align 1
-  %69 = load i64, ptr %5, align 8, !alias.scope !37, !noundef !4
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %5, align 8, !alias.scope !37
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h287eb9b096132079E.exit": ; preds = %53, %61
+  %62 = phi ptr [ %.pre, %61 ], [ %54, %53 ]
+  %63 = phi i64 [ %.pre.i, %61 ], [ %34, %53 ]
+  %64 = getelementptr inbounds { i8, i8 }, ptr %62, i64 %63
+  store i8 %56, ptr %64, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  store i8 %58, ptr %65, align 1
+  %66 = load i64, ptr %5, align 8, !alias.scope !37, !noundef !4
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %5, align 8, !alias.scope !37
   br label %.backedge
 
-71:                                               ; preds = %50
-  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.039, i64 noundef %51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
+68:                                               ; preds = %.critedge
+  call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.01.039, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0c3b78350690d3073dec9efe33796e77.6) #10
   unreachable
 }
 

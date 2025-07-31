@@ -1742,17 +1742,17 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i.i:                                 ; preds = %42
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 13) #5
   %.not6980.i.i = icmp eq ptr %44, null
-  br i1 %.not6980.i.i, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
+  br i1 %.not6980.i.i, label %.critedge.i.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.preheader76.i.i
   %45 = tail call fastcc ptr @simple_stmt_rule(ptr noundef nonnull %0)
   %.not70.i31.i = icmp eq ptr %45, null
-  br i1 %.not70.i31.i, label %._crit_edge.i.i, label %.lr.ph.i
+  br i1 %.not70.i31.i, label %.critedge.i.i, label %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %53
   %46 = tail call fastcc ptr @simple_stmt_rule(ptr noundef nonnull %0)
   %.not70.i.i = icmp eq ptr %46, null
-  br i1 %.not70.i.i, label %._crit_edge.i.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not70.i.i, label %.critedge.i.i, label %.lr.ph.i, !llvm.loop !39
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %47 = phi ptr [ %46, %.lr.ph.i.i ], [ %45, %.lr.ph.i.preheader.i ]
@@ -1778,15 +1778,15 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   %56 = load i32, ptr %11, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 13) #5
   %.not69.i.i = icmp eq ptr %57, null
-  br i1 %.not69.i.i, label %.._crit_edge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %.not69.i.i, label %..critedge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !39
 
-.._crit_edge.i.loopexit_crit_edge.i:              ; preds = %53
-  br label %._crit_edge.i.i, !llvm.loop !39
+..critedge.i.loopexit_crit_edge.i:                ; preds = %53
+  br label %.critedge.i.i, !llvm.loop !39
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.._crit_edge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
-  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %54, %.._crit_edge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %54, %.lr.ph.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %41, %.preheader76.i.i ], [ %.256.i.i, %.._crit_edge.i.loopexit_crit_edge.i ], [ %41, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
-  %.053.lcssa.i.i = phi i32 [ %40, %.preheader76.i.i ], [ %56, %.._crit_edge.i.loopexit_crit_edge.i ], [ %40, %.lr.ph.i.preheader.i ], [ %56, %.lr.ph.i.i ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
+  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %54, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %54, %.lr.ph.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %41, %.preheader76.i.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %41, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
+  %.053.lcssa.i.i = phi i32 [ %40, %.preheader76.i.i ], [ %56, %..critedge.i.loopexit_crit_edge.i ], [ %40, %.lr.ph.i.preheader.i ], [ %56, %.lr.ph.i.i ]
   store i32 %.053.lcssa.i.i, ptr %11, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !32
@@ -1794,7 +1794,7 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i.i = icmp eq ptr %60, null
   br i1 %.not72.i.i, label %_loop0_3_rule.exit.thread.sink.split.sink.split.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %.critedge.i.i
   %61 = icmp sgt i64 %.058.lcssa.i.i, 0
   br i1 %61, label %.lr.ph92.i.i, label %_gather_4_rule.exit
 
@@ -1813,8 +1813,8 @@ define internal fastcc ptr @simple_stmts_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i.i = icmp eq i64 %68, %.058.lcssa.i.i
   br i1 %exitcond.not.i.i, label %_gather_4_rule.exit, label %63, !llvm.loop !40
 
-_loop0_3_rule.exit.thread.sink.split.sink.split.i: ; preds = %49, %._crit_edge.i.i
-  %.054.lcssa.i.sink.i = phi ptr [ %.054.lcssa.i.i, %._crit_edge.i.i ], [ %.05483.i32.i, %49 ]
+_loop0_3_rule.exit.thread.sink.split.sink.split.i: ; preds = %49, %.critedge.i.i
+  %.054.lcssa.i.sink.i = phi ptr [ %.054.lcssa.i.i, %.critedge.i.i ], [ %.05483.i32.i, %49 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink.i) #5
   br label %_loop0_3_rule.exit.thread.sink.split.i
 
@@ -9287,17 +9287,17 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
 
 42:                                               ; preds = %38
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %storemerge.in.pre131.pre.i = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.in.pre129.pre.i = load i32, ptr %2, align 8, !tbaa !20
   %.pre99 = load i32, ptr %8, align 8, !tbaa !21
   %43 = icmp eq i32 %.pre99, 0
   br i1 %43, label %.thread101, label %_gather_64_rule.exit.thread
 
 .thread101:                                       ; preds = %38, %42
-  %storemerge.in.pre131.i104 = phi i32 [ %storemerge.in.pre131.pre.i, %42 ], [ %40, %38 ]
+  %storemerge.in.pre129.i104 = phi i32 [ %storemerge.in.pre129.pre.i, %42 ], [ %40, %38 ]
   %44 = load i32, ptr %11, align 8, !tbaa !22
-  %45 = add i32 %storemerge.in.pre131.i104, 1
+  %45 = add i32 %storemerge.in.pre129.i104, 1
   store i32 %45, ptr %2, align 8, !tbaa !20
-  %46 = icmp eq i32 %storemerge.in.pre131.i104, 6000
+  %46 = icmp eq i32 %storemerge.in.pre129.i104, 6000
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %.thread101
@@ -9351,18 +9351,18 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
 64:                                               ; preds = %61
   %65 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i.i = icmp eq i32 %65, 0
-  br i1 %.not68.i.i, label %.preheader87.i, label %_tmp_156_rule.exit.thread.i
+  br i1 %.not68.i.i, label %.preheader85.i, label %_tmp_156_rule.exit.thread.i
 
-.preheader87.i:                                   ; preds = %64
+.preheader85.i:                                   ; preds = %64
   %66 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i105.i = icmp eq ptr %66, null
-  br i1 %.not69.i105.i, label %_tmp_156_rule.exit40.thread.i, label %.lr.ph.i
+  %.not69.i103.i = icmp eq ptr %66, null
+  br i1 %.not69.i103.i, label %.critedge.i.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader87.i, %88
-  %.053.i109.i = phi i32 [ %91, %88 ], [ %62, %.preheader87.i ]
-  %.054.i108.i = phi ptr [ %.256.i.i, %88 ], [ %63, %.preheader87.i ]
-  %.058.i107.i = phi i64 [ %89, %88 ], [ 0, %.preheader87.i ]
-  %.059.i106.i = phi i64 [ %.160.i.i, %88 ], [ 1, %.preheader87.i ]
+.lr.ph.i:                                         ; preds = %.preheader85.i, %88
+  %.053.i107.i = phi i32 [ %91, %88 ], [ %62, %.preheader85.i ]
+  %.054.i106.i = phi ptr [ %.256.i.i, %88 ], [ %63, %.preheader85.i ]
+  %.058.i105.i = phi i64 [ %89, %88 ], [ 0, %.preheader85.i ]
+  %.059.i104.i = phi i64 [ %.160.i.i, %88 ], [ 1, %.preheader85.i ]
   %67 = load i32, ptr %2, align 8, !tbaa !20
   %68 = add i32 %67, 1
   store i32 %68, ptr %2, align 8, !tbaa !20
@@ -9376,7 +9376,7 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
 71:                                               ; preds = %70, %.lr.ph.i
   %72 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i27.i = icmp eq i32 %72, 0
-  br i1 %.not.i27.i, label %73, label %_tmp_156_rule.exit40.thread.sink.split.i
+  br i1 %.not.i27.i, label %73, label %.critedge.i.sink.split.i
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %11, align 8, !tbaa !22
@@ -9388,78 +9388,78 @@ define internal fastcc ptr @slices_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %74, ptr %11, align 8, !tbaa !22
   %77 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i34.i = icmp eq i32 %77, 0
-  br i1 %.not28.i34.i, label %78, label %_tmp_156_rule.exit40.thread.sink.split.i
+  br i1 %.not28.i34.i, label %78, label %.critedge.i.sink.split.i
 
 78:                                               ; preds = %76
   %79 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
   %.not29.i35.i = icmp eq ptr %79, null
-  br i1 %.not29.i35.i, label %_tmp_156_rule.exit40.thread.sink.split.i, label %80
+  br i1 %.not29.i35.i, label %.critedge.i.sink.split.i, label %80
 
 80:                                               ; preds = %78, %73
   %.122.i33.ph.i = phi ptr [ %79, %78 ], [ %75, %73 ]
   %81 = load i32, ptr %2, align 8, !tbaa !20
   %82 = add i32 %81, -1
   store i32 %82, ptr %2, align 8, !tbaa !20
-  %83 = icmp eq i64 %.058.i107.i, %.059.i106.i
+  %83 = icmp eq i64 %.058.i105.i, %.059.i104.i
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %80
-  %85 = shl i64 %.058.i107.i, 1
-  %86 = shl i64 %.058.i107.i, 4
-  %87 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i108.i, i64 noundef %86) #5
+  %85 = shl i64 %.058.i105.i, 1
+  %86 = shl i64 %.058.i105.i, 4
+  %87 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i106.i, i64 noundef %86) #5
   %.not71.not.i.i = icmp eq ptr %87, null
   br i1 %.not71.not.i.i, label %_tmp_156_rule.exit.thread.sink.split.sink.split.i, label %88
 
 88:                                               ; preds = %84, %80
-  %.160.i.i = phi i64 [ %.059.i106.i, %80 ], [ %85, %84 ]
-  %.256.i.i = phi ptr [ %.054.i108.i, %80 ], [ %87, %84 ]
-  %89 = add i64 %.058.i107.i, 1
-  %90 = getelementptr ptr, ptr %.256.i.i, i64 %.058.i107.i
+  %.160.i.i = phi i64 [ %.059.i104.i, %80 ], [ %85, %84 ]
+  %.256.i.i = phi ptr [ %.054.i106.i, %80 ], [ %87, %84 ]
+  %89 = add i64 %.058.i105.i, 1
+  %90 = getelementptr ptr, ptr %.256.i.i, i64 %.058.i105.i
   store ptr %.122.i33.ph.i, ptr %90, align 8, !tbaa !25
   %91 = load i32, ptr %11, align 8, !tbaa !22
   %92 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i.i = icmp eq ptr %92, null
-  br i1 %.not69.i.i, label %_tmp_156_rule.exit40.thread.i, label %.lr.ph.i, !llvm.loop !56
+  br i1 %.not69.i.i, label %.critedge.i.i, label %.lr.ph.i, !llvm.loop !56
 
-_tmp_156_rule.exit40.thread.sink.split.i:         ; preds = %78, %76, %71
+.critedge.i.sink.split.i:                         ; preds = %78, %76, %71
   %93 = load i32, ptr %2, align 8, !tbaa !20
   %94 = add i32 %93, -1
   store i32 %94, ptr %2, align 8, !tbaa !20
-  br label %_tmp_156_rule.exit40.thread.i
+  br label %.critedge.i.i
 
-_tmp_156_rule.exit40.thread.i:                    ; preds = %88, %_tmp_156_rule.exit40.thread.sink.split.i, %.preheader87.i
-  %.058.i102.i = phi i64 [ 0, %.preheader87.i ], [ %.058.i107.i, %_tmp_156_rule.exit40.thread.sink.split.i ], [ %89, %88 ]
-  %.054.i97.i = phi ptr [ %63, %.preheader87.i ], [ %.054.i108.i, %_tmp_156_rule.exit40.thread.sink.split.i ], [ %.256.i.i, %88 ]
-  %.053.i92.i = phi i32 [ %62, %.preheader87.i ], [ %.053.i109.i, %_tmp_156_rule.exit40.thread.sink.split.i ], [ %91, %88 ]
-  store i32 %.053.i92.i, ptr %11, align 8, !tbaa !22
+.critedge.i.i:                                    ; preds = %88, %.critedge.i.sink.split.i, %.preheader85.i
+  %.058.i100.i = phi i64 [ 0, %.preheader85.i ], [ %.058.i105.i, %.critedge.i.sink.split.i ], [ %89, %88 ]
+  %.054.i95.i = phi ptr [ %63, %.preheader85.i ], [ %.054.i106.i, %.critedge.i.sink.split.i ], [ %.256.i.i, %88 ]
+  %.053.i90.i = phi i32 [ %62, %.preheader85.i ], [ %.053.i107.i, %.critedge.i.sink.split.i ], [ %91, %88 ]
+  store i32 %.053.i90.i, ptr %11, align 8, !tbaa !22
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8, !tbaa !32
-  %97 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i102.i, ptr noundef %96) #5
+  %97 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i100.i, ptr noundef %96) #5
   %.not72.i.i = icmp eq ptr %97, null
   br i1 %.not72.i.i, label %_tmp_156_rule.exit.thread.sink.split.sink.split.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_tmp_156_rule.exit40.thread.i
-  %98 = icmp sgt i64 %.058.i102.i, 0
-  br i1 %98, label %.lr.ph113.i, label %_gather_64_rule.exit
+.preheader.i:                                     ; preds = %.critedge.i.i
+  %98 = icmp sgt i64 %.058.i100.i, 0
+  br i1 %98, label %.lr.ph111.i, label %_gather_64_rule.exit
 
-.lr.ph113.i:                                      ; preds = %.preheader.i
+.lr.ph111.i:                                      ; preds = %.preheader.i
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   br label %100
 
-100:                                              ; preds = %100, %.lr.ph113.i
-  %.0.i26112.i = phi i64 [ 0, %.lr.ph113.i ], [ %105, %100 ]
-  %101 = getelementptr ptr, ptr %.054.i97.i, i64 %.0.i26112.i
+100:                                              ; preds = %100, %.lr.ph111.i
+  %.0.i26110.i = phi i64 [ 0, %.lr.ph111.i ], [ %105, %100 ]
+  %101 = getelementptr ptr, ptr %.054.i95.i, i64 %.0.i26110.i
   %102 = load ptr, ptr %101, align 8, !tbaa !25
   %103 = load ptr, ptr %99, align 8, !tbaa !35
-  %104 = getelementptr ptr, ptr %103, i64 %.0.i26112.i
+  %104 = getelementptr ptr, ptr %103, i64 %.0.i26110.i
   store ptr %102, ptr %104, align 8, !tbaa !25
-  %105 = add nuw nsw i64 %.0.i26112.i, 1
-  %exitcond.not.i = icmp eq i64 %105, %.058.i102.i
+  %105 = add nuw nsw i64 %.0.i26110.i, 1
+  %exitcond.not.i = icmp eq i64 %105, %.058.i100.i
   br i1 %exitcond.not.i, label %_gather_64_rule.exit, label %100, !llvm.loop !57
 
-_tmp_156_rule.exit.thread.sink.split.sink.split.i: ; preds = %84, %_tmp_156_rule.exit40.thread.i
-  %.054.i97.sink.i = phi ptr [ %.054.i97.i, %_tmp_156_rule.exit40.thread.i ], [ %.054.i108.i, %84 ]
-  tail call void @PyMem_Free(ptr noundef %.054.i97.sink.i) #5
+_tmp_156_rule.exit.thread.sink.split.sink.split.i: ; preds = %84, %.critedge.i.i
+  %.054.i95.sink.i = phi ptr [ %.054.i95.i, %.critedge.i.i ], [ %.054.i106.i, %84 ]
+  tail call void @PyMem_Free(ptr noundef %.054.i95.sink.i) #5
   br label %_tmp_156_rule.exit.thread.sink.split.i
 
 _tmp_156_rule.exit.thread.sink.split.i:           ; preds = %_tmp_156_rule.exit.thread.sink.split.sink.split.i, %61
@@ -9473,13 +9473,13 @@ _tmp_156_rule.exit.thread.i:                      ; preds = %_tmp_156_rule.exit.
   br label %_gather_64_rule.exit.thread
 
 _gather_64_rule.exit.thread:                      ; preds = %42, %_tmp_156_rule.exit.thread.i
-  %storemerge.in.i.ph = phi i32 [ %108, %_tmp_156_rule.exit.thread.i ], [ %storemerge.in.pre131.pre.i, %42 ]
+  %storemerge.in.i.ph = phi i32 [ %108, %_tmp_156_rule.exit.thread.i ], [ %storemerge.in.pre129.pre.i, %42 ]
   %storemerge.i83 = add i32 %storemerge.in.i.ph, -1
   store i32 %storemerge.i83, ptr %2, align 8, !tbaa !20
   br label %127
 
 _gather_64_rule.exit:                             ; preds = %100, %.preheader.i
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i97.i) #5
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.i95.i) #5
   %storemerge.in.i.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i.i = add i32 %storemerge.in.i.i, -1
   store i32 %storemerge.i.i, ptr %2, align 8, !tbaa !20
@@ -12998,28 +12998,28 @@ define internal fastcc ptr @star_targets_list_seq_rule(ptr noundef %0) unnamed_a
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8, !tbaa !20
   %15 = icmp eq i32 %13, 6000
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.thread67
 
 16:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %.thread, label %_gather_95_rule.exit.thread
+  br i1 %17, label %.thread67, label %_gather_95_rule.exit.thread
 
 _gather_95_rule.exit.thread:                      ; preds = %16
   %18 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
-.thread:                                          ; preds = %10, %16
+.thread67:                                        ; preds = %10, %16
   %19 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
-  %.pre68 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre66 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %.sink.split, label %20
 
-20:                                               ; preds = %.thread
-  %21 = add i32 %.pre68, 1
+20:                                               ; preds = %.thread67
+  %21 = add i32 %.pre66, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
-  %22 = icmp eq i32 %.pre68, 6000
+  %22 = icmp eq i32 %.pre66, 6000
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
@@ -13029,110 +13029,110 @@ _gather_95_rule.exit.thread:                      ; preds = %16
 24:                                               ; preds = %23, %20
   %25 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i26 = icmp eq i32 %25, 0
-  br i1 %.not.i26, label %26, label %_gather_95_rule.exit.thread44.sink.split
+  br i1 %.not.i26, label %26, label %_gather_95_rule.exit.thread42.sink.split
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %11, align 8, !tbaa !22
   %28 = tail call ptr @PyMem_Malloc(i64 noundef 8) #5
   %.not67.i = icmp eq ptr %28, null
-  br i1 %.not67.i, label %_gather_95_rule.exit.thread44.sink.split.sink.split, label %29
+  br i1 %.not67.i, label %_gather_95_rule.exit.thread42.sink.split.sink.split, label %29
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %30, 0
-  br i1 %.not68.i, label %.preheader50, label %_gather_95_rule.exit.thread44.sink.split
+  br i1 %.not68.i, label %.preheader48, label %_gather_95_rule.exit.thread42.sink.split
 
-.preheader50:                                     ; preds = %29
+.preheader48:                                     ; preds = %29
   %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i54 = icmp eq ptr %31, null
-  br i1 %.not69.i54, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i52 = icmp eq ptr %31, null
+  br i1 %.not69.i52, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader50
+.lr.ph.preheader:                                 ; preds = %.preheader48
   %32 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
-  %.not70.i73 = icmp eq ptr %32, null
-  br i1 %.not70.i73, label %._crit_edge, label %.lr.ph77
+  %.not70.i72 = icmp eq ptr %32, null
+  br i1 %.not70.i72, label %.critedge.i, label %.lr.ph76
 
 .lr.ph:                                           ; preds = %40
   %33 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %33, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph77, !llvm.loop !70
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph76, !llvm.loop !70
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %33, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.059.i5576 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5675 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5774 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %35 = icmp eq i64 %.058.i5675, %.059.i5576
+  %.059.i5375 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i5474 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i5573 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %35 = icmp eq i64 %.058.i5474, %.059.i5375
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.lr.ph77
-  %37 = shl i64 %.058.i5675, 1
-  %38 = shl i64 %.058.i5675, 4
-  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5774, i64 noundef %38) #5
+36:                                               ; preds = %.lr.ph76
+  %37 = shl i64 %.058.i5474, 1
+  %38 = shl i64 %.058.i5474, 4
+  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5573, i64 noundef %38) #5
   %.not71.not.i = icmp eq ptr %39, null
-  br i1 %.not71.not.i, label %_gather_95_rule.exit.thread44.sink.split.sink.split.sink.split, label %40
+  br i1 %.not71.not.i, label %_gather_95_rule.exit.thread42.sink.split.sink.split.sink.split, label %40
 
-40:                                               ; preds = %36, %.lr.ph77
-  %.160.i = phi i64 [ %.059.i5576, %.lr.ph77 ], [ %37, %36 ]
-  %.256.i = phi ptr [ %.054.i5774, %.lr.ph77 ], [ %39, %36 ]
-  %41 = add i64 %.058.i5675, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5675
+40:                                               ; preds = %36, %.lr.ph76
+  %.160.i = phi i64 [ %.059.i5375, %.lr.ph76 ], [ %37, %36 ]
+  %.256.i = phi ptr [ %.054.i5573, %.lr.ph76 ], [ %39, %36 ]
+  %41 = add i64 %.058.i5474, 1
+  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5474
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %44, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !70
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %40
-  br label %._crit_edge, !llvm.loop !70
+..critedge.i.loopexit_crit_edge:                  ; preds = %40
+  br label %.critedge.i, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader50
-  %.058.i.lcssa = phi i64 [ 0, %.preheader50 ], [ %41, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %28, %.preheader50 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %28, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %27, %.preheader50 ], [ %43, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader48
+  %.058.i.lcssa = phi i64 [ 0, %.preheader48 ], [ %41, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %28, %.preheader48 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %28, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %27, %.preheader48 ], [ %43, %..critedge.i.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %11, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %46) #5
   %.not72.i = icmp eq ptr %47, null
-  br i1 %.not72.i, label %_gather_95_rule.exit.thread44.sink.split.sink.split.sink.split, label %.preheader
+  br i1 %.not72.i, label %_gather_95_rule.exit.thread42.sink.split.sink.split.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
+.preheader:                                       ; preds = %.critedge.i
   %48 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %48, label %.lr.ph66, label %_gather_95_rule.exit
+  br i1 %48, label %.lr.ph64, label %_gather_95_rule.exit
 
-.lr.ph66:                                         ; preds = %.preheader
+.lr.ph64:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br label %50
 
-50:                                               ; preds = %.lr.ph66, %50
-  %.0.i2765 = phi i64 [ 0, %.lr.ph66 ], [ %55, %50 ]
-  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2765
+50:                                               ; preds = %.lr.ph64, %50
+  %.0.i2763 = phi i64 [ 0, %.lr.ph64 ], [ %55, %50 ]
+  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2763
   %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = load ptr, ptr %49, align 8, !tbaa !35
-  %54 = getelementptr ptr, ptr %53, i64 %.0.i2765
+  %54 = getelementptr ptr, ptr %53, i64 %.0.i2763
   store ptr %52, ptr %54, align 8, !tbaa !25
-  %55 = add nuw nsw i64 %.0.i2765, 1
+  %55 = add nuw nsw i64 %.0.i2763, 1
   %exitcond.not = icmp eq i64 %55, %.058.i.lcssa
   br i1 %exitcond.not, label %_gather_95_rule.exit, label %50, !llvm.loop !71
 
-_gather_95_rule.exit.thread44.sink.split.sink.split.sink.split: ; preds = %36, %._crit_edge
-  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %._crit_edge ], [ %.054.i5774, %36 ]
+_gather_95_rule.exit.thread42.sink.split.sink.split.sink.split: ; preds = %36, %.critedge.i
+  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5573, %36 ]
   tail call void @PyMem_Free(ptr noundef %.054.i.lcssa.sink) #5
-  br label %_gather_95_rule.exit.thread44.sink.split.sink.split
+  br label %_gather_95_rule.exit.thread42.sink.split.sink.split
 
-_gather_95_rule.exit.thread44.sink.split.sink.split: ; preds = %_gather_95_rule.exit.thread44.sink.split.sink.split.sink.split, %26
+_gather_95_rule.exit.thread42.sink.split.sink.split: ; preds = %_gather_95_rule.exit.thread42.sink.split.sink.split.sink.split, %26
   store i32 1, ptr %8, align 8, !tbaa !21
   %56 = tail call ptr @PyErr_NoMemory() #5
-  br label %_gather_95_rule.exit.thread44.sink.split
+  br label %_gather_95_rule.exit.thread42.sink.split
 
-_gather_95_rule.exit.thread44.sink.split:         ; preds = %_gather_95_rule.exit.thread44.sink.split.sink.split, %29, %24
-  %storemerge.in.i35 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i36 = add i32 %storemerge.in.i35, -1
+_gather_95_rule.exit.thread42.sink.split:         ; preds = %_gather_95_rule.exit.thread42.sink.split.sink.split, %29, %24
+  %storemerge.in.i33 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i34 = add i32 %storemerge.in.i33, -1
   br label %.sink.split
 
 _gather_95_rule.exit:                             ; preds = %50, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
@@ -13149,9 +13149,9 @@ _gather_95_rule.exit:                             ; preds = %50, %.preheader
   %.not24 = icmp eq i32 %62, 0
   br i1 %.not24, label %65, label %64
 
-.sink.split:                                      ; preds = %.thread, %_gather_95_rule.exit.thread44.sink.split, %_gather_95_rule.exit.thread
-  %.sink71 = phi i32 [ %18, %_gather_95_rule.exit.thread ], [ %.pre68, %.thread ], [ %storemerge.i36, %_gather_95_rule.exit.thread44.sink.split ]
-  %63 = add i32 %.sink71, -1
+.sink.split:                                      ; preds = %.thread67, %_gather_95_rule.exit.thread42.sink.split, %_gather_95_rule.exit.thread
+  %.sink70 = phi i32 [ %18, %_gather_95_rule.exit.thread ], [ %.pre66, %.thread67 ], [ %storemerge.i34, %_gather_95_rule.exit.thread42.sink.split ]
+  %63 = add i32 %.sink70, -1
   store i32 %63, ptr %2, align 8, !tbaa !20
   br label %64
 
@@ -15642,7 +15642,7 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %47
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15654,108 +15654,108 @@ define internal fastcc ptr @_loop0_57_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader76, label %47
+  br i1 %.not68, label %.preheader76, label %.critedge74
 
 .preheader76:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980 = icmp eq ptr %18, null
-  br i1 %.not6980, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not6980, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
-  %.not7098 = icmp eq ptr %19, null
-  br i1 %.not7098, label %._crit_edge, label %.lr.ph102
+  %.not7097 = icmp eq ptr %19, null
+  br i1 %.not7097, label %.critedge, label %.lr.ph101
 
-.lr.ph:                                           ; preds = %27
+.lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph102, !llvm.loop !78
+  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !78
 
-.lr.ph102:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981101 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.05882100 = phi i64 [ %28, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548399 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.05882100, %.05981101
-  br i1 %22, label %23, label %27
+  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.0588299, %.05981100
+  br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph102
-  %24 = shl i64 %.05882100, 1
-  %25 = shl i64 %.05882100, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548399, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph101
+  %24 = shl i64 %.0588299, 1
+  %25 = shl i64 %.0588299, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
-  br i1 %.not71.not, label %32, label %27
+  br i1 %.not71.not, label %.thread, label %28
 
-27:                                               ; preds = %23, %.lr.ph102
-  %.160 = phi i64 [ %.05981101, %.lr.ph102 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548399, %.lr.ph102 ], [ %26, %23 ]
-  %28 = add i64 %.05882100, 1
-  %29 = getelementptr ptr, ptr %.256, i64 %.05882100
-  store ptr %21, ptr %29, align 8, !tbaa !25
-  %30 = load i32, ptr %11, align 8, !tbaa !22
-  %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %31, null
-  br i1 %.not69, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !78
-
-32:                                               ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548399) #5
+.thread:                                          ; preds = %23
+  tail call void @PyMem_Free(ptr noundef %.0548398) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %33 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %27 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %27
-  br label %._crit_edge, !llvm.loop !78
+28:                                               ; preds = %23, %.lr.ph101
+  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
+  %29 = add i64 %.0588299, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+  store ptr %21, ptr %30, align 8, !tbaa !25
+  %31 = load i32, ptr %11, align 8, !tbaa !22
+  %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %32, null
+  br i1 %.not69, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %28, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %.._crit_edge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %30, %.._crit_edge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %28
+  br label %.critedge, !llvm.loop !78
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !32
-  %36 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %35) #5
-  %.not72 = icmp eq ptr %36, null
-  br i1 %.not72, label %39, label %.preheader
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %34) #5
+  %.not72 = icmp eq ptr %35, null
+  br i1 %.not72, label %38, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %37 = icmp sgt i64 %.058.lcssa, 0
-  br i1 %37, label %.lr.ph92, label %._crit_edge93
+.preheader:                                       ; preds = %.critedge
+  %36 = icmp sgt i64 %.058.lcssa, 0
+  br i1 %36, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  br label %40
 
-39:                                               ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
+38:                                               ; preds = %.critedge
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %40 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %39 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge93:                                    ; preds = %41, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
-  br label %47
+._crit_edge:                                      ; preds = %40, %.preheader
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
+  br label %.critedge74
 
-41:                                               ; preds = %.lr.ph92, %41
-  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %46, %41 ]
-  %42 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
-  %44 = load ptr, ptr %38, align 8, !tbaa !35
-  %45 = getelementptr ptr, ptr %44, i64 %.091
-  store ptr %43, ptr %45, align 8, !tbaa !25
-  %46 = add nuw nsw i64 %.091, 1
-  %exitcond.not = icmp eq i64 %46, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge93, label %41, !llvm.loop !79
+40:                                               ; preds = %.lr.ph92, %40
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
+  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = load ptr, ptr %37, align 8, !tbaa !35
+  %44 = getelementptr ptr, ptr %43, i64 %.091
+  store ptr %42, ptr %44, align 8, !tbaa !25
+  %45 = add nuw nsw i64 %.091, 1
+  %exitcond.not = icmp eq i64 %45, %.058.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !79
 
-47:                                               ; preds = %39, %._crit_edge93, %16, %7, %32, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %32 ], [ null, %7 ], [ null, %16 ], [ %36, %._crit_edge93 ], [ %36, %39 ]
-  %48 = load i32, ptr %2, align 8, !tbaa !20
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %46 = load i32, ptr %2, align 8, !tbaa !20
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -16088,7 +16088,7 @@ define internal fastcc ptr @invalid_arguments_rule(ptr noundef %0) unnamed_addr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %.thread309
+  br i1 %.not, label %10, label %.thread307
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16103,66 +16103,66 @@ define internal fastcc ptr @invalid_arguments_rule(ptr noundef %0) unnamed_addr 
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  %.pr370 = load i32, ptr %2, align 8, !tbaa !20
+  %.pr368 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %17, label %..thread_crit_edge, label %_tmp_103_rule.exit.thread.sink.split
 
 ..thread_crit_edge:                               ; preds = %16
-  %.pre414 = load i32, ptr %11, align 8, !tbaa !22
+  %.pre412 = load i32, ptr %11, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %10
-  %18 = phi i32 [ %12, %10 ], [ %.pre414, %..thread_crit_edge ]
-  %19 = phi i32 [ %14, %10 ], [ %.pr370, %..thread_crit_edge ]
+  %18 = phi i32 [ %12, %10 ], [ %.pre412, %..thread_crit_edge ]
+  %19 = phi i32 [ %14, %10 ], [ %.pr368, %..thread_crit_edge ]
   %20 = add i32 %19, 1
   store i32 %20, ptr %2, align 8, !tbaa !20
   %21 = icmp eq i32 %19, 6000
-  br i1 %21, label %22, label %.thread371
+  br i1 %21, label %22, label %.thread369
 
 22:                                               ; preds = %.thread
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre365 = load i32, ptr %8, align 8, !tbaa !21
-  %23 = icmp eq i32 %.pre365, 0
-  %.pr374 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %23, label %.thread371, label %.sink.split
+  %.pre363 = load i32, ptr %8, align 8, !tbaa !21
+  %23 = icmp eq i32 %.pre363, 0
+  %.pr372 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %23, label %.thread369, label %.sink.split
 
-.thread371:                                       ; preds = %22, %.thread
-  %24 = phi i32 [ %20, %.thread ], [ %.pr374, %22 ]
+.thread369:                                       ; preds = %22, %.thread
+  %24 = phi i32 [ %20, %.thread ], [ %.pr372, %22 ]
   %25 = add i32 %24, 1
   store i32 %25, ptr %2, align 8, !tbaa !20
   %26 = icmp eq i32 %24, 6000
-  br i1 %26, label %27, label %.thread375
+  br i1 %26, label %27, label %.thread373
 
-27:                                               ; preds = %.thread371
+27:                                               ; preds = %.thread369
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre366 = load i32, ptr %8, align 8, !tbaa !21
-  %28 = icmp eq i32 %.pre366, 0
-  %.pre417 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %28, label %.thread375, label %_tmp_161_rule.exit.thread227.sink.split
+  %.pre364 = load i32, ptr %8, align 8, !tbaa !21
+  %28 = icmp eq i32 %.pre364, 0
+  %.pre415 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %28, label %.thread373, label %_tmp_161_rule.exit.thread227.sink.split
 
-.thread375:                                       ; preds = %27, %.thread371
-  %29 = phi i32 [ %25, %.thread371 ], [ %.pre417, %27 ]
+.thread373:                                       ; preds = %27, %.thread369
+  %29 = phi i32 [ %25, %.thread369 ], [ %.pre415, %27 ]
   %30 = add i32 %29, 1
   store i32 %30, ptr %2, align 8, !tbaa !20
   %31 = icmp eq i32 %29, 6000
-  br i1 %31, label %32, label %.thread418
+  br i1 %31, label %32, label %.thread416
 
-32:                                               ; preds = %.thread375
+32:                                               ; preds = %.thread373
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre415 = load i32, ptr %8, align 8, !tbaa !21
-  %33 = icmp eq i32 %.pre415, 0
-  br i1 %33, label %.thread418, label %_tmp_159_rule.exit.thread
+  %.pre413 = load i32, ptr %8, align 8, !tbaa !21
+  %33 = icmp eq i32 %.pre413, 0
+  br i1 %33, label %.thread416, label %_tmp_159_rule.exit.thread
 
-.thread418:                                       ; preds = %.thread375, %32
+.thread416:                                       ; preds = %.thread373, %32
   %34 = load i32, ptr %11, align 8, !tbaa !22
   %35 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
-  %.not28.i394 = icmp eq ptr %35, null
-  br i1 %.not28.i394, label %36, label %45
+  %.not28.i392 = icmp eq ptr %35, null
+  br i1 %.not28.i392, label %36, label %45
 
-36:                                               ; preds = %.thread418
+36:                                               ; preds = %.thread416
   store i32 %34, ptr %11, align 8, !tbaa !22
   %37 = load i32, ptr %8, align 8, !tbaa !21
-  %.not29.i395 = icmp eq i32 %37, 0
-  br i1 %.not29.i395, label %38, label %_tmp_159_rule.exit.thread
+  %.not29.i393 = icmp eq i32 %37, 0
+  br i1 %.not29.i393, label %38, label %_tmp_159_rule.exit.thread
 
 38:                                               ; preds = %36
   %39 = tail call fastcc ptr @_tmp_85_rule(ptr noundef nonnull %0)
@@ -16183,8 +16183,8 @@ _tmp_159_rule.exit.thread:                        ; preds = %32, %36, %42
   %44 = add i32 %43, -1
   br label %_tmp_161_rule.exit.thread227.sink.split
 
-45:                                               ; preds = %40, %.thread418
-  %.0.i = phi ptr [ %35, %.thread418 ], [ %39, %40 ]
+45:                                               ; preds = %40, %.thread416
+  %.0.i = phi ptr [ %35, %.thread416 ], [ %39, %40 ]
   %46 = load i32, ptr %2, align 8, !tbaa !20
   %47 = add i32 %46, -1
   store i32 %47, ptr %2, align 8, !tbaa !20
@@ -16193,7 +16193,7 @@ _tmp_159_rule.exit.thread:                        ; preds = %32, %36, %42
   br i1 %.not23.i.i, label %._tmp_161_rule.exit.thread227.sink.split_crit_edge, label %_gather_87_rule.exit.i
 
 ._tmp_161_rule.exit.thread227.sink.split_crit_edge: ; preds = %45
-  %.pre416 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre414 = load i32, ptr %2, align 8, !tbaa !20
   br label %_tmp_161_rule.exit.thread227.sink.split
 
 _gather_87_rule.exit.i:                           ; preds = %45
@@ -16215,7 +16215,7 @@ _gather_87_rule.exit.i:                           ; preds = %45
   br i1 %.not27.i199, label %_tmp_161_rule.exit.thread227, label %_tmp_161_rule.exit
 
 _tmp_161_rule.exit.thread227.sink.split:          ; preds = %._tmp_161_rule.exit.thread227.sink.split_crit_edge, %_tmp_159_rule.exit.thread, %27
-  %56 = phi i32 [ %.pre416, %._tmp_161_rule.exit.thread227.sink.split_crit_edge ], [ %44, %_tmp_159_rule.exit.thread ], [ %.pre417, %27 ]
+  %56 = phi i32 [ %.pre414, %._tmp_161_rule.exit.thread227.sink.split_crit_edge ], [ %44, %_tmp_159_rule.exit.thread ], [ %.pre415, %27 ]
   %57 = add i32 %56, -1
   store i32 %57, ptr %2, align 8, !tbaa !20
   br label %_tmp_161_rule.exit.thread227
@@ -16233,8 +16233,8 @@ _tmp_161_rule.exit:                               ; preds = %54
   br i1 %.not27.i, label %63, label %69
 
 .sink.split:                                      ; preds = %22, %_tmp_161_rule.exit.thread227
-  %.pr374.sink = phi i32 [ %58, %_tmp_161_rule.exit.thread227 ], [ %.pr374, %22 ]
-  %62 = add i32 %.pr374.sink, -1
+  %.pr372.sink = phi i32 [ %58, %_tmp_161_rule.exit.thread227 ], [ %.pr372, %22 ]
+  %62 = add i32 %.pr372.sink, -1
   store i32 %62, ptr %2, align 8, !tbaa !20
   br label %63
 
@@ -16249,16 +16249,16 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
   %66 = add i32 %64, -1
   store i32 %66, ptr %2, align 8, !tbaa !20
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %.thread309
+  br label %.thread307
 
 67:                                               ; preds = %63
   %68 = tail call fastcc ptr @kwargs_rule(ptr noundef nonnull %0)
   %.not29.i = icmp eq ptr %68, null
-  %.pre367 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre365 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not29.i, label %_tmp_103_rule.exit.thread.sink.split, label %69
 
 69:                                               ; preds = %_tmp_161_rule.exit, %67
-  %70 = phi i32 [ %61, %_tmp_161_rule.exit ], [ %.pre367, %67 ]
+  %70 = phi i32 [ %61, %_tmp_161_rule.exit ], [ %.pre365, %67 ]
   %71 = add i32 %70, -1
   store i32 %71, ptr %2, align 8, !tbaa !20
   %72 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
@@ -16274,11 +16274,11 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
 
 77:                                               ; preds = %73
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pr399 = load i32, ptr %2, align 8, !tbaa !20
+  %.pr397 = load i32, ptr %2, align 8, !tbaa !20
   br label %78
 
 78:                                               ; preds = %77, %73
-  %79 = phi i32 [ %.pr399, %77 ], [ %75, %73 ]
+  %79 = phi i32 [ %.pr397, %77 ], [ %75, %73 ]
   %80 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i188 = icmp eq i32 %80, 0
   br i1 %.not.i188, label %81, label %_tmp_103_rule.exit.thread.sink.split
@@ -16287,23 +16287,23 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
   %82 = add i32 %79, 1
   store i32 %82, ptr %2, align 8, !tbaa !20
   %83 = icmp eq i32 %79, 6000
-  br i1 %83, label %84, label %.thread377
+  br i1 %83, label %84, label %.thread375
 
 84:                                               ; preds = %81
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre368 = load i32, ptr %8, align 8, !tbaa !21
-  %85 = icmp eq i32 %.pre368, 0
-  br i1 %85, label %.thread377, label %_gather_105_rule.exit.thread277
+  %.pre366 = load i32, ptr %8, align 8, !tbaa !21
+  %85 = icmp eq i32 %.pre366, 0
+  br i1 %85, label %.thread375, label %_gather_105_rule.exit.thread275
 
-.thread377:                                       ; preds = %81, %84
+.thread375:                                       ; preds = %81, %84
   %86 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
   %.not19.i = icmp eq ptr %86, null
-  br i1 %.not19.i, label %_gather_105_rule.exit.thread277, label %87
+  br i1 %.not19.i, label %_gather_105_rule.exit.thread275, label %87
 
-87:                                               ; preds = %.thread377
+87:                                               ; preds = %.thread375
   %88 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 22) #5
   %.not20.i = icmp eq i32 %88, 0
-  br i1 %.not20.i, label %_gather_105_rule.exit.thread277, label %89
+  br i1 %.not20.i, label %_gather_105_rule.exit.thread275, label %89
 
 89:                                               ; preds = %87
   %90 = load i32, ptr %2, align 8, !tbaa !20
@@ -16317,29 +16317,29 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
 93:                                               ; preds = %92, %89
   %94 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i204 = icmp eq i32 %94, 0
-  br i1 %.not.i204, label %95, label %_gather_105_rule.exit.thread277
+  br i1 %.not.i204, label %95, label %_gather_105_rule.exit.thread275
 
 95:                                               ; preds = %93
   %96 = load i32, ptr %11, align 8, !tbaa !22
   %97 = tail call ptr @PyMem_Malloc(i64 noundef 8) #5
   %.not67.i = icmp eq ptr %97, null
-  br i1 %.not67.i, label %_gather_105_rule.exit.thread277.sink.split, label %98
+  br i1 %.not67.i, label %_gather_105_rule.exit.thread275.sink.split, label %98
 
 98:                                               ; preds = %95
   %99 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %99, 0
-  br i1 %.not68.i, label %.preheader329, label %_gather_105_rule.exit.thread277
+  br i1 %.not68.i, label %.preheader327, label %_gather_105_rule.exit.thread275
 
-.preheader329:                                    ; preds = %98
+.preheader327:                                    ; preds = %98
   %100 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i343 = icmp eq ptr %100, null
-  br i1 %.not69.i343, label %.loopexit, label %.lr.ph
+  %.not69.i341 = icmp eq ptr %100, null
+  br i1 %.not69.i341, label %.critedge.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader329, %119
-  %.053.i347 = phi i32 [ %122, %119 ], [ %96, %.preheader329 ]
-  %.054.i346 = phi ptr [ %.256.i, %119 ], [ %97, %.preheader329 ]
-  %.058.i345 = phi i64 [ %120, %119 ], [ 0, %.preheader329 ]
-  %.059.i344 = phi i64 [ %.160.i, %119 ], [ 1, %.preheader329 ]
+.lr.ph:                                           ; preds = %.preheader327, %119
+  %.053.i345 = phi i32 [ %122, %119 ], [ %96, %.preheader327 ]
+  %.054.i344 = phi ptr [ %.256.i, %119 ], [ %97, %.preheader327 ]
+  %.058.i343 = phi i64 [ %120, %119 ], [ 0, %.preheader327 ]
+  %.059.i342 = phi i64 [ %.160.i, %119 ], [ 1, %.preheader327 ]
   %101 = load i32, ptr %2, align 8, !tbaa !20
   %102 = add i32 %101, 1
   store i32 %102, ptr %2, align 8, !tbaa !20
@@ -16353,96 +16353,96 @@ _tmp_103_rule.exit.thread.thread:                 ; preds = %63
 105:                                              ; preds = %104, %.lr.ph
   %106 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i.i205 = icmp eq i32 %106, 0
-  br i1 %.not.i.i205, label %107, label %.loopexit.sink.split
+  br i1 %.not.i.i205, label %107, label %.critedge.i.sink.split
 
 107:                                              ; preds = %105
   %108 = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %0)
   %.not19.i.i = icmp eq ptr %108, null
-  br i1 %.not19.i.i, label %.loopexit.sink.split, label %109
+  br i1 %.not19.i.i, label %.critedge.i.sink.split, label %109
 
 109:                                              ; preds = %107
   %110 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 22) #5
   %.not20.i.i = icmp eq i32 %110, 0
-  br i1 %.not20.i.i, label %.loopexit.sink.split, label %111
+  br i1 %.not20.i.i, label %.critedge.i.sink.split, label %111
 
 111:                                              ; preds = %109
   %112 = load i32, ptr %2, align 8, !tbaa !20
   %113 = add i32 %112, -1
   store i32 %113, ptr %2, align 8, !tbaa !20
-  %114 = icmp eq i64 %.058.i345, %.059.i344
+  %114 = icmp eq i64 %.058.i343, %.059.i342
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %111
-  %116 = shl i64 %.058.i345, 1
-  %117 = shl i64 %.058.i345, 4
-  %118 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i346, i64 noundef %117) #5
+  %116 = shl i64 %.058.i343, 1
+  %117 = shl i64 %.058.i343, 4
+  %118 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i344, i64 noundef %117) #5
   %.not71.not.i = icmp eq ptr %118, null
-  br i1 %.not71.not.i, label %_gather_105_rule.exit.thread277.sink.split.sink.split, label %119
+  br i1 %.not71.not.i, label %_gather_105_rule.exit.thread275.sink.split.sink.split, label %119
 
 119:                                              ; preds = %115, %111
-  %.160.i = phi i64 [ %.059.i344, %111 ], [ %116, %115 ]
-  %.256.i = phi ptr [ %.054.i346, %111 ], [ %118, %115 ]
-  %120 = add i64 %.058.i345, 1
-  %121 = getelementptr ptr, ptr %.256.i, i64 %.058.i345
+  %.160.i = phi i64 [ %.059.i342, %111 ], [ %116, %115 ]
+  %.256.i = phi ptr [ %.054.i344, %111 ], [ %118, %115 ]
+  %120 = add i64 %.058.i343, 1
+  %121 = getelementptr ptr, ptr %.256.i, i64 %.058.i343
   store ptr %108, ptr %121, align 8, !tbaa !25
   %122 = load i32, ptr %11, align 8, !tbaa !22
   %123 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %123, null
-  br i1 %.not69.i, label %.loopexit, label %.lr.ph, !llvm.loop !80
+  br i1 %.not69.i, label %.critedge.i, label %.lr.ph, !llvm.loop !80
 
-.loopexit.sink.split:                             ; preds = %107, %109, %105
+.critedge.i.sink.split:                           ; preds = %107, %109, %105
   %124 = load i32, ptr %2, align 8, !tbaa !20
   %125 = add i32 %124, -1
   store i32 %125, ptr %2, align 8, !tbaa !20
-  br label %.loopexit
+  br label %.critedge.i
 
-.loopexit:                                        ; preds = %119, %.loopexit.sink.split, %.preheader329
-  %.058.i341 = phi i64 [ 0, %.preheader329 ], [ %.058.i345, %.loopexit.sink.split ], [ %120, %119 ]
-  %.054.i337 = phi ptr [ %97, %.preheader329 ], [ %.054.i346, %.loopexit.sink.split ], [ %.256.i, %119 ]
-  %.053.i333 = phi i32 [ %96, %.preheader329 ], [ %.053.i347, %.loopexit.sink.split ], [ %122, %119 ]
-  store i32 %.053.i333, ptr %11, align 8, !tbaa !22
+.critedge.i:                                      ; preds = %119, %.critedge.i.sink.split, %.preheader327
+  %.058.i339 = phi i64 [ 0, %.preheader327 ], [ %.058.i343, %.critedge.i.sink.split ], [ %120, %119 ]
+  %.054.i335 = phi ptr [ %97, %.preheader327 ], [ %.054.i344, %.critedge.i.sink.split ], [ %.256.i, %119 ]
+  %.053.i331 = phi i32 [ %96, %.preheader327 ], [ %.053.i345, %.critedge.i.sink.split ], [ %122, %119 ]
+  store i32 %.053.i331, ptr %11, align 8, !tbaa !22
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !32
-  %128 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i341, ptr noundef %127) #5
+  %128 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i339, ptr noundef %127) #5
   %.not72.i = icmp eq ptr %128, null
-  br i1 %.not72.i, label %_gather_105_rule.exit.thread277.sink.split.sink.split, label %.preheader
+  br i1 %.not72.i, label %_gather_105_rule.exit.thread275.sink.split.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit
-  %129 = icmp sgt i64 %.058.i341, 0
-  br i1 %129, label %.lr.ph351, label %_gather_105_rule.exit
+.preheader:                                       ; preds = %.critedge.i
+  %129 = icmp sgt i64 %.058.i339, 0
+  br i1 %129, label %.lr.ph349, label %_gather_105_rule.exit
 
-.lr.ph351:                                        ; preds = %.preheader
+.lr.ph349:                                        ; preds = %.preheader
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   br label %131
 
-131:                                              ; preds = %.lr.ph351, %131
-  %.0.i207350 = phi i64 [ 0, %.lr.ph351 ], [ %136, %131 ]
-  %132 = getelementptr ptr, ptr %.054.i337, i64 %.0.i207350
+131:                                              ; preds = %.lr.ph349, %131
+  %.0.i207348 = phi i64 [ 0, %.lr.ph349 ], [ %136, %131 ]
+  %132 = getelementptr ptr, ptr %.054.i335, i64 %.0.i207348
   %133 = load ptr, ptr %132, align 8, !tbaa !25
   %134 = load ptr, ptr %130, align 8, !tbaa !35
-  %135 = getelementptr ptr, ptr %134, i64 %.0.i207350
+  %135 = getelementptr ptr, ptr %134, i64 %.0.i207348
   store ptr %133, ptr %135, align 8, !tbaa !25
-  %136 = add nuw nsw i64 %.0.i207350, 1
-  %exitcond.not = icmp eq i64 %136, %.058.i341
+  %136 = add nuw nsw i64 %.0.i207348, 1
+  %exitcond.not = icmp eq i64 %136, %.058.i339
   br i1 %exitcond.not, label %_gather_105_rule.exit, label %131, !llvm.loop !81
 
-_gather_105_rule.exit.thread277.sink.split.sink.split: ; preds = %115, %.loopexit
-  %.054.i346.lcssa422.sink = phi ptr [ %.054.i337, %.loopexit ], [ %.054.i346, %115 ]
-  tail call void @PyMem_Free(ptr noundef %.054.i346.lcssa422.sink) #5
-  br label %_gather_105_rule.exit.thread277.sink.split
+_gather_105_rule.exit.thread275.sink.split.sink.split: ; preds = %115, %.critedge.i
+  %.054.i344.lcssa420.sink = phi ptr [ %.054.i335, %.critedge.i ], [ %.054.i344, %115 ]
+  tail call void @PyMem_Free(ptr noundef %.054.i344.lcssa420.sink) #5
+  br label %_gather_105_rule.exit.thread275.sink.split
 
-_gather_105_rule.exit.thread277.sink.split:       ; preds = %_gather_105_rule.exit.thread277.sink.split.sink.split, %95
+_gather_105_rule.exit.thread275.sink.split:       ; preds = %_gather_105_rule.exit.thread275.sink.split.sink.split, %95
   store i32 1, ptr %8, align 8, !tbaa !21
   %137 = tail call ptr @PyErr_NoMemory() #5
-  br label %_gather_105_rule.exit.thread277
+  br label %_gather_105_rule.exit.thread275
 
-_gather_105_rule.exit.thread277:                  ; preds = %_gather_105_rule.exit.thread277.sink.split, %.thread377, %87, %98, %93, %84
-  %storemerge.in.i268 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i269 = add i32 %storemerge.in.i268, -1
+_gather_105_rule.exit.thread275:                  ; preds = %_gather_105_rule.exit.thread275.sink.split, %.thread375, %87, %98, %93, %84
+  %storemerge.in.i266 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i267 = add i32 %storemerge.in.i266, -1
   br label %_tmp_103_rule.exit.thread.sink.split
 
 _gather_105_rule.exit:                            ; preds = %131, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.i337) #5
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.i335) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
@@ -16464,28 +16464,28 @@ _gather_105_rule.exit:                            ; preds = %131, %.preheader
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %142, i64 noundef %145, i64 noundef %148, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.64)
   %149 = tail call ptr @PyErr_Occurred() #5
   %.not154 = icmp eq ptr %149, null
-  br i1 %.not154, label %.thread309, label %.thread279
+  br i1 %.not154, label %.thread307, label %.thread277
 
-.thread279:                                       ; preds = %141
+.thread277:                                       ; preds = %141
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
-_tmp_103_rule.exit.thread.sink.split:             ; preds = %78, %67, %16, %_gather_105_rule.exit.thread277
-  %.pr370.sink = phi i32 [ %storemerge.i269, %_gather_105_rule.exit.thread277 ], [ %.pr370, %16 ], [ %.pre367, %67 ], [ %79, %78 ]
-  %150 = add i32 %.pr370.sink, -1
+_tmp_103_rule.exit.thread.sink.split:             ; preds = %78, %67, %16, %_gather_105_rule.exit.thread275
+  %.pr368.sink = phi i32 [ %storemerge.i267, %_gather_105_rule.exit.thread275 ], [ %.pr368, %16 ], [ %.pre365, %67 ], [ %79, %78 ]
+  %150 = add i32 %.pr368.sink, -1
   store i32 %150, ptr %2, align 8, !tbaa !20
   br label %_tmp_103_rule.exit.thread
 
 _tmp_103_rule.exit.thread:                        ; preds = %_tmp_103_rule.exit.thread.sink.split, %69, %_gather_105_rule.exit
-  %.pr379 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr377 = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
-  %.not155 = icmp eq i32 %.pr379, 0
-  br i1 %.not155, label %151, label %.thread309
+  %.not155 = icmp eq i32 %.pr377, 0
+  br i1 %.not155, label %151, label %.thread307
 
 151:                                              ; preds = %_tmp_103_rule.exit.thread
   %152 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not156 = icmp eq ptr %152, null
-  br i1 %.not156, label %for_if_clauses_rule.exit.thread289, label %153
+  br i1 %.not156, label %for_if_clauses_rule.exit.thread287, label %153
 
 153:                                              ; preds = %151
   %154 = load i32, ptr %2, align 8, !tbaa !20
@@ -16507,7 +16507,7 @@ for_if_clauses_rule.exit.thread:                  ; preds = %158
   %160 = load i32, ptr %2, align 8, !tbaa !20
   %161 = add i32 %160, -1
   store i32 %161, ptr %2, align 8, !tbaa !20
-  br label %for_if_clauses_rule.exit.thread289
+  br label %for_if_clauses_rule.exit.thread287
 
 162:                                              ; preds = %158
   %163 = tail call fastcc ptr @_loop1_83_rule(ptr noundef nonnull %0)
@@ -16515,22 +16515,22 @@ for_if_clauses_rule.exit.thread:                  ; preds = %158
   %164 = load i32, ptr %2, align 8, !tbaa !20
   %165 = add i32 %164, -1
   store i32 %165, ptr %2, align 8, !tbaa !20
-  br i1 %.not21.i, label %for_if_clauses_rule.exit.thread289, label %166
+  br i1 %.not21.i, label %for_if_clauses_rule.exit.thread287, label %166
 
 166:                                              ; preds = %162
   %167 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not158 = icmp eq ptr %167, null
-  br i1 %.not158, label %for_if_clauses_rule.exit.thread289, label %168
+  br i1 %.not158, label %for_if_clauses_rule.exit.thread287, label %168
 
 168:                                              ; preds = %166
   tail call fastcc void @_tmp_106_rule(ptr noundef nonnull %0)
   %169 = load i32, ptr %8, align 8, !tbaa !21
   %.not159 = icmp eq i32 %169, 0
-  br i1 %.not159, label %170, label %.thread295
+  br i1 %.not159, label %170, label %.thread293
 
-.thread295:                                       ; preds = %168
+.thread293:                                       ; preds = %168
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %.thread309
+  br label %.thread307
 
 170:                                              ; preds = %168
   %171 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !41
@@ -16553,19 +16553,19 @@ for_if_clauses_rule.exit.thread:                  ; preds = %158
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %171, i64 noundef %174, i64 noundef %177, i64 noundef %182, i64 noundef %187, ptr noundef nonnull @.str.65)
   %188 = tail call ptr @PyErr_Occurred() #5
   %.not160 = icmp eq ptr %188, null
-  br i1 %.not160, label %.thread309, label %.thread291
+  br i1 %.not160, label %.thread307, label %.thread289
 
-.thread291:                                       ; preds = %170
+.thread289:                                       ; preds = %170
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
-for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %for_if_clauses_rule.exit.thread
+for_if_clauses_rule.exit.thread287:               ; preds = %162, %151, %166, %for_if_clauses_rule.exit.thread
   %.pr = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
   %.not161 = icmp eq i32 %.pr, 0
-  br i1 %.not161, label %189, label %.thread309
+  br i1 %.not161, label %189, label %.thread307
 
-189:                                              ; preds = %for_if_clauses_rule.exit.thread289
+189:                                              ; preds = %for_if_clauses_rule.exit.thread287
   %190 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
   %.not162 = icmp eq ptr %190, null
   br i1 %.not162, label %212, label %191
@@ -16602,27 +16602,27 @@ for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %f
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %198, i64 noundef %201, i64 noundef %204, i64 noundef %207, i64 noundef %210, ptr noundef nonnull @.str.50)
   %211 = tail call ptr @PyErr_Occurred() #5
   %.not166 = icmp eq ptr %211, null
-  br i1 %.not166, label %.thread309, label %.thread297
+  br i1 %.not166, label %.thread307, label %.thread295
 
-.thread297:                                       ; preds = %197
+.thread295:                                       ; preds = %197
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
 212:                                              ; preds = %189, %191, %193, %195
   store i32 %12, ptr %11, align 8, !tbaa !22
   %213 = load i32, ptr %8, align 8, !tbaa !21
   %.not167 = icmp eq i32 %213, 0
-  br i1 %.not167, label %214, label %.thread309
+  br i1 %.not167, label %214, label %.thread307
 
 214:                                              ; preds = %212
   tail call fastcc void @_tmp_107_rule(ptr noundef nonnull %0)
   %215 = load i32, ptr %8, align 8, !tbaa !21
   %.not168 = icmp eq i32 %215, 0
-  br i1 %.not168, label %216, label %.thread307
+  br i1 %.not168, label %216, label %.thread305
 
-.thread307:                                       ; preds = %214
+.thread305:                                       ; preds = %214
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %.thread309
+  br label %.thread307
 
 216:                                              ; preds = %214
   %217 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
@@ -16656,17 +16656,17 @@ for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %f
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %223, i64 noundef %226, i64 noundef %229, i64 noundef %232, i64 noundef %235, ptr noundef nonnull @.str.66)
   %236 = tail call ptr @PyErr_Occurred() #5
   %.not172 = icmp eq ptr %236, null
-  br i1 %.not172, label %.thread309, label %.thread301
+  br i1 %.not172, label %.thread307, label %.thread299
 
-.thread301:                                       ; preds = %222
+.thread299:                                       ; preds = %222
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
 237:                                              ; preds = %216, %218, %220
-  %.pr306 = load i32, ptr %8, align 8, !tbaa !21
+  %.pr304 = load i32, ptr %8, align 8, !tbaa !21
   store i32 %12, ptr %11, align 8, !tbaa !22
-  %.not173 = icmp eq i32 %.pr306, 0
-  br i1 %.not173, label %238, label %.thread309
+  %.not173 = icmp eq i32 %.pr304, 0
+  br i1 %.not173, label %238, label %.thread307
 
 238:                                              ; preds = %237
   %239 = tail call fastcc ptr @args_rule(ptr noundef nonnull %0)
@@ -16681,22 +16681,22 @@ for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %f
 242:                                              ; preds = %240
   %243 = tail call ptr @_PyPegen_nonparen_genexp_in_call(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef nonnull %241) #5
   %244 = icmp eq ptr %243, null
-  br i1 %244, label %245, label %.thread309
+  br i1 %244, label %245, label %.thread307
 
 245:                                              ; preds = %242
   %246 = tail call ptr @PyErr_Occurred() #5
   %.not176 = icmp eq ptr %246, null
-  br i1 %.not176, label %.thread309, label %.thread312
+  br i1 %.not176, label %.thread307, label %.thread310
 
-.thread312:                                       ; preds = %245
+.thread310:                                       ; preds = %245
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
 247:                                              ; preds = %240, %238
   store i32 %12, ptr %11, align 8, !tbaa !22
   %248 = load i32, ptr %8, align 8, !tbaa !21
   %.not177 = icmp eq i32 %248, 0
-  br i1 %.not177, label %249, label %.thread309
+  br i1 %.not177, label %249, label %.thread307
 
 249:                                              ; preds = %247
   %250 = tail call fastcc ptr @args_rule(ptr noundef nonnull %0)
@@ -16739,17 +16739,17 @@ for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %f
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %0, ptr noundef %258, i64 noundef %261, i64 noundef %264, i64 noundef %269, i64 noundef %274, ptr noundef nonnull @.str.65)
   %275 = tail call ptr @PyErr_Occurred() #5
   %.not182 = icmp eq ptr %275, null
-  br i1 %.not182, label %.thread309, label %.thread315
+  br i1 %.not182, label %.thread307, label %.thread313
 
-.thread315:                                       ; preds = %257
+.thread313:                                       ; preds = %257
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
 276:                                              ; preds = %249, %251, %253, %255
   store i32 %12, ptr %11, align 8, !tbaa !22
   %277 = load i32, ptr %8, align 8, !tbaa !21
   %.not183 = icmp eq i32 %277, 0
-  br i1 %.not183, label %278, label %.thread309
+  br i1 %.not183, label %278, label %.thread307
 
 278:                                              ; preds = %276
   %279 = tail call fastcc ptr @args_rule(ptr noundef nonnull %0)
@@ -16769,23 +16769,23 @@ for_if_clauses_rule.exit.thread289:               ; preds = %162, %151, %166, %f
 284:                                              ; preds = %282
   %285 = tail call ptr @_PyPegen_arguments_parsing_error(ptr noundef nonnull %0, ptr noundef nonnull %279) #5
   %286 = icmp eq ptr %285, null
-  br i1 %286, label %287, label %.thread309
+  br i1 %286, label %287, label %.thread307
 
 287:                                              ; preds = %284
   %288 = tail call ptr @PyErr_Occurred() #5
   %.not187 = icmp eq ptr %288, null
-  br i1 %.not187, label %.thread309, label %.thread326
+  br i1 %.not187, label %.thread307, label %.thread324
 
-.thread326:                                       ; preds = %287
+.thread324:                                       ; preds = %287
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread309
+  br label %.thread307
 
 289:                                              ; preds = %282, %280, %278
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %.thread309
+  br label %.thread307
 
-.thread309:                                       ; preds = %289, %141, %170, %197, %222, %257, %245, %242, %287, %284, %276, %247, %237, %.thread307, %212, %for_if_clauses_rule.exit.thread289, %.thread295, %_tmp_103_rule.exit.thread, %_tmp_103_rule.exit.thread.thread, %7, %.thread326, %.thread315, %.thread312, %.thread301, %.thread297, %.thread291, %.thread279
-  %.0 = phi ptr [ null, %.thread279 ], [ null, %.thread291 ], [ null, %.thread297 ], [ null, %.thread301 ], [ null, %.thread312 ], [ null, %.thread315 ], [ null, %.thread326 ], [ null, %7 ], [ null, %_tmp_103_rule.exit.thread.thread ], [ null, %_tmp_103_rule.exit.thread ], [ null, %.thread295 ], [ null, %for_if_clauses_rule.exit.thread289 ], [ null, %212 ], [ null, %.thread307 ], [ null, %237 ], [ null, %247 ], [ null, %276 ], [ null, %289 ], [ null, %141 ], [ null, %170 ], [ null, %197 ], [ null, %222 ], [ null, %257 ], [ null, %245 ], [ %243, %242 ], [ null, %287 ], [ %285, %284 ]
+.thread307:                                       ; preds = %289, %141, %170, %197, %222, %257, %245, %242, %287, %284, %276, %247, %237, %.thread305, %212, %for_if_clauses_rule.exit.thread287, %.thread293, %_tmp_103_rule.exit.thread, %_tmp_103_rule.exit.thread.thread, %7, %.thread324, %.thread313, %.thread310, %.thread299, %.thread295, %.thread289, %.thread277
+  %.0 = phi ptr [ null, %.thread277 ], [ null, %.thread289 ], [ null, %.thread295 ], [ null, %.thread299 ], [ null, %.thread310 ], [ null, %.thread313 ], [ null, %.thread324 ], [ null, %7 ], [ null, %_tmp_103_rule.exit.thread.thread ], [ null, %_tmp_103_rule.exit.thread ], [ null, %.thread293 ], [ null, %for_if_clauses_rule.exit.thread287 ], [ null, %212 ], [ null, %.thread305 ], [ null, %237 ], [ null, %247 ], [ null, %276 ], [ null, %289 ], [ null, %141 ], [ null, %170 ], [ null, %197 ], [ null, %222 ], [ null, %257 ], [ null, %245 ], [ %243, %242 ], [ null, %287 ], [ %285, %284 ]
   %290 = load i32, ptr %2, align 8, !tbaa !20
   %291 = add i32 %290, -1
   store i32 %291, ptr %2, align 8, !tbaa !20
@@ -17027,7 +17027,7 @@ define internal fastcc ptr @_loop0_86_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %80
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17039,23 +17039,23 @@ define internal fastcc ptr @_loop0_86_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %80
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader76, label %80
+  br i1 %.not68, label %.preheader76, label %.critedge74
 
 .preheader76:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980 = icmp eq ptr %18, null
-  br i1 %.not6980, label %._crit_edge, label %.lr.ph
+  br i1 %.not6980, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader76, %60
-  %.05384 = phi i32 [ %63, %60 ], [ %12, %.preheader76 ]
-  %.05483 = phi ptr [ %.256, %60 ], [ %13, %.preheader76 ]
-  %.05882 = phi i64 [ %61, %60 ], [ 0, %.preheader76 ]
-  %.05981 = phi i64 [ %.160, %60 ], [ 1, %.preheader76 ]
+.lr.ph:                                           ; preds = %.preheader76, %61
+  %.05384 = phi i32 [ %64, %61 ], [ %12, %.preheader76 ]
+  %.05483 = phi ptr [ %.256, %61 ], [ %13, %.preheader76 ]
+  %.05882 = phi i64 [ %62, %61 ], [ 0, %.preheader76 ]
+  %.05981 = phi i64 [ %.160, %61 ], [ 1, %.preheader76 ]
   %19 = load i32, ptr %2, align 8, !tbaa !20
   %20 = add i32 %19, 1
   store i32 %20, ptr %2, align 8, !tbaa !20
@@ -17088,35 +17088,35 @@ define internal fastcc ptr @_loop0_86_rule(ptr noundef %0) unnamed_addr #0 {
   %32 = add i32 %31, 1
   store i32 %32, ptr %2, align 8, !tbaa !20
   %33 = icmp eq i32 %31, 6000
-  br i1 %33, label %34, label %.thread
+  br i1 %33, label %34, label %.thread170
 
 34:                                               ; preds = %30
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %35 = icmp eq i32 %.pre, 0
-  br i1 %35, label %.thread, label %_tmp_85_rule.exit.thread
+  br i1 %35, label %.thread170, label %_tmp_85_rule.exit.thread
 
-.thread:                                          ; preds = %30, %34
+.thread170:                                       ; preds = %30, %34
   %36 = load i32, ptr %11, align 8, !tbaa !22
   %37 = tail call fastcc ptr @assignment_expression_rule(ptr noundef nonnull %0)
-  %.not28.i99 = icmp eq ptr %37, null
-  br i1 %.not28.i99, label %38, label %46
+  %.not28.i98 = icmp eq ptr %37, null
+  br i1 %.not28.i98, label %38, label %46
 
-38:                                               ; preds = %.thread
+38:                                               ; preds = %.thread170
   store i32 %36, ptr %11, align 8, !tbaa !22
   %39 = load i32, ptr %8, align 8, !tbaa !21
-  %.not29.i100 = icmp eq i32 %39, 0
-  br i1 %.not29.i100, label %40, label %_tmp_85_rule.exit.thread
+  %.not29.i99 = icmp eq i32 %39, 0
+  br i1 %.not29.i99, label %40, label %_tmp_85_rule.exit.thread
 
 40:                                               ; preds = %38
   %41 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
-  %.not30.i101 = icmp eq ptr %41, null
-  br i1 %.not30.i101, label %_tmp_85_rule.exit.thread, label %42
+  %.not30.i100 = icmp eq ptr %41, null
+  br i1 %.not30.i100, label %_tmp_85_rule.exit.thread, label %42
 
 42:                                               ; preds = %40
   %43 = tail call i32 @_PyPegen_lookahead_with_int(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %0, i32 noundef 53) #5
-  %.not31.i102 = icmp eq i32 %43, 0
-  br i1 %.not31.i102, label %_tmp_85_rule.exit.thread, label %46
+  %.not31.i101 = icmp eq i32 %43, 0
+  br i1 %.not31.i101, label %_tmp_85_rule.exit.thread, label %46
 
 _tmp_85_rule.exit.thread:                         ; preds = %34, %38, %40, %42
   %44 = load i32, ptr %2, align 8, !tbaa !20
@@ -17124,8 +17124,8 @@ _tmp_85_rule.exit.thread:                         ; preds = %34, %38, %40, %42
   store i32 %45, ptr %2, align 8, !tbaa !20
   br label %_tmp_159_rule.exit.thread
 
-46:                                               ; preds = %42, %.thread
-  %.0.i98 = phi ptr [ %37, %.thread ], [ %41, %42 ]
+46:                                               ; preds = %42, %.thread170
+  %.0.i97 = phi ptr [ %37, %.thread170 ], [ %41, %42 ]
   %47 = load i32, ptr %2, align 8, !tbaa !20
   %48 = add i32 %47, -1
   store i32 %48, ptr %2, align 8, !tbaa !20
@@ -17137,85 +17137,85 @@ _tmp_159_rule.exit.thread:                        ; preds = %23, %28, %46, %_tmp
   %50 = load i32, ptr %2, align 8, !tbaa !20
   %51 = add i32 %50, -1
   store i32 %51, ptr %2, align 8, !tbaa !20
-  br label %._crit_edge
+  br label %.critedge
 
 52:                                               ; preds = %46, %25
-  %.0.i = phi ptr [ %27, %25 ], [ %.0.i98, %46 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %.0.i97, %46 ]
   %53 = load i32, ptr %2, align 8, !tbaa !20
   %54 = add i32 %53, -1
   store i32 %54, ptr %2, align 8, !tbaa !20
   %55 = icmp eq i64 %.05882, %.05981
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
   %57 = shl i64 %.05882, 1
   %58 = shl i64 %.05882, 4
   %59 = tail call ptr @PyMem_Realloc(ptr noundef %.05483, i64 noundef %58) #5
   %.not71.not = icmp eq ptr %59, null
-  br i1 %.not71.not, label %65, label %60
+  br i1 %.not71.not, label %.thread, label %61
 
-60:                                               ; preds = %56, %52
-  %.160 = phi i64 [ %.05981, %52 ], [ %57, %56 ]
-  %.256 = phi ptr [ %.05483, %52 ], [ %59, %56 ]
-  %61 = add i64 %.05882, 1
-  %62 = getelementptr ptr, ptr %.256, i64 %.05882
-  store ptr %.0.i, ptr %62, align 8, !tbaa !25
-  %63 = load i32, ptr %11, align 8, !tbaa !22
-  %64 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %64, null
-  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !82
-
-65:                                               ; preds = %56
+.thread:                                          ; preds = %56
   tail call void @PyMem_Free(ptr noundef %.05483) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %66 = tail call ptr @PyErr_NoMemory() #5
-  br label %80
+  %60 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge:                                      ; preds = %60, %_tmp_159_rule.exit.thread, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.05882, %_tmp_159_rule.exit.thread ], [ %61, %60 ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.05483, %_tmp_159_rule.exit.thread ], [ %.256, %60 ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %.05384, %_tmp_159_rule.exit.thread ], [ %63, %60 ]
+61:                                               ; preds = %56, %52
+  %.160 = phi i64 [ %.05981, %52 ], [ %57, %56 ]
+  %.256 = phi ptr [ %.05483, %52 ], [ %59, %56 ]
+  %62 = add i64 %.05882, 1
+  %63 = getelementptr ptr, ptr %.256, i64 %.05882
+  store ptr %.0.i, ptr %63, align 8, !tbaa !25
+  %64 = load i32, ptr %11, align 8, !tbaa !22
+  %65 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %65, null
+  br i1 %.not69, label %.critedge, label %.lr.ph, !llvm.loop !82
+
+.critedge:                                        ; preds = %61, %_tmp_159_rule.exit.thread, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.05882, %_tmp_159_rule.exit.thread ], [ %62, %61 ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.05483, %_tmp_159_rule.exit.thread ], [ %.256, %61 ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %.05384, %_tmp_159_rule.exit.thread ], [ %64, %61 ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !32
-  %69 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %68) #5
-  %.not72 = icmp eq ptr %69, null
-  br i1 %.not72, label %72, label %.preheader
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !32
+  %68 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %67) #5
+  %.not72 = icmp eq ptr %68, null
+  br i1 %.not72, label %71, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %70 = icmp sgt i64 %.058.lcssa, 0
-  br i1 %70, label %.lr.ph92, label %._crit_edge93
+.preheader:                                       ; preds = %.critedge
+  %69 = icmp sgt i64 %.058.lcssa, 0
+  br i1 %69, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  br label %74
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  br label %73
 
-72:                                               ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
+71:                                               ; preds = %.critedge
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %73 = tail call ptr @PyErr_NoMemory() #5
-  br label %80
+  %72 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge93:                                    ; preds = %74, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
-  br label %80
+._crit_edge:                                      ; preds = %73, %.preheader
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
+  br label %.critedge74
 
-74:                                               ; preds = %.lr.ph92, %74
-  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %79, %74 ]
-  %75 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
-  %76 = load ptr, ptr %75, align 8, !tbaa !25
-  %77 = load ptr, ptr %71, align 8, !tbaa !35
-  %78 = getelementptr ptr, ptr %77, i64 %.091
-  store ptr %76, ptr %78, align 8, !tbaa !25
-  %79 = add nuw nsw i64 %.091, 1
-  %exitcond.not = icmp eq i64 %79, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge93, label %74, !llvm.loop !83
+73:                                               ; preds = %.lr.ph92, %73
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %78, %73 ]
+  %74 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %75 = load ptr, ptr %74, align 8, !tbaa !25
+  %76 = load ptr, ptr %70, align 8, !tbaa !35
+  %77 = getelementptr ptr, ptr %76, i64 %.091
+  store ptr %75, ptr %77, align 8, !tbaa !25
+  %78 = add nuw nsw i64 %.091, 1
+  %exitcond.not = icmp eq i64 %78, %.058.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !83
 
-80:                                               ; preds = %72, %._crit_edge93, %16, %7, %65, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %65 ], [ null, %7 ], [ null, %16 ], [ %69, %._crit_edge93 ], [ null, %72 ]
-  %81 = load i32, ptr %2, align 8, !tbaa !20
-  %82 = add i32 %81, -1
-  store i32 %82, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %71, %._crit_edge, %16, %7, %.thread, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %68, %._crit_edge ], [ null, %71 ]
+  %79 = load i32, ptr %2, align 8, !tbaa !20
+  %80 = add i32 %79, -1
+  store i32 %80, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -17397,7 +17397,7 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %47
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17409,108 +17409,108 @@ define internal fastcc ptr @_loop0_89_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader76, label %47
+  br i1 %.not68, label %.preheader76, label %.critedge74
 
 .preheader76:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980 = icmp eq ptr %18, null
-  br i1 %.not6980, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not6980, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @kwarg_or_starred_rule(ptr noundef nonnull %0)
-  %.not7098 = icmp eq ptr %19, null
-  br i1 %.not7098, label %._crit_edge, label %.lr.ph102
+  %.not7097 = icmp eq ptr %19, null
+  br i1 %.not7097, label %.critedge, label %.lr.ph101
 
-.lr.ph:                                           ; preds = %27
+.lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @kwarg_or_starred_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph102, !llvm.loop !84
+  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !84
 
-.lr.ph102:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981101 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.05882100 = phi i64 [ %28, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548399 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.05882100, %.05981101
-  br i1 %22, label %23, label %27
+  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.0588299, %.05981100
+  br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph102
-  %24 = shl i64 %.05882100, 1
-  %25 = shl i64 %.05882100, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548399, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph101
+  %24 = shl i64 %.0588299, 1
+  %25 = shl i64 %.0588299, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
-  br i1 %.not71.not, label %32, label %27
+  br i1 %.not71.not, label %.thread, label %28
 
-27:                                               ; preds = %23, %.lr.ph102
-  %.160 = phi i64 [ %.05981101, %.lr.ph102 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548399, %.lr.ph102 ], [ %26, %23 ]
-  %28 = add i64 %.05882100, 1
-  %29 = getelementptr ptr, ptr %.256, i64 %.05882100
-  store ptr %21, ptr %29, align 8, !tbaa !25
-  %30 = load i32, ptr %11, align 8, !tbaa !22
-  %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %31, null
-  br i1 %.not69, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !84
-
-32:                                               ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548399) #5
+.thread:                                          ; preds = %23
+  tail call void @PyMem_Free(ptr noundef %.0548398) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %33 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %27 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %27
-  br label %._crit_edge, !llvm.loop !84
+28:                                               ; preds = %23, %.lr.ph101
+  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
+  %29 = add i64 %.0588299, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+  store ptr %21, ptr %30, align 8, !tbaa !25
+  %31 = load i32, ptr %11, align 8, !tbaa !22
+  %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %32, null
+  br i1 %.not69, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !84
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %28, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %.._crit_edge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %30, %.._crit_edge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %28
+  br label %.critedge, !llvm.loop !84
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !32
-  %36 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %35) #5
-  %.not72 = icmp eq ptr %36, null
-  br i1 %.not72, label %39, label %.preheader
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %34) #5
+  %.not72 = icmp eq ptr %35, null
+  br i1 %.not72, label %38, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %37 = icmp sgt i64 %.058.lcssa, 0
-  br i1 %37, label %.lr.ph92, label %._crit_edge93
+.preheader:                                       ; preds = %.critedge
+  %36 = icmp sgt i64 %.058.lcssa, 0
+  br i1 %36, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  br label %40
 
-39:                                               ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
+38:                                               ; preds = %.critedge
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %40 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %39 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge93:                                    ; preds = %41, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
-  br label %47
+._crit_edge:                                      ; preds = %40, %.preheader
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
+  br label %.critedge74
 
-41:                                               ; preds = %.lr.ph92, %41
-  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %46, %41 ]
-  %42 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
-  %44 = load ptr, ptr %38, align 8, !tbaa !35
-  %45 = getelementptr ptr, ptr %44, i64 %.091
-  store ptr %43, ptr %45, align 8, !tbaa !25
-  %46 = add nuw nsw i64 %.091, 1
-  %exitcond.not = icmp eq i64 %46, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge93, label %41, !llvm.loop !85
+40:                                               ; preds = %.lr.ph92, %40
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
+  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = load ptr, ptr %37, align 8, !tbaa !35
+  %44 = getelementptr ptr, ptr %43, i64 %.091
+  store ptr %42, ptr %44, align 8, !tbaa !25
+  %45 = add nuw nsw i64 %.091, 1
+  %exitcond.not = icmp eq i64 %45, %.058.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !85
 
-47:                                               ; preds = %39, %._crit_edge93, %16, %7, %32, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %32 ], [ null, %7 ], [ null, %16 ], [ %36, %._crit_edge93 ], [ %36, %39 ]
-  %48 = load i32, ptr %2, align 8, !tbaa !20
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %46 = load i32, ptr %2, align 8, !tbaa !20
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -18051,7 +18051,7 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %47
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18063,108 +18063,108 @@ define internal fastcc ptr @_loop0_91_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader76, label %47
+  br i1 %.not68, label %.preheader76, label %.critedge74
 
 .preheader76:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980 = icmp eq ptr %18, null
-  br i1 %.not6980, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not6980, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @kwarg_or_double_starred_rule(ptr noundef nonnull %0)
-  %.not7098 = icmp eq ptr %19, null
-  br i1 %.not7098, label %._crit_edge, label %.lr.ph102
+  %.not7097 = icmp eq ptr %19, null
+  br i1 %.not7097, label %.critedge, label %.lr.ph101
 
-.lr.ph:                                           ; preds = %27
+.lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @kwarg_or_double_starred_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph102, !llvm.loop !87
+  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !87
 
-.lr.ph102:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981101 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.05882100 = phi i64 [ %28, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548399 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.05882100, %.05981101
-  br i1 %22, label %23, label %27
+  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.0588299, %.05981100
+  br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph102
-  %24 = shl i64 %.05882100, 1
-  %25 = shl i64 %.05882100, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548399, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph101
+  %24 = shl i64 %.0588299, 1
+  %25 = shl i64 %.0588299, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
-  br i1 %.not71.not, label %32, label %27
+  br i1 %.not71.not, label %.thread, label %28
 
-27:                                               ; preds = %23, %.lr.ph102
-  %.160 = phi i64 [ %.05981101, %.lr.ph102 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548399, %.lr.ph102 ], [ %26, %23 ]
-  %28 = add i64 %.05882100, 1
-  %29 = getelementptr ptr, ptr %.256, i64 %.05882100
-  store ptr %21, ptr %29, align 8, !tbaa !25
-  %30 = load i32, ptr %11, align 8, !tbaa !22
-  %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %31, null
-  br i1 %.not69, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !87
-
-32:                                               ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548399) #5
+.thread:                                          ; preds = %23
+  tail call void @PyMem_Free(ptr noundef %.0548398) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %33 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %27 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %27
-  br label %._crit_edge, !llvm.loop !87
+28:                                               ; preds = %23, %.lr.ph101
+  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
+  %29 = add i64 %.0588299, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+  store ptr %21, ptr %30, align 8, !tbaa !25
+  %31 = load i32, ptr %11, align 8, !tbaa !22
+  %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %32, null
+  br i1 %.not69, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !87
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %28, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %.._crit_edge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %30, %.._crit_edge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %28
+  br label %.critedge, !llvm.loop !87
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !32
-  %36 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %35) #5
-  %.not72 = icmp eq ptr %36, null
-  br i1 %.not72, label %39, label %.preheader
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %34) #5
+  %.not72 = icmp eq ptr %35, null
+  br i1 %.not72, label %38, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %37 = icmp sgt i64 %.058.lcssa, 0
-  br i1 %37, label %.lr.ph92, label %._crit_edge93
+.preheader:                                       ; preds = %.critedge
+  %36 = icmp sgt i64 %.058.lcssa, 0
+  br i1 %36, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  br label %40
 
-39:                                               ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
+38:                                               ; preds = %.critedge
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %40 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %39 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge93:                                    ; preds = %41, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
-  br label %47
+._crit_edge:                                      ; preds = %40, %.preheader
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
+  br label %.critedge74
 
-41:                                               ; preds = %.lr.ph92, %41
-  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %46, %41 ]
-  %42 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
-  %44 = load ptr, ptr %38, align 8, !tbaa !35
-  %45 = getelementptr ptr, ptr %44, i64 %.091
-  store ptr %43, ptr %45, align 8, !tbaa !25
-  %46 = add nuw nsw i64 %.091, 1
-  %exitcond.not = icmp eq i64 %46, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge93, label %41, !llvm.loop !88
+40:                                               ; preds = %.lr.ph92, %40
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
+  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = load ptr, ptr %37, align 8, !tbaa !35
+  %44 = getelementptr ptr, ptr %43, i64 %.091
+  store ptr %42, ptr %44, align 8, !tbaa !25
+  %45 = add nuw nsw i64 %.091, 1
+  %exitcond.not = icmp eq i64 %45, %.058.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !88
 
-47:                                               ; preds = %39, %._crit_edge93, %16, %7, %32, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %32 ], [ null, %7 ], [ null, %16 ], [ %36, %._crit_edge93 ], [ %36, %39 ]
-  %48 = load i32, ptr %2, align 8, !tbaa !20
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %46 = load i32, ptr %2, align 8, !tbaa !20
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -22606,7 +22606,7 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %47
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22618,108 +22618,108 @@ define internal fastcc ptr @_loop0_81_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader76, label %47
+  br i1 %.not68, label %.preheader76, label %.critedge74
 
 .preheader76:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980 = icmp eq ptr %18, null
-  br i1 %.not6980, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not6980, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader76
   %19 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %0)
-  %.not7098 = icmp eq ptr %19, null
-  br i1 %.not7098, label %._crit_edge, label %.lr.ph102
+  %.not7097 = icmp eq ptr %19, null
+  br i1 %.not7097, label %.critedge, label %.lr.ph101
 
-.lr.ph:                                           ; preds = %27
+.lr.ph:                                           ; preds = %28
   %20 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %0)
   %.not70 = icmp eq ptr %20, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph102, !llvm.loop !98
+  br i1 %.not70, label %.critedge, label %.lr.ph101, !llvm.loop !98
 
-.lr.ph102:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph101:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %20, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.05981101 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.05882100 = phi i64 [ %28, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0548399 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %22 = icmp eq i64 %.05882100, %.05981101
-  br i1 %22, label %23, label %27
+  %.05981100 = phi i64 [ %.160, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0588299 = phi i64 [ %29, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0548398 = phi ptr [ %.256, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %22 = icmp eq i64 %.0588299, %.05981100
+  br i1 %22, label %23, label %28
 
-23:                                               ; preds = %.lr.ph102
-  %24 = shl i64 %.05882100, 1
-  %25 = shl i64 %.05882100, 4
-  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548399, i64 noundef %25) #5
+23:                                               ; preds = %.lr.ph101
+  %24 = shl i64 %.0588299, 1
+  %25 = shl i64 %.0588299, 4
+  %26 = tail call ptr @PyMem_Realloc(ptr noundef %.0548398, i64 noundef %25) #5
   %.not71.not = icmp eq ptr %26, null
-  br i1 %.not71.not, label %32, label %27
+  br i1 %.not71.not, label %.thread, label %28
 
-27:                                               ; preds = %23, %.lr.ph102
-  %.160 = phi i64 [ %.05981101, %.lr.ph102 ], [ %24, %23 ]
-  %.256 = phi ptr [ %.0548399, %.lr.ph102 ], [ %26, %23 ]
-  %28 = add i64 %.05882100, 1
-  %29 = getelementptr ptr, ptr %.256, i64 %.05882100
-  store ptr %21, ptr %29, align 8, !tbaa !25
-  %30 = load i32, ptr %11, align 8, !tbaa !22
-  %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %31, null
-  br i1 %.not69, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !98
-
-32:                                               ; preds = %23
-  tail call void @PyMem_Free(ptr noundef %.0548399) #5
+.thread:                                          ; preds = %23
+  tail call void @PyMem_Free(ptr noundef %.0548398) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %33 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %27 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %27
-  br label %._crit_edge, !llvm.loop !98
+28:                                               ; preds = %23, %.lr.ph101
+  %.160 = phi i64 [ %.05981100, %.lr.ph101 ], [ %24, %23 ]
+  %.256 = phi ptr [ %.0548398, %.lr.ph101 ], [ %26, %23 ]
+  %29 = add i64 %.0588299, 1
+  %30 = getelementptr ptr, ptr %.256, i64 %.0588299
+  store ptr %21, ptr %30, align 8, !tbaa !25
+  %31 = load i32, ptr %11, align 8, !tbaa !22
+  %32 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %32, null
+  br i1 %.not69, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %28, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %.._crit_edge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
-  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %30, %.._crit_edge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+..critedge.loopexit_crit_edge:                    ; preds = %28
+  br label %.critedge, !llvm.loop !98
+
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %29, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.054.lcssa = phi ptr [ %13, %.preheader76 ], [ %.256, %..critedge.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %.256, %.lr.ph ]
+  %.053.lcssa = phi i32 [ %12, %.preheader76 ], [ %31, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   store i32 %.053.lcssa, ptr %11, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !32
-  %36 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %35) #5
-  %.not72 = icmp eq ptr %36, null
-  br i1 %.not72, label %39, label %.preheader
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.lcssa, ptr noundef %34) #5
+  %.not72 = icmp eq ptr %35, null
+  br i1 %.not72, label %38, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %37 = icmp sgt i64 %.058.lcssa, 0
-  br i1 %37, label %.lr.ph92, label %._crit_edge93
+.preheader:                                       ; preds = %.critedge
+  %36 = icmp sgt i64 %.058.lcssa, 0
+  br i1 %36, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %41
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  br label %40
 
-39:                                               ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
+38:                                               ; preds = %.critedge
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %40 = tail call ptr @PyErr_NoMemory() #5
-  br label %47
+  %39 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge93:                                    ; preds = %41, %.preheader
-  tail call void @PyMem_Free(ptr noundef %.054.lcssa) #5
-  br label %47
+._crit_edge:                                      ; preds = %40, %.preheader
+  tail call void @PyMem_Free(ptr noundef nonnull %.054.lcssa) #5
+  br label %.critedge74
 
-41:                                               ; preds = %.lr.ph92, %41
-  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %46, %41 ]
-  %42 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
-  %43 = load ptr, ptr %42, align 8, !tbaa !25
-  %44 = load ptr, ptr %38, align 8, !tbaa !35
-  %45 = getelementptr ptr, ptr %44, i64 %.091
-  store ptr %43, ptr %45, align 8, !tbaa !25
-  %46 = add nuw nsw i64 %.091, 1
-  %exitcond.not = icmp eq i64 %46, %.058.lcssa
-  br i1 %exitcond.not, label %._crit_edge93, label %41, !llvm.loop !99
+40:                                               ; preds = %.lr.ph92, %40
+  %.091 = phi i64 [ 0, %.lr.ph92 ], [ %45, %40 ]
+  %41 = getelementptr ptr, ptr %.054.lcssa, i64 %.091
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %43 = load ptr, ptr %37, align 8, !tbaa !35
+  %44 = getelementptr ptr, ptr %43, i64 %.091
+  store ptr %42, ptr %44, align 8, !tbaa !25
+  %45 = add nuw nsw i64 %.091, 1
+  %exitcond.not = icmp eq i64 %45, %.058.lcssa
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !99
 
-47:                                               ; preds = %39, %._crit_edge93, %16, %7, %32, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %32 ], [ null, %7 ], [ null, %16 ], [ %36, %._crit_edge93 ], [ %36, %39 ]
-  %48 = load i32, ptr %2, align 8, !tbaa !20
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %38, %._crit_edge, %16, %7, %.thread, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread ], [ null, %7 ], [ null, %16 ], [ %35, %._crit_edge ], [ %35, %38 ]
+  %46 = load i32, ptr %2, align 8, !tbaa !20
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -24654,17 +24654,17 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %0)
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !109
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !109
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -24690,15 +24690,15 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !109
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !109
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !109
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !109
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -24706,7 +24706,7 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_126_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -24725,8 +24725,8 @@ define internal fastcc ptr @_gather_127_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !110
 
-_loop0_126_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_126_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_126_rule.exit.thread.sink.split
 
@@ -26779,17 +26779,17 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i.i.i:                               ; preds = %63
   %65 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i.i.i = icmp eq ptr %65, null
-  br i1 %.not6980.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.preheader.i.i
+  br i1 %.not6980.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.preheader76.i.i.i
   %66 = tail call fastcc ptr @type_param_rule(ptr noundef nonnull %0)
   %.not70.i31.i.i = icmp eq ptr %66, null
-  br i1 %.not70.i31.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i
+  br i1 %.not70.i31.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %74
   %67 = tail call fastcc ptr @type_param_rule(ptr noundef nonnull %0)
   %.not70.i.i.i = icmp eq ptr %67, null
-  br i1 %.not70.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i, !llvm.loop !119
+  br i1 %.not70.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i, !llvm.loop !119
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %68 = phi ptr [ %67, %.lr.ph.i.i.i ], [ %66, %.lr.ph.i.preheader.i.i ]
@@ -26815,15 +26815,15 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   %77 = load i32, ptr %11, align 8, !tbaa !22
   %78 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i.i.i = icmp eq ptr %78, null
-  br i1 %.not69.i.i.i, label %.._crit_edge.i.loopexit_crit_edge.i.i, label %.lr.ph.i.i.i, !llvm.loop !119
+  br i1 %.not69.i.i.i, label %..critedge.i.loopexit_crit_edge.i.i, label %.lr.ph.i.i.i, !llvm.loop !119
 
-.._crit_edge.i.loopexit_crit_edge.i.i:            ; preds = %74
-  br label %._crit_edge.i.i.i, !llvm.loop !119
+..critedge.i.loopexit_crit_edge.i.i:              ; preds = %74
+  br label %.critedge.i.i.i, !llvm.loop !119
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
-  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %75, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %75, %.lr.ph.i.i.i ]
-  %.054.lcssa.i.i.i = phi ptr [ %62, %.preheader76.i.i.i ], [ %.256.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ %62, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
-  %.053.lcssa.i.i.i = phi i32 [ %61, %.preheader76.i.i.i ], [ %77, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ %61, %.lr.ph.i.preheader.i.i ], [ %77, %.lr.ph.i.i.i ]
+.critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %..critedge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
+  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %75, %..critedge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %75, %.lr.ph.i.i.i ]
+  %.054.lcssa.i.i.i = phi ptr [ %62, %.preheader76.i.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %62, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
+  %.053.lcssa.i.i.i = phi i32 [ %61, %.preheader76.i.i.i ], [ %77, %..critedge.i.loopexit_crit_edge.i.i ], [ %61, %.lr.ph.i.preheader.i.i ], [ %77, %.lr.ph.i.i.i ]
   store i32 %.053.lcssa.i.i.i, ptr %11, align 8, !tbaa !22
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !32
@@ -26831,7 +26831,7 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i.i.i = icmp eq ptr %81, null
   br i1 %.not72.i.i.i, label %_loop0_53_rule.exit.thread.sink.split.sink.split.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %._crit_edge.i.i.i
+.preheader.i.i.i:                                 ; preds = %.critedge.i.i.i
   %82 = icmp sgt i64 %.058.lcssa.i.i.i, 0
   br i1 %82, label %.lr.ph92.i.i.i, label %_gather_54_rule.exit.i
 
@@ -26850,8 +26850,8 @@ define internal fastcc ptr @type_params_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i.i.i = icmp eq i64 %89, %.058.lcssa.i.i.i
   br i1 %exitcond.not.i.i.i, label %_gather_54_rule.exit.i, label %84, !llvm.loop !120
 
-_loop0_53_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %70, %._crit_edge.i.i.i
-  %.054.lcssa.i.sink.i.i = phi ptr [ %.054.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.05483.i32.i.i, %70 ]
+_loop0_53_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %70, %.critedge.i.i.i
+  %.054.lcssa.i.sink.i.i = phi ptr [ %.054.lcssa.i.i.i, %.critedge.i.i.i ], [ %.05483.i32.i.i, %70 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink.i.i) #5
   br label %_loop0_53_rule.exit.thread.sink.split.i.i
 
@@ -32134,17 +32134,17 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call fastcc ptr @with_item_rule(ptr noundef nonnull %0)
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call fastcc ptr @with_item_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !136
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !136
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -32170,15 +32170,15 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !136
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !136
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !136
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !136
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -32186,7 +32186,7 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_34_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -32205,8 +32205,8 @@ define internal fastcc ptr @_gather_35_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !137
 
-_loop0_34_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_34_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_34_rule.exit.thread.sink.split
 
@@ -32432,17 +32432,17 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call fastcc ptr @_tmp_166_rule(ptr noundef nonnull %0)
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call fastcc ptr @_tmp_166_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !138
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !138
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -32468,15 +32468,15 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !138
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !138
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !138
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !138
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -32484,7 +32484,7 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_134_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -32503,8 +32503,8 @@ define internal fastcc ptr @_gather_135_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !139
 
-_loop0_134_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_134_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_134_rule.exit.thread.sink.split
 
@@ -32595,17 +32595,17 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call fastcc ptr @_tmp_167_rule(ptr noundef nonnull %0)
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call fastcc ptr @_tmp_167_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !140
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !140
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -32631,15 +32631,15 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !140
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !140
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !140
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !140
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -32647,7 +32647,7 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_136_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -32666,8 +32666,8 @@ define internal fastcc ptr @_gather_137_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !141
 
-_loop0_136_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_136_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_136_rule.exit.thread.sink.split
 
@@ -36643,56 +36643,56 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
 24:                                               ; preds = %21
   %25 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %25, 0
-  br i1 %.not68.i, label %.preheader39, label %_loop0_44_rule.exit.thread.sink.split
+  br i1 %.not68.i, label %.preheader37, label %_loop0_44_rule.exit.thread.sink.split
 
-.preheader39:                                     ; preds = %24
+.preheader37:                                     ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i43 = icmp eq ptr %26, null
-  br i1 %.not69.i43, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i41 = icmp eq ptr %26, null
+  br i1 %.not69.i41, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader39
+.lr.ph.preheader:                                 ; preds = %.preheader37
   %27 = tail call fastcc ptr @maybe_star_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i61 = icmp eq ptr %27, null
-  br i1 %.not70.i61, label %._crit_edge, label %.lr.ph65
+  %.not70.i58 = icmp eq ptr %27, null
+  br i1 %.not70.i58, label %.critedge.i, label %.lr.ph62
 
 .lr.ph:                                           ; preds = %35
   %28 = tail call fastcc ptr @maybe_star_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph65, !llvm.loop !152
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph62, !llvm.loop !152
 
-.lr.ph65:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph62:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %29 = phi ptr [ %28, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.059.i4464 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i4563 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i4662 = phi ptr [ %.256.i, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %30 = icmp eq i64 %.058.i4563, %.059.i4464
+  %.059.i4261 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4360 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4459 = phi ptr [ %.256.i, %.lr.ph ], [ %23, %.lr.ph.preheader ]
+  %30 = icmp eq i64 %.058.i4360, %.059.i4261
   br i1 %30, label %31, label %35
 
-31:                                               ; preds = %.lr.ph65
-  %32 = shl i64 %.058.i4563, 1
-  %33 = shl i64 %.058.i4563, 4
-  %34 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4662, i64 noundef %33) #5
+31:                                               ; preds = %.lr.ph62
+  %32 = shl i64 %.058.i4360, 1
+  %33 = shl i64 %.058.i4360, 4
+  %34 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4459, i64 noundef %33) #5
   %.not71.not.i = icmp eq ptr %34, null
   br i1 %.not71.not.i, label %_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split, label %35
 
-35:                                               ; preds = %31, %.lr.ph65
-  %.160.i = phi i64 [ %.059.i4464, %.lr.ph65 ], [ %32, %31 ]
-  %.256.i = phi ptr [ %.054.i4662, %.lr.ph65 ], [ %34, %31 ]
-  %36 = add i64 %.058.i4563, 1
-  %37 = getelementptr ptr, ptr %.256.i, i64 %.058.i4563
+35:                                               ; preds = %31, %.lr.ph62
+  %.160.i = phi i64 [ %.059.i4261, %.lr.ph62 ], [ %32, %31 ]
+  %.256.i = phi ptr [ %.054.i4459, %.lr.ph62 ], [ %34, %31 ]
+  %36 = add i64 %.058.i4360, 1
+  %37 = getelementptr ptr, ptr %.256.i, i64 %.058.i4360
   store ptr %29, ptr %37, align 8, !tbaa !25
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !152
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !152
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %35
-  br label %._crit_edge, !llvm.loop !152
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !152
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader39
-  %.058.i.lcssa = phi i64 [ 0, %.preheader39 ], [ %36, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %36, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %23, %.preheader39 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %23, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %22, %.preheader39 ], [ %38, %.._crit_edge.loopexit_crit_edge ], [ %22, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader37
+  %.058.i.lcssa = phi i64 [ 0, %.preheader37 ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %23, %.preheader37 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %22, %.preheader37 ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -36700,36 +36700,36 @@ define internal fastcc ptr @_gather_45_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
+.preheader:                                       ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %43, label %.lr.ph55, label %._crit_edge56
+  br i1 %43, label %.lr.ph53, label %._crit_edge
 
-.lr.ph55:                                         ; preds = %.preheader
+.lr.ph53:                                         ; preds = %.preheader
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   br label %45
 
-45:                                               ; preds = %.lr.ph55, %45
-  %.0.i54 = phi i64 [ 0, %.lr.ph55 ], [ %50, %45 ]
-  %46 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i54
+45:                                               ; preds = %.lr.ph53, %45
+  %.0.i52 = phi i64 [ 0, %.lr.ph53 ], [ %50, %45 ]
+  %46 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i52
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = load ptr, ptr %44, align 8, !tbaa !35
-  %49 = getelementptr ptr, ptr %48, i64 %.0.i54
+  %49 = getelementptr ptr, ptr %48, i64 %.0.i52
   store ptr %47, ptr %49, align 8, !tbaa !25
-  %50 = add nuw nsw i64 %.0.i54, 1
+  %50 = add nuw nsw i64 %.0.i52, 1
   %exitcond.not = icmp eq i64 %50, %.058.i.lcssa
-  br i1 %exitcond.not, label %._crit_edge56, label %45, !llvm.loop !153
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !153
 
-._crit_edge56:                                    ; preds = %45, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+._crit_edge:                                      ; preds = %45, %.preheader
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
   %51 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %42) #5
   br label %55
 
-_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split: ; preds = %31, %._crit_edge
-  %.054.i46.lcssa58.sink = phi ptr [ %.054.i.lcssa, %._crit_edge ], [ %.054.i4662, %31 ]
-  tail call void @PyMem_Free(ptr noundef %.054.i46.lcssa58.sink) #5
+_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.i44.lcssa55.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i4459, %31 ]
+  tail call void @PyMem_Free(ptr noundef %.054.i44.lcssa55.sink) #5
   br label %_loop0_44_rule.exit.thread.sink.split.sink.split
 
 _loop0_44_rule.exit.thread.sink.split.sink.split: ; preds = %_loop0_44_rule.exit.thread.sink.split.sink.split.sink.split, %21
@@ -36747,8 +36747,8 @@ _loop0_44_rule.exit.thread:                       ; preds = %_loop0_44_rule.exit
   store i32 %12, ptr %11, align 8, !tbaa !22
   br label %55
 
-55:                                               ; preds = %_loop0_44_rule.exit.thread, %._crit_edge56, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %_loop0_44_rule.exit.thread ], [ %51, %._crit_edge56 ]
+55:                                               ; preds = %_loop0_44_rule.exit.thread, %._crit_edge, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %_loop0_44_rule.exit.thread ], [ %51, %._crit_edge ]
   %storemerge.in = load i32, ptr %2, align 8, !tbaa !20
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
@@ -36996,7 +36996,7 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread70
+  br label %.thread68
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -37004,9 +37004,9 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %22, label %.thread
+  br i1 %17, label %22, label %.thread97
 
-.thread:                                          ; preds = %12
+.thread97:                                        ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = sext i32 %14 to i64
@@ -37021,7 +37021,7 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
 25:                                               ; preds = %22
   store i32 1, ptr %8, align 8, !tbaa !21
   %26 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread70
+  br label %.thread68
 
 27:                                               ; preds = %22
   %.pre = load i32, ptr %8, align 8, !tbaa !21
@@ -37034,42 +37034,42 @@ define internal fastcc ptr @or_pattern_rule(ptr noundef %0) unnamed_addr #0 {
 
 33:                                               ; preds = %27
   %34 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread70
+  br label %.thread68
 
-35:                                               ; preds = %.thread, %27
-  %.pn.in = phi ptr [ %21, %.thread ], [ %32, %27 ]
+35:                                               ; preds = %.thread97, %27
+  %.pn.in = phi ptr [ %21, %.thread97 ], [ %32, %27 ]
   %.pn = load ptr, ptr %.pn.in, align 8, !tbaa !25
-  %.in104 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
-  %36 = load i32, ptr %.in104, align 4, !tbaa !26
+  %.in102 = getelementptr inbounds nuw i8, ptr %.pn, i64 20
+  %36 = load i32, ptr %.in102, align 4, !tbaa !26
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %37 = load i32, ptr %.in, align 8, !tbaa !29
   %38 = load i32, ptr %2, align 8, !tbaa !20
   %39 = add i32 %38, 1
   store i32 %39, ptr %2, align 8, !tbaa !20
   %40 = icmp eq i32 %38, 6000
-  br i1 %40, label %41, label %.thread101
+  br i1 %40, label %41, label %.thread99
 
 41:                                               ; preds = %35
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
-  %.pre96 = load i32, ptr %8, align 8, !tbaa !21
-  %42 = icmp eq i32 %.pre96, 0
-  br i1 %42, label %.thread101, label %_gather_41_rule.exit.thread
+  %.pre93 = load i32, ptr %8, align 8, !tbaa !21
+  %42 = icmp eq i32 %.pre93, 0
+  br i1 %42, label %.thread99, label %_gather_41_rule.exit.thread
 
 _gather_41_rule.exit.thread:                      ; preds = %41
   %43 = load i32, ptr %2, align 8, !tbaa !20
   %44 = add i32 %43, -1
-  br label %126
+  br label %125
 
-.thread101:                                       ; preds = %35, %41
+.thread99:                                        ; preds = %35, %41
   %45 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %45, null
-  %.pre97 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not22.i, label %_gather_41_rule.exit.thread68, label %46
+  %.pre94 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %.not22.i, label %_gather_41_rule.exit.thread66, label %46
 
-46:                                               ; preds = %.thread101
-  %47 = add i32 %.pre97, 1
+46:                                               ; preds = %.thread99
+  %47 = add i32 %.pre94, 1
   store i32 %47, ptr %2, align 8, !tbaa !20
-  %48 = icmp eq i32 %.pre97, 6000
+  %48 = icmp eq i32 %.pre94, 6000
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %46
@@ -37085,7 +37085,7 @@ _gather_41_rule.exit.thread:                      ; preds = %41
   %53 = load i32, ptr %2, align 8, !tbaa !20
   %54 = add i32 %53, -1
   store i32 %54, ptr %2, align 8, !tbaa !20
-  br label %_gather_41_rule.exit.thread68
+  br label %_gather_41_rule.exit.thread66
 
 55:                                               ; preds = %50
   %56 = load i32, ptr %13, align 8, !tbaa !22
@@ -37098,182 +37098,182 @@ _gather_41_rule.exit.thread:                      ; preds = %41
   %59 = tail call ptr @PyErr_NoMemory() #5
   %60 = load i32, ptr %2, align 8, !tbaa !20
   %61 = add i32 %60, -1
-  br label %_gather_41_rule.exit.thread68
+  br label %_gather_41_rule.exit.thread66
 
 62:                                               ; preds = %55
   %63 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %63, 0
-  br i1 %.not68.i, label %.preheader77, label %66
+  br i1 %.not68.i, label %.preheader75, label %66
 
-.preheader77:                                     ; preds = %62
+.preheader75:                                     ; preds = %62
   %64 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 18) #5
-  %.not69.i81 = icmp eq ptr %64, null
-  br i1 %.not69.i81, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i79 = icmp eq ptr %64, null
+  br i1 %.not69.i79, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader77
+.lr.ph.preheader:                                 ; preds = %.preheader75
   %65 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i107 = icmp eq ptr %65, null
-  br i1 %.not70.i107, label %._crit_edge, label %.lr.ph111
+  %.not70.i105 = icmp eq ptr %65, null
+  br i1 %.not70.i105, label %.critedge.i, label %.lr.ph109
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %2, align 8, !tbaa !20
   %68 = add i32 %67, -1
-  br label %_gather_41_rule.exit.thread68
+  br label %_gather_41_rule.exit.thread66
 
-.lr.ph:                                           ; preds = %76
+.lr.ph:                                           ; preds = %79
   %69 = tail call fastcc ptr @closed_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %69, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph111, !llvm.loop !154
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph109, !llvm.loop !154
 
-.lr.ph111:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph109:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %70 = phi ptr [ %69, %.lr.ph ], [ %65, %.lr.ph.preheader ]
-  %.059.i82110 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i83109 = phi i64 [ %77, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i84108 = phi ptr [ %.256.i, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %71 = icmp eq i64 %.058.i83109, %.059.i82110
-  br i1 %71, label %72, label %76
+  %.059.i80108 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i81107 = phi i64 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i82106 = phi ptr [ %.256.i, %.lr.ph ], [ %57, %.lr.ph.preheader ]
+  %71 = icmp eq i64 %.058.i81107, %.059.i80108
+  br i1 %71, label %72, label %79
 
-72:                                               ; preds = %.lr.ph111
-  %73 = shl i64 %.058.i83109, 1
-  %74 = shl i64 %.058.i83109, 4
-  %75 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i84108, i64 noundef %74) #5
+72:                                               ; preds = %.lr.ph109
+  %73 = shl i64 %.058.i81107, 1
+  %74 = shl i64 %.058.i81107, 4
+  %75 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i82106, i64 noundef %74) #5
   %.not71.not.i = icmp eq ptr %75, null
-  br i1 %.not71.not.i, label %81, label %76
+  br i1 %.not71.not.i, label %.thread, label %79
 
-76:                                               ; preds = %72, %.lr.ph111
-  %.160.i = phi i64 [ %.059.i82110, %.lr.ph111 ], [ %73, %72 ]
-  %.256.i = phi ptr [ %.054.i84108, %.lr.ph111 ], [ %75, %72 ]
-  %77 = add i64 %.058.i83109, 1
-  %78 = getelementptr ptr, ptr %.256.i, i64 %.058.i83109
-  store ptr %70, ptr %78, align 8, !tbaa !25
-  %79 = load i32, ptr %13, align 8, !tbaa !22
-  %80 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 18) #5
-  %.not69.i = icmp eq ptr %80, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !154
-
-81:                                               ; preds = %72
-  tail call void @PyMem_Free(ptr noundef %.054.i84108) #5
+.thread:                                          ; preds = %72
+  tail call void @PyMem_Free(ptr noundef %.054.i82106) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %82 = tail call ptr @PyErr_NoMemory() #5
-  %83 = load i32, ptr %2, align 8, !tbaa !20
-  %84 = add i32 %83, -1
-  br label %_gather_41_rule.exit.thread68
+  %76 = tail call ptr @PyErr_NoMemory() #5
+  %77 = load i32, ptr %2, align 8, !tbaa !20
+  %78 = add i32 %77, -1
+  br label %_gather_41_rule.exit.thread66
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %76
-  br label %._crit_edge, !llvm.loop !154
+79:                                               ; preds = %72, %.lr.ph109
+  %.160.i = phi i64 [ %.059.i80108, %.lr.ph109 ], [ %73, %72 ]
+  %.256.i = phi ptr [ %.054.i82106, %.lr.ph109 ], [ %75, %72 ]
+  %80 = add i64 %.058.i81107, 1
+  %81 = getelementptr ptr, ptr %.256.i, i64 %.058.i81107
+  store ptr %70, ptr %81, align 8, !tbaa !25
+  %82 = load i32, ptr %13, align 8, !tbaa !22
+  %83 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 18) #5
+  %.not69.i = icmp eq ptr %83, null
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !154
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader77
-  %.058.i.lcssa = phi i64 [ 0, %.preheader77 ], [ %77, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %77, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %57, %.preheader77 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %57, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %56, %.preheader77 ], [ %79, %.._crit_edge.loopexit_crit_edge ], [ %56, %.lr.ph.preheader ], [ %79, %.lr.ph ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %79
+  br label %.critedge.i, !llvm.loop !154
+
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader75
+  %.058.i.lcssa = phi i64 [ 0, %.preheader75 ], [ %80, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %80, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %57, %.preheader75 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %57, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %56, %.preheader75 ], [ %82, %..critedge.i.loopexit_crit_edge ], [ %56, %.lr.ph.preheader ], [ %82, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %13, align 8, !tbaa !22
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !32
-  %87 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %86) #5
-  %.not72.i = icmp eq ptr %87, null
-  br i1 %.not72.i, label %_loop0_40_rule.exit.thread57, label %.preheader
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = load ptr, ptr %84, align 8, !tbaa !32
+  %86 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %85) #5
+  %.not72.i = icmp eq ptr %86, null
+  br i1 %.not72.i, label %_loop0_40_rule.exit.thread55, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %88 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %88, label %.lr.ph93, label %_gather_41_rule.exit
+.preheader:                                       ; preds = %.critedge.i
+  %87 = icmp sgt i64 %.058.i.lcssa, 0
+  br i1 %87, label %.lr.ph91, label %_gather_41_rule.exit
 
-.lr.ph93:                                         ; preds = %.preheader
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  br label %91
+.lr.ph91:                                         ; preds = %.preheader
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  br label %90
 
-_loop0_40_rule.exit.thread57:                     ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_loop0_40_rule.exit.thread55:                     ; preds = %.critedge.i
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %90 = tail call ptr @PyErr_NoMemory() #5
-  %storemerge.in.i59 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i60 = add i32 %storemerge.in.i59, -1
-  br label %_gather_41_rule.exit.thread68
+  %89 = tail call ptr @PyErr_NoMemory() #5
+  %storemerge.in.i57 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i58 = add i32 %storemerge.in.i57, -1
+  br label %_gather_41_rule.exit.thread66
 
-91:                                               ; preds = %.lr.ph93, %91
-  %.0.i5192 = phi i64 [ 0, %.lr.ph93 ], [ %96, %91 ]
-  %92 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i5192
-  %93 = load ptr, ptr %92, align 8, !tbaa !25
-  %94 = load ptr, ptr %89, align 8, !tbaa !35
-  %95 = getelementptr ptr, ptr %94, i64 %.0.i5192
-  store ptr %93, ptr %95, align 8, !tbaa !25
-  %96 = add nuw nsw i64 %.0.i5192, 1
-  %exitcond.not = icmp eq i64 %96, %.058.i.lcssa
-  br i1 %exitcond.not, label %_gather_41_rule.exit, label %91, !llvm.loop !155
+90:                                               ; preds = %.lr.ph91, %90
+  %.0.i5190 = phi i64 [ 0, %.lr.ph91 ], [ %95, %90 ]
+  %91 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i5190
+  %92 = load ptr, ptr %91, align 8, !tbaa !25
+  %93 = load ptr, ptr %88, align 8, !tbaa !35
+  %94 = getelementptr ptr, ptr %93, i64 %.0.i5190
+  store ptr %92, ptr %94, align 8, !tbaa !25
+  %95 = add nuw nsw i64 %.0.i5190, 1
+  %exitcond.not = icmp eq i64 %95, %.058.i.lcssa
+  br i1 %exitcond.not, label %_gather_41_rule.exit, label %90, !llvm.loop !155
 
-_gather_41_rule.exit.thread68:                    ; preds = %_loop0_40_rule.exit.thread57, %.thread101, %52, %58, %66, %81
-  %97 = phi i32 [ %storemerge.i60, %_loop0_40_rule.exit.thread57 ], [ %.pre97, %.thread101 ], [ %54, %52 ], [ %61, %58 ], [ %68, %66 ], [ %84, %81 ]
-  %98 = add i32 %97, -1
-  br label %126
+_gather_41_rule.exit.thread66:                    ; preds = %_loop0_40_rule.exit.thread55, %.thread99, %52, %58, %66, %.thread
+  %96 = phi i32 [ %storemerge.i58, %_loop0_40_rule.exit.thread55 ], [ %.pre94, %.thread99 ], [ %54, %52 ], [ %61, %58 ], [ %68, %66 ], [ %78, %.thread ]
+  %97 = add i32 %96, -1
+  br label %125
 
-_gather_41_rule.exit:                             ; preds = %91, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_gather_41_rule.exit:                             ; preds = %90, %.preheader
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
-  %99 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef nonnull %87) #5
-  %100 = load i32, ptr %2, align 8, !tbaa !20
-  %101 = add i32 %100, -1
-  store i32 %101, ptr %2, align 8, !tbaa !20
-  %.not48 = icmp eq ptr %99, null
-  br i1 %.not48, label %126, label %102
+  %98 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef nonnull %86) #5
+  %99 = load i32, ptr %2, align 8, !tbaa !20
+  %100 = add i32 %99, -1
+  store i32 %100, ptr %2, align 8, !tbaa !20
+  %.not48 = icmp eq ptr %98, null
+  br i1 %.not48, label %125, label %101
 
-102:                                              ; preds = %_gather_41_rule.exit
-  %103 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %0) #5
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %_gather_41_rule.exit
+  %102 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %0) #5
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %106
 
-105:                                              ; preds = %102
-  %106 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread70
+104:                                              ; preds = %101
+  %105 = load i32, ptr %2, align 8, !tbaa !20
+  br label %.thread68
 
-107:                                              ; preds = %102
-  %108 = load i64, ptr %99, align 8, !tbaa !156
-  %109 = icmp eq i64 %108, 1
-  br i1 %109, label %110, label %113
+106:                                              ; preds = %101
+  %107 = load i64, ptr %98, align 8, !tbaa !156
+  %108 = icmp eq i64 %107, 1
+  br i1 %108, label %109, label %112
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !150
-  br label %120
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %111 = load ptr, ptr %110, align 8, !tbaa !150
+  br label %119
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %115 = load i32, ptr %114, align 8, !tbaa !31
-  %116 = getelementptr inbounds nuw i8, ptr %103, i64 28
-  %117 = load i32, ptr %116, align 4, !tbaa !30
-  %118 = load ptr, ptr %85, align 8, !tbaa !32
-  %119 = tail call ptr @_PyAST_MatchOr(ptr noundef nonnull %99, i32 noundef %36, i32 noundef %37, i32 noundef %117, i32 noundef %115, ptr noundef %118) #5
-  br label %120
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %114 = load i32, ptr %113, align 8, !tbaa !31
+  %115 = getelementptr inbounds nuw i8, ptr %102, i64 28
+  %116 = load i32, ptr %115, align 4, !tbaa !30
+  %117 = load ptr, ptr %84, align 8, !tbaa !32
+  %118 = tail call ptr @_PyAST_MatchOr(ptr noundef nonnull %98, i32 noundef %36, i32 noundef %37, i32 noundef %116, i32 noundef %114, ptr noundef %117) #5
+  br label %119
 
-120:                                              ; preds = %113, %110
-  %121 = phi ptr [ %112, %110 ], [ %119, %113 ]
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %..thread74_crit_edge
+119:                                              ; preds = %112, %109
+  %120 = phi ptr [ %111, %109 ], [ %118, %112 ]
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %..thread72_crit_edge
 
-..thread74_crit_edge:                             ; preds = %120
-  %.pre98 = load i32, ptr %2, align 8, !tbaa !20
-  br label %.thread70
+..thread72_crit_edge:                             ; preds = %119
+  %.pre95 = load i32, ptr %2, align 8, !tbaa !20
+  br label %.thread68
 
-123:                                              ; preds = %120
-  %124 = tail call ptr @PyErr_Occurred() #5
-  %.not49 = icmp eq ptr %124, null
-  %.pre99 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not49, label %.thread70, label %125
+122:                                              ; preds = %119
+  %123 = tail call ptr @PyErr_Occurred() #5
+  %.not49 = icmp eq ptr %123, null
+  %.pre96 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %.not49, label %.thread68, label %124
 
-125:                                              ; preds = %123
+124:                                              ; preds = %122
   store i32 1, ptr %8, align 8, !tbaa !21
-  br label %.thread70
+  br label %.thread68
 
-126:                                              ; preds = %_gather_41_rule.exit.thread68, %_gather_41_rule.exit.thread, %_gather_41_rule.exit
-  %127 = phi i32 [ %98, %_gather_41_rule.exit.thread68 ], [ %44, %_gather_41_rule.exit.thread ], [ %101, %_gather_41_rule.exit ]
+125:                                              ; preds = %_gather_41_rule.exit.thread66, %_gather_41_rule.exit.thread, %_gather_41_rule.exit
+  %126 = phi i32 [ %97, %_gather_41_rule.exit.thread66 ], [ %44, %_gather_41_rule.exit.thread ], [ %100, %_gather_41_rule.exit ]
   store i32 %14, ptr %13, align 8, !tbaa !22
-  br label %.thread70
+  br label %.thread68
 
-.thread70:                                        ; preds = %126, %123, %..thread74_crit_edge, %125, %105, %25, %33, %10
-  %.pre99.sink = phi i32 [ %.pre99, %125 ], [ %106, %105 ], [ %26, %25 ], [ %34, %33 ], [ %11, %10 ], [ %127, %126 ], [ %.pre99, %123 ], [ %.pre98, %..thread74_crit_edge ]
-  %.0 = phi ptr [ null, %125 ], [ null, %105 ], [ null, %25 ], [ null, %33 ], [ null, %10 ], [ null, %126 ], [ null, %123 ], [ %121, %..thread74_crit_edge ]
-  %128 = add i32 %.pre99.sink, -1
-  store i32 %128, ptr %2, align 8, !tbaa !20
+.thread68:                                        ; preds = %125, %122, %..thread72_crit_edge, %124, %104, %25, %33, %10
+  %.pre96.sink = phi i32 [ %.pre96, %124 ], [ %105, %104 ], [ %26, %25 ], [ %34, %33 ], [ %11, %10 ], [ %126, %125 ], [ %.pre96, %122 ], [ %.pre95, %..thread72_crit_edge ]
+  %.0 = phi ptr [ null, %124 ], [ null, %104 ], [ null, %25 ], [ null, %33 ], [ null, %10 ], [ null, %125 ], [ null, %122 ], [ %120, %..thread72_crit_edge ]
+  %127 = add i32 %.pre96.sink, -1
+  store i32 %127, ptr %2, align 8, !tbaa !20
   ret ptr %.0
 }
 
@@ -40064,7 +40064,7 @@ define internal fastcc ptr @items_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %77
+  br i1 %.not, label %10, label %76
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40072,29 +40072,29 @@ define internal fastcc ptr @items_pattern_rule(ptr noundef %0) unnamed_addr #0 {
   %13 = add i32 %storemerge.in.pre, 1
   store i32 %13, ptr %2, align 8, !tbaa !20
   %14 = icmp eq i32 %storemerge.in.pre, 6000
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.thread64
 
 15:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %16 = icmp eq i32 %.pre, 0
-  br i1 %16, label %.thread, label %_gather_47_rule.exit.thread
+  br i1 %16, label %.thread64, label %_gather_47_rule.exit.thread
 
 _gather_47_rule.exit.thread:                      ; preds = %15
   %17 = load i32, ptr %2, align 8, !tbaa !20
   %18 = add i32 %17, -1
-  br label %76
+  br label %75
 
-.thread:                                          ; preds = %10, %15
+.thread64:                                        ; preds = %10, %15
   %19 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
-  %.pre62 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not22.i, label %_gather_47_rule.exit.thread38, label %20
+  %.pre60 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %.not22.i, label %_gather_47_rule.exit.thread36, label %20
 
-20:                                               ; preds = %.thread
-  %21 = add i32 %.pre62, 1
+20:                                               ; preds = %.thread64
+  %21 = add i32 %.pre60, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
-  %22 = icmp eq i32 %.pre62, 6000
+  %22 = icmp eq i32 %.pre60, 6000
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
@@ -40110,7 +40110,7 @@ _gather_47_rule.exit.thread:                      ; preds = %15
   %27 = load i32, ptr %2, align 8, !tbaa !20
   %28 = add i32 %27, -1
   store i32 %28, ptr %2, align 8, !tbaa !20
-  br label %_gather_47_rule.exit.thread38
+  br label %_gather_47_rule.exit.thread36
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %11, align 8, !tbaa !22
@@ -40123,132 +40123,132 @@ _gather_47_rule.exit.thread:                      ; preds = %15
   %33 = tail call ptr @PyErr_NoMemory() #5
   %34 = load i32, ptr %2, align 8, !tbaa !20
   %35 = add i32 %34, -1
-  br label %_gather_47_rule.exit.thread38
+  br label %_gather_47_rule.exit.thread36
 
 36:                                               ; preds = %29
   %37 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %37, 0
-  br i1 %.not68.i, label %.preheader44, label %40
+  br i1 %.not68.i, label %.preheader42, label %40
 
-.preheader44:                                     ; preds = %36
+.preheader42:                                     ; preds = %36
   %38 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i48 = icmp eq ptr %38, null
-  br i1 %.not69.i48, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i46 = icmp eq ptr %38, null
+  br i1 %.not69.i46, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader44
+.lr.ph.preheader:                                 ; preds = %.preheader42
   %39 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i69 = icmp eq ptr %39, null
-  br i1 %.not70.i69, label %._crit_edge, label %.lr.ph73
+  %.not70.i68 = icmp eq ptr %39, null
+  br i1 %.not70.i68, label %.critedge.i, label %.lr.ph72
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %2, align 8, !tbaa !20
   %42 = add i32 %41, -1
-  br label %_gather_47_rule.exit.thread38
+  br label %_gather_47_rule.exit.thread36
 
-.lr.ph:                                           ; preds = %50
+.lr.ph:                                           ; preds = %53
   %43 = tail call fastcc ptr @key_value_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %43, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph73, !llvm.loop !158
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph72, !llvm.loop !158
 
-.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph72:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %44 = phi ptr [ %43, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.059.i4972 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5071 = phi i64 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5170 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %45 = icmp eq i64 %.058.i5071, %.059.i4972
-  br i1 %45, label %46, label %50
+  %.059.i4771 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4870 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4969 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %45 = icmp eq i64 %.058.i4870, %.059.i4771
+  br i1 %45, label %46, label %53
 
-46:                                               ; preds = %.lr.ph73
-  %47 = shl i64 %.058.i5071, 1
-  %48 = shl i64 %.058.i5071, 4
-  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5170, i64 noundef %48) #5
+46:                                               ; preds = %.lr.ph72
+  %47 = shl i64 %.058.i4870, 1
+  %48 = shl i64 %.058.i4870, 4
+  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4969, i64 noundef %48) #5
   %.not71.not.i = icmp eq ptr %49, null
-  br i1 %.not71.not.i, label %55, label %50
+  br i1 %.not71.not.i, label %.thread, label %53
 
-50:                                               ; preds = %46, %.lr.ph73
-  %.160.i = phi i64 [ %.059.i4972, %.lr.ph73 ], [ %47, %46 ]
-  %.256.i = phi ptr [ %.054.i5170, %.lr.ph73 ], [ %49, %46 ]
-  %51 = add i64 %.058.i5071, 1
-  %52 = getelementptr ptr, ptr %.256.i, i64 %.058.i5071
-  store ptr %44, ptr %52, align 8, !tbaa !25
-  %53 = load i32, ptr %11, align 8, !tbaa !22
-  %54 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i = icmp eq ptr %54, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !158
-
-55:                                               ; preds = %46
-  tail call void @PyMem_Free(ptr noundef %.054.i5170) #5
+.thread:                                          ; preds = %46
+  tail call void @PyMem_Free(ptr noundef %.054.i4969) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %56 = tail call ptr @PyErr_NoMemory() #5
-  %57 = load i32, ptr %2, align 8, !tbaa !20
-  %58 = add i32 %57, -1
-  br label %_gather_47_rule.exit.thread38
+  %50 = tail call ptr @PyErr_NoMemory() #5
+  %51 = load i32, ptr %2, align 8, !tbaa !20
+  %52 = add i32 %51, -1
+  br label %_gather_47_rule.exit.thread36
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %50
-  br label %._crit_edge, !llvm.loop !158
+53:                                               ; preds = %46, %.lr.ph72
+  %.160.i = phi i64 [ %.059.i4771, %.lr.ph72 ], [ %47, %46 ]
+  %.256.i = phi ptr [ %.054.i4969, %.lr.ph72 ], [ %49, %46 ]
+  %54 = add i64 %.058.i4870, 1
+  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4870
+  store ptr %44, ptr %55, align 8, !tbaa !25
+  %56 = load i32, ptr %11, align 8, !tbaa !22
+  %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69.i = icmp eq ptr %57, null
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !158
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader44
-  %.058.i.lcssa = phi i64 [ 0, %.preheader44 ], [ %51, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %31, %.preheader44 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %30, %.preheader44 ], [ %53, %.._crit_edge.loopexit_crit_edge ], [ %30, %.lr.ph.preheader ], [ %53, %.lr.ph ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %53
+  br label %.critedge.i, !llvm.loop !158
+
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader42
+  %.058.i.lcssa = phi i64 [ 0, %.preheader42 ], [ %54, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %31, %.preheader42 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %30, %.preheader42 ], [ %56, %..critedge.i.loopexit_crit_edge ], [ %30, %.lr.ph.preheader ], [ %56, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %11, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !32
-  %61 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %60) #5
-  %.not72.i = icmp eq ptr %61, null
-  br i1 %.not72.i, label %_loop0_46_rule.exit.thread27, label %.preheader
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = load ptr, ptr %58, align 8, !tbaa !32
+  %60 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %59) #5
+  %.not72.i = icmp eq ptr %60, null
+  br i1 %.not72.i, label %_loop0_46_rule.exit.thread25, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %62 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %62, label %.lr.ph60, label %_gather_47_rule.exit
+.preheader:                                       ; preds = %.critedge.i
+  %61 = icmp sgt i64 %.058.i.lcssa, 0
+  br i1 %61, label %.lr.ph58, label %_gather_47_rule.exit
 
-.lr.ph60:                                         ; preds = %.preheader
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  br label %65
+.lr.ph58:                                         ; preds = %.preheader
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  br label %64
 
-_loop0_46_rule.exit.thread27:                     ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_loop0_46_rule.exit.thread25:                     ; preds = %.critedge.i
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %64 = tail call ptr @PyErr_NoMemory() #5
-  %storemerge.in.i29 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i30 = add i32 %storemerge.in.i29, -1
-  br label %_gather_47_rule.exit.thread38
+  %63 = tail call ptr @PyErr_NoMemory() #5
+  %storemerge.in.i27 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i28 = add i32 %storemerge.in.i27, -1
+  br label %_gather_47_rule.exit.thread36
 
-65:                                               ; preds = %.lr.ph60, %65
-  %.0.i2159 = phi i64 [ 0, %.lr.ph60 ], [ %70, %65 ]
-  %66 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2159
-  %67 = load ptr, ptr %66, align 8, !tbaa !25
-  %68 = load ptr, ptr %63, align 8, !tbaa !35
-  %69 = getelementptr ptr, ptr %68, i64 %.0.i2159
-  store ptr %67, ptr %69, align 8, !tbaa !25
-  %70 = add nuw nsw i64 %.0.i2159, 1
-  %exitcond.not = icmp eq i64 %70, %.058.i.lcssa
-  br i1 %exitcond.not, label %_gather_47_rule.exit, label %65, !llvm.loop !159
+64:                                               ; preds = %.lr.ph58, %64
+  %.0.i2157 = phi i64 [ 0, %.lr.ph58 ], [ %69, %64 ]
+  %65 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2157
+  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %67 = load ptr, ptr %62, align 8, !tbaa !35
+  %68 = getelementptr ptr, ptr %67, i64 %.0.i2157
+  store ptr %66, ptr %68, align 8, !tbaa !25
+  %69 = add nuw nsw i64 %.0.i2157, 1
+  %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
+  br i1 %exitcond.not, label %_gather_47_rule.exit, label %64, !llvm.loop !159
 
-_gather_47_rule.exit.thread38:                    ; preds = %_loop0_46_rule.exit.thread27, %.thread, %26, %32, %40, %55
-  %71 = phi i32 [ %storemerge.i30, %_loop0_46_rule.exit.thread27 ], [ %.pre62, %.thread ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %58, %55 ]
-  %72 = add i32 %71, -1
-  br label %76
+_gather_47_rule.exit.thread36:                    ; preds = %_loop0_46_rule.exit.thread25, %.thread64, %26, %32, %40, %.thread
+  %70 = phi i32 [ %storemerge.i28, %_loop0_46_rule.exit.thread25 ], [ %.pre60, %.thread64 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
+  %71 = add i32 %70, -1
+  br label %75
 
-_gather_47_rule.exit:                             ; preds = %65, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_gather_47_rule.exit:                             ; preds = %64, %.preheader
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
-  %73 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %61) #5
-  %74 = load i32, ptr %2, align 8, !tbaa !20
-  %75 = add i32 %74, -1
-  %.not18 = icmp eq ptr %73, null
-  br i1 %.not18, label %76, label %77
+  %72 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %60) #5
+  %73 = load i32, ptr %2, align 8, !tbaa !20
+  %74 = add i32 %73, -1
+  %.not18 = icmp eq ptr %72, null
+  br i1 %.not18, label %75, label %76
 
-76:                                               ; preds = %_gather_47_rule.exit, %_gather_47_rule.exit.thread, %_gather_47_rule.exit.thread38
-  %storemerge.in64 = phi i32 [ %75, %_gather_47_rule.exit ], [ %18, %_gather_47_rule.exit.thread ], [ %72, %_gather_47_rule.exit.thread38 ]
+75:                                               ; preds = %_gather_47_rule.exit, %_gather_47_rule.exit.thread, %_gather_47_rule.exit.thread36
+  %storemerge.in62 = phi i32 [ %74, %_gather_47_rule.exit ], [ %18, %_gather_47_rule.exit.thread ], [ %71, %_gather_47_rule.exit.thread36 ]
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %_gather_47_rule.exit, %7
-  %storemerge.in = phi i32 [ %storemerge.in.pre, %7 ], [ %storemerge.in64, %76 ], [ %75, %_gather_47_rule.exit ]
-  %.0 = phi ptr [ null, %7 ], [ null, %76 ], [ %73, %_gather_47_rule.exit ]
+76:                                               ; preds = %75, %_gather_47_rule.exit, %7
+  %storemerge.in = phi i32 [ %storemerge.in.pre, %7 ], [ %storemerge.in62, %75 ], [ %74, %_gather_47_rule.exit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %75 ], [ %72, %_gather_47_rule.exit ]
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -40740,7 +40740,7 @@ define internal fastcc ptr @keyword_patterns_rule(ptr noundef %0) unnamed_addr #
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %77
+  br i1 %.not, label %10, label %76
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40748,29 +40748,29 @@ define internal fastcc ptr @keyword_patterns_rule(ptr noundef %0) unnamed_addr #
   %13 = add i32 %storemerge.in.pre, 1
   store i32 %13, ptr %2, align 8, !tbaa !20
   %14 = icmp eq i32 %storemerge.in.pre, 6000
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.thread64
 
 15:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %16 = icmp eq i32 %.pre, 0
-  br i1 %16, label %.thread, label %_gather_52_rule.exit.thread
+  br i1 %16, label %.thread64, label %_gather_52_rule.exit.thread
 
 _gather_52_rule.exit.thread:                      ; preds = %15
   %17 = load i32, ptr %2, align 8, !tbaa !20
   %18 = add i32 %17, -1
-  br label %76
+  br label %75
 
-.thread:                                          ; preds = %10, %15
+.thread64:                                        ; preds = %10, %15
   %19 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
-  %.pre62 = load i32, ptr %2, align 8, !tbaa !20
-  br i1 %.not22.i, label %_gather_52_rule.exit.thread38, label %20
+  %.pre60 = load i32, ptr %2, align 8, !tbaa !20
+  br i1 %.not22.i, label %_gather_52_rule.exit.thread36, label %20
 
-20:                                               ; preds = %.thread
-  %21 = add i32 %.pre62, 1
+20:                                               ; preds = %.thread64
+  %21 = add i32 %.pre60, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
-  %22 = icmp eq i32 %.pre62, 6000
+  %22 = icmp eq i32 %.pre60, 6000
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
@@ -40786,7 +40786,7 @@ _gather_52_rule.exit.thread:                      ; preds = %15
   %27 = load i32, ptr %2, align 8, !tbaa !20
   %28 = add i32 %27, -1
   store i32 %28, ptr %2, align 8, !tbaa !20
-  br label %_gather_52_rule.exit.thread38
+  br label %_gather_52_rule.exit.thread36
 
 29:                                               ; preds = %24
   %30 = load i32, ptr %11, align 8, !tbaa !22
@@ -40799,132 +40799,132 @@ _gather_52_rule.exit.thread:                      ; preds = %15
   %33 = tail call ptr @PyErr_NoMemory() #5
   %34 = load i32, ptr %2, align 8, !tbaa !20
   %35 = add i32 %34, -1
-  br label %_gather_52_rule.exit.thread38
+  br label %_gather_52_rule.exit.thread36
 
 36:                                               ; preds = %29
   %37 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %37, 0
-  br i1 %.not68.i, label %.preheader44, label %40
+  br i1 %.not68.i, label %.preheader42, label %40
 
-.preheader44:                                     ; preds = %36
+.preheader42:                                     ; preds = %36
   %38 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i48 = icmp eq ptr %38, null
-  br i1 %.not69.i48, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i46 = icmp eq ptr %38, null
+  br i1 %.not69.i46, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader44
+.lr.ph.preheader:                                 ; preds = %.preheader42
   %39 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
-  %.not70.i69 = icmp eq ptr %39, null
-  br i1 %.not70.i69, label %._crit_edge, label %.lr.ph73
+  %.not70.i68 = icmp eq ptr %39, null
+  br i1 %.not70.i68, label %.critedge.i, label %.lr.ph72
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %2, align 8, !tbaa !20
   %42 = add i32 %41, -1
-  br label %_gather_52_rule.exit.thread38
+  br label %_gather_52_rule.exit.thread36
 
-.lr.ph:                                           ; preds = %50
+.lr.ph:                                           ; preds = %53
   %43 = tail call fastcc ptr @keyword_pattern_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %43, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph73, !llvm.loop !160
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph72, !llvm.loop !160
 
-.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph72:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %44 = phi ptr [ %43, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.059.i4972 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5071 = phi i64 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5170 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %45 = icmp eq i64 %.058.i5071, %.059.i4972
-  br i1 %45, label %46, label %50
+  %.059.i4771 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i4870 = phi i64 [ %54, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i4969 = phi ptr [ %.256.i, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %45 = icmp eq i64 %.058.i4870, %.059.i4771
+  br i1 %45, label %46, label %53
 
-46:                                               ; preds = %.lr.ph73
-  %47 = shl i64 %.058.i5071, 1
-  %48 = shl i64 %.058.i5071, 4
-  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5170, i64 noundef %48) #5
+46:                                               ; preds = %.lr.ph72
+  %47 = shl i64 %.058.i4870, 1
+  %48 = shl i64 %.058.i4870, 4
+  %49 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i4969, i64 noundef %48) #5
   %.not71.not.i = icmp eq ptr %49, null
-  br i1 %.not71.not.i, label %55, label %50
+  br i1 %.not71.not.i, label %.thread, label %53
 
-50:                                               ; preds = %46, %.lr.ph73
-  %.160.i = phi i64 [ %.059.i4972, %.lr.ph73 ], [ %47, %46 ]
-  %.256.i = phi ptr [ %.054.i5170, %.lr.ph73 ], [ %49, %46 ]
-  %51 = add i64 %.058.i5071, 1
-  %52 = getelementptr ptr, ptr %.256.i, i64 %.058.i5071
-  store ptr %44, ptr %52, align 8, !tbaa !25
-  %53 = load i32, ptr %11, align 8, !tbaa !22
-  %54 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i = icmp eq ptr %54, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !160
-
-55:                                               ; preds = %46
-  tail call void @PyMem_Free(ptr noundef %.054.i5170) #5
+.thread:                                          ; preds = %46
+  tail call void @PyMem_Free(ptr noundef %.054.i4969) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %56 = tail call ptr @PyErr_NoMemory() #5
-  %57 = load i32, ptr %2, align 8, !tbaa !20
-  %58 = add i32 %57, -1
-  br label %_gather_52_rule.exit.thread38
+  %50 = tail call ptr @PyErr_NoMemory() #5
+  %51 = load i32, ptr %2, align 8, !tbaa !20
+  %52 = add i32 %51, -1
+  br label %_gather_52_rule.exit.thread36
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %50
-  br label %._crit_edge, !llvm.loop !160
+53:                                               ; preds = %46, %.lr.ph72
+  %.160.i = phi i64 [ %.059.i4771, %.lr.ph72 ], [ %47, %46 ]
+  %.256.i = phi ptr [ %.054.i4969, %.lr.ph72 ], [ %49, %46 ]
+  %54 = add i64 %.058.i4870, 1
+  %55 = getelementptr ptr, ptr %.256.i, i64 %.058.i4870
+  store ptr %44, ptr %55, align 8, !tbaa !25
+  %56 = load i32, ptr %11, align 8, !tbaa !22
+  %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69.i = icmp eq ptr %57, null
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !160
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader44
-  %.058.i.lcssa = phi i64 [ 0, %.preheader44 ], [ %51, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %31, %.preheader44 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %30, %.preheader44 ], [ %53, %.._crit_edge.loopexit_crit_edge ], [ %30, %.lr.ph.preheader ], [ %53, %.lr.ph ]
+..critedge.i.loopexit_crit_edge:                  ; preds = %53
+  br label %.critedge.i, !llvm.loop !160
+
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader42
+  %.058.i.lcssa = phi i64 [ 0, %.preheader42 ], [ %54, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %31, %.preheader42 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %30, %.preheader42 ], [ %56, %..critedge.i.loopexit_crit_edge ], [ %30, %.lr.ph.preheader ], [ %56, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %11, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !32
-  %61 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %60) #5
-  %.not72.i = icmp eq ptr %61, null
-  br i1 %.not72.i, label %_loop0_51_rule.exit.thread27, label %.preheader
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = load ptr, ptr %58, align 8, !tbaa !32
+  %60 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %59) #5
+  %.not72.i = icmp eq ptr %60, null
+  br i1 %.not72.i, label %_loop0_51_rule.exit.thread25, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
-  %62 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %62, label %.lr.ph60, label %_gather_52_rule.exit
+.preheader:                                       ; preds = %.critedge.i
+  %61 = icmp sgt i64 %.058.i.lcssa, 0
+  br i1 %61, label %.lr.ph58, label %_gather_52_rule.exit
 
-.lr.ph60:                                         ; preds = %.preheader
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  br label %65
+.lr.ph58:                                         ; preds = %.preheader
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  br label %64
 
-_loop0_51_rule.exit.thread27:                     ; preds = %._crit_edge
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_loop0_51_rule.exit.thread25:                     ; preds = %.critedge.i
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %64 = tail call ptr @PyErr_NoMemory() #5
-  %storemerge.in.i29 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i30 = add i32 %storemerge.in.i29, -1
-  br label %_gather_52_rule.exit.thread38
+  %63 = tail call ptr @PyErr_NoMemory() #5
+  %storemerge.in.i27 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i28 = add i32 %storemerge.in.i27, -1
+  br label %_gather_52_rule.exit.thread36
 
-65:                                               ; preds = %.lr.ph60, %65
-  %.0.i2159 = phi i64 [ 0, %.lr.ph60 ], [ %70, %65 ]
-  %66 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2159
-  %67 = load ptr, ptr %66, align 8, !tbaa !25
-  %68 = load ptr, ptr %63, align 8, !tbaa !35
-  %69 = getelementptr ptr, ptr %68, i64 %.0.i2159
-  store ptr %67, ptr %69, align 8, !tbaa !25
-  %70 = add nuw nsw i64 %.0.i2159, 1
-  %exitcond.not = icmp eq i64 %70, %.058.i.lcssa
-  br i1 %exitcond.not, label %_gather_52_rule.exit, label %65, !llvm.loop !161
+64:                                               ; preds = %.lr.ph58, %64
+  %.0.i2157 = phi i64 [ 0, %.lr.ph58 ], [ %69, %64 ]
+  %65 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2157
+  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %67 = load ptr, ptr %62, align 8, !tbaa !35
+  %68 = getelementptr ptr, ptr %67, i64 %.0.i2157
+  store ptr %66, ptr %68, align 8, !tbaa !25
+  %69 = add nuw nsw i64 %.0.i2157, 1
+  %exitcond.not = icmp eq i64 %69, %.058.i.lcssa
+  br i1 %exitcond.not, label %_gather_52_rule.exit, label %64, !llvm.loop !161
 
-_gather_52_rule.exit.thread38:                    ; preds = %_loop0_51_rule.exit.thread27, %.thread, %26, %32, %40, %55
-  %71 = phi i32 [ %storemerge.i30, %_loop0_51_rule.exit.thread27 ], [ %.pre62, %.thread ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %58, %55 ]
-  %72 = add i32 %71, -1
-  br label %76
+_gather_52_rule.exit.thread36:                    ; preds = %_loop0_51_rule.exit.thread25, %.thread64, %26, %32, %40, %.thread
+  %70 = phi i32 [ %storemerge.i28, %_loop0_51_rule.exit.thread25 ], [ %.pre60, %.thread64 ], [ %28, %26 ], [ %35, %32 ], [ %42, %40 ], [ %52, %.thread ]
+  %71 = add i32 %70, -1
+  br label %75
 
-_gather_52_rule.exit:                             ; preds = %65, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+_gather_52_rule.exit:                             ; preds = %64, %.preheader
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
-  %73 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %61) #5
-  %74 = load i32, ptr %2, align 8, !tbaa !20
-  %75 = add i32 %74, -1
-  %.not18 = icmp eq ptr %73, null
-  br i1 %.not18, label %76, label %77
+  %72 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %60) #5
+  %73 = load i32, ptr %2, align 8, !tbaa !20
+  %74 = add i32 %73, -1
+  %.not18 = icmp eq ptr %72, null
+  br i1 %.not18, label %75, label %76
 
-76:                                               ; preds = %_gather_52_rule.exit, %_gather_52_rule.exit.thread, %_gather_52_rule.exit.thread38
-  %storemerge.in64 = phi i32 [ %75, %_gather_52_rule.exit ], [ %18, %_gather_52_rule.exit.thread ], [ %72, %_gather_52_rule.exit.thread38 ]
+75:                                               ; preds = %_gather_52_rule.exit, %_gather_52_rule.exit.thread, %_gather_52_rule.exit.thread36
+  %storemerge.in62 = phi i32 [ %74, %_gather_52_rule.exit ], [ %18, %_gather_52_rule.exit.thread ], [ %71, %_gather_52_rule.exit.thread36 ]
   store i32 %12, ptr %11, align 8, !tbaa !22
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %_gather_52_rule.exit, %7
-  %storemerge.in = phi i32 [ %storemerge.in.pre, %7 ], [ %storemerge.in64, %76 ], [ %75, %_gather_52_rule.exit ]
-  %.0 = phi ptr [ null, %7 ], [ null, %76 ], [ %73, %_gather_52_rule.exit ]
+76:                                               ; preds = %75, %_gather_52_rule.exit, %7
+  %storemerge.in = phi i32 [ %storemerge.in.pre, %7 ], [ %storemerge.in62, %75 ], [ %74, %_gather_52_rule.exit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %75 ], [ %72, %_gather_52_rule.exit ]
   %storemerge = add i32 %storemerge.in, -1
   store i32 %storemerge, ptr %2, align 8, !tbaa !20
   ret ptr %.0
@@ -41249,7 +41249,7 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %62
+  br i1 %.not, label %10, label %.critedge74
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -41261,23 +41261,23 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
 14:                                               ; preds = %10
   store i32 1, ptr %8, align 8, !tbaa !21
   %15 = tail call ptr @PyErr_NoMemory() #5
-  br label %62
+  br label %.critedge74
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %8, align 8, !tbaa !21
   %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %.preheader92, label %62
+  br i1 %.not68, label %.preheader92, label %.critedge74
 
 .preheader92:                                     ; preds = %16
   %18 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69110 = icmp eq ptr %18, null
-  br i1 %.not69110, label %pattern_rule.exit.thread, label %.lr.ph
+  br i1 %.not69110, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader92, %40
-  %.053114 = phi i32 [ %43, %40 ], [ %12, %.preheader92 ]
-  %.054113 = phi ptr [ %.256, %40 ], [ %13, %.preheader92 ]
-  %.058112 = phi i64 [ %41, %40 ], [ 0, %.preheader92 ]
-  %.059111 = phi i64 [ %.160, %40 ], [ 1, %.preheader92 ]
+.lr.ph:                                           ; preds = %.preheader92, %41
+  %.053114 = phi i32 [ %44, %41 ], [ %12, %.preheader92 ]
+  %.054113 = phi ptr [ %.256, %41 ], [ %13, %.preheader92 ]
+  %.058112 = phi i64 [ %42, %41 ], [ 0, %.preheader92 ]
+  %.059111 = phi i64 [ %.160, %41 ], [ 1, %.preheader92 ]
   %19 = load i32, ptr %2, align 8, !tbaa !20
   %20 = add i32 %19, 1
   store i32 %20, ptr %2, align 8, !tbaa !20
@@ -41291,7 +41291,7 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
 23:                                               ; preds = %22, %.lr.ph
   %24 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %25, label %pattern_rule.exit.thread.sink.split
+  br i1 %.not.i, label %25, label %.critedge.sink.split
 
 25:                                               ; preds = %23
   %26 = load i32, ptr %11, align 8, !tbaa !22
@@ -41303,12 +41303,12 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   store i32 %26, ptr %11, align 8, !tbaa !22
   %29 = load i32, ptr %8, align 8, !tbaa !21
   %.not28.i = icmp eq i32 %29, 0
-  br i1 %.not28.i, label %30, label %pattern_rule.exit.thread.sink.split
+  br i1 %.not28.i, label %30, label %.critedge.sink.split
 
 30:                                               ; preds = %28
   %31 = tail call fastcc ptr @or_pattern_rule(ptr noundef nonnull %0)
   %.not29.i = icmp eq ptr %31, null
-  br i1 %.not29.i, label %pattern_rule.exit.thread.sink.split, label %32
+  br i1 %.not29.i, label %.critedge.sink.split, label %32
 
 32:                                               ; preds = %25, %30
   %.122.i.ph = phi ptr [ %31, %30 ], [ %27, %25 ]
@@ -41316,83 +41316,83 @@ define internal fastcc ptr @_loop0_49_rule(ptr noundef %0) unnamed_addr #0 {
   %34 = add i32 %33, -1
   store i32 %34, ptr %2, align 8, !tbaa !20
   %35 = icmp eq i64 %.058112, %.059111
-  br i1 %35, label %36, label %40
+  br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
   %37 = shl i64 %.058112, 1
   %38 = shl i64 %.058112, 4
   %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054113, i64 noundef %38) #5
   %.not71.not = icmp eq ptr %39, null
-  br i1 %.not71.not, label %45, label %40
+  br i1 %.not71.not, label %.thread90, label %41
 
-40:                                               ; preds = %36, %32
-  %.160 = phi i64 [ %.059111, %32 ], [ %37, %36 ]
-  %.256 = phi ptr [ %.054113, %32 ], [ %39, %36 ]
-  %41 = add i64 %.058112, 1
-  %42 = getelementptr ptr, ptr %.256, i64 %.058112
-  store ptr %.122.i.ph, ptr %42, align 8, !tbaa !25
-  %43 = load i32, ptr %11, align 8, !tbaa !22
-  %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69 = icmp eq ptr %44, null
-  br i1 %.not69, label %pattern_rule.exit.thread, label %.lr.ph, !llvm.loop !167
-
-45:                                               ; preds = %36
+.thread90:                                        ; preds = %36
   tail call void @PyMem_Free(ptr noundef %.054113) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %46 = tail call ptr @PyErr_NoMemory() #5
-  br label %62
+  %40 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-pattern_rule.exit.thread.sink.split:              ; preds = %30, %28, %23
-  %47 = load i32, ptr %2, align 8, !tbaa !20
-  %48 = add i32 %47, -1
-  store i32 %48, ptr %2, align 8, !tbaa !20
-  br label %pattern_rule.exit.thread
+41:                                               ; preds = %36, %32
+  %.160 = phi i64 [ %.059111, %32 ], [ %37, %36 ]
+  %.256 = phi ptr [ %.054113, %32 ], [ %39, %36 ]
+  %42 = add i64 %.058112, 1
+  %43 = getelementptr ptr, ptr %.256, i64 %.058112
+  store ptr %.122.i.ph, ptr %43, align 8, !tbaa !25
+  %44 = load i32, ptr %11, align 8, !tbaa !22
+  %45 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
+  %.not69 = icmp eq ptr %45, null
+  br i1 %.not69, label %.critedge, label %.lr.ph, !llvm.loop !167
 
-pattern_rule.exit.thread:                         ; preds = %40, %pattern_rule.exit.thread.sink.split, %.preheader92
-  %.058107 = phi i64 [ 0, %.preheader92 ], [ %.058112, %pattern_rule.exit.thread.sink.split ], [ %41, %40 ]
-  %.054102 = phi ptr [ %13, %.preheader92 ], [ %.054113, %pattern_rule.exit.thread.sink.split ], [ %.256, %40 ]
-  %.05397 = phi i32 [ %12, %.preheader92 ], [ %.053114, %pattern_rule.exit.thread.sink.split ], [ %43, %40 ]
+.critedge.sink.split:                             ; preds = %30, %28, %23
+  %46 = load i32, ptr %2, align 8, !tbaa !20
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %2, align 8, !tbaa !20
+  br label %.critedge
+
+.critedge:                                        ; preds = %41, %.critedge.sink.split, %.preheader92
+  %.058107 = phi i64 [ 0, %.preheader92 ], [ %.058112, %.critedge.sink.split ], [ %42, %41 ]
+  %.054102 = phi ptr [ %13, %.preheader92 ], [ %.054113, %.critedge.sink.split ], [ %.256, %41 ]
+  %.05397 = phi i32 [ %12, %.preheader92 ], [ %.053114, %.critedge.sink.split ], [ %44, %41 ]
   store i32 %.05397, ptr %11, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !32
-  %51 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058107, ptr noundef %50) #5
-  %.not72 = icmp eq ptr %51, null
-  br i1 %.not72, label %54, label %.preheader
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !32
+  %50 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058107, ptr noundef %49) #5
+  %.not72 = icmp eq ptr %50, null
+  br i1 %.not72, label %53, label %.preheader
 
-.preheader:                                       ; preds = %pattern_rule.exit.thread
-  %52 = icmp sgt i64 %.058107, 0
-  br i1 %52, label %.lr.ph118, label %._crit_edge
+.preheader:                                       ; preds = %.critedge
+  %51 = icmp sgt i64 %.058107, 0
+  br i1 %51, label %.lr.ph118, label %._crit_edge
 
 .lr.ph118:                                        ; preds = %.preheader
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  br label %56
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  br label %55
 
-54:                                               ; preds = %pattern_rule.exit.thread
+53:                                               ; preds = %.critedge
   tail call void @PyMem_Free(ptr noundef nonnull %.054102) #5
   store i32 1, ptr %8, align 8, !tbaa !21
-  %55 = tail call ptr @PyErr_NoMemory() #5
-  br label %62
+  %54 = tail call ptr @PyErr_NoMemory() #5
+  br label %.critedge74
 
-._crit_edge:                                      ; preds = %56, %.preheader
+._crit_edge:                                      ; preds = %55, %.preheader
   tail call void @PyMem_Free(ptr noundef nonnull %.054102) #5
-  br label %62
+  br label %.critedge74
 
-56:                                               ; preds = %.lr.ph118, %56
-  %.0117 = phi i64 [ 0, %.lr.ph118 ], [ %61, %56 ]
-  %57 = getelementptr ptr, ptr %.054102, i64 %.0117
-  %58 = load ptr, ptr %57, align 8, !tbaa !25
-  %59 = load ptr, ptr %53, align 8, !tbaa !35
-  %60 = getelementptr ptr, ptr %59, i64 %.0117
-  store ptr %58, ptr %60, align 8, !tbaa !25
-  %61 = add nuw nsw i64 %.0117, 1
-  %exitcond.not = icmp eq i64 %61, %.058107
-  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !168
+55:                                               ; preds = %.lr.ph118, %55
+  %.0117 = phi i64 [ 0, %.lr.ph118 ], [ %60, %55 ]
+  %56 = getelementptr ptr, ptr %.054102, i64 %.0117
+  %57 = load ptr, ptr %56, align 8, !tbaa !25
+  %58 = load ptr, ptr %52, align 8, !tbaa !35
+  %59 = getelementptr ptr, ptr %58, i64 %.0117
+  store ptr %57, ptr %59, align 8, !tbaa !25
+  %60 = add nuw nsw i64 %.0117, 1
+  %exitcond.not = icmp eq i64 %60, %.058107
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !168
 
-62:                                               ; preds = %54, %._crit_edge, %16, %7, %45, %14
-  %.052 = phi ptr [ null, %14 ], [ null, %45 ], [ null, %7 ], [ null, %16 ], [ %51, %._crit_edge ], [ %51, %54 ]
-  %63 = load i32, ptr %2, align 8, !tbaa !20
-  %64 = add i32 %63, -1
-  store i32 %64, ptr %2, align 8, !tbaa !20
+.critedge74:                                      ; preds = %53, %._crit_edge, %16, %7, %.thread90, %14
+  %.052 = phi ptr [ null, %14 ], [ null, %.thread90 ], [ null, %7 ], [ null, %16 ], [ %50, %._crit_edge ], [ %50, %53 ]
+  %61 = load i32, ptr %2, align 8, !tbaa !20
+  %62 = add i32 %61, -1
+  store i32 %62, ptr %2, align 8, !tbaa !20
   ret ptr %.052
 }
 
@@ -42697,17 +42697,17 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i.i.i:                               ; preds = %42
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i.i.i = icmp eq ptr %44, null
-  br i1 %.not6980.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.preheader.i.i
+  br i1 %.not6980.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.preheader76.i.i.i
   %45 = tail call fastcc ptr @dotted_name_rule(ptr noundef nonnull %0)
   %.not70.i31.i.i = icmp eq ptr %45, null
-  br i1 %.not70.i31.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i
+  br i1 %.not70.i31.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %53
   %46 = tail call fastcc ptr @dotted_name_rule(ptr noundef nonnull %0)
   %.not70.i.i.i = icmp eq ptr %46, null
-  br i1 %.not70.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i, !llvm.loop !173
+  br i1 %.not70.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i, !llvm.loop !173
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %47 = phi ptr [ %46, %.lr.ph.i.i.i ], [ %45, %.lr.ph.i.preheader.i.i ]
@@ -42733,15 +42733,15 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %56 = load i32, ptr %13, align 8, !tbaa !22
   %57 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i.i.i = icmp eq ptr %57, null
-  br i1 %.not69.i.i.i, label %.._crit_edge.i.loopexit_crit_edge.i.i, label %.lr.ph.i.i.i, !llvm.loop !173
+  br i1 %.not69.i.i.i, label %..critedge.i.loopexit_crit_edge.i.i, label %.lr.ph.i.i.i, !llvm.loop !173
 
-.._crit_edge.i.loopexit_crit_edge.i.i:            ; preds = %53
-  br label %._crit_edge.i.i.i, !llvm.loop !173
+..critedge.i.loopexit_crit_edge.i.i:              ; preds = %53
+  br label %.critedge.i.i.i, !llvm.loop !173
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
-  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %54, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %54, %.lr.ph.i.i.i ]
-  %.054.lcssa.i.i.i = phi ptr [ %41, %.preheader76.i.i.i ], [ %.256.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ %41, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
-  %.053.lcssa.i.i.i = phi i32 [ %40, %.preheader76.i.i.i ], [ %56, %.._crit_edge.i.loopexit_crit_edge.i.i ], [ %40, %.lr.ph.i.preheader.i.i ], [ %56, %.lr.ph.i.i.i ]
+.critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %..critedge.i.loopexit_crit_edge.i.i, %.lr.ph.i.preheader.i.i, %.preheader76.i.i.i
+  %.058.lcssa.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %54, %..critedge.i.loopexit_crit_edge.i.i ], [ 0, %.lr.ph.i.preheader.i.i ], [ %54, %.lr.ph.i.i.i ]
+  %.054.lcssa.i.i.i = phi ptr [ %41, %.preheader76.i.i.i ], [ %.256.i.i.i, %..critedge.i.loopexit_crit_edge.i.i ], [ %41, %.lr.ph.i.preheader.i.i ], [ %.256.i.i.i, %.lr.ph.i.i.i ]
+  %.053.lcssa.i.i.i = phi i32 [ %40, %.preheader76.i.i.i ], [ %56, %..critedge.i.loopexit_crit_edge.i.i ], [ %40, %.lr.ph.i.preheader.i.i ], [ %56, %.lr.ph.i.i.i ]
   store i32 %.053.lcssa.i.i.i, ptr %13, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !32
@@ -42749,7 +42749,7 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i.i.i = icmp eq ptr %60, null
   br i1 %.not72.i.i.i, label %_loop0_132_rule.exit.thread.sink.split.sink.split.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %._crit_edge.i.i.i
+.preheader.i.i.i:                                 ; preds = %.critedge.i.i.i
   %61 = icmp sgt i64 %.058.lcssa.i.i.i, 0
   br i1 %61, label %.lr.ph92.i.i.i, label %_gather_133_rule.exit.i
 
@@ -42768,8 +42768,8 @@ define internal fastcc ptr @import_stmt_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i.i.i = icmp eq i64 %68, %.058.lcssa.i.i.i
   br i1 %exitcond.not.i.i.i, label %_gather_133_rule.exit.i, label %63, !llvm.loop !174
 
-_loop0_132_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %49, %._crit_edge.i.i.i
-  %.054.lcssa.i.sink.i.i = phi ptr [ %.054.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.05483.i32.i.i, %49 ]
+_loop0_132_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %49, %.critedge.i.i.i
+  %.054.lcssa.i.sink.i.i = phi ptr [ %.054.lcssa.i.i.i, %.critedge.i.i.i ], [ %.05483.i32.i.i, %49 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink.i.i) #5
   br label %_loop0_132_rule.exit.thread.sink.split.i.i
 
@@ -42998,17 +42998,17 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
 .preheader76.i.i.i.i:                             ; preds = %160
   %162 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i.i.i.i = icmp eq ptr %162, null
-  br i1 %.not6980.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.preheader.i.i.i
+  br i1 %.not6980.i.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.preheader76.i.i.i.i
   %163 = tail call fastcc ptr @dotted_as_name_rule(ptr noundef nonnull %0)
   %.not70.i31.i.i.i = icmp eq ptr %163, null
-  br i1 %.not70.i31.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i50
+  br i1 %.not70.i31.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i50
 
 .lr.ph.i.i.i.i:                                   ; preds = %171
   %164 = tail call fastcc ptr @dotted_as_name_rule(ptr noundef nonnull %0)
   %.not70.i.i.i.i = icmp eq ptr %164, null
-  br i1 %.not70.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i50, !llvm.loop !175
+  br i1 %.not70.i.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i50, !llvm.loop !175
 
 .lr.ph.i.i.i50:                                   ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i.i
   %165 = phi ptr [ %164, %.lr.ph.i.i.i.i ], [ %163, %.lr.ph.i.preheader.i.i.i ]
@@ -43034,15 +43034,15 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %174 = load i32, ptr %13, align 8, !tbaa !22
   %175 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i.i.i.i = icmp eq ptr %175, null
-  br i1 %.not69.i.i.i.i, label %.._crit_edge.i.loopexit_crit_edge.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !175
+  br i1 %.not69.i.i.i.i, label %..critedge.i.loopexit_crit_edge.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !175
 
-.._crit_edge.i.loopexit_crit_edge.i.i.i:          ; preds = %171
-  br label %._crit_edge.i.i.i.i, !llvm.loop !175
+..critedge.i.loopexit_crit_edge.i.i.i:            ; preds = %171
+  br label %.critedge.i.i.i.i, !llvm.loop !175
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i.i, %.lr.ph.i.preheader.i.i.i, %.preheader76.i.i.i.i
-  %.058.lcssa.i.i.i.i = phi i64 [ 0, %.preheader76.i.i.i.i ], [ %172, %.._crit_edge.i.loopexit_crit_edge.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
-  %.054.lcssa.i.i.i.i = phi ptr [ %159, %.preheader76.i.i.i.i ], [ %.256.i.i.i.i, %.._crit_edge.i.loopexit_crit_edge.i.i.i ], [ %159, %.lr.ph.i.preheader.i.i.i ], [ %.256.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %.053.lcssa.i.i.i.i = phi i32 [ %158, %.preheader76.i.i.i.i ], [ %174, %.._crit_edge.i.loopexit_crit_edge.i.i.i ], [ %158, %.lr.ph.i.preheader.i.i.i ], [ %174, %.lr.ph.i.i.i.i ]
+.critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i, %..critedge.i.loopexit_crit_edge.i.i.i, %.lr.ph.i.preheader.i.i.i, %.preheader76.i.i.i.i
+  %.058.lcssa.i.i.i.i = phi i64 [ 0, %.preheader76.i.i.i.i ], [ %172, %..critedge.i.loopexit_crit_edge.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ], [ %172, %.lr.ph.i.i.i.i ]
+  %.054.lcssa.i.i.i.i = phi ptr [ %159, %.preheader76.i.i.i.i ], [ %.256.i.i.i.i, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %159, %.lr.ph.i.preheader.i.i.i ], [ %.256.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.053.lcssa.i.i.i.i = phi i32 [ %158, %.preheader76.i.i.i.i ], [ %174, %..critedge.i.loopexit_crit_edge.i.i.i ], [ %158, %.lr.ph.i.preheader.i.i.i ], [ %174, %.lr.ph.i.i.i.i ]
   store i32 %.053.lcssa.i.i.i.i, ptr %13, align 8, !tbaa !22
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %177 = load ptr, ptr %176, align 8, !tbaa !32
@@ -43050,7 +43050,7 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %.not72.i.i.i.i = icmp eq ptr %178, null
   br i1 %.not72.i.i.i.i, label %_loop0_23_rule.exit.thread.sink.split.sink.split.i.i.i, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %.critedge.i.i.i.i
   %179 = icmp sgt i64 %.058.lcssa.i.i.i.i, 0
   br i1 %179, label %.lr.ph92.i.i.i.i, label %_gather_24_rule.exit.i.i
 
@@ -43069,8 +43069,8 @@ _gather_133_rule.exit.i:                          ; preds = %63, %.preheader.i.i
   %exitcond.not.i.i.i.i = icmp eq i64 %186, %.058.lcssa.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_gather_24_rule.exit.i.i, label %181, !llvm.loop !176
 
-_loop0_23_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %167, %._crit_edge.i.i.i.i
-  %.054.lcssa.i.sink.i.i.i = phi ptr [ %.054.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.05483.i32.i.i.i, %167 ]
+_loop0_23_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %167, %.critedge.i.i.i.i
+  %.054.lcssa.i.sink.i.i.i = phi ptr [ %.054.lcssa.i.i.i.i, %.critedge.i.i.i.i ], [ %.05483.i32.i.i.i, %167 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink.i.i.i) #5
   br label %_loop0_23_rule.exit.thread.sink.split.i.i.i
 
@@ -46554,17 +46554,17 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
 .preheader76.i.i:                                 ; preds = %31
   %33 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i.i = icmp eq ptr %33, null
-  br i1 %.not6980.i.i, label %._crit_edge.i.i, label %.lr.ph.i.preheader.i
+  br i1 %.not6980.i.i, label %.critedge.i.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.preheader76.i.i
   %34 = tail call fastcc ptr @import_from_as_name_rule(ptr noundef nonnull %0)
   %.not70.i31.i = icmp eq ptr %34, null
-  br i1 %.not70.i31.i, label %._crit_edge.i.i, label %.lr.ph.i
+  br i1 %.not70.i31.i, label %.critedge.i.i, label %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %42
   %35 = tail call fastcc ptr @import_from_as_name_rule(ptr noundef nonnull %0)
   %.not70.i.i = icmp eq ptr %35, null
-  br i1 %.not70.i.i, label %._crit_edge.i.i, label %.lr.ph.i, !llvm.loop !187
+  br i1 %.not70.i.i, label %.critedge.i.i, label %.lr.ph.i, !llvm.loop !187
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %36 = phi ptr [ %35, %.lr.ph.i.i ], [ %34, %.lr.ph.i.preheader.i ]
@@ -46590,15 +46590,15 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
   %45 = load i32, ptr %13, align 8, !tbaa !22
   %46 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i.i = icmp eq ptr %46, null
-  br i1 %.not69.i.i, label %.._crit_edge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !187
+  br i1 %.not69.i.i, label %..critedge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !187
 
-.._crit_edge.i.loopexit_crit_edge.i:              ; preds = %42
-  br label %._crit_edge.i.i, !llvm.loop !187
+..critedge.i.loopexit_crit_edge.i:                ; preds = %42
+  br label %.critedge.i.i, !llvm.loop !187
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.._crit_edge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
-  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %43, %.._crit_edge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %43, %.lr.ph.i.i ]
-  %.054.lcssa.i.i = phi ptr [ %30, %.preheader76.i.i ], [ %.256.i.i, %.._crit_edge.i.loopexit_crit_edge.i ], [ %30, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
-  %.053.lcssa.i.i = phi i32 [ %29, %.preheader76.i.i ], [ %45, %.._crit_edge.i.loopexit_crit_edge.i ], [ %29, %.lr.ph.i.preheader.i ], [ %45, %.lr.ph.i.i ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %.preheader76.i.i
+  %.058.lcssa.i.i = phi i64 [ 0, %.preheader76.i.i ], [ %43, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %43, %.lr.ph.i.i ]
+  %.054.lcssa.i.i = phi ptr [ %30, %.preheader76.i.i ], [ %.256.i.i, %..critedge.i.loopexit_crit_edge.i ], [ %30, %.lr.ph.i.preheader.i ], [ %.256.i.i, %.lr.ph.i.i ]
+  %.053.lcssa.i.i = phi i32 [ %29, %.preheader76.i.i ], [ %45, %..critedge.i.loopexit_crit_edge.i ], [ %29, %.lr.ph.i.preheader.i ], [ %45, %.lr.ph.i.i ]
   store i32 %.053.lcssa.i.i, ptr %13, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !32
@@ -46606,7 +46606,7 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
   %.not72.i.i = icmp eq ptr %49, null
   br i1 %.not72.i.i, label %_loop0_20_rule.exit.thread.sink.split.sink.split.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %.critedge.i.i
   %50 = icmp sgt i64 %.058.lcssa.i.i, 0
   br i1 %50, label %.lr.ph92.i.i, label %_gather_21_rule.exit
 
@@ -46625,8 +46625,8 @@ define internal fastcc ptr @import_from_as_names_rule(ptr noundef %0) unnamed_ad
   %exitcond.not.i.i = icmp eq i64 %57, %.058.lcssa.i.i
   br i1 %exitcond.not.i.i, label %_gather_21_rule.exit, label %52, !llvm.loop !188
 
-_loop0_20_rule.exit.thread.sink.split.sink.split.i: ; preds = %38, %._crit_edge.i.i
-  %.054.lcssa.i.sink.i = phi ptr [ %.054.lcssa.i.i, %._crit_edge.i.i ], [ %.05483.i32.i, %38 ]
+_loop0_20_rule.exit.thread.sink.split.sink.split.i: ; preds = %38, %.critedge.i.i
+  %.054.lcssa.i.sink.i = phi ptr [ %.054.lcssa.i.i, %.critedge.i.i ], [ %.05483.i32.i, %38 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink.i) #5
   br label %_loop0_20_rule.exit.thread.sink.split.i
 
@@ -46949,28 +46949,28 @@ define internal fastcc ptr @del_targets_rule(ptr noundef %0) unnamed_addr #0 {
   %14 = add i32 %13, 1
   store i32 %14, ptr %2, align 8, !tbaa !20
   %15 = icmp eq i32 %13, 6000
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.thread67
 
 16:                                               ; preds = %10
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %0) #5
   %.pre = load i32, ptr %8, align 8, !tbaa !21
   %17 = icmp eq i32 %.pre, 0
-  br i1 %17, label %.thread, label %_gather_99_rule.exit.thread
+  br i1 %17, label %.thread67, label %_gather_99_rule.exit.thread
 
 _gather_99_rule.exit.thread:                      ; preds = %16
   %18 = load i32, ptr %2, align 8, !tbaa !20
   br label %.sink.split
 
-.thread:                                          ; preds = %10, %16
+.thread67:                                        ; preds = %10, %16
   %19 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
   %.not22.i = icmp eq ptr %19, null
-  %.pre68 = load i32, ptr %2, align 8, !tbaa !20
+  %.pre66 = load i32, ptr %2, align 8, !tbaa !20
   br i1 %.not22.i, label %.sink.split, label %20
 
-20:                                               ; preds = %.thread
-  %21 = add i32 %.pre68, 1
+20:                                               ; preds = %.thread67
+  %21 = add i32 %.pre66, 1
   store i32 %21, ptr %2, align 8, !tbaa !20
-  %22 = icmp eq i32 %.pre68, 6000
+  %22 = icmp eq i32 %.pre66, 6000
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
@@ -46980,110 +46980,110 @@ _gather_99_rule.exit.thread:                      ; preds = %16
 24:                                               ; preds = %23, %20
   %25 = load i32, ptr %8, align 8, !tbaa !21
   %.not.i26 = icmp eq i32 %25, 0
-  br i1 %.not.i26, label %26, label %_gather_99_rule.exit.thread44.sink.split
+  br i1 %.not.i26, label %26, label %_gather_99_rule.exit.thread42.sink.split
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %11, align 8, !tbaa !22
   %28 = tail call ptr @PyMem_Malloc(i64 noundef 8) #5
   %.not67.i = icmp eq ptr %28, null
-  br i1 %.not67.i, label %_gather_99_rule.exit.thread44.sink.split.sink.split, label %29
+  br i1 %.not67.i, label %_gather_99_rule.exit.thread42.sink.split.sink.split, label %29
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %8, align 8, !tbaa !21
   %.not68.i = icmp eq i32 %30, 0
-  br i1 %.not68.i, label %.preheader50, label %_gather_99_rule.exit.thread44.sink.split
+  br i1 %.not68.i, label %.preheader48, label %_gather_99_rule.exit.thread42.sink.split
 
-.preheader50:                                     ; preds = %29
+.preheader48:                                     ; preds = %29
   %31 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
-  %.not69.i54 = icmp eq ptr %31, null
-  br i1 %.not69.i54, label %._crit_edge, label %.lr.ph.preheader
+  %.not69.i52 = icmp eq ptr %31, null
+  br i1 %.not69.i52, label %.critedge.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader50
+.lr.ph.preheader:                                 ; preds = %.preheader48
   %32 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
-  %.not70.i73 = icmp eq ptr %32, null
-  br i1 %.not70.i73, label %._crit_edge, label %.lr.ph77
+  %.not70.i72 = icmp eq ptr %32, null
+  br i1 %.not70.i72, label %.critedge.i, label %.lr.ph76
 
 .lr.ph:                                           ; preds = %40
   %33 = tail call fastcc ptr @del_target_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %33, null
-  br i1 %.not70.i, label %._crit_edge, label %.lr.ph77, !llvm.loop !189
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph76, !llvm.loop !189
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi ptr [ %33, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.059.i5576 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.058.i5675 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.054.i5774 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %35 = icmp eq i64 %.058.i5675, %.059.i5576
+  %.059.i5375 = phi i64 [ %.160.i, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.058.i5474 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.054.i5573 = phi ptr [ %.256.i, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %35 = icmp eq i64 %.058.i5474, %.059.i5375
   br i1 %35, label %36, label %40
 
-36:                                               ; preds = %.lr.ph77
-  %37 = shl i64 %.058.i5675, 1
-  %38 = shl i64 %.058.i5675, 4
-  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5774, i64 noundef %38) #5
+36:                                               ; preds = %.lr.ph76
+  %37 = shl i64 %.058.i5474, 1
+  %38 = shl i64 %.058.i5474, 4
+  %39 = tail call ptr @PyMem_Realloc(ptr noundef %.054.i5573, i64 noundef %38) #5
   %.not71.not.i = icmp eq ptr %39, null
-  br i1 %.not71.not.i, label %_gather_99_rule.exit.thread44.sink.split.sink.split.sink.split, label %40
+  br i1 %.not71.not.i, label %_gather_99_rule.exit.thread42.sink.split.sink.split.sink.split, label %40
 
-40:                                               ; preds = %36, %.lr.ph77
-  %.160.i = phi i64 [ %.059.i5576, %.lr.ph77 ], [ %37, %36 ]
-  %.256.i = phi ptr [ %.054.i5774, %.lr.ph77 ], [ %39, %36 ]
-  %41 = add i64 %.058.i5675, 1
-  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5675
+40:                                               ; preds = %36, %.lr.ph76
+  %.160.i = phi i64 [ %.059.i5375, %.lr.ph76 ], [ %37, %36 ]
+  %.256.i = phi ptr [ %.054.i5573, %.lr.ph76 ], [ %39, %36 ]
+  %41 = add i64 %.058.i5474, 1
+  %42 = getelementptr ptr, ptr %.256.i, i64 %.058.i5474
   store ptr %34, ptr %42, align 8, !tbaa !25
   %43 = load i32, ptr %11, align 8, !tbaa !22
   %44 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %44, null
-  br i1 %.not69.i, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !189
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph, !llvm.loop !189
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %40
-  br label %._crit_edge, !llvm.loop !189
+..critedge.i.loopexit_crit_edge:                  ; preds = %40
+  br label %.critedge.i, !llvm.loop !189
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %.preheader50
-  %.058.i.lcssa = phi i64 [ 0, %.preheader50 ], [ %41, %.._crit_edge.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
-  %.054.i.lcssa = phi ptr [ %28, %.preheader50 ], [ %.256.i, %.._crit_edge.loopexit_crit_edge ], [ %28, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
-  %.053.i.lcssa = phi i32 [ %27, %.preheader50 ], [ %43, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %.preheader48
+  %.058.i.lcssa = phi i64 [ 0, %.preheader48 ], [ %41, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.054.i.lcssa = phi ptr [ %28, %.preheader48 ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %28, %.lr.ph.preheader ], [ %.256.i, %.lr.ph ]
+  %.053.i.lcssa = phi i32 [ %27, %.preheader48 ], [ %43, %..critedge.i.loopexit_crit_edge ], [ %27, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   store i32 %.053.i.lcssa, ptr %11, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %.058.i.lcssa, ptr noundef %46) #5
   %.not72.i = icmp eq ptr %47, null
-  br i1 %.not72.i, label %_gather_99_rule.exit.thread44.sink.split.sink.split.sink.split, label %.preheader
+  br i1 %.not72.i, label %_gather_99_rule.exit.thread42.sink.split.sink.split.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge
+.preheader:                                       ; preds = %.critedge.i
   %48 = icmp sgt i64 %.058.i.lcssa, 0
-  br i1 %48, label %.lr.ph66, label %_gather_99_rule.exit
+  br i1 %48, label %.lr.ph64, label %_gather_99_rule.exit
 
-.lr.ph66:                                         ; preds = %.preheader
+.lr.ph64:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br label %50
 
-50:                                               ; preds = %.lr.ph66, %50
-  %.0.i2765 = phi i64 [ 0, %.lr.ph66 ], [ %55, %50 ]
-  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2765
+50:                                               ; preds = %.lr.ph64, %50
+  %.0.i2763 = phi i64 [ 0, %.lr.ph64 ], [ %55, %50 ]
+  %51 = getelementptr ptr, ptr %.054.i.lcssa, i64 %.0.i2763
   %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = load ptr, ptr %49, align 8, !tbaa !35
-  %54 = getelementptr ptr, ptr %53, i64 %.0.i2765
+  %54 = getelementptr ptr, ptr %53, i64 %.0.i2763
   store ptr %52, ptr %54, align 8, !tbaa !25
-  %55 = add nuw nsw i64 %.0.i2765, 1
+  %55 = add nuw nsw i64 %.0.i2763, 1
   %exitcond.not = icmp eq i64 %55, %.058.i.lcssa
   br i1 %exitcond.not, label %_gather_99_rule.exit, label %50, !llvm.loop !190
 
-_gather_99_rule.exit.thread44.sink.split.sink.split.sink.split: ; preds = %36, %._crit_edge
-  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %._crit_edge ], [ %.054.i5774, %36 ]
+_gather_99_rule.exit.thread42.sink.split.sink.split.sink.split: ; preds = %36, %.critedge.i
+  %.054.i.lcssa.sink = phi ptr [ %.054.i.lcssa, %.critedge.i ], [ %.054.i5573, %36 ]
   tail call void @PyMem_Free(ptr noundef %.054.i.lcssa.sink) #5
-  br label %_gather_99_rule.exit.thread44.sink.split.sink.split
+  br label %_gather_99_rule.exit.thread42.sink.split.sink.split
 
-_gather_99_rule.exit.thread44.sink.split.sink.split: ; preds = %_gather_99_rule.exit.thread44.sink.split.sink.split.sink.split, %26
+_gather_99_rule.exit.thread42.sink.split.sink.split: ; preds = %_gather_99_rule.exit.thread42.sink.split.sink.split.sink.split, %26
   store i32 1, ptr %8, align 8, !tbaa !21
   %56 = tail call ptr @PyErr_NoMemory() #5
-  br label %_gather_99_rule.exit.thread44.sink.split
+  br label %_gather_99_rule.exit.thread42.sink.split
 
-_gather_99_rule.exit.thread44.sink.split:         ; preds = %_gather_99_rule.exit.thread44.sink.split.sink.split, %29, %24
-  %storemerge.in.i35 = load i32, ptr %2, align 8, !tbaa !20
-  %storemerge.i36 = add i32 %storemerge.in.i35, -1
+_gather_99_rule.exit.thread42.sink.split:         ; preds = %_gather_99_rule.exit.thread42.sink.split.sink.split, %29, %24
+  %storemerge.in.i33 = load i32, ptr %2, align 8, !tbaa !20
+  %storemerge.i34 = add i32 %storemerge.in.i33, -1
   br label %.sink.split
 
 _gather_99_rule.exit:                             ; preds = %50, %.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %.054.i.lcssa) #5
+  tail call void @PyMem_Free(ptr noundef %.054.i.lcssa) #5
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
@@ -47100,9 +47100,9 @@ _gather_99_rule.exit:                             ; preds = %50, %.preheader
   %.not24 = icmp eq i32 %62, 0
   br i1 %.not24, label %65, label %64
 
-.sink.split:                                      ; preds = %.thread, %_gather_99_rule.exit.thread44.sink.split, %_gather_99_rule.exit.thread
-  %.sink71 = phi i32 [ %18, %_gather_99_rule.exit.thread ], [ %.pre68, %.thread ], [ %storemerge.i36, %_gather_99_rule.exit.thread44.sink.split ]
-  %63 = add i32 %.sink71, -1
+.sink.split:                                      ; preds = %.thread67, %_gather_99_rule.exit.thread42.sink.split, %_gather_99_rule.exit.thread
+  %.sink70 = phi i32 [ %18, %_gather_99_rule.exit.thread ], [ %.pre66, %.thread67 ], [ %storemerge.i34, %_gather_99_rule.exit.thread42.sink.split ]
+  %63 = add i32 %.sink70, -1
   store i32 %63, ptr %2, align 8, !tbaa !20
   br label %64
 
@@ -47786,17 +47786,17 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %0) #5
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !191
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !191
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -47822,15 +47822,15 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !191
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !191
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !191
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !191
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -47838,7 +47838,7 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_14_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -47857,8 +47857,8 @@ define internal fastcc ptr @_gather_15_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !192
 
-_loop0_14_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_14_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_14_rule.exit.thread.sink.split
 
@@ -48082,17 +48082,17 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
 .preheader76.i:                                   ; preds = %24
   %26 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not6980.i = icmp eq ptr %26, null
-  br i1 %.not6980.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not6980.i, label %.critedge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader76.i
   %27 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not70.i31 = icmp eq ptr %27, null
-  br i1 %.not70.i31, label %._crit_edge.i, label %.lr.ph
+  br i1 %.not70.i31, label %.critedge.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %35
   %28 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %0)
   %.not70.i = icmp eq ptr %28, null
-  br i1 %.not70.i, label %._crit_edge.i, label %.lr.ph, !llvm.loop !195
+  br i1 %.not70.i, label %.critedge.i, label %.lr.ph, !llvm.loop !195
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %29 = phi ptr [ %28, %.lr.ph.i ], [ %27, %.lr.ph.i.preheader ]
@@ -48118,15 +48118,15 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
   %38 = load i32, ptr %11, align 8, !tbaa !22
   %39 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %0, i32 noundef 12) #5
   %.not69.i = icmp eq ptr %39, null
-  br i1 %.not69.i, label %.._crit_edge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !195
+  br i1 %.not69.i, label %..critedge.i.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !195
 
-.._crit_edge.i.loopexit_crit_edge:                ; preds = %35
-  br label %._crit_edge.i, !llvm.loop !195
+..critedge.i.loopexit_crit_edge:                  ; preds = %35
+  br label %.critedge.i, !llvm.loop !195
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.._crit_edge.i.loopexit_crit_edge, %.preheader76.i
-  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %.._crit_edge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
-  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %.._crit_edge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %..critedge.i.loopexit_crit_edge, %.preheader76.i
+  %.058.lcssa.i = phi i64 [ 0, %.preheader76.i ], [ %36, %..critedge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %23, %.preheader76.i ], [ %.256.i, %..critedge.i.loopexit_crit_edge ], [ %23, %.lr.ph.i.preheader ], [ %.256.i, %.lr.ph.i ]
+  %.053.lcssa.i = phi i32 [ %22, %.preheader76.i ], [ %38, %..critedge.i.loopexit_crit_edge ], [ %22, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
   store i32 %.053.lcssa.i, ptr %11, align 8, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !32
@@ -48134,7 +48134,7 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
   %.not72.i = icmp eq ptr %42, null
   br i1 %.not72.i, label %_loop0_100_rule.exit.thread.sink.split.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %.critedge.i
   %43 = icmp sgt i64 %.058.lcssa.i, 0
   br i1 %43, label %.lr.ph92.i, label %.loopexit
 
@@ -48153,8 +48153,8 @@ define internal fastcc ptr @_gather_101_rule(ptr noundef %0) unnamed_addr #0 {
   %exitcond.not.i = icmp eq i64 %50, %.058.lcssa.i
   br i1 %exitcond.not.i, label %.loopexit, label %45, !llvm.loop !196
 
-_loop0_100_rule.exit.thread.sink.split.sink.split: ; preds = %31, %._crit_edge.i
-  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %._crit_edge.i ], [ %.05483.i32, %31 ]
+_loop0_100_rule.exit.thread.sink.split.sink.split: ; preds = %31, %.critedge.i
+  %.054.lcssa.i.sink = phi ptr [ %.054.lcssa.i, %.critedge.i ], [ %.05483.i32, %31 ]
   tail call void @PyMem_Free(ptr noundef %.054.lcssa.i.sink) #5
   br label %_loop0_100_rule.exit.thread.sink.split
 

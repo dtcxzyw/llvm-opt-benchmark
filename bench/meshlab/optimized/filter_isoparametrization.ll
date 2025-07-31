@@ -90223,7 +90223,7 @@ _Z14InitDampRestUVI8BaseMeshEvRT_.exit:           ; preds = %.lr.ph.i, %52
   %78 = sub i64 %76, %77
   %79 = sdiv exact i64 %78, 120
   %80 = icmp eq ptr %74, %75
-  br i1 %80, label %_Z13RestoreRestUVI8BaseMeshEvRT_.exit, label %.lr.ph.i99
+  br i1 %80, label %_Z14InitDampRestUVI8BaseMeshEvRT_.exit107, label %.lr.ph.i99
 
 81:                                               ; preds = %_Z15testParamCoordsI10BaseVertexEbPT_.exit.i
   %82 = add i32 %.0710.i, 1
@@ -90278,9 +90278,9 @@ _Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit:   ; preds = %.lr.ph.i102
   %107 = icmp eq ptr %100, %101
   br label %_Z13RestoreRestUVI8BaseMeshEvRT_.exit
 
-_Z13RestoreRestUVI8BaseMeshEvRT_.exit:            ; preds = %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit, %_Z14InitDampRestUVI8BaseMeshEvRT_.exit, %_Z15testParamCoordsI8BaseMeshEbRT_.exit
-  %108 = phi ptr [ %75, %_Z15testParamCoordsI8BaseMeshEbRT_.exit ], [ %75, %_Z14InitDampRestUVI8BaseMeshEvRT_.exit ], [ %101, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit ]
-  %.not.i104 = phi i1 [ false, %_Z15testParamCoordsI8BaseMeshEbRT_.exit ], [ true, %_Z14InitDampRestUVI8BaseMeshEvRT_.exit ], [ %107, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit ]
+_Z13RestoreRestUVI8BaseMeshEvRT_.exit:            ; preds = %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit, %_Z15testParamCoordsI8BaseMeshEbRT_.exit
+  %108 = phi ptr [ %75, %_Z15testParamCoordsI8BaseMeshEbRT_.exit ], [ %101, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit ]
+  %.not.i104 = phi i1 [ false, %_Z15testParamCoordsI8BaseMeshEbRT_.exit ], [ %107, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit.loopexit ]
   br i1 %.not.i104, label %_Z14InitDampRestUVI8BaseMeshEvRT_.exit107, label %.lr.ph.i105
 
 .lr.ph.i105:                                      ; preds = %_Z13RestoreRestUVI8BaseMeshEvRT_.exit, %.lr.ph.i105
@@ -90303,7 +90303,7 @@ _Z13RestoreRestUVI8BaseMeshEvRT_.exit:            ; preds = %_Z13RestoreRestUVI8
   %123 = icmp ugt i64 %122, %116
   br i1 %123, label %.lr.ph.i105, label %_Z14InitDampRestUVI8BaseMeshEvRT_.exit107, !llvm.loop !534
 
-_Z14InitDampRestUVI8BaseMeshEvRT_.exit107:        ; preds = %.lr.ph.i105, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit
+_Z14InitDampRestUVI8BaseMeshEvRT_.exit107:        ; preds = %.lr.ph.i105, %_Z14InitDampRestUVI8BaseMeshEvRT_.exit, %_Z13RestoreRestUVI8BaseMeshEvRT_.exit
   %124 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %125 = getelementptr inbounds nuw i8, ptr %48, i64 80
   %126 = load ptr, ptr %125, align 8

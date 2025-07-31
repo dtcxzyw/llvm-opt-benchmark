@@ -12125,28 +12125,28 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !111
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %._crit_edge138.thread, label %.lr.ph137
+  br i1 %46, label %._crit_edge137.thread, label %.lr.ph136
 
-._crit_edge138.thread:                            ; preds = %._crit_edge
+._crit_edge137.thread:                            ; preds = %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %47, align 8, !tbaa !122
   br label %.critedge
 
-.lr.ph137:                                        ; preds = %._crit_edge
+.lr.ph136:                                        ; preds = %._crit_edge
   %48 = load ptr, ptr %10, align 8, !tbaa !123
   %49 = load ptr, ptr %5, align 8, !tbaa !112
   %wide.trip.count = zext nneg i32 %45 to i64
   br label %50
 
-50:                                               ; preds = %.lr.ph137, %104
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next144, %104 ]
-  %.095.neg135 = phi i64 [ 0, %.lr.ph137 ], [ %.095.neg, %104 ]
-  %.095134 = phi i64 [ 0, %.lr.ph137 ], [ %105, %104 ]
-  %51 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv143
+50:                                               ; preds = %.lr.ph136, %104
+  %indvars.iv142 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next143, %104 ]
+  %.095.neg134 = phi i64 [ 0, %.lr.ph136 ], [ %.095.neg, %104 ]
+  %.095133 = phi i64 [ 0, %.lr.ph136 ], [ %105, %104 ]
+  %51 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv142
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i8, ptr %52, align 8, !tbaa !130, !range !132, !noundef !133
   %54 = trunc nuw i8 %53 to i1
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv143
+  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv142
   %56 = load ptr, ptr %55, align 8, !tbaa !113
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !116
@@ -12154,9 +12154,9 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   br i1 %54, label %59, label %65
 
 59:                                               ; preds = %50
-  br i1 %.not, label %.thread149, label %83
+  br i1 %.not, label %.thread148, label %83
 
-.thread149:                                       ; preds = %59
+.thread148:                                       ; preds = %59
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !129
   %62 = load i32, ptr %51, align 8, !tbaa !126
@@ -12167,15 +12167,15 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
 65:                                               ; preds = %50
   br i1 %.not, label %.thread, label %104
 
-.thread:                                          ; preds = %.thread149, %65
-  %.094153 = phi i64 [ %64, %.thread149 ], [ 0, %65 ]
-  %66 = icmp slt i64 %.095134, %38
+.thread:                                          ; preds = %.thread148, %65
+  %.094152 = phi i64 [ %64, %.thread148 ], [ 0, %65 ]
+  %66 = icmp slt i64 %.095133, %38
   %67 = load i32, ptr %51, align 8, !tbaa !126
   %68 = sext i32 %67 to i64
-  %69 = add i64 %.095.neg135, %38
+  %69 = add i64 %.095.neg134, %38
   %70 = select i1 %66, i64 %69, i64 0
   %.092 = add nsw i64 %70, %68
-  %71 = add i64 %.095.neg135, %43
+  %71 = add i64 %.095.neg134, %43
   %72 = add nsw i64 %71, %68
   %73 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !129
@@ -12189,30 +12189,30 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   store i32 %79, ptr %51, align 8, !tbaa !126
   %80 = trunc i64 %spec.select to i32
   %81 = select i1 %or.cond, i32 0, i32 %80
-  %82 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv143, i32 1
+  %82 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv142, i32 1
   store i32 %81, ptr %82, align 4, !tbaa !129
   br label %104
 
 83:                                               ; preds = %59
   %84 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %85 = load i64, ptr %84, align 8, !tbaa !118
-  %86 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv143, i32 2
-  %87 = sub nsw i64 %38, %.095134
+  %86 = getelementptr inbounds nuw %struct.sample_range_t, ptr %48, i64 %indvars.iv142, i32 2
+  %87 = sub nsw i64 %38, %.095133
   %88 = sitofp i64 %87 to double
   %89 = sitofp i64 %85 to double
   %90 = fdiv double %88, %89
-  %91 = sub nsw i64 %43, %.095134
+  %91 = sub nsw i64 %43, %.095133
   %92 = sitofp i64 %91 to double
   %93 = fdiv double %92, %89
   %94 = fcmp ogt double %90, 0.000000e+00
-  %.sroa.speculated121 = select i1 %94, double %90, double 0.000000e+00
-  %95 = fcmp olt double %.sroa.speculated121, 1.000000e+00
-  %.sroa.speculated114 = select i1 %95, double %.sroa.speculated121, double 1.000000e+00
+  %.sroa.speculated123 = select i1 %94, double %90, double 0.000000e+00
+  %95 = fcmp olt double %.sroa.speculated123, 1.000000e+00
+  %.sroa.speculated116 = select i1 %95, double %.sroa.speculated123, double 1.000000e+00
   %96 = fcmp olt double %93, 1.000000e+00
-  %.sroa.speculated117 = select i1 %96, double %93, double 1.000000e+00
-  %97 = fcmp ogt double %.sroa.speculated117, 0.000000e+00
-  %.sroa.speculated = select i1 %97, double %.sroa.speculated117, double 0.000000e+00
-  %98 = fsub double %.sroa.speculated, %.sroa.speculated114
+  %.sroa.speculated119 = select i1 %96, double %93, double 1.000000e+00
+  %97 = fcmp ogt double %.sroa.speculated119, 0.000000e+00
+  %.sroa.speculated = select i1 %97, double %.sroa.speculated119, double 0.000000e+00
+  %98 = fsub double %.sroa.speculated, %.sroa.speculated116
   %99 = fcmp ogt double %98, 0x3FEE666666666666
   br i1 %99, label %100, label %101
 
@@ -12228,24 +12228,24 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   store i8 0, ptr %86, align 8, !tbaa !130
   br label %104
 
-104:                                              ; preds = %65, %.thread, %100, %103
-  %.094152 = phi i64 [ %.094153, %.thread ], [ %85, %100 ], [ %85, %103 ], [ 0, %65 ]
-  %105 = add nsw i64 %.094152, %.095134
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+104:                                              ; preds = %65, %103, %100, %.thread
+  %.094151 = phi i64 [ %85, %103 ], [ %85, %100 ], [ %.094152, %.thread ], [ 0, %65 ]
+  %105 = add nsw i64 %.094151, %.095133
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %.095.neg = sub i64 0, %105
-  %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge138, label %50, !llvm.loop !288
+  %exitcond.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge137, label %50, !llvm.loop !288
 
-._crit_edge138:                                   ; preds = %104
+._crit_edge137:                                   ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %106, align 8, !tbaa !122
   %107 = load ptr, ptr %10, align 8, !tbaa !123
   %wide.trip.count.i = zext nneg i32 %45 to i64
   br label %108
 
-108:                                              ; preds = %130, %._crit_edge138
-  %109 = phi i64 [ 0, %._crit_edge138 ], [ %131, %130 ]
-  %indvars.iv.i = phi i64 [ 0, %._crit_edge138 ], [ %indvars.iv.next.i, %130 ]
+108:                                              ; preds = %130, %._crit_edge137
+  %109 = phi i64 [ 0, %._crit_edge137 ], [ %131, %130 ]
+  %indvars.iv.i = phi i64 [ 0, %._crit_edge137 ], [ %indvars.iv.next.i, %130 ]
   %110 = getelementptr inbounds nuw %struct.sample_range_t, ptr %107, i64 %indvars.iv.i
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i8, ptr %111, align 8, !tbaa !130, !range !132, !noundef !133
@@ -12286,8 +12286,8 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge, label %108, !llvm.loop !135
 
-.critedge:                                        ; preds = %101, %130, %._crit_edge138.thread
-  %132 = phi i1 [ true, %._crit_edge138.thread ], [ true, %130 ], [ false, %101 ]
+.critedge:                                        ; preds = %101, %130, %._crit_edge137.thread
+  %132 = phi i1 [ true, %._crit_edge137.thread ], [ true, %130 ], [ false, %101 ]
   ret i1 %132
 }
 

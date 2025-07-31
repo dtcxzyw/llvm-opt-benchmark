@@ -1216,19 +1216,19 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.047.i = phi ptr [ %47, %45 ], [ %36, %34 ]
   %49 = and i32 %33, 8
   %.not61.i = icmp eq i32 %49, 0
-  br i1 %.not61.i, label %.critedge.i, label %.preheader75.i
+  br i1 %.not61.i, label %.critedge.i, label %.preheader74.i
 
-.preheader75.i:                                   ; preds = %48
-  %.not6280.i = icmp eq i64 %.049.i, 0
-  br i1 %.not6280.i, label %.loopexit, label %.lr.ph.i
+.preheader74.i:                                   ; preds = %48
+  %.not6279.i = icmp eq i64 %.049.i, 0
+  br i1 %.not6279.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader75.i, %53
-  %.382.i = phi ptr [ %52, %53 ], [ %.047.i, %.preheader75.i ]
-  %.35281.i = phi i64 [ %51, %53 ], [ %.049.i, %.preheader75.i ]
-  %50 = load i8, ptr %.382.i, align 1, !tbaa !4
+.lr.ph.i:                                         ; preds = %.preheader74.i, %53
+  %.381.i = phi ptr [ %52, %53 ], [ %.047.i, %.preheader74.i ]
+  %.35280.i = phi i64 [ %51, %53 ], [ %.049.i, %.preheader74.i ]
+  %50 = load i8, ptr %.381.i, align 1, !tbaa !4
   %.not63.i = icmp eq i8 %50, 0
-  %51 = add nsw i64 %.35281.i, -1
-  %52 = getelementptr inbounds nuw i8, ptr %.382.i, i64 1
+  %51 = add nsw i64 %.35280.i, -1
+  %52 = getelementptr inbounds nuw i8, ptr %.381.i, i64 1
   br i1 %.not63.i, label %.critedge.i, label %53
 
 53:                                               ; preds = %.lr.ph.i
@@ -1242,24 +1242,24 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not65.i, label %.critedge2.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  %.not6683.i = icmp eq i64 %.251.i, 0
-  br i1 %.not6683.i, label %.loopexit, label %.lr.ph86.i
+  %.not6682.i = icmp eq i64 %.251.i, 0
+  br i1 %.not6682.i, label %.loopexit, label %.lr.ph85.i
 
-.lr.ph86.i:                                       ; preds = %.preheader.i, %56
-  %.485.i = phi ptr [ %57, %56 ], [ %.2.i, %.preheader.i ]
-  %.584.i = phi i64 [ %55, %56 ], [ %.251.i, %.preheader.i ]
-  %54 = load i8, ptr %.485.i, align 1, !tbaa !4
+.lr.ph85.i:                                       ; preds = %.preheader.i, %56
+  %.484.i = phi ptr [ %57, %56 ], [ %.2.i, %.preheader.i ]
+  %.583.i = phi i64 [ %55, %56 ], [ %.251.i, %.preheader.i ]
+  %54 = load i8, ptr %.484.i, align 1, !tbaa !4
   %.not67.i = icmp eq i8 %54, 0
-  %55 = add nsw i64 %.584.i, -1
+  %55 = add nsw i64 %.583.i, -1
   br i1 %.not67.i, label %.critedge2.i, label %56
 
-56:                                               ; preds = %.lr.ph86.i
-  %57 = getelementptr inbounds nuw i8, ptr %.485.i, i64 1
+56:                                               ; preds = %.lr.ph85.i
+  %57 = getelementptr inbounds nuw i8, ptr %.484.i, i64 1
   %.not66.i = icmp eq i64 %55, 0
-  br i1 %.not66.i, label %.loopexit, label %.lr.ph86.i, !llvm.loop !109
+  br i1 %.not66.i, label %.loopexit, label %.lr.ph85.i, !llvm.loop !109
 
-.critedge2.i:                                     ; preds = %.lr.ph86.i, %.critedge.i
-  %.453.i = phi i64 [ %.251.i, %.critedge.i ], [ %55, %.lr.ph86.i ]
+.critedge2.i:                                     ; preds = %.lr.ph85.i, %.critedge.i
+  %.453.i = phi i64 [ %.251.i, %.critedge.i ], [ %55, %.lr.ph85.i ]
   %58 = and i32 %33, 2
   %.not69.i = icmp eq i32 %58, 0
   br i1 %.not69.i, label %exit_zlib.exit, label %59
@@ -1272,7 +1272,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %62 = add nsw i64 %.453.i, -2
   br label %exit_zlib.exit
 
-.loopexit:                                        ; preds = %53, %56, %21, %59, %38, %40, %.preheader.i, %.preheader75.i
+.loopexit:                                        ; preds = %53, %56, %21, %59, %40, %38, %.preheader.i, %.preheader74.i
   %63 = trunc i64 %4 to i32
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %63, ptr %64, align 8, !tbaa !102
@@ -1440,19 +1440,19 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   %.047.i114 = phi ptr [ %141, %139 ], [ %130, %128 ]
   %143 = and i32 %127, 8
   %.not61.i115 = icmp eq i32 %143, 0
-  br i1 %.not61.i115, label %.critedge.i123, label %.preheader75.i116
+  br i1 %.not61.i115, label %.critedge.i123, label %.preheader74.i116
 
-.preheader75.i116:                                ; preds = %142
-  %.not6280.i117 = icmp eq i64 %.049.i113, 0
-  br i1 %.not6280.i117, label %exit_zlib.exit.thread, label %.lr.ph.i118
+.preheader74.i116:                                ; preds = %142
+  %.not6279.i117 = icmp eq i64 %.049.i113, 0
+  br i1 %.not6279.i117, label %exit_zlib.exit.thread, label %.lr.ph.i118
 
-.lr.ph.i118:                                      ; preds = %.preheader75.i116, %147
-  %.382.i119 = phi ptr [ %146, %147 ], [ %.047.i114, %.preheader75.i116 ]
-  %.35281.i120 = phi i64 [ %145, %147 ], [ %.049.i113, %.preheader75.i116 ]
-  %144 = load i8, ptr %.382.i119, align 1, !tbaa !4
+.lr.ph.i118:                                      ; preds = %.preheader74.i116, %147
+  %.381.i119 = phi ptr [ %146, %147 ], [ %.047.i114, %.preheader74.i116 ]
+  %.35280.i120 = phi i64 [ %145, %147 ], [ %.049.i113, %.preheader74.i116 ]
+  %144 = load i8, ptr %.381.i119, align 1, !tbaa !4
   %.not63.i121 = icmp eq i8 %144, 0
-  %145 = add nsw i64 %.35281.i120, -1
-  %146 = getelementptr inbounds nuw i8, ptr %.382.i119, i64 1
+  %145 = add nsw i64 %.35280.i120, -1
+  %146 = getelementptr inbounds nuw i8, ptr %.381.i119, i64 1
   br i1 %.not63.i121, label %.critedge.i123, label %147
 
 147:                                              ; preds = %.lr.ph.i118
@@ -1466,24 +1466,24 @@ exit_zlib.exit:                                   ; preds = %.critedge2.i, %61
   br i1 %.not65.i126, label %.critedge2.i134, label %.preheader.i127
 
 .preheader.i127:                                  ; preds = %.critedge.i123
-  %.not6683.i128 = icmp eq i64 %.251.i124, 0
-  br i1 %.not6683.i128, label %exit_zlib.exit.thread, label %.lr.ph86.i129
+  %.not6682.i128 = icmp eq i64 %.251.i124, 0
+  br i1 %.not6682.i128, label %exit_zlib.exit.thread, label %.lr.ph85.i129
 
-.lr.ph86.i129:                                    ; preds = %.preheader.i127, %150
-  %.485.i130 = phi ptr [ %151, %150 ], [ %.2.i125, %.preheader.i127 ]
-  %.584.i131 = phi i64 [ %149, %150 ], [ %.251.i124, %.preheader.i127 ]
-  %148 = load i8, ptr %.485.i130, align 1, !tbaa !4
+.lr.ph85.i129:                                    ; preds = %.preheader.i127, %150
+  %.484.i130 = phi ptr [ %151, %150 ], [ %.2.i125, %.preheader.i127 ]
+  %.583.i131 = phi i64 [ %149, %150 ], [ %.251.i124, %.preheader.i127 ]
+  %148 = load i8, ptr %.484.i130, align 1, !tbaa !4
   %.not67.i132 = icmp eq i8 %148, 0
-  %149 = add nsw i64 %.584.i131, -1
+  %149 = add nsw i64 %.583.i131, -1
   br i1 %.not67.i132, label %.critedge2.i134, label %150
 
-150:                                              ; preds = %.lr.ph86.i129
-  %151 = getelementptr inbounds nuw i8, ptr %.485.i130, i64 1
+150:                                              ; preds = %.lr.ph85.i129
+  %151 = getelementptr inbounds nuw i8, ptr %.484.i130, i64 1
   %.not66.i133 = icmp eq i64 %149, 0
-  br i1 %.not66.i133, label %exit_zlib.exit.thread, label %.lr.ph86.i129, !llvm.loop !109
+  br i1 %.not66.i133, label %exit_zlib.exit.thread, label %.lr.ph85.i129, !llvm.loop !109
 
-.critedge2.i134:                                  ; preds = %.lr.ph86.i129, %.critedge.i123
-  %.453.i135 = phi i64 [ %.251.i124, %.critedge.i123 ], [ %149, %.lr.ph86.i129 ]
+.critedge2.i134:                                  ; preds = %.lr.ph85.i129, %.critedge.i123
+  %.453.i135 = phi i64 [ %.251.i124, %.critedge.i123 ], [ %149, %.lr.ph85.i129 ]
   %152 = and i32 %127, 2
   %.not69.i136 = icmp eq i32 %152, 0
   br i1 %.not69.i136, label %exit_zlib.exit105, label %153
@@ -1575,8 +1575,8 @@ exit_zlib.exit105:                                ; preds = %.critedge2.i134, %1
   %191 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 5)
   br label %exit_zlib.exit.thread
 
-exit_zlib.exit.thread:                            ; preds = %147, %150, %.preheader75.i116, %.preheader.i127, %134, %132, %153, %107, %168, %166, %105, %103, %84, %82, %68, %70, %187, %190, %180, %17, %10
-  %.089 = phi i32 [ %20, %17 ], [ %191, %190 ], [ %183, %180 ], [ %13, %10 ], [ 0, %187 ], [ 61, %84 ], [ 61, %82 ], [ %69, %68 ], [ 0, %70 ], [ 61, %168 ], [ 61, %166 ], [ 27, %105 ], [ 27, %103 ], [ 0, %107 ], [ 0, %153 ], [ 0, %132 ], [ 0, %134 ], [ 0, %.preheader.i127 ], [ 0, %.preheader75.i116 ], [ 0, %150 ], [ 0, %147 ]
+exit_zlib.exit.thread:                            ; preds = %147, %150, %.preheader74.i116, %.preheader.i127, %132, %134, %153, %107, %168, %166, %105, %103, %84, %82, %68, %70, %187, %190, %180, %17, %10
+  %.089 = phi i32 [ %20, %17 ], [ %191, %190 ], [ %183, %180 ], [ %13, %10 ], [ 0, %187 ], [ 61, %84 ], [ 61, %82 ], [ %69, %68 ], [ 0, %70 ], [ 61, %168 ], [ 61, %166 ], [ 27, %105 ], [ 27, %103 ], [ 0, %107 ], [ 0, %153 ], [ 0, %134 ], [ 0, %132 ], [ 0, %.preheader.i127 ], [ 0, %.preheader74.i116 ], [ 0, %150 ], [ 0, %147 ]
   ret i32 %.089
 }
 

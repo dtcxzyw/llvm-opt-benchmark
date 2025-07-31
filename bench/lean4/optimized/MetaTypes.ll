@@ -712,20 +712,20 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load i8, ptr %53, align 1, !tbaa !15
   %55 = icmp eq i8 %4, 0
-  %.not176 = icmp eq i8 %30, 0
+  %.not177 = icmp eq i8 %30, 0
   br i1 %55, label %56, label %101
 
 56:                                               ; preds = %2
-  br i1 %.not176, label %102, label %.thread
+  br i1 %.not177, label %102, label %.critedge174
 
 .critedge:                                        ; preds = %63, %62
   %57 = icmp eq i8 %28, 0
-  br i1 %57, label %58, label %.thread
+  br i1 %57, label %58, label %.critedge174
 
 58:                                               ; preds = %.critedge
   %59 = icmp eq i8 %54, 0
   %.156 = zext i1 %59 to i8
-  br label %.thread
+  br label %.critedge174
 
 .critedge158:                                     ; preds = %67, %66
   %60 = icmp eq i8 %26, 0
@@ -733,10 +733,10 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %60, label %62, label %63
 
 62:                                               ; preds = %.critedge158
-  br i1 %61, label %.critedge, label %.thread
+  br i1 %61, label %.critedge, label %.critedge174
 
 63:                                               ; preds = %.critedge158
-  br i1 %61, label %.thread, label %.critedge
+  br i1 %61, label %.critedge174, label %.critedge
 
 .critedge160:                                     ; preds = %71, %70
   %64 = icmp eq i8 %24, 0
@@ -744,10 +744,10 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %64, label %66, label %67
 
 66:                                               ; preds = %.critedge160
-  br i1 %65, label %.critedge158, label %.thread
+  br i1 %65, label %.critedge158, label %.critedge174
 
 67:                                               ; preds = %.critedge160
-  br i1 %65, label %.thread, label %.critedge158
+  br i1 %65, label %.critedge174, label %.critedge158
 
 .critedge162:                                     ; preds = %75, %74
   %68 = icmp eq i8 %22, 0
@@ -755,10 +755,10 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %68, label %70, label %71
 
 70:                                               ; preds = %.critedge162
-  br i1 %69, label %.critedge160, label %.thread
+  br i1 %69, label %.critedge160, label %.critedge174
 
 71:                                               ; preds = %.critedge162
-  br i1 %69, label %.thread, label %.critedge160
+  br i1 %69, label %.critedge174, label %.critedge160
 
 .critedge164:                                     ; preds = %79, %78
   %72 = icmp eq i8 %20, 0
@@ -766,10 +766,10 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %72, label %74, label %75
 
 74:                                               ; preds = %.critedge164
-  br i1 %73, label %.critedge162, label %.thread
+  br i1 %73, label %.critedge162, label %.critedge174
 
 75:                                               ; preds = %.critedge164
-  br i1 %73, label %.thread, label %.critedge162
+  br i1 %73, label %.critedge174, label %.critedge162
 
 .critedge166:                                     ; preds = %83, %82
   %76 = icmp eq i8 %18, 0
@@ -777,10 +777,10 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %76, label %78, label %79
 
 78:                                               ; preds = %.critedge166
-  br i1 %77, label %.critedge164, label %.thread
+  br i1 %77, label %.critedge164, label %.critedge174
 
 79:                                               ; preds = %.critedge166
-  br i1 %77, label %.thread, label %.critedge164
+  br i1 %77, label %.critedge174, label %.critedge164
 
 .critedge168:                                     ; preds = %88, %87
   %80 = icmp eq i8 %16, 0
@@ -788,21 +788,21 @@ define zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(
   br i1 %80, label %82, label %83
 
 82:                                               ; preds = %.critedge168
-  br i1 %81, label %.critedge166, label %.thread
+  br i1 %81, label %.critedge166, label %.critedge174
 
 83:                                               ; preds = %.critedge168
-  br i1 %81, label %.thread, label %.critedge166
+  br i1 %81, label %.critedge174, label %.critedge166
 
-84:                                               ; preds = %93
+84:                                               ; preds = %95, %96
   %85 = icmp eq i8 %14, 0
   %86 = icmp eq i8 %40, 0
   br i1 %85, label %87, label %88
 
 87:                                               ; preds = %84
-  br i1 %86, label %.critedge168, label %.thread
+  br i1 %86, label %.critedge168, label %.critedge174
 
 88:                                               ; preds = %84
-  br i1 %86, label %.thread, label %.critedge168
+  br i1 %86, label %.critedge174, label %.critedge168
 
 .critedge170:                                     ; preds = %100, %99
   switch i8 %10, label %90 [
@@ -832,27 +832,32 @@ l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %90, %89, %.critedge
 l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i, %91, %92
   %.0.i10.i = phi ptr [ inttoptr (i64 5 to ptr), %92 ], [ inttoptr (i64 3 to ptr), %91 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i ]
   %.not = icmp eq ptr %.0.i9.i, %.0.i10.i
-  br i1 %.not, label %93, label %.thread
+  br i1 %.not, label %93, label %.critedge174
 
 93:                                               ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
   %94 = icmp eq i8 %12, 0
-  %95 = icmp eq i8 %38, 0
-  %96 = xor i1 %94, %95
-  br i1 %96, label %.thread, label %84
+  %.not178 = icmp eq i8 %38, 0
+  br i1 %94, label %95, label %96
 
-.critedge174:                                     ; preds = %106, %105
+95:                                               ; preds = %93
+  br i1 %.not178, label %84, label %.critedge174
+
+96:                                               ; preds = %93
+  br i1 %.not178, label %.critedge174, label %84
+
+.critedge176:                                     ; preds = %106, %105
   %97 = icmp eq i8 %8, 0
   %98 = icmp eq i8 %34, 0
   br i1 %97, label %99, label %100
 
-99:                                               ; preds = %.critedge174
-  br i1 %98, label %.critedge170, label %.thread
+99:                                               ; preds = %.critedge176
+  br i1 %98, label %.critedge170, label %.critedge174
 
-100:                                              ; preds = %.critedge174
-  br i1 %98, label %.thread, label %.critedge170
+100:                                              ; preds = %.critedge176
+  br i1 %98, label %.critedge174, label %.critedge170
 
 101:                                              ; preds = %2
-  br i1 %.not176, label %.thread, label %102
+  br i1 %.not177, label %.critedge174, label %102
 
 102:                                              ; preds = %56, %101
   %103 = icmp eq i8 %6, 0
@@ -860,13 +865,13 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
   br i1 %103, label %105, label %106
 
 105:                                              ; preds = %102
-  br i1 %104, label %.critedge174, label %.thread
+  br i1 %104, label %.critedge176, label %.critedge174
 
 106:                                              ; preds = %102
-  br i1 %104, label %.thread, label %.critedge174
+  br i1 %104, label %.critedge174, label %.critedge176
 
-.thread:                                          ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %56, %93, %106, %105, %101, %100, %99, %88, %87, %83, %82, %79, %78, %75, %74, %71, %70, %67, %66, %63, %62, %.critedge, %58
-  %.0 = phi i8 [ 0, %93 ], [ %.156, %58 ], [ %54, %.critedge ], [ 0, %62 ], [ 0, %63 ], [ 0, %66 ], [ 0, %67 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %78 ], [ 0, %79 ], [ 0, %82 ], [ 0, %83 ], [ 0, %87 ], [ 0, %88 ], [ 0, %99 ], [ 0, %100 ], [ 0, %101 ], [ 0, %105 ], [ 0, %106 ], [ 0, %56 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ]
+.critedge174:                                     ; preds = %56, %95, %96, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %106, %105, %101, %100, %99, %88, %87, %83, %82, %79, %78, %75, %74, %71, %70, %67, %66, %63, %62, %.critedge, %58
+  %.0 = phi i8 [ 0, %96 ], [ %.156, %58 ], [ %54, %.critedge ], [ 0, %62 ], [ 0, %63 ], [ 0, %66 ], [ 0, %67 ], [ 0, %70 ], [ 0, %71 ], [ 0, %74 ], [ 0, %75 ], [ 0, %78 ], [ 0, %79 ], [ 0, %82 ], [ 0, %83 ], [ 0, %87 ], [ 0, %88 ], [ 0, %99 ], [ 0, %100 ], [ 0, %101 ], [ 0, %105 ], [ 0, %106 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %95 ], [ 0, %56 ]
   ret i8 %.0
 }
 
@@ -1029,11 +1034,11 @@ define zeroext i8 @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757_(p
 
 97:                                               ; preds = %2
   %98 = icmp eq ptr %4, %48
-  br i1 %98, label %100, label %.thread
+  br i1 %98, label %100, label %.critedge
 
 lean_nat_eq.exit:                                 ; preds = %2
   %99 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %4, ptr noundef %48) #7
-  br i1 %99, label %100, label %.thread
+  br i1 %99, label %100, label %.critedge
 
 100:                                              ; preds = %97, %lean_nat_eq.exit
   %101 = ptrtoint ptr %6 to i64
@@ -1042,167 +1047,172 @@ lean_nat_eq.exit:                                 ; preds = %2
   %104 = ptrtoint ptr %50 to i64
   %105 = and i64 %104, 1
   %106 = icmp ne i64 %105, 0
-  %or.cond292 = select i1 %103, i1 %106, i1 false
-  br i1 %or.cond292, label %107, label %lean_nat_eq.exit284, !prof !16
+  %or.cond293 = select i1 %103, i1 %106, i1 false
+  br i1 %or.cond293, label %107, label %lean_nat_eq.exit288, !prof !16
 
 107:                                              ; preds = %100
   %108 = icmp eq ptr %6, %50
-  br i1 %108, label %110, label %.thread
+  br i1 %108, label %110, label %.critedge
 
-lean_nat_eq.exit284:                              ; preds = %100
+lean_nat_eq.exit288:                              ; preds = %100
   %109 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %6, ptr noundef %50) #7
-  br i1 %109, label %110, label %.thread
+  br i1 %109, label %110, label %.critedge
 
-110:                                              ; preds = %107, %lean_nat_eq.exit284
+110:                                              ; preds = %107, %lean_nat_eq.exit288
   %111 = icmp eq i8 %8, 0
-  %112 = icmp eq i8 %52, 0
-  %113 = xor i1 %111, %112
-  br i1 %113, label %.thread, label %186
+  %.not = icmp eq i8 %52, 0
+  br i1 %111, label %112, label %113
 
-.critedge:                                        ; preds = %120, %119
+112:                                              ; preds = %110
+  br i1 %.not, label %186, label %.critedge
+
+113:                                              ; preds = %110
+  br i1 %.not, label %.critedge, label %186
+
+.critedge249:                                     ; preds = %120, %119
   %114 = icmp eq i8 %46, 0
-  br i1 %114, label %115, label %.thread
+  br i1 %114, label %115, label %.critedge
 
-115:                                              ; preds = %.critedge
+115:                                              ; preds = %.critedge249
   %116 = icmp eq i8 %90, 0
-  %.248 = zext i1 %116 to i8
-  br label %.thread
+  %.250 = zext i1 %116 to i8
+  br label %.critedge
 
-.critedge250:                                     ; preds = %124, %123
+.critedge252:                                     ; preds = %124, %123
   %117 = icmp eq i8 %44, 0
   %118 = icmp eq i8 %88, 0
   br i1 %117, label %119, label %120
 
-119:                                              ; preds = %.critedge250
-  br i1 %118, label %.critedge, label %.thread
+119:                                              ; preds = %.critedge252
+  br i1 %118, label %.critedge249, label %.critedge
 
-120:                                              ; preds = %.critedge250
-  br i1 %118, label %.thread, label %.critedge
+120:                                              ; preds = %.critedge252
+  br i1 %118, label %.critedge, label %.critedge249
 
-.critedge252:                                     ; preds = %128, %127
+.critedge254:                                     ; preds = %128, %127
   %121 = icmp eq i8 %42, 0
   %122 = icmp eq i8 %86, 0
   br i1 %121, label %123, label %124
 
-123:                                              ; preds = %.critedge252
-  br i1 %122, label %.critedge250, label %.thread
+123:                                              ; preds = %.critedge254
+  br i1 %122, label %.critedge252, label %.critedge
 
-124:                                              ; preds = %.critedge252
-  br i1 %122, label %.thread, label %.critedge250
+124:                                              ; preds = %.critedge254
+  br i1 %122, label %.critedge, label %.critedge252
 
-.critedge254:                                     ; preds = %132, %131
+.critedge256:                                     ; preds = %132, %131
   %125 = icmp eq i8 %40, 0
   %126 = icmp eq i8 %84, 0
   br i1 %125, label %127, label %128
 
-127:                                              ; preds = %.critedge254
-  br i1 %126, label %.critedge252, label %.thread
+127:                                              ; preds = %.critedge256
+  br i1 %126, label %.critedge254, label %.critedge
 
-128:                                              ; preds = %.critedge254
-  br i1 %126, label %.thread, label %.critedge252
+128:                                              ; preds = %.critedge256
+  br i1 %126, label %.critedge, label %.critedge254
 
-.critedge256:                                     ; preds = %136, %135
+.critedge258:                                     ; preds = %136, %135
   %129 = icmp eq i8 %38, 0
   %130 = icmp eq i8 %82, 0
   br i1 %129, label %131, label %132
 
-131:                                              ; preds = %.critedge256
-  br i1 %130, label %.critedge254, label %.thread
+131:                                              ; preds = %.critedge258
+  br i1 %130, label %.critedge256, label %.critedge
 
-132:                                              ; preds = %.critedge256
-  br i1 %130, label %.thread, label %.critedge254
+132:                                              ; preds = %.critedge258
+  br i1 %130, label %.critedge, label %.critedge256
 
-.critedge258:                                     ; preds = %140, %139
+.critedge260:                                     ; preds = %140, %139
   %133 = icmp eq i8 %36, 0
   %134 = icmp eq i8 %80, 0
   br i1 %133, label %135, label %136
 
-135:                                              ; preds = %.critedge258
-  br i1 %134, label %.critedge256, label %.thread
+135:                                              ; preds = %.critedge260
+  br i1 %134, label %.critedge258, label %.critedge
 
-136:                                              ; preds = %.critedge258
-  br i1 %134, label %.thread, label %.critedge256
+136:                                              ; preds = %.critedge260
+  br i1 %134, label %.critedge, label %.critedge258
 
-.critedge260:                                     ; preds = %144, %143
+.critedge262:                                     ; preds = %144, %143
   %137 = icmp eq i8 %34, 0
   %138 = icmp eq i8 %78, 0
   br i1 %137, label %139, label %140
 
-139:                                              ; preds = %.critedge260
-  br i1 %138, label %.critedge258, label %.thread
+139:                                              ; preds = %.critedge262
+  br i1 %138, label %.critedge260, label %.critedge
 
-140:                                              ; preds = %.critedge260
-  br i1 %138, label %.thread, label %.critedge258
+140:                                              ; preds = %.critedge262
+  br i1 %138, label %.critedge, label %.critedge260
 
-.critedge262:                                     ; preds = %148, %147
+.critedge264:                                     ; preds = %148, %147
   %141 = icmp eq i8 %32, 0
   %142 = icmp eq i8 %76, 0
   br i1 %141, label %143, label %144
 
-143:                                              ; preds = %.critedge262
-  br i1 %142, label %.critedge260, label %.thread
+143:                                              ; preds = %.critedge264
+  br i1 %142, label %.critedge262, label %.critedge
 
-144:                                              ; preds = %.critedge262
-  br i1 %142, label %.thread, label %.critedge260
+144:                                              ; preds = %.critedge264
+  br i1 %142, label %.critedge, label %.critedge262
 
-.critedge264:                                     ; preds = %152, %151
+.critedge266:                                     ; preds = %152, %151
   %145 = icmp eq i8 %30, 0
   %146 = icmp eq i8 %74, 0
   br i1 %145, label %147, label %148
 
-147:                                              ; preds = %.critedge264
-  br i1 %146, label %.critedge262, label %.thread
+147:                                              ; preds = %.critedge266
+  br i1 %146, label %.critedge264, label %.critedge
 
-148:                                              ; preds = %.critedge264
-  br i1 %146, label %.thread, label %.critedge262
+148:                                              ; preds = %.critedge266
+  br i1 %146, label %.critedge, label %.critedge264
 
-.critedge266:                                     ; preds = %156, %155
+.critedge268:                                     ; preds = %156, %155
   %149 = icmp eq i8 %28, 0
   %150 = icmp eq i8 %72, 0
   br i1 %149, label %151, label %152
 
-151:                                              ; preds = %.critedge266
-  br i1 %150, label %.critedge264, label %.thread
+151:                                              ; preds = %.critedge268
+  br i1 %150, label %.critedge266, label %.critedge
 
-152:                                              ; preds = %.critedge266
-  br i1 %150, label %.thread, label %.critedge264
+152:                                              ; preds = %.critedge268
+  br i1 %150, label %.critedge, label %.critedge266
 
-.critedge268:                                     ; preds = %161, %160
+.critedge270:                                     ; preds = %161, %160
   %153 = icmp eq i8 %26, 0
   %154 = icmp eq i8 %70, 0
   br i1 %153, label %155, label %156
 
-155:                                              ; preds = %.critedge268
-  br i1 %154, label %.critedge266, label %.thread
+155:                                              ; preds = %.critedge270
+  br i1 %154, label %.critedge268, label %.critedge
 
-156:                                              ; preds = %.critedge268
-  br i1 %154, label %.thread, label %.critedge266
+156:                                              ; preds = %.critedge270
+  br i1 %154, label %.critedge, label %.critedge268
 
-157:                                              ; preds = %166
+157:                                              ; preds = %168, %169
   %158 = icmp eq i8 %24, 0
   %159 = icmp eq i8 %68, 0
   br i1 %158, label %160, label %161
 
 160:                                              ; preds = %157
-  br i1 %159, label %.critedge268, label %.thread
+  br i1 %159, label %.critedge270, label %.critedge
 
 161:                                              ; preds = %157
-  br i1 %159, label %.thread, label %.critedge268
+  br i1 %159, label %.critedge, label %.critedge270
 
-.critedge270:                                     ; preds = %173, %172
+.critedge272:                                     ; preds = %173, %172
   switch i8 %20, label %163 [
     i8 0, label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
     i8 1, label %162
   ]
 
-162:                                              ; preds = %.critedge270
+162:                                              ; preds = %.critedge272
   br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
 
-163:                                              ; preds = %.critedge270
+163:                                              ; preds = %.critedge272
   br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
 
-l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %163, %162, %.critedge270
-  %.0.i9.i = phi ptr [ inttoptr (i64 5 to ptr), %163 ], [ inttoptr (i64 3 to ptr), %162 ], [ inttoptr (i64 1 to ptr), %.critedge270 ]
+l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %163, %162, %.critedge272
+  %.0.i9.i = phi ptr [ inttoptr (i64 5 to ptr), %163 ], [ inttoptr (i64 3 to ptr), %162 ], [ inttoptr (i64 1 to ptr), %.critedge272 ]
   switch i8 %64, label %165 [
     i8 0, label %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
     i8 1, label %164
@@ -1216,72 +1226,77 @@ l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %163, %162, %.crited
 
 l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i, %164, %165
   %.0.i10.i = phi ptr [ inttoptr (i64 5 to ptr), %165 ], [ inttoptr (i64 3 to ptr), %164 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i ]
-  %.not = icmp eq ptr %.0.i9.i, %.0.i10.i
-  br i1 %.not, label %166, label %.thread
+  %.not294 = icmp eq ptr %.0.i9.i, %.0.i10.i
+  br i1 %.not294, label %166, label %.critedge
 
 166:                                              ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
   %167 = icmp eq i8 %22, 0
-  %168 = icmp eq i8 %66, 0
-  %169 = xor i1 %167, %168
-  br i1 %169, label %.thread, label %157
+  %.not295 = icmp eq i8 %66, 0
+  br i1 %167, label %168, label %169
 
-.critedge274:                                     ; preds = %177, %176
+168:                                              ; preds = %166
+  br i1 %.not295, label %157, label %.critedge
+
+169:                                              ; preds = %166
+  br i1 %.not295, label %.critedge, label %157
+
+.critedge278:                                     ; preds = %177, %176
   %170 = icmp eq i8 %18, 0
   %171 = icmp eq i8 %62, 0
   br i1 %170, label %172, label %173
 
-172:                                              ; preds = %.critedge274
-  br i1 %171, label %.critedge270, label %.thread
+172:                                              ; preds = %.critedge278
+  br i1 %171, label %.critedge272, label %.critedge
 
-173:                                              ; preds = %.critedge274
-  br i1 %171, label %.thread, label %.critedge270
+173:                                              ; preds = %.critedge278
+  br i1 %171, label %.critedge, label %.critedge272
 
-.critedge276:                                     ; preds = %181, %180
+.critedge280:                                     ; preds = %181, %180
   %174 = icmp eq i8 %16, 0
   %175 = icmp eq i8 %60, 0
   br i1 %174, label %176, label %177
 
-176:                                              ; preds = %.critedge276
-  br i1 %175, label %.critedge274, label %.thread
+176:                                              ; preds = %.critedge280
+  br i1 %175, label %.critedge278, label %.critedge
 
-177:                                              ; preds = %.critedge276
-  br i1 %175, label %.thread, label %.critedge274
+177:                                              ; preds = %.critedge280
+  br i1 %175, label %.critedge, label %.critedge278
 
-.critedge278:                                     ; preds = %185, %184
+.critedge282:                                     ; preds = %185, %184
   %178 = icmp eq i8 %14, 0
   %179 = icmp eq i8 %58, 0
   br i1 %178, label %180, label %181
 
-180:                                              ; preds = %.critedge278
-  br i1 %179, label %.critedge276, label %.thread
+180:                                              ; preds = %.critedge282
+  br i1 %179, label %.critedge280, label %.critedge
 
-181:                                              ; preds = %.critedge278
-  br i1 %179, label %.thread, label %.critedge276
+181:                                              ; preds = %.critedge282
+  br i1 %179, label %.critedge, label %.critedge280
 
-.critedge280:                                     ; preds = %190, %189
+.critedge284:                                     ; preds = %190, %189
   %182 = icmp eq i8 %12, 0
   %183 = icmp eq i8 %56, 0
   br i1 %182, label %184, label %185
 
-184:                                              ; preds = %.critedge280
-  br i1 %183, label %.critedge278, label %.thread
+184:                                              ; preds = %.critedge284
+  br i1 %183, label %.critedge282, label %.critedge
 
-185:                                              ; preds = %.critedge280
-  br i1 %183, label %.thread, label %.critedge278
+185:                                              ; preds = %.critedge284
+  br i1 %183, label %.critedge, label %.critedge282
 
-186:                                              ; preds = %110
+186:                                              ; preds = %112, %113
   %187 = icmp eq i8 %10, 0
   %188 = icmp eq i8 %54, 0
   br i1 %187, label %189, label %190
 
 189:                                              ; preds = %186
-  br i1 %188, label %.critedge280, label %.thread
+  br i1 %188, label %.critedge284, label %.critedge
 
 190:                                              ; preds = %186
-  br i1 %188, label %.thread, label %.critedge280
+  br i1 %188, label %.critedge, label %.critedge284
 
-.thread:                                          ; preds = %107, %97, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %lean_nat_eq.exit284, %110, %166, %190, %189, %185, %184, %181, %180, %177, %176, %173, %172, %161, %160, %156, %155, %152, %151, %148, %147, %144, %143, %140, %139, %136, %135, %132, %131, %128, %127, %124, %123, %120, %119, %.critedge, %115, %lean_nat_eq.exit
-  %.0 = phi i8 [ 0, %166 ], [ 0, %110 ], [ 0, %lean_nat_eq.exit ], [ %.248, %115 ], [ %90, %.critedge ], [ 0, %119 ], [ 0, %120 ], [ 0, %123 ], [ 0, %124 ], [ 0, %127 ], [ 0, %128 ], [ 0, %131 ], [ 0, %132 ], [ 0, %135 ], [ 0, %136 ], [ 0, %139 ], [ 0, %140 ], [ 0, %143 ], [ 0, %144 ], [ 0, %147 ], [ 0, %148 ], [ 0, %151 ], [ 0, %152 ], [ 0, %155 ], [ 0, %156 ], [ 0, %160 ], [ 0, %161 ], [ 0, %172 ], [ 0, %173 ], [ 0, %176 ], [ 0, %177 ], [ 0, %180 ], [ 0, %181 ], [ 0, %184 ], [ 0, %185 ], [ 0, %189 ], [ 0, %190 ], [ 0, %lean_nat_eq.exit284 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %97 ], [ 0, %107 ]
+.critedge:                                        ; preds = %107, %97, %168, %112, %113, %169, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %lean_nat_eq.exit288, %190, %189, %185, %184, %181, %180, %177, %176, %173, %172, %161, %160, %156, %155, %152, %151, %148, %147, %144, %143, %140, %139, %136, %135, %132, %131, %128, %127, %124, %123, %120, %119, %.critedge249, %115, %lean_nat_eq.exit
+  %.0 = phi i8 [ 0, %169 ], [ 0, %113 ], [ 0, %lean_nat_eq.exit ], [ %.250, %115 ], [ %90, %.critedge249 ], [ 0, %119 ], [ 0, %120 ], [ 0, %123 ], [ 0, %124 ], [ 0, %127 ], [ 0, %128 ], [ 0, %131 ], [ 0, %132 ], [ 0, %135 ], [ 0, %136 ], [ 0, %139 ], [ 0, %140 ], [ 0, %143 ], [ 0, %144 ], [ 0, %147 ], [ 0, %148 ], [ 0, %151 ], [ 0, %152 ], [ 0, %155 ], [ 0, %156 ], [ 0, %160 ], [ 0, %161 ], [ 0, %172 ], [ 0, %173 ], [ 0, %176 ], [ 0, %177 ], [ 0, %180 ], [ 0, %181 ], [ 0, %184 ], [ 0, %185 ], [ 0, %189 ], [ 0, %190 ], [ 0, %lean_nat_eq.exit288 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %112 ], [ 0, %168 ], [ 0, %97 ], [ 0, %107 ]
   ret i8 %.0
 }
 

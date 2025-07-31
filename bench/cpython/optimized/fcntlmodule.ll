@@ -714,7 +714,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
 57:                                               ; preds = %55
   %58 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
   tail call void @PyErr_SetString(ptr noundef %58, ptr noundef nonnull @.str.28) #7
-  br label %.thread.i
+  br label %.critedge39.i
 
 59:                                               ; preds = %55, %53, %51
   %.sink.i = phi i16 [ 2, %51 ], [ 0, %53 ], [ 1, %55 ]
@@ -729,7 +729,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   store i64 %63, ptr %61, align 8, !tbaa !28
   %64 = tail call ptr @PyErr_Occurred() #7
   %.not33.i = icmp eq ptr %64, null
-  br i1 %.not33.i, label %65, label %.thread.i
+  br i1 %.not33.i, label %65, label %.critedge39.i
 
 65:                                               ; preds = %62, %59
   br i1 %.not.i40, label %69, label %66
@@ -739,7 +739,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   store i64 %67, ptr %60, align 8, !tbaa !29
   %68 = tail call ptr @PyErr_Occurred() #7
   %.not34.i = icmp eq ptr %68, null
-  br i1 %.not34.i, label %69, label %.thread.i
+  br i1 %.not34.i, label %69, label %.critedge39.i
 
 69:                                               ; preds = %66, %65
   %70 = trunc i32 %.038 to i16
@@ -755,47 +755,47 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   %76 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -2147483648) %16, i32 noundef %73, ptr noundef nonnull %4) #7
   call void @PyEval_RestoreThread(ptr noundef %75) #7
   %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %84
+  br i1 %77, label %78, label %.critedge.i
 
 78:                                               ; preds = %74
   %79 = tail call ptr @__errno_location() #8
   %80 = load i32, ptr %79, align 4, !tbaa !8
   %81 = icmp eq i32 %80, 4
-  br i1 %81, label %82, label %.thread5.thread.i
+  br i1 %81, label %82, label %.critedge.thread.thread.i
 
-.thread5.thread.i:                                ; preds = %78
+.critedge.thread.thread.i:                        ; preds = %78
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  br label %86
+  br label %85
 
 82:                                               ; preds = %78
   %83 = call i32 @PyErr_CheckSignals() #7
   %.not36.i = icmp eq i32 %83, 0
-  br i1 %.not36.i, label %74, label %.thread5.i, !llvm.loop !31
+  br i1 %.not36.i, label %74, label %.critedge.thread.i, !llvm.loop !31
 
-.thread.i:                                        ; preds = %66, %62, %57
+.critedge.thread.i:                               ; preds = %82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   br label %fcntl_lockf_impl.exit
 
-.thread5.i:                                       ; preds = %82
+.critedge.i:                                      ; preds = %74
+  %84 = icmp slt i32 %76, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  br i1 %84, label %85, label %88
+
+85:                                               ; preds = %.critedge.i, %.critedge.thread.thread.i
+  %86 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
+  %87 = call ptr @PyErr_SetFromErrno(ptr noundef %86) #7
+  br label %fcntl_lockf_impl.exit
+
+88:                                               ; preds = %.critedge.i
+  %89 = call ptr @Py_GetConstantBorrowed(i32 noundef 0) #7
+  br label %fcntl_lockf_impl.exit
+
+.critedge39.i:                                    ; preds = %66, %62, %57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   br label %fcntl_lockf_impl.exit
 
-84:                                               ; preds = %74
-  %85 = icmp slt i32 %76, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  br i1 %85, label %86, label %89
-
-86:                                               ; preds = %84, %.thread5.thread.i
-  %87 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !3
-  %88 = call ptr @PyErr_SetFromErrno(ptr noundef %87) #7
-  br label %fcntl_lockf_impl.exit
-
-89:                                               ; preds = %84
-  %90 = call ptr @Py_GetConstantBorrowed(i32 noundef 0) #7
-  br label %fcntl_lockf_impl.exit
-
-fcntl_lockf_impl.exit:                            ; preds = %89, %86, %.thread5.i, %.thread.i, %47, %39, %23, %14, %11, %6
-  %.023 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %14 ], [ null, %23 ], [ null, %39 ], [ %90, %89 ], [ null, %47 ], [ %88, %86 ], [ null, %.thread.i ], [ null, %.thread5.i ]
+fcntl_lockf_impl.exit:                            ; preds = %.critedge39.i, %88, %85, %.critedge.thread.i, %47, %39, %23, %14, %11, %6
+  %.023 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %14 ], [ null, %23 ], [ null, %39 ], [ %89, %88 ], [ null, %47 ], [ null, %.critedge39.i ], [ %87, %85 ], [ null, %.critedge.thread.i ]
   ret ptr %.023
 }
 

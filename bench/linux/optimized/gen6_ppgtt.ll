@@ -405,11 +405,7 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @_raw_spin_lock(ptr noundef nonnull %7) #7
   %8 = icmp eq i64 %3, 0
-  br i1 %8, label %.thread, label %9
-
-.thread:                                          ; preds = %4
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #7
-  br label %88
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %4
   %10 = lshr i64 %2, 22
@@ -519,7 +515,11 @@ define internal void @gen6_alloc_va_range(ptr noundef %0, ptr noundef captures(n
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %87) #7
   br label %88
 
-88:                                               ; preds = %.thread, %85, %79, %72, %70
+.critedge:                                        ; preds = %4
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #7
+  br label %88
+
+88:                                               ; preds = %.critedge, %85, %79, %72, %70
   ret void
 }
 

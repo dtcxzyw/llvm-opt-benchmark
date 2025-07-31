@@ -1740,7 +1740,7 @@ define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr no
 14:                                               ; preds = %11
   %15 = load ptr, ptr @gbcs_gbz_handle, align 8
   %16 = call i32 @call_dissector_with_data(ptr noundef %15, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
-  br label %46
+  br label %48
 
 17:                                               ; preds = %11, %6
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %9, i32 noundef 0)
@@ -1761,39 +1761,39 @@ define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr no
   %27 = load i32, ptr @ett_gbcs_message_dlms, align 4
   %28 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.584)
   %29 = tail call i32 @call_data_dissector(ptr noundef %9, ptr noundef %1, ptr noundef %28)
-  br label %46
+  br label %48
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @col_get_text(ptr noundef %32, i32 noundef 25)
   %.not31 = icmp eq ptr %33, null
-  br i1 %.not31, label %38, label %34
+  br i1 %.not31, label %.critedge, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %36, ptr noundef nonnull %33)
-  br label %38
+  %38 = load i32, ptr @ett_gbcs_message_asn1, align 4
+  %39 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.585)
+  %40 = load ptr, ptr @gbcs_ber_handle, align 8
+  %41 = tail call i32 @call_dissector(ptr noundef %40, ptr noundef %9, ptr noundef %1, ptr noundef %39)
+  %42 = load ptr, ptr %31, align 8
+  %43 = tail call ptr @wmem_strbuf_get_str(ptr noundef %37)
+  tail call void @col_add_str(ptr noundef %42, i32 noundef 25, ptr noundef %43)
+  br label %48
 
-38:                                               ; preds = %34, %30
-  %.0 = phi ptr [ %37, %34 ], [ undef, %30 ]
-  %39 = load i32, ptr @ett_gbcs_message_asn1, align 4
-  %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.585)
-  %41 = load ptr, ptr @gbcs_ber_handle, align 8
-  %42 = tail call i32 @call_dissector(ptr noundef %41, ptr noundef %9, ptr noundef %1, ptr noundef %40)
-  br i1 %.not31, label %46, label %43
+.critedge:                                        ; preds = %30
+  %44 = load i32, ptr @ett_gbcs_message_asn1, align 4
+  %45 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.585)
+  %46 = load ptr, ptr @gbcs_ber_handle, align 8
+  %47 = tail call i32 @call_dissector(ptr noundef %46, ptr noundef %9, ptr noundef %1, ptr noundef %45)
+  br label %48
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %31, align 8
-  %45 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0)
-  tail call void @col_add_str(ptr noundef %44, i32 noundef 25, ptr noundef %45)
-  br label %46
-
-46:                                               ; preds = %38, %43, %26, %14
-  %47 = load i32, ptr %3, align 4
-  %48 = add i32 %47, %4
-  store i32 %48, ptr %3, align 4
+48:                                               ; preds = %34, %.critedge, %26, %14
+  %49 = load i32, ptr %3, align 4
+  %50 = add i32 %49, %4
+  store i32 %50, ptr %3, align 4
   ret void
 }
 

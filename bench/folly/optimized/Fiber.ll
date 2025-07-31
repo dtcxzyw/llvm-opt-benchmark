@@ -447,8 +447,8 @@ _ZN5folly6fibers12thread_clock3nowEv.exit:        ; preds = %41, %46
 
 _ZN5folly6detail8function14FunctionTraitsIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEEclES6_SA_.exit: ; preds = %53
   %61 = load ptr, ptr %12, align 8, !tbaa !117
-  %.not.i17 = icmp eq ptr %61, null
-  br i1 %.not.i17, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %62
+  %.not.i18 = icmp eq ptr %61, null
+  br i1 %.not.i18, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %62
 
 62:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEEclES6_SA_.exit
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
@@ -487,8 +487,8 @@ _ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %71, ptr %2, align 8, !tbaa !120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  %.not.i18 = icmp eq ptr %71, null
-  br i1 %.not.i18, label %72, label %76
+  %.not.i19 = icmp eq ptr %71, null
+  br i1 %.not.i19, label %72, label %76
 
 72:                                               ; preds = %_ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i, %_ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
@@ -722,14 +722,14 @@ _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %138 = landingpad { ptr, i32 }
           cleanup
   %139 = load ptr, ptr %12, align 8, !tbaa !117
-  %.not.i20 = icmp eq ptr %139, null
-  br i1 %.not.i20, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21, label %140
+  %.not.i21 = icmp eq ptr %139, null
+  br i1 %.not.i21, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22, label %140
 
 140:                                              ; preds = %137
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #20
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21
+  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21: ; preds = %137, %140
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22: ; preds = %137, %140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   invoke void @__cxa_end_catch()
           to label %163 unwind label %164
@@ -781,11 +781,11 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit21: ; preds = %137, %140
   store ptr %161, ptr %162, align 8, !tbaa !129
   br label %32, !llvm.loop !130
 
-163:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21, %141
-  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %138, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21 ]
+163:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22, %141
+  %.pn = phi { ptr, i32 } [ %142, %141 ], [ %138, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22 ]
   resume { ptr, i32 } %.pn
 
-164:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit21
+164:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0

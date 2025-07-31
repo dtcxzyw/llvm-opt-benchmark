@@ -725,12 +725,12 @@ _ZN9Node_List4pushEP4Node.exit105:                ; preds = %129, %133
   br i1 %.not.i.i106, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %137, %121
-  %.sink233 = phi i32 [ %122, %121 ], [ %138, %137 ]
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %.sink233) #12
+  %.sink232 = phi i32 [ %122, %121 ], [ %138, %137 ]
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %.sink232) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %137, %121
-  %.sink = phi i32 [ %122, %121 ], [ %138, %137 ], [ %.sink233, %.sink.split.sink.split ]
+  %.sink = phi i32 [ %122, %121 ], [ %138, %137 ], [ %.sink232, %.sink.split.sink.split ]
   %141 = load ptr, ptr %50, align 8
   %142 = zext i32 %.sink to i64
   %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
@@ -1013,7 +1013,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %_ZN10Block_ListC2Ev
   store ptr %162, ptr %268, align 8
   %269 = load i32, ptr %163, align 8
   %.not.i133 = icmp eq i32 %269, 0
-  br i1 %.not.i133, label %.lr.ph197.preheader, label %_ZNK5Block8get_nodeEj.exit.lr.ph.i.i
+  br i1 %.not.i133, label %.lr.ph197, label %_ZNK5Block8get_nodeEj.exit.lr.ph.i.i
 
 _ZNK5Block8get_nodeEj.exit.lr.ph.i.i:             ; preds = %_ZN10Block_List4pushEP5Block.exit
   %270 = load i32, ptr %165, align 8
@@ -1025,7 +1025,7 @@ _ZNK5Block8get_nodeEj.exit.lr.ph.i.i:             ; preds = %_ZN10Block_List4pus
 273:                                              ; preds = %_ZNK5Block8get_nodeEj.exit.i.i
   %indvars.iv.next.i.i135 = add nuw nsw i64 %indvars.iv.i.i134, 1
   %274 = icmp eq i64 %indvars.iv.next.i.i135, %zext.i
-  br i1 %274, label %.lr.ph197.preheader, label %_ZNK5Block8get_nodeEj.exit.i.i, !llvm.loop !10
+  br i1 %274, label %.lr.ph197, label %_ZNK5Block8get_nodeEj.exit.i.i, !llvm.loop !10
 
 _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %273, %_ZNK5Block8get_nodeEj.exit.lr.ph.i.i
   %indvars.iv.i.i134 = phi i64 [ 0, %_ZNK5Block8get_nodeEj.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i135, %273 ]
@@ -1039,16 +1039,16 @@ _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %273, %_ZNK5Block8ge
   %281 = icmp eq i32 %280, 14
   br i1 %281, label %.critedge95, label %273
 
-.lr.ph197.preheader:                              ; preds = %273, %_ZN10Block_List4pushEP5Block.exit
+.lr.ph197:                                        ; preds = %273, %_ZN10Block_List4pushEP5Block.exit
   %282 = load i32, ptr %76, align 8
-  %.not90240 = icmp eq i32 %282, 0
-  br i1 %.not90240, label %.critedge, label %.lr.ph241
+  %.not90239 = icmp eq i32 %282, 0
+  br i1 %.not90239, label %.critedge, label %.lr.ph240
 
 ..loopexit_crit_edge:                             ; preds = %_ZN10Block_List4pushEP5Block.exit148
   br label %.backedge, !llvm.loop !13
 
-.lr.ph241:                                        ; preds = %.lr.ph197.preheader, %.backedge
-  %283 = phi i32 [ %302, %.backedge ], [ %282, %.lr.ph197.preheader ]
+.lr.ph240:                                        ; preds = %.lr.ph197, %.backedge
+  %283 = phi i32 [ %302, %.backedge ], [ %282, %.lr.ph197 ]
   %284 = load ptr, ptr %75, align 8
   %285 = add i32 %283, -1
   store i32 %285, ptr %76, align 8
@@ -1062,11 +1062,11 @@ _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %273, %_ZNK5Block8ge
   %.not.i136 = icmp ult i32 %291, %292
   br i1 %.not.i136, label %_ZN9VectorSet8test_setEj.exit, label %293
 
-293:                                              ; preds = %.lr.ph241
+293:                                              ; preds = %.lr.ph240
   call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %291) #12
   br label %_ZN9VectorSet8test_setEj.exit
 
-_ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph241, %293
+_ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph240, %293
   %294 = and i32 %290, 31
   %295 = shl nuw i32 1, %294
   %296 = load ptr, ptr %77, align 8
@@ -1082,7 +1082,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph241, %293
 .backedge:                                        ; preds = %.preheader, %..loopexit_crit_edge, %_ZN9VectorSet8test_setEj.exit, %.loopexit183
   %302 = load i32, ptr %76, align 8
   %.not90 = icmp eq i32 %302, 0
-  br i1 %.not90, label %.critedge, label %.lr.ph241
+  br i1 %.not90, label %.critedge, label %.lr.ph240, !llvm.loop !13
 
 303:                                              ; preds = %_ZN9VectorSet8test_setEj.exit
   %304 = getelementptr inbounds nuw i8, ptr %288, i64 40
@@ -1177,7 +1177,7 @@ _ZN10Block_List4pushEP5Block.exit148:             ; preds = %329, %344
   %354 = icmp samesign ult i64 %indvars.iv.next218, %353
   br i1 %354, label %329, label %..loopexit_crit_edge, !llvm.loop !14
 
-.critedge:                                        ; preds = %.backedge, %.lr.ph197.preheader
+.critedge:                                        ; preds = %.backedge, %.lr.ph197
   store i8 0, ptr %181, align 4
   br label %.critedge95
 

@@ -1034,7 +1034,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr i8, ptr %2, i64 %3
   %6 = icmp eq i64 %3, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %2, i64 1
@@ -1047,7 +1047,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
   store i32 0, ptr %1, align 4
   %13 = icmp eq i64 %3, 1
   %14 = select i1 %13, i64 1, i64 -72
-  br label %.thread
+  br label %.critedge
 
 15:                                               ; preds = %7
   %16 = icmp slt i8 %9, 0
@@ -1060,7 +1060,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %2, i64 3
   %21 = icmp ugt ptr %20, %5
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %8, align 1
@@ -1070,7 +1070,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
 
 26:                                               ; preds = %17
   %27 = icmp ult ptr %8, %5
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %26
   %29 = shl nuw nsw i32 %10, 8
@@ -1087,7 +1087,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
   store i32 %37, ptr %1, align 4
   %38 = getelementptr i8, ptr %36, i64 1
   %39 = icmp ugt ptr %38, %5
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %35
   %41 = load i8, ptr %36, align 1
@@ -1108,7 +1108,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
   %56 = load i32, ptr %55, align 8
   %57 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef nonnull %46, ptr noundef %0, i32 noundef %43, i32 noundef 35, i32 noundef 9, ptr noundef %38, i64 noundef %49, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, ptr noundef nonnull @LL_defaultDTable, i32 noundef %51, i32 noundef %53, i32 noundef %37, ptr noundef nonnull %54, i32 noundef %56)
   %58 = icmp ult i64 %57, -119
-  br i1 %58, label %59, label %.thread
+  br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %40
   %60 = getelementptr i8, ptr %38, i64 %57
@@ -1123,7 +1123,7 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
   %69 = load i32, ptr %55, align 8
   %70 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef nonnull %63, ptr noundef nonnull %64, i32 noundef %62, i32 noundef 31, i32 noundef 8, ptr noundef %60, i64 noundef %66, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, ptr noundef nonnull @OF_defaultDTable, i32 noundef %67, i32 noundef %68, i32 noundef %37, ptr noundef nonnull %54, i32 noundef %69)
   %71 = icmp ult i64 %70, -119
-  br i1 %71, label %72, label %.thread
+  br i1 %71, label %72, label %.critedge
 
 72:                                               ; preds = %59
   %73 = getelementptr i8, ptr %60, i64 %70
@@ -1136,17 +1136,17 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef writeonl
   %80 = load i32, ptr %55, align 8
   %81 = tail call fastcc i64 @ZSTD_buildSeqTable(ptr noundef nonnull %74, ptr noundef nonnull %75, i32 noundef %45, i32 noundef 52, i32 noundef 9, ptr noundef %73, i64 noundef %77, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, ptr noundef nonnull @ML_defaultDTable, i32 noundef %78, i32 noundef %79, i32 noundef %37, ptr noundef nonnull %54, i32 noundef %80)
   %82 = icmp ult i64 %81, -119
-  br i1 %82, label %83, label %.thread
+  br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %72
   %84 = getelementptr i8, ptr %73, i64 %81
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %2 to i64
   %87 = sub i64 %85, %86
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %40, %59, %83, %72, %35, %26, %19, %12, %4
-  %88 = phi i64 [ %87, %83 ], [ -20, %72 ], [ -72, %4 ], [ %14, %12 ], [ -72, %19 ], [ -72, %26 ], [ -72, %35 ], [ -20, %59 ], [ -20, %40 ]
+.critedge:                                        ; preds = %59, %40, %83, %72, %35, %26, %19, %12, %4
+  %88 = phi i64 [ %87, %83 ], [ -20, %72 ], [ -72, %4 ], [ %14, %12 ], [ -72, %19 ], [ -72, %26 ], [ -72, %35 ], [ -20, %40 ], [ -20, %59 ]
   ret i64 %88
 }
 

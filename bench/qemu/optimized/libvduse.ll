@@ -2239,22 +2239,22 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
   br label %32
 
 .preheader:                                       ; preds = %9, %25
-  %.0239 = phi i32 [ %27, %25 ], [ %7, %9 ]
-  %.0258 = phi i64 [ %29, %25 ], [ %4, %9 ]
-  %.0277 = phi i64 [ %30, %25 ], [ %3, %9 ]
+  %.0235 = phi i32 [ %27, %25 ], [ %7, %9 ]
+  %.0254 = phi i64 [ %29, %25 ], [ %4, %9 ]
+  %.0273 = phi i64 [ %30, %25 ], [ %3, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
-  store i64 %.0258, ptr %6, align 8
-  %13 = icmp eq i32 %.0239, %2
+  store i64 %.0254, ptr %6, align 8
+  %13 = icmp eq i32 %.0235, %2
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.preheader
   %15 = load ptr, ptr @stderr, align 8
   %16 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 47, i64 1, ptr %15) #23
-  br label %.thread
+  br label %.critedge
 
 17:                                               ; preds = %.preheader
-  %18 = call fastcc ptr @iova_to_va(ptr noundef %.88.val, ptr noundef %6, i64 noundef %.0277)
-  %19 = zext i32 %.0239 to i64
+  %18 = call fastcc ptr @iova_to_va(ptr noundef %.88.val, ptr noundef %6, i64 noundef %.0273)
+  %19 = zext i32 %.0235 to i64
   %20 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %19
   store ptr %18, ptr %20, align 8
   %21 = icmp eq ptr %18, null
@@ -2263,19 +2263,15 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
 22:                                               ; preds = %17
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 36, i64 1, ptr %23) #23
-  br label %.thread
-
-.thread:                                          ; preds = %14, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %32
+  br label %.critedge
 
 25:                                               ; preds = %17
   %26 = load i64, ptr %6, align 8
-  %27 = add i32 %.0239, 1
+  %27 = add i32 %.0235, 1
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %26, ptr %28, align 8
-  %29 = sub i64 %.0258, %26
-  %30 = add i64 %26, %.0277
+  %29 = sub i64 %.0254, %26
+  %30 = add i64 %26, %.0273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %.not33 = icmp eq i64 %29, 0
   br i1 %.not33, label %31, label %.preheader
@@ -2284,8 +2280,12 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
   store i32 %27, ptr %0, align 4
   br label %32
 
-32:                                               ; preds = %.thread, %31, %10
-  %.022 = phi i1 [ true, %31 ], [ false, %10 ], [ false, %.thread ]
+.critedge:                                        ; preds = %22, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  br label %32
+
+32:                                               ; preds = %.critedge, %31, %10
+  %.022 = phi i1 [ true, %31 ], [ false, %10 ], [ false, %.critedge ]
   ret i1 %.022
 }
 

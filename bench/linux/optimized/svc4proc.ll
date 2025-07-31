@@ -576,13 +576,13 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr @nlmsvc_ops, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 216
@@ -594,7 +594,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
   %16 = add i64 %13, -1
   %17 = xor i64 %9, 9223372036854775807
   %18 = icmp ugt i64 %16, %17
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %15, %11
   %20 = load ptr, ptr %4, align 8
@@ -603,7 +603,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
   %23 = zext i32 %22 to i64
   %24 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %20, i64 noundef %23) #7
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread.sink.split, label %26
+  br i1 %25, label %.critedge.sink.split, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 452
@@ -614,17 +614,17 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
 30:                                               ; preds = %26
   %31 = tail call i32 @nsm_monitor(ptr noundef nonnull %24) #7
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread.sink.split, label %33
+  br i1 %32, label %.critedge.sink.split, label %33
 
 33:                                               ; preds = %26, %30
   tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %24) #7
-  br label %.thread.sink.split
+  br label %.critedge.sink.split
 
-.thread.sink.split:                               ; preds = %19, %30, %33
+.critedge.sink.split:                             ; preds = %19, %30, %33
   tail call void @nlmsvc_release_host(ptr noundef %24) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.sink.split, %15, %7, %1
+.critedge:                                        ; preds = %.critedge.sink.split, %1, %7, %15
   ret i32 0
 }
 

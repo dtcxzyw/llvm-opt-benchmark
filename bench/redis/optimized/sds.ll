@@ -906,10 +906,10 @@ sdsHdrSize.exit:                                  ; preds = %3, %switch.lookup
   %10 = and i32 %9, 7
   switch i32 %10, label %sdslen.exit [
     i32 0, label %sdslen.exit.thread
-    i32 1, label %sdslen.exit.thread75
-    i32 2, label %sdslen.exit.thread78
-    i32 3, label %sdslen.exit.thread81
-    i32 4, label %sdslen.exit.thread84
+    i32 1, label %sdslen.exit.thread73
+    i32 2, label %sdslen.exit.thread76
+    i32 3, label %sdslen.exit.thread79
+    i32 4, label %sdslen.exit.thread82
   ]
 
 sdslen.exit.thread:                               ; preds = %sdsHdrSize.exit
@@ -919,7 +919,7 @@ sdslen.exit.thread:                               ; preds = %sdsHdrSize.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   br label %sdsalloc.exit
 
-sdslen.exit.thread75:                             ; preds = %sdsHdrSize.exit
+sdslen.exit.thread73:                             ; preds = %sdsHdrSize.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 -3
   %16 = load i8, ptr %15, align 1, !tbaa !13
   %17 = zext i8 %16 to i64
@@ -930,7 +930,7 @@ sdslen.exit.thread75:                             ; preds = %sdsHdrSize.exit
   %22 = zext i8 %21 to i64
   br label %sdsalloc.exit
 
-sdslen.exit.thread78:                             ; preds = %sdsHdrSize.exit
+sdslen.exit.thread76:                             ; preds = %sdsHdrSize.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 -5
   %24 = load i16, ptr %23, align 1, !tbaa !14
   %25 = zext i16 %24 to i64
@@ -941,7 +941,7 @@ sdslen.exit.thread78:                             ; preds = %sdsHdrSize.exit
   %30 = zext i16 %29 to i64
   br label %sdsalloc.exit
 
-sdslen.exit.thread81:                             ; preds = %sdsHdrSize.exit
+sdslen.exit.thread79:                             ; preds = %sdsHdrSize.exit
   %31 = getelementptr inbounds i8, ptr %0, i64 -9
   %32 = load i32, ptr %31, align 1, !tbaa !16
   %33 = zext i32 %32 to i64
@@ -952,7 +952,7 @@ sdslen.exit.thread81:                             ; preds = %sdsHdrSize.exit
   %38 = zext i32 %37 to i64
   br label %sdsalloc.exit
 
-sdslen.exit.thread84:                             ; preds = %sdsHdrSize.exit
+sdslen.exit.thread82:                             ; preds = %sdsHdrSize.exit
   %39 = getelementptr inbounds i8, ptr %0, i64 -17
   %40 = load i64, ptr %39, align 1, !tbaa !11
   %41 = sub nsw i64 0, %.0.i
@@ -966,15 +966,15 @@ sdslen.exit:                                      ; preds = %sdsHdrSize.exit
   %46 = getelementptr inbounds i8, ptr %0, i64 %45
   br label %sdsalloc.exit
 
-sdsalloc.exit:                                    ; preds = %sdslen.exit, %sdslen.exit.thread, %sdslen.exit.thread75, %sdslen.exit.thread78, %sdslen.exit.thread81, %sdslen.exit.thread84
-  %47 = phi ptr [ %14, %sdslen.exit.thread ], [ %19, %sdslen.exit.thread75 ], [ %27, %sdslen.exit.thread78 ], [ %35, %sdslen.exit.thread81 ], [ %42, %sdslen.exit.thread84 ], [ %46, %sdslen.exit ]
-  %.0.i6774 = phi i64 [ %12, %sdslen.exit.thread ], [ %17, %sdslen.exit.thread75 ], [ %25, %sdslen.exit.thread78 ], [ %33, %sdslen.exit.thread81 ], [ %40, %sdslen.exit.thread84 ], [ 0, %sdslen.exit ]
-  %.0.i68 = phi i64 [ %12, %sdslen.exit.thread ], [ %22, %sdslen.exit.thread75 ], [ %30, %sdslen.exit.thread78 ], [ %38, %sdslen.exit.thread81 ], [ %44, %sdslen.exit.thread84 ], [ 0, %sdslen.exit ]
-  %48 = icmp eq i64 %.0.i68, %1
-  br i1 %48, label %sdssetalloc.exit, label %49
+sdsalloc.exit:                                    ; preds = %sdslen.exit, %sdslen.exit.thread, %sdslen.exit.thread73, %sdslen.exit.thread76, %sdslen.exit.thread79, %sdslen.exit.thread82
+  %47 = phi ptr [ %14, %sdslen.exit.thread ], [ %19, %sdslen.exit.thread73 ], [ %27, %sdslen.exit.thread76 ], [ %35, %sdslen.exit.thread79 ], [ %42, %sdslen.exit.thread82 ], [ %46, %sdslen.exit ]
+  %.0.i6572 = phi i64 [ %12, %sdslen.exit.thread ], [ %17, %sdslen.exit.thread73 ], [ %25, %sdslen.exit.thread76 ], [ %33, %sdslen.exit.thread79 ], [ %40, %sdslen.exit.thread82 ], [ 0, %sdslen.exit ]
+  %.0.i66 = phi i64 [ %12, %sdslen.exit.thread ], [ %22, %sdslen.exit.thread73 ], [ %30, %sdslen.exit.thread76 ], [ %38, %sdslen.exit.thread79 ], [ %44, %sdslen.exit.thread82 ], [ 0, %sdslen.exit ]
+  %48 = icmp eq i64 %.0.i66, %1
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %sdsalloc.exit
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %.0.i6774)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %.0.i6572)
   %50 = icmp ult i64 %1, 32
   br i1 %50, label %sdsReqType.exit, label %51
 
@@ -992,13 +992,13 @@ sdsalloc.exit:                                    ; preds = %sdslen.exit, %sdsle
   br label %sdsReqType.exit
 
 sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
-  %.0.i69 = phi i8 [ 0, %49 ], [ 1, %51 ], [ 2, %53 ], [ %..i, %55 ]
+  %.0.i67 = phi i8 [ 0, %49 ], [ 1, %51 ], [ 2, %53 ], [ %..i, %55 ]
   %.not = icmp eq i32 %2, 0
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i69, i8 1)
-  %.058 = select i1 %.not, i8 %.0.i69, i8 %spec.store.select
+  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i67, i8 1)
+  %.058 = select i1 %.not, i8 %.0.i67, i8 %spec.store.select
   %57 = zext nneg i8 %.058 to i64
-  %switch.gep96 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %57
-  %switch.load97 = load i64, ptr %switch.gep96, align 8
+  %switch.gep90 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %57
+  %switch.load91 = load i64, ptr %switch.gep90, align 8
   %58 = icmp eq i8 %6, %.058
   br i1 %58, label %.thread, label %59
 
@@ -1006,116 +1006,119 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %60 = icmp samesign ult i8 %.058, %6
   %61 = icmp samesign ugt i8 %.058, 1
   %62 = and i1 %60, %61
-  br i1 %62, label %.thread, label %70
+  br i1 %62, label %.thread, label %72
 
 .thread:                                          ; preds = %59, %sdsReqType.exit
-  %.in89 = add i64 %1, 1
-  %63 = add i64 %.in89, %.0.i
+  %.in87 = add i64 %1, 1
+  %63 = add i64 %.in87, %.0.i
   %64 = tail call i64 @je_nallocx(i64 noundef %63, i32 noundef 0) #27
   %65 = tail call i64 @je_malloc_usable_size(ptr noundef %47) #25
   %66 = icmp eq i64 %64, %65
-  br i1 %66, label %.thread90, label %67
+  br i1 %66, label %79, label %67
 
 67:                                               ; preds = %.thread
   %68 = tail call ptr @zrealloc(ptr noundef %47, i64 noundef %63) #28
-  %.not93 = icmp eq ptr %68, null
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0.i
-  br i1 %.not93, label %sdssetalloc.exit, label %.thread90
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.critedge, label %70
 
-70:                                               ; preds = %59
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.0.i
+  br label %79
+
+72:                                               ; preds = %59
   %.in = add i64 %1, 1
-  %71 = add i64 %.in, %switch.load97
-  %72 = tail call noalias ptr @zmalloc(i64 noundef %71) #29
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %sdssetalloc.exit, label %74
+  %73 = add i64 %.in, %switch.load91
+  %74 = tail call noalias ptr @zmalloc(i64 noundef %73) #29
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.critedge, label %76
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %switch.load97
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load91
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
   tail call void @zfree(ptr noundef %47) #25
-  %76 = getelementptr inbounds i8, ptr %75, i64 -1
-  store i8 %.058, ptr %76, align 1, !tbaa !13
-  br label %.thread90
+  %78 = getelementptr inbounds i8, ptr %77, i64 -1
+  store i8 %.058, ptr %78, align 1, !tbaa !13
+  br label %79
 
-.thread90:                                        ; preds = %.thread, %67, %74
-  %.255 = phi ptr [ %69, %67 ], [ %75, %74 ], [ %0, %.thread ]
-  %77 = getelementptr inbounds nuw i8, ptr %.255, i64 %spec.select
-  store i8 0, ptr %77, align 1, !tbaa !13
-  %78 = getelementptr inbounds i8, ptr %.255, i64 -1
-  %79 = load i8, ptr %78, align 1, !tbaa !13
-  %80 = and i8 %79, 7
-  switch i8 %80, label %sdssetlen.exit [
-    i8 0, label %81
-    i8 1, label %83
-    i8 2, label %86
-    i8 3, label %89
-    i8 4, label %92
+79:                                               ; preds = %70, %.thread, %76
+  %.255 = phi ptr [ %77, %76 ], [ %0, %.thread ], [ %71, %70 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.255, i64 %spec.select
+  store i8 0, ptr %80, align 1, !tbaa !13
+  %81 = getelementptr inbounds i8, ptr %.255, i64 -1
+  %82 = load i8, ptr %81, align 1, !tbaa !13
+  %83 = and i8 %82, 7
+  switch i8 %83, label %sdssetlen.exit [
+    i8 0, label %84
+    i8 1, label %86
+    i8 2, label %89
+    i8 3, label %92
+    i8 4, label %95
   ]
 
-81:                                               ; preds = %.thread90
+84:                                               ; preds = %79
   %.tr.i = trunc i64 %spec.select to i8
-  %82 = shl i8 %.tr.i, 3
-  store i8 %82, ptr %78, align 1, !tbaa !13
+  %85 = shl i8 %.tr.i, 3
+  store i8 %85, ptr %81, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-83:                                               ; preds = %.thread90
-  %84 = trunc i64 %spec.select to i8
-  %85 = getelementptr inbounds i8, ptr %.255, i64 -3
-  store i8 %84, ptr %85, align 1, !tbaa !13
+86:                                               ; preds = %79
+  %87 = trunc i64 %spec.select to i8
+  %88 = getelementptr inbounds i8, ptr %.255, i64 -3
+  store i8 %87, ptr %88, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-86:                                               ; preds = %.thread90
-  %87 = trunc i64 %spec.select to i16
-  %88 = getelementptr inbounds i8, ptr %.255, i64 -5
-  store i16 %87, ptr %88, align 1, !tbaa !14
+89:                                               ; preds = %79
+  %90 = trunc i64 %spec.select to i16
+  %91 = getelementptr inbounds i8, ptr %.255, i64 -5
+  store i16 %90, ptr %91, align 1, !tbaa !14
   br label %sdssetlen.exit
 
-89:                                               ; preds = %.thread90
-  %90 = trunc i64 %spec.select to i32
-  %91 = getelementptr inbounds i8, ptr %.255, i64 -9
-  store i32 %90, ptr %91, align 1, !tbaa !16
+92:                                               ; preds = %79
+  %93 = trunc i64 %spec.select to i32
+  %94 = getelementptr inbounds i8, ptr %.255, i64 -9
+  store i32 %93, ptr %94, align 1, !tbaa !16
   br label %sdssetlen.exit
 
-92:                                               ; preds = %.thread90
-  %93 = getelementptr inbounds i8, ptr %.255, i64 -17
-  store i64 %spec.select, ptr %93, align 1, !tbaa !11
+95:                                               ; preds = %79
+  %96 = getelementptr inbounds i8, ptr %.255, i64 -17
+  store i64 %spec.select, ptr %96, align 1, !tbaa !11
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %.thread90, %81, %83, %86, %89, %92
-  %94 = phi i8 [ %79, %.thread90 ], [ %82, %81 ], [ %79, %83 ], [ %79, %86 ], [ %79, %89 ], [ %79, %92 ]
-  %95 = and i8 %94, 7
-  switch i8 %95, label %sdssetalloc.exit [
-    i8 4, label %105
-    i8 1, label %96
-    i8 2, label %99
-    i8 3, label %102
+sdssetlen.exit:                                   ; preds = %79, %84, %86, %89, %92, %95
+  %97 = phi i8 [ %82, %79 ], [ %85, %84 ], [ %82, %86 ], [ %82, %89 ], [ %82, %92 ], [ %82, %95 ]
+  %98 = and i8 %97, 7
+  switch i8 %98, label %.critedge [
+    i8 4, label %108
+    i8 1, label %99
+    i8 2, label %102
+    i8 3, label %105
   ]
-
-96:                                               ; preds = %sdssetlen.exit
-  %97 = trunc i64 %1 to i8
-  %98 = getelementptr inbounds i8, ptr %.255, i64 -2
-  store i8 %97, ptr %98, align 1, !tbaa !13
-  br label %sdssetalloc.exit
 
 99:                                               ; preds = %sdssetlen.exit
-  %100 = trunc i64 %1 to i16
-  %101 = getelementptr inbounds i8, ptr %.255, i64 -3
-  store i16 %100, ptr %101, align 1, !tbaa !14
-  br label %sdssetalloc.exit
+  %100 = trunc i64 %1 to i8
+  %101 = getelementptr inbounds i8, ptr %.255, i64 -2
+  store i8 %100, ptr %101, align 1, !tbaa !13
+  br label %.critedge
 
 102:                                              ; preds = %sdssetlen.exit
-  %103 = trunc i64 %1 to i32
-  %104 = getelementptr inbounds i8, ptr %.255, i64 -5
-  store i32 %103, ptr %104, align 1, !tbaa !16
-  br label %sdssetalloc.exit
+  %103 = trunc i64 %1 to i16
+  %104 = getelementptr inbounds i8, ptr %.255, i64 -3
+  store i16 %103, ptr %104, align 1, !tbaa !14
+  br label %.critedge
 
 105:                                              ; preds = %sdssetlen.exit
-  %106 = getelementptr inbounds i8, ptr %.255, i64 -9
-  store i64 %1, ptr %106, align 1, !tbaa !11
-  br label %sdssetalloc.exit
+  %106 = trunc i64 %1 to i32
+  %107 = getelementptr inbounds i8, ptr %.255, i64 -5
+  store i32 %106, ptr %107, align 1, !tbaa !16
+  br label %.critedge
 
-sdssetalloc.exit:                                 ; preds = %105, %102, %99, %96, %sdssetlen.exit, %67, %70, %sdsalloc.exit
-  %.0 = phi ptr [ %0, %sdsalloc.exit ], [ null, %67 ], [ null, %70 ], [ %.255, %sdssetlen.exit ], [ %.255, %96 ], [ %.255, %99 ], [ %.255, %102 ], [ %.255, %105 ]
+108:                                              ; preds = %sdssetlen.exit
+  %109 = getelementptr inbounds i8, ptr %.255, i64 -9
+  store i64 %1, ptr %109, align 1, !tbaa !11
+  br label %.critedge
+
+.critedge:                                        ; preds = %108, %105, %102, %99, %sdssetlen.exit, %72, %67, %sdsalloc.exit
+  %.0 = phi ptr [ %0, %sdsalloc.exit ], [ null, %72 ], [ null, %67 ], [ %.255, %sdssetlen.exit ], [ %.255, %99 ], [ %.255, %102 ], [ %.255, %105 ], [ %.255, %108 ]
   ret ptr %.0
 }
 

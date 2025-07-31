@@ -788,9 +788,9 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %20 = xor i32 %2, 1
   br label %21
 
-21:                                               ; preds = %.lr.ph, %85
-  %.04567 = phi ptr [ %19, %.lr.ph ], [ %.146, %85 ]
-  %.04766 = phi i32 [ 0, %.lr.ph ], [ %.350, %85 ]
+21:                                               ; preds = %.lr.ph, %84
+  %.04565 = phi ptr [ %19, %.lr.ph ], [ %.146, %84 ]
+  %.04764 = phi i32 [ 0, %.lr.ph ], [ %.350, %84 ]
   %22 = load i8, ptr %4, align 1
   %.not55 = icmp eq i8 %22, 0
   br i1 %.not55, label %42, label %23
@@ -798,11 +798,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
   %24 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5) #4
-  br i1 %24, label %25, label %.thread
-
-.thread:                                          ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
-  br label %.loopexit
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %23
   %26 = load i8, ptr %4, align 1
@@ -810,14 +806,14 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %28 = lshr i32 %27, %20
   %29 = trunc nuw i32 %28 to i8
   store i8 %29, ptr %4, align 1
-  %30 = sext i32 %.04766 to i64
+  %30 = sext i32 %.04764 to i64
   br label %31
 
 31:                                               ; preds = %37, %25
   %32 = phi i8 [ %39, %37 ], [ %29, %25 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %30, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds i8, ptr %.04567, i64 %indvars.iv
+  %33 = getelementptr inbounds i8, ptr %.04565, i64 %indvars.iv
   %.not = icmp uge ptr %33, %12
   %34 = icmp ult ptr %33, %15
   %or.cond = select i1 %.not, i1 %34, i1 false
@@ -839,7 +835,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
 40:                                               ; preds = %37
   %41 = trunc nsw i64 %indvars.iv.next to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
-  br label %85
+  br label %84
 
 42:                                               ; preds = %21
   %43 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
@@ -854,8 +850,8 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   ]
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.04567, i64 %17
-  br label %85
+  %47 = getelementptr inbounds i8, ptr %.04565, i64 %17
+  br label %84
 
 48:                                               ; preds = %44
   %49 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
@@ -869,15 +865,15 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
 53:                                               ; preds = %50
   %54 = zext i8 %51 to i32
   %55 = lshr i32 %54, %20
-  %56 = add nsw i32 %55, %.04766
+  %56 = add nsw i32 %55, %.04764
   %57 = load i8, ptr %4, align 1
   %58 = zext i8 %57 to i32
   %59 = lshr i32 %58, %20
   %60 = mul nsw i32 %59, %8
   %61 = sext i32 %60 to i64
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds i8, ptr %.04567, i64 %62
-  br label %85
+  %63 = getelementptr inbounds i8, ptr %.04565, i64 %62
+  br label %84
 
 64:                                               ; preds = %44
   %65 = zext i8 %45 to i32
@@ -885,57 +881,61 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %67 = trunc nuw i32 %66 to i8
   store i8 %67, ptr %4, align 1
   %68 = and i32 %66, 1
-  %69 = sext i32 %.04766 to i64
+  %69 = sext i32 %.04764 to i64
   br label %70
 
-70:                                               ; preds = %78, %64
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %78 ], [ %69, %64 ]
+70:                                               ; preds = %77, %64
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %77 ], [ %69, %64 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4
   %71 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %6) #4
-  br i1 %71, label %72, label %77
+  br i1 %71, label %72, label %.critedge62
 
 72:                                               ; preds = %70
-  %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
-  %73 = getelementptr inbounds i8, ptr %.04567, i64 %indvars.iv80
+  %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
+  %73 = getelementptr inbounds i8, ptr %.04565, i64 %indvars.iv78
   %.not56 = icmp uge ptr %73, %12
   %74 = icmp ult ptr %73, %15
   %or.cond60 = select i1 %.not56, i1 %74, i1 false
-  br i1 %or.cond60, label %75, label %78
+  br i1 %or.cond60, label %75, label %77
 
 75:                                               ; preds = %72
   %76 = load i8, ptr %6, align 1
   store i8 %76, ptr %73, align 1
-  br label %78
+  br label %77
 
-77:                                               ; preds = %70
+77:                                               ; preds = %75, %72
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
+  %78 = load i8, ptr %4, align 1
+  %79 = add i8 %78, -1
+  store i8 %79, ptr %4, align 1
+  %.not57 = icmp eq i8 %79, 0
+  br i1 %.not57, label %80, label %70, !llvm.loop !12
+
+80:                                               ; preds = %77
+  %81 = trunc nsw i64 %indvars.iv.next79 to i32
+  %.not58 = icmp eq i32 %68, 0
+  br i1 %.not58, label %84, label %82
+
+82:                                               ; preds = %80
+  %83 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
+  br i1 %83, label %84, label %.loopexit
+
+84:                                               ; preds = %40, %46, %53, %82, %80
+  %.350 = phi i32 [ %41, %40 ], [ %81, %82 ], [ %81, %80 ], [ 0, %46 ], [ %56, %53 ]
+  %.146 = phi ptr [ %.04565, %40 ], [ %.04565, %82 ], [ %.04565, %80 ], [ %47, %46 ], [ %63, %53 ]
+  %85 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
+  br i1 %85, label %21, label %.loopexit
+
+.critedge:                                        ; preds = %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
+  br label %.loopexit
+
+.critedge62:                                      ; preds = %70
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
   br label %.loopexit
 
-78:                                               ; preds = %72, %75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
-  %79 = load i8, ptr %4, align 1
-  %80 = add i8 %79, -1
-  store i8 %80, ptr %4, align 1
-  %.not57 = icmp eq i8 %80, 0
-  br i1 %.not57, label %81, label %70, !llvm.loop !12
-
-81:                                               ; preds = %78
-  %82 = trunc nsw i64 %indvars.iv.next81 to i32
-  %.not58 = icmp eq i32 %68, 0
-  br i1 %.not58, label %85, label %83
-
-83:                                               ; preds = %81
-  %84 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
-  br i1 %84, label %85, label %.loopexit
-
-85:                                               ; preds = %40, %46, %53, %83, %81
-  %.350 = phi i32 [ %41, %40 ], [ %82, %83 ], [ %82, %81 ], [ 0, %46 ], [ %56, %53 ]
-  %.146 = phi ptr [ %.04567, %40 ], [ %.04567, %83 ], [ %.04567, %81 ], [ %47, %46 ], [ %63, %53 ]
-  %86 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
-  br i1 %86, label %21, label %.loopexit
-
-.loopexit:                                        ; preds = %85, %42, %44, %48, %50, %83, %3, %77, %.thread
-  %.144 = phi i1 [ false, %77 ], [ false, %.thread ], [ false, %3 ], [ false, %85 ], [ false, %42 ], [ true, %44 ], [ false, %48 ], [ false, %50 ], [ false, %83 ]
+.loopexit:                                        ; preds = %84, %42, %44, %48, %50, %82, %3, %.critedge62, %.critedge
+  %.144 = phi i1 [ false, %.critedge ], [ false, %.critedge62 ], [ false, %3 ], [ false, %84 ], [ false, %42 ], [ true, %44 ], [ false, %48 ], [ false, %50 ], [ false, %82 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
   ret i1 %.144
 }

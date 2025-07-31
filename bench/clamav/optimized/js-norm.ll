@@ -469,11 +469,11 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
   br i1 %or.cond.i.i, label %handle_df.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %137, %162
-  %.03157.i.i = phi i64 [ %158, %162 ], [ 0, %137 ]
-  %.03356.i.i = phi i64 [ %163, %162 ], [ 1, %137 ]
-  %.03555.i.i = phi i64 [ %141, %162 ], [ 6, %137 ]
-  %141 = add i64 %.03555.i.i, -1
-  %142 = getelementptr inbounds nuw %struct.token, ptr %139, i64 %.03356.i.i
+  %.03152.i.i = phi i64 [ %158, %162 ], [ 0, %137 ]
+  %.03351.i.i = phi i64 [ %163, %162 ], [ 1, %137 ]
+  %.03550.i.i = phi i64 [ %141, %162 ], [ 6, %137 ]
+  %141 = add i64 %.03550.i.i, -1
+  %142 = getelementptr inbounds nuw %struct.token, ptr %139, i64 %.03351.i.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %144 = load i32, ptr %143, align 4, !tbaa !27
   %145 = add i32 %144, -3
@@ -486,7 +486,7 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
 146:                                              ; preds = %.preheader.i.i
   %147 = load ptr, ptr %142, align 8, !tbaa !3
   %148 = icmp ne ptr %147, null
-  %.not40.i.i = icmp ult i64 %.03356.i.i, %106
+  %.not40.i.i = icmp ult i64 %.03351.i.i, %106
   %or.cond47.i.i = and i1 %.not40.i.i, %148
   br i1 %or.cond47.i.i, label %149, label %.preheader.i90.i.preheader
 
@@ -497,15 +497,15 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
   br i1 %.not41.i.i, label %152, label %.preheader.i90.i.preheader
 
 152:                                              ; preds = %149
-  %153 = add nuw i64 %.03356.i.i, 1
-  %154 = getelementptr inbounds nuw ptr, ptr @de_packer_3, i64 %.03157.i.i
+  %153 = add nuw i64 %.03351.i.i, 1
+  %154 = getelementptr inbounds nuw ptr, ptr @de_packer_3, i64 %.03152.i.i
   %155 = load ptr, ptr %154, align 8, !tbaa !28
   %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(1) %155) #21
   %.not42.i.i = icmp eq i32 %156, 0
   br i1 %.not42.i.i, label %157, label %.preheader.i90.i.preheader
 
 157:                                              ; preds = %152
-  %158 = add nuw i64 %.03157.i.i, 1
+  %158 = add nuw i64 %.03152.i.i, 1
   %.not43.i.i = icmp ult i64 %153, %106
   br i1 %.not43.i.i, label %159, label %.preheader.i90.i.preheader
 
@@ -516,16 +516,16 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
   br i1 %.not45.i.i, label %162, label %.preheader.i90.i.preheader
 
 162:                                              ; preds = %159
-  %163 = add nuw i64 %.03356.i.i, 2
+  %163 = add nuw i64 %.03351.i.i, 2
   %164 = icmp ult i64 %158, %141
   br i1 %164, label %.preheader.i.i, label %match_parameters.exit.i
 
 .preheader.i90.i:                                 ; preds = %.preheader.i90.i.preheader, %186
-  %.03157.i91.i = phi i64 [ %182, %186 ], [ 0, %.preheader.i90.i.preheader ]
-  %.03356.i92.i = phi i64 [ %187, %186 ], [ 1, %.preheader.i90.i.preheader ]
-  %.03555.i93.i = phi i64 [ %165, %186 ], [ 6, %.preheader.i90.i.preheader ]
-  %165 = add i64 %.03555.i93.i, -1
-  %166 = getelementptr inbounds nuw %struct.token, ptr %139, i64 %.03356.i92.i
+  %.03152.i91.i = phi i64 [ %182, %186 ], [ 0, %.preheader.i90.i.preheader ]
+  %.03351.i92.i = phi i64 [ %187, %186 ], [ 1, %.preheader.i90.i.preheader ]
+  %.03550.i93.i = phi i64 [ %165, %186 ], [ 6, %.preheader.i90.i.preheader ]
+  %165 = add i64 %.03550.i93.i, -1
+  %166 = getelementptr inbounds nuw %struct.token, ptr %139, i64 %.03351.i92.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %168 = load i32, ptr %167, align 4, !tbaa !27
   %169 = add i32 %168, -3
@@ -535,7 +535,7 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
 170:                                              ; preds = %.preheader.i90.i
   %171 = load ptr, ptr %166, align 8, !tbaa !3
   %172 = icmp ne ptr %171, null
-  %.not40.i95.i = icmp ult i64 %.03356.i92.i, %106
+  %.not40.i95.i = icmp ult i64 %.03351.i92.i, %106
   %or.cond47.i96.i = and i1 %.not40.i95.i, %172
   br i1 %or.cond47.i96.i, label %173, label %handle_df.exit.thread.i
 
@@ -546,15 +546,15 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
   br i1 %.not41.i98.i, label %176, label %handle_df.exit.thread.i
 
 176:                                              ; preds = %173
-  %177 = add nuw i64 %.03356.i92.i, 1
-  %178 = getelementptr inbounds nuw ptr, ptr @de_packer_2, i64 %.03157.i91.i
+  %177 = add nuw i64 %.03351.i92.i, 1
+  %178 = getelementptr inbounds nuw ptr, ptr @de_packer_2, i64 %.03152.i91.i
   %179 = load ptr, ptr %178, align 8, !tbaa !28
   %180 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %171, ptr noundef nonnull dereferenceable(1) %179) #21
   %.not42.i99.i = icmp eq i32 %180, 0
   br i1 %.not42.i99.i, label %181, label %handle_df.exit.thread.i
 
 181:                                              ; preds = %176
-  %182 = add nuw i64 %.03157.i91.i, 1
+  %182 = add nuw i64 %.03152.i91.i, 1
   %.not43.i100.i = icmp ult i64 %177, %106
   br i1 %.not43.i100.i, label %183, label %handle_df.exit.thread.i
 
@@ -565,7 +565,7 @@ run_folders.exit:                                 ; preds = %handle_unescape.exi
   br i1 %.not45.i101.i, label %186, label %handle_df.exit.thread.i
 
 186:                                              ; preds = %183
-  %187 = add nuw i64 %.03356.i92.i, 2
+  %187 = add nuw i64 %.03351.i92.i, 2
   %188 = icmp ult i64 %182, %165
   br i1 %188, label %.preheader.i90.i, label %match_parameters.exit.i
 

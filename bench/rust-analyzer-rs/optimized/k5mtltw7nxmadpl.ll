@@ -95902,13 +95902,13 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config6Config13loca
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3512
   %4 = load i64, ptr %3, align 8, !range !317, !noundef !4
   %5 = icmp eq i64 %4, -9223372036854775807
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4066
   %8 = load i8, ptr %7, align 2, !range !2100, !noundef !4
   %9 = icmp eq i8 %8, 3
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4067
@@ -95916,10 +95916,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN13rust_analyzer6config6Config13loca
   %13 = icmp eq i8 %12, 2
   %14 = and i8 %12, 1
   %spec.select = select i1 %13, i8 2, i8 %14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %10, %1
-  %.1 = phi i8 [ 2, %1 ], [ %spec.select, %10 ], [ 2, %6 ]
+.critedge:                                        ; preds = %10, %1, %6
+  %.1 = phi i8 [ 2, %6 ], [ 2, %1 ], [ %spec.select, %10 ]
   ret i8 %.1
 }
 

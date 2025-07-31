@@ -9717,7 +9717,7 @@ define void @h5tools_print_packed_bits(ptr noundef %0, i64 noundef %1) local_unn
   %3 = tail call i64 @H5Tget_native_type(i64 noundef %1, i32 noundef 0) #12
   %4 = tail call i32 @H5Tget_class(i64 noundef %3) #12
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %133
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %2
   %7 = load i8, ptr @H5_libinit_g, align 1, !tbaa !27, !range !51, !noundef !52
@@ -9901,25 +9901,25 @@ define void @h5tools_print_packed_bits(ptr noundef %0, i64 noundef %1) local_unn
 
 126:                                              ; preds = %122
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.272) #12
-  br label %133
+  br label %.critedge
 
 127:                                              ; preds = %14, %26, %38, %50, %62, %74, %86, %98, %110, %122
-  %.0.ph = phi i32 [ 64, %122 ], [ 64, %110 ], [ 64, %98 ], [ 64, %86 ], [ 32, %74 ], [ 32, %62 ], [ 16, %50 ], [ 16, %38 ], [ 8, %26 ], [ 8, %14 ]
+  %.0 = phi i32 [ 8, %14 ], [ 8, %26 ], [ 16, %38 ], [ 16, %50 ], [ 32, %62 ], [ 32, %74 ], [ 64, %86 ], [ 64, %98 ], [ 64, %110 ], [ 64, %122 ]
   %128 = load i32, ptr @packed_data_offset, align 4, !tbaa !8
   %129 = load i32, ptr @packed_data_length, align 4, !tbaa !8
   %130 = add i32 %129, %128
-  %131 = icmp ugt i32 %130, %.0.ph
-  br i1 %131, label %132, label %133
+  %131 = icmp ugt i32 %130, %.0
+  br i1 %131, label %132, label %.critedge
 
 132:                                              ; preds = %127
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.273, i32 noundef %130, i32 noundef %.0.ph) #12
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.273, i32 noundef %130, i32 noundef %.0) #12
   store i64 0, ptr @packed_data_mask, align 8, !tbaa !166
-  br label %133
+  br label %.critedge
 
-133:                                              ; preds = %2, %126, %132, %127
-  %134 = load i32, ptr @packed_data_offset, align 4, !tbaa !8
-  %135 = load i32, ptr @packed_data_length, align 4, !tbaa !8
-  %136 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, i32 noundef %134, ptr noundef nonnull @.str.277, i32 noundef %135) #12
+.critedge:                                        ; preds = %126, %2, %132, %127
+  %133 = load i32, ptr @packed_data_offset, align 4, !tbaa !8
+  %134 = load i32, ptr @packed_data_length, align 4, !tbaa !8
+  %135 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.274, ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, i32 noundef %133, ptr noundef nonnull @.str.277, i32 noundef %134) #12
   ret void
 }
 

@@ -4056,68 +4056,68 @@ define dso_local noundef zeroext i1 @check_wal_consistency_checking(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph98, label %.critedge65
+  br i1 %19, label %.lr.ph97, label %.critedge65
 
-.lr.ph98:                                         ; preds = %.lr.ph, %.loopexit
-  %indvars.iv9297 = phi i64 [ %indvars.iv.next93, %.loopexit ], [ 0, %.lr.ph ]
+.lr.ph97:                                         ; preds = %.lr.ph, %.loopexit
+  %indvars.iv9196 = phi i64 [ %indvars.iv.next92, %.loopexit ], [ 0, %.lr.ph ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv9297
+  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv9196
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @pg_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.25) #26
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.preheader, label %.preheader79
+  br i1 %24, label %.preheader, label %.preheader78
 
-.preheader:                                       ; preds = %.lr.ph98, %29
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %29 ], [ 0, %.lr.ph98 ]
-  %25 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv88
+.preheader:                                       ; preds = %.lr.ph97, %29
+  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %29 ], [ 0, %.lr.ph97 ]
+  %25 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv87
   %26 = load ptr, ptr %25, align 8
-  %.not78 = icmp eq ptr %26, null
-  br i1 %.not78, label %29, label %GetRmgr.exit
+  %.not77 = icmp eq ptr %26, null
+  br i1 %.not77, label %29, label %GetRmgr.exit
 
 GetRmgr.exit:                                     ; preds = %.preheader
-  %.sroa.173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %.sroa.173.0.copyload = load ptr, ptr %.sroa.173.0..sroa_idx, align 8
-  %.not59 = icmp eq ptr %.sroa.173.0.copyload, null
+  %.sroa.174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %.sroa.174.0.copyload = load ptr, ptr %.sroa.174.0..sroa_idx, align 8
+  %.not59 = icmp eq ptr %.sroa.174.0.copyload, null
   br i1 %.not59, label %29, label %27
 
 27:                                               ; preds = %GetRmgr.exit
-  %28 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv88
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv87
   store i8 1, ptr %28, align 1
   br label %29
 
 29:                                               ; preds = %.preheader, %GetRmgr.exit, %27
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next89, 256
-  br i1 %exitcond91.not, label %.loopexit, label %.preheader, !llvm.loop !56
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next88, 256
+  br i1 %exitcond90.not, label %.loopexit, label %.preheader, !llvm.loop !56
 
-.preheader79:                                     ; preds = %.lr.ph98, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph98 ]
+.preheader78:                                     ; preds = %.lr.ph97, %37
+  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph97 ]
   %30 = getelementptr inbounds nuw [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  %.not77 = icmp eq ptr %31, null
-  br i1 %.not77, label %37, label %GetRmgr.exit67
+  %.not76 = icmp eq ptr %31, null
+  br i1 %.not76, label %37, label %GetRmgr.exit68
 
-GetRmgr.exit67:                                   ; preds = %.preheader79
+GetRmgr.exit68:                                   ; preds = %.preheader78
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 48
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.not58 = icmp eq ptr %.sroa.1.0.copyload, null
-  br i1 %.not58, label %37, label %GetRmgr.exit69
+  br i1 %.not58, label %37, label %GetRmgr.exit70
 
-GetRmgr.exit69:                                   ; preds = %GetRmgr.exit67
+GetRmgr.exit70:                                   ; preds = %GetRmgr.exit68
   %32 = call i32 @pg_strcasecmp(ptr noundef %22, ptr noundef nonnull %31) #26
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %GetRmgr.exit69
+34:                                               ; preds = %GetRmgr.exit70
   %35 = and i64 %indvars.iv, 4294967295
   %36 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %35
   store i8 1, ptr %36, align 1
   br label %.loopexit
 
-37:                                               ; preds = %.preheader79, %GetRmgr.exit67, %GetRmgr.exit69
+37:                                               ; preds = %.preheader78, %GetRmgr.exit68, %GetRmgr.exit70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.critedge, label %.preheader79, !llvm.loop !57
+  br i1 %exitcond.not, label %.critedge, label %.preheader78, !llvm.loop !57
 
 .critedge:                                        ; preds = %37
   %38 = load i8, ptr @process_shared_preload_libraries_done, align 1, !range !4, !noundef !5
@@ -4140,11 +4140,11 @@ GetRmgr.exit69:                                   ; preds = %GetRmgr.exit67
   br label %50
 
 .loopexit:                                        ; preds = %29, %34, %40
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv9297, 1
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv9196, 1
   %45 = load i32, ptr %16, align 4
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next93, %46
-  br i1 %47, label %.lr.ph98, label %.critedge65
+  %47 = icmp slt i64 %indvars.iv.next92, %46
+  br i1 %47, label %.lr.ph97, label %.critedge65
 
 .critedge65:                                      ; preds = %.loopexit, %.lr.ph, %14
   call void @pfree(ptr noundef %7) #26
@@ -10216,14 +10216,14 @@ switch.early.test:                                ; preds = %3
   switch i32 %17, label %20 [
     i32 0, label %18
     i32 1, label %25
-    i32 2, label %.thread
-    i32 4, label %.thread
+    i32 2, label %.critedge
+    i32 4, label %.critedge
   ]
 
 18:                                               ; preds = %9
   %19 = tail call i32 @pg_fsync_no_writethrough(i32 noundef %0) #26
   %.not16 = icmp eq i32 %19, 0
-  br i1 %.not16, label %.thread, label %27
+  br i1 %.not16, label %.critedge, label %27
 
 20:                                               ; preds = %9
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #27
@@ -10237,10 +10237,10 @@ switch.early.test:                                ; preds = %3
 25:                                               ; preds = %9
   %26 = tail call i32 @pg_fdatasync(i32 noundef %0) #26
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %.thread, label %27
+  br i1 %.not, label %.critedge, label %27
 
 27:                                               ; preds = %18, %25
-  %.023 = phi ptr [ @.str.76, %18 ], [ @.str.77, %25 ]
+  %.021 = phi ptr [ @.str.76, %18 ], [ @.str.77, %25 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #26
   %28 = tail call ptr @__errno_location() #28
   %29 = load i32, ptr %28, align 4
@@ -10250,18 +10250,18 @@ switch.early.test:                                ; preds = %3
   %31 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #27
   call void @llvm.assume(i1 %31)
   %32 = call i32 @errcode_for_file_access() #26
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.023, ptr noundef nonnull %5) #26
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.021, ptr noundef nonnull %5) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 8765, ptr noundef nonnull @__func__.issue_xlog_fsync) #26
   unreachable
 
-.thread:                                          ; preds = %9, %9, %18, %25
+.critedge:                                        ; preds = %18, %9, %9, %25
   %34 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %34, align 4
   %35 = load i8, ptr @track_wal_io_timing, align 1, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %47
 
-37:                                               ; preds = %.thread
+37:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
   %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #26
   %39 = load i64, ptr %4, align 8
@@ -10276,7 +10276,7 @@ switch.early.test:                                ; preds = %3
   store i64 %46, ptr getelementptr inbounds nuw (i8, ptr @PendingWalStats, i64 24), align 8
   br label %47
 
-47:                                               ; preds = %37, %.thread
+47:                                               ; preds = %37, %.critedge
   call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 1, i64 %15, i32 noundef 1, i64 noundef 0) #26
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingWalStats, i64 8), align 8
   %49 = add i64 %48, 1

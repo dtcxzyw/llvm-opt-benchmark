@@ -3884,7 +3884,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge60.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = add i32 %3, 6
@@ -3902,22 +3902,18 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %exitcond.not = icmp eq i32 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %7, %5
-  %.051.lcssa = phi i32 [ 0, %5 ], [ %12, %7 ]
+._crit_edge:                                      ; preds = %7
   %14 = load i32, ptr @hf_btavrcp_attribute_entries, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef %.051.lcssa, i32 noundef 0)
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef %12, i32 noundef 0)
   %16 = load i32, ptr @ett_btavrcp_attribute_entries, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
-  br i1 %.not, label %._crit_edge60, label %.lr.ph59
-
-.lr.ph59:                                         ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph59, %32
-  %.057 = phi i32 [ %3, %.lr.ph59 ], [ %47, %32 ]
-  %.156 = phi i32 [ 0, %.lr.ph59 ], [ %48, %32 ]
+20:                                               ; preds = %._crit_edge, %32
+  %.057 = phi i32 [ %3, %._crit_edge ], [ %47, %32 ]
+  %.156 = phi i32 [ 0, %._crit_edge ], [ %48, %32 ]
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.057)
   %22 = add i32 %.057, 4
   %23 = add i32 %.057, 6
@@ -3954,8 +3950,15 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %exitcond64.not = icmp eq i32 %48, %4
   br i1 %exitcond64.not, label %._crit_edge60, label %20, !llvm.loop !30
 
-._crit_edge60:                                    ; preds = %32, %._crit_edge
-  %.0.lcssa = phi i32 [ %3, %._crit_edge ], [ %47, %32 ]
+._crit_edge60.critedge:                           ; preds = %5
+  %49 = load i32, ptr @hf_btavrcp_attribute_entries, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %3, i32 noundef 0, i32 noundef 0)
+  %51 = load i32, ptr @ett_btavrcp_attribute_entries, align 4
+  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
+  br label %._crit_edge60
+
+._crit_edge60:                                    ; preds = %32, %._crit_edge60.critedge
+  %.0.lcssa = phi i32 [ %3, %._crit_edge60.critedge ], [ %47, %32 ]
   ret i32 %.0.lcssa
 }
 

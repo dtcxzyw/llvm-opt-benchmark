@@ -4446,11 +4446,10 @@ define internal fastcc range(i32 0, 2) i32 @_widget_init(ptr noundef initializes
   %14 = icmp eq ptr %13, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !129
-  %.not = icmp eq i32 %1, %16
   store i32 %1, ptr %15, align 4, !tbaa !129
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 %5, ptr %17, align 8, !tbaa !187
-  br i1 %14, label %18, label %43
+  br i1 %14, label %18, label %.critedge
 
 18:                                               ; preds = %8
   %19 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #20
@@ -4489,105 +4488,104 @@ define internal fastcc range(i32 0, 2) i32 @_widget_init(ptr noundef initializes
   %40 = load ptr, ptr %25, align 8, !tbaa !203
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %40, i64 noundef 80) #20
   %42 = tail call i64 @g_signal_connect_data(ptr noundef %41, ptr noundef nonnull @.str.117, ptr noundef nonnull @_event_rule_changed, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
-  br label %43
-
-43:                                               ; preds = %18, %8
-  %.0 = phi ptr [ %20, %18 ], [ null, %8 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !203
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %45, i32 noundef %3) #20
-  %46 = load ptr, ptr %44, align 8, !tbaa !203
-  %47 = icmp sgt i32 %6, 0
-  %48 = zext i1 %47 to i32
-  tail call void @gtk_widget_set_sensitive(ptr noundef %46, i32 noundef %48) #20
-  br i1 %14, label %54, label %49
-
-49:                                               ; preds = %43
-  br i1 %.not, label %.thread, label %50
-
-50:                                               ; preds = %49
+  %43 = load ptr, ptr %25, align 8, !tbaa !203
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %43, i32 noundef %3) #20
+  %44 = load ptr, ptr %25, align 8, !tbaa !203
+  %45 = icmp sgt i32 %6, 0
+  %46 = zext i1 %45 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %44, i32 noundef %46) #20
+  %47 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %47, ptr %48, align 8, !tbaa !210
+  tail call void @dt_bauhaus_combobox_set_selected_text_align(ptr noundef %47, i32 noundef 2) #20
+  %49 = load ptr, ptr %48, align 8, !tbaa !210
+  %50 = tail call i64 @dt_bh_get_type() #20
+  %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %49, i64 noundef %50) #20
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 380
+  store i32 0, ptr %52, align 4, !tbaa !205
   tail call fastcc void @_rule_populate_prop_combo(ptr noundef nonnull %0)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !210
-  %53 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %52, i32 noundef %1) #20
+  %53 = load ptr, ptr %48, align 8, !tbaa !210
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef 80) #20
+  tail call void @g_object_set_data(ptr noundef %54, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
+  %55 = load ptr, ptr %48, align 8, !tbaa !210
+  %56 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %55, i32 noundef %1) #20
+  %57 = load ptr, ptr %48, align 8, !tbaa !210
+  %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef 80) #20
+  %59 = tail call i64 @g_signal_connect_data(ptr noundef %58, ptr noundef nonnull @.str.117, ptr noundef nonnull @_event_rule_change_type, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
+  %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %22) #20
+  %61 = load ptr, ptr %48, align 8, !tbaa !210
+  tail call void @gtk_box_pack_start(ptr noundef %60, ptr noundef %61, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
+  %62 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #20
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %62, ptr %63, align 8, !tbaa !211
+  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %22) #20
+  %65 = load ptr, ptr %63, align 8, !tbaa !211
+  tail call void @gtk_box_pack_start(ptr noundef %64, ptr noundef %65, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
+  %66 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #20
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %66, ptr %67, align 8, !tbaa !204
+  tail call void @dt_gui_add_class(ptr noundef %66, ptr noundef nonnull @.str.119) #20
+  %68 = load ptr, ptr %67, align 8, !tbaa !204
+  %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef 80) #20
+  tail call void @g_object_set_data(ptr noundef %69, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
+  %70 = load ptr, ptr %67, align 8, !tbaa !204
+  %71 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef 80) #20
+  %72 = tail call i64 @g_signal_connect_data(ptr noundef %71, ptr noundef nonnull @.str.120, ptr noundef nonnull @_event_rule_disable, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
+  %73 = load ptr, ptr %63, align 8, !tbaa !211
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef %22) #20
+  %75 = load ptr, ptr %67, align 8, !tbaa !204
+  tail call void @gtk_box_pack_end(ptr noundef %74, ptr noundef %75, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
+  %76 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_pin, i32 noundef 0, ptr noundef null) #20
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %76, ptr %77, align 8, !tbaa !212
+  tail call void @dt_gui_add_class(ptr noundef %76, ptr noundef nonnull @.str.119) #20
+  %78 = load ptr, ptr %77, align 8, !tbaa !212
+  %79 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef 80) #20
+  tail call void @g_object_set_data(ptr noundef %79, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
+  %80 = load ptr, ptr %77, align 8, !tbaa !212
+  %81 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef 80) #20
+  %82 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.120, ptr noundef nonnull @_rule_topbar_toggle, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
+  %83 = load ptr, ptr %77, align 8, !tbaa !212
+  tail call void @dt_gui_add_class(ptr noundef %83, ptr noundef nonnull @.str.121) #20
+  %84 = load ptr, ptr %63, align 8, !tbaa !211
+  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %22) #20
+  %86 = load ptr, ptr %77, align 8, !tbaa !212
+  tail call void @gtk_box_pack_end(ptr noundef %85, ptr noundef %86, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
+  %87 = load ptr, ptr %77, align 8, !tbaa !212
+  tail call void @gtk_widget_set_no_show_all(ptr noundef %87, i32 noundef 1) #20
+  %88 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_remove, i32 noundef 0, ptr noundef null) #20
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %88, ptr %89, align 8, !tbaa !213
+  %90 = tail call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef 80) #20
+  tail call void @g_object_set_data(ptr noundef %90, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
+  %91 = load ptr, ptr %89, align 8, !tbaa !213
+  %92 = tail call ptr @g_type_check_instance_cast(ptr noundef %91, i64 noundef 80) #20
+  %93 = tail call i64 @g_signal_connect_data(ptr noundef %92, ptr noundef nonnull @.str.122, ptr noundef nonnull @_event_rule_close, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
+  %94 = load ptr, ptr %63, align 8, !tbaa !211
+  %95 = tail call ptr @g_type_check_instance_cast(ptr noundef %94, i64 noundef %22) #20
+  %96 = load ptr, ptr %89, align 8, !tbaa !213
+  tail call void @gtk_box_pack_end(ptr noundef %95, ptr noundef %96, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
   br label %.thread
 
-54:                                               ; preds = %43
-  %55 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef null) #20
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %55, ptr %56, align 8, !tbaa !210
-  tail call void @dt_bauhaus_combobox_set_selected_text_align(ptr noundef %55, i32 noundef 2) #20
-  %57 = load ptr, ptr %56, align 8, !tbaa !210
-  %58 = tail call i64 @dt_bh_get_type() #20
-  %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %58) #20
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 380
-  store i32 0, ptr %60, align 4, !tbaa !205
+.critedge:                                        ; preds = %8
+  %.not = icmp eq i32 %1, %16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %98 = load ptr, ptr %97, align 8, !tbaa !203
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %98, i32 noundef %3) #20
+  %99 = load ptr, ptr %97, align 8, !tbaa !203
+  %100 = icmp sgt i32 %6, 0
+  %101 = zext i1 %100 to i32
+  tail call void @gtk_widget_set_sensitive(ptr noundef %99, i32 noundef %101) #20
+  br i1 %.not, label %.thread, label %102
+
+102:                                              ; preds = %.critedge
   tail call fastcc void @_rule_populate_prop_combo(ptr noundef nonnull %0)
-  %61 = load ptr, ptr %56, align 8, !tbaa !210
-  %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef 80) #20
-  tail call void @g_object_set_data(ptr noundef %62, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
-  %63 = load ptr, ptr %56, align 8, !tbaa !210
-  %64 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %63, i32 noundef %1) #20
-  %65 = load ptr, ptr %56, align 8, !tbaa !210
-  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef 80) #20
-  %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.117, ptr noundef nonnull @_event_rule_change_type, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
-  %68 = tail call i64 @gtk_box_get_type() #21
-  %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %.0, i64 noundef %68) #20
-  %70 = load ptr, ptr %56, align 8, !tbaa !210
-  tail call void @gtk_box_pack_start(ptr noundef %69, ptr noundef %70, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
-  %71 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #20
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %71, ptr %72, align 8, !tbaa !211
-  %73 = tail call ptr @g_type_check_instance_cast(ptr noundef %.0, i64 noundef %68) #20
-  %74 = load ptr, ptr %72, align 8, !tbaa !211
-  tail call void @gtk_box_pack_start(ptr noundef %73, ptr noundef %74, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
-  %75 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_switch, i32 noundef 0, ptr noundef null) #20
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %75, ptr %76, align 8, !tbaa !204
-  tail call void @dt_gui_add_class(ptr noundef %75, ptr noundef nonnull @.str.119) #20
-  %77 = load ptr, ptr %76, align 8, !tbaa !204
-  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef 80) #20
-  tail call void @g_object_set_data(ptr noundef %78, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
-  %79 = load ptr, ptr %76, align 8, !tbaa !204
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef 80) #20
-  %81 = tail call i64 @g_signal_connect_data(ptr noundef %80, ptr noundef nonnull @.str.120, ptr noundef nonnull @_event_rule_disable, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
-  %82 = load ptr, ptr %72, align 8, !tbaa !211
-  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %68) #20
-  %84 = load ptr, ptr %76, align 8, !tbaa !204
-  tail call void @gtk_box_pack_end(ptr noundef %83, ptr noundef %84, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
-  %85 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_pin, i32 noundef 0, ptr noundef null) #20
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %85, ptr %86, align 8, !tbaa !212
-  tail call void @dt_gui_add_class(ptr noundef %85, ptr noundef nonnull @.str.119) #20
-  %87 = load ptr, ptr %86, align 8, !tbaa !212
-  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef 80) #20
-  tail call void @g_object_set_data(ptr noundef %88, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
-  %89 = load ptr, ptr %86, align 8, !tbaa !212
-  %90 = tail call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef 80) #20
-  %91 = tail call i64 @g_signal_connect_data(ptr noundef %90, ptr noundef nonnull @.str.120, ptr noundef nonnull @_rule_topbar_toggle, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
-  %92 = load ptr, ptr %86, align 8, !tbaa !212
-  tail call void @dt_gui_add_class(ptr noundef %92, ptr noundef nonnull @.str.121) #20
-  %93 = load ptr, ptr %72, align 8, !tbaa !211
-  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %68) #20
-  %95 = load ptr, ptr %86, align 8, !tbaa !212
-  tail call void @gtk_box_pack_end(ptr noundef %94, ptr noundef %95, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
-  %96 = load ptr, ptr %86, align 8, !tbaa !212
-  tail call void @gtk_widget_set_no_show_all(ptr noundef %96, i32 noundef 1) #20
-  %97 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_remove, i32 noundef 0, ptr noundef null) #20
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %97, ptr %98, align 8, !tbaa !213
-  %99 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef 80) #20
-  tail call void @g_object_set_data(ptr noundef %99, ptr noundef nonnull @.str.118, ptr noundef nonnull %0) #20
-  %100 = load ptr, ptr %98, align 8, !tbaa !213
-  %101 = tail call ptr @g_type_check_instance_cast(ptr noundef %100, i64 noundef 80) #20
-  %102 = tail call i64 @g_signal_connect_data(ptr noundef %101, ptr noundef nonnull @.str.122, ptr noundef nonnull @_event_rule_close, ptr noundef %7, ptr noundef null, i32 noundef 0) #20
-  %103 = load ptr, ptr %72, align 8, !tbaa !211
-  %104 = tail call ptr @g_type_check_instance_cast(ptr noundef %103, i64 noundef %68) #20
-  %105 = load ptr, ptr %98, align 8, !tbaa !213
-  tail call void @gtk_box_pack_end(ptr noundef %104, ptr noundef %105, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %104 = load ptr, ptr %103, align 8, !tbaa !210
+  %105 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %104, i32 noundef %1) #20
   br label %.thread
 
-.thread:                                          ; preds = %50, %49, %54
+.thread:                                          ; preds = %102, %.critedge, %18
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %107 = load ptr, ptr %106, align 8, !tbaa !212
   %108 = icmp ne i32 %5, 0
@@ -7529,34 +7527,34 @@ define internal range(i32 0, 2) i32 @_rating_range_update(ptr noundef %0) #1 {
   call void @dtgtk_range_select_add_range_block(ptr noundef %13, double noundef 4.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.227, i32 noundef %61) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef %13, double noundef 5.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %60) #20
   %.not48 = icmp eq ptr %20, null
-  br i1 %.not48, label %.thread, label %84
+  br i1 %.not48, label %.critedge, label %83
 
-.thread:                                          ; preds = %._crit_edge
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef %13, ptr noundef nonnull %83, i32 noundef 0) #20
-  br label %90
-
-84:                                               ; preds = %._crit_edge
+83:                                               ; preds = %._crit_edge
   call void @dtgtk_range_select_reset_blocks(ptr noundef nonnull %20) #20
-  %85 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 5) #20
-  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 3, ptr noundef %85, i32 noundef %75) #20
-  %86 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef 5) #20
-  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 2, ptr noundef %86, i32 noundef %80) #20
-  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.222, i32 noundef 5) #20
-  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef -1.000000e+00, double noundef -1.000000e+00, i32 noundef 4, ptr noundef %87, i32 noundef %66) #20
-  %88 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.223, i32 noundef 5) #20
-  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 4, ptr noundef %88, i32 noundef %65) #20
+  %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 5) #20
+  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 3, ptr noundef %84, i32 noundef %75) #20
+  %85 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef 5) #20
+  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 2, ptr noundef %85, i32 noundef %80) #20
+  %86 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.222, i32 noundef 5) #20
+  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef -1.000000e+00, double noundef -1.000000e+00, i32 noundef 4, ptr noundef %86, i32 noundef %66) #20
+  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.223, i32 noundef 5) #20
+  call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 0.000000e+00, double noundef 0.000000e+00, i32 noundef 4, ptr noundef %87, i32 noundef %65) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 1.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.224, i32 noundef %64) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 2.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.225, i32 noundef %63) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 3.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.226, i32 noundef %62) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 4.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.227, i32 noundef %61) #20
   call void @dtgtk_range_select_add_range_block(ptr noundef nonnull %20, double noundef 5.000000e+00, double noundef 5.000000e+00, i32 noundef 2, ptr noundef nonnull @.str.228, i32 noundef %60) #20
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef %13, ptr noundef nonnull %89, i32 noundef 0) #20
-  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef nonnull %20, ptr noundef nonnull %89, i32 noundef 0) #20
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef %13, ptr noundef nonnull %88, i32 noundef 0) #20
+  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef nonnull %20, ptr noundef nonnull %88, i32 noundef 0) #20
   br label %90
 
-90:                                               ; preds = %.thread, %84
+.critedge:                                        ; preds = %._crit_edge
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef %13, ptr noundef nonnull %89, i32 noundef 0) #20
+  br label %90
+
+90:                                               ; preds = %.critedge, %83
   %91 = load i32, ptr %21, align 8, !tbaa !183
   %92 = add nsw i32 %91, -1
   store i32 %92, ptr %21, align 8, !tbaa !183

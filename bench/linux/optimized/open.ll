@@ -188,20 +188,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vfs_truncate(ptr nounde
   %19 = tail call i32 @inode_permission(ptr noundef %18, ptr noundef %6, i32 noundef 2) #14
   %20 = sext i32 %19 to i64
   %21 = icmp eq i32 %19, 0
-  br i1 %21, label %22, label %.loopexit
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.loopexit
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %29 = load volatile i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %.lr.ph, label %.loopexit, !prof !8
+  br i1 %30, label %.lr.ph, label %.critedge, !prof !8
 
 .lr.ph:                                           ; preds = %27, %37
   %31 = phi i32 [ %38, %37 ], [ %29, %27 ]
@@ -216,7 +216,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vfs_truncate(ptr nounde
 37:                                               ; preds = %.lr.ph
   %38 = extractvalue { i8, i32 } %33, 1
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %.lr.ph, label %.loopexit, !prof !11, !llvm.loop !12
+  br i1 %39, label %.lr.ph, label %.critedge, !prof !11, !llvm.loop !12
 
 40:                                               ; preds = %.lr.ph
   %41 = tail call fastcc i32 @break_lease(ptr noundef %6)
@@ -232,16 +232,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vfs_truncate(ptr nounde
   %47 = phi i32 [ %41, %40 ], [ %45, %43 ]
   %48 = sext i32 %47 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, ptr nonnull elementtype(i32) %28) #14, !srcloc !15
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %37, %27, %46, %22, %15
+.critedge:                                        ; preds = %37, %27, %46, %22, %15
   %49 = phi i64 [ %20, %15 ], [ -1, %22 ], [ %48, %46 ], [ -26, %27 ], [ -26, %37 ]
   %50 = load ptr, ptr %0, align 8
   tail call void @mnt_drop_write(ptr noundef %50) #14
   br label %51
 
-51:                                               ; preds = %.loopexit, %10, %9, %2
-  %52 = phi i64 [ -22, %9 ], [ -21, %2 ], [ %13, %10 ], [ %49, %.loopexit ]
+51:                                               ; preds = %.critedge, %10, %9, %2
+  %52 = phi i64 [ -22, %9 ], [ -21, %2 ], [ %13, %10 ], [ %49, %.critedge ]
   ret i64 %52
 }
 
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 336
   %41 = load volatile i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, -1
-  br i1 %42, label %.lr.ph, label %.loopexit, !prof !8
+  br i1 %42, label %.lr.ph, label %.critedge, !prof !8
 
 .lr.ph:                                           ; preds = %38, %49
   %43 = phi i32 [ %50, %49 ], [ %41, %38 ]
@@ -2383,7 +2383,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
 49:                                               ; preds = %.lr.ph
   %50 = extractvalue { i8, i32 } %45, 1
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph, label %.loopexit, !prof !11, !llvm.loop !12
+  br i1 %51, label %.lr.ph, label %.critedge, !prof !11, !llvm.loop !12
 
 52:                                               ; preds = %.lr.ph
   %53 = load ptr, ptr %4, align 8
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %69 = load ptr, ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 336
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %70, ptr nonnull elementtype(i32) %70) #14, !srcloc !15
-  br label %.loopexit
+  br label %.critedge
 
 71:                                               ; preds = %._crit_edge, %56
   %72 = phi i32 [ %.pre, %._crit_edge ], [ %57, %56 ]
@@ -2444,27 +2444,27 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread19, label %84
+  br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %82, align 8
   %86 = tail call zeroext i1 @try_module_get(ptr noundef %85) #14
-  br i1 %86, label %88, label %.thread19
+  br i1 %86, label %88, label %.thread
 
-.thread19:                                        ; preds = %84, %80
+.thread:                                          ; preds = %84, %80
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %87, align 8
-  br label %.thread23
+  br label %.thread20
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %81, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %89, ptr %90, align 8
   %91 = icmp eq ptr %89, null
-  br i1 %91, label %.thread23, label %93, !prof !37
+  br i1 %91, label %.thread20, label %93, !prof !37
 
-.thread23:                                        ; preds = %88, %.thread19
-  %92 = phi ptr [ %87, %.thread19 ], [ %90, %88 ]
+.thread20:                                        ; preds = %88, %.thread
+  %92 = phi ptr [ %87, %.thread ], [ %90, %88 ]
   tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #14, !srcloc !38
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 935, i32 2305, i64 12) #14, !srcloc !39
   tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #14, !srcloc !40
@@ -2482,7 +2482,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 352
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread21, label %102
+  br i1 %101, label %.thread18, label %102
 
 102:                                              ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -2495,39 +2495,39 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %108 = load volatile ptr, ptr %107, align 8
   %109 = icmp eq ptr %103, %108
-  br i1 %109, label %.thread21, label %110
+  br i1 %109, label %.thread18, label %110
 
 110:                                              ; preds = %102, %106
   %111 = tail call i32 @__break_lease(ptr noundef %97, i32 noundef %98, i32 noundef 32) #14
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.thread21, label %241
+  br i1 %112, label %.thread18, label %241
 
-.thread21:                                        ; preds = %96, %106, %110
+.thread18:                                        ; preds = %96, %106, %110
   %113 = load i32, ptr %23, align 4
   %114 = or i32 %113, 28
   store i32 %114, ptr %23, align 4
   %115 = icmp eq ptr %2, null
-  br i1 %115, label %116, label %.thread22
+  br i1 %115, label %116, label %.thread19
 
-116:                                              ; preds = %.thread21
+116:                                              ; preds = %.thread18
   %117 = load ptr, ptr %90, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 104
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %124, label %.thread22
+  br i1 %120, label %124, label %.thread19
 
-.thread22:                                        ; preds = %.thread21, %116
-  %121 = phi ptr [ %119, %116 ], [ %2, %.thread21 ]
+.thread19:                                        ; preds = %.thread18, %116
+  %121 = phi ptr [ %119, %116 ], [ %2, %.thread18 ]
   %122 = tail call i32 %121(ptr noundef %1, ptr noundef %0) #14
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %.thread22._crit_edge, label %241
+  br i1 %123, label %.thread19._crit_edge, label %241
 
-.thread22._crit_edge:                             ; preds = %.thread22
-  %.pre24 = load i32, ptr %23, align 4
+.thread19._crit_edge:                             ; preds = %.thread19
+  %.pre21 = load i32, ptr %23, align 4
   br label %124
 
-124:                                              ; preds = %.thread22._crit_edge, %116
-  %125 = phi i32 [ %.pre24, %.thread22._crit_edge ], [ %114, %116 ]
+124:                                              ; preds = %.thread19._crit_edge, %116
+  %125 = phi i32 [ %.pre21, %.thread19._crit_edge ], [ %114, %116 ]
   %126 = or i32 %125, 524288
   store i32 %126, ptr %23, align 4
   %127 = and i32 %125, 1
@@ -2637,26 +2637,26 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %196 = load i32, ptr %19, align 8
   %197 = and i32 %196, 16384
   %198 = icmp ne i32 %197, 0
-  %.pre25 = load i32, ptr %23, align 4
-  %199 = and i32 %.pre25, 4194304
+  %.pre22 = load i32, ptr %23, align 4
+  %199 = and i32 %.pre22, 4194304
   %200 = icmp eq i32 %199, 0
   %or.cond = select i1 %198, i1 %200, i1 false
   br i1 %or.cond, label %277, label %201
 
 201:                                              ; preds = %178
-  %202 = and i32 %.pre25, 2
+  %202 = and i32 %.pre22, 2
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %205, label %204
 
 204:                                              ; preds = %201
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !41
-  %.pre26 = load i32, ptr %19, align 8
-  %.pre27 = load i32, ptr %23, align 4
+  %.pre23 = load i32, ptr %19, align 8
+  %.pre24 = load i32, ptr %23, align 4
   br label %205
 
 205:                                              ; preds = %204, %201
-  %206 = phi i32 [ %.pre27, %204 ], [ %.pre25, %201 ]
-  %207 = phi i32 [ %.pre26, %204 ], [ %196, %201 ]
+  %206 = phi i32 [ %.pre24, %204 ], [ %.pre22, %201 ]
+  %207 = phi i32 [ %.pre23, %204 ], [ %196, %201 ]
   %208 = and i32 %207, 32
   %209 = icmp eq i32 %208, 0
   %210 = select i1 %209, i32 32, i32 4128
@@ -2704,8 +2704,8 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %240 = tail call i32 @fsnotify(i32 noundef %239, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %216, i32 noundef 0) #14
   br label %277
 
-241:                                              ; preds = %.thread22, %110, %93
-  %242 = phi i32 [ %94, %93 ], [ %111, %110 ], [ %122, %.thread22 ]
+241:                                              ; preds = %.thread19, %110, %93
+  %242 = phi i32 [ %94, %93 ], [ %111, %110 ], [ %122, %.thread19 ]
   %243 = icmp sgt i32 %242, 0
   br i1 %243, label %244, label %245, !prof !42
 
@@ -2715,9 +2715,9 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_end\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #14, !srcloc !45
   br label %245
 
-245:                                              ; preds = %.thread23, %244, %241
-  %246 = phi ptr [ %90, %244 ], [ %90, %241 ], [ %92, %.thread23 ]
-  %247 = phi i32 [ -22, %244 ], [ %242, %241 ], [ -19, %.thread23 ]
+245:                                              ; preds = %.thread20, %244, %241
+  %246 = phi ptr [ %90, %244 ], [ %90, %241 ], [ %92, %.thread20 ]
+  %247 = phi i32 [ -22, %244 ], [ %242, %241 ], [ -19, %.thread20 ]
   %248 = load ptr, ptr %246, align 8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %252, label %250
@@ -2739,7 +2739,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %259 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %258, i32 -1, ptr nonnull elementtype(i32) %258) #14, !srcloc !46
   %260 = add i32 %259, -1
   %261 = icmp slt i32 %260, 0
-  br i1 %261, label %262, label %.loopexit, !prof !10
+  br i1 %261, label %262, label %.critedge, !prof !10
 
 262:                                              ; preds = %256
   tail call void asm sideeffect "311: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 311b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 311) #14, !srcloc !47
@@ -2749,7 +2749,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
 263:                                              ; preds = %252
   %264 = and i32 %253, 65536
   %265 = icmp eq i32 %264, 0
-  br i1 %265, label %.loopexit, label %266
+  br i1 %265, label %.critedge, label %266
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %5, align 8
@@ -2760,22 +2760,22 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   %270 = load i32, ptr %23, align 4
   %271 = and i32 %270, 33554432
   %272 = icmp eq i32 %271, 0
-  br i1 %272, label %.loopexit, label %273, !prof !20
+  br i1 %272, label %.critedge, label %273, !prof !20
 
 273:                                              ; preds = %266
   %274 = tail call ptr @backing_file_user_path(ptr noundef %0) #14
   %275 = load ptr, ptr %274, align 8
   tail call void @mnt_put_write_access(ptr noundef %275) #14
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %49, %38, %67, %273, %266, %263, %256
+.critedge:                                        ; preds = %49, %38, %67, %273, %266, %263, %256
   %276 = phi i32 [ %247, %256 ], [ %247, %263 ], [ %247, %266 ], [ %247, %273 ], [ %68, %67 ], [ -26, %38 ], [ -26, %49 ]
   tail call void @path_put(ptr noundef nonnull %4) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %277
 
-277:                                              ; preds = %178, %.loopexit, %238, %236, %213, %205, %24
-  %278 = phi i32 [ 0, %24 ], [ %276, %.loopexit ], [ 0, %205 ], [ 0, %213 ], [ 0, %236 ], [ 0, %238 ], [ -22, %178 ]
+277:                                              ; preds = %178, %.critedge, %238, %236, %213, %205, %24
+  %278 = phi i32 [ 0, %24 ], [ %276, %.critedge ], [ 0, %205 ], [ 0, %213 ], [ 0, %236 ], [ 0, %238 ], [ -22, %178 ]
   ret i32 %278
 }
 

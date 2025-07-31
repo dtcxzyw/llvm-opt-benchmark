@@ -14912,15 +14912,15 @@ define internal fastcc void @_ZN14polars_parquet7parquet6schema10io_message12fro
 
 10:                                               ; preds = %7
   switch i64 %2, label %thread-pre-split.i [
-    i64 0, label %.loopexit
+    i64 0, label %.critedge
     i64 1, label %11
   ]
 
 11:                                               ; preds = %10
   %12 = load i8, ptr %1, align 1, !alias.scope !2227, !noundef !3
   switch i8 %12, label %13 [
-    i8 43, label %.loopexit
-    i8 45, label %.loopexit
+    i8 43, label %.critedge
+    i8 45, label %.critedge
   ]
 
 thread-pre-split.i:                               ; preds = %10
@@ -14959,15 +14959,15 @@ thread-pre-split.i:                               ; preds = %10
   %.sroa.025.0.i = phi i32 [ %61, %55 ], [ 0, %.preheader86.i.preheader ]
   %.sroa.23.0.i = phi i64 [ %57, %55 ], [ %.sroa.23.0.i.ph, %.preheader86.i.preheader ]
   %.sroa.03.0.i = phi ptr [ %58, %55 ], [ %.sroa.03.0.i.ph, %.preheader86.i.preheader ]
-  %.not76.i.not = icmp eq i64 %.sroa.23.0.i, 0
-  br i1 %.not76.i.not, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit", label %48
+  %.not76.i = icmp eq i64 %.sroa.23.0.i, 0
+  br i1 %.not76.i, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit", label %48
 
 .preheader92.i:                                   ; preds = %19, %30
   %.sroa.025.3.i = phi i32 [ %36, %30 ], [ 0, %19 ]
   %.sroa.23.2.i = phi i64 [ %32, %30 ], [ %21, %19 ]
   %.sroa.03.2.i = phi ptr [ %33, %30 ], [ %20, %19 ]
-  %.not.i.not = icmp eq i64 %.sroa.23.2.i, 0
-  br i1 %.not.i.not, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit", label %23
+  %.not.i = icmp eq i64 %.sroa.23.2.i, 0
+  br i1 %.not.i, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit", label %23
 
 23:                                               ; preds = %.preheader92.i
   %24 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.sroa.025.3.i, i32 10)
@@ -14977,7 +14977,7 @@ thread-pre-split.i:                               ; preds = %10
   %28 = add nsw i32 %27, -48
   %29 = icmp ugt i32 %28, 9
   %brmerge.i = select i1 %29, i1 true, i1 %25
-  br i1 %brmerge.i, label %.loopexit, label %30
+  br i1 %brmerge.i, label %.critedge, label %30
 
 30:                                               ; preds = %23
   %31 = extractvalue { i32, i1 } %24, 0
@@ -14986,7 +14986,7 @@ thread-pre-split.i:                               ; preds = %10
   %34 = tail call { i32, i1 } @llvm.ssub.with.overflow.i32(i32 %31, i32 %28)
   %35 = extractvalue { i32, i1 } %34, 1
   %36 = extractvalue { i32, i1 } %34, 0
-  br i1 %35, label %.loopexit, label %.preheader92.i
+  br i1 %35, label %.critedge, label %.preheader92.i
 
 .lr.ph.i:                                         ; preds = %.preheader89.i, %41
   %.sroa.03.3105.i = phi ptr [ %44, %41 ], [ %20, %.preheader89.i ]
@@ -14995,8 +14995,8 @@ thread-pre-split.i:                               ; preds = %10
   %37 = load i8, ptr %.sroa.03.3105.i, align 1, !alias.scope !2227, !noundef !3
   %38 = zext i8 %37 to i32
   %39 = add nsw i32 %38, -48
-  %40 = icmp ugt i32 %39, 9
-  br i1 %40, label %.loopexit, label %41
+  %40 = icmp ult i32 %39, 10
+  br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %.lr.ph.i
   %42 = mul i32 %.sroa.025.4103.i, 10
@@ -15027,7 +15027,7 @@ thread-pre-split.i:                               ; preds = %10
   %53 = add nsw i32 %52, -48
   %54 = icmp ugt i32 %53, 9
   %brmerge80.i = select i1 %54, i1 true, i1 %50
-  br i1 %brmerge80.i, label %.loopexit, label %55
+  br i1 %brmerge80.i, label %.critedge, label %55
 
 55:                                               ; preds = %48
   %56 = extractvalue { i32, i1 } %49, 0
@@ -15036,7 +15036,7 @@ thread-pre-split.i:                               ; preds = %10
   %59 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %56, i32 %53)
   %60 = extractvalue { i32, i1 } %59, 1
   %61 = extractvalue { i32, i1 } %59, 0
-  br i1 %60, label %.loopexit, label %.preheader86.i
+  br i1 %60, label %.critedge, label %.preheader86.i
 
 .lr.ph113.i:                                      ; preds = %.lr.ph113.i.preheader, %66
   %.sroa.03.1112.i = phi ptr [ %69, %66 ], [ %.sroa.03.1112.i.ph, %.lr.ph113.i.preheader ]
@@ -15045,8 +15045,8 @@ thread-pre-split.i:                               ; preds = %10
   %62 = load i8, ptr %.sroa.03.1112.i, align 1, !alias.scope !2227, !noundef !3
   %63 = zext i8 %62 to i32
   %64 = add nsw i32 %63, -48
-  %65 = icmp ugt i32 %64, 9
-  br i1 %65, label %.loopexit, label %66
+  %65 = icmp ult i32 %64, 10
+  br i1 %65, label %66, label %.critedge
 
 66:                                               ; preds = %.lr.ph113.i
   %67 = mul i32 %.sroa.025.2110.i, 10
@@ -15091,7 +15091,7 @@ thread-pre-split.i:                               ; preds = %10
 83:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit29", %"_ZN4core3num21_$LT$impl$u20$i32$GT$16from_ascii_radix17hc6182e68b1d9b378E.exit", %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit"
   ret void
 
-.loopexit:                                        ; preds = %30, %23, %.lr.ph.i, %55, %48, %.lr.ph113.i, %10, %11, %11
+.critedge:                                        ; preds = %30, %23, %.lr.ph.i, %55, %48, %.lr.ph113.i, %10, %11, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !2238
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef %6, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !2238
   %84 = load i64, ptr %8, align 8, !range !423, !noalias !2238, !noundef !3
@@ -15101,12 +15101,12 @@ thread-pre-split.i:                               ; preds = %10
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %85, label %89, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit29", !prof !290
 
-89:                                               ; preds = %.loopexit
+89:                                               ; preds = %.critedge
   %90 = load i64, ptr %88, align 8, !noalias !2238
   tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %87, i64 %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.71) #31, !noalias !2244
   unreachable
 
-"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit29": ; preds = %.loopexit
+"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h802be7039ee6754fE.exit29": ; preds = %.critedge
   %91 = load ptr, ptr %88, align 8, !noalias !2238, !nonnull !3, !noundef !3
   %92 = icmp ule i64 %6, %87
   tail call void @llvm.assume(i1 %92)

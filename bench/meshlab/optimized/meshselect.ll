@@ -21466,7 +21466,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %91, %78, 
   %130 = load i64, ptr %33, align 8
   %.not.not.i72 = icmp eq i64 %130, 0
   %131 = load ptr, ptr %50, align 8
-  br i1 %.not.not.i72, label %.preheader230, label %.thread.i73
+  br i1 %.not.not.i72, label %.preheader225, label %.thread.i73
 
 .thread.i73:                                      ; preds = %._crit_edge
   %132 = ptrtoint ptr %131 to i64
@@ -21478,19 +21478,19 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %91, %78, 
   %.not.i.i.i74 = icmp eq ptr %137, null
   br i1 %.not.i.i.i74, label %_ZNKSt10_HashtableIP8CVertexOS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb0EEEmRKT_m.exit.thread.i80, label %146
 
-.preheader230:                                    ; preds = %._crit_edge, %138
+.preheader225:                                    ; preds = %._crit_edge, %138
   %.sroa.025.0.in.i86 = phi ptr [ %.sroa.025.0.i87, %138 ], [ %29, %._crit_edge ]
   %.sroa.025.0.i87 = load ptr, ptr %.sroa.025.0.in.i86, align 8
   %.not.i88 = icmp eq ptr %.sroa.025.0.i87, null
   br i1 %.not.i88, label %142, label %138
 
-138:                                              ; preds = %.preheader230
+138:                                              ; preds = %.preheader225
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i87, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %131, %140
-  br i1 %141, label %.loopexit, label %.preheader230, !llvm.loop !149
+  br i1 %141, label %.loopexit, label %.preheader225, !llvm.loop !149
 
-142:                                              ; preds = %.preheader230
+142:                                              ; preds = %.preheader225
   %143 = ptrtoint ptr %131 to i64
   %144 = load i64, ptr %28, align 8
   %145 = urem i64 %143, %144
@@ -21636,11 +21636,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIN3vcg6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
   %.not27.i.i = icmp eq ptr %.sroa.0117.6, %.sroa.8.6
-  br i1 %.not27.i.i, label %._crit_edge.i.i.thread, label %.lr.ph.i.i
-
-._crit_edge.i.i.thread:                           ; preds = %193
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %5, i8 0, i64 36, i1 false), !llvm.access.group !148
-  br label %_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i
+  br i1 %.not27.i.i, label %_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i.critedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %193, %.lr.ph.i.i
   %194 = phi float [ %204, %.lr.ph.i.i ], [ 0.000000e+00, %193 ]
@@ -21704,7 +21700,11 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIN3vcg6
   %.not25.i.i = icmp eq ptr %.sroa.019.130.i.i, %.0.lcssa.i.i.i.i.i.i58.pn
   br i1 %.not25.i.i, label %_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i, label %.lr.ph32.i.i, !llvm.loop !163
 
-_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i: ; preds = %.lr.ph32.i.i, %._crit_edge.i.i.thread
+_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i.critedge: ; preds = %193
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %5, i8 0, i64 36, i1 false), !llvm.access.group !148
+  br label %_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i
+
+_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i: ; preds = %.lr.ph32.i.i, %_ZN3vcg23ComputeCovarianceMatrixIfEEvRKSt6vectorINS_6Point3IT_EESaIS4_EERS4_RN5Eigen6MatrixIS3_Li3ELi3ELi0ELi3ELi3EEE.exit.i.critedge
   store i8 0, ptr %36, align 4, !llvm.access.group !148
   store i8 0, ptr %37, align 1, !llvm.access.group !148
   %231 = invoke noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22SelfAdjointEigenSolverINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEE7computeIS2_EERS3_RKNS_9EigenBaseIT_EEi(ptr noundef nonnull align 4 dereferenceable(70) %6, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef 128)

@@ -606,7 +606,7 @@ define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 n
   %8 = sext i32 %7 to i64
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 16), align 8
   %10 = icmp ugt i64 %9, %8
-  br i1 %10, label %11, label %.loopexit
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %5
   %12 = icmp eq i32 %1, 64
@@ -625,7 +625,7 @@ define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 n
   %25 = icmp eq i32 %16, %1
   %26 = select i1 %12, i1 true, i1 %25
   %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %.loopexit8, label %.preheader
+  br i1 %27, label %.loopexit, label %.preheader
 
 28:                                               ; preds = %.preheader
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
@@ -643,7 +643,7 @@ define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 n
   %41 = icmp eq i32 %32, %1
   %42 = select i1 %12, i1 true, i1 %41
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %.loopexit8, label %.preheader, !llvm.loop !26
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %11, %28
   %44 = phi i32 [ %45, %28 ], [ %7, %11 ]
@@ -652,47 +652,47 @@ define dso_local void @__next_mem_pfn_range(ptr noundef captures(none) %0, i32 n
   %46 = sext i32 %45 to i64
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 16), align 8
   %48 = icmp ugt i64 %47, %46
-  br i1 %48, label %28, label %.loopexit, !llvm.loop !26
+  br i1 %48, label %28, label %.critedge, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.preheader, %5
+.critedge:                                        ; preds = %.preheader, %5
   store i32 -1, ptr %0, align 4
-  br label %65
+  br label %67
 
-.loopexit8:                                       ; preds = %28, %11
+.loopexit:                                        ; preds = %28, %11
   %49 = phi i64 [ %17, %11 ], [ %33, %28 ]
-  %.ph = phi ptr [ %14, %11 ], [ %30, %28 ]
-  %.ph7 = phi i32 [ %16, %11 ], [ %32, %28 ]
-  %50 = icmp eq ptr %2, null
-  br i1 %50, label %54, label %51
+  %50 = phi ptr [ %14, %11 ], [ %30, %28 ]
+  %51 = phi i32 [ %16, %11 ], [ %32, %28 ]
+  %52 = icmp eq ptr %2, null
+  br i1 %52, label %56, label %53
 
-51:                                               ; preds = %.loopexit8
-  %52 = add i64 %49, 4095
-  %53 = lshr i64 %52, 12
-  store i64 %53, ptr %2, align 8
-  br label %54
+53:                                               ; preds = %.loopexit
+  %54 = add i64 %49, 4095
+  %55 = lshr i64 %54, 12
+  store i64 %55, ptr %2, align 8
+  br label %56
 
-54:                                               ; preds = %51, %.loopexit8
-  %55 = icmp eq ptr %3, null
-  br i1 %55, label %62, label %56
+56:                                               ; preds = %53, %.loopexit
+  %57 = icmp eq ptr %3, null
+  br i1 %57, label %64, label %58
 
-56:                                               ; preds = %54
-  %57 = load i64, ptr %.ph, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, %57
-  %61 = lshr i64 %60, 12
-  store i64 %61, ptr %3, align 8
-  br label %62
+58:                                               ; preds = %56
+  %59 = load i64, ptr %50, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, %59
+  %63 = lshr i64 %62, 12
+  store i64 %63, ptr %3, align 8
+  br label %64
 
-62:                                               ; preds = %56, %54
-  %63 = icmp eq ptr %4, null
-  br i1 %63, label %65, label %64
+64:                                               ; preds = %58, %56
+  %65 = icmp eq ptr %4, null
+  br i1 %65, label %67, label %66
 
-64:                                               ; preds = %62
-  store i32 %.ph7, ptr %4, align 4
-  br label %65
+66:                                               ; preds = %64
+  store i32 %51, ptr %4, align 4
+  br label %67
 
-65:                                               ; preds = %64, %62, %.loopexit
+67:                                               ; preds = %66, %64, %.critedge
   ret void
 }
 

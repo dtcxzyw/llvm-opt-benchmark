@@ -145,7 +145,7 @@ previousinstruction.exit:                         ; preds = %3, %11
   %18 = load i32, ptr %.0.i, align 4, !tbaa !53
   %19 = and i32 %18, 127
   %20 = icmp eq i32 %19, 8
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %37
 
 21:                                               ; preds = %previousinstruction.exit
   %22 = lshr i32 %18, 7
@@ -157,30 +157,30 @@ previousinstruction.exit:                         ; preds = %3, %11
   %27 = add nuw nsw i32 %26, 1
   %.not39 = icmp sgt i32 %1, %27
   %or.cond = select i1 %.not, i1 true, i1 %.not39
-  br i1 %or.cond, label %28, label %29
+  br i1 %or.cond, label %28, label %.critedge
 
 28:                                               ; preds = %21
   %.not40 = icmp sgt i32 %1, %23
   %.not41 = icmp sgt i32 %23, %4
   %or.cond43 = select i1 %.not40, i1 true, i1 %.not41
-  br i1 %or.cond43, label %.thread, label %29
+  br i1 %or.cond43, label %37, label %.critedge
 
-29:                                               ; preds = %21, %28
+.critedge:                                        ; preds = %28, %21
   %spec.select = tail call i32 @llvm.smin.i32(i32 %23, i32 %1)
   %.not42 = icmp slt i32 %26, %4
   %.032 = select i1 %.not42, i32 %5, i32 %26
-  %30 = and i32 %18, -16744440
-  %31 = shl i32 %spec.select, 7
-  %32 = and i32 %31, 32640
-  %33 = or disjoint i32 %32, %30
-  %34 = sub i32 %.032, %spec.select
-  %35 = shl i32 %34, 16
-  %36 = and i32 %35, 16711680
-  %37 = or disjoint i32 %33, %36
-  store i32 %37, ptr %.0.i, align 4, !tbaa !53
+  %29 = and i32 %18, -16744440
+  %30 = shl i32 %spec.select, 7
+  %31 = and i32 %30, 32640
+  %32 = or disjoint i32 %31, %29
+  %33 = sub i32 %.032, %spec.select
+  %34 = shl i32 %33, 16
+  %35 = and i32 %34, 16711680
+  %36 = or disjoint i32 %32, %35
+  store i32 %36, ptr %.0.i, align 4, !tbaa !53
   br label %44
 
-.thread:                                          ; preds = %28, %previousinstruction.exit
+37:                                               ; preds = %28, %previousinstruction.exit
   %38 = shl i32 %1, 7
   %39 = shl i32 %2, 16
   %40 = add i32 %39, -65536
@@ -189,7 +189,7 @@ previousinstruction.exit:                         ; preds = %3, %11
   %43 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %0, i32 noundef %42)
   br label %44
 
-44:                                               ; preds = %29, %.thread
+44:                                               ; preds = %.critedge, %37
   ret void
 }
 
@@ -4373,7 +4373,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
   %21 = load i32, ptr %.0.i.i, align 4, !tbaa !53
   %22 = and i32 %21, 127
   %23 = icmp eq i32 %22, 8
-  br i1 %23, label %24, label %.thread.i
+  br i1 %23, label %24, label %40
 
 24:                                               ; preds = %previousinstruction.exit.i
   %25 = lshr i32 %21, 7
@@ -4385,29 +4385,29 @@ previousinstruction.exit.i:                       ; preds = %14, %7
   %30 = add nuw nsw i32 %29, 1
   %.not39.i = icmp sgt i32 %2, %30
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not39.i
-  br i1 %or.cond.i, label %31, label %32
+  br i1 %or.cond.i, label %31, label %.critedge.i
 
 31:                                               ; preds = %24
   %.not40.i = icmp sgt i32 %2, %26
   %.not41.i = icmp sgt i32 %26, %8
   %or.cond43.i = select i1 %.not40.i, i1 true, i1 %.not41.i
-  br i1 %or.cond43.i, label %.thread.i, label %32
+  br i1 %or.cond43.i, label %40, label %.critedge.i
 
-32:                                               ; preds = %31, %24
+.critedge.i:                                      ; preds = %31, %24
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %26, i32 %2)
   %.032.i = tail call i32 @llvm.smax.i32(i32 %29, i32 %2)
-  %33 = and i32 %21, -16744440
-  %34 = shl nsw i32 %spec.select.i, 7
-  %35 = and i32 %34, 32640
-  %36 = or disjoint i32 %35, %33
-  %37 = sub nsw i32 %.032.i, %spec.select.i
-  %38 = shl nsw i32 %37, 16
-  %39 = and i32 %38, 16711680
-  %40 = or disjoint i32 %36, %39
-  store i32 %40, ptr %.0.i.i, align 4, !tbaa !53
+  %32 = and i32 %21, -16744440
+  %33 = shl nsw i32 %spec.select.i, 7
+  %34 = and i32 %33, 32640
+  %35 = or disjoint i32 %34, %32
+  %36 = sub nsw i32 %.032.i, %spec.select.i
+  %37 = shl nsw i32 %36, 16
+  %38 = and i32 %37, 16711680
+  %39 = or disjoint i32 %35, %38
+  store i32 %39, ptr %.0.i.i, align 4, !tbaa !53
   br label %luaK_nil.exit
 
-.thread.i:                                        ; preds = %31, %previousinstruction.exit.i
+40:                                               ; preds = %31, %previousinstruction.exit.i
   %41 = shl i32 %2, 7
   %42 = or disjoint i32 %41, 8
   %43 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %0, i32 noundef %42)
@@ -4545,7 +4545,7 @@ luaK_float.exit:                                  ; preds = %83, %94, %98
   %127 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %0, i32 noundef %126)
   br label %luaK_nil.exit
 
-luaK_nil.exit:                                    ; preds = %69, %64, %.thread.i, %32, %120, %123, %107, %104, %luaK_float.exit, %48, %44
+luaK_nil.exit:                                    ; preds = %69, %64, %40, %.critedge.i, %120, %123, %107, %104, %luaK_float.exit, %48, %44
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %2, ptr %128, align 8, !tbaa !22
   store i32 8, ptr %1, align 8, !tbaa !21

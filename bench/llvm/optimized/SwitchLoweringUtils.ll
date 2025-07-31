@@ -2642,7 +2642,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8SwitchCG14SwitchLowering13buildBit
   %29 = alloca ptr, align 8
   %30 = alloca ptr, align 8
   %31 = icmp eq i32 %2, %3
-  br i1 %31, label %568, label %32
+  br i1 %31, label %567, label %32
 
 32:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #20
@@ -3853,7 +3853,7 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176
 
 522:                                              ; preds = %.lr.ph232, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit
-  %.sroa.0129.0231 = phi ptr [ %.sroa.0156.1, %.lr.ph232 ], [ %552, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
+  %.sroa.0129.0231 = phi ptr [ %.sroa.0156.1, %.lr.ph232 ], [ %551, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit ]
   %523 = load ptr, ptr %33, align 8, !tbaa !221
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %525 = load ptr, ptr %524, align 8, !tbaa !222
@@ -3882,81 +3882,81 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %538 = icmp uge ptr %24, %.pre3.i
   %539 = icmp ult ptr %24, %537
   %spec.select.i.i.i.i.i = and i1 %538, %539
-  br i1 %spec.select.i.i.i.i.i, label %541, label %540, !prof !458
+  br i1 %spec.select.i.i.i.i.i, label %540, label %.critedge.i.i.i, !prof !458
 
 540:                                              ; preds = %536
+  %541 = ptrtoint ptr %.pre3.i to i64
+  %542 = sub i64 %378, %541
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %282, i64 noundef %534, i64 noundef 32) #20
+  %543 = load ptr, ptr %23, align 8, !tbaa !22
+  %544 = getelementptr inbounds i8, ptr %543, i64 %542
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %536
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %282, i64 noundef %534, i64 noundef 32) #20
   %.pre.i121 = load ptr, ptr %23, align 8, !tbaa !22
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit
 
-541:                                              ; preds = %536
-  %542 = ptrtoint ptr %.pre3.i to i64
-  %543 = sub i64 %378, %542
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %282, i64 noundef %534, i64 noundef 32) #20
-  %544 = load ptr, ptr %23, align 8, !tbaa !22
-  %545 = getelementptr inbounds i8, ptr %544, i64 %543
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit: ; preds = %522, %540, %541
-  %546 = phi ptr [ %.pre3.i, %522 ], [ %544, %541 ], [ %.pre.i121, %540 ]
-  %.016.i.i.i = phi ptr [ %24, %522 ], [ %545, %541 ], [ %24, %540 ]
-  %547 = load i32, ptr %283, align 8, !tbaa !74
-  %548 = zext i32 %547 to i64
-  %549 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %546, i64 %548
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %549, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %550 = load i32, ptr %283, align 8, !tbaa !74
-  %551 = add i32 %550, 1
-  store i32 %551, ptr %283, align 8, !tbaa !74
+_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG11BitTestCaseELb1EE9push_backERKS2_.exit: ; preds = %522, %540, %.critedge.i.i.i
+  %545 = phi ptr [ %.pre3.i, %522 ], [ %543, %540 ], [ %.pre.i121, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %24, %522 ], [ %544, %540 ], [ %24, %.critedge.i.i.i ]
+  %546 = load i32, ptr %283, align 8, !tbaa !74
+  %547 = zext i32 %546 to i64
+  %548 = getelementptr inbounds nuw %"struct.llvm::SwitchCG::BitTestCase", ptr %545, i64 %547
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %548, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %549 = load i32, ptr %283, align 8, !tbaa !74
+  %550 = add i32 %549, 1
+  store i32 %550, ptr %283, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #20
-  %552 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0231, i64 24
-  %.not192 = icmp eq ptr %552, %.sroa.12.1
+  %551 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0231, i64 24
+  %.not192 = icmp eq ptr %551, %.sroa.12.1
   br i1 %.not192, label %._crit_edge233, label %522
 
 _ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit90, %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit, %_ZN4llvm5APIntD2Ev.exit120
   %.0.i174 = phi i1 [ false, %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit ], [ true, %_ZN4llvm5APIntD2Ev.exit120 ], [ false, %_ZN4llvm5APIntC2ERKS0_.exit90 ]
-  %553 = load i32, ptr %81, align 8, !tbaa !16
-  %554 = icmp ugt i32 %553, 64
-  br i1 %554, label %555, label %_ZN4llvm5APIntD2Ev.exit122
+  %552 = load i32, ptr %81, align 8, !tbaa !16
+  %553 = icmp ugt i32 %552, 64
+  br i1 %553, label %554, label %_ZN4llvm5APIntD2Ev.exit122
 
-555:                                              ; preds = %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176
-  %556 = load ptr, ptr %11, align 8, !tbaa !18
-  %557 = icmp eq ptr %556, null
-  br i1 %557, label %_ZN4llvm5APIntD2Ev.exit122, label %558
+554:                                              ; preds = %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176
+  %555 = load ptr, ptr %11, align 8, !tbaa !18
+  %556 = icmp eq ptr %555, null
+  br i1 %556, label %_ZN4llvm5APIntD2Ev.exit122, label %557
 
-558:                                              ; preds = %555
-  call void @_ZdaPv(ptr noundef nonnull %556) #22
+557:                                              ; preds = %554
+  call void @_ZdaPv(ptr noundef nonnull %555) #22
   br label %_ZN4llvm5APIntD2Ev.exit122
 
-_ZN4llvm5APIntD2Ev.exit122:                       ; preds = %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176, %555, %558
+_ZN4llvm5APIntD2Ev.exit122:                       ; preds = %_ZNK4llvm18TargetLoweringBase21isSuitableForBitTestsEjjRKNS_5APIntES3_RKNS_10DataLayoutE.exit.thread176, %554, %557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #20
-  %559 = load i32, ptr %70, align 8, !tbaa !16
-  %560 = icmp ugt i32 %559, 64
-  br i1 %560, label %561, label %_ZN4llvm5APIntD2Ev.exit123
+  %558 = load i32, ptr %70, align 8, !tbaa !16
+  %559 = icmp ugt i32 %558, 64
+  br i1 %559, label %560, label %_ZN4llvm5APIntD2Ev.exit123
 
-561:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit122
-  %562 = load ptr, ptr %10, align 8, !tbaa !18
-  %563 = icmp eq ptr %562, null
-  br i1 %563, label %_ZN4llvm5APIntD2Ev.exit123, label %564
+560:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit122
+  %561 = load ptr, ptr %10, align 8, !tbaa !18
+  %562 = icmp eq ptr %561, null
+  br i1 %562, label %_ZN4llvm5APIntD2Ev.exit123, label %563
 
-564:                                              ; preds = %561
-  call void @_ZdaPv(ptr noundef nonnull %562) #22
+563:                                              ; preds = %560
+  call void @_ZdaPv(ptr noundef nonnull %561) #22
   br label %_ZN4llvm5APIntD2Ev.exit123
 
-_ZN4llvm5APIntD2Ev.exit123:                       ; preds = %_ZN4llvm5APIntD2Ev.exit122, %561, %564
+_ZN4llvm5APIntD2Ev.exit123:                       ; preds = %_ZN4llvm5APIntD2Ev.exit122, %560, %563
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #20
-  %565 = load ptr, ptr %9, align 8, !tbaa !22
-  %566 = icmp eq ptr %565, %49
-  br i1 %566, label %_ZN4llvm9BitVectorD2Ev.exit, label %567
+  %564 = load ptr, ptr %9, align 8, !tbaa !22
+  %565 = icmp eq ptr %564, %49
+  br i1 %565, label %_ZN4llvm9BitVectorD2Ev.exit, label %566
 
-567:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit123
-  call void @free(ptr noundef %565) #20
+566:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit123
+  call void @free(ptr noundef %564) #20
   br label %_ZN4llvm9BitVectorD2Ev.exit
 
-_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit123, %567
+_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit123, %566
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #20
-  br label %568
+  br label %567
 
-568:                                              ; preds = %6, %_ZN4llvm9BitVectorD2Ev.exit
+567:                                              ; preds = %6, %_ZN4llvm9BitVectorD2Ev.exit
   %.0 = phi i1 [ %.0.i174, %_ZN4llvm9BitVectorD2Ev.exit ], [ false, %6 ]
   ret i1 %.0
 }

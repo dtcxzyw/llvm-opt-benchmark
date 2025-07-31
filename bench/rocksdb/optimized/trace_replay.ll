@@ -4318,19 +4318,19 @@ define noundef zeroext i1 @_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE(
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !149
   %11 = icmp ugt i64 %8, %10
-  br i1 %11, label %26, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %2
   %13 = load i8, ptr %1, align 1, !tbaa !156
   %switch.tableidx = add i8 %13, -3
   %14 = icmp ult i8 %switch.tableidx, 11
-  br i1 %14, label %switch.hole_check, label %19
+  br i1 %14, label %switch.hole_check, label %.critedge
 
 switch.hole_check:                                ; preds = %12
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 1039, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %19
+  br i1 %switch.lobit, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %15 = zext nneg i8 %switch.tableidx to i64
@@ -4340,21 +4340,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %17 = load i64, ptr %16, align 8, !tbaa !150
   %18 = and i64 %17, %switch.load
   %.not5 = icmp eq i64 %18, 0
-  br i1 %.not5, label %19, label %26
+  br i1 %.not5, label %.critedge, label %25
 
-19:                                               ; preds = %switch.hole_check, %12, %switch.lookup
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load i64, ptr %20, align 8, !tbaa !151
-  %22 = add i64 %21, 1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !152
-  %25 = icmp ult i64 %22, %24
-  %spec.store.select = select i1 %25, i64 %22, i64 0
-  store i64 %spec.store.select, ptr %20, align 8
-  br label %26
+.critedge:                                        ; preds = %switch.hole_check, %12, %switch.lookup
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = load i64, ptr %19, align 8, !tbaa !151
+  %21 = add i64 %20, 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load i64, ptr %22, align 8, !tbaa !152
+  %24 = icmp ult i64 %21, %23
+  %spec.store.select = select i1 %24, i64 %21, i64 0
+  store i64 %spec.store.select, ptr %19, align 8
+  br label %25
 
-26:                                               ; preds = %19, %switch.lookup, %2
-  %.04 = phi i1 [ true, %2 ], [ true, %switch.lookup ], [ %25, %19 ]
+25:                                               ; preds = %.critedge, %switch.lookup, %2
+  %.04 = phi i1 [ true, %2 ], [ true, %switch.lookup ], [ %24, %.critedge ]
   ret i1 %.04
 }
 

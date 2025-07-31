@@ -88,23 +88,23 @@ parse_qn.exit.i:                                  ; preds = %44, %get_unary.exit
   %48 = icmp sgt i32 %47, 4
   %49 = add nsw i32 %47, -3
   %50 = lshr i32 %49, 1
-  %.1.le.i = select i1 %48, i32 %50, i32 0
-  %51 = icmp samesign ugt i32 %.1.le.i, 25
+  %.1.i = select i1 %48, i32 %50, i32 0
+  %51 = icmp samesign ugt i32 %.1.i, 25
   br i1 %51, label %parse_codebook_idx.exit, label %52
 
 52:                                               ; preds = %parse_qn.exit.i
   %53 = and i32 %49, -2
   %54 = select i1 %48, i32 %53, i32 0
-  %.124.le.i = sub nsw i32 %47, %54
-  %55 = shl nsw i32 %.124.le.i, 2
+  %.124.i = sub nsw i32 %47, %54
+  %55 = shl nsw i32 %.124.i, 2
   %56 = add i32 %55, %spec.select.i.i.i.i
   %57 = tail call i32 @llvm.umin.i32(i32 %32, i32 %56)
   store i32 %57, ptr %27, align 8, !tbaa !4
-  %.not.i = icmp eq i32 %.1.le.i, 0
+  %.not.i = icmp eq i32 %.1.i, 0
   br i1 %.not.i, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %52
-  %58 = sub nuw nsw i32 32, %.1.le.i
+  %58 = sub nuw nsw i32 32, %.1.i
   br label %59
 
 59:                                               ; preds = %59, %.preheader.i
@@ -119,7 +119,7 @@ parse_qn.exit.i:                                  ; preds = %44, %get_unary.exit
   %67 = and i32 %60, 7
   %68 = shl i32 %66, %67
   %69 = lshr i32 %68, %58
-  %70 = add i32 %60, %.1.le.i
+  %70 = add i32 %60, %.1.i
   %71 = tail call i32 @llvm.umin.i32(i32 %61, i32 %70)
   store i32 %71, ptr %27, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i

@@ -303,11 +303,11 @@ switch.lookup:                                    ; preds = %8
   %142 = load i8, ptr %141, align 1, !tbaa !17
   %.pr.i.i.i = load i32, ptr %11, align 8, !tbaa !20
   %143 = icmp ugt i32 %.pr.i.i.i, 7
-  br i1 %143, label %.lr.ph.i.i.i, label %.readstream.exit_crit_edge.i.i
+  br i1 %143, label %.lr.ph.i.i.i, label %..loopexit121_crit_edge.i.i
 
-.readstream.exit_crit_edge.i.i:                   ; preds = %138
+..loopexit121_crit_edge.i.i:                      ; preds = %138
   %.pre.i.i = load i32, ptr %47, align 4, !tbaa !15
-  br label %readstream.exit.i.i
+  br label %.loopexit121.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %138
   %144 = load ptr, ptr %70, align 8, !tbaa !19
@@ -334,16 +334,16 @@ switch.lookup:                                    ; preds = %8
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 1
   %154 = add i32 %146, -8
   %155 = icmp ugt i32 %154, 7
-  br i1 %155, label %145, label %readstream.exit.i.i.loopexit
+  br i1 %155, label %145, label %.loopexit121.i.i.loopexit
 
-readstream.exit.i.i.loopexit:                     ; preds = %.lr.ph
+.loopexit121.i.i.loopexit:                        ; preds = %.lr.ph
   store i32 %152, ptr %47, align 4
   store ptr %153, ptr %69, align 8
-  br label %readstream.exit.i.i
+  br label %.loopexit121.i.i
 
-readstream.exit.i.i:                              ; preds = %readstream.exit.i.i.loopexit, %.readstream.exit_crit_edge.i.i
-  %156 = phi i32 [ %.pr.i.i.i, %.readstream.exit_crit_edge.i.i ], [ %154, %readstream.exit.i.i.loopexit ]
-  %157 = phi i32 [ %.pre.i.i, %.readstream.exit_crit_edge.i.i ], [ %152, %readstream.exit.i.i.loopexit ]
+.loopexit121.i.i:                                 ; preds = %.loopexit121.i.i.loopexit, %..loopexit121_crit_edge.i.i
+  %156 = phi i32 [ %.pr.i.i.i, %..loopexit121_crit_edge.i.i ], [ %154, %.loopexit121.i.i.loopexit ]
+  %157 = phi i32 [ %.pre.i.i, %..loopexit121_crit_edge.i.i ], [ %152, %.loopexit121.i.i.loopexit ]
   %158 = load i8, ptr %140, align 1, !tbaa !17
   %159 = zext i8 %158 to i32
   %160 = sub nuw nsw i32 8, %156
@@ -357,9 +357,9 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   %168 = add nuw nsw i32 %156, %163
   br label %169
 
-169:                                              ; preds = %readstream.exit.i.i, %._crit_edge.i
-  %.promoted276 = phi i32 [ %168, %readstream.exit.i.i ], [ %.pr.i99.i.pre.i, %._crit_edge.i ]
-  %.079.i.i = phi i32 [ %167, %readstream.exit.i.i ], [ %131, %._crit_edge.i ]
+169:                                              ; preds = %.loopexit121.i.i, %._crit_edge.i
+  %.promoted276 = phi i32 [ %168, %.loopexit121.i.i ], [ %.pr.i99.i.pre.i, %._crit_edge.i ]
+  %.079.i.i = phi i32 [ %167, %.loopexit121.i.i ], [ %131, %._crit_edge.i ]
   %170 = zext nneg i32 %129 to i64
   %171 = getelementptr inbounds nuw [58 x i32], ptr %48, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !16
@@ -374,11 +374,11 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   br i1 %or.cond3.i.i, label %179, label %202
 
 179:                                              ; preds = %169
-  br i1 %178, label %.lr.ph.i101.i.i, label %..loopexit121_crit_edge.i.i
+  br i1 %178, label %.lr.ph.i101.i.i, label %..loopexit117_crit_edge.i.i
 
-..loopexit121_crit_edge.i.i:                      ; preds = %179
-  %.pre137.i.i = load i32, ptr %47, align 4, !tbaa !15
-  br label %.loopexit121.i.i
+..loopexit117_crit_edge.i.i:                      ; preds = %179
+  %.pre134.i.i = load i32, ptr %47, align 4, !tbaa !15
+  br label %.loopexit117.i.i
 
 .lr.ph.i101.i.i:                                  ; preds = %179
   %180 = load ptr, ptr %70, align 8, !tbaa !19
@@ -401,16 +401,16 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   %190 = getelementptr inbounds nuw i8, ptr %183, i64 1
   %191 = add i32 %184, -8
   %192 = icmp ugt i32 %191, 7
-  br i1 %192, label %181, label %.loopexit121.i.i.loopexit
+  br i1 %192, label %181, label %.loopexit117.i.i.loopexit
 
-.loopexit121.i.i.loopexit:                        ; preds = %185
+.loopexit117.i.i.loopexit:                        ; preds = %185
   store i32 %189, ptr %47, align 4
   store ptr %190, ptr %69, align 8
-  br label %.loopexit121.i.i
+  br label %.loopexit117.i.i
 
-.loopexit121.i.i:                                 ; preds = %.loopexit121.i.i.loopexit, %..loopexit121_crit_edge.i.i
-  %193 = phi i32 [ %.promoted276, %..loopexit121_crit_edge.i.i ], [ %191, %.loopexit121.i.i.loopexit ]
-  %194 = phi i32 [ %.pre137.i.i, %..loopexit121_crit_edge.i.i ], [ %189, %.loopexit121.i.i.loopexit ]
+.loopexit117.i.i:                                 ; preds = %.loopexit117.i.i.loopexit, %..loopexit117_crit_edge.i.i
+  %193 = phi i32 [ %.promoted276, %..loopexit117_crit_edge.i.i ], [ %191, %.loopexit117.i.i.loopexit ]
+  %194 = phi i32 [ %.pre134.i.i, %..loopexit117_crit_edge.i.i ], [ %189, %.loopexit117.i.i.loopexit ]
   %195 = sub nuw nsw i32 8, %193
   %196 = lshr i32 %194, %195
   %197 = and i32 %196, 16777215
@@ -422,11 +422,11 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   br label %229
 
 202:                                              ; preds = %169
-  br i1 %178, label %.lr.ph.i107.i.i, label %..loopexit123_crit_edge.i.i
+  br i1 %178, label %.lr.ph.i107.i.i, label %..loopexit119_crit_edge.i.i
 
-..loopexit123_crit_edge.i.i:                      ; preds = %202
-  %.pre136.i.i = load i32, ptr %47, align 4, !tbaa !15
-  br label %.loopexit123.i.i
+..loopexit119_crit_edge.i.i:                      ; preds = %202
+  %.pre133.i.i = load i32, ptr %47, align 4, !tbaa !15
+  br label %.loopexit119.i.i
 
 .lr.ph.i107.i.i:                                  ; preds = %202
   %203 = load ptr, ptr %70, align 8, !tbaa !19
@@ -453,16 +453,16 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 1
   %213 = add i32 %205, -8
   %214 = icmp ugt i32 %213, 7
-  br i1 %214, label %204, label %.loopexit123.i.i.loopexit
+  br i1 %214, label %204, label %.loopexit119.i.i.loopexit
 
-.loopexit123.i.i.loopexit:                        ; preds = %.lr.ph280
+.loopexit119.i.i.loopexit:                        ; preds = %.lr.ph280
   store i32 %211, ptr %47, align 4
   store ptr %212, ptr %69, align 8
-  br label %.loopexit123.i.i
+  br label %.loopexit119.i.i
 
-.loopexit123.i.i:                                 ; preds = %.loopexit123.i.i.loopexit, %..loopexit123_crit_edge.i.i
-  %215 = phi i32 [ %.promoted276, %..loopexit123_crit_edge.i.i ], [ %213, %.loopexit123.i.i.loopexit ]
-  %216 = phi i32 [ %.pre136.i.i, %..loopexit123_crit_edge.i.i ], [ %211, %.loopexit123.i.i.loopexit ]
+.loopexit119.i.i:                                 ; preds = %.loopexit119.i.i.loopexit, %..loopexit119_crit_edge.i.i
+  %215 = phi i32 [ %.promoted276, %..loopexit119_crit_edge.i.i ], [ %213, %.loopexit119.i.i.loopexit ]
+  %216 = phi i32 [ %.pre133.i.i, %..loopexit119_crit_edge.i.i ], [ %211, %.loopexit119.i.i.loopexit ]
   %217 = add nsw i32 %174, -3
   %218 = sub nuw nsw i32 8, %215
   %219 = lshr i32 %216, %218
@@ -479,8 +479,8 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   %.not90.i.i = icmp eq i32 %228, 0
   br i1 %.not90.i.i, label %229, label %decomp_block.exit.thread214
 
-229:                                              ; preds = %.loopexit123.i.i, %.loopexit121.i.i
-  %.077.i.i = phi i32 [ %200, %.loopexit121.i.i ], [ %227, %.loopexit123.i.i ]
+229:                                              ; preds = %.loopexit119.i.i, %.loopexit117.i.i
+  %.077.i.i = phi i32 [ %200, %.loopexit117.i.i ], [ %227, %.loopexit119.i.i ]
   %230 = icmp ult i32 %.077.i.i, 3
   br i1 %230, label %231, label %236
 
@@ -518,17 +518,17 @@ readstream.exit.i.i:                              ; preds = %readstream.exit.i.i
   br i1 %or.cond98.i.i, label %decomp_block.exit.thread214, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %239, %.preheader.i.i
-  %.176129.i.i = phi i32 [ %250, %.preheader.i.i ], [ %.075.ph.i21.i, %239 ]
-  %.281128.i.i = phi i32 [ %243, %.preheader.i.i ], [ %.079.i.i, %239 ]
-  %243 = add nsw i32 %.281128.i.i, -1
-  %244 = add i32 %.176129.i.i, %.neg.i.i
+  %.176126.i.i = phi i32 [ %250, %.preheader.i.i ], [ %.075.ph.i21.i, %239 ]
+  %.281125.i.i = phi i32 [ %243, %.preheader.i.i ], [ %.079.i.i, %239 ]
+  %243 = add nsw i32 %.281125.i.i, -1
+  %244 = add i32 %.176126.i.i, %.neg.i.i
   %245 = zext i32 %244 to i64
   %246 = getelementptr inbounds nuw i8, ptr %96, i64 %245
   %247 = load i8, ptr %246, align 1, !tbaa !17
-  %248 = zext i32 %.176129.i.i to i64
+  %248 = zext i32 %.176126.i.i to i64
   %249 = getelementptr inbounds nuw i8, ptr %96, i64 %248
   store i8 %247, ptr %249, align 1, !tbaa !17
-  %250 = add i32 %.176129.i.i, 1
+  %250 = add i32 %.176126.i.i, 1
   %.not94.i.i = icmp eq i32 %243, 0
   br i1 %.not94.i.i, label %.outer.backedge.i.i, label %.preheader.i.i
 
@@ -537,7 +537,7 @@ decomp_block.exit.thread214.loopexit:             ; preds = %181
   store ptr %183, ptr %69, align 8
   br label %decomp_block.exit.thread214
 
-decomp_block.exit.thread214:                      ; preds = %.loopexit123.i.i, %239, %133, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %125, %.outer.split.i.i, %145, %204, %decomp_block.exit.thread214.loopexit
+decomp_block.exit.thread214:                      ; preds = %.loopexit119.i.i, %239, %133, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %125, %.outer.split.i.i, %145, %204, %decomp_block.exit.thread214.loopexit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   br label %decomp_block.exit.thread

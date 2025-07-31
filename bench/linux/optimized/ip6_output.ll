@@ -237,7 +237,7 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
 
 18:                                               ; preds = %11
   %19 = tail call i32 @ip6_output(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread6
+  br label %.critedge
 
 20:                                               ; preds = %11
   %21 = icmp eq ptr %16, @ip_output
@@ -245,11 +245,11 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
 
 22:                                               ; preds = %20
   %23 = tail call i32 @ip_output(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
-  br label %.thread6
+  br label %.critedge
 
 24:                                               ; preds = %20
   %25 = tail call i32 %16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
-  br label %.thread6
+  br label %.critedge
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -274,11 +274,11 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
   %38 = shl nuw i32 1, %37
   %39 = and i32 %38, -4161
   %40 = icmp eq i32 %39, 0
-  %.pre7 = load i64, ptr %4, align 8
+  %.pre6 = load i64, ptr %4, align 8
   br i1 %40, label %.thread, label %44
 
 .thread:                                          ; preds = %..thread_crit_edge, %26, %33
-  %41 = phi i64 [ %.pre, %..thread_crit_edge ], [ %5, %26 ], [ %.pre7, %33 ]
+  %41 = phi i64 [ %.pre, %..thread_crit_edge ], [ %5, %26 ], [ %.pre6, %33 ]
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
   br label %58
@@ -286,7 +286,7 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 744
   %46 = load ptr, ptr %45, align 8
-  %47 = and i64 %.pre7, -2
+  %47 = and i64 %.pre6, -2
   %48 = inttoptr i64 %47 to ptr
   %49 = icmp eq ptr %46, null
   br i1 %49, label %58, label %50
@@ -363,7 +363,7 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
 
 98:                                               ; preds = %91
   tail call void @kfree_skb_reason(ptr noundef %2, i32 noundef 2) #13
-  br label %.thread6
+  br label %.critedge
 
 99:                                               ; preds = %91
   tail call void @consume_skb(ptr noundef %2) #13
@@ -394,11 +394,11 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
   %115 = select i1 %113, i1 %114, i1 false
   %116 = select i1 %115, i32 %112, i32 %101
   %117 = icmp eq ptr %103, null
-  br i1 %117, label %.thread6, label %100, !llvm.loop !12
+  br i1 %117, label %.critedge, label %100, !llvm.loop !12
 
 118:                                              ; preds = %89, %84
   %119 = tail call i32 @ip6_finish_output2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread6
+  br label %.critedge
 
 120:                                              ; preds = %73
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -417,13 +417,13 @@ define internal i32 @ip6_finish_output(ptr noundef %0, ptr noundef %1, ptr nound
 
 131:                                              ; preds = %124, %120
   %132 = tail call i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ip6_finish_output2)
-  br label %.thread6
+  br label %.critedge
 
 133:                                              ; preds = %124
   %134 = tail call i32 @ip6_finish_output2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread6
+  br label %.critedge
 
-.thread6:                                         ; preds = %111, %133, %131, %118, %98, %24, %22, %18
+.critedge:                                        ; preds = %111, %133, %131, %118, %98, %24, %22, %18
   %135 = phi i32 [ %132, %131 ], [ %134, %133 ], [ %19, %18 ], [ %23, %22 ], [ %25, %24 ], [ %119, %118 ], [ -12, %98 ], [ %116, %111 ]
   ret i32 %135
 }
@@ -3352,7 +3352,7 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %4
   %.pre = load ptr, ptr %2, align 8
-  br label %93
+  br label %94
 
 11:                                               ; preds = %4
   %12 = tail call ptr @ip6_route_output_flags(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef 0) #13
@@ -3406,9 +3406,9 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 124
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %48, label %.thread7
+  br i1 %46, label %48, label %.thread8
 
-.thread7:                                         ; preds = %43
+.thread8:                                         ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %47, i64 16, i1 false)
   tail call void @__rcu_read_unlock() #13
@@ -3465,98 +3465,98 @@ define internal fastcc i32 @ip6_dst_lookup_tail(ptr noundef %0, ptr noundef %1, 
   %81 = tail call i32 @ipv6_dev_get_saddr(ptr noundef %0, ptr noundef %80, ptr noundef nonnull %23, i32 noundef %41, ptr noundef nonnull %5) #13
   tail call void @__rcu_read_unlock() #13
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %._crit_edge9
+  br i1 %82, label %83, label %..critedge_crit_edge
 
-._crit_edge9:                                     ; preds = %79
-  %.pre10 = load ptr, ptr %2, align 8
-  br label %125
+..critedge_crit_edge:                             ; preds = %79
+  %.pre9 = load ptr, ptr %2, align 8
+  br label %.critedge
 
-83:                                               ; preds = %.thread7, %79
+83:                                               ; preds = %.thread8, %79
   %84 = load ptr, ptr %2, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %86 = load i16, ptr %85, align 8
   %87 = icmp eq i16 %86, 0
-  br i1 %87, label %.thread8, label %88
+  br i1 %87, label %89, label %88
 
 88:                                               ; preds = %83
   tail call void @dst_release(ptr noundef %84) #13
   store ptr null, ptr %2, align 8
-  br label %.thread8
+  br label %89
 
-.thread8:                                         ; preds = %83, %88
-  %89 = phi ptr [ %84, %83 ], [ null, %88 ]
-  %90 = load i32, ptr %3, align 8
-  %91 = icmp ne i32 %90, 0
-  %92 = zext i1 %91 to i32
-  br label %93
+89:                                               ; preds = %88, %83
+  %90 = phi ptr [ null, %88 ], [ %84, %83 ]
+  %91 = load i32, ptr %3, align 8
+  %92 = icmp ne i32 %91, 0
+  %93 = zext i1 %92 to i32
+  br label %94
 
-93:                                               ; preds = %._crit_edge, %.thread8
-  %94 = phi ptr [ %.pre, %._crit_edge ], [ %89, %.thread8 ]
-  %95 = phi i32 [ 0, %._crit_edge ], [ %92, %.thread8 ]
-  %96 = icmp eq ptr %94, null
-  br i1 %96, label %97, label %99
+94:                                               ; preds = %._crit_edge, %89
+  %95 = phi ptr [ %90, %89 ], [ %.pre, %._crit_edge ]
+  %96 = phi i32 [ %93, %89 ], [ 0, %._crit_edge ]
+  %97 = icmp eq ptr %95, null
+  br i1 %97, label %98, label %100
 
-97:                                               ; preds = %93
-  %98 = tail call ptr @ip6_route_output_flags(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %95) #13
-  store ptr %98, ptr %2, align 8
-  br label %99
+98:                                               ; preds = %94
+  %99 = tail call ptr @ip6_route_output_flags(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %96) #13
+  store ptr %99, ptr %2, align 8
+  br label %100
 
-99:                                               ; preds = %97, %93
-  %100 = phi ptr [ %98, %97 ], [ %94, %93 ]
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 96
-  %102 = load i16, ptr %101, align 8
-  %103 = sext i16 %102 to i32
-  %104 = icmp eq i16 %102, 0
-  br i1 %104, label %105, label %125
+100:                                              ; preds = %98, %94
+  %101 = phi ptr [ %99, %98 ], [ %95, %94 ]
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 96
+  %103 = load i16, ptr %102, align 8
+  %104 = sext i16 %103 to i32
+  %105 = icmp eq i16 %103, 0
+  br i1 %105, label %106, label %.critedge
 
-105:                                              ; preds = %99
-  %106 = load i64, ptr %5, align 8
-  %107 = load i32, ptr %7, align 4
-  %108 = xor i32 %107, -65536
-  %109 = zext i32 %108 to i64
-  %110 = or i64 %106, %109
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %133
+106:                                              ; preds = %100
+  %107 = load i64, ptr %5, align 8
+  %108 = load i32, ptr %7, align 4
+  %109 = xor i32 %108, -65536
+  %110 = zext i32 %109 to i64
+  %111 = or i64 %107, %110
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %113, label %133
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr i8, ptr %3, i64 48
-  %116 = load i32, ptr %115, align 4
-  %117 = xor i32 %116, -65536
-  %118 = zext i32 %117 to i64
-  %119 = or i64 %114, %118
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %133, label %121
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %115 = load i64, ptr %114, align 8
+  %116 = getelementptr i8, ptr %3, i64 48
+  %117 = load i32, ptr %116, align 4
+  %118 = xor i32 %117, -65536
+  %119 = zext i32 %118 to i64
+  %120 = or i64 %115, %119
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %133, label %122
 
-121:                                              ; preds = %112
-  %122 = load i64, ptr %115, align 8
-  %123 = or i64 %122, %114
-  %124 = icmp eq i64 %123, 0
-  br i1 %124, label %133, label %.thread11
+122:                                              ; preds = %113
+  %123 = load i64, ptr %116, align 8
+  %124 = or i64 %123, %115
+  %125 = icmp eq i64 %124, 0
+  br i1 %125, label %133, label %.critedge.thread
 
-.thread11:                                        ; preds = %121
-  tail call void @dst_release(ptr noundef %100) #13
+.critedge.thread:                                 ; preds = %122
+  tail call void @dst_release(ptr noundef %101) #13
   store ptr null, ptr %2, align 8
   br label %133
 
-125:                                              ; preds = %._crit_edge9, %99
-  %126 = phi ptr [ %100, %99 ], [ %.pre10, %._crit_edge9 ]
-  %127 = phi i32 [ %103, %99 ], [ %81, %._crit_edge9 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %100
+  %126 = phi ptr [ %101, %100 ], [ %.pre9, %..critedge_crit_edge ]
+  %127 = phi i32 [ %104, %100 ], [ %81, %..critedge_crit_edge ]
   tail call void @dst_release(ptr noundef %126) #13
   store ptr null, ptr %2, align 8
   %128 = icmp eq i32 %127, -101
   br i1 %128, label %129, label %133
 
-129:                                              ; preds = %125
+129:                                              ; preds = %.critedge
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr i8, ptr %131, i64 120
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %132, ptr elementtype(i64) %132) #13, !srcloc !75
   br label %133
 
-133:                                              ; preds = %.thread11, %129, %125, %121, %112, %105
-  %134 = phi i32 [ 0, %121 ], [ 0, %112 ], [ 0, %105 ], [ -101, %129 ], [ %127, %125 ], [ -97, %.thread11 ]
+133:                                              ; preds = %.critedge.thread, %129, %.critedge, %122, %113, %106
+  %134 = phi i32 [ 0, %122 ], [ 0, %113 ], [ 0, %106 ], [ -101, %129 ], [ %127, %.critedge ], [ -97, %.critedge.thread ]
   ret i32 %134
 }
 

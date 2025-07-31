@@ -5924,27 +5924,27 @@ define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr 
   %67 = load ptr, ptr %66, align 8, !tbaa !55
   %68 = call i32 @_archive_entry_copy_hardlink_l(ptr noundef %2, ptr noundef %64, i64 noundef %65, ptr noundef %67) #13
   %.not112 = icmp eq i32 %68, 0
-  br i1 %.not112, label %.thread, label %69
+  br i1 %.not112, label %73, label %69
 
 69:                                               ; preds = %60
   %70 = load ptr, ptr %66, align 8, !tbaa !55
   %71 = call fastcc i32 @set_conversion_failed_error(ptr noundef %0, ptr noundef %70, ptr noundef nonnull @.str.124)
   %72 = icmp eq i32 %71, -30
-  br i1 %72, label %73, label %.thread
+  br i1 %72, label %.critedge, label %73
 
-.thread:                                          ; preds = %60, %69
+.critedge:                                        ; preds = %69
+  call void @archive_string_free(ptr noundef nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
+  br label %123
+
+73:                                               ; preds = %69, %60
   %.2 = phi i32 [ %71, %69 ], [ 0, %60 ]
   call void @archive_string_free(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
   br label %74
 
-73:                                               ; preds = %69
-  call void @archive_string_free(ptr noundef nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  br label %123
-
-74:                                               ; preds = %.thread, %57, %52
-  %.193 = phi i32 [ 0, %57 ], [ 0, %52 ], [ %.2, %.thread ]
+74:                                               ; preds = %73, %57, %52
+  %.193 = phi i32 [ %.2, %73 ], [ 0, %57 ], [ 0, %52 ]
   %75 = call i64 @archive_entry_size(ptr noundef %2) #13
   %76 = icmp sgt i64 %75, 0
   br i1 %76, label %77, label %78
@@ -6015,27 +6015,27 @@ define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr 
   %108 = load ptr, ptr %107, align 8, !tbaa !55
   %109 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %2, ptr noundef %105, i64 noundef %106, ptr noundef %108) #13
   %.not111 = icmp eq i32 %109, 0
-  br i1 %.not111, label %.thread115, label %110
+  br i1 %.not111, label %114, label %110
 
 110:                                              ; preds = %101
   %111 = load ptr, ptr %107, align 8, !tbaa !55
   %112 = call fastcc i32 @set_conversion_failed_error(ptr noundef %0, ptr noundef %111, ptr noundef nonnull @.str.124)
   %113 = icmp eq i32 %112, -30
-  br i1 %113, label %114, label %.thread115
+  br i1 %113, label %.critedge114, label %114
 
-.thread115:                                       ; preds = %101, %110
+.critedge114:                                     ; preds = %110
+  call void @archive_string_free(ptr noundef nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  br label %123
+
+114:                                              ; preds = %110, %101
   %.5 = phi i32 [ %112, %110 ], [ 0, %101 ]
   call void @archive_string_free(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   br label %115
 
-114:                                              ; preds = %110
-  call void @archive_string_free(ptr noundef nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
-  br label %123
-
-115:                                              ; preds = %.thread115, %98, %93
-  %.4 = phi i32 [ 0, %98 ], [ 0, %93 ], [ %.5, %.thread115 ]
+115:                                              ; preds = %114, %98, %93
+  %.4 = phi i32 [ %.5, %114 ], [ 0, %98 ], [ 0, %93 ]
   call void @archive_entry_set_filetype(ptr noundef %2, i32 noundef 40960) #13
   call void @archive_entry_set_size(ptr noundef %2, i64 noundef 0) #13
   store i64 0, ptr %27, align 8, !tbaa !73
@@ -6077,8 +6077,8 @@ define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr 
   tail call void @archive_entry_set_filetype(ptr noundef %2, i32 noundef 32768) #13
   br label %123
 
-123:                                              ; preds = %114, %73, %44, %115, %116, %117, %118, %119, %120, %121, %122, %85, %88, %84, %78, %81, %32, %29
-  %.094 = phi i32 [ -30, %29 ], [ -30, %32 ], [ -30, %73 ], [ -30, %114 ], [ 0, %122 ], [ %.193, %78 ], [ %.193, %81 ], [ %.193, %84 ], [ %.193, %88 ], [ %.193, %85 ], [ %.4, %115 ], [ 0, %116 ], [ 0, %117 ], [ 0, %118 ], [ 0, %119 ], [ 0, %120 ], [ 0, %44 ], [ 0, %121 ]
+123:                                              ; preds = %44, %115, %116, %117, %118, %119, %120, %121, %122, %85, %88, %84, %78, %81, %.critedge114, %.critedge, %32, %29
+  %.094 = phi i32 [ -30, %29 ], [ -30, %32 ], [ -30, %.critedge ], [ -30, %.critedge114 ], [ 0, %122 ], [ %.193, %78 ], [ %.193, %81 ], [ %.193, %84 ], [ %.193, %88 ], [ %.193, %85 ], [ %.4, %115 ], [ 0, %116 ], [ 0, %117 ], [ 0, %118 ], [ 0, %119 ], [ 0, %120 ], [ 0, %44 ], [ 0, %121 ]
   ret i32 %.094
 }
 

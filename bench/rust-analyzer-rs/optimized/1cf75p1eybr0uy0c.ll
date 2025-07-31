@@ -32432,12 +32432,12 @@ default.unreachable:                              ; preds = %45
 
 67:                                               ; preds = %23, %.thread
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  br label %.thread42
+  br label %.critedge
 
 68:                                               ; preds = %29
   %69 = load i8, ptr %1, align 8, !range !402, !noundef !4
   %.not31 = icmp eq i8 %69, 5
-  br i1 %.not31, label %.thread42, label %.thread49
+  br i1 %.not31, label %.critedge, label %.thread46
 
 70:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -32449,9 +32449,9 @@ default.unreachable:                              ; preds = %45
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %73 = load i8, ptr %72, align 8, !range !10392, !noundef !4
   %.not = icmp eq i8 %73, 3
-  br i1 %.not, label %84, label %.thread45
+  br i1 %.not, label %84, label %.thread42
 
-.thread49:                                        ; preds = %68
+.thread46:                                        ; preds = %68
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -32464,9 +32464,9 @@ default.unreachable:                              ; preds = %45
   store i8 28, ptr %78, align 8
   call fastcc void @"_ZN7hir_def7nameres9collector6Import8from_use28_$u7b$$u7b$closure$u7d$$u7d$17hbc7db0024db40e4bE"(ptr noalias noundef align 8 dereferenceable(32) %2, i32 noundef %75, ptr noalias noundef align 8 captures(none) dereferenceable(40) %9, i8 noundef 1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %78)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  br label %.thread42
+  br label %.critedge
 
-.thread45:                                        ; preds = %70
+.thread42:                                        ; preds = %70
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -32481,9 +32481,9 @@ default.unreachable:                              ; preds = %45
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   br label %84
 
-84:                                               ; preds = %70, %.thread45
+84:                                               ; preds = %70, %.thread42
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  br label %.thread42
+  br label %.critedge
 
 85:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -32528,7 +32528,7 @@ default.unreachable:                              ; preds = %45
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$hir_expand..mod_path..ModPath$C$hir_def..item_tree..ImportKind$RP$$GT$$GT$17hac130d5903c1ec58E.exit": ; preds = %86, %100
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %.thread42
+  br label %.critedge
 
 102:                                              ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -32562,17 +32562,17 @@ default.unreachable:                              ; preds = %45
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$hir_expand..mod_path..ModPath$GT$$GT$17h829bdfef6cee6f2cE.exit34": ; preds = %._crit_edge, %110
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %.thread42
+  br label %.critedge
 
 112:                                              ; preds = %.lr.ph, %130
-  %.sroa.0.04055 = phi ptr [ %92, %.lr.ph ], [ %113, %130 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.04055, i64 40
+  %.sroa.0.04052 = phi ptr [ %92, %.lr.ph ], [ %113, %130 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.04052, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %114 = load i8, ptr %8, align 8, !range !402, !noundef !4
   %115 = icmp eq i8 %114, 5
   br i1 %115, label %116, label %118
 
-.thread42:                                        ; preds = %68, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$hir_expand..mod_path..ModPath$GT$$GT$17h829bdfef6cee6f2cE.exit34", %84, %67, %.thread49, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$hir_expand..mod_path..ModPath$C$hir_def..item_tree..ImportKind$RP$$GT$$GT$17hac130d5903c1ec58E.exit"
+.critedge:                                        ; preds = %68, %.thread46, %67, %84, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$hir_expand..mod_path..ModPath$GT$$GT$17h829bdfef6cee6f2cE.exit34", %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$hir_expand..mod_path..ModPath$C$hir_def..item_tree..ImportKind$RP$$GT$$GT$17hac130d5903c1ec58E.exit"
   ret void
 
 116:                                              ; preds = %112
@@ -32580,7 +32580,7 @@ default.unreachable:                              ; preds = %45
   br label %117
 
 117:                                              ; preds = %129, %116
-  invoke void @_ZN7hir_def9item_tree7UseTree11expand_impl17hf395ca51e347a9b9E.llvm.12542172245242916373(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.0.04055, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZN7hir_def9item_tree7UseTree11expand_impl17hf395ca51e347a9b9E.llvm.12542172245242916373(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.0.04052, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %130 unwind label %103
 
 118:                                              ; preds = %112

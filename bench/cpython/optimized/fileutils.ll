@@ -1194,39 +1194,39 @@ define dso_local i32 @_Py_DecodeLocaleEx(ptr noundef %0, ptr noundef %1, ptr nou
 
 .preheader.i:                                     ; preds = %27
   %30 = load i8, ptr %0, align 1, !tbaa !175
-  %.not4356.i = icmp eq i8 %30, 0
-  br i1 %.not4356.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not4354.i = icmp eq i8 %30, 0
+  br i1 %.not4354.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   br i1 %.not45.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %33
   %31 = phi i8 [ %36, %33 ], [ %30, %.lr.ph.i ]
-  %.03158.us.i = phi ptr [ %35, %33 ], [ %0, %.lr.ph.i ]
-  %.03257.us.i = phi ptr [ %.133.us.i, %33 ], [ %29, %.lr.ph.i ]
+  %.03156.us.i = phi ptr [ %35, %33 ], [ %0, %.lr.ph.i ]
+  %.03255.us.i = phi ptr [ %.133.us.i, %33 ], [ %29, %.lr.ph.i ]
   %32 = icmp sgt i8 %31, -1
   br i1 %32, label %33, label %.split.us.i
 
 33:                                               ; preds = %.lr.ph.split.us.i
   %34 = zext nneg i8 %31 to i32
-  %.133.us.i = getelementptr i8, ptr %.03257.us.i, i64 4
-  store i32 %34, ptr %.03257.us.i, align 4, !tbaa !180
-  %35 = getelementptr i8, ptr %.03158.us.i, i64 1
+  %.133.us.i = getelementptr i8, ptr %.03255.us.i, i64 4
+  store i32 %34, ptr %.03255.us.i, align 4, !tbaa !180
+  %35 = getelementptr i8, ptr %.03156.us.i, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !175
   %.not43.us.i = icmp eq i8 %36, 0
   br i1 %.not43.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !182
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %37 = phi i8 [ %42, %.lr.ph.split.i ], [ %30, %.lr.ph.i ]
-  %.03158.i = phi ptr [ %41, %.lr.ph.split.i ], [ %0, %.lr.ph.i ]
-  %.03257.i = phi ptr [ %.133.i, %.lr.ph.split.i ], [ %29, %.lr.ph.i ]
+  %.03156.i = phi ptr [ %41, %.lr.ph.split.i ], [ %0, %.lr.ph.i ]
+  %.03255.i = phi ptr [ %.133.i, %.lr.ph.split.i ], [ %29, %.lr.ph.i ]
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %38, 56320
   %40 = icmp slt i8 %37, 0
   %spec.select.i = select i1 %40, i32 %39, i32 %38
-  %.133.i = getelementptr i8, ptr %.03257.i, i64 4
-  store i32 %spec.select.i, ptr %.03257.i, align 4, !tbaa !180
-  %41 = getelementptr i8, ptr %.03158.i, i64 1
+  %.133.i = getelementptr i8, ptr %.03255.i, i64 4
+  store i32 %spec.select.i, ptr %.03255.i, align 4, !tbaa !180
+  %41 = getelementptr i8, ptr %.03156.i, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !175
   %.not43.i = icmp eq i8 %42, 0
   br i1 %.not43.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !184
@@ -1237,7 +1237,7 @@ define dso_local i32 @_Py_DecodeLocaleEx(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not46.i, label %47, label %43
 
 43:                                               ; preds = %.split.us.i
-  %44 = ptrtoint ptr %.03158.us.i to i64
+  %44 = ptrtoint ptr %.03156.us.i to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
   store i64 %46, ptr %2, align 8, !tbaa !185
@@ -1274,7 +1274,7 @@ define dso_local i32 @_Py_DecodeLocaleEx(ptr noundef %0, ptr noundef %1, ptr nou
   br label %decode_ascii.exit
 
 decode_ascii.exit:                                ; preds = %54, %48, %47, %27, %25, %22, %12, %55, %7
-  %.0 = phi i32 [ %8, %7 ], [ %14, %12 ], [ %56, %55 ], [ 0, %54 ], [ -1, %25 ], [ -1, %27 ], [ -3, %22 ], [ -2, %48 ], [ -2, %47 ]
+  %.0 = phi i32 [ %8, %7 ], [ %14, %12 ], [ %56, %55 ], [ 0, %54 ], [ -1, %25 ], [ -1, %27 ], [ -2, %47 ], [ -2, %48 ], [ -3, %22 ]
   ret i32 %.0
 }
 
@@ -2075,12 +2075,12 @@ define dso_local range(i32 -1, -2147483648) i32 @_Py_open(ptr noundef %0, i32 no
 define internal fastcc range(i32 -1, -2147483648) i32 @_Py_open_impl(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = or i32 %1, 524288
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %46, label %5
+  br i1 %.not, label %45, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %0) #17
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %Py_DECREF.exit43.thread, label %8
+  br i1 %7, label %.critedge39, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.23, ptr noundef nonnull %6, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %4) #17
@@ -2089,25 +2089,25 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_Py_open_impl(ptr noundef
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %6, align 8, !tbaa !175
-  %.not.i42 = icmp sgt i32 %12, -1
-  br i1 %.not.i42, label %13, label %Py_DECREF.exit43.thread
+  %.not.i44 = icmp sgt i32 %12, -1
+  br i1 %.not.i44, label %13, label %.critedge39
 
 13:                                               ; preds = %11
   %14 = add nsw i32 %12, -1
   store i32 %14, ptr %6, align 8, !tbaa !175
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %Py_DECREF.exit43.thread
+  br i1 %15, label %16, label %.critedge39
 
 16:                                               ; preds = %13
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #17
-  br label %Py_DECREF.exit43.thread
+  br label %.critedge39
 
 .preheader:                                       ; preds = %8, %24
   %17 = tail call ptr @PyEval_SaveThread() #17
   %18 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef %4) #17
   tail call void @PyEval_RestoreThread(ptr noundef %17) #17
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %39
+  br i1 %19, label %20, label %.split
 
 20:                                               ; preds = %.preheader
   %21 = tail call ptr @__errno_location() #19
@@ -2122,108 +2122,108 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_Py_open_impl(ptr noundef
 
 .critedge:                                        ; preds = %24
   %26 = load i32, ptr %6, align 8, !tbaa !175
-  %.not.i40 = icmp sgt i32 %26, -1
-  br i1 %.not.i40, label %27, label %Py_DECREF.exit43.thread
+  %.not.i42 = icmp sgt i32 %26, -1
+  br i1 %.not.i42, label %27, label %.critedge39
 
 27:                                               ; preds = %.critedge
   %28 = add nsw i32 %26, -1
   store i32 %28, ptr %6, align 8, !tbaa !175
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %Py_DECREF.exit43.thread
+  br i1 %29, label %30, label %.critedge39
 
 30:                                               ; preds = %27
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #17
-  br label %Py_DECREF.exit43.thread
+  br label %.critedge39
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !192
   %33 = tail call ptr @PyErr_SetFromErrnoWithFilenameObjects(ptr noundef %32, ptr noundef nonnull %6, ptr noundef null) #17
   %34 = load i32, ptr %6, align 8, !tbaa !175
-  %.not.i38 = icmp sgt i32 %34, -1
-  br i1 %.not.i38, label %35, label %Py_DECREF.exit43.thread
+  %.not.i40 = icmp sgt i32 %34, -1
+  br i1 %.not.i40, label %35, label %.critedge39
 
 35:                                               ; preds = %31
   %36 = add nsw i32 %34, -1
   store i32 %36, ptr %6, align 8, !tbaa !175
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %Py_DECREF.exit43.thread
+  br i1 %37, label %38, label %.critedge39
 
 38:                                               ; preds = %35
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #17
-  br label %Py_DECREF.exit43.thread
+  br label %.critedge39
 
-39:                                               ; preds = %.preheader
-  %40 = load i32, ptr %6, align 8, !tbaa !175
-  %.not.i = icmp sgt i32 %40, -1
-  br i1 %.not.i, label %41, label %.split
+.split:                                           ; preds = %.preheader
+  %39 = load i32, ptr %6, align 8, !tbaa !175
+  %.not.i = icmp sgt i32 %39, -1
+  br i1 %.not.i, label %40, label %Py_DECREF.exit
 
-41:                                               ; preds = %39
-  %42 = add nsw i32 %40, -1
-  store i32 %42, ptr %6, align 8, !tbaa !175
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.split
+40:                                               ; preds = %.split
+  %41 = add nsw i32 %39, -1
+  store i32 %41, ptr %6, align 8, !tbaa !175
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %Py_DECREF.exit
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   tail call void @_Py_Dealloc(ptr noundef nonnull %6) #17
-  br label %.split
+  br label %Py_DECREF.exit
 
-.split:                                           ; preds = %39, %41, %44
-  %45 = tail call fastcc i32 @set_inheritable(i32 noundef %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @_Py_open_cloexec_works)
+Py_DECREF.exit:                                   ; preds = %.split, %40, %43
+  %44 = tail call fastcc i32 @set_inheritable(i32 noundef %18, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @_Py_open_cloexec_works)
   br label %set_inheritable.exit
 
-46:                                               ; preds = %3
-  %47 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef %4) #17
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %Py_DECREF.exit43.thread, label %.split31
+45:                                               ; preds = %3
+  %46 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef %4) #17
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %.critedge39, label %.split31
 
-.split31:                                         ; preds = %46
-  %49 = load atomic i32, ptr @_Py_open_cloexec_works monotonic, align 4
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %51, label %55
+.split31:                                         ; preds = %45
+  %48 = load atomic i32, ptr @_Py_open_cloexec_works monotonic, align 4
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %54
 
-51:                                               ; preds = %.split31
-  %52 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %47, i32 noundef 1, i32 noundef 0) #17
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %set_inheritable.exit.thread, label %get_inheritable.exit.i
+50:                                               ; preds = %.split31
+  %51 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %46, i32 noundef 1, i32 noundef 0) #17
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %set_inheritable.exit.thread, label %get_inheritable.exit.i
 
-get_inheritable.exit.i:                           ; preds = %51
-  %54 = and i32 %52, 1
-  store atomic i32 %54, ptr @_Py_open_cloexec_works monotonic, align 4
-  br label %55
+get_inheritable.exit.i:                           ; preds = %50
+  %53 = and i32 %51, 1
+  store atomic i32 %53, ptr @_Py_open_cloexec_works monotonic, align 4
+  br label %54
 
-55:                                               ; preds = %get_inheritable.exit.i, %.split31
-  %56 = load atomic i32, ptr @_Py_open_cloexec_works monotonic, align 4
-  %.not37.i = icmp eq i32 %56, 0
-  br i1 %.not37.i, label %57, label %Py_DECREF.exit43.thread
+54:                                               ; preds = %get_inheritable.exit.i, %.split31
+  %55 = load atomic i32, ptr @_Py_open_cloexec_works monotonic, align 4
+  %.not37.i = icmp eq i32 %55, 0
+  br i1 %.not37.i, label %56, label %.critedge39
 
-57:                                               ; preds = %55
-  %58 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %47, i32 noundef 1) #17
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %set_inheritable.exit.thread, label %60
+56:                                               ; preds = %54
+  %57 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %46, i32 noundef 1) #17
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %set_inheritable.exit.thread, label %59
 
-60:                                               ; preds = %57
-  %61 = or i32 %58, 1
-  %62 = icmp eq i32 %61, %58
-  br i1 %62, label %Py_DECREF.exit43.thread, label %63
+59:                                               ; preds = %56
+  %60 = or i32 %57, 1
+  %61 = icmp eq i32 %60, %57
+  br i1 %61, label %.critedge39, label %62
 
-63:                                               ; preds = %60
-  %64 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %47, i32 noundef 2, i32 noundef %61) #17
-  %.lobit = ashr i32 %64, 31
+62:                                               ; preds = %59
+  %63 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %46, i32 noundef 2, i32 noundef %60) #17
+  %.lobit = ashr i32 %63, 31
   br label %set_inheritable.exit
 
-set_inheritable.exit:                             ; preds = %63, %.split
-  %phi.call = phi i32 [ %45, %.split ], [ %.lobit, %63 ]
-  %.128 = phi i32 [ %18, %.split ], [ %47, %63 ]
-  %65 = icmp slt i32 %phi.call, 0
-  br i1 %65, label %set_inheritable.exit.thread, label %Py_DECREF.exit43.thread
+set_inheritable.exit:                             ; preds = %62, %Py_DECREF.exit
+  %phi.call = phi i32 [ %44, %Py_DECREF.exit ], [ %.lobit, %62 ]
+  %.128 = phi i32 [ %18, %Py_DECREF.exit ], [ %46, %62 ]
+  %64 = icmp slt i32 %phi.call, 0
+  br i1 %64, label %set_inheritable.exit.thread, label %.critedge39
 
-set_inheritable.exit.thread:                      ; preds = %51, %57, %set_inheritable.exit
-  %.12853 = phi i32 [ %.128, %set_inheritable.exit ], [ %47, %57 ], [ %47, %51 ]
-  %66 = tail call i32 @close(i32 noundef %.12853) #17
-  br label %Py_DECREF.exit43.thread
+set_inheritable.exit.thread:                      ; preds = %50, %56, %set_inheritable.exit
+  %.12853 = phi i32 [ %.128, %set_inheritable.exit ], [ %46, %56 ], [ %46, %50 ]
+  %65 = tail call i32 @close(i32 noundef %.12853) #17
+  br label %.critedge39
 
-Py_DECREF.exit43.thread:                          ; preds = %60, %55, %38, %35, %31, %30, %27, %.critedge, %16, %13, %11, %5, %set_inheritable.exit, %46, %set_inheritable.exit.thread
-  %.1 = phi i32 [ -1, %set_inheritable.exit.thread ], [ -1, %46 ], [ %.128, %set_inheritable.exit ], [ -1, %5 ], [ -1, %11 ], [ -1, %13 ], [ -1, %16 ], [ -1, %.critedge ], [ -1, %27 ], [ -1, %30 ], [ -1, %31 ], [ -1, %35 ], [ -1, %38 ], [ %47, %55 ], [ %47, %60 ]
+.critedge39:                                      ; preds = %59, %54, %38, %35, %31, %30, %27, %.critedge, %16, %13, %11, %5, %set_inheritable.exit, %45, %set_inheritable.exit.thread
+  %.1 = phi i32 [ -1, %set_inheritable.exit.thread ], [ -1, %45 ], [ %.128, %set_inheritable.exit ], [ -1, %5 ], [ -1, %11 ], [ -1, %13 ], [ -1, %16 ], [ -1, %.critedge ], [ -1, %27 ], [ -1, %30 ], [ -1, %31 ], [ -1, %35 ], [ -1, %38 ], [ %46, %54 ], [ %46, %59 ]
   ret i32 %.1
 }
 

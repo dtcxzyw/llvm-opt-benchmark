@@ -7732,25 +7732,25 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %56
 
-56:                                               ; preds = %.lr.ph, %101
-  %storemerge44.in = phi i64 [ %53, %.lr.ph ], [ %storemerge44, %101 ]
+56:                                               ; preds = %.lr.ph, %100
+  %storemerge44.in = phi i64 [ %53, %.lr.ph ], [ %storemerge44, %100 ]
   %storemerge44 = add nsw i64 %storemerge44.in, -1
   %57 = trunc i64 %storemerge44 to i32
   %58 = load i64, ptr %55, align 8, !tbaa !61, !noalias !296
-  %.not44.i.i.i.i = icmp eq i64 %58, 0
-  br i1 %.not44.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22.preheader
+  %.not42.i.i.i.i = icmp eq i64 %58, 0
+  br i1 %.not42.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22.preheader
 
 .lr.ph.i.i.i.i22.preheader:                       ; preds = %56
   %59 = load ptr, ptr %0, align 8, !tbaa !50, !noalias !305
   br label %.lr.ph.i.i.i.i22
 
-.lr.ph.i.i.i.i22:                                 ; preds = %.lr.ph.i.i.i.i22.preheader, %97
-  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %97 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
-  %60 = phi ptr [ %98, %97 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
-  %.01445.i.i.i.i = phi i64 [ %.2.i.i.i.i, %97 ], [ %58, %.lr.ph.i.i.i.i22.preheader ]
-  %61 = lshr i64 %.01445.i.i.i.i, 1
-  %.idx37.i.i.i.i = shl nuw nsw i64 %61, 3
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx37.i.i.i.i
+.lr.ph.i.i.i.i22:                                 ; preds = %.lr.ph.i.i.i.i22.preheader, %96
+  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %96 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
+  %60 = phi ptr [ %97, %96 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
+  %.01443.i.i.i.i = phi i64 [ %.2.i.i.i.i, %96 ], [ %58, %.lr.ph.i.i.i.i22.preheader ]
+  %61 = lshr i64 %.01443.i.i.i.i, 1
+  %.idx35.i.i.i.i = shl nuw nsw i64 %61, 3
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx35.i.i.i.i
   %63 = load i32, ptr %62, align 4, !tbaa !7, !noalias !310
   %64 = icmp slt i32 %63, %57
   br i1 %64, label %65, label %68
@@ -7758,89 +7758,89 @@ _ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_
 65:                                               ; preds = %.lr.ph.i.i.i.i22
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.neg.i.i.i.i24 = xor i64 %61, -1
-  %67 = add i64 %.01445.i.i.i.i, %.neg.i.i.i.i24
-  br label %97
+  %67 = add i64 %.01443.i.i.i.i, %.neg.i.i.i.i24
+  br label %96
 
 68:                                               ; preds = %.lr.ph.i.i.i.i22
   %69 = icmp sgt i32 %63, %57
-  br i1 %69, label %97, label %70
+  br i1 %69, label %96, label %.critedge.i.i.i.i
 
-70:                                               ; preds = %68
-  %.idx.i.i.i.i = shl nsw i64 %.01445.i.i.i.i, 3
+.critedge.i.i.i.i:                                ; preds = %68
+  %.idx.i.i.i.i = shl nsw i64 %.01443.i.i.i.i, 3
   %.not12.i.i.i.i.i = icmp eq ptr %62, %.sroa.02.0.i.i.i
   br i1 %.not12.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %70
-  %71 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
-  %72 = ptrtoint ptr %62 to i64
-  %73 = sub i64 %72, %71
-  %74 = ashr exact i64 %73, 3
-  br label %75
+.lr.ph.i.i.i.i.i:                                 ; preds = %.critedge.i.i.i.i
+  %70 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
+  %71 = ptrtoint ptr %62 to i64
+  %72 = sub i64 %71, %70
+  %73 = ashr exact i64 %72, 3
+  br label %74
 
-75:                                               ; preds = %75, %.lr.ph.i.i.i.i.i
-  %76 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %83, %75 ]
-  %.013.i.i.i.i.i = phi i64 [ %74, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %75 ]
-  %77 = lshr i64 %.013.i.i.i.i.i, 1
-  %78 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %76, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !7, !noalias !313
-  %80 = icmp slt i32 %79, %57
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %.neg.i.i.i.i.i = xor i64 %77, -1
-  %82 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
-  %83 = select i1 %80, ptr %81, ptr %76
-  %.1.i.i.i.i.i = select i1 %80, i64 %82, i64 %77
+74:                                               ; preds = %74, %.lr.ph.i.i.i.i.i
+  %75 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %82, %74 ]
+  %.013.i.i.i.i.i = phi i64 [ %73, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %74 ]
+  %76 = lshr i64 %.013.i.i.i.i.i, 1
+  %77 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %75, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !7, !noalias !313
+  %79 = icmp slt i32 %78, %57
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.neg.i.i.i.i.i = xor i64 %76, -1
+  %81 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
+  %82 = select i1 %79, ptr %80, ptr %75
+  %.1.i.i.i.i.i = select i1 %79, i64 %81, i64 %76
   %.not.i.i.i.i.i = icmp eq i64 %.1.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %75, !llvm.loop !96
+  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %74, !llvm.loop !96
 
-_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %75, %70
-  %84 = phi ptr [ %.sroa.02.0.i.i.i, %70 ], [ %83, %75 ]
-  %85 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %86 = add nuw nsw i64 %.idx37.i.i.i.i, 8
-  %.not12.i15.i.i.i.i = icmp eq i64 %.idx.i.i.i.i, %86
+_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %74, %.critedge.i.i.i.i
+  %83 = phi ptr [ %.sroa.02.0.i.i.i, %.critedge.i.i.i.i ], [ %82, %74 ]
+  %84 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %85 = add nuw nsw i64 %.idx35.i.i.i.i, 8
+  %.not12.i15.i.i.i.i = icmp eq i64 %.idx.i.i.i.i, %85
   br i1 %.not12.i15.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %.lr.ph.i16.i.i.i.i
 
 .lr.ph.i16.i.i.i.i:                               ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
-  %.neg38.i.i.i.i = add i64 %.idx.i.i.i.i, -8
-  %gepdiff.i.i.i.i = sub i64 %.neg38.i.i.i.i, %.idx37.i.i.i.i
-  %87 = ashr exact i64 %gepdiff.i.i.i.i, 3
-  br label %88
+  %.neg36.i.i.i.i = add i64 %.idx.i.i.i.i, -8
+  %gepdiff.i.i.i.i = sub i64 %.neg36.i.i.i.i, %.idx35.i.i.i.i
+  %86 = ashr exact i64 %gepdiff.i.i.i.i, 3
+  br label %87
 
-88:                                               ; preds = %88, %.lr.ph.i16.i.i.i.i
-  %89 = phi ptr [ %85, %.lr.ph.i16.i.i.i.i ], [ %96, %88 ]
-  %.013.i17.i.i.i.i = phi i64 [ %87, %.lr.ph.i16.i.i.i.i ], [ %.1.i19.i.i.i.i, %88 ]
-  %90 = lshr i64 %.013.i17.i.i.i.i, 1
-  %91 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %89, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !7, !noalias !316
-  %93 = icmp sgt i32 %92, %57
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %.neg.i18.i.i.i.i = xor i64 %90, -1
-  %95 = add i64 %.013.i17.i.i.i.i, %.neg.i18.i.i.i.i
-  %96 = select i1 %93, ptr %89, ptr %94
-  %.1.i19.i.i.i.i = select i1 %93, i64 %90, i64 %95
+87:                                               ; preds = %87, %.lr.ph.i16.i.i.i.i
+  %88 = phi ptr [ %84, %.lr.ph.i16.i.i.i.i ], [ %95, %87 ]
+  %.013.i17.i.i.i.i = phi i64 [ %86, %.lr.ph.i16.i.i.i.i ], [ %.1.i19.i.i.i.i, %87 ]
+  %89 = lshr i64 %.013.i17.i.i.i.i, 1
+  %90 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %88, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !7, !noalias !316
+  %92 = icmp sgt i32 %91, %57
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.neg.i18.i.i.i.i = xor i64 %89, -1
+  %94 = add i64 %.013.i17.i.i.i.i, %.neg.i18.i.i.i.i
+  %95 = select i1 %92, ptr %88, ptr %93
+  %.1.i19.i.i.i.i = select i1 %92, i64 %89, i64 %94
   %.not.i20.i.i.i.i = icmp eq i64 %.1.i19.i.i.i.i, 0
-  br i1 %.not.i20.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %88, !llvm.loop !319
+  br i1 %.not.i20.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %87, !llvm.loop !319
 
-97:                                               ; preds = %68, %65
+96:                                               ; preds = %68, %65
   %.sroa.02.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.02.0.i.i.i, %68 ]
-  %98 = phi ptr [ %66, %65 ], [ %60, %68 ]
+  %97 = phi ptr [ %66, %65 ], [ %60, %68 ]
   %.2.i.i.i.i = phi i64 [ %67, %65 ], [ %61, %68 ]
   %.not.i.i.i.i23 = icmp eq i64 %.2.i.i.i.i, 0
   br i1 %.not.i.i.i.i23, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22, !llvm.loop !320
 
-_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit: ; preds = %88, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %85, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %96, %88 ]
-  %99 = icmp eq ptr %.sink.i.i.i.i, %84
-  br i1 %99, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %101
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit: ; preds = %87, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
+  %.sink.i.i.i.i = phi ptr [ %84, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %95, %87 ]
+  %98 = icmp eq ptr %.sink.i.i.i.i, %83
+  br i1 %98, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %100
 
-_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds = %97, %56, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit
-  %100 = tail call i32 @close(i32 noundef %57)
-  br label %101
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds = %96, %56, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit
+  %99 = tail call i32 @close(i32 noundef %57)
+  br label %100
 
-101:                                              ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread
-  %102 = icmp sgt i64 %storemerge44.in, 4
-  br i1 %102, label %56, label %.loopexit, !llvm.loop !321
+100:                                              ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread
+  %101 = icmp sgt i64 %storemerge44.in, 4
+  br i1 %101, label %56, label %.loopexit, !llvm.loop !321
 
-.loopexit:                                        ; preds = %101, %52, %._crit_edge
+.loopexit:                                        ; preds = %100, %52, %._crit_edge
   ret void
 }
 

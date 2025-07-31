@@ -873,7 +873,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 16 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit, label %4
+  br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 9223372036854775807)
@@ -889,7 +889,7 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   %13 = icmp slt i64 %12, 0
   %14 = icmp sgt i64 %12, %8
   %.not7 = select i1 %13, i1 true, i1 %14
-  br i1 %.not7, label %.loopexit, label %15
+  br i1 %.not7, label %.critedge, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -900,9 +900,9 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %22 = load ptr, ptr %21, align 8
   %.not4 = icmp eq ptr %22, null
-  br i1 %.not4, label %.loopexit, label %7, !llvm.loop !40
+  br i1 %.not4, label %.critedge, label %7, !llvm.loop !40
 
-.loopexit:                                        ; preds = %7, %15, %3
+.critedge:                                        ; preds = %7, %15, %3
   %23 = phi i1 [ false, %3 ], [ %.not7, %15 ], [ %.not7, %7 ]
   ret i1 %23
 }

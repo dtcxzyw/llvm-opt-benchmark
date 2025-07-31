@@ -1039,7 +1039,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 518, i32 2313, i64 12) #10, !srcloc !37
   tail call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #10, !srcloc !38
   tail call void asm sideeffect "446: nop\0A\09.pushsection .discard.instr_end\0A\09.long 446b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 446) #10, !srcloc !39
-  br label %.loopexit20
+  br label %.loopexit18
 
 19:                                               ; preds = %14, %8
   %20 = phi ptr [ %10, %8 ], [ null, %14 ]
@@ -1054,10 +1054,10 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %27) #10, !srcloc !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
-  %.fr53 = freeze i32 %29
+  %.fr50 = freeze i32 %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %31 = load i32, ptr %30, align 4
-  %32 = udiv i32 %31, %.fr53
+  %32 = udiv i32 %31, %.fr50
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1065,7 +1065,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1184
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq ptr %20, null
-  br i1 %38, label %._crit_edge.thread, label %39
+  br i1 %38, label %.critedge.thread69, label %39
 
 39:                                               ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -1074,7 +1074,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %43 = icmp eq i8 %42, 0
   %44 = icmp sgt i32 %37, 0
   %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %46, label %._crit_edge.thread
+  br i1 %45, label %46, label %.critedge.thread69
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 108
@@ -1102,18 +1102,18 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %65 = mul nsw i64 %64, %61
   %66 = sdiv i64 %65, 8
   %67 = trunc i64 %66 to i32
-  %68 = icmp sgt i32 %.fr53, %67
+  %68 = icmp sgt i32 %.fr50, %67
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %59
   %70 = load ptr, ptr %2, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.2, i32 noundef %67) #11
-  br label %._crit_edge.thread
+  br label %.critedge.thread69
 
 71:                                               ; preds = %59
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 1176
   %73 = icmp sgt i32 %67, 0
-  br i1 %73, label %.lr.ph, label %._crit_edge.thread
+  br i1 %73, label %.lr.ph, label %.critedge.thread69
 
 .lr.ph:                                           ; preds = %71, %79
   %74 = phi i32 [ %97, %79 ], [ 0, %71 ]
@@ -1121,7 +1121,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %76 = phi i32 [ %91, %79 ], [ %67, %71 ]
   %77 = phi i32 [ %98, %79 ], [ 0, %71 ]
   %78 = icmp ult i32 %74, 256
-  br i1 %78, label %79, label %.thread13
+  br i1 %78, label %79, label %.critedge.thread
 
 79:                                               ; preds = %.lr.ph
   %80 = sext i32 %77 to i64
@@ -1148,27 +1148,27 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   store i32 %97, ptr %35, align 4
   %98 = add i32 %89, %77
   %99 = icmp sgt i32 %91, 0
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %99, label %.lr.ph, label %.critedge, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %79
+.critedge:                                        ; preds = %79
   %100 = icmp slt i32 %98, 0
-  br i1 %100, label %.thread13, label %._crit_edge.thread
+  br i1 %100, label %.critedge.thread, label %.critedge.thread69
 
-._crit_edge.thread:                               ; preds = %71, %._crit_edge, %69, %39, %19
-  %101 = phi ptr [ %34, %19 ], [ %95, %._crit_edge ], [ %34, %69 ], [ %34, %39 ], [ %34, %71 ]
-  %102 = phi i32 [ 0, %19 ], [ %98, %._crit_edge ], [ 0, %69 ], [ 0, %39 ], [ 0, %71 ]
-  %103 = phi i32 [ 0, %19 ], [ %67, %._crit_edge ], [ 0, %69 ], [ 0, %39 ], [ %67, %71 ]
+.critedge.thread69:                               ; preds = %71, %.critedge, %69, %39, %19
+  %101 = phi ptr [ %34, %19 ], [ %95, %.critedge ], [ %34, %69 ], [ %34, %39 ], [ %34, %71 ]
+  %102 = phi i32 [ 0, %19 ], [ %98, %.critedge ], [ 0, %69 ], [ 0, %39 ], [ 0, %71 ]
+  %103 = phi i32 [ 0, %19 ], [ %67, %.critedge ], [ 0, %69 ], [ 0, %39 ], [ %67, %71 ]
   %104 = icmp sgt i32 %32, 0
-  br i1 %104, label %105, label %.loopexit20
+  br i1 %104, label %105, label %.loopexit18
 
-105:                                              ; preds = %._crit_edge.thread
+105:                                              ; preds = %.critedge.thread69
   %.fr = freeze i32 %103
   %106 = add nsw i32 %32, -1
   %107 = icmp ne i32 %.fr, 0
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 1176
-  %110 = sub i32 %.fr53, %.fr
-  %111 = icmp sgt i32 %.fr53, 0
+  %110 = sub i32 %.fr50, %.fr
+  %111 = icmp sgt i32 %.fr50, 0
   %112 = icmp sgt i32 %110, 0
   br i1 %111, label %.split.us, label %.split
 
@@ -1178,22 +1178,22 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %115 = phi ptr [ %153, %.loopexit.us.thread ], [ %101, %105 ]
   %116 = icmp eq i32 %114, %106
   %117 = and i1 %107, %116
-  br i1 %117, label %.preheader.us, label %.lr.ph35.us
+  br i1 %117, label %.preheader.us, label %.lr.ph32.us
 
-.lr.ph35.us:                                      ; preds = %.split.us
+.lr.ph32.us:                                      ; preds = %.split.us
   %118 = load i8, ptr %108, align 4
   %119 = and i8 %118, 8
   %120 = icmp eq i8 %119, 0
-  %.pre70 = load i32, ptr %35, align 4
+  %.pre67 = load i32, ptr %35, align 4
   br label %121
 
-121:                                              ; preds = %.lr.ph35.us, %127
-  %122 = phi i32 [ %.pre70, %.lr.ph35.us ], [ %146, %127 ]
-  %123 = phi ptr [ %115, %.lr.ph35.us ], [ %144, %127 ]
-  %124 = phi i32 [ %.fr53, %.lr.ph35.us ], [ %139, %127 ]
-  %125 = phi i32 [ %113, %.lr.ph35.us ], [ %147, %127 ]
+121:                                              ; preds = %.lr.ph32.us, %127
+  %122 = phi i32 [ %.pre67, %.lr.ph32.us ], [ %146, %127 ]
+  %123 = phi ptr [ %115, %.lr.ph32.us ], [ %144, %127 ]
+  %124 = phi i32 [ %.fr50, %.lr.ph32.us ], [ %139, %127 ]
+  %125 = phi i32 [ %113, %.lr.ph32.us ], [ %147, %127 ]
   %126 = icmp ult i32 %122, 256
-  br i1 %126, label %127, label %.thread13
+  br i1 %126, label %127, label %.critedge.thread
 
 127:                                              ; preds = %121
   %128 = sext i32 %125 to i64
@@ -1227,24 +1227,24 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   %149 = phi ptr [ %175, %161 ], [ %144, %127 ]
   %150 = phi i32 [ %178, %161 ], [ %147, %127 ]
   %151 = icmp slt i32 %150, 0
-  br i1 %151, label %.thread13, label %.loopexit.us.thread
+  br i1 %151, label %.critedge.thread, label %.loopexit.us.thread
 
 .loopexit.us.thread:                              ; preds = %.preheader.us, %.loopexit.us
   %152 = phi i32 [ %150, %.loopexit.us ], [ %113, %.preheader.us ]
   %153 = phi ptr [ %149, %.loopexit.us ], [ %115, %.preheader.us ]
   %154 = add nuw nsw i32 %114, 1
   %155 = icmp slt i32 %154, %32
-  br i1 %155, label %.split.us, label %.loopexit20, !llvm.loop !41
+  br i1 %155, label %.split.us, label %.loopexit18, !llvm.loop !41
 
-.lr.ph38.us:                                      ; preds = %.lr.ph38.us.preheader, %161
-  %156 = phi i32 [ %177, %161 ], [ %.pre71, %.lr.ph38.us.preheader ]
-  %157 = phi ptr [ %175, %161 ], [ %115, %.lr.ph38.us.preheader ]
-  %158 = phi i32 [ %173, %161 ], [ %110, %.lr.ph38.us.preheader ]
-  %159 = phi i32 [ %178, %161 ], [ %113, %.lr.ph38.us.preheader ]
+.lr.ph35.us:                                      ; preds = %.lr.ph35.us.preheader, %161
+  %156 = phi i32 [ %177, %161 ], [ %.pre68, %.lr.ph35.us.preheader ]
+  %157 = phi ptr [ %175, %161 ], [ %115, %.lr.ph35.us.preheader ]
+  %158 = phi i32 [ %173, %161 ], [ %110, %.lr.ph35.us.preheader ]
+  %159 = phi i32 [ %178, %161 ], [ %113, %.lr.ph35.us.preheader ]
   %160 = icmp ult i32 %156, 256
-  br i1 %160, label %161, label %.thread13
+  br i1 %160, label %161, label %.critedge.thread
 
-161:                                              ; preds = %.lr.ph38.us
+161:                                              ; preds = %.lr.ph35.us
   %162 = sext i32 %159 to i64
   %163 = tail call i64 @snd_sgbuf_get_addr(ptr noundef %22, i64 noundef %162) #10
   store i64 %163, ptr %157, align 4
@@ -1267,49 +1267,49 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   store i32 %177, ptr %35, align 4
   %178 = add i32 %171, %159
   %179 = icmp sgt i32 %173, 0
-  br i1 %179, label %.lr.ph38.us, label %.loopexit.us, !llvm.loop !40
+  br i1 %179, label %.lr.ph35.us, label %.loopexit.us, !llvm.loop !40
 
 .preheader.us:                                    ; preds = %.split.us
-  br i1 %112, label %.lr.ph38.us.preheader, label %.loopexit.us.thread
+  br i1 %112, label %.lr.ph35.us.preheader, label %.loopexit.us.thread
 
-.lr.ph38.us.preheader:                            ; preds = %.preheader.us
-  %.pre71 = load i32, ptr %35, align 4
-  br label %.lr.ph38.us
+.lr.ph35.us.preheader:                            ; preds = %.preheader.us
+  %.pre68 = load i32, ptr %35, align 4
+  br label %.lr.ph35.us
 
 .split:                                           ; preds = %105
-  br i1 %112, label %.split.split.split.us, label %.loopexit20
+  br i1 %112, label %.split.split.split.us, label %.loopexit18
 
-.split.split.split.us:                            ; preds = %.split, %.loopexit17.us43.thread
-  %180 = phi i32 [ %185, %.loopexit17.us43.thread ], [ %102, %.split ]
-  %181 = phi i32 [ %187, %.loopexit17.us43.thread ], [ 0, %.split ]
-  %182 = phi ptr [ %186, %.loopexit17.us43.thread ], [ %101, %.split ]
+.split.split.split.us:                            ; preds = %.split, %.loopexit15.us40.thread
+  %180 = phi i32 [ %185, %.loopexit15.us40.thread ], [ %102, %.split ]
+  %181 = phi i32 [ %187, %.loopexit15.us40.thread ], [ 0, %.split ]
+  %182 = phi ptr [ %186, %.loopexit15.us40.thread ], [ %101, %.split ]
   %183 = icmp eq i32 %181, %106
-  br i1 %183, label %.preheader.us44.preheader, label %.loopexit17.us43.thread
+  br i1 %183, label %.preheader.us41.preheader, label %.loopexit15.us40.thread
 
-.preheader.us44.preheader:                        ; preds = %.split.split.split.us
+.preheader.us41.preheader:                        ; preds = %.split.split.split.us
   %.pre = load i32, ptr %35, align 4
-  br label %.preheader.us44
+  br label %.preheader.us41
 
-.loopexit17.us43:                                 ; preds = %194
+.loopexit15.us40:                                 ; preds = %194
   %184 = icmp slt i32 %211, 0
-  br i1 %184, label %.thread13, label %.loopexit17.us43.thread
+  br i1 %184, label %.critedge.thread, label %.loopexit15.us40.thread
 
-.loopexit17.us43.thread:                          ; preds = %.split.split.split.us, %.loopexit17.us43
-  %185 = phi i32 [ %211, %.loopexit17.us43 ], [ %180, %.split.split.split.us ]
-  %186 = phi ptr [ %208, %.loopexit17.us43 ], [ %182, %.split.split.split.us ]
+.loopexit15.us40.thread:                          ; preds = %.split.split.split.us, %.loopexit15.us40
+  %185 = phi i32 [ %211, %.loopexit15.us40 ], [ %180, %.split.split.split.us ]
+  %186 = phi ptr [ %208, %.loopexit15.us40 ], [ %182, %.split.split.split.us ]
   %187 = add nuw nsw i32 %181, 1
   %188 = icmp slt i32 %187, %32
-  br i1 %188, label %.split.split.split.us, label %.loopexit20, !llvm.loop !43
+  br i1 %188, label %.split.split.split.us, label %.loopexit18, !llvm.loop !43
 
-.preheader.us44:                                  ; preds = %.preheader.us44.preheader, %194
-  %189 = phi i32 [ %210, %194 ], [ %.pre, %.preheader.us44.preheader ]
-  %190 = phi ptr [ %208, %194 ], [ %182, %.preheader.us44.preheader ]
-  %191 = phi i32 [ %206, %194 ], [ %110, %.preheader.us44.preheader ]
-  %192 = phi i32 [ %211, %194 ], [ %180, %.preheader.us44.preheader ]
+.preheader.us41:                                  ; preds = %.preheader.us41.preheader, %194
+  %189 = phi i32 [ %210, %194 ], [ %.pre, %.preheader.us41.preheader ]
+  %190 = phi ptr [ %208, %194 ], [ %182, %.preheader.us41.preheader ]
+  %191 = phi i32 [ %206, %194 ], [ %110, %.preheader.us41.preheader ]
+  %192 = phi i32 [ %211, %194 ], [ %180, %.preheader.us41.preheader ]
   %193 = icmp ult i32 %189, 256
-  br i1 %193, label %194, label %.thread13
+  br i1 %193, label %194, label %.critedge.thread
 
-194:                                              ; preds = %.preheader.us44
+194:                                              ; preds = %.preheader.us41
   %195 = sext i32 %192 to i64
   %196 = tail call i64 @snd_sgbuf_get_addr(ptr noundef %22, i64 noundef %195) #10
   store i64 %196, ptr %190, align 4
@@ -1332,16 +1332,16 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(pt
   store i32 %210, ptr %35, align 4
   %211 = add i32 %204, %192
   %212 = icmp sgt i32 %206, 0
-  br i1 %212, label %.preheader.us44, label %.loopexit17.us43, !llvm.loop !40
+  br i1 %212, label %.preheader.us41, label %.loopexit15.us40, !llvm.loop !40
 
-.thread13:                                        ; preds = %.lr.ph, %.loopexit17.us43, %.preheader.us44, %.loopexit.us, %121, %.lr.ph38.us, %._crit_edge
+.critedge.thread:                                 ; preds = %.lr.ph, %.loopexit15.us40, %.preheader.us41, %.loopexit.us, %121, %.lr.ph35.us, %.critedge
   %213 = load ptr, ptr %2, align 8
   %214 = load i32, ptr %30, align 4
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %213, ptr noundef nonnull @.str.3, i32 noundef %214, i32 noundef %.fr53) #11
-  br label %.loopexit20
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %213, ptr noundef nonnull @.str.3, i32 noundef %214, i32 noundef %.fr50) #11
+  br label %.loopexit18
 
-.loopexit20:                                      ; preds = %.loopexit17.us43.thread, %.loopexit.us.thread, %.split, %.thread13, %._crit_edge.thread, %18
-  %215 = phi i32 [ -22, %.thread13 ], [ -22, %18 ], [ 0, %._crit_edge.thread ], [ 0, %.split ], [ 0, %.loopexit.us.thread ], [ 0, %.loopexit17.us43.thread ]
+.loopexit18:                                      ; preds = %.loopexit15.us40.thread, %.loopexit.us.thread, %.split, %.critedge.thread, %.critedge.thread69, %18
+  %215 = phi i32 [ -22, %.critedge.thread ], [ -22, %18 ], [ 0, %.critedge.thread69 ], [ 0, %.split ], [ 0, %.loopexit.us.thread ], [ 0, %.loopexit15.us40.thread ]
   ret i32 %215
 }
 

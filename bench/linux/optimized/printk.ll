@@ -694,7 +694,7 @@ define dso_local i32 @devkmsg_sysctl_set_loglvl(ptr noundef %0, i32 noundef %1, 
 22:                                               ; preds = %19
   %23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @devkmsg_log_str, ptr noundef nonnull dereferenceable(9) @.str.73, i64 9)
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread1
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %22, %19, %16
   %26 = phi i32 [ 1, %16 ], [ 2, %19 ], [ 0, %22 ]
@@ -702,15 +702,15 @@ define dso_local i32 @devkmsg_sysctl_set_loglvl(ptr noundef %0, i32 noundef %1, 
   store i32 %26, ptr @devkmsg_log, align 4
   %28 = load i64, ptr %3, align 8
   %29 = icmp eq i64 %28, %27
-  br i1 %29, label %31, label %.thread1
+  br i1 %29, label %31, label %.critedge
 
-.thread1:                                         ; preds = %22, %25
+.critedge:                                        ; preds = %22, %25
   store i32 %10, ptr @devkmsg_log, align 4
   %30 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @devkmsg_log_str, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 10) #28
   br label %31
 
-31:                                               ; preds = %.thread, %.thread1, %25, %13, %9
-  %32 = phi i32 [ -22, %.thread1 ], [ -22, %9 ], [ %15, %13 ], [ 0, %25 ], [ %8, %.thread ]
+31:                                               ; preds = %.thread, %.critedge, %25, %13, %9
+  %32 = phi i32 [ -22, %.critedge ], [ -22, %9 ], [ %15, %13 ], [ 0, %25 ], [ %8, %.thread ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #28
   ret i32 %32
 }
@@ -4806,7 +4806,7 @@ define internal fastcc void @__pr_flush(ptr noundef readnone captures(address) %
   %85 = icmp eq i64 %79, 0
   %86 = icmp eq i64 %84, 0
   %87 = select i1 %85, i1 true, i1 %86
-  br i1 %87, label %93, label %88
+  br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %82
   %89 = load volatile i64, ptr @jiffies, align 64
@@ -4816,7 +4816,7 @@ define internal fastcc void @__pr_flush(ptr noundef readnone captures(address) %
   %92 = tail call i64 @llvm.usub.sat.i64(i64 %84, i64 %91)
   br label %15
 
-93:                                               ; preds = %82
+.critedge:                                        ; preds = %82
   ret void
 }
 

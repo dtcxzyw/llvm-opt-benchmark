@@ -7667,7 +7667,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sock_ioctl(ptr noundef r
   store i8 0, ptr %6, align 1, !annotation !8
   %19 = call i32 @get_user_ifreq(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %7), !range !57
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %5, align 8
@@ -7681,15 +7681,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @sock_ioctl(ptr noundef r
 28:                                               ; preds = %21
   %29 = call i32 @put_user_ifreq(ptr noundef nonnull %4, ptr noundef %7), !range !57
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread
+  br i1 %30, label %31, label %.critedge
 
-.thread:                                          ; preds = %18, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
-  br label %109
-
-31:                                               ; preds = %21, %28
+31:                                               ; preds = %28, %21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
@@ -7841,8 +7835,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @sock_ioctl(ptr noundef r
   %108 = sext i32 %107 to i64
   br label %109
 
-109:                                              ; preds = %.thread, %106
-  %110 = phi i64 [ %108, %106 ], [ -14, %.thread ]
+.critedge:                                        ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  br label %109
+
+109:                                              ; preds = %.critedge, %106
+  %110 = phi i64 [ %108, %106 ], [ -14, %.critedge ]
   ret i64 %110
 }
 
@@ -7990,7 +7990,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @compat_sock_ioctl(ptr no
 52:                                               ; preds = %45
   %53 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %25, i64 noundef 32) #20
   %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %69
+  br i1 %54, label %55, label %.critedge
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8002,22 +8002,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @compat_sock_ioctl(ptr no
 60:                                               ; preds = %45
   %61 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %25, i64 noundef 40) #20
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %69
+  br i1 %62, label %63, label %.critedge
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %65 = load ptr, ptr %64, align 8
   br label %66
 
-66:                                               ; preds = %63, %55
-  %.ph = phi ptr [ %59, %55 ], [ %65, %63 ]
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.ph, ptr %67, align 8
-  %68 = call i32 @dev_ioctl(ptr noundef %28, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %.ph, ptr noundef null) #20
-  br label %69
+66:                                               ; preds = %55, %63
+  %67 = phi ptr [ %65, %63 ], [ %59, %55 ]
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %67, ptr %68, align 8
+  %69 = call i32 @dev_ioctl(ptr noundef %28, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %67, ptr noundef null) #20
+  br label %.critedge
 
-69:                                               ; preds = %52, %60, %66
-  %70 = phi i32 [ %68, %66 ], [ -14, %60 ], [ -14, %52 ]
+.critedge:                                        ; preds = %60, %52, %66
+  %70 = phi i32 [ %69, %66 ], [ -14, %52 ], [ -14, %60 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   br label %77
 
@@ -8031,8 +8031,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @compat_sock_ioctl(ptr no
   %76 = trunc nsw i64 %75 to i32
   br label %77
 
-77:                                               ; preds = %74, %71, %69, %42, %37, %35, %34, %31, %15
-  %78 = phi i32 [ %21, %15 ], [ %33, %31 ], [ %76, %74 ], [ %73, %71 ], [ %70, %69 ], [ %44, %42 ], [ %36, %35 ], [ -515, %37 ], [ -515, %34 ]
+77:                                               ; preds = %74, %71, %.critedge, %42, %37, %35, %34, %31, %15
+  %78 = phi i32 [ %21, %15 ], [ %33, %31 ], [ %76, %74 ], [ %73, %71 ], [ %70, %.critedge ], [ %44, %42 ], [ %36, %35 ], [ -515, %37 ], [ -515, %34 ]
   %79 = sext i32 %78 to i64
   ret i64 %79
 }
@@ -8258,12 +8258,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @sock_do_ioctl(ptr
 
 14:                                               ; preds = %4
   %15 = sext i32 %12 to i64
-  br label %55
+  br label %.critedge
 
 16:                                               ; preds = %4
   %17 = and i32 %2, 65280
   %18 = icmp eq i32 %17, 35072
-  br i1 %18, label %19, label %55
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !8
@@ -8280,7 +8280,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @sock_do_ioctl(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %27 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %9, i64 noundef 32) #20
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %55
+  br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8292,37 +8292,37 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @sock_do_ioctl(ptr
 34:                                               ; preds = %19
   %35 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %9, i64 noundef 40) #20
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %55
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %39 = load ptr, ptr %38, align 8
   br label %40
 
-40:                                               ; preds = %37, %29
-  %.ph = phi ptr [ %33, %29 ], [ %39, %37 ]
-  %41 = call i32 @dev_ioctl(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %5, ptr noundef %.ph, ptr noundef nonnull %6) #20
-  %42 = icmp ne i32 %41, 0
-  %43 = load i8, ptr %6, align 1, !range !58
-  %44 = icmp eq i8 %43, 0
-  %45 = select i1 %42, i1 true, i1 %44
-  br i1 %45, label %53, label %46
+40:                                               ; preds = %29, %37
+  %41 = phi ptr [ %39, %37 ], [ %33, %29 ]
+  %42 = call i32 @dev_ioctl(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %5, ptr noundef %41, ptr noundef nonnull %6) #20
+  %43 = icmp ne i32 %42, 0
+  %44 = load i8, ptr %6, align 1, !range !58
+  %45 = icmp eq i8 %44, 0
+  %46 = select i1 %43, i1 true, i1 %45
+  br i1 %46, label %54, label %47
 
-46:                                               ; preds = %40
-  %47 = load i32, ptr %22, align 8
-  %48 = and i32 %47, 2
-  %49 = icmp eq i32 %48, 0
-  %50 = select i1 %49, i64 40, i64 32
-  %51 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %5, i64 noundef %50) #20
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %55
+47:                                               ; preds = %40
+  %48 = load i32, ptr %22, align 8
+  %49 = and i32 %48, 2
+  %50 = icmp eq i32 %49, 0
+  %51 = select i1 %50, i64 40, i64 32
+  %52 = call i64 @_copy_to_user(ptr noundef %9, ptr noundef nonnull %5, i64 noundef %51) #20
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %.critedge
 
-53:                                               ; preds = %46, %40
-  %54 = sext i32 %41 to i64
-  br label %55
+54:                                               ; preds = %47, %40
+  %55 = sext i32 %42 to i64
+  br label %.critedge
 
-55:                                               ; preds = %26, %34, %53, %46, %16, %14
-  %56 = phi i64 [ %15, %14 ], [ %54, %53 ], [ -25, %16 ], [ -14, %46 ], [ -14, %34 ], [ -14, %26 ]
+.critedge:                                        ; preds = %34, %26, %54, %47, %16, %14
+  %56 = phi i64 [ %15, %14 ], [ %55, %54 ], [ -25, %16 ], [ -14, %47 ], [ -14, %26 ], [ -14, %34 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
   ret i64 %56

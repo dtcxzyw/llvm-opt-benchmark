@@ -786,7 +786,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 255
   %22 = icmp eq i32 %21, 255
-  br i1 %22, label %23, label %.thread23
+  br i1 %22, label %23, label %.thread22
 
 23:                                               ; preds = %14
   %24 = load i32, ptr %3, align 8
@@ -796,7 +796,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 26:                                               ; preds = %23
   %27 = tail call ptr @rt6_lookup(ptr noundef %17, ptr noundef nonnull %19, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #13
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.thread23, label %29
+  br i1 %28, label %.thread22, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %27, align 8
@@ -810,19 +810,19 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 33:                                               ; preds = %31, %29
   %34 = phi ptr [ %32, %31 ], [ %30, %29 ]
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread23, label %36
+  br i1 %35, label %.thread22, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %38 = load volatile ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread23, label %40
+  br i1 %39, label %.thread22, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 632
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.thread23
+  br i1 %43, label %44, label %.thread22
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 576
@@ -830,7 +830,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread31, label %49
+  br i1 %48, label %.critedge.thread, label %49
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %3, align 8
@@ -851,13 +851,13 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %60 = icmp eq i64 %57, %53
   %61 = icmp eq i64 %59, %54
   %62 = and i1 %60, %61
-  br i1 %62, label %.split42.us, label %63
+  br i1 %62, label %.split38.us, label %63
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread31, label %55, !llvm.loop !43
+  br i1 %66, label %.critedge.thread, label %55, !llvm.loop !43
 
 .split:                                           ; preds = %49, %80
   %67 = phi ptr [ %82, %80 ], [ %47, %49 ]
@@ -875,15 +875,15 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %77 = icmp eq i64 %72, %73
   %78 = icmp eq i64 %75, %76
   %79 = and i1 %77, %78
-  br i1 %79, label %.split42.us, label %80
+  br i1 %79, label %.split38.us, label %80
 
 80:                                               ; preds = %71, %.split
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread31, label %.split, !llvm.loop !44
+  br i1 %83, label %.critedge.thread, label %.split, !llvm.loop !44
 
-.split42.us:                                      ; preds = %71, %55
+.split38.us:                                      ; preds = %71, %55
   %.us-phi = phi ptr [ %56, %55 ], [ %67, %71 ]
   %84 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %85 = load volatile ptr, ptr %84, align 8
@@ -893,10 +893,10 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %89 = icmp eq i32 %88, %1
   br i1 %86, label %91, label %90
 
-90:                                               ; preds = %.split42.us
-  br i1 %89, label %95, label %.thread31
+90:                                               ; preds = %.split38.us
+  br i1 %89, label %95, label %.critedge.thread
 
-91:                                               ; preds = %.split42.us
+91:                                               ; preds = %.split38.us
   br i1 %89, label %95, label %92
 
 92:                                               ; preds = %91
@@ -914,13 +914,13 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   br i1 %97, label %99, label %141
 
 99:                                               ; preds = %95
-  br i1 %98, label %.thread31, label %100
+  br i1 %98, label %.critedge.thread, label %100
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.thread31, label %104
+  br i1 %103, label %.critedge.thread, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -944,7 +944,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 119:                                              ; preds = %109
   %120 = add nuw i32 %110, 1
   %121 = icmp eq i32 %120, %102
-  br i1 %121, label %.thread31, label %109, !llvm.loop !46
+  br i1 %121, label %.critedge.thread, label %109, !llvm.loop !46
 
 122:                                              ; preds = %109
   %123 = icmp eq i32 %102, 1
@@ -976,23 +976,23 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %139 = phi i32 [ %128, %126 ], [ %137, %.preheader ]
   %140 = add i32 %139, -1
   store i32 %140, ptr %101, align 4
-  br label %.thread31
+  br label %.critedge.thread
 
 141:                                              ; preds = %95
-  br i1 %98, label %.thread26, label %142
+  br i1 %98, label %.thread24, label %142
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = load i32, ptr @sysctl_mld_max_msf, align 4
   %146 = icmp ult i32 %144, %145
-  br i1 %146, label %147, label %.thread31
+  br i1 %146, label %147, label %.critedge.thread
 
 147:                                              ; preds = %142
   %148 = load i32, ptr %96, align 8
-  %.fr32 = freeze i32 %148
-  %149 = icmp eq i32 %144, %.fr32
-  br i1 %149, label %150, label %.thread29
+  %.fr28 = freeze i32 %148
+  %149 = icmp eq i32 %144, %.fr28
+  br i1 %149, label %150, label %.thread27
 
 150:                                              ; preds = %147
   %151 = add i32 %144, 10
@@ -1002,16 +1002,16 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %155 = trunc i64 %154 to i32
   %156 = icmp sgt i32 %151, -1
   %spec.select = select i1 %156, i32 %155, i32 -1
-  br label %.thread26
+  br label %.thread24
 
-.thread26:                                        ; preds = %150, %141
+.thread24:                                        ; preds = %150, %141
   %157 = phi i32 [ 10, %141 ], [ %151, %150 ]
   %158 = phi i32 [ 184, %141 ], [ %spec.select, %150 ]
   %159 = tail call ptr @sock_kmalloc(ptr noundef %2, i32 noundef %158, i32 noundef 3264) #13
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread31, label %161
+  br i1 %160, label %.critedge.thread, label %161
 
-161:                                              ; preds = %.thread26
+161:                                              ; preds = %.thread24
   store i32 %157, ptr %159, align 8
   %162 = add i32 %157, -10
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 4
@@ -1022,7 +1022,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %165 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, 0
-  br i1 %167, label %.loopexit35, label %168
+  br i1 %167, label %.loopexit31, label %168
 
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %159, i64 24
@@ -1038,9 +1038,9 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %176 = add nuw i32 %172, 1
   %177 = load i32, ptr %165, align 4
   %178 = icmp ult i32 %176, %177
-  br i1 %178, label %171, label %.loopexit35, !llvm.loop !48
+  br i1 %178, label %171, label %.loopexit31, !llvm.loop !48
 
-.loopexit35:                                      ; preds = %171, %164
+.loopexit31:                                      ; preds = %171, %164
   %179 = load i32, ptr %96, align 8
   %180 = shl i32 %179, 4
   %181 = add i32 %180, 24
@@ -1050,21 +1050,21 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   store volatile ptr %159, ptr %84, align 8
   %183 = getelementptr inbounds nuw i8, ptr %96, i64 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %183, ptr noundef nonnull %96) #13
-  br label %.thread29
+  br label %.thread27
 
 184:                                              ; preds = %161
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !49
   store volatile ptr %159, ptr %84, align 8
-  br label %.thread29
+  br label %.thread27
 
-.thread29:                                        ; preds = %.loopexit35, %184, %147
-  %185 = phi ptr [ %96, %147 ], [ %159, %184 ], [ %159, %.loopexit35 ]
+.thread27:                                        ; preds = %.loopexit31, %184, %147
+  %185 = phi ptr [ %96, %147 ], [ %159, %184 ], [ %159, %.loopexit31 ]
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %187 = load i32, ptr %186, align 4
   %cond = icmp eq i32 %187, 0
-  br i1 %cond, label %.loopexit33, label %188
+  br i1 %cond, label %.loopexit29, label %188
 
-188:                                              ; preds = %.thread29
+188:                                              ; preds = %.thread27
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %190 = load i64, ptr %18, align 8
   %191 = getelementptr i8, ptr %3, i64 152
@@ -1073,7 +1073,7 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
 
 193:                                              ; preds = %204
   %.not = icmp eq i32 %187, -2147483648
-  br i1 %.not, label %.preheader63, label %.loopexit33
+  br i1 %.not, label %.preheader59, label %.loopexit29
 
 194:                                              ; preds = %204, %188
   %195 = phi i32 [ 0, %188 ], [ %205, %204 ]
@@ -1085,25 +1085,25 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %201 = icmp eq i64 %198, %190
   %202 = icmp eq i64 %200, %192
   %203 = and i1 %201, %202
-  br i1 %203, label %.thread31, label %204
+  br i1 %203, label %.critedge.thread, label %204
 
 204:                                              ; preds = %194
   %205 = add nuw i32 %195, 1
   %206 = icmp eq i32 %205, %187
   br i1 %206, label %193, label %194, !llvm.loop !50
 
-.preheader63:                                     ; preds = %193, %.preheader63
-  %207 = phi i32 [ %213, %.preheader63 ], [ 2147483647, %193 ]
-  %208 = phi i32 [ %207, %.preheader63 ], [ -2147483648, %193 ]
+.preheader59:                                     ; preds = %193, %.preheader59
+  %207 = phi i32 [ %213, %.preheader59 ], [ 2147483647, %193 ]
+  %208 = phi i32 [ %207, %.preheader59 ], [ -2147483648, %193 ]
   %209 = sext i32 %208 to i64
   %210 = getelementptr [0 x %struct.in6_addr], ptr %189, i64 0, i64 %209
   %211 = sext i32 %207 to i64
   %212 = getelementptr [0 x %struct.in6_addr], ptr %189, i64 0, i64 %211
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %210, ptr noundef align 8 dereferenceable(16) %212, i64 16, i1 false)
   %213 = add i32 %207, -1
-  br label %.preheader63
+  br label %.preheader59
 
-.loopexit33:                                      ; preds = %.thread29, %193
+.loopexit29:                                      ; preds = %.thread27, %193
   %214 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %215 = sext i32 %187 to i64
   %216 = getelementptr [0 x %struct.in6_addr], ptr %214, i64 0, i64 %215
@@ -1112,21 +1112,21 @@ define dso_local range(i32 -105, 1) i32 @ip6_mc_source(i32 noundef %0, i32 nound
   %218 = add i32 %217, 1
   store i32 %218, ptr %186, align 4
   %219 = tail call fastcc i32 @ip6_mc_add_src(ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %18, i32 noundef 1), !range !45
-  br label %.thread31
+  br label %.critedge.thread
 
-.thread31:                                        ; preds = %80, %63, %194, %119, %.loopexit33, %.loopexit, %99, %90, %142, %44, %.thread26, %100
-  %.ph = phi i32 [ -105, %.thread26 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ 0, %.loopexit33 ], [ -99, %100 ], [ -99, %119 ], [ -99, %194 ], [ -22, %63 ], [ -22, %80 ]
+.critedge.thread:                                 ; preds = %80, %63, %194, %119, %.loopexit29, %.loopexit, %99, %90, %142, %44, %100, %.thread24
+  %.ph = phi i32 [ -105, %.thread24 ], [ -99, %100 ], [ -22, %44 ], [ -105, %142 ], [ -22, %90 ], [ -99, %99 ], [ 0, %.loopexit ], [ 0, %.loopexit29 ], [ -99, %119 ], [ -99, %194 ], [ -22, %63 ], [ -22, %80 ]
   tail call void @mutex_unlock(ptr noundef nonnull %45) #13
-  br label %.thread23
+  br label %.thread22
 
 220:                                              ; preds = %122
   tail call void @mutex_unlock(ptr noundef nonnull %45) #13
   %221 = load i32, ptr %3, align 8
   %222 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %2, i32 noundef %221, ptr noundef nonnull %19), !range !51
-  br label %.thread23
+  br label %.thread22
 
-.thread23:                                        ; preds = %26, %40, %36, %33, %.thread31, %220, %14
-  %223 = phi i32 [ -22, %14 ], [ %222, %220 ], [ %.ph, %.thread31 ], [ -19, %33 ], [ -19, %36 ], [ -19, %40 ], [ -19, %26 ]
+.thread22:                                        ; preds = %26, %40, %36, %33, %.critedge.thread, %220, %14
+  %223 = phi i32 [ -22, %14 ], [ %222, %220 ], [ %.ph, %.critedge.thread ], [ -19, %33 ], [ -19, %36 ], [ -19, %40 ], [ -19, %26 ]
   ret i32 %223
 }
 
@@ -7707,7 +7707,7 @@ define internal range(i32 -2147483648, 1) i32 @igmp6_net_init(ptr noundef %0) #0
 
 5:                                                ; preds = %1
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %3) #15
-  br label %52
+  br label %.critedge
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
@@ -7751,14 +7751,14 @@ define internal range(i32 -2147483648, 1) i32 @igmp6_net_init(ptr noundef %0) #0
   %34 = load ptr, ptr %29, align 32
   %35 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.19, i16 noundef zeroext 292, ptr noundef %34, ptr noundef nonnull @igmp6_mcf_seq_ops, i32 noundef 32, ptr noundef null) #13
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %52
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %29, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.18, ptr noundef %38) #13
   br label %39
 
-39:                                               ; preds = %37, %28
+39:                                               ; preds = %28, %37
   %40 = load ptr, ptr %23, align 16
   %41 = icmp eq ptr %40, null
   br i1 %41, label %45, label %42
@@ -7773,17 +7773,17 @@ define internal range(i32 -2147483648, 1) i32 @igmp6_net_init(ptr noundef %0) #0
   %46 = phi i32 [ %24, %26 ], [ -12, %39 ], [ -12, %42 ]
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %52, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 624
   %51 = load ptr, ptr %50, align 8
   tail call void @sock_release(ptr noundef %51) #13
-  br label %52
+  br label %.critedge
 
-52:                                               ; preds = %33, %49, %45, %5
-  %53 = phi i32 [ %3, %5 ], [ %46, %45 ], [ %46, %49 ], [ 0, %33 ]
-  ret i32 %53
+.critedge:                                        ; preds = %33, %49, %45, %5
+  %52 = phi i32 [ %3, %5 ], [ %46, %45 ], [ %46, %49 ], [ 0, %33 ]
+  ret i32 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

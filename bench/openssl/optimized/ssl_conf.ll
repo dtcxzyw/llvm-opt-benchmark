@@ -1646,11 +1646,11 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %6, label %.thread71.i
+  br i1 %.not.i, label %6, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  br label %16
+  br label %18
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1661,7 +1661,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr noundef readonly captur
 9:                                                ; preds = %6
   %10 = load i32, ptr %8, align 8, !tbaa !40
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread69.i, label %12
+  br i1 %11, label %.thread61.i, label %12
 
 12:                                               ; preds = %9
   %13 = and i32 %10, 128
@@ -1671,42 +1671,42 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr noundef readonly captur
 14:                                               ; preds = %12
   %15 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %8) #7
   %.not51.i = icmp eq ptr %15, null
-  br i1 %.not51.i, label %do_store.exit, label %.thread69.i
+  br i1 %.not51.i, label %do_store.exit, label %.thread61.i
 
-.thread69.i:                                      ; preds = %14, %9
-  %.pn.i = phi ptr [ %8, %9 ], [ %15, %14 ]
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  br label %16
+.thread61.i:                                      ; preds = %14, %9
+  %16 = phi ptr [ %8, %9 ], [ %15, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2176
+  br label %18
 
-16:                                               ; preds = %.thread69.i, %.thread71.i
-  %.04076.i.in = phi ptr [ %5, %.thread71.i ], [ %.040.in.i, %.thread69.i ]
-  %.04076.i = load ptr, ptr %.04076.i.in, align 8, !tbaa !47
-  %17 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !138
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %23
+18:                                               ; preds = %.thread61.i, %.thread63.i
+  %.04068.i.in = phi ptr [ %5, %.thread63.i ], [ %17, %.thread61.i ]
+  %.04068.i = load ptr, ptr %.04068.i.in, align 8, !tbaa !47
+  %19 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 112
+  %20 = load ptr, ptr %19, align 8, !tbaa !138
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
 
-20:                                               ; preds = %16
-  %21 = tail call ptr @X509_STORE_new() #7
-  store ptr %21, ptr %17, align 8, !tbaa !138
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %do_store.exit, label %23
+22:                                               ; preds = %18
+  %23 = tail call ptr @X509_STORE_new() #7
+  store ptr %23, ptr %19, align 8, !tbaa !138
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %do_store.exit, label %25
 
-23:                                               ; preds = %20, %16
-  %24 = phi ptr [ %21, %20 ], [ %18, %16 ]
+25:                                               ; preds = %22, %18
+  %26 = phi ptr [ %23, %22 ], [ %20, %18 ]
   %.not56.i = icmp eq ptr %1, null
-  br i1 %.not56.i, label %27, label %25
+  br i1 %.not56.i, label %29, label %27
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %24, ptr noundef nonnull %1) #7
-  %.not57.i = icmp eq i32 %26, 0
-  br i1 %.not57.i, label %do_store.exit, label %27
+27:                                               ; preds = %25
+  %28 = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %26, ptr noundef nonnull %1) #7
+  %.not57.i = icmp eq i32 %28, 0
+  br i1 %.not57.i, label %do_store.exit, label %29
 
-27:                                               ; preds = %25, %23
+29:                                               ; preds = %27, %25
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %6, %12, %14, %20, %25, %27
-  %.1.i = phi i32 [ 1, %27 ], [ 1, %6 ], [ 0, %20 ], [ 0, %25 ], [ 0, %14 ], [ 0, %12 ]
+do_store.exit:                                    ; preds = %6, %12, %14, %22, %27, %29
+  %.1.i = phi i32 [ 1, %29 ], [ 1, %6 ], [ 0, %22 ], [ 0, %27 ], [ 0, %14 ], [ 0, %12 ]
   ret i32 %.1.i
 }
 
@@ -1715,12 +1715,12 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAFile(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %7, label %.thread71.i
+  br i1 %.not.i, label %7, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8, !tbaa !112
-  br label %17
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1731,7 +1731,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAFile(ptr noundef readonly captur
 10:                                               ; preds = %7
   %11 = load i32, ptr %9, align 8, !tbaa !40
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread69.i, label %13
+  br i1 %12, label %.thread61.i, label %13
 
 13:                                               ; preds = %10
   %14 = and i32 %11, 128
@@ -1741,60 +1741,60 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAFile(ptr noundef readonly captur
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %9) #7
   %.not51.i = icmp eq ptr %16, null
-  br i1 %.not51.i, label %do_store.exit, label %..thread69_crit_edge.i
+  br i1 %.not51.i, label %do_store.exit, label %..thread61_crit_edge.i
 
-..thread69_crit_edge.i:                           ; preds = %15
-  %.pn78.pre.i = load ptr, ptr %8, align 8, !tbaa !39
-  br label %.thread69.i
+..thread61_crit_edge.i:                           ; preds = %15
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !39
+  br label %.thread61.i
 
-.thread69.i:                                      ; preds = %..thread69_crit_edge.i, %10
-  %.pn78.i = phi ptr [ %.pn78.pre.i, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.pn.i = phi ptr [ %16, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.038.in.i = getelementptr inbounds nuw i8, ptr %.pn78.i, i64 8
-  %.038.i = load ptr, ptr %.038.in.i, align 8, !tbaa !139
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !67
-  %.not52.i = icmp eq ptr %.038.i, null
-  br i1 %.not52.i, label %21, label %17
+.thread61.i:                                      ; preds = %..thread61_crit_edge.i, %10
+  %17 = phi ptr [ %.pre.i, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %18 = phi ptr [ %16, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2176
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !139
+  %.not52.i = icmp eq ptr %22, null
+  br i1 %.not52.i, label %27, label %23
 
-17:                                               ; preds = %.thread69.i, %.thread71.i
-  %.03877.i = phi ptr [ %4, %.thread71.i ], [ %.038.i, %.thread69.i ]
-  %.04075.i = phi ptr [ %6, %.thread71.i ], [ %.040.i, %.thread69.i ]
-  %18 = load ptr, ptr %.03877.i, align 8, !tbaa !140
-  %19 = getelementptr inbounds nuw i8, ptr %.03877.i, i64 1152
-  %20 = load ptr, ptr %19, align 8, !tbaa !141
-  br label %21
+23:                                               ; preds = %.thread61.i, %.thread63.i
+  %.03869.i = phi ptr [ %4, %.thread63.i ], [ %22, %.thread61.i ]
+  %.04067.i = phi ptr [ %6, %.thread63.i ], [ %20, %.thread61.i ]
+  %24 = load ptr, ptr %.03869.i, align 8, !tbaa !140
+  %25 = getelementptr inbounds nuw i8, ptr %.03869.i, i64 1152
+  %26 = load ptr, ptr %25, align 8, !tbaa !141
+  br label %27
 
-21:                                               ; preds = %17, %.thread69.i
-  %.04076.i = phi ptr [ %.04075.i, %17 ], [ %.040.i, %.thread69.i ]
-  %.037.i = phi ptr [ %18, %17 ], [ null, %.thread69.i ]
-  %.036.i = phi ptr [ %20, %17 ], [ null, %.thread69.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !138
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+27:                                               ; preds = %23, %.thread61.i
+  %.04068.i = phi ptr [ %.04067.i, %23 ], [ %20, %.thread61.i ]
+  %.037.i = phi ptr [ %24, %23 ], [ null, %.thread61.i ]
+  %.036.i = phi ptr [ %26, %23 ], [ null, %.thread61.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 112
+  %29 = load ptr, ptr %28, align 8, !tbaa !138
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @X509_STORE_new() #7
-  store ptr %26, ptr %22, align 8, !tbaa !138
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %do_store.exit, label %28
+31:                                               ; preds = %27
+  %32 = tail call ptr @X509_STORE_new() #7
+  store ptr %32, ptr %28, align 8, !tbaa !138
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %do_store.exit, label %34
 
-28:                                               ; preds = %25, %21
-  %29 = phi ptr [ %26, %25 ], [ %23, %21 ]
+34:                                               ; preds = %31, %27
+  %35 = phi ptr [ %32, %31 ], [ %29, %27 ]
   %.not54.i = icmp eq ptr %1, null
-  br i1 %.not54.i, label %32, label %30
+  br i1 %.not54.i, label %38, label %36
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %29, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
-  %.not55.i = icmp eq i32 %31, 0
-  br i1 %.not55.i, label %do_store.exit, label %32
+36:                                               ; preds = %34
+  %37 = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %35, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
+  %.not55.i = icmp eq i32 %37, 0
+  br i1 %.not55.i, label %do_store.exit, label %38
 
-32:                                               ; preds = %30, %28
+38:                                               ; preds = %36, %34
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %7, %13, %15, %25, %30, %32
-  %.1.i = phi i32 [ 1, %32 ], [ 1, %7 ], [ 0, %25 ], [ 0, %30 ], [ 0, %15 ], [ 0, %13 ]
+do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
+  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
   ret i32 %.1.i
 }
 
@@ -1803,12 +1803,12 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAStore(ptr noundef readonly captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %7, label %.thread71.i
+  br i1 %.not.i, label %7, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8, !tbaa !112
-  br label %17
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1819,7 +1819,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAStore(ptr noundef readonly captu
 10:                                               ; preds = %7
   %11 = load i32, ptr %9, align 8, !tbaa !40
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread69.i, label %13
+  br i1 %12, label %.thread61.i, label %13
 
 13:                                               ; preds = %10
   %14 = and i32 %11, 128
@@ -1829,60 +1829,60 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAStore(ptr noundef readonly captu
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %9) #7
   %.not51.i = icmp eq ptr %16, null
-  br i1 %.not51.i, label %do_store.exit, label %..thread69_crit_edge.i
+  br i1 %.not51.i, label %do_store.exit, label %..thread61_crit_edge.i
 
-..thread69_crit_edge.i:                           ; preds = %15
-  %.pn78.pre.i = load ptr, ptr %8, align 8, !tbaa !39
-  br label %.thread69.i
+..thread61_crit_edge.i:                           ; preds = %15
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !39
+  br label %.thread61.i
 
-.thread69.i:                                      ; preds = %..thread69_crit_edge.i, %10
-  %.pn78.i = phi ptr [ %.pn78.pre.i, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.pn.i = phi ptr [ %16, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.038.in.i = getelementptr inbounds nuw i8, ptr %.pn78.i, i64 8
-  %.038.i = load ptr, ptr %.038.in.i, align 8, !tbaa !139
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !67
-  %.not52.i = icmp eq ptr %.038.i, null
-  br i1 %.not52.i, label %21, label %17
+.thread61.i:                                      ; preds = %..thread61_crit_edge.i, %10
+  %17 = phi ptr [ %.pre.i, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %18 = phi ptr [ %16, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2176
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !139
+  %.not52.i = icmp eq ptr %22, null
+  br i1 %.not52.i, label %27, label %23
 
-17:                                               ; preds = %.thread69.i, %.thread71.i
-  %.03877.i = phi ptr [ %4, %.thread71.i ], [ %.038.i, %.thread69.i ]
-  %.04075.i = phi ptr [ %6, %.thread71.i ], [ %.040.i, %.thread69.i ]
-  %18 = load ptr, ptr %.03877.i, align 8, !tbaa !140
-  %19 = getelementptr inbounds nuw i8, ptr %.03877.i, i64 1152
-  %20 = load ptr, ptr %19, align 8, !tbaa !141
-  br label %21
+23:                                               ; preds = %.thread61.i, %.thread63.i
+  %.03869.i = phi ptr [ %4, %.thread63.i ], [ %22, %.thread61.i ]
+  %.04067.i = phi ptr [ %6, %.thread63.i ], [ %20, %.thread61.i ]
+  %24 = load ptr, ptr %.03869.i, align 8, !tbaa !140
+  %25 = getelementptr inbounds nuw i8, ptr %.03869.i, i64 1152
+  %26 = load ptr, ptr %25, align 8, !tbaa !141
+  br label %27
 
-21:                                               ; preds = %17, %.thread69.i
-  %.04076.i = phi ptr [ %.04075.i, %17 ], [ %.040.i, %.thread69.i ]
-  %.037.i = phi ptr [ %18, %17 ], [ null, %.thread69.i ]
-  %.036.i = phi ptr [ %20, %17 ], [ null, %.thread69.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !138
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+27:                                               ; preds = %23, %.thread61.i
+  %.04068.i = phi ptr [ %.04067.i, %23 ], [ %20, %.thread61.i ]
+  %.037.i = phi ptr [ %24, %23 ], [ null, %.thread61.i ]
+  %.036.i = phi ptr [ %26, %23 ], [ null, %.thread61.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 112
+  %29 = load ptr, ptr %28, align 8, !tbaa !138
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @X509_STORE_new() #7
-  store ptr %26, ptr %22, align 8, !tbaa !138
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %do_store.exit, label %28
+31:                                               ; preds = %27
+  %32 = tail call ptr @X509_STORE_new() #7
+  store ptr %32, ptr %28, align 8, !tbaa !138
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %do_store.exit, label %34
 
-28:                                               ; preds = %25, %21
-  %29 = phi ptr [ %26, %25 ], [ %23, %21 ]
+34:                                               ; preds = %31, %27
+  %35 = phi ptr [ %32, %31 ], [ %29, %27 ]
   %.not58.i = icmp eq ptr %1, null
-  br i1 %.not58.i, label %32, label %30
+  br i1 %.not58.i, label %38, label %36
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %29, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
-  %.not59.i = icmp eq i32 %31, 0
-  br i1 %.not59.i, label %do_store.exit, label %32
+36:                                               ; preds = %34
+  %37 = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %35, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
+  %.not59.i = icmp eq i32 %37, 0
+  br i1 %.not59.i, label %do_store.exit, label %38
 
-32:                                               ; preds = %30, %28
+38:                                               ; preds = %36, %34
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %7, %13, %15, %25, %30, %32
-  %.1.i = phi i32 [ 1, %32 ], [ 1, %7 ], [ 0, %25 ], [ 0, %30 ], [ 0, %15 ], [ 0, %13 ]
+do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
+  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
   ret i32 %.1.i
 }
 
@@ -1891,11 +1891,11 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr noundef readonly captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %6, label %.thread71.i
+  br i1 %.not.i, label %6, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  br label %16
+  br label %18
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1906,7 +1906,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr noundef readonly captu
 9:                                                ; preds = %6
   %10 = load i32, ptr %8, align 8, !tbaa !40
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread69.i, label %12
+  br i1 %11, label %.thread61.i, label %12
 
 12:                                               ; preds = %9
   %13 = and i32 %10, 128
@@ -1916,42 +1916,42 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr noundef readonly captu
 14:                                               ; preds = %12
   %15 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %8) #7
   %.not51.i = icmp eq ptr %15, null
-  br i1 %.not51.i, label %do_store.exit, label %.thread69.i
+  br i1 %.not51.i, label %do_store.exit, label %.thread61.i
 
-.thread69.i:                                      ; preds = %14, %9
-  %.pn.i = phi ptr [ %8, %9 ], [ %15, %14 ]
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  br label %16
+.thread61.i:                                      ; preds = %14, %9
+  %16 = phi ptr [ %8, %9 ], [ %15, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2176
+  br label %18
 
-16:                                               ; preds = %.thread69.i, %.thread71.i
-  %.04076.i.in = phi ptr [ %5, %.thread71.i ], [ %.040.in.i, %.thread69.i ]
-  %.04076.i = load ptr, ptr %.04076.i.in, align 8, !tbaa !47
-  %17 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !138
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %23
+18:                                               ; preds = %.thread61.i, %.thread63.i
+  %.04068.i.in = phi ptr [ %5, %.thread63.i ], [ %17, %.thread61.i ]
+  %.04068.i = load ptr, ptr %.04068.i.in, align 8, !tbaa !47
+  %19 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 120
+  %20 = load ptr, ptr %19, align 8, !tbaa !138
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
 
-20:                                               ; preds = %16
-  %21 = tail call ptr @X509_STORE_new() #7
-  store ptr %21, ptr %17, align 8, !tbaa !138
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %do_store.exit, label %23
+22:                                               ; preds = %18
+  %23 = tail call ptr @X509_STORE_new() #7
+  store ptr %23, ptr %19, align 8, !tbaa !138
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %do_store.exit, label %25
 
-23:                                               ; preds = %20, %16
-  %24 = phi ptr [ %21, %20 ], [ %18, %16 ]
+25:                                               ; preds = %22, %18
+  %26 = phi ptr [ %23, %22 ], [ %20, %18 ]
   %.not56.i = icmp eq ptr %1, null
-  br i1 %.not56.i, label %27, label %25
+  br i1 %.not56.i, label %29, label %27
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %24, ptr noundef nonnull %1) #7
-  %.not57.i = icmp eq i32 %26, 0
-  br i1 %.not57.i, label %do_store.exit, label %27
+27:                                               ; preds = %25
+  %28 = tail call i32 @X509_STORE_load_path(ptr noundef nonnull %26, ptr noundef nonnull %1) #7
+  %.not57.i = icmp eq i32 %28, 0
+  br i1 %.not57.i, label %do_store.exit, label %29
 
-27:                                               ; preds = %25, %23
+29:                                               ; preds = %27, %25
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %6, %12, %14, %20, %25, %27
-  %.1.i = phi i32 [ 1, %27 ], [ 1, %6 ], [ 0, %20 ], [ 0, %25 ], [ 0, %14 ], [ 0, %12 ]
+do_store.exit:                                    ; preds = %6, %12, %14, %22, %27, %29
+  %.1.i = phi i32 [ 1, %29 ], [ 1, %6 ], [ 0, %22 ], [ 0, %27 ], [ 0, %14 ], [ 0, %12 ]
   ret i32 %.1.i
 }
 
@@ -1960,12 +1960,12 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAFile(ptr noundef readonly captu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %7, label %.thread71.i
+  br i1 %.not.i, label %7, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8, !tbaa !112
-  br label %17
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1976,7 +1976,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAFile(ptr noundef readonly captu
 10:                                               ; preds = %7
   %11 = load i32, ptr %9, align 8, !tbaa !40
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread69.i, label %13
+  br i1 %12, label %.thread61.i, label %13
 
 13:                                               ; preds = %10
   %14 = and i32 %11, 128
@@ -1986,60 +1986,60 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAFile(ptr noundef readonly captu
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %9) #7
   %.not51.i = icmp eq ptr %16, null
-  br i1 %.not51.i, label %do_store.exit, label %..thread69_crit_edge.i
+  br i1 %.not51.i, label %do_store.exit, label %..thread61_crit_edge.i
 
-..thread69_crit_edge.i:                           ; preds = %15
-  %.pn78.pre.i = load ptr, ptr %8, align 8, !tbaa !39
-  br label %.thread69.i
+..thread61_crit_edge.i:                           ; preds = %15
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !39
+  br label %.thread61.i
 
-.thread69.i:                                      ; preds = %..thread69_crit_edge.i, %10
-  %.pn78.i = phi ptr [ %.pn78.pre.i, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.pn.i = phi ptr [ %16, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.038.in.i = getelementptr inbounds nuw i8, ptr %.pn78.i, i64 8
-  %.038.i = load ptr, ptr %.038.in.i, align 8, !tbaa !139
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !67
-  %.not52.i = icmp eq ptr %.038.i, null
-  br i1 %.not52.i, label %21, label %17
+.thread61.i:                                      ; preds = %..thread61_crit_edge.i, %10
+  %17 = phi ptr [ %.pre.i, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %18 = phi ptr [ %16, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2176
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !139
+  %.not52.i = icmp eq ptr %22, null
+  br i1 %.not52.i, label %27, label %23
 
-17:                                               ; preds = %.thread69.i, %.thread71.i
-  %.03877.i = phi ptr [ %4, %.thread71.i ], [ %.038.i, %.thread69.i ]
-  %.04075.i = phi ptr [ %6, %.thread71.i ], [ %.040.i, %.thread69.i ]
-  %18 = load ptr, ptr %.03877.i, align 8, !tbaa !140
-  %19 = getelementptr inbounds nuw i8, ptr %.03877.i, i64 1152
-  %20 = load ptr, ptr %19, align 8, !tbaa !141
-  br label %21
+23:                                               ; preds = %.thread61.i, %.thread63.i
+  %.03869.i = phi ptr [ %4, %.thread63.i ], [ %22, %.thread61.i ]
+  %.04067.i = phi ptr [ %6, %.thread63.i ], [ %20, %.thread61.i ]
+  %24 = load ptr, ptr %.03869.i, align 8, !tbaa !140
+  %25 = getelementptr inbounds nuw i8, ptr %.03869.i, i64 1152
+  %26 = load ptr, ptr %25, align 8, !tbaa !141
+  br label %27
 
-21:                                               ; preds = %17, %.thread69.i
-  %.04076.i = phi ptr [ %.04075.i, %17 ], [ %.040.i, %.thread69.i ]
-  %.037.i = phi ptr [ %18, %17 ], [ null, %.thread69.i ]
-  %.036.i = phi ptr [ %20, %17 ], [ null, %.thread69.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 120
-  %23 = load ptr, ptr %22, align 8, !tbaa !138
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+27:                                               ; preds = %23, %.thread61.i
+  %.04068.i = phi ptr [ %.04067.i, %23 ], [ %20, %.thread61.i ]
+  %.037.i = phi ptr [ %24, %23 ], [ null, %.thread61.i ]
+  %.036.i = phi ptr [ %26, %23 ], [ null, %.thread61.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 120
+  %29 = load ptr, ptr %28, align 8, !tbaa !138
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @X509_STORE_new() #7
-  store ptr %26, ptr %22, align 8, !tbaa !138
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %do_store.exit, label %28
+31:                                               ; preds = %27
+  %32 = tail call ptr @X509_STORE_new() #7
+  store ptr %32, ptr %28, align 8, !tbaa !138
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %do_store.exit, label %34
 
-28:                                               ; preds = %25, %21
-  %29 = phi ptr [ %26, %25 ], [ %23, %21 ]
+34:                                               ; preds = %31, %27
+  %35 = phi ptr [ %32, %31 ], [ %29, %27 ]
   %.not54.i = icmp eq ptr %1, null
-  br i1 %.not54.i, label %32, label %30
+  br i1 %.not54.i, label %38, label %36
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %29, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
-  %.not55.i = icmp eq i32 %31, 0
-  br i1 %.not55.i, label %do_store.exit, label %32
+36:                                               ; preds = %34
+  %37 = tail call i32 @X509_STORE_load_file_ex(ptr noundef nonnull %35, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
+  %.not55.i = icmp eq i32 %37, 0
+  br i1 %.not55.i, label %do_store.exit, label %38
 
-32:                                               ; preds = %30, %28
+38:                                               ; preds = %36, %34
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %7, %13, %15, %25, %30, %32
-  %.1.i = phi i32 [ 1, %32 ], [ 1, %7 ], [ 0, %25 ], [ 0, %30 ], [ 0, %15 ], [ 0, %13 ]
+do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
+  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
   ret i32 %.1.i
 }
 
@@ -2048,12 +2048,12 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAStore(ptr noundef readonly capt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %7, label %.thread71.i
+  br i1 %.not.i, label %7, label %.thread63.i
 
-.thread71.i:                                      ; preds = %2
+.thread63.i:                                      ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %6 = load ptr, ptr %5, align 8, !tbaa !112
-  br label %17
+  br label %23
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2064,7 +2064,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAStore(ptr noundef readonly capt
 10:                                               ; preds = %7
   %11 = load i32, ptr %9, align 8, !tbaa !40
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread69.i, label %13
+  br i1 %12, label %.thread61.i, label %13
 
 13:                                               ; preds = %10
   %14 = and i32 %11, 128
@@ -2074,60 +2074,60 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAStore(ptr noundef readonly capt
 15:                                               ; preds = %13
   %16 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %9) #7
   %.not51.i = icmp eq ptr %16, null
-  br i1 %.not51.i, label %do_store.exit, label %..thread69_crit_edge.i
+  br i1 %.not51.i, label %do_store.exit, label %..thread61_crit_edge.i
 
-..thread69_crit_edge.i:                           ; preds = %15
-  %.pn78.pre.i = load ptr, ptr %8, align 8, !tbaa !39
-  br label %.thread69.i
+..thread61_crit_edge.i:                           ; preds = %15
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !39
+  br label %.thread61.i
 
-.thread69.i:                                      ; preds = %..thread69_crit_edge.i, %10
-  %.pn78.i = phi ptr [ %.pn78.pre.i, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.pn.i = phi ptr [ %16, %..thread69_crit_edge.i ], [ %9, %10 ]
-  %.038.in.i = getelementptr inbounds nuw i8, ptr %.pn78.i, i64 8
-  %.038.i = load ptr, ptr %.038.in.i, align 8, !tbaa !139
-  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2176
-  %.040.i = load ptr, ptr %.040.in.i, align 8, !tbaa !67
-  %.not52.i = icmp eq ptr %.038.i, null
-  br i1 %.not52.i, label %21, label %17
+.thread61.i:                                      ; preds = %..thread61_crit_edge.i, %10
+  %17 = phi ptr [ %.pre.i, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %18 = phi ptr [ %16, %..thread61_crit_edge.i ], [ %9, %10 ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2176
+  %20 = load ptr, ptr %19, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !139
+  %.not52.i = icmp eq ptr %22, null
+  br i1 %.not52.i, label %27, label %23
 
-17:                                               ; preds = %.thread69.i, %.thread71.i
-  %.03877.i = phi ptr [ %4, %.thread71.i ], [ %.038.i, %.thread69.i ]
-  %.04075.i = phi ptr [ %6, %.thread71.i ], [ %.040.i, %.thread69.i ]
-  %18 = load ptr, ptr %.03877.i, align 8, !tbaa !140
-  %19 = getelementptr inbounds nuw i8, ptr %.03877.i, i64 1152
-  %20 = load ptr, ptr %19, align 8, !tbaa !141
-  br label %21
+23:                                               ; preds = %.thread61.i, %.thread63.i
+  %.03869.i = phi ptr [ %4, %.thread63.i ], [ %22, %.thread61.i ]
+  %.04067.i = phi ptr [ %6, %.thread63.i ], [ %20, %.thread61.i ]
+  %24 = load ptr, ptr %.03869.i, align 8, !tbaa !140
+  %25 = getelementptr inbounds nuw i8, ptr %.03869.i, i64 1152
+  %26 = load ptr, ptr %25, align 8, !tbaa !141
+  br label %27
 
-21:                                               ; preds = %17, %.thread69.i
-  %.04076.i = phi ptr [ %.04075.i, %17 ], [ %.040.i, %.thread69.i ]
-  %.037.i = phi ptr [ %18, %17 ], [ null, %.thread69.i ]
-  %.036.i = phi ptr [ %20, %17 ], [ null, %.thread69.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04076.i, i64 120
-  %23 = load ptr, ptr %22, align 8, !tbaa !138
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+27:                                               ; preds = %23, %.thread61.i
+  %.04068.i = phi ptr [ %.04067.i, %23 ], [ %20, %.thread61.i ]
+  %.037.i = phi ptr [ %24, %23 ], [ null, %.thread61.i ]
+  %.036.i = phi ptr [ %26, %23 ], [ null, %.thread61.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 120
+  %29 = load ptr, ptr %28, align 8, !tbaa !138
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
 
-25:                                               ; preds = %21
-  %26 = tail call ptr @X509_STORE_new() #7
-  store ptr %26, ptr %22, align 8, !tbaa !138
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %do_store.exit, label %28
+31:                                               ; preds = %27
+  %32 = tail call ptr @X509_STORE_new() #7
+  store ptr %32, ptr %28, align 8, !tbaa !138
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %do_store.exit, label %34
 
-28:                                               ; preds = %25, %21
-  %29 = phi ptr [ %26, %25 ], [ %23, %21 ]
+34:                                               ; preds = %31, %27
+  %35 = phi ptr [ %32, %31 ], [ %29, %27 ]
   %.not58.i = icmp eq ptr %1, null
-  br i1 %.not58.i, label %32, label %30
+  br i1 %.not58.i, label %38, label %36
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %29, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
-  %.not59.i = icmp eq i32 %31, 0
-  br i1 %.not59.i, label %do_store.exit, label %32
+36:                                               ; preds = %34
+  %37 = tail call i32 @X509_STORE_load_store_ex(ptr noundef nonnull %35, ptr noundef nonnull %1, ptr noundef %.037.i, ptr noundef %.036.i) #7
+  %.not59.i = icmp eq i32 %37, 0
+  br i1 %.not59.i, label %do_store.exit, label %38
 
-32:                                               ; preds = %30, %28
+38:                                               ; preds = %36, %34
   br label %do_store.exit
 
-do_store.exit:                                    ; preds = %7, %13, %15, %25, %30, %32
-  %.1.i = phi i32 [ 1, %32 ], [ 1, %7 ], [ 0, %25 ], [ 0, %30 ], [ 0, %15 ], [ 0, %13 ]
+do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
+  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
   ret i32 %.1.i
 }
 

@@ -66,7 +66,7 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02952 = phi ptr [ null, %.lr.ph.preheader ], [ %17, %.lr.ph ]
+  %.02949 = phi ptr [ null, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %5, align 8
@@ -80,7 +80,7 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr noundef readonly captures(n
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 1, ptr %16, align 8
-  %17 = tail call fastcc ptr @merge_clump(ptr noundef nonnull %0, ptr noundef %.02952, ptr noundef nonnull %15, i1 noundef zeroext false)
+  %17 = tail call fastcc ptr @merge_clump(ptr noundef nonnull %0, ptr noundef %.02949, ptr noundef nonnull %15, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -93,49 +93,49 @@ list_length.exit:                                 ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %.lr.ph55, label %list_length.exit38
+  br i1 %20, label %.lr.ph52, label %list_length.exit38
 
-.lr.ph55:                                         ; preds = %list_length.exit
+.lr.ph52:                                         ; preds = %list_length.exit
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %22
 
-22:                                               ; preds = %.lr.ph55, %22
-  %indvars.iv60 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next61, %22 ]
-  %.03253 = phi ptr [ null, %.lr.ph55 ], [ %26, %22 ]
+22:                                               ; preds = %.lr.ph52, %22
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %22 ]
+  %.03250 = phi ptr [ null, %.lr.ph52 ], [ %26, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv60
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc ptr @merge_clump(ptr noundef nonnull %0, ptr noundef %.03253, ptr noundef %25, i1 noundef zeroext true)
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %26 = tail call fastcc ptr @merge_clump(ptr noundef nonnull %0, ptr noundef %.03250, ptr noundef %25, i1 noundef zeroext true)
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next61, %28
-  br i1 %29, label %22, label %._crit_edge56, !llvm.loop !6
+  %29 = icmp slt i64 %indvars.iv.next57, %28
+  br i1 %29, label %22, label %.critedge, !llvm.loop !6
 
-._crit_edge56:                                    ; preds = %22
+.critedge:                                        ; preds = %22
   %.not.i37 = icmp eq ptr %26, null
-  br i1 %.not.i37, label %list_length.exit38.thread, label %._crit_edge56.list_length.exit38_crit_edge
+  br i1 %.not.i37, label %list_length.exit38.thread, label %.critedge.list_length.exit38_crit_edge
 
-._crit_edge56.list_length.exit38_crit_edge:       ; preds = %._crit_edge56
+.critedge.list_length.exit38_crit_edge:           ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %list_length.exit38
 
-list_length.exit38:                               ; preds = %._crit_edge56.list_length.exit38_crit_edge, %list_length.exit
-  %30 = phi i32 [ %.pre, %._crit_edge56.list_length.exit38_crit_edge ], [ %19, %list_length.exit ]
-  %.148 = phi ptr [ %26, %._crit_edge56.list_length.exit38_crit_edge ], [ %17, %list_length.exit ]
+list_length.exit38:                               ; preds = %.critedge.list_length.exit38_crit_edge, %list_length.exit
+  %30 = phi i32 [ %.pre, %.critedge.list_length.exit38_crit_edge ], [ %19, %list_length.exit ]
+  %.145 = phi ptr [ %26, %.critedge.list_length.exit38_crit_edge ], [ %17, %list_length.exit ]
   %.not36 = icmp eq i32 %30, 1
   br i1 %.not36, label %31, label %list_length.exit38.thread
 
 31:                                               ; preds = %list_length.exit38
-  %32 = getelementptr i8, ptr %.148, i64 16
+  %32 = getelementptr i8, ptr %.145, i64 16
   %.1.val = load ptr, ptr %32, align 8
   %33 = load ptr, ptr %.1.val, align 8
   %34 = load ptr, ptr %33, align 8
   br label %list_length.exit38.thread
 
-list_length.exit38.thread:                        ; preds = %3, %._crit_edge, %._crit_edge56, %list_length.exit38, %31
-  %.0 = phi ptr [ %34, %31 ], [ null, %list_length.exit38 ], [ null, %._crit_edge56 ], [ null, %._crit_edge ], [ null, %3 ]
+list_length.exit38.thread:                        ; preds = %3, %._crit_edge, %.critedge, %list_length.exit38, %31
+  %.0 = phi ptr [ %34, %31 ], [ null, %list_length.exit38 ], [ null, %.critedge ], [ null, %._crit_edge ], [ null, %3 ]
   ret ptr %.0
 }
 

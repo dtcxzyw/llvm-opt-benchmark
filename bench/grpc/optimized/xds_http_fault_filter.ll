@@ -2320,7 +2320,7 @@ _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit328: ; preds = %645
   %652 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   %653 = load i64, ptr %652, align 1
   %.not381 = icmp eq i64 %653, 0
-  br i1 %.not381, label %.thread, label %654
+  br i1 %.not381, label %.critedge, label %654
 
 654:                                              ; preds = %651
   %655 = inttoptr i64 %653 to ptr
@@ -2423,7 +2423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit339: ; preds = %_Z
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit342:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit339, %.noexc.i341
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %80) #28
-  br label %.thread
+  br label %.critedge
 
 683:                                              ; preds = %654
   %684 = landingpad { ptr, i32 }
@@ -2459,7 +2459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %80) #28
   br label %772
 
-.thread:                                          ; preds = %651, %_ZN9grpc_core12experimental4JsonD2Ev.exit342
+.critedge:                                        ; preds = %651, %_ZN9grpc_core12experimental4JsonD2Ev.exit342
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %82) #28
   store i64 48, ptr %82, align 8
   %694 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -2483,12 +2483,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %_Z
     i8 -1, label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i
   ]
 
-701:                                              ; preds = %.thread
+701:                                              ; preds = %.critedge
   %702 = load i8, ptr %695, align 8, !tbaa !70, !range !71, !noundef !72
   store i8 %702, ptr %698, align 8, !tbaa !73
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread
 
-703:                                              ; preds = %.thread
+703:                                              ; preds = %.critedge
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %704, ptr %698, align 8, !tbaa !52
   %705 = load ptr, ptr %695, align 8, !tbaa !47
@@ -2523,7 +2523,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i8 0, ptr %706, align 8, !tbaa !51
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread
 
-717:                                              ; preds = %.thread
+717:                                              ; preds = %.critedge
   %718 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %718, ptr %698, align 8, !tbaa !52
   %719 = load ptr, ptr %695, align 8, !tbaa !47
@@ -2558,7 +2558,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i8 0, ptr %720, align 8, !tbaa !51
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread
 
-731:                                              ; preds = %.thread
+731:                                              ; preds = %.critedge
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %733 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %734 = load ptr, ptr %733, align 8, !tbaa !35
@@ -2603,7 +2603,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %732, align 8, !tbaa !30
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread
 
-751:                                              ; preds = %.thread
+751:                                              ; preds = %.critedge
   %752 = load ptr, ptr %695, align 8, !tbaa !76
   store ptr %752, ptr %698, align 8, !tbaa !76
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2617,7 +2617,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %695, i8 0, i64 24, i1 false)
   br label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread
 
-759:                                              ; preds = %.thread
+759:                                              ; preds = %.critedge
   unreachable
 
 _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i.thread: ; preds = %751, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESX_S10_.exit.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESX_S10_.exit.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISF_S8_St4lessISF_ESaISt4pairIKSF_S8_EEESt6vectorIS8_SaIS8_EEEEC1EOSR_EUlOT_T0_E_OSt7variantIJS5_bS9_SF_SN_SQ_EEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESX_S10_.exit.i, %701
@@ -2626,7 +2626,7 @@ _ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cx
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(56) %695)
           to label %.noexc3.i.i.i.i.i.i.i.i.i unwind label %760
 
-_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i: ; preds = %.thread, %.thread
+_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i.i.i.i.i: ; preds = %.critedge, %.critedge
   store i8 %700, ptr %699, align 8, !tbaa !56
   %switch = icmp eq i8 %700, 0
   br i1 %switch, label %763, label %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i.i.i.i.i.i, !prof !81

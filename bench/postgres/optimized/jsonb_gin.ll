@@ -1580,47 +1580,47 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i8, ptr %19, align 8, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %27, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
-  br i1 %.not3133, label %38, label %23
+  br i1 %.not3133, label %37, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %26 [
-    i32 21, label %38
-    i32 23, label %38
-    i32 24, label %27
+    i32 21, label %37
+    i32 23, label %37
+    i32 24, label %.critedge
   ]
 
 26:                                               ; preds = %23
-  br label %38
+  br label %37
 
-27:                                               ; preds = %23, %18
-  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
-  %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
-  store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %28, ptr %30, align 8
-  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
-  %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
-  store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %31, ptr %33, align 8
-  %34 = tail call noundef ptr @palloc(i64 noundef 32) #8
-  store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 2, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %29, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %32, ptr %37, align 8
+.critedge:                                        ; preds = %23, %18
+  %27 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
+  %28 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  store i32 2, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 %27, ptr %29, align 8
+  %30 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
+  %31 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  store i32 2, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i64 %30, ptr %32, align 8
+  %33 = tail call noundef ptr @palloc(i64 noundef 32) #8
+  store i32 0, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i32 2, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store ptr %28, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store ptr %31, ptr %36, align 8
   br label %46
 
-38:                                               ; preds = %26, %22, %23, %23
-  %.ph = phi i1 [ true, %23 ], [ true, %23 ], [ false, %22 ], [ false, %26 ]
-  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
+37:                                               ; preds = %26, %22, %23, %23
+  %38 = phi i1 [ false, %26 ], [ false, %22 ], [ true, %23 ], [ true, %23 ]
+  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %38)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1635,8 +1635,8 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
   store i64 %43, ptr %45, align 8
   br label %46
 
-46:                                               ; preds = %27, %38, %42
-  %.126 = phi ptr [ %44, %42 ], [ %34, %27 ], [ %40, %38 ]
+46:                                               ; preds = %.critedge, %37, %42
+  %.126 = phi ptr [ %44, %42 ], [ %33, %.critedge ], [ %40, %37 ]
   %47 = tail call ptr @lappend(ptr noundef %.1.lcssa, ptr noundef nonnull %.126) #8
   br label %48
 
@@ -1728,8 +1728,8 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %.val, ptr %38, align 8
   %39 = load i32, ptr %28, align 4
-  %.not14.i = icmp sgt i32 %39, 0
-  br i1 %.not14.i, label %.lr.ph.i, label %make_jsp_expr_node_args.exit
+  %.not12.i = icmp sgt i32 %39, 0
+  br i1 %.not12.i, label %.lr.ph.i, label %make_jsp_expr_node_args.exit
 
 .lr.ph.i:                                         ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16

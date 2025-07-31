@@ -724,21 +724,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4, !tbaa !3
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %.thread
+  br i1 %5, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = icmp sgt i32 %1, 0
   %8 = icmp ne ptr %0, null
-  %or.cond128.not135 = and i1 %8, %7
+  %or.cond128.not132 = and i1 %8, %7
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 3
   %.not121 = icmp eq i64 %10, 0
-  %or.cond130 = and i1 %or.cond128.not135, %.not121
+  %or.cond130 = and i1 %or.cond128.not132, %.not121
   br i1 %or.cond130, label %12, label %11
 
 11:                                               ; preds = %6
   store i32 1, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 12:                                               ; preds = %6
   %13 = icmp samesign ult i32 %1, 32
@@ -746,7 +746,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 14:                                               ; preds = %12
   store i32 8, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -786,7 +786,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 39:                                               ; preds = %35, %31, %27, %23, %19, %15
   store i32 3, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -796,7 +796,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 43:                                               ; preds = %40
   store i32 16, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -819,7 +819,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 55:                                               ; preds = %50
   tail call void @udata_closeSwapper_77(ptr noundef %51)
-  br label %.thread
+  br label %.critedge
 
 56:                                               ; preds = %50
   %57 = icmp slt i32 %1, %52
@@ -828,7 +828,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 58:                                               ; preds = %56
   tail call void @udata_closeSwapper_77(ptr noundef %51)
   store i32 8, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 59:                                               ; preds = %56
   %60 = sext i32 %52 to i64
@@ -839,7 +839,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 63:                                               ; preds = %59
   tail call void @udata_closeSwapper_77(ptr noundef %51)
   store i32 7, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 64:                                               ; preds = %59
   %65 = tail call fastcc noundef i32 @_ZL12ucnvsel_swapPK12UDataSwapperPKviPvP10UErrorCode(ptr noundef %51, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %61, ptr noundef nonnull %2)
@@ -850,7 +850,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 68:                                               ; preds = %64
   tail call void @uprv_free_77(ptr noundef nonnull %61)
-  br label %.thread
+  br label %.critedge
 
 69:                                               ; preds = %64, %47
   %.0112 = phi ptr [ null, %47 ], [ %61, %64 ]
@@ -864,7 +864,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 74:                                               ; preds = %69
   tail call void @uprv_free_77(ptr noundef %.0112)
   store i32 8, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 75:                                               ; preds = %69
   %76 = zext i16 %70 to i64
@@ -878,7 +878,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 82:                                               ; preds = %75
   tail call void @uprv_free_77(ptr noundef %.0112)
   store i32 8, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 83:                                               ; preds = %75
   %84 = tail call noalias dereferenceable_or_null(56) ptr @uprv_malloc_77(i64 noundef 56) #16
@@ -897,7 +897,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
   tail call void @uprv_free_77(ptr noundef %84)
   tail call void @uprv_free_77(ptr noundef %89)
   store i32 7, ptr %2, align 4, !tbaa !3
-  br label %.thread
+  br label %.critedge
 
 93:                                               ; preds = %83
   %94 = getelementptr inbounds nuw i8, ptr %77, i64 64
@@ -926,7 +926,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 109:                                              ; preds = %93
   tail call void @ucnvsel_close_77(ptr noundef nonnull %84)
-  br label %.thread
+  br label %.critedge
 
 110:                                              ; preds = %93
   %111 = load i32, ptr %77, align 4, !tbaa !32
@@ -936,7 +936,7 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
   store ptr %113, ptr %114, align 8, !tbaa !38
   %115 = load i32, ptr %100, align 8, !tbaa !29
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph, label %.thread
+  br i1 %116, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %110
   %117 = load i32, ptr %97, align 8, !tbaa !39
@@ -949,18 +949,18 @@ define noundef ptr @ucnvsel_openFromSerialized_77(ptr noundef %0, i32 noundef %1
 
 122:                                              ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %122 ]
-  %.0105136 = phi ptr [ %120, %.lr.ph ], [ %126, %122 ]
+  %.0105133 = phi ptr [ %120, %.lr.ph ], [ %126, %122 ]
   %123 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv
-  store ptr %.0105136, ptr %123, align 8, !tbaa !19
-  %124 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0105136) #17
-  %125 = getelementptr i8, ptr %.0105136, i64 %124
+  store ptr %.0105133, ptr %123, align 8, !tbaa !19
+  %124 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0105133) #17
+  %125 = getelementptr i8, ptr %.0105133, i64 %124
   %126 = getelementptr i8, ptr %125, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %122, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge, label %122, !llvm.loop !51
 
-.thread:                                          ; preds = %122, %110, %68, %63, %58, %55, %11, %14, %74, %92, %109, %82, %43, %39, %3
-  %.0106 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %14 ], [ null, %43 ], [ null, %39 ], [ null, %74 ], [ null, %82 ], [ null, %92 ], [ null, %109 ], [ null, %55 ], [ null, %58 ], [ null, %63 ], [ null, %68 ], [ %84, %110 ], [ %84, %122 ]
+.critedge:                                        ; preds = %122, %110, %11, %14, %74, %92, %109, %82, %68, %63, %58, %55, %43, %39, %3
+  %.0106 = phi ptr [ null, %3 ], [ null, %11 ], [ null, %14 ], [ null, %43 ], [ null, %39 ], [ null, %74 ], [ null, %82 ], [ null, %92 ], [ null, %109 ], [ null, %68 ], [ null, %63 ], [ null, %58 ], [ null, %55 ], [ %84, %110 ], [ %84, %122 ]
   ret ptr %.0106
 }
 

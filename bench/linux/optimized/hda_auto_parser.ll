@@ -1945,7 +1945,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   %8 = icmp eq i32 %2, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %10 = icmp sgt i32 %1, -1
-  br i1 %10, label %.lr.ph, label %.thread
+  br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4, %80
   %11 = phi i32 [ %82, %80 ], [ %1, %4 ]
@@ -1955,7 +1955,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   %15 = getelementptr %struct.hda_fixup, ptr %13, i64 %14
   %16 = add i32 %12, 1
   %17 = icmp sgt i32 %16, 10
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2045,37 +2045,37 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
 64:                                               ; preds = %60
   %65 = load i16, ptr %62, align 4
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %.loopexit, label %.preheader8
+  br i1 %66, label %.loopexit, label %.preheader9
 
-.preheader8:                                      ; preds = %64, %.preheader8
-  %67 = phi i16 [ %73, %.preheader8 ], [ %65, %64 ]
-  %68 = phi ptr [ %72, %.preheader8 ], [ %62, %64 ]
+.preheader9:                                      ; preds = %64, %.preheader9
+  %67 = phi i16 [ %73, %.preheader9 ], [ %65, %64 ]
+  %68 = phi ptr [ %72, %.preheader9 ], [ %62, %64 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @_snd_hda_set_pin_ctl(ptr noundef %0, i16 noundef zeroext %67, i32 noundef %70, i1 noundef zeroext true) #11
   %72 = getelementptr i8, ptr %68, i64 8
   %73 = load i16, ptr %72, align 4
   %74 = icmp eq i16 %73, 0
-  br i1 %74, label %.loopexit, label %.preheader8, !llvm.loop !22
+  br i1 %74, label %.loopexit, label %.preheader9, !llvm.loop !22
 
 75:                                               ; preds = %27
   %76 = load ptr, ptr %9, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %76, i32 noundef %28) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader8, %.preheader, %75, %64, %60, %59, %58, %54, %53, %50, %46, %45, %34, %30, %29
+.loopexit:                                        ; preds = %.preheader9, %.preheader, %75, %64, %60, %59, %58, %54, %53, %50, %46, %45, %34, %30, %29
   %77 = load i8, ptr %19, align 4
   %78 = and i8 %77, 3
   %79 = icmp eq i8 %78, 1
-  br i1 %79, label %80, label %.thread
+  br i1 %79, label %80, label %.critedge
 
 80:                                               ; preds = %.loopexit
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %.lr.ph, label %.thread
+  br i1 %83, label %.lr.ph, label %.critedge
 
-.thread:                                          ; preds = %80, %.lr.ph, %.loopexit, %4
+.critedge:                                        ; preds = %80, %.loopexit, %.lr.ph, %4
   ret void
 }
 

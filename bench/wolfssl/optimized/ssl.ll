@@ -2729,7 +2729,7 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 4
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %39
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -2740,19 +2740,19 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
 
 .thread:                                          ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  br label %30
+  br label %31
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %14 = load i8, ptr %13, align 4, !tbaa !77
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %30
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %11
   %17 = and i64 %.val, 48
   %18 = icmp eq i64 %17, 16
-  br i1 %18, label %19, label %30
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2760,33 +2760,33 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %21, ptr noundef nonnull %22, i32 noundef 32) #22
   %.not30 = icmp eq i32 %23, 0
-  br i1 %.not30, label %.thread33, label %39
+  br i1 %.not30, label %24, label %.critedge
 
-.thread33:                                        ; preds = %19
-  %24 = load ptr, ptr %2, align 16, !tbaa !76
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %26 = load i8, ptr %25, align 8
-  %27 = or i8 %26, 1
-  store i8 %27, ptr %25, align 8
-  %28 = load ptr, ptr %2, align 16, !tbaa !76
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %2, align 16, !tbaa !76
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %27 = load i8, ptr %26, align 8
+  %28 = or i8 %27, 1
+  store i8 %28, ptr %26, align 8
+  %29 = load ptr, ptr %2, align 16, !tbaa !76
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %.pre = load i64, ptr %4, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %.thread33, %.thread, %16, %11
-  %31 = phi i64 [ %.val, %16 ], [ %.val, %11 ], [ %.val, %.thread ], [ %.pre, %.thread33 ]
-  %.125 = phi i8 [ 0, %16 ], [ %14, %11 ], [ 32, %.thread ], [ 32, %.thread33 ]
-  %.1 = phi ptr [ %12, %16 ], [ %12, %11 ], [ %10, %.thread ], [ %29, %.thread33 ]
-  %32 = trunc i64 %31 to i32
-  %33 = lshr i32 %32, 4
-  %34 = and i32 %33, 3
-  %35 = icmp eq i32 %34, 1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %37 = select i1 %35, ptr %36, ptr null
-  %38 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.1, i8 noundef zeroext %.125, ptr poison, i32 noundef %34, i16 noundef zeroext 0, ptr noundef %37)
-  br label %39
+31:                                               ; preds = %.thread, %24, %16, %11
+  %32 = phi i64 [ %.pre, %24 ], [ %.val, %16 ], [ %.val, %11 ], [ %.val, %.thread ]
+  %.125 = phi i8 [ 32, %24 ], [ 0, %16 ], [ %14, %11 ], [ 32, %.thread ]
+  %.1 = phi ptr [ %30, %24 ], [ %12, %16 ], [ %12, %11 ], [ %10, %.thread ]
+  %33 = trunc i64 %32 to i32
+  %34 = lshr i32 %33, 4
+  %35 = and i32 %34, 3
+  %36 = icmp eq i32 %35, 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %38 = select i1 %36, ptr %37, ptr null
+  %39 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.1, i8 noundef zeroext %.125, ptr poison, i32 noundef %35, i16 noundef zeroext 0, ptr noundef %38)
+  br label %.critedge
 
-39:                                               ; preds = %19, %1, %30
+.critedge:                                        ; preds = %19, %1, %31
   ret void
 }
 
@@ -3470,11 +3470,11 @@ define range(i32 -173, 2) i32 @wolfSSL_get_ciphers(ptr noundef %0, i32 noundef %
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 1
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %.loopexit, label %.preheader
+  br i1 %or.cond, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
   %7 = icmp sgt i32 %4, 0
-  br i1 %7, label %.lr.ph, label %.loopexit
+  br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = add nsw i32 %4, -1
@@ -3484,22 +3484,22 @@ define range(i32 -173, 2) i32 @wolfSSL_get_ciphers(ptr noundef %0, i32 noundef %
 
 10:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.02539 = phi ptr [ %0, %.lr.ph ], [ %.126, %25 ]
-  %.02838 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
+  %.02535 = phi ptr [ %0, %.lr.ph ], [ %.126, %25 ]
+  %.02834 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
   %11 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr %3, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !121
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #23
   %14 = trunc i64 %13 to i32
   %15 = add nsw i32 %14, 1
-  %16 = icmp slt i32 %15, %.02838
-  br i1 %16, label %17, label %.loopexit
+  %16 = icmp slt i32 %15, %.02834
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %10
-  %18 = sext i32 %.02838 to i64
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %.02539, ptr noundef nonnull %12, i64 noundef %18) #22
+  %18 = sext i32 %.02834 to i64
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %.02535, ptr noundef nonnull %12, i64 noundef %18) #22
   %sext = shl i64 %13, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds i8, ptr %.02539, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.02535, i64 %20
   %22 = icmp samesign ult i64 %indvars.iv, %9
   br i1 %22, label %23, label %25
 
@@ -3511,12 +3511,12 @@ define range(i32 -173, 2) i32 @wolfSSL_get_ciphers(ptr noundef %0, i32 noundef %
 25:                                               ; preds = %17, %23
   %.126 = phi ptr [ %24, %23 ], [ %21, %17 ]
   store i8 0, ptr %.126, align 1, !tbaa !43
-  %26 = sub nsw i32 %.02838, %15
+  %26 = sub nsw i32 %.02834, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !123
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !123
 
-.loopexit:                                        ; preds = %25, %10, %.preheader, %2
+.critedge:                                        ; preds = %25, %10, %.preheader, %2
   %.0 = phi i32 [ -173, %2 ], [ 1, %.preheader ], [ 1, %25 ], [ -132, %10 ]
   ret i32 %.0
 }

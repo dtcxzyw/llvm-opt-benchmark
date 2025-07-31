@@ -566,7 +566,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   br label %flush_frame.exit
 
 flush_frame.exit:                                 ; preds = %132, %74, %62, %14, %134, %.loopexit, %30, %136
-  %.1 = phi i32 [ 0, %136 ], [ 0, %14 ], [ %.041, %30 ], [ %59, %.loopexit ], [ -1497649742, %134 ], [ 0, %62 ], [ %133, %132 ], [ -12, %74 ]
+  %.1 = phi i32 [ 0, %136 ], [ 0, %14 ], [ %.041, %30 ], [ %59, %.loopexit ], [ -1497649742, %134 ], [ 0, %62 ], [ -12, %74 ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10

@@ -2308,96 +2308,96 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairIjNS_11SmallVe
   %14 = icmp uge ptr %2, %12
   %15 = icmp ult ptr %2, %13
   %spec.select.i.i.i.i = and i1 %14, %15
-  br i1 %spec.select.i.i.i.i, label %17, label %16, !prof !491
+  br i1 %spec.select.i.i.i.i, label %16, label %.critedge.i.i, !prof !491
 
 16:                                               ; preds = %11
+  %17 = ptrtoint ptr %2 to i64
+  %18 = ptrtoint ptr %12 to i64
+  %19 = sub i64 %17, %18
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %20 = load ptr, ptr %0, align 8, !tbaa !140
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit
+
+.critedge.i.i:                                    ; preds = %11
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit
 
-17:                                               ; preds = %11
-  %18 = ptrtoint ptr %2 to i64
-  %19 = ptrtoint ptr %12 to i64
-  %20 = sub i64 %18, %19
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %21 = load ptr, ptr %0, align 8, !tbaa !140
-  %22 = getelementptr inbounds i8, ptr %21, i64 %20
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit: ; preds = %3, %16, %17
-  %.016.i.i = phi ptr [ %2, %3 ], [ %22, %17 ], [ %2, %16 ]
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit: ; preds = %3, %16, %.critedge.i.i
+  %.016.i.i = phi ptr [ %2, %3 ], [ %21, %16 ], [ %2, %.critedge.i.i ]
   %.not7.i.i.i = icmp eq i64 %1, 0
   %.pre5 = load i32, ptr %4, align 8, !tbaa !133
   br i1 %.not7.i.i.i, label %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit
-  %23 = load ptr, ptr %0, align 8, !tbaa !140
-  %24 = zext i32 %.pre5 to i64
-  %25 = getelementptr inbounds nuw %"struct.std::pair.98", ptr %23, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  br label %28
+  %22 = load ptr, ptr %0, align 8, !tbaa !140
+  %23 = zext i32 %.pre5 to i64
+  %24 = getelementptr inbounds nuw %"struct.std::pair.98", ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  br label %27
 
-28:                                               ; preds = %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %44, %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
-  %.068.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i ], [ %43, %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
-  %29 = load i32, ptr %.016.i.i, align 8, !tbaa !492
-  store i32 %29, ptr %.09.i.i.i, align 8, !tbaa !492
-  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
-  store ptr %31, ptr %30, align 8, !tbaa !140
-  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
-  store i32 0, ptr %32, align 8, !tbaa !133
-  %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 20
-  store i32 4, ptr %33, align 4, !tbaa !150
-  %34 = load i32, ptr %27, align 8, !tbaa !133
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %34, 0
-  %35 = icmp eq ptr %.09.i.i.i, %.016.i.i
-  %or.cond.i.i.i.i.i.i = or i1 %35, %.not.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i, label %36
+27:                                               ; preds = %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %43, %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
+  %.068.i.i.i = phi i64 [ %1, %.lr.ph.i.i.i ], [ %42, %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
+  %28 = load i32, ptr %.016.i.i, align 8, !tbaa !492
+  store i32 %28, ptr %.09.i.i.i, align 8, !tbaa !492
+  %29 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
+  store ptr %30, ptr %29, align 8, !tbaa !140
+  %31 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
+  store i32 0, ptr %31, align 8, !tbaa !133
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 20
+  store i32 4, ptr %32, align 4, !tbaa !150
+  %33 = load i32, ptr %26, align 8, !tbaa !133
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %33, 0
+  %34 = icmp eq ptr %.09.i.i.i, %.016.i.i
+  %or.cond.i.i.i.i.i.i = or i1 %34, %.not.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i, label %35
 
-36:                                               ; preds = %28
-  %37 = icmp ugt i32 %34, 4
-  br i1 %37, label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i, label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i
+35:                                               ; preds = %27
+  %36 = icmp ugt i32 %33, 4
+  br i1 %36, label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i, label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i
 
-_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i: ; preds = %36
-  %38 = zext i32 %34 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull %31, i64 noundef %38, i64 noundef 4) #10
-  %.pre.i.i.i.i.i.i = load i32, ptr %27, align 8, !tbaa !133
+_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i: ; preds = %35
+  %37 = zext i32 %33 to i64
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull %30, i64 noundef %37, i64 noundef 4) #10
+  %.pre.i.i.i.i.i.i = load i32, ptr %26, align 8, !tbaa !133
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i, label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i
 
 _ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i: ; preds = %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !140
+  %.pre.i.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !140
   br label %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i
 
-_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i: ; preds = %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i, %36
-  %39 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i ], [ %31, %36 ]
-  %40 = phi i32 [ %.pre.i.i.i.i.i.i, %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i ], [ %34, %36 ]
-  %41 = zext i32 %40 to i64
-  %42 = load ptr, ptr %26, align 8, !tbaa !140
-  %gepdiff.i.i.i.i.i.i.i = shl nuw nsw i64 %41, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 4 %42, i64 %gepdiff.i.i.i.i.i.i.i, i1 false)
+_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i: ; preds = %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i, %35
+  %38 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i ], [ %30, %35 ]
+  %39 = phi i32 [ %.pre.i.i.i.i.i.i, %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i._ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i_crit_edge.i.i.i.i.i ], [ %33, %35 ]
+  %40 = zext i32 %39 to i64
+  %41 = load ptr, ptr %25, align 8, !tbaa !140
+  %gepdiff.i.i.i.i.i.i.i = shl nuw nsw i64 %40, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 4 %41, i64 %gepdiff.i.i.i.i.i.i.i, i1 false)
   br label %.sink.split.i.i.i.i.i.i.i
 
 .sink.split.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i.i.i.i, %_ZSt4copyIPKN4llvm8RegisterEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i.i.i
-  store i32 %34, ptr %32, align 8, !tbaa !133
+  store i32 %33, ptr %31, align 8, !tbaa !133
   br label %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i
 
-_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i, %28
-  %43 = add i64 %.068.i.i.i, -1
-  %44 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
-  %.not.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i, label %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit, label %28, !llvm.loop !493
+_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i, %27
+  %42 = add i64 %.068.i.i.i, -1
+  %43 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
+  %.not.i.i.i = icmp eq i64 %42, 0
+  br i1 %.not.i.i.i, label %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit, label %27, !llvm.loop !493
 
 _ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit: ; preds = %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i
   %.pre = load i32, ptr %4, align 8, !tbaa !133
   br label %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit
 
 _ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit: ; preds = %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit
-  %45 = phi i32 [ %.pre, %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit ], [ %.pre5, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit ]
-  %46 = trunc i64 %1 to i32
-  %47 = add i32 %45, %46
-  store i32 %47, ptr %4, align 8, !tbaa !133
+  %44 = phi i32 [ %.pre, %_ZSt20uninitialized_fill_nIPSt4pairIjN4llvm11SmallVectorINS1_8RegisterELj4EEEEmS5_ET_S7_T0_RKT1_.exit.loopexit ], [ %.pre5, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EE28reserveForParamAndGetAddressERKS5_m.exit ]
+  %45 = trunc i64 %1 to i32
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %4, align 8, !tbaa !133
   ret void
 }
 

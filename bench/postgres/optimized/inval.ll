@@ -1328,15 +1328,15 @@ define dso_local void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %1, 
 define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @Mode, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 @IsCatalogRelation(ptr noundef %0) #7
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i1 @IsToastRelation(ptr noundef %0) #7
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr %3() #7, !callees !13
@@ -1427,7 +1427,7 @@ AddInvalidationMessage.exit.i.i:                  ; preds = %.sink.split.i.i.i, 
   br label %RegisterSnapshotInvalidation.exit
 
 RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidationMessage.exit.i.i, %50
-  switch i32 %14, label %.thread [
+  switch i32 %14, label %.critedge [
     i32 1259, label %51
     i32 1249, label %62
     i32 2610, label %70
@@ -1481,13 +1481,13 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %85 = load i8, ptr %84, align 4
   %86 = icmp eq i8 %85, 102
-  br i1 %86, label %87, label %.thread
+  br i1 %86, label %87, label %.critedge
 
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 80
   %89 = load i32, ptr %88, align 4
   %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %.thread, label %90
+  br i1 %.not, label %.critedge, label %90
 
 90:                                               ; preds = %87
   %91 = load i32, ptr @MyDatabaseId, align 4
@@ -1497,9 +1497,9 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   %.031 = phi i32 [ %57, %51 ], [ %68, %62 ], [ %76, %70 ], [ %89, %90 ]
   %.2 = phi i32 [ %.1, %51 ], [ %69, %62 ], [ %77, %70 ], [ %91, %90 ]
   tail call fastcc void @RegisterRelcacheInvalidation(ptr noundef %12, i32 noundef %.2, i32 noundef %.031)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %78, %87, %RegisterSnapshotInvalidation.exit, %9, %7, %4, %92
+.critedge:                                        ; preds = %87, %78, %RegisterSnapshotInvalidation.exit, %9, %7, %4, %92
   ret void
 }
 

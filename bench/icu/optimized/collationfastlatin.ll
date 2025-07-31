@@ -9,15 +9,15 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationD
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = icmp ne ptr %6, null
   %.not = icmp eq i32 %3, 384
-  %or.cond116 = and i1 %.not, %7
-  br i1 %or.cond116, label %8, label %.thread142
+  %or.cond120 = and i1 %.not, %7
+  br i1 %or.cond120, label %8, label %.critedge117
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = and i32 %10, 12
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %24, label %13
+  br i1 %12, label %25, label %13
 
 13:                                               ; preds = %8
   %14 = load i16, ptr %6, align 2, !tbaa !25
@@ -27,163 +27,163 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationD
   %18 = and i32 %17, 7
   %19 = add nuw nsw i32 %18, 1
   %.not109 = icmp samesign ult i32 %19, %16
-  br i1 %.not109, label %.thread, label %.thread142
+  br i1 %.not109, label %20, label %.critedge117
 
-.thread:                                          ; preds = %13
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %6, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !25
-  %23 = zext i16 %22 to i32
-  br label %24
+20:                                               ; preds = %13
+  %21 = zext nneg i32 %19 to i64
+  %22 = getelementptr inbounds nuw i16, ptr %6, i64 %21
+  %23 = load i16, ptr %22, align 2, !tbaa !25
+  %24 = zext i16 %23 to i32
+  br label %25
 
-24:                                               ; preds = %.thread, %8
-  %.096 = phi i32 [ 3071, %8 ], [ %23, %.thread ]
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !27
-  %.not145 = icmp eq ptr %26, null
-  br i1 %.not145, label %73, label %.preheader
+25:                                               ; preds = %20, %8
+  %.096 = phi i32 [ %24, %20 ], [ 3071, %8 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %.not143 = icmp eq ptr %27, null
+  br i1 %.not143, label %74, label %.preheader
 
-.preheader:                                       ; preds = %24, %51
-  %.072159 = phi i32 [ %52, %51 ], [ 4096, %24 ]
-  %.073158 = phi i32 [ %.3.ph, %51 ], [ 0, %24 ]
-  %.074157 = phi i32 [ %.377.ph, %51 ], [ 0, %24 ]
-  %.078156 = phi i32 [ %.381.ph, %51 ], [ 0, %24 ]
-  %.082155 = phi i32 [ %.385.ph, %51 ], [ 0, %24 ]
-  %27 = tail call noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %.072159)
-  %28 = load ptr, ptr %25, align 8, !tbaa !27
-  %29 = lshr i32 %27, 24
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !28
-  %33 = icmp ne i8 %32, 0
-  %34 = icmp ult i32 %27, 2
-  %or.cond.i = or i1 %34, %33
-  br i1 %or.cond.i, label %35, label %40
+.preheader:                                       ; preds = %25, %52
+  %.072157 = phi i32 [ %53, %52 ], [ 4096, %25 ]
+  %.073156 = phi i32 [ %.3.ph, %52 ], [ 0, %25 ]
+  %.074155 = phi i32 [ %.377.ph, %52 ], [ 0, %25 ]
+  %.078154 = phi i32 [ %.381.ph, %52 ], [ 0, %25 ]
+  %.082153 = phi i32 [ %.385.ph, %52 ], [ 0, %25 ]
+  %28 = tail call noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %.072157)
+  %29 = load ptr, ptr %26, align 8, !tbaa !27
+  %30 = lshr i32 %28, 24
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !28
+  %34 = icmp ne i8 %33, 0
+  %35 = icmp ult i32 %28, 2
+  %or.cond.i = or i1 %35, %34
+  br i1 %or.cond.i, label %36, label %41
 
-35:                                               ; preds = %.preheader
-  %36 = zext i8 %32 to i32
-  %37 = shl nuw i32 %36, 24
-  %38 = and i32 %27, 16777215
-  %39 = or disjoint i32 %37, %38
+36:                                               ; preds = %.preheader
+  %37 = zext i8 %33 to i32
+  %38 = shl nuw i32 %37, 24
+  %39 = and i32 %28, 16777215
+  %40 = or disjoint i32 %38, %39
   br label %_ZNK6icu_7717CollationSettings7reorderEj.exit
 
-40:                                               ; preds = %.preheader
-  %41 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %1, i32 noundef %27)
+41:                                               ; preds = %.preheader
+  %42 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %1, i32 noundef %28)
   br label %_ZNK6icu_7717CollationSettings7reorderEj.exit
 
-_ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %35, %40
-  %.0.i = phi i32 [ %39, %35 ], [ %41, %40 ]
-  %42 = icmp eq i32 %.072159, 4100
-  br i1 %42, label %51, label %43
+_ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %36, %41
+  %.0.i = phi i32 [ %40, %36 ], [ %42, %41 ]
+  %43 = icmp eq i32 %.072157, 4100
+  br i1 %43, label %52, label %44
 
-43:                                               ; preds = %_ZNK6icu_7717CollationSettings7reorderEj.exit
+44:                                               ; preds = %_ZNK6icu_7717CollationSettings7reorderEj.exit
   %.not111 = icmp eq i32 %.0.i, 0
-  br i1 %.not111, label %51, label %44
+  br i1 %.not111, label %52, label %45
 
-44:                                               ; preds = %43
-  %45 = icmp ult i32 %.0.i, %.082155
-  br i1 %45, label %.thread142, label %46
+45:                                               ; preds = %44
+  %46 = icmp ult i32 %.0.i, %.082153
+  br i1 %46, label %.critedge117, label %47
 
-46:                                               ; preds = %44
-  %47 = icmp ne i32 %.074157, 0
-  %48 = icmp eq i32 %.073158, 0
-  %or.cond = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond, label %49, label %51
+47:                                               ; preds = %45
+  %48 = icmp ne i32 %.074155, 0
+  %49 = icmp eq i32 %.073156, 0
+  %or.cond = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %52
 
-49:                                               ; preds = %46
-  %50 = icmp eq i32 %.082155, %.078156
-  %spec.select = select i1 %50, i32 %.0.i, i32 0
-  br label %51
+50:                                               ; preds = %47
+  %51 = icmp eq i32 %.082153, %.078154
+  %spec.select = select i1 %51, i32 %.0.i, i32 0
+  br label %52
 
-51:                                               ; preds = %46, %49, %_ZNK6icu_7717CollationSettings7reorderEj.exit, %43
-  %.385.ph = phi i32 [ %.0.i, %46 ], [ %.0.i, %49 ], [ %.082155, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.082155, %43 ]
-  %.381.ph = phi i32 [ %.078156, %46 ], [ %.078156, %49 ], [ %.082155, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.078156, %43 ]
-  %.377.ph = phi i32 [ %.074157, %46 ], [ %.074157, %49 ], [ %.0.i, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.074157, %43 ]
-  %.3.ph = phi i32 [ %.073158, %46 ], [ %spec.select, %49 ], [ %.073158, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.073158, %43 ]
-  %52 = add nuw nsw i32 %.072159, 1
-  %exitcond = icmp eq i32 %52, 4104
-  br i1 %exitcond, label %53, label %.preheader, !llvm.loop !29
+52:                                               ; preds = %47, %50, %_ZNK6icu_7717CollationSettings7reorderEj.exit, %44
+  %.385.ph = phi i32 [ %.0.i, %47 ], [ %.0.i, %50 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.082153, %44 ]
+  %.381.ph = phi i32 [ %.078154, %47 ], [ %.078154, %50 ], [ %.082153, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.078154, %44 ]
+  %.377.ph = phi i32 [ %.074155, %47 ], [ %.074155, %50 ], [ %.0.i, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.074155, %44 ]
+  %.3.ph = phi i32 [ %.073156, %47 ], [ %spec.select, %50 ], [ %.073156, %_ZNK6icu_7717CollationSettings7reorderEj.exit ], [ %.073156, %44 ]
+  %53 = add nuw nsw i32 %.072157, 1
+  %exitcond = icmp eq i32 %53, 4104
+  br i1 %exitcond, label %54, label %.preheader, !llvm.loop !29
 
-53:                                               ; preds = %51
-  %54 = tail call noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef 25)
-  %55 = load ptr, ptr %25, align 8, !tbaa !27
-  %56 = lshr i32 %54, 24
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !28
-  %60 = icmp ne i8 %59, 0
-  %61 = icmp ult i32 %54, 2
-  %or.cond.i118 = or i1 %61, %60
-  br i1 %or.cond.i118, label %62, label %67
+54:                                               ; preds = %52
+  %55 = tail call noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef 25)
+  %56 = load ptr, ptr %26, align 8, !tbaa !27
+  %57 = lshr i32 %55, 24
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !28
+  %61 = icmp ne i8 %60, 0
+  %62 = icmp ult i32 %55, 2
+  %or.cond.i122 = or i1 %62, %61
+  br i1 %or.cond.i122, label %63, label %68
 
-62:                                               ; preds = %53
-  %63 = zext i8 %59 to i32
-  %64 = shl nuw i32 %63, 24
-  %65 = and i32 %54, 16777215
-  %66 = or disjoint i32 %64, %65
-  br label %_ZNK6icu_7717CollationSettings7reorderEj.exit120
+63:                                               ; preds = %54
+  %64 = zext i8 %60 to i32
+  %65 = shl nuw i32 %64, 24
+  %66 = and i32 %55, 16777215
+  %67 = or disjoint i32 %65, %66
+  br label %_ZNK6icu_7717CollationSettings7reorderEj.exit124
 
-67:                                               ; preds = %53
-  %68 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %1, i32 noundef %54)
-  br label %_ZNK6icu_7717CollationSettings7reorderEj.exit120
+68:                                               ; preds = %54
+  %69 = tail call noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852) %1, i32 noundef %55)
+  br label %_ZNK6icu_7717CollationSettings7reorderEj.exit124
 
-_ZNK6icu_7717CollationSettings7reorderEj.exit120: ; preds = %62, %67
-  %.0.i119 = phi i32 [ %66, %62 ], [ %68, %67 ]
-  %.not146 = icmp ult i32 %.0.i119, %.385.ph
-  br i1 %.not146, label %.thread142, label %69
+_ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
+  %.0.i123 = phi i32 [ %67, %63 ], [ %69, %68 ]
+  %.not144 = icmp ult i32 %.0.i123, %.385.ph
+  br i1 %.not144, label %.critedge117, label %70
 
-69:                                               ; preds = %_ZNK6icu_7717CollationSettings7reorderEj.exit120
-  %70 = icmp eq i32 %.3.ph, 0
-  %spec.select114 = select i1 %70, i32 %.0.i119, i32 %.3.ph
-  %71 = icmp ult i32 %.381.ph, %.377.ph
-  %72 = icmp ult i32 %.377.ph, %spec.select114
-  %or.cond115.not.not = select i1 %71, i1 %72, i1 false
-  br label %73
+70:                                               ; preds = %_ZNK6icu_7717CollationSettings7reorderEj.exit124
+  %71 = icmp eq i32 %.3.ph, 0
+  %spec.select114 = select i1 %71, i32 %.0.i123, i32 %.3.ph
+  %72 = icmp ult i32 %.381.ph, %.377.ph
+  %73 = icmp ult i32 %.377.ph, %spec.select114
+  %or.cond115.not.not = select i1 %72, i1 %73, i1 false
+  br label %74
 
-73:                                               ; preds = %69, %24
-  %.086 = phi i1 [ %or.cond115.not.not, %69 ], [ true, %24 ]
-  %74 = load i16, ptr %6, align 2, !tbaa !25
-  %75 = and i16 %74, 255
-  %76 = zext nneg i16 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %6, i64 %76
-  br label %80
+74:                                               ; preds = %70, %25
+  %.086 = phi i1 [ %or.cond115.not.not, %70 ], [ true, %25 ]
+  %75 = load i16, ptr %6, align 2, !tbaa !25
+  %76 = and i16 %75, 255
+  %77 = zext nneg i16 %76 to i64
+  %78 = getelementptr inbounds nuw i16, ptr %6, i64 %77
+  br label %81
 
-78:                                               ; preds = %80
+79:                                               ; preds = %81
   %.pre.pre = load i32, ptr %9, align 8, !tbaa !18
-  %79 = and i32 %.pre.pre, 2
-  %.not113 = icmp eq i32 %79, 0
-  %or.cond167 = select i1 %.086, i1 %.not113, i1 false
-  br i1 %or.cond167, label %.loopexit, label %.loopexit.loopexit
+  %80 = and i32 %.pre.pre, 2
+  %.not113 = icmp eq i32 %80, 0
+  %or.cond165 = select i1 %.086, i1 %.not113, i1 false
+  br i1 %or.cond165, label %.loopexit, label %.loopexit.loopexit
 
-80:                                               ; preds = %73, %80
-  %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %80 ]
-  %81 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv
-  %82 = load i16, ptr %81, align 2, !tbaa !25
-  %83 = icmp ugt i16 %82, 4095
-  %84 = and i16 %82, -1024
-  %85 = zext nneg i16 %82 to i32
-  %86 = icmp samesign ult i32 %.096, %85
-  %87 = and i16 %82, 4088
-  %spec.select117 = select i1 %86, i16 %87, i16 0
-  %.070 = select i1 %83, i16 %84, i16 %spec.select117
-  %88 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  store i16 %.070, ptr %88, align 2, !tbaa !25
+81:                                               ; preds = %74, %81
+  %indvars.iv = phi i64 [ 0, %74 ], [ %indvars.iv.next, %81 ]
+  %82 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv
+  %83 = load i16, ptr %82, align 2, !tbaa !25
+  %84 = icmp ugt i16 %83, 4095
+  %85 = and i16 %83, -1024
+  %86 = zext nneg i16 %83 to i32
+  %87 = icmp samesign ult i32 %.096, %86
+  %88 = and i16 %83, 4088
+  %spec.select121 = select i1 %87, i16 %88, i16 0
+  %.070 = select i1 %84, i16 %85, i16 %spec.select121
+  %89 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  store i16 %.070, ptr %89, align 2, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond163.not = icmp eq i64 %indvars.iv.next, 384
-  br i1 %exitcond163.not, label %78, label %80, !llvm.loop !31
+  %exitcond161.not = icmp eq i64 %indvars.iv.next, 384
+  br i1 %exitcond161.not, label %79, label %81, !llvm.loop !31
 
-.loopexit.loopexit:                               ; preds = %78
+.loopexit.loopexit:                               ; preds = %79
   %scevgep = getelementptr i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %scevgep, i8 0, i64 20, i1 false), !tbaa !25
   br label %.loopexit
 
-.loopexit:                                        ; preds = %78, %.loopexit.loopexit
-  %89 = shl nuw i32 %.096, 16
-  %90 = or i32 %.pre.pre, %89
-  br label %.thread142
+.loopexit:                                        ; preds = %79, %.loopexit.loopexit
+  %90 = shl nuw i32 %.096, 16
+  %91 = or i32 %.pre.pre, %90
+  br label %.critedge117
 
-.thread142:                                       ; preds = %44, %_ZNK6icu_7717CollationSettings7reorderEj.exit120, %13, %.loopexit, %4
-  %.090 = phi i32 [ -1, %4 ], [ %90, %.loopexit ], [ -1, %13 ], [ -1, %_ZNK6icu_7717CollationSettings7reorderEj.exit120 ], [ -1, %44 ]
+.critedge117:                                     ; preds = %45, %_ZNK6icu_7717CollationSettings7reorderEj.exit124, %.loopexit, %13, %4
+  %.090 = phi i32 [ -1, %4 ], [ %91, %.loopexit ], [ -1, %_ZNK6icu_7717CollationSettings7reorderEj.exit124 ], [ -1, %13 ], [ -1, %45 ]
   ret i32 %.090
 }
 
@@ -1556,7 +1556,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin6lookupEPK
 define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %6) local_unnamed_addr #5 align 2 {
   %8 = add i32 %2, -3072
   %or.cond = icmp ult i32 %8, -2048
-  br i1 %or.cond, label %.thread, label %9
+  br i1 %or.cond, label %.critedge144, label %9
 
 9:                                                ; preds = %7
   %10 = icmp samesign ugt i32 %2, 2047
@@ -1568,7 +1568,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %14 = getelementptr inbounds nuw i16, ptr %0, i64 %13
   %15 = getelementptr i8, ptr %14, i64 896
   %16 = load i32, ptr %15, align 2
-  br label %.thread
+  br label %.critedge144
 
 17:                                               ; preds = %9
   %18 = icmp eq i32 %1, 0
@@ -1581,14 +1581,14 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %22 = load i32, ptr %5, align 4, !tbaa !32
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %6, align 4, !tbaa !32
-  br label %.thread
+  br label %.critedge144
 
 24:                                               ; preds = %17
   %25 = and i32 %2, 1023
   %26 = add nuw nsw i32 %25, 448
   %27 = load i32, ptr %5, align 4, !tbaa !32
   %.not = icmp eq i32 %27, %19
-  br i1 %.not, label %.thread153, label %28
+  br i1 %.not, label %.critedge, label %28
 
 28:                                               ; preds = %24
   %.not138 = icmp eq ptr %3, null
@@ -1614,7 +1614,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 
 40:                                               ; preds = %36
   %or.cond7 = icmp ugt i16 %33, -3
-  br i1 %or.cond7, label %.thread148, label %.thread
+  br i1 %or.cond7, label %.thread, label %.critedge144
 
 41:                                               ; preds = %28
   %42 = getelementptr inbounds i8, ptr %4, i64 %30
@@ -1649,10 +1649,10 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %59 = add nsw i32 %27, 2
   %60 = icmp slt i32 %59, %19
   %or.cond143 = or i1 %20, %60
-  br i1 %or.cond143, label %61, label %.thread
+  br i1 %or.cond143, label %61, label %.critedge144
 
 61:                                               ; preds = %58
-  switch i8 %43, label %.thread [
+  switch i8 %43, label %.critedge144 [
     i8 -30, label %62
     i8 -17, label %74
   ]
@@ -1662,14 +1662,14 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %64 = getelementptr inbounds i8, ptr %4, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !28
   %66 = icmp eq i8 %65, -128
-  br i1 %66, label %67, label %.thread
+  br i1 %66, label %67, label %.critedge144
 
 67:                                               ; preds = %62
   %68 = sext i32 %59 to i64
   %69 = getelementptr inbounds i8, ptr %4, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !28
   %or.cond15 = icmp slt i8 %70, -64
-  br i1 %or.cond15, label %71, label %.thread
+  br i1 %or.cond15, label %71, label %.critedge144
 
 71:                                               ; preds = %67
   %72 = zext i8 %70 to i32
@@ -1681,7 +1681,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %76 = getelementptr inbounds i8, ptr %4, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !28
   %78 = icmp eq i8 %77, -65
-  br i1 %78, label %79, label %.thread
+  br i1 %78, label %79, label %.critedge144
 
 79:                                               ; preds = %74
   %80 = sext i32 %59 to i64
@@ -1689,26 +1689,26 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %82 = load i8, ptr %81, align 1, !tbaa !28
   %83 = and i8 %82, -2
   %or.cond18 = icmp eq i8 %83, -66
-  br i1 %or.cond18, label %84, label %.thread
+  br i1 %or.cond18, label %84, label %.critedge144
 
 84:                                               ; preds = %79, %71
   %.3122 = phi i32 [ %73, %71 ], [ -1, %79 ]
   %85 = add nsw i32 %27, 3
-  br label %.thread148
+  br label %.thread
 
 86:                                               ; preds = %52, %41, %31, %38
   %.0119 = phi i32 [ %39, %38 ], [ %34, %31 ], [ %44, %41 ], [ %56, %52 ]
   %.0115 = phi i32 [ %29, %38 ], [ %29, %31 ], [ %29, %41 ], [ %57, %52 ]
   %87 = icmp eq i32 %.0119, 0
   %brmerge.not = select i1 %87, i1 %20, i1 false
-  br i1 %brmerge.not, label %88, label %.thread148
+  br i1 %brmerge.not, label %88, label %.thread
 
 88:                                               ; preds = %86
   store i32 %27, ptr %6, align 4, !tbaa !32
-  br label %.thread148
+  br label %.thread
 
-.thread148:                                       ; preds = %86, %84, %40, %88
-  %.0115151 = phi i32 [ %.0115, %88 ], [ %.0115, %86 ], [ %85, %84 ], [ %29, %40 ]
+.thread:                                          ; preds = %86, %84, %40, %88
+  %.0115148 = phi i32 [ %.0115, %88 ], [ %.0115, %86 ], [ %85, %84 ], [ %29, %40 ]
   %.5124 = phi i32 [ -1, %88 ], [ %.0119, %86 ], [ %.3122, %84 ], [ -1, %40 ]
   %89 = zext nneg i32 %26 to i64
   %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
@@ -1716,9 +1716,9 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %92 = zext i16 %91 to i32
   br label %93
 
-93:                                               ; preds = %93, %.thread148
-  %.0108 = phi i32 [ %26, %.thread148 ], [ %95, %93 ]
-  %.0107 = phi i32 [ %92, %.thread148 ], [ %99, %93 ]
+93:                                               ; preds = %93, %.thread
+  %.0108 = phi i32 [ %26, %.thread ], [ %95, %93 ]
+  %.0107 = phi i32 [ %92, %.thread ], [ %99, %93 ]
   %94 = lshr i32 %.0107, 9
   %95 = add nuw nsw i32 %94, %.0108
   %96 = zext nneg i32 %95 to i64
@@ -1731,27 +1731,27 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 
 102:                                              ; preds = %93
   %103 = icmp eq i32 %100, %.5124
-  br i1 %103, label %104, label %.thread153
+  br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %102
-  store i32 %.0115151, ptr %5, align 4, !tbaa !32
-  br label %.thread153
+  store i32 %.0115148, ptr %5, align 4, !tbaa !32
+  br label %.critedge
 
-.thread153:                                       ; preds = %102, %104, %24
-  %.0109 = phi i32 [ %26, %24 ], [ %26, %102 ], [ %95, %104 ]
+.critedge:                                        ; preds = %104, %102, %24
+  %.0109 = phi i32 [ %26, %24 ], [ %95, %104 ], [ %26, %102 ]
   %105 = sext i32 %.0109 to i64
   %106 = getelementptr inbounds i16, ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !25
   %108 = lshr i16 %107, 9
   %109 = icmp eq i16 %108, 1
-  br i1 %109, label %.thread, label %110
+  br i1 %109, label %.critedge144, label %110
 
-110:                                              ; preds = %.thread153
+110:                                              ; preds = %.critedge
   %111 = getelementptr i8, ptr %106, i64 2
   %112 = load i16, ptr %111, align 2, !tbaa !25
   %113 = zext i16 %112 to i32
   %114 = icmp eq i16 %108, 2
-  br i1 %114, label %.thread, label %115
+  br i1 %114, label %.critedge144, label %115
 
 115:                                              ; preds = %110
   %116 = getelementptr i8, ptr %106, i64 4
@@ -1759,10 +1759,10 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %118 = zext i16 %117 to i32
   %119 = shl nuw i32 %118, 16
   %120 = or disjoint i32 %119, %113
-  br label %.thread
+  br label %.critedge144
 
-.thread:                                          ; preds = %62, %67, %58, %74, %79, %61, %40, %110, %.thread153, %115, %7, %21, %11
-  %.0 = phi i32 [ %16, %11 ], [ 2, %21 ], [ %2, %7 ], [ %120, %115 ], [ 1, %.thread153 ], [ %113, %110 ], [ 1, %40 ], [ 1, %61 ], [ 1, %79 ], [ 1, %74 ], [ 1, %58 ], [ 1, %67 ], [ 1, %62 ]
+.critedge144:                                     ; preds = %62, %67, %61, %79, %74, %58, %110, %.critedge, %115, %40, %7, %21, %11
+  %.0 = phi i32 [ %16, %11 ], [ 2, %21 ], [ %2, %7 ], [ %120, %115 ], [ 1, %.critedge ], [ %113, %110 ], [ 1, %40 ], [ 1, %58 ], [ 1, %74 ], [ 1, %79 ], [ 1, %61 ], [ 1, %67 ], [ 1, %62 ]
   ret i32 %.0
 }
 

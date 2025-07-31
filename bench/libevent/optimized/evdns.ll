@@ -1811,8 +1811,8 @@ define internal fastcc void @server_port_flush(ptr noundef %0) unnamed_addr #2 {
   %8 = tail call ptr @__errno_location() #22
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
-    i32 11, label %.thread
-    i32 4, label %.thread
+    i32 11, label %.critedge
+    i32 4, label %.critedge
   ]
 
 10:                                               ; preds = %7
@@ -1823,7 +1823,7 @@ define internal fastcc void @server_port_flush(ptr noundef %0) unnamed_addr #2 {
 12:                                               ; preds = %10, %4
   %13 = tail call fastcc i32 @server_request_free(ptr noundef nonnull %.023)
   %.not28 = icmp eq i32 %13, 0
-  br i1 %.not28, label %3, label %.thread, !llvm.loop !13
+  br i1 %.not28, label %3, label %.critedge, !llvm.loop !13
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1834,13 +1834,13 @@ define internal fastcc void @server_port_flush(ptr noundef %0) unnamed_addr #2 {
   %20 = tail call i32 @event_assign(ptr noundef nonnull %15, ptr noundef %18, i32 noundef %19, i16 noundef signext 18, ptr noundef nonnull @server_port_ready_callback, ptr noundef nonnull %0) #21
   %21 = tail call i32 @event_add(ptr noundef nonnull %15, ptr noundef null) #21
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %14
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.41)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %7, %7, %12, %14, %23
+.critedge:                                        ; preds = %7, %7, %12, %14, %23
   ret void
 }
 
@@ -3993,12 +3993,12 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
 22:                                               ; preds = %string_num_dots.exit
   %23 = tail call fastcc ptr @request_new(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   %.not59 = icmp eq ptr %23, null
-  br i1 %.not59, label %request_submit.exit, label %48
+  br i1 %.not59, label %.critedge, label %48
 
 24:                                               ; preds = %string_num_dots.exit
   %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #23
   %.not.i61 = icmp eq i64 %25, 0
-  br i1 %.not.i61, label %request_submit.exit, label %26
+  br i1 %.not.i61, label %.critedge, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr i8, ptr %3, i64 %25
@@ -4008,7 +4008,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.03138.i = load ptr, ptr %31, align 8
   %.not3439.i = icmp eq ptr %.03138.i, null
-  br i1 %.not3439.i, label %request_submit.exit, label %.lr.ph.i62.preheader
+  br i1 %.not3439.i, label %.critedge, label %.lr.ph.i62.preheader
 
 .lr.ph.i62.preheader:                             ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %.03138.i, i64 16
@@ -4020,7 +4020,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   %38 = add i64 %37, 1
   %39 = tail call ptr @event_mm_malloc_(i64 noundef %38) #21
   %.not36.i = icmp eq ptr %39, null
-  br i1 %.not36.i, label %request_submit.exit, label %40
+  br i1 %.not36.i, label %.critedge, label %40
 
 40:                                               ; preds = %.lr.ph.i62.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %3, i64 %25, i1 false)
@@ -4040,7 +4040,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   %47 = tail call fastcc ptr @request_new(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %39, i32 noundef %4)
   tail call void @event_mm_free_(ptr noundef nonnull %39) #21
   %.not58 = icmp eq ptr %47, null
-  br i1 %.not58, label %request_submit.exit, label %48
+  br i1 %.not58, label %.critedge, label %48
 
 48:                                               ; preds = %43, %22
   %.sink = phi i32 [ -1, %22 ], [ 0, %43 ]
@@ -4055,7 +4055,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
 
 53:                                               ; preds = %48
   tail call void @event_mm_free_(ptr noundef nonnull %.147) #21
-  br label %request_submit.exit
+  br label %.critedge
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %9, align 8
@@ -4121,7 +4121,7 @@ evdns_request_insert.exit.i:                      ; preds = %79, %76
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %91, align 8
   tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %.147)
-  br label %request_submit.exit
+  br label %.critedge
 
 94:                                               ; preds = %54
   %95 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4156,12 +4156,12 @@ evdns_request_insert.exit15.i:                    ; preds = %100, %97
   %109 = load i32, ptr %108, align 8
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %108, align 8
-  br label %request_submit.exit
+  br label %.critedge
 
 111:                                              ; preds = %11, %8, %5
   %112 = tail call fastcc ptr @request_new(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   %.not55 = icmp eq ptr %112, null
-  br i1 %.not55, label %request_submit.exit, label %113
+  br i1 %.not55, label %.critedge, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 184
@@ -4218,7 +4218,7 @@ evdns_request_insert.exit.i66:                    ; preds = %132, %129
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %144, align 8
   tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %112)
-  br label %request_submit.exit
+  br label %.critedge
 
 147:                                              ; preds = %113
   %148 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -4253,9 +4253,9 @@ evdns_request_insert.exit15.i68:                  ; preds = %153, %150
   %162 = load i32, ptr %161, align 8
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %161, align 8
-  br label %request_submit.exit
+  br label %.critedge
 
-request_submit.exit:                              ; preds = %26, %.lr.ph.i62.preheader, %24, %43, %evdns_request_insert.exit15.i68, %evdns_request_insert.exit.i66, %evdns_request_insert.exit15.i, %evdns_request_insert.exit.i, %111, %22, %53
+.critedge:                                        ; preds = %26, %.lr.ph.i62.preheader, %24, %evdns_request_insert.exit15.i68, %evdns_request_insert.exit.i66, %evdns_request_insert.exit15.i, %evdns_request_insert.exit.i, %111, %22, %53, %43
   ret void
 }
 
@@ -11959,12 +11959,12 @@ search_state_decref.exit.i.i:                     ; preds = %._crit_edge.i.i.i, 
 306:                                              ; preds = %search_state_decref.exit.i.i, %296
   %307 = load ptr, ptr %277, align 8
   %.not9.i.i = icmp eq ptr %307, null
-  br i1 %.not9.i.i, label %search_request_finished.exit.thread62.i, label %308
+  br i1 %.not9.i.i, label %search_request_finished.exit.thread.i, label %308
 
 308:                                              ; preds = %306
   call void @event_mm_free_(ptr noundef nonnull %307) #21
   store ptr null, ptr %277, align 8
-  br label %search_request_finished.exit.thread62.i
+  br label %search_request_finished.exit.thread.i
 
 309:                                              ; preds = %268
   %310 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %278) #23
@@ -12031,10 +12031,10 @@ search_request_finished.exit.i:                   ; preds = %327, %326
   %341 = call fastcc ptr @request_new(ptr noundef %271, ptr noundef null, i32 noundef %338, ptr noundef nonnull %325, i32 noundef %340)
   call void @event_mm_free_(ptr noundef nonnull %325) #21
   %.not50.not.i = icmp eq ptr %341, null
-  br i1 %.not50.not.i, label %search_try_next.exit.thread, label %search_request_finished.exit.thread62.i
+  br i1 %.not50.not.i, label %search_try_next.exit.thread, label %search_request_finished.exit.thread.i
 
-search_request_finished.exit.thread62.i:          ; preds = %search_request_finished.exit.i, %308, %306
-  %.14165.i = phi ptr [ %341, %search_request_finished.exit.i ], [ %294, %306 ], [ %294, %308 ]
+search_request_finished.exit.thread.i:            ; preds = %search_request_finished.exit.i, %308, %306
+  %.14161.i = phi ptr [ %341, %search_request_finished.exit.i ], [ %294, %306 ], [ %294, %308 ]
   %342 = load ptr, ptr %270, align 8
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds nuw i8, ptr %269, i64 168
@@ -12046,19 +12046,19 @@ search_request_finished.exit.thread62.i:          ; preds = %search_request_fini
   %350 = zext nneg i32 %349 to i64
   %351 = getelementptr inbounds nuw ptr, ptr %343, i64 %350
   call fastcc void @request_finished(ptr noundef nonnull %269, ptr noundef %351, i32 noundef 0)
-  store ptr %.14165.i, ptr %262, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 192
+  store ptr %.14161.i, ptr %262, align 8
+  %352 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 192
   store ptr %262, ptr %352, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 184
+  %353 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 184
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 24
+  %355 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 24
   %356 = load ptr, ptr %355, align 8
   %.not.i56.i = icmp eq ptr %356, null
   br i1 %.not.i56.i, label %386, label %357
 
-357:                                              ; preds = %search_request_finished.exit.thread62.i
+357:                                              ; preds = %search_request_finished.exit.thread.i
   %358 = load ptr, ptr %354, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 168
+  %359 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 168
   %360 = load i16, ptr %359, align 8
   %361 = zext i16 %360 to i32
   %362 = getelementptr inbounds nuw i8, ptr %354, i64 24
@@ -12071,25 +12071,25 @@ search_request_finished.exit.thread62.i:          ; preds = %search_request_fini
   br i1 %.not.i.i.i71, label %368, label %371
 
 368:                                              ; preds = %357
-  store ptr %.14165.i, ptr %366, align 8
-  %369 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 40
-  store ptr %.14165.i, ptr %369, align 8
-  %370 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 32
-  store ptr %.14165.i, ptr %370, align 8
+  store ptr %.14161.i, ptr %366, align 8
+  %369 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 40
+  store ptr %.14161.i, ptr %369, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 32
+  store ptr %.14161.i, ptr %370, align 8
   br label %evdns_request_insert.exit.i.i72
 
 371:                                              ; preds = %357
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 40
   %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 40
+  %374 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 40
   store ptr %373, ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 32
-  store ptr %.14165.i, ptr %375, align 8
+  store ptr %.14161.i, ptr %375, align 8
   %376 = load ptr, ptr %366, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 32
   store ptr %376, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %376, i64 40
-  store ptr %.14165.i, ptr %378, align 8
+  store ptr %.14161.i, ptr %378, align 8
   br label %evdns_request_insert.exit.i.i72
 
 evdns_request_insert.exit.i.i72:                  ; preds = %371, %368
@@ -12102,35 +12102,35 @@ evdns_request_insert.exit.i.i72:                  ; preds = %371, %368
   %384 = load i32, ptr %383, align 8
   %385 = add nsw i32 %384, 1
   store i32 %385, ptr %383, align 8
-  call fastcc void @evdns_request_transmit(ptr noundef nonnull %.14165.i)
+  call fastcc void @evdns_request_transmit(ptr noundef nonnull %.14161.i)
   br label %client_retransmit_through_tcp.exit
 
-386:                                              ; preds = %search_request_finished.exit.thread62.i
+386:                                              ; preds = %search_request_finished.exit.thread.i
   %387 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %388 = load ptr, ptr %387, align 8
   %.not.i14.i.i73 = icmp eq ptr %388, null
   br i1 %.not.i14.i.i73, label %389, label %392
 
 389:                                              ; preds = %386
-  store ptr %.14165.i, ptr %387, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 40
-  store ptr %.14165.i, ptr %390, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 32
-  store ptr %.14165.i, ptr %391, align 8
+  store ptr %.14161.i, ptr %387, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 40
+  store ptr %.14161.i, ptr %390, align 8
+  %391 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 32
+  store ptr %.14161.i, ptr %391, align 8
   br label %evdns_request_insert.exit15.i.i74
 
 392:                                              ; preds = %386
   %393 = getelementptr inbounds nuw i8, ptr %388, i64 40
   %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 40
+  %395 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 40
   store ptr %394, ptr %395, align 8
   %396 = getelementptr inbounds nuw i8, ptr %394, i64 32
-  store ptr %.14165.i, ptr %396, align 8
+  store ptr %.14161.i, ptr %396, align 8
   %397 = load ptr, ptr %387, align 8
-  %398 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 32
+  %398 = getelementptr inbounds nuw i8, ptr %.14161.i, i64 32
   store ptr %397, ptr %398, align 8
   %399 = getelementptr inbounds nuw i8, ptr %397, i64 40
-  store ptr %.14165.i, ptr %399, align 8
+  store ptr %.14161.i, ptr %399, align 8
   br label %evdns_request_insert.exit15.i.i74
 
 evdns_request_insert.exit15.i.i74:                ; preds = %392, %389
@@ -12140,7 +12140,7 @@ evdns_request_insert.exit15.i.i74:                ; preds = %392, %389
   store i32 %402, ptr %400, align 8
   br label %client_retransmit_through_tcp.exit
 
-search_try_next.exit.thread:                      ; preds = %329, %311, %317, %309, %string_num_dots.exit.i, %288, %search_request_finished.exit.i, %265, %.thread88
+search_try_next.exit.thread:                      ; preds = %329, %311, %317, %309, %288, %string_num_dots.exit.i, %search_request_finished.exit.i, %265, %.thread88
   %403 = load ptr, ptr %261, align 8
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %405 = load i8, ptr %404, align 2

@@ -918,8 +918,8 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !20
-  %.not38 = icmp eq i32 %10, 1
-  br i1 %.not38, label %11, label %49
+  %.not39 = icmp eq i32 %10, 1
+  br i1 %.not39, label %11, label %49
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #19
@@ -940,35 +940,35 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
 
 .critedge:                                        ; preds = %11, %17
   %19 = phi i64 [ %18, %17 ], [ %1, %11 ]
-  %.not3440 = icmp eq i64 %19, 0
-  br i1 %.not3440, label %.thread, label %.lr.ph42
+  %.not3441 = icmp eq i64 %19, 0
+  br i1 %.not3441, label %.critedge38, label %.lr.ph43
 
-.lr.ph42:                                         ; preds = %.critedge
+.lr.ph43:                                         ; preds = %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %21
 
-21:                                               ; preds = %.lr.ph42, %28
-  %.02641 = phi i64 [ %19, %.lr.ph42 ], [ %30, %28 ]
-  %22 = call i64 @llvm.umin.i64(i64 %.02641, i64 4096)
+21:                                               ; preds = %.lr.ph43, %28
+  %.02642 = phi i64 [ %19, %.lr.ph43 ], [ %30, %28 ]
+  %22 = call i64 @llvm.umin.i64(i64 %.02642, i64 4096)
   %23 = load ptr, ptr %0, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %4, i64 noundef %22)
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.critedge38
 
 28:                                               ; preds = %21
   %29 = zext nneg i32 %26 to i64
-  %30 = sub i64 %.02641, %29
+  %30 = sub i64 %.02642, %29
   %31 = load i64, ptr %20, align 8, !tbaa !30
   %32 = add nsw i64 %31, %29
   store i64 %32, ptr %20, align 8, !tbaa !30
   %.not34 = icmp eq i64 %30, 0
-  br i1 %.not34, label %.thread, label %21, !llvm.loop !40
+  br i1 %.not34, label %.critedge38, label %21, !llvm.loop !40
 
 33:                                               ; preds = %13
   %34 = icmp eq i32 %2, 2
-  br i1 %34, label %.preheader, label %.thread
+  br i1 %34, label %.preheader, label %.critedge38
 
 .preheader:                                       ; preds = %33
   %35 = load ptr, ptr %0, align 8, !tbaa !3
@@ -976,7 +976,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %4, i64 noundef 4096)
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %.thread
+  br i1 %39, label %.lr.ph, label %.critedge38
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %40 = phi i32 [ %47, %.lr.ph ], [ %38, %.preheader ]
@@ -989,10 +989,10 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %4, i64 noundef 4096)
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph, label %.thread, !llvm.loop !41
+  br i1 %48, label %.lr.ph, label %.critedge38, !llvm.loop !41
 
-.thread:                                          ; preds = %.lr.ph, %28, %21, %.preheader, %.critedge, %33
-  %.4 = phi i1 [ false, %33 ], [ true, %.critedge ], [ true, %.preheader ], [ %27, %21 ], [ %27, %28 ], [ true, %.lr.ph ]
+.critedge38:                                      ; preds = %.lr.ph, %21, %28, %.preheader, %.critedge, %33
+  %.4 = phi i1 [ false, %33 ], [ true, %.critedge ], [ true, %.preheader ], [ %27, %28 ], [ %27, %21 ], [ true, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #19
   br label %78
 
@@ -1042,8 +1042,8 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %77 = icmp ne i64 %76, -1
   br label %78
 
-78:                                               ; preds = %72, %3, %.thread
-  %.0 = phi i1 [ %.4, %.thread ], [ true, %3 ], [ %77, %72 ]
+78:                                               ; preds = %72, %3, %.critedge38
+  %.0 = phi i1 [ %.4, %.critedge38 ], [ true, %3 ], [ %77, %72 ]
   ret i1 %.0
 }
 

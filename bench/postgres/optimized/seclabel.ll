@@ -65,7 +65,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %21 = getelementptr i8, ptr %7, i64 16
   %.val44 = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %.val44, align 8
-  br label %.thread
+  br label %.critedge
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -76,9 +76,9 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph56, label %.loopexit
+  br i1 %27, label %.lr.ph54, label %.loopexit
 
-.lr.ph56:                                         ; preds = %.lr.ph
+.lr.ph54:                                         ; preds = %.lr.ph
   %28 = load ptr, ptr %24, align 8
   %wide.trip.count = zext nneg i32 %26 to i64
   br label %30
@@ -88,14 +88,14 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %30
 
-30:                                               ; preds = %.lr.ph56, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %29 ]
+30:                                               ; preds = %.lr.ph54, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %29 ]
   %31 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %33) #10
   %.not35 = icmp eq i32 %34, 0
-  br i1 %.not35, label %.thread, label %29
+  br i1 %.not35, label %.critedge, label %29
 
 .loopexit:                                        ; preds = %29, %23, %.lr.ph
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -106,7 +106,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
-.thread:                                          ; preds = %30, %20
+.critedge:                                        ; preds = %30, %20
   %.0 = phi ptr [ %22, %20 ], [ %32, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4
@@ -134,7 +134,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
     i32 51, label %44
   ]
 
-SecLabelSupportsObjectType.exit:                  ; preds = %.thread
+SecLabelSupportsObjectType.exit:                  ; preds = %.critedge
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 151027844) #8
@@ -142,7 +142,7 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.thread
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
-44:                                               ; preds = %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread
+44:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = call { i64, i32 } @get_object_address(i32 noundef %40, ptr noundef %46, ptr noundef nonnull %3, i32 noundef 4, i1 noundef zeroext false) #8

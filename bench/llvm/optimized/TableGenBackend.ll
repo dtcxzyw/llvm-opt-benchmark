@@ -168,41 +168,41 @@ _ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_1
   %33 = icmp uge ptr %8, %.pre3.i.i
   %34 = icmp ult ptr %8, %32
   %spec.select.i.i.i.i.i.i = and i1 %33, %34
-  br i1 %spec.select.i.i.i.i.i.i, label %36, label %35, !prof !24
+  br i1 %spec.select.i.i.i.i.i.i, label %35, label %.critedge.i.i.i.i, !prof !24
 
 35:                                               ; preds = %31
+  %36 = ptrtoint ptr %8 to i64
+  %37 = ptrtoint ptr %.pre3.i.i to i64
+  %38 = sub i64 %36, %37
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %28)
+  %39 = load ptr, ptr %24, align 8, !tbaa !22
+  %40 = getelementptr inbounds i8, ptr %39, i64 %38
+  br label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE16addLiteralOptionIS9_EEvNS_9StringRefERKT_SC_.exit
+
+.critedge.i.i.i.i:                                ; preds = %31
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %28)
   %.pre.i.i = load ptr, ptr %24, align 8, !tbaa !22
   br label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE16addLiteralOptionIS9_EEvNS_9StringRefERKT_SC_.exit
 
-36:                                               ; preds = %31
-  %37 = ptrtoint ptr %8 to i64
-  %38 = ptrtoint ptr %.pre3.i.i to i64
-  %39 = sub i64 %37, %38
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %28)
-  %40 = load ptr, ptr %24, align 8, !tbaa !22
-  %41 = getelementptr inbounds i8, ptr %40, i64 %39
-  br label %_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE16addLiteralOptionIS9_EEvNS_9StringRefERKT_SC_.exit
-
-_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE16addLiteralOptionIS9_EEvNS_9StringRefERKT_SC_.exit: ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7, %35, %36
-  %42 = phi ptr [ %.pre3.i.i, %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7 ], [ %40, %36 ], [ %.pre.i.i, %35 ]
-  %.016.i.i.i.i = phi ptr [ %8, %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7 ], [ %41, %36 ], [ %8, %35 ]
-  %43 = load i32, ptr %25, align 8, !tbaa !18
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %42, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !25
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEEE, i64 16), ptr %46, align 8, !tbaa !16
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %48 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %47, ptr noundef nonnull align 8 dereferenceable(17) %48, i64 17, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEEE, i64 16), ptr %46, align 8, !tbaa !16
-  %49 = load i32, ptr %25, align 8, !tbaa !18
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %25, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i.i6, i64 176
-  %52 = load ptr, ptr %51, align 8, !tbaa !26
-  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr %1, i64 %2) #14
+_ZN4llvm2cl6parserINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEE16addLiteralOptionIS9_EEvNS_9StringRefERKT_SC_.exit: ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7, %35, %.critedge.i.i.i.i
+  %41 = phi ptr [ %.pre3.i.i, %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7 ], [ %39, %35 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %8, %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserISA_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISD_EEEptEv.exit7 ], [ %40, %35 ], [ %8, %.critedge.i.i.i.i ]
+  %42 = load i32, ptr %25, align 8, !tbaa !18
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::function_ref<void (const llvm::RecordKeeper &, llvm::raw_ostream &)>>::OptionInfo", ptr %41, i64 %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !25
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEEE, i64 16), ptr %45, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %46, ptr noundef nonnull align 8 dereferenceable(17) %47, i64 17, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS_12function_refIFvRKNS_12RecordKeeperERNS_11raw_ostreamEEEEEE, i64 16), ptr %45, align 8, !tbaa !16
+  %48 = load i32, ptr %25, align 8, !tbaa !18
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %25, align 8, !tbaa !18
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i.i6, i64 176
+  %51 = load ptr, ptr %50, align 8, !tbaa !26
+  call void @_ZN4llvm2cl16AddLiteralOptionERNS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr %1, i64 %2) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
   ret void
 }

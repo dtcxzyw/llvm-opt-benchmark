@@ -6597,12 +6597,12 @@ define internal fastcc void @_ZN3gmxL27setupLocalGpuForceReductionERKNS_21MdrunS
   %24 = load i8, ptr %23, align 1, !range !142
   %25 = trunc nuw i8 %24 to i1
   %not. = xor i1 %22, true
-  %.not4 = select i1 %not., i1 true, i1 %25
+  %.not1 = select i1 %not., i1 true, i1 %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %27 = load i8, ptr %26, align 1, !range !142
   %28 = trunc nuw i8 %27 to i1
-  %or.cond7 = select i1 %.not4, i1 %28, i1 false
-  br i1 %or.cond7, label %29, label %.thread
+  %or.cond4 = select i1 %.not1, i1 %28, i1 false
+  br i1 %or.cond4, label %29, label %.critedge
 
 29:                                               ; preds = %6
   %30 = tail call noundef ptr @_ZN3gmx12PmePpCommGpu21getGpuForceStagingPtrEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -6620,14 +6620,14 @@ define internal fastcc void @_ZN3gmxL27setupLocalGpuForceReductionERKNS_21MdrunS
 
 37:                                               ; preds = %35, %29
   tail call void @_ZN3gmx17GpuForceReduction13addDependencyEP20GpuEventSynchronizer(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %31)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %37
+.critedge:                                        ; preds = %6, %37
   %38 = load i8, ptr %7, align 1, !tbaa !280, !range !142, !noundef !143
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %46, label %40
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %.critedge
   %41 = load i8, ptr %10, align 1, !tbaa !520, !range !142, !noundef !143
   %42 = trunc nuw i8 %41 to i1
   %.not = xor i1 %42, true
@@ -6637,7 +6637,7 @@ define internal fastcc void @_ZN3gmxL27setupLocalGpuForceReductionERKNS_21MdrunS
   %or.cond = select i1 %.not, i1 true, i1 %45
   br i1 %or.cond, label %48, label %46
 
-46:                                               ; preds = %40, %.thread
+46:                                               ; preds = %40, %.critedge
   %47 = tail call noundef ptr @_ZN3gmx22StatePropagatorDataGpu14fReadyOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0)
   tail call void @_ZN3gmx17GpuForceReduction13addDependencyEP20GpuEventSynchronizer(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %47)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 15

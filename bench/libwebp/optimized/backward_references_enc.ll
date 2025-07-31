@@ -898,18 +898,18 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %88 = tail call ptr @VP8LAllocateHistogram(i32 noundef 10) #11
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.critedge, label %.preheader246.i
+  br i1 %89, label %.critedge, label %.preheader247.i
 
-.preheader246.i:                                  ; preds = %84
-  %.not257.i = icmp eq i32 %5, 0
-  br i1 %.not257.i, label %.preheader246..preheader_crit_edge.i, label %.lr.ph.i
+.preheader247.i:                                  ; preds = %84
+  %.not258.i = icmp eq i32 %5, 0
+  br i1 %.not258.i, label %.preheader247..preheader_crit_edge.i, label %.lr.ph.i
 
-.preheader246..preheader_crit_edge.i:             ; preds = %.preheader246.i
-  %.pre280.i = add nsw i32 %0, -8
-  %.pre281.i = add i32 %0, 24
+.preheader247..preheader_crit_edge.i:             ; preds = %.preheader247.i
+  %.pre281.i = add nsw i32 %0, -8
+  %.pre282.i = add i32 %0, 24
   br label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader246.i
+.lr.ph.i:                                         ; preds = %.preheader247.i
   %90 = mul nsw i32 %1, %0
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -954,10 +954,10 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
   %.pre.i = load i32, ptr %23, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.loopexit.i, %.preheader246..preheader_crit_edge.i
-  %.pre-phi282.i = phi i32 [ %.pre281.i, %.preheader246..preheader_crit_edge.i ], [ %98, %.preheader.loopexit.i ]
-  %.pre-phi.i = phi i32 [ %.pre280.i, %.preheader246..preheader_crit_edge.i ], [ %97, %.preheader.loopexit.i ]
-  %121 = phi i32 [ 0, %.preheader246..preheader_crit_edge.i ], [ %.pre.i, %.preheader.loopexit.i ]
+.preheader.i:                                     ; preds = %.preheader.loopexit.i, %.preheader247..preheader_crit_edge.i
+  %.pre-phi283.i = phi i32 [ %.pre282.i, %.preheader247..preheader_crit_edge.i ], [ %98, %.preheader.loopexit.i ]
+  %.pre-phi.i = phi i32 [ %.pre281.i, %.preheader247..preheader_crit_edge.i ], [ %97, %.preheader.loopexit.i ]
+  %121 = phi i32 [ 0, %.preheader247..preheader_crit_edge.i ], [ %.pre.i, %.preheader.loopexit.i ]
   %122 = icmp sgt i32 %3, 24
   %123 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -965,14 +965,14 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
   br label %690
 
 126:                                              ; preds = %.loopexit.i, %.lr.ph.i
-  %.0107259.i = phi i32 [ %5, %.lr.ph.i ], [ %688, %.loopexit.i ]
-  %.0116258.i = phi i32 [ 1, %.lr.ph.i ], [ %689, %.loopexit.i ]
-  %127 = and i32 %.0116258.i, %.0107259.i
+  %.0107260.i = phi i32 [ %5, %.lr.ph.i ], [ %688, %.loopexit.i ]
+  %.0116259.i = phi i32 [ 1, %.lr.ph.i ], [ %689, %.loopexit.i ]
+  %127 = and i32 %.0116259.i, %.0107260.i
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %.loopexit.i, label %129
 
 129:                                              ; preds = %126
-  switch i32 %.0116258.i, label %.critedge [
+  switch i32 %.0116259.i, label %.critedge [
     i32 2, label %130
     i32 1, label %284
     i32 4, label %286
@@ -1657,20 +1657,20 @@ BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %2
 420:                                              ; preds = %BackwardReferencesLz77Box.exit.i, %284, %BackwardReferencesRle.exit.i
   %.0112.i = phi i32 [ %283, %BackwardReferencesRle.exit.i ], [ %285, %284 ], [ %.0.i131.i, %BackwardReferencesLz77Box.exit.i ]
   %.not123.i = icmp eq i32 %.0112.i, 0
-  br i1 %.not123.i, label %.critedge, label %.preheader244.i
+  br i1 %.not123.i, label %.critedge, label %.preheader245.i
 
-.preheader244.i:                                  ; preds = %420, %686
+.preheader245.i:                                  ; preds = %420, %686
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %686 ], [ 1, %420 ]
-  %.0109256.i = phi i64 [ %.1110.ph.i, %686 ], [ 0, %420 ]
+  %.0109257.i = phi i64 [ %.1110.ph.i, %686 ], [ 0, %420 ]
   %421 = icmp eq i64 %indvars.iv.i, 1
   %422 = select i1 %421, i32 0, i32 %6
   %423 = icmp ne i64 %indvars.iv.i, 1
   %or.cond.i = or i1 %85, %423
   br i1 %or.cond.i, label %424, label %686
 
-424:                                              ; preds = %.preheader244.i
+424:                                              ; preds = %.preheader245.i
   %425 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %425, label %426, label %.thread217.i
+  br i1 %425, label %426, label %.thread218.i
 
 426:                                              ; preds = %424
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %18) #11
@@ -1962,9 +1962,9 @@ VP8LRefsCursorNext.exit.i.i46:                    ; preds = %563, %.loopexit123.
   br i1 %.not120.i.i, label %.preheader.i141.i, label %450, !llvm.loop !78
 
 .lr.ph149.i.i:                                    ; preds = %.preheader.i141.i, %.lr.ph149.i.i
-  %.1203.i = phi i32 [ %spec.select238.i, %.lr.ph149.i.i ], [ %422, %.preheader.i141.i ]
+  %.1204.i = phi i32 [ %spec.select239.i, %.lr.ph149.i.i ], [ %422, %.preheader.i141.i ]
   %indvars.iv171.i.i = phi i64 [ %indvars.iv.next172.i.i, %.lr.ph149.i.i ], [ 0, %.preheader.i141.i ]
-  %.097147.i.i = phi i64 [ %spec.select239.i, %.lr.ph149.i.i ], [ -1, %.preheader.i141.i ]
+  %.097147.i.i = phi i64 [ %spec.select240.i, %.lr.ph149.i.i ], [ -1, %.preheader.i141.i ]
   %570 = getelementptr inbounds nuw [11 x ptr], ptr %20, i64 0, i64 %indvars.iv171.i.i
   %571 = load ptr, ptr %570, align 8, !tbaa !36
   %572 = call i64 @VP8LHistogramEstimateBits(ptr noundef %571) #11
@@ -1972,15 +1972,15 @@ VP8LRefsCursorNext.exit.i.i46:                    ; preds = %563, %.loopexit123.
   %574 = icmp ult i64 %572, %.097147.i.i
   %or.cond.i142.i = select i1 %573, i1 true, i1 %574
   %575 = trunc nuw nsw i64 %indvars.iv171.i.i to i32
-  %spec.select238.i = select i1 %or.cond.i142.i, i32 %575, i32 %.1203.i
-  %spec.select239.i = select i1 %or.cond.i142.i, i64 %572, i64 %.097147.i.i
+  %spec.select239.i = select i1 %or.cond.i142.i, i32 %575, i32 %.1204.i
+  %spec.select240.i = select i1 %or.cond.i142.i, i64 %572, i64 %.097147.i.i
   %indvars.iv.next172.i.i = add nuw nsw i64 %indvars.iv171.i.i, 1
   %exitcond175.not.i.i = icmp eq i64 %indvars.iv.next172.i.i, %wide.trip.count.i136.i
   br i1 %exitcond175.not.i.i, label %.lr.ph152.i.preheader.i, label %.lr.ph149.i.i, !llvm.loop !79
 
 .lr.ph152.i.preheader.i:                          ; preds = %.lr.ph.i137.i, %445, %.lr.ph149.i.i
-  %.not124289.i = phi i1 [ false, %.lr.ph149.i.i ], [ true, %445 ], [ true, %.lr.ph.i137.i ]
-  %.3287.i = phi i32 [ %spec.select238.i, %.lr.ph149.i.i ], [ %422, %445 ], [ %422, %.lr.ph.i137.i ]
+  %.not124290.i = phi i1 [ false, %.lr.ph149.i.i ], [ true, %445 ], [ true, %.lr.ph.i137.i ]
+  %.3288.i = phi i32 [ %spec.select239.i, %.lr.ph149.i.i ], [ %422, %445 ], [ %422, %.lr.ph.i137.i ]
   br label %.lr.ph152.i.i
 
 .lr.ph152.i.i:                                    ; preds = %580, %.lr.ph152.i.preheader.i
@@ -2014,11 +2014,11 @@ CalculateBestCacheSize.exit.i:                    ; preds = %580
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #11
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %18) #11
-  br i1 %.not124289.i, label %.critedge, label %583
+  br i1 %.not124290.i, label %.critedge, label %583
 
 583:                                              ; preds = %CalculateBestCacheSize.exit.i, %CalculateBestCacheSize.exit.thread.i
-  %.4214.i = phi i32 [ %.4.ph.i, %CalculateBestCacheSize.exit.thread.i ], [ %.3287.i, %CalculateBestCacheSize.exit.i ]
-  %584 = icmp sgt i32 %.4214.i, 0
+  %.4215.i = phi i32 [ %.4.ph.i, %CalculateBestCacheSize.exit.thread.i ], [ %.3288.i, %CalculateBestCacheSize.exit.i ]
+  %584 = icmp sgt i32 %.4215.i, 0
   br i1 %584, label %585, label %634
 
 585:                                              ; preds = %583
@@ -2032,12 +2032,12 @@ VP8LRefsCursorInit.exit.i147.i:                   ; preds = %585
   %587 = load ptr, ptr %586, align 8, !tbaa !23, !noalias !84
   %588 = getelementptr inbounds nuw i8, ptr %.val128.i, i64 16
   %589 = load i32, ptr %588, align 8, !tbaa !24, !noalias !84
-  %590 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4214.i) #11
+  %590 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4215.i) #11
   %.not.i148.i = icmp eq i32 %590, 0
   br i1 %.not.i148.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %.preheader4.i.i
 
 VP8LRefsCursorInit.exit.thread.i.i:               ; preds = %585
-  %591 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4214.i) #11
+  %591 = call i32 @VP8LColorCacheInit(ptr noundef nonnull %17, i32 noundef range(i32 1, -2147483648) %.4215.i) #11
   %.not17.i.i = icmp eq i32 %591, 0
   br i1 %.not17.i.i, label %BackwardRefsWithLocalCache.exit.thread.i, label %BackwardRefsWithLocalCache.exit.i
 
@@ -2158,19 +2158,19 @@ BackwardRefsWithLocalCache.exit.i:                ; preds = %VP8LRefsCursorNext.
   br label %634
 
 634:                                              ; preds = %BackwardRefsWithLocalCache.exit.i, %583
-  %635 = icmp eq i32 %.4214.i, 0
+  %635 = icmp eq i32 %.4215.i, 0
   %or.cond5.i = and i1 %85, %635
-  br i1 %or.cond5.i, label %637, label %.thread217.i
+  br i1 %or.cond5.i, label %637, label %.thread218.i
 
-.thread217.i:                                     ; preds = %634, %424
-  %.0202221.i = phi i32 [ %.4214.i, %634 ], [ %422, %424 ]
-  call void @VP8LHistogramCreate(ptr noundef nonnull %88, ptr noundef nonnull %87, i32 noundef %.0202221.i) #11
+.thread218.i:                                     ; preds = %634, %424
+  %.0203222.i = phi i32 [ %.4215.i, %634 ], [ %422, %424 ]
+  call void @VP8LHistogramCreate(ptr noundef nonnull %88, ptr noundef nonnull %87, i32 noundef %.0203222.i) #11
   %636 = call i64 @VP8LHistogramEstimateBits(ptr noundef nonnull %88) #11
   br label %637
 
-637:                                              ; preds = %.thread217.i, %634
-  %.0202222.i = phi i32 [ 0, %634 ], [ %.0202221.i, %.thread217.i ]
-  %.2111.i = phi i64 [ %.0109256.i, %634 ], [ %636, %.thread217.i ]
+637:                                              ; preds = %.thread218.i, %634
+  %.0203223.i = phi i32 [ 0, %634 ], [ %.0203222.i, %.thread218.i ]
+  %.2111.i = phi i64 [ %.0109257.i, %634 ], [ %636, %.thread218.i ]
   %638 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %indvars.iv.i
   %639 = load i64, ptr %638, align 8, !tbaa !90
   %640 = icmp ult i64 %.2111.i, %639
@@ -2196,25 +2196,25 @@ VP8LClearBackwardRefs.exit.i.i:                   ; preds = %644, %642
   store ptr %118, ptr %116, align 8, !tbaa !6
   store ptr null, ptr %119, align 8, !tbaa !15
   store ptr null, ptr %118, align 8, !tbaa !14
-  %.not6.i.i = icmp eq ptr %.val129.i, null
-  br i1 %.not6.i.i, label %BackwardRefsClone.exit.thread.thread.i, label %.lr.ph.i165.i
+  %.not3.i165.i = icmp eq ptr %.val129.i, null
+  br i1 %.not3.i165.i, label %BackwardRefsClone.exit.thread.thread.i, label %.lr.ph.i166.i
 
 BackwardRefsClone.exit.thread.thread.i:           ; preds = %VP8LClearBackwardRefs.exit.i.i
   store i64 %.2111.i, ptr %638, align 8, !tbaa !90
-  store i32 %.0116258.i, ptr %120, align 4, !tbaa !32
+  store i32 %.0116259.i, ptr %120, align 4, !tbaa !32
   br label %686
 
-.lr.ph.i165.ithread-pre-split:                    ; preds = %660
+.lr.ph.i166.ithread-pre-split:                    ; preds = %660
   %.pr = load ptr, ptr %117, align 8, !tbaa !12
-  br label %.lr.ph.i165.i
+  br label %.lr.ph.i166.i
 
-.lr.ph.i165.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i.i, %.lr.ph.i165.ithread-pre-split
-  %647 = phi ptr [ %.pr, %.lr.ph.i165.ithread-pre-split ], [ %646, %VP8LClearBackwardRefs.exit.i.i ]
-  %.0137.i.i = phi ptr [ %671, %.lr.ph.i165.ithread-pre-split ], [ %.val129.i, %VP8LClearBackwardRefs.exit.i.i ]
+.lr.ph.i166.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i.i, %.lr.ph.i166.ithread-pre-split
+  %647 = phi ptr [ %.pr, %.lr.ph.i166.ithread-pre-split ], [ %646, %VP8LClearBackwardRefs.exit.i.i ]
+  %.0134.i.i = phi ptr [ %671, %.lr.ph.i166.ithread-pre-split ], [ %.val129.i, %VP8LClearBackwardRefs.exit.i.i ]
   %648 = icmp eq ptr %647, null
   br i1 %648, label %649, label %658
 
-649:                                              ; preds = %.lr.ph.i165.i
+649:                                              ; preds = %.lr.ph.i166.i
   %650 = load i32, ptr %115, align 8, !tbaa !20
   %651 = sext i32 %650 to i64
   %652 = shl nsw i64 %651, 3
@@ -2229,15 +2229,15 @@ BackwardRefsClone.exit.thread.thread.i:           ; preds = %VP8LClearBackwardRe
   store ptr %656, ptr %657, align 8, !tbaa !23
   br label %660
 
-658:                                              ; preds = %.lr.ph.i165.i
+658:                                              ; preds = %.lr.ph.i166.i
   %659 = load ptr, ptr %647, align 8, !tbaa !16
   store ptr %659, ptr %117, align 8, !tbaa !12
-  %.phi.trans.insert.i166.i = getelementptr inbounds nuw i8, ptr %647, i64 8
-  %.pre.i167.i = load ptr, ptr %.phi.trans.insert.i166.i, align 8, !tbaa !23
+  %.phi.trans.insert.i167.i = getelementptr inbounds nuw i8, ptr %647, i64 8
+  %.pre.i168.i = load ptr, ptr %.phi.trans.insert.i167.i, align 8, !tbaa !23
   br label %660
 
 660:                                              ; preds = %658, %655
-  %661 = phi ptr [ %656, %655 ], [ %.pre.i167.i, %658 ]
+  %661 = phi ptr [ %656, %655 ], [ %.pre.i168.i, %658 ]
   %.021.i.i.i = phi ptr [ %654, %655 ], [ %647, %658 ]
   %662 = load ptr, ptr %116, align 8, !tbaa !6
   store ptr %.021.i.i.i, ptr %662, align 8, !tbaa !13
@@ -2246,18 +2246,18 @@ BackwardRefsClone.exit.thread.thread.i:           ; preds = %VP8LClearBackwardRe
   store ptr null, ptr %.021.i.i.i, align 8, !tbaa !16
   %663 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 16
   store i32 0, ptr %663, align 8, !tbaa !24
-  %664 = getelementptr inbounds nuw i8, ptr %.0137.i.i, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %.0134.i.i, i64 8
   %665 = load ptr, ptr %664, align 8, !tbaa !23
-  %666 = getelementptr inbounds nuw i8, ptr %.0137.i.i, i64 16
+  %666 = getelementptr inbounds nuw i8, ptr %.0134.i.i, i64 16
   %667 = load i32, ptr %666, align 8, !tbaa !24
   %668 = sext i32 %667 to i64
   %669 = shl nsw i64 %668, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %661, ptr align 4 %665, i64 %669, i1 false)
   %670 = load i32, ptr %666, align 8, !tbaa !24
   store i32 %670, ptr %663, align 8, !tbaa !24
-  %671 = load ptr, ptr %.0137.i.i, align 8, !tbaa !16
-  %.not.i168.i = icmp eq ptr %671, null
-  br i1 %.not.i168.i, label %BackwardRefsClone.exit.thread.i, label %.lr.ph.i165.ithread-pre-split, !llvm.loop !91
+  %671 = load ptr, ptr %.0134.i.i, align 8, !tbaa !16
+  %.not.i169.i = icmp eq ptr %671, null
+  br i1 %.not.i169.i, label %BackwardRefsClone.exit.thread.i, label %.lr.ph.i166.ithread-pre-split, !llvm.loop !91
 
 BackwardRefsClone.exit.i:                         ; preds = %649
   %672 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -2268,9 +2268,9 @@ BackwardRefsClone.exit.i:                         ; preds = %649
 
 675:                                              ; preds = %641
   %676 = load ptr, ptr %99, align 8, !tbaa !6
-  %.not.i170.i = icmp ne ptr %676, null
+  %.not.i171.i = icmp ne ptr %676, null
   %677 = icmp eq ptr %676, %101
-  %678 = select i1 %.not.i170.i, i1 %677, i1 false
+  %678 = select i1 %.not.i171.i, i1 %677, i1 false
   %679 = load ptr, ptr %113, align 8, !tbaa !6
   %.not16.i.i = icmp ne ptr %679, null
   %680 = icmp eq ptr %679, %114
@@ -2299,34 +2299,34 @@ BackwardRefsSwap.exit.i:                          ; preds = %684, %683
 BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsSwap.exit.i
   store i64 %.2111.i, ptr %638, align 8, !tbaa !90
   %685 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %indvars.iv.i
-  store i32 %.0116258.i, ptr %685, align 4, !tbaa !32
+  store i32 %.0116259.i, ptr %685, align 4, !tbaa !32
   br i1 %425, label %.thread.i, label %686
 
 .thread.i:                                        ; preds = %BackwardRefsClone.exit.thread.i
-  store i32 %.0202222.i, ptr %10, align 4, !tbaa !32
+  store i32 %.0203223.i, ptr %10, align 4, !tbaa !32
   br label %.loopexit.i
 
-686:                                              ; preds = %BackwardRefsClone.exit.thread.i, %BackwardRefsClone.exit.thread.thread.i, %637, %.preheader244.i
-  %.1110.ph.i = phi i64 [ %.2111.i, %637 ], [ %.2111.i, %BackwardRefsClone.exit.thread.i ], [ %.0109256.i, %.preheader244.i ], [ %.2111.i, %BackwardRefsClone.exit.thread.thread.i ]
+686:                                              ; preds = %BackwardRefsClone.exit.thread.i, %BackwardRefsClone.exit.thread.thread.i, %637, %.preheader245.i
+  %.1110.ph.i = phi i64 [ %.2111.i, %637 ], [ %.2111.i, %BackwardRefsClone.exit.thread.i ], [ %.0109257.i, %.preheader245.i ], [ %.2111.i, %BackwardRefsClone.exit.thread.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not283.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not283.i, label %.loopexit.i, label %.preheader244.i, !llvm.loop !94
+  %.not284.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not284.i, label %.loopexit.i, label %.preheader245.i, !llvm.loop !94
 
 .loopexit.i:                                      ; preds = %686, %.thread.i, %126
-  %687 = xor i32 %.0116258.i, -1
-  %688 = and i32 %.0107259.i, %687
-  %689 = shl i32 %.0116258.i, 1
+  %687 = xor i32 %.0116259.i, -1
+  %688 = and i32 %.0107260.i, %687
+  %689 = shl i32 %.0116259.i, 1
   %.not.i35 = icmp eq i32 %688, 0
   br i1 %.not.i35, label %.preheader.loopexit.i, label %126, !llvm.loop !95
 
 690:                                              ; preds = %821, %.preheader.i
-  %indvars.iv277.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next278.i, %821 ]
-  %691 = icmp ne i64 %indvars.iv277.i, 1
+  %indvars.iv278.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next279.i, %821 ]
+  %691 = icmp ne i64 %indvars.iv278.i, 1
   %or.cond7.i = or i1 %85, %691
   br i1 %or.cond7.i, label %692, label %821
 
 692:                                              ; preds = %690
-  %693 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %indvars.iv277.i
+  %693 = getelementptr inbounds nuw [2 x i32], ptr %23, i64 0, i64 %indvars.iv278.i
   %694 = load i32, ptr %693, align 4, !tbaa !32
   %695 = icmp eq i32 %694, 1
   br i1 %695, label %698, label %696
@@ -2334,14 +2334,14 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
 696:                                              ; preds = %692
   %697 = icmp eq i32 %694, 4
   %or.cond9.i = and i1 %122, %697
-  br i1 %or.cond9.i, label %699, label %.thread233.i
+  br i1 %or.cond9.i, label %699, label %.thread234.i
 
 698:                                              ; preds = %692
-  br i1 %122, label %699, label %.thread233.i
+  br i1 %122, label %699, label %.thread234.i
 
 699:                                              ; preds = %698, %696
   %700 = phi ptr [ %25, %696 ], [ %8, %698 ]
-  %701 = icmp eq i64 %indvars.iv277.i, 1
+  %701 = icmp eq i64 %indvars.iv278.i, 1
   br i1 %701, label %704, label %702
 
 702:                                              ; preds = %699
@@ -2350,7 +2350,7 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
 
 704:                                              ; preds = %702, %699
   %705 = phi i32 [ %703, %702 ], [ 0, %699 ]
-  %706 = getelementptr inbounds nuw %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv277.i
+  %706 = getelementptr inbounds nuw %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv278.i
   %707 = call i32 @VP8LBackwardReferencesTraceBackwards(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %705, ptr noundef %700, ptr noundef %706, ptr noundef nonnull %87) #11
   %.not120.i = icmp eq i32 %707, 0
   br i1 %.not120.i, label %.critedge, label %708
@@ -2358,22 +2358,22 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
 708:                                              ; preds = %704
   call void @VP8LHistogramCreate(ptr noundef nonnull %88, ptr noundef nonnull %87, i32 noundef %705) #11
   %709 = call i64 @VP8LHistogramEstimateBits(ptr noundef nonnull %88) #11
-  %710 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %indvars.iv277.i
+  %710 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %indvars.iv278.i
   %711 = load i64, ptr %710, align 8, !tbaa !90
   %712 = icmp ult i64 %709, %711
-  br i1 %712, label %713, label %.thread233.i
+  br i1 %712, label %713, label %.thread234.i
 
 713:                                              ; preds = %708
   %714 = load ptr, ptr %123, align 8, !tbaa !6
-  %.not.i171.i = icmp ne ptr %714, null
+  %.not.i172.i = icmp ne ptr %714, null
   %715 = icmp eq ptr %714, %124
-  %716 = select i1 %.not.i171.i, i1 %715, i1 false
+  %716 = select i1 %.not.i172.i, i1 %715, i1 false
   %717 = getelementptr inbounds nuw i8, ptr %706, i64 16
   %718 = load ptr, ptr %717, align 8, !tbaa !6
-  %.not16.i172.i = icmp ne ptr %718, null
+  %.not16.i173.i = icmp ne ptr %718, null
   %719 = getelementptr inbounds nuw i8, ptr %706, i64 8
   %720 = icmp eq ptr %718, %719
-  %721 = select i1 %.not16.i172.i, i1 %720, i1 false
+  %721 = select i1 %.not16.i173.i, i1 %720, i1 false
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %87, i64 40, i1 false), !tbaa.struct !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %706, i64 40, i1 false), !tbaa.struct !92
@@ -2385,42 +2385,42 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %660, %BackwardRefsS
   br label %723
 
 723:                                              ; preds = %722, %713
-  br i1 %716, label %724, label %BackwardRefsSwap.exit173.i
+  br i1 %716, label %724, label %BackwardRefsSwap.exit174.i
 
 724:                                              ; preds = %723
   store ptr %719, ptr %717, align 8, !tbaa !6
-  br label %BackwardRefsSwap.exit173.i
+  br label %BackwardRefsSwap.exit174.i
 
-BackwardRefsSwap.exit173.i:                       ; preds = %724, %723
+BackwardRefsSwap.exit174.i:                       ; preds = %724, %723
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
-  br label %.thread233.i
+  br label %.thread234.i
 
-.thread233.i:                                     ; preds = %BackwardRefsSwap.exit173.i, %708, %698, %696
-  %725 = getelementptr %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv277.i, i32 2
+.thread234.i:                                     ; preds = %BackwardRefsSwap.exit174.i, %708, %698, %696
+  %725 = getelementptr %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv278.i, i32 2
   %.val.i36 = load ptr, ptr %725, align 8, !tbaa !14, !noalias !96
-  %.not.i.i174.i = icmp eq ptr %.val.i36, null
-  br i1 %.not.i.i174.i, label %BackwardReferences2DLocality.exit.i, label %VP8LRefsCursorInit.exit.i175.i
+  %.not.i.i175.i = icmp eq ptr %.val.i36, null
+  br i1 %.not.i.i175.i, label %BackwardReferences2DLocality.exit.i, label %VP8LRefsCursorInit.exit.i176.i
 
-VP8LRefsCursorInit.exit.i175.i:                   ; preds = %.thread233.i
+VP8LRefsCursorInit.exit.i176.i:                   ; preds = %.thread234.i
   %726 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 8
   %727 = load ptr, ptr %726, align 8, !tbaa !23, !noalias !99
   %.not45.i.i37 = icmp eq ptr %727, null
-  br i1 %.not45.i.i37, label %BackwardReferences2DLocality.exit.i, label %.lr.ph.i176.i
+  br i1 %.not45.i.i37, label %BackwardReferences2DLocality.exit.i, label %.lr.ph.i177.i
 
-.lr.ph.i176.i:                                    ; preds = %VP8LRefsCursorInit.exit.i175.i
+.lr.ph.i177.i:                                    ; preds = %VP8LRefsCursorInit.exit.i176.i
   %728 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 16
   %729 = load i32, ptr %728, align 8, !tbaa !24, !noalias !99
   %730 = sext i32 %729 to i64
   %731 = getelementptr inbounds %struct.PixOrCopy, ptr %727, i64 %730
   br label %732
 
-732:                                              ; preds = %VP8LRefsCursorNext.exit.i178.i, %.lr.ph.i176.i
-  %.sroa.0.08.i.i38 = phi ptr [ %727, %.lr.ph.i176.i ], [ %.sroa.0.1.i179.i, %VP8LRefsCursorNext.exit.i178.i ]
-  %.sroa.10.07.i.i39 = phi ptr [ %.val.i36, %.lr.ph.i176.i ], [ %.sroa.10.1.i.i43, %VP8LRefsCursorNext.exit.i178.i ]
-  %.sroa.13.06.i.i40 = phi ptr [ %731, %.lr.ph.i176.i ], [ %.sroa.13.1.i.i42, %VP8LRefsCursorNext.exit.i178.i ]
+732:                                              ; preds = %VP8LRefsCursorNext.exit.i179.i, %.lr.ph.i177.i
+  %.sroa.0.08.i.i38 = phi ptr [ %727, %.lr.ph.i177.i ], [ %.sroa.0.1.i180.i, %VP8LRefsCursorNext.exit.i179.i ]
+  %.sroa.10.07.i.i39 = phi ptr [ %.val.i36, %.lr.ph.i177.i ], [ %.sroa.10.1.i.i43, %VP8LRefsCursorNext.exit.i179.i ]
+  %.sroa.13.06.i.i40 = phi ptr [ %731, %.lr.ph.i177.i ], [ %.sroa.13.1.i.i42, %VP8LRefsCursorNext.exit.i179.i ]
   %.val4.i.i41 = load i8, ptr %.sroa.0.08.i.i38, align 4, !tbaa !47
-  %.not.i177.i = icmp eq i8 %.val4.i.i41, 2
-  br i1 %.not.i177.i, label %733, label %763
+  %.not.i178.i = icmp eq i8 %.val4.i.i41, 2
+  br i1 %.not.i178.i, label %733, label %763
 
 733:                                              ; preds = %732
   %734 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 4
@@ -2430,8 +2430,8 @@ VP8LRefsCursorInit.exit.i175.i:                   ; preds = %.thread233.i
   %.recomposed141 = srem i32 %735, %0
   %738 = icmp slt i32 %.recomposed141, 9
   %739 = icmp slt i32 %736, 8
-  %or.cond.i.i181.i = and i1 %739, %738
-  br i1 %or.cond.i.i181.i, label %740, label %749
+  %or.cond.i.i182.i = and i1 %739, %738
+  br i1 %or.cond.i.i182.i, label %740, label %749
 
 740:                                              ; preds = %733
   %741 = shl nsw i32 %736, 4
@@ -2442,38 +2442,38 @@ VP8LRefsCursorInit.exit.i175.i:                   ; preds = %.thread233.i
   %746 = load i8, ptr %745, align 1, !tbaa !3
   %747 = zext i8 %746 to i32
   %748 = add nuw nsw i32 %747, 1
-  br label %VP8LDistanceToPlaneCode.exit.i183.i
+  br label %VP8LDistanceToPlaneCode.exit.i184.i
 
 749:                                              ; preds = %733
   %750 = icmp sgt i32 %.recomposed141, %.pre-phi.i
   %751 = icmp slt i32 %736, 7
-  %or.cond3.i.i182.i = and i1 %751, %750
-  br i1 %or.cond3.i.i182.i, label %752, label %761
+  %or.cond3.i.i183.i = and i1 %751, %750
+  br i1 %or.cond3.i.i183.i, label %752, label %761
 
 752:                                              ; preds = %749
   %753 = shl i32 %736, 4
-  %754 = add i32 %753, %.pre-phi282.i
+  %754 = add i32 %753, %.pre-phi283.i
   %755 = sub i32 %754, %.recomposed141
   %756 = sext i32 %755 to i64
   %757 = getelementptr inbounds [128 x i8], ptr @plane_to_code_lut, i64 0, i64 %756
   %758 = load i8, ptr %757, align 1, !tbaa !3
   %759 = zext i8 %758 to i32
   %760 = add nuw nsw i32 %759, 1
-  br label %VP8LDistanceToPlaneCode.exit.i183.i
+  br label %VP8LDistanceToPlaneCode.exit.i184.i
 
 761:                                              ; preds = %749
   %762 = add nsw i32 %735, 120
-  br label %VP8LDistanceToPlaneCode.exit.i183.i
+  br label %VP8LDistanceToPlaneCode.exit.i184.i
 
-VP8LDistanceToPlaneCode.exit.i183.i:              ; preds = %761, %752, %740
-  %.0.i.i184.i = phi i32 [ %748, %740 ], [ %760, %752 ], [ %762, %761 ]
-  store i32 %.0.i.i184.i, ptr %734, align 4, !tbaa !50
+VP8LDistanceToPlaneCode.exit.i184.i:              ; preds = %761, %752, %740
+  %.0.i.i185.i = phi i32 [ %748, %740 ], [ %760, %752 ], [ %762, %761 ]
+  store i32 %.0.i.i185.i, ptr %734, align 4, !tbaa !50
   br label %763
 
-763:                                              ; preds = %VP8LDistanceToPlaneCode.exit.i183.i, %732
+763:                                              ; preds = %VP8LDistanceToPlaneCode.exit.i184.i, %732
   %764 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 8
   %765 = icmp eq ptr %764, %.sroa.13.06.i.i40
-  br i1 %765, label %766, label %VP8LRefsCursorNext.exit.i178.i
+  br i1 %765, label %766, label %VP8LRefsCursorNext.exit.i179.i
 
 766:                                              ; preds = %763
   %767 = load ptr, ptr %.sroa.10.07.i.i39, align 8, !tbaa !16
@@ -2487,21 +2487,21 @@ VP8LDistanceToPlaneCode.exit.i183.i:              ; preds = %761, %752, %740
   %773 = load i32, ptr %772, align 8, !tbaa !24
   %774 = sext i32 %773 to i64
   %775 = getelementptr inbounds %struct.PixOrCopy, ptr %771, i64 %774
-  br label %VP8LRefsCursorNext.exit.i178.i
+  br label %VP8LRefsCursorNext.exit.i179.i
 
-VP8LRefsCursorNext.exit.i178.i:                   ; preds = %769, %763
+VP8LRefsCursorNext.exit.i179.i:                   ; preds = %769, %763
   %.sroa.13.1.i.i42 = phi ptr [ %.sroa.13.06.i.i40, %763 ], [ %775, %769 ]
   %.sroa.10.1.i.i43 = phi ptr [ %.sroa.10.07.i.i39, %763 ], [ %767, %769 ]
-  %.sroa.0.1.i179.i = phi ptr [ %764, %763 ], [ %771, %769 ]
-  %.not4.i.i44 = icmp eq ptr %.sroa.0.1.i179.i, null
+  %.sroa.0.1.i180.i = phi ptr [ %764, %763 ], [ %771, %769 ]
+  %.not4.i.i44 = icmp eq ptr %.sroa.0.1.i180.i, null
   br i1 %.not4.i.i44, label %BackwardReferences2DLocality.exit.i, label %732, !llvm.loop !51
 
-BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.exit.i178.i, %766, %VP8LRefsCursorInit.exit.i175.i, %.thread233.i
-  %776 = icmp eq i64 %indvars.iv277.i, 1
+BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.exit.i179.i, %766, %VP8LRefsCursorInit.exit.i176.i, %.thread234.i
+  %776 = icmp eq i64 %indvars.iv278.i, 1
   %777 = load i32, ptr %125, align 4
   %778 = icmp eq i32 %121, %777
-  %or.cond262.i = select i1 %776, i1 %778, i1 false
-  br i1 %or.cond262.i, label %779, label %821
+  %or.cond263.i = select i1 %776, i1 %778, i1 false
+  br i1 %or.cond263.i, label %779, label %821
 
 779:                                              ; preds = %BackwardReferences2DLocality.exit.i
   %780 = load i32, ptr %10, align 4, !tbaa !32
@@ -2513,16 +2513,16 @@ BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.
   %.val130.i = load ptr, ptr %783, align 8, !tbaa !14
   %784 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %785 = load ptr, ptr %784, align 8, !tbaa !6
-  %.not.i.i185.i = icmp eq ptr %785, null
-  br i1 %.not.i.i185.i, label %VP8LClearBackwardRefs.exit.i186.i, label %786
+  %.not.i.i186.i = icmp eq ptr %785, null
+  br i1 %.not.i.i186.i, label %VP8LClearBackwardRefs.exit.i187.i, label %786
 
 786:                                              ; preds = %782
   %787 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %788 = load ptr, ptr %787, align 8, !tbaa !12
   store ptr %788, ptr %785, align 8, !tbaa !13
-  br label %VP8LClearBackwardRefs.exit.i186.i
+  br label %VP8LClearBackwardRefs.exit.i187.i
 
-VP8LClearBackwardRefs.exit.i186.i:                ; preds = %786, %782
+VP8LClearBackwardRefs.exit.i187.i:                ; preds = %786, %782
   %789 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %790 = load ptr, ptr %789, align 8, !tbaa !14
   %791 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2531,23 +2531,23 @@ VP8LClearBackwardRefs.exit.i186.i:                ; preds = %786, %782
   %792 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %792, align 8, !tbaa !15
   store ptr null, ptr %789, align 8, !tbaa !14
-  %.not6.i187.i = icmp eq ptr %.val130.i, null
-  br i1 %.not6.i187.i, label %GetBackwardReferences.exit, label %.lr.ph.i188.i
+  %.not3.i188.i = icmp eq ptr %.val130.i, null
+  br i1 %.not3.i188.i, label %GetBackwardReferences.exit, label %.lr.ph.i189.i
 
-.lr.ph.i188.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i186.i, %806
-  %.0137.i189.i = phi ptr [ %817, %806 ], [ %.val130.i, %VP8LClearBackwardRefs.exit.i186.i ]
+.lr.ph.i189.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i187.i, %806
+  %.0134.i190.i = phi ptr [ %817, %806 ], [ %.val130.i, %VP8LClearBackwardRefs.exit.i187.i ]
   %793 = load ptr, ptr %791, align 8, !tbaa !12
   %794 = icmp eq ptr %793, null
   br i1 %794, label %795, label %804
 
-795:                                              ; preds = %.lr.ph.i188.i
+795:                                              ; preds = %.lr.ph.i189.i
   %796 = load i32, ptr %9, align 8, !tbaa !20
   %797 = sext i32 %796 to i64
   %798 = shl nsw i64 %797, 3
   %799 = add nsw i64 %798, 24
   %800 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %799) #11
-  %.not.i17.i196.i = icmp eq ptr %800, null
-  br i1 %.not.i17.i196.i, label %BackwardRefsClone.exit198.i, label %801
+  %.not.i17.i197.i = icmp eq ptr %800, null
+  br i1 %.not.i17.i197.i, label %BackwardRefsClone.exit199.i, label %801
 
 801:                                              ; preds = %795
   %802 = getelementptr inbounds nuw i8, ptr %800, i64 24
@@ -2555,37 +2555,37 @@ VP8LClearBackwardRefs.exit.i186.i:                ; preds = %786, %782
   store ptr %802, ptr %803, align 8, !tbaa !23
   br label %806
 
-804:                                              ; preds = %.lr.ph.i188.i
+804:                                              ; preds = %.lr.ph.i189.i
   %805 = load ptr, ptr %793, align 8, !tbaa !16
   store ptr %805, ptr %791, align 8, !tbaa !12
-  %.phi.trans.insert.i190.i = getelementptr inbounds nuw i8, ptr %793, i64 8
-  %.pre.i191.i = load ptr, ptr %.phi.trans.insert.i190.i, align 8, !tbaa !23
+  %.phi.trans.insert.i191.i = getelementptr inbounds nuw i8, ptr %793, i64 8
+  %.pre.i192.i = load ptr, ptr %.phi.trans.insert.i191.i, align 8, !tbaa !23
   br label %806
 
 806:                                              ; preds = %804, %801
-  %807 = phi ptr [ %802, %801 ], [ %.pre.i191.i, %804 ]
-  %.021.i.i192.i = phi ptr [ %800, %801 ], [ %793, %804 ]
+  %807 = phi ptr [ %802, %801 ], [ %.pre.i192.i, %804 ]
+  %.021.i.i193.i = phi ptr [ %800, %801 ], [ %793, %804 ]
   %808 = load ptr, ptr %784, align 8, !tbaa !6
-  store ptr %.021.i.i192.i, ptr %808, align 8, !tbaa !13
-  store ptr %.021.i.i192.i, ptr %784, align 8, !tbaa !6
-  store ptr %.021.i.i192.i, ptr %792, align 8, !tbaa !15
-  store ptr null, ptr %.021.i.i192.i, align 8, !tbaa !16
-  %809 = getelementptr inbounds nuw i8, ptr %.021.i.i192.i, i64 16
+  store ptr %.021.i.i193.i, ptr %808, align 8, !tbaa !13
+  store ptr %.021.i.i193.i, ptr %784, align 8, !tbaa !6
+  store ptr %.021.i.i193.i, ptr %792, align 8, !tbaa !15
+  store ptr null, ptr %.021.i.i193.i, align 8, !tbaa !16
+  %809 = getelementptr inbounds nuw i8, ptr %.021.i.i193.i, i64 16
   store i32 0, ptr %809, align 8, !tbaa !24
-  %810 = getelementptr inbounds nuw i8, ptr %.0137.i189.i, i64 8
+  %810 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 8
   %811 = load ptr, ptr %810, align 8, !tbaa !23
-  %812 = getelementptr inbounds nuw i8, ptr %.0137.i189.i, i64 16
+  %812 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 16
   %813 = load i32, ptr %812, align 8, !tbaa !24
   %814 = sext i32 %813 to i64
   %815 = shl nsw i64 %814, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %807, ptr align 4 %811, i64 %815, i1 false)
   %816 = load i32, ptr %812, align 8, !tbaa !24
   store i32 %816, ptr %809, align 8, !tbaa !24
-  %817 = load ptr, ptr %.0137.i189.i, align 8, !tbaa !16
-  %.not.i193.i = icmp eq ptr %817, null
-  br i1 %.not.i193.i, label %GetBackwardReferences.exit, label %.lr.ph.i188.i, !llvm.loop !91
+  %817 = load ptr, ptr %.0134.i190.i, align 8, !tbaa !16
+  %.not.i194.i = icmp eq ptr %817, null
+  br i1 %.not.i194.i, label %GetBackwardReferences.exit, label %.lr.ph.i189.i, !llvm.loop !91
 
-BackwardRefsClone.exit198.i:                      ; preds = %795
+BackwardRefsClone.exit199.i:                      ; preds = %795
   %818 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %819 = load i32, ptr %818, align 4, !tbaa !27
   %820 = or i32 %819, 1
@@ -2593,11 +2593,11 @@ BackwardRefsClone.exit198.i:                      ; preds = %795
   br label %.critedge
 
 821:                                              ; preds = %779, %BackwardReferences2DLocality.exit.i, %690
-  %indvars.iv.next278.i = add nsw i64 %indvars.iv277.i, -1
-  %.not284.i = icmp eq i64 %indvars.iv277.i, 0
-  br i1 %.not284.i, label %GetBackwardReferences.exit, label %690, !llvm.loop !102
+  %indvars.iv.next279.i = add nsw i64 %indvars.iv278.i, -1
+  %.not285.i = icmp eq i64 %indvars.iv278.i, 0
+  br i1 %.not285.i, label %GetBackwardReferences.exit, label %690, !llvm.loop !102
 
-GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LClearBackwardRefs.exit.i186.i
+GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LClearBackwardRefs.exit.i187.i
   %822 = load ptr, ptr %25, align 8, !tbaa !28
   call void @WebPSafeFree(ptr noundef %822) #11
   %823 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2609,7 +2609,7 @@ GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LCle
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #11
   br label %GetBackwardReferencesLowEffort.exit.thread
 
-.critedge:                                        ; preds = %286, %129, %420, %CalculateBestCacheSize.exit.i, %704, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit198.i, %84
+.critedge:                                        ; preds = %286, %129, %420, %CalculateBestCacheSize.exit.i, %704, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit199.i, %84
   %824 = load ptr, ptr %25, align 8, !tbaa !28
   call void @WebPSafeFree(ptr noundef %824) #11
   %825 = getelementptr inbounds nuw i8, ptr %25, i64 8

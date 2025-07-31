@@ -84431,7 +84431,7 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit.i.i: ; preds =
   %23 = icmp uge i8 %21, %22
   %spec.select.i.i = zext i1 %23 to i8
   %not..i.i = xor i1 %23, true
-  %spec.select17.i.i = zext i1 %not..i.i to i8
+  %spec.select15.i.i = zext i1 %not..i.i to i8
   %24 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8, !noalias !30364
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit.i.i
@@ -84448,7 +84448,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit.i.i: ; preds = %26, %
 
 .noexc5.i:                                        ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit.i.i
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5), !noalias !30364
-  invoke fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17hafded2a9ad1d0979E(ptr noalias noundef align 32 captures(none) dereferenceable(160) %5, i64 noundef 2, i8 noundef %spec.select17.i.i, i8 noundef %spec.select.i.i)
+  invoke fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14with_pair_impl17hafded2a9ad1d0979E(ptr noalias noundef align 32 captures(none) dereferenceable(160) %5, i64 noundef 2, i8 noundef %spec.select15.i.i, i8 noundef %spec.select.i.i)
           to label %.noexc53 unwind label %.thread66
 
 .noexc53:                                         ; preds = %.noexc5.i
@@ -84492,7 +84492,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a2
   %.sroa.13.0.i = phi ptr [ @_ZN6memchr6memmem8searcher18searcher_kind_sse217h9da33254ebe1a1b5E, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ @_ZN6memchr6memmem8searcher18searcher_kind_avx217hb21c0d0a14a17821E, %.noexc53 ]
   %.sroa.97.0.i = phi i8 [ undef, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.4.31.copyload.i.i, %.noexc53 ]
   %.sroa.8.0.i = phi i8 [ %spec.select.i.i, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.7.31.copyload.i, %.noexc53 ]
-  %.sroa.7.0.i = phi i8 [ %spec.select17.i.i, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.6.31.copyload.i, %.noexc53 ]
+  %.sroa.7.0.i = phi i8 [ %spec.select15.i.i, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.6.31.copyload.i, %.noexc53 ]
   %.sroa.6.0.i = phi i64 [ 17, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.5.31.copyload.i, %.noexc53 ]
   %.sroa.5.0.i = phi <16 x i8> [ %.15.vec.insert.i3.i.i.i, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.4.31.copyload.i, %.noexc53 ]
   %.sroa.0.0.i = phi <16 x i8> [ %.15.vec.insert.i.i.i.i, %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a25E.exit.i.i ], [ %.sroa.56.sroa.0.i.sroa.2.31.copyload.i, %.noexc53 ]

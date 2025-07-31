@@ -8893,8 +8893,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT
   %52 = load i8, ptr %51, align 4
   %53 = and i8 %52, 63
   switch i8 %53, label %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.thread.i [
-    i8 18, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i
-    i8 15, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i
+    i8 18, label %.critedge.i
+    i8 15, label %.critedge.i
   ]
 
 54:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i
@@ -8902,22 +8902,22 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(72) %1) #19
   %58 = icmp eq i32 %57, 4
-  br i1 %58, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i
+  br i1 %58, label %.critedge.i, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i
 
 _ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i: ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = call noundef zeroext i1 @_ZNK5clang4ento18CallDescriptionSet8containsERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(72) %1) #19
-  br i1 %60, label %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i, label %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.thread.i
+  br i1 %60, label %.critedge.i, label %_ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.thread.i
 
-_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i, %54, %47, %47
+.critedge.i:                                      ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i, %54, %47, %47
   store ptr %19, ptr %9, align 8, !tbaa !20
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i, label %61
 
-61:                                               ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i
+61:                                               ; preds = %.critedge.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %19) #19
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i: ; preds = %61, %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.thread.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i: ; preds = %61, %.critedge.i
   call fastcc void @_ZNK12_GLOBAL__N_119InnerPointerChecker22markPtrSymbolsReleasedERKN5clang4ento9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_9MemRegionERNS2_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %9, ptr noundef %.0.i.i41.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %62 = load ptr, ptr %9, align 8, !tbaa !20
   %.not.i.i44.i = icmp eq ptr %62, null
@@ -8928,7 +8928,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i: ; p
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i, %47, %_ZN4llvm14CastIsPossibleIN5clang4ento15CXXInstanceCallEPKNS2_9CallEventEvE10isPossibleERKS6_.exit.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %.1.ph.i = phi ptr [ %.0.i.i41.i, %47 ], [ %.0.i.i41.i, %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ null, %_ZN4llvm14CastIsPossibleIN5clang4ento15CXXInstanceCallEPKNS2_9CallEventEvE10isPossibleERKS6_.exit.i.i.i ]
+  %.1.i = phi ptr [ %.0.i.i41.i, %_ZNK12_GLOBAL__N_119InnerPointerChecker28isInvalidatingMemberFunctionERKN5clang4ento9CallEventE.exit.i ], [ %.0.i.i41.i, %47 ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ null, %_ZN4llvm14CastIsPossibleIN5clang4ento15CXXInstanceCallEPKNS2_9CallEventEvE10isPossibleERKS6_.exit.i.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = call noundef zeroext i1 @_ZNK5clang4ento18CallDescriptionSet8containsERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(72) %1) #19
   br i1 %65, label %66, label %164
@@ -8970,7 +8970,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT
   br label %83
 
 83:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit48.i, %66
-  %.2.i = phi ptr [ %.0.i.i47.i, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit48.i ], [ %.1.ph.i, %66 ]
+  %.2.i = phi ptr [ %.0.i.i47.i, %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit48.i ], [ %.1.i, %66 ]
   %.not37.i = icmp eq ptr %.2.i, null
   br i1 %.not37.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %84
 
@@ -9361,20 +9361,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds
 
 _ZNK12_GLOBAL__N_119InnerPointerChecker22checkFunctionArgumentsERKN5clang4ento9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE.exit.i: ; preds = %.critedge.i.i, %182, %180, %_ZN4llvm8dyn_castIN5clang4ento15AnyFunctionCallEKNS2_9CallEventEEEDcPT0_.exit.i.i, %_ZN4llvm14CastIsPossibleIN5clang4ento15AnyFunctionCallEPKNS2_9CallEventEvE10isPossibleERKS6_.exit.i.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_119InnerPointerChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread124.i
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_119InnerPointerChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread120.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread124.i: ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker22checkFunctionArgumentsERKN5clang4ento9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE.exit.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread120.i: ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker22checkFunctionArgumentsERKN5clang4ento9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %19) #19
   br label %233
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit68.i, %83, %63, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i
-  %.sroa.087.0.i = phi ptr [ %19, %83 ], [ %.sroa.087.1.i, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit68.i ], [ %19, %63 ], [ %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i ]
+  %.sroa.087.0.i = phi ptr [ %19, %83 ], [ %.sroa.087.1.i, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit68.i ], [ %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit43.i ], [ %19, %63 ]
   %.not.i.i77.i = icmp eq ptr %.sroa.087.0.i, null
   br i1 %.not.i.i77.i, label %_ZNK12_GLOBAL__N_119InnerPointerChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %233
 
-233:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread124.i
-  %.sroa.087.0127.i = phi ptr [ %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread124.i ], [ %.sroa.087.0.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.087.0127.i) #19
+233:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread120.i
+  %.sroa.087.0123.i = phi ptr [ %19, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread120.i ], [ %.sroa.087.0.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.087.0123.i) #19
   br label %_ZNK12_GLOBAL__N_119InnerPointerChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_119InnerPointerChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %_ZNK12_GLOBAL__N_119InnerPointerChecker22checkFunctionArgumentsERKN5clang4ento9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %233

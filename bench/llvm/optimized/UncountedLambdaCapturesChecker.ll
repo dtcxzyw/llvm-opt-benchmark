@@ -2602,7 +2602,7 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   %83 = load ptr, ptr %82, align 8, !tbaa !107
   %84 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %83) #18
   %.not.i.i.i37 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i37, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread, label %85
+  br i1 %.not.i.i.i37, label %.critedge, label %85
 
 85:                                               ; preds = %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor17checkCalleeLambdaEPNS1_8CallExprE.exit
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
@@ -2610,7 +2610,7 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   %88 = and i32 %87, 126
   %89 = add nsw i32 %88, -32
   %90 = icmp ult i32 %89, 6
-  br i1 %90, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %90, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit, label %.critedge
 
 _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 72
@@ -2782,8 +2782,8 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   %.idx = shl nuw nsw i64 %159, 3
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not3461 = icmp eq i32 %158, 0
-  br i1 %.not3461, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread, label %.lr.ph
+  %.not3456 = icmp eq i32 %158, 0
+  br i1 %.not3456, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor27shouldTreatAllArgAsNoEscapeEPNS1_12FunctionDeclE.exit
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2792,14 +2792,14 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %165
 
-165:                                              ; preds = %.lr.ph, %.thread56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread56 ]
-  %.03262 = phi ptr [ %157, %.lr.ph ], [ %246, %.thread56 ]
-  %166 = load ptr, ptr %.03262, align 8, !tbaa !180
+165:                                              ; preds = %.lr.ph, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread ]
+  %.03257 = phi ptr [ %157, %.lr.ph ], [ %246, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread ]
+  %166 = load ptr, ptr %.03257, align 8, !tbaa !180
   %167 = load i32, ptr %161, align 8, !tbaa !109
   %168 = zext i32 %167 to i64
   %.not35 = icmp samesign ult i64 %indvars.iv, %168
-  br i1 %.not35, label %169, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %.not35, label %169, label %.critedge
 
 169:                                              ; preds = %165
   %170 = load i32, ptr %1, align 8
@@ -2815,12 +2815,12 @@ _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19Tra
   %179 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %178) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
   %.not.i.i.i41 = icmp eq ptr %179, null
-  br i1 %.not.i.i.i41, label %.thread56, label %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i
+  br i1 %.not.i.i.i41, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i
 
 _ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i: ; preds = %169
   %180 = load i16, ptr %179, align 8
   %181 = and i16 %180, 511
-  switch i16 %181, label %.thread56 [
+  switch i16 %181, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread [
     i16 53, label %select.unfold52
     i16 118, label %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i
   ]
@@ -2830,7 +2830,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit
   %183 = load ptr, ptr %182, align 8, !tbaa !182
   %184 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %183) #22
   %.not44.i = icmp eq ptr %184, null
-  br i1 %.not44.i, label %.thread56, label %185
+  br i1 %.not44.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %185
 
 185:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i
   %186 = load i16, ptr %184, align 8
@@ -2841,13 +2841,13 @@ _ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit
 _ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i: ; preds = %185
   %188 = add nsw i16 %187, -117
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %188, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %.thread56, label %189
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %189
 
 189:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i
   %190 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %191 = load i32, ptr %190, align 8, !tbaa !185
   %.not47.i = icmp eq i32 %191, 0
-  br i1 %.not47.i, label %.thread56, label %192
+  br i1 %.not47.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %192
 
 192:                                              ; preds = %189
   %.not.i.i.i.i43 = icmp eq i16 %187, 116
@@ -2858,12 +2858,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i: 
   %195 = load ptr, ptr %spec.select.i.i.i60.i, align 8, !tbaa !112
   %196 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %195) #22
   %.not48.i = icmp eq ptr %196, null
-  br i1 %.not48.i, label %.thread56, label %197
+  br i1 %.not48.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %197
 
 197:                                              ; preds = %192
   %198 = load i16, ptr %196, align 8
   %199 = and i16 %198, 511
-  switch i16 %199, label %.thread56 [
+  switch i16 %199, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread [
     i16 53, label %select.unfold52
     i16 73, label %200
   ]
@@ -2872,7 +2872,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i: 
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %202 = load ptr, ptr %201, align 8, !tbaa !97
   %.not.i.i63.i = icmp eq ptr %202, null
-  br i1 %.not.i.i63.i, label %.thread56, label %203
+  br i1 %.not.i.i63.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %203
 
 203:                                              ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 28
@@ -2880,31 +2880,31 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i: 
   %206 = and i32 %205, 127
   %207 = add nsw i32 %206, -38
   %208 = icmp ult i32 %207, 7
-  br i1 %208, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44, label %.thread56
+  br i1 %208, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44: ; preds = %203
   %209 = call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %202) #18
   %.not52.i = icmp eq ptr %209, null
-  br i1 %.not52.i, label %.thread56, label %210
+  br i1 %.not52.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %210
 
 210:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44
   %211 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %209) #22
   %212 = load i16, ptr %211, align 8
   %213 = and i16 %212, 511
   %.not17.i = icmp eq i16 %213, 118
-  br i1 %.not17.i, label %214, label %.thread56
+  br i1 %.not17.i, label %214, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !182
   %.not.i.i67.i = icmp eq ptr %216, null
-  br i1 %.not.i.i67.i, label %.thread56, label %217
+  br i1 %.not.i.i67.i, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %217
 
 217:                                              ; preds = %214
   %218 = load i16, ptr %216, align 8
   %219 = and i16 %218, 511
   %220 = icmp eq i16 %219, 53
-  br i1 %220, label %select.unfold52, label %.thread56
+  br i1 %220, label %select.unfold52, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
 select.unfold52:                                  ; preds = %197, %217, %185, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i
   %.1.i = phi ptr [ %179, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i ], [ %184, %185 ], [ %196, %197 ], [ %216, %217 ]
@@ -2952,7 +2952,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPN
 _ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %select.unfold52, %224, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i
   %238 = phi i1 [ false, %select.unfold52 ], [ false, %224 ], [ %237, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
   %or.cond = or i1 %.06.i, %238
-  br i1 %or.cond, label %.thread56, label %239
+  br i1 %or.cond, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %239
 
 239:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
   %240 = load ptr, ptr %163, align 8, !tbaa !68
@@ -2970,16 +2970,16 @@ _ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %select.unfold52,
 _ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15shouldCheckThisEv.exit: ; preds = %239, %242
   %245 = phi i1 [ false, %239 ], [ %spec.select.i, %242 ]
   call fastcc void @_ZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker15visitLambdaExprEPN5clang10LambdaExprEbb(ptr noundef nonnull align 8 dereferenceable(168) %240, ptr noundef %241, i1 noundef zeroext %245, i1 noundef zeroext false)
-  br label %.thread56
+  br label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread
 
-.thread56:                                        ; preds = %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15shouldCheckThisEv.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i, %189, %_ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i, %192, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44, %210, %217, %214, %169, %203, %200, %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i, %197
+_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10LambdaExprENS1_4ExprEEEDaPT0_.exit.i, %200, %203, %169, %214, %217, %210, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.i44, %192, %_ZN4llvm16dyn_cast_or_nullIN5clang16CXXConstructExprENS1_4ExprEEEDaPT0_.exit.i, %189, %_ZN4llvm16dyn_cast_or_nullIN5clang20CXXBindTemporaryExprENS1_4ExprEEEDaPT0_.exit.i, %197, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15shouldCheckThisEv.exit, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %246 = getelementptr inbounds nuw i8, ptr %.03262, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %.03257, i64 8
   %.not34 = icmp eq ptr %246, %160
-  br i1 %.not34, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread, label %165
+  br i1 %.not34, label %.critedge, label %165
 
-_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %.thread56, %165, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor27shouldTreatAllArgAsNoEscapeEPNS1_12FunctionDeclE.exit, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor17checkCalleeLambdaEPNS1_8CallExprE.exit, %85
+.critedge:                                        ; preds = %165, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor27shouldTreatAllArgAsNoEscapeEPNS1_12FunctionDeclE.exit, %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor17checkCalleeLambdaEPNS1_8CallExprE.exit, %85
   ret i1 true
 }
 

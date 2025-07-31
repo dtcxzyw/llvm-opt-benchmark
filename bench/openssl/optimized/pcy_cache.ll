@@ -36,14 +36,14 @@ define ptr @ossl_policy_cache_set(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %101
+  br i1 %5, label %6, label %99
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %8) #4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %101, label %10
+  br i1 %.not, label %99, label %10
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
@@ -176,12 +176,7 @@ policy_cache_set_int.exit54.thread.i:             ; preds = %37, %.thread.i, %20
 69:                                               ; preds = %65, %60
   %70 = add nuw nsw i32 %.045.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %70, %44
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !51
-
-._crit_edge.i.i:                                  ; preds = %69
-  %.pre.i.i = load ptr, ptr %48, align 8, !tbaa !11
-  call void @OPENSSL_sk_sort(ptr noundef %.pre.i.i) #4
-  br label %.thread.i.i
+  br i1 %exitcond.not.i.i, label %77, label %.lr.ph.i.i, !llvm.loop !51
 
 71:                                               ; preds = %61, %58
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -196,90 +191,85 @@ policy_cache_set_int.exit54.thread.i:             ; preds = %37, %.thread.i, %20
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink52.i.i, ptr noundef nonnull @__func__.policy_cache_create) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink.i.i, ptr noundef null) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %39, ptr noundef nonnull @POLICYINFO_free) #4
-  br label %policy_cache_create.exit.i
+  br label %policy_cache_create.exit.thread.i
 
-.thread.i.i:                                      ; preds = %71, %._crit_edge.i.i, %68, %42
-  %.02837.i.i = phi ptr [ %51, %71 ], [ null, %._crit_edge.i.i ], [ %51, %68 ], [ null, %42 ]
-  %75 = phi i1 [ true, %71 ], [ false, %._crit_edge.i.i ], [ true, %68 ], [ true, %42 ]
-  %.02936.i.i = phi i32 [ -1, %71 ], [ 1, %._crit_edge.i.i ], [ 0, %68 ], [ 0, %42 ]
+.thread.i.i:                                      ; preds = %71, %68, %42
+  %.02837.i.i = phi ptr [ %51, %71 ], [ %51, %68 ], [ null, %42 ]
   call void @ossl_policy_data_free(ptr noundef %.02837.i.i) #4
+  br label %policy_cache_create.exit.thread.i
+
+policy_cache_create.exit.thread.i:                ; preds = %.thread.i.i, %.thread39.i.i
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %39, ptr noundef nonnull @POLICYINFO_free) #4
-  br i1 %75, label %policy_cache_create.exit.i, label %policy_cache_create.exit.thread.i
+  %75 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !11
+  call void @OPENSSL_sk_pop_free(ptr noundef %76, ptr noundef nonnull @ossl_policy_data_free) #4
+  store ptr null, ptr %75, align 8, !tbaa !11
+  br label %policy_cache_new.exit
 
-policy_cache_create.exit.thread.i:                ; preds = %.thread.i.i
+77:                                               ; preds = %69
+  %.pre.i.i = load ptr, ptr %48, align 8, !tbaa !11
+  call void @OPENSSL_sk_sort(ptr noundef %.pre.i.i) #4
+  call void @ossl_policy_data_free(ptr noundef null) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %39, ptr noundef nonnull @POLICYINFO_free) #4
   store i32 1, ptr %2, align 4, !tbaa !41
-  br label %79
+  %78 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 747, ptr noundef nonnull %2, ptr noundef null) #4
+  %.not48.i = icmp eq ptr %78, null
+  br i1 %.not48.i, label %79, label %81
 
-policy_cache_create.exit.i:                       ; preds = %.thread.i.i, %.thread39.i.i
-  %.13042.i.i = phi i32 [ 0, %.thread39.i.i ], [ %.02936.i.i, %.thread.i.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !11
-  call void @OPENSSL_sk_pop_free(ptr noundef %77, ptr noundef nonnull @ossl_policy_data_free) #4
-  store ptr null, ptr %76, align 8, !tbaa !11
-  store i32 %.13042.i.i, ptr %2, align 4, !tbaa !41
-  %78 = icmp slt i32 %.13042.i.i, 1
-  br i1 %78, label %policy_cache_new.exit, label %79
+79:                                               ; preds = %77
+  %80 = load i32, ptr %2, align 4, !tbaa !41
+  %.not49.i = icmp eq i32 %80, -1
+  br i1 %.not49.i, label %84, label %policy_cache_set_int.exit.i
 
-79:                                               ; preds = %policy_cache_create.exit.i, %policy_cache_create.exit.thread.i
-  %80 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 747, ptr noundef nonnull %2, ptr noundef null) #4
-  %.not48.i = icmp eq ptr %80, null
-  br i1 %.not48.i, label %81, label %83
+81:                                               ; preds = %77
+  %82 = call i32 @ossl_policy_cache_set_mapping(ptr noundef nonnull %0, ptr noundef nonnull %78) #4
+  store i32 %82, ptr %2, align 4, !tbaa !41
+  %83 = icmp slt i32 %82, 1
+  br i1 %83, label %policy_cache_set_int.exit.i, label %84
 
-81:                                               ; preds = %79
-  %82 = load i32, ptr %2, align 4, !tbaa !41
-  %.not49.i = icmp eq i32 %82, -1
-  br i1 %.not49.i, label %86, label %policy_cache_set_int.exit.i
+84:                                               ; preds = %81, %79
+  %85 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 748, ptr noundef nonnull %2, ptr noundef null) #4
+  %.not50.i = icmp eq ptr %85, null
+  br i1 %.not50.i, label %86, label %88
 
-83:                                               ; preds = %79
-  %84 = call i32 @ossl_policy_cache_set_mapping(ptr noundef nonnull %0, ptr noundef nonnull %80) #4
-  store i32 %84, ptr %2, align 4, !tbaa !41
-  %85 = icmp slt i32 %84, 1
-  br i1 %85, label %policy_cache_set_int.exit.i, label %86
+86:                                               ; preds = %84
+  %87 = load i32, ptr %2, align 4, !tbaa !41
+  %.not51.i = icmp eq i32 %87, -1
+  br i1 %.not51.i, label %96, label %policy_cache_set_int.exit.i
 
-86:                                               ; preds = %83, %81
-  %87 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 748, ptr noundef nonnull %2, ptr noundef null) #4
-  %.not50.i = icmp eq ptr %87, null
-  br i1 %.not50.i, label %88, label %90
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !45
+  %91 = icmp eq i32 %90, 258
+  br i1 %91, label %policy_cache_set_int.exit.i, label %policy_cache_set_int.exit56.i
 
-88:                                               ; preds = %86
-  %89 = load i32, ptr %2, align 4, !tbaa !41
-  %.not51.i = icmp eq i32 %89, -1
-  br i1 %.not51.i, label %98, label %policy_cache_set_int.exit.i
+policy_cache_set_int.exit56.i:                    ; preds = %88
+  %92 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %85) #4
+  store i64 %92, ptr %16, align 8, !tbaa !46
+  br label %96
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !45
-  %93 = icmp eq i32 %92, 258
-  br i1 %93, label %policy_cache_set_int.exit.i, label %policy_cache_set_int.exit56.i
+policy_cache_set_int.exit.i:                      ; preds = %88, %86, %81, %79, %41, %.thread.thread.i, %27, %24, %20
+  %.0.i = phi ptr [ null, %81 ], [ null, %86 ], [ null, %79 ], [ null, %41 ], [ null, %24 ], [ null, %20 ], [ null, %27 ], [ null, %.thread.thread.i ], [ %85, %88 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %94 = load i32, ptr %93, align 8, !tbaa !53
+  %95 = or i32 %94, 2048
+  store i32 %95, ptr %93, align 8, !tbaa !53
+  br label %96
 
-policy_cache_set_int.exit56.i:                    ; preds = %90
-  %94 = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %87) #4
-  store i64 %94, ptr %16, align 8, !tbaa !46
-  br label %98
-
-policy_cache_set_int.exit.i:                      ; preds = %90, %88, %83, %81, %41, %.thread.thread.i, %27, %24, %20
-  %.0.i = phi ptr [ null, %83 ], [ null, %88 ], [ null, %81 ], [ null, %41 ], [ null, %24 ], [ null, %20 ], [ null, %27 ], [ null, %.thread.thread.i ], [ %87, %90 ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %96 = load i32, ptr %95, align 8, !tbaa !53
-  %97 = or i32 %96, 2048
-  store i32 %97, ptr %95, align 8, !tbaa !53
-  br label %98
-
-98:                                               ; preds = %policy_cache_set_int.exit.i, %policy_cache_set_int.exit56.i, %88
-  %.1.i = phi ptr [ %.0.i, %policy_cache_set_int.exit.i ], [ %87, %policy_cache_set_int.exit56.i ], [ null, %88 ]
+96:                                               ; preds = %policy_cache_set_int.exit.i, %policy_cache_set_int.exit56.i, %86
+  %.1.i = phi ptr [ %.0.i, %policy_cache_set_int.exit.i ], [ %85, %policy_cache_set_int.exit56.i ], [ null, %86 ]
   call void @POLICY_CONSTRAINTS_free(ptr noundef %19) #4
   call void @ASN1_INTEGER_free(ptr noundef %.1.i) #4
   br label %policy_cache_new.exit
 
-policy_cache_new.exit:                            ; preds = %10, %12, %41, %policy_cache_create.exit.i, %98
+policy_cache_new.exit:                            ; preds = %10, %12, %41, %policy_cache_create.exit.thread.i, %96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
-  %99 = load ptr, ptr %7, align 8, !tbaa !40
-  %100 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %99) #4
+  %97 = load ptr, ptr %7, align 8, !tbaa !40
+  %98 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %97) #4
   %.pre = load ptr, ptr %3, align 8, !tbaa !12
-  br label %101
+  br label %99
 
-101:                                              ; preds = %1, %policy_cache_new.exit, %6
+99:                                               ; preds = %1, %policy_cache_new.exit, %6
   %.0 = phi ptr [ null, %6 ], [ %.pre, %policy_cache_new.exit ], [ %4, %1 ]
   ret ptr %.0
 }

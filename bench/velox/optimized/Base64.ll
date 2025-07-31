@@ -1168,31 +1168,24 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %text.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp eq i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit.critedge, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i = add i64 %sub.ptr.sub.i, 2
   %div.i = udiv i64 %add.i, 3
   %mul.i = shl i64 %div.i, 2
-  br label %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
-
-_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit: ; preds = %entry, %if.end.i
-  %retval.0.i = phi i64 [ 0, %entry ], [ %mul.i, %if.end.i ]
   %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
-  %add = add i64 %call2, %retval.0.i
+  %add = add i64 %call2, %mul.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %add)
   %call3 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
-  br i1 %cmp.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit, label %for.cond.preheader.i
-
-for.cond.preheader.i:                             ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %call2
   %cmp244.i = icmp ugt i64 %sub.ptr.sub.i, 2
   br i1 %cmp244.i, label %for.body.i, label %if.then27.i
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %len.047.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.sub.i, %for.cond.preheader.i ]
-  %it.046.i = phi ptr [ %incdec.ptr6.i, %for.body.i ], [ %text.coerce0, %for.cond.preheader.i ]
-  %wp.045.i = phi ptr [ %incdec.ptr25.i, %for.body.i ], [ %add.ptr, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %if.end.i, %for.body.i
+  %len.047.i = phi i64 [ %sub.i, %for.body.i ], [ %sub.ptr.sub.i, %if.end.i ]
+  %it.046.i = phi ptr [ %incdec.ptr6.i, %for.body.i ], [ %text.coerce0, %if.end.i ]
+  %wp.045.i = phi ptr [ %incdec.ptr25.i, %for.body.i ], [ %add.ptr, %if.end.i ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.046.i, i64 1
   %0 = load i8, ptr %it.046.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -1240,10 +1233,10 @@ for.end.i:                                        ; preds = %for.body.i
   %cmp26.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp26.not.i, label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit, label %if.then27.i
 
-if.then27.i:                                      ; preds = %for.end.i, %for.cond.preheader.i
-  %len.0.lcssa56.i = phi i64 [ %sub.i, %for.end.i ], [ %sub.ptr.sub.i, %for.cond.preheader.i ]
-  %it.0.lcssa55.i = phi ptr [ %incdec.ptr6.i, %for.end.i ], [ %text.coerce0, %for.cond.preheader.i ]
-  %wp.0.lcssa54.i = phi ptr [ %incdec.ptr25.i, %for.end.i ], [ %add.ptr, %for.cond.preheader.i ]
+if.then27.i:                                      ; preds = %for.end.i, %if.end.i
+  %len.0.lcssa56.i = phi i64 [ %sub.i, %for.end.i ], [ %sub.ptr.sub.i, %if.end.i ]
+  %it.0.lcssa55.i = phi ptr [ %incdec.ptr6.i, %for.end.i ], [ %text.coerce0, %if.end.i ]
+  %wp.0.lcssa54.i = phi ptr [ %incdec.ptr25.i, %for.end.i ], [ %add.ptr, %if.end.i ]
   %8 = load i8, ptr %it.0.lcssa55.i, align 1
   %conv30.i = zext i8 %8 to i32
   %shr32.i = lshr i32 %conv30.i, 2
@@ -1292,7 +1285,13 @@ if.else.i:                                        ; preds = %if.then27.i
   store i8 61, ptr %incdec.ptr61.i, align 1
   br label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit
 
-_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit: ; preds = %_ZN8facebook5velox8encoding6Base6420calculateEncodedSizeEmb.exit, %for.end.i, %if.then38.i, %if.else.i
+_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit.critedge: ; preds = %entry
+  %call2.c = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %call2.c)
+  %call3.c = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %out) #11
+  br label %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit
+
+_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit: ; preds = %_ZN8facebook5velox8encoding6Base6410encodeImplIN5folly5RangeIPKcEEEEvRKT_RKSt5arrayIcLm64EEbPc.exit.critedge, %for.end.i, %if.then38.i, %if.else.i
   ret void
 }
 

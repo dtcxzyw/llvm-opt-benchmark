@@ -7724,9 +7724,9 @@ _ZL15mi_align_up_ptrPvm.exit.i:                   ; preds = %89, %_ZL24mi_atomic
 98:                                               ; preds = %65
   %99 = call fastcc noundef ptr @_ZL16mi_os_prim_allocmmbbPbS_(i64 noundef %66, i64 noundef 1, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread, label %_ZL15mi_align_up_ptrPvm.exit90.i
+  br i1 %100, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread, label %_ZL15mi_align_up_ptrPvm.exit89.i
 
-_ZL15mi_align_up_ptrPvm.exit90.i:                 ; preds = %98
+_ZL15mi_align_up_ptrPvm.exit89.i:                 ; preds = %98
   %101 = ptrtoint ptr %99 to i64
   %102 = add i64 %58, %101
   %103 = sub i64 0, %.0.i17
@@ -7740,34 +7740,34 @@ _ZL15mi_align_up_ptrPvm.exit90.i:                 ; preds = %98
   %111 = add i64 %110, %107
   br i1 %109, label %112, label %115
 
-112:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit90.i
+112:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit89.i
   %113 = sub i64 0, %107
   %114 = and i64 %111, %113
-  br label %_ZL12_mi_align_upmm.exit92.i
+  br label %_ZL12_mi_align_upmm.exit91.i
 
-115:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit90.i
+115:                                              ; preds = %_ZL15mi_align_up_ptrPvm.exit89.i
   %116 = urem i64 %111, %107
   %117 = sub nuw i64 %111, %116
-  br label %_ZL12_mi_align_upmm.exit92.i
+  br label %_ZL12_mi_align_upmm.exit91.i
 
-_ZL12_mi_align_upmm.exit92.i:                     ; preds = %115, %112
-  %.0.i91.i = phi i64 [ %114, %112 ], [ %117, %115 ]
-  %118 = add i64 %.0.i91.i, %106
+_ZL12_mi_align_upmm.exit91.i:                     ; preds = %115, %112
+  %.0.i90.i = phi i64 [ %114, %112 ], [ %117, %115 ]
+  %118 = add i64 %.0.i90.i, %106
   %119 = sub i64 %66, %118
   %.not84.i = icmp eq ptr %99, %105
   br i1 %.not84.i, label %122, label %120
 
-120:                                              ; preds = %_ZL12_mi_align_upmm.exit92.i
+120:                                              ; preds = %_ZL12_mi_align_upmm.exit91.i
   %121 = select i1 %2, i64 %106, i64 0
   tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef nonnull %99, i64 noundef %106, i64 noundef %121)
   br label %122
 
-122:                                              ; preds = %120, %_ZL12_mi_align_upmm.exit92.i
+122:                                              ; preds = %120, %_ZL12_mi_align_upmm.exit91.i
   %.not85.i = icmp eq i64 %66, %118
   br i1 %.not85.i, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit, label %123
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds nuw i8, ptr %105, i64 %.0.i91.i
+  %124 = getelementptr inbounds nuw i8, ptr %105, i64 %.0.i90.i
   %125 = select i1 %2, i64 %119, i64 0
   tail call fastcc void @_ZL15mi_os_prim_freePvmm(ptr noundef %124, i64 noundef %119, i64 noundef %125)
   br label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit

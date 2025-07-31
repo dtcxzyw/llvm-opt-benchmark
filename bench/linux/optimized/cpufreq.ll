@@ -5522,7 +5522,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !22
   %5 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %.thread7
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @cpufreq_driver, align 8
@@ -5539,7 +5539,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
 15:                                               ; preds = %12
   %16 = call i32 @strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.57, i64 noundef 16)
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.thread, label %.thread7
+  br i1 %.not, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %12, %15
   %17 = phi i32 [ 1, %15 ], [ 2, %12 ]
@@ -5554,7 +5554,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
   %21 = phi ptr [ @cpufreq_governor_list, %19 ], [ %22, %24 ]
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @cpufreq_governor_list
-  br i1 %23, label %.thread8, label %24
+  br i1 %23, label %.thread9, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %22, i64 -72
@@ -5564,21 +5564,21 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
 
 28:                                               ; preds = %24
   %29 = icmp eq ptr %25, null
-  br i1 %29, label %.thread8, label %30
+  br i1 %29, label %.thread9, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %22, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i1 @try_module_get(ptr noundef %32) #21
-  br i1 %33, label %.thread12, label %.thread8
+  br i1 %33, label %.thread13, label %.thread9
 
-.thread8:                                         ; preds = %20, %28, %30
+.thread9:                                         ; preds = %20, %28, %30
   call void @mutex_unlock(ptr noundef nonnull @cpufreq_governor_mutex) #21
   %34 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.58, ptr noundef nonnull %4) #21
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %.thread7
+  br i1 %35, label %36, label %.critedge
 
-36:                                               ; preds = %.thread8
+36:                                               ; preds = %.thread9
   call void @mutex_lock(ptr noundef nonnull @cpufreq_governor_mutex) #21
   br label %37
 
@@ -5586,7 +5586,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
   %38 = phi ptr [ @cpufreq_governor_list, %36 ], [ %39, %41 ]
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, @cpufreq_governor_list
-  br i1 %40, label %.thread15, label %41
+  br i1 %40, label %.thread16, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %39, i64 -72
@@ -5596,19 +5596,19 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
 
 45:                                               ; preds = %41
   %46 = icmp eq ptr %42, null
-  br i1 %46, label %.thread15, label %47
+  br i1 %46, label %.thread16, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr i8, ptr %39, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i1 @try_module_get(ptr noundef %49) #21
-  br i1 %50, label %.thread12, label %.thread15
+  br i1 %50, label %.thread13, label %.thread16
 
-.thread15:                                        ; preds = %37, %45, %47
+.thread16:                                        ; preds = %37, %45, %47
   call void @mutex_unlock(ptr noundef nonnull @cpufreq_governor_mutex) #21
-  br label %.thread7
+  br label %.critedge
 
-.thread12:                                        ; preds = %47, %30
+.thread13:                                        ; preds = %47, %30
   %51 = phi ptr [ %25, %30 ], [ %42, %47 ]
   call void @mutex_unlock(ptr noundef nonnull @cpufreq_governor_mutex) #21
   %52 = call fastcc i32 @cpufreq_set_policy(ptr noundef %0, ptr noundef nonnull %51, i32 noundef 0)
@@ -5617,15 +5617,15 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly
   call void @module_put(ptr noundef %54) #21
   br label %55
 
-55:                                               ; preds = %.thread12, %.thread
-  %56 = phi i32 [ %18, %.thread ], [ %52, %.thread12 ]
+55:                                               ; preds = %.thread13, %.thread
+  %56 = phi i32 [ %18, %.thread ], [ %52, %.thread13 ]
   %57 = icmp eq i32 %56, 0
   %58 = sext i32 %56 to i64
   %59 = select i1 %57, i64 %2, i64 %58
-  br label %.thread7
+  br label %.critedge
 
-.thread7:                                         ; preds = %.thread8, %.thread15, %15, %55, %3
-  %60 = phi i64 [ %59, %55 ], [ -22, %3 ], [ -22, %15 ], [ -22, %.thread15 ], [ -22, %.thread8 ]
+.critedge:                                        ; preds = %.thread9, %.thread16, %15, %55, %3
+  %60 = phi i64 [ %59, %55 ], [ -22, %3 ], [ -22, %15 ], [ -22, %.thread16 ], [ -22, %.thread9 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
   ret i64 %60
 }

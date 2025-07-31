@@ -53634,7 +53634,7 @@ default.unreachable2:                             ; preds = %2
 
 22:                                               ; preds = %13
   %23 = icmp ugt i64 %16, %20
-  br i1 %23, label %25, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i"
+  br i1 %23, label %25, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i"
 
 24:                                               ; preds = %13
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %15, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d3b2245bd4ae2af5900eb7d39f1e495.37.llvm.10043242345734795027) #36, !noalias !9472
@@ -53644,11 +53644,11 @@ default.unreachable2:                             ; preds = %2
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %16, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d3b2245bd4ae2af5900eb7d39f1e495.37.llvm.10043242345734795027) #36, !noalias !9472
   unreachable
 
-"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i": ; preds = %22
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i": ; preds = %22
   %.not.i.not = icmp eq i64 %14, 0
   br i1 %.not.i.not, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get17h917ca5b6e4924752E.exit", label %26
 
-26:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i"
+26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i"
   %27 = getelementptr inbounds nuw i32, ptr %18, i64 %15
   %28 = load i32, ptr %27, align 4, !alias.scope !9475, !noundef !4
   br label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get17h917ca5b6e4924752E.exit"
@@ -53658,9 +53658,9 @@ default.unreachable2:                             ; preds = %2
   %31 = load i32, ptr %30, align 8, !noundef !4
   br label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get17h917ca5b6e4924752E.exit"
 
-"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get17h917ca5b6e4924752E.exit": ; preds = %26, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i", %8, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %37, %34, %29, %4
-  %.sroa.7.0 = phi i32 [ %6, %4 ], [ %36, %34 ], [ %.0, %37 ], [ %31, %29 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ %28, %26 ], [ undef, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i" ], [ undef, %8 ]
-  %.sroa.0.0 = phi i32 [ 1, %4 ], [ 1, %34 ], [ 1, %37 ], [ 1, %29 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 1, %26 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit.i" ], [ 0, %8 ]
+"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get17h917ca5b6e4924752E.exit": ; preds = %26, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i", %8, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %37, %34, %29, %4
+  %.sroa.7.0 = phi i32 [ %6, %4 ], [ %36, %34 ], [ %.0, %37 ], [ %31, %29 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ undef, %2 ], [ %28, %26 ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i" ], [ undef, %8 ]
+  %.sroa.0.0 = phi i32 [ 1, %4 ], [ 1, %34 ], [ 1, %37 ], [ 1, %29 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 1, %26 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i.i" ], [ 0, %8 ]
   %32 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %33 = insertvalue { i32, i32 } %32, i32 %.sroa.7.0, 1
   ret { i32, i32 } %33

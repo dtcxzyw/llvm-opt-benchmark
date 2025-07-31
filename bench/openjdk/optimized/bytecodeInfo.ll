@@ -1679,79 +1679,79 @@ _ZNK10InlineTree10caller_bciEv.exit.i:            ; preds = %15, %10
 
 27:                                               ; preds = %.loopexit
   %28 = tail call noundef zeroext i1 @_ZNK8ciMethod23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(160) %26) #11
-  br i1 %28, label %.critedge27, label %29
+  br i1 %28, label %33, label %29
 
 29:                                               ; preds = %27
   %30 = tail call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %30, label %.critedge27, label %31
+  br i1 %30, label %33, label %31
 
 31:                                               ; preds = %29
   %32 = tail call noundef zeroext i1 @_ZNK8ciMethod23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %32, label %.critedge27, label %.critedge
+  br i1 %32, label %33, label %.critedge
 
-.critedge27:                                      ; preds = %29, %31, %27
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 368
-  %35 = load ptr, ptr %34, align 8
-  %.not25 = icmp eq ptr %35, null
-  br i1 %.not25, label %.critedge, label %36
+33:                                               ; preds = %29, %31, %27
+  %34 = load ptr, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 368
+  %36 = load ptr, ptr %35, align 8
+  %.not25 = icmp eq ptr %36, null
+  br i1 %.not25, label %.critedge, label %37
 
-36:                                               ; preds = %.critedge27
-  %37 = load ptr, ptr %25, align 8
-  %38 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %35, ptr noundef %37) #11
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 368
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %41, ptr noundef %1) #11
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 368
-  %45 = load ptr, ptr %44, align 8
-  tail call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %45, ptr noundef nonnull @.str.43, i32 noundef %38, i32 noundef %42) #11
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %25, align 8
+  %39 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %36, ptr noundef %38) #11
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 368
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %42, ptr noundef %1) #11
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 368
+  %46 = load ptr, ptr %45, align 8
+  tail call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %46, ptr noundef nonnull @.str.43, i32 noundef %39, i32 noundef %43) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %.critedge27, %36, %.loopexit
-  %.021 = phi i32 [ 1, %36 ], [ 1, %.critedge27 ], [ 0, %.loopexit ], [ 0, %31 ]
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 296
-  %48 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %47) #11
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %.021
-  tail call void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr noundef nonnull align 8 dereferenceable(81) %48, ptr noundef %49, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 poison, i32 noundef %52)
-  %53 = load i32, ptr %5, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %53, %55
-  br i1 %56, label %57, label %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit
+.critedge:                                        ; preds = %31, %33, %37, %.loopexit
+  %.021 = phi i32 [ 1, %37 ], [ 1, %33 ], [ 0, %.loopexit ], [ 0, %31 ]
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 296
+  %49 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %48) #11
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %52 = load i32, ptr %51, align 4
+  %53 = add nsw i32 %52, %.021
+  tail call void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr noundef nonnull align 8 dereferenceable(81) %49, ptr noundef %50, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 poison, i32 noundef %53)
+  %54 = load i32, ptr %5, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %58, label %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit
 
-57:                                               ; preds = %.critedge
-  %58 = add nsw i32 %53, 1
-  %59 = icmp sgt i32 %53, -1
-  %60 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %58)
-  %61 = icmp samesign ult i32 %60, 2
-  %or.cond.i.i.i.i = select i1 %59, i1 %61, i1 false
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
-  %63 = sub nuw nsw i32 32, %62
-  %64 = shl nuw i32 1, %63
-  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %58, i32 %64
+58:                                               ; preds = %.critedge
+  %59 = add nsw i32 %54, 1
+  %60 = icmp sgt i32 %54, -1
+  %61 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
+  %62 = icmp samesign ult i32 %61, 2
+  %or.cond.i.i.i.i = select i1 %60, i1 %62, i1 false
+  %63 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
+  %64 = sub nuw nsw i32 32, %63
+  %65 = shl nuw i32 1, %64
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %59, i32 %65
   tail call void @_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %5, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.critedge, %57
-  %65 = phi i32 [ %.pre.i, %57 ], [ %53, %.critedge ]
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %5, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = load ptr, ptr %67, align 8
-  %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds ptr, ptr %68, i64 %69
-  store ptr %48, ptr %70, align 8
+_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.critedge, %58
+  %66 = phi i32 [ %.pre.i, %58 ], [ %54, %.critedge ]
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %5, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %69 = load ptr, ptr %68, align 8
+  %70 = sext i32 %66 to i64
+  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  store ptr %49, ptr %71, align 8
   br label %_ZNK10InlineTree9callee_atEiP8ciMethod.exit
 
 _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %20, %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.0 = phi ptr [ %48, %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %12, %20 ]
+  %.0 = phi ptr [ %49, %_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %12, %20 ]
   ret ptr %.0
 }
 

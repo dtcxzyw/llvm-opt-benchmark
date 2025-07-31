@@ -127,14 +127,14 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = tail call i64 @llvm.umin.i64(i64 %36, i64 16)
-  %spec.select55.i = add nsw i64 %37, -1
-  %.not116.i = icmp eq i64 %spec.select55.i, 0
-  br i1 %.not116.i, label %212, label %.lr.ph109.i
+  %spec.select53.i = add nsw i64 %37, -1
+  %.not114.i = icmp eq i64 %spec.select53.i, 0
+  br i1 %.not114.i, label %212, label %.lr.ph107.i
 
-.lr.ph109.i:                                      ; preds = %33
+.lr.ph107.i:                                      ; preds = %33
   %38 = load ptr, ptr %34, align 8
   %.pre.i = load i8, ptr %38, align 1
-  br label %.lr.ph87.i
+  br label %.lr.ph85.i
 
 ._crit_edge.i:                                    ; preds = %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
   %39 = trunc nuw i8 %.sroa.21.1.i to i1
@@ -148,15 +148,15 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   %.pre264 = tail call i64 @llvm.umin.i64(i64 %.pre256, i64 16)
   br label %212
 
-.lr.ph87.i:                                       ; preds = %.lr.ph109.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
-  %41 = phi i8 [ %.pre.i, %.lr.ph109.i ], [ %45, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.070108.i = phi i32 [ 0, %.lr.ph109.i ], [ %42, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.sroa.21.0107.i = phi i8 [ 0, %.lr.ph109.i ], [ %.sroa.21.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.sroa.1731.0106.i = phi i8 [ 0, %.lr.ph109.i ], [ %.sroa.1731.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.sroa.13.0105.i = phi i32 [ 0, %.lr.ph109.i ], [ %.sroa.13.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.sroa.7.0104.i = phi i8 [ 0, %.lr.ph109.i ], [ %.sroa.7.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %.sroa.025.0103.i = phi i8 [ 0, %.lr.ph109.i ], [ %.sroa.025.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
-  %42 = add i32 %.070108.i, 1
+.lr.ph85.i:                                       ; preds = %.lr.ph107.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
+  %41 = phi i8 [ %.pre.i, %.lr.ph107.i ], [ %45, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.070106.i = phi i32 [ 0, %.lr.ph107.i ], [ %42, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.sroa.21.0105.i = phi i8 [ 0, %.lr.ph107.i ], [ %.sroa.21.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.sroa.1731.0104.i = phi i8 [ 0, %.lr.ph107.i ], [ %.sroa.1731.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.sroa.13.0103.i = phi i32 [ 0, %.lr.ph107.i ], [ %.sroa.13.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.sroa.7.0102.i = phi i8 [ 0, %.lr.ph107.i ], [ %.sroa.7.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %.sroa.025.0101.i = phi i8 [ 0, %.lr.ph107.i ], [ %.sroa.025.1.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i ]
+  %42 = add i32 %.070106.i, 1
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 %43
   %45 = load i8, ptr %44, align 1
@@ -173,41 +173,41 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   %52 = trunc nuw i8 %.sroa.22.237.i to i1
   br label %144
 
-53:                                               ; preds = %.thread.i, %.lr.ph87.i
-  %.sroa.05.086.i = phi ptr [ %.sroa.0164.3, %.lr.ph87.i ], [ %128, %.thread.i ]
-  %.sroa.22.085.i = phi i8 [ 0, %.lr.ph87.i ], [ %.sroa.22.237.i, %.thread.i ]
-  %54 = load ptr, ptr %.sroa.05.086.i, align 8
+53:                                               ; preds = %.thread.i, %.lr.ph85.i
+  %.sroa.05.084.i = phi ptr [ %.sroa.0164.3, %.lr.ph85.i ], [ %128, %.thread.i ]
+  %.sroa.22.083.i = phi i8 [ 0, %.lr.ph85.i ], [ %.sroa.22.237.i, %.thread.i ]
+  %54 = load ptr, ptr %.sroa.05.084.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i8, ptr %55, align 8, !range !5, !noundef !6
   %57 = trunc nuw i8 %56 to i1
   %58 = select i1 %57, i1 %brmerge.i, i1 false
   %.fr.i = freeze i1 %58
-  %.sroa.22.1.i = select i1 %.fr.i, i8 1, i8 %.sroa.22.085.i
+  %.sroa.22.1.i = select i1 %.fr.i, i8 1, i8 %.sroa.22.083.i
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = tail call i64 @llvm.umin.i64(i64 %60, i64 16)
-  %spec.select56.i = add nsw i64 %61, -1
+  %spec.select54.i = add nsw i64 %61, -1
   %62 = trunc nuw i8 %.sroa.22.1.i to i1
-  %.not117.i = icmp eq i64 %spec.select56.i, 0
+  %.not115.i = icmp eq i64 %spec.select54.i, 0
   br i1 %62, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %53
-  br i1 %.not117.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i, label %.lr.ph78.i
+  br i1 %.not115.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i, label %.lr.ph76.i
 
-.lr.ph78.i:                                       ; preds = %.split.us.i
+.lr.ph76.i:                                       ; preds = %.split.us.i
   %63 = load ptr, ptr %54, align 8
   br label %68
 
 64:                                               ; preds = %84
-  %65 = add i32 %.07268.us76.i, 1
+  %65 = add i32 %.07266.us74.i, 1
   %66 = zext i32 %65 to i64
-  %67 = icmp ugt i64 %spec.select56.i, %66
+  %67 = icmp ugt i64 %spec.select54.i, %66
   br i1 %67, label %68, label %.critedge.i, !llvm.loop !7
 
-68:                                               ; preds = %64, %.lr.ph78.i
-  %69 = phi i64 [ 0, %.lr.ph78.i ], [ %66, %64 ]
-  %.07367.us77.i = phi i1 [ false, %.lr.ph78.i ], [ %88, %64 ]
-  %.07268.us76.i = phi i32 [ 0, %.lr.ph78.i ], [ %65, %64 ]
+68:                                               ; preds = %64, %.lr.ph76.i
+  %69 = phi i64 [ 0, %.lr.ph76.i ], [ %66, %64 ]
+  %.07365.us75.i = phi i1 [ false, %.lr.ph76.i ], [ %88, %64 ]
+  %.07266.us74.i = phi i32 [ 0, %.lr.ph76.i ], [ %65, %64 ]
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = xor i8 %71, %41
@@ -216,7 +216,7 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %68
-  %76 = add i32 %.07268.us76.i, 1
+  %76 = add i32 %.07266.us74.i, 1
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 %77
   %79 = load i8, ptr %78, align 1
@@ -228,7 +228,7 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
 
 84:                                               ; preds = %75, %68
   %85 = phi i32 [ 0, %68 ], [ %83, %75 ]
-  %86 = zext i1 %.07367.us77.i to i32
+  %86 = zext i1 %.07365.us75.i to i32
   %87 = or i32 %85, %86
   %88 = icmp ne i32 %87, 0
   %89 = trunc nuw i32 %87 to i1
@@ -238,16 +238,16 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   br label %.critedge.i, !llvm.loop !7
 
 .split.i:                                         ; preds = %53
-  br i1 %.not117.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i, label %.lr.ph.i102
+  br i1 %.not115.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i, label %.lr.ph.i102
 
 .lr.ph.i102:                                      ; preds = %.split.i
   %90 = load ptr, ptr %54, align 8
   br label %96
 
 91:                                               ; preds = %121
-  %92 = add i32 %.0726870.i, 1
+  %92 = add i32 %.0726668.i, 1
   %93 = zext i32 %92 to i64
-  %94 = icmp ugt i64 %spec.select56.i, %93
+  %94 = icmp ugt i64 %spec.select54.i, %93
   br i1 %94, label %96, label %.critedge.i, !llvm.loop !10
 
 ..critedge.split_crit_edge.i:                     ; preds = %121
@@ -255,23 +255,23 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
 
 .critedge.i:                                      ; preds = %91, %64, %..critedge.split_crit_edge.i, %..critedge.split.us_crit_edge.i
   %.us-phi.i = phi i8 [ 1, %..critedge.split.us_crit_edge.i ], [ 1, %..critedge.split_crit_edge.i ], [ 0, %64 ], [ 0, %91 ]
-  %.us-phi69.i = phi i1 [ %88, %..critedge.split.us_crit_edge.i ], [ %125, %..critedge.split_crit_edge.i ], [ %88, %64 ], [ %125, %91 ]
+  %.us-phi67.i = phi i1 [ %88, %..critedge.split.us_crit_edge.i ], [ %125, %..critedge.split_crit_edge.i ], [ %88, %64 ], [ %125, %91 ]
   %95 = or i8 %.us-phi.i, %.sroa.22.1.i
   %or.cond.not80.i = icmp eq i8 %95, 0
-  %or.cond5.i = select i1 %or.cond.not80.i, i1 %.us-phi69.i, i1 false
+  %or.cond5.i = select i1 %or.cond.not80.i, i1 %.us-phi67.i, i1 false
   br i1 %or.cond5.i, label %.thread.i, label %126
 
 96:                                               ; preds = %91, %.lr.ph.i102
   %97 = phi i64 [ 0, %.lr.ph.i102 ], [ %93, %91 ]
-  %.0736771.i = phi i1 [ false, %.lr.ph.i102 ], [ %125, %91 ]
-  %.0726870.i = phi i32 [ 0, %.lr.ph.i102 ], [ %92, %91 ]
+  %.0736569.i = phi i1 [ false, %.lr.ph.i102 ], [ %125, %91 ]
+  %.0726668.i = phi i32 [ 0, %.lr.ph.i102 ], [ %92, %91 ]
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %41, %99
   br i1 %100, label %101, label %107
 
 101:                                              ; preds = %96
-  %102 = add i32 %.0726870.i, 1
+  %102 = add i32 %.0726668.i, 1
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 %103
   %105 = load i8, ptr %104, align 1
@@ -286,7 +286,7 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   br i1 %111, label %112, label %121
 
 112:                                              ; preds = %107
-  %113 = add i32 %.0726870.i, 1
+  %113 = add i32 %.0726668.i, 1
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %90, i64 %114
   %116 = load i8, ptr %115, align 1
@@ -298,7 +298,7 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
 
 121:                                              ; preds = %112, %107
   %122 = phi i32 [ 0, %107 ], [ %120, %112 ]
-  %123 = zext i1 %.0736771.i to i32
+  %123 = zext i1 %.0736569.i to i32
   %124 = or i32 %122, %123
   %125 = icmp ne i32 %124, 0
   br i1 %108, label %..critedge.split_crit_edge.i, label %91, !llvm.loop !10
@@ -309,27 +309,27 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
 
 .thread.i:                                        ; preds = %126, %.critedge.i
   %.sroa.22.237.i = phi i8 [ %.sroa.22.1.i, %126 ], [ 1, %.critedge.i ]
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.05.086.i, i64 8
-  %.not58.i = icmp eq ptr %128, %.sroa.11168.1
-  br i1 %.not58.i, label %.thread38.preheader.i, label %53
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.05.084.i, i64 8
+  %.not56.i = icmp eq ptr %128, %.sroa.11168.1
+  br i1 %.not56.i, label %.thread38.preheader.i, label %53
 
-.thread38._crit_edge.i:                           ; preds = %.thread54.i
-  %129 = trunc nuw i8 %.sroa.21.0107.i to i1
+.thread38._crit_edge.i:                           ; preds = %.thread52.i
+  %129 = trunc nuw i8 %.sroa.21.0105.i to i1
   br i1 %129, label %130, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i
 
 130:                                              ; preds = %.thread38._crit_edge.i
-  %131 = trunc nuw i8 %.sroa.1731.0106.i to i1
-  %132 = xor i8 %.sroa.025.0103.i, %.sroa.7.0104.i
+  %131 = trunc nuw i8 %.sroa.1731.0104.i to i1
+  %132 = xor i8 %.sroa.025.0101.i, %.sroa.7.0102.i
   %133 = and i8 %132, -33
   %134 = icmp ne i8 %133, 0
-  %135 = icmp ne i8 %.sroa.025.0103.i, %.sroa.7.0104.i
-  %.0.i.i87.i = select i1 %131, i1 %134, i1 %135
+  %135 = icmp ne i8 %.sroa.025.0101.i, %.sroa.7.0102.i
+  %.0.i.i88.i = select i1 %131, i1 %134, i1 %135
   %136 = xor i8 %45, %41
   %137 = and i8 %136, -33
   %138 = icmp ne i8 %137, 0
   %139 = icmp ne i8 %41, %45
   %.0.i14.i.i = select i1 %52, i1 %138, i1 %139
-  br i1 %.0.i.i87.i, label %140, label %141
+  br i1 %.0.i.i88.i, label %140, label %141
 
 140:                                              ; preds = %130
   br i1 %.0.i14.i.i, label %.thread.i.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
@@ -343,71 +343,71 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   br i1 %or.cond.i.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i, label %142
 
 142:                                              ; preds = %.thread.i.i
-  %.not60.i = xor i1 %52, true
-  %or.cond13.i.not.i = and i1 %131, %.not60.i
-  %143 = icmp ule i32 %.sroa.1719.3.i, %.sroa.13.0105.i
+  %.not58.i = xor i1 %52, true
+  %or.cond13.i.not.i = and i1 %131, %.not58.i
+  %143 = icmp ule i32 %.sroa.1719.3.i, %.sroa.13.0103.i
   %or.cond.i = select i1 %or.cond13.i.not.i, i1 true, i1 %143
   br i1 %or.cond.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i, label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
 
-144:                                              ; preds = %.thread54.i, %.thread38.preheader.i
-  %.sroa.01.0100.i = phi ptr [ %.sroa.0164.3, %.thread38.preheader.i ], [ %198, %.thread54.i ]
-  %.sroa.1719.099.i = phi i32 [ 0, %.thread38.preheader.i ], [ %.sroa.1719.3.i, %.thread54.i ]
-  %145 = load ptr, ptr %.sroa.01.0100.i, align 8
+144:                                              ; preds = %.thread52.i, %.thread38.preheader.i
+  %.sroa.01.098.i = phi ptr [ %.sroa.0164.3, %.thread38.preheader.i ], [ %198, %.thread52.i ]
+  %.sroa.1719.097.i = phi i32 [ 0, %.thread38.preheader.i ], [ %.sroa.1719.3.i, %.thread52.i ]
+  %145 = load ptr, ptr %.sroa.01.098.i, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i64, ptr %146, align 8
   %148 = tail call i64 @llvm.umin.i64(i64 %147, i64 16)
-  %spec.select57.i = add nsw i64 %148, -1
-  %.not118.i = icmp eq i64 %spec.select57.i, 0
-  br i1 %.not118.i, label %.thread54.i, label %.lr.ph90.i
+  %spec.select55.i = add nsw i64 %148, -1
+  %.not116.i = icmp eq i64 %spec.select55.i, 0
+  br i1 %.not116.i, label %.thread52.i, label %.lr.ph88.i
 
-.lr.ph90.i:                                       ; preds = %144
+.lr.ph88.i:                                       ; preds = %144
   %149 = load ptr, ptr %145, align 8
-  br i1 %52, label %.lr.ph90.split.us.i, label %.lr.ph90.split.i
+  br i1 %52, label %.lr.ph88.split.us.i, label %.lr.ph88.split.i
 
-.lr.ph90.split.us.i:                              ; preds = %.lr.ph90.i, %.critedge82.us.i
-  %150 = phi i64 [ %157, %.critedge82.us.i ], [ 0, %.lr.ph90.i ]
-  %.06889.us.i = phi i32 [ %156, %.critedge82.us.i ], [ 0, %.lr.ph90.i ]
+.lr.ph88.split.us.i:                              ; preds = %.lr.ph88.i, %.critedge82.us.i
+  %150 = phi i64 [ %157, %.critedge82.us.i ], [ 0, %.lr.ph88.i ]
+  %.06887.us.i = phi i32 [ %156, %.critedge82.us.i ], [ 0, %.lr.ph88.i ]
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = xor i8 %152, %41
   %154 = and i8 %153, -33
   %155 = icmp eq i8 %154, 0
-  %156 = add i32 %.06889.us.i, 1
+  %156 = add i32 %.06887.us.i, 1
   %157 = zext i32 %156 to i64
   br i1 %155, label %158, label %.critedge82.us.i
 
-158:                                              ; preds = %.lr.ph90.split.us.i
+158:                                              ; preds = %.lr.ph88.split.us.i
   %159 = getelementptr inbounds nuw i8, ptr %149, i64 %157
   %160 = load i8, ptr %159, align 1
   %161 = xor i8 %160, %45
   %162 = and i8 %161, -33
   %163 = icmp eq i8 %162, 0
-  br i1 %163, label %.split92.us.i, label %.critedge82.us.i
+  br i1 %163, label %.split90.us.i, label %.critedge82.us.i
 
-.critedge82.us.i:                                 ; preds = %158, %.lr.ph90.split.us.i
-  %164 = icmp ugt i64 %spec.select57.i, %157
-  br i1 %164, label %.lr.ph90.split.us.i, label %.thread54.i, !llvm.loop !11
+.critedge82.us.i:                                 ; preds = %158, %.lr.ph88.split.us.i
+  %164 = icmp ugt i64 %spec.select55.i, %157
+  br i1 %164, label %.lr.ph88.split.us.i, label %.thread52.i, !llvm.loop !11
 
-.lr.ph90.split.i:                                 ; preds = %.lr.ph90.i, %.critedge82.i
-  %165 = phi i64 [ %170, %.critedge82.i ], [ 0, %.lr.ph90.i ]
-  %.06889.i = phi i32 [ %169, %.critedge82.i ], [ 0, %.lr.ph90.i ]
+.lr.ph88.split.i:                                 ; preds = %.lr.ph88.i, %.critedge82.i
+  %165 = phi i64 [ %170, %.critedge82.i ], [ 0, %.lr.ph88.i ]
+  %.06887.i = phi i32 [ %169, %.critedge82.i ], [ 0, %.lr.ph88.i ]
   %166 = getelementptr inbounds nuw i8, ptr %149, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = icmp eq i8 %41, %167
-  %169 = add i32 %.06889.i, 1
+  %169 = add i32 %.06887.i, 1
   %170 = zext i32 %169 to i64
   br i1 %168, label %171, label %.critedge82.i
 
-171:                                              ; preds = %.lr.ph90.split.i
+171:                                              ; preds = %.lr.ph88.split.i
   %172 = getelementptr inbounds nuw i8, ptr %149, i64 %170
   %173 = load i8, ptr %172, align 1
   %174 = icmp eq i8 %45, %173
-  br i1 %174, label %.split92.us.i, label %.critedge82.i
+  br i1 %174, label %.split90.us.i, label %.critedge82.i
 
-.split92.us.i:                                    ; preds = %171, %158
-  %.us-phi93.i = phi i32 [ %.06889.us.i, %158 ], [ %.06889.i, %171 ]
-  %.us-phi94.i = phi i64 [ %150, %158 ], [ %165, %171 ]
-  %175 = zext i32 %.sroa.1719.099.i to i64
+.split90.us.i:                                    ; preds = %171, %158
+  %.us-phi91.i = phi i32 [ %.06887.us.i, %158 ], [ %.06887.i, %171 ]
+  %.us-phi92.i = phi i64 [ %150, %158 ], [ %165, %171 ]
+  %175 = zext i32 %.sroa.1719.097.i to i64
   %176 = getelementptr inbounds nuw i8, ptr %145, i64 40
   %177 = getelementptr inbounds nuw i8, ptr %145, i64 48
   %178 = load ptr, ptr %177, align 8
@@ -418,12 +418,12 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
   %.not1718.i.i = icmp eq ptr %179, %178
   br i1 %.not1718.i.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.split92.us.i, %184
-  %.01220.i.i = phi i64 [ %185, %184 ], [ %182, %.split92.us.i ]
-  %.sroa.014.019.i.i = phi ptr [ %186, %184 ], [ %179, %.split92.us.i ]
+.lr.ph.i.i:                                       ; preds = %.split90.us.i, %184
+  %.01220.i.i = phi i64 [ %185, %184 ], [ %182, %.split90.us.i ]
+  %.sroa.014.019.i.i = phi ptr [ %186, %184 ], [ %179, %.split90.us.i ]
   %183 = load i8, ptr %.sroa.014.019.i.i, align 1
-  %.not.i88.i = icmp eq i8 %183, 0
-  br i1 %.not.i88.i, label %184, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i
+  %.not.i89.i = icmp eq i8 %183, 0
+  br i1 %.not.i89.i, label %184, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i
 
 184:                                              ; preds = %.lr.ph.i.i
   %185 = add i64 %.01220.i.i, -1
@@ -434,63 +434,63 @@ _ZN3ue2L10filterLitsERKSt6vectorINS_11AccelStringESaIS1_EEyPS0_IPKS1_SaIS7_EEPj.
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i: ; preds = %184, %.lr.ph.i.i
   %.012.lcssa.i.i = phi i64 [ 0, %184 ], [ %.01220.i.i, %.lr.ph.i.i ]
   %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.012.lcssa.i.i, i64 %147)
-  %187 = add i64 %spec.select.i.i, %.us-phi94.i
+  %187 = add i64 %spec.select.i.i, %.us-phi92.i
   %188 = icmp ult i64 %187, %175
-  br i1 %188, label %.thread54.i, label %.lr.ph.i90.i
+  br i1 %188, label %.thread52.i, label %.lr.ph.i91.i
 
-_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i: ; preds = %.split92.us.i
-  %189 = icmp ult i32 %.us-phi93.i, %.sroa.1719.099.i
-  br i1 %189, label %.thread54.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.i
+_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i: ; preds = %.split90.us.i
+  %189 = icmp ult i32 %.us-phi91.i, %.sroa.1719.097.i
+  br i1 %189, label %.thread52.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i
 
-.lr.ph.i90.i:                                     ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %191
-  %.01220.i91.i = phi i64 [ %192, %191 ], [ %182, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ]
-  %.sroa.014.019.i92.i = phi ptr [ %193, %191 ], [ %179, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ]
-  %190 = load i8, ptr %.sroa.014.019.i92.i, align 1
-  %.not.i93.i = icmp eq i8 %190, 0
-  br i1 %.not.i93.i, label %191, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.loopexit.i
+.lr.ph.i91.i:                                     ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %191
+  %.01220.i92.i = phi i64 [ %192, %191 ], [ %182, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ]
+  %.sroa.014.019.i93.i = phi ptr [ %193, %191 ], [ %179, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ]
+  %190 = load i8, ptr %.sroa.014.019.i93.i, align 1
+  %.not.i94.i = icmp eq i8 %190, 0
+  br i1 %.not.i94.i, label %191, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.loopexit.i
 
-191:                                              ; preds = %.lr.ph.i90.i
-  %192 = add i64 %.01220.i91.i, -1
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i92.i, i64 1
-  %.not17.i96.i = icmp eq ptr %193, %178
-  br i1 %.not17.i96.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.loopexit.i, label %.lr.ph.i90.i
+191:                                              ; preds = %.lr.ph.i91.i
+  %192 = add i64 %.01220.i92.i, -1
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.014.019.i93.i, i64 1
+  %.not17.i97.i = icmp eq ptr %193, %178
+  br i1 %.not17.i97.i, label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.loopexit.i, label %.lr.ph.i91.i
 
-_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.loopexit.i: ; preds = %191, %.lr.ph.i90.i
-  %.012.lcssa.i94.ph.i = phi i64 [ 0, %191 ], [ %.01220.i91.i, %.lr.ph.i90.i ]
-  %194 = tail call i64 @llvm.usub.sat.i64(i64 %.012.lcssa.i94.ph.i, i64 %147)
+_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.loopexit.i: ; preds = %191, %.lr.ph.i91.i
+  %.012.lcssa.i95.ph.i = phi i64 [ 0, %191 ], [ %.01220.i92.i, %.lr.ph.i91.i ]
+  %194 = tail call i64 @llvm.usub.sat.i64(i64 %.012.lcssa.i95.ph.i, i64 %147)
   %195 = trunc i64 %194 to i32
-  br label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.i
+  br label %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i
 
-_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.i: ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.loopexit.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i
-  %.012.lcssa.i94.i = phi i32 [ 0, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %195, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.loopexit.i ]
-  %196 = add i32 %.012.lcssa.i94.i, %.us-phi93.i
-  br label %.thread54.i
+_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i: ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.loopexit.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i
+  %.012.lcssa.i95.i = phi i32 [ 0, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %195, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.loopexit.i ]
+  %196 = add i32 %.012.lcssa.i95.i, %.us-phi91.i
+  br label %.thread52.i
 
-.critedge82.i:                                    ; preds = %171, %.lr.ph90.split.i
-  %197 = icmp ugt i64 %spec.select57.i, %170
-  br i1 %197, label %.lr.ph90.split.i, label %.thread54.i, !llvm.loop !12
+.critedge82.i:                                    ; preds = %171, %.lr.ph88.split.i
+  %197 = icmp ugt i64 %spec.select55.i, %170
+  br i1 %197, label %.lr.ph88.split.i, label %.thread52.i, !llvm.loop !12
 
-.thread54.i:                                      ; preds = %.critedge82.i, %.critedge82.us.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %144
-  %.sroa.1719.3.i = phi i32 [ %.sroa.1719.099.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %196, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit97.i ], [ %.sroa.1719.099.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ], [ %.sroa.1719.099.i, %144 ], [ %.sroa.1719.099.i, %.critedge82.us.i ], [ %.sroa.1719.099.i, %.critedge82.i ]
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.01.0100.i, i64 8
-  %.not59.i = icmp eq ptr %198, %.sroa.11168.1
-  br i1 %.not59.i, label %.thread38._crit_edge.i, label %144
+.thread52.i:                                      ; preds = %.critedge82.i, %.critedge82.us.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %144
+  %.sroa.1719.3.i = phi i32 [ %.sroa.1719.097.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %196, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit98.i ], [ %.sroa.1719.097.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i ], [ %.sroa.1719.097.i, %144 ], [ %.sroa.1719.097.i, %.critedge82.us.i ], [ %.sroa.1719.097.i, %.critedge82.i ]
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.01.098.i, i64 8
+  %.not57.i = icmp eq ptr %198, %.sroa.11168.1
+  br i1 %.not57.i, label %.thread38._crit_edge.i, label %144
 
 _ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i: ; preds = %142, %141, %.thread38._crit_edge.i
   br label %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i
 
 _ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread46.i: ; preds = %126, %.split.i, %.split.us.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i, %142, %.thread.i.i, %140
-  %.sroa.025.1.i = phi i8 [ %41, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.025.0103.i, %140 ], [ %.sroa.025.0103.i, %.thread.i.i ], [ %.sroa.025.0103.i, %142 ], [ %.sroa.025.0103.i, %.split.us.i ], [ %.sroa.025.0103.i, %.split.i ], [ %.sroa.025.0103.i, %126 ]
-  %.sroa.7.1.i = phi i8 [ %45, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.7.0104.i, %140 ], [ %.sroa.7.0104.i, %.thread.i.i ], [ %.sroa.7.0104.i, %142 ], [ %.sroa.7.0104.i, %.split.us.i ], [ %.sroa.7.0104.i, %.split.i ], [ %.sroa.7.0104.i, %126 ]
-  %.sroa.13.1.i = phi i32 [ %.sroa.1719.3.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.13.0105.i, %140 ], [ %.sroa.13.0105.i, %.thread.i.i ], [ %.sroa.13.0105.i, %142 ], [ %.sroa.13.0105.i, %.split.us.i ], [ %.sroa.13.0105.i, %.split.i ], [ %.sroa.13.0105.i, %126 ]
-  %.sroa.1731.1.i = phi i8 [ %.sroa.22.237.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.1731.0106.i, %140 ], [ 0, %.thread.i.i ], [ %.sroa.1731.0106.i, %142 ], [ %.sroa.1731.0106.i, %.split.us.i ], [ %.sroa.1731.0106.i, %.split.i ], [ %.sroa.1731.0106.i, %126 ]
-  %.sroa.21.1.i = phi i8 [ 1, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ 1, %140 ], [ 1, %.thread.i.i ], [ 1, %142 ], [ %.sroa.21.0107.i, %.split.us.i ], [ %.sroa.21.0107.i, %.split.i ], [ %.sroa.21.0107.i, %126 ]
-  %199 = icmp ugt i64 %spec.select55.i, %43
-  br i1 %199, label %.lr.ph87.i, label %._crit_edge.i, !llvm.loop !13
+  %.sroa.025.1.i = phi i8 [ %41, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.025.0101.i, %140 ], [ %.sroa.025.0101.i, %.thread.i.i ], [ %.sroa.025.0101.i, %142 ], [ %.sroa.025.0101.i, %.split.us.i ], [ %.sroa.025.0101.i, %.split.i ], [ %.sroa.025.0101.i, %126 ]
+  %.sroa.7.1.i = phi i8 [ %45, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.7.0102.i, %140 ], [ %.sroa.7.0102.i, %.thread.i.i ], [ %.sroa.7.0102.i, %142 ], [ %.sroa.7.0102.i, %.split.us.i ], [ %.sroa.7.0102.i, %.split.i ], [ %.sroa.7.0102.i, %126 ]
+  %.sroa.13.1.i = phi i32 [ %.sroa.1719.3.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.13.0103.i, %140 ], [ %.sroa.13.0103.i, %.thread.i.i ], [ %.sroa.13.0103.i, %142 ], [ %.sroa.13.0103.i, %.split.us.i ], [ %.sroa.13.0103.i, %.split.i ], [ %.sroa.13.0103.i, %126 ]
+  %.sroa.1731.1.i = phi i8 [ %.sroa.22.237.i, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ %.sroa.1731.0104.i, %140 ], [ 0, %.thread.i.i ], [ %.sroa.1731.0104.i, %142 ], [ %.sroa.1731.0104.i, %.split.us.i ], [ %.sroa.1731.0104.i, %.split.i ], [ %.sroa.1731.0104.i, %126 ]
+  %.sroa.21.1.i = phi i8 [ 1, %_ZZN3ue2L9findDVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candidategtERKSA_.exit.thread.i ], [ 1, %140 ], [ 1, %.thread.i.i ], [ 1, %142 ], [ %.sroa.21.0105.i, %.split.us.i ], [ %.sroa.21.0105.i, %.split.i ], [ %.sroa.21.0105.i, %126 ]
+  %199 = icmp ugt i64 %spec.select53.i, %43
+  br i1 %199, label %.lr.ph85.i, label %._crit_edge.i, !llvm.loop !13
 
 200:                                              ; preds = %._crit_edge.i
-  %.not.i.i98.i = icmp ult i32 %.sroa.13.1.i, 256
-  br i1 %.not.i.i98.i, label %_ZN3ue29verify_u8IjEEhT_.exit.i, label %201
+  %.not.i.i99.i = icmp ult i32 %.sroa.13.1.i, 256
+  br i1 %.not.i.i99.i, label %_ZN3ue29verify_u8IjEEhT_.exit.i, label %201
 
 201:                                              ; preds = %200
   %202 = tail call ptr @__cxa_allocate_exception(i64 48) #14

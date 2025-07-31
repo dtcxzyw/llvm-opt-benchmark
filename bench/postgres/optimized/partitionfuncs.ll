@@ -86,7 +86,7 @@ check_rel_can_be_partition.exit.thread79:         ; preds = %check_rel_can_be_pa
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %.critedge, label %list_length.exit
+  br i1 %.not.i, label %.critedge86, label %list_length.exit
 
 list_length.exit:                                 ; preds = %35
   %39 = load i64, ptr %36, align 8
@@ -94,7 +94,7 @@ list_length.exit:                                 ; preds = %35
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp ult i64 %39, %42
-  br i1 %43, label %44, label %.critedge
+  br i1 %43, label %44, label %.critedge86
 
 44:                                               ; preds = %list_length.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
@@ -119,7 +119,7 @@ list_length.exit:                                 ; preds = %35
   %.val = load ptr, ptr %53, align 8
   %54 = load i32, ptr %.val, align 8
   %.not68 = icmp eq i32 %54, 0
-  br i1 %.not68, label %55, label %.thread104
+  br i1 %.not68, label %55, label %.thread102
 
 55:                                               ; preds = %52, %44
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -132,28 +132,28 @@ list_length.exit:                                 ; preds = %35
   store i64 %59, ptr %60, align 16
   %.not72 = icmp eq i32 %48, %7
   %brmerge = or i1 %.not72, %.not67
-  br i1 %brmerge, label %.thread86, label %.lr.ph
+  br i1 %brmerge, label %.critedge, label %.lr.ph
 
-.thread104:                                       ; preds = %52
+.thread102:                                       ; preds = %52
   %61 = zext i32 %54 to i64
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %61, ptr %62, align 8
   %63 = icmp ne i8 %49, 112
   %64 = icmp ne i8 %49, 73
-  %.not71105 = and i1 %63, %64
-  %65 = zext i1 %.not71105 to i64
+  %.not71103 = and i1 %63, %64
+  %65 = zext i1 %.not71103 to i64
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %65, ptr %66, align 16
-  %.not72106 = icmp eq i32 %48, %7
-  br i1 %.not72106, label %.thread86, label %.lr.ph
+  %.not72104 = icmp eq i32 %48, %7
+  br i1 %.not72104, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %.thread104
+.lr.ph:                                           ; preds = %55, %.thread102
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %.lr.ph99, label %.thread86
+  br i1 %69, label %.lr.ph97, label %.critedge
 
-.lr.ph99:                                         ; preds = %.lr.ph
+.lr.ph97:                                         ; preds = %.lr.ph
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %71 = load ptr, ptr %70, align 8
   %wide.trip.count = zext nneg i32 %68 to i64
@@ -161,27 +161,27 @@ list_length.exit:                                 ; preds = %35
 
 72:                                               ; preds = %73
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread86.loopexit, label %73
+  br i1 %exitcond.not, label %.critedge.loopexit, label %73
 
-73:                                               ; preds = %.lr.ph99, %72
-  %indvars.iv = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next, %72 ]
+73:                                               ; preds = %.lr.ph97, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next, %72 ]
   %74 = getelementptr inbounds nuw %union.ListCell, ptr %71, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, %7
-  br i1 %76, label %.thread86.loopexit.split.loop.exit107, label %72
+  br i1 %76, label %.critedge.loopexit.split.loop.exit105, label %72
 
-.thread86.loopexit.split.loop.exit107:            ; preds = %73
+.critedge.loopexit.split.loop.exit105:            ; preds = %73
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.thread86.loopexit
+  br label %.critedge.loopexit
 
-.thread86.loopexit:                               ; preds = %72, %.thread86.loopexit.split.loop.exit107
-  %.lcssa = phi i32 [ %indvars.le, %.thread86.loopexit.split.loop.exit107 ], [ %68, %72 ]
+.critedge.loopexit:                               ; preds = %72, %.critedge.loopexit.split.loop.exit105
+  %.lcssa = phi i32 [ %indvars.le, %.critedge.loopexit.split.loop.exit105 ], [ %68, %72 ]
   %77 = sext i32 %.lcssa to i64
-  br label %.thread86
+  br label %.critedge
 
-.thread86:                                        ; preds = %55, %.thread104, %.thread86.loopexit, %.lr.ph
-  %.063 = phi i64 [ 0, %55 ], [ 0, %.lr.ph ], [ %77, %.thread86.loopexit ], [ 0, %.thread104 ]
+.critedge:                                        ; preds = %55, %.thread102, %.critedge.loopexit, %.lr.ph
+  %.063 = phi i64 [ 0, %55 ], [ 0, %.lr.ph ], [ %77, %.critedge.loopexit ], [ 0, %.thread102 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.063, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -201,7 +201,7 @@ list_length.exit:                                 ; preds = %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
   br label %93
 
-.critedge:                                        ; preds = %35, %list_length.exit
+.critedge86:                                      ; preds = %35, %list_length.exit
   call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %36) #6
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -211,8 +211,8 @@ list_length.exit:                                 ; preds = %35
   store i8 1, ptr %92, align 4
   br label %93
 
-93:                                               ; preds = %check_rel_can_be_partition.exit.thread79, %.thread86, %.critedge
-  %.2 = phi i64 [ 0, %.critedge ], [ %83, %.thread86 ], [ 0, %check_rel_can_be_partition.exit.thread79 ]
+93:                                               ; preds = %check_rel_can_be_partition.exit.thread79, %.critedge, %.critedge86
+  %.2 = phi i64 [ 0, %.critedge86 ], [ %83, %.critedge ], [ 0, %check_rel_can_be_partition.exit.thread79 ]
   ret i64 %.2
 }
 

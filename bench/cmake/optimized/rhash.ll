@@ -37,10 +37,10 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   br label %8
 
 8:                                                ; preds = %14, %.preheader.i
-  %.05576.i = phi i32 [ 0, %.preheader.i ], [ %15, %14 ]
-  %.05875.i = phi i64 [ 0, %.preheader.i ], [ %23, %14 ]
-  %.06074.i = phi i64 [ 0, %.preheader.i ], [ %22, %14 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.05875.i
+  %.05571.i = phi i32 [ 0, %.preheader.i ], [ %15, %14 ]
+  %.05870.i = phi i64 [ 0, %.preheader.i ], [ %23, %14 ]
+  %.06069.i = phi i64 [ 0, %.preheader.i ], [ %22, %14 ]
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.05870.i
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = add i32 %10, -1
   %or.cond.i = icmp ult i32 %11, 1023
@@ -50,15 +50,15 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   br i1 %or.cond66.i, label %14, label %.loopexit.sink.split.i
 
 14:                                               ; preds = %8
-  %15 = or i32 %10, %.05576.i
+  %15 = or i32 %10, %.05571.i
   %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %7, i64 %17, i32 1
   %19 = load i64, ptr %18, align 8, !tbaa !8
   %20 = add i64 %19, 63
   %21 = and i64 %20, -64
-  %22 = add i64 %21, %.06074.i
-  %23 = add nuw i64 %.05875.i, 1
+  %22 = add i64 %21, %.06069.i
+  %23 = add nuw i64 %.05870.i, 1
   %exitcond.not.i = icmp eq i64 %23, %0
   br i1 %exitcond.not.i, label %24, label %8, !llvm.loop !13
 
@@ -85,29 +85,29 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   br label %37
 
 37:                                               ; preds = %37, %29
-  %.05778.i = phi ptr [ %35, %29 ], [ %50, %37 ]
-  %.15977.i = phi i64 [ 0, %29 ], [ %53, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %.15977.i
+  %.05773.i = phi ptr [ %35, %29 ], [ %50, %37 ]
+  %.15972.i = phi i64 [ 0, %29 ], [ %53, %37 ]
+  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %.15972.i
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
   %41 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.15977.i
+  %44 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.15972.i
   store ptr %43, ptr %44, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.05778.i, ptr %45, align 16, !tbaa !22
+  store ptr %.05773.i, ptr %45, align 16, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !8
   %48 = add i64 %47, 63
   %49 = and i64 %48, -64
-  %50 = getelementptr inbounds nuw i8, ptr %.05778.i, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.05773.i, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !23
-  tail call void %52(ptr noundef %.05778.i) #15
-  %53 = add nuw i64 %.15977.i, 1
-  %exitcond80.not.i = icmp eq i64 %53, %0
-  br i1 %exitcond80.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !24
+  tail call void %52(ptr noundef %.05773.i) #15
+  %53 = add nuw i64 %.15972.i, 1
+  %exitcond75.not.i = icmp eq i64 %53, %0
+  br i1 %exitcond75.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !24
 
 .loopexit.sink.split.i:                           ; preds = %8, %2
   %54 = tail call ptr @__errno_location() #17

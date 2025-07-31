@@ -203,54 +203,60 @@ define void @_ZN7memif_t5writeEmmPKv(ptr noundef nonnull readonly align 8 captur
 44:                                               ; preds = %31, %._crit_edge86
   %.1 = phi i64 [ %.078, %._crit_edge86 ], [ %32, %31 ]
   %.not84 = icmp eq i64 %.1, 0
-  br i1 %.not84, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not84, label %.loopexit.critedge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %48, label %50, label %._crit_edge.thread
+  %45 = load ptr, ptr %5, align 8, !tbaa !3
+  %46 = load ptr, ptr %45, align 8, !tbaa !9
+  br i1 %50, label %52, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %44, %.lr.ph
-  %.05180 = phi i64 [ %49, %.lr.ph ], [ 0, %44 ]
-  %.052.in79 = phi i1 [ %48, %.lr.ph ], [ true, %44 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.054, i64 %.05180
-  %46 = load i8, ptr %45, align 1, !tbaa !13
-  %47 = icmp eq i8 %46, 0
-  %48 = and i1 %.052.in79, %47
-  %49 = add nuw i64 %.05180, 1
-  %exitcond.not = icmp eq i64 %49, %.1
+  %.05180 = phi i64 [ %51, %.lr.ph ], [ 0, %44 ]
+  %.052.in79 = phi i1 [ %50, %.lr.ph ], [ true, %44 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.054, i64 %.05180
+  %48 = load i8, ptr %47, align 1, !tbaa !13
+  %49 = icmp eq i8 %48, 0
+  %50 = and i1 %.052.in79, %49
+  %51 = add nuw i64 %.05180, 1
+  %exitcond.not = icmp eq i64 %51, %.1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-50:                                               ; preds = %._crit_edge
-  %51 = load ptr, ptr %5, align 8, !tbaa !3
-  %52 = load ptr, ptr %51, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+52:                                               ; preds = %._crit_edge
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %.053, i64 noundef %.1)
+  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %.053, i64 noundef %.1)
   br label %.loopexit
 
-._crit_edge.thread:                               ; preds = %44, %._crit_edge
-  %55 = load ptr, ptr %5, align 8, !tbaa !3
-  %56 = load ptr, ptr %55, align 8, !tbaa !9
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %59 = call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(8) %55)
-  br i1 %.not84, label %.loopexit, label %.lr.ph83
+._crit_edge.thread:                               ; preds = %._crit_edge
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %45)
+  br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %._crit_edge.thread, %.lr.ph83
-  %.081 = phi i64 [ %67, %.lr.ph83 ], [ 0, %._crit_edge.thread ]
-  %60 = load ptr, ptr %5, align 8, !tbaa !3
-  %61 = add i64 %.081, %.053
-  %62 = sub nuw i64 %.1, %.081
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %62, i64 %59)
-  %63 = getelementptr inbounds nuw i8, ptr %.054, i64 %.081
-  %64 = load ptr, ptr %60, align 8, !tbaa !9
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(8) %60, i64 noundef %61, i64 noundef %.sroa.speculated, ptr noundef %63)
-  %67 = add i64 %.081, %59
-  %68 = icmp ult i64 %67, %.1
-  br i1 %68, label %.lr.ph83, label %.loopexit, !llvm.loop !15
+  %.081 = phi i64 [ %65, %.lr.ph83 ], [ 0, %._crit_edge.thread ]
+  %58 = load ptr, ptr %5, align 8, !tbaa !3
+  %59 = add i64 %.081, %.053
+  %60 = sub nuw i64 %.1, %.081
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %60, i64 %57)
+  %61 = getelementptr inbounds nuw i8, ptr %.054, i64 %.081
+  %62 = load ptr, ptr %58, align 8, !tbaa !9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef %59, i64 noundef %.sroa.speculated, ptr noundef %61)
+  %65 = add i64 %.081, %57
+  %66 = icmp ult i64 %65, %.1
+  br i1 %66, label %.lr.ph83, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph83, %._crit_edge.thread, %50
+.loopexit.critedge:                               ; preds = %44
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %68 = load ptr, ptr %67, align 8, !tbaa !9
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph83, %.loopexit.critedge, %52
   ret void
 }
 

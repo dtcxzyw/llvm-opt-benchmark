@@ -8793,7 +8793,7 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr noundef readonly captu
   %9 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
   %10 = icmp eq i32 %7, 1
-  br i1 %10, label %11, label %31
+  br i1 %10, label %11, label %28
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 8
@@ -8808,96 +8808,93 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr noundef readonly captu
   %17 = fmul reassoc nsz arcp contract afn float %.val28, %16
   %18 = sitofp i32 %.val.val32 to float
   %19 = fmul reassoc nsz arcp contract afn float %.val28, %18
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %21 = load float, ptr %3, align 4, !tbaa !22
-  %22 = fmul reassoc nsz arcp contract afn float %17, %21
-  store float %22, ptr %9, align 16, !tbaa !22
-  %23 = load float, ptr %20, align 4, !tbaa !22
+  %20 = load float, ptr %3, align 4, !tbaa !22
+  %21 = fmul reassoc nsz arcp contract afn float %17, %20
+  store float %21, ptr %9, align 16, !tbaa !22
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %23 = load float, ptr %22, align 4, !tbaa !22
   %24 = fmul reassoc nsz arcp contract afn float %23, %19
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %27 = load float, ptr %4, align 4, !tbaa !22
-  %28 = fmul reassoc nsz arcp contract afn float %27, %17
-  store float %28, ptr %25, align 8, !tbaa !22
-  %29 = load float, ptr %26, align 4, !tbaa !22
-  %30 = fmul reassoc nsz arcp contract afn float %29, %19
-  br label %51
+  %26 = load float, ptr %4, align 4, !tbaa !22
+  %27 = fmul reassoc nsz arcp contract afn float %26, %17
+  store float %27, ptr %25, align 8, !tbaa !22
+  br label %45
 
-31:                                               ; preds = %8
-  %32 = load float, ptr %3, align 4, !tbaa !22
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !297
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
-  %36 = load i32, ptr %35, align 16, !tbaa !333
-  %37 = sitofp i32 %36 to float
-  %38 = fmul reassoc nsz arcp contract afn float %32, %37
-  store float %38, ptr %9, align 16, !tbaa !22
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %40 = load float, ptr %39, align 4, !tbaa !22
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 148
-  %42 = load i32, ptr %41, align 4, !tbaa !334
-  %43 = sitofp i32 %42 to float
-  %44 = fmul reassoc nsz arcp contract afn float %40, %43
-  %45 = load float, ptr %4, align 4, !tbaa !22
-  %46 = fmul reassoc nsz arcp contract afn float %45, %37
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float %46, ptr %47, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %49 = load float, ptr %48, align 4, !tbaa !22
-  %50 = fmul reassoc nsz arcp contract afn float %49, %43
-  br label %51
+28:                                               ; preds = %8
+  %29 = load float, ptr %3, align 4, !tbaa !22
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !297
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 144
+  %33 = load i32, ptr %32, align 16, !tbaa !333
+  %34 = sitofp i32 %33 to float
+  %35 = fmul reassoc nsz arcp contract afn float %29, %34
+  store float %35, ptr %9, align 16, !tbaa !22
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %37 = load float, ptr %36, align 4, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 148
+  %39 = load i32, ptr %38, align 4, !tbaa !334
+  %40 = sitofp i32 %39 to float
+  %41 = fmul reassoc nsz arcp contract afn float %37, %40
+  %42 = load float, ptr %4, align 4, !tbaa !22
+  %43 = fmul reassoc nsz arcp contract afn float %42, %34
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store float %43, ptr %44, align 8, !tbaa !22
+  br label %45
 
-51:                                               ; preds = %31, %11
-  %52 = phi ptr [ %.val, %11 ], [ %34, %31 ]
-  %.sink33 = phi float [ %24, %11 ], [ %44, %31 ]
-  %.sink = phi float [ %30, %11 ], [ %50, %31 ]
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float %.sink33, ptr %53, align 4, !tbaa !22
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store float %.sink, ptr %54, align 4, !tbaa !22
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %56 = load ptr, ptr %55, align 8, !tbaa !138
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %58 = load i32, ptr %57, align 16, !tbaa !335
-  %59 = sitofp i32 %58 to double
-  %60 = call i32 @dt_dev_distort_transform_plus(ptr noundef %56, ptr noundef nonnull %52, double noundef %59, i32 noundef 3, ptr noundef nonnull %9, i64 noundef 2) #26
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %80, label %61
+45:                                               ; preds = %28, %11
+  %.sink35 = phi float [ %40, %28 ], [ %19, %11 ]
+  %46 = phi ptr [ %31, %28 ], [ %.val, %11 ]
+  %.sink33 = phi float [ %41, %28 ], [ %24, %11 ]
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !22
+  %49 = fmul reassoc nsz arcp contract afn float %48, %.sink35
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store float %.sink33, ptr %50, align 4, !tbaa !22
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store float %49, ptr %51, align 4, !tbaa !22
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %53 = load ptr, ptr %52, align 8, !tbaa !138
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %55 = load i32, ptr %54, align 16, !tbaa !335
+  %56 = sitofp i32 %55 to double
+  %57 = call i32 @dt_dev_distort_transform_plus(ptr noundef %53, ptr noundef nonnull %46, double noundef %56, i32 noundef 3, ptr noundef nonnull %9, i64 noundef 2) #26
+  %.not = icmp eq i32 %57, 0
+  br i1 %.not, label %77, label %58
 
-61:                                               ; preds = %51
-  %62 = load float, ptr %9, align 16, !tbaa !22
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %64 = load float, ptr %63, align 8, !tbaa !22
-  %65 = fsub reassoc nsz arcp contract afn float %62, %64
-  br i1 %10, label %66, label %70
+58:                                               ; preds = %45
+  %59 = load float, ptr %9, align 16, !tbaa !22
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %61 = load float, ptr %60, align 8, !tbaa !22
+  %62 = fsub reassoc nsz arcp contract afn float %59, %61
+  br i1 %10, label %63, label %67
 
-66:                                               ; preds = %61
-  store float %65, ptr %5, align 4, !tbaa !22
-  %67 = load float, ptr %53, align 4, !tbaa !22
-  %68 = load float, ptr %54, align 4, !tbaa !22
-  %69 = fsub reassoc nsz arcp contract afn float %67, %68
-  br label %79
+63:                                               ; preds = %58
+  store float %62, ptr %5, align 4, !tbaa !22
+  %64 = load float, ptr %50, align 4, !tbaa !22
+  %65 = load float, ptr %51, align 4, !tbaa !22
+  %66 = fsub reassoc nsz arcp contract afn float %64, %65
+  br label %76
 
-70:                                               ; preds = %61
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %72 = load float, ptr %71, align 4, !tbaa !299
-  %73 = fmul reassoc nsz arcp contract afn float %65, %72
-  store float %73, ptr %5, align 4, !tbaa !22
-  %74 = load float, ptr %53, align 4, !tbaa !22
-  %75 = load float, ptr %54, align 4, !tbaa !22
-  %76 = fsub reassoc nsz arcp contract afn float %74, %75
-  %77 = load float, ptr %71, align 4, !tbaa !299
-  %78 = fmul reassoc nsz arcp contract afn float %76, %77
-  br label %79
+67:                                               ; preds = %58
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %69 = load float, ptr %68, align 4, !tbaa !299
+  %70 = fmul reassoc nsz arcp contract afn float %62, %69
+  store float %70, ptr %5, align 4, !tbaa !22
+  %71 = load float, ptr %50, align 4, !tbaa !22
+  %72 = load float, ptr %51, align 4, !tbaa !22
+  %73 = fsub reassoc nsz arcp contract afn float %71, %72
+  %74 = load float, ptr %68, align 4, !tbaa !299
+  %75 = fmul reassoc nsz arcp contract afn float %73, %74
+  br label %76
 
-79:                                               ; preds = %70, %66
-  %storemerge = phi float [ %78, %70 ], [ %69, %66 ]
+76:                                               ; preds = %67, %63
+  %storemerge = phi float [ %75, %67 ], [ %66, %63 ]
   store float %storemerge, ptr %6, align 4, !tbaa !22
-  br label %80
+  br label %77
 
-80:                                               ; preds = %51, %79
+77:                                               ; preds = %45, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26
-  ret i32 %60
+  ret i32 %57
 }
 
 declare i32 @dt_dev_distort_transform_plus(ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3

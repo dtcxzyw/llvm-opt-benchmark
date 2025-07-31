@@ -1507,35 +1507,35 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  %.not137 = icmp samesign eq i64 %14, 0
-  br i1 %.not137, label %.critedge.thread, label %.lr.ph140
+  %.not135 = icmp samesign eq i64 %14, 0
+  br i1 %.not135, label %.critedge.thread, label %.lr.ph138
 
-.lr.ph140:                                        ; preds = %4, %128
+.lr.ph138:                                        ; preds = %4, %128
   %20 = phi ptr [ %129, %128 ], [ %12, %4 ]
-  %.027139 = phi i1 [ %.128, %128 ], [ false, %4 ]
-  %.sroa.069.0138 = phi ptr [ %.sroa.069.1, %128 ], [ %16, %4 ]
-  %.not94 = icmp eq ptr %.sroa.069.0138, %19
-  br i1 %.not94, label %.critedge, label %21
+  %.027137 = phi i1 [ %.128, %128 ], [ false, %4 ]
+  %.sroa.071.0136 = phi ptr [ %.sroa.071.1, %128 ], [ %16, %4 ]
+  %.not92 = icmp eq ptr %.sroa.071.0136, %19
+  br i1 %.not92, label %.critedge, label %21
 
-21:                                               ; preds = %.lr.ph140
-  %22 = load i8, ptr %.sroa.069.0138, align 1, !tbaa !15
+21:                                               ; preds = %.lr.ph138
+  %22 = load i8, ptr %.sroa.071.0136, align 1, !tbaa !15
   %23 = load i8, ptr %20, align 1, !tbaa !15
-  br i1 %.027139, label %33, label %24
+  br i1 %.027137, label %33, label %24
 
 24:                                               ; preds = %21
   %25 = icmp eq i8 %22, 37
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   br label %128
 
 28:                                               ; preds = %24
   %29 = icmp eq i8 %22, %23
-  br i1 %29, label %30, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  br i1 %29, label %30, label %.critedge37
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %32, ptr %6, align 8, !tbaa !18
   br label %128
@@ -1549,8 +1549,8 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
     i8 100, label %.lr.ph.i.preheader
     i8 109, label %.lr.ph.i.preheader
     i8 121, label %.lr.ph.i.preheader
-    i8 89, label %.lr.ph.i37
-    i8 102, label %.lr.ph.i44
+    i8 89, label %.lr.ph.i39
+    i8 102, label %.lr.ph.i46
   ]
 
 .lr.ph.i.preheader:                               ; preds = %33, %33, %33, %33, %33, %33
@@ -1558,10 +1558,10 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
 
 34:                                               ; preds = %33
   %35 = icmp eq i8 %23, 37
-  br i1 %35, label %36, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  br i1 %35, label %36, label %.critedge37
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %38, ptr %6, align 8, !tbaa !18
   br label %128
@@ -1575,7 +1575,7 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
   %.079.i = phi i64 [ %40, %39 ], [ 2, %.lr.ph.i.preheader ]
   %42 = phi ptr [ %45, %39 ], [ %20, %.lr.ph.i.preheader ]
   %43 = icmp eq ptr %42, %15
-  br i1 %43, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %44
+  br i1 %43, label %.critedge37, label %44
 
 44:                                               ; preds = %.lr.ph.i
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
@@ -1584,69 +1584,69 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
   %47 = sext i8 %46 to i32
   %isdigittmp.i.i = add nsw i32 %47, -48
   %isdigit.i.i = icmp ult i32 %isdigittmp.i.i, 10
-  br i1 %isdigit.i.i, label %39, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  br i1 %isdigit.i.i, label %39, label %.critedge37
 
 _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit: ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   br label %128
 
 49:                                               ; preds = %54
-  %50 = add nsw i64 %.079.i38, -1
-  %51 = icmp samesign ult i64 %.079.i38, 2
-  br i1 %51, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42, label %.lr.ph.i37, !llvm.loop !22
+  %50 = add nsw i64 %.079.i40, -1
+  %51 = icmp samesign ult i64 %.079.i40, 2
+  br i1 %51, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44, label %.lr.ph.i39, !llvm.loop !22
 
-.lr.ph.i37:                                       ; preds = %33, %49
-  %.079.i38 = phi i64 [ %50, %49 ], [ 4, %33 ]
+.lr.ph.i39:                                       ; preds = %33, %49
+  %.079.i40 = phi i64 [ %50, %49 ], [ 4, %33 ]
   %52 = phi ptr [ %55, %49 ], [ %20, %33 ]
   %53 = icmp eq ptr %52, %15
-  br i1 %53, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %54
+  br i1 %53, label %.critedge37, label %54
 
-54:                                               ; preds = %.lr.ph.i37
+54:                                               ; preds = %.lr.ph.i39
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store ptr %55, ptr %6, align 8, !tbaa !18
   %56 = load i8, ptr %52, align 1, !tbaa !15
   %57 = sext i8 %56 to i32
-  %isdigittmp.i.i39 = add nsw i32 %57, -48
-  %isdigit.i.i40 = icmp ult i32 %isdigittmp.i.i39, 10
-  br i1 %isdigit.i.i40, label %49, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  %isdigittmp.i.i41 = add nsw i32 %57, -48
+  %isdigit.i.i42 = icmp ult i32 %isdigittmp.i.i41, 10
+  br i1 %isdigit.i.i42, label %49, label %.critedge37
 
-_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42: ; preds = %49
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44: ; preds = %49
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   br label %128
 
 59:                                               ; preds = %64
-  %60 = add nsw i64 %.079.i45, -1
-  %61 = icmp samesign ult i64 %.079.i45, 2
-  br i1 %61, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49, label %.lr.ph.i44, !llvm.loop !22
+  %60 = add nsw i64 %.079.i47, -1
+  %61 = icmp samesign ult i64 %.079.i47, 2
+  br i1 %61, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51, label %.lr.ph.i46, !llvm.loop !22
 
-.lr.ph.i44:                                       ; preds = %33, %59
-  %.079.i45 = phi i64 [ %60, %59 ], [ 6, %33 ]
+.lr.ph.i46:                                       ; preds = %33, %59
+  %.079.i47 = phi i64 [ %60, %59 ], [ 6, %33 ]
   %62 = phi ptr [ %65, %59 ], [ %20, %33 ]
   %63 = icmp eq ptr %62, %15
-  br i1 %63, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %64
+  br i1 %63, label %.critedge37, label %64
 
-64:                                               ; preds = %.lr.ph.i44
+64:                                               ; preds = %.lr.ph.i46
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %65, ptr %6, align 8, !tbaa !18
   %66 = load i8, ptr %62, align 1, !tbaa !15
   %67 = sext i8 %66 to i32
-  %isdigittmp.i.i46 = add nsw i32 %67, -48
-  %isdigit.i.i47 = icmp ult i32 %isdigittmp.i.i46, 10
-  br i1 %isdigit.i.i47, label %59, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  %isdigittmp.i.i48 = add nsw i32 %67, -48
+  %isdigit.i.i49 = icmp ult i32 %isdigittmp.i.i48, 10
+  br i1 %isdigit.i.i49, label %59, label %.critedge37
 
-_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49: ; preds = %59
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51: ; preds = %59
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   br label %128
 
 69:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
-  %70 = ptrtoint ptr %.sroa.069.0138 to i64
+  %70 = ptrtoint ptr %.sroa.071.0136 to i64
   store i64 %70, ptr %7, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #29
   store i32 0, ptr %8, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %19, ptr %5, align 8
-  %71 = load i8, ptr %.sroa.069.0138, align 1, !tbaa !15
+  %71 = load i8, ptr %.sroa.071.0136, align 1, !tbaa !15
   switch i8 %71, label %77 [
     i8 48, label %72
     i8 45, label %72
@@ -1655,7 +1655,7 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
   ]
 
 72:                                               ; preds = %69, %69, %69, %69
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.069.0138, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.071.0136, i64 1
   store ptr %73, ptr %7, align 8, !tbaa !18
   %74 = icmp eq ptr %73, %19
   br i1 %74, label %_ZN5boost3log11v2_mt_posix5sinks9anonymous25parse_counter_placeholderERN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESE_Rj.exit.thread, label %75
@@ -1665,12 +1665,12 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
   br label %77
 
 77:                                               ; preds = %75, %69
-  %78 = phi ptr [ %73, %75 ], [ %.sroa.069.0138, %69 ]
+  %78 = phi ptr [ %73, %75 ], [ %.sroa.071.0136, %69 ]
   %.0.i = phi i8 [ %76, %75 ], [ %71, %69 ]
   %79 = sext i8 %.0.i to i32
-  %isdigittmp.i.i50 = add nsw i32 %79, -48
-  %isdigit.i.i51 = icmp ult i32 %isdigittmp.i.i50, 10
-  br i1 %isdigit.i.i51, label %80, label %87
+  %isdigittmp.i.i52 = add nsw i32 %79, -48
+  %isdigit.i.i53 = icmp ult i32 %isdigittmp.i.i52, 10
+  br i1 %isdigit.i.i53, label %80, label %87
 
 80:                                               ; preds = %77
   %81 = call noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extract_intIjLj10ELj1ELin1ENS2_20positive_accumulatorILj10EEELb0ELb0EE10parse_mainIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjEEbRT_RKSJ_RT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %8)
@@ -1756,39 +1756,39 @@ _ZN5boost3log11v2_mt_posix5sinks9anonymous25parse_counter_placeholderERN9__gnu_c
   %105 = load i32, ptr %8, align 4, !tbaa !23
   %106 = icmp eq i32 %105, 0
   %107 = inttoptr i64 %104 to ptr
-  br i1 %106, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58, label %.lr.ph.preheader.i
+  br i1 %106, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %102
   %108 = zext i32 %105 to i64
-  br label %.lr.ph.i53
+  br label %.lr.ph.i55
 
 109:                                              ; preds = %114
-  %110 = add nsw i64 %.079.i54, -1
-  %111 = icmp slt i64 %.079.i54, 2
-  br i1 %111, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58, label %.lr.ph.i53, !llvm.loop !22
+  %110 = add nsw i64 %.079.i56, -1
+  %111 = icmp slt i64 %.079.i56, 2
+  br i1 %111, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60, label %.lr.ph.i55, !llvm.loop !22
 
-.lr.ph.i53:                                       ; preds = %109, %.lr.ph.preheader.i
-  %.079.i54 = phi i64 [ %110, %109 ], [ %108, %.lr.ph.preheader.i ]
+.lr.ph.i55:                                       ; preds = %109, %.lr.ph.preheader.i
+  %.079.i56 = phi i64 [ %110, %109 ], [ %108, %.lr.ph.preheader.i ]
   %112 = phi ptr [ %115, %109 ], [ %107, %.lr.ph.preheader.i ]
   %113 = icmp eq ptr %112, %15
-  br i1 %113, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread, label %114
+  br i1 %113, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread, label %114
 
-114:                                              ; preds = %.lr.ph.i53
+114:                                              ; preds = %.lr.ph.i55
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %115, ptr %11, align 8, !tbaa !18
   %116 = load i8, ptr %112, align 1, !tbaa !15
   %117 = sext i8 %116 to i32
-  %isdigittmp.i.i55 = add nsw i32 %117, -48
-  %isdigit.i.i56 = icmp ult i32 %isdigittmp.i.i55, 10
-  br i1 %isdigit.i.i56, label %109, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread
+  %isdigittmp.i.i57 = add nsw i32 %117, -48
+  %isdigit.i.i58 = icmp ult i32 %isdigittmp.i.i57, 10
+  br i1 %isdigit.i.i58, label %109, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread
 
-_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58: ; preds = %109, %102
+_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60: ; preds = %109, %102
   %.promoted = phi ptr [ %107, %102 ], [ %115, %109 ]
-  %.not95134 = icmp eq ptr %.promoted, %15
-  br i1 %.not95134, label %.critedge3, label %.lr.ph
+  %.not93132 = icmp eq ptr %.promoted, %15
+  br i1 %.not93132, label %.critedge3, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58, %121
-  %118 = phi ptr [ %122, %121 ], [ %.promoted, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58 ]
+.lr.ph:                                           ; preds = %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60, %121
+  %118 = phi ptr [ %122, %121 ], [ %.promoted, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60 ]
   %119 = load i8, ptr %118, align 1, !tbaa !15
   %120 = sext i8 %119 to i32
   %isdigittmp.i = add nsw i32 %120, -48
@@ -1798,17 +1798,17 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
 121:                                              ; preds = %.lr.ph
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 1
   store ptr %122, ptr %11, align 8, !tbaa !18
-  %.not95 = icmp eq ptr %122, %15
-  br i1 %.not95, label %.critedge3, label %.lr.ph, !llvm.loop !30
+  %.not93 = icmp eq ptr %122, %15
+  br i1 %.not93, label %.critedge3, label %.lr.ph, !llvm.loop !30
 
-.critedge3:                                       ; preds = %.lr.ph, %121, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58
-  %.lcssa103 = phi ptr [ %15, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58 ], [ %15, %121 ], [ %118, %.lr.ph ]
-  %123 = icmp eq ptr %.lcssa103, %107
-  br i1 %123, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread, label %124
+.critedge3:                                       ; preds = %.lr.ph, %121, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60
+  %.lcssa101 = phi ptr [ %15, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60 ], [ %15, %121 ], [ %118, %.lr.ph ]
+  %123 = icmp eq ptr %.lcssa101, %107
+  br i1 %123, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread, label %124
 
 124:                                              ; preds = %.critedge3
   %125 = call noundef zeroext i1 @_ZN5boost6spirit2qi6detail11extract_intIjLj10ELj1ELin1ENS2_20positive_accumulatorILj10EEELb0ELb0EE10parse_mainIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEjEEbRT_RKSJ_RT0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br i1 %125, label %.critedge35, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread
+  br i1 %125, label %.critedge35, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread
 
 .critedge35:                                      ; preds = %124
   store i8 1, ptr %3, align 1, !tbaa !31
@@ -1820,53 +1820,53 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
   %.pre = load ptr, ptr %6, align 8, !tbaa !17
   br label %128
 
-_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread: ; preds = %.critedge3, %124, %.lr.ph.i53, %114
+_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread: ; preds = %.critedge3, %124, %.lr.ph.i55, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
-  br label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  br label %.critedge37
 
-128:                                              ; preds = %30, %26, %.critedge35, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit, %36
-  %129 = phi ptr [ %20, %26 ], [ %32, %30 ], [ %.pre, %.critedge35 ], [ %65, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %55, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %45, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %38, %36 ]
-  %.sroa.069.1 = phi ptr [ %27, %26 ], [ %31, %30 ], [ %127, %.critedge35 ], [ %68, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %58, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %48, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %37, %36 ]
-  %.128 = phi i1 [ true, %26 ], [ false, %30 ], [ false, %.critedge35 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ false, %36 ]
+128:                                              ; preds = %30, %26, %.critedge35, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit, %36
+  %129 = phi ptr [ %20, %26 ], [ %32, %30 ], [ %.pre, %.critedge35 ], [ %65, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51 ], [ %55, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44 ], [ %45, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %38, %36 ]
+  %.sroa.071.1 = phi ptr [ %27, %26 ], [ %31, %30 ], [ %127, %.critedge35 ], [ %68, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51 ], [ %58, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44 ], [ %48, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %37, %36 ]
+  %.128 = phi i1 [ true, %26 ], [ false, %30 ], [ false, %.critedge35 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit51 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit44 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ false, %36 ]
   %.not = icmp eq ptr %129, %15
-  br i1 %.not, label %.critedge.thread, label %.lr.ph140, !llvm.loop !33
+  br i1 %.not, label %.critedge.thread, label %.lr.ph138, !llvm.loop !33
 
 .critedge.thread:                                 ; preds = %128, %4
-  %.sroa.069.0.lcssa = phi ptr [ %16, %4 ], [ %.sroa.069.1, %128 ]
-  %130 = icmp eq ptr %.sroa.069.0.lcssa, %19
-  br label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  %.sroa.071.0.lcssa = phi ptr [ %16, %4 ], [ %.sroa.071.1, %128 ]
+  %130 = icmp eq ptr %.sroa.071.0.lcssa, %19
+  br label %.critedge37
 
-.critedge:                                        ; preds = %.lr.ph140
+.critedge:                                        ; preds = %.lr.ph138
   %131 = ptrtoint ptr %15 to i64
   %132 = ptrtoint ptr %20 to i64
   %133 = sub i64 %131, %132
   %134 = icmp slt i64 %133, 1
-  br i1 %134, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %.lr.ph.i62
+  br i1 %134, label %.critedge37, label %.lr.ph.i64
 
 135:                                              ; preds = %140
-  %136 = add nsw i64 %.079.i63, -1
-  %137 = icmp slt i64 %.079.i63, 2
-  br i1 %137, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %.lr.ph.i62, !llvm.loop !22
+  %136 = add nsw i64 %.079.i65, -1
+  %137 = icmp slt i64 %.079.i65, 2
+  br i1 %137, label %.critedge37, label %.lr.ph.i64, !llvm.loop !22
 
-.lr.ph.i62:                                       ; preds = %.critedge, %135
-  %.079.i63 = phi i64 [ %136, %135 ], [ %133, %.critedge ]
+.lr.ph.i64:                                       ; preds = %.critedge, %135
+  %.079.i65 = phi i64 [ %136, %135 ], [ %133, %.critedge ]
   %138 = phi ptr [ %141, %135 ], [ %20, %.critedge ]
   %139 = icmp eq ptr %138, %15
-  br i1 %139, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67, label %140
+  br i1 %139, label %.critedge37, label %140
 
-140:                                              ; preds = %.lr.ph.i62
+140:                                              ; preds = %.lr.ph.i64
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 1
   store ptr %141, ptr %6, align 8, !tbaa !18
   %142 = load i8, ptr %138, align 1, !tbaa !15
   %143 = sext i8 %142 to i32
-  %isdigittmp.i.i64 = add nsw i32 %143, -48
-  %isdigit.i.i65 = icmp ult i32 %isdigittmp.i.i64, 10
-  br i1 %isdigit.i.i65, label %135, label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
+  %isdigittmp.i.i66 = add nsw i32 %143, -48
+  %isdigit.i.i67 = icmp ult i32 %isdigittmp.i.i66, 10
+  br i1 %isdigit.i.i67, label %135, label %.critedge37
 
-_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67: ; preds = %34, %28, %.lr.ph.i44, %64, %.lr.ph.i37, %54, %.lr.ph.i, %44, %140, %.lr.ph.i62, %135, %.critedge.thread, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread, %.critedge
-  %.5 = phi i1 [ true, %.critedge ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit58.thread ], [ %130, %.critedge.thread ], [ false, %.lr.ph.i62 ], [ true, %135 ], [ false, %140 ], [ false, %44 ], [ false, %.lr.ph.i ], [ false, %54 ], [ false, %.lr.ph.i37 ], [ false, %64 ], [ false, %.lr.ph.i44 ], [ false, %28 ], [ false, %34 ]
+.critedge37:                                      ; preds = %28, %34, %.lr.ph.i46, %64, %.lr.ph.i39, %54, %.lr.ph.i, %44, %140, %.lr.ph.i64, %135, %.critedge.thread, %.critedge, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread
+  %.5 = phi i1 [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit60.thread ], [ true, %.critedge ], [ %130, %.critedge.thread ], [ false, %.lr.ph.i64 ], [ true, %135 ], [ false, %140 ], [ false, %44 ], [ false, %.lr.ph.i ], [ false, %54 ], [ false, %.lr.ph.i39 ], [ false, %64 ], [ false, %.lr.ph.i46 ], [ false, %34 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
   ret i1 %.5
 }

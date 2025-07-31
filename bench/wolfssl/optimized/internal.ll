@@ -969,52 +969,52 @@ AddSuiteHashSigAlgo.exit40:                       ; preds = %7, %8, %5
 
 18:                                               ; preds = %17
   %.not25.i41 = icmp eq ptr %0, null
-  br i1 %.not25.i41, label %.thread.i53, label %20
+  br i1 %.not25.i41, label %.critedge.i53, label %19
 
-.thread.i53:                                      ; preds = %18
-  %19 = add nuw nsw i16 %.0, 10
+19:                                               ; preds = %18
+  %20 = zext nneg i16 %.0 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
+  store i8 8, ptr %21, align 1, !tbaa !45
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 6, ptr %22, align 1, !tbaa !45
+  %23 = zext nneg i16 %.0 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store i8 8, ptr %25, align 1, !tbaa !45
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 3
+  store i8 11, ptr %26, align 1, !tbaa !45
+  %27 = zext nneg i16 %.0 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i8 8, ptr %29, align 1, !tbaa !45
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 5
+  store i8 5, ptr %30, align 1, !tbaa !45
+  %31 = zext nneg i16 %.0 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 6
+  store i8 8, ptr %33, align 1, !tbaa !45
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 7
+  store i8 10, ptr %34, align 1, !tbaa !45
+  %35 = zext nneg i16 %.0 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i8 8, ptr %37, align 1, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 9
+  store i8 4, ptr %38, align 1, !tbaa !45
+  %39 = add nuw nsw i16 %.0, 10
+  %40 = zext nneg i16 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  store i8 8, ptr %41, align 1, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 9, ptr %42, align 1, !tbaa !45
   br label %AddSuiteHashSigAlgo.exit54
 
-20:                                               ; preds = %18
-  %21 = zext nneg i16 %.0 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  store i8 8, ptr %22, align 1, !tbaa !45
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 6, ptr %23, align 1, !tbaa !45
-  %24 = zext nneg i16 %.0 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  store i8 8, ptr %26, align 1, !tbaa !45
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 3
-  store i8 11, ptr %27, align 1, !tbaa !45
-  %28 = zext nneg i16 %.0 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i8 8, ptr %30, align 1, !tbaa !45
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 5
-  store i8 5, ptr %31, align 1, !tbaa !45
-  %32 = zext nneg i16 %.0 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
-  store i8 8, ptr %34, align 1, !tbaa !45
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 7
-  store i8 10, ptr %35, align 1, !tbaa !45
-  %36 = zext nneg i16 %.0 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i8 8, ptr %38, align 1, !tbaa !45
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 9
-  store i8 4, ptr %39, align 1, !tbaa !45
-  %40 = add nuw nsw i16 %.0, 10
-  %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  store i8 8, ptr %42, align 1, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 9, ptr %43, align 1, !tbaa !45
+.critedge.i53:                                    ; preds = %18
+  %43 = add nuw nsw i16 %.0, 10
   br label %AddSuiteHashSigAlgo.exit54
 
-AddSuiteHashSigAlgo.exit54:                       ; preds = %.thread.i53, %20
-  %.5 = phi i16 [ %19, %.thread.i53 ], [ %40, %20 ]
+AddSuiteHashSigAlgo.exit54:                       ; preds = %19, %.critedge.i53
+  %.5 = phi i16 [ %43, %.critedge.i53 ], [ %39, %19 ]
   %storemerge.i52 = add nuw nsw i16 %.5, 2
   br label %44
 
@@ -1914,15 +1914,15 @@ define range(i32 -2147483648, 1) i32 @RsaSign(ptr noundef readonly captures(none
 11:                                               ; preds = %9
   %switch.tableidx = add i32 %6, -4
   %12 = icmp ult i32 %switch.tableidx, 3
-  br i1 %12, label %switch.lookup, label %ConvertHashPss.exit
+  br i1 %12, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %11
   %switch.offset = add nuw nsw i32 %6, 2
-  %switch.offset42 = add nsw i32 %6, -3
+  %switch.offset34 = add nsw i32 %6, -3
   %13 = load i32, ptr %4, align 4, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8, !tbaa !116
-  %16 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %switch.offset, i32 noundef %switch.offset42, ptr noundef %7, ptr noundef %15) #27
+  %16 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %switch.offset, i32 noundef %switch.offset34, ptr noundef %7, ptr noundef %15) #27
   br label %22
 
 17:                                               ; preds = %9
@@ -1933,15 +1933,15 @@ switch.lookup:                                    ; preds = %11
   br label %22
 
 22:                                               ; preds = %switch.lookup, %17
-  %.1 = phi i32 [ %21, %17 ], [ %16, %switch.lookup ]
+  %.1 = phi i32 [ %16, %switch.lookup ], [ %21, %17 ]
   %23 = icmp sgt i32 %.1, 0
-  br i1 %23, label %24, label %ConvertHashPss.exit
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   store i32 %.1, ptr %4, align 4, !tbaa !49
-  br label %ConvertHashPss.exit
+  br label %.critedge
 
-ConvertHashPss.exit:                              ; preds = %11, %24, %22
+.critedge:                                        ; preds = %11, %24, %22
   %.123 = phi i32 [ 0, %24 ], [ %.1, %22 ], [ -173, %11 ]
   ret i32 %.123
 }
@@ -1959,19 +1959,19 @@ define i32 @RsaVerify(ptr readnone captures(none) %0, ptr noundef %1, i32 nounde
 10:                                               ; preds = %8
   %switch.tableidx = add i32 %5, -4
   %11 = icmp ult i32 %switch.tableidx, 3
-  br i1 %11, label %switch.lookup, label %ConvertHashPss.exit
+  br i1 %11, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %10
   %switch.offset = add nuw nsw i32 %5, 2
-  %switch.offset37 = add nsw i32 %5, -3
-  %12 = tail call i32 @wc_RsaPSS_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %switch.offset, i32 noundef %switch.offset37, ptr noundef %6) #27
-  br label %ConvertHashPss.exit
+  %switch.offset28 = add nsw i32 %5, -3
+  %12 = tail call i32 @wc_RsaPSS_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %switch.offset, i32 noundef %switch.offset28, ptr noundef %6) #27
+  br label %.critedge
 
 13:                                               ; preds = %8
   %14 = tail call i32 @wc_RsaSSL_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %6) #27
-  br label %ConvertHashPss.exit
+  br label %.critedge
 
-ConvertHashPss.exit:                              ; preds = %10, %switch.lookup, %13
+.critedge:                                        ; preds = %10, %13, %switch.lookup
   %.118 = phi i32 [ %14, %13 ], [ %12, %switch.lookup ], [ -173, %10 ]
   ret i32 %.118
 }
@@ -1988,11 +1988,11 @@ define range(i32 -2147483648, 1) i32 @VerifyRsaSign(ptr readnone captures(none) 
   %11 = icmp eq ptr %1, null
   %12 = icmp eq ptr %3, null
   %or.cond = or i1 %11, %12
-  br i1 %or.cond, label %ConvertHashPss.exit, label %13
+  br i1 %or.cond, label %.critedge, label %13
 
 13:                                               ; preds = %9
   %14 = icmp ugt i32 %2, 512
-  br i1 %14, label %ConvertHashPss.exit, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %5, 8
@@ -2001,14 +2001,14 @@ define range(i32 -2147483648, 1) i32 @VerifyRsaSign(ptr readnone captures(none) 
 17:                                               ; preds = %15
   %switch.tableidx = add i32 %6, -4
   %18 = icmp ult i32 %switch.tableidx, 3
-  br i1 %18, label %switch.lookup, label %ConvertHashPss.exit
+  br i1 %18, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %17
   %switch.offset = add nuw nsw i32 %6, 2
-  %switch.offset64 = add nsw i32 %6, -3
-  %19 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, i32 noundef %switch.offset, i32 noundef %switch.offset64, ptr noundef %7) #27
+  %switch.offset54 = add nsw i32 %6, -3
+  %19 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, i32 noundef %switch.offset, i32 noundef %switch.offset54, ptr noundef %7) #27
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %ConvertHashPss.exit
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %switch.lookup
   %22 = load ptr, ptr %10, align 8, !tbaa !117
@@ -2016,29 +2016,29 @@ switch.lookup:                                    ; preds = %17
   %24 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %22, i32 noundef %19, i32 noundef %switch.offset, i32 noundef -1, i32 noundef %23) #27
   %.not43 = icmp eq i32 %24, 0
   %spec.store.select = select i1 %.not43, i32 0, i32 -329
-  br label %ConvertHashPss.exit
+  br label %.critedge
 
 25:                                               ; preds = %15
   %26 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, ptr noundef %7) #27
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %ConvertHashPss.exit
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %25
   %29 = icmp eq i32 %26, %4
   %30 = load ptr, ptr %10, align 8
   %31 = icmp ne ptr %30, null
   %or.cond3 = select i1 %29, i1 %31, i1 false
-  br i1 %or.cond3, label %32, label %ConvertHashPss.exit
+  br i1 %or.cond3, label %32, label %.critedge
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %4 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %30, i64 %33)
   %.not = icmp eq i32 %bcmp, 0
   %spec.select44 = select i1 %.not, i32 0, i32 -403
-  br label %ConvertHashPss.exit
+  br label %.critedge
 
-ConvertHashPss.exit:                              ; preds = %17, %21, %switch.lookup, %32, %25, %28, %13, %9
-  %.030 = phi i32 [ -173, %9 ], [ -132, %13 ], [ %26, %25 ], [ -403, %28 ], [ %spec.select44, %32 ], [ -173, %17 ], [ %19, %switch.lookup ], [ %spec.store.select, %21 ]
+.critedge:                                        ; preds = %17, %21, %switch.lookup, %32, %25, %28, %13, %9
+  %.030 = phi i32 [ -173, %9 ], [ -132, %13 ], [ %26, %25 ], [ -403, %28 ], [ %spec.select44, %32 ], [ %spec.store.select, %21 ], [ %19, %switch.lookup ], [ -173, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   ret i32 %.030
 }
@@ -7127,7 +7127,7 @@ define void @CleanupStoreCtxCallback(ptr noundef %0, ptr noundef readnone captur
 ; Function Attrs: nounwind uwtable
 define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %83, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = icmp ne ptr %1, null
@@ -7158,17 +7158,17 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load ptr, ptr %20, align 8, !tbaa !276
   %.not54 = icmp eq ptr %21, null
-  br i1 %.not54, label %83, label %22
+  br i1 %.not54, label %.critedge, label %22
 
 22:                                               ; preds = %.thread, %17
   %23 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %10) #27
   %cond.i = icmp eq ptr %23, null
-  br i1 %cond.i, label %83, label %24
+  br i1 %cond.i, label %.critedge, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #27
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.sink.split, label %27
+  br i1 %26, label %.critedge.sink.split, label %27
 
 27:                                               ; preds = %24
   store i8 0, ptr %25, align 1, !tbaa !45
@@ -7268,41 +7268,41 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   %75 = tail call i32 %73(i32 noundef %.043, ptr noundef nonnull %23) #27
   %.not59 = icmp eq i32 %75, 0
   %spec.select61 = select i1 %12, i32 0, i32 %.2
-  br i1 %.not59, label %.thread78, label %76
+  br i1 %.not59, label %.thread77, label %76
 
 76:                                               ; preds = %74, %71, %70
   %.3 = phi i32 [ %.2, %71 ], [ %.2, %70 ], [ %spec.select61, %74 ]
-  br i1 %.040, label %79, label %.thread78
+  br i1 %.040, label %79, label %.thread77
 
-.thread78:                                        ; preds = %74, %76
-  %.382 = phi i32 [ %.3, %76 ], [ %.2, %74 ]
-  %spec.select62 = select i1 %11, i32 -329, i32 %.382
+.thread77:                                        ; preds = %74, %76
+  %.381 = phi i32 [ %.3, %76 ], [ %.2, %74 ]
+  %spec.select62 = select i1 %11, i32 -329, i32 %.381
   %77 = load i8, ptr %28, align 1
   %78 = or i8 %77, 2
   store i8 %78, ptr %28, align 1
   br label %79
 
-79:                                               ; preds = %.thread78, %76
-  %.4 = phi i32 [ %spec.select62, %.thread78 ], [ %.3, %76 ]
+79:                                               ; preds = %.thread77, %76
+  %.4 = phi i32 [ %spec.select62, %.thread77 ], [ %.3, %76 ]
   %80 = load ptr, ptr %51, align 8, !tbaa !266
   %.not.i68 = icmp eq ptr %80, null
-  br i1 %.not.i68, label %82, label %81
+  br i1 %.not.i68, label %CleanupStoreCtxCallback.exit, label %81
 
 81:                                               ; preds = %79
   tail call void @wolfSSL_Free(ptr noundef nonnull %80) #27
-  br label %82
+  br label %CleanupStoreCtxCallback.exit
 
-82:                                               ; preds = %81, %79
+CleanupStoreCtxCallback.exit:                     ; preds = %79, %81
   store ptr null, ptr %51, align 8, !tbaa !266
-  br label %.sink.split
+  br label %.critedge.sink.split
 
-.sink.split:                                      ; preds = %24, %82
-  %.0.ph = phi i32 [ %.4, %82 ], [ -125, %24 ]
+.critedge.sink.split:                             ; preds = %24, %CleanupStoreCtxCallback.exit
+  %.0.ph = phi i32 [ %.4, %CleanupStoreCtxCallback.exit ], [ -125, %24 ]
   tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %23) #27
-  br label %83
+  br label %.critedge
 
-83:                                               ; preds = %.sink.split, %22, %.thread, %4
-  %.0 = phi i32 [ -173, %4 ], [ %2, %.thread ], [ -125, %22 ], [ %.0.ph, %.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %22, %.thread, %4
+  %.0 = phi i32 [ -173, %4 ], [ %2, %.thread ], [ -125, %22 ], [ %.0.ph, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -16142,7 +16142,7 @@ DoHandShakeMsg.exit.i:                            ; preds = %651, %GetHandShakeH
   br i1 %.not389.i, label %.thread542.i, label %.thread546.i
 
 .thread546.i:                                     ; preds = %658, %DoHandShakeMsg.exit.i, %614, %570, %540
-  %.19549.i = phi i32 [ %.19.i, %658 ], [ %589, %570 ], [ %620, %614 ], [ %557, %540 ], [ %.1.i452.i, %DoHandShakeMsg.exit.i ]
+  %.19549.i = phi i32 [ %.19.i, %658 ], [ %589, %570 ], [ %557, %540 ], [ %620, %614 ], [ %.1.i452.i, %DoHandShakeMsg.exit.i ]
   %659 = load i64, ptr %17, align 8
   %660 = and i64 %659, 131072
   %661 = icmp eq i64 %660, 0
@@ -16490,7 +16490,7 @@ DoAlert.exit.i:                                   ; preds = %802, %IsEncryptionO
   br label %DoProcessReplyEx.exit
 
 .thread542.i:                                     ; preds = %805, %767, %754, %SendAlert.exit459.i, %658, %DoHandShakeMsg.exit.i, %621, %603
-  %.20.i = phi i32 [ 0, %658 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %767 ], [ 0, %805 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %603 ], [ 0, %621 ]
+  %.20.i = phi i32 [ 0, %658 ], [ %.6279.i, %SendAlert.exit459.i ], [ 0, %754 ], [ 0, %767 ], [ 0, %805 ], [ 0, %DoHandShakeMsg.exit.i ], [ 0, %621 ], [ 0, %603 ]
   store i8 0, ptr %16, align 4, !tbaa !178
   %807 = load i32, ptr %20, align 4, !tbaa !216
   %808 = load i32, ptr %39, align 16, !tbaa !215
@@ -24087,7 +24087,7 @@ switch.lookup283:                                 ; preds = %204
   br label %217
 
 217:                                              ; preds = %212, %switch.lookup283
-  %.1.i = phi i32 [ %216, %212 ], [ %211, %switch.lookup283 ]
+  %.1.i = phi i32 [ %211, %switch.lookup283 ], [ %216, %212 ]
   %218 = icmp sgt i32 %.1.i, 0
   br i1 %218, label %RsaSign.exit.thread, label %RsaSign.exit
 

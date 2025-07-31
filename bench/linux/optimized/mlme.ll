@@ -14578,7 +14578,7 @@ define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr noun
 
 51:                                               ; preds = %48
   %52 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.98, ptr noundef nonnull %13) #19
-  br label %101
+  br label %.critedge
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 1
@@ -14610,27 +14610,27 @@ define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr noun
 
 75:                                               ; preds = %71
   %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.99, ptr noundef nonnull %13) #19
-  br label %101
+  br label %.critedge
 
 77:                                               ; preds = %71
   %78 = and i32 %45, 32
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %.thread30
+  br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %77
   %81 = load i16, ptr %73, align 1
   %82 = icmp eq i16 %81, 0
   br i1 %82, label %86, label %.split.us
 
-.thread30:                                        ; preds = %77
+.thread:                                          ; preds = %77
   %83 = load i8, ptr %73, align 1
   %84 = zext i8 %83 to i16
   %85 = icmp eq i8 %83, 0
   br i1 %85, label %86, label %.split
 
-86:                                               ; preds = %.thread30, %80
+86:                                               ; preds = %.thread, %80
   %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.100, ptr noundef nonnull %13) #19
-  br label %101
+  br label %.critedge
 
 .split.us:                                        ; preds = %80, %92
   %88 = phi i32 [ %93, %92 ], [ 1, %80 ]
@@ -14638,75 +14638,75 @@ define internal fastcc void @ieee80211_process_adv_ttlm(ptr noundef %0, ptr noun
   %89 = getelementptr i8, ptr %.pn.us, i64 2
   %90 = load i16, ptr %89, align 1
   %91 = icmp eq i16 %90, %81
-  br i1 %91, label %92, label %.thread
+  br i1 %91, label %92, label %.split25.us
 
 92:                                               ; preds = %.split.us
   %93 = add nuw nsw i32 %88, 1
   %.not.us = icmp eq i32 %93, 8
-  br i1 %.not.us, label %.split20.us, label %.split.us, !llvm.loop !294
+  br i1 %.not.us, label %.split27.us, label %.split.us, !llvm.loop !294
 
-.split:                                           ; preds = %.thread30, %99
-  %94 = phi i32 [ %100, %99 ], [ 1, %.thread30 ]
-  %.pn = phi ptr [ %95, %99 ], [ %73, %.thread30 ]
+.split:                                           ; preds = %.thread, %98
+  %94 = phi i32 [ %99, %98 ], [ 1, %.thread ]
+  %.pn = phi ptr [ %95, %98 ], [ %73, %.thread ]
   %95 = getelementptr i8, ptr %.pn, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %83, %96
-  br i1 %97, label %99, label %.thread
+  br i1 %97, label %98, label %.split25.us
 
-.thread:                                          ; preds = %.split, %.split.us
+98:                                               ; preds = %.split
+  %99 = add nuw nsw i32 %94, 1
+  %.not = icmp eq i32 %99, 8
+  br i1 %.not, label %.split27.us, label %.split, !llvm.loop !295
+
+.split25.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %88, %.split.us ], [ %94, %.split ]
-  %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.101, ptr noundef nonnull %13, i32 noundef %.us-phi) #19
-  br label %101
+  %100 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.101, ptr noundef nonnull %13, i32 noundef %.us-phi) #19
+  br label %.critedge
 
-99:                                               ; preds = %.split
-  %100 = add nuw nsw i32 %94, 1
-  %.not = icmp eq i32 %100, 8
-  br i1 %.not, label %.split20.us, label %.split, !llvm.loop !295
-
-101:                                              ; preds = %86, %75, %51, %.thread
+.critedge:                                        ; preds = %.split25.us, %86, %75, %51
   tail call fastcc void @__ieee80211_disconnect(ptr noundef %0)
   br label %.loopexit
 
-.split20.us:                                      ; preds = %99, %92
-  %102 = phi i16 [ %81, %92 ], [ %84, %99 ]
-  %103 = lshr i64 %2, 10
-  %104 = trunc i64 %103 to i16
-  %105 = sub i16 %58, %104
-  %106 = icmp ugt i16 %105, -256
-  br i1 %106, label %.loopexit, label %107
+.split27.us:                                      ; preds = %98, %92
+  %101 = phi i16 [ %81, %92 ], [ %84, %98 ]
+  %102 = lshr i64 %2, 10
+  %103 = trunc i64 %102 to i16
+  %104 = sub i16 %58, %103
+  %105 = icmp ugt i16 %104, -256
+  br i1 %105, label %.loopexit, label %106
 
-107:                                              ; preds = %.split20.us
-  %108 = zext i16 %105 to i32
-  %109 = shl nuw nsw i32 %108, 10
-  %110 = tail call i64 @__usecs_to_jiffies(i32 noundef %109) #18
-  %111 = and i64 %110, 4294967295
-  %112 = icmp samesign ugt i64 %111, 100
-  %113 = add i64 %110, 4294967196
-  %114 = and i64 %113, 4294967295
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2752
-  store i16 %58, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2754
-  store i16 0, ptr %116, align 2
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  store i32 %72, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  store i16 %102, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2762
-  store i16 0, ptr %119, align 2
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 64
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 2680
-  tail call void @wiphy_delayed_work_cancel(ptr noundef %123, ptr noundef nonnull %124) #18
-  %125 = load ptr, ptr %120, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %127 = load ptr, ptr %126, align 8
-  %128 = select i1 %112, i64 %114, i64 0
-  tail call void @wiphy_delayed_work_queue(ptr noundef %127, ptr noundef nonnull %124, i64 noundef %128) #18
+106:                                              ; preds = %.split27.us
+  %107 = zext i16 %104 to i32
+  %108 = shl nuw nsw i32 %107, 10
+  %109 = tail call i64 @__usecs_to_jiffies(i32 noundef %108) #18
+  %110 = and i64 %109, 4294967295
+  %111 = icmp samesign ugt i64 %110, 100
+  %112 = add i64 %109, 4294967196
+  %113 = and i64 %112, 4294967295
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  store i16 %58, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2754
+  store i16 0, ptr %115, align 2
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  store i32 %72, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2760
+  store i16 %101, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2762
+  store i16 0, ptr %118, align 2
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 2680
+  tail call void @wiphy_delayed_work_cancel(ptr noundef %122, ptr noundef nonnull %123) #18
+  %124 = load ptr, ptr %119, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 64
+  %126 = load ptr, ptr %125, align 8
+  %127 = select i1 %111, i64 %113, i64 0
+  tail call void @wiphy_delayed_work_queue(ptr noundef %126, ptr noundef nonnull %123, i64 noundef %127) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %107, %.split20.us, %101, %36, %32, %3
+.loopexit:                                        ; preds = %37, %106, %.split27.us, %.critedge, %36, %32, %3
   ret void
 }
 
@@ -15298,30 +15298,30 @@ define internal fastcc void @ieee80211_handle_puncturing_bitmap(ptr noundef capt
 
 .loopexit.loopexit:                               ; preds = %59, %62, %.thread
   %.pre = load i32, ptr %11, align 8
-  %.pre5 = load ptr, ptr %7, align 8
+  %.pre4 = load ptr, ptr %7, align 8
   %75 = icmp ult i32 %.pre, 3
   %76 = select i1 %75, i16 0, i16 %57
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %77 = phi ptr [ %8, %4 ], [ %.pre5, %.loopexit.loopexit ]
+  %77 = phi ptr [ %8, %4 ], [ %.pre4, %.loopexit.loopexit ]
   %78 = phi i16 [ 0, %4 ], [ %76, %.loopexit.loopexit ]
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 760
   %80 = load i16, ptr %79, align 8
   %81 = icmp eq i16 %80, %78
-  br i1 %81, label %.thread2, label %82
+  br i1 %81, label %.critedge, label %82
 
 82:                                               ; preds = %.loopexit
   store i16 %78, ptr %79, align 8
-  br i1 %10, label %.thread2, label %83
+  br i1 %10, label %.critedge, label %83
 
 83:                                               ; preds = %82
   %84 = load i64, ptr %3, align 8
   %85 = or i64 %84, 4294967296
   store i64 %85, ptr %3, align 8
-  br label %.thread2
+  br label %.critedge
 
-.thread2:                                         ; preds = %82, %83, %.loopexit
+.critedge:                                        ; preds = %82, %83, %.loopexit
   ret void
 }
 
@@ -15544,7 +15544,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   tail call void asm sideeffect "3076: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3076) #18, !srcloc !305
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5126, i32 2305, i64 12) #18, !srcloc !306
   tail call void asm sideeffect "3077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3077) #18, !srcloc !307
-  br label %.thread72
+  br label %.thread70
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4056
@@ -15584,7 +15584,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %43 = trunc i64 %24 to i32
   %44 = tail call i32 @ieee80211_sta_allocate_link(ptr noundef nonnull %13, i32 noundef %43) #18
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread72
+  br i1 %45, label %46, label %.thread70
 
 46:                                               ; preds = %42, %30, %23
   %47 = phi i16 [ %38, %42 ], [ %38, %30 ], [ %26, %23 ]
@@ -15631,7 +15631,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void asm sideeffect "3078: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3078) #18, !srcloc !309
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5157, i32 2305, i64 12) #18, !srcloc !310
   call void asm sideeffect "3079: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3079) #18, !srcloc !311
-  br label %.thread72
+  br label %.thread70
 
 78:                                               ; preds = %73
   %79 = load i16, ptr %18, align 8
@@ -15682,7 +15682,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void asm sideeffect "3080: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3080) #18, !srcloc !312
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5170, i32 2305, i64 12) #18, !srcloc !313
   call void asm sideeffect "3081: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3081) #18, !srcloc !314
-  br label %.thread72
+  br label %.thread70
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 479
@@ -15800,17 +15800,17 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %186 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %187 = load i32, ptr %186, align 8
   %188 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.122, ptr noundef nonnull %184, i32 noundef %187) #19
-  br label %.thread72
+  br label %.thread70
 
 189:                                              ; preds = %179
   %190 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.123, ptr noundef nonnull %184) #19
-  br label %.thread72
+  br label %.thread70
 
 191:                                              ; preds = %175, %165
   %192 = load ptr, ptr %70, align 8
   %193 = call fastcc i32 @ieee80211_mgd_setup_link_sta(ptr noundef nonnull %75, ptr noundef nonnull %13, ptr noundef nonnull %111, ptr noundef %192), !range !183
   %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %.thread72
+  br i1 %194, label %195, label %.thread70
 
 195:                                              ; preds = %191
   %196 = load ptr, ptr %70, align 8
@@ -15862,7 +15862,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %227 = load i16, ptr %224, align 1
   %228 = and i16 %227, 32
   %229 = icmp eq i16 %228, 0
-  br i1 %229, label %.thread59, label %230
+  br i1 %229, label %.thread, label %230
 
 230:                                              ; preds = %226
   %231 = and i16 %227, 16
@@ -15878,13 +15878,13 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %238 = getelementptr inbounds nuw i8, ptr %214, i64 624
   %239 = load ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, null
-  br i1 %240, label %.thread59, label %241
+  br i1 %240, label %.thread, label %241
 
 241:                                              ; preds = %237
   %242 = load i16, ptr %239, align 1
   %243 = and i16 %242, 2048
   %244 = icmp eq i16 %243, 0
-  br i1 %244, label %.thread59, label %245
+  br i1 %244, label %.thread, label %245
 
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %239, i64 3
@@ -15965,12 +15965,12 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %303 = load i32, ptr %204, align 8
   %304 = zext i16 %294 to i32
   %305 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.131, ptr noundef nonnull %301, i32 noundef %303, i32 noundef %304) #19
-  br label %.critedge80
+  br label %.critedge78
 
 306:                                              ; preds = %296
   %307 = zext i16 %294 to i32
   %308 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.132, ptr noundef nonnull %301, i32 noundef %307) #19
-  br label %.critedge80
+  br label %.critedge78
 
 309:                                              ; preds = %291, %230, %219
   %310 = phi i16 [ %220, %230 ], [ %220, %219 ], [ %252, %291 ]
@@ -15985,7 +15985,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 315:                                              ; preds = %311
   %316 = getelementptr inbounds nuw i8, ptr %198, i64 1280
   %317 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.133, ptr noundef nonnull %316) #19
-  br label %.thread59
+  br label %.thread
 
 318:                                              ; preds = %311, %309
   %319 = getelementptr inbounds nuw i8, ptr %214, i64 40
@@ -16064,11 +16064,11 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %365 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %366 = load volatile ptr, ptr %365, align 8
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %.thread60, label %368
+  br i1 %367, label %.thread58, label %368
 
-.thread60:                                        ; preds = %364
+.thread58:                                        ; preds = %364
   call void @__rcu_read_unlock() #18
-  br label %.thread59
+  br label %.thread
 
 368:                                              ; preds = %364
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 24
@@ -16078,7 +16078,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %373 = call ptr @kmemdup(ptr noundef nonnull %366, i64 noundef %372, i32 noundef 2080) #22
   call void @__rcu_read_unlock() #18
   %374 = icmp eq ptr %373, null
-  br i1 %374, label %.thread59, label %375
+  br i1 %374, label %.thread, label %375
 
 375:                                              ; preds = %368
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 29
@@ -16090,7 +16090,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   store ptr %196, ptr %62, align 8
   %380 = call ptr @ieee802_11_parse_elems_full(ptr noundef nonnull %6) #18
   %381 = icmp eq ptr %380, null
-  br i1 %381, label %.thread59, label %382
+  br i1 %381, label %.thread, label %382
 
 382:                                              ; preds = %375
   %383 = load i8, ptr %333, align 1, !range !25, !noundef !26
@@ -16223,7 +16223,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 
 461:                                              ; preds = %460, %360, %353
   %462 = phi i32 [ %.pre, %460 ], [ %342, %360 ], [ %342, %353 ]
-  %.ph64 = phi ptr [ %373, %460 ], [ null, %360 ], [ null, %353 ]
+  %.ph62 = phi ptr [ %373, %460 ], [ null, %360 ], [ null, %353 ]
   %463 = getelementptr inbounds nuw i8, ptr %75, i64 472
   %464 = and i32 %462, 1
   %465 = icmp eq i32 %464, 0
@@ -16250,7 +16250,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 478:                                              ; preds = %474, %470, %466
   %479 = getelementptr inbounds nuw i8, ptr %198, i64 1280
   %480 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.139, ptr noundef nonnull %479) #19
-  br label %.thread59
+  br label %.thread
 
 481:                                              ; preds = %474, %461
   %482 = and i32 %462, 4
@@ -16272,7 +16272,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 492:                                              ; preds = %488, %484
   %493 = getelementptr inbounds nuw i8, ptr %198, i64 1280
   %494 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.140, ptr noundef nonnull %493) #19
-  br label %.thread59
+  br label %.thread
 
 495:                                              ; preds = %329
   %496 = getelementptr inbounds nuw i8, ptr %75, i64 472
@@ -16290,12 +16290,12 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 504:                                              ; preds = %500
   %505 = getelementptr inbounds nuw i8, ptr %198, i64 1280
   %506 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.141, ptr noundef nonnull %505) #19
-  br label %.thread59
+  br label %.thread
 
 507:                                              ; preds = %500, %495, %488, %481
   %508 = phi i32 [ %497, %500 ], [ %497, %495 ], [ %462, %488 ], [ %462, %481 ]
   %509 = phi ptr [ %496, %500 ], [ %496, %495 ], [ %463, %488 ], [ %463, %481 ]
-  %510 = phi ptr [ null, %500 ], [ null, %495 ], [ %.ph64, %488 ], [ %.ph64, %481 ]
+  %510 = phi ptr [ null, %500 ], [ null, %495 ], [ %.ph62, %488 ], [ %.ph62, %481 ]
   %511 = load ptr, ptr %169, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 128
   %513 = load ptr, ptr %512, align 8
@@ -16306,7 +16306,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void asm sideeffect "3055: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3055b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3055) #18, !srcloc !315
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4183, i32 2305, i64 12) #18, !srcloc !316
   call void asm sideeffect "3056: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3056b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3056) #18, !srcloc !317
-  br label %.thread59
+  br label %.thread
 
 516:                                              ; preds = %507
   %517 = getelementptr inbounds nuw i8, ptr %203, i64 64
@@ -16335,7 +16335,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 534:                                              ; preds = %530, %526
   %535 = getelementptr inbounds nuw i8, ptr %198, i64 1280
   %536 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.142, ptr noundef nonnull %535) #19
-  br label %.thread59
+  br label %.thread
 
 537:                                              ; preds = %530, %516
   %538 = getelementptr inbounds nuw i8, ptr %214, i64 128
@@ -16457,8 +16457,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %616 = getelementptr i8, ptr %198, i64 4056
   %.val = load i32, ptr %616, align 8
   %617 = getelementptr i8, ptr %198, i64 5068
-  %.val56 = load i8, ptr %617, align 4, !range !25, !noundef !26
-  %618 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val56, ptr noundef %523, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef %214)
+  %.val57 = load i8, ptr %617, align 4, !range !25, !noundef !26
+  %618 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val57, ptr noundef %523, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef %214)
   %619 = load i64, ptr %197, align 8
   %620 = or i64 %619, %618
   store i64 %620, ptr %197, align 8
@@ -16520,34 +16520,34 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 
 655:                                              ; preds = %649
   switch i32 %651, label %657 [
-    i32 2, label %.thread68
+    i32 2, label %.thread66
     i32 3, label %656
   ]
 
 656:                                              ; preds = %655
-  br label %.thread68
+  br label %.thread66
 
 657:                                              ; preds = %649, %655
   %658 = trunc i32 %651 to i8
   %659 = icmp ugt i8 %658, 11
-  br i1 %659, label %660, label %.thread68, !prof !212
+  br i1 %659, label %660, label %.thread66, !prof !212
 
 660:                                              ; preds = %657
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #18, !srcloc !125
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.79, i32 626, i32 2305, i64 12) #18, !srcloc !126
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #18, !srcloc !127
-  br label %.thread70
+  br label %.thread68
 
-.thread68:                                        ; preds = %655, %656, %657
+.thread66:                                        ; preds = %655, %656, %657
   %661 = phi i8 [ %658, %657 ], [ 8, %655 ], [ 9, %656 ]
   %662 = getelementptr inbounds nuw i8, ptr %523, i64 96
   %663 = load ptr, ptr %662, align 8
   %664 = getelementptr inbounds nuw i8, ptr %523, i64 92
   %665 = load i16, ptr %664, align 4
   %666 = icmp eq i16 %665, 0
-  br i1 %666, label %.thread70, label %667
+  br i1 %666, label %.thread68, label %667
 
-667:                                              ; preds = %.thread68
+667:                                              ; preds = %.thread66
   %668 = icmp eq i8 %661, 4
   %669 = select i1 %668, i8 3, i8 %661
   %670 = zext nneg i8 %669 to i64
@@ -16567,23 +16567,23 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
 680:                                              ; preds = %673
   %681 = add nuw nsw i64 %674, 1
   %682 = icmp eq i64 %681, %672
-  br i1 %682, label %.thread70, label %673, !llvm.loop !130
+  br i1 %682, label %.thread68, label %673, !llvm.loop !130
 
 683:                                              ; preds = %673
   %684 = icmp eq ptr %675, null
-  br i1 %684, label %.thread70, label %685
+  br i1 %684, label %.thread68, label %685
 
 685:                                              ; preds = %683
   %686 = getelementptr inbounds nuw i8, ptr %675, i64 2
   %687 = load i8, ptr %686, align 2, !range !25, !noundef !26
   %688 = icmp eq i8 %687, 0
-  br i1 %688, label %.thread70, label %689
+  br i1 %688, label %.thread68, label %689
 
-.thread70:                                        ; preds = %680, %.thread68, %660, %685, %683
+.thread68:                                        ; preds = %680, %.thread66, %660, %685, %683
   br label %689
 
-689:                                              ; preds = %.thread70, %685
-  %690 = phi ptr [ null, %.thread70 ], [ %686, %685 ]
+689:                                              ; preds = %.thread68, %685
+  %690 = phi ptr [ null, %.thread68 ], [ %686, %685 ]
   %691 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %692 = load i8, ptr %691, align 8, !range !25, !noundef !26
   %693 = icmp eq i8 %692, 0
@@ -16790,16 +16790,16 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   store i8 %.sink, ptr %824, align 2
   %825 = getelementptr inbounds nuw i8, ptr %201, i64 44
   store i16 %310, ptr %825, align 4
-  br label %.critedge80
+  br label %.critedge78
 
-.thread59:                                        ; preds = %375, %368, %241, %237, %226, %.thread60, %534, %515, %504, %492, %478, %315
-  %826 = phi ptr [ %510, %534 ], [ null, %504 ], [ %.ph64, %492 ], [ %.ph64, %478 ], [ null, %315 ], [ %510, %515 ], [ null, %.thread60 ], [ %373, %375 ], [ null, %368 ], [ null, %237 ], [ null, %241 ], [ null, %226 ]
+.thread:                                          ; preds = %375, %368, %241, %237, %226, %.thread58, %534, %515, %504, %492, %478, %315
+  %826 = phi ptr [ %510, %534 ], [ null, %504 ], [ %.ph62, %492 ], [ %.ph62, %478 ], [ null, %315 ], [ %510, %515 ], [ null, %.thread58 ], [ %373, %375 ], [ null, %368 ], [ null, %237 ], [ null, %241 ], [ null, %226 ]
   call void @kfree(ptr noundef nonnull %214) #18
   call void @kfree(ptr noundef %826) #18
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #18
-  br label %.thread72
+  br label %.thread70
 
-.critedge80:                                      ; preds = %302, %306, %823
+.critedge78:                                      ; preds = %302, %306, %823
   %.ph = phi ptr [ null, %302 ], [ null, %306 ], [ %510, %823 ]
   call void @kfree(ptr noundef %214) #18
   call void @kfree(ptr noundef %.ph) #18
@@ -16809,7 +16809,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %829 = icmp eq i16 %828, 0
   br i1 %829, label %836, label %830
 
-830:                                              ; preds = %.critedge80
+830:                                              ; preds = %.critedge78
   %831 = trunc i64 %68 to i32
   %832 = shl nuw nsw i32 1, %831
   %833 = trunc i32 %832 to i16
@@ -16818,7 +16818,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void @ieee80211_sta_remove_link(ptr noundef nonnull %13, i32 noundef %831) #18
   br label %845
 
-836:                                              ; preds = %.critedge80
+836:                                              ; preds = %.critedge78
   %837 = load i32, ptr %57, align 4
   %838 = zext i32 %837 to i64
   %839 = icmp eq i64 %68, %838
@@ -16828,11 +16828,11 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %841 = trunc i64 %68 to i32
   %842 = call i32 @ieee80211_sta_activate_link(ptr noundef nonnull %13, i32 noundef %841) #18
   %843 = icmp eq i32 %842, 0
-  br i1 %843, label %845, label %.thread72
+  br i1 %843, label %845, label %.thread70
 
 844:                                              ; preds = %195
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #18
-  br label %.thread72
+  br label %.thread70
 
 845:                                              ; preds = %836, %840, %67, %830
   %846 = phi i16 [ %835, %830 ], [ %69, %67 ], [ %69, %840 ], [ %69, %836 ]
@@ -16907,13 +16907,13 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %892 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.124, ptr noundef nonnull %891, ptr noundef nonnull %879) #19
   %893 = call i32 @__sta_info_destroy(ptr noundef nonnull %13) #18
   %894 = icmp eq i32 %893, 0
-  br i1 %894, label %.thread72, label %895, !prof !7
+  br i1 %894, label %.thread70, label %895, !prof !7
 
 895:                                              ; preds = %890
   call void asm sideeffect "3086: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3086b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3086) #18, !srcloc !320
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5249, i32 2305, i64 12) #18, !srcloc !321
   call void asm sideeffect "3087: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3087b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3087) #18, !srcloc !322
-  br label %.thread72
+  br label %.thread70
 
 896:                                              ; preds = %887, %883
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -16944,7 +16944,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 1415
   %915 = load i8, ptr %914, align 1, !range !25, !noundef !26
   %916 = icmp eq i8 %915, 0
-  br i1 %916, label %917, label %.thread73
+  br i1 %916, label %917, label %.thread71
 
 917:                                              ; preds = %909
   %918 = getelementptr inbounds nuw i8, ptr %910, i64 1264
@@ -16953,7 +16953,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %921 = icmp ne i32 %920, 0
   %922 = load i1, ptr @drv_sta_set_4addr.__already_done, align 1
   %923 = select i1 %921, i1 true, i1 %922
-  br i1 %923, label %.thread73, label %924, !prof !84
+  br i1 %923, label %.thread71, label %924, !prof !84
 
 924:                                              ; preds = %917
   store i1 true, ptr @drv_sta_set_4addr.__already_done, align 1
@@ -16970,16 +16970,16 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.72, i32 1562, i32 2313, i64 12) #18, !srcloc !325
   call void asm sideeffect "2935: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2935) #18, !srcloc !326
   call void asm sideeffect "2936: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2936) #18, !srcloc !327
-  br label %.thread73
+  br label %.thread71
 
-.thread73:                                        ; preds = %909, %924, %917
+.thread71:                                        ; preds = %909, %924, %917
   %932 = getelementptr inbounds nuw i8, ptr %910, i64 1264
   %933 = load i32, ptr %932, align 8
   %934 = and i32 %933, 32
   %935 = icmp eq i32 %934, 0
   br i1 %935, label %986, label %936
 
-936:                                              ; preds = %.thread73
+936:                                              ; preds = %.thread71
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_sta_set_4addr, i64 8), i32 2) #18
           to label %957 [label %937], !srcloc !11
 
@@ -17072,7 +17072,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   call void @llvm.write_register.i64(metadata !0, i64 %985)
   br label %986
 
-986:                                              ; preds = %983, %979, %966, %965, %.thread73, %896
+986:                                              ; preds = %983, %979, %966, %965, %.thread71, %896
   %987 = load ptr, ptr %10, align 8
   %988 = getelementptr inbounds nuw i8, ptr %0, i64 4064
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 2117
@@ -17199,10 +17199,10 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   br label %1076
 
 1076:                                             ; preds = %1067, %1072
-  %.sink161 = phi ptr [ %1074, %1072 ], [ null, %1067 ]
+  %.sink159 = phi ptr [ %1074, %1072 ], [ null, %1067 ]
   %1077 = phi i64 [ %1075, %1072 ], [ %1068, %1067 ]
   %1078 = getelementptr inbounds nuw i8, ptr %1020, i64 72
-  store ptr %.sink161, ptr %1078, align 8
+  store ptr %.sink159, ptr %1078, align 8
   %1079 = getelementptr inbounds nuw i8, ptr %1018, i64 5096
   %1080 = load i32, ptr %1079, align 8
   %1081 = and i32 %1080, 2
@@ -17395,13 +17395,13 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %1192 = call i32 @mod_timer(ptr noundef nonnull %1188, i64 noundef %1191) #18
   br label %1194
 
-.thread72:                                        ; preds = %42, %840, %191, %.thread59, %844, %185, %189, %113, %77, %895, %890, %15
+.thread70:                                        ; preds = %42, %840, %191, %.thread, %844, %185, %189, %113, %77, %895, %890, %15
   %1193 = getelementptr inbounds nuw i8, ptr %0, i64 4138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1193, i8 0, i64 6, i1 false)
   br label %1194
 
-1194:                                             ; preds = %.thread72, %1187, %1181, %1172
-  %1195 = phi i1 [ false, %.thread72 ], [ true, %1172 ], [ true, %1181 ], [ true, %1187 ]
+1194:                                             ; preds = %.thread70, %1187, %1181, %1172
+  %1195 = phi i1 [ false, %.thread70 ], [ true, %1172 ], [ true, %1181 ], [ true, %1187 ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #18
   ret i1 %1195
 }

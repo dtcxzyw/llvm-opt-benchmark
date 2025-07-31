@@ -48708,7 +48708,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
   %9 = zext i8 %7 to i32
-  br i1 %8, label %10, label %.thread
+  br i1 %8, label %10, label %.critedge
 
 10:                                               ; preds = %4
   %.not136 = icmp eq i64 %1, 1
@@ -48722,7 +48722,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %16 = icmp ult i8 %14, 10
   %17 = zext i8 %14 to i32
   %18 = add nuw nsw i32 %15, %17
-  br i1 %16, label %19, label %.thread
+  br i1 %16, label %19, label %.critedge
 
 19:                                               ; preds = %11
   %.not137 = icmp eq i64 %1, 2
@@ -48736,7 +48736,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %25 = icmp ult i8 %23, 10
   %26 = zext i8 %23 to i32
   %27 = add nuw nsw i32 %24, %26
-  br i1 %25, label %28, label %.thread
+  br i1 %25, label %28, label %.critedge
 
 28:                                               ; preds = %20
   %.not138 = icmp eq i64 %1, 3
@@ -48750,7 +48750,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %34 = icmp ult i8 %32, 10
   %35 = zext i8 %32 to i32
   %36 = add nuw nsw i32 %33, %35
-  br i1 %34, label %37, label %.thread
+  br i1 %34, label %37, label %.critedge
 
 37:                                               ; preds = %29
   %.not139 = icmp eq i64 %1, 4
@@ -48764,7 +48764,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %43 = icmp ult i8 %41, 10
   %44 = zext i8 %41 to i32
   %45 = add nuw nsw i32 %42, %44
-  br i1 %43, label %46, label %.thread
+  br i1 %43, label %46, label %.critedge
 
 46:                                               ; preds = %38
   %.not140 = icmp eq i64 %1, 5
@@ -48778,7 +48778,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %52 = icmp ult i8 %50, 10
   %53 = zext i8 %50 to i32
   %54 = add nuw nsw i32 %51, %53
-  br i1 %52, label %55, label %.thread
+  br i1 %52, label %55, label %.critedge
 
 55:                                               ; preds = %47
   %.not141 = icmp eq i64 %1, 6
@@ -48792,7 +48792,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %61 = icmp ult i8 %59, 10
   %62 = zext i8 %59 to i32
   %63 = add nuw nsw i32 %60, %62
-  br i1 %61, label %64, label %.thread
+  br i1 %61, label %64, label %.critedge
 
 64:                                               ; preds = %56
   %.not142 = icmp eq i64 %1, 7
@@ -48806,7 +48806,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %70 = icmp ult i8 %68, 10
   %71 = zext i8 %68 to i32
   %72 = add nuw nsw i32 %69, %71
-  br i1 %70, label %73, label %.thread
+  br i1 %70, label %73, label %.critedge
 
 73:                                               ; preds = %65
   %.not143 = icmp eq i64 %1, 8
@@ -48820,7 +48820,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %79 = icmp ult i8 %77, 10
   %80 = zext i8 %77 to i32
   %81 = add nuw nsw i32 %78, %80
-  br i1 %79, label %82, label %.thread
+  br i1 %79, label %82, label %.critedge
 
 82:                                               ; preds = %74
   %.not144 = icmp eq i64 %1, 9
@@ -48828,7 +48828,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 83:                                               ; preds = %82
   %84 = icmp samesign ugt i32 %81, 429496729
-  br i1 %84, label %.thread, label %85, !prof !86
+  br i1 %84, label %.critedge, label %85, !prof !86
 
 85:                                               ; preds = %83
   %86 = load i8, ptr %75, align 1, !tbaa !84
@@ -48836,22 +48836,22 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %.not145 = icmp ne i64 %1, 10
   %88 = icmp ugt i8 %87, 9
   %or.cond = or i1 %.not145, %88
-  br i1 %or.cond, label %.thread, label %89, !prof !1142
+  br i1 %or.cond, label %.critedge, label %89, !prof !1142
 
 89:                                               ; preds = %85
   %90 = mul nuw i32 %81, 10
   %91 = zext nneg i8 %87 to i32
   %92 = add i32 %90, %91
-  %.not149 = icmp ult i32 %92, %90
+  %.not147 = icmp ult i32 %92, %90
   %.146 = tail call i32 @llvm.umax.i32(i32 %92, i32 %90)
-  br i1 %.not149, label %.thread, label %93
+  br i1 %.not147, label %.critedge, label %93
 
 93:                                               ; preds = %89, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
   %.196 = phi i32 [ %.146, %89 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
   store i32 %.196, ptr %2, align 4, !tbaa !85
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
+.critedge:                                        ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
   %.1 = phi i1 [ true, %93 ], [ false, %89 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %83 ], [ false, %85 ]
   ret i1 %.1
 }

@@ -124,13 +124,13 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef captures(address_i
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.thread297.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread297.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -143,7 +143,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
   br label %15
 
 15:                                               ; preds = %.thread297, %10
-  %.0186 = phi ptr [ %8, %10 ], [ %.5191.ph, %.thread297 ]
+  %.0186 = phi ptr [ %8, %10 ], [ %.5191, %.thread297 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = load ptr, ptr %.0186, align 8, !tbaa !21
@@ -183,13 +183,13 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
   br i1 %38, label %.lr.ph, label %.thread261
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %.0200341, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0200336, i64 1
   %exitcond.not = icmp eq ptr %40, %37
   br i1 %exitcond.not, label %.thread261, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %34, %39
-  %.0200341 = phi ptr [ %40, %39 ], [ %35, %34 ]
-  %41 = load i8, ptr %.0200341, align 1, !tbaa !22
+  %.0200336 = phi ptr [ %40, %39 ], [ %35, %34 ]
+  %41 = load i8, ptr %.0200336, align 1, !tbaa !22
   %42 = icmp eq i8 %41, 58
   br i1 %42, label %.thread301, label %39
 
@@ -214,8 +214,8 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
 
 49:                                               ; preds = %47, %46
   %.not253 = icmp eq ptr %18, %17
-  %or.cond319 = or i1 %.not242, %.not253
-  br i1 %or.cond319, label %52, label %50
+  %or.cond314 = or i1 %.not242, %.not253
+  br i1 %or.cond314, label %52, label %50
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %14, align 8, !tbaa !26
@@ -229,8 +229,8 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
 
 54:                                               ; preds = %43
   %.not250 = icmp eq ptr %18, %17
-  %or.cond320 = or i1 %.not242, %.not250
-  br i1 %or.cond320, label %57, label %55
+  %or.cond315 = or i1 %.not242, %.not250
+  br i1 %or.cond315, label %57, label %55
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %14, align 8, !tbaa !26
@@ -262,24 +262,24 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
 uriIsHostSetA.exit:                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %69 = load ptr, ptr %68, align 8, !tbaa !31
-  %.not324 = icmp eq ptr %69, null
-  br i1 %.not324, label %70, label %uriIsHostSetA.exit.thread
+  %.not319 = icmp eq ptr %69, null
+  br i1 %.not319, label %70, label %uriIsHostSetA.exit.thread
 
 uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriIsHostSetA.exit
   store ptr @.str, ptr %.0186, align 8, !tbaa !21
   store ptr @.str, ptr %16, align 8, !tbaa !20
-  br label %.thread297.thread
+  br label %.critedge
 
 70:                                               ; preds = %uriIsHostSetA.exit
   %71 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %71(ptr noundef %3, ptr noundef nonnull %.0186) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %.thread297.thread
+  br label %.critedge
 
 72:                                               ; preds = %57
   store ptr @.str, ptr %.0186, align 8, !tbaa !21
   store ptr @.str, ptr %16, align 8, !tbaa !20
-  br label %.thread297.thread
+  br label %.critedge
 
 73:                                               ; preds = %15
   %74 = load i8, ptr %18, align 1, !tbaa !22
@@ -352,7 +352,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %.not241, label %112, label %123
 
 112:                                              ; preds = %109
-  br i1 %.not242, label %.sink.split376, label %113
+  br i1 %.not242, label %.sink.split371, label %113
 
 113:                                              ; preds = %112
   %114 = load ptr, ptr %.0186, align 8, !tbaa !21
@@ -372,7 +372,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   %121 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !20
   %.not240 = icmp eq ptr %120, %122
-  br i1 %.not240, label %172, label %.sink.split376
+  br i1 %.not240, label %168, label %.sink.split371
 
 123:                                              ; preds = %109
   store ptr @.str, ptr %111, align 8, !tbaa !21
@@ -425,8 +425,8 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   %141 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr null, ptr %141, align 8, !tbaa !18
   %.not234 = icmp eq ptr %18, %17
-  %or.cond321 = or i1 %.not242, %.not234
-  br i1 %or.cond321, label %144, label %142
+  %or.cond316 = or i1 %.not242, %.not234
+  br i1 %or.cond316, label %144, label %142
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %14, align 8, !tbaa !26
@@ -440,8 +440,8 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
 
 146:                                              ; preds = %139
   %.not232 = icmp eq ptr %18, %17
-  %or.cond322 = or i1 %.not242, %.not232
-  br i1 %or.cond322, label %149, label %147
+  %or.cond317 = or i1 %.not242, %.not232
+  br i1 %or.cond317, label %149, label %147
 
 147:                                              ; preds = %146
   %148 = load ptr, ptr %14, align 8, !tbaa !26
@@ -491,8 +491,8 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
 
 163:                                              ; preds = %162, %160
   %.not228 = icmp eq ptr %18, %17
-  %or.cond323 = or i1 %.not242, %.not228
-  br i1 %or.cond323, label %.thread305, label %164
+  %or.cond318 = or i1 %.not242, %.not228
+  br i1 %or.cond318, label %.thread305, label %164
 
 164:                                              ; preds = %163
   %165 = load ptr, ptr %14, align 8, !tbaa !26
@@ -504,39 +504,39 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   tail call void %166(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.thread301:                                       ; preds = %.lr.ph, %97, %73, %76, %23, %15, %85
-  %167 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
-  %168 = load ptr, ptr %167, align 8, !tbaa !23
-  %.not255 = icmp eq ptr %168, null
-  br i1 %.not255, label %.thread314, label %169
+.sink.split371:                                   ; preds = %118, %112
+  %.sink = phi ptr [ %.0186, %112 ], [ %120, %118 ]
+  %167 = load ptr, ptr %14, align 8, !tbaa !26
+  tail call void %167(ptr noundef nonnull %3, ptr noundef %.sink) #11
+  br label %168
 
-169:                                              ; preds = %.thread301
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  store ptr %.0186, ptr %170, align 8, !tbaa !18
+168:                                              ; preds = %.sink.split371, %118
+  %169 = load ptr, ptr %14, align 8, !tbaa !26
+  tail call void %169(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
+  br label %.critedge
+
+.thread301:                                       ; preds = %.lr.ph, %97, %73, %76, %23, %15, %85
+  %170 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
+  %171 = load ptr, ptr %170, align 8, !tbaa !23
+  %.not255 = icmp eq ptr %171, null
+  br i1 %.not255, label %.thread309, label %172
+
+172:                                              ; preds = %.thread301
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  store ptr %.0186, ptr %173, align 8, !tbaa !18
   br label %.thread297
 
-.thread314:                                       ; preds = %.thread301
+.thread309:                                       ; preds = %.thread301
   store ptr %.0186, ptr %13, align 8, !tbaa !33
-  br label %.thread297.thread
+  br label %.critedge
 
-.sink.split376:                                   ; preds = %118, %112
-  %.0186.lcssa.sink = phi ptr [ %.0186, %112 ], [ %120, %118 ]
-  %171 = load ptr, ptr %14, align 8, !tbaa !26
-  tail call void %171(ptr noundef nonnull %3, ptr noundef %.0186.lcssa.sink) #11
-  br label %172
+.thread297:                                       ; preds = %157, %137, %52, %172, %.thread305
+  %.5191 = phi ptr [ %84, %.thread305 ], [ %171, %172 ], [ %30, %52 ], [ %84, %137 ], [ %84, %157 ]
+  %.not256 = icmp eq ptr %.5191, null
+  br i1 %.not256, label %.critedge, label %15, !llvm.loop !34
 
-172:                                              ; preds = %.sink.split376, %118
-  %173 = load ptr, ptr %14, align 8, !tbaa !26
-  tail call void %173(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
-  br label %.thread297.thread
-
-.thread297:                                       ; preds = %157, %137, %52, %.thread305, %169
-  %.5191.ph = phi ptr [ %168, %169 ], [ %84, %.thread305 ], [ %30, %52 ], [ %84, %137 ], [ %84, %157 ]
-  %.not256 = icmp eq ptr %.5191.ph, null
-  br i1 %.not256, label %.thread297.thread, label %15, !llvm.loop !34
-
-.thread297.thread:                                ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread314, %172, %4, %6
-  %.0 = phi i32 [ 0, %172 ], [ 1, %6 ], [ 1, %4 ], [ 1, %.thread314 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %72 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread309, %168, %4, %6
+  %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %72 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 
@@ -1077,13 +1077,13 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef captures(address_i
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.thread297.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread297.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1096,7 +1096,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
   br label %15
 
 15:                                               ; preds = %.thread297, %10
-  %.0186 = phi ptr [ %8, %10 ], [ %.5191.ph, %.thread297 ]
+  %.0186 = phi ptr [ %8, %10 ], [ %.5191, %.thread297 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = load ptr, ptr %.0186, align 8, !tbaa !53
@@ -1137,13 +1137,13 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
   br i1 %39, label %.lr.ph, label %.thread261
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds nuw i8, ptr %.0200341, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0200336, i64 4
   %42 = icmp ult ptr %41, %38
   br i1 %42, label %.lr.ph, label %.thread261, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %35, %40
-  %.0200341 = phi ptr [ %41, %40 ], [ %36, %35 ]
-  %43 = load i32, ptr %.0200341, align 4, !tbaa !54
+  %.0200336 = phi ptr [ %41, %40 ], [ %36, %35 ]
+  %43 = load i32, ptr %.0200336, align 4, !tbaa !54
   %44 = icmp eq i32 %43, 58
   br i1 %44, label %.thread301, label %40
 
@@ -1168,8 +1168,8 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 
 51:                                               ; preds = %49, %48
   %.not253 = icmp eq ptr %18, %17
-  %or.cond319 = or i1 %.not242, %.not253
-  br i1 %or.cond319, label %54, label %52
+  %or.cond314 = or i1 %.not242, %.not253
+  br i1 %or.cond314, label %54, label %52
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %14, align 8, !tbaa !26
@@ -1183,8 +1183,8 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 
 56:                                               ; preds = %45
   %.not250 = icmp eq ptr %18, %17
-  %or.cond320 = or i1 %.not242, %.not250
-  br i1 %or.cond320, label %59, label %57
+  %or.cond315 = or i1 %.not242, %.not250
+  br i1 %or.cond315, label %59, label %57
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %14, align 8, !tbaa !26
@@ -1216,24 +1216,24 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 uriIsHostSetW.exit:                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load ptr, ptr %70, align 8, !tbaa !60
-  %.not324 = icmp eq ptr %71, null
-  br i1 %.not324, label %72, label %uriIsHostSetW.exit.thread
+  %.not319 = icmp eq ptr %71, null
+  br i1 %.not319, label %72, label %uriIsHostSetW.exit.thread
 
 uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriIsHostSetW.exit
   store ptr @.str.3, ptr %.0186, align 8, !tbaa !53
   store ptr @.str.3, ptr %16, align 8, !tbaa !52
-  br label %.thread297.thread
+  br label %.critedge
 
 72:                                               ; preds = %uriIsHostSetW.exit
   %73 = load ptr, ptr %14, align 8, !tbaa !26
   tail call void %73(ptr noundef %3, ptr noundef nonnull %.0186) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %.thread297.thread
+  br label %.critedge
 
 74:                                               ; preds = %59
   store ptr @.str.3, ptr %.0186, align 8, !tbaa !53
   store ptr @.str.3, ptr %16, align 8, !tbaa !52
-  br label %.thread297.thread
+  br label %.critedge
 
 75:                                               ; preds = %15
   %76 = load i32, ptr %18, align 4, !tbaa !54
@@ -1306,7 +1306,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %.not241, label %114, label %125
 
 114:                                              ; preds = %111
-  br i1 %.not242, label %.sink.split376, label %115
+  br i1 %.not242, label %.sink.split371, label %115
 
 115:                                              ; preds = %114
   %116 = load ptr, ptr %.0186, align 8, !tbaa !53
@@ -1326,7 +1326,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   %123 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !52
   %.not240 = icmp eq ptr %122, %124
-  br i1 %.not240, label %174, label %.sink.split376
+  br i1 %.not240, label %170, label %.sink.split371
 
 125:                                              ; preds = %111
   store ptr @.str.3, ptr %113, align 8, !tbaa !53
@@ -1379,8 +1379,8 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   %143 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr null, ptr %143, align 8, !tbaa !50
   %.not234 = icmp eq ptr %18, %17
-  %or.cond321 = or i1 %.not242, %.not234
-  br i1 %or.cond321, label %146, label %144
+  %or.cond316 = or i1 %.not242, %.not234
+  br i1 %or.cond316, label %146, label %144
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %14, align 8, !tbaa !26
@@ -1394,8 +1394,8 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
 
 148:                                              ; preds = %141
   %.not232 = icmp eq ptr %18, %17
-  %or.cond322 = or i1 %.not242, %.not232
-  br i1 %or.cond322, label %151, label %149
+  %or.cond317 = or i1 %.not242, %.not232
+  br i1 %or.cond317, label %151, label %149
 
 149:                                              ; preds = %148
   %150 = load ptr, ptr %14, align 8, !tbaa !26
@@ -1445,8 +1445,8 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
 
 165:                                              ; preds = %164, %162
   %.not228 = icmp eq ptr %18, %17
-  %or.cond323 = or i1 %.not242, %.not228
-  br i1 %or.cond323, label %.thread305, label %166
+  %or.cond318 = or i1 %.not242, %.not228
+  br i1 %or.cond318, label %.thread305, label %166
 
 166:                                              ; preds = %165
   %167 = load ptr, ptr %14, align 8, !tbaa !26
@@ -1458,39 +1458,39 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   tail call void %168(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
-.thread301:                                       ; preds = %.lr.ph, %99, %75, %78, %24, %15, %87
-  %169 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
-  %170 = load ptr, ptr %169, align 8, !tbaa !55
-  %.not255 = icmp eq ptr %170, null
-  br i1 %.not255, label %.thread314, label %171
+.sink.split371:                                   ; preds = %120, %114
+  %.sink = phi ptr [ %.0186, %114 ], [ %122, %120 ]
+  %169 = load ptr, ptr %14, align 8, !tbaa !26
+  tail call void %169(ptr noundef nonnull %3, ptr noundef %.sink) #11
+  br label %170
 
-171:                                              ; preds = %.thread301
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  store ptr %.0186, ptr %172, align 8, !tbaa !50
+170:                                              ; preds = %.sink.split371, %120
+  %171 = load ptr, ptr %14, align 8, !tbaa !26
+  tail call void %171(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
+  br label %.critedge
+
+.thread301:                                       ; preds = %.lr.ph, %99, %75, %78, %24, %15, %87
+  %172 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
+  %173 = load ptr, ptr %172, align 8, !tbaa !55
+  %.not255 = icmp eq ptr %173, null
+  br i1 %.not255, label %.thread309, label %174
+
+174:                                              ; preds = %.thread301
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  store ptr %.0186, ptr %175, align 8, !tbaa !50
   br label %.thread297
 
-.thread314:                                       ; preds = %.thread301
+.thread309:                                       ; preds = %.thread301
   store ptr %.0186, ptr %13, align 8, !tbaa !61
-  br label %.thread297.thread
+  br label %.critedge
 
-.sink.split376:                                   ; preds = %120, %114
-  %.0186.lcssa.sink = phi ptr [ %.0186, %114 ], [ %122, %120 ]
-  %173 = load ptr, ptr %14, align 8, !tbaa !26
-  tail call void %173(ptr noundef nonnull %3, ptr noundef %.0186.lcssa.sink) #11
-  br label %174
+.thread297:                                       ; preds = %159, %139, %54, %174, %.thread305
+  %.5191 = phi ptr [ %86, %.thread305 ], [ %173, %174 ], [ %31, %54 ], [ %86, %139 ], [ %86, %159 ]
+  %.not256 = icmp eq ptr %.5191, null
+  br i1 %.not256, label %.critedge, label %15, !llvm.loop !62
 
-174:                                              ; preds = %.sink.split376, %120
-  %175 = load ptr, ptr %14, align 8, !tbaa !26
-  tail call void %175(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
-  br label %.thread297.thread
-
-.thread297:                                       ; preds = %159, %139, %54, %.thread305, %171
-  %.5191.ph = phi ptr [ %170, %171 ], [ %86, %.thread305 ], [ %31, %54 ], [ %86, %139 ], [ %86, %159 ]
-  %.not256 = icmp eq ptr %.5191.ph, null
-  br i1 %.not256, label %.thread297.thread, label %15, !llvm.loop !62
-
-.thread297.thread:                                ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread314, %174, %4, %6
-  %.0 = phi i32 [ 0, %174 ], [ 1, %6 ], [ 1, %4 ], [ 1, %.thread314 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %74 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread309, %170, %4, %6
+  %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %74 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 

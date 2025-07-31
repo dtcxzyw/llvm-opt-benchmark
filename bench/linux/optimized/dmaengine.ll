@@ -2601,16 +2601,16 @@ define dso_local ptr @dmaengine_desc_get_metadata_ptr(ptr noundef %0, ptr nounde
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %19 [
+  switch i32 %7, label %22 [
     i32 0, label %8
-    i32 2, label %21
+    i32 2, label %.critedge
   ]
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %19, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
@@ -2618,25 +2618,25 @@ define dso_local ptr @dmaengine_desc_get_metadata_ptr(ptr noundef %0, ptr nounde
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 2
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %19, label %18
+  br i1 %17, label %22, label %18
 
 18:                                               ; preds = %12
   store i32 2, ptr %6, align 8
-  br label %21
+  br label %.critedge
 
-19:                                               ; preds = %12, %8, %5
-  %.ph = phi i64 [ -22, %5 ], [ -524, %8 ], [ -524, %12 ]
-  %20 = inttoptr i64 %.ph to ptr
+.critedge:                                        ; preds = %18, %5
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %31, label %25
+
+22:                                               ; preds = %5, %8, %12
+  %23 = phi i64 [ -524, %12 ], [ -524, %8 ], [ -22, %5 ]
+  %24 = inttoptr i64 %23 to ptr
   br label %31
 
-21:                                               ; preds = %18, %5
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %31, label %25
-
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+25:                                               ; preds = %.critedge
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %31, label %29
@@ -2645,8 +2645,8 @@ define dso_local ptr @dmaengine_desc_get_metadata_ptr(ptr noundef %0, ptr nounde
   %30 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #12
   br label %31
 
-31:                                               ; preds = %29, %25, %21, %19, %3
-  %32 = phi ptr [ %20, %19 ], [ %30, %29 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -524 to ptr), %25 ], [ inttoptr (i64 -524 to ptr), %21 ]
+31:                                               ; preds = %29, %25, %.critedge, %22, %3
+  %32 = phi ptr [ %24, %22 ], [ %30, %29 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -524 to ptr), %25 ], [ inttoptr (i64 -524 to ptr), %.critedge ]
   ret ptr %32
 }
 
@@ -3016,40 +3016,33 @@ declare dso_local void @mempool_free(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -12, 1) i32 @dmaengine_init_unmap_pool() unnamed_addr #0 section ".init.text" align 16 {
-  br label %1
+  %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.33, i32 noundef 48, i32 noundef 0, i32 noundef 8192, ptr noundef null) #12
+  store ptr %1, ptr @unmap_pool.0, align 16
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %..critedge2_crit_edge, label %3
 
-1:                                                ; preds = %7, %0
-  %2 = phi i1 [ true, %0 ], [ false, %7 ]
-  %3 = phi i1 [ false, %0 ], [ true, %7 ]
-  br i1 %2, label %4, label %.loopexit
+..critedge2_crit_edge:                            ; preds = %0
+  %.pre = load ptr, ptr @unmap_pool.2, align 16
+  br label %.critedge2
 
-4:                                                ; preds = %1
-  %5 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.33, i32 noundef 48, i32 noundef 0, i32 noundef 8192, ptr noundef null) #12
-  store ptr %5, ptr @unmap_pool.0, align 16
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %.critedge, label %7
+3:                                                ; preds = %0
+  %4 = tail call ptr @mempool_create(i32 noundef 1, ptr noundef nonnull @mempool_alloc_slab, ptr noundef nonnull @mempool_free_slab, ptr noundef nonnull %1) #12
+  store ptr %4, ptr @unmap_pool.2, align 16
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %.critedge2, label %.critedge, !llvm.loop !79
 
-7:                                                ; preds = %4
-  %8 = tail call ptr @mempool_create(i32 noundef 1, ptr noundef nonnull @mempool_alloc_slab, ptr noundef nonnull @mempool_free_slab, ptr noundef nonnull %5) #12
-  store ptr %8, ptr @unmap_pool.2, align 16
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge, label %1, !llvm.loop !79
-
-.critedge:                                        ; preds = %4, %7
-  br i1 %3, label %.loopexit, label %9
-
-9:                                                ; preds = %.critedge
-  %10 = load ptr, ptr @unmap_pool.2, align 16
-  tail call void @mempool_destroy(ptr noundef %10) #12
+.critedge2:                                       ; preds = %..critedge2_crit_edge, %3
+  %5 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ null, %3 ]
+  tail call void @mempool_destroy(ptr noundef %5) #12
   store ptr null, ptr @unmap_pool.2, align 16
-  %11 = load ptr, ptr @unmap_pool.0, align 16
-  tail call void @kmem_cache_destroy(ptr noundef %11) #12
+  %6 = load ptr, ptr @unmap_pool.0, align 16
+  tail call void @kmem_cache_destroy(ptr noundef %6) #12
   store ptr null, ptr @unmap_pool.0, align 16
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %1, %9, %.critedge
-  %12 = phi i32 [ -12, %9 ], [ 0, %.critedge ], [ 0, %1 ]
-  ret i32 %12
+.critedge:                                        ; preds = %3, %.critedge2
+  %7 = phi i32 [ -12, %.critedge2 ], [ 0, %3 ]
+  ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid

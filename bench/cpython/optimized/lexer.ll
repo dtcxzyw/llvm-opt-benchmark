@@ -5936,33 +5936,33 @@ define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readon
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !78
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge66, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !81
   %.not60 = icmp eq ptr %12, null
-  br i1 %.not60, label %.preheader67, label %.thread
+  br i1 %.not60, label %.preheader68, label %.critedge66
 
-.preheader67:                                     ; preds = %10
+.preheader68:                                     ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %14 = load i64, ptr %13, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !17
   %17 = sub i64 %14, %16
-  %.not6272 = icmp sgt i64 %17, 0
+  %.not6273 = icmp sgt i64 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !14
-  br i1 %.not6272, label %.lr.ph, label %.critedge
+  br i1 %.not6273, label %.lr.ph, label %.critedge
 
 20:                                               ; preds = %.lr.ph
-  %21 = add nuw nsw i64 %.05373, 1
+  %21 = add nuw nsw i64 %.05374, 1
   %exitcond.not = icmp eq i64 %21, %17
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !83
 
-.lr.ph:                                           ; preds = %.preheader67, %20
-  %.05373 = phi i64 [ %21, %20 ], [ 0, %.preheader67 ]
-  %22 = getelementptr i8, ptr %19, i64 %.05373
+.lr.ph:                                           ; preds = %.preheader68, %20
+  %.05374 = phi i64 [ %21, %20 ], [ 0, %.preheader68 ]
+  %22 = getelementptr i8, ptr %19, i64 %.05374
   %23 = load i8, ptr %22, align 1, !tbaa !29
   %24 = icmp eq i8 %23, 35
   br i1 %24, label %25, label %20
@@ -5971,50 +5971,50 @@ define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readon
   %26 = add nuw i64 %17, 1
   %27 = tail call ptr @PyMem_Malloc(i64 noundef %26) #9
   %.not63.not = icmp eq ptr %27, null
-  br i1 %.not63.not, label %.thread, label %.lr.ph79
+  br i1 %.not63.not, label %.critedge66, label %.lr.ph80
 
-.lr.ph79:                                         ; preds = %25, %.loopexit
-  %.078 = phi i64 [ %.1, %.loopexit ], [ 0, %25 ]
-  %.04777 = phi i64 [ %44, %.loopexit ], [ 0, %25 ]
+.lr.ph80:                                         ; preds = %25, %.loopexit
+  %.079 = phi i64 [ %.1, %.loopexit ], [ 0, %25 ]
+  %.04778 = phi i64 [ %44, %.loopexit ], [ 0, %25 ]
   %28 = load ptr, ptr %18, align 8, !tbaa !14
-  %29 = getelementptr i8, ptr %28, i64 %.04777
+  %29 = getelementptr i8, ptr %28, i64 %.04778
   %30 = load i8, ptr %29, align 1, !tbaa !29
   %31 = icmp eq i8 %30, 35
   br i1 %31, label %.preheader, label %.loopexit.sink.split
 
-.preheader:                                       ; preds = %.lr.ph79
-  %32 = icmp slt i64 %.04777, %17
-  br i1 %32, label %.lr.ph75, label %.loopexit
+.preheader:                                       ; preds = %.lr.ph80
+  %32 = icmp slt i64 %.04778, %17
+  br i1 %32, label %.lr.ph76, label %.loopexit
 
-.lr.ph75:                                         ; preds = %.preheader, %35
+.lr.ph76:                                         ; preds = %.preheader, %35
   %33 = phi i8 [ %38, %35 ], [ 35, %.preheader ]
-  %.14874 = phi i64 [ %36, %35 ], [ %.04777, %.preheader ]
+  %.14875 = phi i64 [ %36, %35 ], [ %.04778, %.preheader ]
   %34 = icmp eq i8 %33, 10
   br i1 %34, label %.loopexit.sink.split, label %35
 
-35:                                               ; preds = %.lr.ph75
-  %36 = add nsw i64 %.14874, 1
+35:                                               ; preds = %.lr.ph76
+  %36 = add nsw i64 %.14875, 1
   %37 = getelementptr i8, ptr %28, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !29
   %39 = icmp ne i8 %38, 0
   %40 = icmp slt i64 %36, %17
   %41 = and i1 %40, %39
-  br i1 %41, label %.lr.ph75, label %.loopexit, !llvm.loop !84
+  br i1 %41, label %.lr.ph76, label %.loopexit, !llvm.loop !84
 
-.loopexit.sink.split:                             ; preds = %.lr.ph75, %.lr.ph79
-  %.sink = phi i8 [ %30, %.lr.ph79 ], [ 10, %.lr.ph75 ]
-  %.2.ph = phi i64 [ %.04777, %.lr.ph79 ], [ %.14874, %.lr.ph75 ]
-  %42 = add i64 %.078, 1
-  %43 = getelementptr i8, ptr %27, i64 %.078
+.loopexit.sink.split:                             ; preds = %.lr.ph76, %.lr.ph80
+  %.sink = phi i8 [ %30, %.lr.ph80 ], [ 10, %.lr.ph76 ]
+  %.2.ph = phi i64 [ %.04778, %.lr.ph80 ], [ %.14875, %.lr.ph76 ]
+  %42 = add i64 %.079, 1
+  %43 = getelementptr i8, ptr %27, i64 %.079
   store i8 %.sink, ptr %43, align 1, !tbaa !29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.loopexit.sink.split, %.preheader
-  %.2 = phi i64 [ %.04777, %.preheader ], [ %.2.ph, %.loopexit.sink.split ], [ %36, %35 ]
-  %.1 = phi i64 [ %.078, %.preheader ], [ %42, %.loopexit.sink.split ], [ %.078, %35 ]
+  %.2 = phi i64 [ %.04778, %.preheader ], [ %.2.ph, %.loopexit.sink.split ], [ %36, %35 ]
+  %.1 = phi i64 [ %.079, %.preheader ], [ %42, %.loopexit.sink.split ], [ %.079, %35 ]
   %44 = add i64 %.2, 1
   %45 = icmp slt i64 %44, %17
-  br i1 %45, label %.lr.ph79, label %._crit_edge, !llvm.loop !85
+  br i1 %45, label %.lr.ph80, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.loopexit
   %46 = getelementptr i8, ptr %27, i64 %.1
@@ -6023,20 +6023,20 @@ define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr noundef readon
   tail call void @PyMem_Free(ptr noundef nonnull %27) #9
   br label %49
 
-.critedge:                                        ; preds = %20, %.preheader67
+.critedge:                                        ; preds = %20, %.preheader68
   %48 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %19, i64 noundef %17, ptr noundef null) #9
   br label %49
 
 49:                                               ; preds = %._crit_edge, %.critedge
   %.156 = phi ptr [ %47, %._crit_edge ], [ %48, %.critedge ]
   %.not64 = icmp eq ptr %.156, null
-  br i1 %.not64, label %.thread, label %50
+  br i1 %.not64, label %.critedge66, label %50
 
 50:                                               ; preds = %49
   store ptr %.156, ptr %11, align 8, !tbaa !81
-  br label %.thread
+  br label %.critedge66
 
-.thread:                                          ; preds = %25, %50, %49, %2, %10
+.critedge66:                                      ; preds = %50, %49, %25, %2, %10
   %.049 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 0, %50 ], [ -1, %49 ], [ -1, %25 ]
   ret i32 %.049
 }

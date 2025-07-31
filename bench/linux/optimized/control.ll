@@ -1813,15 +1813,15 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr 
 
 .split.us:                                        ; preds = %33
   %40 = icmp ult i32 %39, %36
-  br i1 %40, label %.loopexit16, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %.split.us
   store i32 0, ptr %35, align 8
-  br label %.loopexit16
+  br label %.critedge
 
-.split:                                           ; preds = %33, %61
-  %42 = phi i32 [ %62, %61 ], [ %39, %33 ]
-  %43 = phi i32 [ %63, %61 ], [ 100000, %33 ]
+.split:                                           ; preds = %33, %59
+  %42 = phi i32 [ %60, %59 ], [ %39, %33 ]
+  %43 = phi i32 [ %61, %59 ], [ 100000, %33 ]
   %44 = icmp ult i32 %42, %36
   br i1 %44, label %46, label %45
 
@@ -1835,39 +1835,39 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr 
   %.reass = add i32 %47, %invariant.op
   br label %49
 
-49:                                               ; preds = %59, %46
-  %50 = phi ptr [ %38, %46 ], [ %60, %59 ]
+49:                                               ; preds = %63, %46
+  %50 = phi ptr [ %38, %46 ], [ %64, %63 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = icmp ult i32 %52, %.reass
-  br i1 %53, label %54, label %59
+  br i1 %53, label %54, label %63
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %56 = load i32, ptr %55, align 8
   %57 = add i32 %56, %52
   %58 = icmp ugt i32 %57, %48
-  br i1 %58, label %61, label %59
+  br i1 %58, label %59, label %63
 
-59:                                               ; preds = %54, %49
-  %60 = load ptr, ptr %50, align 8
-  %.not14 = icmp eq ptr %60, %37
-  br i1 %.not14, label %.loopexit16, label %49, !llvm.loop !36
+59:                                               ; preds = %54
+  %60 = add i32 %57, -1
+  store i32 %60, ptr %35, align 8
+  %61 = add nsw i32 %43, -1
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %65, label %.split, !llvm.loop !36
 
-61:                                               ; preds = %54
-  %62 = add i32 %57, -1
-  store i32 %62, ptr %35, align 8
-  %63 = add nsw i32 %43, -1
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.split, !llvm.loop !37
+63:                                               ; preds = %54, %49
+  %64 = load ptr, ptr %50, align 8
+  %.not14 = icmp eq ptr %64, %37
+  br i1 %.not14, label %.critedge, label %49, !llvm.loop !37
 
-65:                                               ; preds = %61
+65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %67 = load ptr, ptr %66, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %67, ptr noundef nonnull @.str.8) #19
   br label %.loopexit15
 
-.loopexit16:                                      ; preds = %59, %.split.us, %41
+.critedge:                                        ; preds = %63, %.split.us, %41
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %69 = load ptr, ptr %68, align 8
   store ptr %1, ptr %68, align 8
@@ -1892,7 +1892,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr 
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.loopexit15, label %82
 
-82:                                               ; preds = %.loopexit16
+82:                                               ; preds = %.critedge
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 60
   br label %84
 
@@ -1929,8 +1929,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__snd_ctl_add_replace(ptr 
   %99 = icmp ult i32 %97, %98
   br i1 %99, label %84, label %.loopexit15, !llvm.loop !38
 
-.loopexit15:                                      ; preds = %.loopexit, %65, %.loopexit16, %30, %20, %16, %3
-  %100 = phi i32 [ -16, %20 ], [ -22, %3 ], [ -22, %16 ], [ %31, %30 ], [ -12, %65 ], [ 0, %.loopexit16 ], [ 0, %.loopexit ]
+.loopexit15:                                      ; preds = %.loopexit, %65, %.critedge, %30, %20, %16, %3
+  %100 = phi i32 [ -16, %20 ], [ -22, %3 ], [ -22, %16 ], [ %31, %30 ], [ -12, %65 ], [ 0, %.critedge ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   ret i32 %100
 }

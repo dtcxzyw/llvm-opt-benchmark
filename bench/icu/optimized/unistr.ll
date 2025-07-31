@@ -776,7 +776,7 @@ define void @_ZN6icu_7713UnicodeStringC2Ei(ptr noundef nonnull writeonly align 8
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -790,15 +790,15 @@ define void @_ZN6icu_7713UnicodeStringC2Ei(ptr noundef nonnull writeonly align 8
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.sink17 = phi i64 [ 10, %5 ], [ 12, %9 ]
+  %.sink14 = phi i64 [ 10, %5 ], [ 12, %9 ]
   %.sink = phi i16 [ %6, %5 ], [ %16, %9 ]
-  %.011.ph = phi i16 [ 34, %5 ], [ 66, %9 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %.011 = phi i16 [ 34, %5 ], [ 66, %9 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
   store i16 %.sink, ptr %18, align 2, !tbaa !3
-  store i16 %.011.ph, ptr %3, align 8, !tbaa !3
-  br label %19
+  store i16 %.011, ptr %3, align 8, !tbaa !3
+  br label %.critedge
 
-19:                                               ; preds = %7, %17
+.critedge:                                        ; preds = %7, %17
   ret void
 }
 
@@ -3454,8 +3454,8 @@ _ZNK6icu_7713UnicodeString10unescapeAtERi.exit:   ; preds = %_ZN6icu_7713Unicode
   br label %69
 
 69:                                               ; preds = %62, %58
-  %.011.ph.i = phi i32 [ 2, %62 ], [ 1, %58 ]
-  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph.i)
+  %.011.i = phi i32 [ 1, %58 ], [ 2, %62 ]
+  %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.i)
           to label %.thread unwind label %54
 
 .thread:                                          ; preds = %69, %60
@@ -3520,7 +3520,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %19
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -3535,14 +3535,14 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.011.ph = phi i32 [ 2, %9 ], [ 1, %5 ]
-  %18 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph)
-  br label %19
+  %.011 = phi i32 [ 1, %5 ], [ 2, %9 ]
+  %18 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011)
+  br label %.critedge
 
-19:                                               ; preds = %7, %17
-  %20 = phi ptr [ %18, %17 ], [ %0, %7 ]
+.critedge:                                        ; preds = %7, %17
+  %19 = phi ptr [ %18, %17 ], [ %0, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  ret ptr %20
+  ret ptr %19
 }
 
 declare i32 @u_unescapeAt_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -6698,7 +6698,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 1114112
-  br i1 %8, label %9, label %25
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
@@ -6713,21 +6713,21 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
   br label %17
 
 17:                                               ; preds = %5, %9
-  %.011.ph = phi i32 [ 2, %9 ], [ 1, %5 ]
+  %.011 = phi i32 [ 1, %5 ], [ 2, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !39
-  %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011.ph)
+  %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i16, ptr %21, align 8, !tbaa !3
   %23 = and i16 %22, 17
   %.not.i = icmp eq i16 %23, 0
   %24 = zext i1 %.not.i to i8
-  br label %25
+  br label %.critedge
 
-25:                                               ; preds = %7, %17
-  %26 = phi i8 [ %24, %17 ], [ 0, %7 ]
+.critedge:                                        ; preds = %7, %17
+  %25 = phi i8 [ %24, %17 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  ret i8 %26
+  ret i8 %25
 }
 
 ; Function Attrs: mustprogress uwtable

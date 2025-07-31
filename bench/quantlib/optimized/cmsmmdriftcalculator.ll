@@ -2494,7 +2494,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup14,
   %4 = load i64, ptr %alive_105, align 8, !tbaa !29
   %5 = load i64, ptr %this, align 8, !tbaa !9
   %cmp108118 = icmp ult i64 %4, %5
-  br i1 %cmp108118, label %for.cond112.preheader.lr.ph, label %for.cond.cleanup109
+  br i1 %cmp108118, label %for.cond112.preheader.lr.ph, label %for.cond.cleanup145
 
 for.cond112.preheader.lr.ph:                      ; preds = %for.cond.cleanup
   %numberOfFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2651,9 +2651,9 @@ for.cond.cleanup109.loopexit124:                  ; preds = %for.cond.cleanup114
   %54 = icmp ult i64 %.pre131, %56
   br label %for.cond.cleanup109
 
-for.cond.cleanup109:                              ; preds = %for.cond112.preheader.lr.ph, %for.cond.cleanup109.loopexit124, %for.cond.cleanup
-  %cmp144122 = phi i1 [ %54, %for.cond.cleanup109.loopexit124 ], [ false, %for.cond.cleanup ], [ true, %for.cond112.preheader.lr.ph ]
-  %55 = phi i64 [ %.pre131, %for.cond.cleanup109.loopexit124 ], [ %4, %for.cond.cleanup ], [ %4, %for.cond112.preheader.lr.ph ]
+for.cond.cleanup109:                              ; preds = %for.cond112.preheader.lr.ph, %for.cond.cleanup109.loopexit124
+  %cmp144122 = phi i1 [ %54, %for.cond.cleanup109.loopexit124 ], [ true, %for.cond112.preheader.lr.ph ]
+  %55 = phi i64 [ %.pre131, %for.cond.cleanup109.loopexit124 ], [ %4, %for.cond112.preheader.lr.ph ]
   br i1 %cmp144122, label %for.body146.lr.ph, label %for.cond.cleanup145
 
 for.body146.lr.ph:                                ; preds = %for.cond.cleanup109
@@ -2712,7 +2712,7 @@ for.body115:                                      ; preds = %for.cond112.prehead
   %cmp113 = icmp ult i64 %inc135, %71
   br i1 %cmp113, label %for.body115, label %for.cond.cleanup114.loopexit, !llvm.loop !66
 
-for.cond.cleanup145:                              ; preds = %for.cond.cleanup152, %for.cond.cleanup109
+for.cond.cleanup145:                              ; preds = %for.cond.cleanup152, %for.cond.cleanup, %for.cond.cleanup109
   ret void
 
 for.body146:                                      ; preds = %for.body146.lr.ph, %for.cond.cleanup152

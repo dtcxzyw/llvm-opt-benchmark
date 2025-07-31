@@ -7239,24 +7239,24 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 7024
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %.thread4, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %1
   %13 = load i16, ptr %3, align 2
   %14 = icmp ugt i16 %13, 127
-  br i1 %14, label %.thread4, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %0, i64 1558
   %17 = load i16, ptr %16, align 2
   %18 = icmp ugt i16 %17, 127
-  br i1 %18, label %.thread4, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %0, i64 1570
   %21 = load i16, ptr %20, align 2
   %22 = icmp ult i16 %21, 64
-  br i1 %22, label %23, label %.thread4
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 1653
@@ -7288,25 +7288,25 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 7024
   %42 = load i8, ptr %41, align 8
   %43 = icmp ugt i8 %42, 1
-  br i1 %43, label %44, label %.thread9
+  br i1 %43, label %44, label %.thread11
 
 44:                                               ; preds = %39
   %45 = getelementptr i8, ptr %0, i64 1574
   %46 = load i16, ptr %45, align 2
   %47 = icmp ugt i16 %46, 511
-  br i1 %47, label %.thread9, label %48
+  br i1 %47, label %.thread11, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %0, i64 1576
   %50 = load i16, ptr %49, align 2
   %51 = icmp eq i16 %50, 0
-  br i1 %51, label %52, label %.thread9
+  br i1 %51, label %52, label %.thread11
 
 52:                                               ; preds = %48
   %53 = getelementptr i8, ptr %0, i64 1588
   %54 = load i16, ptr %53, align 2
   %55 = icmp ult i16 %54, 64
-  br i1 %55, label %56, label %.thread9
+  br i1 %55, label %56, label %.thread11
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1662
@@ -7325,87 +7325,85 @@ define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr n
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 7024
   %67 = load i8, ptr %66, align 8
   %68 = icmp ugt i8 %67, 2
-  br i1 %68, label %69, label %97
+  br i1 %68, label %69, label %89
 
 69:                                               ; preds = %56
   %70 = getelementptr i8, ptr %0, i64 1592
   %71 = load i16, ptr %70, align 2
   %72 = icmp ugt i16 %71, 511
-  br i1 %72, label %97, label %73
+  br i1 %72, label %89, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr i8, ptr %0, i64 1594
   %75 = load i16, ptr %74, align 2
   %76 = icmp eq i16 %75, 0
-  br i1 %76, label %77, label %97
+  br i1 %76, label %77, label %89
 
 77:                                               ; preds = %73
   %78 = getelementptr i8, ptr %0, i64 1606
   %79 = load i16, ptr %78, align 2
   %80 = icmp ult i16 %79, 64
-  br i1 %80, label %.thread10, label %97
+  br i1 %80, label %.thread12, label %89
 
-.thread10:                                        ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  store i16 %71, ptr %81, align 2
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1670
-  store i16 %79, ptr %82, align 2
-  %83 = getelementptr i8, ptr %0, i64 1608
-  %84 = load i16, ptr %83, align 2
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  store i16 %84, ptr %85, align 2
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1675
-  store i8 %64, ptr %86, align 1
-  %87 = icmp ugt i16 %60, 7
-  %88 = icmp ugt i16 %84, 15
-  %or.cond = select i1 %87, i1 true, i1 %88
-  br i1 %or.cond, label %106, label %105
+.thread11:                                        ; preds = %52, %48, %44, %39
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1674
+  store i8 0, ptr %81, align 2
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1662
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  store i16 -1, ptr %83, align 2
+  store i16 -1, ptr %82, align 2
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1666
+  store i16 -1, ptr %84, align 2
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1675
+  store i8 0, ptr %85, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1668
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1670
+  store i16 -1, ptr %87, align 2
+  store i16 -1, ptr %86, align 2
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  store i16 -1, ptr %88, align 2
+  br label %104
 
-.thread9:                                         ; preds = %52, %44, %48, %39
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1674
-  store i8 0, ptr %89, align 2
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1662
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  store i16 -1, ptr %91, align 2
-  store i16 -1, ptr %90, align 2
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1666
+89:                                               ; preds = %77, %69, %73, %56
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1675
+  store i8 0, ptr %90, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1668
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1670
   store i16 -1, ptr %92, align 2
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1675
-  store i8 0, ptr %93, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1670
-  store i16 -1, ptr %95, align 2
-  store i16 -1, ptr %94, align 2
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  store i16 -1, ptr %96, align 2
-  br label %106
+  store i16 -1, ptr %91, align 2
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  store i16 -1, ptr %93, align 2
+  %94 = icmp ugt i16 %60, 7
+  br i1 %94, label %104, label %103
 
-97:                                               ; preds = %77, %73, %69, %56
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1675
-  store i8 0, ptr %98, align 1
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1668
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1670
-  store i16 -1, ptr %100, align 2
-  store i16 -1, ptr %99, align 2
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  store i16 -1, ptr %101, align 2
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1666
-  %103 = load i16, ptr %102, align 2
-  %104 = icmp ugt i16 %103, 7
-  br i1 %104, label %106, label %105
+.thread12:                                        ; preds = %77
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1668
+  store i16 %71, ptr %95, align 2
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1670
+  store i16 %79, ptr %96, align 2
+  %97 = getelementptr i8, ptr %0, i64 1608
+  %98 = load i16, ptr %97, align 2
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  store i16 %98, ptr %99, align 2
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1675
+  store i8 %64, ptr %100, align 1
+  %101 = icmp ugt i16 %60, 7
+  %102 = icmp ugt i16 %98, 15
+  %or.cond = select i1 %101, i1 true, i1 %102
+  br i1 %or.cond, label %104, label %103
 
-105:                                              ; preds = %.thread10, %97
-  br label %106
+103:                                              ; preds = %.thread12, %89
+  br label %104
 
-106:                                              ; preds = %.thread10, %.thread9, %105, %97
-  %107 = phi i8 [ 1, %105 ], [ 0, %97 ], [ 0, %.thread9 ], [ 0, %.thread10 ]
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1676
-  store i8 %107, ptr %108, align 2
-  br label %.thread4
+104:                                              ; preds = %.thread12, %.thread11, %103, %89
+  %105 = phi i8 [ 1, %103 ], [ 0, %89 ], [ 0, %.thread11 ], [ 0, %.thread12 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1676
+  store i8 %105, ptr %106, align 2
+  br label %.critedge
 
-.thread4:                                         ; preds = %12, %15, %1, %19, %106
-  %109 = phi i32 [ 0, %106 ], [ -22, %19 ], [ -22, %1 ], [ -22, %15 ], [ -22, %12 ]
-  ret i32 %109
+.critedge:                                        ; preds = %1, %15, %12, %19, %104
+  %107 = phi i32 [ 0, %104 ], [ -22, %19 ], [ -22, %12 ], [ -22, %15 ], [ -22, %1 ]
+  ret i32 %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

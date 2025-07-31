@@ -105754,8 +105754,8 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   store ptr %.sroa.469.8.copyload71, ptr %11, align 8
   %15 = ptrtoint ptr %.sroa.469.8.copyload71 to i64
   %16 = and i64 %15, 255
-  %.not133 = icmp eq i64 %16, 5
-  br i1 %.not133, label %19, label %.thread121
+  %.not126 = icmp eq i64 %16, 5
+  br i1 %.not126, label %19, label %.critedge
 
 "_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit": ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -105799,18 +105799,18 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17904)
   %23 = icmp ne i64 %22, 0
   %.not4.i = select i1 %.not.i.i, i1 %23, i1 false
-  br i1 %.not4.i, label %24, label %.thread127
+  br i1 %.not4.i, label %24, label %.thread121
 
-.thread127:                                       ; preds = %19
+.thread121:                                       ; preds = %19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !17892
-  br label %.thread121
+  br label %.critedge
 
 24:                                               ; preds = %19
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = add i64 %22, -1
   store i64 %25, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17907, !noalias !17892
   %26 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h4f0b4846acf0e0b6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7)
-          to label %.noexc unwind label %38
+          to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %24
   %27 = icmp eq ptr %26, null
@@ -105818,7 +105818,7 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
 
 28:                                               ; preds = %.noexc
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.9.llvm.240573438051967091) #57
-          to label %.noexc64 unwind label %38
+          to label %.noexc64 unwind label %34
 
 .noexc64:                                         ; preds = %28
   unreachable
@@ -105830,7 +105830,7 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !17892
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !17909
   invoke void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$14next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h325e7db5a4c5c1a2E.llvm.240573438051967091"(ptr noalias noundef nonnull sret({ { { ptr, i64, {} }, i64, {} }, { ptr, ptr } }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %34 unwind label %30, !noalias !17912
+          to label %36 unwind label %30, !noalias !17912
 
 30:                                               ; preds = %29
   %31 = landingpad { ptr, i32 }
@@ -105844,36 +105844,36 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #59, !noalias !17912
   unreachable
 
-34:                                               ; preds = %29
+34:                                               ; preds = %28, %24, %49, %.critedge
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %30, %34
+  %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h70694abaccd786beE"(ptr noalias noundef align 8 dereferenceable(32) %11) #58
+          to label %61 unwind label %59
+
+36:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !17909
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !17909
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %36 = load ptr, ptr %35, align 8, !noalias !17909, !nonnull !21, !align !258, !noundef !21
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %38 = load ptr, ptr %37, align 8, !noalias !17909, !nonnull !21, !align !258, !noundef !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !17909
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !17892
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !17908
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %37 = load i8, ptr %36, align 8, !range !1261, !noalias !17892, !noundef !21
-  %.not = icmp eq i8 %37, 5
+  %39 = load i8, ptr %38, align 8, !range !1261, !noalias !17892, !noundef !21
+  %.not = icmp eq i8 %39, 5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !17892
-  br i1 %.not, label %41, label %.thread121
+  br i1 %.not, label %41, label %.critedge
 
-38:                                               ; preds = %28, %24, %49, %.thread121
-  %39 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.body:                                            ; preds = %30, %38
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %31, %30 ]
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h70694abaccd786beE"(ptr noalias noundef align 8 dereferenceable(32) %11) #58
-          to label %61 unwind label %59
-
-.thread121:                                       ; preds = %14, %.thread127, %34
+.critedge:                                        ; preds = %.thread121, %14, %36
   %40 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8ca70dbaa644b566E"(i64 noundef 53, i1 noundef zeroext false)
-          to label %53 unwind label %38
+          to label %53 unwind label %34
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %43 = load ptr, ptr %42, align 8, !noundef !21
@@ -105881,9 +105881,9 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   br i1 %.not63, label %49, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %46 = load i64, ptr %45, align 8, !noundef !21
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %48 = load i64, ptr %47, align 8, !noundef !21
   br label %49
 
@@ -105909,7 +105909,7 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   %.sroa.011.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %.sroa.520.0, ptr %.sroa.011.sroa.4.0..sroa_idx, align 8
   invoke void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17hea6d892b34d55d26E"(ptr noalias noundef nonnull sret({ { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %8)
-          to label %50 unwind label %38
+          to label %50 unwind label %34
 
 50:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
@@ -105923,7 +105923,7 @@ define void @_ZN14deltalake_core8protocol14DeltaOperation20operation_parameters1
   call fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h70694abaccd786beE"(ptr noalias noundef align 8 dereferenceable(32) %11)
   br label %58
 
-53:                                               ; preds = %.thread121
+53:                                               ; preds = %.critedge
   %54 = extractvalue { i64, ptr } %40, 0
   %55 = extractvalue { i64, ptr } %40, 1
   %56 = icmp ne ptr %55, null

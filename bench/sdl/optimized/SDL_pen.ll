@@ -480,12 +480,12 @@ define hidden void @SDL_SendPenTouch(i64 noundef %0, i32 noundef %1, ptr noundef
   %9 = load ptr, ptr @pen_device_rwlock, align 8
   tail call void @SDL_LockRWLockForReading_REAL(ptr noundef %9) #8
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %.thread, label %.preheader.i
+  br i1 %.not.i, label %.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
   %10 = load i32, ptr @pen_device_count, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph.i, label %.thread
+  br i1 %11, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %12 = load ptr, ptr @pen_devices, align 8
@@ -495,7 +495,7 @@ define hidden void @SDL_SendPenTouch(i64 noundef %0, i32 noundef %1, ptr noundef
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %14, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.critedge, label %14, !llvm.loop !7
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -504,168 +504,168 @@ define hidden void @SDL_SendPenTouch(i64 noundef %0, i32 noundef %1, ptr noundef
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %FindPenByInstanceId.exit, label %13
 
-.thread:                                          ; preds = %13, %.preheader.i, %5
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
-  %19 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %19) #8
-  br label %93
-
 FindPenByInstanceId.exit:                         ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %23 = load float, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 68
-  %25 = load float, ptr %24, align 4
-  %26 = and i32 %21, -2
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %21 = load float, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 68
+  %23 = load float, ptr %22, align 4
+  %24 = and i32 %19, -2
   %masksel = zext i1 %4 to i32
-  %.162 = or disjoint i32 %26, %masksel
-  %27 = and i32 %21, 1073741824
-  %28 = icmp eq i32 %27, 0
-  %or.cond81 = select i1 %3, i1 %28, i1 false
-  br i1 %or.cond81, label %.thread95, label %31
+  %.162 = or disjoint i32 %24, %masksel
+  %25 = and i32 %19, 1073741824
+  %26 = icmp eq i32 %25, 0
+  %or.cond81 = select i1 %3, i1 %26, i1 false
+  br i1 %or.cond81, label %.thread, label %29
 
-.thread95:                                        ; preds = %FindPenByInstanceId.exit
-  %29 = or disjoint i32 %.162, 1073741824
-  store i32 %29, ptr %20, align 8
-  %30 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %30) #8
-  br label %36
+.thread:                                          ; preds = %FindPenByInstanceId.exit
+  %27 = or disjoint i32 %.162, 1073741824
+  store i32 %27, ptr %18, align 8
+  %28 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %28) #8
+  br label %34
 
-31:                                               ; preds = %FindPenByInstanceId.exit
-  %32 = and i32 %21, 1
-  %33 = icmp eq i32 %32, 0
-  %.1.not = xor i1 %4, %33
-  %or.cond82 = select i1 %3, i1 true, i1 %28
-  %34 = and i32 %.162, -1073741825
-  %spec.select85 = select i1 %3, i32 %.162, i32 %34
-  store i32 %spec.select85, ptr %20, align 8
+29:                                               ; preds = %FindPenByInstanceId.exit
+  %30 = and i32 %19, 1
+  %31 = icmp eq i32 %30, 0
+  %.1.not = xor i1 %4, %31
+  %or.cond82 = select i1 %3, i1 true, i1 %26
+  %32 = and i32 %.162, -1073741825
+  %spec.select85 = select i1 %3, i32 %.162, i32 %32
+  store i32 %spec.select85, ptr %18, align 8
   %.not = select i1 %or.cond82, i1 %.1.not, i1 false
-  %35 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %35) #8
-  br i1 %.not, label %93, label %36
+  %33 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %33) #8
+  br i1 %.not, label %93, label %34
 
-36:                                               ; preds = %.thread95, %31
-  %.26398 = phi i32 [ %29, %.thread95 ], [ %spec.select85, %31 ]
-  %37 = select i1 %4, i32 4866, i32 4867
-  %38 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %37) #8
-  br i1 %38, label %39, label %53
+34:                                               ; preds = %.thread, %29
+  %.26391 = phi i32 [ %27, %.thread ], [ %spec.select85, %29 ]
+  %35 = select i1 %4, i32 4866, i32 4867
+  %36 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %35) #8
+  br i1 %36, label %37, label %51
 
-39:                                               ; preds = %36
+37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  store i32 %37, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %0, ptr %40, align 8
+  store i32 %35, ptr %6, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %0, ptr %38, align 8
   %.not73 = icmp eq ptr %2, null
-  br i1 %.not73, label %43, label %41
+  br i1 %.not73, label %41, label %39
 
-41:                                               ; preds = %39
-  %42 = load i32, ptr %2, align 8
-  br label %43
+39:                                               ; preds = %37
+  %40 = load i32, ptr %2, align 8
+  br label %41
 
-43:                                               ; preds = %39, %41
-  %44 = phi i32 [ %42, %41 ], [ 0, %39 ]
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %1, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %.26398, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %23, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %25, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 %7, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 37
-  store i8 %8, ptr %51, align 1
-  %52 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
+41:                                               ; preds = %37, %39
+  %42 = phi i32 [ %40, %39 ], [ 0, %37 ]
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %42, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %1, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %.26391, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store float %21, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float %23, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i8 %7, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 37
+  store i8 %8, ptr %49, align 1
+  %50 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
-  br label %53
+  br label %51
 
-53:                                               ; preds = %43, %36
-  %54 = call ptr @SDL_GetMouse() #8
-  %55 = icmp ne ptr %54, null
-  %56 = icmp ne ptr %2, null
-  %or.cond = and i1 %56, %55
-  br i1 %or.cond, label %57, label %86
+51:                                               ; preds = %41, %34
+  %52 = call ptr @SDL_GetMouse() #8
+  %53 = icmp ne ptr %52, null
+  %54 = icmp ne ptr %2, null
+  %or.cond = and i1 %54, %53
+  br i1 %or.cond, label %55, label %84
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 230
-  %59 = load i8, ptr %58, align 2, !range !9, !noundef !10
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %67
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 230
+  %57 = load i8, ptr %56, align 2, !range !9, !noundef !10
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %65
 
-61:                                               ; preds = %57
-  %62 = load i32, ptr @pen_touching, align 4
-  br i1 %4, label %63, label %65
+59:                                               ; preds = %55
+  %60 = load i32, ptr @pen_touching, align 4
+  br i1 %4, label %61, label %63
 
-63:                                               ; preds = %61
-  %.not74 = icmp eq i32 %62, 0
-  br i1 %.not74, label %64, label %67
+61:                                               ; preds = %59
+  %.not74 = icmp eq i32 %60, 0
+  br i1 %.not74, label %62, label %65
 
-64:                                               ; preds = %63
-  call void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i1 noundef zeroext false, float noundef %23, float noundef %25) #8
+62:                                               ; preds = %61
+  call void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i1 noundef zeroext false, float noundef %21, float noundef %23) #8
   br label %.sink.split
 
-65:                                               ; preds = %61
-  %66 = icmp eq i32 %62, %1
-  br i1 %66, label %.sink.split, label %67
+63:                                               ; preds = %59
+  %64 = icmp eq i32 %60, %1
+  br i1 %64, label %.sink.split, label %65
 
-.sink.split:                                      ; preds = %65, %64
+.sink.split:                                      ; preds = %63, %62
   call void @SDL_SendMouseButton(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i8 noundef zeroext 1, i1 noundef zeroext %4) #8
-  br label %67
+  br label %65
 
-67:                                               ; preds = %.sink.split, %63, %65, %57
-  %68 = getelementptr inbounds nuw i8, ptr %54, i64 231
-  %69 = load i8, ptr %68, align 1, !range !9, !noundef !10
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %86
+65:                                               ; preds = %.sink.split, %61, %63, %55
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 231
+  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %84
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr @pen_touching, align 4
-  %.not75 = icmp eq i32 %72, 0
-  %73 = icmp eq i32 %72, %1
-  %or.cond83 = or i1 %.not75, %73
-  br i1 %or.cond83, label %74, label %86
+69:                                               ; preds = %65
+  %70 = load i32, ptr @pen_touching, align 4
+  %.not75 = icmp eq i32 %70, 0
+  %71 = icmp eq i32 %70, %1
+  %or.cond83 = or i1 %.not75, %71
+  br i1 %or.cond83, label %72, label %84
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %76 = load i32, ptr %75, align 4
-  %77 = sitofp i32 %76 to float
-  %78 = fdiv float %25, %77
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %80 = load i32, ptr %79, align 8
-  %81 = sitofp i32 %80 to float
-  %82 = fdiv float %23, %81
-  %83 = select i1 %4, i32 1792, i32 1793
-  %84 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  %85 = load float, ptr %84, align 4
-  call void @SDL_SendTouch(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, i32 noundef %83, float noundef %82, float noundef %78, float noundef %85) #8
-  br label %86
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %74 = load i32, ptr %73, align 4
+  %75 = sitofp i32 %74 to float
+  %76 = fdiv float %23, %75
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = sitofp i32 %78 to float
+  %80 = fdiv float %21, %79
+  %81 = select i1 %4, i32 1792, i32 1793
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %83 = load float, ptr %82, align 4
+  call void @SDL_SendTouch(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, i32 noundef %81, float noundef %80, float noundef %76, float noundef %83) #8
+  br label %84
 
-86:                                               ; preds = %74, %71, %67, %53
-  %87 = load i32, ptr @pen_touching, align 4
-  br i1 %4, label %88, label %90
+84:                                               ; preds = %72, %69, %65, %51
+  %85 = load i32, ptr @pen_touching, align 4
+  br i1 %4, label %86, label %88
 
-88:                                               ; preds = %86
-  %.not76 = icmp eq i32 %87, 0
-  br i1 %.not76, label %89, label %93
+86:                                               ; preds = %84
+  %.not76 = icmp eq i32 %85, 0
+  br i1 %.not76, label %87, label %93
 
-89:                                               ; preds = %88
+87:                                               ; preds = %86
   store i32 %1, ptr @pen_touching, align 4
   br label %93
 
-90:                                               ; preds = %86
-  %91 = icmp eq i32 %87, %1
-  br i1 %91, label %92, label %93
+88:                                               ; preds = %84
+  %89 = icmp eq i32 %85, %1
+  br i1 %89, label %90, label %93
 
-92:                                               ; preds = %90
+90:                                               ; preds = %88
   store i32 0, ptr @pen_touching, align 4
   br label %93
 
-93:                                               ; preds = %.thread, %89, %88, %92, %90, %31
+.critedge:                                        ; preds = %13, %5, %.preheader.i
+  %91 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
+  %92 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %92) #8
+  br label %93
+
+93:                                               ; preds = %87, %86, %90, %88, %.critedge, %29
   ret void
 }
 
@@ -709,7 +709,7 @@ define hidden void @SDL_SendPenAxis(i64 noundef %0, i32 noundef %1, ptr noundef 
 
 FindPenByInstanceId.exit.thread:                  ; preds = %11, %5, %.preheader.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
-  br label %.thread
+  br label %.critedge
 
 FindPenByInstanceId.exit:                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -717,91 +717,91 @@ FindPenByInstanceId.exit:                         ; preds = %12
   %19 = getelementptr inbounds nuw [7 x float], ptr %17, i64 0, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %20, %4
-  br i1 %21, label %23, label %.thread
+  br i1 %21, label %22, label %.critedge
 
-.thread:                                          ; preds = %FindPenByInstanceId.exit, %FindPenByInstanceId.exit.thread
-  %22 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %22) #8
-  br label %66
-
-23:                                               ; preds = %FindPenByInstanceId.exit
+22:                                               ; preds = %FindPenByInstanceId.exit
   store float %4, ptr %19, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %27 = load float, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 68
-  %29 = load float, ptr %28, align 4
-  %30 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %30) #8
-  %31 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 4871) #8
-  br i1 %31, label %32, label %66
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %26 = load float, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 68
+  %28 = load float, ptr %27, align 4
+  %29 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %29) #8
+  %30 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 4871) #8
+  br i1 %30, label %31, label %66
 
-32:                                               ; preds = %23
+31:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 4871, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %0, ptr %33, align 8
-  %34 = icmp ne ptr %2, null
-  br i1 %34, label %35, label %37
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %0, ptr %32, align 8
+  %33 = icmp ne ptr %2, null
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %2, align 8
-  br label %37
+34:                                               ; preds = %31
+  %35 = load i32, ptr %2, align 8
+  br label %36
 
-37:                                               ; preds = %32, %35
-  %38 = phi i32 [ %36, %35 ], [ 0, %32 ]
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %1, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %25, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %27, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %29, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 %3, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float %4, ptr %45, align 8
-  %46 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
-  %47 = icmp eq i32 %3, 0
-  %or.cond = and i1 %34, %47
-  %48 = load i32, ptr @pen_touching, align 4
-  %49 = icmp eq i32 %48, %1
-  %or.cond44 = select i1 %or.cond, i1 %49, i1 false
-  br i1 %or.cond44, label %50, label %65
+36:                                               ; preds = %31, %34
+  %37 = phi i32 [ %35, %34 ], [ 0, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %37, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %1, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %24, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store float %26, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float %28, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i32 %3, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store float %4, ptr %44, align 8
+  %45 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
+  %46 = icmp eq i32 %3, 0
+  %or.cond = and i1 %33, %46
+  %47 = load i32, ptr @pen_touching, align 4
+  %48 = icmp eq i32 %47, %1
+  %or.cond44 = select i1 %or.cond, i1 %48, i1 false
+  br i1 %or.cond44, label %49, label %64
 
-50:                                               ; preds = %37
-  %51 = call ptr @SDL_GetMouse() #8
-  %.not42 = icmp eq ptr %51, null
-  br i1 %.not42, label %65, label %52
+49:                                               ; preds = %36
+  %50 = call ptr @SDL_GetMouse() #8
+  %.not42 = icmp eq ptr %50, null
+  br i1 %.not42, label %64, label %51
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 231
-  %54 = load i8, ptr %53, align 1, !range !9, !noundef !10
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %65
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 231
+  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %64
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %58 = load i32, ptr %57, align 8
-  %59 = sitofp i32 %58 to float
-  %60 = fdiv float %27, %59
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %62 = load i32, ptr %61, align 4
-  %63 = sitofp i32 %62 to float
-  %64 = fdiv float %29, %63
-  call void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, float noundef %60, float noundef %64, float noundef %4) #8
-  br label %65
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %57 = load i32, ptr %56, align 8
+  %58 = sitofp i32 %57 to float
+  %59 = fdiv float %26, %58
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %61 = load i32, ptr %60, align 4
+  %62 = sitofp i32 %61 to float
+  %63 = fdiv float %28, %62
+  call void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, float noundef %59, float noundef %63, float noundef %4) #8
+  br label %64
 
-65:                                               ; preds = %50, %52, %56, %37
+64:                                               ; preds = %49, %51, %55, %36
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
   br label %66
 
-66:                                               ; preds = %.thread, %65, %23
+.critedge:                                        ; preds = %FindPenByInstanceId.exit.thread, %FindPenByInstanceId.exit
+  %65 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %65) #8
+  br label %66
+
+66:                                               ; preds = %.critedge, %64, %22
   ret void
 }
 
@@ -839,117 +839,117 @@ define hidden void @SDL_SendPenMotion(i64 noundef %0, i32 noundef %1, ptr nounde
 
 FindPenByInstanceId.exit.thread:                  ; preds = %11, %5, %.preheader.i
   %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
-  br label %.thread
+  br label %.critedge
 
 FindPenByInstanceId.exit:                         ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %18 = load float, ptr %17, align 8
   %19 = fcmp une float %18, %3
-  br i1 %19, label %25, label %20
+  br i1 %19, label %24, label %20
 
 20:                                               ; preds = %FindPenByInstanceId.exit
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %22 = load float, ptr %21, align 4
   %23 = fcmp une float %22, %4
-  br i1 %23, label %25, label %.thread
+  br i1 %23, label %24, label %.critedge
 
-.thread:                                          ; preds = %20, %FindPenByInstanceId.exit.thread
-  %24 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %24) #8
-  br label %72
-
-25:                                               ; preds = %20, %FindPenByInstanceId.exit
+24:                                               ; preds = %20, %FindPenByInstanceId.exit
   store float %3, ptr %17, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 68
-  store float %4, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %28 = load i32, ptr %27, align 8
-  %29 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %29) #8
-  %30 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 4870) #8
-  br i1 %30, label %31, label %72
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 68
+  store float %4, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %27 = load i32, ptr %26, align 8
+  %28 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %28) #8
+  %29 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 4870) #8
+  br i1 %29, label %30, label %72
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 4870, ptr %6, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %0, ptr %32, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %0, ptr %31, align 8
   %.not45 = icmp eq ptr %2, null
-  br i1 %.not45, label %35, label %33
+  br i1 %.not45, label %34, label %32
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr %2, align 8
-  br label %35
+32:                                               ; preds = %30
+  %33 = load i32, ptr %2, align 8
+  br label %34
 
-35:                                               ; preds = %31, %33
-  %36 = phi i32 [ %34, %33 ], [ 0, %31 ]
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %1, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %28, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %3, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %4, ptr %41, align 8
-  %42 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
-  br i1 %.not45, label %71, label %43
+34:                                               ; preds = %30, %32
+  %35 = phi i32 [ %33, %32 ], [ 0, %30 ]
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %1, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %27, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store float %3, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float %4, ptr %40, align 8
+  %41 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
+  br i1 %.not45, label %70, label %42
 
-43:                                               ; preds = %35
-  %44 = call ptr @SDL_GetMouse() #8
-  %.not46 = icmp eq ptr %44, null
-  br i1 %.not46, label %71, label %45
+42:                                               ; preds = %34
+  %43 = call ptr @SDL_GetMouse() #8
+  %.not46 = icmp eq ptr %43, null
+  br i1 %.not46, label %70, label %44
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr @pen_touching, align 4
-  %47 = icmp eq i32 %46, %1
-  br i1 %47, label %48, label %68
+44:                                               ; preds = %42
+  %45 = load i32, ptr @pen_touching, align 4
+  %46 = icmp eq i32 %45, %1
+  br i1 %46, label %47, label %67
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 230
-  %50 = load i8, ptr %49, align 2, !range !9, !noundef !10
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %53
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 230
+  %49 = load i8, ptr %48, align 2, !range !9, !noundef !10
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %48
+51:                                               ; preds = %47
   call void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i1 noundef zeroext false, float noundef %3, float noundef %4) #8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %48
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 231
-  %55 = load i8, ptr %54, align 1, !range !9, !noundef !10
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %71
+52:                                               ; preds = %51, %47
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 231
+  %54 = load i8, ptr %53, align 1, !range !9, !noundef !10
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %70
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %59 = load i32, ptr %58, align 8
-  %60 = sitofp i32 %59 to float
-  %61 = fdiv float %3, %60
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %63 = load i32, ptr %62, align 4
-  %64 = sitofp i32 %63 to float
-  %65 = fdiv float %4, %64
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %67 = load float, ptr %66, align 4
-  call void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, float noundef %61, float noundef %65, float noundef %67) #8
-  br label %71
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %58 = load i32, ptr %57, align 8
+  %59 = sitofp i32 %58 to float
+  %60 = fdiv float %3, %59
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %62 = load i32, ptr %61, align 4
+  %63 = sitofp i32 %62 to float
+  %64 = fdiv float %4, %63
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  %66 = load float, ptr %65, align 4
+  call void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef -2, i64 noundef 1, ptr noundef nonnull %2, float noundef %60, float noundef %64, float noundef %66) #8
+  br label %70
 
-68:                                               ; preds = %45
-  %69 = icmp eq i32 %46, 0
-  br i1 %69, label %70, label %71
+67:                                               ; preds = %44
+  %68 = icmp eq i32 %45, 0
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   call void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i1 noundef zeroext false, float noundef %3, float noundef %4) #8
-  br label %71
+  br label %70
 
-71:                                               ; preds = %43, %68, %70, %53, %57, %35
+70:                                               ; preds = %42, %67, %69, %52, %56, %34
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
   br label %72
 
-72:                                               ; preds = %.thread, %71, %25
+.critedge:                                        ; preds = %FindPenByInstanceId.exit.thread, %20
+  %71 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %71) #8
+  br label %72
+
+72:                                               ; preds = %.critedge, %70, %24
   ret void
 }
 
@@ -960,18 +960,18 @@ define hidden void @SDL_SendPenButton(i64 noundef %0, i32 noundef %1, ptr nounde
   %8 = zext nneg i8 %3 to i32
   %9 = add i8 %3, -6
   %or.cond = icmp ult i8 %9, -5
-  br i1 %or.cond, label %72, label %10
+  br i1 %or.cond, label %71, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @pen_device_rwlock, align 8
   tail call void @SDL_LockRWLockForReading_REAL(ptr noundef %11) #8
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %.thread, label %.preheader.i
+  br i1 %.not.i, label %.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10
   %12 = load i32, ptr @pen_device_count, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph.i, label %.thread
+  br i1 %13, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %14 = load ptr, ptr @pen_devices, align 8
@@ -981,7 +981,7 @@ define hidden void @SDL_SendPenButton(i64 noundef %0, i32 noundef %1, ptr nounde
 15:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %16, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.critedge, label %16, !llvm.loop !7
 
 16:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
@@ -990,117 +990,117 @@ define hidden void @SDL_SendPenButton(i64 noundef %0, i32 noundef %1, ptr nounde
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %FindPenByInstanceId.exit, label %15
 
-.thread:                                          ; preds = %15, %.preheader.i, %10
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
-  %21 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %21) #8
-  br label %72
-
 FindPenByInstanceId.exit:                         ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  %23 = load i32, ptr %22, align 8
-  %24 = shl nuw nsw i32 1, %8
-  %25 = and i32 %23, %24
-  %26 = icmp ne i32 %25, 0
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %28 = load float, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 68
-  %30 = load float, ptr %29, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %21 = load i32, ptr %20, align 8
+  %22 = shl nuw nsw i32 1, %8
+  %23 = and i32 %21, %22
+  %24 = icmp ne i32 %23, 0
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %26 = load float, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 68
+  %28 = load float, ptr %27, align 4
   %.not = xor i1 %4, true
-  %or.cond4 = select i1 %.not, i1 true, i1 %26
-  br i1 %or.cond4, label %33, label %31
+  %or.cond4 = select i1 %.not, i1 true, i1 %24
+  br i1 %or.cond4, label %31, label %29
+
+29:                                               ; preds = %FindPenByInstanceId.exit
+  %30 = or i32 %21, %22
+  br label %35
 
 31:                                               ; preds = %FindPenByInstanceId.exit
-  %32 = or i32 %23, %24
-  br label %39
+  %or.cond7 = select i1 %.not, i1 %24, i1 false
+  br i1 %or.cond7, label %32, label %.critedge68
 
-33:                                               ; preds = %FindPenByInstanceId.exit
-  %or.cond7 = select i1 %.not, i1 %26, i1 false
-  br i1 %or.cond7, label %34, label %37
+32:                                               ; preds = %31
+  %33 = xor i32 %22, -1
+  %34 = and i32 %21, %33
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = xor i32 %24, -1
-  %36 = and i32 %23, %35
-  br label %39
+35:                                               ; preds = %32, %29
+  %.152 = phi i32 [ %34, %32 ], [ %30, %29 ]
+  store i32 %.152, ptr %20, align 8
+  %36 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %36) #8
+  %37 = select i1 %4, i32 4868, i32 4869
+  %38 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %37) #8
+  br i1 %38, label %39, label %71
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %38) #8
-  br label %72
-
-39:                                               ; preds = %34, %31
-  %.152.ph = phi i32 [ %32, %31 ], [ %36, %34 ]
-  store i32 %.152.ph, ptr %22, align 8
-  %40 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %40) #8
-  %41 = select i1 %4, i32 4868, i32 4869
-  %42 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %41) #8
-  br i1 %42, label %43, label %72
-
-43:                                               ; preds = %39
+39:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  store i32 %41, ptr %6, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %0, ptr %44, align 8
+  store i32 %37, ptr %6, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %0, ptr %40, align 8
   %.not63 = icmp eq ptr %2, null
-  br i1 %.not63, label %47, label %45
+  br i1 %.not63, label %43, label %41
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %2, align 8
-  br label %47
+41:                                               ; preds = %39
+  %42 = load i32, ptr %2, align 8
+  br label %43
 
-47:                                               ; preds = %43, %45
-  %48 = phi i32 [ %46, %45 ], [ 0, %43 ]
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %1, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %.152.ph, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %28, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %30, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 %3, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 37
-  store i8 %7, ptr %55, align 1
-  %56 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
-  br i1 %.not63, label %71, label %57
+43:                                               ; preds = %39, %41
+  %44 = phi i32 [ %42, %41 ], [ 0, %39 ]
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %1, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %.152, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  store float %26, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store float %28, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i8 %3, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 37
+  store i8 %7, ptr %51, align 1
+  %52 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #8
+  br i1 %.not63, label %67, label %53
 
-57:                                               ; preds = %47
-  %58 = load i32, ptr @pen_touching, align 4
-  %.not64 = icmp eq i32 %58, 0
-  %59 = icmp eq i32 %58, %1
-  %or.cond66 = or i1 %.not64, %59
-  br i1 %or.cond66, label %60, label %71
+53:                                               ; preds = %43
+  %54 = load i32, ptr @pen_touching, align 4
+  %.not64 = icmp eq i32 %54, 0
+  %55 = icmp eq i32 %54, %1
+  %or.cond66 = or i1 %.not64, %55
+  br i1 %or.cond66, label %56, label %67
 
-60:                                               ; preds = %57
-  %61 = call ptr @SDL_GetMouse() #8
-  %.not65 = icmp eq ptr %61, null
-  br i1 %.not65, label %71, label %62
+56:                                               ; preds = %53
+  %57 = call ptr @SDL_GetMouse() #8
+  %.not65 = icmp eq ptr %57, null
+  br i1 %.not65, label %67, label %58
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 230
-  %64 = load i8, ptr %63, align 2, !range !9, !noundef !10
-  %65 = trunc nuw i8 %64 to i1
-  %66 = icmp ult i8 %3, 5
-  %or.cond10 = and i1 %66, %65
-  br i1 %or.cond10, label %67, label %71
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 230
+  %60 = load i8, ptr %59, align 2, !range !9, !noundef !10
+  %61 = trunc nuw i8 %60 to i1
+  %62 = icmp ult i8 %3, 5
+  %or.cond10 = and i1 %62, %61
+  br i1 %or.cond10, label %63, label %67
 
-67:                                               ; preds = %62
-  %68 = zext nneg i8 %3 to i64
-  %69 = getelementptr inbounds nuw [5 x i8], ptr @SDL_SendPenButton.mouse_buttons, i64 0, i64 %68
-  %70 = load i8, ptr %69, align 1
-  call void @SDL_SendMouseButton(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i8 noundef zeroext %70, i1 noundef zeroext %4) #8
+63:                                               ; preds = %58
+  %64 = zext nneg i8 %3 to i64
+  %65 = getelementptr inbounds nuw [5 x i8], ptr @SDL_SendPenButton.mouse_buttons, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1
+  call void @SDL_SendMouseButton(i64 noundef %0, ptr noundef nonnull %2, i32 noundef -2, i8 noundef zeroext %66, i1 noundef zeroext %4) #8
+  br label %67
+
+67:                                               ; preds = %56, %58, %63, %53, %43
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
   br label %71
 
-71:                                               ; preds = %60, %62, %67, %57, %47
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
-  br label %72
+.critedge:                                        ; preds = %15, %10, %.preheader.i
+  %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #8
+  %69 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %69) #8
+  br label %71
 
-72:                                               ; preds = %37, %.thread, %71, %39, %5
+.critedge68:                                      ; preds = %31
+  %70 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %70) #8
+  br label %71
+
+71:                                               ; preds = %.critedge68, %.critedge, %67, %35, %5
   ret void
 }
 

@@ -1978,53 +1978,53 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   %3 = tail call { i64, ptr } @jv_object() #17
   %4 = tail call { i64, ptr } @jv_null() #17
   %5 = tail call { i64, ptr } @jv_null() #17
-  %.sroa.7.0239 = extractvalue { i64, ptr } %3, 1
-  %.sroa.046.0240 = extractvalue { i64, ptr } %3, 0
-  %.not.not241 = icmp eq ptr %0, null
-  br i1 %.not.not241, label %block_free.exit, label %.lr.ph
+  %.sroa.7.0231 = extractvalue { i64, ptr } %3, 1
+  %.sroa.046.0232 = extractvalue { i64, ptr } %3, 0
+  %.not.not233 = icmp eq ptr %0, null
+  br i1 %.not.not233, label %block_free.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %71
-  %.sroa.046.0246 = phi i64 [ %.sroa.046.0, %71 ], [ %.sroa.046.0240, %2 ]
-  %.sroa.7.0245 = phi ptr [ %.sroa.7.0, %71 ], [ %.sroa.7.0239, %2 ]
-  %.pn62244 = phi { i64, ptr } [ %73, %71 ], [ %4, %2 ]
-  %.pn243 = phi { i64, ptr } [ %74, %71 ], [ %5, %2 ]
-  %.055242 = phi ptr [ %75, %71 ], [ %0, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.055242, i64 16
+  %.sroa.046.0238 = phi i64 [ %.sroa.046.0, %71 ], [ %.sroa.046.0232, %2 ]
+  %.sroa.7.0237 = phi ptr [ %.sroa.7.0, %71 ], [ %.sroa.7.0231, %2 ]
+  %.pn62236 = phi { i64, ptr } [ %73, %71 ], [ %4, %2 ]
+  %.pn235 = phi { i64, ptr } [ %74, %71 ], [ %5, %2 ]
+  %.055234 = phi ptr [ %75, %71 ], [ %0, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.055234, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !25
-  switch i32 %7, label %.split.loop.exit174 [
+  switch i32 %7, label %.split.loop.exit82 [
     i32 4, label %8
     i32 23, label %14
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.055242, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.055234, i64 40
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.055242, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.055234, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call { i64, ptr } @jv_copy(i64 %10, ptr %12) #17
   br label %34
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %.055242, align 8, !tbaa !22
+  %15 = load ptr, ptr %.055234, align 8, !tbaa !22
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.split.loop.exit146, label %17
+  br i1 %16, label %.split.loop.exit110, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !25
   %.not67 = icmp eq i32 %19, 0
-  br i1 %.not67, label %20, label %.split.loop.exit153
+  br i1 %.not67, label %20, label %.split.loop.exit103
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %15, align 8, !tbaa !22
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.split.loop.exit160, label %23
+  br i1 %22, label %.split.loop.exit96, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !25
   %.not68 = icmp eq i32 %25, 24
-  br i1 %.not68, label %26, label %.split.loop.exit167
+  br i1 %.not68, label %26, label %.split.loop.exit89
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2032,18 +2032,18 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = tail call { i64, ptr } @jv_copy(i64 %28, ptr %30) #17
-  %32 = load ptr, ptr %.055242, align 8, !tbaa !22
+  %32 = load ptr, ptr %.055234, align 8, !tbaa !22
   %33 = load ptr, ptr %32, align 8, !tbaa !22
   br label %34
 
 34:                                               ; preds = %26, %8
-  %.1.in = phi ptr [ %.055242, %8 ], [ %33, %26 ]
+  %.1.in = phi ptr [ %.055234, %8 ], [ %33, %26 ]
   %.pn69 = phi { i64, ptr } [ %13, %8 ], [ %31, %26 ]
   %.sroa.9.2 = extractvalue { i64, ptr } %.pn69, 1
   %.sroa.041.2 = extractvalue { i64, ptr } %.pn69, 0
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !22
   %cond = icmp eq ptr %.1, null
-  br i1 %cond, label %.split.loop.exit90, label %35
+  br i1 %cond, label %.split.loop.exit166, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %.1, i64 16
@@ -2064,24 +2064,24 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
 44:                                               ; preds = %35
   %45 = load ptr, ptr %.1, align 8, !tbaa !22
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.split.loop.exit118, label %47
+  br i1 %46, label %.split.loop.exit138, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !25
   %.not73 = icmp eq i32 %49, 0
-  br i1 %.not73, label %50, label %.split.loop.exit125
+  br i1 %.not73, label %50, label %.split.loop.exit131
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %45, align 8, !tbaa !22
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.split.loop.exit132, label %53
+  br i1 %52, label %.split.loop.exit124, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !25
   %.not74 = icmp eq i32 %55, 24
-  br i1 %.not74, label %56, label %.split.loop.exit139
+  br i1 %.not74, label %56, label %.split.loop.exit117
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -2100,21 +2100,21 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   %.sroa.038.2 = extractvalue { i64, ptr } %.pn75, 0
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !22
   %65 = icmp eq ptr %.2, null
-  br i1 %65, label %.split.loop.exit97, label %66
+  br i1 %65, label %.split.loop.exit145, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %68 = load i32, ptr %67, align 8, !tbaa !25
   %.not77 = icmp eq i32 %68, 21
-  br i1 %.not77, label %69, label %.split.loop.exit97
+  br i1 %.not77, label %69, label %.split.loop.exit145
 
 69:                                               ; preds = %66
   %70 = tail call i32 @jv_get_kind(i64 %.sroa.041.2, ptr %.sroa.9.2) #17
   %.not78 = icmp eq i32 %70, 5
-  br i1 %.not78, label %71, label %.split.loop.exit97
+  br i1 %.not78, label %71, label %.split.loop.exit145
 
 71:                                               ; preds = %69
-  %72 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.046.0246, ptr %.sroa.7.0245, i64 %.sroa.041.2, ptr %.sroa.9.2, i64 %.sroa.038.2, ptr %.sroa.8.2) #17
+  %72 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.046.0238, ptr %.sroa.7.0237, i64 %.sroa.041.2, ptr %.sroa.9.2, i64 %.sroa.038.2, ptr %.sroa.8.2) #17
   %73 = tail call { i64, ptr } @jv_null() #17
   %74 = tail call { i64, ptr } @jv_null() #17
   %75 = load ptr, ptr %.2, align 8, !tbaa !22
@@ -2124,78 +2124,78 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   br i1 %.not.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !55
 
 .split.loop.exit:                                 ; preds = %35
-  %.sroa.8.0.le220 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le199 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+  %.sroa.8.0.le212 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le191 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit90:                               ; preds = %34
-  %.sroa.8.0.le218 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le197 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit82:                               ; preds = %.lr.ph
+  %.sroa.9.0.le229 = extractvalue { i64, ptr } %.pn62236, 1
+  %.sroa.041.0.le220 = extractvalue { i64, ptr } %.pn62236, 0
+  %.sroa.8.0.le210 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le189 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit118:                              ; preds = %44
-  %.sroa.8.0.le216 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le195 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit89:                               ; preds = %23
+  %.sroa.9.0.le227 = extractvalue { i64, ptr } %.pn62236, 1
+  %.sroa.041.0.le218 = extractvalue { i64, ptr } %.pn62236, 0
+  %.sroa.8.0.le208 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le187 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit125:                              ; preds = %47
-  %.sroa.8.0.le214 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le193 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit96:                               ; preds = %20
+  %.sroa.9.0.le225 = extractvalue { i64, ptr } %.pn62236, 1
+  %.sroa.041.0.le216 = extractvalue { i64, ptr } %.pn62236, 0
+  %.sroa.8.0.le206 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le185 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit132:                              ; preds = %50
-  %.sroa.8.0.le212 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le191 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit103:                              ; preds = %17
+  %.sroa.9.0.le223 = extractvalue { i64, ptr } %.pn62236, 1
+  %.sroa.041.0.le214 = extractvalue { i64, ptr } %.pn62236, 0
+  %.sroa.8.0.le204 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le183 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit139:                              ; preds = %53
-  %.sroa.8.0.le210 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le189 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit110:                              ; preds = %14
+  %.sroa.9.0.le = extractvalue { i64, ptr } %.pn62236, 1
+  %.sroa.041.0.le = extractvalue { i64, ptr } %.pn62236, 0
+  %.sroa.8.0.le202 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le181 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit146:                              ; preds = %14
-  %.sroa.9.0.le237 = extractvalue { i64, ptr } %.pn62244, 1
-  %.sroa.041.0.le228 = extractvalue { i64, ptr } %.pn62244, 0
-  %.sroa.8.0.le208 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le187 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit117:                              ; preds = %53
+  %.sroa.8.0.le200 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le179 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit153:                              ; preds = %17
-  %.sroa.9.0.le235 = extractvalue { i64, ptr } %.pn62244, 1
-  %.sroa.041.0.le226 = extractvalue { i64, ptr } %.pn62244, 0
-  %.sroa.8.0.le206 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le185 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit124:                              ; preds = %50
+  %.sroa.8.0.le198 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le177 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit160:                              ; preds = %20
-  %.sroa.9.0.le233 = extractvalue { i64, ptr } %.pn62244, 1
-  %.sroa.041.0.le224 = extractvalue { i64, ptr } %.pn62244, 0
-  %.sroa.8.0.le204 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le183 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit131:                              ; preds = %47
+  %.sroa.8.0.le196 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le175 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit167:                              ; preds = %23
-  %.sroa.9.0.le231 = extractvalue { i64, ptr } %.pn62244, 1
-  %.sroa.041.0.le222 = extractvalue { i64, ptr } %.pn62244, 0
-  %.sroa.8.0.le202 = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le181 = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit138:                              ; preds = %44
+  %.sroa.8.0.le194 = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le173 = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit174:                              ; preds = %.lr.ph
-  %.sroa.9.0.le = extractvalue { i64, ptr } %.pn62244, 1
-  %.sroa.041.0.le = extractvalue { i64, ptr } %.pn62244, 0
-  %.sroa.8.0.le = extractvalue { i64, ptr } %.pn243, 1
-  %.sroa.038.0.le = extractvalue { i64, ptr } %.pn243, 0
-  br label %.split.loop.exit97
+.split.loop.exit166:                              ; preds = %34
+  %.sroa.8.0.le = extractvalue { i64, ptr } %.pn235, 1
+  %.sroa.038.0.le = extractvalue { i64, ptr } %.pn235, 0
+  br label %.split.loop.exit145
 
-.split.loop.exit97:                               ; preds = %66, %64, %69, %.split.loop.exit174, %.split.loop.exit167, %.split.loop.exit160, %.split.loop.exit153, %.split.loop.exit146, %.split.loop.exit139, %.split.loop.exit132, %.split.loop.exit125, %.split.loop.exit118, %.split.loop.exit90, %.split.loop.exit
-  %.sroa.038.1.ph = phi i64 [ %.sroa.038.0.le199, %.split.loop.exit ], [ %.sroa.038.0.le197, %.split.loop.exit90 ], [ %.sroa.038.0.le195, %.split.loop.exit118 ], [ %.sroa.038.0.le193, %.split.loop.exit125 ], [ %.sroa.038.0.le191, %.split.loop.exit132 ], [ %.sroa.038.0.le189, %.split.loop.exit139 ], [ %.sroa.038.0.le187, %.split.loop.exit146 ], [ %.sroa.038.0.le185, %.split.loop.exit153 ], [ %.sroa.038.0.le183, %.split.loop.exit160 ], [ %.sroa.038.0.le181, %.split.loop.exit167 ], [ %.sroa.038.0.le, %.split.loop.exit174 ], [ %.sroa.038.2, %69 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %66 ]
-  %.sroa.8.1.ph = phi ptr [ %.sroa.8.0.le220, %.split.loop.exit ], [ %.sroa.8.0.le218, %.split.loop.exit90 ], [ %.sroa.8.0.le216, %.split.loop.exit118 ], [ %.sroa.8.0.le214, %.split.loop.exit125 ], [ %.sroa.8.0.le212, %.split.loop.exit132 ], [ %.sroa.8.0.le210, %.split.loop.exit139 ], [ %.sroa.8.0.le208, %.split.loop.exit146 ], [ %.sroa.8.0.le206, %.split.loop.exit153 ], [ %.sroa.8.0.le204, %.split.loop.exit160 ], [ %.sroa.8.0.le202, %.split.loop.exit167 ], [ %.sroa.8.0.le, %.split.loop.exit174 ], [ %.sroa.8.2, %69 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %66 ]
-  %.sroa.041.1.ph = phi i64 [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.2, %.split.loop.exit90 ], [ %.sroa.041.2, %.split.loop.exit118 ], [ %.sroa.041.2, %.split.loop.exit125 ], [ %.sroa.041.2, %.split.loop.exit132 ], [ %.sroa.041.2, %.split.loop.exit139 ], [ %.sroa.041.0.le228, %.split.loop.exit146 ], [ %.sroa.041.0.le226, %.split.loop.exit153 ], [ %.sroa.041.0.le224, %.split.loop.exit160 ], [ %.sroa.041.0.le222, %.split.loop.exit167 ], [ %.sroa.041.0.le, %.split.loop.exit174 ], [ %.sroa.041.2, %69 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %66 ]
-  %.sroa.9.1.ph = phi ptr [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.2, %.split.loop.exit90 ], [ %.sroa.9.2, %.split.loop.exit118 ], [ %.sroa.9.2, %.split.loop.exit125 ], [ %.sroa.9.2, %.split.loop.exit132 ], [ %.sroa.9.2, %.split.loop.exit139 ], [ %.sroa.9.0.le237, %.split.loop.exit146 ], [ %.sroa.9.0.le235, %.split.loop.exit153 ], [ %.sroa.9.0.le233, %.split.loop.exit160 ], [ %.sroa.9.0.le231, %.split.loop.exit167 ], [ %.sroa.9.0.le, %.split.loop.exit174 ], [ %.sroa.9.2, %69 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %66 ]
-  tail call void @jv_free(i64 %.sroa.046.0246, ptr %.sroa.7.0245) #17
-  tail call void @jv_free(i64 %.sroa.041.1.ph, ptr %.sroa.9.1.ph) #17
-  tail call void @jv_free(i64 %.sroa.038.1.ph, ptr %.sroa.8.1.ph) #17
+.split.loop.exit145:                              ; preds = %69, %64, %66, %.split.loop.exit166, %.split.loop.exit138, %.split.loop.exit131, %.split.loop.exit124, %.split.loop.exit117, %.split.loop.exit110, %.split.loop.exit103, %.split.loop.exit96, %.split.loop.exit89, %.split.loop.exit82, %.split.loop.exit
+  %.sroa.038.1 = phi i64 [ %.sroa.038.0.le191, %.split.loop.exit ], [ %.sroa.038.0.le189, %.split.loop.exit82 ], [ %.sroa.038.0.le187, %.split.loop.exit89 ], [ %.sroa.038.0.le185, %.split.loop.exit96 ], [ %.sroa.038.0.le183, %.split.loop.exit103 ], [ %.sroa.038.0.le181, %.split.loop.exit110 ], [ %.sroa.038.0.le179, %.split.loop.exit117 ], [ %.sroa.038.0.le177, %.split.loop.exit124 ], [ %.sroa.038.0.le175, %.split.loop.exit131 ], [ %.sroa.038.0.le173, %.split.loop.exit138 ], [ %.sroa.038.0.le, %.split.loop.exit166 ], [ %.sroa.038.2, %66 ], [ %.sroa.038.2, %64 ], [ %.sroa.038.2, %69 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0.le212, %.split.loop.exit ], [ %.sroa.8.0.le210, %.split.loop.exit82 ], [ %.sroa.8.0.le208, %.split.loop.exit89 ], [ %.sroa.8.0.le206, %.split.loop.exit96 ], [ %.sroa.8.0.le204, %.split.loop.exit103 ], [ %.sroa.8.0.le202, %.split.loop.exit110 ], [ %.sroa.8.0.le200, %.split.loop.exit117 ], [ %.sroa.8.0.le198, %.split.loop.exit124 ], [ %.sroa.8.0.le196, %.split.loop.exit131 ], [ %.sroa.8.0.le194, %.split.loop.exit138 ], [ %.sroa.8.0.le, %.split.loop.exit166 ], [ %.sroa.8.2, %66 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.2, %69 ]
+  %.sroa.041.1 = phi i64 [ %.sroa.041.2, %.split.loop.exit ], [ %.sroa.041.0.le220, %.split.loop.exit82 ], [ %.sroa.041.0.le218, %.split.loop.exit89 ], [ %.sroa.041.0.le216, %.split.loop.exit96 ], [ %.sroa.041.0.le214, %.split.loop.exit103 ], [ %.sroa.041.0.le, %.split.loop.exit110 ], [ %.sroa.041.2, %.split.loop.exit117 ], [ %.sroa.041.2, %.split.loop.exit124 ], [ %.sroa.041.2, %.split.loop.exit131 ], [ %.sroa.041.2, %.split.loop.exit138 ], [ %.sroa.041.2, %.split.loop.exit166 ], [ %.sroa.041.2, %66 ], [ %.sroa.041.2, %64 ], [ %.sroa.041.2, %69 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.2, %.split.loop.exit ], [ %.sroa.9.0.le229, %.split.loop.exit82 ], [ %.sroa.9.0.le227, %.split.loop.exit89 ], [ %.sroa.9.0.le225, %.split.loop.exit96 ], [ %.sroa.9.0.le223, %.split.loop.exit103 ], [ %.sroa.9.0.le, %.split.loop.exit110 ], [ %.sroa.9.2, %.split.loop.exit117 ], [ %.sroa.9.2, %.split.loop.exit124 ], [ %.sroa.9.2, %.split.loop.exit131 ], [ %.sroa.9.2, %.split.loop.exit138 ], [ %.sroa.9.2, %.split.loop.exit166 ], [ %.sroa.9.2, %66 ], [ %.sroa.9.2, %64 ], [ %.sroa.9.2, %69 ]
+  tail call void @jv_free(i64 %.sroa.046.0238, ptr %.sroa.7.0237) #17
+  tail call void @jv_free(i64 %.sroa.041.1, ptr %.sroa.9.1) #17
+  tail call void @jv_free(i64 %.sroa.038.1, ptr %.sroa.8.1) #17
   br label %86
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
@@ -2206,8 +2206,8 @@ define dso_local { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(no
   br i1 %.not.i, label %block_free.exit, label %.lr.ph.i, !llvm.loop !35
 
 block_free.exit:                                  ; preds = %.lr.ph.i, %2
-  %.sroa.046.0.lcssa319 = phi i64 [ %.sroa.046.0240, %2 ], [ %.sroa.046.0, %.lr.ph.i ]
-  %.sroa.7.0.lcssa318 = phi ptr [ %.sroa.7.0239, %2 ], [ %.sroa.7.0, %.lr.ph.i ]
+  %.sroa.046.0.lcssa311 = phi i64 [ %.sroa.046.0232, %2 ], [ %.sroa.046.0, %.lr.ph.i ]
+  %.sroa.7.0.lcssa310 = phi ptr [ %.sroa.7.0231, %2 ], [ %.sroa.7.0, %.lr.ph.i ]
   %77 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %77, i8 0, i64 20, i1 false)
@@ -2225,13 +2225,13 @@ block_free.exit:                                  ; preds = %.lr.ph.i, %2
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 64
   store ptr null, ptr %84, align 8, !tbaa !21
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store i64 %.sroa.046.0.lcssa319, ptr %85, align 8
+  store i64 %.sroa.046.0.lcssa311, ptr %85, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %77, i64 48
-  store ptr %.sroa.7.0.lcssa318, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
+  store ptr %.sroa.7.0.lcssa310, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
   br label %86
 
-86:                                               ; preds = %block_free.exit, %.split.loop.exit97
-  %.sroa.354.0 = phi ptr [ %77, %block_free.exit ], [ null, %.split.loop.exit97 ]
+86:                                               ; preds = %block_free.exit, %.split.loop.exit145
+  %.sroa.354.0 = phi ptr [ %77, %block_free.exit ], [ null, %.split.loop.exit145 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.354.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.354.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -959,247 +959,247 @@ define internal noundef i32 @lj_cf_ffi_new(ptr noundef %0) #0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = icmp ult ptr %13, %15
-  br i1 %16, label %18, label %17
+  br i1 %16, label %17, label %.critedge.i
 
-17:                                               ; preds = %18, %1
+.critedge.i:                                      ; preds = %17, %1
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
-18:                                               ; preds = %1
-  %19 = load i64, ptr %13, align 8, !tbaa !23
-  %20 = ashr i64 %19, 47
-  switch i64 %20, label %17 [
-    i64 -5, label %21
-    i64 -11, label %36
+17:                                               ; preds = %1
+  %18 = load i64, ptr %13, align 8, !tbaa !23
+  %19 = ashr i64 %18, 47
+  switch i64 %19, label %.critedge.i [
+    i64 -5, label %20
+    i64 -11, label %35
   ]
 
-21:                                               ; preds = %18
-  %22 = and i64 %19, 140737488355327
-  %23 = inttoptr i64 %22 to ptr
+20:                                               ; preds = %17
+  %21 = and i64 %18, 140737488355327
+  %22 = inttoptr i64 %21 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %0, ptr %24, align 8, !tbaa !60
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %10, ptr %25, align 8, !tbaa !65
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %26, ptr %27, align 8, !tbaa !66
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %26, ptr %28, align 8, !tbaa !67
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr null, ptr %29, align 8, !tbaa !68
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 18, ptr %30, align 4, !tbaa !69
-  %31 = call i32 @lj_cparse(ptr noundef nonnull %3) #9
-  %.not32.i = icmp eq i32 %31, 0
-  br i1 %.not32.i, label %33, label %32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr %0, ptr %23, align 8, !tbaa !60
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %10, ptr %24, align 8, !tbaa !65
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr %25, ptr %26, align 8, !tbaa !66
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %25, ptr %27, align 8, !tbaa !67
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store ptr null, ptr %28, align 8, !tbaa !68
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 116
+  store i32 18, ptr %29, align 4, !tbaa !69
+  %30 = call i32 @lj_cparse(ptr noundef nonnull %3) #9
+  %.not32.i = icmp eq i32 %30, 0
+  br i1 %.not32.i, label %32, label %31
 
-32:                                               ; preds = %21
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %31) #10
+31:                                               ; preds = %20
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %30) #10
   unreachable
 
-33:                                               ; preds = %21
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !70
+32:                                               ; preds = %20
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
   br label %ffi_checkctype.exit
 
-36:                                               ; preds = %18
-  %37 = and i64 %19, 140737488355327
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 10
-  %40 = load i16, ptr %39, align 2, !tbaa !48
-  %41 = icmp eq i16 %40, 22
-  br i1 %41, label %42, label %45
+35:                                               ; preds = %17
+  %36 = and i64 %18, 140737488355327
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 10
+  %39 = load i16, ptr %38, align 2, !tbaa !48
+  %40 = icmp eq i16 %39, 22
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %44 = load i32, ptr %43, align 4, !tbaa !43
+41:                                               ; preds = %35
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %43 = load i32, ptr %42, align 4, !tbaa !43
   br label %ffi_checkctype.exit
 
-45:                                               ; preds = %36
-  %46 = zext i16 %40 to i32
+44:                                               ; preds = %35
+  %45 = zext i16 %39 to i32
   br label %ffi_checkctype.exit
 
-ffi_checkctype.exit:                              ; preds = %33, %42, %45
-  %.0.i61 = phi i32 [ %35, %33 ], [ %46, %45 ], [ %44, %42 ]
-  %47 = load ptr, ptr %10, align 8, !tbaa !51
-  br label %48
+ffi_checkctype.exit:                              ; preds = %32, %41, %44
+  %.0.i61 = phi i32 [ %34, %32 ], [ %43, %41 ], [ %45, %44 ]
+  %46 = load ptr, ptr %10, align 8, !tbaa !51
+  br label %47
 
-48:                                               ; preds = %48, %ffi_checkctype.exit
-  %.pn.in = phi i32 [ %.0.i61, %ffi_checkctype.exit ], [ %51, %48 ]
+47:                                               ; preds = %47, %ffi_checkctype.exit
+  %.pn.in = phi i32 [ %.0.i61, %ffi_checkctype.exit ], [ %50, %47 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %47, i64 %.pn
-  %49 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %50 = icmp slt i32 %49, -1879048192
-  %51 = and i32 %49, 65535
-  br i1 %50, label %48, label %ctype_raw.exit, !llvm.loop !54
+  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %46, i64 %.pn
+  %48 = load i32, ptr %.0.i, align 8, !tbaa !52
+  %49 = icmp slt i32 %48, -1879048192
+  %50 = and i32 %48, 65535
+  br i1 %49, label %47, label %ctype_raw.exit, !llvm.loop !54
 
-ctype_raw.exit:                                   ; preds = %48
+ctype_raw.exit:                                   ; preds = %47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  %52 = call i32 @lj_ctype_info(ptr noundef nonnull %10, i32 noundef %.0.i61, ptr noundef nonnull %4) #9
-  %53 = load ptr, ptr %12, align 8, !tbaa !44
-  %54 = and i32 %52, 1048576
-  %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %thread-pre-split, label %55
+  %51 = call i32 @lj_ctype_info(ptr noundef nonnull %10, i32 noundef %.0.i61, ptr noundef nonnull %4) #9
+  %52 = load ptr, ptr %12, align 8, !tbaa !44
+  %53 = and i32 %51, 1048576
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %thread-pre-split, label %54
 
-55:                                               ; preds = %ctype_raw.exit
-  %56 = load i64, ptr %5, align 8, !tbaa !24
-  %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 384
-  %59 = load i64, ptr %58, align 8, !tbaa !41
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %0, ptr %61, align 8, !tbaa !42
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
+54:                                               ; preds = %ctype_raw.exit
+  %55 = load i64, ptr %5, align 8, !tbaa !24
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 384
+  %58 = load i64, ptr %57, align 8, !tbaa !41
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr %0, ptr %60, align 8, !tbaa !42
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  %63 = load ptr, ptr %14, align 8, !tbaa !4
-  %.not.i = icmp ult ptr %62, %63
-  br i1 %.not.i, label %ffi_checkint.exit, label %64
+  %62 = load ptr, ptr %14, align 8, !tbaa !4
+  %.not.i = icmp ult ptr %61, %62
+  br i1 %.not.i, label %ffi_checkint.exit, label %63
 
-64:                                               ; preds = %55
+63:                                               ; preds = %54
   call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 551) #10
   unreachable
 
-ffi_checkint.exit:                                ; preds = %55
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %66 = load ptr, ptr %60, align 8, !tbaa !51
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 216
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %60, ptr noundef nonnull %67, ptr noundef nonnull %2, ptr noundef nonnull %62, i32 noundef 512) #9
-  %68 = load i32, ptr %2, align 4, !tbaa !43
+ffi_checkint.exit:                                ; preds = %54
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %65 = load ptr, ptr %59, align 8, !tbaa !51
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 216
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %59, ptr noundef nonnull %66, ptr noundef nonnull %2, ptr noundef nonnull %61, i32 noundef 512) #9
+  %67 = load i32, ptr %2, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  %69 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i32 noundef %68) #9
-  store i32 %69, ptr %4, align 4, !tbaa !43
-  br label %71
+  %68 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i32 noundef %67) #9
+  store i32 %68, ptr %4, align 4, !tbaa !43
+  br label %70
 
 thread-pre-split:                                 ; preds = %ctype_raw.exit
-  %70 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.pr = load i32, ptr %4, align 4, !tbaa !43
-  br label %71
+  br label %70
 
-71:                                               ; preds = %thread-pre-split, %ffi_checkint.exit
-  %72 = phi i32 [ %.pr, %thread-pre-split ], [ %69, %ffi_checkint.exit ]
-  %.0 = phi ptr [ %70, %thread-pre-split ], [ %65, %ffi_checkint.exit ]
-  %73 = icmp eq i32 %72, -1
-  br i1 %73, label %74, label %75
+70:                                               ; preds = %thread-pre-split, %ffi_checkint.exit
+  %71 = phi i32 [ %.pr, %thread-pre-split ], [ %68, %ffi_checkint.exit ]
+  %.0 = phi ptr [ %69, %thread-pre-split ], [ %64, %ffi_checkint.exit ]
+  %72 = icmp eq i32 %71, -1
+  br i1 %72, label %73, label %74
 
-74:                                               ; preds = %71
+73:                                               ; preds = %70
   call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 3031) #10
   unreachable
 
-75:                                               ; preds = %71
-  %76 = call ptr @lj_cdata_newx(ptr noundef nonnull %10, i32 noundef %.0.i61, i32 noundef %72, i32 noundef %52) #9
-  %77 = getelementptr inbounds i8, ptr %.0, i64 -8
-  %78 = ptrtoint ptr %76 to i64
-  %79 = or i64 %78, -1548112371908608
-  store i64 %79, ptr %77, align 8, !tbaa !23
-  %80 = load i32, ptr %4, align 4, !tbaa !43
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %82 = load ptr, ptr %14, align 8, !tbaa !4
-  %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %.0 to i64
-  %85 = sub i64 %83, %84
-  %86 = lshr exact i64 %85, 3
-  %87 = trunc i64 %86 to i32
-  call void @lj_cconv_ct_init(ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i32 noundef %80, ptr noundef nonnull %81, ptr noundef nonnull %.0, i32 noundef %87) #9
-  %88 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %.mask = and i32 %88, -268435456
-  %89 = icmp eq i32 %.mask, 268435456
-  br i1 %89, label %90, label %.thread
+74:                                               ; preds = %70
+  %75 = call ptr @lj_cdata_newx(ptr noundef nonnull %10, i32 noundef %.0.i61, i32 noundef %71, i32 noundef %51) #9
+  %76 = getelementptr inbounds i8, ptr %.0, i64 -8
+  %77 = ptrtoint ptr %75 to i64
+  %78 = or i64 %77, -1548112371908608
+  store i64 %78, ptr %76, align 8, !tbaa !23
+  %79 = load i32, ptr %4, align 4, !tbaa !43
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %81 = load ptr, ptr %14, align 8, !tbaa !4
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %.0 to i64
+  %84 = sub i64 %82, %83
+  %85 = lshr exact i64 %84, 3
+  %86 = trunc i64 %85 to i32
+  call void @lj_cconv_ct_init(ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i32 noundef %79, ptr noundef nonnull %80, ptr noundef nonnull %.0, i32 noundef %86) #9
+  %87 = load i32, ptr %.0.i, align 8, !tbaa !52
+  %.mask = and i32 %87, -268435456
+  %88 = icmp eq i32 %.mask, 268435456
+  br i1 %88, label %89, label %.thread
 
-90:                                               ; preds = %75
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %92 = load ptr, ptr %91, align 8, !tbaa !14
-  %93 = sub nsw i32 0, %.0.i61
-  %94 = call ptr @lj_tab_getinth(ptr noundef %92, i32 noundef %93) #9
-  %.not54 = icmp eq ptr %94, null
-  br i1 %.not54, label %.thread, label %95
+89:                                               ; preds = %74
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %91 = load ptr, ptr %90, align 8, !tbaa !14
+  %92 = sub nsw i32 0, %.0.i61
+  %93 = call ptr @lj_tab_getinth(ptr noundef %91, i32 noundef %92) #9
+  %.not54 = icmp eq ptr %93, null
+  br i1 %.not54, label %.thread, label %94
 
-95:                                               ; preds = %90
-  %96 = load i64, ptr %94, align 8, !tbaa !23
-  %.mask55 = and i64 %96, -140737488355328
-  %97 = icmp eq i64 %.mask55, -1688849860263936
-  br i1 %97, label %98, label %.thread
+94:                                               ; preds = %89
+  %95 = load i64, ptr %93, align 8, !tbaa !23
+  %.mask55 = and i64 %95, -140737488355328
+  %96 = icmp eq i64 %.mask55, -1688849860263936
+  br i1 %96, label %97, label %.thread
 
-98:                                               ; preds = %95
-  %99 = and i64 %96, 140737488355327
-  %100 = inttoptr i64 %99 to ptr
-  %101 = icmp eq i64 %99, 0
-  br i1 %101, label %.thread, label %102
+97:                                               ; preds = %94
+  %98 = and i64 %95, 140737488355327
+  %99 = inttoptr i64 %98 to ptr
+  %100 = icmp eq i64 %98, 0
+  br i1 %100, label %.thread, label %101
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 10
-  %104 = load i8, ptr %103, align 2, !tbaa !23
-  %105 = and i8 %104, 4
-  %.not56 = icmp eq i8 %105, 0
-  br i1 %.not56, label %106, label %.thread
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 10
+  %103 = load i8, ptr %102, align 2, !tbaa !23
+  %104 = and i8 %103, 4
+  %.not56 = icmp eq i8 %104, 0
+  br i1 %.not56, label %105, label %.thread
 
-106:                                              ; preds = %102
-  %107 = load i64, ptr %5, align 8, !tbaa !24
-  %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 440
-  %110 = load i64, ptr %109, align 8, !tbaa !25
-  %111 = inttoptr i64 %110 to ptr
-  %112 = call ptr @lj_meta_cache(ptr noundef nonnull %100, i32 noundef 2, ptr noundef %111) #9
-  %.not57 = icmp eq ptr %112, null
-  br i1 %.not57, label %.thread, label %113
+105:                                              ; preds = %101
+  %106 = load i64, ptr %5, align 8, !tbaa !24
+  %107 = inttoptr i64 %106 to ptr
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 440
+  %109 = load i64, ptr %108, align 8, !tbaa !25
+  %110 = inttoptr i64 %109 to ptr
+  %111 = call ptr @lj_meta_cache(ptr noundef nonnull %99, i32 noundef 2, ptr noundef %110) #9
+  %.not57 = icmp eq ptr %111, null
+  br i1 %.not57, label %.thread, label %112
 
-113:                                              ; preds = %106
-  %114 = load i64, ptr %5, align 8, !tbaa !24
-  %115 = inttoptr i64 %114 to ptr
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 728
-  %117 = load i64, ptr %116, align 8, !tbaa !25
-  %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %120 = load i64, ptr %119, align 8, !tbaa !71
-  %.not58 = icmp eq i64 %120, 0
-  br i1 %.not58, label %.thread, label %121
+112:                                              ; preds = %105
+  %113 = load i64, ptr %5, align 8, !tbaa !24
+  %114 = inttoptr i64 %113 to ptr
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 728
+  %116 = load i64, ptr %115, align 8, !tbaa !25
+  %117 = inttoptr i64 %116 to ptr
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  %119 = load i64, ptr %118, align 8, !tbaa !71
+  %.not58 = icmp eq i64 %119, 0
+  br i1 %.not58, label %.thread, label %120
 
-121:                                              ; preds = %113
-  %122 = call ptr @lj_tab_set(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %77) #9
-  %123 = load i64, ptr %112, align 8, !tbaa !23
-  store i64 %123, ptr %122, align 8, !tbaa !23
-  %124 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %125 = load i8, ptr %124, align 8, !tbaa !23
-  %126 = and i8 %125, 4
-  %.not59 = icmp eq i8 %126, 0
-  br i1 %.not59, label %134, label %127, !prof !27
+120:                                              ; preds = %112
+  %121 = call ptr @lj_tab_set(ptr noundef nonnull %0, ptr noundef nonnull %117, ptr noundef nonnull %76) #9
+  %122 = load i64, ptr %111, align 8, !tbaa !23
+  store i64 %122, ptr %121, align 8, !tbaa !23
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %124 = load i8, ptr %123, align 8, !tbaa !23
+  %125 = and i8 %124, 4
+  %.not59 = icmp eq i8 %125, 0
+  br i1 %.not59, label %133, label %126, !prof !27
 
-127:                                              ; preds = %121
-  %128 = load i64, ptr %5, align 8, !tbaa !24
-  %129 = inttoptr i64 %128 to ptr
-  %130 = and i8 %125, -5
-  store i8 %130, ptr %124, align 8, !tbaa !23
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %132 = load i64, ptr %131, align 8, !tbaa !28
-  %133 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store i64 %132, ptr %133, align 8, !tbaa !39
-  store i64 %117, ptr %131, align 8, !tbaa !28
-  br label %134
+126:                                              ; preds = %120
+  %127 = load i64, ptr %5, align 8, !tbaa !24
+  %128 = inttoptr i64 %127 to ptr
+  %129 = and i8 %124, -5
+  store i8 %129, ptr %123, align 8, !tbaa !23
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  %131 = load i64, ptr %130, align 8, !tbaa !28
+  %132 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %131, ptr %132, align 8, !tbaa !39
+  store i64 %116, ptr %130, align 8, !tbaa !28
+  br label %133
 
-134:                                              ; preds = %127, %121
-  %135 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %136 = load i8, ptr %135, align 8, !tbaa !72
-  %137 = or i8 %136, 16
-  store i8 %137, ptr %135, align 8, !tbaa !72
+133:                                              ; preds = %126, %120
+  %134 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %135 = load i8, ptr %134, align 8, !tbaa !72
+  %136 = or i8 %135, 16
+  store i8 %136, ptr %134, align 8, !tbaa !72
   br label %.thread
 
-.thread:                                          ; preds = %102, %98, %90, %95, %106, %134, %113, %75
+.thread:                                          ; preds = %101, %97, %89, %94, %105, %133, %112, %74
   store ptr %.0, ptr %14, align 8, !tbaa !4
-  %138 = load i64, ptr %5, align 8, !tbaa !24
-  %139 = inttoptr i64 %138 to ptr
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load i64, ptr %140, align 8, !tbaa !46
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  %143 = load i64, ptr %142, align 8, !tbaa !47
-  %.not60 = icmp ult i64 %141, %143
-  br i1 %.not60, label %146, label %144, !prof !27
+  %137 = load i64, ptr %5, align 8, !tbaa !24
+  %138 = inttoptr i64 %137 to ptr
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %140 = load i64, ptr %139, align 8, !tbaa !46
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %142 = load i64, ptr %141, align 8, !tbaa !47
+  %.not60 = icmp ult i64 %140, %142
+  br i1 %.not60, label %145, label %143, !prof !27
 
-144:                                              ; preds = %.thread
-  %145 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
-  br label %146
+143:                                              ; preds = %.thread
+  %144 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
+  br label %145
 
-146:                                              ; preds = %144, %.thread
+145:                                              ; preds = %143, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret i32 1
 }
@@ -1212,80 +1212,80 @@ define internal fastcc i32 @ffi_checkctype(ptr noundef %0, ptr noundef %1, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = icmp ult ptr %6, %8
-  br i1 %9, label %11, label %10
+  br i1 %9, label %10, label %.critedge
 
-10:                                               ; preds = %11, %3
+.critedge:                                        ; preds = %10, %3
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %6, align 8, !tbaa !23
-  %13 = ashr i64 %12, 47
-  switch i64 %13, label %10 [
-    i64 -5, label %14
-    i64 -11, label %29
+10:                                               ; preds = %3
+  %11 = load i64, ptr %6, align 8, !tbaa !23
+  %12 = ashr i64 %11, 47
+  switch i64 %12, label %.critedge [
+    i64 -5, label %13
+    i64 -11, label %28
   ]
 
-14:                                               ; preds = %11
-  %15 = and i64 %12, 140737488355327
-  %16 = inttoptr i64 %15 to ptr
+13:                                               ; preds = %10
+  %14 = and i64 %11, 140737488355327
+  %15 = inttoptr i64 %14 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %0, ptr %17, align 8, !tbaa !60
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %1, ptr %18, align 8, !tbaa !65
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %19, ptr %20, align 8, !tbaa !66
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %19, ptr %21, align 8, !tbaa !67
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %2, ptr %22, align 8, !tbaa !68
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 116
-  store i32 18, ptr %23, align 4, !tbaa !69
-  %24 = call i32 @lj_cparse(ptr noundef nonnull %4) #9
-  %.not32 = icmp eq i32 %24, 0
-  br i1 %.not32, label %26, label %25
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr %0, ptr %16, align 8, !tbaa !60
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store ptr %1, ptr %17, align 8, !tbaa !65
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store ptr %18, ptr %19, align 8, !tbaa !66
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %18, ptr %20, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store ptr %2, ptr %21, align 8, !tbaa !68
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 116
+  store i32 18, ptr %22, align 4, !tbaa !69
+  %23 = call i32 @lj_cparse(ptr noundef nonnull %4) #9
+  %.not32 = icmp eq i32 %23, 0
+  br i1 %.not32, label %25, label %24
 
-25:                                               ; preds = %14
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %24) #10
+24:                                               ; preds = %13
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %23) #10
   unreachable
 
-26:                                               ; preds = %14
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !70
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %27 = load i32, ptr %26, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
-  br label %.thread
+  br label %42
 
-29:                                               ; preds = %11
+28:                                               ; preds = %10
   %.not = icmp ne ptr %2, null
-  %30 = icmp ult ptr %2, %8
-  %or.cond = and i1 %.not, %30
-  br i1 %or.cond, label %31, label %32
+  %29 = icmp ult ptr %2, %8
+  %or.cond = and i1 %.not, %29
+  br i1 %or.cond, label %30, label %31
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   tail call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 3176) #10
   unreachable
 
-32:                                               ; preds = %29
-  %33 = and i64 %12, 140737488355327
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 10
-  %36 = load i16, ptr %35, align 2, !tbaa !48
-  %37 = icmp eq i16 %36, 22
-  br i1 %37, label %38, label %41
+31:                                               ; preds = %28
+  %32 = and i64 %11, 140737488355327
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 10
+  %35 = load i16, ptr %34, align 2, !tbaa !48
+  %36 = icmp eq i16 %35, 22
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %40 = load i32, ptr %39, align 4, !tbaa !43
-  br label %.thread
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %39 = load i32, ptr %38, align 4, !tbaa !43
+  br label %42
 
-41:                                               ; preds = %32
-  %42 = zext i16 %36 to i32
-  br label %.thread
+40:                                               ; preds = %31
+  %41 = zext i16 %35 to i32
+  br label %42
 
-.thread:                                          ; preds = %41, %38, %26
-  %.0 = phi i32 [ %28, %26 ], [ %42, %41 ], [ %40, %38 ]
+42:                                               ; preds = %40, %37, %25
+  %.0 = phi i32 [ %27, %25 ], [ %39, %37 ], [ %41, %40 ]
   ret i32 %.0
 }
 
@@ -1918,148 +1918,148 @@ define internal noundef i32 @lj_cf_ffi_cast(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp ult ptr %11, %13
-  br i1 %14, label %16, label %15
+  br i1 %14, label %15, label %.critedge.i
 
-15:                                               ; preds = %16, %1
+.critedge.i:                                      ; preds = %15, %1
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
-16:                                               ; preds = %1
-  %17 = load i64, ptr %11, align 8, !tbaa !23
-  %18 = ashr i64 %17, 47
-  switch i64 %18, label %15 [
-    i64 -5, label %19
-    i64 -11, label %34
+15:                                               ; preds = %1
+  %16 = load i64, ptr %11, align 8, !tbaa !23
+  %17 = ashr i64 %16, 47
+  switch i64 %17, label %.critedge.i [
+    i64 -5, label %18
+    i64 -11, label %33
   ]
 
-19:                                               ; preds = %16
-  %20 = and i64 %17, 140737488355327
-  %21 = inttoptr i64 %20 to ptr
+18:                                               ; preds = %15
+  %19 = and i64 %16, 140737488355327
+  %20 = inttoptr i64 %19 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %0, ptr %22, align 8, !tbaa !60
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %8, ptr %23, align 8, !tbaa !65
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %24, ptr %25, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %24, ptr %26, align 8, !tbaa !67
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr null, ptr %27, align 8, !tbaa !68
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i32 18, ptr %28, align 4, !tbaa !69
-  %29 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
-  %.not32.i = icmp eq i32 %29, 0
-  br i1 %.not32.i, label %31, label %30
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %0, ptr %21, align 8, !tbaa !60
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %8, ptr %22, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %23, ptr %24, align 8, !tbaa !66
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %23, ptr %25, align 8, !tbaa !67
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr null, ptr %26, align 8, !tbaa !68
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i32 18, ptr %27, align 4, !tbaa !69
+  %28 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
+  %.not32.i = icmp eq i32 %28, 0
+  br i1 %.not32.i, label %30, label %29
 
-30:                                               ; preds = %19
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %29) #10
+29:                                               ; preds = %18
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %28) #10
   unreachable
 
-31:                                               ; preds = %19
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !70
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
   br label %ffi_checkctype.exit
 
-34:                                               ; preds = %16
-  %35 = and i64 %17, 140737488355327
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 10
-  %38 = load i16, ptr %37, align 2, !tbaa !48
-  %39 = icmp eq i16 %38, 22
-  br i1 %39, label %40, label %43
+33:                                               ; preds = %15
+  %34 = and i64 %16, 140737488355327
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %37 = load i16, ptr %36, align 2, !tbaa !48
+  %38 = icmp eq i16 %37, 22
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load i32, ptr %41, align 4, !tbaa !43
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %41 = load i32, ptr %40, align 4, !tbaa !43
   br label %ffi_checkctype.exit
 
-43:                                               ; preds = %34
-  %44 = zext i16 %38 to i32
+42:                                               ; preds = %33
+  %43 = zext i16 %37 to i32
   br label %ffi_checkctype.exit
 
-ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i28 = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
-  %45 = load ptr, ptr %8, align 8, !tbaa !51
-  br label %46
+ffi_checkctype.exit:                              ; preds = %30, %39, %42
+  %.0.i28 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %44 = load ptr, ptr %8, align 8, !tbaa !51
+  br label %45
 
-46:                                               ; preds = %46, %ffi_checkctype.exit
-  %.pn.in = phi i32 [ %.0.i28, %ffi_checkctype.exit ], [ %49, %46 ]
+45:                                               ; preds = %45, %ffi_checkctype.exit
+  %.pn.in = phi i32 [ %.0.i28, %ffi_checkctype.exit ], [ %48, %45 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %45, i64 %.pn
-  %47 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %48 = icmp slt i32 %47, -1879048192
-  %49 = and i32 %47, 65535
-  br i1 %48, label %46, label %ctype_raw.exit, !llvm.loop !54
+  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %44, i64 %.pn
+  %46 = load i32, ptr %.0.i, align 8, !tbaa !52
+  %47 = icmp slt i32 %46, -1879048192
+  %48 = and i32 %46, 65535
+  br i1 %47, label %45, label %ctype_raw.exit, !llvm.loop !54
 
-ctype_raw.exit:                                   ; preds = %46
-  %50 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %51, ptr %12, align 8, !tbaa !4
-  %52 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %.fr = freeze i32 %52
-  %53 = icmp ult i32 %.fr, 268435456
-  br i1 %53, label %56, label %switch.early.test
+ctype_raw.exit:                                   ; preds = %45
+  %49 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %50, ptr %12, align 8, !tbaa !4
+  %51 = load i32, ptr %.0.i, align 8, !tbaa !52
+  %.fr = freeze i32 %51
+  %52 = icmp ult i32 %.fr, 268435456
+  br i1 %52, label %55, label %switch.early.test
 
 switch.early.test:                                ; preds = %ctype_raw.exit
-  %54 = lshr i32 %.fr, 28
-  switch i32 %54, label %55 [
-    i32 5, label %56
-    i32 2, label %56
+  %53 = lshr i32 %.fr, 28
+  switch i32 %53, label %54 [
+    i32 5, label %55
+    i32 2, label %55
   ]
 
-55:                                               ; preds = %switch.early.test
+54:                                               ; preds = %switch.early.test
   call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 3016) #10
   unreachable
 
-56:                                               ; preds = %switch.early.test, %switch.early.test, %ctype_raw.exit
-  %57 = load i64, ptr %50, align 8, !tbaa !23
-  %.mask = and i64 %57, -140737488355328
-  %58 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %58, label %59, label %66
+55:                                               ; preds = %switch.early.test, %switch.early.test, %ctype_raw.exit
+  %56 = load i64, ptr %49, align 8, !tbaa !23
+  %.mask = and i64 %56, -140737488355328
+  %57 = icmp eq i64 %.mask, -1548112371908608
+  br i1 %57, label %58, label %65
 
-59:                                               ; preds = %56
-  %60 = and i64 %57, 140737488355327
-  %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 10
-  %63 = load i16, ptr %62, align 2, !tbaa !23
-  %64 = zext i16 %63 to i32
-  %65 = icmp eq i32 %.0.i28, %64
-  br i1 %65, label %87, label %66
+58:                                               ; preds = %55
+  %59 = and i64 %56, 140737488355327
+  %60 = inttoptr i64 %59 to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 10
+  %62 = load i16, ptr %61, align 2, !tbaa !23
+  %63 = zext i16 %62 to i32
+  %64 = icmp eq i32 %.0.i28, %63
+  br i1 %64, label %86, label %65
 
-66:                                               ; preds = %59, %56
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !58
-  %69 = load ptr, ptr %9, align 8, !tbaa !42
-  %70 = zext i32 %68 to i64
-  %71 = add nuw nsw i64 %70, 16
-  %72 = call ptr @lj_mem_newgco(ptr noundef %69, i64 noundef %71) #9
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 9
-  store i8 10, ptr %73, align 1, !tbaa !79
-  %74 = trunc i32 %.0.i28 to i16
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 10
-  store i16 %74, ptr %75, align 2, !tbaa !48
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %8, ptr noundef nonnull %.0.i, ptr noundef nonnull %76, ptr noundef nonnull %50, i32 noundef 1) #9
-  %77 = ptrtoint ptr %72 to i64
-  %78 = or i64 %77, -1548112371908608
-  store i64 %78, ptr %50, align 8, !tbaa !23
-  %79 = load i64, ptr %3, align 8, !tbaa !24
-  %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load i64, ptr %81, align 8, !tbaa !46
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %84 = load i64, ptr %83, align 8, !tbaa !47
-  %.not = icmp ult i64 %82, %84
-  br i1 %.not, label %87, label %85, !prof !27
+65:                                               ; preds = %58, %55
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %67 = load i32, ptr %66, align 4, !tbaa !58
+  %68 = load ptr, ptr %9, align 8, !tbaa !42
+  %69 = zext i32 %67 to i64
+  %70 = add nuw nsw i64 %69, 16
+  %71 = call ptr @lj_mem_newgco(ptr noundef %68, i64 noundef %70) #9
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 9
+  store i8 10, ptr %72, align 1, !tbaa !79
+  %73 = trunc i32 %.0.i28 to i16
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 10
+  store i16 %73, ptr %74, align 2, !tbaa !48
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %8, ptr noundef nonnull %.0.i, ptr noundef nonnull %75, ptr noundef nonnull %49, i32 noundef 1) #9
+  %76 = ptrtoint ptr %71 to i64
+  %77 = or i64 %76, -1548112371908608
+  store i64 %77, ptr %49, align 8, !tbaa !23
+  %78 = load i64, ptr %3, align 8, !tbaa !24
+  %79 = inttoptr i64 %78 to ptr
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load i64, ptr %80, align 8, !tbaa !46
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %83 = load i64, ptr %82, align 8, !tbaa !47
+  %.not = icmp ult i64 %81, %83
+  br i1 %.not, label %86, label %84, !prof !27
 
-85:                                               ; preds = %66
-  %86 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
-  br label %87
+84:                                               ; preds = %65
+  %85 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
+  br label %86
 
-87:                                               ; preds = %66, %85, %59
+86:                                               ; preds = %65, %84, %58
   ret i32 1
 }
 
@@ -2255,16 +2255,379 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp ult ptr %11, %13
-  br i1 %14, label %16, label %15
+  br i1 %14, label %15, label %.critedge.i
 
-15:                                               ; preds = %16, %1
+.critedge.i:                                      ; preds = %15, %1
+  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
+  unreachable
+
+15:                                               ; preds = %1
+  %16 = load i64, ptr %11, align 8, !tbaa !23
+  %17 = ashr i64 %16, 47
+  switch i64 %17, label %.critedge.i [
+    i64 -5, label %18
+    i64 -11, label %33
+  ]
+
+18:                                               ; preds = %15
+  %19 = and i64 %16, 140737488355327
+  %20 = inttoptr i64 %19 to ptr
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %0, ptr %21, align 8, !tbaa !60
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %8, ptr %22, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %23, ptr %24, align 8, !tbaa !66
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %23, ptr %25, align 8, !tbaa !67
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr null, ptr %26, align 8, !tbaa !68
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i32 18, ptr %27, align 4, !tbaa !69
+  %28 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
+  %.not32.i = icmp eq i32 %28, 0
+  br i1 %.not32.i, label %30, label %29
+
+29:                                               ; preds = %18
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %28) #10
+  unreachable
+
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
+  br label %ffi_checkctype.exit
+
+33:                                               ; preds = %15
+  %34 = and i64 %16, 140737488355327
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %37 = load i16, ptr %36, align 2, !tbaa !48
+  %38 = icmp eq i16 %37, 22
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %41 = load i32, ptr %40, align 4, !tbaa !43
+  br label %ffi_checkctype.exit
+
+42:                                               ; preds = %33
+  %43 = zext i16 %37 to i32
+  br label %ffi_checkctype.exit
+
+ffi_checkctype.exit:                              ; preds = %30, %39, %42
+  %.0.i42 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %44 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
+  %45 = load i64, ptr %44, align 8, !tbaa !23
+  %.mask = and i64 %45, -140737488355328
+  %46 = icmp eq i64 %.mask, -1548112371908608
+  br i1 %46, label %47, label %104
+
+47:                                               ; preds = %ffi_checkctype.exit
+  %48 = and i64 %45, 140737488355327
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 10
+  %51 = load i16, ptr %50, align 2, !tbaa !48
+  %52 = icmp eq i16 %51, 22
+  br i1 %52, label %53, label %56
+
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %55 = load i32, ptr %54, align 4, !tbaa !43
+  br label %58
+
+56:                                               ; preds = %47
+  %57 = zext i16 %51 to i32
+  br label %58
+
+58:                                               ; preds = %56, %53
+  %59 = phi i32 [ %55, %53 ], [ %57, %56 ]
+  %60 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %.0.i42) #9
+  %61 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %59) #9
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %99, label %63
+
+63:                                               ; preds = %58
+  %64 = load i32, ptr %60, align 8, !tbaa !52
+  %65 = lshr i32 %64, 28
+  %66 = load i32, ptr %61, align 8, !tbaa !52
+  %67 = lshr i32 %66, 28
+  %68 = icmp eq i32 %65, %67
+  br i1 %68, label %69, label %87
+
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %71 = load i32, ptr %70, align 4, !tbaa !58
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !58
+  %74 = icmp eq i32 %71, %73
+  br i1 %74, label %75, label %87
+
+75:                                               ; preds = %69
+  %.mask41 = and i32 %64, -536870912
+  %76 = icmp eq i32 %.mask41, 536870912
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %75
+  %78 = call i32 @lj_cconv_compatptr(ptr noundef nonnull %8, ptr noundef nonnull %60, ptr noundef nonnull %61, i32 noundef 8) #9
+  br label %99
+
+79:                                               ; preds = %75
+  %80 = icmp ult i32 %64, 268435456
+  %81 = icmp eq i32 %65, 4
+  %or.cond = or i1 %80, %81
+  br i1 %or.cond, label %82, label %99
+
+82:                                               ; preds = %79
+  %83 = xor i32 %66, %64
+  %84 = and i32 %83, -54525953
+  %85 = icmp eq i32 %84, 0
+  %86 = zext i1 %85 to i32
+  br label %99
+
+87:                                               ; preds = %69, %63
+  %.mask39 = and i32 %64, -268435456
+  %88 = icmp eq i32 %.mask39, 268435456
+  %.mask40 = and i32 %66, -268435456
+  %89 = icmp eq i32 %.mask40, 536870912
+  %or.cond43 = and i1 %88, %89
+  br i1 %or.cond43, label %.preheader, label %99
+
+.preheader:                                       ; preds = %87
+  %90 = load ptr, ptr %8, align 8, !tbaa !51
+  br label %91
+
+91:                                               ; preds = %.preheader, %91
+  %92 = phi i32 [ %96, %91 ], [ %66, %.preheader ]
+  %93 = and i32 %92, 65535
+  %94 = zext nneg i32 %93 to i64
+  %95 = getelementptr inbounds nuw %struct.CType, ptr %90, i64 %94
+  %96 = load i32, ptr %95, align 8, !tbaa !52
+  %97 = icmp slt i32 %96, -1879048192
+  br i1 %97, label %91, label %ctype_rawchild.exit, !llvm.loop !57
+
+ctype_rawchild.exit:                              ; preds = %91
+  %98 = icmp eq ptr %60, %95
+  %spec.select = zext i1 %98 to i32
+  br label %99
+
+99:                                               ; preds = %ctype_rawchild.exit, %79, %58, %82, %77, %87
+  %.1 = phi i32 [ %78, %77 ], [ %86, %82 ], [ 0, %87 ], [ 1, %58 ], [ 0, %79 ], [ %spec.select, %ctype_rawchild.exit ]
+  %100 = add nsw i32 %.1, 1
+  %101 = zext i32 %100 to i64
+  %102 = shl i64 %101, 47
+  %103 = xor i64 %102, -1
+  br label %104
+
+104:                                              ; preds = %99, %ffi_checkctype.exit
+  %.0 = phi i64 [ %103, %99 ], [ -140737488355329, %ffi_checkctype.exit ]
+  %105 = load ptr, ptr %12, align 8, !tbaa !4
+  %106 = getelementptr inbounds i8, ptr %105, i64 -8
+  store i64 %.0, ptr %106, align 8, !tbaa !23
+  %107 = load i64, ptr %3, align 8, !tbaa !24
+  %108 = inttoptr i64 %107 to ptr
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 240
+  store i64 %.0, ptr %109, align 8, !tbaa !23
+  ret i32 1
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca %struct.CPState, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 8, !tbaa !24
+  %6 = inttoptr i64 %5 to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
+  %8 = load i64, ptr %7, align 8, !tbaa !41
+  %9 = inttoptr i64 %8 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %0, ptr %10, align 8, !tbaa !42
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  %15 = icmp ult ptr %12, %14
+  br i1 %15, label %16, label %.critedge.i
+
+.critedge.i:                                      ; preds = %16, %1
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
 16:                                               ; preds = %1
-  %17 = load i64, ptr %11, align 8, !tbaa !23
+  %17 = load i64, ptr %12, align 8, !tbaa !23
   %18 = ashr i64 %17, 47
-  switch i64 %18, label %15 [
+  switch i64 %18, label %.critedge.i [
+    i64 -5, label %19
+    i64 -11, label %34
+  ]
+
+19:                                               ; preds = %16
+  %20 = and i64 %17, 140737488355327
+  %21 = inttoptr i64 %20 to ptr
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr %0, ptr %22, align 8, !tbaa !60
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %9, ptr %23, align 8, !tbaa !65
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr %24, ptr %25, align 8, !tbaa !66
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %24, ptr %26, align 8, !tbaa !67
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store ptr null, ptr %27, align 8, !tbaa !68
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 116
+  store i32 18, ptr %28, align 4, !tbaa !69
+  %29 = call i32 @lj_cparse(ptr noundef nonnull %3) #9
+  %.not32.i = icmp eq i32 %29, 0
+  br i1 %.not32.i, label %31, label %30
+
+30:                                               ; preds = %19
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %29) #10
+  unreachable
+
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
+  %.pre = load ptr, ptr %11, align 8, !tbaa !44
+  %.pre26 = load i64, ptr %.pre, align 8, !tbaa !23
+  br label %ffi_checkctype.exit
+
+34:                                               ; preds = %16
+  %35 = and i64 %17, 140737488355327
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 10
+  %38 = load i16, ptr %37, align 2, !tbaa !48
+  %39 = icmp eq i16 %38, 22
+  br i1 %39, label %40, label %43
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %42 = load i32, ptr %41, align 4, !tbaa !43
+  br label %ffi_checkctype.exit
+
+43:                                               ; preds = %34
+  %44 = zext i16 %38 to i32
+  br label %ffi_checkctype.exit
+
+ffi_checkctype.exit:                              ; preds = %31, %40, %43
+  %45 = phi i64 [ %.pre26, %31 ], [ %17, %40 ], [ %17, %43 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %.mask = and i64 %45, -140737488355328
+  %46 = icmp eq i64 %.mask, -1548112371908608
+  br i1 %46, label %47, label %.critedge
+
+47:                                               ; preds = %ffi_checkctype.exit
+  %48 = and i64 %45, 140737488355327
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i8, ptr %50, align 8, !tbaa !23
+  %52 = icmp slt i8 %51, 0
+  br i1 %52, label %53, label %.critedge, !prof !84
+
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds i8, ptr %49, i64 -4
+  %55 = load i32, ptr %54, align 4, !tbaa !85
+  br label %.critedge23
+
+.critedge:                                        ; preds = %ffi_checkctype.exit, %47
+  %56 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
+  %57 = load i32, ptr %56, align 8, !tbaa !52
+  %58 = and i32 %57, -804257792
+  %59 = icmp eq i32 %58, 269484032
+  br i1 %59, label %60, label %75
+
+60:                                               ; preds = %.critedge
+  %61 = load i64, ptr %4, align 8, !tbaa !24
+  %62 = inttoptr i64 %61 to ptr
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 384
+  %64 = load i64, ptr %63, align 8, !tbaa !41
+  %65 = inttoptr i64 %64 to ptr
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store ptr %0, ptr %66, align 8, !tbaa !42
+  %67 = load ptr, ptr %11, align 8, !tbaa !44
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  %69 = load ptr, ptr %13, align 8, !tbaa !4
+  %.not.i = icmp ult ptr %68, %69
+  br i1 %.not.i, label %ffi_checkint.exit, label %70
+
+70:                                               ; preds = %60
+  call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 551) #10
+  unreachable
+
+ffi_checkint.exit:                                ; preds = %60
+  %71 = load ptr, ptr %65, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 216
+  call void @lj_cconv_ct_tv(ptr noundef nonnull %65, ptr noundef nonnull %72, ptr noundef nonnull %2, ptr noundef nonnull %68, i32 noundef 512) #9
+  %73 = load i32, ptr %2, align 4, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  %74 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %9, ptr noundef nonnull %56, i32 noundef %73) #9
+  br label %80
+
+75:                                               ; preds = %.critedge
+  %76 = icmp ult i32 %57, 1610612736
+  br i1 %76, label %77, label %.thread
+
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %79 = load i32, ptr %78, align 4, !tbaa !58
+  br label %80
+
+80:                                               ; preds = %77, %ffi_checkint.exit
+  %.121 = phi i32 [ %74, %ffi_checkint.exit ], [ %79, %77 ]
+  %.not = icmp eq i32 %.121, -1
+  br i1 %.not, label %.thread, label %.critedge23, !prof !87
+
+.thread:                                          ; preds = %75, %80
+  %81 = load ptr, ptr %13, align 8, !tbaa !4
+  %82 = getelementptr inbounds i8, ptr %81, i64 -8
+  store i64 -1, ptr %82, align 8, !tbaa !23
+  br label %86
+
+.critedge23:                                      ; preds = %80, %53
+  %.020 = phi i32 [ %55, %53 ], [ %.121, %80 ]
+  %83 = load ptr, ptr %13, align 8, !tbaa !4
+  %84 = getelementptr inbounds i8, ptr %83, i64 -8
+  %85 = sitofp i32 %.020 to double
+  store double %85, ptr %84, align 8, !tbaa !23
+  br label %86
+
+86:                                               ; preds = %.thread, %.critedge23
+  ret i32 1
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
+  %2 = alloca %struct.CPState, align 8
+  %3 = alloca i32, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 8, !tbaa !24
+  %6 = inttoptr i64 %5 to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
+  %8 = load i64, ptr %7, align 8, !tbaa !41
+  %9 = inttoptr i64 %8 to ptr
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %0, ptr %10, align 8, !tbaa !42
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  %15 = icmp ult ptr %12, %14
+  br i1 %15, label %16, label %.critedge.i
+
+.critedge.i:                                      ; preds = %16, %1
+  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
+  unreachable
+
+16:                                               ; preds = %1
+  %17 = load i64, ptr %12, align 8, !tbaa !23
+  %18 = ashr i64 %17, 47
+  switch i64 %18, label %.critedge.i [
     i64 -5, label %19
     i64 -11, label %34
   ]
@@ -2276,7 +2639,7 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %0, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %8, ptr %23, align 8, !tbaa !65
+  store ptr %9, ptr %23, align 8, !tbaa !65
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %24, ptr %25, align 8, !tbaa !66
@@ -2318,380 +2681,17 @@ define internal noundef i32 @lj_cf_ffi_istype(ptr noundef %0) #0 {
   br label %ffi_checkctype.exit
 
 ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i42 = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
-  %45 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
-  %46 = load i64, ptr %45, align 8, !tbaa !23
-  %.mask = and i64 %46, -140737488355328
-  %47 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %47, label %48, label %105
-
-48:                                               ; preds = %ffi_checkctype.exit
-  %49 = and i64 %46, 140737488355327
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 10
-  %52 = load i16, ptr %51, align 2, !tbaa !48
-  %53 = icmp eq i16 %52, 22
-  br i1 %53, label %54, label %57
-
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %56 = load i32, ptr %55, align 4, !tbaa !43
-  br label %59
-
-57:                                               ; preds = %48
-  %58 = zext i16 %52 to i32
-  br label %59
-
-59:                                               ; preds = %57, %54
-  %60 = phi i32 [ %56, %54 ], [ %58, %57 ]
-  %61 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %.0.i42) #9
-  %62 = call ptr @lj_ctype_rawref(ptr noundef nonnull %8, i32 noundef %60) #9
-  %63 = icmp eq ptr %61, %62
-  br i1 %63, label %100, label %64
-
-64:                                               ; preds = %59
-  %65 = load i32, ptr %61, align 8, !tbaa !52
-  %66 = lshr i32 %65, 28
-  %67 = load i32, ptr %62, align 8, !tbaa !52
-  %68 = lshr i32 %67, 28
-  %69 = icmp eq i32 %66, %68
-  br i1 %69, label %70, label %88
-
-70:                                               ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !58
-  %73 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !58
-  %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %88
-
-76:                                               ; preds = %70
-  %.mask41 = and i32 %65, -536870912
-  %77 = icmp eq i32 %.mask41, 536870912
-  br i1 %77, label %78, label %80
-
-78:                                               ; preds = %76
-  %79 = call i32 @lj_cconv_compatptr(ptr noundef nonnull %8, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 8) #9
-  br label %100
-
-80:                                               ; preds = %76
-  %81 = icmp ult i32 %65, 268435456
-  %82 = icmp eq i32 %66, 4
-  %or.cond = or i1 %81, %82
-  br i1 %or.cond, label %83, label %100
-
-83:                                               ; preds = %80
-  %84 = xor i32 %67, %65
-  %85 = and i32 %84, -54525953
-  %86 = icmp eq i32 %85, 0
-  %87 = zext i1 %86 to i32
-  br label %100
-
-88:                                               ; preds = %70, %64
-  %.mask39 = and i32 %65, -268435456
-  %89 = icmp eq i32 %.mask39, 268435456
-  %.mask40 = and i32 %67, -268435456
-  %90 = icmp eq i32 %.mask40, 536870912
-  %or.cond43 = and i1 %89, %90
-  br i1 %or.cond43, label %.preheader, label %100
-
-.preheader:                                       ; preds = %88
-  %91 = load ptr, ptr %8, align 8, !tbaa !51
-  br label %92
-
-92:                                               ; preds = %.preheader, %92
-  %93 = phi i32 [ %97, %92 ], [ %67, %.preheader ]
-  %94 = and i32 %93, 65535
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.CType, ptr %91, i64 %95
-  %97 = load i32, ptr %96, align 8, !tbaa !52
-  %98 = icmp slt i32 %97, -1879048192
-  br i1 %98, label %92, label %ctype_rawchild.exit, !llvm.loop !57
-
-ctype_rawchild.exit:                              ; preds = %92
-  %99 = icmp eq ptr %61, %96
-  %spec.select = zext i1 %99 to i32
-  br label %100
-
-100:                                              ; preds = %ctype_rawchild.exit, %80, %59, %83, %78, %88
-  %.1 = phi i32 [ %79, %78 ], [ %87, %83 ], [ 0, %88 ], [ 1, %59 ], [ 0, %80 ], [ %spec.select, %ctype_rawchild.exit ]
-  %101 = add nsw i32 %.1, 1
-  %102 = zext i32 %101 to i64
-  %103 = shl i64 %102, 47
-  %104 = xor i64 %103, -1
-  br label %105
-
-105:                                              ; preds = %100, %ffi_checkctype.exit
-  %.0 = phi i64 [ %104, %100 ], [ -140737488355329, %ffi_checkctype.exit ]
-  %106 = load ptr, ptr %12, align 8, !tbaa !4
-  %107 = getelementptr inbounds i8, ptr %106, i64 -8
-  store i64 %.0, ptr %107, align 8, !tbaa !23
-  %108 = load i64, ptr %3, align 8, !tbaa !24
-  %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 240
-  store i64 %.0, ptr %110, align 8, !tbaa !23
-  ret i32 1
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_ffi_sizeof(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca %struct.CPState, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !24
-  %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  %8 = load i64, ptr %7, align 8, !tbaa !41
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %0, ptr %10, align 8, !tbaa !42
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !4
-  %15 = icmp ult ptr %12, %14
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %17, %1
-  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
-  unreachable
-
-17:                                               ; preds = %1
-  %18 = load i64, ptr %12, align 8, !tbaa !23
-  %19 = ashr i64 %18, 47
-  switch i64 %19, label %16 [
-    i64 -5, label %20
-    i64 -11, label %35
-  ]
-
-20:                                               ; preds = %17
-  %21 = and i64 %18, 140737488355327
-  %22 = inttoptr i64 %21 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #9
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %0, ptr %23, align 8, !tbaa !60
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %9, ptr %24, align 8, !tbaa !65
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %25, ptr %26, align 8, !tbaa !66
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %25, ptr %27, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr null, ptr %28, align 8, !tbaa !68
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store i32 18, ptr %29, align 4, !tbaa !69
-  %30 = call i32 @lj_cparse(ptr noundef nonnull %3) #9
-  %.not32.i = icmp eq i32 %30, 0
-  br i1 %.not32.i, label %32, label %31
-
-31:                                               ; preds = %20
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %30) #10
-  unreachable
-
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #9
-  %.pre = load ptr, ptr %11, align 8, !tbaa !44
-  %.pre26 = load i64, ptr %.pre, align 8, !tbaa !23
-  br label %ffi_checkctype.exit
-
-35:                                               ; preds = %17
-  %36 = and i64 %18, 140737488355327
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 10
-  %39 = load i16, ptr %38, align 2, !tbaa !48
-  %40 = icmp eq i16 %39, 22
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load i32, ptr %42, align 4, !tbaa !43
-  br label %ffi_checkctype.exit
-
-44:                                               ; preds = %35
-  %45 = zext i16 %39 to i32
-  br label %ffi_checkctype.exit
-
-ffi_checkctype.exit:                              ; preds = %32, %41, %44
-  %46 = phi i64 [ %.pre26, %32 ], [ %18, %44 ], [ %18, %41 ]
-  %.0.i = phi i32 [ %34, %32 ], [ %45, %44 ], [ %43, %41 ]
-  %.mask = and i64 %46, -140737488355328
-  %47 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %47, label %48, label %.critedge
-
-48:                                               ; preds = %ffi_checkctype.exit
-  %49 = and i64 %46, 140737488355327
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i8, ptr %51, align 8, !tbaa !23
-  %53 = icmp slt i8 %52, 0
-  br i1 %53, label %54, label %.critedge, !prof !84
-
-54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %50, i64 -4
-  %56 = load i32, ptr %55, align 4, !tbaa !85
-  br label %.critedge23
-
-.critedge:                                        ; preds = %ffi_checkctype.exit, %48
-  %57 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
-  %58 = load i32, ptr %57, align 8, !tbaa !52
-  %59 = and i32 %58, -804257792
-  %60 = icmp eq i32 %59, 269484032
-  br i1 %60, label %61, label %76
-
-61:                                               ; preds = %.critedge
-  %62 = load i64, ptr %4, align 8, !tbaa !24
-  %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 384
-  %65 = load i64, ptr %64, align 8, !tbaa !41
-  %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %0, ptr %67, align 8, !tbaa !42
-  %68 = load ptr, ptr %11, align 8, !tbaa !44
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  %70 = load ptr, ptr %13, align 8, !tbaa !4
-  %.not.i = icmp ult ptr %69, %70
-  br i1 %.not.i, label %ffi_checkint.exit, label %71
-
-71:                                               ; preds = %61
-  call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 551) #10
-  unreachable
-
-ffi_checkint.exit:                                ; preds = %61
-  %72 = load ptr, ptr %66, align 8, !tbaa !51
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 216
-  call void @lj_cconv_ct_tv(ptr noundef nonnull %66, ptr noundef nonnull %73, ptr noundef nonnull %2, ptr noundef nonnull %69, i32 noundef 512) #9
-  %74 = load i32, ptr %2, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  %75 = call i32 @lj_ctype_vlsize(ptr noundef nonnull %9, ptr noundef nonnull %57, i32 noundef %74) #9
-  br label %81
-
-76:                                               ; preds = %.critedge
-  %77 = icmp ult i32 %58, 1610612736
-  br i1 %77, label %78, label %.thread
-
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !58
-  br label %81
-
-81:                                               ; preds = %78, %ffi_checkint.exit
-  %.121 = phi i32 [ %75, %ffi_checkint.exit ], [ %80, %78 ]
-  %.not = icmp eq i32 %.121, -1
-  br i1 %.not, label %.thread, label %.critedge23, !prof !87
-
-.thread:                                          ; preds = %76, %81
-  %82 = load ptr, ptr %13, align 8, !tbaa !4
-  %83 = getelementptr inbounds i8, ptr %82, i64 -8
-  store i64 -1, ptr %83, align 8, !tbaa !23
-  br label %87
-
-.critedge23:                                      ; preds = %81, %54
-  %.020 = phi i32 [ %56, %54 ], [ %.121, %81 ]
-  %84 = load ptr, ptr %13, align 8, !tbaa !4
-  %85 = getelementptr inbounds i8, ptr %84, i64 -8
-  %86 = sitofp i32 %.020 to double
-  store double %86, ptr %85, align 8, !tbaa !23
-  br label %87
-
-87:                                               ; preds = %.thread, %.critedge23
-  ret i32 1
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_ffi_alignof(ptr noundef %0) #0 {
-  %2 = alloca %struct.CPState, align 8
-  %3 = alloca i32, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !24
-  %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  %8 = load i64, ptr %7, align 8, !tbaa !41
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %0, ptr %10, align 8, !tbaa !42
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !4
-  %15 = icmp ult ptr %12, %14
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %17, %1
-  tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
-  unreachable
-
-17:                                               ; preds = %1
-  %18 = load i64, ptr %12, align 8, !tbaa !23
-  %19 = ashr i64 %18, 47
-  switch i64 %19, label %16 [
-    i64 -5, label %20
-    i64 -11, label %35
-  ]
-
-20:                                               ; preds = %17
-  %21 = and i64 %18, 140737488355327
-  %22 = inttoptr i64 %21 to ptr
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %0, ptr %23, align 8, !tbaa !60
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %9, ptr %24, align 8, !tbaa !65
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %25, ptr %26, align 8, !tbaa !66
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %25, ptr %27, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr null, ptr %28, align 8, !tbaa !68
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i32 18, ptr %29, align 4, !tbaa !69
-  %30 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
-  %.not32.i = icmp eq i32 %30, 0
-  br i1 %.not32.i, label %32, label %31
-
-31:                                               ; preds = %20
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %30) #10
-  unreachable
-
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
-  br label %ffi_checkctype.exit
-
-35:                                               ; preds = %17
-  %36 = and i64 %18, 140737488355327
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 10
-  %39 = load i16, ptr %38, align 2, !tbaa !48
-  %40 = icmp eq i16 %39, 22
-  br i1 %40, label %41, label %44
-
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load i32, ptr %42, align 4, !tbaa !43
-  br label %ffi_checkctype.exit
-
-44:                                               ; preds = %35
-  %45 = zext i16 %39 to i32
-  br label %ffi_checkctype.exit
-
-ffi_checkctype.exit:                              ; preds = %32, %41, %44
-  %.0.i = phi i32 [ %34, %32 ], [ %45, %44 ], [ %43, %41 ]
+  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !tbaa !43
-  %46 = call i32 @lj_ctype_info_raw(ptr noundef nonnull %9, i32 noundef %.0.i, ptr noundef nonnull %3) #9
-  %47 = load ptr, ptr %13, align 8, !tbaa !4
-  %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = lshr i32 %46, 16
-  %50 = and i32 %49, 15
-  %51 = shl nuw nsw i32 1, %50
-  %52 = uitofp nneg i32 %51 to double
-  store double %52, ptr %48, align 8, !tbaa !23
+  %45 = call i32 @lj_ctype_info_raw(ptr noundef nonnull %9, i32 noundef %.0.i, ptr noundef nonnull %3) #9
+  %46 = load ptr, ptr %13, align 8, !tbaa !4
+  %47 = getelementptr inbounds i8, ptr %46, i64 -8
+  %48 = lshr i32 %45, 16
+  %49 = and i32 %48, 15
+  %50 = shl nuw nsw i32 1, %49
+  %51 = uitofp nneg i32 %50 to double
+  store double %51, ptr %47, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   ret i32 1
 }
@@ -2713,124 +2713,124 @@ define internal range(i32 0, 4) i32 @lj_cf_ffi_offsetof(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = icmp ult ptr %12, %14
-  br i1 %15, label %17, label %16
+  br i1 %15, label %16, label %.critedge.i
 
-16:                                               ; preds = %17, %1
+.critedge.i:                                      ; preds = %16, %1
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
-17:                                               ; preds = %1
-  %18 = load i64, ptr %12, align 8, !tbaa !23
-  %19 = ashr i64 %18, 47
-  switch i64 %19, label %16 [
-    i64 -5, label %20
-    i64 -11, label %35
+16:                                               ; preds = %1
+  %17 = load i64, ptr %12, align 8, !tbaa !23
+  %18 = ashr i64 %17, 47
+  switch i64 %18, label %.critedge.i [
+    i64 -5, label %19
+    i64 -11, label %34
   ]
 
-20:                                               ; preds = %17
-  %21 = and i64 %18, 140737488355327
-  %22 = inttoptr i64 %21 to ptr
+19:                                               ; preds = %16
+  %20 = and i64 %17, 140737488355327
+  %21 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %0, ptr %23, align 8, !tbaa !60
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %9, ptr %24, align 8, !tbaa !65
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %25, ptr %26, align 8, !tbaa !66
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %25, ptr %27, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr null, ptr %28, align 8, !tbaa !68
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i32 18, ptr %29, align 4, !tbaa !69
-  %30 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
-  %.not32.i = icmp eq i32 %30, 0
-  br i1 %.not32.i, label %32, label %31
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %0, ptr %22, align 8, !tbaa !60
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %9, ptr %23, align 8, !tbaa !65
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %24, ptr %25, align 8, !tbaa !66
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %24, ptr %26, align 8, !tbaa !67
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr null, ptr %27, align 8, !tbaa !68
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i32 18, ptr %28, align 4, !tbaa !69
+  %29 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
+  %.not32.i = icmp eq i32 %29, 0
+  br i1 %.not32.i, label %31, label %30
 
-31:                                               ; preds = %20
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %30) #10
+30:                                               ; preds = %19
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %29) #10
   unreachable
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !70
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
   br label %ffi_checkctype.exit
 
-35:                                               ; preds = %17
-  %36 = and i64 %18, 140737488355327
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 10
-  %39 = load i16, ptr %38, align 2, !tbaa !48
-  %40 = icmp eq i16 %39, 22
-  br i1 %40, label %41, label %44
+34:                                               ; preds = %16
+  %35 = and i64 %17, 140737488355327
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 10
+  %38 = load i16, ptr %37, align 2, !tbaa !48
+  %39 = icmp eq i16 %38, 22
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load i32, ptr %42, align 4, !tbaa !43
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %42 = load i32, ptr %41, align 4, !tbaa !43
   br label %ffi_checkctype.exit
 
-44:                                               ; preds = %35
-  %45 = zext i16 %39 to i32
+43:                                               ; preds = %34
+  %44 = zext i16 %38 to i32
   br label %ffi_checkctype.exit
 
-ffi_checkctype.exit:                              ; preds = %32, %41, %44
-  %.0.i = phi i32 [ %34, %32 ], [ %45, %44 ], [ %43, %41 ]
-  %46 = call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef 2) #9
-  %47 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
+ffi_checkctype.exit:                              ; preds = %31, %40, %43
+  %.0.i = phi i32 [ %33, %31 ], [ %42, %40 ], [ %44, %43 ]
+  %45 = call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef 2) #9
+  %46 = call ptr @lj_ctype_rawref(ptr noundef nonnull %9, i32 noundef %.0.i) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  %48 = load i32, ptr %47, align 8, !tbaa !52
-  %.mask = and i32 %48, -268435456
-  %49 = icmp eq i32 %.mask, 268435456
-  br i1 %49, label %50, label %73
+  %47 = load i32, ptr %46, align 8, !tbaa !52
+  %.mask = and i32 %47, -268435456
+  %48 = icmp eq i32 %.mask, 268435456
+  br i1 %48, label %49, label %72
 
-50:                                               ; preds = %ffi_checkctype.exit
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !58
-  %.not = icmp eq i32 %52, -1
-  br i1 %.not, label %73, label %53
+49:                                               ; preds = %ffi_checkctype.exit
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !58
+  %.not = icmp eq i32 %51, -1
+  br i1 %.not, label %72, label %52
 
-53:                                               ; preds = %50
-  %54 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %9, ptr noundef nonnull %47, ptr noundef %46, ptr noundef nonnull %3, ptr noundef null) #9
-  %.not23 = icmp eq ptr %54, null
-  br i1 %.not23, label %73, label %55
+52:                                               ; preds = %49
+  %53 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %9, ptr noundef nonnull %46, ptr noundef %45, ptr noundef nonnull %3, ptr noundef null) #9
+  %.not23 = icmp eq ptr %53, null
+  br i1 %.not23, label %72, label %54
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %13, align 8, !tbaa !4
-  %57 = getelementptr inbounds i8, ptr %56, i64 -8
-  %58 = load i32, ptr %3, align 4, !tbaa !43
-  %59 = sitofp i32 %58 to double
-  store double %59, ptr %57, align 8, !tbaa !23
-  %60 = load i32, ptr %54, align 8, !tbaa !52
-  %61 = lshr i32 %60, 28
-  switch i32 %61, label %73 [
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %13, align 8, !tbaa !4
+  %56 = getelementptr inbounds i8, ptr %55, i64 -8
+  %57 = load i32, ptr %3, align 4, !tbaa !43
+  %58 = sitofp i32 %57 to double
+  store double %58, ptr %56, align 8, !tbaa !23
+  %59 = load i32, ptr %53, align 8, !tbaa !52
+  %60 = lshr i32 %59, 28
+  switch i32 %60, label %72 [
     i32 9, label %.thread
-    i32 10, label %62
+    i32 10, label %61
   ]
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %13, align 8, !tbaa !4
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %64, ptr %13, align 8, !tbaa !4
-  %65 = and i32 %60, 127
-  %66 = uitofp nneg i32 %65 to double
-  store double %66, ptr %63, align 8, !tbaa !23
-  %67 = load ptr, ptr %13, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %68, ptr %13, align 8, !tbaa !4
-  %69 = load i32, ptr %54, align 8, !tbaa !52
-  %70 = lshr i32 %69, 8
-  %71 = and i32 %70, 127
-  %72 = uitofp nneg i32 %71 to double
-  store double %72, ptr %67, align 8, !tbaa !23
-  br label %73
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %13, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %63, ptr %13, align 8, !tbaa !4
+  %64 = and i32 %59, 127
+  %65 = uitofp nneg i32 %64 to double
+  store double %65, ptr %62, align 8, !tbaa !23
+  %66 = load ptr, ptr %13, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %67, ptr %13, align 8, !tbaa !4
+  %68 = load i32, ptr %53, align 8, !tbaa !52
+  %69 = lshr i32 %68, 8
+  %70 = and i32 %69, 127
+  %71 = uitofp nneg i32 %70 to double
+  store double %71, ptr %66, align 8, !tbaa !23
+  br label %72
 
-.thread:                                          ; preds = %55
-  br label %73
+.thread:                                          ; preds = %54
+  br label %72
 
-73:                                               ; preds = %62, %ffi_checkctype.exit, %50, %53, %55, %.thread
-  %.1 = phi i32 [ 0, %55 ], [ 0, %53 ], [ 0, %50 ], [ 0, %ffi_checkctype.exit ], [ 3, %62 ], [ 1, %.thread ]
+72:                                               ; preds = %61, %ffi_checkctype.exit, %49, %52, %54, %.thread
+  %.1 = phi i32 [ 0, %54 ], [ 0, %52 ], [ 0, %49 ], [ 0, %ffi_checkctype.exit ], [ 3, %61 ], [ 1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   ret i32 %.1
 }
@@ -3196,162 +3196,162 @@ define internal noundef i32 @lj_cf_ffi_metatype(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp ult ptr %11, %13
-  br i1 %14, label %16, label %15
+  br i1 %14, label %15, label %.critedge.i
 
-15:                                               ; preds = %16, %1
+.critedge.i:                                      ; preds = %15, %1
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.4) #10
   unreachable
 
-16:                                               ; preds = %1
-  %17 = load i64, ptr %11, align 8, !tbaa !23
-  %18 = ashr i64 %17, 47
-  switch i64 %18, label %15 [
-    i64 -5, label %19
-    i64 -11, label %34
+15:                                               ; preds = %1
+  %16 = load i64, ptr %11, align 8, !tbaa !23
+  %17 = ashr i64 %16, 47
+  switch i64 %17, label %.critedge.i [
+    i64 -5, label %18
+    i64 -11, label %33
   ]
 
-19:                                               ; preds = %16
-  %20 = and i64 %17, 140737488355327
-  %21 = inttoptr i64 %20 to ptr
+18:                                               ; preds = %15
+  %19 = and i64 %16, 140737488355327
+  %20 = inttoptr i64 %19 to ptr
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %0, ptr %22, align 8, !tbaa !60
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %8, ptr %23, align 8, !tbaa !65
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %24, ptr %25, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %24, ptr %26, align 8, !tbaa !67
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr null, ptr %27, align 8, !tbaa !68
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
-  store i32 18, ptr %28, align 4, !tbaa !69
-  %29 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
-  %.not32.i = icmp eq i32 %29, 0
-  br i1 %.not32.i, label %31, label %30
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %0, ptr %21, align 8, !tbaa !60
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %8, ptr %22, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %23, ptr %24, align 8, !tbaa !66
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %23, ptr %25, align 8, !tbaa !67
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr null, ptr %26, align 8, !tbaa !68
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  store i32 18, ptr %27, align 4, !tbaa !69
+  %28 = call i32 @lj_cparse(ptr noundef nonnull %2) #9
+  %.not32.i = icmp eq i32 %28, 0
+  br i1 %.not32.i, label %30, label %29
 
-30:                                               ; preds = %19
-  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %29) #10
+29:                                               ; preds = %18
+  call void @lj_err_throw(ptr noundef nonnull %0, i32 noundef %28) #10
   unreachable
 
-31:                                               ; preds = %19
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !70
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #9
   br label %ffi_checkctype.exit
 
-34:                                               ; preds = %16
-  %35 = and i64 %17, 140737488355327
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 10
-  %38 = load i16, ptr %37, align 2, !tbaa !48
-  %39 = icmp eq i16 %38, 22
-  br i1 %39, label %40, label %43
+33:                                               ; preds = %15
+  %34 = and i64 %16, 140737488355327
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %37 = load i16, ptr %36, align 2, !tbaa !48
+  %38 = icmp eq i16 %37, 22
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %42 = load i32, ptr %41, align 4, !tbaa !43
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %41 = load i32, ptr %40, align 4, !tbaa !43
   br label %ffi_checkctype.exit
 
-43:                                               ; preds = %34
-  %44 = zext i16 %38 to i32
+42:                                               ; preds = %33
+  %43 = zext i16 %37 to i32
   br label %ffi_checkctype.exit
 
-ffi_checkctype.exit:                              ; preds = %31, %40, %43
-  %.0.i36 = phi i32 [ %33, %31 ], [ %44, %43 ], [ %42, %40 ]
-  %45 = call ptr @lj_lib_checktab(ptr noundef nonnull %0, i32 noundef 2) #9
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !14
-  %48 = load ptr, ptr %8, align 8, !tbaa !51
-  br label %49
+ffi_checkctype.exit:                              ; preds = %30, %39, %42
+  %.0.i36 = phi i32 [ %32, %30 ], [ %41, %39 ], [ %43, %42 ]
+  %44 = call ptr @lj_lib_checktab(ptr noundef nonnull %0, i32 noundef 2) #9
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !14
+  %47 = load ptr, ptr %8, align 8, !tbaa !51
+  br label %48
 
-49:                                               ; preds = %49, %ffi_checkctype.exit
-  %.pn.in = phi i32 [ %.0.i36, %ffi_checkctype.exit ], [ %52, %49 ]
+48:                                               ; preds = %48, %ffi_checkctype.exit
+  %.pn.in = phi i32 [ %.0.i36, %ffi_checkctype.exit ], [ %51, %48 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %.pn
-  %50 = load i32, ptr %.0.i, align 8, !tbaa !52
-  %51 = icmp slt i32 %50, -1879048192
-  %52 = and i32 %50, 65535
-  br i1 %51, label %49, label %ctype_raw.exit, !llvm.loop !54
+  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %47, i64 %.pn
+  %49 = load i32, ptr %.0.i, align 8, !tbaa !52
+  %50 = icmp slt i32 %49, -1879048192
+  %51 = and i32 %49, 65535
+  br i1 %50, label %48, label %ctype_raw.exit, !llvm.loop !54
 
-ctype_raw.exit:                                   ; preds = %49
-  %.mask = and i32 %50, -268435456
-  %53 = icmp eq i32 %.mask, 268435456
-  %54 = and i32 %50, -201326592
-  %55 = icmp eq i32 %54, 872415232
-  %or.cond = or i1 %53, %55
-  %56 = and i32 %50, -134217728
-  %57 = icmp eq i32 %56, 939524096
-  %or.cond35 = or i1 %57, %or.cond
-  br i1 %or.cond35, label %59, label %58
+ctype_raw.exit:                                   ; preds = %48
+  %.mask = and i32 %49, -268435456
+  %52 = icmp eq i32 %.mask, 268435456
+  %53 = and i32 %49, -201326592
+  %54 = icmp eq i32 %53, 872415232
+  %or.cond = or i1 %52, %54
+  %55 = and i32 %49, -134217728
+  %56 = icmp eq i32 %55, 939524096
+  %or.cond35 = or i1 %56, %or.cond
+  br i1 %or.cond35, label %58, label %57
 
-58:                                               ; preds = %ctype_raw.exit
+57:                                               ; preds = %ctype_raw.exit
   call void @lj_err_arg(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 3016) #10
   unreachable
 
-59:                                               ; preds = %ctype_raw.exit
+58:                                               ; preds = %ctype_raw.exit
   %.neg = sub i32 0, %.pn.in
-  %60 = call ptr @lj_tab_setinth(ptr noundef nonnull %0, ptr noundef %47, i32 noundef %.neg) #9
-  %61 = load i64, ptr %60, align 8, !tbaa !23
-  %62 = icmp eq i64 %61, -1
-  br i1 %62, label %64, label %63
+  %59 = call ptr @lj_tab_setinth(ptr noundef nonnull %0, ptr noundef %46, i32 noundef %.neg) #9
+  %60 = load i64, ptr %59, align 8, !tbaa !23
+  %61 = icmp eq i64 %60, -1
+  br i1 %61, label %63, label %62
 
-63:                                               ; preds = %59
+62:                                               ; preds = %58
   call void @lj_err_caller(ptr noundef nonnull %0, i32 noundef 951) #10
   unreachable
 
-64:                                               ; preds = %59
-  %65 = ptrtoint ptr %45 to i64
-  %66 = or i64 %65, -1688849860263936
-  store i64 %66, ptr %60, align 8, !tbaa !23
-  %67 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %68 = load i8, ptr %67, align 8, !tbaa !23
-  %69 = and i8 %68, 4
-  %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %78, label %70, !prof !27
+63:                                               ; preds = %58
+  %64 = ptrtoint ptr %44 to i64
+  %65 = or i64 %64, -1688849860263936
+  store i64 %65, ptr %59, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %67 = load i8, ptr %66, align 8, !tbaa !23
+  %68 = and i8 %67, 4
+  %.not = icmp eq i8 %68, 0
+  br i1 %.not, label %77, label %69, !prof !27
 
-70:                                               ; preds = %64
-  %71 = load i64, ptr %3, align 8, !tbaa !24
-  %72 = inttoptr i64 %71 to ptr
-  %73 = and i8 %68, -5
-  store i8 %73, ptr %67, align 8, !tbaa !23
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %75 = load i64, ptr %74, align 8, !tbaa !28
-  %76 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store i64 %75, ptr %76, align 8, !tbaa !39
-  %77 = ptrtoint ptr %47 to i64
-  store i64 %77, ptr %74, align 8, !tbaa !28
-  br label %78
+69:                                               ; preds = %63
+  %70 = load i64, ptr %3, align 8, !tbaa !24
+  %71 = inttoptr i64 %70 to ptr
+  %72 = and i8 %67, -5
+  store i8 %72, ptr %66, align 8, !tbaa !23
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %74 = load i64, ptr %73, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store i64 %74, ptr %75, align 8, !tbaa !39
+  %76 = ptrtoint ptr %46 to i64
+  store i64 %76, ptr %73, align 8, !tbaa !28
+  br label %77
 
-78:                                               ; preds = %70, %64
-  %79 = load ptr, ptr %9, align 8, !tbaa !42
-  %80 = call ptr @lj_mem_newgco(ptr noundef %79, i64 noundef 20) #9
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 9
-  store i8 10, ptr %81, align 1, !tbaa !79
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 10
-  store i16 22, ptr %82, align 2, !tbaa !48
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i32 %.0.i36, ptr %83, align 4, !tbaa !43
-  %84 = load ptr, ptr %12, align 8, !tbaa !4
-  %85 = getelementptr inbounds i8, ptr %84, i64 -8
-  %86 = ptrtoint ptr %80 to i64
-  %87 = or i64 %86, -1548112371908608
-  store i64 %87, ptr %85, align 8, !tbaa !23
-  %88 = load i64, ptr %3, align 8, !tbaa !24
-  %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i64, ptr %90, align 8, !tbaa !46
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %93 = load i64, ptr %92, align 8, !tbaa !47
-  %.not32 = icmp ult i64 %91, %93
-  br i1 %.not32, label %96, label %94, !prof !27
+77:                                               ; preds = %69, %63
+  %78 = load ptr, ptr %9, align 8, !tbaa !42
+  %79 = call ptr @lj_mem_newgco(ptr noundef %78, i64 noundef 20) #9
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 9
+  store i8 10, ptr %80, align 1, !tbaa !79
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 10
+  store i16 22, ptr %81, align 2, !tbaa !48
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  store i32 %.0.i36, ptr %82, align 4, !tbaa !43
+  %83 = load ptr, ptr %12, align 8, !tbaa !4
+  %84 = getelementptr inbounds i8, ptr %83, i64 -8
+  %85 = ptrtoint ptr %79 to i64
+  %86 = or i64 %85, -1548112371908608
+  store i64 %86, ptr %84, align 8, !tbaa !23
+  %87 = load i64, ptr %3, align 8, !tbaa !24
+  %88 = inttoptr i64 %87 to ptr
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !46
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %92 = load i64, ptr %91, align 8, !tbaa !47
+  %.not32 = icmp ult i64 %90, %92
+  br i1 %.not32, label %95, label %93, !prof !27
 
-94:                                               ; preds = %78
-  %95 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
-  br label %96
+93:                                               ; preds = %77
+  %94 = call i32 @lj_gc_step(ptr noundef nonnull %0) #9
+  br label %95
 
-96:                                               ; preds = %94, %78
+95:                                               ; preds = %93, %77
   ret i32 1
 }
 

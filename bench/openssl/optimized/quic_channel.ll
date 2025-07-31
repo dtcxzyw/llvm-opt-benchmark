@@ -5563,71 +5563,71 @@ define internal void @rxku_detected(i64 noundef %0, ptr noundef %1) #0 {
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 17179870208
   %narrow.i.not = icmp eq i64 %4, 1024
-  br i1 %narrow.i.not, label %6, label %5
+  br i1 %narrow.i.not, label %5, label %.critedge
 
 5:                                                ; preds = %2
+  %6 = and i64 %.val, 2147483648
+  %.not19 = icmp eq i64 %6, 0
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1048
+  %8 = load ptr, ptr %7, align 8, !tbaa !84
+  %9 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %8) #15
+  %10 = load i64, ptr %3, align 8
+  %11 = and i64 %10, -27917287425
+  %12 = or disjoint i64 %11, 25769803776
+  store i64 %12, ptr %3, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1560
+  store i64 %0, ptr %13, align 8, !tbaa !202
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1544
+  %15 = load ptr, ptr %1, align 8, !tbaa !3
+  %16 = tail call i64 @ossl_quic_port_get_time(ptr noundef %15) #15
+  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %16, i64 %9)
+  store i64 %.sroa.03.0.i, ptr %14, align 8, !tbaa !71
+  %17 = load i64, ptr %3, align 8
+  %18 = and i64 %17, -68719476737
+  store i64 %18, ptr %3, align 8
+  br i1 %.not19, label %19, label %ch_trigger_txku.exit
+
+.critedge:                                        ; preds = %2
   tail call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %1, i64 noundef 14, i64 noundef 0, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 853, ptr noundef nonnull @__func__.rxku_detected)
-  br label %40
+  br label %39
 
-6:                                                ; preds = %2
-  %7 = and i64 %.val, 2147483648
-  %.not19 = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1048
-  %9 = load ptr, ptr %8, align 8, !tbaa !84
-  %10 = tail call i64 @ossl_ackm_get_pto_duration(ptr noundef %9) #15
-  %11 = load i64, ptr %3, align 8
-  %12 = and i64 %11, -27917287425
-  %13 = or disjoint i64 %12, 25769803776
-  store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1560
-  store i64 %0, ptr %14, align 8, !tbaa !202
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1544
-  %16 = load ptr, ptr %1, align 8, !tbaa !3
-  %17 = tail call i64 @ossl_quic_port_get_time(ptr noundef %16) #15
-  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %17, i64 %10)
-  store i64 %.sroa.03.0.i, ptr %15, align 8, !tbaa !71
-  %18 = load i64, ptr %3, align 8
-  %19 = and i64 %18, -68719476737
-  store i64 %19, ptr %3, align 8
-  br i1 %.not19, label %20, label %ch_trigger_txku.exit
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %21 = load ptr, ptr %20, align 8, !tbaa !109
+  %22 = tail call i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef %21, i32 noundef 2) #15
+  %23 = icmp ugt i64 %22, 4611686018427387903
+  br i1 %23, label %28, label %24
 
-20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %22 = load ptr, ptr %21, align 8, !tbaa !109
-  %23 = tail call i64 @ossl_quic_tx_packetiser_get_next_pn(ptr noundef %22, i32 noundef 2) #15
-  %24 = icmp ugt i64 %23, 4611686018427387903
-  br i1 %24, label %29, label %25
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1056
+  %26 = load ptr, ptr %25, align 8, !tbaa !72
+  %27 = tail call i32 @ossl_qtx_trigger_key_update(ptr noundef %26) #15
+  %.not8.i = icmp eq i32 %27, 0
+  br i1 %.not8.i, label %28, label %29
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1056
-  %27 = load ptr, ptr %26, align 8, !tbaa !72
-  %28 = tail call i32 @ossl_qtx_trigger_key_update(ptr noundef %27) #15
-  %.not8.i = icmp eq i32 %28, 0
-  br i1 %.not8.i, label %29, label %30
-
-29:                                               ; preds = %25, %20
+28:                                               ; preds = %24, %19
   tail call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %1, i64 noundef 1, i64 noundef 0, ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 705, ptr noundef nonnull @__func__.ch_trigger_txku)
   br label %ch_trigger_txku.exit
 
-30:                                               ; preds = %25
-  %31 = load i64, ptr %3, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1552
-  store i64 %23, ptr %32, align 8, !tbaa !215
-  %33 = shl i64 %31, 5
-  %34 = and i64 %33, 68719476736
-  %35 = and i64 %31, -73014444033
-  %36 = or disjoint i64 %35, %34
-  %37 = or disjoint i64 %36, 4294967296
-  store i64 %37, ptr %3, align 8
+29:                                               ; preds = %24
+  %30 = load i64, ptr %3, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1552
+  store i64 %22, ptr %31, align 8, !tbaa !215
+  %32 = shl i64 %30, 5
+  %33 = and i64 %32, 68719476736
+  %34 = and i64 %30, -73014444033
+  %35 = or disjoint i64 %34, %33
+  %36 = or disjoint i64 %35, 4294967296
+  store i64 %36, ptr %3, align 8
   br label %ch_trigger_txku.exit
 
-ch_trigger_txku.exit:                             ; preds = %30, %29, %6
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %39 = load ptr, ptr %38, align 8, !tbaa !109
-  tail call void @ossl_quic_tx_packetiser_schedule_ack(ptr noundef %39, i32 noundef 2) #15
-  br label %40
+ch_trigger_txku.exit:                             ; preds = %29, %28, %5
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %38 = load ptr, ptr %37, align 8, !tbaa !109
+  tail call void @ossl_quic_tx_packetiser_schedule_ack(ptr noundef %38, i32 noundef 2) #15
+  br label %39
 
-40:                                               ; preds = %ch_trigger_txku.exit, %5
+39:                                               ; preds = %ch_trigger_txku.exit, %.critedge
   ret void
 }
 

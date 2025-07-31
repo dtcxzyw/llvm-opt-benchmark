@@ -469,11 +469,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @extts_fifo_show(ptr noun
   %25 = and i32 %24, 128
   %26 = sub i32 0, %23
   %27 = icmp eq i32 %25, %26
-  br i1 %27, label %.thread, label %28
-
-.thread:                                          ; preds = %15
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %17, i64 noundef %18) #13
-  br label %40
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %15
   %29 = getelementptr i8, ptr %16, i64 -4112
@@ -491,8 +487,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @extts_fifo_show(ptr noun
   %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.4, i32 noundef %36, i64 noundef %32, i32 noundef %34) #13
   br label %40
 
-40:                                               ; preds = %.thread, %28, %13
-  %41 = phi i32 [ %9, %13 ], [ %39, %28 ], [ %9, %.thread ]
+.critedge:                                        ; preds = %15
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %17, i64 noundef %18) #13
+  br label %40
+
+40:                                               ; preds = %.critedge, %28, %13
+  %41 = phi i32 [ %9, %13 ], [ %39, %28 ], [ %9, %.critedge ]
   %42 = sext i32 %41 to i64
   ret i64 %42
 }

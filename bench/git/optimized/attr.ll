@@ -1327,7 +1327,7 @@ define dso_local void @git_check_attr(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %12
 
 12:                                               ; preds = %.lr.ph, %compute_builtin_attr.exit
-  %13 = phi ptr [ %.pre, %.lr.ph ], [ %83, %compute_builtin_attr.exit ]
+  %13 = phi ptr [ %.pre, %.lr.ph ], [ %84, %compute_builtin_attr.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %compute_builtin_attr.exit ]
   %14 = getelementptr inbounds nuw %struct.attr_check_item, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !52
@@ -1422,64 +1422,64 @@ canon_mode.exit.thread.i.i:                       ; preds = %57, %48, %canon_mod
   %.021.i.i = phi i32 [ %43, %canon_mode.exit.i.i ], [ %spec.select.i.i, %48 ], [ %spec.select25.i.i, %57 ], [ 40960, %38 ], [ 57344, %41 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #21
-  br label %72
+  br label %73
 
 61:                                               ; preds = %31
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %63 = trunc i64 %62 to i32
   %64 = call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %63) #21
   %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %.thread.i.i, label %compute_builtin_attr.exit
+  br i1 %65, label %66, label %compute_builtin_attr.exit
 
-.thread.i.i:                                      ; preds = %61
-  %66 = load ptr, ptr %0, align 8, !tbaa !79
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !93
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 52
-  %71 = load i32, ptr %70, align 4, !tbaa !22
-  br label %72
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %0, align 8, !tbaa !79
+  %68 = zext nneg i32 %64 to i64
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %70 = load ptr, ptr %69, align 8, !tbaa !93
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 52
+  %72 = load i32, ptr %71, align 4, !tbaa !22
+  br label %73
 
-72:                                               ; preds = %.thread.i.i, %canon_mode.exit.thread.i.i
-  %.2.i.i = phi i32 [ %.021.i.i, %canon_mode.exit.thread.i.i ], [ %71, %.thread.i.i ]
-  br label %74
+73:                                               ; preds = %66, %canon_mode.exit.thread.i.i
+  %.2.i.i = phi i32 [ %.021.i.i, %canon_mode.exit.thread.i.i ], [ %72, %66 ]
+  br label %75
 
-73:                                               ; preds = %74
+74:                                               ; preds = %75
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
-  br i1 %exitcond.not.i.i.i, label %82, label %74, !llvm.loop !96
+  br i1 %exitcond.not.i.i.i, label %83, label %75, !llvm.loop !96
 
-74:                                               ; preds = %73, %72
-  %indvars.iv.i.i.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i.i.i, %73 ]
-  %75 = getelementptr inbounds nuw [5 x %struct.anon], ptr @interned_mode_string.mode_string, i64 0, i64 %indvars.iv.i.i.i
-  %76 = load i32, ptr %75, align 4, !tbaa !97
-  %.not.i26.i.i = icmp eq i32 %76, %.2.i.i
-  br i1 %.not.i26.i.i, label %77, label %73
+75:                                               ; preds = %74, %73
+  %indvars.iv.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i.i, %74 ]
+  %76 = getelementptr inbounds nuw [5 x %struct.anon], ptr @interned_mode_string.mode_string, i64 0, i64 %indvars.iv.i.i.i
+  %77 = load i32, ptr %76, align 4, !tbaa !97
+  %.not.i26.i.i = icmp eq i32 %77, %.2.i.i
+  br i1 %.not.i26.i.i, label %78, label %74
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %79 = load i8, ptr %78, align 4, !tbaa !4
-  %.not11.i.i.i = icmp eq i8 %79, 0
-  br i1 %.not11.i.i.i, label %80, label %compute_builtin_attr.exit
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %80 = load i8, ptr %79, align 4, !tbaa !4
+  %.not11.i.i.i = icmp eq i8 %80, 0
+  br i1 %.not11.i.i.i, label %81, label %compute_builtin_attr.exit
 
-80:                                               ; preds = %77
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %78, i64 noundef 7, ptr noundef nonnull @.str.40, i32 noundef %.2.i.i) #21
+81:                                               ; preds = %78
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %79, i64 noundef 7, ptr noundef nonnull @.str.40, i32 noundef %.2.i.i) #21
   br label %compute_builtin_attr.exit
 
-82:                                               ; preds = %73
+83:                                               ; preds = %74
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 1248, ptr noundef nonnull @.str.41, i32 noundef %.2.i.i) #22
   unreachable
 
-compute_builtin_attr.exit:                        ; preds = %80, %77, %61, %28, %12
-  %.0 = phi ptr [ %21, %12 ], [ null, %28 ], [ null, %61 ], [ %78, %77 ], [ %78, %80 ]
-  %83 = load ptr, ptr %9, align 8, !tbaa !51
-  %84 = getelementptr inbounds nuw %struct.attr_check_item, ptr %83, i64 %indvars.iv, i32 1
-  store ptr %.0, ptr %84, align 8, !tbaa !99
+compute_builtin_attr.exit:                        ; preds = %81, %78, %61, %28, %12
+  %.0 = phi ptr [ %21, %12 ], [ null, %28 ], [ null, %61 ], [ %79, %78 ], [ %79, %81 ]
+  %84 = load ptr, ptr %9, align 8, !tbaa !51
+  %85 = getelementptr inbounds nuw %struct.attr_check_item, ptr %84, i64 %indvars.iv, i32 1
+  store ptr %.0, ptr %85, align 8, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = load i32, ptr %2, align 8, !tbaa !45
-  %86 = sext i32 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %12, label %._crit_edge, !llvm.loop !100
+  %86 = load i32, ptr %2, align 8, !tbaa !45
+  %87 = sext i32 %86 to i64
+  %88 = icmp slt i64 %indvars.iv.next, %87
+  br i1 %88, label %12, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %compute_builtin_attr.exit, %3
   ret void

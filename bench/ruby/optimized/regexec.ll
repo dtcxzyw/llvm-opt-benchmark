@@ -13514,7 +13514,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %19 = load i64, ptr %18, align 8, !tbaa !127
   %20 = icmp ugt i64 %19, %17
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %8
   %.not = icmp eq i64 %19, 0
@@ -13531,7 +13531,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
 
 29:                                               ; preds = %22
   %.not186 = icmp ult ptr %28, %2
-  br i1 %.not186, label %.preheader, label %.thread
+  br i1 %.not186, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %29
   %30 = icmp ult ptr %3, %28
@@ -13548,13 +13548,13 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br label %35
 
 35:                                               ; preds = %35, %.lr.ph.split.us
-  %.2312.us = phi ptr [ %3, %.lr.ph.split.us ], [ %36, %35 ]
-  %36 = getelementptr i8, ptr %.2312.us, i64 %34
+  %.2310.us = phi ptr [ %3, %.lr.ph.split.us ], [ %36, %35 ]
+  %36 = getelementptr i8, ptr %.2310.us, i64 %34
   %37 = icmp ult ptr %36, %28
   br i1 %37, label %35, label %.loopexit, !llvm.loop !128
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
-  %.2312 = phi ptr [ %49, %46 ], [ %3, %.lr.ph ]
+  %.2310 = phi ptr [ %49, %46 ], [ %3, %.lr.ph ]
   %38 = load ptr, ptr %23, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !71
@@ -13564,13 +13564,13 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = tail call i32 @onigenc_mbclen(ptr noundef %.2312, ptr noundef nonnull %2, ptr noundef nonnull %38) #21
+  %45 = tail call i32 @onigenc_mbclen(ptr noundef %.2310, ptr noundef nonnull %2, ptr noundef nonnull %38) #21
   br label %46
 
 46:                                               ; preds = %.lr.ph.split, %44
   %47 = phi i32 [ %45, %44 ], [ %40, %.lr.ph.split ]
   %48 = sext i32 %47 to i64
-  %49 = getelementptr i8, ptr %.2312, i64 %48
+  %49 = getelementptr i8, ptr %.2310, i64 %48
   %50 = icmp ult ptr %49, %28
   br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !129
 
@@ -13622,7 +13622,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   br i1 %74, label %.preheader.i, label %.preheader61.i
 
 .preheader61.i:                                   ; preds = %62
-  br i1 %76, label %.lr.ph.i, label %.thread
+  br i1 %76, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %.preheader61.i
   %77 = icmp eq ptr %65, %75
@@ -13657,10 +13657,10 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   %93 = sext i32 %92 to i64
   %94 = getelementptr i8, ptr %.15064.us.i, i64 %93
   %95 = icmp ult ptr %94, %spec.select.i
-  br i1 %95, label %.lr.ph.split.us.i, label %.thread, !llvm.loop !133
+  br i1 %95, label %.lr.ph.split.us.i, label %.critedge, !llvm.loop !133
 
 .preheader.i:                                     ; preds = %62
-  br i1 %76, label %.lr.ph72.i, label %.thread
+  br i1 %76, label %.lr.ph72.i, label %.critedge
 
 .lr.ph72.i:                                       ; preds = %.preheader.i
   %96 = load i8, ptr %64, align 1, !tbaa !57
@@ -13679,7 +13679,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
 103:                                              ; preds = %.lr.ph72.split.us.i
   %104 = getelementptr i8, ptr %.04971.us.i, i64 %100
   %105 = icmp ult ptr %104, %spec.select.i
-  br i1 %105, label %.lr.ph72.split.us.i, label %.thread, !llvm.loop !134
+  br i1 %105, label %.lr.ph72.split.us.i, label %.critedge, !llvm.loop !134
 
 .lr.ph72.split.i:                                 ; preds = %.lr.ph72.i, %111
   %.04971.i = phi ptr [ %112, %111 ], [ %.3, %.lr.ph72.i ]
@@ -13696,7 +13696,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
 111:                                              ; preds = %108, %.lr.ph72.split.i
   %112 = getelementptr i8, ptr %.04971.i, i64 %100
   %113 = icmp ult ptr %112, %spec.select.i
-  br i1 %113, label %.lr.ph72.split.i, label %.thread, !llvm.loop !135
+  br i1 %113, label %.lr.ph72.split.i, label %.critedge, !llvm.loop !135
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %128
   %.15064.i = phi ptr [ %131, %128 ], [ %.3, %.lr.ph.i ]
@@ -13731,7 +13731,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   %130 = sext i32 %129 to i64
   %131 = getelementptr i8, ptr %.15064.i, i64 %130
   %132 = icmp ult ptr %131, %spec.select.i
-  br i1 %132, label %.lr.ph.split.i, label %.thread, !llvm.loop !136
+  br i1 %132, label %.lr.ph.split.i, label %.critedge, !llvm.loop !136
 
 133:                                              ; preds = %60
   %134 = load ptr, ptr %52, align 8, !tbaa !44
@@ -13746,7 +13746,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   %141 = icmp ugt ptr %140, %4
   %spec.select.i202 = select i1 %141, ptr %4, ptr %140
   %142 = icmp ult ptr %.3, %spec.select.i202
-  br i1 %142, label %.lr.ph.i203, label %.thread
+  br i1 %142, label %.lr.ph.i203, label %.critedge
 
 .lr.ph.i203:                                      ; preds = %133
   %143 = icmp ult ptr %136, %137
@@ -13807,7 +13807,7 @@ define internal fastcc range(i32 0, 2) i32 @forward_search_range(ptr noundef rea
   %165 = sext i32 %164 to i64
   %166 = getelementptr i8, ptr %.02640.us.i, i64 %165
   %167 = icmp ult ptr %166, %spec.select.i202
-  br i1 %167, label %.lr.ph20.i.us.i, label %.thread, !llvm.loop !137
+  br i1 %167, label %.lr.ph20.i.us.i, label %.critedge, !llvm.loop !137
 
 168:                                              ; preds = %.lr.ph.i.us.i
   %169 = getelementptr i8, ptr %.018.i.us.i, i64 1
@@ -13846,7 +13846,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %183 = icmp eq ptr %182, null
   %184 = icmp ult ptr %181, %spec.select.i205
   %or.cond.i = and i1 %183, %184
-  br i1 %or.cond.i, label %.preheader.lr.ph.i, label %.thread
+  br i1 %or.cond.i, label %.preheader.lr.ph.i, label %.critedge
 
 .preheader.lr.ph.i:                               ; preds = %172
   %185 = load i8, ptr %175, align 1, !tbaa !57
@@ -13875,7 +13875,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
 ._crit_edge.i:                                    ; preds = %189, %.preheader.i206
   %195 = getelementptr i8, ptr %.02739.i, i64 1
   %.not.i = icmp ult ptr %195, %spec.select.i205
-  br i1 %.not.i, label %196, label %.thread
+  br i1 %.not.i, label %196, label %.critedge
 
 196:                                              ; preds = %._crit_edge.i
   %197 = load i8, ptr %195, align 1, !tbaa !57
@@ -13885,7 +13885,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %201 = zext i8 %200 to i64
   %202 = getelementptr i8, ptr %.02739.i, i64 %201
   %203 = icmp ult ptr %202, %spec.select.i205
-  br i1 %203, label %.preheader.i206, label %.thread, !llvm.loop !142
+  br i1 %203, label %.preheader.i206, label %.critedge, !llvm.loop !142
 
 204:                                              ; preds = %60
   %205 = load ptr, ptr %54, align 8, !tbaa !131
@@ -13904,7 +13904,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %217 = icmp eq ptr %216, null
   %218 = icmp ult ptr %.3, %.046.i
   %or.cond.i208 = and i1 %217, %218
-  br i1 %or.cond.i208, label %.lr.ph57.i, label %.thread
+  br i1 %or.cond.i208, label %.lr.ph57.i, label %.critedge
 
 .lr.ph57.i:                                       ; preds = %204
   %219 = getelementptr inbounds nuw i8, ptr %207, i64 16
@@ -13936,7 +13936,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
 ._crit_edge.i210:                                 ; preds = %227, %221
   %233 = getelementptr i8, ptr %.04356.i, i64 1
   %.not.i211 = icmp ult ptr %233, %.046.i
-  br i1 %.not.i211, label %234, label %.thread
+  br i1 %.not.i211, label %234, label %.critedge
 
 234:                                              ; preds = %._crit_edge.i210
   %235 = getelementptr i8, ptr %222, i64 1
@@ -13997,7 +13997,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
 .split55.us.i:                                    ; preds = %262, %246
   %.us-phi.i = phi ptr [ %249, %246 ], [ %265, %262 ]
   %271 = icmp ult ptr %.us-phi.i, %.046.i
-  br i1 %271, label %221, label %.thread, !llvm.loop !146
+  br i1 %271, label %221, label %.critedge, !llvm.loop !146
 
 272:                                              ; preds = %60
   %273 = load ptr, ptr %54, align 8, !tbaa !131
@@ -14016,7 +14016,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %285 = icmp eq ptr %284, null
   %286 = icmp ult ptr %283, %spec.select.i215
   %or.cond.i216 = and i1 %285, %286
-  br i1 %or.cond.i216, label %.lr.ph.i218, label %.thread
+  br i1 %or.cond.i216, label %.lr.ph.i218, label %.critedge
 
 .lr.ph.i218:                                      ; preds = %272
   %287 = sub i64 0, %280
@@ -14060,7 +14060,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %12) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %.not34.us.i = icmp ult ptr %291, %spec.select.i215
-  br i1 %.not34.us.i, label %301, label %.thread
+  br i1 %.not34.us.i, label %301, label %.critedge
 
 301:                                              ; preds = %300
   %302 = load i8, ptr %291, align 1, !tbaa !57
@@ -14070,7 +14070,7 @@ str_lower_case_match.exit.thread.i:               ; preds = %.loopexit.i.us.i, %
   %306 = zext i8 %305 to i64
   %307 = getelementptr i8, ptr %.02942.us.i, i64 %306
   %308 = icmp ult ptr %307, %spec.select.i215
-  br i1 %308, label %.lr.ph20.i.us.i221, label %.thread, !llvm.loop !147
+  br i1 %308, label %.lr.ph20.i.us.i221, label %.critedge, !llvm.loop !147
 
 309:                                              ; preds = %.lr.ph.i.us.i229
   %310 = getelementptr i8, ptr %.018.i.us.i230, i64 1
@@ -14116,7 +14116,7 @@ str_lower_case_match.exit.thread.i220:            ; preds = %str_lower_case_matc
   %329 = icmp eq ptr %328, null
   %330 = icmp ult ptr %.3, %.044.i
   %or.cond.i234 = and i1 %329, %330
-  br i1 %or.cond.i234, label %.lr.ph.i236, label %.thread
+  br i1 %or.cond.i234, label %.lr.ph.i236, label %.critedge
 
 .lr.ph.i236:                                      ; preds = %315
   %331 = icmp ult ptr %316, %317
@@ -14162,7 +14162,7 @@ str_lower_case_match.exit.thread.i220:            ; preds = %str_lower_case_matc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %346 = getelementptr i8, ptr %.04357.us.i, i64 1
   %.not48.us.i = icmp ult ptr %346, %.044.i
-  br i1 %.not48.us.i, label %347, label %.thread
+  br i1 %.not48.us.i, label %347, label %.critedge
 
 347:                                              ; preds = %345
   %348 = load i8, ptr %336, align 1, !tbaa !57
@@ -14217,7 +14217,7 @@ str_lower_case_match.exit.thread.i220:            ; preds = %str_lower_case_matc
 .split56.us61.i:                                  ; preds = %364, %379
   %.us-phi.us.i = phi ptr [ %382, %379 ], [ %367, %364 ]
   %377 = icmp ult ptr %.us-phi.us.i, %.044.i
-  br i1 %377, label %.lr.ph20.i.us.i239, label %.thread, !llvm.loop !149
+  br i1 %377, label %.lr.ph20.i.us.i239, label %.critedge, !llvm.loop !149
 
 .split.us.us.i:                                   ; preds = %347
   %378 = sext i32 %354 to i64
@@ -14249,7 +14249,7 @@ str_lower_case_match.exit.thread.i238:            ; preds = %.loopexit.i.us.i241
 388:                                              ; preds = %60
   %389 = load ptr, ptr %52, align 8, !tbaa !44
   %390 = icmp ult ptr %.3, %4
-  br i1 %390, label %.lr.ph.i253, label %.thread
+  br i1 %390, label %.lr.ph.i253, label %.critedge
 
 .lr.ph.i253:                                      ; preds = %388
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 16
@@ -14285,23 +14285,23 @@ str_lower_case_match.exit.thread.i238:            ; preds = %.loopexit.i.us.i241
   %408 = sext i32 %407 to i64
   %409 = getelementptr i8, ptr %.018.i, i64 %408
   %410 = icmp ult ptr %409, %4
-  br i1 %410, label %393, label %.thread, !llvm.loop !151
+  br i1 %410, label %393, label %.critedge, !llvm.loop !151
 
 slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.split.us.i, %108, %.lr.ph72.split.us.i, %.lr.ph.i214, %.lr.ph.i207, %str_lower_case_match.exit.thread.i238, %str_lower_case_match.exit.thread.i220, %str_lower_case_match.exit.thread.i, %60
   %.4 = phi ptr [ %.3, %60 ], [ %.02639.i, %str_lower_case_match.exit.thread.i ], [ %314, %str_lower_case_match.exit.thread.i220 ], [ %.04354.i, %str_lower_case_match.exit.thread.i238 ], [ %.02938.i, %.lr.ph.i207 ], [ %.04356.i, %.lr.ph.i214 ], [ %.04971.us.i, %.lr.ph72.split.us.i ], [ %.04971.i, %108 ], [ %.15064.us.i, %.lr.ph.split.us.i ], [ %.15064.i, %117 ], [ %.018.i, %393 ]
   %.not187 = icmp ne ptr %.4, null
   %411 = icmp ult ptr %.4, %4
   %or.cond = and i1 %.not187, %411
-  br i1 %or.cond, label %412, label %.thread
+  br i1 %or.cond, label %412, label %.critedge
 
 412:                                              ; preds = %slow_search.exit
   %413 = load i64, ptr %18, align 8, !tbaa !127
   %414 = sub i64 0, %413
   %415 = getelementptr i8, ptr %.4, i64 %414
   %416 = icmp ult ptr %415, %3
-  br i1 %416, label %.thread265, label %431
+  br i1 %416, label %.thread, label %431
 
-.thread265:                                       ; preds = %475, %is_mbc_newline_ex.exit, %412
+.thread:                                          ; preds = %475, %is_mbc_newline_ex.exit, %412
   %417 = load ptr, ptr %52, align 8, !tbaa !44
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
   %419 = load i32, ptr %418, align 8, !tbaa !71
@@ -14310,12 +14310,12 @@ slow_search.exit:                                 ; preds = %393, %117, %.lr.ph.
   %422 = icmp eq i32 %419, %421
   br i1 %422, label %423, label %425
 
-423:                                              ; preds = %.thread265
+423:                                              ; preds = %.thread
   %424 = icmp ult ptr %.4, %2
   %spec.select200 = select i1 %424, i32 %419, i32 0
   br label %427
 
-425:                                              ; preds = %.thread265
+425:                                              ; preds = %.thread
   %426 = call i32 @onigenc_mbclen(ptr noundef nonnull %.4, ptr noundef %2, ptr noundef nonnull %417) #21
   br label %427
 
@@ -14395,7 +14395,7 @@ is_mbc_newline_ex.exit:                           ; preds = %435, %457, %462, %4
   %471 = load ptr, ptr %470, align 8, !tbaa !74
   %472 = call i32 %471(ptr noundef %438, ptr noundef %2, ptr noundef %439) #21
   %.1.i257 = icmp eq i32 %472, 0
-  br i1 %.1.i257, label %.thread265, label %is_mbc_newline_ex.exit.thread
+  br i1 %.1.i257, label %.thread, label %is_mbc_newline_ex.exit.thread
 
 473:                                              ; preds = %431
   %474 = icmp eq ptr %.4, %2
@@ -14406,7 +14406,7 @@ is_mbc_newline_ex.exit:                           ; preds = %435, %457, %462, %4
   %477 = load i32, ptr %59, align 8, !tbaa !47
   %478 = call fastcc i32 @is_mbc_newline_ex(ptr noundef %476, ptr noundef nonnull %.4, ptr noundef %1, ptr noundef %2, i32 noundef %477, i32 noundef 1)
   %.not189 = icmp eq i32 %478, 0
-  br i1 %.not189, label %.thread265, label %is_mbc_newline_ex.exit.thread
+  br i1 %.not189, label %.thread, label %is_mbc_newline_ex.exit.thread
 
 is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %473, %475, %433, %is_mbc_newline_ex.exit
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -14498,9 +14498,9 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %442, %466, %431, %4
   %518 = sub i64 0, %517
   %519 = getelementptr i8, ptr %.4, i64 %518
   store ptr %519, ptr %6, align 8, !tbaa !18
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %388, %315, %272, %204, %172, %133, %.preheader61.i, %.preheader.i, %slow_search.exit, %406, %.split56.us61.i, %345, %301, %300, %.split55.us.i, %._crit_edge.i210, %196, %._crit_edge.i, %163, %128, %91, %111, %103, %29, %8, %516
+.critedge:                                        ; preds = %388, %315, %272, %204, %172, %133, %.preheader61.i, %.preheader.i, %slow_search.exit, %406, %.split56.us61.i, %345, %301, %300, %.split55.us.i, %._crit_edge.i210, %196, %._crit_edge.i, %163, %128, %91, %111, %103, %29, %8, %516
   %.0 = phi i32 [ 1, %516 ], [ 0, %8 ], [ 0, %29 ], [ 0, %103 ], [ 0, %111 ], [ 0, %91 ], [ 0, %128 ], [ 0, %163 ], [ 0, %._crit_edge.i ], [ 0, %196 ], [ 0, %._crit_edge.i210 ], [ 0, %.split55.us.i ], [ 0, %300 ], [ 0, %301 ], [ 0, %345 ], [ 0, %.split56.us61.i ], [ 0, %406 ], [ 0, %slow_search.exit ], [ 0, %.preheader.i ], [ 0, %.preheader61.i ], [ 0, %133 ], [ 0, %172 ], [ 0, %204 ], [ 0, %272 ], [ 0, %315 ], [ 0, %388 ]
   ret i32 %.0
 }

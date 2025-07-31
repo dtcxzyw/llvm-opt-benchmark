@@ -1358,7 +1358,7 @@ define internal fastcc range(i32 -1, 1) i32 @reset_index(ptr noundef %0, ptr nou
   store i32 1, ptr %23, align 4, !tbaa !98
   %24 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %25 = call i32 @repo_read_index_unmerged(ptr noundef %24) #13
-  br label %45
+  br label %43
 
 26:                                               ; preds = %18, %18
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 -1, 1) i32 @reset_index(ptr noundef %0, ptr nou
   %29 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %30 = call i32 @repo_read_index_unmerged(ptr noundef %29) #13
   %31 = icmp eq i32 %2, 4
-  br i1 %31, label %32, label %45
+  br i1 %31, label %32, label %43
 
 32:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #13
@@ -1380,115 +1380,115 @@ define internal fastcc range(i32 -1, 1) i32 @reset_index(ptr noundef %0, ptr nou
 35:                                               ; preds = %32
   %36 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i = icmp eq i32 %36, 0
-  br i1 %.not4.i, label %.thread46, label %.thread46.sink.split
+  br i1 %.not4.i, label %.critedge, label %.critedge.sink.split
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %39 = call ptr @fill_tree_descriptor(ptr noundef %38, ptr noundef nonnull %5, ptr noundef nonnull %7) #13
   %.not32 = icmp eq ptr %39, null
-  br i1 %.not32, label %40, label %44
+  br i1 %.not32, label %40, label %42
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i36 = icmp eq i32 %41, 0
-  br i1 %.not4.i36, label %.thread46, label %.thread46.sink.split
+  br i1 %.not4.i36, label %.critedge, label %.critedge.sink.split
 
-.thread46.sink.split:                             ; preds = %40, %35
-  %.str.62.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ]
-  %42 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.62.sink, i32 noundef 5) #13
-  br label %.thread46
-
-.thread46:                                        ; preds = %.thread46.sink.split, %40, %35
-  %.0.i.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ], [ %42, %.thread46.sink.split ]
-  %43 = call i32 (ptr, ...) @error(ptr noundef %.0.i.sink) #13
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #13
-  br label %.loopexit
-
-44:                                               ; preds = %37
+42:                                               ; preds = %37
   store ptr @twoway_merge, ptr %14, align 8, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #13
-  br label %45
+  br label %43
 
-45:                                               ; preds = %44, %.thread, %26
-  %46 = phi i1 [ true, %44 ], [ false, %26 ], [ false, %.thread ]
-  %.027 = phi i32 [ 1, %44 ], [ 0, %26 ], [ 0, %.thread ]
-  %47 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %48 = zext nneg i32 %.027 to i64
-  %49 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %48
-  %50 = call ptr @fill_tree_descriptor(ptr noundef %47, ptr noundef nonnull %49, ptr noundef nonnull %1) #13
-  %.not33 = icmp eq ptr %50, null
-  br i1 %.not33, label %51, label %55
+43:                                               ; preds = %.thread, %42, %26
+  %44 = phi i1 [ true, %42 ], [ false, %26 ], [ false, %.thread ]
+  %.027 = phi i32 [ 1, %42 ], [ 0, %26 ], [ 0, %.thread ]
+  %45 = load ptr, ptr @the_repository, align 8, !tbaa !22
+  %46 = zext nneg i32 %.027 to i64
+  %47 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %46
+  %48 = call ptr @fill_tree_descriptor(ptr noundef %45, ptr noundef nonnull %47, ptr noundef nonnull %1) #13
+  %.not33 = icmp eq ptr %48, null
+  br i1 %.not33, label %49, label %53
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i39 = icmp eq i32 %52, 0
-  br i1 %.not4.i39, label %72, label %53
+49:                                               ; preds = %43
+  %50 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i39 = icmp eq i32 %50, 0
+  br i1 %.not4.i39, label %70, label %51
 
-53:                                               ; preds = %51
-  %54 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #13
-  br label %72
+51:                                               ; preds = %49
+  %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #13
+  br label %70
 
-55:                                               ; preds = %45
-  %56 = add nuw nsw i32 %.027, 1
-  %57 = call i32 @unpack_trees(i32 noundef %56, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
-  %.not34 = icmp eq i32 %57, 0
-  br i1 %.not34, label %58, label %.lr.ph.preheader
+53:                                               ; preds = %43
+  %54 = add nuw nsw i32 %.027, 1
+  %55 = call i32 @unpack_trees(i32 noundef %54, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  %.not34 = icmp eq i32 %55, 0
+  br i1 %.not34, label %56, label %.lr.ph.preheader
 
-58:                                               ; preds = %55
-  %59 = and i32 %2, -3
-  %or.cond = icmp eq i32 %59, 0
-  br i1 %or.cond, label %60, label %.lr.ph.preheader
+56:                                               ; preds = %53
+  %57 = and i32 %2, -3
+  %or.cond = icmp eq i32 %57, 0
+  br i1 %or.cond, label %58, label %.lr.ph.preheader
+
+58:                                               ; preds = %56
+  %59 = call ptr @parse_tree_indirect(ptr noundef nonnull %1) #13
+  %.not35 = icmp eq ptr %59, null
+  br i1 %.not35, label %60, label %66
 
 60:                                               ; preds = %58
-  %61 = call ptr @parse_tree_indirect(ptr noundef nonnull %1) #13
-  %.not35 = icmp eq ptr %61, null
-  br i1 %.not35, label %62, label %68
+  %61 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i42 = icmp eq i32 %61, 0
+  br i1 %.not4.i42, label %_.exit44, label %62
 
 62:                                               ; preds = %60
-  %63 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i42 = icmp eq i32 %63, 0
-  br i1 %.not4.i42, label %_.exit44, label %64
-
-64:                                               ; preds = %62
-  %65 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #13
+  %63 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #13
   br label %_.exit44
 
-_.exit44:                                         ; preds = %62, %64
-  %.0.i43 = phi ptr [ %65, %64 ], [ @.str.64, %62 ]
-  %66 = call ptr @oid_to_hex(ptr noundef nonnull %1) #13
-  %67 = call i32 (ptr, ...) @error(ptr noundef %.0.i43, ptr noundef %66) #13
+_.exit44:                                         ; preds = %60, %62
+  %.0.i43 = phi ptr [ %63, %62 ], [ @.str.64, %60 ]
+  %64 = call ptr @oid_to_hex(ptr noundef nonnull %1) #13
+  %65 = call i32 (ptr, ...) @error(ptr noundef %.0.i43, ptr noundef %64) #13
   br label %.lr.ph.preheader
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 384
-  %71 = load ptr, ptr %70, align 8, !tbaa !51
-  call void @prime_cache_tree(ptr noundef %69, ptr noundef %71, ptr noundef nonnull %61) #13
+66:                                               ; preds = %58
+  %67 = load ptr, ptr @the_repository, align 8, !tbaa !22
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 384
+  %69 = load ptr, ptr %68, align 8, !tbaa !51
+  call void @prime_cache_tree(ptr noundef %67, ptr noundef %69, ptr noundef nonnull %59) #13
   br label %.lr.ph.preheader
 
-72:                                               ; preds = %53, %51
-  %.0.i40 = phi ptr [ %54, %53 ], [ @.str.63, %51 ]
-  %73 = call ptr @oid_to_hex(ptr noundef nonnull %1) #13
-  %74 = call i32 (ptr, ...) @error(ptr noundef %.0.i40, ptr noundef %73) #13
-  br i1 %46, label %.lr.ph.preheader, label %.loopexit
+70:                                               ; preds = %51, %49
+  %.0.i40 = phi ptr [ %52, %51 ], [ @.str.63, %49 ]
+  %71 = call ptr @oid_to_hex(ptr noundef nonnull %1) #13
+  %72 = call i32 (ptr, ...) @error(ptr noundef %.0.i40, ptr noundef %71) #13
+  br i1 %44, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %68, %58, %_.exit44, %55, %72
-  %.02555 = phi i32 [ -1, %72 ], [ 0, %68 ], [ 0, %58 ], [ -1, %_.exit44 ], [ -1, %55 ]
-  %.254 = phi i32 [ 1, %72 ], [ %56, %68 ], [ %56, %58 ], [ %56, %_.exit44 ], [ %56, %55 ]
-  %wide.trip.count = zext nneg i32 %.254 to i64
+.lr.ph.preheader:                                 ; preds = %66, %56, %_.exit44, %53, %70
+  %.02551 = phi i32 [ -1, %70 ], [ 0, %66 ], [ 0, %56 ], [ -1, %_.exit44 ], [ -1, %53 ]
+  %.250 = phi i32 [ 1, %70 ], [ %54, %66 ], [ %54, %56 ], [ %54, %_.exit44 ], [ %54, %53 ]
+  %wide.trip.count = zext nneg i32 %.250 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %75 = getelementptr inbounds nuw [2 x %struct.tree_desc], ptr %5, i64 0, i64 %indvars.iv, i32 1
-  %76 = load ptr, ptr %75, align 8, !tbaa !100
-  call void @free(ptr noundef %76) #13
+  %73 = getelementptr inbounds nuw [2 x %struct.tree_desc], ptr %5, i64 0, i64 %indvars.iv, i32 1
+  %74 = load ptr, ptr %73, align 8, !tbaa !100
+  call void @free(ptr noundef %74) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !103
 
-.loopexit:                                        ; preds = %.lr.ph, %72, %.thread46
-  %.1 = phi i32 [ -1, %.thread46 ], [ -1, %72 ], [ %.02555, %.lr.ph ]
+.critedge.sink.split:                             ; preds = %40, %35
+  %.str.62.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ]
+  %75 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.62.sink, i32 noundef 5) #13
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %40, %35
+  %.0.i37.sink = phi ptr [ @.str.61, %35 ], [ @.str.62, %40 ], [ %75, %.critedge.sink.split ]
+  %76 = call i32 (ptr, ...) @error(ptr noundef %.0.i37.sink) #13
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %70, %.critedge
+  %.1 = phi i32 [ -1, %.critedge ], [ -1, %70 ], [ %.02551, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 1120, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #13
   ret i32 %.1

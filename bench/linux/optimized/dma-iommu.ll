@@ -1770,12 +1770,12 @@ define internal i64 @iommu_dma_map_page(ptr noundef %0, ptr noundef %1, i64 noun
 
 52:                                               ; preds = %50
   %53 = load i1, ptr @iommu_dma_map_page.__print_once, align 1
-  br i1 %53, label %.thread, label %54
+  br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %52
   store i1 true, ptr @iommu_dma_map_page.__print_once, align 1
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.12) #16
-  br label %.thread
+  br label %.critedge
 
 55:                                               ; preds = %50
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_swiotlb_bounced, i64 8), i32 2) #15
@@ -1827,7 +1827,7 @@ define internal i64 @iommu_dma_map_page(ptr noundef %0, ptr noundef %1, i64 noun
   %83 = add i32 %82, -1
   %84 = tail call i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef %11, i64 noundef %3, i64 noundef %81, i32 noundef %83, i32 noundef %4, i64 noundef %5) #15
   %85 = icmp eq i64 %84, -1
-  br i1 %85, label %.thread, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %76
   %87 = load i64, ptr @page_offset_base, align 8
@@ -1847,31 +1847,31 @@ define internal i64 @iommu_dma_map_page(ptr noundef %0, ptr noundef %1, i64 noun
   %98 = phi i64 [ %84, %86 ], [ %11, %43 ], [ %11, %38 ], [ %11, %33 ]
   %99 = tail call fastcc i64 @__iommu_dma_map(ptr noundef %0, i64 noundef %98, i64 noundef %3, i32 noundef %22, i64 noundef %34)
   %100 = icmp eq i64 %99, -1
-  br i1 %100, label %101, label %.thread
+  br i1 %100, label %101, label %.critedge
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread, label %105
+  br i1 %104, label %.critedge, label %105
 
 105:                                              ; preds = %101
   %106 = load i64, ptr %103, align 8
   %107 = icmp ugt i64 %106, %98
-  br i1 %107, label %.thread, label %108
+  br i1 %107, label %.critedge, label %108
 
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %110, %98
-  br i1 %111, label %112, label %.thread
+  br i1 %111, label %112, label %.critedge
 
 112:                                              ; preds = %108
   tail call void @swiotlb_tbl_unmap_single(ptr noundef %0, i64 noundef %98, i64 noundef %3, i32 noundef %4, i64 noundef %5) #15
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %76, %52, %54, %112, %108, %105, %101, %97
-  %113 = phi i64 [ -1, %112 ], [ -1, %108 ], [ %99, %97 ], [ -1, %105 ], [ -1, %101 ], [ -1, %54 ], [ -1, %52 ], [ -1, %76 ]
+.critedge:                                        ; preds = %54, %52, %76, %112, %108, %105, %101, %97
+  %113 = phi i64 [ -1, %112 ], [ -1, %108 ], [ %99, %97 ], [ -1, %105 ], [ -1, %101 ], [ -1, %76 ], [ -1, %52 ], [ -1, %54 ]
   ret i64 %113
 }
 

@@ -2832,129 +2832,123 @@ define internal fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull
   store ptr null, ptr %6, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   store i32 0, ptr %7, align 4, !tbaa !26
-  %10 = load ptr, ptr %1, align 8, !tbaa !32
-  %11 = load i8, ptr %10, align 1, !tbaa !33
-  %12 = icmp eq i8 %11, 91
-  br i1 %12, label %.lr.ph41, label %._crit_edge42
+  %.pre = load ptr, ptr %1, align 8, !tbaa !32
+  %10 = load i8, ptr %.pre, align 1, !tbaa !33
+  %11 = icmp eq i8 %10, 91
+  br i1 %11, label %.lr.ph48, label %._crit_edge49
 
-.lr.ph41:                                         ; preds = %4, %pad_params_free.exit
-  %13 = phi ptr [ %35, %pad_params_free.exit ], [ %10, %4 ]
+.lr.ph48:                                         ; preds = %4, %.critedge
+  %12 = phi ptr [ %31, %.critedge ], [ %.pre, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store ptr %14, ptr %1, align 8, !tbaa !32
-  %15 = call ptr @av_get_token(ptr noundef nonnull %1, ptr noundef nonnull @.str.30) #7
-  store ptr %15, ptr %5, align 8, !tbaa !32
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %parse_link_name.exit.thread, label %16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store ptr %13, ptr %1, align 8, !tbaa !32
+  %14 = call ptr @av_get_token(ptr noundef nonnull %1, ptr noundef nonnull @.str.30) #7
+  store ptr %14, ptr %5, align 8, !tbaa !32
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %parse_link_name.exit.thread, label %15
 
-16:                                               ; preds = %.lr.ph41
-  %17 = load i8, ptr %15, align 1, !tbaa !33
-  %.not11.i = icmp eq i8 %17, 0
-  br i1 %.not11.i, label %21, label %18
+15:                                               ; preds = %.lr.ph48
+  %16 = load i8, ptr %14, align 1, !tbaa !33
+  %.not11.i = icmp eq i8 %16, 0
+  br i1 %.not11.i, label %20, label %17
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %1, align 8, !tbaa !32
-  %20 = load i8, ptr %19, align 1, !tbaa !33
-  %.not12.i = icmp eq i8 %20, 93
-  br i1 %.not12.i, label %22, label %21
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %1, align 8, !tbaa !32
+  %19 = load i8, ptr %18, align 1, !tbaa !33
+  %.not12.i = icmp eq i8 %19, 93
+  br i1 %.not12.i, label %21, label %20
 
-21:                                               ; preds = %18, %16
-  %.str.32.sink.i = phi ptr [ @.str.31, %16 ], [ @.str.32, %18 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.32.sink.i, ptr noundef nonnull %13) #7
+20:                                               ; preds = %17, %15
+  %.str.32.sink.i = phi ptr [ @.str.31, %15 ], [ @.str.32, %17 ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.32.sink.i, ptr noundef nonnull %12) #7
   call void @av_freep(ptr noundef nonnull %5) #7
   br label %parse_link_name.exit.thread
 
-parse_link_name.exit.thread:                      ; preds = %.lr.ph41, %21
+parse_link_name.exit.thread:                      ; preds = %.lr.ph48, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %.preheader
+  br label %pad_params_free.exit
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store ptr %23, ptr %1, align 8, !tbaa !32
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store ptr %22, ptr %1, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  store ptr %15, ptr %8, align 8, !tbaa !32
-  %24 = call noalias ptr @av_mallocz(i64 noundef 8) #7
-  store ptr %24, ptr %9, align 8, !tbaa !74
-  %.not18 = icmp eq ptr %24, null
-  br i1 %.not18, label %25, label %26
+  store ptr %14, ptr %8, align 8, !tbaa !32
+  %23 = call noalias ptr @av_mallocz(i64 noundef 8) #7
+  store ptr %23, ptr %9, align 8, !tbaa !74
+  %.not18 = icmp eq ptr %23, null
+  br i1 %.not18, label %24, label %25
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   call void @av_freep(ptr noundef nonnull %8) #7
-  br label %.preheader
+  br label %pad_params_free.exit
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %8, align 8, !tbaa !32
-  store ptr %27, ptr %24, align 8, !tbaa !96
-  %28 = call i32 @av_dynarray_add_nofree(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %24) #7
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %30, label %pad_params_free.exit
+25:                                               ; preds = %21
+  store ptr %14, ptr %23, align 8, !tbaa !96
+  %26 = call i32 @av_dynarray_add_nofree(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %23) #7
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %.critedge
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %9, align 8, !tbaa !74
-  %.not.i20 = icmp eq ptr %31, null
-  br i1 %.not.i20, label %.preheader, label %32
-
-32:                                               ; preds = %30
-  call void @av_freep(ptr noundef nonnull %31) #7
+28:                                               ; preds = %25
+  call void @av_freep(ptr noundef nonnull %23) #7
   call void @av_freep(ptr noundef nonnull %9) #7
-  br label %.preheader
+  br label %pad_params_free.exit
 
-pad_params_free.exit:                             ; preds = %26
-  %33 = load ptr, ptr %1, align 8, !tbaa !32
-  %34 = call i64 @strspn(ptr noundef %33, ptr noundef nonnull @.str.4) #8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  store ptr %35, ptr %1, align 8, !tbaa !32
+.critedge:                                        ; preds = %25
+  %29 = load ptr, ptr %1, align 8, !tbaa !32
+  %30 = call i64 @strspn(ptr noundef %29, ptr noundef nonnull @.str.4) #8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  store ptr %31, ptr %1, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  %36 = load i8, ptr %35, align 1, !tbaa !33
-  %37 = icmp eq i8 %36, 91
-  br i1 %37, label %.lr.ph41, label %._crit_edge42
+  %32 = load i8, ptr %31, align 1, !tbaa !33
+  %33 = icmp eq i8 %32, 91
+  br i1 %33, label %.lr.ph48, label %._crit_edge49
 
-.preheader:                                       ; preds = %25, %parse_link_name.exit.thread, %30, %32
-  %.014.ph = phi i32 [ %28, %32 ], [ %28, %30 ], [ -22, %parse_link_name.exit.thread ], [ -12, %25 ]
+pad_params_free.exit:                             ; preds = %28, %parse_link_name.exit.thread, %24
+  %.014 = phi i32 [ -12, %24 ], [ -22, %parse_link_name.exit.thread ], [ %26, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  %38 = load i32, ptr %7, align 4, !tbaa !26
-  %.not = icmp eq i32 %38, 0
+  %34 = load i32, ptr %7, align 4, !tbaa !26
+  %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge42:                                    ; preds = %pad_params_free.exit, %4
-  %39 = load ptr, ptr %6, align 8, !tbaa !102
-  store ptr %39, ptr %2, align 8, !tbaa !102
-  %40 = load i32, ptr %7, align 4, !tbaa !26
-  store i32 %40, ptr %3, align 4, !tbaa !26
-  br label %49
+._crit_edge49:                                    ; preds = %.critedge, %4
+  %35 = load ptr, ptr %6, align 8, !tbaa !102
+  store ptr %35, ptr %2, align 8, !tbaa !102
+  %36 = load i32, ptr %7, align 4, !tbaa !26
+  store i32 %36, ptr %3, align 4, !tbaa !26
+  br label %45
 
-._crit_edge:                                      ; preds = %pad_params_free.exit22, %.preheader
+._crit_edge:                                      ; preds = %pad_params_free.exit22, %pad_params_free.exit
   call void @av_freep(ptr noundef nonnull %6) #7
-  br label %49
+  br label %45
 
-.lr.ph:                                           ; preds = %.preheader, %pad_params_free.exit22
-  %41 = phi i32 [ %46, %pad_params_free.exit22 ], [ %38, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %pad_params_free.exit22 ], [ 0, %.preheader ]
-  %42 = load ptr, ptr %6, align 8, !tbaa !102
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8, !tbaa !74
-  %.not.i21 = icmp eq ptr %44, null
-  br i1 %.not.i21, label %pad_params_free.exit22, label %45
+.lr.ph:                                           ; preds = %pad_params_free.exit, %pad_params_free.exit22
+  %37 = phi i32 [ %42, %pad_params_free.exit22 ], [ %34, %pad_params_free.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %pad_params_free.exit22 ], [ 0, %pad_params_free.exit ]
+  %38 = load ptr, ptr %6, align 8, !tbaa !102
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8, !tbaa !74
+  %.not.i21 = icmp eq ptr %40, null
+  br i1 %.not.i21, label %pad_params_free.exit22, label %41
 
-45:                                               ; preds = %.lr.ph
-  call void @av_freep(ptr noundef nonnull %44) #7
-  call void @av_freep(ptr noundef nonnull %43) #7
-  %.pre = load i32, ptr %7, align 4, !tbaa !26
+41:                                               ; preds = %.lr.ph
+  call void @av_freep(ptr noundef nonnull %40) #7
+  call void @av_freep(ptr noundef nonnull %39) #7
+  %.pre32 = load i32, ptr %7, align 4, !tbaa !26
   br label %pad_params_free.exit22
 
-pad_params_free.exit22:                           ; preds = %.lr.ph, %45
-  %46 = phi i32 [ %41, %.lr.ph ], [ %.pre, %45 ]
+pad_params_free.exit22:                           ; preds = %.lr.ph, %41
+  %42 = phi i32 [ %37, %.lr.ph ], [ %.pre32, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = zext i32 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  %43 = zext i32 %42 to i64
+  %44 = icmp samesign ult i64 %indvars.iv.next, %43
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-49:                                               ; preds = %._crit_edge, %._crit_edge42
-  %.015 = phi i32 [ %.014.ph, %._crit_edge ], [ 0, %._crit_edge42 ]
+45:                                               ; preds = %._crit_edge, %._crit_edge49
+  %.015 = phi i32 [ %.014, %._crit_edge ], [ 0, %._crit_edge49 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret i32 %.015

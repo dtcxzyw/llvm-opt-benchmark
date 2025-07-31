@@ -1847,7 +1847,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 
 70:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %.1191241 = phi i32 [ 1, %.lr.ph ], [ %.2192, %103 ]
+  %.1191238 = phi i32 [ 1, %.lr.ph ], [ %.2192, %103 ]
   %71 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %24, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = call i64 @XVisualIDFromVisual(ptr noundef %72) #17
@@ -1863,9 +1863,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %80, label %103, label %81
 
 81:                                               ; preds = %77
-  %82 = add nsw i32 %.1191241, 1
+  %82 = add nsw i32 %.1191238, 1
   %83 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %84 = sext i32 %.1191241 to i64
+  %84 = sext i32 %.1191238 to i64
   %85 = getelementptr inbounds ptr, ptr %44, i64 %84
   store ptr %83, ptr %85, align 8
   %86 = icmp eq ptr %83, null
@@ -1904,7 +1904,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %103
 
 103:                                              ; preds = %87, %89, %93, %97, %100, %70, %77
-  %.2192 = phi i32 [ %.1191241, %70 ], [ %.1191241, %77 ], [ %82, %100 ], [ %82, %97 ], [ %82, %93 ], [ %82, %89 ], [ %82, %87 ]
+  %.2192 = phi i32 [ %.1191238, %70 ], [ %.1191238, %77 ], [ %82, %100 ], [ %82, %97 ], [ %82, %93 ], [ %82, %89 ], [ %82, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = load i32, ptr %9, align 4
   %105 = sext i32 %104 to i64
@@ -1923,26 +1923,26 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 109:                                              ; preds = %107, %._crit_edge
   %110 = load i32, ptr %4, align 4
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph246, label %.preheader229
+  br i1 %111, label %.lr.ph243, label %.preheader226
 
-.lr.ph246:                                        ; preds = %109
+.lr.ph243:                                        ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %116
 
-.preheader229:                                    ; preds = %133, %109
+.preheader226:                                    ; preds = %133, %109
   %.3193.lcssa = phi i32 [ %.1191.lcssa, %109 ], [ %.4194, %133 ]
   %113 = load i32, ptr %5, align 4
   %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph250, label %.preheader228
+  br i1 %114, label %.lr.ph247, label %.preheader225
 
-.lr.ph250:                                        ; preds = %.preheader229
+.lr.ph247:                                        ; preds = %.preheader226
   %115 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %140
 
-116:                                              ; preds = %.lr.ph246, %133
-  %indvars.iv274 = phi i64 [ 0, %.lr.ph246 ], [ %indvars.iv.next275, %133 ]
-  %.3193243 = phi i32 [ %.1191.lcssa, %.lr.ph246 ], [ %.4194, %133 ]
-  %117 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %20, i64 %indvars.iv274
+116:                                              ; preds = %.lr.ph243, %133
+  %indvars.iv271 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next272, %133 ]
+  %.3193240 = phi i32 [ %.1191.lcssa, %.lr.ph243 ], [ %.4194, %133 ]
+  %117 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %20, i64 %indvars.iv271
   %118 = load ptr, ptr %117, align 8
   %119 = call i64 @XVisualIDFromVisual(ptr noundef %118) #17
   %120 = load ptr, ptr %112, align 8
@@ -1951,9 +1951,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %122, label %133, label %123
 
 123:                                              ; preds = %116
-  %124 = add nsw i32 %.3193243, 1
+  %124 = add nsw i32 %.3193240, 1
   %125 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %126 = sext i32 %.3193243 to i64
+  %126 = sext i32 %.3193240 to i64
   %127 = getelementptr inbounds ptr, ptr %44, i64 %126
   store ptr %125, ptr %127, align 8
   %128 = icmp eq ptr %125, null
@@ -1968,27 +1968,27 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %133
 
 133:                                              ; preds = %116, %129
-  %.4194 = phi i32 [ %.3193243, %116 ], [ %124, %129 ]
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
+  %.4194 = phi i32 [ %.3193240, %116 ], [ %124, %129 ]
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %134 = load i32, ptr %4, align 4
   %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next275, %135
-  br i1 %136, label %116, label %.preheader229, !llvm.loop !11
+  %136 = icmp slt i64 %indvars.iv.next272, %135
+  br i1 %136, label %116, label %.preheader226, !llvm.loop !11
 
-.preheader228:                                    ; preds = %157, %.preheader229
-  %.5195.lcssa = phi i32 [ %.3193.lcssa, %.preheader229 ], [ %.6196, %157 ]
+.preheader225:                                    ; preds = %157, %.preheader226
+  %.5195.lcssa = phi i32 [ %.3193.lcssa, %.preheader226 ], [ %.6196, %157 ]
   %137 = load i32, ptr %6, align 4
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph254, label %.preheader227
+  br i1 %138, label %.lr.ph251, label %.preheader224
 
-.lr.ph254:                                        ; preds = %.preheader228
+.lr.ph251:                                        ; preds = %.preheader225
   %139 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %164
 
-140:                                              ; preds = %.lr.ph250, %157
-  %indvars.iv277 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next278, %157 ]
-  %.5195248 = phi i32 [ %.3193.lcssa, %.lr.ph250 ], [ %.6196, %157 ]
-  %141 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %22, i64 %indvars.iv277
+140:                                              ; preds = %.lr.ph247, %157
+  %indvars.iv274 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next275, %157 ]
+  %.5195245 = phi i32 [ %.3193.lcssa, %.lr.ph247 ], [ %.6196, %157 ]
+  %141 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %22, i64 %indvars.iv274
   %142 = load ptr, ptr %141, align 8
   %143 = call i64 @XVisualIDFromVisual(ptr noundef %142) #17
   %144 = load ptr, ptr %115, align 8
@@ -1997,9 +1997,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %146, label %157, label %147
 
 147:                                              ; preds = %140
-  %148 = add nsw i32 %.5195248, 1
+  %148 = add nsw i32 %.5195245, 1
   %149 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %150 = sext i32 %.5195248 to i64
+  %150 = sext i32 %.5195245 to i64
   %151 = getelementptr inbounds ptr, ptr %44, i64 %150
   store ptr %149, ptr %151, align 8
   %152 = icmp eq ptr %149, null
@@ -2014,27 +2014,27 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %157
 
 157:                                              ; preds = %140, %153
-  %.6196 = phi i32 [ %.5195248, %140 ], [ %148, %153 ]
-  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
+  %.6196 = phi i32 [ %.5195245, %140 ], [ %148, %153 ]
+  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %158 = load i32, ptr %5, align 4
   %159 = sext i32 %158 to i64
-  %160 = icmp slt i64 %indvars.iv.next278, %159
-  br i1 %160, label %140, label %.preheader228, !llvm.loop !12
+  %160 = icmp slt i64 %indvars.iv.next275, %159
+  br i1 %160, label %140, label %.preheader225, !llvm.loop !12
 
-.preheader227:                                    ; preds = %181, %.preheader228
-  %.7197.lcssa = phi i32 [ %.5195.lcssa, %.preheader228 ], [ %.8, %181 ]
+.preheader224:                                    ; preds = %181, %.preheader225
+  %.7197.lcssa = phi i32 [ %.5195.lcssa, %.preheader225 ], [ %.8, %181 ]
   %161 = load i32, ptr %7, align 4
   %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %.lr.ph258, label %.preheader
+  br i1 %162, label %.lr.ph255, label %.preheader
 
-.lr.ph258:                                        ; preds = %.preheader227
+.lr.ph255:                                        ; preds = %.preheader224
   %163 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %188
 
-164:                                              ; preds = %.lr.ph254, %181
-  %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %181 ]
-  %.7197252 = phi i32 [ %.5195.lcssa, %.lr.ph254 ], [ %.8, %181 ]
-  %165 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %26, i64 %indvars.iv280
+164:                                              ; preds = %.lr.ph251, %181
+  %indvars.iv277 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next278, %181 ]
+  %.7197249 = phi i32 [ %.5195.lcssa, %.lr.ph251 ], [ %.8, %181 ]
+  %165 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %26, i64 %indvars.iv277
   %166 = load ptr, ptr %165, align 8
   %167 = call i64 @XVisualIDFromVisual(ptr noundef %166) #17
   %168 = load ptr, ptr %139, align 8
@@ -2043,9 +2043,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %170, label %181, label %171
 
 171:                                              ; preds = %164
-  %172 = add nsw i32 %.7197252, 1
+  %172 = add nsw i32 %.7197249, 1
   %173 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %174 = sext i32 %.7197252 to i64
+  %174 = sext i32 %.7197249 to i64
   %175 = getelementptr inbounds ptr, ptr %44, i64 %174
   store ptr %173, ptr %175, align 8
   %176 = icmp eq ptr %173, null
@@ -2060,27 +2060,27 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %181
 
 181:                                              ; preds = %164, %177
-  %.8 = phi i32 [ %.7197252, %164 ], [ %172, %177 ]
-  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
+  %.8 = phi i32 [ %.7197249, %164 ], [ %172, %177 ]
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %182 = load i32, ptr %6, align 4
   %183 = sext i32 %182 to i64
-  %184 = icmp slt i64 %indvars.iv.next281, %183
-  br i1 %184, label %164, label %.preheader227, !llvm.loop !13
+  %184 = icmp slt i64 %indvars.iv.next278, %183
+  br i1 %184, label %164, label %.preheader224, !llvm.loop !13
 
-.preheader:                                       ; preds = %205, %.preheader227
-  %.9.lcssa = phi i32 [ %.7197.lcssa, %.preheader227 ], [ %.10, %205 ]
+.preheader:                                       ; preds = %205, %.preheader224
+  %.9.lcssa = phi i32 [ %.7197.lcssa, %.preheader224 ], [ %.10, %205 ]
   %185 = load i32, ptr %8, align 4
   %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %.lr.ph262, label %.thread224
+  br i1 %186, label %.lr.ph259, label %.critedge
 
-.lr.ph262:                                        ; preds = %.preheader
+.lr.ph259:                                        ; preds = %.preheader
   %187 = getelementptr inbounds nuw i8, ptr %57, i64 16
   br label %209
 
-188:                                              ; preds = %.lr.ph258, %205
-  %indvars.iv283 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next284, %205 ]
-  %.9256 = phi i32 [ %.7197.lcssa, %.lr.ph258 ], [ %.10, %205 ]
-  %189 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %28, i64 %indvars.iv283
+188:                                              ; preds = %.lr.ph255, %205
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next281, %205 ]
+  %.9253 = phi i32 [ %.7197.lcssa, %.lr.ph255 ], [ %.10, %205 ]
+  %189 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %28, i64 %indvars.iv280
   %190 = load ptr, ptr %189, align 8
   %191 = call i64 @XVisualIDFromVisual(ptr noundef %190) #17
   %192 = load ptr, ptr %163, align 8
@@ -2089,9 +2089,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %194, label %205, label %195
 
 195:                                              ; preds = %188
-  %196 = add nsw i32 %.9256, 1
+  %196 = add nsw i32 %.9253, 1
   %197 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %198 = sext i32 %.9256 to i64
+  %198 = sext i32 %.9253 to i64
   %199 = getelementptr inbounds ptr, ptr %44, i64 %198
   store ptr %197, ptr %199, align 8
   %200 = icmp eq ptr %197, null
@@ -2106,17 +2106,17 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %205
 
 205:                                              ; preds = %188, %201
-  %.10 = phi i32 [ %.9256, %188 ], [ %196, %201 ]
-  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
+  %.10 = phi i32 [ %.9253, %188 ], [ %196, %201 ]
+  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %206 = load i32, ptr %7, align 4
   %207 = sext i32 %206 to i64
-  %208 = icmp slt i64 %indvars.iv.next284, %207
+  %208 = icmp slt i64 %indvars.iv.next281, %207
   br i1 %208, label %188, label %.preheader, !llvm.loop !14
 
-209:                                              ; preds = %.lr.ph262, %226
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next287, %226 ]
-  %.11260 = phi i32 [ %.9.lcssa, %.lr.ph262 ], [ %.12, %226 ]
-  %210 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %30, i64 %indvars.iv286
+209:                                              ; preds = %.lr.ph259, %226
+  %indvars.iv283 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next284, %226 ]
+  %.11257 = phi i32 [ %.9.lcssa, %.lr.ph259 ], [ %.12, %226 ]
+  %210 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %30, i64 %indvars.iv283
   %211 = load ptr, ptr %210, align 8
   %212 = call i64 @XVisualIDFromVisual(ptr noundef %211) #17
   %213 = load ptr, ptr %187, align 8
@@ -2125,9 +2125,9 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %215, label %226, label %216
 
 216:                                              ; preds = %209
-  %217 = add nsw i32 %.11260, 1
+  %217 = add nsw i32 %.11257, 1
   %218 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %219 = sext i32 %.11260 to i64
+  %219 = sext i32 %.11257 to i64
   %220 = getelementptr inbounds ptr, ptr %44, i64 %219
   store ptr %218, ptr %220, align 8
   %221 = icmp eq ptr %218, null
@@ -2142,14 +2142,14 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   br label %226
 
 226:                                              ; preds = %209, %222
-  %.12 = phi i32 [ %.11260, %209 ], [ %217, %222 ]
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
+  %.12 = phi i32 [ %.11257, %209 ], [ %217, %222 ]
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %227 = load i32, ptr %8, align 4
   %228 = sext i32 %227 to i64
-  %229 = icmp slt i64 %indvars.iv.next287, %228
-  br i1 %229, label %209, label %.thread224, !llvm.loop !15
+  %229 = icmp slt i64 %indvars.iv.next284, %228
+  br i1 %229, label %209, label %.critedge, !llvm.loop !15
 
-.thread224:                                       ; preds = %226, %.preheader
+.critedge:                                        ; preds = %226, %.preheader
   %.11.lcssa = phi i32 [ %.9.lcssa, %.preheader ], [ %.12, %226 ]
   store i32 %.11.lcssa, ptr %2, align 8
   %230 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -2164,26 +2164,26 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 231:                                              ; preds = %.sink.split, %53
   %.0190 = phi i32 [ %42, %53 ], [ %.0190.ph, %.sink.split ]
   %232 = icmp sgt i32 %.0190, 0
-  br i1 %232, label %.lr.ph266.preheader, label %._crit_edge267
+  br i1 %232, label %.lr.ph263.preheader, label %._crit_edge264
 
-.lr.ph266.preheader:                              ; preds = %231
+.lr.ph263.preheader:                              ; preds = %231
   %wide.trip.count = zext nneg i32 %.0190 to i64
-  br label %.lr.ph266
+  br label %.lr.ph263
 
-.lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266
-  %indvars.iv289 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next290, %.lr.ph266 ]
-  %233 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv289
+.lr.ph263:                                        ; preds = %.lr.ph263.preheader, %.lr.ph263
+  %indvars.iv286 = phi i64 [ 0, %.lr.ph263.preheader ], [ %indvars.iv.next287, %.lr.ph263 ]
+  %233 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv286
   %234 = load ptr, ptr %233, align 8
   call void @free(ptr noundef %234) #17
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge267, label %.lr.ph266, !llvm.loop !16
+  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !16
 
-._crit_edge267:                                   ; preds = %.lr.ph266, %231
+._crit_edge264:                                   ; preds = %.lr.ph263, %231
   call void @free(ptr noundef nonnull %44) #17
   br label %235
 
-235:                                              ; preds = %.thread224, %._crit_edge267
+235:                                              ; preds = %.critedge, %._crit_edge264
   %236 = load i32, ptr %4, align 4
   %.not215 = icmp eq i32 %236, 0
   br i1 %.not215, label %239, label %237
@@ -4191,12 +4191,12 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %44 = load ptr, ptr @awt_XRRConfigRotations, align 8
   %45 = call zeroext i16 %44(ptr noundef nonnull %40, ptr noundef nonnull %7) #17
   %.not66 = icmp eq ptr %43, null
-  br i1 %.not66, label %.thread, label %.preheader
+  br i1 %.not66, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %41
   %46 = load i32, ptr %8, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph.preheader, label %.thread
+  br i1 %47, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %46 to i64
@@ -4221,20 +4221,20 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %55 = call ptr %54(ptr noundef nonnull %40, i32 noundef %53, ptr noundef nonnull %9) #17
   %56 = load i32, ptr %9, align 4
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph79.preheader, label %.thread
+  br i1 %57, label %.lr.ph76.preheader, label %.critedge
 
-.lr.ph79.preheader:                               ; preds = %52
-  %wide.trip.count87 = zext nneg i32 %56 to i64
-  br label %.lr.ph79
+.lr.ph76.preheader:                               ; preds = %52
+  %wide.trip.count84 = zext nneg i32 %56 to i64
+  br label %.lr.ph76
 
-58:                                               ; preds = %.lr.ph79
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %.thread, label %.lr.ph79, !llvm.loop !20
+58:                                               ; preds = %.lr.ph76
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %.critedge, label %.lr.ph76, !llvm.loop !20
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %58
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next85, %58 ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv84
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %58
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %58 ]
+  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv81
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i32
   %62 = icmp eq i32 %5, %61
@@ -4243,9 +4243,9 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 63:                                               ; preds = %.lr.ph, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
-64:                                               ; preds = %.lr.ph79
+64:                                               ; preds = %.lr.ph76
   %65 = load ptr, ptr @awt_XRRSetScreenConfigAndRate, align 8
   %66 = load ptr, ptr @awt_display, align 8
   %67 = load i16, ptr %7, align 2
@@ -4253,16 +4253,16 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %69 = load ptr, ptr @awt_display, align 8
   %70 = call i32 @XSync(ptr noundef %69, i32 noundef 0) #17
   %71 = icmp ne i32 %68, 0
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %63, %58, %.preheader, %52, %41, %64
+.critedge:                                        ; preds = %63, %58, %.preheader, %52, %64, %41
   %72 = phi i1 [ %71, %64 ], [ true, %41 ], [ true, %52 ], [ true, %.preheader ], [ true, %58 ], [ true, %63 ]
   %73 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
   call void %73(ptr noundef nonnull %40) #17
   br label %74
 
-74:                                               ; preds = %32, %.thread
-  %.1 = phi i1 [ %72, %.thread ], [ true, %32 ]
+74:                                               ; preds = %32, %.critedge
+  %.1 = phi i1 [ %72, %.critedge ], [ true, %32 ]
   call void (...) @awt_output_flush() #17
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 120

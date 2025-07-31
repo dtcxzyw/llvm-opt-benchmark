@@ -4005,25 +4005,25 @@ define hidden { i32, i32 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get
   %14 = zext i32 %13 to i64
   %15 = add nuw nsw i64 %14, %5
   %16 = icmp ugt i64 %15, %7
-  br i1 %16, label %17, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit"
+  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i"
 
 17:                                               ; preds = %9
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %15, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d3b2245bd4ae2af5900eb7d39f1e495.37.llvm.10043242345734795027) #55, !noalias !936
   unreachable
 
-"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit": ; preds = %9
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i": ; preds = %9
   %.not = icmp ult i64 %1, %14
   br i1 %.not, label %18, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h062b53ae21c59ccbE.exit"
 
-18:                                               ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit"
+18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i"
   %19 = getelementptr inbounds nuw i32, ptr %11, i64 %5
   %20 = getelementptr inbounds i32, ptr %19, i64 %1
   %21 = load i32, ptr %20, align 4, !alias.scope !939, !noundef !4
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h062b53ae21c59ccbE.exit"
 
-"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h062b53ae21c59ccbE.exit": ; preds = %3, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit", %18
-  %.sroa.0.0.i2 = phi i32 [ 1, %18 ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit" ], [ 0, %3 ]
-  %.sroa.3.0.i3 = phi i32 [ %21, %18 ], [ undef, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E.exit" ], [ undef, %3 ]
+"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h062b53ae21c59ccbE.exit": ; preds = %3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i", %18
+  %.sroa.0.0.i2 = phi i32 [ 1, %18 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i" ], [ 0, %3 ]
+  %.sroa.3.0.i3 = phi i32 [ %21, %18 ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027.exit.i" ], [ undef, %3 ]
   %22 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i2, 0
   %23 = insertvalue { i32, i32 } %22, i32 %.sroa.3.0.i3, 1
   ret { i32, i32 } %23

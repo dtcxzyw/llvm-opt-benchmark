@@ -716,10 +716,10 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %17
-  %.sink84 = phi i64 [ 56, %17 ], [ 48, %13 ]
-  %.sink82 = phi i32 [ %20, %17 ], [ %16, %13 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink84
-  store i32 %.sink82, ptr %21, align 8, !tbaa !18
+  %.sink83 = phi i64 [ 56, %17 ], [ 48, %13 ]
+  %.sink81 = phi i32 [ %20, %17 ], [ %16, %13 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink83
+  store i32 %.sink81, ptr %21, align 8, !tbaa !18
   br label %22
 
 22:                                               ; preds = %.sink.split, %13
@@ -767,7 +767,7 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br i1 %45, label %._crit_edge, label %.critedge67
 
 ._crit_edge:                                      ; preds = %41
-  %.pre79 = load ptr, ptr %0, align 8, !tbaa !76
+  %.pre78 = load ptr, ptr %0, align 8, !tbaa !76
   br label %51
 
 46:                                               ; preds = %22
@@ -780,7 +780,7 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %51
 
 51:                                               ; preds = %._crit_edge, %46, %26, %22
-  %52 = phi ptr [ %.pre79, %._crit_edge ], [ %14, %46 ], [ %14, %26 ], [ %14, %22 ]
+  %52 = phi ptr [ %.pre78, %._crit_edge ], [ %14, %46 ], [ %14, %26 ], [ %14, %22 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load i32, ptr %53, align 4, !tbaa !4
@@ -839,10 +839,10 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   %84 = call i32 @uv_pipe_open(ptr noundef %82, i32 noundef %83)
   %85 = icmp sgt i32 %84, -1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
-  br i1 %85, label %._crit_edge80, label %.critedge67
+  br i1 %85, label %._crit_edge79, label %.critedge67
 
-._crit_edge80:                                    ; preds = %81
-  %.pre81 = load ptr, ptr %0, align 8, !tbaa !76
+._crit_edge79:                                    ; preds = %81
+  %.pre80 = load ptr, ptr %0, align 8, !tbaa !76
   br label %91
 
 86:                                               ; preds = %51
@@ -854,14 +854,14 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   store i32 %89, ptr %90, align 8, !tbaa !18
   br label %91
 
-91:                                               ; preds = %._crit_edge80, %62, %86, %56, %51
-  %92 = phi ptr [ %.pre81, %._crit_edge80 ], [ %52, %62 ], [ %52, %86 ], [ %52, %56 ], [ %52, %51 ]
+91:                                               ; preds = %._crit_edge79, %62, %86, %56, %51
+  %92 = phi ptr [ %.pre80, %._crit_edge79 ], [ %52, %62 ], [ %52, %86 ], [ %52, %56 ], [ %52, %51 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !32
   %96 = load ptr, ptr %93, align 8, !tbaa !55
-  %.not59.not74.not = icmp eq ptr %95, %96
-  br i1 %.not59.not74.not, label %.critedge67, label %.lr.ph
+  %.not59.not73.not = icmp eq ptr %95, %96
+  br i1 %.not59.not73.not, label %.critedge67, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -871,8 +871,8 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %101
 
 101:                                              ; preds = %.lr.ph, %159
-  %.05676 = phi i1 [ true, %.lr.ph ], [ false, %159 ]
-  %.05875 = phi i64 [ 0, %.lr.ph ], [ %160, %159 ]
+  %.05675 = phi i1 [ true, %.lr.ph ], [ false, %159 ]
+  %.05874 = phi i64 [ 0, %.lr.ph ], [ %160, %159 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %102 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #29, !noalias !82
@@ -900,9 +900,9 @@ _ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14d
 
 113:                                              ; preds = %107
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #31
-          to label %.noexc69 unwind label %.loopexit.split-lp
+          to label %.noexc70 unwind label %.loopexit.split-lp
 
-.noexc69:                                         ; preds = %113
+.noexc70:                                         ; preds = %113
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %107
@@ -916,17 +916,17 @@ _ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14
   call void @llvm.assume(i1 %.not.i.i)
   %119 = shl nuw nsw i64 %118, 3
   %120 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %119) #29
-          to label %.noexc70 unwind label %.loopexit
+          to label %.noexc71 unwind label %.loopexit
 
-.noexc70:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+.noexc71:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %111
   store i64 %105, ptr %121, align 8, !tbaa !85
   %.not10.i.i.i.i = icmp eq ptr %108, %103
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.noexc70, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i.i ], [ %120, %.noexc70 ]
-  %.0911.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i ], [ %108, %.noexc70 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.noexc71, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i.i ], [ %120, %.noexc71 ]
+  %.0911.i.i.i.i = phi ptr [ %123, %.lr.ph.i.i.i.i ], [ %108, %.noexc71 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %122 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !85, !alias.scope !93, !noalias !90
@@ -937,8 +937,8 @@ _ZNKSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14
   %.not.i.i.i.i = icmp eq ptr %123, %103
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !95
 
-_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc70
-  %.0.lcssa.i.i.i.i = phi ptr [ %120, %.noexc70 ], [ %124, %.lr.ph.i.i.i.i ]
+_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc71
+  %.0.lcssa.i.i.i.i = phi ptr [ %120, %.noexc71 ], [ %124, %.lr.ph.i.i.i.i ]
   %125 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %108, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit, label %126
@@ -961,11 +961,11 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   store ptr %0, ptr %129, align 8, !tbaa !96
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 60
   store i8 0, ptr %130, align 4, !tbaa !105
-  br i1 %.05676, label %159, label %131
+  br i1 %.05675, label %159, label %131
 
 131:                                              ; preds = %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
   %132 = load ptr, ptr %97, align 8, !tbaa !89
-  %133 = getelementptr %"class.std::unique_ptr.23", ptr %132, i64 %.05875
+  %133 = getelementptr %"class.std::unique_ptr.23", ptr %132, i64 %.05874
   %134 = getelementptr i8, ptr %133, i64 -8
   %135 = load ptr, ptr %134, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
@@ -1018,12 +1018,8 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   br i1 %158, label %159, label %.critedge67
 
-.critedge65:                                      ; preds = %149, %144, %139, %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
-  br label %.critedge67
-
 159:                                              ; preds = %154, %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
-  %160 = add nuw i64 %.05875, 1
+  %160 = add nuw i64 %.05874, 1
   %161 = load ptr, ptr %0, align 8, !tbaa !76
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 32
@@ -1036,6 +1032,10 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   %.not59.not = icmp ult i64 %160, %169
   br i1 %.not59.not, label %101, label %.critedge67, !llvm.loop !106
 
+.critedge65:                                      ; preds = %149, %144, %139, %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  br label %.critedge67
+
 .critedge62:                                      ; preds = %71, %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
   br label %.critedge67
@@ -1044,8 +1044,8 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
   br label %.critedge67
 
-.critedge67:                                      ; preds = %159, %154, %91, %.critedge65, %81, %.critedge62, %.critedge, %41
-  %.2 = phi i1 [ false, %41 ], [ false, %.critedge ], [ false, %81 ], [ false, %.critedge62 ], [ false, %.critedge65 ], [ true, %91 ], [ true, %159 ], [ false, %154 ]
+.critedge67:                                      ; preds = %154, %159, %91, %.critedge65, %81, %.critedge62, %.critedge, %41
+  %.2 = phi i1 [ false, %41 ], [ false, %.critedge ], [ false, %81 ], [ false, %.critedge62 ], [ false, %.critedge65 ], [ true, %91 ], [ false, %154 ], [ true, %159 ]
   ret i1 %.2
 }
 

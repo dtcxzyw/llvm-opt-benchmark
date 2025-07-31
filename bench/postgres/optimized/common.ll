@@ -291,16 +291,16 @@ define dso_local ptr @psql_get_variable(ptr noundef %0, i32 noundef %1, ptr noun
 
 5:                                                ; preds = %3
   %6 = tail call zeroext i1 @conditional_active(ptr noundef nonnull %2) #16
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %5, %3
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
   %9 = tail call ptr @GetVariable(ptr noundef %8, ptr noundef %0) #16
   %.not30 = icmp eq ptr %9, null
-  br i1 %.not30, label %.thread, label %10
+  br i1 %.not30, label %.critedge, label %10
 
 10:                                               ; preds = %7
-  switch i32 %1, label %.thread [
+  switch i32 %1, label %.critedge [
     i32 0, label %11
     i32 1, label %13
     i32 2, label %13
@@ -309,7 +309,7 @@ define dso_local ptr @psql_get_variable(ptr noundef %0, i32 noundef %1, ptr noun
 
 11:                                               ; preds = %10
   %12 = tail call ptr @pg_strdup(ptr noundef nonnull %9) #16
-  br label %.thread
+  br label %.critedge
 
 13:                                               ; preds = %10, %10
   %14 = load ptr, ptr @pset, align 8
@@ -318,7 +318,7 @@ define dso_local ptr @psql_get_variable(ptr noundef %0, i32 noundef %1, ptr noun
 
 15:                                               ; preds = %13
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2) #16
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %13
   %17 = icmp eq i32 %1, 1
@@ -342,33 +342,36 @@ define dso_local ptr @psql_get_variable(ptr noundef %0, i32 noundef %1, ptr noun
   %26 = load ptr, ptr @pset, align 8
   %27 = tail call ptr @PQerrorMessage(ptr noundef %26) #16
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %27) #16
-  br label %.thread
+  br label %.critedge
 
 28:                                               ; preds = %23
   %29 = tail call ptr @pg_strdup(ptr noundef nonnull %.021) #16
   tail call void @PQfreemem(ptr noundef nonnull %.021) #16
-  br label %.thread
+  br label %.critedge
 
 30:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   call void @initPQExpBuffer(ptr noundef nonnull %4) #16
   %31 = call zeroext i1 @appendShellStringNoError(ptr noundef nonnull %4, ptr noundef nonnull %9) #16
-  br i1 %31, label %.thread34, label %33
+  br i1 %31, label %34, label %32
 
-.thread34:                                        ; preds = %30
-  %32 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  br label %.thread
-
-33:                                               ; preds = %30
+32:                                               ; preds = %30
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %9) #16
-  %34 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %34) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  br label %.thread
+  %33 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %33) #16
+  br label %36
 
-.thread:                                          ; preds = %15, %25, %10, %11, %28, %.thread34, %33, %7, %5
-  %.0 = phi ptr [ null, %33 ], [ null, %5 ], [ null, %7 ], [ null, %10 ], [ %12, %11 ], [ %29, %28 ], [ %32, %.thread34 ], [ null, %25 ], [ null, %15 ]
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %4, align 8
+  br label %36
+
+36:                                               ; preds = %34, %32
+  %spec.select = phi ptr [ %35, %34 ], [ null, %32 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  br label %.critedge
+
+.critedge:                                        ; preds = %36, %25, %15, %10, %11, %28, %7, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %7 ], [ null, %10 ], [ %12, %11 ], [ %29, %28 ], [ null, %15 ], [ null, %25 ], [ %spec.select, %36 ]
   ret ptr %.0
 }
 

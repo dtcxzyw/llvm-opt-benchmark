@@ -5860,7 +5860,7 @@ define noundef zeroext i1 @_ZNK5faiss14ParameterSpace14combination_geEmm(ptr nou
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = load ptr, ptr %4, align 8, !tbaa !79
   %8 = icmp eq ptr %6, %7
-  br i1 %8, label %.thread, label %.lr.ph.preheader
+  br i1 %8, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %9 = ptrtoint ptr %6 to i64
@@ -5871,8 +5871,8 @@ define noundef zeroext i1 @_ZNK5faiss14ParameterSpace14combination_geEmm(ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.01628 = phi i64 [ %1, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %.01827 = phi i64 [ %2, %.lr.ph.preheader ], [ %24, %.lr.ph ]
+  %.01626 = phi i64 [ %1, %.lr.ph.preheader ], [ %22, %.lr.ph ]
+  %.01825 = phi i64 [ %2, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %13 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %7, i64 %indvars.iv, i32 1
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !64
@@ -5882,18 +5882,18 @@ define noundef zeroext i1 @_ZNK5faiss14ParameterSpace14combination_geEmm(ptr nou
   %19 = sub i64 %17, %18
   %sext = shl i64 %19, 29
   %20 = ashr exact i64 %sext, 32
-  %21 = urem i64 %.01628, %20
-  %22 = udiv i64 %.01628, %20
-  %23 = urem i64 %.01827, %20
-  %24 = udiv i64 %.01827, %20
+  %21 = urem i64 %.01626, %20
+  %22 = udiv i64 %.01626, %20
+  %23 = urem i64 %.01825, %20
+  %24 = udiv i64 %.01825, %20
   %.not.not.not.not = icmp uge i64 %21, %23
   %.not.not.not.not.not = xor i1 %.not.not.not.not, true
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   %or.cond = select i1 %.not.not.not.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !209
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !209
 
-.thread:                                          ; preds = %.lr.ph, %3
+.critedge:                                        ; preds = %.lr.ph, %3
   %.lcssa = phi i1 [ true, %3 ], [ %.not.not.not.not, %.lr.ph ]
   ret i1 %.lcssa
 }
@@ -8685,8 +8685,8 @@ define void @_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPd
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %29 ]
-  %.01628.i = phi i64 [ %1, %.lr.ph.preheader.i ], [ %26, %29 ]
-  %.01827.i = phi i64 [ %7, %.lr.ph.preheader.i ], [ %28, %29 ]
+  %.01626.i = phi i64 [ %1, %.lr.ph.preheader.i ], [ %26, %29 ]
+  %.01825.i = phi i64 [ %7, %.lr.ph.preheader.i ], [ %28, %29 ]
   %17 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %11, i64 %indvars.iv.i, i32 1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !64
@@ -8696,10 +8696,10 @@ define void @_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPd
   %23 = sub i64 %21, %22
   %sext.i = shl i64 %23, 29
   %24 = ashr exact i64 %sext.i, 32
-  %25 = urem i64 %.01628.i, %24
-  %26 = udiv i64 %.01628.i, %24
-  %27 = urem i64 %.01827.i, %24
-  %28 = udiv i64 %.01827.i, %24
+  %25 = urem i64 %.01626.i, %24
+  %26 = udiv i64 %.01626.i, %24
+  %27 = urem i64 %.01825.i, %24
+  %28 = udiv i64 %.01825.i, %24
   %.not.not.not.i = icmp ult i64 %25, %27
   br i1 %.not.not.not.i, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit, label %29
 
@@ -8731,8 +8731,8 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit: ; preds = %.lr.ph.i, %.loope
 
 .lr.ph.i14:                                       ; preds = %51, %.lr.ph.preheader.i13
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i20, %51 ]
-  %.01628.i16 = phi i64 [ %7, %.lr.ph.preheader.i13 ], [ %48, %51 ]
-  %.01827.i17 = phi i64 [ %1, %.lr.ph.preheader.i13 ], [ %50, %51 ]
+  %.01626.i16 = phi i64 [ %7, %.lr.ph.preheader.i13 ], [ %48, %51 ]
+  %.01825.i17 = phi i64 [ %1, %.lr.ph.preheader.i13 ], [ %50, %51 ]
   %39 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %11, i64 %indvars.iv.i15, i32 1
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !64
@@ -8742,10 +8742,10 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit: ; preds = %.lr.ph.i, %.loope
   %45 = sub i64 %43, %44
   %sext.i18 = shl i64 %45, 29
   %46 = ashr exact i64 %sext.i18, 32
-  %47 = urem i64 %.01628.i16, %46
-  %48 = udiv i64 %.01628.i16, %46
-  %49 = urem i64 %.01827.i17, %46
-  %50 = udiv i64 %.01827.i17, %46
+  %47 = urem i64 %.01626.i16, %46
+  %48 = udiv i64 %.01626.i16, %46
+  %49 = urem i64 %.01825.i17, %46
+  %50 = udiv i64 %.01825.i17, %46
   %.not.not.not.i19 = icmp ult i64 %47, %49
   br i1 %.not.not.not.i19, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit23, label %51
 
@@ -9460,8 +9460,8 @@ _ZNK5faiss15OperatingPoints10t_for_perfEd.exit:   ; preds = %._crit_edge, %._cri
 
 .lr.ph.i.i:                                       ; preds = %313, %329
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %329 ], [ 0, %313 ]
-  %.01628.i.i = phi i64 [ %326, %329 ], [ %259, %313 ]
-  %.01827.i.i = phi i64 [ %328, %329 ], [ %316, %313 ]
+  %.01626.i.i = phi i64 [ %326, %329 ], [ %259, %313 ]
+  %.01825.i.i = phi i64 [ %328, %329 ], [ %316, %313 ]
   %317 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %281, i64 %indvars.iv.i.i, i32 1
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = load ptr, ptr %318, align 8, !tbaa !64
@@ -9471,10 +9471,10 @@ _ZNK5faiss15OperatingPoints10t_for_perfEd.exit:   ; preds = %._crit_edge, %._cri
   %323 = sub i64 %321, %322
   %sext.i.i = shl i64 %323, 29
   %324 = ashr exact i64 %sext.i.i, 32
-  %325 = urem i64 %.01628.i.i, %324
-  %326 = udiv i64 %.01628.i.i, %324
-  %327 = urem i64 %.01827.i.i, %324
-  %328 = udiv i64 %.01827.i.i, %324
+  %325 = urem i64 %.01626.i.i, %324
+  %326 = udiv i64 %.01626.i.i, %324
+  %327 = urem i64 %.01825.i.i, %324
+  %328 = udiv i64 %.01825.i.i, %324
   %.not.not.not.i.i = icmp ult i64 %325, %327
   br i1 %.not.not.not.i.i, label %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i, label %329
 
@@ -9498,8 +9498,8 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit.i: ; preds = %.lr.ph.i.i, %33
 
 .lr.ph.i14.i:                                     ; preds = %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i, %346
   %indvars.iv.i15.i = phi i64 [ %indvars.iv.next.i20.i, %346 ], [ 0, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
-  %.01628.i16.i = phi i64 [ %343, %346 ], [ %316, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
-  %.01827.i17.i = phi i64 [ %345, %346 ], [ %259, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
+  %.01626.i16.i = phi i64 [ %343, %346 ], [ %316, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
+  %.01825.i17.i = phi i64 [ %345, %346 ], [ %259, %_ZNK5faiss14ParameterSpace14combination_geEmm.exit.i ]
   %334 = getelementptr inbounds nuw %"struct.faiss::ParameterRange", ptr %281, i64 %indvars.iv.i15.i, i32 1
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load ptr, ptr %335, align 8, !tbaa !64
@@ -9509,10 +9509,10 @@ _ZNK5faiss14ParameterSpace14combination_geEmm.exit.i: ; preds = %.lr.ph.i.i, %33
   %340 = sub i64 %338, %339
   %sext.i18.i = shl i64 %340, 29
   %341 = ashr exact i64 %sext.i18.i, 32
-  %342 = urem i64 %.01628.i16.i, %341
-  %343 = udiv i64 %.01628.i16.i, %341
-  %344 = urem i64 %.01827.i17.i, %341
-  %345 = udiv i64 %.01827.i17.i, %341
+  %342 = urem i64 %.01626.i16.i, %341
+  %343 = udiv i64 %.01626.i16.i, %341
+  %344 = urem i64 %.01825.i17.i, %341
+  %345 = udiv i64 %.01825.i17.i, %341
   %.not.not.not.i19.i = icmp ult i64 %342, %344
   br i1 %.not.not.not.i19.i, label %_ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit, label %346
 

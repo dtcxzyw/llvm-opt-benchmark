@@ -424,10 +424,10 @@ X11_MessageBoxInit.exit.thread:                   ; preds = %85, %56, %79, %43, 
 
 select.unfold.i.i:                                ; preds = %103, %.lr.ph.ithread-pre-split.i
   %indvars.iv.i17 = phi i32 [ %indvars.iv.next.i19, %.lr.ph.ithread-pre-split.i ], [ 1, %103 ]
-  %.0610.i184.i = phi i32 [ %109, %.lr.ph.ithread-pre-split.i ], [ 0, %103 ]
-  %.011.i183.i = phi ptr [ %107, %.lr.ph.ithread-pre-split.i ], [ %105, %103 ]
-  %108 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %.011.i183.i, i32 noundef 10) #11
-  %109 = add nuw nsw i32 %.0610.i184.i, 1
+  %.0610.i182.i = phi i32 [ %109, %.lr.ph.ithread-pre-split.i ], [ 0, %103 ]
+  %.011.i181.i = phi ptr [ %107, %.lr.ph.ithread-pre-split.i ], [ %105, %103 ]
+  %108 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %.011.i181.i, i32 noundef 10) #11
+  %109 = add nuw nsw i32 %.0610.i182.i, 1
   %.not8.i.i = icmp eq ptr %108, null
   br i1 %.not8.i.i, label %CountLinesOfText.exit.i, label %.lr.ph.ithread-pre-split.i
 
@@ -454,29 +454,29 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   br label %124
 
 124:                                              ; preds = %.thread.i20, %113
-  %.0145188.i = phi i32 [ 0, %113 ], [ %169, %.thread.i20 ]
-  %.2150187.i = phi i32 [ 0, %113 ], [ %158, %.thread.i20 ]
-  %.0158186.i = phi ptr [ %112, %113 ], [ %170, %.thread.i20 ]
-  %.0159185.i = phi ptr [ %105, %113 ], [ %168, %.thread.i20 ]
-  %125 = call ptr @SDL_strchr_REAL(ptr noundef %.0159185.i, i32 noundef 10) #11
+  %.0145186.i = phi i32 [ 0, %113 ], [ %169, %.thread.i20 ]
+  %.2150185.i = phi i32 [ 0, %113 ], [ %158, %.thread.i20 ]
+  %.0158184.i = phi ptr [ %112, %113 ], [ %170, %.thread.i20 ]
+  %.0159183.i = phi ptr [ %105, %113 ], [ %168, %.thread.i20 ]
+  %125 = call ptr @SDL_strchr_REAL(ptr noundef %.0159183.i, i32 noundef 10) #11
   %.not166.not.i = icmp eq ptr %125, null
   br i1 %.not166.not.i, label %130, label %126
 
 126:                                              ; preds = %124
   %127 = ptrtoint ptr %125 to i64
-  %128 = ptrtoint ptr %.0159185.i to i64
+  %128 = ptrtoint ptr %.0159183.i to i64
   %129 = sub i64 %127, %128
   br label %132
 
 130:                                              ; preds = %124
-  %131 = call i64 @SDL_strlen_REAL(ptr noundef %.0159185.i) #11
+  %131 = call i64 @SDL_strlen_REAL(ptr noundef %.0159183.i) #11
   br label %132
 
 132:                                              ; preds = %130, %126
   %133 = phi i64 [ %129, %126 ], [ %131, %130 ]
   %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds nuw i8, ptr %.0158186.i, i64 8
-  store ptr %.0159185.i, ptr %135, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %.0158184.i, i64 8
+  store ptr %.0159183.i, ptr %135, align 8
   %136 = load i32, ptr @SDL_X11_HAVE_UTF8, align 4
   %.not.i.i = icmp eq i32 %136, 0
   br i1 %.not.i.i, label %145, label %137
@@ -486,7 +486,7 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #11
   %138 = load ptr, ptr @X11_Xutf8TextExtents, align 8
   %139 = load ptr, ptr %116, align 8
-  %140 = call i32 %138(ptr noundef %139, ptr noundef %.0159185.i, i32 noundef %134, ptr noundef nonnull %21, ptr noundef nonnull %22) #11
+  %140 = call i32 %138(ptr noundef %139, ptr noundef %.0159183.i, i32 noundef %134, ptr noundef nonnull %21, ptr noundef nonnull %22) #11
   %141 = load i16, ptr %117, align 2
   %142 = zext i16 %141 to i32
   %143 = load i16, ptr %118, align 2
@@ -502,7 +502,7 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #11
   %146 = load ptr, ptr @X11_XTextExtents, align 8
   %147 = load ptr, ptr %119, align 8
-  %148 = call i32 %146(ptr noundef %147, ptr noundef %.0159185.i, i32 noundef %134, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %23) #11
+  %148 = call i32 %146(ptr noundef %147, ptr noundef %.0159183.i, i32 noundef %134, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %23) #11
   %149 = load i16, ptr %120, align 2
   %150 = sext i16 %149 to i32
   %151 = load i16, ptr %121, align 2
@@ -519,14 +519,14 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
 GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   %.sink9.i.i = phi i32 [ %150, %145 ], [ %142, %137 ]
   %.sink.i.i = phi i32 [ %155, %145 ], [ %144, %137 ]
-  store i32 %.sink9.i.i, ptr %.0158186.i, align 4
+  store i32 %.sink9.i.i, ptr %.0158184.i, align 4
   %156 = load i32, ptr %123, align 4
   %157 = call noundef i32 @llvm.smax.i32(i32 %156, i32 %.sink.i.i)
   store i32 %157, ptr %123, align 4
-  %158 = call noundef i32 @llvm.smax.i32(i32 %.2150187.i, i32 %.sink9.i.i)
-  %159 = getelementptr inbounds nuw i8, ptr %.0158186.i, i64 4
+  %158 = call noundef i32 @llvm.smax.i32(i32 %.2150185.i, i32 %.sink9.i.i)
+  %159 = getelementptr inbounds nuw i8, ptr %.0158184.i, i64 4
   store i32 %134, ptr %159, align 4
-  %160 = icmp ugt ptr %125, %.0159185.i
+  %160 = icmp ugt ptr %125, %.0159183.i
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %GetTextWidthHeight.exit.i
@@ -547,9 +547,9 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   %.pn.in.in.i = shl i64 %133, 32
   %.pn.in.i = add i64 %.pn.in.in.i, 4294967296
   %.pn.i = ashr exact i64 %.pn.in.i, 32
-  %168 = getelementptr inbounds i8, ptr %.0159185.i, i64 %.pn.i
-  %169 = add nuw i32 %.0145188.i, 1
-  %170 = getelementptr inbounds nuw i8, ptr %.0158186.i, i64 16
+  %168 = getelementptr inbounds i8, ptr %.0159183.i, i64 %.pn.i
+  %169 = add nuw i32 %.0145186.i, 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0158184.i, i64 16
   %exitcond.not.i21 = icmp eq i32 %169, %indvars.iv.i17
   br i1 %exitcond.not.i21, label %171, label %124, !llvm.loop !8
 
@@ -578,22 +578,22 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   br label %186
 
 186:                                              ; preds = %GetTextWidthHeight.exit174.i, %.lr.ph.i
-  %indvars.iv203.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next204.i, %GetTextWidthHeight.exit174.i ]
-  %.0154190.i = phi i32 [ 0, %.lr.ph.i ], [ %223, %GetTextWidthHeight.exit174.i ]
-  %.0155189.i = phi i32 [ 64, %.lr.ph.i ], [ %222, %GetTextWidthHeight.exit174.i ]
+  %indvars.iv201.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next202.i, %GetTextWidthHeight.exit174.i ]
+  %.0154188.i = phi i32 [ 0, %.lr.ph.i ], [ %223, %GetTextWidthHeight.exit174.i ]
+  %.0155187.i = phi i32 [ 64, %.lr.ph.i ], [ %222, %GetTextWidthHeight.exit174.i ]
   %187 = load ptr, ptr %177, align 8
-  %188 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv203.i
-  %189 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %178, i64 0, i64 %indvars.iv203.i
+  %188 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv201.i
+  %189 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %178, i64 0, i64 %indvars.iv201.i
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store ptr %188, ptr %190, align 8
-  %191 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv203.i, i32 2
+  %191 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %187, i64 %indvars.iv201.i, i32 2
   %192 = load ptr, ptr %191, align 8
   %193 = call i64 @SDL_strlen_REAL(ptr noundef %192) #11
   %194 = trunc i64 %193 to i32
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 %194, ptr %195, align 8
   %196 = load ptr, ptr %177, align 8
-  %197 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %196, i64 %indvars.iv203.i, i32 2
+  %197 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %196, i64 %indvars.iv201.i, i32 2
   %198 = load ptr, ptr %197, align 8
   %199 = call i64 @SDL_strlen_REAL(ptr noundef %198) #11
   %200 = trunc i64 %199 to i32
@@ -641,12 +641,12 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %.sink9.i172.i = phi i32 [ %216, %211 ], [ %208, %203 ]
   %.sink.i173.i = phi i32 [ %221, %211 ], [ %210, %203 ]
   store i32 %.sink9.i172.i, ptr %201, align 4
-  %222 = call noundef i32 @llvm.smax.i32(i32 %.0155189.i, i32 %.sink9.i172.i)
-  %223 = call noundef i32 @llvm.smax.i32(i32 %.0154190.i, i32 %.sink.i173.i)
-  %indvars.iv.next204.i = add nuw nsw i64 %indvars.iv203.i, 1
+  %222 = call noundef i32 @llvm.smax.i32(i32 %.0155187.i, i32 %.sink9.i172.i)
+  %223 = call noundef i32 @llvm.smax.i32(i32 %.0154188.i, i32 %.sink.i173.i)
+  %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %224 = load i32, ptr %174, align 8
   %225 = sext i32 %224 to i64
-  %226 = icmp slt i64 %indvars.iv.next204.i, %225
+  %226 = icmp slt i64 %indvars.iv.next202.i, %225
   br i1 %226, label %186, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %GetTextWidthHeight.exit174.i, %173
@@ -726,9 +726,9 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %273 = sdiv i32 %272, 2
   %274 = add nsw i32 %273, %.0147.i
   %275 = icmp sgt i32 %.lcssa.i, 0
-  br i1 %275, label %.lr.ph197.i, label %.loopexit
+  br i1 %275, label %.lr.ph195.i, label %.loopexit
 
-.lr.ph197.i:                                      ; preds = %270
+.lr.ph195.i:                                      ; preds = %270
   %276 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %277 = add nsw i32 %.0154.lcssa.i, -1
   %278 = sdiv i32 %277, 2
@@ -739,12 +739,12 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %wide.trip.count.i = zext nneg i32 %.lcssa.i to i64
   br label %281
 
-281:                                              ; preds = %281, %.lr.ph197.i
-  %indvars.iv206.i = phi i64 [ 0, %.lr.ph197.i ], [ %indvars.iv.next207.i, %281 ]
-  %.1152194.i = phi i32 [ %.0151.i, %.lr.ph197.i ], [ %.2153.i, %281 ]
-  %282 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %276, i64 0, i64 %indvars.iv206.i
+281:                                              ; preds = %281, %.lr.ph195.i
+  %indvars.iv204.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next205.i, %281 ]
+  %.1152192.i = phi i32 [ %.0151.i, %.lr.ph195.i ], [ %.2153.i, %281 ]
+  %282 = getelementptr inbounds nuw [8 x %struct.SDL_MessageBoxButtonDataX11], ptr %276, i64 0, i64 %indvars.iv204.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  store i32 %.1152194.i, ptr %283, align 8
+  store i32 %.1152192.i, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 20
   store i32 %274, ptr %284, align 4
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 24
@@ -755,7 +755,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %288 = load i32, ptr %287, align 4
   %289 = sub nsw i32 %247, %288
   %290 = sdiv i32 %289, 2
-  %291 = add nsw i32 %290, %.1152194.i
+  %291 = add nsw i32 %290, %.1152192.i
   store i32 %291, ptr %282, align 8
   %292 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 %.reass.i, ptr %292, align 4
@@ -763,10 +763,10 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %294 = and i32 %293, 256
   %.not170.i = icmp eq i32 %294, 0
   %.2153.p.i = select i1 %.not170.i, i32 %279, i32 %280
-  %.2153.i = add i32 %.2153.p.i, %.1152194.i
-  %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
-  %exitcond209.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count.i
-  br i1 %exitcond209.not.i, label %.loopexit, label %281, !llvm.loop !10
+  %.2153.i = add i32 %.2153.p.i, %.1152192.i
+  %indvars.iv.next205.i = add nuw nsw i64 %indvars.iv204.i, 1
+  %exitcond207.not.i = icmp eq i64 %indvars.iv.next205.i, %wide.trip.count.i
+  br i1 %exitcond207.not.i, label %.loopexit, label %281, !llvm.loop !10
 
 .loopexit:                                        ; preds = %281, %244, %270
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11

@@ -1288,7 +1288,7 @@ define internal ptr @create_type_with_token(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.70, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8, !tbaa !23
@@ -1299,7 +1299,7 @@ define internal ptr @create_type_with_token(ptr noundef %0, ptr noundef %1) #0 {
 12:                                               ; preds = %8
   %13 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef null, ptr noundef nonnull @create_type_with_token.spec, ptr noundef null) #8
   %.not16 = icmp eq ptr %13, null
-  br i1 %.not16, label %.thread, label %14
+  br i1 %.not16, label %.critedge, label %14
 
 14:                                               ; preds = %12
   %15 = call ptr @PyType_GetSlot(ptr noundef nonnull %13, i32 noundef 83) #8
@@ -1333,7 +1333,7 @@ Py_DECREF.exit:                                   ; preds = %18, %20, %23
 24:                                               ; preds = %Py_DECREF.exit
   %25 = load ptr, ptr @PyExc_AssertionError, align 8, !tbaa !23
   call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.73) #8
-  br label %.thread
+  br label %.critedge
 
 26:                                               ; preds = %Py_DECREF.exit, %8
   %.09 = phi ptr [ %10, %8 ], [ @create_type_with_token.spec, %Py_DECREF.exit ]
@@ -1361,10 +1361,10 @@ Py_DECREF.exit:                                   ; preds = %18, %20, %23
   %36 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %0, ptr noundef nonnull %6, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %12, %24, %26, %2
-  %.0 = phi ptr [ null, %2 ], [ %36, %26 ], [ null, %24 ], [ null, %12 ]
+.critedge:                                        ; preds = %26, %12, %24, %2
+  %.0 = phi ptr [ null, %2 ], [ %36, %26 ], [ null, %12 ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret ptr %.0

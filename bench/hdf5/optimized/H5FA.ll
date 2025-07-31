@@ -241,18 +241,18 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = xor i1 %5, true
   %9 = select i1 %3, i1 true, i1 %8
-  br i1 %9, label %10, label %.thread31, !prof !10
+  br i1 %9, label %10, label %.thread27, !prof !10
 
 10:                                               ; preds = %.thread, %7
   %11 = load ptr, ptr %0, align 8, !tbaa !29
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %55, label %12
+  br i1 %.not, label %54, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i64 @H5FA__hdr_fuse_decr(ptr noundef nonnull %11) #5
   %14 = icmp eq i64 %13, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !29
-  br i1 %14, label %15, label %48
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -262,7 +262,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 344
   %20 = load i8, ptr %19, align 8, !tbaa !13, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %48
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 312
@@ -275,7 +275,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %29 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 563, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.13) #5
-  br label %.thread31
+  br label %.thread27
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %16, align 8, !tbaa !32
@@ -290,36 +290,36 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %39 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 574, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.14) #5
-  br label %.thread31
+  br label %.thread27
 
 41:                                               ; preds = %31
   %42 = tail call i32 @H5FA__hdr_delete(ptr noundef nonnull %25) #5
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %55
+  br i1 %43, label %44, label %54
 
 44:                                               ; preds = %41
   %45 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %46 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 578, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.15) #5
-  br label %.thread31
+  br label %.thread27
 
-48:                                               ; preds = %15, %12
-  %49 = tail call i32 @H5FA__hdr_decr(ptr noundef %.pre) #5
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %55
+.critedge:                                        ; preds = %15, %12
+  %48 = tail call i32 @H5FA__hdr_decr(ptr noundef %.pre) #5
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %50, label %54
 
-51:                                               ; preds = %48
-  %52 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
-  %53 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
-  %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 587, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.14) #5
-  br label %.thread31
+50:                                               ; preds = %.critedge
+  %51 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
+  %52 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
+  %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 587, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.14) #5
+  br label %.thread27
 
-55:                                               ; preds = %41, %48, %10
-  %56 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FA_t_reg_free_list, ptr noundef nonnull %0) #5
-  br label %.thread31
+54:                                               ; preds = %41, %.critedge, %10
+  %55 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FA_t_reg_free_list, ptr noundef nonnull %0) #5
+  br label %.thread27
 
-.thread31:                                        ; preds = %44, %37, %27, %7, %55, %51
-  %.021 = phi i32 [ 0, %55 ], [ -1, %51 ], [ 0, %7 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
+.thread27:                                        ; preds = %44, %37, %27, %7, %54, %50
+  %.021 = phi i32 [ 0, %54 ], [ -1, %50 ], [ 0, %7 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
   ret i32 %.021
 }
 

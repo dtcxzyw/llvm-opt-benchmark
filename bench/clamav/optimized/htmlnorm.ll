@@ -5523,12 +5523,12 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 .preheader:                                       ; preds = %2
   %15 = call fastcc ptr @cli_readchunk(ptr noundef %6)
-  %.not72 = icmp eq ptr %15, null
-  br i1 %.not72, label %.thread63, label %.lr.ph
+  %.not70 = icmp eq ptr %15, null
+  br i1 %.not70, label %.critedge.thread, label %.lr.ph
 
 16:                                               ; preds = %2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %4) #17
-  br label %115
+  br label %114
 
 .lr.ph:                                           ; preds = %.preheader, %19
   %17 = phi ptr [ %20, %19 ], [ %15, %.preheader ]
@@ -5540,7 +5540,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   tail call void @free(ptr noundef nonnull %17) #17
   %20 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.thread63, label %.lr.ph
+  br i1 %.not, label %.critedge.thread, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -5558,7 +5558,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   tail call void @free(ptr noundef %.132) #17
   %26 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not54 = icmp eq ptr %26, null
-  br i1 %.not54, label %.thread63, label %27
+  br i1 %.not54, label %.critedge.thread, label %27
 
 27:                                               ; preds = %25, %23
   %.233 = phi ptr [ %.132, %23 ], [ %26, %25 ]
@@ -5652,60 +5652,60 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %98 = icmp ne i32 %96, 0
   %99 = icmp ne ptr %.233, null
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %.lr.ph75, label %._crit_edge
+  br i1 %100, label %.lr.ph73, label %._crit_edge
 
-.lr.ph75:                                         ; preds = %34, %106
-  %.474 = phi ptr [ %107, %106 ], [ %33, %34 ]
-  %.33473 = phi ptr [ %107, %106 ], [ %.233, %34 ]
-  call fastcc void @screnc_decode(ptr noundef nonnull %.474, ptr noundef %5)
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.474) #18
-  %102 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.474, i64 noundef %101) #17
-  tail call void @free(ptr noundef nonnull %.33473) #17
+.lr.ph73:                                         ; preds = %34, %106
+  %.472 = phi ptr [ %107, %106 ], [ %33, %34 ]
+  %.33471 = phi ptr [ %107, %106 ], [ %.233, %34 ]
+  call fastcc void @screnc_decode(ptr noundef nonnull %.472, ptr noundef %5)
+  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.472) #18
+  %102 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull %.472, i64 noundef %101) #17
+  tail call void @free(ptr noundef nonnull %.33471) #17
   %103 = load i32, ptr %5, align 4, !tbaa !45
   %.not61 = icmp eq i32 %103, 0
-  br i1 %.not61, label %.thread97, label %106
+  br i1 %.not61, label %.critedge.thread95, label %106
 
-.thread97:                                        ; preds = %.lr.ph75
+.critedge.thread95:                               ; preds = %.lr.ph73
   %104 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
   %105 = tail call i32 @close(i32 noundef %13) #17
-  br label %115
+  br label %114
 
-106:                                              ; preds = %.lr.ph75
+106:                                              ; preds = %.lr.ph73
   %107 = call fastcc ptr @cli_readchunk(ptr noundef %6)
-  %.not107 = icmp eq ptr %107, null
-  br i1 %.not107, label %._crit_edge.thread91, label %.lr.ph75
+  %.not105 = icmp eq ptr %107, null
+  br i1 %.not105, label %._crit_edge.thread89, label %.lr.ph73
 
-._crit_edge.thread91:                             ; preds = %106
+._crit_edge.thread89:                             ; preds = %106
   %108 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
   br label %110
 
 ._crit_edge:                                      ; preds = %34
   %109 = tail call i64 @cli_writen(i32 noundef %13, ptr noundef nonnull @.str.4, i64 noundef 9) #17
   %.not59 = icmp eq i32 %96, 0
-  br i1 %.not59, label %112, label %110
+  br i1 %.not59, label %.critedge, label %110
 
-110:                                              ; preds = %._crit_edge.thread91, %._crit_edge
-  %.334.lcssa96 = phi ptr [ %107, %._crit_edge.thread91 ], [ %.233, %._crit_edge ]
-  %.lcssa95 = phi i32 [ %103, %._crit_edge.thread91 ], [ %96, %._crit_edge ]
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.lcssa95) #17
-  br label %112
+110:                                              ; preds = %._crit_edge.thread89, %._crit_edge
+  %.334.lcssa94 = phi ptr [ %107, %._crit_edge.thread89 ], [ %.233, %._crit_edge ]
+  %.lcssa93 = phi i32 [ %103, %._crit_edge.thread89 ], [ %96, %._crit_edge ]
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.lcssa93) #17
+  br label %.critedge
 
-.thread63:                                        ; preds = %19, %25, %.preheader
+.critedge.thread:                                 ; preds = %19, %25, %.preheader
   %111 = tail call i32 @close(i32 noundef %13) #17
-  br label %115
+  br label %114
 
-112:                                              ; preds = %._crit_edge, %110
-  %.334.lcssa90 = phi ptr [ %.233, %._crit_edge ], [ %.334.lcssa96, %110 ]
-  %113 = tail call i32 @close(i32 noundef %13) #17
-  %.not60 = icmp eq ptr %.334.lcssa90, null
-  br i1 %.not60, label %115, label %114
+.critedge:                                        ; preds = %._crit_edge, %110
+  %.334.lcssa88 = phi ptr [ %.233, %._crit_edge ], [ %.334.lcssa94, %110 ]
+  %112 = tail call i32 @close(i32 noundef %13) #17
+  %.not60 = icmp eq ptr %.334.lcssa88, null
+  br i1 %.not60, label %114, label %113
 
-114:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %.334.lcssa90) #17
-  br label %115
+113:                                              ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %.334.lcssa88) #17
+  br label %114
 
-115:                                              ; preds = %.thread97, %.thread63, %112, %114, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %114 ], [ true, %112 ], [ false, %.thread63 ], [ true, %.thread97 ]
+114:                                              ; preds = %.critedge.thread95, %.critedge.thread, %.critedge, %113, %16
+  %.0 = phi i1 [ false, %16 ], [ true, %113 ], [ true, %.critedge ], [ false, %.critedge.thread ], [ true, %.critedge.thread95 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #17

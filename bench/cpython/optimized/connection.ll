@@ -3619,10 +3619,10 @@ Py_XDECREF.exit.i.i32.i:                          ; preds = %91, %88, %86, %84
   br i1 %98, label %set_callback_context.exit.sink.split.sink.split.i, label %set_callback_context.exit.sink.split.i
 
 set_callback_context.exit.sink.split.sink.split.i: ; preds = %96, %61
-  %.sink50.i = phi ptr [ %58, %61 ], [ %93, %96 ]
+  %.sink49.i = phi ptr [ %58, %61 ], [ %93, %96 ]
   %.sink.ph.i = phi ptr [ %48, %61 ], [ %83, %96 ]
   %.017.ph.ph.i = phi i32 [ %46, %61 ], [ %81, %96 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink50.i) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink49.i) #7
   br label %set_callback_context.exit.sink.split.i
 
 set_callback_context.exit.sink.split.i:           ; preds = %set_callback_context.exit.sink.split.sink.split.i, %96, %94, %Py_XDECREF.exit.i.i32.i, %61, %59, %Py_XDECREF.exit.i.i.i
@@ -3692,7 +3692,7 @@ free_callback_context.exit.i43.i:                 ; preds = %119, %116, %114, %P
   br label %pysqlite_connection_set_authorizer_impl.exit
 
 pysqlite_connection_set_authorizer_impl.exit:     ; preds = %free_callback_context.exit.i43.i, %99, %set_callback_context.exit.i, %64, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %14, %10
-  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %set_callback_context.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %64 ], [ null, %99 ], [ null, %free_callback_context.exit.i43.i ]
+  %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %set_callback_context.exit.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %99 ], [ null, %free_callback_context.exit.i43.i ], [ null, %64 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret ptr %.0
 }
@@ -6928,7 +6928,7 @@ define internal fastcc noundef ptr @create_window_function_impl(ptr noundef read
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8, !tbaa !75
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.95) #7
-  br label %.thread
+  br label %.critedge
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -6948,7 +6948,7 @@ pysqlite_check_thread.exit:                       ; preds = %14
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = tail call i64 @PyThread_get_thread_ident() #7
   %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.2, i64 noundef %17, i64 noundef %20) #7
-  br label %.thread
+  br label %.critedge
 
 22:                                               ; preds = %14, %11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6980,7 +6980,7 @@ pysqlite_check_connection.exit.thread:            ; preds = %25, %32
   %35 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !19
   tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull %.str.1.sink.i) #7
-  br label %.thread
+  br label %.critedge
 
 pysqlite_check_connection.exit:                   ; preds = %29
   %37 = icmp eq ptr %4, @_Py_NoneStruct
@@ -6993,7 +6993,7 @@ pysqlite_check_connection.exit:                   ; preds = %29
 40:                                               ; preds = %pysqlite_check_connection.exit
   %41 = tail call ptr @PyMem_Malloc(i64 noundef 24) #7
   %.not.i31 = icmp eq ptr %41, null
-  br i1 %.not.i31, label %.thread, label %42
+  br i1 %.not.i31, label %.critedge, label %42
 
 42:                                               ; preds = %40
   %43 = tail call ptr @PyType_GetModule(ptr noundef %1) #7
@@ -7017,7 +7017,7 @@ _Py_NewRef.exit.i:                                ; preds = %46, %42
   store i32 %51, ptr %43, align 8, !tbaa !34
   br label %52
 
-52:                                               ; preds = %_Py_NewRef.exit.i, %50
+52:                                               ; preds = %50, %_Py_NewRef.exit.i
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %53, align 8, !tbaa !79
   %54 = tail call ptr @PyModule_GetState(ptr noundef nonnull %43) #7
@@ -7030,16 +7030,16 @@ _Py_NewRef.exit.i:                                ; preds = %46, %42
 58:                                               ; preds = %52, %38
   %.021 = phi i32 [ %39, %38 ], [ %57, %52 ]
   %.not27 = icmp eq i32 %.021, 0
-  br i1 %.not27, label %.thread, label %59
+  br i1 %.not27, label %.critedge, label %59
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %61 = load ptr, ptr %60, align 8, !tbaa !23
   %62 = tail call ptr @sqlite3_errstr(i32 noundef %.021) #7
   tail call void @PyErr_SetString(ptr noundef %61, ptr noundef %62) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %40, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %59, %58, %8
+.critedge:                                        ; preds = %40, %pysqlite_check_connection.exit.thread, %pysqlite_check_thread.exit, %59, %58, %8
   %.020 = phi ptr [ null, %8 ], [ null, %pysqlite_check_thread.exit ], [ null, %59 ], [ @_Py_NoneStruct, %58 ], [ null, %pysqlite_check_connection.exit.thread ], [ null, %40 ]
   ret ptr %.020
 }

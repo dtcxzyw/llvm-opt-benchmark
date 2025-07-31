@@ -25,7 +25,7 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2
   %6 = icmp eq i8 %5, 4
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -34,7 +34,7 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %11 = shl nuw nsw i32 %10, 3
   %12 = add nuw nsw i32 %11, 8
   %13 = icmp eq i32 %12, %1
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %7
   br i1 %2, label %._crit_edge, label %15
@@ -50,13 +50,13 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 4
   %20 = icmp ugt i8 %17, %19
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %._crit_edge, %15
   %22 = phi i8 [ %.pre, %._crit_edge ], [ %19, %15 ]
   %23 = lshr i8 %9, 1
   %24 = icmp ugt i8 %23, %22
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %21
   %26 = zext nneg i8 %22 to i32
@@ -65,21 +65,21 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %26, 1
   %31 = icmp samesign ult i32 %30, %29
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %25
   %33 = shl nuw nsw i32 %30, 4
   %34 = or disjoint i32 %33, 8
   %35 = sub nsw i32 %1, %34
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.thread, label %.preheader
+  br i1 %36, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %32, %39
   %37 = phi i32 [ %48, %39 ], [ %34, %32 ]
   %38 = phi i32 [ %45, %39 ], [ %35, %32 ]
   switch i32 %38, label %39 [
-    i32 0, label %.thread.loopexit6
-    i32 1, label %.thread
+    i32 0, label %.critedge.loopexit6
+    i32 1, label %.critedge
   ]
 
 39:                                               ; preds = %.preheader
@@ -92,13 +92,13 @@ define dso_local noundef zeroext i1 @seg6_validate_srh(ptr noundef readonly capt
   %46 = icmp sgt i32 %45, -1
   %47 = select i1 %46, i32 %44, i32 0
   %48 = add i32 %47, %37
-  br i1 %46, label %.preheader, label %.thread, !llvm.loop !5
+  br i1 %46, label %.preheader, label %.critedge, !llvm.loop !5
 
-.thread.loopexit6:                                ; preds = %.preheader
-  br label %.thread
+.critedge.loopexit6:                              ; preds = %.preheader
+  br label %.critedge
 
-.thread:                                          ; preds = %39, %.preheader, %.thread.loopexit6, %32, %25, %21, %15, %7, %3
-  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ true, %.thread.loopexit6 ], [ false, %.preheader ], [ false, %39 ]
+.critedge:                                        ; preds = %39, %.preheader, %.critedge.loopexit6, %32, %25, %21, %15, %7, %3
+  %49 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ true, %.critedge.loopexit6 ], [ false, %.preheader ], [ false, %39 ]
   ret i1 %49
 }
 
@@ -117,7 +117,7 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   store i32 0, ptr %4, align 4
   %5 = call i32 @ipv6_find_hdr(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 43, ptr noundef null, ptr noundef nonnull %3) #10
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %4, align 4
@@ -132,13 +132,13 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
 
 16:                                               ; preds = %7
   %17 = icmp ult i32 %11, %9
-  br i1 %17, label %.thread, label %18, !prof !8
+  br i1 %17, label %.critedge, label %18, !prof !8
 
 18:                                               ; preds = %16
   %19 = sub i32 %9, %14
   %20 = call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %19) #10
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread, label %._crit_edge
+  br i1 %21, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i32, ptr %4, align 4
@@ -167,13 +167,13 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
 
 35:                                               ; preds = %22
   %36 = icmp ult i32 %23, %33
-  br i1 %36, label %.thread, label %37, !prof !8
+  br i1 %36, label %.critedge, label %37, !prof !8
 
 37:                                               ; preds = %35
   %38 = sub i32 %33, %.pre-phi16
   %39 = call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %38) #10
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %._crit_edge11
+  br i1 %40, label %.critedge, label %._crit_edge11
 
 ._crit_edge11:                                    ; preds = %37
   %.pre12 = load ptr, ptr %25, align 8
@@ -188,20 +188,20 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %45 = load i8, ptr %44, align 2
   %46 = icmp eq i8 %45, 4
-  br i1 %46, label %47, label %.thread
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, %30
-  br i1 %50, label %51, label %.thread
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %47
   %52 = lshr i8 %30, 1
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %54 = load i8, ptr %53, align 4
   %55 = icmp ugt i8 %52, %54
-  br i1 %55, label %56, label %.thread
+  br i1 %55, label %56, label %.critedge
 
 56:                                               ; preds = %51
   %57 = zext nneg i8 %54 to i32
@@ -210,13 +210,13 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %57, 1
   %62 = icmp samesign ult i32 %61, %60
-  br i1 %62, label %.thread, label %63
+  br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %56
   %64 = shl nuw nsw i32 %61, 4
   %65 = sub nsw i32 %32, %64
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread, label %.preheader.preheader
+  br i1 %66, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %63
   %67 = or disjoint i32 %64, 8
@@ -226,8 +226,8 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %68 = phi i32 [ %79, %70 ], [ %67, %.preheader.preheader ]
   %69 = phi i32 [ %76, %70 ], [ %65, %.preheader.preheader ]
   switch i32 %69, label %70 [
-    i32 0, label %.thread.loopexit20
-    i32 1, label %.thread
+    i32 0, label %.critedge.loopexit20
+    i32 1, label %.critedge
   ]
 
 70:                                               ; preds = %.preheader
@@ -240,13 +240,13 @@ define dso_local ptr @seg6_get_srh(ptr noundef %0, i32 noundef %1) local_unnamed
   %77 = icmp sgt i32 %76, -1
   %78 = select i1 %77, i32 %75, i32 0
   %79 = add i32 %78, %68
-  br i1 %77, label %.preheader, label %.thread, !llvm.loop !5
+  br i1 %77, label %.preheader, label %.critedge, !llvm.loop !5
 
-.thread.loopexit20:                               ; preds = %.preheader
-  br label %.thread
+.critedge.loopexit20:                             ; preds = %.preheader
+  br label %.critedge
 
-.thread:                                          ; preds = %70, %.preheader, %.thread.loopexit20, %63, %56, %51, %47, %41, %37, %35, %18, %16, %2
-  %80 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %37 ], [ null, %16 ], [ null, %35 ], [ null, %41 ], [ null, %47 ], [ null, %51 ], [ null, %56 ], [ null, %63 ], [ %43, %.thread.loopexit20 ], [ null, %.preheader ], [ null, %70 ]
+.critedge:                                        ; preds = %70, %.preheader, %.critedge.loopexit20, %63, %56, %51, %47, %41, %37, %35, %18, %16, %2
+  %80 = phi ptr [ null, %2 ], [ null, %18 ], [ null, %37 ], [ null, %16 ], [ null, %35 ], [ null, %41 ], [ null, %47 ], [ null, %51 ], [ null, %56 ], [ null, %63 ], [ %43, %.critedge.loopexit20 ], [ null, %.preheader ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   ret ptr %80
 }

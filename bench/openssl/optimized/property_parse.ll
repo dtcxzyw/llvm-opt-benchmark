@@ -1099,23 +1099,23 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %0, align 8, !tbaa !25
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph.lr.ph.preheader, label %.thread
+  br i1 %6, label %.lr.ph.lr.ph.preheader, label %.critedge
 
 .lr.ph.lr.ph.preheader:                           ; preds = %2
   %7 = zext nneg i32 %5 to i64
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.preheader, %.outer.backedge
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph.lr.ph.preheader ], [ %indvars.iv.next126, %.outer.backedge ]
-  %.059.ph106 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.059.ph.be, %.outer.backedge ]
-  %.061.ph105 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.061.ph.be, %.outer.backedge ]
-  %8 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %4, i64 %indvars.iv125
+  %indvars.iv121 = phi i64 [ 0, %.lr.ph.lr.ph.preheader ], [ %indvars.iv.next122, %.outer.backedge ]
+  %.059.ph102 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.059.ph.be, %.outer.backedge ]
+  %.061.ph101 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.061.ph.be, %.outer.backedge ]
+  %8 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %4, i64 %indvars.iv121
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer80
-  %.059.ph82101 = phi i32 [ %.059.ph106, %.lr.ph.lr.ph ], [ %74, %.outer80 ]
-  %.061.ph81100 = phi i32 [ %.061.ph105, %.lr.ph.lr.ph ], [ %.3, %.outer80 ]
-  %9 = sext i32 %.059.ph82101 to i64
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer76
+  %.059.ph7897 = phi i32 [ %.059.ph102, %.lr.ph.lr.ph ], [ %74, %.outer76 ]
+  %.061.ph7796 = phi i32 [ %.061.ph101, %.lr.ph.lr.ph ], [ %.3, %.outer76 ]
+  %9 = sext i32 %.059.ph7897 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %15
@@ -1129,13 +1129,13 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
 15:                                               ; preds = %10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %16 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %16, label %10, label %.thread, !llvm.loop !27
+  br i1 %16, label %10, label %.critedge, !llvm.loop !27
 
 17:                                               ; preds = %10
   %18 = trunc nsw i64 %indvars.iv to i32
   %19 = load i32, ptr %1, align 8, !tbaa !25
   %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv125, %20
+  %21 = icmp slt i64 %indvars.iv121, %20
   br i1 %21, label %22, label %49
 
 22:                                               ; preds = %17
@@ -1145,11 +1145,11 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   br i1 %25, label %.outer.backedge, label %27
 
 .outer.backedge:                                  ; preds = %22, %47
-  %.061.ph.be = phi i32 [ %.162, %47 ], [ %.061.ph81100, %22 ]
+  %.061.ph.be = phi i32 [ %.162, %47 ], [ %.061.ph7796, %22 ]
   %.059.ph.be = phi i32 [ %48, %47 ], [ %18, %22 ]
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %26 = icmp slt i32 %.059.ph.be, %5
-  br i1 %26, label %.lr.ph.lr.ph, label %.thread, !llvm.loop !27
+  br i1 %26, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !27
 
 27:                                               ; preds = %22
   %28 = icmp eq i32 %23, %24
@@ -1177,7 +1177,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond75.not, label %41, label %43
 
 41:                                               ; preds = %40
-  %42 = add nsw i32 %.061.ph81100, 1
+  %42 = add nsw i32 %.061.ph7796, 1
   br label %47
 
 43:                                               ; preds = %40
@@ -1185,10 +1185,10 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %.not74 = icmp eq i8 %46, 0
-  br i1 %.not74, label %.thread, label %47
+  br i1 %.not74, label %.critedge, label %47
 
-47:                                               ; preds = %41, %43
-  %.162 = phi i32 [ %42, %41 ], [ %.061.ph81100, %43 ]
+47:                                               ; preds = %43, %41
+  %.162 = phi i32 [ %42, %41 ], [ %.061.ph7796, %43 ]
   %48 = add nsw i32 %18, 1
   br label %.outer.backedge
 
@@ -1205,15 +1205,15 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
-  %55 = add nsw i32 %.061.ph81100, 1
-  br label %.outer80
+  %55 = add nsw i32 %.061.ph7796, 1
+  br label %.outer76
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
   %.not72 = icmp eq i8 %59, 0
-  br i1 %.not72, label %.thread, label %.outer80
+  br i1 %.not72, label %.critedge, label %.outer76
 
 60:                                               ; preds = %49
   switch i32 %13, label %72 [
@@ -1238,20 +1238,20 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %.not71 = icmp eq i8 %71, 0
-  br i1 %.not71, label %.thread, label %.outer80
+  br i1 %.not71, label %.critedge, label %.outer76
 
 72:                                               ; preds = %61, %60, %64
-  %73 = add nsw i32 %.061.ph81100, 1
-  br label %.outer80
+  %73 = add nsw i32 %.061.ph7796, 1
+  br label %.outer76
 
-.outer80:                                         ; preds = %72, %68, %54, %56
-  %.3 = phi i32 [ %55, %54 ], [ %.061.ph81100, %56 ], [ %.061.ph81100, %68 ], [ %73, %72 ]
+.outer76:                                         ; preds = %72, %68, %54, %56
+  %.3 = phi i32 [ %55, %54 ], [ %.061.ph7796, %56 ], [ %.061.ph7796, %68 ], [ %73, %72 ]
   %74 = add nsw i32 %18, 1
   %75 = icmp slt i32 %74, %5
-  br i1 %75, label %.lr.ph, label %.thread, !llvm.loop !27
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !27
 
-.thread:                                          ; preds = %43, %.outer.backedge, %.outer80, %68, %56, %15, %2
-  %.2 = phi i32 [ 0, %2 ], [ %.061.ph81100, %15 ], [ %.3, %.outer80 ], [ -1, %68 ], [ -1, %56 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
+.critedge:                                        ; preds = %43, %.outer.backedge, %.outer76, %68, %56, %15, %2
+  %.2 = phi i32 [ 0, %2 ], [ %.061.ph7796, %15 ], [ %.3, %.outer76 ], [ -1, %68 ], [ -1, %56 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
   ret i32 %.2
 }
 

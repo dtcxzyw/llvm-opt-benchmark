@@ -940,13 +940,13 @@ define noundef i32 @_ZN14colvarproxy_io11remove_fileEPKc(ptr nonnull readnone al
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call i32 @remove(ptr noundef %1) #22
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.thread, label %8
+  br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %2
   %9 = tail call ptr @__errno_location() #24
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %.not12 = icmp eq i32 %10, 2
-  br i1 %.not12, label %.thread, label %11
+  br i1 %.not12, label %.critedge, label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
@@ -1143,7 +1143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
-  br label %.thread
+  br label %.critedge
 
 82:                                               ; preds = %23
   %83 = landingpad { ptr, i32 }
@@ -1216,8 +1216,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn.pn
 
-.thread:                                          ; preds = %2, %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
-  %.011 = phi i32 [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ 0, %8 ], [ 0, %2 ]
+.critedge:                                        ; preds = %8, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
+  %.011 = phi i32 [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.011
 }
 

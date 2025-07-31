@@ -4201,19 +4201,19 @@ define void @_ZN5arrow3ipc19ResolveDictionariesERKSt6vectorISt10shared_ptrINS_9A
   %10 = load ptr, ptr %1, align 8, !tbaa !136, !noalias !243
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !136, !noalias !243
-  %.not27.i = icmp eq ptr %10, %12
-  br i1 %.not27.i, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit, label %.lr.ph.i
+  %.not24.i = icmp eq ptr %10, %12
+  br i1 %.not24.i, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %14
 
-14:                                               ; preds = %20, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %.sroa.020.028.i = phi ptr [ %10, %.lr.ph.i ], [ %21, %20 ]
-  %15 = load ptr, ptr %.sroa.020.028.i, align 8, !tbaa !142, !noalias !243
-  %.not26.i = icmp eq ptr %15, null
-  br i1 %.not26.i, label %20, label %_ZN5arrow6StatusD2Ev.exit.i
+14:                                               ; preds = %.critedge.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
+  %.sroa.020.025.i = phi ptr [ %10, %.lr.ph.i ], [ %20, %.critedge.i ]
+  %15 = load ptr, ptr %.sroa.020.025.i, align 8, !tbaa !142, !noalias !243
+  %.not23.i = icmp eq ptr %15, null
+  br i1 %.not23.i, label %.critedge.i, label %_ZN5arrow6StatusD2Ev.exit.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25, !noalias !243
@@ -4226,16 +4226,16 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %14
   %18 = load ptr, ptr %6, align 8, !tbaa !71, !noalias !246
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25, !noalias !243
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit
+  br i1 %19, label %.critedge.i, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit
 
-20:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %14
+.critedge.i:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.020.028.i, i64 16
-  %.not.i = icmp eq ptr %21, %12
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i, i64 16
+  %.not.i = icmp eq ptr %20, %12
   br i1 %.not.i, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit, label %14
 
-_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %20, %4
-  %storemerge = phi ptr [ null, %4 ], [ %18, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %20 ]
+_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %.critedge.i, %4
+  %storemerge = phi ptr [ null, %4 ], [ %18, %_ZN5arrow6StatusD2Ev.exit.i ], [ null, %.critedge.i ]
   store ptr %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
@@ -4252,19 +4252,19 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13Vi
   %9 = load ptr, ptr %2, align 8, !tbaa !136
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !136
-  %.not27 = icmp eq ptr %9, %11
-  br i1 %.not27, label %.critedge17, label %.lr.ph
+  %.not24 = icmp eq ptr %9, %11
+  br i1 %.not24, label %.critedge17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %13
 
-13:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.sroa.020.028 = phi ptr [ %9, %.lr.ph ], [ %20, %19 ]
-  %14 = load ptr, ptr %.sroa.020.028, align 8, !tbaa !142
-  %.not26 = icmp eq ptr %14, null
-  br i1 %.not26, label %19, label %_ZN5arrow6StatusD2Ev.exit
+13:                                               ; preds = %.lr.ph, %.critedge
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
+  %.sroa.020.025 = phi ptr [ %9, %.lr.ph ], [ %19, %.critedge ]
+  %14 = load ptr, ptr %.sroa.020.025, align 8, !tbaa !142
+  %.not23 = icmp eq ptr %14, null
+  br i1 %.not23, label %.critedge, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
@@ -4279,19 +4279,19 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13
   store ptr %17, ptr %0, align 8, !tbaa !71, !alias.scope !249
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %.critedge
+  br i1 %18, label %.critedge, label %.critedge16
 
-19:                                               ; preds = %13, %_ZN5arrow6StatusD2Ev.exit
+.critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.020.028, i64 16
-  %.not = icmp eq ptr %20, %11
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.020.025, i64 16
+  %.not = icmp eq ptr %19, %11
   br i1 %.not, label %.critedge17, label %13
 
-.critedge17:                                      ; preds = %19, %5
+.critedge17:                                      ; preds = %.critedge, %5
   store ptr null, ptr %0, align 8, !tbaa !71, !alias.scope !252
-  br label %.critedge
+  br label %.critedge16
 
-.critedge:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit, %.critedge17
+.critedge16:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %.critedge17
   ret void
 }
 

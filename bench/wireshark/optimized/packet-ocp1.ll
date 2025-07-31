@@ -1673,7 +1673,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #6
   %119 = load i32, ptr @ett_ocp1_params, align 4
   %120 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %119, ptr noundef nonnull %118, ptr noundef nonnull @.str.357)
-  switch i16 %4, label %1451 [
+  switch i16 %4, label %1463 [
     i16 1, label %121
     i16 3, label %154
   ]
@@ -1741,20 +1741,20 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   br label %decode_params_OcaRoot.exit
 
 154:                                              ; preds = %9
-  switch i32 %3, label %1448 [
+  switch i32 %3, label %1460 [
     i32 1, label %155
-    i32 2, label %354
-    i32 3, label %423
-    i32 4, label %548
-    i32 5, label %781
-    i32 6, label %861
-    i32 7, label %937
-    i32 8, label %994
-    i32 9, label %1080
-    i32 10, label %1083
-    i32 11, label %1143
-    i32 12, label %1401
-    i32 13, label %1428
+    i32 2, label %358
+    i32 3, label %427
+    i32 4, label %552
+    i32 5, label %785
+    i32 6, label %865
+    i32 7, label %941
+    i32 8, label %998
+    i32 9, label %1084
+    i32 10, label %1087
+    i32 11, label %1147
+    i32 12, label %1409
+    i32 13, label %1440
   ]
 
 155:                                              ; preds = %154
@@ -2068,7 +2068,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %or.cond86.i = or i1 %309, %7
   %or.cond86.not.i = xor i1 %or.cond86.i, true
   %or.cond89.i = and i1 %157, %or.cond86.not.i
-  br i1 %or.cond89.i, label %310, label %342
+  br i1 %or.cond89.i, label %310, label %346
 
 310:                                              ; preds = %308
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #6
@@ -2076,17 +2076,13 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %312 = zext i16 %311 to i32
   %invariant.op.i = add i32 %1, 4
   %.not.i = icmp eq i16 %311, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge374.i.critedge, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %310
-  %.0361.lcssa.i = phi i32 [ 2, %310 ], [ %326, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %313 = load i32, ptr @ett_ocp1_params, align 4
-  %314 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %.0361.lcssa.i, i32 noundef %313, ptr noundef nonnull %113, ptr noundef nonnull @.str.383)
+  %314 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %326, i32 noundef %313, ptr noundef nonnull %113, ptr noundef nonnull @.str.383)
   %315 = load i32, ptr @hf_ocp1_params_list_count, align 4
   %316 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  br i1 %.not.i, label %._crit_edge374.i, label %.lr.ph373.i.preheader
-
-.lr.ph373.i.preheader:                            ; preds = %._crit_edge.i
   %317 = add i32 %1, 2
   br label %.lr.ph373.i
 
@@ -2108,429 +2104,436 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   %exitcond.not.i = icmp eq i32 %327, %312
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
-._crit_edge374.i:                                 ; preds = %.lr.ph373.i, %._crit_edge.i
+._crit_edge374.i.critedge:                        ; preds = %310
+  %328 = load i32, ptr @ett_ocp1_params, align 4
+  %329 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %328, ptr noundef nonnull %113, ptr noundef nonnull @.str.383)
+  %330 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %331 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  br label %._crit_edge374.i
+
+._crit_edge374.i:                                 ; preds = %.lr.ph373.i, %._crit_edge374.i.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #6
   br label %decode_params_OcaRoot.exit
 
-.lr.ph373.i:                                      ; preds = %.lr.ph373.i.preheader, %.lr.ph373.i
-  %.1371.i = phi i32 [ %341, %.lr.ph373.i ], [ %317, %.lr.ph373.i.preheader ]
-  %.0363370.i = phi i32 [ %338, %.lr.ph373.i ], [ 0, %.lr.ph373.i.preheader ]
-  %328 = add i32 %.1371.i, 4
-  %329 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %328, i32 noundef 0)
-  %330 = zext i16 %329 to i32
-  %331 = add i32 %.1371.i, 6
-  %332 = add i32 %331, %330
+.lr.ph373.i:                                      ; preds = %._crit_edge.i, %.lr.ph373.i
+  %.1371.i = phi i32 [ %345, %.lr.ph373.i ], [ %317, %._crit_edge.i ]
+  %.0363370.i = phi i32 [ %342, %.lr.ph373.i ], [ 0, %._crit_edge.i ]
+  %332 = add i32 %.1371.i, 4
   %333 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %332, i32 noundef 0)
   %334 = zext i16 %333 to i32
-  %335 = shl nuw nsw i32 %334, 1
-  %.reass369.i = add nuw nsw i32 %330, 10
-  %336 = add nuw nsw i32 %.reass369.i, %335
-  %337 = load i32, ptr @ett_ocp1_params_manager_desc, align 4
-  %338 = add nuw nsw i32 %.0363370.i, 1
-  %339 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %314, ptr noundef %0, i32 noundef %.1371.i, i32 noundef %336, i32 noundef %337, ptr noundef null, ptr noundef nonnull @.str.384, i32 noundef %338)
-  %340 = call fastcc i32 @decode_params_OcaManagerDescriptor(ptr noundef %0, i32 noundef %.1371.i, ptr noundef %339)
-  %341 = add i32 %340, %.1371.i
-  %exitcond378.not.i = icmp eq i32 %338, %312
+  %335 = add i32 %.1371.i, 6
+  %336 = add i32 %335, %334
+  %337 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %336, i32 noundef 0)
+  %338 = zext i16 %337 to i32
+  %339 = shl nuw nsw i32 %338, 1
+  %.reass369.i = add nuw nsw i32 %334, 10
+  %340 = add nuw nsw i32 %.reass369.i, %339
+  %341 = load i32, ptr @ett_ocp1_params_manager_desc, align 4
+  %342 = add nuw nsw i32 %.0363370.i, 1
+  %343 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %314, ptr noundef %0, i32 noundef %.1371.i, i32 noundef %340, i32 noundef %341, ptr noundef null, ptr noundef nonnull @.str.384, i32 noundef %342)
+  %344 = call fastcc i32 @decode_params_OcaManagerDescriptor(ptr noundef %0, i32 noundef %.1371.i, ptr noundef %343)
+  %345 = add i32 %344, %.1371.i
+  %exitcond378.not.i = icmp eq i32 %342, %312
   br i1 %exitcond378.not.i, label %._crit_edge374.i, label %.lr.ph373.i, !llvm.loop !13
 
-342:                                              ; preds = %308
-  %343 = icmp ne i16 %5, 20
-  %or.cond91.i = or i1 %343, %7
+346:                                              ; preds = %308
+  %347 = icmp ne i16 %5, 20
+  %or.cond91.i = or i1 %347, %7
   %or.cond91.not.i = xor i1 %or.cond91.i, true
   %or.cond94.i = and i1 %157, %or.cond91.not.i
-  br i1 %or.cond94.i, label %344, label %351
+  br i1 %or.cond94.i, label %348, label %355
 
-344:                                              ; preds = %342
+348:                                              ; preds = %346
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #6
-  %345 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %346 = zext i16 %345 to i32
-  %347 = add nuw nsw i32 %346, 2
-  %348 = load i32, ptr @ett_ocp1_params, align 4
-  %349 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %347, i32 noundef %348, ptr noundef nonnull %114, ptr noundef nonnull @.str.385)
-  %350 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %349, ptr noundef nonnull @.str.386)
+  %349 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %350 = zext i16 %349 to i32
+  %351 = add nuw nsw i32 %350, 2
+  %352 = load i32, ptr @ett_ocp1_params, align 4
+  %353 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %351, i32 noundef %352, ptr noundef nonnull %114, ptr noundef nonnull @.str.385)
+  %354 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %353, ptr noundef nonnull @.str.386)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #6
   br label %decode_params_OcaRoot.exit
 
-351:                                              ; preds = %342
-  %352 = load i32, ptr @hf_ocp1_params, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %352, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+355:                                              ; preds = %346
+  %356 = load i32, ptr @hf_ocp1_params, align 4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %356, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-354:                                              ; preds = %154
-  %355 = icmp eq i16 %5, 3
-  %or.cond.i119 = and i1 %355, %7
-  %356 = icmp eq i8 %6, 2
-  %or.cond4.i120 = and i1 %356, %or.cond.i119
-  br i1 %or.cond4.i120, label %357, label %382
+358:                                              ; preds = %154
+  %359 = icmp eq i16 %5, 3
+  %or.cond.i119 = and i1 %359, %7
+  %360 = icmp eq i8 %6, 2
+  %or.cond4.i120 = and i1 %360, %or.cond.i119
+  br i1 %or.cond4.i120, label %361, label %386
 
-357:                                              ; preds = %354
+361:                                              ; preds = %358
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #6
-  %358 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %359 = zext i16 %358 to i32
-  %360 = add nuw nsw i32 %359, 2
-  %361 = load i32, ptr @ett_ocp1_params, align 4
-  %362 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %360, i32 noundef %361, ptr noundef nonnull %90, ptr noundef nonnull @.str.393)
-  %363 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %362, ptr noundef nonnull @.str.394)
-  %364 = add i32 %363, %1
-  %365 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %364, i32 noundef 0)
-  %366 = zext i16 %365 to i32
-  %367 = add nuw nsw i32 %366, 2
-  %368 = load i32, ptr @ett_ocp1_params, align 4
-  %369 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %364, i32 noundef %367, i32 noundef %368, ptr noundef nonnull %91, ptr noundef nonnull @.str.395)
-  %370 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %364, i32 noundef 0)
-  %371 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %372 = zext i16 %370 to i32
-  %373 = add nuw nsw i32 %372, 2
-  %374 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %371, ptr noundef %0, i32 noundef %364, i32 noundef %373, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %374, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.377)
-  %375 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %376 = call ptr @proto_item_add_subtree(ptr noundef %374, i32 noundef %375)
-  %377 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %378 = call ptr @proto_tree_add_item(ptr noundef %376, i32 noundef %377, ptr noundef %0, i32 noundef %364, i32 noundef 2, i32 noundef 0)
-  %379 = add i32 %364, 2
-  %380 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %376, i32 noundef %380, ptr noundef %0, i32 noundef %379, i32 noundef %372, i32 noundef 0)
+  %362 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %363 = zext i16 %362 to i32
+  %364 = add nuw nsw i32 %363, 2
+  %365 = load i32, ptr @ett_ocp1_params, align 4
+  %366 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %364, i32 noundef %365, ptr noundef nonnull %90, ptr noundef nonnull @.str.393)
+  %367 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %366, ptr noundef nonnull @.str.394)
+  %368 = add i32 %367, %1
+  %369 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %368, i32 noundef 0)
+  %370 = zext i16 %369 to i32
+  %371 = add nuw nsw i32 %370, 2
+  %372 = load i32, ptr @ett_ocp1_params, align 4
+  %373 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %368, i32 noundef %371, i32 noundef %372, ptr noundef nonnull %91, ptr noundef nonnull @.str.395)
+  %374 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %368, i32 noundef 0)
+  %375 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %376 = zext i16 %374 to i32
+  %377 = add nuw nsw i32 %376, 2
+  %378 = call ptr @proto_tree_add_item(ptr noundef %373, i32 noundef %375, ptr noundef %0, i32 noundef %368, i32 noundef %377, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %378, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.377)
+  %379 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %380 = call ptr @proto_item_add_subtree(ptr noundef %378, i32 noundef %379)
+  %381 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %382 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %381, ptr noundef %0, i32 noundef %368, i32 noundef 2, i32 noundef 0)
+  %383 = add i32 %368, 2
+  %384 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %385 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %384, ptr noundef %0, i32 noundef %383, i32 noundef %376, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #6
   br label %decode_params_OcaRoot.exit
 
-382:                                              ; preds = %354
-  %383 = icmp eq i16 %5, 4
-  %or.cond6.i121 = and i1 %383, %7
-  %or.cond9.i122 = and i1 %356, %or.cond6.i121
-  br i1 %or.cond9.i122, label %384, label %409
+386:                                              ; preds = %358
+  %387 = icmp eq i16 %5, 4
+  %or.cond6.i121 = and i1 %387, %7
+  %or.cond9.i122 = and i1 %360, %or.cond6.i121
+  br i1 %or.cond9.i122, label %388, label %413
 
-384:                                              ; preds = %382
+388:                                              ; preds = %386
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #6
-  %385 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %386 = zext i16 %385 to i32
-  %387 = add nuw nsw i32 %386, 2
-  %388 = load i32, ptr @ett_ocp1_params, align 4
-  %389 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %387, i32 noundef %388, ptr noundef nonnull %92, ptr noundef nonnull @.str.393)
-  %390 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %389, ptr noundef nonnull @.str.394)
-  %391 = add i32 %390, %1
-  %392 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %391, i32 noundef 0)
-  %393 = zext i16 %392 to i32
-  %394 = add nuw nsw i32 %393, 2
-  %395 = load i32, ptr @ett_ocp1_params, align 4
-  %396 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %391, i32 noundef %394, i32 noundef %395, ptr noundef nonnull %93, ptr noundef nonnull @.str.396)
-  %397 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %391, i32 noundef 0)
-  %398 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %399 = zext i16 %397 to i32
-  %400 = add nuw nsw i32 %399, 2
-  %401 = call ptr @proto_tree_add_item(ptr noundef %396, i32 noundef %398, ptr noundef %0, i32 noundef %391, i32 noundef %400, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %401, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.377)
-  %402 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %403 = call ptr @proto_item_add_subtree(ptr noundef %401, i32 noundef %402)
-  %404 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %404, ptr noundef %0, i32 noundef %391, i32 noundef 2, i32 noundef 0)
-  %406 = add i32 %391, 2
-  %407 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %408 = call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %407, ptr noundef %0, i32 noundef %406, i32 noundef %399, i32 noundef 0)
+  %389 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %390 = zext i16 %389 to i32
+  %391 = add nuw nsw i32 %390, 2
+  %392 = load i32, ptr @ett_ocp1_params, align 4
+  %393 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %391, i32 noundef %392, ptr noundef nonnull %92, ptr noundef nonnull @.str.393)
+  %394 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %393, ptr noundef nonnull @.str.394)
+  %395 = add i32 %394, %1
+  %396 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %395, i32 noundef 0)
+  %397 = zext i16 %396 to i32
+  %398 = add nuw nsw i32 %397, 2
+  %399 = load i32, ptr @ett_ocp1_params, align 4
+  %400 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %395, i32 noundef %398, i32 noundef %399, ptr noundef nonnull %93, ptr noundef nonnull @.str.396)
+  %401 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %395, i32 noundef 0)
+  %402 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %403 = zext i16 %401 to i32
+  %404 = add nuw nsw i32 %403, 2
+  %405 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %402, ptr noundef %0, i32 noundef %395, i32 noundef %404, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %405, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.377)
+  %406 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %407 = call ptr @proto_item_add_subtree(ptr noundef %405, i32 noundef %406)
+  %408 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %409 = call ptr @proto_tree_add_item(ptr noundef %407, i32 noundef %408, ptr noundef %0, i32 noundef %395, i32 noundef 2, i32 noundef 0)
+  %410 = add i32 %395, 2
+  %411 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %412 = call ptr @proto_tree_add_item(ptr noundef %407, i32 noundef %411, ptr noundef %0, i32 noundef %410, i32 noundef %403, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #6
   br label %decode_params_OcaRoot.exit
 
-409:                                              ; preds = %382
-  %410 = icmp eq i16 %5, 5
-  %411 = icmp eq i8 %6, 1
-  %412 = and i1 %410, %411
-  %or.cond14.i123 = and i1 %7, %412
-  br i1 %or.cond14.i123, label %413, label %420
+413:                                              ; preds = %386
+  %414 = icmp eq i16 %5, 5
+  %415 = icmp eq i8 %6, 1
+  %416 = and i1 %414, %415
+  %or.cond14.i123 = and i1 %7, %416
+  br i1 %or.cond14.i123, label %417, label %424
 
-413:                                              ; preds = %409
+417:                                              ; preds = %413
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #6
-  %414 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %415 = zext i16 %414 to i32
-  %416 = add nuw nsw i32 %415, 2
-  %417 = load i32, ptr @ett_ocp1_params, align 4
-  %418 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %416, i32 noundef %417, ptr noundef nonnull %94, ptr noundef nonnull @.str.393)
-  %419 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %418, ptr noundef nonnull @.str.394)
+  %418 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %419 = zext i16 %418 to i32
+  %420 = add nuw nsw i32 %419, 2
+  %421 = load i32, ptr @ett_ocp1_params, align 4
+  %422 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %420, i32 noundef %421, ptr noundef nonnull %94, ptr noundef nonnull @.str.393)
+  %423 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %422, ptr noundef nonnull @.str.394)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #6
   br label %decode_params_OcaRoot.exit
 
-420:                                              ; preds = %409
-  %421 = load i32, ptr @hf_ocp1_params, align 4
-  %422 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %421, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+424:                                              ; preds = %413
+  %425 = load i32, ptr @hf_ocp1_params, align 4
+  %426 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %425, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-423:                                              ; preds = %154
-  %424 = icmp ne i16 %5, 1
-  %or.cond.i125 = or i1 %424, %7
+427:                                              ; preds = %154
+  %428 = icmp ne i16 %5, 1
+  %or.cond.i125 = or i1 %428, %7
   %or.cond.not.i126 = xor i1 %or.cond.i125, true
-  %425 = icmp eq i8 %6, 1
-  %or.cond4.i127 = and i1 %425, %or.cond.not.i126
-  br i1 %or.cond4.i127, label %426, label %458
+  %429 = icmp eq i8 %6, 1
+  %or.cond4.i127 = and i1 %429, %or.cond.not.i126
+  br i1 %or.cond4.i127, label %430, label %462
 
-426:                                              ; preds = %423
+430:                                              ; preds = %427
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #6
-  %427 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %428 = zext i16 %427 to i32
-  %429 = mul nuw nsw i32 %428, 14
-  %430 = add nuw nsw i32 %429, 2
-  %431 = load i32, ptr @ett_ocp1_params, align 4
-  %432 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %430, i32 noundef %431, ptr noundef nonnull %82, ptr noundef nonnull @.str.397)
-  %433 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %434 = call ptr @proto_tree_add_item(ptr noundef %432, i32 noundef %433, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i135 = icmp eq i16 %427, 0
+  %431 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %432 = zext i16 %431 to i32
+  %433 = mul nuw nsw i32 %432, 14
+  %434 = add nuw nsw i32 %433, 2
+  %435 = load i32, ptr @ett_ocp1_params, align 4
+  %436 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %434, i32 noundef %435, ptr noundef nonnull %82, ptr noundef nonnull @.str.397)
+  %437 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %438 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %437, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i135 = icmp eq i16 %431, 0
   br i1 %.not.i135, label %._crit_edge.i138, label %.lr.ph.i136.preheader
 
-.lr.ph.i136.preheader:                            ; preds = %426
-  %435 = add i32 %1, 2
+.lr.ph.i136.preheader:                            ; preds = %430
+  %439 = add i32 %1, 2
   br label %.lr.ph.i136
 
-._crit_edge.i138:                                 ; preds = %.lr.ph.i136, %426
+._crit_edge.i138:                                 ; preds = %.lr.ph.i136, %430
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i136:                                      ; preds = %.lr.ph.i136.preheader, %.lr.ph.i136
-  %.0127130.i = phi i32 [ %457, %.lr.ph.i136 ], [ %435, %.lr.ph.i136.preheader ]
-  %.0128129.i = phi i32 [ %437, %.lr.ph.i136 ], [ 0, %.lr.ph.i136.preheader ]
-  %436 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %437 = add nuw nsw i32 %.0128129.i, 1
-  %438 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %432, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 14, i32 noundef %436, ptr noundef null, ptr noundef nonnull @.str.398, i32 noundef %437)
+  %.0127130.i = phi i32 [ %461, %.lr.ph.i136 ], [ %439, %.lr.ph.i136.preheader ]
+  %.0128129.i = phi i32 [ %441, %.lr.ph.i136 ], [ 0, %.lr.ph.i136.preheader ]
+  %440 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %441 = add nuw nsw i32 %.0128129.i, 1
+  %442 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %436, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 14, i32 noundef %440, ptr noundef null, ptr noundef nonnull @.str.398, i32 noundef %441)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #6
-  %439 = load i32, ptr @ett_ocp1_params_ocaver, align 4
-  %440 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 0)
-  %441 = add i32 %.0127130.i, 4
-  %442 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %441, i32 noundef 0)
-  %443 = add i32 %.0127130.i, 8
-  %444 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %443, i32 noundef 0)
-  %445 = add i32 %.0127130.i, 12
-  %446 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %445, i32 noundef 0)
-  %447 = zext i16 %446 to i32
-  %448 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %438, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 14, i32 noundef %439, ptr noundef nonnull %81, ptr noundef nonnull @.str.407, i32 noundef %440, i32 noundef %442, i32 noundef %444, i32 noundef %447)
-  %449 = load i32, ptr @hf_ocp1_params_ocaver_major, align 4
-  %450 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 4, i32 noundef 0)
-  %451 = load i32, ptr @hf_ocp1_params_ocaver_minor, align 4
-  %452 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %451, ptr noundef %0, i32 noundef %441, i32 noundef 4, i32 noundef 0)
-  %453 = load i32, ptr @hf_ocp1_params_ocaver_build, align 4
-  %454 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %453, ptr noundef %0, i32 noundef %443, i32 noundef 4, i32 noundef 0)
-  %455 = load i32, ptr @hf_ocp1_params_ocaver_comp, align 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %455, ptr noundef %0, i32 noundef %445, i32 noundef 2, i32 noundef 0)
+  %443 = load i32, ptr @ett_ocp1_params_ocaver, align 4
+  %444 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 0)
+  %445 = add i32 %.0127130.i, 4
+  %446 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %445, i32 noundef 0)
+  %447 = add i32 %.0127130.i, 8
+  %448 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %447, i32 noundef 0)
+  %449 = add i32 %.0127130.i, 12
+  %450 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %449, i32 noundef 0)
+  %451 = zext i16 %450 to i32
+  %452 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %442, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 14, i32 noundef %443, ptr noundef nonnull %81, ptr noundef nonnull @.str.407, i32 noundef %444, i32 noundef %446, i32 noundef %448, i32 noundef %451)
+  %453 = load i32, ptr @hf_ocp1_params_ocaver_major, align 4
+  %454 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %453, ptr noundef %0, i32 noundef %.0127130.i, i32 noundef 4, i32 noundef 0)
+  %455 = load i32, ptr @hf_ocp1_params_ocaver_minor, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %455, ptr noundef %0, i32 noundef %445, i32 noundef 4, i32 noundef 0)
+  %457 = load i32, ptr @hf_ocp1_params_ocaver_build, align 4
+  %458 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %457, ptr noundef %0, i32 noundef %447, i32 noundef 4, i32 noundef 0)
+  %459 = load i32, ptr @hf_ocp1_params_ocaver_comp, align 4
+  %460 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %459, ptr noundef %0, i32 noundef %449, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #6
-  %457 = add i32 %.0127130.i, 14
-  %exitcond.not.i137 = icmp eq i32 %437, %428
+  %461 = add i32 %.0127130.i, 14
+  %exitcond.not.i137 = icmp eq i32 %441, %432
   br i1 %exitcond.not.i137, label %._crit_edge.i138, label %.lr.ph.i136, !llvm.loop !14
 
-458:                                              ; preds = %423
-  %459 = icmp eq i16 %5, 3
-  %or.cond6.i128 = and i1 %459, %7
-  %or.cond9.i129 = and i1 %425, %or.cond6.i128
-  br i1 %or.cond9.i129, label %460, label %465
+462:                                              ; preds = %427
+  %463 = icmp eq i16 %5, 3
+  %or.cond6.i128 = and i1 %463, %7
+  %or.cond9.i129 = and i1 %429, %or.cond6.i128
+  br i1 %or.cond9.i129, label %464, label %469
 
-460:                                              ; preds = %458
+464:                                              ; preds = %462
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #6
-  %461 = load i32, ptr @ett_ocp1_params, align 4
-  %462 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %461, ptr noundef nonnull %83, ptr noundef nonnull @.str.399)
-  %463 = load i32, ptr @hf_ocp1_params_component, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %463, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %465 = load i32, ptr @ett_ocp1_params, align 4
+  %466 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %465, ptr noundef nonnull %83, ptr noundef nonnull @.str.399)
+  %467 = load i32, ptr @hf_ocp1_params_component, align 4
+  %468 = call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #6
   br label %decode_params_OcaRoot.exit
 
-465:                                              ; preds = %458
-  %466 = icmp eq i16 %5, 4
-  %467 = icmp eq i8 %6, 2
-  %468 = and i1 %466, %467
-  %or.cond14.i130 = and i1 %7, %468
-  br i1 %or.cond14.i130, label %469, label %491
+469:                                              ; preds = %462
+  %470 = icmp eq i16 %5, 4
+  %471 = icmp eq i8 %6, 2
+  %472 = and i1 %470, %471
+  %or.cond14.i130 = and i1 %7, %472
+  br i1 %or.cond14.i130, label %473, label %495
 
-469:                                              ; preds = %465
+473:                                              ; preds = %469
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #6
-  %470 = load i32, ptr @ett_ocp1_params, align 4
-  %471 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %470, ptr noundef nonnull %84, ptr noundef nonnull @.str.385)
-  %472 = load i32, ptr @hf_ocp1_params_imageid, align 4
-  %473 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %474 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %475 = zext i16 %474 to i32
-  %476 = add nuw nsw i32 %475, 2
-  %477 = load i32, ptr @ett_ocp1_params, align 4
-  %478 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %476, i32 noundef %477, ptr noundef nonnull %85, ptr noundef nonnull @.str.400)
-  %479 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %480 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %481 = zext i16 %479 to i32
-  %482 = add nuw nsw i32 %481, 2
-  %483 = call ptr @proto_tree_add_item(ptr noundef %478, i32 noundef %480, ptr noundef %0, i32 noundef %1, i32 noundef %482, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %483, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.401)
-  %484 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %485 = call ptr @proto_item_add_subtree(ptr noundef %483, i32 noundef %484)
-  %486 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %487 = call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %486, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %488 = add i32 %1, 2
-  %489 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %490 = call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef %481, i32 noundef 0)
+  %474 = load i32, ptr @ett_ocp1_params, align 4
+  %475 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %474, ptr noundef nonnull %84, ptr noundef nonnull @.str.385)
+  %476 = load i32, ptr @hf_ocp1_params_imageid, align 4
+  %477 = call ptr @proto_tree_add_item(ptr noundef %475, i32 noundef %476, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %478 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %479 = zext i16 %478 to i32
+  %480 = add nuw nsw i32 %479, 2
+  %481 = load i32, ptr @ett_ocp1_params, align 4
+  %482 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %480, i32 noundef %481, ptr noundef nonnull %85, ptr noundef nonnull @.str.400)
+  %483 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %484 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %485 = zext i16 %483 to i32
+  %486 = add nuw nsw i32 %485, 2
+  %487 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %484, ptr noundef %0, i32 noundef %1, i32 noundef %486, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %487, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.401)
+  %488 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %489 = call ptr @proto_item_add_subtree(ptr noundef %487, i32 noundef %488)
+  %490 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %491 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %490, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %492 = add i32 %1, 2
+  %493 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %494 = call ptr @proto_tree_add_item(ptr noundef %489, i32 noundef %493, ptr noundef %0, i32 noundef %492, i32 noundef %485, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #6
   br label %decode_params_OcaRoot.exit
 
-491:                                              ; preds = %465
-  %492 = icmp eq i16 %5, 5
-  %or.cond16.i131 = and i1 %492, %7
-  %or.cond19.i132 = and i1 %425, %or.cond16.i131
-  br i1 %or.cond19.i132, label %493, label %511
+495:                                              ; preds = %469
+  %496 = icmp eq i16 %5, 5
+  %or.cond16.i131 = and i1 %496, %7
+  %or.cond19.i132 = and i1 %429, %or.cond16.i131
+  br i1 %or.cond19.i132, label %497, label %515
 
-493:                                              ; preds = %491
+497:                                              ; preds = %495
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #6
-  %494 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %495 = zext i16 %494 to i32
-  %496 = add nuw nsw i32 %495, 2
-  %497 = load i32, ptr @ett_ocp1_params, align 4
-  %498 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %496, i32 noundef %497, ptr noundef nonnull %86, ptr noundef nonnull @.str.402)
-  %499 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %500 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %501 = zext i16 %499 to i32
-  %502 = add nuw nsw i32 %501, 2
-  %503 = call ptr @proto_tree_add_item(ptr noundef %498, i32 noundef %500, ptr noundef %0, i32 noundef %1, i32 noundef %502, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %503, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.61)
-  %504 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %505 = call ptr @proto_item_add_subtree(ptr noundef %503, i32 noundef %504)
-  %506 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %507 = call ptr @proto_tree_add_item(ptr noundef %505, i32 noundef %506, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %508 = add i32 %1, 2
-  %509 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %505, i32 noundef %509, ptr noundef %0, i32 noundef %508, i32 noundef %501, i32 noundef 0)
+  %498 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %499 = zext i16 %498 to i32
+  %500 = add nuw nsw i32 %499, 2
+  %501 = load i32, ptr @ett_ocp1_params, align 4
+  %502 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %500, i32 noundef %501, ptr noundef nonnull %86, ptr noundef nonnull @.str.402)
+  %503 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %504 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %505 = zext i16 %503 to i32
+  %506 = add nuw nsw i32 %505, 2
+  %507 = call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %504, ptr noundef %0, i32 noundef %1, i32 noundef %506, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %507, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.61)
+  %508 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %509 = call ptr @proto_item_add_subtree(ptr noundef %507, i32 noundef %508)
+  %510 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %511 = call ptr @proto_tree_add_item(ptr noundef %509, i32 noundef %510, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %512 = add i32 %1, 2
+  %513 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %514 = call ptr @proto_tree_add_item(ptr noundef %509, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef %505, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #6
   br label %decode_params_OcaRoot.exit
 
-511:                                              ; preds = %491
-  %512 = icmp eq i16 %5, 7
-  %513 = icmp eq i8 %6, 3
-  %514 = and i1 %512, %513
-  %or.cond24.i133 = and i1 %7, %514
-  br i1 %or.cond24.i133, label %515, label %545
+515:                                              ; preds = %495
+  %516 = icmp eq i16 %5, 7
+  %517 = icmp eq i8 %6, 3
+  %518 = and i1 %516, %517
+  %or.cond24.i133 = and i1 %7, %518
+  br i1 %or.cond24.i133, label %519, label %549
 
-515:                                              ; preds = %511
+519:                                              ; preds = %515
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #6
-  %516 = load i32, ptr @ett_ocp1_params, align 4
-  %517 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %516, ptr noundef nonnull %87, ptr noundef nonnull @.str.399)
-  %518 = load i32, ptr @hf_ocp1_params_component, align 4
-  %519 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %520 = add i32 %1, 2
-  %521 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %520, i32 noundef 0)
-  %522 = zext i16 %521 to i32
-  %523 = add nuw nsw i32 %522, 2
-  %524 = load i32, ptr @ett_ocp1_params, align 4
-  %525 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %520, i32 noundef %523, i32 noundef %524, ptr noundef nonnull %88, ptr noundef nonnull @.str.403)
-  %526 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %520, i32 noundef 0)
-  %527 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %528 = zext i16 %526 to i32
-  %529 = add nuw nsw i32 %528, 2
-  %530 = call ptr @proto_tree_add_item(ptr noundef %525, i32 noundef %527, ptr noundef %0, i32 noundef %520, i32 noundef %529, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %530, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404)
-  %531 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %532 = call ptr @proto_item_add_subtree(ptr noundef %530, i32 noundef %531)
-  %533 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %534 = call ptr @proto_tree_add_item(ptr noundef %532, i32 noundef %533, ptr noundef %0, i32 noundef %520, i32 noundef 2, i32 noundef 0)
-  %535 = add i32 %1, 4
-  %536 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %537 = call ptr @proto_tree_add_item(ptr noundef %532, i32 noundef %536, ptr noundef %0, i32 noundef %535, i32 noundef %528, i32 noundef 0)
-  %538 = add i32 %529, %520
-  %539 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %538, i32 noundef 0)
-  %540 = zext i16 %539 to i32
-  %541 = add nuw nsw i32 %540, 2
-  %542 = load i32, ptr @ett_ocp1_params, align 4
-  %543 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %538, i32 noundef %541, i32 noundef %542, ptr noundef nonnull %89, ptr noundef nonnull @.str.405)
-  %544 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %538, ptr noundef %543, ptr noundef nonnull @.str.406)
+  %520 = load i32, ptr @ett_ocp1_params, align 4
+  %521 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %520, ptr noundef nonnull %87, ptr noundef nonnull @.str.399)
+  %522 = load i32, ptr @hf_ocp1_params_component, align 4
+  %523 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %522, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %524 = add i32 %1, 2
+  %525 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %524, i32 noundef 0)
+  %526 = zext i16 %525 to i32
+  %527 = add nuw nsw i32 %526, 2
+  %528 = load i32, ptr @ett_ocp1_params, align 4
+  %529 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %524, i32 noundef %527, i32 noundef %528, ptr noundef nonnull %88, ptr noundef nonnull @.str.403)
+  %530 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %524, i32 noundef 0)
+  %531 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %532 = zext i16 %530 to i32
+  %533 = add nuw nsw i32 %532, 2
+  %534 = call ptr @proto_tree_add_item(ptr noundef %529, i32 noundef %531, ptr noundef %0, i32 noundef %524, i32 noundef %533, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %534, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.404)
+  %535 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %536 = call ptr @proto_item_add_subtree(ptr noundef %534, i32 noundef %535)
+  %537 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %538 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %537, ptr noundef %0, i32 noundef %524, i32 noundef 2, i32 noundef 0)
+  %539 = add i32 %1, 4
+  %540 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %540, ptr noundef %0, i32 noundef %539, i32 noundef %532, i32 noundef 0)
+  %542 = add i32 %533, %524
+  %543 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %542, i32 noundef 0)
+  %544 = zext i16 %543 to i32
+  %545 = add nuw nsw i32 %544, 2
+  %546 = load i32, ptr @ett_ocp1_params, align 4
+  %547 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %542, i32 noundef %545, i32 noundef %546, ptr noundef nonnull %89, ptr noundef nonnull @.str.405)
+  %548 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %542, ptr noundef %547, ptr noundef nonnull @.str.406)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #6
   br label %decode_params_OcaRoot.exit
 
-545:                                              ; preds = %511
-  %546 = load i32, ptr @hf_ocp1_params, align 4
-  %547 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %546, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+549:                                              ; preds = %515
+  %550 = load i32, ptr @hf_ocp1_params, align 4
+  %551 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %550, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-548:                                              ; preds = %154
-  %549 = icmp eq i16 %5, 1
-  %550 = icmp eq i8 %6, 5
-  %551 = and i1 %549, %550
-  %or.cond4.i139 = and i1 %7, %551
-  br i1 %or.cond4.i139, label %552, label %623
+552:                                              ; preds = %154
+  %553 = icmp eq i16 %5, 1
+  %554 = icmp eq i8 %6, 5
+  %555 = and i1 %553, %554
+  %or.cond4.i139 = and i1 %7, %555
+  br i1 %or.cond4.i139, label %556, label %627
 
-552:                                              ; preds = %548
+556:                                              ; preds = %552
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #6
-  %553 = load i32, ptr @ett_ocp1_params, align 4
-  %554 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %553, ptr noundef nonnull %64, ptr noundef nonnull @.str.408)
-  %555 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %556 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %555, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %557 = add i32 %1, 4
-  %558 = load i32, ptr @hf_ocp1_params_event_id, align 4
-  %559 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %558, ptr noundef %0, i32 noundef %557, i32 noundef 4, i32 noundef 0)
-  %560 = load i32, ptr @ett_ocp1_params_event, align 4
-  %561 = call ptr @proto_item_add_subtree(ptr noundef %559, i32 noundef %560)
-  %562 = load i32, ptr @hf_ocp1_params_event_tree_level, align 4
-  %563 = call ptr @proto_tree_add_item(ptr noundef %561, i32 noundef %562, ptr noundef %0, i32 noundef %557, i32 noundef 2, i32 noundef 0)
-  %564 = add i32 %1, 6
-  %565 = load i32, ptr @hf_ocp1_params_event_index, align 4
-  %566 = call ptr @proto_tree_add_item(ptr noundef %561, i32 noundef %565, ptr noundef %0, i32 noundef %564, i32 noundef 2, i32 noundef 0)
-  %567 = add i32 %1, 8
-  %568 = load i32, ptr @ett_ocp1_params, align 4
-  %569 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %567, i32 noundef 8, i32 noundef %568, ptr noundef nonnull %65, ptr noundef nonnull @.str.409)
-  %570 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %571 = call ptr @proto_tree_add_item(ptr noundef %569, i32 noundef %570, ptr noundef %0, i32 noundef %567, i32 noundef 4, i32 noundef 0)
-  %572 = add i32 %1, 12
-  %573 = load i32, ptr @hf_ocp1_params_method_id, align 4
-  %574 = call ptr @proto_tree_add_item(ptr noundef %569, i32 noundef %573, ptr noundef %0, i32 noundef %572, i32 noundef 4, i32 noundef 0)
-  %575 = load i32, ptr @ett_ocp1_params_method, align 4
-  %576 = call ptr @proto_item_add_subtree(ptr noundef %574, i32 noundef %575)
-  %577 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %577, ptr noundef %0, i32 noundef %572, i32 noundef 2, i32 noundef 0)
-  %579 = add i32 %1, 14
-  %580 = load i32, ptr @hf_ocp1_params_method_index, align 4
-  %581 = call ptr @proto_tree_add_item(ptr noundef %576, i32 noundef %580, ptr noundef %0, i32 noundef %579, i32 noundef 2, i32 noundef 0)
-  %582 = add i32 %1, 16
-  %583 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %582, i32 noundef 0)
-  %584 = zext i16 %583 to i32
-  %585 = add nuw nsw i32 %584, 2
-  %586 = load i32, ptr @ett_ocp1_params, align 4
-  %587 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %582, i32 noundef %585, i32 noundef %586, ptr noundef nonnull %66, ptr noundef nonnull @.str.410)
-  %588 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %582, i32 noundef 0)
-  %589 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %590 = zext i16 %588 to i32
-  %591 = add nuw nsw i32 %590, 2
-  %592 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %589, ptr noundef %0, i32 noundef %582, i32 noundef %591, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %592, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.411)
-  %593 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %594 = call ptr @proto_item_add_subtree(ptr noundef %592, i32 noundef %593)
-  %595 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %596 = call ptr @proto_tree_add_item(ptr noundef %594, i32 noundef %595, ptr noundef %0, i32 noundef %582, i32 noundef 2, i32 noundef 0)
-  %597 = add i32 %1, 18
-  %598 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %599 = call ptr @proto_tree_add_item(ptr noundef %594, i32 noundef %598, ptr noundef %0, i32 noundef %597, i32 noundef %590, i32 noundef 0)
-  %600 = add i32 %591, %582
-  %601 = load i32, ptr @ett_ocp1_params, align 4
-  %602 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef %601, ptr noundef nonnull %67, ptr noundef nonnull @.str.412)
-  %603 = load i32, ptr @hf_ocp1_params_ntf_delivery_mode, align 4
-  %604 = call ptr @proto_tree_add_item(ptr noundef %602, i32 noundef %603, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef 0)
-  %605 = add i32 %600, 1
-  %606 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %605, i32 noundef 0)
-  %607 = zext i16 %606 to i32
-  %608 = add nuw nsw i32 %607, 2
-  %609 = load i32, ptr @ett_ocp1_params, align 4
-  %610 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %605, i32 noundef %608, i32 noundef %609, ptr noundef nonnull %68, ptr noundef nonnull @.str.413)
-  %611 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %605, i32 noundef 0)
-  %612 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %613 = zext i16 %611 to i32
-  %614 = add nuw nsw i32 %613, 2
-  %615 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %612, ptr noundef %0, i32 noundef %605, i32 noundef %614, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %615, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.414)
-  %616 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %617 = call ptr @proto_item_add_subtree(ptr noundef %615, i32 noundef %616)
-  %618 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %619 = call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %618, ptr noundef %0, i32 noundef %605, i32 noundef 2, i32 noundef 0)
-  %620 = add i32 %600, 3
-  %621 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %622 = call ptr @proto_tree_add_item(ptr noundef %617, i32 noundef %621, ptr noundef %0, i32 noundef %620, i32 noundef %613, i32 noundef 0)
+  %557 = load i32, ptr @ett_ocp1_params, align 4
+  %558 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %557, ptr noundef nonnull %64, ptr noundef nonnull @.str.408)
+  %559 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %560 = call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %559, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %561 = add i32 %1, 4
+  %562 = load i32, ptr @hf_ocp1_params_event_id, align 4
+  %563 = call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %562, ptr noundef %0, i32 noundef %561, i32 noundef 4, i32 noundef 0)
+  %564 = load i32, ptr @ett_ocp1_params_event, align 4
+  %565 = call ptr @proto_item_add_subtree(ptr noundef %563, i32 noundef %564)
+  %566 = load i32, ptr @hf_ocp1_params_event_tree_level, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %566, ptr noundef %0, i32 noundef %561, i32 noundef 2, i32 noundef 0)
+  %568 = add i32 %1, 6
+  %569 = load i32, ptr @hf_ocp1_params_event_index, align 4
+  %570 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %569, ptr noundef %0, i32 noundef %568, i32 noundef 2, i32 noundef 0)
+  %571 = add i32 %1, 8
+  %572 = load i32, ptr @ett_ocp1_params, align 4
+  %573 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %571, i32 noundef 8, i32 noundef %572, ptr noundef nonnull %65, ptr noundef nonnull @.str.409)
+  %574 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %575 = call ptr @proto_tree_add_item(ptr noundef %573, i32 noundef %574, ptr noundef %0, i32 noundef %571, i32 noundef 4, i32 noundef 0)
+  %576 = add i32 %1, 12
+  %577 = load i32, ptr @hf_ocp1_params_method_id, align 4
+  %578 = call ptr @proto_tree_add_item(ptr noundef %573, i32 noundef %577, ptr noundef %0, i32 noundef %576, i32 noundef 4, i32 noundef 0)
+  %579 = load i32, ptr @ett_ocp1_params_method, align 4
+  %580 = call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579)
+  %581 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
+  %582 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %581, ptr noundef %0, i32 noundef %576, i32 noundef 2, i32 noundef 0)
+  %583 = add i32 %1, 14
+  %584 = load i32, ptr @hf_ocp1_params_method_index, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %584, ptr noundef %0, i32 noundef %583, i32 noundef 2, i32 noundef 0)
+  %586 = add i32 %1, 16
+  %587 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %586, i32 noundef 0)
+  %588 = zext i16 %587 to i32
+  %589 = add nuw nsw i32 %588, 2
+  %590 = load i32, ptr @ett_ocp1_params, align 4
+  %591 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %586, i32 noundef %589, i32 noundef %590, ptr noundef nonnull %66, ptr noundef nonnull @.str.410)
+  %592 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %586, i32 noundef 0)
+  %593 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %594 = zext i16 %592 to i32
+  %595 = add nuw nsw i32 %594, 2
+  %596 = call ptr @proto_tree_add_item(ptr noundef %591, i32 noundef %593, ptr noundef %0, i32 noundef %586, i32 noundef %595, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %596, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.411)
+  %597 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %598 = call ptr @proto_item_add_subtree(ptr noundef %596, i32 noundef %597)
+  %599 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %600 = call ptr @proto_tree_add_item(ptr noundef %598, i32 noundef %599, ptr noundef %0, i32 noundef %586, i32 noundef 2, i32 noundef 0)
+  %601 = add i32 %1, 18
+  %602 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %603 = call ptr @proto_tree_add_item(ptr noundef %598, i32 noundef %602, ptr noundef %0, i32 noundef %601, i32 noundef %594, i32 noundef 0)
+  %604 = add i32 %595, %586
+  %605 = load i32, ptr @ett_ocp1_params, align 4
+  %606 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef %605, ptr noundef nonnull %67, ptr noundef nonnull @.str.412)
+  %607 = load i32, ptr @hf_ocp1_params_ntf_delivery_mode, align 4
+  %608 = call ptr @proto_tree_add_item(ptr noundef %606, i32 noundef %607, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0)
+  %609 = add i32 %604, 1
+  %610 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %609, i32 noundef 0)
+  %611 = zext i16 %610 to i32
+  %612 = add nuw nsw i32 %611, 2
+  %613 = load i32, ptr @ett_ocp1_params, align 4
+  %614 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %609, i32 noundef %612, i32 noundef %613, ptr noundef nonnull %68, ptr noundef nonnull @.str.413)
+  %615 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %609, i32 noundef 0)
+  %616 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %617 = zext i16 %615 to i32
+  %618 = add nuw nsw i32 %617, 2
+  %619 = call ptr @proto_tree_add_item(ptr noundef %614, i32 noundef %616, ptr noundef %0, i32 noundef %609, i32 noundef %618, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %619, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.414)
+  %620 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %621 = call ptr @proto_item_add_subtree(ptr noundef %619, i32 noundef %620)
+  %622 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %623 = call ptr @proto_tree_add_item(ptr noundef %621, i32 noundef %622, ptr noundef %0, i32 noundef %609, i32 noundef 2, i32 noundef 0)
+  %624 = add i32 %604, 3
+  %625 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %626 = call ptr @proto_tree_add_item(ptr noundef %621, i32 noundef %625, ptr noundef %0, i32 noundef %624, i32 noundef %617, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #6
@@ -2538,136 +2541,136 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #6
   br label %decode_params_OcaRoot.exit
 
-623:                                              ; preds = %548
-  %624 = icmp eq i16 %5, 2
-  %625 = icmp eq i8 %6, 2
-  %626 = and i1 %624, %625
-  %or.cond9.i140 = and i1 %7, %626
-  br i1 %or.cond9.i140, label %627, label %657
+627:                                              ; preds = %552
+  %628 = icmp eq i16 %5, 2
+  %629 = icmp eq i8 %6, 2
+  %630 = and i1 %628, %629
+  %or.cond9.i140 = and i1 %7, %630
+  br i1 %or.cond9.i140, label %631, label %661
 
-627:                                              ; preds = %623
+631:                                              ; preds = %627
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #6
-  %628 = load i32, ptr @ett_ocp1_params, align 4
-  %629 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %628, ptr noundef nonnull %69, ptr noundef nonnull @.str.408)
-  %630 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %631 = call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %630, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %632 = add i32 %1, 4
-  %633 = load i32, ptr @hf_ocp1_params_event_id, align 4
-  %634 = call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %633, ptr noundef %0, i32 noundef %632, i32 noundef 4, i32 noundef 0)
-  %635 = load i32, ptr @ett_ocp1_params_event, align 4
-  %636 = call ptr @proto_item_add_subtree(ptr noundef %634, i32 noundef %635)
-  %637 = load i32, ptr @hf_ocp1_params_event_tree_level, align 4
-  %638 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %637, ptr noundef %0, i32 noundef %632, i32 noundef 2, i32 noundef 0)
-  %639 = add i32 %1, 6
-  %640 = load i32, ptr @hf_ocp1_params_event_index, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %640, ptr noundef %0, i32 noundef %639, i32 noundef 2, i32 noundef 0)
-  %642 = add i32 %1, 8
-  %643 = load i32, ptr @ett_ocp1_params, align 4
-  %644 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %642, i32 noundef 8, i32 noundef %643, ptr noundef nonnull %70, ptr noundef nonnull @.str.409)
-  %645 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %644, i32 noundef %645, ptr noundef %0, i32 noundef %642, i32 noundef 4, i32 noundef 0)
-  %647 = add i32 %1, 12
-  %648 = load i32, ptr @hf_ocp1_params_method_id, align 4
-  %649 = call ptr @proto_tree_add_item(ptr noundef %644, i32 noundef %648, ptr noundef %0, i32 noundef %647, i32 noundef 4, i32 noundef 0)
-  %650 = load i32, ptr @ett_ocp1_params_method, align 4
-  %651 = call ptr @proto_item_add_subtree(ptr noundef %649, i32 noundef %650)
-  %652 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
-  %653 = call ptr @proto_tree_add_item(ptr noundef %651, i32 noundef %652, ptr noundef %0, i32 noundef %647, i32 noundef 2, i32 noundef 0)
-  %654 = add i32 %1, 14
-  %655 = load i32, ptr @hf_ocp1_params_method_index, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %651, i32 noundef %655, ptr noundef %0, i32 noundef %654, i32 noundef 2, i32 noundef 0)
+  %632 = load i32, ptr @ett_ocp1_params, align 4
+  %633 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %632, ptr noundef nonnull %69, ptr noundef nonnull @.str.408)
+  %634 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %635 = call ptr @proto_tree_add_item(ptr noundef %633, i32 noundef %634, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %636 = add i32 %1, 4
+  %637 = load i32, ptr @hf_ocp1_params_event_id, align 4
+  %638 = call ptr @proto_tree_add_item(ptr noundef %633, i32 noundef %637, ptr noundef %0, i32 noundef %636, i32 noundef 4, i32 noundef 0)
+  %639 = load i32, ptr @ett_ocp1_params_event, align 4
+  %640 = call ptr @proto_item_add_subtree(ptr noundef %638, i32 noundef %639)
+  %641 = load i32, ptr @hf_ocp1_params_event_tree_level, align 4
+  %642 = call ptr @proto_tree_add_item(ptr noundef %640, i32 noundef %641, ptr noundef %0, i32 noundef %636, i32 noundef 2, i32 noundef 0)
+  %643 = add i32 %1, 6
+  %644 = load i32, ptr @hf_ocp1_params_event_index, align 4
+  %645 = call ptr @proto_tree_add_item(ptr noundef %640, i32 noundef %644, ptr noundef %0, i32 noundef %643, i32 noundef 2, i32 noundef 0)
+  %646 = add i32 %1, 8
+  %647 = load i32, ptr @ett_ocp1_params, align 4
+  %648 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %646, i32 noundef 8, i32 noundef %647, ptr noundef nonnull %70, ptr noundef nonnull @.str.409)
+  %649 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %650 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %649, ptr noundef %0, i32 noundef %646, i32 noundef 4, i32 noundef 0)
+  %651 = add i32 %1, 12
+  %652 = load i32, ptr @hf_ocp1_params_method_id, align 4
+  %653 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %652, ptr noundef %0, i32 noundef %651, i32 noundef 4, i32 noundef 0)
+  %654 = load i32, ptr @ett_ocp1_params_method, align 4
+  %655 = call ptr @proto_item_add_subtree(ptr noundef %653, i32 noundef %654)
+  %656 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
+  %657 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %656, ptr noundef %0, i32 noundef %651, i32 noundef 2, i32 noundef 0)
+  %658 = add i32 %1, 14
+  %659 = load i32, ptr @hf_ocp1_params_method_index, align 4
+  %660 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %659, ptr noundef %0, i32 noundef %658, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #6
   br label %decode_params_OcaRoot.exit
 
-657:                                              ; preds = %623
-  %658 = icmp eq i16 %5, 5
-  %659 = icmp eq i8 %6, 6
-  %660 = and i1 %658, %659
-  %or.cond14.i141 = and i1 %7, %660
-  br i1 %or.cond14.i141, label %661, label %733
+661:                                              ; preds = %627
+  %662 = icmp eq i16 %5, 5
+  %663 = icmp eq i8 %6, 6
+  %664 = and i1 %662, %663
+  %or.cond14.i141 = and i1 %7, %664
+  br i1 %or.cond14.i141, label %665, label %737
 
-661:                                              ; preds = %657
+665:                                              ; preds = %661
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #6
-  %662 = load i32, ptr @ett_ocp1_params, align 4
-  %663 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %662, ptr noundef nonnull %71, ptr noundef nonnull @.str.415)
-  %664 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %665 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %664, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %666 = add i32 %1, 4
-  %667 = load i32, ptr @ett_ocp1_params, align 4
-  %668 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %666, i32 noundef 8, i32 noundef %667, ptr noundef nonnull %72, ptr noundef nonnull @.str.416)
-  %669 = load i32, ptr @hf_ocp1_params_property_id, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %669, ptr noundef %0, i32 noundef %666, i32 noundef 4, i32 noundef 0)
-  %671 = load i32, ptr @ett_ocp1_params_property, align 4
-  %672 = call ptr @proto_item_add_subtree(ptr noundef %670, i32 noundef %671)
-  %673 = load i32, ptr @hf_ocp1_params_property_tree_level, align 4
-  %674 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %0, i32 noundef %666, i32 noundef 2, i32 noundef 0)
-  %675 = add i32 %1, 6
-  %676 = load i32, ptr @hf_ocp1_params_property_index, align 4
-  %677 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %676, ptr noundef %0, i32 noundef %675, i32 noundef 2, i32 noundef 0)
-  %678 = add i32 %1, 8
-  %679 = load i32, ptr @ett_ocp1_params, align 4
-  %680 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %678, i32 noundef 8, i32 noundef %679, ptr noundef nonnull %73, ptr noundef nonnull @.str.417)
-  %681 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %682 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %681, ptr noundef %0, i32 noundef %678, i32 noundef 4, i32 noundef 0)
-  %683 = add i32 %1, 12
-  %684 = load i32, ptr @hf_ocp1_params_method_id, align 4
-  %685 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %684, ptr noundef %0, i32 noundef %683, i32 noundef 4, i32 noundef 0)
-  %686 = load i32, ptr @ett_ocp1_params_method, align 4
-  %687 = call ptr @proto_item_add_subtree(ptr noundef %685, i32 noundef %686)
-  %688 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
-  %689 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %688, ptr noundef %0, i32 noundef %683, i32 noundef 2, i32 noundef 0)
-  %690 = add i32 %1, 14
-  %691 = load i32, ptr @hf_ocp1_params_method_index, align 4
-  %692 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %691, ptr noundef %0, i32 noundef %690, i32 noundef 2, i32 noundef 0)
-  %693 = add i32 %1, 16
-  %694 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %693, i32 noundef 0)
-  %695 = zext i16 %694 to i32
-  %696 = add nuw nsw i32 %695, 2
-  %697 = load i32, ptr @ett_ocp1_params, align 4
-  %698 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %693, i32 noundef %696, i32 noundef %697, ptr noundef nonnull %74, ptr noundef nonnull @.str.418)
-  %699 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %693, i32 noundef 0)
-  %700 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %701 = zext i16 %699 to i32
-  %702 = add nuw nsw i32 %701, 2
-  %703 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %700, ptr noundef %0, i32 noundef %693, i32 noundef %702, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %703, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.40)
-  %704 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %705 = call ptr @proto_item_add_subtree(ptr noundef %703, i32 noundef %704)
-  %706 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %707 = call ptr @proto_tree_add_item(ptr noundef %705, i32 noundef %706, ptr noundef %0, i32 noundef %693, i32 noundef 2, i32 noundef 0)
-  %708 = add i32 %1, 18
-  %709 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %710 = call ptr @proto_tree_add_item(ptr noundef %705, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef %701, i32 noundef 0)
-  %711 = load i32, ptr @ett_ocp1_params, align 4
-  %712 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %693, i32 noundef 1, i32 noundef %711, ptr noundef nonnull %75, ptr noundef nonnull @.str.419)
-  %713 = load i32, ptr @hf_ocp1_params_ntf_delivery_mode, align 4
-  %714 = call ptr @proto_tree_add_item(ptr noundef %712, i32 noundef %713, ptr noundef %0, i32 noundef %693, i32 noundef 1, i32 noundef 0)
-  %715 = add i32 %1, 17
-  %716 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %715, i32 noundef 0)
-  %717 = zext i16 %716 to i32
-  %718 = add nuw nsw i32 %717, 2
-  %719 = load i32, ptr @ett_ocp1_params, align 4
-  %720 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %715, i32 noundef %718, i32 noundef %719, ptr noundef nonnull %76, ptr noundef nonnull @.str.420)
-  %721 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %715, i32 noundef 0)
-  %722 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %723 = zext i16 %721 to i32
-  %724 = add nuw nsw i32 %723, 2
-  %725 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %722, ptr noundef %0, i32 noundef %715, i32 noundef %724, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %725, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.379)
-  %726 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %727 = call ptr @proto_item_add_subtree(ptr noundef %725, i32 noundef %726)
-  %728 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %728, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0)
-  %730 = add i32 %1, 19
-  %731 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %731, ptr noundef %0, i32 noundef %730, i32 noundef %723, i32 noundef 0)
+  %666 = load i32, ptr @ett_ocp1_params, align 4
+  %667 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %666, ptr noundef nonnull %71, ptr noundef nonnull @.str.415)
+  %668 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %669 = call ptr @proto_tree_add_item(ptr noundef %667, i32 noundef %668, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %670 = add i32 %1, 4
+  %671 = load i32, ptr @ett_ocp1_params, align 4
+  %672 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %670, i32 noundef 8, i32 noundef %671, ptr noundef nonnull %72, ptr noundef nonnull @.str.416)
+  %673 = load i32, ptr @hf_ocp1_params_property_id, align 4
+  %674 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %0, i32 noundef %670, i32 noundef 4, i32 noundef 0)
+  %675 = load i32, ptr @ett_ocp1_params_property, align 4
+  %676 = call ptr @proto_item_add_subtree(ptr noundef %674, i32 noundef %675)
+  %677 = load i32, ptr @hf_ocp1_params_property_tree_level, align 4
+  %678 = call ptr @proto_tree_add_item(ptr noundef %676, i32 noundef %677, ptr noundef %0, i32 noundef %670, i32 noundef 2, i32 noundef 0)
+  %679 = add i32 %1, 6
+  %680 = load i32, ptr @hf_ocp1_params_property_index, align 4
+  %681 = call ptr @proto_tree_add_item(ptr noundef %676, i32 noundef %680, ptr noundef %0, i32 noundef %679, i32 noundef 2, i32 noundef 0)
+  %682 = add i32 %1, 8
+  %683 = load i32, ptr @ett_ocp1_params, align 4
+  %684 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %682, i32 noundef 8, i32 noundef %683, ptr noundef nonnull %73, ptr noundef nonnull @.str.417)
+  %685 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %686 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %685, ptr noundef %0, i32 noundef %682, i32 noundef 4, i32 noundef 0)
+  %687 = add i32 %1, 12
+  %688 = load i32, ptr @hf_ocp1_params_method_id, align 4
+  %689 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %688, ptr noundef %0, i32 noundef %687, i32 noundef 4, i32 noundef 0)
+  %690 = load i32, ptr @ett_ocp1_params_method, align 4
+  %691 = call ptr @proto_item_add_subtree(ptr noundef %689, i32 noundef %690)
+  %692 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
+  %693 = call ptr @proto_tree_add_item(ptr noundef %691, i32 noundef %692, ptr noundef %0, i32 noundef %687, i32 noundef 2, i32 noundef 0)
+  %694 = add i32 %1, 14
+  %695 = load i32, ptr @hf_ocp1_params_method_index, align 4
+  %696 = call ptr @proto_tree_add_item(ptr noundef %691, i32 noundef %695, ptr noundef %0, i32 noundef %694, i32 noundef 2, i32 noundef 0)
+  %697 = add i32 %1, 16
+  %698 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %697, i32 noundef 0)
+  %699 = zext i16 %698 to i32
+  %700 = add nuw nsw i32 %699, 2
+  %701 = load i32, ptr @ett_ocp1_params, align 4
+  %702 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %697, i32 noundef %700, i32 noundef %701, ptr noundef nonnull %74, ptr noundef nonnull @.str.418)
+  %703 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %697, i32 noundef 0)
+  %704 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %705 = zext i16 %703 to i32
+  %706 = add nuw nsw i32 %705, 2
+  %707 = call ptr @proto_tree_add_item(ptr noundef %702, i32 noundef %704, ptr noundef %0, i32 noundef %697, i32 noundef %706, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %707, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.40)
+  %708 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %709 = call ptr @proto_item_add_subtree(ptr noundef %707, i32 noundef %708)
+  %710 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %709, i32 noundef %710, ptr noundef %0, i32 noundef %697, i32 noundef 2, i32 noundef 0)
+  %712 = add i32 %1, 18
+  %713 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %714 = call ptr @proto_tree_add_item(ptr noundef %709, i32 noundef %713, ptr noundef %0, i32 noundef %712, i32 noundef %705, i32 noundef 0)
+  %715 = load i32, ptr @ett_ocp1_params, align 4
+  %716 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %697, i32 noundef 1, i32 noundef %715, ptr noundef nonnull %75, ptr noundef nonnull @.str.419)
+  %717 = load i32, ptr @hf_ocp1_params_ntf_delivery_mode, align 4
+  %718 = call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %717, ptr noundef %0, i32 noundef %697, i32 noundef 1, i32 noundef 0)
+  %719 = add i32 %1, 17
+  %720 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %719, i32 noundef 0)
+  %721 = zext i16 %720 to i32
+  %722 = add nuw nsw i32 %721, 2
+  %723 = load i32, ptr @ett_ocp1_params, align 4
+  %724 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %719, i32 noundef %722, i32 noundef %723, ptr noundef nonnull %76, ptr noundef nonnull @.str.420)
+  %725 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %719, i32 noundef 0)
+  %726 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %727 = zext i16 %725 to i32
+  %728 = add nuw nsw i32 %727, 2
+  %729 = call ptr @proto_tree_add_item(ptr noundef %724, i32 noundef %726, ptr noundef %0, i32 noundef %719, i32 noundef %728, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %729, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.379)
+  %730 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %731 = call ptr @proto_item_add_subtree(ptr noundef %729, i32 noundef %730)
+  %732 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %733 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %732, ptr noundef %0, i32 noundef %719, i32 noundef 2, i32 noundef 0)
+  %734 = add i32 %1, 19
+  %735 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %736 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %735, ptr noundef %0, i32 noundef %734, i32 noundef %727, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #6
@@ -2676,1424 +2679,1430 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #6
   br label %decode_params_OcaRoot.exit
 
-733:                                              ; preds = %657
-  %734 = icmp eq i16 %5, 6
-  %735 = icmp eq i8 %6, 3
-  %736 = and i1 %734, %735
-  %or.cond19.i142 = and i1 %7, %736
-  br i1 %or.cond19.i142, label %737, label %769
+737:                                              ; preds = %661
+  %738 = icmp eq i16 %5, 6
+  %739 = icmp eq i8 %6, 3
+  %740 = and i1 %738, %739
+  %or.cond19.i142 = and i1 %7, %740
+  br i1 %or.cond19.i142, label %741, label %773
 
-737:                                              ; preds = %733
+741:                                              ; preds = %737
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #6
-  %738 = load i32, ptr @ett_ocp1_params, align 4
-  %739 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %738, ptr noundef nonnull %77, ptr noundef nonnull @.str.415)
-  %740 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %741 = call ptr @proto_tree_add_item(ptr noundef %739, i32 noundef %740, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %742 = add i32 %1, 4
-  %743 = load i32, ptr @ett_ocp1_params, align 4
-  %744 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %742, i32 noundef 8, i32 noundef %743, ptr noundef nonnull %78, ptr noundef nonnull @.str.416)
-  %745 = load i32, ptr @hf_ocp1_params_property_id, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %744, i32 noundef %745, ptr noundef %0, i32 noundef %742, i32 noundef 4, i32 noundef 0)
-  %747 = load i32, ptr @ett_ocp1_params_property, align 4
-  %748 = call ptr @proto_item_add_subtree(ptr noundef %746, i32 noundef %747)
-  %749 = load i32, ptr @hf_ocp1_params_property_tree_level, align 4
-  %750 = call ptr @proto_tree_add_item(ptr noundef %748, i32 noundef %749, ptr noundef %0, i32 noundef %742, i32 noundef 2, i32 noundef 0)
-  %751 = add i32 %1, 6
-  %752 = load i32, ptr @hf_ocp1_params_property_index, align 4
-  %753 = call ptr @proto_tree_add_item(ptr noundef %748, i32 noundef %752, ptr noundef %0, i32 noundef %751, i32 noundef 2, i32 noundef 0)
-  %754 = add i32 %1, 8
-  %755 = load i32, ptr @ett_ocp1_params, align 4
-  %756 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %754, i32 noundef 8, i32 noundef %755, ptr noundef nonnull %79, ptr noundef nonnull @.str.417)
-  %757 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %758 = call ptr @proto_tree_add_item(ptr noundef %756, i32 noundef %757, ptr noundef %0, i32 noundef %754, i32 noundef 4, i32 noundef 0)
-  %759 = add i32 %1, 12
-  %760 = load i32, ptr @hf_ocp1_params_method_id, align 4
-  %761 = call ptr @proto_tree_add_item(ptr noundef %756, i32 noundef %760, ptr noundef %0, i32 noundef %759, i32 noundef 4, i32 noundef 0)
-  %762 = load i32, ptr @ett_ocp1_params_method, align 4
-  %763 = call ptr @proto_item_add_subtree(ptr noundef %761, i32 noundef %762)
-  %764 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
-  %765 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %764, ptr noundef %0, i32 noundef %759, i32 noundef 2, i32 noundef 0)
-  %766 = add i32 %1, 14
-  %767 = load i32, ptr @hf_ocp1_params_method_index, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %767, ptr noundef %0, i32 noundef %766, i32 noundef 2, i32 noundef 0)
+  %742 = load i32, ptr @ett_ocp1_params, align 4
+  %743 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %742, ptr noundef nonnull %77, ptr noundef nonnull @.str.415)
+  %744 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %745 = call ptr @proto_tree_add_item(ptr noundef %743, i32 noundef %744, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %746 = add i32 %1, 4
+  %747 = load i32, ptr @ett_ocp1_params, align 4
+  %748 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %746, i32 noundef 8, i32 noundef %747, ptr noundef nonnull %78, ptr noundef nonnull @.str.416)
+  %749 = load i32, ptr @hf_ocp1_params_property_id, align 4
+  %750 = call ptr @proto_tree_add_item(ptr noundef %748, i32 noundef %749, ptr noundef %0, i32 noundef %746, i32 noundef 4, i32 noundef 0)
+  %751 = load i32, ptr @ett_ocp1_params_property, align 4
+  %752 = call ptr @proto_item_add_subtree(ptr noundef %750, i32 noundef %751)
+  %753 = load i32, ptr @hf_ocp1_params_property_tree_level, align 4
+  %754 = call ptr @proto_tree_add_item(ptr noundef %752, i32 noundef %753, ptr noundef %0, i32 noundef %746, i32 noundef 2, i32 noundef 0)
+  %755 = add i32 %1, 6
+  %756 = load i32, ptr @hf_ocp1_params_property_index, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %752, i32 noundef %756, ptr noundef %0, i32 noundef %755, i32 noundef 2, i32 noundef 0)
+  %758 = add i32 %1, 8
+  %759 = load i32, ptr @ett_ocp1_params, align 4
+  %760 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %758, i32 noundef 8, i32 noundef %759, ptr noundef nonnull %79, ptr noundef nonnull @.str.417)
+  %761 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %760, i32 noundef %761, ptr noundef %0, i32 noundef %758, i32 noundef 4, i32 noundef 0)
+  %763 = add i32 %1, 12
+  %764 = load i32, ptr @hf_ocp1_params_method_id, align 4
+  %765 = call ptr @proto_tree_add_item(ptr noundef %760, i32 noundef %764, ptr noundef %0, i32 noundef %763, i32 noundef 4, i32 noundef 0)
+  %766 = load i32, ptr @ett_ocp1_params_method, align 4
+  %767 = call ptr @proto_item_add_subtree(ptr noundef %765, i32 noundef %766)
+  %768 = load i32, ptr @hf_ocp1_params_method_tree_level, align 4
+  %769 = call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %768, ptr noundef %0, i32 noundef %763, i32 noundef 2, i32 noundef 0)
+  %770 = add i32 %1, 14
+  %771 = load i32, ptr @hf_ocp1_params_method_index, align 4
+  %772 = call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %771, ptr noundef %0, i32 noundef %770, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #6
   br label %decode_params_OcaRoot.exit
 
-769:                                              ; preds = %733
-  %770 = icmp ne i16 %5, 7
-  %771 = icmp ne i8 %6, 1
-  %772 = or i1 %770, %771
-  %or.cond24.not.i = or i1 %7, %772
-  br i1 %or.cond24.not.i, label %778, label %773
+773:                                              ; preds = %737
+  %774 = icmp ne i16 %5, 7
+  %775 = icmp ne i8 %6, 1
+  %776 = or i1 %774, %775
+  %or.cond24.not.i = or i1 %7, %776
+  br i1 %or.cond24.not.i, label %782, label %777
 
-773:                                              ; preds = %769
+777:                                              ; preds = %773
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #6
-  %774 = load i32, ptr @ett_ocp1_params, align 4
-  %775 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %774, ptr noundef nonnull %80, ptr noundef nonnull @.str.421)
-  %776 = load i32, ptr @hf_ocp1_params_subscriber_ctx_len, align 4
-  %777 = call ptr @proto_tree_add_item(ptr noundef %775, i32 noundef %776, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %778 = load i32, ptr @ett_ocp1_params, align 4
+  %779 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %778, ptr noundef nonnull %80, ptr noundef nonnull @.str.421)
+  %780 = load i32, ptr @hf_ocp1_params_subscriber_ctx_len, align 4
+  %781 = call ptr @proto_tree_add_item(ptr noundef %779, i32 noundef %780, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #6
   br label %decode_params_OcaRoot.exit
 
-778:                                              ; preds = %769
-  %779 = load i32, ptr @hf_ocp1_params, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %779, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+782:                                              ; preds = %773
+  %783 = load i32, ptr @hf_ocp1_params, align 4
+  %784 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %783, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-781:                                              ; preds = %154
-  %782 = icmp ne i16 %5, 1
-  %or.cond.i144 = or i1 %782, %7
+785:                                              ; preds = %154
+  %786 = icmp ne i16 %5, 1
+  %or.cond.i144 = or i1 %786, %7
   %or.cond.not.i145 = xor i1 %or.cond.i144, true
-  %783 = icmp eq i8 %6, 1
-  %or.cond4.i146 = and i1 %783, %or.cond.not.i145
-  br i1 %or.cond4.i146, label %784, label %789
+  %787 = icmp eq i8 %6, 1
+  %or.cond4.i146 = and i1 %787, %or.cond.not.i145
+  br i1 %or.cond4.i146, label %788, label %793
 
-784:                                              ; preds = %781
+788:                                              ; preds = %785
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #6
-  %785 = load i32, ptr @ett_ocp1_params, align 4
-  %786 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %785, ptr noundef nonnull %56, ptr noundef nonnull @.str.375)
-  %787 = load i32, ptr @hf_ocp1_params_power_state, align 4
-  %788 = call ptr @proto_tree_add_item(ptr noundef %786, i32 noundef %787, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %789 = load i32, ptr @ett_ocp1_params, align 4
+  %790 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %789, ptr noundef nonnull %56, ptr noundef nonnull @.str.375)
+  %791 = load i32, ptr @hf_ocp1_params_power_state, align 4
+  %792 = call ptr @proto_tree_add_item(ptr noundef %790, i32 noundef %791, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #6
   br label %decode_params_OcaRoot.exit
 
-789:                                              ; preds = %781
-  %790 = icmp eq i16 %5, 2
-  %or.cond6.i147 = and i1 %790, %7
-  %or.cond9.i148 = and i1 %783, %or.cond6.i147
-  br i1 %or.cond9.i148, label %791, label %796
+793:                                              ; preds = %785
+  %794 = icmp eq i16 %5, 2
+  %or.cond6.i147 = and i1 %794, %7
+  %or.cond9.i148 = and i1 %787, %or.cond6.i147
+  br i1 %or.cond9.i148, label %795, label %800
 
-791:                                              ; preds = %789
+795:                                              ; preds = %793
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #6
-  %792 = load i32, ptr @ett_ocp1_params, align 4
-  %793 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %792, ptr noundef nonnull %57, ptr noundef nonnull @.str.375)
-  %794 = load i32, ptr @hf_ocp1_params_power_state, align 4
-  %795 = call ptr @proto_tree_add_item(ptr noundef %793, i32 noundef %794, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %796 = load i32, ptr @ett_ocp1_params, align 4
+  %797 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %796, ptr noundef nonnull %57, ptr noundef nonnull @.str.375)
+  %798 = load i32, ptr @hf_ocp1_params_power_state, align 4
+  %799 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %798, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #6
   br label %decode_params_OcaRoot.exit
 
-796:                                              ; preds = %789
-  %797 = icmp ne i16 %5, 3
-  %or.cond11.i149 = or i1 %797, %7
+800:                                              ; preds = %793
+  %801 = icmp ne i16 %5, 3
+  %or.cond11.i149 = or i1 %801, %7
   %or.cond11.not.i150 = xor i1 %or.cond11.i149, true
-  %or.cond14.i151 = and i1 %783, %or.cond11.not.i150
-  br i1 %or.cond14.i151, label %798, label %814
+  %or.cond14.i151 = and i1 %787, %or.cond11.not.i150
+  br i1 %or.cond14.i151, label %802, label %818
 
-798:                                              ; preds = %796
+802:                                              ; preds = %800
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #6
-  %799 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %800 = zext i16 %799 to i32
-  %801 = shl nuw nsw i32 %800, 2
-  %802 = or disjoint i32 %801, 2
-  %803 = load i32, ptr @ett_ocp1_params, align 4
-  %804 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %802, i32 noundef %803, ptr noundef nonnull %58, ptr noundef nonnull @.str.422)
-  %805 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %806 = call ptr @proto_tree_add_item(ptr noundef %804, i32 noundef %805, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not153.i = icmp eq i16 %799, 0
+  %803 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %804 = zext i16 %803 to i32
+  %805 = shl nuw nsw i32 %804, 2
+  %806 = or disjoint i32 %805, 2
+  %807 = load i32, ptr @ett_ocp1_params, align 4
+  %808 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %806, i32 noundef %807, ptr noundef nonnull %58, ptr noundef nonnull @.str.422)
+  %809 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %810 = call ptr @proto_tree_add_item(ptr noundef %808, i32 noundef %809, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not153.i = icmp eq i16 %803, 0
   br i1 %.not153.i, label %._crit_edge151.i, label %.lr.ph150.i.preheader
 
-.lr.ph150.i.preheader:                            ; preds = %798
-  %807 = add i32 %1, 2
+.lr.ph150.i.preheader:                            ; preds = %802
+  %811 = add i32 %1, 2
   br label %.lr.ph150.i
 
-._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %798
+._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %802
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i.preheader, %.lr.ph150.i
-  %.1148.i = phi i32 [ %813, %.lr.ph150.i ], [ %807, %.lr.ph150.i.preheader ]
-  %.0143147.i = phi i32 [ %809, %.lr.ph150.i ], [ 0, %.lr.ph150.i.preheader ]
-  %808 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %809 = add nuw nsw i32 %.0143147.i, 1
-  %810 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %804, ptr noundef %0, i32 noundef %.1148.i, i32 noundef 4, i32 noundef %808, ptr noundef null, ptr noundef nonnull @.str.423, i32 noundef %809)
-  %811 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %812 = call ptr @proto_tree_add_item(ptr noundef %810, i32 noundef %811, ptr noundef %0, i32 noundef %.1148.i, i32 noundef 4, i32 noundef 0)
-  %813 = add i32 %.1148.i, 4
-  %exitcond155.not.i = icmp eq i32 %809, %800
+  %.1148.i = phi i32 [ %817, %.lr.ph150.i ], [ %811, %.lr.ph150.i.preheader ]
+  %.0143147.i = phi i32 [ %813, %.lr.ph150.i ], [ 0, %.lr.ph150.i.preheader ]
+  %812 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %813 = add nuw nsw i32 %.0143147.i, 1
+  %814 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %808, ptr noundef %0, i32 noundef %.1148.i, i32 noundef 4, i32 noundef %812, ptr noundef null, ptr noundef nonnull @.str.423, i32 noundef %813)
+  %815 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %816 = call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %815, ptr noundef %0, i32 noundef %.1148.i, i32 noundef 4, i32 noundef 0)
+  %817 = add i32 %.1148.i, 4
+  %exitcond155.not.i = icmp eq i32 %813, %804
   br i1 %exitcond155.not.i, label %._crit_edge151.i, label %.lr.ph150.i, !llvm.loop !15
 
-814:                                              ; preds = %796
-  %815 = icmp ne i16 %5, 4
-  %or.cond16.i152 = or i1 %815, %7
+818:                                              ; preds = %800
+  %819 = icmp ne i16 %5, 4
+  %or.cond16.i152 = or i1 %819, %7
   %or.cond16.not.i153 = xor i1 %or.cond16.i152, true
-  %or.cond19.i154 = and i1 %783, %or.cond16.not.i153
-  br i1 %or.cond19.i154, label %816, label %832
+  %or.cond19.i154 = and i1 %787, %or.cond16.not.i153
+  br i1 %or.cond19.i154, label %820, label %836
 
-816:                                              ; preds = %814
+820:                                              ; preds = %818
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #6
-  %817 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %818 = zext i16 %817 to i32
-  %819 = shl nuw nsw i32 %818, 2
-  %820 = or disjoint i32 %819, 2
-  %821 = load i32, ptr @ett_ocp1_params, align 4
-  %822 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %820, i32 noundef %821, ptr noundef nonnull %59, ptr noundef nonnull @.str.422)
-  %823 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %824 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %823, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i160 = icmp eq i16 %817, 0
+  %821 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %822 = zext i16 %821 to i32
+  %823 = shl nuw nsw i32 %822, 2
+  %824 = or disjoint i32 %823, 2
+  %825 = load i32, ptr @ett_ocp1_params, align 4
+  %826 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %824, i32 noundef %825, ptr noundef nonnull %59, ptr noundef nonnull @.str.422)
+  %827 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %828 = call ptr @proto_tree_add_item(ptr noundef %826, i32 noundef %827, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i160 = icmp eq i16 %821, 0
   br i1 %.not.i160, label %._crit_edge.i163, label %.lr.ph.i161.preheader
 
-.lr.ph.i161.preheader:                            ; preds = %816
-  %825 = add i32 %1, 2
+.lr.ph.i161.preheader:                            ; preds = %820
+  %829 = add i32 %1, 2
   br label %.lr.ph.i161
 
-._crit_edge.i163:                                 ; preds = %.lr.ph.i161, %816
+._crit_edge.i163:                                 ; preds = %.lr.ph.i161, %820
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i161:                                      ; preds = %.lr.ph.i161.preheader, %.lr.ph.i161
-  %.2146.i = phi i32 [ %831, %.lr.ph.i161 ], [ %825, %.lr.ph.i161.preheader ]
-  %.0144145.i = phi i32 [ %827, %.lr.ph.i161 ], [ 0, %.lr.ph.i161.preheader ]
-  %826 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %827 = add nuw nsw i32 %.0144145.i, 1
-  %828 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %822, ptr noundef %0, i32 noundef %.2146.i, i32 noundef 4, i32 noundef %826, ptr noundef null, ptr noundef nonnull @.str.423, i32 noundef %827)
-  %829 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %830 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %829, ptr noundef %0, i32 noundef %.2146.i, i32 noundef 4, i32 noundef 0)
-  %831 = add i32 %.2146.i, 4
-  %exitcond.not.i162 = icmp eq i32 %827, %818
+  %.2146.i = phi i32 [ %835, %.lr.ph.i161 ], [ %829, %.lr.ph.i161.preheader ]
+  %.0144145.i = phi i32 [ %831, %.lr.ph.i161 ], [ 0, %.lr.ph.i161.preheader ]
+  %830 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %831 = add nuw nsw i32 %.0144145.i, 1
+  %832 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %826, ptr noundef %0, i32 noundef %.2146.i, i32 noundef 4, i32 noundef %830, ptr noundef null, ptr noundef nonnull @.str.423, i32 noundef %831)
+  %833 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %834 = call ptr @proto_tree_add_item(ptr noundef %832, i32 noundef %833, ptr noundef %0, i32 noundef %.2146.i, i32 noundef 4, i32 noundef 0)
+  %835 = add i32 %.2146.i, 4
+  %exitcond.not.i162 = icmp eq i32 %831, %822
   br i1 %exitcond.not.i162, label %._crit_edge.i163, label %.lr.ph.i161, !llvm.loop !16
 
-832:                                              ; preds = %814
-  %833 = icmp eq i16 %5, 5
-  %834 = icmp eq i8 %6, 3
-  %835 = and i1 %833, %834
-  %or.cond24.i155 = and i1 %7, %835
-  br i1 %or.cond24.i155, label %836, label %851
+836:                                              ; preds = %818
+  %837 = icmp eq i16 %5, 5
+  %838 = icmp eq i8 %6, 3
+  %839 = and i1 %837, %838
+  %or.cond24.i155 = and i1 %7, %839
+  br i1 %or.cond24.i155, label %840, label %855
 
-836:                                              ; preds = %832
+840:                                              ; preds = %836
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #6
-  %837 = load i32, ptr @ett_ocp1_params, align 4
-  %838 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %837, ptr noundef nonnull %60, ptr noundef nonnull @.str.424)
-  %839 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %840 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %839, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %841 = add i32 %1, 4
-  %842 = load i32, ptr @ett_ocp1_params, align 4
-  %843 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %841, i32 noundef 4, i32 noundef %842, ptr noundef nonnull %61, ptr noundef nonnull @.str.425)
-  %844 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %845 = call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %844, ptr noundef %0, i32 noundef %841, i32 noundef 4, i32 noundef 0)
-  %846 = add i32 %1, 8
-  %847 = load i32, ptr @ett_ocp1_params, align 4
-  %848 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %846, i32 noundef 1, i32 noundef %847, ptr noundef nonnull %62, ptr noundef nonnull @.str.426)
-  %849 = load i32, ptr @hf_ocp1_params_bool, align 4
-  %850 = call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %849, ptr noundef %0, i32 noundef %846, i32 noundef 1, i32 noundef 0)
+  %841 = load i32, ptr @ett_ocp1_params, align 4
+  %842 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %841, ptr noundef nonnull %60, ptr noundef nonnull @.str.424)
+  %843 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %844 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %843, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %845 = add i32 %1, 4
+  %846 = load i32, ptr @ett_ocp1_params, align 4
+  %847 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %845, i32 noundef 4, i32 noundef %846, ptr noundef nonnull %61, ptr noundef nonnull @.str.425)
+  %848 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %849 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %848, ptr noundef %0, i32 noundef %845, i32 noundef 4, i32 noundef 0)
+  %850 = add i32 %1, 8
+  %851 = load i32, ptr @ett_ocp1_params, align 4
+  %852 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef %851, ptr noundef nonnull %62, ptr noundef nonnull @.str.426)
+  %853 = load i32, ptr @hf_ocp1_params_bool, align 4
+  %854 = call ptr @proto_tree_add_item(ptr noundef %852, i32 noundef %853, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #6
   br label %decode_params_OcaRoot.exit
 
-851:                                              ; preds = %832
-  %852 = icmp ne i16 %5, 6
-  %or.cond26.i156 = or i1 %852, %7
+855:                                              ; preds = %836
+  %856 = icmp ne i16 %5, 6
+  %or.cond26.i156 = or i1 %856, %7
   %or.cond26.not.i157 = xor i1 %or.cond26.i156, true
-  %or.cond29.i158 = and i1 %783, %or.cond26.not.i157
-  br i1 %or.cond29.i158, label %853, label %858
+  %or.cond29.i158 = and i1 %787, %or.cond26.not.i157
+  br i1 %or.cond29.i158, label %857, label %862
 
-853:                                              ; preds = %851
+857:                                              ; preds = %855
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #6
-  %854 = load i32, ptr @ett_ocp1_params, align 4
-  %855 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %854, ptr noundef nonnull %63, ptr noundef nonnull @.str.375)
-  %856 = load i32, ptr @hf_ocp1_params_bool, align 4
-  %857 = call ptr @proto_tree_add_item(ptr noundef %855, i32 noundef %856, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %858 = load i32, ptr @ett_ocp1_params, align 4
+  %859 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %858, ptr noundef nonnull %63, ptr noundef nonnull @.str.375)
+  %860 = load i32, ptr @hf_ocp1_params_bool, align 4
+  %861 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #6
   br label %decode_params_OcaRoot.exit
 
-858:                                              ; preds = %851
-  %859 = load i32, ptr @hf_ocp1_params, align 4
-  %860 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %859, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+862:                                              ; preds = %855
+  %863 = load i32, ptr @hf_ocp1_params, align 4
+  %864 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %863, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-861:                                              ; preds = %154
-  %862 = icmp ne i16 %5, 1
-  %or.cond.i165 = or i1 %862, %7
+865:                                              ; preds = %154
+  %866 = icmp ne i16 %5, 1
+  %or.cond.i165 = or i1 %866, %7
   %or.cond.not.i166 = xor i1 %or.cond.i165, true
-  %863 = icmp eq i8 %6, 1
-  %or.cond4.i167 = and i1 %863, %or.cond.not.i166
-  br i1 %or.cond4.i167, label %864, label %880
+  %867 = icmp eq i8 %6, 1
+  %or.cond4.i167 = and i1 %867, %or.cond.not.i166
+  br i1 %or.cond4.i167, label %868, label %884
 
-864:                                              ; preds = %861
+868:                                              ; preds = %865
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #6
-  %865 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %866 = zext i16 %865 to i32
-  %867 = shl nuw nsw i32 %866, 2
-  %868 = or disjoint i32 %867, 2
-  %869 = load i32, ptr @ett_ocp1_params, align 4
-  %870 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %868, i32 noundef %869, ptr noundef nonnull %52, ptr noundef nonnull @.str.427)
-  %871 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %872 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %871, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not157.i = icmp eq i16 %865, 0
+  %869 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %870 = zext i16 %869 to i32
+  %871 = shl nuw nsw i32 %870, 2
+  %872 = or disjoint i32 %871, 2
+  %873 = load i32, ptr @ett_ocp1_params, align 4
+  %874 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %872, i32 noundef %873, ptr noundef nonnull %52, ptr noundef nonnull @.str.427)
+  %875 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %876 = call ptr @proto_tree_add_item(ptr noundef %874, i32 noundef %875, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not157.i = icmp eq i16 %869, 0
   br i1 %.not157.i, label %._crit_edge153.i, label %.lr.ph152.i.preheader
 
-.lr.ph152.i.preheader:                            ; preds = %864
-  %873 = add i32 %1, 2
+.lr.ph152.i.preheader:                            ; preds = %868
+  %877 = add i32 %1, 2
   br label %.lr.ph152.i
 
-._crit_edge153.i:                                 ; preds = %.lr.ph152.i, %864
+._crit_edge153.i:                                 ; preds = %.lr.ph152.i, %868
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph152.i:                                      ; preds = %.lr.ph152.i.preheader, %.lr.ph152.i
-  %.0150.i = phi i32 [ %879, %.lr.ph152.i ], [ %873, %.lr.ph152.i.preheader ]
-  %.0132149.i = phi i32 [ %875, %.lr.ph152.i ], [ 0, %.lr.ph152.i.preheader ]
-  %874 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %875 = add nuw nsw i32 %.0132149.i, 1
-  %876 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %870, ptr noundef %0, i32 noundef %.0150.i, i32 noundef 4, i32 noundef %874, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %875)
-  %877 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %878 = call ptr @proto_tree_add_item(ptr noundef %876, i32 noundef %877, ptr noundef %0, i32 noundef %.0150.i, i32 noundef 4, i32 noundef 0)
-  %879 = add i32 %.0150.i, 4
-  %exitcond163.not.i = icmp eq i32 %875, %866
+  %.0150.i = phi i32 [ %883, %.lr.ph152.i ], [ %877, %.lr.ph152.i.preheader ]
+  %.0132149.i = phi i32 [ %879, %.lr.ph152.i ], [ 0, %.lr.ph152.i.preheader ]
+  %878 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %879 = add nuw nsw i32 %.0132149.i, 1
+  %880 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %874, ptr noundef %0, i32 noundef %.0150.i, i32 noundef 4, i32 noundef %878, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %879)
+  %881 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %882 = call ptr @proto_tree_add_item(ptr noundef %880, i32 noundef %881, ptr noundef %0, i32 noundef %.0150.i, i32 noundef 4, i32 noundef 0)
+  %883 = add i32 %.0150.i, 4
+  %exitcond163.not.i = icmp eq i32 %879, %870
   br i1 %exitcond163.not.i, label %._crit_edge153.i, label %.lr.ph152.i, !llvm.loop !17
 
-880:                                              ; preds = %861
-  %881 = icmp ne i16 %5, 2
-  %or.cond6.i168 = or i1 %881, %7
+884:                                              ; preds = %865
+  %885 = icmp ne i16 %5, 2
+  %or.cond6.i168 = or i1 %885, %7
   %or.cond6.not.i169 = xor i1 %or.cond6.i168, true
-  %or.cond9.i170 = and i1 %863, %or.cond6.not.i169
-  br i1 %or.cond9.i170, label %882, label %898
+  %or.cond9.i170 = and i1 %867, %or.cond6.not.i169
+  br i1 %or.cond9.i170, label %886, label %902
 
-882:                                              ; preds = %880
+886:                                              ; preds = %884
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #6
-  %883 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %884 = zext i16 %883 to i32
-  %885 = shl nuw nsw i32 %884, 2
-  %886 = or disjoint i32 %885, 2
-  %887 = load i32, ptr @ett_ocp1_params, align 4
-  %888 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %886, i32 noundef %887, ptr noundef nonnull %53, ptr noundef nonnull @.str.429)
-  %889 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %888, i32 noundef %889, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not156.i = icmp eq i16 %883, 0
+  %887 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %888 = zext i16 %887 to i32
+  %889 = shl nuw nsw i32 %888, 2
+  %890 = or disjoint i32 %889, 2
+  %891 = load i32, ptr @ett_ocp1_params, align 4
+  %892 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %890, i32 noundef %891, ptr noundef nonnull %53, ptr noundef nonnull @.str.429)
+  %893 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %894 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %893, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not156.i = icmp eq i16 %887, 0
   br i1 %.not156.i, label %._crit_edge147.i, label %.lr.ph146.i.preheader
 
-.lr.ph146.i.preheader:                            ; preds = %882
-  %891 = add i32 %1, 2
+.lr.ph146.i.preheader:                            ; preds = %886
+  %895 = add i32 %1, 2
   br label %.lr.ph146.i
 
-._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %882
+._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %886
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph146.i:                                      ; preds = %.lr.ph146.i.preheader, %.lr.ph146.i
-  %.2144.i = phi i32 [ %897, %.lr.ph146.i ], [ %891, %.lr.ph146.i.preheader ]
-  %.0133143.i = phi i32 [ %893, %.lr.ph146.i ], [ 0, %.lr.ph146.i.preheader ]
-  %892 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %893 = add nuw nsw i32 %.0133143.i, 1
-  %894 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %888, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef %892, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %893)
-  %895 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %896 = call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %895, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef 0)
-  %897 = add i32 %.2144.i, 4
-  %exitcond162.not.i = icmp eq i32 %893, %884
+  %.2144.i = phi i32 [ %901, %.lr.ph146.i ], [ %895, %.lr.ph146.i.preheader ]
+  %.0133143.i = phi i32 [ %897, %.lr.ph146.i ], [ 0, %.lr.ph146.i.preheader ]
+  %896 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %897 = add nuw nsw i32 %.0133143.i, 1
+  %898 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %892, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef %896, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %897)
+  %899 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %900 = call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %899, ptr noundef %0, i32 noundef %.2144.i, i32 noundef 4, i32 noundef 0)
+  %901 = add i32 %.2144.i, 4
+  %exitcond162.not.i = icmp eq i32 %897, %888
   br i1 %exitcond162.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !18
 
-898:                                              ; preds = %880
-  %899 = icmp ne i16 %5, 3
-  %or.cond11.i171 = or i1 %899, %7
+902:                                              ; preds = %884
+  %903 = icmp ne i16 %5, 3
+  %or.cond11.i171 = or i1 %903, %7
   %or.cond11.not.i172 = xor i1 %or.cond11.i171, true
-  %or.cond14.i173 = and i1 %863, %or.cond11.not.i172
-  br i1 %or.cond14.i173, label %900, label %916
+  %or.cond14.i173 = and i1 %867, %or.cond11.not.i172
+  br i1 %or.cond14.i173, label %904, label %920
 
-900:                                              ; preds = %898
+904:                                              ; preds = %902
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #6
-  %901 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %902 = zext i16 %901 to i32
-  %903 = shl nuw nsw i32 %902, 2
-  %904 = or disjoint i32 %903, 2
-  %905 = load i32, ptr @ett_ocp1_params, align 4
-  %906 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %904, i32 noundef %905, ptr noundef nonnull %54, ptr noundef nonnull @.str.430)
-  %907 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %908 = call ptr @proto_tree_add_item(ptr noundef %906, i32 noundef %907, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not155.i = icmp eq i16 %901, 0
+  %905 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %906 = zext i16 %905 to i32
+  %907 = shl nuw nsw i32 %906, 2
+  %908 = or disjoint i32 %907, 2
+  %909 = load i32, ptr @ett_ocp1_params, align 4
+  %910 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %908, i32 noundef %909, ptr noundef nonnull %54, ptr noundef nonnull @.str.430)
+  %911 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %912 = call ptr @proto_tree_add_item(ptr noundef %910, i32 noundef %911, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not155.i = icmp eq i16 %905, 0
   br i1 %.not155.i, label %._crit_edge141.i, label %.lr.ph140.i.preheader
 
-.lr.ph140.i.preheader:                            ; preds = %900
-  %909 = add i32 %1, 2
+.lr.ph140.i.preheader:                            ; preds = %904
+  %913 = add i32 %1, 2
   br label %.lr.ph140.i
 
-._crit_edge141.i:                                 ; preds = %.lr.ph140.i, %900
+._crit_edge141.i:                                 ; preds = %.lr.ph140.i, %904
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph140.i:                                      ; preds = %.lr.ph140.i.preheader, %.lr.ph140.i
-  %.3138.i = phi i32 [ %915, %.lr.ph140.i ], [ %909, %.lr.ph140.i.preheader ]
-  %.0134137.i = phi i32 [ %911, %.lr.ph140.i ], [ 0, %.lr.ph140.i.preheader ]
-  %910 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %911 = add nuw nsw i32 %.0134137.i, 1
-  %912 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %906, ptr noundef %0, i32 noundef %.3138.i, i32 noundef 4, i32 noundef %910, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %911)
-  %913 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %914 = call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %913, ptr noundef %0, i32 noundef %.3138.i, i32 noundef 4, i32 noundef 0)
-  %915 = add i32 %.3138.i, 4
-  %exitcond161.not.i = icmp eq i32 %911, %902
+  %.3138.i = phi i32 [ %919, %.lr.ph140.i ], [ %913, %.lr.ph140.i.preheader ]
+  %.0134137.i = phi i32 [ %915, %.lr.ph140.i ], [ 0, %.lr.ph140.i.preheader ]
+  %914 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %915 = add nuw nsw i32 %.0134137.i, 1
+  %916 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %910, ptr noundef %0, i32 noundef %.3138.i, i32 noundef 4, i32 noundef %914, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %915)
+  %917 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %918 = call ptr @proto_tree_add_item(ptr noundef %916, i32 noundef %917, ptr noundef %0, i32 noundef %.3138.i, i32 noundef 4, i32 noundef 0)
+  %919 = add i32 %.3138.i, 4
+  %exitcond161.not.i = icmp eq i32 %915, %906
   br i1 %exitcond161.not.i, label %._crit_edge141.i, label %.lr.ph140.i, !llvm.loop !19
 
-916:                                              ; preds = %898
-  %917 = icmp ne i16 %5, 4
-  %or.cond16.i174 = or i1 %917, %7
+920:                                              ; preds = %902
+  %921 = icmp ne i16 %5, 4
+  %or.cond16.i174 = or i1 %921, %7
   %or.cond16.not.i175 = xor i1 %or.cond16.i174, true
-  %or.cond19.i176 = and i1 %863, %or.cond16.not.i175
-  br i1 %or.cond19.i176, label %918, label %934
+  %or.cond19.i176 = and i1 %867, %or.cond16.not.i175
+  br i1 %or.cond19.i176, label %922, label %938
 
-918:                                              ; preds = %916
+922:                                              ; preds = %920
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #6
-  %919 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %920 = zext i16 %919 to i32
-  %921 = shl nuw nsw i32 %920, 2
-  %922 = or disjoint i32 %921, 2
-  %923 = load i32, ptr @ett_ocp1_params, align 4
-  %924 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %922, i32 noundef %923, ptr noundef nonnull %55, ptr noundef nonnull @.str.431)
-  %925 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %926 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %925, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i178 = icmp eq i16 %919, 0
+  %923 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %924 = zext i16 %923 to i32
+  %925 = shl nuw nsw i32 %924, 2
+  %926 = or disjoint i32 %925, 2
+  %927 = load i32, ptr @ett_ocp1_params, align 4
+  %928 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %926, i32 noundef %927, ptr noundef nonnull %55, ptr noundef nonnull @.str.431)
+  %929 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %930 = call ptr @proto_tree_add_item(ptr noundef %928, i32 noundef %929, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i178 = icmp eq i16 %923, 0
   br i1 %.not.i178, label %._crit_edge.i181, label %.lr.ph.i179.preheader
 
-.lr.ph.i179.preheader:                            ; preds = %918
-  %927 = add i32 %1, 2
+.lr.ph.i179.preheader:                            ; preds = %922
+  %931 = add i32 %1, 2
   br label %.lr.ph.i179
 
-._crit_edge.i181:                                 ; preds = %.lr.ph.i179, %918
+._crit_edge.i181:                                 ; preds = %.lr.ph.i179, %922
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i179:                                      ; preds = %.lr.ph.i179.preheader, %.lr.ph.i179
-  %.4136.i = phi i32 [ %933, %.lr.ph.i179 ], [ %927, %.lr.ph.i179.preheader ]
-  %.0131135.i = phi i32 [ %929, %.lr.ph.i179 ], [ 0, %.lr.ph.i179.preheader ]
-  %928 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %929 = add nuw nsw i32 %.0131135.i, 1
-  %930 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %924, ptr noundef %0, i32 noundef %.4136.i, i32 noundef 4, i32 noundef %928, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %929)
-  %931 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %932 = call ptr @proto_tree_add_item(ptr noundef %930, i32 noundef %931, ptr noundef %0, i32 noundef %.4136.i, i32 noundef 4, i32 noundef 0)
-  %933 = add i32 %.4136.i, 4
-  %exitcond.not.i180 = icmp eq i32 %929, %920
+  %.4136.i = phi i32 [ %937, %.lr.ph.i179 ], [ %931, %.lr.ph.i179.preheader ]
+  %.0131135.i = phi i32 [ %933, %.lr.ph.i179 ], [ 0, %.lr.ph.i179.preheader ]
+  %932 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %933 = add nuw nsw i32 %.0131135.i, 1
+  %934 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %928, ptr noundef %0, i32 noundef %.4136.i, i32 noundef 4, i32 noundef %932, ptr noundef null, ptr noundef nonnull @.str.428, i32 noundef %933)
+  %935 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %936 = call ptr @proto_tree_add_item(ptr noundef %934, i32 noundef %935, ptr noundef %0, i32 noundef %.4136.i, i32 noundef 4, i32 noundef 0)
+  %937 = add i32 %.4136.i, 4
+  %exitcond.not.i180 = icmp eq i32 %933, %924
   br i1 %exitcond.not.i180, label %._crit_edge.i181, label %.lr.ph.i179, !llvm.loop !20
 
-934:                                              ; preds = %916
-  %935 = load i32, ptr @hf_ocp1_params, align 4
-  %936 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %935, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+938:                                              ; preds = %920
+  %939 = load i32, ptr @hf_ocp1_params, align 4
+  %940 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %939, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-937:                                              ; preds = %154
-  %938 = icmp ne i16 %5, 1
-  %or.cond.i183 = or i1 %938, %7
+941:                                              ; preds = %154
+  %942 = icmp ne i16 %5, 1
+  %or.cond.i183 = or i1 %942, %7
   %or.cond.not.i184 = xor i1 %or.cond.i183, true
-  %939 = icmp eq i8 %6, 1
-  %or.cond4.i185 = and i1 %939, %or.cond.not.i184
-  br i1 %or.cond4.i185, label %940, label %956
+  %943 = icmp eq i8 %6, 1
+  %or.cond4.i185 = and i1 %943, %or.cond.not.i184
+  br i1 %or.cond4.i185, label %944, label %960
 
-940:                                              ; preds = %937
+944:                                              ; preds = %941
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #6
-  %941 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %942 = zext i16 %941 to i32
-  %943 = shl nuw nsw i32 %942, 2
-  %944 = or disjoint i32 %943, 2
-  %945 = load i32, ptr @ett_ocp1_params, align 4
-  %946 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %944, i32 noundef %945, ptr noundef nonnull %49, ptr noundef nonnull @.str.432)
-  %947 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %947, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not118.i = icmp eq i16 %941, 0
+  %945 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %946 = zext i16 %945 to i32
+  %947 = shl nuw nsw i32 %946, 2
+  %948 = or disjoint i32 %947, 2
+  %949 = load i32, ptr @ett_ocp1_params, align 4
+  %950 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %948, i32 noundef %949, ptr noundef nonnull %49, ptr noundef nonnull @.str.432)
+  %951 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %952 = call ptr @proto_tree_add_item(ptr noundef %950, i32 noundef %951, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not118.i = icmp eq i16 %945, 0
   br i1 %.not118.i, label %._crit_edge115.i, label %.lr.ph114.i.preheader
 
-.lr.ph114.i.preheader:                            ; preds = %940
-  %949 = add i32 %1, 2
+.lr.ph114.i.preheader:                            ; preds = %944
+  %953 = add i32 %1, 2
   br label %.lr.ph114.i
 
-._crit_edge115.i:                                 ; preds = %.lr.ph114.i, %940
+._crit_edge115.i:                                 ; preds = %.lr.ph114.i, %944
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph114.i:                                      ; preds = %.lr.ph114.i.preheader, %.lr.ph114.i
-  %.0112.i = phi i32 [ %955, %.lr.ph114.i ], [ %949, %.lr.ph114.i.preheader ]
-  %.0101111.i = phi i32 [ %951, %.lr.ph114.i ], [ 0, %.lr.ph114.i.preheader ]
-  %950 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %951 = add nuw nsw i32 %.0101111.i, 1
-  %952 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %946, ptr noundef %0, i32 noundef %.0112.i, i32 noundef 4, i32 noundef %950, ptr noundef null, ptr noundef nonnull @.str.433, i32 noundef %951)
-  %953 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %954 = call ptr @proto_tree_add_item(ptr noundef %952, i32 noundef %953, ptr noundef %0, i32 noundef %.0112.i, i32 noundef 4, i32 noundef 0)
-  %955 = add i32 %.0112.i, 4
-  %exitcond122.not.i = icmp eq i32 %951, %942
+  %.0112.i = phi i32 [ %959, %.lr.ph114.i ], [ %953, %.lr.ph114.i.preheader ]
+  %.0101111.i = phi i32 [ %955, %.lr.ph114.i ], [ 0, %.lr.ph114.i.preheader ]
+  %954 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %955 = add nuw nsw i32 %.0101111.i, 1
+  %956 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %950, ptr noundef %0, i32 noundef %.0112.i, i32 noundef 4, i32 noundef %954, ptr noundef null, ptr noundef nonnull @.str.433, i32 noundef %955)
+  %957 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %958 = call ptr @proto_tree_add_item(ptr noundef %956, i32 noundef %957, ptr noundef %0, i32 noundef %.0112.i, i32 noundef 4, i32 noundef 0)
+  %959 = add i32 %.0112.i, 4
+  %exitcond122.not.i = icmp eq i32 %955, %946
   br i1 %exitcond122.not.i, label %._crit_edge115.i, label %.lr.ph114.i, !llvm.loop !21
 
-956:                                              ; preds = %937
-  %957 = icmp ne i16 %5, 2
-  %or.cond6.i186 = or i1 %957, %7
+960:                                              ; preds = %941
+  %961 = icmp ne i16 %5, 2
+  %or.cond6.i186 = or i1 %961, %7
   %or.cond6.not.i187 = xor i1 %or.cond6.i186, true
-  %or.cond9.i188 = and i1 %939, %or.cond6.not.i187
-  br i1 %or.cond9.i188, label %958, label %973
+  %or.cond9.i188 = and i1 %943, %or.cond6.not.i187
+  br i1 %or.cond9.i188, label %962, label %977
 
-958:                                              ; preds = %956
+962:                                              ; preds = %960
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #6
-  %959 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %960 = zext i16 %959 to i32
-  %961 = add nuw nsw i32 %960, 2
-  %962 = load i32, ptr @ett_ocp1_params, align 4
-  %963 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %961, i32 noundef %962, ptr noundef nonnull %50, ptr noundef nonnull @.str.434)
-  %964 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %963, i32 noundef %964, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not117.i = icmp eq i16 %959, 0
+  %963 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %964 = zext i16 %963 to i32
+  %965 = add nuw nsw i32 %964, 2
+  %966 = load i32, ptr @ett_ocp1_params, align 4
+  %967 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %965, i32 noundef %966, ptr noundef nonnull %50, ptr noundef nonnull @.str.434)
+  %968 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %969 = call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %968, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not117.i = icmp eq i16 %963, 0
   br i1 %.not117.i, label %._crit_edge109.i, label %.lr.ph108.i.preheader
 
-.lr.ph108.i.preheader:                            ; preds = %958
-  %966 = add i32 %1, 2
+.lr.ph108.i.preheader:                            ; preds = %962
+  %970 = add i32 %1, 2
   br label %.lr.ph108.i
 
-._crit_edge109.i:                                 ; preds = %.lr.ph108.i, %958
+._crit_edge109.i:                                 ; preds = %.lr.ph108.i, %962
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph108.i:                                      ; preds = %.lr.ph108.i.preheader, %.lr.ph108.i
-  %.2106.i = phi i32 [ %972, %.lr.ph108.i ], [ %966, %.lr.ph108.i.preheader ]
-  %.0102105.i = phi i32 [ %968, %.lr.ph108.i ], [ 0, %.lr.ph108.i.preheader ]
-  %967 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %968 = add nuw nsw i32 %.0102105.i, 1
-  %969 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %963, ptr noundef %0, i32 noundef %.2106.i, i32 noundef 1, i32 noundef %967, ptr noundef null, ptr noundef nonnull @.str.435, i32 noundef %968)
-  %970 = load i32, ptr @hf_ocp1_params_media_clock_type, align 4
-  %971 = call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %970, ptr noundef %0, i32 noundef %.2106.i, i32 noundef 1, i32 noundef 0)
-  %972 = add i32 %.2106.i, 1
-  %exitcond121.not.i = icmp eq i32 %968, %960
+  %.2106.i = phi i32 [ %976, %.lr.ph108.i ], [ %970, %.lr.ph108.i.preheader ]
+  %.0102105.i = phi i32 [ %972, %.lr.ph108.i ], [ 0, %.lr.ph108.i.preheader ]
+  %971 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %972 = add nuw nsw i32 %.0102105.i, 1
+  %973 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %967, ptr noundef %0, i32 noundef %.2106.i, i32 noundef 1, i32 noundef %971, ptr noundef null, ptr noundef nonnull @.str.435, i32 noundef %972)
+  %974 = load i32, ptr @hf_ocp1_params_media_clock_type, align 4
+  %975 = call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %974, ptr noundef %0, i32 noundef %.2106.i, i32 noundef 1, i32 noundef 0)
+  %976 = add i32 %.2106.i, 1
+  %exitcond121.not.i = icmp eq i32 %972, %964
   br i1 %exitcond121.not.i, label %._crit_edge109.i, label %.lr.ph108.i, !llvm.loop !22
 
-973:                                              ; preds = %956
-  %974 = icmp ne i16 %5, 3
-  %or.cond11.i189 = or i1 %974, %7
+977:                                              ; preds = %960
+  %978 = icmp ne i16 %5, 3
+  %or.cond11.i189 = or i1 %978, %7
   %or.cond11.not.i190 = xor i1 %or.cond11.i189, true
-  %or.cond14.i191 = and i1 %939, %or.cond11.not.i190
-  br i1 %or.cond14.i191, label %975, label %991
+  %or.cond14.i191 = and i1 %943, %or.cond11.not.i190
+  br i1 %or.cond14.i191, label %979, label %995
 
-975:                                              ; preds = %973
+979:                                              ; preds = %977
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #6
-  %976 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %977 = zext i16 %976 to i32
-  %978 = shl nuw nsw i32 %977, 2
-  %979 = or disjoint i32 %978, 2
-  %980 = load i32, ptr @ett_ocp1_params, align 4
-  %981 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %979, i32 noundef %980, ptr noundef nonnull %51, ptr noundef nonnull @.str.432)
-  %982 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %983 = call ptr @proto_tree_add_item(ptr noundef %981, i32 noundef %982, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i193 = icmp eq i16 %976, 0
+  %980 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %981 = zext i16 %980 to i32
+  %982 = shl nuw nsw i32 %981, 2
+  %983 = or disjoint i32 %982, 2
+  %984 = load i32, ptr @ett_ocp1_params, align 4
+  %985 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %983, i32 noundef %984, ptr noundef nonnull %51, ptr noundef nonnull @.str.432)
+  %986 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %987 = call ptr @proto_tree_add_item(ptr noundef %985, i32 noundef %986, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i193 = icmp eq i16 %980, 0
   br i1 %.not.i193, label %._crit_edge.i196, label %.lr.ph.i194.preheader
 
-.lr.ph.i194.preheader:                            ; preds = %975
-  %984 = add i32 %1, 2
+.lr.ph.i194.preheader:                            ; preds = %979
+  %988 = add i32 %1, 2
   br label %.lr.ph.i194
 
-._crit_edge.i196:                                 ; preds = %.lr.ph.i194, %975
+._crit_edge.i196:                                 ; preds = %.lr.ph.i194, %979
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i194:                                      ; preds = %.lr.ph.i194.preheader, %.lr.ph.i194
-  %.3104.i = phi i32 [ %990, %.lr.ph.i194 ], [ %984, %.lr.ph.i194.preheader ]
-  %.0100103.i = phi i32 [ %986, %.lr.ph.i194 ], [ 0, %.lr.ph.i194.preheader ]
-  %985 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %986 = add nuw nsw i32 %.0100103.i, 1
-  %987 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %981, ptr noundef %0, i32 noundef %.3104.i, i32 noundef 4, i32 noundef %985, ptr noundef null, ptr noundef nonnull @.str.433, i32 noundef %986)
-  %988 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %989 = call ptr @proto_tree_add_item(ptr noundef %987, i32 noundef %988, ptr noundef %0, i32 noundef %.3104.i, i32 noundef 4, i32 noundef 0)
-  %990 = add i32 %.3104.i, 4
-  %exitcond.not.i195 = icmp eq i32 %986, %977
+  %.3104.i = phi i32 [ %994, %.lr.ph.i194 ], [ %988, %.lr.ph.i194.preheader ]
+  %.0100103.i = phi i32 [ %990, %.lr.ph.i194 ], [ 0, %.lr.ph.i194.preheader ]
+  %989 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %990 = add nuw nsw i32 %.0100103.i, 1
+  %991 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %985, ptr noundef %0, i32 noundef %.3104.i, i32 noundef 4, i32 noundef %989, ptr noundef null, ptr noundef nonnull @.str.433, i32 noundef %990)
+  %992 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %993 = call ptr @proto_tree_add_item(ptr noundef %991, i32 noundef %992, ptr noundef %0, i32 noundef %.3104.i, i32 noundef 4, i32 noundef 0)
+  %994 = add i32 %.3104.i, 4
+  %exitcond.not.i195 = icmp eq i32 %990, %981
   br i1 %exitcond.not.i195, label %._crit_edge.i196, label %.lr.ph.i194, !llvm.loop !23
 
-991:                                              ; preds = %973
-  %992 = load i32, ptr @hf_ocp1_params, align 4
-  %993 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %992, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+995:                                              ; preds = %977
+  %996 = load i32, ptr @hf_ocp1_params, align 4
+  %997 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %996, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-994:                                              ; preds = %154
-  %995 = icmp eq i16 %5, 1
-  %or.cond.i200 = and i1 %995, %7
-  %996 = icmp eq i8 %6, 1
-  %or.cond4.i201 = and i1 %996, %or.cond.i200
-  br i1 %or.cond4.i201, label %997, label %1004
+998:                                              ; preds = %154
+  %999 = icmp eq i16 %5, 1
+  %or.cond.i200 = and i1 %999, %7
+  %1000 = icmp eq i8 %6, 1
+  %or.cond4.i201 = and i1 %1000, %or.cond.i200
+  br i1 %or.cond4.i201, label %1001, label %1008
 
-997:                                              ; preds = %994
+1001:                                             ; preds = %998
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #6
-  %998 = load i32, ptr @ett_ocp1_params, align 4
-  %999 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %998, ptr noundef nonnull %40, ptr noundef nonnull @.str.436)
-  %1000 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1001 = call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1000, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1001, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
-  %1002 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
-  %1003 = call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1002, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1002 = load i32, ptr @ett_ocp1_params, align 4
+  %1003 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1002, ptr noundef nonnull %40, ptr noundef nonnull @.str.436)
+  %1004 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1005 = call ptr @proto_tree_add_item(ptr noundef %1003, i32 noundef %1004, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1005, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
+  %1006 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
+  %1007 = call ptr @proto_tree_add_item(ptr noundef %1003, i32 noundef %1006, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #6
   br label %decode_params_OcaRoot.exit
 
-1004:                                             ; preds = %994
-  %1005 = icmp ne i16 %5, 1
-  %or.cond6.i202 = or i1 %1005, %7
+1008:                                             ; preds = %998
+  %1009 = icmp ne i16 %5, 1
+  %or.cond6.i202 = or i1 %1009, %7
   %or.cond6.not.i203 = xor i1 %or.cond6.i202, true
-  %or.cond9.i204 = and i1 %996, %or.cond6.not.i203
-  br i1 %or.cond9.i204, label %1006, label %1016
+  %or.cond9.i204 = and i1 %1000, %or.cond6.not.i203
+  br i1 %or.cond9.i204, label %1010, label %1020
 
-1006:                                             ; preds = %1004
+1010:                                             ; preds = %1008
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #6
-  %1007 = load i32, ptr @ett_ocp1_params, align 4
-  %1008 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1007, ptr noundef nonnull %41, ptr noundef nonnull @.str.437)
-  %1009 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1010 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1009, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1010, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
-  %1011 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
-  %1012 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1011, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %1013 = add i32 %1, 7
-  %1014 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1015 = call ptr @proto_tree_add_item(ptr noundef %1008, i32 noundef %1014, ptr noundef %0, i32 noundef %1013, i32 noundef 4, i32 noundef 0)
+  %1011 = load i32, ptr @ett_ocp1_params, align 4
+  %1012 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1011, ptr noundef nonnull %41, ptr noundef nonnull @.str.437)
+  %1013 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1014 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1013, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1014, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
+  %1015 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
+  %1016 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1015, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1017 = add i32 %1, 7
+  %1018 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1019 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1018, ptr noundef %0, i32 noundef %1017, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #6
   br label %decode_params_OcaRoot.exit
 
-1016:                                             ; preds = %1004
-  %1017 = icmp eq i16 %5, 2
-  %or.cond11.i205 = and i1 %1017, %7
-  %or.cond14.i206 = and i1 %996, %or.cond11.i205
-  br i1 %or.cond14.i206, label %1018, label %1023
+1020:                                             ; preds = %1008
+  %1021 = icmp eq i16 %5, 2
+  %or.cond11.i205 = and i1 %1021, %7
+  %or.cond14.i206 = and i1 %1000, %or.cond11.i205
+  br i1 %or.cond14.i206, label %1022, label %1027
 
-1018:                                             ; preds = %1016
+1022:                                             ; preds = %1020
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #6
-  %1019 = load i32, ptr @ett_ocp1_params, align 4
-  %1020 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1019, ptr noundef nonnull %42, ptr noundef nonnull @.str.385)
-  %1021 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1022 = call ptr @proto_tree_add_item(ptr noundef %1020, i32 noundef %1021, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1023 = load i32, ptr @ett_ocp1_params, align 4
+  %1024 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1023, ptr noundef nonnull %42, ptr noundef nonnull @.str.385)
+  %1025 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1026 = call ptr @proto_tree_add_item(ptr noundef %1024, i32 noundef %1025, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #6
   br label %decode_params_OcaRoot.exit
 
-1023:                                             ; preds = %1016
-  %1024 = icmp eq i16 %5, 3
-  %or.cond16.i207 = and i1 %1024, %7
-  %or.cond19.i208 = and i1 %996, %or.cond16.i207
-  br i1 %or.cond19.i208, label %1025, label %1032
+1027:                                             ; preds = %1020
+  %1028 = icmp eq i16 %5, 3
+  %or.cond16.i207 = and i1 %1028, %7
+  %or.cond19.i208 = and i1 %1000, %or.cond16.i207
+  br i1 %or.cond19.i208, label %1029, label %1036
 
-1025:                                             ; preds = %1023
+1029:                                             ; preds = %1027
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #6
-  %1026 = load i32, ptr @ett_ocp1_params, align 4
-  %1027 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1026, ptr noundef nonnull %43, ptr noundef nonnull @.str.438)
-  %1028 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1029 = call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1028, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1029, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
-  %1030 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
-  %1031 = call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1030, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1030 = load i32, ptr @ett_ocp1_params, align 4
+  %1031 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1030, ptr noundef nonnull %43, ptr noundef nonnull @.str.438)
+  %1032 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1033 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1032, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1033, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
+  %1034 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
+  %1035 = call ptr @proto_tree_add_item(ptr noundef %1031, i32 noundef %1034, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #6
   br label %decode_params_OcaRoot.exit
 
-1032:                                             ; preds = %1023
-  %1033 = icmp ne i16 %5, 3
-  %or.cond21.i209 = or i1 %1033, %7
+1036:                                             ; preds = %1027
+  %1037 = icmp ne i16 %5, 3
+  %or.cond21.i209 = or i1 %1037, %7
   %or.cond21.not.i = xor i1 %or.cond21.i209, true
-  %or.cond24.i210 = and i1 %996, %or.cond21.not.i
-  br i1 %or.cond24.i210, label %1034, label %1039
+  %or.cond24.i210 = and i1 %1000, %or.cond21.not.i
+  br i1 %or.cond24.i210, label %1038, label %1043
 
-1034:                                             ; preds = %1032
+1038:                                             ; preds = %1036
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #6
-  %1035 = load i32, ptr @ett_ocp1_params, align 4
-  %1036 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1035, ptr noundef nonnull %44, ptr noundef nonnull @.str.439)
-  %1037 = load i32, ptr @hf_ocp1_params_library_count, align 4
-  %1038 = call ptr @proto_tree_add_item(ptr noundef %1036, i32 noundef %1037, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %1039 = load i32, ptr @ett_ocp1_params, align 4
+  %1040 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1039, ptr noundef nonnull %44, ptr noundef nonnull @.str.439)
+  %1041 = load i32, ptr @hf_ocp1_params_library_count, align 4
+  %1042 = call ptr @proto_tree_add_item(ptr noundef %1040, i32 noundef %1041, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #6
   br label %decode_params_OcaRoot.exit
 
-1039:                                             ; preds = %1032
-  %1040 = icmp eq i16 %5, 4
-  %or.cond26.i211 = and i1 %1040, %7
-  %or.cond29.i212 = and i1 %996, %or.cond26.i211
-  br i1 %or.cond29.i212, label %1041, label %1044
+1043:                                             ; preds = %1036
+  %1044 = icmp eq i16 %5, 4
+  %or.cond26.i211 = and i1 %1044, %7
+  %or.cond29.i212 = and i1 %1000, %or.cond26.i211
+  br i1 %or.cond29.i212, label %1045, label %1048
 
-1041:                                             ; preds = %1039
+1045:                                             ; preds = %1043
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #6
-  %1042 = load i32, ptr @ett_ocp1_params, align 4
-  %1043 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1042, ptr noundef nonnull %45, ptr noundef nonnull @.str.436)
-  call fastcc void @decode_params_OcaLibVolType(ptr noundef %0, i32 noundef %1, ptr noundef %1043)
+  %1046 = load i32, ptr @ett_ocp1_params, align 4
+  %1047 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1046, ptr noundef nonnull %45, ptr noundef nonnull @.str.436)
+  call fastcc void @decode_params_OcaLibVolType(ptr noundef %0, i32 noundef %1, ptr noundef %1047)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #6
   br label %decode_params_OcaRoot.exit
 
-1044:                                             ; preds = %1039
-  %1045 = icmp ne i16 %5, 4
-  %or.cond31.i213 = or i1 %1045, %7
+1048:                                             ; preds = %1043
+  %1049 = icmp ne i16 %5, 4
+  %or.cond31.i213 = or i1 %1049, %7
   %or.cond31.not.i214 = xor i1 %or.cond31.i213, true
-  %or.cond34.i215 = and i1 %996, %or.cond31.not.i214
-  br i1 %or.cond34.i215, label %1046, label %1067
+  %or.cond34.i215 = and i1 %1000, %or.cond31.not.i214
+  br i1 %or.cond34.i215, label %1050, label %1071
 
-1046:                                             ; preds = %1044
+1050:                                             ; preds = %1048
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #6
-  %1047 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %1048 = zext i16 %1047 to i32
-  %1049 = mul nuw nsw i32 %1048, 11
-  %1050 = add nuw nsw i32 %1049, 2
-  %1051 = load i32, ptr @ett_ocp1_params, align 4
-  %1052 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1050, i32 noundef %1051, ptr noundef nonnull %46, ptr noundef nonnull @.str.440)
-  %1053 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %1054 = call ptr @proto_tree_add_item(ptr noundef %1052, i32 noundef %1053, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i221 = icmp eq i16 %1047, 0
+  %1051 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %1052 = zext i16 %1051 to i32
+  %1053 = mul nuw nsw i32 %1052, 11
+  %1054 = add nuw nsw i32 %1053, 2
+  %1055 = load i32, ptr @ett_ocp1_params, align 4
+  %1056 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1054, i32 noundef %1055, ptr noundef nonnull %46, ptr noundef nonnull @.str.440)
+  %1057 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %1058 = call ptr @proto_tree_add_item(ptr noundef %1056, i32 noundef %1057, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i221 = icmp eq i16 %1051, 0
   br i1 %.not.i221, label %._crit_edge.i224, label %.lr.ph.i222.preheader
 
-.lr.ph.i222.preheader:                            ; preds = %1046
-  %1055 = add i32 %1, 2
+.lr.ph.i222.preheader:                            ; preds = %1050
+  %1059 = add i32 %1, 2
   br label %.lr.ph.i222
 
-._crit_edge.i224:                                 ; preds = %.lr.ph.i222, %1046
+._crit_edge.i224:                                 ; preds = %.lr.ph.i222, %1050
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i222:                                      ; preds = %.lr.ph.i222.preheader, %.lr.ph.i222
-  %.1160.i = phi i32 [ %1066, %.lr.ph.i222 ], [ %1055, %.lr.ph.i222.preheader ]
-  %.0158159.i = phi i32 [ %1057, %.lr.ph.i222 ], [ 0, %.lr.ph.i222.preheader ]
-  %1056 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %1057 = add nuw nsw i32 %.0158159.i, 1
-  %1058 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1052, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 11, i32 noundef %1056, ptr noundef null, ptr noundef nonnull @.str.441, i32 noundef %1057)
-  %1059 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1060 = call ptr @proto_tree_add_item(ptr noundef %1058, i32 noundef %1059, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 3, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1060, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
-  %1061 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
-  %1062 = call ptr @proto_tree_add_item(ptr noundef %1058, i32 noundef %1061, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 4, i32 noundef 0)
-  %1063 = add i32 %.1160.i, 7
-  %1064 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1065 = call ptr @proto_tree_add_item(ptr noundef %1058, i32 noundef %1064, ptr noundef %0, i32 noundef %1063, i32 noundef 4, i32 noundef 0)
-  %1066 = add i32 %.1160.i, 11
-  %exitcond.not.i223 = icmp eq i32 %1057, %1048
+  %.1160.i = phi i32 [ %1070, %.lr.ph.i222 ], [ %1059, %.lr.ph.i222.preheader ]
+  %.0158159.i = phi i32 [ %1061, %.lr.ph.i222 ], [ 0, %.lr.ph.i222.preheader ]
+  %1060 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %1061 = add nuw nsw i32 %.0158159.i, 1
+  %1062 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1056, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 11, i32 noundef %1060, ptr noundef null, ptr noundef nonnull @.str.441, i32 noundef %1061)
+  %1063 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1064 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1063, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 3, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1064, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.442)
+  %1065 = load i32, ptr @hf_ocp1_params_libvoltype_id, align 4
+  %1066 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1065, ptr noundef %0, i32 noundef %.1160.i, i32 noundef 4, i32 noundef 0)
+  %1067 = add i32 %.1160.i, 7
+  %1068 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1069 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1068, ptr noundef %0, i32 noundef %1067, i32 noundef 4, i32 noundef 0)
+  %1070 = add i32 %.1160.i, 11
+  %exitcond.not.i223 = icmp eq i32 %1061, %1052
   br i1 %exitcond.not.i223, label %._crit_edge.i224, label %.lr.ph.i222, !llvm.loop !24
 
-1067:                                             ; preds = %1044
-  %1068 = icmp ne i16 %5, 5
-  %or.cond36.i216 = or i1 %1068, %7
+1071:                                             ; preds = %1048
+  %1072 = icmp ne i16 %5, 5
+  %or.cond36.i216 = or i1 %1072, %7
   %or.cond36.not.i = xor i1 %or.cond36.i216, true
-  %or.cond39.i217 = and i1 %996, %or.cond36.not.i
-  br i1 %or.cond39.i217, label %1069, label %1072
+  %or.cond39.i217 = and i1 %1000, %or.cond36.not.i
+  br i1 %or.cond39.i217, label %1073, label %1076
 
-1069:                                             ; preds = %1067
+1073:                                             ; preds = %1071
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #6
-  %1070 = load i32, ptr @ett_ocp1_params, align 4
-  %1071 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1070, ptr noundef nonnull %47, ptr noundef nonnull @.str.385)
-  call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1071)
+  %1074 = load i32, ptr @ett_ocp1_params, align 4
+  %1075 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1074, ptr noundef nonnull %47, ptr noundef nonnull @.str.385)
+  call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1075)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #6
   br label %decode_params_OcaRoot.exit
 
-1072:                                             ; preds = %1067
-  %1073 = icmp eq i16 %5, 6
-  %or.cond41.i218 = and i1 %1073, %7
-  %or.cond44.i219 = and i1 %996, %or.cond41.i218
-  br i1 %or.cond44.i219, label %1074, label %1077
+1076:                                             ; preds = %1071
+  %1077 = icmp eq i16 %5, 6
+  %or.cond41.i218 = and i1 %1077, %7
+  %or.cond44.i219 = and i1 %1000, %or.cond41.i218
+  br i1 %or.cond44.i219, label %1078, label %1081
 
-1074:                                             ; preds = %1072
+1078:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #6
-  %1075 = load i32, ptr @ett_ocp1_params, align 4
-  %1076 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1075, ptr noundef nonnull %48, ptr noundef nonnull @.str.385)
-  call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1076)
+  %1079 = load i32, ptr @ett_ocp1_params, align 4
+  %1080 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1079, ptr noundef nonnull %48, ptr noundef nonnull @.str.385)
+  call fastcc void @decode_params_OcaLibVolIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %1080)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #6
   br label %decode_params_OcaRoot.exit
 
-1077:                                             ; preds = %1072
-  %1078 = load i32, ptr @hf_ocp1_params, align 4
-  %1079 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1078, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1081:                                             ; preds = %1076
+  %1082 = load i32, ptr @hf_ocp1_params, align 4
+  %1083 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1082, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1080:                                             ; preds = %154
-  %1081 = load i32, ptr @hf_ocp1_params, align 4
-  %1082 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1081, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1084:                                             ; preds = %154
+  %1085 = load i32, ptr @hf_ocp1_params, align 4
+  %1086 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1085, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1083:                                             ; preds = %154
-  %1084 = icmp ne i16 %5, 1
-  %or.cond.i226 = or i1 %1084, %7
+1087:                                             ; preds = %154
+  %1088 = icmp ne i16 %5, 1
+  %or.cond.i226 = or i1 %1088, %7
   %or.cond.not.i227 = xor i1 %or.cond.i226, true
-  %1085 = icmp eq i8 %6, 1
-  %or.cond4.i228 = and i1 %1085, %or.cond.not.i227
-  br i1 %or.cond4.i228, label %1086, label %1091
+  %1089 = icmp eq i8 %6, 1
+  %or.cond4.i228 = and i1 %1089, %or.cond.not.i227
+  br i1 %or.cond4.i228, label %1090, label %1095
 
-1086:                                             ; preds = %1083
+1090:                                             ; preds = %1087
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #6
-  %1087 = load i32, ptr @ett_ocp1_params, align 4
-  %1088 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1087, ptr noundef nonnull %33, ptr noundef nonnull @.str.443)
-  %1089 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
-  %1090 = call ptr @proto_tree_add_item(ptr noundef %1088, i32 noundef %1089, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
+  %1091 = load i32, ptr @ett_ocp1_params, align 4
+  %1092 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1091, ptr noundef nonnull %33, ptr noundef nonnull @.str.443)
+  %1093 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
+  %1094 = call ptr @proto_tree_add_item(ptr noundef %1092, i32 noundef %1093, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #6
   br label %decode_params_OcaRoot.exit
 
-1091:                                             ; preds = %1083
-  %1092 = icmp eq i16 %5, 2
-  %or.cond6.i229 = and i1 %1092, %7
-  %or.cond9.i230 = and i1 %1085, %or.cond6.i229
-  br i1 %or.cond9.i230, label %1093, label %1098
+1095:                                             ; preds = %1087
+  %1096 = icmp eq i16 %5, 2
+  %or.cond6.i229 = and i1 %1096, %7
+  %or.cond9.i230 = and i1 %1089, %or.cond6.i229
+  br i1 %or.cond9.i230, label %1097, label %1102
 
-1093:                                             ; preds = %1091
+1097:                                             ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #6
-  %1094 = load i32, ptr @ett_ocp1_params, align 4
-  %1095 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1094, ptr noundef nonnull %34, ptr noundef nonnull @.str.443)
-  %1096 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
-  %1097 = call ptr @proto_tree_add_item(ptr noundef %1095, i32 noundef %1096, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
+  %1098 = load i32, ptr @ett_ocp1_params, align 4
+  %1099 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1098, ptr noundef nonnull %34, ptr noundef nonnull @.str.443)
+  %1100 = load i32, ptr @hf_ocp1_params_time_ntp, align 4
+  %1101 = call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1100, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #6
   br label %decode_params_OcaRoot.exit
 
-1098:                                             ; preds = %1091
-  %1099 = icmp ne i16 %5, 3
-  %or.cond11.i231 = or i1 %1099, %7
+1102:                                             ; preds = %1095
+  %1103 = icmp ne i16 %5, 3
+  %or.cond11.i231 = or i1 %1103, %7
   %or.cond11.not.i232 = xor i1 %or.cond11.i231, true
-  %or.cond14.i233 = and i1 %1085, %or.cond11.not.i232
-  br i1 %or.cond14.i233, label %1100, label %1116
+  %or.cond14.i233 = and i1 %1089, %or.cond11.not.i232
+  br i1 %or.cond14.i233, label %1104, label %1120
 
-1100:                                             ; preds = %1098
+1104:                                             ; preds = %1102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #6
-  %1101 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %1102 = zext i16 %1101 to i32
-  %1103 = shl nuw nsw i32 %1102, 2
-  %1104 = or disjoint i32 %1103, 2
-  %1105 = load i32, ptr @ett_ocp1_params, align 4
-  %1106 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1104, i32 noundef %1105, ptr noundef nonnull %35, ptr noundef nonnull @.str.444)
-  %1107 = load i32, ptr @hf_ocp1_params_list_count, align 4
-  %1108 = call ptr @proto_tree_add_item(ptr noundef %1106, i32 noundef %1107, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %.not.i245 = icmp eq i16 %1101, 0
+  %1105 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %1106 = zext i16 %1105 to i32
+  %1107 = shl nuw nsw i32 %1106, 2
+  %1108 = or disjoint i32 %1107, 2
+  %1109 = load i32, ptr @ett_ocp1_params, align 4
+  %1110 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1108, i32 noundef %1109, ptr noundef nonnull %35, ptr noundef nonnull @.str.444)
+  %1111 = load i32, ptr @hf_ocp1_params_list_count, align 4
+  %1112 = call ptr @proto_tree_add_item(ptr noundef %1110, i32 noundef %1111, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %.not.i245 = icmp eq i16 %1105, 0
   br i1 %.not.i245, label %._crit_edge.i249, label %.lr.ph.i246.preheader
 
-.lr.ph.i246.preheader:                            ; preds = %1100
-  %1109 = add i32 %1, 2
+.lr.ph.i246.preheader:                            ; preds = %1104
+  %1113 = add i32 %1, 2
   br label %.lr.ph.i246
 
-._crit_edge.i249:                                 ; preds = %.lr.ph.i246, %1100
+._crit_edge.i249:                                 ; preds = %.lr.ph.i246, %1104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #6
   br label %decode_params_OcaRoot.exit
 
 .lr.ph.i246:                                      ; preds = %.lr.ph.i246.preheader, %.lr.ph.i246
-  %.1130.i = phi i32 [ %1115, %.lr.ph.i246 ], [ %1109, %.lr.ph.i246.preheader ]
-  %.0128129.i247 = phi i32 [ %1111, %.lr.ph.i246 ], [ 0, %.lr.ph.i246.preheader ]
-  %1110 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %1111 = add nuw nsw i32 %.0128129.i247, 1
-  %1112 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1106, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 4, i32 noundef %1110, ptr noundef null, ptr noundef nonnull @.str.445, i32 noundef %1111)
-  %1113 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1114 = call ptr @proto_tree_add_item(ptr noundef %1112, i32 noundef %1113, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 4, i32 noundef 0)
-  %1115 = add i32 %.1130.i, 4
-  %exitcond.not.i248 = icmp eq i32 %1111, %1102
+  %.1130.i = phi i32 [ %1119, %.lr.ph.i246 ], [ %1113, %.lr.ph.i246.preheader ]
+  %.0128129.i247 = phi i32 [ %1115, %.lr.ph.i246 ], [ 0, %.lr.ph.i246.preheader ]
+  %1114 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %1115 = add nuw nsw i32 %.0128129.i247, 1
+  %1116 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1110, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 4, i32 noundef %1114, ptr noundef null, ptr noundef nonnull @.str.445, i32 noundef %1115)
+  %1117 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1118 = call ptr @proto_tree_add_item(ptr noundef %1116, i32 noundef %1117, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 4, i32 noundef 0)
+  %1119 = add i32 %.1130.i, 4
+  %exitcond.not.i248 = icmp eq i32 %1115, %1106
   br i1 %exitcond.not.i248, label %._crit_edge.i249, label %.lr.ph.i246, !llvm.loop !25
 
-1116:                                             ; preds = %1098
-  %1117 = icmp ne i16 %5, 4
-  %or.cond16.i234 = or i1 %1117, %7
+1120:                                             ; preds = %1102
+  %1121 = icmp ne i16 %5, 4
+  %or.cond16.i234 = or i1 %1121, %7
   %or.cond16.not.i235 = xor i1 %or.cond16.i234, true
-  %or.cond19.i236 = and i1 %1085, %or.cond16.not.i235
-  br i1 %or.cond19.i236, label %1118, label %1123
+  %or.cond19.i236 = and i1 %1089, %or.cond16.not.i235
+  br i1 %or.cond19.i236, label %1122, label %1127
 
-1118:                                             ; preds = %1116
+1122:                                             ; preds = %1120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #6
-  %1119 = load i32, ptr @ett_ocp1_params, align 4
-  %1120 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1119, ptr noundef nonnull %36, ptr noundef nonnull @.str.446)
-  %1121 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1122 = call ptr @proto_tree_add_item(ptr noundef %1120, i32 noundef %1121, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1123 = load i32, ptr @ett_ocp1_params, align 4
+  %1124 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1123, ptr noundef nonnull %36, ptr noundef nonnull @.str.446)
+  %1125 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1126 = call ptr @proto_tree_add_item(ptr noundef %1124, i32 noundef %1125, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #6
   br label %decode_params_OcaRoot.exit
 
-1123:                                             ; preds = %1116
-  %1124 = icmp eq i16 %5, 5
-  %or.cond21.i237 = and i1 %1124, %7
-  %or.cond24.i238 = and i1 %1085, %or.cond21.i237
-  br i1 %or.cond24.i238, label %1125, label %1130
+1127:                                             ; preds = %1120
+  %1128 = icmp eq i16 %5, 5
+  %or.cond21.i237 = and i1 %1128, %7
+  %or.cond24.i238 = and i1 %1089, %or.cond21.i237
+  br i1 %or.cond24.i238, label %1129, label %1134
 
-1125:                                             ; preds = %1123
+1129:                                             ; preds = %1127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #6
-  %1126 = load i32, ptr @ett_ocp1_params, align 4
-  %1127 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1126, ptr noundef nonnull %37, ptr noundef nonnull @.str.446)
-  %1128 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1129 = call ptr @proto_tree_add_item(ptr noundef %1127, i32 noundef %1128, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1130 = load i32, ptr @ett_ocp1_params, align 4
+  %1131 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %1130, ptr noundef nonnull %37, ptr noundef nonnull @.str.446)
+  %1132 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1133 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %1132, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #6
   br label %decode_params_OcaRoot.exit
 
-1130:                                             ; preds = %1123
-  %1131 = icmp ne i16 %5, 6
-  %or.cond26.i239 = or i1 %1131, %7
+1134:                                             ; preds = %1127
+  %1135 = icmp ne i16 %5, 6
+  %or.cond26.i239 = or i1 %1135, %7
   %or.cond26.not.i240 = xor i1 %or.cond26.i239, true
-  %or.cond29.i241 = and i1 %1085, %or.cond26.not.i240
-  br i1 %or.cond29.i241, label %1132, label %1135
+  %or.cond29.i241 = and i1 %1089, %or.cond26.not.i240
+  br i1 %or.cond29.i241, label %1136, label %1139
 
-1132:                                             ; preds = %1130
+1136:                                             ; preds = %1134
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #6
-  %1133 = load i32, ptr @ett_ocp1_params, align 4
-  %1134 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1133, ptr noundef nonnull %38, ptr noundef nonnull @.str.443)
-  call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1134)
+  %1137 = load i32, ptr @ett_ocp1_params, align 4
+  %1138 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1137, ptr noundef nonnull %38, ptr noundef nonnull @.str.443)
+  call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #6
   br label %decode_params_OcaRoot.exit
 
-1135:                                             ; preds = %1130
-  %1136 = icmp eq i16 %5, 7
-  %or.cond31.i242 = and i1 %1136, %7
-  %or.cond34.i243 = and i1 %1085, %or.cond31.i242
-  br i1 %or.cond34.i243, label %1137, label %1140
+1139:                                             ; preds = %1134
+  %1140 = icmp eq i16 %5, 7
+  %or.cond31.i242 = and i1 %1140, %7
+  %or.cond34.i243 = and i1 %1089, %or.cond31.i242
+  br i1 %or.cond34.i243, label %1141, label %1144
 
-1137:                                             ; preds = %1135
+1141:                                             ; preds = %1139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #6
-  %1138 = load i32, ptr @ett_ocp1_params, align 4
-  %1139 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1138, ptr noundef nonnull %39, ptr noundef nonnull @.str.443)
-  call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1139)
+  %1142 = load i32, ptr @ett_ocp1_params, align 4
+  %1143 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 13, i32 noundef %1142, ptr noundef nonnull %39, ptr noundef nonnull @.str.443)
+  call fastcc void @decode_params_OcaTimePTP(ptr noundef %0, i32 noundef %1, ptr noundef %1143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #6
   br label %decode_params_OcaRoot.exit
 
-1140:                                             ; preds = %1135
-  %1141 = load i32, ptr @hf_ocp1_params, align 4
-  %1142 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1141, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1144:                                             ; preds = %1139
+  %1145 = load i32, ptr @hf_ocp1_params, align 4
+  %1146 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1145, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1143:                                             ; preds = %154
-  %1144 = icmp eq i16 %5, 1
-  %or.cond.i251 = and i1 %1144, %7
-  %1145 = icmp eq i8 %6, 1
-  %or.cond10.i = and i1 %1145, %or.cond.i251
-  br i1 %or.cond10.i, label %1146, label %1151
+1147:                                             ; preds = %154
+  %1148 = icmp eq i16 %5, 1
+  %or.cond.i251 = and i1 %1148, %7
+  %1149 = icmp eq i8 %6, 1
+  %or.cond10.i = and i1 %1149, %or.cond.i251
+  br i1 %or.cond10.i, label %1150, label %1155
 
-1146:                                             ; preds = %1143
+1150:                                             ; preds = %1147
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
-  %1147 = load i32, ptr @ett_ocp1_params, align 4
-  %1148 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1147, ptr noundef nonnull %13, ptr noundef nonnull @.str.447)
-  %1149 = load i32, ptr @hf_ocp1_params_bool, align 4
-  %1150 = call ptr @proto_tree_add_item(ptr noundef %1148, i32 noundef %1149, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %1151 = load i32, ptr @ett_ocp1_params, align 4
+  %1152 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1151, ptr noundef nonnull %13, ptr noundef nonnull @.str.447)
+  %1153 = load i32, ptr @hf_ocp1_params_bool, align 4
+  %1154 = call ptr @proto_tree_add_item(ptr noundef %1152, i32 noundef %1153, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
   br label %decode_params_OcaRoot.exit
 
-1151:                                             ; preds = %1143
-  %1152 = icmp eq i16 %5, 2
-  %or.cond12.i = and i1 %1152, %7
-  %1153 = icmp eq i8 %6, 2
-  %or.cond15.i = and i1 %1153, %or.cond12.i
-  br i1 %or.cond15.i, label %1154, label %1177
+1155:                                             ; preds = %1147
+  %1156 = icmp eq i16 %5, 2
+  %or.cond12.i = and i1 %1156, %7
+  %1157 = icmp eq i8 %6, 2
+  %or.cond15.i = and i1 %1157, %or.cond12.i
+  br i1 %or.cond15.i, label %1158, label %1181
 
-1154:                                             ; preds = %1151
+1158:                                             ; preds = %1155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
-  %1155 = load i32, ptr @ett_ocp1_params, align 4
-  %1156 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1155, ptr noundef nonnull %14, ptr noundef nonnull @.str.448)
-  %1157 = load i32, ptr @hf_ocp1_params_task_command, align 4
-  %1158 = call ptr @proto_tree_add_item(ptr noundef %1156, i32 noundef %1157, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  %1159 = add i32 %1, 1
-  %1160 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1159, i32 noundef 0)
-  %1161 = zext i16 %1160 to i32
-  %1162 = add nuw nsw i32 %1161, 2
-  %1163 = load i32, ptr @ett_ocp1_params, align 4
-  %1164 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1159, i32 noundef %1162, i32 noundef %1163, ptr noundef nonnull %15, ptr noundef nonnull @.str.449)
-  %1165 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1159, i32 noundef 0)
-  %1166 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %1167 = zext i16 %1165 to i32
-  %1168 = add nuw nsw i32 %1167, 2
-  %1169 = call ptr @proto_tree_add_item(ptr noundef %1164, i32 noundef %1166, ptr noundef %0, i32 noundef %1159, i32 noundef %1168, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1169, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
-  %1170 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %1171 = call ptr @proto_item_add_subtree(ptr noundef %1169, i32 noundef %1170)
-  %1172 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %1173 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1172, ptr noundef %0, i32 noundef %1159, i32 noundef 2, i32 noundef 0)
-  %1174 = add i32 %1, 3
-  %1175 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1176 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1175, ptr noundef %0, i32 noundef %1174, i32 noundef %1167, i32 noundef 0)
+  %1159 = load i32, ptr @ett_ocp1_params, align 4
+  %1160 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1159, ptr noundef nonnull %14, ptr noundef nonnull @.str.448)
+  %1161 = load i32, ptr @hf_ocp1_params_task_command, align 4
+  %1162 = call ptr @proto_tree_add_item(ptr noundef %1160, i32 noundef %1161, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %1163 = add i32 %1, 1
+  %1164 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1163, i32 noundef 0)
+  %1165 = zext i16 %1164 to i32
+  %1166 = add nuw nsw i32 %1165, 2
+  %1167 = load i32, ptr @ett_ocp1_params, align 4
+  %1168 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1163, i32 noundef %1166, i32 noundef %1167, ptr noundef nonnull %15, ptr noundef nonnull @.str.449)
+  %1169 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1163, i32 noundef 0)
+  %1170 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %1171 = zext i16 %1169 to i32
+  %1172 = add nuw nsw i32 %1171, 2
+  %1173 = call ptr @proto_tree_add_item(ptr noundef %1168, i32 noundef %1170, ptr noundef %0, i32 noundef %1163, i32 noundef %1172, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1173, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
+  %1174 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %1175 = call ptr @proto_item_add_subtree(ptr noundef %1173, i32 noundef %1174)
+  %1176 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %1177 = call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1176, ptr noundef %0, i32 noundef %1163, i32 noundef 2, i32 noundef 0)
+  %1178 = add i32 %1, 3
+  %1179 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1180 = call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1179, ptr noundef %0, i32 noundef %1178, i32 noundef %1171, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
   br label %decode_params_OcaRoot.exit
 
-1177:                                             ; preds = %1151
-  %1178 = icmp eq i16 %5, 3
-  %or.cond17.i = and i1 %1178, %7
-  %1179 = icmp eq i8 %6, 3
-  %or.cond20.i = and i1 %1179, %or.cond17.i
-  br i1 %or.cond20.i, label %1180, label %1208
+1181:                                             ; preds = %1155
+  %1182 = icmp eq i16 %5, 3
+  %or.cond17.i = and i1 %1182, %7
+  %1183 = icmp eq i8 %6, 3
+  %or.cond20.i = and i1 %1183, %or.cond17.i
+  br i1 %or.cond20.i, label %1184, label %1212
 
-1180:                                             ; preds = %1177
+1184:                                             ; preds = %1181
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
-  %1181 = load i32, ptr @ett_ocp1_params, align 4
-  %1182 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %1181, ptr noundef nonnull %16, ptr noundef nonnull @.str.451)
-  %1183 = load i32, ptr @hf_ocp1_params_task_group_id, align 4
-  %1184 = call ptr @proto_tree_add_item(ptr noundef %1182, i32 noundef %1183, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  %1185 = add i32 %1, 2
-  %1186 = load i32, ptr @ett_ocp1_params, align 4
-  %1187 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1185, i32 noundef 1, i32 noundef %1186, ptr noundef nonnull %17, ptr noundef nonnull @.str.452)
-  %1188 = load i32, ptr @hf_ocp1_params_task_command, align 4
-  %1189 = call ptr @proto_tree_add_item(ptr noundef %1187, i32 noundef %1188, ptr noundef %0, i32 noundef %1185, i32 noundef 1, i32 noundef 0)
-  %1190 = add i32 %1, 3
-  %1191 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1190, i32 noundef 0)
-  %1192 = zext i16 %1191 to i32
-  %1193 = add nuw nsw i32 %1192, 2
-  %1194 = load i32, ptr @ett_ocp1_params, align 4
-  %1195 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1190, i32 noundef %1193, i32 noundef %1194, ptr noundef nonnull %18, ptr noundef nonnull @.str.453)
-  %1196 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1190, i32 noundef 0)
-  %1197 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %1198 = zext i16 %1196 to i32
-  %1199 = add nuw nsw i32 %1198, 2
-  %1200 = call ptr @proto_tree_add_item(ptr noundef %1195, i32 noundef %1197, ptr noundef %0, i32 noundef %1190, i32 noundef %1199, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1200, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
-  %1201 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %1202 = call ptr @proto_item_add_subtree(ptr noundef %1200, i32 noundef %1201)
-  %1203 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %1204 = call ptr @proto_tree_add_item(ptr noundef %1202, i32 noundef %1203, ptr noundef %0, i32 noundef %1190, i32 noundef 2, i32 noundef 0)
-  %1205 = add i32 %1, 5
-  %1206 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1207 = call ptr @proto_tree_add_item(ptr noundef %1202, i32 noundef %1206, ptr noundef %0, i32 noundef %1205, i32 noundef %1198, i32 noundef 0)
+  %1185 = load i32, ptr @ett_ocp1_params, align 4
+  %1186 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %1185, ptr noundef nonnull %16, ptr noundef nonnull @.str.451)
+  %1187 = load i32, ptr @hf_ocp1_params_task_group_id, align 4
+  %1188 = call ptr @proto_tree_add_item(ptr noundef %1186, i32 noundef %1187, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %1189 = add i32 %1, 2
+  %1190 = load i32, ptr @ett_ocp1_params, align 4
+  %1191 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1189, i32 noundef 1, i32 noundef %1190, ptr noundef nonnull %17, ptr noundef nonnull @.str.452)
+  %1192 = load i32, ptr @hf_ocp1_params_task_command, align 4
+  %1193 = call ptr @proto_tree_add_item(ptr noundef %1191, i32 noundef %1192, ptr noundef %0, i32 noundef %1189, i32 noundef 1, i32 noundef 0)
+  %1194 = add i32 %1, 3
+  %1195 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1194, i32 noundef 0)
+  %1196 = zext i16 %1195 to i32
+  %1197 = add nuw nsw i32 %1196, 2
+  %1198 = load i32, ptr @ett_ocp1_params, align 4
+  %1199 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1194, i32 noundef %1197, i32 noundef %1198, ptr noundef nonnull %18, ptr noundef nonnull @.str.453)
+  %1200 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1194, i32 noundef 0)
+  %1201 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %1202 = zext i16 %1200 to i32
+  %1203 = add nuw nsw i32 %1202, 2
+  %1204 = call ptr @proto_tree_add_item(ptr noundef %1199, i32 noundef %1201, ptr noundef %0, i32 noundef %1194, i32 noundef %1203, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1204, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
+  %1205 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %1206 = call ptr @proto_item_add_subtree(ptr noundef %1204, i32 noundef %1205)
+  %1207 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %1208 = call ptr @proto_tree_add_item(ptr noundef %1206, i32 noundef %1207, ptr noundef %0, i32 noundef %1194, i32 noundef 2, i32 noundef 0)
+  %1209 = add i32 %1, 5
+  %1210 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1211 = call ptr @proto_tree_add_item(ptr noundef %1206, i32 noundef %1210, ptr noundef %0, i32 noundef %1209, i32 noundef %1202, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
   br label %decode_params_OcaRoot.exit
 
-1208:                                             ; preds = %1177
-  %1209 = icmp eq i16 %5, 4
-  %or.cond22.i = and i1 %1209, %7
-  %or.cond25.i = and i1 %1179, %or.cond22.i
-  br i1 %or.cond25.i, label %1210, label %1238
+1212:                                             ; preds = %1181
+  %1213 = icmp eq i16 %5, 4
+  %or.cond22.i = and i1 %1213, %7
+  %or.cond25.i = and i1 %1183, %or.cond22.i
+  br i1 %or.cond25.i, label %1214, label %1242
 
-1210:                                             ; preds = %1208
+1214:                                             ; preds = %1212
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
-  %1211 = load i32, ptr @ett_ocp1_params, align 4
-  %1212 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1211, ptr noundef nonnull %19, ptr noundef nonnull @.str.454)
-  %1213 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1214 = call ptr @proto_tree_add_item(ptr noundef %1212, i32 noundef %1213, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %1215 = add i32 %1, 4
-  %1216 = load i32, ptr @ett_ocp1_params, align 4
-  %1217 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1215, i32 noundef 1, i32 noundef %1216, ptr noundef nonnull %20, ptr noundef nonnull @.str.455)
-  %1218 = load i32, ptr @hf_ocp1_params_task_command, align 4
-  %1219 = call ptr @proto_tree_add_item(ptr noundef %1217, i32 noundef %1218, ptr noundef %0, i32 noundef %1215, i32 noundef 1, i32 noundef 0)
-  %1220 = add i32 %1, 5
-  %1221 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1220, i32 noundef 0)
-  %1222 = zext i16 %1221 to i32
-  %1223 = add nuw nsw i32 %1222, 2
-  %1224 = load i32, ptr @ett_ocp1_params, align 4
-  %1225 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1220, i32 noundef %1223, i32 noundef %1224, ptr noundef nonnull %21, ptr noundef nonnull @.str.453)
-  %1226 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1220, i32 noundef 0)
-  %1227 = load i32, ptr @hf_ocp1_params_blob, align 4
-  %1228 = zext i16 %1226 to i32
-  %1229 = add nuw nsw i32 %1228, 2
-  %1230 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1227, ptr noundef %0, i32 noundef %1220, i32 noundef %1229, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1230, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
-  %1231 = load i32, ptr @ett_ocp1_params_blob, align 4
-  %1232 = call ptr @proto_item_add_subtree(ptr noundef %1230, i32 noundef %1231)
-  %1233 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
-  %1234 = call ptr @proto_tree_add_item(ptr noundef %1232, i32 noundef %1233, ptr noundef %0, i32 noundef %1220, i32 noundef 2, i32 noundef 0)
-  %1235 = add i32 %1, 7
-  %1236 = load i32, ptr @hf_ocp1_params_blob_data, align 4
-  %1237 = call ptr @proto_tree_add_item(ptr noundef %1232, i32 noundef %1236, ptr noundef %0, i32 noundef %1235, i32 noundef %1228, i32 noundef 0)
+  %1215 = load i32, ptr @ett_ocp1_params, align 4
+  %1216 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1215, ptr noundef nonnull %19, ptr noundef nonnull @.str.454)
+  %1217 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1218 = call ptr @proto_tree_add_item(ptr noundef %1216, i32 noundef %1217, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1219 = add i32 %1, 4
+  %1220 = load i32, ptr @ett_ocp1_params, align 4
+  %1221 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1219, i32 noundef 1, i32 noundef %1220, ptr noundef nonnull %20, ptr noundef nonnull @.str.455)
+  %1222 = load i32, ptr @hf_ocp1_params_task_command, align 4
+  %1223 = call ptr @proto_tree_add_item(ptr noundef %1221, i32 noundef %1222, ptr noundef %0, i32 noundef %1219, i32 noundef 1, i32 noundef 0)
+  %1224 = add i32 %1, 5
+  %1225 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1224, i32 noundef 0)
+  %1226 = zext i16 %1225 to i32
+  %1227 = add nuw nsw i32 %1226, 2
+  %1228 = load i32, ptr @ett_ocp1_params, align 4
+  %1229 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1224, i32 noundef %1227, i32 noundef %1228, ptr noundef nonnull %21, ptr noundef nonnull @.str.453)
+  %1230 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1224, i32 noundef 0)
+  %1231 = load i32, ptr @hf_ocp1_params_blob, align 4
+  %1232 = zext i16 %1230 to i32
+  %1233 = add nuw nsw i32 %1232, 2
+  %1234 = call ptr @proto_tree_add_item(ptr noundef %1229, i32 noundef %1231, ptr noundef %0, i32 noundef %1224, i32 noundef %1233, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1234, ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.450)
+  %1235 = load i32, ptr @ett_ocp1_params_blob, align 4
+  %1236 = call ptr @proto_item_add_subtree(ptr noundef %1234, i32 noundef %1235)
+  %1237 = load i32, ptr @hf_ocp1_params_blob_datasize, align 4
+  %1238 = call ptr @proto_tree_add_item(ptr noundef %1236, i32 noundef %1237, ptr noundef %0, i32 noundef %1224, i32 noundef 2, i32 noundef 0)
+  %1239 = add i32 %1, 7
+  %1240 = load i32, ptr @hf_ocp1_params_blob_data, align 4
+  %1241 = call ptr @proto_tree_add_item(ptr noundef %1236, i32 noundef %1240, ptr noundef %0, i32 noundef %1239, i32 noundef %1232, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
   br label %decode_params_OcaRoot.exit
 
-1238:                                             ; preds = %1208
-  %1239 = icmp ne i16 %5, 5
-  %or.cond27.i = or i1 %1239, %7
+1242:                                             ; preds = %1212
+  %1243 = icmp ne i16 %5, 5
+  %or.cond27.i = or i1 %1243, %7
   %or.cond27.not.i = xor i1 %or.cond27.i, true
-  %or.cond30.i = and i1 %1145, %or.cond27.not.i
-  br i1 %or.cond30.i, label %1240, label %1245
+  %or.cond30.i = and i1 %1149, %or.cond27.not.i
+  br i1 %or.cond30.i, label %1244, label %1249
 
-1240:                                             ; preds = %1238
+1244:                                             ; preds = %1242
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #6
-  %1241 = load i32, ptr @ett_ocp1_params, align 4
-  %1242 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1241, ptr noundef nonnull %22, ptr noundef nonnull @.str.375)
-  %1243 = load i32, ptr @hf_ocp1_params_task_manager_state, align 4
-  %1244 = call ptr @proto_tree_add_item(ptr noundef %1242, i32 noundef %1243, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %1245 = load i32, ptr @ett_ocp1_params, align 4
+  %1246 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %1245, ptr noundef nonnull %22, ptr noundef nonnull @.str.375)
+  %1247 = load i32, ptr @hf_ocp1_params_task_manager_state, align 4
+  %1248 = call ptr @proto_tree_add_item(ptr noundef %1246, i32 noundef %1247, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #6
   br label %decode_params_OcaRoot.exit
 
-1245:                                             ; preds = %1238
-  %1246 = icmp eq i16 %5, 6
-  %or.cond32.i = and i1 %1246, %7
-  %or.cond35.i = and i1 %1145, %or.cond32.i
-  br i1 %or.cond35.i, label %1247, label %1250
+1249:                                             ; preds = %1242
+  %1250 = icmp eq i16 %5, 6
+  %or.cond32.i = and i1 %1250, %7
+  %or.cond35.i = and i1 %1149, %or.cond32.i
+  br i1 %or.cond35.i, label %1251, label %1254
 
-1247:                                             ; preds = %1245
+1251:                                             ; preds = %1249
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
-  %1248 = load i32, ptr @ett_ocp1_params, align 4
-  %1249 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1248, ptr noundef nonnull %23, ptr noundef nonnull @.str.456)
-  call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1249)
+  %1252 = load i32, ptr @ett_ocp1_params, align 4
+  %1253 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1252, ptr noundef nonnull %23, ptr noundef nonnull @.str.456)
+  call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1253)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
   br label %decode_params_OcaRoot.exit
 
-1250:                                             ; preds = %1245
-  %1251 = icmp eq i16 %5, 7
-  %or.cond37.i = and i1 %1251, %7
-  %or.cond40.i = and i1 %1145, %or.cond37.i
-  br i1 %or.cond40.i, label %1252, label %1257
+1254:                                             ; preds = %1249
+  %1255 = icmp eq i16 %5, 7
+  %or.cond37.i = and i1 %1255, %7
+  %or.cond40.i = and i1 %1149, %or.cond37.i
+  br i1 %or.cond40.i, label %1256, label %1261
 
-1252:                                             ; preds = %1250
+1256:                                             ; preds = %1254
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #6
-  %1253 = load i32, ptr @ett_ocp1_params, align 4
-  %1254 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1253, ptr noundef nonnull %24, ptr noundef nonnull @.str.454)
-  %1255 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1256 = call ptr @proto_tree_add_item(ptr noundef %1254, i32 noundef %1255, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1257 = load i32, ptr @ett_ocp1_params, align 4
+  %1258 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1257, ptr noundef nonnull %24, ptr noundef nonnull @.str.454)
+  %1259 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1260 = call ptr @proto_tree_add_item(ptr noundef %1258, i32 noundef %1259, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #6
   br label %decode_params_OcaRoot.exit
 
-1257:                                             ; preds = %1250
-  %1258 = icmp ne i16 %5, 7
-  %or.cond42.i = or i1 %1258, %7
+1261:                                             ; preds = %1254
+  %1262 = icmp ne i16 %5, 7
+  %or.cond42.i = or i1 %1262, %7
   %or.cond42.not.i = xor i1 %or.cond42.i, true
-  %or.cond45.i = and i1 %1145, %or.cond42.not.i
-  br i1 %or.cond45.i, label %1259, label %1262
+  %or.cond45.i = and i1 %1149, %or.cond42.not.i
+  br i1 %or.cond45.i, label %1263, label %1266
 
-1259:                                             ; preds = %1257
+1263:                                             ; preds = %1261
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #6
-  %1260 = load i32, ptr @ett_ocp1_params, align 4
-  %1261 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1260, ptr noundef nonnull %25, ptr noundef nonnull @.str.457)
-  call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1261)
+  %1264 = load i32, ptr @ett_ocp1_params, align 4
+  %1265 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 7, i32 noundef %1264, ptr noundef nonnull %25, ptr noundef nonnull @.str.457)
+  call fastcc void @decode_params_OcaTaskStatus(ptr noundef %0, i32 noundef %1, ptr noundef %1265)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #6
   br label %decode_params_OcaRoot.exit
 
-1262:                                             ; preds = %1257
-  %1263 = icmp eq i16 %5, 8
-  %or.cond48.i = and i1 %1263, %1145
-  br i1 %or.cond48.i, label %1264, label %1286
+1266:                                             ; preds = %1261
+  %1267 = icmp eq i16 %5, 8
+  %or.cond48.i = and i1 %1267, %1149
+  br i1 %or.cond48.i, label %1268, label %1290
 
-1264:                                             ; preds = %1262
+1268:                                             ; preds = %1266
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #6
-  %1265 = add i32 %1, 4
-  %1266 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1265, i32 noundef 0)
-  %1267 = zext i16 %1266 to i32
-  %1268 = add nuw nsw i32 %1267, 17
-  %1269 = add i32 %1268, %1
-  %1270 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1269)
-  %1271 = icmp eq i8 %1270, 1
-  %1272 = add nuw nsw i32 %1267, 39
-  %spec.select.i = select i1 %1271, i32 %1272, i32 %1268
-  %1273 = add i32 %spec.select.i, %1
+  %1269 = add i32 %1, 4
+  %1270 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1269, i32 noundef 0)
+  %1271 = zext i16 %1270 to i32
+  %1272 = add nuw nsw i32 %1271, 17
+  %1273 = add i32 %1272, %1
   %1274 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1273)
-  %1275 = icmp eq i8 %1274, 2
-  br i1 %1275, label %.thread.i, label %1285
+  %1275 = icmp eq i8 %1274, 1
+  %1276 = add nuw nsw i32 %1271, 39
+  %spec.select.i = select i1 %1275, i32 %1276, i32 %1272
+  %1277 = add i32 %spec.select.i, %1
+  %1278 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1277)
+  %1279 = icmp eq i8 %1278, 2
+  br i1 %1279, label %.thread.i, label %1289
 
-.thread.i:                                        ; preds = %1264
-  %1276 = add i32 %1, 17
-  %1277 = add i32 %1276, %spec.select.i
-  %1278 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1277, i32 noundef 0)
-  %1279 = zext i16 %1278 to i32
-  %1280 = add nuw nsw i32 %spec.select.i, 19
-  %1281 = add nuw nsw i32 %1280, %1279
-  %1282 = load i32, ptr @ett_ocp1_params, align 4
-  %1283 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1281, i32 noundef %1282, ptr noundef nonnull %26, ptr noundef nonnull @.str.458)
-  %1284 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1283)
+.thread.i:                                        ; preds = %1268
+  %1280 = add i32 %1, 17
+  %1281 = add i32 %1280, %spec.select.i
+  %1282 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1281, i32 noundef 0)
+  %1283 = zext i16 %1282 to i32
+  %1284 = add nuw nsw i32 %spec.select.i, 19
+  %1285 = add nuw nsw i32 %1284, %1283
+  %1286 = load i32, ptr @ett_ocp1_params, align 4
+  %1287 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1285, i32 noundef %1286, ptr noundef nonnull %26, ptr noundef nonnull @.str.458)
+  %1288 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1287)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
   br label %decode_params_OcaRoot.exit
 
-1285:                                             ; preds = %1264
+1289:                                             ; preds = %1268
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #6
   br label %decode_params_OcaRoot.exit
 
-1286:                                             ; preds = %1262
-  %1287 = icmp ne i16 %5, 9
-  %or.cond50.i = or i1 %1287, %7
+1290:                                             ; preds = %1266
+  %1291 = icmp ne i16 %5, 9
+  %or.cond50.i = or i1 %1291, %7
   %or.cond50.not.i = xor i1 %or.cond50.i, true
-  %or.cond53.i = and i1 %1145, %or.cond50.not.i
-  br i1 %or.cond53.i, label %1288, label %1332
+  %or.cond53.i = and i1 %1149, %or.cond50.not.i
+  br i1 %or.cond53.i, label %1292, label %1340
 
-1288:                                             ; preds = %1286
+1292:                                             ; preds = %1290
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #6
-  %1289 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %1290 = zext i16 %1289 to i32
+  %1293 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %1294 = zext i16 %1293 to i32
   %invariant.op.i253 = add i32 %1, 8
   %invariant.op435.i = add i32 %1, 11
   %invariant.op437.i = add i32 %1, 17
-  %.not440.not.i = icmp eq i16 %1289, 0
-  br i1 %.not440.not.i, label %._crit_edge.i257, label %.lr.ph.i254
+  %.not440.not.i = icmp eq i16 %1293, 0
+  br i1 %.not440.not.i, label %._crit_edge450.i.critedge, label %.lr.ph.i254
 
-.lr.ph.i254:                                      ; preds = %1288, %1299
-  %.0404442.i = phi i32 [ %1302, %1299 ], [ 2, %1288 ]
-  %.0408441.i = phi i32 [ %1303, %1299 ], [ 0, %1288 ]
+.lr.ph.i254:                                      ; preds = %1292, %1303
+  %.0404442.i = phi i32 [ %1306, %1303 ], [ 2, %1292 ]
+  %.0408441.i = phi i32 [ %1307, %1303 ], [ 0, %1292 ]
   %.reass.i255 = add i32 %invariant.op.i253, %.0404442.i
-  %1291 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass.i255, i32 noundef 0)
-  %1292 = zext i16 %1291 to i32
+  %1295 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass.i255, i32 noundef 0)
+  %1296 = zext i16 %1295 to i32
   %.reass434.i = add i32 %.0404442.i, 10
-  %1293 = add i32 %.reass434.i, %1292
-  %.reass436.i = add i32 %invariant.op435.i, %1293
-  %1294 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass436.i)
-  %1295 = icmp eq i8 %1294, 1
-  %spec.select411.v.i = select i1 %1295, i32 33, i32 11
-  %spec.select411.i = add i32 %spec.select411.v.i, %1293
-  %1296 = add i32 %spec.select411.i, %1
-  %1297 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1296)
-  %1298 = icmp eq i8 %1297, 2
-  br i1 %1298, label %1299, label %.thread423.i
+  %1297 = add i32 %.reass434.i, %1296
+  %.reass436.i = add i32 %invariant.op435.i, %1297
+  %1298 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.reass436.i)
+  %1299 = icmp eq i8 %1298, 1
+  %spec.select411.v.i = select i1 %1299, i32 33, i32 11
+  %spec.select411.i = add i32 %spec.select411.v.i, %1297
+  %1300 = add i32 %spec.select411.i, %1
+  %1301 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1300)
+  %1302 = icmp eq i8 %1301, 2
+  br i1 %1302, label %1303, label %.thread423.i
 
-1299:                                             ; preds = %.lr.ph.i254
+1303:                                             ; preds = %.lr.ph.i254
   %.reass438.i = add i32 %invariant.op437.i, %spec.select411.i
-  %1300 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass438.i, i32 noundef 0)
-  %1301 = zext i16 %1300 to i32
+  %1304 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass438.i, i32 noundef 0)
+  %1305 = zext i16 %1304 to i32
   %.reass439.i = add i32 %spec.select411.i, 19
-  %1302 = add i32 %.reass439.i, %1301
-  %1303 = add nuw nsw i32 %.0408441.i, 1
-  %exitcond.not.i256 = icmp eq i32 %1303, %1290
+  %1306 = add i32 %.reass439.i, %1305
+  %1307 = add nuw nsw i32 %.0408441.i, 1
+  %exitcond.not.i256 = icmp eq i32 %1307, %1294
   br i1 %exitcond.not.i256, label %._crit_edge.i257, label %.lr.ph.i254, !llvm.loop !26
 
-._crit_edge.i257:                                 ; preds = %1299, %1288
-  %.0404.lcssa.i = phi i32 [ 2, %1288 ], [ %1302, %1299 ]
-  %1304 = load i32, ptr @ett_ocp1_params, align 4
-  %1305 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %.0404.lcssa.i, i32 noundef %1304, ptr noundef nonnull %27, ptr noundef nonnull @.str.459)
-  %1306 = load i32, ptr @hf_ocp1_params_map_count, align 4
-  %1307 = call ptr @proto_tree_add_item(ptr noundef %1305, i32 noundef %1306, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  br i1 %.not440.not.i, label %._crit_edge450.i, label %.lr.ph449.i.preheader
-
-.lr.ph449.i.preheader:                            ; preds = %._crit_edge.i257
-  %1308 = add i32 %1, 2
+._crit_edge.i257:                                 ; preds = %1303
+  %1308 = load i32, ptr @ett_ocp1_params, align 4
+  %1309 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1306, i32 noundef %1308, ptr noundef nonnull %27, ptr noundef nonnull @.str.459)
+  %1310 = load i32, ptr @hf_ocp1_params_map_count, align 4
+  %1311 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1310, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %1312 = add i32 %1, 2
   br label %.lr.ph449.i
 
-.lr.ph449.i:                                      ; preds = %.lr.ph449.i.preheader, %1320
-  %.3390447.i = phi i32 [ %1331, %1320 ], [ %1308, %.lr.ph449.i.preheader ]
-  %.0409446.i = phi i32 [ %1326, %1320 ], [ 0, %.lr.ph449.i.preheader ]
-  %1309 = add i32 %.3390447.i, 4
-  %1310 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1309, i32 noundef 0)
-  %1311 = zext i16 %1310 to i32
-  %1312 = add nuw nsw i32 %1311, 21
-  %1313 = add i32 %1312, %.3390447.i
-  %1314 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1313)
-  %1315 = icmp eq i8 %1314, 1
-  %1316 = add nuw nsw i32 %1311, 43
-  %spec.select412.i = select i1 %1315, i32 %1316, i32 %1312
-  %1317 = add i32 %spec.select412.i, %.3390447.i
+.lr.ph449.i:                                      ; preds = %._crit_edge.i257, %1324
+  %.3390447.i = phi i32 [ %1335, %1324 ], [ %1312, %._crit_edge.i257 ]
+  %.0409446.i = phi i32 [ %1330, %1324 ], [ 0, %._crit_edge.i257 ]
+  %1313 = add i32 %.3390447.i, 4
+  %1314 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1313, i32 noundef 0)
+  %1315 = zext i16 %1314 to i32
+  %1316 = add nuw nsw i32 %1315, 21
+  %1317 = add i32 %1316, %.3390447.i
   %1318 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1317)
-  %1319 = icmp eq i8 %1318, 2
-  br i1 %1319, label %1320, label %.thread423.i
+  %1319 = icmp eq i8 %1318, 1
+  %1320 = add nuw nsw i32 %1315, 43
+  %spec.select412.i = select i1 %1319, i32 %1320, i32 %1316
+  %1321 = add i32 %spec.select412.i, %.3390447.i
+  %1322 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1321)
+  %1323 = icmp eq i8 %1322, 2
+  br i1 %1323, label %1324, label %.thread423.i
 
-1320:                                             ; preds = %.lr.ph449.i
-  %1321 = add i32 %1317, 17
-  %1322 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1321, i32 noundef 0)
-  %1323 = zext i16 %1322 to i32
+1324:                                             ; preds = %.lr.ph449.i
+  %1325 = add i32 %1321, 17
+  %1326 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1325, i32 noundef 0)
+  %1327 = zext i16 %1326 to i32
   %.reass444.i = add nuw nsw i32 %spec.select412.i, 19
-  %1324 = add nuw nsw i32 %.reass444.i, %1323
-  %1325 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %1326 = add nuw nsw i32 %.0409446.i, 1
-  %1327 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1305, ptr noundef %0, i32 noundef %.3390447.i, i32 noundef %1324, i32 noundef %1325, ptr noundef null, ptr noundef nonnull @.str.460, i32 noundef %1326)
-  %1328 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1329 = call ptr @proto_tree_add_item(ptr noundef %1327, i32 noundef %1328, ptr noundef %0, i32 noundef %.3390447.i, i32 noundef 4, i32 noundef 0)
-  %1330 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1309, ptr noundef %1327)
-  %1331 = add i32 %1330, %1309
-  %exitcond454.not.i = icmp eq i32 %1326, %1290
+  %1328 = add nuw nsw i32 %.reass444.i, %1327
+  %1329 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %1330 = add nuw nsw i32 %.0409446.i, 1
+  %1331 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1309, ptr noundef %0, i32 noundef %.3390447.i, i32 noundef %1328, i32 noundef %1329, ptr noundef null, ptr noundef nonnull @.str.460, i32 noundef %1330)
+  %1332 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %1331, i32 noundef %1332, ptr noundef %0, i32 noundef %.3390447.i, i32 noundef 4, i32 noundef 0)
+  %1334 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1313, ptr noundef %1331)
+  %1335 = add i32 %1334, %1313
+  %exitcond454.not.i = icmp eq i32 %1330, %1294
   br i1 %exitcond454.not.i, label %._crit_edge450.i, label %.lr.ph449.i, !llvm.loop !27
 
 .thread423.i:                                     ; preds = %.lr.ph.i254, %.lr.ph449.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
   br label %decode_params_OcaRoot.exit
 
-._crit_edge450.i:                                 ; preds = %1320, %._crit_edge.i257
+._crit_edge450.i.critedge:                        ; preds = %1292
+  %1336 = load i32, ptr @ett_ocp1_params, align 4
+  %1337 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %1336, ptr noundef nonnull %27, ptr noundef nonnull @.str.459)
+  %1338 = load i32, ptr @hf_ocp1_params_map_count, align 4
+  %1339 = call ptr @proto_tree_add_item(ptr noundef %1337, i32 noundef %1338, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  br label %._crit_edge450.i
+
+._crit_edge450.i:                                 ; preds = %1324, %._crit_edge450.i.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #6
   br label %decode_params_OcaRoot.exit
 
-1332:                                             ; preds = %1286
-  %1333 = icmp eq i16 %5, 10
-  %or.cond55.i = and i1 %1333, %7
-  %or.cond58.i = and i1 %1145, %or.cond55.i
-  br i1 %or.cond58.i, label %1334, label %1339
+1340:                                             ; preds = %1290
+  %1341 = icmp eq i16 %5, 10
+  %or.cond55.i = and i1 %1341, %7
+  %or.cond58.i = and i1 %1149, %or.cond55.i
+  br i1 %or.cond58.i, label %1342, label %1347
 
-1334:                                             ; preds = %1332
+1342:                                             ; preds = %1340
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #6
-  %1335 = load i32, ptr @ett_ocp1_params, align 4
-  %1336 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1335, ptr noundef nonnull %28, ptr noundef nonnull @.str.385)
-  %1337 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1338 = call ptr @proto_tree_add_item(ptr noundef %1336, i32 noundef %1337, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1343 = load i32, ptr @ett_ocp1_params, align 4
+  %1344 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1343, ptr noundef nonnull %28, ptr noundef nonnull @.str.385)
+  %1345 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1346 = call ptr @proto_tree_add_item(ptr noundef %1344, i32 noundef %1345, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #6
   br label %decode_params_OcaRoot.exit
 
-1339:                                             ; preds = %1332
-  %1340 = icmp ne i16 %5, 10
-  %or.cond60.i = or i1 %1340, %7
+1347:                                             ; preds = %1340
+  %1348 = icmp ne i16 %5, 10
+  %or.cond60.i = or i1 %1348, %7
   %or.cond60.not.i = xor i1 %or.cond60.i, true
-  %or.cond63.i = and i1 %1145, %or.cond60.not.i
-  br i1 %or.cond63.i, label %1341, label %1363
+  %or.cond63.i = and i1 %1149, %or.cond60.not.i
+  br i1 %or.cond63.i, label %1349, label %1371
 
-1341:                                             ; preds = %1339
+1349:                                             ; preds = %1347
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #6
-  %1342 = add i32 %1, 4
-  %1343 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1342, i32 noundef 0)
-  %1344 = zext i16 %1343 to i32
-  %1345 = add nuw nsw i32 %1344, 17
-  %1346 = add i32 %1345, %1
-  %1347 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1346)
-  %1348 = icmp eq i8 %1347, 1
-  %1349 = add nuw nsw i32 %1344, 39
-  %spec.select413.i = select i1 %1348, i32 %1349, i32 %1345
-  %1350 = add i32 %spec.select413.i, %1
-  %1351 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1350)
-  %1352 = icmp eq i8 %1351, 2
-  br i1 %1352, label %.thread427.i, label %1362
+  %1350 = add i32 %1, 4
+  %1351 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1350, i32 noundef 0)
+  %1352 = zext i16 %1351 to i32
+  %1353 = add nuw nsw i32 %1352, 17
+  %1354 = add i32 %1353, %1
+  %1355 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1354)
+  %1356 = icmp eq i8 %1355, 1
+  %1357 = add nuw nsw i32 %1352, 39
+  %spec.select413.i = select i1 %1356, i32 %1357, i32 %1353
+  %1358 = add i32 %spec.select413.i, %1
+  %1359 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1358)
+  %1360 = icmp eq i8 %1359, 2
+  br i1 %1360, label %.thread427.i, label %1370
 
-.thread427.i:                                     ; preds = %1341
-  %1353 = add i32 %1, 17
-  %1354 = add i32 %1353, %spec.select413.i
-  %1355 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1354, i32 noundef 0)
-  %1356 = zext i16 %1355 to i32
-  %1357 = add nuw nsw i32 %spec.select413.i, 19
-  %1358 = add nuw nsw i32 %1357, %1356
-  %1359 = load i32, ptr @ett_ocp1_params, align 4
-  %1360 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1358, i32 noundef %1359, ptr noundef nonnull %29, ptr noundef nonnull @.str.458)
-  %1361 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1360)
+.thread427.i:                                     ; preds = %1349
+  %1361 = add i32 %1, 17
+  %1362 = add i32 %1361, %spec.select413.i
+  %1363 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1362, i32 noundef 0)
+  %1364 = zext i16 %1363 to i32
+  %1365 = add nuw nsw i32 %spec.select413.i, 19
+  %1366 = add nuw nsw i32 %1365, %1364
+  %1367 = load i32, ptr @ett_ocp1_params, align 4
+  %1368 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1366, i32 noundef %1367, ptr noundef nonnull %29, ptr noundef nonnull @.str.458)
+  %1369 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1, ptr noundef %1368)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #6
   br label %decode_params_OcaRoot.exit
 
-1362:                                             ; preds = %1341
+1370:                                             ; preds = %1349
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #6
   br label %decode_params_OcaRoot.exit
 
-1363:                                             ; preds = %1339
-  %1364 = icmp eq i16 %5, 11
-  %or.cond65.i = and i1 %1364, %7
-  %or.cond68.i = and i1 %1153, %or.cond65.i
-  br i1 %or.cond68.i, label %1365, label %1391
+1371:                                             ; preds = %1347
+  %1372 = icmp eq i16 %5, 11
+  %or.cond65.i = and i1 %1372, %7
+  %or.cond68.i = and i1 %1157, %or.cond65.i
+  br i1 %or.cond68.i, label %1373, label %1399
 
-1365:                                             ; preds = %1363
+1373:                                             ; preds = %1371
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #6
-  %1366 = load i32, ptr @ett_ocp1_params, align 4
-  %1367 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1366, ptr noundef nonnull %30, ptr noundef nonnull @.str.454)
-  %1368 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1369 = call ptr @proto_tree_add_item(ptr noundef %1367, i32 noundef %1368, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
-  %1370 = add i32 %1, 4
-  %1371 = add i32 %1, 8
-  %1372 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1371, i32 noundef 0)
-  %1373 = zext i16 %1372 to i32
-  %1374 = add nuw nsw i32 %1373, 17
-  %1375 = add i32 %1374, %1370
-  %1376 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1375)
-  %1377 = icmp eq i8 %1376, 1
-  %1378 = add nuw nsw i32 %1373, 39
-  %spec.select414.i = select i1 %1377, i32 %1378, i32 %1374
-  %1379 = add i32 %spec.select414.i, %1370
-  %1380 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1379)
-  %1381 = icmp eq i8 %1380, 2
-  br i1 %1381, label %.thread429.i, label %1390
+  %1374 = load i32, ptr @ett_ocp1_params, align 4
+  %1375 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1374, ptr noundef nonnull %30, ptr noundef nonnull @.str.454)
+  %1376 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1377 = call ptr @proto_tree_add_item(ptr noundef %1375, i32 noundef %1376, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1378 = add i32 %1, 4
+  %1379 = add i32 %1, 8
+  %1380 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1379, i32 noundef 0)
+  %1381 = zext i16 %1380 to i32
+  %1382 = add nuw nsw i32 %1381, 17
+  %1383 = add i32 %1382, %1378
+  %1384 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1383)
+  %1385 = icmp eq i8 %1384, 1
+  %1386 = add nuw nsw i32 %1381, 39
+  %spec.select414.i = select i1 %1385, i32 %1386, i32 %1382
+  %1387 = add i32 %spec.select414.i, %1378
+  %1388 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1387)
+  %1389 = icmp eq i8 %1388, 2
+  br i1 %1389, label %.thread429.i, label %1398
 
-.thread429.i:                                     ; preds = %1365
-  %1382 = add i32 %1379, 17
-  %1383 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1382, i32 noundef 0)
-  %1384 = zext i16 %1383 to i32
-  %1385 = add nuw nsw i32 %spec.select414.i, 19
-  %1386 = add nuw nsw i32 %1385, %1384
-  %1387 = load i32, ptr @ett_ocp1_params, align 4
-  %1388 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1370, i32 noundef %1386, i32 noundef %1387, ptr noundef nonnull %31, ptr noundef nonnull @.str.461)
-  %1389 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1370, ptr noundef %1388)
+.thread429.i:                                     ; preds = %1373
+  %1390 = add i32 %1387, 17
+  %1391 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1390, i32 noundef 0)
+  %1392 = zext i16 %1391 to i32
+  %1393 = add nuw nsw i32 %spec.select414.i, 19
+  %1394 = add nuw nsw i32 %1393, %1392
+  %1395 = load i32, ptr @ett_ocp1_params, align 4
+  %1396 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1378, i32 noundef %1394, i32 noundef %1395, ptr noundef nonnull %31, ptr noundef nonnull @.str.461)
+  %1397 = call fastcc i32 @decode_params_OcaTask(ptr noundef %0, i32 noundef %1378, ptr noundef %1396)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
   br label %decode_params_OcaRoot.exit
 
-1390:                                             ; preds = %1365
+1398:                                             ; preds = %1373
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
   br label %decode_params_OcaRoot.exit
 
-1391:                                             ; preds = %1363
-  %1392 = icmp eq i16 %5, 12
-  %or.cond70.i = and i1 %1392, %7
-  %or.cond73.i = and i1 %1145, %or.cond70.i
-  br i1 %or.cond73.i, label %1393, label %1398
+1399:                                             ; preds = %1371
+  %1400 = icmp eq i16 %5, 12
+  %or.cond70.i = and i1 %1400, %7
+  %or.cond73.i = and i1 %1149, %or.cond70.i
+  br i1 %or.cond73.i, label %1401, label %1406
 
-1393:                                             ; preds = %1391
+1401:                                             ; preds = %1399
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #6
-  %1394 = load i32, ptr @ett_ocp1_params, align 4
-  %1395 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1394, ptr noundef nonnull %32, ptr noundef nonnull @.str.454)
-  %1396 = load i32, ptr @hf_ocp1_params_task_id, align 4
-  %1397 = call ptr @proto_tree_add_item(ptr noundef %1395, i32 noundef %1396, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1402 = load i32, ptr @ett_ocp1_params, align 4
+  %1403 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1402, ptr noundef nonnull %32, ptr noundef nonnull @.str.454)
+  %1404 = load i32, ptr @hf_ocp1_params_task_id, align 4
+  %1405 = call ptr @proto_tree_add_item(ptr noundef %1403, i32 noundef %1404, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #6
   br label %decode_params_OcaRoot.exit
 
-1398:                                             ; preds = %1391
-  %1399 = load i32, ptr @hf_ocp1_params, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1399, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1406:                                             ; preds = %1399
+  %1407 = load i32, ptr @hf_ocp1_params, align 4
+  %1408 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1407, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1401:                                             ; preds = %154
-  %1402 = add i16 %5, -3
-  %or.cond.i258 = icmp ult i16 %1402, -2
-  %1403 = icmp ne i8 %6, 1
-  %1404 = or i1 %or.cond.i258, %1403
-  %or.cond7.not.i = or i1 %7, %1404
-  br i1 %or.cond7.not.i, label %1425, label %1405
+1409:                                             ; preds = %154
+  %1410 = add i16 %5, -3
+  %or.cond.i258 = icmp ult i16 %1410, -2
+  %1411 = icmp ne i8 %6, 1
+  %1412 = or i1 %or.cond.i258, %1411
+  %or.cond7.not.i = or i1 %7, %1412
+  br i1 %or.cond7.not.i, label %1437, label %1413
 
-1405:                                             ; preds = %1401
+1413:                                             ; preds = %1409
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
-  %1406 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %1407 = zext i16 %1406 to i32
+  %1414 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %1415 = zext i16 %1414 to i32
   %invariant.op.i260 = add i32 %1, 4
-  %.not.i261 = icmp eq i16 %1406, 0
-  br i1 %.not.i261, label %._crit_edge.i265, label %.lr.ph.i262
+  %.not.i261 = icmp eq i16 %1414, 0
+  br i1 %.not.i261, label %._crit_edge64.i.critedge, label %.lr.ph.i262
 
-._crit_edge.i265:                                 ; preds = %.lr.ph.i262, %1405
-  %.054.lcssa.i = phi i32 [ 2, %1405 ], [ %1415, %.lr.ph.i262 ]
-  %1408 = load i32, ptr @ett_ocp1_params, align 4
-  %1409 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %.054.lcssa.i, i32 noundef %1408, ptr noundef nonnull %12, ptr noundef nonnull @.str.464)
-  %1410 = load i32, ptr @hf_ocp1_params_map_count, align 4
-  %1411 = call ptr @proto_tree_add_item(ptr noundef %1409, i32 noundef %1410, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
-  br i1 %.not.i261, label %._crit_edge64.i, label %.lr.ph63.i.preheader
-
-.lr.ph63.i.preheader:                             ; preds = %._crit_edge.i265
-  %1412 = add i32 %1, 2
+._crit_edge.i265:                                 ; preds = %.lr.ph.i262
+  %1416 = load i32, ptr @ett_ocp1_params, align 4
+  %1417 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1423, i32 noundef %1416, ptr noundef nonnull %12, ptr noundef nonnull @.str.464)
+  %1418 = load i32, ptr @hf_ocp1_params_map_count, align 4
+  %1419 = call ptr @proto_tree_add_item(ptr noundef %1417, i32 noundef %1418, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  %1420 = add i32 %1, 2
   br label %.lr.ph63.i
 
-.lr.ph.i262:                                      ; preds = %1405, %.lr.ph.i262
-  %.05358.i = phi i32 [ %1416, %.lr.ph.i262 ], [ 0, %1405 ]
-  %.05457.i = phi i32 [ %1415, %.lr.ph.i262 ], [ 2, %1405 ]
+.lr.ph.i262:                                      ; preds = %1413, %.lr.ph.i262
+  %.05358.i = phi i32 [ %1424, %.lr.ph.i262 ], [ 0, %1413 ]
+  %.05457.i = phi i32 [ %1423, %.lr.ph.i262 ], [ 2, %1413 ]
   %.reass.i263 = add i32 %invariant.op.i260, %.05457.i
-  %1413 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass.i263, i32 noundef 0)
-  %1414 = zext i16 %1413 to i32
+  %1421 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.reass.i263, i32 noundef 0)
+  %1422 = zext i16 %1421 to i32
   %.reass56.i = add i32 %.05457.i, 6
-  %1415 = add i32 %.reass56.i, %1414
-  %1416 = add nuw nsw i32 %.05358.i, 1
-  %exitcond.not.i264 = icmp eq i32 %1416, %1407
+  %1423 = add i32 %.reass56.i, %1422
+  %1424 = add nuw nsw i32 %.05358.i, 1
+  %exitcond.not.i264 = icmp eq i32 %1424, %1415
   br i1 %exitcond.not.i264, label %._crit_edge.i265, label %.lr.ph.i262, !llvm.loop !28
 
-._crit_edge64.i:                                  ; preds = %.lr.ph63.i, %._crit_edge.i265
+._crit_edge64.i.critedge:                         ; preds = %1413
+  %1425 = load i32, ptr @ett_ocp1_params, align 4
+  %1426 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %1425, ptr noundef nonnull %12, ptr noundef nonnull @.str.464)
+  %1427 = load i32, ptr @hf_ocp1_params_map_count, align 4
+  %1428 = call ptr @proto_tree_add_item(ptr noundef %1426, i32 noundef %1427, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0)
+  br label %._crit_edge64.i
+
+._crit_edge64.i:                                  ; preds = %.lr.ph63.i, %._crit_edge64.i.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   br label %decode_params_OcaRoot.exit
 
-.lr.ph63.i:                                       ; preds = %.lr.ph63.i.preheader, %.lr.ph63.i
-  %.061.i = phi i32 [ %1424, %.lr.ph63.i ], [ %1412, %.lr.ph63.i.preheader ]
-  %.05260.i = phi i32 [ %1418, %.lr.ph63.i ], [ 0, %.lr.ph63.i.preheader ]
-  %1417 = load i32, ptr @ett_ocp1_params_compversion, align 4
-  %1418 = add nuw nsw i32 %.05260.i, 1
-  %1419 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1409, ptr noundef %0, i32 noundef %.061.i, i32 noundef 11, i32 noundef %1417, ptr noundef null, ptr noundef nonnull @.str.465, i32 noundef %1418)
-  %1420 = load i32, ptr @hf_ocp1_params_media_coding_scheme_id, align 4
-  %1421 = call ptr @proto_tree_add_item(ptr noundef %1419, i32 noundef %1420, ptr noundef %0, i32 noundef %.061.i, i32 noundef 2, i32 noundef 0)
-  %1422 = add i32 %.061.i, 2
-  %1423 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1422, ptr noundef %1419, ptr noundef nonnull @.str.466)
-  %1424 = add i32 %1423, %1422
-  %exitcond68.not.i = icmp eq i32 %1418, %1407
+.lr.ph63.i:                                       ; preds = %._crit_edge.i265, %.lr.ph63.i
+  %.061.i = phi i32 [ %1436, %.lr.ph63.i ], [ %1420, %._crit_edge.i265 ]
+  %.05260.i = phi i32 [ %1430, %.lr.ph63.i ], [ 0, %._crit_edge.i265 ]
+  %1429 = load i32, ptr @ett_ocp1_params_compversion, align 4
+  %1430 = add nuw nsw i32 %.05260.i, 1
+  %1431 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1417, ptr noundef %0, i32 noundef %.061.i, i32 noundef 11, i32 noundef %1429, ptr noundef null, ptr noundef nonnull @.str.465, i32 noundef %1430)
+  %1432 = load i32, ptr @hf_ocp1_params_media_coding_scheme_id, align 4
+  %1433 = call ptr @proto_tree_add_item(ptr noundef %1431, i32 noundef %1432, ptr noundef %0, i32 noundef %.061.i, i32 noundef 2, i32 noundef 0)
+  %1434 = add i32 %.061.i, 2
+  %1435 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1434, ptr noundef %1431, ptr noundef nonnull @.str.466)
+  %1436 = add i32 %1435, %1434
+  %exitcond68.not.i = icmp eq i32 %1430, %1415
   br i1 %exitcond68.not.i, label %._crit_edge64.i, label %.lr.ph63.i, !llvm.loop !29
 
-1425:                                             ; preds = %1401
-  %1426 = load i32, ptr @hf_ocp1_params, align 4
-  %1427 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1426, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1437:                                             ; preds = %1409
+  %1438 = load i32, ptr @hf_ocp1_params, align 4
+  %1439 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1438, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1428:                                             ; preds = %154
-  %1429 = icmp eq i16 %5, 1
-  %or.cond.i268 = and i1 %1429, %7
-  %1430 = icmp eq i8 %6, 1
-  %or.cond4.i269 = and i1 %1430, %or.cond.i268
-  br i1 %or.cond4.i269, label %1431, label %1436
+1440:                                             ; preds = %154
+  %1441 = icmp eq i16 %5, 1
+  %or.cond.i268 = and i1 %1441, %7
+  %1442 = icmp eq i8 %6, 1
+  %or.cond4.i269 = and i1 %1442, %or.cond.i268
+  br i1 %or.cond4.i269, label %1443, label %1448
 
-1431:                                             ; preds = %1428
+1443:                                             ; preds = %1440
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
-  %1432 = load i32, ptr @ett_ocp1_params, align 4
-  %1433 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1432, ptr noundef nonnull %10, ptr noundef nonnull @.str.467)
-  %1434 = load i32, ptr @hf_ocp1_params_ono, align 4
-  %1435 = call ptr @proto_tree_add_item(ptr noundef %1433, i32 noundef %1434, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
+  %1444 = load i32, ptr @ett_ocp1_params, align 4
+  %1445 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %1444, ptr noundef nonnull %10, ptr noundef nonnull @.str.467)
+  %1446 = load i32, ptr @hf_ocp1_params_ono, align 4
+  %1447 = call ptr @proto_tree_add_item(ptr noundef %1445, i32 noundef %1446, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
   br label %decode_params_OcaRoot.exit
 
-1436:                                             ; preds = %1428
-  %1437 = icmp ne i16 %5, 1
-  %or.cond6.i270 = or i1 %1437, %7
+1448:                                             ; preds = %1440
+  %1449 = icmp ne i16 %5, 1
+  %or.cond6.i270 = or i1 %1449, %7
   %or.cond6.not.i271 = xor i1 %or.cond6.i270, true
-  %or.cond9.i272 = and i1 %1430, %or.cond6.not.i271
-  br i1 %or.cond9.i272, label %1438, label %1445
+  %or.cond9.i272 = and i1 %1442, %or.cond6.not.i271
+  br i1 %or.cond9.i272, label %1450, label %1457
 
-1438:                                             ; preds = %1436
+1450:                                             ; preds = %1448
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
-  %1439 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
-  %1440 = zext i16 %1439 to i32
-  %1441 = add nuw nsw i32 %1440, 2
-  %1442 = load i32, ptr @ett_ocp1_params, align 4
-  %1443 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1441, i32 noundef %1442, ptr noundef nonnull %11, ptr noundef nonnull @.str.468)
-  %1444 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %1443, ptr noundef nonnull @.str.469)
+  %1451 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1, i32 noundef 0)
+  %1452 = zext i16 %1451 to i32
+  %1453 = add nuw nsw i32 %1452, 2
+  %1454 = load i32, ptr @ett_ocp1_params, align 4
+  %1455 = call ptr @proto_tree_add_subtree(ptr noundef %120, ptr noundef %0, i32 noundef %1, i32 noundef %1453, i32 noundef %1454, ptr noundef nonnull %11, ptr noundef nonnull @.str.468)
+  %1456 = call fastcc i32 @decode_params_OcaString(ptr noundef %0, i32 noundef %1, ptr noundef %1455, ptr noundef nonnull @.str.469)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   br label %decode_params_OcaRoot.exit
 
-1445:                                             ; preds = %1436
-  %1446 = load i32, ptr @hf_ocp1_params, align 4
-  %1447 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1446, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
+1457:                                             ; preds = %1448
+  %1458 = load i32, ptr @hf_ocp1_params, align 4
+  %1459 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1458, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1448:                                             ; preds = %154
-  %1449 = load i32, ptr @hf_ocp1_params, align 4
-  %1450 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1449, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0)
+1460:                                             ; preds = %154
+  %1461 = load i32, ptr @hf_ocp1_params, align 4
+  %1462 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1461, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-1451:                                             ; preds = %9
-  %1452 = load i32, ptr @hf_ocp1_params, align 4
-  %1453 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1452, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0)
+1463:                                             ; preds = %9
+  %1464 = load i32, ptr @hf_ocp1_params, align 4
+  %1465 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1464, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0)
   br label %decode_params_OcaRoot.exit
 
-decode_params_OcaRoot.exit:                       ; preds = %1146, %1154, %1180, %1210, %1240, %1247, %1252, %1259, %.thread.i, %._crit_edge450.i, %1334, %.thread427.i, %.thread429.i, %1393, %1398, %1445, %1438, %1431, %1425, %._crit_edge64.i, %1390, %1362, %.thread423.i, %1285, %1140, %1137, %1132, %1125, %1118, %._crit_edge.i249, %1093, %1086, %1077, %1074, %1069, %._crit_edge.i224, %1041, %1034, %1025, %1018, %1006, %997, %991, %._crit_edge.i196, %._crit_edge109.i, %._crit_edge115.i, %934, %._crit_edge.i181, %._crit_edge141.i, %._crit_edge147.i, %._crit_edge153.i, %858, %853, %836, %._crit_edge.i163, %._crit_edge151.i, %791, %784, %778, %773, %737, %661, %627, %552, %545, %515, %493, %469, %460, %._crit_edge.i138, %420, %413, %384, %357, %351, %344, %._crit_edge374.i, %301, %292, %285, %273, %263, %256, %249, %240, %231, %222, %213, %205, %196, %187, %178, %165, %158, %151, %144, %137, %124, %1451, %1448, %1080
+decode_params_OcaRoot.exit:                       ; preds = %1150, %1158, %1184, %1214, %1244, %1251, %1256, %1263, %.thread.i, %._crit_edge450.i, %1342, %.thread427.i, %.thread429.i, %1401, %1406, %1457, %1450, %1443, %1437, %._crit_edge64.i, %1398, %1370, %.thread423.i, %1289, %1144, %1141, %1136, %1129, %1122, %._crit_edge.i249, %1097, %1090, %1081, %1078, %1073, %._crit_edge.i224, %1045, %1038, %1029, %1022, %1010, %1001, %995, %._crit_edge.i196, %._crit_edge109.i, %._crit_edge115.i, %938, %._crit_edge.i181, %._crit_edge141.i, %._crit_edge147.i, %._crit_edge153.i, %862, %857, %840, %._crit_edge.i163, %._crit_edge151.i, %795, %788, %782, %777, %741, %665, %631, %556, %549, %519, %497, %473, %464, %._crit_edge.i138, %424, %417, %388, %361, %355, %348, %._crit_edge374.i, %301, %292, %285, %273, %263, %256, %249, %240, %231, %222, %213, %205, %196, %187, %178, %165, %158, %151, %144, %137, %124, %1463, %1460, %1084
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #6
   ret i32 %2
 }

@@ -3448,11 +3448,7 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
 13:                                               ; preds = %3
   %14 = add nsw i32 %11, -1
   %15 = icmp sgt i32 %11, 0
-  br i1 %15, label %.preheader, label %.thread
-
-.thread:                                          ; preds = %13
-  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
-  br label %.loopexit
+  br i1 %15, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %13, %21
   %16 = phi i32 [ %22, %21 ], [ %14, %13 ]
@@ -3467,7 +3463,7 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
   %23 = icmp sgt i32 %16, 0
   br i1 %23, label %.preheader, label %24, !llvm.loop !77
 
-24:                                               ; preds = %.preheader, %21
+24:                                               ; preds = %21, %.preheader
   %25 = phi i32 [ -1, %21 ], [ %16, %.preheader ]
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
   %26 = add nsw i32 %25, 1
@@ -3505,8 +3501,12 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
   %.not = icmp eq i64 %41, %28
   br i1 %.not, label %.loopexit, label %38
 
-.loopexit:                                        ; preds = %38, %.split, %.split.us, %.thread
-  %47 = phi ptr [ @.str.61, %.thread ], [ @.str.61, %.split.us ], [ @.str.60, %.split ], [ @.str.61, %38 ]
+.critedge:                                        ; preds = %13
+  tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %38, %.split, %.split.us, %.critedge
+  %47 = phi ptr [ @.str.61, %.critedge ], [ @.str.61, %.split.us ], [ @.str.60, %.split ], [ @.str.61, %38 ]
   tail call void @trace_seq_puts(ptr noundef %0, ptr noundef nonnull %47) #21
   br label %48
 
@@ -3719,7 +3719,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   %10 = icmp eq i64 %3, 0
-  br i1 %10, label %.thread17, label %11
+  br i1 %10, label %.thread16, label %11
 
 11:                                               ; preds = %4
   store i64 0, ptr %6, align 8, !annotation !7
@@ -3729,9 +3729,9 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   br i1 %12, label %15, label %50
 
 15:                                               ; preds = %11
-  br i1 %14, label %.thread12, label %19
+  br i1 %14, label %.thread11, label %19
 
-.thread12:                                        ; preds = %15
+.thread11:                                        ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 840
   call void @mutex_lock(ptr noundef nonnull %16) #21
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 600
@@ -3743,19 +3743,19 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   store ptr null, ptr %5, align 8, !annotation !7
   %20 = call noalias ptr @kstrdup(ptr noundef %2, i32 noundef 3264) #21
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread10, label %22
+  br i1 %21, label %.thread, label %22
 
-.thread10:                                        ; preds = %19
+.thread:                                          ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  br label %.thread17
+  br label %.thread16
 
 22:                                               ; preds = %19
   %23 = call ptr @strim(ptr noundef nonnull %20) #21
   store ptr %23, ptr %5, align 8
   br label %24
 
-24:                                               ; preds = %41, %22
-  %25 = phi i32 [ %43, %41 ], [ 0, %22 ]
+24:                                               ; preds = %38, %22
+  %25 = phi i32 [ %40, %38 ], [ 0, %22 ]
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -3768,31 +3768,31 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %26, label %.preheader, !llvm.loop !82
 
-.preheader:                                       ; preds = %29, %38
-  %32 = phi i64 [ %39, %38 ], [ 0, %29 ]
+.preheader:                                       ; preds = %29, %43
+  %32 = phi i64 [ %44, %43 ], [ 0, %29 ]
   %33 = getelementptr [16 x %struct.anon.28], ptr @mask_maps, i64 0, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @strcasecmp(ptr noundef nonnull %27, ptr noundef %35)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %41, label %38
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %.preheader
-  %39 = add nuw nsw i64 %32, 1
-  %40 = icmp eq i64 %39, 16
-  br i1 %40, label %.thread11, label %.preheader, !llvm.loop !83
+  %39 = load i32, ptr %33, align 16
+  %40 = or i32 %39, %25
+  %41 = and i64 %32, 4294967295
+  %42 = icmp eq i64 %41, 16
+  br i1 %42, label %.thread10, label %24, !llvm.loop !82
 
-41:                                               ; preds = %.preheader
-  %42 = load i32, ptr %33, align 16
-  %43 = or i32 %42, %25
-  %44 = and i64 %32, 4294967295
+43:                                               ; preds = %.preheader
+  %44 = add nuw nsw i64 %32, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %.thread11, label %24, !llvm.loop !82
+  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !83
 
-.thread11:                                        ; preds = %41, %38
+.thread10:                                        ; preds = %38, %43
   call void @kfree(ptr noundef nonnull %20) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  br label %.thread17
+  br label %.thread16
 
 46:                                               ; preds = %26
   call void @kfree(ptr noundef nonnull %20) #21
@@ -3806,7 +3806,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   br label %51
 
 50:                                               ; preds = %11
-  br i1 %14, label %51, label %.thread17
+  br i1 %14, label %51, label %.thread16
 
 51:                                               ; preds = %50, %49
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 840
@@ -3821,7 +3821,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %58 = icmp ne i64 %57, 0
   %59 = icmp eq ptr %54, null
   %60 = xor i1 %59, %58
-  br i1 %60, label %.thread15, label %61
+  br i1 %60, label %.thread14, label %61
 
 61:                                               ; preds = %56
   br i1 %58, label %62, label %86
@@ -3830,7 +3830,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %64 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 3520, i64 noundef 96) #25
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.thread15, label %66
+  br i1 %65, label %.thread14, label %66
 
 66:                                               ; preds = %62
   %67 = call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 1) #26
@@ -3866,15 +3866,15 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
   store volatile ptr %64, ptr %53, align 8
   call fastcc void @get_probe_ref()
-  br label %.thread15
+  br label %.thread14
 
 85:                                               ; preds = %66
   call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %64)
-  br label %.thread15
+  br label %.thread14
 
 86:                                               ; preds = %61
   store volatile ptr null, ptr %53, align 8
-  br i1 %59, label %.thread15, label %87
+  br i1 %59, label %.thread14, label %87
 
 87:                                               ; preds = %86
   %88 = load i32, ptr %54, align 8
@@ -3903,20 +3903,20 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   call fastcc void @put_probe_ref()
   call void @synchronize_rcu() #21
   call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %54)
-  br label %.thread15
+  br label %.thread14
 
-99:                                               ; preds = %.thread12, %51
-  %100 = phi ptr [ %18, %.thread12 ], [ %54, %51 ]
-  %101 = phi ptr [ %17, %.thread12 ], [ %53, %51 ]
-  %102 = phi ptr [ %16, %.thread12 ], [ %52, %51 ]
+99:                                               ; preds = %.thread11, %51
+  %100 = phi ptr [ %18, %.thread11 ], [ %54, %51 ]
+  %101 = phi ptr [ %17, %.thread11 ], [ %53, %51 ]
+  %102 = phi ptr [ %16, %.thread11 ], [ %52, %51 ]
   %103 = icmp eq ptr %100, null
-  br i1 %103, label %104, label %.thread13
+  br i1 %103, label %104, label %.thread12
 
 104:                                              ; preds = %99
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %106 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %105, i32 noundef 3520, i64 noundef 96) #25
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.thread15, label %108
+  br i1 %107, label %.thread14, label %108
 
 108:                                              ; preds = %104
   %109 = call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 1) #26
@@ -3944,33 +3944,33 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
 
 123:                                              ; preds = %108
   call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %106)
-  br label %.thread15
+  br label %.thread14
 
 124:                                              ; preds = %112, %118
-  %.sink35 = phi i64 [ %119, %118 ], [ 0, %112 ]
+  %.sink34 = phi i64 [ %119, %118 ], [ 0, %112 ]
   %125 = phi i64 [ %122, %118 ], [ -1, %112 ]
   %126 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  store i64 %.sink35, ptr %126, align 8
+  store i64 %.sink34, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store i64 %125, ptr %127, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
   store volatile ptr %106, ptr %101, align 8
   call fastcc void @get_probe_ref()
   %128 = load ptr, ptr %101, align 8
-  br label %.thread13
+  br label %.thread12
 
-.thread13:                                        ; preds = %99, %124
+.thread12:                                        ; preds = %99, %124
   %129 = phi ptr [ %128, %124 ], [ %100, %99 ]
   br i1 %12, label %130, label %134
 
-130:                                              ; preds = %.thread13
+130:                                              ; preds = %.thread12
   %131 = load i64, ptr %6, align 8
   %132 = trunc i64 %131 to i16
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 32
   store i16 %132, ptr %133, align 8
-  br label %.thread15
+  br label %.thread14
 
-134:                                              ; preds = %.thread13
+134:                                              ; preds = %.thread12
   %135 = icmp eq ptr %1, @dev_attr_pid
   br i1 %135, label %136, label %140
 
@@ -3979,7 +3979,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %138 = trunc i64 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %129, i64 56
   store i32 %138, ptr %139, align 8
-  br label %.thread15
+  br label %.thread14
 
 140:                                              ; preds = %134
   %141 = icmp eq ptr %1, @dev_attr_start_lba
@@ -3989,33 +3989,33 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %143 = load i64, ptr %6, align 8
   %144 = getelementptr inbounds nuw i8, ptr %129, i64 40
   store i64 %143, ptr %144, align 8
-  br label %.thread15
+  br label %.thread14
 
 145:                                              ; preds = %140
   %146 = icmp eq ptr %1, @dev_attr_end_lba
-  br i1 %146, label %147, label %.thread15
+  br i1 %146, label %147, label %.thread14
 
 147:                                              ; preds = %145
   %148 = load i64, ptr %6, align 8
   %149 = getelementptr inbounds nuw i8, ptr %129, i64 48
   store i64 %148, ptr %149, align 8
-  br label %.thread15
+  br label %.thread14
 
-.thread15:                                        ; preds = %104, %123, %147, %145, %142, %136, %130, %98, %86, %85, %81, %62, %56
+.thread14:                                        ; preds = %104, %123, %147, %145, %142, %136, %130, %98, %86, %85, %81, %62, %56
   %150 = phi ptr [ %102, %130 ], [ %102, %136 ], [ %102, %142 ], [ %102, %147 ], [ %102, %145 ], [ %52, %56 ], [ %52, %81 ], [ %52, %85 ], [ %52, %62 ], [ %52, %98 ], [ %52, %86 ], [ %102, %123 ], [ %102, %104 ]
   %151 = phi i64 [ 0, %130 ], [ 0, %136 ], [ 0, %142 ], [ 0, %147 ], [ 0, %145 ], [ 0, %56 ], [ 0, %81 ], [ -12, %85 ], [ -12, %62 ], [ 0, %98 ], [ -22, %86 ], [ -12, %123 ], [ -12, %104 ]
   call void @mutex_unlock(ptr noundef nonnull %150) #21
   br label %152
 
-152:                                              ; preds = %.thread15, %46
-  %153 = phi i64 [ %47, %46 ], [ %151, %.thread15 ]
+152:                                              ; preds = %.thread14, %46
+  %153 = phi i64 [ %47, %46 ], [ %151, %.thread14 ]
   %.fr = freeze i64 %153
   %154 = icmp eq i64 %.fr, 0
   %spec.select = select i1 %154, i64 %3, i64 %.fr
-  br label %.thread17
+  br label %.thread16
 
-.thread17:                                        ; preds = %152, %.thread11, %.thread10, %50, %4
-  %155 = phi i64 [ -22, %.thread11 ], [ -12, %.thread10 ], [ -22, %50 ], [ -22, %4 ], [ %spec.select, %152 ]
+.thread16:                                        ; preds = %152, %.thread10, %.thread, %50, %4
+  %155 = phi i64 [ -22, %.thread10 ], [ -12, %.thread ], [ -22, %50 ], [ -22, %4 ], [ %spec.select, %152 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   ret i64 %155
 }

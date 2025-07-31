@@ -16,7 +16,7 @@ define internal range(i32 0, 52) i32 @vvc_probe(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 1
-  br i1 %4, label %.lr.ph, label %.thread96
+  br i1 %4, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %1
   %5 = add nsw i32 %3, -1
@@ -25,33 +25,33 @@ define internal range(i32 0, 52) i32 @vvc_probe(ptr noundef readonly captures(no
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.03784 = phi i32 [ -1, %.lr.ph ], [ %13, %.thread ]
-  %.03982 = phi i32 [ 0, %.lr.ph ], [ %.342, %.thread ]
-  %.04381 = phi i32 [ 0, %.lr.ph ], [ %.346, %.thread ]
-  %.04780 = phi i32 [ 0, %.lr.ph ], [ %.350, %.thread ]
-  %.05179 = phi i32 [ 0, %.lr.ph ], [ %.354, %.thread ]
-  %.05578 = phi i32 [ 0, %.lr.ph ], [ %.358, %.thread ]
-  %9 = shl i32 %.03784, 8
+8:                                                ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %.03778 = phi i32 [ -1, %.lr.ph ], [ %13, %33 ]
+  %.03976 = phi i32 [ 0, %.lr.ph ], [ %.342, %33 ]
+  %.04375 = phi i32 [ 0, %.lr.ph ], [ %.346, %33 ]
+  %.04774 = phi i32 [ 0, %.lr.ph ], [ %.350, %33 ]
+  %.05173 = phi i32 [ 0, %.lr.ph ], [ %.354, %33 ]
+  %.05572 = phi i32 [ 0, %.lr.ph ], [ %.358, %33 ]
+  %9 = shl i32 %.03778, 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = zext i8 %11 to i32
   %13 = or disjoint i32 %9, %12
   %14 = icmp eq i32 %9, 256
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = lshr i8 %17, 3
   %.not59 = icmp sgt i8 %11, -1
-  br i1 %.not59, label %19, label %check_temporal_id.exit.thread
+  br i1 %.not59, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = and i8 %17, 7
   switch i8 %20, label %21 [
-    i8 0, label %check_temporal_id.exit.thread
+    i8 0, label %.critedge
     i8 1, label %check_temporal_id.exit
   ]
 
@@ -61,10 +61,10 @@ define internal range(i32 0, 52) i32 @vvc_probe(ptr noundef readonly captures(no
   %23 = add nsw i8 %18, -21
   %24 = icmp ult i8 %23, 2
   %or.cond13.i = or i1 %or.cond9.i, %24
-  br i1 %or.cond13.i, label %check_temporal_id.exit.thread, label %check_temporal_id.exit
+  br i1 %or.cond13.i, label %.critedge, label %check_temporal_id.exit
 
 check_temporal_id.exit:                           ; preds = %21, %19
-  switch i8 %18, label %.thread [
+  switch i8 %18, label %33 [
     i8 15, label %25
     i8 16, label %27
     i8 8, label %30
@@ -74,56 +74,56 @@ check_temporal_id.exit:                           ; preds = %21, %19
   ]
 
 25:                                               ; preds = %check_temporal_id.exit
-  %26 = add nsw i32 %.05578, 1
-  br label %.thread
+  %26 = add nsw i32 %.05572, 1
+  br label %33
 
 27:                                               ; preds = %check_temporal_id.exit
-  %28 = add nsw i32 %.05179, 1
-  %.not62 = icmp ne i32 %.05578, 0
+  %28 = add nsw i32 %.05173, 1
+  %.not62 = icmp ne i32 %.05572, 0
   %29 = zext i1 %.not62 to i32
-  %spec.select63 = add nsw i32 %.04381, %29
-  br label %.thread
+  %spec.select63 = add nsw i32 %.04375, %29
+  br label %33
 
 30:                                               ; preds = %check_temporal_id.exit, %check_temporal_id.exit, %check_temporal_id.exit, %check_temporal_id.exit
-  %31 = add nsw i32 %.04780, 1
-  %.not61 = icmp ne i32 %.04381, 0
+  %31 = add nsw i32 %.04774, 1
+  %.not61 = icmp ne i32 %.04375, 0
   %32 = zext i1 %.not61 to i32
-  %spec.select65 = add nsw i32 %.03982, %32
-  br label %.thread
+  %spec.select65 = add nsw i32 %.03976, %32
+  br label %33
 
-.thread:                                          ; preds = %check_temporal_id.exit, %25, %27, %30, %8
-  %.358 = phi i32 [ %.05578, %8 ], [ %.05578, %30 ], [ %.05578, %27 ], [ %26, %25 ], [ %.05578, %check_temporal_id.exit ]
-  %.354 = phi i32 [ %.05179, %8 ], [ %.05179, %30 ], [ %28, %27 ], [ %.05179, %25 ], [ %.05179, %check_temporal_id.exit ]
-  %.350 = phi i32 [ %.04780, %8 ], [ %31, %30 ], [ %.04780, %27 ], [ %.04780, %25 ], [ %.04780, %check_temporal_id.exit ]
-  %.346 = phi i32 [ %.04381, %8 ], [ %.04381, %30 ], [ %spec.select63, %27 ], [ %.04381, %25 ], [ %.04381, %check_temporal_id.exit ]
-  %.342 = phi i32 [ %.03982, %8 ], [ %spec.select65, %30 ], [ %.03982, %27 ], [ %.03982, %25 ], [ %.03982, %check_temporal_id.exit ]
+33:                                               ; preds = %30, %27, %25, %check_temporal_id.exit, %8
+  %.358 = phi i32 [ %.05572, %8 ], [ %.05572, %check_temporal_id.exit ], [ %26, %25 ], [ %.05572, %27 ], [ %.05572, %30 ]
+  %.354 = phi i32 [ %.05173, %8 ], [ %.05173, %check_temporal_id.exit ], [ %.05173, %25 ], [ %28, %27 ], [ %.05173, %30 ]
+  %.350 = phi i32 [ %.04774, %8 ], [ %.04774, %check_temporal_id.exit ], [ %.04774, %25 ], [ %.04774, %27 ], [ %31, %30 ]
+  %.346 = phi i32 [ %.04375, %8 ], [ %.04375, %check_temporal_id.exit ], [ %.04375, %25 ], [ %spec.select63, %27 ], [ %.04375, %30 ]
+  %.342 = phi i32 [ %.03976, %8 ], [ %.03976, %check_temporal_id.exit ], [ %.03976, %25 ], [ %.03976, %27 ], [ %spec.select65, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.thread
-  %33 = icmp eq i32 %.342, 0
-  br i1 %33, label %34, label %check_temporal_id.exit.thread
+._crit_edge:                                      ; preds = %33
+  %34 = icmp eq i32 %.342, 0
+  br i1 %34, label %35, label %.critedge
 
-34:                                               ; preds = %._crit_edge
-  %35 = icmp ne i32 %.350, 0
-  %36 = icmp ne i32 %.354, 0
-  %37 = icmp ne i32 %.358, 0
-  %or.cond = select i1 %37, i1 %36, i1 false
-  %or.cond3 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond3, label %check_temporal_id.exit.thread, label %.thread96
+35:                                               ; preds = %._crit_edge
+  %36 = icmp ne i32 %.350, 0
+  %37 = icmp ne i32 %.354, 0
+  %38 = icmp ne i32 %.358, 0
+  %or.cond = select i1 %38, i1 %37, i1 false
+  %or.cond3 = select i1 %or.cond, i1 %36, i1 false
+  br i1 %or.cond3, label %.critedge, label %.thread
 
-.thread96:                                        ; preds = %1, %34
-  %.055.lcssa93104 = phi i1 [ %37, %34 ], [ false, %1 ]
-  %.051.lcssa94103 = phi i1 [ %36, %34 ], [ false, %1 ]
-  %.047.lcssa95102 = phi i1 [ %35, %34 ], [ false, %1 ]
-  %or.cond5 = select i1 %.055.lcssa93104, i1 true, i1 %.051.lcssa94103
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %.047.lcssa95102
+.thread:                                          ; preds = %1, %35
+  %.055.lcssa8797 = phi i1 [ %38, %35 ], [ false, %1 ]
+  %.051.lcssa8896 = phi i1 [ %37, %35 ], [ false, %1 ]
+  %.047.lcssa8995 = phi i1 [ %36, %35 ], [ false, %1 ]
+  %or.cond5 = select i1 %.055.lcssa8797, i1 true, i1 %.051.lcssa8896
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %.047.lcssa8995
   %. = select i1 %or.cond7, i32 12, i32 0
-  br label %check_temporal_id.exit.thread
+  br label %.critedge
 
-check_temporal_id.exit.thread:                    ; preds = %21, %19, %15, %.thread96, %34, %._crit_edge
-  %.2 = phi i32 [ 51, %._crit_edge ], [ 25, %34 ], [ %., %.thread96 ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
+.critedge:                                        ; preds = %21, %19, %15, %.thread, %35, %._crit_edge
+  %.2 = phi i32 [ 51, %._crit_edge ], [ 25, %35 ], [ %., %.thread ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
   ret i32 %.2
 }
 

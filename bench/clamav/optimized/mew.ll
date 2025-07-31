@@ -2310,7 +2310,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 14:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %4, i32 noundef %5, i32 noundef -1) #7
-  br label %.thread
+  br label %.critedge
 
 15:                                               ; preds = %8
   %16 = icmp ult i32 %12, %2
@@ -2318,7 +2318,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 17:                                               ; preds = %15
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %2, i32 noundef %3, i32 noundef -1) #7
-  br label %.thread
+  br label %.critedge
 
 18:                                               ; preds = %15
   %19 = zext i32 %1 to i64
@@ -2330,7 +2330,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 24:                                               ; preds = %18
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i64 noundef %22, i64 noundef %19, i64 noundef -1) #7
-  br label %.thread
+  br label %.critedge
 
 25:                                               ; preds = %18
   %26 = icmp ugt i32 %12, 11
@@ -2349,7 +2349,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 33:                                               ; preds = %27, %25
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #7
-  br label %.thread
+  br label %.critedge
 
 34:                                               ; preds = %27
   %35 = zext i32 %3 to i64
@@ -2382,18 +2382,18 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond295.not.us.us = icmp ult i32 %46, %12
   br i1 %or.cond295.not.us.us, label %75, label %.split.us
 
-47:                                               ; preds = %.split353.us.us
+47:                                               ; preds = %.split350.us.us
   %48 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.0233.ph.us, i64 %indvars.iv, i32 2
   %49 = load i32, ptr %48, align 4, !tbaa !20
   %50 = icmp ult i32 %111, %49
-  br i1 %50, label %.split396.us, label %51
+  br i1 %50, label %.split393.us, label %51
 
-51:                                               ; preds = %.split353.us.us, %47
+51:                                               ; preds = %.split350.us.us, %47
   %52 = mul nuw i64 %indvars.iv, 36
   %53 = add nuw i64 %52, 72
   %54 = call ptr @cli_max_realloc(ptr noundef %.0233.ph.us, i64 noundef %53) #7
   %.not285.us = icmp eq ptr %54, null
-  br i1 %.not285.us, label %.split399.us, label %55
+  br i1 %.not285.us, label %.split396.us, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -2427,7 +2427,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   store i32 %67, ptr %69, align 4, !tbaa !24
   %70 = add i32 %66, %67
   %71 = icmp ugt i32 %70, %3
-  br i1 %71, label %.split402.us, label %72
+  br i1 %71, label %.split399.us, label %72
 
 72:                                               ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2468,12 +2468,12 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 89:                                               ; preds = %83
   %90 = call i32 @unmew(ptr noundef nonnull %.0240.ph.us, ptr noundef %.0239.us.us, i32 noundef %.0232.ph.us, i32 noundef %.0230.us.us, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %.not280.us.us = icmp eq i32 %90, 0
-  br i1 %.not280.us.us, label %91, label %.split347.us
+  br i1 %.not280.us.us, label %91, label %.split344.us
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %9, align 8, !tbaa !14
   %.not281.us.us = icmp ult ptr %92, %0
-  br i1 %.not281.us.us, label %.split350.us, label %93
+  br i1 %.not281.us.us, label %.split347.us, label %93
 
 93:                                               ; preds = %91
   %94 = ptrtoint ptr %92 to i64
@@ -2483,9 +2483,9 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond300.us.us = and i1 %.not282.us.us, %96
   %97 = icmp ugt i64 %30, %94
   %or.cond301.us.us = and i1 %97, %or.cond300.us.us
-  br i1 %or.cond301.us.us, label %.split353.us.us, label %.split350.us
+  br i1 %or.cond301.us.us, label %.split350.us.us, label %.split347.us
 
-.split353.us.us:                                  ; preds = %93
+.split350.us.us:                                  ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %99 = ptrtoint ptr %98 to i64
   %.neg.us.us = sub i64 %76, %99
@@ -2505,11 +2505,11 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %.not284.us = icmp eq i64 %indvars.iv, 0
   br i1 %.not284.us, label %51, label %47
 
-.outer.split:                                     ; preds = %34, %.thread308
-  %.0240 = phi ptr [ %138, %.thread308 ], [ %38, %34 ]
-  %.pn271 = phi i32 [ %142, %.thread308 ], [ %42, %34 ]
-  %.0237 = phi i32 [ %143, %.thread308 ], [ 0, %34 ]
-  %.0232 = phi i32 [ %141, %.thread308 ], [ %43, %34 ]
+.outer.split:                                     ; preds = %34, %.thread
+  %.0240 = phi ptr [ %138, %.thread ], [ %38, %34 ]
+  %.pn271 = phi i32 [ %142, %.thread ], [ %42, %34 ]
+  %.0237 = phi i32 [ %143, %.thread ], [ 0, %34 ]
+  %.0232 = phi i32 [ %141, %.thread ], [ %43, %34 ]
   %.pn.in = sub i32 %.pn271, %11
   %.0230 = sub i32 %12, %.pn.in
   %.pn = zext i32 %.pn.in to i64
@@ -2551,31 +2551,31 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .split.us.thread:                                 ; preds = %122, %119, %116, %114, %.outer.split
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #7
-  br label %.thread
+  br label %.critedge
 
 .split.us:                                        ; preds = %83, %80, %77, %75, %.outer.us
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #7
   %.not279 = icmp eq ptr %.0233.ph.us, null
-  br i1 %.not279, label %.thread, label %128
+  br i1 %.not279, label %.critedge, label %128
 
 128:                                              ; preds = %.split.us
   call void @free(ptr noundef nonnull %.0233.ph.us) #7
-  br label %.thread
+  br label %.critedge
 
 129:                                              ; preds = %122
   %130 = call i32 @unmew(ptr noundef nonnull %.0240, ptr noundef %.0239, i32 noundef %.0232, i32 noundef %.0230, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %.not280 = icmp eq i32 %130, 0
-  br i1 %.not280, label %131, label %.split347.us
+  br i1 %.not280, label %131, label %.split344.us
 
-.split347.us:                                     ; preds = %129, %89
-  %.us-phi348 = phi ptr [ %.0233.ph.us, %89 ], [ null, %129 ]
-  call void @free(ptr noundef %.us-phi348) #7
-  br label %.thread
+.split344.us:                                     ; preds = %129, %89
+  %.us-phi345 = phi ptr [ %.0233.ph.us, %89 ], [ null, %129 ]
+  call void @free(ptr noundef %.us-phi345) #7
+  br label %.critedge
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr %9, align 8, !tbaa !14
   %.not281 = icmp ult ptr %132, %0
-  br i1 %.not281, label %.split350.us, label %133
+  br i1 %.not281, label %.split347.us, label %133
 
 133:                                              ; preds = %131
   %134 = ptrtoint ptr %132 to i64
@@ -2585,14 +2585,14 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond300 = and i1 %.not282, %136
   %137 = icmp ugt i64 %30, %134
   %or.cond301 = and i1 %137, %or.cond300
-  br i1 %or.cond301, label %.thread308, label %.split350.us
+  br i1 %or.cond301, label %.thread, label %.split347.us
 
-.split350.us:                                     ; preds = %131, %133, %93, %91
-  %.us-phi351 = phi ptr [ %.0233.ph.us, %91 ], [ %.0233.ph.us, %93 ], [ null, %133 ], [ null, %131 ]
-  call void @free(ptr noundef %.us-phi351) #7
-  br label %.thread
+.split347.us:                                     ; preds = %131, %133, %93, %91
+  %.us-phi348 = phi ptr [ %.0233.ph.us, %91 ], [ %.0233.ph.us, %93 ], [ null, %133 ], [ null, %131 ]
+  call void @free(ptr noundef %.us-phi348) #7
+  br label %.critedge
 
-.thread308:                                       ; preds = %133
+.thread:                                          ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %139 = ptrtoint ptr %138 to i64
   %.neg = sub i64 %115, %139
@@ -2600,32 +2600,32 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %141 = add i32 %.0232, %140
   %142 = load i32, ptr %132, align 1, !tbaa !3
   %143 = add nuw nsw i32 %.0237, 1
-  %.not286310 = icmp eq i32 %142, 0
-  br i1 %.not286310, label %.thread312, label %.outer.split
+  %.not286307 = icmp eq i32 %142, 0
+  br i1 %.not286307, label %.thread309, label %.outer.split
 
-.split396.us:                                     ; preds = %47
+.split393.us:                                     ; preds = %47
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #7
   call void @free(ptr noundef nonnull %.0233.ph.us) #7
-  br label %.thread
+  br label %.critedge
 
-.split399.us:                                     ; preds = %51
+.split396.us:                                     ; preds = %51
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #7
   call void @free(ptr noundef %.0233.ph.us) #7
-  br label %.thread
+  br label %.critedge
 
-.split402.us:                                     ; preds = %65
+.split399.us:                                     ; preds = %65
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %44, i32 noundef %66, i32 noundef %70, i32 noundef %3) #7
   call void @free(ptr noundef nonnull %54) #7
-  br label %.thread
+  br label %.critedge
 
-.thread312:                                       ; preds = %.thread308
+.thread309:                                       ; preds = %.thread
   %144 = sext i32 %6 to i64
   %145 = getelementptr i8, ptr %0, i64 %144
   %146 = getelementptr i8, ptr %145, i64 8
   %.not287 = icmp slt i32 %6, -8
   br i1 %.not287, label %152, label %147
 
-147:                                              ; preds = %.thread312
+147:                                              ; preds = %.thread309
   %148 = ptrtoint ptr %146 to i64
   %149 = add i64 %148, 1
   %.not288 = icmp ule i64 %149, %30
@@ -2635,9 +2635,9 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %or.cond303 = and i1 %151, %or.cond302
   br i1 %or.cond303, label %153, label %152
 
-152:                                              ; preds = %147, %.thread312
+152:                                              ; preds = %147, %.thread309
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #7
-  br label %.thread
+  br label %.critedge
 
 153:                                              ; preds = %147
   %154 = load i8, ptr %146, align 1, !tbaa !3
@@ -2665,7 +2665,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 166:                                              ; preds = %161, %158, %153
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
-  br label %.thread
+  br label %.critedge
 
 167:                                              ; preds = %161
   %168 = load i8, ptr %146, align 1, !tbaa !3
@@ -2673,7 +2673,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
   %170 = zext i1 %169 to i32
   %171 = call i32 @mew_lzma(ptr noundef nonnull %0, ptr noundef nonnull %160, i32 noundef %12, i32 noundef %11, i32 noundef %170)
   %.not291 = icmp eq i32 %171, 0
-  br i1 %.not291, label %172, label %.thread
+  br i1 %.not291, label %172, label %.critedge
 
 172:                                              ; preds = %167
   %173 = call noalias dereferenceable_or_null(36) ptr @calloc(i64 noundef 1, i64 noundef 36) #8
@@ -2682,7 +2682,7 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 
 174:                                              ; preds = %172
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #7
-  br label %.thread
+  br label %.critedge
 
 175:                                              ; preds = %172
   store i32 %5, ptr %173, align 4, !tbaa !22
@@ -2707,14 +2707,14 @@ define range(i32 -1, 2) i32 @unmew11(ptr noundef %0, i32 noundef %1, i32 noundef
 181:                                              ; preds = %.loopexit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #7
   call void @free(ptr noundef nonnull %.3236) #7
-  br label %.thread
+  br label %.critedge
 
 182:                                              ; preds = %.loopexit
   call void @free(ptr noundef nonnull %.3236) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.split.us.thread, %.split399.us, %.split402.us, %.split396.us, %167, %.split.us, %128, %182, %181, %174, %166, %152, %.split350.us, %.split347.us, %33, %24, %17, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %24 ], [ -1, %.split347.us ], [ 1, %182 ], [ -1, %181 ], [ -1, %174 ], [ -1, %166 ], [ -1, %152 ], [ -1, %.split350.us ], [ -1, %33 ], [ -1, %128 ], [ -1, %.split.us ], [ -1, %167 ], [ -1, %.split396.us ], [ -1, %.split402.us ], [ -1, %.split399.us ], [ -1, %.split.us.thread ]
+.critedge:                                        ; preds = %.split.us.thread, %.split393.us, %.split399.us, %.split396.us, %167, %.split.us, %128, %182, %181, %174, %166, %152, %.split347.us, %.split344.us, %33, %24, %17, %14
+  %.0 = phi i32 [ -1, %14 ], [ -1, %17 ], [ -1, %24 ], [ -1, %.split344.us ], [ 1, %182 ], [ -1, %181 ], [ -1, %174 ], [ -1, %166 ], [ -1, %152 ], [ -1, %.split347.us ], [ -1, %33 ], [ -1, %128 ], [ -1, %.split.us ], [ -1, %167 ], [ -1, %.split396.us ], [ -1, %.split399.us ], [ -1, %.split393.us ], [ -1, %.split.us.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   ret i32 %.0

@@ -733,18 +733,18 @@ define dso_local ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef 
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1148
   %91 = load volatile i32, ptr %90, align 4
-  br i1 %88, label %.preheader.i, label %.preheader3.i
+  br i1 %88, label %.preheader.i, label %.preheader4.i
 
-.preheader3.i:                                    ; preds = %80
+.preheader4.i:                                    ; preds = %80
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %ext4_lock_group.exit, label %.lr.ph.i, !prof !14
 
 .preheader.i:                                     ; preds = %80
   %93 = icmp eq i32 %91, 8
-  br i1 %93, label %.thread2.i, label %.lr.ph5.i, !prof !14
+  br i1 %93, label %.critedge2.i, label %.lr.ph6.i, !prof !14
 
-.lr.ph.i:                                         ; preds = %.preheader3.i, %100
-  %94 = phi i32 [ %101, %100 ], [ %91, %.preheader3.i ]
+.lr.ph.i:                                         ; preds = %.preheader4.i, %100
+  %94 = phi i32 [ %101, %100 ], [ %91, %.preheader4.i ]
   %95 = add i32 %94, -1
   %96 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 %95, ptr nonnull elementtype(i32) %90, i32 %94) #14, !srcloc !15
   %97 = extractvalue { i8, i32 } %96, 0
@@ -758,7 +758,7 @@ define dso_local ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef 
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %ext4_lock_group.exit, label %.lr.ph.i, !prof !16, !llvm.loop !17
 
-.lr.ph5.i:                                        ; preds = %.preheader.i, %109
+.lr.ph6.i:                                        ; preds = %.preheader.i, %109
   %103 = phi i32 [ %110, %109 ], [ %91, %.preheader.i ]
   %104 = add i32 %103, 1
   %105 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 %104, ptr nonnull elementtype(i32) %90, i32 %103) #14, !srcloc !15
@@ -766,18 +766,18 @@ define dso_local ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef 
   %107 = icmp ult i8 %106, 2
   tail call void @llvm.assume(i1 %107)
   %108 = icmp eq i8 %106, 0
-  br i1 %108, label %109, label %.thread2.i, !prof !10
+  br i1 %108, label %109, label %.critedge2.i, !prof !10
 
-109:                                              ; preds = %.lr.ph5.i
+109:                                              ; preds = %.lr.ph6.i
   %110 = extractvalue { i8, i32 } %105, 1
   %111 = icmp eq i32 %110, 8
-  br i1 %111, label %.thread2.i, label %.lr.ph5.i, !prof !16, !llvm.loop !17
+  br i1 %111, label %.critedge2.i, label %.lr.ph6.i, !prof !16, !llvm.loop !17
 
-.thread2.i:                                       ; preds = %109, %.lr.ph5.i, %.preheader.i
+.critedge2.i:                                     ; preds = %109, %.lr.ph6.i, %.preheader.i
   tail call void @_raw_spin_lock(ptr noundef %86) #14
   br label %ext4_lock_group.exit
 
-ext4_lock_group.exit:                             ; preds = %.lr.ph.i, %100, %.preheader3.i, %.thread2.i
+ext4_lock_group.exit:                             ; preds = %.lr.ph.i, %100, %.preheader4.i, %.critedge2.i
   %112 = load ptr, ptr %4, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 104
   %114 = load ptr, ptr %113, align 8
@@ -1460,7 +1460,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 32
   %10 = icmp eq i16 %9, 0
-  br i1 %10, label %11, label %.thread6
+  br i1 %10, label %11, label %.thread8
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1490,24 +1490,24 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %32 = load volatile i64, ptr %3, align 8
   %33 = and i64 %32, 16777216
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %38, label %.thread6
+  br i1 %34, label %38, label %.thread8
 
 .thread:                                          ; preds = %11
   %35 = load volatile i64, ptr %3, align 8
   %36 = and i64 %35, 16777216
   %37 = icmp eq i64 %36, 0
   %spec.select = select i1 %37, i32 -117, i32 0
-  br label %.thread6
+  br label %.thread8
 
 38:                                               ; preds = %15
   %39 = icmp eq ptr %31, null
-  br i1 %39, label %.thread6, label %40
+  br i1 %39, label %.thread8, label %40
 
 40:                                               ; preds = %38
   %41 = load volatile i64, ptr %31, align 8
   %42 = and i64 %41, 4
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %.thread6
+  br i1 %43, label %44, label %.thread8
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %5, align 8
@@ -1525,11 +1525,11 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
 
 .preheader12:                                     ; preds = %44
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread7, label %.lr.ph, !prof !14
+  br i1 %56, label %.critedge, label %.lr.ph, !prof !14
 
 .preheader:                                       ; preds = %44
   %57 = icmp eq i32 %55, 8
-  br i1 %57, label %.thread8, label %.lr.ph14, !prof !14
+  br i1 %57, label %.critedge2, label %.lr.ph14, !prof !14
 
 .lr.ph:                                           ; preds = %.preheader12, %64
   %58 = phi i32 [ %65, %64 ], [ %55, %.preheader12 ]
@@ -1539,12 +1539,12 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %62 = icmp ult i8 %61, 2
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i8 %61, 0
-  br i1 %63, label %64, label %.thread7, !prof !10
+  br i1 %63, label %64, label %.critedge, !prof !10
 
 64:                                               ; preds = %.lr.ph
   %65 = extractvalue { i8, i32 } %60, 1
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread7, label %.lr.ph, !prof !16, !llvm.loop !17
+  br i1 %66, label %.critedge, label %.lr.ph, !prof !16, !llvm.loop !17
 
 .lr.ph14:                                         ; preds = %.preheader, %73
   %67 = phi i32 [ %74, %73 ], [ %55, %.preheader ]
@@ -1554,24 +1554,24 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = icmp eq i8 %70, 0
-  br i1 %72, label %73, label %.thread8, !prof !10
+  br i1 %72, label %73, label %.critedge2, !prof !10
 
 73:                                               ; preds = %.lr.ph14
   %74 = extractvalue { i8, i32 } %69, 1
   %75 = icmp eq i32 %74, 8
-  br i1 %75, label %.thread8, label %.lr.ph14, !prof !16, !llvm.loop !17
+  br i1 %75, label %.critedge2, label %.lr.ph14, !prof !16, !llvm.loop !17
 
-.thread8:                                         ; preds = %73, %.lr.ph14, %.preheader
+.critedge2:                                       ; preds = %73, %.lr.ph14, %.preheader
   tail call void @_raw_spin_lock(ptr noundef %50) #14
-  br label %.thread7
+  br label %.critedge
 
-.thread7:                                         ; preds = %64, %.lr.ph, %.preheader12, %.thread8
+.critedge:                                        ; preds = %64, %.lr.ph, %.preheader12, %.critedge2
   %76 = load volatile i64, ptr %3, align 8
   %77 = and i64 %76, 16777216
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %79, label %231
 
-79:                                               ; preds = %.thread7
+79:                                               ; preds = %.critedge
   %80 = tail call i32 @ext4_block_bitmap_csum_verify(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3) #14
   %81 = icmp eq i32 %80, 0
   %82 = load ptr, ptr %5, align 8
@@ -1700,7 +1700,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
   tail call void @_raw_spin_unlock(ptr noundef %170) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 423, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %2) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
-  br label %.thread6
+  br label %.thread8
 
 171:                                              ; preds = %ext4_valid_block_bitmap.exit
   %172 = getelementptr inbounds nuw i8, ptr %.pre16, i64 424
@@ -1709,7 +1709,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
   tail call void @_raw_spin_unlock(ptr noundef %174) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 432, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %2, i64 noundef %165) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
-  br label %.thread6
+  br label %.thread8
 
 ext4_valid_block_bitmap.exit.thread:              ; preds = %.ext4_valid_block_bitmap.exit.thread_crit_edge, %83, %ext4_valid_block_bitmap.exit
   %175 = phi ptr [ %.pre, %.ext4_valid_block_bitmap.exit.thread_crit_edge ], [ %82, %83 ], [ %.pre16, %ext4_valid_block_bitmap.exit ]
@@ -1778,7 +1778,7 @@ ext4_valid_block_bitmap.exit.thread:              ; preds = %.ext4_valid_block_b
   tail call void @_raw_spin_unlock(ptr noundef %225) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 441, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %2, i64 noundef %218) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
-  br label %.thread6
+  br label %.thread8
 
 ext4_valid_block_bitmap_padding.exit.thread:      ; preds = %201, %213
   %226 = load volatile i64, ptr %3, align 8
@@ -1791,15 +1791,15 @@ ext4_valid_block_bitmap_padding.exit.thread:      ; preds = %201, %213
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %230, i32 1, ptr elementtype(i8) %230) #14, !srcloc !23
   br label %231
 
-231:                                              ; preds = %229, %ext4_valid_block_bitmap_padding.exit.thread, %.thread7
+231:                                              ; preds = %229, %ext4_valid_block_bitmap_padding.exit.thread, %.critedge
   %232 = load ptr, ptr %5, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 424
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr [128 x %struct.bgl_lock], ptr %234, i64 0, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %235) #14
-  br label %.thread6
+  br label %.thread8
 
-.thread6:                                         ; preds = %.thread, %231, %221, %171, %167, %40, %38, %15, %4
+.thread8:                                         ; preds = %.thread, %231, %221, %171, %167, %40, %38, %15, %4
   %236 = phi i32 [ 0, %231 ], [ -74, %167 ], [ -117, %171 ], [ -117, %221 ], [ 0, %4 ], [ 0, %15 ], [ -117, %40 ], [ -117, %38 ], [ %spec.select, %.thread ]
   ret i32 %236
 }

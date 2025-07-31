@@ -68,12 +68,12 @@ define internal range(i32 0, 2) i32 @svg_decoder_info(ptr noundef writeonly capt
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = call i32 @lv_fs_read(ptr noundef nonnull %18, ptr noundef nonnull %16, i32 noundef 256, ptr noundef nonnull %4) #4
   %.not72 = icmp eq i32 %19, 0
-  br i1 %.not72, label %20, label %.thread84
+  br i1 %.not72, label %20, label %.critedge
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %4, align 4, !tbaa !23
   %22 = icmp ugt i32 %21, 3
-  br i1 %22, label %23, label %.thread84
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %20
   %24 = call i32 @lv_memcmp(ptr noundef nonnull %16, ptr noundef nonnull @.str.2, i64 noundef 4) #4
@@ -82,48 +82,48 @@ define internal range(i32 0, 2) i32 @svg_decoder_info(ptr noundef writeonly capt
 
 26:                                               ; preds = %23
   %.not.i = icmp eq i32 %21, 4
-  br i1 %.not.i, label %.thread84, label %27
+  br i1 %.not.i, label %.critedge, label %27
 
 27:                                               ; preds = %26
   %28 = call i32 @lv_memcmp(ptr noundef nonnull %16, ptr noundef nonnull @.str.3, i64 noundef 5) #4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %valid_svg_data.exit.preheader.preheader, label %.thread84
+  br i1 %29, label %valid_svg_data.exit.preheader.preheader, label %.critedge
 
 valid_svg_data.exit.preheader.preheader:          ; preds = %27, %23
   br label %valid_svg_data.exit.preheader
 
 valid_svg_data.exit.preheader:                    ; preds = %valid_svg_data.exit.preheader.preheader, %valid_svg_data.exit
-  %.065.idx91 = phi i64 [ %.065.add, %valid_svg_data.exit ], [ 0, %valid_svg_data.exit.preheader.preheader ]
-  %.06790 = phi ptr [ %.26979, %valid_svg_data.exit ], [ null, %valid_svg_data.exit.preheader.preheader ]
-  %.065.ptr92 = getelementptr inbounds nuw i8, ptr %16, i64 %.065.idx91
-  %30 = load i8, ptr %.065.ptr92, align 1, !tbaa !24
+  %.065.idx87 = phi i64 [ %.065.add, %valid_svg_data.exit ], [ 0, %valid_svg_data.exit.preheader.preheader ]
+  %.06786 = phi ptr [ %.26979, %valid_svg_data.exit ], [ null, %valid_svg_data.exit.preheader.preheader ]
+  %.065.ptr88 = getelementptr inbounds nuw i8, ptr %16, i64 %.065.idx87
+  %30 = load i8, ptr %.065.ptr88, align 1, !tbaa !24
   %31 = icmp eq i8 %30, 60
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %valid_svg_data.exit.preheader
-  %33 = getelementptr inbounds nuw i8, ptr %.065.ptr92, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.065.ptr88, i64 1
   %34 = call i32 @lv_strncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.1, i64 noundef 3) #4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %32, %valid_svg_data.exit.preheader
-  %.not73 = icmp eq ptr %.06790, null
+  %.not73 = icmp eq ptr %.06786, null
   br i1 %.not73, label %valid_svg_data.exit, label %.thread
 
 .thread:                                          ; preds = %32, %36
-  %.26978 = phi ptr [ %.06790, %36 ], [ %.065.ptr92, %32 ]
-  %37 = load i8, ptr %.065.ptr92, align 1, !tbaa !24
+  %.26978 = phi ptr [ %.06786, %36 ], [ %.065.ptr88, %32 ]
+  %37 = load i8, ptr %.065.ptr88, align 1, !tbaa !24
   %38 = icmp eq i8 %37, 62
   br i1 %38, label %39, label %valid_svg_data.exit
 
 valid_svg_data.exit:                              ; preds = %.thread, %36
   %.26979 = phi ptr [ %.26978, %.thread ], [ null, %36 ]
-  %.065.add = add nuw nsw i64 %.065.idx91, 1
+  %.065.add = add nuw nsw i64 %.065.idx87, 1
   %exitcond.not = icmp eq i64 %.065.add, 255
   br i1 %exitcond.not, label %.thread80, label %valid_svg_data.exit.preheader, !llvm.loop !25
 
 39:                                               ; preds = %.thread
-  %40 = ptrtoint ptr %.065.ptr92 to i64
+  %40 = ptrtoint ptr %.065.ptr88 to i64
   %41 = ptrtoint ptr %.26978 to i64
   %42 = sub i64 %40, %41
   %43 = trunc i64 %42 to i32
@@ -154,17 +154,12 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
   call void @lv_svg_node_delete(ptr noundef %44) #4
   br label %.thread80
 
-.thread84:                                        ; preds = %27, %26, %20, %17
-  call void @lv_free(ptr noundef nonnull %16) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  br label %valid_svg_data.exit75.thread
-
 .thread80:                                        ; preds = %valid_svg_data.exit, %57
   %.160 = phi i32 [ %.261, %57 ], [ 130, %valid_svg_data.exit ]
   %.156 = phi i32 [ %.257, %57 ], [ 130, %valid_svg_data.exit ]
   call void @lv_free(ptr noundef nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  br label %valid_svg_data.exit75.thread88
+  br label %valid_svg_data.exit75.thread84
 
 58:                                               ; preds = %8
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -183,7 +178,7 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
 70:                                               ; preds = %58
   %71 = tail call i32 @lv_memcmp(ptr noundef %68, ptr noundef nonnull @.str.2, i64 noundef 4) #4
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %valid_svg_data.exit75.thread88, label %73
+  br i1 %72, label %valid_svg_data.exit75.thread84, label %73
 
 73:                                               ; preds = %70
   %.not.i74 = icmp eq i32 %60, 4
@@ -192,9 +187,9 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
 valid_svg_data.exit75:                            ; preds = %73
   %74 = tail call i32 @lv_memcmp(ptr noundef %68, ptr noundef nonnull @.str.3, i64 noundef 5) #4
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %valid_svg_data.exit75.thread88, label %valid_svg_data.exit75.thread
+  br i1 %75, label %valid_svg_data.exit75.thread84, label %valid_svg_data.exit75.thread
 
-valid_svg_data.exit75.thread88:                   ; preds = %70, %.thread80, %valid_svg_data.exit75
+valid_svg_data.exit75.thread84:                   ; preds = %70, %.thread80, %valid_svg_data.exit75
   %.362 = phi i32 [ %.160, %.thread80 ], [ %66, %valid_svg_data.exit75 ], [ %66, %70 ]
   %.358 = phi i32 [ %.156, %.thread80 ], [ %64, %valid_svg_data.exit75 ], [ %64, %70 ]
   %76 = load i64, ptr %2, align 4
@@ -212,8 +207,13 @@ valid_svg_data.exit75.thread88:                   ; preds = %70, %.thread80, %va
   store ptr @svg_draw, ptr %86, align 8, !tbaa !52
   br label %valid_svg_data.exit75.thread
 
-valid_svg_data.exit75.thread:                     ; preds = %58, %73, %.thread84, %3, %valid_svg_data.exit75.thread88, %valid_svg_data.exit75, %12
-  %.3 = phi i32 [ 1, %valid_svg_data.exit75.thread88 ], [ 0, %valid_svg_data.exit75 ], [ 0, %12 ], [ 0, %3 ], [ 0, %.thread84 ], [ 0, %73 ], [ 0, %58 ]
+.critedge:                                        ; preds = %27, %26, %20, %17
+  call void @lv_free(ptr noundef nonnull %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  br label %valid_svg_data.exit75.thread
+
+valid_svg_data.exit75.thread:                     ; preds = %58, %73, %3, %valid_svg_data.exit75.thread84, %valid_svg_data.exit75, %12, %.critedge
+  %.3 = phi i32 [ 1, %valid_svg_data.exit75.thread84 ], [ 0, %valid_svg_data.exit75 ], [ 0, %12 ], [ 0, %.critedge ], [ 0, %3 ], [ 0, %73 ], [ 0, %58 ]
   ret i32 %.3
 }
 
@@ -227,9 +227,9 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   %6 = alloca %struct._lv_image_cache_data_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !9
-  switch i32 %8, label %.thread [
+  switch i32 %8, label %.critedge [
     i32 1, label %9
-    i32 0, label %40
+    i32 0, label %39
   ]
 
 9:                                                ; preds = %2
@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   %12 = tail call ptr @lv_fs_get_ext(ptr noundef %11) #4
   %13 = tail call i32 @lv_strcmp(ptr noundef %12, ptr noundef nonnull @.str.1) #4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
@@ -246,35 +246,35 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %16 = call i32 @lv_fs_open(ptr noundef nonnull %3, ptr noundef %11, i32 noundef 2) #4
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %17, label %.thread53
+  br i1 %.not.i, label %17, label %alloc_file.exit.thread
 
-.thread53:                                        ; preds = %15
+alloc_file.exit.thread:                           ; preds = %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
-  br label %.thread
+  br label %.critedge
 
 17:                                               ; preds = %15
   %18 = call i32 @lv_fs_seek(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 2) #4
   %.not15.i = icmp eq i32 %18, 0
-  br i1 %.not15.i, label %19, label %.thread57
+  br i1 %.not15.i, label %19, label %alloc_file.exit.thread53
 
 19:                                               ; preds = %17
   %20 = call i32 @lv_fs_tell(ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not16.i = icmp eq i32 %20, 0
-  br i1 %.not16.i, label %21, label %.thread57
+  br i1 %.not16.i, label %21, label %alloc_file.exit.thread53
 
 21:                                               ; preds = %19
   %22 = call i32 @lv_fs_seek(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #4
   %.not17.i = icmp eq i32 %22, 0
-  br i1 %.not17.i, label %23, label %.thread57
+  br i1 %.not17.i, label %23, label %alloc_file.exit.thread53
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %4, align 4, !tbaa !23
   %25 = zext i32 %24 to i64
   %26 = call ptr @lv_malloc(i64 noundef %25) #4
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread57, label %28
+  br i1 %27, label %alloc_file.exit.thread53, label %28
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %4, align 4, !tbaa !23
@@ -286,108 +286,108 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   %33 = load i32, ptr %5, align 4, !tbaa !23
   %34 = load i32, ptr %4, align 4, !tbaa !23
   %35 = icmp eq i32 %33, %34
-  br i1 %35, label %38, label %36
+  br i1 %35, label %alloc_file.exit, label %36
 
 36:                                               ; preds = %32, %28
   call void @lv_free(ptr noundef nonnull %26) #4
-  br label %.thread57
+  br label %alloc_file.exit.thread53
 
-.thread57:                                        ; preds = %17, %19, %21, %23, %36
+alloc_file.exit.thread53:                         ; preds = %17, %19, %21, %23, %36
   %37 = call i32 @lv_fs_close(ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
-  br label %.thread
+  br label %.critedge
 
-38:                                               ; preds = %32
-  %39 = call i32 @lv_fs_close(ptr noundef nonnull %3) #4
+alloc_file.exit:                                  ; preds = %32
+  %38 = call i32 @lv_fs_close(ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
-  br label %47
+  br label %46
 
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !51
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !49
-  br label %47
+39:                                               ; preds = %2
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !51
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %45 = load i32, ptr %44, align 4, !tbaa !49
+  br label %46
 
-47:                                               ; preds = %38, %40
-  %.149 = phi i32 [ %33, %38 ], [ %46, %40 ]
-  %.142 = phi ptr [ %26, %38 ], [ %44, %40 ]
-  %48 = call ptr @lv_svg_load_data(ptr noundef %.142, i32 noundef %.149) #4
-  %49 = call ptr @lv_svg_render_create(ptr noundef %48) #4
-  %50 = load i32, ptr %7, align 8, !tbaa !9
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %53
+46:                                               ; preds = %alloc_file.exit, %39
+  %.0 = phi i32 [ %33, %alloc_file.exit ], [ %45, %39 ]
+  %.142 = phi ptr [ %26, %alloc_file.exit ], [ %43, %39 ]
+  %47 = call ptr @lv_svg_load_data(ptr noundef %.142, i32 noundef %.0) #4
+  %48 = call ptr @lv_svg_render_create(ptr noundef %47) #4
+  %49 = load i32, ptr %7, align 8, !tbaa !9
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %47
+51:                                               ; preds = %46
   call void @lv_free(ptr noundef %.142) #4
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %47
-  call void @lv_svg_node_delete(ptr noundef %48) #4
-  %54 = call ptr @lv_zalloc(i64 noundef 40) #4
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = and i32 %56, -65536
-  %58 = or disjoint i32 %57, 4
-  store i32 %58, ptr %55, align 8
-  store i64 281479276924953, ptr %54, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr null, ptr %59, align 8, !tbaa !53
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr %49, ptr %60, align 8, !tbaa !56
-  %61 = call i32 @lv_svg_render_get_size(ptr noundef %49) #4
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  store i32 %61, ptr %62, align 4, !tbaa !57
-  %63 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store ptr @_svg_draw_buf_handler, ptr %63, align 8, !tbaa !58
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %54, ptr %64, align 8, !tbaa !59
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %66 = load i8, ptr %65, align 2, !tbaa !60, !range !61, !noundef !62
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %.thread, label %68
+52:                                               ; preds = %51, %46
+  call void @lv_svg_node_delete(ptr noundef %47) #4
+  %53 = call ptr @lv_zalloc(i64 noundef 40) #4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i32, ptr %54, align 8
+  %56 = and i32 %55, -65536
+  %57 = or disjoint i32 %56, 4
+  store i32 %57, ptr %54, align 8
+  store i64 281479276924953, ptr %53, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store ptr null, ptr %58, align 8, !tbaa !53
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  store ptr %48, ptr %59, align 8, !tbaa !56
+  %60 = call i32 @lv_svg_render_get_size(ptr noundef %48) #4
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 %60, ptr %61, align 4, !tbaa !57
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  store ptr @_svg_draw_buf_handler, ptr %62, align 8, !tbaa !58
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %53, ptr %63, align 8, !tbaa !59
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %65 = load i8, ptr %64, align 2, !tbaa !60, !range !61, !noundef !62
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %.critedge, label %67
 
-68:                                               ; preds = %53
-  %69 = call zeroext i1 @lv_image_cache_is_enabled() #4
-  br i1 %69, label %70, label %.thread
+67:                                               ; preds = %52
+  %68 = call zeroext i1 @lv_image_cache_is_enabled() #4
+  br i1 %68, label %69, label %.critedge
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #4
-  %71 = load i32, ptr %7, align 8, !tbaa !9
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %71, ptr %72, align 8, !tbaa !63
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !22
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %74, ptr %75, align 8, !tbaa !66
-  %76 = load ptr, ptr %64, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  %78 = load i32, ptr %77, align 4, !tbaa !57
-  %79 = zext i32 %78 to i64
-  store i64 %79, ptr %6, align 8, !tbaa !67
-  %80 = call ptr @lv_image_decoder_add_to_cache(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %54, ptr noundef null) #4
-  %.not = icmp eq ptr %80, null
-  br i1 %.not, label %.thread61, label %81
+  %70 = load i32, ptr %7, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %70, ptr %71, align 8, !tbaa !63
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %73 = load ptr, ptr %72, align 8, !tbaa !22
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %73, ptr %74, align 8, !tbaa !66
+  %75 = load ptr, ptr %63, align 8, !tbaa !59
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
+  %77 = load i32, ptr %76, align 4, !tbaa !57
+  %78 = zext i32 %77 to i64
+  store i64 %78, ptr %6, align 8, !tbaa !67
+  %79 = call ptr @lv_image_decoder_add_to_cache(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %53, ptr noundef null) #4
+  %.not = icmp eq ptr %79, null
+  br i1 %.not, label %.thread, label %80
 
-.thread61:                                        ; preds = %70
-  call void @lv_draw_buf_destroy(ptr noundef nonnull %54) #4
+.thread:                                          ; preds = %69
+  call void @lv_draw_buf_destroy(ptr noundef nonnull %53) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
-  br label %.thread
+  br label %.critedge
 
-81:                                               ; preds = %70
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %80, ptr %82, align 8, !tbaa !68
+80:                                               ; preds = %69
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr %79, ptr %81, align 8, !tbaa !68
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %53, %68, %81, %.thread61, %.thread57, %.thread53, %2
-  %.1 = phi i32 [ 0, %2 ], [ 0, %.thread53 ], [ 0, %.thread57 ], [ 0, %.thread61 ], [ 1, %81 ], [ 1, %68 ], [ 1, %53 ], [ 0, %9 ]
+.critedge:                                        ; preds = %52, %67, %80, %.thread, %alloc_file.exit.thread53, %alloc_file.exit.thread, %9, %2
+  %.1 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %alloc_file.exit.thread ], [ 0, %alloc_file.exit.thread53 ], [ 0, %.thread ], [ 1, %80 ], [ 1, %67 ], [ 1, %52 ]
   ret i32 %.1
 }
 

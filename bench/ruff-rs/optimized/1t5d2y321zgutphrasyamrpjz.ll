@@ -35224,7 +35224,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %.idx = shl nuw nsw i64 %30, 4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %32 = icmp eq i64 %30, 0
-  br i1 %32, label %._crit_edge.thread, label %.lr.ph
+  br i1 %32, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %33 = load ptr, ptr %4, align 8, !alias.scope !6180, !noalias !6183, !nonnull !3, !align !333, !noundef !3
@@ -35293,7 +35293,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %spec.select, label %53, label %52
 
-._crit_edge.thread:                               ; preds = %27
+.critedge:                                        ; preds = %27
   store i8 1, ptr %0, align 8
   call void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..builder..UnionBuilder$GT$17h79db15de5b35d9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
   br label %54
@@ -35310,7 +35310,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %54
 
-54:                                               ; preds = %._crit_edge.thread, %53, %52
+54:                                               ; preds = %.critedge, %53, %52
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   ret void
 
@@ -35373,7 +35373,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %23 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN5salsa8interned23IngredientImpl$LT$C$GT$4data17hc2c42b4161164d87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noundef nonnull align 1 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %21, i32 noundef %20)
           to label %25 unwind label %.loopexit.split-lp
 
-24:                                               ; preds = %59
+24:                                               ; preds = %60
   resume { ptr, i32 } %lpad.phi
 
 25:                                               ; preds = %.noexc11
@@ -35384,7 +35384,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %.idx = shl nuw nsw i64 %28, 4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %._crit_edge.thread, label %.lr.ph
+  br i1 %30, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
   %31 = load ptr, ptr %4, align 8, !alias.scope !6201, !noalias !6204, !nonnull !3, !align !333, !noundef !3
@@ -35398,12 +35398,17 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %39 = load ptr, ptr %38, align 8, !alias.scope !6201, !noalias !6204, !nonnull !3, !align !337, !noundef !3
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  br label %.outer
+
+.outer:                                           ; preds = %.thread, %.lr.ph
+  %.sroa.01.022.ph = phi i1 [ false, %.thread ], [ true, %.lr.ph ]
+  %.sroa.04.021.ph = phi i1 [ %spec.select, %.thread ], [ false, %.lr.ph ]
+  %.sroa.07.020.ph = phi ptr [ %43, %.thread ], [ %26, %.lr.ph ]
   br label %42
 
-42:                                               ; preds = %.lr.ph, %51
-  %.sroa.01.022 = phi i1 [ true, %.lr.ph ], [ %.sroa.01.1, %51 ]
-  %.sroa.04.021 = phi i1 [ false, %.lr.ph ], [ %.sroa.04.1, %51 ]
-  %.sroa.07.020 = phi ptr [ %26, %.lr.ph ], [ %43, %51 ]
+42:                                               ; preds = %.outer, %48
+  %.sroa.04.021 = phi i1 [ true, %48 ], [ %.sroa.04.021.ph, %.outer ]
+  %.sroa.07.020 = phi ptr [ %43, %48 ], [ %.sroa.07.020.ph, %.outer ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.07.020, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !6201)
@@ -35417,83 +35422,94 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   invoke void @_ZN18ty_python_semantic6symbol6Symbol19try_call_dunder_get17hb7c1713892ef971eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6)
           to label %45 unwind label %.loopexit
 
-._crit_edge:                                      ; preds = %51
-  br i1 %.sroa.01.1, label %._crit_edge.thread, label %53
+._crit_edge:                                      ; preds = %48
+  br i1 %.sroa.01.022.ph, label %.critedge, label %._crit_edge.thread.thread
+
+._crit_edge.thread.thread:                        ; preds = %._crit_edge
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
+  call void @_ZN18ty_python_semantic5types7builder12UnionBuilder5build17h9e4b0852bee80266E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  br label %56
 
 45:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6207
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !6207
   %46 = load i8, ptr %13, align 8, !range !336, !noundef !3
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %51, label %48
+  br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  %49 = icmp eq ptr %43, %29
+  br i1 %49, label %._crit_edge, label %42
+
+.thread:                                          ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
-  %49 = load i8, ptr %41, align 1, !range !336, !noundef !3
-  %50 = trunc nuw i8 %49 to i1
-  %spec.select = select i1 %50, i1 true, i1 %.sroa.04.021
+  %50 = load i8, ptr %41, align 1, !range !336, !noundef !3
+  %51 = trunc nuw i8 %50 to i1
+  %spec.select = select i1 %51, i1 true, i1 %.sroa.04.021
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
   call void @_ZN18ty_python_semantic5types7builder12UnionBuilder3add17h28f3530f10c2b3d5E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  br label %51
-
-51:                                               ; preds = %45, %48
-  %.sroa.04.1 = phi i1 [ %spec.select, %48 ], [ true, %45 ]
-  %.sroa.01.1 = phi i1 [ false, %48 ], [ %.sroa.01.022, %45 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %52 = icmp eq ptr %43, %29
-  br i1 %52, label %._crit_edge, label %42
+  br i1 %52, label %._crit_edge.thread, label %.outer
 
-53:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
   call void @_ZN18ty_python_semantic5types7builder12UnionBuilder5build17h9e4b0852bee80266E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  br i1 %spec.select, label %56, label %53
+
+.critedge:                                        ; preds = %25, %._crit_edge
+  store i8 1, ptr %0, align 8
+  call void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..builder..UnionBuilder$GT$17h79db15de5b35d9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
+  br label %59
+
+53:                                               ; preds = %._crit_edge.thread
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br i1 %.sroa.04.1, label %57, label %56
-
-._crit_edge.thread:                               ; preds = %25, %._crit_edge
-  store i8 1, ptr %0, align 8
-  call void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..builder..UnionBuilder$GT$17h79db15de5b35d9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
-  br label %58
-
-56:                                               ; preds = %53
   store i8 0, ptr %55, align 1
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %58
+  br label %59
 
-57:                                               ; preds = %53
-  store i8 1, ptr %55, align 1
+56:                                               ; preds = %._crit_edge.thread.thread, %._crit_edge.thread
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %58, align 1
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %._crit_edge.thread, %57, %56
+59:                                               ; preds = %.critedge, %56, %53
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   ret void
 
 .loopexit:                                        ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 .loopexit.split-lp:                               ; preds = %.noexc11, %.noexc10, %.noexc, %5
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
-59:                                               ; preds = %.loopexit.split-lp, %.loopexit
+60:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..builder..UnionBuilder$GT$17h79db15de5b35d9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #40
-          to label %24 unwind label %60
+          to label %24 unwind label %61
 
-60:                                               ; preds = %59
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %60
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #41
   unreachable
@@ -35550,7 +35566,7 @@ define hidden void @_ZN18ty_python_semantic5types9UnionType18map_with_boundness1
   %.idx = shl nuw nsw i64 %30, 4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %32 = icmp eq i64 %30, 0
-  br i1 %32, label %._crit_edge.thread, label %.lr.ph
+  br i1 %32, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %33 = load ptr, ptr %4, align 8, !alias.scope !6212, !noalias !6215, !nonnull !3, !align !333, !noundef !3
@@ -35773,7 +35789,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
 ._crit_edge:                                      ; preds = %76, %63, %52
   %.sroa.04.0.lcssa = phi i1 [ %.sroa.04.1.us, %52 ], [ %.sroa.04.1.us38, %63 ], [ %.sroa.04.1, %76 ]
   %.sroa.01.0.lcssa = phi i1 [ %.sroa.01.1.us, %52 ], [ %.sroa.01.1.us39, %63 ], [ %.sroa.01.1, %76 ]
-  br i1 %.sroa.01.0.lcssa, label %._crit_edge.thread, label %78
+  br i1 %.sroa.01.0.lcssa, label %.critedge, label %78
 
 72:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !6218
@@ -35816,7 +35832,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %.sroa.04.0.lcssa, label %82, label %81
 
-._crit_edge.thread:                               ; preds = %27, %._crit_edge
+.critedge:                                        ; preds = %27, %._crit_edge
   store i8 1, ptr %0, align 8
   call void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..builder..UnionBuilder$GT$17h79db15de5b35d9dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
   br label %83
@@ -35833,7 +35849,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %83
 
-83:                                               ; preds = %._crit_edge.thread, %82, %81
+83:                                               ; preds = %.critedge, %82, %81
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   ret void
 
@@ -36637,7 +36653,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %29, label %36
 
-28:                                               ; preds = %73
+28:                                               ; preds = %72
   resume { ptr, i32 } %lpad.phi
 
 29:                                               ; preds = %5
@@ -36664,7 +36680,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
 
 36:                                               ; preds = %5
   call void @_ZN18ty_python_semantic6symbol6Symbol4todo17h46c9dc3ecf64dac9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.4370228678aea563ecef3852b2bac777.239, i64 noundef 61)
-  br label %72
+  br label %71
 
 37:                                               ; preds = %.noexc12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !6280
@@ -36675,7 +36691,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %.idx = mul nuw nsw i64 %41, 24
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %43 = icmp eq i64 %41, 0
-  br i1 %43, label %._crit_edge.thread, label %.lr.ph
+  br i1 %43, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %44 = load ptr, ptr %4, align 8, !alias.scope !6283, !noalias !6286, !nonnull !3, !align !333, !noundef !3
@@ -36689,12 +36705,16 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %52 = load ptr, ptr %51, align 8, !alias.scope !6283, !noalias !6286, !nonnull !3, !align !337, !noundef !3
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  br label %.outer
+
+.outer:                                           ; preds = %.thread, %.lr.ph
+  %.sroa.0.023.ph = phi ptr [ %56, %.thread ], [ %39, %.lr.ph ]
+  %.sroa.02.022.ph = phi i1 [ false, %.thread ], [ true, %.lr.ph ]
+  %.sroa.05.021.ph = phi i1 [ %spec.select, %.thread ], [ false, %.lr.ph ]
   br label %55
 
-55:                                               ; preds = %.lr.ph, %61
-  %.sroa.0.023 = phi ptr [ %39, %.lr.ph ], [ %56, %61 ]
-  %.sroa.02.022 = phi i1 [ true, %.lr.ph ], [ %.sroa.02.1, %61 ]
-  %.sroa.05.021 = phi i1 [ false, %.lr.ph ], [ %.sroa.05.1, %61 ]
+55:                                               ; preds = %.outer, %61
+  %.sroa.0.023 = phi ptr [ %56, %61 ], [ %.sroa.0.023.ph, %.outer ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !6283)
@@ -36709,85 +36729,86 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
           to label %58 unwind label %.loopexit
 
 ._crit_edge:                                      ; preds = %61
-  br i1 %.sroa.02.1, label %._crit_edge.thread, label %66
+  br i1 %.sroa.02.022.ph, label %.critedge, label %._crit_edge.thread
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !6289
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !6289
   %59 = load i8, ptr %14, align 8, !range !336, !noundef !3
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %63
+  br i1 %60, label %61, label %.thread
 
-61:                                               ; preds = %63, %58
-  %.sroa.05.1 = phi i1 [ %.sroa.05.021, %58 ], [ %spec.select, %63 ]
-  %.sroa.02.1 = phi i1 [ %.sroa.02.022, %58 ], [ false, %63 ]
+61:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   %62 = icmp eq ptr %56, %42
   br i1 %62, label %._crit_edge, label %55
 
-63:                                               ; preds = %58
+.thread:                                          ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
-  %64 = load i8, ptr %54, align 1, !range !336, !noundef !3
-  %65 = icmp eq i8 %64, 0
-  %spec.select = select i1 %65, i1 true, i1 %.sroa.05.021
+  %63 = load i8, ptr %54, align 1, !range !336, !noundef !3
+  %64 = icmp eq i8 %63, 0
+  %spec.select = select i1 %64, i1 true, i1 %.sroa.05.021.ph
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
   call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder12add_positive17h51e777b88df9e872E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  br label %61
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  %65 = icmp eq ptr %56, %42
+  br i1 %65, label %._crit_edge.thread, label %.outer
 
-66:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
+  %.sroa.05.12731 = phi i1 [ %.sroa.05.021.ph, %._crit_edge ], [ %spec.select, %.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
   call void @_ZN18ty_python_semantic5types7builder19IntersectionBuilder5build17h8202f064ed1c5fb4E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br i1 %.sroa.05.1, label %70, label %69
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br i1 %.sroa.05.12731, label %69, label %68
 
-._crit_edge.thread:                               ; preds = %37, %._crit_edge
+.critedge:                                        ; preds = %37, %._crit_edge
   store i8 1, ptr %0, align 8
   call void @"_ZN4core3ptr76drop_in_place$LT$ty_python_semantic..types..builder..IntersectionBuilder$GT$17habe4efc603560633E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
-  br label %71
+  br label %70
 
-69:                                               ; preds = %66
-  store i8 1, ptr %68, align 1
+68:                                               ; preds = %._crit_edge.thread
+  store i8 1, ptr %67, align 1
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %71
+  br label %70
 
-70:                                               ; preds = %66
-  store i8 0, ptr %68, align 1
+69:                                               ; preds = %._crit_edge.thread
+  store i8 0, ptr %67, align 1
   store i8 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %._crit_edge.thread, %70, %69
+70:                                               ; preds = %.critedge, %69, %68
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %36, %71
+71:                                               ; preds = %36, %70
   ret void
 
 .loopexit:                                        ; preds = %55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 .loopexit.split-lp:                               ; preds = %.noexc12, %.noexc11, %.noexc, %29
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.loopexit.split-lp, %.loopexit
+72:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$ty_python_semantic..types..builder..IntersectionBuilder$GT$17habe4efc603560633E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15) #40
-          to label %28 unwind label %74
+          to label %28 unwind label %73
 
-74:                                               ; preds = %73
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #41
   unreachable
@@ -36865,7 +36886,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %.idx = mul nuw nsw i64 %43, 24
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
-  br i1 %45, label %._crit_edge.thread, label %.lr.ph
+  br i1 %45, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
   %46 = load ptr, ptr %4, align 8, !alias.scope !6297, !noalias !6300, !nonnull !3, !align !333, !noundef !3
@@ -36934,7 +36955,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %spec.select, label %66, label %65
 
-._crit_edge.thread:                               ; preds = %39
+.critedge:                                        ; preds = %39
   store i8 1, ptr %0, align 8
   call void @"_ZN4core3ptr76drop_in_place$LT$ty_python_semantic..types..builder..IntersectionBuilder$GT$17habe4efc603560633E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
   br label %67
@@ -36951,7 +36972,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %67
 
-67:                                               ; preds = %._crit_edge.thread, %66, %65
+67:                                               ; preds = %.critedge, %66, %65
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %68
 
@@ -37052,7 +37073,7 @@ define hidden void @_ZN18ty_python_semantic5types16IntersectionType18map_with_bo
   %.idx = mul nuw nsw i64 %43, 24
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
-  br i1 %45, label %._crit_edge.thread, label %.lr.ph
+  br i1 %45, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
   %46 = load ptr, ptr %4, align 8, !alias.scope !6321, !noalias !6324, !nonnull !3, !align !333, !noundef !3
@@ -37275,7 +37296,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
 ._crit_edge:                                      ; preds = %87, %76, %65
   %.sroa.05.0.lcssa = phi i1 [ %.sroa.05.1.us, %65 ], [ %.sroa.05.1.us39, %76 ], [ %.sroa.05.1, %87 ]
   %.sroa.02.0.lcssa = phi i1 [ %.sroa.02.1.us, %65 ], [ %.sroa.02.1.us40, %76 ], [ %.sroa.02.1, %87 ]
-  br i1 %.sroa.02.0.lcssa, label %._crit_edge.thread, label %91
+  br i1 %.sroa.02.0.lcssa, label %.critedge, label %91
 
 85:                                               ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !6327
@@ -37318,7 +37339,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %.sroa.05.0.lcssa, label %95, label %94
 
-._crit_edge.thread:                               ; preds = %39, %._crit_edge
+.critedge:                                        ; preds = %39, %._crit_edge
   store i8 1, ptr %0, align 8
   call void @"_ZN4core3ptr76drop_in_place$LT$ty_python_semantic..types..builder..IntersectionBuilder$GT$17habe4efc603560633E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
   br label %96
@@ -37335,7 +37356,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread.i: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %96
 
-96:                                               ; preds = %._crit_edge.thread, %95, %94
+96:                                               ; preds = %.critedge, %95, %94
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %97
 

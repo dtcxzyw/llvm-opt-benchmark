@@ -1456,8 +1456,8 @@ define hidden noundef zeroext i1 @_ZN7scanner11read_paramsEv(ptr noundef nonnull
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = add i32 %7, -12
-  %spec.select.i66 = icmp ult i32 %8, -2
-  br i1 %spec.select.i66, label %.lr.ph, label %_ZN7scanner11unread_charEv.exit.thread
+  %spec.select.i64 = icmp ult i32 %8, -2
+  br i1 %spec.select.i64, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 385
@@ -1477,7 +1477,7 @@ define hidden noundef zeroext i1 @_ZN7scanner11read_paramsEv(ptr noundef nonnull
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZN7scanner11unread_charEv.exit
-  %.02067 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN7scanner11unread_charEv.exit ]
+  %.02065 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN7scanner11unread_charEv.exit ]
   %24 = load i8, ptr %9, align 1, !tbaa !23, !range !24, !noundef !25
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %31
@@ -1560,14 +1560,14 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
   ]
 
 70:                                               ; preds = %_ZN7scanner9read_charEv.exit
-  %71 = mul i32 %.02067, 10
+  %71 = mul i32 %.02065, 10
   %72 = add i32 %71, -48
   %73 = add i32 %72, %.0.i
   br label %_ZN7scanner11unread_charEv.exit
 
 74:                                               ; preds = %_ZN7scanner9read_charEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #20
-  store i32 %.02067, ptr %2, align 8, !tbaa !59
+  store i32 %.02065, ptr %2, align 8, !tbaa !59
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %75, align 8, !tbaa !61
   %76 = load ptr, ptr %18, align 8, !tbaa !44
@@ -1615,7 +1615,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
   store i32 %97, ptr %95, align 4, !tbaa !40
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
-  br label %_ZN7scanner11unread_charEv.exit.thread
+  br label %.critedge
 
 98:                                               ; preds = %84
   %99 = landingpad { ptr, i32 }
@@ -1626,7 +1626,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
 
 100:                                              ; preds = %_ZN7scanner9read_charEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
-  store i32 %.02067, ptr %3, align 8, !tbaa !59
+  store i32 %.02065, ptr %3, align 8, !tbaa !59
   store i8 0, ptr %19, align 8, !tbaa !61
   %101 = load ptr, ptr %18, align 8, !tbaa !44
   %102 = icmp eq ptr %101, null
@@ -1739,7 +1739,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %128, %_ZN6vectorIcL
   %152 = load i32, ptr %16, align 4, !tbaa !26
   %153 = add nsw i32 %152, 1
   store i32 %153, ptr %16, align 4, !tbaa !26
-  %.pre75 = load ptr, ptr %13, align 8, !tbaa !30
+  %.pre73 = load ptr, ptr %13, align 8, !tbaa !30
   br label %176
 
 154:                                              ; preds = %149
@@ -1772,7 +1772,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %128, %_ZN6vectorIcL
   br i1 %173, label %176, label %_ZN7scanner9read_charEv.exit38.thread
 
 176:                                              ; preds = %154, %.thread.i37
-  %177 = phi ptr [ %.pre75, %.thread.i37 ], [ %169, %154 ]
+  %177 = phi ptr [ %.pre73, %.thread.i37 ], [ %169, %154 ]
   %178 = phi i32 [ %150, %.thread.i37 ], [ 1, %154 ]
   %179 = add nuw i32 %178, 1
   store i32 %179, ptr %10, align 8, !tbaa !28
@@ -1878,7 +1878,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit42:           ; preds = %188, %194
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  br i1 %185, label %226, label %_ZN7scanner11unread_charEv.exit.thread
+  br i1 %185, label %226, label %.critedge
 
 226:                                              ; preds = %221
   %227 = load i32, ptr %16, align 4, !tbaa !26
@@ -1947,19 +1947,19 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit51:           ; preds = %249, %255
   br label %137, !llvm.loop !64
 
 _ZN7scanner11unread_charEv.exit:                  ; preds = %234, %231, %70, %118, %.loopexit
-  %.2 = phi i32 [ %.02067, %.loopexit ], [ %73, %70 ], [ 0, %118 ], [ 0, %231 ], [ 0, %234 ]
+  %.2 = phi i32 [ %.02065, %.loopexit ], [ %73, %70 ], [ 0, %118 ], [ 0, %231 ], [ 0, %234 ]
   %260 = load i32, ptr %6, align 4, !tbaa !3
   %261 = add i32 %260, -12
   %spec.select.i = icmp ult i32 %261, -2
-  br i1 %spec.select.i, label %23, label %_ZN7scanner11unread_charEv.exit.thread, !llvm.loop !65
+  br i1 %spec.select.i, label %23, label %.critedge, !llvm.loop !65
 
 262:                                              ; preds = %237, %123, %98
   %.pn = phi { ptr, i32 } [ %238, %237 ], [ %99, %98 ], [ %124, %123 ]
   resume { ptr, i32 } %.pn
 
-_ZN7scanner11unread_charEv.exit.thread:           ; preds = %_ZN7scanner11unread_charEv.exit, %221, %1, %93
-  %spec.select.i62 = phi i1 [ true, %93 ], [ false, %1 ], [ false, %_ZN7scanner11unread_charEv.exit ], [ true, %221 ]
-  ret i1 %spec.select.i62
+.critedge:                                        ; preds = %_ZN7scanner11unread_charEv.exit, %221, %1, %93
+  %spec.select.i60 = phi i1 [ true, %93 ], [ false, %1 ], [ false, %_ZN7scanner11unread_charEv.exit ], [ true, %221 ]
+  ret i1 %spec.select.i60
 }
 
 declare i32 @__gxx_personality_v0(...)

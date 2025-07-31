@@ -23859,7 +23859,7 @@ define internal void @moduleScanKeyCallback(ptr noundef readonly captures(none) 
   %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 15
-  switch i32 %8, label %.thread38 [
+  switch i32 %8, label %.thread [
     i32 3, label %42
     i32 4, label %9
   ]
@@ -23876,7 +23876,7 @@ define internal void @moduleScanKeyCallback(ptr noundef readonly captures(none) 
 15:                                               ; preds = %9
   %16 = tail call i32 @hfieldIsExpired(ptr noundef %3) #35
   %.not30 = icmp eq i32 %16, 0
-  br i1 %.not30, label %17, label %79
+  br i1 %.not30, label %17, label %.critedge
 
 17:                                               ; preds = %15, %9
   %18 = tail call i64 @mstrlen(ptr noundef %3) #35
@@ -23926,16 +23926,16 @@ define internal void @moduleScanKeyCallback(ptr noundef readonly captures(none) 
   %44 = load double, ptr %43, align 8, !tbaa !344
   %45 = fpext double %44 to x86_fp80
   %46 = tail call ptr @createStringObjectFromLongDouble(x86_fp80 noundef %45, i32 noundef 0) #35
-  br label %.thread38
+  br label %.thread
 
 47:                                               ; preds = %39, %35, %31, %27, %24, %17
   %.0.i = phi i64 [ %26, %24 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %41, %39 ], [ 0, %17 ]
   %48 = tail call ptr @createStringObject(ptr noundef nonnull %10, i64 noundef %.0.i) #35
   %.not31 = icmp eq ptr %19, null
-  br i1 %.not31, label %.thread38, label %72
+  br i1 %.not31, label %.thread, label %72
 
-.thread38:                                        ; preds = %2, %42, %47
-  %.02743 = phi ptr [ %48, %47 ], [ null, %2 ], [ %46, %42 ]
+.thread:                                          ; preds = %2, %42, %47
+  %.02739 = phi ptr [ %48, %47 ], [ null, %2 ], [ %46, %42 ]
   %49 = getelementptr inbounds i8, ptr %3, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !60
   %51 = zext i8 %50 to i32
@@ -23948,57 +23948,57 @@ define internal void @moduleScanKeyCallback(ptr noundef readonly captures(none) 
     i32 4, label %68
   ]
 
-53:                                               ; preds = %.thread38
+53:                                               ; preds = %.thread
   %54 = lshr i32 %51, 3
   %55 = zext nneg i32 %54 to i64
   br label %sdslen.exit34
 
-56:                                               ; preds = %.thread38
+56:                                               ; preds = %.thread
   %57 = getelementptr inbounds i8, ptr %3, i64 -3
   %58 = load i8, ptr %57, align 1, !tbaa !60
   %59 = zext i8 %58 to i64
   br label %sdslen.exit34
 
-60:                                               ; preds = %.thread38
+60:                                               ; preds = %.thread
   %61 = getelementptr inbounds i8, ptr %3, i64 -5
   %62 = load i16, ptr %61, align 1, !tbaa !270
   %63 = zext i16 %62 to i64
   br label %sdslen.exit34
 
-64:                                               ; preds = %.thread38
+64:                                               ; preds = %.thread
   %65 = getelementptr inbounds i8, ptr %3, i64 -9
   %66 = load i32, ptr %65, align 1, !tbaa !22
   %67 = zext i32 %66 to i64
   br label %sdslen.exit34
 
-68:                                               ; preds = %.thread38
+68:                                               ; preds = %.thread
   %69 = getelementptr inbounds i8, ptr %3, i64 -17
   %70 = load i64, ptr %69, align 1, !tbaa !24
   br label %sdslen.exit34
 
-sdslen.exit34:                                    ; preds = %.thread38, %53, %56, %60, %64, %68
-  %.0.i33 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ], [ 0, %.thread38 ]
+sdslen.exit34:                                    ; preds = %.thread, %53, %56, %60, %64, %68
+  %.0.i33 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ], [ 0, %.thread ]
   %71 = tail call ptr @createStringObject(ptr noundef nonnull %3, i64 noundef %.0.i33) #35
   br label %72
 
 72:                                               ; preds = %sdslen.exit34, %47
-  %.02742 = phi ptr [ %48, %47 ], [ %.02743, %sdslen.exit34 ]
+  %.02738 = phi ptr [ %48, %47 ], [ %.02739, %sdslen.exit34 ]
   %.2 = phi ptr [ %19, %47 ], [ %71, %sdslen.exit34 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !591
   %75 = load ptr, ptr %0, align 8, !tbaa !587
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !590
-  tail call void %74(ptr noundef %75, ptr noundef %.2, ptr noundef %.02742, ptr noundef %77) #35
+  tail call void %74(ptr noundef %75, ptr noundef %.2, ptr noundef %.02738, ptr noundef %77) #35
   tail call void @decrRefCount(ptr noundef %.2) #35
-  %.not32 = icmp eq ptr %.02742, null
-  br i1 %.not32, label %79, label %78
+  %.not32 = icmp eq ptr %.02738, null
+  br i1 %.not32, label %.critedge, label %78
 
 78:                                               ; preds = %72
-  tail call void @decrRefCount(ptr noundef nonnull %.02742) #35
-  br label %79
+  tail call void @decrRefCount(ptr noundef nonnull %.02738) #35
+  br label %.critedge
 
-79:                                               ; preds = %15, %72, %78
+.critedge:                                        ; preds = %15, %72, %78
   ret void
 }
 
@@ -24244,8 +24244,8 @@ define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr noundef read
   %15 = load ptr, ptr @RedisModule_EventListeners, align 8, !tbaa !372
   call void @listRewind(ptr noundef %15, ptr noundef nonnull %5) #35
   %16 = call ptr @listNext(ptr noundef nonnull %5) #35
-  %.not28 = icmp eq ptr %16, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq ptr %16, null
+  br i1 %.not27, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %27
   %17 = phi ptr [ %28, %27 ], [ %16, %14 ]
@@ -24265,7 +24265,7 @@ define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr noundef read
 27:                                               ; preds = %23, %.lr.ph
   %28 = call ptr @listNext(ptr noundef nonnull %5) #35
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !605
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !605
 
 29:                                               ; preds = %23
   %30 = icmp eq ptr %3, null
@@ -24282,7 +24282,7 @@ define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr noundef read
   store ptr %3, ptr %34, align 8, !tbaa !606
   br label %41
 
-._crit_edge:                                      ; preds = %27, %14
+.critedge:                                        ; preds = %27, %14
   %35 = call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #36
   %36 = load ptr, ptr %6, align 8, !tbaa !91
   store ptr %36, ptr %35, align 8, !tbaa !601
@@ -24296,7 +24296,7 @@ define dso_local range(i32 0, 2) i32 @RM_SubscribeToServerEvent(ptr noundef read
   %40 = call ptr @listAddNodeTail(ptr noundef %39, ptr noundef nonnull %35) #35
   br label %41
 
-41:                                               ; preds = %31, %33, %._crit_edge
+41:                                               ; preds = %31, %33, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
   br label %42
 

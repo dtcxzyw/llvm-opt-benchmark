@@ -2537,15 +2537,15 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
   %28 = load i8, ptr %27, align 8, !tbaa !41, !range !81, !noundef !82
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %.thread49
+  br i1 %29, label %30, label %.thread48
 
 30:                                               ; preds = %26, %_ZN4abslL13GetSynchEventEPKv.exit
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3) #27
   %31 = call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %3, i32 noundef 40, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 960, ptr nonnull %4) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
-  %.not54 = icmp eq i32 %31, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
+  %.not53 = icmp eq i32 %31, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
   %32 = zext i32 %31 to i64
@@ -2553,8 +2553,8 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %.056 = phi i32 [ 2, %.lr.ph.preheader ], [ %42, %41 ]
-  %33 = zext nneg i32 %.056 to i64
+  %.055 = phi i32 [ 2, %.lr.ph.preheader ], [ %42, %41 ]
+  %33 = zext nneg i32 %.055 to i64
   %34 = getelementptr inbounds nuw [960 x i8], ptr %4, i64 0, i64 %33
   %35 = sub nsw i64 960, %33
   %36 = getelementptr inbounds nuw [40 x ptr], ptr %3, i64 0, i64 %indvars.iv
@@ -2567,12 +2567,12 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   br i1 %or.cond40, label %41, label %._crit_edge
 
 41:                                               ; preds = %.lr.ph
-  %42 = add nuw nsw i32 %38, %.056
+  %42 = add nuw nsw i32 %38, %.055
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
-._crit_edge:                                      ; preds = %41, %.lr.ph, %30
+._crit_edge:                                      ; preds = %.lr.ph, %41, %30
   %43 = zext nneg i32 %1 to i64
   %44 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %43, i32 1
   %45 = load ptr, ptr %44, align 8, !tbaa !112
@@ -2589,48 +2589,48 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %or.cond = and i1 %52, %51
   br i1 %or.cond, label %57, label %63
 
-.thread49:                                        ; preds = %26
+.thread48:                                        ; preds = %26
   %53 = zext nneg i32 %1 to i64
   %54 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %53
   %55 = load i32, ptr %54, align 16, !tbaa !115
   %56 = and i32 %55, 2
-  %.not52 = icmp eq i32 %56, 0
-  br i1 %.not52, label %.thread51, label %57
+  %.not51 = icmp eq i32 %56, 0
+  br i1 %.not51, label %.thread50, label %57
 
-57:                                               ; preds = %.thread49, %._crit_edge
+57:                                               ; preds = %.thread48, %._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !54
   %.not39 = icmp eq ptr %59, null
-  br i1 %.not39, label %.thread51, label %60
+  br i1 %.not39, label %.thread50, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !55
   call void %59(ptr noundef %62)
-  br label %.thread51
+  br label %.thread50
 
 63:                                               ; preds = %._crit_edge
-  br i1 %25, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit, label %.thread51
+  br i1 %25, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit, label %.thread50
 
-.thread51:                                        ; preds = %57, %60, %.thread49, %63
+.thread50:                                        ; preds = %57, %60, %.thread48, %63
   %64 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %65 = and i32 %64, 1
-  %.not.i.i.i.i43 = icmp eq i32 %65, 0
-  br i1 %.not.i.i.i.i43, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i47, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i44
+  %.not.i.i.i.i42 = icmp eq i32 %65, 0
+  br i1 %.not.i.i.i.i42, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i47: ; preds = %.thread51
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46: ; preds = %.thread50
   %66 = or disjoint i32 %64, 1
   %67 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %64, i32 %66 acquire monotonic, align 4
   %68 = extractvalue { i32, i1 } %67, 0
-  %.pre.i.i.i48 = and i32 %68, 1
-  %69 = icmp eq i32 %.pre.i.i.i48, 0
-  br i1 %69, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i45, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i44
+  %.pre.i.i.i47 = and i32 %68, 1
+  %69 = icmp eq i32 %.pre.i.i.i47, 0
+  br i1 %69, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
-_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i44: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i47, %.thread51
+_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, %.thread50
   call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #29
-  br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i45
+  br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
 
-_ZN4absl13base_internal8SpinLock4LockEv.exit.i45: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i44, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i47
+_ZN4absl13base_internal8SpinLock4LockEv.exit.i44: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46
   %70 = load i32, ptr %.011.i, align 8, !tbaa !44
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %.011.i, align 8, !tbaa !44
@@ -2638,14 +2638,14 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit.i45: ; preds = %_ZN4absl13base_inte
   %73 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
   %74 = and i32 %73, 2
   %75 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %74 release, align 4
-  %.not4.i.i46 = icmp ult i32 %75, 8
-  br i1 %.not4.i.i46, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %76
+  %.not4.i.i45 = icmp ult i32 %75, 8
+  br i1 %.not4.i.i45, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %76
 
-76:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i45
+76:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
   call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %75) #29
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %76, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i45
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %76, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
   br i1 %72, label %77, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
 77:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
@@ -3480,17 +3480,17 @@ define dso_local void @_ZN4absl5Mutex3FerEPNS_13base_internal14PerThreadSynchE(p
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit, %13
+._crit_edge:                                      ; preds = %_ZN4absl24synchronization_internal10MutexDelayEii.exit, %13
   store ptr null, ptr %1, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store atomic i32 0, ptr %22 release, align 4
   tail call void @AbslInternalPerThreadSemPost(ptr noundef nonnull %1)
-  br label %.loopexit
+  br label %.critedge
 
-.lr.ph:                                           ; preds = %13, %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit
-  %23 = phi ptr [ %70, %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit ], [ %5, %13 ]
-  %24 = phi i64 [ %69, %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit ], [ %15, %13 ]
-  %.059 = phi i32 [ %.1, %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit ], [ 0, %13 ]
+.lr.ph:                                           ; preds = %13, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
+  %23 = phi ptr [ %70, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %5, %13 ]
+  %24 = phi i64 [ %69, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %15, %13 ]
+  %.057 = phi i32 [ %.0.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %13 ]
   %25 = and i64 %24, 68
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %36
@@ -3511,7 +3511,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
   %33 = or i64 %32, 4
   %34 = cmpxchg ptr %0, i64 %24, i64 %33 release monotonic, align 8
   %35 = extractvalue { i64, i1 } %34, 1
-  br i1 %35, label %.loopexit, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
+  br i1 %35, label %.critedge, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit
 
 36:                                               ; preds = %.lr.ph
   %37 = and i64 %24, 64
@@ -3547,7 +3547,7 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; pr
   %.reass = or i64 %51, %invariant.op
   %52 = cmpxchg weak ptr %0, i64 %50, i64 %.reass release monotonic, align 8
   %53 = extractvalue { i64, i1 } %52, 1
-  br i1 %53, label %.loopexit, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, !llvm.loop !127
+  br i1 %53, label %.critedge, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, !llvm.loop !127
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_order.exit: ; preds = %39, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %36
   %54 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
@@ -3571,17 +3571,17 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i: ; preds = %55, %_ZNSt13__atomi
 _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
   %.sroa.03.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %.sroa.5.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8, !tbaa !20
-  %59 = icmp slt i32 %.059, %56
+  %59 = icmp slt i32 %.057, %56
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  %61 = add nsw i32 %.059, 1
-  br label %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit
+  %61 = add nsw i32 %.057, 1
+  br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
   store i32 0, ptr %3, align 4, !tbaa !22
-  %63 = icmp eq i32 %.059, %56
+  %63 = icmp eq i32 %.057, %56
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -3589,7 +3589,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_G
           to label %65 unwind label %.body
 
 65:                                               ; preds = %64
-  %66 = add nsw i32 %.059, 1
+  %66 = add nsw i32 %.057, 1
   br label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
 
 .body:                                            ; preds = %68, %64
@@ -3606,10 +3606,10 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_G
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %68, %65
   %.1.i = phi i32 [ %66, %65 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  br label %_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit
+  br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
-_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i, %60
-  %.1 = phi i32 [ %61, %60 ], [ %.1.i, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i ]
+_ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i, %60
+  %.0.i = phi i32 [ %61, %60 ], [ %.1.i, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i ]
   %69 = load atomic i64, ptr %0 monotonic, align 8
   %70 = load ptr, ptr %4, align 8, !tbaa !57
   %71 = load ptr, ptr %70, align 8, !tbaa !58
@@ -3620,7 +3620,7 @@ _ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE.exit:
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
-.loopexit:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %._crit_edge
+.critedge:                                        ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %._crit_edge
   ret void
 }
 

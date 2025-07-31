@@ -95,13 +95,13 @@ decode_key.exit:                                  ; preds = %.preheader
   store i32 %37, ptr %38, align 4, !tbaa !31
   %39 = call i32 @avio_rl32(ptr noundef %11) #9
   %40 = call i64 @avio_seek(ptr noundef %11, i64 noundef 0, i32 noundef 1) #9
-  %.not82127 = icmp slt i64 %40, %15
-  br i1 %.not82127, label %.lr.ph, label %._crit_edge.thread
+  %.not82126 = icmp slt i64 %40, %15
+  br i1 %.not82126, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %decode_key.exit, %68
   %41 = phi i64 [ %72, %68 ], [ %40, %decode_key.exit ]
-  %.066129 = phi i32 [ %.268, %68 ], [ 0, %decode_key.exit ]
-  %.070128 = phi i32 [ %.272, %68 ], [ 0, %decode_key.exit ]
+  %.066128 = phi i32 [ %.268, %68 ], [ 0, %decode_key.exit ]
+  %.070127 = phi i32 [ %.272, %68 ], [ 0, %decode_key.exit ]
   %42 = call i64 @ffio_read_varlen(ptr noundef %11) #9
   %43 = trunc i64 %42 to i32
   %44 = call i32 @avio_feof(ptr noundef %11) #9
@@ -145,8 +145,8 @@ decode_key.exit91:                                ; preds = %52
   br label %68
 
 68:                                               ; preds = %47, %decode_key.exit91
-  %.272 = phi i32 [ %66, %decode_key.exit91 ], [ %.070128, %47 ]
-  %.268 = phi i32 [ %67, %decode_key.exit91 ], [ %.066129, %47 ]
+  %.272 = phi i32 [ %66, %decode_key.exit91 ], [ %.070127, %47 ]
+  %.268 = phi i32 [ %67, %decode_key.exit91 ], [ %.066128, %47 ]
   %69 = and i64 %42, 2147483647
   %70 = add nsw i64 %69, %41
   %71 = call i64 @avio_seek(ptr noundef %11, i64 noundef %70, i32 noundef 0) #9
@@ -521,14 +521,14 @@ track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.p
 241:                                              ; preds = %238
   %242 = trunc nuw nsw i64 %234 to i32
   store i32 %242, ptr %9, align 8, !tbaa !62
-  %.not15.i = icmp eq i64 %234, 0
-  br i1 %.not15.i, label %._crit_edge.i100, label %.lr.ph.i96
+  %.not9.i = icmp eq i64 %234, 0
+  br i1 %.not9.i, label %._crit_edge.i99, label %.lr.ph.i96
 
 .lr.ph.i96:                                       ; preds = %241, %247
-  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i99, %247 ], [ 0, %241 ]
-  %.05112.i = phi i64 [ %255, %247 ], [ 0, %241 ]
-  %.05411.i = phi i64 [ %256, %247 ], [ 0, %241 ]
-  %.05610.i = phi i32 [ %spec.select.i, %247 ], [ 0, %241 ]
+  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %247 ], [ 0, %241 ]
+  %.0516.i = phi i64 [ %255, %247 ], [ 0, %241 ]
+  %.0545.i = phi i64 [ %256, %247 ], [ 0, %241 ]
+  %.0564.i = phi i32 [ %spec.select.i, %247 ], [ 0, %241 ]
   %243 = call i64 @ffio_read_varlen(ptr noundef nonnull %2) #9
   %244 = call i64 @ffio_read_varlen(ptr noundef nonnull %2) #9
   %245 = icmp ult i64 %243, 2147483648
@@ -539,29 +539,29 @@ track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.p
 247:                                              ; preds = %.lr.ph.i96
   %248 = load ptr, ptr %240, align 8, !tbaa !61
   %249 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %248, i64 %indvars.iv.i97, i32 2
-  store i64 %.05112.i, ptr %249, align 8, !tbaa !63
+  store i64 %.0516.i, ptr %249, align 8, !tbaa !63
   %250 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %248, i64 %indvars.iv.i97, i32 3
-  store i64 %.05411.i, ptr %250, align 8, !tbaa !65
+  store i64 %.0545.i, ptr %250, align 8, !tbaa !65
   %251 = trunc nuw nsw i64 %243 to i32
   %252 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %248, i64 %indvars.iv.i97
   store i32 %251, ptr %252, align 8, !tbaa !66
   %253 = trunc nuw nsw i64 %244 to i32
   %254 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %248, i64 %indvars.iv.i97, i32 1
   store i32 %253, ptr %254, align 4, !tbaa !67
-  %255 = add nuw nsw i64 %243, %.05112.i
-  %256 = add nuw nsw i64 %244, %.05411.i
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %.05610.i, i32 %253)
-  %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1
+  %255 = add nuw nsw i64 %243, %.0516.i
+  %256 = add nuw nsw i64 %244, %.0545.i
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %.0564.i, i32 %253)
+  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %257 = load i32, ptr %9, align 8, !tbaa !62
   %258 = sext i32 %257 to i64
-  %259 = icmp slt i64 %indvars.iv.next.i99, %258
+  %259 = icmp slt i64 %indvars.iv.next.i98, %258
   br i1 %259, label %.lr.ph.i96, label %._crit_edge.loopexit.i, !llvm.loop !68
 
 ._crit_edge.loopexit.i:                           ; preds = %247
   %260 = zext nneg i32 %spec.select.i to i64
-  br label %._crit_edge.i100
+  br label %._crit_edge.i99
 
-._crit_edge.i100:                                 ; preds = %._crit_edge.loopexit.i, %241
+._crit_edge.i99:                                  ; preds = %._crit_edge.loopexit.i, %241
   %.056.lcssa.i = phi i64 [ 0, %241 ], [ %260, %._crit_edge.loopexit.i ]
   %.054.lcssa.i = phi i64 [ 0, %241 ], [ %256, %._crit_edge.loopexit.i ]
   %261 = icmp sgt i64 %231, 0
@@ -569,15 +569,15 @@ track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.p
   %or.cond.i = select i1 %261, i1 %262, i1 false
   br i1 %or.cond.i, label %track_index.exit.thread, label %263
 
-263:                                              ; preds = %._crit_edge.i100
+263:                                              ; preds = %._crit_edge.i99
   %264 = call noalias ptr @av_calloc(i64 noundef %.056.lcssa.i, i64 noundef 8) #9
   %265 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %264, ptr %265, align 8, !tbaa !69
   %.not65.i = icmp eq ptr %264, null
   br i1 %.not65.i, label %track_index.exit.thread, label %266
 
-track_index.exit.thread:                          ; preds = %.lr.ph.i96, %229, %238, %._crit_edge.i100, %263
-  %.0.i.ph = phi i32 [ -1094995529, %._crit_edge.i100 ], [ -12, %238 ], [ -1094995529, %229 ], [ -12, %263 ], [ -1094995529, %.lr.ph.i96 ]
+track_index.exit.thread:                          ; preds = %.lr.ph.i96, %229, %238, %._crit_edge.i99, %263
+  %.0.i.ph = phi i32 [ -1094995529, %._crit_edge.i99 ], [ -12, %238 ], [ -1094995529, %229 ], [ -12, %263 ], [ -1094995529, %.lr.ph.i96 ]
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %2) #9
   call void @av_free(ptr noundef nonnull %228) #9
   br label %.thread

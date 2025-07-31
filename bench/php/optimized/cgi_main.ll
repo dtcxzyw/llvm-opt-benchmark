@@ -3183,8 +3183,8 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %60
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %.046..i, i64 %.0
   %90 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %89, i32 noundef 47) #30
-  %.not6065.i = icmp eq ptr %90, null
-  br i1 %.not6065.i, label %.loopexit.i, label %.lr.ph.i
+  %.not6064.i = icmp eq ptr %90, null
+  br i1 %.not6064.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88, %.lr.ph.i
   %91 = phi ptr [ %96, %.lr.ph.i ], [ %90, %88 ]
@@ -3206,19 +3206,19 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %60
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %97, %88
   %.not61.i = icmp eq ptr %.051.i, null
-  br i1 %.not61.i, label %.critedge.i, label %101
+  br i1 %.not61.i, label %.critedge62.i, label %101
 
 101:                                              ; preds = %.loopexit.i
   call void @_efree(ptr noundef nonnull %.051.i) #29
-  br label %.critedge.i
+  br label %.critedge62.i
 
-.critedge.i:                                      ; preds = %101, %.loopexit.i
+.critedge62.i:                                    ; preds = %101, %.loopexit.i
   %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 552), align 8, !tbaa !157
   %103 = add nsw i64 %102, %62
   store i64 %103, ptr %.054.i, align 8, !tbaa !156
   br label %104
 
-104:                                              ; preds = %.critedge.i, %72
+104:                                              ; preds = %.critedge62.i, %72
   %105 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !153
   call void @php_ini_activate_config(ptr noundef %106, i32 noundef 2, i32 noundef 32) #29

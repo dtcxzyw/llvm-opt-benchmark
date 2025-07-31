@@ -9321,13 +9321,13 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   %.val.i = load ptr, ptr %6, align 8
   %.val.val.i = load i8, ptr %.val.i, align 8, !range !15, !noundef !16
   %7 = trunc nuw i8 %.val.val.i to i1
-  br i1 %7, label %8, label %fold_neg_no_const.exit
+  br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %fold_neg_no_const.exit
+  br i1 %.not, label %11, label %.critedge
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -9335,9 +9335,9 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   switch i32 %13, label %15 [
     i32 0, label %16
     i32 1, label %14
-    i32 3, label %fold_neg_no_const.exit
-    i32 4, label %fold_neg_no_const.exit
-    i32 5, label %fold_neg_no_const.exit
+    i32 3, label %.critedge
+    i32 4, label %.critedge
+    i32 5, label %.critedge
   ]
 
 14:                                               ; preds = %11
@@ -9348,10 +9348,10 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   unreachable
 
 16:                                               ; preds = %14, %11
-  %.010.ph = phi i32 [ 54, %11 ], [ 114, %14 ]
+  %.010 = phi i32 [ 114, %14 ], [ 54, %11 ]
   %17 = load i32, ptr %1, align 8
   %18 = and i32 %17, -256
-  %19 = or disjoint i32 %18, %.010.ph
+  %19 = or disjoint i32 %18, %.010
   store i32 %19, ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i64, ptr %20, align 8
@@ -9364,7 +9364,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   %26 = sub i64 0, %25
   %27 = and i64 %25, %26
   %28 = sub i64 0, %27
-  %29 = zext nneg i32 %.010.ph to i64
+  %29 = zext nneg i32 %.010 to i64
   %30 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %29, i32 1
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 1
@@ -9382,7 +9382,7 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
 39:                                               ; preds = %16
   %40 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef 0)
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %38, i64 noundef %40)
-  br label %fold_neg_no_const.exit
+  br label %.critedge
 
 41:                                               ; preds = %16
   %42 = inttoptr i64 %38 to ptr
@@ -9400,9 +9400,9 @@ define internal fastcc noundef zeroext i1 @fold_sub_to_neg(ptr noundef nonnull %
   %51 = ashr exact i64 -9223372036854775808, %50
   %52 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   store i64 %51, ptr %52, align 8
-  br label %fold_neg_no_const.exit
+  br label %.critedge
 
-fold_neg_no_const.exit:                           ; preds = %41, %39, %11, %11, %11, %2, %8
+.critedge:                                        ; preds = %41, %39, %11, %11, %11, %2, %8
   %.011 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %11 ], [ false, %11 ], [ false, %11 ], [ true, %39 ], [ true, %41 ]
   ret i1 %.011
 }

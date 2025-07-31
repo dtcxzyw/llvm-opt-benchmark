@@ -2682,9 +2682,9 @@ define internal fastcc range(i32 -1, 1) i32 @add_p_edges(ptr noundef %0, ptr nou
   %8 = load ptr, ptr %7, align 8, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %.025, i64 32
   %10 = getelementptr i8, ptr %.025, i64 48
-  %.val142234.i = load i64, ptr %10, align 8, !tbaa !118
-  %.not140235.i = icmp ugt i64 %.val142234.i, 1
-  br i1 %.not140235.i, label %.preheader.lr.ph.i, label %.loopexit
+  %.val142236.i = load i64, ptr %10, align 8, !tbaa !118
+  %.not140237.i = icmp ugt i64 %.val142236.i, 1
+  br i1 %.not140237.i, label %.preheader.lr.ph.i, label %.loopexit
 
 .preheader.lr.ph.i:                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.025, i64 40
@@ -2692,36 +2692,36 @@ define internal fastcc range(i32 -1, 1) i32 @add_p_edges(ptr noundef %0, ptr nou
   br label %.preheader.i
 
 .critedge.loopexit.i:                             ; preds = %is_parallel.exit.thread.i, %.preheader.i
-  %.val142.i = phi i64 [ %.val142248.i, %.preheader.i ], [ %.val.i, %is_parallel.exit.thread.i ]
+  %.val142.i = phi i64 [ %.val142250.i, %.preheader.i ], [ %.val.i, %is_parallel.exit.thread.i ]
   %13 = add nuw i64 %14, 1
   %.not140.i = icmp ult i64 %13, %.val142.i
   br i1 %.not140.i, label %.preheader.i, label %.loopexit, !llvm.loop !160
 
 .preheader.i:                                     ; preds = %.critedge.loopexit.i, %.preheader.lr.ph.i
-  %.val142248.i = phi i64 [ %.val142234.i, %.preheader.lr.ph.i ], [ %.val142.i, %.critedge.loopexit.i ]
+  %.val142250.i = phi i64 [ %.val142236.i, %.preheader.lr.ph.i ], [ %.val142.i, %.critedge.loopexit.i ]
   %14 = phi i64 [ 1, %.preheader.lr.ph.i ], [ %13, %.critedge.loopexit.i ]
-  %.0131236.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %14, %.critedge.loopexit.i ]
-  %.not139232.i = icmp ult i64 %14, %.val142248.i
-  br i1 %.not139232.i, label %.lr.ph.i, label %.critedge.loopexit.i
+  %.0131238.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %14, %.critedge.loopexit.i ]
+  %.not139234.i = icmp ult i64 %14, %.val142250.i
+  br i1 %.not139234.i, label %.lr.ph.i, label %.critedge.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %is_parallel.exit.thread.i
-  %.0233.i = phi i64 [ %391, %is_parallel.exit.thread.i ], [ %14, %.preheader.i ]
-  %15 = tail call zeroext i1 @edge_exists(ptr noundef %8, i64 noundef %.0131236.i, i64 noundef %.0233.i) #18
+  %.0235.i = phi i64 [ %391, %is_parallel.exit.thread.i ], [ %14, %.preheader.i ]
+  %15 = tail call zeroext i1 @edge_exists(ptr noundef %8, i64 noundef %.0131238.i, i64 noundef %.0235.i) #18
   br i1 %15, label %is_parallel.exit.thread.i, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call zeroext i1 @edge_exists(ptr noundef %8, i64 noundef %.0233.i, i64 noundef %.0131236.i) #18
+  %17 = tail call zeroext i1 @edge_exists(ptr noundef %8, i64 noundef %.0235.i, i64 noundef %.0131238.i) #18
   br i1 %17, label %is_parallel.exit.thread.i, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %9, align 8, !tbaa !122
   %20 = load i64, ptr %11, align 8, !tbaa !121
-  %21 = add i64 %20, %.0131236.i
+  %21 = add i64 %20, %.0131238.i
   %22 = load i64, ptr %12, align 8, !tbaa !120
   %23 = urem i64 %21, %22
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !90
-  %26 = add i64 %20, %.0233.i
+  %26 = add i64 %20, %.0235.i
   %27 = urem i64 %26, %22
   %28 = getelementptr inbounds nuw ptr, ptr %19, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !90
@@ -2779,75 +2779,75 @@ is_parallel.exit.i:                               ; preds = %41
 66:                                               ; preds = %52
   %67 = icmp ne ptr %57, null
   %..i = zext i1 %67 to i32
-  br label %.loopexit219.i
+  br label %.loopexit221.i
 
 .lr.ph.i.thread.i:                                ; preds = %60, %58
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.thread.i, %60
-  %.0134.ph203.i = phi i32 [ 1, %.lr.ph.i.thread.i ], [ 0, %60 ]
+  %.0134.ph205.i = phi i32 [ 1, %.lr.ph.i.thread.i ], [ 0, %60 ]
   %68 = phi i64 [ 64, %.lr.ph.i.thread.i ], [ 56, %60 ]
   br label %69
 
 69:                                               ; preds = %93, %.lr.ph.i.i
-  %.0.i54.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %.0.i.i.i, %93 ]
-  %.02453.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %94, %93 ]
-  %.02652.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %.0.i37.i.i, %93 ]
-  %.0.in.i36.i.i = getelementptr inbounds nuw i8, ptr %.02652.i.i, i64 %68
-  %.0.i37.i.i = load ptr, ptr %.0.in.i36.i.i, align 8, !tbaa !90
-  %.not32.i.i = icmp eq ptr %.0.i37.i.i, null
-  br i1 %.not32.i.i, label %.loopexit219.i, label %70
+  %.0.i55.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %.0.i.i.i, %93 ]
+  %.02454.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %94, %93 ]
+  %.02653.i.i = phi ptr [ %29, %.lr.ph.i.i ], [ %.0.i38.i.i, %93 ]
+  %.0.in.i37.i.i = getelementptr inbounds nuw i8, ptr %.02653.i.i, i64 %68
+  %.0.i38.i.i = load ptr, ptr %.0.in.i37.i.i, align 8, !tbaa !90
+  %.not32.i.i = icmp eq ptr %.0.i38.i.i, null
+  br i1 %.not32.i.i, label %.loopexit221.i, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 16
   %72 = load double, ptr %71, align 8, !tbaa !161
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i37.i.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 16
   %74 = load double, ptr %73, align 8, !tbaa !161
   %75 = fcmp oeq double %72, %74
-  br i1 %75, label %76, label %.critedge.i.i
+  br i1 %75, label %76, label %is_parallel.exit.thread.i.i
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 24
   %78 = load double, ptr %77, align 8, !tbaa !162
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i37.i.i, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 24
   %80 = load double, ptr %79, align 8, !tbaa !162
   %81 = fcmp oeq double %78, %80
-  br i1 %81, label %82, label %.critedge.i.i
+  br i1 %81, label %82, label %is_parallel.exit.thread.i.i
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 32
   %84 = load i32, ptr %83, align 8, !tbaa !163
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i37.i.i, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 32
   %86 = load i32, ptr %85, align 8, !tbaa !163
   %87 = icmp eq i32 %84, %86
-  br i1 %87, label %is_parallel.exit.i.i, label %.critedge.i.i
+  br i1 %87, label %is_parallel.exit.i.i, label %is_parallel.exit.thread.i.i
 
 is_parallel.exit.i.i:                             ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 36
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 36
   %89 = load i32, ptr %88, align 4, !tbaa !164
-  %90 = getelementptr inbounds nuw i8, ptr %.0.i37.i.i, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !164
   %92 = icmp eq i32 %89, %91
-  br i1 %92, label %93, label %.critedge.i.i
+  br i1 %92, label %93, label %is_parallel.exit.thread.i.i
 
 93:                                               ; preds = %is_parallel.exit.i.i
-  %94 = add nuw nsw i32 %.02453.i.i, 1
-  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 56
+  %94 = add nuw nsw i32 %.02454.i.i, 1
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 56
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !90
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i, label %.loopexit219.i, label %69, !llvm.loop !165
+  br i1 %.not.i.i, label %.loopexit221.i, label %69, !llvm.loop !165
 
-.critedge.i.i:                                    ; preds = %is_parallel.exit.i.i, %82, %76, %70
-  %95 = load i8, ptr %.0.i54.i.i, align 8, !tbaa !110, !range !10, !noundef !11
+is_parallel.exit.thread.i.i:                      ; preds = %is_parallel.exit.i.i, %82, %76, %70
+  %95 = load i8, ptr %.0.i55.i.i, align 8, !tbaa !110, !range !10, !noundef !11
   %96 = trunc nuw i8 %95 to i1
-  %97 = load i8, ptr %.0.i37.i.i, align 8, !tbaa !110, !range !10, !noundef !11
-  %.not.i38.i.i = icmp eq i8 %95, %97
-  br i1 %.not.i38.i.i, label %98, label %addPEdges.exit
+  %97 = load i8, ptr %.0.i38.i.i, align 8, !tbaa !110, !range !10, !noundef !11
+  %.not.i39.i.i = icmp eq i8 %95, %97
+  br i1 %.not.i39.i.i, label %98, label %addPEdges.exit
 
-98:                                               ; preds = %.critedge.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i54.i.i, i64 8
+98:                                               ; preds = %is_parallel.exit.thread.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i55.i.i, i64 8
   %100 = load double, ptr %99, align 8, !tbaa !156
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i37.i.i, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 8
   %102 = load double, ptr %101, align 8, !tbaa !156
   %103 = fcmp une double %100, %102
   br i1 %103, label %addPEdges.exit, label %104
@@ -2856,22 +2856,22 @@ is_parallel.exit.i.i:                             ; preds = %82
   br i1 %96, label %105, label %107
 
 105:                                              ; preds = %104
-  %106 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i.i, ptr noundef nonnull readonly %.0.i37.i.i, i32 noundef 4, i32 noundef 2)
+  %106 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i55.i.i, ptr noundef nonnull readonly %.0.i38.i.i, i32 noundef 4, i32 noundef 2)
   br label %109
 
 107:                                              ; preds = %104
-  %108 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i.i, ptr noundef nonnull readonly %.0.i37.i.i, i32 noundef 3, i32 noundef 1)
+  %108 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i55.i.i, ptr noundef nonnull readonly %.0.i38.i.i, i32 noundef 3, i32 noundef 1)
   br label %109
 
 109:                                              ; preds = %107, %105
-  %.0.i39.ph.i.i = phi i32 [ %108, %107 ], [ %106, %105 ]
-  %110 = add nuw nsw i32 %.02453.i.i, 1
+  %.0.i40.ph.i.i = phi i32 [ %108, %107 ], [ %106, %105 ]
+  %110 = add nuw nsw i32 %.02454.i.i, 1
   br label %111
 
 111:                                              ; preds = %138, %109
-  %.029.i.i.i = phi ptr [ %.0.i54.i.i, %109 ], [ %.0.i.i.i.i, %138 ]
+  %.029.i.i.i = phi ptr [ %.0.i55.i.i, %109 ], [ %.0.i.i.i.i, %138 ]
   %.02128.i.i.i = phi i32 [ 1, %109 ], [ %139, %138 ]
-  %.02227.i.i.i = phi i32 [ %.0.i39.ph.i.i, %109 ], [ %spec.select25.i.i.i, %138 ]
+  %.02227.i.i.i = phi i32 [ %.0.i40.ph.i.i, %109 ], [ %spec.select25.i.i.i, %138 ]
   %.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 64
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8, !tbaa !90
   %112 = load i8, ptr %.029.i.i.i, align 8, !tbaa !110, !range !10, !noundef !11
@@ -2919,82 +2919,82 @@ is_parallel.exit.i.i:                             ; preds = %82
   %spec.select25.i.i.i = select i1 %.sink.i.i.i, i32 %119, i32 %.02227.i.i.i
   %139 = add nuw i32 %.02128.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %.02128.i.i.i, %110
-  br i1 %exitcond.not.i.i.i, label %.loopexit219.i, label %111, !llvm.loop !166
+  br i1 %exitcond.not.i.i.i, label %.loopexit221.i, label %111, !llvm.loop !166
 
-.loopexit219.i:                                   ; preds = %93, %69, %138, %66
-  %.0134197.ph.i = phi i32 [ %..i, %66 ], [ %.0134.ph203.i, %138 ], [ %.0134.ph203.i, %69 ], [ %.0134.ph203.i, %93 ]
+.loopexit221.i:                                   ; preds = %93, %69, %138, %66
+  %.0134199.ph.i = phi i32 [ %..i, %66 ], [ %.0134.ph205.i, %138 ], [ %.0134.ph205.i, %69 ], [ %.0134.ph205.i, %93 ]
   %.sroa.6.5.ph.i = phi i32 [ 0, %66 ], [ %spec.select25.i.i.i, %138 ], [ 0, %69 ], [ 0, %93 ]
-  %.sroa.0.5.ph.i = phi i32 [ 0, %66 ], [ %.02453.i.i, %138 ], [ %94, %93 ], [ %.02453.i.i, %69 ]
-  %140 = xor i32 %.0134197.ph.i, 1
-  %.0.in.i49.i143.i = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %.0.i50.i144.i = load ptr, ptr %.0.in.i49.i143.i, align 8, !tbaa !90
-  %.not51.i145.i = icmp eq ptr %.0.i50.i144.i, null
-  br i1 %.not51.i145.i, label %.loopexit.i, label %.lr.ph.i146.i
+  %.sroa.0.5.ph.i = phi i32 [ 0, %66 ], [ %.02454.i.i, %138 ], [ %94, %93 ], [ %.02454.i.i, %69 ]
+  %140 = xor i32 %.0134199.ph.i, 1
+  %.0.in.i50.i143.i = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %.0.i51.i144.i = load ptr, ptr %.0.in.i50.i143.i, align 8, !tbaa !90
+  %.not52.i145.i = icmp eq ptr %.0.i51.i144.i, null
+  br i1 %.not52.i145.i, label %.loopexit.i, label %.lr.ph.i146.i
 
-.lr.ph.i146.i:                                    ; preds = %.loopexit219.i
-  %.not.i34.i147.i = icmp eq i32 %.0134197.ph.i, 1
-  %.0.in.v.i35.i148.i = select i1 %.not.i34.i147.i, i64 56, i64 64
+.lr.ph.i146.i:                                    ; preds = %.loopexit221.i
+  %.not.i35.i147.i = icmp eq i32 %.0134199.ph.i, 1
+  %.0.in.v.i36.i148.i = select i1 %.not.i35.i147.i, i64 56, i64 64
   br label %141
 
 141:                                              ; preds = %165, %.lr.ph.i146.i
-  %.0.i54.i149.i = phi ptr [ %.0.i50.i144.i, %.lr.ph.i146.i ], [ %.0.i.i173.i, %165 ]
-  %.02453.i150.i = phi i32 [ 0, %.lr.ph.i146.i ], [ %166, %165 ]
-  %.02652.i151.i = phi ptr [ %29, %.lr.ph.i146.i ], [ %.0.i37.i153.i, %165 ]
-  %.0.in.i36.i152.i = getelementptr inbounds nuw i8, ptr %.02652.i151.i, i64 %.0.in.v.i35.i148.i
-  %.0.i37.i153.i = load ptr, ptr %.0.in.i36.i152.i, align 8, !tbaa !90
-  %.not32.i154.i = icmp eq ptr %.0.i37.i153.i, null
+  %.0.i55.i149.i = phi ptr [ %.0.i51.i144.i, %.lr.ph.i146.i ], [ %.0.i.i173.i, %165 ]
+  %.02454.i150.i = phi i32 [ 0, %.lr.ph.i146.i ], [ %166, %165 ]
+  %.02653.i151.i = phi ptr [ %29, %.lr.ph.i146.i ], [ %.0.i38.i153.i, %165 ]
+  %.0.in.i37.i152.i = getelementptr inbounds nuw i8, ptr %.02653.i151.i, i64 %.0.in.v.i36.i148.i
+  %.0.i38.i153.i = load ptr, ptr %.0.in.i37.i152.i, align 8, !tbaa !90
+  %.not32.i154.i = icmp eq ptr %.0.i38.i153.i, null
   br i1 %.not32.i154.i, label %.loopexit.i, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 16
   %144 = load double, ptr %143, align 8, !tbaa !161
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i37.i153.i, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i38.i153.i, i64 16
   %146 = load double, ptr %145, align 8, !tbaa !161
   %147 = fcmp oeq double %144, %146
-  br i1 %147, label %148, label %.critedge.i155.i
+  br i1 %147, label %148, label %is_parallel.exit.thread.i155.i
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 24
   %150 = load double, ptr %149, align 8, !tbaa !162
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i37.i153.i, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i38.i153.i, i64 24
   %152 = load double, ptr %151, align 8, !tbaa !162
   %153 = fcmp oeq double %150, %152
-  br i1 %153, label %154, label %.critedge.i155.i
+  br i1 %153, label %154, label %is_parallel.exit.thread.i155.i
 
 154:                                              ; preds = %148
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 32
   %156 = load i32, ptr %155, align 8, !tbaa !163
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i37.i153.i, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i38.i153.i, i64 32
   %158 = load i32, ptr %157, align 8, !tbaa !163
   %159 = icmp eq i32 %156, %158
-  br i1 %159, label %is_parallel.exit.i171.i, label %.critedge.i155.i
+  br i1 %159, label %is_parallel.exit.i171.i, label %is_parallel.exit.thread.i155.i
 
 is_parallel.exit.i171.i:                          ; preds = %154
-  %160 = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 36
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 36
   %161 = load i32, ptr %160, align 4, !tbaa !164
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i37.i153.i, i64 36
+  %162 = getelementptr inbounds nuw i8, ptr %.0.i38.i153.i, i64 36
   %163 = load i32, ptr %162, align 4, !tbaa !164
   %164 = icmp eq i32 %161, %163
-  br i1 %164, label %165, label %.critedge.i155.i
+  br i1 %164, label %165, label %is_parallel.exit.thread.i155.i
 
 165:                                              ; preds = %is_parallel.exit.i171.i
-  %166 = add nuw nsw i32 %.02453.i150.i, 1
-  %.0.in.i.i172.i = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 64
+  %166 = add nuw nsw i32 %.02454.i150.i, 1
+  %.0.in.i.i172.i = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 64
   %.0.i.i173.i = load ptr, ptr %.0.in.i.i172.i, align 8, !tbaa !90
   %.not.i174.i = icmp eq ptr %.0.i.i173.i, null
   br i1 %.not.i174.i, label %.loopexit.i, label %141, !llvm.loop !165
 
-.critedge.i155.i:                                 ; preds = %is_parallel.exit.i171.i, %154, %148, %142
-  %167 = load i8, ptr %.0.i54.i149.i, align 8, !tbaa !110, !range !10, !noundef !11
+is_parallel.exit.thread.i155.i:                   ; preds = %is_parallel.exit.i171.i, %154, %148, %142
+  %167 = load i8, ptr %.0.i55.i149.i, align 8, !tbaa !110, !range !10, !noundef !11
   %168 = trunc nuw i8 %167 to i1
-  %169 = load i8, ptr %.0.i37.i153.i, align 8, !tbaa !110, !range !10, !noundef !11
-  %.not.i38.i156.i = icmp eq i8 %167, %169
-  br i1 %.not.i38.i156.i, label %170, label %addPEdges.exit
+  %169 = load i8, ptr %.0.i38.i153.i, align 8, !tbaa !110, !range !10, !noundef !11
+  %.not.i39.i156.i = icmp eq i8 %167, %169
+  br i1 %.not.i39.i156.i, label %170, label %addPEdges.exit
 
-170:                                              ; preds = %.critedge.i155.i
-  %171 = getelementptr inbounds nuw i8, ptr %.0.i54.i149.i, i64 8
+170:                                              ; preds = %is_parallel.exit.thread.i155.i
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i55.i149.i, i64 8
   %172 = load double, ptr %171, align 8, !tbaa !156
-  %173 = getelementptr inbounds nuw i8, ptr %.0.i37.i153.i, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %.0.i38.i153.i, i64 8
   %174 = load double, ptr %173, align 8, !tbaa !156
   %175 = fcmp une double %172, %174
   br i1 %175, label %addPEdges.exit, label %176
@@ -3003,22 +3003,22 @@ is_parallel.exit.i171.i:                          ; preds = %154
   br i1 %168, label %177, label %179
 
 177:                                              ; preds = %176
-  %178 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i149.i, ptr noundef nonnull readonly %.0.i37.i153.i, i32 noundef 4, i32 noundef 2)
+  %178 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i55.i149.i, ptr noundef nonnull readonly %.0.i38.i153.i, i32 noundef 4, i32 noundef 2)
   br label %181
 
 179:                                              ; preds = %176
-  %180 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i54.i149.i, ptr noundef nonnull readonly %.0.i37.i153.i, i32 noundef 3, i32 noundef 1)
+  %180 = tail call fastcc i32 @segCmp(ptr noundef nonnull readonly %.0.i55.i149.i, ptr noundef nonnull readonly %.0.i38.i153.i, i32 noundef 3, i32 noundef 1)
   br label %181
 
 181:                                              ; preds = %179, %177
-  %.0.i39.ph.i159.i = phi i32 [ %180, %179 ], [ %178, %177 ]
-  %182 = add nuw nsw i32 %.02453.i150.i, 1
+  %.0.i40.ph.i159.i = phi i32 [ %180, %179 ], [ %178, %177 ]
+  %182 = add nuw nsw i32 %.02454.i150.i, 1
   br label %183
 
 183:                                              ; preds = %210, %181
-  %.029.i.i160.i = phi ptr [ %.0.i54.i149.i, %181 ], [ %.0.i.i.i164.i, %210 ]
+  %.029.i.i160.i = phi ptr [ %.0.i55.i149.i, %181 ], [ %.0.i.i.i164.i, %210 ]
   %.02128.i.i161.i = phi i32 [ 1, %181 ], [ %211, %210 ]
-  %.02227.i.i162.i = phi i32 [ %.0.i39.ph.i159.i, %181 ], [ %spec.select25.i.i166.i, %210 ]
+  %.02227.i.i162.i = phi i32 [ %.0.i40.ph.i159.i, %181 ], [ %spec.select25.i.i166.i, %210 ]
   %.0.in.i.i.i163.i = getelementptr inbounds nuw i8, ptr %.029.i.i160.i, i64 56
   %.0.i.i.i164.i = load ptr, ptr %.0.in.i.i.i163.i, align 8, !tbaa !90
   %184 = load i8, ptr %.029.i.i160.i, align 8, !tbaa !110, !range !10, !noundef !11
@@ -3068,9 +3068,9 @@ is_parallel.exit.i171.i:                          ; preds = %154
   %exitcond.not.i.i167.i = icmp eq i32 %.02128.i.i161.i, %182
   br i1 %exitcond.not.i.i167.i, label %.loopexit.i, label %183, !llvm.loop !166
 
-.loopexit.i:                                      ; preds = %165, %141, %210, %.loopexit219.i
-  %.sroa.6.6.ph.i = phi i32 [ 0, %.loopexit219.i ], [ %spec.select25.i.i166.i, %210 ], [ 0, %141 ], [ 0, %165 ]
-  %.sroa.0.6.ph.i = phi i32 [ 0, %.loopexit219.i ], [ %.02453.i150.i, %210 ], [ %166, %165 ], [ %.02453.i150.i, %141 ]
+.loopexit.i:                                      ; preds = %165, %141, %210, %.loopexit221.i
+  %.sroa.6.6.ph.i = phi i32 [ 0, %.loopexit221.i ], [ %spec.select25.i.i166.i, %210 ], [ 0, %141 ], [ 0, %165 ]
+  %.sroa.0.6.ph.i = phi i32 [ 0, %.loopexit221.i ], [ %.02454.i150.i, %210 ], [ %166, %165 ], [ %.02454.i150.i, %141 ]
   switch i32 %.sroa.6.5.ph.i, label %default.unreachable [
     i32 -1, label %212
     i32 0, label %283
@@ -3078,15 +3078,15 @@ is_parallel.exit.i171.i:                          ; preds = %154
   ]
 
 212:                                              ; preds = %.loopexit.i
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %25, i32 noundef %.0134197.ph.i, i32 noundef 0, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %25, i32 noundef %.0134199.ph.i, i32 noundef 0, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
   %213 = load ptr, ptr %9, align 8, !tbaa !122
   %214 = load i64, ptr %11, align 8, !tbaa !121
-  %215 = add i64 %214, %.0233.i
+  %215 = add i64 %214, %.0235.i
   %216 = load i64, ptr %12, align 8, !tbaa !120
   %217 = urem i64 %215, %216
   %218 = getelementptr inbounds nuw ptr, ptr %213, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !90
-  %220 = add i64 %214, %.0131236.i
+  %220 = add i64 %214, %.0131238.i
   %221 = urem i64 %220, %216
   %222 = getelementptr inbounds nuw ptr, ptr %213, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !90
@@ -3097,12 +3097,12 @@ is_parallel.exit.i171.i:                          ; preds = %154
 225:                                              ; preds = %212
   %226 = load ptr, ptr %9, align 8, !tbaa !122
   %227 = load i64, ptr %11, align 8, !tbaa !121
-  %228 = add i64 %227, %.0131236.i
+  %228 = add i64 %227, %.0131238.i
   %229 = load i64, ptr %12, align 8, !tbaa !120
   %230 = urem i64 %228, %229
   %231 = getelementptr inbounds nuw ptr, ptr %226, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !90
-  %233 = add i64 %227, %.0233.i
+  %233 = add i64 %227, %.0235.i
   %234 = urem i64 %233, %229
   %235 = getelementptr inbounds nuw ptr, ptr %226, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !90
@@ -3111,16 +3111,16 @@ is_parallel.exit.i171.i:                          ; preds = %154
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %240 = load double, ptr %239, align 8, !tbaa !161
   %241 = fcmp oeq double %238, %240
-  br i1 %241, label %.lr.ph.i176.i, label %removeEdge.exit.i
+  br i1 %241, label %.lr.ph.i177.i, label %removeEdge.exit.i
 
-.lr.ph.i176.i:                                    ; preds = %225
-  %.not.i.i.i = icmp eq i32 %.0134197.ph.i, 1
+.lr.ph.i177.i:                                    ; preds = %225
+  %.not.i.i.i = icmp eq i32 %.0134199.ph.i, 1
   %.0.in.v.i.i.i = select i1 %.not.i.i.i, i64 56, i64 64
   br label %242
 
-242:                                              ; preds = %259, %.lr.ph.i176.i
-  %.01420.i.i = phi ptr [ %236, %.lr.ph.i176.i ], [ %.0.i17.i.i, %259 ]
-  %.01519.i.i = phi ptr [ %232, %.lr.ph.i176.i ], [ %.0.i.i179.i, %259 ]
+242:                                              ; preds = %259, %.lr.ph.i177.i
+  %.01420.i.i = phi ptr [ %236, %.lr.ph.i177.i ], [ %.0.i17.i.i, %259 ]
+  %.01519.i.i = phi ptr [ %232, %.lr.ph.i177.i ], [ %.0.i.i180.i, %259 ]
   %243 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 24
   %244 = load double, ptr %243, align 8, !tbaa !162
   %245 = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 24
@@ -3134,9 +3134,9 @@ is_parallel.exit.i171.i:                          ; preds = %154
   %251 = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 32
   %252 = load i32, ptr %251, align 8, !tbaa !163
   %253 = icmp eq i32 %250, %252
-  br i1 %253, label %is_parallel.exit.i177.i, label %removeEdge.exit.i
+  br i1 %253, label %is_parallel.exit.i178.i, label %removeEdge.exit.i
 
-is_parallel.exit.i177.i:                          ; preds = %248
+is_parallel.exit.i178.i:                          ; preds = %248
   %254 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 36
   %255 = load i32, ptr %254, align 4, !tbaa !164
   %256 = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 36
@@ -3144,21 +3144,21 @@ is_parallel.exit.i177.i:                          ; preds = %248
   %258 = icmp eq i32 %255, %257
   br i1 %258, label %259, label %removeEdge.exit.i
 
-259:                                              ; preds = %is_parallel.exit.i177.i
-  %.0.in.i.i178.i = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 64
-  %.0.i.i179.i = load ptr, ptr %.0.in.i.i178.i, align 8, !tbaa !90
+259:                                              ; preds = %is_parallel.exit.i178.i
+  %.0.in.i.i179.i = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 64
+  %.0.i.i180.i = load ptr, ptr %.0.in.i.i179.i, align 8, !tbaa !90
   %.0.in.i16.i.i = getelementptr inbounds nuw i8, ptr %.01420.i.i, i64 %.0.in.v.i.i.i
   %.0.i17.i.i = load ptr, ptr %.0.in.i16.i.i, align 8, !tbaa !90
-  %260 = getelementptr inbounds nuw i8, ptr %.0.i.i179.i, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %.0.i.i180.i, i64 16
   %261 = load double, ptr %260, align 8, !tbaa !161
   %262 = getelementptr inbounds nuw i8, ptr %.0.i17.i.i, i64 16
   %263 = load double, ptr %262, align 8, !tbaa !161
   %264 = fcmp oeq double %261, %263
   br i1 %264, label %242, label %removeEdge.exit.i, !llvm.loop !167
 
-removeEdge.exit.i:                                ; preds = %259, %is_parallel.exit.i177.i, %248, %242, %225
-  %.015.lcssa18.i.i = phi ptr [ %232, %225 ], [ %.0.i.i179.i, %259 ], [ %.01519.i.i, %242 ], [ %.01519.i.i, %248 ], [ %.01519.i.i, %is_parallel.exit.i177.i ]
-  %.014.lcssa.i.i = phi ptr [ %236, %225 ], [ %.0.i17.i.i, %259 ], [ %.01420.i.i, %242 ], [ %.01420.i.i, %248 ], [ %.01420.i.i, %is_parallel.exit.i177.i ]
+removeEdge.exit.i:                                ; preds = %259, %is_parallel.exit.i178.i, %248, %242, %225
+  %.015.lcssa18.i.i = phi ptr [ %232, %225 ], [ %.0.i.i180.i, %259 ], [ %.01519.i.i, %242 ], [ %.01519.i.i, %248 ], [ %.01519.i.i, %is_parallel.exit.i178.i ]
+  %.014.lcssa.i.i = phi ptr [ %236, %225 ], [ %.0.i17.i.i, %259 ], [ %.01420.i.i, %242 ], [ %.01420.i.i, %248 ], [ %.01420.i.i, %is_parallel.exit.i178.i ]
   %265 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i.i, i64 16
   %266 = load i8, ptr %.015.lcssa18.i.i, align 8, !tbaa !110, !range !10, !noundef !11
   %267 = trunc nuw i8 %266 to i1
@@ -3189,15 +3189,15 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
   ]
 
 284:                                              ; preds = %283
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %25, i32 noundef %.0134197.ph.i, i32 noundef 0, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %25, i32 noundef %.0134199.ph.i, i32 noundef 0, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
   %285 = load ptr, ptr %9, align 8, !tbaa !122
   %286 = load i64, ptr %11, align 8, !tbaa !121
-  %287 = add i64 %286, %.0233.i
+  %287 = add i64 %286, %.0235.i
   %288 = load i64, ptr %12, align 8, !tbaa !120
   %289 = urem i64 %287, %288
   %290 = getelementptr inbounds nuw ptr, ptr %285, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !90
-  %292 = add i64 %286, %.0131236.i
+  %292 = add i64 %286, %.0131238.i
   %293 = urem i64 %292, %288
   %294 = getelementptr inbounds nuw ptr, ptr %285, i64 %293
   %295 = load ptr, ptr %294, align 8, !tbaa !90
@@ -3205,15 +3205,15 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
   br label %is_parallel.exit.thread.i
 
 296:                                              ; preds = %283
-  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134197.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134199.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
   %297 = load ptr, ptr %9, align 8, !tbaa !122
   %298 = load i64, ptr %11, align 8, !tbaa !121
-  %299 = add i64 %298, %.0131236.i
+  %299 = add i64 %298, %.0131238.i
   %300 = load i64, ptr %12, align 8, !tbaa !120
   %301 = urem i64 %299, %300
   %302 = getelementptr inbounds nuw ptr, ptr %297, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !90
-  %304 = add i64 %298, %.0233.i
+  %304 = add i64 %298, %.0235.i
   %305 = urem i64 %304, %300
   %306 = getelementptr inbounds nuw ptr, ptr %297, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !90
@@ -3221,15 +3221,15 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
   br label %is_parallel.exit.thread.i
 
 308:                                              ; preds = %283
-  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134197.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134199.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
   %309 = load ptr, ptr %9, align 8, !tbaa !122
   %310 = load i64, ptr %11, align 8, !tbaa !121
-  %311 = add i64 %310, %.0131236.i
+  %311 = add i64 %310, %.0131238.i
   %312 = load i64, ptr %12, align 8, !tbaa !120
   %313 = urem i64 %311, %312
   %314 = getelementptr inbounds nuw ptr, ptr %309, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !90
-  %316 = add i64 %310, %.0233.i
+  %316 = add i64 %310, %.0235.i
   %317 = urem i64 %316, %312
   %318 = getelementptr inbounds nuw ptr, ptr %309, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !90
@@ -3237,15 +3237,15 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
   br label %is_parallel.exit.thread.i
 
 320:                                              ; preds = %.loopexit.i
-  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134197.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %25, ptr noundef %29, i32 noundef 0, i32 noundef %.0134199.ph.i, i32 noundef %.sroa.0.5.ph.i, ptr noundef readonly %1)
   %321 = load ptr, ptr %9, align 8, !tbaa !122
   %322 = load i64, ptr %11, align 8, !tbaa !121
-  %323 = add i64 %322, %.0131236.i
+  %323 = add i64 %322, %.0131238.i
   %324 = load i64, ptr %12, align 8, !tbaa !120
   %325 = urem i64 %323, %324
   %326 = getelementptr inbounds nuw ptr, ptr %321, i64 %325
   %327 = load ptr, ptr %326, align 8, !tbaa !90
-  %328 = add i64 %322, %.0233.i
+  %328 = add i64 %322, %.0235.i
   %329 = urem i64 %328, %324
   %330 = getelementptr inbounds nuw ptr, ptr %321, i64 %329
   %331 = load ptr, ptr %330, align 8, !tbaa !90
@@ -3256,12 +3256,12 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
 333:                                              ; preds = %320
   %334 = load ptr, ptr %9, align 8, !tbaa !122
   %335 = load i64, ptr %11, align 8, !tbaa !121
-  %336 = add i64 %335, %.0131236.i
+  %336 = add i64 %335, %.0131238.i
   %337 = load i64, ptr %12, align 8, !tbaa !120
   %338 = urem i64 %336, %337
   %339 = getelementptr inbounds nuw ptr, ptr %334, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !90
-  %341 = add i64 %335, %.0233.i
+  %341 = add i64 %335, %.0235.i
   %342 = urem i64 %341, %337
   %343 = getelementptr inbounds nuw ptr, ptr %334, i64 %342
   %344 = load ptr, ptr %343, align 8, !tbaa !90
@@ -3270,60 +3270,60 @@ removeEdge.exit.i:                                ; preds = %259, %is_parallel.e
   %347 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %348 = load double, ptr %347, align 8, !tbaa !161
   %349 = fcmp oeq double %346, %348
-  br i1 %349, label %.lr.ph.i183.i, label %removeEdge.exit193.i
+  br i1 %349, label %.lr.ph.i185.i, label %removeEdge.exit195.i
 
-.lr.ph.i183.i:                                    ; preds = %333
-  %.not.i.i184.i = icmp eq i32 %.0134197.ph.i, 1
-  %.0.in.v.i.i185.i = select i1 %.not.i.i184.i, i64 56, i64 64
+.lr.ph.i185.i:                                    ; preds = %333
+  %.not.i.i186.i = icmp eq i32 %.0134199.ph.i, 1
+  %.0.in.v.i.i187.i = select i1 %.not.i.i186.i, i64 56, i64 64
   br label %350
 
-350:                                              ; preds = %367, %.lr.ph.i183.i
-  %.01420.i186.i = phi ptr [ %344, %.lr.ph.i183.i ], [ %.0.i17.i192.i, %367 ]
-  %.01519.i187.i = phi ptr [ %340, %.lr.ph.i183.i ], [ %.0.i.i190.i, %367 ]
-  %351 = getelementptr inbounds nuw i8, ptr %.01519.i187.i, i64 24
+350:                                              ; preds = %367, %.lr.ph.i185.i
+  %.01420.i188.i = phi ptr [ %344, %.lr.ph.i185.i ], [ %.0.i17.i194.i, %367 ]
+  %.01519.i189.i = phi ptr [ %340, %.lr.ph.i185.i ], [ %.0.i.i192.i, %367 ]
+  %351 = getelementptr inbounds nuw i8, ptr %.01519.i189.i, i64 24
   %352 = load double, ptr %351, align 8, !tbaa !162
-  %353 = getelementptr inbounds nuw i8, ptr %.01420.i186.i, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %.01420.i188.i, i64 24
   %354 = load double, ptr %353, align 8, !tbaa !162
   %355 = fcmp oeq double %352, %354
-  br i1 %355, label %356, label %removeEdge.exit193.i
+  br i1 %355, label %356, label %removeEdge.exit195.i
 
 356:                                              ; preds = %350
-  %357 = getelementptr inbounds nuw i8, ptr %.01519.i187.i, i64 32
+  %357 = getelementptr inbounds nuw i8, ptr %.01519.i189.i, i64 32
   %358 = load i32, ptr %357, align 8, !tbaa !163
-  %359 = getelementptr inbounds nuw i8, ptr %.01420.i186.i, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %.01420.i188.i, i64 32
   %360 = load i32, ptr %359, align 8, !tbaa !163
   %361 = icmp eq i32 %358, %360
-  br i1 %361, label %is_parallel.exit.i188.i, label %removeEdge.exit193.i
+  br i1 %361, label %is_parallel.exit.i190.i, label %removeEdge.exit195.i
 
-is_parallel.exit.i188.i:                          ; preds = %356
-  %362 = getelementptr inbounds nuw i8, ptr %.01519.i187.i, i64 36
+is_parallel.exit.i190.i:                          ; preds = %356
+  %362 = getelementptr inbounds nuw i8, ptr %.01519.i189.i, i64 36
   %363 = load i32, ptr %362, align 4, !tbaa !164
-  %364 = getelementptr inbounds nuw i8, ptr %.01420.i186.i, i64 36
+  %364 = getelementptr inbounds nuw i8, ptr %.01420.i188.i, i64 36
   %365 = load i32, ptr %364, align 4, !tbaa !164
   %366 = icmp eq i32 %363, %365
-  br i1 %366, label %367, label %removeEdge.exit193.i
+  br i1 %366, label %367, label %removeEdge.exit195.i
 
-367:                                              ; preds = %is_parallel.exit.i188.i
-  %.0.in.i.i189.i = getelementptr inbounds nuw i8, ptr %.01519.i187.i, i64 64
-  %.0.i.i190.i = load ptr, ptr %.0.in.i.i189.i, align 8, !tbaa !90
-  %.0.in.i16.i191.i = getelementptr inbounds nuw i8, ptr %.01420.i186.i, i64 %.0.in.v.i.i185.i
-  %.0.i17.i192.i = load ptr, ptr %.0.in.i16.i191.i, align 8, !tbaa !90
-  %368 = getelementptr inbounds nuw i8, ptr %.0.i.i190.i, i64 16
+367:                                              ; preds = %is_parallel.exit.i190.i
+  %.0.in.i.i191.i = getelementptr inbounds nuw i8, ptr %.01519.i189.i, i64 64
+  %.0.i.i192.i = load ptr, ptr %.0.in.i.i191.i, align 8, !tbaa !90
+  %.0.in.i16.i193.i = getelementptr inbounds nuw i8, ptr %.01420.i188.i, i64 %.0.in.v.i.i187.i
+  %.0.i17.i194.i = load ptr, ptr %.0.in.i16.i193.i, align 8, !tbaa !90
+  %368 = getelementptr inbounds nuw i8, ptr %.0.i.i192.i, i64 16
   %369 = load double, ptr %368, align 8, !tbaa !161
-  %370 = getelementptr inbounds nuw i8, ptr %.0.i17.i192.i, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %.0.i17.i194.i, i64 16
   %371 = load double, ptr %370, align 8, !tbaa !161
   %372 = fcmp oeq double %369, %371
-  br i1 %372, label %350, label %removeEdge.exit193.i, !llvm.loop !167
+  br i1 %372, label %350, label %removeEdge.exit195.i, !llvm.loop !167
 
-removeEdge.exit193.i:                             ; preds = %367, %is_parallel.exit.i188.i, %356, %350, %333
-  %.015.lcssa18.i180.i = phi ptr [ %340, %333 ], [ %.0.i.i190.i, %367 ], [ %.01519.i187.i, %350 ], [ %.01519.i187.i, %356 ], [ %.01519.i187.i, %is_parallel.exit.i188.i ]
-  %.014.lcssa.i181.i = phi ptr [ %344, %333 ], [ %.0.i17.i192.i, %367 ], [ %.01420.i186.i, %350 ], [ %.01420.i186.i, %356 ], [ %.01420.i186.i, %is_parallel.exit.i188.i ]
-  %373 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i180.i, i64 16
-  %374 = load i8, ptr %.015.lcssa18.i180.i, align 8, !tbaa !110, !range !10, !noundef !11
+removeEdge.exit195.i:                             ; preds = %367, %is_parallel.exit.i190.i, %356, %350, %333
+  %.015.lcssa18.i182.i = phi ptr [ %340, %333 ], [ %.0.i.i192.i, %367 ], [ %.01519.i189.i, %350 ], [ %.01519.i189.i, %356 ], [ %.01519.i189.i, %is_parallel.exit.i190.i ]
+  %.014.lcssa.i183.i = phi ptr [ %344, %333 ], [ %.0.i17.i194.i, %367 ], [ %.01420.i188.i, %350 ], [ %.01420.i188.i, %356 ], [ %.01420.i188.i, %is_parallel.exit.i190.i ]
+  %373 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i182.i, i64 16
+  %374 = load i8, ptr %.015.lcssa18.i182.i, align 8, !tbaa !110, !range !10, !noundef !11
   %375 = trunc nuw i8 %374 to i1
-  %376 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i180.i, i64 8
-  %..i182.i = select i1 %375, i64 40, i64 32
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 %..i182.i
+  %376 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i182.i, i64 8
+  %..i184.i = select i1 %375, i64 40, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 %..i184.i
   %378 = load ptr, ptr %377, align 8, !tbaa !111
   %379 = load ptr, ptr %378, align 8, !tbaa !112
   %380 = tail call ptr %379(ptr noundef nonnull %378, ptr noundef nonnull %376, i32 noundef 512) #18
@@ -3333,9 +3333,9 @@ removeEdge.exit193.i:                             ; preds = %367, %is_parallel.e
   %384 = tail call ptr %383(ptr noundef nonnull %382, ptr noundef nonnull %373, i32 noundef 512) #18
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 64
   %386 = load ptr, ptr %385, align 8, !tbaa !124
-  %387 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i180.i, i64 40
+  %387 = getelementptr inbounds nuw i8, ptr %.015.lcssa18.i182.i, i64 40
   %388 = load i64, ptr %387, align 8, !tbaa !119
-  %389 = getelementptr inbounds nuw i8, ptr %.014.lcssa.i181.i, i64 40
+  %389 = getelementptr inbounds nuw i8, ptr %.014.lcssa.i183.i, i64 40
   %390 = load i64, ptr %389, align 8, !tbaa !119
   tail call void @remove_redge(ptr noundef %386, i64 noundef %388, i64 noundef %390) #18
   br label %is_parallel.exit.thread.i
@@ -3343,13 +3343,13 @@ removeEdge.exit193.i:                             ; preds = %367, %is_parallel.e
 default.unreachable:                              ; preds = %283, %.loopexit.i
   unreachable
 
-is_parallel.exit.thread.i:                        ; preds = %removeEdge.exit193.i, %320, %308, %296, %284, %removeEdge.exit.i, %212, %is_parallel.exit.i, %41, %35, %18, %16, %.lr.ph.i
-  %391 = add nuw i64 %.0233.i, 1
+is_parallel.exit.thread.i:                        ; preds = %removeEdge.exit195.i, %320, %308, %296, %284, %removeEdge.exit.i, %212, %is_parallel.exit.i, %41, %35, %18, %16, %.lr.ph.i
+  %391 = add nuw i64 %.0235.i, 1
   %.val.i = load i64, ptr %10, align 8, !tbaa !118
   %.not139.i = icmp ult i64 %391, %.val.i
   br i1 %.not139.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !168
 
-addPEdges.exit:                                   ; preds = %.critedge.i.i, %98, %.critedge.i155.i, %170
+addPEdges.exit:                                   ; preds = %is_parallel.exit.thread.i.i, %98, %is_parallel.exit.thread.i155.i, %170
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.7) #18
   br label %.loopexit17
 

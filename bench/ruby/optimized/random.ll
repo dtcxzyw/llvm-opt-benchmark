@@ -2589,65 +2589,66 @@ rand_mt_start.exit:                               ; preds = %default_rand.exit.r
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_seed(i64 %0) #0 {
-  %2 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #23
-  %3 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
-  %.not.i.i.i = icmp eq i32 %3, 0
+.critedge:
+  %1 = alloca [5 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %1) #23
+  %2 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4, !tbaa !22
+  %.not.i.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i.i, label %.preheader, label %.preheader.i
 
-.preheader:                                       ; preds = %.thread.i.i.i, %1
-  br label %11
+.preheader:                                       ; preds = %.thread.i.i.i, %.critedge
+  br label %10
 
-.preheader.i:                                     ; preds = %1, %8
-  %.013.i.i.i = phi i64 [ %9, %8 ], [ 0, %1 ]
-  %4 = call ptr @rb_errno_ptr() #23
-  store i32 0, ptr %4, align 4, !tbaa !22
-  %5 = getelementptr i8, ptr %2, i64 %.013.i.i.i
-  %6 = sub nuw nsw i64 16, %.013.i.i.i
-  %7 = call i64 @getrandom(ptr noundef %5, i64 noundef %6, i32 noundef 1) #23
-  %.not17.i.i.i = icmp eq i64 %7, -1
-  br i1 %.not17.i.i.i, label %.thread.i.i.i, label %8
+.preheader.i:                                     ; preds = %.critedge, %7
+  %.013.i.i.i = phi i64 [ %8, %7 ], [ 0, %.critedge ]
+  %3 = call ptr @rb_errno_ptr() #23
+  store i32 0, ptr %3, align 4, !tbaa !22
+  %4 = getelementptr i8, ptr %1, i64 %.013.i.i.i
+  %5 = sub nuw nsw i64 16, %.013.i.i.i
+  %6 = call i64 @getrandom(ptr noundef %4, i64 noundef %5, i32 noundef 1) #23
+  %.not17.i.i.i = icmp eq i64 %6, -1
+  br i1 %.not17.i.i.i, label %.thread.i.i.i, label %7
 
 .thread.i.i.i:                                    ; preds = %.preheader.i
   store atomic volatile i32 0, ptr @fill_random_bytes_syscall.try_syscall seq_cst, align 4
   br label %.preheader
 
-8:                                                ; preds = %.preheader.i
-  %9 = add i64 %7, %.013.i.i.i
-  %10 = icmp ult i64 %9, 16
-  br i1 %10, label %.preheader.i, label %fill_random_seed.exit, !llvm.loop !27
+7:                                                ; preds = %.preheader.i
+  %8 = add i64 %6, %.013.i.i.i
+  %9 = icmp ult i64 %8, 16
+  br i1 %9, label %.preheader.i, label %fill_random_seed.exit, !llvm.loop !27
 
-11:                                               ; preds = %.preheader, %12
-  %.014.i.i.i = phi i64 [ %16, %12 ], [ 16, %.preheader ]
-  %.012.i.i.i = phi ptr [ %15, %12 ], [ %2, %.preheader ]
+10:                                               ; preds = %.preheader, %11
+  %.014.i.i.i = phi i64 [ %15, %11 ], [ 16, %.preheader ]
+  %.012.i.i.i = phi ptr [ %14, %11 ], [ %1, %.preheader ]
   %.not.i8.i.i = icmp eq i64 %.014.i.i.i, 0
-  br i1 %.not.i8.i.i, label %fill_random_seed.exit, label %12
+  br i1 %.not.i8.i.i, label %fill_random_seed.exit, label %11
 
-12:                                               ; preds = %11
-  %13 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
-  %14 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %13) #23
-  %.not16.i9.i.i = icmp eq i32 %14, 0
-  %15 = getelementptr i8, ptr %.012.i.i.i, i64 %13
-  %16 = sub i64 %.014.i.i.i, %13
-  br i1 %.not16.i9.i.i, label %11, label %fill_random_seed.exit, !llvm.loop !28
+11:                                               ; preds = %10
+  %12 = call i64 @llvm.umin.i64(i64 %.014.i.i.i, i64 256)
+  %13 = call i32 @getentropy(ptr noundef %.012.i.i.i, i64 noundef %12) #23
+  %.not16.i9.i.i = icmp eq i32 %13, 0
+  %14 = getelementptr i8, ptr %.012.i.i.i, i64 %12
+  %15 = sub i64 %.014.i.i.i, %12
+  br i1 %.not16.i9.i.i, label %10, label %fill_random_seed.exit, !llvm.loop !28
 
-fill_random_seed.exit:                            ; preds = %8, %11, %12
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !22
-  %19 = icmp ult i32 %18, 2
-  br i1 %19, label %20, label %make_seed_value.exit
+fill_random_seed.exit:                            ; preds = %7, %10, %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %17 = load i32, ptr %16, align 4, !tbaa !22
+  %18 = icmp ult i32 %17, 2
+  br i1 %18, label %19, label %make_seed_value.exit
 
-20:                                               ; preds = %fill_random_seed.exit
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1, ptr %21, align 16, !tbaa !22
+19:                                               ; preds = %fill_random_seed.exit
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 1, ptr %20, align 16, !tbaa !22
   br label %make_seed_value.exit
 
-make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %20
-  %.0.i = phi i64 [ 5, %20 ], [ 4, %fill_random_seed.exit ]
-  %22 = call i64 @rb_integer_unpack(ptr noundef nonnull %2, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
-  call void @__explicit_bzero_chk(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 20) #23
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #23
-  ret i64 %22
+make_seed_value.exit:                             ; preds = %fill_random_seed.exit, %19
+  %.0.i = phi i64 [ 5, %19 ], [ 4, %fill_random_seed.exit ]
+  %21 = call i64 @rb_integer_unpack(ptr noundef nonnull %1, i64 noundef %.0.i, i64 noundef 4, i64 noundef 0, i32 noundef 66) #23
+  call void @__explicit_bzero_chk(ptr noundef nonnull %1, i64 noundef 16, i64 noundef 20) #23
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %1) #23
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

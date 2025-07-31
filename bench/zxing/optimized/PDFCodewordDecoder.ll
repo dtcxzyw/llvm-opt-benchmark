@@ -44,23 +44,23 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i: ; preds = %.l
   br label %8
 
 8:                                                ; preds = %_ZNSt5arrayIiLm8EE4fillERKi.exit.i, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i
-  %.031.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %.1.i, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
-  %.01830.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %25, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
-  %.01929.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %.120.i, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
-  %9 = uitofp nneg i32 %.01830.i to float
+  %.026.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %.1.i, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
+  %.01825.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %25, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
+  %.01924.i = phi i32 [ 0, %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i ], [ %.120.i, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i ]
+  %9 = uitofp nneg i32 %.01825.i to float
   %10 = fmul float %6, %9
   %11 = fdiv float %10, 1.700000e+01
   %12 = fadd float %7, %11
-  %13 = sext i32 %.031.i to i64
+  %13 = sext i32 %.026.i to i64
   %14 = getelementptr inbounds nuw [8 x i32], ptr %0, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !6, !noalias !3
-  %16 = add nsw i32 %15, %.01929.i
+  %16 = add nsw i32 %15, %.01924.i
   %17 = sitofp i32 %16 to float
   %18 = fcmp ult float %12, %17
   br i1 %18, label %_ZNSt5arrayIiLm8EE4fillERKi.exit.i, label %19
 
 19:                                               ; preds = %8
-  %20 = add nsw i32 %.031.i, 1
+  %20 = add nsw i32 %.026.i, 1
   %21 = icmp eq i32 %20, 8
   br i1 %21, label %.preheader.i.i.preheader, label %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i
 
@@ -70,13 +70,13 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i: ; preds = %.l
 
 _ZNSt5arrayIiLm8EE4fillERKi.exit.i:               ; preds = %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i, %8
   %.pre-phi.i = phi i64 [ %.pre.i, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %13, %8 ]
-  %.120.i = phi i32 [ %16, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.01929.i, %8 ]
-  %.1.i = phi i32 [ %20, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.031.i, %8 ]
+  %.120.i = phi i32 [ %16, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.01924.i, %8 ]
+  %.1.i = phi i32 [ %20, %._ZNSt5arrayIiLm8EE4fillERKi.exit_crit_edge.i ], [ %.026.i, %8 ]
   %22 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %.pre-phi.i
   %23 = load i32, ptr %22, align 4, !tbaa !6, !alias.scope !3
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !6, !alias.scope !3
-  %25 = add nuw nsw i32 %.01830.i, 1
+  %25 = add nuw nsw i32 %.01825.i, 1
   %exitcond.not.i = icmp eq i32 %25, 17
   br i1 %exitcond.not.i, label %.preheader.i.i.preheader, label %8, !llvm.loop !12
 

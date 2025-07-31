@@ -878,7 +878,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %2, 0
-  br i1 %4, label %.thread172, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -890,7 +890,7 @@ define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef readonly captures(ad
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = icmp eq ptr %9, %10
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %ikcp_segment_delete.exit, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -900,7 +900,7 @@ define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef readonly captures(ad
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !27
   %19 = icmp ult i32 %16, %18
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %ikcp_segment_delete.exit
 
 20:                                               ; preds = %12
   %21 = sub nuw i32 %18, %16
@@ -923,7 +923,7 @@ define dso_local i32 @ikcp_send(ptr noundef %0, ptr noundef readonly captures(ad
 ikcp_segment_new.exit:                            ; preds = %27, %29
   %.0.i.i = phi ptr [ %28, %27 ], [ %30, %29 ]
   %.not153 = icmp eq ptr %.0.i.i, null
-  br i1 %.not153, label %.thread172, label %31
+  br i1 %.not153, label %.critedge, label %31
 
 31:                                               ; preds = %ikcp_segment_new.exit
   %32 = load ptr, ptr %13, align 8, !tbaa !31
@@ -967,39 +967,39 @@ ikcp_segment_new.exit:                            ; preds = %27, %29
   store ptr %14, ptr %14, align 8, !tbaa !56
   store ptr %14, ptr %50, align 8, !tbaa !54
   %54 = load ptr, ptr @ikcp_free_hook, align 8, !tbaa !4
-  %.not.i.i156 = icmp eq ptr %54, null
-  br i1 %.not.i.i156, label %56, label %55
+  %.not.i.i159 = icmp eq ptr %54, null
+  br i1 %.not.i.i159, label %56, label %55
 
 55:                                               ; preds = %44
   tail call void %54(ptr noundef nonnull %14) #15
-  br label %.thread
+  br label %ikcp_segment_delete.exit
 
 56:                                               ; preds = %44
   tail call void @free(ptr noundef nonnull %14) #15
-  br label %.thread
+  br label %ikcp_segment_delete.exit
 
-.thread:                                          ; preds = %56, %55, %12, %8
+ikcp_segment_delete.exit:                         ; preds = %56, %55, %12, %8
   %.1135 = phi i32 [ 0, %8 ], [ 0, %12 ], [ %22, %55 ], [ %22, %56 ]
   %.1125 = phi i32 [ %2, %8 ], [ %2, %12 ], [ %49, %55 ], [ %49, %56 ]
   %.1117 = phi ptr [ %1, %8 ], [ %1, %12 ], [ %.4120, %55 ], [ %.4120, %56 ]
   %57 = icmp slt i32 %.1125, 1
-  br i1 %57, label %.thread172, label %58
+  br i1 %57, label %.critedge, label %58
 
-58:                                               ; preds = %.thread, %5
-  %.0134 = phi i32 [ %.1135, %.thread ], [ 0, %5 ]
-  %.0124 = phi i32 [ %.1125, %.thread ], [ %2, %5 ]
-  %.0116 = phi ptr [ %.1117, %.thread ], [ %1, %5 ]
+58:                                               ; preds = %ikcp_segment_delete.exit, %5
+  %.0134 = phi i32 [ %.1135, %ikcp_segment_delete.exit ], [ 0, %5 ]
+  %.0124 = phi i32 [ %.1125, %ikcp_segment_delete.exit ], [ %2, %5 ]
+  %.0116 = phi ptr [ %.1117, %ikcp_segment_delete.exit ], [ %1, %5 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !27
   %.not154 = icmp sgt i32 %.0124, %60
-  br i1 %.not154, label %61, label %.thread169
+  br i1 %.not154, label %61, label %.thread
 
 61:                                               ; preds = %58
   %62 = add nsw i32 %.0124, -1
   %63 = add i32 %62, %60
   %64 = udiv i32 %63, %60
   %65 = icmp sgt i32 %64, 127
-  br i1 %65, label %66, label %.thread169
+  br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %61
   %67 = load i32, ptr %6, align 4, !tbaa !28
@@ -1007,43 +1007,43 @@ ikcp_segment_new.exit:                            ; preds = %27, %29
   %69 = icmp sgt i32 %.0134, 0
   %or.cond = and i1 %69, %68
   %.0134. = select i1 %or.cond, i32 %.0134, i32 -2
-  br label %.thread172
+  br label %.critedge
 
-.thread169:                                       ; preds = %58, %61
-  %.0142171 = phi i32 [ %64, %61 ], [ 1, %58 ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0142171, i32 1)
+.thread:                                          ; preds = %58, %61
+  %.0142164 = phi i32 [ %64, %61 ], [ 1, %58 ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0142164, i32 1)
   %70 = icmp sgt i32 %spec.store.select, 0
-  br i1 %70, label %.lr.ph, label %.thread172
+  br i1 %70, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.thread169
+.lr.ph:                                           ; preds = %.thread
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %74 = load ptr, ptr @ikcp_malloc_hook, align 8, !tbaa !4
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %ikcp_segment_new.exit159.us, label %.lr.ph.split
+  br i1 %75, label %ikcp_segment_new.exit162.us, label %.lr.ph.split
 
-ikcp_segment_new.exit159.us:                      ; preds = %.lr.ph, %84
-  %.6122179.us = phi ptr [ %.8.us, %84 ], [ %.0116, %.lr.ph ]
-  %.5129178.us = phi i32 [ %97, %84 ], [ %.0124, %.lr.ph ]
-  %.5139177.us = phi i32 [ %98, %84 ], [ %.0134, %.lr.ph ]
-  %.0141176.us = phi i32 [ %99, %84 ], [ 0, %.lr.ph ]
-  %..5129.us = tail call i32 @llvm.smin.i32(i32 %.5129178.us, i32 %60)
+ikcp_segment_new.exit162.us:                      ; preds = %.lr.ph, %84
+  %.6122168.us = phi ptr [ %.8.us, %84 ], [ %.0116, %.lr.ph ]
+  %.5129167.us = phi i32 [ %97, %84 ], [ %.0124, %.lr.ph ]
+  %.5139166.us = phi i32 [ %98, %84 ], [ %.0134, %.lr.ph ]
+  %.0141165.us = phi i32 [ %99, %84 ], [ 0, %.lr.ph ]
+  %..5129.us = tail call i32 @llvm.smin.i32(i32 %.5129167.us, i32 %60)
   %76 = sext i32 %..5129.us to i64
   %77 = add nsw i64 %76, 72
   %78 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %77) #16
   %.not155.us = icmp eq ptr %78, null
-  br i1 %.not155.us, label %.thread172, label %79
+  br i1 %.not155.us, label %.critedge, label %79
 
-79:                                               ; preds = %ikcp_segment_new.exit159.us
-  %80 = icmp ne ptr %.6122179.us, null
-  %81 = icmp sgt i32 %.5129178.us, 0
+79:                                               ; preds = %ikcp_segment_new.exit162.us
+  %80 = icmp ne ptr %.6122168.us, null
+  %81 = icmp sgt i32 %.5129167.us, 0
   %or.cond5.us = and i1 %80, %81
   br i1 %or.cond5.us, label %82, label %84
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 1 %.6122179.us, i64 %76, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 1 %.6122168.us, i64 %76, i1 false)
   br label %84
 
 84:                                               ; preds = %82, %79
@@ -1051,7 +1051,7 @@ ikcp_segment_new.exit159.us:                      ; preds = %.lr.ph, %84
   store i32 %..5129.us, ptr %85, align 4, !tbaa !74
   %86 = load i32, ptr %6, align 4, !tbaa !28
   %87 = icmp eq i32 %86, 0
-  %88 = xor i32 %.0141176.us, -1
+  %88 = xor i32 %.0141165.us, -1
   %89 = add nsw i32 %spec.store.select, %88
   %90 = select i1 %87, i32 %89, i32 0
   %91 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1065,82 +1065,82 @@ ikcp_segment_new.exit159.us:                      ; preds = %.lr.ph, %84
   %94 = load i32, ptr %73, align 8, !tbaa !82
   %95 = add i32 %94, 1
   store i32 %95, ptr %73, align 8, !tbaa !82
-  %96 = getelementptr inbounds i8, ptr %.6122179.us, i64 %76
+  %96 = getelementptr inbounds i8, ptr %.6122168.us, i64 %76
   %.8.us = select i1 %80, ptr %96, ptr null
-  %97 = sub nsw i32 %.5129178.us, %..5129.us
-  %98 = add nsw i32 %..5129.us, %.5139177.us
-  %99 = add nuw nsw i32 %.0141176.us, 1
-  %exitcond184.not = icmp eq i32 %99, %spec.store.select
-  br i1 %exitcond184.not, label %.thread172, label %ikcp_segment_new.exit159.us, !llvm.loop !83
+  %97 = sub nsw i32 %.5129167.us, %..5129.us
+  %98 = add nsw i32 %..5129.us, %.5139166.us
+  %99 = add nuw nsw i32 %.0141165.us, 1
+  %exitcond173.not = icmp eq i32 %99, %spec.store.select
+  br i1 %exitcond173.not, label %.critedge, label %ikcp_segment_new.exit162.us, !llvm.loop !83
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %114
   %100 = phi ptr [ %108, %114 ], [ %74, %.lr.ph ]
-  %.6122179 = phi ptr [ %.8, %114 ], [ %.0116, %.lr.ph ]
-  %.5129178 = phi i32 [ %127, %114 ], [ %.0124, %.lr.ph ]
-  %.5139177 = phi i32 [ %128, %114 ], [ %.0134, %.lr.ph ]
-  %.0141176 = phi i32 [ %129, %114 ], [ 0, %.lr.ph ]
+  %.6122168 = phi ptr [ %.8, %114 ], [ %.0116, %.lr.ph ]
+  %.5129167 = phi i32 [ %127, %114 ], [ %.0124, %.lr.ph ]
+  %.5139166 = phi i32 [ %128, %114 ], [ %.0134, %.lr.ph ]
+  %.0141165 = phi i32 [ %129, %114 ], [ 0, %.lr.ph ]
   %101 = load i32, ptr %59, align 8, !tbaa !27
-  %..5129 = tail call i32 @llvm.smin.i32(i32 %.5129178, i32 %101)
+  %..5129 = tail call i32 @llvm.smin.i32(i32 %.5129167, i32 %101)
   %102 = sext i32 %..5129 to i64
   %103 = add nsw i64 %102, 72
-  %.not.i.i157 = icmp eq ptr %100, null
-  br i1 %.not.i.i157, label %106, label %104
+  %.not.i.i160 = icmp eq ptr %100, null
+  br i1 %.not.i.i160, label %106, label %104
 
 104:                                              ; preds = %.lr.ph.split
   %105 = tail call ptr %100(i64 noundef range(i64 -2147483576, 34359738361) %103) #15
   %.pre = load ptr, ptr @ikcp_malloc_hook, align 8, !tbaa !4
-  br label %ikcp_segment_new.exit159
+  br label %ikcp_segment_new.exit162
 
 106:                                              ; preds = %.lr.ph.split
   %107 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %103) #16
-  br label %ikcp_segment_new.exit159
+  br label %ikcp_segment_new.exit162
 
-ikcp_segment_new.exit159:                         ; preds = %104, %106
+ikcp_segment_new.exit162:                         ; preds = %104, %106
   %108 = phi ptr [ %.pre, %104 ], [ null, %106 ]
-  %.0.i.i158 = phi ptr [ %105, %104 ], [ %107, %106 ]
-  %.not155 = icmp eq ptr %.0.i.i158, null
-  br i1 %.not155, label %.thread172, label %109
+  %.0.i.i161 = phi ptr [ %105, %104 ], [ %107, %106 ]
+  %.not155 = icmp eq ptr %.0.i.i161, null
+  br i1 %.not155, label %.critedge, label %109
 
-109:                                              ; preds = %ikcp_segment_new.exit159
-  %110 = icmp ne ptr %.6122179, null
-  %111 = icmp sgt i32 %.5129178, 0
+109:                                              ; preds = %ikcp_segment_new.exit162
+  %110 = icmp ne ptr %.6122168, null
+  %111 = icmp sgt i32 %.5129167, 0
   %or.cond5 = select i1 %110, i1 %111, i1 false
   br i1 %or.cond5, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i158, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %113, ptr nonnull align 1 %.6122179, i64 %102, i1 false)
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i161, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %113, ptr nonnull align 1 %.6122168, i64 %102, i1 false)
   br label %114
 
-114:                                              ; preds = %112, %109
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i158, i64 44
+114:                                              ; preds = %109, %112
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i161, i64 44
   store i32 %..5129, ptr %115, align 4, !tbaa !74
   %116 = load i32, ptr %6, align 4, !tbaa !28
   %117 = icmp eq i32 %116, 0
-  %118 = xor i32 %.0141176, -1
+  %118 = xor i32 %.0141165, -1
   %119 = add nsw i32 %spec.store.select, %118
   %120 = select i1 %117, i32 %119, i32 0
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i158, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i161, i64 24
   store i32 %120, ptr %121, align 8, !tbaa !73
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i158, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i161, i64 8
   %123 = load ptr, ptr %72, align 8, !tbaa !31
   store ptr %123, ptr %122, align 8, !tbaa !54
-  store ptr %71, ptr %.0.i.i158, align 8, !tbaa !56
-  store ptr %.0.i.i158, ptr %123, align 8, !tbaa !58
-  store ptr %.0.i.i158, ptr %72, align 8, !tbaa !31
+  store ptr %71, ptr %.0.i.i161, align 8, !tbaa !56
+  store ptr %.0.i.i161, ptr %123, align 8, !tbaa !58
+  store ptr %.0.i.i161, ptr %72, align 8, !tbaa !31
   %124 = load i32, ptr %73, align 8, !tbaa !82
   %125 = add i32 %124, 1
   store i32 %125, ptr %73, align 8, !tbaa !82
-  %126 = getelementptr inbounds i8, ptr %.6122179, i64 %102
+  %126 = getelementptr inbounds i8, ptr %.6122168, i64 %102
   %.8 = select i1 %110, ptr %126, ptr null
-  %127 = sub nsw i32 %.5129178, %..5129
-  %128 = add nsw i32 %..5129, %.5139177
-  %129 = add nuw nsw i32 %.0141176, 1
+  %127 = sub nsw i32 %.5129167, %..5129
+  %128 = add nsw i32 %..5129, %.5139166
+  %129 = add nuw nsw i32 %.0141165, 1
   %exitcond.not = icmp eq i32 %129, %spec.store.select
-  br i1 %exitcond.not, label %.thread172, label %.lr.ph.split, !llvm.loop !84
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !84
 
-.thread172:                                       ; preds = %114, %ikcp_segment_new.exit159, %84, %ikcp_segment_new.exit159.us, %.thread169, %ikcp_segment_new.exit, %66, %.thread, %3
-  %.0 = phi i32 [ -1, %3 ], [ %.1135, %.thread ], [ %.0134., %66 ], [ -2, %ikcp_segment_new.exit ], [ %.0134, %.thread169 ], [ %98, %84 ], [ -2, %ikcp_segment_new.exit159.us ], [ %128, %114 ], [ -2, %ikcp_segment_new.exit159 ]
+.critedge:                                        ; preds = %114, %ikcp_segment_new.exit162, %84, %ikcp_segment_new.exit162.us, %.thread, %ikcp_segment_new.exit, %66, %ikcp_segment_delete.exit, %3
+  %.0 = phi i32 [ -1, %3 ], [ %.1135, %ikcp_segment_delete.exit ], [ %.0134., %66 ], [ -2, %ikcp_segment_new.exit ], [ %.0134, %.thread ], [ %98, %84 ], [ -2, %ikcp_segment_new.exit162.us ], [ %128, %114 ], [ -2, %ikcp_segment_new.exit162 ]
   ret i32 %.0
 }
 

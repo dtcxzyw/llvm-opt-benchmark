@@ -3297,26 +3297,26 @@ define i32 @EVP_PKEY_get_default_digest_name(ptr noundef %0, ptr noundef %1, i64
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %16 = load ptr, ptr %15, align 8, !tbaa !94
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %EVP_PKEY_get_default_digest_nid.exit
+  br i1 %17, label %.critedge, label %EVP_PKEY_get_default_digest_nid.exit
 
 EVP_PKEY_get_default_digest_nid.exit:             ; preds = %14
   %18 = call i32 %16(ptr noundef nonnull %0, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %4) #12
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %.thread
+  br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %EVP_PKEY_get_default_digest_nid.exit
   %21 = load i32, ptr %4, align 4, !tbaa !74
   %22 = call ptr @OBJ_nid2sn(i32 noundef %21) #12
   %23 = call i64 @OPENSSL_strlcpy(ptr noundef %1, ptr noundef %22, i64 noundef %2) #12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %EVP_PKEY_get_default_digest_nid.exit, %20
-  %.0.i1315 = phi i32 [ %18, %20 ], [ %18, %EVP_PKEY_get_default_digest_nid.exit ], [ -2, %14 ]
+.critedge:                                        ; preds = %14, %EVP_PKEY_get_default_digest_nid.exit, %20
+  %.0.i13 = phi i32 [ %18, %EVP_PKEY_get_default_digest_nid.exit ], [ %18, %20 ], [ -2, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   br label %24
 
-24:                                               ; preds = %.thread, %8
-  %.0 = phi i32 [ %13, %8 ], [ %.0.i1315, %.thread ]
+24:                                               ; preds = %.critedge, %8
+  %.0 = phi i32 [ %13, %8 ], [ %.0.i13, %.critedge ]
   ret i32 %.0
 }
 
@@ -5042,26 +5042,26 @@ define internal fastcc i32 @legacy_asn1_ctrl_to_param(ptr noundef nonnull %0, i3
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %21 = load ptr, ptr %20, align 8, !tbaa !94
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread, label %EVP_PKEY_get_default_digest_nid.exit
+  br i1 %22, label %.critedge.i, label %EVP_PKEY_get_default_digest_nid.exit
 
 EVP_PKEY_get_default_digest_nid.exit:             ; preds = %19
   %23 = call i32 %21(ptr noundef nonnull %0, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %4) #12
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.critedge.i
 
 25:                                               ; preds = %EVP_PKEY_get_default_digest_nid.exit
   %26 = load i32, ptr %4, align 4, !tbaa !74
   %27 = call ptr @OBJ_nid2sn(i32 noundef %26) #12
   %28 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %5, ptr noundef %27, i64 noundef 80) #12
-  br label %.thread
+  br label %.critedge.i
 
-.thread:                                          ; preds = %19, %EVP_PKEY_get_default_digest_nid.exit, %25
-  %.0.i.i2022 = phi i32 [ %23, %25 ], [ %23, %EVP_PKEY_get_default_digest_nid.exit ], [ -2, %19 ]
+.critedge.i:                                      ; preds = %19, %25, %EVP_PKEY_get_default_digest_nid.exit
+  %.0.i.i20 = phi i32 [ %23, %25 ], [ %23, %EVP_PKEY_get_default_digest_nid.exit ], [ -2, %19 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   br label %EVP_PKEY_get_default_digest_name.exit
 
-EVP_PKEY_get_default_digest_name.exit:            ; preds = %15, %.thread
-  %.0.i = phi i32 [ %18, %15 ], [ %.0.i.i2022, %.thread ]
+EVP_PKEY_get_default_digest_name.exit:            ; preds = %15, %.critedge.i
+  %.0.i = phi i32 [ %18, %15 ], [ %.0.i.i20, %.critedge.i ]
   %29 = icmp sgt i32 %.0.i, 0
   br i1 %29, label %30, label %44
 

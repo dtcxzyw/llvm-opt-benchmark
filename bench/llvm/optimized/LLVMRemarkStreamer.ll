@@ -1409,40 +1409,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   %11 = icmp uge ptr %2, %.pre3.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i.i, label %15, label %13, !prof !195
+  br i1 %spec.select.i.i.i.i.i, label %13, label %.critedge.i.i.i, !prof !195
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %6, i64 noundef 64) #16
+  %14 = ptrtoint ptr %2 to i64
+  %15 = ptrtoint ptr %.pre3.i to i64
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %6, i64 noundef 64) #16
+  %18 = load ptr, ptr %0, align 8, !tbaa !10
+  %19 = getelementptr inbounds i8, ptr %18, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %20, i64 noundef %6, i64 noundef 64) #16
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !10
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit
 
-15:                                               ; preds = %9
-  %16 = ptrtoint ptr %2 to i64
-  %17 = ptrtoint ptr %.pre3.i to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19, i64 noundef %6, i64 noundef 64) #16
-  %20 = load ptr, ptr %0, align 8, !tbaa !10
-  %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit: ; preds = %1, %13, %15
-  %22 = phi ptr [ %.pre3.i, %1 ], [ %20, %15 ], [ %.pre.i, %13 ]
-  %.016.i.i.i = phi ptr [ %2, %1 ], [ %21, %15 ], [ %2, %13 ]
-  %23 = load i32, ptr %3, align 8, !tbaa !14
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %22, i64 %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i, i64 64, i1 false)
-  %26 = load i32, ptr %3, align 8, !tbaa !14
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %3, align 8, !tbaa !14
+_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit: ; preds = %1, %13, %.critedge.i.i.i
+  %21 = phi ptr [ %.pre3.i, %1 ], [ %18, %13 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %2, %1 ], [ %19, %13 ], [ %2, %.critedge.i.i.i ]
+  %22 = load i32, ptr %3, align 8, !tbaa !14
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %21, i64 %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i, i64 64, i1 false)
+  %25 = load i32, ptr %3, align 8, !tbaa !14
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
-  %28 = load ptr, ptr %0, align 8, !tbaa !10
-  %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -64
-  ret ptr %31
+  %27 = load ptr, ptr %0, align 8, !tbaa !10
+  %28 = zext i32 %26 to i64
+  %29 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %27, i64 %28
+  %30 = getelementptr inbounds i8, ptr %29, i64 -64
+  ret ptr %30
 }
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3

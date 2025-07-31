@@ -5709,7 +5709,7 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %48 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !72
   %49 = and i32 %48, 2147483647
   %50 = icmp eq i32 %5, %49
-  br i1 %50, label %.thread, label %51
+  br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %47
   %52 = load i1, ptr @call_timer_fn.__already_done, align 1
@@ -5736,7 +5736,7 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %62 = icmp ult i8 %61, 2
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i8 %61, 0
-  br i1 %63, label %.lr.ph, label %.thread, !prof !141
+  br i1 %63, label %.lr.ph, label %.critedge, !prof !141
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
   %64 = phi { i8, i32 } [ %68, %.lr.ph ], [ %60, %56 ]
@@ -5748,9 +5748,9 @@ define internal fastcc void @call_timer_fn(ptr noundef nonnull %0, ptr noundef n
   %70 = icmp ult i8 %69, 2
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i8 %69, 0
-  br i1 %71, label %.lr.ph, label %.thread, !prof !142, !llvm.loop !143
+  br i1 %71, label %.lr.ph, label %.critedge, !prof !142, !llvm.loop !143
 
-.thread:                                          ; preds = %.lr.ph, %56, %47
+.critedge:                                        ; preds = %.lr.ph, %56, %47
   ret void
 }
 

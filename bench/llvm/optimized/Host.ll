@@ -1216,7 +1216,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
 
 .critedge4.preheader:                             ; preds = %.lr.ph559
   %30 = icmp ult ptr %.4558, %3
-  br i1 %30, label %.lr.ph562, label %._crit_edge.thread594
+  br i1 %30, label %.lr.ph562, label %._crit_edge.thread
 
 .critedge6:                                       ; preds = %.lr.ph559, %.lr.ph559
   %.4 = getelementptr inbounds nuw i8, ptr %.4558, i64 1
@@ -1231,18 +1231,18 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
   %32 = phi i8 [ %.pr, %.lr.ph562thread-pre-split ], [ %29, %.critedge4.preheader ]
   %.5561 = phi ptr [ %33, %.lr.ph562thread-pre-split ], [ %.4558, %.critedge4.preheader ]
   switch i8 %32, label %.critedge4 [
-    i8 32, label %._crit_edge.thread594
-    i8 9, label %._crit_edge.thread594
-    i8 44, label %._crit_edge.thread594
-    i8 10, label %._crit_edge.thread594
+    i8 32, label %._crit_edge.thread
+    i8 9, label %._crit_edge.thread
+    i8 44, label %._crit_edge.thread
+    i8 10, label %._crit_edge.thread
   ]
 
 .critedge4:                                       ; preds = %.lr.ph562
   %33 = getelementptr inbounds nuw i8, ptr %.5561, i64 1
   %34 = icmp ult ptr %33, %3
-  br i1 %34, label %.lr.ph562thread-pre-split, label %._crit_edge.thread594, !llvm.loop !36
+  br i1 %34, label %.lr.ph562thread-pre-split, label %._crit_edge.thread, !llvm.loop !36
 
-._crit_edge.thread594:                            ; preds = %.lr.ph562, %.lr.ph562, %.lr.ph562, %.lr.ph562, %.critedge4, %.critedge4.preheader
+._crit_edge.thread:                               ; preds = %.lr.ph562, %.lr.ph562, %.lr.ph562, %.lr.ph562, %.critedge4, %.critedge4.preheader
   %.5.lcssa = phi ptr [ %.4558, %.critedge4.preheader ], [ %33, %.critedge4 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ]
   %35 = ptrtoint ptr %.5.lcssa to i64
   %36 = ptrtoint ptr %.4558 to i64
@@ -1278,12 +1278,12 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
   %43 = icmp ult ptr %.6, %3
   br i1 %43, label %.lr.ph578, label %_ZN4llvm9StringRefC2EPKc.exit, !llvm.loop !38
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %._crit_edge.thread
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.4558, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %44 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %44, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i95
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i87:          ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i87:          ; preds = %._crit_edge.thread
   %bcmp.i.i.i88 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.4558, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
   %45 = icmp eq i32 %bcmp.i.i.i88, 0
   br i1 %45, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242
@@ -1308,17 +1308,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i119:         ; preds = %_ZN4llvmeqENS_9Stri
   %49 = icmp eq i32 %bcmp.i.i.i120, 0
   br i1 %49, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i127:         ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i127:         ; preds = %._crit_edge.thread
   %bcmp.i.i.i128 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.4558, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
   %50 = icmp eq i32 %bcmp.i.i.i128, 0
   br i1 %50, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i159
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i135:         ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i135:         ; preds = %._crit_edge.thread
   %bcmp.i.i.i136 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.4558, ptr noundef nonnull dereferenceable(6) @.str.11, i64 6)
   %51 = icmp eq i32 %bcmp.i.i.i136, 0
   br i1 %51, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i167
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i143:         ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i143:         ; preds = %._crit_edge.thread
   %bcmp.i.i.i144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.4558, ptr noundef nonnull dereferenceable(8) @.str.13, i64 8)
   %52 = icmp eq i32 %bcmp.i.i.i144, 0
   br i1 %52, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i151
@@ -1358,12 +1358,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i199:         ; preds = %_ZN4llvmeqENS_9Stri
   %59 = icmp eq i32 %bcmp.i.i.i200, 0
   br i1 %59, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i207:         ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i207:         ; preds = %._crit_edge.thread
   %bcmp.i.i.i208 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.4558, ptr noundef nonnull dereferenceable(7) @.str.26, i64 7)
   %60 = icmp eq i32 %bcmp.i.i.i208, 0
   br i1 %60, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i231
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i215:         ; preds = %._crit_edge.thread594
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i215:         ; preds = %._crit_edge.thread
   %bcmp.i.i.i216 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.4558, ptr noundef nonnull dereferenceable(9) @.str.27, i64 9)
   %61 = icmp eq i32 %bcmp.i.i.i216, 0
   br i1 %61, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread, label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242
@@ -1388,8 +1388,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i239:         ; preds = %_ZN4llvmeqENS_9Stri
   %65 = select i1 %64, ptr @.str.33, ptr @.str.1
   br label %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242
 
-_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242: ; preds = %._crit_edge.thread594, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i239, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i151, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i175, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i119, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i215, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread
-  %.sroa.68.20 = phi ptr [ %.sroa.46.19.ph, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i215 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i151 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i175 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i119 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87 ], [ %65, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i239 ], [ @.str.1, %._crit_edge.thread594 ]
+_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit242: ; preds = %._crit_edge.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i239, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i151, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i175, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i119, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i215, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread
+  %.sroa.68.20 = phi ptr [ %.sroa.46.19.ph, %_ZN4llvm12StringSwitchIPKcS2_E4CaseENS_13StringLiteralES2_.exit234.thread ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i223 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i215 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i151 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i175 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i119 ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87 ], [ %65, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i239 ], [ @.str.1, %._crit_edge.thread ]
   %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.68.20) #18
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
@@ -3101,8 +3101,8 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   %or.cond31.i = and i1 %63, %121
   %122 = or i32 %.sroa.67.7, 32
   %.sroa.67.9 = select i1 %or.cond31.i, i32 %122, i32 %.sroa.67.7
-  %.not270.i = icmp eq i32 %67, 0
-  br i1 %.not270.i, label %.critedge126.i, label %123
+  %.not269.i = icmp eq i32 %67, 0
+  br i1 %.not269.i, label %.critedge126.i, label %123
 
 123:                                              ; preds = %.critedge.i
   %124 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !65
@@ -3120,8 +3120,8 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   %.sroa.92.0 = phi i32 [ %95, %.critedge.i ], [ 0, %.thread.i ], [ %95, %123 ]
   %129 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !62
   %130 = extractvalue { i32, i32, i32, i32 } %129, 0
-  %or.cond269.i = icmp ugt i32 %130, -2147483648
-  br i1 %or.cond269.i, label %.critedge128.i, label %_ZL20getAvailableFeaturesjjjPj.exit
+  %or.cond268.i = icmp ugt i32 %130, -2147483648
+  br i1 %or.cond268.i, label %.critedge128.i, label %_ZL20getAvailableFeaturesjjjPj.exit
 
 .critedge128.i:                                   ; preds = %.critedge126.i
   %131 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !63

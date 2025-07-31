@@ -2050,19 +2050,19 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #1 {
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #10
   %9 = icmp eq i32 %8, -541478725
-  br i1 %9, label %10, label %39
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %12 = load i32, ptr %11, align 8, !tbaa !49
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %39
+  br i1 %.not, label %13, label %.critedge
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 9460
   %15 = load i32, ptr %14, align 4, !tbaa !48
   %.not21 = icmp eq i32 %15, 0
-  br i1 %.not21, label %39, label %16
+  br i1 %.not21, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 1186
@@ -2087,7 +2087,7 @@ ff_bufqueue_peek.exit:                            ; preds = %16, %21
   %31 = phi ptr [ %30, %21 ], [ null, %16 ]
   %32 = tail call ptr @av_frame_clone(ptr noundef %31) #10
   %.not22.not = icmp eq ptr %32, null
-  br i1 %.not22.not, label %39, label %33
+  br i1 %.not22.not, label %.critedge, label %33
 
 33:                                               ; preds = %ff_bufqueue_peek.exit
   %34 = load ptr, ptr %5, align 8, !tbaa !33
@@ -2096,9 +2096,9 @@ ff_bufqueue_peek.exit:                            ; preds = %16, %21
   %37 = load i32, ptr %14, align 4, !tbaa !48
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %14, align 4, !tbaa !48
-  br label %39
+  br label %.critedge
 
-39:                                               ; preds = %33, %ff_bufqueue_peek.exit, %1, %10, %13
+.critedge:                                        ; preds = %ff_bufqueue_peek.exit, %1, %10, %13, %33
   %.1 = phi i32 [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ], [ %36, %33 ], [ -12, %ff_bufqueue_peek.exit ]
   ret i32 %.1
 }

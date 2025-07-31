@@ -171,8 +171,8 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %1
-  %.not3239 = icmp samesign ult i32 %7, 3
-  br i1 %.not3239, label %._crit_edge, label %.lr.ph.preheader
+  %.not3238 = icmp samesign ult i32 %7, 3
+  br i1 %.not3238, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
   %9 = add nsw i32 %7, -2
@@ -196,44 +196,44 @@ define void @ff_tx_init_tabs_int32(i32 noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %._crit_edge, %1
   %.024 = phi i32 [ %10, %._crit_edge ], [ %0, %1 ]
   %16 = icmp sgt i32 %.024, 1
-  br i1 %16, label %.preheader, label %.thread
+  br i1 %16, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %15, %.loopexit
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.loopexit ], [ 0, %15 ]
-  %.142 = phi i32 [ %.2, %.loopexit ], [ %.024, %15 ]
-  %17 = getelementptr inbounds nuw [3 x %struct.FFTabInitData], ptr @nptwo_tabs_init_data, i64 0, i64 %indvars.iv48
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit ], [ 0, %15 ]
+  %.141 = phi i32 [ %.2, %.loopexit ], [ %.024, %15 ]
+  %17 = getelementptr inbounds nuw [3 x %struct.FFTabInitData], ptr @nptwo_tabs_init_data, i64 0, i64 %indvars.iv47
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %19
 
 19:                                               ; preds = %.preheader, %22
-  %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %22 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv45
+  %indvars.iv44 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next45, %22 ]
+  %20 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv44
   %21 = load i32, ptr %20, align 4, !tbaa !10
   %.not33 = icmp eq i32 %21, 0
   br i1 %.not33, label %.loopexit, label %22
 
 22:                                               ; preds = %19
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %23 = srem i32 %21, %.142
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %23 = srem i32 %21, %.141
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %24, label %19, !llvm.loop !12
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw [3 x i32], ptr @nptwo_tabs_init_once, i64 0, i64 %indvars.iv48
+  %25 = getelementptr inbounds nuw [3 x i32], ptr @nptwo_tabs_init_once, i64 0, i64 %indvars.iv47
   %26 = load ptr, ptr %17, align 8, !tbaa !13
   %27 = tail call i32 @pthread_once(ptr noundef nonnull %25, ptr noundef %26) #16
-  %28 = sdiv i32 %.142, %21
+  %28 = sdiv i32 %.141, %21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %24
-  %.2 = phi i32 [ %28, %24 ], [ %.142, %19 ]
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %29 = icmp samesign ult i64 %indvars.iv48, 2
+  %.2 = phi i32 [ %28, %24 ], [ %.141, %19 ]
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %29 = icmp samesign ult i64 %indvars.iv47, 2
   %30 = icmp sgt i32 %.2, 1
   %or.cond = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond, label %.preheader, label %.thread, !llvm.loop !15
+  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !15
 
-.thread:                                          ; preds = %.loopexit, %15
+.critedge:                                        ; preds = %.loopexit, %15
   ret void
 }
 

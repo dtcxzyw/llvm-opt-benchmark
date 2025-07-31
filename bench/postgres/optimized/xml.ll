@@ -1674,38 +1674,38 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph34, label %._crit_edge
+  br i1 %13, label %.lr.ph32, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph34, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %22, %.lr.ph34 ]
-  %14 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
-  call void @appendStringInfoString(ptr noundef %4, ptr noundef %14) #12
+.lr.ph32:                                         ; preds = %.lr.ph, %.lr.ph32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph32 ], [ 0, %.lr.ph ]
+  %.02630 = phi ptr [ %21, %.lr.ph32 ], [ null, %.lr.ph ]
+  %14 = load ptr, ptr %11, align 8
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 8
+  %17 = call ptr @table_open(i32 noundef %16, i32 noundef 1) #12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @CreateTupleDescCopy(ptr noundef %19) #12
+  %21 = call ptr @lappend(ptr noundef %.02630, ptr noundef %20) #12
+  call void @table_close(ptr noundef %17, i32 noundef 0) #12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %22 = load i32, ptr %10, align 4
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph32, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph32, %.lr.ph, %xsd_schema_element_start.exit
+  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %21, %.lr.ph32 ]
+  %25 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  call void @appendStringInfoString(ptr noundef %4, ptr noundef %25) #12
   call fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %5)
   unreachable
-
-.lr.ph34:                                         ; preds = %.lr.ph, %.lr.ph34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph ]
-  %.02832 = phi ptr [ %22, %.lr.ph34 ], [ null, %.lr.ph ]
-  %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8
-  %18 = call ptr @table_open(i32 noundef %17, i32 noundef 1) #12
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @CreateTupleDescCopy(ptr noundef %20) #12
-  %22 = call ptr @lappend(ptr noundef %.02832, ptr noundef %21) #12
-  call void @table_close(ptr noundef %18, i32 noundef 0) #12
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %10, align 4
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph34, label %._crit_edge
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -1766,38 +1766,38 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
   %6 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.103)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph31, label %._crit_edge
+  br i1 %10, label %.lr.ph29, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph31, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %19, %.lr.ph31 ]
-  %11 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
-  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %11) #12
+.lr.ph29:                                         ; preds = %.lr.ph, %.lr.ph29
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph29 ], [ 0, %.lr.ph ]
+  %.02327 = phi ptr [ %18, %.lr.ph29 ], [ null, %.lr.ph ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 8
+  %14 = tail call ptr @table_open(i32 noundef %13, i32 noundef 1) #12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr @CreateTupleDescCopy(ptr noundef %16) #12
+  %18 = tail call ptr @lappend(ptr noundef %.02327, ptr noundef %17) #12
+  tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %19 = load i32, ptr %7, align 4
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph29, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph29, %.lr.ph, %xsd_schema_element_start.exit
+  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %18, %.lr.ph29 ]
+  %22 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %22) #12
   tail call fastcc void @map_sql_catalog_to_xmlschema_types()
   unreachable
-
-.lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %.lr.ph ]
-  %.02529 = phi ptr [ %19, %.lr.ph31 ], [ null, %.lr.ph ]
-  %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 8
-  %15 = tail call ptr @table_open(i32 noundef %14, i32 noundef 1) #12
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @CreateTupleDescCopy(ptr noundef %17) #12
-  %19 = tail call ptr @lappend(ptr noundef %.02529, ptr noundef %18) #12
-  tail call void @table_close(ptr noundef %15, i32 noundef 0) #12
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %7, align 4
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph31, label %._crit_edge
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -1971,45 +1971,45 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %._crit_edge77.thread, label %.lr.ph63
+  br i1 %.not, label %.critedge49.thread, label %.lr.ph57
 
-.lr.ph63:                                         ; preds = %1
+.lr.ph57:                                         ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph71, label %._crit_edge77.thread
+  br i1 %8, label %.lr.ph64, label %.critedge49.thread
 
-._crit_edge66:                                    ; preds = %._crit_edge
-  %9 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 4
+.lr.ph64:                                         ; preds = %.lr.ph57, %._crit_edge
+  %9 = phi i32 [ %34, %._crit_edge ], [ %7, %.lr.ph57 ]
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %._crit_edge ], [ 0, %.lr.ph57 ]
+  %.05562 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %.lr.ph57 ]
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv82
+  %12 = load ptr, ptr %11, align 8
+  %invariant.gep = getelementptr i8, ptr %12, i64 24
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %.lr.ph, label %._crit_edge
+
+.critedge:                                        ; preds = %._crit_edge
+  %15 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 4
   %.not43 = icmp eq ptr %.1.lcssa, null
-  br i1 %.not43, label %._crit_edge77.thread, label %.lr.ph76
+  br i1 %.not43, label %.critedge49.thread, label %.lr.ph68
 
-.lr.ph76:                                         ; preds = %._crit_edge66
-  %10 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
-  %11 = load i32, ptr %9, align 4
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph85, label %._crit_edge77.thread107
-
-._crit_edge77.thread107:                          ; preds = %.lr.ph76
-  call void @initStringInfo(ptr noundef nonnull %4) #12
-  br label %.lr.ph89
-
-.lr.ph71:                                         ; preds = %.lr.ph63, %._crit_edge
-  %13 = phi i32 [ %34, %._crit_edge ], [ %7, %.lr.ph63 ]
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %._crit_edge ], [ 0, %.lr.ph63 ]
-  %.06169 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %.lr.ph63 ]
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv93
-  %16 = load ptr, ptr %15, align 8
-  %invariant.gep = getelementptr i8, ptr %16, i64 24
-  %17 = load i32, ptr %16, align 8
+.lr.ph68:                                         ; preds = %.critedge
+  %16 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
+  %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  br i1 %18, label %.lr.ph76, label %.critedge49.thread96
 
-.lr.ph:                                           ; preds = %.lr.ph71, %30
-  %19 = phi i32 [ %31, %30 ], [ %17, %.lr.ph71 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph71 ]
-  %.159 = phi ptr [ %.2, %30 ], [ %.06169, %.lr.ph71 ]
+.critedge49.thread96:                             ; preds = %.lr.ph68
+  call void @initStringInfo(ptr noundef nonnull %4) #12
+  br label %.lr.ph79
+
+.lr.ph:                                           ; preds = %.lr.ph64, %30
+  %19 = phi i32 [ %31, %30 ], [ %13, %.lr.ph64 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph64 ]
+  %.153 = phi ptr [ %.2, %30 ], [ %.05562, %.lr.ph64 ]
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %21
@@ -2022,184 +2022,184 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %28 = load i32, ptr %27, align 4
-  %29 = tail call ptr @list_append_unique_oid(ptr noundef %.159, i32 noundef %28) #12
-  %.pre = load i32, ptr %16, align 8
+  %29 = tail call ptr @list_append_unique_oid(ptr noundef %.153, i32 noundef %28) #12
+  %.pre = load i32, ptr %12, align 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %26
   %31 = phi i32 [ %.pre, %26 ], [ %19, %.lr.ph ]
-  %.2 = phi ptr [ %29, %26 ], [ %.159, %.lr.ph ]
+  %.2 = phi ptr [ %29, %26 ], [ %.153, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %30
-  %.pre102 = load i32, ptr %5, align 4
+  %.pre91 = load i32, ptr %5, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph71
-  %34 = phi i32 [ %13, %.lr.ph71 ], [ %.pre102, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.06169, %.lr.ph71 ], [ %.2, %._crit_edge.loopexit ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph64
+  %34 = phi i32 [ %9, %.lr.ph64 ], [ %.pre91, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.05562, %.lr.ph64 ], [ %.2, %._crit_edge.loopexit ]
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next94, %35
-  br i1 %36, label %.lr.ph71, label %._crit_edge66
+  %36 = icmp slt i64 %indvars.iv.next83, %35
+  br i1 %36, label %.lr.ph64, label %.critedge
 
-._crit_edge77.thread:                             ; preds = %._crit_edge66, %1, %.lr.ph63
-  call void @initStringInfo(ptr noundef nonnull %4) #12
-  br label %._crit_edge90
-
-._crit_edge77:                                    ; preds = %47
-  call void @initStringInfo(ptr noundef nonnull %4) #12
-  %.not45 = icmp eq ptr %.4, null
-  br i1 %.not45, label %._crit_edge90, label %.lr.ph89
-
-.lr.ph89:                                         ; preds = %._crit_edge77.thread107, %._crit_edge77
-  %.3.lcssa110 = phi ptr [ %.1.lcssa, %._crit_edge77.thread107 ], [ %.4, %._crit_edge77 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.3.lcssa110, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %.3.lcssa110, i64 16
-  %39 = load i32, ptr %37, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph112, label %._crit_edge90
-
-.lr.ph85:                                         ; preds = %.lr.ph76, %47
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %47 ], [ 0, %.lr.ph76 ]
-  %.37483 = phi ptr [ %.4, %47 ], [ %.1.lcssa, %.lr.ph76 ]
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv96
-  %43 = load i32, ptr %42, align 8
-  %44 = tail call i32 @getBaseType(i32 noundef %43) #12
-  %.not47 = icmp eq i32 %44, %43
+.lr.ph76:                                         ; preds = %.lr.ph68, %47
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %47 ], [ 0, %.lr.ph68 ]
+  %.36774 = phi ptr [ %.4, %47 ], [ %.1.lcssa, %.lr.ph68 ]
+  %37 = load ptr, ptr %16, align 8
+  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv85
+  %39 = load i32, ptr %38, align 8
+  %40 = tail call i32 @getBaseType(i32 noundef %39) #12
+  %.not47 = icmp eq i32 %40, %39
   br i1 %.not47, label %47, label %45
 
-45:                                               ; preds = %.lr.ph85
-  %46 = tail call ptr @list_append_unique_oid(ptr noundef %.37483, i32 noundef %44) #12
+.critedge49.thread:                               ; preds = %.critedge, %1, %.lr.ph57
+  call void @initStringInfo(ptr noundef nonnull %4) #12
+  br label %.critedge51
+
+.critedge49:                                      ; preds = %47
+  call void @initStringInfo(ptr noundef nonnull %4) #12
+  %.not45 = icmp eq ptr %.4, null
+  br i1 %.not45, label %.critedge51, label %.lr.ph79
+
+.lr.ph79:                                         ; preds = %.critedge49.thread96, %.critedge49
+  %.3.lcssa99 = phi ptr [ %.1.lcssa, %.critedge49.thread96 ], [ %.4, %.critedge49 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.3.lcssa99, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.3.lcssa99, i64 16
+  %43 = load i32, ptr %41, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph101, label %.critedge51
+
+45:                                               ; preds = %.lr.ph76
+  %46 = tail call ptr @list_append_unique_oid(ptr noundef %.36774, i32 noundef %40) #12
   br label %47
 
-47:                                               ; preds = %45, %.lr.ph85
-  %.4 = phi ptr [ %46, %45 ], [ %.37483, %.lr.ph85 ]
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %48 = load i32, ptr %9, align 4
+47:                                               ; preds = %45, %.lr.ph76
+  %.4 = phi ptr [ %46, %45 ], [ %.36774, %.lr.ph76 ]
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %48 = load i32, ptr %15, align 4
   %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next97, %49
-  br i1 %50, label %.lr.ph85, label %._crit_edge77
+  %50 = icmp slt i64 %indvars.iv.next86, %49
+  br i1 %50, label %.lr.ph76, label %.critedge49
 
-._crit_edge90:                                    ; preds = %map_sql_type_to_xmlschema_type.exit, %.lr.ph89, %._crit_edge77.thread, %._crit_edge77
-  %51 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
-  ret ptr %51
-
-.lr.ph112:                                        ; preds = %.lr.ph89, %map_sql_type_to_xmlschema_type.exit
-  %indvars.iv99111 = phi i64 [ %indvars.iv.next100, %map_sql_type_to_xmlschema_type.exit ], [ 0, %.lr.ph89 ]
-  %52 = load ptr, ptr %38, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv99111
-  %54 = load i32, ptr %53, align 8
+.lr.ph101:                                        ; preds = %.lr.ph79, %map_sql_type_to_xmlschema_type.exit
+  %indvars.iv88100 = phi i64 [ %indvars.iv.next89, %map_sql_type_to_xmlschema_type.exit ], [ 0, %.lr.ph79 ]
+  %51 = load ptr, ptr %42, align 8
+  %52 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv88100
+  %53 = load i32, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  %55 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %54, i32 noundef -1)
+  %54 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %53, i32 noundef -1)
   call void @initStringInfo(ptr noundef nonnull %2) #12
-  %56 = icmp eq i32 %54, 142
-  br i1 %56, label %map_sql_type_to_xmlschema_type.exit, label %57
+  %55 = icmp eq i32 %53, 142
+  br i1 %55, label %map_sql_type_to_xmlschema_type.exit, label %56
 
-57:                                               ; preds = %.lr.ph112
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.39, ptr noundef %55) #12
-  switch i32 %54, label %76 [
-    i32 1042, label %58
-    i32 1043, label %58
-    i32 25, label %58
-    i32 17, label %59
+56:                                               ; preds = %.lr.ph101
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.39, ptr noundef %54) #12
+  switch i32 %53, label %75 [
+    i32 1042, label %57
+    i32 1043, label %57
+    i32 25, label %57
+    i32 17, label %58
     i32 1700, label %map_sql_type_to_xmlschema_type.exit
-    i32 21, label %63
-    i32 23, label %64
-    i32 20, label %65
-    i32 700, label %66
-    i32 701, label %67
-    i32 16, label %68
-    i32 1083, label %69
-    i32 1266, label %69
-    i32 1114, label %72
-    i32 1184, label %72
-    i32 1082, label %75
+    i32 21, label %62
+    i32 23, label %63
+    i32 20, label %64
+    i32 700, label %65
+    i32 701, label %66
+    i32 16, label %67
+    i32 1083, label %68
+    i32 1266, label %68
+    i32 1114, label %71
+    i32 1184, label %71
+    i32 1082, label %74
   ]
 
-58:                                               ; preds = %57, %57, %57
+57:                                               ; preds = %56, %56, %56
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.40) #12
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.42) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-59:                                               ; preds = %57
-  %60 = load i32, ptr @xmlbinary, align 4
-  %61 = icmp eq i32 %60, 0
-  %62 = select i1 %61, ptr @.str.44, ptr @.str.45
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %62) #12
+58:                                               ; preds = %56
+  %59 = load i32, ptr @xmlbinary, align 4
+  %60 = icmp eq i32 %59, 0
+  %61 = select i1 %60, ptr @.str.44, ptr @.str.45
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %61) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-63:                                               ; preds = %57
+62:                                               ; preds = %56
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.47, i32 noundef 32767, i32 noundef -32768) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-64:                                               ; preds = %57
+63:                                               ; preds = %56
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.48, i32 noundef 2147483647, i32 noundef -2147483648) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-65:                                               ; preds = %57
+64:                                               ; preds = %56
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.49, i64 noundef 9223372036854775807, i64 noundef -9223372036854775808) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-66:                                               ; preds = %57
+65:                                               ; preds = %56
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.50) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-67:                                               ; preds = %57
+66:                                               ; preds = %56
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.51) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-68:                                               ; preds = %57
+67:                                               ; preds = %56
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.52) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-69:                                               ; preds = %57, %57
-  %70 = icmp eq i32 %54, 1266
-  %71 = select i1 %70, ptr @.str.53, ptr @.str.54
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.55, ptr noundef nonnull %71) #12
+68:                                               ; preds = %56, %56
+  %69 = icmp eq i32 %53, 1266
+  %70 = select i1 %69, ptr @.str.53, ptr @.str.54
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.55, ptr noundef nonnull %70) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-72:                                               ; preds = %57, %57
-  %73 = icmp eq i32 %54, 1184
-  %74 = select i1 %73, ptr @.str.53, ptr @.str.54
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.58, ptr noundef nonnull %74) #12
+71:                                               ; preds = %56, %56
+  %72 = icmp eq i32 %53, 1184
+  %73 = select i1 %72, ptr @.str.53, ptr @.str.54
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.58, ptr noundef nonnull %73) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-75:                                               ; preds = %57
+74:                                               ; preds = %56
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.61) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-76:                                               ; preds = %57
-  %77 = call signext i8 @get_typtype(i32 noundef %54) #12
-  %78 = icmp eq i8 %77, 100
-  br i1 %78, label %79, label %map_sql_type_to_xmlschema_type.exit
+75:                                               ; preds = %56
+  %76 = call signext i8 @get_typtype(i32 noundef %53) #12
+  %77 = icmp eq i8 %76, 100
+  br i1 %77, label %78, label %map_sql_type_to_xmlschema_type.exit
 
-79:                                               ; preds = %76
+78:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 -1, ptr %3, align 4
-  %80 = call i32 @getBaseTypeAndTypmod(i32 noundef %54, ptr noundef nonnull %3) #12
-  %81 = load i32, ptr %3, align 4
-  %82 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %80, i32 noundef %81)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, ptr noundef %82) #12
+  %79 = call i32 @getBaseTypeAndTypmod(i32 noundef %53, ptr noundef nonnull %3) #12
+  %80 = load i32, ptr %3, align 4
+  %81 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %79, i32 noundef %80)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, ptr noundef %81) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
-map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph112, %57, %58, %59, %63, %64, %65, %66, %67, %68, %69, %72, %75, %76, %79
-  %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph112 ], [ @.str.63, %57 ], [ @.str.63, %76 ], [ @.str.63, %79 ], [ @.str.63, %75 ], [ @.str.63, %72 ], [ @.str.63, %69 ], [ @.str.63, %68 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %63 ], [ @.str.63, %59 ], [ @.str.63, %58 ]
+map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph101, %56, %57, %58, %62, %63, %64, %65, %66, %67, %68, %71, %74, %75, %78
+  %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph101 ], [ @.str.63, %56 ], [ @.str.63, %75 ], [ @.str.63, %78 ], [ @.str.63, %74 ], [ @.str.63, %71 ], [ @.str.63, %68 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %63 ], [ @.str.63, %62 ], [ @.str.63, %58 ], [ @.str.63, %57 ]
   call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %.str.63.sink.i) #12
-  %83 = load ptr, ptr %2, align 8
+  %82 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %83) #12
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99111, 1
-  %84 = load i32, ptr %37, align 4
-  %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next100, %85
-  br i1 %86, label %.lr.ph112, label %._crit_edge90
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %82) #12
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88100, 1
+  %83 = load i32, ptr %41, align 4
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next89, %84
+  br i1 %85, label %.lr.ph101, label %.critedge51
+
+.critedge51:                                      ; preds = %map_sql_type_to_xmlschema_type.exit, %.lr.ph79, %.critedge49.thread, %.critedge49
+  %86 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  ret ptr %86
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable

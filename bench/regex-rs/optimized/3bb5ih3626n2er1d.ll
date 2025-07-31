@@ -4938,7 +4938,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %327, %316, %"_ZN4core3ptr109drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..hir..translate..HirFrame$GT$$GT$$GT$17hf407d42e3d46ddccE.llvm.17425413886787028408.exit.i90.i", %225, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h0eb91d102e12b554E.exit.i.i", %213, %.noexc53.i.i, %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.invoke.i", %4
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %327, %316, %"_ZN4core3ptr109drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$regex_syntax..hir..translate..HirFrame$GT$$GT$$GT$17hf407d42e3d46ddccE.llvm.17425413886787028408.exit.i90.i", %225, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h0eb91d102e12b554E.exit.i.i", %213, %.noexc53.i.i, %.critedge.i.i.invoke.i, %4
   %lpad.loopexit.split-lp189.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -4954,7 +4954,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.not.i.i = icmp ult i64 %35, %36
-  br i1 %.not.i.i.not.i.i, label %41, label %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.invoke.i"
+  br i1 %.not.i.i.not.i.i, label %41, label %.critedge.i.i.invoke.i
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -4992,13 +4992,13 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 54:                                               ; preds = %52
   %.sroa.0127.0.add.i = add nuw nsw i64 %.sroa.0127.0.idx.i, 16
   %.not.i.i.not.i.i.i = icmp ult i64 %.sroa.8129.0.i, %45
-  br i1 %.not.i.i.not.i.i.i, label %55, label %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.invoke.i"
+  br i1 %.not.i.i.not.i.i.i, label %55, label %.critedge.i.i.invoke.i
 
-"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.invoke.i": ; preds = %54, %34
+.critedge.i.i.invoke.i:                           ; preds = %54, %34
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5a48a2ebb7f06f3dffebe9420965407a.130.llvm.11684209855903828990, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a48a2ebb7f06f3dffebe9420965407a.132.llvm.11684209855903828990) #55
-          to label %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.cont.i" unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !823
+          to label %.critedge.i.i.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !823
 
-"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.cont.i": ; preds = %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i.i.invoke.i"
+.critedge.i.i.cont.i:                             ; preds = %.critedge.i.i.invoke.i
   unreachable
 
 55:                                               ; preds = %54

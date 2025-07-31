@@ -332476,7 +332476,7 @@ declare ptr @l_Lean_Meta_withLocalDecl___at_Lean_Meta_addPPExplicitToExposeDiff_
 define zeroext range(i8 0, 2) i8 @l_Lean_PrettyPrinter_Delaborator_delabConstWithSignature_shouldGroupWithNext(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call zeroext i8 @l_Lean_Expr_isForall(ptr noundef %2) #7
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %lean_dec.exit46.thread, label %6
+  br i1 %5, label %lean_dec.exit46, label %6
 
 6:                                                ; preds = %3
   %7 = tail call zeroext i8 @l_Lean_Expr_isArrow(ptr noundef %2) #7
@@ -332487,7 +332487,7 @@ define zeroext range(i8 0, 2) i8 @l_Lean_PrettyPrinter_Delaborator_delabConstWit
   %10 = tail call ptr @l_Lean_Expr_bindingName_x21(ptr noundef %2) #7
   %11 = tail call zeroext i8 @l_Lean_Name_hasMacroScopes(ptr noundef %10) #7
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %25
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %9
   %14 = tail call zeroext i8 @l_Lean_NameSet_contains(ptr noundef %0, ptr noundef %10) #7
@@ -332516,102 +332516,102 @@ define zeroext range(i8 0, 2) i8 @l_Lean_PrettyPrinter_Delaborator_delabConstWit
 
 lean_dec.exit47:                                  ; preds = %23, %22, %20, %13
   %24 = icmp eq i8 %14, 0
-  br i1 %24, label %lean_dec.exit45, label %lean_dec.exit46.thread
+  br i1 %24, label %lean_dec.exit45, label %lean_dec.exit46
 
-25:                                               ; preds = %9
-  %26 = ptrtoint ptr %10 to i64
-  %27 = and i64 %26, 1
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %lean_dec.exit46.thread
+.critedge:                                        ; preds = %9
+  %25 = ptrtoint ptr %10 to i64
+  %26 = and i64 %25, 1
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %27, label %lean_dec.exit46
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %10, align 4, !tbaa !8
-  %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %31, label %33, !prof !11
+27:                                               ; preds = %.critedge
+  %28 = load i32, ptr %10, align 4, !tbaa !8
+  %29 = icmp sgt i32 %28, 1
+  br i1 %29, label %30, label %32, !prof !11
 
-31:                                               ; preds = %28
-  %32 = add nsw i32 %29, -1
-  store i32 %32, ptr %10, align 4, !tbaa !8
-  br label %lean_dec.exit46.thread
+30:                                               ; preds = %27
+  %31 = add nsw i32 %28, -1
+  store i32 %31, ptr %10, align 4, !tbaa !8
+  br label %lean_dec.exit46
 
-33:                                               ; preds = %28
-  %.not.i48 = icmp eq i32 %29, 0
-  br i1 %.not.i48, label %lean_dec.exit46.thread, label %34
+32:                                               ; preds = %27
+  %.not.i48 = icmp eq i32 %28, 0
+  br i1 %.not.i48, label %lean_dec.exit46, label %33
 
-34:                                               ; preds = %33
+33:                                               ; preds = %32
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %10) #7
-  br label %lean_dec.exit46.thread
+  br label %lean_dec.exit46
 
 lean_dec.exit45:                                  ; preds = %lean_dec.exit47, %6
-  %35 = tail call zeroext i8 @l_Lean_Expr_binderInfo(ptr noundef %1) #7
-  %36 = tail call zeroext i8 @l_Lean_Expr_binderInfo(ptr noundef %2) #7
-  %37 = tail call zeroext i8 @l_Lean_beqBinderInfo____x40_Lean_Expr___hyg_406_(i8 noundef zeroext %35, i8 noundef zeroext %36) #7
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %lean_dec.exit46.thread, label %39
+  %34 = tail call zeroext i8 @l_Lean_Expr_binderInfo(ptr noundef %1) #7
+  %35 = tail call zeroext i8 @l_Lean_Expr_binderInfo(ptr noundef %2) #7
+  %36 = tail call zeroext i8 @l_Lean_beqBinderInfo____x40_Lean_Expr___hyg_406_(i8 noundef zeroext %34, i8 noundef zeroext %35) #7
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %lean_dec.exit46, label %38
 
-39:                                               ; preds = %lean_dec.exit45
-  %40 = tail call ptr @l_Lean_Expr_bindingDomain_x21(ptr noundef %1) #7
-  %41 = tail call ptr @l_Lean_Expr_bindingDomain_x21(ptr noundef %2) #7
-  %42 = tail call zeroext i8 @lean_expr_eqv(ptr noundef %40, ptr noundef %41) #7
-  %43 = ptrtoint ptr %41 to i64
-  %44 = and i64 %43, 1
-  %.not58 = icmp eq i64 %44, 0
-  br i1 %.not58, label %45, label %lean_dec.exit44
+38:                                               ; preds = %lean_dec.exit45
+  %39 = tail call ptr @l_Lean_Expr_bindingDomain_x21(ptr noundef %1) #7
+  %40 = tail call ptr @l_Lean_Expr_bindingDomain_x21(ptr noundef %2) #7
+  %41 = tail call zeroext i8 @lean_expr_eqv(ptr noundef %39, ptr noundef %40) #7
+  %42 = ptrtoint ptr %40 to i64
+  %43 = and i64 %42, 1
+  %.not58 = icmp eq i64 %43, 0
+  br i1 %.not58, label %44, label %lean_dec.exit44
 
-45:                                               ; preds = %39
-  %46 = load i32, ptr %41, align 4, !tbaa !8
-  %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %48, label %50, !prof !11
+44:                                               ; preds = %38
+  %45 = load i32, ptr %40, align 4, !tbaa !8
+  %46 = icmp sgt i32 %45, 1
+  br i1 %46, label %47, label %49, !prof !11
 
-48:                                               ; preds = %45
-  %49 = add nsw i32 %46, -1
-  store i32 %49, ptr %41, align 4, !tbaa !8
+47:                                               ; preds = %44
+  %48 = add nsw i32 %45, -1
+  store i32 %48, ptr %40, align 4, !tbaa !8
   br label %lean_dec.exit44
 
-50:                                               ; preds = %45
-  %.not.i52 = icmp eq i32 %46, 0
-  br i1 %.not.i52, label %lean_dec.exit44, label %51
+49:                                               ; preds = %44
+  %.not.i52 = icmp eq i32 %45, 0
+  br i1 %.not.i52, label %lean_dec.exit44, label %50
 
-51:                                               ; preds = %50
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #7
-  br label %lean_dec.exit44
-
-lean_dec.exit44:                                  ; preds = %51, %50, %48, %39
-  %52 = ptrtoint ptr %40 to i64
-  %53 = and i64 %52, 1
-  %.not59 = icmp eq i64 %53, 0
-  br i1 %.not59, label %54, label %lean_dec.exit
-
-54:                                               ; preds = %lean_dec.exit44
-  %55 = load i32, ptr %40, align 4, !tbaa !8
-  %56 = icmp sgt i32 %55, 1
-  br i1 %56, label %57, label %59, !prof !11
-
-57:                                               ; preds = %54
-  %58 = add nsw i32 %55, -1
-  store i32 %58, ptr %40, align 4, !tbaa !8
-  br label %lean_dec.exit
-
-59:                                               ; preds = %54
-  %.not.i54 = icmp eq i32 %55, 0
-  br i1 %.not.i54, label %lean_dec.exit, label %60
-
-60:                                               ; preds = %59
+50:                                               ; preds = %49
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %40) #7
+  br label %lean_dec.exit44
+
+lean_dec.exit44:                                  ; preds = %50, %49, %47, %38
+  %51 = ptrtoint ptr %39 to i64
+  %52 = and i64 %51, 1
+  %.not59 = icmp eq i64 %52, 0
+  br i1 %.not59, label %53, label %lean_dec.exit
+
+53:                                               ; preds = %lean_dec.exit44
+  %54 = load i32, ptr %39, align 4, !tbaa !8
+  %55 = icmp sgt i32 %54, 1
+  br i1 %55, label %56, label %58, !prof !11
+
+56:                                               ; preds = %53
+  %57 = add nsw i32 %54, -1
+  store i32 %57, ptr %39, align 4, !tbaa !8
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %60, %59, %57, %lean_dec.exit44
-  %61 = icmp eq i8 %42, 0
-  br i1 %61, label %lean_dec.exit46.thread, label %62
+58:                                               ; preds = %53
+  %.not.i54 = icmp eq i32 %54, 0
+  br i1 %.not.i54, label %lean_dec.exit, label %59
 
-62:                                               ; preds = %lean_dec.exit
-  %63 = tail call zeroext i8 @l_Lean_beqBinderInfo____x40_Lean_Expr___hyg_406_(i8 noundef zeroext %36, i8 noundef zeroext 3) #7
-  %64 = icmp eq i8 %63, 0
-  %. = zext i1 %64 to i8
-  br label %lean_dec.exit46.thread
+59:                                               ; preds = %58
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %39) #7
+  br label %lean_dec.exit
 
-lean_dec.exit46.thread:                           ; preds = %25, %31, %33, %34, %lean_dec.exit47, %lean_dec.exit45, %lean_dec.exit, %62, %3
-  %.0 = phi i8 [ 0, %3 ], [ 0, %lean_dec.exit45 ], [ %., %62 ], [ 0, %lean_dec.exit ], [ 0, %lean_dec.exit47 ], [ 0, %34 ], [ 0, %33 ], [ 0, %31 ], [ 0, %25 ]
+lean_dec.exit:                                    ; preds = %59, %58, %56, %lean_dec.exit44
+  %60 = icmp eq i8 %41, 0
+  br i1 %60, label %lean_dec.exit46, label %61
+
+61:                                               ; preds = %lean_dec.exit
+  %62 = tail call zeroext i8 @l_Lean_beqBinderInfo____x40_Lean_Expr___hyg_406_(i8 noundef zeroext %35, i8 noundef zeroext 3) #7
+  %63 = icmp eq i8 %62, 0
+  %. = zext i1 %63 to i8
+  br label %lean_dec.exit46
+
+lean_dec.exit46:                                  ; preds = %lean_dec.exit47, %.critedge, %30, %32, %33, %lean_dec.exit45, %lean_dec.exit, %61, %3
+  %.0 = phi i8 [ 0, %3 ], [ 0, %lean_dec.exit45 ], [ %., %61 ], [ 0, %lean_dec.exit ], [ 0, %33 ], [ 0, %32 ], [ 0, %30 ], [ 0, %.critedge ], [ 0, %lean_dec.exit47 ]
   ret i8 %.0
 }
 

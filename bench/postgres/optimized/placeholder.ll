@@ -165,11 +165,11 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %storemerge = phi ptr [ %70, %67 ], [ %66, %61 ]
   store ptr %storemerge, ptr %59, align 8
   store i32 %.0, ptr %5, align 8
-  %.pre71 = load i32, ptr %23, align 4
+  %.pre68 = load i32, ptr %23, align 4
   br label %72
 
 72:                                               ; preds = %._crit_edge, %71
-  %73 = phi i32 [ %52, %._crit_edge ], [ %.pre71, %71 ]
+  %73 = phi i32 [ %52, %._crit_edge ], [ %.pre68, %71 ]
   %74 = phi ptr [ %.pre, %._crit_edge ], [ %storemerge, %71 ]
   %75 = zext i32 %73 to i64
   %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
@@ -186,9 +186,9 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %83 = load i32, ptr %81, align 4
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph69, label %find_placeholders_in_expr.exit
+  br i1 %84, label %.lr.ph66, label %find_placeholders_in_expr.exit
 
-.lr.ph69:                                         ; preds = %.lr.ph, %93
+.lr.ph66:                                         ; preds = %.lr.ph, %93
   %85 = phi i32 [ %94, %93 ], [ %83, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %82, align 8
@@ -198,17 +198,17 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %90 = icmp eq i32 %89, 318
   br i1 %90, label %91, label %93
 
-91:                                               ; preds = %.lr.ph69
+91:                                               ; preds = %.lr.ph66
   %92 = tail call ptr @find_placeholder_info(ptr noundef nonnull %0, ptr noundef nonnull %88)
-  %.pre72 = load i32, ptr %81, align 4
+  %.pre69 = load i32, ptr %81, align 4
   br label %93
 
-93:                                               ; preds = %91, %.lr.ph69
-  %94 = phi i32 [ %.pre72, %91 ], [ %85, %.lr.ph69 ]
+93:                                               ; preds = %91, %.lr.ph66
+  %94 = phi i32 [ %.pre69, %91 ], [ %85, %.lr.ph66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph69, label %find_placeholders_in_expr.exit
+  br i1 %96, label %.lr.ph66, label %find_placeholders_in_expr.exit
 
 find_placeholders_in_expr.exit:                   ; preds = %93, %.lr.ph, %72
   tail call void @list_free(ptr noundef %80) #5
@@ -287,61 +287,61 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph38, label %._crit_edge
+  br i1 %12, label %.lr.ph36, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph38, %.lr.ph, %6
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #5
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.not.i = icmp eq ptr %15, null
+.lr.ph36:                                         ; preds = %.lr.ph, %.lr.ph36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph36 ], [ 0, %.lr.ph ]
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %15)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %16 = load i32, ptr %9, align 4
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %18, label %.lr.ph36, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph36, %.lr.ph, %6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call ptr @pull_var_clause(ptr noundef %20, i32 noundef 26) #5
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %.sink.split, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = load i32, ptr %16, align 4
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph18.i, label %.sink.split
+.lr.ph.i:                                         ; preds = %.critedge
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %24 = load i32, ptr %22, align 4
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph16.i, label %.sink.split
 
-.lr.ph18.i:                                       ; preds = %.lr.ph.i, %28
-  %20 = phi i32 [ %29, %28 ], [ %18, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %.lr.ph.i ]
-  %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv.i
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 318
-  br i1 %25, label %26, label %28
+.lr.ph16.i:                                       ; preds = %.lr.ph.i, %34
+  %26 = phi i32 [ %35, %34 ], [ %24, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.lr.ph.i ]
+  %27 = load ptr, ptr %23, align 8
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 318
+  br i1 %31, label %32, label %34
 
-26:                                               ; preds = %.lr.ph18.i
-  %27 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %23)
-  %.pre.i = load i32, ptr %16, align 4
-  br label %28
+32:                                               ; preds = %.lr.ph16.i
+  %33 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %29)
+  %.pre.i = load i32, ptr %22, align 4
+  br label %34
 
-28:                                               ; preds = %26, %.lr.ph18.i
-  %29 = phi i32 [ %20, %.lr.ph18.i ], [ %.pre.i, %26 ]
+34:                                               ; preds = %32, %.lr.ph16.i
+  %35 = phi i32 [ %26, %.lr.ph16.i ], [ %.pre.i, %32 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next.i, %30
-  br i1 %31, label %.lr.ph18.i, label %.sink.split
-
-.lr.ph38:                                         ; preds = %.lr.ph, %.lr.ph38
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph38 ], [ 0, %.lr.ph ]
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %34)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %9, align 4
   %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph38, label %._crit_edge
+  %37 = icmp slt i64 %indvars.iv.next.i, %36
+  br i1 %37, label %.lr.ph16.i, label %.sink.split
 
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -361,9 +361,9 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %46, align 4
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph18.i28, label %.sink.split
+  br i1 %49, label %.lr.ph16.i28, label %.sink.split
 
-.lr.ph18.i28:                                     ; preds = %.lr.ph.i27, %58
+.lr.ph16.i28:                                     ; preds = %.lr.ph.i27, %58
   %50 = phi i32 [ %59, %58 ], [ %48, %.lr.ph.i27 ]
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %58 ], [ 0, %.lr.ph.i27 ]
   %51 = load ptr, ptr %47, align 8
@@ -373,17 +373,17 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   %55 = icmp eq i32 %54, 318
   br i1 %55, label %56, label %58
 
-56:                                               ; preds = %.lr.ph18.i28
+56:                                               ; preds = %.lr.ph16.i28
   %57 = tail call ptr @find_placeholder_info(ptr noundef %0, ptr noundef nonnull %53)
   %.pre.i31 = load i32, ptr %46, align 4
   br label %58
 
-58:                                               ; preds = %56, %.lr.ph18.i28
-  %59 = phi i32 [ %50, %.lr.ph18.i28 ], [ %.pre.i31, %56 ]
+58:                                               ; preds = %56, %.lr.ph16.i28
+  %59 = phi i32 [ %50, %.lr.ph16.i28 ], [ %.pre.i31, %56 ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i30, %60
-  br i1 %61, label %.lr.ph18.i28, label %.sink.split
+  br i1 %61, label %.lr.ph16.i28, label %.sink.split
 
 62:                                               ; preds = %4
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -393,8 +393,8 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.find_placeholders_recurse) #5
   unreachable
 
-.sink.split:                                      ; preds = %58, %28, %.lr.ph.i27, %38, %.lr.ph.i, %._crit_edge
-  %.sink = phi ptr [ %15, %._crit_edge ], [ %15, %.lr.ph.i ], [ %45, %38 ], [ %45, %.lr.ph.i27 ], [ %15, %28 ], [ %45, %58 ]
+.sink.split:                                      ; preds = %58, %34, %.lr.ph.i27, %38, %.lr.ph.i, %.critedge
+  %.sink = phi ptr [ %21, %.critedge ], [ %21, %.lr.ph.i ], [ %45, %38 ], [ %45, %.lr.ph.i27 ], [ %21, %34 ], [ %45, %58 ]
   tail call void @list_free(ptr noundef %.sink) #5
   br label %66
 
@@ -408,19 +408,16 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph18, label %._crit_edge
+  br i1 %7, label %.lr.ph16, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph18, %.lr.ph, %1
-  ret void
-
-.lr.ph18:                                         ; preds = %.lr.ph, %.lr.ph18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18 ], [ 0, %.lr.ph ]
+.lr.ph16:                                         ; preds = %.lr.ph, %.lr.ph16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph16 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -437,7 +434,10 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph18, label %._crit_edge
+  br i1 %20, label %.lr.ph16, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph16, %.lr.ph, %1
+  ret void
 }
 
 declare ptr @pull_var_clause(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -452,19 +452,16 @@ define dso_local void @rebuild_placeholder_attr_needed(ptr noundef %0) local_unn
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph18, label %._crit_edge
+  br i1 %7, label %.lr.ph16, label %.critedge
 
-._crit_edge:                                      ; preds = %.lr.ph18, %.lr.ph, %1
-  ret void
-
-.lr.ph18:                                         ; preds = %.lr.ph, %.lr.ph18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18 ], [ 0, %.lr.ph ]
+.lr.ph16:                                         ; preds = %.lr.ph, %.lr.ph16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph16 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -481,7 +478,10 @@ define dso_local void @rebuild_placeholder_attr_needed(ptr noundef %0) local_unn
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph18, label %._crit_edge
+  br i1 %20, label %.lr.ph16, label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph16, %.lr.ph, %1
+  ret void
 }
 
 declare void @add_vars_to_attr_needed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -493,18 +493,15 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph21, label %._crit_edge
+  br i1 %8, label %.lr.ph19, label %.critedge
 
-._crit_edge:                                      ; preds = %32, %.lr.ph, %1
-  ret void
-
-.lr.ph21:                                         ; preds = %.lr.ph, %32
+.lr.ph19:                                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
@@ -515,7 +512,10 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
   %14 = call zeroext i1 @bms_get_singleton_member(ptr noundef %13, ptr noundef nonnull %2) #5
   br i1 %14, label %15, label %32
 
-15:                                               ; preds = %.lr.ph21
+.critedge:                                        ; preds = %32, %.lr.ph, %1
+  ret void
+
+15:                                               ; preds = %.lr.ph19
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i1 @bms_nonempty_difference(ptr noundef %17, ptr noundef %13) #5
@@ -537,13 +537,13 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
   store ptr %29, ptr %31, align 8
   br label %32
 
-32:                                               ; preds = %19, %15, %.lr.ph21
+32:                                               ; preds = %19, %15, %.lr.ph19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %5, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph21, label %._crit_edge
+  br i1 %35, label %.lr.ph19, label %.critedge
 }
 
 declare zeroext i1 @bms_get_singleton_member(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -566,7 +566,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -576,47 +576,47 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %22 = load i32, ptr %16, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph42, label %._crit_edge
+  br i1 %23, label %.lr.ph40, label %.critedge
 
-._crit_edge:                                      ; preds = %76, %.lr.ph, %5
+.lr.ph40:                                         ; preds = %.lr.ph, %76
+  %.03439 = phi i64 [ %.1, %76 ], [ %13, %.lr.ph ]
+  %indvars.iv38 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
+  %24 = load ptr, ptr %17, align 8
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv38
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %8) #5
+  br i1 %29, label %33, label %76
+
+.critedge:                                        ; preds = %76, %.lr.ph, %5
   %.0.lcssa = phi i64 [ %13, %5 ], [ %13, %.lr.ph ], [ %.1, %76 ]
-  %24 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #5
-  %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i32 %24, ptr %26, align 8
+  %30 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #5
+  %31 = load ptr, ptr %9, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store i32 %30, ptr %32, align 8
   ret void
 
-.lr.ph42:                                         ; preds = %.lr.ph, %76
-  %.03641 = phi i64 [ %.1, %76 ], [ %13, %.lr.ph ]
-  %indvars.iv40 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
-  %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv40
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = call zeroext i1 @bms_is_subset(ptr noundef %31, ptr noundef %8) #5
-  br i1 %32, label %33, label %76
-
-33:                                               ; preds = %.lr.ph42
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
+33:                                               ; preds = %.lr.ph40
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = call zeroext i1 @bms_nonempty_difference(ptr noundef %35, ptr noundef %8) #5
   br i1 %36, label %37, label %71
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %30, align 8
+  %38 = load ptr, ptr %27, align 8
   %39 = load ptr, ptr %18, align 8
   %40 = call zeroext i1 @bms_is_subset(ptr noundef %38, ptr noundef %39) #5
   br i1 %40, label %71, label %41
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %30, align 8
+  %42 = load ptr, ptr %27, align 8
   %43 = load ptr, ptr %19, align 8
   %44 = call zeroext i1 @bms_is_subset(ptr noundef %42, ptr noundef %43) #5
   br i1 %44, label %71, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @copyObjectImpl(ptr noundef %47) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
@@ -642,29 +642,29 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %65 = load double, ptr %64, align 8
   %66 = fadd double %62, %65
   store double %66, ptr %64, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
-  %70 = add i64 %.03641, %69
+  %70 = add i64 %.03439, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
   br label %71
 
 71:                                               ; preds = %37, %41, %45, %33
-  %.2 = phi i64 [ %.03641, %37 ], [ %.03641, %41 ], [ %70, %45 ], [ %.03641, %33 ]
+  %.2 = phi i64 [ %.03439, %37 ], [ %.03439, %41 ], [ %70, %45 ], [ %.03439, %33 ]
   %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @bms_add_members(ptr noundef %72, ptr noundef %74) #5
   store ptr %75, ptr %21, align 8
   br label %76
 
-76:                                               ; preds = %71, %.lr.ph42
-  %.1 = phi i64 [ %.2, %71 ], [ %.03641, %.lr.ph42 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv40, 1
+76:                                               ; preds = %71, %.lr.ph40
+  %.1 = phi i64 [ %.2, %71 ], [ %.03439, %.lr.ph40 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv38, 1
   %77 = load i32, ptr %16, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph42, label %._crit_edge
+  br i1 %79, label %.lr.ph40, label %.critedge
 }
 
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #3

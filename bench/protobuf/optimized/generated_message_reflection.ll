@@ -37424,12 +37424,12 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %cleanup.done, 
 lor.rhs:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
   %8 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i11 = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i11, label %lor.end, label %if.then.i.i12
+  br i1 %tobool.not.i.i11, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24, label %if.then.i.i12
 
 if.then.i.i12:                                    ; preds = %lor.rhs
   %9 = load atomic i32, ptr %8 acquire, align 4
   %cmp.not.i.i.i13 = icmp eq i32 %9, 221
-  br i1 %cmp.not.i.i.i13, label %lor.end, label %if.then.i.i.i14
+  br i1 %cmp.not.i.i.i13, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %if.then.i.i12
   %10 = cmpxchg ptr %8, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -37439,19 +37439,19 @@ if.then.i.i.i14:                                  ; preds = %if.then.i.i12
 lor.lhs.false.i.i.i.i15:                          ; preds = %if.then.i.i.i14
   %call1.i.i.i.i16 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i17 = icmp eq i32 %call1.i.i.i.i16, 0
-  br i1 %cmp.i.i.i.i17, label %if.then.i.i.i.i21, label %lor.end
+  br i1 %cmp.i.i.i.i17, label %if.then.i.i.i.i21, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24
 
 if.then.i.i.i.i21:                                ; preds = %lor.lhs.false.i.i.i.i15, %if.then.i.i.i14
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %field)
   %12 = atomicrmw xchg ptr %8, i32 221 release, align 4
   %cmp4.i.i.i.i22 = icmp eq i32 %12, 94570706
-  br i1 %cmp4.i.i.i.i22, label %if.then5.i.i.i.i23, label %lor.end
+  br i1 %cmp4.i.i.i.i22, label %if.then5.i.i.i.i23, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24
 
 if.then5.i.i.i.i23:                               ; preds = %if.then.i.i.i.i21
   tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true)
-  br label %lor.end
+  br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24
 
-lor.end:                                          ; preds = %if.then5.i.i.i.i23, %if.then.i.i.i.i21, %lor.lhs.false.i.i.i.i15, %if.then.i.i12, %lor.rhs
+_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24: ; preds = %lor.rhs, %if.then.i.i12, %lor.lhs.false.i.i.i.i15, %if.then.i.i.i.i21, %if.then5.i.i.i.i23
   %13 = load i8, ptr %type_.i.i, align 2
   %idxprom.i19 = zext i8 %13 to i64
   %arrayidx.i20 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i19
@@ -37461,7 +37461,7 @@ lor.end:                                          ; preds = %if.then5.i.i.i.i23,
   %.not = or i1 %cmp11, %cmp10
   br i1 %.not, label %cond.false14, label %cleanup.done32
 
-cond.false14:                                     ; preds = %lor.end
+cond.false14:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull @.str, i32 noundef 3143, i64 131, ptr nonnull @.str.94) #32
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, i64 62, ptr nonnull @.str.95)
           to label %invoke.cont22 unwind label %lpad19
@@ -37484,7 +37484,7 @@ lpad19:                                           ; preds = %invoke.cont24, %inv
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #33
   unreachable
 
-cleanup.done32:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %lor.end
+cleanup.done32:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit24
   %cmp36.not = icmp eq ptr %message_type, null
   br i1 %cmp36.not, label %if.end, label %while.cond
 
@@ -37654,12 +37654,12 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %cleanup.done, 
 lor.rhs:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
   %8 = load ptr, ptr %type_once_.i.i, align 8
   %tobool.not.i.i14 = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i14, label %lor.end, label %if.then.i.i15
+  br i1 %tobool.not.i.i14, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %lor.rhs
   %9 = load atomic i32, ptr %8 acquire, align 4
   %cmp.not.i.i.i16 = icmp eq i32 %9, 221
-  br i1 %cmp.not.i.i.i16, label %lor.end, label %if.then.i.i.i17
+  br i1 %cmp.not.i.i.i16, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %if.then.i.i15
   %10 = cmpxchg ptr %8, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -37669,19 +37669,19 @@ if.then.i.i.i17:                                  ; preds = %if.then.i.i15
 lor.lhs.false.i.i.i.i18:                          ; preds = %if.then.i.i.i17
   %call1.i.i.i.i19 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i.i20 = icmp eq i32 %call1.i.i.i.i19, 0
-  br i1 %cmp.i.i.i.i20, label %if.then.i.i.i.i24, label %lor.end
+  br i1 %cmp.i.i.i.i20, label %if.then.i.i.i.i24, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27
 
 if.then.i.i.i.i24:                                ; preds = %lor.lhs.false.i.i.i.i18, %if.then.i.i.i17
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %field)
   %12 = atomicrmw xchg ptr %8, i32 221 release, align 4
   %cmp4.i.i.i.i25 = icmp eq i32 %12, 94570706
-  br i1 %cmp4.i.i.i.i25, label %if.then5.i.i.i.i26, label %lor.end
+  br i1 %cmp4.i.i.i.i25, label %if.then5.i.i.i.i26, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27
 
 if.then5.i.i.i.i26:                               ; preds = %if.then.i.i.i.i24
   tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true)
-  br label %lor.end
+  br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27
 
-lor.end:                                          ; preds = %if.then5.i.i.i.i26, %if.then.i.i.i.i24, %lor.lhs.false.i.i.i.i18, %if.then.i.i15, %lor.rhs
+_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27: ; preds = %lor.rhs, %if.then.i.i15, %lor.lhs.false.i.i.i.i18, %if.then.i.i.i.i24, %if.then5.i.i.i.i26
   %13 = load i8, ptr %type_.i.i, align 2
   %idxprom.i22 = zext i8 %13 to i64
   %arrayidx.i23 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i22
@@ -37691,7 +37691,7 @@ lor.end:                                          ; preds = %if.then5.i.i.i.i26,
   %.not = or i1 %cmp11, %cmp10
   br i1 %.not, label %cond.false14, label %cleanup.done32
 
-cond.false14:                                     ; preds = %lor.end
+cond.false14:                                     ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull @.str, i32 noundef 3165, i64 131, ptr nonnull @.str.94) #32
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, i64 62, ptr nonnull @.str.95)
           to label %invoke.cont22 unwind label %lpad19
@@ -37714,7 +37714,7 @@ lpad19:                                           ; preds = %invoke.cont24, %inv
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16) #33
   unreachable
 
-cleanup.done32:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %lor.end
+cleanup.done32:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit27
   %cmp36.not = icmp eq ptr %message_type, null
   br i1 %cmp36.not, label %if.end, label %while.cond
 

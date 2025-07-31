@@ -551,12 +551,12 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
 .preheader:                                       ; preds = %44
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph41, label %.thread34
+  br i1 %48, label %.lr.ph38, label %.critedge.i
 
-.lr.ph41:                                         ; preds = %.preheader
+.lr.ph38:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
-  %wide.trip.count50 = zext nneg i32 %47 to i64
+  %wide.trip.count47 = zext nneg i32 %47 to i64
   br label %56
 
 51:                                               ; preds = %44
@@ -568,13 +568,13 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
   unreachable
 
 55:                                               ; preds = %56
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.thread34, label %56, !llvm.loop !13
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.critedge.i, label %56, !llvm.loop !13
 
-56:                                               ; preds = %.lr.ph41, %55
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next48, %55 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv47
+56:                                               ; preds = %.lr.ph38, %55
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next45, %55 ]
+  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv44
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
@@ -611,53 +611,53 @@ list_length.exit.thread:                          ; preds = %62, %list_length.ex
   %76 = add i16 %75, 1
   %77 = tail call ptr @get_tle_by_resno(ptr noundef %74, i16 noundef signext %76) #11
   %.not56.i = icmp eq ptr %77, null
-  br i1 %.not56.i, label %.thread34, label %78
+  br i1 %.not56.i, label %.critedge.i, label %78
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not57.i = icmp eq ptr %80, null
-  br i1 %.not57.i, label %.thread34, label %81
+  br i1 %.not57.i, label %.critedge.i, label %81
 
 81:                                               ; preds = %78
   %82 = load i32, ptr %80, align 4
   %83 = icmp eq i32 %82, 6
-  br i1 %83, label %84, label %.thread34
+  br i1 %83, label %84, label %.critedge.i
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.thread34, label %88
+  br i1 %87, label %.critedge.i, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %90 = load i16, ptr %89, align 8
   %91 = icmp eq i16 %90, -1
-  br i1 %91, label %92, label %.thread34
+  br i1 %91, label %92, label %.critedge.i
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 16
-  %.val59.i = load ptr, ptr %95, align 8
+  %.val61.i = load ptr, ptr %95, align 8
   %96 = zext nneg i32 %86 to i64
-  %97 = getelementptr %union.ListCell, ptr %.val59.i, i64 %96
+  %97 = getelementptr %union.ListCell, ptr %.val61.i, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -8
   %99 = load ptr, ptr %98, align 8
   %.not58.i = icmp eq ptr %99, null
-  br i1 %.not58.i, label %.thread34, label %currtid_for_view.exit
+  br i1 %.not58.i, label %.critedge.i, label %currtid_for_view.exit
 
-.thread34:                                        ; preds = %55, %.preheader, %84, %88, %92, %70, %78, %81
+.critedge.i:                                      ; preds = %55, %.preheader, %92, %88, %84, %81, %78, %70
   %100 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %100)
   %101 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.currtid_for_view) #11
   unreachable
 
-common.ret68:                                     ; preds = %currtid_for_view.exit, %common.ret
-  %common.ret68.op = phi ptr [ %3, %common.ret ], [ %105, %currtid_for_view.exit ]
-  ret ptr %common.ret68.op
+common.ret65:                                     ; preds = %currtid_for_view.exit, %common.ret
+  %common.ret65.op = phi ptr [ %3, %common.ret ], [ %105, %currtid_for_view.exit ]
+  ret ptr %common.ret65.op
 
 currtid_for_view.exit:                            ; preds = %92
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 28
@@ -665,7 +665,7 @@ currtid_for_view.exit:                            ; preds = %92
   %104 = tail call ptr @table_open(i32 noundef %103, i32 noundef 1) #11
   %105 = tail call fastcc ptr @currtid_internal(ptr noundef %104, ptr noundef %1)
   tail call void @table_close(ptr noundef %104, i32 noundef 1) #11
-  br label %common.ret68
+  br label %common.ret65
 
 106:                                              ; preds = %16
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -698,7 +698,7 @@ common.ret:                                       ; preds = %16, %16, %16, %16, 
   %127 = load ptr, ptr %126, align 8
   tail call void %127(ptr noundef nonnull %122) #11
   tail call void @UnregisterSnapshot(ptr noundef %117) #11
-  br label %common.ret68
+  br label %common.ret65
 }
 
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2

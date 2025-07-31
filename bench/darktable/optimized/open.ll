@@ -693,11 +693,11 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 381648
   %38 = load i32, ptr %37, align 8
   %.not388 = icmp ne i32 %38, 0
-  %or.cond559.not746 = select i1 %.not387, i1 true, i1 %.not388
+  %or.cond559.not744 = select i1 %.not387, i1 true, i1 %.not388
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %40 = load i32, ptr %39, align 4
   %.not389 = icmp eq i32 %40, 0
-  %or.cond561 = select i1 %or.cond559.not746, i1 %.not389, i1 false
+  %or.cond561 = select i1 %or.cond559.not744, i1 %.not389, i1 false
   br i1 %or.cond561, label %41, label %50
 
 41:                                               ; preds = %33
@@ -710,8 +710,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %45 = icmp ne i64 %.unpack, ptrtoint (ptr @_ZN6LibRaw25unpacked_load_raw_FujiDBPEv to i64)
   %46 = and i1 %43, %45
   %47 = icmp ne i64 %.unpack, ptrtoint (ptr @_ZN6LibRaw30unpacked_load_raw_fuji_f700s20Ev to i64)
-  %or.cond563747 = and i1 %47, %46
-  %or.cond565 = or i1 %44, %or.cond563747
+  %or.cond563745 = and i1 %47, %46
+  %or.cond565 = or i1 %44, %or.cond563745
   br i1 %or.cond565, label %1343, label %50
 
 48:                                               ; preds = %.invoke, %540, %234, %179, %28
@@ -750,7 +750,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 63:                                               ; preds = %.lr.ph, %79
   %64 = phi i32 [ %59, %.lr.ph ], [ %80, %79 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %.0292792 = phi i32 [ 0, %.lr.ph ], [ %.1293, %79 ]
+  %.0292790 = phi i32 [ 0, %.lr.ph ], [ %.1293, %79 ]
   %65 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %61, i64 0, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !102
@@ -759,14 +759,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br i1 %69, label %79, label %70
 
 70:                                               ; preds = %63
-  %71 = sext i32 %.0292792 to i64
+  %71 = sext i32 %.0292790 to i64
   %72 = icmp sgt i64 %indvars.iv, %71
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds [8 x %struct.libraw_thumbnail_item_t], ptr %61, i64 0, i64 %71
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false)
-  %75 = add nsw i32 %.0292792, 1
+  %75 = add nsw i32 %.0292790, 1
   %.pre = load i32, ptr %58, align 8, !tbaa !101
   br label %79
 
@@ -777,7 +777,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 
 79:                                               ; preds = %73, %76, %63
   %80 = phi i32 [ %64, %63 ], [ %.pre, %73 ], [ %64, %76 ]
-  %.1293 = phi i32 [ %.0292792, %63 ], [ %75, %73 ], [ %78, %76 ]
+  %.1293 = phi i32 [ %.0292790, %63 ], [ %75, %73 ], [ %78, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
@@ -791,10 +791,10 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 193384
-  %.not847 = icmp eq i32 %.1293, 1
-  br i1 %.not847, label %._crit_edge799, label %.lr.ph798.preheader
+  %.not845 = icmp eq i32 %.1293, 1
+  br i1 %.not845, label %._crit_edge797, label %.lr.ph796.preheader
 
-.lr.ph798.preheader:                              ; preds = %87
+.lr.ph796.preheader:                              ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 193390
   %90 = load i16, ptr %89, align 2, !tbaa !105
   %91 = zext i16 %90 to i64
@@ -808,14 +808,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %99 = zext nneg i32 %98 to i64
   %100 = mul nuw nsw i64 %95, %99
   %wide.trip.count = zext nneg i32 %.1293 to i64
-  br label %.lr.ph798
+  br label %.lr.ph796
 
-._crit_edge799.loopexit:                          ; preds = %.lr.ph798
+._crit_edge797.loopexit:                          ; preds = %.lr.ph796
   %101 = zext nneg i32 %spec.select566 to i64
-  br label %._crit_edge799
+  br label %._crit_edge797
 
-._crit_edge799:                                   ; preds = %._crit_edge799.loopexit, %87
-  %.0306.lcssa = phi i64 [ 0, %87 ], [ %101, %._crit_edge799.loopexit ]
+._crit_edge797:                                   ; preds = %._crit_edge797.loopexit, %87
+  %.0306.lcssa = phi i64 [ 0, %87 ], [ %101, %._crit_edge797.loopexit ]
   %102 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %88, i64 0, i64 %.0306.lcssa
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i64, ptr %103, align 8, !tbaa !107
@@ -842,11 +842,11 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i32 %118, ptr %119, align 8, !tbaa !115
   br label %135
 
-.lr.ph798:                                        ; preds = %.lr.ph798.preheader, %.lr.ph798
-  %indvars.iv856 = phi i64 [ 1, %.lr.ph798.preheader ], [ %indvars.iv.next857, %.lr.ph798 ]
-  %.0306796 = phi i32 [ 0, %.lr.ph798.preheader ], [ %spec.select566, %.lr.ph798 ]
-  %.0308795 = phi i64 [ %100, %.lr.ph798.preheader ], [ %spec.select, %.lr.ph798 ]
-  %120 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %88, i64 0, i64 %indvars.iv856
+.lr.ph796:                                        ; preds = %.lr.ph796.preheader, %.lr.ph796
+  %indvars.iv854 = phi i64 [ 1, %.lr.ph796.preheader ], [ %indvars.iv.next855, %.lr.ph796 ]
+  %.0306794 = phi i32 [ 0, %.lr.ph796.preheader ], [ %spec.select566, %.lr.ph796 ]
+  %.0308793 = phi i64 [ %100, %.lr.ph796.preheader ], [ %spec.select, %.lr.ph796 ]
+  %120 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %88, i64 0, i64 %indvars.iv854
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i16, ptr %121, align 4, !tbaa !106
   %123 = zext i16 %122 to i64
@@ -859,16 +859,16 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %130 = and i32 %129, 31
   %131 = zext nneg i32 %130 to i64
   %132 = mul nuw nsw i64 %127, %131
-  %133 = icmp samesign ugt i64 %132, %.0308795
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %132, i64 %.0308795)
-  %134 = trunc nuw nsw i64 %indvars.iv856 to i32
-  %spec.select566 = select i1 %133, i32 %134, i32 %.0306796
-  %indvars.iv.next857 = add nuw nsw i64 %indvars.iv856, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next857, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge799.loopexit, label %.lr.ph798, !llvm.loop !116
+  %133 = icmp samesign ugt i64 %132, %.0308793
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %132, i64 %.0308793)
+  %134 = trunc nuw nsw i64 %indvars.iv854 to i32
+  %spec.select566 = select i1 %133, i32 %134, i32 %.0306794
+  %indvars.iv.next855 = add nuw nsw i64 %indvars.iv854, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next855, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge797.loopexit, label %.lr.ph796, !llvm.loop !116
 
-135:                                              ; preds = %._crit_edge799, %85, %._crit_edge
-  %136 = phi i32 [ %.1293, %._crit_edge799 ], [ %.1293, %85 ], [ 1, %._crit_edge ]
+135:                                              ; preds = %._crit_edge797, %85, %._crit_edge
+  %136 = phi i32 [ %.1293, %._crit_edge797 ], [ %.1293, %85 ], [ 1, %._crit_edge ]
   store i32 %136, ptr %58, align 8, !tbaa !101
   br label %137
 
@@ -876,7 +876,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 193376
   %139 = load i32, ptr %138, align 8, !tbaa !101
   %140 = icmp slt i32 %139, 8
-  br i1 %140, label %141, label %.loopexit789
+  br i1 %140, label %141, label %.loopexit787
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 193360
@@ -885,19 +885,19 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 381456
   %145 = load i64, ptr %144, align 8
   %.not394 = icmp ne i64 %145, 0
-  %or.cond568.not848 = select i1 %.not393, i1 true, i1 %.not394
+  %or.cond568.not846 = select i1 %.not393, i1 true, i1 %.not394
   %146 = icmp sgt i32 %139, 0
-  %or.cond846 = and i1 %or.cond568.not848, %146
-  br i1 %or.cond846, label %.lr.ph802, label %.critedge
+  %or.cond844 = and i1 %or.cond568.not846, %146
+  br i1 %or.cond844, label %.lr.ph800, label %.critedge
 
-.lr.ph802:                                        ; preds = %141
+.lr.ph800:                                        ; preds = %141
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 193384
-  %wide.trip.count862 = zext nneg i32 %139 to i64
+  %wide.trip.count860 = zext nneg i32 %139 to i64
   br label %148
 
-148:                                              ; preds = %.lr.ph802, %157
-  %indvars.iv859 = phi i64 [ 0, %.lr.ph802 ], [ %indvars.iv.next860, %157 ]
-  %149 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %147, i64 0, i64 %indvars.iv859
+148:                                              ; preds = %.lr.ph800, %157
+  %indvars.iv857 = phi i64 [ 0, %.lr.ph800 ], [ %indvars.iv.next858, %157 ]
+  %149 = getelementptr inbounds nuw [8 x %struct.libraw_thumbnail_item_t], ptr %147, i64 0, i64 %indvars.iv857
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %151 = load i64, ptr %150, align 8, !tbaa !107
   %152 = icmp eq i64 %151, %145
@@ -907,12 +907,12 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %155 = load i32, ptr %154, align 4, !tbaa !109
   %156 = icmp eq i32 %155, %143
-  br i1 %156, label %.loopexit789, label %157
+  br i1 %156, label %.loopexit787, label %157
 
 157:                                              ; preds = %148, %153
-  %indvars.iv.next860 = add nuw nsw i64 %indvars.iv859, 1
-  %exitcond863.not = icmp eq i64 %indvars.iv.next860, %wide.trip.count862
-  br i1 %exitcond863.not, label %.critedge, label %148, !llvm.loop !117
+  %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
+  %exitcond861.not = icmp eq i64 %indvars.iv.next858, %wide.trip.count860
+  br i1 %exitcond861.not, label %.critedge, label %148, !llvm.loop !117
 
 .critedge:                                        ; preds = %157, %141
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 193384
@@ -941,9 +941,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %173, ptr %174, align 2, !tbaa !105
   %175 = add nsw i32 %139, 1
   store i32 %175, ptr %138, align 8, !tbaa !101
-  br label %.loopexit789
+  br label %.loopexit787
 
-.loopexit789:                                     ; preds = %153, %.critedge, %137
+.loopexit787:                                     ; preds = %153, %.critedge, %137
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 915
   store i8 0, ptr %176, align 1, !tbaa !119
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 767488
@@ -951,11 +951,11 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %.not395 = icmp eq ptr %178, null
   br i1 %.not395, label %180, label %179
 
-179:                                              ; preds = %.loopexit789
+179:                                              ; preds = %.loopexit787
   invoke void %178(ptr noundef nonnull %0)
           to label %180 unwind label %48
 
-180:                                              ; preds = %179, %.loopexit789
+180:                                              ; preds = %179, %.loopexit787
   %181 = load i32, ptr %39, align 4, !tbaa !121
   %.not396 = icmp eq i32 %181, 0
   %182 = load i32, ptr %51, align 4
@@ -977,7 +977,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 187:                                              ; preds = %186
   %bcmp400 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %185, ptr noundef nonnull dereferenceable(6) @.str.30, i64 6)
   %.not401 = icmp eq i32 %bcmp400, 0
-  br i1 %.not401, label %188, label %.thread671
+  br i1 %.not401, label %188, label %.thread673
 
 188:                                              ; preds = %187, %186, %184
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 182
@@ -988,7 +988,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 0, ptr %191, align 4, !tbaa !125
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 0, ptr %192, align 2, !tbaa !126
-  br label %.thread671
+  br label %.thread673
 
 193:                                              ; preds = %180
   %194 = icmp eq i32 %182, 8
@@ -999,13 +999,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %197 = load i16, ptr %196, align 2, !tbaa !124
   %198 = icmp eq i16 %197, 0
-  br i1 %198, label %199, label %.thread671
+  br i1 %198, label %199, label %.thread673
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %201 = load i16, ptr %200, align 8, !tbaa !122
   %202 = icmp eq i16 %201, 0
-  br i1 %202, label %203, label %.thread671
+  br i1 %202, label %203, label %.thread673
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -1017,7 +1017,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %210 = shl nuw nsw i32 %209, 2
   %211 = udiv i32 %210, 5
   %212 = icmp samesign ugt i32 %211, %206
-  br i1 %212, label %213, label %.thread671
+  br i1 %212, label %213, label %.thread673
 
 213:                                              ; preds = %203
   store i16 -1, ptr %200, align 8, !tbaa !122
@@ -1025,46 +1025,46 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 0, ptr %214, align 4, !tbaa !125
   store i16 0, ptr %204, align 2, !tbaa !126
-  br label %.thread671
+  br label %.thread673
 
 215:                                              ; preds = %193
   %216 = icmp eq i32 %182, 63
   %or.cond576 = select i1 %.not396, i1 %216, i1 false
-  br i1 %or.cond576, label %217, label %.thread671
+  br i1 %or.cond576, label %217, label %.thread673
 
 217:                                              ; preds = %215
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %bcmp404 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %218, ptr noundef nonnull dereferenceable(9) @.str.31, i64 9)
   %.not405 = icmp eq i32 %bcmp404, 0
-  br i1 %.not405, label %219, label %.thread671
+  br i1 %.not405, label %219, label %.thread673
 
 219:                                              ; preds = %217
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 5456
   %221 = load i32, ptr %220, align 8, !tbaa !127
   %222 = and i32 %221, 65536
   %.not406 = icmp eq i32 %222, 0
-  br i1 %.not406, label %.preheader787, label %.thread671
+  br i1 %.not406, label %.preheader785, label %.thread673
 
-.preheader787:                                    ; preds = %219
+.preheader785:                                    ; preds = %219
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   br label %226
 
 224:                                              ; preds = %226
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5376) %225, i8 0, i64 5376, i1 false)
-  br label %.thread671
+  br label %.thread673
 
-226:                                              ; preds = %.preheader787, %226
-  %indvars.iv864 = phi i64 [ 0, %.preheader787 ], [ %indvars.iv.next865, %226 ]
-  %227 = icmp eq i64 %indvars.iv864, 1
+226:                                              ; preds = %.preheader785, %226
+  %indvars.iv862 = phi i64 [ 0, %.preheader785 ], [ %indvars.iv.next863, %226 ]
+  %227 = icmp eq i64 %indvars.iv862, 1
   %228 = uitofp i1 %227 to float
-  %229 = getelementptr inbounds nuw [4 x float], ptr %223, i64 0, i64 %indvars.iv864
+  %229 = getelementptr inbounds nuw [4 x float], ptr %223, i64 0, i64 %indvars.iv862
   store float %228, ptr %229, align 4, !tbaa !95
-  %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 1
-  %exitcond867.not = icmp eq i64 %indvars.iv.next865, 4
-  br i1 %exitcond867.not, label %224, label %226, !llvm.loop !128
+  %indvars.iv.next863 = add nuw nsw i64 %indvars.iv862, 1
+  %exitcond865.not = icmp eq i64 %indvars.iv.next863, 4
+  br i1 %exitcond865.not, label %224, label %226, !llvm.loop !128
 
-.thread671:                                       ; preds = %187, %188, %195, %199, %203, %213, %224, %219, %217, %215
+.thread673:                                       ; preds = %187, %188, %195, %199, %203, %213, %224, %219, %217, %215
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   %.unpack407 = load i64, ptr %230, align 8, !tbaa !89
   %.elt408 = getelementptr inbounds nuw i8, ptr %0, i64 767592
@@ -1074,29 +1074,29 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %233 = and i1 %231, %232
   br i1 %233, label %234, label %235
 
-234:                                              ; preds = %.thread671
+234:                                              ; preds = %.thread673
   invoke void @_ZN6LibRaw16nikon_read_curveEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-          to label %._crit_edge969 unwind label %48
+          to label %._crit_edge967 unwind label %48
 
-._crit_edge969:                                   ; preds = %234
+._crit_edge967:                                   ; preds = %234
   %.unpack410.pre = load i64, ptr %230, align 8, !tbaa !89
   %.unpack412.pre = load i64, ptr %.elt408, align 8, !tbaa !89
-  %.pre972 = load i32, ptr %51, align 4
+  %.pre970 = load i32, ptr %51, align 4
   br label %235
 
-235:                                              ; preds = %._crit_edge969, %.thread671
-  %236 = phi i32 [ %.pre972, %._crit_edge969 ], [ %182, %.thread671 ]
-  %.unpack412 = phi i64 [ %.unpack412.pre, %._crit_edge969 ], [ %.unpack409, %.thread671 ]
-  %.unpack410 = phi i64 [ %.unpack410.pre, %._crit_edge969 ], [ %.unpack407, %.thread671 ]
+235:                                              ; preds = %._crit_edge967, %.thread673
+  %236 = phi i32 [ %.pre970, %._crit_edge967 ], [ %182, %.thread673 ]
+  %.unpack412 = phi i64 [ %.unpack412.pre, %._crit_edge967 ], [ %.unpack409, %.thread673 ]
+  %.unpack410 = phi i64 [ %.unpack410.pre, %._crit_edge967 ], [ %.unpack407, %.thread673 ]
   %237 = icmp eq i64 %.unpack410, ptrtoint (ptr @_ZN6LibRaw22lossless_jpeg_load_rawEv to i64)
   %238 = icmp eq i64 %.unpack412, 0
   %239 = and i1 %237, %238
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 2030
   %241 = load i16, ptr %240, align 2
   %.not413 = icmp ne i16 %241, 0
-  %or.cond579.not748 = select i1 %239, i1 %.not413, i1 false
+  %or.cond579.not746 = select i1 %239, i1 %.not413, i1 false
   %242 = icmp eq i32 %236, 29
-  %or.cond581 = select i1 %or.cond579.not748, i1 %242, i1 false
+  %or.cond581 = select i1 %or.cond579.not746, i1 %242, i1 false
   br i1 %or.cond581, label %243, label %257
 
 243:                                              ; preds = %235
@@ -1108,7 +1108,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 246:                                              ; preds = %243
   %247 = tail call i32 @strncasecmp(ptr noundef nonnull %244, ptr noundef nonnull @.str.33, i64 noundef 9) #21
   %.not415 = icmp eq i32 %247, 0
-  br i1 %.not415, label %248, label %.thread674
+  br i1 %.not415, label %248, label %.thread676
 
 248:                                              ; preds = %246, %243
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 152992
@@ -1125,21 +1125,21 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %255 = load i32, ptr %254, align 8, !tbaa !86
   %256 = or i32 %255, 512
   store i32 %256, ptr %254, align 8, !tbaa !86
-  br label %.thread674
+  br label %.thread676
 
 257:                                              ; preds = %235
   %258 = icmp eq i64 %.unpack410, ptrtoint (ptr @_ZN6LibRaw18panasonic_load_rawEv to i64)
   %259 = and i1 %258, %238
-  br i1 %259, label %260, label %.thread674
+  br i1 %259, label %260, label %.thread676
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 381732
   %262 = load i32, ptr %261, align 4, !tbaa !130
   %.off = add i32 %262, -6
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.preheader786, label %279
+  br i1 %switch, label %.preheader784, label %279
 
-.preheader786:                                    ; preds = %260
+.preheader784:                                    ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 381464
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %264, ptr noundef nonnull align 8 dereferenceable(12) %263, i64 12, i1 false), !tbaa !129
@@ -1160,14 +1160,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 153024
   %276 = load i64, ptr %275, align 8, !tbaa !131
   %.582 = tail call i64 @llvm.smax.i64(i64 %274, i64 %276)
-  %spec.select742 = tail call i64 @llvm.smax.i64(i64 %272, i64 %.582)
-  %277 = trunc i64 %spec.select742 to i32
+  %spec.select740 = tail call i64 @llvm.smax.i64(i64 %272, i64 %.582)
+  %277 = trunc i64 %spec.select740 to i32
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 %277, ptr %278, align 8, !tbaa !90
   br label %279
 
-279:                                              ; preds = %260, %.preheader786
-  switch i32 %262, label %.thread674 [
+279:                                              ; preds = %260, %.preheader784
+  switch i32 %262, label %.thread676 [
     i32 6, label %280
     i32 7, label %324
     i32 8, label %346
@@ -1178,11 +1178,11 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %283 = load i16, ptr %282, align 2, !tbaa !78
   %284 = udiv i16 %283, 11
-  %.zext733 = zext nneg i16 %284 to i64
-  %285 = shl nuw nsw i64 %.zext733, 4
+  %.zext731 = zext nneg i16 %284 to i64
+  %285 = shl nuw nsw i64 %.zext731, 4
   %286 = udiv i16 %283, 14
-  %.zext735 = zext nneg i16 %286 to i64
-  %287 = shl nuw nsw i64 %.zext735, 4
+  %.zext733 = zext nneg i16 %286 to i64
+  %287 = shl nuw nsw i64 %.zext733, 4
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 381624
   %289 = load i32, ptr %288, align 8, !tbaa !132
   %290 = zext i32 %289 to i64
@@ -1201,7 +1201,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 381584
   %299 = load i64, ptr %298, align 8, !tbaa !77
   %300 = sub nsw i64 %296, %299
-  %.pre973 = load i16, ptr %282, align 2, !tbaa !78
+  %.pre971 = load i16, ptr %282, align 2, !tbaa !78
   br label %303
 
 301:                                              ; preds = %291
@@ -1213,7 +1213,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %1235
 
 303:                                              ; preds = %297, %280
-  %304 = phi i16 [ %283, %280 ], [ %.pre973, %297 ]
+  %304 = phi i16 [ %283, %280 ], [ %.pre971, %297 ]
   %.0326 = phi i64 [ %290, %280 ], [ %300, %297 ]
   %305 = urem i16 %304, 11
   %306 = icmp eq i16 %305, 0
@@ -1229,7 +1229,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 312:                                              ; preds = %307
   store i64 ptrtoint (ptr @_ZN6LibRaw20panasonicC6_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread674
+  br label %.thread676
 
 313:                                              ; preds = %307, %303
   %314 = urem i16 %304, 14
@@ -1246,12 +1246,12 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 321:                                              ; preds = %316
   store i64 ptrtoint (ptr @_ZN6LibRaw20panasonicC6_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread674
+  br label %.thread676
 
 322:                                              ; preds = %316, %313
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %323, align 8, !tbaa !94
-  br label %.thread674
+  br label %.thread676
 
 324:                                              ; preds = %279
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 381736
@@ -1259,15 +1259,15 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %327 = icmp eq i32 %326, 14
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %329 = load i16, ptr %328, align 2, !tbaa !78
-  %.rhs.trunc737 = select i1 %327, i16 9, i16 10
-  %330 = urem i16 %329, %.rhs.trunc737
-  %331 = udiv i16 %329, %.rhs.trunc737
+  %.rhs.trunc735 = select i1 %327, i16 9, i16 10
+  %330 = urem i16 %329, %.rhs.trunc735
+  %331 = udiv i16 %329, %.rhs.trunc735
   %332 = icmp eq i16 %330, 0
   br i1 %332, label %333, label %344
 
 333:                                              ; preds = %324
-  %.zext741 = zext nneg i16 %331 to i64
-  %334 = shl nuw nsw i64 %.zext741, 4
+  %.zext739 = zext nneg i16 %331 to i64
+  %334 = shl nuw nsw i64 %.zext739, 4
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %336 = load i16, ptr %335, align 8, !tbaa !79
   %337 = zext i16 %336 to i64
@@ -1281,12 +1281,12 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 343:                                              ; preds = %333
   store i64 ptrtoint (ptr @_ZN6LibRaw20panasonicC7_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread674
+  br label %.thread676
 
 344:                                              ; preds = %333, %324
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %345, align 8, !tbaa !94
-  br label %.thread674
+  br label %.thread676
 
 346:                                              ; preds = %279
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 381892
@@ -1297,22 +1297,22 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 349:                                              ; preds = %346
   store i64 ptrtoint (ptr @_ZN6LibRaw20panasonicC8_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread674
+  br label %.thread676
 
 350:                                              ; preds = %346
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %351, align 8, !tbaa !94
-  br label %.thread674
+  br label %.thread676
 
-.thread674:                                       ; preds = %246, %248, %279, %343, %344, %312, %322, %321, %350, %349, %257
+.thread676:                                       ; preds = %246, %248, %279, %343, %344, %312, %322, %321, %350, %349, %257
   %352 = load i32, ptr %51, align 4, !tbaa !100
-  switch i32 %352, label %.thread681 [
+  switch i32 %352, label %.thread683 [
     i32 43, label %353
     i32 63, label %378
     i32 8, label %390
   ]
 
-353:                                              ; preds = %.thread674
+353:                                              ; preds = %.thread676
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %355 = tail call i32 @strncasecmp(ptr noundef nonnull %354, ptr noundef nonnull @.str.34, i64 noundef 1) #21
   %.not425 = icmp eq i32 %355, 0
@@ -1321,7 +1321,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 356:                                              ; preds = %353
   %357 = tail call i32 @strcasecmp(ptr noundef nonnull %354, ptr noundef nonnull @.str.35) #21
   %.not426 = icmp eq i32 %357, 0
-  br i1 %.not426, label %358, label %.thread683
+  br i1 %.not426, label %358, label %.thread685
 
 358:                                              ; preds = %356, %353
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1342,18 +1342,18 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 381624
   %375 = load i32, ptr %374, align 8, !tbaa !132
   %376 = icmp eq i32 %373, %375
-  br i1 %376, label %377, label %.thread683
+  br i1 %376, label %377, label %.thread685
 
 377:                                              ; preds = %358
   store i64 ptrtoint (ptr @_ZN6LibRaw20nikon_14bit_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread683
+  br label %.thread685
 
-378:                                              ; preds = %.thread674
+378:                                              ; preds = %.thread676
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   %380 = load i32, ptr %379, align 8, !tbaa !90
   %.not428 = icmp eq i32 %380, 0
-  br i1 %.not428, label %.thread683, label %381
+  br i1 %.not428, label %.thread685, label %381
 
 381:                                              ; preds = %378
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 153008
@@ -1363,19 +1363,19 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %386 = shl nuw nsw i64 %384, 2
   %.not429 = icmp sgt i64 %383, %386
   %or.cond584 = select i1 %385, i1 true, i1 %.not429
-  br i1 %or.cond584, label %.thread683, label %.preheader785
+  br i1 %or.cond584, label %.thread685, label %.preheader783
 
-.preheader785:                                    ; preds = %381, %.preheader785
-  %indvars.iv879 = phi i64 [ %indvars.iv.next880, %.preheader785 ], [ 0, %381 ]
-  %387 = getelementptr inbounds nuw [4 x i64], ptr %382, i64 0, i64 %indvars.iv879
+.preheader783:                                    ; preds = %381, %.preheader783
+  %indvars.iv877 = phi i64 [ %indvars.iv.next878, %.preheader783 ], [ 0, %381 ]
+  %387 = getelementptr inbounds nuw [4 x i64], ptr %382, i64 0, i64 %indvars.iv877
   %388 = load i64, ptr %387, align 8, !tbaa !131
   %389 = sdiv i64 %388, 4
   store i64 %389, ptr %387, align 8, !tbaa !131
-  %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %exitcond882.not = icmp eq i64 %indvars.iv.next880, 4
-  br i1 %exitcond882.not, label %.thread683, label %.preheader785, !llvm.loop !135
+  %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
+  %exitcond880.not = icmp eq i64 %indvars.iv.next878, 4
+  br i1 %exitcond880.not, label %.thread685, label %.preheader783, !llvm.loop !135
 
-390:                                              ; preds = %.thread674
+390:                                              ; preds = %.thread676
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 2060
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 2062
   %393 = load i16, ptr %392, align 2, !tbaa !136
@@ -1413,8 +1413,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %410, ptr %411, align 2, !tbaa !126
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %413 = load i16, ptr %412, align 8, !tbaa !140
-  %reass.sub849 = sub i16 %413, %406
-  %414 = add i16 %reass.sub849, 1
+  %reass.sub847 = sub i16 %413, %406
+  %414 = add i16 %reass.sub847, 1
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 %414, ptr %415, align 4, !tbaa !125
   br label %416
@@ -1428,13 +1428,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %or.cond585 = select i1 %419, i1 %.not432, i1 false
   %.unpack436.pre = load i64, ptr %230, align 8, !tbaa !89
   %.unpack438.pre = load i64, ptr %.elt408, align 8, !tbaa !89
-  br i1 %or.cond585, label %421, label %.thread680
+  br i1 %or.cond585, label %421, label %.thread682
 
 421:                                              ; preds = %416
   %422 = icmp ne i64 %.unpack436.pre, ptrtoint (ptr @_ZN6LibRaw19canon_sraw_load_rawEv to i64)
   %423 = icmp ne i64 %.unpack438.pre, 0
   %424 = or i1 %422, %423
-  br i1 %424, label %425, label %.thread680
+  br i1 %424, label %425, label %.thread682
 
 425:                                              ; preds = %421
   %notmask = shl nsw i32 -1, %418
@@ -1442,7 +1442,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %428 = load i32, ptr %427, align 8, !tbaa !142
   %429 = icmp sgt i32 %428, %426
-  br i1 %429, label %430, label %.thread680
+  br i1 %429, label %430, label %.thread682
 
 430:                                              ; preds = %425
   %431 = sub nuw nsw i32 14, %418
@@ -1451,29 +1451,29 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 153008
   br label %436
 
-.preheader784:                                    ; preds = %436
+.preheader782:                                    ; preds = %436
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   br label %440
 
 436:                                              ; preds = %430, %436
-  %indvars.iv871 = phi i64 [ 0, %430 ], [ %indvars.iv.next872, %436 ]
-  %437 = getelementptr inbounds nuw [4 x i64], ptr %434, i64 0, i64 %indvars.iv871
+  %indvars.iv869 = phi i64 [ 0, %430 ], [ %indvars.iv.next870, %436 ]
+  %437 = getelementptr inbounds nuw [4 x i64], ptr %434, i64 0, i64 %indvars.iv869
   %438 = load i64, ptr %437, align 8, !tbaa !131
   %439 = sdiv i64 %438, %433
   store i64 %439, ptr %437, align 8, !tbaa !131
-  %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
-  %exitcond874.not = icmp eq i64 %indvars.iv.next872, 4
-  br i1 %exitcond874.not, label %.preheader784, label %436, !llvm.loop !143
+  %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
+  %exitcond872.not = icmp eq i64 %indvars.iv.next870, 4
+  br i1 %exitcond872.not, label %.preheader782, label %436, !llvm.loop !143
 
-440:                                              ; preds = %.preheader784, %440
-  %indvars.iv875 = phi i64 [ 0, %.preheader784 ], [ %indvars.iv.next876, %440 ]
-  %441 = getelementptr inbounds nuw [4 x i32], ptr %435, i64 0, i64 %indvars.iv875
+440:                                              ; preds = %.preheader782, %440
+  %indvars.iv873 = phi i64 [ 0, %.preheader782 ], [ %indvars.iv.next874, %440 ]
+  %441 = getelementptr inbounds nuw [4 x i32], ptr %435, i64 0, i64 %indvars.iv873
   %442 = load i32, ptr %441, align 4, !tbaa !129
   %443 = sdiv i32 %442, %432
   store i32 %443, ptr %441, align 4, !tbaa !129
-  %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
-  %exitcond878.not = icmp eq i64 %indvars.iv.next876, 4
-  br i1 %exitcond878.not, label %444, label %440, !llvm.loop !144
+  %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
+  %exitcond876.not = icmp eq i64 %indvars.iv.next874, 4
+  br i1 %exitcond876.not, label %444, label %440, !llvm.loop !144
 
 444:                                              ; preds = %440
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 1968
@@ -1486,20 +1486,20 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %450 = load i32, ptr %449, align 4, !tbaa !146
   %451 = sdiv i32 %450, %432
   store i32 %451, ptr %449, align 4, !tbaa !146
-  br label %.thread680
+  br label %.thread682
 
-.thread680:                                       ; preds = %444, %421, %416, %425
+.thread682:                                       ; preds = %444, %421, %416, %425
   %452 = icmp eq i64 %.unpack436.pre, ptrtoint (ptr @_ZN6LibRaw19canon_sraw_load_rawEv to i64)
   %453 = icmp eq i64 %.unpack438.pre, 0
   %454 = and i1 %452, %453
-  br i1 %454, label %455, label %.thread683
+  br i1 %454, label %455, label %.thread685
 
-455:                                              ; preds = %.thread680
+455:                                              ; preds = %.thread682
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %458 = load i16, ptr %457, align 2, !tbaa !78
   %.not439 = icmp eq i16 %458, 0
-  br i1 %.not439, label %.thread683, label %459
+  br i1 %.not439, label %.thread685, label %459
 
 459:                                              ; preds = %455
   %460 = load i16, ptr %456, align 8, !tbaa !79
@@ -1556,19 +1556,19 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %495 = shl nuw nsw i32 %494, 3
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %495, ptr %496, align 8, !tbaa !149
-  br label %.thread683
+  br label %.thread685
 
 497:                                              ; preds = %459, %471, %467
   %498 = icmp eq i16 %458, 4032
   %499 = icmp eq i16 %460, 3402
   %or.cond588 = and i1 %498, %499
-  br i1 %or.cond588, label %500, label %.thread683
+  br i1 %or.cond588, label %500, label %.thread685
 
 500:                                              ; preds = %497
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %502 = tail call i32 @strcasecmp(ptr noundef nonnull %501, ptr noundef nonnull @.str.36) #21
   %.not440 = icmp eq i32 %502, 0
-  br i1 %.not440, label %503, label %.thread683
+  br i1 %.not440, label %503, label %.thread685
 
 503:                                              ; preds = %500
   store i16 4536, ptr %457, align 2, !tbaa !78
@@ -1591,22 +1591,22 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i32 %512, ptr %510, align 8, !tbaa !86
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 36288, ptr %513, align 8, !tbaa !149
-  br label %.thread683
+  br label %.thread685
 
-.thread681:                                       ; preds = %.thread674
+.thread683:                                       ; preds = %.thread676
   %514 = load i32, ptr %39, align 4, !tbaa !121
   %.not441 = icmp eq i32 %514, 0
   %515 = icmp eq i32 %352, 18
   %or.cond590 = and i1 %515, %.not441
-  br i1 %or.cond590, label %516, label %.thread683
+  br i1 %or.cond590, label %516, label %.thread685
 
-516:                                              ; preds = %.thread681
+516:                                              ; preds = %.thread683
   %.unpack442 = load i64, ptr %230, align 8, !tbaa !89
   %.unpack444 = load i64, ptr %.elt408, align 8, !tbaa !89
   %517 = icmp eq i64 %.unpack442, ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64)
   %518 = icmp eq i64 %.unpack444, 0
   %519 = and i1 %517, %518
-  br i1 %519, label %520, label %.thread683
+  br i1 %519, label %520, label %.thread685
 
 520:                                              ; preds = %516
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1633,13 +1633,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 537:                                              ; preds = %532
   store i64 ptrtoint (ptr @_ZN6LibRaw19fuji_14bit_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread683
+  br label %.thread685
 
 538:                                              ; preds = %520
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %bcmp446 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %539, ptr noundef nonnull dereferenceable(6) @.str.37, i64 6)
   %.not447 = icmp eq i32 %bcmp446, 0
-  br i1 %.not447, label %540, label %.thread683
+  br i1 %.not447, label %540, label %.thread685
 
 540:                                              ; preds = %538
   %541 = load ptr, ptr %29, align 8, !tbaa !73
@@ -1656,13 +1656,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %550 = load i64, ptr %549, align 8, !tbaa !77
   %551 = add nsw i64 %550, %548
   %552 = icmp slt i64 %545, %551
-  br i1 %552, label %.invoke, label %.thread683
+  br i1 %552, label %.invoke, label %.thread685
 
 .invoke:                                          ; preds = %546, %532
   invoke void @_ZN6LibRaw28parse_fuji_compressed_headerEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-          to label %.thread683 unwind label %48
+          to label %.thread685 unwind label %48
 
-.thread683:                                       ; preds = %.preheader785, %.invoke, %356, %358, %377, %378, %381, %.thread680, %455, %497, %500, %503, %475, %537, %546, %538, %516, %.thread681
+.thread685:                                       ; preds = %.preheader783, %.invoke, %356, %358, %377, %378, %381, %.thread682, %455, %497, %500, %503, %475, %537, %546, %538, %516, %.thread683
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %554 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %555 = load i16, ptr %554, align 4, !tbaa !137
@@ -1670,7 +1670,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %or.cond591 = icmp ult i16 %556, 9902
   br i1 %or.cond591, label %557, label %619
 
-557:                                              ; preds = %.thread683
+557:                                              ; preds = %.thread685
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %559 = load i16, ptr %558, align 2, !tbaa !124
   %.not449 = icmp eq i16 %559, -1
@@ -1767,13 +1767,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %600, %609
-  %.sink1000 = phi i64 [ 196, %609 ], [ 194, %600 ]
+  %.sink998 = phi i64 [ 196, %609 ], [ 194, %600 ]
   %.sink = phi i16 [ %575, %609 ], [ %563, %600 ]
-  %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1000
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink998
   store i16 %.sink, ptr %618, align 2, !tbaa !150
   br label %619
 
-619:                                              ; preds = %.sink.split, %588, %584, %580, %572, %569, %560, %557, %.thread683
+619:                                              ; preds = %.sink.split, %588, %584, %580, %572, %569, %560, %557, %.thread685
   %620 = load i32, ptr %51, align 4, !tbaa !100
   %621 = icmp eq i32 %620, 18
   %622 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1799,14 +1799,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %635 = zext i16 %.fr463 to i32
   %636 = urem i16 %.fr463, 6
   %.not462 = icmp eq i16 %636, 0
-  %narrow749 = sub nuw i16 %.fr463, %636
-  %637 = zext i16 %narrow749 to i32
+  %narrow747 = sub nuw i16 %.fr463, %636
+  %637 = zext i16 %narrow747 to i32
   %638 = add nuw nsw i32 %637, 6
   %639 = select i1 %.not462, i32 %635, i32 %638
   %.not464 = icmp eq i32 %632, %628
   %.not465 = icmp eq i32 %639, %635
   %or.cond599 = select i1 %.not464, i1 %.not465, i1 false
-  br i1 %or.cond599, label %.loopexit783, label %640
+  br i1 %or.cond599, label %.loopexit781, label %640
 
 640:                                              ; preds = %625
   %641 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1825,51 +1825,51 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %648, ptr %633, align 2, !tbaa !80
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  br label %.preheader782
+  br label %.preheader780
 
-.preheader782:                                    ; preds = %640, %655
-  %indvars.iv889 = phi i64 [ 0, %640 ], [ %indvars.iv.next890, %655 ]
-  %653 = getelementptr inbounds nuw [6 x [6 x i8]], ptr %651, i64 0, i64 %indvars.iv889
-  %654 = getelementptr inbounds nuw [6 x [6 x i8]], ptr %652, i64 0, i64 %indvars.iv889
+.preheader780:                                    ; preds = %640, %655
+  %indvars.iv887 = phi i64 [ 0, %640 ], [ %indvars.iv.next888, %655 ]
+  %653 = getelementptr inbounds nuw [6 x [6 x i8]], ptr %651, i64 0, i64 %indvars.iv887
+  %654 = getelementptr inbounds nuw [6 x [6 x i8]], ptr %652, i64 0, i64 %indvars.iv887
   br label %656
 
 655:                                              ; preds = %656
-  %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
-  %exitcond892.not = icmp eq i64 %indvars.iv.next890, 6
-  br i1 %exitcond892.not, label %.loopexit783, label %.preheader782, !llvm.loop !151
+  %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 1
+  %exitcond890.not = icmp eq i64 %indvars.iv.next888, 6
+  br i1 %exitcond890.not, label %.loopexit781, label %.preheader780, !llvm.loop !151
 
-656:                                              ; preds = %.preheader782, %656
-  %indvars.iv885 = phi i64 [ 0, %.preheader782 ], [ %indvars.iv.next886, %656 ]
-  %657 = getelementptr inbounds nuw [6 x i8], ptr %653, i64 0, i64 %indvars.iv885
+656:                                              ; preds = %.preheader780, %656
+  %indvars.iv883 = phi i64 [ 0, %.preheader780 ], [ %indvars.iv.next884, %656 ]
+  %657 = getelementptr inbounds nuw [6 x i8], ptr %653, i64 0, i64 %indvars.iv883
   %658 = load i8, ptr %657, align 1, !tbaa !119
-  %659 = getelementptr inbounds nuw [6 x i8], ptr %654, i64 0, i64 %indvars.iv885
+  %659 = getelementptr inbounds nuw [6 x i8], ptr %654, i64 0, i64 %indvars.iv883
   store i8 %658, ptr %659, align 1, !tbaa !119
-  %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
-  %exitcond888.not = icmp eq i64 %indvars.iv.next886, 6
-  br i1 %exitcond888.not, label %655, label %656, !llvm.loop !152
+  %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
+  %exitcond886.not = icmp eq i64 %indvars.iv.next884, 6
+  br i1 %exitcond886.not, label %655, label %656, !llvm.loop !152
 
 660:                                              ; preds = %619
   %661 = load i16, ptr %35, align 2, !tbaa !99
   %.not455 = icmp eq i16 %661, 0
   %662 = icmp ugt i32 %623, 999
-  %or.cond743 = select i1 %.not455, i1 %662, i1 false
-  br i1 %or.cond743, label %663, label %.thread688
+  %or.cond741 = select i1 %.not455, i1 %662, i1 false
+  br i1 %or.cond741, label %663, label %.critedge601
 
 663:                                              ; preds = %660
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %665 = load i16, ptr %664, align 8, !tbaa !81
   %666 = and i16 %665, 1
   %.not456 = icmp eq i16 %666, 0
-  br i1 %.not456, label %667, label %.thread686
+  br i1 %.not456, label %667, label %.thread688
 
 667:                                              ; preds = %663
   %668 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %669 = load i16, ptr %668, align 2, !tbaa !80
   %670 = and i16 %669, 1
   %.not457 = icmp eq i16 %670, 0
-  br i1 %.not457, label %.loopexit783, label %.thread686.thread
+  br i1 %.not457, label %.loopexit781, label %.thread688.thread
 
-.thread686:                                       ; preds = %663
+.thread688:                                       ; preds = %663
   %671 = add i16 %665, 1
   store i16 %671, ptr %664, align 8, !tbaa !81
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1877,14 +1877,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %674 = add i16 %673, -1
   store i16 %674, ptr %672, align 4, !tbaa !83
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %.pre974 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !80
-  %.pre984 = and i16 %.pre974, 1
-  %675 = icmp eq i16 %.pre984, 0
-  br i1 %675, label %682, label %.thread686.thread
+  %.pre972 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !80
+  %.pre982 = and i16 %.pre972, 1
+  %675 = icmp eq i16 %.pre982, 0
+  br i1 %675, label %682, label %.thread688.thread
 
-.thread686.thread:                                ; preds = %667, %.thread686
-  %.sroa.5.0989 = phi i32 [ 2, %.thread686 ], [ 0, %667 ]
-  %676 = phi i16 [ %.pre974, %.thread686 ], [ %669, %667 ]
+.thread688.thread:                                ; preds = %667, %.thread688
+  %.sroa.5.0987 = phi i32 [ 2, %.thread688 ], [ 0, %667 ]
+  %676 = phi i16 [ %.pre972, %.thread688 ], [ %669, %667 ]
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %678 = add i16 %676, 1
   store i16 %678, ptr %677, align 2, !tbaa !80
@@ -1894,43 +1894,43 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %681, ptr %679, align 2, !tbaa !82
   br label %682
 
-682:                                              ; preds = %.thread686.thread, %.thread686
-  %.sroa.5.0990 = phi i32 [ %.sroa.5.0989, %.thread686.thread ], [ 2, %.thread686 ]
-  %.sroa.0.0 = phi i32 [ 1, %.thread686.thread ], [ 0, %.thread686 ]
+682:                                              ; preds = %.thread688.thread, %.thread688
+  %.sroa.5.0988 = phi i32 [ %.sroa.5.0987, %.thread688.thread ], [ 2, %.thread688 ]
+  %.sroa.0.0 = phi i32 [ 1, %.thread688.thread ], [ 0, %.thread688 ]
   br label %683
 
 683:                                              ; preds = %682, %683
-  %.0328809 = phi i32 [ 0, %682 ], [ %695, %683 ]
-  %.0329808 = phi i32 [ 0, %682 ], [ %694, %683 ]
-  %684 = add nuw nsw i32 %.0328809, %.sroa.0.0
-  %685 = add nuw nsw i32 %.0328809, %.sroa.5.0990
+  %.0328807 = phi i32 [ 0, %682 ], [ %695, %683 ]
+  %.0329806 = phi i32 [ 0, %682 ], [ %694, %683 ]
+  %684 = add nuw nsw i32 %.0328807, %.sroa.0.0
+  %685 = add nuw nsw i32 %.0328807, %.sroa.5.0988
   %686 = and i32 %685, 14
   %687 = and i32 %684, 1
   %688 = or disjoint i32 %686, %687
   %689 = shl nuw nsw i32 %688, 1
   %690 = lshr i32 %623, %689
   %691 = and i32 %690, 3
-  %692 = shl nuw nsw i32 %.0328809, 1
+  %692 = shl nuw nsw i32 %.0328807, 1
   %693 = shl nuw i32 %691, %692
-  %694 = or i32 %693, %.0329808
-  %695 = add nuw nsw i32 %.0328809, 1
-  %exitcond883.not = icmp eq i32 %695, 16
-  br i1 %exitcond883.not, label %696, label %683, !llvm.loop !153
+  %694 = or i32 %693, %.0329806
+  %695 = add nuw nsw i32 %.0328807, 1
+  %exitcond881.not = icmp eq i32 %695, 16
+  br i1 %exitcond881.not, label %696, label %683, !llvm.loop !153
 
 696:                                              ; preds = %683
   store i32 %694, ptr %622, align 8, !tbaa !84
-  br label %.loopexit783
+  br label %.loopexit781
 
-.loopexit783:                                     ; preds = %655, %667, %696, %625
+.loopexit781:                                     ; preds = %655, %625, %696, %667
   %.0334 = phi i32 [ 6, %625 ], [ 2, %696 ], [ 2, %667 ], [ 6, %655 ]
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %.rhs.trunc730 = trunc nuw nsw i32 %.0334 to i16
+  %.rhs.trunc728 = trunc nuw nsw i32 %.0334 to i16
   br label %698
 
-698:                                              ; preds = %.loopexit783, %743
-  %699 = phi i1 [ true, %.loopexit783 ], [ false, %743 ]
-  %indvars.iv893 = phi i64 [ 0, %.loopexit783 ], [ 1, %743 ]
-  %700 = getelementptr inbounds nuw [2 x %struct.libraw_raw_inset_crop_t], ptr %697, i64 0, i64 %indvars.iv893
+698:                                              ; preds = %.loopexit781, %743
+  %699 = phi i1 [ true, %.loopexit781 ], [ false, %743 ]
+  %indvars.iv891 = phi i64 [ 0, %.loopexit781 ], [ 1, %743 ]
+  %700 = getelementptr inbounds nuw [2 x %struct.libraw_raw_inset_crop_t], ptr %697, i64 0, i64 %indvars.iv891
   %701 = load i16, ptr %700, align 2, !tbaa !124
   %.not548 = icmp eq i16 %701, 0
   br i1 %.not548, label %721, label %702
@@ -1953,13 +1953,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %709 = urem i32 %703, %.0334
   %.not552 = icmp ne i32 %709, 0
   %710 = icmp samesign ult i32 %.0334, %708
-  %or.cond600 = select i1 %.not552, i1 %710, i1 false
-  br i1 %or.cond600, label %711, label %721
+  %or.cond602 = select i1 %.not552, i1 %710, i1 false
+  br i1 %or.cond602, label %711, label %721
 
 711:                                              ; preds = %707
-  %712 = udiv i16 %701, %.rhs.trunc730
-  %narrow754 = add nuw i16 %712, 1
-  %713 = zext i16 %narrow754 to i32
+  %712 = udiv i16 %701, %.rhs.trunc728
+  %narrow752 = add nuw i16 %712, 1
+  %713 = zext i16 %narrow752 to i32
   %714 = mul nuw nsw i32 %.0334, %713
   %715 = sub nsw i32 %714, %703
   %716 = icmp sgt i32 %715, 0
@@ -1997,13 +1997,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %731 = urem i32 %725, %.0334
   %.not557 = icmp ne i32 %731, 0
   %732 = icmp samesign ult i32 %.0334, %730
-  %or.cond601 = select i1 %.not557, i1 %732, i1 false
-  br i1 %or.cond601, label %733, label %743
+  %or.cond603 = select i1 %.not557, i1 %732, i1 false
+  br i1 %or.cond603, label %733, label %743
 
 733:                                              ; preds = %729
-  %734 = udiv i16 %723, %.rhs.trunc730
-  %narrow755 = add nuw i16 %734, 1
-  %735 = zext i16 %narrow755 to i32
+  %734 = udiv i16 %723, %.rhs.trunc728
+  %narrow753 = add nuw i16 %734, 1
+  %735 = zext i16 %narrow753 to i32
   %736 = mul nuw nsw i32 %.0334, %735
   %737 = sub nsw i32 %736, %725
   %738 = icmp sgt i32 %737, 0
@@ -2018,26 +2018,26 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %743
 
 743:                                              ; preds = %726, %726, %733, %739, %721, %724, %729
-  br i1 %699, label %698, label %.thread688.loopexit, !llvm.loop !154
+  br i1 %699, label %698, label %.critedge601.loopexit, !llvm.loop !154
 
-.thread688.loopexit:                              ; preds = %743
-  %.pre975 = load i32, ptr %622, align 8
-  br label %.thread688
+.critedge601.loopexit:                            ; preds = %743
+  %.pre973 = load i32, ptr %622, align 8
+  br label %.critedge601
 
-.thread688:                                       ; preds = %.thread688.loopexit, %660
-  %744 = phi i32 [ %.pre975, %.thread688.loopexit ], [ %623, %660 ]
+.critedge601:                                     ; preds = %.critedge601.loopexit, %660
+  %744 = phi i32 [ %.pre973, %.critedge601.loopexit ], [ %623, %660 ]
   %745 = load i32, ptr %39, align 4, !tbaa !121
   %.not467 = icmp ne i32 %745, 0
   %746 = icmp eq i32 %744, 0
-  %or.cond604 = select i1 %.not467, i1 %746, i1 false
-  br i1 %or.cond604, label %747, label %796
+  %or.cond606 = select i1 %.not467, i1 %746, i1 false
+  br i1 %or.cond606, label %747, label %796
 
-747:                                              ; preds = %.thread688
+747:                                              ; preds = %.critedge601
   %748 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %749 = load i32, ptr %748, align 4, !tbaa !85
   %750 = add i32 %749, -2
-  %or.cond605 = icmp ult i32 %750, 3
-  br i1 %or.cond605, label %751, label %796
+  %or.cond607 = icmp ult i32 %750, 3
+  br i1 %or.cond607, label %751, label %796
 
 751:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
@@ -2048,69 +2048,69 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 154168
   br label %756
 
-.lr.ph815:                                        ; preds = %756
+.lr.ph813:                                        ; preds = %756
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 187008
-  %wide.trip.count903 = zext nneg i32 %749 to i64
+  %wide.trip.count901 = zext nneg i32 %749 to i64
   br label %761
 
 756:                                              ; preds = %751, %756
-  %indvars.iv896 = phi i64 [ 0, %751 ], [ %indvars.iv.next897, %756 ]
-  %757 = getelementptr inbounds nuw [4104 x i32], ptr %754, i64 0, i64 %indvars.iv896
+  %indvars.iv894 = phi i64 [ 0, %751 ], [ %indvars.iv.next895, %756 ]
+  %757 = getelementptr inbounds nuw [4104 x i32], ptr %754, i64 0, i64 %indvars.iv894
   %758 = load i32, ptr %757, align 4, !tbaa !129
   %759 = add i32 %758, %753
-  %760 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv896
+  %760 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv894
   store i32 %759, ptr %760, align 4, !tbaa !129
-  %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
-  %exitcond899.not = icmp eq i64 %indvars.iv.next897, 4
-  br i1 %exitcond899.not, label %.lr.ph815, label %756, !llvm.loop !156
+  %indvars.iv.next895 = add nuw nsw i64 %indvars.iv894, 1
+  %exitcond897.not = icmp eq i64 %indvars.iv.next895, 4
+  br i1 %exitcond897.not, label %.lr.ph813, label %756, !llvm.loop !156
 
-.lr.ph821.preheader:                              ; preds = %761
-  %.pre976 = load float, ptr %3, align 16, !tbaa !95
-  %wide.trip.count908 = zext nneg i32 %749 to i64
-  br label %.lr.ph821
+.lr.ph819.preheader:                              ; preds = %761
+  %.pre974 = load float, ptr %3, align 16, !tbaa !95
+  %wide.trip.count906 = zext nneg i32 %749 to i64
+  br label %.lr.ph819
 
-761:                                              ; preds = %.lr.ph815, %761
-  %indvars.iv900 = phi i64 [ 0, %.lr.ph815 ], [ %indvars.iv.next901, %761 ]
-  %762 = getelementptr inbounds nuw [4 x i32], ptr %755, i64 0, i64 %indvars.iv900
+761:                                              ; preds = %.lr.ph813, %761
+  %indvars.iv898 = phi i64 [ 0, %.lr.ph813 ], [ %indvars.iv.next899, %761 ]
+  %762 = getelementptr inbounds nuw [4 x i32], ptr %755, i64 0, i64 %indvars.iv898
   %763 = load i32, ptr %762, align 4, !tbaa !129
-  %764 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv900
+  %764 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv898
   %765 = load i32, ptr %764, align 4, !tbaa !129
   %766 = sub i32 %763, %765
   %767 = uitofp i32 %766 to float
-  %768 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv900
+  %768 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv898
   store float %767, ptr %768, align 4, !tbaa !95
-  %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
-  %exitcond904.not = icmp eq i64 %indvars.iv.next901, %wide.trip.count903
-  br i1 %exitcond904.not, label %.lr.ph821.preheader, label %761, !llvm.loop !157
+  %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
+  %exitcond902.not = icmp eq i64 %indvars.iv.next899, %wide.trip.count901
+  br i1 %exitcond902.not, label %.lr.ph819.preheader, label %761, !llvm.loop !157
 
-._crit_edge822:                                   ; preds = %.lr.ph821
+._crit_edge820:                                   ; preds = %.lr.ph819
   %769 = fcmp reassoc nsz arcp contract afn ogt float %.1320, 1.000000e+00
   %770 = fmul reassoc nsz arcp contract afn float %.1320, 2.000000e+01
   %771 = fcmp reassoc nsz arcp contract afn olt float %.1318, %770
-  %or.cond607 = select i1 %769, i1 %771, i1 false
-  br i1 %or.cond607, label %.lr.ph826, label %795
+  %or.cond609 = select i1 %769, i1 %771, i1 false
+  br i1 %or.cond609, label %.lr.ph824, label %795
 
-.lr.ph826:                                        ; preds = %._crit_edge822
+.lr.ph824:                                        ; preds = %._crit_edge820
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 153176
   %773 = getelementptr inbounds nuw i8, ptr %0, i64 153192
-  %wide.trip.count913 = zext nneg i32 %749 to i64
+  %wide.trip.count911 = zext nneg i32 %749 to i64
   br label %784
 
-.lr.ph821:                                        ; preds = %.lr.ph821.preheader, %.lr.ph821
-  %indvars.iv905 = phi i64 [ 1, %.lr.ph821.preheader ], [ %indvars.iv.next906, %.lr.ph821 ]
-  %.0317818 = phi float [ %.pre976, %.lr.ph821.preheader ], [ %.1318, %.lr.ph821 ]
-  %.0319817 = phi float [ %.pre976, %.lr.ph821.preheader ], [ %.1320, %.lr.ph821 ]
-  %774 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv905
+.lr.ph819:                                        ; preds = %.lr.ph819.preheader, %.lr.ph819
+  %indvars.iv903 = phi i64 [ 1, %.lr.ph819.preheader ], [ %indvars.iv.next904, %.lr.ph819 ]
+  %.0317816 = phi float [ %.pre974, %.lr.ph819.preheader ], [ %.1318, %.lr.ph819 ]
+  %.0319815 = phi float [ %.pre974, %.lr.ph819.preheader ], [ %.1320, %.lr.ph819 ]
+  %774 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv903
   %775 = load float, ptr %774, align 4, !tbaa !95
-  %776 = fcmp reassoc nsz arcp contract afn ogt float %.0319817, %775
-  %.1320 = select nsz i1 %776, float %775, float %.0319817
-  %777 = fcmp reassoc nsz arcp contract afn olt float %.0317818, %775
-  %.1318 = select nsz i1 %777, float %775, float %.0317818
-  %indvars.iv.next906 = add nuw nsw i64 %indvars.iv905, 1
-  %exitcond909.not = icmp eq i64 %indvars.iv.next906, %wide.trip.count908
-  br i1 %exitcond909.not, label %._crit_edge822, label %.lr.ph821, !llvm.loop !158
+  %776 = fcmp reassoc nsz arcp contract afn ogt float %.0319815, %775
+  %.1320 = select nsz i1 %776, float %775, float %.0319815
+  %777 = fcmp reassoc nsz arcp contract afn olt float %.0317816, %775
+  %.1318 = select nsz i1 %777, float %775, float %.0317816
+  %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
+  %exitcond907.not = icmp eq i64 %indvars.iv.next904, %wide.trip.count906
+  br i1 %exitcond907.not, label %._crit_edge820, label %.lr.ph819, !llvm.loop !158
 
-._crit_edge827:                                   ; preds = %784
+._crit_edge825:                                   ; preds = %784
   %778 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   %779 = load i32, ptr %778, align 8, !tbaa !129
   %780 = uitofp i32 %779 to float
@@ -2120,116 +2120,116 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i32 %782, ptr %783, align 8, !tbaa !90
   br label %795
 
-784:                                              ; preds = %.lr.ph826, %784
-  %indvars.iv910 = phi i64 [ 0, %.lr.ph826 ], [ %indvars.iv.next911, %784 ]
-  %785 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv910
+784:                                              ; preds = %.lr.ph824, %784
+  %indvars.iv908 = phi i64 [ 0, %.lr.ph824 ], [ %indvars.iv.next909, %784 ]
+  %785 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv908
   %786 = load float, ptr %785, align 4, !tbaa !95
-  %787 = getelementptr inbounds nuw [4 x float], ptr %772, i64 0, i64 %indvars.iv910
+  %787 = getelementptr inbounds nuw [4 x float], ptr %772, i64 0, i64 %indvars.iv908
   %788 = load float, ptr %787, align 4, !tbaa !95
   %789 = fmul reassoc nsz arcp contract afn float %788, %.1318
   %790 = fdiv reassoc nsz arcp contract afn float %789, %786
   store float %790, ptr %787, align 4, !tbaa !95
-  %791 = getelementptr inbounds nuw [4 x float], ptr %773, i64 0, i64 %indvars.iv910
+  %791 = getelementptr inbounds nuw [4 x float], ptr %773, i64 0, i64 %indvars.iv908
   %792 = load float, ptr %791, align 4, !tbaa !95
   %793 = fmul reassoc nsz arcp contract afn float %792, %.1318
   %794 = fdiv reassoc nsz arcp contract afn float %793, %786
   store float %794, ptr %791, align 4, !tbaa !95
-  %indvars.iv.next911 = add nuw nsw i64 %indvars.iv910, 1
-  %exitcond914.not = icmp eq i64 %indvars.iv.next911, %wide.trip.count913
-  br i1 %exitcond914.not, label %._crit_edge827, label %784, !llvm.loop !159
+  %indvars.iv.next909 = add nuw nsw i64 %indvars.iv908, 1
+  %exitcond912.not = icmp eq i64 %indvars.iv.next909, %wide.trip.count911
+  br i1 %exitcond912.not, label %._crit_edge825, label %784, !llvm.loop !159
 
-795:                                              ; preds = %._crit_edge827, %._crit_edge822
+795:                                              ; preds = %._crit_edge825, %._crit_edge820
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   br label %796
 
-796:                                              ; preds = %795, %747, %.thread688
+796:                                              ; preds = %795, %747, %.critedge601
   %797 = load i32, ptr %51, align 4
   %798 = icmp eq i32 %797, 47
-  %or.cond609 = select i1 %.not467, i1 %798, i1 false
-  br i1 %or.cond609, label %799, label %804
+  %or.cond611 = select i1 %.not467, i1 %798, i1 false
+  br i1 %or.cond611, label %799, label %804
 
 799:                                              ; preds = %796
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %801 = tail call i32 @strcasecmp(ptr noundef nonnull %800, ptr noundef nonnull @.str.38) #21
   %.not469 = icmp eq i32 %801, 0
-  br i1 %.not469, label %802, label %.thread718
+  br i1 %.not469, label %802, label %.thread716
 
 802:                                              ; preds = %799
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 4288, ptr %803, align 2, !tbaa !82
-  br label %.thread718
+  br label %.thread716
 
 804:                                              ; preds = %796
   %805 = icmp eq i32 %797, 32
-  %or.cond611 = select i1 %.not467, i1 %805, i1 false
-  br i1 %or.cond611, label %806, label %813
+  %or.cond613 = select i1 %.not467, i1 %805, i1 false
+  br i1 %or.cond613, label %806, label %813
 
 806:                                              ; preds = %804
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %808 = tail call i32 @strcasecmp(ptr noundef nonnull %807, ptr noundef nonnull @.str.39) #21
   %.not471 = icmp eq i32 %808, 0
-  br i1 %.not471, label %809, label %.thread718
+  br i1 %.not471, label %809, label %.thread716
 
 809:                                              ; preds = %806
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %811 = load i16, ptr %810, align 4, !tbaa !83
   %812 = add i16 %811, -16
   store i16 %812, ptr %810, align 4, !tbaa !83
-  br label %.thread718
+  br label %.thread716
 
 813:                                              ; preds = %804
   %814 = icmp ne i32 %797, 63
   %.not472 = icmp eq i32 %745, 0
-  %or.cond612 = or i1 %.not472, %814
-  br i1 %or.cond612, label %.thread699, label %815
+  %or.cond614 = or i1 %.not472, %814
+  br i1 %or.cond614, label %.thread697, label %815
 
 815:                                              ; preds = %813
   %816 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %817 = load i16, ptr %816, align 2, !tbaa !78
-  switch i16 %817, label %.thread718 [
-    i16 3984, label %.thread994.sink.split
+  switch i16 %817, label %.thread716 [
+    i16 3984, label %.thread992.sink.split
     i16 4288, label %818
     i16 4928, label %819
     i16 5504, label %823
   ]
 
 818:                                              ; preds = %815
-  br label %.thread994.sink.split
+  br label %.thread992.sink.split
 
 819:                                              ; preds = %815
   %820 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %821 = load i16, ptr %820, align 4, !tbaa !83
   %822 = icmp ult i16 %821, 3280
-  br i1 %822, label %.thread994.sink.split, label %.thread718
+  br i1 %822, label %.thread992.sink.split, label %.thread716
 
 823:                                              ; preds = %815
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %825 = load i16, ptr %824, align 4, !tbaa !83
   %826 = icmp ugt i16 %825, 3664
   %827 = select i1 %826, i16 5496, i16 5472
-  br label %.thread994.sink.split
+  br label %.thread992.sink.split
 
-.thread994.sink.split:                            ; preds = %819, %815, %823, %818
-  %.sink1001 = phi i16 [ 4256, %818 ], [ %827, %823 ], [ 3925, %815 ], [ 4920, %819 ]
+.thread992.sink.split:                            ; preds = %819, %815, %823, %818
+  %.sink999 = phi i16 [ 4256, %818 ], [ %827, %823 ], [ 3925, %815 ], [ 4920, %819 ]
   %828 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i16 %.sink1001, ptr %828, align 2, !tbaa !82
-  br label %.thread718
+  store i16 %.sink999, ptr %828, align 2, !tbaa !82
+  br label %.thread716
 
-.thread699:                                       ; preds = %813
+.thread697:                                       ; preds = %813
   %829 = icmp eq i32 %797, 63
-  %or.cond613 = and i1 %.not472, %829
-  br i1 %or.cond613, label %830, label %870
+  %or.cond615 = and i1 %.not472, %829
+  br i1 %or.cond615, label %830, label %870
 
-830:                                              ; preds = %.thread699
+830:                                              ; preds = %.thread697
   %.unpack474 = load i64, ptr %230, align 8, !tbaa !89
   %.unpack476 = load i64, ptr %.elt408, align 8, !tbaa !89
   %831 = icmp eq i64 %.unpack474, ptrtoint (ptr @_ZN6LibRaw17sony_arq_load_rawEv to i64)
   %832 = icmp eq i64 %.unpack476, 0
   %833 = and i1 %831, %832
-  br i1 %833, label %.sink.split1003, label %839
+  br i1 %833, label %.sink.split1001, label %839
 
-.sink.split1003:                                  ; preds = %830
+.sink.split1001:                                  ; preds = %830
   %834 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %835 = load i16, ptr %834, align 2, !tbaa !78
   %836 = icmp ugt i16 %835, 12000
@@ -2239,7 +2239,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %838, ptr %837, align 2, !tbaa !82
   br label %839
 
-839:                                              ; preds = %.sink.split1003, %830
+839:                                              ; preds = %.sink.split1001, %830
   %840 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %841 = tail call i32 @strncasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.40, i64 noundef 8) #21
   %.not477 = icmp eq i32 %841, 0
@@ -2264,18 +2264,18 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %850 = load i16, ptr %849, align 2
   %851 = add i16 %850, -4580
-  %or.cond614 = icmp ult i16 %851, 440
-  %or.cond1007 = select i1 %.not479, i1 %or.cond614, i1 false
-  br i1 %or.cond1007, label %866, label %._crit_edge977
+  %or.cond616 = icmp ult i16 %851, 440
+  %or.cond1005 = select i1 %.not479, i1 %or.cond616, i1 false
+  br i1 %or.cond1005, label %866, label %._crit_edge975
 
-._crit_edge977:                                   ; preds = %847
+._crit_edge975:                                   ; preds = %847
   %852 = tail call i32 @strcasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.43) #21
   %.not480 = icmp eq i32 %852, 0
   %853 = icmp eq i16 %850, 3968
-  %or.cond617 = select i1 %.not480, i1 %853, i1 false
-  br i1 %or.cond617, label %866, label %854
+  %or.cond619 = select i1 %.not480, i1 %853, i1 false
+  br i1 %or.cond619, label %866, label %854
 
-854:                                              ; preds = %._crit_edge977
+854:                                              ; preds = %._crit_edge975
   %855 = tail call i32 @strncasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.44, i64 noundef 7) #21
   %.not481 = icmp eq i32 %855, 0
   br i1 %.not481, label %862, label %856
@@ -2286,32 +2286,32 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %859 = load i64, ptr %858, align 8
   %860 = icmp eq i64 %859, 294
-  %or.cond620 = select i1 %.not482, i1 true, i1 %860
+  %or.cond622 = select i1 %.not482, i1 true, i1 %860
   %861 = add i16 %850, -3751
-  %or.cond621 = icmp ult i16 %861, 369
-  %or.cond756 = select i1 %or.cond620, i1 %or.cond621, i1 false
-  br i1 %or.cond756, label %866, label %863
+  %or.cond623 = icmp ult i16 %861, 369
+  %or.cond754 = select i1 %or.cond622, i1 %or.cond623, i1 false
+  br i1 %or.cond754, label %866, label %863
 
 862:                                              ; preds = %854
   %.old = add i16 %850, -3751
-  %or.cond621.old = icmp ult i16 %.old, 369
-  br i1 %or.cond621.old, label %866, label %863
+  %or.cond623.old = icmp ult i16 %.old, 369
+  br i1 %or.cond623.old, label %866, label %863
 
 863:                                              ; preds = %856, %862
   %864 = tail call i32 @strncasecmp(ptr noundef nonnull %840, ptr noundef nonnull @.str.46, i64 noundef 7) #21
   %.not483 = icmp eq i32 %864, 0
   %865 = icmp eq i16 %850, 2816
-  %or.cond624 = select i1 %.not483, i1 %865, i1 false
-  br i1 %or.cond624, label %866, label %.thread718
+  %or.cond626 = select i1 %.not483, i1 %865, i1 false
+  br i1 %or.cond626, label %866, label %.thread716
 
-866:                                              ; preds = %847, %856, %863, %862, %._crit_edge977, %844, %844
-  %867 = phi i16 [ %850, %856 ], [ 2816, %863 ], [ %850, %862 ], [ 3968, %._crit_edge977 ], [ %846, %844 ], [ %846, %844 ], [ %850, %847 ]
+866:                                              ; preds = %847, %856, %863, %862, %._crit_edge975, %844, %844
+  %867 = phi i16 [ %850, %856 ], [ 2816, %863 ], [ %850, %862 ], [ 3968, %._crit_edge975 ], [ %846, %844 ], [ %846, %844 ], [ %850, %847 ]
   %868 = add nsw i16 %867, -32
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %868, ptr %869, align 2, !tbaa !82
-  br label %.thread718
+  br label %.thread716
 
-870:                                              ; preds = %.thread699
+870:                                              ; preds = %.thread697
   %871 = icmp eq i32 %797, 49
   br i1 %871, label %872, label %895
 
@@ -2319,14 +2319,14 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %873 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %874 = load i32, ptr %873, align 8, !tbaa !94
   %875 = icmp eq i32 %874, 4
-  br i1 %875, label %876, label %.thread718
+  br i1 %875, label %876, label %.thread716
 
 876:                                              ; preds = %872
   %877 = getelementptr inbounds nuw i8, ptr %0, i64 5456
   %878 = load i32, ptr %877, align 8, !tbaa !127
   %879 = and i32 %878, 1
   %.not484 = icmp eq i32 %879, 0
-  br i1 %.not484, label %.thread718, label %880
+  br i1 %.not484, label %.thread716, label %880
 
 880:                                              ; preds = %876
   store i32 1, ptr %873, align 8, !tbaa !94
@@ -2358,18 +2358,18 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i64 %.unpack487, ptr %.repack488, align 8, !tbaa !161
   store i64 ptrtoint (ptr @_ZN6LibRaw21pentax_4shot_load_rawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread718
+  br label %.thread716
 
 895:                                              ; preds = %870
   %896 = icmp eq i32 %797, 31
-  %or.cond626 = select i1 %.not472, i1 %896, i1 false
-  br i1 %or.cond626, label %897, label %904
+  %or.cond628 = select i1 %.not472, i1 %896, i1 false
+  br i1 %or.cond628, label %897, label %904
 
 897:                                              ; preds = %895
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %bcmp492 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %898, ptr noundef nonnull dereferenceable(9) @.str.47, i64 9)
   %.not493 = icmp eq i32 %bcmp492, 0
-  br i1 %.not493, label %899, label %.thread718
+  br i1 %.not493, label %899, label %.thread716
 
 899:                                              ; preds = %897
   %900 = getelementptr inbounds nuw i8, ptr %0, i64 153192
@@ -2380,12 +2380,12 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store float 1.000000e+00, ptr %902, align 4, !tbaa !95
   %903 = getelementptr inbounds nuw i8, ptr %0, i64 153196
   store float 1.000000e+00, ptr %903, align 4, !tbaa !95
-  br label %.thread718
+  br label %.thread716
 
 904:                                              ; preds = %895
   %905 = icmp eq i32 %797, 18
-  %or.cond628 = select i1 %.not472, i1 %905, i1 false
-  br i1 %or.cond628, label %906, label %.thread718
+  %or.cond630 = select i1 %.not472, i1 %905, i1 false
+  br i1 %or.cond630, label %906, label %.thread716
 
 906:                                              ; preds = %904
   %907 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -2393,8 +2393,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %.not496 = icmp eq i32 %bcmp495, 0
   %lhsv = load i32, ptr %907, align 4
   %.not498 = icmp eq i32 %lhsv, 808466246
-  %or.cond629 = select i1 %.not496, i1 true, i1 %.not498
-  br i1 %or.cond629, label %908, label %.thread718
+  %or.cond631 = select i1 %.not496, i1 true, i1 %.not498
+  br i1 %or.cond631, label %908, label %.thread716
 
 908:                                              ; preds = %906
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -2403,22 +2403,22 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %911, ptr %909, align 2, !tbaa !78
   store i64 ptrtoint (ptr @_ZN6LibRaw30unpacked_load_raw_fuji_f700s20Ev to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
-  br label %.thread718
+  br label %.thread716
 
-.thread718:                                       ; preds = %815, %819, %.thread994.sink.split, %866, %863, %799, %802, %806, %809, %872, %876, %880, %897, %899, %906, %908, %904
-  %912 = phi i1 [ false, %906 ], [ false, %908 ], [ false, %904 ], [ false, %897 ], [ false, %899 ], [ true, %872 ], [ true, %876 ], [ true, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ false, %863 ], [ false, %866 ], [ false, %.thread994.sink.split ], [ false, %819 ], [ false, %815 ]
-  %.not472698703707714721 = phi i1 [ true, %906 ], [ true, %908 ], [ %.not472, %904 ], [ true, %897 ], [ true, %899 ], [ %.not472, %872 ], [ %.not472, %876 ], [ %.not472, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ %.not472, %.thread994.sink.split ], [ %.not472, %819 ], [ %.not472, %815 ]
-  %913 = phi i1 [ false, %906 ], [ false, %908 ], [ %829, %904 ], [ false, %897 ], [ false, %899 ], [ false, %872 ], [ false, %876 ], [ false, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ true, %.thread994.sink.split ], [ true, %819 ], [ true, %815 ]
+.thread716:                                       ; preds = %815, %819, %.thread992.sink.split, %866, %863, %799, %802, %806, %809, %872, %876, %880, %897, %899, %906, %908, %904
+  %912 = phi i1 [ false, %906 ], [ false, %908 ], [ false, %904 ], [ false, %897 ], [ false, %899 ], [ true, %872 ], [ true, %876 ], [ true, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ false, %863 ], [ false, %866 ], [ false, %.thread992.sink.split ], [ false, %819 ], [ false, %815 ]
+  %.not472696701705712719 = phi i1 [ true, %906 ], [ true, %908 ], [ %.not472, %904 ], [ true, %897 ], [ true, %899 ], [ %.not472, %872 ], [ %.not472, %876 ], [ %.not472, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ %.not472, %.thread992.sink.split ], [ %.not472, %819 ], [ %.not472, %815 ]
+  %913 = phi i1 [ false, %906 ], [ false, %908 ], [ %829, %904 ], [ false, %897 ], [ false, %899 ], [ false, %872 ], [ false, %876 ], [ false, %880 ], [ false, %809 ], [ false, %806 ], [ false, %802 ], [ false, %799 ], [ true, %863 ], [ true, %866 ], [ true, %.thread992.sink.split ], [ true, %819 ], [ true, %815 ]
   %.unpack500 = load i64, ptr %230, align 8, !tbaa !89
   %.unpack502 = load i64, ptr %.elt408, align 8, !tbaa !89
   %914 = icmp eq i64 %.unpack500, ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64)
   %915 = icmp eq i64 %.unpack502, 0
   %916 = and i1 %914, %915
   %917 = icmp eq i32 %797, 43
-  %or.cond631 = select i1 %916, i1 %917, i1 false
-  br i1 %or.cond631, label %918, label %939
+  %or.cond633 = select i1 %916, i1 %917, i1 false
+  br i1 %or.cond633, label %918, label %939
 
-918:                                              ; preds = %.thread718
+918:                                              ; preds = %.thread716
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   %920 = load i32, ptr %919, align 8, !tbaa !86
   %.not503 = icmp eq i32 %920, 0
@@ -2453,9 +2453,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i32 80, ptr %919, align 8, !tbaa !86
   br label %939
 
-939:                                              ; preds = %938, %926, %924, %918, %.thread718
-  %or.cond633 = and i1 %913, %916
-  br i1 %or.cond633, label %940, label %.loopexit779
+939:                                              ; preds = %938, %926, %924, %918, %.thread716
+  %or.cond635 = and i1 %913, %916
+  br i1 %or.cond635, label %940, label %.loopexit777
 
 940:                                              ; preds = %939
   %941 = getelementptr inbounds nuw i8, ptr %0, i64 153000
@@ -2474,55 +2474,55 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %949 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   %950 = load i32, ptr %949, align 8
   %951 = icmp ugt i32 %950, 256
-  %or.cond636 = select i1 %948, i1 true, i1 %951
-  br i1 %or.cond636, label %952, label %.thread722
+  %or.cond638 = select i1 %948, i1 true, i1 %951
+  br i1 %or.cond638, label %952, label %.thread720
 
 952:                                              ; preds = %945
   %953 = lshr i32 %947, 2
   store i32 %953, ptr %946, align 8, !tbaa !91
   br label %959
 
-.preheader778:                                    ; preds = %959
+.preheader776:                                    ; preds = %959
   %954 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   %955 = getelementptr inbounds nuw i8, ptr %0, i64 136596
   %956 = load i32, ptr %954, align 8, !tbaa !129
   %957 = load i32, ptr %955, align 4, !tbaa !129
   %958 = mul i32 %957, %956
-  %.not850 = icmp eq i32 %958, 0
-  br i1 %.not850, label %.thread722, label %.lr.ph830
+  %.not848 = icmp eq i32 %958, 0
+  br i1 %.not848, label %.thread720, label %.lr.ph828
 
 959:                                              ; preds = %952, %959
-  %indvars.iv915 = phi i64 [ 0, %952 ], [ %indvars.iv.next916, %959 ]
-  %960 = getelementptr inbounds nuw [4104 x i32], ptr %949, i64 0, i64 %indvars.iv915
+  %indvars.iv913 = phi i64 [ 0, %952 ], [ %indvars.iv.next914, %959 ]
+  %960 = getelementptr inbounds nuw [4104 x i32], ptr %949, i64 0, i64 %indvars.iv913
   %961 = load i32, ptr %960, align 4, !tbaa !129
   %962 = lshr i32 %961, 2
   store i32 %962, ptr %960, align 4, !tbaa !129
-  %indvars.iv.next916 = add nuw nsw i64 %indvars.iv915, 1
-  %exitcond918.not = icmp eq i64 %indvars.iv.next916, 4
-  br i1 %exitcond918.not, label %.preheader778, label %959, !llvm.loop !162
+  %indvars.iv.next914 = add nuw nsw i64 %indvars.iv913, 1
+  %exitcond916.not = icmp eq i64 %indvars.iv.next914, 4
+  br i1 %exitcond916.not, label %.preheader776, label %959, !llvm.loop !162
 
-.lr.ph830:                                        ; preds = %.preheader778, %.lr.ph830
-  %indvars.iv919 = phi i64 [ %indvars.iv.next920, %.lr.ph830 ], [ 0, %.preheader778 ]
-  %963 = add nuw nsw i64 %indvars.iv919, 6
+.lr.ph828:                                        ; preds = %.preheader776, %.lr.ph828
+  %indvars.iv917 = phi i64 [ %indvars.iv.next918, %.lr.ph828 ], [ 0, %.preheader776 ]
+  %963 = add nuw nsw i64 %indvars.iv917, 6
   %964 = and i64 %963, 4294967295
   %965 = getelementptr inbounds nuw [4104 x i32], ptr %949, i64 0, i64 %964
   %966 = load i32, ptr %965, align 4, !tbaa !129
   %967 = lshr i32 %966, 2
   store i32 %967, ptr %965, align 4, !tbaa !129
-  %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
+  %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
   %968 = load i32, ptr %954, align 8, !tbaa !129
   %969 = load i32, ptr %955, align 4, !tbaa !129
   %970 = mul i32 %969, %968
   %971 = zext i32 %970 to i64
-  %972 = icmp samesign ult i64 %indvars.iv.next920, %971
-  br i1 %972, label %.lr.ph830, label %.thread722, !llvm.loop !163
+  %972 = icmp samesign ult i64 %indvars.iv.next918, %971
+  br i1 %972, label %.lr.ph828, label %.thread720, !llvm.loop !163
 
-.loopexit779:                                     ; preds = %939
+.loopexit777:                                     ; preds = %939
   %973 = icmp eq i64 %.unpack500, ptrtoint (ptr @_ZN6LibRaw18nikon_yuv_load_rawEv to i64)
   %974 = and i1 %973, %915
-  br i1 %974, label %975, label %.thread722
+  br i1 %974, label %975, label %.thread720
 
-975:                                              ; preds = %.loopexit779
+975:                                              ; preds = %.loopexit777
   store i64 ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64), ptr %230, align 8, !tbaa !89
   store i64 0, ptr %.elt408, align 8, !tbaa !89
   %976 = getelementptr inbounds nuw i8, ptr %0, i64 5504
@@ -2535,78 +2535,78 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i32 3, ptr %979, align 4, !tbaa !85
   br label %981
 
-.preheader777:                                    ; preds = %981
+.preheader775:                                    ; preds = %981
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 153304
-  br label %.preheader776
+  br label %.preheader774
 
 981:                                              ; preds = %975, %981
-  %indvars.iv922 = phi i64 [ 0, %975 ], [ %indvars.iv.next923, %981 ]
-  %982 = trunc nuw nsw i64 %indvars.iv922 to i32
+  %indvars.iv920 = phi i64 [ 0, %975 ], [ %indvars.iv.next921, %981 ]
+  %982 = trunc nuw nsw i64 %indvars.iv920 to i32
   %983 = uitofp nneg i32 %982 to double
   %984 = fmul reassoc nsz arcp contract afn double %983, 0x3F35555555555555
   %985 = fmul reassoc nsz arcp contract afn double %984, %984
-  %.neg760 = fmul reassoc nsz arcp contract afn double %983, 0xBE975608FECE194D
-  %.neg761 = fmul reassoc nsz arcp contract afn double %985, 0x3F667BCEF737735E
+  %.neg758 = fmul reassoc nsz arcp contract afn double %983, 0xBE975608FECE194D
+  %.neg759 = fmul reassoc nsz arcp contract afn double %985, 0x3F667BCEF737735E
   %986 = fmul reassoc nsz arcp contract afn double %983, 0xBEB267E8FF27CE95
-  %.neg763 = fmul reassoc nsz arcp contract afn double %986, %985
-  %reass.add = fadd reassoc nsz arcp contract afn double %.neg760, 0x3EF3C65EA647FFF0
-  %reass.add765 = fadd reassoc nsz arcp contract afn double %reass.add, %.neg761
-  %reass.add766 = fadd reassoc nsz arcp contract afn double %reass.add765, %.neg763
-  %reass.mul = fmul reassoc nsz arcp contract afn double %reass.add766, %983
+  %.neg761 = fmul reassoc nsz arcp contract afn double %986, %985
+  %reass.add = fadd reassoc nsz arcp contract afn double %.neg758, 0x3EF3C65EA647FFF0
+  %reass.add763 = fadd reassoc nsz arcp contract afn double %reass.add, %.neg759
+  %reass.add764 = fadd reassoc nsz arcp contract afn double %reass.add763, %.neg761
+  %reass.mul = fmul reassoc nsz arcp contract afn double %reass.add764, %983
   %987 = tail call reassoc nsz arcp contract afn double @llvm.exp.f64(double %reass.mul)
   %988 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %987
   %989 = fcmp reassoc nsz arcp contract afn olt double %988, 0.000000e+00
   %.0303 = select nsz i1 %989, double 0.000000e+00, double %988
   %990 = fmul reassoc nsz arcp contract afn double %.0303, 1.638300e+04
   %991 = fptoui double %990 to i16
-  %992 = getelementptr inbounds nuw [65536 x i16], ptr %976, i64 0, i64 %indvars.iv922
+  %992 = getelementptr inbounds nuw [65536 x i16], ptr %976, i64 0, i64 %indvars.iv920
   store i16 %991, ptr %992, align 2, !tbaa !150
-  %indvars.iv.next923 = add nuw nsw i64 %indvars.iv922, 1
-  %exitcond925.not = icmp eq i64 %indvars.iv.next923, 3073
-  br i1 %exitcond925.not, label %.preheader777, label %981, !llvm.loop !165
+  %indvars.iv.next921 = add nuw nsw i64 %indvars.iv920, 1
+  %exitcond923.not = icmp eq i64 %indvars.iv.next921, 3073
+  br i1 %exitcond923.not, label %.preheader775, label %981, !llvm.loop !165
 
-.preheader776:                                    ; preds = %.preheader777, %994
-  %indvars.iv930 = phi i64 [ 0, %.preheader777 ], [ %indvars.iv.next931, %994 ]
-  %993 = getelementptr inbounds nuw [3 x [4 x float]], ptr %980, i64 0, i64 %indvars.iv930
+.preheader774:                                    ; preds = %.preheader775, %994
+  %indvars.iv928 = phi i64 [ 0, %.preheader775 ], [ %indvars.iv.next929, %994 ]
+  %993 = getelementptr inbounds nuw [3 x [4 x float]], ptr %980, i64 0, i64 %indvars.iv928
   br label %995
 
 994:                                              ; preds = %995
-  %indvars.iv.next931 = add nuw nsw i64 %indvars.iv930, 1
-  %exitcond933.not = icmp eq i64 %indvars.iv.next931, 3
-  br i1 %exitcond933.not, label %.thread722, label %.preheader776, !llvm.loop !166
+  %indvars.iv.next929 = add nuw nsw i64 %indvars.iv928, 1
+  %exitcond931.not = icmp eq i64 %indvars.iv.next929, 3
+  br i1 %exitcond931.not, label %.thread720, label %.preheader774, !llvm.loop !166
 
-995:                                              ; preds = %.preheader776, %995
-  %indvars.iv926 = phi i64 [ 0, %.preheader776 ], [ %indvars.iv.next927, %995 ]
-  %996 = icmp eq i64 %indvars.iv930, %indvars.iv926
+995:                                              ; preds = %.preheader774, %995
+  %indvars.iv924 = phi i64 [ 0, %.preheader774 ], [ %indvars.iv.next925, %995 ]
+  %996 = icmp eq i64 %indvars.iv928, %indvars.iv924
   %997 = uitofp i1 %996 to float
-  %998 = getelementptr inbounds nuw [4 x float], ptr %993, i64 0, i64 %indvars.iv926
+  %998 = getelementptr inbounds nuw [4 x float], ptr %993, i64 0, i64 %indvars.iv924
   store float %997, ptr %998, align 4, !tbaa !95
-  %indvars.iv.next927 = add nuw nsw i64 %indvars.iv926, 1
-  %exitcond929.not = icmp eq i64 %indvars.iv.next927, 4
-  br i1 %exitcond929.not, label %994, label %995, !llvm.loop !167
+  %indvars.iv.next925 = add nuw nsw i64 %indvars.iv924, 1
+  %exitcond927.not = icmp eq i64 %indvars.iv.next925, 4
+  br i1 %exitcond927.not, label %994, label %995, !llvm.loop !167
 
-.thread722:                                       ; preds = %994, %.lr.ph830, %.preheader778, %945, %.loopexit779
-  %.unpack515 = phi i64 [ 0, %945 ], [ %.unpack502, %.loopexit779 ], [ 0, %.preheader778 ], [ 0, %.lr.ph830 ], [ 0, %994 ]
-  %.unpack513 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %945 ], [ %.unpack500, %.loopexit779 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.preheader778 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.lr.ph830 ], [ ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64), %994 ]
+.thread720:                                       ; preds = %994, %.lr.ph828, %.preheader776, %945, %.loopexit777
+  %.unpack515 = phi i64 [ 0, %945 ], [ %.unpack502, %.loopexit777 ], [ 0, %.preheader776 ], [ 0, %.lr.ph828 ], [ 0, %994 ]
+  %.unpack513 = phi i64 [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %945 ], [ %.unpack500, %.loopexit777 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.preheader776 ], [ ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), %.lr.ph828 ], [ ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64), %994 ]
   %999 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw14nikon_load_rawEv to i64)
   %1000 = icmp eq i64 %.unpack515, 0
   %1001 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64)
   %1002 = or i1 %999, %1001
   %1003 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw28nikon_load_padded_packed_rawEv to i64)
-  %or.cond638750 = or i1 %1003, %1002
-  %or.cond640 = and i1 %1000, %or.cond638750
-  %or.cond642 = select i1 %or.cond640, i1 %917, i1 false
-  br i1 %or.cond642, label %1004, label %.loopexit775
+  %or.cond640748 = or i1 %1003, %1002
+  %or.cond642 = and i1 %1000, %or.cond640748
+  %or.cond644 = select i1 %or.cond642, i1 %917, i1 false
+  br i1 %or.cond644, label %1004, label %.loopexit773
 
-1004:                                             ; preds = %.thread722
+1004:                                             ; preds = %.thread720
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %bcmp516 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %1005, ptr noundef nonnull dereferenceable(7) @.str.52, i64 7)
   %.not517 = icmp ne i32 %bcmp516, 0
   %1006 = getelementptr inbounds nuw i8, ptr %0, i64 381656
   %1007 = load i32, ptr %1006, align 8
   %1008 = icmp eq i32 %1007, 12
-  %or.cond645 = select i1 %.not517, i1 %1008, i1 false
-  br i1 %or.cond645, label %1009, label %.loopexit775
+  %or.cond647 = select i1 %.not517, i1 %1008, i1 false
+  br i1 %or.cond647, label %1009, label %.loopexit773
 
 1009:                                             ; preds = %1004
   %1010 = getelementptr inbounds nuw i8, ptr %0, i64 153000
@@ -2618,62 +2618,62 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1014 = getelementptr inbounds nuw i8, ptr %0, i64 136576
   br label %1020
 
-.preheader774:                                    ; preds = %1020
+.preheader772:                                    ; preds = %1020
   %1015 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   %1016 = getelementptr inbounds nuw i8, ptr %0, i64 136596
   %1017 = load i32, ptr %1015, align 8, !tbaa !129
   %1018 = load i32, ptr %1016, align 4, !tbaa !129
   %1019 = mul i32 %1018, %1017
-  %.not851 = icmp eq i32 %1019, 0
-  br i1 %.not851, label %.loopexit775, label %.lr.ph836
+  %.not849 = icmp eq i32 %1019, 0
+  br i1 %.not849, label %.loopexit773, label %.lr.ph834
 
 1020:                                             ; preds = %1009, %1020
-  %indvars.iv934 = phi i64 [ 0, %1009 ], [ %indvars.iv.next935, %1020 ]
-  %1021 = getelementptr inbounds nuw [4104 x i32], ptr %1014, i64 0, i64 %indvars.iv934
+  %indvars.iv932 = phi i64 [ 0, %1009 ], [ %indvars.iv.next933, %1020 ]
+  %1021 = getelementptr inbounds nuw [4104 x i32], ptr %1014, i64 0, i64 %indvars.iv932
   %1022 = load i32, ptr %1021, align 4, !tbaa !129
   %1023 = lshr i32 %1022, 2
   store i32 %1023, ptr %1021, align 4, !tbaa !129
-  %indvars.iv.next935 = add nuw nsw i64 %indvars.iv934, 1
-  %exitcond937.not = icmp eq i64 %indvars.iv.next935, 4
-  br i1 %exitcond937.not, label %.preheader774, label %1020, !llvm.loop !168
+  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
+  %exitcond935.not = icmp eq i64 %indvars.iv.next933, 4
+  br i1 %exitcond935.not, label %.preheader772, label %1020, !llvm.loop !168
 
-.lr.ph836:                                        ; preds = %.preheader774, %.lr.ph836
-  %indvars.iv938 = phi i64 [ %indvars.iv.next939, %.lr.ph836 ], [ 0, %.preheader774 ]
-  %1024 = add nuw nsw i64 %indvars.iv938, 6
+.lr.ph834:                                        ; preds = %.preheader772, %.lr.ph834
+  %indvars.iv936 = phi i64 [ %indvars.iv.next937, %.lr.ph834 ], [ 0, %.preheader772 ]
+  %1024 = add nuw nsw i64 %indvars.iv936, 6
   %1025 = and i64 %1024, 4294967295
   %1026 = getelementptr inbounds nuw [4104 x i32], ptr %1014, i64 0, i64 %1025
   %1027 = load i32, ptr %1026, align 4, !tbaa !129
   %1028 = lshr i32 %1027, 2
   store i32 %1028, ptr %1026, align 4, !tbaa !129
-  %indvars.iv.next939 = add nuw nsw i64 %indvars.iv938, 1
+  %indvars.iv.next937 = add nuw nsw i64 %indvars.iv936, 1
   %1029 = load i32, ptr %1015, align 8, !tbaa !129
   %1030 = load i32, ptr %1016, align 4, !tbaa !129
   %1031 = mul i32 %1030, %1029
   %1032 = zext i32 %1031 to i64
-  %1033 = icmp samesign ult i64 %indvars.iv.next939, %1032
-  br i1 %1033, label %.lr.ph836, label %.loopexit775, !llvm.loop !169
+  %1033 = icmp samesign ult i64 %indvars.iv.next937, %1032
+  br i1 %1033, label %.lr.ph834, label %.loopexit773, !llvm.loop !169
 
-.loopexit775:                                     ; preds = %.lr.ph836, %.preheader774, %.thread722, %1004
+.loopexit773:                                     ; preds = %.lr.ph834, %.preheader772, %.thread720, %1004
   %1034 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw15nikon_load_srawEv to i64)
   %1035 = and i1 %1034, %1000
   br i1 %1035, label %1036, label %1038
 
-1036:                                             ; preds = %.loopexit775
+1036:                                             ; preds = %.loopexit773
   %1037 = getelementptr inbounds nuw i8, ptr %0, i64 192468
   store i32 9, ptr %1037, align 4, !tbaa !170
   br label %1066
 
-1038:                                             ; preds = %.loopexit775
+1038:                                             ; preds = %.loopexit773
   %1039 = icmp ne i32 %797, 8
   %1040 = getelementptr inbounds nuw i8, ptr %0, i64 1972
   %1041 = load i32, ptr %1040, align 4
   %1042 = icmp ult i32 %1041, 8
-  %or.cond648.not753 = select i1 %1039, i1 true, i1 %1042
+  %or.cond650.not751 = select i1 %1039, i1 true, i1 %1042
   %1043 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %1044 = load i32, ptr %1043, align 8
   %.not521 = icmp eq i32 %1044, 0
-  %or.cond650 = select i1 %or.cond648.not753, i1 true, i1 %.not521
-  br i1 %or.cond650, label %1047, label %1045
+  %or.cond652 = select i1 %or.cond650.not751, i1 true, i1 %.not521
+  br i1 %or.cond652, label %1047, label %1045
 
 1045:                                             ; preds = %1038
   %1046 = getelementptr inbounds nuw i8, ptr %0, i64 192468
@@ -2684,8 +2684,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 2196
   %1049 = load i32, ptr %1048, align 4
   %1050 = icmp eq i32 %1049, 1
-  %or.cond653 = select i1 %917, i1 %1050, i1 false
-  br i1 %or.cond653, label %1051, label %1053
+  %or.cond655 = select i1 %917, i1 %1050, i1 false
+  br i1 %or.cond655, label %1051, label %1053
 
 1051:                                             ; preds = %1047
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 192468
@@ -2710,9 +2710,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 1060:                                             ; preds = %1054, %1053
   %1061 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw19sony_ycbcr_load_rawEv to i64)
   %1062 = and i1 %1061, %1000
-  %or.cond745 = and i1 %913, %1062
+  %or.cond743 = and i1 %913, %1062
   %1063 = getelementptr inbounds nuw i8, ptr %0, i64 192468
-  br i1 %or.cond745, label %1064, label %1065
+  br i1 %or.cond743, label %1064, label %1065
 
 1064:                                             ; preds = %1060
   store i32 33, ptr %1063, align 4, !tbaa !170
@@ -2726,46 +2726,46 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1067 = getelementptr inbounds nuw i8, ptr %0, i64 153008
   %1068 = load i64, ptr %1067, align 8, !tbaa !131
   %1069 = icmp slt i64 %1068, 0
-  br i1 %1069, label %1070, label %.loopexit771
+  br i1 %1069, label %1070, label %.loopexit769
 
 1070:                                             ; preds = %1066
   %1071 = getelementptr inbounds nuw i8, ptr %0, i64 136576
-  br i1 %.not472698703707714721, label %.preheader770, label %.preheader772
+  br i1 %.not472696701705712719, label %.preheader768, label %.preheader770
 
-.preheader772:                                    ; preds = %1070, %.preheader772
-  %indvars.iv941 = phi i64 [ %indvars.iv.next942, %.preheader772 ], [ 0, %1070 ]
-  %1072 = getelementptr inbounds nuw [4 x i64], ptr %1067, i64 0, i64 %indvars.iv941
+.preheader770:                                    ; preds = %1070, %.preheader770
+  %indvars.iv939 = phi i64 [ %indvars.iv.next940, %.preheader770 ], [ 0, %1070 ]
+  %1072 = getelementptr inbounds nuw [4 x i64], ptr %1067, i64 0, i64 %indvars.iv939
   %1073 = load i64, ptr %1072, align 8, !tbaa !131
-  %1074 = add nuw nsw i64 %indvars.iv941, 6
+  %1074 = add nuw nsw i64 %indvars.iv939, 6
   %1075 = getelementptr inbounds nuw [4104 x i32], ptr %1071, i64 0, i64 %1074
   %1076 = load i32, ptr %1075, align 4, !tbaa !129
   %1077 = zext i32 %1076 to i64
   %1078 = sub nsw i64 %1077, %1073
   store i64 %1078, ptr %1072, align 8, !tbaa !131
-  %indvars.iv.next942 = add nuw nsw i64 %indvars.iv941, 1
-  %exitcond944.not = icmp eq i64 %indvars.iv.next942, 4
-  br i1 %exitcond944.not, label %.loopexit771, label %.preheader772, !llvm.loop !172
+  %indvars.iv.next940 = add nuw nsw i64 %indvars.iv939, 1
+  %exitcond942.not = icmp eq i64 %indvars.iv.next940, 4
+  br i1 %exitcond942.not, label %.loopexit769, label %.preheader770, !llvm.loop !172
 
-.preheader770:                                    ; preds = %1070, %.preheader770
-  %indvars.iv945 = phi i64 [ %indvars.iv.next946, %.preheader770 ], [ 0, %1070 ]
-  %1079 = getelementptr inbounds nuw [4 x i64], ptr %1067, i64 0, i64 %indvars.iv945
+.preheader768:                                    ; preds = %1070, %.preheader768
+  %indvars.iv943 = phi i64 [ %indvars.iv.next944, %.preheader768 ], [ 0, %1070 ]
+  %1079 = getelementptr inbounds nuw [4 x i64], ptr %1067, i64 0, i64 %indvars.iv943
   %1080 = load i64, ptr %1079, align 8, !tbaa !131
-  %1081 = getelementptr inbounds nuw [4104 x i32], ptr %1071, i64 0, i64 %indvars.iv945
+  %1081 = getelementptr inbounds nuw [4104 x i32], ptr %1071, i64 0, i64 %indvars.iv943
   %1082 = load i32, ptr %1081, align 4, !tbaa !129
   %1083 = zext i32 %1082 to i64
   %1084 = sub nsw i64 %1083, %1080
   store i64 %1084, ptr %1079, align 8, !tbaa !131
-  %indvars.iv.next946 = add nuw nsw i64 %indvars.iv945, 1
-  %exitcond948.not = icmp eq i64 %indvars.iv.next946, 4
-  br i1 %exitcond948.not, label %.loopexit771, label %.preheader770, !llvm.loop !173
+  %indvars.iv.next944 = add nuw nsw i64 %indvars.iv943, 1
+  %exitcond946.not = icmp eq i64 %indvars.iv.next944, 4
+  br i1 %exitcond946.not, label %.loopexit769, label %.preheader768, !llvm.loop !173
 
-.loopexit771:                                     ; preds = %.preheader772, %.preheader770, %1066
+.loopexit769:                                     ; preds = %.preheader770, %.preheader768, %1066
   %1085 = load i64, ptr %1067, align 8
   %.not527 = icmp eq i64 %1085, 0
-  %or.cond654 = select i1 %917, i1 %.not527, i1 false
-  br i1 %or.cond654, label %1086, label %1101
+  %or.cond656 = select i1 %917, i1 %.not527, i1 false
+  br i1 %or.cond656, label %1086, label %1101
 
-1086:                                             ; preds = %.loopexit771
+1086:                                             ; preds = %.loopexit769
   %1087 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   %1088 = load i32, ptr %1087, align 8, !tbaa !90
   %1089 = icmp ugt i32 %1088, 1024
@@ -2790,24 +2790,24 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i64 %1097, ptr %1067, align 8, !tbaa !131
   br label %1101
 
-1101:                                             ; preds = %1094, %1090, %1086, %.loopexit771
+1101:                                             ; preds = %1094, %1090, %1086, %.loopexit769
   %1102 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %1103 = load i64, ptr %1102, align 8
   %1104 = icmp eq i64 %1103, 77012
-  %or.cond657 = select i1 %912, i1 %1104, i1 false
-  br i1 %or.cond657, label %.preheader769, label %.loopexit
+  %or.cond659 = select i1 %912, i1 %1104, i1 false
+  br i1 %or.cond659, label %.preheader767, label %.loopexit
 
-.preheader769:                                    ; preds = %1101
+.preheader767:                                    ; preds = %1101
   %1105 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   br label %1107
 
-.preheader768:                                    ; preds = %1121
+.preheader766:                                    ; preds = %1121
   %1106 = getelementptr inbounds nuw i8, ptr %0, i64 191188
   br label %1124
 
-1107:                                             ; preds = %.preheader769, %1121
-  %indvars.iv949 = phi i64 [ 0, %.preheader769 ], [ %indvars.iv.next950, %1121 ]
-  %1108 = getelementptr inbounds nuw [256 x [4 x i32]], ptr %1105, i64 0, i64 %indvars.iv949
+1107:                                             ; preds = %.preheader767, %1121
+  %indvars.iv947 = phi i64 [ 0, %.preheader767 ], [ %indvars.iv.next948, %1121 ]
+  %1108 = getelementptr inbounds nuw [256 x [4 x i32]], ptr %1105, i64 0, i64 %indvars.iv947
   %1109 = getelementptr inbounds nuw i8, ptr %1108, i64 4
   %1110 = load i32, ptr %1109, align 8, !tbaa !129
   %.not547 = icmp eq i32 %1110, 0
@@ -2828,18 +2828,18 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %1121
 
 1121:                                             ; preds = %1107, %1111
-  %indvars.iv.next950 = add nuw nsw i64 %indvars.iv949, 1
-  %exitcond952.not = icmp eq i64 %indvars.iv.next950, 25
-  br i1 %exitcond952.not, label %.preheader768, label %1107, !llvm.loop !174
+  %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
+  %exitcond950.not = icmp eq i64 %indvars.iv.next948, 25
+  br i1 %exitcond950.not, label %.preheader766, label %1107, !llvm.loop !174
 
-.preheader767:                                    ; preds = %1135
+.preheader765:                                    ; preds = %1135
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 187108
   %1123 = getelementptr inbounds nuw i8, ptr %0, i64 153192
   br label %1136
 
-1124:                                             ; preds = %.preheader768, %1135
-  %indvars.iv953 = phi i64 [ 0, %.preheader768 ], [ %indvars.iv.next954, %1135 ]
-  %1125 = getelementptr inbounds nuw [64 x [5 x float]], ptr %1106, i64 0, i64 %indvars.iv953
+1124:                                             ; preds = %.preheader766, %1135
+  %indvars.iv951 = phi i64 [ 0, %.preheader766 ], [ %indvars.iv.next952, %1135 ]
+  %1125 = getelementptr inbounds nuw [64 x [5 x float]], ptr %1106, i64 0, i64 %indvars.iv951
   %1126 = load float, ptr %1125, align 4, !tbaa !95
   %1127 = fcmp reassoc nsz arcp contract afn ogt float %1126, 0.000000e+00
   br i1 %1127, label %1128, label %1135
@@ -2856,26 +2856,26 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %1135
 
 1135:                                             ; preds = %1124, %1128
-  %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
-  %exitcond956.not = icmp eq i64 %indvars.iv.next954, 64
-  br i1 %exitcond956.not, label %.preheader767, label %1124, !llvm.loop !175
+  %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
+  %exitcond954.not = icmp eq i64 %indvars.iv.next952, 64
+  br i1 %exitcond954.not, label %.preheader765, label %1124, !llvm.loop !175
 
-1136:                                             ; preds = %.preheader767, %1136
-  %indvars.iv957 = phi i64 [ 0, %.preheader767 ], [ %indvars.iv.next958, %1136 ]
-  %1137 = getelementptr inbounds nuw [4 x i32], ptr %1122, i64 0, i64 %indvars.iv957
+1136:                                             ; preds = %.preheader765, %1136
+  %indvars.iv955 = phi i64 [ 0, %.preheader765 ], [ %indvars.iv.next956, %1136 ]
+  %1137 = getelementptr inbounds nuw [4 x i32], ptr %1122, i64 0, i64 %indvars.iv955
   %1138 = load i32, ptr %1137, align 4, !tbaa !129
   %1139 = sitofp i32 %1138 to float
-  %1140 = getelementptr inbounds nuw [4 x float], ptr %1123, i64 0, i64 %indvars.iv957
+  %1140 = getelementptr inbounds nuw [4 x float], ptr %1123, i64 0, i64 %indvars.iv955
   store float %1139, ptr %1140, align 4, !tbaa !95
-  %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
-  %exitcond960.not = icmp eq i64 %indvars.iv.next958, 4
-  br i1 %exitcond960.not, label %.loopexit, label %1136, !llvm.loop !176
+  %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
+  %exitcond958.not = icmp eq i64 %indvars.iv.next956, 4
+  br i1 %exitcond958.not, label %.loopexit, label %1136, !llvm.loop !176
 
 .loopexit:                                        ; preds = %1136, %1101
   %1141 = icmp eq i64 %.unpack513, ptrtoint (ptr @_ZN6LibRaw18panasonic_load_rawEv to i64)
   %1142 = and i1 %1141, %1000
-  %or.cond659 = select i1 %1142, i1 %798, i1 false
-  br i1 %or.cond659, label %1143, label %1176
+  %or.cond661 = select i1 %1142, i1 %798, i1 false
+  br i1 %or.cond661, label %1143, label %1176
 
 1143:                                             ; preds = %.loopexit
   %1144 = getelementptr inbounds nuw i8, ptr %0, i64 381464
@@ -2925,28 +2925,28 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %1169
 
 1169:                                             ; preds = %1158, %1169
-  %indvars.iv961 = phi i64 [ 0, %1158 ], [ %indvars.iv.next962, %1169 ]
-  %.0290842 = phi i32 [ %1164, %1158 ], [ %spec.select660, %1169 ]
-  %1170 = getelementptr inbounds nuw [4104 x i32], ptr %1163, i64 0, i64 %indvars.iv961
+  %indvars.iv959 = phi i64 [ 0, %1158 ], [ %indvars.iv.next960, %1169 ]
+  %.0290840 = phi i32 [ %1164, %1158 ], [ %spec.select662, %1169 ]
+  %1170 = getelementptr inbounds nuw [4104 x i32], ptr %1163, i64 0, i64 %indvars.iv959
   %1171 = load i32, ptr %1170, align 4, !tbaa !129
-  %spec.select660 = tail call i32 @llvm.umin.i32(i32 %.0290842, i32 %1171)
-  %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
-  %exitcond964.not = icmp eq i64 %indvars.iv.next962, 3
-  br i1 %exitcond964.not, label %.preheader, label %1169, !llvm.loop !177
+  %spec.select662 = tail call i32 @llvm.umin.i32(i32 %.0290840, i32 %1171)
+  %indvars.iv.next960 = add nuw nsw i64 %indvars.iv959, 1
+  %exitcond962.not = icmp eq i64 %indvars.iv.next960, 3
+  br i1 %exitcond962.not, label %.preheader, label %1169, !llvm.loop !177
 
 1172:                                             ; preds = %.preheader
-  store i32 %spec.select660, ptr %1159, align 8, !tbaa !91
+  store i32 %spec.select662, ptr %1159, align 8, !tbaa !91
   br label %1176
 
 .preheader:                                       ; preds = %1169, %.preheader
-  %indvars.iv965 = phi i64 [ %indvars.iv.next966, %.preheader ], [ 0, %1169 ]
-  %1173 = getelementptr inbounds nuw [4104 x i32], ptr %1163, i64 0, i64 %indvars.iv965
+  %indvars.iv963 = phi i64 [ %indvars.iv.next964, %.preheader ], [ 0, %1169 ]
+  %1173 = getelementptr inbounds nuw [4104 x i32], ptr %1163, i64 0, i64 %indvars.iv963
   %1174 = load i32, ptr %1173, align 4, !tbaa !129
-  %1175 = sub i32 %1174, %spec.select660
+  %1175 = sub i32 %1174, %spec.select662
   store i32 %1175, ptr %1173, align 4, !tbaa !129
-  %indvars.iv.next966 = add nuw nsw i64 %indvars.iv965, 1
-  %exitcond968.not = icmp eq i64 %indvars.iv.next966, 4
-  br i1 %exitcond968.not, label %1172, label %.preheader, !llvm.loop !178
+  %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
+  %exitcond966.not = icmp eq i64 %indvars.iv.next964, 4
+  br i1 %exitcond966.not, label %1172, label %.preheader, !llvm.loop !178
 
 1176:                                             ; preds = %1172, %1149, %1146, %1143, %.loopexit
   %1177 = getelementptr inbounds nuw i8, ptr %0, i64 153792
@@ -2962,10 +2962,10 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 
 1182:                                             ; preds = %1179
   invoke void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %1181)
-          to label %._crit_edge982 unwind label %1183
+          to label %._crit_edge980 unwind label %1183
 
-._crit_edge982:                                   ; preds = %1182
-  %.pre983 = load i32, ptr %1177, align 8, !tbaa !179
+._crit_edge980:                                   ; preds = %1182
+  %.pre981 = load i32, ptr %1177, align 8, !tbaa !179
   br label %1185
 
 1183:                                             ; preds = %1182
@@ -2976,8 +2976,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
           catch ptr @_ZTISt9exception
   br label %1235
 
-1185:                                             ; preds = %._crit_edge982, %1179
-  %1186 = phi i32 [ %.pre983, %._crit_edge982 ], [ %1178, %1179 ]
+1185:                                             ; preds = %._crit_edge980, %1179
+  %1186 = phi i32 [ %.pre981, %._crit_edge980 ], [ %1178, %1179 ]
   %1187 = load ptr, ptr %29, align 8, !tbaa !73
   %1188 = load ptr, ptr %1187, align 8, !tbaa !6
   %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 48
@@ -3087,9 +3087,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
     i32 11, label %1255
     i32 1, label %1258
     i32 10, label %1259
-    i32 2, label %.invoke1008
-    i32 3, label %.invoke1008
-    i32 9, label %.invoke1008
+    i32 2, label %.invoke1006
+    i32 3, label %.invoke1006
+    i32 9, label %.invoke1006
     i32 4, label %1260
     i32 5, label %1260
     i32 6, label %1261
@@ -3121,7 +3121,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-1256:                                             ; preds = %.invoke1008, %1263, %1262, %1261, %1260, %1259, %1258, %1255
+1256:                                             ; preds = %.invoke1006, %1263, %1262, %1261, %1260, %1259, %1258, %1255
   %1257 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_end_catch() #17
@@ -3135,7 +3135,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-.invoke1008:                                      ; preds = %1244, %1244, %1244
+.invoke1006:                                      ; preds = %1244, %1244, %1244
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
@@ -3155,8 +3155,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %1264 unwind label %1256
 
-1264:                                             ; preds = %.invoke1008, %1244, %1263, %1262, %1261, %1260, %1259, %1258, %1255
-  %.1 = phi i32 [ -100013, %1255 ], [ -100007, %1258 ], [ -100012, %1259 ], [ -100009, %1260 ], [ -100010, %1261 ], [ -100011, %1262 ], [ -2, %1263 ], [ -1, %1244 ], [ -100008, %.invoke1008 ]
+1264:                                             ; preds = %.invoke1006, %1244, %1263, %1262, %1261, %1260, %1259, %1258, %1255
+  %.1 = phi i32 [ -100013, %1255 ], [ -100007, %1258 ], [ -100012, %1259 ], [ -100009, %1260 ], [ -100010, %1261 ], [ -100011, %1262 ], [ -2, %1263 ], [ -1, %1244 ], [ -100008, %.invoke1006 ]
   tail call void @__cxa_end_catch() #17
   br label %1343
 
@@ -3204,9 +3204,9 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1288 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1289 = load i32, ptr %1288, align 8, !tbaa !84
   %.not545 = icmp eq i32 %1289, 0
-  br i1 %.not545, label %.thread723, label %1291
+  br i1 %.not545, label %.thread721, label %1291
 
-.thread723:                                       ; preds = %1287
+.thread721:                                       ; preds = %1287
   %1290 = getelementptr inbounds nuw i8, ptr %0, i64 381492
   store i16 0, ptr %1290, align 4, !tbaa !185
   br label %1316
@@ -3218,12 +3218,12 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1294 = getelementptr inbounds nuw i8, ptr %0, i64 5276
   %1295 = load float, ptr %1294, align 4
   %1296 = fcmp reassoc nsz arcp contract afn une float %1295, 0.000000e+00
-  %or.cond663 = select i1 %.not546, i1 true, i1 %1296
+  %or.cond665 = select i1 %.not546, i1 true, i1 %1296
   %1297 = getelementptr inbounds nuw i8, ptr %0, i64 5176
   %1298 = load double, ptr %1297, align 8
   %1299 = fcmp reassoc nsz arcp contract afn une double %1298, 1.000000e+00
-  %or.cond666 = select i1 %or.cond663, i1 true, i1 %1299
-  br i1 %or.cond666, label %1304, label %1300
+  %or.cond668 = select i1 %or.cond665, i1 true, i1 %1299
+  br i1 %or.cond668, label %1304, label %1300
 
 1300:                                             ; preds = %1291
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 5192
@@ -3237,8 +3237,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %1307 = getelementptr inbounds nuw i8, ptr %0, i64 381492
   store i16 %1306, ptr %1307, align 4, !tbaa !185
   %1308 = icmp ugt i32 %1289, 999
-  %or.cond668 = and i1 %1308, %1305
-  br i1 %or.cond668, label %1309, label %1316
+  %or.cond670 = and i1 %1308, %1305
+  br i1 %or.cond670, label %1309, label %1316
 
 1309:                                             ; preds = %1304
   %1310 = getelementptr inbounds nuw i8, ptr %0, i64 22
@@ -3251,8 +3251,8 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   store i16 %1315, ptr %1313, align 4, !tbaa !83
   br label %1316
 
-1316:                                             ; preds = %.thread723, %1309, %1304
-  %1317 = phi i16 [ 0, %.thread723 ], [ %1306, %1309 ], [ %1306, %1304 ]
+1316:                                             ; preds = %.thread721, %1309, %1304
+  %1317 = phi i16 [ 0, %.thread721 ], [ %1306, %1309 ], [ %1306, %1304 ]
   %1318 = getelementptr inbounds nuw i8, ptr %0, i64 381480
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1320 = getelementptr inbounds nuw i8, ptr %0, i64 20

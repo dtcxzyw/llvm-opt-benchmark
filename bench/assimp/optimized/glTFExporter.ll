@@ -92520,16 +92520,16 @@ _ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit: ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #32
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #32
   %30 = icmp sgt i64 %29, 0
-  br i1 %30, label %.preheader294, label %.loopexit295
+  br i1 %30, label %.preheader291, label %.loopexit292
 
-.preheader294:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit
+.preheader291:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %invariant.gep = getelementptr i8, ptr %4, i64 -8
-  %invariant.gep320 = getelementptr i8, ptr %3, i64 -8
+  %invariant.gep316 = getelementptr i8, ptr %3, i64 -8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -92552,25 +92552,25 @@ _ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit: ; preds = %._crit_edge.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 440
   br label %56
 
-56:                                               ; preds = %.preheader294, %577
-  %57 = phi i64 [ undef, %.preheader294 ], [ %107, %577 ]
-  %58 = phi i64 [ undef, %.preheader294 ], [ %108, %577 ]
-  %59 = phi i64 [ undef, %.preheader294 ], [ %578, %577 ]
-  %.pr271344 = phi i64 [ undef, %.preheader294 ], [ %.pr271345, %577 ]
-  %60 = phi i64 [ undef, %.preheader294 ], [ %579, %577 ]
-  %.pr340 = phi i64 [ undef, %.preheader294 ], [ %.pr341, %577 ]
-  %61 = phi i64 [ undef, %.preheader294 ], [ %580, %577 ]
-  %62 = phi i64 [ undef, %.preheader294 ], [ %581, %577 ]
-  %63 = phi i64 [ undef, %.preheader294 ], [ %582, %577 ]
-  %64 = phi i64 [ undef, %.preheader294 ], [ %583, %577 ]
-  %65 = phi i64 [ undef, %.preheader294 ], [ %584, %577 ]
-  %66 = phi i64 [ undef, %.preheader294 ], [ %585, %577 ]
-  %.071326 = phi i64 [ 0, %.preheader294 ], [ %586, %577 ]
+56:                                               ; preds = %.preheader291, %577
+  %57 = phi i64 [ undef, %.preheader291 ], [ %107, %577 ]
+  %58 = phi i64 [ undef, %.preheader291 ], [ %108, %577 ]
+  %59 = phi i64 [ undef, %.preheader291 ], [ %578, %577 ]
+  %.pr268340 = phi i64 [ undef, %.preheader291 ], [ %.pr268341, %577 ]
+  %60 = phi i64 [ undef, %.preheader291 ], [ %579, %577 ]
+  %.pr336 = phi i64 [ undef, %.preheader291 ], [ %.pr337, %577 ]
+  %61 = phi i64 [ undef, %.preheader291 ], [ %580, %577 ]
+  %62 = phi i64 [ undef, %.preheader291 ], [ %581, %577 ]
+  %63 = phi i64 [ undef, %.preheader291 ], [ %582, %577 ]
+  %64 = phi i64 [ undef, %.preheader291 ], [ %583, %577 ]
+  %65 = phi i64 [ undef, %.preheader291 ], [ %584, %577 ]
+  %66 = phi i64 [ undef, %.preheader291 ], [ %585, %577 ]
+  %.071322 = phi i64 [ 0, %.preheader291 ], [ %586, %577 ]
   %67 = load ptr, ptr %31, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.071326
+  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.071322
   %69 = load i64, ptr %68, align 8
-  %.not287 = icmp eq i64 %.071326, 0
-  br i1 %.not287, label %_ZNK5o3dgc12TriangleFans11GetTFANSizeEl.exit, label %70
+  %.not284 = icmp eq i64 %.071322, 0
+  br i1 %.not284, label %_ZNK5o3dgc12TriangleFans11GetTFANSizeEl.exit, label %70
 
 70:                                               ; preds = %56
   %71 = getelementptr i8, ptr %68, i64 -8
@@ -92629,46 +92629,46 @@ _ZN5o3dgc22CompressedTriangleFans10PushDegreeEl.exit: ; preds = %._crit_edge.i.i
   %97 = getelementptr inbounds nuw i64, ptr %95, i64 %94
   store i64 %78, ptr %97, align 8
   %.pre = load ptr, ptr %31, align 8
-  br i1 %.not287, label %_ZNK5o3dgc12TriangleFans5BeginEl.exit, label %98
+  br i1 %.not284, label %_ZNK5o3dgc12TriangleFans5BeginEl.exit, label %98
 
 98:                                               ; preds = %_ZN5o3dgc22CompressedTriangleFans10PushDegreeEl.exit
-  %99 = getelementptr i64, ptr %.pre, i64 %.071326
+  %99 = getelementptr i64, ptr %.pre, i64 %.071322
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load i64, ptr %100, align 8
   %102 = add nsw i64 %101, 1
   br label %_ZNK5o3dgc12TriangleFans5BeginEl.exit
 
 _ZNK5o3dgc12TriangleFans5BeginEl.exit:            ; preds = %_ZN5o3dgc22CompressedTriangleFans10PushDegreeEl.exit, %98
-  %.070299 = phi i64 [ %102, %98 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushDegreeEl.exit ]
-  %103 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.071326
+  %.070296 = phi i64 [ %102, %98 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushDegreeEl.exit ]
+  %103 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.071322
   %104 = load i64, ptr %103, align 8
-  %105 = icmp slt i64 %.070299, %104
-  br i1 %105, label %.lr.ph303.preheader, label %._crit_edge304
+  %105 = icmp slt i64 %.070296, %104
+  br i1 %105, label %.lr.ph300.preheader, label %._crit_edge
 
-.lr.ph303.preheader:                              ; preds = %_ZNK5o3dgc12TriangleFans5BeginEl.exit
-  %106 = sub i64 %104, %.070299
-  br label %.lr.ph303
+.lr.ph300.preheader:                              ; preds = %_ZNK5o3dgc12TriangleFans5BeginEl.exit
+  %106 = sub i64 %104, %.070296
+  br label %.lr.ph300
 
-._crit_edge304.loopexit:                          ; preds = %184
-  %.pre337 = load i64, ptr %4, align 16
-  %.pre338 = load i64, ptr %46, align 8
-  %.pre339 = load i64, ptr %3, align 16
-  br label %._crit_edge304
+._crit_edge.loopexit:                             ; preds = %184
+  %.pre333 = load i64, ptr %4, align 16
+  %.pre334 = load i64, ptr %46, align 8
+  %.pre335 = load i64, ptr %3, align 16
+  br label %._crit_edge
 
-._crit_edge304:                                   ; preds = %._crit_edge304.loopexit, %_ZNK5o3dgc12TriangleFans5BeginEl.exit
-  %107 = phi i64 [ %57, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %108 = phi i64 [ %58, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre338, %._crit_edge304.loopexit ]
-  %109 = phi i64 [ %59, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %.pr271 = phi i64 [ %.pr271344, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %110 = phi i64 [ %60, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %.pr = phi i64 [ %.pr340, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %111 = phi i64 [ %61, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %112 = phi i64 [ %62, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre339, %._crit_edge304.loopexit ]
-  %113 = phi i64 [ %63, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %114 = phi i64 [ %64, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre339, %._crit_edge304.loopexit ]
-  %115 = phi i64 [ %65, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre338, %._crit_edge304.loopexit ]
-  %116 = phi i64 [ %66, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre337, %._crit_edge304.loopexit ]
-  %.075.lcssa = phi i64 [ 0, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.176, %._crit_edge304.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK5o3dgc12TriangleFans5BeginEl.exit
+  %107 = phi i64 [ %57, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %108 = phi i64 [ %58, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre334, %._crit_edge.loopexit ]
+  %109 = phi i64 [ %59, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %.pr268 = phi i64 [ %.pr268340, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %110 = phi i64 [ %60, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %.pr = phi i64 [ %.pr336, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %111 = phi i64 [ %61, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %112 = phi i64 [ %62, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre335, %._crit_edge.loopexit ]
+  %113 = phi i64 [ %63, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %114 = phi i64 [ %64, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre335, %._crit_edge.loopexit ]
+  %115 = phi i64 [ %65, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre334, %._crit_edge.loopexit ]
+  %116 = phi i64 [ %66, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.pre333, %._crit_edge.loopexit ]
+  %.075.lcssa = phi i64 [ 0, %_ZNK5o3dgc12TriangleFans5BeginEl.exit ], [ %.176, %._crit_edge.loopexit ]
   %117 = icmp ne i64 %.075.lcssa, 2
   %118 = icmp slt i64 %74, 3
   %or.cond.i = or i1 %118, %117
@@ -92676,17 +92676,17 @@ _ZNK5o3dgc12TriangleFans5BeginEl.exit:            ; preds = %_ZN5o3dgc22Compress
   %.not.i = icmp eq i64 %116, -1
   %or.cond = select i1 %or.cond.i.not, i1 %.not.i, i1 false
   %.not17.i = icmp eq i64 %115, -2
-  %or.cond274 = select i1 %or.cond, i1 %.not17.i, i1 false
+  %or.cond271 = select i1 %or.cond, i1 %.not17.i, i1 false
   %.not18.i = icmp eq i64 %114, 1
-  %or.cond275 = select i1 %or.cond274, i1 %.not18.i, i1 false
-  br i1 %or.cond275, label %119, label %.loopexit293
+  %or.cond272 = select i1 %or.cond271, i1 %.not18.i, i1 false
+  br i1 %or.cond272, label %119, label %.loopexit290
 
-119:                                              ; preds = %._crit_edge304
+119:                                              ; preds = %._crit_edge
   %120 = add nsw i64 %74, -2
   %121 = getelementptr inbounds nuw i64, ptr %3, i64 %120
   %122 = load i64, ptr %121, align 8
   %.not19.i = icmp eq i64 %122, 1
-  br i1 %.not19.i, label %.preheader.i, label %.loopexit293
+  br i1 %.not19.i, label %.preheader.i, label %.loopexit290
 
 .preheader.i:                                     ; preds = %119
   %123 = icmp samesign ult i64 %75, 3
@@ -92702,23 +92702,23 @@ _ZNK5o3dgc12TriangleFans5BeginEl.exit:            ; preds = %_ZN5o3dgc22Compress
   %126 = getelementptr inbounds nuw i64, ptr %3, i64 %.01421.i
   %127 = load i64, ptr %126, align 8
   %.not20.i = icmp eq i64 %127, 0
-  br i1 %.not20.i, label %124, label %.loopexit293
+  br i1 %.not20.i, label %124, label %.loopexit290
 
-.lr.ph303:                                        ; preds = %.lr.ph303.preheader, %184
-  %.070302 = phi i64 [ %.070, %184 ], [ %.070299, %.lr.ph303.preheader ]
-  %.075301 = phi i64 [ %.176, %184 ], [ 0, %.lr.ph303.preheader ]
-  %.077300 = phi i64 [ %.178, %184 ], [ 0, %.lr.ph303.preheader ]
+.lr.ph300:                                        ; preds = %.lr.ph300.preheader, %184
+  %.070299 = phi i64 [ %.070, %184 ], [ %.070296, %.lr.ph300.preheader ]
+  %.075298 = phi i64 [ %.176, %184 ], [ 0, %.lr.ph300.preheader ]
+  %.077297 = phi i64 [ %.178, %184 ], [ 0, %.lr.ph300.preheader ]
   %128 = load ptr, ptr %36, align 8
-  %129 = getelementptr inbounds i64, ptr %128, i64 %.070302
+  %129 = getelementptr inbounds i64, ptr %128, i64 %.070299
   %130 = load i64, ptr %129, align 8
   %131 = load ptr, ptr %37, align 8
   %132 = getelementptr inbounds i64, ptr %131, i64 %130
   %133 = load i64, ptr %132, align 8
   %134 = icmp eq i64 %133, 0
-  %135 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.077300
+  %135 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.077297
   br i1 %134, label %136, label %162
 
-136:                                              ; preds = %.lr.ph303
+136:                                              ; preds = %.lr.ph300
   store i64 0, ptr %135, align 8
   store i64 1, ptr %132, align 8
   %137 = load i64, ptr %0, align 8
@@ -92757,59 +92757,59 @@ _ZNK5o3dgc12TriangleFans5BeginEl.exit:            ; preds = %_ZN5o3dgc22Compress
   store i64 %157, ptr %161, align 8
   br label %184
 
-162:                                              ; preds = %.lr.ph303
+162:                                              ; preds = %.lr.ph300
   store i64 1, ptr %135, align 8
   %163 = load i64, ptr %38, align 8
   %164 = icmp sgt i64 %163, 0
-  %.pre335 = load ptr, ptr %40, align 8
-  br i1 %164, label %.lr.ph, label %.._crit_edge_crit_edge
+  %.pre331 = load ptr, ptr %40, align 8
+  br i1 %164, label %.lr.ph, label %..critedge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %162
-  %.phi.trans.insert = getelementptr inbounds i64, ptr %.pre335, i64 %130
-  %.pre336 = load i64, ptr %.phi.trans.insert, align 8
-  br label %._crit_edge
+..critedge_crit_edge:                             ; preds = %162
+  %.phi.trans.insert = getelementptr inbounds i64, ptr %.pre331, i64 %130
+  %.pre332 = load i64, ptr %.phi.trans.insert, align 8
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %162
   %165 = load ptr, ptr %39, align 8
-  %166 = getelementptr inbounds i64, ptr %.pre335, i64 %130
+  %166 = getelementptr inbounds i64, ptr %.pre331, i64 %130
   %167 = load i64, ptr %166, align 8
   br label %168
 
 168:                                              ; preds = %.lr.ph, %172
-  %.069298 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
-  %169 = getelementptr inbounds nuw i64, ptr %165, i64 %.069298
+  %.069295 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
+  %169 = getelementptr inbounds nuw i64, ptr %165, i64 %.069295
   %170 = load i64, ptr %169, align 8
   %171 = icmp eq i64 %170, %167
   br i1 %171, label %174, label %172
 
 172:                                              ; preds = %168
-  %173 = add nuw nsw i64 %.069298, 1
+  %173 = add nuw nsw i64 %.069295, 1
   %exitcond.not = icmp eq i64 %173, %163
-  br i1 %exitcond.not, label %._crit_edge, label %168, !llvm.loop !959
+  br i1 %exitcond.not, label %.critedge, label %168, !llvm.loop !959
 
 174:                                              ; preds = %168
-  %175 = xor i64 %.069298, -1
-  %176 = add nsw i64 %.075301, 1
-  %177 = getelementptr inbounds [256 x i64], ptr %4, i64 0, i64 %.075301
+  %175 = xor i64 %.069295, -1
+  %176 = add nsw i64 %.075298, 1
+  %177 = getelementptr inbounds [256 x i64], ptr %4, i64 0, i64 %.075298
   store i64 %175, ptr %177, align 8
   br label %184
 
-._crit_edge:                                      ; preds = %172, %.._crit_edge_crit_edge
-  %178 = phi i64 [ %.pre336, %.._crit_edge_crit_edge ], [ %167, %172 ]
-  %179 = getelementptr inbounds i64, ptr %.pre335, i64 %1
+.critedge:                                        ; preds = %172, %..critedge_crit_edge
+  %178 = phi i64 [ %.pre332, %..critedge_crit_edge ], [ %167, %172 ]
+  %179 = getelementptr inbounds i64, ptr %.pre331, i64 %1
   %180 = load i64, ptr %179, align 8
   %181 = sub nsw i64 %178, %180
-  %182 = add nsw i64 %.075301, 1
-  %183 = getelementptr inbounds [256 x i64], ptr %4, i64 0, i64 %.075301
+  %182 = add nsw i64 %.075298, 1
+  %183 = getelementptr inbounds [256 x i64], ptr %4, i64 0, i64 %.075298
   store i64 %181, ptr %183, align 8
   br label %184
 
-184:                                              ; preds = %136, %._crit_edge, %174
-  %.176 = phi i64 [ %.075301, %136 ], [ %176, %174 ], [ %182, %._crit_edge ]
-  %.178 = add nuw i64 %.077300, 1
-  %.070 = add nsw i64 %.070302, 1
-  %exitcond328.not = icmp eq i64 %.178, %106
-  br i1 %exitcond328.not, label %._crit_edge304.loopexit, label %.lr.ph303, !llvm.loop !960
+184:                                              ; preds = %136, %.critedge, %174
+  %.176 = phi i64 [ %.075298, %136 ], [ %176, %174 ], [ %182, %.critedge ]
+  %.178 = add nuw i64 %.077297, 1
+  %.070 = add nsw i64 %.070299, 1
+  %exitcond324.not = icmp eq i64 %.178, %106
+  br i1 %exitcond324.not, label %._crit_edge.loopexit, label %.lr.ph300, !llvm.loop !960
 
 _ZN5o3dgc7IsCase0EllPKlS1_.exit:                  ; preds = %124, %.preheader.i
   %185 = load i64, ptr %54, align 8
@@ -92858,57 +92858,57 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit: ; preds = %._crit_edge.i.i
   store i64 0, ptr %203, align 8
   br label %577
 
-.loopexit293:                                     ; preds = %.lr.ph.i, %._crit_edge304, %119
+.loopexit290:                                     ; preds = %.lr.ph.i, %._crit_edge, %119
   %204 = icmp slt i64 %.075.lcssa, 1
   %or.cond.i91 = or i1 %118, %204
   %.not.i92 = icmp ne i64 %113, -1
-  %or.cond276.not = select i1 %or.cond.i91, i1 true, i1 %.not.i92
-  br i1 %or.cond276.not, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread, label %205
+  %or.cond273.not = select i1 %or.cond.i91, i1 true, i1 %.not.i92
+  br i1 %or.cond273.not, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread, label %205
 
-205:                                              ; preds = %.loopexit293
+205:                                              ; preds = %.loopexit290
   %gep = getelementptr i64, ptr %invariant.gep, i64 %.075.lcssa
   %206 = load i64, ptr %gep, align 8
   %.not11.i = icmp eq i64 %206, -2
   %.not12.i = icmp eq i64 %112, 1
-  %or.cond277 = select i1 %.not11.i, i1 %.not12.i, i1 false
-  br i1 %or.cond277, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
+  %or.cond274 = select i1 %.not11.i, i1 %.not12.i, i1 false
+  br i1 %or.cond274, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
 
 _ZN5o3dgc7IsCase1EllPKlS1_.exit:                  ; preds = %205
-  %gep321 = getelementptr i64, ptr %invariant.gep320, i64 %75
-  %207 = load i64, ptr %gep321, align 8
+  %gep317 = getelementptr i64, ptr %invariant.gep316, i64 %75
+  %207 = load i64, ptr %gep317, align 8
   %.not13.i = icmp eq i64 %207, 1
-  br i1 %.not13.i, label %.preheader292, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
+  br i1 %.not13.i, label %.preheader289, label %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
 
-.preheader292:                                    ; preds = %_ZN5o3dgc7IsCase1EllPKlS1_.exit
+.preheader289:                                    ; preds = %_ZN5o3dgc7IsCase1EllPKlS1_.exit
   %208 = icmp samesign ugt i64 %74, 3
-  br i1 %208, label %.lr.ph306.preheader, label %.preheader291
+  br i1 %208, label %.lr.ph302.preheader, label %.preheader288
 
-.lr.ph306.preheader:                              ; preds = %.preheader292
+.lr.ph302.preheader:                              ; preds = %.preheader289
   %209 = add nsw i64 %74, -3
-  br label %.lr.ph306
+  br label %.lr.ph302
 
-.preheader291:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit, %.preheader292
+.preheader288:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit, %.preheader289
   %210 = icmp sgt i64 %.075.lcssa, 2
-  br i1 %210, label %.lr.ph308.preheader, label %._crit_edge309
+  br i1 %210, label %.lr.ph304.preheader, label %._crit_edge305
 
-.lr.ph308.preheader:                              ; preds = %.preheader291
+.lr.ph304.preheader:                              ; preds = %.preheader288
   %211 = add nsw i64 %.075.lcssa, -2
-  br label %.lr.ph308
+  br label %.lr.ph304
 
-.lr.ph306:                                        ; preds = %.lr.ph306.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit
-  %.067305 = phi i64 [ %233, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit ], [ 1, %.lr.ph306.preheader ]
-  %212 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.067305
+.lr.ph302:                                        ; preds = %.lr.ph302.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit
+  %.067301 = phi i64 [ %233, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit ], [ 1, %.lr.ph302.preheader ]
+  %212 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.067301
   %213 = load i64, ptr %212, align 8
   %214 = load i64, ptr %48, align 8
   %215 = load i64, ptr %49, align 8
   %216 = icmp eq i64 %214, %215
   br i1 %216, label %217, label %._crit_edge.i.i93
 
-._crit_edge.i.i93:                                ; preds = %.lr.ph306
+._crit_edge.i.i93:                                ; preds = %.lr.ph302
   %.pre.i.i94 = load ptr, ptr %47, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit
 
-217:                                              ; preds = %.lr.ph306
+217:                                              ; preds = %.lr.ph302
   %218 = shl i64 %214, 1
   %spec.select.i.i95 = tail call i64 @llvm.umax.i64(i64 %218, i64 32)
   store i64 %spec.select.i.i95, ptr %49, align 8
@@ -92943,24 +92943,24 @@ _ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit: ; preds = %._crit_edge.
   store i64 %231, ptr %48, align 8
   %232 = getelementptr inbounds nuw i64, ptr %230, i64 %229
   store i64 %213, ptr %232, align 8
-  %233 = add nuw nsw i64 %.067305, 1
-  %exitcond329.not = icmp eq i64 %.067305, %209
-  br i1 %exitcond329.not, label %.preheader291, label %.lr.ph306, !llvm.loop !961
+  %233 = add nuw nsw i64 %.067301, 1
+  %exitcond325.not = icmp eq i64 %.067301, %209
+  br i1 %exitcond325.not, label %.preheader288, label %.lr.ph302, !llvm.loop !961
 
-.lr.ph308:                                        ; preds = %.lr.ph308.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit
-  %.168307 = phi i64 [ %255, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit ], [ 1, %.lr.ph308.preheader ]
-  %234 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.168307
+.lr.ph304:                                        ; preds = %.lr.ph304.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit
+  %.168303 = phi i64 [ %255, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit ], [ 1, %.lr.ph304.preheader ]
+  %234 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.168303
   %235 = load i64, ptr %234, align 8
   %236 = load i64, ptr %51, align 8
   %237 = load i64, ptr %52, align 8
   %238 = icmp eq i64 %236, %237
   br i1 %238, label %239, label %._crit_edge.i.i99
 
-._crit_edge.i.i99:                                ; preds = %.lr.ph308
+._crit_edge.i.i99:                                ; preds = %.lr.ph304
   %.pre.i.i100 = load ptr, ptr %50, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit
 
-239:                                              ; preds = %.lr.ph308
+239:                                              ; preds = %.lr.ph304
   %240 = shl i64 %236, 1
   %spec.select.i.i101 = tail call i64 @llvm.umax.i64(i64 %240, i64 32)
   store i64 %spec.select.i.i101, ptr %52, align 8
@@ -92995,21 +92995,21 @@ _ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit: ; preds = %._crit_edge.i.i99
   store i64 %253, ptr %51, align 8
   %254 = getelementptr inbounds nuw i64, ptr %252, i64 %251
   store i64 %235, ptr %254, align 8
-  %255 = add nuw nsw i64 %.168307, 1
-  %exitcond330.not = icmp eq i64 %.168307, %211
-  br i1 %exitcond330.not, label %._crit_edge309, label %.lr.ph308, !llvm.loop !962
+  %255 = add nuw nsw i64 %.168303, 1
+  %exitcond326.not = icmp eq i64 %.168303, %211
+  br i1 %exitcond326.not, label %._crit_edge305, label %.lr.ph304, !llvm.loop !962
 
-._crit_edge309:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit, %.preheader291
+._crit_edge305:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit, %.preheader288
   %256 = load i64, ptr %54, align 8
   %257 = load i64, ptr %55, align 8
   %258 = icmp eq i64 %256, %257
   br i1 %258, label %259, label %._crit_edge.i.i105
 
-._crit_edge.i.i105:                               ; preds = %._crit_edge309
+._crit_edge.i.i105:                               ; preds = %._crit_edge305
   %.pre.i.i106 = load ptr, ptr %53, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111
 
-259:                                              ; preds = %._crit_edge309
+259:                                              ; preds = %._crit_edge305
   %260 = shl i64 %256, 1
   %spec.select.i.i107 = tail call i64 @llvm.umax.i64(i64 %260, i64 32)
   store i64 %spec.select.i.i107, ptr %55, align 8
@@ -93046,22 +93046,22 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111: ; preds = %._crit_edge.
   store i64 1, ptr %274, align 8
   br label %577
 
-_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread:           ; preds = %205, %.loopexit293, %_ZN5o3dgc7IsCase1EllPKlS1_.exit
-  %275 = phi i64 [ %112, %205 ], [ %114, %.loopexit293 ], [ 1, %_ZN5o3dgc7IsCase1EllPKlS1_.exit ]
+_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread:           ; preds = %205, %.loopexit290, %_ZN5o3dgc7IsCase1EllPKlS1_.exit
+  %275 = phi i64 [ %112, %205 ], [ %114, %.loopexit290 ], [ 1, %_ZN5o3dgc7IsCase1EllPKlS1_.exit ]
   %276 = icmp ne i64 %.075.lcssa, 1
   %or.cond.i112 = or i1 %118, %276
-  br i1 %or.cond.i112, label %.thread262, label %277
+  br i1 %or.cond.i112, label %.thread259, label %277
 
 277:                                              ; preds = %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
   %.not.i113 = icmp eq i64 %111, -1
-  br i1 %.not.i113, label %278, label %.thread253
+  br i1 %.not.i113, label %278, label %.thread
 
 278:                                              ; preds = %277
   %279 = add nsw i64 %74, -2
   %280 = getelementptr inbounds nuw i64, ptr %3, i64 %279
   %281 = load i64, ptr %280, align 8
   %.not15.i = icmp eq i64 %281, 1
-  br i1 %.not15.i, label %.lr.ph.i114, label %.thread253
+  br i1 %.not15.i, label %.lr.ph.i114, label %.thread
 
 282:                                              ; preds = %.lr.ph.i114
   %283 = add nuw nsw i64 %.01217.i, 1
@@ -93073,7 +93073,7 @@ _ZN5o3dgc7IsCase1EllPKlS1_.exit.thread:           ; preds = %205, %.loopexit293,
   %284 = getelementptr inbounds nuw i64, ptr %3, i64 %.01217.i
   %285 = load i64, ptr %284, align 8
   %.not16.i = icmp eq i64 %285, 0
-  br i1 %.not16.i, label %282, label %.thread253
+  br i1 %.not16.i, label %282, label %.thread
 
 _ZN5o3dgc7IsCase2EllPKlS1_.exit:                  ; preds = %282
   %286 = load i64, ptr %54, align 8
@@ -93122,17 +93122,17 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122: ; preds = %._crit_edge.
   store i64 2, ptr %304, align 8
   br label %577
 
-.thread253:                                       ; preds = %.lr.ph.i114, %278, %277
+.thread:                                          ; preds = %.lr.ph.i114, %278, %277
   %305 = phi i64 [ %111, %277 ], [ %.pr, %278 ], [ %.pr, %.lr.ph.i114 ]
   %.not.i124 = icmp eq i64 %305, -2
-  br i1 %.not.i124, label %306, label %.thread259
+  br i1 %.not.i124, label %306, label %.thread256
 
-306:                                              ; preds = %.thread253
+306:                                              ; preds = %.thread
   %307 = add nsw i64 %74, -2
   %308 = getelementptr inbounds nuw i64, ptr %3, i64 %307
   %309 = load i64, ptr %308, align 8
   %.not15.i126 = icmp eq i64 %309, 1
-  br i1 %.not15.i126, label %.lr.ph.i127, label %.thread259
+  br i1 %.not15.i126, label %.lr.ph.i127, label %.thread256
 
 310:                                              ; preds = %.lr.ph.i127
   %311 = add nuw nsw i64 %.01217.i128, 1
@@ -93144,7 +93144,7 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122: ; preds = %._crit_edge.
   %312 = getelementptr inbounds nuw i64, ptr %3, i64 %.01217.i128
   %313 = load i64, ptr %312, align 8
   %.not16.i129 = icmp eq i64 %313, 0
-  br i1 %.not16.i129, label %310, label %.thread259
+  br i1 %.not16.i129, label %310, label %.thread256
 
 _ZN5o3dgc7IsCase3EllPKlS1_.exit:                  ; preds = %310
   %314 = load i64, ptr %54, align 8
@@ -93193,14 +93193,14 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137: ; preds = %._crit_edge.
   store i64 3, ptr %332, align 8
   br label %577
 
-.thread259:                                       ; preds = %.lr.ph.i127, %.thread253, %306
+.thread256:                                       ; preds = %.lr.ph.i127, %.thread, %306
   %.not.i139 = icmp eq i64 %110, -1
-  %.pre347 = load i64, ptr %3, align 16
-  br i1 %.not.i139, label %333, label %.thread264
+  %.pre343 = load i64, ptr %3, align 16
+  br i1 %.not.i139, label %333, label %.thread261
 
-333:                                              ; preds = %.thread259
-  %.not14.i = icmp eq i64 %.pre347, 1
-  br i1 %.not14.i, label %.lr.ph.i140, label %.thread267
+333:                                              ; preds = %.thread256
+  %.not14.i = icmp eq i64 %.pre343, 1
+  br i1 %.not14.i, label %.lr.ph.i140, label %.thread264
 
 334:                                              ; preds = %.lr.ph.i140
   %335 = add nuw nsw i64 %.01116.i, 1
@@ -93212,7 +93212,7 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137: ; preds = %._crit_edge.
   %336 = getelementptr inbounds nuw i64, ptr %3, i64 %.01116.i
   %337 = load i64, ptr %336, align 8
   %.not15.i141 = icmp eq i64 %337, 0
-  br i1 %.not15.i141, label %334, label %.thread264
+  br i1 %.not15.i141, label %334, label %.thread261
 
 _ZN5o3dgc7IsCase4EllPKlS1_.exit:                  ; preds = %334
   %338 = load i64, ptr %54, align 8
@@ -93261,24 +93261,24 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149: ; preds = %._crit_edge.
   store i64 4, ptr %356, align 8
   br label %577
 
-.thread264:                                       ; preds = %.lr.ph.i140, %.thread259
-  %357 = phi i64 [ %110, %.thread259 ], [ %.pr271, %.lr.ph.i140 ]
+.thread261:                                       ; preds = %.lr.ph.i140, %.thread256
+  %357 = phi i64 [ %110, %.thread256 ], [ %.pr268, %.lr.ph.i140 ]
   %.not.i151 = icmp eq i64 %357, -2
-  %.not14.i153 = icmp eq i64 %.pre347, 1
-  %or.cond278 = select i1 %.not.i151, i1 %.not14.i153, i1 false
-  br i1 %or.cond278, label %.lr.ph.i154, label %.thread267
+  %.not14.i153 = icmp eq i64 %.pre343, 1
+  %or.cond275 = select i1 %.not.i151, i1 %.not14.i153, i1 false
+  br i1 %or.cond275, label %.lr.ph.i154, label %.thread264
 
 358:                                              ; preds = %.lr.ph.i154
   %359 = add nuw nsw i64 %.01116.i155, 1
   %exitcond.not.i157 = icmp eq i64 %359, %75
   br i1 %exitcond.not.i157, label %_ZN5o3dgc7IsCase5EllPKlS1_.exit, label %.lr.ph.i154, !llvm.loop !966
 
-.lr.ph.i154:                                      ; preds = %.thread264, %358
-  %.01116.i155 = phi i64 [ %359, %358 ], [ 1, %.thread264 ]
+.lr.ph.i154:                                      ; preds = %.thread261, %358
+  %.01116.i155 = phi i64 [ %359, %358 ], [ 1, %.thread261 ]
   %360 = getelementptr inbounds nuw i64, ptr %3, i64 %.01116.i155
   %361 = load i64, ptr %360, align 8
   %.not15.i156 = icmp eq i64 %361, 0
-  br i1 %.not15.i156, label %358, label %.thread262
+  br i1 %.not15.i156, label %358, label %.thread259
 
 _ZN5o3dgc7IsCase5EllPKlS1_.exit:                  ; preds = %358
   %362 = load i64, ptr %54, align 8
@@ -93327,17 +93327,17 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164: ; preds = %._crit_edge.
   store i64 5, ptr %380, align 8
   br label %577
 
-.thread262:                                       ; preds = %.lr.ph.i154, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
+.thread259:                                       ; preds = %.lr.ph.i154, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread
   %381 = phi i64 [ %110, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ -2, %.lr.ph.i154 ]
-  %.pr342 = phi i64 [ %.pr, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ -2, %.lr.ph.i154 ]
+  %.pr338 = phi i64 [ %.pr, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ -2, %.lr.ph.i154 ]
   %382 = phi i64 [ %111, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ -2, %.lr.ph.i154 ]
   %383 = phi i64 [ %112, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ 1, %.lr.ph.i154 ]
   %384 = phi i64 [ %113, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ -2, %.lr.ph.i154 ]
   %385 = phi i64 [ %275, %_ZN5o3dgc7IsCase1EllPKlS1_.exit.thread ], [ 1, %.lr.ph.i154 ]
   %.not.i165 = icmp eq i64 %.075.lcssa, 0
-  br i1 %.not.i165, label %.preheader.i166, label %.thread267
+  br i1 %.not.i165, label %.preheader.i166, label %.thread264
 
-.preheader.i166:                                  ; preds = %.thread262
+.preheader.i166:                                  ; preds = %.thread259
   %386 = icmp slt i64 %74, 2
   br i1 %386, label %_ZN5o3dgc7IsCase6EllPKlS1_.exit, label %.lr.ph.i167
 
@@ -93351,7 +93351,7 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164: ; preds = %._crit_edge.
   %389 = getelementptr inbounds nuw i64, ptr %3, i64 %.0710.i
   %390 = load i64, ptr %389, align 8
   %.not9.i = icmp eq i64 %390, 0
-  br i1 %.not9.i, label %387, label %.thread267
+  br i1 %.not9.i, label %387, label %.thread264
 
 _ZN5o3dgc7IsCase6EllPKlS1_.exit:                  ; preds = %387, %.preheader.i166
   %391 = load i64, ptr %54, align 8
@@ -93400,17 +93400,17 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175: ; preds = %._crit_edge.
   store i64 6, ptr %409, align 8
   br label %577
 
-.thread267:                                       ; preds = %.lr.ph.i167, %333, %.thread264, %.thread262
+.thread264:                                       ; preds = %.lr.ph.i167, %333, %.thread261, %.thread259
   %.not.i177 = icmp eq i64 %109, -2
-  %or.cond280 = select i1 %or.cond.i.not, i1 %.not.i177, i1 false
+  %or.cond277 = select i1 %or.cond.i.not, i1 %.not.i177, i1 false
   %.not17.i179 = icmp eq i64 %108, -1
-  %or.cond282 = select i1 %or.cond280, i1 %.not17.i179, i1 false
+  %or.cond279 = select i1 %or.cond277, i1 %.not17.i179, i1 false
   %410 = load i64, ptr %3, align 16
   %.not18.i180 = icmp eq i64 %410, 1
-  %or.cond283 = select i1 %or.cond282, i1 %.not18.i180, i1 false
-  br i1 %or.cond283, label %411, label %.loopexit
+  %or.cond280 = select i1 %or.cond279, i1 %.not18.i180, i1 false
+  br i1 %or.cond280, label %411, label %.loopexit
 
-411:                                              ; preds = %.thread267
+411:                                              ; preds = %.thread264
   %412 = add nsw i64 %74, -2
   %413 = getelementptr inbounds nuw i64, ptr %3, i64 %412
   %414 = load i64, ptr %413, align 8
@@ -93480,62 +93480,62 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193: ; preds = %._crit_edge.
   store i64 7, ptr %438, align 8
   br label %577
 
-.loopexit:                                        ; preds = %.lr.ph.i183, %.thread267, %411
+.loopexit:                                        ; preds = %.lr.ph.i183, %.thread264, %411
   %.not.i195 = icmp ne i64 %107, -2
-  %or.cond285.not = select i1 %or.cond.i91, i1 true, i1 %.not.i195
-  br i1 %or.cond285.not, label %.preheader288, label %439
+  %or.cond282.not = select i1 %or.cond.i91, i1 true, i1 %.not.i195
+  br i1 %or.cond282.not, label %.preheader285, label %439
 
 439:                                              ; preds = %.loopexit
-  %gep323 = getelementptr i64, ptr %invariant.gep, i64 %.075.lcssa
-  %440 = load i64, ptr %gep323, align 8
+  %gep319 = getelementptr i64, ptr %invariant.gep, i64 %.075.lcssa
+  %440 = load i64, ptr %gep319, align 8
   %.not11.i197 = icmp eq i64 %440, -1
-  %or.cond286 = select i1 %.not11.i197, i1 %.not18.i180, i1 false
-  br i1 %or.cond286, label %441, label %.lr.ph316.preheader
+  %or.cond283 = select i1 %.not11.i197, i1 %.not18.i180, i1 false
+  br i1 %or.cond283, label %441, label %.lr.ph312.preheader
 
 441:                                              ; preds = %439
-  %gep325 = getelementptr i64, ptr %invariant.gep320, i64 %75
-  %442 = load i64, ptr %gep325, align 8
+  %gep321 = getelementptr i64, ptr %invariant.gep316, i64 %75
+  %442 = load i64, ptr %gep321, align 8
   %.not13.i199 = icmp eq i64 %442, 1
-  br i1 %.not13.i199, label %.preheader290, label %.lr.ph316.preheader
+  br i1 %.not13.i199, label %.preheader287, label %.lr.ph312.preheader
 
-.preheader290:                                    ; preds = %441
+.preheader287:                                    ; preds = %441
   %443 = icmp samesign ugt i64 %74, 3
-  br i1 %443, label %.lr.ph311.preheader, label %.preheader289
+  br i1 %443, label %.lr.ph307.preheader, label %.preheader286
 
-.lr.ph311.preheader:                              ; preds = %.preheader290
+.lr.ph307.preheader:                              ; preds = %.preheader287
   %444 = add nsw i64 %74, -3
-  br label %.lr.ph311
+  br label %.lr.ph307
 
-.preheader288:                                    ; preds = %.loopexit
+.preheader285:                                    ; preds = %.loopexit
   %445 = icmp sgt i64 %74, 1
-  br i1 %445, label %.lr.ph316.preheader, label %.preheader
+  br i1 %445, label %.lr.ph312.preheader, label %.preheader
 
-.lr.ph316.preheader:                              ; preds = %441, %439, %.preheader288
-  %446 = phi i64 [ %410, %.preheader288 ], [ 1, %441 ], [ %410, %439 ]
-  br label %.lr.ph316
+.lr.ph312.preheader:                              ; preds = %441, %439, %.preheader285
+  %446 = phi i64 [ %410, %.preheader285 ], [ 1, %441 ], [ %410, %439 ]
+  br label %.lr.ph312
 
-.preheader289:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206, %.preheader290
+.preheader286:                                    ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206, %.preheader287
   %447 = icmp sgt i64 %.075.lcssa, 2
-  br i1 %447, label %.lr.ph313.preheader, label %._crit_edge314
+  br i1 %447, label %.lr.ph309.preheader, label %._crit_edge310
 
-.lr.ph313.preheader:                              ; preds = %.preheader289
+.lr.ph309.preheader:                              ; preds = %.preheader286
   %448 = add nsw i64 %.075.lcssa, -2
-  br label %.lr.ph313
+  br label %.lr.ph309
 
-.lr.ph311:                                        ; preds = %.lr.ph311.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206
-  %.065310 = phi i64 [ %470, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206 ], [ 1, %.lr.ph311.preheader ]
-  %449 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.065310
+.lr.ph307:                                        ; preds = %.lr.ph307.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206
+  %.065306 = phi i64 [ %470, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206 ], [ 1, %.lr.ph307.preheader ]
+  %449 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.065306
   %450 = load i64, ptr %449, align 8
   %451 = load i64, ptr %48, align 8
   %452 = load i64, ptr %49, align 8
   %453 = icmp eq i64 %451, %452
   br i1 %453, label %454, label %._crit_edge.i.i200
 
-._crit_edge.i.i200:                               ; preds = %.lr.ph311
+._crit_edge.i.i200:                               ; preds = %.lr.ph307
   %.pre.i.i201 = load ptr, ptr %47, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206
 
-454:                                              ; preds = %.lr.ph311
+454:                                              ; preds = %.lr.ph307
   %455 = shl i64 %451, 1
   %spec.select.i.i202 = tail call i64 @llvm.umax.i64(i64 %455, i64 32)
   store i64 %spec.select.i.i202, ptr %49, align 8
@@ -93570,24 +93570,24 @@ _ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit206: ; preds = %._crit_ed
   store i64 %468, ptr %48, align 8
   %469 = getelementptr inbounds nuw i64, ptr %467, i64 %466
   store i64 %450, ptr %469, align 8
-  %470 = add nuw nsw i64 %.065310, 1
-  %exitcond331.not = icmp eq i64 %.065310, %444
-  br i1 %exitcond331.not, label %.preheader289, label %.lr.ph311, !llvm.loop !969
+  %470 = add nuw nsw i64 %.065306, 1
+  %exitcond327.not = icmp eq i64 %.065306, %444
+  br i1 %exitcond327.not, label %.preheader286, label %.lr.ph307, !llvm.loop !969
 
-.lr.ph313:                                        ; preds = %.lr.ph313.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213
-  %.166312 = phi i64 [ %492, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213 ], [ 1, %.lr.ph313.preheader ]
-  %471 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.166312
+.lr.ph309:                                        ; preds = %.lr.ph309.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213
+  %.166308 = phi i64 [ %492, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213 ], [ 1, %.lr.ph309.preheader ]
+  %471 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.166308
   %472 = load i64, ptr %471, align 8
   %473 = load i64, ptr %51, align 8
   %474 = load i64, ptr %52, align 8
   %475 = icmp eq i64 %473, %474
   br i1 %475, label %476, label %._crit_edge.i.i207
 
-._crit_edge.i.i207:                               ; preds = %.lr.ph313
+._crit_edge.i.i207:                               ; preds = %.lr.ph309
   %.pre.i.i208 = load ptr, ptr %50, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213
 
-476:                                              ; preds = %.lr.ph313
+476:                                              ; preds = %.lr.ph309
   %477 = shl i64 %473, 1
   %spec.select.i.i209 = tail call i64 @llvm.umax.i64(i64 %477, i64 32)
   store i64 %spec.select.i.i209, ptr %52, align 8
@@ -93622,21 +93622,21 @@ _ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213: ; preds = %._crit_edge.i.
   store i64 %490, ptr %51, align 8
   %491 = getelementptr inbounds nuw i64, ptr %489, i64 %488
   store i64 %472, ptr %491, align 8
-  %492 = add nuw nsw i64 %.166312, 1
-  %exitcond332.not = icmp eq i64 %.166312, %448
-  br i1 %exitcond332.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !970
+  %492 = add nuw nsw i64 %.166308, 1
+  %exitcond328.not = icmp eq i64 %.166308, %448
+  br i1 %exitcond328.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !970
 
-._crit_edge314:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213, %.preheader289
+._crit_edge310:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit213, %.preheader286
   %493 = load i64, ptr %54, align 8
   %494 = load i64, ptr %55, align 8
   %495 = icmp eq i64 %493, %494
   br i1 %495, label %496, label %._crit_edge.i.i214
 
-._crit_edge.i.i214:                               ; preds = %._crit_edge314
+._crit_edge.i.i214:                               ; preds = %._crit_edge310
   %.pre.i.i215 = load ptr, ptr %53, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220
 
-496:                                              ; preds = %._crit_edge314
+496:                                              ; preds = %._crit_edge310
   %497 = shl i64 %493, 1
   %spec.select.i.i216 = tail call i64 @llvm.umax.i64(i64 %497, i64 32)
   store i64 %spec.select.i.i216, ptr %55, align 8
@@ -93673,25 +93673,25 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220: ; preds = %._crit_edge.
   store i64 8, ptr %511, align 8
   br label %577
 
-.preheader:                                       ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227, %.preheader288
-  %512 = phi i64 [ %410, %.preheader288 ], [ %446, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227 ]
+.preheader:                                       ; preds = %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227, %.preheader285
+  %512 = phi i64 [ %410, %.preheader285 ], [ %446, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227 ]
   %513 = icmp sgt i64 %.075.lcssa, 0
-  br i1 %513, label %.lr.ph318, label %._crit_edge319
+  br i1 %513, label %.lr.ph314, label %._crit_edge315
 
-.lr.ph316:                                        ; preds = %.lr.ph316.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227
-  %.0315 = phi i64 [ %535, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227 ], [ 0, %.lr.ph316.preheader ]
-  %514 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.0315
+.lr.ph312:                                        ; preds = %.lr.ph312.preheader, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227
+  %.0311 = phi i64 [ %535, %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227 ], [ 0, %.lr.ph312.preheader ]
+  %514 = getelementptr inbounds nuw [256 x i64], ptr %3, i64 0, i64 %.0311
   %515 = load i64, ptr %514, align 8
   %516 = load i64, ptr %48, align 8
   %517 = load i64, ptr %49, align 8
   %518 = icmp eq i64 %516, %517
   br i1 %518, label %519, label %._crit_edge.i.i221
 
-._crit_edge.i.i221:                               ; preds = %.lr.ph316
+._crit_edge.i.i221:                               ; preds = %.lr.ph312
   %.pre.i.i222 = load ptr, ptr %47, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227
 
-519:                                              ; preds = %.lr.ph316
+519:                                              ; preds = %.lr.ph312
   %520 = shl i64 %516, 1
   %spec.select.i.i223 = tail call i64 @llvm.umax.i64(i64 %520, i64 32)
   store i64 %spec.select.i.i223, ptr %49, align 8
@@ -93726,24 +93726,24 @@ _ZN5o3dgc22CompressedTriangleFans13PushOperationEl.exit227: ; preds = %._crit_ed
   store i64 %533, ptr %48, align 8
   %534 = getelementptr inbounds nuw i64, ptr %532, i64 %531
   store i64 %515, ptr %534, align 8
-  %535 = add nuw nsw i64 %.0315, 1
-  %exitcond333.not = icmp eq i64 %535, %75
-  br i1 %exitcond333.not, label %.preheader, label %.lr.ph316, !llvm.loop !971
+  %535 = add nuw nsw i64 %.0311, 1
+  %exitcond329.not = icmp eq i64 %535, %75
+  br i1 %exitcond329.not, label %.preheader, label %.lr.ph312, !llvm.loop !971
 
-.lr.ph318:                                        ; preds = %.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234
-  %.1317 = phi i64 [ %557, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234 ], [ 0, %.preheader ]
-  %536 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.1317
+.lr.ph314:                                        ; preds = %.preheader, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234
+  %.1313 = phi i64 [ %557, %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234 ], [ 0, %.preheader ]
+  %536 = getelementptr inbounds nuw [256 x i64], ptr %4, i64 0, i64 %.1313
   %537 = load i64, ptr %536, align 8
   %538 = load i64, ptr %51, align 8
   %539 = load i64, ptr %52, align 8
   %540 = icmp eq i64 %538, %539
   br i1 %540, label %541, label %._crit_edge.i.i228
 
-._crit_edge.i.i228:                               ; preds = %.lr.ph318
+._crit_edge.i.i228:                               ; preds = %.lr.ph314
   %.pre.i.i229 = load ptr, ptr %50, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234
 
-541:                                              ; preds = %.lr.ph318
+541:                                              ; preds = %.lr.ph314
   %542 = shl i64 %538, 1
   %spec.select.i.i230 = tail call i64 @llvm.umax.i64(i64 %542, i64 32)
   store i64 %spec.select.i.i230, ptr %52, align 8
@@ -93778,21 +93778,21 @@ _ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234: ; preds = %._crit_edge.i.
   store i64 %555, ptr %51, align 8
   %556 = getelementptr inbounds nuw i64, ptr %554, i64 %553
   store i64 %537, ptr %556, align 8
-  %557 = add nuw nsw i64 %.1317, 1
-  %exitcond334.not = icmp eq i64 %557, %.075.lcssa
-  br i1 %exitcond334.not, label %._crit_edge319, label %.lr.ph318, !llvm.loop !972
+  %557 = add nuw nsw i64 %.1313, 1
+  %exitcond330.not = icmp eq i64 %557, %.075.lcssa
+  br i1 %exitcond330.not, label %._crit_edge315, label %.lr.ph314, !llvm.loop !972
 
-._crit_edge319:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234, %.preheader
+._crit_edge315:                                   ; preds = %_ZN5o3dgc22CompressedTriangleFans9PushIndexEl.exit234, %.preheader
   %558 = load i64, ptr %54, align 8
   %559 = load i64, ptr %55, align 8
   %560 = icmp eq i64 %558, %559
   br i1 %560, label %561, label %._crit_edge.i.i235
 
-._crit_edge.i.i235:                               ; preds = %._crit_edge319
+._crit_edge.i.i235:                               ; preds = %._crit_edge315
   %.pre.i.i236 = load ptr, ptr %53, align 8
   br label %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241
 
-561:                                              ; preds = %._crit_edge319
+561:                                              ; preds = %._crit_edge315
   %562 = shl i64 %558, 1
   %spec.select.i.i237 = tail call i64 @llvm.umax.i64(i64 %562, i64 32)
   store i64 %spec.select.i.i237, ptr %55, align 8
@@ -93831,20 +93831,20 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241: ; preds = %._crit_edge.
 
 577:                                              ; preds = %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111
   %578 = phi i64 [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %109, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
-  %.pr271345 = phi i64 [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %.pr271, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
+  %.pr268341 = phi i64 [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %.pr268, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %579 = phi i64 [ %110, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %110, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %381, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %110, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %110, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
-  %.pr341 = phi i64 [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %.pr342, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
+  %.pr337 = phi i64 [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %.pr338, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %.pr, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %580 = phi i64 [ %111, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %382, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %111, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %581 = phi i64 [ %112, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %112, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %383, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %512, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %112, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %582 = phi i64 [ %113, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %384, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %583 = phi i64 [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %275, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %385, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %512, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %275, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ 1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %584 = phi i64 [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ %108, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %108, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ %115, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
   %585 = phi i64 [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit122 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit149 ], [ %384, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit220 ], [ %107, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit241 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit193 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit164 ], [ -2, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit137 ], [ -1, %_ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit111 ]
-  %586 = add nuw nsw i64 %.071326, 1
+  %586 = add nuw nsw i64 %.071322, 1
   %.not = icmp eq i64 %586, %29
-  br i1 %.not, label %.loopexit295, label %56, !llvm.loop !973
+  br i1 %.not, label %.loopexit292, label %56, !llvm.loop !973
 
-.loopexit295:                                     ; preds = %577, %_ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit
+.loopexit292:                                     ; preds = %577, %_ZN5o3dgc22CompressedTriangleFans12PushNumTFansEl.exit
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #32
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #32
   ret i32 0

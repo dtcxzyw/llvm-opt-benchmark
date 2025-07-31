@@ -1076,20 +1076,20 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
 
 7:                                                ; preds = %5
   %8 = icmp eq i64 %4, 13
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
   %10 = load i8, ptr %3, align 1
   %11 = add i8 %10, -48
   %12 = icmp ult i8 %11, 10
-  br i1 %12, label %13, label %.thread
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %3, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, -48
   %17 = icmp ult i8 %16, 10
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = mul nuw nsw i8 %11, 10
@@ -1111,20 +1111,20 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %28 = icmp ne i8 %2, 24
   %29 = icmp ne i64 %4, 15
   %30 = or i1 %28, %29
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %27
   %32 = load i8, ptr %3, align 1
   %33 = add i8 %32, -48
   %34 = icmp ult i8 %33, 10
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %3, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = add i8 %37, -48
   %39 = icmp ult i8 %38, 10
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %35
   %41 = mul nuw nsw i8 %33, 10
@@ -1135,14 +1135,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %45 = load i8, ptr %43, align 1
   %46 = add i8 %45, -48
   %47 = icmp ult i8 %46, 10
-  br i1 %47, label %48, label %.thread
+  br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %40
   %49 = getelementptr i8, ptr %3, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, -48
   %52 = icmp ult i8 %51, 10
-  br i1 %52, label %53, label %.thread
+  br i1 %52, label %53, label %.critedge
 
 53:                                               ; preds = %48
   %54 = mul nuw nsw i8 %46, 10
@@ -1152,7 +1152,7 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %57 = add nuw nsw i32 %44, %55
   %58 = add nsw i32 %57, -1950
   %59 = icmp ult i32 %58, 100
-  br i1 %59, label %.thread, label %60
+  br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %53, %25, %23
   %61 = phi i32 [ %24, %23 ], [ %26, %25 ], [ %57, %53 ]
@@ -1160,14 +1160,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %63 = load i8, ptr %62, align 1
   %64 = add i8 %63, -48
   %65 = icmp ult i8 %64, 10
-  br i1 %65, label %66, label %.thread
+  br i1 %65, label %66, label %.critedge
 
 66:                                               ; preds = %60
   %67 = getelementptr i8, ptr %62, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = add i8 %68, -48
   %70 = icmp ult i8 %69, 10
-  br i1 %70, label %71, label %.thread
+  br i1 %70, label %71, label %.critedge
 
 71:                                               ; preds = %66
   %72 = mul nuw nsw i8 %64, 10
@@ -1177,14 +1177,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %75 = load i8, ptr %74, align 1
   %76 = add i8 %75, -48
   %77 = icmp ult i8 %76, 10
-  br i1 %77, label %78, label %.thread
+  br i1 %77, label %78, label %.critedge
 
 78:                                               ; preds = %71
   %79 = getelementptr i8, ptr %62, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = add i8 %80, -48
   %82 = icmp ult i8 %81, 10
-  br i1 %82, label %83, label %.thread
+  br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %78
   %84 = mul nuw nsw i8 %76, 10
@@ -1194,14 +1194,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %87 = load i8, ptr %86, align 1
   %88 = add i8 %87, -48
   %89 = icmp ult i8 %88, 10
-  br i1 %89, label %90, label %.thread
+  br i1 %89, label %90, label %.critedge
 
 90:                                               ; preds = %83
   %91 = getelementptr i8, ptr %62, i64 5
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -48
   %94 = icmp ult i8 %93, 10
-  br i1 %94, label %95, label %.thread
+  br i1 %94, label %95, label %.critedge
 
 95:                                               ; preds = %90
   %96 = mul nuw nsw i8 %88, 10
@@ -1211,14 +1211,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %99 = load i8, ptr %98, align 1
   %100 = add i8 %99, -48
   %101 = icmp ult i8 %100, 10
-  br i1 %101, label %102, label %.thread
+  br i1 %101, label %102, label %.critedge
 
 102:                                              ; preds = %95
   %103 = getelementptr i8, ptr %62, i64 7
   %104 = load i8, ptr %103, align 1
   %105 = add i8 %104, -48
   %106 = icmp ult i8 %105, 10
-  br i1 %106, label %107, label %.thread
+  br i1 %106, label %107, label %.critedge
 
 107:                                              ; preds = %102
   %108 = mul nuw nsw i8 %100, 10
@@ -1228,14 +1228,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %111 = load i8, ptr %110, align 1
   %112 = add i8 %111, -48
   %113 = icmp ult i8 %112, 10
-  br i1 %113, label %114, label %.thread
+  br i1 %113, label %114, label %.critedge
 
 114:                                              ; preds = %107
   %115 = getelementptr i8, ptr %62, i64 9
   %116 = load i8, ptr %115, align 1
   %117 = add i8 %116, -48
   %118 = icmp ult i8 %117, 10
-  br i1 %118, label %119, label %.thread
+  br i1 %118, label %119, label %.critedge
 
 119:                                              ; preds = %114
   %120 = mul nuw nsw i8 %112, 10
@@ -1244,14 +1244,14 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %122 = getelementptr i8, ptr %62, i64 10
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %123, 90
-  br i1 %124, label %125, label %.thread
+  br i1 %124, label %125, label %.critedge
 
 125:                                              ; preds = %119
   %126 = icmp samesign ult i32 %61, 1970
   %127 = add nsw i32 %73, -13
   %128 = icmp ult i32 %127, -12
   %129 = select i1 %126, i1 true, i1 %128
-  br i1 %129, label %.thread, label %130
+  br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %125
   %131 = add nsw i32 %73, -1
@@ -1280,7 +1280,7 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
 147:                                              ; preds = %143, %140, %130
   %148 = phi i32 [ %146, %143 ], [ 29, %140 ], [ %135, %130 ]
   %149 = icmp eq i8 %narrow43, 0
-  br i1 %149, label %.thread, label %150
+  br i1 %149, label %.critedge, label %150
 
 150:                                              ; preds = %147
   %151 = icmp samesign ult i32 %148, %85
@@ -1290,15 +1290,15 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
   %155 = select i1 %153, i1 true, i1 %154
   %156 = icmp samesign ugt i8 %narrow46, 60
   %157 = select i1 %155, i1 true, i1 %156
-  br i1 %157, label %.thread, label %158
+  br i1 %157, label %.critedge, label %158
 
 158:                                              ; preds = %150
   %159 = tail call i64 @mktime64(i32 noundef %61, i32 noundef %73, i32 noundef %85, i32 noundef %97, i32 noundef %109, i32 noundef %121) #16
   store i64 %159, ptr %0, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %107, %114, %95, %102, %83, %90, %71, %78, %60, %66, %40, %48, %31, %35, %9, %13, %158, %150, %147, %125, %119, %53, %27, %7
-  %160 = phi i32 [ 0, %158 ], [ -74, %119 ], [ -74, %27 ], [ -74, %7 ], [ -74, %147 ], [ -74, %150 ], [ -74, %125 ], [ -74, %53 ], [ -74, %13 ], [ -74, %9 ], [ -74, %35 ], [ -74, %31 ], [ -74, %48 ], [ -74, %40 ], [ -74, %66 ], [ -74, %60 ], [ -74, %78 ], [ -74, %71 ], [ -74, %90 ], [ -74, %83 ], [ -74, %102 ], [ -74, %95 ], [ -74, %114 ], [ -74, %107 ]
+.critedge:                                        ; preds = %114, %107, %102, %95, %90, %83, %78, %71, %66, %60, %48, %40, %35, %31, %13, %9, %158, %150, %147, %125, %119, %53, %27, %7
+  %160 = phi i32 [ 0, %158 ], [ -74, %119 ], [ -74, %27 ], [ -74, %7 ], [ -74, %147 ], [ -74, %150 ], [ -74, %125 ], [ -74, %53 ], [ -74, %9 ], [ -74, %13 ], [ -74, %31 ], [ -74, %35 ], [ -74, %40 ], [ -74, %48 ], [ -74, %60 ], [ -74, %66 ], [ -74, %71 ], [ -74, %78 ], [ -74, %83 ], [ -74, %90 ], [ -74, %95 ], [ -74, %102 ], [ -74, %107 ], [ -74, %114 ]
   ret i32 %160
 }
 

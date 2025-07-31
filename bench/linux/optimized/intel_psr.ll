@@ -1523,7 +1523,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %78, i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef %81) #10
-  br label %112
+  br label %.critedge
 
 82:                                               ; preds = %68
   %83 = tail call i32 @intel_usecs_to_scanlines(ptr noundef nonnull %56, i32 noundef %70) #10
@@ -1569,25 +1569,25 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
 108:                                              ; preds = %105, %104
   %109 = phi ptr [ %107, %105 ], [ null, %104 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %109, i32 noundef 2, ptr noundef nonnull @.str.68, i32 noundef %70) #10
-  br label %112
+  br label %.critedge
 
-110:                                              ; preds = %102, %82
-  %.ph = phi i8 [ 0, %82 ], [ 1, %102 ]
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 3440
-  store i8 %.ph, ptr %111, align 8
+110:                                              ; preds = %82, %102
+  %111 = phi i8 [ 1, %102 ], [ 0, %82 ]
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 3440
+  store i8 %111, ptr %112, align 8
   br label %119
 
-112:                                              ; preds = %77, %108
+.critedge:                                        ; preds = %77, %108
   %113 = icmp eq ptr %5, null
   br i1 %113, label %117, label %114
 
-114:                                              ; preds = %112
+114:                                              ; preds = %.critedge
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = load ptr, ptr %115, align 8
   br label %117
 
-117:                                              ; preds = %114, %112
-  %118 = phi ptr [ %116, %114 ], [ null, %112 ]
+117:                                              ; preds = %114, %.critedge
+  %118 = phi ptr [ %116, %114 ], [ null, %.critedge ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %118, i32 noundef 2, ptr noundef nonnull @.str.65) #10
   br label %119
 

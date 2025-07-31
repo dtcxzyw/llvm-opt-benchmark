@@ -204,42 +204,42 @@ define internal { double, double } @_ZL14lcca_e_inverse5PJ_XYP8PJconsts(double %
   br label %24
 
 22:                                               ; preds = %24
-  %23 = add nsw i32 %.029, -1
+  %23 = add nsw i32 %.028, -1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %36, label %24, !llvm.loop !57
+  br i1 %.not, label %.critedge, label %24, !llvm.loop !57
 
 24:                                               ; preds = %3, %22
-  %.029 = phi i32 [ 10, %3 ], [ %23, %22 ]
-  %.02628 = phi double [ %17, %3 ], [ %33, %22 ]
-  %25 = fmul double %.02628, %.02628
+  %.028 = phi i32 [ 10, %3 ], [ %23, %22 ]
+  %.02627 = phi double [ %17, %3 ], [ %33, %22 ]
+  %25 = fmul double %.02627, %.02627
   %26 = tail call double @llvm.fmuladd.f64(double %25, double %21, double 1.000000e+00)
-  %27 = fmul double %.02628, %26
+  %27 = fmul double %.02627, %26
   %28 = fsub double %27, %17
-  %29 = fmul double %.02628, 3.000000e+00
-  %30 = fmul double %.02628, %29
+  %29 = fmul double %.02627, 3.000000e+00
+  %30 = fmul double %.02627, %29
   %31 = tail call noundef double @llvm.fmuladd.f64(double %30, double %21, double 1.000000e+00)
   %32 = fdiv double %28, %31
-  %33 = fsub double %.02628, %32
+  %33 = fsub double %.02627, %32
   %34 = tail call double @llvm.fabs.f64(double %32)
   %35 = fcmp olt double %34, 0x3D719799812DEA11
-  br i1 %35, label %38, label %22
+  br i1 %35, label %37, label %22
 
-36:                                               ; preds = %22
-  %37 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  br label %44
+.critedge:                                        ; preds = %22
+  %36 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  br label %43
 
-38:                                               ; preds = %24
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %40 = load double, ptr %39, align 8, !tbaa !48
-  %41 = fadd double %33, %40
-  %42 = load ptr, ptr %5, align 8, !tbaa !42
-  %43 = tail call noundef double @_Z11pj_inv_mlfndPKd(double noundef %41, ptr noundef %42)
-  br label %44
+37:                                               ; preds = %24
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %39 = load double, ptr %38, align 8, !tbaa !48
+  %40 = fadd double %33, %39
+  %41 = load ptr, ptr %5, align 8, !tbaa !42
+  %42 = tail call noundef double @_Z11pj_inv_mlfndPKd(double noundef %40, ptr noundef %41)
+  br label %43
 
-44:                                               ; preds = %38, %36
-  %.sroa.3.0 = phi double [ %43, %38 ], [ 0.000000e+00, %36 ]
-  %45 = fdiv double %13, %19
-  %.fca.0.insert = insertvalue { double, double } poison, double %45, 0
+43:                                               ; preds = %37, %.critedge
+  %.sroa.3.0 = phi double [ %42, %37 ], [ 0.000000e+00, %.critedge ]
+  %44 = fdiv double %13, %19
+  %.fca.0.insert = insertvalue { double, double } poison, double %44, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }

@@ -370,20 +370,16 @@ define internal i32 @query_perf_config(ptr noundef %0, ptr noundef readonly capt
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 9080
   br label %47
 
-47:                                               ; preds = %.thread9, %45
-  %48 = phi i32 [ %68, %.thread9 ], [ 1, %45 ]
-  %49 = phi ptr [ %52, %.thread9 ], [ null, %45 ]
+47:                                               ; preds = %.loopexit, %45
+  %48 = phi i32 [ %68, %.loopexit ], [ 1, %45 ]
+  %49 = phi ptr [ %52, %.loopexit ], [ null, %45 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !6
   %50 = zext nneg i32 %48 to i64
   %51 = shl nuw nsw i64 %50, 3
   %52 = call ptr @krealloc(ptr noundef %49, i64 noundef %51, i32 noundef 3264) #13
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread, label %54
-
-.thread:                                          ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  br label %109
+  br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %47
   store i64 1, ptr %52, align 8
@@ -391,37 +387,37 @@ define internal i32 @query_perf_config(ptr noundef %0, ptr noundef readonly capt
   store i32 0, ptr %4, align 4
   %55 = call ptr @idr_get_next(ptr noundef nonnull %46, ptr noundef nonnull %4) #11
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread9, label %.preheader10
+  br i1 %56, label %.loopexit, label %.preheader8
 
-.preheader10:                                     ; preds = %54, %63
+.preheader8:                                      ; preds = %54, %63
   %57 = phi i32 [ %64, %63 ], [ 1, %54 ]
   %58 = icmp slt i32 %57, %48
   %.pre = load i32, ptr %4, align 4
   br i1 %58, label %59, label %63
 
-59:                                               ; preds = %.preheader10
+59:                                               ; preds = %.preheader8
   %60 = sext i32 %.pre to i64
   %61 = sext i32 %57 to i64
   %62 = getelementptr i64, ptr %52, i64 %61
   store i64 %60, ptr %62, align 8
   br label %63
 
-63:                                               ; preds = %59, %.preheader10
+63:                                               ; preds = %59, %.preheader8
   %64 = add i32 %57, 1
   %65 = add i32 %.pre, 1
   store i32 %65, ptr %4, align 4
   %66 = call ptr @idr_get_next(ptr noundef nonnull %46, ptr noundef nonnull %4) #11
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.thread9, label %.preheader10, !llvm.loop !17
+  br i1 %67, label %.loopexit, label %.preheader8, !llvm.loop !17
 
-.thread9:                                         ; preds = %63, %54
+.loopexit:                                        ; preds = %63, %54
   %68 = phi i32 [ 1, %54 ], [ %64, %63 ]
   call void @__rcu_read_unlock() #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %69 = icmp sgt i32 %68, %48
   br i1 %69, label %47, label %70, !llvm.loop !18
 
-70:                                               ; preds = %.thread9
+70:                                               ; preds = %.loopexit
   %71 = load i32, ptr %15, align 8
   %72 = sext i32 %71 to i64
   %73 = sext i32 %68 to i64
@@ -492,8 +488,12 @@ define internal i32 @query_perf_config(ptr noundef %0, ptr noundef readonly capt
   %108 = tail call fastcc i32 @query_perf_config_data(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   br label %109
 
-109:                                              ; preds = %.thread, %107, %105, %99, %92, %82, %42, %33, %31, %7, %2
-  %110 = phi i32 [ %108, %107 ], [ %106, %105 ], [ -22, %2 ], [ %32, %31 ], [ -22, %82 ], [ -14, %92 ], [ -19, %7 ], [ -14, %33 ], [ -22, %42 ], [ %104, %99 ], [ -12, %.thread ]
+.critedge:                                        ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  br label %109
+
+109:                                              ; preds = %.critedge, %107, %105, %99, %92, %82, %42, %33, %31, %7, %2
+  %110 = phi i32 [ %108, %107 ], [ %106, %105 ], [ -22, %2 ], [ %32, %31 ], [ -22, %82 ], [ -14, %92 ], [ -19, %7 ], [ -14, %33 ], [ -22, %42 ], [ %104, %99 ], [ -12, %.critedge ]
   ret i32 %110
 }
 
@@ -970,11 +970,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %5, i8 0, i64 37, i1 false)
   %42 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %9, i64 noundef 36) #11
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %.thread
-
-.thread:                                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  br label %135
+  br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %41
   call void @__rcu_read_lock() #11
@@ -982,12 +978,7 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   store i32 0, ptr %6, align 4
   %46 = call ptr @idr_get_next(ptr noundef nonnull %45, ptr noundef nonnull %6) #11
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread12, label %.preheader
-
-.thread12:                                        ; preds = %44
-  call void @__rcu_read_unlock() #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  br label %135
+  br i1 %47, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %44, %54
   %48 = phi ptr [ %57, %54 ], [ %46, %44 ]
@@ -1008,8 +999,8 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %54, %52
-  %59 = phi ptr [ %53, %52 ], [ null, %54 ]
+.loopexit:                                        ; preds = %54, %52, %44
+  %59 = phi ptr [ %53, %52 ], [ null, %44 ], [ null, %54 ]
   call void @__rcu_read_unlock() #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %72
@@ -1116,8 +1107,12 @@ define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr nound
   call fastcc void @i915_oa_config_put(ptr noundef nonnull %73)
   br label %135
 
-135:                                              ; preds = %.thread12, %.thread, %133, %72, %60, %37, %28, %26, %15, %3
-  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ], [ -14, %.thread ], [ -2, %.thread12 ]
+.critedge:                                        ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  br label %135
+
+135:                                              ; preds = %.critedge, %133, %72, %60, %37, %28, %26, %15, %3
+  %136 = phi i32 [ -22, %26 ], [ %134, %133 ], [ -19, %3 ], [ 120, %15 ], [ -14, %28 ], [ -22, %37 ], [ -14, %60 ], [ -2, %72 ], [ -14, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #11
   ret i32 %136

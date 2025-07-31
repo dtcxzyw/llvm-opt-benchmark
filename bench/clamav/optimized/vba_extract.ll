@@ -4620,7 +4620,7 @@ word_skip_menu_info.exit:                         ; preds = %118, %122
   br i1 %.not.i19.i, label %.read_uint16.exit22_crit_edge.i, label %134
 
 .read_uint16.exit22_crit_edge.i:                  ; preds = %132
-  %.pre.i71 = load i16, ptr %4, align 2, !tbaa !48
+  %.pre.i70 = load i16, ptr %4, align 2, !tbaa !48
   br label %read_uint16.exit22.i
 
 134:                                              ; preds = %132
@@ -4628,7 +4628,7 @@ word_skip_menu_info.exit:                         ; preds = %118, %122
   br label %164
 
 read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22_crit_edge.i, %130
-  %135 = phi i16 [ %.pre.i71, %.read_uint16.exit22_crit_edge.i ], [ %131, %130 ]
+  %135 = phi i16 [ %.pre.i70, %.read_uint16.exit22_crit_edge.i ], [ %131, %130 ]
   %136 = sext i16 %135 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.199, i32 noundef %136) #16
   %137 = load i16, ptr %4, align 2, !tbaa !48
@@ -4640,11 +4640,11 @@ read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22
   br i1 %.not18.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %147
-  %.01129.us.i = phi i32 [ %150, %147 ], [ %139, %.lr.ph.i ]
+  %.01127.us.i = phi i32 [ %150, %147 ], [ %139, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
   %140 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 1) #16
   %.not16.us.i = icmp eq i64 %140, 1
-  br i1 %.not16.us.i, label %141, label %.thread.i70
+  br i1 %.not16.us.i, label %141, label %.critedge.i
 
 141:                                              ; preds = %.lr.ph.split.us.i
   %142 = load i8, ptr %5, align 1
@@ -4653,22 +4653,22 @@ read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22
   %.reass.i = add nuw nsw i64 %144, 3
   %145 = call i64 @lseek(i32 noundef %0, i64 noundef %.reass.i, i32 noundef 1) #16
   %146 = icmp eq i64 %145, -1
-  br i1 %146, label %.thread.i70, label %147
+  br i1 %146, label %.critedge.i, label %147
 
 147:                                              ; preds = %141
   %148 = load i16, ptr %4, align 2, !tbaa !48
   %149 = sext i16 %148 to i32
-  %150 = sub nsw i32 %.01129.us.i, %149
+  %150 = sub nsw i32 %.01127.us.i, %149
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %.lr.ph.split.us.i, label %word_skip_macro_extnames.exit, !llvm.loop !92
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %159
-  %.01129.i = phi i32 [ %162, %159 ], [ %139, %.lr.ph.i ]
+  %.01127.i = phi i32 [ %162, %159 ], [ %139, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
   %152 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 1) #16
   %.not16.i = icmp eq i64 %152, 1
-  br i1 %.not16.i, label %153, label %.thread.i70
+  br i1 %.not16.i, label %153, label %.critedge.i
 
 153:                                              ; preds = %.lr.ph.split.i
   %154 = load i8, ptr %5, align 1
@@ -4676,35 +4676,35 @@ read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22
   %156 = add nuw nsw i64 %155, 2
   %157 = call i64 @lseek(i32 noundef %0, i64 noundef %156, i32 noundef 1) #16
   %158 = icmp eq i64 %157, -1
-  br i1 %158, label %.thread.i70, label %159
-
-.thread.i70:                                      ; preds = %153, %.lr.ph.split.i, %141, %.lr.ph.split.us.i
-  %.str.198.sink.i = phi ptr [ @.str.200, %141 ], [ @.str.198, %.lr.ph.split.us.i ], [ @.str.200, %153 ], [ @.str.198, %.lr.ph.split.i ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.198.sink.i) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
-  br label %164
+  br i1 %158, label %.critedge.i, label %159
 
 159:                                              ; preds = %153
   %160 = load i16, ptr %4, align 2, !tbaa !48
   %161 = sext i16 %160 to i32
-  %162 = sub nsw i32 %.01129.i, %161
+  %162 = sub nsw i32 %.01127.i, %161
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %.lr.ph.split.i, label %word_skip_macro_extnames.exit
+
+.critedge.i:                                      ; preds = %153, %.lr.ph.split.i, %141, %.lr.ph.split.us.i
+  %.str.200.sink.i = phi ptr [ @.str.200, %141 ], [ @.str.198, %.lr.ph.split.us.i ], [ @.str.200, %153 ], [ @.str.198, %.lr.ph.split.i ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.200.sink.i) #16
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  br label %164
 
 word_skip_macro_extnames.exit:                    ; preds = %159, %147, %read_uint16.exit22.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #16
   br label %word_read_macro_info.exit
 
-164:                                              ; preds = %134, %129, %.thread.i70
+164:                                              ; preds = %134, %129, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #16
   br label %word_read_macro_info.exit.thread
 
 165:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #16
   %166 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %2, i64 noundef 2) #16
-  %.not.i.i72 = icmp eq i64 %166, 2
-  br i1 %.not.i.i72, label %168, label %167
+  %.not.i.i71 = icmp eq i64 %166, 2
+  br i1 %.not.i.i71, label %168, label %167
 
 167:                                              ; preds = %165
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.201) #16
@@ -4718,30 +4718,30 @@ word_skip_macro_extnames.exit:                    ; preds = %159, %147, %read_ui
   %172 = add i16 %171, -1
   store i16 %172, ptr %2, align 2, !tbaa !48
   %.not614.i = icmp eq i16 %171, 0
-  br i1 %.not614.i, label %word_skip_macro_intnames.exit, label %.lr.ph.i73
+  br i1 %.not614.i, label %word_skip_macro_intnames.exit, label %.lr.ph.i72
 
-.lr.ph.i73:                                       ; preds = %168, %182
+.lr.ph.i72:                                       ; preds = %168, %182
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
   %173 = call i64 @lseek(i32 noundef %0, i64 noundef 2, i32 noundef 1) #16
   %174 = icmp eq i64 %173, -1
-  br i1 %174, label %seekandread.exit.thread.i76, label %seekandread.exit.i74
+  br i1 %174, label %seekandread.exit.thread.i76, label %seekandread.exit.i73
 
-seekandread.exit.thread.i76:                      ; preds = %.lr.ph.i73
+seekandread.exit.thread.i76:                      ; preds = %.lr.ph.i72
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.204) #16
-  br label %.critedge.i
+  br label %.critedge.i75
 
-seekandread.exit.i74:                             ; preds = %.lr.ph.i73
+seekandread.exit.i73:                             ; preds = %.lr.ph.i72
   %175 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not.i75 = icmp eq i64 %175, 1
-  br i1 %.not.i75, label %176, label %.critedge.i
+  %.not.i74 = icmp eq i64 %175, 1
+  br i1 %.not.i74, label %176, label %.critedge.i75
 
-176:                                              ; preds = %seekandread.exit.i74
+176:                                              ; preds = %seekandread.exit.i73
   %177 = load i8, ptr %3, align 1, !tbaa !10
   %178 = zext i8 %177 to i64
   %179 = add nuw nsw i64 %178, 1
   %180 = call i64 @lseek(i32 noundef %0, i64 noundef %179, i32 noundef 1) #16
   %181 = icmp eq i64 %180, -1
-  br i1 %181, label %.critedge.i, label %182
+  br i1 %181, label %.critedge.i75, label %182
 
 182:                                              ; preds = %176
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
@@ -4749,9 +4749,9 @@ seekandread.exit.i74:                             ; preds = %.lr.ph.i73
   %184 = add i16 %183, -1
   store i16 %184, ptr %2, align 2, !tbaa !48
   %.not6.i = icmp eq i16 %183, 0
-  br i1 %.not6.i, label %word_skip_macro_intnames.exit, label %.lr.ph.i73
+  br i1 %.not6.i, label %word_skip_macro_intnames.exit, label %.lr.ph.i72
 
-.critedge.i:                                      ; preds = %176, %seekandread.exit.i74, %seekandread.exit.thread.i76
+.critedge.i75:                                    ; preds = %176, %seekandread.exit.i73, %seekandread.exit.thread.i76
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.203) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
   br label %185
@@ -4760,7 +4760,7 @@ word_skip_macro_intnames.exit:                    ; preds = %182, %168
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #16
   br label %word_read_macro_info.exit
 
-185:                                              ; preds = %167, %.critedge.i
+185:                                              ; preds = %167, %.critedge.i75
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #16
   br label %word_read_macro_info.exit.thread
 

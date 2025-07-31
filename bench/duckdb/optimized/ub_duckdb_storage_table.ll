@@ -83334,9 +83334,9 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb11SegmentTreeINS_8RowGroupELb1
   br label %31
 
 31:                                               ; preds = %25, %47
-  %.01935 = phi i64 [ 0, %25 ], [ %.221, %47 ]
-  %.02234 = phi i64 [ %30, %25 ], [ %.224, %47 ]
-  %32 = add i64 %.01935, %.02234
+  %.01934 = phi i64 [ 0, %25 ], [ %.221, %47 ]
+  %.02233 = phi i64 [ %30, %25 ], [ %.224, %47 ]
+  %32 = add i64 %.01934, %.02233
   %33 = lshr i64 %32, 1
   %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_11SegmentNodeINS_8RowGroupEEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %33)
   %35 = load i64, ptr %34, align 8, !tbaa !2505
@@ -83354,24 +83354,24 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb11SegmentTreeINS_8RowGroupELb1
   %43 = load atomic i64, ptr %42 seq_cst, align 8
   %44 = add i64 %43, %35
   %.not28 = icmp ult i64 %2, %44
-  br i1 %.not28, label %.thread, label %45
+  br i1 %.not28, label %.critedge30, label %45
 
 45:                                               ; preds = %39
   %46 = add nuw i64 %33, 1
   br label %47
 
-.thread:                                          ; preds = %39
+.critedge30:                                      ; preds = %39
   store i64 %33, ptr %3, align 8, !tbaa !19
   br label %.loopexit
 
 47:                                               ; preds = %37, %45
-  %.224 = phi i64 [ %38, %37 ], [ %.02234, %45 ]
-  %.221 = phi i64 [ %.01935, %37 ], [ %46, %45 ]
+  %.224 = phi i64 [ %38, %37 ], [ %.02233, %45 ]
+  %.221 = phi i64 [ %.01934, %37 ], [ %46, %45 ]
   %.not27.not = icmp ugt i64 %.221, %.224
   br i1 %.not27.not, label %.loopexit, label %31, !llvm.loop !2612
 
-.loopexit:                                        ; preds = %47, %.thread, %21
-  %.018 = phi i1 [ false, %21 ], [ true, %.thread ], [ false, %47 ]
+.loopexit:                                        ; preds = %47, %.critedge30, %21
+  %.018 = phi i1 [ false, %21 ], [ true, %.critedge30 ], [ false, %47 ]
   ret i1 %.018
 }
 
@@ -90234,13 +90234,13 @@ define noundef zeroext i1 @_ZN6duckdb18RowGroupCollection19ScheduleVacuumTasksER
   %6 = alloca %"class.duckdb::unique_ptr.1539", align 8
   %7 = load i8, ptr %2, align 8, !tbaa !2783, !range !74, !noundef !75
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %.loopexit
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !2789
   %12 = icmp ult i64 %3, %11
-  br i1 %12, label %.loopexit, label %13
+  br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -90248,7 +90248,7 @@ define noundef zeroext i1 @_ZN6duckdb18RowGroupCollection19ScheduleVacuumTasksER
   %16 = load i64, ptr %15, align 8, !tbaa !19
   %17 = icmp ne i64 %16, 0
   %brmerge.not = and i1 %4, %17
-  br i1 %brmerge.not, label %18, label %.loopexit
+  br i1 %brmerge.not, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -90257,8 +90257,8 @@ define noundef zeroext i1 @_ZN6duckdb18RowGroupCollection19ScheduleVacuumTasksER
   br label %22
 
 22:                                               ; preds = %18, %58
-  %storemerge71 = phi i64 [ 1, %18 ], [ %59, %58 ]
-  %23 = mul i64 %storemerge71, %20
+  %storemerge72 = phi i64 [ 1, %18 ], [ %59, %58 ]
+  %23 = mul i64 %storemerge72, %20
   %24 = load ptr, ptr %21, align 8, !tbaa !2790
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !2437
@@ -90271,32 +90271,32 @@ define noundef zeroext i1 @_ZN6duckdb18RowGroupCollection19ScheduleVacuumTasksER
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %46
-  %.264 = phi i64 [ %47, %46 ], [ %3, %22 ]
-  %.25663 = phi i64 [ %.3, %46 ], [ 0, %22 ]
-  %.25962 = phi i64 [ %.360, %46 ], [ 0, %22 ]
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.264)
+  %.265 = phi i64 [ %47, %46 ], [ %3, %22 ]
+  %.25664 = phi i64 [ %.3, %46 ], [ 0, %22 ]
+  %.25963 = phi i64 [ %.360, %46 ], [ 0, %22 ]
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.265)
   %34 = load i64, ptr %33, align 8, !tbaa !19
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %46, label %36
 
 36:                                               ; preds = %.lr.ph
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.264)
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.265)
   %38 = load i64, ptr %37, align 8, !tbaa !19
-  %39 = add i64 %38, %.25663
+  %39 = add i64 %38, %.25664
   %40 = icmp ugt i64 %39, %23
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %36
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.264)
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorImLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.265)
   %43 = load i64, ptr %42, align 8, !tbaa !19
-  %44 = add i64 %43, %.25663
-  %45 = add i64 %.25962, 1
+  %44 = add i64 %43, %.25664
+  %45 = add i64 %.25963, 1
   br label %46
 
 46:                                               ; preds = %.lr.ph, %41
-  %.360 = phi i64 [ %.25962, %.lr.ph ], [ %45, %41 ]
-  %.3 = phi i64 [ %.25663, %.lr.ph ], [ %44, %41 ]
-  %47 = add nuw i64 %.264, 1
+  %.360 = phi i64 [ %.25963, %.lr.ph ], [ %45, %41 ]
+  %.3 = phi i64 [ %.25664, %.lr.ph ], [ %44, %41 ]
+  %47 = add nuw i64 %.265, 1
   %48 = load ptr, ptr %21, align 8, !tbaa !2790
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !2437
@@ -90309,16 +90309,16 @@ define noundef zeroext i1 @_ZN6duckdb18RowGroupCollection19ScheduleVacuumTasksER
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !2791
 
 ._crit_edge:                                      ; preds = %46, %36, %22
-  %.259.lcssa = phi i64 [ 0, %22 ], [ %.25962, %36 ], [ %.360, %46 ]
-  %.256.lcssa = phi i64 [ 0, %22 ], [ %.25663, %36 ], [ %.3, %46 ]
-  %.2.lcssa = phi i64 [ %3, %22 ], [ %.264, %36 ], [ %47, %46 ]
-  %57 = icmp ult i64 %storemerge71, %.259.lcssa
+  %.259.lcssa = phi i64 [ 0, %22 ], [ %.25963, %36 ], [ %.360, %46 ]
+  %.256.lcssa = phi i64 [ 0, %22 ], [ %.25664, %36 ], [ %.3, %46 ]
+  %.2.lcssa = phi i64 [ %3, %22 ], [ %.265, %36 ], [ %47, %46 ]
+  %57 = icmp ult i64 %storemerge72, %.259.lcssa
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %._crit_edge
-  %59 = add nuw nsw i64 %storemerge71, 1
+  %59 = add nuw nsw i64 %storemerge72, 1
   %exitcond.not = icmp eq i64 %59, 4
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !2792
+  br i1 %exitcond.not, label %.critedge, label %22, !llvm.loop !2792
 
 60:                                               ; preds = %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -90349,7 +90349,7 @@ _ZN6duckdb9make_uniqINS_10VacuumTaskEJRNS_25CollectionCheckpointStateERNS_11Vacu
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 56
   store i64 %.259.lcssa, ptr %70, align 8, !tbaa !2811, !noalias !2793
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  store i64 %storemerge71, ptr %71, align 8, !tbaa !2812, !noalias !2793
+  store i64 %storemerge72, ptr %71, align 8, !tbaa !2812, !noalias !2793
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 72
   store i64 %.256.lcssa, ptr %72, align 8, !tbaa !2813, !noalias !2793
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 80
@@ -90375,7 +90375,7 @@ _ZNSt10unique_ptrIN6duckdb10VacuumTaskESt14default_deleteIS1_EED2Ev.exit: ; pred
   %79 = load i64, ptr %61, align 8, !tbaa !2818
   %80 = add i64 %79, %.256.lcssa
   store i64 %80, ptr %61, align 8, !tbaa !2818
-  br label %.loopexit
+  br label %.critedge
 
 81:                                               ; preds = %_ZN6duckdb9make_uniqINS_10VacuumTaskEJRNS_25CollectionCheckpointStateERNS_11VacuumStateERmS6_S6_S6_S6_EEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
   %82 = landingpad { ptr, i32 }
@@ -90391,7 +90391,7 @@ _ZNKSt14default_deleteIN6duckdb4TaskEEclEPS1_.exit.i37: ; preds = %81
   call void %86(ptr noundef nonnull align 8 dereferenceable(24) %83) #44
   br label %common.resume
 
-.loopexit:                                        ; preds = %58, %_ZNSt10unique_ptrIN6duckdb10VacuumTaskESt14default_deleteIS1_EED2Ev.exit, %13, %9, %5
+.critedge:                                        ; preds = %58, %_ZNSt10unique_ptrIN6duckdb10VacuumTaskESt14default_deleteIS1_EED2Ev.exit, %13, %9, %5
   %.0 = phi i1 [ false, %5 ], [ true, %9 ], [ false, %13 ], [ true, %_ZNSt10unique_ptrIN6duckdb10VacuumTaskESt14default_deleteIS1_EED2Ev.exit ], [ false, %58 ]
   ret i1 %.0
 }
@@ -100709,7 +100709,7 @@ define noundef i64 @_ZN6duckdb18StandardColumnData4ScanENS_15TransactionDataEmRN
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(104) %4)
   %11 = tail call noundef i64 @_ZN6duckdb10ColumnData10ScanVectorERNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %5, i32 noundef %10)
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit, label %12
+  br i1 %.not.i, label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17.critedge, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -100731,9 +100731,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %12
   invoke void @_ZN6duckdb6Vector7FlattenEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %11)
           to label %22 unwind label %20
 
-common.resume:                                    ; preds = %36, %20
-  %.sink = phi ptr [ %30, %36 ], [ %13, %20 ]
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %21, %20 ]
+common.resume:                                    ; preds = %35, %20
+  %.sink = phi ptr [ %29, %35 ], [ %13, %20 ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %21, %20 ]
   %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #44
   resume { ptr, i32 } %common.resume.op
 
@@ -100752,52 +100752,52 @@ common.resume:                                    ; preds = %36, %20
 
 _ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %24
   %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #44
-  br label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit
-
-_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit: ; preds = %6, %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %27 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6duckdb6vectorINS_15ColumnScanStateELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef 0)
   %28 = tail call noundef i64 @_ZN6duckdb10ColumnData10ScanVectorERNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %5, i32 noundef %10)
-  br i1 %.not.i, label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17, label %29
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %30 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %29) #44
+  %.not.i.i.i19 = icmp eq i32 %30, 0
+  br i1 %.not.i.i.i19, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20, label %31
 
-29:                                               ; preds = %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %30) #44
-  %.not.i.i.i19 = icmp eq i32 %31, 0
-  br i1 %.not.i.i.i19, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20, label %32
-
-32:                                               ; preds = %29
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %31) #47
+31:                                               ; preds = %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %30) #47
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20:      ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %34 = load ptr, ptr %33, align 8, !tbaa !829
-  %.not.i21 = icmp eq ptr %34, null
-  br i1 %.not.i21, label %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22, label %35
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20:      ; preds = %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %33 = load ptr, ptr %32, align 8, !tbaa !829
+  %.not.i21 = icmp eq ptr %33, null
+  br i1 %.not.i21, label %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22, label %34
 
-35:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20
+34:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20
   invoke void @_ZN6duckdb6Vector7FlattenEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %28)
-          to label %38 unwind label %36
+          to label %37 unwind label %35
 
-36:                                               ; preds = %40, %38, %35
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %39, %37, %34
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-38:                                               ; preds = %35
-  %39 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13UpdateSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %40 unwind label %36
+37:                                               ; preds = %34
+  %38 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13UpdateSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %39 unwind label %35
 
-40:                                               ; preds = %38
-  invoke void @_ZN6duckdb13UpdateSegment12FetchUpdatesENS_15TransactionDataEmRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(304) %39, ptr noundef nonnull byval(%"struct.duckdb::TransactionData") align 8 %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %4)
-          to label %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22 unwind label %36
+39:                                               ; preds = %37
+  invoke void @_ZN6duckdb13UpdateSegment12FetchUpdatesENS_15TransactionDataEmRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(304) %38, ptr noundef nonnull byval(%"struct.duckdb::TransactionData") align 8 %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %4)
+          to label %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22 unwind label %35
 
-_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20, %40
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %30) #44
+_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i20, %39
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #44
   br label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17
 
-_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17: ; preds = %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit, %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22
+_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17.critedge: ; preds = %6
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %42 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6duckdb6vectorINS_15ColumnScanStateELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 0)
+  %43 = tail call noundef i64 @_ZN6duckdb10ColumnData10ScanVectorERNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %5, i32 noundef 0)
+  br label %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17
+
+_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17: ; preds = %_ZN6duckdb10ColumnData10ScanVectorENS_15TransactionDataEmRNS_15ColumnScanStateERNS_6VectorEmNS_14ScanVectorTypeENS_14ScanVectorModeE.exit17.critedge, %_ZN6duckdb10ColumnData12FetchUpdatesENS_15TransactionDataEmRNS_6VectorEmbb.exit22
   ret i64 %11
 }
 
@@ -133977,12 +133977,12 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb11SegmentTreeINS_13ColumnSegme
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load atomic i64, ptr %14 seq_cst, align 8
   %.pre = load ptr, ptr %5, align 8, !tbaa !867
-  %.pre35 = load ptr, ptr %7, align 8, !tbaa !867
-  %16 = icmp eq ptr %.pre, %.pre35
+  %.pre34 = load ptr, ptr %7, align 8, !tbaa !867
+  %16 = icmp eq ptr %.pre, %.pre34
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %.critedge
-  %18 = ptrtoint ptr %.pre35 to i64
+  %18 = ptrtoint ptr %.pre34 to i64
   %19 = ptrtoint ptr %.pre to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 4
@@ -133990,9 +133990,9 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb11SegmentTreeINS_13ColumnSegme
   br label %23
 
 23:                                               ; preds = %17, %39
-  %.01933 = phi i64 [ 0, %17 ], [ %.221, %39 ]
-  %.02232 = phi i64 [ %22, %17 ], [ %.224, %39 ]
-  %24 = add i64 %.01933, %.02232
+  %.01932 = phi i64 [ 0, %17 ], [ %.221, %39 ]
+  %.02231 = phi i64 [ %22, %17 ], [ %.224, %39 ]
+  %24 = add i64 %.01932, %.02231
   %25 = lshr i64 %24, 1
   %26 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_11SegmentNodeINS_13ColumnSegmentEEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %25)
   %27 = load i64, ptr %26, align 8, !tbaa !869
@@ -134010,24 +134010,24 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb11SegmentTreeINS_13ColumnSegme
   %35 = load atomic i64, ptr %34 seq_cst, align 8
   %36 = add i64 %35, %27
   %.not28 = icmp ult i64 %2, %36
-  br i1 %.not28, label %.thread, label %37
+  br i1 %.not28, label %.critedge30, label %37
 
 37:                                               ; preds = %31
   %38 = add nuw i64 %25, 1
   br label %39
 
-.thread:                                          ; preds = %31
+.critedge30:                                      ; preds = %31
   store i64 %25, ptr %3, align 8, !tbaa !19
   br label %.loopexit
 
 39:                                               ; preds = %29, %37
-  %.224 = phi i64 [ %30, %29 ], [ %.02232, %37 ]
-  %.221 = phi i64 [ %.01933, %29 ], [ %38, %37 ]
+  %.224 = phi i64 [ %30, %29 ], [ %.02231, %37 ]
+  %.221 = phi i64 [ %.01932, %29 ], [ %38, %37 ]
   %.not27.not = icmp ugt i64 %.221, %.224
   br i1 %.not27.not, label %.loopexit, label %23, !llvm.loop !3651
 
-.loopexit:                                        ; preds = %39, %4, %.thread, %.critedge
-  %.018 = phi i1 [ false, %.critedge ], [ true, %.thread ], [ false, %4 ], [ false, %39 ]
+.loopexit:                                        ; preds = %39, %4, %.critedge30, %.critedge
+  %.018 = phi i1 [ false, %.critedge ], [ true, %.critedge30 ], [ false, %4 ], [ false, %39 ]
   ret i1 %.018
 }
 

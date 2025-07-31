@@ -2871,7 +2871,7 @@ define internal fastcc ptr @traceback_new() unnamed_addr #0 {
   %6 = getelementptr i8, ptr %5, i64 72
   %.val.i = load ptr, ptr %6, align 8, !tbaa !229
   %.not7.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not7.i.i.i, label %.thread, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %0, %_PyFrame_IsIncomplete.exit.thread.i.i.i
   %.08.i.i.i = phi ptr [ %21, %_PyFrame_IsIncomplete.exit.thread.i.i.i ], [ %.val.i, %0 ]
@@ -2901,7 +2901,7 @@ _PyFrame_IsIncomplete.exit.thread.i.i.i:          ; preds = %_PyFrame_IsIncomple
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !237
   %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %.thread, label %.lr.ph.i.i.i, !llvm.loop !238
+  br i1 %.not.i.i.i, label %.critedge, label %.lr.ph.i.i.i, !llvm.loop !238
 
 .lr.ph.i:                                         ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -3049,7 +3049,7 @@ _PyFrame_IsIncomplete.exit.thread.i.i:            ; preds = %_PyFrame_IsIncomple
 
 traceback_get_frames.exit:                        ; preds = %71, %_PyFrame_IsIncomplete.exit.thread.i.i
   %90 = icmp eq i16 %68, 0
-  br i1 %90, label %.thread, label %.lr.ph.preheader.i
+  br i1 %90, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %traceback_get_frames.exit
   %91 = zext i16 %68 to i64
@@ -3092,7 +3092,7 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
 111:                                              ; preds = %traceback_hash.exit
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !243
-  br label %.thread
+  br label %.critedge
 
 114:                                              ; preds = %traceback_hash.exit
   %115 = load i16, ptr %2, align 8, !tbaa !193
@@ -3103,23 +3103,23 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
   %121 = tail call ptr %119(ptr noundef %120, i64 noundef range(i64 12, 25769803777) %118) #14
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread, label %123
+  br i1 %122, label %.critedge, label %123
 
 123:                                              ; preds = %114
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %121, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %118, i1 false)
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10328), align 8, !tbaa !180
   %125 = tail call i32 @_Py_hashtable_set(ptr noundef %124, ptr noundef nonnull %121, ptr noundef null) #14
   %126 = icmp slt i32 %125, 0
-  br i1 %126, label %127, label %.thread
+  br i1 %126, label %127, label %.critedge
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10240), align 8, !tbaa !196
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10208), align 8, !tbaa !197
   tail call void %128(ptr noundef %129, ptr noundef nonnull %121) #14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i.i, %0, %114, %127, %123, %111, %traceback_get_frames.exit
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %traceback_get_frames.exit ], [ %113, %111 ], [ %121, %123 ], [ null, %127 ], [ null, %114 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %0 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
+.critedge:                                        ; preds = %_PyFrame_IsIncomplete.exit.thread.i.i.i, %0, %127, %114, %111, %123, %traceback_get_frames.exit
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %traceback_get_frames.exit ], [ %113, %111 ], [ %121, %123 ], [ null, %114 ], [ null, %127 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %0 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10352), %_PyFrame_IsIncomplete.exit.thread.i.i.i ]
   ret ptr %.0
 }
 

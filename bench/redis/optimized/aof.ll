@@ -5676,17 +5676,17 @@ define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %0, ptr noun
   %8 = tail call ptr @listTypeInitIterator(ptr noundef %2, i64 noundef 0, i8 noundef zeroext 1) #20
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #20
   %9 = call i32 @listTypeNext(ptr noundef %8, ptr noundef nonnull %4) #20
-  %.not40 = icmp eq i32 %9, 0
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %9, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %28
-  %.02642 = phi i64 [ %spec.store.select, %28 ], [ 0, %3 ]
-  %.02841 = phi i64 [ %31, %28 ], [ %7, %3 ]
-  %10 = icmp eq i64 %.02642, 0
+  %.02641 = phi i64 [ %spec.store.select, %28 ], [ 0, %3 ]
+  %.02840 = phi i64 [ %31, %28 ], [ %7, %3 ]
+  %10 = icmp eq i64 %.02641, 0
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %.lr.ph
-  %12 = call i64 @llvm.smin.i64(i64 %.02841, i64 64)
+  %12 = call i64 @llvm.smin.i64(i64 %.02840, i64 64)
   %13 = shl i64 %12, 32
   %sext = add i64 %13, 8589934592
   %14 = ashr exact i64 %sext, 32
@@ -5719,25 +5719,19 @@ define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %0, ptr noun
   %23 = load i64, ptr %5, align 8, !tbaa !22
   %24 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %21, i64 noundef %23) #20
   %.not36 = icmp eq i64 %24, 0
-  br i1 %.not36, label %.thread, label %28
+  br i1 %.not36, label %.critedge38, label %28
 
 25:                                               ; preds = %20
   %26 = load i64, ptr %6, align 8, !tbaa !87
   %27 = call i64 @rioWriteBulkLongLong(ptr noundef %0, i64 noundef %26) #20
   %.not35 = icmp eq i64 %27, 0
-  br i1 %.not35, label %.thread, label %28
+  br i1 %.not35, label %.critedge38, label %28
 
-.thread:                                          ; preds = %25, %22
-  call void @listTypeReleaseIterator(ptr noundef %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  br label %33
-
-28:                                               ; preds = %22, %25
-  %29 = add nsw i64 %.02642, 1
+28:                                               ; preds = %25, %22
+  %29 = add nsw i64 %.02641, 1
   %30 = icmp eq i64 %29, 64
   %spec.store.select = select i1 %30, i64 0, i64 %29
-  %31 = add nsw i64 %.02841, -1
+  %31 = add nsw i64 %.02840, -1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   %32 = call i32 @listTypeNext(ptr noundef %8, ptr noundef nonnull %4) #20
@@ -5748,8 +5742,14 @@ define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %0, ptr noun
   call void @listTypeReleaseIterator(ptr noundef %8) #20
   br label %33
 
-33:                                               ; preds = %.thread, %.critedge, %._crit_edge
-  %.3 = phi i32 [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %.thread ]
+.critedge38:                                      ; preds = %25, %22
+  call void @listTypeReleaseIterator(ptr noundef %8) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  br label %33
+
+33:                                               ; preds = %.critedge38, %.critedge, %._crit_edge
+  %.3 = phi i32 [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %.critedge38 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #20
   ret i32 %.3
 }
@@ -5887,25 +5887,25 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
   %18 = tail call ptr @lpNext(ptr noundef %14, ptr noundef nonnull %15) #20
   store ptr %18, ptr %5, align 8, !tbaa !66
   %.not78 = icmp eq ptr %18, null
-  br i1 %.not78, label %19, label %.lr.ph101, !prof !5
+  br i1 %.not78, label %19, label %.lr.ph99, !prof !5
 
 19:                                               ; preds = %17
   tail call void @_serverAssert(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.1, i32 noundef 1967) #20
   tail call void @abort() #21
   unreachable
 
-.lr.ph101:                                        ; preds = %17, %45
+.lr.ph99:                                         ; preds = %17, %45
   %20 = phi ptr [ %49, %45 ], [ %15, %17 ]
-  %.056100 = phi i64 [ %spec.store.select, %45 ], [ 0, %17 ]
-  %.05999 = phi i64 [ %48, %45 ], [ %8, %17 ]
+  %.05698 = phi i64 [ %spec.store.select, %45 ], [ 0, %17 ]
+  %.05997 = phi i64 [ %48, %45 ], [ %8, %17 ]
   %21 = call ptr @lpGetValue(ptr noundef nonnull %20, ptr noundef nonnull %6, ptr noundef nonnull %7) #20
   %22 = load ptr, ptr %5, align 8, !tbaa !66
   %23 = call double @zzlGetScore(ptr noundef %22) #20
-  %24 = icmp eq i64 %.056100, 0
+  %24 = icmp eq i64 %.05698, 0
   br i1 %24, label %25, label %.critedge
 
-25:                                               ; preds = %.lr.ph101
-  %26 = call i64 @llvm.smin.i64(i64 %.05999, i64 64)
+25:                                               ; preds = %.lr.ph99
+  %26 = call i64 @llvm.smin.i64(i64 %.05997, i64 64)
   %27 = trunc i64 %26 to i32
   %28 = shl nsw i32 %27, 1
   %29 = add nsw i32 %28, 2
@@ -5924,7 +5924,7 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
   %.not82 = icmp eq i32 %35, 0
   br i1 %.not82, label %50, label %.critedge
 
-.critedge:                                        ; preds = %34, %.lr.ph101
+.critedge:                                        ; preds = %34, %.lr.ph99
   %36 = call i64 @rioWriteBulkDouble(ptr noundef %0, double noundef %23) #20
   %.not83 = icmp eq i64 %36, 0
   br i1 %.not83, label %50, label %37
@@ -5948,20 +5948,20 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
 
 45:                                               ; preds = %42, %38
   call void @zzlNext(ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  %46 = add nsw i64 %.056100, 1
+  %46 = add nsw i64 %.05698, 1
   %47 = icmp eq i64 %46, 64
   %spec.store.select = select i1 %47, i64 0, i64 %46
-  %48 = add nsw i64 %.05999, -1
+  %48 = add nsw i64 %.05997, -1
   %49 = load ptr, ptr %4, align 8, !tbaa !66
   %.not79 = icmp eq ptr %49, null
-  br i1 %.not79, label %.critedge88, label %.lr.ph101, !llvm.loop !158
+  br i1 %.not79, label %.critedge88, label %.lr.ph99, !llvm.loop !158
 
 50:                                               ; preds = %42, %38, %.critedge, %34, %32, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %106
+  br label %.critedge92.thread
 
 51:                                               ; preds = %3
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5969,20 +5969,20 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
   %54 = load ptr, ptr %53, align 8, !tbaa !159
   %55 = tail call ptr @dictGetIterator(ptr noundef %54) #20
   %56 = tail call ptr @dictNext(ptr noundef %55) #20
-  %.not95 = icmp eq ptr %56, null
-  br i1 %.not95, label %.thread94, label %.lr.ph
+  %.not93 = icmp eq ptr %56, null
+  br i1 %.not93, label %.critedge92, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %100
   %57 = phi ptr [ %104, %100 ], [ %56, %51 ]
-  %.15797 = phi i64 [ %spec.store.select5, %100 ], [ 0, %51 ]
-  %.16096 = phi i64 [ %103, %100 ], [ %8, %51 ]
+  %.15795 = phi i64 [ %spec.store.select5, %100 ], [ 0, %51 ]
+  %.16094 = phi i64 [ %103, %100 ], [ %8, %51 ]
   %58 = tail call ptr @dictGetKey(ptr noundef nonnull %57) #20
   %59 = tail call ptr @dictGetVal(ptr noundef nonnull %57) #20
-  %60 = icmp eq i64 %.15797, 0
+  %60 = icmp eq i64 %.15795, 0
   br i1 %60, label %61, label %72
 
 61:                                               ; preds = %.lr.ph
-  %62 = tail call i64 @llvm.smin.i64(i64 %.16096, i64 64)
+  %62 = tail call i64 @llvm.smin.i64(i64 %.16094, i64 64)
   %63 = trunc i64 %62 to i32
   %64 = shl nsw i32 %63, 1
   %65 = add nsw i32 %64, 2
@@ -6003,7 +6003,7 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
 
 .critedge90:                                      ; preds = %70, %68, %61
   tail call void @dictReleaseIterator(ptr noundef %55) #20
-  br label %106
+  br label %.critedge92.thread
 
 72:                                               ; preds = %70, %.lr.ph
   %73 = load double, ptr %59, align 8, !tbaa !162
@@ -6060,20 +6060,20 @@ sdslen.exit:                                      ; preds = %75, %80, %83, %87, 
 
 99:                                               ; preds = %sdslen.exit, %72
   tail call void @dictReleaseIterator(ptr noundef %55) #20
-  br label %106
+  br label %.critedge92.thread
 
 100:                                              ; preds = %sdslen.exit
-  %101 = add nsw i64 %.15797, 1
+  %101 = add nsw i64 %.15795, 1
   %102 = icmp eq i64 %101, 64
   %spec.store.select5 = select i1 %102, i64 0, i64 %101
-  %103 = add nsw i64 %.16096, -1
+  %103 = add nsw i64 %.16094, -1
   %104 = tail call ptr @dictNext(ptr noundef %55) #20
   %.not = icmp eq ptr %104, null
-  br i1 %.not, label %.thread94, label %.lr.ph, !llvm.loop !163
+  br i1 %.not, label %.critedge92, label %.lr.ph, !llvm.loop !163
 
-.thread94:                                        ; preds = %100, %51
+.critedge92:                                      ; preds = %100, %51
   tail call void @dictReleaseIterator(ptr noundef %55) #20
-  br label %106
+  br label %.critedge92.thread
 
 105:                                              ; preds = %3
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 2026, ptr noundef nonnull @.str.124) #20
@@ -6085,10 +6085,10 @@ sdslen.exit:                                      ; preds = %75, %80, %83, %87, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %106
+  br label %.critedge92.thread
 
-106:                                              ; preds = %.critedge88, %.thread94, %.critedge90, %99, %50
-  %.4 = phi i32 [ 0, %50 ], [ 0, %99 ], [ 0, %.critedge90 ], [ 1, %.thread94 ], [ 1, %.critedge88 ]
+.critedge92.thread:                               ; preds = %.critedge90, %99, %.critedge88, %.critedge92, %50
+  %.4 = phi i32 [ 0, %50 ], [ 1, %.critedge92 ], [ 1, %.critedge88 ], [ 0, %99 ], [ 0, %.critedge90 ]
   ret i32 %.4
 }
 

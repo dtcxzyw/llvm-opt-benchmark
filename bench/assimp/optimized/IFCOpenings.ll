@@ -726,7 +726,7 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE17_M_realloc_insertIJRdRKdEEEvN9__gnu_cxx17_
 
 _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121: ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE17_M_realloc_insertIJRdRKdEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i120, %141, %.thread225
   %.not239255 = icmp eq ptr %.sroa.0181.0253, %25
-  br i1 %.not239255, label %._crit_edge260.thread, label %.lr.ph259
+  br i1 %.not239255, label %.critedge, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121
   %168 = load double, ptr %16, align 8
@@ -788,11 +788,11 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121: ;
   br i1 %.not239, label %._crit_edge260, label %171, !llvm.loop !22
 
 ._crit_edge260:                                   ; preds = %195, %171, %178
-  %.078.lcssa = phi double [ %.280.ph, %195 ], [ %.078257, %171 ], [ %.078257, %178 ]
-  %.3.lcssa = phi i1 [ %.5.ph, %195 ], [ %.3258, %171 ], [ %.3258, %178 ]
-  br i1 %.3.lcssa, label %315, label %._crit_edge260.thread
+  %.078.lcssa = phi double [ %.078257, %178 ], [ %.078257, %171 ], [ %.280.ph, %195 ]
+  %.3.lcssa = phi i1 [ %.3258, %178 ], [ %.3258, %171 ], [ %.5.ph, %195 ]
+  br i1 %.3.lcssa, label %315, label %.critedge
 
-._crit_edge260.thread:                            ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121, %._crit_edge260
+.critedge:                                        ; preds = %_ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121, %._crit_edge260
   %197 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -800,7 +800,7 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121: ;
   %.not.i124 = icmp eq ptr %198, %200
   br i1 %.not.i124, label %206, label %201
 
-201:                                              ; preds = %._crit_edge260.thread
+201:                                              ; preds = %.critedge
   %202 = load double, ptr %16, align 8
   store double %.sroa.speculated208, ptr %198, align 8
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -811,7 +811,7 @@ _ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit121: ;
   %.pre281 = load ptr, ptr %199, align 8
   br label %_ZNSt6vectorI10aiVector2tIdESaIS1_EE12emplace_backIJRdRKdEEERS1_DpOT_.exit137
 
-206:                                              ; preds = %._crit_edge260.thread
+206:                                              ; preds = %.critedge
   %207 = load ptr, ptr %4, align 8
   %208 = ptrtoint ptr %198 to i64
   %209 = ptrtoint ptr %207 to i64

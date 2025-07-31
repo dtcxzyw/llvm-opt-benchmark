@@ -4113,7 +4113,7 @@ declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 16)
-  br i1 %3, label %4, label %.thread
+  br i1 %3, label %4, label %.critedge
 
 4:                                                ; preds = %2
   %5 = add i32 %1, 12
@@ -4121,7 +4121,7 @@ define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) 
   %7 = add i32 %1, 8
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7)
   %.not = icmp eq i32 %8, 2
-  br i1 %.not, label %9, label %.thread
+  br i1 %.not, label %9, label %.critedge
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @rpc_progs, align 8
@@ -4129,7 +4129,7 @@ define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) 
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %9
   %16 = load i8, ptr @rpc_dissect_unknown_programs, align 1, !range !6, !noundef !7
@@ -4137,13 +4137,13 @@ define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) 
   %18 = add i32 %6, -1
   %or.cond = icmp ult i32 %18, -2
   %or.cond26.not = select i1 %17, i1 %or.cond, i1 false
-  br i1 %or.cond26.not, label %19, label %.thread
+  br i1 %or.cond26.not, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = add i32 %1, 16
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %20)
   %22 = icmp ugt i32 %21, 10
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %19
   %24 = tail call ptr @wmem_packet_scope()
@@ -4158,10 +4158,10 @@ define internal fastcc ptr @looks_like_rpc_call(ptr noundef %0, i32 noundef %1) 
   %31 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef nonnull @.str.329, i32 noundef %6)
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %31, ptr %32, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %19, %15, %23, %9, %4, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %13, %9 ], [ %25, %23 ], [ null, %15 ], [ null, %19 ]
+.critedge:                                        ; preds = %15, %19, %9, %23, %4, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ %25, %23 ], [ %13, %9 ], [ null, %19 ], [ null, %15 ]
   ret ptr %.0
 }
 

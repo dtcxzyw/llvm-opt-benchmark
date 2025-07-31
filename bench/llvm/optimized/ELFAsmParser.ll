@@ -536,7 +536,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser21pars
   %73 = load ptr, ptr %72, align 8, !tbaa !15
   %74 = load i32, ptr %73, align 8, !tbaa !18
   %75 = icmp eq i32 %74, 26
-  br i1 %75, label %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit, label %.lr.ph594
+  br i1 %75, label %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread562, label %.lr.ph594
 
 76:                                               ; preds = %3
   %77 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %59) #16
@@ -715,15 +715,9 @@ _ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopex
   %.sroa.0394.1.ph.ph = phi ptr [ %49, %.preheader.i ], [ %49, %.lr.ph ], [ %.sroa.0394.0520592, %.lr.ph594 ], [ %49, %167 ]
   %.112.i.ph.ph = phi i32 [ %173, %.preheader.i ], [ %173, %.lr.ph ], [ %.011.i521591, %.lr.ph594 ], [ %173, %167 ]
   %180 = icmp eq i32 %.112.i.ph.ph, 0
-  br label %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit
+  br i1 %180, label %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread562, label %185
 
-_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit: ; preds = %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit, %.lr.ph.preheader
-  %.sroa.29.1.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.29.1.ph.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit ]
-  %.sroa.0394.1.ph = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.0394.1.ph.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit ]
-  %.112.i.ph = phi i1 [ true, %.lr.ph.preheader ], [ %180, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit ]
-  br i1 %.112.i.ph, label %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread562, label %185
-
-_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread562: ; preds = %.preheader.i.preheader, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit
+_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread562: ; preds = %.lr.ph.preheader, %.preheader.i.preheader, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %182 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -735,9 +729,9 @@ _ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #16
   br label %900
 
-185:                                              ; preds = %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit
-  %.sroa.0394.2432 = phi ptr [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread ], [ %.sroa.0394.1.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit ]
-  %.sroa.29.2431 = phi i64 [ %.sroa.2.0.copyload.i.pn.i.i, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread ], [ %.sroa.29.1.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit ]
+185:                                              ; preds = %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit
+  %.sroa.0394.2432 = phi ptr [ %.sroa.0.0.copyload.i.pn.i.i, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread ], [ %.sroa.0394.1.ph.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit ]
+  %.sroa.29.2431 = phi i64 [ %.sroa.2.0.copyload.i.pn.i.i, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.thread ], [ %.sroa.29.1.ph.ph, %_ZN12_GLOBAL__N_112ELFAsmParser16parseSectionNameERN4llvm9StringRefE.exit.loopexit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
@@ -3588,52 +3582,52 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %15, %4
   %26 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i.i.i = and i1 %26, %27
-  br i1 %spec.select.i.i.i.i.i.i.i, label %30, label %28, !prof !336
+  br i1 %spec.select.i.i.i.i.i.i.i, label %28, label %.critedge.i.i.i.i.i, !prof !336
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %29, i64 noundef %21, i64 noundef 32) #16
+  %29 = ptrtoint ptr %5 to i64
+  %30 = ptrtoint ptr %.pre3.i.pre.i.i to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %32, i64 noundef %21, i64 noundef 32) #16
+  %33 = load ptr, ptr %12, align 8, !tbaa !15
+  %34 = getelementptr inbounds i8, ptr %33, i64 %31
+  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
+
+.critedge.i.i.i.i.i:                              ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %35, i64 noundef %21, i64 noundef 32) #16
   %.pre.i.i.i = load ptr, ptr %12, align 8, !tbaa !15
   br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
 
-30:                                               ; preds = %24
-  %31 = ptrtoint ptr %5 to i64
-  %32 = ptrtoint ptr %.pre3.i.pre.i.i to i64
-  %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %34, i64 noundef %21, i64 noundef 32) #16
-  %35 = load ptr, ptr %12, align 8, !tbaa !15
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
-
-_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %30, %28, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %37 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %35, %30 ], [ %.pre.i.i.i, %28 ]
-  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %36, %30 ], [ %5, %28 ]
-  %38 = load i32, ptr %13, align 8, !tbaa !30
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.std::pair.163", ptr %37, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
-  %41 = load i32, ptr %13, align 8, !tbaa !30
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %13, align 8, !tbaa !30
+_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i, %28, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
+  %36 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %33, %28 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %34, %28 ], [ %5, %.critedge.i.i.i.i.i ]
+  %37 = load i32, ptr %13, align 8, !tbaa !30
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"struct.std::pair.163", ptr %36, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
+  %40 = load i32, ptr %13, align 8, !tbaa !30
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %13, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  %43 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser21parseSectionArgumentsEbN4llvm5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, i1 noundef zeroext true, ptr %3)
-  br i1 %43, label %44, label %_ZN12_GLOBAL__N_112ELFAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit
+  %42 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser21parseSectionArgumentsEbN4llvm5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(17) %0, i1 noundef zeroext true, ptr %3)
+  br i1 %42, label %43, label %_ZN12_GLOBAL__N_112ELFAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit
 
-44:                                               ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
-  %45 = load ptr, ptr %6, align 8, !tbaa !12
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef nonnull align 8 dereferenceable(296) ptr %48(ptr noundef nonnull align 8 dereferenceable(34) %45) #16
-  %50 = load ptr, ptr %49, align 8, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 168
-  %52 = load ptr, ptr %51, align 8
-  %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(296) %49) #16
+43:                                               ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
+  %44 = load ptr, ptr %6, align 8, !tbaa !12
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(296) ptr %47(ptr noundef nonnull align 8 dereferenceable(34) %44) #16
+  %49 = load ptr, ptr %48, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 168
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(296) %48) #16
   br label %_ZN12_GLOBAL__N_112ELFAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit
 
-_ZN12_GLOBAL__N_112ELFAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, %44
-  ret i1 %43
+_ZN12_GLOBAL__N_112ELFAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, %43
+  ret i1 %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4708,108 +4702,108 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %61, %_ZNK4llvm8
   %72 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %73 = icmp ult ptr %5, %71
   %spec.select.i.i.i.i.i.i.i = and i1 %72, %73
-  br i1 %spec.select.i.i.i.i.i.i.i, label %76, label %74, !prof !336
+  br i1 %spec.select.i.i.i.i.i.i.i, label %74, label %.critedge.i.i.i.i.i, !prof !336
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %57, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %75, i64 noundef %67, i64 noundef 32) #16
+  %75 = ptrtoint ptr %5 to i64
+  %76 = ptrtoint ptr %.pre3.i.pre.i.i to i64
+  %77 = sub i64 %75, %76
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %78, i64 noundef %67, i64 noundef 32) #16
+  %79 = load ptr, ptr %58, align 8, !tbaa !15
+  %80 = getelementptr inbounds i8, ptr %79, i64 %77
+  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
+
+.critedge.i.i.i.i.i:                              ; preds = %70
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 136
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %81, i64 noundef %67, i64 noundef 32) #16
   %.pre.i.i.i = load ptr, ptr %58, align 8, !tbaa !15
   br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
 
-76:                                               ; preds = %70
-  %77 = ptrtoint ptr %5 to i64
-  %78 = ptrtoint ptr %.pre3.i.pre.i.i to i64
-  %79 = sub i64 %77, %78
-  %80 = getelementptr inbounds nuw i8, ptr %57, i64 136
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %80, i64 noundef %67, i64 noundef 32) #16
-  %81 = load ptr, ptr %58, align 8, !tbaa !15
-  %82 = getelementptr inbounds i8, ptr %81, i64 %79
-  br label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
-
-_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %76, %74, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %83 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %81, %76 ], [ %.pre.i.i.i, %74 ]
-  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %82, %76 ], [ %5, %74 ]
-  %84 = load i32, ptr %59, align 8, !tbaa !30
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"struct.std::pair.163", ptr %83, i64 %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
-  %87 = load i32, ptr %59, align 8, !tbaa !30
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %59, align 8, !tbaa !30
+_ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i, %74, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
+  %82 = phi ptr [ %.pre3.i.pre.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %79, %74 ], [ %.pre.i.i.i, %.critedge.i.i.i.i.i ]
+  %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %80, %74 ], [ %5, %.critedge.i.i.i.i.i ]
+  %83 = load i32, ptr %59, align 8, !tbaa !30
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"struct.std::pair.163", ptr %82, i64 %84
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
+  %86 = load i32, ptr %59, align 8, !tbaa !30
+  %87 = add i32 %86, 1
+  store i32 %87, ptr %59, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  %89 = load ptr, ptr %9, align 8, !tbaa !12
-  %90 = load ptr, ptr %89, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
-  %92 = load ptr, ptr %91, align 8
-  %93 = call noundef nonnull align 8 dereferenceable(296) ptr %92(ptr noundef nonnull align 8 dereferenceable(34) %89) #16
-  %94 = load ptr, ptr %93, align 8, !tbaa !3
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 176
-  %96 = load ptr, ptr %95, align 8
-  call void %96(ptr noundef nonnull align 8 dereferenceable(296) %93, ptr noundef %52, i32 noundef 0) #16
-  %97 = load ptr, ptr %9, align 8, !tbaa !12
-  %98 = load ptr, ptr %97, align 8, !tbaa !3
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  %100 = load ptr, ptr %99, align 8
-  %101 = call noundef nonnull align 8 dereferenceable(296) ptr %100(ptr noundef nonnull align 8 dereferenceable(34) %97) #16
-  %102 = add i64 %.sroa.2.0.copyload.i.pn.i.i, 1
-  %103 = load ptr, ptr %101, align 8, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 544
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(296) %101, i64 noundef %102, i32 noundef 4) #16
-  %106 = load ptr, ptr %9, align 8, !tbaa !12
-  %107 = load ptr, ptr %106, align 8, !tbaa !3
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef nonnull align 8 dereferenceable(296) ptr %109(ptr noundef nonnull align 8 dereferenceable(34) %106) #16
-  %111 = load ptr, ptr %110, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 544
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(296) %110, i64 noundef 0, i32 noundef 4) #16
-  %114 = load ptr, ptr %9, align 8, !tbaa !12
-  %115 = load ptr, ptr %114, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %117 = load ptr, ptr %116, align 8
-  %118 = call noundef nonnull align 8 dereferenceable(296) ptr %117(ptr noundef nonnull align 8 dereferenceable(34) %114) #16
-  %119 = load ptr, ptr %118, align 8, !tbaa !3
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 544
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(296) %118, i64 noundef 1, i32 noundef 4) #16
-  %122 = load ptr, ptr %9, align 8, !tbaa !12
-  %123 = load ptr, ptr %122, align 8, !tbaa !3
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noundef nonnull align 8 dereferenceable(296) ptr %125(ptr noundef nonnull align 8 dereferenceable(34) %122) #16
-  %127 = load ptr, ptr %126, align 8, !tbaa !3
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 520
-  %129 = load ptr, ptr %128, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(296) %126, ptr %.sroa.0.0.copyload.i.pn.i.i, i64 %.sroa.2.0.copyload.i.pn.i.i) #16
-  %130 = load ptr, ptr %9, align 8, !tbaa !12
-  %131 = load ptr, ptr %130, align 8, !tbaa !3
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 56
-  %133 = load ptr, ptr %132, align 8
-  %134 = call noundef nonnull align 8 dereferenceable(296) ptr %133(ptr noundef nonnull align 8 dereferenceable(34) %130) #16
-  %135 = load ptr, ptr %134, align 8, !tbaa !3
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 544
-  %137 = load ptr, ptr %136, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(296) %134, i64 noundef 0, i32 noundef 1) #16
-  %138 = load ptr, ptr %9, align 8, !tbaa !12
-  %139 = load ptr, ptr %138, align 8, !tbaa !3
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
-  %141 = load ptr, ptr %140, align 8
-  %142 = call noundef nonnull align 8 dereferenceable(296) ptr %141(ptr noundef nonnull align 8 dereferenceable(34) %138) #16
-  %143 = load ptr, ptr %142, align 8, !tbaa !3
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 664
-  %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(296) %142, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #16
-  %146 = load ptr, ptr %9, align 8, !tbaa !12
-  %147 = load ptr, ptr %146, align 8, !tbaa !3
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
-  %149 = load ptr, ptr %148, align 8
-  %150 = call noundef nonnull align 8 dereferenceable(296) ptr %149(ptr noundef nonnull align 8 dereferenceable(34) %146) #16
-  %151 = load ptr, ptr %150, align 8, !tbaa !3
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 168
-  %153 = load ptr, ptr %152, align 8
-  %154 = call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(296) %150) #16
+  %88 = load ptr, ptr %9, align 8, !tbaa !12
+  %89 = load ptr, ptr %88, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
+  %91 = load ptr, ptr %90, align 8
+  %92 = call noundef nonnull align 8 dereferenceable(296) ptr %91(ptr noundef nonnull align 8 dereferenceable(34) %88) #16
+  %93 = load ptr, ptr %92, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 176
+  %95 = load ptr, ptr %94, align 8
+  call void %95(ptr noundef nonnull align 8 dereferenceable(296) %92, ptr noundef %52, i32 noundef 0) #16
+  %96 = load ptr, ptr %9, align 8, !tbaa !12
+  %97 = load ptr, ptr %96, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  %99 = load ptr, ptr %98, align 8
+  %100 = call noundef nonnull align 8 dereferenceable(296) ptr %99(ptr noundef nonnull align 8 dereferenceable(34) %96) #16
+  %101 = add i64 %.sroa.2.0.copyload.i.pn.i.i, 1
+  %102 = load ptr, ptr %100, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 544
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(296) %100, i64 noundef %101, i32 noundef 4) #16
+  %105 = load ptr, ptr %9, align 8, !tbaa !12
+  %106 = load ptr, ptr %105, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = load ptr, ptr %107, align 8
+  %109 = call noundef nonnull align 8 dereferenceable(296) ptr %108(ptr noundef nonnull align 8 dereferenceable(34) %105) #16
+  %110 = load ptr, ptr %109, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 544
+  %112 = load ptr, ptr %111, align 8
+  call void %112(ptr noundef nonnull align 8 dereferenceable(296) %109, i64 noundef 0, i32 noundef 4) #16
+  %113 = load ptr, ptr %9, align 8, !tbaa !12
+  %114 = load ptr, ptr %113, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %116 = load ptr, ptr %115, align 8
+  %117 = call noundef nonnull align 8 dereferenceable(296) ptr %116(ptr noundef nonnull align 8 dereferenceable(34) %113) #16
+  %118 = load ptr, ptr %117, align 8, !tbaa !3
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 544
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(296) %117, i64 noundef 1, i32 noundef 4) #16
+  %121 = load ptr, ptr %9, align 8, !tbaa !12
+  %122 = load ptr, ptr %121, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = call noundef nonnull align 8 dereferenceable(296) ptr %124(ptr noundef nonnull align 8 dereferenceable(34) %121) #16
+  %126 = load ptr, ptr %125, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 520
+  %128 = load ptr, ptr %127, align 8
+  call void %128(ptr noundef nonnull align 8 dereferenceable(296) %125, ptr %.sroa.0.0.copyload.i.pn.i.i, i64 %.sroa.2.0.copyload.i.pn.i.i) #16
+  %129 = load ptr, ptr %9, align 8, !tbaa !12
+  %130 = load ptr, ptr %129, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 56
+  %132 = load ptr, ptr %131, align 8
+  %133 = call noundef nonnull align 8 dereferenceable(296) ptr %132(ptr noundef nonnull align 8 dereferenceable(34) %129) #16
+  %134 = load ptr, ptr %133, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 544
+  %136 = load ptr, ptr %135, align 8
+  call void %136(ptr noundef nonnull align 8 dereferenceable(296) %133, i64 noundef 0, i32 noundef 1) #16
+  %137 = load ptr, ptr %9, align 8, !tbaa !12
+  %138 = load ptr, ptr %137, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 56
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef nonnull align 8 dereferenceable(296) ptr %140(ptr noundef nonnull align 8 dereferenceable(34) %137) #16
+  %142 = load ptr, ptr %141, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 664
+  %144 = load ptr, ptr %143, align 8
+  call void %144(ptr noundef nonnull align 8 dereferenceable(296) %141, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #16
+  %145 = load ptr, ptr %9, align 8, !tbaa !12
+  %146 = load ptr, ptr %145, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 56
+  %148 = load ptr, ptr %147, align 8
+  %149 = call noundef nonnull align 8 dereferenceable(296) ptr %148(ptr noundef nonnull align 8 dereferenceable(34) %145) #16
+  %150 = load ptr, ptr %149, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 168
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(296) %149) #16
   br label %_ZN12_GLOBAL__N_112ELFAsmParser21parseDirectiveVersionEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_112ELFAsmParser21parseDirectiveVersionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %18, %_ZN4llvm10MCStreamer11pushSectionEv.exit.i

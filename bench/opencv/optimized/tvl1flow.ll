@@ -5320,9 +5320,9 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !97
   %9 = icmp slt i32 %6, %8
-  br i1 %9, label %.lr.ph105, label %._crit_edge106
+  br i1 %9, label %.lr.ph100, label %._crit_edge101
 
-.lr.ph105:                                        ; preds = %2
+.lr.ph100:                                        ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !98
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5375,45 +5375,45 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   %59 = load i32, ptr %58, align 4, !tbaa !71
   %60 = icmp sgt i32 %59, 0
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  br i1 %60, label %.lr.ph105.split.us.preheader, label %._crit_edge106
+  br i1 %60, label %.lr.ph100.split.us.preheader, label %._crit_edge101
 
-.lr.ph105.split.us.preheader:                     ; preds = %.lr.ph105
+.lr.ph100.split.us.preheader:                     ; preds = %.lr.ph100
   %62 = sext i32 %6 to i64
-  %wide.trip.count114 = sext i32 %8 to i64
+  %wide.trip.count109 = sext i32 %8 to i64
   %wide.trip.count = zext nneg i32 %59 to i64
-  br label %.lr.ph105.split.us
+  br label %.lr.ph100.split.us
 
-.lr.ph105.split.us:                               ; preds = %.lr.ph105.split.us.preheader, %._crit_edge.us
-  %indvars.iv111 = phi i64 [ %62, %.lr.ph105.split.us.preheader ], [ %indvars.iv.next112, %._crit_edge.us ]
-  %63 = mul i64 %14, %indvars.iv111
+.lr.ph100.split.us:                               ; preds = %.lr.ph100.split.us.preheader, %._crit_edge.us
+  %indvars.iv106 = phi i64 [ %62, %.lr.ph100.split.us.preheader ], [ %indvars.iv.next107, %._crit_edge.us ]
+  %63 = mul i64 %14, %indvars.iv106
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 %63
-  %65 = mul i64 %19, %indvars.iv111
+  %65 = mul i64 %19, %indvars.iv106
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 %65
-  %67 = mul i64 %24, %indvars.iv111
+  %67 = mul i64 %24, %indvars.iv106
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 %67
-  %69 = mul i64 %29, %indvars.iv111
+  %69 = mul i64 %29, %indvars.iv106
   %70 = getelementptr inbounds nuw i8, ptr %26, i64 %69
   br i1 %5, label %71, label %.lr.ph.us
 
-71:                                               ; preds = %.lr.ph105.split.us
+71:                                               ; preds = %.lr.ph100.split.us
   %72 = load i64, ptr %33, align 8, !tbaa !100
-  %73 = mul i64 %72, %indvars.iv111
+  %73 = mul i64 %72, %indvars.iv106
   %74 = getelementptr inbounds nuw i8, ptr %31, i64 %73
   %75 = load i64, ptr %57, align 8, !tbaa !100
-  %76 = mul i64 %75, %indvars.iv111
+  %76 = mul i64 %75, %indvars.iv106
   %77 = getelementptr inbounds nuw i8, ptr %55, i64 %76
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph105.split.us, %71
-  %78 = phi ptr [ %74, %71 ], [ null, %.lr.ph105.split.us ]
-  %79 = phi ptr [ %77, %71 ], [ null, %.lr.ph105.split.us ]
-  %.pn124 = mul i64 %38, %indvars.iv111
-  %80 = getelementptr inbounds nuw i8, ptr %35, i64 %.pn124
-  %.pn123 = mul i64 %43, %indvars.iv111
-  %81 = getelementptr inbounds nuw i8, ptr %40, i64 %.pn123
-  %.pn122 = mul i64 %48, %indvars.iv111
-  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.pn122
-  %.pn = mul i64 %53, %indvars.iv111
+.lr.ph.us:                                        ; preds = %.lr.ph100.split.us, %71
+  %78 = phi ptr [ %74, %71 ], [ null, %.lr.ph100.split.us ]
+  %79 = phi ptr [ %77, %71 ], [ null, %.lr.ph100.split.us ]
+  %.pn119 = mul i64 %38, %indvars.iv106
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 %.pn119
+  %.pn118 = mul i64 %43, %indvars.iv106
+  %81 = getelementptr inbounds nuw i8, ptr %40, i64 %.pn118
+  %.pn117 = mul i64 %48, %indvars.iv106
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.pn117
+  %.pn = mul i64 %53, %indvars.iv106
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 %.pn
   br label %84
 
@@ -5487,7 +5487,7 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
 130:                                              ; preds = %111
   %131 = fmul float %88, %106
   %132 = fmul float %92, %106
-  br i1 %5, label %133, label %.thread98.us
+  br i1 %5, label %133, label %.critedge.us
 
 133:                                              ; preds = %130
   %134 = load float, ptr %3, align 4, !tbaa !110
@@ -5497,12 +5497,12 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
 136:                                              ; preds = %103
   %137 = fmul float %105, %88
   %138 = fmul float %105, %92
-  br i1 %5, label %140, label %.thread98.us
+  br i1 %5, label %140, label %.critedge.us
 
-.thread98.us:                                     ; preds = %136, %130
-  %.088.ph96.us = phi float [ %131, %130 ], [ %137, %136 ]
-  %.087.ph97.us = phi float [ %132, %130 ], [ %138, %136 ]
-  %139 = fadd float %.088.ph96.us, %90
+.critedge.us:                                     ; preds = %136, %130
+  %.088.ph.us = phi float [ %131, %130 ], [ %137, %136 ]
+  %.087.ph.us = phi float [ %132, %130 ], [ %138, %136 ]
+  %139 = fadd float %.088.ph.us, %90
   br label %.sink.split.sink.split
 
 140:                                              ; preds = %136
@@ -5511,35 +5511,35 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   br label %.thread.us
 
 .thread.us:                                       ; preds = %140, %133
-  %.088.ph.us = phi float [ %131, %133 ], [ %137, %140 ]
-  %.087.ph.us = phi float [ %132, %133 ], [ %138, %140 ]
+  %.088.ph91.us = phi float [ %131, %133 ], [ %137, %140 ]
+  %.087.ph92.us = phi float [ %132, %133 ], [ %138, %140 ]
   %.086.ph.us = phi float [ %135, %133 ], [ %142, %140 ]
-  %143 = fadd float %.088.ph.us, %90
+  %143 = fadd float %.088.ph91.us, %90
   %144 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
   store float %143, ptr %144, align 4, !tbaa !101
   %145 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv
   %146 = load float, ptr %145, align 4, !tbaa !101
-  %147 = fadd float %.087.ph.us, %146
+  %147 = fadd float %.087.ph92.us, %146
   br label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %.thread98.us, %.thread.us
-  %.sink121 = phi ptr [ %83, %.thread.us ], [ %82, %.thread98.us ]
-  %.sink = phi float [ %147, %.thread.us ], [ %139, %.thread98.us ]
-  %.sink119.ph = phi ptr [ %78, %.thread.us ], [ %70, %.thread98.us ]
-  %.08694.us.sink.ph = phi float [ %.086.ph.us, %.thread.us ], [ %.087.ph97.us, %.thread98.us ]
-  %.sink117.ph = phi ptr [ %79, %.thread.us ], [ %83, %.thread98.us ]
-  %148 = getelementptr inbounds nuw float, ptr %.sink121, i64 %indvars.iv
+.sink.split.sink.split:                           ; preds = %.critedge.us, %.thread.us
+  %.sink116 = phi ptr [ %83, %.thread.us ], [ %82, %.critedge.us ]
+  %.sink = phi float [ %147, %.thread.us ], [ %139, %.critedge.us ]
+  %.sink114.ph = phi ptr [ %78, %.thread.us ], [ %70, %.critedge.us ]
+  %.08696.us.sink.ph = phi float [ %.086.ph.us, %.thread.us ], [ %.087.ph.us, %.critedge.us ]
+  %.sink112.ph = phi ptr [ %79, %.thread.us ], [ %83, %.critedge.us ]
+  %148 = getelementptr inbounds nuw float, ptr %.sink116, i64 %indvars.iv
   store float %.sink, ptr %148, align 4, !tbaa !101
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %123
-  %.sink119 = phi ptr [ %78, %123 ], [ %.sink119.ph, %.sink.split.sink.split ]
-  %.08694.us.sink = phi float [ %.086.us, %123 ], [ %.08694.us.sink.ph, %.sink.split.sink.split ]
-  %.sink117 = phi ptr [ %79, %123 ], [ %.sink117.ph, %.sink.split.sink.split ]
-  %149 = getelementptr inbounds nuw float, ptr %.sink119, i64 %indvars.iv
+  %.sink114 = phi ptr [ %78, %123 ], [ %.sink114.ph, %.sink.split.sink.split ]
+  %.08696.us.sink = phi float [ %.086.us, %123 ], [ %.08696.us.sink.ph, %.sink.split.sink.split ]
+  %.sink112 = phi ptr [ %79, %123 ], [ %.sink112.ph, %.sink.split.sink.split ]
+  %149 = getelementptr inbounds nuw float, ptr %.sink114, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !101
-  %151 = fadd float %.08694.us.sink, %150
-  %152 = getelementptr inbounds nuw float, ptr %.sink117, i64 %indvars.iv
+  %151 = fadd float %.08696.us.sink, %150
+  %152 = getelementptr inbounds nuw float, ptr %.sink112, i64 %indvars.iv
   store float %151, ptr %152, align 4, !tbaa !101
   br label %153
 
@@ -5549,11 +5549,11 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   br i1 %exitcond.not, label %._crit_edge.us, label %84, !llvm.loop !129
 
 ._crit_edge.us:                                   ; preds = %153
-  %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge106, label %.lr.ph105.split.us, !llvm.loop !130
+  %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  br i1 %exitcond110.not, label %._crit_edge101, label %.lr.ph100.split.us, !llvm.loop !130
 
-._crit_edge106:                                   ; preds = %._crit_edge.us, %.lr.ph105, %2
+._crit_edge101:                                   ; preds = %._crit_edge.us, %.lr.ph100, %2
   ret void
 }
 

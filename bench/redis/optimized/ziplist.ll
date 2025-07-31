@@ -3651,8 +3651,8 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %26 = load i8, ptr %25, align 1, !tbaa !9
-  %.not5071 = icmp eq i8 %26, -1
-  br i1 %.not5071, label %._crit_edge.thread, label %.lr.ph
+  %.not5066 = icmp eq i8 %26, -1
+  br i1 %.not5066, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3662,59 +3662,55 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
-  %.074.us = phi i64 [ %37, %33 ], [ 0, %.lr.ph ]
-  %.03773.us = phi ptr [ %38, %33 ], [ %25, %.lr.ph ]
-  %.04172.us = phi i32 [ %39, %33 ], [ 0, %.lr.ph ]
+  %.069.us = phi i64 [ %37, %33 ], [ 0, %.lr.ph ]
+  %.03768.us = phi ptr [ %38, %33 ], [ %25, %.lr.ph ]
+  %.04167.us = phi i32 [ %39, %33 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
-  %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03773.us, ptr noundef %6, i32 noundef 1)
+  %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03768.us, ptr noundef %6, i32 noundef 1)
   %.not56.us = icmp ne i32 %30, 0
   %31 = load i32, ptr %27, align 4
   %32 = zext i32 %31 to i64
-  %.not57.us = icmp eq i64 %.074.us, %32
+  %.not57.us = icmp eq i64 %.069.us, %32
   %or.cond62.us = select i1 %.not56.us, i1 %.not57.us, i1 false
-  br i1 %or.cond62.us, label %33, label %.thread
+  br i1 %or.cond62.us, label %33, label %.critedge
 
 33:                                               ; preds = %.lr.ph.split.us
   %34 = load i32, ptr %28, align 8, !tbaa !22
   %35 = load i32, ptr %29, align 4, !tbaa !21
   %36 = add i32 %35, %34
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %.03773.us, i64 %37
-  %39 = add i32 %.04172.us, 1
+  %38 = getelementptr inbounds nuw i8, ptr %.03768.us, i64 %37
+  %39 = add i32 %.04167.us, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   %40 = load i8, ptr %38, align 1, !tbaa !9
   %.not50.us = icmp eq i8 %40, -1
   br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
-  %.074 = phi i64 [ %50, %46 ], [ 0, %.lr.ph ]
-  %.03773 = phi ptr [ %51, %46 ], [ %25, %.lr.ph ]
-  %.04172 = phi i32 [ %52, %46 ], [ 0, %.lr.ph ]
+  %.069 = phi i64 [ %50, %46 ], [ 0, %.lr.ph ]
+  %.03768 = phi ptr [ %51, %46 ], [ %25, %.lr.ph ]
+  %.04167 = phi i32 [ %52, %46 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
-  %41 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03773, ptr noundef %6, i32 noundef 1)
+  %41 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03768, ptr noundef %6, i32 noundef 1)
   %.not56 = icmp ne i32 %41, 0
   %42 = load i32, ptr %27, align 4
   %43 = zext i32 %42 to i64
-  %.not57 = icmp eq i64 %.074, %43
+  %.not57 = icmp eq i64 %.069, %43
   %or.cond62 = select i1 %.not56, i1 %.not57, i1 false
-  br i1 %or.cond62, label %44, label %.thread
+  br i1 %or.cond62, label %44, label %.critedge
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = tail call i32 %3(ptr noundef nonnull %.03773, i32 noundef %24, ptr noundef %4) #17
+  %45 = tail call i32 %3(ptr noundef nonnull %.03768, i32 noundef %24, ptr noundef %4) #17
   %.not59 = icmp eq i32 %45, 0
-  br i1 %.not59, label %.thread, label %46
-
-.thread:                                          ; preds = %44, %.lr.ph.split, %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  br label %60
+  br i1 %.not59, label %.critedge, label %46
 
 46:                                               ; preds = %44
   %47 = load i32, ptr %28, align 8, !tbaa !22
   %48 = load i32, ptr %29, align 4, !tbaa !21
   %49 = add i32 %48, %47
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %.03773, i64 %50
-  %52 = add i32 %.04172, 1
+  %51 = getelementptr inbounds nuw i8, ptr %.03768, i64 %50
+  %52 = add i32 %.04167, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   %53 = load i8, ptr %51, align 1, !tbaa !9
   %.not50 = icmp eq i8 %53, -1
@@ -3723,33 +3719,37 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
 ._crit_edge:                                      ; preds = %46, %33
   %.041.lcssa = phi i32 [ %39, %33 ], [ %52, %46 ]
   %.037.lcssa = phi ptr [ %38, %33 ], [ %51, %46 ]
-  %.035.lcssa = phi ptr [ %.03773.us, %33 ], [ %.03773, %46 ]
+  %.035.lcssa = phi ptr [ %.03768.us, %33 ], [ %.03768, %46 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %55 = getelementptr inbounds i8, ptr %54, i64 -1
   %.not51 = icmp eq ptr %.037.lcssa, %55
   br i1 %.not51, label %56, label %60
 
 ._crit_edge.thread:                               ; preds = %21
-  %.not5189 = icmp eq i64 %1, 11
-  br i1 %.not5189, label %.thread92, label %60
+  %.not5184 = icmp eq i64 %1, 11
+  br i1 %.not5184, label %.thread, label %60
 
 56:                                               ; preds = %._crit_edge
   %57 = load i32, ptr %16, align 4, !tbaa !5
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
   %.not53 = icmp eq ptr %.035.lcssa, %59
-  br i1 %.not53, label %.thread92, label %60
+  br i1 %.not53, label %.thread, label %60
 
-.thread92:                                        ; preds = %._crit_edge.thread, %56
-  %.041.lcssa9096 = phi i32 [ %.041.lcssa, %56 ], [ 0, %._crit_edge.thread ]
+.thread:                                          ; preds = %._crit_edge.thread, %56
+  %.041.lcssa8590 = phi i32 [ %.041.lcssa, %56 ], [ 0, %._crit_edge.thread ]
   %.not54 = icmp eq i16 %23, -1
-  %.not55 = icmp eq i32 %.041.lcssa9096, %24
+  %.not55 = icmp eq i32 %.041.lcssa8590, %24
   %or.cond = select i1 %.not54, i1 true, i1 %.not55
   %spec.select = zext i1 %or.cond to i32
   br label %60
 
-60:                                               ; preds = %._crit_edge.thread, %.thread, %.thread92, %8, %11, %15, %20, %56, %._crit_edge, %5
-  %.039 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 0, %._crit_edge ], [ 0, %56 ], [ %spec.select, %.thread92 ], [ 0, %.thread ], [ 0, %._crit_edge.thread ]
+.critedge:                                        ; preds = %.lr.ph.split, %44, %.lr.ph.split.us
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  br label %60
+
+60:                                               ; preds = %._crit_edge.thread, %.thread, %8, %11, %15, %20, %56, %._crit_edge, %.critedge, %5
+  %.039 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 0, %.critedge ], [ 0, %._crit_edge ], [ 0, %56 ], [ %spec.select, %.thread ], [ 0, %._crit_edge.thread ]
   ret i32 %.039
 }
 

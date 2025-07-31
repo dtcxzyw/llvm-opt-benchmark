@@ -5875,8 +5875,8 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef nonnull @.str.84, i32 noundef %168, i32 noundef %169) #11
   br label %.critedge208
 
-.critedge208:                                     ; preds = %138, %135, %.critedge, %150, %157, %161, %166, %131, %128
-  %.5 = phi i32 [ -902, %128 ], [ -902, %131 ], [ 0, %166 ], [ 0, %161 ], [ 0, %157 ], [ 0, %150 ], [ -902, %.critedge ], [ -902, %135 ], [ -902, %138 ]
+.critedge208:                                     ; preds = %.critedge, %135, %138, %150, %157, %161, %166, %131, %128
+  %.5 = phi i32 [ -902, %128 ], [ -902, %131 ], [ 0, %166 ], [ 0, %161 ], [ 0, %157 ], [ 0, %150 ], [ -902, %138 ], [ -902, %135 ], [ -902, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
   br label %.critedge215
 
@@ -5950,8 +5950,8 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef nonnull @.str.86, i32 noundef %205, i32 noundef %206, ptr noundef %2, i32 noundef %207, ptr noundef %4) #11
   br label %.critedge215
 
-.critedge215:                                     ; preds = %86, %free_push_headers.exit, %27, %50, %.critedge212, %170, %173, %.critedge213, %187, %194, %198, %203, %121, %56, %90, %88, %8, %.critedge208, %20
-  %.0 = phi i32 [ %.5, %.critedge208 ], [ -902, %20 ], [ -902, %8 ], [ -902, %50 ], [ -902, %56 ], [ 0, %90 ], [ 0, %88 ], [ %.206, %121 ], [ 0, %203 ], [ 0, %198 ], [ 0, %194 ], [ 0, %187 ], [ -902, %.critedge213 ], [ -902, %173 ], [ -902, %170 ], [ -902, %.critedge212 ], [ -902, %27 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
+.critedge215:                                     ; preds = %86, %free_push_headers.exit, %27, %50, %.critedge213, %173, %170, %.critedge212, %187, %194, %198, %203, %121, %56, %90, %88, %8, %.critedge208, %20
+  %.0 = phi i32 [ %.5, %.critedge208 ], [ -902, %20 ], [ -902, %8 ], [ -902, %50 ], [ -902, %56 ], [ 0, %90 ], [ 0, %88 ], [ %.206, %121 ], [ 0, %203 ], [ 0, %198 ], [ 0, %194 ], [ 0, %187 ], [ -902, %.critedge212 ], [ -902, %170 ], [ -902, %173 ], [ -902, %.critedge213 ], [ -902, %27 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
   ret i32 %.0
 }
 

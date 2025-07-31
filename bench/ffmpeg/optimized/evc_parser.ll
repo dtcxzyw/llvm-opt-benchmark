@@ -239,19 +239,19 @@ decode_extradata.exit:                            ; preds = %.critedge.i, %bytes
 
 90:                                               ; preds = %decode_extradata.exit, %12, %6
   %91 = icmp sgt i32 %5, 0
-  br i1 %91, label %.lr.ph.i25, label %parse_nal_units.exit
+  br i1 %91, label %.lr.ph.i26, label %parse_nal_units.exit
 
-.lr.ph.i25:                                       ; preds = %90, %102
-  %.02334.i = phi i32 [ %105, %102 ], [ %5, %90 ]
-  %.02533.i = phi ptr [ %104, %102 ], [ %4, %90 ]
-  %92 = icmp samesign ult i32 %.02334.i, 4
+.lr.ph.i26:                                       ; preds = %90, %102
+  %.02331.i = phi i32 [ %105, %102 ], [ %5, %90 ]
+  %.02530.i = phi ptr [ %104, %102 ], [ %4, %90 ]
+  %92 = icmp samesign ult i32 %.02331.i, 4
   br i1 %92, label %parse_nal_units.exit, label %93
 
-93:                                               ; preds = %.lr.ph.i25
-  %.025.val.i = load i32, ptr %.02533.i, align 1, !tbaa !37
+93:                                               ; preds = %.lr.ph.i26
+  %.025.val.i = load i32, ptr %.02530.i, align 1, !tbaa !37
   %94 = tail call i32 @llvm.bswap.i32(i32 %.025.val.i)
-  %95 = getelementptr inbounds nuw i8, ptr %.02533.i, i64 4
-  %96 = add nsw i32 %.02334.i, -4
+  %95 = getelementptr inbounds nuw i8, ptr %.02530.i, i64 4
+  %96 = add nsw i32 %.02331.i, -4
   %97 = icmp slt i32 %96, %94
   br i1 %97, label %parse_nal_units.exit, label %98
 
@@ -269,11 +269,11 @@ decode_extradata.exit:                            ; preds = %.critedge.i, %bytes
   %104 = getelementptr inbounds i8, ptr %95, i64 %103
   %105 = sub nsw i32 %96, %94
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph.i25, label %parse_nal_units.exit, !llvm.loop !43
+  br i1 %106, label %.lr.ph.i26, label %parse_nal_units.exit, !llvm.loop !43
 
-parse_nal_units.exit:                             ; preds = %93, %.lr.ph.i25, %102, %101, %90
-  %107 = phi ptr [ %4, %90 ], [ null, %101 ], [ null, %93 ], [ null, %.lr.ph.i25 ], [ %4, %102 ]
-  %108 = phi i32 [ %5, %90 ], [ 0, %101 ], [ 0, %93 ], [ 0, %.lr.ph.i25 ], [ %5, %102 ]
+parse_nal_units.exit:                             ; preds = %.lr.ph.i26, %93, %102, %101, %90
+  %107 = phi ptr [ %4, %90 ], [ null, %101 ], [ null, %.lr.ph.i26 ], [ null, %93 ], [ %4, %102 ]
+  %108 = phi i32 [ %5, %90 ], [ 0, %101 ], [ 0, %.lr.ph.i26 ], [ 0, %93 ], [ %5, %102 ]
   store ptr %107, ptr %2, align 8, !tbaa !44
   store i32 %108, ptr %3, align 4, !tbaa !45
   ret i32 %5

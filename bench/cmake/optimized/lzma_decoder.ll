@@ -2971,7 +2971,7 @@ define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr noundef captures(non
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %7 = load i32, ptr %6, align 4, !tbaa !101
   %8 = icmp ult i32 %7, 5
-  br i1 %8, label %9, label %is_lclppb_valid.exit.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2980,85 +2980,85 @@ define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr noundef captures(non
   %13 = add nuw nsw i32 %11, %7
   %14 = icmp ult i32 %13, 5
   %or.cond.i = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond.i, label %is_lclppb_valid.exit, label %is_lclppb_valid.exit.thread
+  br i1 %or.cond.i, label %is_lclppb_valid.exit, label %.critedge
 
 is_lclppb_valid.exit:                             ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %16 = load i32, ptr %15, align 4, !tbaa !100
   %17 = icmp ult i32 %16, 5
-  br i1 %17, label %18, label %is_lclppb_valid.exit.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %is_lclppb_valid.exit
   %19 = icmp eq i64 %2, 4611686018427387906
-  br i1 %19, label %20, label %35
+  br i1 %19, label %20, label %36
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !117
   %.not = icmp ult i32 %22, 2
-  br i1 %.not, label %.thread, label %is_lclppb_valid.exit.thread
+  br i1 %.not, label %23, label %.critedge
 
-.thread:                                          ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %24 = load i32, ptr %23, align 4, !tbaa !118
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %27 = load i32, ptr %26, align 8, !tbaa !119
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw i64 %28, 32
-  %30 = or disjoint i64 %29, %25
-  %31 = icmp ne i32 %22, 0
-  %32 = icmp eq i64 %30, -1
-  %33 = select i1 %31, i1 true, i1 %32
-  %34 = zext i1 %33 to i8
-  br label %35
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %25 = load i32, ptr %24, align 4, !tbaa !118
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %28 = load i32, ptr %27, align 8, !tbaa !119
+  %29 = zext i32 %28 to i64
+  %30 = shl nuw i64 %29, 32
+  %31 = or disjoint i64 %30, %26
+  %32 = icmp ne i32 %22, 0
+  %33 = icmp eq i64 %31, -1
+  %34 = select i1 %32, i1 true, i1 %33
+  %35 = zext i1 %34 to i8
+  br label %36
 
-35:                                               ; preds = %.thread, %18
-  %.127 = phi i8 [ 1, %18 ], [ %34, %.thread ]
-  %.125 = phi i64 [ -1, %18 ], [ %30, %.thread ]
-  %36 = load ptr, ptr %0, align 8, !tbaa !4
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %45
+36:                                               ; preds = %23, %18
+  %.127 = phi i8 [ %35, %23 ], [ 1, %18 ]
+  %.125 = phi i64 [ %31, %23 ], [ -1, %18 ]
+  %37 = load ptr, ptr %0, align 8, !tbaa !4
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %35
-  %39 = tail call ptr @lzma_alloc(i64 noundef 28352, ptr noundef %1) #8
-  store ptr %39, ptr %0, align 8, !tbaa !4
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %is_lclppb_valid.exit.thread, label %41
+39:                                               ; preds = %36
+  %40 = tail call ptr @lzma_alloc(i64 noundef 28352, ptr noundef %1) #8
+  store ptr %40, ptr %0, align 8, !tbaa !4
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.critedge, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @lzma_decode, ptr %42, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @lzma_decoder_reset, ptr %43, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @lzma_decoder_uncompressed, ptr %44, align 8, !tbaa !11
-  br label %45
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @lzma_decode, ptr %43, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @lzma_decoder_reset, ptr %44, align 8, !tbaa !10
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @lzma_decoder_uncompressed, ptr %45, align 8, !tbaa !11
+  br label %46
 
-45:                                               ; preds = %35, %41
-  %46 = phi ptr [ %36, %35 ], [ %39, %41 ]
-  %47 = load i32, ptr %3, align 8, !tbaa !12
-  %48 = zext i32 %47 to i64
-  store i64 %48, ptr %4, align 8, !tbaa !16
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %50, ptr %51, align 8, !tbaa !20
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !21
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %54, ptr %55, align 8, !tbaa !22
-  tail call void @lzma_decoder_reset(ptr noundef nonnull %46, ptr noundef nonnull %3)
-  %56 = load ptr, ptr %0, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28312
-  store i64 %.125, ptr %57, align 8, !tbaa !57
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 28320
-  store i8 %.127, ptr %58, align 8, !tbaa !83
-  br label %is_lclppb_valid.exit.thread
+46:                                               ; preds = %36, %42
+  %47 = phi ptr [ %37, %36 ], [ %40, %42 ]
+  %48 = load i32, ptr %3, align 8, !tbaa !12
+  %49 = zext i32 %48 to i64
+  store i64 %49, ptr %4, align 8, !tbaa !16
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !19
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %51, ptr %52, align 8, !tbaa !20
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !21
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %55, ptr %56, align 8, !tbaa !22
+  tail call void @lzma_decoder_reset(ptr noundef nonnull %47, ptr noundef nonnull %3)
+  %57 = load ptr, ptr %0, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 28312
+  store i64 %.125, ptr %58, align 8, !tbaa !57
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 28320
+  store i8 %.127, ptr %59, align 8, !tbaa !83
+  br label %.critedge
 
-is_lclppb_valid.exit.thread:                      ; preds = %38, %5, %9, %20, %45, %is_lclppb_valid.exit
-  %.0 = phi i32 [ 11, %is_lclppb_valid.exit ], [ 0, %45 ], [ 8, %20 ], [ 11, %9 ], [ 11, %5 ], [ 5, %38 ]
+.critedge:                                        ; preds = %39, %5, %9, %46, %20, %is_lclppb_valid.exit
+  %.0 = phi i32 [ 11, %is_lclppb_valid.exit ], [ 0, %46 ], [ 8, %20 ], [ 11, %9 ], [ 11, %5 ], [ 5, %39 ]
   ret i32 %.0
 }
 

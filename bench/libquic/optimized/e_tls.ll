@@ -463,34 +463,30 @@ define internal range(i32 0, 2) i32 @aead_tls_open(ptr noundef readonly captures
   %100 = load i32, ptr %12, align 4, !tbaa !25
   %101 = trunc i64 %59 to i32
   call void @EVP_tls_cbc_copy_mac(ptr noundef nonnull %16, i32 noundef %99, ptr noundef %1, i32 noundef %100, i32 noundef %101) #8
-  %.pre86 = load i64, ptr %15, align 8, !tbaa !26
+  %.pre84 = load i64, ptr %15, align 8, !tbaa !26
   br label %115
 
 102:                                              ; preds = %84, %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
   %103 = call i32 @HMAC_Init_ex(ptr noundef nonnull %24, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef null) #8
   %.not75 = icmp eq i32 %103, 0
-  br i1 %.not75, label %.thread, label %104
+  br i1 %.not75, label %.critedge, label %104
 
 104:                                              ; preds = %102
   %105 = call i32 @HMAC_Update(ptr noundef nonnull %24, ptr noundef nonnull %13, i64 noundef 13) #8
   %.not76 = icmp eq i32 %105, 0
-  br i1 %.not76, label %.thread, label %106
+  br i1 %.not76, label %.critedge, label %106
 
 106:                                              ; preds = %104
   %107 = zext i32 %76 to i64
   %108 = call i32 @HMAC_Update(ptr noundef nonnull %24, ptr noundef %1, i64 noundef %107) #8
   %.not77 = icmp eq i32 %108, 0
-  br i1 %.not77, label %.thread, label %109
+  br i1 %.not77, label %.critedge, label %109
 
 109:                                              ; preds = %106
   %110 = call i32 @HMAC_Final(ptr noundef nonnull %24, ptr noundef nonnull %14, ptr noundef nonnull %17) #8
   %.not78 = icmp eq i32 %110, 0
-  br i1 %.not78, label %.thread, label %111
-
-.thread:                                          ; preds = %109, %106, %104, %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
-  br label %122
+  br i1 %.not78, label %.critedge, label %111
 
 111:                                              ; preds = %109
   %112 = load i32, ptr %17, align 4, !tbaa !25
@@ -501,12 +497,12 @@ define internal range(i32 0, 2) i32 @aead_tls_open(ptr noundef readonly captures
   br label %115
 
 115:                                              ; preds = %111, %97
-  %116 = phi i64 [ %.pre86, %97 ], [ %113, %111 ]
+  %116 = phi i64 [ %.pre84, %97 ], [ %113, %111 ]
   %.061 = phi ptr [ %16, %97 ], [ %114, %111 ]
   %117 = call i32 @CRYPTO_memcmp(ptr noundef %.061, ptr noundef nonnull %14, i64 noundef %116) #8
   %118 = icmp ne i32 %117, 0
-  %.not85 = or i1 %.063, %118
-  br i1 %.not85, label %119, label %120
+  %.not83 = or i1 %.063, %118
+  br i1 %.not83, label %119, label %120
 
 119:                                              ; preds = %115
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 343) #8
@@ -517,8 +513,12 @@ define internal range(i32 0, 2) i32 @aead_tls_open(ptr noundef readonly captures
   store i64 %121, ptr %2, align 8, !tbaa !26
   br label %122
 
-122:                                              ; preds = %.thread, %119, %120, %96
-  %.3 = phi i32 [ 0, %96 ], [ 1, %120 ], [ 0, %119 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %102, %104, %106, %109
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
+  br label %122
+
+122:                                              ; preds = %119, %120, %.critedge, %96
+  %.3 = phi i32 [ 0, %96 ], [ 0, %.critedge ], [ 1, %120 ], [ 0, %119 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #8

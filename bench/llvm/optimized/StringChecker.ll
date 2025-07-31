@@ -1647,23 +1647,23 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   %8 = select i1 %6, i64 33, i64 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15, !noalias !320
   store i64 %8, ptr %4, align 8, !tbaa !14, !noalias !320
-  br i1 %6, label %9, label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_113StringChecker12checkPreCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_0JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  br i1 %6, label %._crit_edge.i.i.i.i.i, label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_113StringChecker12checkPreCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_0JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-9:                                                ; preds = %3
-  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
-  store ptr %10, ptr %0, align 8, !tbaa !46, !alias.scope !320
-  %11 = load i64, ptr %4, align 8, !tbaa !14, !noalias !320
-  store i64 %11, ptr %7, align 8, !tbaa !12, !alias.scope !320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %10, ptr noundef nonnull align 1 dereferenceable(33) @.str.8, i64 33, i1 false)
+._crit_edge.i.i.i.i.i:                            ; preds = %3
+  %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
+  store ptr %9, ptr %0, align 8, !tbaa !46, !alias.scope !320
+  %10 = load i64, ptr %4, align 8, !tbaa !14, !noalias !320
+  store i64 %10, ptr %7, align 8, !tbaa !12, !alias.scope !320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %9, ptr noundef nonnull align 1 dereferenceable(33) @.str.8, i64 33, i1 false)
   br label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_113StringChecker12checkPreCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_0JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_113StringChecker12checkPreCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_0JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %3, %9
-  %12 = phi ptr [ %10, %9 ], [ %7, %3 ]
-  %13 = phi i64 [ %11, %9 ], [ 0, %3 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %14, align 8, !tbaa !48, !alias.scope !320
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %13
-  store i8 0, ptr %15, align 1, !tbaa !12
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_113StringChecker12checkPreCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_0JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %3, %._crit_edge.i.i.i.i.i
+  %11 = phi ptr [ %7, %3 ], [ %9, %._crit_edge.i.i.i.i.i ]
+  %12 = phi i64 [ 0, %3 ], [ %10, %._crit_edge.i.i.i.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %12, ptr %13, align 8, !tbaa !48, !alias.scope !320
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %12
+  store i8 0, ptr %14, align 1, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15, !noalias !320
   ret void
 }

@@ -7798,52 +7798,52 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %165 = icmp uge ptr %4, %.pre3.i.i
   %166 = icmp ult ptr %4, %164
   %spec.select.i.i.i.i.i.i = and i1 %165, %166
-  br i1 %spec.select.i.i.i.i.i.i, label %168, label %167, !prof !270
+  br i1 %spec.select.i.i.i.i.i.i, label %167, label %.critedge.i.i.i.i, !prof !270
 
 167:                                              ; preds = %163
+  %168 = ptrtoint ptr %.pre3.i.i to i64
+  %169 = sub i64 %29, %168
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %28, i64 noundef %161, i64 noundef 40) #21
+  %170 = load ptr, ptr %24, align 8, !tbaa !25
+  %171 = getelementptr inbounds i8, ptr %170, i64 %169
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i
+
+.critedge.i.i.i.i:                                ; preds = %163
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %28, i64 noundef %161, i64 noundef 40) #21
   %.pre.i.i = load ptr, ptr %24, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i
 
-168:                                              ; preds = %163
-  %169 = ptrtoint ptr %.pre3.i.i to i64
-  %170 = sub i64 %29, %169
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %28, i64 noundef %161, i64 noundef 40) #21
-  %171 = load ptr, ptr %24, align 8, !tbaa !25
-  %172 = getelementptr inbounds i8, ptr %171, i64 %170
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i
-
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i: ; preds = %168, %167, %157
-  %173 = phi ptr [ %.pre3.i.i, %157 ], [ %171, %168 ], [ %.pre.i.i, %167 ]
-  %.016.i.i.i.i = phi ptr [ %4, %157 ], [ %172, %168 ], [ %4, %167 ]
-  %174 = load i32, ptr %26, align 8, !tbaa !26
-  %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw %"struct.std::pair.268", ptr %173, i64 %175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %176, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
-  %177 = load i32, ptr %26, align 8, !tbaa !26
-  %178 = add i32 %177, 1
-  store i32 %178, ptr %26, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i: ; preds = %.critedge.i.i.i.i, %167, %157
+  %172 = phi ptr [ %.pre3.i.i, %157 ], [ %170, %167 ], [ %.pre.i.i, %.critedge.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %4, %157 ], [ %171, %167 ], [ %4, %.critedge.i.i.i.i ]
+  %173 = load i32, ptr %26, align 8, !tbaa !26
+  %174 = zext i32 %173 to i64
+  %175 = getelementptr inbounds nuw %"struct.std::pair.268", ptr %172, i64 %174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %175, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
+  %176 = load i32, ptr %26, align 8, !tbaa !26
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %26, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
-  store i32 %177, ptr %158, align 4, !tbaa !51
+  store i32 %176, ptr %158, align 4, !tbaa !51
   br label %_ZN4llvm9MapVectorIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEEixERKS2_.exit
 
 _ZN4llvm9MapVectorIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEEixERKS2_.exit: ; preds = %._crit_edge.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i
-  %179 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %177, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i ]
-  %180 = zext i32 %179 to i64
-  %181 = load ptr, ptr %24, align 8, !tbaa !25
-  %182 = getelementptr inbounds nuw %"struct.std::pair.268", ptr %181, i64 %180, i32 1
-  store i64 %.0.i, ptr %182, align 8, !tbaa !47
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %178 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %176, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorEELb1EE9push_backERKS6_.exit.i ]
+  %179 = zext i32 %178 to i64
+  %180 = load ptr, ptr %24, align 8, !tbaa !25
+  %181 = getelementptr inbounds nuw %"struct.std::pair.268", ptr %180, i64 %179, i32 1
+  store i64 %.0.i, ptr %181, align 8, !tbaa !47
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %79, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !319
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i64 %67, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !47
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 24
   store i8 %.sroa.0.1.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !75
   br label %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.thread
 
 _ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit.thread: ; preds = %.lr.ph, %_ZN4llvm9MapVectorIPNS_11InstructionENS_21InterleavedAccessInfo16StrideDescriptorENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEEixERKS2_.exit, %_ZN4llvm16getLoadStoreTypeEPKNS_5ValueE.exit, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.053.088, i64 8
-  %.sroa.053.0 = load ptr, ptr %183, align 8, !tbaa !131
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.053.088, i64 8
+  %.sroa.053.0 = load ptr, ptr %182, align 8, !tbaa !131
   %.not78 = icmp eq ptr %.sroa.053.0, %47
   br i1 %.not78, label %.loopexit, label %.lr.ph
 }

@@ -94,11 +94,7 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
 .preheader:                                       ; preds = %24
   %26 = load i32, ptr %3, align 4
   %.not77 = icmp eq i32 %26, 0
-  br i1 %.not77, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %.preheader
-  call void @SDL_free_REAL(ptr noundef nonnull %25) #5
-  br label %40
+  br i1 %.not77, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader ]
@@ -135,7 +131,11 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
   call void @SDL_free_REAL(ptr noundef nonnull %25) #5
   br i1 %.149, label %42, label %40
 
-40:                                               ; preds = %._crit_edge.thread, %._crit_edge
+.critedge:                                        ; preds = %.preheader
+  call void @SDL_free_REAL(ptr noundef nonnull %25) #5
+  br label %40
+
+40:                                               ; preds = %.critedge, %._crit_edge
   %41 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #5
   br label %.thread
 

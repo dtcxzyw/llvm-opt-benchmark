@@ -8045,7 +8045,7 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 8:                                                ; preds = %5, %5, %5
   store ptr null, ptr %2, align 8
   store i8 1, ptr %3, align 1
-  br label %38
+  br label %.critedge48
 
 9:                                                ; preds = %5
   call void @initStringInfo(ptr noundef nonnull %6) #14
@@ -8059,9 +8059,9 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %10
   switch i8 %.pr, label %.critedge [
-    i8 44, label %36
-    i8 41, label %36
-    i8 93, label %36
+    i8 44, label %.critedge46
+    i8 41, label %.critedge46
+    i8 93, label %.critedge46
   ]
 
 .critedge:                                        ; preds = %10, %11
@@ -8074,14 +8074,14 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %.critedge
   %14 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #14
-  br i1 %14, label %15, label %38
+  br i1 %14, label %15, label %.critedge48
 
 15:                                               ; preds = %13
   %16 = call i32 @errcode(i32 noundef 33685634) #14
   %17 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %0) #14
   %18 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28) #14
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 2464, ptr noundef nonnull @__func__.range_parse_bound) #14
-  br label %38
+  br label %.critedge48
 
 19:                                               ; preds = %.critedge
   %20 = load i8, ptr %12, align 1
@@ -8090,14 +8090,14 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %19
   %23 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #14
-  br i1 %23, label %24, label %38
+  br i1 %23, label %24, label %.critedge48
 
 24:                                               ; preds = %22
   %25 = call i32 @errcode(i32 noundef 33685634) #14
   %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %0) #14
   %27 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.28) #14
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 2472, ptr noundef nonnull @__func__.range_parse_bound) #14
-  br label %38
+  br label %.critedge48
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %.136, i64 2
@@ -8127,14 +8127,14 @@ define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr nounde
   %.136.be = phi ptr [ %12, %30 ], [ %12, %31 ], [ %.237.ph, %.sink.split ]
   br label %10, !llvm.loop !21
 
-36:                                               ; preds = %11, %11, %11
-  %37 = load ptr, ptr %6, align 8
-  store ptr %37, ptr %2, align 8
+.critedge46:                                      ; preds = %11, %11, %11
+  %36 = load ptr, ptr %6, align 8
+  store ptr %36, ptr %2, align 8
   store i8 0, ptr %3, align 1
-  br label %38
+  br label %.critedge48
 
-38:                                               ; preds = %36, %15, %13, %24, %22, %8
-  %.3 = phi ptr [ %1, %8 ], [ %.136, %36 ], [ null, %15 ], [ null, %13 ], [ null, %24 ], [ null, %22 ]
+.critedge48:                                      ; preds = %15, %13, %24, %22, %8, %.critedge46
+  %.3 = phi ptr [ %1, %8 ], [ %.136, %.critedge46 ], [ null, %22 ], [ null, %24 ], [ null, %13 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   ret ptr %.3
 }

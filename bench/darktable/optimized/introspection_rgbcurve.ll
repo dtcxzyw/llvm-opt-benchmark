@@ -4149,7 +4149,7 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2804
   %8 = load i32, ptr %7, align 4, !tbaa !193
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %30
+  br i1 %.not, label %9, label %.fold.split
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 680
@@ -4163,18 +4163,18 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %16 = load i32, ptr %15, align 8, !tbaa !48
   %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %17, label %30
+  br i1 %.not25, label %17, label %.fold.split
 
 17:                                               ; preds = %14, %9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %19 = load i32, ptr %18, align 8, !tbaa !124
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %30, label %21
+  br i1 %20, label %.fold.split, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !213
-  switch i32 %23, label %30 [
+  switch i32 %23, label %.fold.split [
     i32 65362, label %27
     i32 65431, label %27
     i32 65364, label %24
@@ -4194,16 +4194,16 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
 26:                                               ; preds = %21, %21
   br label %27
 
-27:                                               ; preds = %24, %25, %26, %21, %21
-  %.020.ph = phi float [ 0.000000e+00, %21 ], [ 0.000000e+00, %21 ], [ 0xBF50624DE0000000, %26 ], [ 0x3F50624DE0000000, %25 ], [ 0.000000e+00, %24 ]
-  %.0.ph = phi float [ 0x3F50624DE0000000, %21 ], [ 0x3F50624DE0000000, %21 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %25 ], [ 0xBF50624DE0000000, %24 ]
+27:                                               ; preds = %25, %26, %24, %21, %21
+  %.020 = phi nsz float [ 0.000000e+00, %24 ], [ 0x3F50624DE0000000, %25 ], [ 0xBF50624DE0000000, %26 ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %21 ]
+  %.0 = phi nsz float [ 0xBF50624DE0000000, %24 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %26 ], [ 0x3F50624DE0000000, %21 ], [ 0x3F50624DE0000000, %21 ]
   tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !215
-  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.020.ph, float noundef %.0.ph, i32 noundef %29)
-  br label %30
+  tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.020, float noundef %.0, i32 noundef %29)
+  br label %.fold.split
 
-30:                                               ; preds = %21, %27, %17, %14, %3
+.fold.split:                                      ; preds = %21, %27, %17, %14, %3
   %.022 = phi i32 [ 0, %3 ], [ 1, %14 ], [ 0, %17 ], [ 1, %27 ], [ 0, %21 ]
   ret i32 %.022
 }

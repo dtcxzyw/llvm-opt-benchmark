@@ -4491,12 +4491,12 @@ if.then39:                                        ; preds = %if.end35
   %conv40 = and i64 %24, 4294967295
   %call41 = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %data, i64 noundef %conv40) #18
   %cmp.i26.not = icmp eq ptr %call41, null
-  br i1 %cmp.i26.not, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32.thread, label %if.end45
+  br i1 %cmp.i26.not, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit, label %if.end45
 
-_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32.thread: ; preds = %if.then39
+_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit: ; preds = %if.then39
   %call44 = call i64 @ERR_get_error() #18
   call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef %retval.0.i.i, i64 noundef %call44, ptr noundef null) #18
-  %call.i3350 = call i32 @ERR_pop_to_mark() #18
+  %call.i29 = call i32 @ERR_pop_to_mark() #18
   br label %cleanup78
 
 if.end45:                                         ; preds = %if.then39
@@ -4505,15 +4505,15 @@ if.end45:                                         ; preds = %if.then39
   %call48 = call ptr @_ZN4node6crypto15X509Certificate3NewEPNS_11EnvironmentESt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509(ptr noundef %retval.0.i.i, ptr noundef nonnull %agg.tmp47, ptr noundef null)
   %cmp.i.i296.not = icmp eq ptr %call48, null
   %33 = load ptr, ptr %agg.tmp47, align 8
-  %cmp.not.i = icmp eq ptr %33, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32, label %if.then.i27
+  %cmp.not.i30 = icmp eq ptr %33, null
+  br i1 %cmp.not.i30, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37, label %if.then.i31
 
-if.then.i27:                                      ; preds = %if.end45
+if.then.i31:                                      ; preds = %if.end45
   call void @X509_free(ptr noundef nonnull %33) #18
-  br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32
+  br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37
 
-_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32: ; preds = %if.then.i27, %if.end45
-  %call.i33 = call i32 @ERR_pop_to_mark() #18
+_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37: ; preds = %if.then.i31, %if.end45
+  %call.i38 = call i32 @ERR_pop_to_mark() #18
   br i1 %cmp.i.i296.not, label %cleanup78, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
 if.else:                                          ; preds = %if.end35
@@ -4522,34 +4522,34 @@ if.else:                                          ; preds = %if.end35
   %call60 = call ptr @_ZN4node6crypto15X509Certificate3NewEPNS_11EnvironmentESt10unique_ptrI7x509_stNS_15FunctionDeleterIS5_XadL_Z9X509_freeEEEEEP13stack_st_X509(ptr noundef %retval.0.i.i, ptr noundef nonnull %agg.tmp59, ptr noundef null)
   %cmp.i.i301 = icmp eq ptr %call60, null
   %35 = load ptr, ptr %agg.tmp59, align 8
-  %cmp.not.i34 = icmp eq ptr %35, null
-  br i1 %cmp.not.i34, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37, label %if.then.i35
+  %cmp.not.i39 = icmp eq ptr %35, null
+  br i1 %cmp.not.i39, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42, label %if.then.i40
 
-if.then.i35:                                      ; preds = %if.else
+if.then.i40:                                      ; preds = %if.else
   call void @X509_free(ptr noundef nonnull %35) #18
-  br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37
+  br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42
 
-_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37: ; preds = %if.else, %if.then.i35
+_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42: ; preds = %if.else, %if.then.i40
   br i1 %cmp.i.i301, label %cleanup78, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
 
-_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit: ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37
-  %storemerge.in = phi ptr [ %call60, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37 ], [ %call48, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32 ]
+_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit: ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42
+  %storemerge.in = phi ptr [ %call60, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42 ], [ %call48, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37 ]
   %.pn = load ptr, ptr %args, align 8
-  %arrayidx.i56 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
+  %arrayidx.i58 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %storemerge = load i64, ptr %storemerge.in, align 8
-  store i64 %storemerge, ptr %arrayidx.i56, align 8
+  store i64 %storemerge, ptr %arrayidx.i58, align 8
   br label %cleanup78
 
-cleanup78:                                        ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32.thread, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit32, %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit, %if.then33
+cleanup78:                                        ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit42, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit37, %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit, %if.then33
   %36 = load ptr, ptr %bio, align 8
-  %cmp.not.i42 = icmp eq ptr %36, null
-  br i1 %cmp.not.i42, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit, label %if.then.i43
+  %cmp.not.i47 = icmp eq ptr %36, null
+  br i1 %cmp.not.i47, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit, label %if.then.i48
 
-if.then.i43:                                      ; preds = %cleanup78
+if.then.i48:                                      ; preds = %cleanup78
   call void @BIO_free_all(ptr noundef nonnull %36) #18
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
 
-_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit: ; preds = %cleanup78, %if.then.i43
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit: ; preds = %cleanup78, %if.then.i48
   store ptr null, ptr %bio, align 8
   call void @ERR_clear_error() #18
   ret void

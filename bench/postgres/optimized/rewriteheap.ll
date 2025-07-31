@@ -97,7 +97,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   %31 = load i32, ptr @wal_level, align 4
   %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %33, label %.thread.i
+  br i1 %32, label %33, label %.critedge.i
 
 33:                                               ; preds = %5
   %34 = load ptr, ptr %12, align 8
@@ -106,13 +106,13 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 114
   %38 = load i8, ptr %37, align 2
   %39 = icmp eq i8 %38, 112
-  br i1 %39, label %40, label %.thread.i
+  br i1 %39, label %40, label %.critedge.i
 
 40:                                               ; preds = %33
   %41 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %34) #13
-  br i1 %41, label %.thread18.i, label %43
+  br i1 %41, label %.thread.i, label %43
 
-.thread18.i:                                      ; preds = %40
+.thread.i:                                        ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i8 1, ptr %42, align 4
   br label %57
@@ -122,33 +122,33 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 304
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %.thread.i, label %47
+  br i1 %.not.i, label %.critedge.i, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 115
   %51 = load i8, ptr %50, align 1
-  switch i8 %51, label %.thread.i [
-    i8 114, label %53
-    i8 109, label %53
+  switch i8 %51, label %.critedge.i [
+    i8 114, label %52
+    i8 109, label %52
   ]
 
-.thread.i:                                        ; preds = %47, %43, %33, %5
-  %52 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i8 0, ptr %52, align 4
+52:                                               ; preds = %47, %47
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 104
+  %54 = load i8, ptr %53, align 8, !range !4, !noundef !5
+  %.not18.i = icmp eq i8 %54, 0
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  store i8 %54, ptr %55, align 4
+  br i1 %.not18.i, label %logical_begin_heap_rewrite.exit, label %57
+
+.critedge.i:                                      ; preds = %47, %43, %33, %5
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  store i8 0, ptr %56, align 4
   br label %logical_begin_heap_rewrite.exit
 
-53:                                               ; preds = %47, %47
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %55 = load i8, ptr %54, align 8, !range !4, !noundef !5
-  %.not19.i = icmp eq i8 %55, 0
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i8 %55, ptr %56, align 4
-  br i1 %.not19.i, label %logical_begin_heap_rewrite.exit, label %57
-
-57:                                               ; preds = %53, %.thread18.i
-  %58 = phi ptr [ %42, %.thread18.i ], [ %56, %53 ]
+57:                                               ; preds = %52, %.thread.i
+  %58 = phi ptr [ %42, %.thread.i ], [ %55, %52 ]
   call void @ProcArrayGetReplicationSlotXmin(ptr noundef null, ptr noundef nonnull %7) #13
   %59 = load i32, ptr %7, align 4
   %60 = icmp eq i32 %59, 0
@@ -178,7 +178,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   store ptr %71, ptr %72, align 8
   br label %logical_begin_heap_rewrite.exit
 
-logical_begin_heap_rewrite.exit:                  ; preds = %.thread.i, %53, %61, %62
+logical_begin_heap_rewrite.exit:                  ; preds = %52, %.critedge.i, %61, %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #13

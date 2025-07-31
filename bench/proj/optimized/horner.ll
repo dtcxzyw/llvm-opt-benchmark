@@ -124,12 +124,12 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
 .critedge:                                        ; preds = %24, %19
   %29 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #9
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %72, label %33
+  br i1 %30, label %88, label %33
 
 .thread:                                          ; preds = %24
   %31 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #9
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %72, label %42
+  br i1 %32, label %88, label %42
 
 33:                                               ; preds = %.critedge
   %34 = shl i64 %14, 1
@@ -143,10 +143,10 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   %40 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #9
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store ptr %40, ptr %41, align 8, !tbaa !47
-  %.not37.i = icmp ne ptr %38, null
-  %.not38.i = icmp ne ptr %40, null
-  %or.cond.not.i = and i1 %.not37.i, %.not38.i
-  br label %58
+  %.not37.i = icmp eq ptr %38, null
+  %.not38.i = icmp eq ptr %40, null
+  %or.cond.i = or i1 %.not37.i, %.not38.i
+  br i1 %or.cond.i, label %.critedge.i, label %58
 
 42:                                               ; preds = %.thread
   %43 = add nuw nsw i64 %14, 1
@@ -170,260 +170,278 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   store ptr %55, ptr %56, align 8, !tbaa !51
   %.not.i = icmp eq ptr %49, null
   %.not34.i = icmp eq ptr %51, null
-  %or.cond44.i = or i1 %.not.i, %.not34.i
-  br i1 %or.cond44.i, label %58, label %57
+  %or.cond43.i = or i1 %.not.i, %.not34.i
+  br i1 %or.cond43.i, label %.critedge.i, label %57
 
 57:                                               ; preds = %42
-  %.not35.i = icmp ne ptr %53, null
-  %.not36.i = icmp ne ptr %55, null
-  %or.cond41.not.i = and i1 %.not35.i, %.not36.i
-  br label %58
+  %.not35.i = icmp eq ptr %53, null
+  %.not36.i = icmp eq ptr %55, null
+  %or.cond41.i = or i1 %.not35.i, %.not36.i
+  br i1 %or.cond41.i, label %.critedge.i, label %58
 
-58:                                               ; preds = %57, %42, %33
-  %.0111123127 = phi i1 [ false, %42 ], [ true, %33 ], [ false, %57 ]
-  %59 = phi ptr [ %31, %42 ], [ %29, %33 ], [ %31, %57 ]
-  %60 = phi ptr [ null, %42 ], [ %40, %33 ], [ null, %57 ]
-  %61 = phi ptr [ null, %42 ], [ %38, %33 ], [ null, %57 ]
-  %62 = phi ptr [ %49, %42 ], [ null, %33 ], [ %49, %57 ]
-  %63 = phi ptr [ %51, %42 ], [ null, %33 ], [ %51, %57 ]
-  %64 = phi ptr [ %53, %42 ], [ null, %33 ], [ %53, %57 ]
-  %65 = phi ptr [ %55, %42 ], [ null, %33 ], [ %55, %57 ]
-  %.032.i = phi i1 [ false, %42 ], [ %or.cond.not.i, %33 ], [ %or.cond41.not.i, %57 ]
-  %66 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 88
-  store ptr %66, ptr %67, align 8, !tbaa !52
-  %68 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
-  %69 = getelementptr inbounds nuw i8, ptr %59, i64 96
-  store ptr %68, ptr %69, align 8, !tbaa !53
-  br i1 %.032.i, label %70, label %71
-
-70:                                               ; preds = %58
-  %.not39.i = icmp eq ptr %66, null
-  %.not40.i = icmp eq ptr %68, null
+58:                                               ; preds = %57, %33
+  %.0111123128 = phi i1 [ false, %57 ], [ true, %33 ]
+  %59 = phi ptr [ %31, %57 ], [ %29, %33 ]
+  %60 = phi ptr [ %55, %57 ], [ null, %33 ]
+  %61 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 88
+  store ptr %61, ptr %62, align 8, !tbaa !52
+  %63 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  store ptr %63, ptr %64, align 8, !tbaa !53
+  %.not39.i = icmp eq ptr %61, null
+  %.not40.i = icmp eq ptr %63, null
   %or.cond42.i = or i1 %.not39.i, %.not40.i
   br i1 %or.cond42.i, label %71, label %_ZL12horner_allocjb.exit
 
-71:                                               ; preds = %70, %58
-  tail call void @free(ptr noundef %65) #10
-  tail call void @free(ptr noundef %64) #10
-  tail call void @free(ptr noundef %63) #10
-  tail call void @free(ptr noundef %62) #10
-  tail call void @free(ptr noundef %61) #10
-  tail call void @free(ptr noundef %60) #10
-  tail call void @free(ptr noundef %66) #10
-  tail call void @free(ptr noundef %68) #10
-  tail call void @free(ptr noundef nonnull %59) #10
-  br label %72
+.critedge.i:                                      ; preds = %57, %42, %33
+  %65 = phi ptr [ %31, %42 ], [ %31, %57 ], [ %29, %33 ]
+  %66 = phi ptr [ %55, %42 ], [ %55, %57 ], [ null, %33 ]
+  %67 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 88
+  store ptr %67, ptr %68, align 8, !tbaa !52
+  %69 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #9
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 96
+  store ptr %69, ptr %70, align 8, !tbaa !53
+  br label %71
 
-72:                                               ; preds = %.critedge, %71, %.thread
-  %73 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+71:                                               ; preds = %.critedge.i, %58
+  %72 = phi ptr [ %65, %.critedge.i ], [ %59, %58 ]
+  %73 = phi ptr [ %66, %.critedge.i ], [ %60, %58 ]
+  tail call void @free(ptr noundef %73) #10
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %75 = load ptr, ptr %74, align 8, !tbaa !50
+  tail call void @free(ptr noundef %75) #10
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !49
+  tail call void @free(ptr noundef %77) #10
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !48
+  tail call void @free(ptr noundef %79) #10
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 72
+  %81 = load ptr, ptr %80, align 8, !tbaa !46
+  tail call void @free(ptr noundef %81) #10
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 80
+  %83 = load ptr, ptr %82, align 8, !tbaa !47
+  tail call void @free(ptr noundef %83) #10
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 88
+  %85 = load ptr, ptr %84, align 8, !tbaa !52
+  tail call void @free(ptr noundef %85) #10
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 96
+  %87 = load ptr, ptr %86, align 8, !tbaa !53
+  tail call void @free(ptr noundef %87) #10
+  tail call void @free(ptr noundef nonnull %72) #10
+  br label %88
+
+88:                                               ; preds = %.critedge, %71, %.thread
+  %89 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
   br label %.critedge121.thread
 
-_ZL12horner_allocjb.exit:                         ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %59, ptr %74, align 8, !tbaa !54
-  %75 = load ptr, ptr %7, align 8, !tbaa !42
-  br i1 %.0111123127, label %81, label %76
-
-76:                                               ; preds = %_ZL12horner_allocjb.exit
-  %77 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %75, ptr noundef nonnull @.str.7)
-  %.not115 = icmp eq ptr %77, null
-  br i1 %.not115, label %78, label %.thread141
-
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %7, align 8, !tbaa !42
-  %80 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %79, ptr noundef nonnull @.str.8)
-  %.not116 = icmp eq ptr %80, null
-  br i1 %.not116, label %90, label %.thread141
-
-81:                                               ; preds = %_ZL12horner_allocjb.exit
-  %82 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %75, ptr noundef nonnull @.str.10)
-  %.not117 = icmp eq ptr %82, null
-  br i1 %.not117, label %83, label %.thread136
-
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %7, align 8, !tbaa !42
-  %85 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %84, ptr noundef nonnull @.str.9)
-  %86 = icmp ne ptr %85, null
-  %87 = zext i1 %86 to i8
-  %spec.select154 = select i1 %86, ptr @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
-  br label %.thread136
-
-.thread141:                                       ; preds = %76, %78
-  %88 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 1, ptr %88, align 8, !tbaa !55
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %89, align 8, !tbaa !56
-  br label %124
-
-90:                                               ; preds = %78
+_ZL12horner_allocjb.exit:                         ; preds = %58
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %59, ptr %90, align 8, !tbaa !54
   %91 = load ptr, ptr %7, align 8, !tbaa !42
-  %92 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.9)
-  %93 = icmp ne ptr %92, null
-  %94 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %95 = zext i1 %93 to i8
-  store i8 %95, ptr %94, align 8, !tbaa !55
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %96, align 8, !tbaa !56
-  %spec.select156 = select i1 %93, ptr @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
-  br label %124
+  br i1 %.0111123128, label %97, label %92
 
-.thread136:                                       ; preds = %81, %83
-  %.sink = phi i8 [ %87, %83 ], [ 1, %81 ]
-  %.0108138 = phi i1 [ %86, %83 ], [ true, %81 ]
-  %97 = phi ptr [ %spec.select154, %83 ], [ @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, %81 ]
-  %98 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i8 %.sink, ptr %98, align 8, !tbaa !55
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts, ptr %99, align 8, !tbaa !56
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %97, ptr %100, align 8, !tbaa !57
-  %101 = load ptr, ptr %7, align 8, !tbaa !42
-  %102 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %101, ptr noundef nonnull @.str.11)
-  %.not118 = icmp ne ptr %102, null
-  %103 = zext i1 %.not118 to i32
-  store i32 %103, ptr %59, align 8, !tbaa !58
-  %104 = load ptr, ptr %7, align 8, !tbaa !42
-  %105 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %104, ptr noundef nonnull @.str.12)
-  %.not119 = icmp ne ptr %105, null
-  %106 = zext i1 %.not119 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %106, ptr %107, align 4, !tbaa !59
-  %108 = shl nuw nsw i32 %.sroa.023.0.extract.trunc, 1
-  %109 = add nuw nsw i32 %108, 2
-  %110 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  %111 = load ptr, ptr %110, align 8, !tbaa !46
-  %112 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull @.str.13, i32 noundef %109)
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %116
+92:                                               ; preds = %_ZL12horner_allocjb.exit
+  %93 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.7)
+  %.not115 = icmp eq ptr %93, null
+  br i1 %.not115, label %94, label %.thread143
 
-114:                                              ; preds = %.thread136
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %7, align 8, !tbaa !42
+  %96 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %95, ptr noundef nonnull @.str.8)
+  %.not116 = icmp eq ptr %96, null
+  br i1 %.not116, label %106, label %.thread143
+
+97:                                               ; preds = %_ZL12horner_allocjb.exit
+  %98 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.10)
+  %.not117 = icmp eq ptr %98, null
+  br i1 %.not117, label %99, label %.thread138
+
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %7, align 8, !tbaa !42
+  %101 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %100, ptr noundef nonnull @.str.9)
+  %102 = icmp ne ptr %101, null
+  %103 = zext i1 %102 to i8
+  %spec.select156 = select i1 %102, ptr @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
+  br label %.thread138
+
+.thread143:                                       ; preds = %92, %94
+  %104 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i8 1, ptr %104, align 8, !tbaa !55
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %105, align 8, !tbaa !56
+  br label %140
+
+106:                                              ; preds = %94
+  %107 = load ptr, ptr %7, align 8, !tbaa !42
+  %108 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %107, ptr noundef nonnull @.str.9)
+  %109 = icmp ne ptr %108, null
+  %110 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %111 = zext i1 %109 to i8
+  store i8 %111, ptr %110, align 8, !tbaa !55
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %112, align 8, !tbaa !56
+  %spec.select158 = select i1 %109, ptr @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
+  br label %140
+
+.thread138:                                       ; preds = %97, %99
+  %.sink = phi i8 [ %103, %99 ], [ 1, %97 ]
+  %.0108140 = phi i1 [ %102, %99 ], [ true, %97 ]
+  %113 = phi ptr [ %spec.select156, %99 ], [ @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, %97 ]
+  %114 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i8 %.sink, ptr %114, align 8, !tbaa !55
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts, ptr %115, align 8, !tbaa !56
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %113, ptr %116, align 8, !tbaa !57
+  %117 = load ptr, ptr %7, align 8, !tbaa !42
+  %118 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %117, ptr noundef nonnull @.str.11)
+  %.not118 = icmp ne ptr %118, null
+  %119 = zext i1 %.not118 to i32
+  store i32 %119, ptr %59, align 8, !tbaa !58
+  %120 = load ptr, ptr %7, align 8, !tbaa !42
+  %121 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %120, ptr noundef nonnull @.str.12)
+  %.not119 = icmp ne ptr %121, null
+  %122 = zext i1 %.not119 to i32
+  %123 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 %122, ptr %123, align 4, !tbaa !59
+  %124 = shl nuw nsw i32 %.sroa.023.0.extract.trunc, 1
+  %125 = add nuw nsw i32 %124, 2
+  %126 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %127 = load ptr, ptr %126, align 8, !tbaa !46
+  %128 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %127, ptr noundef nonnull @.str.13, i32 noundef %125)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %132
+
+130:                                              ; preds = %.thread138
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.14)
-  %115 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %131 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-116:                                              ; preds = %.thread136
-  br i1 %.0108138, label %117, label %.critedge121
+132:                                              ; preds = %.thread138
+  br i1 %.0108140, label %133, label %.critedge121
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !47
-  %120 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef %109)
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %.critedge121
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %135 = load ptr, ptr %134, align 8, !tbaa !47
+  %136 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %135, ptr noundef nonnull @.str.10, i32 noundef %125)
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %.critedge121
 
-122:                                              ; preds = %117
+138:                                              ; preds = %133
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
-  %123 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %139 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-124:                                              ; preds = %90, %.thread141
-  %.0108.ph143 = phi i1 [ true, %.thread141 ], [ %93, %90 ]
-  %125 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread141 ], [ %spec.select156, %90 ]
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %125, ptr %126, align 8, !tbaa !57
-  %127 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 1
-  %128 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 2
-  %129 = mul nuw nsw i32 %127, %128
-  %130 = lshr i32 %129, 1
-  %131 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %132 = load ptr, ptr %131, align 8, !tbaa !48
-  %133 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull @.str.16, i32 noundef %130)
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %137
+140:                                              ; preds = %106, %.thread143
+  %.0108.ph145 = phi i1 [ true, %.thread143 ], [ %109, %106 ]
+  %141 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread143 ], [ %spec.select158, %106 ]
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %141, ptr %142, align 8, !tbaa !57
+  %143 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 1
+  %144 = add nuw nsw i32 %.sroa.023.0.extract.trunc, 2
+  %145 = mul nuw nsw i32 %143, %144
+  %146 = lshr i32 %145, 1
+  %147 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %148 = load ptr, ptr %147, align 8, !tbaa !48
+  %149 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %148, ptr noundef nonnull @.str.16, i32 noundef %146)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %153
 
-135:                                              ; preds = %124
+151:                                              ; preds = %140
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
-  %136 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %152 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-137:                                              ; preds = %124
-  %138 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %139 = load ptr, ptr %138, align 8, !tbaa !49
-  %140 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @.str.18, i32 noundef %130)
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %144
+153:                                              ; preds = %140
+  %154 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %155 = load ptr, ptr %154, align 8, !tbaa !49
+  %156 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %155, ptr noundef nonnull @.str.18, i32 noundef %146)
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %158, label %160
 
-142:                                              ; preds = %137
+158:                                              ; preds = %153
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
-  %143 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %159 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-144:                                              ; preds = %137
-  br i1 %.0108.ph143, label %145, label %.critedge121
+160:                                              ; preds = %153
+  br i1 %.0108.ph145, label %161, label %.critedge121
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %147 = load ptr, ptr %146, align 8, !tbaa !50
-  %148 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @.str.7, i32 noundef %130)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %152
+161:                                              ; preds = %160
+  %162 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %163 = load ptr, ptr %162, align 8, !tbaa !50
+  %164 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %163, ptr noundef nonnull @.str.7, i32 noundef %146)
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %168
 
-150:                                              ; preds = %145
+166:                                              ; preds = %161
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.20)
-  %151 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %167 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-152:                                              ; preds = %145
-  %153 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %154 = load ptr, ptr %153, align 8, !tbaa !51
-  %155 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull @.str.8, i32 noundef %130)
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %.critedge121
+168:                                              ; preds = %161
+  %169 = getelementptr inbounds nuw i8, ptr %59, i64 64
+  %170 = load ptr, ptr %169, align 8, !tbaa !51
+  %171 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %170, ptr noundef nonnull @.str.8, i32 noundef %146)
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %.critedge121
 
-157:                                              ; preds = %152
+173:                                              ; preds = %168
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
-  %158 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %174 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-.critedge121:                                     ; preds = %116, %117, %144, %152
-  %.0108135 = phi i1 [ true, %152 ], [ false, %144 ], [ true, %117 ], [ false, %116 ]
-  %159 = load ptr, ptr %67, align 8, !tbaa !52
-  %160 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %159, ptr noundef nonnull @.str.22, i32 noundef 2)
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %164
+.critedge121:                                     ; preds = %132, %133, %160, %168
+  %.0108137 = phi i1 [ true, %168 ], [ false, %160 ], [ true, %133 ], [ false, %132 ]
+  %175 = load ptr, ptr %62, align 8, !tbaa !52
+  %176 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %175, ptr noundef nonnull @.str.22, i32 noundef 2)
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %180
 
-162:                                              ; preds = %.critedge121
+178:                                              ; preds = %.critedge121
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.23)
-  %163 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %179 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-164:                                              ; preds = %.critedge121
-  br i1 %.0108135, label %165, label %171
+180:                                              ; preds = %.critedge121
+  br i1 %.0108137, label %181, label %187
 
-165:                                              ; preds = %164
-  %166 = load ptr, ptr %69, align 8, !tbaa !53
-  %167 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %166, ptr noundef nonnull @.str.9, i32 noundef 2)
-  %168 = icmp eq i32 %167, 0
-  br i1 %168, label %169, label %171
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %64, align 8, !tbaa !53
+  %183 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %182, ptr noundef nonnull @.str.9, i32 noundef 2)
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %187
 
-169:                                              ; preds = %165
+185:                                              ; preds = %181
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
-  %170 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
+  %186 = tail call noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1026)
   br label %.critedge121.thread
 
-171:                                              ; preds = %165, %164
-  %172 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %173 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull @.str.25, i32 noundef 1)
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %175, label %176
+187:                                              ; preds = %181, %180
+  %188 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %189 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %188, ptr noundef nonnull @.str.25, i32 noundef 1)
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %192
 
-175:                                              ; preds = %171
-  store double 5.000000e+05, ptr %172, align 8, !tbaa !60
-  br label %176
+191:                                              ; preds = %187
+  store double 5.000000e+05, ptr %188, align 8, !tbaa !60
+  br label %192
 
-176:                                              ; preds = %175, %171
-  %177 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %178 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull @.str.26, i32 noundef 1)
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %.critedge121.thread
+192:                                              ; preds = %191, %187
+  %193 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %194 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %193, ptr noundef nonnull @.str.26, i32 noundef 1)
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %.critedge121.thread
 
-180:                                              ; preds = %176
-  store double 1.000000e-03, ptr %177, align 8, !tbaa !61
+196:                                              ; preds = %192
+  store double 1.000000e-03, ptr %193, align 8, !tbaa !61
   br label %.critedge121.thread
 
-.critedge121.thread:                              ; preds = %157, %150, %142, %135, %114, %122, %72, %176, %180, %169, %162, %17, %15
-  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %73, %72 ], [ %163, %162 ], [ %170, %169 ], [ %0, %180 ], [ %0, %176 ], [ %115, %114 ], [ %123, %122 ], [ %158, %157 ], [ %151, %150 ], [ %143, %142 ], [ %136, %135 ]
+.critedge121.thread:                              ; preds = %173, %166, %158, %151, %130, %138, %88, %192, %196, %185, %178, %17, %15
+  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %89, %88 ], [ %179, %178 ], [ %186, %185 ], [ %0, %196 ], [ %0, %192 ], [ %131, %130 ], [ %139, %138 ], [ %174, %173 ], [ %167, %166 ], [ %159, %158 ], [ %152, %151 ]
   ret ptr %.0
 }
 

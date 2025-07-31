@@ -2348,14 +2348,14 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
 
 3:                                                ; preds = %2, %28
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %28 ]
-  %.03848 = phi i32 [ 0, %2 ], [ %.2, %28 ]
+  %.03846 = phi i32 [ 0, %2 ], [ %.2, %28 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !27
   %6 = icmp eq i16 %5, 46
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %3
-  %8 = sext i32 %.03848 to i64
+  %8 = sext i32 %.03846 to i64
   %9 = icmp sgt i64 %indvars.iv, %8
   br i1 %9, label %10, label %15
 
@@ -2367,7 +2367,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %14 = add i16 %12, -48
   %or.cond6 = icmp ult i16 %14, 10
   %or.cond44 = or i1 %or.cond, %or.cond6
-  br i1 %or.cond44, label %15, label %.thread
+  br i1 %or.cond44, label %15, label %.critedge
 
 15:                                               ; preds = %10, %7
   %16 = trunc i64 %indvars.iv to i32
@@ -2375,14 +2375,14 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   br label %28
 
 18:                                               ; preds = %3
-  %19 = zext i32 %.03848 to i64
+  %19 = zext i32 %.03846 to i64
   %20 = icmp eq i64 %indvars.iv, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
   %22 = add i16 %5, -97
   %or.cond9 = icmp ult i16 %22, 26
-  br i1 %or.cond9, label %28, label %.thread
+  br i1 %or.cond9, label %28, label %.critedge
 
 23:                                               ; preds = %18
   %24 = icmp ult i16 %5, 33
@@ -2393,16 +2393,16 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %27 = add nsw i16 %5, -9
   %or.cond12 = icmp ult i16 %27, 5
   %or.cond45 = select i1 %26, i1 true, i1 %or.cond12
-  br i1 %or.cond45, label %.thread, label %28
+  br i1 %or.cond45, label %.critedge, label %28
 
 28:                                               ; preds = %25, %21, %23, %15
-  %.2 = phi i32 [ %17, %15 ], [ %.03848, %21 ], [ %.03848, %23 ], [ %.03848, %25 ]
+  %.2 = phi i32 [ %17, %15 ], [ %.03846, %21 ], [ %.03846, %23 ], [ %.03846, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !43
+  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !43
 
-.thread:                                          ; preds = %25, %21, %10, %28
-  %.not.lcssa = phi i8 [ 0, %25 ], [ 0, %21 ], [ 0, %10 ], [ 1, %28 ]
+.critedge:                                        ; preds = %10, %21, %25, %28
+  %.not.lcssa = phi i8 [ 0, %10 ], [ 0, %21 ], [ 0, %25 ], [ 1, %28 ]
   ret i8 %.not.lcssa
 }
 
@@ -2418,14 +2418,14 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
 
 3:                                                ; preds = %2, %30
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %30 ]
-  %.04860 = phi i32 [ 0, %2 ], [ %.2, %30 ]
+  %.04858 = phi i32 [ 0, %2 ], [ %.2, %30 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !17
   %6 = icmp eq i8 %5, 46
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %3
-  %8 = sext i32 %.04860 to i64
+  %8 = sext i32 %.04858 to i64
   %9 = icmp sgt i64 %indvars.iv, %8
   br i1 %9, label %10, label %16
 
@@ -2438,7 +2438,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %15 = add i8 %12, -48
   %or.cond9 = icmp ult i8 %15, 10
   %or.cond55 = or i1 %or.cond9, %or.cond54
-  br i1 %or.cond55, label %16, label %.thread
+  br i1 %or.cond55, label %16, label %.critedge
 
 16:                                               ; preds = %10, %7
   %17 = trunc i64 %indvars.iv to i32
@@ -2446,7 +2446,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   br label %30
 
 19:                                               ; preds = %3
-  %20 = zext i32 %.04860 to i64
+  %20 = zext i32 %.04858 to i64
   %21 = icmp eq i64 %indvars.iv, %20
   br i1 %21, label %22, label %25
 
@@ -2454,7 +2454,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %23 = and i8 %5, -33
   %24 = add i8 %23, -65
   %or.cond56 = icmp ult i8 %24, 26
-  br i1 %or.cond56, label %30, label %.thread
+  br i1 %or.cond56, label %30, label %.critedge
 
 25:                                               ; preds = %19
   %26 = icmp slt i8 %5, 33
@@ -2465,16 +2465,16 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L13isASCIIOk
   %29 = add i8 %5, -9
   %or.cond18 = icmp ult i8 %29, 5
   %or.cond57 = or i1 %28, %or.cond18
-  br i1 %or.cond57, label %.thread, label %30
+  br i1 %or.cond57, label %.critedge, label %30
 
 30:                                               ; preds = %27, %22, %25, %16
-  %.2 = phi i32 [ %18, %16 ], [ %.04860, %22 ], [ %.04860, %25 ], [ %.04860, %27 ]
+  %.2 = phi i32 [ %18, %16 ], [ %.04858, %22 ], [ %.04858, %25 ], [ %.04858, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !44
+  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !44
 
-.thread:                                          ; preds = %27, %22, %10, %30
-  %.not.lcssa = phi i8 [ 0, %27 ], [ 0, %22 ], [ 0, %10 ], [ 1, %30 ]
+.critedge:                                        ; preds = %10, %22, %27, %30
+  %.not.lcssa = phi i8 [ 0, %10 ], [ 0, %22 ], [ 0, %27 ], [ 1, %30 ]
   ret i8 %.not.lcssa
 }
 

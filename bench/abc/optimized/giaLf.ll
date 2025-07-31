@@ -15336,7 +15336,7 @@ define noundef ptr @Lf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_u
   store ptr %11, ptr %3, align 8, !tbaa !180
   %12 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #34
   %.not43 = icmp eq ptr %12, null
-  br i1 %.not43, label %22, label %13
+  br i1 %.not43, label %.critedge, label %13
 
 13:                                               ; preds = %9
   tail call void @Gia_ManTransferTiming(ptr noundef nonnull %12, ptr noundef nonnull %0) #34
@@ -15358,15 +15358,15 @@ define noundef ptr @Lf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_u
   %19 = load ptr, ptr %18, align 8, !tbaa !180
   tail call void @Tim_ManStop(ptr noundef %19) #34
   store ptr %10, ptr %18, align 8, !tbaa !180
-  br label %22
+  br label %.critedge
 
 20:                                               ; preds = %7, %5, %2
   %21 = tail call ptr @Lf_ManPerformMappingInt(ptr noundef nonnull %0, ptr noundef %1)
   tail call void @Gia_ManTransferTiming(ptr noundef %21, ptr noundef nonnull %0) #34
-  br label %22
+  br label %.critedge
 
-22:                                               ; preds = %16, %9, %20
-  %.1 = phi ptr [ %21, %20 ], [ %17, %16 ], [ null, %9 ]
+.critedge:                                        ; preds = %16, %9, %20
+  %.1 = phi ptr [ %21, %20 ], [ null, %9 ], [ %17, %16 ]
   ret ptr %.1
 }
 

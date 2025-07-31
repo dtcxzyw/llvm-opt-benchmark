@@ -1880,7 +1880,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, %82
-  br i1 %84, label %.loopexit, label %.preheader
+  br i1 %84, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %79, %97
   %85 = phi ptr [ %98, %97 ], [ %83, %79 ]
@@ -1904,9 +1904,9 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
 97:                                               ; preds = %93, %89, %.preheader
   %98 = load ptr, ptr %85, align 8
   %99 = icmp eq ptr %98, %82
-  br i1 %99, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %99, label %.critedge, label %.preheader, !llvm.loop !42
 
-.loopexit:                                        ; preds = %97, %79
+.critedge:                                        ; preds = %97, %79
   %100 = getelementptr inbounds nuw i8, ptr %38, i64 192
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %102 = load ptr, ptr %101, align 8
@@ -1931,7 +1931,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   %112 = icmp eq ptr %111, null
   br i1 %112, label %118, label %113
 
-113:                                              ; preds = %.loopexit
+113:                                              ; preds = %.critedge
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
@@ -1941,7 +1941,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   tail call void %115(ptr noundef %0, i32 noundef 9) #20
   br label %118
 
-118:                                              ; preds = %117, %113, %.loopexit
+118:                                              ; preds = %117, %113, %.critedge
   tail call void @mutex_unlock(ptr noundef nonnull %81) #20
   tail call void @mutex_unlock(ptr noundef nonnull %80) #20
   br label %129

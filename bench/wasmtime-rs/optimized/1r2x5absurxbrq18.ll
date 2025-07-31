@@ -16308,44 +16308,47 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
 
 10:                                               ; preds = %2
   %11 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %7)
-  %12 = icmp ne ptr %.sroa.6.0.copyload37, null
-  %13 = icmp eq ptr %.sroa.0.0.copyload33, %.sroa.5.0.copyload35
-  br i1 %13, label %19, label %.lr.ph
+  %12 = icmp eq ptr %.sroa.0.0.copyload33, %.sroa.5.0.copyload35
+  br i1 %12, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %.thread
-  %.sroa.4.058 = phi i8 [ %.sroa.4.1, %.thread ], [ 0, %10 ]
-  %.057 = phi i32 [ %.1, %.thread ], [ 0, %10 ]
-  %.01956 = phi i32 [ %.120, %.thread ], [ %11, %10 ]
-  %.02155 = phi i32 [ %.122, %.thread ], [ 0, %10 ]
-  %.02354 = phi i32 [ %.124, %.thread ], [ %11, %10 ]
-  %.sroa.015.053 = phi i8 [ %.sroa.015.1, %.thread ], [ 1, %10 ]
-  %.sroa.039.052 = phi ptr [ %14, %.thread ], [ %.sroa.0.0.copyload33, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.039.052, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.039.052, i64 24
-  %16 = load i32, ptr %15, align 4, !range !3828, !alias.scope !3829, !noalias !3834, !noundef !16
-  %17 = icmp eq i32 %16, 23
-  br i1 %17, label %.thread, label %53
+.lr.ph:                                           ; preds = %10
+  %13 = icmp ne ptr %.sroa.6.0.copyload37, null
+  br label %14
 
-._crit_edge:                                      ; preds = %.thread
-  %18 = trunc nuw i8 %.sroa.015.1 to i1
-  br label %19
+14:                                               ; preds = %.lr.ph, %.thread
+  %.sroa.4.056 = phi i8 [ 0, %.lr.ph ], [ %.sroa.4.1, %.thread ]
+  %.055 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
+  %.01954 = phi i32 [ %11, %.lr.ph ], [ %.120, %.thread ]
+  %.02153 = phi i32 [ 0, %.lr.ph ], [ %.122, %.thread ]
+  %.02352 = phi i32 [ %11, %.lr.ph ], [ %.124, %.thread ]
+  %.sroa.015.051 = phi i8 [ 1, %.lr.ph ], [ %.sroa.015.1, %.thread ]
+  %.sroa.039.050 = phi ptr [ %.sroa.0.0.copyload33, %.lr.ph ], [ %15, %.thread ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.039.050, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.039.050, i64 24
+  %17 = load i32, ptr %16, align 4, !range !3828, !alias.scope !3829, !noalias !3834, !noundef !16
+  %18 = icmp eq i32 %17, 23
+  br i1 %18, label %.thread, label %53
 
-19:                                               ; preds = %._crit_edge, %10
-  %.sroa.015.0.lcssa = phi i1 [ %18, %._crit_edge ], [ true, %10 ]
-  %.023.lcssa = phi i32 [ %.124, %._crit_edge ], [ %11, %10 ]
-  %.021.lcssa = phi i32 [ %.122, %._crit_edge ], [ 0, %10 ]
-  %.019.lcssa = phi i32 [ %.120, %._crit_edge ], [ %11, %10 ]
-  %.0.lcssa = phi i32 [ %.1, %._crit_edge ], [ 0, %10 ]
-  %.sroa.4.0.lcssa = phi i8 [ %.sroa.4.1, %._crit_edge ], [ 0, %10 ]
+.critedge.loopexit:                               ; preds = %.thread
+  %19 = trunc nuw i8 %.sroa.015.1 to i1
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %10
+  %.sroa.015.0.lcssa = phi i1 [ true, %10 ], [ %19, %.critedge.loopexit ]
+  %.023.lcssa = phi i32 [ %11, %10 ], [ %.124, %.critedge.loopexit ]
+  %.021.lcssa = phi i32 [ 0, %10 ], [ %.122, %.critedge.loopexit ]
+  %.019.lcssa = phi i32 [ %11, %10 ], [ %.120, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %.critedge.loopexit ]
+  %.sroa.4.0.lcssa = phi i8 [ 0, %10 ], [ %.sroa.4.1, %.critedge.loopexit ]
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %22
 
-22:                                               ; preds = %19
+22:                                               ; preds = %.critedge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %19
+_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %.critedge
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %25
@@ -16399,39 +16402,39 @@ _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds
   store i8 %.sroa.5.0.i, ptr %52, align 1
   ret void
 
-53:                                               ; preds = %.lr.ph
-  tail call void @llvm.assume(i1 %12)
-  %54 = tail call noundef align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %.sroa.6.0.copyload37, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) dereferenceable_or_null(8) %15), !noalias !3839
+53:                                               ; preds = %14
+  tail call void @llvm.assume(i1 %13)
+  %54 = tail call noundef align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %.sroa.6.0.copyload37, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) dereferenceable_or_null(8) %16), !noalias !3839
   %55 = load i32, ptr %54, align 4, !noundef !16
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.057, i32 %55)
+  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.055, i32 %55)
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load i32, ptr %56, align 4, !noundef !16
-  %.0.sroa.speculated.i30 = tail call noundef i32 @llvm.umax.i32(i32 %.01956, i32 %57)
+  %.0.sroa.speculated.i30 = tail call noundef i32 @llvm.umax.i32(i32 %.01954, i32 %57)
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load i32, ptr %58, align 4, !noundef !16
-  %.0.sroa.speculated.i31 = tail call noundef i32 @llvm.umax.i32(i32 %.02155, i32 %59)
+  %.0.sroa.speculated.i31 = tail call noundef i32 @llvm.umax.i32(i32 %.02153, i32 %59)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %61 = load i32, ptr %60, align 4, !noundef !16
-  %.0.sroa.speculated.i32 = tail call noundef i32 @llvm.umax.i32(i32 %.02354, i32 %61)
+  %.0.sroa.speculated.i32 = tail call noundef i32 @llvm.umax.i32(i32 %.02352, i32 %61)
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %63 = load i8, ptr %62, align 4, !range !1064, !noundef !16
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 17
   %65 = load i8, ptr %64, align 1
-  %66 = and i8 %63, %.sroa.015.053
+  %66 = and i8 %63, %.sroa.015.051
   %brmerge.demorgan.i.not = icmp eq i8 %66, 0
-  %..i = tail call i8 @llvm.umax.i8(i8 %.sroa.4.058, i8 %65)
+  %..i = tail call i8 @llvm.umax.i8(i8 %.sroa.4.056, i8 %65)
   %.sroa.4.0.i = select i1 %brmerge.demorgan.i.not, i8 undef, i8 %..i
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %53
-  %.sroa.015.1 = phi i8 [ %66, %53 ], [ %.sroa.015.053, %.lr.ph ]
-  %.124 = phi i32 [ %.0.sroa.speculated.i32, %53 ], [ %.02354, %.lr.ph ]
-  %.122 = phi i32 [ %.0.sroa.speculated.i31, %53 ], [ %.02155, %.lr.ph ]
-  %.120 = phi i32 [ %.0.sroa.speculated.i30, %53 ], [ %.01956, %.lr.ph ]
-  %.1 = phi i32 [ %.0.sroa.speculated.i, %53 ], [ %.057, %.lr.ph ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %53 ], [ %.sroa.4.058, %.lr.ph ]
-  %67 = icmp eq ptr %14, %.sroa.5.0.copyload35
-  br i1 %67, label %._crit_edge, label %.lr.ph
+.thread:                                          ; preds = %14, %53
+  %.sroa.015.1 = phi i8 [ %66, %53 ], [ %.sroa.015.051, %14 ]
+  %.124 = phi i32 [ %.0.sroa.speculated.i32, %53 ], [ %.02352, %14 ]
+  %.122 = phi i32 [ %.0.sroa.speculated.i31, %53 ], [ %.02153, %14 ]
+  %.120 = phi i32 [ %.0.sroa.speculated.i30, %53 ], [ %.01954, %14 ]
+  %.1 = phi i32 [ %.0.sroa.speculated.i, %53 ], [ %.055, %14 ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %53 ], [ %.sroa.4.056, %14 ]
+  %67 = icmp eq ptr %15, %.sroa.5.0.copyload35
+  br i1 %67, label %.critedge.loopexit, label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16959,44 +16962,47 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
 
 10:                                               ; preds = %2
   %11 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %7)
-  %12 = icmp ne ptr %.sroa.6.0.copyload37, null
-  %13 = icmp eq ptr %.sroa.0.0.copyload33, %.sroa.5.0.copyload35
-  br i1 %13, label %19, label %.lr.ph
+  %12 = icmp eq ptr %.sroa.0.0.copyload33, %.sroa.5.0.copyload35
+  br i1 %12, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %.thread
-  %.sroa.4.058 = phi i8 [ %.sroa.4.1, %.thread ], [ 0, %10 ]
-  %.057 = phi i32 [ %.1, %.thread ], [ 0, %10 ]
-  %.01956 = phi i32 [ %.120, %.thread ], [ %11, %10 ]
-  %.02155 = phi i32 [ %.122, %.thread ], [ 0, %10 ]
-  %.02354 = phi i32 [ %.124, %.thread ], [ %11, %10 ]
-  %.sroa.015.053 = phi i8 [ %.sroa.015.1, %.thread ], [ 1, %10 ]
-  %.sroa.039.052 = phi ptr [ %14, %.thread ], [ %.sroa.0.0.copyload33, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.039.052, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.039.052, i64 24
-  %16 = load i32, ptr %15, align 4, !range !3828, !alias.scope !3891, !noalias !3896, !noundef !16
-  %17 = icmp eq i32 %16, 23
-  br i1 %17, label %.thread, label %53
+.lr.ph:                                           ; preds = %10
+  %13 = icmp ne ptr %.sroa.6.0.copyload37, null
+  br label %14
 
-._crit_edge:                                      ; preds = %.thread
-  %18 = trunc nuw i8 %.sroa.015.1 to i1
-  br label %19
+14:                                               ; preds = %.lr.ph, %.thread
+  %.sroa.4.056 = phi i8 [ 0, %.lr.ph ], [ %.sroa.4.1, %.thread ]
+  %.055 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
+  %.01954 = phi i32 [ %11, %.lr.ph ], [ %.120, %.thread ]
+  %.02153 = phi i32 [ 0, %.lr.ph ], [ %.122, %.thread ]
+  %.02352 = phi i32 [ %11, %.lr.ph ], [ %.124, %.thread ]
+  %.sroa.015.051 = phi i8 [ 1, %.lr.ph ], [ %.sroa.015.1, %.thread ]
+  %.sroa.039.050 = phi ptr [ %.sroa.0.0.copyload33, %.lr.ph ], [ %15, %.thread ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.039.050, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.039.050, i64 24
+  %17 = load i32, ptr %16, align 4, !range !3828, !alias.scope !3891, !noalias !3896, !noundef !16
+  %18 = icmp eq i32 %17, 23
+  br i1 %18, label %.thread, label %53
 
-19:                                               ; preds = %._crit_edge, %10
-  %.sroa.015.0.lcssa = phi i1 [ %18, %._crit_edge ], [ true, %10 ]
-  %.023.lcssa = phi i32 [ %.124, %._crit_edge ], [ %11, %10 ]
-  %.021.lcssa = phi i32 [ %.122, %._crit_edge ], [ 0, %10 ]
-  %.019.lcssa = phi i32 [ %.120, %._crit_edge ], [ %11, %10 ]
-  %.0.lcssa = phi i32 [ %.1, %._crit_edge ], [ 0, %10 ]
-  %.sroa.4.0.lcssa = phi i8 [ %.sroa.4.1, %._crit_edge ], [ 0, %10 ]
+.critedge.loopexit:                               ; preds = %.thread
+  %19 = trunc nuw i8 %.sroa.015.1 to i1
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %10
+  %.sroa.015.0.lcssa = phi i1 [ true, %10 ], [ %19, %.critedge.loopexit ]
+  %.023.lcssa = phi i32 [ %11, %10 ], [ %.124, %.critedge.loopexit ]
+  %.021.lcssa = phi i32 [ 0, %10 ], [ %.122, %.critedge.loopexit ]
+  %.019.lcssa = phi i32 [ %11, %10 ], [ %.120, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %.critedge.loopexit ]
+  %.sroa.4.0.lcssa = phi i8 [ 0, %10 ], [ %.sroa.4.1, %.critedge.loopexit ]
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.019.lcssa)
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27, label %22
 
-22:                                               ; preds = %19
+22:                                               ; preds = %.critedge
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #48
   unreachable
 
-_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %19
+_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit27: ; preds = %.critedge
   %23 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.023.lcssa)
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %25
@@ -17050,39 +17056,39 @@ _ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds
   store i8 %.sroa.5.0.i, ptr %52, align 1
   ret void
 
-53:                                               ; preds = %.lr.ph
-  tail call void @llvm.assume(i1 %12)
-  %54 = tail call noundef align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %.sroa.6.0.copyload37, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) dereferenceable_or_null(8) %15), !noalias !3901
+53:                                               ; preds = %14
+  tail call void @llvm.assume(i1 %13)
+  %54 = tail call noundef align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %.sroa.6.0.copyload37, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) dereferenceable_or_null(8) %16), !noalias !3901
   %55 = load i32, ptr %54, align 4, !noundef !16
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.057, i32 %55)
+  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.055, i32 %55)
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load i32, ptr %56, align 4, !noundef !16
-  %.0.sroa.speculated.i30 = tail call noundef i32 @llvm.umax.i32(i32 %.01956, i32 %57)
+  %.0.sroa.speculated.i30 = tail call noundef i32 @llvm.umax.i32(i32 %.01954, i32 %57)
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load i32, ptr %58, align 4, !noundef !16
-  %.0.sroa.speculated.i31 = tail call noundef i32 @llvm.umax.i32(i32 %.02155, i32 %59)
+  %.0.sroa.speculated.i31 = tail call noundef i32 @llvm.umax.i32(i32 %.02153, i32 %59)
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %61 = load i32, ptr %60, align 4, !noundef !16
-  %.0.sroa.speculated.i32 = tail call noundef i32 @llvm.umax.i32(i32 %.02354, i32 %61)
+  %.0.sroa.speculated.i32 = tail call noundef i32 @llvm.umax.i32(i32 %.02352, i32 %61)
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %63 = load i8, ptr %62, align 4, !range !1064, !noundef !16
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 17
   %65 = load i8, ptr %64, align 1
-  %66 = and i8 %63, %.sroa.015.053
+  %66 = and i8 %63, %.sroa.015.051
   %brmerge.demorgan.i.not = icmp eq i8 %66, 0
-  %..i = tail call i8 @llvm.umax.i8(i8 %.sroa.4.058, i8 %65)
+  %..i = tail call i8 @llvm.umax.i8(i8 %.sroa.4.056, i8 %65)
   %.sroa.4.0.i = select i1 %brmerge.demorgan.i.not, i8 undef, i8 %..i
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %53
-  %.sroa.015.1 = phi i8 [ %66, %53 ], [ %.sroa.015.053, %.lr.ph ]
-  %.124 = phi i32 [ %.0.sroa.speculated.i32, %53 ], [ %.02354, %.lr.ph ]
-  %.122 = phi i32 [ %.0.sroa.speculated.i31, %53 ], [ %.02155, %.lr.ph ]
-  %.120 = phi i32 [ %.0.sroa.speculated.i30, %53 ], [ %.01956, %.lr.ph ]
-  %.1 = phi i32 [ %.0.sroa.speculated.i, %53 ], [ %.057, %.lr.ph ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %53 ], [ %.sroa.4.058, %.lr.ph ]
-  %67 = icmp eq ptr %14, %.sroa.5.0.copyload35
-  br i1 %67, label %._crit_edge, label %.lr.ph
+.thread:                                          ; preds = %14, %53
+  %.sroa.015.1 = phi i8 [ %66, %53 ], [ %.sroa.015.051, %14 ]
+  %.124 = phi i32 [ %.0.sroa.speculated.i32, %53 ], [ %.02352, %14 ]
+  %.122 = phi i32 [ %.0.sroa.speculated.i31, %53 ], [ %.02153, %14 ]
+  %.120 = phi i32 [ %.0.sroa.speculated.i30, %53 ], [ %.01954, %14 ]
+  %.1 = phi i32 [ %.0.sroa.speculated.i, %53 ], [ %.055, %14 ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.0.i, %53 ], [ %.sroa.4.056, %14 ]
+  %67 = icmp eq ptr %15, %.sroa.5.0.copyload35
+  br i1 %67, label %.critedge.loopexit, label %14
 }
 
 ; Function Attrs: nonlazybind uwtable

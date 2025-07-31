@@ -416,27 +416,27 @@ define hidden i32 @Wayland_WaitEventTimeout(ptr noundef readonly captures(none) 
   tail call void @SDL_DBus_PumpEvents() #12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %.pn96 = load ptr, ptr %19, align 8
-  %.not97 = icmp eq ptr %.pn96, %18
-  br i1 %.not97, label %._crit_edge, label %.lr.ph
+  %.pn94 = load ptr, ptr %19, align 8
+  %.not95 = icmp eq ptr %.pn94, %18
+  br i1 %.not95, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %keyboard_repeat_is_set.exit.thread
-  %.pn100 = phi ptr [ %.pn, %keyboard_repeat_is_set.exit.thread ], [ %.pn96, %17 ]
-  %.05599 = phi i64 [ %.358, %keyboard_repeat_is_set.exit.thread ], [ %1, %17 ]
-  %.06298 = phi i1 [ %.264, %keyboard_repeat_is_set.exit.thread ], [ false, %17 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.pn100, i64 76
+  %.pn98 = phi ptr [ %.pn, %keyboard_repeat_is_set.exit.thread ], [ %.pn94, %17 ]
+  %.05597 = phi i64 [ %.358, %keyboard_repeat_is_set.exit.thread ], [ %1, %17 ]
+  %.06296 = phi i1 [ %.264, %keyboard_repeat_is_set.exit.thread ], [ false, %17 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.pn98, i64 76
   %21 = load i8, ptr %20, align 4, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %keyboard_repeat_is_set.exit, label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.pn100, i64 77
+  %23 = getelementptr inbounds nuw i8, ptr %.pn98, i64 77
   %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %keyboard_repeat_is_set.exit.thread
 
 26:                                               ; preds = %keyboard_repeat_is_set.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.pn100, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %.pn98, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @SDL_GetCurrentKeymap() #12
   %.not73 = icmp eq ptr %28, %29
@@ -445,9 +445,9 @@ keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
 30:                                               ; preds = %26
   %31 = load ptr, ptr %27, align 8
   tail call void @SDL_SetKeymap(ptr noundef %31, i1 noundef zeroext true) #12
-  %32 = getelementptr inbounds nuw i8, ptr %.pn100, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %.pn98, i64 136
   %33 = load i16, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.pn100, i64 138
+  %34 = getelementptr inbounds nuw i8, ptr %.pn98, i64 138
   %35 = load i16, ptr %34, align 2
   %36 = or i16 %35, %33
   tail call void @SDL_SetModState_REAL(i16 noundef zeroext %36) #12
@@ -455,22 +455,22 @@ keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
 
 37:                                               ; preds = %30, %26
   %38 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %39 = getelementptr inbounds nuw i8, ptr %.pn100, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %.pn98, i64 96
   %40 = load i64, ptr %39, align 8
   %41 = sub i64 %38, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.pn100, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %.pn98, i64 104
   %43 = load i64, ptr %42, align 8
   %.not16.i.not = icmp ult i64 %41, %43
   br i1 %.not16.i.not, label %keyboard_repeat_handle.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %.pn100, i64 104
-  %45 = getelementptr inbounds nuw i8, ptr %.pn100, i64 64
-  %46 = getelementptr inbounds nuw i8, ptr %.pn100, i64 112
-  %47 = getelementptr inbounds nuw i8, ptr %.pn100, i64 88
-  %48 = getelementptr inbounds nuw i8, ptr %.pn100, i64 72
-  %49 = getelementptr inbounds nuw i8, ptr %.pn100, i64 80
-  %50 = getelementptr inbounds nuw i8, ptr %.pn100, i64 116
+  %44 = getelementptr inbounds nuw i8, ptr %.pn98, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %.pn98, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %.pn98, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %.pn98, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %.pn98, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %.pn98, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %.pn98, i64 116
   br label %51
 
 51:                                               ; preds = %71, %.lr.ph.i
@@ -522,20 +522,20 @@ Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %63, %54
   %76 = add i64 %75, %74
   store i64 %76, ptr %44, align 8
   %.not.i = icmp ult i64 %41, %76
-  br i1 %.not.i, label %.thread, label %51, !llvm.loop !8
+  br i1 %.not.i, label %.critedge, label %51, !llvm.loop !8
 
 keyboard_repeat_handle.exit.thread:               ; preds = %37
   %77 = sub nuw i64 %43, %41
   %78 = add i64 %77, 1
-  %79 = tail call i64 @llvm.umin.i64(i64 %.05599, i64 %78)
-  %80 = icmp slt i64 %.05599, 0
+  %79 = tail call i64 @llvm.umin.i64(i64 %.05597, i64 %78)
+  %80 = icmp slt i64 %.05597, 0
   %.257 = select i1 %80, i64 %78, i64 %79
   br label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit.thread:               ; preds = %.lr.ph, %keyboard_repeat_handle.exit.thread, %keyboard_repeat_is_set.exit
-  %.264 = phi i1 [ true, %keyboard_repeat_handle.exit.thread ], [ %.06298, %keyboard_repeat_is_set.exit ], [ %.06298, %.lr.ph ]
-  %.358 = phi i64 [ %.257, %keyboard_repeat_handle.exit.thread ], [ %.05599, %keyboard_repeat_is_set.exit ], [ %.05599, %.lr.ph ]
-  %81 = getelementptr inbounds nuw i8, ptr %.pn100, i64 8
+  %.264 = phi i1 [ true, %keyboard_repeat_handle.exit.thread ], [ %.06296, %keyboard_repeat_is_set.exit ], [ %.06296, %.lr.ph ]
+  %.358 = phi i64 [ %.257, %keyboard_repeat_handle.exit.thread ], [ %.05597, %keyboard_repeat_is_set.exit ], [ %.05597, %.lr.ph ]
+  %81 = getelementptr inbounds nuw i8, ptr %.pn98, i64 8
   %.pn = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %.pn, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -566,7 +566,7 @@ keyboard_repeat_is_set.exit.thread:               ; preds = %.lr.ph, %keyboard_r
   %97 = tail call i32 %96(ptr noundef %.val) #12
   %98 = icmp sgt i32 %97, -1
   %99 = select i1 %98, i32 1, i32 %97
-  br label %.thread
+  br label %.critedge
 
 100:                                              ; preds = %86
   %101 = icmp eq i32 %90, 0
@@ -576,50 +576,50 @@ keyboard_repeat_is_set.exit.thread:               ; preds = %.lr.ph, %keyboard_r
   br i1 %101, label %104, label %156
 
 104:                                              ; preds = %100
-  br i1 %.062.lcssa, label %.preheader, label %.thread
+  br i1 %.062.lcssa, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %104
-  %.pn70102 = load ptr, ptr %19, align 8
-  %.not71103 = icmp eq ptr %.pn70102, %18
-  br i1 %.not71103, label %.thread, label %.lr.ph106
+  %.pn70100 = load ptr, ptr %19, align 8
+  %.not71101 = icmp eq ptr %.pn70100, %18
+  br i1 %.not71101, label %.critedge, label %.lr.ph104
 
-.lr.ph106:                                        ; preds = %.preheader, %keyboard_repeat_handle.exit85
-  %.pn70105 = phi ptr [ %.pn70, %keyboard_repeat_handle.exit85 ], [ %.pn70102, %.preheader ]
-  %.153104 = phi i32 [ %spec.select, %keyboard_repeat_handle.exit85 ], [ 0, %.preheader ]
-  %105 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 56
+.lr.ph104:                                        ; preds = %.preheader, %keyboard_repeat_handle.exit85
+  %.pn70103 = phi ptr [ %.pn70, %keyboard_repeat_handle.exit85 ], [ %.pn70100, %.preheader ]
+  %.153102 = phi i32 [ %spec.select, %keyboard_repeat_handle.exit85 ], [ 0, %.preheader ]
+  %105 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 56
   %106 = load ptr, ptr %105, align 8
   %107 = tail call ptr @SDL_GetCurrentKeymap() #12
   %.not72 = icmp eq ptr %106, %107
   br i1 %.not72, label %115, label %108
 
-108:                                              ; preds = %.lr.ph106
+108:                                              ; preds = %.lr.ph104
   %109 = load ptr, ptr %105, align 8
   tail call void @SDL_SetKeymap(ptr noundef %109, i1 noundef zeroext true) #12
-  %110 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 136
+  %110 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 136
   %111 = load i16, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 138
+  %112 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 138
   %113 = load i16, ptr %112, align 2
   %114 = or i16 %113, %111
   tail call void @SDL_SetModState_REAL(i16 noundef zeroext %114) #12
   br label %115
 
-115:                                              ; preds = %108, %.lr.ph106
+115:                                              ; preds = %108, %.lr.ph104
   %116 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %117 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 64
-  %118 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 96
   %119 = load i64, ptr %118, align 8
   %120 = sub i64 %116, %119
-  %121 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 104
+  %121 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 104
   %122 = load i64, ptr %121, align 8
   %.not16.i75.not = icmp uge i64 %120, %122
   br i1 %.not16.i75.not, label %.lr.ph.i76, label %keyboard_repeat_handle.exit85
 
 .lr.ph.i76:                                       ; preds = %115
-  %123 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 112
-  %124 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 88
-  %125 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 72
-  %126 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 80
-  %127 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 116
+  %123 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 112
+  %124 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 88
+  %125 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 116
   br label %128
 
 128:                                              ; preds = %148, %.lr.ph.i76
@@ -675,18 +675,18 @@ Wayland_AdjustEventTimestampBase.exit.i80:        ; preds = %140, %131
 
 keyboard_repeat_handle.exit85:                    ; preds = %148, %115
   %154 = zext i1 %.not16.i75.not to i32
-  %spec.select = add nuw nsw i32 %.153104, %154
-  %155 = getelementptr inbounds nuw i8, ptr %.pn70105, i64 8
+  %spec.select = add nuw nsw i32 %.153102, %154
+  %155 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 8
   %.pn70 = load ptr, ptr %155, align 8
   %.not71 = icmp eq ptr %.pn70, %18
-  br i1 %.not71, label %.thread, label %.lr.ph106, !llvm.loop !10
+  br i1 %.not71, label %.critedge, label %.lr.ph104, !llvm.loop !10
 
 156:                                              ; preds = %100
   %157 = tail call ptr @__errno_location() #13
   %158 = load i32, ptr %157, align 4
   %159 = icmp eq i32 %158, 4
   %. = select i1 %159, i32 1, i32 %90
-  br label %.thread
+  br label %.critedge
 
 160:                                              ; preds = %._crit_edge
   %.val74 = load ptr, ptr %6, align 8
@@ -694,9 +694,9 @@ keyboard_repeat_handle.exit85:                    ; preds = %148, %115
   %162 = tail call i32 %161(ptr noundef %.val74) #12
   %163 = icmp sgt i32 %162, -1
   %164 = select i1 %163, i32 1, i32 %162
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %71, %keyboard_repeat_handle.exit85, %.preheader, %92, %104, %156, %160
+.critedge:                                        ; preds = %71, %keyboard_repeat_handle.exit85, %.preheader, %92, %104, %156, %160
   %.2 = phi i32 [ %164, %160 ], [ %99, %92 ], [ 0, %104 ], [ %., %156 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit85 ], [ 1, %71 ]
   ret i32 %.2
 }
@@ -5558,7 +5558,7 @@ define internal fastcc void @pointer_handle_motion_common(ptr noundef %0, i64 no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread, label %7
+  br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
@@ -5660,7 +5660,7 @@ SDL_RectEmpty.exit.thread:                        ; preds = %43, %74, %7, %80, %
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 352
   %82 = load ptr, ptr %81, align 8
   %.not57 = icmp eq ptr %82, null
-  br i1 %.not57, label %.thread, label %83
+  br i1 %.not57, label %.critedge, label %83
 
 83:                                               ; preds = %SDL_RectEmpty.exit.thread
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 360
@@ -5776,14 +5776,14 @@ SDL_RectEmpty.exit.thread:                        ; preds = %43, %74, %7, %80, %
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %133 = load i32, ptr %132, align 8
   %.not78 = icmp eq i32 %.0, %133
-  br i1 %.not78, label %.thread, label %134
+  br i1 %.not78, label %.critedge, label %134
 
 134:                                              ; preds = %131
   store i32 %.0, ptr %132, align 8
   tail call void @Wayland_SeatUpdateCursor(ptr noundef nonnull %0) #12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %4, %SDL_RectEmpty.exit.thread, %134, %131
+.critedge:                                        ; preds = %4, %SDL_RectEmpty.exit.thread, %134, %131
   ret void
 }
 

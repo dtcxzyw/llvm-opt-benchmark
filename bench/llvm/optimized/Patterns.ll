@@ -11253,40 +11253,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
   %12 = icmp uge ptr %3, %.pre3.i
   %13 = icmp ult ptr %3, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i.i, label %16, label %14, !prof !969
+  br i1 %spec.select.i.i.i.i.i, label %14, label %.critedge.i.i.i, !prof !969
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %15, i64 noundef %7, i64 noundef 24) #25
+  %15 = ptrtoint ptr %3 to i64
+  %16 = ptrtoint ptr %.pre3.i to i64
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %7, i64 noundef 24) #25
+  %19 = load ptr, ptr %0, align 8, !tbaa !147
+  %20 = getelementptr inbounds i8, ptr %19, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_2gi7PatFrag5ParamELb1EE9push_backERKS3_.exit
+
+.critedge.i.i.i:                                  ; preds = %10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %7, i64 noundef 24) #25
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !147
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_2gi7PatFrag5ParamELb1EE9push_backERKS3_.exit
 
-16:                                               ; preds = %10
-  %17 = ptrtoint ptr %3 to i64
-  %18 = ptrtoint ptr %.pre3.i to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %20, i64 noundef %7, i64 noundef 24) #25
-  %21 = load ptr, ptr %0, align 8, !tbaa !147
-  %22 = getelementptr inbounds i8, ptr %21, i64 %19
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_2gi7PatFrag5ParamELb1EE9push_backERKS3_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_2gi7PatFrag5ParamELb1EE9push_backERKS3_.exit: ; preds = %2, %14, %16
-  %23 = phi ptr [ %.pre3.i, %2 ], [ %21, %16 ], [ %.pre.i, %14 ]
-  %.016.i.i.i = phi ptr [ %3, %2 ], [ %22, %16 ], [ %3, %14 ]
-  %24 = load i32, ptr %4, align 8, !tbaa !148
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::gi::PatFrag::Param", ptr %23, i64 %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %27 = load i32, ptr %4, align 8, !tbaa !148
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %4, align 8, !tbaa !148
+_ZN4llvm23SmallVectorTemplateBaseINS_2gi7PatFrag5ParamELb1EE9push_backERKS3_.exit: ; preds = %2, %14, %.critedge.i.i.i
+  %22 = phi ptr [ %.pre3.i, %2 ], [ %19, %14 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %3, %2 ], [ %20, %14 ], [ %3, %.critedge.i.i.i ]
+  %23 = load i32, ptr %4, align 8, !tbaa !148
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw %"struct.llvm::gi::PatFrag::Param", ptr %22, i64 %24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %26 = load i32, ptr %4, align 8, !tbaa !148
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %4, align 8, !tbaa !148
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
-  %29 = load ptr, ptr %0, align 8, !tbaa !147
-  %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::gi::PatFrag::Param", ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 -24
-  ret ptr %32
+  %28 = load ptr, ptr %0, align 8, !tbaa !147
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw %"struct.llvm::gi::PatFrag::Param", ptr %28, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 -24
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

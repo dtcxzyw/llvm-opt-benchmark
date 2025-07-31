@@ -243,31 +243,9 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   %23 = load i64, ptr %11, align 8
   %or.cond = icmp ugt i64 %23, 1
   %or.cond69 = select i1 %.not60, i1 true, i1 %or.cond
-  br i1 %or.cond69, label %31, label %24
+  br i1 %or.cond69, label %.critedge, label %24
 
-24:                                               ; preds = %20
-  %25 = icmp eq ptr %.047, null
-  br i1 %25, label %26, label %.thread
-
-26:                                               ; preds = %24
-  %27 = call i32 @PKCS8_pkey_get0(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %18) #3
-  %.not61 = icmp eq i32 %27, 0
-  br i1 %.not61, label %.thread, label %28
-
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %10, align 8, !tbaa !34
-  %30 = call i32 @OBJ_obj2txt(ptr noundef nonnull %9, i32 noundef 50, ptr noundef %29, i32 noundef 0) #3
-  %.not62 = icmp eq i32 %30, 0
-  %spec.select = select i1 %.not62, ptr null, ptr %9
-  br label %.thread
-
-.thread:                                          ; preds = %24, %26, %28
-  %.2 = phi ptr [ null, %26 ], [ %.047, %24 ], [ %spec.select, %28 ]
-  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  br label %32
-
-31:                                               ; preds = %20
+.critedge:                                        ; preds = %20
   store ptr %12, ptr %2, align 8, !tbaa !3
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 61, ptr noundef nonnull @__func__.d2i_PrivateKey_decoder) #3
@@ -276,14 +254,36 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
   br label %51
 
-32:                                               ; preds = %.thread, %16
-  %.3 = phi ptr [ %.047, %16 ], [ %.2, %.thread ]
-  %.145 = phi ptr [ @.str.2, %16 ], [ @.str.1, %.thread ]
+24:                                               ; preds = %20
+  %25 = icmp eq ptr %.047, null
+  br i1 %25, label %26, label %31
+
+26:                                               ; preds = %24
+  %27 = call i32 @PKCS8_pkey_get0(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %18) #3
+  %.not61 = icmp eq i32 %27, 0
+  br i1 %.not61, label %31, label %28
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %10, align 8, !tbaa !34
+  %30 = call i32 @OBJ_obj2txt(ptr noundef nonnull %9, i32 noundef 50, ptr noundef %29, i32 noundef 0) #3
+  %.not62 = icmp eq i32 %30, 0
+  %spec.select = select i1 %.not62, ptr null, ptr %9
+  br label %31
+
+31:                                               ; preds = %28, %26, %24
+  %.2 = phi ptr [ null, %26 ], [ %.047, %24 ], [ %spec.select, %28 ]
+  call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
+  br label %32
+
+32:                                               ; preds = %16, %31
+  %.3 = phi ptr [ %.2, %31 ], [ %.047, %16 ]
+  %.145 = phi ptr [ @.str.1, %31 ], [ @.str.2, %16 ]
   store ptr %12, ptr %2, align 8, !tbaa !3
   %.not63 = icmp eq ptr %1, null
-  br i1 %.not63, label %.thread74, label %34
+  br i1 %.not63, label %.thread, label %34
 
-.thread74:                                        ; preds = %32
+.thread:                                          ; preds = %32
   %33 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %8, ptr noundef nonnull @.str.3, ptr noundef nonnull %.145, ptr noundef %.3, i32 noundef 135, ptr noundef %4, ptr noundef %5) #3
   br label %37
 
@@ -295,9 +295,9 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   store ptr %35, ptr %1, align 8, !tbaa !8
   br label %37
 
-37:                                               ; preds = %.thread74, %34
-  %38 = phi ptr [ %33, %.thread74 ], [ %36, %34 ]
-  %.04977 = phi ptr [ %8, %.thread74 ], [ %spec.select70, %34 ]
+37:                                               ; preds = %.thread, %34
+  %38 = phi ptr [ %33, %.thread ], [ %36, %34 ]
+  %.04974 = phi ptr [ %8, %.thread ], [ %spec.select70, %34 ]
   %39 = icmp eq ptr %38, null
   br i1 %39, label %48, label %40
 
@@ -308,7 +308,7 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   br i1 %.not65, label %48, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %.04977, align 8, !tbaa !8
+  %43 = load ptr, ptr %.04974, align 8, !tbaa !8
   %.not66 = icmp eq ptr %43, null
   br i1 %.not66, label %48, label %44
 
@@ -318,7 +318,7 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   br i1 %.not67, label %48, label %46
 
 46:                                               ; preds = %44
-  %.pre = load ptr, ptr %.04977, align 8, !tbaa !8
+  %.pre = load ptr, ptr %.04974, align 8, !tbaa !8
   br i1 %.not63, label %51, label %47
 
 47:                                               ; preds = %46
@@ -326,16 +326,16 @@ define internal fastcc ptr @d2i_PrivateKey_decoder(i32 noundef %0, ptr noundef %
   br label %51
 
 48:                                               ; preds = %40, %42, %44, %37
-  %.not68 = icmp eq ptr %.04977, %1
+  %.not68 = icmp eq ptr %.04974, %1
   br i1 %.not68, label %51, label %49
 
 49:                                               ; preds = %48
-  %50 = load ptr, ptr %.04977, align 8, !tbaa !8
+  %50 = load ptr, ptr %.04974, align 8, !tbaa !8
   call void @EVP_PKEY_free(ptr noundef %50) #3
   br label %51
 
-51:                                               ; preds = %46, %47, %31, %48, %49, %13
-  %.043 = phi ptr [ null, %31 ], [ null, %13 ], [ null, %49 ], [ null, %48 ], [ %.pre, %47 ], [ %.pre, %46 ]
+51:                                               ; preds = %46, %47, %48, %49, %.critedge, %13
+  %.043 = phi ptr [ null, %13 ], [ null, %.critedge ], [ null, %49 ], [ null, %48 ], [ %.pre, %47 ], [ %.pre, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %9) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3

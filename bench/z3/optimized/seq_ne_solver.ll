@@ -3122,8 +3122,8 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
   %2 = alloca %"class.smt::theory_seq::ne", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8, !tbaa !22
-  %.not29.not = icmp eq i32 %4, 0
-  br i1 %.not29.not, label %.loopexit, label %.lr.ph
+  %.not27.not = icmp eq i32 %4, 0
+  br i1 %.not27.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -3139,16 +3139,16 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
   %12 = getelementptr inbounds nuw %"class.smt::theory_seq::ne", ptr %10, i64 %11
   call void @_ZN3smt10theory_seq2neC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %12)
   %13 = invoke noundef i32 @_ZN3smt10theory_seq9branch_nqERKNS0_2neE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
-          to label %14 unwind label %.loopexit18
+          to label %14 unwind label %.loopexit16
 
 14:                                               ; preds = %7
-  switch i32 %13, label %default.unreachable31 [
-    i32 0, label %.thread
+  switch i32 %13, label %default.unreachable29 [
+    i32 0, label %.critedge
     i32 1, label %16
     i32 -1, label %17
   ]
 
-.loopexit18:                                      ; preds = %7, %16
+.loopexit16:                                      ; preds = %7, %16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -3158,27 +3158,22 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
           cleanup
   br label %15
 
-15:                                               ; preds = %.loopexit.split-lp, %.loopexit18
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit18 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+15:                                               ; preds = %.loopexit.split-lp, %.loopexit16
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
   resume { ptr, i32 } %lpad.phi
 
 16:                                               ; preds = %14
   invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0)
-          to label %18 unwind label %.loopexit18
+          to label %18 unwind label %.loopexit16
 
 17:                                               ; preds = %14
   invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0)
-          to label %.thread unwind label %.loopexit.split-lp
+          to label %.critedge unwind label %.loopexit.split-lp
 
-default.unreachable31:                            ; preds = %14
+default.unreachable29:                            ; preds = %14
   unreachable
-
-.thread:                                          ; preds = %14, %17
-  call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
-  br label %.loopexit
 
 18:                                               ; preds = %16
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
@@ -3187,9 +3182,14 @@ default.unreachable31:                            ; preds = %14
   %.not.not = icmp eq i32 %19, 0
   br i1 %.not.not, label %.loopexit, label %7, !llvm.loop !267
 
-.loopexit:                                        ; preds = %18, %1, %.thread
-  %.not23 = phi i1 [ true, %.thread ], [ false, %1 ], [ false, %18 ]
-  ret i1 %.not23
+.critedge:                                        ; preds = %14, %17
+  call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %18, %1, %.critedge
+  %.not21 = phi i1 [ true, %.critedge ], [ false, %1 ], [ false, %18 ]
+  ret i1 %.not21
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

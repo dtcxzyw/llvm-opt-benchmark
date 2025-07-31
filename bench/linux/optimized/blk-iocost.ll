@@ -1937,7 +1937,7 @@ define internal void @ioc_pd_free(ptr noundef %0) #1 align 16 {
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %52 = add i32 %50, -1
   %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %.lr.ph, label %.thread
+  br i1 %53, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %48, %.lr.ph.backedge
   %54 = phi i32 [ %.be, %.lr.ph.backedge ], [ %52, %48 ]
@@ -1999,25 +1999,25 @@ define internal void @ioc_pd_free(ptr noundef %0) #1 align 16 {
   %100 = add i32 %54, -1
   %101 = icmp sgt i32 %100, -1
   %or.cond = and i1 %99, %101
-  br i1 %or.cond, label %.lr.ph.backedge, label %.thread
+  br i1 %or.cond, label %.lr.ph.backedge, label %.critedge
 
 102:                                              ; preds = %90
   %.old = add i32 %54, -1
   %.old6 = icmp sgt i32 %.old, -1
-  br i1 %.old6, label %.lr.ph.backedge, label %.thread
+  br i1 %.old6, label %.lr.ph.backedge, label %.critedge
 
 .lr.ph.backedge:                                  ; preds = %102, %96
   %.be = phi i32 [ %.old, %102 ], [ %100, %96 ]
   br label %.lr.ph, !llvm.loop !33
 
-.thread:                                          ; preds = %102, %96, %48
+.critedge:                                        ; preds = %102, %96, %48
   %103 = getelementptr inbounds nuw i8, ptr %27, i64 364
   store i8 1, ptr %103, align 4
   %.pre = load ptr, ptr %2, align 8
   br label %104
 
-104:                                              ; preds = %.thread, %38
-  %105 = phi ptr [ %.pre, %.thread ], [ %27, %38 ]
+104:                                              ; preds = %.critedge, %38
+  %105 = phi ptr [ %.pre, %.critedge ], [ %27, %38 ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 364
   %107 = load i8, ptr %106, align 4, !range !29, !noundef !30
   %108 = icmp eq i8 %107, 0
@@ -3222,7 +3222,7 @@ define internal fastcc void @__propagate_weights(ptr noundef %0, i32 noundef %1,
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %50 = add i32 %48, -1
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph, label %.thread
+  br i1 %51, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %46, %.lr.ph.backedge
   %52 = phi i32 [ %.be, %.lr.ph.backedge ], [ %50, %46 ]
@@ -3284,23 +3284,23 @@ define internal fastcc void @__propagate_weights(ptr noundef %0, i32 noundef %1,
   %98 = add i32 %52, -1
   %99 = icmp sgt i32 %98, -1
   %or.cond = and i1 %97, %99
-  br i1 %or.cond, label %.lr.ph.backedge, label %.thread
+  br i1 %or.cond, label %.lr.ph.backedge, label %.critedge
 
 100:                                              ; preds = %88
   %.old = add i32 %52, -1
   %.old4 = icmp sgt i32 %.old, -1
-  br i1 %.old4, label %.lr.ph.backedge, label %.thread
+  br i1 %.old4, label %.lr.ph.backedge, label %.critedge
 
 .lr.ph.backedge:                                  ; preds = %100, %94
   %.be = phi i32 [ %.old, %100 ], [ %98, %94 ]
   br label %.lr.ph, !llvm.loop !33
 
-.thread:                                          ; preds = %100, %94, %46
+.critedge:                                        ; preds = %100, %94, %46
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 364
   store i8 1, ptr %101, align 4
   br label %102
 
-102:                                              ; preds = %.thread, %40
+102:                                              ; preds = %.critedge, %40
   ret void
 }
 

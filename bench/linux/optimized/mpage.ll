@@ -786,9 +786,9 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %78, label %.preheader23
+  br i1 %19, label %78, label %.preheader22
 
-.preheader23:                                     ; preds = %3, %66
+.preheader22:                                     ; preds = %3, %66
   %20 = phi i64 [ %67, %66 ], [ 0, %3 ]
   %21 = phi i32 [ %68, %66 ], [ 0, %3 ]
   %22 = phi i32 [ %69, %66 ], [ %14, %3 ]
@@ -802,12 +802,12 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31, !prof !30
 
-31:                                               ; preds = %.preheader23
+31:                                               ; preds = %.preheader22
   tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #7, !srcloc !31
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 488, i32 0, i64 12) #7, !srcloc !32
   unreachable
 
-32:                                               ; preds = %.preheader23
+32:                                               ; preds = %.preheader22
   %33 = load volatile i64, ptr %27, align 8
   %34 = and i64 %33, 16
   %35 = icmp eq i64 %34, 0
@@ -817,7 +817,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %37 = load volatile i64, ptr %27, align 8
   %38 = and i64 %37, 2
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %36
   %41 = icmp eq i32 %22, %14
@@ -826,20 +826,20 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
 
 43:                                               ; preds = %32
   %44 = icmp eq i32 %22, %14
-  br i1 %44, label %45, label %.thread
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %43
   %46 = load volatile i64, ptr %27, align 8
   %47 = and i64 %46, 2
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %45
   %50 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %27, i32 1) #7, !srcloc !19
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %49
   %54 = icmp eq i32 %21, 0
@@ -851,20 +851,20 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %58 = zext i32 %21 to i64
   %59 = add i64 %20, %58
   %60 = icmp eq i64 %56, %59
-  br i1 %60, label %61, label %.thread
+  br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %57, %53
   %62 = phi i64 [ %20, %57 ], [ %56, %53 ]
   %63 = add i32 %21, 1
   %64 = load volatile i64, ptr %27, align 8
   %65 = and i64 %64, 512
-  %.not61 = icmp eq i64 %65, 0
+  %.not60 = icmp eq i64 %65, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.lobit = lshr exact i64 %65, 9
   %. = trunc nuw nsw i64 %.lobit to i32
-  %.60 = select i1 %.not61, i64 %25, i64 %56
-  %..pre = select i1 %.not61, ptr %26, ptr %.pre
+  %.59 = select i1 %.not60, i64 %25, i64 %56
+  %..pre = select i1 %.not60, ptr %26, ptr %.pre
   br label %66
 
 66:                                               ; preds = %61, %40
@@ -873,16 +873,16 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %69 = phi i32 [ %42, %40 ], [ %14, %61 ]
   %70 = phi ptr [ %23, %40 ], [ %.pre, %61 ]
   %71 = phi i32 [ %24, %40 ], [ %., %61 ]
-  %72 = phi i64 [ %25, %40 ], [ %.60, %61 ]
+  %72 = phi i64 [ %25, %40 ], [ %.59, %61 ]
   %73 = phi ptr [ %26, %40 ], [ %..pre, %61 ]
   %74 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %18
-  br i1 %76, label %77, label %.preheader23, !llvm.loop !33
+  br i1 %76, label %77, label %.preheader22, !llvm.loop !33
 
 77:                                               ; preds = %66
   %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %.thread, label %155
+  br i1 %.not, label %.critedge, label %155
 
 78:                                               ; preds = %3
   %79 = load volatile i64, ptr %0, align 8
@@ -916,7 +916,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %98, align 8
   %99 = icmp ugt i8 %10, 12
-  br i1 %99, label %.thread22, label %100
+  br i1 %99, label %.thread, label %100
 
 100:                                              ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -946,13 +946,13 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %119 = load ptr, ptr %102, align 8
   %120 = call i32 %119(ptr noundef %8, i64 noundef %118, ptr noundef nonnull %4, i32 noundef 1) #7
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %.thread
+  br i1 %121, label %122, label %.critedge
 
 122:                                              ; preds = %113
   %123 = load volatile i64, ptr %4, align 8
   %124 = and i64 %123, 16
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.thread, label %126
+  br i1 %125, label %.critedge, label %126
 
 126:                                              ; preds = %122
   %127 = load volatile i64, ptr %4, align 8
@@ -980,7 +980,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
 142:                                              ; preds = %133
   %143 = add i64 %117, %114
   %144 = icmp eq i64 %137, %143
-  br i1 %144, label %145, label %.thread
+  br i1 %144, label %145, label %.critedge
 
 145:                                              ; preds = %142, %133
   %146 = phi i64 [ %117, %142 ], [ %137, %133 ]
@@ -994,9 +994,9 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %152 = lshr i32 %151, 9
   %153 = and i32 %152, 1
   %154 = icmp eq i32 %150, 0
-  br i1 %154, label %.thread22, label %155, !prof !37
+  br i1 %154, label %.thread, label %155, !prof !37
 
-.thread22:                                        ; preds = %95, %149
+.thread:                                          ; preds = %95, %149
   call void asm sideeffect "440: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 440b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 440) #7, !srcloc !38
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 573, i32 0, i64 12) #7, !srcloc !39
   unreachable
@@ -1012,7 +1012,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %163 = load i64, ptr %162, align 8
   %164 = shl i64 %163, 12
   %165 = icmp slt i64 %164, %16
-  br i1 %165, label %166, label %.thread
+  br i1 %165, label %166, label %.critedge
 
 166:                                              ; preds = %155
   %167 = load volatile i64, ptr %0, align 8
@@ -1256,18 +1256,18 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %309, ptr %310, align 8
   br label %332
 
-.thread:                                          ; preds = %57, %45, %49, %43, %36, %142, %122, %113, %155, %77
+.critedge:                                        ; preds = %36, %43, %49, %45, %57, %142, %122, %113, %155, %77
   %311 = icmp eq ptr %5, null
   br i1 %311, label %314, label %312
 
-312:                                              ; preds = %.thread
+312:                                              ; preds = %.critedge
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr @mpage_write_end_io, ptr %313, align 8
   call void @guard_bio_eod(ptr noundef nonnull %5) #7
   call void @submit_bio(ptr noundef nonnull %5) #7
   br label %314
 
-314:                                              ; preds = %312, %.thread
+314:                                              ; preds = %312, %.critedge
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %316 = load ptr, ptr %315, align 8
   %317 = call i32 @block_write_full_folio(ptr noundef %0, ptr noundef %1, ptr noundef %316) #7

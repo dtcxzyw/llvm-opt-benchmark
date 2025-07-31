@@ -566,105 +566,105 @@ define internal fastcc i64 @check_tsc_warp(i32 noundef range(i32 2, 21) %0) unna
   %11 = add i64 %6, %10
   br label %12
 
-12:                                               ; preds = %56, %1
-  %13 = phi i32 [ 0, %1 ], [ %59, %56 ]
-  %14 = phi i32 [ 0, %1 ], [ %57, %56 ]
-  %15 = phi i64 [ 0, %1 ], [ %58, %56 ]
+12:                                               ; preds = %54, %1
+  %13 = phi i32 [ 0, %1 ], [ %57, %54 ]
+  %14 = phi i32 [ 0, %1 ], [ %55, %54 ]
+  %15 = phi i64 [ 0, %1 ], [ %56, %54 ]
   %16 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @sync_lock, i32 1, ptr nonnull elementtype(i32) @sync_lock, i32 0) #8, !srcloc !34
   %17 = extractvalue { i8, i32 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %22, !prof !15
+  br i1 %19, label %20, label %.critedge, !prof !15
 
 20:                                               ; preds = %12
   %21 = extractvalue { i8, i32 } %16, 1
   tail call void @queued_spin_lock_slowpath(ptr noundef nonnull @sync_lock, i32 noundef %21) #8
-  br label %22
+  br label %.critedge
 
-22:                                               ; preds = %12, %20
-  %23 = load i64, ptr @last_tsc, align 8
-  %24 = tail call { i64, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09rdtsc\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 1*32+27)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence; rdtsc\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09rdtscp\0A6652:\0A.popsection\0A", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !33
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  %27 = shl i64 %26, 32
-  %28 = or i64 %27, %25
-  store i64 %28, ptr @last_tsc, align 8
+.critedge:                                        ; preds = %12, %20
+  %22 = load i64, ptr @last_tsc, align 8
+  %23 = tail call { i64, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09rdtsc\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 1*32+27)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence; rdtsc\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09rdtscp\0A6652:\0A.popsection\0A", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !33
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = extractvalue { i64, i64 } %23, 1
+  %26 = shl i64 %25, 32
+  %27 = or i64 %26, %24
+  store i64 %27, ptr @last_tsc, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
   store volatile i8 0, ptr @sync_lock, align 4
-  %29 = and i32 %13, 7
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %36, !prof !15
+  %28 = and i32 %13, 7
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %35, !prof !15
 
-31:                                               ; preds = %22
-  %32 = icmp ugt i64 %28, %11
-  %33 = icmp sgt i32 %13, 10000000
-  %34 = select i1 %32, i1 true, i1 %33
-  br i1 %34, label %60, label %35
+30:                                               ; preds = %.critedge
+  %31 = icmp ugt i64 %27, %11
+  %32 = icmp sgt i32 %13, 10000000
+  %33 = select i1 %31, i1 true, i1 %32
+  br i1 %33, label %58, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !25
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %22
-  %37 = icmp ugt i64 %23, %28
-  br i1 %37, label %38, label %56, !prof !15
+35:                                               ; preds = %34, %.critedge
+  %36 = icmp ugt i64 %22, %27
+  br i1 %36, label %37, label %54, !prof !15
 
-38:                                               ; preds = %36
-  %39 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @sync_lock, i32 1, ptr nonnull elementtype(i32) @sync_lock, i32 0) #8, !srcloc !34
-  %40 = extractvalue { i8, i32 } %39, 0
-  %41 = icmp ult i8 %40, 2
-  tail call void @llvm.assume(i1 %41)
-  %42 = icmp eq i8 %40, 0
-  br i1 %42, label %43, label %45, !prof !15
+37:                                               ; preds = %35
+  %38 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @sync_lock, i32 1, ptr nonnull elementtype(i32) @sync_lock, i32 0) #8, !srcloc !34
+  %39 = extractvalue { i8, i32 } %38, 0
+  %40 = icmp ult i8 %39, 2
+  tail call void @llvm.assume(i1 %40)
+  %41 = icmp eq i8 %39, 0
+  br i1 %41, label %42, label %.critedge2, !prof !15
 
-43:                                               ; preds = %38
-  %44 = extractvalue { i8, i32 } %39, 1
-  tail call void @queued_spin_lock_slowpath(ptr noundef nonnull @sync_lock, i32 noundef %44) #8
-  br label %45
+42:                                               ; preds = %37
+  %43 = extractvalue { i8, i32 } %38, 1
+  tail call void @queued_spin_lock_slowpath(ptr noundef nonnull @sync_lock, i32 noundef %43) #8
+  br label %.critedge2
 
-45:                                               ; preds = %38, %43
-  %46 = load i64, ptr @max_warp, align 8
-  %47 = sub i64 %23, %28
-  %48 = tail call i64 @llvm.umax.i64(i64 %46, i64 %47)
-  store i64 %48, ptr @max_warp, align 8
-  %49 = load i32, ptr @nr_warps, align 4
-  %50 = icmp eq i32 %14, %49
-  br i1 %50, label %54, label %51
+.critedge2:                                       ; preds = %37, %42
+  %44 = load i64, ptr @max_warp, align 8
+  %45 = sub i64 %22, %27
+  %46 = tail call i64 @llvm.umax.i64(i64 %44, i64 %45)
+  store i64 %46, ptr @max_warp, align 8
+  %47 = load i32, ptr @nr_warps, align 4
+  %48 = icmp eq i32 %14, %47
+  br i1 %48, label %52, label %49
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr @random_warps, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr @random_warps, align 4
+49:                                               ; preds = %.critedge2
+  %50 = load i32, ptr @random_warps, align 4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr @random_warps, align 4
+  br label %52
+
+52:                                               ; preds = %49, %.critedge2
+  %53 = add i32 %47, 1
+  store i32 %53, ptr @nr_warps, align 4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
+  store volatile i8 0, ptr @sync_lock, align 4
   br label %54
 
-54:                                               ; preds = %51, %45
-  %55 = add i32 %49, 1
-  store i32 %55, ptr @nr_warps, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
-  store volatile i8 0, ptr @sync_lock, align 4
-  br label %56
-
-56:                                               ; preds = %54, %36
-  %57 = phi i32 [ %55, %54 ], [ %14, %36 ]
-  %58 = phi i64 [ %48, %54 ], [ %15, %36 ]
-  %59 = add i32 %13, 1
+54:                                               ; preds = %52, %35
+  %55 = phi i32 [ %53, %52 ], [ %14, %35 ]
+  %56 = phi i64 [ %46, %52 ], [ %15, %35 ]
+  %57 = add i32 %13, 1
   br label %12, !llvm.loop !36
 
-60:                                               ; preds = %31
-  %61 = icmp eq i64 %28, %6
-  br i1 %61, label %62, label %63, !prof !15
+58:                                               ; preds = %30
+  %59 = icmp eq i64 %27, %6
+  br i1 %59, label %60, label %61, !prof !15
 
-62:                                               ; preds = %60
+60:                                               ; preds = %58
   tail call void asm sideeffect "242: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 242b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 242) #8, !srcloc !37
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef %10) #8
   tail call void asm sideeffect "243: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 243b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 243) #8, !srcloc !38
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 323, i32 2313, i64 12) #8, !srcloc !39
   tail call void asm sideeffect "244: nop\0A\09.pushsection .discard.instr_end\0A\09.long 244b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 244) #8, !srcloc !40
   tail call void asm sideeffect "245: nop\0A\09.pushsection .discard.instr_end\0A\09.long 245b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 245) #8, !srcloc !41
-  br label %63
+  br label %61
 
-63:                                               ; preds = %62, %60
+61:                                               ; preds = %60, %58
   ret i64 %15
 }
 

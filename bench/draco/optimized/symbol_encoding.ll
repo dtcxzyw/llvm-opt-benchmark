@@ -2735,9 +2735,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !83
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -2745,9 +2745,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -2760,14 +2760,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -2808,7 +2808,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi5EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -2839,7 +2839,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -2848,8 +2848,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -2927,17 +2927,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !94
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !94
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !83
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !95
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -8561,9 +8561,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !225
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -8571,9 +8571,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -8586,14 +8586,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -8634,7 +8634,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi1EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -8665,7 +8665,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -8674,8 +8674,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -8753,17 +8753,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !234
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !234
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !225
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !235
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !235
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -10535,9 +10535,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !250
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -10545,9 +10545,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -10560,14 +10560,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -10608,7 +10608,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi2EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -10639,7 +10639,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -10648,8 +10648,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -10727,17 +10727,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !259
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !259
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !250
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !260
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !260
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -12509,9 +12509,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !275
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -12519,9 +12519,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -12534,14 +12534,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -12582,7 +12582,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi3EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -12613,7 +12613,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -12622,8 +12622,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -12701,17 +12701,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !284
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !284
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !275
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !285
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !285
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -14483,9 +14483,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !300
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -14493,9 +14493,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -14508,14 +14508,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -14556,7 +14556,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi4EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -14587,7 +14587,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -14596,8 +14596,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -14675,17 +14675,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !309
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !309
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !300
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !310
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !310
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -16457,9 +16457,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !325
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -16467,9 +16467,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -16482,14 +16482,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -16530,7 +16530,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi6EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -16561,7 +16561,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -16570,8 +16570,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -16649,17 +16649,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !334
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !334
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !325
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !335
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !335
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -18431,9 +18431,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !350
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -18441,9 +18441,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -18456,14 +18456,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -18504,7 +18504,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi7EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -18535,7 +18535,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -18544,8 +18544,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -18623,17 +18623,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !359
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !359
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !350
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !360
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !360
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -20405,9 +20405,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !375
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -20415,9 +20415,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -20430,14 +20430,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -20478,7 +20478,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi8EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -20509,7 +20509,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -20518,8 +20518,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -20597,17 +20597,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !384
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !384
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !375
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !385
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !385
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -22380,9 +22380,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !400
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -22390,9 +22390,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -22405,14 +22405,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -22453,7 +22453,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi9EE11Enco
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -22484,7 +22484,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -22493,8 +22493,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -22572,17 +22572,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !409
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !409
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !400
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !410
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !410
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -24355,9 +24355,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !425
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -24365,9 +24365,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -24380,14 +24380,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -24428,7 +24428,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi10EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -24459,7 +24459,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -24468,8 +24468,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -24547,17 +24547,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !434
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !434
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !425
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !435
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !435
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -26330,9 +26330,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !450
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -26340,9 +26340,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -26355,14 +26355,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -26403,7 +26403,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi11EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -26434,7 +26434,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -26443,8 +26443,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -26522,17 +26522,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !459
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !459
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !450
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !460
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !460
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -28305,9 +28305,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !475
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -28315,9 +28315,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -28330,14 +28330,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -28378,7 +28378,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi12EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -28409,7 +28409,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -28418,8 +28418,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -28497,17 +28497,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !484
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !484
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !475
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !485
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !485
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -30280,9 +30280,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !500
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -30290,9 +30290,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -30305,14 +30305,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -30353,7 +30353,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi13EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -30384,7 +30384,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -30393,8 +30393,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -30472,17 +30472,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !509
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !509
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !500
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !510
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !510
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -32255,9 +32255,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !525
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -32265,9 +32265,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -32280,14 +32280,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -32328,7 +32328,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi14EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -32359,7 +32359,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -32368,8 +32368,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -32447,17 +32447,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !534
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !534
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !525
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !535
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !535
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -34230,9 +34230,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !550
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -34240,9 +34240,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -34255,14 +34255,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -34303,7 +34303,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi15EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -34334,7 +34334,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -34343,8 +34343,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -34422,17 +34422,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !559
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !559
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !550
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !560
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !560
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -36205,9 +36205,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !575
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -36215,9 +36215,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -36230,14 +36230,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -36278,7 +36278,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi16EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -36309,7 +36309,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -36318,8 +36318,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -36397,17 +36397,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !584
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !584
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !575
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !585
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !585
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -38180,9 +38180,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !600
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -38190,9 +38190,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -38205,14 +38205,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -38253,7 +38253,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi17EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -38284,7 +38284,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -38293,8 +38293,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -38372,17 +38372,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !609
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !609
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !600
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !610
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !610
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }
@@ -40155,9 +40155,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
   %7 = tail call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %6, ptr noundef %1)
   %8 = load i32, ptr %5, align 8, !tbaa !625
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %._crit_edge, label %.lr.ph58
+  br i1 %9, label %.critedge, label %.lr.ph53
 
-.lr.ph58:                                         ; preds = %2
+.lr.ph53:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -40165,9 +40165,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph58, %.loopexit
-  %.03557 = phi i32 [ 0, %.lr.ph58 ], [ %96, %.loopexit ]
-  %16 = zext i32 %.03557 to i64
+15:                                               ; preds = %.lr.ph53, %.loopexit
+  %.03552 = phi i32 [ 0, %.lr.ph53 ], [ %96, %.loopexit ]
+  %16 = zext i32 %.03552 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !68
@@ -40180,14 +40180,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
 
 23:                                               ; preds = %21
   %24 = icmp ugt i32 %19, 4194303
-  br i1 %24, label %._crit_edge, label %.thread
+  br i1 %24, label %.critedge, label %.thread
 
 25:                                               ; preds = %15
   %26 = icmp eq i32 %19, 0
   br i1 %26, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %25
-  %27 = add nuw i32 %.03557, 1
+  %27 = add nuw i32 %.03552, 1
   br label %28
 
 28:                                               ; preds = %.preheader, %34
@@ -40228,7 +40228,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolEncoderILi18EE11Enc
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %47 = add i32 %.033.lcssa, %.03557
+  %47 = add i32 %.033.lcssa, %.03552
   br label %.loopexit
 
 .thread:                                          ; preds = %23, %21, %25
@@ -40259,7 +40259,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 .lr.ph:                                           ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43
   %60 = load i64, ptr %10, align 8, !tbaa !31
   %61 = icmp slt i64 %60, 1
-  %umax65 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
+  %umax60 = call i32 @llvm.umax.i32(i32 %.03446, i32 1)
   br i1 %61, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
@@ -40268,8 +40268,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43:  ; preds = %.thread, %53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %62 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %60, %.lr.ph ]
-  %.056 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %63 = add nuw nsw i32 %.056, 1
+  %.051 = phi i32 [ %63, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %63 = add nuw nsw i32 %.051, 1
   %64 = shl nuw nsw i32 %63, 3
   %65 = add nsw i32 %64, -2
   %66 = lshr i32 %19, %65
@@ -40347,17 +40347,17 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i: ; preds = %93, %89
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44:  ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.split
-  %exitcond66.not = icmp eq i32 %63, %umax65
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !634
+  %exitcond61.not = icmp eq i32 %63, %umax60
+  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !634
 
 .loopexit:                                        ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44, %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %.136.ph = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03557, %.lr.ph ], [ %.03557, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
-  %96 = add i32 %.136.ph, 1
+  %.136 = phi i32 [ %47, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit43 ], [ %.03552, %.lr.ph ], [ %.03552, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit44 ]
+  %96 = add i32 %.136, 1
   %97 = load i32, ptr %5, align 8, !tbaa !625
-  %.not61 = icmp ult i32 %96, %97
-  br i1 %.not61, label %15, label %._crit_edge, !llvm.loop !635
+  %.not56 = icmp ult i32 %96, %97
+  br i1 %.not56, label %15, label %.critedge, !llvm.loop !635
 
-._crit_edge:                                      ; preds = %.loopexit, %23, %2
+.critedge:                                        ; preds = %.loopexit, %23, %2
   %.lcssa = phi i1 [ true, %2 ], [ false, %23 ], [ true, %.loopexit ]
   ret i1 %.lcssa
 }

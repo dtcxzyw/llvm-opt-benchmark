@@ -6620,7 +6620,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %5 = load ptr, ptr @filelock_cache, align 8
   %6 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %5, i32 noundef 3520) #15
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -6890,9 +6890,9 @@ flock_to_posix_lock.exit.thread:                  ; preds = %81, %76, %60, %52, 
   tail call void @locks_release_private(ptr noundef nonnull %6)
   %154 = load ptr, ptr @filelock_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %154, ptr noundef nonnull %6) #15
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %4, %153
+.critedge:                                        ; preds = %4, %153
   %155 = phi i32 [ %132, %153 ], [ -37, %4 ]
   ret i32 %155
 }

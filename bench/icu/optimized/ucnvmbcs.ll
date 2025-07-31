@@ -6545,8 +6545,8 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 
 .thread:                                          ; preds = %21
   %23 = and i8 %16, 7
-  %narrow10 = add nuw nsw i8 %23, 1
-  %24 = zext nneg i8 %narrow10 to i32
+  %narrow7 = add nuw nsw i8 %23, 1
+  %24 = zext nneg i8 %narrow7 to i32
   %25 = shl nuw nsw i32 %24, 5
   br label %.lr.ph
 
@@ -6561,22 +6561,22 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %29 = zext nneg i8 %narrow to i32
   %30 = shl nuw nsw i32 %29, 5
   %31 = icmp samesign ult i32 %.076, %30
-  br i1 %31, label %.lr.ph, label %_ZL20writeStage3RoundtripPKvjPi.exit.thread
+  br i1 %31, label %.lr.ph, label %.critedge88
 
 .lr.ph:                                           ; preds = %.thread, %27
   %32 = phi i32 [ %25, %.thread ], [ %30, %27 ]
-  %.07612 = phi i32 [ 0, %.thread ], [ %.076, %27 ]
-  %invariant.op13 = add i32 %3, 1
+  %.0769 = phi i32 [ 0, %.thread ], [ %.076, %27 ]
+  %invariant.op10 = add i32 %3, 1
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 204
-  %36 = zext nneg i32 %.07612 to i64
+  %36 = zext nneg i32 %.0769 to i64
   %37 = zext nneg i32 %32 to i64
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZL20writeStage3RoundtripPKvjPi.exit
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %_ZL20writeStage3RoundtripPKvjPi.exit ]
-  %.0725 = phi i32 [ -1, %.lr.ph ], [ %.173, %_ZL20writeStage3RoundtripPKvjPi.exit ]
+  %.0722 = phi i32 [ -1, %.lr.ph ], [ %.173, %_ZL20writeStage3RoundtripPKvjPi.exit ]
   %39 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !27
   %41 = icmp sgt i32 %40, -1
@@ -6632,7 +6632,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 68:                                               ; preds = %55
   %69 = and i32 %40, 65535
   %70 = add i32 %69, %3
-  %.reass = add i32 %69, %invariant.op13
+  %.reass = add i32 %69, %invariant.op10
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i16, ptr %13, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !17
@@ -6676,11 +6676,11 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %98 = and i64 %indvars.iv, 31
   %99 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %98
   store i32 %.068, ptr %99, align 4, !tbaa !27
-  %100 = and i32 %.068, %.0725
+  %100 = and i32 %.068, %.0722
   br label %101
 
 101:                                              ; preds = %.critedge, %97
-  %.274 = phi i32 [ %100, %97 ], [ %.0725, %.critedge ]
+  %.274 = phi i32 [ %100, %97 ], [ %.0722, %.critedge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = and i64 %indvars.iv.next, 31
   %103 = icmp eq i64 %102, 0
@@ -6812,9 +6812,9 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 _ZL20writeStage3RoundtripPKvjPi.exit:             ; preds = %171, %101
   %.173 = phi i32 [ %.274, %101 ], [ -1, %171 ]
   %173 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %173, label %38, label %_ZL20writeStage3RoundtripPKvjPi.exit.thread, !llvm.loop !182
+  br i1 %173, label %38, label %.critedge88, !llvm.loop !182
 
-_ZL20writeStage3RoundtripPKvjPi.exit.thread:      ; preds = %_ZL20writeStage3RoundtripPKvjPi.exit, %27
+.critedge88:                                      ; preds = %_ZL20writeStage3RoundtripPKvjPi.exit, %27
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #15
   ret void
 }

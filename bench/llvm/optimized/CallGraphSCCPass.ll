@@ -4587,10 +4587,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31.us:            ; preds = %39, %65, %62, %44, 
   %.not47.us = icmp eq ptr %67, %30
   br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !406
 
-._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31, %_ZN4llvm11raw_ostreamlsEPKc.exit31.us
-  %or.cond3 = phi i1 [ %.1.us, %_ZN4llvm11raw_ostreamlsEPKc.exit31.us ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit31 ]
-  %.0.lcssa = phi i8 [ %.146.us, %_ZN4llvm11raw_ostreamlsEPKc.exit31.us ], [ %.146, %_ZN4llvm11raw_ostreamlsEPKc.exit31 ]
-  br i1 %or.cond3, label %110, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31.us
+  br i1 %.1.us, label %110, label %._crit_edge.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEPKc.exit31
   %.sroa.037.050 = phi ptr [ %109, %_ZN4llvm11raw_ostreamlsEPKc.exit31 ], [ %28, %.lr.ph ]
@@ -4670,10 +4668,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %106, %104, %73, %86
   %.146 = phi i8 [ %.049, %86 ], [ %.049, %71 ], [ %.049, %73 ], [ 1, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27 ], [ 1, %104 ], [ 1, %106 ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.037.050, i64 8
   %.not47 = icmp eq ptr %109, %30
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not47, label %._crit_edge.thread, label %.lr.ph.split
 
 110:                                              ; preds = %._crit_edge
-  %111 = trunc nuw i8 %.0.lcssa to i1
+  %111 = trunc nuw i8 %.146.us to i1
   br i1 %111, label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit32, label %112
 
 112:                                              ; preds = %110
@@ -4714,7 +4712,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %127, %129
   tail call void @_ZNK4llvm6Module5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(841) %133, ptr noundef nonnull align 8 dereferenceable(48) %134, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #22
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %26, %._crit_edge, %_ZN4llvm11raw_ostreamlsEPKc.exit35, %_ZN4llvm11raw_ostreamlsEPKc.exit
+._crit_edge.thread:                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31, %26, %._crit_edge, %_ZN4llvm11raw_ostreamlsEPKc.exit35, %_ZN4llvm11raw_ostreamlsEPKc.exit
   ret i1 false
 }
 

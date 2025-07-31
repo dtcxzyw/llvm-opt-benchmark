@@ -287,7 +287,7 @@ define hidden void @zif_image_type_to_extension(ptr noundef %0, ptr noundef writ
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #14
-  br label %.thread75
+  br label %.thread78
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -303,7 +303,7 @@ zend_parse_arg_long_ex.exit.thread:               ; preds = %9
 
 zend_parse_arg_long_ex.exit:                      ; preds = %9
   %15 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #14
-  br i1 %15, label %16, label %.thread75, !prof !25
+  br i1 %15, label %16, label %.thread78, !prof !25
 
 16:                                               ; preds = %zend_parse_arg_long_ex.exit.thread, %zend_parse_arg_long_ex.exit
   %17 = icmp eq i32 %6, 1
@@ -313,37 +313,37 @@ zend_parse_arg_long_ex.exit:                      ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i8, ptr %19, align 8, !tbaa !10
   switch i8 %20, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread96
-    i8 2, label %.thread96.fold.split
+    i8 3, label %.thread88
+    i8 2, label %.thread88.fold.split
   ], !prof !27
 
-.thread96.fold.split:                             ; preds = %18
-  br label %.thread96
+.thread88.fold.split:                             ; preds = %18
+  br label %.thread88
 
-.thread96:                                        ; preds = %18, %.thread96.fold.split
-  %storemerge.i = phi i8 [ 1, %18 ], [ 0, %.thread96.fold.split ]
+.thread88:                                        ; preds = %18, %.thread88.fold.split
+  %storemerge.i = phi i8 [ 1, %18 ], [ 0, %.thread88.fold.split ]
   store i8 %storemerge.i, ptr %4, align 1, !tbaa !22
   br label %.critedge
 
 zend_parse_arg_bool_ex.exit:                      ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 2) #14
-  %cond.fr65 = freeze i1 %22
-  br i1 %cond.fr65, label %.critedge, label %.thread75, !prof !25
+  %cond.fr68 = freeze i1 %22
+  br i1 %cond.fr68, label %.critedge, label %.thread78, !prof !25
 
-.thread75:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_long_ex.exit, %8
-  %.05484 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  %.05683 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_bool_ex.exit ]
-  %.05782 = phi ptr [ %10, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %21, %zend_parse_arg_bool_ex.exit ]
-  %.05881 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05683, i32 noundef %.05484, ptr noundef null, i32 noundef %.05881, ptr noundef %.05782) #14
-  br label %41
+.thread78:                                        ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_long_ex.exit, %8
+  %.05487 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  %.05686 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_bool_ex.exit ]
+  %.05785 = phi ptr [ %10, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %21, %zend_parse_arg_bool_ex.exit ]
+  %.05884 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %8 ], [ 2, %zend_parse_arg_bool_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05686, i32 noundef %.05487, ptr noundef null, i32 noundef %.05884, ptr noundef %.05785) #14
+  br label %40
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread96, %16
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread88, %16
   %23 = load i64, ptr %3, align 8, !tbaa !13
   %switch.tableidx = add i64 %23, -1
   %24 = icmp ult i64 %switch.tableidx, 19
-  br i1 %24, label %switch.lookup, label %39
+  br i1 %24, label %switch.lookup, label %.critedge64
 
 switch.lookup:                                    ; preds = %.critedge
   %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.zif_image_type_to_extension, i64 0, i64 %switch.tableidx
@@ -370,14 +370,14 @@ switch.lookup:                                    ; preds = %.critedge
   store ptr %32, ptr %1, align 8, !tbaa !10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %38, align 8, !tbaa !10
-  br label %41
+  br label %40
 
-39:                                               ; preds = %.critedge
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %40, align 8, !tbaa !10
-  br label %41
+.critedge64:                                      ; preds = %.critedge
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %39, align 8, !tbaa !10
+  br label %40
 
-41:                                               ; preds = %.thread75, %39, %switch.lookup
+40:                                               ; preds = %.thread78, %.critedge64, %switch.lookup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   ret void
@@ -838,9 +838,9 @@ zend_parse_arg_str_ex.exit:                       ; preds = %24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !10
   %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %.thread75, label %55, !prof !12
+  br i1 %.not.i, label %.thread, label %55, !prof !12
 
-.thread75:                                        ; preds = %50
+.thread:                                          ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   br label %59
 
@@ -850,8 +850,8 @@ zend_parse_arg_str_ex.exit:                       ; preds = %24
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 8
   br i1 %57, label %zend_try_array_init_size.exit, label %zend_try_array_init_size.exit.thread
 
-59:                                               ; preds = %.thread75, %45
-  %.019.i = phi ptr [ %spec.select, %45 ], [ %54, %.thread75 ]
+59:                                               ; preds = %.thread, %45
+  %.019.i = phi ptr [ %spec.select, %45 ], [ %54, %.thread ]
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %.019.i) #14
   store ptr %46, ptr %.019.i, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
@@ -952,8 +952,8 @@ php_handle_gif.exit.i:                            ; preds = %80, %78, %76
   br label %597
 
 94:                                               ; preds = %72
-  %.not.i65 = icmp eq ptr %.1, null
-  br i1 %.not.i65, label %97, label %95
+  %.not.i66 = icmp eq ptr %.1, null
+  br i1 %.not.i66, label %97, label %95
 
 95:                                               ; preds = %94
   %96 = call fastcc ptr @php_handle_jpeg(ptr noundef nonnull %.055, ptr noundef nonnull %.1)
@@ -1818,8 +1818,8 @@ php_handle_avif.exit.i:                           ; preds = %585, %582
   br label %597
 
 597:                                              ; preds = %php_handle_avif.exit.i, %php_handle_webp.exit.i, %php_handle_ico.exit.i, %467, %php_handle_wbmp.exit.i, %php_handle_iff.exit.i, %php_handle_jp2.exit.i, %345, %343, %341, %php_handle_bmp.exit.i, %php_handle_psd.exit.i, %php_handle_swf.exit.i, %php_handle_png.exit.i, %97, %95, %php_handle_gif.exit.i
-  %.0.i64 = phi ptr [ %.0.i.i, %php_handle_gif.exit.i ], [ %96, %95 ], [ %98, %97 ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %469, %467 ], [ %.016.i.i, %php_handle_ico.exit.i ], [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.0.i78.i, %php_handle_avif.exit.i ]
-  %.not51.i = icmp eq ptr %.0.i64, null
+  %.0.i65 = phi ptr [ %.0.i.i, %php_handle_gif.exit.i ], [ %96, %95 ], [ %98, %97 ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %469, %467 ], [ %.016.i.i, %php_handle_ico.exit.i ], [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.0.i78.i, %php_handle_avif.exit.i ]
+  %.not51.i = icmp eq ptr %.0.i65, null
   br i1 %.not51.i, label %.thread.i, label %598
 
 598:                                              ; preds = %597
@@ -1828,20 +1828,20 @@ php_handle_avif.exit.i:                           ; preds = %585, %582
   store ptr %599, ptr %1, align 8, !tbaa !10
   %600 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %600, align 8, !tbaa !10
-  %601 = load i32, ptr %.0.i64, align 4, !tbaa !32
+  %601 = load i32, ptr %.0.i65, align 4, !tbaa !32
   %602 = zext i32 %601 to i64
   call void @add_index_long(ptr noundef nonnull %1, i64 noundef 0, i64 noundef %602) #14
-  %603 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 4
+  %603 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 4
   %604 = load i32, ptr %603, align 4, !tbaa !34
   %605 = zext i32 %604 to i64
   call void @add_index_long(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %605) #14
   %606 = zext nneg i32 %75 to i64
   call void @add_index_long(ptr noundef nonnull %1, i64 noundef 2, i64 noundef %606) #14
-  %607 = load i32, ptr %.0.i64, align 4, !tbaa !32
+  %607 = load i32, ptr %.0.i65, align 4, !tbaa !32
   %608 = load i32, ptr %603, align 4, !tbaa !34
   %609 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %18, i64 noundef 59, ptr noundef nonnull @.str.39, i32 noundef %607, i32 noundef %608) #14
   call void @add_index_string(ptr noundef nonnull %1, i64 noundef 3, ptr noundef nonnull %18) #14
-  %610 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 8
+  %610 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 8
   %611 = load i32, ptr %610, align 4, !tbaa !68
   %.not52.i = icmp eq i32 %611, 0
   br i1 %.not52.i, label %614, label %612
@@ -1852,7 +1852,7 @@ php_handle_avif.exit.i:                           ; preds = %585, %582
   br label %614
 
 614:                                              ; preds = %612, %598
-  %615 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 12
+  %615 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 12
   %616 = load i32, ptr %615, align 4, !tbaa !69
   %.not53.i = icmp eq i32 %616, 0
   br i1 %.not53.i, label %619, label %617
@@ -1876,7 +1876,7 @@ switch.lookup:                                    ; preds = %619
 php_image_type_to_mime_type.exit.i:               ; preds = %619, %switch.lookup
   %.0.i79.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.9, %619 ]
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.42, i64 noundef 4, ptr noundef nonnull %.0.i79.i) #14
-  call void @_efree(ptr noundef nonnull %.0.i64) #14
+  call void @_efree(ptr noundef nonnull %.0.i65) #14
   call void @llvm.lifetime.end.p0(i64 59, ptr nonnull %18) #14
   br label %php_getimagesize_from_stream.exit
 

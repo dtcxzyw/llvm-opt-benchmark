@@ -1025,13 +1025,13 @@ define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.thread37
+  br i1 %7, label %8, label %.thread35
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread35, label %11
+  br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %2, align 8, !tbaa !38
@@ -1054,36 +1054,36 @@ define internal ptr @get_decoder_from_store(ptr noundef %0, ptr noundef %1, ptr 
 23:                                               ; preds = %19, %17
   %24 = phi i64 [ %18, %17 ], [ %22, %19 ]
   %.not32 = icmp eq ptr %13, null
-  br i1 %.not32, label %.thread35, label %25
+  br i1 %.not32, label %.critedge, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @ossl_namemap_name2num_n(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %24) #8
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread35, label %.thread37
+  br i1 %27, label %.critedge, label %.thread35
 
-.thread37:                                        ; preds = %3, %25
-  %.02439 = phi i32 [ %26, %25 ], [ %6, %3 ]
+.thread35:                                        ; preds = %3, %25
+  %.02437 = phi i32 [ %26, %25 ], [ %6, %3 ]
   %28 = icmp eq ptr %0, null
   br i1 %28, label %29, label %33
 
-29:                                               ; preds = %.thread37
+29:                                               ; preds = %.thread35
   %30 = load ptr, ptr %2, align 8, !tbaa !38
   %31 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %30, i32 noundef 11) #8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread35, label %33
+  br i1 %32, label %.critedge, label %33
 
-33:                                               ; preds = %29, %.thread37
-  %.023 = phi ptr [ %31, %29 ], [ %0, %.thread37 ]
+33:                                               ; preds = %29, %.thread35
+  %.023 = phi ptr [ %31, %29 ], [ %0, %.thread35 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !47
-  %36 = call i32 @ossl_method_store_fetch(ptr noundef nonnull %.023, i32 noundef %.02439, ptr noundef %35, ptr noundef %1, ptr noundef nonnull %4) #8
+  %36 = call i32 @ossl_method_store_fetch(ptr noundef nonnull %.023, i32 noundef %.02437, ptr noundef %35, ptr noundef %1, ptr noundef nonnull %4) #8
   %.not33 = icmp eq i32 %36, 0
   %37 = load ptr, ptr %4, align 8
   %spec.select = select i1 %.not33, ptr null, ptr %37
-  br label %.thread35
+  br label %.critedge
 
-.thread35:                                        ; preds = %23, %8, %33, %29, %25
-  %.1 = phi ptr [ null, %25 ], [ null, %29 ], [ %spec.select, %33 ], [ null, %8 ], [ null, %23 ]
+.critedge:                                        ; preds = %8, %33, %23, %29, %25
+  %.1 = phi ptr [ null, %25 ], [ null, %29 ], [ null, %23 ], [ %spec.select, %33 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret ptr %.1
 }

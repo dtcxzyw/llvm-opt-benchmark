@@ -1464,7 +1464,7 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = load i8, ptr %7, align 1, !tbaa !15
-  switch i8 %8, label %49 [
+  switch i8 %8, label %.critedge [
     i8 116, label %9
     i8 102, label %11
     i8 39, label %value.exit.thread
@@ -1483,42 +1483,42 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !15
   %16 = icmp eq i8 %15, 117
-  br i1 %16, label %17, label %49
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
   %18 = tail call { i64, ptr } @jv_null() #9
   br label %19
 
 19:                                               ; preds = %9, %11, %17
-  %.pn = phi { i64, ptr } [ %18, %17 ], [ %12, %11 ], [ %10, %9 ]
-  %.039.ph = phi i32 [ 4, %17 ], [ 5, %11 ], [ 4, %9 ]
-  %.038.ph = phi ptr [ @.str.48, %17 ], [ @.str.46, %11 ], [ @.str.45, %9 ]
-  %.sroa.6.0.ph = extractvalue { i64, ptr } %.pn, 1
-  %.sroa.021.0.ph = extractvalue { i64, ptr } %.pn, 0
+  %.pn = phi { i64, ptr } [ %10, %9 ], [ %12, %11 ], [ %18, %17 ]
+  %.039 = phi i32 [ 4, %9 ], [ 5, %11 ], [ 4, %17 ]
+  %.038 = phi ptr [ @.str.45, %9 ], [ @.str.46, %11 ], [ @.str.48, %17 ]
+  %.sroa.6.0 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.021.0 = extractvalue { i64, ptr } %.pn, 0
   %20 = load i32, ptr %2, align 8, !tbaa !33
-  %.not47 = icmp eq i32 %20, %.039.ph
+  %.not47 = icmp eq i32 %20, %.039
   br i1 %.not47, label %.preheader, label %value.exit.thread
 
 .preheader:                                       ; preds = %19
   %21 = load ptr, ptr %6, align 8, !tbaa !21
-  %wide.trip.count = zext nneg i32 %.039.ph to i64
+  %wide.trip.count = zext nneg i32 %.039 to i64
   br label %23
 
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %23, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge52, label %23, !llvm.loop !41
 
 23:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !15
-  %26 = getelementptr inbounds nuw i8, ptr %.038.ph, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %.038, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %.not48 = icmp eq i8 %25, %27
   br i1 %.not48, label %22, label %value.exit.thread
 
-.critedge:                                        ; preds = %22
+.critedge52:                                      ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = and i32 %29, 2
@@ -1531,7 +1531,7 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   %.not15.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %45, label %36
 
-36:                                               ; preds = %.critedge
+36:                                               ; preds = %.critedge52
   br i1 %.not15.i, label %37, label %41
 
 37:                                               ; preds = %36
@@ -1541,7 +1541,7 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   br i1 %40, label %41, label %.sink.split.i
 
 41:                                               ; preds = %37, %36
-  tail call void @jv_free(i64 %.sroa.021.0.ph, ptr %.sroa.6.0.ph) #9
+  tail call void @jv_free(i64 %.sroa.021.0, ptr %.sroa.6.0) #9
   br label %value.exit.thread
 
 .sink.split.i:                                    ; preds = %37
@@ -1552,88 +1552,88 @@ define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0)
   store i32 %..i, ptr %38, align 8, !tbaa !16
   br label %value.exit
 
-45:                                               ; preds = %.critedge
+45:                                               ; preds = %.critedge52
   br i1 %.not15.i, label %value.exit, label %46
 
 46:                                               ; preds = %45
-  tail call void @jv_free(i64 %.sroa.021.0.ph, ptr %.sroa.6.0.ph) #9
+  tail call void @jv_free(i64 %.sroa.021.0, ptr %.sroa.6.0) #9
   br label %value.exit.thread
 
 value.exit:                                       ; preds = %.sink.split.i, %45
   %47 = load i64, ptr %31, align 8
   %48 = load ptr, ptr %33, align 8
   tail call void @jv_free(i64 %47, ptr %48) #9
-  store i64 %.sroa.021.0.ph, ptr %31, align 8
-  store ptr %.sroa.6.0.ph, ptr %33, align 8, !tbaa !15
-  br label %81
+  store i64 %.sroa.021.0, ptr %31, align 8
+  store ptr %.sroa.6.0, ptr %33, align 8, !tbaa !15
+  br label %80
 
-49:                                               ; preds = %5, %13
-  %50 = sext i32 %3 to i64
-  %51 = getelementptr inbounds i8, ptr %7, i64 %50
-  store i8 0, ptr %51, align 1, !tbaa !15
-  %52 = load ptr, ptr %6, align 8, !tbaa !21
-  %53 = tail call { i64, ptr } @jv_number_with_literal(ptr noundef %52) #9
-  %54 = extractvalue { i64, ptr } %53, 0
-  %55 = extractvalue { i64, ptr } %53, 1
-  %56 = tail call i32 @jv_get_kind(i64 %54, ptr %55) #9
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %value.exit.thread, label %58
+.critedge:                                        ; preds = %5, %13
+  %49 = sext i32 %3 to i64
+  %50 = getelementptr inbounds i8, ptr %7, i64 %49
+  store i8 0, ptr %50, align 1, !tbaa !15
+  %51 = load ptr, ptr %6, align 8, !tbaa !21
+  %52 = tail call { i64, ptr } @jv_number_with_literal(ptr noundef %51) #9
+  %53 = extractvalue { i64, ptr } %52, 0
+  %54 = extractvalue { i64, ptr } %52, 1
+  %55 = tail call i32 @jv_get_kind(i64 %53, ptr %54) #9
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %value.exit.thread, label %57
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %60 = load i32, ptr %59, align 4, !tbaa !4
-  %61 = and i32 %60, 2
-  %.not.i51 = icmp eq i32 %61, 0
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @jv_get_kind(i64 %63, ptr %65) #9
-  %.not15.i52 = icmp eq i32 %66, 0
-  br i1 %.not.i51, label %76, label %67
+57:                                               ; preds = %.critedge
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %59 = load i32, ptr %58, align 4, !tbaa !4
+  %60 = and i32 %59, 2
+  %.not.i53 = icmp eq i32 %60, 0
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call i32 @jv_get_kind(i64 %62, ptr %64) #9
+  %.not15.i54 = icmp eq i32 %65, 0
+  br i1 %.not.i53, label %75, label %66
 
-67:                                               ; preds = %58
-  br i1 %.not15.i52, label %68, label %72
+66:                                               ; preds = %57
+  br i1 %.not15.i54, label %67, label %71
 
-68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load i32, ptr %69, align 8, !tbaa !16
-  %71 = icmp eq i32 %70, 86
-  br i1 %71, label %72, label %.sink.split.i54
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %69 = load i32, ptr %68, align 8, !tbaa !16
+  %70 = icmp eq i32 %69, 86
+  br i1 %70, label %71, label %.sink.split.i56
 
-72:                                               ; preds = %68, %67
-  tail call void @jv_free(i64 %54, ptr %55) #9
+71:                                               ; preds = %67, %66
+  tail call void @jv_free(i64 %53, ptr %54) #9
   br label %value.exit.thread
 
-.sink.split.i54:                                  ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %74 = load i32, ptr %73, align 4, !tbaa !31
-  %75 = icmp sgt i32 %74, 0
-  %..i55 = select i1 %75, i32 86, i32 0
-  store i32 %..i55, ptr %69, align 8, !tbaa !16
-  br label %78
+.sink.split.i56:                                  ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %73 = load i32, ptr %72, align 4, !tbaa !31
+  %74 = icmp sgt i32 %73, 0
+  %..i57 = select i1 %74, i32 86, i32 0
+  store i32 %..i57, ptr %68, align 8, !tbaa !16
+  br label %77
 
-76:                                               ; preds = %58
-  br i1 %.not15.i52, label %78, label %77
+75:                                               ; preds = %57
+  br i1 %.not15.i54, label %77, label %76
 
-77:                                               ; preds = %76
-  tail call void @jv_free(i64 %54, ptr %55) #9
+76:                                               ; preds = %75
+  tail call void @jv_free(i64 %53, ptr %54) #9
   br label %value.exit.thread
 
-78:                                               ; preds = %.sink.split.i54, %76
-  %79 = load i64, ptr %62, align 8
-  %80 = load ptr, ptr %64, align 8
-  tail call void @jv_free(i64 %79, ptr %80) #9
-  store i64 %54, ptr %62, align 8
-  store ptr %55, ptr %64, align 8, !tbaa !15
-  br label %81
+77:                                               ; preds = %.sink.split.i56, %75
+  %78 = load i64, ptr %61, align 8
+  %79 = load ptr, ptr %63, align 8
+  tail call void @jv_free(i64 %78, ptr %79) #9
+  store i64 %53, ptr %61, align 8
+  store ptr %54, ptr %63, align 8, !tbaa !15
+  br label %80
 
-81:                                               ; preds = %78, %value.exit
+80:                                               ; preds = %77, %value.exit
   store i32 0, ptr %2, align 8, !tbaa !33
   br label %value.exit.thread
 
-value.exit.thread:                                ; preds = %23, %77, %72, %49, %46, %41, %81, %5, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %81 ], [ @.str.47, %5 ], [ @.str.49, %19 ], [ @.str.37, %41 ], [ @.str.37, %46 ], [ @.str.50, %49 ], [ @.str.37, %72 ], [ @.str.37, %77 ], [ @.str.49, %23 ]
+value.exit.thread:                                ; preds = %23, %76, %71, %.critedge, %46, %41, %80, %5, %19, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %80 ], [ @.str.47, %5 ], [ @.str.49, %19 ], [ @.str.37, %41 ], [ @.str.37, %46 ], [ @.str.50, %.critedge ], [ @.str.37, %71 ], [ @.str.37, %76 ], [ @.str.49, %23 ]
   ret ptr %.0
 }
 

@@ -528,7 +528,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %10) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %10, i8 0, i64 176, i1 false), !annotation !14
-  br i1 %6, label %23, label %.thread52
+  br i1 %6, label %23, label %.thread48
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -544,13 +544,13 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4872
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread50, label %35
+  br i1 %34, label %.critedge.thread, label %35
 
 35:                                               ; preds = %23
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 3488
   %37 = load volatile i64, ptr %36, align 8
   %38 = icmp slt i64 %37, 0
-  br i1 %38, label %.thread50, label %39
+  br i1 %38, label %.critedge.thread, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %26, i64 -2832
@@ -582,7 +582,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 1
-  br i1 %60, label %.thread50, label %61
+  br i1 %60, label %.critedge.thread, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -591,9 +591,9 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %65 = tail call i32 @__SCT__might_resched() #9
   %66 = load volatile i32, ptr %64, align 4
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %._crit_edge77, label %.lr.ph76, !prof !17
+  br i1 %67, label %._crit_edge73, label %.lr.ph72, !prof !17
 
-.lr.ph76:                                         ; preds = %61, %74
+.lr.ph72:                                         ; preds = %61, %74
   %68 = phi i32 [ %75, %74 ], [ %66, %61 ]
   %69 = add i32 %68, 1
   %70 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %64, i32 %69, ptr nonnull elementtype(i32) %64, i32 %68) #9, !srcloc !18
@@ -601,18 +601,18 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %72 = icmp ult i8 %71, 2
   tail call void @llvm.assume(i1 %72)
   %73 = icmp eq i8 %71, 0
-  br i1 %73, label %74, label %.loopexit73, !prof !19
+  br i1 %73, label %74, label %.loopexit69, !prof !19
 
-74:                                               ; preds = %.lr.ph76
+74:                                               ; preds = %.lr.ph72
   %75 = extractvalue { i8, i32 } %70, 1
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %._crit_edge77, label %.lr.ph76, !prof !20, !llvm.loop !21
+  br i1 %76, label %._crit_edge73, label %.lr.ph72, !prof !20, !llvm.loop !21
 
-._crit_edge77:                                    ; preds = %74, %61
+._crit_edge73:                                    ; preds = %74, %61
   %77 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %64) #9
-  br label %.loopexit73
+  br label %.loopexit69
 
-.loopexit73:                                      ; preds = %.lr.ph76, %._crit_edge77
+.loopexit69:                                      ; preds = %.lr.ph72, %._crit_edge73
   %78 = load ptr, ptr %30, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4872
   %80 = load ptr, ptr %79, align 8
@@ -622,14 +622,14 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %84 = load i32, ptr %83, align 8
   %85 = icmp ne i32 %84, 0
   %86 = call i32 @intel_context_migrate_clear(ptr noundef %80, ptr noundef %7, ptr noundef %81, i32 noundef %82, i1 noundef zeroext %85, i32 noundef 0, ptr noundef nonnull %9) #9
-  br label %.thread42
+  br label %.thread40
 
 87:                                               ; preds = %55
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr @i915_ttm_resource_get_st(ptr noundef %0, ptr noundef %89) #9
   %91 = icmp ugt ptr %90, inttoptr (i64 -4096 to ptr)
-  br i1 %91, label %.thread41, label %92
+  br i1 %91, label %.critedge, label %92
 
 92:                                               ; preds = %87
   %93 = load ptr, ptr %40, align 8
@@ -674,7 +674,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %123 = icmp ult i8 %122, 2
   tail call void @llvm.assume(i1 %123)
   %124 = icmp eq i8 %122, 0
-  br i1 %124, label %125, label %.loopexit74, !prof !19
+  br i1 %124, label %125, label %.loopexit70, !prof !19
 
 125:                                              ; preds = %.lr.ph
   %126 = extractvalue { i8, i32 } %121, 1
@@ -683,9 +683,9 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 ._crit_edge:                                      ; preds = %125, %108
   %128 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %115) #9
-  br label %.loopexit74
+  br label %.loopexit70
 
-.loopexit74:                                      ; preds = %.lr.ph, %._crit_edge
+.loopexit70:                                      ; preds = %.lr.ph, %._crit_edge
   %129 = load ptr, ptr %30, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4872
   %131 = load ptr, ptr %130, align 8
@@ -703,9 +703,9 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %143 = icmp ne i32 %142, 0
   %144 = call i32 @intel_context_migrate_copy(ptr noundef %131, ptr noundef %7, ptr noundef %133, i32 noundef %134, i1 noundef zeroext %138, ptr noundef %139, i32 noundef %140, i1 noundef zeroext %143, ptr noundef nonnull %9) #9
   %145 = icmp eq ptr %90, null
-  br i1 %145, label %.thread42, label %146
+  br i1 %145, label %.thread40, label %146
 
-146:                                              ; preds = %.loopexit74
+146:                                              ; preds = %.loopexit70
   %147 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
@@ -715,19 +715,19 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 152:                                              ; preds = %146
   %153 = icmp sgt i32 %150, 0
-  br i1 %153, label %.thread42, label %154, !prof !8
+  br i1 %153, label %.thread40, label %154, !prof !8
 
 154:                                              ; preds = %152
   call void @refcount_warn_saturate(ptr noundef nonnull %90, i32 noundef 3) #9
-  br label %.thread42
+  br label %.thread40
 
 155:                                              ; preds = %146
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void %149(ptr noundef nonnull %90) #9
-  br label %.thread42
+  br label %.thread40
 
-.thread42:                                        ; preds = %155, %154, %152, %.loopexit74, %.loopexit73
-  %156 = phi i32 [ %86, %.loopexit73 ], [ %144, %.loopexit74 ], [ %144, %152 ], [ %144, %154 ], [ %144, %155 ]
+.thread40:                                        ; preds = %152, %154, %.loopexit70, %155, %.loopexit69
+  %156 = phi i32 [ %86, %.loopexit69 ], [ %144, %155 ], [ %144, %.loopexit70 ], [ %144, %154 ], [ %144, %152 ]
   %157 = load ptr, ptr %30, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4872
   %159 = load ptr, ptr %158, align 8
@@ -737,10 +737,10 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %163 = call i32 @__SCT__might_resched() #9
   %164 = load volatile i32, ptr %162, align 4
   %165 = icmp eq i32 %164, 1
-  br i1 %165, label %._crit_edge79, label %.lr.ph78, !prof !17
+  br i1 %165, label %._crit_edge75, label %.lr.ph74, !prof !17
 
-.lr.ph78:                                         ; preds = %.thread42, %172
-  %166 = phi i32 [ %173, %172 ], [ %164, %.thread42 ]
+.lr.ph74:                                         ; preds = %.thread40, %172
+  %166 = phi i32 [ %173, %172 ], [ %164, %.thread40 ]
   %167 = add i32 %166, -1
   %168 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %162, i32 %167, ptr nonnull elementtype(i32) %162, i32 %166) #9, !srcloc !18
   %169 = extractvalue { i8, i32 } %168, 0
@@ -749,16 +749,16 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %171 = icmp eq i8 %169, 0
   br i1 %171, label %172, label %.loopexit, !prof !19
 
-172:                                              ; preds = %.lr.ph78
+172:                                              ; preds = %.lr.ph74
   %173 = extractvalue { i8, i32 } %168, 1
   %174 = icmp eq i32 %173, 1
-  br i1 %174, label %._crit_edge79, label %.lr.ph78, !prof !20, !llvm.loop !21
+  br i1 %174, label %._crit_edge75, label %.lr.ph74, !prof !20, !llvm.loop !21
 
-._crit_edge79:                                    ; preds = %172, %.thread42
+._crit_edge75:                                    ; preds = %172, %.thread40
   call void @__intel_wakeref_put_last(ptr noundef nonnull %162, i64 noundef 0) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph78, %._crit_edge79
+.loopexit:                                        ; preds = %.lr.ph74, %._crit_edge75
   %175 = icmp ne i32 %156, 0
   %176 = load ptr, ptr %9, align 8
   %177 = icmp ne ptr %176, null
@@ -769,7 +769,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %180 = call i64 @i915_request_wait(ptr noundef nonnull %176, i32 noundef 0, i64 noundef 9223372036854775807) #9
   %181 = load ptr, ptr %9, align 8
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %.thread48, label %183
+  br i1 %182, label %.thread46, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 56
@@ -779,40 +779,40 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 187:                                              ; preds = %183
   %188 = icmp sgt i32 %185, 0
-  br i1 %188, label %.thread48, label %189, !prof !8
+  br i1 %188, label %.thread46, label %189, !prof !8
 
 189:                                              ; preds = %187
   call void @refcount_warn_saturate(ptr noundef nonnull %184, i32 noundef 3) #9
-  br label %.thread48
+  br label %.thread46
 
 190:                                              ; preds = %183
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void @dma_fence_release(ptr noundef nonnull %184) #9
-  br label %.thread48
+  br label %.thread46
 
 191:                                              ; preds = %.loopexit
-  br i1 %175, label %.thread48, label %.thread41
+  br i1 %175, label %.thread46, label %.critedge
 
-.thread48:                                        ; preds = %187, %189, %179, %190, %191
+.thread46:                                        ; preds = %187, %189, %179, %190, %191
   %192 = sext i32 %156 to i64
   %193 = inttoptr i64 %192 to ptr
-  br label %.thread41
+  br label %.critedge
 
-.thread50:                                        ; preds = %35, %23, %57
+.critedge.thread:                                 ; preds = %35, %23, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  br label %.thread52
+  br label %.thread48
 
-.thread41:                                        ; preds = %191, %87, %.thread48
-  %194 = phi ptr [ %193, %.thread48 ], [ %90, %87 ], [ %176, %191 ]
+.critedge:                                        ; preds = %191, %87, %.thread46
+  %194 = phi ptr [ %193, %.thread46 ], [ %90, %87 ], [ %176, %191 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   %195 = icmp ugt ptr %194, inttoptr (i64 -4096 to ptr)
-  br i1 %195, label %.thread52, label %196
+  br i1 %195, label %.thread48, label %196
 
-196:                                              ; preds = %.thread41
+196:                                              ; preds = %.critedge
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %198 = load i32, ptr %197, align 8
   %199 = icmp eq i32 %198, 0
-  br i1 %199, label %.thread66, label %200
+  br i1 %199, label %.thread62, label %200
 
 200:                                              ; preds = %196
   %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
@@ -895,7 +895,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %243 = phi ptr [ %217, %230 ], [ %237, %236 ]
   %244 = phi ptr [ %202, %230 ], [ %241, %236 ]
   %245 = icmp eq ptr %194, null
-  br i1 %245, label %.thread54, label %246
+  br i1 %245, label %.thread50, label %246
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %194, i64 56
@@ -905,62 +905,62 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 250:                                              ; preds = %246
   %251 = icmp sgt i32 %248, 0
-  br i1 %251, label %.thread54, label %252, !prof !8
+  br i1 %251, label %.thread50, label %252, !prof !8
 
 252:                                              ; preds = %250
   call void @refcount_warn_saturate(ptr noundef nonnull %247, i32 noundef 3) #9
-  br label %.thread54
+  br label %.thread50
 
 253:                                              ; preds = %246
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void @dma_fence_release(ptr noundef nonnull %247) #9
-  br label %.thread54
+  br label %.thread50
 
-.thread54:                                        ; preds = %250, %252, %253, %242
+.thread50:                                        ; preds = %250, %252, %253, %242
   %254 = icmp ugt ptr %244, inttoptr (i64 -4096 to ptr)
   br i1 %254, label %266, label %321
 
-.thread52:                                        ; preds = %.thread41, %.thread50, %18
-  %255 = phi ptr [ inttoptr (i64 -22 to ptr), %18 ], [ inttoptr (i64 -22 to ptr), %.thread50 ], [ %194, %.thread41 ]
+.thread48:                                        ; preds = %.critedge, %.critedge.thread, %18
+  %255 = phi ptr [ inttoptr (i64 -22 to ptr), %18 ], [ inttoptr (i64 -22 to ptr), %.critedge.thread ], [ %194, %.critedge ]
   %256 = ptrtoint ptr %255 to i64
   %257 = trunc i64 %256 to i32
   switch i32 %257, label %258 [
-    i32 -4, label %.thread66
-    i32 -11, label %.thread66
-    i32 -512, label %.thread66
+    i32 -4, label %.thread62
+    i32 -11, label %.thread62
+    i32 -512, label %.thread62
   ]
 
-258:                                              ; preds = %.thread52
+258:                                              ; preds = %.thread48
   %259 = icmp eq ptr %7, null
-  br i1 %259, label %.thread57, label %260
+  br i1 %259, label %.thread53, label %260
 
 260:                                              ; preds = %258
   %261 = call i32 @i915_deps_sync(ptr noundef nonnull %7, ptr noundef %1) #9
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %.thread57, label %263
+  br i1 %262, label %.thread53, label %263
 
 263:                                              ; preds = %260
   %264 = sext i32 %261 to i64
   %265 = inttoptr i64 %264 to ptr
-  br label %.thread66
+  br label %.thread62
 
-266:                                              ; preds = %.thread54
-  br i1 %19, label %267, label %.thread62
+266:                                              ; preds = %.thread50
+  br i1 %19, label %267, label %.thread58
 
-.thread57:                                        ; preds = %258, %260
-  br i1 %19, label %.thread58, label %.thread63
+.thread53:                                        ; preds = %258, %260
+  br i1 %19, label %.thread54, label %.thread59
 
 267:                                              ; preds = %266
-  br i1 %203, label %.thread58, label %269
+  br i1 %203, label %.thread54, label %269
 
-.thread58:                                        ; preds = %.thread57, %267
-  %268 = phi ptr [ %243, %267 ], [ %10, %.thread57 ]
+.thread54:                                        ; preds = %.thread53, %267
+  %268 = phi ptr [ %243, %267 ], [ %10, %.thread53 ]
   call fastcc void @i915_ttm_memcpy_init(ptr noundef %268, ptr noundef %0, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %269
 
-269:                                              ; preds = %.thread58, %267
-  %270 = phi ptr [ null, %.thread58 ], [ %202, %267 ]
-  %271 = phi ptr [ %268, %.thread58 ], [ %243, %267 ]
+269:                                              ; preds = %.thread54, %267
+  %270 = phi ptr [ null, %.thread54 ], [ %202, %267 ]
+  %271 = phi ptr [ %268, %.thread54 ], [ %243, %267 ]
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 152
   %273 = load i8, ptr %272, align 8, !range !12, !noundef !13
   %274 = icmp ne i8 %273, 0
@@ -975,7 +975,7 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
   %282 = getelementptr inbounds nuw i8, ptr %271, i64 160
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.thread60, label %285
+  br i1 %284, label %.thread56, label %285
 
 285:                                              ; preds = %269
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 32
@@ -987,24 +987,24 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 291:                                              ; preds = %285
   %292 = icmp sgt i32 %289, 0
-  br i1 %292, label %.thread60, label %293, !prof !8
+  br i1 %292, label %.thread56, label %293, !prof !8
 
 293:                                              ; preds = %291
   call void @refcount_warn_saturate(ptr noundef nonnull %283, i32 noundef 3) #9
-  br label %.thread60
+  br label %.thread56
 
 294:                                              ; preds = %285
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void %288(ptr noundef nonnull %283) #9
-  br label %.thread60
+  br label %.thread56
 
-.thread60:                                        ; preds = %291, %293, %294, %269
+.thread56:                                        ; preds = %291, %293, %294, %269
   %295 = getelementptr inbounds nuw i8, ptr %271, i64 168
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %296, null
-  br i1 %297, label %.thread62, label %298
+  br i1 %297, label %.thread58, label %298
 
-298:                                              ; preds = %.thread60
+298:                                              ; preds = %.thread56
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %300 = load ptr, ptr %299, align 8
   %301 = load ptr, ptr %300, align 8
@@ -1014,23 +1014,23 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 304:                                              ; preds = %298
   %305 = icmp sgt i32 %302, 0
-  br i1 %305, label %.thread62, label %306, !prof !8
+  br i1 %305, label %.thread58, label %306, !prof !8
 
 306:                                              ; preds = %304
   call void @refcount_warn_saturate(ptr noundef nonnull %296, i32 noundef 3) #9
-  br label %.thread62
+  br label %.thread58
 
 307:                                              ; preds = %298
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void %301(ptr noundef nonnull %296) #9
-  br label %.thread62
+  br label %.thread58
 
-.thread62:                                        ; preds = %304, %306, %307, %.thread60, %266
-  %308 = phi ptr [ %270, %307 ], [ %270, %.thread60 ], [ %202, %266 ], [ %270, %306 ], [ %270, %304 ]
+.thread58:                                        ; preds = %304, %306, %307, %.thread56, %266
+  %308 = phi ptr [ %270, %307 ], [ %270, %.thread56 ], [ %202, %266 ], [ %270, %306 ], [ %270, %304 ]
   %309 = icmp eq ptr %308, null
-  br i1 %309, label %.thread63, label %310
+  br i1 %309, label %.thread59, label %310
 
-310:                                              ; preds = %.thread62
+310:                                              ; preds = %.thread58
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 344
   %312 = load ptr, ptr %311, align 8
   %313 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %312, i32 -1, ptr elementtype(i32) %312) #9, !srcloc !15
@@ -1039,34 +1039,34 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 315:                                              ; preds = %310
   %316 = icmp sgt i32 %313, 0
-  br i1 %316, label %.thread63, label %317, !prof !8
+  br i1 %316, label %.thread59, label %317, !prof !8
 
 317:                                              ; preds = %315
   call void @refcount_warn_saturate(ptr noundef %312, i32 noundef 3) #9
-  br label %.thread63
+  br label %.thread59
 
 318:                                              ; preds = %310
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void @drm_gem_object_free(ptr noundef %312) #9
-  br label %.thread63
+  br label %.thread59
 
-.thread63:                                        ; preds = %315, %317, %.thread57, %318, %.thread62
-  %319 = phi ptr [ %308, %318 ], [ null, %.thread62 ], [ null, %.thread57 ], [ %308, %317 ], [ %308, %315 ]
+.thread59:                                        ; preds = %315, %317, %.thread53, %318, %.thread58
+  %319 = phi ptr [ %308, %318 ], [ null, %.thread58 ], [ null, %.thread53 ], [ %308, %317 ], [ %308, %315 ]
   call void @kfree(ptr noundef %319) #9
   %320 = select i1 %19, ptr null, ptr inttoptr (i64 -5 to ptr)
-  br label %.thread66
+  br label %.thread62
 
-321:                                              ; preds = %.thread54
+321:                                              ; preds = %.thread50
   %322 = icmp eq ptr %244, null
   %323 = icmp ne ptr %202, null
   %324 = and i1 %323, %322
-  br i1 %324, label %325, label %.thread66
+  br i1 %324, label %325, label %.thread62
 
 325:                                              ; preds = %321
   %326 = getelementptr inbounds nuw i8, ptr %243, i64 160
   %327 = load ptr, ptr %326, align 8
   %328 = icmp eq ptr %327, null
-  br i1 %328, label %.thread68, label %329
+  br i1 %328, label %.thread64, label %329
 
 329:                                              ; preds = %325
   %330 = getelementptr inbounds nuw i8, ptr %327, i64 32
@@ -1078,24 +1078,24 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 335:                                              ; preds = %329
   %336 = icmp sgt i32 %333, 0
-  br i1 %336, label %.thread68, label %337, !prof !8
+  br i1 %336, label %.thread64, label %337, !prof !8
 
 337:                                              ; preds = %335
   call void @refcount_warn_saturate(ptr noundef nonnull %327, i32 noundef 3) #9
-  br label %.thread68
+  br label %.thread64
 
 338:                                              ; preds = %329
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void %332(ptr noundef nonnull %327) #9
-  br label %.thread68
+  br label %.thread64
 
-.thread68:                                        ; preds = %335, %337, %338, %325
+.thread64:                                        ; preds = %335, %337, %338, %325
   %339 = getelementptr inbounds nuw i8, ptr %243, i64 168
   %340 = load ptr, ptr %339, align 8
   %341 = icmp eq ptr %340, null
-  br i1 %341, label %.thread70, label %342
+  br i1 %341, label %.thread66, label %342
 
-342:                                              ; preds = %.thread68
+342:                                              ; preds = %.thread64
   %343 = getelementptr inbounds nuw i8, ptr %340, i64 32
   %344 = load ptr, ptr %343, align 8
   %345 = load ptr, ptr %344, align 8
@@ -1105,43 +1105,43 @@ define internal fastcc ptr @__i915_ttm_move(ptr noundef %0, ptr noundef %1, i1 n
 
 348:                                              ; preds = %342
   %349 = icmp sgt i32 %346, 0
-  br i1 %349, label %.thread70, label %350, !prof !8
+  br i1 %349, label %.thread66, label %350, !prof !8
 
 350:                                              ; preds = %348
   call void @refcount_warn_saturate(ptr noundef nonnull %340, i32 noundef 3) #9
-  br label %.thread70
+  br label %.thread66
 
 351:                                              ; preds = %342
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void %345(ptr noundef nonnull %340) #9
-  br label %.thread70
+  br label %.thread66
 
-.thread70:                                        ; preds = %348, %350, %351, %.thread68
+.thread66:                                        ; preds = %348, %350, %351, %.thread64
   %352 = getelementptr inbounds nuw i8, ptr %202, i64 344
   %353 = load ptr, ptr %352, align 8
   %354 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %353, i32 -1, ptr elementtype(i32) %353) #9, !srcloc !15
   %355 = icmp eq i32 %354, 1
   br i1 %355, label %359, label %356
 
-356:                                              ; preds = %.thread70
+356:                                              ; preds = %.thread66
   %357 = icmp sgt i32 %354, 0
-  br i1 %357, label %.thread72, label %358, !prof !8
+  br i1 %357, label %.thread68, label %358, !prof !8
 
 358:                                              ; preds = %356
   call void @refcount_warn_saturate(ptr noundef %353, i32 noundef 3) #9
-  br label %.thread72
+  br label %.thread68
 
-359:                                              ; preds = %.thread70
+359:                                              ; preds = %.thread66
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
   call void @drm_gem_object_free(ptr noundef %353) #9
-  br label %.thread72
+  br label %.thread68
 
-.thread72:                                        ; preds = %356, %358, %359
+.thread68:                                        ; preds = %356, %358, %359
   call void @kfree(ptr noundef nonnull %202) #9
-  br label %.thread66
+  br label %.thread62
 
-.thread66:                                        ; preds = %196, %.thread52, %.thread52, %.thread52, %263, %.thread72, %321, %.thread63
-  %360 = phi ptr [ null, %.thread72 ], [ %244, %321 ], [ %320, %.thread63 ], [ %265, %263 ], [ %255, %.thread52 ], [ %255, %.thread52 ], [ %255, %.thread52 ], [ %194, %196 ]
+.thread62:                                        ; preds = %196, %.thread48, %.thread48, %.thread48, %263, %.thread68, %321, %.thread59
+  %360 = phi ptr [ null, %.thread68 ], [ %244, %321 ], [ %320, %.thread59 ], [ %265, %263 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %255, %.thread48 ], [ %194, %196 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10) #9
   ret ptr %360
 }

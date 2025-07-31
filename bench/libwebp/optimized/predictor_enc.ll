@@ -88,66 +88,66 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %38 = zext nneg i32 %.fr130 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %.090112, i32 %3)
   %39 = icmp sle i32 %.090112, %3
-  %brmerge179 = select i1 %39, i1 true, i1 %36
-  br i1 %brmerge179, label %.split.us, label %.preheader107.us.us.preheader
+  %brmerge176 = select i1 %39, i1 true, i1 %36
+  br i1 %brmerge176, label %.split.us, label %.preheader107.us.us.preheader
 
-.preheader107.us.us.preheader:                    ; preds = %.preheader108.split.us.preheader, %._crit_edge119.us
-  %.3.us180 = phi i32 [ %43, %._crit_edge119.us ], [ %.090112, %.preheader108.split.us.preheader ]
-  %40 = sub nsw i32 %.3.us180, %3
+.preheader107.us.us.preheader:                    ; preds = %.preheader108.split.us.preheader, %._crit_edge119.split.us.us
+  %.3.us177 = phi i32 [ %54, %._crit_edge119.split.us.us ], [ %.090112, %.preheader108.split.us.preheader ]
+  %40 = sub nsw i32 %.3.us177, %3
   %41 = shl nuw i32 1, %40
   %42 = sext i32 %41 to i64
   br label %.preheader107.us.us
 
-._crit_edge119.us:                                ; preds = %47
-  %43 = add nsw i32 %.3.us180, -1
-  %44 = icmp sle i32 %43, %3
-  %brmerge = select i1 %44, i1 true, i1 %36
-  br i1 %brmerge, label %.preheader108.split.us..split.us.loopexit174_crit_edge, label %.preheader107.us.us.preheader
-
 .preheader107.us.us:                              ; preds = %.preheader107.us.us.preheader, %._crit_edge.us.us
   %indvars.iv144 = phi i64 [ 0, %.preheader107.us.us.preheader ], [ %indvars.iv.next145, %._crit_edge.us.us ]
-  %45 = mul nuw nsw i64 %indvars.iv144, %37
-  %invariant.gep168 = getelementptr i32, ptr %0, i64 %45
-  %invariant.gep = getelementptr i32, ptr %0, i64 %45
+  %43 = mul nuw nsw i64 %indvars.iv144, %37
+  %invariant.gep165 = getelementptr i32, ptr %0, i64 %43
+  %invariant.gep = getelementptr i32, ptr %0, i64 %43
   br label %.preheader106.us.us
 
-46:                                               ; preds = %.preheader106.us.us, %47
-  %indvars.iv140 = phi i64 [ %indvars.iv138, %.preheader106.us.us ], [ %indvars.iv.next141, %47 ]
+44:                                               ; preds = %.preheader106.us.us, %45
+  %indvars.iv140 = phi i64 [ %indvars.iv138, %.preheader106.us.us ], [ %indvars.iv.next141, %45 ]
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
-  %.not156.not = icmp slt i64 %indvars.iv.next141, %54
-  br i1 %.not156.not, label %47, label %50
+  %.not156.not = icmp slt i64 %indvars.iv.next141, %52
+  br i1 %.not156.not, label %45, label %48
 
-47:                                               ; preds = %46
+45:                                               ; preds = %44
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv.next141
-  %48 = load i32, ptr %gep, align 4, !tbaa !3
-  %49 = load i32, ptr %gep169, align 4, !tbaa !3
-  %.not104.us.us = icmp eq i32 %48, %49
-  br i1 %.not104.us.us, label %46, label %._crit_edge119.us, !llvm.loop !9
+  %46 = load i32, ptr %gep, align 4, !tbaa !3
+  %47 = load i32, ptr %gep166, align 4, !tbaa !3
+  %.not104.us.us = icmp eq i32 %46, %47
+  br i1 %.not104.us.us, label %44, label %._crit_edge119.split.us.us, !llvm.loop !9
 
-50:                                               ; preds = %46
-  %51 = icmp slt i64 %indvars.iv.next139, %37
-  br i1 %51, label %.preheader106.us.us, label %._crit_edge.us.us, !llvm.loop !10
+48:                                               ; preds = %44
+  %49 = icmp slt i64 %indvars.iv.next139, %37
+  br i1 %49, label %.preheader106.us.us, label %._crit_edge.us.us, !llvm.loop !10
 
-.preheader106.us.us:                              ; preds = %50, %.preheader107.us.us
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %50 ], [ 0, %.preheader107.us.us ]
+.preheader106.us.us:                              ; preds = %48, %.preheader107.us.us
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %48 ], [ 0, %.preheader107.us.us ]
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, %42
-  %52 = trunc nsw i64 %indvars.iv.next139 to i32
-  %53 = tail call noundef i32 @llvm.smin.i32(i32 %52, i32 %10)
-  %gep169 = getelementptr i32, ptr %invariant.gep168, i64 %indvars.iv138
-  %54 = sext i32 %53 to i64
-  br label %46
+  %50 = trunc nsw i64 %indvars.iv.next139 to i32
+  %51 = tail call noundef i32 @llvm.smin.i32(i32 %50, i32 %10)
+  %gep166 = getelementptr i32, ptr %invariant.gep165, i64 %indvars.iv138
+  %52 = sext i32 %51 to i64
+  br label %44
 
-._crit_edge.us.us:                                ; preds = %50
+._crit_edge.us.us:                                ; preds = %48
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %55 = icmp samesign ult i64 %indvars.iv.next145, %38
-  br i1 %55, label %.preheader107.us.us, label %.split.us, !llvm.loop !11
+  %53 = icmp samesign ult i64 %indvars.iv.next145, %38
+  br i1 %53, label %.preheader107.us.us, label %.split.us, !llvm.loop !11
 
-.preheader108.split.us..split.us.loopexit174_crit_edge: ; preds = %._crit_edge119.us
-  %smin.mux = select i1 %44, i32 %smin, i32 %43
+._crit_edge119.split.us.us:                       ; preds = %45
+  %54 = add nsw i32 %.3.us177, -1
+  %55 = icmp sle i32 %54, %3
+  %brmerge = select i1 %55, i1 true, i1 %36
+  br i1 %brmerge, label %.preheader108.split.us..split.us.loopexit171_crit_edge, label %.preheader107.us.us.preheader
+
+.preheader108.split.us..split.us.loopexit171_crit_edge: ; preds = %._crit_edge119.split.us.us
+  %smin.mux = select i1 %55, i32 %smin, i32 %.090112
   br label %.split.us
 
-.split.us:                                        ; preds = %._crit_edge.us.us, %.preheader108.split.us.preheader, %.preheader108.split.us..split.us.loopexit174_crit_edge, %.preheader108
-  %.us-phi125 = phi i32 [ %.090112, %.preheader108 ], [ %smin.mux, %.preheader108.split.us..split.us.loopexit174_crit_edge ], [ %.090112, %.preheader108.split.us.preheader ], [ %.3.us180, %._crit_edge.us.us ]
+.split.us:                                        ; preds = %._crit_edge.us.us, %.preheader108.split.us.preheader, %.preheader108.split.us..split.us.loopexit171_crit_edge, %.preheader108
+  %.us-phi125 = phi i32 [ %.090112, %.preheader108 ], [ %smin.mux, %.preheader108.split.us..split.us.loopexit171_crit_edge ], [ %.090112, %.preheader108.split.us.preheader ], [ %.3.us177, %._crit_edge.us.us ]
   %56 = icmp eq i32 %.us-phi125, %3
   br i1 %56, label %.thread.thread, label %57
 
@@ -175,7 +175,7 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %68 = trunc i64 %indvars.iv151 to i32
   %69 = mul i32 %61, %68
   %70 = zext i32 %69 to i64
-  %invariant.gep170 = getelementptr inbounds nuw i32, ptr %0, i64 %70
+  %invariant.gep167 = getelementptr inbounds nuw i32, ptr %0, i64 %70
   br label %71
 
 71:                                               ; preds = %.preheader.us, %71
@@ -186,8 +186,8 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %0, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %gep171 = getelementptr inbounds nuw i32, ptr %invariant.gep170, i64 %indvars.iv147
-  store i32 %77, ptr %gep171, align 4, !tbaa !3
+  %gep168 = getelementptr inbounds nuw i32, ptr %invariant.gep167, i64 %indvars.iv147
+  store i32 %77, ptr %gep168, align 4, !tbaa !3
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
   br i1 %exitcond150.not, label %._crit_edge.us, label %71, !llvm.loop !13

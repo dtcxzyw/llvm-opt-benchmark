@@ -207,8 +207,8 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ConvProcList, align 8
-  %.not37 = icmp eq ptr %15, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq ptr %15, null
+  br i1 %.not35, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %16 = zext nneg i32 %0 to i64
@@ -216,71 +216,71 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br label %18
 
 18:                                               ; preds = %.lr.ph, %45
-  %.sroa.0.040 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %45 ]
-  %.sroa.7.039 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
-  %.02938 = phi i8 [ 0, %.lr.ph ], [ %.1, %45 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 4
+  %.sroa.0.038 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %45 ]
+  %.sroa.7.037 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
+  %.02936 = phi i8 [ 0, %.lr.ph ], [ %.1, %45 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = icmp slt i32 %.sroa.7.039, %20
-  br i1 %21, label %24, label %._crit_edge.loopexit
+  %21 = icmp slt i32 %.sroa.7.037, %20
+  br i1 %21, label %22, label %.critedge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %18, %45
-  %.029.lcssa.ph = phi i8 [ %.1, %45 ], [ %.02938, %18 ]
-  %22 = xor i8 %.029.lcssa.ph, 1
-  %23 = zext nneg i8 %22 to i32
-  br label %._crit_edge
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %.sroa.7.037 to i64
+  %26 = getelementptr inbounds %union.ListCell, ptr %24, i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, %7
+  br i1 %29, label %32, label %45
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
-  %.029.lcssa = phi i32 [ 1, %14 ], [ %23, %._crit_edge.loopexit ]
-  %. = sub nsw i32 0, %.029.lcssa
+.critedge.loopexit:                               ; preds = %45, %18
+  %.029.lcssa.ph = phi i8 [ %.02936, %18 ], [ %.1, %45 ]
+  %30 = xor i8 %.029.lcssa.ph, 1
+  %31 = zext nneg i8 %30 to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %14
+  %.029.lcssa = phi i32 [ 1, %14 ], [ %31, %.critedge.loopexit ]
+  %spec.select = sub nsw i32 0, %.029.lcssa
   br label %47
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %.sroa.7.039 to i64
-  %28 = getelementptr inbounds %union.ListCell, ptr %26, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, %7
-  br i1 %31, label %32, label %45
-
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %0
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %32
-  %37 = trunc nuw i8 %.02938 to i1
+  %37 = trunc nuw i8 %.02936 to i1
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
   store ptr %17, ptr @ClientEncoding, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %39, ptr @ToServerConvProc, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %40, ptr @ToClientConvProc, align 8
   br label %45
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr @ConvProcList, align 8
-  %43 = add i32 %.sroa.7.039, -1
-  %44 = tail call ptr @list_delete_nth_cell(ptr noundef %42, i32 noundef %.sroa.7.039) #13
+  %43 = add i32 %.sroa.7.037, -1
+  %44 = tail call ptr @list_delete_nth_cell(ptr noundef %42, i32 noundef %.sroa.7.037) #13
   store ptr %44, ptr @ConvProcList, align 8
-  tail call void @pfree(ptr noundef nonnull %29) #13
+  tail call void @pfree(ptr noundef nonnull %27) #13
   br label %45
 
-45:                                               ; preds = %38, %41, %32, %24
-  %.1 = phi i8 [ 1, %41 ], [ 1, %38 ], [ %.02938, %32 ], [ %.02938, %24 ]
-  %.sroa.7.1 = phi i32 [ %43, %41 ], [ %.sroa.7.039, %38 ], [ %.sroa.7.039, %32 ], [ %.sroa.7.039, %24 ]
-  %.sroa.0.1 = phi ptr [ %44, %41 ], [ %.sroa.0.040, %38 ], [ %.sroa.0.040, %32 ], [ %.sroa.0.040, %24 ]
+45:                                               ; preds = %38, %41, %32, %22
+  %.1 = phi i8 [ 1, %41 ], [ 1, %38 ], [ %.02936, %32 ], [ %.02936, %22 ]
+  %.sroa.7.1 = phi i32 [ %43, %41 ], [ %.sroa.7.037, %38 ], [ %.sroa.7.037, %32 ], [ %.sroa.7.037, %22 ]
+  %.sroa.0.1 = phi ptr [ %44, %41 ], [ %.sroa.0.038, %38 ], [ %.sroa.0.038, %32 ], [ %.sroa.0.038, %22 ]
   %46 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not, label %._crit_edge.loopexit, label %18, !llvm.loop !4
+  br i1 %.not, label %.critedge.loopexit, label %18, !llvm.loop !4
 
-47:                                               ; preds = %._crit_edge, %1, %11, %3
-  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %., %._crit_edge ]
+47:                                               ; preds = %.critedge, %1, %11, %3
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %spec.select, %.critedge ]
   ret i32 %.0
 }
 

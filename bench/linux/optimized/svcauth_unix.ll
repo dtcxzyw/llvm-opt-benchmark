@@ -1133,7 +1133,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   %7 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef 12) #19
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %1
   store i32 0, ptr %2, align 4, !annotation !11
@@ -1142,18 +1142,18 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
   %13 = icmp ugt i32 %12, 255
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %9
   %15 = zext nneg i32 %12 to i64
   %16 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef %15) #19
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %14
   %19 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef 4) #19
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread, label %21, !prof !15
+  br i1 %20, label %.critedge, label %21, !prof !15
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %19, align 4
@@ -1161,7 +1161,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   store i32 %23, ptr %6, align 8
   %24 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef 4) #19
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread, label %26, !prof !15
+  br i1 %25, label %.critedge, label %26, !prof !15
 
 26:                                               ; preds = %21
   %27 = load i32, ptr %24, align 4
@@ -1170,7 +1170,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   store i32 %28, ptr %29, align 4
   %30 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef 4) #19
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %32, !prof !15
+  br i1 %31, label %.critedge, label %32, !prof !15
 
 32:                                               ; preds = %26
   %33 = load i32, ptr %30, align 4
@@ -1184,14 +1184,14 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %38 = zext nneg i32 %37 to i64
   %39 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %5, i64 noundef %38) #19
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %41
+  br i1 %40, label %.critedge, label %41
 
 41:                                               ; preds = %36
   %42 = tail call ptr @groups_alloc(i32 noundef %34) #19
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %42, ptr %43, align 8
   %44 = icmp eq ptr %42, null
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %41
   %46 = icmp eq i32 %33, 0
@@ -1224,7 +1224,7 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   tail call void @groups_sort(ptr noundef %58) #19
   %59 = call i64 @xdr_stream_decode_opaque_auth(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #19
   %60 = icmp slt i64 %59, 0
-  br i1 %60, label %.thread, label %61
+  br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %.loopexit
   %62 = load i32, ptr %2, align 4
@@ -1238,14 +1238,14 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %69 = call i64 @xdr_stream_encode_opaque_auth(ptr noundef nonnull %68, i32 noundef 0, ptr noundef null, i32 noundef 0) #19
   %70 = icmp slt i64 %69, 0
-  br i1 %70, label %.thread, label %71
+  br i1 %70, label %.critedge, label %71
 
 71:                                               ; preds = %67
   %72 = call ptr @xdr_reserve_space(ptr noundef nonnull %68, i64 noundef 4) #19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 11312
   store ptr %72, ptr %73, align 8
   %74 = icmp eq ptr %72, null
-  br i1 %74, label %.thread, label %75, !prof !15
+  br i1 %74, label %.critedge, label %75, !prof !15
 
 75:                                               ; preds = %71
   store i32 0, ptr %72, align 4
@@ -1257,9 +1257,9 @@ define internal noundef range(i32 1, 9) i32 @svcauth_unix_accept(ptr noundef %0)
   %79 = phi i32 [ 5, %75 ], [ 8, %61 ], [ 8, %32 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 %77
   store i32 %78, ptr %80, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %21, %18, %76, %71, %67, %.loopexit, %41, %36, %26, %14, %9, %1
+.critedge:                                        ; preds = %21, %18, %76, %71, %67, %.loopexit, %41, %36, %26, %14, %9, %1
   %81 = phi i32 [ 1, %1 ], [ 1, %9 ], [ 1, %14 ], [ 1, %36 ], [ 7, %41 ], [ 1, %.loopexit ], [ 7, %67 ], [ 7, %71 ], [ 1, %26 ], [ %79, %76 ], [ 1, %18 ], [ 1, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
@@ -1449,12 +1449,7 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   store ptr null, ptr %13, align 8, !annotation !11
   %22 = call i32 @qword_get(ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef 50) #19
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.thread, label %24
-
-.thread:                                          ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %12) #19
-  br label %99
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %21
   %25 = call i64 @simple_strtol(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef 0) #19
@@ -1510,9 +1505,9 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   store ptr null, ptr %8, align 8, !annotation !11
   %45 = call i32 @qword_get(ptr noundef nonnull %14, ptr noundef nonnull %7, i32 noundef 50) #19
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %.thread10, label %47
+  br i1 %46, label %.thread9, label %47
 
-.thread10:                                        ; preds = %41
+.thread9:                                         ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #19
   br label %99
@@ -1553,12 +1548,12 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   store ptr null, ptr %6, align 8, !annotation !11
   %65 = call i32 @qword_get(ptr noundef nonnull %14, ptr noundef nonnull %5, i32 noundef 50) #19
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %.thread11, label %67
+  br i1 %66, label %.thread10, label %67
 
-.thread11:                                        ; preds = %63
+.thread10:                                        ; preds = %63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #19
-  br label %.thread13
+  br label %.thread12
 
 67:                                               ; preds = %63
   %68 = call i64 @simple_strtol(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #19
@@ -1570,7 +1565,7 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #19
   %73 = icmp ne i32 %72, -1
   %74 = select i1 %71, i1 %73, i1 false
-  br i1 %74, label %75, label %.thread13
+  br i1 %74, label %75, label %.thread12
 
 75:                                               ; preds = %67
   %76 = getelementptr [0 x %struct.kgid_t], ptr %62, i64 0, i64 %64
@@ -1592,7 +1587,7 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   %84 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %83) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #19
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread13, label %86
+  br i1 %85, label %.thread12, label %86
 
 86:                                               ; preds = %.loopexit
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1601,19 +1596,19 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   store i64 %44, ptr %88, align 8
   %89 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %84, i32 noundef %83) #19
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.thread13, label %91
+  br i1 %90, label %.thread12, label %91
 
 91:                                               ; preds = %86
   call fastcc void @cache_put(ptr noundef nonnull %89, ptr noundef %0)
-  br label %.thread13
+  br label %.thread12
 
-.thread13:                                        ; preds = %67, %.thread11, %91, %86, %.loopexit
-  %92 = phi i32 [ 0, %91 ], [ -12, %86 ], [ -12, %.loopexit ], [ -22, %.thread11 ], [ -22, %67 ]
+.thread12:                                        ; preds = %67, %.thread10, %91, %86, %.loopexit
+  %92 = phi i32 [ 0, %91 ], [ -12, %86 ], [ -12, %.loopexit ], [ -22, %.thread10 ], [ -22, %67 ]
   %93 = load ptr, ptr %57, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %99, label %95
 
-95:                                               ; preds = %.thread13
+95:                                               ; preds = %.thread12
   %96 = call fastcc zeroext i1 @refcount_dec_and_test(ptr noundef nonnull %93)
   br i1 %96, label %97, label %99
 
@@ -1622,8 +1617,13 @@ define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr nounde
   call void @groups_free(ptr noundef %98) #19
   br label %99
 
-99:                                               ; preds = %.thread10, %40, %.thread, %97, %95, %.thread13, %55, %47, %24, %3
-  %100 = phi i32 [ -22, %3 ], [ -22, %24 ], [ %.ph, %40 ], [ -22, %47 ], [ -12, %55 ], [ %92, %95 ], [ %92, %97 ], [ %92, %.thread13 ], [ -22, %.thread ], [ -22, %.thread10 ]
+.critedge:                                        ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %12) #19
+  br label %99
+
+99:                                               ; preds = %.thread9, %40, %.critedge, %97, %95, %.thread12, %55, %47, %24, %3
+  %100 = phi i32 [ -22, %3 ], [ -22, %24 ], [ %.ph, %40 ], [ -22, %47 ], [ -12, %55 ], [ %92, %95 ], [ %92, %97 ], [ %92, %.thread12 ], [ -22, %.critedge ], [ -22, %.thread9 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #19
   ret i32 %100
 }

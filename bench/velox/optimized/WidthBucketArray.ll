@@ -1305,10 +1305,10 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 64
-  %ref.tmp.sink135.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sink135.sroa.gep136 = getelementptr inbounds nuw i8, ptr %ref.tmp53, i64 8
-  %ref.tmp.sink135.sroa.gep138 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sink135.sroa.gep139 = getelementptr inbounds nuw i8, ptr %ref.tmp53, i64 16
+  %ref.tmp.sink134.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink134.sroa.gep135 = getelementptr inbounds nuw i8, ptr %ref.tmp53, i64 8
+  %ref.tmp.sink134.sroa.gep137 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sink134.sroa.gep138 = getelementptr inbounds nuw i8, ptr %ref.tmp53, i64 16
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1503,13 +1503,13 @@ if.else:                                          ; preds = %if.end41
           to label %if.end60 unwind label %lpad46.thread
 
 if.end60:                                         ; preds = %if.else, %if.then45
-  %ref.tmp.sink135.sroa.phi = phi ptr [ %ref.tmp.sink135.sroa.gep, %if.then45 ], [ %ref.tmp.sink135.sroa.gep136, %if.else ]
-  %ref.tmp.sink135.sroa.phi137 = phi ptr [ %ref.tmp.sink135.sroa.gep138, %if.then45 ], [ %ref.tmp.sink135.sroa.gep139, %if.else ]
-  %ref.tmp.sink135 = phi ptr [ %ref.tmp, %if.then45 ], [ %ref.tmp53, %if.else ]
-  %26 = load ptr, ptr %ref.tmp.sink135, align 8
-  %27 = load ptr, ptr %ref.tmp.sink135.sroa.phi, align 8
-  %28 = load ptr, ptr %ref.tmp.sink135.sroa.phi137, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink135, i8 0, i64 24, i1 false)
+  %ref.tmp.sink134.sroa.phi = phi ptr [ %ref.tmp.sink134.sroa.gep, %if.then45 ], [ %ref.tmp.sink134.sroa.gep135, %if.else ]
+  %ref.tmp.sink134.sroa.phi136 = phi ptr [ %ref.tmp.sink134.sroa.gep137, %if.then45 ], [ %ref.tmp.sink134.sroa.gep138, %if.else ]
+  %ref.tmp.sink134 = phi ptr [ %ref.tmp, %if.then45 ], [ %ref.tmp53, %if.else ]
+  %26 = load ptr, ptr %ref.tmp.sink134, align 8
+  %27 = load ptr, ptr %ref.tmp.sink134.sroa.phi, align 8
+  %28 = load ptr, ptr %ref.tmp.sink134.sroa.phi136, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink134, i8 0, i64 24, i1 false)
   %call5.i.i.i5.i.i.i.i48 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit83 unwind label %lpad46
 

@@ -1483,8 +1483,8 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   br label %33
 
 33:                                               ; preds = %.lr.ph51, %.loopexit
-  %34 = phi ptr [ %28, %.lr.ph51 ], [ %92, %.loopexit ]
-  %.049 = phi i32 [ 0, %.lr.ph51 ], [ %91, %.loopexit ]
+  %34 = phi ptr [ %28, %.lr.ph51 ], [ %93, %.loopexit ]
+  %.049 = phi i32 [ 0, %.lr.ph51 ], [ %92, %.loopexit ]
   %35 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 noundef %.049)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !64
@@ -1493,15 +1493,15 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.outer, label %.loopexit
 
-.lr.ph.outer:                                     ; preds = %33, %.thread55
-  %.ph = phi ptr [ %68, %.thread55 ], [ %37, %33 ]
-  %.03144.ph = phi i32 [ %spec.select, %.thread55 ], [ 0, %33 ]
-  %.03243.ph = phi i1 [ true, %.thread55 ], [ false, %33 ]
-  %.03442.ph = phi i32 [ %67, %.thread55 ], [ 0, %33 ]
+.lr.ph.outer:                                     ; preds = %33, %.thread53
+  %.ph = phi ptr [ %68, %.thread53 ], [ %37, %33 ]
+  %.03144.ph = phi i32 [ %spec.select, %.thread53 ], [ 0, %33 ]
+  %.03243.ph = phi i1 [ true, %.thread53 ], [ false, %33 ]
+  %.03442.ph = phi i32 [ %67, %.thread53 ], [ 0, %33 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %58
-  br i1 %.03243.ph, label %._crit_edge.thread60, label %.loopexit
+  br i1 %.03243.ph, label %._crit_edge.thread, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %58
   %41 = phi ptr [ %60, %58 ], [ %.ph, %.lr.ph.outer ]
@@ -1520,7 +1520,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %50, %46
   %or.cond.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond.i, label %52, label %.thread55
+  br i1 %or.cond.i, label %52, label %.thread53
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -1528,7 +1528,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %55 = zext nneg i32 %46 to i64
   %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !79
-  br label %.thread55
+  br label %.thread53
 
 58:                                               ; preds = %.lr.ph
   %59 = add nuw nsw i32 %.03442, 1
@@ -1538,7 +1538,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %63 = icmp slt i32 %59, %62
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
-.thread55:                                        ; preds = %52, %44
+.thread53:                                        ; preds = %52, %44
   %64 = phi i32 [ %57, %52 ], [ 0, %44 ]
   %65 = icmp ne i32 %64, 0
   %66 = icmp eq i32 %.03144.ph, 0
@@ -1549,56 +1549,56 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i32, ptr %69, align 8, !tbaa !20
   %71 = icmp slt i32 %67, %70
-  br i1 %71, label %.lr.ph.outer, label %._crit_edge.thread60, !llvm.loop !80
+  br i1 %71, label %.lr.ph.outer, label %._crit_edge.thread, !llvm.loop !80
 
-._crit_edge.thread60:                             ; preds = %.thread55, %._crit_edge
-  %.in = phi i32 [ %62, %._crit_edge ], [ %70, %.thread55 ]
-  %.15963 = phi i32 [ %.03144.ph, %._crit_edge ], [ %spec.select, %.thread55 ]
-  %72 = phi ptr [ %60, %._crit_edge ], [ %68, %.thread55 ]
-  %73 = icmp sgt i32 %.in, 0
-  %74 = icmp eq i32 %.15963, 0
+._crit_edge.thread:                               ; preds = %.thread53, %._crit_edge
+  %.15760 = phi i32 [ %.03144.ph, %._crit_edge ], [ %spec.select, %.thread53 ]
+  %72 = phi ptr [ %60, %._crit_edge ], [ %68, %.thread53 ]
+  %73 = phi i32 [ %62, %._crit_edge ], [ %70, %.thread53 ]
+  %74 = icmp eq i32 %.15760, 0
   br i1 %74, label %75, label %78
 
-75:                                               ; preds = %._crit_edge.thread60
+75:                                               ; preds = %._crit_edge.thread
   %76 = load i32, ptr %32, align 8, !tbaa !16
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %32, align 8, !tbaa !16
   br label %78
 
-78:                                               ; preds = %75, %._crit_edge.thread60
-  %.3 = phi i32 [ %77, %75 ], [ %.15963, %._crit_edge.thread60 ]
-  br i1 %73, label %.lr.ph48, label %.loopexit
+78:                                               ; preds = %75, %._crit_edge.thread
+  %.3 = phi i32 [ %77, %75 ], [ %.15760, %._crit_edge.thread ]
+  %79 = icmp sgt i32 %73, 0
+  br i1 %79, label %.lr.ph48, label %.loopexit
 
-.lr.ph48:                                         ; preds = %78, %85
-  %79 = phi ptr [ %87, %85 ], [ %72, %78 ]
-  %.03046 = phi i32 [ %86, %85 ], [ 0, %78 ]
-  %80 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 noundef %.03046)
-  %81 = load i32, ptr %80, align 8, !tbaa !52
-  %.not37 = icmp eq i32 %81, 4
-  br i1 %.not37, label %_ZNK6icu_779UVector3210elementAtiEi.exit40, label %85
+.lr.ph48:                                         ; preds = %78, %86
+  %80 = phi ptr [ %88, %86 ], [ %72, %78 ]
+  %.03046 = phi i32 [ %87, %86 ], [ 0, %78 ]
+  %81 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %80, i32 noundef %.03046)
+  %82 = load i32, ptr %81, align 8, !tbaa !52
+  %.not37 = icmp eq i32 %82, 4
+  br i1 %.not37, label %_ZNK6icu_779UVector3210elementAtiEi.exit40, label %86
 
 _ZNK6icu_779UVector3210elementAtiEi.exit40:       ; preds = %.lr.ph48
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 124
-  %83 = load i32, ptr %82, align 4, !tbaa !50
-  %84 = load ptr, ptr %19, align 8, !tbaa !29
-  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef %.3, i32 noundef %83)
-  br label %85
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 124
+  %84 = load i32, ptr %83, align 4, !tbaa !50
+  %85 = load ptr, ptr %19, align 8, !tbaa !29
+  tail call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef %.3, i32 noundef %84)
+  br label %86
 
-85:                                               ; preds = %.lr.ph48, %_ZNK6icu_779UVector3210elementAtiEi.exit40
-  %86 = add nuw nsw i32 %.03046, 1
-  %87 = load ptr, ptr %36, align 8, !tbaa !64
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i32, ptr %88, align 8, !tbaa !20
-  %90 = icmp slt i32 %86, %89
-  br i1 %90, label %.lr.ph48, label %.loopexit, !llvm.loop !81
+86:                                               ; preds = %.lr.ph48, %_ZNK6icu_779UVector3210elementAtiEi.exit40
+  %87 = add nuw nsw i32 %.03046, 1
+  %88 = load ptr, ptr %36, align 8, !tbaa !64
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !20
+  %91 = icmp slt i32 %87, %90
+  br i1 %91, label %.lr.ph48, label %.loopexit, !llvm.loop !81
 
-.loopexit:                                        ; preds = %85, %33, %78, %._crit_edge
-  %91 = add nuw nsw i32 %.049, 1
-  %92 = load ptr, ptr %27, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !20
-  %95 = icmp slt i32 %91, %94
-  br i1 %95, label %33, label %.loopexit41, !llvm.loop !82
+.loopexit:                                        ; preds = %86, %33, %78, %._crit_edge
+  %92 = add nuw nsw i32 %.049, 1
+  %93 = load ptr, ptr %27, align 8, !tbaa !19
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %95 = load i32, ptr %94, align 8, !tbaa !20
+  %96 = icmp slt i32 %92, %95
+  br i1 %96, label %33, label %.loopexit41, !llvm.loop !82
 
 .loopexit41:                                      ; preds = %.loopexit, %.thread, %21, %18
   ret void

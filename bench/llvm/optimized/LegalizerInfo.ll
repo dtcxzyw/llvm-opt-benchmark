@@ -1205,7 +1205,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE9push_backES1_.exit: ; preds = %_
 ._crit_edge56.loopexit:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit
   %.pre63 = load i32, ptr %9, align 8, !tbaa !26
   %.pre64 = load ptr, ptr %5, align 8, !tbaa !25
-  %124 = zext i32 %224 to i64
+  %124 = zext i32 %223 to i64
   br label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %35, %._crit_edge, %._crit_edge56.loopexit, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
@@ -1376,7 +1376,7 @@ _ZN4llvm11SmallVectorINS_3LLTELj8EED2Ev.exit:     ; preds = %_ZN4llvm14SmallBitV
   ret { i64, i64 } %.fca.1.insert.i35
 
 194:                                              ; preds = %.lr.ph55, %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit
-  %.02554 = phi ptr [ %.sroa.0.0.i72, %.lr.ph55 ], [ %225, %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit ]
+  %.02554 = phi ptr [ %.sroa.0.0.i72, %.lr.ph55 ], [ %224, %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
   %195 = load ptr, ptr %.02554, align 8, !tbaa !115
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
@@ -1405,34 +1405,34 @@ _ZN4llvm11SmallVectorINS_3LLTELj8EED2Ev.exit:     ; preds = %_ZN4llvm14SmallBitV
   %211 = icmp uge ptr %6, %.pre3.i
   %212 = icmp ult ptr %6, %210
   %spec.select.i.i.i.i.i = and i1 %211, %212
-  br i1 %spec.select.i.i.i.i.i, label %214, label %213, !prof !122
+  br i1 %spec.select.i.i.i.i.i, label %213, label %.critedge.i.i.i, !prof !122
 
 213:                                              ; preds = %209
+  %214 = ptrtoint ptr %.pre3.i to i64
+  %215 = sub i64 %49, %214
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %29, i64 noundef %207, i64 noundef 24) #16
+  %216 = load ptr, ptr %5, align 8, !tbaa !25
+  %217 = getelementptr inbounds i8, ptr %216, i64 %215
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %209
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %29, i64 noundef %207, i64 noundef 24) #16
   %.pre.i39 = load ptr, ptr %5, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit
 
-214:                                              ; preds = %209
-  %215 = ptrtoint ptr %.pre3.i to i64
-  %216 = sub i64 %49, %215
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %29, i64 noundef %207, i64 noundef 24) #16
-  %217 = load ptr, ptr %5, align 8, !tbaa !25
-  %218 = getelementptr inbounds i8, ptr %217, i64 %216
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit: ; preds = %194, %213, %214
-  %219 = phi ptr [ %.pre3.i, %194 ], [ %217, %214 ], [ %.pre.i39, %213 ]
-  %.016.i.i.i = phi ptr [ %6, %194 ], [ %218, %214 ], [ %6, %213 ]
-  %220 = load i32, ptr %30, align 8, !tbaa !26
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %219, i64 %221
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %222, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %223 = load i32, ptr %30, align 8, !tbaa !26
-  %224 = add i32 %223, 1
-  store i32 %224, ptr %30, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseINS_13LegalityQuery7MemDescELb1EE9push_backERKS2_.exit: ; preds = %194, %213, %.critedge.i.i.i
+  %218 = phi ptr [ %.pre3.i, %194 ], [ %216, %213 ], [ %.pre.i39, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %194 ], [ %217, %213 ], [ %6, %.critedge.i.i.i ]
+  %219 = load i32, ptr %30, align 8, !tbaa !26
+  %220 = zext i32 %219 to i64
+  %221 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %218, i64 %220
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %221, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %222 = load i32, ptr %30, align 8, !tbaa !26
+  %223 = add i32 %222, 1
+  store i32 %223, ptr %30, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  %225 = getelementptr inbounds nuw i8, ptr %.02554, i64 8
-  %.not = icmp eq ptr %225, %46
+  %224 = getelementptr inbounds nuw i8, ptr %.02554, i64 8
+  %.not = icmp eq ptr %224, %46
   br i1 %.not, label %._crit_edge56.loopexit, label %194
 }
 

@@ -547,10 +547,10 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %.039.i.i = phi i64 [ %.0.i.i.i, %17 ], [ %22, %28 ]
   %30 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.lcssa.sink.i.i, i1 true)
   %.037.i.i = xor i64 %30, 63
-  %.neg59.i.i = sub i64 %.039.i.i, %.0.i.i.i
-  %.neg57.i.i = sub nsw i64 %.037.i.i, %.sink.i.i.i
-  %31 = shl i64 %.neg59.i.i, 32
-  %32 = shl nsw i64 %.neg57.i.i, 26
+  %.neg58.i.i = sub i64 %.039.i.i, %.0.i.i.i
+  %.neg56.i.i = sub nsw i64 %.037.i.i, %.sink.i.i.i
+  %31 = shl i64 %.neg58.i.i, 32
+  %32 = shl nsw i64 %.neg56.i.i, 26
   %33 = getelementptr i8, ptr %4, i64 %31
   %34 = getelementptr i8, ptr %33, i64 %32
   %35 = ptrtoint ptr %34 to i64

@@ -1601,26 +1601,26 @@ intern_code_constants.exit:                       ; preds = %44, %27
 59:                                               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %61 = getelementptr i8, ptr %53, i64 16
-  %.val4355.i = load i64, ptr %61, align 8, !tbaa !117
-  %62 = icmp sgt i64 %.val4355.i, 0
+  %.val4453.i = load i64, ptr %61, align 8, !tbaa !117
+  %62 = icmp sgt i64 %.val4453.i, 0
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %59, %.critedge.i
-  %.03157.i = phi i64 [ %.233.i, %.critedge.i ], [ 0, %59 ]
-  %.03556.i = phi ptr [ %.338.i, %.critedge.i ], [ %60, %59 ]
+  %.03155.i = phi i64 [ %.233.i, %.critedge.i ], [ 0, %59 ]
+  %.03554.i = phi ptr [ %.338.i, %.critedge.i ], [ %60, %59 ]
   %63 = load ptr, ptr %2, align 8, !tbaa !96
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %65 = ptrtoint ptr %.03556.i to i64
+  %65 = ptrtoint ptr %.03554.i to i64
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = add i64 %67, 16
   %69 = getelementptr i8, ptr %63, i64 16
-  %.val42.i = load i64, ptr %69, align 8, !tbaa !117
-  %.not40.i = icmp slt i64 %68, %.val42.i
+  %.val43.i = load i64, ptr %69, align 8, !tbaa !117
+  %.not40.i = icmp slt i64 %68, %.val43.i
   br i1 %.not40.i, label %78, label %70
 
 70:                                               ; preds = %.lr.ph.i
-  %71 = shl i64 %.val42.i, 1
+  %71 = shl i64 %.val43.i, 1
   %72 = call i32 @_PyBytes_Resize(ptr noundef nonnull %2, i64 noundef %71) #14
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %remove_column_info.exit.thread, label %74
@@ -1632,8 +1632,8 @@ intern_code_constants.exit:                       ; preds = %44, %27
   br label %78
 
 78:                                               ; preds = %74, %.lr.ph.i
-  %.136.i = phi ptr [ %77, %74 ], [ %.03556.i, %.lr.ph.i ]
-  %79 = getelementptr i8, ptr %54, i64 %.03157.i
+  %.136.i = phi ptr [ %77, %74 ], [ %.03554.i, %.lr.ph.i ]
+  %79 = getelementptr i8, ptr %54, i64 %.03155.i
   %80 = load i8, ptr %79, align 1, !tbaa !97
   %81 = and i8 %80, 120
   %82 = icmp eq i8 %81, 120
@@ -1736,18 +1736,18 @@ write_signed_varint.exit.i:                       ; preds = %write_signed_varint
 122:                                              ; preds = %write_signed_varint.exit.i, %83
   %.338.i = phi ptr [ %84, %83 ], [ %121, %write_signed_varint.exit.i ]
   %.val.i = load i64, ptr %61, align 8, !tbaa !117
-  %123 = add nsw i64 %.03157.i, 1
+  %123 = add nsw i64 %.03155.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %.val.i, i64 %123)
   %124 = add nsw i64 %smax.i, -1
   br label %125
 
 125:                                              ; preds = %126, %122
-  %.233.in.i = phi i64 [ %.03157.i, %122 ], [ %.233.i, %126 ]
+  %.233.in.i = phi i64 [ %.03155.i, %122 ], [ %.233.i, %126 ]
   %exitcond.not.i = icmp eq i64 %.233.in.i, %124
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %126
 
 126:                                              ; preds = %125
-  %.233.i = add nsw i64 %.233.in.i, 1
+  %.233.i = add i64 %.233.in.i, 1
   %127 = getelementptr i8, ptr %54, i64 %.233.i
   %128 = load i8, ptr %127, align 1, !tbaa !97
   %129 = icmp sgt i8 %128, -1

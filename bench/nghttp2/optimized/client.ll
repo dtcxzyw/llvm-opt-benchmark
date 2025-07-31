@@ -108,25 +108,25 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 9
-  %.not113.i = icmp eq i64 %22, 9
-  br i1 %.not113.i, label %.loopexit, label %.lr.ph105.i
+  %.not111.i = icmp eq i64 %22, 9
+  br i1 %.not111.i, label %.loopexit, label %.lr.ph103.i
 
-.lr.ph105.i:                                      ; preds = %29, %37
-  %.084103.i = phi i64 [ %38, %37 ], [ 9, %29 ]
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.084103.i
+.lr.ph103.i:                                      ; preds = %29, %37
+  %.084101.i = phi i64 [ %38, %37 ], [ 9, %29 ]
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.084101.i
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = icmp eq i8 %32, 93
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %.lr.ph105.i
-  %35 = add i64 %.084103.i, -9
-  %36 = add nuw i64 %.084103.i, 1
+34:                                               ; preds = %.lr.ph103.i
+  %35 = add i64 %.084101.i, -9
+  %36 = add nuw i64 %.084101.i, 1
   br label %thread-pre-split.i
 
-37:                                               ; preds = %.lr.ph105.i
-  %38 = add nuw i64 %.084103.i, 1
-  %exitcond117.not.i = icmp eq i64 %38, %22
-  br i1 %exitcond117.not.i, label %.loopexit, label %.lr.ph105.i, !llvm.loop !10
+37:                                               ; preds = %.lr.ph103.i
+  %38 = add nuw i64 %.084101.i, 1
+  %exitcond115.not.i = icmp eq i64 %38, %22
+  br i1 %exitcond115.not.i, label %.loopexit, label %.lr.ph103.i, !llvm.loop !10
 
 .lr.ph.preheader.i:                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %12) #16
@@ -134,8 +134,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
-  %.185100.i = phi i64 [ %44, %43 ], [ 8, %.lr.ph.preheader.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %.185100.i
+  %.18598.i = phi i64 [ %44, %43 ], [ 8, %.lr.ph.preheader.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %.18598.i
   %40 = load i8, ptr %39, align 1, !tbaa !4
   %41 = sext i8 %40 to i32
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef %41) #18
@@ -143,12 +143,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br i1 %.not93.i, label %43, label %._crit_edge.i
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = add nuw i64 %.185100.i, 1
+  %44 = add nuw i64 %.18598.i, 1
   %exitcond.not.i = icmp eq i64 %44, %22
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %43, %.lr.ph.i
-  %.185.lcssa.ph.i = phi i64 [ %22, %43 ], [ %.185100.i, %.lr.ph.i ]
+  %.185.lcssa.ph.i = phi i64 [ %22, %43 ], [ %.18598.i, %.lr.ph.i ]
   %45 = add i64 %.185.lcssa.ph.i, -8
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #16
   br label %thread-pre-split.i
@@ -181,8 +181,8 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i, %34
   %.286.in.i = phi i64 [ %.083.i, %53 ], [ %.286.i, %63 ]
   %.0.i = phi i32 [ 0, %53 ], [ %66, %63 ]
   %.286.i = add nuw i64 %.286.in.i, 1
-  %exitcond118.not.i = icmp eq i64 %.286.in.i, %54
-  br i1 %exitcond118.not.i, label %68, label %56
+  %exitcond116.not.i = icmp eq i64 %.286.in.i, %54
+  br i1 %exitcond116.not.i, label %68, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 %.286.i
@@ -195,23 +195,19 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i, %34
 61:                                               ; preds = %56
   %62 = add i8 %58, -48
   %or.cond.i = icmp ult i8 %62, 10
-  br i1 %or.cond.i, label %63, label %.thread.i
+  br i1 %or.cond.i, label %63, label %.critedge.i
 
 63:                                               ; preds = %61
   %64 = mul nsw i32 %.0.i, 10
   %65 = add i32 %64, -48
   %66 = add i32 %65, %59
   %67 = icmp sgt i32 %66, 65535
-  br i1 %67, label %.thread.i, label %55, !llvm.loop !13
+  br i1 %67, label %.critedge.i, label %55, !llvm.loop !13
 
 68:                                               ; preds = %56, %55
   %.286.lcssa.i = phi i64 [ %.286.i, %56 ], [ %22, %55 ]
   %69 = icmp eq i32 %.0.i, 0
-  br i1 %69, label %.thread.i, label %70
-
-.thread.i:                                        ; preds = %63, %61, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
-  br label %.loopexit
+  br i1 %69, label %.critedge.i, label %70
 
 70:                                               ; preds = %68
   %71 = trunc i32 %.0.i to i16
@@ -227,35 +223,39 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i, %34
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76
   %78 = icmp ult i64 %.1.i, %22
-  br i1 %78, label %.lr.ph108.i, label %parse_uri.exit
+  br i1 %78, label %.lr.ph106.i, label %parse_uri.exit
 
-.lr.ph108.i:                                      ; preds = %72, %82
-  %.3106.i = phi i64 [ %83, %82 ], [ %.1.i, %72 ]
-  %79 = getelementptr inbounds nuw i8, ptr %21, i64 %.3106.i
+.lr.ph106.i:                                      ; preds = %72, %82
+  %.3104.i = phi i64 [ %83, %82 ], [ %.1.i, %72 ]
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 %.3104.i
   %80 = load i8, ptr %79, align 1, !tbaa !4
   %81 = icmp eq i8 %80, 35
-  br i1 %81, label %._crit_edge109.i, label %82
+  br i1 %81, label %._crit_edge107.i, label %82
 
-82:                                               ; preds = %.lr.ph108.i
-  %83 = add i64 %.3106.i, 1
-  %exitcond119.not.i = icmp eq i64 %83, %22
-  br i1 %exitcond119.not.i, label %._crit_edge109.i, label %.lr.ph108.i, !llvm.loop !14
+82:                                               ; preds = %.lr.ph106.i
+  %83 = add i64 %.3104.i, 1
+  %exitcond117.not.i = icmp eq i64 %83, %22
+  br i1 %exitcond117.not.i, label %._crit_edge107.i, label %.lr.ph106.i, !llvm.loop !14
 
-._crit_edge109.i:                                 ; preds = %82, %.lr.ph108.i
-  %.3.lcssa.i = phi i64 [ %22, %82 ], [ %.3106.i, %.lr.ph108.i ]
+._crit_edge107.i:                                 ; preds = %82, %.lr.ph106.i
+  %.3.lcssa.i = phi i64 [ %22, %82 ], [ %.3104.i, %.lr.ph106.i ]
   %84 = icmp eq i64 %.3.lcssa.i, %.1.i
   %85 = sub i64 %.3.lcssa.i, %.1.i
   %spec.select = select i1 %84, ptr @.str.5, ptr %73
-  %spec.select13 = select i1 %84, i64 1, i64 %85
+  %spec.select14 = select i1 %84, i64 1, i64 %85
   br label %parse_uri.exit
 
-.loopexit:                                        ; preds = %37, %24, %17, %thread-pre-split.i, %.thread.i, %29
+.critedge.i:                                      ; preds = %63, %61, %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %37, %24, %17, %thread-pre-split.i, %.critedge.i, %29
   call fastcc void @die(ptr noundef nonnull @.str.1) #17
   unreachable
 
-parse_uri.exit:                                   ; preds = %._crit_edge109.i, %72
-  %.sroa.6.0 = phi ptr [ @.str.5, %72 ], [ %spec.select, %._crit_edge109.i ]
-  %.sroa.9.0 = phi i64 [ 1, %72 ], [ %spec.select13, %._crit_edge109.i ]
+parse_uri.exit:                                   ; preds = %._crit_edge107.i, %72
+  %.sroa.6.0 = phi ptr [ @.str.5, %72 ], [ %spec.select, %._crit_edge107.i ]
+  %.sroa.9.0 = phi i64 [ 1, %72 ], [ %spec.select14, %._crit_edge107.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #16
@@ -626,27 +626,27 @@ ctl_poll.exit41.i:                                ; preds = %ctl_poll.exit41.i.b
   %242 = load ptr, ptr %183, align 8, !tbaa !44
   %243 = call i32 @nghttp2_session_want_read(ptr noundef %242) #16
   %.not31.i = icmp eq i32 %243, 0
-  br i1 %.not31.i, label %244, label %.critedge.i
+  br i1 %.not31.i, label %244, label %.critedge.i3
 
 244:                                              ; preds = %ctl_poll.exit41.i
   %245 = load ptr, ptr %183, align 8, !tbaa !44
   %246 = call i32 @nghttp2_session_want_write(ptr noundef %245) #16
   %.not32.i = icmp eq i32 %246, 0
-  br i1 %.not32.i, label %fetch_uri.exit, label %.critedge.i
+  br i1 %.not32.i, label %fetch_uri.exit, label %.critedge.i3
 
-.critedge.i:                                      ; preds = %244, %ctl_poll.exit41.i
+.critedge.i3:                                     ; preds = %244, %ctl_poll.exit41.i
   %247 = call i32 @poll(ptr noundef nonnull %11, i64 noundef 1, i32 noundef -1) #16
   %248 = icmp eq i32 %247, -1
   br i1 %248, label %249, label %253
 
-249:                                              ; preds = %.critedge.i
+249:                                              ; preds = %.critedge.i3
   %250 = tail call ptr @__errno_location() #20
   %251 = load i32, ptr %250, align 4, !tbaa !32
   %252 = call ptr @strerror(i32 noundef %251) #16
   call fastcc void @dief(ptr noundef nonnull @.str.13, ptr noundef %252) #17
   unreachable
 
-253:                                              ; preds = %.critedge.i
+253:                                              ; preds = %.critedge.i3
   %254 = load i16, ptr %241, align 2, !tbaa !54
   %255 = and i16 %254, 5
   %.not33.i = icmp eq i16 %255, 0
@@ -679,8 +679,8 @@ ctl_poll.exit41.i:                                ; preds = %ctl_poll.exit41.i.b
 exec_io.exit.i:                                   ; preds = %.exec_io.exit_crit_edge.i, %253
   %264 = phi i16 [ %.pre.i, %.exec_io.exit_crit_edge.i ], [ %254, %253 ]
   %265 = and i16 %264, 24
-  %or.cond.i3 = icmp eq i16 %265, 0
-  br i1 %or.cond.i3, label %267, label %266
+  %or.cond.i4 = icmp eq i16 %265, 0
+  br i1 %or.cond.i4, label %267, label %266
 
 266:                                              ; preds = %exec_io.exit.i
   call fastcc void @die(ptr noundef nonnull @.str.14) #17

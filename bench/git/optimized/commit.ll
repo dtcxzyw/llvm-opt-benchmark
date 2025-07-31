@@ -5154,82 +5154,82 @@ sign_commit_to_strbuf.exit:                       ; preds = %45, %47
   store ptr null, ptr %10, align 8, !tbaa !183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_commit_extra_headers.out, i64 24, i1 false)
-  %.not34.i = icmp eq ptr %8, null
-  br i1 %.not34.i, label %100, label %.lr.ph.i101
+  %.not31.i = icmp eq ptr %8, null
+  br i1 %.not31.i, label %100, label %.lr.ph.i101
 
-.lr.ph.i101:                                      ; preds = %._crit_edge130, %free_commit_extra_headers.exit.i
-  %.02436.i = phi ptr [ %68, %free_commit_extra_headers.exit.i ], [ %10, %._crit_edge130 ]
-  %.02635.i = phi ptr [ %99, %free_commit_extra_headers.exit.i ], [ %8, %._crit_edge130 ]
+.lr.ph.i101:                                      ; preds = %._crit_edge130, %97
+  %.02433.i = phi ptr [ %68, %97 ], [ %10, %._crit_edge130 ]
+  %.02632.i = phi ptr [ %99, %97 ], [ %8, %._crit_edge130 ]
   %68 = call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #24
-  %69 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !176
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(9) @.str.31) #26
   %.not29.i = icmp eq i32 %71, 0
-  br i1 %.not29.i, label %72, label %89
+  br i1 %.not29.i, label %72, label %88
 
 72:                                               ; preds = %.lr.ph.i101
-  %73 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !179
-  %75 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 24
   %76 = load i64, ptr %75, align 8, !tbaa !180
   %77 = call i32 @convert_object_file(ptr noundef nonnull %11, ptr noundef %67, ptr noundef %65, ptr noundef %74, i64 noundef %76, i32 noundef 4, i32 noundef 1) #24
   %.not30.i = icmp eq i32 %77, 0
-  br i1 %.not30.i, label %84, label %78
+  br i1 %.not30.i, label %83, label %.critedge.i
 
-78:                                               ; preds = %72
+.critedge.i:                                      ; preds = %72
   call void @free(ptr noundef %68) #24
   %.0..0..0..0..0..0..i = load ptr, ptr %10, align 8, !tbaa !183
   %.not6.i.i = icmp eq ptr %.0..0..0..0..0..0..i, null
   br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %78, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %79, %.lr.ph.i.i ], [ %.0..0..0..0..0..0..i, %78 ]
-  %79 = load ptr, ptr %.07.i.i, align 8, !tbaa !186
-  %80 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !176
-  call void @free(ptr noundef %81) #24
-  %82 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !179
-  call void @free(ptr noundef %83) #24
+.lr.ph.i.i:                                       ; preds = %.critedge.i, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %78, %.lr.ph.i.i ], [ %.0..0..0..0..0..0..i, %.critedge.i ]
+  %78 = load ptr, ptr %.07.i.i, align 8, !tbaa !186
+  %79 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !176
+  call void @free(ptr noundef %80) #24
+  %81 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !179
+  call void @free(ptr noundef %82) #24
   call void @free(ptr noundef nonnull %.07.i.i) #24
-  %.not.i.i = icmp eq ptr %79, null
+  %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !188
 
-84:                                               ; preds = %72
-  %85 = call ptr @xstrdup(ptr noundef nonnull @.str.31) #24
-  %86 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %85, ptr %86, align 8, !tbaa !176
-  %87 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %88 = call ptr @strbuf_detach(ptr noundef nonnull %11, ptr noundef nonnull %87) #24
-  br label %free_commit_extra_headers.exit.i
+83:                                               ; preds = %72
+  %84 = call ptr @xstrdup(ptr noundef nonnull @.str.31) #24
+  %85 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %84, ptr %85, align 8, !tbaa !176
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %87 = call ptr @strbuf_detach(ptr noundef nonnull %11, ptr noundef nonnull %86) #24
+  br label %97
 
-89:                                               ; preds = %.lr.ph.i101
-  %90 = call ptr @xstrdup(ptr noundef nonnull %70) #24
-  %91 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %90, ptr %91, align 8, !tbaa !176
-  %92 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 24
-  %93 = load i64, ptr %92, align 8, !tbaa !180
-  %94 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store i64 %93, ptr %94, align 8, !tbaa !180
-  %95 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !179
-  %97 = call ptr @xmemdupz(ptr noundef %96, i64 noundef %93) #24
-  br label %free_commit_extra_headers.exit.i
+88:                                               ; preds = %.lr.ph.i101
+  %89 = call ptr @xstrdup(ptr noundef nonnull %70) #24
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %89, ptr %90, align 8, !tbaa !176
+  %91 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 24
+  %92 = load i64, ptr %91, align 8, !tbaa !180
+  %93 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  store i64 %92, ptr %93, align 8, !tbaa !180
+  %94 = getelementptr inbounds nuw i8, ptr %.02632.i, i64 16
+  %95 = load ptr, ptr %94, align 8, !tbaa !179
+  %96 = call ptr @xmemdupz(ptr noundef %95, i64 noundef %92) #24
+  br label %97
 
-free_commit_extra_headers.exit.i:                 ; preds = %89, %84
-  %.sink.i = phi ptr [ %88, %84 ], [ %97, %89 ]
+97:                                               ; preds = %88, %83
+  %.sink.i = phi ptr [ %96, %88 ], [ %87, %83 ]
   %98 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %.sink.i, ptr %98, align 8, !tbaa !179
-  store ptr %68, ptr %.02436.i, align 8, !tbaa !183
-  %99 = load ptr, ptr %.02635.i, align 8, !tbaa !186
+  store ptr %68, ptr %.02433.i, align 8, !tbaa !183
+  %99 = load ptr, ptr %.02632.i, align 8, !tbaa !186
   %.not.i102 = icmp eq ptr %99, null
   br i1 %.not.i102, label %._crit_edge.loopexit.i, label %.lr.ph.i101, !llvm.loop !193
 
-._crit_edge.loopexit.i:                           ; preds = %free_commit_extra_headers.exit.i
+._crit_edge.loopexit.i:                           ; preds = %97
   %.0..0..0..0..0..0.28.pre.i = load ptr, ptr %10, align 8, !tbaa !183
   br label %100
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %78
+.loopexit:                                        ; preds = %.lr.ph.i.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.thread.sink.split

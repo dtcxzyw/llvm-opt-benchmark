@@ -2562,26 +2562,26 @@ rdp_get_conversation_data.exit.thread:            ; preds = %17, %rdp_get_conver
   br label %107
 
 107:                                              ; preds = %115, %106
-  %.2637.i = phi i32 [ 6, %106 ], [ %118, %115 ]
-  %.0706.i = phi i32 [ 0, %106 ], [ %119, %115 ]
-  %.1725.i = phi i32 [ %.071.i, %106 ], [ %116, %115 ]
-  %108 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1725.i)
+  %.2635.i = phi i32 [ 6, %106 ], [ %118, %115 ]
+  %.0704.i = phi i32 [ 0, %106 ], [ %119, %115 ]
+  %.1723.i = phi i32 [ %.071.i, %106 ], [ %116, %115 ]
+  %108 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1723.i)
   %109 = icmp slt i32 %108, 2
   br i1 %109, label %dissect_rdp_rdstls.exit.thread, label %110
 
 110:                                              ; preds = %107
-  %111 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.1725.i, i32 noundef -2147483648)
+  %111 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.1723.i, i32 noundef -2147483648)
   %112 = zext i16 %111 to i32
-  %113 = add i32 %.1725.i, 2
+  %113 = add i32 %.1723.i, 2
   %114 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %113)
   %.not80.i = icmp slt i32 %114, %112
   br i1 %.not80.i, label %dissect_rdp_rdstls.exit.thread, label %115
 
 115:                                              ; preds = %110
   %116 = add i32 %113, %112
-  %117 = add i32 %.2637.i, 2
+  %117 = add i32 %.2635.i, 2
   %118 = add i32 %117, %112
-  %119 = add nuw nsw i32 %.0706.i, 1
+  %119 = add nuw nsw i32 %.0704.i, 1
   %exitcond.not.i = icmp eq i32 %119, %.074.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %107, !llvm.loop !10
 
@@ -2636,7 +2636,7 @@ rdp_get_conversation_data.exit.thread:            ; preds = %17, %rdp_get_conver
   %146 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %145, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_rdp_rdstls.exit
 
-dissect_rdp_rdstls.exit.thread:                   ; preds = %107, %110, %33, %93, %98, %120, %95, %103, %101
+dissect_rdp_rdstls.exit.thread:                   ; preds = %110, %107, %33, %93, %98, %120, %95, %101, %103
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14

@@ -1861,99 +1861,99 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
 13:                                               ; preds = %4
   %14 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
   %15 = icmp ult i32 %11, 16
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %13
   %17 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #10
   %.not97 = icmp eq i32 %17, 0
-  %.not140 = icmp eq i64 %3, 0
-  br i1 %.not97, label %.preheader, label %.preheader113
+  %.not136 = icmp eq i64 %3, 0
+  br i1 %.not97, label %.preheader, label %.preheader109
 
-.preheader113:                                    ; preds = %16
-  br i1 %.not140, label %.loopexit112, label %.lr.ph
+.preheader109:                                    ; preds = %16
+  br i1 %.not136, label %.loopexit108, label %.lr.ph
 
 .preheader:                                       ; preds = %16
-  br i1 %.not140, label %.loopexit112, label %.lr.ph126
+  br i1 %.not136, label %.loopexit108, label %.lr.ph122
 
-.lr.ph:                                           ; preds = %.preheader113, %.lr.ph
-  %.2118 = phi ptr [ %23, %.lr.ph ], [ %1, %.preheader113 ]
-  %.281117 = phi ptr [ %18, %.lr.ph ], [ %2, %.preheader113 ]
-  %.086116 = phi i64 [ %24, %.lr.ph ], [ %12, %.preheader113 ]
-  %.291115 = phi i64 [ %25, %.lr.ph ], [ %3, %.preheader113 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.281117, i64 1
-  %19 = load i8, ptr %.281117, align 1, !tbaa !24
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.086116
+.lr.ph:                                           ; preds = %.preheader109, %.lr.ph
+  %.2114 = phi ptr [ %23, %.lr.ph ], [ %1, %.preheader109 ]
+  %.281113 = phi ptr [ %18, %.lr.ph ], [ %2, %.preheader109 ]
+  %.086112 = phi i64 [ %24, %.lr.ph ], [ %12, %.preheader109 ]
+  %.291111 = phi i64 [ %25, %.lr.ph ], [ %3, %.preheader109 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.281113, i64 1
+  %19 = load i8, ptr %.281113, align 1, !tbaa !24
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.086112
   %21 = load i8, ptr %20, align 1, !tbaa !24
   %22 = xor i8 %21, %19
-  %23 = getelementptr inbounds nuw i8, ptr %.2118, i64 1
-  store i8 %22, ptr %.2118, align 1, !tbaa !24
+  %23 = getelementptr inbounds nuw i8, ptr %.2114, i64 1
+  store i8 %22, ptr %.2114, align 1, !tbaa !24
   store i8 %22, ptr %20, align 1, !tbaa !24
-  %24 = add nuw nsw i64 %.086116, 1
-  %25 = add i64 %.291115, -1
-  %26 = icmp ult i64 %.086116, 15
+  %24 = add nuw nsw i64 %.086112, 1
+  %25 = add i64 %.291111, -1
+  %26 = icmp ult i64 %.086112, 15
   %27 = icmp ne i64 %25, 0
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph, label %.loopexit112, !llvm.loop !25
+  br i1 %28, label %.lr.ph, label %.loopexit108, !llvm.loop !25
 
-.lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
-  %.4125 = phi ptr [ %34, %.lr.ph126 ], [ %1, %.preheader ]
-  %.483124 = phi ptr [ %29, %.lr.ph126 ], [ %2, %.preheader ]
-  %.288123 = phi i64 [ %35, %.lr.ph126 ], [ %12, %.preheader ]
-  %.493122 = phi i64 [ %36, %.lr.ph126 ], [ %3, %.preheader ]
-  %29 = getelementptr inbounds nuw i8, ptr %.483124, i64 1
-  %30 = load i8, ptr %.483124, align 1, !tbaa !24
-  %31 = getelementptr inbounds nuw i8, ptr %14, i64 %.288123
+.lr.ph122:                                        ; preds = %.preheader, %.lr.ph122
+  %.4121 = phi ptr [ %34, %.lr.ph122 ], [ %1, %.preheader ]
+  %.483120 = phi ptr [ %29, %.lr.ph122 ], [ %2, %.preheader ]
+  %.288119 = phi i64 [ %35, %.lr.ph122 ], [ %12, %.preheader ]
+  %.493118 = phi i64 [ %36, %.lr.ph122 ], [ %3, %.preheader ]
+  %29 = getelementptr inbounds nuw i8, ptr %.483120, i64 1
+  %30 = load i8, ptr %.483120, align 1, !tbaa !24
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 %.288119
   %32 = load i8, ptr %31, align 1, !tbaa !24
   %33 = xor i8 %32, %30
-  %34 = getelementptr inbounds nuw i8, ptr %.4125, i64 1
-  store i8 %33, ptr %.4125, align 1, !tbaa !24
-  %35 = add nuw nsw i64 %.288123, 1
+  %34 = getelementptr inbounds nuw i8, ptr %.4121, i64 1
+  store i8 %33, ptr %.4121, align 1, !tbaa !24
+  %35 = add nuw nsw i64 %.288119, 1
   store i8 %30, ptr %31, align 1, !tbaa !24
-  %36 = add i64 %.493122, -1
-  %37 = icmp ult i64 %.288123, 15
+  %36 = add i64 %.493118, -1
+  %37 = icmp ult i64 %.288119, 15
   %38 = icmp ne i64 %36, 0
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph126, label %.loopexit112, !llvm.loop !26
+  br i1 %39, label %.lr.ph122, label %.loopexit108, !llvm.loop !26
 
-.loopexit112:                                     ; preds = %.lr.ph, %.lr.ph126, %.preheader113, %.preheader
-  %.392 = phi i64 [ 0, %.preheader ], [ 0, %.preheader113 ], [ %36, %.lr.ph126 ], [ %25, %.lr.ph ]
-  %.187 = phi i64 [ %12, %.preheader ], [ %12, %.preheader113 ], [ %35, %.lr.ph126 ], [ %24, %.lr.ph ]
-  %.382 = phi ptr [ %2, %.preheader ], [ %2, %.preheader113 ], [ %29, %.lr.ph126 ], [ %18, %.lr.ph ]
-  %.3 = phi ptr [ %1, %.preheader ], [ %1, %.preheader113 ], [ %34, %.lr.ph126 ], [ %23, %.lr.ph ]
+.loopexit108:                                     ; preds = %.lr.ph, %.lr.ph122, %.preheader109, %.preheader
+  %.392 = phi i64 [ 0, %.preheader ], [ 0, %.preheader109 ], [ %36, %.lr.ph122 ], [ %25, %.lr.ph ]
+  %.187 = phi i64 [ %12, %.preheader ], [ %12, %.preheader109 ], [ %35, %.lr.ph122 ], [ %24, %.lr.ph ]
+  %.382 = phi ptr [ %2, %.preheader ], [ %2, %.preheader109 ], [ %29, %.lr.ph122 ], [ %18, %.lr.ph ]
+  %.3 = phi ptr [ %1, %.preheader ], [ %1, %.preheader109 ], [ %34, %.lr.ph122 ], [ %23, %.lr.ph ]
   %40 = trunc i64 %.187 to i32
   %41 = and i32 %40, 15
   %42 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %41) #10
   br label %43
 
-43:                                               ; preds = %.loopexit112, %4
-  %.089 = phi i64 [ %.392, %.loopexit112 ], [ %3, %4 ]
-  %.079 = phi ptr [ %.382, %.loopexit112 ], [ %2, %4 ]
-  %.076 = phi ptr [ %.3, %.loopexit112 ], [ %1, %4 ]
+43:                                               ; preds = %.loopexit108, %4
+  %.089 = phi i64 [ %.392, %.loopexit108 ], [ %3, %4 ]
+  %.079 = phi ptr [ %.382, %.loopexit108 ], [ %2, %4 ]
+  %.076 = phi ptr [ %.3, %.loopexit108 ], [ %1, %4 ]
   %44 = icmp eq i64 %.089, 0
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %43
   %46 = tail call ptr @EVP_CIPHER_CTX_iv(ptr noundef %0) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %46, i64 16, i1 false)
   %47 = and i64 %.089, -16
   %.not98 = icmp eq i64 %47, 0
-  br i1 %.not98, label %.thread107, label %48
+  br i1 %.not98, label %.thread, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @padlock_cfb_encrypt(ptr noundef %.076, ptr noundef %.079, ptr noundef nonnull %10, i64 noundef %47) #10
   %.not99 = icmp eq i32 %49, 0
-  br i1 %.not99, label %.thread, label %50
+  br i1 %.not99, label %.critedge, label %50
 
 50:                                               ; preds = %48
   %51 = and i64 %.089, 15
   %.not100 = icmp eq i64 %51, 0
-  br i1 %.not100, label %.loopexit, label %.thread107
+  br i1 %.not100, label %.loopexit, label %.thread
 
-.thread107:                                       ; preds = %45, %50
-  %.594110 = phi i64 [ %51, %50 ], [ %.089, %45 ]
+.thread:                                          ; preds = %45, %50
+  %.594106 = phi i64 [ %51, %50 ], [ %.089, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %.076, i64 %47
   %53 = getelementptr inbounds nuw i8, ptr %.079, i64 %47
-  %54 = trunc nuw nsw i64 %.594110 to i32
+  %54 = trunc nuw nsw i64 %.594106 to i32
   %55 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %54) #10
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %57 = load i16, ptr %56, align 4
@@ -1961,7 +1961,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.not101 = icmp eq i16 %58, 0
   br i1 %.not101, label %71, label %59
 
-59:                                               ; preds = %.thread107
+59:                                               ; preds = %.thread
   %60 = and i16 %57, -513
   store i16 %60, ptr %56, align 4
   tail call void @padlock_reload_key() #10
@@ -1973,51 +1973,51 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   br label %63
 
 63:                                               ; preds = %59, %63
-  %.074134 = phi ptr [ %10, %59 ], [ %69, %63 ]
-  %.5133 = phi ptr [ %52, %59 ], [ %68, %63 ]
-  %.584132 = phi ptr [ %53, %59 ], [ %64, %63 ]
-  %.695131 = phi i64 [ %.594110, %59 ], [ %70, %63 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.584132, i64 1
-  %65 = load i8, ptr %.584132, align 1, !tbaa !24
-  %66 = load i8, ptr %.074134, align 1, !tbaa !24
+  %.074130 = phi ptr [ %10, %59 ], [ %69, %63 ]
+  %.5129 = phi ptr [ %52, %59 ], [ %68, %63 ]
+  %.584128 = phi ptr [ %53, %59 ], [ %64, %63 ]
+  %.695127 = phi i64 [ %.594106, %59 ], [ %70, %63 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.584128, i64 1
+  %65 = load i8, ptr %.584128, align 1, !tbaa !24
+  %66 = load i8, ptr %.074130, align 1, !tbaa !24
   %67 = xor i8 %66, %65
-  %68 = getelementptr inbounds nuw i8, ptr %.5133, i64 1
-  store i8 %67, ptr %.5133, align 1, !tbaa !24
-  %69 = getelementptr inbounds nuw i8, ptr %.074134, i64 1
-  store i8 %65, ptr %.074134, align 1, !tbaa !24
-  %70 = add i64 %.695131, -1
+  %68 = getelementptr inbounds nuw i8, ptr %.5129, i64 1
+  store i8 %67, ptr %.5129, align 1, !tbaa !24
+  %69 = getelementptr inbounds nuw i8, ptr %.074130, i64 1
+  store i8 %65, ptr %.074130, align 1, !tbaa !24
+  %70 = add i64 %.695127, -1
   %.not103 = icmp eq i64 %70, 0
   br i1 %.not103, label %.loopexit, label %63, !llvm.loop !27
 
-71:                                               ; preds = %.thread107
+71:                                               ; preds = %.thread
   tail call void @padlock_reload_key() #10
   tail call void @padlock_aes_block(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %10) #10
   tail call void @padlock_reload_key() #10
   br label %72
 
 72:                                               ; preds = %71, %72
-  %.175138 = phi ptr [ %10, %71 ], [ %78, %72 ]
-  %.6137 = phi ptr [ %52, %71 ], [ %77, %72 ]
-  %.685136 = phi ptr [ %53, %71 ], [ %73, %72 ]
-  %.7135 = phi i64 [ %.594110, %71 ], [ %79, %72 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.685136, i64 1
-  %74 = load i8, ptr %.685136, align 1, !tbaa !24
-  %75 = load i8, ptr %.175138, align 1, !tbaa !24
+  %.175134 = phi ptr [ %10, %71 ], [ %78, %72 ]
+  %.6133 = phi ptr [ %52, %71 ], [ %77, %72 ]
+  %.685132 = phi ptr [ %53, %71 ], [ %73, %72 ]
+  %.7131 = phi i64 [ %.594106, %71 ], [ %79, %72 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.685132, i64 1
+  %74 = load i8, ptr %.685132, align 1, !tbaa !24
+  %75 = load i8, ptr %.175134, align 1, !tbaa !24
   %76 = xor i8 %75, %74
-  %77 = getelementptr inbounds nuw i8, ptr %.6137, i64 1
-  store i8 %76, ptr %.6137, align 1, !tbaa !24
-  store i8 %76, ptr %.175138, align 1, !tbaa !24
-  %78 = getelementptr inbounds nuw i8, ptr %.175138, i64 1
-  %79 = add i64 %.7135, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.6133, i64 1
+  store i8 %76, ptr %.6133, align 1, !tbaa !24
+  store i8 %76, ptr %.175134, align 1, !tbaa !24
+  %78 = getelementptr inbounds nuw i8, ptr %.175134, i64 1
+  %79 = add i64 %.7131, -1
   %.not102 = icmp eq i64 %79, 0
   br i1 %.not102, label %.loopexit, label %72, !llvm.loop !28
 
 .loopexit:                                        ; preds = %63, %72, %50
   %80 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %80, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %13, %48, %43, %.loopexit
+.critedge:                                        ; preds = %13, %48, %43, %.loopexit
   %.1 = phi i32 [ 1, %.loopexit ], [ 1, %43 ], [ 0, %48 ], [ 0, %13 ]
   ret i32 %.1
 }
@@ -2045,31 +2045,31 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
 12:                                               ; preds = %4
   %13 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
   %14 = icmp ult i32 %11, 16
-  br i1 %14, label %.preheader, label %.thread
+  br i1 %14, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %12
-  %.not82 = icmp eq i64 %3, 0
-  br i1 %.not82, label %._crit_edge, label %.lr.ph.preheader
+  %.not78 = icmp eq i64 %3, 0
+  br i1 %.not78, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %15 = zext nneg i32 %11 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04774 = phi i64 [ %22, %.lr.ph ], [ %15, %.lr.ph.preheader ]
-  %.273 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.25272 = phi i64 [ %23, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.25671 = phi ptr [ %16, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw i8, ptr %.25671, i64 1
-  %17 = load i8, ptr %.25671, align 1, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %.04774
+  %.04770 = phi i64 [ %22, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  %.269 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.25268 = phi i64 [ %23, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.25667 = phi ptr [ %16, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds nuw i8, ptr %.25667, i64 1
+  %17 = load i8, ptr %.25667, align 1, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %.04770
   %19 = load i8, ptr %18, align 1, !tbaa !24
   %20 = xor i8 %19, %17
-  %21 = getelementptr inbounds nuw i8, ptr %.273, i64 1
-  store i8 %20, ptr %.273, align 1, !tbaa !24
-  %22 = add nuw nsw i64 %.04774, 1
-  %23 = add i64 %.25272, -1
-  %24 = icmp samesign ult i64 %.04774, 15
+  %21 = getelementptr inbounds nuw i8, ptr %.269, i64 1
+  store i8 %20, ptr %.269, align 1, !tbaa !24
+  %22 = add nuw nsw i64 %.04770, 1
+  %23 = add i64 %.25268, -1
+  %24 = icmp samesign ult i64 %.04770, 15
   %25 = icmp ne i64 %23, 0
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
@@ -2092,58 +2092,58 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   %.050 = phi i64 [ %.252.lcssa, %._crit_edge ], [ %3, %4 ]
   %.048 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %1, %4 ]
   %31 = icmp eq i64 %.050, 0
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %30
   %33 = tail call ptr @EVP_CIPHER_CTX_iv(ptr noundef %0) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %33, i64 16, i1 false)
   %34 = and i64 %.050, -16
   %.not60 = icmp eq i64 %34, 0
-  br i1 %.not60, label %.thread67, label %35
+  br i1 %.not60, label %.thread, label %35
 
 35:                                               ; preds = %32
   %36 = tail call i32 @padlock_ofb_encrypt(ptr noundef %.048, ptr noundef %.054, ptr noundef nonnull %10, i64 noundef %34) #10
   %.not61 = icmp eq i32 %36, 0
-  br i1 %.not61, label %.thread, label %37
+  br i1 %.not61, label %.critedge, label %37
 
 37:                                               ; preds = %35
   %38 = and i64 %.050, 15
   %.not62 = icmp eq i64 %38, 0
-  br i1 %.not62, label %.loopexit, label %.thread67
+  br i1 %.not62, label %.loopexit, label %.thread
 
-.thread67:                                        ; preds = %32, %37
-  %.35370 = phi i64 [ %38, %37 ], [ %.050, %32 ]
+.thread:                                          ; preds = %32, %37
+  %.35366 = phi i64 [ %38, %37 ], [ %.050, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %.048, i64 %34
   %40 = getelementptr inbounds nuw i8, ptr %.054, i64 %34
-  %41 = trunc nuw nsw i64 %.35370 to i32
+  %41 = trunc nuw nsw i64 %.35366 to i32
   %42 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %41) #10
   tail call void @padlock_reload_key() #10
   tail call void @padlock_aes_block(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %10) #10
   tail call void @padlock_reload_key() #10
   br label %43
 
-43:                                               ; preds = %.thread67, %43
-  %.081 = phi ptr [ %10, %.thread67 ], [ %49, %43 ]
-  %.380 = phi ptr [ %39, %.thread67 ], [ %48, %43 ]
-  %.479 = phi i64 [ %.35370, %.thread67 ], [ %50, %43 ]
-  %.35778 = phi ptr [ %40, %.thread67 ], [ %44, %43 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.35778, i64 1
-  %45 = load i8, ptr %.35778, align 1, !tbaa !24
-  %46 = load i8, ptr %.081, align 1, !tbaa !24
+43:                                               ; preds = %.thread, %43
+  %.077 = phi ptr [ %10, %.thread ], [ %49, %43 ]
+  %.376 = phi ptr [ %39, %.thread ], [ %48, %43 ]
+  %.475 = phi i64 [ %.35366, %.thread ], [ %50, %43 ]
+  %.35774 = phi ptr [ %40, %.thread ], [ %44, %43 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.35774, i64 1
+  %45 = load i8, ptr %.35774, align 1, !tbaa !24
+  %46 = load i8, ptr %.077, align 1, !tbaa !24
   %47 = xor i8 %46, %45
-  %48 = getelementptr inbounds nuw i8, ptr %.380, i64 1
-  store i8 %47, ptr %.380, align 1, !tbaa !24
-  %49 = getelementptr inbounds nuw i8, ptr %.081, i64 1
-  %50 = add i64 %.479, -1
+  %48 = getelementptr inbounds nuw i8, ptr %.376, i64 1
+  store i8 %47, ptr %.376, align 1, !tbaa !24
+  %49 = getelementptr inbounds nuw i8, ptr %.077, i64 1
+  %50 = add i64 %.475, -1
   %.not63 = icmp eq i64 %50, 0
   br i1 %.not63, label %.loopexit, label %43, !llvm.loop !30
 
 .loopexit:                                        ; preds = %43, %37
   %51 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %12, %35, %30, %.loopexit
+.critedge:                                        ; preds = %12, %35, %30, %.loopexit
   %.1 = phi i32 [ 1, %.loopexit ], [ 1, %30 ], [ 0, %35 ], [ 0, %12 ]
   ret i32 %.1
 }

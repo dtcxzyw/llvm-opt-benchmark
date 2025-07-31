@@ -2076,7 +2076,7 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   %28 = load i32, ptr %27, align 8, !tbaa !63
   %29 = and i32 %28, 2
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %30, label %115
+  br i1 %.not, label %30, label %.critedge
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 320
@@ -2087,15 +2087,15 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 33:                                               ; preds = %30
   %34 = call i32 @av_index_search_timestamp(ptr noundef nonnull %15, i64 noundef %2, i32 noundef %3) #12
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %.thread76
+  br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %33
   %37 = xor i32 %3, 1
   %38 = call i32 @av_index_search_timestamp(ptr noundef nonnull %15, i64 noundef %2, i32 noundef %37) #12
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %.thread76, label %115
+  br i1 %39, label %.thread, label %.critedge
 
-.thread76:                                        ; preds = %36, %33
+.thread:                                          ; preds = %33, %36
   %.075 = phi i32 [ %38, %36 ], [ %34, %33 ]
   %40 = load ptr, ptr %31, align 8, !tbaa !146
   %41 = zext nneg i32 %.075 to i64
@@ -2134,7 +2134,7 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 
 69:                                               ; preds = %46
   %70 = trunc i64 %67 to i32
-  br label %115
+  br label %.critedge
 
 71:                                               ; preds = %46
   %72 = and i32 %3, 1
@@ -2180,8 +2180,8 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   %95 = add i64 %94, -15
   br label %96
 
-96:                                               ; preds = %.thread76, %92
-  %.1 = phi i64 [ %95, %92 ], [ %43, %.thread76 ]
+96:                                               ; preds = %.thread, %92
+  %.1 = phi i64 [ %43, %.thread ], [ %95, %92 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.96, i64 noundef %.1) #12
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !30
@@ -2204,8 +2204,8 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 107:                                              ; preds = %96, %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %109 = load i32, ptr %108, align 4, !tbaa !69
-  %.not79 = icmp eq i32 %109, 0
-  br i1 %.not79, label %._crit_edge, label %.lr.ph
+  %.not77 = icmp eq i32 %109, 0
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 4248
@@ -2224,9 +2224,9 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
 ._crit_edge:                                      ; preds = %112, %107
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 4280
   store i64 0, ptr %114, align 8, !tbaa !140
-  br label %115
+  br label %.critedge
 
-115:                                              ; preds = %36, %4, %._crit_edge, %69
+.critedge:                                        ; preds = %36, %4, %._crit_edge, %69
   %.062 = phi i32 [ 0, %._crit_edge ], [ %70, %69 ], [ -38, %4 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12

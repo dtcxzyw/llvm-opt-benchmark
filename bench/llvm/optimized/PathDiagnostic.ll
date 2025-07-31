@@ -3925,8 +3925,8 @@ define dso_local void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12Prog
   br i1 %17, label %18, label %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
 
 18:                                               ; preds = %3
-  %.sroa.0220.0.copyload = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0220.0.copyload, i64 32
+  %.sroa.0222.0.copyload = load ptr, ptr %1, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0.copyload, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %19, align 8, !tbaa !20
   %20 = and i64 %.sroa.0.0.copyload.i, 6
   %21 = icmp eq i64 %20, 4
@@ -3961,16 +3961,16 @@ define dso_local void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12Prog
   store i64 %.fca.0.extract.i.i, ptr %37, align 8, !alias.scope !362
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.fca.1.extract.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !362
-  br label %.thread
+  br label %.critedge66
 
 39:                                               ; preds = %18
-  %40 = tail call noundef ptr @_ZN5clang8CFGBlock22getTerminatorConditionEb(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0220.0.copyload, i1 noundef zeroext true) #25
+  %40 = tail call noundef ptr @_ZN5clang8CFGBlock22getTerminatorConditionEb(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0222.0.copyload, i1 noundef zeroext true) #25
   %.not62 = icmp eq ptr %40, null
-  %.0.copyload.i.i.i.i152.pre = load i64, ptr %6, align 8
+  %.0.copyload.i.i.i.i154.pre = load i64, ptr %6, align 8
   br i1 %.not62, label %41, label %185
 
 41:                                               ; preds = %39
-  %42 = and i64 %.0.copyload.i.i.i.i152.pre, -8
+  %42 = and i64 %.0.copyload.i.i.i.i154.pre, -8
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !309
@@ -3981,24 +3981,24 @@ define dso_local void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12Prog
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !noalias !365
   %51 = tail call i64 %50(ptr noundef nonnull align 8 dereferenceable(33) %47) #29, !noalias !365
-  %.sroa.0.0.extract.trunc.i.i71 = trunc i64 %51 to i32
+  %.sroa.0.0.extract.trunc.i.i73 = trunc i64 %51 to i32
   store i32 1, ptr %0, align 8, !tbaa !166, !alias.scope !365
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false), !alias.scope !365
   store ptr %2, ptr %53, align 8, !tbaa !181, !alias.scope !365
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.0.0.extract.trunc.i.i71, ptr %54, align 8, !alias.scope !365
+  store i32 %.sroa.0.0.extract.trunc.i.i73, ptr %54, align 8, !alias.scope !365
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %55, align 8, !alias.scope !365
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i.i72 = extractvalue { i64, i8 } %57, 0
-  %.fca.1.extract.i.i73 = extractvalue { i64, i8 } %57, 1
-  store i64 %.fca.0.extract.i.i72, ptr %56, align 8, !alias.scope !365
-  %.sroa.2.0..sroa_idx.i.i74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i.i73, ptr %.sroa.2.0..sroa_idx.i.i74, align 8, !alias.scope !365
-  br label %.thread
+  %.fca.0.extract.i.i74 = extractvalue { i64, i8 } %57, 0
+  %.fca.1.extract.i.i75 = extractvalue { i64, i8 } %57, 1
+  store i64 %.fca.0.extract.i.i74, ptr %56, align 8, !alias.scope !365
+  %.sroa.2.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i.i75, ptr %.sroa.2.0..sroa_idx.i.i76, align 8, !alias.scope !365
+  br label %.critedge66
 
 _ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit: ; preds = %3
   %58 = add nsw i32 %9, -3
@@ -4008,25 +4008,25 @@ _ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit: ; preds = 
   br i1 %61, label %62, label %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
 
 62:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
-  %.sroa.0215.0.copyload = load ptr, ptr %1, align 8
+  %.sroa.0217.0.copyload = load ptr, ptr %1, align 8
   %63 = icmp eq i32 %16, 5
   br i1 %63, label %64, label %185
 
 64:                                               ; preds = %62
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  %65 = load i16, ptr %.sroa.0215.0.copyload, align 8, !noalias !368
+  %65 = load i16, ptr %.sroa.0217.0.copyload, align 8, !noalias !368
   %66 = and i16 %65, 511
   %67 = icmp eq i16 %66, 249
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0215.0.copyload, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0217.0.copyload, i64 12
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %69, align 4, !tbaa !49, !noalias !371
   br label %_ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit
 
 70:                                               ; preds = %64
   %71 = and i64 %.0.copyload.i.i.i5.i.i.i, -8
-  %72 = tail call i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLocationEPKNS_4StmtEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEEb(ptr noundef nonnull %.sroa.0215.0.copyload, i64 %71, i1 noundef zeroext true), !noalias !368
+  %72 = tail call i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLocationEPKNS_4StmtEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEEb(ptr noundef nonnull %.sroa.0217.0.copyload, i64 %71, i1 noundef zeroext true), !noalias !368
   br label %_ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit
 
 _ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit: ; preds = %68, %70
@@ -4047,7 +4047,7 @@ _ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManager
   store i64 %.fca.0.extract.i.sink.i, ptr %78, align 8, !alias.scope !368
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.fca.1.extract.i.sink.i, ptr %79, align 8, !alias.scope !368
-  br label %.thread
+  br label %.critedge66
 
 _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit
   switch i32 %16, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit [
@@ -4061,8 +4061,8 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   ]
 
 80:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0207.0.copyload = load ptr, ptr %1, align 8
-  %81 = tail call i32 @_ZNK5clang18CXXCtorInitializer17getSourceLocationEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0207.0.copyload) #25
+  %.sroa.0209.0.copyload = load ptr, ptr %1, align 8
+  %81 = tail call i32 @_ZNK5clang18CXXCtorInitializer17getSourceLocationEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0209.0.copyload) #25
   store i32 1, ptr %0, align 8, !tbaa !166
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4079,11 +4079,11 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   store i64 %.fca.0.extract.i, ptr %86, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br label %.thread
+  br label %.critedge66
 
 88:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0203.0.copyload = load ptr, ptr %1, align 8
-  %89 = ptrtoint ptr %.sroa.0203.0.copyload to i64
+  %.sroa.0205.0.copyload = load ptr, ptr %1, align 8
+  %89 = ptrtoint ptr %.sroa.0205.0.copyload to i64
   %90 = trunc i64 %89 to i32
   store i32 1, ptr %0, align 8, !tbaa !166
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4096,16 +4096,16 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   store ptr %2, ptr %94, align 8, !tbaa !374
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i92 = extractvalue { i64, i8 } %96, 0
-  %.fca.1.extract.i93 = extractvalue { i64, i8 } %96, 1
-  store i64 %.fca.0.extract.i92, ptr %95, align 8
-  %.sroa.2.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i93, ptr %.sroa.2.0..sroa_idx.i94, align 8
-  br label %.thread
+  %.fca.0.extract.i94 = extractvalue { i64, i8 } %96, 0
+  %.fca.1.extract.i95 = extractvalue { i64, i8 } %96, 1
+  store i64 %.fca.0.extract.i94, ptr %95, align 8
+  %.sroa.2.0..sroa_idx.i96 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i95, ptr %.sroa.2.0..sroa_idx.i96, align 8
+  br label %.critedge66
 
 97:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0199.0.copyload = load ptr, ptr %1, align 8
-  %98 = ptrtoint ptr %.sroa.0199.0.copyload to i64
+  %.sroa.0201.0.copyload = load ptr, ptr %1, align 8
+  %98 = ptrtoint ptr %.sroa.0201.0.copyload to i64
   %99 = trunc i64 %98 to i32
   store i32 1, ptr %0, align 8, !tbaa !166
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4118,12 +4118,12 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   store ptr %2, ptr %103, align 8, !tbaa !374
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i99 = extractvalue { i64, i8 } %105, 0
-  %.fca.1.extract.i100 = extractvalue { i64, i8 } %105, 1
-  store i64 %.fca.0.extract.i99, ptr %104, align 8
-  %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i100, ptr %.sroa.2.0..sroa_idx.i101, align 8
-  br label %.thread
+  %.fca.0.extract.i101 = extractvalue { i64, i8 } %105, 0
+  %.fca.1.extract.i102 = extractvalue { i64, i8 } %105, 1
+  store i64 %.fca.0.extract.i101, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i102, ptr %.sroa.2.0..sroa_idx.i103, align 8
+  br label %.critedge66
 
 106:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
   %107 = and i64 %.0.copyload.i.i.i6.i.i.i, -4
@@ -4133,36 +4133,36 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   %111 = getelementptr i8, ptr %108, i64 56
   %.val = load ptr, ptr %111, align 8, !tbaa !375
   %112 = getelementptr i8, ptr %108, i64 68
-  %.val65 = load i32, ptr %112, align 4, !tbaa !378
+  %.val67 = load i32, ptr %112, align 4, !tbaa !378
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !379
   %113 = getelementptr i8, ptr %.val, i64 8
-  %.val.val69 = load ptr, ptr %113, align 8, !tbaa !382
-  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr %.val.val69, i32 %.val65, ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(696) %2)
-  br label %.thread
+  %.val.val71 = load ptr, ptr %113, align 8, !tbaa !382
+  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr %.val.val71, i32 %.val67, ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  br label %.critedge66
 
 114:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0187.0.copyload = load ptr, ptr %1, align 8
+  %.sroa.0189.0.copyload = load ptr, ptr %1, align 8
   %115 = and i64 %.0.copyload.i.i.i5.i.i.i, -8
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr i8, ptr %.sroa.0187.0.copyload, i64 56
-  %.val66 = load ptr, ptr %117, align 8, !tbaa !375
-  %118 = getelementptr i8, ptr %.sroa.0187.0.copyload, i64 68
-  %.val67 = load i32, ptr %118, align 4, !tbaa !378
-  %.val66.val = load ptr, ptr %.val66, align 8, !tbaa !379
-  %119 = getelementptr i8, ptr %.val66, i64 8
-  %.val66.val68 = load ptr, ptr %119, align 8, !tbaa !382
-  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val66.val, ptr %.val66.val68, i32 %.val67, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(696) %2)
-  br label %.thread
+  %117 = getelementptr i8, ptr %.sroa.0189.0.copyload, i64 56
+  %.val68 = load ptr, ptr %117, align 8, !tbaa !375
+  %118 = getelementptr i8, ptr %.sroa.0189.0.copyload, i64 68
+  %.val69 = load i32, ptr %118, align 4, !tbaa !378
+  %.val68.val = load ptr, ptr %.val68, align 8, !tbaa !379
+  %119 = getelementptr i8, ptr %.val68, i64 8
+  %.val68.val70 = load ptr, ptr %119, align 8, !tbaa !382
+  tail call fastcc void @_ZL20getLocationForCallerPKN5clang17StackFrameContextEPKNS_15LocationContextERKNS_13SourceManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val68.val, ptr %.val68.val70, i32 %.val69, ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  br label %.critedge66
 
 120:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0181.0.copyload = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %.sroa.0181.0.copyload, null
+  %.sroa.0183.0.copyload = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %.sroa.0183.0.copyload, null
   %121 = and i64 %.0.copyload.i.i.i5.i.i.i, -8
   br i1 %.not, label %.critedge, label %122
 
 122:                                              ; preds = %120
-  tail call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %0, ptr noundef nonnull %.sroa.0181.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %2, i64 %121)
-  br label %.thread
+  tail call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %0, ptr noundef nonnull %.sroa.0183.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %2, i64 %121)
+  br label %.critedge66
 
 .critedge:                                        ; preds = %120
   %123 = inttoptr i64 %121 to ptr
@@ -4187,17 +4187,17 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   store ptr %2, ptr %135, align 8, !tbaa !374
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %137 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i120 = extractvalue { i64, i8 } %137, 0
-  %.fca.1.extract.i121 = extractvalue { i64, i8 } %137, 1
-  store i64 %.fca.0.extract.i120, ptr %136, align 8
-  %.sroa.2.0..sroa_idx.i122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i121, ptr %.sroa.2.0..sroa_idx.i122, align 8
-  br label %.thread
+  %.fca.0.extract.i122 = extractvalue { i64, i8 } %137, 0
+  %.fca.1.extract.i123 = extractvalue { i64, i8 } %137, 1
+  store i64 %.fca.0.extract.i122, ptr %136, align 8
+  %.sroa.2.0..sroa_idx.i124 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i123, ptr %.sroa.2.0..sroa_idx.i124, align 8
+  br label %.critedge66
 
 138:                                              ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
-  %.sroa.0174.0.copyload = load ptr, ptr %1, align 8
-  %139 = load ptr, ptr %.sroa.0174.0.copyload, align 8, !tbaa !379, !noalias !383
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0.copyload, i64 8
+  %.sroa.0176.0.copyload = load ptr, ptr %1, align 8
+  %139 = load ptr, ptr %.sroa.0176.0.copyload, align 8, !tbaa !379, !noalias !383
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0176.0.copyload, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !382, !noalias !383
   %142 = icmp eq ptr %139, %141
   br i1 %142, label %.critedge64, label %143
@@ -4205,8 +4205,8 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
 143:                                              ; preds = %138
   %144 = getelementptr inbounds i8, ptr %141, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %144, align 8, !tbaa !20, !noalias !383
-  %.sroa.2.0..sroa_idx.i.i127 = getelementptr inbounds i8, ptr %141, i64 -8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i127, align 8, !tbaa !20, !noalias !383
+  %.sroa.2.0..sroa_idx.i.i129 = getelementptr inbounds i8, ptr %141, i64 -8
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i129, align 8, !tbaa !20, !noalias !383
   %145 = trunc i64 %.sroa.2.0.copyload.i.i to i32
   %146 = shl i32 %145, 2
   %147 = and i32 %146, 12
@@ -4232,12 +4232,12 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit: ; preds = 
   store ptr %2, ptr %159, align 8, !tbaa !374
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %161 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i132 = extractvalue { i64, i8 } %161, 0
-  %.fca.1.extract.i133 = extractvalue { i64, i8 } %161, 1
-  store i64 %.fca.0.extract.i132, ptr %160, align 8
-  %.sroa.2.0..sroa_idx.i134 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i133, ptr %.sroa.2.0..sroa_idx.i134, align 8
-  br label %.thread
+  %.fca.0.extract.i134 = extractvalue { i64, i8 } %161, 0
+  %.fca.1.extract.i135 = extractvalue { i64, i8 } %161, 1
+  store i64 %.fca.0.extract.i134, ptr %160, align 8
+  %.sroa.2.0..sroa_idx.i136 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i135, ptr %.sroa.2.0..sroa_idx.i136, align 8
+  br label %.critedge66
 
 _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit: ; preds = %143
   %162 = or disjoint i32 %147, %149
@@ -4246,29 +4246,29 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit: ; preds = %143
   %164 = and i64 %.sroa.0.0.copyload.i.i, -4
   %165 = inttoptr i64 %164 to ptr
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 40
-  %.sroa.0.0.copyload.i.i139 = load i32, ptr %166, align 4, !tbaa !49
+  %.sroa.0.0.copyload.i.i141 = load i32, ptr %166, align 4, !tbaa !49
   store i32 1, ptr %0, align 8, !tbaa !166
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %167, i8 0, i64 16, i1 false)
   store ptr %2, ptr %168, align 8, !tbaa !181
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.0.0.copyload.i.i139, ptr %169, align 8, !tbaa !49
+  store i32 %.sroa.0.0.copyload.i.i141, ptr %169, align 8, !tbaa !49
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %170, align 8, !tbaa !374
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %172 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i140 = extractvalue { i64, i8 } %172, 0
-  %.fca.1.extract.i141 = extractvalue { i64, i8 } %172, 1
-  store i64 %.fca.0.extract.i140, ptr %171, align 8
-  %.sroa.2.0..sroa_idx.i142 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i141, ptr %.sroa.2.0..sroa_idx.i142, align 8
-  br label %.thread
+  %.fca.0.extract.i142 = extractvalue { i64, i8 } %172, 0
+  %.fca.1.extract.i143 = extractvalue { i64, i8 } %172, 1
+  store i64 %.fca.0.extract.i142, ptr %171, align 8
+  %.sroa.2.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i143, ptr %.sroa.2.0..sroa_idx.i144, align 8
+  br label %.critedge66
 
 .critedge64:                                      ; preds = %138
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0.copyload, i64 32
-  %.0.copyload.i.i.i.i.i143 = load i64, ptr %173, align 8
-  %174 = and i64 %.0.copyload.i.i.i.i.i143, -8
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0176.0.copyload, i64 32
+  %.0.copyload.i.i.i.i.i145 = load i64, ptr %173, align 8
+  %174 = and i64 %.0.copyload.i.i.i.i.i145, -8
   %175 = inttoptr i64 %174 to ptr
   %176 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %175) #29
   store i32 1, ptr %0, align 8, !tbaa !166
@@ -4282,31 +4282,31 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit: ; preds = %143
   store ptr %2, ptr %180, align 8, !tbaa !374
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %182 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 4)
-  %.fca.0.extract.i144 = extractvalue { i64, i8 } %182, 0
-  %.fca.1.extract.i145 = extractvalue { i64, i8 } %182, 1
-  store i64 %.fca.0.extract.i144, ptr %181, align 8
-  %.sroa.2.0..sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i145, ptr %.sroa.2.0..sroa_idx.i146, align 8
-  br label %.thread
+  %.fca.0.extract.i146 = extractvalue { i64, i8 } %182, 0
+  %.fca.1.extract.i147 = extractvalue { i64, i8 } %182, 1
+  store i64 %.fca.0.extract.i146, ptr %181, align 8
+  %.sroa.2.0..sroa_idx.i148 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i147, ptr %.sroa.2.0..sroa_idx.i148, align 8
+  br label %.critedge66
 
 _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit
   %183 = icmp eq i32 %16, 18
   tail call void @llvm.assume(i1 %183)
-  %.sroa.0157.0.copyload = load ptr, ptr %1, align 8
+  %.sroa.0159.0.copyload = load ptr, ptr %1, align 8
   %184 = and i64 %.0.copyload.i.i.i5.i.i.i, -8
-  tail call void @_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.sroa.0157.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %2, i64 %184)
-  br label %.thread
+  tail call void @_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.sroa.0159.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %2, i64 %184)
+  br label %.critedge66
 
 185:                                              ; preds = %62, %39
-  %.0.copyload.i.i.i.i152 = phi i64 [ %.0.copyload.i.i.i.i152.pre, %39 ], [ %.0.copyload.i.i.i5.i.i.i, %62 ]
-  %.1.ph = phi ptr [ %40, %39 ], [ %.sroa.0215.0.copyload, %62 ]
-  %186 = and i64 %.0.copyload.i.i.i.i152, -8
-  %187 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.1.ph) #29
+  %.0.copyload.i.i.i.i154 = phi i64 [ %.0.copyload.i.i.i.i154.pre, %39 ], [ %.0.copyload.i.i.i5.i.i.i, %62 ]
+  %.2 = phi ptr [ %40, %39 ], [ %.sroa.0217.0.copyload, %62 ]
+  %186 = and i64 %.0.copyload.i.i.i.i154, -8
+  %187 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.2) #29
   %.not.i = icmp eq i32 %187, 0
   %188 = select i1 %.not.i, i32 1, i32 2
   store i32 %188, ptr %0, align 8, !tbaa !166
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %190 = select i1 %.not.i, ptr null, ptr %.1.ph
+  %190 = select i1 %.not.i, ptr null, ptr %.2
   store ptr %190, ptr %189, align 8, !tbaa !386
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %191, align 8, !tbaa !387
@@ -4315,7 +4315,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; pre
   br i1 %.not.i, label %_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit, label %193
 
 193:                                              ; preds = %185
-  %194 = tail call i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLocationEPKNS_4StmtEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEEb(ptr noundef nonnull %.1.ph, i64 %186, i1 noundef zeroext false)
+  %194 = tail call i32 @_ZN5clang4ento22PathDiagnosticLocation22getValidSourceLocationEPKNS_4StmtEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEEb(ptr noundef nonnull %.2, i64 %186, i1 noundef zeroext false)
   %.sroa.4.0.i.pre.i = load ptr, ptr %192, align 8, !tbaa !181
   br label %_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit
 
@@ -4328,14 +4328,14 @@ _ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm1
   store ptr %.sroa.4.0.i.i, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %198 = tail call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 %186)
-  %.fca.0.extract.i153 = extractvalue { i64, i8 } %198, 0
-  %.fca.1.extract.i154 = extractvalue { i64, i8 } %198, 1
-  store i64 %.fca.0.extract.i153, ptr %197, align 8
-  %.sroa.2.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.fca.1.extract.i154, ptr %.sroa.2.0..sroa_idx.i155, align 8
-  br label %.thread
+  %.fca.0.extract.i155 = extractvalue { i64, i8 } %198, 0
+  %.fca.1.extract.i156 = extractvalue { i64, i8 } %198, 1
+  store i64 %.fca.0.extract.i155, ptr %197, align 8
+  %.sroa.2.0..sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %.fca.1.extract.i156, ptr %.sroa.2.0..sroa_idx.i157, align 8
+  br label %.critedge66
 
-.thread:                                          ; preds = %22, %41, %80, %97, %114, %.critedge64, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit, %152, %122, %.critedge, %106, %88, %_ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit, %_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit
+.critedge66:                                      ; preds = %22, %41, %80, %97, %114, %.critedge64, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit, %152, %122, %.critedge, %106, %88, %_ZN5clang4ento22PathDiagnosticLocation9createEndEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit, %_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE.exit
   ret void
 }
 

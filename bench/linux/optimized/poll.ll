@@ -2093,7 +2093,7 @@ define internal fastcc void @__io_queue_proc(ptr noundef %0, ptr noundef capture
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %2
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %3, align 8
@@ -2104,12 +2104,12 @@ define internal fastcc void @__io_queue_proc(ptr noundef %0, ptr noundef capture
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %2
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 -22, ptr %23, align 4
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %15
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -2120,7 +2120,7 @@ define internal fastcc void @__io_queue_proc(ptr noundef %0, ptr noundef capture
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 -12, ptr %29, align 4
-  br label %.thread
+  br label %.critedge
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2145,7 +2145,7 @@ define internal fastcc void @__io_queue_proc(ptr noundef %0, ptr noundef capture
 
 42:                                               ; preds = %30
   tail call void @kfree(ptr noundef nonnull %26) #10
-  br label %.thread
+  br label %.critedge
 
 43:                                               ; preds = %30
   %44 = or i64 %7, 1
@@ -2183,13 +2183,13 @@ define internal fastcc void @__io_queue_proc(ptr noundef %0, ptr noundef capture
   %65 = or i32 %64, -2147483648
   store i32 %65, ptr %63, align 4
   tail call void @add_wait_queue_exclusive(ptr noundef %2, ptr noundef nonnull %56) #10
-  br label %.thread
+  br label %.critedge
 
 66:                                               ; preds = %50
   tail call void @add_wait_queue(ptr noundef %2, ptr noundef nonnull %56) #10
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %18, %11, %28, %42, %22, %66, %62
+.critedge:                                        ; preds = %22, %42, %28, %11, %18, %66, %62
   ret void
 }
 

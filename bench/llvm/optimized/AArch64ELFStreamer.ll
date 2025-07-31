@@ -6180,75 +6180,75 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStr
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
-  br i1 %spec.select.i.i.i.i, label %15, label %14, !prof !357
+  br i1 %spec.select.i.i.i.i, label %14, label %.critedge.i.i, !prof !357
 
 14:                                               ; preds = %10
+  %15 = ptrtoint ptr %1 to i64
+  %16 = ptrtoint ptr %.pre3 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
+  %18 = load ptr, ptr %0, align 8, !tbaa !91
+  %19 = getelementptr inbounds i8, ptr %18, i64 %17
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+
+.critedge.i.i:                                    ; preds = %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   %.pre = load ptr, ptr %0, align 8, !tbaa !91
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
 
-15:                                               ; preds = %10
-  %16 = ptrtoint ptr %1 to i64
-  %17 = ptrtoint ptr %.pre3 to i64
-  %18 = sub i64 %16, %17
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
-  %19 = load ptr, ptr %0, align 8, !tbaa !91
-  %20 = getelementptr inbounds i8, ptr %19, i64 %18
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %15
-  %21 = phi ptr [ %.pre3, %2 ], [ %19, %15 ], [ %.pre, %14 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %20, %15 ], [ %1, %14 ]
-  %22 = load i32, ptr %4, align 8, !tbaa !90
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %21, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i, i64 12, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %27, ptr %25, align 8, !tbaa !3
-  %28 = load ptr, ptr %26, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !9
+_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit: ; preds = %2, %14, %.critedge.i.i
+  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
+  %21 = load i32, ptr %4, align 8, !tbaa !90
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeItem", ptr %20, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i, i64 12, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store ptr %26, ptr %24, align 8, !tbaa !3
+  %27 = load ptr, ptr %25, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %29 = load i64, ptr %28, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store i64 %30, ptr %3, align 8, !tbaa !14
-  %31 = icmp ugt i64 %30, 15
-  br i1 %31, label %32, label %._crit_edge.i.i.i
+  store i64 %29, ptr %3, align 8, !tbaa !14
+  %30 = icmp ugt i64 %29, 15
+  br i1 %30, label %31, label %._crit_edge.i.i.i
 
-32:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #14
-  store ptr %33, ptr %25, align 8, !tbaa !13
-  %34 = load i64, ptr %3, align 8, !tbaa !14
-  store i64 %34, ptr %27, align 8, !tbaa !12
+31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #14
+  store ptr %32, ptr %24, align 8, !tbaa !13
+  %33 = load i64, ptr %3, align 8, !tbaa !14
+  store i64 %33, ptr %26, align 8, !tbaa !12
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %32, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
-  %35 = phi ptr [ %33, %32 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
-  switch i64 %30, label %38 [
-    i64 1, label %36
+._crit_edge.i.i.i:                                ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit
+  %34 = phi ptr [ %32, %31 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reserveForParamAndGetAddressERKS2_m.exit ]
+  switch i64 %29, label %37 [
+    i64 1, label %35
     i64 0, label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
   ]
 
-36:                                               ; preds = %._crit_edge.i.i.i
-  %37 = load i8, ptr %28, align 1, !tbaa !12
-  store i8 %37, ptr %35, align 1, !tbaa !12
+35:                                               ; preds = %._crit_edge.i.i.i
+  %36 = load i8, ptr %27, align 1, !tbaa !12
+  store i8 %36, ptr %34, align 1, !tbaa !12
   br label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
 
-38:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %28, i64 %30, i1 false)
+37:                                               ; preds = %._crit_edge.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %27, i64 %29, i1 false)
   br label %_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit
 
-_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit: ; preds = %._crit_edge.i.i.i, %36, %38
-  %39 = load i64, ptr %3, align 8, !tbaa !14
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %39, ptr %40, align 8, !tbaa !9
-  %41 = load ptr, ptr %25, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %39
-  store i8 0, ptr %42, align 1, !tbaa !12
+_ZN4llvm13MCELFStreamer13AttributeItemC2ERKS1_.exit: ; preds = %._crit_edge.i.i.i, %35, %37
+  %38 = load i64, ptr %3, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i64 %38, ptr %39, align 8, !tbaa !9
+  %40 = load ptr, ptr %24, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %38
+  store i8 0, ptr %41, align 1, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %43 = load i32, ptr %4, align 8, !tbaa !90
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %4, align 8, !tbaa !90
+  %42 = load i32, ptr %4, align 8, !tbaa !90
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %4, align 8, !tbaa !90
   ret void
 }
 

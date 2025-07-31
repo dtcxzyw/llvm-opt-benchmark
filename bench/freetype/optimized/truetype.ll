@@ -19337,13 +19337,13 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %32 = add i32 %28, %2
   %33 = add i32 %30, %3
   %.not73 = icmp ult i32 %32, %3
-  br i1 %.not73, label %34, label %.thread
+  br i1 %.not73, label %34, label %.critedge
 
 34:                                               ; preds = %31
   %35 = load i16, ptr %13, align 2, !tbaa !720
   %36 = zext i16 %35 to i32
   %.not74 = icmp ult i32 %33, %36
-  br i1 %.not74, label %37, label %.thread
+  br i1 %.not74, label %37, label %.critedge
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %8, align 8, !tbaa !783
@@ -19365,7 +19365,7 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %52 = icmp ne i32 %28, 0
   %53 = icmp ne i32 %30, 0
   %or.cond = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond, label %54, label %.thread
+  br i1 %or.cond, label %54, label %.critedge
 
 54:                                               ; preds = %51
   %55 = and i32 %25, 2048
@@ -19394,8 +19394,8 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %73 = lshr i64 %72, 16
   %74 = trunc i64 %73 to i32
   %75 = sext i32 %30 to i64
-  %sext85 = shl i64 %66, 32
-  %76 = ashr exact i64 %sext85, 32
+  %sext82 = shl i64 %66, 32
+  %76 = ashr exact i64 %sext82, 32
   %77 = mul nsw i64 %76, %75
   %78 = ashr i64 %77, 63
   %79 = add nsw i64 %77, 32768
@@ -19424,16 +19424,16 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %93 = load i64, ptr %92, align 8, !tbaa !679
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !669
-  %sext86 = shl i64 %93, 32
-  %96 = ashr exact i64 %sext86, 32
+  %sext83 = shl i64 %93, 32
+  %96 = ashr exact i64 %sext83, 32
   %97 = mul nsw i64 %96, %.2
   %98 = ashr i64 %97, 63
   %99 = add nsw i64 %97, 32768
   %100 = add nsw i64 %99, %98
   %101 = shl i64 %100, 16
   %102 = ashr i64 %101, 32
-  %sext88 = shl i64 %95, 32
-  %103 = ashr exact i64 %sext88, 32
+  %sext85 = shl i64 %95, 32
+  %103 = ashr exact i64 %sext85, 32
   %104 = mul nsw i64 %103, %.268
   %105 = ashr i64 %104, 63
   %106 = add nsw i64 %104, 32768
@@ -19445,8 +19445,8 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %.not78 = icmp ne i16 %111, 0
   %112 = and i64 %85, 2
   %113 = icmp eq i64 %112, 0
-  %or.cond84 = and i1 %113, %.not78
-  br i1 %or.cond84, label %114, label %125
+  %or.cond81 = and i1 %113, %.not78
+  br i1 %or.cond81, label %114, label %125
 
 114:                                              ; preds = %87
   %115 = load ptr, ptr %0, align 8, !tbaa !166
@@ -19462,20 +19462,20 @@ define internal fastcc range(i32 0, 22) i32 @TT_Process_Composite_Component(ptr 
   %124 = and i64 %123, -64
   br label %125
 
-125:                                              ; preds = %37, %87, %114, %83
+125:                                              ; preds = %87, %114, %37, %83
   %.167 = phi i64 [ %.268, %83 ], [ %50, %37 ], [ %109, %87 ], [ %124, %114 ]
   %.165 = phi i64 [ %.2, %83 ], [ %45, %37 ], [ %102, %87 ], [ %.5, %114 ]
   %126 = icmp ne i64 %.165, 0
   %127 = icmp ne i64 %.167, 0
   %or.cond3 = select i1 %126, i1 true, i1 %127
-  br i1 %or.cond3, label %128, label %.thread
+  br i1 %or.cond3, label %128, label %.critedge
 
 128:                                              ; preds = %125
   call void @FT_Outline_Translate(ptr noundef nonnull %5, i64 noundef %.165, i64 noundef %.167) #22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %31, %34, %128, %125, %51
-  %.1 = phi i32 [ 0, %51 ], [ 0, %125 ], [ 0, %128 ], [ 21, %34 ], [ 21, %31 ]
+.critedge:                                        ; preds = %34, %31, %128, %125, %51
+  %.1 = phi i32 [ 0, %51 ], [ 0, %125 ], [ 0, %128 ], [ 21, %31 ], [ 21, %34 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #22
   ret i32 %.1
 }

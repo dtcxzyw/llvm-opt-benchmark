@@ -151,14 +151,14 @@ define dso_local noundef zeroext i1 @refcount_dec_not_one(ptr noundef %0) #0 ali
 3:                                                ; preds = %14, %1
   %4 = phi i32 [ %2, %1 ], [ %15, %14 ]
   switch i32 %4, label %8 [
-    i32 -1073741824, label %.thread.loopexit
-    i32 1, label %.thread
+    i32 -1073741824, label %.critedge.loopexit
+    i32 1, label %.critedge
     i32 0, label %5
   ], !prof !37
 
 5:                                                ; preds = %3
   %6 = load i1, ptr @refcount_dec_not_one.__already_done, align 1
-  br i1 %6, label %.thread, label %7, !prof !5
+  br i1 %6, label %.critedge, label %7, !prof !5
 
 7:                                                ; preds = %5
   store i1 true, ptr @refcount_dec_not_one.__already_done, align 1
@@ -168,7 +168,7 @@ define dso_local noundef zeroext i1 @refcount_dec_not_one(ptr noundef %0) #0 ali
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 87, i32 2313, i64 12) #3, !srcloc !40
   tail call void asm sideeffect "92: nop\0A\09.pushsection .discard.instr_end\0A\09.long 92b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 92) #3, !srcloc !41
   tail call void asm sideeffect "93: nop\0A\09.pushsection .discard.instr_end\0A\09.long 93b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 93) #3, !srcloc !42
-  br label %.thread
+  br label %.critedge
 
 8:                                                ; preds = %3
   %9 = add i32 %4, -1
@@ -177,17 +177,17 @@ define dso_local noundef zeroext i1 @refcount_dec_not_one(ptr noundef %0) #0 ali
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i8 %11, 0
-  br i1 %13, label %14, label %.thread.loopexit, !prof !43
+  br i1 %13, label %14, label %.critedge.loopexit, !prof !43
 
 14:                                               ; preds = %8
   %15 = extractvalue { i8, i32 } %10, 1
   br label %3, !llvm.loop !44
 
-.thread.loopexit:                                 ; preds = %3, %8
-  br label %.thread
+.critedge.loopexit:                               ; preds = %3, %8
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %.thread.loopexit, %7, %5
-  %16 = phi i1 [ true, %5 ], [ true, %7 ], [ true, %.thread.loopexit ], [ false, %3 ]
+.critedge:                                        ; preds = %3, %.critedge.loopexit, %7, %5
+  %16 = phi i1 [ true, %5 ], [ true, %7 ], [ true, %.critedge.loopexit ], [ false, %3 ]
   ret i1 %16
 }
 
@@ -199,14 +199,14 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
 4:                                                ; preds = %15, %2
   %5 = phi i32 [ %3, %2 ], [ %16, %15 ]
   switch i32 %5, label %9 [
-    i32 -1073741824, label %.thread
+    i32 -1073741824, label %.critedge
     i32 1, label %17
     i32 0, label %6
   ], !prof !37
 
 6:                                                ; preds = %4
   %7 = load i1, ptr @refcount_dec_not_one.__already_done, align 1
-  br i1 %7, label %.thread, label %8, !prof !5
+  br i1 %7, label %.critedge, label %8, !prof !5
 
 8:                                                ; preds = %6
   store i1 true, ptr @refcount_dec_not_one.__already_done, align 1
@@ -216,7 +216,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 87, i32 2313, i64 12) #3, !srcloc !40
   tail call void asm sideeffect "92: nop\0A\09.pushsection .discard.instr_end\0A\09.long 92b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 92) #3, !srcloc !41
   tail call void asm sideeffect "93: nop\0A\09.pushsection .discard.instr_end\0A\09.long 93b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 93) #3, !srcloc !42
-  br label %.thread
+  br label %.critedge
 
 9:                                                ; preds = %4
   %10 = add i32 %5, -1
@@ -225,7 +225,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %15, label %.thread, !prof !43
+  br i1 %14, label %15, label %.critedge, !prof !43
 
 15:                                               ; preds = %9
   %16 = extractvalue { i8, i32 } %11, 1
@@ -247,13 +247,13 @@ define dso_local noundef zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef %0,
 
 23:                                               ; preds = %17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %22, %20
   tail call void @mutex_unlock(ptr noundef %1) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %4, %23, %24, %8, %6
+.critedge:                                        ; preds = %9, %4, %23, %24, %8, %6
   %25 = phi i1 [ false, %24 ], [ true, %23 ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %9 ]
   ret i1 %25
 }
@@ -272,14 +272,14 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
 4:                                                ; preds = %15, %2
   %5 = phi i32 [ %3, %2 ], [ %16, %15 ]
   switch i32 %5, label %9 [
-    i32 -1073741824, label %.thread
+    i32 -1073741824, label %.critedge
     i32 1, label %17
     i32 0, label %6
   ], !prof !37
 
 6:                                                ; preds = %4
   %7 = load i1, ptr @refcount_dec_not_one.__already_done, align 1
-  br i1 %7, label %.thread, label %8, !prof !5
+  br i1 %7, label %.critedge, label %8, !prof !5
 
 8:                                                ; preds = %6
   store i1 true, ptr @refcount_dec_not_one.__already_done, align 1
@@ -289,7 +289,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 87, i32 2313, i64 12) #3, !srcloc !40
   tail call void asm sideeffect "92: nop\0A\09.pushsection .discard.instr_end\0A\09.long 92b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 92) #3, !srcloc !41
   tail call void asm sideeffect "93: nop\0A\09.pushsection .discard.instr_end\0A\09.long 93b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 93) #3, !srcloc !42
-  br label %.thread
+  br label %.critedge
 
 9:                                                ; preds = %4
   %10 = add i32 %5, -1
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %15, label %.thread, !prof !43
+  br i1 %14, label %15, label %.critedge, !prof !43
 
 15:                                               ; preds = %9
   %16 = extractvalue { i8, i32 } %11, 1
@@ -320,13 +320,13 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock(ptr noundef %0, ptr n
 
 23:                                               ; preds = %17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
-  br label %.thread
+  br label %.critedge
 
 24:                                               ; preds = %22, %20
   tail call void @_raw_spin_unlock(ptr noundef %1) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %9, %4, %23, %24, %8, %6
+.critedge:                                        ; preds = %9, %4, %23, %24, %8, %6
   %25 = phi i1 [ false, %24 ], [ true, %23 ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %9 ]
   ret i1 %25
 }
@@ -339,14 +339,14 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
 5:                                                ; preds = %16, %3
   %6 = phi i32 [ %4, %3 ], [ %17, %16 ]
   switch i32 %6, label %10 [
-    i32 -1073741824, label %.thread
+    i32 -1073741824, label %.critedge
     i32 1, label %18
     i32 0, label %7
   ], !prof !37
 
 7:                                                ; preds = %5
   %8 = load i1, ptr @refcount_dec_not_one.__already_done, align 1
-  br i1 %8, label %.thread, label %9, !prof !5
+  br i1 %8, label %.critedge, label %9, !prof !5
 
 9:                                                ; preds = %7
   store i1 true, ptr @refcount_dec_not_one.__already_done, align 1
@@ -356,7 +356,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 87, i32 2313, i64 12) #3, !srcloc !40
   tail call void asm sideeffect "92: nop\0A\09.pushsection .discard.instr_end\0A\09.long 92b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 92) #3, !srcloc !41
   tail call void asm sideeffect "93: nop\0A\09.pushsection .discard.instr_end\0A\09.long 93b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 93) #3, !srcloc !42
-  br label %.thread
+  br label %.critedge
 
 10:                                               ; preds = %5
   %11 = add i32 %6, -1
@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i8 %13, 0
-  br i1 %15, label %16, label %.thread, !prof !43
+  br i1 %15, label %16, label %.critedge, !prof !43
 
 16:                                               ; preds = %10
   %17 = extractvalue { i8, i32 } %12, 1
@@ -388,14 +388,14 @@ define dso_local noundef zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %
 
 25:                                               ; preds = %18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !48
-  br label %.thread
+  br label %.critedge
 
 26:                                               ; preds = %24, %22
   %27 = load i64, ptr %2, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %27) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %10, %5, %25, %26, %9, %7
+.critedge:                                        ; preds = %10, %5, %25, %26, %9, %7
   %28 = phi i1 [ false, %26 ], [ true, %25 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ false, %10 ]
   ret i1 %28
 }

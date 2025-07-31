@@ -3033,7 +3033,7 @@ define internal fastcc i32 @io_submit_one(ptr noundef nonnull %0, ptr noundef %1
   %42 = icmp ult i8 %41, 2
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
-  br i1 %43, label %44, label %.thread17, !prof !20
+  br i1 %43, label %44, label %.thread, !prof !20
 
 44:                                               ; preds = %.lr.ph
   %45 = extractvalue { i8, i32 } %40, 1
@@ -3041,14 +3041,14 @@ define internal fastcc i32 @io_submit_one(ptr noundef nonnull %0, ptr noundef %1
   %47 = icmp ult i32 %45, %46
   br i1 %47, label %.loopexit40, label %.lr.ph, !llvm.loop !78
 
-.thread17:                                        ; preds = %.lr.ph
+.thread:                                          ; preds = %.lr.ph
   %48 = load i32, ptr %34, align 8
   %49 = load i32, ptr %28, align 4
   %50 = add i32 %49, %48
   br label %51
 
-51:                                               ; preds = %.thread17, %23
-  %52 = phi i32 [ %50, %.thread17 ], [ %29, %23 ]
+51:                                               ; preds = %.thread, %23
+  %52 = phi i32 [ %50, %.thread ], [ %29, %23 ]
   %53 = add i32 %52, -1
   store i32 %53, ptr %28, align 4
   br label %.loopexit40

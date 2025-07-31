@@ -2112,7 +2112,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %12 = alloca i32, align 4
   %13 = getelementptr i8, ptr %1, i64 %2
   %14 = icmp ult i64 %2, 9
-  br i1 %14, label %.thread18, label %15
+  br i1 %14, label %.critedge6, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr i8, ptr %1, i64 8
@@ -2123,7 +2123,7 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %21 = icmp ult i64 %20, -119
   %22 = select i1 %21, i64 %20, i64 0
   %23 = getelementptr i8, ptr %16, i64 %22
-  br i1 %21, label %24, label %.thread18
+  br i1 %21, label %24, label %.critedge6
 
 24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
@@ -2132,32 +2132,27 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 31, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4, !annotation !11
-  %gepdiff = sub i64 %19, %20
-  %25 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
-  %26 = icmp ult i64 %25, -119
-  br i1 %26, label %27, label %.thread
+  %25 = add nuw i64 %20, 8
+  %gepdiff = sub i64 %2, %25
+  %26 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
+  %27 = icmp ult i64 %26, -119
+  br i1 %27, label %28, label %.critedge
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp ugt i32 %28, 31
-  br i1 %29, label %.thread, label %30
+28:                                               ; preds = %24
+  %29 = load i32, ptr %5, align 4
+  %30 = icmp ugt i32 %29, 31
+  br i1 %30, label %.critedge, label %31
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %6, align 4
-  %32 = icmp ugt i32 %31, 8
-  br i1 %32, label %.thread, label %33
+31:                                               ; preds = %28
+  %32 = load i32, ptr %6, align 4
+  %33 = icmp ugt i32 %32, 8
+  br i1 %33, label %.critedge, label %34
 
-.thread:                                          ; preds = %24, %27, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
-  br label %.thread18
-
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4104
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 26664
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %34, ptr noundef nonnull %4, i32 noundef %28, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %31, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %36 = getelementptr i8, ptr %23, i64 %25
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4104
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 26664
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef %29, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %32, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  %37 = getelementptr i8, ptr %23, i64 %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
@@ -2167,32 +2162,26 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 52, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
   store i32 0, ptr %9, align 4, !annotation !11
-  %37 = add i64 %20, %25
-  %gepdiff20 = sub i64 %19, %37
-  %38 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %36, i64 noundef %gepdiff20) #10
-  %39 = icmp ult i64 %38, -119
-  br i1 %39, label %40, label %.thread15
+  %38 = add i64 %20, %26
+  %gepdiff20 = sub i64 %19, %38
+  %39 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %37, i64 noundef %gepdiff20) #10
+  %40 = icmp ult i64 %39, -119
+  br i1 %40, label %41, label %.critedge2
 
-40:                                               ; preds = %33
-  %41 = load i32, ptr %8, align 4
-  %42 = icmp ugt i32 %41, 52
-  br i1 %42, label %.thread15, label %43
+41:                                               ; preds = %34
+  %42 = load i32, ptr %8, align 4
+  %43 = icmp ugt i32 %42, 52
+  br i1 %43, label %.critedge2, label %44
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp ugt i32 %44, 9
-  br i1 %45, label %.thread15, label %46
+44:                                               ; preds = %41
+  %45 = load i32, ptr %9, align 4
+  %46 = icmp ugt i32 %45, 9
+  br i1 %46, label %.critedge2, label %47
 
-.thread15:                                        ; preds = %33, %40, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
-  br label %.thread18
-
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 6160
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %47, ptr noundef nonnull %7, i32 noundef %41, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %44, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %48 = getelementptr i8, ptr %36, i64 %38
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 6160
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %48, ptr noundef nonnull %7, i32 noundef %42, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %45, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  %49 = getelementptr i8, ptr %37, i64 %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
@@ -2202,86 +2191,98 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 35, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
   store i32 0, ptr %12, align 4, !annotation !11
-  %49 = ptrtoint ptr %48 to i64
-  %50 = sub i64 %18, %49
-  %51 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %48, i64 noundef %50) #10
-  %52 = icmp ult i64 %51, -119
-  br i1 %52, label %53, label %.thread17
+  %50 = ptrtoint ptr %49 to i64
+  %51 = sub i64 %18, %50
+  %52 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %49, i64 noundef %51) #10
+  %53 = icmp ult i64 %52, -119
+  br i1 %53, label %54, label %.critedge4
 
-53:                                               ; preds = %46
-  %54 = load i32, ptr %11, align 4
-  %55 = icmp ugt i32 %54, 35
-  br i1 %55, label %.thread17, label %56
+54:                                               ; preds = %47
+  %55 = load i32, ptr %11, align 4
+  %56 = icmp ugt i32 %55, 35
+  br i1 %56, label %.critedge4, label %57
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %12, align 4
-  %58 = icmp ugt i32 %57, 9
-  br i1 %58, label %.thread17, label %59
+57:                                               ; preds = %54
+  %58 = load i32, ptr %12, align 4
+  %59 = icmp ugt i32 %58, 9
+  br i1 %59, label %.critedge4, label %60
 
-.thread17:                                        ; preds = %46, %53, %56
+60:                                               ; preds = %57
+  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %55, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %58, ptr noundef nonnull %36, i64 noundef 628, i32 noundef 0) #10
+  %61 = getelementptr i8, ptr %49, i64 %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
-  br label %.thread18
+  %62 = getelementptr i8, ptr %61, i64 12
+  %63 = icmp ugt ptr %62, %13
+  br i1 %63, label %.critedge6, label %64
 
-59:                                               ; preds = %56
-  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %54, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %57, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %60 = getelementptr i8, ptr %48, i64 %51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
-  %61 = getelementptr i8, ptr %60, i64 12
-  %62 = icmp ugt ptr %61, %13
-  br i1 %62, label %.thread18, label %63
+64:                                               ; preds = %60
+  %65 = ptrtoint ptr %62 to i64
+  %66 = sub i64 %18, %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 26652
+  %68 = load i32, ptr %61, align 1
+  %69 = icmp eq i32 %68, 0
+  %70 = zext i32 %68 to i64
+  %71 = icmp ult i64 %66, %70
+  %72 = or i1 %69, %71
+  br i1 %72, label %.critedge6, label %.preheader.preheader
 
-63:                                               ; preds = %59
-  %64 = ptrtoint ptr %61 to i64
-  %65 = sub i64 %18, %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 26652
-  %67 = load i32, ptr %60, align 1
-  %68 = icmp eq i32 %67, 0
-  %69 = zext i32 %67 to i64
-  %70 = icmp ult i64 %65, %69
-  %71 = or i1 %68, %70
-  br i1 %71, label %.thread18, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %63
-  %72 = getelementptr i8, ptr %60, i64 4
+.preheader.preheader:                             ; preds = %64
+  %73 = getelementptr i8, ptr %61, i64 4
   br label %.preheader
 
-73:                                               ; preds = %.preheader
-  %74 = load i32, ptr %80, align 1
-  %75 = getelementptr i8, ptr %80, i64 4
-  %76 = icmp eq i32 %74, 0
-  %77 = zext i32 %74 to i64
-  %78 = icmp ult i64 %65, %77
-  %79 = or i1 %76, %78
-  br i1 %79, label %86, label %.preheader, !llvm.loop !14
+74:                                               ; preds = %.preheader
+  %75 = load i32, ptr %81, align 1
+  %76 = getelementptr i8, ptr %81, i64 4
+  %77 = icmp eq i32 %75, 0
+  %78 = zext i32 %75 to i64
+  %79 = icmp ult i64 %66, %78
+  %80 = or i1 %77, %79
+  br i1 %80, label %87, label %.preheader, !llvm.loop !14
 
-.preheader:                                       ; preds = %.preheader.preheader, %73
-  %80 = phi ptr [ %75, %73 ], [ %72, %.preheader.preheader ]
-  %81 = phi i32 [ %74, %73 ], [ %67, %.preheader.preheader ]
-  %82 = phi i64 [ %84, %73 ], [ 0, %.preheader.preheader ]
-  %83 = getelementptr [3 x i32], ptr %66, i64 0, i64 %82
-  store i32 %81, ptr %83, align 4
-  %84 = add nuw nsw i64 %82, 1
-  %85 = icmp eq i64 %84, 3
-  br i1 %85, label %.thread19, label %73, !llvm.loop !14
+.preheader:                                       ; preds = %.preheader.preheader, %74
+  %81 = phi ptr [ %76, %74 ], [ %73, %.preheader.preheader ]
+  %82 = phi i32 [ %75, %74 ], [ %68, %.preheader.preheader ]
+  %83 = phi i64 [ %85, %74 ], [ 0, %.preheader.preheader ]
+  %84 = getelementptr [3 x i32], ptr %67, i64 0, i64 %83
+  store i32 %82, ptr %84, align 4
+  %85 = add nuw nsw i64 %83, 1
+  %86 = icmp eq i64 %85, 3
+  br i1 %86, label %.thread, label %74, !llvm.loop !14
 
-86:                                               ; preds = %73
-  %87 = icmp samesign ugt i64 %82, 1
-  br i1 %87, label %.thread19, label %.thread18
+87:                                               ; preds = %74
+  %88 = icmp samesign ugt i64 %83, 1
+  br i1 %88, label %.thread, label %.critedge6
 
-.thread19:                                        ; preds = %.preheader, %86
-  %88 = phi ptr [ %75, %86 ], [ %80, %.preheader ]
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %1 to i64
-  %91 = sub i64 %89, %90
-  br label %.thread18
+.thread:                                          ; preds = %.preheader, %87
+  %89 = phi ptr [ %76, %87 ], [ %81, %.preheader ]
+  %90 = ptrtoint ptr %89 to i64
+  %91 = ptrtoint ptr %1 to i64
+  %92 = sub i64 %90, %91
+  br label %.critedge6
 
-.thread18:                                        ; preds = %63, %.thread17, %.thread15, %.thread, %.thread19, %86, %59, %15, %3
-  %92 = phi i64 [ %91, %.thread19 ], [ -30, %86 ], [ -30, %15 ], [ -30, %3 ], [ -30, %59 ], [ -30, %.thread ], [ -30, %.thread15 ], [ -30, %.thread17 ], [ -30, %63 ]
-  ret i64 %92
+.critedge:                                        ; preds = %31, %28, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  br label %.critedge6
+
+.critedge2:                                       ; preds = %44, %41, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
+  br label %.critedge6
+
+.critedge4:                                       ; preds = %57, %54, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
+  br label %.critedge6
+
+.critedge6:                                       ; preds = %64, %.critedge4, %.critedge2, %.critedge, %.thread, %87, %60, %15, %3
+  %93 = phi i64 [ %92, %.thread ], [ -30, %87 ], [ -30, %15 ], [ -30, %3 ], [ -30, %60 ], [ -30, %.critedge ], [ -30, %.critedge2 ], [ -30, %.critedge4 ], [ -30, %64 ]
+  ret i64 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

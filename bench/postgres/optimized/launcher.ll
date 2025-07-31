@@ -1206,7 +1206,7 @@ define internal void @logicalrep_worker_onexit(i32 %0, i64 %1) #2 {
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr @max_logical_replication_workers, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i
+  br i1 %20, label %.lr.ph.i.i, label %.critedge.i
 
 .lr.ph.i.i:                                       ; preds = %12
   %.pre23.i.i = load ptr, ptr @LogicalRepCtx, align 8
@@ -1254,49 +1254,49 @@ define internal void @logicalrep_worker_onexit(i32 %0, i64 %1) #2 {
 logicalrep_workers_find.exit.i:                   ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.1.us.i.i, i64 4
   %.not.i = icmp eq ptr %.1.us.i.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %logicalrep_workers_find.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %.1.us.i.i, i64 16
   %44 = load i32, ptr %42, align 4
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph16.i, label %._crit_edge.i
+  br i1 %45, label %.lr.ph14.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %59, %.lr.ph.i, %logicalrep_workers_find.exit.i, %12
-  %46 = load ptr, ptr @MainLWLockArray, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 5504
-  tail call void @LWLockRelease(ptr noundef nonnull %47) #13
+.lr.ph14.i:                                       ; preds = %.lr.ph.i, %59
+  %46 = phi i32 [ %60, %59 ], [ %44, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %.lr.ph.i ]
+  %47 = load ptr, ptr %43, align 8
+  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load i8, ptr %50, align 8, !range !4, !noundef !5
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %55, label %59
+
+.critedge.i:                                      ; preds = %59, %.lr.ph.i, %logicalrep_workers_find.exit.i, %12
+  %53 = load ptr, ptr @MainLWLockArray, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 5504
+  tail call void @LWLockRelease(ptr noundef nonnull %54) #13
   br label %logicalrep_worker_detach.exit
 
-.lr.ph16.i:                                       ; preds = %.lr.ph.i, %59
-  %48 = phi i32 [ %60, %59 ], [ %44, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %.lr.ph.i ]
-  %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %59
-
-55:                                               ; preds = %.lr.ph16.i
-  %56 = load i32, ptr %51, align 8
+55:                                               ; preds = %.lr.ph14.i
+  %56 = load i32, ptr %49, align 8
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call fastcc void @logicalrep_worker_stop_internal(ptr noundef nonnull %51, i32 noundef 15)
+  tail call fastcc void @logicalrep_worker_stop_internal(ptr noundef nonnull %49, i32 noundef 15)
   %.pre.i = load i32, ptr %42, align 4
   br label %59
 
-59:                                               ; preds = %58, %55, %.lr.ph16.i
-  %60 = phi i32 [ %.pre.i, %58 ], [ %48, %55 ], [ %48, %.lr.ph16.i ]
+59:                                               ; preds = %58, %55, %.lr.ph14.i
+  %60 = phi i32 [ %.pre.i, %58 ], [ %46, %55 ], [ %46, %.lr.ph14.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next.i, %61
-  br i1 %62, label %.lr.ph16.i, label %._crit_edge.i
+  br i1 %62, label %.lr.ph14.i, label %.critedge.i
 
-logicalrep_worker_detach.exit:                    ; preds = %8, %._crit_edge.i
+logicalrep_worker_detach.exit:                    ; preds = %8, %.critedge.i
   %63 = load ptr, ptr @MainLWLockArray, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 5504
   %65 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef 0) #13
@@ -1664,40 +1664,40 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
   call void @CommitTransactionCommand() #13
   %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 4
   %.not32 = icmp eq ptr %.0.lcssa.i, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  br i1 %.not32, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_subscription_list.exit
   %50 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   %51 = load i32, ptr %49, align 4
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph52, label %._crit_edge
+  br i1 %52, label %.lr.ph50, label %.critedge
 
-._crit_edge:                                      ; preds = %123, %.lr.ph, %get_subscription_list.exit
+.lr.ph50:                                         ; preds = %.lr.ph, %123
+  %.0274449 = phi i64 [ %.1, %123 ], [ 180000, %.lr.ph ]
+  %indvars.iv48 = phi i64 [ %indvars.iv.next, %123 ], [ 0, %.lr.ph ]
+  %53 = load ptr, ptr %50, align 8
+  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv48
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 29
+  %57 = load i8, ptr %56, align 1, !range !4, !noundef !5
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %62, label %123
+
+.critedge:                                        ; preds = %123, %.lr.ph, %get_subscription_list.exit
   %.027.lcssa = phi i64 [ 180000, %get_subscription_list.exit ], [ 180000, %.lr.ph ], [ %.1, %123 ]
   store ptr %17, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %16) #13
-  %53 = load ptr, ptr @MyLatch, align 8
-  %54 = call i32 @WaitLatch(ptr noundef %53, i32 noundef 41, i64 noundef %.027.lcssa, i32 noundef 83886087) #13
-  %55 = and i32 %54, 1
-  %.not34 = icmp eq i32 %55, 0
+  %59 = load ptr, ptr @MyLatch, align 8
+  %60 = call i32 @WaitLatch(ptr noundef %59, i32 noundef 41, i64 noundef %.027.lcssa, i32 noundef 83886087) #13
+  %61 = and i32 %60, 1
+  %.not34 = icmp eq i32 %61, 0
   br i1 %.not34, label %131, label %127
 
-.lr.ph52:                                         ; preds = %.lr.ph, %123
-  %.0274651 = phi i64 [ %.1, %123 ], [ 180000, %.lr.ph ]
-  %indvars.iv50 = phi i64 [ %indvars.iv.next, %123 ], [ 0, %.lr.ph ]
-  %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv50
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 29
-  %60 = load i8, ptr %59, align 1, !range !4, !noundef !5
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %62, label %123
-
-62:                                               ; preds = %.lr.ph52
+62:                                               ; preds = %.lr.ph50
   %63 = load ptr, ptr @MainLWLockArray, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 5504
   %65 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef 1) #13
-  %66 = load i32, ptr %58, align 8
+  %66 = load i32, ptr %55, align 8
   %67 = load i32, ptr @max_logical_replication_workers, align 4
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph.i39, label %.loopexit
@@ -1748,7 +1748,7 @@ logicalrep_worker_find.exit:                      ; preds = %82
   %89 = load ptr, ptr @MainLWLockArray, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 5504
   call void @LWLockRelease(ptr noundef nonnull %90) #13
-  %91 = load i32, ptr %58, align 8
+  %91 = load i32, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %91, ptr %4, align 4
   call fastcc void @logicalrep_launcher_attach_dshmem()
@@ -1781,7 +1781,7 @@ ApplyLauncherGetWorkerStartTime.exit:             ; preds = %.loopexit
 
 105:                                              ; preds = %ApplyLauncherGetWorkerStartTime.exit.thread, %101, %ApplyLauncherGetWorkerStartTime.exit
   %106 = phi i64 [ %95, %ApplyLauncherGetWorkerStartTime.exit.thread ], [ %99, %101 ], [ %99, %ApplyLauncherGetWorkerStartTime.exit ]
-  %107 = load i32, ptr %58, align 8
+  %107 = load i32, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %107, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
@@ -1794,30 +1794,30 @@ ApplyLauncherGetWorkerStartTime.exit:             ; preds = %.loopexit
   call void @dshash_release_lock(ptr noundef %111, ptr noundef %109) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %112 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %113 = load i32, ptr %112, align 4
-  %114 = load i32, ptr %58, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %114 = load i32, ptr %55, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %118 = load i32, ptr %117, align 8
   %119 = call zeroext i1 @logicalrep_worker_launch(i32 noundef 2, i32 noundef %113, i32 noundef %114, ptr noundef %116, i32 noundef %118, i32 noundef 0, i32 noundef 0)
   br label %123
 
 120:                                              ; preds = %101
   %121 = sub i64 %104, %102
-  %122 = call i64 @llvm.smin.i64(i64 %.0274651, i64 %121)
+  %122 = call i64 @llvm.smin.i64(i64 %.0274449, i64 %121)
   br label %123
 
-123:                                              ; preds = %logicalrep_worker_find.exit, %105, %120, %.lr.ph52
-  %.1 = phi i64 [ %.0274651, %.lr.ph52 ], [ %.0274651, %logicalrep_worker_find.exit ], [ %.0274651, %105 ], [ %122, %120 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv50, 1
+123:                                              ; preds = %logicalrep_worker_find.exit, %105, %120, %.lr.ph50
+  %.1 = phi i64 [ %.0274449, %.lr.ph50 ], [ %.0274449, %logicalrep_worker_find.exit ], [ %.0274449, %105 ], [ %122, %120 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv48, 1
   %124 = load i32, ptr %49, align 4
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %.lr.ph52, label %._crit_edge
+  br i1 %126, label %.lr.ph50, label %.critedge
 
-127:                                              ; preds = %._crit_edge
+127:                                              ; preds = %.critedge
   %128 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %128) #13
   %129 = load volatile i32, ptr @InterruptPending, align 4
@@ -1828,7 +1828,7 @@ ApplyLauncherGetWorkerStartTime.exit:             ; preds = %.loopexit
   call void @ProcessInterrupts() #13
   br label %131
 
-131:                                              ; preds = %127, %130, %._crit_edge
+131:                                              ; preds = %127, %130, %.critedge
   %132 = load volatile i32, ptr @ConfigReloadPending, align 4
   %.not36 = icmp eq i32 %132, 0
   br i1 %.not36, label %.backedge, label %133

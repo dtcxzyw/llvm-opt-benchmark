@@ -648,10 +648,10 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   br label %3
 
 3:                                                ; preds = %0, %38
-  %.02035 = phi i64 [ 0, %0 ], [ %40, %38 ]
-  %.02134 = phi i32 [ 1, %0 ], [ %.223, %38 ]
+  %.02033 = phi i64 [ 0, %0 ], [ %40, %38 ]
+  %.02132 = phi i32 [ 1, %0 ], [ %.223, %38 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #6
-  %4 = getelementptr inbounds nuw [26 x %struct.extvalues_st], ptr @extvalues, i64 0, i64 %.02035
+  %4 = getelementptr inbounds nuw [26 x %struct.extvalues_st], ptr @extvalues, i64 0, i64 %.02033
   %5 = load ptr, ptr %4, align 16, !tbaa !30
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #7
   %7 = trunc i64 %6 to i32
@@ -659,7 +659,7 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %9 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 383, ptr noundef nonnull @.str.93, ptr noundef %8) #6
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %3
   %11 = call ptr @NCONF_new_ex(ptr noundef null, ptr noundef null) #6
@@ -669,7 +669,7 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
 
 13:                                               ; preds = %10
   %14 = call i32 @BIO_free(ptr noundef %8) #6
-  br label %.thread
+  br label %.critedge
 
 15:                                               ; preds = %10
   %16 = call i32 @NCONF_load_bio(ptr noundef %11, ptr noundef %8, ptr noundef nonnull %2) #6
@@ -716,23 +716,23 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   %37 = call i32 @ERR_pop_to_mark() #6
   br label %38
 
-.thread:                                          ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #6
-  br label %.loopexit
-
 38:                                               ; preds = %15, %27, %22, %36, %34
-  %.223 = phi i32 [ %.02134, %22 ], [ 0, %27 ], [ %.02134, %36 ], [ 0, %34 ], [ 0, %15 ]
+  %.223 = phi i32 [ %.02132, %22 ], [ 0, %27 ], [ %.02132, %36 ], [ 0, %34 ], [ 0, %15 ]
   %39 = call i32 @BIO_free(ptr noundef %8) #6
   call void @NCONF_free(ptr noundef %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #6
-  %40 = add nuw nsw i64 %.02035, 1
+  %40 = add nuw nsw i64 %.02033, 1
   %exitcond.not = icmp eq i64 %40, 26
   br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !33
 
-.loopexit:                                        ; preds = %38, %.thread
-  %.2 = phi i32 [ 0, %.thread ], [ %.223, %38 ]
+.critedge:                                        ; preds = %3, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %38, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ %.223, %38 ]
   ret i32 %.2
 }
 

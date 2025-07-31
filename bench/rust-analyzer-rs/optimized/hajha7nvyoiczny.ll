@@ -119889,7 +119889,7 @@ define void @"_ZN126_$LT$hir_ty..mir..monomorphization..Filler$u20$as$u20$chalk_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   br i1 %.not, label %33, label %35
 
-33:                                               ; preds = %31, %25
+33:                                               ; preds = %25, %31
   %34 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had0df869acb49ecfE"(i64 noundef 23, i1 noundef zeroext false)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %23
 
@@ -119905,8 +119905,8 @@ define void @"_ZN126_$LT$hir_ty..mir..monomorphization..Filler$u20$as$u20$chalk_
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = load i64, ptr %43, align 8, !alias.scope !27730, !noalias !27733
   %.sink4.i.i = select i1 %42, i64 %44, i64 %41
-  %.not84 = icmp ult i64 %36, %.sink4.i.i
-  br i1 %.not84, label %45, label %51
+  %.not81 = icmp ult i64 %36, %.sink4.i.i
+  br i1 %.not81, label %45, label %51
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -120115,10 +120115,10 @@ _ZN6hir_ty7mapping20from_placeholder_idx17hd6bb2c6382306deeE.exit: ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %35 = load i64, ptr %34, align 8, !alias.scope !27806, !noalias !27809
   %.sink4.i.i = select i1 %33, i64 %35, i64 %32
-  %.not72 = icmp ult i64 %27, %.sink4.i.i
-  br i1 %.not72, label %40, label %46
+  %.not69 = icmp ult i64 %27, %.sink4.i.i
+  br i1 %.not69, label %40, label %46
 
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %_ZN6hir_ty7mapping20from_placeholder_idx17hd6bb2c6382306deeE.exit, %23
+_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %23, %_ZN6hir_ty7mapping20from_placeholder_idx17hd6bb2c6382306deeE.exit
   %36 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had0df869acb49ecfE"(i64 noundef 23, i1 noundef zeroext false), !noalias !27811
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1

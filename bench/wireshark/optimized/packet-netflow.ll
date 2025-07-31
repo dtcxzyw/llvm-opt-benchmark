@@ -7889,22 +7889,22 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   br label %203
 
 203:                                              ; preds = %.critedge.i, %.lr.ph.i55
-  %.0121158.i = phi i32 [ %23, %.lr.ph.i55 ], [ %293, %.critedge.i ]
-  %.0126157.i = phi i32 [ %173, %.lr.ph.i55 ], [ %330, %.critedge.i ]
+  %.0121156.i = phi i32 [ %23, %.lr.ph.i55 ], [ %293, %.critedge.i ]
+  %.0126155.i = phi i32 [ %173, %.lr.ph.i55 ], [ %330, %.critedge.i ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  %204 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0121158.i)
+  %204 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0121156.i)
   %205 = load ptr, ptr %174, align 8
-  %206 = icmp samesign ult i32 %.0126157.i, %173
+  %206 = icmp samesign ult i32 %.0126155.i, %173
   %207 = select i1 %206, ptr @.str.4650, ptr @.str.4632
   %208 = zext i16 %204 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.4649, ptr noundef nonnull %207, i32 noundef %208)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.4649, ptr noundef nonnull %207, i32 noundef %208)
   %209 = load i32, ptr @ett_template, align 4
-  %210 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0121158.i, i32 noundef -1, i32 noundef %209, ptr noundef nonnull %9, ptr noundef nonnull @.str.4670, i32 noundef %208)
+  %210 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0121156.i, i32 noundef -1, i32 noundef %209, ptr noundef nonnull %9, ptr noundef nonnull @.str.4670, i32 noundef %208)
   %211 = load i32, ptr @hf_cflow_template_id, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %0, i32 noundef %.0121158.i, i32 noundef 2, i32 noundef 0)
-  %213 = add i32 %.0121158.i, 2
+  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %0, i32 noundef %.0121156.i, i32 noundef 2, i32 noundef 0)
+  %213 = add i32 %.0121156.i, 2
   %214 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %213)
   br i1 %177, label %215, label %224
 
@@ -7912,7 +7912,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   %216 = lshr i16 %214, 2
   %217 = load i32, ptr @hf_cflow_option_scope_length, align 4
   %218 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %217, ptr noundef %0, i32 noundef %213, i32 noundef 2, i32 noundef 0)
-  %219 = add i32 %.0121158.i, 4
+  %219 = add i32 %.0121156.i, 4
   %220 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %219)
   %221 = lshr i16 %220, 2
   %222 = load i32, ptr @hf_cflow_option_length, align 4
@@ -7922,7 +7922,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
 224:                                              ; preds = %203
   %225 = load i32, ptr @hf_cflow_template_ipfix_total_field_count, align 4
   %226 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %225, ptr noundef %0, i32 noundef %213, i32 noundef 2, i32 noundef 0)
-  %227 = add i32 %.0121158.i, 4
+  %227 = add i32 %.0121156.i, 4
   %228 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %227)
   %229 = load i32, ptr @hf_cflow_template_ipfix_scope_field_count, align 4
   %230 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %229, ptr noundef %0, i32 noundef %227, i32 noundef 2, i32 noundef 0)
@@ -7931,7 +7931,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
 
 232:                                              ; preds = %224
   %233 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %230, ptr noundef nonnull @ei_cflow_template_ipfix_scope_field_count)
-  br label %.critedge.thread.i
+  br label %.critedge141.i
 
 234:                                              ; preds = %224
   %235 = sub i16 %214, %228
@@ -7942,13 +7942,13 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   %238 = zext i16 %214 to i32
   %239 = zext i16 %228 to i32
   %240 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %230, ptr noundef nonnull @ei_cflow_template_ipfix_scope_field_count_too_many, ptr noundef nonnull @.str.4671, i32 noundef %239, i32 noundef %238)
-  br label %.critedge.thread.i
+  br label %.critedge141.i
 
 241:                                              ; preds = %234, %215
   %.0128.i = phi ptr [ %223, %215 ], [ %230, %234 ]
   %.0125.i = phi i16 [ %216, %215 ], [ %228, %234 ]
   %.0124.i = phi i16 [ %221, %215 ], [ %235, %234 ]
-  %.1122.i = add i32 %.0121158.i, 6
+  %.1122.i = add i32 %.0121156.i, 6
   %242 = load ptr, ptr %9, align 8
   %243 = zext i16 %.0125.i to i32
   %244 = zext i16 %.0124.i to i32
@@ -8047,8 +8047,8 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
 291:                                              ; preds = %282, %281, %278, %276, %258
   %.val.i57 = load i8, ptr %4, align 8
   %292 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %210, i32 noundef %.1122.i, i8 %.val.i57, ptr noundef nonnull %8, i32 noundef 0)
-  %.val141.i = load i8, ptr %4, align 8
-  %293 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %210, i32 noundef %292, i8 %.val141.i, ptr noundef nonnull %8, i32 noundef 1)
+  %.val142.i = load i8, ptr %4, align 8
+  %293 = call fastcc i32 @dissect_v9_v10_template_fields(ptr noundef %0, ptr noundef %210, i32 noundef %292, i8 %.val142.i, ptr noundef nonnull %8, i32 noundef 1)
   %294 = icmp eq ptr %269, null
   br i1 %294, label %295, label %.critedge.i
 
@@ -8093,7 +8093,7 @@ copy_address_wmem.exit.i60:                       ; preds = %309, %300
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, i8 0, i64 24, i1 false)
   store i32 %317, ptr %316, align 8
   %320 = icmp eq i32 %318, 0
-  br i1 %320, label %copy_address_wmem.exit142.i, label %321
+  br i1 %320, label %copy_address_wmem.exit143.i, label %321
 
 321:                                              ; preds = %copy_address_wmem.exit.i60
   %322 = sext i32 %318 to i64
@@ -8104,22 +8104,17 @@ copy_address_wmem.exit.i60:                       ; preds = %309, %300
   store ptr %323, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %302, i64 44
   store i32 %318, ptr %326, align 4
-  br label %copy_address_wmem.exit142.i
+  br label %copy_address_wmem.exit143.i
 
-copy_address_wmem.exit142.i:                      ; preds = %321, %copy_address_wmem.exit.i60
+copy_address_wmem.exit143.i:                      ; preds = %321, %copy_address_wmem.exit.i60
   %327 = load i32, ptr %202, align 4
   store i32 %327, ptr %302, align 8
   %328 = load ptr, ptr @v9_v10_tmplt_table, align 8
   %329 = call ptr @wmem_map_insert(ptr noundef %328, ptr noundef %302, ptr noundef %302)
   br label %.critedge.i
 
-.critedge.thread.i:                               ; preds = %237, %232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #13
-  br label %dissect_v9_v10_options_template.exit
-
-.critedge.i:                                      ; preds = %copy_address_wmem.exit142.i, %295, %291
-  %.neg.i58 = add i32 %.0126157.i, %.0121158.i
+.critedge.i:                                      ; preds = %copy_address_wmem.exit143.i, %295, %291
+  %.neg.i58 = add i32 %.0126155.i, %.0121156.i
   %330 = sub i32 %.neg.i58, %293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #13
@@ -8140,6 +8135,11 @@ copy_address_wmem.exit142.i:                      ; preds = %321, %copy_address_
 336:                                              ; preds = %333, %._crit_edge.i54
   %337 = load ptr, ptr %174, align 8
   call void @col_append_str(ptr noundef %337, i32 noundef 25, ptr noundef nonnull @.str.4653)
+  br label %dissect_v9_v10_options_template.exit
+
+.critedge141.i:                                   ; preds = %237, %232
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #13
   br label %dissect_v9_v10_options_template.exit
 
 338:                                              ; preds = %28
@@ -8361,8 +8361,8 @@ dissect_v9_v10_data.exit:                         ; preds = %._crit_edge.i64, %4
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %7) #13
   br label %dissect_v9_v10_options_template.exit
 
-dissect_v9_v10_options_template.exit:             ; preds = %336, %.critedge.thread.i, %dissect_v9_v10_data_template.exit, %dissect_v9_v10_data.exit, %338, %6, %25
-  %.0 = phi i32 [ %27, %25 ], [ 0, %6 ], [ %17, %338 ], [ %17, %dissect_v9_v10_data.exit ], [ %17, %dissect_v9_v10_data_template.exit ], [ %17, %.critedge.thread.i ], [ %17, %336 ]
+dissect_v9_v10_options_template.exit:             ; preds = %.critedge141.i, %336, %dissect_v9_v10_data_template.exit, %dissect_v9_v10_data.exit, %338, %6, %25
+  %.0 = phi i32 [ %27, %25 ], [ 0, %6 ], [ %17, %338 ], [ %17, %dissect_v9_v10_data.exit ], [ %17, %dissect_v9_v10_data_template.exit ], [ %17, %336 ], [ %17, %.critedge141.i ]
   ret i32 %.0
 }
 

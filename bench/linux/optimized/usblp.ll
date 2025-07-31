@@ -1156,25 +1156,25 @@ define internal range(i32 0, 384) i32 @usblp_poll(ptr noundef %0, ptr noundef %1
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %.thread6, label %7
+  br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.thread6, label %9
+  br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %7
   tail call void %8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1) #11
   %.pr = load ptr, ptr %1, align 8
   %.not5 = icmp eq ptr %.pr, null
-  br i1 %.not5, label %.thread6, label %10
+  br i1 %.not5, label %.critedge, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 176
   tail call void %.pr(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %1) #11
-  br label %.thread6
+  br label %.critedge
 
-.thread6:                                         ; preds = %2, %7, %10, %9
+.critedge:                                        ; preds = %7, %2, %10, %9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @mutex_lock(ptr noundef nonnull %12) #11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 345
@@ -1189,7 +1189,7 @@ define internal range(i32 0, 384) i32 @usblp_poll(ptr noundef %0, ptr noundef %1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %28, label %22
 
-22:                                               ; preds = %.thread6
+22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 324
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
@@ -1197,8 +1197,8 @@ define internal range(i32 0, 384) i32 @usblp_poll(ptr noundef %0, ptr noundef %1
   %27 = select i1 %25, i32 %16, i32 %26
   br label %28
 
-28:                                               ; preds = %22, %.thread6
-  %29 = phi i32 [ %16, %.thread6 ], [ %27, %22 ]
+28:                                               ; preds = %22, %.critedge
+  %29 = phi i32 [ %16, %.critedge ], [ %27, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 347
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0

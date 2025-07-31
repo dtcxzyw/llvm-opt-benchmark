@@ -450,36 +450,36 @@ define dso_local zeroext i1 @intset_is_member(ptr noundef readonly captures(none
 
 intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %.not50 = icmp slt i32 %spec.select21.i, %4
-  br i1 %.not50, label %18, label %simple8b_contains.exit
+  br i1 %.not50, label %18, label %.critedge
 
 18:                                               ; preds = %intset_binsrch_uint64.exit
   %19 = sext i32 %spec.select21.i to i64
   %20 = getelementptr inbounds [482 x i64], ptr %7, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %1
-  br label %simple8b_contains.exit
+  br label %.critedge
 
 23:                                               ; preds = %6, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not48 = icmp eq ptr %25, null
-  br i1 %.not48, label %simple8b_contains.exit, label %26
+  br i1 %.not48, label %.critedge, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
-  %.03968 = add i32 %28, -1
-  %29 = icmp sgt i32 %.03968, 0
+  %.03965 = add i32 %28, -1
+  %29 = icmp sgt i32 %.03965, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %42
-  %.03970 = phi i32 [ %.039, %42 ], [ %.03968, %26 ]
-  %.03769 = phi ptr [ %47, %42 ], [ %25, %26 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.03769, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %.03769, i64 2
+  %.03967 = phi i32 [ %.039, %42 ], [ %.03965, %26 ]
+  %.03766 = phi ptr [ %47, %42 ], [ %25, %26 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.03766, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.03766, i64 2
   %32 = load i16, ptr %31, align 2
   %.not.i51 = icmp eq i16 %32, 0
-  br i1 %.not.i51, label %simple8b_contains.exit, label %.lr.ph.split.us.i.preheader
+  br i1 %.not.i51, label %.critedge, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph
   %33 = zext i16 %32 to i32
@@ -503,16 +503,16 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
 
 intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %.not49 = icmp eq i32 %spec.select19.us.i, 0
-  br i1 %.not49, label %simple8b_contains.exit, label %42
+  br i1 %.not49, label %.critedge, label %42
 
 42:                                               ; preds = %intset_binsrch_uint64.exit54
-  %43 = getelementptr inbounds nuw i8, ptr %.03769, i64 520
+  %43 = getelementptr inbounds nuw i8, ptr %.03766, i64 520
   %44 = add i32 %spec.select19.us.i, -1
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds [64 x ptr], ptr %43, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
-  %.039 = add nsw i32 %.03970, -1
-  %48 = icmp sgt i32 %.03970, 1
+  %.039 = add nsw i32 %.03967, -1
+  %48 = icmp sgt i32 %.03967, 1
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %42, %26
@@ -521,7 +521,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %50 = getelementptr inbounds nuw i8, ptr %.037.lcssa, i64 2
   %51 = load i16, ptr %50, align 2
   %.not21.i = icmp eq i16 %51, 0
-  br i1 %.not21.i, label %simple8b_contains.exit, label %.lr.ph.i55.preheader
+  br i1 %.not21.i, label %.critedge, label %.lr.ph.i55.preheader
 
 .lr.ph.i55.preheader:                             ; preds = %._crit_edge
   %52 = zext i16 %51 to i32
@@ -545,7 +545,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
 
 intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %61 = icmp eq i32 %.1.i, 0
-  br i1 %61, label %simple8b_contains.exit, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %intset_binsrch_leaf.exit
   %63 = add i32 %.1.i, -1
@@ -553,7 +553,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %65 = getelementptr inbounds [64 x %struct.leaf_item], ptr %49, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, %1
-  br i1 %67, label %simple8b_contains.exit, label %68
+  br i1 %67, label %.critedge, label %68
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -565,7 +565,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %75 = zext i8 %74 to i32
   %76 = load i8, ptr %72, align 2
   %77 = icmp eq i64 %70, 1152921504606846975
-  br i1 %77, label %simple8b_contains.exit, label %78
+  br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %68
   %79 = icmp eq i8 %76, 0
@@ -575,7 +575,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %81 = sub i64 %1, %66
   %82 = zext i8 %74 to i64
   %83 = icmp ule i64 %81, %82
-  br label %simple8b_contains.exit
+  br label %.critedge
 
 84:                                               ; preds = %78
   %85 = zext i8 %76 to i64
@@ -608,9 +608,9 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %.not38.lcssa.i = phi i1 [ true, %.split.loop.exit39.i ], [ false, %84 ], [ false, %90 ]
   %.2.i = phi i1 [ %93, %.split.loop.exit39.i ], [ undef, %84 ], [ undef, %90 ]
   %spec.select.i = and i1 %.not38.lcssa.i, %.2.i
-  br label %simple8b_contains.exit
+  br label %.critedge
 
-simple8b_contains.exit:                           ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %._crit_edge, %.split.loop.exit.i, %80, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
+.critedge:                                        ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %._crit_edge, %.split.loop.exit.i, %80, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
   %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %62 ], [ %83, %80 ], [ false, %68 ], [ %spec.select.i, %.split.loop.exit.i ], [ false, %._crit_edge ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
   ret i1 %.0
 }

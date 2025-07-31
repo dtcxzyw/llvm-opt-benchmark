@@ -9363,7 +9363,7 @@ define internal fastcc i32 @_get_container_row_heigth(ptr noundef %0) unnamed_ad
   store i32 %9, ptr %2, align 4, !tbaa !62
   %10 = tail call i64 @gtk_tree_view_get_type() #19
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.critedge46, label %11
+  br i1 %.not, label %.critedge47, label %11
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %0, align 8, !tbaa !77
@@ -9395,17 +9395,17 @@ define internal fastcc i32 @_get_container_row_heigth(ptr noundef %0) unnamed_ad
   br i1 %22, label %27, label %30
 
 .lr.ph:                                           ; preds = %.critedge44, %.lr.ph
-  %.03150 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.critedge44 ]
-  %.03349 = phi i32 [ %26, %.lr.ph ], [ 0, %.critedge44 ]
+  %.03151 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.critedge44 ]
+  %.03350 = phi i32 [ %26, %.lr.ph ], [ 0, %.critedge44 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
   store i32 0, ptr %3, align 4, !tbaa !62
   %23 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %10) #18
-  %24 = call ptr @gtk_tree_view_get_column(ptr noundef %23, i32 noundef %.03349) #18
+  %24 = call ptr @gtk_tree_view_get_column(ptr noundef %23, i32 noundef %.03350) #18
   call void @gtk_tree_view_column_cell_get_size(ptr noundef %24, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #18
   %25 = load i32, ptr %3, align 4, !tbaa !62
-  %spec.select = call i32 @llvm.smax.i32(i32 %25, i32 %.03150)
+  %spec.select = call i32 @llvm.smax.i32(i32 %25, i32 %.03151)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  %26 = add nuw nsw i32 %.03349, 1
+  %26 = add nuw nsw i32 %.03350, 1
   %exitcond.not = icmp eq i32 %26, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -9426,26 +9426,26 @@ define internal fastcc i32 @_get_container_row_heigth(ptr noundef %0) unnamed_ad
 33:                                               ; preds = %31
   %34 = load i64, ptr %12, align 8, !tbaa !80
   %35 = icmp eq i64 %34, %32
-  br i1 %35, label %.critedge48, label %36
+  br i1 %35, label %.critedge49, label %36
 
 36:                                               ; preds = %33, %31
   %37 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %32) #20
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.critedge46, label %.critedge48
+  br i1 %38, label %.critedge47, label %.critedge49
 
-.critedge48:                                      ; preds = %33, %36
+.critedge49:                                      ; preds = %33, %36
   %39 = tail call ptr @gtk_widget_create_pango_layout(ptr noundef nonnull %0, ptr noundef nonnull @.str.283) #18
   call void @pango_layout_get_pixel_size(ptr noundef %39, ptr noundef null, ptr noundef nonnull %2) #18
   call void @g_object_unref(ptr noundef %39) #18
   br label %42
 
-.critedge46:                                      ; preds = %1, %36
+.critedge47:                                      ; preds = %1, %36
   %40 = tail call i64 @gtk_container_get_type() #19
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %40) #18
   call void @gtk_container_foreach(ptr noundef %41, ptr noundef nonnull @_get_height_if_visible, ptr noundef nonnull %2) #18
   br label %42
 
-42:                                               ; preds = %.critedge48, %.critedge46, %30
+42:                                               ; preds = %.critedge49, %.critedge47, %30
   %43 = load i32, ptr %2, align 4, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
   ret i32 %43

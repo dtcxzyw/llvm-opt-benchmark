@@ -16377,40 +16377,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %14 = icmp uge ptr %4, %.pre3.i
   %15 = icmp ult ptr %4, %13
   %spec.select.i.i.i.i.i = and i1 %14, %15
-  br i1 %spec.select.i.i.i.i.i, label %18, label %16, !prof !209
+  br i1 %spec.select.i.i.i.i.i, label %16, label %.critedge.i.i.i, !prof !209
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %9, i64 noundef 24) #26
+  %17 = ptrtoint ptr %4 to i64
+  %18 = ptrtoint ptr %.pre3.i to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %20, i64 noundef %9, i64 noundef 24) #26
+  %21 = load ptr, ptr %0, align 8, !tbaa !25
+  %22 = getelementptr inbounds i8, ptr %21, i64 %19
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %9, i64 noundef 24) #26
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
 
-18:                                               ; preds = %12
-  %19 = ptrtoint ptr %4 to i64
-  %20 = ptrtoint ptr %.pre3.i to i64
-  %21 = sub i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %9, i64 noundef 24) #26
-  %23 = load ptr, ptr %0, align 8, !tbaa !25
-  %24 = getelementptr inbounds i8, ptr %23, i64 %21
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit: ; preds = %3, %16, %18
-  %25 = phi ptr [ %.pre3.i, %3 ], [ %23, %18 ], [ %.pre.i, %16 ]
-  %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %16 ]
-  %26 = load i32, ptr %6, align 8, !tbaa !26
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %25, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %29 = load i32, ptr %6, align 8, !tbaa !26
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %6, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit: ; preds = %3, %16, %.critedge.i.i.i
+  %24 = phi ptr [ %.pre3.i, %3 ], [ %21, %16 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %3 ], [ %22, %16 ], [ %4, %.critedge.i.i.i ]
+  %25 = load i32, ptr %6, align 8, !tbaa !26
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %24, i64 %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %28 = load i32, ptr %6, align 8, !tbaa !26
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  %31 = load ptr, ptr %0, align 8, !tbaa !25
-  %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %31, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 -24
-  ret ptr %34
+  %30 = load ptr, ptr %0, align 8, !tbaa !25
+  %31 = zext i32 %29 to i64
+  %32 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %30, i64 %31
+  %33 = getelementptr inbounds i8, ptr %32, i64 -24
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -22305,40 +22305,40 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %14 = icmp uge ptr %4, %.pre3.i
   %15 = icmp ult ptr %4, %13
   %spec.select.i.i.i.i.i = and i1 %14, %15
-  br i1 %spec.select.i.i.i.i.i, label %18, label %16, !prof !209
+  br i1 %spec.select.i.i.i.i.i, label %16, label %.critedge.i.i.i, !prof !209
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %9, i64 noundef 24) #26
+  %17 = ptrtoint ptr %4 to i64
+  %18 = ptrtoint ptr %.pre3.i to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %20, i64 noundef %9, i64 noundef 24) #26
+  %21 = load ptr, ptr %0, align 8, !tbaa !25
+  %22 = getelementptr inbounds i8, ptr %21, i64 %19
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
+
+.critedge.i.i.i:                                  ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %23, i64 noundef %9, i64 noundef 24) #26
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
 
-18:                                               ; preds = %12
-  %19 = ptrtoint ptr %4 to i64
-  %20 = ptrtoint ptr %.pre3.i to i64
-  %21 = sub i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %22, i64 noundef %9, i64 noundef 24) #26
-  %23 = load ptr, ptr %0, align 8, !tbaa !25
-  %24 = getelementptr inbounds i8, ptr %23, i64 %21
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit: ; preds = %3, %16, %18
-  %25 = phi ptr [ %.pre3.i, %3 ], [ %23, %18 ], [ %.pre.i, %16 ]
-  %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %16 ]
-  %26 = load i32, ptr %6, align 8, !tbaa !26
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %25, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %29 = load i32, ptr %6, align 8, !tbaa !26
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %6, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseINS_10sampleprof18SampleContextFrameELb1EE9push_backERKS2_.exit: ; preds = %3, %16, %.critedge.i.i.i
+  %24 = phi ptr [ %.pre3.i, %3 ], [ %21, %16 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %4, %3 ], [ %22, %16 ], [ %4, %.critedge.i.i.i ]
+  %25 = load i32, ptr %6, align 8, !tbaa !26
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %24, i64 %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %28 = load i32, ptr %6, align 8, !tbaa !26
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  %31 = load ptr, ptr %0, align 8, !tbaa !25
-  %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %31, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 -24
-  ret ptr %34
+  %30 = load ptr, ptr %0, align 8, !tbaa !25
+  %31 = zext i32 %29 to i64
+  %32 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %30, i64 %31
+  %33 = getelementptr inbounds i8, ptr %32, i64 -24
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

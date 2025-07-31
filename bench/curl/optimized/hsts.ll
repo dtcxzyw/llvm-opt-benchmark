@@ -99,17 +99,17 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   %6 = tail call i64 @time(ptr noundef null) #9
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %8 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %1) #9
-  br i1 %8, label %hsts_create.exit, label %.preheader118
+  br i1 %8, label %.loopexit, label %.preheader117
 
-.preheader118:                                    ; preds = %3, %.critedge14
+.preheader117:                                    ; preds = %3, %.critedge14
   %.088 = phi i1 [ %.189, %.critedge14 ], [ false, %3 ]
   %.086 = phi i8 [ %.187, %.critedge14 ], [ 0, %3 ]
   %.083 = phi i8 [ %.285, %.critedge14 ], [ 0, %3 ]
-  %.079 = phi ptr [ %spec.select113, %.critedge14 ], [ %2, %3 ]
+  %.079 = phi ptr [ %spec.select115, %.critedge14 ], [ %2, %3 ]
   br label %9
 
-9:                                                ; preds = %.critedge2, %.preheader118
-  %.180 = phi ptr [ %.079, %.preheader118 ], [ %11, %.critedge2 ]
+9:                                                ; preds = %.critedge2, %.preheader117
+  %.180 = phi ptr [ %.079, %.preheader117 ], [ %11, %.critedge2 ]
   %10 = load i8, ptr %.180, align 1, !tbaa !24
   switch i8 %10, label %.critedge [
     i8 9, label %.critedge2
@@ -128,7 +128,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
 13:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %14 = trunc nuw i8 %.083 to i1
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge114, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %.180, i64 7
@@ -137,34 +137,34 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %.critedge6, %15
   %.382 = phi ptr [ %16, %15 ], [ %19, %.critedge6 ]
   %18 = load i8, ptr %.382, align 1, !tbaa !24
-  switch i8 %18, label %.thread [
+  switch i8 %18, label %.critedge114 [
     i8 9, label %.critedge6
     i8 32, label %.critedge6
-    i8 61, label %.preheader117
+    i8 61, label %.preheader116
   ]
 
 .critedge6:                                       ; preds = %17, %17
   %19 = getelementptr inbounds nuw i8, ptr %.382, i64 1
   br label %17, !llvm.loop !26
 
-.preheader117:                                    ; preds = %17, %.preheader117.backedge
-  %.382.pn = phi ptr [ %.4, %.preheader117.backedge ], [ %.382, %17 ]
+.preheader116:                                    ; preds = %17, %.preheader116.backedge
+  %.382.pn = phi ptr [ %.4, %.preheader116.backedge ], [ %.382, %17 ]
   %.4 = getelementptr inbounds nuw i8, ptr %.382.pn, i64 1
   %20 = load i8, ptr %.4, align 1, !tbaa !24
   switch i8 %20, label %.critedge8 [
-    i8 9, label %.preheader117.backedge
-    i8 32, label %.preheader117.backedge
+    i8 9, label %.preheader116.backedge
+    i8 32, label %.preheader116.backedge
   ]
 
-.preheader117.backedge:                           ; preds = %.preheader117, %.preheader117
-  br label %.preheader117, !llvm.loop !27
+.preheader116.backedge:                           ; preds = %.preheader116, %.preheader116
+  br label %.preheader116, !llvm.loop !27
 
-.critedge8:                                       ; preds = %.preheader117
+.critedge8:                                       ; preds = %.preheader116
   %21 = icmp eq i8 %20, 34
   %22 = getelementptr inbounds nuw i8, ptr %.382.pn, i64 2
   %spec.select = select i1 %21, ptr %22, ptr %.4
   %23 = call i32 @curlx_strtoofft(ptr noundef nonnull %spec.select, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %4) #9
-  switch i32 %23, label %.thread [
+  switch i32 %23, label %.critedge114 [
     i32 1, label %24
     i32 0, label %25
   ]
@@ -180,15 +180,11 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
 27:                                               ; preds = %25
   %28 = load i8, ptr %26, align 1, !tbaa !24
   %.not107 = icmp eq i8 %28, 34
-  br i1 %.not107, label %29, label %.thread
+  br i1 %.not107, label %29, label %.critedge114
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
   br label %31
-
-.thread:                                          ; preds = %13, %.critedge8, %27, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %hsts_create.exit
 
 31:                                               ; preds = %25, %29
   %.281 = phi ptr [ %30, %29 ], [ %26, %25 ]
@@ -201,7 +197,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   br i1 %.not100, label %.preheader, label %34
 
 34:                                               ; preds = %32
-  br i1 %.088, label %hsts_create.exit, label %35
+  br i1 %.088, label %.loopexit, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %.180, i64 17
@@ -240,15 +236,15 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
 
 .critedge14:                                      ; preds = %40
   %43 = icmp eq i8 %41, 59
-  %spec.select113.idx = zext i1 %43 to i64
-  %spec.select113 = getelementptr inbounds nuw i8, ptr %.9, i64 %spec.select113.idx
-  %44 = load i8, ptr %spec.select113, align 1, !tbaa !24
+  %spec.select115.idx = zext i1 %43 to i64
+  %spec.select115 = getelementptr inbounds nuw i8, ptr %.9, i64 %spec.select115.idx
+  %44 = load i8, ptr %spec.select115, align 1, !tbaa !24
   %.not109 = icmp eq i8 %44, 0
-  br i1 %.not109, label %45, label %.preheader118, !llvm.loop !31
+  br i1 %.not109, label %45, label %.preheader117, !llvm.loop !31
 
 45:                                               ; preds = %.critedge14
   %46 = trunc nuw i8 %.285 to i1
-  br i1 %46, label %47, label %hsts_create.exit
+  br i1 %46, label %47, label %.loopexit
 
 47:                                               ; preds = %45
   %48 = load i64, ptr %4, align 8, !tbaa !23
@@ -258,7 +254,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
 49:                                               ; preds = %47
   %50 = call ptr @Curl_hsts(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7, i1 noundef zeroext false)
   %.not111 = icmp eq ptr %50, null
-  br i1 %.not111, label %hsts_create.exit, label %51
+  br i1 %.not111, label %.loopexit, label %51
 
 51:                                               ; preds = %49
   call void @Curl_node_remove(ptr noundef nonnull %50) #9
@@ -268,7 +264,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   call void %52(ptr noundef %54) #9
   %55 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %55(ptr noundef nonnull %50) #9
-  br label %hsts_create.exit
+  br label %.loopexit
 
 56:                                               ; preds = %47
   %57 = sub nsw i64 9223372036854775807, %6
@@ -278,61 +274,28 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef 
   store i64 %storemerge, ptr %4, align 8, !tbaa !23
   %60 = call ptr @Curl_hsts(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7, i1 noundef zeroext false)
   %.not112 = icmp eq ptr %60, null
-  %61 = load i64, ptr %4, align 8, !tbaa !23
-  br i1 %.not112, label %65, label %62
+  br i1 %.not112, label %65, label %61
 
-62:                                               ; preds = %56
+61:                                               ; preds = %56
+  %62 = load i64, ptr %4, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store i64 %61, ptr %63, align 8, !tbaa !32
+  store i64 %62, ptr %63, align 8, !tbaa !32
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 %.187, ptr %64, align 8, !tbaa !33
-  br label %hsts_create.exit
+  br label %.loopexit
 
 65:                                               ; preds = %56
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %hsts_create.exit, label %66
+  %66 = trunc nuw i8 %.187 to i1
+  %67 = load i64, ptr %4, align 8, !tbaa !23
+  %68 = call fastcc i32 @hsts_create(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %7, i1 noundef zeroext %66, i64 noundef %67)
+  br label %.loopexit
 
-66:                                               ; preds = %65
-  %67 = getelementptr i8, ptr %1, i64 %7
-  %68 = getelementptr i8, ptr %67, i64 -1
-  %69 = load i8, ptr %68, align 1, !tbaa !24
-  %70 = icmp eq i8 %69, 46
-  br i1 %70, label %71, label %.thread31.i
+.critedge114:                                     ; preds = %27, %.critedge8, %13, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  br label %.loopexit
 
-71:                                               ; preds = %66
-  %72 = add i64 %7, -1
-  %.not26.i = icmp eq i64 %72, 0
-  br i1 %.not26.i, label %hsts_create.exit, label %.thread31.i
-
-.thread31.i:                                      ; preds = %71, %66
-  %.02134.i = phi i64 [ %72, %71 ], [ %7, %66 ]
-  %73 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !3
-  %74 = call ptr %73(i64 noundef 1, i64 noundef 56) #9
-  %.not27.i = icmp eq ptr %74, null
-  br i1 %.not27.i, label %hsts_create.exit, label %75
-
-75:                                               ; preds = %.thread31.i
-  %76 = call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02134.i) #9
-  %.not28.i = icmp eq ptr %76, null
-  br i1 %.not28.i, label %77, label %79
-
-77:                                               ; preds = %75
-  %78 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %78(ptr noundef nonnull %74) #9
-  br label %hsts_create.exit
-
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr %76, ptr %80, align 8, !tbaa !9
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  store i64 %61, ptr %81, align 8, !tbaa !32
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  store i8 %.187, ptr %82, align 8, !tbaa !33
-  call void @Curl_llist_append(ptr noundef %0, ptr noundef nonnull %74, ptr noundef nonnull %74) #9
-  br label %hsts_create.exit
-
-hsts_create.exit:                                 ; preds = %34, %79, %77, %.thread31.i, %71, %65, %.thread, %49, %51, %45, %3, %62
-  %.0 = phi i32 [ 0, %62 ], [ 0, %3 ], [ 43, %45 ], [ 0, %51 ], [ 0, %49 ], [ 43, %.thread ], [ 0, %79 ], [ 0, %71 ], [ 0, %65 ], [ 27, %77 ], [ 27, %.thread31.i ], [ 43, %34 ]
+.loopexit:                                        ; preds = %34, %49, %51, %45, %.critedge114, %3, %61, %65
+  %.0 = phi i32 [ 0, %61 ], [ %68, %65 ], [ 0, %3 ], [ 43, %.critedge114 ], [ 43, %45 ], [ 0, %51 ], [ 0, %49 ], [ 43, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.0
 }
@@ -481,6 +444,56 @@ define hidden ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 
 }
 
 declare void @Curl_node_remove(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #0 {
+  %6 = zext i1 %3 to i8
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %.thread, label %7
+
+7:                                                ; preds = %5
+  %8 = getelementptr i8, ptr %1, i64 %2
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i8, ptr %9, align 1, !tbaa !24
+  %11 = icmp eq i8 %10, 46
+  br i1 %11, label %12, label %.thread31
+
+12:                                               ; preds = %7
+  %13 = add i64 %2, -1
+  %.not26 = icmp eq i64 %13, 0
+  br i1 %.not26, label %.thread, label %.thread31
+
+.thread31:                                        ; preds = %7, %12
+  %.02134 = phi i64 [ %13, %12 ], [ %2, %7 ]
+  %14 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !3
+  %15 = tail call ptr %14(i64 noundef 1, i64 noundef 56) #9
+  %.not27 = icmp eq ptr %15, null
+  br i1 %.not27, label %.thread, label %16
+
+16:                                               ; preds = %.thread31
+  %17 = tail call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02134) #9
+  %.not28 = icmp eq ptr %17, null
+  br i1 %.not28, label %18, label %20
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  tail call void %19(ptr noundef nonnull %15) #9
+  br label %.thread
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr %17, ptr %21, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 %4, ptr %22, align 8, !tbaa !32
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i8 %6, ptr %23, align 8, !tbaa !33
+  tail call void @Curl_llist_append(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %15) #9
+  br label %.thread
+
+.thread:                                          ; preds = %.thread31, %18, %5, %12, %20
+  %.1 = phi i32 [ 0, %20 ], [ 0, %12 ], [ 0, %5 ], [ 27, %18 ], [ 27, %.thread31 ]
+  ret i32 %.1
+}
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {

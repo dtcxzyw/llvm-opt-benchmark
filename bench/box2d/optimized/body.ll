@@ -4638,7 +4638,7 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 8, !tbaa !145
   %.not26 = icmp eq i32 %8, 2
-  br i1 %.not26, label %9, label %.thread
+  br i1 %.not26, label %9, label %.critedge
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -4651,9 +4651,9 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %.022.in = getelementptr inbounds nuw i8, ptr %.30, i64 68
   %.025.in = getelementptr inbounds nuw i8, ptr %., i64 108
   %.025 = load i32, ptr %.025.in, align 4, !tbaa !139
-  %.12333 = load i32, ptr %.022.in, align 4, !tbaa !164
-  %.not2834 = icmp eq i32 %.12333, -1
-  br i1 %.not2834, label %.thread, label %.lr.ph
+  %.12331 = load i32, ptr %.022.in, align 4, !tbaa !164
+  %.not2832 = icmp eq i32 %.12331, -1
+  br i1 %.not2832, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -4661,9 +4661,9 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   br label %16
 
 16:                                               ; preds = %.lr.ph, %31
-  %.12335 = phi i32 [ %.12333, %.lr.ph ], [ %.123, %31 ]
-  %17 = ashr i32 %.12335, 1
-  %18 = and i32 %.12335, 1
+  %.12333 = phi i32 [ %.12331, %.lr.ph ], [ %.123, %31 ]
+  %17 = ashr i32 %.12333, 1
+  %18 = and i32 %.12333, 1
   %19 = sext i32 %17 to i64
   %20 = getelementptr inbounds %struct.b2Joint, ptr %.val, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 71
@@ -4678,9 +4678,9 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %28 = getelementptr inbounds nuw [2 x %struct.b2JointEdge], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !203
   %30 = icmp eq i32 %29, %.025
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
-31:                                               ; preds = %16, %24
+31:                                               ; preds = %24, %16
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %narrow = mul nuw nsw i32 %18, 12
   %33 = zext nneg i32 %narrow to i64
@@ -4688,10 +4688,10 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.123 = load i32, ptr %35, align 4, !tbaa !164
   %.not28 = icmp eq i32 %.123, -1
-  br i1 %.not28, label %.thread, label %16, !llvm.loop !227
+  br i1 %.not28, label %.critedge, label %16, !llvm.loop !227
 
-.thread:                                          ; preds = %31, %24, %9, %6
-  %.021 = phi i1 [ false, %6 ], [ true, %9 ], [ true, %31 ], [ false, %24 ]
+.critedge:                                        ; preds = %24, %31, %9, %6
+  %.021 = phi i1 [ false, %6 ], [ true, %9 ], [ false, %24 ], [ true, %31 ]
   ret i1 %.021
 }
 

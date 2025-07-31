@@ -9672,23 +9672,23 @@ dissect_nfs3_post_op_attr.exit:                   ; preds = %20, %26
   call void @proto_item_set_len(ptr noundef %28, i32 noundef %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   %30 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.i)
-  br i1 %.not.i, label %.thread, label %33
+  br i1 %.not.i, label %.critedge, label %31
 
-.thread:                                          ; preds = %dissect_nfs3_post_op_attr.exit
-  %31 = add i32 %.0.i, 4
-  %32 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %31)
+31:                                               ; preds = %dissect_nfs3_post_op_attr.exit
+  %32 = load i32, ptr @hf_nfs3_pathconf_linkmax, align 4
+  %33 = call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %30)
+  %34 = add i32 %.0.i, 4
+  %35 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %34)
+  %36 = load i32, ptr @hf_nfs3_pathconf_name_max, align 4
+  %37 = call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %36, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef %35)
   br label %40
 
-33:                                               ; preds = %dissect_nfs3_post_op_attr.exit
-  %34 = load i32, ptr @hf_nfs3_pathconf_linkmax, align 4
-  %35 = call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %34, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %30)
-  %36 = add i32 %.0.i, 4
-  %37 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %36)
-  %38 = load i32, ptr @hf_nfs3_pathconf_name_max, align 4
-  %39 = call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef %37)
+.critedge:                                        ; preds = %dissect_nfs3_post_op_attr.exit
+  %38 = add i32 %.0.i, 4
+  %39 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %38)
   br label %40
 
-40:                                               ; preds = %.thread, %33
+40:                                               ; preds = %.critedge, %31
   %41 = add i32 %.0.i, 8
   %42 = load i32, ptr @hf_nfs3_pathconf_no_trunc, align 4
   %43 = call i32 @dissect_rpc_bool(ptr noundef %0, ptr noundef %2, i32 noundef %42, i32 noundef %41)

@@ -1811,29 +1811,29 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %36 = load float, ptr %35, align 4, !noundef !10
   %37 = fcmp oeq float %34, %36
-  br i1 %37, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %32
   store float %36, ptr %33, align 4
   br label %39
 
-39:                                               ; preds = %38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit"
-  %.val14 = phi i64 [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %6, %38 ]
-  %.val13 = phi ptr [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %4, %38 ]
-  %.sroa.7.0.ph = phi i64 [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %8, %38 ]
-  %40 = icmp ult i64 %.sroa.7.0.ph, %.val14
+39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit", %38
+  %.val14 = phi i64 [ %6, %38 ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
+  %.val13 = phi ptr [ %4, %38 ], [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
+  %.sroa.7.0 = phi i64 [ %8, %38 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
+  %40 = icmp ult i64 %.sroa.7.0, %.val14
   br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %54, !prof !250
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i": ; preds = %39
   %41 = icmp ne ptr %.val13, null
   tail call void @llvm.assume(i1 %41)
-  %42 = icmp eq i64 %.sroa.7.0.ph, 0
-  br i1 %42, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
+  %42 = icmp eq i64 %.sroa.7.0, 0
+  br i1 %42, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
-  %.idx.i = mul nsw i64 %.sroa.7.0.ph, 12
+  %.idx.i = mul nsw i64 %.sroa.7.0, 12
   %43 = getelementptr inbounds i8, ptr %.val13, i64 %.idx.i
-  %44 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0.ph
+  %44 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load float, ptr %45, align 4, !noundef !10
   %47 = fcmp uno float %46, 0.000000e+00
@@ -1849,7 +1849,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br label %.lr.ph.i
 
 54:                                               ; preds = %39
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.7.0.ph, i64 noundef %.val14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.81e6ab35a181dc861ce075a8d33b6c5d.16) #32
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.sroa.7.0, i64 noundef %.val14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.81e6ab35a181dc861ce075a8d33b6c5d.16) #32
   unreachable
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1864,9 +1864,9 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %60 = tail call float @llvm.maxnum.f32(float %.04.i, float %57)
   %61 = icmp eq ptr %.val13, %59
   %or.cond.i = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond.i, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.i
+  br i1 %or.cond.i, label %.critedge, label %.lr.ph.i
 
-_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit: ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32
+.critedge:                                        ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32
   ret void
 }
 

@@ -708,11 +708,11 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #4 {
   %5 = icmp ult i64 %1, 2
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = load i8, ptr %0, align 1, !tbaa !26
-  switch i8 %7, label %.thread [
+  switch i8 %7, label %.critedge [
     i8 -1, label %8
     i8 -2, label %12
   ]
@@ -721,29 +721,29 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !26
   %11 = icmp eq i8 %10, -2
-  br i1 %11, label %16, label %.thread
+  br i1 %11, label %16, label %.critedge
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !26
   %15 = icmp eq i8 %14, -1
-  br i1 %15, label %.thread83, label %.thread
+  br i1 %15, label %.thread, label %.critedge
 
 16:                                               ; preds = %8
   store i64 0, ptr %3, align 8, !tbaa !16
   %17 = icmp ugt i64 %1, 3
-  br i1 %17, label %.lr.ph.split.us, label %.thread
+  br i1 %17, label %.lr.ph.split.us, label %.critedge
 
-.thread83:                                        ; preds = %12
+.thread:                                          ; preds = %12
   store i64 0, ptr %3, align 8, !tbaa !16
   %18 = icmp ugt i64 %1, 3
-  br i1 %18, label %.lr.ph.split, label %.thread
+  br i1 %18, label %.lr.ph.split, label %.critedge
 
 .lr.ph.split.us:                                  ; preds = %16, %47
   %19 = phi i64 [ %50, %47 ], [ 3, %16 ]
-  %.04765.us = phi i64 [ %49, %47 ], [ 2, %16 ]
-  %.04864.us = phi i32 [ %spec.select.us, %47 ], [ 0, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.04765.us
+  %.04761.us = phi i64 [ %49, %47 ], [ 2, %16 ]
+  %.04860.us = phi i32 [ %spec.select.us, %47 ], [ 0, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.04761.us
   %21 = load i8, ptr %20, align 1, !tbaa !26
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %19
@@ -756,19 +756,19 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %29 = add nsw i32 %27, -64976
   %or.cond.us = icmp ult i32 %29, 32
   %or.cond59.us = select i1 %switch.us, i1 true, i1 %or.cond.us
-  br i1 %or.cond59.us, label %.thread, label %30
+  br i1 %or.cond59.us, label %.critedge, label %30
 
 30:                                               ; preds = %.lr.ph.split.us
-  %.not57.us = icmp eq i32 %.04864.us, 0
+  %.not57.us = icmp eq i32 %.04860.us, 0
   br i1 %.not57.us, label %37, label %31
 
 31:                                               ; preds = %30
   %32 = and i32 %25, 252
   %or.cond3.us = icmp eq i32 %32, 220
-  br i1 %or.cond3.us, label %33, label %.thread
+  br i1 %or.cond3.us, label %33, label %.critedge
 
 33:                                               ; preds = %31
-  %34 = shl i32 %.04864.us, 10
+  %34 = shl i32 %.04860.us, 10
   %35 = add i32 %34, 8192
   %36 = add i32 %35, %27
   br label %37
@@ -777,41 +777,41 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %.1.us = phi i32 [ %36, %33 ], [ %27, %30 ]
   %38 = icmp ult i32 %.1.us, 128
   %39 = zext nneg i32 %.1.us to i64
-  br i1 %38, label %40, label %._crit_edge80
+  br i1 %38, label %40, label %._crit_edge76
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %39
   %42 = load i8, ptr %41, align 1, !tbaa !26
   %.not58.us = icmp eq i8 %42, 1
-  br i1 %.not58.us, label %._crit_edge80, label %.thread
+  br i1 %.not58.us, label %._crit_edge76, label %.critedge
 
-._crit_edge80:                                    ; preds = %37, %40
+._crit_edge76:                                    ; preds = %37, %40
   %43 = load i64, ptr %3, align 8, !tbaa !16
   %44 = add i64 %43, 1
   store i64 %44, ptr %3, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i64, ptr %2, i64 %43
   store i64 %39, ptr %45, align 8, !tbaa !16
   %46 = and i32 %.1.us, -1024
-  %or.cond7.not.us = icmp eq i32 %46, 56320
-  br i1 %or.cond7.not.us, label %.thread, label %47
+  %or.cond7.us = icmp eq i32 %46, 56320
+  br i1 %or.cond7.us, label %.critedge, label %47
 
-47:                                               ; preds = %._crit_edge80
+47:                                               ; preds = %._crit_edge76
   %or.cond5.us = icmp eq i32 %46, 55296
   %48 = add nsw i32 %.1.us, -55295
   %spec.select.us = select i1 %or.cond5.us, i32 %48, i32 0
-  %49 = add i64 %.04765.us, 2
+  %49 = add i64 %.04761.us, 2
   %50 = or disjoint i64 %49, 1
   %51 = icmp ult i64 %50, %1
-  br i1 %51, label %.lr.ph.split.us, label %.thread, !llvm.loop !32
+  br i1 %51, label %.lr.ph.split.us, label %.critedge, !llvm.loop !32
 
-.lr.ph.split:                                     ; preds = %.thread83, %80
-  %52 = phi i64 [ %83, %80 ], [ 3, %.thread83 ]
-  %.04765 = phi i64 [ %82, %80 ], [ 2, %.thread83 ]
-  %.04864 = phi i32 [ %spec.select, %80 ], [ 0, %.thread83 ]
+.lr.ph.split:                                     ; preds = %.thread, %80
+  %52 = phi i64 [ %83, %80 ], [ 3, %.thread ]
+  %.04761 = phi i64 [ %82, %80 ], [ 2, %.thread ]
+  %.04860 = phi i32 [ %spec.select, %80 ], [ 0, %.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !26
   %55 = zext i8 %54 to i32
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.04765
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.04761
   %57 = load i8, ptr %56, align 1, !tbaa !26
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 8
@@ -821,19 +821,19 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %62 = add nsw i32 %60, -64976
   %or.cond = icmp ult i32 %62, 32
   %or.cond59 = select i1 %switch, i1 true, i1 %or.cond
-  br i1 %or.cond59, label %.thread, label %63
+  br i1 %or.cond59, label %.critedge, label %63
 
 63:                                               ; preds = %.lr.ph.split
-  %.not57 = icmp eq i32 %.04864, 0
+  %.not57 = icmp eq i32 %.04860, 0
   br i1 %.not57, label %70, label %64
 
 64:                                               ; preds = %63
   %65 = and i32 %58, 252
   %or.cond3 = icmp eq i32 %65, 220
-  br i1 %or.cond3, label %66, label %.thread
+  br i1 %or.cond3, label %66, label %.critedge
 
 66:                                               ; preds = %64
-  %67 = shl i32 %.04864, 10
+  %67 = shl i32 %.04860, 10
   %68 = add i32 %67, 8192
   %69 = add i32 %68, %60
   br label %70
@@ -848,7 +848,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %74 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %72
   %75 = load i8, ptr %74, align 1, !tbaa !26
   %.not58 = icmp eq i8 %75, 1
-  br i1 %.not58, label %._crit_edge, label %.thread
+  br i1 %.not58, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %70, %73
   %76 = load i64, ptr %3, align 8, !tbaa !16
@@ -857,20 +857,20 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %78 = getelementptr inbounds nuw i64, ptr %2, i64 %76
   store i64 %72, ptr %78, align 8, !tbaa !16
   %79 = and i32 %.1, -1024
-  %or.cond7.not = icmp eq i32 %79, 56320
-  br i1 %or.cond7.not, label %.thread, label %80
+  %or.cond7 = icmp eq i32 %79, 56320
+  br i1 %or.cond7, label %.critedge, label %80
 
 80:                                               ; preds = %._crit_edge
   %or.cond5 = icmp eq i32 %79, 55296
   %81 = add nsw i32 %.1, -55295
   %spec.select = select i1 %or.cond5, i32 %81, i32 0
-  %82 = add i64 %.04765, 2
+  %82 = add i64 %.04761, 2
   %83 = or disjoint i64 %82, 1
   %84 = icmp ult i64 %83, %1
-  br i1 %84, label %.lr.ph.split, label %.thread
+  br i1 %84, label %.lr.ph.split, label %.critedge
 
-.thread:                                          ; preds = %._crit_edge, %80, %.lr.ph.split, %64, %73, %._crit_edge80, %47, %.lr.ph.split.us, %31, %40, %.thread83, %16, %6, %8, %12, %4
-  %.051 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 1, %16 ], [ 2, %.thread83 ], [ 0, %._crit_edge80 ], [ 1, %47 ], [ 0, %.lr.ph.split.us ], [ 0, %31 ], [ 0, %40 ], [ 0, %._crit_edge ], [ 2, %80 ], [ 0, %.lr.ph.split ], [ 0, %64 ], [ 0, %73 ]
+.critedge:                                        ; preds = %80, %._crit_edge, %73, %64, %.lr.ph.split, %47, %._crit_edge76, %40, %31, %.lr.ph.split.us, %.thread, %16, %6, %8, %12, %4
+  %.051 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 1, %16 ], [ 2, %.thread ], [ 1, %47 ], [ 0, %._crit_edge76 ], [ 0, %40 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 2, %80 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %64 ], [ 0, %.lr.ph.split ]
   ret i32 %.051
 }
 

@@ -625,7 +625,7 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %1
   %9 = tail call i32 @__pm_runtime_resume(ptr noundef %0, i32 noundef 4) #14
@@ -634,7 +634,7 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %12 = load volatile i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.thread, label %.lr.ph, !prof !14
+  br i1 %13, label %.critedge, label %.lr.ph, !prof !14
 
 .lr.ph:                                           ; preds = %8, %20
   %14 = phi i32 [ %21, %20 ], [ %12, %8 ]
@@ -644,14 +644,14 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
-  br i1 %19, label %20, label %.thread, !prof !16
+  br i1 %19, label %20, label %.critedge, !prof !16
 
 20:                                               ; preds = %.lr.ph
   %21 = extractvalue { i8, i32 } %16, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %.lr.ph, !prof !17, !llvm.loop !18
+  br i1 %22, label %.critedge, label %.lr.ph, !prof !17, !llvm.loop !18
 
-.thread:                                          ; preds = %20, %.lr.ph, %8, %1
+.critedge:                                        ; preds = %20, %.lr.ph, %8, %1
   tail call void @pcibios_free_irq(ptr noundef %2)
   store ptr null, ptr %3, align 8
   %23 = tail call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 4) #14
@@ -660,11 +660,11 @@ define internal void @pci_device_remove(ptr noundef %0) #0 align 16 {
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
-27:                                               ; preds = %.thread
+27:                                               ; preds = %.critedge
   store i32 5, ptr %24, align 8
   br label %28
 
-28:                                               ; preds = %27, %.thread
+28:                                               ; preds = %27, %.critedge
   %29 = icmp eq ptr %2, null
   br i1 %29, label %31, label %30
 

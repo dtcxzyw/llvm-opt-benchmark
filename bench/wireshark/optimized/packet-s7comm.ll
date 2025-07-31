@@ -2964,7 +2964,7 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   br i1 %2, label %.sink.split, label %26
 
 17:                                               ; preds = %12
-  br i1 %2, label %.sink.split75, label %32
+  br i1 %2, label %.critedge.sink.split, label %.critedge
 
 18:                                               ; preds = %5
   %or.cond5 = icmp sgt i16 %10, 4095
@@ -2979,58 +2979,58 @@ define hidden noundef i32 @s7comm_decode_ud_cpu_diagnostic_message(ptr noundef %
   br i1 %2, label %.sink.split, label %26
 
 22:                                               ; preds = %19
-  br i1 %2, label %.sink.split75, label %32
+  br i1 %2, label %.critedge.sink.split, label %.critedge
 
 23:                                               ; preds = %18
-  br i1 %2, label %.sink.split75, label %32
+  br i1 %2, label %.critedge.sink.split, label %.critedge
 
 .sink.split:                                      ; preds = %21, %16
-  %.sink73 = phi ptr [ %15, %16 ], [ %20, %21 ]
+  %.sink71 = phi ptr [ %15, %16 ], [ %20, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull %.sink73)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.8, ptr noundef nonnull %.sink71)
   br label %26
 
-26:                                               ; preds = %.sink.split, %16, %21
-  %.065 = phi ptr [ %15, %16 ], [ %20, %21 ], [ %.sink73, %.sink.split ]
+26:                                               ; preds = %.sink.split, %21, %16
+  %.065 = phi ptr [ %15, %16 ], [ %20, %21 ], [ %.sink71, %.sink.split ]
   %27 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
   %28 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
   %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull %.065)
-  br label %36
+  br label %35
 
-.sink.split75:                                    ; preds = %23, %22, %17
+.critedge.sink.split:                             ; preds = %23, %22, %17
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.9, i32 noundef %11)
-  br label %32
+  br label %.critedge
 
-32:                                               ; preds = %.sink.split75, %17, %22, %23
-  %33 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
-  %34 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
-  %35 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %33, i32 noundef %34, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
+.critedge:                                        ; preds = %.critedge.sink.split, %23, %22, %17
+  %32 = load i32, ptr @hf_s7comm_cpu_diag_msg_eventid, align 4
+  %33 = load i32, ptr @ett_s7comm_cpu_diag_msg_eventid, align 4
+  %34 = tail call ptr @proto_tree_add_bitmask(ptr noundef %9, ptr noundef %0, i32 noundef %4, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @s7comm_cpu_diag_msg_eventid_fields, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, i32 noundef %11)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %32, %26
-  %37 = add i32 %4, 2
-  %38 = load i32, ptr @hf_s7comm_cpu_diag_msg_prioclass, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0)
-  %40 = add i32 %4, 3
-  %41 = load i32, ptr @hf_s7comm_cpu_diag_msg_obnumber, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 1, i32 noundef 0)
-  %43 = add i32 %4, 4
-  %44 = load i32, ptr @hf_s7comm_cpu_diag_msg_datid, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef 0)
-  %46 = add i32 %4, 6
-  %47 = load i32, ptr @hf_s7comm_cpu_diag_msg_info1, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef 0)
-  %49 = add i32 %4, 8
-  %50 = load i32, ptr @hf_s7comm_cpu_diag_msg_info2, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0)
-  %52 = add i32 %4, 12
-  %53 = tail call fastcc i32 @s7comm_add_timestamp_to_tree(ptr noundef %0, ptr noundef %9, i32 noundef %52, i1 noundef zeroext false, i1 noundef zeroext false)
-  ret i32 %53
+35:                                               ; preds = %.critedge, %26
+  %36 = add i32 %4, 2
+  %37 = load i32, ptr @hf_s7comm_cpu_diag_msg_prioclass, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef 0)
+  %39 = add i32 %4, 3
+  %40 = load i32, ptr @hf_s7comm_cpu_diag_msg_obnumber, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %42 = add i32 %4, 4
+  %43 = load i32, ptr @hf_s7comm_cpu_diag_msg_datid, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0)
+  %45 = add i32 %4, 6
+  %46 = load i32, ptr @hf_s7comm_cpu_diag_msg_info1, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %48 = add i32 %4, 8
+  %49 = load i32, ptr @hf_s7comm_cpu_diag_msg_info2, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0)
+  %51 = add i32 %4, 12
+  %52 = tail call fastcc i32 @s7comm_add_timestamp_to_tree(ptr noundef %0, ptr noundef %9, i32 noundef %51, i1 noundef zeroext false, i1 noundef zeroext false)
+  ret i32 %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

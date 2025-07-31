@@ -1454,8 +1454,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %if.then4.i, %for.body
-  %retval.sroa.0.0.i.ph = phi i64 [ 8, %for.body ], [ %10, %if.then4.i ]
-  %add = add i64 %retval.sroa.0.0.i.ph, %size.014
+  %retval.sroa.0.0.i = phi i64 [ %10, %if.then4.i ], [ 8, %for.body ]
+  %add = add i64 %retval.sroa.0.0.i, %size.014
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.013, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -4663,7 +4663,7 @@ for.inc92:                                        ; preds = %for.body78, %invoke
   %cmp77 = icmp ugt i64 %80, %indvars.iv.next182
   br i1 %cmp77, label %for.body78, label %if.end95, !llvm.loop !48
 
-if.end95:                                         ; preds = %for.inc92, %for.body78.us, %call3.i.noexc, %invoke.cont69
+if.end95:                                         ; preds = %for.inc92, %for.body78.us, %invoke.cont69, %call3.i.noexc
   %81 = load ptr, ptr %_M_finish.i87, align 8
   %82 = load ptr, ptr %_M_end_of_storage.i88, align 8
   %cmp.not.i89 = icmp eq ptr %81, %82

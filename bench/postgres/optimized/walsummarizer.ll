@@ -281,11 +281,11 @@ HandleWalSummarizerInterrupts.exit:               ; preds = %53, %55
   %65 = sext i32 %64 to i64
   %66 = sub i64 %62, %65
   %67 = call ptr @GetWalSummaries(i32 noundef 0, i64 noundef 0, i64 noundef 0) #11
-  %.not44.i = icmp eq ptr %67, null
-  br i1 %.not44.i, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %67, null
+  br i1 %.not39.i, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %61, %.split41.us.i
-  %.045.i = phi ptr [ %.us-phi.i, %.split41.us.i ], [ %67, %61 ]
+.lr.ph.i:                                         ; preds = %61, %.critedge.i
+  %.040.i = phi ptr [ %.us-phi.i, %.critedge.i ], [ %67, %61 ]
   %68 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not.i30 = icmp eq i32 %68, 0
   br i1 %.not.i30, label %70, label %69
@@ -335,33 +335,33 @@ HandleWalSummarizerInterrupts.exit:               ; preds = %53, %55
   br label %HandleWalSummarizerInterrupts.exit34
 
 HandleWalSummarizerInterrupts.exit34:             ; preds = %83, %85
-  %86 = getelementptr i8, ptr %.045.i, i64 16
+  %86 = getelementptr i8, ptr %.040.i, i64 16
   %.0.val.i = load ptr, ptr %86, align 8
   %87 = load ptr, ptr %.0.val.i, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8
   %90 = call i64 @XLogGetOldestSegno(i32 noundef %89) #11
   %91 = load i32, ptr @wal_segment_size, align 4
-  %.fr35.i = freeze i32 %91
-  %92 = sext i32 %.fr35.i to i64
+  %.fr32.i = freeze i32 %91
+  %92 = sext i32 %.fr32.i to i64
   %.fr.i = freeze i64 %90
   %93 = mul i64 %.fr.i, %92
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %HandleWalSummarizerInterrupts.exit34, %123
-  %.139.us.i = phi ptr [ %.2.us.i, %123 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit34 ]
-  %.sroa.0.038.us.i = phi ptr [ %.sroa.0.1.us.i, %123 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit34 ]
-  %.sroa.7.037.us.i = phi i32 [ %.sroa.7.1.us.i, %123 ], [ 0, %HandleWalSummarizerInterrupts.exit34 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.us.i, i64 4
+  %.136.us.i = phi ptr [ %.2.us.i, %123 ], [ %.040.i, %HandleWalSummarizerInterrupts.exit34 ]
+  %.sroa.0.035.us.i = phi ptr [ %.sroa.0.1.us.i, %123 ], [ %.040.i, %HandleWalSummarizerInterrupts.exit34 ]
+  %.sroa.7.034.us.i = phi i32 [ %.sroa.7.1.us.i, %123 ], [ 0, %HandleWalSummarizerInterrupts.exit34 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.us.i, i64 4
   %96 = load i32, ptr %95, align 4
-  %97 = icmp slt i32 %.sroa.7.037.us.i, %96
-  br i1 %97, label %98, label %.split41.us.i
+  %97 = icmp slt i32 %.sroa.7.034.us.i, %96
+  br i1 %97, label %98, label %.critedge.i
 
 98:                                               ; preds = %.split.us.i
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.us.i, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.us.i, i64 16
   %100 = load ptr, ptr %99, align 8
-  %101 = sext i32 %.sroa.7.037.us.i to i64
+  %101 = sext i32 %.sroa.7.034.us.i to i64
   %102 = getelementptr inbounds %union.ListCell, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
@@ -388,7 +388,7 @@ HandleWalSummarizerInterrupts.exit34:             ; preds = %83, %85
   %112 = load i8, ptr @summarize_wal, align 1, !range !4
   %113 = trunc nuw i8 %112 to i1
   %or.cond.i.us.i = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond.i.us.i, label %114, label %.split43.us.i
+  br i1 %or.cond.i.us.i, label %114, label %.split38.us.i
 
 114:                                              ; preds = %109
   %115 = load volatile i32, ptr @LogMemoryContextPending, align 4
@@ -406,40 +406,35 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %116, %114
   br i1 %.not29.us.i, label %121, label %119
 
 119:                                              ; preds = %HandleWalSummarizerInterrupts.exit.us.i
-  %120 = add nsw i32 %.sroa.7.037.us.i, 1
+  %120 = add nsw i32 %.sroa.7.034.us.i, 1
   br label %123
 
 121:                                              ; preds = %HandleWalSummarizerInterrupts.exit.us.i
   call void @RemoveWalSummaryIfOlderThan(ptr noundef nonnull %103, i64 noundef %66) #11
-  %122 = call ptr @list_delete_nth_cell(ptr noundef %.139.us.i, i32 noundef %.sroa.7.037.us.i) #11
+  %122 = call ptr @list_delete_nth_cell(ptr noundef %.136.us.i, i32 noundef %.sroa.7.034.us.i) #11
   call void @pfree(ptr noundef nonnull %103) #11
   br label %123
 
 123:                                              ; preds = %121, %119
-  %.sroa.7.1.us.i = phi i32 [ %120, %119 ], [ %.sroa.7.037.us.i, %121 ]
-  %.sroa.0.1.us.i = phi ptr [ %.sroa.0.038.us.i, %119 ], [ %122, %121 ]
-  %.2.us.i = phi ptr [ %.139.us.i, %119 ], [ %122, %121 ]
+  %.sroa.7.1.us.i = phi i32 [ %120, %119 ], [ %.sroa.7.034.us.i, %121 ]
+  %.sroa.0.1.us.i = phi ptr [ %.sroa.0.035.us.i, %119 ], [ %122, %121 ]
+  %.2.us.i = phi ptr [ %.136.us.i, %119 ], [ %122, %121 ]
   %.not27.us.i = icmp eq ptr %.sroa.0.1.us.i, null
-  br i1 %.not27.us.i, label %.split41.us.i, label %.split.us.i, !llvm.loop !6
+  br i1 %.not27.us.i, label %.critedge.i, label %.split.us.i, !llvm.loop !6
 
 .split.i:                                         ; preds = %HandleWalSummarizerInterrupts.exit34, %160
-  %.139.i = phi ptr [ %.2.i, %160 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit34 ]
-  %.sroa.0.038.i = phi ptr [ %.sroa.0.1.i, %160 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit34 ]
-  %.sroa.7.037.i = phi i32 [ %.sroa.7.1.i, %160 ], [ 0, %HandleWalSummarizerInterrupts.exit34 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i, i64 4
+  %.136.i = phi ptr [ %.2.i, %160 ], [ %.040.i, %HandleWalSummarizerInterrupts.exit34 ]
+  %.sroa.0.035.i = phi ptr [ %.sroa.0.1.i, %160 ], [ %.040.i, %HandleWalSummarizerInterrupts.exit34 ]
+  %.sroa.7.034.i = phi i32 [ %.sroa.7.1.i, %160 ], [ 0, %HandleWalSummarizerInterrupts.exit34 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.i, i64 4
   %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %.sroa.7.037.i, %125
-  br i1 %126, label %127, label %.split41.us.i
-
-.split41.us.i:                                    ; preds = %160, %.split.i, %123, %.split.us.i
-  %.us-phi.i = phi ptr [ %.139.us.i, %.split.us.i ], [ %.2.us.i, %123 ], [ %.139.i, %.split.i ], [ %.2.i, %160 ]
-  %.not.i28 = icmp eq ptr %.us-phi.i, null
-  br i1 %.not.i28, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i, !llvm.loop !9
+  %126 = icmp slt i32 %.sroa.7.034.i, %125
+  br i1 %126, label %127, label %.critedge.i
 
 127:                                              ; preds = %.split.i
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.i, i64 16
   %129 = load ptr, ptr %128, align 8
-  %130 = sext i32 %.sroa.7.037.i to i64
+  %130 = sext i32 %.sroa.7.034.i to i64
   %131 = getelementptr inbounds %union.ListCell, ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
@@ -466,18 +461,18 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %116, %114
   %141 = load i8, ptr @summarize_wal, align 1, !range !4
   %142 = trunc nuw i8 %141 to i1
   %or.cond.i.i = select i1 %140, i1 %142, i1 false
-  br i1 %or.cond.i.i, label %147, label %.split43.us.i
+  br i1 %or.cond.i.i, label %147, label %.split38.us.i
 
-.split43.us.i:                                    ; preds = %138, %109
+.split38.us.i:                                    ; preds = %138, %109
   %143 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
   br i1 %143, label %144, label %146
 
-144:                                              ; preds = %.split43.us.i
+144:                                              ; preds = %.split38.us.i
   %145 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 872, ptr noundef nonnull @__func__.HandleWalSummarizerInterrupts) #11
   br label %146
 
-146:                                              ; preds = %144, %.split43.us.i
+146:                                              ; preds = %144, %.split38.us.i
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 
@@ -496,8 +491,13 @@ HandleWalSummarizerInterrupts.exit.i:             ; preds = %149, %147
   %.not29.i = icmp eq i32 %89, %151
   br i1 %.not29.i, label %154, label %152
 
+.critedge.i:                                      ; preds = %160, %.split.i, %123, %.split.us.i
+  %.us-phi.i = phi ptr [ %.136.us.i, %.split.us.i ], [ %.2.us.i, %123 ], [ %.136.i, %.split.i ], [ %.2.i, %160 ]
+  %.not.i28 = icmp eq ptr %.us-phi.i, null
+  br i1 %.not.i28, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i, !llvm.loop !9
+
 152:                                              ; preds = %HandleWalSummarizerInterrupts.exit.i
-  %153 = add nsw i32 %.sroa.7.037.i, 1
+  %153 = add nsw i32 %.sroa.7.034.i, 1
   br label %160
 
 154:                                              ; preds = %HandleWalSummarizerInterrupts.exit.i
@@ -511,18 +511,18 @@ HandleWalSummarizerInterrupts.exit.i:             ; preds = %149, %147
   br label %158
 
 158:                                              ; preds = %157, %154
-  %159 = call ptr @list_delete_nth_cell(ptr noundef %.139.i, i32 noundef %.sroa.7.037.i) #11
+  %159 = call ptr @list_delete_nth_cell(ptr noundef %.136.i, i32 noundef %.sroa.7.034.i) #11
   call void @pfree(ptr noundef nonnull %132) #11
   br label %160
 
 160:                                              ; preds = %158, %152
-  %.sroa.7.1.i = phi i32 [ %153, %152 ], [ %.sroa.7.037.i, %158 ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.038.i, %152 ], [ %159, %158 ]
-  %.2.i = phi ptr [ %.139.i, %152 ], [ %159, %158 ]
+  %.sroa.7.1.i = phi i32 [ %153, %152 ], [ %.sroa.7.034.i, %158 ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.035.i, %152 ], [ %159, %158 ]
+  %.2.i = phi ptr [ %.136.i, %152 ], [ %159, %158 ]
   %.not27.i = icmp eq ptr %.sroa.0.1.i, null
-  br i1 %.not27.i, label %.split41.us.i, label %.split.i, !llvm.loop !10
+  br i1 %.not27.i, label %.critedge.i, label %.split.i, !llvm.loop !10
 
-MaybeRemoveOldWalSummaries.exit:                  ; preds = %.split41.us.i, %HandleWalSummarizerInterrupts.exit, %61
+MaybeRemoveOldWalSummaries.exit:                  ; preds = %.critedge.i, %HandleWalSummarizerInterrupts.exit, %61
   %161 = call zeroext i1 @RecoveryInProgress() #11
   br i1 %161, label %164, label %162
 
@@ -820,8 +820,8 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly captures(ad
 GetLatestLSN.exit:                                ; preds = %36, %50
   %52 = phi i32 [ %.pre, %36 ], [ %51, %50 ]
   %53 = call ptr @readTimeLineHistory(i32 noundef %52) #11
-  %.not.i60 = icmp eq ptr %53, null
-  br i1 %.not.i60, label %list_length.exit, label %54
+  %.not.i59 = icmp eq ptr %53, null
+  br i1 %.not.i59, label %list_length.exit, label %54
 
 54:                                               ; preds = %GetLatestLSN.exit
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -863,42 +863,42 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %.1 = phi i64 [ %71, %.thread ], [ 0, %60 ]
   %73 = call ptr @GetWalSummaries(i32 noundef %.140, i64 noundef 0, i64 noundef 0) #11
   %.not55 = icmp eq ptr %73, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  br i1 %.not55, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph82, label %._crit_edge
+  br i1 %76, label %.lr.ph78, label %.critedge
 
-.lr.ph82:                                         ; preds = %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %78 = load ptr, ptr %77, align 8
   %wide.trip.count = zext nneg i32 %75 to i64
-  br label %80
+  br label %79
 
-._crit_edge:                                      ; preds = %80, %.lr.ph, %.loopexit
-  %.042.lcssa = phi i8 [ 0, %.loopexit ], [ 0, %.lr.ph ], [ %spec.select, %80 ]
-  %.3.lcssa = phi i64 [ %.1, %.loopexit ], [ %.1, %.lr.ph ], [ %spec.select59, %80 ]
-  %79 = icmp eq i32 %.140, 0
-  br i1 %79, label %86, label %91
+79:                                               ; preds = %.lr.ph78, %79
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next83, %79 ]
+  %.0426577 = phi i8 [ 0, %.lr.ph78 ], [ %.143, %79 ]
+  %.36676 = phi i64 [ %.1, %.lr.ph78 ], [ %.4, %79 ]
+  %80 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv82
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp ugt i64 %83, %.36676
+  %.143 = select i1 %84, i8 1, i8 %.0426577
+  %.4 = call i64 @llvm.umax.i64(i64 %83, i64 %.36676)
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %79
 
-80:                                               ; preds = %.lr.ph82, %80
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next88, %80 ]
-  %.0426981 = phi i8 [ 0, %.lr.ph82 ], [ %spec.select, %80 ]
-  %.37080 = phi i64 [ %.1, %.lr.ph82 ], [ %spec.select59, %80 ]
-  %81 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv87
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp ugt i64 %84, %.37080
-  %spec.select = select i1 %85, i8 1, i8 %.0426981
-  %spec.select59 = call i64 @llvm.umax.i64(i64 %84, i64 %.37080)
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %80
+.critedge:                                        ; preds = %79, %.lr.ph, %.loopexit
+  %.042.lcssa = phi i8 [ 0, %.loopexit ], [ 0, %.lr.ph ], [ %.143, %79 ]
+  %.3.lcssa = phi i64 [ %.1, %.loopexit ], [ %.1, %.lr.ph ], [ %.4, %79 ]
+  %85 = icmp eq i32 %.140, 0
+  br i1 %85, label %86, label %91
 
-86:                                               ; preds = %._crit_edge
+86:                                               ; preds = %.critedge
   %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %87)
   %88 = call i32 @errcode(i32 noundef 2600) #11
@@ -907,32 +907,32 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 596, ptr noundef nonnull @__func__.GetOldestUnsummarizedLSN) #11
   unreachable
 
-91:                                               ; preds = %._crit_edge
+91:                                               ; preds = %.critedge
   %92 = load ptr, ptr @MainLWLockArray, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 6272
   %94 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %93, i32 noundef 0) #11
-  %.pre89 = load ptr, ptr @WalSummarizerCtl, align 8
+  %.pre84 = load ptr, ptr @WalSummarizerCtl, align 8
   br i1 %7, label %98, label %95
 
 95:                                               ; preds = %91
-  %96 = load i8, ptr %.pre89, align 8, !range !4, !noundef !5
+  %96 = load i8, ptr %.pre84, align 8, !range !4, !noundef !5
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %103, label %98
 
 98:                                               ; preds = %95, %91
-  store i8 1, ptr %.pre89, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.pre89, i64 8
+  store i8 1, ptr %.pre84, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.pre84, i64 8
   store i64 %.3.lcssa, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.pre89, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
   store i32 %.140, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.pre89, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
   store i8 %.042.lcssa, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.pre89, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.pre84, i64 24
   store i64 %.3.lcssa, ptr %102, align 8
   br label %106
 
 103:                                              ; preds = %95
-  %104 = getelementptr inbounds nuw i8, ptr %.pre89, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.pre84, i64 8
   %105 = load i64, ptr %104, align 8
   br label %106
 
@@ -942,7 +942,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   br i1 %.not57, label %110, label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %.pre89, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %.pre84, i64 4
   %109 = load i32, ptr %108, align 4
   store i32 %109, ptr %0, align 4
   br label %110
@@ -952,7 +952,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   br i1 %.not58, label %114, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds nuw i8, ptr %.pre89, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
   %113 = load i8, ptr %112, align 8, !range !4, !noundef !5
   store i8 %113, ptr %1, align 1
   br label %114

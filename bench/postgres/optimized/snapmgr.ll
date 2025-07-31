@@ -1303,16 +1303,12 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
 .preheader:                                       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
-  %.not1723 = icmp sgt i32 %9, 0
-  br i1 %.not1723, label %.lr.ph, label %._crit_edge
+  %.not1721 = icmp sgt i32 %9, 0
+  br i1 %.not1721, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %11
-
-._crit_edge:                                      ; preds = %22, %.preheader
-  store ptr null, ptr @exportedSnapshots, align 8
-  br label %28
 
 11:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -1323,6 +1319,10 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   %16 = tail call i32 @unlink(ptr noundef %15) #18
   %.not19 = icmp eq i32 %16, 0
   br i1 %.not19, label %22, label %17
+
+.critedge:                                        ; preds = %22, %.preheader
+  store ptr null, ptr @exportedSnapshots, align 8
+  br label %28
 
 17:                                               ; preds = %11
   %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
@@ -1343,9 +1343,9 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   %26 = load i32, ptr %8, align 4
   %27 = sext i32 %26 to i64
   %.not17 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %.not17, label %11, label %._crit_edge, !llvm.loop !9
+  br i1 %.not17, label %11, label %.critedge, !llvm.loop !9
 
-28:                                               ; preds = %._crit_edge, %6
+28:                                               ; preds = %.critedge, %6
   %29 = load ptr, ptr @CatalogSnapshot, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %InvalidateCatalogSnapshot.exit, label %30
@@ -1403,25 +1403,25 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
   br label %55
 
 55:                                               ; preds = %51, %53, %48
-  %.025 = load ptr, ptr @ActiveSnapshot, align 8
-  %.not1826 = icmp eq ptr %.025, null
-  br i1 %.not1826, label %.loopexit, label %.lr.ph29
+  %.023 = load ptr, ptr @ActiveSnapshot, align 8
+  %.not1824 = icmp eq ptr %.023, null
+  br i1 %.not1824, label %.loopexit, label %.lr.ph26
 
-.lr.ph29:                                         ; preds = %55, %59
-  %.027 = phi ptr [ %.0, %59 ], [ %.025, %55 ]
+.lr.ph26:                                         ; preds = %55, %59
+  %.025 = phi ptr [ %.0, %59 ], [ %.023, %55 ]
   %56 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
   br i1 %56, label %57, label %59
 
-57:                                               ; preds = %.lr.ph29
-  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %.027) #18
+57:                                               ; preds = %.lr.ph26
+  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %.025) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1009, ptr noundef nonnull @__func__.AtEOXact_Snapshot) #18
   br label %59
 
-59:                                               ; preds = %.lr.ph29, %57
-  %60 = getelementptr inbounds nuw i8, ptr %.027, i64 16
+59:                                               ; preds = %.lr.ph26, %57
+  %60 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %.0 = load ptr, ptr %60, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph29, !llvm.loop !10
+  br i1 %.not18, label %.loopexit, label %.lr.ph26, !llvm.loop !10
 
 .loopexit:                                        ; preds = %59, %55, %InvalidateCatalogSnapshot.exit
   store ptr null, ptr @ActiveSnapshot, align 8

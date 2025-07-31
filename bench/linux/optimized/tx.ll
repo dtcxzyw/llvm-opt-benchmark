@@ -3752,7 +3752,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %11 [
-    i32 6, label %.thread17
+    i32 6, label %.critedge.thread
     i32 4, label %7
   ]
 
@@ -3771,14 +3771,14 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 32
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.thread17
+  br i1 %19, label %20, label %.critedge.thread
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread17
+  br i1 %24, label %25, label %.critedge.thread
 
 25:                                               ; preds = %20
   %26 = and i32 %17, 16384
@@ -3805,17 +3805,17 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %39 = icmp eq i32 %38, 2
   %40 = icmp ne ptr %2, null
   %41 = and i1 %40, %39
-  br i1 %41, label %44, label %.thread17
+  br i1 %41, label %44, label %.critedge.thread
 
 42:                                               ; preds = %35, %32
   %43 = icmp eq ptr %2, null
-  br i1 %43, label %.thread17, label %44
+  br i1 %43, label %.critedge.thread, label %44
 
 44:                                               ; preds = %42, %37
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %46 = load i8, ptr %45, align 4, !range !6, !noundef !7
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %.thread17, label %48
+  br i1 %47, label %.critedge.thread, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %2, i64 2856
@@ -3829,7 +3829,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %54 = load i8, ptr %53, align 4, !range !6, !noundef !7
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.thread17, label %56
+  br i1 %55, label %.critedge.thread, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 140
@@ -3851,7 +3851,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %68 = getelementptr i8, ptr %66, i64 -232
   %69 = icmp eq ptr %68, null
   %or.cond = or i1 %67, %69
-  br i1 %or.cond, label %.thread17, label %70
+  br i1 %or.cond, label %.critedge.thread, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3878,17 +3878,17 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %87 = lshr i64 %86, 10
   %88 = trunc i64 %87 to i32
   %89 = icmp eq ptr %3, null
-  br i1 %89, label %.thread18, label %.preheader28
+  br i1 %89, label %.critedge2, label %.preheader26
 
-.preheader28:                                     ; preds = %77, %.preheader28
-  %90 = phi ptr [ %91, %.preheader28 ], [ %3, %77 ]
+.preheader26:                                     ; preds = %77, %.preheader26
+  %90 = phi ptr [ %91, %.preheader26 ], [ %3, %77 ]
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 84
   store i32 %88, ptr %92, align 4
   %93 = icmp eq ptr %91, null
-  br i1 %93, label %.thread18, label %.preheader28, !llvm.loop !80
+  br i1 %93, label %.critedge2, label %.preheader26, !llvm.loop !80
 
-.thread18:                                        ; preds = %.preheader28, %77
+.critedge2:                                       ; preds = %.preheader26, %77
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %94) #20
   %95 = getelementptr i8, ptr %66, i64 16
@@ -3896,7 +3896,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %97 = icmp eq i8 %96, 16
   br i1 %97, label %98, label %108, !prof !8
 
-98:                                               ; preds = %.thread18
+98:                                               ; preds = %.critedge2
   %99 = load i32, ptr %21, align 8
   %100 = or i32 %99, 64
   store i32 %100, ptr %21, align 8
@@ -3912,9 +3912,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %106 = load i32, ptr %105, align 8
   %107 = add i32 %106, 1
   store volatile i32 %107, ptr %105, align 8
-  br label %.loopexit27
+  br label %.loopexit25
 
-108:                                              ; preds = %.thread18
+108:                                              ; preds = %.critedge2
   %109 = load ptr, ptr %71, align 8
   %110 = getelementptr %struct.fq_flow, ptr %109, i64 %85
   %111 = load ptr, ptr %110, align 8
@@ -3985,7 +3985,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 
 150:                                              ; preds = %145, %141, %138, %131
   store ptr %68, ptr %125, align 8
-  br i1 %89, label %.thread20, label %151
+  br i1 %89, label %.critedge6, label %151
 
 151:                                              ; preds = %150
   %152 = getelementptr i8, ptr %66, i64 -128
@@ -4031,15 +4031,15 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %180 = add i32 %179, 1
   store volatile i32 %180, ptr %158, align 8
   %181 = icmp eq ptr %161, null
-  br i1 %181, label %.thread20, label %159, !llvm.loop !82
+  br i1 %181, label %.critedge6, label %159, !llvm.loop !82
 
-.thread20:                                        ; preds = %159, %150
+.critedge6:                                       ; preds = %159, %150
   %182 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %183 = load volatile ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, %182
   br i1 %184, label %185, label %192
 
-185:                                              ; preds = %.thread20
+185:                                              ; preds = %.critedge6
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %187 = load i32, ptr %186, align 4
   %188 = getelementptr inbounds nuw i8, ptr %125, i64 52
@@ -4053,7 +4053,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   store volatile ptr %182, ptr %190, align 8
   br label %192
 
-192:                                              ; preds = %185, %.thread20
+192:                                              ; preds = %185, %.critedge6
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %194 = load i32, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -4065,7 +4065,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %201 = load i32, ptr %199, align 8
   %202 = icmp ugt i32 %200, %201
   %203 = select i1 %202, i1 true, i1 %197
-  br i1 %203, label %204, label %.loopexit27
+  br i1 %203, label %204, label %.loopexit25
 
 204:                                              ; preds = %192
   %205 = zext i1 %197 to i8
@@ -4112,7 +4112,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   br i1 %240, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %210
-  %.lcssa29 = phi i32 [ 0, %210 ], [ %231, %.lr.ph ]
+  %.lcssa27 = phi i32 [ 0, %210 ], [ %231, %.lr.ph ]
   %.lcssa = phi ptr [ null, %210 ], [ %232, %.lr.ph ]
   %241 = load ptr, ptr %207, align 8
   %242 = icmp eq ptr %241, %207
@@ -4121,7 +4121,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %243 = phi ptr [ %252, %.preheader ], [ %241, %._crit_edge ]
   %244 = phi ptr [ %251, %.preheader ], [ %.lcssa, %._crit_edge ]
-  %245 = phi i32 [ %250, %.preheader ], [ %.lcssa29, %._crit_edge ]
+  %245 = phi i32 [ %250, %.preheader ], [ %.lcssa27, %._crit_edge ]
   %246 = getelementptr i8, ptr %243, i64 64
   %247 = load i32, ptr %246, align 8
   %248 = icmp ugt i32 %247, %245
@@ -4135,7 +4135,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   %254 = phi ptr [ %.lcssa, %._crit_edge ], [ %251, %.preheader ]
   %255 = icmp eq ptr %254, null
-  br i1 %255, label %.loopexit27, label %256
+  br i1 %255, label %.loopexit25, label %256
 
 256:                                              ; preds = %.loopexit
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 24
@@ -4236,7 +4236,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 
 324:                                              ; preds = %315, %309, %286
   %325 = icmp eq i32 %289, 0
-  br i1 %325, label %.loopexit27, label %326
+  br i1 %325, label %.loopexit25, label %326
 
 326:                                              ; preds = %324
   %327 = load ptr, ptr %254, align 8
@@ -4266,9 +4266,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %344 = icmp ugt i32 %342, %343
   %345 = icmp ne i8 %341, 0
   %346 = select i1 %344, i1 true, i1 %345
-  br i1 %346, label %210, label %.loopexit27, !llvm.loop !86
+  br i1 %346, label %210, label %.loopexit25, !llvm.loop !86
 
-.loopexit27:                                      ; preds = %340, %324, %.loopexit, %192, %98
+.loopexit25:                                      ; preds = %340, %324, %.loopexit, %192, %98
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %94) #20
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %348 = getelementptr i8, ptr %66, i64 17
@@ -4281,7 +4281,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %354 = icmp eq ptr %353, %352
   br i1 %354, label %355, label %397
 
-355:                                              ; preds = %.loopexit27
+355:                                              ; preds = %.loopexit25
   %356 = getelementptr i8, ptr %66, i64 8
   %357 = load ptr, ptr %356, align 8
   %358 = icmp eq ptr %357, null
@@ -4343,7 +4343,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   store i64 %392, ptr %396, align 8
   br label %397
 
-397:                                              ; preds = %391, %384, %.loopexit27
+397:                                              ; preds = %391, %384, %.loopexit25
   %398 = load i8, ptr %348, align 1
   %399 = zext i8 %398 to i64
   %400 = getelementptr [4 x %struct.spinlock], ptr %347, i64 0, i64 %399
@@ -4358,7 +4358,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 406:                                              ; preds = %397
   %407 = getelementptr i8, ptr %66, i64 -8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %407, i32 8, ptr nonnull elementtype(i8) %407) #20, !srcloc !87
-  br label %.thread17
+  br label %.critedge.thread
 
 408:                                              ; preds = %397
   %409 = getelementptr i8, ptr %401, i64 -2800
@@ -4399,7 +4399,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %430 = load i32, ptr %429, align 8
   %431 = and i32 %430, 32
   %432 = icmp eq i32 %431, 0
-  br i1 %432, label %.thread17, label %433
+  br i1 %432, label %.critedge.thread, label %433
 
 433:                                              ; preds = %.thread22
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_wake_tx_queue, i64 8), i32 2) #20
@@ -4447,9 +4447,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 736
   %458 = load ptr, ptr %457, align 8
   tail call void %458(ptr noundef %0, ptr noundef nonnull %66) #20
-  br label %.thread17
+  br label %.critedge.thread
 
-.thread17:                                        ; preds = %37, %42, %44, %65, %52, %11, %20, %454, %.thread22, %406, %4
+.critedge.thread:                                 ; preds = %37, %42, %44, %65, %52, %11, %20, %454, %.thread22, %406, %4
   %459 = phi i1 [ false, %4 ], [ true, %406 ], [ true, %.thread22 ], [ true, %454 ], [ false, %20 ], [ false, %11 ], [ false, %52 ], [ false, %65 ], [ false, %44 ], [ false, %42 ], [ false, %37 ]
   ret i1 %459
 }
@@ -14152,7 +14152,7 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   %8 = tail call fastcc zeroext i1 @ieee80211_queue_skb(ptr noundef %7, ptr noundef %0, ptr noundef %2, ptr noundef %1)
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %9, %8
-  br i1 %or.cond, label %.thread, label %10
+  br i1 %or.cond, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = icmp eq ptr %2, null
@@ -14211,7 +14211,7 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   %43 = phi i8 [ 0, %29 ], [ %14, %37 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   %44 = icmp eq ptr %16, null
-  br i1 %44, label %.split6.us, label %.split.us, !llvm.loop !252
+  br i1 %44, label %.critedge4, label %.split.us, !llvm.loop !252
 
 .split:                                           ; preds = %10
   br i1 %11, label %.split.split.us, label %.split.split
@@ -14235,18 +14235,18 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   %57 = getelementptr [16 x i64], ptr %55, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %60, label %.thread3.us
+  br i1 %59, label %60, label %.thread.us
 
 60:                                               ; preds = %.split.split.us
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 1896
   %62 = getelementptr [16 x %struct.sk_buff_head], ptr %61, i64 0, i64 %56
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %62
-  br i1 %64, label %66, label %.thread3.us
+  br i1 %64, label %66, label %.thread.us
 
-.thread3.us:                                      ; preds = %60, %.split.split.us
-  %.pn9 = getelementptr inbounds nuw i8, ptr %48, i64 1896
-  %65 = getelementptr [16 x %struct.sk_buff_head], ptr %.pn9, i64 0, i64 %56
+.thread.us:                                       ; preds = %60, %.split.split.us
+  %.pn7 = getelementptr inbounds nuw i8, ptr %48, i64 1896
+  %65 = getelementptr [16 x %struct.sk_buff_head], ptr %.pn7, i64 0, i64 %56
   call void @skb_queue_tail(ptr noundef %65, ptr noundef nonnull %46) #20
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %53, i64 noundef %54) #20
   br label %70
@@ -14260,11 +14260,11 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   call void %69(ptr noundef %48, ptr noundef nonnull %5, ptr noundef nonnull %46) #20
   br label %70
 
-70:                                               ; preds = %66, %.thread3.us
-  %71 = phi i8 [ 0, %.thread3.us ], [ %45, %66 ]
+70:                                               ; preds = %66, %.thread.us
+  %71 = phi i8 [ 0, %.thread.us ], [ %45, %66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   %72 = icmp eq ptr %47, null
-  br i1 %72, label %.split6.us, label %.split.split.us, !llvm.loop !253
+  br i1 %72, label %.critedge4, label %.split.split.us, !llvm.loop !253
 
 .split.split:                                     ; preds = %.split, %101
   %73 = phi i8 [ %102, %101 ], [ 1, %.split ]
@@ -14285,16 +14285,16 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   %85 = getelementptr [16 x i64], ptr %83, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.thread3
+  br i1 %87, label %88, label %.thread
 
 88:                                               ; preds = %.split.split
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 1896
   %90 = getelementptr [16 x %struct.sk_buff_head], ptr %89, i64 0, i64 %84
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %90
-  br i1 %92, label %94, label %.thread3
+  br i1 %92, label %94, label %.thread
 
-.thread3:                                         ; preds = %.split.split, %88
+.thread:                                          ; preds = %.split.split, %88
   %.pn = getelementptr inbounds nuw i8, ptr %76, i64 1896
   %93 = getelementptr [16 x %struct.sk_buff_head], ptr %.pn, i64 0, i64 %84
   call void @skb_queue_tail(ptr noundef %93, ptr noundef nonnull %74) #20
@@ -14313,19 +14313,19 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr noundef readonly captur
   call void %100(ptr noundef %76, ptr noundef nonnull %5, ptr noundef nonnull %74) #20
   br label %101
 
-101:                                              ; preds = %94, %.thread3
-  %102 = phi i8 [ 0, %.thread3 ], [ %73, %94 ]
+101:                                              ; preds = %94, %.thread
+  %102 = phi i8 [ 0, %.thread ], [ %73, %94 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   %103 = icmp eq ptr %75, null
-  br i1 %103, label %.split6.us, label %.split.split, !llvm.loop !254
+  br i1 %103, label %.critedge4, label %.split.split, !llvm.loop !254
 
-.split6.us:                                       ; preds = %101, %70, %42
+.critedge4:                                       ; preds = %101, %70, %42
   %.us-phi = phi i8 [ %43, %42 ], [ %71, %70 ], [ %102, %101 ]
   %104 = icmp ne i8 %.us-phi, 0
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.split6.us, %4
-  %105 = phi i1 [ true, %4 ], [ %104, %.split6.us ]
+.critedge:                                        ; preds = %.critedge4, %4
+  %105 = phi i1 [ true, %4 ], [ %104, %.critedge4 ]
   ret i1 %105
 }
 

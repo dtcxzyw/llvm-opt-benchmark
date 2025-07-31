@@ -2874,9 +2874,9 @@ BufferGetPage.exit98.i:                           ; preds = %330, %324
   %343 = lshr i32 %.0125.i, 16
   %344 = trunc nuw i32 %343 to i16
   %345 = trunc i32 %.0125.i to i16
-  %.sink170.i = select i1 %.not84.i, i16 -1, i16 %344
+  %.sink169.i = select i1 %.not84.i, i16 -1, i16 %344
   %.sink.i = select i1 %.not84.i, i16 -1, i16 %345
-  store i16 %.sink170.i, ptr %6, align 2
+  store i16 %.sink169.i, ptr %6, align 2
   store i16 %.sink.i, ptr %11, align 2
   store i16 8200, ptr %10, align 2
   store i16 0, ptr %12, align 2

@@ -59,36 +59,36 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !7
   %21 = icmp eq ptr %19, null
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %72, label %22
 
 22:                                               ; preds = %17
   %23 = load i64, ptr %3, align 8, !tbaa !3
   %24 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %23) #9
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %72, label %26
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %4, align 8, !tbaa !3
   %28 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %27) #9
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread, label %30
+  br i1 %29, label %72, label %30
 
 30:                                               ; preds = %26
   %31 = call i32 @psa_crypto_driver_pake_get_password(ptr noundef %1, ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull %8) #8
   %.not78 = icmp eq i32 %31, 0
-  br i1 %.not78, label %32, label %.thread
+  br i1 %.not78, label %32, label %72
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %3, align 8, !tbaa !3
   %34 = call i32 @psa_crypto_driver_pake_get_user(ptr noundef %1, ptr noundef nonnull %24, i64 noundef %33, ptr noundef nonnull %6) #8
   %.not79 = icmp eq i32 %34, 0
-  br i1 %.not79, label %35, label %.thread
+  br i1 %.not79, label %35, label %72
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %4, align 8, !tbaa !3
   %37 = call i32 @psa_crypto_driver_pake_get_peer(ptr noundef %1, ptr noundef nonnull %28, i64 noundef %36, ptr noundef nonnull %7) #8
   %.not80 = icmp eq i32 %37, 0
-  br i1 %.not80, label %38, label %.thread
+  br i1 %.not80, label %38, label %72
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %8, align 8, !tbaa !3
@@ -97,7 +97,7 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   %41 = load i32, ptr %9, align 8, !tbaa !13
   store i32 %41, ptr %0, align 8, !tbaa !16
   %42 = icmp eq i32 %41, 167772416
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %72
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -114,7 +114,7 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   %53 = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %54 = icmp ne i32 %53, 33554441
   %or.cond10 = select i1 %or.cond7, i1 true, i1 %54
-  br i1 %or.cond10, label %.thread, label %55
+  br i1 %or.cond10, label %72, label %55
 
 55:                                               ; preds = %43
   %56 = load i64, ptr %6, align 8, !tbaa !3
@@ -122,7 +122,7 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   %58 = load i64, ptr %7, align 8
   %59 = icmp ne i64 %58, 6
   %or.cond12 = select i1 %57, i1 true, i1 %59
-  br i1 %or.cond12, label %.thread, label %60
+  br i1 %or.cond12, label %72, label %60
 
 60:                                               ; preds = %55
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %24, ptr noundef nonnull dereferenceable(6) @jpake_client_id, i64 6)
@@ -137,12 +137,12 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
 64:                                               ; preds = %62, %60
   %bcmp82 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %24, ptr noundef nonnull dereferenceable(6) @jpake_server_id, i64 6)
   %65 = icmp eq i32 %bcmp82, 0
-  br i1 %65, label %66, label %.thread
+  br i1 %65, label %66, label %72
 
 66:                                               ; preds = %64
   %bcmp83 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %28, ptr noundef nonnull dereferenceable(6) @jpake_client_id, i64 6)
   %67 = icmp eq i32 %bcmp83, 0
-  br i1 %67, label %68, label %.thread
+  br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66, %62
   %.sink = phi i32 [ 0, %62 ], [ 1, %66 ]
@@ -152,24 +152,24 @@ define hidden i32 @mbedtls_psa_pake_setup(ptr noundef %0, ptr noundef %1) local_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   %71 = call fastcc i32 @psa_pake_ecjpake_setup(ptr noundef nonnull %0)
   %.not84 = icmp eq i32 %71, 0
-  br i1 %.not84, label %72, label %.thread
+  br i1 %.not84, label %.critedge, label %72
 
-72:                                               ; preds = %68
+.critedge:                                        ; preds = %68
   call void @free(ptr noundef nonnull %24) #8
   call void @free(ptr noundef nonnull %28) #8
   br label %74
 
-.thread:                                          ; preds = %68, %64, %66, %55, %38, %43, %26, %22, %17, %35, %32, %30
-  %.060 = phi ptr [ %24, %30 ], [ %24, %32 ], [ %24, %35 ], [ null, %17 ], [ null, %22 ], [ %24, %26 ], [ %24, %43 ], [ %24, %38 ], [ %24, %55 ], [ %24, %66 ], [ %24, %64 ], [ %24, %68 ]
-  %.059 = phi ptr [ %28, %30 ], [ %28, %32 ], [ %28, %35 ], [ null, %17 ], [ null, %22 ], [ null, %26 ], [ %28, %43 ], [ %28, %38 ], [ %28, %55 ], [ %28, %66 ], [ %28, %64 ], [ %28, %68 ]
-  %.057 = phi i32 [ %31, %30 ], [ %34, %32 ], [ %37, %35 ], [ -141, %17 ], [ -141, %22 ], [ -141, %26 ], [ -134, %43 ], [ -134, %38 ], [ -134, %55 ], [ -134, %66 ], [ -134, %64 ], [ %71, %68 ]
+72:                                               ; preds = %38, %55, %66, %64, %68, %43, %26, %22, %17, %35, %32, %30
+  %.060 = phi ptr [ %24, %30 ], [ %24, %32 ], [ %24, %35 ], [ null, %17 ], [ null, %22 ], [ %24, %26 ], [ %24, %43 ], [ %24, %68 ], [ %24, %64 ], [ %24, %66 ], [ %24, %55 ], [ %24, %38 ]
+  %.059 = phi ptr [ %28, %30 ], [ %28, %32 ], [ %28, %35 ], [ null, %17 ], [ null, %22 ], [ null, %26 ], [ %28, %43 ], [ %28, %68 ], [ %28, %64 ], [ %28, %66 ], [ %28, %55 ], [ %28, %38 ]
+  %.057 = phi i32 [ %31, %30 ], [ %34, %32 ], [ %37, %35 ], [ -141, %17 ], [ -141, %22 ], [ -141, %26 ], [ -134, %43 ], [ %71, %68 ], [ -134, %64 ], [ -134, %66 ], [ -134, %55 ], [ -134, %38 ]
   call void @free(ptr noundef %.060) #8
   call void @free(ptr noundef %.059) #8
   %73 = call i32 @mbedtls_psa_pake_abort(ptr noundef nonnull %0)
   br label %74
 
-74:                                               ; preds = %72, %15, %13, %11, %2, %.thread
-  %.0 = phi i32 [ %.057, %.thread ], [ 0, %72 ], [ %10, %2 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
+74:                                               ; preds = %.critedge, %15, %13, %11, %2, %72
+  %.0 = phi i32 [ %.057, %72 ], [ %10, %2 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8

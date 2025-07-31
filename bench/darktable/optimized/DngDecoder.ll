@@ -801,8 +801,8 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %2, %_ZNKSt8_
   %45 = icmp sgt i32 %44, 0
   %46 = load i32, ptr %3, align 4
   %47 = icmp sgt i32 %46, 0
-  %or.cond49 = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond49, label %.preheader, label %._crit_edge32
+  %or.cond46 = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond46, label %.preheader, label %._crit_edge32
 
 .preheader:                                       ; preds = %40, %._crit_edge
   %48 = phi i32 [ %55, %._crit_edge ], [ %44, %40 ]
@@ -822,61 +822,61 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %2, %_ZNKSt8_
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i8, ptr %52, align 4, !tbaa !141, !range !145, !noundef !51
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %72, label %82
+  br i1 %54, label %71, label %81
 
-._crit_edge.loopexit:                             ; preds = %66
+._crit_edge.loopexit:                             ; preds = %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit
   %.pre39 = load i32, ptr %31, align 4, !tbaa !144
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %55 = phi i32 [ %.pre39, %._crit_edge.loopexit ], [ %48, %.preheader ]
-  %56 = phi i32 [ %69, %._crit_edge.loopexit ], [ %49, %.preheader ]
+  %56 = phi i32 [ %68, %._crit_edge.loopexit ], [ %49, %.preheader ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %57 = sext i32 %55 to i64
   %58 = icmp slt i64 %indvars.iv.next37, %57
   br i1 %58, label %.preheader, label %._crit_edge32, !llvm.loop !146
 
-59:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %60 = phi i32 [ %49, %.lr.ph ], [ %69, %66 ]
+59:                                               ; preds = %.lr.ph, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit ]
+  %60 = phi i32 [ %49, %.lr.ph ], [ %68, %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit ]
   %61 = mul nsw i32 %60, %51
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = add nsw i32 %61, %62
   %64 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %63)
   %switch = icmp ult i8 %64, 7
-  br i1 %switch, label %66, label %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit
+  br i1 %switch, label %_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit, label %.critedge
 
-_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit: ; preds = %59
+.critedge:                                        ; preds = %59
   %65 = zext i8 %64 to i32
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10DngDecoder8parseCFAEPKNS_7TiffIFDE, i32 noundef %65) #23
   unreachable
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %41, align 8, !tbaa !73
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
+_ZN8rawspeed12_GLOBAL__N_126getDNGCFAPatternAsCFAColorEj.exit: ; preds = %59
+  %66 = load ptr, ptr %41, align 8, !tbaa !73
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
-  call void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr noundef nonnull align 8 dereferenceable(32) %68, i64 %.sroa.0.0.insert.insert, i8 noundef zeroext %64)
+  call void @_ZN8rawspeed16ColorFilterArray10setColorAtENS_8iPoint2DENS_8CFAColorE(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 %.sroa.0.0.insert.insert, i8 noundef zeroext %64)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = load i32, ptr %3, align 4, !tbaa !143
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %59, label %._crit_edge.loopexit, !llvm.loop !148
+  %68 = load i32, ptr %3, align 4, !tbaa !143
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %59, label %._crit_edge.loopexit, !llvm.loop !148
 
-72:                                               ; preds = %._crit_edge32
-  %73 = load ptr, ptr %41, align 8, !tbaa !73
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  %75 = load i32, ptr %4, align 4, !tbaa !149
-  %76 = sub nsw i32 0, %75
-  call void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(32) %74, i32 noundef %76)
-  %77 = load ptr, ptr %41, align 8, !tbaa !73
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !151
-  %81 = sub nsw i32 0, %80
-  call void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef %81)
-  br label %82
+71:                                               ; preds = %._crit_edge32
+  %72 = load ptr, ptr %41, align 8, !tbaa !73
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
+  %74 = load i32, ptr %4, align 4, !tbaa !149
+  %75 = sub nsw i32 0, %74
+  call void @_ZN8rawspeed16ColorFilterArray10shiftRightEi(ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef %75)
+  %76 = load ptr, ptr %41, align 8, !tbaa !73
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %79 = load i32, ptr %78, align 4, !tbaa !151
+  %80 = sub nsw i32 0, %79
+  call void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef %80)
+  br label %81
 
-82:                                               ; preds = %._crit_edge32, %72
+81:                                               ; preds = %._crit_edge32, %71
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
   ret void

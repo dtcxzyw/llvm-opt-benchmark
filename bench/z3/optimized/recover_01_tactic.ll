@@ -2287,10 +2287,10 @@ _ZN4goal3addEP15model_converter.exit:             ; preds = %171, %164, %166
   %.sroa.0.1.i.i = phi ptr [ %182, %179 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %186, %188 ]
   %190 = getelementptr inbounds nuw %"class.obj_map<func_decl, ptr_vector<app>>::obj_map_entry", ptr %182, i64 %185
   %.not157186 = icmp eq ptr %.sroa.0.1.i.i, %190
-  br i1 %.not157186, label %._crit_edge.thread, label %.lr.ph190
+  br i1 %.not157186, label %.critedge, label %.lr.ph190
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
-  br i1 %.158, label %246, label %._crit_edge.thread
+  br i1 %.158, label %246, label %.critedge
 
 191:                                              ; preds = %177
   %192 = landingpad { ptr, i32 }
@@ -2372,19 +2372,19 @@ _ZN14core_hashtableIN7obj_mapI9func_decl10ptr_vectorI3appEE13obj_map_entryE8obj_
   %.not157 = icmp eq ptr %.sroa.0154.2, %190
   br i1 %.not157, label %._crit_edge, label %.lr.ph190
 
-._crit_edge.thread:                               ; preds = %.loopexit158, %._crit_edge
+.critedge:                                        ; preds = %.loopexit158, %._crit_edge
   %218 = load ptr, ptr %1, align 8, !tbaa !40
   %.not.i.i.i94 = icmp eq ptr %218, null
   br i1 %.not.i.i.i94, label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i95, label %219
 
-219:                                              ; preds = %._crit_edge.thread
+219:                                              ; preds = %.critedge
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %221 = load i32, ptr %220, align 8, !tbaa !56
   %222 = add i32 %221, 1
   store i32 %222, ptr %220, align 8, !tbaa !56
   br label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i95
 
-_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i95: ; preds = %219, %._crit_edge.thread
+_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i95: ; preds = %219, %.critedge
   %223 = load i32, ptr %16, align 8, !tbaa !89
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %225 = load i32, ptr %224, align 4, !tbaa !98

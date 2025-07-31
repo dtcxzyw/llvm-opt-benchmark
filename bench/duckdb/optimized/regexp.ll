@@ -4596,45 +4596,48 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29CharClass6NegateEv(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK10duckdb_re29CharClass8ContainsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !65
-  br label %.outer
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !65
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph.preheader, label %.critedge
 
-.outer:                                           ; preds = %16, %2
-  %.019.ph = phi ptr [ %19, %16 ], [ %4, %2 ]
-  %.016.ph = phi i32 [ %20, %16 ], [ %6, %2 ]
-  br label %7
+.lr.ph.preheader:                                 ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  br label %.lr.ph
 
-7:                                                ; preds = %.outer, %21
-  %.016 = phi i32 [ %10, %21 ], [ %.016.ph, %.outer ]
-  %8 = icmp sgt i32 %.016, 0
-  br i1 %8, label %9, label %24
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
+  %.01624 = phi i32 [ %.218, %22 ], [ %4, %.lr.ph.preheader ]
+  %.01923 = phi ptr [ %.221, %22 ], [ %7, %.lr.ph.preheader ]
+  %8 = lshr i32 %.01624, 1
+  %9 = zext nneg i32 %8 to i64
+  %10 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %.01923, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !126
+  %13 = icmp slt i32 %12, %1
+  br i1 %13, label %14, label %19
 
-9:                                                ; preds = %7
-  %10 = lshr i32 %.016, 1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %.019.ph, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !126
-  %15 = icmp slt i32 %14, %1
-  br i1 %15, label %16, label %21
+14:                                               ; preds = %.lr.ph
+  %15 = add nuw nsw i32 %8, 1
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %.01923, i64 %16
+  %18 = sub nsw i32 %.01624, %15
+  br label %22
 
-16:                                               ; preds = %9
-  %17 = add nuw nsw i32 %10, 1
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %.019.ph, i64 %18
-  %20 = sub nsw i32 %.016, %17
-  br label %.outer, !llvm.loop !150
+19:                                               ; preds = %.lr.ph
+  %20 = load i32, ptr %10, align 4, !tbaa !129
+  %21 = icmp slt i32 %1, %20
+  br i1 %21, label %22, label %.critedge
 
-21:                                               ; preds = %9
-  %22 = load i32, ptr %12, align 4, !tbaa !129
-  %23 = icmp slt i32 %1, %22
-  br i1 %23, label %7, label %24, !llvm.loop !150
+22:                                               ; preds = %19, %14
+  %.221 = phi ptr [ %17, %14 ], [ %.01923, %19 ]
+  %.218 = phi i32 [ %18, %14 ], [ %8, %19 ]
+  %23 = icmp sgt i32 %.218, 0
+  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !150
 
-24:                                               ; preds = %7, %21
-  ret i1 %8
+.critedge:                                        ; preds = %22, %19, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %19 ], [ false, %22 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -25433,7 +25433,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha6808dec5e66349fE.exit: ; preds = %462
   %497 = invoke { i64, ptr } @_ZN6syntax3ast9generated5nodes15RecordExprField4expr17h3e12dfd3ebe5e485E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
           to label %505 unwind label %498, !noalias !5527
 
-498:                                              ; preds = %523, %496
+498:                                              ; preds = %517, %496
   %499 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !5528)
@@ -25459,7 +25459,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha6808dec5e66349fE.exit: ; preds = %462
   %510 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %508, ptr %510, align 8, !noalias !5521
   %511 = icmp eq i8 %.sroa.05.0.copyload.i, 1
-  br i1 %511, label %517, label %523
+  br i1 %511, label %518, label %517
 
 512:                                              ; preds = %505
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !5521
@@ -25470,29 +25470,29 @@ _ZN4core3ops8function6FnOnce9call_once17ha6808dec5e66349fE.exit: ; preds = %462
   %516 = icmp eq i32 %515, 0
   br i1 %516, label %.invoke769, label %_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i.sink.split
 
-517:                                              ; preds = %509
-  %518 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.46.0.copyload.i
-  %519 = icmp eq i32 %.sroa.2.0.copyload.i, %.sroa.5.0.copyload.i
-  %spec.select.i.i.i = select i1 %518, i1 %519, i1 false
-  %520 = icmp eq i32 %.sroa.3.0.copyload.i, %.sroa.6.0.copyload.i
-  %.020.i.i = select i1 %spec.select.i.i.i, i1 %520, i1 false
-  br i1 %.020.i.i, label %.critedge.i.i, label %523
+517:                                              ; preds = %518, %509
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.15125219604780613101"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+          to label %524 unwind label %498, !noalias !5527
 
-521:                                              ; preds = %531
-  %522 = landingpad { ptr, i32 }
+518:                                              ; preds = %509
+  %519 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.46.0.copyload.i
+  %520 = icmp eq i32 %.sroa.2.0.copyload.i, %.sroa.5.0.copyload.i
+  %spec.select.i.i.i = select i1 %519, i1 %520, i1 false
+  %521 = icmp eq i32 %.sroa.3.0.copyload.i, %.sroa.6.0.copyload.i
+  %.020.i.i = select i1 %spec.select.i.i.i, i1 %521, i1 false
+  br i1 %.020.i.i, label %.critedge.critedge.i.i, label %517
+
+.critedge.critedge.i.i:                           ; preds = %518
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !5521
+  br label %_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i.sink.split
+
+522:                                              ; preds = %531
+  %523 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41, !noalias !5527
   unreachable
 
-523:                                              ; preds = %517, %509
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.15125219604780613101"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %524 unwind label %498, !noalias !5527
-
-.critedge.i.i:                                    ; preds = %517
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !5521
-  br label %_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i.sink.split
-
-524:                                              ; preds = %523
+524:                                              ; preds = %517
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !5521
   call void @llvm.experimental.noalias.scope.decl(metadata !5551)
   call void @llvm.experimental.noalias.scope.decl(metadata !5554)
@@ -25513,7 +25513,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha6808dec5e66349fE.exit: ; preds = %462
 
 531:                                              ; preds = %498
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %500)
-          to label %.body.i278 unwind label %521, !noalias !5527
+          to label %.body.i278 unwind label %522, !noalias !5527
 
 532:                                              ; preds = %.invoke769, %493, %490
   %533 = landingpad { ptr, i32 }
@@ -25526,9 +25526,9 @@ _ZN4core3ops8function6FnOnce9call_once17ha6808dec5e66349fE.exit: ; preds = %462
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hd1776b932bd6974cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %534)
           to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h94fd77b8b0eeeff8E.exit387" unwind label %539, !noalias !5565
 
-_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i.sink.split: ; preds = %.invoke769, %512, %.noexc1.i, %.critedge.i.i, %524
-  %.ph = phi ptr [ undef, %524 ], [ %508, %.critedge.i.i ], [ undef, %.noexc1.i ], [ undef, %512 ], [ undef, %.invoke769 ]
-  %.ph701 = phi i64 [ 36, %524 ], [ %506, %.critedge.i.i ], [ 36, %.noexc1.i ], [ 36, %512 ], [ 36, %.invoke769 ]
+_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i.sink.split: ; preds = %.invoke769, %512, %.noexc1.i, %.critedge.critedge.i.i, %524
+  %.ph = phi ptr [ undef, %524 ], [ %508, %.critedge.critedge.i.i ], [ undef, %.noexc1.i ], [ undef, %512 ], [ undef, %.invoke769 ]
+  %.ph701 = phi i64 [ 36, %524 ], [ %506, %.critedge.critedge.i.i ], [ 36, %.noexc1.i ], [ 36, %512 ], [ 36, %.invoke769 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !5521
   br label %_ZN11ide_assists8handlers12bool_to_enum22find_record_expr_usage17hb9fcd05f16bd61baE.exit.i
 

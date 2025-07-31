@@ -5305,14 +5305,14 @@ mxf_match_uid.exit:                               ; preds = %41
   br i1 %67, label %68, label %mxf_decrypt_triplet.exit.thread
 
 68:                                               ; preds = %65
-  %.not2426.i.i = icmp eq i32 %66, 0
-  br i1 %.not2426.i.i, label %klv_decode_ber_length.exit.i, label %.lr.ph.i.i
+  %.not2425.i.i = icmp eq i32 %66, 0
+  br i1 %.not2425.i.i, label %klv_decode_ber_length.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %68, %.lr.ph.i.i
-  %.01528.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %66, %68 ]
-  %.127.i.i = phi i64 [ %73, %.lr.ph.i.i ], [ 0, %68 ]
-  %69 = add nsw i32 %.01528.i.i, -1
-  %70 = shl i64 %.127.i.i, 8
+  %.01527.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %66, %68 ]
+  %.126.i.i = phi i64 [ %73, %.lr.ph.i.i ], [ 0, %68 ]
+  %69 = add nsw i32 %.01527.i.i, -1
+  %70 = shl i64 %.126.i.i, 8
   %71 = call i32 @avio_r8(ptr noundef %43) #15
   %72 = sext i32 %71 to i64
   %73 = or i64 %70, %72
@@ -5340,8 +5340,8 @@ klv_decode_ber_length.exit.i:                     ; preds = %.loopexit.i.i, %68
   br i1 %or.cond.i, label %klv_decode_ber_length.exit99.i, label %.lr.ph.i91.i
 
 .lr.ph.i91.i:                                     ; preds = %78, %.lr.ph.i91.i
-  %.01528.i92.i = phi i32 [ %81, %.lr.ph.i91.i ], [ %79, %78 ]
-  %81 = add nsw i32 %.01528.i92.i, -1
+  %.01527.i92.i = phi i32 [ %81, %.lr.ph.i91.i ], [ %79, %78 ]
+  %81 = add nsw i32 %.01527.i92.i, -1
   %82 = call i32 @avio_r8(ptr noundef %43) #15
   %.not24.i94.i = icmp eq i32 %81, 0
   br i1 %.not24.i94.i, label %klv_decode_ber_length.exit99.i, label %.lr.ph.i91.i, !llvm.loop !285
@@ -5360,8 +5360,8 @@ klv_decode_ber_length.exit99.i:                   ; preds = %.lr.ph.i91.i, %78, 
   br i1 %or.cond148.i, label %klv_decode_ber_length.exit111.i, label %.lr.ph.i103.i
 
 .lr.ph.i103.i:                                    ; preds = %86, %.lr.ph.i103.i
-  %.01528.i104.i = phi i32 [ %89, %.lr.ph.i103.i ], [ %87, %86 ]
-  %89 = add nsw i32 %.01528.i104.i, -1
+  %.01527.i104.i = phi i32 [ %89, %.lr.ph.i103.i ], [ %87, %86 ]
+  %89 = add nsw i32 %.01527.i104.i, -1
   %90 = call i32 @avio_r8(ptr noundef %43) #15
   %.not24.i106.i = icmp eq i32 %89, 0
   br i1 %.not24.i106.i, label %klv_decode_ber_length.exit111.i, label %.lr.ph.i103.i, !llvm.loop !285
@@ -5507,8 +5507,8 @@ mxf_get_stream_index.exit.i:                      ; preds = %.loopexit.loopexit3
   br i1 %or.cond149.i, label %klv_decode_ber_length.exit130.i, label %.lr.ph.i122.i
 
 .lr.ph.i122.i:                                    ; preds = %145, %.lr.ph.i122.i
-  %.01528.i123.i = phi i32 [ %148, %.lr.ph.i122.i ], [ %146, %145 ]
-  %148 = add nsw i32 %.01528.i123.i, -1
+  %.01527.i123.i = phi i32 [ %148, %.lr.ph.i122.i ], [ %146, %145 ]
+  %148 = add nsw i32 %.01527.i123.i, -1
   %149 = call i32 @avio_r8(ptr noundef %43) #15
   %.not24.i125.i = icmp eq i32 %148, 0
   br i1 %.not24.i125.i, label %klv_decode_ber_length.exit130.i, label %.lr.ph.i122.i, !llvm.loop !285
@@ -5532,10 +5532,10 @@ klv_decode_ber_length.exit130.i:                  ; preds = %.lr.ph.i122.i, %145
   br i1 %or.cond150.i, label %mxf_decrypt_triplet.exit.thread, label %.lr.ph.i134.i
 
 .lr.ph.i134.i:                                    ; preds = %156, %.lr.ph.i134.i
-  %.01528.i135.i = phi i32 [ %159, %.lr.ph.i134.i ], [ %157, %156 ]
-  %.127.i136.i = phi i64 [ %163, %.lr.ph.i134.i ], [ 0, %156 ]
-  %159 = add nsw i32 %.01528.i135.i, -1
-  %160 = shl i64 %.127.i136.i, 8
+  %.01527.i135.i = phi i32 [ %159, %.lr.ph.i134.i ], [ %157, %156 ]
+  %.126.i136.i = phi i64 [ %163, %.lr.ph.i134.i ], [ 0, %156 ]
+  %159 = add nsw i32 %.01527.i135.i, -1
+  %160 = shl i64 %.126.i136.i, 8
   %161 = call i32 @avio_r8(ptr noundef %43) #15
   %162 = sext i32 %161 to i64
   %163 = or i64 %160, %162
@@ -7005,14 +7005,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @klv_read_packet(ptr nounde
 
 28:                                               ; preds = %25
   %29 = add nuw nsw i32 %26, 1
-  %.not2426.i = icmp eq i32 %26, 0
-  br i1 %.not2426.i, label %klv_decode_ber_length.exit, label %.lr.ph.i
+  %.not2425.i = icmp eq i32 %26, 0
+  br i1 %.not2425.i, label %klv_decode_ber_length.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
-  %.01528.i = phi i32 [ %30, %.lr.ph.i ], [ %26, %28 ]
-  %.127.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %28 ]
-  %30 = add nsw i32 %.01528.i, -1
-  %31 = shl i64 %.127.i, 8
+  %.01527.i = phi i32 [ %30, %.lr.ph.i ], [ %26, %28 ]
+  %.126.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %28 ]
+  %30 = add nsw i32 %.01527.i, -1
+  %31 = shl i64 %.126.i, 8
   %32 = tail call i32 @avio_r8(ptr noundef %2) #15
   %33 = sext i32 %32 to i64
   %34 = or i64 %31, %33

@@ -2734,7 +2734,7 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit6, label %.preheader5
+  br i1 %27, label %.critedge, label %.preheader5
 
 .preheader5:                                      ; preds = %24, %65
   %28 = phi ptr [ %34, %65 ], [ %26, %24 ]
@@ -2745,7 +2745,7 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt i64 %32, %4
-  br i1 %35, label %.loopexit6, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %.preheader5
   %37 = icmp ult i64 %29, %1
@@ -2801,7 +2801,7 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   tail call void @wake_up_bit(ptr noundef %28, i32 noundef 2) #13
   br label %65
 
-65:                                               ; preds = %.loopexit, %36
+65:                                               ; preds = %36, %.loopexit
   %66 = icmp eq ptr %34, %26
   br i1 %66, label %67, label %.preheader5, !llvm.loop !114
 
@@ -2821,13 +2821,13 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   %76 = phi i64 [ %74, %71 ], [ 0, %67 ]
   %77 = shl i64 4096, %76
   %78 = icmp eq i64 %77, %2
-  br i1 %78, label %79, label %.loopexit6
+  br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %75
   %80 = tail call zeroext i1 @filemap_release_folio(ptr noundef %0, i32 noundef 0) #13
-  br label %.loopexit6
+  br label %.critedge
 
-.loopexit6:                                       ; preds = %.preheader5, %79, %75, %24
+.critedge:                                        ; preds = %.preheader5, %79, %75, %24
   ret void
 }
 

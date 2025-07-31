@@ -2196,27 +2196,27 @@ define dso_local void @_ZNK4Luau5Scope10lookupTypeERKNSt7__cxx1112basic_stringIc
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   %6 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau7TypeFunEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %.sink.split
+  br i1 %.not, label %7, label %.critedge.sink.split
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 200
   %9 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4Luau7TypeFunEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not17 = icmp eq ptr %9, null
-  br i1 %.not17, label %10, label %.sink.split
+  %.not15 = icmp eq ptr %9, null
+  br i1 %.not15, label %10, label %.critedge.sink.split
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %.0, align 8, !tbaa !94
-  %.not18 = icmp eq ptr %11, null
-  br i1 %.not18, label %.loopexit, label %4, !llvm.loop !131
+  %.not16 = icmp eq ptr %11, null
+  br i1 %.not16, label %.critedge, label %4, !llvm.loop !131
 
-.sink.split:                                      ; preds = %7, %4
-  %.lcssa.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.lcssa.sink, i64 40
+.critedge.sink.split:                             ; preds = %7, %4
+  %.lcssa27.sink = phi ptr [ %6, %4 ], [ %9, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.lcssa27.sink, i64 40
   tail call void @_ZN4Luau7TypeFunC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %12)
-  br label %.loopexit
+  br label %.critedge
 
-.loopexit:                                        ; preds = %10, %.sink.split
-  %.sink = phi i8 [ 1, %.sink.split ], [ 0, %10 ]
+.critedge:                                        ; preds = %10, %.critedge.sink.split
+  %.sink = phi i8 [ 1, %.critedge.sink.split ], [ 0, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.sink, ptr %13, align 8, !tbaa !132
   ret void
@@ -2270,18 +2270,18 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope10lookupPackERKNSt7__cxx1112basic_s
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !135
-  br label %.loopexit
+  br label %.critedge
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %.06, align 8, !tbaa !94
-  %.not16 = icmp eq ptr %10, null
-  br i1 %.not16, label %.loopexit, label %3, !llvm.loop !136
+  %.not10 = icmp eq ptr %10, null
+  br i1 %.not10, label %.critedge, label %3, !llvm.loop !136
 
-.loopexit:                                        ; preds = %9, %6
-  %.sroa.09.1.ph = phi ptr [ %8, %6 ], [ undef, %9 ]
-  %.sroa.2.1.ph = phi i8 [ 1, %6 ], [ 0, %9 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.09.1.ph, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.1.ph, 1
+.critedge:                                        ; preds = %9, %6
+  %.sroa.09.0 = phi ptr [ %8, %6 ], [ undef, %9 ]
+  %.sroa.2.0 = phi i8 [ 1, %6 ], [ 0, %9 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.09.0, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

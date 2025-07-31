@@ -11941,11 +11941,11 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
   br label %54
 
 54:                                               ; preds = %.lr.ph, %80
-  %.pre53 = phi i32 [ %.pr, %.lr.ph ], [ %.pre54, %80 ]
+  %.pre50 = phi i32 [ %.pr, %.lr.ph ], [ %.pre51, %80 ]
   %55 = phi i32 [ %.pr, %.lr.ph ], [ %81, %80 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %.02547 = phi i32 [ 0, %.lr.ph ], [ %.126.ph, %80 ]
-  %.sroa.034.046 = phi i32 [ -2, %.lr.ph ], [ %.sroa.034.1.ph, %80 ]
+  %.02544 = phi i32 [ 0, %.lr.ph ], [ %.126, %80 ]
+  %.sroa.036.043 = phi i32 [ -2, %.lr.ph ], [ %.sroa.036.1, %80 ]
   %56 = getelementptr inbounds nuw %"class.sat::literal", ptr %2, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !3
   %58 = lshr i32 %57, 1
@@ -11963,22 +11963,22 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !9
   %69 = icmp eq i8 %68, 1
-  %70 = xor i32 %57, %.sroa.034.046
+  %70 = xor i32 %57, %.sroa.036.043
   %71 = icmp eq i32 %70, 1
   %or.cond = select i1 %69, i1 true, i1 %71
-  br i1 %or.cond, label %.loopexit, label %73
+  br i1 %or.cond, label %.critedge30, label %73
 
 .critedge:                                        ; preds = %54
-  %72 = xor i32 %57, %.sroa.034.046
-  %.old41 = icmp eq i32 %72, 1
-  br i1 %.old41, label %.loopexit, label %73
+  %72 = xor i32 %57, %.sroa.036.043
+  %.old38 = icmp eq i32 %72, 1
+  br i1 %.old38, label %.critedge30, label %73
 
 73:                                               ; preds = %65, %.critedge
-  %.not42 = icmp eq i32 %57, %.sroa.034.046
-  br i1 %.not42, label %80, label %74
+  %.not39 = icmp eq i32 %57, %.sroa.036.043
+  br i1 %.not39, label %80, label %74
 
 74:                                               ; preds = %73
-  %75 = zext i32 %.02547 to i64
+  %75 = zext i32 %.02544 to i64
   %.not28 = icmp eq i64 %indvars.iv, %75
   br i1 %.not28, label %78, label %76
 
@@ -11989,26 +11989,26 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
   br label %78
 
 78:                                               ; preds = %76, %74
-  %.pre = phi i32 [ %.pre.pre, %76 ], [ %.pre53, %74 ]
-  %79 = add i32 %.02547, 1
+  %.pre = phi i32 [ %.pre.pre, %76 ], [ %.pre50, %74 ]
+  %79 = add i32 %.02544, 1
   br label %80
 
-80:                                               ; preds = %78, %73
-  %.pre54 = phi i32 [ %.pre53, %73 ], [ %.pre, %78 ]
-  %81 = phi i32 [ %55, %73 ], [ %.pre, %78 ]
-  %.sroa.034.1.ph = phi i32 [ %.sroa.034.046, %73 ], [ %57, %78 ]
-  %.126.ph = phi i32 [ %.02547, %73 ], [ %79, %78 ]
+80:                                               ; preds = %73, %78
+  %.pre51 = phi i32 [ %.pre, %78 ], [ %.pre50, %73 ]
+  %81 = phi i32 [ %.pre, %78 ], [ %55, %73 ]
+  %.sroa.036.1 = phi i32 [ %57, %78 ], [ %.sroa.036.043, %73 ]
+  %.126 = phi i32 [ %79, %78 ], [ %.02544, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = zext i32 %81 to i64
-  %.not50 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %.not50, label %54, label %._crit_edge, !llvm.loop !760
+  %.not47 = icmp samesign ult i64 %indvars.iv.next, %82
+  br i1 %.not47, label %54, label %._crit_edge, !llvm.loop !760
 
 ._crit_edge:                                      ; preds = %80, %3, %_ZSt4sortIPN3sat7literalEEvT_S3_.exit
-  %.025.lcssa = phi i32 [ 0, %_ZSt4sortIPN3sat7literalEEvT_S3_.exit ], [ 0, %3 ], [ %.126.ph, %80 ]
+  %.025.lcssa = phi i32 [ 0, %_ZSt4sortIPN3sat7literalEEvT_S3_.exit ], [ 0, %3 ], [ %.126, %80 ]
   store i32 %.025.lcssa, ptr %1, align 4, !tbaa !3
-  br label %.loopexit
+  br label %.critedge30
 
-.loopexit:                                        ; preds = %65, %.critedge, %._crit_edge
+.critedge30:                                      ; preds = %65, %.critedge, %._crit_edge
   %83 = phi i1 [ true, %._crit_edge ], [ false, %.critedge ], [ false, %65 ]
   ret i1 %83
 }

@@ -1432,15 +1432,13 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   %280 = load ptr, ptr %6, align 8
   %281 = call i64 @strlen(ptr noundef %280) #7
   %282 = icmp eq i64 %281, 0
-  br i1 %282, label %mqtt_user_decode_message.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %278
   %283 = load i32, ptr @num_mqtt_message_decodes, align 4
   %284 = icmp eq i32 %283, 0
-  br i1 %284, label %mqtt_user_decode_message.exit, label %.lr.ph.preheader.i
+  %or.cond.i = select i1 %282, i1 true, i1 %284
+  br i1 %or.cond.i, label %mqtt_user_decode_message.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %.pre68.i = load ptr, ptr @mqtt_message_decodes, align 8
+.lr.ph.preheader.i:                               ; preds = %278
+  %.pre69.i = load ptr, ptr @mqtt_message_decodes, align 8
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %325
@@ -1448,7 +1446,7 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
 
 .lr.ph.i:                                         ; preds = %325, %.lr.ph.preheader.i
   %285 = phi i32 [ %283, %.lr.ph.preheader.i ], [ %326, %325 ]
-  %286 = phi ptr [ %.pre68.i, %.lr.ph.preheader.i ], [ %327, %325 ]
+  %286 = phi ptr [ %.pre69.i, %.lr.ph.preheader.i ], [ %327, %325 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %325 ]
   %287 = getelementptr %struct._mqtt_message_decode_t, ptr %286, i64 %indvars.iv.i
   %288 = load i32, ptr %287, align 8
@@ -1518,11 +1516,11 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   call void @g_match_info_free(ptr noundef %324)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %.pre.i = load ptr, ptr @mqtt_message_decodes, align 8
-  %.pre69.i = load i32, ptr @num_mqtt_message_decodes, align 4
+  %.pre70.i = load i32, ptr @num_mqtt_message_decodes, align 4
   br label %325
 
 325:                                              ; preds = %318, %315, %310, %306, %303, %299, %294, %289, %.lr.ph.i
-  %326 = phi i32 [ %285, %.lr.ph.i ], [ %285, %289 ], [ %285, %294 ], [ %.pre69.i, %318 ], [ %285, %315 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
+  %326 = phi i32 [ %285, %.lr.ph.i ], [ %285, %289 ], [ %285, %294 ], [ %.pre70.i, %318 ], [ %285, %315 ], [ %285, %299 ], [ %285, %303 ], [ %285, %306 ], [ %285, %310 ]
   %327 = phi ptr [ %286, %.lr.ph.i ], [ %286, %289 ], [ %286, %294 ], [ %.pre.i, %318 ], [ %286, %315 ], [ %286, %299 ], [ %286, %303 ], [ %286, %306 ], [ %286, %310 ]
   %.1.i = phi i1 [ false, %.lr.ph.i ], [ %293, %289 ], [ %298, %294 ], [ %323, %318 ], [ false, %315 ], [ false, %299 ], [ %305, %303 ], [ false, %306 ], [ %314, %310 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1579,8 +1577,8 @@ proto_item_set_generated.exit.i:                  ; preds = %346, %343, %338
   %352 = call i32 @call_dissector(ptr noundef %351, ptr noundef nonnull %.04764.i, ptr noundef %1, ptr noundef %2)
   br label %mqtt_user_decode_message.exit
 
-mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_generated.exit.i, %337, %334, %._crit_edge.i, %.preheader.i, %278, %268
-  %.0367 = phi i1 [ false, %268 ], [ false, %278 ], [ true, %337 ], [ true, %proto_item_set_generated.exit.i ], [ false, %._crit_edge.i ], [ true, %334 ], [ false, %.preheader.i ]
+mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_generated.exit.i, %337, %334, %._crit_edge.i, %278, %268
+  %.0367 = phi i1 [ false, %268 ], [ false, %278 ], [ true, %337 ], [ true, %proto_item_set_generated.exit.i ], [ false, %._crit_edge.i ], [ true, %334 ]
   %353 = load ptr, ptr %11, align 8
   %.not388 = icmp eq ptr %353, null
   br i1 %.not388, label %361, label %354

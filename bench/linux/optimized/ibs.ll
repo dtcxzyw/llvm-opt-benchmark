@@ -118,13 +118,13 @@ define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nounde
   %5 = lshr i64 %4, 15
   %6 = and i64 %5, 3
   switch i64 %6, label %7 [
-    i64 0, label %.thread2
-    i64 3, label %.thread2
+    i64 0, label %.critedge
+    i64 3, label %.critedge
   ]
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %2, align 8
-  switch i32 %8, label %.thread2 [
+  switch i32 %8, label %.critedge [
     i32 0, label %13
     i32 4, label %9
   ]
@@ -132,7 +132,7 @@ define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nounde
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load i64, ptr %10, align 8
-  switch i64 %11, label %.thread2 [
+  switch i64 %11, label %.critedge [
     i64 118, label %.thread
     i64 193, label %12
   ]
@@ -144,18 +144,18 @@ define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %.thread, label %.thread2
+  br i1 %16, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %9, %12, %13
-  %17 = phi i64 [ 0, %13 ], [ 524288, %12 ], [ 0, %9 ]
+  %17 = phi i64 [ 0, %13 ], [ 0, %9 ], [ 524288, %12 ]
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @perf_ibs_op, i64 64), align 8
   store i32 %18, ptr %2, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %17, ptr %19, align 8
-  br label %.thread2
+  br label %.critedge
 
-.thread2:                                         ; preds = %9, %7, %.thread, %13, %1, %1
-  %20 = phi i32 [ -95, %1 ], [ -95, %1 ], [ -2, %.thread ], [ -2, %13 ], [ -2, %7 ], [ -2, %9 ]
+.critedge:                                        ; preds = %7, %9, %.thread, %13, %1, %1
+  %20 = phi i32 [ -95, %1 ], [ -95, %1 ], [ -2, %.thread ], [ -2, %13 ], [ -2, %9 ], [ -2, %7 ]
   ret i32 %20
 }
 

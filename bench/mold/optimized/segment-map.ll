@@ -35,54 +35,54 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #5
   %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #6
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread42.i, label %19
-
-.thread42.i:                                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
-  br label %mi_segment_map_index_of.exit.thread
+  br i1 %18, label %.critedge.i, label %19
 
 19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !15
   %20 = ptrtoint ptr %17 to i64
   %21 = cmpxchg ptr %12, i64 0, i64 %20 release monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %.sink.split.i, label %23
+  br i1 %22, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = extractvalue { i64, i1 } %21, 0
   %25 = inttoptr i64 %24 to ptr
   call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #6
-  br label %.sink.split.i
+  br label %26
 
-.sink.split.i:                                    ; preds = %23, %19
-  %.029.ph.i = phi ptr [ %25, %23 ], [ %17, %19 ]
+26:                                               ; preds = %23, %19
+  %.130.i = phi ptr [ %17, %19 ], [ %25, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
   br label %mi_segment_map_index_of.exit
 
-mi_segment_map_index_of.exit:                     ; preds = %9, %.sink.split.i
-  %.029.i = phi ptr [ %14, %9 ], [ %.029.ph.i, %.sink.split.i ]
-  %26 = icmp eq ptr %.029.i, null
-  br i1 %26, label %mi_segment_map_index_of.exit.thread, label %27
+.critedge.i:                                      ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
+  br label %mi_segment_map_index_of.exit.thread
 
-27:                                               ; preds = %mi_segment_map_index_of.exit
-  %28 = lshr i64 %11, 25
-  %29 = and i64 %28, 63
-  %30 = lshr i64 %11, 31
-  %31 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
-  %32 = getelementptr inbounds nuw [1008 x i64], ptr %31, i64 0, i64 %30
-  %33 = load atomic i64, ptr %32 monotonic, align 8
-  %34 = shl nuw i64 1, %29
-  br label %35
+mi_segment_map_index_of.exit:                     ; preds = %9, %26
+  %.029.i = phi ptr [ %.130.i, %26 ], [ %14, %9 ]
+  %27 = icmp eq ptr %.029.i, null
+  br i1 %27, label %mi_segment_map_index_of.exit.thread, label %28
 
-35:                                               ; preds = %35, %27
-  %.0 = phi i64 [ %33, %27 ], [ %39, %35 ]
-  %36 = or i64 %.0, %34
-  %37 = cmpxchg weak ptr %32, i64 %.0, i64 %36 release monotonic, align 8
-  %38 = extractvalue { i64, i1 } %37, 1
-  %39 = extractvalue { i64, i1 } %37, 0
-  br i1 %38, label %mi_segment_map_index_of.exit.thread, label %35, !llvm.loop !19
+28:                                               ; preds = %mi_segment_map_index_of.exit
+  %29 = lshr i64 %11, 25
+  %30 = and i64 %29, 63
+  %31 = lshr i64 %11, 31
+  %32 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
+  %33 = getelementptr inbounds nuw [1008 x i64], ptr %32, i64 0, i64 %31
+  %34 = load atomic i64, ptr %33 monotonic, align 8
+  %35 = shl nuw i64 1, %30
+  br label %36
 
-mi_segment_map_index_of.exit.thread:              ; preds = %35, %.thread42.i, %6, %mi_segment_map_index_of.exit, %1
+36:                                               ; preds = %36, %28
+  %.0 = phi i64 [ %34, %28 ], [ %40, %36 ]
+  %37 = or i64 %.0, %35
+  %38 = cmpxchg weak ptr %33, i64 %.0, i64 %37 release monotonic, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  br i1 %39, label %mi_segment_map_index_of.exit.thread, label %36, !llvm.loop !19
+
+mi_segment_map_index_of.exit.thread:              ; preds = %36, %.critedge.i, %6, %mi_segment_map_index_of.exit, %1
   ret void
 }
 

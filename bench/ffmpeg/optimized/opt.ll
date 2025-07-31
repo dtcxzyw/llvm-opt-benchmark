@@ -1665,7 +1665,7 @@ define range(i32 -1414549496, 1) i32 @av_opt_set_bin(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %5
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %9
   %11 = sext i32 %3 to i64
@@ -1673,23 +1673,27 @@ define range(i32 -1414549496, 1) i32 @av_opt_set_bin(ptr noundef %0, ptr noundef
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %19, label %.thread
 
-.thread:                                          ; preds = %9, %10
-  %13 = phi ptr [ %12, %10 ], [ null, %9 ]
-  %14 = load ptr, ptr %6, align 8, !tbaa !52
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %14, align 8, !tbaa !33
-  tail call void @av_free(ptr noundef %16) #18
-  store ptr %13, ptr %14, align 8, !tbaa !33
-  store i32 %3, ptr %15, align 4, !tbaa !26
-  br i1 %.not, label %19, label %17
-
-17:                                               ; preds = %.thread
-  %18 = sext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %2, i64 %18, i1 false)
+.thread:                                          ; preds = %10
+  %13 = load ptr, ptr %6, align 8, !tbaa !52
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %13, align 8, !tbaa !33
+  tail call void @av_free(ptr noundef %15) #18
+  store ptr %12, ptr %13, align 8, !tbaa !33
+  store i32 %3, ptr %14, align 4, !tbaa !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %2, i64 %11, i1 false)
   br label %19
 
-19:                                               ; preds = %.thread, %17, %10, %5
-  %.0 = phi i32 [ %7, %5 ], [ -12, %10 ], [ 0, %17 ], [ 0, %.thread ]
+.critedge:                                        ; preds = %9
+  %16 = load ptr, ptr %6, align 8, !tbaa !52
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %16, align 8, !tbaa !33
+  tail call void @av_free(ptr noundef %18) #18
+  store ptr null, ptr %16, align 8, !tbaa !33
+  store i32 0, ptr %17, align 4, !tbaa !26
+  br label %19
+
+19:                                               ; preds = %.critedge, %.thread, %10, %5
+  %.0 = phi i32 [ %7, %5 ], [ -12, %10 ], [ 0, %.thread ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   ret i32 %.0
 }

@@ -2390,8 +2390,8 @@ define hidden void @_ZN10duckdb_re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr 
   store i32 %9, ptr %10, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %1, align 8, !tbaa !81
-  %.not44 = icmp eq i32 %12, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq i32 %12, 0
+  br i1 %.not41, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %13 = load ptr, ptr %11, align 8, !tbaa !85
@@ -2418,16 +2418,16 @@ define hidden void @_ZN10duckdb_re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr 
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_ZN10duckdb_re23DFA5Workq4markEv.exit
-  %.045 = phi ptr [ %13, %.lr.ph ], [ %115, %_ZN10duckdb_re23DFA5Workq4markEv.exit ]
-  %35 = load i32, ptr %.045, align 4, !tbaa !77
+  %.042 = phi ptr [ %13, %.lr.ph ], [ %116, %_ZN10duckdb_re23DFA5Workq4markEv.exit ]
+  %35 = load i32, ptr %.042, align 4, !tbaa !77
   %36 = load i32, ptr %14, align 8, !tbaa !86
-  %.not42 = icmp slt i32 %35, %36
-  br i1 %.not42, label %57, label %37
+  %.not40 = icmp slt i32 %35, %36
+  br i1 %.not40, label %57, label %37
 
 37:                                               ; preds = %34
   %38 = load i8, ptr %5, align 1, !tbaa !3, !range !117, !noundef !118
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %._crit_edge, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %37
   %41 = load i8, ptr %15, align 4, !tbaa !90, !range !117, !noundef !118
@@ -2557,7 +2557,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 95:                                               ; preds = %92
   %96 = lshr i16 %94, 1
   %97 = zext nneg i16 %96 to i64
-  %98 = getelementptr i32, ptr %.045, i64 %97
+  %98 = getelementptr i32, ptr %.042, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -4
   br label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
@@ -2574,7 +2574,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %105 = ptrtoint ptr %62 to i64
   %106 = sub i64 %104, %105
   %107 = ashr exact i64 %106, 1
-  %108 = getelementptr inbounds i8, ptr %.045, i64 %107
+  %108 = getelementptr inbounds i8, ptr %.042, i64 %107
   br label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
 109:                                              ; preds = %57
@@ -2589,20 +2589,20 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 114:                                              ; preds = %109
   store i8 1, ptr %5, align 1, !tbaa !3
-  %.not43 = icmp eq i32 %113, 0
-  br i1 %.not43, label %._crit_edge, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
+  %115 = icmp eq i32 %113, 0
+  br i1 %115, label %.critedge, label %_ZN10duckdb_re23DFA5Workq4markEv.exit
 
-_ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %57, %57, %57, %57, %57, %_ZN10LogMessageD2Ev.exit, %79, %103, %95, %109, %48, %43, %40, %114
-  %.1 = phi ptr [ %.045, %114 ], [ %.045, %40 ], [ %.045, %43 ], [ %.045, %48 ], [ %.045, %109 ], [ %.045, %79 ], [ %108, %103 ], [ %99, %95 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %57 ], [ %.045, %_ZN10LogMessageD2Ev.exit ]
-  %115 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %116 = load ptr, ptr %11, align 8, !tbaa !85
-  %117 = load i32, ptr %1, align 8, !tbaa !81
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i32, ptr %116, i64 %118
-  %.not = icmp eq ptr %115, %119
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !149
+_ZN10duckdb_re23DFA5Workq4markEv.exit:            ; preds = %57, %57, %57, %57, %57, %48, %43, %40, %114, %109, %95, %103, %79, %_ZN10LogMessageD2Ev.exit
+  %.1 = phi ptr [ %.042, %_ZN10LogMessageD2Ev.exit ], [ %.042, %57 ], [ %.042, %57 ], [ %.042, %57 ], [ %.042, %57 ], [ %.042, %57 ], [ %99, %95 ], [ %108, %103 ], [ %.042, %79 ], [ %.042, %109 ], [ %.042, %114 ], [ %.042, %40 ], [ %.042, %43 ], [ %.042, %48 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %117 = load ptr, ptr %11, align 8, !tbaa !85
+  %118 = load i32, ptr %1, align 8, !tbaa !81
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds i32, ptr %117, i64 %119
+  %.not = icmp eq ptr %116, %120
+  br i1 %.not, label %.critedge, label %34, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %114, %_ZN10duckdb_re23DFA5Workq4markEv.exit, %37, %6
+.critedge:                                        ; preds = %_ZN10duckdb_re23DFA5Workq4markEv.exit, %37, %114, %6
   ret void
 }
 

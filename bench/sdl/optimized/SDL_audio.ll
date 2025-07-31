@@ -664,11 +664,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %15) #14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = tail call zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef nonnull %16, i32 noundef 0, i32 noundef 1) #14
-  br i1 %17, label %18, label %.thread
-
-.thread:                                          ; preds = %ObtainPhysicalAudioDeviceObj.exit
-  tail call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
-  br label %UnrefPhysicalAudioDevice.exit
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %ObtainPhysicalAudioDeviceObj.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -684,17 +680,17 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @ZombieFlushRecording, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.03746 = load ptr, ptr %25, align 8
-  %.not4147 = icmp eq ptr %.03746, null
-  br i1 %.not4147, label %._crit_edge, label %.lr.ph
+  %.03745 = load ptr, ptr %25, align 8
+  %.not4146 = icmp eq ptr %.03745, null
+  br i1 %.not4146, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %36
-  %.03749.us = phi ptr [ %.037.us, %36 ], [ %.03746, %.lr.ph ]
-  %.148.us = phi ptr [ %.3.us, %36 ], [ %2, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i8, ptr %.03749.us, i64 32
+  %.03748.us = phi ptr [ %.037.us, %36 ], [ %.03745, %.lr.ph ]
+  %.147.us = phi ptr [ %.3.us, %36 ], [ %2, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %.03748.us, i64 32
   %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %36, label %29
@@ -706,18 +702,18 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
 
 31:                                               ; preds = %29
   store i32 4353, ptr %30, align 8
-  %32 = load i32, ptr %.03749.us, align 8
+  %32 = load i32, ptr %.03748.us, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %.148.us, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.147.us, i64 8
   store ptr %30, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %31, %29, %.lr.ph.split.us
-  %.3.us = phi ptr [ %.148.us, %.lr.ph.split.us ], [ %30, %31 ], [ %.148.us, %29 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.03749.us, i64 80
+  %.3.us = phi ptr [ %.147.us, %.lr.ph.split.us ], [ %30, %31 ], [ %.147.us, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.03748.us, i64 80
   %.037.us = load ptr, ptr %37, align 8
   %.not41.us = icmp eq ptr %.037.us, null
   br i1 %.not41.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
@@ -729,26 +725,26 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   br i1 %.not42, label %52, label %47
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
-  %.03749 = phi ptr [ %.037, %45 ], [ %.03746, %.lr.ph ]
-  %.148 = phi ptr [ %.3, %45 ], [ %2, %.lr.ph ]
+  %.03748 = phi ptr [ %.037, %45 ], [ %.03745, %.lr.ph ]
+  %.147 = phi ptr [ %.3, %45 ], [ %2, %.lr.ph ]
   %39 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #14
   %.not44 = icmp eq ptr %39, null
   br i1 %.not44, label %45, label %40
 
 40:                                               ; preds = %.lr.ph.split
   store i32 4353, ptr %39, align 8
-  %41 = load i32, ptr %.03749, align 8
+  %41 = load i32, ptr %.03748, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.148, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.147, i64 8
   store ptr %39, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %.lr.ph.split, %40
-  %.3 = phi ptr [ %39, %40 ], [ %.148, %.lr.ph.split ]
-  %46 = getelementptr inbounds nuw i8, ptr %.03749, i64 80
+  %.3 = phi ptr [ %39, %40 ], [ %.147, %.lr.ph.split ]
+  %46 = getelementptr inbounds nuw i8, ptr %.03748, i64 80
   %.037 = load ptr, ptr %46, align 8
   %.not41 = icmp eq ptr %.037, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
@@ -811,7 +807,11 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   call fastcc void @DestroyPhysicalAudioDevice(ptr noundef nonnull %0)
   br label %UnrefPhysicalAudioDevice.exit
 
-UnrefPhysicalAudioDevice.exit:                    ; preds = %75, %59, %.thread
+.critedge:                                        ; preds = %ObtainPhysicalAudioDeviceObj.exit
+  tail call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
+  br label %UnrefPhysicalAudioDevice.exit
+
+UnrefPhysicalAudioDevice.exit:                    ; preds = %75, %59, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   br label %77
 
@@ -1059,24 +1059,24 @@ select.unfold:                                    ; preds = %50, %46
   br i1 %.not90, label %select.unfold..critedge2_crit_edge, label %select.unfold.preheader
 
 select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
-  %.pre131 = trunc nuw i8 %.263 to i1
+  %.pre132 = trunc nuw i8 %.263 to i1
   tail call void @SDL_free_REAL(ptr noundef nonnull %19) #14
-  br i1 %.pre131, label %.critedge2.thread, label %.critedge2.thread107
+  br i1 %.pre132, label %.critedge2.thread, label %.critedge2.thread107
 
 54:                                               ; preds = %.thread, %15
   %.not8099 = phi i1 [ false, %.thread ], [ true, %15 ]
   %.05696 = phi ptr [ %.05694, %.thread ], [ null, %15 ]
   br label %55
 
-55:                                               ; preds = %54, %65
-  %.6124149 = phi i1 [ false, %54 ], [ %.7, %65 ]
-  %indvars.iv128148 = phi i64 [ 0, %54 ], [ %indvars.iv.next129, %65 ]
-  %56 = getelementptr inbounds nuw [4 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv128148
+55:                                               ; preds = %54, %68
+  %.6124146 = phi i1 [ false, %54 ], [ %.7, %68 ]
+  %indvars.iv129145 = phi i64 [ 0, %54 ], [ %indvars.iv.next130, %68 ]
+  %56 = getelementptr inbounds nuw [4 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv129145
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 8, !range !6, !noundef !7
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %65, label %61
+  br i1 %60, label %68, label %61
 
 61:                                               ; preds = %55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) @current_audio, i8 0, i64 208, i1 false)
@@ -1086,50 +1086,50 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i1 %63(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @current_audio, i64 16)) #14
-  br i1 %64, label %.critedge2.thread.loopexit, label %65
+  br i1 %64, label %.critedge2.thread.loopexit.critedge, label %68
 
-65:                                               ; preds = %61, %55
-  %.7 = phi i1 [ %.6124149, %55 ], [ true, %61 ]
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128148, 1
-  %.not82 = icmp eq i64 %indvars.iv.next129, 3
+.critedge2.thread.loopexit.critedge:              ; preds = %61
+  %65 = load ptr, ptr %57, align 8
+  store ptr %65, ptr @current_audio, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 8), align 8
+  br label %.critedge2.thread
+
+68:                                               ; preds = %61, %55
+  %.7 = phi i1 [ %.6124146, %55 ], [ true, %61 ]
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129145, 1
+  %.not82 = icmp eq i64 %indvars.iv.next130, 3
   br i1 %.not82, label %.critedge2.thread107, label %55, !llvm.loop !13
 
 .critedge2:                                       ; preds = %select.unfold.preheader
   tail call void @SDL_free_REAL(ptr noundef nonnull %19) #14
   br i1 %22, label %.critedge2.thread, label %.critedge2.thread107
 
-.critedge2.thread107:                             ; preds = %65, %select.unfold..critedge2_crit_edge, %.critedge2
-  %.5114 = phi i1 [ %.158122, %.critedge2 ], [ %.360, %select.unfold..critedge2_crit_edge ], [ %.7, %65 ]
-  %.05695113 = phi ptr [ %.05694, %.critedge2 ], [ %.05694, %select.unfold..critedge2_crit_edge ], [ %.05696, %65 ]
-  %.not8097112 = phi i1 [ false, %.critedge2 ], [ false, %select.unfold..critedge2_crit_edge ], [ %.not8099, %65 ]
-  br i1 %.5114, label %71, label %66
+.critedge2.thread107:                             ; preds = %68, %select.unfold..critedge2_crit_edge, %.critedge2
+  %.5114 = phi i1 [ %.158122, %.critedge2 ], [ %.360, %select.unfold..critedge2_crit_edge ], [ %.7, %68 ]
+  %.05695113 = phi ptr [ %.05694, %.critedge2 ], [ %.05694, %select.unfold..critedge2_crit_edge ], [ %.05696, %68 ]
+  %.not8097112 = phi i1 [ false, %.critedge2 ], [ false, %select.unfold..critedge2_crit_edge ], [ %.not8099, %68 ]
+  br i1 %.5114, label %74, label %69
 
-66:                                               ; preds = %.critedge2.thread107
-  br i1 %.not8097112, label %69, label %67
+69:                                               ; preds = %.critedge2.thread107
+  br i1 %.not8097112, label %72, label %70
 
-67:                                               ; preds = %66
-  %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %.05695113) #14
-  br label %71
+70:                                               ; preds = %69
+  %71 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %.05695113) #14
+  br label %74
 
-69:                                               ; preds = %66
-  %70 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #14
-  br label %71
+72:                                               ; preds = %69
+  %73 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #14
+  br label %74
 
-71:                                               ; preds = %67, %69, %.critedge2.thread107
+74:                                               ; preds = %70, %72, %.critedge2.thread107
   tail call void @SDL_DestroyRWLock_REAL(ptr noundef nonnull %10) #14
   tail call void @SDL_DestroyHashTable(ptr noundef nonnull %12) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) @current_audio, i8 0, i64 208, i1 false)
   br label %154
 
-.critedge2.thread.loopexit:                       ; preds = %61
-  %72 = load ptr, ptr %57, align 8
-  store ptr %72, ptr @current_audio, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 8), align 8
-  br label %.critedge2.thread
-
-.critedge2.thread:                                ; preds = %select.unfold..critedge2_crit_edge, %.critedge2.thread.loopexit, %.critedge2
+.critedge2.thread:                                ; preds = %select.unfold..critedge2_crit_edge, %.critedge2.thread.loopexit.critedge, %.critedge2
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 16), align 8
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %76, label %77
@@ -1323,11 +1323,11 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   store i32 %143, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 160), align 8
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %145 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %144, i32 noundef 1) #14
-  %.pre130 = load ptr, ptr %5, align 8
+  %.pre131 = load ptr, ptr %5, align 8
   br label %146
 
 146:                                              ; preds = %141, %138
-  %147 = phi ptr [ %.pre130, %141 ], [ %139, %138 ]
+  %147 = phi ptr [ %.pre131, %141 ], [ %139, %138 ]
   %.not89 = icmp eq ptr %147, null
   br i1 %.not89, label %153, label %148
 
@@ -1344,8 +1344,8 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   br label %154
 
-154:                                              ; preds = %.thread100, %13, %153, %71, %8
-  %.053 = phi i1 [ false, %8 ], [ false, %13 ], [ true, %153 ], [ false, %71 ], [ false, %.thread100 ]
+154:                                              ; preds = %.thread100, %13, %153, %74, %8
+  %.053 = phi i1 [ false, %8 ], [ false, %13 ], [ true, %153 ], [ false, %74 ], [ false, %.thread100 ]
   ret i1 %.053
 }
 

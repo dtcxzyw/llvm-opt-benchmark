@@ -616,10 +616,10 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   br label %176
 
 176:                                              ; preds = %176, %.preheader.i50
-  %.sroa.01.08.i = phi i64 [ 1, %.preheader.i50 ], [ %177, %176 ]
-  %177 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08.i, i64 1)
+  %.sroa.01.06.i = phi i64 [ 1, %.preheader.i50 ], [ %177, %176 ]
+  %177 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06.i, i64 1)
   store i64 0, ptr %5, align 8
-  store i64 %.sroa.01.08.i, ptr %174, align 8
+  store i64 %.sroa.01.06.i, ptr %174, align 8
   store i8 0, ptr %175, align 8
   %178 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2ac260230512497eE"(ptr nonnull align 8 %5, ptr align 8 %0, i64 %13, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %179 = extractvalue { ptr, i64 } %178, 0
@@ -1121,10 +1121,10 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   br label %176
 
 176:                                              ; preds = %176, %.preheader.i50
-  %.sroa.01.08.i = phi i64 [ 1, %.preheader.i50 ], [ %177, %176 ]
-  %177 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08.i, i64 1)
+  %.sroa.01.06.i = phi i64 [ 1, %.preheader.i50 ], [ %177, %176 ]
+  %177 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06.i, i64 1)
   store i64 0, ptr %5, align 8
-  store i64 %.sroa.01.08.i, ptr %174, align 8
+  store i64 %.sroa.01.06.i, ptr %174, align 8
   store i8 0, ptr %175, align 8
   %178 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ef5d9bf7a3f360fE"(ptr nonnull align 8 %5, ptr align 8 %0, i64 %13, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %179 = extractvalue { ptr, i64 } %178, 0
@@ -1680,8 +1680,8 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h279888418f85ae35E(ptr al
   br i1 %or.cond.i, label %.preheader.i, label %25
 
 .preheader.i:                                     ; preds = %15
-  %.not7.i = icmp ult i64 %18, %21
-  br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE.exit
+  %.not5.i = icmp ult i64 %18, %21
+  br i1 %.not5.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1693,10 +1693,10 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h279888418f85ae35E(ptr al
   unreachable
 
 26:                                               ; preds = %26, %.lr.ph.i
-  %.sroa.01.08.i = phi i64 [ %18, %.lr.ph.i ], [ %27, %26 ]
-  %27 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08.i, i64 1)
+  %.sroa.01.06.i = phi i64 [ %18, %.lr.ph.i ], [ %27, %26 ]
+  %27 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06.i, i64 1)
   store i64 0, ptr %6, align 8
-  store i64 %.sroa.01.08.i, ptr %23, align 8
+  store i64 %.sroa.01.06.i, ptr %23, align 8
   store i8 0, ptr %24, align 8
   %28 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ef5d9bf7a3f360fE"(ptr nonnull align 8 %6, ptr align 8 %20, i64 %21, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %29 = extractvalue { ptr, i64 } %28, 0
@@ -1747,8 +1747,8 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h27a25b38ac57070bE(ptr al
   br i1 %or.cond.i, label %.preheader.i, label %25
 
 .preheader.i:                                     ; preds = %15
-  %.not7.i = icmp ult i64 %18, %21
-  br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE.exit
+  %.not5.i = icmp ult i64 %18, %21
+  br i1 %.not5.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1760,10 +1760,10 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h27a25b38ac57070bE(ptr al
   unreachable
 
 26:                                               ; preds = %26, %.lr.ph.i
-  %.sroa.01.08.i = phi i64 [ %18, %.lr.ph.i ], [ %27, %26 ]
-  %27 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08.i, i64 1)
+  %.sroa.01.06.i = phi i64 [ %18, %.lr.ph.i ], [ %27, %26 ]
+  %27 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06.i, i64 1)
   store i64 0, ptr %6, align 8
-  store i64 %.sroa.01.08.i, ptr %23, align 8
+  store i64 %.sroa.01.06.i, ptr %23, align 8
   store i8 0, ptr %24, align 8
   %28 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2ac260230512497eE"(ptr nonnull align 8 %6, ptr align 8 %20, i64 %21, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %29 = extractvalue { ptr, i64 } %28, 0
@@ -1786,8 +1786,8 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ult i64 %2, %6
-  br i1 %.not7, label %.lr.ph, label %._crit_edge
+  %.not5 = icmp ult i64 %2, %6
+  br i1 %.not5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1798,21 +1798,21 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE(
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.c1c48a1fef5800bfd07888450020b215.22, i64 46, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.23) #7
   unreachable
 
-._crit_edge:                                      ; preds = %11, %.preheader
-  ret void
-
 11:                                               ; preds = %.lr.ph, %11
-  %.sroa.01.08 = phi i64 [ %2, %.lr.ph ], [ %12, %11 ]
-  %12 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08, i64 1)
+  %.sroa.01.06 = phi i64 [ %2, %.lr.ph ], [ %12, %11 ]
+  %12 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06, i64 1)
   store i64 0, ptr %5, align 8
-  store i64 %.sroa.01.08, ptr %8, align 8
+  store i64 %.sroa.01.06, ptr %8, align 8
   store i8 0, ptr %9, align 8
   %13 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2ac260230512497eE"(ptr nonnull align 8 %5, ptr align 8 %0, i64 %6, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17h73187370c48906b8E(ptr align 8 %14, i64 %15, ptr align 1 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %._crit_edge
+  br i1 %.not, label %11, label %.critedge
+
+.critedge:                                        ; preds = %11, %.preheader
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1824,8 +1824,8 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE(
   br i1 %or.cond, label %.preheader, label %10
 
 .preheader:                                       ; preds = %4
-  %.not7 = icmp ult i64 %2, %6
-  br i1 %.not7, label %.lr.ph, label %._crit_edge
+  %.not5 = icmp ult i64 %2, %6
+  br i1 %.not5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1836,21 +1836,21 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE(
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.c1c48a1fef5800bfd07888450020b215.22, i64 46, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.23) #7
   unreachable
 
-._crit_edge:                                      ; preds = %11, %.preheader
-  ret void
-
 11:                                               ; preds = %.lr.ph, %11
-  %.sroa.01.08 = phi i64 [ %2, %.lr.ph ], [ %12, %11 ]
-  %12 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.08, i64 1)
+  %.sroa.01.06 = phi i64 [ %2, %.lr.ph ], [ %12, %11 ]
+  %12 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h9232b3289db2c374E"(i64 %.sroa.01.06, i64 1)
   store i64 0, ptr %5, align 8
-  store i64 %.sroa.01.08, ptr %8, align 8
+  store i64 %.sroa.01.06, ptr %8, align 8
   store i8 0, ptr %9, align 8
   %13 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6ef5d9bf7a3f360fE"(ptr nonnull align 8 %5, ptr align 8 %0, i64 %6, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.24)
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   call void @_ZN4core5slice4sort11insert_tail17hfc70d5a514b13f7eE(ptr align 8 %14, i64 %15, ptr align 1 %3)
   %.not = icmp ult i64 %12, %6
-  br i1 %.not, label %11, label %._crit_edge
+  br i1 %.not, label %11, label %.critedge
+
+.critedge:                                        ; preds = %11, %.preheader
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

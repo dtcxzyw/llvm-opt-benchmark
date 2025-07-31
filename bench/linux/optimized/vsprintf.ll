@@ -11288,24 +11288,24 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %46, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %43, %.lr.ph, %.preheader
-  %.lcssa5 = phi ptr [ %0, %.preheader ], [ %35, %.lr.ph ], [ %44, %43 ]
-  %.lcssa4 = phi i32 [ 0, %.preheader ], [ %33, %.lr.ph ], [ %20, %43 ]
+  %.lcssa4 = phi ptr [ %0, %.preheader ], [ %35, %.lr.ph ], [ %44, %43 ]
+  %.lcssa3 = phi i32 [ 0, %.preheader ], [ %33, %.lr.ph ], [ %20, %43 ]
   %47 = shl i64 %18, 32
   %48 = ashr i64 %47, 40
   %49 = trunc nsw i64 %48 to i32
-  %50 = icmp slt i32 %.lcssa4, %49
+  %50 = icmp slt i32 %.lcssa3, %49
   br i1 %50, label %51, label %widen_string.exit, !prof !13
 
 51:                                               ; preds = %.thread
-  %52 = sub i32 %49, %.lcssa4
+  %52 = sub i32 %49, %.lcssa3
   %53 = and i64 %18, 8589934592
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %.preheader.i
 
 55:                                               ; preds = %51
-  %56 = sext i32 %.lcssa4 to i64
+  %56 = sext i32 %.lcssa3 to i64
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr i8, ptr %.lcssa5, i64 %57
+  %58 = getelementptr i8, ptr %.lcssa4, i64 %57
   %59 = icmp ult ptr %58, %1
   br i1 %59, label %60, label %._crit_edge.i
 
@@ -11322,11 +11322,11 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %60
-  %67 = icmp eq i32 %.lcssa4, 0
+  %67 = icmp eq i32 %.lcssa3, 0
   br i1 %67, label %73, label %68
 
 68:                                               ; preds = %66
-  %69 = zext i32 %.lcssa4 to i64
+  %69 = zext i32 %.lcssa3 to i64
   %70 = sub i64 %63, %64
   %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 %69)
   %72 = getelementptr i8, ptr %58, i64 %64
@@ -11340,12 +11340,12 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
 
 75:                                               ; preds = %73, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %64, %73 ]
-  %76 = getelementptr i8, ptr %.lcssa5, i64 %.pre-phi.i
+  %76 = getelementptr i8, ptr %.lcssa4, i64 %.pre-phi.i
   br label %widen_string.exit
 
 .preheader.i:                                     ; preds = %51, %82
   %77 = phi i32 [ %79, %82 ], [ %52, %51 ]
-  %78 = phi ptr [ %83, %82 ], [ %.lcssa5, %51 ]
+  %78 = phi ptr [ %83, %82 ], [ %.lcssa4, %51 ]
   %79 = add i32 %77, -1
   %80 = icmp ult ptr %78, %1
   br i1 %80, label %81, label %82
@@ -11360,7 +11360,7 @@ define internal fastcc ptr @dentry_name(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %84, label %widen_string.exit, label %.preheader.i, !llvm.loop !38
 
 widen_string.exit:                                ; preds = %82, %.thread, %75
-  %85 = phi ptr [ %76, %75 ], [ %.lcssa5, %.thread ], [ %83, %82 ]
+  %85 = phi ptr [ %76, %75 ], [ %.lcssa4, %.thread ], [ %83, %82 ]
   tail call void @__rcu_read_unlock() #20
   br label %widen_string.exit16
 
@@ -11397,7 +11397,7 @@ widen_string.exit.thread:                         ; preds = %22
   %102 = phi i32 [ %101, %100 ], [ %93, %95 ], [ 0, %92 ], [ -1, %4 ]
   %103 = trunc nsw i64 %12 to i32
   %104 = icmp ult i64 %3, 281474976710656
-  br i1 %104, label %.loopexit, label %105
+  br i1 %104, label %.critedge, label %105
 
 105:                                              ; preds = %._crit_edge
   %106 = sext i32 %102 to i64
@@ -11417,7 +11417,7 @@ widen_string.exit.thread:                         ; preds = %22
 
 117:                                              ; preds = %109
   %118 = icmp eq i32 %111, 0
-  br i1 %118, label %.loopexit, label %119
+  br i1 %118, label %.critedge, label %119
 
 119:                                              ; preds = %117
   %120 = add i32 %111, -1
@@ -11437,13 +11437,13 @@ widen_string.exit.thread:                         ; preds = %22
   store i8 %127, ptr %113, align 1
   br label %130
 
-130:                                              ; preds = %129, %124
+130:                                              ; preds = %124, %129
   %131 = add nuw i32 %110, 1
   %132 = getelementptr i8, ptr %113, i64 1
   %133 = icmp eq i32 %131, %103
-  br i1 %133, label %.loopexit, label %109, !llvm.loop !88
+  br i1 %133, label %.critedge, label %109, !llvm.loop !88
 
-.loopexit:                                        ; preds = %117, %130, %._crit_edge
+.critedge:                                        ; preds = %117, %130, %._crit_edge
   %134 = phi ptr [ %0, %._crit_edge ], [ %113, %117 ], [ %132, %130 ]
   %135 = phi i32 [ 0, %._crit_edge ], [ %110, %117 ], [ %103, %130 ]
   tail call void @__rcu_read_unlock() #20
@@ -11453,7 +11453,7 @@ widen_string.exit.thread:                         ; preds = %22
   %139 = icmp slt i32 %135, %138
   br i1 %139, label %140, label %widen_string.exit16, !prof !13
 
-140:                                              ; preds = %.loopexit
+140:                                              ; preds = %.critedge
   %141 = sub i32 %138, %135
   %142 = and i64 %3, 8589934592
   %143 = icmp eq i64 %142, 0
@@ -11516,8 +11516,8 @@ widen_string.exit.thread:                         ; preds = %22
   %173 = icmp eq i32 %168, 0
   br i1 %173, label %widen_string.exit16, label %.preheader.i12, !llvm.loop !38
 
-widen_string.exit16:                              ; preds = %171, %164, %.loopexit, %widen_string.exit
-  %174 = phi ptr [ %85, %widen_string.exit ], [ %165, %164 ], [ %134, %.loopexit ], [ %172, %171 ]
+widen_string.exit16:                              ; preds = %171, %164, %.critedge, %widen_string.exit
+  %174 = phi ptr [ %85, %widen_string.exit ], [ %165, %164 ], [ %134, %.critedge ], [ %172, %171 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
   ret ptr %174
 }
@@ -11583,142 +11583,142 @@ define internal fastcc ptr @default_pointer(ptr noundef %0, ptr noundef %1, ptr 
 33:                                               ; preds = %25
   %34 = load volatile i8, ptr @filled_random_ptr_key, align 1, !range !10, !noundef !11
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %36, label %104
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %33
-  %37 = ashr i64 %3, 48
-  %38 = and i64 %37, 4294967295
-  %39 = icmp eq i64 %38, 4294967295
-  %40 = and i64 %3, 281470681747711
-  %41 = or disjoint i64 %40, 4503599627370496
-  %42 = select i1 %39, i64 %41, i64 %3
-  %43 = ashr i64 %42, 48
-  %44 = trunc nsw i64 %43 to i32
-  br label %45
-
-45:                                               ; preds = %62, %36
-  %46 = phi ptr [ %0, %36 ], [ %63, %62 ]
-  %47 = phi ptr [ @.str.54, %36 ], [ %53, %62 ]
-  %48 = phi i32 [ 0, %36 ], [ %64, %62 ]
-  %49 = phi i32 [ %44, %36 ], [ %50, %62 ]
-  %50 = add nsw i32 %49, -1
-  %51 = icmp eq i32 %49, 0
-  br i1 %51, label %66, label %52
-
-52:                                               ; preds = %45
-  %53 = getelementptr i8, ptr %47, i64 1
-  %54 = load i8, ptr %47, align 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %62, label %56
-
-56:                                               ; preds = %52
-  %57 = icmp ult ptr %46, %1
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %56
-  store i8 %54, ptr %46, align 1
-  br label %59
-
-59:                                               ; preds = %58, %56
-  %60 = getelementptr i8, ptr %46, i64 1
-  %61 = add i32 %48, 1
-  br label %62
-
-62:                                               ; preds = %59, %52
-  %63 = phi ptr [ %60, %59 ], [ %46, %52 ]
-  %64 = phi i32 [ %61, %59 ], [ %48, %52 ]
-  %65 = icmp eq ptr %47, getelementptr inbounds nuw (i8, ptr @.str.54, i64 16)
-  br i1 %65, label %66, label %45
-
-66:                                               ; preds = %62, %45
-  %67 = phi ptr [ %63, %62 ], [ %46, %45 ]
-  %68 = phi i32 [ %64, %62 ], [ %48, %45 ]
-  %69 = icmp slt i32 %68, 16
-  br i1 %69, label %70, label %widen_string.exit, !prof !13
-
-70:                                               ; preds = %66
-  %71 = sub i32 16, %68
-  %72 = and i64 %42, 8589934592
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %.preheader.i
-
-74:                                               ; preds = %70
-  %75 = sext i32 %68 to i64
-  %76 = sub nsw i64 0, %75
-  %77 = getelementptr i8, ptr %67, i64 %76
-  %78 = icmp ult ptr %77, %1
-  br i1 %78, label %79, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %74
-  %.pre.i = zext i32 %71 to i64
-  br label %94
-
-79:                                               ; preds = %74
-  %80 = ptrtoint ptr %1 to i64
-  %81 = ptrtoint ptr %77 to i64
-  %82 = sub i64 %80, %81
-  %83 = zext i32 %71 to i64
-  %84 = icmp ugt i64 %82, %83
-  br i1 %84, label %85, label %92
-
-85:                                               ; preds = %79
-  %86 = icmp eq i32 %68, 0
-  br i1 %86, label %92, label %87
-
-87:                                               ; preds = %85
-  %88 = zext i32 %68 to i64
-  %89 = sub i64 %82, %83
-  %90 = tail call i64 @llvm.umin.i64(i64 %89, i64 %88)
-  %91 = getelementptr i8, ptr %77, i64 %83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %91, ptr align 1 %77, i64 %90, i1 false)
-  br label %92
-
-92:                                               ; preds = %87, %85, %79
-  %93 = phi i64 [ %82, %79 ], [ %83, %87 ], [ %83, %85 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %77, i8 32, i64 %93, i1 false)
-  br label %94
-
-94:                                               ; preds = %92, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %83, %92 ]
-  %95 = getelementptr i8, ptr %67, i64 %.pre-phi.i
-  br label %widen_string.exit
-
-.preheader.i:                                     ; preds = %70, %101
-  %96 = phi i32 [ %98, %101 ], [ %71, %70 ]
-  %97 = phi ptr [ %102, %101 ], [ %67, %70 ]
-  %98 = add i32 %96, -1
-  %99 = icmp ult ptr %97, %1
-  br i1 %99, label %100, label %101
-
-100:                                              ; preds = %.preheader.i
-  store i8 32, ptr %97, align 1
-  br label %101
-
-101:                                              ; preds = %100, %.preheader.i
-  %102 = getelementptr i8, ptr %97, i64 1
-  %103 = icmp eq i32 %98, 0
-  br i1 %103, label %widen_string.exit, label %.preheader.i, !llvm.loop !38
-
-104:                                              ; preds = %33
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !12
-  %105 = ptrtoint ptr %2 to i64
-  %106 = tail call i64 @siphash_1u64(i64 noundef %105, ptr noundef nonnull @ptr_key) #20
-  %107 = and i64 %106, 4294967295
-  %108 = and i64 %3, -280512904036353
-  %109 = or disjoint i64 %108, 17729624997888
-  %110 = shl i64 %3, 32
-  %111 = ashr i64 %110, 40
-  %112 = and i64 %111, 4294967295
-  %113 = icmp eq i64 %112, 4294967295
-  %114 = and i64 %109, -262856293482241
-  %115 = or disjoint i64 %114, 68719480832
-  %116 = select i1 %113, i64 %115, i64 %109
-  %117 = tail call fastcc ptr @number(ptr noundef %0, ptr noundef %1, i64 noundef %107, i64 %116)
+  %37 = ptrtoint ptr %2 to i64
+  %38 = tail call i64 @siphash_1u64(i64 noundef %37, ptr noundef nonnull @ptr_key) #20
+  %39 = and i64 %38, 4294967295
+  %40 = and i64 %3, -280512904036353
+  %41 = or disjoint i64 %40, 17729624997888
+  %42 = shl i64 %3, 32
+  %43 = ashr i64 %42, 40
+  %44 = and i64 %43, 4294967295
+  %45 = icmp eq i64 %44, 4294967295
+  %46 = and i64 %41, -262856293482241
+  %47 = or disjoint i64 %46, 68719480832
+  %48 = select i1 %45, i64 %47, i64 %41
+  %49 = tail call fastcc ptr @number(ptr noundef %0, ptr noundef %1, i64 noundef %39, i64 %48)
   br label %widen_string.exit
 
-widen_string.exit:                                ; preds = %101, %94, %66, %104, %27, %13, %7
-  %118 = phi ptr [ %8, %7 ], [ %24, %13 ], [ %32, %27 ], [ %117, %104 ], [ %95, %94 ], [ %67, %66 ], [ %102, %101 ]
-  ret ptr %118
+.critedge:                                        ; preds = %33
+  %50 = ashr i64 %3, 48
+  %51 = and i64 %50, 4294967295
+  %52 = icmp eq i64 %51, 4294967295
+  %53 = and i64 %3, 281470681747711
+  %54 = or disjoint i64 %53, 4503599627370496
+  %55 = select i1 %52, i64 %54, i64 %3
+  %56 = ashr i64 %55, 48
+  %57 = trunc nsw i64 %56 to i32
+  br label %58
+
+58:                                               ; preds = %75, %.critedge
+  %59 = phi ptr [ %0, %.critedge ], [ %76, %75 ]
+  %60 = phi ptr [ @.str.54, %.critedge ], [ %66, %75 ]
+  %61 = phi i32 [ 0, %.critedge ], [ %77, %75 ]
+  %62 = phi i32 [ %57, %.critedge ], [ %63, %75 ]
+  %63 = add nsw i32 %62, -1
+  %64 = icmp eq i32 %62, 0
+  br i1 %64, label %79, label %65
+
+65:                                               ; preds = %58
+  %66 = getelementptr i8, ptr %60, i64 1
+  %67 = load i8, ptr %60, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %75, label %69
+
+69:                                               ; preds = %65
+  %70 = icmp ult ptr %59, %1
+  br i1 %70, label %71, label %72
+
+71:                                               ; preds = %69
+  store i8 %67, ptr %59, align 1
+  br label %72
+
+72:                                               ; preds = %71, %69
+  %73 = getelementptr i8, ptr %59, i64 1
+  %74 = add i32 %61, 1
+  br label %75
+
+75:                                               ; preds = %72, %65
+  %76 = phi ptr [ %73, %72 ], [ %59, %65 ]
+  %77 = phi i32 [ %74, %72 ], [ %61, %65 ]
+  %78 = icmp eq ptr %60, getelementptr inbounds nuw (i8, ptr @.str.54, i64 16)
+  br i1 %78, label %79, label %58
+
+79:                                               ; preds = %75, %58
+  %80 = phi ptr [ %76, %75 ], [ %59, %58 ]
+  %81 = phi i32 [ %77, %75 ], [ %61, %58 ]
+  %82 = icmp slt i32 %81, 16
+  br i1 %82, label %83, label %widen_string.exit, !prof !13
+
+83:                                               ; preds = %79
+  %84 = sub i32 16, %81
+  %85 = and i64 %55, 8589934592
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %.preheader.i
+
+87:                                               ; preds = %83
+  %88 = sext i32 %81 to i64
+  %89 = sub nsw i64 0, %88
+  %90 = getelementptr i8, ptr %80, i64 %89
+  %91 = icmp ult ptr %90, %1
+  br i1 %91, label %92, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %87
+  %.pre.i = zext i32 %84 to i64
+  br label %107
+
+92:                                               ; preds = %87
+  %93 = ptrtoint ptr %1 to i64
+  %94 = ptrtoint ptr %90 to i64
+  %95 = sub i64 %93, %94
+  %96 = zext i32 %84 to i64
+  %97 = icmp ugt i64 %95, %96
+  br i1 %97, label %98, label %105
+
+98:                                               ; preds = %92
+  %99 = icmp eq i32 %81, 0
+  br i1 %99, label %105, label %100
+
+100:                                              ; preds = %98
+  %101 = zext i32 %81 to i64
+  %102 = sub i64 %95, %96
+  %103 = tail call i64 @llvm.umin.i64(i64 %102, i64 %101)
+  %104 = getelementptr i8, ptr %90, i64 %96
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %104, ptr align 1 %90, i64 %103, i1 false)
+  br label %105
+
+105:                                              ; preds = %100, %98, %92
+  %106 = phi i64 [ %95, %92 ], [ %96, %100 ], [ %96, %98 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %90, i8 32, i64 %106, i1 false)
+  br label %107
+
+107:                                              ; preds = %105, %._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %96, %105 ]
+  %108 = getelementptr i8, ptr %80, i64 %.pre-phi.i
+  br label %widen_string.exit
+
+.preheader.i:                                     ; preds = %83, %114
+  %109 = phi i32 [ %111, %114 ], [ %84, %83 ]
+  %110 = phi ptr [ %115, %114 ], [ %80, %83 ]
+  %111 = add i32 %109, -1
+  %112 = icmp ult ptr %110, %1
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %.preheader.i
+  store i8 32, ptr %110, align 1
+  br label %114
+
+114:                                              ; preds = %113, %.preheader.i
+  %115 = getelementptr i8, ptr %110, i64 1
+  %116 = icmp eq i32 %111, 0
+  br i1 %116, label %widen_string.exit, label %.preheader.i, !llvm.loop !38
+
+widen_string.exit:                                ; preds = %114, %107, %79, %36, %27, %13, %7
+  %117 = phi ptr [ %8, %7 ], [ %24, %13 ], [ %32, %27 ], [ %49, %36 ], [ %108, %107 ], [ %80, %79 ], [ %115, %114 ]
+  ret ptr %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

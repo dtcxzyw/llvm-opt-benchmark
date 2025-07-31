@@ -9718,9 +9718,9 @@ common.resume:                                    ; preds = %124, %69, %120, %24
 33:                                               ; preds = %"_ZN3png7decoder16Decoder$LT$R$GT$15new_with_limits17ha9686ad18b14566bE.exit"
   %34 = load i64, ptr %12, align 8, !range !3080, !noundef !4
   %35 = icmp eq i64 %34, 4
-  br i1 %35, label %.thread325, label %38
+  br i1 %35, label %.thread326, label %38
 
-.thread325:                                       ; preds = %33
+.thread326:                                       ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -9747,11 +9747,11 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   %40 = icmp eq i8 %.sroa.08.0.copyload, 10
   br i1 %40, label %41, label %46
 
-41:                                               ; preds = %.thread325, %39
-  %.sroa.711.0328 = phi ptr [ %37, %.thread325 ], [ %.sroa.711.0.copyload, %39 ]
+41:                                               ; preds = %.thread326, %39
+  %.sroa.711.0329 = phi ptr [ %37, %.thread326 ], [ %.sroa.711.0.copyload, %39 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.9)
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.711.0328, i64 288
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.711.0329, i64 288
   %43 = load i32, ptr %42, align 8, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i32, ptr %44, align 8, !range !3081, !noundef !4
@@ -9772,14 +9772,14 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   br label %119
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.711.0328, i64 284
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.711.0329, i64 284
   %50 = load i32, ptr %49, align 4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %52 = load i32, ptr %51, align 4, !noundef !4
   %53 = icmp ugt i32 %50, %52
-  br i1 %53, label %.thread329, label %54
+  br i1 %53, label %63, label %54
 
-54:                                               ; preds = %48, %41
+54:                                               ; preds = %41, %48
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i32, ptr %55, align 8, !range !3081, !noundef !4
   %trunc309 = trunc nuw i32 %56 to i1
@@ -9787,9 +9787,9 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   %58 = load i32, ptr %57, align 4
   %59 = icmp ugt i32 %43, %58
   %or.cond = select i1 %trunc309, i1 %59, i1 false
-  br i1 %or.cond, label %.thread329, label %60
+  br i1 %or.cond, label %63, label %.critedge
 
-60:                                               ; preds = %54
+.critedge:                                        ; preds = %54
   store i32 16, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 688, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.624)
@@ -9799,21 +9799,21 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(544) %9, ptr noundef nonnull align 8 dereferenceable(544) %13, i64 544, i1 false)
   call void @"_ZN3png7decoder16Decoder$LT$R$GT$9read_info17hdeaf088ff00ab18cE"(ptr noalias noundef nonnull sret([688 x i8]) align 8 captures(none) dereferenceable(688) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(544) %9)
   call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %9)
-  %61 = load i64, ptr %10, align 8, !range !450, !noundef !4
-  %62 = icmp eq i64 %61, -9223372036854775808
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %62, label %65, label %67
+  %60 = load i64, ptr %10, align 8, !range !450, !noundef !4
+  %61 = icmp eq i64 %60, -9223372036854775808
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  br i1 %61, label %65, label %67
 
-.thread329:                                       ; preds = %48, %54
+63:                                               ; preds = %54, %48
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 7, ptr %64, align 8
   %.sroa.3101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.3101.0..sroa_idx, align 8
   br label %119
 
-65:                                               ; preds = %60
+65:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %63, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false)
   call void @"_ZN5image6codecs3png42_$LT$impl$u20$image..error..ImageError$GT$8from_png17hb9d3a7833e5214afE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %.sroa.730, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 688, ptr nonnull %10)
@@ -9823,10 +9823,10 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.624, i64 64, i1 false)
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.624)
-  br label %.critedge
+  br label %.critedge318
 
-67:                                               ; preds = %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.730, ptr noundef nonnull align 8 dereferenceable(64) %63, i64 64, i1 false)
+67:                                               ; preds = %.critedge
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.730, ptr noundef nonnull align 8 dereferenceable(64) %62, i64 64, i1 false)
   %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
   %.sroa.536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %.sroa.536.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(616) %.sroa.5106.0..sroa_idx, i64 616, i1 false)
@@ -9835,7 +9835,7 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.730)
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.435.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.624, i64 64, i1 false)
-  store i64 %61, ptr %11, align 8
+  store i64 %60, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.624)
   %68 = invoke { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_color_type17h660cef8f03ce65f2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %11)
           to label %71 unwind label %69
@@ -9952,7 +9952,7 @@ common.resume:                                    ; preds = %124, %69, %120, %24
 93:                                               ; preds = %113, %111, %109, %106, %104, %102, %99, %97, %95, %90, %88, %86, %78
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr96drop_in_place$LT$png..decoder..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h743d346f0397bb17E"(ptr noalias noundef nonnull align 8 dereferenceable(688) %11)
-  br label %.critedge
+  br label %.critedge318
 
 94:                                               ; preds = %84, %82, %76, %74, %115, %108, %101, %92
   %.sroa.048.0 = phi i8 [ 4, %92 ], [ 6, %101 ], [ 5, %108 ], [ 7, %115 ], [ 0, %74 ], [ 2, %76 ], [ 1, %82 ], [ %85, %84 ]
@@ -10075,11 +10075,11 @@ common.resume:                                    ; preds = %124, %69, %120, %24
 115:                                              ; preds = %84
   br label %94
 
-.critedge:                                        ; preds = %93, %65
+.critedge318:                                     ; preds = %93, %65
   call void @llvm.lifetime.end.p0(i64 688, ptr nonnull %11)
   br label %116
 
-116:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$png..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h18d7e9f068151108E.exit", %.critedge, %94
+116:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$png..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h18d7e9f068151108E.exit", %.critedge318, %94
   call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %13)
   ret void
 
@@ -10089,7 +10089,7 @@ common.resume:                                    ; preds = %124, %69, %120, %24
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46
   unreachable
 
-119:                                              ; preds = %46, %.thread329
+119:                                              ; preds = %46, %63
   store i64 2, ptr %0, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ad6e8dab191f8bE.llvm.10229727489265554012"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.0.sroa.4.0..sroa_idx.i)
           to label %"_ZN4core3ptr97drop_in_place$LT$png..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h18d7e9f068151108E.exit" unwind label %120

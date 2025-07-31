@@ -307,14 +307,14 @@ define dso_local void @ieee80211_recalc_idle(ptr noundef %0) local_unnamed_addr 
   br i1 %39, label %43, label %46
 
 43:                                               ; preds = %30
-  br i1 %42, label %.thread, label %44
+  br i1 %42, label %.critedge, label %44
 
 44:                                               ; preds = %43
   %45 = and i32 %40, -5
   br label %50
 
 46:                                               ; preds = %30
-  br i1 %42, label %47, label %.thread
+  br i1 %42, label %47, label %.critedge
 
 47:                                               ; preds = %46
   tail call void @ieee80211_flush_queues(ptr noundef %0, ptr noundef null, i1 noundef zeroext false) #15
@@ -326,9 +326,9 @@ define dso_local void @ieee80211_recalc_idle(ptr noundef %0) local_unnamed_addr 
   %51 = phi i32 [ %45, %44 ], [ %49, %47 ]
   store i32 %51, ptr %0, align 8
   %52 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 256) #15
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %46, %43, %50
+.critedge:                                        ; preds = %43, %46, %50
   ret void
 }
 

@@ -2991,12 +2991,12 @@ socket_open.exit:                                 ; preds = %38, %42, %47, %50
   br i1 %.not162, label %321, label %58
 
 58:                                               ; preds = %57
-  %.val124 = load ptr, ptr %13, align 8, !tbaa !104
-  %59 = getelementptr inbounds nuw i8, ptr %.val124, i64 24
-  %60 = getelementptr inbounds nuw i8, ptr %.val124, i64 20
+  %.val125 = load ptr, ptr %13, align 8, !tbaa !104
+  %59 = getelementptr inbounds nuw i8, ptr %.val125, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.val125, i64 20
   %61 = load i32, ptr %60, align 4, !tbaa !143
-  %62 = getelementptr inbounds nuw i8, ptr %.val124, i64 156
-  %63 = getelementptr inbounds nuw i8, ptr %.val124, i64 248
+  %62 = getelementptr inbounds nuw i8, ptr %.val125, i64 156
+  %63 = getelementptr inbounds nuw i8, ptr %.val125, i64 248
   %64 = tail call zeroext i1 @Curl_addr2string(ptr noundef nonnull %59, i32 noundef %61, ptr noundef nonnull %62, ptr noundef nonnull %63) #13
   br i1 %64, label %69, label %set_remote_ip.exit
 
@@ -3004,7 +3004,7 @@ set_remote_ip.exit:                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #13
   %65 = tail call ptr @__errno_location() #15
   %66 = load i32, ptr %65, align 4, !tbaa !87
-  %67 = getelementptr inbounds nuw i8, ptr %.val124, i64 304
+  %67 = getelementptr inbounds nuw i8, ptr %.val125, i64 304
   store i32 %66, ptr %67, align 8, !tbaa !121
   %68 = call ptr @Curl_strerror(i32 noundef %66, ptr noundef nonnull %12, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i32 noundef %66, ptr noundef %68) #13
@@ -3087,8 +3087,8 @@ set_remote_ip.exit:                               ; preds = %58
   %107 = icmp sgt i32 %106, -1
   %.pre.pre164 = load i64, ptr %101, align 2
   %108 = and i64 %.pre.pre164, 2147483648
-  %.not.i126 = icmp eq i64 %108, 0
-  %or.cond168 = select i1 %107, i1 true, i1 %.not.i126
+  %.not.i127 = icmp eq i64 %108, 0
+  %or.cond168 = select i1 %107, i1 true, i1 %.not.i127
   br i1 %or.cond168, label %tcpnodelay.exit, label %109
 
 109:                                              ; preds = %104
@@ -3178,17 +3178,17 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %149 = load ptr, ptr %148, align 8, !tbaa !102
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %151 = load ptr, ptr %150, align 8, !tbaa !102
-  %.not.i127 = icmp eq ptr %149, null
-  %152 = select i1 %.not.i127, ptr %147, ptr %149
+  %.not.i128 = icmp eq ptr %149, null
+  %152 = select i1 %.not.i128, ptr %147, ptr %149
   %153 = icmp ne ptr %151, null
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 1, ptr %5, align 4, !tbaa !87
   %154 = icmp ne ptr %152, null
   %155 = icmp ne ptr %147, null
   %156 = select i1 %153, i1 true, i1 %155
-  %or.cond.i128 = select i1 %154, i1 true, i1 %156
+  %or.cond.i129 = select i1 %154, i1 true, i1 %156
   %157 = icmp ne i16 %142, 0
-  %or.cond7.i = select i1 %or.cond.i128, i1 true, i1 %157
+  %or.cond7.i = select i1 %or.cond.i129, i1 true, i1 %157
   br i1 %or.cond7.i, label %158, label %.sink.split169
 
 158:                                              ; preds = %135
@@ -3201,9 +3201,9 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 .thread.i:                                        ; preds = %158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
-  br i1 %156, label %.thread217.i, label %258
+  br i1 %156, label %.thread219.i, label %258
 
-.thread217.i:                                     ; preds = %.thread.i
+.thread219.i:                                     ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   br label %179
@@ -3242,8 +3242,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %152) #13
   br label %bindlocal.exit
 
-179:                                              ; preds = %162, %.thread217.i
-  br i1 %153, label %.thread222.i, label %180
+179:                                              ; preds = %162, %.thread219.i
+  br i1 %153, label %.thread224.i, label %180
 
 180:                                              ; preds = %179
   %181 = getelementptr inbounds nuw i8, ptr %137, i64 1400
@@ -3256,7 +3256,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   ]
 
 184:                                              ; preds = %180
-  br i1 %.not.i127, label %.thread222.i, label %185
+  br i1 %.not.i128, label %.thread224.i, label %185
 
 185:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #13
@@ -3293,13 +3293,13 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %202
 
 202:                                              ; preds = %201, %197, %190
-  br i1 %.not.i127, label %.thread222.i, label %.thread262.i
+  br i1 %.not.i128, label %.thread224.i, label %.thread257.i
 
 .thread137:                                       ; preds = %180
-  br i1 %.not.i127, label %.thread222.i, label %.thread234.i
+  br i1 %.not.i128, label %.thread224.i, label %.thread231.i
 
-.thread222.i:                                     ; preds = %.thread137, %202, %184, %179
-  %.0163227.i = phi ptr [ %6, %202 ], [ %151, %179 ], [ %147, %184 ], [ %147, %.thread137 ]
+.thread224.i:                                     ; preds = %.thread137, %202, %184, %179
+  %.0163229.i = phi ptr [ %6, %202 ], [ %151, %179 ], [ %147, %184 ], [ %147, %.thread137 ]
   %203 = getelementptr inbounds nuw i8, ptr %137, i64 1411
   %204 = load i8, ptr %203, align 1, !tbaa !158
   switch i32 %134, label %206 [
@@ -3307,16 +3307,16 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
     i32 10, label %205
   ]
 
-205:                                              ; preds = %.thread222.i
+205:                                              ; preds = %.thread224.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %205, %.thread222.i
-  %.sink.i = phi i8 [ 2, %205 ], [ 1, %.thread222.i ]
+.sink.split.i:                                    ; preds = %205, %.thread224.i
+  %.sink.i = phi i8 [ 2, %205 ], [ 1, %.thread224.i ]
   store i8 %.sink.i, ptr %203, align 1, !tbaa !158
   br label %206
 
-206:                                              ; preds = %.sink.split.i, %.thread222.i
-  %207 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef %.0163227.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
+206:                                              ; preds = %.sink.split.i, %.thread224.i
+  %207 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef %.0163229.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
   %208 = icmp eq i32 %207, 1
   br i1 %208, label %209, label %211
 
@@ -3328,7 +3328,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   store i8 %204, ptr %203, align 1, !tbaa !158
   %212 = load ptr, ptr %4, align 8, !tbaa !155
   %.not199.i = icmp eq ptr %212, null
-  br i1 %.not199.i, label %.thread234.i, label %213
+  br i1 %.not199.i, label %.thread231.i, label %213
 
 213:                                              ; preds = %211
   %214 = load ptr, ptr %212, align 8, !tbaa !159
@@ -3354,21 +3354,21 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %226, label %227, label %228
 
 227:                                              ; preds = %223, %220
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef %.0163227.i, i32 noundef %134, ptr noundef nonnull %6, i32 noundef %216) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef %.0163229.i, i32 noundef %134, ptr noundef nonnull %6, i32 noundef %216) #13
   br label %228
 
 228:                                              ; preds = %227, %223, %213
   call void @Curl_resolv_unlink(ptr noundef nonnull %1, ptr noundef nonnull %4) #13
   %.not203.i = icmp eq i32 %134, %216
-  br i1 %.not203.i, label %.thread262.i, label %bindlocal.exit.thread153
+  br i1 %.not203.i, label %.thread257.i, label %bindlocal.exit.thread153
 
-.thread262.i:                                     ; preds = %202, %228
+.thread257.i:                                     ; preds = %202, %228
   switch i32 %134, label %.critedge.i [
     i32 10, label %229
     i32 2, label %245
   ]
 
-229:                                              ; preds = %.thread262.i
+229:                                              ; preds = %.thread257.i
   %230 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 37) #14
   %.not204.i = icmp eq ptr %230, null
   br i1 %.not204.i, label %233, label %231
@@ -3404,7 +3404,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   store i32 %243, ptr %244, align 8, !tbaa !98
   br label %.critedge.i
 
-245:                                              ; preds = %.thread262.i
+245:                                              ; preds = %.thread257.i
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %247 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %246) #13
   %248 = icmp sgt i32 %247, 0
@@ -3412,13 +3412,13 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 249:                                              ; preds = %245
   store i16 2, ptr %3, align 8, !tbaa !163
-  %rev.i212.i = call noundef i16 @llvm.bswap.i16(i16 %142)
+  %rev.i214.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %250 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i212.i, ptr %250, align 2, !tbaa !166
+  store i16 %rev.i214.i, ptr %250, align 2, !tbaa !166
   br label %.critedge.i
 
-.thread234.i:                                     ; preds = %.thread137, %211
-  %.0163228237.i = phi ptr [ %.0163227.i, %211 ], [ %147, %.thread137 ]
+.thread231.i:                                     ; preds = %.thread137, %211
+  %.0163230234.i = phi ptr [ %.0163229.i, %211 ], [ %147, %.thread137 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #13
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 5036
   %252 = load i32, ptr %251, align 4
@@ -3429,12 +3429,12 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 3240
   store i32 %255, ptr %256, align 8, !tbaa !122
   %257 = call ptr @Curl_strerror(i32 noundef %255, ptr noundef nonnull %8, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef %.0163228237.i, i32 noundef %255, ptr noundef %257) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef %.0163230234.i, i32 noundef %255, ptr noundef %257) #13
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #13
   br label %bindlocal.exit.thread153
 
-.critedge.i:                                      ; preds = %249, %245, %242, %237, %233, %.thread262.i
-  %.1157.ph.i = phi i32 [ 0, %.thread262.i ], [ 0, %245 ], [ 16, %249 ], [ 28, %242 ], [ 28, %237 ], [ 28, %233 ]
+.critedge.i:                                      ; preds = %249, %245, %242, %237, %233, %.thread257.i
+  %.1157.ph.i = phi i32 [ 0, %.thread257.i ], [ 0, %245 ], [ 16, %249 ], [ 28, %242 ], [ 28, %237 ], [ 28, %233 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #13
   br label %263
 
@@ -3446,16 +3446,16 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 259:                                              ; preds = %258
   store i16 10, ptr %3, align 8, !tbaa !161
-  %rev.i213.i = call noundef i16 @llvm.bswap.i16(i16 %142)
+  %rev.i215.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %260 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i213.i, ptr %260, align 2, !tbaa !162
+  store i16 %rev.i215.i, ptr %260, align 2, !tbaa !162
   br label %263
 
 261:                                              ; preds = %258
   store i16 2, ptr %3, align 8, !tbaa !163
-  %rev.i214.i = call noundef i16 @llvm.bswap.i16(i16 %142)
+  %rev.i216.i = call noundef i16 @llvm.bswap.i16(i16 %142)
   %262 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %rev.i214.i, ptr %262, align 2, !tbaa !166
+  store i16 %rev.i216.i, ptr %262, align 2, !tbaa !166
   br label %263
 
 263:                                              ; preds = %261, %259, %258, %.critedge.i
@@ -3473,7 +3473,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %.lr.ph.split.i
 
 ._crit_edge.thread.i:                             ; preds = %303, %263
-  %.0161.lcssa268.i = phi i16 [ %142, %263 ], [ %indvars.i, %303 ]
+  %.0161.lcssa263.i = phi i16 [ %142, %263 ], [ %indvars.i, %303 ]
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %272 = load i64, ptr %271, align 2
   %273 = and i64 %272, 2147483648
@@ -3493,7 +3493,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %277, %274
-  %282 = zext i16 %.0161.lcssa268.i to i32
+  %282 = zext i16 %.0161.lcssa263.i to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i32 noundef %282) #13
   br label %283
 
@@ -3506,9 +3506,9 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 
 .lr.ph.split.i:                                   ; preds = %303, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i32 [ %270, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %303 ]
-  %.0162252.i = phi i32 [ %145, %.lr.ph.split.preheader.i ], [ %287, %303 ]
-  %287 = add nsw i32 %.0162252.i, -1
-  %288 = icmp sgt i32 %.0162252.i, 1
+  %.0162247.i = phi i32 [ %145, %.lr.ph.split.preheader.i ], [ %287, %303 ]
+  %287 = add nsw i32 %.0162247.i, -1
+  %288 = icmp sgt i32 %.0162247.i, 1
   br i1 %288, label %289, label %.split.us.i
 
 289:                                              ; preds = %.lr.ph.split.i
@@ -3541,8 +3541,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %303
 
 303:                                              ; preds = %301, %297, %292
-  %rev.i215.i = call noundef i16 @llvm.bswap.i16(i16 %indvars.i)
-  store i16 %rev.i215.i, ptr %269, align 2, !tbaa !167
+  %rev.i217.i = call noundef i16 @llvm.bswap.i16(i16 %indvars.i)
+  store i16 %rev.i217.i, ptr %269, align 2, !tbaa !167
   %304 = call i32 @bind(i32 noundef %138, ptr nonnull %3, i32 noundef %.3159.i) #13
   %305 = icmp sgt i32 %304, -1
   br i1 %305, label %._crit_edge.thread.i, label %.lr.ph.split.i
@@ -3558,8 +3558,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #13
   br label %bindlocal.exit.thread148
 
-bindlocal.exit.thread153:                         ; preds = %239, %180, %185, %228, %.thread234.i
-  %.1.ph.i.ph = phi i32 [ 45, %.thread234.i ], [ 1, %228 ], [ 45, %185 ], [ %183, %180 ], [ 1, %239 ]
+bindlocal.exit.thread153:                         ; preds = %239, %228, %180, %185, %.thread231.i
+  %.1.ph.i.ph = phi i32 [ 45, %.thread231.i ], [ 45, %185 ], [ %183, %180 ], [ 1, %228 ], [ 1, %239 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #13
   br label %bindlocal.exit.thread148
 
@@ -3568,12 +3568,12 @@ bindlocal.exit:                                   ; preds = %167, %174, %178
   br label %.sink.split169
 
 bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, %bindlocal.exit.thread153
-  %.0.i129151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 43, %159 ], [ 45, %.split.us.i ]
+  %.0.i130151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 43, %159 ], [ 45, %.split.us.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
-  %310 = icmp eq i32 %.0.i129151, 1
-  %spec.store.select = select i1 %310, i32 7, i32 %.0.i129151
+  %310 = icmp eq i32 %.0.i130151, 1
+  %spec.store.select = select i1 %310, i32 7, i32 %.0.i130151
   br label %321
 
 .sink.split169:                                   ; preds = %135, %283, %bindlocal.exit
@@ -3610,14 +3610,14 @@ bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, 
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %325 = load ptr, ptr %324, align 8, !tbaa !118
   %.not163 = icmp eq ptr %325, null
-  br i1 %.not163, label %.thread.i132, label %326
+  br i1 %.not163, label %.thread.i133, label %326
 
 326:                                              ; preds = %323
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %328 = load ptr, ptr %327, align 8, !tbaa !124
-  %.not.i133 = icmp eq ptr %328, null
+  %.not.i134 = icmp eq ptr %328, null
   call void @Curl_multi_closed(ptr noundef nonnull %1, i32 noundef %322) #13
-  br i1 %.not.i133, label %.thread.i132, label %329
+  br i1 %.not.i134, label %.thread.i133, label %329
 
 329:                                              ; preds = %326
   call void @Curl_set_in_callback(ptr noundef nonnull %1, i1 noundef zeroext true) #13
@@ -3628,11 +3628,11 @@ bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, 
   call void @Curl_set_in_callback(ptr noundef nonnull %1, i1 noundef zeroext false) #13
   br label %socket_close.exit
 
-.thread.i132:                                     ; preds = %326, %323
+.thread.i133:                                     ; preds = %326, %323
   %334 = call i32 @close(i32 noundef %322) #13
   br label %socket_close.exit
 
-socket_close.exit:                                ; preds = %329, %.thread.i132
+socket_close.exit:                                ; preds = %329, %.thread.i133
   store i32 -1, ptr %39, align 8, !tbaa !116
   br label %351
 

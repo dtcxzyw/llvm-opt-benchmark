@@ -149,31 +149,31 @@ _ZNK17hb_subset_input_t8in_errorEv.exit:          ; preds = %19
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 -1, ptr %47, align 4, !tbaa !45
   %48 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %38, i32 noundef 1836020344, i1 noundef zeroext true)
-  %.not71.i7.i.i = icmp eq ptr %48, null
-  br i1 %.not71.i7.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %.split.us68.i.i.i, !prof !46
+  %.not70.i7.i.i = icmp eq ptr %48, null
+  br i1 %.not70.i7.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %.split.us67.i.i.i, !prof !46
 
-.split.us68.i.i.i:                                ; preds = %46, %.critedge.split.split.us.us.i.i.i
+.split.us67.i.i.i:                                ; preds = %46, %.critedge.split.split.us.us.i.i.i
   %49 = phi ptr [ %71, %.critedge.split.split.us.us.i.i.i ], [ %48, %46 ]
-  %.03364.us.i10.i.i = phi i32 [ %67, %.critedge.split.split.us.us.i.i.i ], [ 1836020344, %46 ]
-  %.02965.us.i9.i.i = phi i32 [ %64, %.critedge.split.split.us.us.i.i.i ], [ 17, %46 ]
-  %.066.us.i8.i.i = phi ptr [ %66, %.critedge.split.split.us.us.i.i.i ], [ %2, %46 ]
-  %50 = and i32 %.03364.us.i10.i.i, -512
+  %.03363.us.i10.i.i = phi i32 [ %67, %.critedge.split.split.us.us.i.i.i ], [ 1836020344, %46 ]
+  %.02964.us.i9.i.i = phi i32 [ %64, %.critedge.split.split.us.us.i.i.i ], [ 17, %46 ]
+  %.065.us.i8.i.i = phi ptr [ %66, %.critedge.split.split.us.us.i.i.i ], [ %2, %46 ]
+  %50 = and i32 %.03363.us.i10.i.i, -512
   %51 = add i32 %50, 512
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   br label %53
 
-53:                                               ; preds = %65, %.split.us68.i.i.i
-  %.235.us47.us.i.i.i = phi i32 [ %.03364.us.i10.i.i, %.split.us68.i.i.i ], [ %67, %65 ]
-  %.231.us48.us.i.i.i = phi i32 [ %.02965.us.i9.i.i, %.split.us68.i.i.i ], [ %64, %65 ]
-  %.2.us49.us.i.i.i = phi ptr [ %.066.us.i8.i.i, %.split.us68.i.i.i ], [ %66, %65 ]
-  %.not39.us.us.not.i.i.i = icmp eq i32 %.235.us47.us.i.i.i, -1
+53:                                               ; preds = %65, %.split.us67.i.i.i
+  %.235.us46.us.i.i.i = phi i32 [ %.03363.us.i10.i.i, %.split.us67.i.i.i ], [ %67, %65 ]
+  %.231.us47.us.i.i.i = phi i32 [ %.02964.us.i9.i.i, %.split.us67.i.i.i ], [ %64, %65 ]
+  %.2.us48.us.i.i.i = phi ptr [ %.065.us.i8.i.i, %.split.us67.i.i.i ], [ %66, %65 ]
+  %.not39.us.us.not.i.i.i = icmp eq i32 %.235.us46.us.i.i.i, -1
   br i1 %.not39.us.us.not.i.i.i, label %63, label %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i
 
 _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i:       ; preds = %53
-  %54 = and i32 %.235.us47.us.i.i.i, 63
+  %54 = and i32 %.235.us46.us.i.i.i, 63
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw i64 1, %55
-  %57 = lshr i32 %.235.us47.us.i.i.i, 6
+  %57 = lshr i32 %.235.us46.us.i.i.i, 6
   %58 = and i32 %57, 7
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw [8 x i64], ptr %52, i64 0, i64 %59
@@ -184,12 +184,12 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i:       ; preds = %53
   br label %63
 
 63:                                               ; preds = %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i, %53
-  %64 = add i32 %.231.us48.us.i.i.i, -1
-  %.not40.us50.us.i.i.i = icmp eq i32 %64, 0
-  br i1 %.not40.us50.us.i.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %65
+  %64 = add i32 %.231.us47.us.i.i.i, -1
+  %.not40.us49.us.i.i.i = icmp eq i32 %64, 0
+  br i1 %.not40.us49.us.i.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %.2.us49.us.i.i.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.2.us48.us.i.i.i, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !52
   %68 = icmp ule i32 %50, %67
   %69 = icmp ult i32 %67, %51
@@ -198,8 +198,8 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i:       ; preds = %53
 
 .critedge.split.split.us.us.i.i.i:                ; preds = %65
   %71 = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %38, i32 noundef %67, i1 noundef zeroext true)
-  %.not71.i.i.i = icmp eq ptr %71, null
-  br i1 %.not71.i.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %.split.us68.i.i.i, !prof !55, !llvm.loop !56
+  %.not70.i.i.i = icmp eq ptr %71, null
+  br i1 %.not70.i.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %.split.us67.i.i.i, !prof !55, !llvm.loop !56
 
 _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit: ; preds = %.critedge.split.split.us.us.i.i.i, %63, %42, %43, %46
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #21
@@ -225,31 +225,31 @@ _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit: ; preds = %.critedge.spl
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i32 -1, ptr %83, align 4, !tbaa !45
   %84 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %74, i32 noundef 1734439792, i1 noundef zeroext true)
-  %.not71.i7.i.i8 = icmp eq ptr %84, null
-  br i1 %.not71.i7.i.i8, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %.split.us68.i.i.i9, !prof !46
+  %.not70.i7.i.i8 = icmp eq ptr %84, null
+  br i1 %.not70.i7.i.i8, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %.split.us67.i.i.i9, !prof !46
 
-.split.us68.i.i.i9:                               ; preds = %82, %.critedge.split.split.us.us.i.i.i19
+.split.us67.i.i.i9:                               ; preds = %82, %.critedge.split.split.us.us.i.i.i19
   %85 = phi ptr [ %107, %.critedge.split.split.us.us.i.i.i19 ], [ %84, %82 ]
-  %.03364.us.i10.i.i10 = phi i32 [ %103, %.critedge.split.split.us.us.i.i.i19 ], [ 1734439792, %82 ]
-  %.02965.us.i9.i.i11 = phi i32 [ %100, %.critedge.split.split.us.us.i.i.i19 ], [ 5, %82 ]
-  %.066.us.i8.i.i12 = phi ptr [ %102, %.critedge.split.split.us.us.i.i.i19 ], [ %3, %82 ]
-  %86 = and i32 %.03364.us.i10.i.i10, -512
+  %.03363.us.i10.i.i10 = phi i32 [ %103, %.critedge.split.split.us.us.i.i.i19 ], [ 1734439792, %82 ]
+  %.02964.us.i9.i.i11 = phi i32 [ %100, %.critedge.split.split.us.us.i.i.i19 ], [ 5, %82 ]
+  %.065.us.i8.i.i12 = phi ptr [ %102, %.critedge.split.split.us.us.i.i.i19 ], [ %3, %82 ]
+  %86 = and i32 %.03363.us.i10.i.i10, -512
   %87 = add i32 %86, 512
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   br label %89
 
-89:                                               ; preds = %101, %.split.us68.i.i.i9
-  %.235.us47.us.i.i.i13 = phi i32 [ %.03364.us.i10.i.i10, %.split.us68.i.i.i9 ], [ %103, %101 ]
-  %.231.us48.us.i.i.i14 = phi i32 [ %.02965.us.i9.i.i11, %.split.us68.i.i.i9 ], [ %100, %101 ]
-  %.2.us49.us.i.i.i15 = phi ptr [ %.066.us.i8.i.i12, %.split.us68.i.i.i9 ], [ %102, %101 ]
-  %.not39.us.us.not.i.i.i16 = icmp eq i32 %.235.us47.us.i.i.i13, -1
+89:                                               ; preds = %101, %.split.us67.i.i.i9
+  %.235.us46.us.i.i.i13 = phi i32 [ %.03363.us.i10.i.i10, %.split.us67.i.i.i9 ], [ %103, %101 ]
+  %.231.us47.us.i.i.i14 = phi i32 [ %.02964.us.i9.i.i11, %.split.us67.i.i.i9 ], [ %100, %101 ]
+  %.2.us48.us.i.i.i15 = phi ptr [ %.065.us.i8.i.i12, %.split.us67.i.i.i9 ], [ %102, %101 ]
+  %.not39.us.us.not.i.i.i16 = icmp eq i32 %.235.us46.us.i.i.i13, -1
   br i1 %.not39.us.us.not.i.i.i16, label %99, label %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17
 
 _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17:     ; preds = %89
-  %90 = and i32 %.235.us47.us.i.i.i13, 63
+  %90 = and i32 %.235.us46.us.i.i.i13, 63
   %91 = zext nneg i32 %90 to i64
   %92 = shl nuw i64 1, %91
-  %93 = lshr i32 %.235.us47.us.i.i.i13, 6
+  %93 = lshr i32 %.235.us46.us.i.i.i13, 6
   %94 = and i32 %93, 7
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw [8 x i64], ptr %88, i64 0, i64 %95
@@ -260,12 +260,12 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17:     ; preds = %89
   br label %99
 
 99:                                               ; preds = %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17, %89
-  %100 = add i32 %.231.us48.us.i.i.i14, -1
-  %.not40.us50.us.i.i.i18 = icmp eq i32 %100, 0
-  br i1 %.not40.us50.us.i.i.i18, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %101
+  %100 = add i32 %.231.us47.us.i.i.i14, -1
+  %.not40.us49.us.i.i.i18 = icmp eq i32 %100, 0
+  br i1 %.not40.us49.us.i.i.i18, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %.2.us49.us.i.i.i15, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %.2.us48.us.i.i.i15, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !52
   %104 = icmp ule i32 %86, %103
   %105 = icmp ult i32 %103, %87
@@ -274,8 +274,8 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i17:     ; preds = %89
 
 .critedge.split.split.us.us.i.i.i19:              ; preds = %101
   %107 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %74, i32 noundef %103, i1 noundef zeroext true)
-  %.not71.i.i.i20 = icmp eq ptr %107, null
-  br i1 %.not71.i.i.i20, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %.split.us68.i.i.i9, !prof !55, !llvm.loop !56
+  %.not70.i.i.i20 = icmp eq ptr %107, null
+  br i1 %.not70.i.i.i20, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21, label %.split.us67.i.i.i9, !prof !55, !llvm.loop !56
 
 _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21: ; preds = %.critedge.split.split.us.us.i.i.i19, %99, %78, %79, %82
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4) #21
@@ -301,31 +301,31 @@ _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit21: ; preds = %.critedge.s
   %119 = getelementptr inbounds nuw i8, ptr %109, i64 20
   store i32 -1, ptr %119, align 4, !tbaa !45
   %120 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %110, i32 noundef 1920365166, i1 noundef zeroext true)
-  %.not71.i7.i.i22 = icmp eq ptr %120, null
-  br i1 %.not71.i7.i.i22, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %.split.us68.i.i.i23, !prof !46
+  %.not70.i7.i.i22 = icmp eq ptr %120, null
+  br i1 %.not70.i7.i.i22, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %.split.us67.i.i.i23, !prof !46
 
-.split.us68.i.i.i23:                              ; preds = %118, %.critedge.split.split.us.us.i.i.i33
+.split.us67.i.i.i23:                              ; preds = %118, %.critedge.split.split.us.us.i.i.i33
   %121 = phi ptr [ %143, %.critedge.split.split.us.us.i.i.i33 ], [ %120, %118 ]
-  %.03364.us.i10.i.i24 = phi i32 [ %139, %.critedge.split.split.us.us.i.i.i33 ], [ 1920365166, %118 ]
-  %.02965.us.i9.i.i25 = phi i32 [ %136, %.critedge.split.split.us.us.i.i.i33 ], [ 72, %118 ]
-  %.066.us.i8.i.i26 = phi ptr [ %138, %.critedge.split.split.us.us.i.i.i33 ], [ %4, %118 ]
-  %122 = and i32 %.03364.us.i10.i.i24, -512
+  %.03363.us.i10.i.i24 = phi i32 [ %139, %.critedge.split.split.us.us.i.i.i33 ], [ 1920365166, %118 ]
+  %.02964.us.i9.i.i25 = phi i32 [ %136, %.critedge.split.split.us.us.i.i.i33 ], [ 72, %118 ]
+  %.065.us.i8.i.i26 = phi ptr [ %138, %.critedge.split.split.us.us.i.i.i33 ], [ %4, %118 ]
+  %122 = and i32 %.03363.us.i10.i.i24, -512
   %123 = add i32 %122, 512
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   br label %125
 
-125:                                              ; preds = %137, %.split.us68.i.i.i23
-  %.235.us47.us.i.i.i27 = phi i32 [ %.03364.us.i10.i.i24, %.split.us68.i.i.i23 ], [ %139, %137 ]
-  %.231.us48.us.i.i.i28 = phi i32 [ %.02965.us.i9.i.i25, %.split.us68.i.i.i23 ], [ %136, %137 ]
-  %.2.us49.us.i.i.i29 = phi ptr [ %.066.us.i8.i.i26, %.split.us68.i.i.i23 ], [ %138, %137 ]
-  %.not39.us.us.not.i.i.i30 = icmp eq i32 %.235.us47.us.i.i.i27, -1
+125:                                              ; preds = %137, %.split.us67.i.i.i23
+  %.235.us46.us.i.i.i27 = phi i32 [ %.03363.us.i10.i.i24, %.split.us67.i.i.i23 ], [ %139, %137 ]
+  %.231.us47.us.i.i.i28 = phi i32 [ %.02964.us.i9.i.i25, %.split.us67.i.i.i23 ], [ %136, %137 ]
+  %.2.us48.us.i.i.i29 = phi ptr [ %.065.us.i8.i.i26, %.split.us67.i.i.i23 ], [ %138, %137 ]
+  %.not39.us.us.not.i.i.i30 = icmp eq i32 %.235.us46.us.i.i.i27, -1
   br i1 %.not39.us.us.not.i.i.i30, label %135, label %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31
 
 _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31:     ; preds = %125
-  %126 = and i32 %.235.us47.us.i.i.i27, 63
+  %126 = and i32 %.235.us46.us.i.i.i27, 63
   %127 = zext nneg i32 %126 to i64
   %128 = shl nuw i64 1, %127
-  %129 = lshr i32 %.235.us47.us.i.i.i27, 6
+  %129 = lshr i32 %.235.us46.us.i.i.i27, 6
   %130 = and i32 %129, 7
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw [8 x i64], ptr %124, i64 0, i64 %131
@@ -336,12 +336,12 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31:     ; preds = %125
   br label %135
 
 135:                                              ; preds = %_ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31, %125
-  %136 = add i32 %.231.us48.us.i.i.i28, -1
-  %.not40.us50.us.i.i.i32 = icmp eq i32 %136, 0
-  br i1 %.not40.us50.us.i.i.i32, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %137
+  %136 = add i32 %.231.us47.us.i.i.i28, -1
+  %.not40.us49.us.i.i.i32 = icmp eq i32 %136, 0
+  br i1 %.not40.us49.us.i.i.i32, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw i8, ptr %.2.us49.us.i.i.i29, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.2.us48.us.i.i.i29, i64 4
   %139 = load i32, ptr %138, align 4, !tbaa !52
   %140 = icmp ule i32 %122, %139
   %141 = icmp ult i32 %139, %123
@@ -350,8 +350,8 @@ _ZN13hb_bit_page_t3setEjb.exit.us.us.i.i.i31:     ; preds = %125
 
 .critedge.split.split.us.us.i.i.i33:              ; preds = %137
   %143 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %110, i32 noundef %139, i1 noundef zeroext true)
-  %.not71.i.i.i34 = icmp eq ptr %143, null
-  br i1 %.not71.i.i.i34, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %.split.us68.i.i.i23, !prof !55, !llvm.loop !56
+  %.not70.i.i.i34 = icmp eq ptr %143, null
+  br i1 %.not70.i.i.i34, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35, label %.split.us67.i.i.i23, !prof !55, !llvm.loop !56
 
 _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit35: ; preds = %.critedge.split.split.us.us.i.i.i33, %135, %114, %115, %118
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1419,20 +1419,20 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i32, ptr %13, align 4, !tbaa !97
   %.pre35 = load ptr, ptr %14, align 8, !tbaa !98
-  %.not4.i.i.i.i.i = icmp sgt i32 %.pre, 0
+  %.not1.i.i.i.i.i = icmp sgt i32 %.pre, 0
   %16 = add nsw i32 %.pre, -1
-  br label %.split67.i
+  br label %.split66.i
 
-.split67.i:                                       ; preds = %.critedge.i, %8
-  %.066.i = phi ptr [ %.us-phi.i, %.critedge.i ], [ %1, %8 ]
-  %.02965.i = phi i32 [ %.us-phi46.i, %.critedge.i ], [ %2, %8 ]
-  %.03364.i = phi i32 [ %.us-phi45.i, %.critedge.i ], [ %10, %8 ]
-  %17 = lshr i32 %.03364.i, 9
+.split66.i:                                       ; preds = %.critedge.i, %8
+  %.065.i = phi ptr [ %.us-phi.i, %.critedge.i ], [ %1, %8 ]
+  %.02964.i = phi i32 [ %.us-phi44.i, %.critedge.i ], [ %2, %8 ]
+  %.03363.i = phi i32 [ %.us-phi45.i, %.critedge.i ], [ %10, %8 ]
+  %17 = lshr i32 %.03363.i, 9
   %18 = load atomic i32, ptr %12 monotonic, align 8
   %19 = icmp ult i32 %18, %.pre
   br i1 %19, label %20, label %._crit_edge.i, !prof !40
 
-20:                                               ; preds = %.split67.i
+20:                                               ; preds = %.split66.i
   %21 = zext i32 %18 to i64
   %22 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %.pre35, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !99
@@ -1443,13 +1443,13 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
-._crit_edge.i:                                    ; preds = %20, %.split67.i
-  br i1 %.not4.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread
+._crit_edge.i:                                    ; preds = %20, %.split66.i
+  br i1 %.not1.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge.i, %37
-  %.0216.i.i.i.i.i = phi i32 [ %.223.i.i.i.i.i, %37 ], [ 0, %._crit_edge.i ]
-  %.0245.i.i.i.i.i = phi i32 [ %.226.i.i.i.i.i, %37 ], [ %16, %._crit_edge.i ]
-  %25 = add i32 %.0245.i.i.i.i.i, %.0216.i.i.i.i.i
+  %.0213.i.i.i.i.i = phi i32 [ %.223.i.i.i.i.i, %37 ], [ 0, %._crit_edge.i ]
+  %.0242.i.i.i.i.i = phi i32 [ %.226.i.i.i.i.i, %37 ], [ %16, %._crit_edge.i ]
+  %25 = add i32 %.0242.i.i.i.i.i, %.0213.i.i.i.i.i
   %26 = lshr i32 %25, 1
   %27 = zext nneg i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 3
@@ -1471,8 +1471,8 @@ define linkonce_odr dso_local void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr n
   br label %37
 
 37:                                               ; preds = %35, %32
-  %.226.i.i.i.i.i = phi i32 [ %33, %32 ], [ %.0245.i.i.i.i.i, %35 ]
-  %.223.i.i.i.i.i = phi i32 [ %.0216.i.i.i.i.i, %32 ], [ %36, %35 ]
+  %.226.i.i.i.i.i = phi i32 [ %33, %32 ], [ %.0242.i.i.i.i.i, %35 ]
+  %.223.i.i.i.i.i = phi i32 [ %.0213.i.i.i.i.i, %32 ], [ %36, %35 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.223.i.i.i.i.i, %.226.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !101
 
@@ -1482,7 +1482,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %37, %._crit_edge.i
-  %39 = and i32 %.03364.i, -512
+  %39 = and i32 %.03363.i, -512
   %40 = add i32 %39, 512
   br label %.split.us.i
 
@@ -1492,18 +1492,18 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11h
   %.sink52 = load i32, ptr %.sink52.in, align 4, !tbaa !103
   %41 = zext i32 %.sink52 to i64
   %42 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink, i64 %41
-  %.not70.i = icmp eq ptr %.sink, null
-  %43 = and i32 %.03364.i, -512
+  %.not69.i = icmp eq ptr %.sink, null
+  %43 = and i32 %.03363.i, -512
   %44 = add i32 %43, 512
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  br i1 %.not70.i, label %.split.us.i, label %.split.i
+  br i1 %.not69.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit.thread, %_ZN12hb_bit_set_t8page_forEjb.exit
   %46 = phi i32 [ %40, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ], [ %44, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %47 = phi i32 [ %39, %_ZN12hb_bit_set_t8page_forEjb.exit.thread ], [ %43, %_ZN12hb_bit_set_t8page_forEjb.exit ]
-  %48 = add i32 %.02965.i, -1
-  %.not40.us57.i = icmp eq i32 %48, 0
-  br i1 %.not40.us57.i, label %_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit, label %.lr.ph.i
+  %48 = add i32 %.02964.i, -1
+  %.not40.us56.i = icmp eq i32 %48, 0
+  br i1 %.not40.us56.i, label %_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit, label %.lr.ph.i
 
 49:                                               ; preds = %.lr.ph.i
   %50 = add i32 %51, -1
@@ -1512,7 +1512,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11h
 
 .lr.ph.i:                                         ; preds = %.split.us.i, %49
   %51 = phi i32 [ %50, %49 ], [ %48, %.split.us.i ]
-  %.pn.i = phi ptr [ %52, %49 ], [ %.066.i, %.split.us.i ]
+  %.pn.i = phi ptr [ %52, %49 ], [ %.065.i, %.split.us.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %11
   %53 = load i32, ptr %52, align 4, !tbaa !52
   %54 = icmp ule i32 %47, %53
@@ -1524,9 +1524,9 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %.thread.i, %_ZNK11h
   br label %.critedge.i, !llvm.loop !104
 
 .split.i:                                         ; preds = %_ZN12hb_bit_set_t8page_forEjb.exit, %69
-  %.235.i = phi i32 [ %71, %69 ], [ %.03364.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
-  %.231.i = phi i32 [ %68, %69 ], [ %.02965.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
-  %.2.i = phi ptr [ %70, %69 ], [ %.066.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
+  %.235.i = phi i32 [ %71, %69 ], [ %.03363.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
+  %.231.i = phi i32 [ %68, %69 ], [ %.02964.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
+  %.2.i = phi ptr [ %70, %69 ], [ %.065.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %.not39.not.i = icmp eq i32 %.235.i, -1
   br i1 %.not39.not.i, label %67, label %_ZN13hb_bit_page_t3setEjb.exit.i
 
@@ -1560,9 +1560,9 @@ _ZN13hb_bit_page_t3setEjb.exit.i:                 ; preds = %.split.i
 
 .critedge.i:                                      ; preds = %69, %..critedge.split.us_crit_edge.i
   %.us-phi.i = phi ptr [ %52, %..critedge.split.us_crit_edge.i ], [ %70, %69 ]
+  %.us-phi44.i = phi i32 [ %51, %..critedge.split.us_crit_edge.i ], [ %68, %69 ]
   %.us-phi45.i = phi i32 [ %53, %..critedge.split.us_crit_edge.i ], [ %71, %69 ]
-  %.us-phi46.i = phi i32 [ %51, %..critedge.split.us_crit_edge.i ], [ %68, %69 ]
-  br label %.split67.i, !llvm.loop !106
+  br label %.split66.i, !llvm.loop !106
 
 _ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj.exit:     ; preds = %.split.us.i, %67, %49, %4
   ret void
@@ -1594,100 +1594,100 @@ define linkonce_odr dso_local noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nou
   %19 = load i32, ptr %18, align 4, !tbaa !103
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %17, i64 %20
-  br label %67
+  br label %66
 
 ._crit_edge:                                      ; preds = %3, %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %23 = load i32, ptr %22, align 4, !tbaa !107
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not4.i.i.i.i = icmp sgt i32 %8, 0
-  br i1 %.not4.i.i.i.i, label %.lr.ph.i.i.i.i, label %.loopexit
+  %.not1.i.i.i.i = icmp sgt i32 %8, 0
+  br i1 %.not1.i.i.i.i, label %.lr.ph.preheader.i.i.i.i, label %.loopexit
 
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge
+.lr.ph.preheader.i.i.i.i:                         ; preds = %._crit_edge
   %25 = add nsw i32 %8, -1
-  br label %26
+  br label %.lr.ph.i.i.i.i
 
-26:                                               ; preds = %39, %.lr.ph.i.i.i.i
-  %.0216.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.223.i.i.i.i, %39 ]
-  %.0245.i.i.i.i = phi i32 [ %25, %.lr.ph.i.i.i.i ], [ %.226.i.i.i.i, %39 ]
-  %27 = add i32 %.0245.i.i.i.i, %.0216.i.i.i.i
-  %28 = lshr i32 %27, 1
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !99
-  %33 = icmp slt i32 %4, %32
-  br i1 %33, label %34, label %36
+.lr.ph.i.i.i.i:                                   ; preds = %38, %.lr.ph.preheader.i.i.i.i
+  %.0213.i.i.i.i = phi i32 [ %.223.i.i.i.i, %38 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.0242.i.i.i.i = phi i32 [ %.226.i.i.i.i, %38 ], [ %25, %.lr.ph.preheader.i.i.i.i ]
+  %26 = add i32 %.0242.i.i.i.i, %.0213.i.i.i.i
+  %27 = lshr i32 %26, 1
+  %28 = zext nneg i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !99
+  %32 = icmp slt i32 %4, %31
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %26
-  %35 = add nsw i32 %28, -1
-  br label %39
+33:                                               ; preds = %.lr.ph.i.i.i.i
+  %34 = add nsw i32 %27, -1
+  br label %38
 
-36:                                               ; preds = %26
-  %.not28.i.i.i.i = icmp eq i32 %4, %32
-  br i1 %.not28.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %37
+35:                                               ; preds = %.lr.ph.i.i.i.i
+  %.not28.i.i.i.i = icmp eq i32 %4, %31
+  br i1 %.not28.i.i.i.i, label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, label %36
 
-37:                                               ; preds = %36
-  %38 = add nuw nsw i32 %28, 1
-  br label %39
+36:                                               ; preds = %35
+  %37 = add nuw nsw i32 %27, 1
+  br label %38
 
-39:                                               ; preds = %37, %34
-  %.226.i.i.i.i = phi i32 [ %35, %34 ], [ %.0245.i.i.i.i, %37 ]
-  %.223.i.i.i.i = phi i32 [ %.0216.i.i.i.i, %34 ], [ %38, %37 ]
+38:                                               ; preds = %36, %33
+  %.226.i.i.i.i = phi i32 [ %34, %33 ], [ %.0242.i.i.i.i, %36 ]
+  %.223.i.i.i.i = phi i32 [ %.0213.i.i.i.i, %33 ], [ %37, %36 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.223.i.i.i.i, %.226.i.i.i.i
-  br i1 %.not.not.i.i.i.i, label %.loopexit, label %26, !llvm.loop !101
+  br i1 %.not.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !101
 
-.loopexit:                                        ; preds = %39, %._crit_edge
-  %storemerge.i.i.ph.sink.i.i.ph = phi i32 [ 0, %._crit_edge ], [ %.223.i.i.i.i, %39 ]
-  br i1 %2, label %40, label %67
+.loopexit:                                        ; preds = %38, %._crit_edge
+  %storemerge.i.i.ph.sink.i.i.ph = phi i32 [ 0, %._crit_edge ], [ %.223.i.i.i.i, %38 ]
+  br i1 %2, label %39, label %66
 
-40:                                               ; preds = %.loopexit
-  %41 = add i32 %23, 1
-  %42 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t6resizeEjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %41, i1 noundef zeroext true, i1 noundef zeroext false)
-  br i1 %42, label %43, label %67, !prof !40
+39:                                               ; preds = %.loopexit
+  %40 = add i32 %23, 1
+  %41 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t6resizeEjbb(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false)
+  br i1 %41, label %42, label %66, !prof !40
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load ptr, ptr %44, align 8, !tbaa !102
-  %46 = zext i32 %23 to i64
-  %47 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %45, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, i8 0, i64 64, i1 false), !tbaa !47
-  store i32 0, ptr %47, align 8, !tbaa !49
-  %49 = load ptr, ptr %24, align 8, !tbaa !108
-  %50 = zext nneg i32 %storemerge.i.i.ph.sink.i.i.ph to i64
-  %51 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %49, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load i32, ptr %7, align 4, !tbaa !97
-  %54 = xor i32 %storemerge.i.i.ph.sink.i.i.ph, -1
-  %55 = add i32 %53, %54
-  %56 = shl i32 %55, 3
-  %57 = zext i32 %56 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %52, ptr align 4 %51, i64 %57, i1 false)
-  %58 = load ptr, ptr %24, align 8, !tbaa !108
-  %59 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %58, i64 %50
-  %.sroa.5.0.insert.shift = shl nuw i64 %46, 32
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8, !tbaa !102
+  %45 = zext i32 %23 to i64
+  %46 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, i8 0, i64 64, i1 false), !tbaa !47
+  store i32 0, ptr %46, align 8, !tbaa !49
+  %48 = load ptr, ptr %24, align 8, !tbaa !108
+  %49 = zext nneg i32 %storemerge.i.i.ph.sink.i.i.ph to i64
+  %50 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %48, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %7, align 4, !tbaa !97
+  %53 = xor i32 %storemerge.i.i.ph.sink.i.i.ph, -1
+  %54 = add i32 %52, %53
+  %55 = shl i32 %54, 3
+  %56 = zext i32 %55 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %51, ptr align 4 %50, i64 %56, i1 false)
+  %57 = load ptr, ptr %24, align 8, !tbaa !108
+  %58 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %57, i64 %49
+  %.sroa.5.0.insert.shift = shl nuw i64 %45, 32
   %.sroa.0.0.insert.ext = zext nneg i32 %4 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %59, align 4
-  %.pre21 = load ptr, ptr %24, align 8, !tbaa !108
+  store i64 %.sroa.0.0.insert.insert, ptr %58, align 4
+  %.pre20 = load ptr, ptr %24, align 8, !tbaa !108
   br label %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit
 
-_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit: ; preds = %36, %43
-  %.pre-phi = phi i64 [ %50, %43 ], [ %29, %36 ]
-  %60 = phi ptr [ %.pre21, %43 ], [ %11, %36 ]
-  %storemerge.i.i.ph.sink.i.i18 = phi i32 [ %storemerge.i.i.ph.sink.i.i.ph, %43 ], [ %28, %36 ]
-  store atomic i32 %storemerge.i.i.ph.sink.i.i18, ptr %5 monotonic, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !102
-  %63 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %60, i64 %.pre-phi, i32 1
-  %64 = load i32, ptr %63, align 4, !tbaa !103
-  %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %62, i64 %65
-  br label %67
+_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit: ; preds = %35, %42
+  %.pre-phi = phi i64 [ %49, %42 ], [ %28, %35 ]
+  %59 = phi ptr [ %.pre20, %42 ], [ %11, %35 ]
+  %storemerge.i.i.ph.sink.i.i17 = phi i32 [ %storemerge.i.i.ph.sink.i.i.ph, %42 ], [ %27, %35 ]
+  store atomic i32 %storemerge.i.i.ph.sink.i.i17, ptr %5 monotonic, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %61 = load ptr, ptr %60, align 8, !tbaa !102
+  %62 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %59, i64 %.pre-phi, i32 1
+  %63 = load i32, ptr %62, align 4, !tbaa !103
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %61, i64 %64
+  br label %66
 
-67:                                               ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, %.loopexit, %40, %.thread
-  %.1 = phi ptr [ %21, %.thread ], [ %66, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit ], [ null, %.loopexit ], [ null, %40 ]
+66:                                               ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit, %.loopexit, %39, %.thread
+  %.1 = phi ptr [ %21, %.thread ], [ %65, %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit ], [ null, %.loopexit ], [ null, %39 ]
   ret ptr %.1
 }
 

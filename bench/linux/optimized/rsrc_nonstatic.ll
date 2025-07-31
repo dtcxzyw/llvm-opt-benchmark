@@ -1027,7 +1027,7 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @ioremap(i64 noundef %5, i64 noundef %8) #11
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !25
@@ -1047,7 +1047,7 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %4) #11
   %21 = load i32, ptr %6, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %36, label %.preheader
+  br i1 %22, label %.critedge.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
   %23 = phi i32 [ %30, %.preheader ], [ -1, %11 ]
@@ -1065,27 +1065,31 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
 
 34:                                               ; preds = %.preheader
   %35 = icmp eq i32 %30, -1
-  br label %36
-
-36:                                               ; preds = %11, %34
-  %37 = phi i32 [ 0, %11 ], [ %29, %34 ]
-  %38 = phi i1 [ true, %11 ], [ %35, %34 ]
   store i8 0, ptr %12, align 1
-  %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %42 = call i32 %41(ptr noundef %0, ptr noundef nonnull %4) #11
+  %36 = load ptr, ptr %16, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 %38(ptr noundef %0, ptr noundef nonnull %4) #11
   call void @iounmap(ptr noundef nonnull %9) #11
-  br i1 %38, label %.thread, label %43
+  br i1 %35, label %.critedge, label %40
 
-43:                                               ; preds = %36
-  store i32 %37, ptr %2, align 4
-  br label %.thread
+40:                                               ; preds = %34
+  store i32 %29, ptr %2, align 4
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %43, %36
-  %44 = phi i32 [ 0, %43 ], [ -22, %36 ], [ -22, %3 ]
+.critedge.critedge:                               ; preds = %11
+  store i8 0, ptr %12, align 1
+  %41 = load ptr, ptr %16, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 %43(ptr noundef %0, ptr noundef nonnull %4) #11
+  call void @iounmap(ptr noundef nonnull %9) #11
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.critedge, %3, %40, %34
+  %45 = phi i32 [ 0, %40 ], [ -22, %34 ], [ -22, %3 ], [ -22, %.critedge.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
-  ret i32 %44
+  ret i32 %45
 }
 
 ; Function Attrs: cold null_pointer_is_valid

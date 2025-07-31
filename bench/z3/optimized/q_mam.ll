@@ -15563,42 +15563,42 @@ _ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread: ; preds = %.critedge, 
   br i1 %.not.lcssa, label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread, %1531
-  %.01439.i = phi ptr [ %1534, %1531 ], [ %storemerge.lcssa, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
-  %.01638.i = phi i32 [ %spec.select28.i, %1531 ], [ 0, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
-  %.01937.i = phi ptr [ %spec.select.i426, %1531 ], [ null, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
-  %.02236.i = phi i32 [ %.123.i, %1531 ], [ 0, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
+  %.01434.i = phi ptr [ %1534, %1531 ], [ %storemerge.lcssa, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
+  %.01633.i = phi i32 [ %spec.select28.i, %1531 ], [ 0, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
+  %.01932.i = phi ptr [ %spec.select.i426, %1531 ], [ null, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
+  %.02231.i = phi i32 [ %.123.i, %1531 ], [ 0, %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #21
   store i8 0, ptr %33, align 1, !tbaa !658
-  %1525 = call noundef i32 @_ZN1q8compiler25get_compatibility_measureEPNS_6chooseERb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.01439.i, ptr noundef nonnull align 1 dereferenceable(1) %33)
+  %1525 = call noundef i32 @_ZN1q8compiler25get_compatibility_measureEPNS_6chooseERb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %.01434.i, ptr noundef nonnull align 1 dereferenceable(1) %33)
   %1526 = load i8, ptr %33, align 1, !tbaa !658, !range !146, !noundef !147
   %1527 = trunc nuw i8 %1526 to i1
   br i1 %1527, label %1528, label %1531
 
 1528:                                             ; preds = %.lr.ph.i
-  %1529 = add nuw nsw i32 %.02236.i, 1
-  %1530 = icmp ugt i32 %.02236.i, 63
-  br i1 %1530, label %.thread.i, label %1531
-
-.thread.i:                                        ; preds = %1528
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #21
-  br label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread
+  %1529 = add nuw nsw i32 %.02231.i, 1
+  %1530 = icmp ugt i32 %.02231.i, 63
+  br i1 %1530, label %.critedge.i, label %1531
 
 1531:                                             ; preds = %1528, %.lr.ph.i
-  %.123.i = phi i32 [ %1529, %1528 ], [ %.02236.i, %.lr.ph.i ]
-  %1532 = icmp ugt i32 %1525, %.01638.i
-  %spec.select.i426 = select i1 %1532, ptr %.01439.i, ptr %.01937.i
-  %spec.select28.i = call i32 @llvm.umax.i32(i32 %1525, i32 %.01638.i)
-  %1533 = getelementptr inbounds nuw i8, ptr %.01439.i, i64 16
+  %.123.i = phi i32 [ %1529, %1528 ], [ %.02231.i, %.lr.ph.i ]
+  %1532 = icmp ugt i32 %1525, %.01633.i
+  %spec.select.i426 = select i1 %1532, ptr %.01434.i, ptr %.01932.i
+  %spec.select28.i = call i32 @llvm.umax.i32(i32 %1525, i32 %.01633.i)
+  %1533 = getelementptr inbounds nuw i8, ptr %.01434.i, i64 16
   %1534 = load ptr, ptr %1533, align 8, !tbaa !168
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #21
   %.not.i427 = icmp eq ptr %1534, null
   br i1 %.not.i427, label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit, label %.lr.ph.i, !llvm.loop !730
 
+.critedge.i:                                      ; preds = %1528
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #21
+  br label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread
+
 _ZN1q8compiler15find_best_childEPNS_6chooseE.exit: ; preds = %1531
   %1535 = icmp eq ptr %spec.select.i426, null
   br i1 %1535, label %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread, label %43
 
-_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread: ; preds = %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread, %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit, %.thread.i
+_ZN1q8compiler15find_best_childEPNS_6chooseE.exit.thread: ; preds = %_ZNK6vectorIPN1q11instructionELb0EjE5emptyEv.exit.thread, %_ZN1q8compiler15find_best_childEPNS_6chooseE.exit, %.critedge.i
   %storemerge.in.lcssa753 = getelementptr inbounds nuw i8, ptr %.082.lcssa, i64 8
   %1536 = load ptr, ptr %39, align 8, !tbaa !711
   %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 16

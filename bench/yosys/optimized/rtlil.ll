@@ -138166,13 +138166,13 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE4findE
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load ptr, ptr %40, align 8, !tbaa !521
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %.thread, label %42
+  br i1 %.not, label %.critedge, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %44 = load ptr, ptr %43, align 8, !tbaa !307
   %.not18 = icmp eq ptr %44, null
-  br i1 %.not18, label %.thread, label %45
+  br i1 %.not18, label %.critedge, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -138228,29 +138228,29 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE5cou
   %74 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 4 dereferenceable(4) %46, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %75 = icmp slt i32 %74, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #39
-  br i1 %75, label %.thread, label %_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit
+  br i1 %75, label %.critedge, label %_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit
 
 _ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit: ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE5countERKS3_.exit.i
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %47, ptr noundef nonnull align 4 dereferenceable(4) %46)
   %77 = load ptr, ptr %76, align 8, !tbaa !203
   %.not19 = icmp eq ptr %77, null
-  br i1 %.not19, label %.thread, label %78
+  br i1 %.not19, label %.critedge, label %78
 
 78:                                               ; preds = %_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 368
   %80 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %79, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %85
 
-.thread:                                          ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit, %42, %39
+.critedge:                                        ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS2_6ModuleENS0_8hash_opsIS3_EEE5countERKS3_.exit.i, %_ZN5Yosys5RTLIL6Design6moduleERKNS0_8IdStringE.exit, %42, %39
   %81 = call ptr @__cxa_allocate_exception(i64 16) #39
   invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull @.str.349)
           to label %82 unwind label %83
 
-82:                                               ; preds = %.thread
+82:                                               ; preds = %.critedge
   call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #40
   unreachable
 
-83:                                               ; preds = %.thread
+83:                                               ; preds = %.critedge
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %81) #39

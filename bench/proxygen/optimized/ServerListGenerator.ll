@@ -256,9 +256,9 @@ lor.rhs:                                          ; preds = %entry
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #14
   %cmp.i.i = icmp eq i64 %1, %call.i.i
-  br i1 %cmp.i.i, label %cleanup.done, label %lor.end
+  br i1 %cmp.i.i, label %cleanup.done, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
 
-lor.end:                                          ; preds = %lor.rhs
+_ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %lor.rhs
   %strictLoopThread_.i = getelementptr inbounds nuw i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
   %tobool.i = trunc i8 %2 to i1
@@ -266,7 +266,7 @@ lor.end:                                          ; preds = %lor.rhs
   %spec.select.i.not = or i1 %cmp.i2.i, %tobool.i
   br i1 %spec.select.i.not, label %cond.false, label %cleanup.done
 
-cond.false:                                       ; preds = %lor.end
+cond.false:                                       ; preds = %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 28)
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3)
           to label %invoke.cont unwind label %lpad
@@ -285,7 +285,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #13
   unreachable
 
-cleanup.done:                                     ; preds = %lor.rhs, %entry, %lor.end
+cleanup.done:                                     ; preds = %lor.rhs, %entry, %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
   store ptr null, ptr %eventBase_, align 8
   ret void
 }

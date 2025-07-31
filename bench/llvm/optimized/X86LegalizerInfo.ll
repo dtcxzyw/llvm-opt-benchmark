@@ -8379,73 +8379,73 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_12Legalize
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i, label %14, label %13, !prof !411
+  br i1 %spec.select.i.i.i.i, label %13, label %.critedge.i.i, !prof !411
 
 13:                                               ; preds = %9
+  %14 = ptrtoint ptr %1 to i64
+  %15 = ptrtoint ptr %.pre3 to i64
+  %16 = sub i64 %14, %15
+  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
+  %17 = load ptr, ptr %0, align 8, !tbaa !19
+  %18 = getelementptr inbounds i8, ptr %17, i64 %16
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
+
+.critedge.i.i:                                    ; preds = %9
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.pre = load ptr, ptr %0, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
 
-14:                                               ; preds = %9
-  %15 = ptrtoint ptr %1 to i64
-  %16 = ptrtoint ptr %.pre3 to i64
-  %17 = sub i64 %15, %16
-  tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
-  %18 = load ptr, ptr %0, align 8, !tbaa !19
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
+_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit: ; preds = %2, %13, %.critedge.i.i
+  %19 = phi ptr [ %.pre3, %2 ], [ %17, %13 ], [ %.pre, %.critedge.i.i ]
+  %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
+  %20 = load i32, ptr %3, align 8, !tbaa !20
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.llvm::LegalizeRule", ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 32, i1 false)
+  %24 = load ptr, ptr %23, align 8, !tbaa !174
+  %.not.i.i.not.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, label %25
 
-_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit: ; preds = %2, %13, %14
-  %20 = phi ptr [ %.pre3, %2 ], [ %18, %14 ], [ %.pre, %13 ]
-  %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %13 ]
-  %21 = load i32, ptr %3, align 8, !tbaa !20
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::LegalizeRule", ptr %20, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, i8 0, i64 32, i1 false)
-  %25 = load ptr, ptr %24, align 8, !tbaa !174
-  %.not.i.i.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, label %26
-
-26:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %29 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i, i32 noundef 2) #16
-  %30 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !171
-  store ptr %31, ptr %27, align 8, !tbaa !171
-  %32 = load ptr, ptr %24, align 8, !tbaa !174
-  store ptr %32, ptr %28, align 8, !tbaa !174
+25:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %28 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %.016.i.i, i32 noundef 2) #16
+  %29 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !171
+  store ptr %30, ptr %26, align 8, !tbaa !171
+  %31 = load ptr, ptr %23, align 8, !tbaa !174
+  store ptr %31, ptr %27, align 8, !tbaa !174
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
 
-_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %26, %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
-  %35 = load i8, ptr %34, align 8, !tbaa !408
-  store i8 %35, ptr %33, align 8, !tbaa !408
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
-  %38 = load ptr, ptr %37, align 8, !tbaa !174
-  %.not.i.i.not.i4.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.not.i4.i, label %_ZN4llvm12LegalizeRuleC2ERKS0_.exit, label %39
+_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %25, %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE28reserveForParamAndGetAddressERKS1_m.exit
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
+  %34 = load i8, ptr %33, align 8, !tbaa !408
+  store i8 %34, ptr %32, align 8, !tbaa !408
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
+  %37 = load ptr, ptr %36, align 8, !tbaa !174
+  %.not.i.i.not.i4.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.not.i4.i, label %_ZN4llvm12LegalizeRuleC2ERKS0_.exit, label %38
 
-39:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
-  %41 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %43 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %40, i32 noundef 2) #16
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !179
-  store ptr %45, ptr %41, align 8, !tbaa !179
-  %46 = load ptr, ptr %37, align 8, !tbaa !174
-  store ptr %46, ptr %42, align 8, !tbaa !174
+38:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %42 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 2) #16
+  %43 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 64
+  %44 = load ptr, ptr %43, align 8, !tbaa !179
+  store ptr %44, ptr %40, align 8, !tbaa !179
+  %45 = load ptr, ptr %36, align 8, !tbaa !174
+  store ptr %45, ptr %41, align 8, !tbaa !174
   br label %_ZN4llvm12LegalizeRuleC2ERKS0_.exit
 
-_ZN4llvm12LegalizeRuleC2ERKS0_.exit:              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, %39
-  %47 = load i32, ptr %3, align 8, !tbaa !20
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %3, align 8, !tbaa !20
+_ZN4llvm12LegalizeRuleC2ERKS0_.exit:              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, %38
+  %46 = load i32, ptr %3, align 8, !tbaa !20
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %3, align 8, !tbaa !20
   ret void
 }
 

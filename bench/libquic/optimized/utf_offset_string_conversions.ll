@@ -195,27 +195,27 @@ define void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10Adjustm
   br i1 %13, label %_ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit, label %.lr.ph.i
 
 14:                                               ; preds = %19
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.025.i, i64 24
-  %.not22.i = icmp eq ptr %15, %6
-  br i1 %.not22.i, label %.sink.split.i, label %.lr.ph.i, !llvm.loop !19
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.022.i, i64 24
+  %.not19.i = icmp eq ptr %15, %6
+  br i1 %.not19.i, label %.sink.split.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %14
-  %.01126.i = phi i32 [ %26, %14 ], [ 0, %.lr.ph ]
-  %.sroa.012.025.i = phi ptr [ %15, %14 ], [ %4, %.lr.ph ]
-  %16 = sext i32 %.01126.i to i64
+  %.01123.i = phi i32 [ %26, %14 ], [ 0, %.lr.ph ]
+  %.sroa.012.022.i = phi ptr [ %15, %14 ], [ %4, %.lr.ph ]
+  %16 = sext i32 %.01123.i to i64
   %17 = add i64 %12, %16
-  %18 = load i64, ptr %.sroa.012.025.i, align 8, !tbaa !3
+  %18 = load i64, ptr %.sroa.012.022.i, align 8, !tbaa !3
   %.not.i = icmp ugt i64 %17, %18
   br i1 %.not.i, label %19, label %.sink.split.i
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.012.025.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.012.022.i, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !8
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.025.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.022.i, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !9
   %24 = sub i64 %21, %23
   %25 = trunc i64 %24 to i32
-  %26 = add nsw i32 %.01126.i, %25
+  %26 = add nsw i32 %.01123.i, %25
   %27 = sext i32 %26 to i64
   %28 = add i64 %12, %27
   %29 = add i64 %21, %18
@@ -246,39 +246,39 @@ define void @_ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10Adjustme
   %6 = load ptr, ptr %0, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !10
-  %.not2224 = icmp eq ptr %6, %8
-  br i1 %.not2224, label %._crit_edge, label %.lr.ph
+  %.not1921 = icmp eq ptr %6, %8
+  br i1 %.not1921, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %14
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 24
-  %.not22 = icmp eq ptr %10, %8
-  br i1 %.not22, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 24
+  %.not19 = icmp eq ptr %10, %8
+  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %5, %9
-  %.01126 = phi i32 [ %21, %9 ], [ 0, %5 ]
-  %.sroa.012.025 = phi ptr [ %10, %9 ], [ %6, %5 ]
-  %11 = sext i32 %.01126 to i64
+  %.01123 = phi i32 [ %21, %9 ], [ 0, %5 ]
+  %.sroa.012.022 = phi ptr [ %10, %9 ], [ %6, %5 ]
+  %11 = sext i32 %.01123 to i64
   %12 = add i64 %3, %11
-  %13 = load i64, ptr %.sroa.012.025, align 8, !tbaa !3
+  %13 = load i64, ptr %.sroa.012.022, align 8, !tbaa !3
   %.not = icmp ugt i64 %12, %13
   br i1 %.not, label %14, label %._crit_edge.loopexit
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !8
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = sub i64 %16, %18
   %20 = trunc i64 %19 to i32
-  %21 = add nsw i32 %.01126, %20
+  %21 = add nsw i32 %.01123, %20
   %22 = sext i32 %21 to i64
   %23 = add i64 %3, %22
   %24 = add i64 %16, %13
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %.sink.split, label %9
 
-._crit_edge.loopexit:                             ; preds = %9, %.lr.ph
-  %.011.lcssa.ph = phi i32 [ %.01126, %.lr.ph ], [ %21, %9 ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %9
+  %.011.lcssa.ph = phi i32 [ %21, %9 ], [ %.01123, %.lr.ph ]
   %26 = sext i32 %.011.lcssa.ph to i64
   br label %._crit_edge
 

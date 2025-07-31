@@ -49,9 +49,9 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
   br i1 %12, label %.critedge, label %.critedge.thread
 
 .critedge:                                        ; preds = %9, %10
-  %.057 = phi ptr [ %11, %10 ], [ %1, %9 ]
-  %.not43 = icmp eq ptr %.057, null
-  %.sroa.speculated = select i1 %.not43, ptr @.str.14, ptr %.057
+  %.058 = phi ptr [ %11, %10 ], [ %1, %9 ]
+  %.not43 = icmp eq ptr %.058, null
+  %.sroa.speculated = select i1 %.not43, ptr @.str.14, ptr %.058
   %13 = tail call ptr @SDL_LoadObject_REAL(ptr noundef nonnull %.sroa.speculated) #4
   store ptr %13, ptr %5, align 8
   %14 = icmp eq ptr %13, null
@@ -89,12 +89,8 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %26
   %28 = load i32, ptr %3, align 4
-  %.not55 = icmp eq i32 %28, 0
-  br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %.preheader
-  call void @SDL_free_REAL(ptr noundef nonnull %27) #4
-  br label %39
+  %.not56 = icmp eq i32 %28, 0
+  br i1 %.not56, label %.critedge55, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.preheader ]
@@ -124,7 +120,11 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
   call void @SDL_free_REAL(ptr noundef nonnull %27) #4
   br i1 %.138, label %41, label %39
 
-39:                                               ; preds = %._crit_edge.thread, %._crit_edge
+.critedge55:                                      ; preds = %.preheader
+  call void @SDL_free_REAL(ptr noundef nonnull %27) #4
+  br label %39
+
+39:                                               ; preds = %.critedge55, %._crit_edge
   %40 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #4
   br label %43
 

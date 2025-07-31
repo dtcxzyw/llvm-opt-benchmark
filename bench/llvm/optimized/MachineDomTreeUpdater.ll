@@ -663,7 +663,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %13 = load i8, ptr %12, align 8, !tbaa !11
   %14 = icmp eq i8 %13, 1
-  br i1 %14, label %15, label %56
+  br i1 %14, label %15, label %55
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -692,15 +692,15 @@ _ZN4llvm15SmallVectorImplINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterE
   %28 = ptrtoint ptr %6 to i64
   br label %29
 
-29:                                               ; preds = %.lr.ph, %54
-  %.027 = phi ptr [ %1, %.lr.ph ], [ %55, %54 ]
+29:                                               ; preds = %.lr.ph, %53
+  %.027 = phi ptr [ %1, %.lr.ph ], [ %54, %53 ]
   %.sroa.05.0.copyload = load ptr, ptr %.027, align 8, !tbaa !40
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !42
   %30 = and i64 %.sroa.26.0.copyload, -8
   %31 = inttoptr i64 %30 to ptr
   %32 = icmp eq ptr %.sroa.05.0.copyload, %31
-  br i1 %32, label %54, label %33
+  br i1 %32, label %53, label %33
 
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
@@ -718,65 +718,65 @@ _ZN4llvm15SmallVectorImplINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterE
   %40 = icmp uge ptr %6, %.pre3.i
   %41 = icmp ult ptr %6, %39
   %spec.select.i.i.i.i.i = and i1 %40, %41
-  br i1 %spec.select.i.i.i.i.i, label %43, label %42, !prof !44
+  br i1 %spec.select.i.i.i.i.i, label %42, label %.critedge.i.i.i, !prof !44
 
 42:                                               ; preds = %38
+  %43 = ptrtoint ptr %.pre3.i to i64
+  %44 = sub i64 %28, %43
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %36, i64 noundef 32) #17
+  %45 = load ptr, ptr %0, align 8, !tbaa !3
+  %46 = getelementptr inbounds i8, ptr %45, i64 %44
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %38
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %36, i64 noundef 32) #17
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
 
-43:                                               ; preds = %38
-  %44 = ptrtoint ptr %.pre3.i to i64
-  %45 = sub i64 %28, %44
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27, i64 noundef %36, i64 noundef 32) #17
-  %46 = load ptr, ptr %0, align 8, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %46, i64 %45
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %33, %42, %43
-  %48 = phi ptr [ %.pre3.i, %33 ], [ %46, %43 ], [ %.pre.i, %42 ]
-  %.016.i.i.i = phi ptr [ %6, %33 ], [ %47, %43 ], [ %6, %42 ]
-  %49 = load i32, ptr %16, align 8, !tbaa !9
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %48, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %52 = load i32, ptr %16, align 8, !tbaa !9
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %16, align 8, !tbaa !9
+_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %33, %42, %.critedge.i.i.i
+  %47 = phi ptr [ %.pre3.i, %33 ], [ %45, %42 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %33 ], [ %46, %42 ], [ %6, %.critedge.i.i.i ]
+  %48 = load i32, ptr %16, align 8, !tbaa !9
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %47, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %51 = load i32, ptr %16, align 8, !tbaa !9
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %16, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  br label %54
+  br label %53
 
-54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit, %29
-  %55 = getelementptr inbounds nuw i8, ptr %.027, i64 16
-  %.not20 = icmp eq ptr %55, %26
+53:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit, %29
+  %54 = getelementptr inbounds nuw i8, ptr %.027, i64 16
+  %.not20 = icmp eq ptr %54, %26
   br i1 %.not20, label %.loopexit, label %29
 
-56:                                               ; preds = %11
-  br i1 %.not, label %58, label %57
+55:                                               ; preds = %11
+  br i1 %.not, label %57, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %5) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %5, ptr %1, i64 %2, i1 noundef zeroext true)
   call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef nonnull align 8 dereferenceable(680) %5, ptr noundef null) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %5) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %5) #17
   %.pre = load ptr, ptr %9, align 8, !tbaa !34
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %56
-  %59 = phi ptr [ %.pre, %57 ], [ %10, %56 ]
-  %.not19 = icmp eq ptr %59, null
-  br i1 %.not19, label %.loopexit, label %60
+57:                                               ; preds = %56, %55
+  %58 = phi ptr [ %.pre, %56 ], [ %10, %55 ]
+  %.not19 = icmp eq ptr %58, null
+  br i1 %.not19, label %.loopexit, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %4) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %4, ptr %1, i64 %2, i1 noundef zeroext true)
-  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(148) %59, ptr noundef nonnull align 8 dereferenceable(680) %4, ptr noundef null) #17
+  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(148) %58, ptr noundef nonnull align 8 dereferenceable(680) %4, ptr noundef null) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %4) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %4) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %_ZN4llvm15SmallVectorImplINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateEE7reserveEm.exit, %3, %60, %58
+.loopexit:                                        ; preds = %53, %_ZN4llvm15SmallVectorImplINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateEE7reserveEm.exit, %3, %59, %57
   ret void
 }
 
@@ -808,7 +808,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   %or.cond = select i1 %.not, i1 %.not4, i1 false
-  br i1 %or.cond, label %49, label %11
+  br i1 %or.cond, label %48, label %11
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
@@ -820,7 +820,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %15 = load i8, ptr %14, align 8, !tbaa !11
   %16 = icmp eq i8 %15, 1
-  br i1 %16, label %17, label %43
+  br i1 %16, label %17, label %42
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
@@ -840,59 +840,59 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %26 = icmp uge ptr %6, %.pre3.i
   %27 = icmp ult ptr %6, %25
   %spec.select.i.i.i.i.i = and i1 %26, %27
-  br i1 %spec.select.i.i.i.i.i, label %30, label %28, !prof !44
+  br i1 %spec.select.i.i.i.i.i, label %28, label %.critedge.i.i.i, !prof !44
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %21, i64 noundef 32) #17
+  %29 = ptrtoint ptr %6 to i64
+  %30 = ptrtoint ptr %.pre3.i to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %21, i64 noundef 32) #17
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds i8, ptr %33, i64 %31
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %35, i64 noundef %21, i64 noundef 32) #17
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
 
-30:                                               ; preds = %24
-  %31 = ptrtoint ptr %6 to i64
-  %32 = ptrtoint ptr %.pre3.i to i64
-  %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %34, i64 noundef %21, i64 noundef 32) #17
-  %35 = load ptr, ptr %0, align 8, !tbaa !3
-  %36 = getelementptr inbounds i8, ptr %35, i64 %33
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %17, %28, %30
-  %37 = phi ptr [ %.pre3.i, %17 ], [ %35, %30 ], [ %.pre.i, %28 ]
-  %.016.i.i.i = phi ptr [ %6, %17 ], [ %36, %30 ], [ %6, %28 ]
-  %38 = load i32, ptr %18, align 8, !tbaa !9
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %37, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %41 = load i32, ptr %18, align 8, !tbaa !9
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %18, align 8, !tbaa !9
+_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %17, %28, %.critedge.i.i.i
+  %36 = phi ptr [ %.pre3.i, %17 ], [ %33, %28 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %17 ], [ %34, %28 ], [ %6, %.critedge.i.i.i ]
+  %37 = load i32, ptr %18, align 8, !tbaa !9
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %36, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %40 = load i32, ptr %18, align 8, !tbaa !9
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %18, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  br label %48
+  br label %47
 
-43:                                               ; preds = %11
-  br i1 %.not, label %45, label %44
+42:                                               ; preds = %11
+  br i1 %.not, label %44, label %43
 
-44:                                               ; preds = %43
+43:                                               ; preds = %42
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE20splitDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr nonnull %5, i64 1)
   %.pre = load ptr, ptr %9, align 8, !tbaa !34
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %43
-  %46 = phi ptr [ %.pre, %44 ], [ %10, %43 ]
-  %.not6 = icmp eq ptr %46, null
-  br i1 %.not6, label %48, label %47
+44:                                               ; preds = %43, %42
+  %45 = phi ptr [ %.pre, %43 ], [ %10, %42 ]
+  %.not6 = icmp eq ptr %45, null
+  br i1 %.not6, label %47, label %46
 
-47:                                               ; preds = %45
+46:                                               ; preds = %44
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE21splitPDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr nonnull %5, i64 1)
+  br label %47
+
+47:                                               ; preds = %44, %46, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
   br label %48
 
-48:                                               ; preds = %45, %47, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  br label %49
-
-49:                                               ; preds = %4, %48
+48:                                               ; preds = %4, %47
   ret void
 }
 
@@ -1940,7 +1940,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %14 = load ptr, ptr %13, align 8
   %.not25 = icmp eq ptr %14, null
   %or.cond = select i1 %.not, i1 %.not25, i1 false
-  br i1 %or.cond, label %153, label %15
+  br i1 %or.cond, label %152, label %15
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #17
@@ -1986,10 +1986,10 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %36 = load i8, ptr %35, align 8, !tbaa !11
   %37 = icmp eq i8 %36, 1
-  br i1 %37, label %144, label %132
+  br i1 %37, label %143, label %131
 
 38:                                               ; preds = %.lr.ph, %.critedge.thread
-  %.048 = phi ptr [ %1, %.lr.ph ], [ %131, %.critedge.thread ]
+  %.048 = phi ptr [ %1, %.lr.ph ], [ %130, %.critedge.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
   %39 = load ptr, ptr %.048, align 8, !tbaa !161
   %40 = getelementptr inbounds nuw i8, ptr %.048, i64 8
@@ -2131,7 +2131,7 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominato
 95:                                               ; preds = %88, %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit
   %96 = load i8, ptr %30, align 8, !tbaa !11
   %97 = icmp eq i8 %96, 1
-  br i1 %97, label %98, label %119
+  br i1 %97, label %98, label %118
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #17
@@ -2149,125 +2149,125 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominato
   %105 = icmp uge ptr %10, %.pre3.i
   %106 = icmp ult ptr %10, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
-  br i1 %spec.select.i.i.i.i.i, label %108, label %107, !prof !44
+  br i1 %spec.select.i.i.i.i.i, label %107, label %.critedge.i.i.i, !prof !44
 
 107:                                              ; preds = %103
+  %108 = ptrtoint ptr %.pre3.i to i64
+  %109 = sub i64 %34, %108
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %101, i64 noundef 32) #17
+  %110 = load ptr, ptr %0, align 8, !tbaa !3
+  %111 = getelementptr inbounds i8, ptr %110, i64 %109
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %103
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %101, i64 noundef 32) #17
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
 
-108:                                              ; preds = %103
-  %109 = ptrtoint ptr %.pre3.i to i64
-  %110 = sub i64 %34, %109
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %101, i64 noundef 32) #17
-  %111 = load ptr, ptr %0, align 8, !tbaa !3
-  %112 = getelementptr inbounds i8, ptr %111, i64 %110
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %98, %107, %108
-  %113 = phi ptr [ %.pre3.i, %98 ], [ %111, %108 ], [ %.pre.i, %107 ]
-  %.016.i.i.i = phi ptr [ %10, %98 ], [ %112, %108 ], [ %10, %107 ]
-  %114 = load i32, ptr %31, align 8, !tbaa !9
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %113, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
-  %117 = load i32, ptr %31, align 8, !tbaa !9
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %31, align 8, !tbaa !9
+_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit: ; preds = %98, %107, %.critedge.i.i.i
+  %112 = phi ptr [ %.pre3.i, %98 ], [ %110, %107 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %10, %98 ], [ %111, %107 ], [ %10, %.critedge.i.i.i ]
+  %113 = load i32, ptr %31, align 8, !tbaa !9
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %112, i64 %114
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
+  %116 = load i32, ptr %31, align 8, !tbaa !9
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %31, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #17
   br label %.critedge.thread
 
-119:                                              ; preds = %95
-  %120 = load i32, ptr %25, align 8, !tbaa !9
-  %121 = load i32, ptr %26, align 4, !tbaa !10
-  %.not.i.i.not.i30 = icmp ult i32 %120, %121
-  br i1 %.not.i.i.not.i30, label %_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit, label %122, !prof !43
+118:                                              ; preds = %95
+  %119 = load i32, ptr %25, align 8, !tbaa !9
+  %120 = load i32, ptr %26, align 4, !tbaa !10
+  %.not.i.i.not.i30 = icmp ult i32 %119, %120
+  br i1 %.not.i.i.not.i30, label %_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit, label %121, !prof !43
 
-122:                                              ; preds = %119
-  %123 = zext i32 %120 to i64
-  %124 = add nuw nsw i64 %123, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %24, i64 noundef %124, i64 noundef 16) #17
+121:                                              ; preds = %118
+  %122 = zext i32 %119 to i64
+  %123 = add nuw nsw i64 %122, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %24, i64 noundef %123, i64 noundef 16) #17
   %.pre.i31 = load i32, ptr %25, align 8, !tbaa !9
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit: ; preds = %119, %122
-  %125 = phi i32 [ %120, %119 ], [ %.pre.i31, %122 ]
-  %126 = load ptr, ptr %7, align 8, !tbaa !3
-  %127 = zext i32 %125 to i64
-  %128 = getelementptr inbounds nuw %"class.llvm::cfg::Update", ptr %126, i64 %127
-  store ptr %.sroa.03.0.copyload, ptr %128, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 8
+_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit: ; preds = %118, %121
+  %124 = phi i32 [ %119, %118 ], [ %.pre.i31, %121 ]
+  %125 = load ptr, ptr %7, align 8, !tbaa !3
+  %126 = zext i32 %124 to i64
+  %127 = getelementptr inbounds nuw %"class.llvm::cfg::Update", ptr %125, i64 %126
+  store ptr %.sroa.03.0.copyload, ptr %127, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 %.sroa.24.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %129 = load i32, ptr %25, align 8, !tbaa !9
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %25, align 8, !tbaa !9
+  %128 = load i32, ptr %25, align 8, !tbaa !9
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %25, align 8, !tbaa !9
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %38, %88, %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13DomTreeUpdateELb1EE9push_backERKS6_.exit, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  %131 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %.not26 = icmp eq ptr %131, %27
+  %130 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %.not26 = icmp eq ptr %130, %27
   br i1 %.not26, label %._crit_edge, label %38
 
-132:                                              ; preds = %._crit_edge
-  %133 = load ptr, ptr %11, align 8, !tbaa !33
-  %.not27 = icmp eq ptr %133, null
-  br i1 %.not27, label %138, label %134
+131:                                              ; preds = %._crit_edge
+  %132 = load ptr, ptr %11, align 8, !tbaa !33
+  %.not27 = icmp eq ptr %132, null
+  br i1 %.not27, label %137, label %133
 
-134:                                              ; preds = %132
-  %135 = load ptr, ptr %7, align 8, !tbaa !3
-  %136 = load i32, ptr %25, align 8, !tbaa !9
-  %137 = zext i32 %136 to i64
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %7, align 8, !tbaa !3
+  %135 = load i32, ptr %25, align 8, !tbaa !9
+  %136 = zext i32 %135 to i64
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %5) #17
-  call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %5, ptr %135, i64 %137, i1 noundef zeroext true)
-  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(124) %133, ptr noundef nonnull align 8 dereferenceable(680) %5, ptr noundef null) #17
+  call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %5, ptr %134, i64 %136, i1 noundef zeroext true)
+  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(124) %132, ptr noundef nonnull align 8 dereferenceable(680) %5, ptr noundef null) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %5) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %5) #17
-  br label %138
+  br label %137
 
-138:                                              ; preds = %134, %132
-  %139 = load ptr, ptr %13, align 8, !tbaa !34
-  %.not28 = icmp eq ptr %139, null
-  br i1 %.not28, label %144, label %140
+137:                                              ; preds = %133, %131
+  %138 = load ptr, ptr %13, align 8, !tbaa !34
+  %.not28 = icmp eq ptr %138, null
+  br i1 %.not28, label %143, label %139
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %7, align 8, !tbaa !3
-  %142 = load i32, ptr %25, align 8, !tbaa !9
-  %143 = zext i32 %142 to i64
+139:                                              ; preds = %137
+  %140 = load ptr, ptr %7, align 8, !tbaa !3
+  %141 = load i32, ptr %25, align 8, !tbaa !9
+  %142 = zext i32 %141 to i64
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %4) #17
-  call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %4, ptr %141, i64 %143, i1 noundef zeroext true)
-  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(148) %139, ptr noundef nonnull align 8 dereferenceable(680) %4, ptr noundef null) #17
+  call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %4, ptr %140, i64 %142, i1 noundef zeroext true)
+  call void @_ZN4llvm14DomTreeBuilder12ApplyUpdatesINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEvRT_RNS_9GraphDiffINS5_7NodePtrEXsrS5_15IsPostDominatorEEEPS9_(ptr noundef nonnull align 8 dereferenceable(148) %138, ptr noundef nonnull align 8 dereferenceable(680) %4, ptr noundef null) #17
   call void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %4) #17
   call void @llvm.lifetime.end.p0(i64 680, ptr nonnull %4) #17
-  br label %144
+  br label %143
 
-144:                                              ; preds = %138, %140, %._crit_edge
-  %145 = load ptr, ptr %7, align 8, !tbaa !3
-  %146 = icmp eq ptr %145, %24
-  br i1 %146, label %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit, label %147
+143:                                              ; preds = %137, %139, %._crit_edge
+  %144 = load ptr, ptr %7, align 8, !tbaa !3
+  %145 = icmp eq ptr %144, %24
+  br i1 %145, label %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit, label %146
 
-147:                                              ; preds = %144
-  call void @free(ptr noundef %145) #17
+146:                                              ; preds = %143
+  call void @free(ptr noundef %144) #17
   br label %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit: ; preds = %144, %147
+_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit: ; preds = %143, %146
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #17
-  %148 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %149 = load ptr, ptr %20, align 8, !tbaa !157
-  call void @_ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef %149)
-  %150 = load ptr, ptr %6, align 8, !tbaa !3
-  %151 = icmp eq ptr %150, %16
-  br i1 %151, label %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit, label %152
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %148 = load ptr, ptr %20, align 8, !tbaa !157
+  call void @_ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef %148)
+  %149 = load ptr, ptr %6, align 8, !tbaa !3
+  %150 = icmp eq ptr %149, %16
+  br i1 %150, label %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit, label %151
 
-152:                                              ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit
-  call void @free(ptr noundef %150) #17
+151:                                              ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit
+  call void @free(ptr noundef %149) #17
   br label %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit
 
-_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit, %152
+_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj8EED2Ev.exit, %151
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #17
-  br label %153
+  br label %152
 
-153:                                              ; preds = %3, %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit
+152:                                              ; preds = %3, %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit
   ret void
 }
 
@@ -2895,9 +2895,9 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %23
 
-23:                                               ; preds = %.lr.ph36, %97
-  %24 = phi i64 [ %16, %.lr.ph36 ], [ %101, %97 ]
-  %25 = phi i64 [ %15, %.lr.ph36 ], [ %100, %97 ]
+23:                                               ; preds = %.lr.ph36, %96
+  %24 = phi i64 [ %16, %.lr.ph36 ], [ %100, %96 ]
+  %25 = phi i64 [ %15, %.lr.ph36 ], [ %99, %96 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %26, i64 %24
   %28 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %26, i64 %25
@@ -2980,7 +2980,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE
 
 _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: ; preds = %.critedge, %58
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %3) #17
-  br label %97
+  br label %96
 
 59:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
@@ -2990,8 +2990,8 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: 
   br i1 %.not2130, label %.critedge3, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %59, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
-  %60 = phi i32 [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ 0, %59 ]
-  %.131 = phi ptr [ %85, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ %27, %59 ]
+  %60 = phi i32 [ %83, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ 0, %59 ]
+  %.131 = phi ptr [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ %27, %59 ]
   %61 = load i8, ptr %.131, align 8, !tbaa !171, !range !35, !noundef !36
   %62 = trunc nuw i8 %61 to i1
   %.pre37.pre38 = load ptr, ptr %4, align 8, !tbaa !3
@@ -3010,34 +3010,34 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: 
   %70 = icmp uge ptr %64, %.pre37.pre38
   %71 = icmp ult ptr %64, %69
   %spec.select.i.i.i.i.i = and i1 %70, %71
-  br i1 %spec.select.i.i.i.i.i, label %73, label %72, !prof !44
+  br i1 %spec.select.i.i.i.i.i, label %72, label %.critedge.i.i.i, !prof !44
 
 72:                                               ; preds = %68
+  %73 = ptrtoint ptr %64 to i64
+  %74 = ptrtoint ptr %.pre37.pre38 to i64
+  %75 = sub i64 %73, %74
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
+  %76 = load ptr, ptr %4, align 8, !tbaa !3
+  %77 = getelementptr inbounds i8, ptr %76, i64 %75
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %68
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
   %.pre.i23 = load ptr, ptr %4, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
 
-73:                                               ; preds = %68
-  %74 = ptrtoint ptr %64 to i64
-  %75 = ptrtoint ptr %.pre37.pre38 to i64
-  %76 = sub i64 %74, %75
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
-  %77 = load ptr, ptr %4, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %77, i64 %76
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit: ; preds = %63, %72, %73
-  %79 = phi ptr [ %.pre37.pre38, %63 ], [ %77, %73 ], [ %.pre.i23, %72 ]
-  %.016.i.i.i = phi ptr [ %64, %63 ], [ %78, %73 ], [ %64, %72 ]
-  %80 = load i32, ptr %21, align 8, !tbaa !9
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::CriticalEdge", ptr %79, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %83 = load i32, ptr %21, align 8, !tbaa !9
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %21, align 8, !tbaa !9
-  %85 = getelementptr inbounds nuw i8, ptr %.131, i64 32
-  %.not21 = icmp eq ptr %85, %28
+_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit: ; preds = %63, %72, %.critedge.i.i.i
+  %78 = phi ptr [ %.pre37.pre38, %63 ], [ %76, %72 ], [ %.pre.i23, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %64, %63 ], [ %77, %72 ], [ %64, %.critedge.i.i.i ]
+  %79 = load i32, ptr %21, align 8, !tbaa !9
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::CriticalEdge", ptr %78, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %82 = load i32, ptr %21, align 8, !tbaa !9
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %21, align 8, !tbaa !9
+  %84 = getelementptr inbounds nuw i8, ptr %.131, i64 32
+  %.not21 = icmp eq ptr %84, %28
   br i1 %.not21, label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge, label %.lr.ph32, !llvm.loop !175
 
 _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
@@ -3046,42 +3046,42 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTree
 
 .critedge3.loopexit:                              ; preds = %.lr.ph32, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge
   %.pre37 = phi ptr [ %.pre37.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %.pre37.pre38, %.lr.ph32 ]
-  %86 = phi i32 [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %60, %.lr.ph32 ]
-  %87 = zext i32 %86 to i64
+  %85 = phi i32 [ %83, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %60, %.lr.ph32 ]
+  %86 = zext i32 %85 to i64
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %59
-  %88 = phi i64 [ %87, %.critedge3.loopexit ], [ 0, %59 ]
-  %89 = phi ptr [ %.pre37, %.critedge3.loopexit ], [ %20, %59 ]
-  call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE20splitDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr %89, i64 %88)
-  %90 = load i32, ptr %21, align 8, !tbaa !9
-  %91 = zext i32 %90 to i64
-  %92 = load i64, ptr %12, align 8, !tbaa !49
-  %93 = add i64 %92, %91
-  store i64 %93, ptr %12, align 8, !tbaa !49
-  %94 = load ptr, ptr %4, align 8, !tbaa !3
-  %95 = icmp eq ptr %94, %20
-  br i1 %95, label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, label %96
+  %87 = phi i64 [ %86, %.critedge3.loopexit ], [ 0, %59 ]
+  %88 = phi ptr [ %.pre37, %.critedge3.loopexit ], [ %20, %59 ]
+  call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE20splitDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr %88, i64 %87)
+  %89 = load i32, ptr %21, align 8, !tbaa !9
+  %90 = zext i32 %89 to i64
+  %91 = load i64, ptr %12, align 8, !tbaa !49
+  %92 = add i64 %91, %90
+  store i64 %92, ptr %12, align 8, !tbaa !49
+  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  %94 = icmp eq ptr %93, %20
+  br i1 %94, label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, label %95
 
-96:                                               ; preds = %.critedge3
-  call void @free(ptr noundef %94) #17
+95:                                               ; preds = %.critedge3
+  call void @free(ptr noundef %93) #17
   br label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit: ; preds = %.critedge3, %96
+_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit: ; preds = %.critedge3, %95
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  br label %97
+  br label %96
 
-97:                                               ; preds = %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit
-  %98 = load ptr, ptr %5, align 8, !tbaa !33
-  %.not.i = icmp ne ptr %98, null
-  %99 = load i32, ptr %13, align 8
-  %100 = zext i32 %99 to i64
-  %101 = load i64, ptr %12, align 8
-  %102 = icmp ne i64 %101, %100
-  %.0.i = select i1 %.not.i, i1 %102, i1 false
+96:                                               ; preds = %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit
+  %97 = load ptr, ptr %5, align 8, !tbaa !33
+  %.not.i = icmp ne ptr %97, null
+  %98 = load i32, ptr %13, align 8
+  %99 = zext i32 %98 to i64
+  %100 = load i64, ptr %12, align 8
+  %101 = icmp ne i64 %100, %99
+  %.0.i = select i1 %.not.i, i1 %101, i1 false
   br i1 %.0.i, label %23, label %.loopexit, !llvm.loop !176
 
-.loopexit:                                        ; preds = %97, %11, %1
+.loopexit:                                        ; preds = %96, %11, %1
   ret void
 }
 
@@ -3117,9 +3117,9 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %23
 
-23:                                               ; preds = %.lr.ph36, %97
-  %24 = phi i64 [ %16, %.lr.ph36 ], [ %101, %97 ]
-  %25 = phi i64 [ %15, %.lr.ph36 ], [ %100, %97 ]
+23:                                               ; preds = %.lr.ph36, %96
+  %24 = phi i64 [ %16, %.lr.ph36 ], [ %100, %96 ]
+  %25 = phi i64 [ %15, %.lr.ph36 ], [ %99, %96 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %26, i64 %24
   %28 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::DomTreeUpdate", ptr %26, i64 %25
@@ -3202,7 +3202,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE
 
 _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: ; preds = %.critedge, %58
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %3) #17
-  br label %97
+  br label %96
 
 59:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
@@ -3212,8 +3212,8 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: 
   br i1 %.not2130, label %.critedge3, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %59, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
-  %60 = phi i32 [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ 0, %59 ]
-  %.131 = phi ptr [ %85, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ %27, %59 ]
+  %60 = phi i32 [ %83, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ 0, %59 ]
+  %.131 = phi ptr [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit ], [ %27, %59 ]
   %61 = load i8, ptr %.131, align 8, !tbaa !171, !range !35, !noundef !36
   %62 = trunc nuw i8 %61 to i1
   %.pre37.pre38 = load ptr, ptr %4, align 8, !tbaa !3
@@ -3232,34 +3232,34 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit: 
   %70 = icmp uge ptr %64, %.pre37.pre38
   %71 = icmp ult ptr %64, %69
   %spec.select.i.i.i.i.i = and i1 %70, %71
-  br i1 %spec.select.i.i.i.i.i, label %73, label %72, !prof !44
+  br i1 %spec.select.i.i.i.i.i, label %72, label %.critedge.i.i.i, !prof !44
 
 72:                                               ; preds = %68
+  %73 = ptrtoint ptr %64 to i64
+  %74 = ptrtoint ptr %.pre37.pre38 to i64
+  %75 = sub i64 %73, %74
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
+  %76 = load ptr, ptr %4, align 8, !tbaa !3
+  %77 = getelementptr inbounds i8, ptr %76, i64 %75
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
+
+.critedge.i.i.i:                                  ; preds = %68
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
   %.pre.i23 = load ptr, ptr %4, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
 
-73:                                               ; preds = %68
-  %74 = ptrtoint ptr %64 to i64
-  %75 = ptrtoint ptr %.pre37.pre38 to i64
-  %76 = sub i64 %74, %75
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %66, i64 noundef 24) #17
-  %77 = load ptr, ptr %4, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %77, i64 %76
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
-
-_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit: ; preds = %63, %72, %73
-  %79 = phi ptr [ %.pre37.pre38, %63 ], [ %77, %73 ], [ %.pre.i23, %72 ]
-  %.016.i.i.i = phi ptr [ %64, %63 ], [ %78, %73 ], [ %64, %72 ]
-  %80 = load i32, ptr %21, align 8, !tbaa !9
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::CriticalEdge", ptr %79, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
-  %83 = load i32, ptr %21, align 8, !tbaa !9
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %21, align 8, !tbaa !9
-  %85 = getelementptr inbounds nuw i8, ptr %.131, i64 32
-  %.not21 = icmp eq ptr %85, %28
+_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit: ; preds = %63, %72, %.critedge.i.i.i
+  %78 = phi ptr [ %.pre37.pre38, %63 ], [ %76, %72 ], [ %.pre.i23, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %64, %63 ], [ %77, %72 ], [ %64, %.critedge.i.i.i ]
+  %79 = load i32, ptr %21, align 8, !tbaa !9
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw %"struct.llvm::GenericDomTreeUpdater<llvm::MachineDomTreeUpdater, llvm::MachineDominatorTree, llvm::MachinePostDominatorTree>::CriticalEdge", ptr %78, i64 %80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
+  %82 = load i32, ptr %21, align 8, !tbaa !9
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %21, align 8, !tbaa !9
+  %84 = getelementptr inbounds nuw i8, ptr %.131, i64 32
+  %.not21 = icmp eq ptr %84, %28
   br i1 %.not21, label %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge, label %.lr.ph32, !llvm.loop !178
 
 _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit
@@ -3268,42 +3268,42 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTree
 
 .critedge3.loopexit:                              ; preds = %.lr.ph32, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge
   %.pre37 = phi ptr [ %.pre37.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %.pre37.pre38, %.lr.ph32 ]
-  %86 = phi i32 [ %84, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %60, %.lr.ph32 ]
-  %87 = zext i32 %86 to i64
+  %85 = phi i32 [ %83, %_ZN4llvm23SmallVectorTemplateBaseINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELb1EE9push_backERKS6_.exit..critedge3.loopexit_crit_edge ], [ %60, %.lr.ph32 ]
+  %86 = zext i32 %85 to i64
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %59
-  %88 = phi i64 [ %87, %.critedge3.loopexit ], [ 0, %59 ]
-  %89 = phi ptr [ %.pre37, %.critedge3.loopexit ], [ %20, %59 ]
-  call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE21splitPDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr %89, i64 %88)
-  %90 = load i32, ptr %21, align 8, !tbaa !9
-  %91 = zext i32 %90 to i64
-  %92 = load i64, ptr %12, align 8, !tbaa !49
-  %93 = add i64 %92, %91
-  store i64 %93, ptr %12, align 8, !tbaa !49
-  %94 = load ptr, ptr %4, align 8, !tbaa !3
-  %95 = icmp eq ptr %94, %20
-  br i1 %95, label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, label %96
+  %87 = phi i64 [ %86, %.critedge3.loopexit ], [ 0, %59 ]
+  %88 = phi ptr [ %.pre37, %.critedge3.loopexit ], [ %20, %59 ]
+  call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE21splitPDTCriticalEdgesENS_8ArrayRefINS4_12CriticalEdgeEEE(ptr noundef nonnull align 8 dereferenceable(658) %0, ptr %88, i64 %87)
+  %89 = load i32, ptr %21, align 8, !tbaa !9
+  %90 = zext i32 %89 to i64
+  %91 = load i64, ptr %12, align 8, !tbaa !49
+  %92 = add i64 %91, %90
+  store i64 %92, ptr %12, align 8, !tbaa !49
+  %93 = load ptr, ptr %4, align 8, !tbaa !3
+  %94 = icmp eq ptr %93, %20
+  br i1 %94, label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, label %95
 
-96:                                               ; preds = %.critedge3
-  call void @free(ptr noundef %94) #17
+95:                                               ; preds = %.critedge3
+  call void @free(ptr noundef %93) #17
   br label %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit: ; preds = %.critedge3, %96
+_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit: ; preds = %.critedge3, %95
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  br label %97
+  br label %96
 
-97:                                               ; preds = %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit
-  %98 = load ptr, ptr %5, align 8, !tbaa !34
-  %.not.i = icmp ne ptr %98, null
-  %99 = load i32, ptr %13, align 8
-  %100 = zext i32 %99 to i64
-  %101 = load i64, ptr %12, align 8
-  %102 = icmp ne i64 %101, %100
-  %.0.i = select i1 %.not.i, i1 %102, i1 false
+96:                                               ; preds = %_ZN4llvm11SmallVectorINS_21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE12CriticalEdgeELj2EED2Ev.exit, %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj32EED2Ev.exit
+  %97 = load ptr, ptr %5, align 8, !tbaa !34
+  %.not.i = icmp ne ptr %97, null
+  %98 = load i32, ptr %13, align 8
+  %99 = zext i32 %98 to i64
+  %100 = load i64, ptr %12, align 8
+  %101 = icmp ne i64 %100, %99
+  %.0.i = select i1 %.not.i, i1 %101, i1 false
   br i1 %.0.i, label %23, label %.loopexit, !llvm.loop !179
 
-.loopexit:                                        ; preds = %97, %11, %1
+.loopexit:                                        ; preds = %96, %11, %1
   ret void
 }
 

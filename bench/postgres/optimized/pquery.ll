@@ -1135,7 +1135,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.critedge.thread, label %.lr.ph
+  br i1 %.not, label %.critedge62.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1146,7 +1146,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %16, align 4
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph74, label %.critedge.thread
+  br i1 %24, label %.lr.ph74, label %.critedge62.thread
 
 .lr.ph74:                                         ; preds = %.lr.ph, %75
   %.0506573 = phi i8 [ %.3, %75 ], [ 0, %.lr.ph ]
@@ -1245,16 +1245,16 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   tail call void @MemoryContextDeleteChildren(ptr noundef %66) #11
   %67 = load ptr, ptr %14, align 8
   %.not58 = icmp eq ptr %67, null
-  br i1 %.not58, label %.critedge.loopexit, label %68
+  br i1 %.not58, label %.critedge62.loopexit, label %68
 
 68:                                               ; preds = %65
   %69 = getelementptr i8, ptr %67, i64 4
   %.val = load i32, ptr %69, align 4
   %70 = getelementptr i8, ptr %67, i64 16
-  %.val61 = load ptr, ptr %70, align 8
+  %.val63 = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %72 = sext i32 %.val to i64
-  %73 = getelementptr inbounds %union.ListCell, ptr %.val61, i64 %72
+  %73 = getelementptr inbounds %union.ListCell, ptr %.val63, i64 %72
   %.not64 = icmp ult ptr %71, %73
   br i1 %.not64, label %74, label %75
 
@@ -1267,21 +1267,21 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   %76 = load i32, ptr %16, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph74, label %.critedge.loopexit
+  br i1 %78, label %.lr.ph74, label %.critedge62.loopexit
 
-.critedge.loopexit:                               ; preds = %65, %75
+.critedge62.loopexit:                             ; preds = %65, %75
   %79 = trunc nuw i8 %.3 to i1
-  br i1 %79, label %80, label %.critedge.thread
+  br i1 %79, label %80, label %.critedge62.thread
 
-80:                                               ; preds = %.critedge.loopexit
+80:                                               ; preds = %.critedge62.loopexit
   tail call void @PopActiveSnapshot() #11
-  br label %.critedge.thread
+  br label %.critedge62.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph, %6, %80, %.critedge.loopexit
+.critedge62.thread:                               ; preds = %.lr.ph, %6, %80, %.critedge62.loopexit
   %.not59 = icmp eq ptr %5, null
   br i1 %.not59, label %91, label %81
 
-81:                                               ; preds = %.critedge.thread
+81:                                               ; preds = %.critedge62.thread
   %82 = load i32, ptr %5, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %91
@@ -1300,7 +1300,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   store i64 %89, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %84, %87, %81, %.critedge.thread
+91:                                               ; preds = %84, %87, %81, %.critedge62.thread
   ret void
 }
 

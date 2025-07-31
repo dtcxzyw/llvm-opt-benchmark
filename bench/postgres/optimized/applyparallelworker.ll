@@ -363,18 +363,15 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ParallelApplyWorkerPool, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph17, label %._crit_edge
+  br i1 %5, label %.lr.ph15, label %.critedge
 
-._crit_edge:                                      ; preds = %13, %.lr.ph, %0
-  ret void
-
-.lr.ph17:                                         ; preds = %.lr.ph, %13
+.lr.ph15:                                         ; preds = %.lr.ph, %13
   %6 = phi i32 [ %14, %13 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
@@ -385,18 +382,21 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %13, label %12
 
-12:                                               ; preds = %.lr.ph17
+.critedge:                                        ; preds = %13, %.lr.ph, %0
+  ret void
+
+12:                                               ; preds = %.lr.ph15
   tail call void @shm_mq_detach(ptr noundef nonnull %11) #10
   store ptr null, ptr %10, align 8
   %.pre = load i32, ptr %2, align 4
   br label %13
 
-13:                                               ; preds = %12, %.lr.ph17
-  %14 = phi i32 [ %.pre, %12 ], [ %6, %.lr.ph17 ]
+13:                                               ; preds = %12, %.lr.ph15
+  %14 = phi i32 [ %.pre, %12 ], [ %6, %.lr.ph15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph17, label %._crit_edge
+  br i1 %16, label %.lr.ph15, label %.critedge
 }
 
 declare void @shm_mq_detach(ptr noundef) local_unnamed_addr #3
@@ -855,42 +855,42 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   store volatile i32 0, ptr @ParallelApplyMessagePending, align 4
   %15 = load ptr, ptr @ParallelApplyWorkerPool, align 8
   %.not13 = icmp eq ptr %15, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  br i1 %.not13, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph26, label %._crit_edge
+  br i1 %19, label %.lr.ph24, label %.critedge
 
-._crit_edge.loopexit:                             ; preds = %58
-  %.pre29 = load ptr, ptr @HandleParallelApplyMessages.hpam_context, align 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %12
-  %20 = phi ptr [ %.pre29, %._crit_edge.loopexit ], [ %13, %.lr.ph ], [ %13, %12 ]
-  store ptr %14, ptr @CurrentMemoryContext, align 8
-  call void @MemoryContextReset(ptr noundef %20) #10
-  %21 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %22 = add i32 %21, -1
-  store volatile i32 %22, ptr @InterruptHoldoffCount, align 4
-  ret void
-
-.lr.ph26:                                         ; preds = %.lr.ph, %58
+.lr.ph24:                                         ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
-  %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %20 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not15 = icmp eq ptr %27, null
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.not15 = icmp eq ptr %24, null
   br i1 %.not15, label %58, label %28
 
-28:                                               ; preds = %.lr.ph26
-  %29 = call i32 @shm_mq_receive(ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #10
+.critedge.loopexit:                               ; preds = %58
+  %.pre27 = load ptr, ptr @HandleParallelApplyMessages.hpam_context, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %12
+  %25 = phi ptr [ %.pre27, %.critedge.loopexit ], [ %13, %.lr.ph ], [ %13, %12 ]
+  store ptr %14, ptr @CurrentMemoryContext, align 8
+  call void @MemoryContextReset(ptr noundef %25) #10
+  %26 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %27 = add i32 %26, -1
+  store volatile i32 %27, ptr @InterruptHoldoffCount, align 4
+  ret void
+
+28:                                               ; preds = %.lr.ph24
+  %29 = call i32 @shm_mq_receive(ptr noundef nonnull %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext true) #10
   switch i32 %29, label %.split [
     i32 1, label %58
     i32 0, label %30
@@ -906,13 +906,13 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   %34 = call i32 @pq_getmsgbyte(ptr noundef nonnull %4) #10
   %sext.i = shl i32 %34, 24
   %35 = ashr exact i32 %sext.i, 24
-  switch i32 %35, label %.split22 [
-    i32 69, label %.split24
+  switch i32 %35, label %.split20 [
+    i32 69, label %.split22
     i32 78, label %HandleParallelApplyMessage.exit
     i32 65, label %HandleParallelApplyMessage.exit
   ]
 
-.split24:                                         ; preds = %30
+.split22:                                         ; preds = %30
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %1) #10
   call void @pq_parse_errornotice(ptr noundef nonnull %4, ptr noundef nonnull %1) #10
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -920,11 +920,11 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %40, label %38
 
-38:                                               ; preds = %.split24
+38:                                               ; preds = %.split22
   %39 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, ptr noundef nonnull %37, ptr noundef nonnull @.str.18) #10
   br label %42
 
-40:                                               ; preds = %.split24
+40:                                               ; preds = %.split22
   %41 = call ptr @pstrdup(ptr noundef nonnull @.str.18) #10
   br label %42
 
@@ -943,7 +943,7 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1041, ptr noundef nonnull @__func__.HandleParallelApplyMessage) #10
   unreachable
 
-.split22:                                         ; preds = %30
+.split20:                                         ; preds = %30
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -966,14 +966,14 @@ HandleParallelApplyMessage.exit:                  ; preds = %30, %30
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1127, ptr noundef nonnull @.str.5) #10
   unreachable
 
-58:                                               ; preds = %28, %.lr.ph26, %HandleParallelApplyMessage.exit
+58:                                               ; preds = %28, %.lr.ph24, %HandleParallelApplyMessage.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %16, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph26, label %._crit_edge.loopexit
+  br i1 %61, label %.lr.ph24, label %.critedge.loopexit
 }
 
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3

@@ -782,8 +782,8 @@ setup_tbuf.exit:                                  ; preds = %14
   %21 = sext i32 %20 to i64
   %22 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 119) #9
   store ptr %22, ptr %16, align 8, !tbaa !37
-  %.not37 = icmp eq ptr %22, null
-  br i1 %.not37, label %.thread, label %setup_tbuf.exit.thread
+  %.not35 = icmp eq ptr %22, null
+  br i1 %.not35, label %.critedge, label %setup_tbuf.exit.thread
 
 setup_tbuf.exit.thread:                           ; preds = %14, %setup_tbuf.exit
   %23 = phi ptr [ %17, %14 ], [ %22, %setup_tbuf.exit ]
@@ -799,7 +799,7 @@ setup_tbuf.exit.thread:                           ; preds = %14, %setup_tbuf.exi
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = tail call i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef nonnull %23, i32 noundef %15, ptr noundef %3, i32 noundef %24, ptr noundef %26, i32 noundef %29, ptr noundef %31, ptr noundef %33) #9
   %.not32 = icmp eq i32 %34, 0
-  br i1 %.not32, label %.thread, label %35
+  br i1 %.not32, label %.critedge, label %35
 
 35:                                               ; preds = %setup_tbuf.exit.thread
   %36 = load ptr, ptr %16, align 8, !tbaa !37
@@ -814,15 +814,15 @@ setup_tbuf.exit.thread:                           ; preds = %14, %setup_tbuf.exi
 41:                                               ; preds = %35, %38
   %.130 = phi i32 [ %37, %35 ], [ %40, %38 ]
   %42 = icmp slt i32 %.130, 0
-  br i1 %42, label %.thread, label %43
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %.130 to i64
   store i64 %44, ptr %2, align 8, !tbaa !54
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %setup_tbuf.exit.thread, %setup_tbuf.exit, %41, %43
-  %.1 = phi i32 [ 1, %43 ], [ %.130, %41 ], [ -1, %setup_tbuf.exit ], [ -1, %setup_tbuf.exit.thread ]
+.critedge:                                        ; preds = %setup_tbuf.exit, %setup_tbuf.exit.thread, %41, %43
+  %.1 = phi i32 [ 1, %43 ], [ %.130, %41 ], [ -1, %setup_tbuf.exit.thread ], [ -1, %setup_tbuf.exit ]
   ret i32 %.1
 }
 

@@ -2812,19 +2812,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %9
 
 _ZNSolsEl.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.54, i64 noundef 19)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23 unwind label %22
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22 unwind label %22
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %_ZNSolsEl.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSolsEl.exit
   %15 = sdiv i64 %2, 1000
   %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %15)
-          to label %.critedge22 unwind label %22
+          to label %_ZNSolsEl.exit23 unwind label %22
 
-.critedge22:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23
+_ZNSolsEl.exit23:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %6) #25
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %6) #25
   br label %.critedge
 
-.critedge:                                        ; preds = %5, %.critedge22
+.critedge:                                        ; preds = %5, %_ZNSolsEl.exit23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3204
   %18 = load i32, ptr %17, align 4, !tbaa !228
   %19 = icmp eq i32 %18, 0
@@ -2834,7 +2834,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %_ZNSo
   %21 = add nsw i64 %4, 3000000
   br label %27
 
-22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23, %_ZNSolsEl.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %9
+22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22, %_ZNSolsEl.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %9
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %6) #25
@@ -2845,18 +2845,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23: ; preds = %_ZNSo
   %25 = icmp sgt i64 %4, 1000000
   %26 = add nsw i64 %4, -1000000
   %spec.select = select i1 %25, i64 0, i64 %3
-  %spec.select46 = select i1 %25, i64 %26, i64 %4
+  %spec.select45 = select i1 %25, i64 %26, i64 %4
   br label %27
 
 27:                                               ; preds = %24, %20
-  %.sroa.032.0 = phi i64 [ 0, %20 ], [ %spec.select, %24 ]
-  %.sroa.8.0 = phi i64 [ %21, %20 ], [ %spec.select46, %24 ]
+  %.sroa.031.0 = phi i64 [ 0, %20 ], [ %spec.select, %24 ]
+  %.sroa.8.0 = phi i64 [ %21, %20 ], [ %spec.select45, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store i64 %1, ptr %28, align 8, !tbaa !297
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   store i64 %2, ptr %29, align 8, !tbaa !298
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2880
-  store i64 %.sroa.032.0, ptr %30, align 8, !tbaa !297
+  store i64 %.sroa.031.0, ptr %30, align 8, !tbaa !297
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   store i64 %.sroa.8.0, ptr %31, align 8, !tbaa !298
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 3160

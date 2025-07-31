@@ -3226,8 +3226,8 @@ define internal fastcc i32 @zend_dfa_optimize_jmps(ptr noundef %0, ptr noundef %
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.promoted.i = load i32, ptr %18, align 8, !tbaa !107
-  %.not9.i457 = icmp eq i32 %.promoted.i, 0
-  br i1 %.not9.i457, label %compress_block.exit.thread, label %.lr.ph.i
+  %.not9.i458 = icmp eq i32 %.promoted.i, 0
+  br i1 %.not9.i458, label %compress_block.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %19 = load ptr, ptr %6, align 8, !tbaa !70
@@ -3251,8 +3251,8 @@ define internal fastcc i32 @zend_dfa_optimize_jmps(ptr noundef %0, ptr noundef %
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   store i32 %indvars.i, ptr %18, align 8, !tbaa !107
-  %.not.i458 = icmp eq i32 %indvars.i, 0
-  br i1 %.not.i458, label %compress_block.exit.thread, label %23
+  %.not.i459 = icmp eq i32 %indvars.i, 0
+  br i1 %.not.i459, label %compress_block.exit.thread, label %23
 
 compress_block.exit.thread:                       ; preds = %29, %17
   %30 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3376,7 +3376,7 @@ compress_block.exit:                              ; preds = %23, %compress_block
     i8 0, label %take_successor_1.exit
   ]
 
-take_successor_0.exit:                            ; preds = %556, %539, %512, %495, %.thread502, %220, %206, %131, %117, %64
+take_successor_0.exit:                            ; preds = %556, %539, %512, %495, %.thread503, %220, %206, %131, %117, %64
   %76 = load ptr, ptr %52, align 8, !tbaa !109
   %77 = load i32, ptr %76, align 4, !tbaa !38
   %78 = icmp eq i32 %77, %.0363.lcssa
@@ -3438,8 +3438,8 @@ take_successor_0.exit:                            ; preds = %556, %539, %512, %4
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !38
   %111 = load i32, ptr %108, align 4, !tbaa !38
-  %.not.i397 = icmp eq i32 %110, %111
-  br i1 %.not.i397, label %116, label %112
+  %.not.i398 = icmp eq i32 %110, %111
+  br i1 %.not.i398, label %116, label %112
 
 112:                                              ; preds = %107
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %111) #12
@@ -3471,8 +3471,8 @@ take_successor_0.exit:                            ; preds = %556, %539, %512, %4
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4, !tbaa !38
   %129 = load i32, ptr %126, align 4, !tbaa !38
-  %.not.i410 = icmp eq i32 %128, %129
-  br i1 %.not.i410, label %131, label %130
+  %.not.i411 = icmp eq i32 %128, %129
+  br i1 %.not.i411, label %131, label %130
 
 130:                                              ; preds = %125
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %128) #12
@@ -3493,13 +3493,13 @@ take_successor_0.exit:                            ; preds = %556, %539, %512, %4
   %137 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %138 = load i32, ptr %137, align 4, !tbaa !110
   %139 = icmp eq i32 %138, 2
-  br i1 %139, label %140, label %take_successor_0.exit412
+  br i1 %139, label %140, label %take_successor_0.exit413
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %142 = load i32, ptr %141, align 4, !tbaa !38
-  %.not.i411 = icmp eq i32 %142, %.0363.lcssa
-  br i1 %.not.i411, label %144, label %143
+  %.not.i412 = icmp eq i32 %142, %.0363.lcssa
+  br i1 %.not.i412, label %144, label %143
 
 143:                                              ; preds = %140
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %142) #12
@@ -3509,16 +3509,16 @@ take_successor_0.exit:                            ; preds = %556, %539, %512, %4
 144:                                              ; preds = %143, %140
   %.pre557 = phi i8 [ %.pre557.pre, %143 ], [ %89, %140 ]
   store i32 1, ptr %137, align 4, !tbaa !110
-  br label %take_successor_0.exit412
+  br label %take_successor_0.exit413
 
-take_successor_0.exit412:                         ; preds = %136, %144
-  %.pr472 = phi i8 [ %89, %136 ], [ %.pre557, %144 ]
-  switch i8 %.pr472, label %182 [
+take_successor_0.exit413:                         ; preds = %136, %144
+  %.pr473 = phi i8 [ %89, %136 ], [ %.pre557, %144 ]
+  switch i8 %.pr473, label %182 [
     i8 8, label %145
     i8 1, label %155
   ]
 
-145:                                              ; preds = %take_successor_0.exit412
+145:                                              ; preds = %take_successor_0.exit413
   %146 = load ptr, ptr %46, align 8, !tbaa !85
   %.not.i = icmp eq ptr %146, null
   br i1 %.not.i, label %_ssa_op1_info.exit.thread, label %147
@@ -3542,11 +3542,11 @@ _ssa_op1_info.exit.thread:                        ; preds = %145, %147, %_ssa_op
   store i32 0, ptr %154, align 4, !tbaa !53
   br label %.critedge15
 
-155:                                              ; preds = %take_successor_0.exit412
+155:                                              ; preds = %take_successor_0.exit413
   %156 = load i32, ptr %47, align 4, !tbaa !91
   %157 = and i32 %156, 33554432
-  %.not9.i387 = icmp eq i32 %157, 0
-  br i1 %.not9.i387, label %163, label %158
+  %.not9.i388 = icmp eq i32 %157, 0
+  br i1 %.not9.i388, label %163, label %158
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -3568,55 +3568,55 @@ _ssa_op1_info.exit.thread:                        ; preds = %145, %147, %_ssa_op
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i8, ptr %171, align 8, !tbaa !53
   switch i8 %172, label %175 [
-    i8 11, label %_ssa_op1_info.exit388.thread
+    i8 11, label %_ssa_op1_info.exit389.thread
     i8 7, label %173
   ]
 
 173:                                              ; preds = %169
   %174 = tail call i32 @zend_array_type_info(ptr noundef nonnull %170) #12
-  br label %_ssa_op1_info.exit388
+  br label %_ssa_op1_info.exit389
 
 175:                                              ; preds = %169
   %176 = zext nneg i8 %172 to i32
   %177 = shl nuw i32 1, %176
   %178 = getelementptr inbounds nuw i8, ptr %170, i64 9
   %179 = load i8, ptr %178, align 1, !tbaa !53
-  %.not.i439 = icmp eq i8 %179, 0
-  br i1 %.not.i439, label %180, label %_ssa_op1_info.exit388
+  %.not.i440 = icmp eq i8 %179, 0
+  br i1 %.not.i440, label %180, label %_ssa_op1_info.exit389
 
 180:                                              ; preds = %175
   %181 = icmp eq i8 %172, 6
-  %spec.select.i441 = select i1 %181, i32 -2147483584, i32 %177
-  br label %_ssa_op1_info.exit388
+  %spec.select.i442 = select i1 %181, i32 -2147483584, i32 %177
+  br label %_ssa_op1_info.exit389
 
-182:                                              ; preds = %take_successor_0.exit412
+182:                                              ; preds = %take_successor_0.exit413
   %183 = load ptr, ptr %46, align 8, !tbaa !85
-  %.not.i385 = icmp eq ptr %183, null
-  br i1 %.not.i385, label %_ssa_op1_info.exit388.thread, label %184
+  %.not.i386 = icmp eq ptr %183, null
+  br i1 %.not.i386, label %_ssa_op1_info.exit389.thread, label %184
 
 184:                                              ; preds = %182
   %185 = load i32, ptr %73, align 4, !tbaa !72
   %186 = icmp sgt i32 %185, -1
-  br i1 %186, label %187, label %_ssa_op1_info.exit388.thread
+  br i1 %186, label %187, label %_ssa_op1_info.exit389.thread
 
 187:                                              ; preds = %184
   %188 = zext nneg i32 %185 to i64
   %189 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %183, i64 %188
   %190 = load i32, ptr %189, align 8, !tbaa !90
-  br label %_ssa_op1_info.exit388
+  br label %_ssa_op1_info.exit389
 
-_ssa_op1_info.exit388:                            ; preds = %175, %187, %180, %173
-  %.0.i386 = phi i32 [ %174, %173 ], [ %spec.select.i441, %180 ], [ %190, %187 ], [ %177, %175 ]
-  %191 = and i32 %.0.i386, 1984
+_ssa_op1_info.exit389:                            ; preds = %175, %187, %180, %173
+  %.0.i387 = phi i32 [ %174, %173 ], [ %spec.select.i442, %180 ], [ %190, %187 ], [ %177, %175 ]
+  %191 = and i32 %.0.i387, 1984
   %.not377 = icmp eq i32 %191, 0
-  br i1 %.not377, label %192, label %_ssa_op1_info.exit388.thread
+  br i1 %.not377, label %192, label %_ssa_op1_info.exit389.thread
 
-192:                                              ; preds = %_ssa_op1_info.exit, %_ssa_op1_info.exit388
+192:                                              ; preds = %_ssa_op1_info.exit, %_ssa_op1_info.exit389
   tail call void @zend_ssa_remove_instr(ptr noundef nonnull %1, ptr noundef nonnull %71, ptr noundef %73) #12
   %193 = add nsw i32 %.0532, 1
   br label %take_successor_1.exit
 
-_ssa_op1_info.exit388.thread:                     ; preds = %169, %182, %184, %_ssa_op1_info.exit388
+_ssa_op1_info.exit389.thread:                     ; preds = %169, %182, %184, %_ssa_op1_info.exit389
   store i8 70, ptr %74, align 4, !tbaa !50
   %194 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 0, ptr %194, align 4, !tbaa !53
@@ -3655,8 +3655,8 @@ _ssa_op1_info.exit388.thread:                     ; preds = %169, %182, %184, %_
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %217 = load i32, ptr %216, align 4, !tbaa !38
   %218 = load i32, ptr %215, align 4, !tbaa !38
-  %.not.i413 = icmp eq i32 %217, %218
-  br i1 %.not.i413, label %220, label %219
+  %.not.i414 = icmp eq i32 %217, %218
+  br i1 %.not.i414, label %220, label %219
 
 219:                                              ; preds = %214
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %217) #12
@@ -3689,8 +3689,8 @@ _ssa_op1_info.exit388.thread:                     ; preds = %169, %182, %184, %_
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !38
   %234 = load i32, ptr %231, align 4, !tbaa !38
-  %.not.i398 = icmp eq i32 %233, %234
-  br i1 %.not.i398, label %239, label %235
+  %.not.i399 = icmp eq i32 %233, %234
+  br i1 %.not.i399, label %239, label %235
 
 235:                                              ; preds = %230
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %234) #12
@@ -3720,51 +3720,51 @@ _ssa_op1_info.exit388.thread:                     ; preds = %169, %182, %184, %_
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !38
-  %.not.i415 = icmp eq i32 %250, %.0363.lcssa
-  br i1 %.not.i415, label %take_successor_0.exit416, label %251
+  %.not.i416 = icmp eq i32 %250, %.0363.lcssa
+  br i1 %.not.i416, label %take_successor_0.exit417, label %251
 
 251:                                              ; preds = %248
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %250) #12
   %.pre556 = load i8, ptr %196, align 1, !tbaa !59
-  br label %take_successor_0.exit416
+  br label %take_successor_0.exit417
 
-take_successor_0.exit416:                         ; preds = %248, %251
-  %.pr483 = phi i8 [ %197, %248 ], [ %.pre556, %251 ]
+take_successor_0.exit417:                         ; preds = %248, %251
+  %.pr484 = phi i8 [ %197, %248 ], [ %.pre556, %251 ]
   store i32 1, ptr %241, align 4, !tbaa !110
-  switch i8 %.pr483, label %289 [
+  switch i8 %.pr484, label %289 [
     i8 8, label %252
     i8 1, label %262
   ]
 
-252:                                              ; preds = %take_successor_0.exit416
+252:                                              ; preds = %take_successor_0.exit417
   %253 = load ptr, ptr %46, align 8, !tbaa !85
-  %.not.i389 = icmp eq ptr %253, null
-  br i1 %.not.i389, label %_ssa_op1_info.exit392.thread, label %254
+  %.not.i390 = icmp eq ptr %253, null
+  br i1 %.not.i390, label %_ssa_op1_info.exit393.thread, label %254
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %73, align 4, !tbaa !72
   %256 = icmp sgt i32 %255, -1
-  br i1 %256, label %_ssa_op1_info.exit392, label %_ssa_op1_info.exit392.thread
+  br i1 %256, label %_ssa_op1_info.exit393, label %_ssa_op1_info.exit393.thread
 
-_ssa_op1_info.exit392:                            ; preds = %254
+_ssa_op1_info.exit393:                            ; preds = %254
   %257 = zext nneg i32 %255 to i64
   %258 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %253, i64 %257
   %259 = load i32, ptr %258, align 8, !tbaa !90
   %260 = and i32 %259, 1
   %.not374 = icmp eq i32 %260, 0
-  br i1 %.not374, label %299, label %_ssa_op1_info.exit392.thread
+  br i1 %.not374, label %299, label %_ssa_op1_info.exit393.thread
 
-_ssa_op1_info.exit392.thread:                     ; preds = %252, %254, %_ssa_op1_info.exit392
+_ssa_op1_info.exit393.thread:                     ; preds = %252, %254, %_ssa_op1_info.exit393
   store i8 49, ptr %74, align 4, !tbaa !50
   %261 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 0, ptr %261, align 4, !tbaa !53
   br label %.critedge15
 
-262:                                              ; preds = %take_successor_0.exit416
+262:                                              ; preds = %take_successor_0.exit417
   %263 = load i32, ptr %47, align 4, !tbaa !91
   %264 = and i32 %263, 33554432
-  %.not9.i395 = icmp eq i32 %264, 0
-  br i1 %.not9.i395, label %270, label %265
+  %.not9.i396 = icmp eq i32 %264, 0
+  br i1 %.not9.i396, label %270, label %265
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -3786,55 +3786,55 @@ _ssa_op1_info.exit392.thread:                     ; preds = %252, %254, %_ssa_op
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i8, ptr %278, align 8, !tbaa !53
   switch i8 %279, label %282 [
-    i8 11, label %_ssa_op1_info.exit396.thread
+    i8 11, label %_ssa_op1_info.exit397.thread
     i8 7, label %280
   ]
 
 280:                                              ; preds = %276
   %281 = tail call i32 @zend_array_type_info(ptr noundef nonnull %277) #12
-  br label %_ssa_op1_info.exit396
+  br label %_ssa_op1_info.exit397
 
 282:                                              ; preds = %276
   %283 = zext nneg i8 %279 to i32
   %284 = shl nuw i32 1, %283
   %285 = getelementptr inbounds nuw i8, ptr %277, i64 9
   %286 = load i8, ptr %285, align 1, !tbaa !53
-  %.not.i434 = icmp eq i8 %286, 0
-  br i1 %.not.i434, label %287, label %_ssa_op1_info.exit396
+  %.not.i435 = icmp eq i8 %286, 0
+  br i1 %.not.i435, label %287, label %_ssa_op1_info.exit397
 
 287:                                              ; preds = %282
   %288 = icmp eq i8 %279, 6
   %spec.select.i = select i1 %288, i32 -2147483584, i32 %284
-  br label %_ssa_op1_info.exit396
+  br label %_ssa_op1_info.exit397
 
-289:                                              ; preds = %take_successor_0.exit416
+289:                                              ; preds = %take_successor_0.exit417
   %290 = load ptr, ptr %46, align 8, !tbaa !85
-  %.not.i393 = icmp eq ptr %290, null
-  br i1 %.not.i393, label %_ssa_op1_info.exit396.thread, label %291
+  %.not.i394 = icmp eq ptr %290, null
+  br i1 %.not.i394, label %_ssa_op1_info.exit397.thread, label %291
 
 291:                                              ; preds = %289
   %292 = load i32, ptr %73, align 4, !tbaa !72
   %293 = icmp sgt i32 %292, -1
-  br i1 %293, label %294, label %_ssa_op1_info.exit396.thread
+  br i1 %293, label %294, label %_ssa_op1_info.exit397.thread
 
 294:                                              ; preds = %291
   %295 = zext nneg i32 %292 to i64
   %296 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %290, i64 %295
   %297 = load i32, ptr %296, align 8, !tbaa !90
-  br label %_ssa_op1_info.exit396
+  br label %_ssa_op1_info.exit397
 
-_ssa_op1_info.exit396:                            ; preds = %282, %294, %287, %280
-  %.0.i394 = phi i32 [ %281, %280 ], [ %spec.select.i, %287 ], [ %297, %294 ], [ %284, %282 ]
-  %298 = and i32 %.0.i394, 1984
+_ssa_op1_info.exit397:                            ; preds = %282, %294, %287, %280
+  %.0.i395 = phi i32 [ %281, %280 ], [ %spec.select.i, %287 ], [ %297, %294 ], [ %284, %282 ]
+  %298 = and i32 %.0.i395, 1984
   %.not375 = icmp eq i32 %298, 0
-  br i1 %.not375, label %299, label %_ssa_op1_info.exit396.thread
+  br i1 %.not375, label %299, label %_ssa_op1_info.exit397.thread
 
-299:                                              ; preds = %_ssa_op1_info.exit392, %_ssa_op1_info.exit396
+299:                                              ; preds = %_ssa_op1_info.exit393, %_ssa_op1_info.exit397
   tail call void @zend_ssa_remove_instr(ptr noundef nonnull %1, ptr noundef nonnull %71, ptr noundef %73) #12
   %300 = add nsw i32 %.0532, 1
   br label %take_successor_1.exit
 
-_ssa_op1_info.exit396.thread:                     ; preds = %276, %289, %291, %_ssa_op1_info.exit396
+_ssa_op1_info.exit397.thread:                     ; preds = %276, %289, %291, %_ssa_op1_info.exit397
   store i8 70, ptr %74, align 4, !tbaa !50
   %301 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 0, ptr %301, align 4, !tbaa !53
@@ -3896,8 +3896,8 @@ _ssa_op1_info.exit396.thread:                     ; preds = %276, %289, %291, %_
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
   %338 = load i32, ptr %337, align 4, !tbaa !38
   %339 = load i32, ptr %336, align 4, !tbaa !38
-  %.not.i400 = icmp eq i32 %338, %339
-  br i1 %.not.i400, label %344, label %340
+  %.not.i401 = icmp eq i32 %338, %339
+  br i1 %.not.i401, label %344, label %340
 
 340:                                              ; preds = %335
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %339) #12
@@ -3967,8 +3967,8 @@ _ssa_op1_info.exit396.thread:                     ; preds = %276, %289, %291, %_
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 4
   %381 = load i32, ptr %380, align 4, !tbaa !38
   %382 = load i32, ptr %379, align 4, !tbaa !38
-  %.not.i402 = icmp eq i32 %381, %382
-  br i1 %.not.i402, label %387, label %383
+  %.not.i403 = icmp eq i32 %381, %382
+  br i1 %.not.i403, label %387, label %383
 
 383:                                              ; preds = %378
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %382) #12
@@ -4042,15 +4042,15 @@ _ssa_op1_info.exit396.thread:                     ; preds = %276, %289, %291, %_
   %423 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %424 = load i32, ptr %423, align 4, !tbaa !110
   %425 = icmp eq i32 %424, 2
-  br i1 %425, label %426, label %take_successor_1.exit405
+  br i1 %425, label %426, label %take_successor_1.exit406
 
 426:                                              ; preds = %417
   %427 = load ptr, ptr %52, align 8, !tbaa !109
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 4
   %429 = load i32, ptr %428, align 4, !tbaa !38
   %430 = load i32, ptr %427, align 4, !tbaa !38
-  %.not.i404 = icmp eq i32 %429, %430
-  br i1 %.not.i404, label %435, label %431
+  %.not.i405 = icmp eq i32 %429, %430
+  br i1 %.not.i405, label %435, label %431
 
 431:                                              ; preds = %426
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %430) #12
@@ -4062,9 +4062,9 @@ _ssa_op1_info.exit396.thread:                     ; preds = %276, %289, %291, %_
 
 435:                                              ; preds = %431, %426
   store i32 1, ptr %423, align 4, !tbaa !110
-  br label %take_successor_1.exit405
+  br label %take_successor_1.exit406
 
-take_successor_1.exit405:                         ; preds = %417, %435
+take_successor_1.exit406:                         ; preds = %417, %435
   %436 = load ptr, ptr %45, align 8, !tbaa !74
   %437 = load i32, ptr %390, align 4, !tbaa !82
   %438 = sext i32 %437 to i64
@@ -4079,8 +4079,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   tail call void @llvm.assume(i1 %445)
   %446 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %447 = load ptr, ptr %446, align 8, !tbaa !83
-  %.not.i430 = icmp eq ptr %447, null
-  tail call void @llvm.assume(i1 %.not.i430)
+  %.not.i431 = icmp eq ptr %447, null
+  tail call void @llvm.assume(i1 %.not.i431)
   store i32 -1, ptr %440, align 8, !tbaa !88
   store i32 -1, ptr %390, align 4, !tbaa !82
   br label %take_successor_1.exit
@@ -4147,8 +4147,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 4
   %488 = load i32, ptr %487, align 4, !tbaa !38
   %489 = load i32, ptr %486, align 4, !tbaa !38
-  %.not.i406 = icmp eq i32 %488, %489
-  br i1 %.not.i406, label %494, label %490
+  %.not.i407 = icmp eq i32 %488, %489
+  br i1 %.not.i407, label %494, label %490
 
 490:                                              ; preds = %485
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %489) #12
@@ -4187,8 +4187,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 4
   %509 = load i32, ptr %508, align 4, !tbaa !38
   %510 = load i32, ptr %507, align 4, !tbaa !38
-  %.not.i417 = icmp eq i32 %509, %510
-  br i1 %.not.i417, label %512, label %511
+  %.not.i418 = icmp eq i32 %509, %510
+  br i1 %.not.i418, label %512, label %511
 
 511:                                              ; preds = %506
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %509) #12
@@ -4257,8 +4257,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 4
   %553 = load i32, ptr %552, align 4, !tbaa !38
   %554 = load i32, ptr %551, align 4, !tbaa !38
-  %.not.i419 = icmp eq i32 %553, %554
-  br i1 %.not.i419, label %556, label %555
+  %.not.i420 = icmp eq i32 %553, %554
+  br i1 %.not.i420, label %556, label %555
 
 555:                                              ; preds = %550
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %553) #12
@@ -4296,8 +4296,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 4
   %571 = load i32, ptr %570, align 4, !tbaa !38
   %572 = load i32, ptr %569, align 4, !tbaa !38
-  %.not.i408 = icmp eq i32 %571, %572
-  br i1 %.not.i408, label %577, label %573
+  %.not.i409 = icmp eq i32 %571, %572
+  br i1 %.not.i409, label %577, label %573
 
 573:                                              ; preds = %568
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %572) #12
@@ -4342,9 +4342,9 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %598 = icmp eq i8 %75, -68
   %599 = icmp eq i8 %589, 6
   %or.cond13 = select i1 %598, i1 %599, i1 false
-  br i1 %or.cond13, label %.critedge383.thread505, label %605
+  br i1 %or.cond13, label %.critedge383.thread502, label %605
 
-.critedge383.thread505:                           ; preds = %597
+.critedge383.thread502:                           ; preds = %597
   %600 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %601 = load i32, ptr %600, align 4, !tbaa !53
   %602 = zext i32 %601 to i64
@@ -4392,8 +4392,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %625 = load ptr, ptr %52, align 8, !tbaa !109
   %626 = getelementptr inbounds nuw i32, ptr %625, i64 %indvars.iv543
   %627 = load i32, ptr %626, align 4, !tbaa !38
-  %.not.i422 = icmp eq i32 %627, %622
-  br i1 %.not.i422, label %629, label %628
+  %.not.i423 = icmp eq i32 %627, %622
+  br i1 %.not.i423, label %629, label %628
 
 628:                                              ; preds = %.lr.ph523
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %627) #12
@@ -4421,8 +4421,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %641 = tail call ptr @zend_hash_index_find(ptr noundef %639, i64 noundef %640) #12
   br label %646
 
-642:                                              ; preds = %.critedge383.thread505, %.critedge383
-  %643 = phi ptr [ %604, %.critedge383.thread505 ], [ %637, %.critedge383 ]
+642:                                              ; preds = %.critedge383.thread502, %.critedge383
+  %643 = phi ptr [ %604, %.critedge383.thread502 ], [ %637, %.critedge383 ]
   %644 = load ptr, ptr %587, align 8, !tbaa !53
   %645 = tail call ptr @zend_hash_find(ptr noundef %643, ptr noundef %644) #12
   br label %646
@@ -4486,7 +4486,7 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %682 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %683 = load i32, ptr %682, align 4, !tbaa !110
   %684 = icmp sgt i32 %683, 0
-  br i1 %684, label %.lr.ph526, label %.thread502
+  br i1 %684, label %.lr.ph526, label %.thread503
 
 .lr.ph526:                                        ; preds = %668, %690
   %685 = phi i32 [ %691, %690 ], [ %683, %668 ]
@@ -4494,8 +4494,8 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %686 = load ptr, ptr %52, align 8, !tbaa !109
   %687 = getelementptr inbounds nuw i32, ptr %686, i64 %indvars.iv546
   %688 = load i32, ptr %687, align 4, !tbaa !38
-  %.not.i424 = icmp eq i32 %688, %681
-  br i1 %.not.i424, label %690, label %689
+  %.not.i425 = icmp eq i32 %688, %681
+  br i1 %.not.i425, label %690, label %689
 
 689:                                              ; preds = %.lr.ph526
   tail call void @zend_ssa_remove_predecessor(ptr noundef nonnull %1, i32 noundef %.2355527, i32 noundef %688) #12
@@ -4507,9 +4507,9 @@ take_successor_1.exit405:                         ; preds = %417, %435
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %692 = sext i32 %691 to i64
   %693 = icmp slt i64 %indvars.iv.next547, %692
-  br i1 %693, label %.lr.ph526, label %.thread502
+  br i1 %693, label %.lr.ph526, label %.thread503
 
-.thread502:                                       ; preds = %690, %668
+.thread503:                                       ; preds = %690, %668
   %694 = load ptr, ptr %52, align 8, !tbaa !109
   store i32 %681, ptr %694, align 4, !tbaa !38
   store i32 1, ptr %682, align 4, !tbaa !110
@@ -4525,41 +4525,41 @@ take_successor_1.exit405:                         ; preds = %417, %435
   store i32 1, ptr %617, align 4, !tbaa !110
   br label %take_successor_1.exit
 
-take_successor_1.exit:                            ; preds = %._crit_edge, %557, %577, %474, %494, %239, %221, %116, %98, %64, %take_successor_1.exit405, %299, %192, %79
-  %.3 = phi i32 [ %86, %79 ], [ %193, %192 ], [ %300, %299 ], [ %422, %take_successor_1.exit405 ], [ %610, %._crit_edge ], [ %.0532, %64 ], [ %103, %98 ], [ %103, %116 ], [ %226, %221 ], [ %226, %239 ], [ %481, %474 ], [ %481, %494 ], [ %564, %557 ], [ %564, %577 ]
-  %.promoted.i459 = load i32, ptr %62, align 8, !tbaa !107
-  %.not9.i460 = icmp eq i32 %.promoted.i459, 0
-  br i1 %.not9.i460, label %compress_block.exit468, label %.lr.ph.i461
+take_successor_1.exit:                            ; preds = %._crit_edge, %557, %577, %474, %494, %239, %221, %116, %98, %64, %take_successor_1.exit406, %299, %192, %79
+  %.3 = phi i32 [ %86, %79 ], [ %193, %192 ], [ %300, %299 ], [ %422, %take_successor_1.exit406 ], [ %610, %._crit_edge ], [ %.0532, %64 ], [ %103, %98 ], [ %103, %116 ], [ %226, %221 ], [ %226, %239 ], [ %481, %474 ], [ %481, %494 ], [ %564, %557 ], [ %564, %577 ]
+  %.promoted.i460 = load i32, ptr %62, align 8, !tbaa !107
+  %.not9.i461 = icmp eq i32 %.promoted.i460, 0
+  br i1 %.not9.i461, label %compress_block.exit469, label %.lr.ph.i462
 
-.lr.ph.i461:                                      ; preds = %take_successor_1.exit
+.lr.ph.i462:                                      ; preds = %take_successor_1.exit
   %696 = load ptr, ptr %41, align 8, !tbaa !70
   %697 = load i32, ptr %65, align 4, !tbaa !108
-  %invariant.op.i462 = add i32 %697, -1
-  %698 = zext i32 %.promoted.i459 to i64
+  %invariant.op.i463 = add i32 %697, -1
+  %698 = zext i32 %.promoted.i460 to i64
   br label %699
 
-699:                                              ; preds = %705, %.lr.ph.i461
-  %indvars.iv.i463 = phi i64 [ %698, %.lr.ph.i461 ], [ %indvars.iv.next.i465, %705 ]
-  %700 = trunc nuw i64 %indvars.iv.i463 to i32
-  %.reass.i464 = add i32 %invariant.op.i462, %700
-  %701 = zext i32 %.reass.i464 to i64
+699:                                              ; preds = %705, %.lr.ph.i462
+  %indvars.iv.i464 = phi i64 [ %698, %.lr.ph.i462 ], [ %indvars.iv.next.i466, %705 ]
+  %700 = trunc nuw i64 %indvars.iv.i464 to i32
+  %.reass.i465 = add i32 %invariant.op.i463, %700
+  %701 = zext i32 %.reass.i465 to i64
   %702 = getelementptr inbounds nuw %struct._zend_op, ptr %696, i64 %701, i32 6
   %703 = load i8, ptr %702, align 4, !tbaa !50
   %704 = icmp eq i8 %703, 0
   br i1 %704, label %705, label %.critedge15
 
 705:                                              ; preds = %699
-  %indvars.iv.next.i465 = add nsw i64 %indvars.iv.i463, -1
-  %indvars.i466 = trunc i64 %indvars.iv.next.i465 to i32
-  store i32 %indvars.i466, ptr %62, align 8, !tbaa !107
-  %.not.i467 = icmp eq i32 %indvars.i466, 0
-  br i1 %.not.i467, label %compress_block.exit468, label %699
+  %indvars.iv.next.i466 = add nsw i64 %indvars.iv.i464, -1
+  %indvars.i467 = trunc i64 %indvars.iv.next.i466 to i32
+  store i32 %indvars.i467, ptr %62, align 8, !tbaa !107
+  %.not.i468 = icmp eq i32 %indvars.i467, 0
+  br i1 %.not.i468, label %compress_block.exit469, label %699
 
-compress_block.exit468:                           ; preds = %705, %take_successor_1.exit
+compress_block.exit469:                           ; preds = %705, %take_successor_1.exit
   %706 = icmp sgt i32 %.2355527, 0
   br i1 %706, label %707, label %.critedge15
 
-707:                                              ; preds = %compress_block.exit468
+707:                                              ; preds = %compress_block.exit469
   tail call fastcc void @zend_ssa_unlink_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %52, i32 noundef %.2355527)
   %708 = zext nneg i32 %.2355527 to i64
   %709 = load ptr, ptr %40, align 8, !tbaa !104
@@ -4581,9 +4581,9 @@ compress_block.exit468:                           ; preds = %705, %take_successo
   %715 = trunc nsw i64 %indvars.iv.next550 to i32
   br label %.critedge15
 
-.critedge15:                                      ; preds = %699, %710, %.critedge15.loopexit.split.loop.exit, %513, %522, %526, %448, %457, %461, %.critedge2, %64, %compress_block.exit468, %578, %410, %406, %367, %363, %324, %320, %244, %_ssa_op1_info.exit396.thread, %_ssa_op1_info.exit392.thread, %240, %_ssa_op1_info.exit.thread, %_ssa_op1_info.exit388.thread, %132, %take_successor_0.exit, %331, %344, %374, %387
-  %.3356 = phi i32 [ %.0363.lcssa, %387 ], [ %.0363.lcssa, %374 ], [ %.0363.lcssa, %344 ], [ %.0363.lcssa, %331 ], [ %.0363.lcssa, %take_successor_0.exit ], [ %.0363.lcssa, %132 ], [ %.0363.lcssa, %_ssa_op1_info.exit388.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit.thread ], [ %.0363.lcssa, %240 ], [ %.0363.lcssa, %_ssa_op1_info.exit392.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit396.thread ], [ %.0363.lcssa, %244 ], [ %.0363.lcssa, %320 ], [ %.0363.lcssa, %324 ], [ %.0363.lcssa, %363 ], [ %.0363.lcssa, %367 ], [ %.0363.lcssa, %406 ], [ %.0363.lcssa, %410 ], [ %.0363.lcssa, %578 ], [ %.0363.lcssa, %compress_block.exit468 ], [ %.0363.lcssa, %64 ], [ %.0363.lcssa, %.critedge2 ], [ %.0363.lcssa, %461 ], [ %.0363.lcssa, %457 ], [ %.0363.lcssa, %448 ], [ %.0363.lcssa, %526 ], [ %.0363.lcssa, %522 ], [ %.0363.lcssa, %513 ], [ %715, %.critedge15.loopexit.split.loop.exit ], [ %.0363.lcssa, %710 ], [ %.0363.lcssa, %699 ]
-  %.5 = phi i32 [ %.0532, %387 ], [ %.0532, %374 ], [ %.0532, %344 ], [ %.0532, %331 ], [ %.0532, %take_successor_0.exit ], [ %.0532, %132 ], [ %.0532, %_ssa_op1_info.exit388.thread ], [ %.0532, %_ssa_op1_info.exit.thread ], [ %.0532, %240 ], [ %.0532, %_ssa_op1_info.exit392.thread ], [ %.0532, %_ssa_op1_info.exit396.thread ], [ %.0532, %244 ], [ %.0532, %320 ], [ %.0532, %324 ], [ %.0532, %363 ], [ %.0532, %367 ], [ %.0532, %406 ], [ %.0532, %410 ], [ %.0532, %578 ], [ %.3, %compress_block.exit468 ], [ %.0532, %64 ], [ %.0532, %.critedge2 ], [ %.0532, %461 ], [ %.0532, %457 ], [ %.0532, %448 ], [ %.0532, %526 ], [ %.0532, %522 ], [ %.0532, %513 ], [ %.3, %.critedge15.loopexit.split.loop.exit ], [ %.3, %710 ], [ %.3, %699 ]
+.critedge15:                                      ; preds = %699, %710, %.critedge15.loopexit.split.loop.exit, %513, %522, %526, %448, %457, %461, %.critedge2, %64, %compress_block.exit469, %578, %410, %406, %367, %363, %324, %320, %244, %_ssa_op1_info.exit397.thread, %_ssa_op1_info.exit393.thread, %240, %_ssa_op1_info.exit.thread, %_ssa_op1_info.exit389.thread, %132, %take_successor_0.exit, %331, %344, %374, %387
+  %.3356 = phi i32 [ %.0363.lcssa, %387 ], [ %.0363.lcssa, %374 ], [ %.0363.lcssa, %344 ], [ %.0363.lcssa, %331 ], [ %.0363.lcssa, %take_successor_0.exit ], [ %.0363.lcssa, %132 ], [ %.0363.lcssa, %_ssa_op1_info.exit389.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit.thread ], [ %.0363.lcssa, %240 ], [ %.0363.lcssa, %_ssa_op1_info.exit393.thread ], [ %.0363.lcssa, %_ssa_op1_info.exit397.thread ], [ %.0363.lcssa, %244 ], [ %.0363.lcssa, %320 ], [ %.0363.lcssa, %324 ], [ %.0363.lcssa, %363 ], [ %.0363.lcssa, %367 ], [ %.0363.lcssa, %406 ], [ %.0363.lcssa, %410 ], [ %.0363.lcssa, %578 ], [ %.0363.lcssa, %compress_block.exit469 ], [ %.0363.lcssa, %64 ], [ %.0363.lcssa, %.critedge2 ], [ %.0363.lcssa, %461 ], [ %.0363.lcssa, %457 ], [ %.0363.lcssa, %448 ], [ %.0363.lcssa, %526 ], [ %.0363.lcssa, %522 ], [ %.0363.lcssa, %513 ], [ %715, %.critedge15.loopexit.split.loop.exit ], [ %.0363.lcssa, %710 ], [ %.0363.lcssa, %699 ]
+  %.5 = phi i32 [ %.0532, %387 ], [ %.0532, %374 ], [ %.0532, %344 ], [ %.0532, %331 ], [ %.0532, %take_successor_0.exit ], [ %.0532, %132 ], [ %.0532, %_ssa_op1_info.exit389.thread ], [ %.0532, %_ssa_op1_info.exit.thread ], [ %.0532, %240 ], [ %.0532, %_ssa_op1_info.exit393.thread ], [ %.0532, %_ssa_op1_info.exit397.thread ], [ %.0532, %244 ], [ %.0532, %320 ], [ %.0532, %324 ], [ %.0532, %363 ], [ %.0532, %367 ], [ %.0532, %406 ], [ %.0532, %410 ], [ %.0532, %578 ], [ %.3, %compress_block.exit469 ], [ %.0532, %64 ], [ %.0532, %.critedge2 ], [ %.0532, %461 ], [ %.0532, %457 ], [ %.0532, %448 ], [ %.0532, %526 ], [ %.0532, %522 ], [ %.0532, %513 ], [ %.3, %.critedge15.loopexit.split.loop.exit ], [ %.3, %710 ], [ %.3, %699 ]
   %716 = load i32, ptr %1, align 8, !tbaa !103
   %717 = icmp slt i32 %.3356, %716
   br i1 %717, label %48, label %._crit_edge534

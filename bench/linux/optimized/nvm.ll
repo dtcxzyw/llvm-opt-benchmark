@@ -66,7 +66,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_acquire_nvm(ptr noundef %0
   %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #5, !srcloc !5
   %10 = and i32 %9, 128
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.preheader, label %.thread
+  br i1 %11, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %1, %.preheader
   %12 = phi i32 [ %16, %.preheader ], [ 1000, %1 ]
@@ -82,14 +82,14 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_acquire_nvm(ptr noundef %0
   br i1 %20, label %.preheader, label %21, !llvm.loop !11
 
 21:                                               ; preds = %.preheader
-  br i1 %17, label %.thread, label %22
+  br i1 %17, label %.critedge, label %22
 
 22:                                               ; preds = %21
   %23 = and i32 %15, -65
   tail call void @__ew32(ptr noundef %0, i64 noundef 16, i32 noundef %23) #5
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %1, %22, %21
+.critedge:                                        ; preds = %1, %22, %21
   %24 = phi i32 [ -1, %22 ], [ 0, %21 ], [ 0, %1 ]
   ret i32 %24
 }

@@ -1046,75 +1046,75 @@ skip_prefix.exit:                                 ; preds = %17, %20
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %95, %.lr.ph.preheader.i.i
-  %.04472.i.i = phi i32 [ %103, %95 ], [ %65, %.lr.ph.preheader.i.i ]
-  %.04571.i.i = phi i32 [ %99, %95 ], [ %62, %.lr.ph.preheader.i.i ]
-  %.04770.i.i = phi ptr [ %.042.i.i, %95 ], [ %71, %.lr.ph.preheader.i.i ]
-  %.04969.i.i = phi ptr [ %spec.select.i.i, %95 ], [ %74, %.lr.ph.preheader.i.i ]
-  %75 = sext i32 %.04571.i.i to i64
-  %76 = call ptr @memchr(ptr noundef readonly %.04969.i.i, i32 noundef 46, i64 noundef range(i64 -2147483648, 2147483648) %75) #15
+  %.04467.i.i = phi i32 [ %103, %95 ], [ %65, %.lr.ph.preheader.i.i ]
+  %.04566.i.i = phi i32 [ %99, %95 ], [ %62, %.lr.ph.preheader.i.i ]
+  %.04765.i.i = phi ptr [ %.042.i.i, %95 ], [ %71, %.lr.ph.preheader.i.i ]
+  %.04964.i.i = phi ptr [ %spec.select.i.i, %95 ], [ %74, %.lr.ph.preheader.i.i ]
+  %75 = sext i32 %.04566.i.i to i64
+  %76 = call ptr @memchr(ptr noundef readonly %.04964.i.i, i32 noundef 46, i64 noundef range(i64 -2147483648, 2147483648) %75) #15
   %.not.i.i.i = icmp eq ptr %76, null
-  %77 = getelementptr inbounds i8, ptr %.04969.i.i, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.04964.i.i, i64 %75
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %77, ptr %76
-  %78 = sext i32 %.04472.i.i to i64
-  %79 = call ptr @memchr(ptr noundef readonly %.04770.i.i, i32 noundef 46, i64 noundef range(i64 -2147483648, 2147483648) %78) #15
+  %78 = sext i32 %.04467.i.i to i64
+  %79 = call ptr @memchr(ptr noundef readonly %.04765.i.i, i32 noundef 46, i64 noundef range(i64 -2147483648, 2147483648) %78) #15
   %.not.i59.i.i = icmp eq ptr %79, null
-  %80 = getelementptr inbounds i8, ptr %.04770.i.i, i64 %78
+  %80 = getelementptr inbounds i8, ptr %.04765.i.i, i64 %78
   %spec.select.i60.i.i = select i1 %.not.i59.i.i, ptr %80, ptr %79
-  %81 = getelementptr inbounds nuw i8, ptr %.04770.i.i, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.04765.i.i, i64 1
   %82 = icmp eq ptr %spec.select.i60.i.i, %81
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.lr.ph.i.i
-  %84 = load i8, ptr %.04770.i.i, align 1, !tbaa !4
+  %84 = load i8, ptr %.04765.i.i, align 1, !tbaa !4
   %85 = icmp eq i8 %84, 42
-  br i1 %85, label %._crit_edge76.i.i, label %86
+  br i1 %85, label %._crit_edge71.i.i, label %86
 
-._crit_edge76.i.i:                                ; preds = %83
-  %.pre.i.i = ptrtoint ptr %.04969.i.i to i64
-  %.pre77.i.i = ptrtoint ptr %.04770.i.i to i64
+._crit_edge71.i.i:                                ; preds = %83
+  %.pre.i.i = ptrtoint ptr %.04964.i.i to i64
+  %.pre72.i.i = ptrtoint ptr %.04765.i.i to i64
   br label %95
 
 86:                                               ; preds = %83, %.lr.ph.i.i
   %87 = ptrtoint ptr %spec.select.i60.i.i to i64
-  %88 = ptrtoint ptr %.04770.i.i to i64
+  %88 = ptrtoint ptr %.04765.i.i to i64
   %89 = sub i64 %87, %88
   %90 = ptrtoint ptr %spec.select.i.i.i to i64
-  %91 = ptrtoint ptr %.04969.i.i to i64
+  %91 = ptrtoint ptr %.04964.i.i to i64
   %92 = sub i64 %90, %91
   %93 = icmp eq i64 %89, %92
   br i1 %93, label %94, label %.critedge.critedge
 
 94:                                               ; preds = %86
-  %bcmp.i.i = call i32 @bcmp(ptr %.04969.i.i, ptr %.04770.i.i, i64 %89)
+  %bcmp.i.i = call i32 @bcmp(ptr %.04964.i.i, ptr %.04765.i.i, i64 %89)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i, label %95, label %.critedge.critedge
 
-95:                                               ; preds = %94, %._crit_edge76.i.i
-  %.pre-phi78.i.i = phi i64 [ %.pre77.i.i, %._crit_edge76.i.i ], [ %88, %94 ]
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge76.i.i ], [ %91, %94 ]
+95:                                               ; preds = %94, %._crit_edge71.i.i
+  %.pre-phi73.i.i = phi i64 [ %.pre72.i.i, %._crit_edge71.i.i ], [ %88, %94 ]
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge71.i.i ], [ %91, %94 ]
   %96 = icmp ult ptr %spec.select.i.i.i, %77
   %spec.select.idx.i.i = zext i1 %96 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %spec.select.idx.i.i
   %97 = ptrtoint ptr %spec.select.i.i to i64
   %.neg.i.i = sub i64 %.pre-phi.i.i, %97
   %98 = trunc i64 %.neg.i.i to i32
-  %99 = add i32 %.04571.i.i, %98
+  %99 = add i32 %.04566.i.i, %98
   %100 = icmp ult ptr %spec.select.i60.i.i, %80
   %.042.idx.i.i = zext i1 %100 to i64
   %.042.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i60.i.i, i64 %.042.idx.i.i
   %101 = ptrtoint ptr %.042.i.i to i64
-  %.neg58.i.i = sub i64 %.pre-phi78.i.i, %101
+  %.neg58.i.i = sub i64 %.pre-phi73.i.i, %101
   %102 = trunc i64 %.neg58.i.i to i32
-  %103 = add i32 %.04472.i.i, %102
+  %103 = add i32 %.04467.i.i, %102
   %104 = icmp ne i32 %99, 0
   %105 = icmp ne i32 %103, 0
   %106 = select i1 %104, i1 %105, i1 false
   br i1 %106, label %.lr.ph.i.i, label %match_host.exit.i, !llvm.loop !43
 
 match_host.exit.i:                                ; preds = %95, %59
-  %.lcssa67.i.i = phi i1 [ %66, %59 ], [ %104, %95 ]
+  %.lcssa62.i.i = phi i1 [ %66, %59 ], [ %104, %95 ]
   %.lcssa.i.i = phi i1 [ %67, %59 ], [ %105, %95 ]
-  %107 = select i1 %.lcssa67.i.i, i1 true, i1 %.lcssa.i.i
+  %107 = select i1 %.lcssa62.i.i, i1 true, i1 %.lcssa.i.i
   br i1 %107, label %.critedge.critedge, label %108
 
 108:                                              ; preds = %match_host.exit.i
@@ -1260,7 +1260,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   call void @strbuf_release(ptr noundef nonnull %6) #16
   br label %179
 
-.critedge.critedge:                               ; preds = %86, %94, %121, %108, %113, %match_host.exit.i, %47, %50, %55, %37, %42, %33, %35, %134
+.critedge.critedge:                               ; preds = %94, %86, %121, %108, %113, %match_host.exit.i, %47, %50, %55, %37, %42, %33, %35, %134
   call void @free(ptr noundef %31) #16
   call void @free(ptr noundef %32) #16
   br label %.critedge

@@ -27,35 +27,35 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
-  %.not373 = icmp eq i64 %7, 0
-  br i1 %.not373, label %._crit_edge.thread, label %.preheader294.lr.ph
+  %.not366 = icmp eq i64 %7, 0
+  br i1 %.not366, label %.critedge, label %.preheader287.lr.ph
 
-.preheader294.lr.ph:                              ; preds = %3
+.preheader287.lr.ph:                              ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.preheader294
+  br label %.preheader287
 
-.preheader294:                                    ; preds = %.preheader294.lr.ph, %.thread278
-  %.0178371 = phi ptr [ %5, %.preheader294.lr.ph ], [ %.4182.ph, %.thread278 ]
-  %.0183370 = phi i1 [ false, %.preheader294.lr.ph ], [ %.1184276, %.thread278 ]
-  %.0185369 = phi i1 [ true, %.preheader294.lr.ph ], [ %spec.select241, %.thread278 ]
-  %.0189368 = phi i1 [ false, %.preheader294.lr.ph ], [ %spec.select240, %.thread278 ]
-  %.0196367 = phi i1 [ true, %.preheader294.lr.ph ], [ %.1197, %.thread278 ]
+.preheader287:                                    ; preds = %.preheader287.lr.ph, %.thread277
+  %.0178364 = phi ptr [ %5, %.preheader287.lr.ph ], [ %.4182.ph, %.thread277 ]
+  %.0183363 = phi i1 [ false, %.preheader287.lr.ph ], [ %.1184275, %.thread277 ]
+  %.0185362 = phi i1 [ true, %.preheader287.lr.ph ], [ %spec.select241, %.thread277 ]
+  %.0189361 = phi i1 [ false, %.preheader287.lr.ph ], [ %spec.select240, %.thread277 ]
+  %.0196360 = phi i1 [ true, %.preheader287.lr.ph ], [ %.1197, %.thread277 ]
   br label %15
 
-15:                                               ; preds = %.backedge, %.preheader294
-  %.0202 = phi ptr [ %.0178371, %.preheader294 ], [ %.0202.be, %.backedge ]
-  %.1179 = phi ptr [ %.0178371, %.preheader294 ], [ %.1179.be, %.backedge ]
+15:                                               ; preds = %.backedge, %.preheader287
+  %.0202 = phi ptr [ %.0178364, %.preheader287 ], [ %.0202.be, %.backedge ]
+  %.1179 = phi ptr [ %.0178364, %.preheader287 ], [ %.1179.be, %.backedge ]
   %16 = load i8, ptr %.1179, align 1, !tbaa !13
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !13
   %.not = icmp sgt i8 %19, -1
-  br i1 %.not, label %20, label %.preheader292
+  br i1 %.not, label %20, label %.preheader285
 
 20:                                               ; preds = %15
   %21 = icmp ult i8 %16, 14
@@ -67,10 +67,10 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 24:                                               ; preds = %22
   %.not232 = icmp eq i8 %16, 0
-  br i1 %.not232, label %31, label %.loopexit295
+  br i1 %.not232, label %31, label %.loopexit288
 
 25:                                               ; preds = %22
-  switch i8 %16, label %.loopexit295 [
+  switch i8 %16, label %.loopexit288 [
     i8 10, label %34
     i8 13, label %36
   ]
@@ -81,57 +81,57 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 28:                                               ; preds = %26
   %.not230 = icmp eq i8 %16, 36
-  br i1 %.not230, label %52, label %.loopexit295
+  br i1 %.not230, label %52, label %.loopexit288
 
 29:                                               ; preds = %26
   %30 = add i8 %16, -63
   %or.cond5 = icmp ult i8 %30, 30
-  br i1 %or.cond5, label %56, label %.loopexit295
+  br i1 %or.cond5, label %56, label %.loopexit288
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
-  br label %.loopexit296
+  br label %.loopexit289
 
-.loopexit295:                                     ; preds = %29, %28, %25, %24
+.loopexit288:                                     ; preds = %29, %28, %25, %24
   %33 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
-  br label %.loopexit296
+  br label %.loopexit289
 
 34:                                               ; preds = %25, %36
   %.3181 = phi ptr [ %.1179, %25 ], [ %37, %36 ]
   %35 = getelementptr inbounds nuw i8, ptr %.3181, i64 1
-  br label %.loopexit296
+  br label %.loopexit289
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
   %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = icmp eq i8 %38, 10
-  br i1 %39, label %34, label %.loopexit296
+  br i1 %39, label %34, label %.loopexit289
 
-.preheader292:                                    ; preds = %15, %.preheader292
-  %.2180 = phi ptr [ %40, %.preheader292 ], [ %.1179, %15 ]
+.preheader285:                                    ; preds = %15, %.preheader285
+  %.2180 = phi ptr [ %40, %.preheader285 ], [ %.1179, %15 ]
   %40 = getelementptr inbounds nuw i8, ptr %.2180, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !13
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN13DepfileParser5ParseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E4yybm, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !13
   %.not233 = icmp sgt i8 %44, -1
-  br i1 %.not233, label %.loopexit293, label %.preheader292
+  br i1 %.not233, label %.loopexit286, label %.preheader285
 
-.loopexit293:                                     ; preds = %.preheader292, %174, %173, %173, %138, %137, %137, %.loopexit
-  %.6 = phi ptr [ %73, %.loopexit ], [ %135, %137 ], [ %135, %138 ], [ %168, %173 ], [ %168, %174 ], [ %135, %137 ], [ %168, %173 ], [ %40, %.preheader292 ]
+.loopexit286:                                     ; preds = %.preheader285, %174, %173, %173, %138, %137, %137, %.loopexit
+  %.6 = phi ptr [ %73, %.loopexit ], [ %135, %137 ], [ %135, %138 ], [ %168, %173 ], [ %168, %174 ], [ %135, %137 ], [ %168, %173 ], [ %40, %.preheader285 ]
   %45 = ptrtoint ptr %.6 to i64
   %46 = ptrtoint ptr %.1179 to i64
   %47 = sub i64 %45, %46
   %48 = icmp ult ptr %.0202, %.1179
   %sext234 = shl i64 %47, 32
   %49 = ashr exact i64 %sext234, 32
-  br i1 %48, label %50, label %.loopexit293._crit_edge
+  br i1 %48, label %50, label %.loopexit286._crit_edge
 
-50:                                               ; preds = %.loopexit293
+50:                                               ; preds = %.loopexit286
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0202, ptr nonnull align 1 %.1179, i64 %49, i1 false)
-  br label %.loopexit293._crit_edge
+  br label %.loopexit286._crit_edge
 
-.loopexit293._crit_edge:                          ; preds = %.loopexit293, %50
+.loopexit286._crit_edge:                          ; preds = %.loopexit286, %50
   %51 = getelementptr inbounds i8, ptr %.0202, i64 %49
   br label %.backedge
 
@@ -139,7 +139,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %53 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !13
   %55 = icmp eq i8 %54, 36
-  br i1 %55, label %69, label %.loopexit296.loopexit.split.loop.exit
+  br i1 %55, label %69, label %.loopexit289.loopexit.split.loop.exit
 
 56:                                               ; preds = %29
   %57 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
@@ -153,8 +153,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 62:                                               ; preds = %60
   switch i8 %58, label %.loopexit [
-    i8 0, label %.loopexit296
-    i8 10, label %.loopexit297
+    i8 0, label %.loopexit289
+    i8 10, label %.loopexit290
   ]
 
 63:                                               ; preds = %60
@@ -173,7 +173,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 68:                                               ; preds = %64
   switch i8 %58, label %.loopexit [
-    i8 58, label %.loopexit291
+    i8 58, label %.loopexit284
     i8 92, label %.preheader
   ]
 
@@ -190,19 +190,19 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 .loopexit:                                        ; preds = %179, %.loopexit.loopexit.split.loop.exit, %174, %173, %138, %137, %68, %63, %62, %177, %141, %66
   %.7 = phi ptr [ %57, %66 ], [ %135, %137 ], [ %142, %141 ], [ %168, %173 ], [ %168, %177 ], [ %57, %62 ], [ %57, %63 ], [ %57, %68 ], [ %135, %138 ], [ %168, %174 ], [ %72, %.loopexit.loopexit.split.loop.exit ], [ %168, %179 ]
   %73 = getelementptr inbounds nuw i8, ptr %.7, i64 1
-  br label %.loopexit293
+  br label %.loopexit286
 
-.loopexit297:                                     ; preds = %62, %77
+.loopexit290:                                     ; preds = %62, %77
   %74 = phi i64 [ 2, %77 ], [ 1, %62 ]
   %75 = getelementptr inbounds nuw i8, ptr %.1179, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  br label %.loopexit296
+  br label %.loopexit289
 
 77:                                               ; preds = %63
   %78 = getelementptr inbounds nuw i8, ptr %.1179, i64 2
   %79 = load i8, ptr %78, align 1, !tbaa !13
   %80 = icmp eq i8 %79, 10
-  br i1 %80, label %.loopexit297, label %.loopexit296
+  br i1 %80, label %.loopexit290, label %.loopexit289
 
 81:                                               ; preds = %174, %63
   %.9 = phi ptr [ %57, %63 ], [ %168, %174 ]
@@ -215,13 +215,13 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %88 = add nsw i32 %87, -1
   %89 = icmp ult ptr %.0202, %.1179
   %90 = sext i32 %88 to i64
-  br i1 %89, label %91, label %._crit_edge433
+  br i1 %89, label %91, label %._crit_edge426
 
 91:                                               ; preds = %81
   call void @llvm.memset.p0.i64(ptr align 1 %.0202, i8 92, i64 %90, i1 false)
-  br label %._crit_edge433
+  br label %._crit_edge426
 
-._crit_edge433:                                   ; preds = %81, %91
+._crit_edge426:                                   ; preds = %81, %91
   %92 = getelementptr inbounds i8, ptr %.0202, i64 %90
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 32, ptr %92, align 1, !tbaa !13
@@ -254,25 +254,25 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   store i8 35, ptr %108, align 1, !tbaa !13
   br label %.backedge
 
-.loopexit291.loopexit.split.loop.exit:            ; preds = %144
+.loopexit284.loopexit.split.loop.exit:            ; preds = %144
   %110 = getelementptr inbounds nuw i8, ptr %.12, i64 1
-  br label %.loopexit291
+  br label %.loopexit284
 
-.loopexit291:                                     ; preds = %179, %.loopexit291.loopexit.split.loop.exit, %68
-  %.11 = phi ptr [ %57, %68 ], [ %110, %.loopexit291.loopexit.split.loop.exit ], [ %168, %179 ]
+.loopexit284:                                     ; preds = %179, %.loopexit284.loopexit.split.loop.exit, %68
+  %.11 = phi ptr [ %57, %68 ], [ %110, %.loopexit284.loopexit.split.loop.exit ], [ %168, %179 ]
   %111 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !13
   %113 = icmp ult i8 %112, 13
   br i1 %113, label %114, label %115
 
-114:                                              ; preds = %.loopexit291
+114:                                              ; preds = %.loopexit284
   switch i8 %112, label %116 [
     i8 10, label %145
     i8 9, label %145
     i8 0, label %145
   ]
 
-115:                                              ; preds = %.loopexit291
+115:                                              ; preds = %.loopexit284
   switch i8 %112, label %116 [
     i8 32, label %145
     i8 13, label %145
@@ -303,9 +303,9 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   store i8 58, ptr %129, align 1, !tbaa !13
   br label %.backedge
 
-.backedge:                                        ; preds = %126, %105, %._crit_edge433, %69, %.loopexit293._crit_edge
-  %.0202.be = phi ptr [ %51, %.loopexit293._crit_edge ], [ %71, %69 ], [ %93, %._crit_edge433 ], [ %109, %105 ], [ %130, %126 ]
-  %.1179.be = phi ptr [ %.6, %.loopexit293._crit_edge ], [ %70, %69 ], [ %82, %._crit_edge433 ], [ %95, %105 ], [ %111, %126 ]
+.backedge:                                        ; preds = %126, %105, %._crit_edge426, %69, %.loopexit286._crit_edge
+  %.0202.be = phi ptr [ %51, %.loopexit286._crit_edge ], [ %71, %69 ], [ %93, %._crit_edge426 ], [ %109, %105 ], [ %130, %126 ]
+  %.1179.be = phi ptr [ %.6, %.loopexit286._crit_edge ], [ %70, %69 ], [ %82, %._crit_edge426 ], [ %95, %105 ], [ %111, %126 ]
   br label %15, !llvm.loop !14
 
 .preheader:                                       ; preds = %68, %179
@@ -322,13 +322,13 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 137:                                              ; preds = %134
   switch i8 %132, label %.loopexit [
-    i8 10, label %.loopexit293
-    i8 0, label %.loopexit293
+    i8 10, label %.loopexit286
+    i8 0, label %.loopexit286
   ]
 
 138:                                              ; preds = %134
   switch i8 %132, label %.loopexit [
-    i8 13, label %.loopexit293
+    i8 13, label %.loopexit286
     i8 32, label %157
   ]
 
@@ -343,7 +343,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 144:                                              ; preds = %139
   switch i8 %132, label %.loopexit.loopexit.split.loop.exit [
-    i8 58, label %.loopexit291.loopexit.split.loop.exit
+    i8 58, label %.loopexit284.loopexit.split.loop.exit
     i8 92, label %167
   ]
 
@@ -356,18 +356,18 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %151 = icmp ult ptr %.0202, %.1179
   %sext225 = shl i64 %150, 32
   %152 = ashr exact i64 %sext225, 32
-  br i1 %151, label %153, label %._crit_edge432
+  br i1 %151, label %153, label %._crit_edge425
 
 153:                                              ; preds = %145
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0202, ptr nonnull align 1 %.1179, i64 %152, i1 false)
   %.pre = load i8, ptr %111, align 1, !tbaa !13
-  br label %._crit_edge432
+  br label %._crit_edge425
 
-._crit_edge432:                                   ; preds = %145, %153
+._crit_edge425:                                   ; preds = %145, %153
   %154 = phi i8 [ %.pre, %153 ], [ %112, %145 ]
   %155 = getelementptr inbounds i8, ptr %.0202, i64 %152
   %156 = icmp eq i8 %154, 10
-  br label %.loopexit296
+  br label %.loopexit289
 
 157:                                              ; preds = %138
   %158 = getelementptr inbounds nuw i8, ptr %.12, i64 2
@@ -378,15 +378,15 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %163 = shl i64 %161, 32
   %sext = add i64 %163, -4294967296
   %164 = ashr exact i64 %sext, 32
-  br i1 %162, label %165, label %._crit_edge431
+  br i1 %162, label %165, label %._crit_edge424
 
 165:                                              ; preds = %157
   call void @llvm.memset.p0.i64(ptr align 1 %.0202, i8 92, i64 %164, i1 false)
-  br label %._crit_edge431
+  br label %._crit_edge424
 
-._crit_edge431:                                   ; preds = %157, %165
+._crit_edge424:                                   ; preds = %157, %165
   %166 = getelementptr inbounds i8, ptr %.0202, i64 %164
-  br label %.loopexit296
+  br label %.loopexit289
 
 167:                                              ; preds = %144
   %168 = getelementptr inbounds nuw i8, ptr %.12, i64 2
@@ -400,13 +400,13 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 173:                                              ; preds = %171
   switch i8 %169, label %.loopexit [
-    i8 10, label %.loopexit293
-    i8 0, label %.loopexit293
+    i8 10, label %.loopexit286
+    i8 0, label %.loopexit286
   ]
 
 174:                                              ; preds = %171
   switch i8 %169, label %.loopexit [
-    i8 13, label %.loopexit293
+    i8 13, label %.loopexit286
     i8 32, label %81
   ]
 
@@ -420,45 +420,45 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 179:                                              ; preds = %175
   switch i8 %169, label %.loopexit [
-    i8 58, label %.loopexit291
+    i8 58, label %.loopexit284
     i8 92, label %.preheader
   ]
 
-.loopexit296.loopexit.split.loop.exit:            ; preds = %52
+.loopexit289.loopexit.split.loop.exit:            ; preds = %52
   %180 = getelementptr inbounds nuw i8, ptr %.1179, i64 1
-  br label %.loopexit296
+  br label %.loopexit289
 
-.loopexit296:                                     ; preds = %62, %.loopexit296.loopexit.split.loop.exit, %31, %34, %.loopexit297, %._crit_edge432, %._crit_edge431, %36, %.loopexit295, %77
-  %.1203.ph = phi ptr [ %.0202, %77 ], [ %.0202, %.loopexit295 ], [ %.0202, %36 ], [ %166, %._crit_edge431 ], [ %155, %._crit_edge432 ], [ %.0202, %.loopexit297 ], [ %.0202, %34 ], [ %.0202, %31 ], [ %.0202, %.loopexit296.loopexit.split.loop.exit ], [ %.0202, %62 ]
-  %.1200.ph = phi i1 [ false, %77 ], [ false, %.loopexit295 ], [ false, %36 ], [ false, %._crit_edge431 ], [ %156, %._crit_edge432 ], [ false, %.loopexit297 ], [ true, %34 ], [ false, %31 ], [ false, %.loopexit296.loopexit.split.loop.exit ], [ false, %62 ]
-  %.4182.ph = phi ptr [ %57, %77 ], [ %33, %.loopexit295 ], [ %37, %36 ], [ %158, %._crit_edge431 ], [ %146, %._crit_edge432 ], [ %76, %.loopexit297 ], [ %35, %34 ], [ %32, %31 ], [ %180, %.loopexit296.loopexit.split.loop.exit ], [ %57, %62 ]
+.loopexit289:                                     ; preds = %62, %.loopexit289.loopexit.split.loop.exit, %31, %34, %.loopexit290, %._crit_edge425, %._crit_edge424, %36, %.loopexit288, %77
+  %.1203.ph = phi ptr [ %.0202, %77 ], [ %.0202, %.loopexit288 ], [ %.0202, %36 ], [ %166, %._crit_edge424 ], [ %155, %._crit_edge425 ], [ %.0202, %.loopexit290 ], [ %.0202, %34 ], [ %.0202, %31 ], [ %.0202, %.loopexit289.loopexit.split.loop.exit ], [ %.0202, %62 ]
+  %.1200.ph = phi i1 [ false, %77 ], [ false, %.loopexit288 ], [ false, %36 ], [ false, %._crit_edge424 ], [ %156, %._crit_edge425 ], [ false, %.loopexit290 ], [ true, %34 ], [ false, %31 ], [ false, %.loopexit289.loopexit.split.loop.exit ], [ false, %62 ]
+  %.4182.ph = phi ptr [ %57, %77 ], [ %33, %.loopexit288 ], [ %37, %36 ], [ %158, %._crit_edge424 ], [ %146, %._crit_edge425 ], [ %76, %.loopexit290 ], [ %35, %34 ], [ %32, %31 ], [ %180, %.loopexit289.loopexit.split.loop.exit ], [ %57, %62 ]
   %181 = ptrtoint ptr %.1203.ph to i64
-  %182 = ptrtoint ptr %.0178371 to i64
+  %182 = ptrtoint ptr %.0178364 to i64
   %183 = sub i64 %181, %182
   %184 = trunc i64 %183 to i32
   %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %186, label %.thread278
+  br i1 %185, label %186, label %.thread277
 
-186:                                              ; preds = %.loopexit296
+186:                                              ; preds = %.loopexit289
   %187 = add i64 %183, 4294967295
   %188 = and i64 %187, 4294967295
-  %189 = getelementptr inbounds nuw i8, ptr %.0178371, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr %.0178364, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !13
   %191 = icmp eq i8 %190, 58
   br i1 %191, label %192, label %.thread268
 
 192:                                              ; preds = %186
   %193 = add nsw i32 %184, -1
-  %.not290 = icmp eq i32 %193, 0
-  br i1 %.not290, label %.thread278, label %.thread268
+  %.not283 = icmp eq i32 %193, 0
+  br i1 %.not283, label %.thread277, label %.thread268
 
 .thread268:                                       ; preds = %186, %192
-  %.1184277 = phi i1 [ true, %192 ], [ %.0183370, %186 ]
-  %.1186273 = phi i1 [ false, %192 ], [ %.0185369, %186 ]
+  %.1184276 = phi i1 [ true, %192 ], [ %.0183363, %186 ]
+  %.1186274 = phi i1 [ false, %192 ], [ %.0185362, %186 ]
   %.0195272 = phi i32 [ %193, %192 ], [ %184, %186 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %194 = zext nneg i32 %.0195272 to i64
-  store ptr %.0178371, ptr %4, align 8, !tbaa !16
+  store ptr %.0178364, ptr %4, align 8, !tbaa !16
   store i64 %194, ptr %9, align 8, !tbaa !18
   %195 = load ptr, ptr %10, align 8, !tbaa !19
   %196 = load ptr, ptr %11, align 8, !tbaa !19
@@ -468,10 +468,10 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %199, label %200, label %258
 
 200:                                              ; preds = %.thread268
-  br i1 %.0185369, label %227, label %201
+  br i1 %.0185362, label %227, label %201
 
 201:                                              ; preds = %200
-  br i1 %.0189368, label %.thread284, label %202
+  br i1 %.0189361, label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit, label %202
 
 202:                                              ; preds = %201
   %203 = load ptr, ptr %12, align 8, !tbaa !21
@@ -614,44 +614,44 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
 
 258:                                              ; preds = %.thread268
-  %spec.select239 = select i1 %.0185369, i1 true, i1 %.0189368
+  %spec.select239 = select i1 %.0185362, i1 true, i1 %.0189361
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
 
 _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread: ; preds = %258, %227, %204, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %235, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i254
-  %.2191.ph = phi i1 [ %.0189368, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i254 ], [ %.0189368, %235 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %204 ], [ %spec.select239, %258 ], [ %.0189368, %227 ]
+  %.2191.ph = phi i1 [ %.0189361, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i254 ], [ %.0189361, %235 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %204 ], [ %spec.select239, %258 ], [ %.0189361, %227 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br label %.thread278
+  br label %.thread277
 
-.thread284:                                       ; preds = %201
+_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit: ; preds = %201
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %260 = load i64, ptr %259, align 8, !tbaa !12
   %261 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %260, ptr noundef nonnull @.str, i64 noundef 31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  br label %._crit_edge.thread
+  br label %.critedge
 
-.thread278:                                       ; preds = %.loopexit296, %192, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
-  %.1184276 = phi i1 [ true, %192 ], [ %.1184277, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0183370, %.loopexit296 ]
-  %.1186274 = phi i1 [ false, %192 ], [ %.1186273, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0185369, %.loopexit296 ]
-  %.1197 = phi i1 [ %.0196367, %192 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0196367, %.loopexit296 ]
-  %.1190 = phi i1 [ %.0189368, %192 ], [ %.2191.ph, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0189368, %.loopexit296 ]
+.thread277:                                       ; preds = %.loopexit289, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread, %192
+  %.1184275 = phi i1 [ true, %192 ], [ %.1184276, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0183363, %.loopexit289 ]
+  %.1186273 = phi i1 [ false, %192 ], [ %.1186274, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0185362, %.loopexit289 ]
+  %.1197 = phi i1 [ %.0196360, %192 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0196360, %.loopexit289 ]
+  %.1190 = phi i1 [ %.0189361, %192 ], [ %.2191.ph, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ], [ %.0189361, %.loopexit289 ]
   %not..1200.ph = xor i1 %.1200.ph, true
   %spec.select240 = select i1 %not..1200.ph, i1 %.1190, i1 false
-  %spec.select241 = select i1 %.1200.ph, i1 true, i1 %.1186274
+  %spec.select241 = select i1 %.1200.ph, i1 true, i1 %.1186273
   %262 = icmp ult ptr %.4182.ph, %8
-  br i1 %262, label %.preheader294, label %._crit_edge, !llvm.loop !37
+  br i1 %262, label %.preheader287, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.thread278
-  %263 = select i1 %.1184276, i1 true, i1 %.1197
-  br i1 %263, label %._crit_edge.thread, label %264
+._crit_edge:                                      ; preds = %.thread277
+  %263 = select i1 %.1184275, i1 true, i1 %.1197
+  br i1 %263, label %.critedge, label %264
 
 264:                                              ; preds = %._crit_edge
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %266 = load i64, ptr %265, align 8, !tbaa !12
   %267 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %266, ptr noundef nonnull @.str.1, i64 noundef 23)
-  br label %._crit_edge.thread
+  br label %.critedge
 
-._crit_edge.thread:                               ; preds = %3, %.thread284, %._crit_edge, %264
-  %.4 = phi i1 [ false, %264 ], [ true, %._crit_edge ], [ false, %.thread284 ], [ true, %3 ]
+.critedge:                                        ; preds = %3, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit, %._crit_edge, %264
+  %.4 = phi i1 [ false, %264 ], [ true, %._crit_edge ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ true, %3 ]
   ret i1 %.4
 }
 

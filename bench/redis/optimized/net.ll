@@ -352,31 +352,31 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   %20 = load i32, ptr %5, align 4, !tbaa !4
   %21 = call i32 @getsockopt(i32 noundef %20, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %3, align 4, !tbaa !18
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26
+  br i1 %25, label %.critedge, label %26
 
-26:                                               ; preds = %23
-  store i32 %24, ptr %16, align 4, !tbaa !18
-  br label %.thread
-
-.thread:                                          ; preds = %26, %19
-  %.215.ph = phi i32 [ 115, %19 ], [ %24, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  br label %28
-
-27:                                               ; preds = %23
+.critedge:                                        ; preds = %23
   store i32 1, ptr %1, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   br label %31
 
-28:                                               ; preds = %.thread, %15
-  %.013 = phi i32 [ %17, %15 ], [ %.215.ph, %.thread ]
+26:                                               ; preds = %23
+  store i32 %24, ptr %16, align 4, !tbaa !18
+  br label %27
+
+27:                                               ; preds = %19, %26
+  %.215 = phi i32 [ %24, %26 ], [ 115, %19 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  br label %28
+
+28:                                               ; preds = %27, %15
+  %.013 = phi i32 [ %.215, %27 ], [ %17, %15 ]
   switch i32 %.013, label %31 [
     i32 106, label %29
     i32 114, label %30
@@ -391,8 +391,8 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   store i32 0, ptr %1, align 4, !tbaa !18
   br label %31
 
-31:                                               ; preds = %27, %29, %30, %28, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %29 ], [ 0, %30 ], [ 0, %27 ], [ -1, %28 ]
+31:                                               ; preds = %29, %30, %.critedge, %28, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %29 ], [ 0, %30 ], [ 0, %.critedge ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -1356,30 +1356,30 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   %46 = load i32, ptr %9, align 4, !tbaa !4
   %47 = call i32 @getsockopt(i32 noundef %46, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.thread.i
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %4, align 4, !tbaa !18
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %53, label %52
+  br i1 %51, label %.critedge.i, label %52
 
-52:                                               ; preds = %49
-  store i32 %50, ptr %12, align 4, !tbaa !18
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %52, %45
-  %.215.ph.i = phi i32 [ 115, %45 ], [ %50, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  br label %54
-
-53:                                               ; preds = %49
+.critedge.i:                                      ; preds = %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   br label %redisNetClose.exit
 
-54:                                               ; preds = %.thread.i, %42
-  %.013.i = phi i32 [ %43, %42 ], [ %.215.ph.i, %.thread.i ]
+52:                                               ; preds = %49
+  store i32 %50, ptr %12, align 4, !tbaa !18
+  br label %53
+
+53:                                               ; preds = %52, %45
+  %.215.i = phi i32 [ %50, %52 ], [ 115, %45 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  br label %54
+
+54:                                               ; preds = %53, %42
+  %.013.i = phi i32 [ %.215.i, %53 ], [ %43, %42 ]
   %cond.not = icmp eq i32 %.013.i, 106
   br i1 %cond.not, label %redisNetClose.exit, label %redisCheckConnectDone.exit.thread
 
@@ -1402,8 +1402,8 @@ redisCheckConnectDone.exit.thread:                ; preds = %54
   store i32 -1, ptr %9, align 4, !tbaa !4
   br label %redisNetClose.exit
 
-redisNetClose.exit:                               ; preds = %53, %33, %54, %59, %56, %redisCheckConnectDone.exit.thread, %18, %26, %28, %31
-  %.1 = phi i32 [ -1, %redisCheckConnectDone.exit.thread ], [ -1, %18 ], [ -1, %26 ], [ -1, %28 ], [ -1, %31 ], [ -1, %56 ], [ -1, %59 ], [ 0, %54 ], [ 0, %33 ], [ 0, %53 ]
+redisNetClose.exit:                               ; preds = %.critedge.i, %33, %54, %59, %56, %redisCheckConnectDone.exit.thread, %18, %26, %28, %31
+  %.1 = phi i32 [ -1, %redisCheckConnectDone.exit.thread ], [ -1, %18 ], [ -1, %26 ], [ -1, %28 ], [ -1, %31 ], [ -1, %56 ], [ -1, %59 ], [ 0, %54 ], [ 0, %33 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   ret i32 %.1
 }

@@ -1405,7 +1405,7 @@ define dso_local i32 @xfrm_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 22:                                               ; preds = %17
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
-  br label %.thread5
+  br label %.critedge
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 127
@@ -1439,11 +1439,11 @@ define dso_local i32 @xfrm_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 42:                                               ; preds = %39
   %43 = ptrtoint ptr %40 to i64
   %44 = trunc i64 %43 to i32
-  br label %.thread5
+  br label %.critedge
 
 45:                                               ; preds = %39
   %46 = icmp eq ptr %40, null
-  br i1 %46, label %.thread5, label %.preheader
+  br i1 %46, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %45, %52
   %47 = phi ptr [ %48, %52 ], [ %40, %45 ]
@@ -1455,11 +1455,11 @@ define dso_local i32 @xfrm_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 51:                                               ; preds = %.preheader
   tail call void @kfree_skb_list_reason(ptr noundef %48, i32 noundef 2) #8
-  br label %.thread5
+  br label %.critedge
 
 52:                                               ; preds = %.preheader
   %53 = icmp eq ptr %48, null
-  br i1 %53, label %.thread5, label %.preheader, !llvm.loop !35
+  br i1 %53, label %.critedge, label %.preheader, !llvm.loop !35
 
 54:                                               ; preds = %29
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -1475,13 +1475,13 @@ define dso_local i32 @xfrm_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 62:                                               ; preds = %59
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
-  br label %.thread5
+  br label %.critedge
 
 63:                                               ; preds = %59, %54
   %64 = tail call i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 noundef 1)
-  br label %.thread5
+  br label %.critedge
 
-.thread5:                                         ; preds = %52, %51, %63, %62, %45, %42, %22
+.critedge:                                        ; preds = %52, %51, %63, %62, %45, %42, %22
   %65 = phi i32 [ -113, %22 ], [ %64, %63 ], [ %60, %62 ], [ %44, %42 ], [ -22, %45 ], [ %49, %51 ], [ 0, %52 ]
   ret i32 %65
 }

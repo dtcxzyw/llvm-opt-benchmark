@@ -24722,9 +24722,9 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
 43:                                               ; preds = %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread7
 
-_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread7: ; preds = %36, %.loopexit.i, %2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %43, %42, %41, %40
-  %.1.i6 = phi i32 [ 5, %43 ], [ 2, %40 ], [ 3, %41 ], [ 4, %42 ], [ %39, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %2 ], [ 1, %.loopexit.i ], [ 1, %36 ]
-  %.046 = phi ptr [ @.str.644, %43 ], [ @.str.641, %40 ], [ @.str.642, %41 ], [ @.str.643, %42 ], [ @.str.112, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.112, %2 ], [ @.str.640, %.loopexit.i ], [ @.str.640, %36 ]
+_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread7: ; preds = %.loopexit.i, %36, %2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %43, %42, %41, %40
+  %.1.i6 = phi i32 [ 5, %43 ], [ 2, %40 ], [ 3, %41 ], [ 4, %42 ], [ %39, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %2 ], [ 1, %36 ], [ 1, %.loopexit.i ]
+  %.046 = phi ptr [ @.str.644, %43 ], [ @.str.641, %40 ], [ @.str.642, %41 ], [ @.str.643, %42 ], [ @.str.112, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.112, %2 ], [ @.str.640, %36 ], [ @.str.640, %.loopexit.i ]
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #41
   %45 = shl nsw i32 %.1.i6, 1
   %46 = sext i32 %45 to i64

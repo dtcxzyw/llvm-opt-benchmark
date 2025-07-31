@@ -1690,8 +1690,8 @@ sub_0:
   %6 = alloca i64, align 8
   store i32 27, ptr %3, align 4, !tbaa !27
   %7 = load i8, ptr %1, align 1
-  %.not72 = icmp eq i8 %7, 45
-  br i1 %.not72, label %.tail, label %.tail.thread
+  %.not65 = icmp eq i8 %7, 45
+  br i1 %.not65, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1702,7 +1702,7 @@ sub_0:
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %11 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #15
   %.not58 = icmp eq ptr %11, null
-  br i1 %.not58, label %70, label %12
+  br i1 %.not58, label %69, label %12
 
 12:                                               ; preds = %.tail.thread
   %13 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #17
@@ -1726,7 +1726,7 @@ sub_0:
 
 tool_mime_new.exit:                               ; preds = %12
   tail call void @free(ptr noundef nonnull %11) #15
-  br label %70
+  br label %69
 
 20:                                               ; preds = %14, %16
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1739,7 +1739,7 @@ tool_mime_new.exit:                               ; preds = %12
 
 23:                                               ; preds = %22, %20
   store i32 0, ptr %3, align 4, !tbaa !27
-  br label %70
+  br label %69
 
 24:                                               ; preds = %.tail
   %25 = load ptr, ptr @stdin, align 8, !tbaa !24
@@ -1779,7 +1779,7 @@ tool_mime_new.exit:                               ; preds = %12
   %43 = load ptr, ptr @stdin, align 8, !tbaa !24
   %44 = call i32 @file2memory(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %43) #15
   switch i32 %44, label %45 [
-    i32 15, label %68
+    i32 15, label %.critedge
     i32 21, label %._crit_edge
   ]
 
@@ -1796,9 +1796,9 @@ tool_mime_new.exit:                               ; preds = %12
   %48 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.24) #15
   store ptr %48, ptr %4, align 8, !tbaa !33
   %.not56 = icmp eq ptr %48, null
-  br i1 %.not56, label %68, label %49
+  br i1 %.not56, label %.critedge, label %49
 
-49:                                               ; preds = %._crit_edge, %47, %45
+49:                                               ; preds = %._crit_edge, %45, %47
   %50 = phi i64 [ %46, %45 ], [ 0, %47 ], [ %.pre, %._crit_edge ]
   %.244 = phi i32 [ 0, %45 ], [ 0, %47 ], [ 26, %._crit_edge ]
   %51 = and i64 %50, 9223372036854775807
@@ -1810,15 +1810,15 @@ tool_mime_new.exit:                               ; preds = %12
   %.038 = phi i64 [ %51, %49 ], [ %spec.store.select, %38 ]
   %.036 = phi i64 [ 0, %49 ], [ %28, %38 ]
   %53 = call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #17
-  %.not.i60 = icmp eq ptr %53, null
-  br i1 %.not.i60, label %tool_mime_new.exit62, label %54
+  %.not.i62 = icmp eq ptr %53, null
+  br i1 %.not.i62, label %tool_mime_new.exit64, label %54
 
 54:                                               ; preds = %52
   store i32 5, ptr %53, align 8, !tbaa !32
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %0, ptr %55, align 8, !tbaa !37
-  %.not11.i61 = icmp eq ptr %0, null
-  br i1 %.not11.i61, label %61, label %56
+  %.not11.i63 = icmp eq ptr %0, null
+  br i1 %.not11.i63, label %61, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1828,10 +1828,10 @@ tool_mime_new.exit:                               ; preds = %12
   store ptr %53, ptr %57, align 8, !tbaa !4
   br label %61
 
-tool_mime_new.exit62:                             ; preds = %52
+tool_mime_new.exit64:                             ; preds = %52
   %60 = load ptr, ptr %4, align 8, !tbaa !33
   call void @free(ptr noundef %60) #15
-  br label %69
+  br label %68
 
 61:                                               ; preds = %54, %56
   %62 = load ptr, ptr %4, align 8, !tbaa !33
@@ -1849,21 +1849,21 @@ tool_mime_new.exit62:                             ; preds = %52
 
 67:                                               ; preds = %66, %61
   store i32 %.042, ptr %3, align 4, !tbaa !27
-  br label %69
+  br label %68
 
-68:                                               ; preds = %42, %47
+.critedge:                                        ; preds = %47, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %70
+  br label %69
 
-69:                                               ; preds = %67, %tool_mime_new.exit62
+68:                                               ; preds = %tool_mime_new.exit64, %67
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %68, %tool_mime_new.exit, %23, %.tail.thread
-  %.3 = phi ptr [ %13, %23 ], [ null, %tool_mime_new.exit ], [ null, %.tail.thread ], [ %53, %69 ], [ null, %68 ]
+69:                                               ; preds = %tool_mime_new.exit, %23, %.tail.thread, %68, %.critedge
+  %.3 = phi ptr [ null, %.critedge ], [ %53, %68 ], [ %13, %23 ], [ null, %tool_mime_new.exit ], [ null, %.tail.thread ]
   ret ptr %.3
 }
 

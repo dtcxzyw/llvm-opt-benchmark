@@ -19400,8 +19400,8 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit75: ; preds = %137, %140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
   br label %237
 
-.critedge71:                                      ; preds = %62, %_ZN11PullHistoryD2Ev.exit, %.critedge, %_ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit
-  %.552 = phi i1 [ %136, %_ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit ], [ false, %.critedge ], [ false, %_ZN11PullHistoryD2Ev.exit ], [ false, %62 ]
+.critedge71:                                      ; preds = %_ZN11PullHistoryD2Ev.exit, %62, %.critedge, %_ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit
+  %.552 = phi i1 [ %136, %_ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit ], [ false, %.critedge ], [ false, %62 ], [ false, %_ZN11PullHistoryD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %11) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %11, i8 0, i64 720, i1 false)
   %146 = load i32, ptr %5, align 8, !tbaa !227

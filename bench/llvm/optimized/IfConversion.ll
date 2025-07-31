@@ -3438,8 +3438,8 @@ _ZN12_GLOBAL__N_111IfConverter6BBInfoD2Ev.exit214.i.i: ; preds = %895, %_ZN4llvm
   %917 = getelementptr inbounds nuw i8, ptr %473, i64 48
   %918 = load i32, ptr %917, align 8
   %.not.i.i218.i.i = icmp eq i32 %918, 0
-  %or.cond9.i.i.i = select i1 %.not46.i.i.i, i1 %.not.i.i218.i.i, i1 false
-  br i1 %or.cond9.i.i.i, label %919, label %921
+  %or.cond7.i.i.i = select i1 %.not46.i.i.i, i1 %.not.i.i218.i.i, i1 false
+  br i1 %or.cond7.i.i.i, label %919, label %921
 
 919:                                              ; preds = %914
   %920 = add i32 %912, -1
@@ -3447,8 +3447,8 @@ _ZN12_GLOBAL__N_111IfConverter6BBInfoD2Ev.exit214.i.i: ; preds = %895, %_ZN4llvm
 
 921:                                              ; preds = %914
   %922 = getelementptr inbounds nuw i8, ptr %473, i64 32
-  %.val11.i.i.i = load ptr, ptr %922, align 8
-  %.not47.i.i.i = icmp ne ptr %.val11.i.i.i, null
+  %.val9.i.i.i = load ptr, ptr %922, align 8
+  %.not47.i.i.i = icmp ne ptr %.val9.i.i.i, null
   %923 = zext i1 %.not47.i.i.i to i32
   %.140.i.i.i = add i32 %912, %923
   br label %924
@@ -3467,8 +3467,8 @@ _ZN12_GLOBAL__N_111IfConverter6BBInfoD2Ev.exit214.i.i: ; preds = %895, %_ZN4llvm
 
 929:                                              ; preds = %.thread.i.i.i, %904
   %930 = getelementptr inbounds nuw i8, ptr %473, i64 24
-  %.val13.i.i.i = load ptr, ptr %930, align 8
-  %.not49.i.i.i = icmp eq ptr %.val13.i.i.i, null
+  %.val11.i.i.i = load ptr, ptr %930, align 8
+  %.not49.i.i.i = icmp eq ptr %.val11.i.i.i, null
   br i1 %.not49.i.i.i, label %931, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit.i.i
 
 931:                                              ; preds = %929
@@ -3488,7 +3488,7 @@ _ZN12_GLOBAL__N_111IfConverter6BBInfoD2Ev.exit214.i.i: ; preds = %895, %_ZN4llvm
   br i1 %940, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit239.i.i, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit.i.i
 
 _ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit.i.i: ; preds = %933, %929
-  %.0.i216.i.i = phi ptr [ %.val13.i.i.i, %929 ], [ %936, %933 ]
+  %.0.i216.i.i = phi ptr [ %.val11.i.i.i, %929 ], [ %936, %933 ]
   %.not50.i.i.i = icmp ne ptr %.0.i216.i.i, null
   %941 = load ptr, ptr %898, align 8
   %942 = icmp eq ptr %.0.i216.i.i, %941
@@ -3640,8 +3640,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   %1008 = getelementptr inbounds nuw i8, ptr %473, i64 48
   %1009 = load i32, ptr %1008, align 8
   %.not.i.i252.i.i = icmp eq i32 %1009, 0
-  %or.cond9.i253.i.i = select i1 %.not46.i251.i.i, i1 %.not.i.i252.i.i, i1 false
-  br i1 %or.cond9.i253.i.i, label %1010, label %1012
+  %or.cond7.i253.i.i = select i1 %.not46.i251.i.i, i1 %.not.i.i252.i.i, i1 false
+  br i1 %or.cond7.i253.i.i, label %1010, label %1012
 
 1010:                                             ; preds = %1005
   %1011 = add i32 %1003, -1
@@ -3666,17 +3666,17 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
 
 1019:                                             ; preds = %.thread.i258.i.i, %995
   %1020 = getelementptr inbounds nuw i8, ptr %473, i64 32
-  %.val12.i242.i.i = load ptr, ptr %1020, align 8
-  %.not49.i244.i.i = icmp eq ptr %.val12.i242.i.i, null
+  %.val10.i242.i.i = load ptr, ptr %1020, align 8
+  %.not49.i244.i.i = icmp eq ptr %.val10.i242.i.i, null
   br i1 %.not49.i244.i.i, label %1021, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit259.i.i
 
 1021:                                             ; preds = %1019
   %1022 = getelementptr inbounds nuw i8, ptr %473, i64 24
-  %.val13.i243.i.i = load ptr, ptr %1022, align 8
+  %.val11.i243.i.i = load ptr, ptr %1022, align 8
   %.val.i247.i.i = load i16, ptr %473, align 8
   %1023 = and i16 %.val.i247.i.i, 16
   %.not.i52.i248.i.i = icmp ne i16 %1023, 0
-  %1024 = icmp eq ptr %.val13.i243.i.i, null
+  %1024 = icmp eq ptr %.val11.i243.i.i, null
   %1025 = select i1 %.not.i52.i248.i.i, i1 %1024, i1 false
   br i1 %1025, label %1026, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit281.i.i
 
@@ -3691,7 +3691,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   br i1 %1033, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit281.i.i, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit259.i.i
 
 _ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit259.i.i: ; preds = %1026, %1019
-  %.0.i245.i.i = phi ptr [ %.val12.i242.i.i, %1019 ], [ %1029, %1026 ]
+  %.0.i245.i.i = phi ptr [ %.val10.i242.i.i, %1019 ], [ %1029, %1026 ]
   %.not50.i246.i.i = icmp ne ptr %.0.i245.i.i, null
   %1034 = load ptr, ptr %898, align 8
   %1035 = icmp eq ptr %.0.i245.i.i, %1034
@@ -4022,8 +4022,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   %1182 = getelementptr inbounds nuw i8, ptr %479, i64 48
   %1183 = load i32, ptr %1182, align 8
   %.not.i.i320.i.i = icmp eq i32 %1183, 0
-  %or.cond9.i321.i.i = select i1 %.not46.i319.i.i, i1 %.not.i.i320.i.i, i1 false
-  br i1 %or.cond9.i321.i.i, label %1184, label %1186
+  %or.cond7.i321.i.i = select i1 %.not46.i319.i.i, i1 %.not.i.i320.i.i, i1 false
+  br i1 %or.cond7.i321.i.i, label %1184, label %1186
 
 1184:                                             ; preds = %1179
   %1185 = add i32 %1177, -1
@@ -4031,8 +4031,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
 
 1186:                                             ; preds = %1179
   %1187 = getelementptr inbounds nuw i8, ptr %479, i64 32
-  %.val11.i322.i.i = load ptr, ptr %1187, align 8
-  %.not47.i323.i.i = icmp ne ptr %.val11.i322.i.i, null
+  %.val9.i322.i.i = load ptr, ptr %1187, align 8
+  %.not47.i323.i.i = icmp ne ptr %.val9.i322.i.i, null
   %1188 = zext i1 %.not47.i323.i.i to i32
   %.140.i324.i.i = add i32 %1177, %1188
   br label %1189
@@ -4051,8 +4051,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
 
 1194:                                             ; preds = %.thread.i326.i.i, %1169
   %1195 = getelementptr inbounds nuw i8, ptr %479, i64 24
-  %.val13.i311.i.i = load ptr, ptr %1195, align 8
-  %.not49.i312.i.i = icmp eq ptr %.val13.i311.i.i, null
+  %.val11.i311.i.i = load ptr, ptr %1195, align 8
+  %.not49.i312.i.i = icmp eq ptr %.val11.i311.i.i, null
   br i1 %.not49.i312.i.i, label %1196, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit327.i.i
 
 1196:                                             ; preds = %1194
@@ -4072,7 +4072,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   br i1 %1205, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit349.i.i, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit327.i.i
 
 _ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit327.i.i: ; preds = %1198, %1194
-  %.0.i313.i.i = phi ptr [ %.val13.i311.i.i, %1194 ], [ %1201, %1198 ]
+  %.0.i313.i.i = phi ptr [ %.val11.i311.i.i, %1194 ], [ %1201, %1198 ]
   %.not50.i314.i.i = icmp ne ptr %.0.i313.i.i, null
   %1206 = load ptr, ptr %519, align 8
   %1207 = icmp eq ptr %.0.i313.i.i, %1206
@@ -4226,8 +4226,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   %1277 = getelementptr inbounds nuw i8, ptr %479, i64 48
   %1278 = load i32, ptr %1277, align 8
   %.not.i.i362.i.i = icmp eq i32 %1278, 0
-  %or.cond9.i363.i.i = select i1 %.not46.i361.i.i, i1 %.not.i.i362.i.i, i1 false
-  br i1 %or.cond9.i363.i.i, label %1279, label %1281
+  %or.cond7.i363.i.i = select i1 %.not46.i361.i.i, i1 %.not.i.i362.i.i, i1 false
+  br i1 %or.cond7.i363.i.i, label %1279, label %1281
 
 1279:                                             ; preds = %1274
   %1280 = add i32 %1272, -1
@@ -4252,17 +4252,17 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
 
 1288:                                             ; preds = %.thread.i368.i.i, %1264
   %1289 = getelementptr inbounds nuw i8, ptr %479, i64 32
-  %.val12.i352.i.i = load ptr, ptr %1289, align 8
-  %.not49.i354.i.i = icmp eq ptr %.val12.i352.i.i, null
+  %.val10.i352.i.i = load ptr, ptr %1289, align 8
+  %.not49.i354.i.i = icmp eq ptr %.val10.i352.i.i, null
   br i1 %.not49.i354.i.i, label %1290, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit369.i.i
 
 1290:                                             ; preds = %1288
   %1291 = getelementptr inbounds nuw i8, ptr %479, i64 24
-  %.val13.i353.i.i = load ptr, ptr %1291, align 8
+  %.val11.i353.i.i = load ptr, ptr %1291, align 8
   %.val.i357.i.i = load i16, ptr %479, align 8
   %1292 = and i16 %.val.i357.i.i, 16
   %.not.i52.i358.i.i = icmp ne i16 %1292, 0
-  %1293 = icmp eq ptr %.val13.i353.i.i, null
+  %1293 = icmp eq ptr %.val11.i353.i.i, null
   %1294 = select i1 %.not.i52.i358.i.i, i1 %1293, i1 false
   br i1 %1294, label %1295, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit391.i.i
 
@@ -4277,7 +4277,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2
   br i1 %1302, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default_deleteIS2_EED2Ev.exit391.i.i, label %_ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit369.i.i
 
 _ZNK12_GLOBAL__N_111IfConverter13ValidTriangleERNS0_6BBInfoES2_bRjN4llvm17BranchProbabilityE.exit369.i.i: ; preds = %1295, %1288
-  %.0.i355.i.i = phi ptr [ %.val12.i352.i.i, %1288 ], [ %1298, %1295 ]
+  %.0.i355.i.i = phi ptr [ %.val10.i352.i.i, %1288 ], [ %1298, %1295 ]
   %.not50.i356.i.i = icmp ne ptr %.0.i355.i.i, null
   %1303 = load ptr, ptr %519, align 8
   %1304 = icmp eq ptr %.0.i355.i.i, %1303

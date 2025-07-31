@@ -582,16 +582,16 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 111:                                              ; preds = %108
   %112 = load ptr, ptr %6, align 8, !tbaa !50
   %113 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %112, i32 noundef 46) #17
-  %.not113.i.i = icmp eq ptr %113, null
-  br i1 %.not113.i.i, label %._crit_edge.i.i, label %.preheader.i.i
+  %.not111.i.i = icmp eq ptr %113, null
+  br i1 %.not111.i.i, label %._crit_edge.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %111, %121
-  %.05595.i.i = phi i64 [ %122, %121 ], [ 4, %111 ]
-  %.06094.i.i = phi ptr [ %115, %121 ], [ %113, %111 ]
+  %.05593.i.i = phi i64 [ %122, %121 ], [ 4, %111 ]
+  %.06092.i.i = phi ptr [ %115, %121 ], [ %113, %111 ]
   br label %114
 
 114:                                              ; preds = %114, %.preheader.i.i
-  %.161.i.i = phi ptr [ %115, %114 ], [ %.06094.i.i, %.preheader.i.i ]
+  %.161.i.i = phi ptr [ %115, %114 ], [ %.06092.i.i, %.preheader.i.i ]
   %115 = getelementptr inbounds i8, ptr %.161.i.i, i64 -1
   %116 = load i8, ptr %115, align 1, !tbaa !94
   %117 = icmp ne i8 %116, 46
@@ -603,74 +603,74 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   br i1 %117, label %._crit_edge.i.i, label %121
 
 121:                                              ; preds = %120
-  %122 = add nsw i64 %.05595.i.i, -1
-  %123 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %.05595.i.i
+  %122 = add nsw i64 %.05593.i.i, -1
+  %123 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %.05593.i.i
   store ptr %.161.i.i, ptr %123, align 8, !tbaa !50
   %124 = icmp eq i64 %122, 0
   br i1 %124, label %._crit_edge.i.i, label %.preheader.i.i
 
 ._crit_edge.i.i:                                  ; preds = %121, %120, %111
-  %.055.lcssa.i.i = phi i64 [ 4, %111 ], [ %.05595.i.i, %120 ], [ 0, %121 ]
+  %.055.lcssa.i.i = phi i64 [ 4, %111 ], [ %.05593.i.i, %120 ], [ 0, %121 ]
   %125 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %.055.lcssa.i.i
   store ptr %112, ptr %125, align 8, !tbaa !50
   %126 = load i64, ptr %8, align 8, !tbaa !95
   store i64 %126, ptr %11, align 16, !tbaa !95
   %.not72.i.i = icmp eq i64 %126, 0
-  %.pre123.i.i = load ptr, ptr %7, align 8
-  %.fr116.i.i = freeze ptr %.pre123.i.i
-  br i1 %.not72.i.i, label %.loopexit90.i.i, label %127
+  %.pre121.i.i = load ptr, ptr %7, align 8
+  %.fr114.i.i = freeze ptr %.pre121.i.i
+  br i1 %.not72.i.i, label %.loopexit88.i.i, label %127
 
 127:                                              ; preds = %._crit_edge.i.i
-  %128 = call i64 @strcspn(ptr noundef %.fr116.i.i, ptr noundef nonnull @.str.317) #17
+  %128 = call i64 @strcspn(ptr noundef %.fr114.i.i, ptr noundef nonnull @.str.317) #17
   store i64 %128, ptr %59, align 8, !tbaa !95
   %.not73.i.i = icmp eq i64 %128, %126
   %.80.sroa.sel.i.i = select i1 %.not73.i.i, ptr %59, ptr %.sroa.gep81.i.i
   store i64 0, ptr %.80.sroa.sel.i.i, align 8, !tbaa !95
-  %invariant.gep.i.i = getelementptr i8, ptr %.fr116.i.i, i64 1
-  %.15896.i.i = select i1 %.not73.i.i, i64 2, i64 3
-  %129 = ptrtoint ptr %.fr116.i.i to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %.fr114.i.i, i64 1
+  %.15894.i.i = select i1 %.not73.i.i, i64 2, i64 3
+  %129 = ptrtoint ptr %.fr114.i.i to i64
   br label %130
 
 130:                                              ; preds = %134, %127
   %131 = phi i64 [ 0, %127 ], [ %136, %134 ]
-  %.15898.i.i = phi i64 [ %.15896.i.i, %127 ], [ %.158.i.i, %134 ]
+  %.15896.i.i = phi i64 [ %.15894.i.i, %127 ], [ %.158.i.i, %134 ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %131
   %132 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %gep.i.i, i32 noundef 47) #17
-  %133 = icmp ugt ptr %132, %.fr116.i.i
-  br i1 %133, label %134, label %.loopexit90.i.i
+  %133 = icmp ugt ptr %132, %.fr114.i.i
+  br i1 %133, label %134, label %.loopexit88.i.i
 
 134:                                              ; preds = %130
   %135 = ptrtoint ptr %132 to i64
   %reass.sub.i.i = sub i64 %135, %129
   %136 = add i64 %reass.sub.i.i, 1
-  %137 = getelementptr inbounds nuw [6 x i64], ptr %11, i64 0, i64 %.15898.i.i
+  %137 = getelementptr inbounds nuw [6 x i64], ptr %11, i64 0, i64 %.15896.i.i
   store i64 %136, ptr %137, align 8, !tbaa !95
-  %.158.i.i = add nuw nsw i64 %.15898.i.i, 1
+  %.158.i.i = add nuw nsw i64 %.15896.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %.158.i.i, 6
-  br i1 %exitcond.not.i.i, label %.loopexit90.i.i, label %130
+  br i1 %exitcond.not.i.i, label %.loopexit88.i.i, label %130
 
-.loopexit90.i.i:                                  ; preds = %134, %130, %._crit_edge.i.i
-  %.259.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %.15898.i.i, %130 ], [ 6, %134 ]
+.loopexit88.i.i:                                  ; preds = %134, %130, %._crit_edge.i.i
+  %.259.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %.15896.i.i, %130 ], [ 6, %134 ]
   %138 = icmp ult i64 %.055.lcssa.i.i, 5
   %139 = load i64, ptr %9, align 8
   %140 = getelementptr inbounds nuw i8, ptr %112, i64 %139
   %141 = ptrtoint ptr %140 to i64
-  %142 = icmp eq ptr %.fr116.i.i, null
+  %142 = icmp eq ptr %.fr114.i.i, null
   %143 = getelementptr inbounds nuw i8, ptr %102, i64 488
   br i1 %138, label %.lr.ph.us.i.i, label %.loopexit.thread.i
 
-.lr.ph.us.i.i:                                    ; preds = %.loopexit90.i.i, %..loopexit_crit_edge.us.i.i
-  %.062103.us.i.i = phi i64 [ %144, %..loopexit_crit_edge.us.i.i ], [ %.259.i.i, %.loopexit90.i.i ]
-  %144 = add nsw i64 %.062103.us.i.i, -1
+.lr.ph.us.i.i:                                    ; preds = %.loopexit88.i.i, %..loopexit_crit_edge.us.i.i
+  %.062101.us.i.i = phi i64 [ %144, %..loopexit_crit_edge.us.i.i ], [ %.259.i.i, %.loopexit88.i.i ]
+  %144 = add nsw i64 %.062101.us.i.i, -1
   %145 = getelementptr inbounds nuw [6 x i64], ptr %11, i64 0, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !95
   %.not76.us.i.i = icmp ugt i64 %146, %126
   %147 = trunc i64 %146 to i32
-  br i1 %.not76.us.i.i, label %.split112.us.i.i, label %.lr.ph.split.us.i.i
+  br i1 %.not76.us.i.i, label %.split110.us.i.i, label %.lr.ph.split.us.i.i
 
-.lr.ph.split.split.us110.i.i:                     ; preds = %.lr.ph.split.us.i.i, %.sink.split.i.i
-  %.06399.us106.i.i = phi i64 [ %148, %.sink.split.i.i ], [ 5, %.lr.ph.split.us.i.i ]
-  %148 = add nsw i64 %.06399.us106.i.i, -1
+.lr.ph.split.split.us108.i.i:                     ; preds = %.lr.ph.split.us.i.i, %.sink.split.i.i
+  %.06397.us104.i.i = phi i64 [ %148, %.sink.split.i.i ], [ 5, %.lr.ph.split.us.i.i ]
+  %148 = add nsw i64 %.06397.us104.i.i, -1
   %149 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 0, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !50
   %151 = ptrtoint ptr %150 to i64
@@ -680,7 +680,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   %154 = icmp eq ptr %150, null
   br i1 %154, label %.sink.split.i.i, label %155
 
-155:                                              ; preds = %.lr.ph.split.split.us110.i.i
+155:                                              ; preds = %.lr.ph.split.split.us108.i.i
   %156 = load i32, ptr %106, align 8, !tbaa !73
   %.not.i.us.i.i = icmp eq i32 %156, 0
   br i1 %.not.i.us.i.i, label %.sink.split.i.i, label %157
@@ -694,7 +694,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 
 159:                                              ; preds = %157
   %160 = call i32 @cl_update_hash(ptr noundef nonnull %158, ptr noundef nonnull %150, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %153) #16
-  %161 = call i32 @cl_update_hash(ptr noundef nonnull %158, ptr noundef nonnull %.fr116.i.i, i64 noundef %146) #16
+  %161 = call i32 @cl_update_hash(ptr noundef nonnull %158, ptr noundef nonnull %.fr114.i.i, i64 noundef %146) #16
   %162 = call i32 @cl_finish_hash(ptr noundef nonnull %158, ptr noundef nonnull %5) #16
   br label %163
 
@@ -723,7 +723,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
 178:                                              ; preds = %163
   store i8 0, ptr %60, align 16, !tbaa !94
   %179 = trunc i64 %153 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, ptr noundef nonnull %4, ptr noundef nonnull %150, i32 noundef %179, ptr noundef nonnull %.fr116.i.i, i32 noundef %147) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.321, ptr noundef nonnull %4, ptr noundef nonnull %150, i32 noundef %179, ptr noundef nonnull %.fr114.i.i, i32 noundef %147) #16
   %180 = call i32 @cli_bm_scanbuff(ptr noundef nonnull %5, i32 noundef 32, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %143, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #16
   %181 = icmp eq i32 %180, 1
   br i1 %181, label %182, label %.sink.split.i.sink.split.i
@@ -732,10 +732,10 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.322, ptr noundef nonnull %4) #16
   %183 = load ptr, ptr %3, align 8, !tbaa !50
   %184 = load i8, ptr %183, align 1, !tbaa !94
-  switch i8 %184, label %.thread131.i.loopexit.i [
+  switch i8 %184, label %.thread128.i.loopexit.i [
     i8 87, label %185
-    i8 49, label %.thread131.i.loopexit.i.loopexit116
-    i8 50, label %.thread131.i.loopexit.i.loopexit
+    i8 49, label %.thread128.i.loopexit.i.loopexit116
+    i8 50, label %.thread128.i.loopexit.i.loopexit
   ]
 
 185:                                              ; preds = %182
@@ -747,19 +747,19 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #16
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %.sink.split.i.sink.split.i, %155, %.lr.ph.split.split.us110.i.i
+.sink.split.i.i:                                  ; preds = %.sink.split.i.sink.split.i, %155, %.lr.ph.split.split.us108.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   %186 = icmp ugt i64 %148, %.055.lcssa.i.i
-  br i1 %186, label %.lr.ph.split.split.us110.i.i, label %..loopexit_crit_edge.us.i.i
+  br i1 %186, label %.lr.ph.split.split.us108.i.i, label %..loopexit_crit_edge.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.us.i.i
-  br i1 %142, label %..loopexit_crit_edge.us.i.i, label %.lr.ph.split.split.us110.i.i
+  br i1 %142, label %..loopexit_crit_edge.us.i.i, label %.lr.ph.split.split.us108.i.i
 
 ..loopexit_crit_edge.us.i.i:                      ; preds = %.sink.split.i.i, %.lr.ph.split.us.i.i
   %.not75.us.i.i = icmp eq i64 %144, 0
   br i1 %.not75.us.i.i, label %.loopexit.thread.i, label %.lr.ph.us.i.i, !llvm.loop !96
 
-.split112.us.i.i:                                 ; preds = %.lr.ph.us.i.i
+.split110.us.i.i:                                 ; preds = %.lr.ph.us.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, i32 noundef 1411, ptr noundef nonnull @__PRETTY_FUNCTION__.url_hash_match) #18
   unreachable
 
@@ -775,14 +775,14 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef %188) #16
   br label %.thread160.i
 
-.thread131.i.loopexit.i.loopexit:                 ; preds = %182
-  br label %.thread131.i.loopexit.i
+.thread128.i.loopexit.i.loopexit:                 ; preds = %182
+  br label %.thread128.i.loopexit.i
 
-.thread131.i.loopexit.i.loopexit116:              ; preds = %182
-  br label %.thread131.i.loopexit.i
+.thread128.i.loopexit.i.loopexit116:              ; preds = %182
+  br label %.thread128.i.loopexit.i
 
-.thread131.i.loopexit.i:                          ; preds = %182, %.thread131.i.loopexit.i.loopexit116, %.thread131.i.loopexit.i.loopexit
-  %.sink.i.i = phi i32 [ 109, %.thread131.i.loopexit.i.loopexit ], [ 108, %.thread131.i.loopexit.i.loopexit116 ], [ 107, %182 ]
+.thread128.i.loopexit.i:                          ; preds = %182, %.thread128.i.loopexit.i.loopexit116, %.thread128.i.loopexit.i.loopexit
+  %.sink.i.i = phi i32 [ 109, %.thread128.i.loopexit.i.loopexit ], [ 108, %.thread128.i.loopexit.i.loopexit116 ], [ 107, %182 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
@@ -797,7 +797,7 @@ define i32 @phishingScan(ptr noundef %0, ptr noundef readonly captures(none) %1)
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef %189) #16
   br label %.thread129.i
 
-.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.us.i.i, %.loopexit90.i.i, %105, %99
+.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.us.i.i, %.loopexit88.i.i, %105, %99
   call void @llvm.lifetime.end.p0(i64 1027, ptr nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
@@ -1029,10 +1029,10 @@ isSSL.exit.thread.i:                              ; preds = %isSSL.exit98.i, %is
   %spec.select.i = select i1 %.not.i99.i, i32 %..i.i, i32 101
   br label %.thread129.i
 
-.thread129.i:                                     ; preds = %277, %isSSL.exit98.i, %268, %260, %.thread131.i.loopexit.i
-  %.0144.i = phi ptr [ %224, %260 ], [ %224, %isSSL.exit98.i ], [ %224, %268 ], [ null, %.thread131.i.loopexit.i ], [ %224, %277 ]
-  %.057143.i = phi ptr [ %220, %260 ], [ %220, %isSSL.exit98.i ], [ %220, %268 ], [ null, %.thread131.i.loopexit.i ], [ %220, %277 ]
-  %.0119142.i = phi i32 [ 104, %260 ], [ 105, %isSSL.exit98.i ], [ 105, %268 ], [ %.sink.i.i, %.thread131.i.loopexit.i ], [ %spec.select.i, %277 ]
+.thread129.i:                                     ; preds = %277, %isSSL.exit98.i, %268, %260, %.thread128.i.loopexit.i
+  %.0144.i = phi ptr [ %224, %260 ], [ %224, %isSSL.exit98.i ], [ %224, %268 ], [ null, %.thread128.i.loopexit.i ], [ %224, %277 ]
+  %.057143.i = phi ptr [ %220, %260 ], [ %220, %isSSL.exit98.i ], [ %220, %268 ], [ null, %.thread128.i.loopexit.i ], [ %220, %277 ]
+  %.0119142.i = phi i32 [ 104, %260 ], [ 105, %isSSL.exit98.i ], [ 105, %268 ], [ %.sink.i.i, %.thread128.i.loopexit.i ], [ %spec.select.i, %277 ]
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.31) #16
   %280 = load ptr, ptr %33, align 8, !tbaa !69
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %280) #16
